@@ -59,6 +59,7 @@ def main() -> None:
         boto3_stubs_name=BOTO3_STUBS_NAME,
         boto3_version=boto3_version,
         build_version=build_version,
+        builder_version=version,
     )
 
     logger.info(f"Bulding version {build_version}")
