@@ -64,8 +64,8 @@ python -m pip install mypy-boto3-builder
 - Pull latest `mypy_boto3_builder` version and tag it
 
 ```bash
-docker pull docker.pkg.github.com/vemel/mypy_boto3_builder/mypy_boto3_builder:latest
-docker tag docker.pkg.github.com/vemel/mypy_boto3_builder/mypy_boto3_builder:latest mypy_boto3_builder
+docker pull docker.pkg.github.com/vemel/mypy_boto3_builder/mypy_boto3_builder_stable:latest
+docker tag docker.pkg.github.com/vemel/mypy_boto3_builder/mypy_boto3_builder_stable:latest mypy_boto3_builder
 ```
 
 - Generate stubs in `output` directory
