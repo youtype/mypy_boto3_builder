@@ -34,7 +34,7 @@ setup(
     author_email="vlad.emelianov.nz@gmail.com",
     description="Builder for boto3-stubs.",
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Environment :: Console",
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
