@@ -10,7 +10,7 @@ RUN pip install -r requirements.txt
 
 ADD ./mypy_boto3_builder ./mypy_boto3_builder
 ADD ./setup.py ./setup.py
-ADD ./README.md /README.md
+ADD ./README.md ./README.md
 ADD ./scripts/docker.sh ./scripts/docker.sh
 RUN python setup.py install
 
