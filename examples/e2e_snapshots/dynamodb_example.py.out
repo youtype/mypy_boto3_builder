@@ -1,0 +1,3 @@
+examples/dynamodb_example.py:15: error: Argument "Key" to "delete_item" of "BatchWriter" has incompatible type "str"; expected "Dict[str, Any]"
+examples/dynamodb_example.py:18: error: Argument "TableName" to "list_backups" of "DynamoDBClient" has incompatible type "int"; expected "Optional[str]"
+Found 2 errors in 1 file (checked 1 source file)

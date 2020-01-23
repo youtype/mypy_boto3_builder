@@ -1,0 +1,20 @@
+class {{ class.name }}{% if class.bases %}({% for base in class.bases %}{{ base.render() }}{{ ", " if not loop.last else "" -}}{% endfor %}){% endif %}:
+{% filter indent(4, True) -%}
+    {{ "pass" if not class.attributes and not class.methods and not class.docstring else "" -}}
+    {% if class.docstring -%}
+        {{ '"""\n' -}}
+        {{ class.docstring -}}
+        {{ '\n' -}}
+        {{ '"""\n' -}}
+    {% endif -%}
+    {% if class.attributes -%}
+        {% for attribute in class.attributes -%}
+            {{ attribute.name -}}{{ ": " -}}{{ attribute.type.render() -}}{{ "\n" -}}
+        {% endfor -%}
+        {{ "\n" -}}
+    {% endif -%}
+    {% for method in class.methods -%}
+        {% include "common/method.py.jinja2" with context -%}
+        {{ "\n\n" if not loop.last else "" -}}
+    {% endfor -%}
+{% endfilter -%}

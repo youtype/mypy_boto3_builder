@@ -1,0 +1,105 @@
+name: Bump version and dockerize
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.8"
+      - name: Install builder dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install -U boto3-stubs
+      - name: Extract variables from env
+        id: vars
+        run: |
+          echo "GitHub ref ${GITHUB_REF}"
+          VERSION=`echo "${GITHUB_REF}" | cut -f 3 -d "/" | cut -f 1 -d "-"`
+          LAST_PACKAGE_VERSION=`pip show boto3-stubs | grep 'Version:' | grep -Po '\d+\.\d+\.\d+(\.\d+)?'`
+          PACKAGE_VERSION=`echo "${LAST_PACKAGE_VERSION}" | awk 'BEGIN{FS=OFS="."}{$4=$4+1; print $0;}'`
+          BOTO3_VERSION=`echo "${PACKAGE_VERSION}" | awk 'BEGIN{FS=OFS="."}{print$1, $2, $3;}'`
+          BOTOCORE_VERSION=`echo "${BOTO3_VERSION}" | awk 'BEGIN{FS=OFS="."}{print$1, $2 + 3, $3;}'`
+
+          echo Builder version: ${VERSION}
+          echo Last package version: ${LAST_PACKAGE_VERSION}
+          echo Build package version: ${PACKAGE_VERSION}
+          echo Boto3 version: ${BOTO3_VERSION}
+          echo Botocore version: ${BOTOCORE_VERSION}
+
+          echo "##[set-output name=build_version;]$(echo ${PACKAGE_VERSION})"
+          echo "##[set-output name=version;]$(echo ${VERSION})"
+          echo "##[set-output name=boto3_version;]$(echo ${BOTO3_VERSION})"
+          echo "##[set-output name=botocore_version;]$(echo ${BOTOCORE_VERSION})"
+      - name: Install builder
+        run: |
+          python setup.py install
+      - name: Install test dependencies
+        run: |
+          python -m pip install pylint mypy pytest
+      - name: Install unreleased boto3 stubs
+        run: |
+          ./scripts/build.sh --skip-services
+          ./scripts/install.sh master
+      - name: Lint
+        run: |
+          pylint mypy_boto3_builder
+          mypy mypy_boto3_builder
+      - name: Unit tests
+        run: |
+          pytest
+      - name: Bump version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.vars.outputs.version }}
+        run: |
+          scripts/bump_version.sh
+      - name: Dockerize
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          scripts/dockerize.sh
+      - name: Install dependencies for publishing
+        run: |
+          python -m pip install setuptools wheel twine
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          cd builder
+          rm -rf build *.egg-info dist/*
+          python setup.py build bdist_wheel
+          twine upload  --non-interactive dist/*
+          rm -rf build *.egg-info dist/*
+      - name: Build packages
+        env:
+          BUILD_VERSION: ${{ steps.vars.outputs.build_version }}
+          BOTO3_VERSION: ${{ steps.vars.outputs.boto3_version }}
+          BOTOCORE_VERSION: ${{ steps.vars.outputs.botocore_version }}
+        run: |
+          python -m pip install boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
+          rm -rf mypy_boto3_output/*
+          scripts/build.sh --panic -b $BUILD_VERSION
+      - name: Install integration test dependencies
+        run: |
+          python -m pip install mypy
+      - name: Integration tests
+        run: |
+          scripts/integration.sh
+      - name: Install dependencies for publishing
+        run: |
+          python -m pip install setuptools wheel twine
+      - name: Publish to PyPI
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          scripts/release.sh

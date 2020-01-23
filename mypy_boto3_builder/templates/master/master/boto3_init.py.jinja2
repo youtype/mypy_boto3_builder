@@ -1,0 +1,4 @@
+try:
+    from {{ master_module_name }}.boto3_init_gen import *
+except ImportError:
+    raise ImportError('Generate services stubs using `python -m {{ master_module_name }}`')

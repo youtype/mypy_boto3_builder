@@ -1,0 +1,40 @@
+"""
+Main interface for {{ package.service_name.boto3_name }} service client
+
+Usage::
+
+    import boto3
+    from {{ master_module_name }}.{{ package.service_name.import_name }} import {{ package.client.name }}
+
+    session = boto3.Session()
+
+    client: {{ package.client.name }} = boto3.client("{{ package.service_name.boto3_name }}")
+    session_client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+"""
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+{% with import_record_groups=package.get_client_required_import_record_groups() -%}
+    {% include "common/import_groups.py.jinja2" with context -%}
+{% endwith -%}
+
+{{ "\n\n" -}}
+
+__all__ = (
+{% for name in package.client.get_all_names() -%}
+    {{ '"' -}}
+    {{ name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)
+
+{{ "\n\n" -}}
+
+{% with class=package.client -%}
+    {% include "common/class.py.jinja2" with context -%}
+{% endwith -%}
+
+{{ "\n\n" -}}
+
+{% with class=package.client.exceptions_class -%}
+    {% include "common/class.py.jinja2" with context -%}
+{% endwith -%}

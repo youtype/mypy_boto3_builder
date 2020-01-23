@@ -1,0 +1,3 @@
+"""
+Botocore docstring parser.
+"""

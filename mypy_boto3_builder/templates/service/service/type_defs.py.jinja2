@@ -1,0 +1,28 @@
+"""
+Main interface for {{ package.service_name.boto3_name }} service type definitions.
+
+Usage::
+
+    from {{ master_module_name }}.{{ package.service_name.import_name }}.type_defs import {{ package.typed_dicts[0].name }}
+
+    data: {{ package.typed_dicts[0].name }} = {...}
+"""
+{% with import_record_groups=package.get_type_defs_required_import_record_groups() -%}
+    {% include "common/import_groups.py.jinja2" with context -%}
+{% endwith -%}
+
+{{ "\n\n" -}}
+
+__all__ = (
+{% for typed_dict in package.typed_dicts -%}
+    {{ '"' -}}
+    {{ typed_dict.name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)
+
+{% for typed_dict in package.typed_dicts -%}
+    {% include "common/typed_dict.py.jinja2" with context -%}
+    {{ "\n" -}}
+{% endfor -%}

@@ -1,0 +1,43 @@
+{% for import_record in module_record.import_records -%}
+{{ import_record.render() }}
+{% endfor -%}
+
+{% for attributes in module_record.attributes -%}
+attribute.render()
+{% endfor -%}
+
+
+{% for class_record in module_record.classes -%}
+{% for decorator in class_record.decorators -%}
+@{{ decorator }}
+{% endfor -%}
+class {{ class_record.name }}({{ class_record.bases_render() }}):
+    {% for attribute in class_record.attributes -%}
+    {{ attribute.render() }}
+    {% endfor -%}
+
+    {% for method in class_record.methods -%}
+    {% for decorator in method.decorators -%}
+    @{{ decorator }}
+    {% endfor -%}
+    def {{ method.name }}(
+        {% for argument in method.arguments -%}
+        {{ argument.render() }}{{ "," if not loop.last }}
+        {% endfor -%}
+    ) -> {{ method.return_type.render() }}:
+        {{ method.body }}
+    {% endfor -%}
+{% endfor -%}
+
+
+{% for function_record in module_record.functions -%}
+{% for decorator in function_record.decorators -%}
+@{{ decorator }}
+{% endfor -%}
+def {{ function_record.name }}(
+    {% for argument in function_record.arguments -%}
+    {{ argument.render() }}{{ "," if not loop.last }}
+    {% endfor -%}
+) -> {{ function_record.return_type.render() }}:
+    {{ function_record.body }}
+{% endfor -%}

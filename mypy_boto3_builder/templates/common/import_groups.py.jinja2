@@ -1,0 +1,23 @@
+{% for import_record_group in import_record_groups -%}
+    {% if import_record_group.import_records|length == 1 -%}
+        {% with import_record = import_record_group.import_records[0] -%}
+            {% include "common/import_record_fallback.py.jinja2" with context -%}
+        {% endwith -%}
+    {% else -%}
+        {{ 'from ' -}}
+        {{ import_record_group.source -}}
+        {{ ' import (\n' -}}
+        {% filter indent(4, True) -%}
+            {% for import_record in import_record_group.import_records -%}
+                {% if import_record.alias -%}
+                    {{ import_record.name -}}{{ ' as ' -}}{{ import_record.alias -}}
+                {% else -%}
+                    {{ import_record.name -}}
+                {% endif -%}
+                {{ ",\n" if not loop.last else "\n" -}}
+            {% endfor -%}
+        {% endfilter -%}
+        {{ ')' -}}
+    {% endif -%}
+    {{ "\n" -}}
+{% endfor -%}

@@ -1,0 +1,43 @@
+"""
+Main interface for {{ package.service_name.boto3_name }} service client paginators.
+
+Usage::
+
+    import boto3
+    from {{ master_module_name }}.{{ package.service_name.import_name }} import (
+    {% for paginator in package.paginators -%}
+        {{ "    " -}}{{ paginator.name -}},
+    {% endfor -%}
+    )
+
+    client: {{ package.client.name }} = boto3.client("{{ package.service_name.boto3_name }}")
+
+{% for paginator in package.paginators -%}
+    {{ "    " -}}
+    {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+{% endfor -%}
+"""
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+{% with import_record_groups=package.get_paginator_required_import_record_groups() -%}
+    {% include "common/import_groups.py.jinja2" with context -%}
+{% endwith -%}
+
+{{ "\n\n" -}}
+
+__all__ = (
+{% for paginator in package.paginators -%}
+    {{ '"' -}}
+    {{ paginator.name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)
+
+{{ "\n\n" -}}
+
+{% for paginator in package.paginators -%}
+    {% with class=paginator -%}
+        {% include "common/class.py.jinja2" with context -%}
+    {% endwith -%}
+    {{ "\n\n\n" if not loop.last else "\n" -}}
+{% endfor -%}

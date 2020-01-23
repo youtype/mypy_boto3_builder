@@ -1,0 +1,47 @@
+import importlib
+import importlib.util
+from typing import List, Dict, Any
+
+
+class Submodule:
+    def __init__(
+        self,
+        module_name: str,
+        import_name: str,
+        boto3_name: str,
+        class_name: str,
+        pypi_name: str,
+        has_resource: bool,
+        has_waiter: bool,
+        has_paginator: bool,
+    ):
+        self.module_name = module_name
+        self.import_name = import_name
+        self.boto3_name = boto3_name
+        self.class_name = class_name
+        self.pypi_name = pypi_name
+        self.has_resource = has_resource
+        self.has_waiter = has_waiter
+        self.has_paginator = has_paginator
+        self.is_installed = importlib.util.find_spec(module_name) is not None
+        self.is_active = self.is_installed
+
+    def get_all_names(self) -> List[str]:
+        service_module = importlib.import_module(self.module_name)
+        return service_module.__all__
+
+SUBMODULES: List[Submodule] = [
+    {% for service_package in package.service_packages -%}
+    Submodule(
+        module_name="{{ service_package.service_name.module_name }}",
+        import_name="{{ service_package.service_name.import_name }}",
+        boto3_name="{{ service_package.service_name.boto3_name }}",
+        class_name="{{ service_package.service_name.class_name }}",
+        pypi_name="{{ service_package.service_name.pypi_name }}",
+        has_resource={{ "True" if service_package.service_resource else "False" }},
+        has_waiter={{ "True" if service_package.waiters else "False" }},
+        has_paginator={{ "True" if service_package.paginators else "False" }},
+    )
+    {{ ",\n" if not loop.last else "\n" -}}
+    {% endfor -%}
+]

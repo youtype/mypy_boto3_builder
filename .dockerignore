@@ -1,0 +1,6 @@
+**
+
+!mypy_boto3_builder/**
+!scripts/**
+!README.md
+!setup.py

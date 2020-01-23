@@ -1,0 +1,10 @@
+{% if import_record.fallback -%}
+if sys.version_info >= {{ import_record.min_version }}:
+    {% include "common/import_record.py.jinja2" with context -%}{{ "\n" -}}
+else:
+    {% with import_record = import_record.fallback -%}
+    {% include "common/import_record.py.jinja2" with context -%}
+    {% endwith -%}
+{% else -%}
+{% include "common/import_record.py.jinja2" with context -%}
+{% endif -%}

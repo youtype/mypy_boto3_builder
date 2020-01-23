@@ -1,0 +1,84 @@
+# {{ service_name.pypi_name }}
+
+[![PyPI - {{ package.pypi_name }}](https://img.shields.io/pypi/v/{{ package.pypi_name }}.svg?color=blue)](https://pypi.org/project/{{ package.pypi_name }})
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/{{ package.pypi_name }}.svg?color=blue)](https://pypi.org/project/{{ package.pypi_name }})
+[![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue)](https://mypy-boto3-builder.readthedocs.io/)
+
+Type annotations for
+[boto3.{{ service_name.class_name }} {{ boto3_version }}]({{ service_name.doc_link }}) service
+compatible with [mypy](https://github.com/python/mypy), [VSCode](https://code.visualstudio.com/),
+[PyCharm](https://www.jetbrains.com/pycharm/) and other tools.
+
+More information can be found on [boto3-stubs](https://pypi.org/project/boto3-stubs/) page.
+
+- [{{ service_name.pypi_name }}](#{{ service_name.pypi_name }})
+  - [How to use](#how-to-use)
+    - [Type checking](#type-checking)
+    - [Code auto-complete](#code-auto-complete)
+  - [How it works](#how-it-works)
+
+## How to use
+
+### Type checking
+
+Make sure you have [mypy](https://github.com/python/mypy) installed and activated in your IDE.
+
+Install `boto3-stubs` for `{{ service_name.class_name }}` service.
+
+```bash
+python -m pip install boto3-stubs[{{service_name.pypi_name}}]
+```
+
+Use `boto3` with `{{ master_module_name }}` in your project and enjoy type checking and auto-complete.
+
+```python
+import boto3
+
+from {{ master_module_name }} import {{ service_name.import_name }}
+# alternative import if you do not want to install {{ master_module_name }} package
+# import {{ service_name.module_name }} as {{ service_name.import_name }}
+
+# Use this client as usual, now mypy can check if your code is valid.
+# Check if your IDE supports function overloads,
+# you probably do not need explicit type annotations
+# client = boto3.client("{{ service_name.boto3_name }}")
+client: {{ service_name.import_name }}.{{ package.client.name }} = boto3.client("{{ service_name.boto3_name }}")
+
+# works for session as well
+session = boto3.session.Session(region="us-west-1")
+session_client: {{ service_name.import_name }}.{{ package.client.name }} = session.client("{{ service_name.boto3_name }}")
+
+{% if package.service_resource -%}
+# Do you prefer resource approach? We've got you covered!
+resource: {{ service_name.import_name }}.{{ package.service_resource.name }} = boto3.resource("{{ service_name.boto3_name }}")
+{% endif -%}
+
+{% if package.waiters -%}
+{{ '\n' -}}
+# Waiters need type annotation on creation
+{% for waiter in package.waiters -%}
+{{ waiter.waiter_name }}_waiter: {{ service_name.import_name }}.{{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+{% endfor -%}
+{% endif -%}
+
+{% if package.paginators -%}
+{{ '\n' -}}
+# Paginators need type annotation on creation
+{% for paginator in package.paginators -%}
+{{ paginator.operation_name }}_paginator: {{ service_name.import_name }}.{{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+{% endfor -%}
+{% endif -%}
+```
+
+## How it works
+
+Fully automated [builder](https://github.com/vemel/mypy_boto3_builder) carefully generates
+type annotations for each service, patiently waiting for `boto3` updates. It delivers
+a drop-in type annotations for you and makes sure that:
+
+- All available `boto3` services are covered.
+- Each public class and method of every `boto3` service gets valid type annotations
+  extracted from the documentation (blame `botocore` docs if types are incorrect).
+- Type annotations include up-to-date documentation.
+- Link to documentation is provided for every method.
+- Code is processed by [black](https://github.com/psf/black) for readability.

@@ -1,0 +1,79 @@
+name: Check boto3 version and publish on new
+
+on:
+  schedule:
+    - cron: "0 0/2 * * *"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.8"
+      - name: Install pip
+        run: |
+          python -m pip install --upgrade pip
+      - name: Extract versions from pip
+        id: vars
+        run: |
+          python -m pip install -U boto3 boto3-stubs
+          BOT03_VERSION=`pip show boto3 | grep 'Version:' | grep -Po '\d+\.\d+\.\d+'`
+          LAST_BUILD_BOTO3_VERSION=`pip show boto3-stubs | grep 'Version:' | grep -Po '\d+\.\d+\.\d+'`
+          BUILD_VERSION="${BOT03_VERSION}.0"
+          SKIP=""
+          if [[ "${BOT03_VERSION}" == "${LAST_BUILD_BOTO3_VERSION}" ]]; then
+            echo No new versions found, skipping the rest
+            SKIP="1"
+          fi
+
+          echo Boto3 version: ${BOT03_VERSION}
+          echo Last build boto3 version: ${LAST_BUILD_BOTO3_VERSION}
+          echo Build version: ${BUILD_VERSION}
+          echo Skip: ${SKIP}
+
+          echo "##[set-output name=skip;]$(echo ${SKIP})"
+          echo "##[set-output name=build_version;]$(echo ${BUILD_VERSION})"
+          echo "##[set-output name=boto3_version;]$(echo ${BOT03_VERSION})"
+      - name: Install builder
+        env:
+          SKIP: ${{ steps.vars.outputs.skip }}
+        run: |
+          if [[ "${SKIP}" != "" ]]; then exit 0; fi
+          python -m pip install mypy_boto3_builder
+      - name: Build packages
+        env:
+          SKIP: ${{ steps.vars.outputs.skip }}
+          BUILD_VERSION: ${{ steps.vars.outputs.build_version }}
+        run: |
+          if [[ "${SKIP}" != "" ]]; then exit 0; fi
+          rm -rf mypy_boto3_output/*
+          scripts/build.sh --panic -b $BUILD_VERSION
+      - name: Install integration test dependencies
+        env:
+          SKIP: ${{ steps.vars.outputs.skip }}
+        run: |
+          if [[ "${SKIP}" != "" ]]; then exit 0; fi
+          python -m pip install mypy
+      - name: Integration tests
+        env:
+          SKIP: ${{ steps.vars.outputs.skip }}
+        run: |
+          if [[ "${SKIP}" != "" ]]; then exit 0; fi
+          scripts/integration.sh
+      - name: Install dependencies for publishing
+        env:
+          SKIP: ${{ steps.vars.outputs.skip }}
+        run: |
+          if [[ "${SKIP}" != "" ]]; then exit 0; fi
+          python -m pip install setuptools wheel twine
+      - name: Publish to PyPI
+        env:
+          SKIP: ${{ steps.vars.outputs.skip }}
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          if [[ "${SKIP}" != "" ]]; then exit 0; fi
+          scripts/release.sh

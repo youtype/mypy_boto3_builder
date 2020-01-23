@@ -1,0 +1,4 @@
+try:
+    from {{ master_module_name }}.boto3_session_gen import Session
+except ImportError:
+    Session = object

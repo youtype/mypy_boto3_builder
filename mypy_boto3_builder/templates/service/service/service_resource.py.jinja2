@@ -1,0 +1,58 @@
+"""
+Main interface for {{ package.service_name.boto3_name }} service ServiceResource
+
+Usage::
+
+    import boto3
+    from {{ master_module_name }}.{{ package.service_name.import_name }} import {{ package.service_resource.name }}
+    import {{ master_module_name }}.{{ package.service_name.import_name }}.service_resource as {{ package.service_name.import_name }}_resources
+
+    resource: {{ package.service_resource.name }} = boto3.resource("{{ package.service_name.boto3_name }}")
+    session_resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
+{% if package.service_resource.sub_resources -%}
+{% with sub_resource = package.service_resource.sub_resources[0] -%}
+    {{ "\n    " -}}
+    {{ sub_resource.name }}: {{ package.service_name.import_name }}_resources.{{ sub_resource.name }} = resource.{{ sub_resource.name }}(...)
+    ...
+{% endwith -%}
+{% endif -%}
+"""
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+{% with import_record_groups=package.get_service_resource_required_import_record_groups() -%}
+    {% include "common/import_groups.py.jinja2" with context -%}
+{% endwith -%}
+
+{{ "\n\n" -}}
+
+__all__ = (
+{% for name in package.service_resource.get_all_names() -%}
+    {{ '"' -}}
+    {{ name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)
+
+{{ "\n\n" -}}
+
+{% with class=package.service_resource -%}
+    {% include "common/class.py.jinja2" with context -%}
+{% endwith -%}
+
+{{ "\n\n" -}}
+
+{% for sub_resource in package.service_resource.sub_resources -%}
+    {% with class=sub_resource -%}
+        {% include "common/class.py.jinja2" with context -%}
+    {% endwith -%}
+    {{ "\n\n\n" if not loop.last else "\n" -}}
+{% endfor -%}
+
+{{ "\n\n" if package.service_resource.sub_resources else "" -}}
+
+{% for collection in package.service_resource.get_collections() -%}
+    {% with class=collection -%}
+        {% include "common/class.py.jinja2" with context -%}
+    {% endwith -%}
+    {{ "\n\n\n" if not loop.last else "\n" -}}
+{% endfor -%}

@@ -1,0 +1,132 @@
+# mypy_boto3
+
+[![PyPI - {{ package.pypi_name }}](https://img.shields.io/pypi/v/{{ package.pypi_name }}.svg?color=blue)](https://pypi.org/project/{{ package.pypi_name }})
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/{{ package.pypi_name }}.svg?color=blue)](https://pypi.org/project/{{ package.pypi_name }})
+[![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue)](https://mypy-boto3-builder.readthedocs.io/)
+
+Type annotations for
+[boto3 {{ boto3_version }}](https://boto3.amazonaws.com/v1/documentation/api/{{ boto3_version }}/index.html)
+compatible with [mypy](https://github.com/python/mypy), [VSCode](https://code.visualstudio.com/),
+[PyCharm](https://www.jetbrains.com/pycharm/) and other tools.
+
+More information can be found on [boto3-stubs](https://pypi.org/project/boto3-stubs/) page.
+
+- [mypy_boto3](#mypyboto3)
+  - [How to use](#how-to-use)
+    - [Type checking](#type-checking)
+    - [Code auto-complete](#code-auto-complete)
+  - [How it works](#how-it-works)
+  - [Submodules](#submodules)
+
+## How to use
+
+This package by itself is not very useful, it just gives you access to all
+underlying `boto3` services type annotations. Install `boto3-stubs` instead.
+
+```bash
+# install type annotations just for boto3
+python -m pip install boto3-stubs
+
+# install `boto3` type annotations
+# for ec2, s3, rds, lambda, sqs, dynamo and cloudformation
+# Consumes ~7 MB of space
+python -m pip install 'boto3-stubs[essential]'
+
+# or install annotations for services you use
+python -m pip install 'boto3-stubs[acm,apigateway]'
+```
+
+### Type checking
+
+Make sure you have [mypy](https://github.com/python/mypy) installed and activated in your IDE.
+
+Install `boto3-stubs` for services that you use to get type checking working.
+
+```bash
+# You can find a full list of modules below
+python -m pip install 'boto3-stubs[s3,ec2]'
+```
+
+Use `boto3` with `{{ master_module_name }}` in your project and enjoy type checking.
+
+```python
+import boto3
+
+from {{ master_module_name }} import s3
+
+# Check if your IDE supports function overloads,
+# you probably do not need explicit type annotations
+# client = boto3.client("s3")
+client: s3.S3Client = boto3.client("s3")
+
+# Oh, it must be `Bucket`... Thanks, mypy!
+client.create_bucket(bucket="bucket")
+```
+
+### Code auto-complete
+
+Not a single Python IDE supports `Literal` type overloads yet (but in `VSCode` support is just around the corner).
+Meanwhile, to have a nice auto-complete you can explicitly set types to help your IDE to get methods, arguments etc.
+
+```python
+import boto3_name
+
+from {{ master_module_name }} import ec2
+
+# this is the only place where you have to set types explicitly
+client: ec2.EC2Client = boto3.client("ec2")
+resource: ec2.EC2ServiceResource = boto3.resource("ec2")
+
+# now you have auto-complete for methods, arguments and even return types
+```
+
+### Build services index
+
+This packages provides a CLI to build services index for `boto3-stubs`.
+
+```bash
+# Use this command when you add or remove service packages
+python -m mypy_boto3
+```
+
+## How it works
+
+Fully automated [builder](https://github.com/vemel/mypy_boto3_builder) carefully generates
+type annotations for each service, patiently waiting for `boto3` updates. It delivers
+a drop-in type annotations for you and makes sure that:
+
+- All available `boto3` services are covered.
+- Each public class and method of every `boto3` service gets valid type annotations
+  extracted from the documentation (blame `botocore` docs if types are incorrect).
+- Type annotations include up-to-date documentation.
+- Link to documentation is provided for every method.
+- Code is processed by [black](https://github.com/psf/black) for readability.
+
+## Submodules
+
+{% if package.essential_service_names -%}
+    {{ "- `" }}{{ boto3_stubs_name -}}{{ "[essential]` - Type annotations for " -}}
+    {% for service_name in package.essential_service_names -%}
+        {% if not loop.first -%}
+            {{ " and " if loop.last else ", " -}}
+        {% endif -%}
+        {{ "[" -}}
+        {{ service_name.class_name -}}
+        {{ "](" -}}
+        {{ service_name.doc_link -}}
+        {{ ")" -}}
+    {% endfor -%}
+    {{ " services" if package.essential_service_names|length > 1 else " service" -}}
+    {{ ".\n" -}}
+{% endif -%}
+{% for service_name in package.service_names -%}
+    {{ "- `" -}}
+    {{ boto3_stubs_name -}}{{ "[" -}}{{ service_name.boto3_name -}}{{ "]" -}}
+    {{ "` - Type annotations for [" -}}
+    {{ service_name.class_name -}}
+    {{ "](" -}}
+    {{ service_name.doc_link -}}
+    {{ ") service." -}}
+    {{ "" if loop.last else "\n" -}}
+{% endfor -%}
+{{ '\n' -}}

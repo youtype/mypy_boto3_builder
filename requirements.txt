@@ -1,0 +1,6 @@
+black==19.10b0
+boto3
+jinja2>=2.10.3
+typing_extensions; python_version < '3.8'
+pyparsing>=2.4.5
+dataclasses; python_version < '3.7'

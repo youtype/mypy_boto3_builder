@@ -1,0 +1,50 @@
+"""
+Main interface for {{ package.service_name.boto3_name }} service.
+
+Usage::
+
+    import boto3
+    from {{ master_module_name }}.{{ package.service_name.import_name }} import (
+        {% for name in package.get_init_all_names() -%}
+        {{ name -}},
+        {% endfor -%}
+    )
+
+    session = boto3.Session()
+
+    client: {{ package.client.name }} = boto3.client("{{ package.service_name.boto3_name }}")
+    session_client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+{% if package.service_resource -%}
+    {{ "\n    " -}}
+    resource: {{ package.service_resource.name }} = boto3.resource("{{ package.service_name.boto3_name }}")
+    session_resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
+{% endif -%}
+{% if package.waiters -%}
+{{ "\n" -}}
+{% for waiter in package.waiters -%}
+    {{ "    " -}}
+    {{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+{% endfor -%}
+{% endif -%}
+{% if package.paginators -%}
+{{ "\n" -}}
+{% for paginator in package.paginators -%}
+    {{ "    " -}}
+    {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+{% endfor -%}
+{% endif -%}
+"""
+{% with import_record_groups=package.get_init_import_record_groups() -%}
+    {% include "common/import_groups.py.jinja2" with context -%}
+{% endwith -%}
+
+{{ "\n\n" -}}
+
+__all__ = (
+{% for name in package.get_init_all_names() -%}
+    {{ '"' -}}
+    {{ name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)

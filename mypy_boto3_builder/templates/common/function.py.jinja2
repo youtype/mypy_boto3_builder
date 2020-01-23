@@ -1,0 +1,26 @@
+{% for decorator in function.decorators -%}
+{{ '@' -}}{{ decorator -}}{{ '\n' -}}
+{% endfor -%}
+{{ 'def ' -}}{{ function.name -}}{{ '(\n' -}}
+{% filter indent(4, True) -%}
+    {% for argument in function.arguments -%}
+        {% include "common/argument.py.jinja2" with context -%}
+        {{ ",\n" if not loop.last else "\n" -}}
+    {% endfor -%}
+{% endfilter -%}
+{{ ') -> ' -}}{{ function.return_type.render() -}}{{ ':\n' -}}
+{% filter indent(4, True) -%}
+    {% if not function.docstring and not function.body -%}
+        {{ 'pass' -}}
+    {% endif -%}
+    {% if function.docstring -%}
+        {{ '"""\n' -}}
+        {{ function.docstring -}}
+        {{ '\n' -}}
+        {{ '"""\n' -}}
+    {% endif -%}
+    {% if function.body -%}
+        {{ function.body -}}
+        {{ '\n' -}}
+    {% endif -%}
+{% endfilter -%}

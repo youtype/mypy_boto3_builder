@@ -1,0 +1,3 @@
+"""
+Structures produced by parsers.
+"""
