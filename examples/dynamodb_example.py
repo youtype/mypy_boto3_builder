@@ -1,6 +1,8 @@
 # install `pip install boto3-stubs[dynamodb]`
 
+import decimal
 import boto3
+
 from mypy_boto3.dynamodb import DynamoDBClient, DynamoDBServiceResource
 from mypy_boto3.dynamodb.service_resource import Table
 
@@ -13,6 +15,15 @@ def dynamodb_client_example() -> None:
     print(my_table.name)
     batch_writer = my_table.batch_writer()
     batch_writer.delete_item(Key="123")
+
+    my_table.put_item(
+        Item={
+            "str": "value",
+            "number": 123,
+            "decimal": decimal.Decimal(123.2),
+            "exception": ValueError("test"),
+        }
+    )
 
     try:
         client.list_backups(TableName=123)

@@ -7,5 +7,6 @@
         - [Docstring Type Map](docstring_type_map.md#docstring-type-map)
         - [Method Argument Map](method_argument_map.md#method-argument-map)
         - [Method Type Map](method_type_map.md#method-type-map)
+        - [Shape Type Map](shape_type_map.md#shape-type-map)
         - [Syntax Type Map](syntax_type_map.md#syntax-type-map)
         - [Typed Dicts](typed_dicts.md#typed-dicts)

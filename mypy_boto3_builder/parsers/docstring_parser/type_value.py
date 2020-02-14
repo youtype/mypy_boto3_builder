@@ -3,7 +3,9 @@ Structure for parsed as dict request or response syntax values.
 """
 from typing import Dict, Any, List, Optional
 
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.type_maps.syntax_type_map import SYNTAX_TYPE_MAP
+from mypy_boto3_builder.type_maps.shape_type_map import get_shape_type_stub
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
@@ -20,7 +22,10 @@ class TypeValue:
     Structure for parsed as dict request or response syntax values.
     """
 
-    def __init__(self, prefix: str, value: Dict[str, Any]) -> None:
+    def __init__(
+        self, service_name: ServiceName, prefix: str, value: Dict[str, Any]
+    ) -> None:
+        self.service_name = service_name
         self.logger = get_logger()
         self.prefix = prefix
         self.raw: Dict[str, Any] = value
@@ -73,16 +78,25 @@ class TypeValue:
             result = TypeSubscript(Type.Dict)
             result.add_child(SYNTAX_TYPE_MAP[first_key])
             result.add_child(
-                TypeValue(self.prefix, self.dict_items[0]["value"]).get_type()
+                TypeValue(
+                    self.service_name, self.prefix, self.dict_items[0]["value"]
+                ).get_type()
             )
             return result
 
-        typed_dict = TypeTypedDict(f"{self.prefix}TypeDef")
+        typed_dict_name = f"{self.prefix}TypeDef"
+        shape_type_stub = get_shape_type_stub(self.service_name, typed_dict_name)
+        if shape_type_stub:
+            return shape_type_stub
+
+        typed_dict = TypeTypedDict(typed_dict_name)
         for item in self.dict_items:
             key_name = self._parse_constant(item["key"])
             prefix = f"{self.prefix}{key_name}"
             typed_dict.add_attribute(
-                key_name, TypeValue(prefix, item["value"]).get_type(), required=False,
+                key_name,
+                TypeValue(self.service_name, prefix, item["value"]).get_type(),
+                required=False,
             )
         return typed_dict
 
@@ -93,7 +107,7 @@ class TypeValue:
         result = TypeSubscript(Type.List)
         for item_index, item in enumerate(self.list_items):
             prefix = f"{self.prefix}{item_index if item_index else ''}"
-            result.add_child(TypeValue(prefix, item).get_type())
+            result.add_child(TypeValue(self.service_name, prefix, item).get_type())
         return result
 
     def _get_type_union(self) -> FakeAnnotation:
@@ -103,7 +117,7 @@ class TypeValue:
         result = TypeSubscript(Type.Union)
         for item_index, item in enumerate(self.union_items):
             prefix = f"{self.prefix}{item_index if item_index else ''}"
-            result.add_child(TypeValue(prefix, item).get_type())
+            result.add_child(TypeValue(self.service_name, prefix, item).get_type())
 
         if all(i is result.children[0] for i in result.children):
             return result.children[0]
@@ -161,7 +175,9 @@ class TypeValue:
         if not self.literal_items:
             raise ValueError(f"Value is not literal: {self.raw}")
 
-        items = [TypeValue(self.prefix, i) for i in self.literal_items]
+        items = [
+            TypeValue(self.service_name, self.prefix, i) for i in self.literal_items
+        ]
         if all(i.is_literal_item() for i in items):
             item_constants = [self._parse_constant(i.value or "") for i in items]
             return TypeLiteral(*item_constants)

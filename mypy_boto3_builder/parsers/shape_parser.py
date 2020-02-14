@@ -32,6 +32,7 @@ from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
+from mypy_boto3_builder.type_maps.shape_type_map import get_shape_type_stub
 from mypy_boto3_builder.type_maps.typed_dicts import (
     waiter_config_type,
     paginator_config_type,
@@ -296,6 +297,10 @@ class ShapeParser:
 
         required = shape.required_members
         typed_dict_name = f"{shape.name}TypeDef"
+        shape_type_stub = get_shape_type_stub(self.service_name, typed_dict_name)
+        if shape_type_stub:
+            return shape_type_stub
+
         if typed_dict_name in self._typed_dict_map:
             return self._typed_dict_map[typed_dict_name]
         typed_dict = TypeTypedDict(typed_dict_name)

@@ -1,7 +1,19 @@
 """
 Predefined FakeAnnotation instances.
 """
-from typing import Union, Optional, Any, Dict, List, Callable, IO, overload, Generator
+from decimal import Decimal
+from typing import (
+    Union,
+    Optional,
+    Any,
+    Dict,
+    List,
+    Callable,
+    IO,
+    overload,
+    Generator,
+    Set,
+)
 
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
@@ -26,11 +38,15 @@ class Type:
     staticmethod = TypeClass(staticmethod)
     none = TypeConstant(None)
     str = TypeClass(str)
+    Set = TypeAnnotation(Set)
     bool = TypeClass(bool)
     bytes = TypeClass(bytes)
+    bytearray = TypeClass(bytearray)
     int = TypeClass(int)
     float = TypeClass(float)
     Ellipsis = TypeConstant(...)
     Generator = TypeAnnotation(Generator)
+    Decimal = TypeClass(Decimal)
 
+    ListAny = TypeSubscript(List, [Any])
     DictStrAny = TypeSubscript(Dict, [str, Any])

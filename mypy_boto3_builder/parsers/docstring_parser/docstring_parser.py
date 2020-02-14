@@ -91,7 +91,9 @@ class DocstringParser:
         for argument_dict in argument_groups:
             argument_name = argument_dict["name"]
             argument_prefix = self.prefix + get_class_prefix(argument_name)
-            argument_value = TypeValue(argument_prefix, argument_dict["value"])
+            argument_value = TypeValue(
+                self.service_name, argument_prefix, argument_dict["value"]
+            )
             argument_type = argument_value.get_type()
             argument = self._find_argument_or_append(argument_name)
             argument.type = argument_type
@@ -273,7 +275,7 @@ class DocstringParser:
             return None
 
         value = match.asDict()["value"]
-        return TypeValue(f"{self.prefix}Response", value).get_type()
+        return TypeValue(self.service_name, f"{self.prefix}Response", value).get_type()
 
     def _parse_response_structure(self, input_string: str) -> Optional[TypeDocLine]:
         if "**Response Structure**" not in input_string:

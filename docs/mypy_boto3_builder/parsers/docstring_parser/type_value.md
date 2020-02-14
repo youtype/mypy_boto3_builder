@@ -18,18 +18,26 @@ Structure for parsed as dict request or response syntax values.
 
 ## TypeValue
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L18)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L20)
 
 ```python
 class TypeValue():
-    def __init__(prefix: str, value: Dict[str, Any]) -> None:
+    def __init__(
+        service_name: ServiceName,
+        prefix: str,
+        value: Dict[str, Any],
+    ) -> None:
 ```
 
 Structure for parsed as dict request or response syntax values.
 
+#### See also
+
+- [ServiceName](../../service_name.md#servicename)
+
 ### TypeValue().get_type
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L186)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L202)
 
 ```python
 def get_type() -> FakeAnnotation:
@@ -41,7 +49,7 @@ def get_type() -> FakeAnnotation:
 
 ### TypeValue().is_dict
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L46)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L51)
 
 ```python
 def is_dict() -> bool:
@@ -49,7 +57,7 @@ def is_dict() -> bool:
 
 ### TypeValue().is_func_call
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L61)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L66)
 
 ```python
 def is_func_call() -> bool:
@@ -57,7 +65,7 @@ def is_func_call() -> bool:
 
 ### TypeValue().is_list
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L49)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L54)
 
 ```python
 def is_list() -> bool:
@@ -65,7 +73,7 @@ def is_list() -> bool:
 
 ### TypeValue().is_literal
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L52)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L57)
 
 ```python
 def is_literal() -> bool:
@@ -73,7 +81,7 @@ def is_literal() -> bool:
 
 ### TypeValue().is_literal_item
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L155)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L169)
 
 ```python
 def is_literal_item() -> bool:
@@ -81,7 +89,7 @@ def is_literal_item() -> bool:
 
 ### TypeValue().is_plain
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L64)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L69)
 
 ```python
 def is_plain() -> bool:
@@ -89,7 +97,7 @@ def is_plain() -> bool:
 
 ### TypeValue().is_set
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L55)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L60)
 
 ```python
 def is_set() -> bool:
@@ -97,7 +105,7 @@ def is_set() -> bool:
 
 ### TypeValue().is_union
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L58)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L63)
 
 ```python
 def is_union() -> bool:
