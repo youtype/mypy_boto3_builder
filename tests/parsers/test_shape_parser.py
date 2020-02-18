@@ -96,7 +96,7 @@ class ShapeParserTestCase(unittest.TestCase):
         collection_mock.request.operation = "my_operation"
         shape_parser = ShapeParser(session_mock, service_name_mock)
         result = shape_parser.get_collection_filter_method(
-            "MyCollection", collection_mock
+            "MyCollection", collection_mock, "self_type"
         )
         self.assertEqual(result.name, "filter")
         self.assertEqual(len(result.decorators), 1)
