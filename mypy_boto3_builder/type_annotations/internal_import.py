@@ -28,10 +28,12 @@ class InternalImport(FakeAnnotation):
         name: str,
         service_name: Optional[ServiceName] = None,
         module_name: ServiceModuleName = ServiceModuleName.service_resource,
+        use_scope: bool = True,
     ) -> None:
         self.name = name
         self.service_name = service_name
         self.module_name = module_name
+        self.use_scope = use_scope
 
     def render(self, parent_name: str = "") -> str:
         """
@@ -40,7 +42,10 @@ class InternalImport(FakeAnnotation):
         Returns:
             A string with a valid type annotation.
         """
-        return f'"{self.scope}.{self.name}"'
+        if self.use_scope:
+            return f'"{self.scope}.{self.name}"'
+
+        return self.name
 
     @property
     def scope(self) -> str:
@@ -50,6 +55,9 @@ class InternalImport(FakeAnnotation):
         """
         Get import record required for using type annotation.
         """
+        if not self.use_scope:
+            return ImportRecord.empty()
+
         if self.service_name is not None:
             return ImportRecord(
                 source=ImportString(
