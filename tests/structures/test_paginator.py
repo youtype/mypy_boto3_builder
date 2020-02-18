@@ -5,9 +5,12 @@ from mypy_boto3_builder.structures.paginator import Paginator
 
 class PaginatorTestCase(unittest.TestCase):
     def test_init(self) -> None:
-        paginator = Paginator(name="name", operation_name="my_operation_name")
+        paginator = Paginator(
+            name="name", operation_name="my_operation_name", service_name="service_name"
+        )
         self.assertEqual(paginator.name, "name")
         self.assertEqual(paginator.operation_name, "my_operation_name")
+        self.assertEqual(paginator.service_name, "service_name")
 
     def test_get_client_method(self) -> None:
         paginator = Paginator(name="name", operation_name="my_operation_name")

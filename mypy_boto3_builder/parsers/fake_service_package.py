@@ -48,12 +48,20 @@ def parse_fake_service_package(
     for waiter_name in boto3_client.waiter_names:
         real_class_name = get_class_prefix(waiter_name)
         waiter_class_name = f"{real_class_name}Waiter"
-        result.waiters.append(Waiter(waiter_class_name, waiter_name=waiter_name))
+        result.waiters.append(
+            Waiter(
+                waiter_class_name, waiter_name=waiter_name, service_name=service_name,
+            )
+        )
 
     for paginator_name in shape_parser.get_paginator_names():
         operation_name = xform_name(paginator_name)
         result.paginators.append(
-            Paginator(f"{paginator_name}Paginator", operation_name=operation_name)
+            Paginator(
+                f"{paginator_name}Paginator",
+                operation_name=operation_name,
+                service_name=service_name,
+            )
         )
 
     return result

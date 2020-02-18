@@ -21,6 +21,7 @@ class InternalImport(FakeAnnotation):
         name -- Import name.
         service_name -- Service that import belongs to.
         module_name -- Service module name.
+        use_scope -- Add scope to type annotation and convert to string.
     """
 
     def __init__(
