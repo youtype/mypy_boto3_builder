@@ -44,7 +44,7 @@ __all__ = (
 
 {{ "\n\n" -}}
 
-{% for sub_resource in package.service_resource.sub_resources -%}
+{% for sub_resource in package.service_resource.get_sub_resources() -%}
     {{ sub_resource.render_type_var() }}
     {{ "\n\n" -}}
     {% with class=sub_resource -%}

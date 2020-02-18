@@ -9,6 +9,7 @@ from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.collection import Collection
@@ -67,5 +68,26 @@ class ServiceResource(ClassRecord):
                     raise ValueError(f"Conflicting collections: {collection.name}")
                 collection_names.append(collection.name)
                 result.append(collection)
+
+        return result
+
+    def get_sub_resources(self) -> List[Resource]:
+        """
+        Get sub-resource in safe order.
+
+        Returns:
+            A list of sub resources.
+        """
+        result: List[Resource] = []
+        for sub_resource in self.sub_resources:
+            internal_imports: List[InternalImport] = []
+            for type_annotaion in sub_resource.get_types():
+                if isinstance(type_annotaion, InternalImport):
+                    internal_imports.append(type_annotaion)
+
+            if not internal_imports:
+                result.insert(0, sub_resource)
+            else:
+                result.append(sub_resource)
 
         return result
