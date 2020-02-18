@@ -44,33 +44,31 @@ def parse_collections(
                 f"[{parent_name}.{collection.name} documentation]"
                 f"({service_name.doc_link}.{parent_name}.{collection.name})"
             ),
-            type=InternalImport(name=collection.name, service_name=service_name),
+            type=InternalImport(collection.name),
         )
-        self_type = InternalImport(
-            name=collection_record.name, service_name=service_name
-        )
+        self_type = InternalImport(collection_record.type_name, stringify=False)
 
         collection_record.methods.append(
             Method(
                 "all",
-                [Argument("cls", None)],
+                [Argument("cls", self_type)],
                 self_type,
                 decorators=[Type.classmethod],
             )
         )
         filter_method = shape_parser.get_collection_filter_method(
-            collection_record.name, collection
+            collection_record.name, collection, self_type
         )
         collection_record.methods.append(filter_method)
         batch_methods = shape_parser.get_collection_batch_methods(
-            collection_record.name, collection
+            collection_record.name, collection, self_type
         )
         for batch_method in batch_methods:
             collection_record.methods.append(batch_method)
         collection_record.methods.append(
             Method(
                 "limit",
-                [Argument("cls", None), Argument("count", Type.int)],
+                [Argument("cls", self_type), Argument("count", Type.int)],
                 self_type,
                 decorators=[Type.classmethod],
             )
@@ -78,7 +76,7 @@ def parse_collections(
         collection_record.methods.append(
             Method(
                 "page_size",
-                [Argument("cls", None), Argument("count", Type.int)],
+                [Argument("cls", self_type), Argument("count", Type.int)],
                 self_type,
                 decorators=[Type.classmethod],
             )
@@ -86,11 +84,8 @@ def parse_collections(
         collection_record.methods.append(
             Method(
                 "pages",
-                [Argument("cls", None)],
-                TypeSubscript(
-                    Type.List,
-                    [InternalImport(name=object_class_name, service_name=service_name)],
-                ),
+                [Argument("cls", self_type)],
+                TypeSubscript(Type.List, [InternalImport(name=object_class_name)],),
                 decorators=[Type.classmethod],
             )
         )

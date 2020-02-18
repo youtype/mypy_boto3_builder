@@ -28,7 +28,7 @@ from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
@@ -336,7 +336,7 @@ class ShapeParser:
             return self._parse_shape_list(shape)
 
         if shape.type_name in self._resources_shape["resources"]:
-            return InternalImport(shape.type_name)
+            return AliasInternalImport(shape.type_name)
 
         self.logger.warning(f"Unknown shape: {shape}")
         return Type.Any
@@ -509,24 +509,22 @@ class ShapeParser:
 
         return Method(name=method_name, arguments=arguments, return_type=return_type)
 
-    def get_collection_filter_method(self, name: str, collection: Collection) -> Method:
+    def get_collection_filter_method(
+        self, name: str, collection: Collection, self_type: FakeAnnotation
+    ) -> Method:
         """
         Get `filter` classmethod for Resource collection.
 
         Arguments:
             name -- Collection record name.
             collection -- Boto3 Collection.
+            self_type -- Collection self type annotation.
 
         Returns:
             Filter Method record.
         """
-        arguments: List[Argument] = [Argument("cls", None)]
-        result = Method(
-            "filter",
-            arguments,
-            InternalImport(name=name, service_name=self.service_name),
-            decorators=[Type.classmethod],
-        )
+        arguments: List[Argument] = [Argument("cls", self_type)]
+        result = Method("filter", arguments, self_type, decorators=[Type.classmethod],)
         if not collection.request:
             return result
 
@@ -544,7 +542,7 @@ class ShapeParser:
         return result
 
     def get_collection_batch_methods(
-        self, name: str, collection: Collection
+        self, name: str, collection: Collection, self_type: FakeAnnotation
     ) -> List[Method]:
         """
         Get batch operations for Resource collection.
@@ -552,6 +550,7 @@ class ShapeParser:
         Arguments:
             name -- Collection record name.
             collection -- Boto3 Collection.
+            self_type -- Collection self type annotation.
 
         Returns:
             List of Method records.
@@ -560,7 +559,7 @@ class ShapeParser:
         for batch_action in collection.batch_actions:
             method = Method(
                 batch_action.name,
-                [Argument("cls", None)],
+                [Argument("cls", self_type)],
                 Type.none,
                 decorators=[Type.classmethod],
             )

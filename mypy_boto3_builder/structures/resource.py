@@ -27,6 +27,8 @@ class Resource(ClassRecord):
         ]
     )
     collections: List[Collection] = field(default_factory=lambda: [])
+    use_type_var: bool = True
+    use_alias: bool = True
 
     def get_types(self) -> Set[FakeAnnotation]:
         types = super().get_types()

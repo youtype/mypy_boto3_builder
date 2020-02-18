@@ -4,6 +4,7 @@ Base class for all structures that can be rendered to a class.
 from dataclasses import dataclass, field
 from typing import Set, List
 
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.method import Method
@@ -22,6 +23,34 @@ class ClassRecord:
     attributes: List[Attribute] = field(default_factory=lambda: [])
     bases: List[FakeAnnotation] = field(default_factory=lambda: [])
     docstring: str = ""
+    use_type_var: bool = False
+    use_alias: bool = False
+
+    @property
+    def type_name(self) -> str:
+        if not self.use_type_var:
+            raise ValueError(
+                f"Cannot get type var for { self.name } with no type alias."
+            )
+        return f"_{self.name}Type"
+
+    @property
+    def alias_name(self) -> str:
+        if not self.use_alias:
+            raise ValueError(f"Cannot get alias for { self.name } with no alias.")
+        return InternalImport.get_alias(self.name)
+
+    def render_type_var(self) -> str:
+        if not self.use_type_var:
+            raise ValueError(
+                f"Cannot get type var for { self.name } with no type alias."
+            )
+        return (
+            f'{ self.type_name } = TypeVar("{ self.type_name }", bound="{ self.name }")'
+        )
+
+    def render_alias(self) -> str:
+        return f"_{self.alias_name} = {self.name}"
 
     def get_types(self) -> Set[FakeAnnotation]:
         types: Set[FakeAnnotation] = set()

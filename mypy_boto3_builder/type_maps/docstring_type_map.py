@@ -8,7 +8,7 @@ from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
@@ -59,162 +59,182 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "list(string)": TypeSubscript(Type.List, [Type.str]),
     "list of str": TypeSubscript(Type.List, [Type.str]),
     "None": Type.none,
-    ":py:class:`ec2.NetworkAcl`": InternalImport("NetworkAcl", ServiceNameCatalog.ec2),
-    ":py:class:`EC2.NetworkAcl`": InternalImport("NetworkAcl", ServiceNameCatalog.ec2),
-    "list(:py:class:`ec2.InternetGateway`)": TypeSubscript(
-        Type.List, [InternalImport("InternetGateway", ServiceNameCatalog.ec2)]
+    ":py:class:`ec2.NetworkAcl`": AliasInternalImport(
+        "NetworkAcl", ServiceNameCatalog.ec2
     ),
-    ":py:class:`iam.UserPolicy`": InternalImport("UserPolicy", ServiceNameCatalog.iam),
-    ":py:class:`IAM.UserPolicy`": InternalImport("UserPolicy", ServiceNameCatalog.iam),
+    ":py:class:`EC2.NetworkAcl`": AliasInternalImport(
+        "NetworkAcl", ServiceNameCatalog.ec2
+    ),
+    "list(:py:class:`ec2.InternetGateway`)": TypeSubscript(
+        Type.List, [AliasInternalImport("InternetGateway", ServiceNameCatalog.ec2)]
+    ),
+    ":py:class:`iam.UserPolicy`": AliasInternalImport(
+        "UserPolicy", ServiceNameCatalog.iam
+    ),
+    ":py:class:`IAM.UserPolicy`": AliasInternalImport(
+        "UserPolicy", ServiceNameCatalog.iam
+    ),
     "list(:py:class:`iam.VirtualMfaDevice`)": TypeSubscript(
-        Type.List, [InternalImport("VirtualMfaDevice", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("VirtualMfaDevice", ServiceNameCatalog.iam)]
     ),
     "list(:py:class:`ec2.Image`)": TypeSubscript(
-        Type.List, [InternalImport("Image", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("Image", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`cloudwatch.Alarm`)": TypeSubscript(
-        Type.List, [InternalImport("Alarm", ServiceNameCatalog.cloudwatch)]
+        Type.List, [AliasInternalImport("Alarm", ServiceNameCatalog.cloudwatch)]
     ),
     "list(:py:class:`opsworks.Layer`)": TypeSubscript(
-        Type.List, [InternalImport("Layer", ServiceNameCatalog.opsworks)]
+        Type.List, [AliasInternalImport("Layer", ServiceNameCatalog.opsworks)]
     ),
-    ":py:class:`iam.GroupPolicy`": InternalImport(
+    ":py:class:`iam.GroupPolicy`": AliasInternalImport(
         "GroupPolicy", ServiceNameCatalog.iam
     ),
-    ":py:class:`IAM.GroupPolicy`": InternalImport(
+    ":py:class:`IAM.GroupPolicy`": AliasInternalImport(
         "GroupPolicy", ServiceNameCatalog.iam
     ),
     "list(:py:class:`iam.SigningCertificate`)": TypeSubscript(
-        Type.List, [InternalImport("SigningCertificate", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("SigningCertificate", ServiceNameCatalog.iam)]
     ),
     "list(:py:class:`ec2.Volume`)": TypeSubscript(
-        Type.List, [InternalImport("Volume", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("Volume", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`ec2.VpcPeeringConnection`)": TypeSubscript(
-        Type.List, [InternalImport("VpcPeeringConnection", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("VpcPeeringConnection", ServiceNameCatalog.ec2)]
     ),
-    ":py:class:`ec2.Subnet`": InternalImport("Subnet", ServiceNameCatalog.ec2),
-    ":py:class:`EC2.Subnet`": InternalImport("Subnet", ServiceNameCatalog.ec2),
+    ":py:class:`ec2.Subnet`": AliasInternalImport("Subnet", ServiceNameCatalog.ec2),
+    ":py:class:`EC2.Subnet`": AliasInternalImport("Subnet", ServiceNameCatalog.ec2),
     "list(:py:class:`iam.ServerCertificate`)": TypeSubscript(
-        Type.List, [InternalImport("ServerCertificate", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("ServerCertificate", ServiceNameCatalog.iam)]
     ),
     "list(:py:class:`ec2.VpcAddress`)": TypeSubscript(
-        Type.List, [InternalImport("VpcAddress", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("VpcAddress", ServiceNameCatalog.ec2)]
     ),
-    ":py:class:`sns.PlatformEndpoint`": InternalImport(
+    ":py:class:`sns.PlatformEndpoint`": AliasInternalImport(
         "PlatformEndpoint", ServiceNameCatalog.sns
     ),
-    ":py:class:`SNS.PlatformEndpoint`": InternalImport(
+    ":py:class:`SNS.PlatformEndpoint`": AliasInternalImport(
         "PlatformEndpoint", ServiceNameCatalog.sns
     ),
-    ":py:class:`s3.MultipartUpload`": InternalImport(
+    ":py:class:`s3.MultipartUpload`": AliasInternalImport(
         "MultipartUpload", ServiceNameCatalog.s3
     ),
-    ":py:class:`glacier.MultipartUpload`": InternalImport(
+    ":py:class:`glacier.MultipartUpload`": AliasInternalImport(
         "MultipartUpload", ServiceNameCatalog.glacier
     ),
-    ":py:class:`Glacier.MultipartUpload`": InternalImport(
+    ":py:class:`Glacier.MultipartUpload`": AliasInternalImport(
         "MultipartUpload", ServiceNameCatalog.glacier
     ),
-    ":py:class:`S3.MultipartUpload`": InternalImport(
+    ":py:class:`S3.MultipartUpload`": AliasInternalImport(
         "MultipartUpload", ServiceNameCatalog.s3
     ),
     "list(:py:class:`ec2.Subnet`)": TypeSubscript(
-        Type.List, [InternalImport("Subnet", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("Subnet", ServiceNameCatalog.ec2)]
     ),
-    ":py:class:`opsworks.Layer`": InternalImport("Layer", ServiceNameCatalog.opsworks),
-    ":py:class:`OpsWorks.Layer`": InternalImport("Layer", ServiceNameCatalog.opsworks),
+    ":py:class:`opsworks.Layer`": AliasInternalImport(
+        "Layer", ServiceNameCatalog.opsworks
+    ),
+    ":py:class:`OpsWorks.Layer`": AliasInternalImport(
+        "Layer", ServiceNameCatalog.opsworks
+    ),
     "list(:py:class:`iam.MfaDevice`)": TypeSubscript(
-        Type.List, [InternalImport("MfaDevice", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("MfaDevice", ServiceNameCatalog.iam)]
     ),
     "list(:py:class:`glacier.Job`)": TypeSubscript(
-        Type.List, [InternalImport("Job", ServiceNameCatalog.glacier)]
+        Type.List, [AliasInternalImport("Job", ServiceNameCatalog.glacier)]
     ),
     "list(:py:class:`iam.RolePolicy`)": TypeSubscript(
-        Type.List, [InternalImport("RolePolicy", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("RolePolicy", ServiceNameCatalog.iam)]
     ),
     "list(:py:class:`iam.InstanceProfile`)": TypeSubscript(
-        Type.List, [InternalImport("InstanceProfile", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("InstanceProfile", ServiceNameCatalog.iam)]
     ),
     "list(:py:class:`ec2.Instance`)": TypeSubscript(
-        Type.List, [InternalImport("Instance", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("Instance", ServiceNameCatalog.ec2)]
     ),
-    ":py:class:`glacier.Vault`": InternalImport("Vault", ServiceNameCatalog.glacier),
-    ":py:class:`Glacier.Vault`": InternalImport("Vault", ServiceNameCatalog.glacier),
-    ":py:class:`ec2.SecurityGroup`": InternalImport(
+    ":py:class:`glacier.Vault`": AliasInternalImport(
+        "Vault", ServiceNameCatalog.glacier
+    ),
+    ":py:class:`Glacier.Vault`": AliasInternalImport(
+        "Vault", ServiceNameCatalog.glacier
+    ),
+    ":py:class:`ec2.SecurityGroup`": AliasInternalImport(
         "SecurityGroup", ServiceNameCatalog.ec2
     ),
-    ":py:class:`EC2.SecurityGroup`": InternalImport(
+    ":py:class:`EC2.SecurityGroup`": AliasInternalImport(
         "SecurityGroup", ServiceNameCatalog.ec2
     ),
-    ":py:class:`ec2.RouteTable`": InternalImport("RouteTable", ServiceNameCatalog.ec2),
-    ":py:class:`EC2.RouteTable`": InternalImport("RouteTable", ServiceNameCatalog.ec2),
+    ":py:class:`ec2.RouteTable`": AliasInternalImport(
+        "RouteTable", ServiceNameCatalog.ec2
+    ),
+    ":py:class:`EC2.RouteTable`": AliasInternalImport(
+        "RouteTable", ServiceNameCatalog.ec2
+    ),
     "list(:py:class:`dynamodb.Table`)": TypeSubscript(
-        Type.List, [InternalImport("Table", ServiceNameCatalog.dynamodb)]
+        Type.List, [AliasInternalImport("Table", ServiceNameCatalog.dynamodb)]
     ),
     "list(:py:class:`ec2.Snapshot`)": TypeSubscript(
-        Type.List, [InternalImport("Snapshot", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("Snapshot", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`sqs.Message`)": TypeSubscript(
-        Type.List, [InternalImport("Message", ServiceNameCatalog.sqs)]
+        Type.List, [AliasInternalImport("Message", ServiceNameCatalog.sqs)]
     ),
     "list(:py:class:`iam.Role`)": TypeSubscript(
-        Type.List, [InternalImport("Role", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("Role", ServiceNameCatalog.iam)]
     ),
-    ":py:class:`glacier.Job`": InternalImport("Job", ServiceNameCatalog.glacier),
-    ":py:class:`Glacier.Job`": InternalImport("Job", ServiceNameCatalog.glacier),
+    ":py:class:`glacier.Job`": AliasInternalImport("Job", ServiceNameCatalog.glacier),
+    ":py:class:`Glacier.Job`": AliasInternalImport("Job", ServiceNameCatalog.glacier),
     "list(:py:class:`cloudwatch.Metric`)": TypeSubscript(
-        Type.List, [InternalImport("Metric", ServiceNameCatalog.cloudwatch)]
+        Type.List, [AliasInternalImport("Metric", ServiceNameCatalog.cloudwatch)]
     ),
     "list(:py:class:`iam.Policy`)": TypeSubscript(
-        Type.List, [InternalImport("Policy", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("Policy", ServiceNameCatalog.iam)]
     ),
     "list(:py:class:`ec2.ClassicAddress`)": TypeSubscript(
-        Type.List, [InternalImport("ClassicAddress", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("ClassicAddress", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`iam.User`)": TypeSubscript(
-        Type.List, [InternalImport("User", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("User", ServiceNameCatalog.iam)]
     ),
     "list(:py:class:`iam.GroupPolicy`)": TypeSubscript(
-        Type.List, [InternalImport("GroupPolicy", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("GroupPolicy", ServiceNameCatalog.iam)]
     ),
     "list(:py:class:`iam.PolicyVersion`)": TypeSubscript(
-        Type.List, [InternalImport("PolicyVersion", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("PolicyVersion", ServiceNameCatalog.iam)]
     ),
     "list(:py:class:`sns.Topic`)": TypeSubscript(
-        Type.List, [InternalImport("Topic", ServiceNameCatalog.sns)]
+        Type.List, [AliasInternalImport("Topic", ServiceNameCatalog.sns)]
     ),
-    ":py:class:`iam.LoginProfile`": InternalImport(
+    ":py:class:`iam.LoginProfile`": AliasInternalImport(
         "LoginProfile", ServiceNameCatalog.iam
     ),
-    ":py:class:`IAM.LoginProfile`": InternalImport(
+    ":py:class:`IAM.LoginProfile`": AliasInternalImport(
         "LoginProfile", ServiceNameCatalog.iam
     ),
     "list(:py:class:`iam.UserPolicy`)": TypeSubscript(
-        Type.List, [InternalImport("UserPolicy", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("UserPolicy", ServiceNameCatalog.iam)]
     ),
     "list(:py:class:`cloudformation.Event`)": TypeSubscript(
-        Type.List, [InternalImport("Event", ServiceNameCatalog.cloudformation)]
+        Type.List, [AliasInternalImport("Event", ServiceNameCatalog.cloudformation)]
     ),
-    ":py:class:`cloudformation.Event`": InternalImport(
+    ":py:class:`cloudformation.Event`": AliasInternalImport(
         "Event", ServiceNameCatalog.cloudformation
     ),
-    ":py:class:`CloudFormation.Event`": InternalImport(
+    ":py:class:`CloudFormation.Event`": AliasInternalImport(
         "Event", ServiceNameCatalog.cloudformation
     ),
     "list(:py:class:`s3.MultipartUpload`)": TypeSubscript(
-        Type.List, [InternalImport("MultipartUpload", ServiceNameCatalog.s3)]
+        Type.List, [AliasInternalImport("MultipartUpload", ServiceNameCatalog.s3)]
     ),
     "list(:py:class:`glacier.MultipartUpload`)": TypeSubscript(
-        Type.List, [InternalImport("MultipartUpload", ServiceNameCatalog.glacier)]
+        Type.List, [AliasInternalImport("MultipartUpload", ServiceNameCatalog.glacier)]
     ),
     "list(:py:class:`sns.Subscription`)": TypeSubscript(
-        Type.List, [InternalImport("Subscription", ServiceNameCatalog.sns)]
+        Type.List, [AliasInternalImport("Subscription", ServiceNameCatalog.sns)]
     ),
-    ":py:class:`iam.PolicyVersion`": InternalImport(
+    ":py:class:`iam.PolicyVersion`": AliasInternalImport(
         "PolicyVersion", ServiceNameCatalog.iam
     ),
-    ":py:class:`IAM.PolicyVersion`": InternalImport(
+    ":py:class:`IAM.PolicyVersion`": AliasInternalImport(
         "PolicyVersion", ServiceNameCatalog.iam
     ),
     "list(:py:class:`~boto3.resources.base.ServiceResource`)": TypeSubscript(
@@ -228,301 +248,325 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
         ],
     ),
     "list(:py:class:`ec2.NetworkInterface`)": TypeSubscript(
-        Type.List, [InternalImport("NetworkInterface", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("NetworkInterface", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`s3.ObjectVersion`)": TypeSubscript(
-        Type.List, [InternalImport("ObjectVersion", ServiceNameCatalog.s3)]
+        Type.List, [AliasInternalImport("ObjectVersion", ServiceNameCatalog.s3)]
     ),
     "list(:py:class:`ec2.SecurityGroup`)": TypeSubscript(
-        Type.List, [InternalImport("SecurityGroup", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("SecurityGroup", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`sqs.Queue`)": TypeSubscript(
-        Type.List, [InternalImport("Queue", ServiceNameCatalog.sqs)]
+        Type.List, [AliasInternalImport("Queue", ServiceNameCatalog.sqs)]
     ),
     "list(:py:class:`ec2.PlacementGroup`)": TypeSubscript(
-        Type.List, [InternalImport("PlacementGroup", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("PlacementGroup", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`ec2.Vpc`)": TypeSubscript(
-        Type.List, [InternalImport("Vpc", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("Vpc", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`ec2.RouteTable`)": TypeSubscript(
-        Type.List, [InternalImport("RouteTable", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("RouteTable", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`glacier.Vault`)": TypeSubscript(
-        Type.List, [InternalImport("Vault", ServiceNameCatalog.glacier)]
+        Type.List, [AliasInternalImport("Vault", ServiceNameCatalog.glacier)]
     ),
     "list(:py:class:`iam.Group`)": TypeSubscript(
-        Type.List, [InternalImport("Group", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("Group", ServiceNameCatalog.iam)]
     ),
     ":py:class:`iam.Group`": TypeSubscript(
-        Type.List, [InternalImport("Group", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("Group", ServiceNameCatalog.iam)]
     ),
-    ":py:class:`ec2.Image`": InternalImport("Image", ServiceNameCatalog.ec2),
-    ":py:class:`EC2.Image`": InternalImport("Image", ServiceNameCatalog.ec2),
-    ":py:class:`ec2.Route`": InternalImport("Route", ServiceNameCatalog.ec2),
-    ":py:class:`EC2.Route`": InternalImport("Route", ServiceNameCatalog.ec2),
-    ":py:class:`ec2.VpcPeeringConnection`": InternalImport(
+    ":py:class:`ec2.Image`": AliasInternalImport("Image", ServiceNameCatalog.ec2),
+    ":py:class:`EC2.Image`": AliasInternalImport("Image", ServiceNameCatalog.ec2),
+    ":py:class:`ec2.Route`": AliasInternalImport("Route", ServiceNameCatalog.ec2),
+    ":py:class:`EC2.Route`": AliasInternalImport("Route", ServiceNameCatalog.ec2),
+    ":py:class:`ec2.VpcPeeringConnection`": AliasInternalImport(
         "VpcPeeringConnection", ServiceNameCatalog.ec2
     ),
-    ":py:class:`EC2.VpcPeeringConnection`": InternalImport(
+    ":py:class:`EC2.VpcPeeringConnection`": AliasInternalImport(
         "VpcPeeringConnection", ServiceNameCatalog.ec2
     ),
     "list(:py:class:`cloudformation.Stack`)": TypeSubscript(
-        Type.List, [InternalImport("Stack", ServiceNameCatalog.cloudformation)]
+        Type.List, [AliasInternalImport("Stack", ServiceNameCatalog.cloudformation)]
     ),
     "list(:py:class:`opsworks.Stack`)": TypeSubscript(
-        Type.List, [InternalImport("Stack", ServiceNameCatalog.opsworks)]
+        Type.List, [AliasInternalImport("Stack", ServiceNameCatalog.opsworks)]
     ),
-    ":py:class:`iam.MfaDevice`": InternalImport("MfaDevice", ServiceNameCatalog.iam),
-    ":py:class:`IAM.MfaDevice`": InternalImport("MfaDevice", ServiceNameCatalog.iam),
+    ":py:class:`iam.MfaDevice`": AliasInternalImport(
+        "MfaDevice", ServiceNameCatalog.iam
+    ),
+    ":py:class:`IAM.MfaDevice`": AliasInternalImport(
+        "MfaDevice", ServiceNameCatalog.iam
+    ),
     "list(:py:class:`s3.Bucket`)": TypeSubscript(
-        Type.List, [InternalImport("Bucket", ServiceNameCatalog.s3)]
+        Type.List, [AliasInternalImport("Bucket", ServiceNameCatalog.s3)]
     ),
     "list(:py:class:`sns.PlatformEndpoint`)": TypeSubscript(
-        Type.List, [InternalImport("PlatformEndpoint", ServiceNameCatalog.sns)]
+        Type.List, [AliasInternalImport("PlatformEndpoint", ServiceNameCatalog.sns)]
     ),
-    ":py:class:`ec2.Snapshot`": InternalImport("Snapshot", ServiceNameCatalog.ec2),
-    ":py:class:`EC2.Snapshot`": InternalImport("Snapshot", ServiceNameCatalog.ec2),
+    ":py:class:`ec2.Snapshot`": AliasInternalImport("Snapshot", ServiceNameCatalog.ec2),
+    ":py:class:`EC2.Snapshot`": AliasInternalImport("Snapshot", ServiceNameCatalog.ec2),
     "list(:py:class:`ec2.DhcpOptions`)": TypeSubscript(
-        Type.List, [InternalImport("DhcpOptions", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("DhcpOptions", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`ec2.NetworkAcl`)": TypeSubscript(
-        Type.List, [InternalImport("NetworkAcl", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("NetworkAcl", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`ec2.KeyPairInfo`)": TypeSubscript(
-        Type.List, [InternalImport("KeyPairInfo", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("KeyPairInfo", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`cloudformation.StackResourceSummary`)": TypeSubscript(
         Type.List,
-        [InternalImport("StackResourceSummary", ServiceNameCatalog.cloudformation)],
+        [
+            AliasInternalImport(
+                "StackResourceSummary", ServiceNameCatalog.cloudformation
+            )
+        ],
     ),
-    ":py:class:`dynamodb.Table`": InternalImport("Table", ServiceNameCatalog.dynamodb),
-    ":py:class:`DynamoDB.Table`": InternalImport("Table", ServiceNameCatalog.dynamodb),
-    ":py:class:`iam.AccessKeyPair`": InternalImport(
+    ":py:class:`dynamodb.Table`": AliasInternalImport(
+        "Table", ServiceNameCatalog.dynamodb
+    ),
+    ":py:class:`DynamoDB.Table`": AliasInternalImport(
+        "Table", ServiceNameCatalog.dynamodb
+    ),
+    ":py:class:`iam.AccessKeyPair`": AliasInternalImport(
         "AccessKeyPair", ServiceNameCatalog.iam
     ),
-    ":py:class:`IAM.AccessKeyPair`": InternalImport(
+    ":py:class:`IAM.AccessKeyPair`": AliasInternalImport(
         "AccessKeyPair", ServiceNameCatalog.iam
     ),
     "list(:py:class:`iam.SamlProvider`)": TypeSubscript(
-        Type.List, [InternalImport("SamlProvider", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("SamlProvider", ServiceNameCatalog.iam)]
     ),
-    ":py:class:`glacier.Archive`": InternalImport(
+    ":py:class:`glacier.Archive`": AliasInternalImport(
         "Archive", ServiceNameCatalog.glacier
     ),
-    ":py:class:`Glacier.Archive`": InternalImport(
+    ":py:class:`Glacier.Archive`": AliasInternalImport(
         "Archive", ServiceNameCatalog.glacier
     ),
-    ":py:class:`ec2.NetworkInterface`": InternalImport(
+    ":py:class:`ec2.NetworkInterface`": AliasInternalImport(
         "NetworkInterface", ServiceNameCatalog.ec2
     ),
-    ":py:class:`EC2.NetworkInterface`": InternalImport(
+    ":py:class:`EC2.NetworkInterface`": AliasInternalImport(
         "NetworkInterface", ServiceNameCatalog.ec2
     ),
     "list(:py:class:`iam.AccessKey`)": TypeSubscript(
-        Type.List, [InternalImport("AccessKey", ServiceNameCatalog.iam)]
+        Type.List, [AliasInternalImport("AccessKey", ServiceNameCatalog.iam)]
     ),
-    ":py:class:`sns.Subscription`": InternalImport(
+    ":py:class:`sns.Subscription`": AliasInternalImport(
         "Subscription", ServiceNameCatalog.sns
     ),
-    ":py:class:`SNS.Subscription`": InternalImport(
+    ":py:class:`SNS.Subscription`": AliasInternalImport(
         "Subscription", ServiceNameCatalog.sns
     ),
     "list(:py:class:`s3.MultipartUploadPart`)": TypeSubscript(
-        Type.List, [InternalImport("MultipartUploadPart", ServiceNameCatalog.s3)]
+        Type.List, [AliasInternalImport("MultipartUploadPart", ServiceNameCatalog.s3)]
     ),
-    ":py:class:`iam.ServerCertificate`": InternalImport(
+    ":py:class:`iam.ServerCertificate`": AliasInternalImport(
         "ServerCertificate", ServiceNameCatalog.iam
     ),
-    ":py:class:`IAM.ServerCertificate`": InternalImport(
+    ":py:class:`IAM.ServerCertificate`": AliasInternalImport(
         "ServerCertificate", ServiceNameCatalog.iam
     ),
     "list(:py:class:`ec2.Tag`)": TypeSubscript(
-        Type.List, [InternalImport("Tag", ServiceNameCatalog.ec2)]
+        Type.List, [AliasInternalImport("Tag", ServiceNameCatalog.ec2)]
     ),
-    ":py:class:`cloudwatch.Alarm`": InternalImport(
+    ":py:class:`cloudwatch.Alarm`": AliasInternalImport(
         "Alarm", ServiceNameCatalog.cloudwatch
     ),
-    ":py:class:`CloudWatch.Alarm`": InternalImport(
+    ":py:class:`CloudWatch.Alarm`": AliasInternalImport(
         "Alarm", ServiceNameCatalog.cloudwatch
     ),
-    ":py:class:`EC2.PlacementGroup`": InternalImport(
+    ":py:class:`EC2.PlacementGroup`": AliasInternalImport(
         "PlacementGroup", ServiceNameCatalog.ec2
     ),
-    ":py:class:`ec2.PlacementGroup`": InternalImport(
+    ":py:class:`ec2.PlacementGroup`": AliasInternalImport(
         "PlacementGroup", ServiceNameCatalog.ec2
     ),
-    ":py:class:`EC2.Vpc`": InternalImport("Vpc", ServiceNameCatalog.ec2),
-    ":py:class:`ec2.Vpc`": InternalImport("Vpc", ServiceNameCatalog.ec2),
-    ":py:class:`S3.BucketVersioning`": InternalImport(
+    ":py:class:`EC2.Vpc`": AliasInternalImport("Vpc", ServiceNameCatalog.ec2),
+    ":py:class:`ec2.Vpc`": AliasInternalImport("Vpc", ServiceNameCatalog.ec2),
+    ":py:class:`S3.BucketVersioning`": AliasInternalImport(
         "BucketVersioning", ServiceNameCatalog.s3
     ),
-    ":py:class:`IAM.User`": InternalImport("User", ServiceNameCatalog.iam),
-    ":py:class:`iam.User`": InternalImport("User", ServiceNameCatalog.iam),
-    ":py:class:`sns.Topic`": InternalImport("Topic", ServiceNameCatalog.sns),
-    ":py:class:`SNS.Topic`": InternalImport("Topic", ServiceNameCatalog.sns),
-    ":py:class:`iam.Policy`": InternalImport("Policy", ServiceNameCatalog.iam),
-    ":py:class:`IAM.Policy`": InternalImport("Policy", ServiceNameCatalog.iam),
-    ":py:class:`S3.BucketCors`": InternalImport("BucketCors", ServiceNameCatalog.s3),
-    ":py:class:`OpsWorks.Stack`": InternalImport("Stack", ServiceNameCatalog.opsworks),
-    ":py:class:`CloudFormation.Stack`": InternalImport(
+    ":py:class:`IAM.User`": AliasInternalImport("User", ServiceNameCatalog.iam),
+    ":py:class:`iam.User`": AliasInternalImport("User", ServiceNameCatalog.iam),
+    ":py:class:`sns.Topic`": AliasInternalImport("Topic", ServiceNameCatalog.sns),
+    ":py:class:`SNS.Topic`": AliasInternalImport("Topic", ServiceNameCatalog.sns),
+    ":py:class:`iam.Policy`": AliasInternalImport("Policy", ServiceNameCatalog.iam),
+    ":py:class:`IAM.Policy`": AliasInternalImport("Policy", ServiceNameCatalog.iam),
+    ":py:class:`S3.BucketCors`": AliasInternalImport(
+        "BucketCors", ServiceNameCatalog.s3
+    ),
+    ":py:class:`OpsWorks.Stack`": AliasInternalImport(
+        "Stack", ServiceNameCatalog.opsworks
+    ),
+    ":py:class:`CloudFormation.Stack`": AliasInternalImport(
         "Stack", ServiceNameCatalog.cloudformation
     ),
-    ":py:class:`opsworks.Stack`": InternalImport("Stack", ServiceNameCatalog.opsworks),
-    ":py:class:`cloudformation.Stack`": InternalImport(
+    ":py:class:`opsworks.Stack`": AliasInternalImport(
+        "Stack", ServiceNameCatalog.opsworks
+    ),
+    ":py:class:`cloudformation.Stack`": AliasInternalImport(
         "Stack", ServiceNameCatalog.cloudformation
     ),
-    ":py:class:`IAM.SigningCertificate`": InternalImport(
+    ":py:class:`IAM.SigningCertificate`": AliasInternalImport(
         "SigningCertificate", ServiceNameCatalog.iam
     ),
-    ":py:class:`iam.SigningCertificate`": InternalImport(
+    ":py:class:`iam.SigningCertificate`": AliasInternalImport(
         "SigningCertificate", ServiceNameCatalog.iam
     ),
-    ":py:class:`S3.ObjectVersion`": InternalImport(
+    ":py:class:`S3.ObjectVersion`": AliasInternalImport(
         "ObjectVersion", ServiceNameCatalog.s3
     ),
-    ":py:class:`S3.BucketPolicy`": InternalImport(
+    ":py:class:`S3.BucketPolicy`": AliasInternalImport(
         "BucketPolicy", ServiceNameCatalog.s3
     ),
-    ":py:class:`EC2.RouteTableAssociation`": InternalImport(
+    ":py:class:`EC2.RouteTableAssociation`": AliasInternalImport(
         "RouteTableAssociation", ServiceNameCatalog.ec2
     ),
-    ":py:class:`ec2.RouteTableAssociation`": InternalImport(
+    ":py:class:`ec2.RouteTableAssociation`": AliasInternalImport(
         "RouteTableAssociation", ServiceNameCatalog.ec2
     ),
-    ":py:class:`IAM.RolePolicy`": InternalImport("RolePolicy", ServiceNameCatalog.iam),
-    ":py:class:`IAM.CurrentUser`": InternalImport(
+    ":py:class:`IAM.RolePolicy`": AliasInternalImport(
+        "RolePolicy", ServiceNameCatalog.iam
+    ),
+    ":py:class:`IAM.CurrentUser`": AliasInternalImport(
         "CurrentUser", ServiceNameCatalog.iam
     ),
-    ":py:class:`EC2.InternetGateway`": InternalImport(
+    ":py:class:`EC2.InternetGateway`": AliasInternalImport(
         "InternetGateway", ServiceNameCatalog.ec2
     ),
-    ":py:class:`ec2.InternetGateway`": InternalImport(
+    ":py:class:`ec2.InternetGateway`": AliasInternalImport(
         "InternetGateway", ServiceNameCatalog.ec2
     ),
-    ":py:class:`sns.PlatformApplication`": InternalImport(
+    ":py:class:`sns.PlatformApplication`": AliasInternalImport(
         "PlatformApplication", ServiceNameCatalog.sns
     ),
-    ":py:class:`SNS.PlatformApplication`": InternalImport(
+    ":py:class:`SNS.PlatformApplication`": AliasInternalImport(
         "PlatformApplication", ServiceNameCatalog.sns
     ),
-    ":py:class:`CloudWatch.Metric`": InternalImport(
+    ":py:class:`CloudWatch.Metric`": AliasInternalImport(
         "Metric", ServiceNameCatalog.cloudwatch
     ),
-    ":py:class:`IAM.Group`": InternalImport("Group", ServiceNameCatalog.iam),
-    ":py:class:`OpsWorks.StackSummary`": InternalImport(
+    ":py:class:`IAM.Group`": AliasInternalImport("Group", ServiceNameCatalog.iam),
+    ":py:class:`OpsWorks.StackSummary`": AliasInternalImport(
         "StackSummary", ServiceNameCatalog.opsworks
     ),
-    ":py:class:`IAM.AssumeRolePolicy`": InternalImport(
+    ":py:class:`IAM.AssumeRolePolicy`": AliasInternalImport(
         "AssumeRolePolicy", ServiceNameCatalog.iam
     ),
-    ":py:class:`S3.Object`": InternalImport("Object", ServiceNameCatalog.s3),
-    ":py:class:`s3.Object`": InternalImport("Object", ServiceNameCatalog.s3),
-    ":py:class:`CloudFormation.StackResourceSummary`": InternalImport(
+    ":py:class:`S3.Object`": AliasInternalImport("Object", ServiceNameCatalog.s3),
+    ":py:class:`s3.Object`": AliasInternalImport("Object", ServiceNameCatalog.s3),
+    ":py:class:`CloudFormation.StackResourceSummary`": AliasInternalImport(
         "StackResourceSummary", ServiceNameCatalog.cloudformation
     ),
-    ":py:class:`S3.BucketWebsite`": InternalImport(
+    ":py:class:`S3.BucketWebsite`": AliasInternalImport(
         "BucketWebsite", ServiceNameCatalog.s3
     ),
-    ":py:class:`SQS.Queue`": InternalImport("Queue", ServiceNameCatalog.sqs),
-    ":py:class:`sqs.Queue`": InternalImport("Queue", ServiceNameCatalog.sqs),
-    ":py:class:`S3.MultipartUploadPart`": InternalImport(
+    ":py:class:`SQS.Queue`": AliasInternalImport("Queue", ServiceNameCatalog.sqs),
+    ":py:class:`sqs.Queue`": AliasInternalImport("Queue", ServiceNameCatalog.sqs),
+    ":py:class:`S3.MultipartUploadPart`": AliasInternalImport(
         "MultipartUploadPart", ServiceNameCatalog.s3
     ),
-    ":py:class:`ec2.KeyPairInfo`": InternalImport(
+    ":py:class:`ec2.KeyPairInfo`": AliasInternalImport(
         "KeyPairInfo", ServiceNameCatalog.ec2
     ),
-    ":py:class:`EC2.KeyPairInfo`": InternalImport(
+    ":py:class:`EC2.KeyPairInfo`": AliasInternalImport(
         "KeyPairInfo", ServiceNameCatalog.ec2
     ),
-    ":py:class:`iam.InstanceProfile`": InternalImport(
+    ":py:class:`iam.InstanceProfile`": AliasInternalImport(
         "InstanceProfile", ServiceNameCatalog.iam
     ),
-    ":py:class:`IAM.InstanceProfile`": InternalImport(
+    ":py:class:`IAM.InstanceProfile`": AliasInternalImport(
         "InstanceProfile", ServiceNameCatalog.iam
     ),
-    ":py:class:`IAM.AccessKey`": InternalImport("AccessKey", ServiceNameCatalog.iam),
-    ":py:class:`IAM.SamlProvider`": InternalImport(
+    ":py:class:`IAM.AccessKey`": AliasInternalImport(
+        "AccessKey", ServiceNameCatalog.iam
+    ),
+    ":py:class:`IAM.SamlProvider`": AliasInternalImport(
         "SamlProvider", ServiceNameCatalog.iam
     ),
-    ":py:class:`iam.SamlProvider`": InternalImport(
+    ":py:class:`iam.SamlProvider`": AliasInternalImport(
         "SamlProvider", ServiceNameCatalog.iam
     ),
-    ":py:class:`EC2.Tag`": InternalImport("Tag", ServiceNameCatalog.ec2),
-    ":py:class:`S3.BucketLifecycleConfiguration`": InternalImport(
+    ":py:class:`EC2.Tag`": AliasInternalImport("Tag", ServiceNameCatalog.ec2),
+    ":py:class:`S3.BucketLifecycleConfiguration`": AliasInternalImport(
         "BucketLifecycleConfiguration", ServiceNameCatalog.s3
     ),
-    ":py:class:`iam.AccountPasswordPolicy`": InternalImport(
+    ":py:class:`iam.AccountPasswordPolicy`": AliasInternalImport(
         "AccountPasswordPolicy", ServiceNameCatalog.iam
     ),
-    ":py:class:`IAM.AccountPasswordPolicy`": InternalImport(
+    ":py:class:`IAM.AccountPasswordPolicy`": AliasInternalImport(
         "AccountPasswordPolicy", ServiceNameCatalog.iam
     ),
-    ":py:class:`S3.BucketNotification`": InternalImport(
+    ":py:class:`S3.BucketNotification`": AliasInternalImport(
         "BucketNotification", ServiceNameCatalog.s3
     ),
-    ":py:class:`CloudFormation.StackResource`": InternalImport(
+    ":py:class:`CloudFormation.StackResource`": AliasInternalImport(
         "StackResource", ServiceNameCatalog.cloudformation
     ),
-    ":py:class:`EC2.Instance`": InternalImport("Instance", ServiceNameCatalog.ec2),
-    ":py:class:`S3.BucketTagging`": InternalImport(
+    ":py:class:`EC2.Instance`": AliasInternalImport("Instance", ServiceNameCatalog.ec2),
+    ":py:class:`S3.BucketTagging`": AliasInternalImport(
         "BucketTagging", ServiceNameCatalog.s3
     ),
-    ":py:class:`IAM.AccountSummary`": InternalImport(
+    ":py:class:`IAM.AccountSummary`": AliasInternalImport(
         "AccountSummary", ServiceNameCatalog.iam
     ),
-    ":py:class:`EC2.Volume`": InternalImport("Volume", ServiceNameCatalog.ec2),
-    ":py:class:`ec2.Volume`": InternalImport("Volume", ServiceNameCatalog.ec2),
-    ":py:class:`SQS.Message`": InternalImport("Message", ServiceNameCatalog.sqs),
-    ":py:class:`ec2.KeyPair`": InternalImport("KeyPair", ServiceNameCatalog.ec2),
-    ":py:class:`S3.BucketAcl`": InternalImport("BucketAcl", ServiceNameCatalog.s3),
-    ":py:class:`S3.BucketRequestPayment`": InternalImport(
+    ":py:class:`EC2.Volume`": AliasInternalImport("Volume", ServiceNameCatalog.ec2),
+    ":py:class:`ec2.Volume`": AliasInternalImport("Volume", ServiceNameCatalog.ec2),
+    ":py:class:`SQS.Message`": AliasInternalImport("Message", ServiceNameCatalog.sqs),
+    ":py:class:`ec2.KeyPair`": AliasInternalImport("KeyPair", ServiceNameCatalog.ec2),
+    ":py:class:`S3.BucketAcl`": AliasInternalImport("BucketAcl", ServiceNameCatalog.s3),
+    ":py:class:`S3.BucketRequestPayment`": AliasInternalImport(
         "BucketRequestPayment", ServiceNameCatalog.s3
     ),
-    ":py:class:`IAM.Role`": InternalImport("Role", ServiceNameCatalog.iam),
-    ":py:class:`iam.Role`": InternalImport("Role", ServiceNameCatalog.iam),
-    ":py:class:`IAM.VirtualMfaDevice`": InternalImport(
+    ":py:class:`IAM.Role`": AliasInternalImport("Role", ServiceNameCatalog.iam),
+    ":py:class:`iam.Role`": AliasInternalImport("Role", ServiceNameCatalog.iam),
+    ":py:class:`IAM.VirtualMfaDevice`": AliasInternalImport(
         "VirtualMfaDevice", ServiceNameCatalog.iam
     ),
-    ":py:class:`iam.VirtualMfaDevice`": InternalImport(
+    ":py:class:`iam.VirtualMfaDevice`": AliasInternalImport(
         "VirtualMfaDevice", ServiceNameCatalog.iam
     ),
-    ":py:class:`Glacier.Account`": InternalImport(
+    ":py:class:`Glacier.Account`": AliasInternalImport(
         "Account", ServiceNameCatalog.glacier
     ),
-    ":py:class:`S3.BucketLifecycle`": InternalImport(
+    ":py:class:`S3.BucketLifecycle`": AliasInternalImport(
         "BucketLifecycle", ServiceNameCatalog.s3
     ),
-    ":py:class:`EC2.DhcpOptions`": InternalImport(
+    ":py:class:`EC2.DhcpOptions`": AliasInternalImport(
         "DhcpOptions", ServiceNameCatalog.ec2
     ),
-    ":py:class:`ec2.DhcpOptions`": InternalImport(
+    ":py:class:`ec2.DhcpOptions`": AliasInternalImport(
         "DhcpOptions", ServiceNameCatalog.ec2
     ),
-    ":py:class:`S3.BucketLogging`": InternalImport(
+    ":py:class:`S3.BucketLogging`": AliasInternalImport(
         "BucketLogging", ServiceNameCatalog.s3
     ),
-    ":py:class:`Glacier.Notification`": InternalImport(
+    ":py:class:`Glacier.Notification`": AliasInternalImport(
         "Notification", ServiceNameCatalog.glacier
     ),
-    ":py:class:`EC2.ClassicAddress`": InternalImport(
+    ":py:class:`EC2.ClassicAddress`": AliasInternalImport(
         "ClassicAddress", ServiceNameCatalog.ec2
     ),
-    ":py:class:`s3.Bucket`": InternalImport("Bucket", ServiceNameCatalog.s3),
-    ":py:class:`S3.Bucket`": InternalImport("Bucket", ServiceNameCatalog.s3),
-    ":py:class:`EC2.VpcAddress`": InternalImport("VpcAddress", ServiceNameCatalog.ec2),
-    ":py:class:`S3.ObjectSummary`": InternalImport(
+    ":py:class:`s3.Bucket`": AliasInternalImport("Bucket", ServiceNameCatalog.s3),
+    ":py:class:`S3.Bucket`": AliasInternalImport("Bucket", ServiceNameCatalog.s3),
+    ":py:class:`EC2.VpcAddress`": AliasInternalImport(
+        "VpcAddress", ServiceNameCatalog.ec2
+    ),
+    ":py:class:`S3.ObjectSummary`": AliasInternalImport(
         "ObjectSummary", ServiceNameCatalog.s3
     ),
-    ":py:class:`EC2.NetworkInterfaceAssociation`": InternalImport(
+    ":py:class:`EC2.NetworkInterfaceAssociation`": AliasInternalImport(
         "NetworkInterfaceAssociation", ServiceNameCatalog.ec2
     ),
-    ":py:class:`S3.ObjectAcl`": InternalImport("ObjectAcl", ServiceNameCatalog.s3),
+    ":py:class:`S3.ObjectAcl`": AliasInternalImport("ObjectAcl", ServiceNameCatalog.s3),
     "list(:py:class:`sns.PlatformApplication`)": TypeSubscript(
-        Type.List, [InternalImport("PlatformApplication", ServiceNameCatalog.sns)]
+        Type.List, [AliasInternalImport("PlatformApplication", ServiceNameCatalog.sns)]
     ),
     "list(:py:class:`s3.ObjectSummary`)": TypeSubscript(
-        Type.List, [InternalImport("ObjectSummary", ServiceNameCatalog.s3)]
+        Type.List, [AliasInternalImport("ObjectSummary", ServiceNameCatalog.s3)]
     ),
     "botocore.waiter.SingleWaiterConfig": ExternalImport(
         source=ImportString("botocore", "waiter"), name="SingleWaiterConfig"

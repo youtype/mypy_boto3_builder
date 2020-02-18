@@ -84,7 +84,8 @@ def parse_service_resource(
         result.collections.append(collection)
         result.attributes.append(
             Attribute(
-                collection.attribute_name, InternalImport(collection.name, service_name)
+                collection.attribute_name,
+                InternalImport(collection.name, service_name, stringify=False,),
             )
         )
 

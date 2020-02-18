@@ -21,7 +21,8 @@ class InternalImport(FakeAnnotation):
         name -- Import name.
         service_name -- Service that import belongs to.
         module_name -- Service module name.
-        use_scope -- Add scope to type annotation and convert to string.
+        stringify -- Convert type annotation to string to avoid circular deps.
+        use_alias -- Use name alias.
     """
 
     def __init__(
@@ -29,12 +30,27 @@ class InternalImport(FakeAnnotation):
         name: str,
         service_name: Optional[ServiceName] = None,
         module_name: ServiceModuleName = ServiceModuleName.service_resource,
-        use_scope: bool = True,
+        stringify: bool = True,
+        use_alias: bool = False,
     ) -> None:
         self.name = name
         self.service_name = service_name
         self.module_name = module_name
-        self.use_scope = use_scope
+        self.stringify = stringify
+        self.use_alias = use_alias
+
+    @staticmethod
+    def get_alias(name: str) -> str:
+        """
+        Get import name alias.
+
+        Arguments:
+            name -- Original name.
+
+        Returns:
+            Name prefixed with underscore.
+        """
+        return f"_{name}"
 
     def render(self, parent_name: str = "") -> str:
         """
@@ -43,33 +59,48 @@ class InternalImport(FakeAnnotation):
         Returns:
             A string with a valid type annotation.
         """
-        if self.use_scope:
-            return f'"{self.scope}.{self.name}"'
+        result = self.name
+        if self.use_alias:
+            result = self.get_alias(self.name)
 
-        return self.name
+        if self.stringify:
+            return f'"{result}"'
 
-    @property
-    def scope(self) -> str:
-        return f"{self.module_name.name}_scope"
+        return result
 
     def get_import_record(self) -> ImportRecord:
         """
         Get import record required for using type annotation.
         """
-        if not self.use_scope:
-            return ImportRecord.empty()
-
-        if self.service_name is not None:
-            return ImportRecord(
-                source=ImportString(
-                    self.service_name.module_name, self.module_name.name
-                ),
-                alias=self.scope,
-            )
-        return InternalImportRecord(self.module_name, alias=self.scope)
+        return ImportRecord.empty()
 
     def copy(self) -> "InternalImport":
         """
         Create a copy of type annotation wrapper.
         """
-        return InternalImport(self.name, self.service_name, self.module_name)
+        return InternalImport(
+            self.name,
+            self.service_name,
+            self.module_name,
+            use_alias=self.use_alias,
+            stringify=self.stringify,
+        )
+
+
+class AliasInternalImport(InternalImport):
+    """
+    Internal import for safe local usages.
+
+    Arguments:
+        name -- Import name.
+        service_name -- Service that import belongs to.
+    """
+
+    def __init__(self, name: str, service_name: Optional[ServiceName] = None) -> None:
+        super().__init__(
+            name=name,
+            service_name=service_name,
+            module_name=ServiceModuleName.service_resource,
+            stringify=False,
+            use_alias=True,
+        )

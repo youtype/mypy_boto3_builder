@@ -28,6 +28,8 @@ class Collection(ClassRecord):
             )
         ]
     )
+    use_type_var: bool = True
+    use_alias: bool = True
 
     def get_types(self) -> Set[FakeAnnotation]:
         types = super().get_types()

@@ -156,6 +156,7 @@ class ServicePackage(Package):
             return []
 
         class_import_records = self.service_resource.get_required_import_records()
+        class_import_records.add(ImportRecord(ImportString("typing"), "TypeVar"))
         import_records: Set[ImportRecord] = set()
         for import_record in class_import_records:
             import_records.add(

@@ -84,7 +84,7 @@ def parse_client(
                 name=result.exceptions_class.name,
                 module_name=ServiceModuleName.client,
                 service_name=service_name,
-                use_scope=False,
+                stringify=False,
             ),
         )
     )
