@@ -50,7 +50,7 @@ class ClassRecord:
         )
 
     def render_alias(self) -> str:
-        return f"_{self.alias_name} = {self.name}"
+        return f"{self.alias_name} = {self.name}"
 
     def get_types(self) -> Set[FakeAnnotation]:
         types: Set[FakeAnnotation] = set()
