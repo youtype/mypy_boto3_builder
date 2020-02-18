@@ -5,5 +5,5 @@ examples/s3_example.py:31: error: Unexpected keyword argument "bucket" for "wait
 examples/s3_example.py:37: error: Missing positional argument "Key" in call to "get_object" of "S3Client"
 examples/s3_example.py:40: error: TypedDict "ClientGetObjectResponseTypeDef" has no key 'expiration'
 examples/s3_example.py:45: error: Extra key 'Allowedorigins' for TypedDict "ClientPutBucketCorsCORSConfigurationCORSRulesTypeDef"
-examples/s3_example.py:49: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
+examples/s3_example.py:50: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
 Found 8 errors in 1 file (checked 1 source file)
