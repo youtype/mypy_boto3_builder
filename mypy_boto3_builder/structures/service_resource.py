@@ -79,7 +79,7 @@ class ServiceResource(ClassRecord):
             A list of sub resources.
         """
         result: List[Resource] = []
-        all_names: Set[str] = set([i.name for i in self.sub_resources])
+        all_names: Set[str] = {i.name for i in self.sub_resources}
         added_names: Set[str] = set()
         sub_resources = list(self.sub_resources)
         max_tries = 1000
@@ -91,7 +91,7 @@ class ServiceResource(ClassRecord):
                 if isinstance(type_annotaion, InternalImport):
                     internal_imports.append(type_annotaion)
 
-            internal_import_names = set([i.name for i in internal_imports]) & all_names
+            internal_import_names = {i.name for i in internal_imports} & all_names
             if internal_import_names.issubset(added_names):
                 result.append(sub_resource)
                 added_names.add(sub_resource.name)
