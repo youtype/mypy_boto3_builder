@@ -510,7 +510,7 @@ class ShapeParser:
         return Method(name=method_name, arguments=arguments, return_type=return_type)
 
     def get_collection_filter_method(
-        self, name: str, collection: Collection, self_type: FakeAnnotation
+        self, name: str, collection: Collection, class_type: FakeAnnotation
     ) -> Method:
         """
         Get `filter` classmethod for Resource collection.
@@ -518,13 +518,13 @@ class ShapeParser:
         Arguments:
             name -- Collection record name.
             collection -- Boto3 Collection.
-            self_type -- Collection self type annotation.
+            class_type -- Collection class type annotation.
 
         Returns:
             Filter Method record.
         """
-        arguments: List[Argument] = [Argument("cls", self_type)]
-        result = Method("filter", arguments, self_type, decorators=[Type.classmethod],)
+        arguments: List[Argument] = [Argument("cls", class_type)]
+        result = Method("filter", arguments, class_type, decorators=[Type.classmethod],)
         if not collection.request:
             return result
 
@@ -542,7 +542,7 @@ class ShapeParser:
         return result
 
     def get_collection_batch_methods(
-        self, name: str, collection: Collection, self_type: FakeAnnotation
+        self, name: str, collection: Collection, class_type: FakeAnnotation
     ) -> List[Method]:
         """
         Get batch operations for Resource collection.
@@ -550,7 +550,7 @@ class ShapeParser:
         Arguments:
             name -- Collection record name.
             collection -- Boto3 Collection.
-            self_type -- Collection self type annotation.
+            class_type -- Collection self type annotation.
 
         Returns:
             List of Method records.
@@ -559,7 +559,7 @@ class ShapeParser:
         for batch_action in collection.batch_actions:
             method = Method(
                 batch_action.name,
-                [Argument("cls", self_type)],
+                [Argument("cls", class_type)],
                 Type.none,
                 decorators=[Type.classmethod],
             )

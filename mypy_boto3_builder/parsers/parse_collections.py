@@ -47,44 +47,45 @@ def parse_collections(
             type=InternalImport(collection.name),
         )
         self_type = InternalImport(collection_record.type_name, stringify=False)
+        class_type = TypeSubscript(Type.Type, [self_type])
 
         collection_record.methods.append(
             Method(
                 "all",
-                [Argument("cls", self_type)],
-                self_type,
+                [Argument("cls", class_type)],
+                class_type,
                 decorators=[Type.classmethod],
             )
         )
         filter_method = shape_parser.get_collection_filter_method(
-            collection_record.name, collection, self_type
+            collection_record.name, collection, class_type
         )
         collection_record.methods.append(filter_method)
         batch_methods = shape_parser.get_collection_batch_methods(
-            collection_record.name, collection, self_type
+            collection_record.name, collection, class_type
         )
         for batch_method in batch_methods:
             collection_record.methods.append(batch_method)
         collection_record.methods.append(
             Method(
                 "limit",
-                [Argument("cls", self_type), Argument("count", Type.int)],
-                self_type,
+                [Argument("cls", class_type), Argument("count", Type.int)],
+                class_type,
                 decorators=[Type.classmethod],
             )
         )
         collection_record.methods.append(
             Method(
                 "page_size",
-                [Argument("cls", self_type), Argument("count", Type.int)],
-                self_type,
+                [Argument("cls", class_type), Argument("count", Type.int)],
+                class_type,
                 decorators=[Type.classmethod],
             )
         )
         collection_record.methods.append(
             Method(
                 "pages",
-                [Argument("cls", self_type)],
+                [Argument("cls", class_type)],
                 TypeSubscript(Type.List, [InternalImport(name=object_class_name)],),
                 decorators=[Type.classmethod],
             )

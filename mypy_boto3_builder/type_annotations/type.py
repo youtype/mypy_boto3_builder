@@ -13,6 +13,7 @@ from typing import (
     overload,
     Generator,
     Set,
+    Type as TypingType,
 )
 
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
@@ -47,6 +48,7 @@ class Type:
     Ellipsis = TypeConstant(...)
     Generator = TypeAnnotation(Generator)
     Decimal = TypeClass(Decimal)
+    Type = TypeAnnotation(TypingType)
 
     ListAny = TypeSubscript(List, [Any])
     DictStrAny = TypeSubscript(Dict, [str, Any])

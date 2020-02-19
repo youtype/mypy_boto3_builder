@@ -5,15 +5,39 @@
 Wrapper for simple type annotations from this module.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](index.md#type-annotations) / InternalImport
+    - [AliasInternalImport](#aliasinternalimport)
     - [InternalImport](#internalimport)
         - [InternalImport().copy](#internalimportcopy)
+        - [InternalImport.get_alias](#internalimportget_alias)
         - [InternalImport().get_import_record](#internalimportget_import_record)
         - [InternalImport().render](#internalimportrender)
-        - [InternalImport().scope](#internalimportscope)
+
+## AliasInternalImport
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L86)
+
+```python
+class AliasInternalImport(InternalImport):
+    def __init__(
+        name: str,
+        service_name: Optional[ServiceName] = None,
+    ) -> None:
+```
+
+Internal import for safe local usages.
+
+#### Arguments
+
+- `name` - Import name.
+- `service_name` - Service that import belongs to.
+
+#### See also
+
+- [InternalImport](#internalimport)
 
 ## InternalImport
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L16)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L12)
 
 ```python
 class InternalImport(FakeAnnotation):
@@ -21,7 +45,8 @@ class InternalImport(FakeAnnotation):
         name: str,
         service_name: Optional[ServiceName] = None,
         module_name: ServiceModuleName = ServiceModuleName.service_resource,
-        use_scope: bool = True,
+        stringify: bool = True,
+        use_alias: bool = False,
     ) -> None:
 ```
 
@@ -32,7 +57,8 @@ Wrapper for simple type annotations from this module.
 - `name` - Import name.
 - `service_name` - Service that import belongs to.
 - `module_name` - Service module name.
-- `use_scope` - Add scope to type annotation and convert to string.
+- `stringify` - Convert type annotation to string to avoid circular deps.
+- `use_alias` - Use name alias.
 
 #### See also
 
@@ -41,7 +67,7 @@ Wrapper for simple type annotations from this module.
 
 ### InternalImport().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L71)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L73)
 
 ```python
 def copy() -> 'InternalImport':
@@ -49,9 +75,28 @@ def copy() -> 'InternalImport':
 
 Create a copy of type annotation wrapper.
 
+### InternalImport.get_alias
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L38)
+
+```python
+@staticmethod
+def get_alias(name: str) -> str:
+```
+
+Get import name alias.
+
+#### Arguments
+
+- `name` - Original name.
+
+#### Returns
+
+Name prefixed with underscore.
+
 ### InternalImport().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L55)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L67)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -65,7 +110,7 @@ Get import record required for using type annotation.
 
 ### InternalImport().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L39)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L51)
 
 ```python
 def render(parent_name: str = '') -> str:
@@ -76,12 +121,3 @@ Render type annotation to a valid Python code for local usage.
 #### Returns
 
 A string with a valid type annotation.
-
-### InternalImport().scope
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L51)
-
-```python
-@property
-def scope() -> str:
-```

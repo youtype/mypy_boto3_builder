@@ -25,7 +25,7 @@ Boto3 ServiceResource or Resource collection.
 
 ### Collection().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L32)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L34)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:

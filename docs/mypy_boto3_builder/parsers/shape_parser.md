@@ -56,12 +56,13 @@ A map of method name to Method.
 
 ### ShapeParser().get_collection_batch_methods
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/shape_parser.py#L546)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/shape_parser.py#L544)
 
 ```python
 def get_collection_batch_methods(
     name: str,
     collection: Collection,
+    class_type: FakeAnnotation,
 ) -> List[Method]:
 ```
 
@@ -71,17 +72,26 @@ Get batch operations for Resource collection.
 
 - `name` - Collection record name.
 - `collection` - Boto3 Collection.
+- `class_type` - Collection self type annotation.
 
 #### Returns
 
 List of Method records.
+
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
 
 ### ShapeParser().get_collection_filter_method
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/shape_parser.py#L512)
 
 ```python
-def get_collection_filter_method(name: str, collection: Collection) -> Method:
+def get_collection_filter_method(
+    name: str,
+    collection: Collection,
+    class_type: FakeAnnotation,
+) -> Method:
 ```
 
 Get `filter` classmethod for Resource collection.
@@ -90,6 +100,7 @@ Get `filter` classmethod for Resource collection.
 
 - `name` - Collection record name.
 - `collection` - Boto3 Collection.
+- `class_type` - Collection class type annotation.
 
 #### Returns
 
@@ -97,6 +108,7 @@ Filter Method record.
 
 #### See also
 
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
 - [Method](../structures/method.md#method)
 
 ### ShapeParser().get_paginate_method

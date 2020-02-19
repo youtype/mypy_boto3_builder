@@ -12,6 +12,7 @@ from typing import (
     overload,
     Generator,
     Set,
+    Type,
 )
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -38,6 +39,7 @@ class TypeAnnotation(FakeAnnotation):
         Generator,
         IO,
         overload,
+        Type,
     )
 
     type_name_map = (
@@ -51,6 +53,7 @@ class TypeAnnotation(FakeAnnotation):
         (Generator, "Generator",),
         (IO, "IO",),
         (overload, "overload",),
+        (Type, "Type",),
     )
 
     def __init__(self, wrapped_type: Any) -> None:
