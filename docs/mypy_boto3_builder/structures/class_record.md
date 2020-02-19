@@ -7,6 +7,7 @@ Base class for all structures that can be rendered to a class.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / ClassRecord
     - [ClassRecord](#classrecord)
         - [ClassRecord().alias_name](#classrecordalias_name)
+        - [ClassRecord().get_internal_imports](#classrecordget_internal_imports)
         - [ClassRecord().get_required_import_records](#classrecordget_required_import_records)
         - [ClassRecord().get_types](#classrecordget_types)
         - [ClassRecord().render_alias](#classrecordrender_alias)
@@ -31,6 +32,14 @@ Base class for all structures that can be rendered to a class.
 ```python
 @property
 def alias_name() -> str:
+```
+
+### ClassRecord().get_internal_imports
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L79)
+
+```python
+def get_internal_imports() -> Set[InternalImport]:
 ```
 
 ### ClassRecord().get_required_import_records
