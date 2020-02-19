@@ -79,15 +79,30 @@ class ServiceResource(ClassRecord):
             A list of sub resources.
         """
         result: List[Resource] = []
-        for sub_resource in self.sub_resources:
+        all_names: Set[str] = set([i.name for i in self.sub_resources])
+        added_names: Set[str] = set()
+        sub_resources = list(self.sub_resources)
+        max_tries = 1000
+        try_count = 0
+        while sub_resources:
+            sub_resource = sub_resources[0]
             internal_imports: List[InternalImport] = []
             for type_annotaion in sub_resource.get_types():
                 if isinstance(type_annotaion, InternalImport):
                     internal_imports.append(type_annotaion)
 
-            if not internal_imports:
-                result.insert(0, sub_resource)
-            else:
+            internal_import_names = set([i.name for i in internal_imports]) & all_names
+            if internal_import_names.issubset(added_names):
                 result.append(sub_resource)
+                added_names.add(sub_resource.name)
+                sub_resources = sub_resources[1:]
+                continue
+
+            try_count += 1
+            if try_count > max_tries:
+                raise ValueError(
+                    f"Cannot resolve circular dependency: {sub_resource.name}, {internal_import_names}"
+                )
+            sub_resources = sub_resources[1:] + [sub_resource]
 
         return result
