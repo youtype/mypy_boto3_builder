@@ -56,7 +56,10 @@ class ImportRecord:
             return f"from {self.source} import {self.name}"
         if self.alias:
             return f"import {self.source} as {self.alias}"
-        return f"import {self.source}"
+        if self.source:
+            return f"import {self.source}"
+
+        return ""
 
     def __str__(self) -> str:
         return self.render()
