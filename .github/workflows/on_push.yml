@@ -43,7 +43,7 @@ jobs:
         run: |
           python -m pip install boto3 botocore
           rm -rf mypy_boto3_output/*
-          scripts/build.sh --panic -s dynamodb ec2 emr s3 secretsmanager
+          scripts/build.sh --panic -s dynamodb ec2 emr s3 secretsmanager iam
       - name: Integration tests
         run: |
           scripts/integration.sh
