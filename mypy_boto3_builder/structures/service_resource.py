@@ -82,15 +82,11 @@ class ServiceResource(ClassRecord):
         all_names: Set[str] = {i.name for i in self.sub_resources}
         added_names: Set[str] = set()
         sub_resources = list(self.sub_resources)
-        max_tries = 1000
+        max_tries = 200
         try_count = 0
         while sub_resources:
             sub_resource = sub_resources[0]
-            internal_imports: List[InternalImport] = []
-            for type_annotaion in sub_resource.get_types():
-                if isinstance(type_annotaion, InternalImport):
-                    internal_imports.append(type_annotaion)
-
+            internal_imports = sub_resource.get_internal_imports()
             internal_import_names = {i.name for i in internal_imports} & all_names
             if internal_import_names.issubset(added_names):
                 result.append(sub_resource)
@@ -100,9 +96,14 @@ class ServiceResource(ClassRecord):
 
             try_count += 1
             if try_count > max_tries:
-                raise ValueError(
-                    f"Cannot resolve circular dependency: {sub_resource.name}, {internal_import_names}"
-                )
+                break
             sub_resources = sub_resources[1:] + [sub_resource]
+
+        for sub_resource in sub_resources:
+            internal_imports = sub_resource.get_internal_imports()
+            for internal_import in internal_imports:
+                internal_import.stringify = True
+
+            result.append(sub_resource)
 
         return result
