@@ -115,7 +115,7 @@ class TypeTypedDict(FakeAnnotation):
         """
         Render class-based definition for debugging.
         """
-        children = "\n".join([f"     {i.render()}" for i in self.children])
+        children = "\n".join([f"    {i.render()}" for i in self.children])
         return f"class {self.name}:\n{children}"
 
     def has_optional(self) -> bool:
