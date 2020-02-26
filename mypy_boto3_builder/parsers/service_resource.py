@@ -56,10 +56,10 @@ def parse_service_resource(
     )
 
     public_methods = get_public_methods(service_resource)
-    shape_methods_map = shape_parser.get_service_resource_method_map()
+    shape_method_map = shape_parser.get_service_resource_method_map()
     for method_name, public_method in public_methods.items():
-        if method_name in shape_methods_map:
-            method = shape_methods_map[method_name]
+        if method_name in shape_method_map:
+            method = shape_method_map[method_name]
         else:
             method = parse_method(
                 "ServiceResource", method_name, public_method, service_name

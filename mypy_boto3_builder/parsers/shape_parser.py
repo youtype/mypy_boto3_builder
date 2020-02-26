@@ -265,7 +265,6 @@ class ShapeParser:
                 name=method_name, arguments=arguments, return_type=return_type
             )
             result[method.name] = method
-
         return result
 
     @staticmethod

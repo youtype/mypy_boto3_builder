@@ -41,11 +41,11 @@ def parse_resource(
             f"({service_name.doc_link}.ServiceResource.{name})"
         ),
     )
-    shape_methods_map = shape_parser.get_resource_method_map(name)
+    shape_method_map = shape_parser.get_resource_method_map(name)
     public_methods = get_resource_public_methods(resource.__class__)
     for method_name, public_method in public_methods.items():
-        if method_name in shape_methods_map:
-            method = shape_methods_map[method_name]
+        if method_name in shape_method_map:
+            method = shape_method_map[method_name]
         else:
             method = parse_method(name, method_name, public_method, service_name)
         method.docstring = (

@@ -55,7 +55,8 @@ def parse_client(
     for method_name, public_method in public_methods.items():
         if method_name in shape_method_map:
             method = shape_method_map[method_name]
-        method = parse_method("Client", method_name, public_method, service_name)
+        else:
+            method = parse_method("Client", method_name, public_method, service_name)
         method.docstring = (
             f"[Client.{method_name} documentation]"
             f"({service_name.doc_link}.Client.{method_name})"
