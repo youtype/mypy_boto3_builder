@@ -22,7 +22,13 @@ jobs:
         id: vars
         run: |
           echo "GitHub ref ${GITHUB_REF}"
-          VERSION=`echo "${GITHUB_REF}" | cut -f 3 -d "/" | cut -f 1 -d "-"`
+          VERSION_TAG=`echo "${GITHUB_REF}" | cut -f 3 -d "/"`
+          if [[ "$VERSION_TAG" != *"-release" ]]; then
+            echo "Release tag should end with '-release', e.g. '1.2.3-rc1-release'"
+            echo "Stopping now."
+            exit 1
+          fi
+          VERSION=`echo "$VERSION_TAG" | sed "s/-release//"`
           LAST_PACKAGE_VERSION=`pip show boto3-stubs | grep 'Version:' | grep -Po '\d+\.\d+\.\d+(\.\d+)?'`
           PACKAGE_VERSION=`echo "${LAST_PACKAGE_VERSION}" | awk 'BEGIN{FS=OFS="."}{$4=$4+1; print $0;}'`
           BOTO3_VERSION=`echo "${PACKAGE_VERSION}" | awk 'BEGIN{FS=OFS="."}{print$1, $2, $3;}'`
