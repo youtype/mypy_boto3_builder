@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+    paths:
+      - mypy_boto3_builder/**
+      - tests/**
 
 jobs:
   build:
