@@ -1,0 +1,8 @@
+site_name: "Mypy Boto3 Builder"
+repo_url: "https://github.com/vemel/mypy_boto3_builder/"
+site_dir: "site"
+docs_dir: "docs"
+
+theme:
+  name: readthedocs
+  include_sidebar: true

@@ -1,0 +1,48 @@
+name: Update docs
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.8"
+      - name: Install dependencies
+        run: |
+          python -m pip install -U handsdown
+      - name: Build docs
+        run: |
+          ./scripts/docs.sh -d
+      - name: Collect changes
+        id: changes
+        run: |
+          HAS_CHANGES=`git diff --stat | grep docs || true`
+          GITHUB_SHA_SHORT=`echo "${GITHUB_SHA}" | cut -c -4`
+          BRANCH_NAME="hotfix/update-docs-${GITHUB_SHA_SHORT}"
+          echo "HAS_CHANGES: ${HAS_CHANGES}"
+          echo "BRANCH_NAME: ${BRANCH_NAME}"
+          echo "##[set-output name=has_changes;]$(echo ${HAS_CHANGES})"
+          echo "##[set-output name=branch_name;]$(echo ${BRANCH_NAME})"
+      - name: Create Pull Request
+        id: cpr
+        if: steps.changes.outputs.has_changes
+        uses: peter-evans/create-pull-request@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ steps.changes.outputs.branch_name }}
+          commit-message: Auto update docs
+          labels: documentation, bot
+          reviewers: vemel
+          title: "[Actions] Auto update docs"
+          body: Auto-generated docs were updated to reflect latest changes.
+      - name: Check outputs
+        if: steps.changes.outputs.has_changes
+        run: |
+          echo "Created a PR #${{ steps.cpr.outputs.pr_number }}"
