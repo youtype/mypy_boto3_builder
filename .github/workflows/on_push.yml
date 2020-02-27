@@ -10,7 +10,7 @@ jobs:
       matrix:
         python-version: [3.6, 3.7, 3.8]
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:
@@ -30,11 +30,6 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: |
           pytest
-          PYTHON_VER=`python -V | grep -Po '\d+\.+\d+'`
-          if [[ "$PYTHON_VER" == "3.8" ]]; then
-            pytest --cov-report term --cov mypy_boto3_builder
-            codecov
-          fi
       - name: Build packages
         env:
           BUILD_VERSION: ${{ steps.vars.outputs.build_version }}
