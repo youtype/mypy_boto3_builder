@@ -26,6 +26,7 @@ def s3_resource_example() -> None:
     for bucket in buckets:
         for multipart_upload in bucket.multipart_uploads:
             multipart_upload.abort(RequestPayer="none")
+            multipart_upload.Part("1")
         bucket.delete(wrong_arg=False)
 
 

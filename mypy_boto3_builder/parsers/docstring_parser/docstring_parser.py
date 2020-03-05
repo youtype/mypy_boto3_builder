@@ -51,16 +51,12 @@ class DocstringParser:
         self.method_name = method_name
         self.logger = get_logger()
         self.arguments_map: Dict[str, Argument] = {
-            f"{a.prefix}{a.name}": a for a in arguments
+            a.name: a for a in arguments if not a.prefix
         }
 
     def _find_argument_or_append(self, name: str) -> Argument:
         if name in self.arguments_map:
             return self.arguments_map[name]
-
-        for key in list(self.arguments_map):
-            if key.startswith("*"):
-                del self.arguments_map[key]
 
         self.arguments_map[name] = Argument(name, Type.Any, Type.none)
         return self.arguments_map[name]

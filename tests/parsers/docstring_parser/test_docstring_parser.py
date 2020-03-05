@@ -18,9 +18,7 @@ class DocstringParserTestCase(unittest.TestCase):
         self.assertEqual(docstring_parser.prefix, "ClassNameMethodName")
         self.assertEqual(docstring_parser.class_name, "ClassName")
         self.assertEqual(docstring_parser.method_name, "method_name")
-        self.assertEqual(
-            docstring_parser.arguments_map, {"*argument_name": argument_mock,}
-        )
+        self.assertEqual(docstring_parser.arguments_map, {})
 
     def test_get_return_type(self) -> None:
         input_string = """

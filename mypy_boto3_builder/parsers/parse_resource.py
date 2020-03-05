@@ -88,9 +88,6 @@ def get_resource_public_methods(
         if name.startswith("_"):
             continue
 
-        if name[0].isupper():
-            continue
-
         if not is_resource_action(member):
             continue
 
