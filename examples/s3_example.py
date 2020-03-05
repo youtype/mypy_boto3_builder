@@ -21,6 +21,11 @@ def s3_resource_example() -> None:
     # (mypy) error: Extra key 'key' for TypedDict "S3CopySource"
     bucket.copy({"Bucket": "bucket", "key": "my-txt"}, "new-my-txt")
 
+    buckets = resource.buckets.all()
+
+    for bucket in buckets:
+        bucket.delete(wrong_arg=False)
+
 
 def s3_client_example() -> None:
     client: S3Client = boto3.client("s3")

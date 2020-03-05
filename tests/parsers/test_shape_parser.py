@@ -99,8 +99,8 @@ class ShapeParserTestCase(unittest.TestCase):
             "MyCollection", collection_mock, "self_type"
         )
         self.assertEqual(result.name, "filter")
-        self.assertEqual(len(result.decorators), 1)
+        self.assertEqual(len(result.decorators), 0)
         self.assertEqual(len(result.arguments), 3)
-        self.assertEqual(result.arguments[0].name, "cls")
+        self.assertEqual(result.arguments[0].name, "self")
         self.assertEqual(result.arguments[1].name, "optional_arg")
         self.assertEqual(result.arguments[2].name, "InputToken")

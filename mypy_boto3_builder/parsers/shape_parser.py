@@ -513,7 +513,7 @@ class ShapeParser:
         return Method(name=method_name, arguments=arguments, return_type=return_type)
 
     def get_collection_filter_method(
-        self, name: str, collection: Collection, class_type: FakeAnnotation
+        self, name: str, collection: Collection, self_type: FakeAnnotation
     ) -> Method:
         """
         Get `filter` classmethod for Resource collection.
@@ -526,8 +526,8 @@ class ShapeParser:
         Returns:
             Filter Method record.
         """
-        arguments: List[Argument] = [Argument("cls", class_type)]
-        result = Method("filter", arguments, class_type, decorators=[Type.classmethod],)
+        arguments: List[Argument] = [Argument("self", None)]
+        result = Method("filter", arguments, self_type)
         if not collection.request:
             return result
 
@@ -545,7 +545,7 @@ class ShapeParser:
         return result
 
     def get_collection_batch_methods(
-        self, name: str, collection: Collection, class_type: FakeAnnotation
+        self, name: str, collection: Collection
     ) -> List[Method]:
         """
         Get batch operations for Resource collection.
@@ -560,12 +560,7 @@ class ShapeParser:
         """
         result = []
         for batch_action in collection.batch_actions:
-            method = Method(
-                batch_action.name,
-                [Argument("cls", class_type)],
-                Type.none,
-                decorators=[Type.classmethod],
-            )
+            method = Method(batch_action.name, [Argument("self", None)], Type.none)
             result.append(method)
             if batch_action.request:
                 operation_name = batch_action.request.operation

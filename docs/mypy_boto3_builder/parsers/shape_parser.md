@@ -62,7 +62,6 @@ A map of method name to Method.
 def get_collection_batch_methods(
     name: str,
     collection: Collection,
-    class_type: FakeAnnotation,
 ) -> List[Method]:
 ```
 
@@ -78,10 +77,6 @@ Get batch operations for Resource collection.
 
 List of Method records.
 
-#### See also
-
-- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
-
 ### ShapeParser().get_collection_filter_method
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/shape_parser.py#L515)
@@ -90,7 +85,7 @@ List of Method records.
 def get_collection_filter_method(
     name: str,
     collection: Collection,
-    class_type: FakeAnnotation,
+    self_type: FakeAnnotation,
 ) -> Method:
 ```
 

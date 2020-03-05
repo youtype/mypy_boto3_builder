@@ -13,6 +13,7 @@ from typing import (
     overload,
     Generator,
     Set,
+    Iterator,
     Type as TypingType,
 )
 
@@ -49,6 +50,7 @@ class Type:
     Generator = TypeAnnotation(Generator)
     Decimal = TypeClass(Decimal)
     Type = TypeAnnotation(TypingType)
+    Iterator = TypeAnnotation(Iterator)
 
     ListAny = TypeSubscript(List, [Any])
     DictStrAny = TypeSubscript(Dict, [str, Any])

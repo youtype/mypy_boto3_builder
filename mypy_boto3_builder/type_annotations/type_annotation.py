@@ -11,6 +11,7 @@ from typing import (
     IO,
     overload,
     Generator,
+    Iterator,
     Set,
     Type,
 )
@@ -37,6 +38,7 @@ class TypeAnnotation(FakeAnnotation):
         Optional,
         Callable,
         Generator,
+        Iterator,
         IO,
         overload,
         Type,
@@ -51,6 +53,7 @@ class TypeAnnotation(FakeAnnotation):
         (Optional, "Optional",),
         (Callable, "Callable",),
         (Generator, "Generator",),
+        (Iterator, "Iterator",),
         (IO, "IO",),
         (overload, "overload",),
         (Type, "Type",),

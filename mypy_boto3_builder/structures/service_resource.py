@@ -86,7 +86,13 @@ class ServiceResource(ClassRecord):
         while sub_resources:
             sub_resource = sub_resources[0]
             internal_imports = sub_resource.get_internal_imports()
-            internal_import_names = {i.name for i in internal_imports} & all_names
+            for internal_import in internal_imports:
+                if internal_import.name == sub_resource.name:
+                    internal_import.stringify = True
+                    internal_import.use_alias = False
+            internal_import_names = {
+                i.name for i in internal_imports if not i.stringify
+            } & all_names
             if internal_import_names.issubset(added_names):
                 result.append(sub_resource)
                 added_names.add(sub_resource.name)
@@ -102,6 +108,7 @@ class ServiceResource(ClassRecord):
             internal_imports = sub_resource.get_internal_imports()
             for internal_import in internal_imports:
                 internal_import.stringify = True
+                internal_import.use_alias = False
 
             result.append(sub_resource)
 

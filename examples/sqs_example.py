@@ -13,7 +13,7 @@ def sqs_resource_example() -> None:
     queue = resource.Queue("my_queue")
     message_list = queue.receive_messages()
     for message in message_list:
-        message.delete()
+        message.delete(test=True)
 
 
 def main() -> None:
