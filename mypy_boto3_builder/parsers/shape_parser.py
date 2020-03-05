@@ -377,13 +377,11 @@ class ShapeParser:
         return_type: FakeAnnotation = Type.none
         if operation_shape.output_shape is not None:
             return_type = TypeSubscript(
-                Type.Generator,
+                Type.Iterator,
                 [
                     self._parse_return_type(
                         "Paginator", "paginate", operation_shape.output_shape
                     ),
-                    Type.none,
-                    Type.none,
                 ],
             )
 
