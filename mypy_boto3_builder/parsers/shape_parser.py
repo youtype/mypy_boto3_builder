@@ -485,6 +485,9 @@ class ShapeParser:
             return_type = self._parse_return_type(
                 resource_name, method_name, Shape("resource", action_shape["resource"])
             )
+            path = action_shape["resource"].get("path", "")
+            if path.endswith("[]"):
+                return_type = TypeSubscript(Type.List, [return_type])
 
         if "request" in action_shape:
             operation_name = action_shape["request"]["operation"]
@@ -503,8 +506,9 @@ class ShapeParser:
                 ):
                     if argument.name not in skip_argument_names:
                         arguments.append(argument)
-            if operation_shape.output_shape is not None:
-                return_type = self._parse_shape(operation_shape.output_shape)
+            if operation_shape.output_shape is not None and return_type is Type.none:
+                operation_return_type = self._parse_shape(operation_shape.output_shape)
+                return_type = operation_return_type
 
         return Method(name=method_name, arguments=arguments, return_type=return_type)
 

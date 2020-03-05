@@ -31,7 +31,7 @@ jobs:
           BOTOCORE_VERSION: ${{ steps.vars.outputs.botocore_version }}
         run: |
           rm -rf mypy_boto3_output/*
-          scripts/build.sh --panic -s dynamodb ec2 emr s3 secretsmanager iam
+          scripts/build.sh --panic -s dynamodb ec2 emr s3 secretsmanager iam sqs
       - name: Integration tests
         run: |
           scripts/integration.sh
