@@ -76,10 +76,12 @@ class ClassRecord:
 
         return result
 
-    def get_internal_imports(self) -> Set[InternalImport]:
-        result: Set[InternalImport] = set()
-        for type_annotation in self.get_types():
-            if isinstance(type_annotation, InternalImport):
-                result.add(type_annotation)
+    def get_internal_imports(self) -> List[InternalImport]:
+        result: List[InternalImport] = []
+        for method in self.methods:
+            for type_annotation in method.get_types():
+                if not isinstance(type_annotation, InternalImport):
+                    continue
+                result.append(type_annotation)
 
         return result

@@ -2,7 +2,7 @@
 Boto3 ServiceResource.
 """
 from dataclasses import dataclass, field
-from typing import List, Set, Optional
+from typing import List, Set, Optional, Tuple
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
@@ -10,6 +10,7 @@ from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.resource import Resource
@@ -81,35 +82,24 @@ class ServiceResource(ClassRecord):
         all_names: Set[str] = {i.name for i in self.sub_resources}
         added_names: Set[str] = set()
         sub_resources = list(self.sub_resources)
-        max_tries = 200
-        try_count = 0
-        while sub_resources:
-            sub_resource = sub_resources[0]
-            internal_imports = sub_resource.get_internal_imports()
-            for internal_import in internal_imports:
-                if internal_import.name == sub_resource.name:
-                    internal_import.stringify = True
-                    internal_import.use_alias = False
-            internal_import_names = {
-                i.name for i in internal_imports if not i.stringify
-            } & all_names
-            if internal_import_names.issubset(added_names):
-                result.append(sub_resource)
-                added_names.add(sub_resource.name)
-                sub_resources = sub_resources[1:]
-                continue
-
-            try_count += 1
-            if try_count > max_tries:
-                break
-            sub_resources = sub_resources[1:] + [sub_resource]
-
+        sub_resources_list: List[Tuple[Resource, List[InternalImport]]] = []
         for sub_resource in sub_resources:
             internal_imports = sub_resource.get_internal_imports()
+            sub_resources_list.append((sub_resource, internal_imports))
+
+        sub_resources_list.sort(key=lambda x: len(x[1]))
+        for sub_resource, internal_imports in sub_resources_list:
             for internal_import in internal_imports:
+                if internal_import.name not in all_names:
+                    continue
+                if internal_import.name in added_names:
+                    continue
+
                 internal_import.stringify = True
                 internal_import.use_alias = False
+                print("stringified", sub_resource.name, internal_import.name)
 
             result.append(sub_resource)
+            added_names.add(sub_resource.name)
 
         return result

@@ -39,7 +39,7 @@ def alias_name() -> str:
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L79)
 
 ```python
-def get_internal_imports() -> Set[InternalImport]:
+def get_internal_imports() -> List[InternalImport]:
 ```
 
 ### ClassRecord().get_required_import_records
