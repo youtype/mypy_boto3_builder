@@ -97,7 +97,6 @@ class ServiceResource(ClassRecord):
 
                 internal_import.stringify = True
                 internal_import.use_alias = False
-                print("stringified", sub_resource.name, internal_import.name)
 
             result.append(sub_resource)
             added_names.add(sub_resource.name)

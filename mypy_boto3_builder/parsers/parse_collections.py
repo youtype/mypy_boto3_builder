@@ -46,7 +46,7 @@ def parse_collections(
             ),
             type=InternalImport(collection.name),
         )
-        self_type = InternalImport(collection_record.type_name, stringify=False)
+        self_type = InternalImport(collection_record.name, stringify=True)
 
         collection_record.methods.append(
             Method("all", [Argument("self", None)], self_type)

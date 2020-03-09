@@ -23,6 +23,9 @@ def s3_resource_example() -> None:
 
     buckets = resource.buckets.all()
 
+    objects = bucket.objects.filter(Prefix="prefix")
+    pages = [i for i in objects.pages(all=True)]
+
     for bucket in buckets:
         for multipart_upload in bucket.multipart_uploads:
             multipart_upload.abort(RequestPayer="none")

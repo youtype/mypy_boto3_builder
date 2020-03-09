@@ -11,8 +11,6 @@ Base class for all structures that can be rendered to a class.
         - [ClassRecord().get_required_import_records](#classrecordget_required_import_records)
         - [ClassRecord().get_types](#classrecordget_types)
         - [ClassRecord().render_alias](#classrecordrender_alias)
-        - [ClassRecord().render_type_var](#classrecordrender_type_var)
-        - [ClassRecord().type_name](#classrecordtype_name)
 
 ## ClassRecord
 
@@ -27,7 +25,7 @@ Base class for all structures that can be rendered to a class.
 
 ### ClassRecord().alias_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L37)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L28)
 
 ```python
 @property
@@ -36,7 +34,7 @@ def alias_name() -> str:
 
 ### ClassRecord().get_internal_imports
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L79)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L61)
 
 ```python
 def get_internal_imports() -> List[InternalImport]:
@@ -44,7 +42,7 @@ def get_internal_imports() -> List[InternalImport]:
 
 ### ClassRecord().get_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L65)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L47)
 
 ```python
 def get_required_import_records() -> Set[ImportRecord]:
@@ -52,7 +50,7 @@ def get_required_import_records() -> Set[ImportRecord]:
 
 ### ClassRecord().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L55)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L37)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
@@ -60,25 +58,8 @@ def get_types() -> Set[FakeAnnotation]:
 
 ### ClassRecord().render_alias
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L52)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L34)
 
 ```python
 def render_alias() -> str:
-```
-
-### ClassRecord().render_type_var
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L43)
-
-```python
-def render_type_var() -> str:
-```
-
-### ClassRecord().type_name
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L29)
-
-```python
-@property
-def type_name() -> str:
 ```

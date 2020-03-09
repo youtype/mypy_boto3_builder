@@ -34,8 +34,6 @@ __all__ = (
 )
 
 {% for collection in package.service_resource.get_collections() -%}
-    {{ collection.render_type_var() }}
-    {{ "\n\n" -}}
     {% with class=collection -%}
         {% include "common/class.py.jinja2" with context -%}
     {% endwith -%}
@@ -45,8 +43,6 @@ __all__ = (
 {{ "\n\n" -}}
 
 {% for sub_resource in package.service_resource.get_sub_resources() -%}
-    {{ sub_resource.render_type_var() }}
-    {{ "\n\n" -}}
     {% with class=sub_resource -%}
         {% include "common/class.py.jinja2" with context -%}
     {% endwith -%}
