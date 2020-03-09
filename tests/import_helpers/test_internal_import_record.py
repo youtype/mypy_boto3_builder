@@ -1,4 +1,3 @@
-import unittest
 from unittest.mock import patch, MagicMock
 
 from mypy_boto3_builder.import_helpers.internal_import_record import (
@@ -7,14 +6,14 @@ from mypy_boto3_builder.import_helpers.internal_import_record import (
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 
-class ImportRecordTestCase(unittest.TestCase):
+class TestImportRecord:
     def test_init(self) -> None:
         service_name_mock = MagicMock()
         service_name_mock.name = "service_name"
         result = InternalImportRecord(service_name_mock, "name", "alias")
-        self.assertEqual(result.source, ImportString("service_name"))
-        self.assertEqual(result.name, "name")
-        self.assertEqual(result.alias, "alias")
+        assert result.source == ImportString("service_name")
+        assert result.name == "name"
+        assert result.alias == "alias"
 
     @patch("mypy_boto3_builder.import_helpers.internal_import_record.ImportString")
     @patch("mypy_boto3_builder.import_helpers.internal_import_record.ImportRecord")
@@ -25,11 +24,11 @@ class ImportRecordTestCase(unittest.TestCase):
         service_name_mock.name = "service_name"
         ImportRecordMock.return_value = "ImportRecord"
         ImportStringMock().__add__.return_value = "module_name.service_name"
-        self.assertEqual(
+        assert (
             InternalImportRecord(service_name_mock, "name", "alias").get_external(
                 "module_name"
-            ),
-            "ImportRecord",
+            )
+            == "ImportRecord"
         )
         ImportStringMock.assert_called_with("module_name")
         ImportRecordMock.assert_called_with(

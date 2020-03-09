@@ -1,11 +1,10 @@
-import unittest
 from unittest.mock import MagicMock
 
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.parsers.docstring_parser.docstring_parser import DocstringParser
 
 
-class DocstringParserTestCase(unittest.TestCase):
+class TestDocstringParser:
     def test_init(self) -> None:
         argument_mock = MagicMock()
         argument_mock.name = "argument_name"
@@ -14,11 +13,11 @@ class DocstringParserTestCase(unittest.TestCase):
         docstring_parser = DocstringParser(
             service_name_mock, "ClassName", "method_name", [argument_mock]
         )
-        self.assertEqual(docstring_parser.service_name, service_name_mock)
-        self.assertEqual(docstring_parser.prefix, "ClassNameMethodName")
-        self.assertEqual(docstring_parser.class_name, "ClassName")
-        self.assertEqual(docstring_parser.method_name, "method_name")
-        self.assertEqual(docstring_parser.arguments_map, {})
+        assert docstring_parser.service_name == service_name_mock
+        assert docstring_parser.prefix == "ClassNameMethodName"
+        assert docstring_parser.class_name == "ClassName"
+        assert docstring_parser.method_name == "method_name"
+        assert docstring_parser.arguments_map == {}
 
     def test_get_return_type(self) -> None:
         input_string = """
@@ -33,7 +32,7 @@ class DocstringParserTestCase(unittest.TestCase):
             service_name_mock, "ClassName", "method_name", []
         )
         result = docstring_parser.get_return_type(input_string)
-        self.assertEqual(result.name, "Bucket")
+        assert result.name == "Bucket"
 
         input_string = """
         :type name: string
@@ -59,30 +58,30 @@ class DocstringParserTestCase(unittest.TestCase):
         """
 
         result = docstring_parser.get_return_type(input_string)
-        self.assertEqual(result.name, "ClassNameMethodNameResponseTypeDef")
+        assert result.name == "ClassNameMethodNameResponseTypeDef"
 
         input_string = ":returns: None"
         result = docstring_parser.get_return_type(input_string)
-        self.assertEqual(result, Type.none)
+        assert result == Type.none
 
         input_string = ":returns: Always returns False"
         result = docstring_parser.get_return_type(input_string)
-        self.assertEqual(result, Type.bool)
+        assert result == Type.bool
 
         input_string = ":returns: unknown"
         result = docstring_parser.get_return_type(input_string)
-        self.assertEqual(result, Type.none)
+        assert result == Type.none
 
         input_string = """
         :returninvalid
         :returns: real
         """
         result = docstring_parser.get_return_type(input_string)
-        self.assertEqual(result, Type.none)
+        assert result == Type.none
 
         input_string = ""
         result = docstring_parser.get_return_type(input_string)
-        self.assertEqual(result, Type.none)
+        assert result == Type.none
 
     def test_get_arguments(self) -> None:
         input_string = """
@@ -94,6 +93,6 @@ class DocstringParserTestCase(unittest.TestCase):
             service_name_mock, "ClassName", "method_name", []
         )
         result = docstring_parser.get_arguments(input_string)
-        self.assertEqual(len(result), 1)
-        self.assertEqual(result[0].name, "name")
-        self.assertEqual(result[0].type, Type.str)
+        assert len(result) == 1
+        assert result[0].name == "name"
+        assert result[0].type == Type.str

@@ -1,11 +1,10 @@
-import unittest
 from pathlib import Path
 from unittest.mock import patch, MagicMock
 
 from mypy_boto3_builder.writers.boto3_stubs_package import write_boto3_stubs_package
 
 
-class Boto3StubsPackageTestCase(unittest.TestCase):
+class TestBoto3StubsPackage:
     @patch("mypy_boto3_builder.writers.boto3_stubs_package.shutil")
     @patch("mypy_boto3_builder.writers.boto3_stubs_package.filecmp")
     @patch("mypy_boto3_builder.writers.boto3_stubs_package.BOTO3_STUBS_STATIC_PATH")
@@ -26,9 +25,9 @@ class Boto3StubsPackageTestCase(unittest.TestCase):
             static_path_mock,
         ]
         output_path_mock.__truediv__.return_value = output_path_mock
-        self.assertEqual(
-            write_boto3_stubs_package(package_mock, output_path_mock),
-            [output_path_mock] * 7,
+        assert (
+            write_boto3_stubs_package(package_mock, output_path_mock)
+            == [output_path_mock] * 7
         )
         render_jinja2_template_mock.assert_called_with(
             Path("boto3-stubs/boto3-stubs/version.py.jinja2"), package=package_mock,
@@ -38,8 +37,8 @@ class Boto3StubsPackageTestCase(unittest.TestCase):
         )
 
         filecmp_mock.cmp.return_value = False
-        self.assertEqual(
-            write_boto3_stubs_package(package_mock, output_path_mock),
-            [output_path_mock] * 8,
+        assert (
+            write_boto3_stubs_package(package_mock, output_path_mock)
+            == [output_path_mock] * 8
         )
         shutil_mock.copy.assert_called()

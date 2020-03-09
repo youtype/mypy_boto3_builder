@@ -1,4 +1,3 @@
-import unittest
 from unittest.mock import patch, MagicMock
 
 from botocore.exceptions import UnknownServiceError
@@ -7,12 +6,12 @@ from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 
 
 # pylint: disable=protected-access
-class ShapeParserTestCase(unittest.TestCase):
+class TestShapeParser:
     def test_init(self) -> None:
         session_mock = MagicMock()
         service_name_mock = MagicMock()
         shape_parser = ShapeParser(session_mock, service_name_mock)
-        self.assertEqual(shape_parser.service_name, service_name_mock)
+        assert shape_parser.service_name == service_name_mock
 
         session_mock._loader.load_service_model.side_effect = UnknownServiceError(
             service_name="service_name", known_service_names="known_service_names",
@@ -26,13 +25,13 @@ class ShapeParserTestCase(unittest.TestCase):
             "pagination": ["c", "a", "b"]
         }
         shape_parser = ShapeParser(session_mock, service_name_mock)
-        self.assertEqual(shape_parser.get_paginator_names(), ["a", "b", "c"])
+        assert shape_parser.get_paginator_names() == ["a", "b", "c"]
 
         session_mock._loader.load_service_model.return_value = {
             "paginations": ["c", "a", "b"]
         }
         shape_parser = ShapeParser(session_mock, service_name_mock)
-        self.assertEqual(shape_parser.get_paginator_names(), [])
+        assert shape_parser.get_paginator_names() == []
 
     @patch("mypy_boto3_builder.parsers.shape_parser.ServiceModel")
     def test_get_client_method_map(self, ServiceModelMock: MagicMock) -> None:
@@ -44,8 +43,8 @@ class ShapeParserTestCase(unittest.TestCase):
         }
         shape_parser = ShapeParser(session_mock, service_name_mock)
         result = shape_parser.get_client_method_map()
-        self.assertIn("can_paginate", result)
-        self.assertIn("generate_presigned_url", result)
+        assert "can_paginate" in result
+        assert "generate_presigned_url" in result
 
     @patch("mypy_boto3_builder.parsers.shape_parser.ServiceModel")
     def test_get_paginate_method(self, ServiceModelMock: MagicMock) -> None:
@@ -70,12 +69,12 @@ class ShapeParserTestCase(unittest.TestCase):
         }
         shape_parser = ShapeParser(session_mock, service_name_mock)
         result = shape_parser.get_paginate_method("my_paginator")
-        self.assertEqual(result.name, "paginate")
-        self.assertEqual(len(result.arguments), 4)
-        self.assertEqual(result.arguments[0].name, "self")
-        self.assertEqual(result.arguments[1].name, "required_arg")
-        self.assertEqual(result.arguments[2].name, "optional_arg")
-        self.assertEqual(result.arguments[3].name, "PaginationConfig")
+        assert result.name == "paginate"
+        assert len(result.arguments) == 4
+        assert result.arguments[0].name == "self"
+        assert result.arguments[1].name == "required_arg"
+        assert result.arguments[2].name == "optional_arg"
+        assert result.arguments[3].name == "PaginationConfig"
 
     @patch("mypy_boto3_builder.parsers.shape_parser.ServiceModel")
     def test_get_collection_filter_method(self, ServiceModelMock: MagicMock) -> None:
@@ -98,9 +97,9 @@ class ShapeParserTestCase(unittest.TestCase):
         result = shape_parser.get_collection_filter_method(
             "MyCollection", collection_mock, "self_type"
         )
-        self.assertEqual(result.name, "filter")
-        self.assertEqual(len(result.decorators), 0)
-        self.assertEqual(len(result.arguments), 3)
-        self.assertEqual(result.arguments[0].name, "self")
-        self.assertEqual(result.arguments[1].name, "optional_arg")
-        self.assertEqual(result.arguments[2].name, "InputToken")
+        assert result.name == "filter"
+        assert len(result.decorators) == 0
+        assert len(result.arguments) == 3
+        assert result.arguments[0].name == "self"
+        assert result.arguments[1].name == "optional_arg"
+        assert result.arguments[2].name == "InputToken"

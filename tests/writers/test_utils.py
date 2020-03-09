@@ -1,35 +1,35 @@
-import unittest
 from unittest.mock import patch, MagicMock
 
 from black import NothingChanged
+import pytest
 
 from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template
 
 
-class UtilsTestCase(unittest.TestCase):
+class TestUtils:
     @patch("mypy_boto3_builder.writers.utils.black")
     def test_blackify(self, black_mock: MagicMock) -> None:
         file_path_mock = MagicMock()
         file_path_mock.suffix = ".txt"
         result = blackify("my content", file_path_mock)
-        self.assertEqual(result, "my content")
+        assert result == "my content"
 
         file_path_mock.suffix = ".py"
         result = blackify("my content", file_path_mock)
-        self.assertEqual(result, black_mock.format_file_contents())
+        assert result == black_mock.format_file_contents()
         black_mock.FileMode.assert_called_with(is_pyi=False, line_length=100)
 
         file_path_mock.suffix = ".pyi"
         result = blackify("my content", file_path_mock)
-        self.assertEqual(result, black_mock.format_file_contents())
+        assert result == black_mock.format_file_contents()
         black_mock.FileMode.assert_called_with(is_pyi=True, line_length=100)
 
         black_mock.format_file_contents.side_effect = IndentationError()
-        with self.assertRaises(ValueError):
+        with pytest.raises(ValueError):
             blackify("my content", file_path_mock)
 
         black_mock.format_file_contents.side_effect = NothingChanged()
-        self.assertEqual(blackify("my content", file_path_mock), "my content")
+        assert blackify("my content", file_path_mock) == "my content"
 
     @patch("mypy_boto3_builder.writers.utils.TEMPLATES_PATH")
     @patch("mypy_boto3_builder.writers.utils.JinjaManager")
@@ -45,10 +45,8 @@ class UtilsTestCase(unittest.TestCase):
         JinjaManagerMock.get_environment().get_template().render.assert_called_with(
             package="package", service_name="service_name"
         )
-        self.assertEqual(
-            result, JinjaManagerMock.get_environment().get_template().render(),
-        )
+        assert result == JinjaManagerMock.get_environment().get_template().render()
 
         TEMPLATES_PATH_MOCK.__truediv__().exists.return_value = False
-        with self.assertRaises(ValueError):
+        with pytest.raises(ValueError):
             render_jinja2_template(template_path_mock, "package", "service_name")

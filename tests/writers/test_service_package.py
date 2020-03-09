@@ -1,11 +1,10 @@
-import unittest
 from pathlib import Path
 from unittest.mock import patch, MagicMock
 
 from mypy_boto3_builder.writers.service_package import write_service_package
 
 
-class ServicePackageTestCase(unittest.TestCase):
+class TestServicePackage:
     @patch("mypy_boto3_builder.writers.service_package.blackify")
     @patch("mypy_boto3_builder.writers.service_package.render_jinja2_template")
     def test_write_service_package(
@@ -14,9 +13,9 @@ class ServicePackageTestCase(unittest.TestCase):
         package_mock = MagicMock()
         output_path_mock = MagicMock()
         output_path_mock.__truediv__.return_value = output_path_mock
-        self.assertEqual(
-            write_service_package(package_mock, output_path_mock),
-            [output_path_mock] * 11,
+        assert (
+            write_service_package(package_mock, output_path_mock)
+            == [output_path_mock] * 11
         )
         render_jinja2_template_mock.assert_called_with(
             Path("service/service/type_defs.py.jinja2"),
