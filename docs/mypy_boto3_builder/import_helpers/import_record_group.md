@@ -8,6 +8,7 @@ Grouped by `source` import records for nicer rendering.
     - [ImportRecordGroup](#importrecordgroup)
         - [ImportRecordGroup.from_import_records](#importrecordgroupfrom_import_records)
         - [ImportRecordGroup().is_builtins](#importrecordgroupis_builtins)
+        - [ImportRecordGroup().render](#importrecordgrouprender)
 
 ## ImportRecordGroup
 
@@ -60,3 +61,19 @@ A list of generated [ImportRecordGroup](#importrecordgroup).
 ```python
 def is_builtins() -> bool:
 ```
+
+Whether imports are from builtins.
+
+### ImportRecordGroup().render
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record_group.py#L69)
+
+```python
+def render() -> str:
+```
+
+Render to string.
+
+#### Returns
+
+A valid Python import records group.

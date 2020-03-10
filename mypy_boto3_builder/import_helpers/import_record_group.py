@@ -1,7 +1,7 @@
 """
 Grouped by `source` import records for nicer rendering.
 """
-from typing import Iterable, List, Set
+from typing import Iterable, List, Set, Any
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -61,4 +61,22 @@ class ImportRecordGroup:
         return result
 
     def is_builtins(self) -> bool:
+        """
+        Whether imports are from builtins.
+        """
         return self.source.startswith(ImportRecord.builtins_import_string)
+
+    def render(self) -> str:
+        """
+        Render to string.
+
+        Returns:
+            A valid Python import records group.
+        """
+        return "\n".join([i.render() for i in self.import_records])
+
+    def __eq__(self, other: Any) -> bool:
+        if not isinstance(other, ImportRecordGroup):
+            return False
+
+        return self.render() == other.render()
