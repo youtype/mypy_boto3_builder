@@ -10,6 +10,8 @@ from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.parsers.helpers import (
     parse_method,
@@ -74,7 +76,10 @@ def parse_client(
             continue
         result.exceptions_class.attributes.append(
             Attribute(
-                exception_class_name, TypeClass(ClientError, alias="Boto3ClientError")
+                exception_class_name,
+                TypeSubscript(
+                    Type.Type, [TypeClass(ClientError, alias="Boto3ClientError")]
+                ),
             )
         )
 
