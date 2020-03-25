@@ -231,6 +231,14 @@ class DocstringParser:
         if "True" in description or "False" in description:
             return Type.bool
 
+        if "url" in description:
+            return Type.str
+
+        if description:
+            self.logger.info(
+                f"Unknown return type for return: {description}, fallback to None"
+            )
+
         return None
 
     def _parse_rtype(self, input_string: str) -> Optional[FakeAnnotation]:
