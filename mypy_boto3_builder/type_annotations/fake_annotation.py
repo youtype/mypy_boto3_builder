@@ -1,15 +1,15 @@
 """
 Parent class for all type annotation wrappers.
 """
-from abc import abstractmethod
+from abc import abstractmethod, ABC
 from typing import Set, Any
 from functools import total_ordering
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 
 
-@total_ordering
-class FakeAnnotation:
+@total_ordering  # type: ignore
+class FakeAnnotation(ABC):
     """
     Parent class for all type annotation wrappers.
     """

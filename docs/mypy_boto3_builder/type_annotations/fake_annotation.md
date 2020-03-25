@@ -22,7 +22,7 @@ Parent class for all type annotation wrappers.
 
 ```python
 total_ordering
-class FakeAnnotation():
+class FakeAnnotation(ABC):
 ```
 
 Parent class for all type annotation wrappers.
