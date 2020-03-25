@@ -78,7 +78,16 @@ def parse_collections(
             Method(
                 "pages",
                 [Argument("self", None)],
-                TypeSubscript(Type.Iterator, [InternalImport(name=object_class_name)],),
+                TypeSubscript(
+                    Type.Generator,
+                    [
+                        TypeSubscript(
+                            Type.List, [InternalImport(name=object_class_name)]
+                        ),
+                        Type.none,
+                        Type.none,
+                    ],
+                ),
             )
         )
         collection_record.methods.append(
