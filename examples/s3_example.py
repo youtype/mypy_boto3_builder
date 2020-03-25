@@ -2,6 +2,7 @@
 
 import boto3
 from mypy_boto3.s3 import S3Client, S3ServiceResource
+from mypy_boto3_s3.service_resource import ObjectSummary
 
 
 def s3_resource_example() -> None:
@@ -24,7 +25,10 @@ def s3_resource_example() -> None:
     buckets = resource.buckets.all()
 
     objects = bucket.objects.filter(Prefix="prefix")
-    pages = [i for i in objects.pages(all=True)]
+    for page in objects.pages(all=True):
+        for obj in page:
+            obj.bucket_name
+            obj.copy_from(123)
 
     for bucket in buckets:
         for multipart_upload in bucket.multipart_uploads:
