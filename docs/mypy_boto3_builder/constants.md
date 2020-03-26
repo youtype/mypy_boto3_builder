@@ -13,6 +13,8 @@ Constants and paths.
 - `DUMMY_REGION` - Random region to initialize services: `'us-west-2'`
 - `TEMPLATES_PATH` - Jinja2 templates for boto3-stubs: `Path(__file__).parent / 'templates'`
 - `BOTO3_STUBS_STATIC_PATH` - Static *.pyi files for boto3-stubs: `Path(__file__).parent / 'boto3_stubs_static'`
+- `BOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for botocore-stubs: `Path(__file__).parent / 'botocore_stubs_static'`
 - `BOTO3_STUBS_NAME` - Boto3 stubs module name: `'boto3-stubs'`
+- `BOTOCORE_STUBS_NAME` - Botocore stubs module name: `'botocore-stubs'`
 - `LINE_LENGTH` - Max line length for boto3 docs: `100`
 - `TYPE_DEFS_NAME` - type defs module name: `'type_defs'`

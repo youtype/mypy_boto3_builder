@@ -6,12 +6,13 @@ Processors for parsing and writing modules.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Writers](index.md#writers) / Processors
     - [process_boto3_stubs](#process_boto3_stubs)
+    - [process_botocore_stubs](#process_botocore_stubs)
     - [process_master](#process_master)
     - [process_service](#process_service)
 
 ## process_boto3_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L26)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L29)
 
 ```python
 def process_boto3_stubs(
@@ -20,7 +21,7 @@ def process_boto3_stubs(
 ) -> Boto3StubsPackage:
 ```
 
-Parse and write stubs package `boto3_stubs`.
+Parse and write stubs package `boto3-stubs`.
 
 #### Arguments
 
@@ -34,9 +35,23 @@ Parsed Boto3StubsPackage.
 
 - [Boto3StubsPackage](../structures/boto3_stubs_package.md#boto3stubspackage)
 
+## process_botocore_stubs
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L52)
+
+```python
+def process_botocore_stubs(output_path: Path) -> None:
+```
+
+Parse and write stubs package `botocore-stubs`.
+
+#### Arguments
+
+- `output_path` - Package output path.
+
 ## process_master
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L49)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L65)
 
 ```python
 def process_master(
@@ -63,7 +78,7 @@ Parsed MasterPackage.
 
 ## process_service
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L73)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L89)
 
 ```python
 def process_service(
