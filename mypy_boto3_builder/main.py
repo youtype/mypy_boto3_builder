@@ -4,10 +4,12 @@ Main entrypoint for builder.
 from typing import List
 
 from boto3 import __version__ as boto3_version
+from botocore import __version__ as botocore_version
 from boto3.session import Session
 
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
+    process_botocore_stubs,
     process_master,
     process_service,
 )
@@ -20,6 +22,7 @@ from mypy_boto3_builder.constants import (
     MODULE_NAME,
     DUMMY_REGION,
     BOTO3_STUBS_NAME,
+    BOTOCORE_STUBS_NAME,
     PYPI_NAME,
 )
 
@@ -57,7 +60,9 @@ def main() -> None:
         master_pypi_name=PYPI_NAME,
         master_module_name=MODULE_NAME,
         boto3_stubs_name=BOTO3_STUBS_NAME,
+        botocore_stubs_name=BOTOCORE_STUBS_NAME,
         boto3_version=boto3_version,
+        botocore_version=botocore_version,
         build_version=build_version,
         builder_version=version,
     )
@@ -82,6 +87,10 @@ def main() -> None:
         logger.info(f"Generating {BOTO3_STUBS_NAME} module")
         output_path = args.output_path / "boto3_stubs_package"
         process_boto3_stubs(output_path, master_service_names)
+
+        logger.info(f"Generating {BOTOCORE_STUBS_NAME} module")
+        output_path = args.output_path / "botocore_stubs_package"
+        process_botocore_stubs(output_path)
 
     logger.info(f"Completed")
 

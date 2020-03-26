@@ -10,4 +10,5 @@ examples/s3_example.py:52: error: Missing positional argument "Key" in call to "
 examples/s3_example.py:55: error: TypedDict "GetObjectOutputTypeDef" has no key 'expiration'
 examples/s3_example.py:60: error: Extra key 'Allowedorigins' for TypedDict "CORSRuleTypeDef"
 examples/s3_example.py:65: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
-Found 12 errors in 1 file (checked 1 source file)
+examples/s3_example.py:68: error: "ClientError" has no attribute "non_existing"
+Found 13 errors in 1 file (checked 1 source file)
