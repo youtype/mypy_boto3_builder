@@ -11,10 +11,10 @@ class ResourceMeta:
     def __init__(
         self,
         service_name: str,
-        identifiers: Optional[List[str]] = None,
-        client: Optional[BaseClient] = None,
-        data: Optional[Dict] = None,
-        resource_model: Optional[ResourceModel] = None,
+        identifiers: Optional[List[str]] = ...,
+        client: Optional[BaseClient] = ...,
+        data: Optional[Dict] = ...,
+        resource_model: Optional[ResourceModel] = ...,
     ) -> None:
         self.service_name: str
         self.identifiers: List[str]
@@ -27,7 +27,7 @@ class ResourceMeta:
 
 class ServiceResource:
     def __init__(
-        self, *args: Any, client: Optional[BaseClient] = None, **kwargs: Any
+        self, *args: Any, client: Optional[BaseClient] = ..., **kwargs: Any
     ) -> None:
         self.meta: ResourceMeta
     def __repr__(self) -> str: ...

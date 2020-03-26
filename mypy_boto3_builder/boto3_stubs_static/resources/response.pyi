@@ -12,8 +12,8 @@ def all_not_none(iterable: Iterable[Any]) -> bool: ...
 def build_identifiers(
     identifiers: List[Parameter],
     parent: ServiceResource,
-    params: Optional[Dict[str, Any]] = None,
-    raw_respons: Optional[Dict[str, Any]] = None,
+    params: Optional[Dict[str, Any]] = ...,
+    raw_respons: Optional[Dict[str, Any]] = ...,
 ) -> List[Tuple[str, Any]]: ...
 def build_empty_response(
     search_path: str, operation_name: str, service_model: ServiceModel
@@ -32,7 +32,7 @@ class ResourceHandler:
         factory: ResourceFactory,
         resource_model: ResponseResource,
         service_context: ServiceContext,
-        operation_name: Optional[str] = None,
+        operation_name: Optional[str] = ...,
     ) -> None: ...
     def __call__(
         self, parent: ServiceResource, params: Dict[str, Any], response: Dict[str, Any]

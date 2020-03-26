@@ -29,7 +29,7 @@ ResourceModelDefinition = TypedDict(
 )
 
 class Identifier:
-    def __init__(self, name: str, member_name: Optional[str] = None) -> None:
+    def __init__(self, name: str, member_name: Optional[str] = ...) -> None:
         self.name: str
         self.member_name: str
 
@@ -97,7 +97,7 @@ class ResourceModel:
     ) -> None:
         self.name: str
         self.shape: Optional[Shape]
-    def load_rename_map(self, shape: Optional[Shape] = None) -> None: ...
+    def load_rename_map(self, shape: Optional[Shape] = ...) -> None: ...
     def get_attributes(self, shape: Shape) -> Dict[str, Tuple[str, Any]]: ...
     @property
     def identifiers(self) -> List[Identifier]: ...

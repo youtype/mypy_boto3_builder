@@ -16,10 +16,10 @@ class DynamoDBHighLevelResource:
 class TransformationInjector:
     def __init__(
         self,
-        transformer: Optional[ParameterTransformer] = None,
-        condition_builder: Optional[ConditionExpressionBuilder] = None,
-        serializer: Optional[TypeSerializer] = None,
-        deserializer: Optional[TypeDeserializer] = None,
+        transformer: Optional[ParameterTransformer] = ...,
+        condition_builder: Optional[ConditionExpressionBuilder] = ...,
+        serializer: Optional[TypeSerializer] = ...,
+        deserializer: Optional[TypeDeserializer] = ...,
     ) -> None: ...
     def inject_condition_expressions(
         self, params: Dict[str, Any], model: ResourceModel
@@ -37,7 +37,7 @@ class ConditionExpressionTransformation:
         condition_builder: ConditionExpressionBuilder,
         placeholder_names: List[str],
         placeholder_values: List[str],
-        is_key_condition: bool = False,
+        is_key_condition: bool = ...,
     ) -> None: ...
     def __call__(self, value: Any) -> Any: ...
 

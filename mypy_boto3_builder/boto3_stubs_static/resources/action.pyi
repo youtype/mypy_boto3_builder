@@ -17,8 +17,8 @@ class ServiceAction:
     def __init__(
         self,
         action_model: Action,
-        factory: ResourceFactory = None,
-        service_context: ServiceContext = None,
+        factory: ResourceFactory = ...,
+        service_context: ServiceContext = ...,
     ) -> None: ...
     def __call__(
         self, parent: ServiceResource, *args: Any, **kwargs: Any
