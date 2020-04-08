@@ -29,7 +29,6 @@ if [[ `git diff --stat | grep version` != "" ]]; then
     git config --global user.name ${GITHUB_ACTOR}
     git add mypy_boto3_builder/version.py
     git commit -m "Bump version to ${VERSION}"
-    git tag ${VERSION}
     git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/vemel/mypy_boto3_builder.git --tags
     git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/vemel/mypy_boto3_builder.git HEAD:master
 fi
