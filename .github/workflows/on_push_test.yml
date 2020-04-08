@@ -1,6 +1,10 @@
 name: Lint and test
 
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - mypy_boto3_builder/version.py
+      - CHANGELOG.md
 
 jobs:
   build:

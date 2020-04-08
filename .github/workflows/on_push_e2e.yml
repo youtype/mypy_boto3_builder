@@ -2,8 +2,9 @@ name: E2E tests
 
 on:
   push:
-    paths:
-      - mypy_boto3_builder/**
+    paths-ignore:
+      - mypy_boto3_builder/version.py
+      - CHANGELOG.md
 
 jobs:
   build:

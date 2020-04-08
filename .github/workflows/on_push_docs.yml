@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - mypy_boto3_builder/version.py
+      - CHANGELOG.md
 
 jobs:
   build:
