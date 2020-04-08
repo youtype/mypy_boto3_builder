@@ -27,7 +27,10 @@ Make sure you have [mypy](https://github.com/python/mypy) installed and activate
 Install `boto3-stubs` for `{{ service_name.class_name }}` service.
 
 ```bash
-python -m pip install boto3-stubs[{{service_name.pypi_name}}]
+python -m pip install boto3-stubs[{{service_name.extras_name}}]
+
+# update installed packages index
+mypy_boto3
 ```
 
 Use `boto3` with `{{ master_module_name }}` in your project and enjoy type checking and auto-complete.
