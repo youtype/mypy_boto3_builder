@@ -35,7 +35,7 @@ def process_boto3_stubs(
     Return:
         Parsed Boto3StubsPackage.
     """
-    logger.debug(f"Parsing boto3 stubs")
+    logger.debug("Parsing boto3 stubs")
     boto3_stub_package = Boto3StubsPackage(service_names=service_names)
     logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
 
@@ -59,7 +59,7 @@ def process_master(
     Return:
         Parsed MasterPackage.
     """
-    logger.debug(f"Parsing master")
+    logger.debug("Parsing master")
     master_package = parse_master_package(session, service_names)
     logger.debug(f"Writing master to {NicePath(output_path)}")
 

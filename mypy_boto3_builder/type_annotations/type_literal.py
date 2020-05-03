@@ -27,7 +27,7 @@ class TypeLiteral(FakeAnnotation):
             A string with a valid type annotation.
         """
         if not self.children:
-            raise ValueError(f"Empty children for literal")
+            raise ValueError("Empty children for literal")
         children = ", ".join([repr(i) for i in self.children])
         return f"Literal[{children}]"
 

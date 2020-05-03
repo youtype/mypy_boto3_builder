@@ -83,7 +83,7 @@ def main() -> None:
         output_path = args.output_path / "boto3_stubs_package"
         process_boto3_stubs(output_path, master_service_names)
 
-    logger.info(f"Completed")
+    logger.info("Completed")
 
 
 if __name__ == "__main__":
