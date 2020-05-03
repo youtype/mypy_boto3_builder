@@ -10,7 +10,7 @@ Class or module attribute.
 
 ## Attribute
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L11)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L12)
 
 ```python
 dataclass

@@ -10,7 +10,7 @@ Boto3 client Paginator.
 
 ## Paginator
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L22)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L23)
 
 ```python
 dataclass

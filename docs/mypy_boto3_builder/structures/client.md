@@ -10,7 +10,7 @@ Boto3 Client.
 
 ## Client
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L13)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L14)
 
 ```python
 dataclass

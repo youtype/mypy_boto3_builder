@@ -18,7 +18,7 @@ Helper for Python import strings.
 
 ## ImportRecord
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L11)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L12)
 
 ```python
 total_ordering

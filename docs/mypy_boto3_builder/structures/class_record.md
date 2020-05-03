@@ -14,7 +14,7 @@ Base class for all structures that can be rendered to a class.
 
 ## ClassRecord
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L15)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L16)
 
 ```python
 dataclass
