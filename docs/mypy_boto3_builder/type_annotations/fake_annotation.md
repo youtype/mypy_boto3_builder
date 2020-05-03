@@ -18,7 +18,7 @@ Parent class for all type annotation wrappers.
 
 ## FakeAnnotation
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/fake_annotation.py#L11)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/fake_annotation.py#L12)
 
 ```python
 total_ordering

@@ -10,7 +10,7 @@ Boto3 ServiceResource or Resource collection.
 
 ## Collection
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L14)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L15)
 
 ```python
 dataclass

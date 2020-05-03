@@ -10,7 +10,7 @@ Structure for boto3-stubs module.
 
 ## MasterPackage
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/master_package.py#L14)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/master_package.py#L15)
 
 ```python
 dataclass
