@@ -4,15 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-black = "==19.10b0"
 codecov = "==2.0.22"
 pylint = "==2.5.0"
 pytest = "==5.4.1"
 pytest-cov = "==2.8.1"
-rope = "==0.16.0"
 vulture = "==1.4"
 handsdown = "==0.3.9"
-twine = "==3.1.1"
 mypy = ">=0.770"
 
 [packages]
