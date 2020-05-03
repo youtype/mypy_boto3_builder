@@ -50,13 +50,6 @@ jobs:
         run: |
           ./scripts/build.sh --skip-services -b $BUILD_VERSION
           ./scripts/install.sh master
-      - name: Lint
-        run: |
-          pylint mypy_boto3_builder
-          mypy mypy_boto3_builder
-      - name: Unit tests
-        run: |
-          pytest
       - name: Bump version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
