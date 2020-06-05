@@ -208,6 +208,7 @@ class ServiceNameCatalog:
         ServiceName("logs", "CloudWatchLogs"),
         ServiceName("machinelearning", "MachineLearning"),
         ServiceName("macie", "Macie"),
+        ServiceName("macie2", "Macie2"),
         ServiceName("managedblockchain", "ManagedBlockchain"),
         ServiceName("marketplace-catalog", "MarketplaceCatalog"),
         ServiceName("marketplace-entitlement", "MarketplaceEntitlementService"),
