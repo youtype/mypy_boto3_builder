@@ -13,6 +13,13 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: "3.8"
+      - name: Cache packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ matrix.python-version }}-release-${{ hashFiles('**/Pipfile.lock') }}
+          restore-keys: |
+            ${{ matrix.python-version }}-release-
       - name: Install builder dependencies
         run: |
           python -m pip install --upgrade pip

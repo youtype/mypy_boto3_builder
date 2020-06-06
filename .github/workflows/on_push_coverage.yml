@@ -18,9 +18,9 @@ jobs:
         with:
           python-version: "3.8"
       - name: Cache packages
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
-          path:  ~/.cache/pip
+          path: ~/.cache/pip
           key: 3.8-package-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
             3.8-package-

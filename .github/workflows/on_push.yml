@@ -13,7 +13,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.6, 3.7, 3.8]
+        python-version: [3.8]
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python ${{ matrix.python-version }}
@@ -21,9 +21,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Cache packages
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
-          path:  ~/.cache/pip
+          path: ~/.cache/pip
           key: ${{ matrix.python-version }}-package-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
             ${{ matrix.python-version }}-package-
@@ -58,9 +58,9 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Cache packages
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
-          path:  ~/.cache/pip
+          path: ~/.cache/pip
           key: ${{ matrix.python-version }}-package-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
             ${{ matrix.python-version }}-package-
