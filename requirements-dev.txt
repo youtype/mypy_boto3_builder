@@ -1,7 +1,7 @@
-codecov==2.0.22
-pylint==2.5.0
-pytest==5.4.1
-pytest-cov==2.8.1
-vulture==1.4
+codecov==2.1.4
+pylint==2.5.2
+pytest==5.4.3
+pytest-cov==2.9.0
+vulture==1.5
 handsdown==0.3.9
 mypy>=0.770
