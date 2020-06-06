@@ -94,6 +94,6 @@ def parse_service_package(
         method = waiter.get_client_method()
         result.client.methods.append(method)
 
-    result.typed_dicts = result.extract_typed_dicts(result.get_types(), {})
+    result.typed_dicts = result.extract_typed_dicts()
 
     return result

@@ -44,6 +44,7 @@ class TypeTypedDict(FakeAnnotation):
         name -- Type name.
         children -- Typed dict attributes.
         docstring -- Docstring for render.
+        stringify -- Convert type annotation to string to avoid circular deps.
     """
 
     def __init__(
@@ -51,10 +52,12 @@ class TypeTypedDict(FakeAnnotation):
         name: str,
         children: Iterable[TypedDictAttribute] = (),
         docstring: str = "",
+        stringify: bool = False,
     ) -> None:
         self.name = name
         self.children = list(children)
         self.docstring = docstring
+        self.stringify = stringify
 
     def get_attribute(self, name: str) -> TypedDictAttribute:
         for child in self.children:
@@ -70,6 +73,9 @@ class TypeTypedDict(FakeAnnotation):
         Returns:
             A string with a valid type annotation.
         """
+        if self.stringify:
+            return f'"{self.name}"'
+
         if parent_name and parent_name == self.name:
             return f'"{self.name}"'
 
@@ -160,7 +166,12 @@ class TypeTypedDict(FakeAnnotation):
         """
         Create a copy of type annotation wrapper.
         """
-        return TypeTypedDict(self.name, list(self.children), docstring=self.docstring)
+        return TypeTypedDict(
+            self.name,
+            list(self.children),
+            docstring=self.docstring,
+            stringify=self.stringify,
+        )
 
     def is_same(self, other: "TypeTypedDict") -> bool:
         children = [i.render() for i in self.children]
@@ -171,4 +182,14 @@ class TypeTypedDict(FakeAnnotation):
         result: Set[FakeAnnotation] = set()
         for child in self.children:
             result.update(child.type_annotation.get_types())
+        return result
+
+    def get_children_typed_dicts(self) -> Set["TypeTypedDict"]:
+        result: Set[TypeTypedDict] = set()
+        children_types = self.get_children_types()
+        for type_annotation in children_types:
+            if not isinstance(type_annotation, TypeTypedDict):
+                continue
+            result.add(type_annotation)
+
         return result

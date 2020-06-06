@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import List, Set, Optional, Iterable, Dict
+from typing import List, Set, Optional, Iterable
 
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -26,29 +26,34 @@ class ServicePackage(Package):
     typed_dicts: List[TypeTypedDict] = field(default_factory=lambda: [])
     helper_functions: List[Function] = field(default_factory=lambda: [])
 
-    def extract_typed_dicts(
-        self,
-        type_annotations: Iterable[FakeAnnotation],
-        added: Dict[str, TypeTypedDict],
-    ) -> List[TypeTypedDict]:
+    def extract_typed_dicts(self) -> List[TypeTypedDict]:
+        added_names: List[str] = []
         result: List[TypeTypedDict] = []
-        for type_annotation in sorted(type_annotations):
+        discovered: List[TypeTypedDict] = []
+        for type_annotation in sorted(self.get_types()):
             if not isinstance(type_annotation, TypeTypedDict):
                 continue
-            if type_annotation.name in added:
-                try:
-                    assert added[type_annotation.name].is_same(type_annotation)
-                except AssertionError:
-                    print(type_annotation.render_class())
-                    print(added[type_annotation.name].render_class())
-                    raise ValueError(type_annotation.name)
+
+            if type_annotation.name in added_names:
                 continue
 
-            added[type_annotation.name] = type_annotation
-            result.extend(
-                self.extract_typed_dicts(type_annotation.get_children_types(), added)
-            )
             result.append(type_annotation)
+            added_names.append(type_annotation.name)
+            discovered.append(type_annotation)
+
+        while discovered:
+            child = discovered.pop()
+            sub_typed_dicts = child.get_children_typed_dicts()
+            for child_typed_dict in sorted(sub_typed_dicts):
+                if child_typed_dict.name in added_names:
+                    continue
+
+                child_typed_dict.stringify = True
+                result.append(child_typed_dict)
+                added_names.append(child_typed_dict.name)
+                discovered.append(child_typed_dict)
+
+        result.sort()
         return result
 
     def get_types(self) -> Set[FakeAnnotation]:
