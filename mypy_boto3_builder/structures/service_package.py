@@ -45,10 +45,11 @@ class ServicePackage(Package):
             child = discovered.pop()
             sub_typed_dicts = child.get_children_typed_dicts()
             for child_typed_dict in sorted(sub_typed_dicts):
+                child_typed_dict.stringify = True
+
                 if child_typed_dict.name in added_names:
                     continue
 
-                child_typed_dict.stringify = True
                 result.append(child_typed_dict)
                 added_names.append(child_typed_dict.name)
                 discovered.append(child_typed_dict)
