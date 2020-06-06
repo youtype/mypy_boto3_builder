@@ -107,6 +107,10 @@ a drop-in type annotations for you and makes sure that:
 
 ## Submodules
 
+{{ "- `" -}}
+{{ boto3_stubs_name -}}
+{{ "[all]` - Type annotations for all services" -}}
+{{ ".\n" -}}
 {% if package.essential_service_names -%}
     {{ "- `" }}{{ boto3_stubs_name -}}{{ "[essential]` - Type annotations for " -}}
     {% for service_name in package.essential_service_names -%}
