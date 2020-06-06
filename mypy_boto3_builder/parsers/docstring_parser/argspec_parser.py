@@ -45,7 +45,7 @@ class ArgSpecParser:
         for argument_name in argspec.kwonlyargs:
             arguments.append(Argument(argument_name, Type.Any))
         if argspec.kwonlydefaults:
-            for argument_name, default_value in argspec.kwonlydefaults:
+            for argument_name, default_value in argspec.kwonlydefaults.items():
                 for argument in arguments:
                     if argument.name != argument_name:
                         continue
