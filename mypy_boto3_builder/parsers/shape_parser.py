@@ -60,7 +60,7 @@ class ShapeParser:
         "double": Type.float,
         "float": Type.float,
         "timestamp": ExternalImport(ImportString("datetime"), "datetime"),
-        "blob": TypeSubscript(Type.Union, [Type.bytes, Type.IO]),
+        "blob": TypeSubscript(Type.Union, [Type.bytes, Type.IOBytes]),
     }
 
     # Alias map fixes added by botocore for documentation build.

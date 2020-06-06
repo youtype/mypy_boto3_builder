@@ -53,7 +53,7 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
         source=ImportString("botocore", "waiter"), name="Waiter"
     ),
     "bytes or seekable file-like object": TypeSubscript(
-        Type.Union, [Type.bytes, Type.IO]
+        Type.Union, [Type.bytes, Type.IOBytes]
     ),
     "str or dict": TypeSubscript(Type.Union, [Type.str, Type.Dict]),
     "list(string)": TypeSubscript(Type.List, [Type.str]),

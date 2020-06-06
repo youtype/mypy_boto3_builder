@@ -54,3 +54,4 @@ class Type:
 
     ListAny = TypeSubscript(List, [Any])
     DictStrAny = TypeSubscript(Dict, [str, Any])
+    IOBytes = TypeSubscript(IO, [bytes])
