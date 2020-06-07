@@ -3,12 +3,13 @@ Main interface for {{ package.service_name.boto3_name }} service.
 
 Usage::
 
+    ```python
     import boto3
-    from {{ master_module_name }}.{{ package.service_name.import_name }} import (
-        {% for name in package.get_init_all_names() -%}
-        {{ name -}},
-        {% endfor -%}
-    )
+    from {{ package.service_name.module_name }} import (
+{% for name in package.get_init_all_names() -%}
+        {{ '        ' -}}{{ name -}},
+{% endfor -%}
+    {{ '    ' -}})
 
     session = boto3.Session()
 
@@ -33,6 +34,7 @@ Usage::
     {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
 {% endfor -%}
 {% endif -%}
+    {{ '    ' -}}```
 """
 {% with import_record_groups=package.get_init_import_record_groups() -%}
     {% include "common/import_groups.py.jinja2" with context -%}

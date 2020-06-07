@@ -1,7 +1,7 @@
 # install `pip install boto3-stubs[emr]`
 
 import boto3
-from mypy_boto3.iam import IAMClient, IAMServiceResource
+from mypy_boto3_iam import IAMClient, IAMServiceResource
 
 
 def iam_client_example() -> None:

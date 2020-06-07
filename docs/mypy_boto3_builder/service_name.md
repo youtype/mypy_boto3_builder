@@ -9,9 +9,11 @@ Description for boto3 service.
         - [ServiceName().boto3_name](#servicenameboto3_name)
         - [ServiceName().doc_link](#servicenamedoc_link)
         - [ServiceName().extras_name](#servicenameextras_name)
+        - [ServiceName().import_name](#servicenameimport_name)
         - [ServiceName().is_essential](#servicenameis_essential)
         - [ServiceName().module_name](#servicenamemodule_name)
         - [ServiceName().pypi_name](#servicenamepypi_name)
+        - [ServiceName().underscore_name](#servicenameunderscore_name)
     - [ServiceNameCatalog](#servicenamecatalog)
         - [ServiceNameCatalog.find](#servicenamecatalogfind)
 
@@ -35,9 +37,11 @@ Description for boto3 service.
 def boto3_name() -> str:
 ```
 
+Boto3 package name.
+
 ### ServiceName().doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L68)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L81)
 
 ```python
 @property
@@ -46,7 +50,7 @@ def doc_link() -> str:
 
 ### ServiceName().extras_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L58)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L71)
 
 ```python
 @property
@@ -55,9 +59,20 @@ def extras_name() -> str:
 
 Extras name for subpackage installation.
 
+### ServiceName().import_name
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L47)
+
+```python
+@property
+def import_name() -> str:
+```
+
+Safe mudule import name.
+
 ### ServiceName().is_essential
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L65)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L78)
 
 ```python
 def is_essential() -> bool:
@@ -65,7 +80,7 @@ def is_essential() -> bool:
 
 ### ServiceName().module_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L44)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L57)
 
 ```python
 @property
@@ -76,7 +91,7 @@ Package name for given service.
 
 ### ServiceName().pypi_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L51)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L64)
 
 ```python
 @property
@@ -85,9 +100,18 @@ def pypi_name() -> str:
 
 Name of package on PyPI.
 
+### ServiceName().underscore_name
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L36)
+
+```python
+@property
+def underscore_name() -> str:
+```
+
 ## ServiceNameCatalog
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L76)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L89)
 
 ```python
 class ServiceNameCatalog():
@@ -97,7 +121,7 @@ Finder for boto3 services by name.
 
 ### ServiceNameCatalog.find
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L320)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L333)
 
 ```python
 @classmethod

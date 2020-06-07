@@ -67,14 +67,7 @@ client: dynamodb.DynamoDBClient = boto3.client("dynamodb")
 client.query("my_table")
 ```
 
-### Build services index manually
-
-This package generates a few source files depending on services that you installed.
-Generation is done by a post-install script, so as long as you use `pip`, `pipfile`
-or `poetry` everything should be done automatically.
-
-However, if you use any other way or notice that services stubs do not work,
-you can build services index manually.
+### Build dynamic type annotatons
 
 ```bash
 # Use this command when you add or remove service packages
@@ -135,7 +128,7 @@ rm -r `python -m site --user-site`/mypy_boto3
 ```python
 import boto3
 
-from mypy_boto3 import s3
+import mypy_boto3_s3 as s3
 
 # you need explicit type annotatins only if your IDE do not support
 # function overloads (e.g. VSCode). For PyCharm anf mypy you do not need
@@ -209,7 +202,7 @@ To get full advantage of `boto3-stubs`, you can set types explicitly.
 ```python
 import boto3
 
-from mypy_boto3 import ec2
+import mypy_boto3_ec2 as ec2
 
 # covered by boto3-stubs, no explicit type required
 session = boto3.session.Session(region_name="us-west-1")
@@ -242,9 +235,9 @@ import boto3
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from mypy_boto3.ec2 import EC2Client, EC2ServiceResource
-    from mypy_boto3.ec2.waiters import BundleTaskCompleteWaiter
-    from mypy_boto3.ec2.paginators import DescribeVolumesPaginator
+    from mypy_boto3_ec2 import EC2Client, EC2ServiceResource
+    from mypy_boto3_ec2.waiters import BundleTaskCompleteWaiter
+    from mypy_boto3_ec2.paginators import DescribeVolumesPaginator
 else:
     EC2Client = object
     EC2ServiceResource = object

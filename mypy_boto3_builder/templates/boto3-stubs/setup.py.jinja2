@@ -6,23 +6,6 @@ from setuptools import setup
 LONG_DESCRIPTION = open(dirname(abspath(__file__)) + "/README.md", "r").read()
 
 
-def install_master():
-    master_installed  = True
-    try:
-        import {{ master_module_name }}
-    except (ImportError, ModuleNotFoundError):
-        master_installed = False
-
-    if not master_installed:
-        try:
-            from pip._internal import main as pip_main
-            pip_main.main(["install", "{{ master_pypi_name }}=={{ build_version }}"])
-        except Exception as e:
-            print("Installation of {{ master_pypi_name }}=={{ build_version }} failed", e)
-
-install_master()
-
-
 setup(
     name="{{ package.pypi_name }}",
     version="{{ build_version }}",

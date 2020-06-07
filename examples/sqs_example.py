@@ -1,7 +1,7 @@
 # install `pip install boto3-stubs[s3]`
 
 import boto3
-from mypy_boto3.sqs import SQSServiceResource
+from mypy_boto3_sqs import SQSServiceResource
 
 
 def sqs_resource_example() -> None:

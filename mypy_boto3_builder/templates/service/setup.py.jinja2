@@ -1,22 +1,9 @@
 from os.path import abspath, dirname
 
 from setuptools import setup
-from setuptools.command.install import install
 
 
 LONG_DESCRIPTION = open(dirname(abspath(__file__)) + "/README.md", "r").read()
-
-
-class PostInstallCommand(install):
-    def run(self):
-        install.run(self)
-        print("{{ master_module_name }}: Running post-install script for {{ package.pypi_name }}")
-        try:
-            from {{ master_module_name }}.main import add_package_to_index
-            add_package_to_index("{{ service_name.boto3_name }}")
-            print("{{ master_module_name }}: Service {{ service_name.boto3_name }} added to index")
-        except Exception as e:
-            print("{{ master_module_name }}: Package index update failed for {{ package.pypi_name }}:", e)
 
 
 setup(
@@ -57,5 +44,4 @@ setup(
         "typing_extensions; python_version < '3.8'",
     ],
     zip_safe=False,
-    cmdclass={'install': PostInstallCommand},
 )

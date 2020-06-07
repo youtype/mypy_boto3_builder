@@ -1,7 +1,7 @@
 # install `pip install boto3-stubs[emr]`
 
 import boto3
-from mypy_boto3.emr import EMRClient
+from mypy_boto3_emr import EMRClient
 
 
 def emr_client_example() -> None:

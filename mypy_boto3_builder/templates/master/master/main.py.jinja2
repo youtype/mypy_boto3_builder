@@ -299,7 +299,9 @@ def build_package_methods(logger: logging.Logger) -> None:
     session_contents.extend(session_resource_functions)
 
     write_text(ROOT_PATH / "boto3_init_gen.py", "\n".join(init_contents), logger)
+    logger.info('Generated annotations for boto3.client and boto3.resource functions')
     write_text(ROOT_PATH / "boto3_session_gen.py", "\n".join(session_contents), logger)
+    logger.info('Generated annotations for boto3.Session.client and boto3.Session.resource functions')
 
 
 def write_text(path: pathlib.Path, text: str, logger: logging.Logger) -> None:
@@ -327,29 +329,34 @@ def build_package_stubs(submodule: Submodule, logger: logging.Logger) -> None:
         _get_proxy_contents("{}.client".format(submodule.module_name)),
         logger,
     )
+    logger.info('Generated {{ master_module_name }}.%s.client module' % submodule.import_name)
     write_text(
         submodule_path / 'type_defs.py',
         _get_proxy_contents("{}.type_defs".format(submodule.module_name)),
         logger,
     )
+    logger.info('Generated {{ master_module_name }}.%s.type_defs module' % submodule.import_name)
     if submodule.has_resource:
         write_text(
             submodule_path / 'service_resource.py',
             _get_proxy_contents("{}.service_resource".format(submodule.module_name)),
             logger,
         )
+        logger.info('Generated {{ master_module_name }}.%s.service_resource module' % submodule.import_name)
     if submodule.has_waiter:
         write_text(
             submodule_path / 'waiter.py',
             _get_proxy_contents("{}.waiter".format(submodule.module_name)),
             logger,
         )
+        logger.info('Generated {{ master_module_name }}.%s.waiter module' % submodule.import_name)
     if submodule.has_paginator:
         write_text(
             submodule_path / 'paginator.py',
             _get_proxy_contents("{}.paginator".format(submodule.module_name)),
             logger,
         )
+        logger.info('Generated {{ master_module_name }}.%s.paginator module' % submodule.import_name)
 
 
 def log_install_info(logger: logging.Logger) -> None:

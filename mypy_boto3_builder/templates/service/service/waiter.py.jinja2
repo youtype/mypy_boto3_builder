@@ -3,12 +3,15 @@ Main interface for {{ package.service_name.boto3_name }} service client waiters.
 
 Usage::
 
+    ```python
     import boto3
-    from {{ master_module_name }}.{{ package.service_name.import_name }} import (
-    {% for waiter in package.waiters -%}
-        {{ "    " -}}{{ waiter.name -}},
-    {% endfor -%}
-    )
+
+    from {{ package.service_name.module_name }} import {{ package.client.name }}
+    from {{ package.service_name.module_name }} import (
+{% for waiter in package.waiters -%}
+        {{ "        " -}}{{ waiter.name -}},
+{% endfor -%}
+    {{ '    ' -}})
 
     client: {{ package.client.name }} = boto3.client("{{ package.service_name.boto3_name }}")
 
@@ -16,6 +19,7 @@ Usage::
     {{ "    " -}}
     {{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
 {% endfor -%}
+    {{ '    ' -}}```
 """
 # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 {% with import_record_groups=package.get_waiter_required_import_record_groups() -%}

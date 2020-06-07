@@ -16,7 +16,6 @@ do
     OUTPUT=${DIR_NAME}/e2e_snapshots/current.out
 
     ${ROOT_PATH}/scripts/install.sh ${SERVICE_NAME}
-    mypy_boto3
     echo Running mypy for ${FILE_NAME}
     if [[ ! -f ${EXPECTED} ]]; then
         mypy ${EXAMPLE} | grep -v ' note: ' > ${EXPECTED} || true

@@ -1,7 +1,7 @@
 # install `pip install boto3-stubs[ec2]`
 
 import boto3
-from mypy_boto3.ec2 import EC2Client, EC2ServiceResource
+from mypy_boto3_ec2 import EC2Client, EC2ServiceResource
 
 
 def ec2_resource_example() -> None:

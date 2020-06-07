@@ -15,9 +15,6 @@ class ServiceName:
     Description for boto3 service.
     """
 
-    IMPORT_NAMES = {
-        "lambda": "lambda_",
-    }
     ESSENTIAL = (
         "ec2",
         "rds",
@@ -30,7 +27,6 @@ class ServiceName:
 
     def __init__(self, name: str, class_name: str) -> None:
         self.name = name
-        self.import_name = self.IMPORT_NAMES.get(name, name.replace("-", "_"))
         self.class_name = class_name
         self.boto3_version = "latest"
 
@@ -38,15 +34,32 @@ class ServiceName:
         return hash(self.name)
 
     @property
+    def underscore_name(self) -> str:
+        return self.name.replace("-", "_")
+
+    @property
     def boto3_name(self) -> str:
+        """
+        Boto3 package name.
+        """
         return self.name
+
+    @property
+    def import_name(self) -> str:
+        """
+        Safe mudule import name.
+        """
+        if self.name == "lambda":
+            return "lambda_"
+
+        return self.name.replace("-", "_")
 
     @property
     def module_name(self) -> str:
         """
         Package name for given service.
         """
-        return f"{MODULE_NAME}_{self.import_name}".rstrip("_")
+        return f"{MODULE_NAME}_{self.underscore_name}"
 
     @property
     def pypi_name(self) -> str:
