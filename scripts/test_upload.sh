@@ -12,25 +12,25 @@ OUTPUT_PATH=${ROOT_PATH}/mypy_boto3_output
 
 cd ${OUTPUT_PATH}/master_package
 rm -rf build *.egg-info dist/*
-python setup.py build sdist
+python setup.py build sdist bdist_wheel
 twine upload --repository-url http://localhost:8080/ --username user --password pass --non-interactive dist/*
 cd -
 
 cd ${OUTPUT_PATH}/boto3_stubs_package
 rm -rf build *.egg-info dist/*
-python setup.py build sdist
+python setup.py build sdist bdist_wheel
 twine upload --repository-url http://localhost:8080/ --username user --password pass --non-interactive dist/*
 cd -
 
 cd ${OUTPUT_PATH}/mypy_boto3_sqs_package
 rm -rf build *.egg-info dist/*
-python setup.py build sdist
+python setup.py build sdist bdist_wheel
 twine upload --repository-url http://localhost:8080/ --username user --password pass --non-interactive dist/*
 cd -
 
 cd ${OUTPUT_PATH}/mypy_boto3_secretsmanager_package
 rm -rf build *.egg-info dist/*
-python setup.py build sdist
+python setup.py build sdist bdist_wheel
 twine upload --repository-url http://localhost:8080/ --username user --password pass --non-interactive dist/*
 cd -
 
