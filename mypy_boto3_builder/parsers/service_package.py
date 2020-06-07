@@ -5,19 +5,17 @@ Parser that produces `structures.ServiceModule`.
 from boto3.session import Session
 from botocore import xform_name
 
-from mypy_boto3_builder.structures.waiter import Waiter
-from mypy_boto3_builder.structures.paginator import Paginator
-from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.client import parse_client
 from mypy_boto3_builder.parsers.service_resource import parse_service_resource
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
-from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.paginator import Paginator
+from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.structures.waiter import Waiter
 
 
-def parse_service_package(
-    session: Session, service_name: ServiceName
-) -> ServicePackage:
+def parse_service_package(session: Session, service_name: ServiceName) -> ServicePackage:
     """
     Extract all data from boto3 service package.
 

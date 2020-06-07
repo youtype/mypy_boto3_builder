@@ -7,21 +7,20 @@ from typing import Dict, List, Optional, Pattern
 
 from pyparsing import ParseException
 
-from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.structures.argument import Argument
-from mypy_boto3_builder.type_maps.docstring_type_map import get_type_from_docstring
-from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
-from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.utils.strings import get_class_prefix
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.docstring_parser.syntax_grammar import SyntaxGrammar
 from mypy_boto3_builder.parsers.docstring_parser.type_doc_grammar import TypeDocGrammar
 from mypy_boto3_builder.parsers.docstring_parser.type_doc_line import TypeDocLine
 from mypy_boto3_builder.parsers.docstring_parser.type_value import TypeValue
-from mypy_boto3_builder.utils.strings import get_line_with_indented
+from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.argument import Argument
+from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
+from mypy_boto3_builder.type_maps.docstring_type_map import get_type_from_docstring
+from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
+from mypy_boto3_builder.utils.strings import get_class_prefix, get_line_with_indented
 
 
 class DocstringParser:
@@ -50,9 +49,7 @@ class DocstringParser:
         self.class_name = class_name
         self.method_name = method_name
         self.logger = get_logger()
-        self.arguments_map: Dict[str, Argument] = {
-            a.name: a for a in arguments if not a.prefix
-        }
+        self.arguments_map: Dict[str, Argument] = {a.name: a for a in arguments if not a.prefix}
 
     def _find_argument_or_append(self, name: str) -> Argument:
         if name in self.arguments_map:
@@ -66,13 +63,9 @@ class DocstringParser:
             return
 
         request_syntax_index = input_string.index("**Request Syntax**")
-        while (
-            request_syntax_index > 0 and input_string[request_syntax_index - 1] == " "
-        ):
+        while request_syntax_index > 0 and input_string[request_syntax_index - 1] == " ":
             request_syntax_index = request_syntax_index - 1
-        request_syntax_string = get_line_with_indented(
-            input_string[request_syntax_index:], True
-        )
+        request_syntax_string = get_line_with_indented(input_string[request_syntax_index:], True)
 
         SyntaxGrammar.reset()
         SyntaxGrammar.enable_packrat()
@@ -87,9 +80,7 @@ class DocstringParser:
         for argument_dict in argument_groups:
             argument_name = argument_dict["name"]
             argument_prefix = self.prefix + get_class_prefix(argument_name)
-            argument_value = TypeValue(
-                self.service_name, argument_prefix, argument_dict["value"]
-            )
+            argument_value = TypeValue(self.service_name, argument_prefix, argument_dict["value"])
             argument_type = argument_value.get_type()
             argument = self._find_argument_or_append(argument_name)
             argument.type = argument_type
@@ -104,9 +95,7 @@ class DocstringParser:
             try:
                 match = TypeDocGrammar.type_definition.parseString(type_string)
             except ParseException as e:
-                self.logger.warning(
-                    f"Cannot parse type definition {type_string} for {self.prefix}"
-                )
+                self.logger.warning(f"Cannot parse type definition {type_string} for {self.prefix}")
                 self.logger.debug(e)
                 continue
 
@@ -154,9 +143,7 @@ class DocstringParser:
 
             self._fix_keys(argument.type, argument_line)
 
-    def _fix_keys(
-        self, type_annotation: FakeAnnotation, argument_line: TypeDocLine
-    ) -> None:
+    def _fix_keys(self, type_annotation: FakeAnnotation, argument_line: TypeDocLine) -> None:
         if not argument_line.indented:
             return
 
@@ -168,9 +155,7 @@ class DocstringParser:
         if isinstance(type_annotation, TypeTypedDict):
             self._fix_keys_typed_dict(type_annotation, argument_line)
 
-    def _fix_keys_typed_dict(
-        self, typed_dict: TypeTypedDict, argument_line: TypeDocLine,
-    ) -> None:
+    def _fix_keys_typed_dict(self, typed_dict: TypeTypedDict, argument_line: TypeDocLine,) -> None:
         for line in argument_line.indented:
             if not line.name:
                 continue
@@ -184,9 +169,7 @@ class DocstringParser:
 
             self._fix_keys(attribute.type_annotation, line)
 
-    def _fix_keys_subscript(
-        self, subscript: TypeSubscript, argument_line: TypeDocLine,
-    ) -> None:
+    def _fix_keys_subscript(self, subscript: TypeSubscript, argument_line: TypeDocLine,) -> None:
         child = subscript.children[0]
         for line in argument_line.indented:
             if not line.type_name:
@@ -235,9 +218,7 @@ class DocstringParser:
             return Type.str
 
         if description:
-            self.logger.info(
-                f"Unknown return type for return: {description}, fallback to None"
-            )
+            self.logger.info(f"Unknown return type for return: {description}, fallback to None")
 
         return None
 
@@ -261,13 +242,9 @@ class DocstringParser:
             return None
 
         response_syntax_index = input_string.index("**Response Syntax**")
-        while (
-            response_syntax_index > 0 and input_string[response_syntax_index - 1] == " "
-        ):
+        while response_syntax_index > 0 and input_string[response_syntax_index - 1] == " ":
             response_syntax_index -= 1
-        response_syntax_string = get_line_with_indented(
-            input_string[response_syntax_index:], True
-        )
+        response_syntax_string = get_line_with_indented(input_string[response_syntax_index:], True)
 
         SyntaxGrammar.reset()
         SyntaxGrammar.enable_packrat()
@@ -286,10 +263,7 @@ class DocstringParser:
             return None
 
         response_structure_index = input_string.index("**Response Structure**")
-        while (
-            response_structure_index > 0
-            and input_string[response_structure_index - 1] == " "
-        ):
+        while response_structure_index > 0 and input_string[response_structure_index - 1] == " ":
             response_structure_index -= 1
 
         response_structure_string = get_line_with_indented(
@@ -299,9 +273,7 @@ class DocstringParser:
 
         TypeDocGrammar.reset()
         try:
-            match = TypeDocGrammar.response_structure.parseString(
-                response_structure_string
-            )
+            match = TypeDocGrammar.response_structure.parseString(response_structure_string)
         except ParseException as e:
             self.logger.warning(f"Cannot parse response structure for {self.prefix}")
             self.logger.debug(e)

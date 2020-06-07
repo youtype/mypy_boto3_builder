@@ -55,7 +55,7 @@ A list of Attribute structures.
 
 ## parse_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L80)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L78)
 
 ```python
 def parse_method(

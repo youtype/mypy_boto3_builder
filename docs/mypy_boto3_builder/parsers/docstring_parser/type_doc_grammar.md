@@ -37,7 +37,7 @@ class TypeDocGrammar():
 
 ### TypeDocGrammar.disable_packrat
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L127)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L125)
 
 ```python
 @staticmethod
@@ -46,7 +46,7 @@ def disable_packrat() -> None:
 
 ### TypeDocGrammar.enable_packrat
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L123)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L121)
 
 ```python
 @staticmethod
@@ -55,7 +55,7 @@ def enable_packrat() -> None:
 
 ### TypeDocGrammar.fail_action
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L109)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L107)
 
 ```python
 @classmethod
@@ -69,7 +69,7 @@ def fail_action(
 
 ### TypeDocGrammar.reset
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L116)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L114)
 
 ```python
 @classmethod

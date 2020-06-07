@@ -2,24 +2,13 @@
 Predefined FakeAnnotation instances.
 """
 from decimal import Decimal
-from typing import (
-    Union,
-    Optional,
-    Any,
-    Dict,
-    List,
-    Callable,
-    IO,
-    overload,
-    Generator,
-    Set,
-    Iterator,
-    Type as TypingType,
-)
+from typing import IO, Any, Callable, Dict, Generator, Iterator, List, Optional, Set
+from typing import Type as TypingType
+from typing import Union, overload
 
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
-from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
+from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 

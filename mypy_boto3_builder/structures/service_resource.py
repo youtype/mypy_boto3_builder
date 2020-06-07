@@ -2,18 +2,18 @@
 Boto3 ServiceResource.
 """
 from dataclasses import dataclass, field
-from typing import List, Set, Optional, Tuple
+from typing import List, Optional, Set, Tuple
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
-from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.import_helpers.import_string import ImportString
-from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.external_import import ExternalImport
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.resource import Resource
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
+from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 
 @dataclass

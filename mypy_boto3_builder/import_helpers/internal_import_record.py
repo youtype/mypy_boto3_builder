@@ -16,9 +16,7 @@ class InternalImportRecord(ImportRecord):
         alias -- Import local name.
     """
 
-    def __init__(
-        self, service_module_name: ServiceModuleName, name: str = "", alias: str = ""
-    ):
+    def __init__(self, service_module_name: ServiceModuleName, name: str = "", alias: str = ""):
         super().__init__(ImportString(service_module_name.name), name=name, alias=alias)
 
     def get_external(self, module_name: str) -> ImportRecord:

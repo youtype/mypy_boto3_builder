@@ -26,9 +26,7 @@ class ResourceMeta:
     def copy(self) -> "ResourceMeta": ...
 
 class ServiceResource:
-    def __init__(
-        self, *args: Any, client: Optional[BaseClient] = ..., **kwargs: Any
-    ) -> None:
+    def __init__(self, *args: Any, client: Optional[BaseClient] = ..., **kwargs: Any) -> None:
         self.meta: ResourceMeta
     def __repr__(self) -> str: ...
     def __eq__(self, other: Any) -> bool: ...

@@ -1,9 +1,9 @@
 """
 Parent class for all type annotation wrappers.
 """
-from abc import abstractmethod, ABC
-from typing import Set, Any
+from abc import ABC, abstractmethod
 from functools import total_ordering
+from typing import Any, Set
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 

@@ -1,11 +1,11 @@
 """
 Helper for Python import strings.
 """
-from typing import Any, Optional, Tuple
 from functools import total_ordering
+from typing import Any, Optional, Tuple
 
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.constants import MODULE_NAME, TYPE_DEFS_NAME
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 
 @total_ordering

@@ -2,7 +2,7 @@
 Method or function argument.
 """
 from dataclasses import dataclass
-from typing import Set, Optional
+from typing import Optional, Set
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant

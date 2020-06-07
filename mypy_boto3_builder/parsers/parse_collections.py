@@ -5,15 +5,15 @@ from typing import List
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
+from mypy_boto3_builder.parsers.shape_parser import ShapeParser
+from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.method import Method
-from mypy_boto3_builder.structures.argument import Argument
-from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.utils.strings import get_class_prefix
-from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.parsers.shape_parser import ShapeParser
+from mypy_boto3_builder.utils.strings import get_class_prefix
 
 
 def parse_collections(
@@ -48,9 +48,7 @@ def parse_collections(
         )
         self_type = InternalImport(collection_record.name, stringify=True)
 
-        collection_record.methods.append(
-            Method("all", [Argument("self", None)], self_type)
-        )
+        collection_record.methods.append(Method("all", [Argument("self", None)], self_type))
         filter_method = shape_parser.get_collection_filter_method(
             collection_record.name, collection, self_type
         )
@@ -61,18 +59,10 @@ def parse_collections(
         for batch_method in batch_methods:
             collection_record.methods.append(batch_method)
         collection_record.methods.append(
-            Method(
-                "limit",
-                [Argument("self", None), Argument("count", Type.int)],
-                self_type,
-            )
+            Method("limit", [Argument("self", None), Argument("count", Type.int)], self_type,)
         )
         collection_record.methods.append(
-            Method(
-                "page_size",
-                [Argument("self", None), Argument("count", Type.int)],
-                self_type,
-            )
+            Method("page_size", [Argument("self", None), Argument("count", Type.int)], self_type,)
         )
         collection_record.methods.append(
             Method(
@@ -81,9 +71,7 @@ def parse_collections(
                 TypeSubscript(
                     Type.Generator,
                     [
-                        TypeSubscript(
-                            Type.List, [InternalImport(name=object_class_name)]
-                        ),
+                        TypeSubscript(Type.List, [InternalImport(name=object_class_name)]),
                         Type.none,
                         Type.none,
                     ],

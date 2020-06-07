@@ -8,7 +8,6 @@ import jinja2
 from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.version import __version__ as version
 
-
 __all__ = ["JinjaManager"]
 
 
@@ -18,8 +17,7 @@ class JinjaManager:
     """
 
     _environment = jinja2.Environment(
-        loader=jinja2.FileSystemLoader(TEMPLATES_PATH.as_posix()),
-        undefined=jinja2.StrictUndefined,
+        loader=jinja2.FileSystemLoader(TEMPLATES_PATH.as_posix()), undefined=jinja2.StrictUndefined,
     )
 
     @classmethod

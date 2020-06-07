@@ -1,13 +1,11 @@
 """
 Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 """
-from typing import Iterable, Set, List
+from typing import Iterable, List, Set
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.internal_import_record import (
-    InternalImportRecord,
-)
+from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
 
@@ -98,9 +96,7 @@ class TypeTypedDict(FakeAnnotation):
         """
         return {self}
 
-    def add_attribute(
-        self, name: str, type_annotation: FakeAnnotation, required: bool
-    ) -> None:
+    def add_attribute(self, name: str, type_annotation: FakeAnnotation, required: bool) -> None:
         """
         Add new attribute to a dictionary.
 
@@ -167,10 +163,7 @@ class TypeTypedDict(FakeAnnotation):
         Create a copy of type annotation wrapper.
         """
         return TypeTypedDict(
-            self.name,
-            list(self.children),
-            docstring=self.docstring,
-            stringify=self.stringify,
+            self.name, list(self.children), docstring=self.docstring, stringify=self.stringify,
         )
 
     def is_same(self, other: "TypeTypedDict") -> bool:

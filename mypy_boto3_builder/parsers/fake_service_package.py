@@ -4,20 +4,18 @@ Fake parser that produces `structures.ServiceModule` for master module and stubs
 from boto3.session import Session
 from botocore import xform_name
 
+from mypy_boto3_builder.parsers.boto3_utils import get_boto3_client, get_boto3_resource
+from mypy_boto3_builder.parsers.shape_parser import ShapeParser
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.client import Client
-from mypy_boto3_builder.structures.service_resource import ServiceResource
-from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.structures.paginator import Paginator
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.parsers.boto3_utils import get_boto3_resource, get_boto3_client
+from mypy_boto3_builder.structures.service_resource import ServiceResource
+from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.utils.strings import get_class_prefix
-from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 
 
-def parse_fake_service_package(
-    session: Session, service_name: ServiceName
-) -> ServicePackage:
+def parse_fake_service_package(session: Session, service_name: ServiceName) -> ServicePackage:
     """
     Create fake boto3 service module structure.
 
@@ -49,9 +47,7 @@ def parse_fake_service_package(
         real_class_name = get_class_prefix(waiter_name)
         waiter_class_name = f"{real_class_name}Waiter"
         result.waiters.append(
-            Waiter(
-                waiter_class_name, waiter_name=waiter_name, service_name=service_name,
-            )
+            Waiter(waiter_class_name, waiter_name=waiter_name, service_name=service_name,)
         )
 
     for paginator_name in shape_parser.get_paginator_names():

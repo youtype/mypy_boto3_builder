@@ -6,17 +6,17 @@ from typing import List
 
 from botocore.paginate import Paginator as Boto3Paginator
 
-from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
+from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from mypy_boto3_builder.structures.argument import Argument
+from mypy_boto3_builder.structures.class_record import ClassRecord
+from mypy_boto3_builder.structures.method import Method
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.type_annotations.external_import import ExternalImport
-from mypy_boto3_builder.import_helpers.import_string import ImportString
-from mypy_boto3_builder.structures.class_record import ClassRecord
-from mypy_boto3_builder.structures.method import Method
-from mypy_boto3_builder.structures.argument import Argument
 
 
 @dataclass

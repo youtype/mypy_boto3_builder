@@ -2,7 +2,8 @@
 Description for boto3 service.
 """
 from typing import Tuple
-from mypy_boto3_builder.constants import PYPI_NAME, MODULE_NAME
+
+from mypy_boto3_builder.constants import MODULE_NAME, PYPI_NAME
 
 __all__ = (
     "ServiceName",

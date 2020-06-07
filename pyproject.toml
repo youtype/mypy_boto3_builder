@@ -1,0 +1,8 @@
+[tool.black]
+line-length = 100
+include = '(mypy_boto3_builder|tests)/.*\.pyi?$'
+target-version = [
+    'py36',
+    'py37',
+    'py38',
+]

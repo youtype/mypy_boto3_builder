@@ -1,10 +1,10 @@
 """
 Grouped by `source` import records for nicer rendering.
 """
-from typing import Iterable, List, Set, Any
+from typing import Any, Iterable, List, Set
 
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 
 class ImportRecordGroup:
@@ -16,9 +16,7 @@ class ImportRecordGroup:
         import_records -- Grouped import records.
     """
 
-    def __init__(
-        self, source: ImportString, import_records: Iterable[ImportRecord]
-    ) -> None:
+    def __init__(self, source: ImportString, import_records: Iterable[ImportRecord]) -> None:
         self.source = source
         self.import_records = list(import_records)
 

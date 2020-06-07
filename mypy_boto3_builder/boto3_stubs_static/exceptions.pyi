@@ -9,24 +9,16 @@ class NoVersionFound(Boto3Error): ...
 
 class UnknownAPIVersionError(Boto3Error, botocore.exceptions.DataNotFoundError):
     def __init__(
-        self,
-        service_name: str,
-        bad_api_version: str,
-        available_api_versions: Iterable[str],
+        self, service_name: str, bad_api_version: str, available_api_versions: Iterable[str],
     ): ...
 
 class ResourceNotExistsError(Boto3Error, botocore.exceptions.DataNotFoundError):
     def __init__(
-        self,
-        service_name: str,
-        available_services: Iterable[str],
-        has_low_level_client: bool,
+        self, service_name: str, available_services: Iterable[str], has_low_level_client: bool,
     ) -> None: ...
 
 class RetriesExceededError(Boto3Error):
-    def __init__(
-        self, last_exception: Boto3Error, msg: str = "Max Retries Exceeded"
-    ) -> None: ...
+    def __init__(self, last_exception: Boto3Error, msg: str = "Max Retries Exceeded") -> None: ...
 
 class S3TransferFailedError(Boto3Error):
     pass

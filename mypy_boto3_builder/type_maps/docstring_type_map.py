@@ -4,15 +4,14 @@ String to type annotation map that find type annotation by argument name and typ
 from datetime import datetime
 from typing import Dict
 
-from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.import_helpers.import_string import ImportString
-from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport
+from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport
+from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
-
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "bytes": Type.bytes,
@@ -40,8 +39,7 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
         source=ImportString("botocore", "paginate"), name="Paginator"
     ),
     ":py:class:`ResourceCollection`": ExternalImport(
-        source=ImportString("boto3", "resources", "collection"),
-        name="ResourceCollection",
+        source=ImportString("boto3", "resources", "collection"), name="ResourceCollection",
     ),
     "JSON serializable": Type.str,
     "string": Type.str,
@@ -52,28 +50,18 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "botocore.waiter.Waiter": ExternalImport(
         source=ImportString("botocore", "waiter"), name="Waiter"
     ),
-    "bytes or seekable file-like object": TypeSubscript(
-        Type.Union, [Type.bytes, Type.IOBytes]
-    ),
+    "bytes or seekable file-like object": TypeSubscript(Type.Union, [Type.bytes, Type.IOBytes]),
     "str or dict": TypeSubscript(Type.Union, [Type.str, Type.Dict]),
     "list(string)": TypeSubscript(Type.List, [Type.str]),
     "list of str": TypeSubscript(Type.List, [Type.str]),
     "None": Type.none,
-    ":py:class:`ec2.NetworkAcl`": AliasInternalImport(
-        "NetworkAcl", ServiceNameCatalog.ec2
-    ),
-    ":py:class:`EC2.NetworkAcl`": AliasInternalImport(
-        "NetworkAcl", ServiceNameCatalog.ec2
-    ),
+    ":py:class:`ec2.NetworkAcl`": AliasInternalImport("NetworkAcl", ServiceNameCatalog.ec2),
+    ":py:class:`EC2.NetworkAcl`": AliasInternalImport("NetworkAcl", ServiceNameCatalog.ec2),
     "list(:py:class:`ec2.InternetGateway`)": TypeSubscript(
         Type.List, [AliasInternalImport("InternetGateway", ServiceNameCatalog.ec2)]
     ),
-    ":py:class:`iam.UserPolicy`": AliasInternalImport(
-        "UserPolicy", ServiceNameCatalog.iam
-    ),
-    ":py:class:`IAM.UserPolicy`": AliasInternalImport(
-        "UserPolicy", ServiceNameCatalog.iam
-    ),
+    ":py:class:`iam.UserPolicy`": AliasInternalImport("UserPolicy", ServiceNameCatalog.iam),
+    ":py:class:`IAM.UserPolicy`": AliasInternalImport("UserPolicy", ServiceNameCatalog.iam),
     "list(:py:class:`iam.VirtualMfaDevice`)": TypeSubscript(
         Type.List, [AliasInternalImport("VirtualMfaDevice", ServiceNameCatalog.iam)]
     ),
@@ -86,12 +74,8 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "list(:py:class:`opsworks.Layer`)": TypeSubscript(
         Type.List, [AliasInternalImport("Layer", ServiceNameCatalog.opsworks)]
     ),
-    ":py:class:`iam.GroupPolicy`": AliasInternalImport(
-        "GroupPolicy", ServiceNameCatalog.iam
-    ),
-    ":py:class:`IAM.GroupPolicy`": AliasInternalImport(
-        "GroupPolicy", ServiceNameCatalog.iam
-    ),
+    ":py:class:`iam.GroupPolicy`": AliasInternalImport("GroupPolicy", ServiceNameCatalog.iam),
+    ":py:class:`IAM.GroupPolicy`": AliasInternalImport("GroupPolicy", ServiceNameCatalog.iam),
     "list(:py:class:`iam.SigningCertificate`)": TypeSubscript(
         Type.List, [AliasInternalImport("SigningCertificate", ServiceNameCatalog.iam)]
     ),
@@ -115,27 +99,19 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     ":py:class:`SNS.PlatformEndpoint`": AliasInternalImport(
         "PlatformEndpoint", ServiceNameCatalog.sns
     ),
-    ":py:class:`s3.MultipartUpload`": AliasInternalImport(
-        "MultipartUpload", ServiceNameCatalog.s3
-    ),
+    ":py:class:`s3.MultipartUpload`": AliasInternalImport("MultipartUpload", ServiceNameCatalog.s3),
     ":py:class:`glacier.MultipartUpload`": AliasInternalImport(
         "MultipartUpload", ServiceNameCatalog.glacier
     ),
     ":py:class:`Glacier.MultipartUpload`": AliasInternalImport(
         "MultipartUpload", ServiceNameCatalog.glacier
     ),
-    ":py:class:`S3.MultipartUpload`": AliasInternalImport(
-        "MultipartUpload", ServiceNameCatalog.s3
-    ),
+    ":py:class:`S3.MultipartUpload`": AliasInternalImport("MultipartUpload", ServiceNameCatalog.s3),
     "list(:py:class:`ec2.Subnet`)": TypeSubscript(
         Type.List, [AliasInternalImport("Subnet", ServiceNameCatalog.ec2)]
     ),
-    ":py:class:`opsworks.Layer`": AliasInternalImport(
-        "Layer", ServiceNameCatalog.opsworks
-    ),
-    ":py:class:`OpsWorks.Layer`": AliasInternalImport(
-        "Layer", ServiceNameCatalog.opsworks
-    ),
+    ":py:class:`opsworks.Layer`": AliasInternalImport("Layer", ServiceNameCatalog.opsworks),
+    ":py:class:`OpsWorks.Layer`": AliasInternalImport("Layer", ServiceNameCatalog.opsworks),
     "list(:py:class:`iam.MfaDevice`)": TypeSubscript(
         Type.List, [AliasInternalImport("MfaDevice", ServiceNameCatalog.iam)]
     ),
@@ -151,24 +127,12 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "list(:py:class:`ec2.Instance`)": TypeSubscript(
         Type.List, [AliasInternalImport("Instance", ServiceNameCatalog.ec2)]
     ),
-    ":py:class:`glacier.Vault`": AliasInternalImport(
-        "Vault", ServiceNameCatalog.glacier
-    ),
-    ":py:class:`Glacier.Vault`": AliasInternalImport(
-        "Vault", ServiceNameCatalog.glacier
-    ),
-    ":py:class:`ec2.SecurityGroup`": AliasInternalImport(
-        "SecurityGroup", ServiceNameCatalog.ec2
-    ),
-    ":py:class:`EC2.SecurityGroup`": AliasInternalImport(
-        "SecurityGroup", ServiceNameCatalog.ec2
-    ),
-    ":py:class:`ec2.RouteTable`": AliasInternalImport(
-        "RouteTable", ServiceNameCatalog.ec2
-    ),
-    ":py:class:`EC2.RouteTable`": AliasInternalImport(
-        "RouteTable", ServiceNameCatalog.ec2
-    ),
+    ":py:class:`glacier.Vault`": AliasInternalImport("Vault", ServiceNameCatalog.glacier),
+    ":py:class:`Glacier.Vault`": AliasInternalImport("Vault", ServiceNameCatalog.glacier),
+    ":py:class:`ec2.SecurityGroup`": AliasInternalImport("SecurityGroup", ServiceNameCatalog.ec2),
+    ":py:class:`EC2.SecurityGroup`": AliasInternalImport("SecurityGroup", ServiceNameCatalog.ec2),
+    ":py:class:`ec2.RouteTable`": AliasInternalImport("RouteTable", ServiceNameCatalog.ec2),
+    ":py:class:`EC2.RouteTable`": AliasInternalImport("RouteTable", ServiceNameCatalog.ec2),
     "list(:py:class:`dynamodb.Table`)": TypeSubscript(
         Type.List, [AliasInternalImport("Table", ServiceNameCatalog.dynamodb)]
     ),
@@ -204,12 +168,8 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "list(:py:class:`sns.Topic`)": TypeSubscript(
         Type.List, [AliasInternalImport("Topic", ServiceNameCatalog.sns)]
     ),
-    ":py:class:`iam.LoginProfile`": AliasInternalImport(
-        "LoginProfile", ServiceNameCatalog.iam
-    ),
-    ":py:class:`IAM.LoginProfile`": AliasInternalImport(
-        "LoginProfile", ServiceNameCatalog.iam
-    ),
+    ":py:class:`iam.LoginProfile`": AliasInternalImport("LoginProfile", ServiceNameCatalog.iam),
+    ":py:class:`IAM.LoginProfile`": AliasInternalImport("LoginProfile", ServiceNameCatalog.iam),
     "list(:py:class:`iam.UserPolicy`)": TypeSubscript(
         Type.List, [AliasInternalImport("UserPolicy", ServiceNameCatalog.iam)]
     ),
@@ -231,12 +191,8 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "list(:py:class:`sns.Subscription`)": TypeSubscript(
         Type.List, [AliasInternalImport("Subscription", ServiceNameCatalog.sns)]
     ),
-    ":py:class:`iam.PolicyVersion`": AliasInternalImport(
-        "PolicyVersion", ServiceNameCatalog.iam
-    ),
-    ":py:class:`IAM.PolicyVersion`": AliasInternalImport(
-        "PolicyVersion", ServiceNameCatalog.iam
-    ),
+    ":py:class:`iam.PolicyVersion`": AliasInternalImport("PolicyVersion", ServiceNameCatalog.iam),
+    ":py:class:`IAM.PolicyVersion`": AliasInternalImport("PolicyVersion", ServiceNameCatalog.iam),
     "list(:py:class:`~boto3.resources.base.ServiceResource`)": TypeSubscript(
         Type.List,
         [
@@ -293,12 +249,8 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "list(:py:class:`opsworks.Stack`)": TypeSubscript(
         Type.List, [AliasInternalImport("Stack", ServiceNameCatalog.opsworks)]
     ),
-    ":py:class:`iam.MfaDevice`": AliasInternalImport(
-        "MfaDevice", ServiceNameCatalog.iam
-    ),
-    ":py:class:`IAM.MfaDevice`": AliasInternalImport(
-        "MfaDevice", ServiceNameCatalog.iam
-    ),
+    ":py:class:`iam.MfaDevice`": AliasInternalImport("MfaDevice", ServiceNameCatalog.iam),
+    ":py:class:`IAM.MfaDevice`": AliasInternalImport("MfaDevice", ServiceNameCatalog.iam),
     "list(:py:class:`s3.Bucket`)": TypeSubscript(
         Type.List, [AliasInternalImport("Bucket", ServiceNameCatalog.s3)]
     ),
@@ -317,34 +269,17 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
         Type.List, [AliasInternalImport("KeyPairInfo", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`cloudformation.StackResourceSummary`)": TypeSubscript(
-        Type.List,
-        [
-            AliasInternalImport(
-                "StackResourceSummary", ServiceNameCatalog.cloudformation
-            )
-        ],
+        Type.List, [AliasInternalImport("StackResourceSummary", ServiceNameCatalog.cloudformation)],
     ),
-    ":py:class:`dynamodb.Table`": AliasInternalImport(
-        "Table", ServiceNameCatalog.dynamodb
-    ),
-    ":py:class:`DynamoDB.Table`": AliasInternalImport(
-        "Table", ServiceNameCatalog.dynamodb
-    ),
-    ":py:class:`iam.AccessKeyPair`": AliasInternalImport(
-        "AccessKeyPair", ServiceNameCatalog.iam
-    ),
-    ":py:class:`IAM.AccessKeyPair`": AliasInternalImport(
-        "AccessKeyPair", ServiceNameCatalog.iam
-    ),
+    ":py:class:`dynamodb.Table`": AliasInternalImport("Table", ServiceNameCatalog.dynamodb),
+    ":py:class:`DynamoDB.Table`": AliasInternalImport("Table", ServiceNameCatalog.dynamodb),
+    ":py:class:`iam.AccessKeyPair`": AliasInternalImport("AccessKeyPair", ServiceNameCatalog.iam),
+    ":py:class:`IAM.AccessKeyPair`": AliasInternalImport("AccessKeyPair", ServiceNameCatalog.iam),
     "list(:py:class:`iam.SamlProvider`)": TypeSubscript(
         Type.List, [AliasInternalImport("SamlProvider", ServiceNameCatalog.iam)]
     ),
-    ":py:class:`glacier.Archive`": AliasInternalImport(
-        "Archive", ServiceNameCatalog.glacier
-    ),
-    ":py:class:`Glacier.Archive`": AliasInternalImport(
-        "Archive", ServiceNameCatalog.glacier
-    ),
+    ":py:class:`glacier.Archive`": AliasInternalImport("Archive", ServiceNameCatalog.glacier),
+    ":py:class:`Glacier.Archive`": AliasInternalImport("Archive", ServiceNameCatalog.glacier),
     ":py:class:`ec2.NetworkInterface`": AliasInternalImport(
         "NetworkInterface", ServiceNameCatalog.ec2
     ),
@@ -354,12 +289,8 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "list(:py:class:`iam.AccessKey`)": TypeSubscript(
         Type.List, [AliasInternalImport("AccessKey", ServiceNameCatalog.iam)]
     ),
-    ":py:class:`sns.Subscription`": AliasInternalImport(
-        "Subscription", ServiceNameCatalog.sns
-    ),
-    ":py:class:`SNS.Subscription`": AliasInternalImport(
-        "Subscription", ServiceNameCatalog.sns
-    ),
+    ":py:class:`sns.Subscription`": AliasInternalImport("Subscription", ServiceNameCatalog.sns),
+    ":py:class:`SNS.Subscription`": AliasInternalImport("Subscription", ServiceNameCatalog.sns),
     "list(:py:class:`s3.MultipartUploadPart`)": TypeSubscript(
         Type.List, [AliasInternalImport("MultipartUploadPart", ServiceNameCatalog.s3)]
     ),
@@ -372,18 +303,10 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "list(:py:class:`ec2.Tag`)": TypeSubscript(
         Type.List, [AliasInternalImport("Tag", ServiceNameCatalog.ec2)]
     ),
-    ":py:class:`cloudwatch.Alarm`": AliasInternalImport(
-        "Alarm", ServiceNameCatalog.cloudwatch
-    ),
-    ":py:class:`CloudWatch.Alarm`": AliasInternalImport(
-        "Alarm", ServiceNameCatalog.cloudwatch
-    ),
-    ":py:class:`EC2.PlacementGroup`": AliasInternalImport(
-        "PlacementGroup", ServiceNameCatalog.ec2
-    ),
-    ":py:class:`ec2.PlacementGroup`": AliasInternalImport(
-        "PlacementGroup", ServiceNameCatalog.ec2
-    ),
+    ":py:class:`cloudwatch.Alarm`": AliasInternalImport("Alarm", ServiceNameCatalog.cloudwatch),
+    ":py:class:`CloudWatch.Alarm`": AliasInternalImport("Alarm", ServiceNameCatalog.cloudwatch),
+    ":py:class:`EC2.PlacementGroup`": AliasInternalImport("PlacementGroup", ServiceNameCatalog.ec2),
+    ":py:class:`ec2.PlacementGroup`": AliasInternalImport("PlacementGroup", ServiceNameCatalog.ec2),
     ":py:class:`EC2.Vpc`": AliasInternalImport("Vpc", ServiceNameCatalog.ec2),
     ":py:class:`ec2.Vpc`": AliasInternalImport("Vpc", ServiceNameCatalog.ec2),
     ":py:class:`S3.BucketVersioning`": AliasInternalImport(
@@ -395,18 +318,12 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     ":py:class:`SNS.Topic`": AliasInternalImport("Topic", ServiceNameCatalog.sns),
     ":py:class:`iam.Policy`": AliasInternalImport("Policy", ServiceNameCatalog.iam),
     ":py:class:`IAM.Policy`": AliasInternalImport("Policy", ServiceNameCatalog.iam),
-    ":py:class:`S3.BucketCors`": AliasInternalImport(
-        "BucketCors", ServiceNameCatalog.s3
-    ),
-    ":py:class:`OpsWorks.Stack`": AliasInternalImport(
-        "Stack", ServiceNameCatalog.opsworks
-    ),
+    ":py:class:`S3.BucketCors`": AliasInternalImport("BucketCors", ServiceNameCatalog.s3),
+    ":py:class:`OpsWorks.Stack`": AliasInternalImport("Stack", ServiceNameCatalog.opsworks),
     ":py:class:`CloudFormation.Stack`": AliasInternalImport(
         "Stack", ServiceNameCatalog.cloudformation
     ),
-    ":py:class:`opsworks.Stack`": AliasInternalImport(
-        "Stack", ServiceNameCatalog.opsworks
-    ),
+    ":py:class:`opsworks.Stack`": AliasInternalImport("Stack", ServiceNameCatalog.opsworks),
     ":py:class:`cloudformation.Stack`": AliasInternalImport(
         "Stack", ServiceNameCatalog.cloudformation
     ),
@@ -416,24 +333,16 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     ":py:class:`iam.SigningCertificate`": AliasInternalImport(
         "SigningCertificate", ServiceNameCatalog.iam
     ),
-    ":py:class:`S3.ObjectVersion`": AliasInternalImport(
-        "ObjectVersion", ServiceNameCatalog.s3
-    ),
-    ":py:class:`S3.BucketPolicy`": AliasInternalImport(
-        "BucketPolicy", ServiceNameCatalog.s3
-    ),
+    ":py:class:`S3.ObjectVersion`": AliasInternalImport("ObjectVersion", ServiceNameCatalog.s3),
+    ":py:class:`S3.BucketPolicy`": AliasInternalImport("BucketPolicy", ServiceNameCatalog.s3),
     ":py:class:`EC2.RouteTableAssociation`": AliasInternalImport(
         "RouteTableAssociation", ServiceNameCatalog.ec2
     ),
     ":py:class:`ec2.RouteTableAssociation`": AliasInternalImport(
         "RouteTableAssociation", ServiceNameCatalog.ec2
     ),
-    ":py:class:`IAM.RolePolicy`": AliasInternalImport(
-        "RolePolicy", ServiceNameCatalog.iam
-    ),
-    ":py:class:`IAM.CurrentUser`": AliasInternalImport(
-        "CurrentUser", ServiceNameCatalog.iam
-    ),
+    ":py:class:`IAM.RolePolicy`": AliasInternalImport("RolePolicy", ServiceNameCatalog.iam),
+    ":py:class:`IAM.CurrentUser`": AliasInternalImport("CurrentUser", ServiceNameCatalog.iam),
     ":py:class:`EC2.InternetGateway`": AliasInternalImport(
         "InternetGateway", ServiceNameCatalog.ec2
     ),
@@ -446,9 +355,7 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     ":py:class:`SNS.PlatformApplication`": AliasInternalImport(
         "PlatformApplication", ServiceNameCatalog.sns
     ),
-    ":py:class:`CloudWatch.Metric`": AliasInternalImport(
-        "Metric", ServiceNameCatalog.cloudwatch
-    ),
+    ":py:class:`CloudWatch.Metric`": AliasInternalImport("Metric", ServiceNameCatalog.cloudwatch),
     ":py:class:`IAM.Group`": AliasInternalImport("Group", ServiceNameCatalog.iam),
     ":py:class:`OpsWorks.StackSummary`": AliasInternalImport(
         "StackSummary", ServiceNameCatalog.opsworks
@@ -461,35 +368,23 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     ":py:class:`CloudFormation.StackResourceSummary`": AliasInternalImport(
         "StackResourceSummary", ServiceNameCatalog.cloudformation
     ),
-    ":py:class:`S3.BucketWebsite`": AliasInternalImport(
-        "BucketWebsite", ServiceNameCatalog.s3
-    ),
+    ":py:class:`S3.BucketWebsite`": AliasInternalImport("BucketWebsite", ServiceNameCatalog.s3),
     ":py:class:`SQS.Queue`": AliasInternalImport("Queue", ServiceNameCatalog.sqs),
     ":py:class:`sqs.Queue`": AliasInternalImport("Queue", ServiceNameCatalog.sqs),
     ":py:class:`S3.MultipartUploadPart`": AliasInternalImport(
         "MultipartUploadPart", ServiceNameCatalog.s3
     ),
-    ":py:class:`ec2.KeyPairInfo`": AliasInternalImport(
-        "KeyPairInfo", ServiceNameCatalog.ec2
-    ),
-    ":py:class:`EC2.KeyPairInfo`": AliasInternalImport(
-        "KeyPairInfo", ServiceNameCatalog.ec2
-    ),
+    ":py:class:`ec2.KeyPairInfo`": AliasInternalImport("KeyPairInfo", ServiceNameCatalog.ec2),
+    ":py:class:`EC2.KeyPairInfo`": AliasInternalImport("KeyPairInfo", ServiceNameCatalog.ec2),
     ":py:class:`iam.InstanceProfile`": AliasInternalImport(
         "InstanceProfile", ServiceNameCatalog.iam
     ),
     ":py:class:`IAM.InstanceProfile`": AliasInternalImport(
         "InstanceProfile", ServiceNameCatalog.iam
     ),
-    ":py:class:`IAM.AccessKey`": AliasInternalImport(
-        "AccessKey", ServiceNameCatalog.iam
-    ),
-    ":py:class:`IAM.SamlProvider`": AliasInternalImport(
-        "SamlProvider", ServiceNameCatalog.iam
-    ),
-    ":py:class:`iam.SamlProvider`": AliasInternalImport(
-        "SamlProvider", ServiceNameCatalog.iam
-    ),
+    ":py:class:`IAM.AccessKey`": AliasInternalImport("AccessKey", ServiceNameCatalog.iam),
+    ":py:class:`IAM.SamlProvider`": AliasInternalImport("SamlProvider", ServiceNameCatalog.iam),
+    ":py:class:`iam.SamlProvider`": AliasInternalImport("SamlProvider", ServiceNameCatalog.iam),
     ":py:class:`EC2.Tag`": AliasInternalImport("Tag", ServiceNameCatalog.ec2),
     ":py:class:`S3.BucketLifecycleConfiguration`": AliasInternalImport(
         "BucketLifecycleConfiguration", ServiceNameCatalog.s3
@@ -507,12 +402,8 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
         "StackResource", ServiceNameCatalog.cloudformation
     ),
     ":py:class:`EC2.Instance`": AliasInternalImport("Instance", ServiceNameCatalog.ec2),
-    ":py:class:`S3.BucketTagging`": AliasInternalImport(
-        "BucketTagging", ServiceNameCatalog.s3
-    ),
-    ":py:class:`IAM.AccountSummary`": AliasInternalImport(
-        "AccountSummary", ServiceNameCatalog.iam
-    ),
+    ":py:class:`S3.BucketTagging`": AliasInternalImport("BucketTagging", ServiceNameCatalog.s3),
+    ":py:class:`IAM.AccountSummary`": AliasInternalImport("AccountSummary", ServiceNameCatalog.iam),
     ":py:class:`EC2.Volume`": AliasInternalImport("Volume", ServiceNameCatalog.ec2),
     ":py:class:`ec2.Volume`": AliasInternalImport("Volume", ServiceNameCatalog.ec2),
     ":py:class:`SQS.Message`": AliasInternalImport("Message", ServiceNameCatalog.sqs),
@@ -529,35 +420,19 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     ":py:class:`iam.VirtualMfaDevice`": AliasInternalImport(
         "VirtualMfaDevice", ServiceNameCatalog.iam
     ),
-    ":py:class:`Glacier.Account`": AliasInternalImport(
-        "Account", ServiceNameCatalog.glacier
-    ),
-    ":py:class:`S3.BucketLifecycle`": AliasInternalImport(
-        "BucketLifecycle", ServiceNameCatalog.s3
-    ),
-    ":py:class:`EC2.DhcpOptions`": AliasInternalImport(
-        "DhcpOptions", ServiceNameCatalog.ec2
-    ),
-    ":py:class:`ec2.DhcpOptions`": AliasInternalImport(
-        "DhcpOptions", ServiceNameCatalog.ec2
-    ),
-    ":py:class:`S3.BucketLogging`": AliasInternalImport(
-        "BucketLogging", ServiceNameCatalog.s3
-    ),
+    ":py:class:`Glacier.Account`": AliasInternalImport("Account", ServiceNameCatalog.glacier),
+    ":py:class:`S3.BucketLifecycle`": AliasInternalImport("BucketLifecycle", ServiceNameCatalog.s3),
+    ":py:class:`EC2.DhcpOptions`": AliasInternalImport("DhcpOptions", ServiceNameCatalog.ec2),
+    ":py:class:`ec2.DhcpOptions`": AliasInternalImport("DhcpOptions", ServiceNameCatalog.ec2),
+    ":py:class:`S3.BucketLogging`": AliasInternalImport("BucketLogging", ServiceNameCatalog.s3),
     ":py:class:`Glacier.Notification`": AliasInternalImport(
         "Notification", ServiceNameCatalog.glacier
     ),
-    ":py:class:`EC2.ClassicAddress`": AliasInternalImport(
-        "ClassicAddress", ServiceNameCatalog.ec2
-    ),
+    ":py:class:`EC2.ClassicAddress`": AliasInternalImport("ClassicAddress", ServiceNameCatalog.ec2),
     ":py:class:`s3.Bucket`": AliasInternalImport("Bucket", ServiceNameCatalog.s3),
     ":py:class:`S3.Bucket`": AliasInternalImport("Bucket", ServiceNameCatalog.s3),
-    ":py:class:`EC2.VpcAddress`": AliasInternalImport(
-        "VpcAddress", ServiceNameCatalog.ec2
-    ),
-    ":py:class:`S3.ObjectSummary`": AliasInternalImport(
-        "ObjectSummary", ServiceNameCatalog.s3
-    ),
+    ":py:class:`EC2.VpcAddress`": AliasInternalImport("VpcAddress", ServiceNameCatalog.ec2),
+    ":py:class:`S3.ObjectSummary`": AliasInternalImport("ObjectSummary", ServiceNameCatalog.s3),
     ":py:class:`EC2.NetworkInterfaceAssociation`": AliasInternalImport(
         "NetworkInterfaceAssociation", ServiceNameCatalog.ec2
     ),

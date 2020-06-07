@@ -24,7 +24,5 @@ def parse_references(resource: Boto3ServiceResource) -> List[Attribute]:
     for reference in references:
         if not reference.resource:
             continue
-        result.append(
-            Attribute(reference.name, type=InternalImport(reference.resource.type))
-        )
+        result.append(Attribute(reference.name, type=InternalImport(reference.resource.type)))
     return result

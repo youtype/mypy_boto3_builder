@@ -1,14 +1,13 @@
 """
 String to type annotation map that find type annotation by method and argument name.
 """
-from typing import Dict, Optional, List
+from typing import Dict, List, Optional
 
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.argument import Argument
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.typed_dicts import ec2_tag_type
-
 
 __all__ = ("get_method_arguments_stub",)
 

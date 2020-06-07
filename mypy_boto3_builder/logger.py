@@ -4,7 +4,6 @@ Logging utils.
 import logging
 from typing import Any
 
-
 __all__ = ("get_logger",)
 
 

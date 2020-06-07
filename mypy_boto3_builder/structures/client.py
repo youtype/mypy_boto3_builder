@@ -20,9 +20,7 @@ class Client(ClassRecord):
     alias_name: str = "Client"
     service_name: ServiceName = ServiceNameCatalog.ec2
     boto3_client: BaseClient = None
-    exceptions_class: ClassRecord = field(
-        default_factory=lambda: ClassRecord(name="Exceptions")
-    )
+    exceptions_class: ClassRecord = field(default_factory=lambda: ClassRecord(name="Exceptions"))
 
     def __hash__(self) -> int:
         return hash(self.service_name)

@@ -5,8 +5,8 @@ Structure for boto3-stubs module.
 from dataclasses import dataclass, field
 from typing import List
 
-from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.constants import BOTO3_STUBS_NAME
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 
 

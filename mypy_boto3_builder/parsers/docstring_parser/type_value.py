@@ -1,20 +1,20 @@
 """
 Structure for parsed as dict request or response syntax values.
 """
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict, List, Optional
 
-from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.type_maps.syntax_type_map import SYNTAX_TYPE_MAP
-from mypy_boto3_builder.type_maps.shape_type_map import get_shape_type_stub
 from mypy_boto3_builder.import_helpers.import_string import ImportString
-from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
-from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
+from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
+from mypy_boto3_builder.type_maps.shape_type_map import get_shape_type_stub
+from mypy_boto3_builder.type_maps.syntax_type_map import SYNTAX_TYPE_MAP
 
 
 class TypeValue:
@@ -22,9 +22,7 @@ class TypeValue:
     Structure for parsed as dict request or response syntax values.
     """
 
-    def __init__(
-        self, service_name: ServiceName, prefix: str, value: Dict[str, Any]
-    ) -> None:
+    def __init__(self, service_name: ServiceName, prefix: str, value: Dict[str, Any]) -> None:
         self.service_name = service_name
         self.logger = get_logger()
         self.prefix = prefix
@@ -78,9 +76,7 @@ class TypeValue:
             result = TypeSubscript(Type.Dict)
             result.add_child(SYNTAX_TYPE_MAP[first_key])
             result.add_child(
-                TypeValue(
-                    self.service_name, self.prefix, self.dict_items[0]["value"]
-                ).get_type()
+                TypeValue(self.service_name, self.prefix, self.dict_items[0]["value"]).get_type()
             )
             return result
 
@@ -146,9 +142,7 @@ class TypeValue:
             return ExternalImport(ImportString("botocore", "response"), "StreamingBody")
 
         if self.func_call["name"] == "EventStream":
-            return ExternalImport(
-                ImportString("botocore", "eventstream"), "EventStream"
-            )
+            return ExternalImport(ImportString("botocore", "eventstream"), "EventStream")
 
         self.logger.warning(f"Unknown function: {self.raw}, fallback to Any")
         return Type.Any
@@ -175,9 +169,7 @@ class TypeValue:
         if not self.literal_items:
             raise ValueError(f"Value is not literal: {self.raw}")
 
-        items = [
-            TypeValue(self.service_name, self.prefix, i) for i in self.literal_items
-        ]
+        items = [TypeValue(self.service_name, self.prefix, i) for i in self.literal_items]
         if all(i.is_literal_item() for i in items):
             item_constants = [self._parse_constant(i.value or "") for i in items]
             return TypeLiteral(*item_constants)

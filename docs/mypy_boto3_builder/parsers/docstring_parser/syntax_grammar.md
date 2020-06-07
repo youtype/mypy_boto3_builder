@@ -42,7 +42,7 @@ response_syntax ::= "**Response Syntax**" "::" (list_value | dict_value)
 
 ### SyntaxGrammar.disable_packrat
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L145)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L135)
 
 ```python
 @staticmethod
@@ -51,7 +51,7 @@ def disable_packrat() -> None:
 
 ### SyntaxGrammar.enable_packrat
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L141)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L131)
 
 ```python
 @staticmethod
@@ -60,7 +60,7 @@ def enable_packrat() -> None:
 
 ### SyntaxGrammar.reset
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L137)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L127)
 
 ```python
 @classmethod

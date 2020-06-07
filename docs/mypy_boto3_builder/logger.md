@@ -9,7 +9,7 @@ Logging utils.
 
 ## get_logger
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/logger.py#L45)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/logger.py#L44)
 
 ```python
 def get_logger(verbose: bool = False, panic: bool = False) -> Logger:

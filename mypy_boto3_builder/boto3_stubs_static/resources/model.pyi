@@ -24,9 +24,7 @@ WaiterDefinition = TypedDict("WaiterDefinition", {"waiterName": str}, total=Fals
 ResponseResourceDefinition = TypedDict(
     "ResponseResourceDefinition", {"type": str, "path": str}, total=False
 )
-ResourceModelDefinition = TypedDict(
-    "ResourceModelDefinition", {"shape": str}, total=False
-)
+ResourceModelDefinition = TypedDict("ResourceModelDefinition", {"shape": str}, total=False)
 
 class Identifier:
     def __init__(self, name: str, member_name: Optional[str] = ...) -> None:
@@ -55,7 +53,7 @@ class Parameter:
         name: str = None,
         path: str = None,
         value: Union[str, int, float, bool, None] = None,
-        **kwargs: Any
+        **kwargs: Any,
     ) -> None:
         self.target: str
         self.source: str
@@ -90,10 +88,7 @@ class Collection(Action):
 
 class ResourceModel:
     def __init__(
-        self,
-        name: str,
-        definition: ResourceModelDefinition,
-        resource_defs: Dict[str, Dict],
+        self, name: str, definition: ResourceModelDefinition, resource_defs: Dict[str, Dict],
     ) -> None:
         self.name: str
         self.shape: Optional[Shape]

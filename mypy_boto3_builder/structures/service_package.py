@@ -1,19 +1,19 @@
 from dataclasses import dataclass, field
-from typing import List, Set, Optional
+from typing import List, Optional, Set
 
-from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_record_group import ImportRecordGroup
-from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
-from mypy_boto3_builder.structures.service_resource import ServiceResource
-from mypy_boto3_builder.structures.waiter import Waiter
-from mypy_boto3_builder.structures.paginator import Paginator
+from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.function import Function
 from mypy_boto3_builder.structures.package import Package
+from mypy_boto3_builder.structures.paginator import Paginator
+from mypy_boto3_builder.structures.service_resource import ServiceResource
+from mypy_boto3_builder.structures.waiter import Waiter
+from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 
 
 @dataclass
@@ -72,17 +72,13 @@ class ServicePackage(Package):
         import_records: Set[ImportRecord] = set()
         import_records.add(
             ImportRecord(
-                ImportString(
-                    self.service_name.module_name, ServiceModuleName.client.name
-                ),
+                ImportString(self.service_name.module_name, ServiceModuleName.client.name),
                 self.client.name,
             )
         )
         import_records.add(
             ImportRecord(
-                ImportString(
-                    self.service_name.module_name, ServiceModuleName.client.name
-                ),
+                ImportString(self.service_name.module_name, ServiceModuleName.client.name),
                 self.client.name,
                 alias=self.client.alias_name,
             )
@@ -91,8 +87,7 @@ class ServicePackage(Package):
             import_records.add(
                 ImportRecord(
                     ImportString(
-                        self.service_name.module_name,
-                        ServiceModuleName.service_resource.name,
+                        self.service_name.module_name, ServiceModuleName.service_resource.name,
                     ),
                     self.service_resource.name,
                 )
@@ -100,8 +95,7 @@ class ServicePackage(Package):
             import_records.add(
                 ImportRecord(
                     ImportString(
-                        self.service_name.module_name,
-                        ServiceModuleName.service_resource.name,
+                        self.service_name.module_name, ServiceModuleName.service_resource.name,
                     ),
                     self.service_resource.name,
                     alias=self.service_resource.alias_name,
@@ -110,18 +104,14 @@ class ServicePackage(Package):
         for waiter in self.waiters:
             import_records.add(
                 ImportRecord(
-                    ImportString(
-                        self.service_name.module_name, ServiceModuleName.waiter.name,
-                    ),
+                    ImportString(self.service_name.module_name, ServiceModuleName.waiter.name,),
                     waiter.name,
                 )
             )
         for paginator in self.paginators:
             import_records.add(
                 ImportRecord(
-                    ImportString(
-                        self.service_name.module_name, ServiceModuleName.paginator.name,
-                    ),
+                    ImportString(self.service_name.module_name, ServiceModuleName.paginator.name,),
                     paginator.name,
                 )
             )
@@ -145,19 +135,13 @@ class ServicePackage(Package):
     def get_client_required_import_record_groups(self) -> List[ImportRecordGroup]:
         import_records: Set[ImportRecord] = set()
         for import_record in self.client.get_required_import_records():
-            import_records.add(
-                import_record.get_external(self.service_name.module_name)
-            )
+            import_records.add(import_record.get_external(self.service_name.module_name))
         for import_record in self.client.exceptions_class.get_required_import_records():
-            import_records.add(
-                import_record.get_external(self.service_name.module_name)
-            )
+            import_records.add(import_record.get_external(self.service_name.module_name))
 
         return ImportRecordGroup.from_import_records(import_records)
 
-    def get_service_resource_required_import_record_groups(
-        self,
-    ) -> List[ImportRecordGroup]:
+    def get_service_resource_required_import_record_groups(self,) -> List[ImportRecordGroup]:
         if self.service_resource is None:
             return []
 
@@ -165,18 +149,14 @@ class ServicePackage(Package):
         class_import_records.add(ImportRecord(ImportString("typing"), "TypeVar"))
         import_records: Set[ImportRecord] = set()
         for import_record in class_import_records:
-            import_records.add(
-                import_record.get_external(self.service_name.module_name)
-            )
+            import_records.add(import_record.get_external(self.service_name.module_name))
         return ImportRecordGroup.from_import_records(import_records)
 
     def get_paginator_required_import_record_groups(self) -> List[ImportRecordGroup]:
         import_records: Set[ImportRecord] = set()
         for paginator in self.paginators:
             for import_record in paginator.get_required_import_records():
-                import_records.add(
-                    import_record.get_external(self.service_name.module_name)
-                )
+                import_records.add(import_record.get_external(self.service_name.module_name))
 
         return ImportRecordGroup.from_import_records(import_records)
 
@@ -184,9 +164,7 @@ class ServicePackage(Package):
         import_records: Set[ImportRecord] = set()
         for waiter in self.waiters:
             for import_record in waiter.get_required_import_records():
-                import_records.add(
-                    import_record.get_external(self.service_name.module_name)
-                )
+                import_records.add(import_record.get_external(self.service_name.module_name))
 
         return ImportRecordGroup.from_import_records(import_records)
 
@@ -198,9 +176,7 @@ class ServicePackage(Package):
                     ImportString("typing"),
                     "TypedDict",
                     min_version=(3, 8),
-                    fallback=ImportRecord(
-                        ImportString("typing_extensions"), "TypedDict"
-                    ),
+                    fallback=ImportRecord(ImportString("typing_extensions"), "TypedDict"),
                 )
             )
             for types_dict in self.typed_dicts:

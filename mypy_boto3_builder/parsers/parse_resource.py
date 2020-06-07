@@ -2,29 +2,25 @@
 Parser for Boto3 ServiceResource sub-resource, produces `structures.Resource`
 """
 import inspect
-from typing import Dict, Type
 from types import FunctionType
-
+from typing import Dict, Type
 
 from boto3.docs.utils import is_resource_action
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
-from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
-from mypy_boto3_builder.structures.attribute import Attribute
-from mypy_boto3_builder.structures.resource import Resource
 from mypy_boto3_builder.parsers.helpers import parse_attributes, parse_method
+from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.parse_identifiers import parse_identifiers
 from mypy_boto3_builder.parsers.parse_references import parse_references
-from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
+from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.attribute import Attribute
+from mypy_boto3_builder.structures.resource import Resource
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 
 def parse_resource(
-    name: str,
-    resource: Boto3ServiceResource,
-    service_name: ServiceName,
-    shape_parser: ShapeParser,
+    name: str, resource: Boto3ServiceResource, service_name: ServiceName, shape_parser: ShapeParser,
 ) -> Resource:
     """
     Parse boto3 sub Resource data.
@@ -37,10 +33,7 @@ def parse_resource(
     """
     result = Resource(
         name=name,
-        docstring=(
-            f"[{name} documentation]"
-            f"({service_name.doc_link}.ServiceResource.{name})"
-        ),
+        docstring=(f"[{name} documentation]" f"({service_name.doc_link}.ServiceResource.{name})"),
     )
     shape_method_map = shape_parser.get_resource_method_map(name)
     public_methods = get_resource_public_methods(resource.__class__)

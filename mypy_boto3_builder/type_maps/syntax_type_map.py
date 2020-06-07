@@ -6,7 +6,6 @@ from typing import Dict
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 
-
 SYNTAX_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "'string'": Type.str,
     "b'bytes'": Type.bytes,

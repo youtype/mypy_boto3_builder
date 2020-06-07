@@ -2,17 +2,17 @@
 Pyparsing grammar for request and response syntax.
 """
 from pyparsing import (
-    Word,
-    alphanums,
-    Group,
-    alphas,
-    SkipTo,
-    Optional,
-    delimitedList,
     Combine,
     Forward,
+    Group,
     Literal,
+    Optional,
     ParserElement,
+    SkipTo,
+    Word,
+    alphanums,
+    alphas,
+    delimitedList,
 )
 
 
@@ -51,9 +51,7 @@ class SyntaxGrammar:
     literal_value = (
         Group(literal_item).setResultsName("literal_first_item")
         + Literal("|")
-        + delimitedList(Group(literal_item), delim="|").setResultsName(
-            "literal_rest_items"
-        )
+        + delimitedList(Group(literal_item), delim="|").setResultsName("literal_rest_items")
     )
     any_value = Forward()
     empty_list_value = Group(
@@ -102,18 +100,10 @@ class SyntaxGrammar:
     union_value = (
         Group(union_item).setResultsName("union_first_item")
         + Literal("or").suppress()
-        + delimitedList(Group(union_item), delim="or",).setResultsName(
-            "union_rest_items"
-        )
+        + delimitedList(Group(union_item), delim="or",).setResultsName("union_rest_items")
     )
     any_value <<= (
-        literal_value
-        | list_value
-        | dict_value
-        | set_value
-        | union_value
-        | func_call
-        | plain_value
+        literal_value | list_value | dict_value | set_value | union_value | func_call | plain_value
     )
     argument = (
         Word(alphanums).setResultsName("name")

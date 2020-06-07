@@ -9,7 +9,7 @@ Service package writer.
 
 ## write_service_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/service_package.py#L16)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/service_package.py#L13)
 
 ```python
 def write_service_package(

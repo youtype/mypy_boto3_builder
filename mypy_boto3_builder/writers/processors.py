@@ -6,26 +6,23 @@ from typing import List
 
 from boto3.session import Session
 
-from mypy_boto3_builder.version import __version__ as version
+from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.master_package import parse_master_package
 from mypy_boto3_builder.parsers.service_package import parse_service_package
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.nice_path import NicePath
-from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.version import __version__ as version
 from mypy_boto3_builder.writers.boto3_stubs_package import write_boto3_stubs_package
 from mypy_boto3_builder.writers.master_package import write_master_package
 from mypy_boto3_builder.writers.service_package import write_service_package
 
-
 logger = get_logger()
 
 
-def process_boto3_stubs(
-    output_path: Path, service_names: List[ServiceName]
-) -> Boto3StubsPackage:
+def process_boto3_stubs(output_path: Path, service_names: List[ServiceName]) -> Boto3StubsPackage:
     """
     Parse and write stubs package `boto3_stubs`.
 

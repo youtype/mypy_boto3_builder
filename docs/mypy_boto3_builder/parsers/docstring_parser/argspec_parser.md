@@ -11,7 +11,7 @@ Converter of function argspec to `Argument` list.
 
 ## ArgSpecParser
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L18)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L17)
 
 ```python
 class ArgSpecParser():
@@ -26,7 +26,7 @@ Converter of function argspec to `Argument` list.
 
 ### ArgSpecParser().get_arguments
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L58)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L57)
 
 ```python
 def get_arguments(
@@ -38,7 +38,7 @@ def get_arguments(
 
 ### ArgSpecParser().get_return_type
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L75)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L74)
 
 ```python
 def get_return_type(

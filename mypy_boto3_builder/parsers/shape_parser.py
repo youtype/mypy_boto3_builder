@@ -1,42 +1,39 @@
 """
 Parser for botocore shape files.
 """
-from typing import Dict, List, Any, Optional
+from typing import Any, Dict, List, Optional
 
-from boto3.session import Session
 from boto3.resources.model import Collection
-from botocore.exceptions import UnknownServiceError
+from boto3.session import Session
 from botocore import xform_name
-from botocore.session import Session as BotocoreSession
+from botocore.exceptions import UnknownServiceError
 from botocore.model import (
-    Shape,
+    ListShape,
+    MapShape,
     OperationModel,
     ServiceModel,
-    StructureShape,
-    MapShape,
-    ListShape,
+    Shape,
     StringShape,
+    StructureShape,
 )
+from botocore.session import Session as BotocoreSession
 
+from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
-from mypy_boto3_builder.import_helpers.import_string import ImportString
-from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
+from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport
+from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
-from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
 from mypy_boto3_builder.type_maps.shape_type_map import get_shape_type_stub
-from mypy_boto3_builder.type_maps.typed_dicts import (
-    waiter_config_type,
-    paginator_config_type,
-)
+from mypy_boto3_builder.type_maps.typed_dicts import paginator_config_type, waiter_config_type
 
 
 class ShapeParserError(Exception):
@@ -66,9 +63,7 @@ class ShapeParser:
     # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L773
     # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L1055
     ARGUMENT_ALIASES: Dict[str, Dict[str, Dict[str, str]]] = {
-        ServiceNameCatalog.cloudsearchdomain.boto3_name: {
-            "Search": {"return": "returnFields"}
-        },
+        ServiceNameCatalog.cloudsearchdomain.boto3_name: {"Search": {"return": "returnFields"}},
         ServiceNameCatalog.logs.boto3_name: {"CreateExportTask": {"from": "fromTime"}},
         ServiceNameCatalog.ec2.boto3_name: {"*": {"Filter": "Filters"}},
         ServiceNameCatalog.s3.boto3_name: {
@@ -96,9 +91,7 @@ class ShapeParser:
         self._typed_dict_map: Dict[str, TypeTypedDict] = {}
         self._waiters_shape: Shape = {}
         try:
-            self._waiters_shape = loader.load_service_model(
-                service_name.boto3_name, "waiters-2"
-            )
+            self._waiters_shape = loader.load_service_model(service_name.boto3_name, "waiters-2")
         except UnknownServiceError:
             pass
         self._paginators_shape: Shape = {}
@@ -122,9 +115,7 @@ class ShapeParser:
         return self.service_model.operation_model(name)
 
     def _get_operation_names(self) -> List[str]:
-        return list(
-            self.service_model.operation_names
-        )  # pylint: disable=not-an-iterable
+        return list(self.service_model.operation_names)  # pylint: disable=not-an-iterable
 
     def _get_paginator(self, name: str) -> Shape:
         try:
@@ -174,11 +165,7 @@ class ShapeParser:
         return operation_map[argument_name]
 
     def _parse_arguments(
-        self,
-        class_name: str,
-        method_name: str,
-        operation_name: str,
-        shape: StructureShape,
+        self, class_name: str, method_name: str, operation_name: str, shape: StructureShape,
     ) -> List[Argument]:
         result: List[Argument] = []
         required = shape.required_members
@@ -249,10 +236,7 @@ class ShapeParser:
             if operation_model.input_shape is not None:
                 arguments.extend(
                     self._parse_arguments(
-                        "Client",
-                        method_name,
-                        operation_name,
-                        operation_model.input_shape,
+                        "Client", method_name, operation_name, operation_model.input_shape,
                     )
                 )
 
@@ -260,9 +244,7 @@ class ShapeParser:
                 "Client", method_name, operation_model.output_shape
             )
 
-            method = Method(
-                name=method_name, arguments=arguments, return_type=return_type
-            )
+            method = Method(name=method_name, arguments=arguments, return_type=return_type)
             result[method.name] = method
         return result
 
@@ -382,11 +364,7 @@ class ShapeParser:
         if operation_shape.output_shape is not None:
             return_type = TypeSubscript(
                 Type.Iterator,
-                [
-                    self._parse_return_type(
-                        "Paginator", "paginate", operation_shape.output_shape
-                    ),
-                ],
+                [self._parse_return_type("Paginator", "paginate", operation_shape.output_shape),],
             )
 
         return Method("paginate", arguments, return_type)
@@ -408,9 +386,7 @@ class ShapeParser:
 
         if operation_shape.input_shape is not None:
             arguments.extend(
-                self._parse_arguments(
-                    "Waiter", "wait", operation_name, operation_shape.input_shape
-                )
+                self._parse_arguments("Waiter", "wait", operation_name, operation_shape.input_shape)
             )
 
         arguments.append(Argument("WaiterConfig", waiter_config_type, Type.none))
@@ -432,12 +408,8 @@ class ShapeParser:
             ),
         }
         service_resource_shape = self._get_service_resource()
-        for action_name, action_shape in service_resource_shape.get(
-            "actions", {}
-        ).items():
-            method = self._get_resource_method(
-                "ServiceResource", action_name, action_shape
-            )
+        for action_name, action_shape in service_resource_shape.get("actions", {}).items():
+            method = self._get_resource_method("ServiceResource", action_name, action_shape)
             result[method.name] = method
 
         return result
@@ -469,9 +441,7 @@ class ShapeParser:
 
         for waiter_name in resource_shape.get("waiters", {}):
             method = Method(
-                f"wait_until_{xform_name(waiter_name)}",
-                [Argument("self", None)],
-                Type.none,
+                f"wait_until_{xform_name(waiter_name)}", [Argument("self", None)], Type.none,
             )
             result[method.name] = method
 
@@ -501,10 +471,7 @@ class ShapeParser:
             ]
             if operation_shape.input_shape is not None:
                 for argument in self._parse_arguments(
-                    resource_name,
-                    method_name,
-                    operation_name,
-                    operation_shape.input_shape,
+                    resource_name, method_name, operation_name, operation_shape.input_shape,
                 ):
                     if argument.name not in skip_argument_names:
                         arguments.append(argument)
@@ -546,9 +513,7 @@ class ShapeParser:
 
         return result
 
-    def get_collection_batch_methods(
-        self, name: str, collection: Collection
-    ) -> List[Method]:
+    def get_collection_batch_methods(self, name: str, collection: Collection) -> List[Method]:
         """
         Get batch operations for Resource collection.
 
@@ -569,10 +534,7 @@ class ShapeParser:
                 operation_model = self._get_operation(operation_name)
                 if operation_model.input_shape is not None:
                     for argument in self._parse_arguments(
-                        name,
-                        batch_action.name,
-                        operation_name,
-                        operation_model.input_shape,
+                        name, batch_action.name, operation_name, operation_model.input_shape,
                     ):
                         if argument.required:
                             continue

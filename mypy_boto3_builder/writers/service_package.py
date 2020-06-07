@@ -4,13 +4,10 @@ Service package writer.
 from pathlib import Path
 from typing import List
 
+from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.version import __version__ as version
-from mypy_boto3_builder.writers.utils import (
-    render_jinja2_template,
-    blackify,
-)
-from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
+from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template
 
 
 def write_service_package(package: ServicePackage, output_path: Path) -> List[Path]:
@@ -38,8 +35,7 @@ def write_service_package(package: ServicePackage, output_path: Path) -> List[Pa
         file_paths.append(
             (
                 package_path / ServiceModuleName.service_resource.file_name,
-                module_templates_path
-                / ServiceModuleName.service_resource.template_name,
+                module_templates_path / ServiceModuleName.service_resource.template_name,
             )
         )
     if package.paginators:

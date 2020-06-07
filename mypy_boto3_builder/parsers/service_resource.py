@@ -8,23 +8,18 @@ from boto3.session import Session
 from boto3.utils import ServiceContext
 from botocore.exceptions import UnknownServiceError
 
-from mypy_boto3_builder.structures.attribute import Attribute
-from mypy_boto3_builder.structures.service_resource import ServiceResource
-from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
-from mypy_boto3_builder.parsers.boto3_utils import get_boto3_resource
-from mypy_boto3_builder.parsers.helpers import (
-    get_public_methods,
-    parse_method,
-    parse_attributes,
-)
+from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.parsers.boto3_utils import get_boto3_client, get_boto3_resource
+from mypy_boto3_builder.parsers.helpers import get_public_methods, parse_attributes, parse_method
+from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.parse_identifiers import parse_identifiers
 from mypy_boto3_builder.parsers.parse_references import parse_references
-from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.parse_resource import parse_resource
-from mypy_boto3_builder.parsers.boto3_utils import get_boto3_client
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
-from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.attribute import Attribute
+from mypy_boto3_builder.structures.service_resource import ServiceResource
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 
 def parse_service_resource(
@@ -62,9 +57,7 @@ def parse_service_resource(
         if method_name in shape_method_map:
             method = shape_method_map[method_name]
         else:
-            method = parse_method(
-                "ServiceResource", method_name, public_method, service_name
-            )
+            method = parse_method("ServiceResource", method_name, public_method, service_name)
         method.docstring = (
             f"[ServiceResource.{method_name} documentation]"
             f"({service_name.doc_link}.ServiceResource.{method_name})"
@@ -72,16 +65,12 @@ def parse_service_resource(
         result.methods.append(method)
 
     logger.debug("Parsing ServiceResource attributes")
-    result.attributes.extend(
-        parse_attributes(service_name, "ServiceResource", service_resource)
-    )
+    result.attributes.extend(parse_attributes(service_name, "ServiceResource", service_resource))
     result.attributes.extend(parse_identifiers(service_resource))
     result.attributes.extend(parse_references(service_resource))
 
     logger.debug("Parsing ServiceResource collections")
-    collections = parse_collections(
-        "ServiceResource", service_resource, service_name, shape_parser
-    )
+    collections = parse_collections("ServiceResource", service_resource, service_name, shape_parser)
     for collection in collections:
         result.collections.append(collection)
         result.attributes.append(
@@ -119,9 +108,7 @@ def get_sub_resources(
     session_session = session._session  # pylint: disable=protected-access
     loader = session_session.get_component("data_loader")
     assert resource.meta.service_name == service_name.boto3_name
-    json_resource_model = loader.load_service_model(
-        service_name.boto3_name, "resources-1"
-    )
+    json_resource_model = loader.load_service_model(service_name.boto3_name, "resources-1")
     service_model = resource.meta.client.meta.service_model
     assert service_model.service_name == service_name.boto3_name
     try:
@@ -142,8 +129,6 @@ def get_sub_resources(
         )
         identifiers = resource_class.meta.resource_model.identifiers
         args = ["foo"] * len(identifiers)
-        result.append(
-            resource_class(*args, client=get_boto3_client(session, service_name))
-        )
+        result.append(resource_class(*args, client=get_boto3_client(session, service_name)))
 
     return result

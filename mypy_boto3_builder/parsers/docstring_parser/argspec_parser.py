@@ -2,15 +2,14 @@
 Converter of function argspec to `Argument` list.
 """
 import inspect
-from typing import List, Optional
 from types import FunctionType
-
+from typing import List, Optional
 
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
 
@@ -72,12 +71,8 @@ class ArgSpecParser:
 
         return arguments
 
-    def get_return_type(
-        self, class_name: str, method_name: str
-    ) -> Optional[FakeAnnotation]:
-        type_stub = get_method_type_stub(
-            self.service_name, class_name, method_name, "return"
-        )
+    def get_return_type(self, class_name: str, method_name: str) -> Optional[FakeAnnotation]:
+        type_stub = get_method_type_stub(self.service_name, class_name, method_name, "return")
         if type_stub:
             return type_stub
 

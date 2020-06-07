@@ -4,8 +4,8 @@ Getters for boto3 client and resource from session.
 from typing import Optional
 
 from boto3.exceptions import ResourceNotExistsError
-from boto3.session import Session
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
+from boto3.session import Session
 from botocore.client import BaseClient
 
 from mypy_boto3_builder.service_name import ServiceName

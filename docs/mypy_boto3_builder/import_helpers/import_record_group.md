@@ -35,7 +35,7 @@ Grouped by `source` import records for nicer rendering.
 
 ### ImportRecordGroup.from_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record_group.py#L25)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record_group.py#L23)
 
 ```python
 @classmethod
@@ -56,7 +56,7 @@ A list of generated [ImportRecordGroup](#importrecordgroup).
 
 ### ImportRecordGroup().is_builtins
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record_group.py#L63)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record_group.py#L61)
 
 ```python
 def is_builtins() -> bool:
@@ -66,7 +66,7 @@ Whether imports are from builtins.
 
 ### ImportRecordGroup().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record_group.py#L69)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record_group.py#L67)
 
 ```python
 def render() -> str:

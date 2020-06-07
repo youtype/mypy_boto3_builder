@@ -3,16 +3,16 @@ Pyparsing grammar for argument type doc lines.
 """
 from pyparsing import (
     Forward,
-    SkipTo,
-    Literal,
     LineEnd,
     LineStart,
+    Literal,
+    Optional,
+    ParserElement,
+    SkipTo,
+    White,
     Word,
     alphanums,
     indentedBlock,
-    Optional,
-    White,
-    ParserElement,
 )
 
 
@@ -54,9 +54,7 @@ class TypeDocGrammar:
         + SkipTo(EOL).setResultsName("type_name")
     )
 
-    rtype_definition = (
-        SOL + Literal(":rtype:") + SkipTo(EOL).setResultsName("type_name")
-    )
+    rtype_definition = SOL + Literal(":rtype:") + SkipTo(EOL).setResultsName("type_name")
 
     returns_definition = (
         SOL

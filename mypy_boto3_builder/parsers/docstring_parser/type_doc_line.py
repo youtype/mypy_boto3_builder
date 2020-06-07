@@ -1,7 +1,7 @@
 """
 Structure for parsed as dict `:type:` or `:rtype:` nested lines.
 """
-from typing import Iterable, List, Any
+from typing import Any, Iterable, List
 
 
 class TypeDocLine:

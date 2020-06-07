@@ -11,7 +11,7 @@ Processors for parsing and writing modules.
 
 ## process_boto3_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L26)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L25)
 
 ```python
 def process_boto3_stubs(
@@ -36,7 +36,7 @@ Parsed Boto3StubsPackage.
 
 ## process_master
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L49)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L46)
 
 ```python
 def process_master(
@@ -63,7 +63,7 @@ Parsed MasterPackage.
 
 ## process_service
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L73)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L70)
 
 ```python
 def process_service(
