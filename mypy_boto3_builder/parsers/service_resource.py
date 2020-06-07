@@ -18,7 +18,8 @@ from mypy_boto3_builder.parsers.helpers import (
     parse_method,
     parse_attributes,
 )
-from mypy_boto3_builder.parsers.identifiers import parse_identifiers
+from mypy_boto3_builder.parsers.parse_identifiers import parse_identifiers
+from mypy_boto3_builder.parsers.parse_references import parse_references
 from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.parse_resource import parse_resource
 from mypy_boto3_builder.parsers.boto3_utils import get_boto3_client
@@ -75,6 +76,7 @@ def parse_service_resource(
         parse_attributes(service_name, "ServiceResource", service_resource)
     )
     result.attributes.extend(parse_identifiers(service_resource))
+    result.attributes.extend(parse_references(service_resource))
 
     logger.debug("Parsing ServiceResource collections")
     collections = parse_collections(

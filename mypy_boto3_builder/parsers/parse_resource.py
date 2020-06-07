@@ -14,7 +14,8 @@ from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.resource import Resource
 from mypy_boto3_builder.parsers.helpers import parse_attributes, parse_method
-from mypy_boto3_builder.parsers.identifiers import parse_identifiers
+from mypy_boto3_builder.parsers.parse_identifiers import parse_identifiers
+from mypy_boto3_builder.parsers.parse_references import parse_references
 from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 
@@ -56,6 +57,7 @@ def parse_resource(
 
     result.attributes.extend(parse_attributes(service_name, name, resource))
     result.attributes.extend(parse_identifiers(resource))
+    result.attributes.extend(parse_references(resource))
 
     collections = parse_collections(name, resource, service_name, shape_parser)
     for collection in collections:

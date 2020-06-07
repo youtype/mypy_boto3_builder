@@ -1,4 +1,5 @@
 examples/ec2_example.py:17: error: Missing positional argument "Resources" in call to "create_tags" of "EC2ServiceResource"
 examples/ec2_example.py:17: error: Argument "Tags" to "create_tags" of "EC2ServiceResource" has incompatible type "int"; expected "List[TagTypeDef]"
-examples/ec2_example.py:25: error: Incompatible types (expression has type "int", TypedDict item "Key" has type "str")
-Found 3 errors in 1 file (checked 1 source file)
+examples/ec2_example.py:21: error: Argument 1 to "delete" of "Vpc" has incompatible type "str"; expected "Optional[bool]"
+examples/ec2_example.py:29: error: Incompatible types (expression has type "int", TypedDict item "Key" has type "str")
+Found 4 errors in 1 file (checked 1 source file)

@@ -16,6 +16,10 @@ def ec2_resource_example() -> None:
     #   has incompatible type "int"; expected "List[Tag]"
     resource.create_tags(Tags=123)
 
+    vpc = resource.Vpc("foo")
+    vpc_peer = vpc.request_vpc_peering_connection(PeerVpcId="bar")
+    vpc_peer.accepter_vpc.delete("incorrect")
+
 
 def ec2_client_example() -> None:
     client: EC2Client = boto3.client("ec2")
