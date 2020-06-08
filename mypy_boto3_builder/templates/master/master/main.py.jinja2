@@ -96,6 +96,8 @@ def main() -> None:
             if file_path.exists():
                 logger.info('Removing file %s', file_path)
                 file_path.unlink()
+        (ROOT_PATH / "boto3_init_gen.py").write_text((ROOT_PATH / "boto3_init_stub.py").read_text())
+        (ROOT_PATH / "boto3_session_gen.py").write_text((ROOT_PATH / "boto3_session_stub.py").read_text())
         for submodule in SUBMODULES:
             submodule_path = ROOT_PATH / submodule.import_name
             if submodule_path.exists():
@@ -114,7 +116,7 @@ def main() -> None:
             (
                 "You can now uninstall boto3-stubs with:\n\n"
                 "    python -m pip uninstall %s\n\n"
-                "If you want to continue using it and recreate index, run:\n\n"
+                "If you want to use auto-typing for boto3.client/resource functions, run:\n\n"
                 "    mypy_boto3\n"
             ),
             " ".join(package_names),
@@ -273,7 +275,8 @@ def build_package_methods(logger: logging.Logger) -> None:
 
     init_contents: List[str] = [
         "import sys",
-        "from typing import overload, Any",
+        "from typing import overload, Any, Union",
+        "from botocore.config import Config",
         "if sys.version_info >= (3, 8):",
         "    from typing import Literal",
         "else:",
@@ -286,7 +289,8 @@ def build_package_methods(logger: logging.Logger) -> None:
 
     session_contents: List[str] = [
         "import sys",
-        "from typing import overload, Any",
+        "from typing import overload, Any, Union",
+        "from botocore.config import Config",
         "if sys.version_info >= (3, 8):",
         "    from typing import Literal",
         "else:",
