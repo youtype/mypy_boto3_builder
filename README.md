@@ -94,7 +94,7 @@ Full changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_bu
 
 ## Thank you
 
-- Guys behind [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/),
-  this package is based on top of their work
+- @alliefitter for [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/),
+  this package is based on top of his work
 - [black](https://github.com/psf/black) developers for an awesome formatting tool
 - [mypy](https://github.com/python/mypy) for doing all dirty work for us
