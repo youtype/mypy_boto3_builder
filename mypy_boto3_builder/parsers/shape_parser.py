@@ -57,6 +57,7 @@ class ShapeParser:
         "double": Type.float,
         "float": Type.float,
         "timestamp": ExternalImport(ImportString("datetime"), "datetime"),
+        "blob": TypeSubscript(Type.Union, [Type.bytes, Type.IOBytes]),
     }
 
     # Alias map fixes added by botocore for documentation build.
@@ -180,7 +181,7 @@ class ShapeParser:
             if argument_type_stub is not None:
                 argument_type = argument_type_stub
             else:
-                argument_type = self._parse_shape(argument_shape)
+                argument_type = self._parse_shape(argument_shape, check_streaming=False)
             argument = Argument(argument_alias, argument_type)
             if argument_name not in required:
                 argument.default = Type.none
@@ -299,8 +300,8 @@ class ShapeParser:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
-    def _parse_shape(self, shape: Shape) -> FakeAnnotation:
-        if shape.type_name == "blob":
+    def _parse_shape(self, shape: Shape, check_streaming: bool = True) -> FakeAnnotation:
+        if check_streaming and shape.type_name == "blob":
             if shape.serialization.get("streaming"):
                 return Type.IOBytes
             return Type.bytes
