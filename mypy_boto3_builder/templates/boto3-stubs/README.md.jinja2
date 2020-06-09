@@ -311,7 +311,7 @@ Builder changelog can be found in [Releases](https://github.com/vemel/mypy_boto3
         {{ "[" -}}
         {{ service_name.class_name -}}
         {{ "](" -}}
-        {{ service_name.doc_link -}}
+        {{ service_name.pypi_link -}}
         {{ ")" -}}
     {% endfor -%}
     {{ " services" if package.essential_service_names|length > 1 else " service" -}}
@@ -325,7 +325,7 @@ Builder changelog can be found in [Releases](https://github.com/vemel/mypy_boto3
     {{ "]` - Type annotations for [" -}}
     {{ service_name.class_name -}}
     {{ "](" -}}
-    {{ service_name.doc_link -}}
+    {{ service_name.pypi_link -}}
     {{ ") service." -}}
     {{ "" if loop.last else "\n" -}}
 {% endfor -%}

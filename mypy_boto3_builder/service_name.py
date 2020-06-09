@@ -70,6 +70,13 @@ class ServiceName:
         return f"{PYPI_NAME}-{self.name}"
 
     @property
+    def pypi_link(self) -> str:
+        """
+        Link to package on PyPI.
+        """
+        return f"https://pypi.org/project/{self.pypi_name}/"
+
+    @property
     def extras_name(self) -> str:
         """
         Extras name for subpackage installation.
