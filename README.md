@@ -6,6 +6,7 @@
 
 [![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=Builder%20docs)](https://mypy-boto3-builder.readthedocs.io/)
 [![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=boto3-stubs%20docs)](https://pypi.org/project/boto3-stubs/)
+[![Docs](https://img.shields.io/pypi/wheel/boto3-stubs.svg?color=blue)](https://pypi.org/project/boto3-stubs/)
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boto3-stubs.svg?color=blue)](https://pypi.org/project/boto3-stubs)
 [![Coverage](https://img.shields.io/codecov/c/github/vemel/mypy_boto3_builder)](https://codecov.io/gh/vemel/mypy_boto3_builder)
@@ -14,7 +15,7 @@
 
 Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with [mypy](https://github.com/python/mypy), [VSCode](https://code.visualstudio.com/), [PyCharm](https://www.jetbrains.com/pycharm/) and other tools.
 
-- [mypy_boto3_builder](#mypyboto3builder)
+- [mypy_boto3_builder](#mypy_boto3_builder)
   - [Using boto3-stubs](#using-boto3-stubs)
   - [How to build type annotations](#how-to-build-type-annotations)
     - [Locally](#locally)
