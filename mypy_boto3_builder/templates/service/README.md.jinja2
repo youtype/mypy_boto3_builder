@@ -71,31 +71,32 @@ import {{ service_name.module_name }}.paginator as {{ service_name.underscore_na
 {% endif -%}
 ```
 
-## Automated type discovery
+## Dynamic type annotations
 
-`mypy_boto3` package can generate index for `{{ service_name.module_name }}` and other installed services.
+`mypy_boto3` command generates `boto3.client/resource` type annotations for
+`{{ service_name.module_name }}` and other installed services.
 
 ```bash
-# Run this command when you add or remove service packages
+# Run this command after you add or remove service packages
 python -m mypy_boto3
 ```
 
-Generated index provides overloads for `boto3.client` and `boto3.service`,
+Generated type annotations provide overloads for `boto3.client` and `boto3.resource`,
 `boto3.Session.client` and `boto3.Session.resource` functions,
 so explicit type annotations are not needed.
 
 - `mypy` supports function overloads as expected
-- `PyCharm` also supports function overloads, but consumes a lot of RAM, use carefully
-- `VSCode` does not currently support function overloads
-
-Also, generated index allows you to import types from `{{ master_module_name }}`:
+- `PyCharm` also supports function overloads, but consumes a lot of RAM, use carefully if you have many services installed
+- `VSCode` does not currently support function overloads, use explicit type annotations
 
 ```python
-# you can replace imports
-import {{ service_name.module_name }} as {{ service_name.import_name }}
-from {{ service_name.module_name }} import {{ package.client.name }}
+import boto3
 
-# with these
-from {{ master_module_name }} import {{ service_name.import_name }}
-from {{ master_module_name }}.{{ service_name.import_name }} import {{ package.client.name }}
+# Type is discovered correctly by mypy and PyCharm
+# VSCode still needs explicit type annotations
+client = boto3.client("{{ service_name.boto3_name }}"){% if package.service_resource %}
+resource = boto3.resource("{{ service_name.boto3_name }}"){% endif %}
+
+session_client = boto3.Session().client("{{ service_name.boto3_name }}"){% if package.service_resource %}
+session_resource = boto3.Session().resource("{{ service_name.boto3_name }}"){% endif %}
 ```
