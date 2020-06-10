@@ -138,6 +138,7 @@ class ServiceNameCatalog:
         ServiceName("codeguru-reviewer", "CodeGuruReviewer"),
         ServiceName("codeguruprofiler", "CodeGuruProfiler"),
         ServiceName("codepipeline", "CodePipeline"),
+        ServiceName("codeartifact", "CodeArtifact"),
         ServiceName("codestar", "CodeStar"),
         ServiceName("codestar-connections", "CodeStarconnections"),
         ServiceName("codestar-notifications", "CodeStarNotifications"),
