@@ -1,14 +1,14 @@
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
-from black import NothingChanged
 import pytest
+from black import NothingChanged
 
-from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template
+from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template, sort_imports
 
 
 class TestUtils:
     @patch("mypy_boto3_builder.writers.utils.black")
-    def test_blackify(self, black_mock: MagicMock) -> None:
+    def test_blackify(self, black_mock):
         file_path_mock = MagicMock()
         file_path_mock.suffix = ".txt"
         result = blackify("my content", file_path_mock)
@@ -30,6 +30,12 @@ class TestUtils:
 
         black_mock.format_file_contents.side_effect = NothingChanged()
         assert blackify("my content", file_path_mock) == "my content"
+
+    @patch("mypy_boto3_builder.writers.utils.isort")
+    def test_sort_imports(self, isort_mock):
+        isort_mock.SortImports().output = "output"
+        assert sort_imports("test", "mymodule") == "output"
+        isort_mock.SortImports.assert_called()
 
     @patch("mypy_boto3_builder.writers.utils.TEMPLATES_PATH")
     @patch("mypy_boto3_builder.writers.utils.JinjaManager")

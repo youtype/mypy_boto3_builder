@@ -6,7 +6,7 @@ from typing import List
 
 from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.version import __version__ as version
-from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template
+from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template, sort_imports
 
 
 def write_master_package(package: MasterPackage, output_path: Path) -> List[Path]:
@@ -44,6 +44,7 @@ def write_master_package(package: MasterPackage, output_path: Path) -> List[Path
     for file_path, template_path in file_paths:
         content = render_jinja2_template(template_path, package=package)
         content = blackify(content, file_path)
+        content = sort_imports(content, "mypy_boto3")
 
         if not file_path.exists() or file_path.read_text() != content:
             modified_paths.append(file_path)

@@ -9,9 +9,9 @@ Usage::
     data: {{ package.typed_dicts[0].name }} = {...}
     ```
 """
-{% with import_record_groups=package.get_type_defs_required_import_record_groups() -%}
-    {% include "common/import_groups.py.jinja2" with context -%}
-{% endwith -%}
+{% for import_record in package.get_type_defs_required_import_records() -%}
+    {% include "common/import_record_fallback.py.jinja2" with context %}
+{% endfor -%}
 
 {{ "\n\n" -}}
 

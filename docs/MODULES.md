@@ -13,7 +13,6 @@ Full list of [mypy-boto3-builder](README.md#mypy_boto3_builder) project modules.
         - [ServiceModuleName](mypy_boto3_builder/enums/service_module_name.md#servicemodulename)
     - [Import Helpers](mypy_boto3_builder/import_helpers/index.md#import-helpers)
         - [ImportRecord](mypy_boto3_builder/import_helpers/import_record.md#importrecord)
-        - [ImportRecordGroup](mypy_boto3_builder/import_helpers/import_record_group.md#importrecordgroup)
         - [ImportString](mypy_boto3_builder/import_helpers/import_string.md#importstring)
         - [InternalImportRecord](mypy_boto3_builder/import_helpers/internal_import_record.md#internalimportrecord)
     - [JinjaManager](mypy_boto3_builder/jinja_manager.md#jinjamanager)

@@ -3,7 +3,6 @@ from typing import List, Optional, Set
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_record_group import ImportRecordGroup
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.client import Client
@@ -68,19 +67,12 @@ class ServicePackage(Package):
             types.update(paginator.get_types())
         return types
 
-    def get_init_import_record_groups(self) -> List[ImportRecordGroup]:
+    def get_init_import_records(self) -> List[ImportRecord]:
         import_records: Set[ImportRecord] = set()
         import_records.add(
             ImportRecord(
                 ImportString(self.service_name.module_name, ServiceModuleName.client.name),
                 self.client.name,
-            )
-        )
-        import_records.add(
-            ImportRecord(
-                ImportString(self.service_name.module_name, ServiceModuleName.client.name),
-                self.client.name,
-                alias=self.client.alias_name,
             )
         )
         if self.service_resource:
@@ -90,15 +82,6 @@ class ServicePackage(Package):
                         self.service_name.module_name, ServiceModuleName.service_resource.name,
                     ),
                     self.service_resource.name,
-                )
-            )
-            import_records.add(
-                ImportRecord(
-                    ImportString(
-                        self.service_name.module_name, ServiceModuleName.service_resource.name,
-                    ),
-                    self.service_resource.name,
-                    alias=self.service_resource.alias_name,
                 )
             )
         for waiter in self.waiters:
@@ -116,7 +99,7 @@ class ServicePackage(Package):
                 )
             )
 
-        return ImportRecordGroup.from_import_records(import_records)
+        return list(sorted(import_records))
 
     def get_init_all_names(self) -> List[str]:
         names = {self.client.name, self.client.alias_name}
@@ -132,70 +115,60 @@ class ServicePackage(Package):
         result.sort()
         return result
 
-    def get_client_required_import_record_groups(self) -> List[ImportRecordGroup]:
+    def get_client_required_import_records(self) -> List[ImportRecord]:
         import_records: Set[ImportRecord] = set()
         for import_record in self.client.get_required_import_records():
             import_records.add(import_record.get_external(self.service_name.module_name))
         for import_record in self.client.exceptions_class.get_required_import_records():
             import_records.add(import_record.get_external(self.service_name.module_name))
 
-        return ImportRecordGroup.from_import_records(import_records)
+        return list(sorted(import_records))
 
-    def get_service_resource_required_import_record_groups(self,) -> List[ImportRecordGroup]:
+    def get_service_resource_required_import_records(self) -> List[ImportRecord]:
         if self.service_resource is None:
             return []
 
-        class_import_records = self.service_resource.get_required_import_records()
-        class_import_records.add(ImportRecord(ImportString("typing"), "TypeVar"))
         import_records: Set[ImportRecord] = set()
+        class_import_records = self.service_resource.get_required_import_records()
         for import_record in class_import_records:
             import_records.add(import_record.get_external(self.service_name.module_name))
-        return ImportRecordGroup.from_import_records(import_records)
 
-    def get_paginator_required_import_record_groups(self) -> List[ImportRecordGroup]:
+        return list(sorted(import_records))
+
+    def get_paginator_required_import_records(self) -> List[ImportRecord]:
         import_records: Set[ImportRecord] = set()
         for paginator in self.paginators:
             for import_record in paginator.get_required_import_records():
                 import_records.add(import_record.get_external(self.service_name.module_name))
 
-        return ImportRecordGroup.from_import_records(import_records)
+        return list(sorted(import_records))
 
-    def get_waiter_required_import_record_groups(self) -> List[ImportRecordGroup]:
+    def get_waiter_required_import_records(self) -> List[ImportRecord]:
         import_records: Set[ImportRecord] = set()
         for waiter in self.waiters:
             for import_record in waiter.get_required_import_records():
                 import_records.add(import_record.get_external(self.service_name.module_name))
 
-        return ImportRecordGroup.from_import_records(import_records)
+        return list(sorted(import_records))
 
-    def get_type_defs_required_import_record_groups(self) -> List[ImportRecordGroup]:
+    def get_type_defs_required_import_records(self) -> List[ImportRecord]:
+        if not self.typed_dicts:
+            return []
+
         import_records: Set[ImportRecord] = set()
-        if self.typed_dicts:
-            import_records.add(
-                ImportRecord(
-                    ImportString("typing"),
-                    "TypedDict",
-                    min_version=(3, 8),
-                    fallback=ImportRecord(ImportString("typing_extensions"), "TypedDict"),
-                )
+        import_records.add(
+            ImportRecord(
+                ImportString("typing"),
+                "TypedDict",
+                min_version=(3, 8),
+                fallback=ImportRecord(ImportString("typing_extensions"), "TypedDict"),
             )
-            for types_dict in self.typed_dicts:
-                for type_annotation in types_dict.get_children_types():
-                    import_record = type_annotation.get_import_record()
-                    if import_record.is_type_defs():
-                        continue
-                    import_records.add(import_record)
-
-        return ImportRecordGroup.from_import_records(import_records)
-
-    def get_helpers_import_record_groups(self) -> List[ImportRecordGroup]:
-        import_records: Set[ImportRecord] = set()
-        import_records.add(ImportRecord(ImportString("boto3")))
-        import_records.add(ImportRecord(ImportString("typing"), "Dict"))
-        import_records.add(ImportRecord(ImportString("typing"), "Any"))
-        for helper_function in self.helper_functions:
-            for type_annotation in helper_function.get_types():
+        )
+        for types_dict in self.typed_dicts:
+            for type_annotation in types_dict.get_children_types():
                 import_record = type_annotation.get_import_record()
+                if import_record.is_type_defs() or import_record.is_builtins():
+                    continue
                 import_records.add(import_record)
 
-        return ImportRecordGroup.from_import_records(import_records)
+        return list(sorted(import_records))

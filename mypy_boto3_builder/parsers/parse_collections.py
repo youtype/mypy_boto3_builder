@@ -69,12 +69,8 @@ def parse_collections(
                 "pages",
                 [Argument("self", None)],
                 TypeSubscript(
-                    Type.Generator,
-                    [
-                        TypeSubscript(Type.List, [InternalImport(name=object_class_name)]),
-                        Type.none,
-                        Type.none,
-                    ],
+                    Type.Iterator,
+                    [TypeSubscript(Type.List, [InternalImport(name=object_class_name)])],
                 ),
             )
         )
@@ -82,7 +78,7 @@ def parse_collections(
             Method(
                 "__iter__",
                 [Argument("self", None)],
-                TypeSubscript(Type.Iterator, [InternalImport(name=object_class_name)],),
+                TypeSubscript(Type.Iterator, [InternalImport(name=object_class_name)]),
             )
         )
 

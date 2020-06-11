@@ -36,11 +36,18 @@ Usage::
 {% endif -%}
     {{ '    ' -}}```
 """
-{% with import_record_groups=package.get_init_import_record_groups() -%}
-    {% include "common/import_groups.py.jinja2" with context -%}
-{% endwith -%}
+{% for import_record in package.get_init_import_records() -%}
+    {% include "common/import_record_fallback.py.jinja2" with context %}
+{% endfor -%}
 
 {{ "\n\n" -}}
+
+{% if package.client %}
+{{ package.client.alias_name }} = {{ package.client.name }}
+{% endif %}
+{% if package.client %}
+{{ package.service_resource.alias_name }} = {{ package.service_resource.name }}
+{% endif %}
 
 __all__ = (
 {% for name in package.get_init_all_names() -%}

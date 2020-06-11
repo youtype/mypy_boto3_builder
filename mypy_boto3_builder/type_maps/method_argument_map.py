@@ -21,6 +21,7 @@ METHOD_MAP: ServiceTypeMap = {
     ServiceNameCatalog.ec2: {
         "Instance": {
             "delete_tags": [
+                Argument("self", None),
                 Argument("Resources", TypeSubscript(Type.List, [Type.Any])),
                 Argument("Tags", TypeSubscript(Type.List, [ec2_tag_type]), Type.none),
                 Argument("DryRun", Type.bool, Type.none),

@@ -2,10 +2,8 @@ import argparse
 import pathlib
 import logging
 import importlib
-import re
-import sys
 import shutil
-from typing import List, Dict
+from typing import List, Set
 
 from {{ master_module_name }}.version import __version__ as version
 from {{ master_module_name }}.submodules import (

@@ -1,3 +1,4 @@
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
 """
 Main interface for {{ package.service_name.boto3_name }} service client
 
@@ -10,10 +11,9 @@ Usage::
     client: {{ package.client.name }} = boto3.client("{{ package.service_name.boto3_name }}")
     ```
 """
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
-{% with import_record_groups=package.get_client_required_import_record_groups() -%}
-    {% include "common/import_groups.py.jinja2" with context -%}
-{% endwith -%}
+{% for import_record in package.get_client_required_import_records() -%}
+    {% include "common/import_record_fallback.py.jinja2" with context %}
+{% endfor -%}
 
 {{ "\n\n" -}}
 

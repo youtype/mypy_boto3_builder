@@ -96,7 +96,6 @@ class ServiceResource(ClassRecord):
                     continue
 
                 internal_import.stringify = True
-                internal_import.use_alias = False
 
             result.append(sub_resource)
             added_names.add(sub_resource.name)

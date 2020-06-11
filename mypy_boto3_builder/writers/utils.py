@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Optional
 
 import black
+import isort
 from black import InvalidInput, NothingChanged
 
 from mypy_boto3_builder.constants import LINE_LENGTH, TEMPLATES_PATH
@@ -13,7 +14,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 
 
-def blackify(content: str, file_path: Path, fast: bool = True) -> str:
+def blackify(content: str, file_path: Path) -> str:
     """
     Format `content` with `black` if `file_path` is `*.py` or `*.pyi`.
 
@@ -22,7 +23,6 @@ def blackify(content: str, file_path: Path, fast: bool = True) -> str:
     Arguments:
         content -- Python code to format.
         file_path -- Target file path.
-        fast -- Whether to skip AST post-check.
 
     Returns:
         Formatted python code.
@@ -35,7 +35,7 @@ def blackify(content: str, file_path: Path, fast: bool = True) -> str:
 
     file_mode = black.FileMode(is_pyi=file_path.suffix == ".pyi", line_length=LINE_LENGTH)
     try:
-        content = black.format_file_contents(content, fast=fast, mode=file_mode)
+        content = black.format_file_contents(content, fast=True, mode=file_mode)
     except NothingChanged:
         pass
     except (IndentationError, InvalidInput) as e:
@@ -43,6 +43,24 @@ def blackify(content: str, file_path: Path, fast: bool = True) -> str:
         raise ValueError(f"Cannot parse {file_path}: {e}")
 
     return content
+
+
+def sort_imports(content: str, module_name: str) -> str:
+    known_third_party = ["boto3", "botocore", "typing_extensions", "mypy_boto3"]
+    if module_name in known_third_party:
+        known_third_party.remove(module_name)
+
+    result = isort.SortImports(
+        file_contents=content,
+        known_first_party=[module_name],
+        known_third_party=known_third_party,
+        line_length=LINE_LENGTH,
+        use_parentheses=True,
+        force_grid_wrap=0,
+        include_trailing_comma=True,
+        multi_line_output=3,
+    )
+    return result.output
 
 
 def render_jinja2_template(

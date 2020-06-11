@@ -3,6 +3,7 @@ from typing import Any, Union
 from botocore.config import Config
 from botocore.client import BaseClient
 
+# pylint: disable=unused-argument
 def client(
     service_name: str,
     region_name: str = None,
@@ -17,6 +18,7 @@ def client(
 ) -> BaseClient:
     pass
 
+# pylint: disable=unused-argument
 def resource(
     service_name: str,
     region_name: str = None,

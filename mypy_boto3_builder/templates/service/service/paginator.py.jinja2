@@ -1,3 +1,4 @@
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for {{ package.service_name.boto3_name }} service client paginators.
 
@@ -21,10 +22,9 @@ Usage::
 {% endfor -%}
     {{ '    ' -}}```
 """
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
-{% with import_record_groups=package.get_paginator_required_import_record_groups() -%}
-    {% include "common/import_groups.py.jinja2" with context -%}
-{% endwith -%}
+{% for import_record in package.get_paginator_required_import_records() -%}
+    {% include "common/import_record_fallback.py.jinja2" with context %}
+{% endfor -%}
 
 {{ "\n\n" -}}
 
