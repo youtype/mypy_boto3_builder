@@ -338,7 +338,6 @@ class ServiceNameCatalog:
     cloudformation = ITEM_MAP["cloudformation"]
     cloudsearchdomain = ITEM_MAP["cloudsearchdomain"]
     logs = ITEM_MAP["logs"]
-    fsx = ITEM_MAP["fsx"]
 
     @classmethod
     def find(cls, name: str) -> ServiceName:
