@@ -52,6 +52,7 @@ def parse_collections(
         filter_method = shape_parser.get_collection_filter_method(
             collection_record.name, collection, self_type
         )
+        filter_method.type_ignore = True
         collection_record.methods.append(filter_method)
         batch_methods = shape_parser.get_collection_batch_methods(
             collection_record.name, collection

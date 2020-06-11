@@ -21,6 +21,7 @@ class Function:
     docstring: str = ""
     decorators: List[FakeAnnotation] = field(default_factory=lambda: [])
     body_lines: List[str] = field(default_factory=lambda: [])
+    type_ignore: bool = False
 
     @property
     def body(self) -> str:
