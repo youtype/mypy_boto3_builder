@@ -7,10 +7,7 @@ Usage::
     import boto3
     from {{ package.service_name.module_name }} import {{ package.client.name }}
 
-    session = boto3.Session()
-
     client: {{ package.client.name }} = boto3.client("{{ package.service_name.boto3_name }}")
-    session_client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
     ```
 """
 # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin

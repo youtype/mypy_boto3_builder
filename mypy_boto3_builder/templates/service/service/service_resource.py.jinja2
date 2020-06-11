@@ -10,7 +10,6 @@ Usage::
     import {{ package.service_name.module_name }}.service_resource as {{ package.service_name.name }}_resources
 
     resource: {{ package.service_resource.name }} = boto3.resource("{{ package.service_name.boto3_name }}")
-    session_resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
 {% if package.service_resource.sub_resources -%}
 {% with sub_resource = package.service_resource.sub_resources[0] -%}
     {{ "\n    " -}}
