@@ -1,6 +1,7 @@
 """
 Predefined FakeAnnotation instances.
 """
+from datetime import datetime
 from decimal import Decimal
 from typing import IO, Any, Callable, Dict, Generator, Iterator, List, Optional, Set
 from typing import Type as TypingType
@@ -40,6 +41,7 @@ class Type:
     Decimal = TypeClass(Decimal)
     Type = TypeAnnotation(TypingType)
     Iterator = TypeAnnotation(Iterator)
+    datetime = TypeClass(datetime)
 
     ListAny = TypeSubscript(List, [Any])
     DictStrAny = TypeSubscript(Dict, [str, Any])

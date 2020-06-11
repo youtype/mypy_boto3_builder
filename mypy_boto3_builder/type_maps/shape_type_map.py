@@ -6,7 +6,9 @@ from typing import Dict, Optional
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
 DynamoDBValue = TypeSubscript(
     Type.Union,
@@ -28,7 +30,28 @@ DynamoDBValue = TypeSubscript(
     ],
 )
 
+AdministrativeActionTypeDef = TypeTypedDict(
+    "AdministrativeActionTypeDef",
+    [
+        TypedDictAttribute(
+            "AdministrativeActionType",
+            TypeLiteral("FILE_SYSTEM_UPDATE", "STORAGE_OPTIMIZATION"),
+            required=False,
+        ),
+        TypedDictAttribute("ProgressPercent", Type.int, required=False),
+        TypedDictAttribute("RequestTime", Type.datetime, required=False),
+        TypedDictAttribute(
+            "Status",
+            TypeLiteral("FAILED", "IN_PROGRESS", "PENDING", "COMPLETED", "UPDATED_OPTIMIZING"),
+            required=False,
+        ),
+        TypedDictAttribute("TargetFileSystemValues", Type.DictStrAny, required=False),
+        TypedDictAttribute("FailureDetails", Type.DictStrAny, required=False,),
+    ],
+)
+
 SHAPE_TYPE_MAP: Dict[ServiceName, Dict[str, FakeAnnotation]] = {
+    ServiceNameCatalog.fsx: {"AdministrativeActionTypeDef": AdministrativeActionTypeDef},
     ServiceNameCatalog.dynamodb: {
         "AttributeValueTypeDef": DynamoDBValue,
         "ClientBatchGetItemRequestItemsKeysTypeDef": DynamoDBValue,
@@ -82,7 +105,7 @@ SHAPE_TYPE_MAP: Dict[ServiceName, Dict[str, FakeAnnotation]] = {
         "ClientUpdateItemKeyTypeDef": DynamoDBValue,
         "ClientUpdateItemResponseAttributesTypeDef": DynamoDBValue,
         "ClientUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef": DynamoDBValue,
-    }
+    },
 }
 
 
