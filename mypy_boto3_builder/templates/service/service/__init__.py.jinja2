@@ -45,7 +45,7 @@ Usage::
 {% if package.client %}
 {{ package.client.alias_name }} = {{ package.client.name }}
 {% endif %}
-{% if package.client %}
+{% if package.service_resource %}
 {{ package.service_resource.alias_name }} = {{ package.service_resource.name }}
 {% endif %}
 
