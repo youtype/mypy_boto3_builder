@@ -1,2 +1,2 @@
 "Source of truth for version."
-__version__ = "2.0.4"
+__version__ = "2.1.0"
