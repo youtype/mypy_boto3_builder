@@ -143,7 +143,7 @@ def add_package_to_index(boto3_name: str) -> None:
     Add new package to index and rebuild it if package is new.
     """
     active_boto3_names: Set[str] = {boto3_name}
-    active_submodule = None
+    active_submodule = SUBMODULES[0]
     logger = get_logger(logging.INFO)
     if CACHE_PATH.exists():
         active_boto3_names.update(CACHE_PATH.read_text().split(','))
@@ -166,8 +166,9 @@ def add_package_to_index(boto3_name: str) -> None:
 
 def _get_proxy_contents(module_name: str) -> str:
     service_module = importlib.import_module(module_name)
-    all_names = "\n    ".join(['"{}",'.format(i) for i in service_module.__all__])
-    import_names = "\n    ".join(["{},".format(i) for i in service_module.__all__])
+    module_all: List[str] = getattr(service_module, "__all__", [])
+    all_names = "\n    ".join(['"{}",'.format(i) for i in module_all])
+    import_names = "\n    ".join(["{},".format(i) for i in module_all])
     return 'from {} import (\n    {}\n)\n\n__all__ = (\n    {}\n)\n'.format(module_name, import_names, all_names)
 
 

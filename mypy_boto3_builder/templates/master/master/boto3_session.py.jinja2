@@ -1,6 +1,5 @@
+# pylint: disable=wildcard-import, unused-wildcard-import
 try:
-    from {{ master_module_name }}.boto3_session_gen import Session
+    from mypy_boto3.boto3_session_gen import *
 except ImportError:
-    Session = object
-
-__all__ = ("Session", )
+    pass

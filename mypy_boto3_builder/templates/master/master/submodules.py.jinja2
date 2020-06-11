@@ -28,7 +28,7 @@ class Submodule:
 
     def get_all_names(self) -> List[str]:
         service_module = importlib.import_module(self.module_name)
-        return service_module.__all__
+        return getattr(service_module, "__all__", [])
 
 SUBMODULES: List[Submodule] = [
     {% for service_package in package.service_packages -%}
