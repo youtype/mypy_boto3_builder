@@ -23,7 +23,7 @@ Module-level function.
 
 ### Function().body
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L25)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L26)
 
 ```python
 @property
@@ -32,7 +32,7 @@ def body() -> str:
 
 ### Function().get_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L38)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L39)
 
 ```python
 def get_required_import_records() -> Set[ImportRecord]:
@@ -40,7 +40,7 @@ def get_required_import_records() -> Set[ImportRecord]:
 
 ### Function().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L29)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L30)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
