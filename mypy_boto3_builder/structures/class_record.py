@@ -4,6 +4,8 @@ Base class for all structures that can be rendered to a class.
 from dataclasses import dataclass, field
 from typing import List, Set
 
+from botocore import xform_name
+
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.structures.attribute import Attribute
@@ -67,3 +69,10 @@ class ClassRecord:
                 result.append(type_annotation)
 
         return result
+
+    @property
+    def variable_name(self) -> str:
+        """
+        Get a proper variable name for an instance of this class.
+        """
+        return xform_name(self.name)
