@@ -84,13 +84,17 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
         paginator_record.methods.append(paginate_method)
         result.paginators.append(paginator_record)
 
-    for paginator in result.paginators:
-        method = paginator.get_client_method()
-        result.client.methods.append(method)
+    if result.paginators:
+        for paginator in result.paginators:
+            method = paginator.get_client_method()
+            result.client.methods.append(method)
+        result.client.methods.append(Paginator.get_base_client_method())
 
-    for waiter in result.waiters:
-        method = waiter.get_client_method()
-        result.client.methods.append(method)
+    if result.waiters:
+        for waiter in result.waiters:
+            method = waiter.get_client_method()
+            result.client.methods.append(method)
+        result.client.methods.append(Waiter.get_base_client_method())
 
     result.typed_dicts = result.extract_typed_dicts()
 

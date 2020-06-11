@@ -47,3 +47,11 @@ class Paginator(ClassRecord):
                 name=self.name,
             ),
         )
+
+    @staticmethod
+    def get_base_client_method() -> Method:
+        return Method(
+            name="get_paginator",
+            arguments=[Argument("self", None), Argument("operation_name", Type.str)],
+            return_type=TypeClass(Boto3Paginator, alias="Boto3Paginator"),
+        )
