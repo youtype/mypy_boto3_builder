@@ -35,7 +35,7 @@ def alias_name() -> str:
 
 ### ClassRecord().get_internal_imports
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L60)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L58)
 
 ```python
 def get_internal_imports() -> List[InternalImport]:
@@ -67,7 +67,7 @@ def render_alias() -> str:
 
 ### ClassRecord().variable_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L70)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L68)
 
 ```python
 @property

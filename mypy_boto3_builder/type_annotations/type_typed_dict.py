@@ -7,6 +7,7 @@ from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.type import Type
 
 
 class TypedDictAttribute:
@@ -43,6 +44,7 @@ class TypeTypedDict(FakeAnnotation):
         children -- Typed dict attributes.
         docstring -- Docstring for render.
         stringify -- Convert type annotation to string to avoid circular deps.
+        replace_with_dict -- Render Dict[str, Any] instead to avoid circular dependencies.
     """
 
     def __init__(
@@ -51,11 +53,13 @@ class TypeTypedDict(FakeAnnotation):
         children: Iterable[TypedDictAttribute] = (),
         docstring: str = "",
         stringify: bool = False,
+        replace_with_dict: bool = False,
     ) -> None:
         self.name = name
         self.children = list(children)
         self.docstring = docstring
         self.stringify = stringify
+        self.replace_with_dict = replace_with_dict
 
     def get_attribute(self, name: str) -> TypedDictAttribute:
         for child in self.children:
@@ -71,6 +75,9 @@ class TypeTypedDict(FakeAnnotation):
         Returns:
             A string with a valid type annotation.
         """
+        if self.replace_with_dict:
+            return Type.DictStrAny.render()
+
         if self.stringify:
             return f'"{self.name}"'
 
@@ -94,6 +101,9 @@ class TypeTypedDict(FakeAnnotation):
         Returns:
             A set of type annotations.
         """
+        if self.replace_with_dict:
+            return Type.DictStrAny.get_types()
+
         return {self}
 
     def add_attribute(self, name: str, type_annotation: FakeAnnotation, required: bool) -> None:
@@ -163,7 +173,11 @@ class TypeTypedDict(FakeAnnotation):
         Create a copy of type annotation wrapper.
         """
         return TypeTypedDict(
-            self.name, list(self.children), docstring=self.docstring, stringify=self.stringify,
+            self.name,
+            list(self.children),
+            docstring=self.docstring,
+            stringify=self.stringify,
+            replace_with_dict=self.replace_with_dict,
         )
 
     def is_same(self, other: "TypeTypedDict") -> bool:
@@ -186,3 +200,8 @@ class TypeTypedDict(FakeAnnotation):
             result.add(type_annotation)
 
         return result
+
+    def replace_self_references(self) -> None:
+        for child in self.get_children_typed_dicts():
+            if child is self:
+                child.replace_with_dict = True

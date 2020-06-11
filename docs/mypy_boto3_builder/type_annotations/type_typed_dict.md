@@ -22,12 +22,13 @@ Wrapper for `typing/typing_extensions.TypedDict` type annotations.
         - [TypeTypedDict().is_same](#typetypeddictis_same)
         - [TypeTypedDict().render](#typetypeddictrender)
         - [TypeTypedDict().render_class](#typetypeddictrender_class)
+        - [TypeTypedDict().replace_self_references](#typetypeddictreplace_self_references)
     - [TypedDictAttribute](#typeddictattribute)
         - [TypedDictAttribute().render](#typeddictattributerender)
 
 ## TypeTypedDict
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L37)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L38)
 
 ```python
 class TypeTypedDict(FakeAnnotation):
@@ -36,6 +37,7 @@ class TypeTypedDict(FakeAnnotation):
         children: Iterable[TypedDictAttribute] = (),
         docstring: str = '',
         stringify: bool = False,
+        replace_with_dict: bool = False,
     ) -> None:
 ```
 
@@ -47,6 +49,7 @@ Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 - `children` - Typed dict attributes.
 - `docstring` - Docstring for render.
 - `stringify` - Convert type annotation to string to avoid circular deps.
+- `replace_with_dict` - Render Dict[str, Any] instead to avoid circular dependencies.
 
 #### See also
 
@@ -54,7 +57,7 @@ Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 
 ### TypeTypedDict().add_attribute
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L99)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L109)
 
 ```python
 def add_attribute(
@@ -78,7 +81,7 @@ Add new attribute to a dictionary.
 
 ### TypeTypedDict().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L161)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L171)
 
 ```python
 def copy() -> 'TypeTypedDict':
@@ -88,7 +91,7 @@ Create a copy of type annotation wrapper.
 
 ### TypeTypedDict().get_attribute
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L60)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L64)
 
 ```python
 def get_attribute(name: str) -> TypedDictAttribute:
@@ -100,7 +103,7 @@ def get_attribute(name: str) -> TypedDictAttribute:
 
 ### TypeTypedDict().get_children_typed_dicts
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L180)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L194)
 
 ```python
 def get_children_typed_dicts() -> Set['TypeTypedDict']:
@@ -108,7 +111,7 @@ def get_children_typed_dicts() -> Set['TypeTypedDict']:
 
 ### TypeTypedDict().get_children_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L174)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L188)
 
 ```python
 def get_children_types() -> Set[FakeAnnotation]:
@@ -116,7 +119,7 @@ def get_children_types() -> Set[FakeAnnotation]:
 
 ### TypeTypedDict().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L82)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L89)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -130,7 +133,7 @@ Get import record required for using type annotation.
 
 ### TypeTypedDict().get_optional
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L154)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L164)
 
 ```python
 def get_optional() -> List[TypedDictAttribute]:
@@ -138,7 +141,7 @@ def get_optional() -> List[TypedDictAttribute]:
 
 ### TypeTypedDict().get_required
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L147)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L157)
 
 ```python
 def get_required() -> List[TypedDictAttribute]:
@@ -146,7 +149,7 @@ def get_required() -> List[TypedDictAttribute]:
 
 ### TypeTypedDict().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L88)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L95)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
@@ -162,7 +165,7 @@ A set of type annotations.
 
 ### TypeTypedDict().has_both
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L141)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L151)
 
 ```python
 def has_both() -> bool:
@@ -172,7 +175,7 @@ Whether TypedDict has both optional and required keys.
 
 ### TypeTypedDict().has_optional
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L123)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L133)
 
 ```python
 def has_optional() -> bool:
@@ -182,7 +185,7 @@ Whether TypedDict has optional keys.
 
 ### TypeTypedDict().has_required
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L132)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L142)
 
 ```python
 def has_required() -> bool:
@@ -192,7 +195,7 @@ Whether TypedDict has required keys.
 
 ### TypeTypedDict().is_dict
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L110)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L120)
 
 ```python
 def is_dict() -> bool:
@@ -202,7 +205,7 @@ Always True as it is a TypedDict.
 
 ### TypeTypedDict().is_same
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L169)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L183)
 
 ```python
 def is_same(other: 'TypeTypedDict') -> bool:
@@ -210,7 +213,7 @@ def is_same(other: 'TypeTypedDict') -> bool:
 
 ### TypeTypedDict().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L67)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L71)
 
 ```python
 def render(parent_name: str = '') -> str:
@@ -224,7 +227,7 @@ A string with a valid type annotation.
 
 ### TypeTypedDict().render_class
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L116)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L126)
 
 ```python
 def render_class() -> str:
@@ -232,9 +235,17 @@ def render_class() -> str:
 
 Render class-based definition for debugging.
 
+### TypeTypedDict().replace_self_references
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L204)
+
+```python
+def replace_self_references() -> None:
+```
+
 ## TypedDictAttribute
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L13)
 
 ```python
 class TypedDictAttribute():
@@ -255,7 +266,7 @@ TypedDict attribute wrapper.
 
 ### TypedDictAttribute().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L27)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L28)
 
 ```python
 def render() -> str:
