@@ -240,8 +240,14 @@ Render class-based definition for debugging.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L204)
 
 ```python
-def replace_self_references() -> None:
+def replace_self_references() -> List[str]:
 ```
+
+Replace self refenrences with `Dict[str, Any]` to avoid circular dependencies.
+
+#### Returns
+
+A list of replaced children names.
 
 ## TypedDictAttribute
 

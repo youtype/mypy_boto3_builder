@@ -201,7 +201,27 @@ class TypeTypedDict(FakeAnnotation):
 
         return result
 
-    def replace_self_references(self) -> None:
+    def replace_self_references(self) -> List[str]:
+        """
+        Replace self refenrences with `Dict[str, Any]` to avoid circular dependencies.
+
+        Returns:
+            A list of replaced children names.
+        """
+        result: List[str] = []
         for child in self.get_children_typed_dicts():
+            if child.replace_with_dict:
+                continue
             if child is self:
                 child.replace_with_dict = True
+                result.append(child.name)
+                continue
+            for sub_child in child.get_children_typed_dicts():
+                if sub_child.replace_with_dict:
+                    continue
+                if sub_child is self:
+                    sub_child.replace_with_dict = True
+                    result.append(sub_child.name)
+                    continue
+
+        return result
