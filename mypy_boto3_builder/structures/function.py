@@ -40,9 +40,7 @@ class Function:
         result: Set[ImportRecord] = set()
         for type_annotation in self.get_types():
             import_record = type_annotation.get_import_record()
-            if not import_record:
-                continue
-            if import_record.is_builtins():
+            if not import_record or import_record.is_builtins():
                 continue
             result.add(import_record)
 

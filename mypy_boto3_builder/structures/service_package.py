@@ -167,7 +167,9 @@ class ServicePackage(Package):
         for types_dict in self.typed_dicts:
             for type_annotation in types_dict.get_children_types():
                 import_record = type_annotation.get_import_record()
-                if import_record.is_type_defs() or import_record.is_builtins():
+                if not import_record or import_record.is_builtins():
+                    continue
+                if import_record.is_type_defs():
                     continue
                 import_records.add(import_record)
 
