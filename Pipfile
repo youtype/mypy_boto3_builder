@@ -11,7 +11,6 @@ pytest-cov = "==2.9.0"
 vulture = "==1.5"
 handsdown = "==0.3.9"
 mypy = "==0.780"
-isort = "==4.3.21"
 
 [packages]
 mypy_boto3_builder = {path = ".",editable = true}
