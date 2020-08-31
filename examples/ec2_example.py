@@ -1,12 +1,13 @@
 # install `pip install boto3-stubs[ec2]`
 
 import boto3
+from boto3.session import Session
 from mypy_boto3_ec2 import EC2Client, EC2ServiceResource
 from mypy_boto3_ec2.service_resource import Image
 
 
 def ec2_resource_example() -> None:
-    session = boto3.session.Session(region_name="us-west-1")
+    session = Session(region_name="us-west-1")
 
     resource: EC2ServiceResource = session.resource("ec2")
     _resource: EC2ServiceResource = boto3.resource("ec2")
@@ -21,7 +22,8 @@ def ec2_resource_example() -> None:
     vpc_peer = vpc.request_vpc_peering_connection(PeerVpcId="bar")
     vpc_peer.accepter_vpc.delete("incorrect")
 
-    Image().create_tags(Resources=["test"], Tags=[])
+    image: Image = resource.Image(id="test")
+    image.create_tags(Resources=[123], Tags=[])
 
 
 def ec2_client_example() -> None:
