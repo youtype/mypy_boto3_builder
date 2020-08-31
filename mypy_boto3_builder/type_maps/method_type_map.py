@@ -22,14 +22,12 @@ ServiceTypeMap = Dict[ServiceName, ClassTypeMap]
 
 TYPE_MAP: ServiceTypeMap = {
     ServiceNameCatalog.ec2: {
-        "*": {
+        "Client": {
             "create_tags": {
                 "Resources": TypeSubscript(Type.List, [Type.Any]),
                 "Tags": TypeSubscript(Type.List, [ec2_tag_type]),
                 "DryRun": Type.bool,
             },
-        },
-        "Client": {
             "delete_tags": {
                 "Resources": TypeSubscript(Type.List, [Type.Any]),
                 "Tags": TypeSubscript(Type.List, [ec2_tag_type]),
