@@ -3,11 +3,14 @@ String to type annotation map that find type annotation by method and argument n
 """
 from typing import Dict, Optional
 
+from boto3.dynamodb.conditions import ConditionBase
+
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.typed_dicts import ec2_tag_type, s3_copy_source_type
 
@@ -49,11 +52,22 @@ TYPE_MAP: ServiceTypeMap = {
         "Object": {"copy": {"CopySource": s3_copy_source_type}},
     },
     ServiceNameCatalog.dynamodb: {
+        "Client": {
+            "query": {
+                "KeyConditionExpression": TypeSubscript(
+                    Type.Union, [Type.str, TypeClass(ConditionBase)]
+                ),
+                "FilterExpression": TypeSubscript(Type.Union, [Type.str, TypeClass(ConditionBase)]),
+            },
+            "scan": {
+                "FilterExpression": TypeSubscript(Type.Union, [Type.str, TypeClass(ConditionBase)]),
+            },
+        },
         "Table": {
             "batch_writer": {
                 "return": ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter")
             }
-        }
+        },
     },
 }
 
