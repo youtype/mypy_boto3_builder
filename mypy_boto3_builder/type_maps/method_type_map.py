@@ -28,12 +28,12 @@ TYPE_MAP: ServiceTypeMap = {
         "Client": {
             "create_tags": {
                 "Resources": TypeSubscript(Type.List, [Type.Any]),
-                "Tags": TypeSubscript(Type.List, [ec2_tag_type]),
+                "Tags": TypeSubscript(Type.Optional, [TypeSubscript(Type.List, [ec2_tag_type])]),
                 "DryRun": Type.bool,
             },
             "delete_tags": {
                 "Resources": TypeSubscript(Type.List, [Type.Any]),
-                "Tags": TypeSubscript(Type.List, [ec2_tag_type]),
+                "Tags": TypeSubscript(Type.Optional, [TypeSubscript(Type.List, [ec2_tag_type])]),
                 "DryRun": Type.bool,
             },
         },
