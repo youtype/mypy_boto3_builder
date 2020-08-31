@@ -6,7 +6,7 @@ from typing import Optional
 
 import black
 import isort
-from black import FileMode, InvalidInput, NothingChanged
+from black import InvalidInput, NothingChanged
 
 from mypy_boto3_builder.constants import LINE_LENGTH, TEMPLATES_PATH
 from mypy_boto3_builder.jinja_manager import JinjaManager
@@ -33,7 +33,7 @@ def blackify(content: str, file_path: Path) -> str:
     if file_path.suffix not in (".py", ".pyi"):
         return content
 
-    file_mode = FileMode(is_pyi=file_path.suffix == ".pyi", line_length=LINE_LENGTH)
+    file_mode = black.FileMode(is_pyi=file_path.suffix == ".pyi", line_length=LINE_LENGTH)
     try:
         content = black.format_file_contents(content, fast=True, mode=file_mode)
     except NothingChanged:
