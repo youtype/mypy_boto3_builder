@@ -362,3 +362,11 @@ class ServiceNameCatalog:
             return cls.ITEM_MAP[name]
         except KeyError:
             raise ValueError(f"Unknown service {name}")
+
+    @staticmethod
+    def create(name: str) -> ServiceName:
+        """
+        Create ServiceName for unknown service.
+        """
+        class_name = "".join([i.capitalize() for i in name.split("-")])
+        return ServiceName(name, class_name)

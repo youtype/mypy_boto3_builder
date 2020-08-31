@@ -32,8 +32,10 @@ def get_service_name(name: str) -> ServiceName:
     """
     try:
         return ServiceNameCatalog.find(name)
-    except ValueError as e:
-        raise argparse.ArgumentTypeError(e)
+    except ValueError:
+        pass
+
+    return ServiceNameCatalog.create(name)
 
 
 def get_cli_parser() -> argparse.ArgumentParser:

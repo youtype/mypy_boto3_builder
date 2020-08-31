@@ -35,9 +35,14 @@ def main() -> None:
     for available_service in available_services:
         try:
             service_name = ServiceNameCatalog.find(available_service)
-            master_service_names.append(service_name)
         except ValueError:
-            logger.info(f"Service {available_service} is not supported, skipping.")
+            service_name = ServiceNameCatalog.create(available_service)
+            logger.info(
+                f"Service {available_service} is not yet supported,"
+                f" will be processed as {service_name.class_name}."
+            )
+
+        master_service_names.append(service_name)
 
     for service_name in args.service_names:
         if service_name.name not in available_services:
