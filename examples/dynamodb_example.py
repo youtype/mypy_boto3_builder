@@ -3,6 +3,7 @@
 import decimal
 
 import boto3
+from boto3.dynamodb.conditions import Key
 from mypy_boto3_dynamodb import DynamoDBClient, DynamoDBServiceResource
 from mypy_boto3_dynamodb.service_resource import Table
 
@@ -29,6 +30,9 @@ def dynamodb_client_example() -> None:
         client.list_backups(TableName=123)
     except client.exceptions.BackupInUseException as e:
         print(e)
+
+    key_exp = Key("partition_key").eq("pk") & Key("time").between(888888, 999999)
+    client.query("my_table", FilterExpression=key_exp)
 
 
 def main() -> None:

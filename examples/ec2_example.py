@@ -2,6 +2,7 @@
 
 import boto3
 from mypy_boto3_ec2 import EC2Client, EC2ServiceResource
+from mypy_boto3_ec2.service_resource import Image
 
 
 def ec2_resource_example() -> None:
@@ -19,6 +20,8 @@ def ec2_resource_example() -> None:
     vpc = resource.Vpc("foo")
     vpc_peer = vpc.request_vpc_peering_connection(PeerVpcId="bar")
     vpc_peer.accepter_vpc.delete("incorrect")
+
+    Image().create_tags(Resources=["test"], Tags=[])
 
 
 def ec2_client_example() -> None:
