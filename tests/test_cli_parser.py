@@ -1,13 +1,6 @@
-import argparse
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
-import pytest
-
-from mypy_boto3_builder.cli_parser import (
-    get_cli_parser,
-    get_absolute_path,
-    get_service_name,
-)
+from mypy_boto3_builder.cli_parser import get_absolute_path, get_cli_parser, get_service_name
 
 
 class TestCLIParser:
@@ -29,5 +22,5 @@ class TestCLIParser:
         assert result == ServiceNameCatalogMock.find()
 
         ServiceNameCatalogMock.find.side_effect = ValueError()
-        with pytest.raises(argparse.ArgumentTypeError):
-            get_service_name("name")
+        assert get_service_name("name") == ServiceNameCatalogMock.create()
+        assert get_service_name("name-none") == ServiceNameCatalogMock.create()
