@@ -1,14 +1,12 @@
 """
 Helper for Python import strings.
 """
-from functools import total_ordering
 from typing import Any, Optional, Tuple
 
 from mypy_boto3_builder.constants import MODULE_NAME, TYPE_DEFS_NAME
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 
-@total_ordering
 class ImportRecord:
     """
     Helper for Python import strings.
@@ -102,6 +100,9 @@ class ImportRecord:
             return False
 
         return self.source > other.source
+
+    def __lt__(self, other: "ImportRecord") -> bool:
+        return not self > other
 
     def get_local_name(self) -> str:
         """

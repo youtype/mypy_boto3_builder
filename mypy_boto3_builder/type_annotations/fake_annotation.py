@@ -2,13 +2,11 @@
 Parent class for all type annotation wrappers.
 """
 from abc import ABC, abstractmethod
-from functools import total_ordering
 from typing import Any, Set
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 
 
-@total_ordering  # type: ignore
 class FakeAnnotation(ABC):
     """
     Parent class for all type annotation wrappers.
@@ -31,6 +29,9 @@ class FakeAnnotation(ABC):
 
     def __gt__(self, other: "FakeAnnotation") -> bool:
         return str(self) > str(other)
+
+    def __lt__(self, other: "FakeAnnotation") -> bool:
+        return not self > other
 
     def __str__(self) -> str:
         return self.render()
