@@ -48,6 +48,14 @@ TYPE_MAP: ServiceTypeMap = {
         "DhcpOptions": _create_tags_stub,
         "Image": _create_tags_stub,
         "InternetGateway": _create_tags_stub,
+        "Instance": {
+            **_create_tags_stub,
+            "delete_tags": {
+                "Resources": Type.RemoveArgument,
+                "Tags": TypeSubscript(Type.Optional, [TypeSubscript(Type.List, [ec2_tag_type])]),
+                "DryRun": Type.bool,
+            },
+        },
         "NetworkAcl": _create_tags_stub,
         "NetworkInterface": _create_tags_stub,
         "SecurityGroup": _create_tags_stub,
