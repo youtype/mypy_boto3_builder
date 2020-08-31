@@ -2,6 +2,7 @@
 Boto3 client parser, produces `structures.Client`.
 """
 from boto3.session import Session
+from botocore.client import ClientMeta
 from botocore.errorfactory import ClientExceptionsFactory
 from botocore.exceptions import ClientError
 
@@ -73,6 +74,7 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
             )
         )
 
+    result.attributes.append(Attribute("meta", TypeClass(ClientMeta)))
     result.attributes.append(
         Attribute(
             "exceptions",
@@ -82,6 +84,6 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
                 service_name=service_name,
                 stringify=False,
             ),
-        )
+        ),
     )
     return result

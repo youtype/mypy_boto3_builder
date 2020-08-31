@@ -30,6 +30,7 @@ def ec2_client_example() -> None:
     # (mypy) error: Incompatible types (expression has type "int", TypedDict item
     #   "Key" has type "str")
     client.create_tags(Tags=[{"Key": 123}], Resources=[])
+    region_name = client.meta.region_name
 
 
 def main() -> None:
