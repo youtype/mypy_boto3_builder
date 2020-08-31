@@ -5,7 +5,6 @@ import argparse
 from pathlib import Path
 
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
-from mypy_boto3_builder.version import __version__ as version
 
 
 def get_absolute_path(path: str) -> Path:
@@ -44,6 +43,7 @@ def get_cli_parser() -> argparse.ArgumentParser:
     Returns:
         Argument parser.
     """
+    version = (Path(__file__).parent / "version.txt").read_text().strip()
     parser = argparse.ArgumentParser("mypy_boto3_builder", description="Builder for mypy-boto3.")
     parser.add_argument("-d", "--debug", action="store_true", help="Show debug messages")
     parser.add_argument(

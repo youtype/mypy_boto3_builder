@@ -1,6 +1,7 @@
 """
 Main entrypoint for builder.
 """
+from pathlib import Path
 from typing import List
 
 from boto3 import __version__ as boto3_version
@@ -11,7 +12,6 @@ from mypy_boto3_builder.constants import BOTO3_STUBS_NAME, DUMMY_REGION, MODULE_
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
-from mypy_boto3_builder.version import __version__ as version
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_master,
@@ -48,6 +48,7 @@ def main() -> None:
         service_names.append(service_name)
 
     build_version = args.build_version or boto3_version
+    version = (Path(__file__).parent / "version.txt").read_text().strip()
     JinjaManager.update_globals(
         master_pypi_name=PYPI_NAME,
         master_module_name=MODULE_NAME,

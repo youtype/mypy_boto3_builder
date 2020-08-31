@@ -4,6 +4,7 @@ on:
   push:
     paths-ignore:
       - mypy_boto3_builder/version.py
+      - mypy_boto3_builder/version.txt
       - CHANGELOG.md
 
 jobs:

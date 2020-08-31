@@ -6,7 +6,6 @@ from typing import Any
 import jinja2
 
 from mypy_boto3_builder.constants import TEMPLATES_PATH
-from mypy_boto3_builder.version import __version__ as version
 
 __all__ = ["JinjaManager"]
 

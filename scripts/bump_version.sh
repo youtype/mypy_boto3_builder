@@ -20,14 +20,13 @@ if [[ "$VERSION" == "" ]]; then
 fi
 
 echo "Bumping version to ${VERSION}"
-echo '"Source of truth for version."' > mypy_boto3_builder/version.py
-echo "__version__ = \"${VERSION}\"" >> mypy_boto3_builder/version.py
+echo "${VERSION}\n" > mypy_boto3_builder/version.txt
 
 if [[ `git diff --stat | grep version` != "" ]]; then
     echo "There are changes: `git diff`"
     git config --global user.email "volshebnyi@gmail.com"
     git config --global user.name ${GITHUB_ACTOR}
-    git add mypy_boto3_builder/version.py
+    git add mypy_boto3_builder/version.txt
     git commit -m "Bump version to ${VERSION}"
     git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/vemel/mypy_boto3_builder.git --tags
     git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/vemel/mypy_boto3_builder.git HEAD:master

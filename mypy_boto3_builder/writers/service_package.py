@@ -6,7 +6,6 @@ from typing import List
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.version import __version__ as version
 from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template, sort_imports
 
 
