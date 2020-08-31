@@ -178,6 +178,8 @@ class ShapeParser:
             argument_type_stub = get_method_type_stub(
                 self.service_name, class_name, method_name, argument_name
             )
+            if argument_type_stub is Type.RemoveArgument:
+                continue
             if argument_type_stub is not None:
                 argument_type = argument_type_stub
             else:

@@ -7,6 +7,7 @@ from typing import IO, Any, Callable, Dict, Generator, Iterator, List, Optional,
 from typing import Type as TypingType
 from typing import Union, overload
 
+from mypy_boto3_builder.type_annotations.remove_argument import RemoveArgument
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
@@ -46,3 +47,4 @@ class Type:
     ListAny = TypeSubscript(List, [Any])
     DictStrAny = TypeSubscript(Dict, [str, Any])
     IOBytes = TypeSubscript(IO, [bytes])
+    RemoveArgument = RemoveArgument()

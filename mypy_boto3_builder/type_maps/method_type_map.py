@@ -22,6 +22,14 @@ MethodTypeMap = Dict[str, ArgumentTypeMap]
 ClassTypeMap = Dict[str, MethodTypeMap]
 ServiceTypeMap = Dict[ServiceName, ClassTypeMap]
 
+_create_tags_stub = {
+    "create_tags": {
+        "Resources": Type.RemoveArgument,
+        "Tags": TypeSubscript(Type.Optional, [TypeSubscript(Type.List, [ec2_tag_type])]),
+        "DryRun": Type.bool,
+    },
+}
+
 
 TYPE_MAP: ServiceTypeMap = {
     ServiceNameCatalog.ec2: {
@@ -37,6 +45,17 @@ TYPE_MAP: ServiceTypeMap = {
                 "DryRun": Type.bool,
             },
         },
+        "DhcpOptions": _create_tags_stub,
+        "Image": _create_tags_stub,
+        "InternetGateway": _create_tags_stub,
+        "NetworkAcl": _create_tags_stub,
+        "NetworkInterface": _create_tags_stub,
+        "SecurityGroup": _create_tags_stub,
+        "Snapshot": _create_tags_stub,
+        "Volume": _create_tags_stub,
+        "RouteTable": _create_tags_stub,
+        "Subnet": _create_tags_stub,
+        "Vpc": _create_tags_stub,
     },
     ServiceNameCatalog.s3: {
         "Client": {
