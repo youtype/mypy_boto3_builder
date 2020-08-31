@@ -1,6 +1,6 @@
 # pylint: disable=unused-argument,multiple-statements,super-init-not-called
 import sys
-from typing import Dict, Any, Iterable, List
+from typing import Any, Dict, Iterable, List
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
