@@ -4,4 +4,6 @@
 !scripts/**
 !README.md
 !setup.py
+!setup.cfg
+!LICENSE
 !requirements.txt

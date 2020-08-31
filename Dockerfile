@@ -1,4 +1,4 @@
-FROM python:3.8.2-alpine3.10
+FROM python:3.8.5-alpine3.11
 
 RUN apk add --no-cache gcc libc-dev
 
@@ -9,6 +9,8 @@ ADD ./requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt
 
 ADD ./mypy_boto3_builder ./mypy_boto3_builder
+ADD ./LICENSE ./LICENSE
+ADD ./setup.cfg ./setup.cfg
 ADD ./setup.py ./setup.py
 ADD ./README.md ./README.md
 ADD ./scripts/docker.sh ./scripts/docker.sh
