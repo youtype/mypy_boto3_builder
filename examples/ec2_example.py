@@ -23,7 +23,7 @@ def ec2_resource_example() -> None:
     vpc_peer.accepter_vpc.delete("incorrect")
 
     image: Image = resource.Image(id="test")
-    image.create_tags(Resources=[123], Tags=[])
+    image.create_tags(Tags=[])
 
 
 def ec2_client_example() -> None:
