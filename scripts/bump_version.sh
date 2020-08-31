@@ -20,7 +20,7 @@ if [[ "$VERSION" == "" ]]; then
 fi
 
 echo "Bumping version to ${VERSION}"
-echo "${VERSION}\n" > mypy_boto3_builder/version.txt
+echo "${VERSION}" > mypy_boto3_builder/version.txt
 
 if [[ `git diff --stat | grep version` != "" ]]; then
     echo "There are changes: `git diff`"
