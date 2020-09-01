@@ -1,6 +1,7 @@
 """
 Master package writer.
 """
+import shutil
 from pathlib import Path
 from typing import List
 
@@ -11,6 +12,9 @@ from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template, s
 def write_master_package(package: MasterPackage, output_path: Path) -> List[Path]:
     modified_paths: List[Path] = []
     package_path = output_path / package.name
+
+    if output_path.exists():
+        shutil.rmtree(output_path)
 
     output_path.mkdir(exist_ok=True)
     package_path.mkdir(exist_ok=True)
@@ -43,7 +47,7 @@ def write_master_package(package: MasterPackage, output_path: Path) -> List[Path
     for file_path, template_path in file_paths:
         content = render_jinja2_template(template_path, package=package)
         content = blackify(content, file_path)
-        content = sort_imports(content, "mypy_boto3")
+        content = sort_imports(content, "mypy_boto3", extension=file_path.suffix[1:])
 
         if not file_path.exists() or file_path.read_text() != content:
             modified_paths.append(file_path)

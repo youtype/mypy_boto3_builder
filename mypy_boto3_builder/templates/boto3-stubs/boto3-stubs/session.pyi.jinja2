@@ -1,53 +1,9 @@
 # pylint: disable=unused-argument,multiple-statements,unused-import
-from typing import Any, List
+{% for import_record in package.get_session_required_import_records() -%}
+    {% include "common/import_record_fallback.py.jinja2" with context %}
+{% endfor -%}
 
-import boto3
-import boto3.utils
-from boto3.resources.factory import ResourceFactory
-from boto3.exceptions import ResourceNotExistsError, UnknownAPIVersionError
-from boto3.resources.factory import ResourceFactory
-
-import botocore.session
-from botocore.credentials import Credentials
-from botocore.loaders import Loader
-from botocore.model import ServiceModel
-from botocore.client import Config
-from botocore.exceptions import DataNotFoundError, UnknownServiceError
-
-class _SessionServicesFallback:
-    def client(
-        self,
-        service_name: str,
-        region_name: str = None,
-        api_version: str = None,
-        use_ssl: bool = None,
-        verify: Union[str, bool] = None,
-        endpoint_url: str = None,
-        aws_access_key_id: str = None,
-        aws_secret_access_key: str = None,
-        aws_session_token: str = None,
-        config: Config = None,
-    ) -> Any: ...
-    def resource(
-        self,
-        service_name: str,
-        region_name: str = None,
-        api_version: str = None,
-        use_ssl: bool = None,
-        verify: Union[str, bool] = None,
-        endpoint_url: str = None,
-        aws_access_key_id: str = None,
-        aws_secret_access_key: str = None,
-        aws_session_token: str = None,
-        config: Config = None,
-    ) -> Any: ...
-
-try:
-    from mypy_boto3.boto3_session import Session as SessionServices
-except (ImportError, ModuleNotFoundError):
-    SessionServices = _SessionServicesFallback
-
-class Session(SessionServices):
+class Session:
     def __init__(
         self,
         aws_access_key_id: str = None,
@@ -82,3 +38,10 @@ class Session(SessionServices):
     ) -> List[str]: ...
     def get_credentials(self) -> Credentials: ...
     def _register_default_handlers(self) -> None: ...
+
+{% filter indent(4, True) -%}
+    {% for method in package.session_class.methods -%}
+        {% include "common/method.py.jinja2" with context -%}
+        {{ '\n' -}}
+    {% endfor -%}
+{% endfilter -%}

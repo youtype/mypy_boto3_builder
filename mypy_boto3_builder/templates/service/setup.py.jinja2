@@ -33,7 +33,7 @@ setup(
     keywords='boto3 {{ service_name.boto3_name }} type-annotations boto3-stubs mypy typeshed autocomplete auto-generated',
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
-    package_data={"{{ service_name.module_name }}": ["py.typed"]},
+    package_data={"{{ service_name.module_name }}": ["py.typed", "*.pyi"]},
     python_requires='>=3.6',
     project_urls={
         'Documentation': 'https://mypy-boto3-builder.readthedocs.io/en/latest/',

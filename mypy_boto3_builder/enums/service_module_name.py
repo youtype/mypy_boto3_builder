@@ -17,11 +17,11 @@ class ServiceModuleName(enum.Enum):
         """
         Module file name.
         """
-        return f"{self.value}.py"
+        return f"{self.value}.pyi"
 
     @property
     def template_name(self) -> str:
         """
         Module template file name.
         """
-        return f"{self.file_name}.jinja2"
+        return f"{self.value}.pyi.jinja2"

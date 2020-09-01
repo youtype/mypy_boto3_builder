@@ -34,14 +34,14 @@ def parse_fake_service_package(session: Session, service_name: ServiceName) -> S
         name=service_name.module_name,
         pypi_name=service_name.pypi_name,
         service_name=service_name,
-        client=Client(),
+        client=Client(name=f"{service_name.class_name}Client"),
     )
 
     boto3_client = get_boto3_client(session, service_name)
     boto3_resource = get_boto3_resource(session, service_name)
 
     if boto3_resource is not None:
-        result.service_resource = ServiceResource()
+        result.service_resource = ServiceResource(name=f"{service_name.class_name}ServiceResource")
 
     for waiter_name in boto3_client.waiter_names:
         real_class_name = get_class_prefix(waiter_name)

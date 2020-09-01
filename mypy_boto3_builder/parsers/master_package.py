@@ -1,5 +1,5 @@
 """
-Parser that produces `structures.MasterModule`.
+Parser that produces `structures.MasterPackage`.
 """
 from typing import List
 
@@ -16,9 +16,10 @@ def parse_master_package(session: Session, service_names: List[ServiceName]) -> 
 
     Arguments:
         session -- boto3 session.
+        service_names -- All available service names.
 
     Returns:
-        MasterModule structure.
+        MasterPackage structure.
     """
     result = MasterPackage(service_names=service_names)
     for service_name in result.service_names:
