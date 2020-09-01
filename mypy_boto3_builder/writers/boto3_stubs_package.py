@@ -31,6 +31,7 @@ def write_boto3_stubs_package(package: Boto3StubsPackage, output_path: Path) -> 
         (package_path / "py.typed", module_templates_path / "py.typed.jinja2"),
         (package_path / "__init__.pyi", module_templates_path / "__init__.pyi.jinja2"),
         (package_path / "session.pyi", module_templates_path / "session.pyi.jinja2"),
+        (package_path / "botocore_stubs.pyi", module_templates_path / "botocore_stubs.pyi.jinja2"),
         (package_path / "version.py", module_templates_path / "version.py.jinja2"),
     ]
 
