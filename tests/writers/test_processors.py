@@ -1,5 +1,5 @@
 from pathlib import Path
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.writers.processors import (
@@ -10,15 +10,22 @@ from mypy_boto3_builder.writers.processors import (
 
 
 class TestProcessors:
+    @patch("mypy_boto3_builder.writers.processors.parse_boto3_stubs_package")
     @patch("mypy_boto3_builder.writers.processors.write_boto3_stubs_package")
     @patch("mypy_boto3_builder.writers.processors.get_logger")
     def test_process_boto3_stubs(
-        self, _get_logger_mock: MagicMock, write_boto3_stubs_package_mock: MagicMock
+        self,
+        _get_logger_mock: MagicMock,
+        write_boto3_stubs_package_mock: MagicMock,
+        parse_boto3_stubs_package_mock: MagicMock,
     ) -> None:
         write_boto3_stubs_package_mock.return_value = [Path("modified_path")]
-        result = process_boto3_stubs(Path("my_path"), ["service_name"])
-        assert isinstance(result, Boto3StubsPackage)
+        result = process_boto3_stubs("session", Path("my_path"), ["service_name"])
         write_boto3_stubs_package_mock.assert_called_with(result, Path("my_path"))
+        parse_boto3_stubs_package_mock.assert_called_with(
+            session="session", service_names=["service_name"]
+        )
+        assert result == parse_boto3_stubs_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.parse_master_package")
     @patch("mypy_boto3_builder.writers.processors.write_master_package")

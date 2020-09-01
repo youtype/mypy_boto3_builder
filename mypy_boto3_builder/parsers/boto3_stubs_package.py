@@ -39,15 +39,15 @@ def parse_boto3_stubs_package(
         result.service_packages.append(parse_fake_service_package(session, service_name))
 
     init_arguments = [
-        Argument("region_name", Type.str, Type.none),
-        Argument("api_version", Type.str, Type.none),
-        Argument("use_ssl", Type.bool, Type.none),
-        Argument("verify", TypeSubscript(Type.Union, [Type.bool, Type.str]), Type.none),
-        Argument("endpoint_url", Type.str, Type.none),
-        Argument("aws_access_key_id", Type.str, Type.none),
-        Argument("aws_secret_access_key", Type.str, Type.none),
-        Argument("aws_session_token", Type.str, Type.none),
-        Argument("config", TypeClass(Config), Type.none),
+        Argument("region_name", TypeSubscript(Type.Optional, [Type.str]), Type.none),
+        Argument("api_version", TypeSubscript(Type.Optional, [Type.str]), Type.none),
+        Argument("use_ssl", TypeSubscript(Type.Optional, [Type.bool]), Type.none),
+        Argument("verify", TypeSubscript(Type.Union, [Type.bool, Type.str, Type.none]), Type.none),
+        Argument("endpoint_url", TypeSubscript(Type.Optional, [Type.str]), Type.none),
+        Argument("aws_access_key_id", TypeSubscript(Type.Optional, [Type.str]), Type.none),
+        Argument("aws_secret_access_key", TypeSubscript(Type.Optional, [Type.str]), Type.none),
+        Argument("aws_session_token", TypeSubscript(Type.Optional, [Type.str]), Type.none),
+        Argument("config", TypeSubscript(Type.Optional, [TypeClass(Config)]), Type.none),
     ]
 
     for service_package in result.service_packages:
