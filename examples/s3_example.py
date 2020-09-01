@@ -61,8 +61,8 @@ def s3_client_example() -> None:
     # (mypy) error: Argument "Key" to "get_object" of "Client" has incompatible type "None"; expected "str"
     try:
         client.get_object(Bucket="bucket", Key=None)
-    except client.exceptions.NoSuchKey:
-        pass
+    except client.exceptions.NoSuchKey as e:
+        print(e.operations_name)
 
 
 def main() -> None:

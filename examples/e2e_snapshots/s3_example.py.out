@@ -1,13 +1,14 @@
-examples/s3_example.py:17: error: Unexpected keyword argument "mfa" for "delete" of "BucketObjectsCollection"
-examples/s3_example.py:20: error: Unexpected keyword argument "key" for "upload_file" of "Bucket"
-examples/s3_example.py:23: error: Extra key 'key' for TypedDict "CopySourceTypeDef"
-examples/s3_example.py:28: error: Unexpected keyword argument "all" for "pages" of "BucketObjectsCollection"
-examples/s3_example.py:31: error: Argument 1 to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str"
-examples/s3_example.py:35: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Optional[Literal['requester']]"
-examples/s3_example.py:37: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"
-examples/s3_example.py:46: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?
-examples/s3_example.py:52: error: Missing positional argument "Key" in call to "get_object" of "S3Client"
-examples/s3_example.py:55: error: TypedDict "GetObjectOutputTypeDef" has no key 'expiration'
-examples/s3_example.py:60: error: Extra key 'Allowedorigins' for TypedDict "CORSRuleTypeDef"
-examples/s3_example.py:65: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
-Found 12 errors in 1 file (checked 1 source file)
+examples/s3_example.py:16: error: Unexpected keyword argument "mfa" for "delete" of "BucketObjectsCollection"
+examples/s3_example.py:19: error: Unexpected keyword argument "key" for "upload_file" of "Bucket"
+examples/s3_example.py:22: error: Extra key 'key' for TypedDict "CopySourceTypeDef"
+examples/s3_example.py:27: error: Unexpected keyword argument "all" for "pages" of "BucketObjectsCollection"
+examples/s3_example.py:30: error: Argument 1 to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str"
+examples/s3_example.py:34: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Optional[Literal['requester']]"
+examples/s3_example.py:36: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"
+examples/s3_example.py:45: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?
+examples/s3_example.py:51: error: Missing positional argument "Key" in call to "get_object" of "S3Client"
+examples/s3_example.py:54: error: TypedDict "GetObjectOutputTypeDef" has no key 'expiration'
+examples/s3_example.py:58: error: Extra key 'Allowedorigins' for TypedDict "CORSRuleTypeDef"
+examples/s3_example.py:63: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
+examples/s3_example.py:65: error: "ClientError" has no attribute "operations_name"; maybe "operation_name"?
+Found 13 errors in 1 file (checked 1 source file)

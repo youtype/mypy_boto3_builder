@@ -43,14 +43,6 @@ jobs:
         run: |
           if [[ "${SKIP}" != "" ]]; then exit 0; fi
           python -m pip install mypy_boto3_builder
-      - name: Build packages
-        env:
-          SKIP: ${{ steps.vars.outputs.skip }}
-          BUILD_VERSION: ${{ steps.vars.outputs.build_version }}
-        run: |
-          if [[ "${SKIP}" != "" ]]; then exit 0; fi
-          rm -rf mypy_boto3_output/*
-          scripts/build.sh --panic -b $BUILD_VERSION
       - name: Install integration test dependencies
         env:
           SKIP: ${{ steps.vars.outputs.skip }}
@@ -63,6 +55,14 @@ jobs:
         run: |
           if [[ "${SKIP}" != "" ]]; then exit 0; fi
           scripts/integration.sh
+      - name: Build packages
+        env:
+          SKIP: ${{ steps.vars.outputs.skip }}
+          BUILD_VERSION: ${{ steps.vars.outputs.build_version }}
+        run: |
+          if [[ "${SKIP}" != "" ]]; then exit 0; fi
+          rm -rf mypy_boto3_output/*
+          scripts/build.sh --panic -b $BUILD_VERSION
       - name: Install dependencies for publishing
         env:
           SKIP: ${{ steps.vars.outputs.skip }}

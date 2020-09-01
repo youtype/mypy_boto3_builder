@@ -1,2 +1,2 @@
-examples/sqs_example.py:16: error: Unexpected keyword argument "test" for "delete" of "Message"
+examples/sqs_example.py:12: error: Unexpected keyword argument "test" for "delete" of "Message"
 Found 1 error in 1 file (checked 1 source file)

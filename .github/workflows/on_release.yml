@@ -63,6 +63,12 @@ jobs:
           VERSION: ${{ steps.vars.outputs.version }}
         run: |
           scripts/bump_version.sh
+      - name: Install integration test dependencies
+        run: |
+          python -m pip install mypy
+      - name: Integration tests
+        run: |
+          scripts/integration.sh
       - name: Dockerize
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -89,12 +95,6 @@ jobs:
           python -m pip install boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
           rm -rf mypy_boto3_output/*
           scripts/build.sh --panic -b $BUILD_VERSION
-      - name: Install integration test dependencies
-        run: |
-          python -m pip install mypy
-      - name: Integration tests
-        run: |
-          scripts/integration.sh
       - name: Install dependencies for publishing
         run: |
           python -m pip install setuptools wheel twine
