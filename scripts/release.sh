@@ -10,7 +10,7 @@ fi
 
 if [[ `pip freeze | grep black` == "" ]]; then
     echo "black not found, installing it now"
-    pip install --user black==19.10b0
+    pip install --user black==20.8b1
 fi
 
 for package in $PACKAGES
@@ -21,6 +21,7 @@ do
     python setup.py build sdist bdist_wheel 1>/dev/null 2>/dev/null
     twine upload --non-interactive dist/* > /dev/null || true
     rm -rf build *.egg-info dist/* > /dev/null
+    cd -
 done
 
 echo Publishing master package
@@ -29,6 +30,7 @@ rm -rf build *.egg-info dist/* > /dev/null
 python setup.py build sdist bdist_wheel 1>/dev/null 2>/dev/null
 twine upload --non-interactive dist/* > /dev/null || true
 rm -rf build *.egg-info dist/* > /dev/null
+cd -
 
 echo Publishing boto3-stubs package
 cd ${OUTPUT_PATH}/boto3_stubs_package
@@ -36,3 +38,4 @@ rm -rf build *.egg-info dist/* > /dev/null
 python setup.py build sdist bdist_wheel 1>/dev/null 2>/dev/null
 twine upload --non-interactive dist/* > /dev/null || true
 rm -rf build *.egg-info dist/* > /dev/null
+cd -
