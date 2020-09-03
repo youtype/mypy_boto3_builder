@@ -3,7 +3,6 @@ set -e
 
 ROOT_PATH=$(dirname $(dirname $(realpath $0)))
 
-mypy_boto3 --clean || true
 pipenv clean
 ${ROOT_PATH}/scripts/build.sh -s sqs secretsmanager -b 1.11.0.10
 

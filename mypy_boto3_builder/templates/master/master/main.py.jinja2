@@ -84,6 +84,10 @@ def main() -> None:
         log_level = logging.CRITICAL
 
     logger = get_logger(log_level)
+    logger.warning(
+        "This tool is no longer required for anntations to work."
+        " Remove it: `pip uninstall mypy_boto3`"
+    )
     if args.clean:
         file_paths = [
             ROOT_PATH / "cache.txt",

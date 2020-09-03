@@ -163,33 +163,3 @@ def get_structure() -> {{ package.typed_dicts[0].name }}:
     }
 ```
 {% endif %}
-
-## Dynamic type annotations
-
-`mypy_boto3` command generates `boto3.client/resource` type annotations for
-`{{ service_name.module_name }}` and other installed services.
-
-```bash
-# Run this command after you add or remove service packages
-python -m mypy_boto3
-```
-
-Generated type annotations provide overloads for `boto3.client` and `boto3.resource`,
-`boto3.Session.client` and `boto3.Session.resource` functions,
-so explicit type annotations are not needed.
-
-- `mypy` supports function overloads as expected
-- `PyCharm` also supports function overloads, but consumes a lot of RAM, use carefully if you have many services installed
-- `VSCode` does not currently support function overloads, use explicit type annotations
-
-```python
-import boto3
-
-# Type is discovered correctly by mypy and PyCharm
-# VSCode still needs explicit type annotations
-client = boto3.client("{{ service_name.boto3_name }}"){% if package.service_resource %}
-resource = boto3.resource("{{ service_name.boto3_name }}"){% endif %}
-
-session_client = boto3.Session().client("{{ service_name.boto3_name }}"){% if package.service_resource %}
-session_resource = boto3.Session().resource("{{ service_name.boto3_name }}"){% endif %}
-```
