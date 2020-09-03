@@ -45,11 +45,3 @@ class Waiter(ClassRecord):
                 name=self.name,
             ),
         )
-
-    @staticmethod
-    def get_base_client_method() -> Method:
-        return Method(
-            name="get_waiter",
-            arguments=[Argument("self", None), Argument("waiter_name", Type.str)],
-            return_type=TypeClass(Boto3Waiter, alias="Boto3Waiter"),
-        )
