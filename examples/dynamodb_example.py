@@ -4,15 +4,13 @@ import decimal
 
 import boto3
 from boto3.dynamodb.conditions import Key
-from mypy_boto3_dynamodb import DynamoDBClient, DynamoDBServiceResource
-from mypy_boto3_dynamodb.service_resource import Table
 
 
 def dynamodb_client_example() -> None:
-    client: DynamoDBClient = boto3.client("dynamodb")
-    resource: DynamoDBServiceResource = boto3.resource("dynamodb")
+    client = boto3.client("dynamodb")
+    resource = boto3.resource("dynamodb")
 
-    my_table: Table = resource.Table("my_table")
+    my_table = resource.Table("my_table")
     print(my_table.name)
     batch_writer = my_table.batch_writer()
     batch_writer.delete_item(Key="123")
