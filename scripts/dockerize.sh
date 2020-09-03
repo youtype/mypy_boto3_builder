@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-ROOT_PATH=$(dirname $(dirname $(realpath $0)))
+ROOT_PATH=$(dirname $(dirname $0))
 cd ${ROOT_PATH}
 
 VERSION=`cat mypy_boto3_builder/version.txt | head -1`

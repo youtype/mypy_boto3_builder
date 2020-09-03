@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-ROOT_PATH=$(dirname $(dirname $(realpath $0)))
+ROOT_PATH=$(dirname $(dirname $0))
 OUTPUT_PATH=${ROOT_PATH}/mypy_boto3_output
 PACKAGES=${OUTPUT_PATH}/mypy_boto3_$1_package
 if [[ "$1" == "" ]]; then
