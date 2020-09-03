@@ -2,8 +2,8 @@
 from typing import Any, Dict
 
 from botocore.model import ServiceModel
-from botocore.waiter import Waiter, WaiterModel
 from botocore.session import Session
+from botocore.waiter import Waiter, WaiterModel
 
 class ServiceContext:
     def __init__(

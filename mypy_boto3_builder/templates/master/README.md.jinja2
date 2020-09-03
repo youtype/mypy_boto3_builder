@@ -13,10 +13,7 @@ More information can be found on [boto3-stubs](https://pypi.org/project/boto3-st
 
 - [mypy-boto3](#mypy-boto3)
   - [How to install](#how-to-install)
-  - [How to uninstall](#how-to-uninstall)
   - [Usage](#usage)
-    - [Generated files](#generated-files)
-    - [Dynamic type annotations](#dynamic-type-annotations)
 
 ## How to install
 
@@ -26,58 +23,7 @@ More information can be found on [boto3-stubs](https://pypi.org/project/boto3-st
 python -m pip install 'boto3-stubs[s3,ec2]'
 ```
 
-## How to uninstall
-
-```bash
-# remove generated files and cache
-python -m mypy_boto3 --clean
-
-python -m pip uninstall mypy_boto3
-```
-
 ## Usage
 
-Generate dynamic type annotations for services you installed
-
-```bash
-# Run this command after you add or remove service packages
-python -m mypy_boto3
-```
-
-### Generated files
-
-`mypy_boto3` command creates or updates these files in it's installation directory:
-
-- `boto3_init_gen.py` - annotations for `boto3.client/resource`
-- `boto3_session_gen.py` - annotations for `boto3.Session().client/resource`
-- `cache.txt` - information about installed services
-- `<service>/__init__.py` - Allows to use `mypy_boto3.s3` import instead of `mypy_boto3_s3`
-- `<service>/client.py` - Allows to use `mypy_boto3.s3.client` import instead of `mypy_boto3_s3.client`
-- `<service>/type_defs.py` - Allows to use `mypy_boto3.s3.type_defs` import instead of `mypy_boto3_s3.type_defs`
-- `<service>/service_resource.py` - Allows to use `mypy_boto3.s3.service_resource` import instead of `mypy_boto3_s3.service_resource`
-- `<service>/waiter.py` - Allows to use `mypy_boto3.s3.waiter` import instead of `mypy_boto3_s3.waiter`
-- `<service>/paginator.py` - Allows to use `mypy_boto3.s3.paginator` import instead of `mypy_boto3_s3.paginator`
-
-`<service>` is `boto3` service name, e.g. `s3`. For `lambda` service, it is `mypy_boto3.lambda_`.
-
-### Dynamic type annotations
-
-Generated files provide overloads for `boto3.client`, `boto3.resource`,
-`boto3.Session.client` and `boto3.Session.resource` functions for services currently installed,
-so explicit type annotations are not needed.
-
-- `mypy` supports function overloads as expected
-- `PyCharm` also supports function overloads, but consumes a lot of RAM, use carefully if you have many services installed
-- `VSCode` does not currently support function overloads, use explicit type annotations
-
-```python
-import boto3
-
-# Type is discovered correctly by mypy and PyCharm
-# VSCode still needs explicit type annotations
-client = boto3.client("s3")
-resource = boto3.resource("s3")
-
-session_client = boto3.Session().client("s3")
-session_resource = boto3.Session().resource("s3")
-```
+This tool is not longer required for annotations to work. Do not use it,
+install [boto3-stubs](https://pypi.org/project/boto3-stubs/) instead.

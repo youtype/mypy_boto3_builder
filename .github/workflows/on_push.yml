@@ -72,14 +72,6 @@ jobs:
       - name: Install
         run: |
           python setup.py install
-      - name: Build packages
-        env:
-          BUILD_VERSION: ${{ steps.vars.outputs.build_version }}
-          BOTO3_VERSION: ${{ steps.vars.outputs.boto3_version }}
-          BOTOCORE_VERSION: ${{ steps.vars.outputs.botocore_version }}
-        run: |
-          rm -rf mypy_boto3_output/*
-          scripts/build.sh --panic -s dynamodb ec2 emr s3 secretsmanager iam sqs
       - name: Integration tests
         run: |
           scripts/integration.sh

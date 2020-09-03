@@ -1,0 +1,55 @@
+# RemoveArgument
+
+> Auto-generated documentation for [mypy_boto3_builder.type_annotations.remove_argument](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/remove_argument.py) module.
+
+- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](index.md#type-annotations) / RemoveArgument
+    - [RemoveArgument](#removeargument)
+        - [RemoveArgument().copy](#removeargumentcopy)
+        - [RemoveArgument().get_import_record](#removeargumentget_import_record)
+        - [RemoveArgument().render](#removeargumentrender)
+
+## RemoveArgument
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/remove_argument.py#L5)
+
+```python
+class RemoveArgument(FakeAnnotation):
+```
+
+Annotation to mark argumnet for removal.
+
+#### See also
+
+- [FakeAnnotation](fake_annotation.md#fakeannotation)
+
+### RemoveArgument().copy
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/remove_argument.py#L13)
+
+```python
+def copy() -> FakeAnnotation:
+```
+
+#### See also
+
+- [FakeAnnotation](fake_annotation.md#fakeannotation)
+
+### RemoveArgument().get_import_record
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/remove_argument.py#L16)
+
+```python
+def get_import_record() -> ImportRecord:
+```
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
+
+### RemoveArgument().render
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/remove_argument.py#L10)
+
+```python
+def render(parent_name: str = '') -> str:
+```

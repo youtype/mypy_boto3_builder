@@ -2,15 +2,13 @@
 
 import boto3
 from boto3.session import Session
-from mypy_boto3_ec2 import EC2Client, EC2ServiceResource
-from mypy_boto3_ec2.service_resource import Image
 
 
 def ec2_resource_example() -> None:
     session = Session(region_name="us-west-1")
 
-    resource: EC2ServiceResource = session.resource("ec2")
-    _resource: EC2ServiceResource = boto3.resource("ec2")
+    resource = session.resource("ec2")
+    _resource = boto3.resource("ec2")
 
     # (mypy) error: Missing positional argument "Resources" in call
     #   to "create_tags" of "ServiceResource"
@@ -22,12 +20,12 @@ def ec2_resource_example() -> None:
     vpc_peer = vpc.request_vpc_peering_connection(PeerVpcId="bar")
     vpc_peer.accepter_vpc.delete("incorrect")
 
-    image: Image = resource.Image(id="test")
+    image = resource.Image(id="test")
     image.create_tags(Tags=[])
 
 
 def ec2_client_example() -> None:
-    client: EC2Client = boto3.client("ec2")
+    client = boto3.client("ec2")
 
     # (mypy) error: Incompatible types (expression has type "int", TypedDict item
     #   "Key" has type "str")

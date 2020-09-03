@@ -40,7 +40,7 @@ Wrapper for subscript type annotations, like `List[str]`.
 
 ### TypeSubscript().add_child
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L52)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L56)
 
 ```python
 def add_child(child: FakeAnnotation) -> None:
@@ -52,7 +52,7 @@ def add_child(child: FakeAnnotation) -> None:
 
 ### TypeSubscript().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L61)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L65)
 
 ```python
 def copy() -> 'TypeSubscript':
@@ -62,7 +62,7 @@ Create a copy of type annotation wrapper.
 
 ### TypeSubscript().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L40)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L44)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -76,7 +76,7 @@ Get import record required for using type annotation.
 
 ### TypeSubscript().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L46)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L50)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
@@ -84,7 +84,7 @@ def get_types() -> Set[FakeAnnotation]:
 
 ### TypeSubscript().is_dict
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L55)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L59)
 
 ```python
 def is_dict() -> bool:
@@ -92,7 +92,7 @@ def is_dict() -> bool:
 
 ### TypeSubscript().is_list
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L58)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L62)
 
 ```python
 def is_list() -> bool:
@@ -100,7 +100,7 @@ def is_list() -> bool:
 
 ### TypeSubscript().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L27)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L31)
 
 ```python
 def render(parent_name: str = '') -> str:

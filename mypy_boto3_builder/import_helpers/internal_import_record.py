@@ -30,4 +30,8 @@ class InternalImportRecord(ImportRecord):
             A new non-internal ImportRecord.
         """
         source = ImportString(module_name) + self.source
-        return ImportRecord(source=source, name=self.name, alias=self.alias,)
+        return ImportRecord(
+            source=source,
+            name=self.name,
+            alias=self.alias,
+        )

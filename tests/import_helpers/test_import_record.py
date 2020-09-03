@@ -1,18 +1,16 @@
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
+
+import pytest
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
-import pytest
 
 
 class TestImportRecord:
     def test_str(self) -> None:
         source_mock = MagicMock()
         source_mock.__str__.return_value = "source"
-        assert (
-            str(ImportRecord(source_mock, "name", "alias"))
-            == "from source import name as alias"
-        )
+        assert str(ImportRecord(source_mock, "name", "alias")) == "from source import name as alias"
         assert str(ImportRecord(source_mock, alias="alias")) == "import source as alias"
         assert str(ImportRecord(source_mock, "name")) == "from source import name"
         assert str(ImportRecord(source_mock)) == "import source"
@@ -23,12 +21,8 @@ class TestImportRecord:
         assert ImportRecord(source_mock, "name", "alias")
         source_mock.__bool__.return_value = False
         assert not ImportRecord(source_mock, "name", "alias")
-        assert hash(ImportRecord(source_mock, "name")) == hash(
-            ImportRecord(source_mock, "name")
-        )
-        assert hash(ImportRecord(source_mock, "name")) != hash(
-            ImportRecord(source_mock, "name2")
-        )
+        assert hash(ImportRecord(source_mock, "name")) == hash(ImportRecord(source_mock, "name"))
+        assert hash(ImportRecord(source_mock, "name")) != hash(ImportRecord(source_mock, "name2"))
         assert ImportRecord(source_mock, "name") == ImportRecord(source_mock, "name")
         assert ImportRecord(source_mock, "name") != ImportRecord(source_mock, "name2")
         with pytest.raises(ValueError):
@@ -41,30 +35,18 @@ class TestImportRecord:
         third_party_source = ImportString("boto3")
         other_source = ImportString("other")
         assert ImportRecord(local_source, "test") > ImportRecord(local_source, "name")
-        assert not (
-            ImportRecord(third_party_source, "test")
-            > ImportRecord(local_source, "name")
-        )
-        assert not (
-            ImportRecord(other_source, "test")
-            > ImportRecord(third_party_source, "name")
-        )
-        assert ImportRecord(local_source, "name") > ImportRecord(
-            third_party_source, "test"
-        )
+        assert not (ImportRecord(third_party_source, "test") > ImportRecord(local_source, "name"))
+        assert not (ImportRecord(other_source, "test") > ImportRecord(third_party_source, "name"))
+        assert ImportRecord(local_source, "name") > ImportRecord(third_party_source, "test")
         assert ImportRecord(local_source, "name") > ImportRecord(other_source, "test")
-        assert ImportRecord(third_party_source, "name") > ImportRecord(
-            other_source, "test"
-        )
+        assert ImportRecord(third_party_source, "name") > ImportRecord(other_source, "test")
         assert ImportRecord(ImportString("zzz")) > ImportRecord(ImportString("aaa"))
         assert ImportRecord(
             local_source, "test", fallback=ImportRecord(local_source, "test2")
         ) > ImportRecord(local_source, "name")
         assert not (
             ImportRecord(local_source, "name")
-            > ImportRecord(
-                local_source, "test", fallback=ImportRecord(local_source, "test2")
-            )
+            > ImportRecord(local_source, "test", fallback=ImportRecord(local_source, "test2"))
         )
 
     @patch("mypy_boto3_builder.import_helpers.import_record.ImportString")

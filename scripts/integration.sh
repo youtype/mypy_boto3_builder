@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
-ROOT_PATH=$(dirname $(dirname $(realpath $0)))
+ROOT_PATH=$(dirname $(dirname $0))
 
 EXAMPLES=${ROOT_PATH}/examples/*_example.py
 
+${ROOT_PATH}/scripts/build.sh --panic --skip-services
 ${ROOT_PATH}/scripts/install.sh master
 
 for EXAMPLE in $EXAMPLES
@@ -15,6 +16,7 @@ do
     EXPECTED=${DIR_NAME}/e2e_snapshots/${FILE_NAME}.out
     OUTPUT=${DIR_NAME}/e2e_snapshots/current.out
 
+    ${ROOT_PATH}/scripts/build.sh --panic -s ${SERVICE_NAME} --skip-master
     ${ROOT_PATH}/scripts/install.sh ${SERVICE_NAME}
     echo Running mypy for ${FILE_NAME}
     if [[ ! -f ${EXPECTED} ]]; then

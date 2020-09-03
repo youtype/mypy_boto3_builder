@@ -1,5 +1,6 @@
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 import pytest
+
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 
 class TestImportString:

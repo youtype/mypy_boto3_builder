@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock
 
-from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.parsers.docstring_parser.docstring_parser import DocstringParser
+from mypy_boto3_builder.type_annotations.type import Type
 
 
 class TestDocstringParser:
@@ -28,9 +28,7 @@ class TestDocstringParser:
         :returns: A Bucket resource
         """
         service_name_mock = MagicMock()
-        docstring_parser = DocstringParser(
-            service_name_mock, "ClassName", "method_name", []
-        )
+        docstring_parser = DocstringParser(service_name_mock, "ClassName", "method_name", [])
         result = docstring_parser.get_return_type(input_string)
         assert result.name == "Bucket"
 
@@ -89,9 +87,7 @@ class TestDocstringParser:
         :param name: The Bucket's name identifier. This **must** be set.
         """
         service_name_mock = MagicMock()
-        docstring_parser = DocstringParser(
-            service_name_mock, "ClassName", "method_name", []
-        )
+        docstring_parser = DocstringParser(service_name_mock, "ClassName", "method_name", [])
         result = docstring_parser.get_arguments(input_string)
         assert len(result) == 1
         assert result[0].name == "name"

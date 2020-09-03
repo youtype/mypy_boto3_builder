@@ -11,7 +11,7 @@ Jinja2 `Environment` manager.
 
 ## JinjaManager
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L14)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L13)
 
 ```python
 class JinjaManager():

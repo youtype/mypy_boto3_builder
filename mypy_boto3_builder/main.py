@@ -80,7 +80,7 @@ def main() -> None:
 
         logger.info(f"Generating {BOTO3_STUBS_NAME} module")
         output_path = args.output_path / "boto3_stubs_package"
-        process_boto3_stubs(output_path, master_service_names)
+        process_boto3_stubs(session, output_path, master_service_names)
 
     logger.info("Completed")
 

@@ -2,7 +2,7 @@
 
 > Auto-generated documentation for [mypy_boto3_builder.parsers.master_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/master_package.py) module.
 
-Parser that produces `structures.MasterModule`.
+Parser that produces `structures.MasterPackage`.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Parsers](index.md#parsers) / Master Package
     - [parse_master_package](#parse_master_package)
@@ -23,10 +23,11 @@ Parse data for master package.
 #### Arguments
 
 - `session` - boto3 session.
+- `service_names` - All available service names.
 
 #### Returns
 
-MasterModule structure.
+MasterPackage structure.
 
 #### See also
 

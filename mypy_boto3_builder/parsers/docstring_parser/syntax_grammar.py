@@ -100,7 +100,10 @@ class SyntaxGrammar:
     union_value = (
         Group(union_item).setResultsName("union_first_item")
         + Literal("or").suppress()
-        + delimitedList(Group(union_item), delim="or",).setResultsName("union_rest_items")
+        + delimitedList(
+            Group(union_item),
+            delim="or",
+        ).setResultsName("union_rest_items")
     )
     any_value <<= (
         literal_value | list_value | dict_value | set_value | union_value | func_call | plain_value

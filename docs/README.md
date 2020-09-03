@@ -14,7 +14,7 @@
 [![Coverage](https://img.shields.io/codecov/c/github/vemel/mypy_boto3_builder)](https://codecov.io/gh/vemel/mypy_boto3_builder)
 [![PyPI - Downloads](https://img.shields.io/pypi/dw/boto3-stubs?color=blue)](https://pypistats.org/packages/boto3-stubs)
 
-Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with [mypy](https://github.com/python/mypy), [VSCode](https://code.visualstudio.com/), [PyCharm](https://www.jetbrains.com/pycharm/) and other tools.
+Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with [mypy](https://github.com/python/mypy), [pyright](https://github.com/microsoft/pyright), [VSCode](https://code.visualstudio.com/), [PyCharm](https://www.jetbrains.com/pycharm/) and other tools.
 
 Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.md#mypy-boto3-builder-modules)
 
@@ -90,7 +90,7 @@ docker run -e BOTO3_VERSION=1.10.18 BOTOCORE_VERSION=1.13.18 -v `pwd`/output:/ou
 ## Versioning
 
 `mypy_boto3_builder` version is not related to `boto3` version and follows
-[Semantic Versioning](https://semver.org/).
+[PEP 440](https://www.python.org/dev/peps/pep-0440/).
 
 ## Latest changes
 
@@ -101,4 +101,6 @@ Full changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_bu
 - @alliefitter for [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/),
   this package is based on top of his work
 - [black](https://github.com/psf/black) developers for an awesome formatting tool
+- @timothycrosley for [isort](https://github.com/PyCQA/isort) and how flexible it is
 - [mypy](https://github.com/python/mypy) for doing all dirty work for us
+- [pyright](https://github.com/microsoft/pyright) team for the new era of typed Python

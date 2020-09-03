@@ -100,7 +100,9 @@ TYPE_MAP: ServiceTypeMap = {
 
 
 def _get_from_method_map(
-    method_name: str, argument_name: str, method_type_map: MethodTypeMap,
+    method_name: str,
+    argument_name: str,
+    method_type_map: MethodTypeMap,
 ) -> Optional[FakeAnnotation]:
     if method_name in method_type_map:
         operation_type_map = method_type_map[method_name]
@@ -111,7 +113,10 @@ def _get_from_method_map(
 
 
 def _get_from_class_map(
-    class_name: str, method_name: str, argument_name: str, class_type_map: ClassTypeMap,
+    class_name: str,
+    method_name: str,
+    argument_name: str,
+    class_type_map: ClassTypeMap,
 ) -> Optional[FakeAnnotation]:
     if class_name in class_type_map:
         result = _get_from_method_map(method_name, argument_name, class_type_map[class_name])
@@ -135,7 +140,10 @@ def _get_from_service_map(
         return None
 
     return _get_from_class_map(
-        class_name, method_name, argument_name, service_type_map[service_name],
+        class_name,
+        method_name,
+        argument_name,
+        service_type_map[service_name],
     )
 
 

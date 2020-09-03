@@ -17,6 +17,9 @@ def write_boto3_stubs_package(package: Boto3StubsPackage, output_path: Path) -> 
     modified_paths: List[Path] = []
     package_path = output_path / package.name
 
+    if output_path.exists():
+        shutil.rmtree(output_path)
+
     output_path.mkdir(exist_ok=True)
     package_path.mkdir(exist_ok=True)
 
@@ -28,14 +31,20 @@ def write_boto3_stubs_package(package: Boto3StubsPackage, output_path: Path) -> 
         (package_path / "py.typed", module_templates_path / "py.typed.jinja2"),
         (package_path / "__init__.pyi", module_templates_path / "__init__.pyi.jinja2"),
         (package_path / "session.pyi", module_templates_path / "session.pyi.jinja2"),
-        (package_path / "__init__.py", module_templates_path / "__init__.py.jinja2"),
+        (package_path / "botocore_stubs.pyi", module_templates_path / "botocore_stubs.pyi.jinja2"),
+        (package_path / "__main__.py", module_templates_path / "__main__.py.jinja2"),
         (package_path / "version.py", module_templates_path / "version.py.jinja2"),
     ]
 
     for file_path, template_path in file_paths:
         content = render_jinja2_template(template_path, package=package)
         content = blackify(content, file_path)
-        content = sort_imports(content, "boto3_stubs")
+        content = sort_imports(
+            content,
+            "boto3_stubs",
+            extension=file_path.suffix[1:],
+            third_party=["boto3", "botocore", *[i.module_name for i in package.service_names]],
+        )
         if not file_path.exists() or file_path.read_text() != content:
             modified_paths.append(file_path)
             file_path.write_text(content)

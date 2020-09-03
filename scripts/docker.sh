@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-ROOT_PATH=$(dirname $(dirname $(realpath $0)))
+ROOT_PATH=$(dirname $(dirname $0))
 cd ${ROOT_PATH}
 
 if [[ "$BOTO3_VERSION" != "" ]]; then

@@ -7,6 +7,7 @@ from typing import List
 from boto3.session import Session
 
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.parsers.boto3_stubs_package import parse_boto3_stubs_package
 from mypy_boto3_builder.parsers.master_package import parse_master_package
 from mypy_boto3_builder.parsers.service_package import parse_service_package
 from mypy_boto3_builder.service_name import ServiceName
@@ -21,7 +22,9 @@ from mypy_boto3_builder.writers.service_package import write_service_package
 logger = get_logger()
 
 
-def process_boto3_stubs(output_path: Path, service_names: List[ServiceName]) -> Boto3StubsPackage:
+def process_boto3_stubs(
+    session: Session, output_path: Path, service_names: List[ServiceName]
+) -> Boto3StubsPackage:
     """
     Parse and write stubs package `boto3_stubs`.
 
@@ -32,7 +35,7 @@ def process_boto3_stubs(output_path: Path, service_names: List[ServiceName]) -> 
         Parsed Boto3StubsPackage.
     """
     logger.debug("Parsing boto3 stubs")
-    boto3_stub_package = Boto3StubsPackage(service_names=service_names)
+    boto3_stub_package = parse_boto3_stubs_package(session=session, service_names=service_names)
     logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
 
     modified_paths = write_boto3_stubs_package(boto3_stub_package, output_path)

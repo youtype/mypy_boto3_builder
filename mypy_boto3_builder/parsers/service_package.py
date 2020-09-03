@@ -93,7 +93,6 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
             for paginator in result.paginators:
                 method = paginator.get_client_method()
                 result.client.methods.append(method)
-            result.client.methods.append(Paginator.get_base_client_method())
 
     if result.waiters:
         if len(result.waiters) == 1:
@@ -104,7 +103,6 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
             for waiter in result.waiters:
                 method = waiter.get_client_method()
                 result.client.methods.append(method)
-            result.client.methods.append(Waiter.get_base_client_method())
 
     result.typed_dicts = result.extract_typed_dicts()
 

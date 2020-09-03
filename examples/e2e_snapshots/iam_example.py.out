@@ -1,5 +1,5 @@
-examples/iam_example.py:9: error: Argument 2 to "add_user_to_group" of "IAMClient" has incompatible type "int"; expected "str"
-examples/iam_example.py:12: error: Unexpected keyword argument "ClusterId" for "paginate" of "GetAccountAuthorizationDetailsPaginator"
-examples/iam_example.py:15: error: TypedDict "GetAccountAuthorizationDetailsResponseTypeDef" has no key 'RoleDetail'
-examples/iam_example.py:22: error: Too many arguments for "add_user" of "Group"
+examples/iam_example.py:8: error: Argument 2 to "add_user_to_group" of "IAMClient" has incompatible type "int"; expected "str"
+examples/iam_example.py:11: error: Unexpected keyword argument "ClusterId" for "paginate" of "GetAccountAuthorizationDetailsPaginator"
+examples/iam_example.py:14: error: TypedDict "GetAccountAuthorizationDetailsResponseTypeDef" has no key 'RoleDetail'
+examples/iam_example.py:21: error: Too many arguments for "add_user" of "Group"
 Found 4 errors in 1 file (checked 1 source file)

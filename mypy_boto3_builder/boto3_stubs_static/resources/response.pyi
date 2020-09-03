@@ -1,12 +1,11 @@
 # pylint: disable=unused-argument,multiple-statements,no-self-use
-from typing import Any, Iterable, List, Tuple, Optional, Dict, Union, Type
+from typing import Any, Dict, Iterable, List, Optional, Tuple, Type, Union
 
-from botocore.model import ServiceModel
-
+from boto3.resources.base import ServiceResource
 from boto3.resources.factory import ResourceFactory
 from boto3.resources.model import Parameter, ResponseResource
-from boto3.resources.base import ServiceResource
 from boto3.utils import ServiceContext
+from botocore.model import ServiceModel
 
 def all_not_none(iterable: Iterable[Any]) -> bool: ...
 def build_identifiers(

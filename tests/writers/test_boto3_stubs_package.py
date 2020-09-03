@@ -1,10 +1,11 @@
 from pathlib import Path
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
 from mypy_boto3_builder.writers.boto3_stubs_package import write_boto3_stubs_package
 
 
 class TestBoto3StubsPackage:
+    @patch("mypy_boto3_builder.writers.boto3_stubs_package.sort_imports")
     @patch("mypy_boto3_builder.writers.boto3_stubs_package.shutil")
     @patch("mypy_boto3_builder.writers.boto3_stubs_package.filecmp")
     @patch("mypy_boto3_builder.writers.boto3_stubs_package.BOTO3_STUBS_STATIC_PATH")
@@ -17,6 +18,7 @@ class TestBoto3StubsPackage:
         BOTO3_STUBS_STATIC_PATH_MOCK: MagicMock,
         filecmp_mock: MagicMock,
         shutil_mock: MagicMock,
+        sort_imports_mock: MagicMock,
     ) -> None:
         package_mock = MagicMock()
         output_path_mock = MagicMock()
@@ -25,20 +27,14 @@ class TestBoto3StubsPackage:
             static_path_mock,
         ]
         output_path_mock.__truediv__.return_value = output_path_mock
-        assert (
-            write_boto3_stubs_package(package_mock, output_path_mock)
-            == [output_path_mock] * 7
-        )
+        assert write_boto3_stubs_package(package_mock, output_path_mock) == [output_path_mock] * 8
         render_jinja2_template_mock.assert_called_with(
-            Path("boto3-stubs/boto3-stubs/version.py.jinja2"), package=package_mock,
+            Path("boto3-stubs/boto3-stubs/version.py.jinja2"),
+            package=package_mock,
         )
-        blackify_mock.assert_called_with(
-            render_jinja2_template_mock(), output_path_mock
-        )
+        blackify_mock.assert_called_with(render_jinja2_template_mock(), output_path_mock)
+        sort_imports_mock.assert_called()
 
         filecmp_mock.cmp.return_value = False
-        assert (
-            write_boto3_stubs_package(package_mock, output_path_mock)
-            == [output_path_mock] * 8
-        )
+        assert write_boto3_stubs_package(package_mock, output_path_mock) == [output_path_mock] * 9
         shutil_mock.copy.assert_called()

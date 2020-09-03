@@ -4,13 +4,13 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-codecov = "==2.1.4"
-pylint = "==2.5.2"
-pytest = "==5.4.3"
-pytest-cov = "==2.9.0"
-vulture = "==1.5"
+codecov = "==2.1.9"
+pylint = "==2.6.0"
+pytest = "==6.0.1"
+pytest-cov = "==2.10.1"
+vulture = "==2.1"
 handsdown = "==0.3.9"
-mypy = "==0.780"
+mypy = "==0.782"
 
 [packages]
 mypy_boto3_builder = {path = ".",editable = true}

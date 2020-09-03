@@ -39,7 +39,8 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
         source=ImportString("botocore", "paginate"), name="Paginator"
     ),
     ":py:class:`ResourceCollection`": ExternalImport(
-        source=ImportString("boto3", "resources", "collection"), name="ResourceCollection",
+        source=ImportString("boto3", "resources", "collection"),
+        name="ResourceCollection",
     ),
     "JSON serializable": Type.str,
     "string": Type.str,
@@ -269,7 +270,8 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
         Type.List, [AliasInternalImport("KeyPairInfo", ServiceNameCatalog.ec2)]
     ),
     "list(:py:class:`cloudformation.StackResourceSummary`)": TypeSubscript(
-        Type.List, [AliasInternalImport("StackResourceSummary", ServiceNameCatalog.cloudformation)],
+        Type.List,
+        [AliasInternalImport("StackResourceSummary", ServiceNameCatalog.cloudformation)],
     ),
     ":py:class:`dynamodb.Table`": AliasInternalImport("Table", ServiceNameCatalog.dynamodb),
     ":py:class:`DynamoDB.Table`": AliasInternalImport("Table", ServiceNameCatalog.dynamodb),
@@ -462,5 +464,5 @@ def get_type_from_docstring(type_str: str) -> FakeAnnotation:
     """
     try:
         return DOCSTRING_TYPE_MAP[type_str].copy()
-    except KeyError:
-        raise ValueError(f"Unknown type: {type_str}")
+    except KeyError as e:
+        raise ValueError(f"Unknown type: {type_str}") from e

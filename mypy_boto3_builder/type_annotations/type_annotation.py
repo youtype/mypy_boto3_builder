@@ -45,18 +45,54 @@ class TypeAnnotation(FakeAnnotation):
     )
 
     type_name_map = (
-        (Union, "Union",),
-        (Any, "Any",),
-        (Dict, "Dict",),
-        (List, "List",),
-        (Set, "Set",),
-        (Optional, "Optional",),
-        (Callable, "Callable",),
-        (Generator, "Generator",),
-        (Iterator, "Iterator",),
-        (IO, "IO",),
-        (overload, "overload",),
-        (Type, "Type",),
+        (
+            Union,
+            "Union",
+        ),
+        (
+            Any,
+            "Any",
+        ),
+        (
+            Dict,
+            "Dict",
+        ),
+        (
+            List,
+            "List",
+        ),
+        (
+            Set,
+            "Set",
+        ),
+        (
+            Optional,
+            "Optional",
+        ),
+        (
+            Callable,
+            "Callable",
+        ),
+        (
+            Generator,
+            "Generator",
+        ),
+        (
+            Iterator,
+            "Iterator",
+        ),
+        (
+            IO,
+            "IO",
+        ),
+        (
+            overload,
+            "overload",
+        ),
+        (
+            Type,
+            "Type",
+        ),
     )
 
     def __init__(self, wrapped_type: Any) -> None:

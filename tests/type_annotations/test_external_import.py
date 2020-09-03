@@ -1,7 +1,7 @@
 import pytest
 
-from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 
 
 class TestExternalImport:
@@ -22,10 +22,7 @@ class TestExternalImport:
 
     def test_get_import_record(self) -> None:
         assert self.result.get_import_record().render() == "from module import name"
-        assert (
-            self.alias.get_import_record().render()
-            == "from module import name as alias"
-        )
+        assert self.alias.get_import_record().render() == "from module import name as alias"
 
     def test_copy(self) -> None:
         assert self.result.copy().name == "name"

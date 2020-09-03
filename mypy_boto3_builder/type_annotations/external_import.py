@@ -17,7 +17,12 @@ class ExternalImport(FakeAnnotation):
         alias -- Import local name.
     """
 
-    def __init__(self, source: ImportString, name: str = "", alias: str = "",) -> None:
+    def __init__(
+        self,
+        source: ImportString,
+        name: str = "",
+        alias: str = "",
+    ) -> None:
         self.source = source
         self.name = name
         self.alias = alias

@@ -1,16 +1,18 @@
 import pytest
 
-from mypy_boto3_builder.structures.class_record import ClassRecord
-from mypy_boto3_builder.structures.method import Method
-from mypy_boto3_builder.structures.argument import Argument
-from mypy_boto3_builder.structures.attribute import Attribute
-from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.structures.argument import Argument
+from mypy_boto3_builder.structures.attribute import Attribute
+from mypy_boto3_builder.structures.class_record import ClassRecord
+from mypy_boto3_builder.structures.method import Method
+from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
 
 class TestClassRecord:
+    class_record: ClassRecord
+
     def setup_method(self):
         self.class_record = ClassRecord(
             name="Name",
@@ -18,7 +20,7 @@ class TestClassRecord:
                 Method(
                     name="my_method",
                     arguments=[
-                        Argument(self, None),
+                        Argument("self", None),
                         Argument("my_str", Type.str, TypeConstant("test")),
                         Argument("lst", Type.ListAny),
                     ],

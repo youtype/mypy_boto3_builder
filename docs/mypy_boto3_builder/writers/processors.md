@@ -15,6 +15,7 @@ Processors for parsing and writing modules.
 
 ```python
 def process_boto3_stubs(
+    session: Session,
     output_path: Path,
     service_names: List[ServiceName],
 ) -> Boto3StubsPackage:
@@ -36,7 +37,7 @@ Parsed Boto3StubsPackage.
 
 ## process_master
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L46)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L48)
 
 ```python
 def process_master(
@@ -63,7 +64,7 @@ Parsed MasterPackage.
 
 ## process_service
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L70)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L72)
 
 ```python
 def process_service(

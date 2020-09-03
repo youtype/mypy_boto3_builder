@@ -121,8 +121,8 @@ class ShapeParser:
     def _get_paginator(self, name: str) -> Shape:
         try:
             return self._paginators_shape["pagination"][name]
-        except KeyError:
-            raise ShapeParserError(f"Unknown paginator: {name}")
+        except KeyError as e:
+            raise ShapeParserError(f"Unknown paginator: {name}") from e
 
     def _get_service_resource(self) -> Shape:
         return self._resources_shape["service"]
@@ -130,8 +130,8 @@ class ShapeParser:
     def _get_resource_shape(self, name: str) -> Shape:
         try:
             return self._resources_shape["resources"][name]
-        except KeyError:
-            raise ShapeParserError(f"Unknown resource: {name}")
+        except KeyError as e:
+            raise ShapeParserError(f"Unknown resource: {name}") from e
 
     def get_paginator_names(self) -> List[str]:
         """
@@ -166,7 +166,11 @@ class ShapeParser:
         return operation_map[argument_name]
 
     def _parse_arguments(
-        self, class_name: str, method_name: str, operation_name: str, shape: StructureShape,
+        self,
+        class_name: str,
+        method_name: str,
+        operation_name: str,
+        shape: StructureShape,
     ) -> List[Argument]:
         result: List[Argument] = []
         required = shape.required_members
@@ -239,7 +243,10 @@ class ShapeParser:
             if operation_model.input_shape is not None:
                 arguments.extend(
                     self._parse_arguments(
-                        "Client", method_name, operation_name, operation_model.input_shape,
+                        "Client",
+                        method_name,
+                        operation_name,
+                        operation_model.input_shape,
                     )
                 )
 
@@ -290,7 +297,9 @@ class ShapeParser:
         self._typed_dict_map[typed_dict_name] = typed_dict
         for attr_name, attr_shape in shape.members.items():
             typed_dict.add_attribute(
-                attr_name, self._parse_shape(attr_shape), attr_name in required,
+                attr_name,
+                self._parse_shape(attr_shape),
+                attr_name in required,
             )
         return typed_dict
 
@@ -367,7 +376,9 @@ class ShapeParser:
         if operation_shape.output_shape is not None:
             return_type = TypeSubscript(
                 Type.Iterator,
-                [self._parse_return_type("Paginator", "paginate", operation_shape.output_shape),],
+                [
+                    self._parse_return_type("Paginator", "paginate", operation_shape.output_shape),
+                ],
             )
 
         return Method("paginate", arguments, return_type)
@@ -444,7 +455,9 @@ class ShapeParser:
 
         for waiter_name in resource_shape.get("waiters", {}):
             method = Method(
-                f"wait_until_{xform_name(waiter_name)}", [Argument("self", None)], Type.none,
+                f"wait_until_{xform_name(waiter_name)}",
+                [Argument("self", None)],
+                Type.none,
             )
             result[method.name] = method
 
@@ -474,7 +487,10 @@ class ShapeParser:
             ]
             if operation_shape.input_shape is not None:
                 for argument in self._parse_arguments(
-                    resource_name, method_name, operation_name, operation_shape.input_shape,
+                    resource_name,
+                    method_name,
+                    operation_name,
+                    operation_shape.input_shape,
                 ):
                     if argument.name not in skip_argument_names:
                         arguments.append(argument)
@@ -508,7 +524,10 @@ class ShapeParser:
 
         if operation_model.input_shape is not None:
             for argument in self._parse_arguments(
-                name, result.name, operation_name, operation_model.input_shape,
+                name,
+                result.name,
+                operation_name,
+                operation_model.input_shape,
             ):
                 if argument.required:
                     continue
@@ -537,7 +556,10 @@ class ShapeParser:
                 operation_model = self._get_operation(operation_name)
                 if operation_model.input_shape is not None:
                     for argument in self._parse_arguments(
-                        name, batch_action.name, operation_name, operation_model.input_shape,
+                        name,
+                        batch_action.name,
+                        operation_name,
+                        operation_model.input_shape,
                     ):
                         if argument.required:
                             continue
