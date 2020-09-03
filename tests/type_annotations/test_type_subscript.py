@@ -1,10 +1,10 @@
-import pytest
-
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 class TestTypeSubscript:
+    result: TypeSubscript
+
     def setup_method(self) -> None:
         self.result = TypeSubscript(Type.Dict, [Type.str, Type.int])
 

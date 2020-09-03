@@ -2,10 +2,7 @@ from typing import Dict
 
 import pytest
 
-from mypy_boto3_builder.type_annotations.internal_import import (
-    InternalImport,
-    AliasInternalImport,
-)
+from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport, InternalImport
 
 
 class TestInternalImport:

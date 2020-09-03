@@ -1,19 +1,19 @@
-import pytest
-
-from mypy_boto3_builder.structures.function import Function
-from mypy_boto3_builder.structures.argument import Argument
-from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.structures.argument import Argument
+from mypy_boto3_builder.structures.function import Function
+from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
 
 class TestFunction:
+    function: Function
+
     def setup_method(self):
         self.function = Function(
             name="name",
             arguments=[
-                Argument(self, None),
+                Argument("self", None),
                 Argument("my_str", Type.str, TypeConstant("test")),
                 Argument("lst", Type.ListAny),
             ],

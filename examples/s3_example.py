@@ -55,7 +55,8 @@ def s3_client_example() -> None:
 
     # (mypy) error: Extra key 'Allowedorigins' for TypedDict "CORSRuleTypeDef"
     client.put_bucket_cors(
-        "Bucket", {"CORSRules": [{"AllowedMethods": ["get"], "Allowedorigins": ["localhost"]}]},
+        "Bucket",
+        {"CORSRules": [{"AllowedMethods": ["get"], "Allowedorigins": ["localhost"]}]},
     )
 
     # (mypy) error: Argument "Key" to "get_object" of "Client" has incompatible type "None"; expected "str"

@@ -1,13 +1,12 @@
 import pytest
 
-from mypy_boto3_builder.type_annotations.type_typed_dict import (
-    TypeTypedDict,
-    TypedDictAttribute,
-)
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
 
 class TestTypedDictAttribute:
+    result: TypedDictAttribute
+
     def setup_method(self) -> None:
         self.result = TypedDictAttribute("test", Type.DictStrAny, True)
 
@@ -21,6 +20,8 @@ class TestTypedDictAttribute:
 
 
 class TestTypeTypedDict:
+    result: TypeTypedDict
+
     def setup_method(self):
         self.result = TypeTypedDict(
             "MyDict",
@@ -48,9 +49,7 @@ class TestTypeTypedDict:
         assert self.result.render("MyDict") == '"MyDict"'
 
     def test_get_import_record(self) -> None:
-        assert (
-            self.result.get_import_record().render() == "from type_defs import MyDict"
-        )
+        assert self.result.get_import_record().render() == "from type_defs import MyDict"
 
     def test_get_types(self) -> None:
         assert self.result.get_types() == {self.result}
@@ -63,38 +62,41 @@ class TestTypeTypedDict:
         assert self.result.is_dict()
 
     def test_render_class(self) -> None:
-        assert (
-            self.result.render_class()
-            == "class MyDict:\n    required: bool\n    optional: str"
-        )
+        assert self.result.render_class() == "class MyDict:\n    required: bool\n    optional: str"
 
     def test_has_optional(self) -> None:
         assert self.result.has_optional()
         assert not TypeTypedDict(
-            "MyDict", [TypedDictAttribute("required", Type.bool, True)],
+            "MyDict",
+            [TypedDictAttribute("required", Type.bool, True)],
         ).has_optional()
         assert TypeTypedDict(
-            "MyDict", [TypedDictAttribute("optional", Type.str, False)],
+            "MyDict",
+            [TypedDictAttribute("optional", Type.str, False)],
         ).has_optional()
         assert not TypeTypedDict("MyDict", []).has_optional()
 
     def test_has_required(self) -> None:
         assert self.result.has_required()
         assert TypeTypedDict(
-            "MyDict", [TypedDictAttribute("required", Type.bool, True)],
+            "MyDict",
+            [TypedDictAttribute("required", Type.bool, True)],
         ).has_required()
         assert not TypeTypedDict(
-            "MyDict", [TypedDictAttribute("optional", Type.str, False)],
+            "MyDict",
+            [TypedDictAttribute("optional", Type.str, False)],
         ).has_required()
         assert not TypeTypedDict("MyDict", []).has_required()
 
     def test_has_both(self) -> None:
         assert self.result.has_both()
         assert not TypeTypedDict(
-            "MyDict", [TypedDictAttribute("required", Type.bool, True)],
+            "MyDict",
+            [TypedDictAttribute("required", Type.bool, True)],
         ).has_both()
         assert not TypeTypedDict(
-            "MyDict", [TypedDictAttribute("optional", Type.str, False)],
+            "MyDict",
+            [TypedDictAttribute("optional", Type.str, False)],
         ).has_both()
         assert not TypeTypedDict("MyDict", []).has_both()
 

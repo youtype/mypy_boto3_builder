@@ -1,10 +1,12 @@
 import pytest
 
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_class import TypeClass
 
 
 class TestTypeClass:
+    result: TypeClass
+
     def setup_method(self) -> None:
         self.result = TypeClass(str, "alias")
 
@@ -18,10 +20,7 @@ class TestTypeClass:
         assert TypeClass(str).render() == "str"
 
     def test_get_import_record(self) -> None:
-        assert (
-            self.result.get_import_record().render()
-            == "from builtins import str as alias"
-        )
+        assert self.result.get_import_record().render() == "from builtins import str as alias"
         assert TypeClass(str).get_import_record().render() == "from builtins import str"
 
         with pytest.raises(ValueError):

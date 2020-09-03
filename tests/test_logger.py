@@ -1,7 +1,8 @@
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
-from mypy_boto3_builder.logger import get_logger, Logger
 import pytest
+
+from mypy_boto3_builder.logger import Logger, get_logger
 
 
 class TestGetLogger:

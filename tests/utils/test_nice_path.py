@@ -1,4 +1,4 @@
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
 
 from mypy_boto3_builder.utils.nice_path import NicePath
 
