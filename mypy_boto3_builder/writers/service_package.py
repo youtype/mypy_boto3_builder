@@ -65,7 +65,9 @@ def write_service_package(package: ServicePackage, output_path: Path) -> List[Pa
 
     for file_path, template_path in file_paths:
         content = render_jinja2_template(
-            template_path, package=package, service_name=package.service_name,
+            template_path,
+            package=package,
+            service_name=package.service_name,
         )
         content = blackify(content, file_path)
         content = sort_imports(

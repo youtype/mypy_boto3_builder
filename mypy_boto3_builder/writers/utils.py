@@ -5,8 +5,8 @@ from pathlib import Path
 from typing import Iterable, Optional
 
 import black
-import isort
 from black import InvalidInput, NothingChanged
+from isort.api import Config, sort_code_string
 
 from mypy_boto3_builder.constants import LINE_LENGTH, TEMPLATES_PATH
 from mypy_boto3_builder.jinja_manager import JinjaManager
@@ -57,18 +57,20 @@ def sort_imports(
     if module_name in known_third_party:
         known_third_party.remove(module_name)
 
-    result = isort.SortImports(
-        file_contents=content,
-        known_first_party=[module_name],
-        known_third_party=known_third_party,
-        line_length=LINE_LENGTH,
-        use_parentheses=True,
-        force_grid_wrap=0,
-        include_trailing_comma=True,
-        multi_line_output=3,
+    result = sort_code_string(
+        code=content,
         extension=extension,
+        config=Config(
+            known_first_party=[module_name],
+            known_third_party=known_third_party,
+            line_length=LINE_LENGTH,
+            use_parentheses=True,
+            force_grid_wrap=0,
+            include_trailing_comma=True,
+            multi_line_output=3,
+        ),
     )
-    return result.output or ""
+    return result or ""
 
 
 def render_jinja2_template(

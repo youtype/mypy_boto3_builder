@@ -23,7 +23,8 @@ class Collection(ClassRecord):
     bases: List[FakeAnnotation] = field(
         default_factory=lambda: [
             ExternalImport(
-                source=ImportString("boto3", "resources", "collection"), name="ResourceCollection",
+                source=ImportString("boto3", "resources", "collection"),
+                name="ResourceCollection",
             )
         ]
     )

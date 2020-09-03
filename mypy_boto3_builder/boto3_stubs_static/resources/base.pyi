@@ -1,6 +1,6 @@
 # pylint: disable=unused-argument,multiple-statements,super-init-not-called,no-self-use
 import logging
-from typing import List, Dict, Any, Optional
+from typing import Any, Dict, List, Optional
 
 from boto3.resources.model import ResourceModel
 from botocore.client import BaseClient

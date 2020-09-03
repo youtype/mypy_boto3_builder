@@ -20,7 +20,10 @@ from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 
 def parse_resource(
-    name: str, resource: Boto3ServiceResource, service_name: ServiceName, shape_parser: ShapeParser,
+    name: str,
+    resource: Boto3ServiceResource,
+    service_name: ServiceName,
+    shape_parser: ShapeParser,
 ) -> Resource:
     """
     Parse boto3 sub Resource data.

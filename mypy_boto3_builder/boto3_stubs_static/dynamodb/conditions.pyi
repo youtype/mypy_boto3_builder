@@ -1,11 +1,11 @@
 # pylint: disable=unused-argument,multiple-statements,no-self-use,super-init-not-called
 import sys
-from typing import Pattern, Any, List, NamedTuple
+from typing import Any, List, NamedTuple, Pattern
 
 if sys.version_info >= (3, 8):
-    from typing import TypedDict, Literal
+    from typing import Literal, TypedDict
 else:
-    from typing_extensions import TypedDict, Literal
+    from typing_extensions import Literal, TypedDict
 
 ATTR_NAME_REGEX: Pattern[str]
 

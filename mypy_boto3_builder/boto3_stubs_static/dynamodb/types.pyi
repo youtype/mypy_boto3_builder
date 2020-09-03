@@ -1,7 +1,7 @@
 # pylint: disable=unused-argument,multiple-statements,no-self-use
 import sys
 from decimal import Context
-from typing import Tuple, Any, Dict
+from typing import Any, Dict, Tuple
 
 if sys.version_info >= (3, 8):
     from typing import Literal

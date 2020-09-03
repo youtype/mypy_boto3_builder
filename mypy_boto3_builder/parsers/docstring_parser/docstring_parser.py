@@ -155,7 +155,11 @@ class DocstringParser:
         if isinstance(type_annotation, TypeTypedDict):
             self._fix_keys_typed_dict(type_annotation, argument_line)
 
-    def _fix_keys_typed_dict(self, typed_dict: TypeTypedDict, argument_line: TypeDocLine,) -> None:
+    def _fix_keys_typed_dict(
+        self,
+        typed_dict: TypeTypedDict,
+        argument_line: TypeDocLine,
+    ) -> None:
         for line in argument_line.indented:
             if not line.name:
                 continue
@@ -169,7 +173,11 @@ class DocstringParser:
 
             self._fix_keys(attribute.type_annotation, line)
 
-    def _fix_keys_subscript(self, subscript: TypeSubscript, argument_line: TypeDocLine,) -> None:
+    def _fix_keys_subscript(
+        self,
+        subscript: TypeSubscript,
+        argument_line: TypeDocLine,
+    ) -> None:
         child = subscript.children[0]
         for line in argument_line.indented:
             if not line.type_name:

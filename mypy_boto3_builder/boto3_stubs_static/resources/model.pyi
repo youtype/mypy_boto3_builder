@@ -1,7 +1,7 @@
 # pylint: disable=unused-argument,multiple-statements,super-init-not-called,no-self-use,unused-import
-import sys
 import logging
-from typing import Optional, Dict, Any, List, Union, Tuple
+import sys
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 from botocore import xform_name
 from botocore.model import Shape
@@ -88,7 +88,10 @@ class Collection(Action):
 
 class ResourceModel:
     def __init__(
-        self, name: str, definition: ResourceModelDefinition, resource_defs: Dict[str, Dict],
+        self,
+        name: str,
+        definition: ResourceModelDefinition,
+        resource_defs: Dict[str, Dict],
     ) -> None:
         self.name: str
         self.shape: Optional[Shape]

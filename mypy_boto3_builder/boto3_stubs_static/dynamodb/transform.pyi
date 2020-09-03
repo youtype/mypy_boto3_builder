@@ -1,11 +1,10 @@
 # pylint: disable=unused-argument,multiple-statements,no-self-use
-from typing import List, Any, Optional, Dict, Callable
+from typing import Any, Callable, Dict, List, Optional
 
-from botocore.model import Shape
-
-from boto3.dynamodb.types import TypeSerializer, TypeDeserializer
 from boto3.dynamodb.conditions import ConditionExpressionBuilder
+from boto3.dynamodb.types import TypeDeserializer, TypeSerializer
 from boto3.resources.model import ResourceModel
+from botocore.model import Shape
 
 def register_high_level_interface(base_classes: List[type], **kwargs: Any) -> None: ...
 def copy_dynamodb_params(params: Any, **kwargs: Any) -> Any: ...

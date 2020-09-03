@@ -16,7 +16,10 @@ s3_copy_source_type = TypeTypedDict(
 
 ec2_tag_type = TypeTypedDict(
     "TagTypeDef",
-    [TypedDictAttribute("Key", Type.str, True), TypedDictAttribute("Value", Type.str, False),],
+    [
+        TypedDictAttribute("Key", Type.str, True),
+        TypedDictAttribute("Value", Type.str, False),
+    ],
 )
 
 waiter_config_type = TypeTypedDict(

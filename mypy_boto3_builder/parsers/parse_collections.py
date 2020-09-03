@@ -60,10 +60,18 @@ def parse_collections(
         for batch_method in batch_methods:
             collection_record.methods.append(batch_method)
         collection_record.methods.append(
-            Method("limit", [Argument("self", None), Argument("count", Type.int)], self_type,)
+            Method(
+                "limit",
+                [Argument("self", None), Argument("count", Type.int)],
+                self_type,
+            )
         )
         collection_record.methods.append(
-            Method("page_size", [Argument("self", None), Argument("count", Type.int)], self_type,)
+            Method(
+                "page_size",
+                [Argument("self", None), Argument("count", Type.int)],
+                self_type,
+            )
         )
         collection_record.methods.append(
             Method(

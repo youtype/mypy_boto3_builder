@@ -47,7 +47,11 @@ def parse_fake_service_package(session: Session, service_name: ServiceName) -> S
         real_class_name = get_class_prefix(waiter_name)
         waiter_class_name = f"{real_class_name}Waiter"
         result.waiters.append(
-            Waiter(waiter_class_name, waiter_name=waiter_name, service_name=service_name,)
+            Waiter(
+                waiter_class_name,
+                waiter_name=waiter_name,
+                service_name=service_name,
+            )
         )
 
     for paginator_name in shape_parser.get_paginator_names():

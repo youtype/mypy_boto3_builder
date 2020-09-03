@@ -49,17 +49,23 @@ def get_cli_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser("mypy_boto3_builder", description="Builder for mypy-boto3.")
     parser.add_argument("-d", "--debug", action="store_true", help="Show debug messages")
     parser.add_argument(
-        "-b", "--build-version", help="Set custom output version, otherwise boto3 version is used.",
+        "-b",
+        "--build-version",
+        help="Set custom output version, otherwise boto3 version is used.",
     )
     parser.add_argument("-v", "--version", action="version", version=version)
     parser.add_argument(
-        "--skip-master", action="store_true", help="Whether to skip master and stubs modules",
+        "--skip-master",
+        action="store_true",
+        help="Whether to skip master and stubs modules",
     )
     parser.add_argument(
         "--skip-services", action="store_true", help="Whether to skip service modules"
     )
     parser.add_argument(
-        "--panic", action="store_true", help="Raise exception on logger warning and above",
+        "--panic",
+        action="store_true",
+        help="Raise exception on logger warning and above",
     )
     parser.add_argument(
         "output_path", metavar="OUTPUT_PATH", help="Output path", type=get_absolute_path

@@ -5,10 +5,14 @@ from mypy_boto3_builder.writers.service_package import write_service_package
 
 
 class TestServicePackage:
+    @patch("mypy_boto3_builder.writers.service_package.sort_imports")
     @patch("mypy_boto3_builder.writers.service_package.blackify")
     @patch("mypy_boto3_builder.writers.service_package.render_jinja2_template")
     def test_write_service_package(
-        self, render_jinja2_template_mock: MagicMock, blackify_mock: MagicMock
+        self,
+        render_jinja2_template_mock: MagicMock,
+        blackify_mock: MagicMock,
+        sort_imports_mock: MagicMock,
     ) -> None:
         package_mock = MagicMock()
         output_path_mock = MagicMock()
@@ -21,3 +25,4 @@ class TestServicePackage:
             service_name=package_mock.service_name,
         )
         blackify_mock.assert_called_with(render_jinja2_template_mock(), output_path_mock)
+        sort_imports_mock.assert_called()

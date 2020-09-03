@@ -1,8 +1,7 @@
 # pylint: disable=unused-argument,multiple-statements,no-self-use
-from typing import Any, List, Optional, Dict, Type
-
 # from types import TracebackType
 import logging
+from typing import Any, Dict, List, Optional, Type
 
 from botocore.client import BaseClient
 

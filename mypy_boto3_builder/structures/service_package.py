@@ -80,7 +80,8 @@ class ServicePackage(Package):
             import_records.add(
                 ImportRecord(
                     ImportString(
-                        self.service_name.module_name, ServiceModuleName.service_resource.name,
+                        self.service_name.module_name,
+                        ServiceModuleName.service_resource.name,
                     ),
                     self.service_resource.name,
                 )
@@ -88,14 +89,20 @@ class ServicePackage(Package):
         for waiter in self.waiters:
             import_records.add(
                 ImportRecord(
-                    ImportString(self.service_name.module_name, ServiceModuleName.waiter.name,),
+                    ImportString(
+                        self.service_name.module_name,
+                        ServiceModuleName.waiter.name,
+                    ),
                     waiter.name,
                 )
             )
         for paginator in self.paginators:
             import_records.add(
                 ImportRecord(
-                    ImportString(self.service_name.module_name, ServiceModuleName.paginator.name,),
+                    ImportString(
+                        self.service_name.module_name,
+                        ServiceModuleName.paginator.name,
+                    ),
                     paginator.name,
                 )
             )

@@ -2,10 +2,9 @@
 import logging
 from typing import Dict, Type
 
-from botocore.hooks import HierarchicalEmitter
-
 from boto3.resources.base import ServiceResource
 from boto3.utils import ServiceContext
+from botocore.hooks import HierarchicalEmitter
 
 logger: logging.Logger
 

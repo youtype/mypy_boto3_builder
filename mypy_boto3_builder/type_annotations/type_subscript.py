@@ -17,7 +17,11 @@ class TypeSubscript(FakeAnnotation):
         children -- Children type annotations.
     """
 
-    def __init__(self, parent: TypeAnnotation, children: Iterable[FakeAnnotation] = (),) -> None:
+    def __init__(
+        self,
+        parent: TypeAnnotation,
+        children: Iterable[FakeAnnotation] = (),
+    ) -> None:
         self.parent = parent
         self.children = list(children)
 
