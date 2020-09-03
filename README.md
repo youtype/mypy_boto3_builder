@@ -86,7 +86,7 @@ docker run -e BOTO3_VERSION=1.10.18 BOTOCORE_VERSION=1.13.18 -v `pwd`/output:/ou
 ## Versioning
 
 `mypy_boto3_builder` version is not related to `boto3` version and follows
-[Semantic Versioning](https://semver.org/).
+[PEP 440](https://www.python.org/dev/peps/pep-0440/).
 
 ## Latest changes
 
