@@ -18,10 +18,9 @@ Helper for Python import strings.
 
 ## ImportRecord
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L10)
 
 ```python
-total_ordering
 class ImportRecord():
     def __init__(
         source: ImportString,
@@ -48,7 +47,7 @@ Helper for Python import strings.
 
 ### ImportRecord.empty
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L48)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L46)
 
 ```python
 @classmethod
@@ -57,7 +56,7 @@ def empty() -> 'ImportRecord':
 
 ### ImportRecord().get_external
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L149)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L150)
 
 ```python
 def get_external(_module_name: str) -> 'ImportRecord':
@@ -69,7 +68,7 @@ Overriden by `InternalImportRecord`.
 
 ### ImportRecord().get_local_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L106)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L107)
 
 ```python
 def get_local_name() -> str:
@@ -79,7 +78,7 @@ Get local import name.
 
 ### ImportRecord().is_builtins
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L112)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L113)
 
 ```python
 def is_builtins() -> bool:
@@ -89,7 +88,7 @@ Whether import is from Python `builtins` module.
 
 ### ImportRecord().is_local
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L134)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L135)
 
 ```python
 def is_local() -> bool:
@@ -99,7 +98,7 @@ Whether import is from local module.
 
 ### ImportRecord().is_standalone
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L157)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L158)
 
 ```python
 def is_standalone() -> bool:
@@ -109,7 +108,7 @@ Whether import record should not be grouped.
 
 ### ImportRecord().is_third_party
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L124)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L125)
 
 ```python
 def is_third_party() -> bool:
@@ -119,7 +118,7 @@ Whether import is from 3rd party module.
 
 ### ImportRecord().is_type_defs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L118)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L119)
 
 ```python
 def is_type_defs() -> bool:
@@ -129,7 +128,7 @@ Whether import is from `type_defs` module.
 
 ### ImportRecord().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L52)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_record.py#L50)
 
 ```python
 def render() -> str:

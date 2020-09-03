@@ -6,6 +6,7 @@ Parsers for boto3 clients and resources.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / Parsers
     - Modules
+        - [Boto3 Stubs Package](boto3_stubs_package.md#boto3-stubs-package)
         - [Boto3 Utils](boto3_utils.md#boto3-utils)
         - [Client](client.md#client)
         - [Docstring Parser](docstring_parser/index.md#docstring-parser)

@@ -38,7 +38,7 @@ Botocore docstring parser.
 
 ### DocstringParser().get_arguments
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py#L179)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py#L187)
 
 ```python
 def get_arguments(input_string: str) -> List[Argument]:
@@ -56,7 +56,7 @@ A list of `Argument` structures.
 
 ### DocstringParser().get_return_type
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py#L284)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py#L292)
 
 ```python
 def get_return_type(input_string: str) -> FakeAnnotation:

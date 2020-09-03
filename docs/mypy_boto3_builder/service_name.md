@@ -16,6 +16,7 @@ Description for boto3 service.
         - [ServiceName().pypi_name](#servicenamepypi_name)
         - [ServiceName().underscore_name](#servicenameunderscore_name)
     - [ServiceNameCatalog](#servicenamecatalog)
+        - [ServiceNameCatalog.create](#servicenamecatalogcreate)
         - [ServiceNameCatalog.find](#servicenamecatalogfind)
 
 ## ServiceName
@@ -131,9 +132,24 @@ class ServiceNameCatalog():
 
 Finder for boto3 services by name.
 
+### ServiceNameCatalog.create
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L366)
+
+```python
+@staticmethod
+def create(name: str) -> ServiceName:
+```
+
+Create ServiceName for unknown service.
+
+#### See also
+
+- [ServiceName](#servicename)
+
 ### ServiceNameCatalog.find
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L342)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L347)
 
 ```python
 @classmethod

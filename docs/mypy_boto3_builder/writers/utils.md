@@ -36,7 +36,7 @@ Formatted python code.
 
 ## render_jinja2_template
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L66)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L76)
 
 ```python
 def render_jinja2_template(
@@ -63,5 +63,10 @@ A rendered template.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L48)
 
 ```python
-def sort_imports(content: str, module_name: str) -> str:
+def sort_imports(
+    content: str,
+    module_name: str,
+    extension: str = 'py',
+    third_party: Iterable[str] = (),
+) -> str:
 ```

@@ -14,7 +14,7 @@
 [![Coverage](https://img.shields.io/codecov/c/github/vemel/mypy_boto3_builder)](https://codecov.io/gh/vemel/mypy_boto3_builder)
 [![PyPI - Downloads](https://img.shields.io/pypi/dw/boto3-stubs?color=blue)](https://pypistats.org/packages/boto3-stubs)
 
-Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with [mypy](https://github.com/python/mypy), [VSCode](https://code.visualstudio.com/), [PyCharm](https://www.jetbrains.com/pycharm/) and other tools.
+Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with [mypy](https://github.com/python/mypy), [pyright](https://github.com/microsoft/pyright), [VSCode](https://code.visualstudio.com/), [PyCharm](https://www.jetbrains.com/pycharm/) and other tools.
 
 Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.md#mypy-boto3-builder-modules)
 
@@ -102,3 +102,4 @@ Full changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_bu
   this package is based on top of his work
 - [black](https://github.com/psf/black) developers for an awesome formatting tool
 - [mypy](https://github.com/python/mypy) for doing all dirty work for us
+- [pyright](https://github.com/microsoft/pyright) team for the new era of typed Python

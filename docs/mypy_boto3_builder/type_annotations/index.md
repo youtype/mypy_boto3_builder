@@ -10,6 +10,7 @@ to a valid Python code.
         - [ExternalImport](external_import.md#externalimport)
         - [FakeAnnotation](fake_annotation.md#fakeannotation)
         - [InternalImport](internal_import.md#internalimport)
+        - [RemoveArgument](remove_argument.md#removeargument)
         - [Type](type.md#type)
         - [TypeAnnotation](type_annotation.md#typeannotation)
         - [TypeClass](type_class.md#typeclass)
