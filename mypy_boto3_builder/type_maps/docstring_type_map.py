@@ -464,5 +464,5 @@ def get_type_from_docstring(type_str: str) -> FakeAnnotation:
     """
     try:
         return DOCSTRING_TYPE_MAP[type_str].copy()
-    except KeyError:
-        raise ValueError(f"Unknown type: {type_str}")
+    except KeyError as e:
+        raise ValueError(f"Unknown type: {type_str}") from e

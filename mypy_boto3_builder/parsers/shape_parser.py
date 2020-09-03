@@ -121,8 +121,8 @@ class ShapeParser:
     def _get_paginator(self, name: str) -> Shape:
         try:
             return self._paginators_shape["pagination"][name]
-        except KeyError:
-            raise ShapeParserError(f"Unknown paginator: {name}")
+        except KeyError as e:
+            raise ShapeParserError(f"Unknown paginator: {name}") from e
 
     def _get_service_resource(self) -> Shape:
         return self._resources_shape["service"]
@@ -130,8 +130,8 @@ class ShapeParser:
     def _get_resource_shape(self, name: str) -> Shape:
         try:
             return self._resources_shape["resources"][name]
-        except KeyError:
-            raise ShapeParserError(f"Unknown resource: {name}")
+        except KeyError as e:
+            raise ShapeParserError(f"Unknown resource: {name}") from e
 
     def get_paginator_names(self) -> List[str]:
         """

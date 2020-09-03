@@ -40,7 +40,7 @@ def blackify(content: str, file_path: Path) -> str:
         pass
     except (IndentationError, InvalidInput) as e:
         file_path.write_text(content)
-        raise ValueError(f"Cannot parse {file_path}: {e}")
+        raise ValueError(f"Cannot parse {file_path}: {e}") from e
 
     return content
 
