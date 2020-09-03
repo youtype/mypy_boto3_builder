@@ -9,6 +9,7 @@ vulture mypy_boto3_builder vulture_whitelist.txt
 mypy mypy_boto3_builder
 pylint mypy_boto3_builder
 pytest
+black mypy_boto3_builder tests
 isort -c mypy_boto3_builder tests
 # pytest --cov-report html --cov mypy_boto3_builder
 
