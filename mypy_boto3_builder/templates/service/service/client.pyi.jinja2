@@ -26,6 +26,10 @@ __all__ = (
 {% endfor -%}
 )
 
+{% with class=package.client.client_error_class -%}
+    {% include "common/class.py.jinja2" with context -%}
+{% endwith -%}
+
 {% with class=package.client.exceptions_class -%}
     {% include "common/class.py.jinja2" with context -%}
 {% endwith -%}
