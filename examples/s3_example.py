@@ -65,7 +65,7 @@ def s3_client_example() -> None:
     try:
         client.get_object(Bucket="bucket", Key=None)
     except client.exceptions.NoSuchKey as e:
-        print(e.operations_error)
+        print(e.operations_name)
 
 
 def main() -> None:
