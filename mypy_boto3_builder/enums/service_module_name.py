@@ -27,15 +27,8 @@ class ServiceModuleName(enum.Enum):
         return f"{self.value}.py"
 
     @property
-    def stub_template_name(self) -> str:
-        """
-        Module template file name.
-        """
-        return f"{self.value}.pyi.jinja2"
-
-    @property
     def template_name(self) -> str:
         """
         Module template file name.
         """
-        return f"{self.value}.py.jinja2"
+        return f"{self.value}.pyi.jinja2"
