@@ -6,7 +6,6 @@ from typing import List
 
 from botocore.client import BaseClient
 
-from build.lib.mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.attribute import Attribute
@@ -14,6 +13,7 @@ from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 @dataclass
