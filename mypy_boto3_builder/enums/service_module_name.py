@@ -13,15 +13,29 @@ class ServiceModuleName(enum.Enum):
     type_defs = "type_defs"
 
     @property
-    def file_name(self) -> str:
+    def stub_file_name(self) -> str:
         """
         Module file name.
         """
         return f"{self.value}.pyi"
 
     @property
-    def template_name(self) -> str:
+    def file_name(self) -> str:
+        """
+        Module file name.
+        """
+        return f"{self.value}.py"
+
+    @property
+    def stub_template_name(self) -> str:
         """
         Module template file name.
         """
         return f"{self.value}.pyi.jinja2"
+
+    @property
+    def template_name(self) -> str:
+        """
+        Module template file name.
+        """
+        return f"{self.value}.py.jinja2"

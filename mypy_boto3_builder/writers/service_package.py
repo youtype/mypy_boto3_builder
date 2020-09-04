@@ -26,40 +26,69 @@ def write_service_package(package: ServicePackage, output_path: Path) -> List[Pa
         (output_path / "setup.py", templates_path / "setup.py.jinja2"),
         (output_path / "README.md", templates_path / "README.md.jinja2"),
         (package_path / "version.py", module_templates_path / "version.py.jinja2"),
+        (package_path / "__init__.pyi", module_templates_path / "__init__.py.jinja2"),
         (package_path / "__init__.pyi", module_templates_path / "__init__.pyi.jinja2"),
         (package_path / "__main__.py", module_templates_path / "__main__.py.jinja2"),
         (package_path / "py.typed", module_templates_path / "py.typed.jinja2"),
+        (
+            package_path / ServiceModuleName.client.stub_file_name,
+            module_templates_path / ServiceModuleName.client.stub_template_name,
+        ),
         (
             package_path / ServiceModuleName.client.file_name,
             module_templates_path / ServiceModuleName.client.template_name,
         ),
     ]
     if package.service_resource:
-        file_paths.append(
+        file_paths.extend(
             (
-                package_path / ServiceModuleName.service_resource.file_name,
-                module_templates_path / ServiceModuleName.service_resource.template_name,
+                (
+                    package_path / ServiceModuleName.service_resource.stub_file_name,
+                    module_templates_path / ServiceModuleName.service_resource.stub_template_name,
+                ),
+                (
+                    package_path / ServiceModuleName.service_resource.file_name,
+                    module_templates_path / ServiceModuleName.service_resource.template_name,
+                ),
             )
         )
     if package.paginators:
-        file_paths.append(
+        file_paths.extend(
             (
-                package_path / ServiceModuleName.paginator.file_name,
-                module_templates_path / ServiceModuleName.paginator.template_name,
+                (
+                    package_path / ServiceModuleName.paginator.stub_file_name,
+                    module_templates_path / ServiceModuleName.paginator.stub_template_name,
+                ),
+                (
+                    package_path / ServiceModuleName.paginator.file_name,
+                    module_templates_path / ServiceModuleName.paginator.template_name,
+                ),
             )
         )
     if package.waiters:
-        file_paths.append(
+        file_paths.extend(
             (
-                package_path / ServiceModuleName.waiter.file_name,
-                module_templates_path / ServiceModuleName.waiter.template_name,
+                (
+                    package_path / ServiceModuleName.waiter.stub_file_name,
+                    module_templates_path / ServiceModuleName.waiter.stub_template_name,
+                ),
+                (
+                    package_path / ServiceModuleName.waiter.file_name,
+                    module_templates_path / ServiceModuleName.waiter.template_name,
+                ),
             )
         )
     if package.typed_dicts:
-        file_paths.append(
+        file_paths.extend(
             (
-                package_path / ServiceModuleName.type_defs.file_name,
-                module_templates_path / ServiceModuleName.type_defs.template_name,
+                (
+                    package_path / ServiceModuleName.type_defs.stub_file_name,
+                    module_templates_path / ServiceModuleName.type_defs.stub_template_name,
+                ),
+                (
+                    package_path / ServiceModuleName.type_defs.file_name,
+                    module_templates_path / ServiceModuleName.type_defs.template_name,
+                ),
             )
         )
 

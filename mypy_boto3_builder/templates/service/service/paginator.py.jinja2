@@ -1,0 +1,47 @@
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
+"""
+Main interface for {{ package.service_name.boto3_name }} service client paginators.
+
+Usage::
+
+    ```python
+    import boto3
+
+    from {{ package.service_name.module_name }} import {{ package.client.name }}
+    from {{ package.service_name.module_name }}.paginator import (
+{% for paginator in package.paginators -%}
+        {{ '        ' -}}{{ paginator.name -}},
+{% endfor -%}
+    {{ '    ' -}})
+
+    client: {{ package.client.name }} = boto3.client("{{ package.service_name.boto3_name }}")
+
+{% for paginator in package.paginators -%}
+    {{ "    " -}}
+    {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+{% endfor -%}
+    {{ '    ' -}}```
+"""
+{% for import_record in package.get_paginator_required_import_records() -%}
+    {% include "common/import_record_fallback.py.jinja2" with context %}
+{% endfor -%}
+
+{{ "\n\n" -}}
+
+__all__ = (
+{% for paginator in package.paginators -%}
+    {{ '"' -}}
+    {{ paginator.name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)
+
+{{ "\n\n" -}}
+
+{% for paginator in package.paginators -%}
+    {% with class=paginator -%}
+        {% include "common/class.py.jinja2" with context -%}
+    {% endwith -%}
+    {{ "\n\n\n" if not loop.last else "\n" -}}
+{% endfor -%}

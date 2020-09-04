@@ -9,6 +9,7 @@ def ec2_resource_example() -> None:
 
     resource = session.resource("ec2")
     _resource = boto3.resource("ec2")
+    resource.
 
     # (mypy) error: Missing positional argument "Resources" in call
     #   to "create_tags" of "ServiceResource"

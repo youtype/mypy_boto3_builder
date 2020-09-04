@@ -1,18 +1,20 @@
 # install `pip install boto3-stubs[s3]`
-
 import boto3
 from boto3.session import Session
+from mypy_boto3_s3.client import S3Client
+from mypy_boto3_s3.service_resource import Bucket, S3ServiceResource
 
 
 def s3_resource_example() -> None:
     # optionally use Session type from botocore
     session = Session(region_name="us-west-1")
 
-    resource = session.resource("s3")
+    resource: S3ServiceResource = session.resource("s3")
     _resource = boto3.resource("s3")
+    resource.BucketLifecycle("asd")
 
     # IDE autocomplete suggests function name and arguments here
-    bucket = resource.Bucket("bucket")
+    bucket: Bucket = resource.Bucket("bucket")
     bucket.objects.delete(mfa="my_mfa", MFA="my_mfa")
 
     # (mypy) error: Unexpected keyword argument "key" for "upload_file" of "Bucket"
@@ -37,7 +39,7 @@ def s3_resource_example() -> None:
 
 
 def s3_client_example() -> None:
-    client = boto3.client("s3")
+    client: S3Client = boto3.client("s3")
 
     bucket_exists_waiter = client.get_waiter("bucket_exists")
 
