@@ -107,3 +107,4 @@ ENV/
 .pytest_cache
 
 mypy_boto3_output
+typings

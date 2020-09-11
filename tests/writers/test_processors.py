@@ -1,7 +1,6 @@
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_master,
@@ -20,8 +19,12 @@ class TestProcessors:
         parse_boto3_stubs_package_mock: MagicMock,
     ) -> None:
         write_boto3_stubs_package_mock.return_value = [Path("modified_path")]
-        result = process_boto3_stubs("session", Path("my_path"), ["service_name"])
-        write_boto3_stubs_package_mock.assert_called_with(result, Path("my_path"))
+        result = process_boto3_stubs("session", Path("my_path"), ["service_name"], True)
+        write_boto3_stubs_package_mock.assert_called_with(
+            result,
+            Path("my_path"),
+            generate_setup=True,
+        )
         parse_boto3_stubs_package_mock.assert_called_with(
             session="session", service_names=["service_name"]
         )
@@ -37,8 +40,12 @@ class TestProcessors:
         parse_master_package_mock: MagicMock,
     ) -> None:
         write_master_package_mock.return_value = [Path("modified_path")]
-        result = process_master("session", Path("my_path"), ["service_name"])
-        write_master_package_mock.assert_called_with(result, Path("my_path"))
+        result = process_master("session", Path("my_path"), ["service_name"], True)
+        write_master_package_mock.assert_called_with(
+            result,
+            output_path=Path("my_path"),
+            generate_setup=True,
+        )
         parse_master_package_mock.assert_called_with("session", ["service_name"])
         assert result == parse_master_package_mock()
 
@@ -56,7 +63,11 @@ class TestProcessors:
             Path("client.py"),
         ]
         service_name_mock = MagicMock()
-        result = process_service("session", service_name_mock, Path("my_path"))
-        write_service_package_mock.assert_called_with(result, Path("my_path"))
+        result = process_service("session", service_name_mock, Path("my_path"), True)
+        write_service_package_mock.assert_called_with(
+            result,
+            output_path=Path("my_path"),
+            generate_setup=True,
+        )
         parse_service_package_mock.assert_called_with("session", service_name_mock)
         assert result == parse_service_package_mock()

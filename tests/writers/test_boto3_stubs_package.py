@@ -27,7 +27,10 @@ class TestBoto3StubsPackage:
             static_path_mock,
         ]
         output_path_mock.__truediv__.return_value = output_path_mock
-        assert write_boto3_stubs_package(package_mock, output_path_mock) == [output_path_mock] * 8
+        assert (
+            write_boto3_stubs_package(package_mock, output_path_mock, True)
+            == [output_path_mock] * 8
+        )
         render_jinja2_template_mock.assert_called_with(
             Path("boto3-stubs/boto3-stubs/version.py.jinja2"),
             package=package_mock,
@@ -36,5 +39,8 @@ class TestBoto3StubsPackage:
         sort_imports_mock.assert_called()
 
         filecmp_mock.cmp.return_value = False
-        assert write_boto3_stubs_package(package_mock, output_path_mock) == [output_path_mock] * 9
+        assert (
+            write_boto3_stubs_package(package_mock, output_path_mock, True)
+            == [output_path_mock] * 9
+        )
         shutil_mock.copy.assert_called()

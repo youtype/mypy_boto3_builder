@@ -1,13 +1,13 @@
 from unittest.mock import MagicMock, patch
 
-from mypy_boto3_builder.cli_parser import get_absolute_path, get_cli_parser, get_service_name
+from mypy_boto3_builder.cli_parser import get_absolute_path, get_service_name, parse_args
 
 
 class TestCLIParser:
     @patch("mypy_boto3_builder.cli_parser.argparse")
-    def test_get_cli_parser(self, argparse_mock: MagicMock) -> None:
-        result = get_cli_parser()
-        assert result == argparse_mock.ArgumentParser()
+    def test_parse_args(self, _argparse_mock: MagicMock) -> None:
+        result = parse_args([])
+        assert result
 
     @patch("mypy_boto3_builder.cli_parser.Path")
     def test_get_absolute_path(self, PathMock: MagicMock) -> None:

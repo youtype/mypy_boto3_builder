@@ -3,6 +3,7 @@ CLI parser.
 """
 import argparse
 from pathlib import Path
+from typing import Sequence
 
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 
@@ -38,7 +39,7 @@ def get_service_name(name: str) -> ServiceName:
     return ServiceNameCatalog.create(name)
 
 
-def get_cli_parser() -> argparse.ArgumentParser:
+def parse_args(args: Sequence[str]) -> argparse.Namespace:
     """
     Main CLI parser for builder.
 
@@ -80,4 +81,9 @@ def get_cli_parser() -> argparse.ArgumentParser:
         type=get_service_name,
         default=ServiceNameCatalog.ITEMS,
     )
-    return parser
+    parser.add_argument(
+        "--installed",
+        action="store_true",
+        help="Generate already installed pacakges for typings folder.",
+    )
+    return parser.parse_args(args)

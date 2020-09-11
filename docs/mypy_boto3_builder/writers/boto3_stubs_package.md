@@ -15,6 +15,7 @@ boto3-stubs package writer.
 def write_boto3_stubs_package(
     package: Boto3StubsPackage,
     output_path: Path,
+    generate_setup: bool,
 ) -> List[Path]:
 ```
 

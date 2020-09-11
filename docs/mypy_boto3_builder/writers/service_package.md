@@ -15,6 +15,7 @@ Service package writer.
 def write_service_package(
     package: ServicePackage,
     output_path: Path,
+    generate_setup: bool,
 ) -> List[Path]:
 ```
 

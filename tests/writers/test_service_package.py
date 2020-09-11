@@ -18,7 +18,9 @@ class TestServicePackage:
         output_path_mock = MagicMock()
         output_path_mock.exists.return_value = False
         output_path_mock.__truediv__.return_value = output_path_mock
-        assert write_service_package(package_mock, output_path_mock) == [output_path_mock] * 17
+        assert (
+            write_service_package(package_mock, output_path_mock, True) == [output_path_mock] * 17
+        )
         render_jinja2_template_mock.assert_called_with(
             Path("service/service/type_defs.pyi.jinja2"),
             package=package_mock,

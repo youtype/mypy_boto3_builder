@@ -15,6 +15,7 @@ Master package writer.
 def write_master_package(
     package: MasterPackage,
     output_path: Path,
+    generate_setup: bool,
 ) -> List[Path]:
 ```
 

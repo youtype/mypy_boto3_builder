@@ -4,7 +4,7 @@ boto3-stubs package writer.
 import filecmp
 import shutil
 from pathlib import Path
-from typing import List
+from typing import List, Tuple
 
 from boto3 import __version__ as boto3_version
 
@@ -13,28 +13,43 @@ from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template, sort_imports
 
 
-def write_boto3_stubs_package(package: Boto3StubsPackage, output_path: Path) -> List[Path]:
+def write_boto3_stubs_package(
+    package: Boto3StubsPackage, output_path: Path, generate_setup: bool
+) -> List[Path]:
+    setup_path = output_path / "boto3_stubs_package"
+    if not generate_setup:
+        setup_path = output_path
+
     modified_paths: List[Path] = []
-    package_path = output_path / package.name
+    package_path = setup_path / package.name
 
-    if output_path.exists():
-        shutil.rmtree(output_path)
+    if setup_path.exists():
+        shutil.rmtree(setup_path)
 
-    output_path.mkdir(exist_ok=True)
+    setup_path.mkdir(exist_ok=True)
     package_path.mkdir(exist_ok=True)
 
     templates_path = Path("boto3-stubs")
     module_templates_path = templates_path / "boto3-stubs"
-    file_paths = [
-        (output_path / "setup.py", templates_path / "setup.py.jinja2"),
-        (output_path / "README.md", templates_path / "README.md.jinja2"),
-        (package_path / "py.typed", module_templates_path / "py.typed.jinja2"),
-        (package_path / "__init__.pyi", module_templates_path / "__init__.pyi.jinja2"),
-        (package_path / "__init__.py", module_templates_path / "__init__.pyi.jinja2"),
-        (package_path / "session.pyi", module_templates_path / "session.pyi.jinja2"),
-        (package_path / "__main__.py", module_templates_path / "__main__.py.jinja2"),
-        (package_path / "version.py", module_templates_path / "version.py.jinja2"),
-    ]
+    file_paths: List[Tuple[Path, Path]] = []
+    if generate_setup:
+        file_paths.extend(
+            [
+                (setup_path / "setup.py", templates_path / "setup.py.jinja2"),
+                (setup_path / "README.md", templates_path / "README.md.jinja2"),
+            ]
+        )
+
+    file_paths.extend(
+        [
+            (package_path / "py.typed", module_templates_path / "py.typed.jinja2"),
+            (package_path / "__init__.pyi", module_templates_path / "__init__.pyi.jinja2"),
+            (package_path / "__init__.py", module_templates_path / "__init__.pyi.jinja2"),
+            (package_path / "session.pyi", module_templates_path / "session.pyi.jinja2"),
+            (package_path / "__main__.py", module_templates_path / "__main__.py.jinja2"),
+            (package_path / "version.py", module_templates_path / "version.py.jinja2"),
+        ]
+    )
 
     for file_path, template_path in file_paths:
         content = render_jinja2_template(template_path, package=package)

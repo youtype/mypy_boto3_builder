@@ -1,13 +1,14 @@
 """
 Main entrypoint for builder.
 """
+import sys
 from pathlib import Path
 from typing import List
 
 from boto3 import __version__ as boto3_version
 from boto3.session import Session
 
-from mypy_boto3_builder.cli_parser import get_cli_parser
+from mypy_boto3_builder.cli_parser import parse_args
 from mypy_boto3_builder.constants import BOTO3_STUBS_NAME, DUMMY_REGION, MODULE_NAME, PYPI_NAME
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
@@ -23,8 +24,7 @@ def main() -> None:
     """
     Main entrypoint for builder.
     """
-    parser = get_cli_parser()
-    args = parser.parse_args()
+    args = parse_args(sys.argv[1:])
     logger = get_logger(verbose=args.debug, panic=args.panic)
     session = Session(region_name=DUMMY_REGION)
     args.output_path.mkdir(exist_ok=True)
@@ -66,21 +66,33 @@ def main() -> None:
     logger.info(f"Bulding version {build_version}")
 
     if not args.skip_services:
+        total_str = f"{len(service_names)}"
         for index, service_name in enumerate(service_names):
-            logger.info(
-                f"[{index + 1}/{len(service_names)}] Generating {service_name.module_name} module"
+            current_str = f"{{:0{len(total_str)}}}".format(index + 1)
+            logger.info(f"[{current_str}/{total_str}] Generating {service_name.module_name} module")
+            process_service(
+                session=session,
+                output_path=args.output_path,
+                service_name=service_name,
+                generate_setup=not args.installed,
             )
-            output_path = args.output_path / f"{service_name.module_name}_package"
-            process_service(session=session, output_path=output_path, service_name=service_name)
 
     if not args.skip_master:
         logger.info(f"Generating {MODULE_NAME} module")
-        output_path = args.output_path / "master_package"
-        process_master(session, output_path, master_service_names)
+        process_master(
+            session,
+            args.output_path,
+            master_service_names,
+            generate_setup=not args.installed,
+        )
 
         logger.info(f"Generating {BOTO3_STUBS_NAME} module")
-        output_path = args.output_path / "boto3_stubs_package"
-        process_boto3_stubs(session, output_path, master_service_names)
+        process_boto3_stubs(
+            session,
+            args.output_path,
+            master_service_names,
+            generate_setup=not args.installed,
+        )
 
     logger.info("Completed")
 
