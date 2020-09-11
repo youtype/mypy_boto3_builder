@@ -34,6 +34,9 @@ class ServiceName:
     def __hash__(self) -> int:
         return hash(self.name)
 
+    def __str__(self) -> str:
+        return f"<ServiceName {self.name} {self.class_name}>"
+
     @property
     def underscore_name(self) -> str:
         return self.name.replace("-", "_")

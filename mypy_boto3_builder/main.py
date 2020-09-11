@@ -29,28 +29,29 @@ def main() -> None:
     session = Session(region_name=DUMMY_REGION)
     args.output_path.mkdir(exist_ok=True)
     service_names: List[ServiceName] = []
-    master_service_names = []
+    master_service_names: List[ServiceName] = []
     available_services = session.get_available_services()
 
     for available_service in available_services:
         try:
             service_name = ServiceNameCatalog.find(available_service)
         except ValueError:
-            service_name = ServiceNameCatalog.create(available_service)
-            logger.info(
-                f"Service {available_service} is not yet supported,"
-                f" will be processed as {service_name.class_name}."
-            )
-
-        master_service_names.append(service_name)
-
-    for service_name in args.service_names:
-        if service_name.name not in available_services:
-            logger.warning(f"Service {service_name.name} is not available, skipping.")
+            logger.info(f"Service {available_service} is not fully supported.")
             continue
 
         service_name.boto3_version = boto3_version
-        service_names.append(service_name)
+        master_service_names.append(service_name)
+
+    if args.service_names:
+        for service_name in args.service_names:
+            if service_name.name not in available_services:
+                logger.info(f"Service {service_name.name} is not provided by boto3, skipping.")
+                continue
+
+            service_name.boto3_version = boto3_version
+            service_names.append(service_name)
+    else:
+        service_names = master_service_names
 
     build_version = args.build_version or boto3_version
     version = (Path(__file__).parent / "version.txt").read_text().strip()

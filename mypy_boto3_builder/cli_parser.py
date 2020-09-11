@@ -79,7 +79,7 @@ def parse_args(args: Sequence[str]) -> argparse.Namespace:
         metavar="SERVICE_NAME",
         help="List of AWS services, by default all services are used",
         type=get_service_name,
-        default=ServiceNameCatalog.ITEMS,
+        default=[],
     )
     parser.add_argument(
         "--installed",
