@@ -19,7 +19,6 @@ def write_service_package(
 
     modified_paths: List[Path] = []
     package_path = setup_path / package.name
-    package_path = output_path / package.name
 
     if setup_path.exists():
         shutil.rmtree(setup_path)
