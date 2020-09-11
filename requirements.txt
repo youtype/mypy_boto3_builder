@@ -1,7 +1,7 @@
 black==20.8b1
 boto3
 dataclasses; python_version < '3.7'
-isort==5.4.2
+isort==5.5.2
 jinja2>=2.10.3
 pyparsing>=2.4.5
 typing_extensions; python_version < '3.8'
