@@ -3,5 +3,5 @@ handsdown==0.3.9
 mypy==0.782
 pylint==2.6.0
 pytest-cov==2.10.1
-pytest==6.0.1
+pytest==6.1.1
 vulture==2.1
