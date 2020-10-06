@@ -1,5 +1,4 @@
 {% if import_record.fallback -%}
-import sys
 if sys.version_info >= {{ import_record.min_version }}:
     {% include "common/import_record.py.jinja2" with context -%}{{ "\n" -}}
 else:
