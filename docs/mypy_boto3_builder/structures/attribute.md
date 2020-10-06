@@ -10,11 +10,15 @@ Class or module attribute.
 
 ## Attribute
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L10)
 
 ```python
-dataclass
 class Attribute():
+    def __init__(
+        name: str,
+        type_annotation: FakeAnnotation,
+        value: Optional[TypeConstant] = None,
+    ):
 ```
 
 Class or module attribute.
@@ -25,9 +29,13 @@ Class or module attribute.
 - `type` - Attribute type annotation.
 - `value` - Attribute value.
 
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
+
 ### Attribute().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L26)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L30)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:

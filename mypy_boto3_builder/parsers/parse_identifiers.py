@@ -22,5 +22,5 @@ def parse_identifiers(resource: Boto3ServiceResource) -> List[Attribute]:
     result: List[Attribute] = []
     identifiers = resource.meta.resource_model.identifiers
     for identifier in identifiers:
-        result.append(Attribute(identifier.name, type=Type.str))
+        result.append(Attribute(identifier.name, type_annotation=Type.str))
     return result

@@ -11,25 +11,30 @@ Method or function argument.
 
 ## Argument
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L10)
 
 ```python
-dataclass
 class Argument():
+    def __init__(
+        name: str,
+        type_annotation: Optional[FakeAnnotation],
+        default: Optional[TypeConstant] = None,
+        prefix: str = '',
+    ):
 ```
 
 Method or function argument.
 
-#### Attributes
+#### Arguments
 
 - `name` - Argument name.
-- `type` - Argument type annotation.
+- `type_annotation` - Argument type annotation.
 - `value` - Default argument value.
 - `prefix` - Used for starargs.
 
 ### Argument().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L28)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L33)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
@@ -37,7 +42,7 @@ def get_types() -> Set[FakeAnnotation]:
 
 ### Argument().required
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L37)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L42)
 
 ```python
 @property

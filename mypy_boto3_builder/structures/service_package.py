@@ -1,5 +1,4 @@
-from dataclasses import dataclass, field
-from typing import List, Optional, Set
+from typing import Iterable, List, Optional, Set
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -15,15 +14,27 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 
 
-@dataclass
 class ServicePackage(Package):
-    service_name: ServiceName
-    client: Client
-    service_resource: Optional[ServiceResource] = None
-    waiters: List[Waiter] = field(default_factory=lambda: [])
-    paginators: List[Paginator] = field(default_factory=lambda: [])
-    typed_dicts: List[TypeTypedDict] = field(default_factory=lambda: [])
-    helper_functions: List[Function] = field(default_factory=lambda: [])
+    def __init__(
+        self,
+        name: str,
+        pypi_name: str,
+        service_name: ServiceName,
+        client: Client,
+        service_resource: Optional[ServiceResource] = None,
+        waiters: Iterable[Waiter] = tuple(),
+        paginators: Iterable[Paginator] = tuple(),
+        typed_dicts: Iterable[TypeTypedDict] = tuple(),
+        helper_functions: Iterable[Function] = tuple(),
+    ):
+        super().__init__(name=name, pypi_name=pypi_name)
+        self.service_name = service_name
+        self.client = client
+        self.service_resource = service_resource
+        self.waiters = list(waiters)
+        self.paginators = list(paginators)
+        self.typed_dicts = list(typed_dicts)
+        self.helper_functions = list(helper_functions)
 
     def extract_typed_dicts(self) -> List[TypeTypedDict]:
         added_names: List[str] = []

@@ -91,4 +91,4 @@ class TestDocstringParser:
         result = docstring_parser.get_arguments(input_string)
         assert len(result) == 1
         assert result[0].name == "name"
-        assert result[0].type == Type.str
+        assert result[0].type_annotation == Type.str

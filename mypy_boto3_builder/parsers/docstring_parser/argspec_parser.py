@@ -60,14 +60,14 @@ class ArgSpecParser:
         arguments = self._get_arguments_from_argspec(func)
 
         for argument in arguments:
-            if argument.type is not Type.Any:
+            if argument.type_annotation is not Type.Any:
                 continue
 
             type_stub = get_method_type_stub(
                 self.service_name, class_name, method_name, argument.name
             )
             if type_stub is not None:
-                argument.type = type_stub
+                argument.type_annotation = type_stub
 
         return arguments
 

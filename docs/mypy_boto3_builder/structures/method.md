@@ -9,10 +9,9 @@ Class method.
 
 ## Method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/method.py#L10)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/method.py#L7)
 
 ```python
-dataclass
 class Method(Function):
 ```
 

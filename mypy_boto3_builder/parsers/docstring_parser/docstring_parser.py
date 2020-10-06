@@ -83,7 +83,7 @@ class DocstringParser:
             argument_value = TypeValue(self.service_name, argument_prefix, argument_dict["value"])
             argument_type = argument_value.get_type()
             argument = self._find_argument_or_append(argument_name)
-            argument.type = argument_type
+            argument.type_annotation = argument_type
 
     def _parse_types(self, input_string: str) -> None:
         if ":type " not in input_string:
@@ -107,9 +107,9 @@ class DocstringParser:
                 self.service_name, self.class_name, self.method_name, argument_name
             )
             if type_stub:
-                argument.type = type_stub
+                argument.type_annotation = type_stub
             else:
-                argument.type = get_type_from_docstring(type_str)
+                argument.type_annotation = get_type_from_docstring(type_str)
 
     def _parse_params(self, input_string: str) -> None:
         if ":param " not in input_string:
@@ -138,10 +138,10 @@ class DocstringParser:
             if argument_line.required:
                 argument.default = None
 
-            if not argument.type:
+            if not argument.type_annotation:
                 continue
 
-            self._fix_keys(argument.type, argument_line)
+            self._fix_keys(argument.type_annotation, argument_line)
 
     def _fix_keys(self, type_annotation: FakeAnnotation, argument_line: TypeDocLine) -> None:
         if not argument_line.indented:

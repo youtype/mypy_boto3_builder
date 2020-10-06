@@ -1,8 +1,8 @@
 {{ argument.prefix -}}
 {{ argument.name -}}
-{% if argument.type -%}
+{% if argument.type_annotation -%}
     {{ ': ' -}}
-    {{ argument.type.render() -}}
+    {{ argument.type_annotation.render() -}}
     {% if not argument.required -%}
         {{ ' = ' -}}
         {{ argument.default.render() -}}

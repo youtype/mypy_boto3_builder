@@ -111,13 +111,16 @@ class ShapeParser:
             pass
 
         self.logger = get_logger()
-        self.response_metadata_typed_dict = TypeTypedDict("ResponseMetadata", [
-            TypedDictAttribute("RequestId", Type.str, True),
-            TypedDictAttribute("HostId", Type.str, True),
-            TypedDictAttribute("HTTPStatusCode", Type.int, True),
-            TypedDictAttribute("HTTPHeaders", Type.DictStrAny, True),
-            TypedDictAttribute("RetryAttempts", Type.int, True),
-        ])
+        self.response_metadata_typed_dict = TypeTypedDict(
+            "ResponseMetadata",
+            [
+                TypedDictAttribute("RequestId", Type.str, True),
+                TypedDictAttribute("HostId", Type.str, True),
+                TypedDictAttribute("HTTPStatusCode", Type.int, True),
+                TypedDictAttribute("HTTPHeaders", Type.DictStrAny, True),
+                TypedDictAttribute("RetryAttempts", Type.int, True),
+            ],
+        )
 
     def _get_operation(self, name: str) -> OperationModel:
         return self.service_model.operation_model(name)
@@ -308,7 +311,7 @@ class ShapeParser:
                 self._parse_shape(attr_shape),
                 attr_name in required,
             )
-        if shape.name.endswith('Output'):
+        if shape.name.endswith("Output"):
             typed_dict.add_attribute(
                 "ResponseMetadata",
                 self.response_metadata_typed_dict,

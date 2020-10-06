@@ -1,27 +1,35 @@
 """
 Module-level function.
 """
-from dataclasses import dataclass, field
-from typing import List, Set
+from typing import Iterable, List, Set
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
 
-@dataclass
 class Function:
     """
     Module-level function.
     """
 
-    name: str
-    arguments: List[Argument]
-    return_type: FakeAnnotation
-    docstring: str = ""
-    decorators: List[FakeAnnotation] = field(default_factory=lambda: [])
-    body_lines: List[str] = field(default_factory=lambda: [])
-    type_ignore: bool = False
+    def __init__(
+        self,
+        name: str,
+        arguments: List[Argument],
+        return_type: FakeAnnotation,
+        docstring: str = "",
+        decorators: Iterable[FakeAnnotation] = tuple(),
+        body_lines: Iterable[str] = tuple(),
+        type_ignore: bool = False,
+    ):
+        self.name = name
+        self.arguments = arguments
+        self.return_type = return_type
+        self.docstring = docstring
+        self.decorators = list(decorators)
+        self.body_lines = body_lines
+        self.type_ignore = type_ignore
 
     @property
     def body(self) -> str:

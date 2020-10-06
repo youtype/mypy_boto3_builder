@@ -9,11 +9,11 @@ Parent class for all package structures.
 
 ## Package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/package.py#L9)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/package.py#L6)
 
 ```python
-dataclass
 class Package():
+    def __init__(name: str, pypi_name: str):
 ```
 
 Parent class for all package structures.

@@ -1,14 +1,12 @@
 """
 Class or module attribute.
 """
-from dataclasses import dataclass
 from typing import Optional, Set
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
 
-@dataclass
 class Attribute:
     """
     Class or module attribute.
@@ -19,9 +17,15 @@ class Attribute:
         value -- Attribute value.
     """
 
-    name: str
-    type: FakeAnnotation
-    value: Optional[TypeConstant] = None
+    def __init__(
+        self,
+        name: str,
+        type_annotation: FakeAnnotation,
+        value: Optional[TypeConstant] = None,
+    ):
+        self.name = name
+        self.type_annotation = type_annotation
+        self.value = value
 
     def get_types(self) -> Set[FakeAnnotation]:
         """
@@ -30,4 +34,4 @@ class Attribute:
         Returns:
             A set of type annotations.
         """
-        return self.type.get_types()
+        return self.type_annotation.get_types()
