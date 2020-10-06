@@ -1,3 +1,5 @@
+from unittest.mock import MagicMock
+
 from mypy_boto3_builder.structures.paginator import Paginator
 
 
@@ -11,7 +13,9 @@ class TestPaginator:
         assert paginator.service_name == "service_name"
 
     def test_get_client_method(self) -> None:
-        paginator = Paginator(name="name", operation_name="my_operation_name")
+        paginator = Paginator(
+            name="name", operation_name="my_operation_name", service_name=MagicMock()
+        )
         result = paginator.get_client_method()
         assert result.name == "get_paginator"
         assert result.return_type.name == "name"

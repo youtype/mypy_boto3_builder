@@ -1,8 +1,7 @@
 """
 Base class for all structures that can be rendered to a class.
 """
-from dataclasses import dataclass, field
-from typing import List, Set
+from typing import Iterable, List, Set
 
 from botocore import xform_name
 
@@ -13,21 +12,33 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 
-@dataclass
 class ClassRecord:
     """
     Base class for all structures that can be rendered to a class.
     """
 
-    name: str
-    methods: List[Method] = field(default_factory=lambda: [])
-    attributes: List[Attribute] = field(default_factory=lambda: [])
-    bases: List[FakeAnnotation] = field(default_factory=lambda: [])
-    docstring: str = ""
-    use_alias: bool = False
+    _alias_name: str = ""
+
+    def __init__(
+        self,
+        name: str,
+        methods: Iterable[Method] = tuple(),
+        attributes: Iterable[Attribute] = tuple(),
+        bases: Iterable[FakeAnnotation] = tuple(),
+        docstring: str = "",
+        use_alias: bool = False,
+    ):
+        self.name = name
+        self.methods = list(methods)
+        self.attributes = list(attributes)
+        self.bases = list(bases)
+        self.docstring = docstring
+        self.use_alias = use_alias
 
     @property
     def alias_name(self) -> str:
+        if self._alias_name:
+            return self._alias_name
         if not self.use_alias:
             raise ValueError(f"Cannot get alias for { self.name } with no alias.")
         return InternalImport.get_alias(self.name)

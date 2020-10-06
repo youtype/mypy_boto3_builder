@@ -1,13 +1,12 @@
 """
 Boto3 ServiceResource.
 """
-from dataclasses import dataclass, field
-from typing import List, Optional, Set, Tuple
+from typing import List, Set, Tuple
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
-from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.resource import Resource
@@ -16,27 +15,35 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 
-@dataclass
 class ServiceResource(ClassRecord):
     """
     Boto3 ServiceResource.
     """
 
-    name: str = "ServiceResource"
-    alias_name: str = "ServiceResource"
-    service_name: ServiceName = ServiceNameCatalog.ec2
-    boto3_service_resource: Optional[Boto3ServiceResource] = None
-    collections: List[Collection] = field(default_factory=lambda: [])
-    sub_resources: List[Resource] = field(default_factory=lambda: [])
-    bases: List[FakeAnnotation] = field(
-        default_factory=lambda: [
-            ExternalImport(
-                source=ImportString("boto3", "resources", "base"),
-                name="ServiceResource",
-                alias="Boto3ServiceResource",
-            )
-        ]
-    )
+    _alias_name = "ServiceResource"
+
+    def __init__(
+        self,
+        name: str,
+        service_name: ServiceName,
+        boto3_service_resource: Boto3ServiceResource,
+        docstring: str = "",
+    ):
+        super().__init__(
+            name=name,
+            docstring=docstring,
+            bases=[
+                ExternalImport(
+                    source=ImportString("boto3", "resources", "base"),
+                    name="ServiceResource",
+                    alias="Boto3ServiceResource",
+                )
+            ],
+        )
+        self.service_name = service_name
+        self.boto3_service_resource = boto3_service_resource
+        self.collections: List[Collection] = []
+        self.sub_resources: List[Resource] = []
 
     def __hash__(self) -> int:
         return hash(self.service_name)

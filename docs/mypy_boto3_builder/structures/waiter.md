@@ -10,11 +10,16 @@ Boto3 client Waiter.
 
 ## Waiter
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L23)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L18)
 
 ```python
-dataclass
 class Waiter(ClassRecord):
+    def __init__(
+        name: str,
+        waiter_name: str,
+        service_name: ServiceName,
+        docstring: str = '',
+    ):
 ```
 
 Boto3 client Waiter.
@@ -22,10 +27,11 @@ Boto3 client Waiter.
 #### See also
 
 - [ClassRecord](class_record.md#classrecord)
+- [ServiceName](../service_name.md#servicename)
 
 ### Waiter().get_client_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L34)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L38)
 
 ```python
 def get_client_method() -> Method:

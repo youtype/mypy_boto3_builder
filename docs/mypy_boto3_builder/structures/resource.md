@@ -10,11 +10,11 @@ Boto3 ServiceResource sub-Resource.
 
 ## Resource
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/resource.py#L15)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/resource.py#L13)
 
 ```python
-dataclass
 class Resource(ClassRecord):
+    def __init__(name: str, docstring: str = ''):
 ```
 
 Boto3 ServiceResource sub-Resource.
@@ -25,7 +25,7 @@ Boto3 ServiceResource sub-Resource.
 
 ### Resource().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/resource.py#L32)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/resource.py#L33)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:

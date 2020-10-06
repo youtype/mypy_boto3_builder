@@ -44,7 +44,7 @@ def parse_collections(
                 f"[{parent_name}.{collection.name} documentation]"
                 f"({service_name.doc_link}.{parent_name}.{collection.name})"
             ),
-            type=InternalImport(collection.name),
+            type_annotation=InternalImport(collection.name),
         )
         self_type = InternalImport(collection_record.name, stringify=True)
 

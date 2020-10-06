@@ -10,11 +10,16 @@ Boto3 Client.
 
 ## Client
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L20)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L18)
 
 ```python
-dataclass
 class Client(ClassRecord):
+    def __init__(
+        name: str,
+        service_name: ServiceName,
+        boto3_client: BaseClient,
+        docstring: str = '',
+    ):
 ```
 
 Boto3 Client.
@@ -22,10 +27,11 @@ Boto3 Client.
 #### See also
 
 - [ClassRecord](class_record.md#classrecord)
+- [ServiceName](../service_name.md#servicename)
 
 ### Client().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L56)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L58)
 
 ```python
 def get_all_names() -> List[str]:

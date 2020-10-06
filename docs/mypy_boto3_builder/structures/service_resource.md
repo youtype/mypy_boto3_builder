@@ -13,11 +13,16 @@ Boto3 ServiceResource.
 
 ## ServiceResource
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L20)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L18)
 
 ```python
-dataclass
 class ServiceResource(ClassRecord):
+    def __init__(
+        name: str,
+        service_name: ServiceName,
+        boto3_service_resource: Boto3ServiceResource,
+        docstring: str = '',
+    ):
 ```
 
 Boto3 ServiceResource.
@@ -25,10 +30,11 @@ Boto3 ServiceResource.
 #### See also
 
 - [ClassRecord](class_record.md#classrecord)
+- [ServiceName](../service_name.md#servicename)
 
 ### ServiceResource().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L53)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L60)
 
 ```python
 def get_all_names() -> List[str]:
@@ -36,7 +42,7 @@ def get_all_names() -> List[str]:
 
 ### ServiceResource().get_collections
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L61)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L68)
 
 ```python
 def get_collections() -> List[Collection]:
@@ -44,7 +50,7 @@ def get_collections() -> List[Collection]:
 
 ### ServiceResource().get_sub_resources
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L74)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L81)
 
 ```python
 def get_sub_resources() -> List[Resource]:
@@ -58,7 +64,7 @@ A list of sub resources.
 
 ### ServiceResource().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L44)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L51)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:

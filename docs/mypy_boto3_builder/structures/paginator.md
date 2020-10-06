@@ -10,11 +10,16 @@ Boto3 client Paginator.
 
 ## Paginator
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L23)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L18)
 
 ```python
-dataclass
 class Paginator(ClassRecord):
+    def __init__(
+        name: str,
+        operation_name: str,
+        service_name: ServiceName,
+        docstring: str = '',
+    ):
 ```
 
 Boto3 client Paginator.
@@ -22,10 +27,11 @@ Boto3 client Paginator.
 #### See also
 
 - [ClassRecord](class_record.md#classrecord)
+- [ServiceName](../service_name.md#servicename)
 
 ### Paginator().get_client_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L34)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L38)
 
 ```python
 def get_client_method() -> Method:
