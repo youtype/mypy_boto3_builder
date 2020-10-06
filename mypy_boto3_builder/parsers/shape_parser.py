@@ -30,7 +30,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
 from mypy_boto3_builder.type_maps.shape_type_map import get_shape_type_stub
 from mypy_boto3_builder.type_maps.typed_dicts import paginator_config_type, waiter_config_type
@@ -111,6 +111,13 @@ class ShapeParser:
             pass
 
         self.logger = get_logger()
+        self.response_metadata_typed_dict = TypeTypedDict("ResponseMetadata", [
+            TypedDictAttribute("RequestId", Type.str, True),
+            TypedDictAttribute("HostId", Type.str, True),
+            TypedDictAttribute("HTTPStatusCode", Type.int, True),
+            TypedDictAttribute("HTTPHeaders", Type.DictStrAny, True),
+            TypedDictAttribute("RetryAttempts", Type.int, True),
+        ])
 
     def _get_operation(self, name: str) -> OperationModel:
         return self.service_model.operation_model(name)
@@ -300,6 +307,12 @@ class ShapeParser:
                 attr_name,
                 self._parse_shape(attr_shape),
                 attr_name in required,
+            )
+        if shape.name.endswith('Output'):
+            typed_dict.add_attribute(
+                "ResponseMetadata",
+                self.response_metadata_typed_dict,
+                False,
             )
         return typed_dict
 
