@@ -61,13 +61,10 @@ def sort_imports(
         code=content,
         extension=extension,
         config=Config(
+            profile="black",
             known_first_party=[module_name],
             known_third_party=known_third_party,
             line_length=LINE_LENGTH,
-            use_parentheses=True,
-            force_grid_wrap=0,
-            include_trailing_comma=True,
-            multi_line_output=3,
         ),
     )
     return result or ""
