@@ -13,6 +13,6 @@ for f in $PACKAGES; do
         continue
     fi
     echo "Checking $DIRNAME"
-    # pylint $DIRNAME
+    pylint $DIRNAME
     mypy $DIRNAME
 done
