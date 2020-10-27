@@ -35,7 +35,7 @@ class TypeAnnotation(FakeAnnotation):
         Dict,
         List,
         Set,
-        Optional,
+        Optional,  # type: ignore
         Callable,
         Generator,
         Iterator,
@@ -66,7 +66,7 @@ class TypeAnnotation(FakeAnnotation):
             "Set",
         ),
         (
-            Optional,
+            Optional,  # type: ignore
             "Optional",
         ),
         (

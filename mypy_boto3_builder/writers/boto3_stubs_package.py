@@ -6,8 +6,6 @@ import shutil
 from pathlib import Path
 from typing import List, Tuple
 
-from boto3 import __version__ as boto3_version
-
 from mypy_boto3_builder.constants import BOTO3_STUBS_STATIC_PATH
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template, sort_imports

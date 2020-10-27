@@ -6,3 +6,12 @@ target-version = [
     'py37',
     'py38',
 ]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = [
+    "mypy_boto3_builder",
+    "tests",
+]
+src_paths = []

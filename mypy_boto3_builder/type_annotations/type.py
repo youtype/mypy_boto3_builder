@@ -23,7 +23,7 @@ class Type:
     Any = TypeAnnotation(Any)
     Dict = TypeAnnotation(Dict)
     List = TypeAnnotation(List)
-    Optional = TypeAnnotation(Optional)
+    Optional = TypeAnnotation(Optional)  # type: ignore
     Callable = TypeAnnotation(Callable)
     IO = TypeAnnotation(IO)
     overload = TypeAnnotation(overload)
