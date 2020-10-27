@@ -185,7 +185,6 @@ class ServicePackage(Package):
             return []
 
         import_records: Set[ImportRecord] = set()
-        import_records.add(ImportRecord(ImportString("sys")))
         import_records.add(
             ImportRecord(
                 ImportString("typing"),
@@ -202,5 +201,7 @@ class ServicePackage(Package):
                 if import_record.is_type_defs():
                     continue
                 import_records.add(import_record.get_external(self.service_name.module_name))
+                if import_record.fallback:
+                    import_records.add(ImportRecord(ImportString("sys")))
 
         return list(sorted(import_records))
