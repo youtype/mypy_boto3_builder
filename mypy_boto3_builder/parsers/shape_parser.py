@@ -129,15 +129,21 @@ class ShapeParser:
         return list(self.service_model.operation_names)  # pylint: disable=not-an-iterable
 
     def _get_paginator(self, name: str) -> Shape:
+        if not self._paginators_shape:
+            raise ShapeParserError(f"Unknown paginator: {name}")
         try:
             return self._paginators_shape["pagination"][name]
         except KeyError as e:
             raise ShapeParserError(f"Unknown paginator: {name}") from e
 
     def _get_service_resource(self) -> Shape:
+        if not self._resources_shape:
+            raise ShapeParserError("Resource shape not found")
         return self._resources_shape["service"]
 
     def _get_resource_shape(self, name: str) -> Shape:
+        if not self._resources_shape:
+            raise ShapeParserError("Resource shape not found")
         try:
             return self._resources_shape["resources"][name]
         except KeyError as e:
@@ -151,8 +157,9 @@ class ShapeParser:
             A list of paginator names.
         """
         result: List[str] = []
-        for name in self._paginators_shape.get("pagination", []):
-            result.append(name)
+        if self._paginators_shape:
+            for name in self._paginators_shape.get("pagination", []):
+                result.append(name)
         result.sort()
         return result
 
@@ -348,7 +355,7 @@ class ShapeParser:
         if isinstance(shape, ListShape):
             return self._parse_shape_list(shape)
 
-        if shape.type_name in self._resources_shape["resources"]:
+        if self._resources_shape and shape.type_name in self._resources_shape["resources"]:
             return AliasInternalImport(shape.type_name)
 
         self.logger.warning(f"Unknown shape: {shape}")
@@ -409,6 +416,8 @@ class ShapeParser:
         Returns:
             Method.
         """
+        if not self._waiters_shape:
+            raise ShapeParserError("Waiter not found")
         operation_name = self._waiters_shape["waiters"][waiter_name]["operation"]
         operation_shape = self._get_operation(operation_name)
 

@@ -32,11 +32,11 @@ DynamoDBValue = TypeSubscript(
 InvocationResponseTypeDef = TypeTypedDict(
     "InvocationResponseTypeDef",
     [
-        TypedDictAttribute("StatusCode", Type.int),
-        TypedDictAttribute("FunctionError", Type.str),
-        TypedDictAttribute("LogResult", Type.str),
-        TypedDictAttribute("Payload", Type.IOBytes),
-        TypedDictAttribute("ExecutedVersion", Type.str),
+        TypedDictAttribute("StatusCode", Type.int, False),
+        TypedDictAttribute("FunctionError", Type.str, False),
+        TypedDictAttribute("LogResult", Type.str, False),
+        TypedDictAttribute("Payload", Type.IOBytes, False),
+        TypedDictAttribute("ExecutedVersion", Type.str, False),
     ],
 )
 
