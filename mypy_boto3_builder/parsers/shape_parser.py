@@ -90,19 +90,19 @@ class ShapeParser:
         self.service_name = service_name
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
         self._typed_dict_map: Dict[str, TypeTypedDict] = {}
-        self._waiters_shape: Shape = {}
+        self._waiters_shape: Optional[Shape] = None
         try:
             self._waiters_shape = loader.load_service_model(service_name.boto3_name, "waiters-2")
         except UnknownServiceError:
             pass
-        self._paginators_shape: Shape = {}
+        self._paginators_shape: Optional[Shape] = None
         try:
             self._paginators_shape = loader.load_service_model(
                 service_name.boto3_name, "paginators-1"
             )
         except UnknownServiceError:
             pass
-        self._resources_shape: Shape = {}
+        self._resources_shape: Optional[Shape] = None
         try:
             self._resources_shape = loader.load_service_model(
                 service_name.boto3_name, "resources-1"
@@ -328,8 +328,8 @@ class ShapeParser:
         return type_subscript
 
     def _parse_shape(self, shape: Shape, check_streaming: bool = True) -> FakeAnnotation:
-        if check_streaming and shape.type_name == "blob":
-            if shape.serialization.get("streaming"):
+        if check_streaming and "streaming" in shape.serialization:
+            if shape.serialization["streaming"]:
                 return Type.IOBytes
             return Type.bytes
 

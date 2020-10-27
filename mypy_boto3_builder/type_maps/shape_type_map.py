@@ -7,6 +7,7 @@ from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
 DynamoDBValue = TypeSubscript(
     Type.Union,
@@ -28,7 +29,21 @@ DynamoDBValue = TypeSubscript(
     ],
 )
 
+InvocationResponseTypeDef = TypeTypedDict(
+    "InvocationResponseTypeDef",
+    [
+        TypedDictAttribute("StatusCode", Type.int),
+        TypedDictAttribute("FunctionError", Type.str),
+        TypedDictAttribute("LogResult", Type.str),
+        TypedDictAttribute("Payload", Type.IOBytes),
+        TypedDictAttribute("ExecutedVersion", Type.str),
+    ],
+)
+
 SHAPE_TYPE_MAP: Dict[ServiceName, Dict[str, FakeAnnotation]] = {
+    ServiceNameCatalog.lambda_: {
+        "InvocationResponseTypeDef": InvocationResponseTypeDef,
+    },
     ServiceNameCatalog.dynamodb: {
         "AttributeValueTypeDef": DynamoDBValue,
         "ClientBatchGetItemRequestItemsKeysTypeDef": DynamoDBValue,
