@@ -9,7 +9,7 @@ boto3-stubs package writer.
 
 ## write_boto3_stubs_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/boto3_stubs_package.py#L16)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/boto3_stubs_package.py#L14)
 
 ```python
 def write_boto3_stubs_package(

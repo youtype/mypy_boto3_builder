@@ -36,7 +36,7 @@ Formatted python code.
 
 ## render_jinja2_template
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L76)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L73)
 
 ```python
 def render_jinja2_template(
