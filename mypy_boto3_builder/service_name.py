@@ -303,7 +303,7 @@ class ServiceNameCatalog:
         ServiceName("serverlessrepo", "ServerlessApplicationRepository"),
         ServiceName("service-quotas", "ServiceQuotas"),
         ServiceName("servicecatalog", "ServiceCatalog"),
-        ServiceName("servicecatalog-appregistry", "ServiceCatalogAppRegistry"),
+        ServiceName("servicecatalog-appregistry", "AppRegistry"),
         ServiceName("servicediscovery", "ServiceDiscovery"),
         ServiceName("ses", "SES"),
         ServiceName("sesv2", "SESV2"),
