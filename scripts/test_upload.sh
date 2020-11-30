@@ -3,7 +3,6 @@ set -e
 
 ROOT_PATH=$(dirname $(dirname $0))
 
-pipenv clean
 ${ROOT_PATH}/scripts/build.sh -s sqs secretsmanager -b 1.11.0.10
 
 OUTPUT_PATH=${ROOT_PATH}/mypy_boto3_output

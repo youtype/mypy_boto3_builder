@@ -20,13 +20,13 @@ if [[ "$VERSION" == "" ]]; then
 fi
 
 echo "Bumping version to ${VERSION}"
-echo "${VERSION}" > mypy_boto3_builder/version.txt
+python -m poetry version "${VERSION}"
 
-if [[ `git diff --stat | grep version` != "" ]]; then
+if [[ `git diff --stat | grep pyproject` != "" ]]; then
     echo "There are changes: `git diff`"
     git config --global user.email "volshebnyi@gmail.com"
     git config --global user.name ${GITHUB_ACTOR}
-    git add mypy_boto3_builder/version.txt
+    git add pyproject.toml
     git commit -m "Bump version to ${VERSION}"
     git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/vemel/mypy_boto3_builder.git --tags
     git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/vemel/mypy_boto3_builder.git HEAD:master
