@@ -12,17 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.9
+      - name: Set up Python 3.8
         uses: actions/setup-python@v1
         with:
-          python-version: "3.9"
+          python-version: "3.8"
       - name: Cache packages
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: 3.9-package-${{ hashFiles('**/Pipfile.lock') }}
+          key: 3.8-package-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
-            3.9-package-
+            3.8-package-
       - name: Install dependencies
         run: |
           python -m pip install -U poetry pip wheel
@@ -41,23 +41,19 @@ jobs:
   integration-tests:
     name: Integration tests
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.9]
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 3.8
         uses: actions/setup-python@v1
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.8"
       - name: Cache packages
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ matrix.python-version }}-package-${{ hashFiles('**/Pipfile.lock') }}
+          key: 3.8-package-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
-            ${{ matrix.python-version }}-package-
+            3.8-package-
       - name: Install dependencies
         run: |
           python -m pip install -U poetry pip wheel
