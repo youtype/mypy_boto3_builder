@@ -46,18 +46,22 @@ use the latest features for an older `boto3` version.
 
 ```bash
 # Install preferred version of `boto3`
-python -m pip install boto3==1.10.18 botocore==1.13.18
+python -m pip install boto3==1.16.25 botocore==1.19.25
 
 # Install `mypy-boto3-builder`
 python -m pip install mypy-boto3-builder
 
-# Build all packages
-# You can specify required services explicitly like
-# ./scripts/build.sh -s ec2 s3
-./scripts/build.sh
+# Build all packages in mypy_boto3_output directory
+python -m mypy_boto3_builder mypy_boto3_output
+
+# Or specify required services explicitly
+python -m mypy_boto3_builder mypy_boto3_output -s ec2 s3
 
 # Install custom `boto3-stubs` packages
-./scripts/install.sh
+cd mypy_boto3_output
+pip install mypy_boto3_ec2_package
+pip install mypy_boto3_s3_package
+pip install boto3_stubs_package
 ```
 
 ### With Docker image
@@ -82,7 +86,7 @@ docker run -v `pwd`/output:/output -ti mypy_boto3_builder
 docker run -v `pwd`/output:/output -ti mypy_boto3_builder -s s3
 
 # generate stubs for a specific boto3 version
-docker run -e BOTO3_VERSION=1.10.18 BOTOCORE_VERSION=1.13.18 -v `pwd`/output:/output -ti mypy_boto3_builder
+docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/output -ti mypy_boto3_builder
 ```
 
 - Install packages from `output` directory as described above

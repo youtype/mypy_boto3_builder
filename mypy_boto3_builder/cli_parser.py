@@ -4,6 +4,7 @@ CLI parser.
 import argparse
 from pathlib import Path
 from typing import Sequence
+
 import pkg_resources
 
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
