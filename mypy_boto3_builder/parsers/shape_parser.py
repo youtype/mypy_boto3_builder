@@ -84,8 +84,8 @@ class ShapeParser:
     }
 
     def __init__(self, session: Session, service_name: ServiceName):
-        loader = session._loader  # pylint: disable=protected-access
-        botocore_session: BotocoreSession = session._session  # pylint: disable=protected-access
+        loader = session._loader
+        botocore_session: BotocoreSession = session._session
         service_data = botocore_session.get_service_data(service_name.boto3_name)
         self.service_name = service_name
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
@@ -126,7 +126,7 @@ class ShapeParser:
         return self.service_model.operation_model(name)
 
     def _get_operation_names(self) -> List[str]:
-        return list(self.service_model.operation_names)  # pylint: disable=not-an-iterable
+        return list(self.service_model.operation_names)
 
     def _get_paginator(self, name: str) -> Shape:
         if not self._paginators_shape:

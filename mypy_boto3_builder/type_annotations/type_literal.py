@@ -49,7 +49,7 @@ class TypeLiteral(FakeAnnotation):
         """
         return TypeLiteral(*self.children)
 
-    def is_literal(self) -> bool:  # pylint: disable=no-self-use
+    def is_literal(self) -> bool:
         """
         Whether type annotation is `Literal`.
         """

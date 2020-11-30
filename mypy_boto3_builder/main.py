@@ -2,7 +2,6 @@
 Main entrypoint for builder.
 """
 import sys
-from pathlib import Path
 from typing import List
 
 from boto3 import __version__ as boto3_version

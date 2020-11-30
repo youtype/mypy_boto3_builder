@@ -30,7 +30,7 @@ jobs:
           python -m poetry install -n
       - name: Lint
         run: |
-          pylint mypy_boto3_builder
+          flake8 mypy_boto3_builder
           mypy mypy_boto3_builder
       - name: Test
         env:

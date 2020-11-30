@@ -1,4 +1,3 @@
-# pylint: disable=unused-argument,multiple-statements,no-self-use,super-init-not-called
 import sys
 from typing import Any, List, NamedTuple, Pattern
 

@@ -1,4 +1,3 @@
-# pylint: disable=unused-argument,multiple-statements
 from typing import Any, Dict, Optional, Pattern
 
 from boto3.resources.base import ServiceResource

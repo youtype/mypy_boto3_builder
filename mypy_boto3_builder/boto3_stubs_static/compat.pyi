@@ -1,4 +1,3 @@
-# pylint: disable=unused-argument,multiple-statements,unused-import
 import collections.abc as collections_abc
 from os import PathLike
 from typing import Type

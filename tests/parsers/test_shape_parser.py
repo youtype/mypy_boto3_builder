@@ -5,7 +5,6 @@ from botocore.exceptions import UnknownServiceError
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 
 
-# pylint: disable=protected-access
 class TestShapeParser:
     def test_init(self) -> None:
         session_mock = MagicMock()
