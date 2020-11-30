@@ -1,0 +1,7 @@
+{
+    "reportMissingImports": false,
+    "reportMissingTypeStubs": false,
+    "reportMissingTypeArgument": false,
+    "reportIncompatibleMethodOverride": "error",
+    "reportIncompatibleVariableOverride": "error"
+}

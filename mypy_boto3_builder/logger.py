@@ -15,7 +15,7 @@ class Logger(logging.Logger):
     # Set to true to raise RuntimeError on warning
     panic = False
 
-    def warning(self, msg: Any, *args: Any, **kwargs: Any) -> None:
+    def warning(self, msg: Any, *args: Any, **kwargs: Any) -> None:  # type: ignore
         """
         Overriden default warning with no changes.
 

@@ -31,8 +31,7 @@ class TypeLiteral(FakeAnnotation):
         children = ", ".join([repr(i) for i in self.children])
         return f"Literal[{children}]"
 
-    @staticmethod
-    def get_import_record() -> ImportRecord:
+    def get_import_record(self) -> ImportRecord:
         """
         Get import record required for using type annotation.
         """

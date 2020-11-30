@@ -131,7 +131,7 @@ def get_sub_resources(
                 service_waiter_model=service_waiter_model,
             ),
         )
-        identifiers = resource_class.meta.resource_model.identifiers
+        identifiers = resource_class.meta.resource_model.identifiers  # type: ignore
         args = ["foo"] * len(identifiers)
         result.append(resource_class(*args, client=get_boto3_client(session, service_name)))
 
