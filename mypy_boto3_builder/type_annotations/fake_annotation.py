@@ -64,19 +64,19 @@ class FakeAnnotation(ABC):
         Add new child to `TypeLiteral` annotation.
         """
 
-    def is_dict(self) -> bool:  # pylint: disable=no-self-use
+    def is_dict(self) -> bool:
         """
         Whether type annotation is `Dict` or `TypedDict`.
         """
         return False
 
-    def is_list(self) -> bool:  # pylint: disable=no-self-use
+    def is_list(self) -> bool:
         """
         Whether type annotation is `List`.
         """
         return False
 
-    def is_literal(self) -> bool:  # pylint: disable=no-self-use
+    def is_literal(self) -> bool:
         """
         Whether type annotation is `Literal`.
         """

@@ -1,4 +1,3 @@
-# pylint: disable=unused-argument,multiple-statements,no-self-use
 from typing import Any, Dict, Iterable, List, Optional, Tuple, Type, Union
 
 from boto3.resources.base import ServiceResource

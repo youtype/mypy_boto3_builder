@@ -9,6 +9,6 @@ PACKAGES=`find mypy_boto3_output -name 'type_defs.pyi' | grep "${1}" | sort`
 for f in $PACKAGES; do
     DIRNAME="$(dirname "$f")"
     echo "Checking $DIRNAME"
-    pylint $DIRNAME
+    flake8 $DIRNAME
     mypy $DIRNAME
 done

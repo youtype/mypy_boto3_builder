@@ -2,7 +2,6 @@
 Main entrypoint for builder.
 """
 import sys
-from pathlib import Path
 from typing import List
 
 from boto3 import __version__ as boto3_version
@@ -54,14 +53,13 @@ def main() -> None:
         service_names = master_service_names
 
     build_version = args.build_version or boto3_version
-    version = (Path(__file__).parent / "version.txt").read_text().strip()
     JinjaManager.update_globals(
         master_pypi_name=PYPI_NAME,
         master_module_name=MODULE_NAME,
         boto3_stubs_name=BOTO3_STUBS_NAME,
         boto3_version=boto3_version,
         build_version=build_version,
-        builder_version=version,
+        builder_version=args.builder_version,
     )
 
     logger.info(f"Bulding version {build_version}")

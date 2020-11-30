@@ -1,4 +1,3 @@
-# pylint: disable=unused-argument,multiple-statements,no-self-use
 from typing import Any, Callable, Dict, List, Optional
 
 from boto3.dynamodb.conditions import ConditionExpressionBuilder

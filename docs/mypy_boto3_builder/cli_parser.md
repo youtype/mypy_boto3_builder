@@ -11,7 +11,7 @@ CLI parser.
 
 ## get_absolute_path
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L11)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L13)
 
 ```python
 def get_absolute_path(path: str) -> Path:
@@ -29,7 +29,7 @@ Absolute path.
 
 ## get_service_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L24)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L26)
 
 ```python
 def get_service_name(name: str) -> ServiceName:
@@ -51,7 +51,7 @@ Convert boto3 service name to ServiceName.
 
 ## parse_args
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L42)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L44)
 
 ```python
 def parse_args(args: Sequence[str]) -> argparse.Namespace:

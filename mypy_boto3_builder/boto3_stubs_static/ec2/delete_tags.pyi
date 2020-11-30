@@ -1,4 +1,3 @@
-# pylint: disable=unused-argument,multiple-statements,super-init-not-called
 from typing import Any
 
 from botocore.hooks import BaseEventHooks

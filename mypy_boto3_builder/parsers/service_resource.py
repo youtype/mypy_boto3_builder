@@ -109,7 +109,7 @@ def get_sub_resources(
         A list of initialized `Boto3ServiceResource`.
     """
     result: List[Boto3ServiceResource] = []
-    session_session = session._session  # pylint: disable=protected-access
+    session_session = session._session
     loader = session_session.get_component("data_loader")
     assert resource.meta.service_name == service_name.boto3_name
     json_resource_model = loader.load_service_model(service_name.boto3_name, "resources-1")

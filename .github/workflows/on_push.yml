@@ -3,41 +3,34 @@ name: Code style and test
 on:
   push:
     paths-ignore:
-      - mypy_boto3_builder/version.py
-      - mypy_boto3_builder/version.txt
+      - pyproject.toml
       - CHANGELOG.md
 
 jobs:
   unit-tests:
     name: Code style & unit tests
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.8]
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 3.8
         uses: actions/setup-python@v1
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.8"
       - name: Cache packages
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ matrix.python-version }}-package-${{ hashFiles('**/Pipfile.lock') }}
+          key: 3.8-package-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
-            ${{ matrix.python-version }}-package-
+            3.8-package-
       - name: Install dependencies
         run: |
-          python -m pip install -r requirements-dev.txt
-          python -m pip install -r requirements.txt
-      - name: Install
-        run: |
-          python setup.py install
+          python -m pip install -U poetry pip wheel
+          python -m poetry config virtualenvs.create false
+          python -m poetry install -n
       - name: Lint
         run: |
-          pylint mypy_boto3_builder
+          flake8 mypy_boto3_builder
           mypy mypy_boto3_builder
       - name: Test
         env:
@@ -48,30 +41,24 @@ jobs:
   integration-tests:
     name: Integration tests
     runs-on: ubuntu-latest
-    strategy:
-      max-parallel: 4
-      matrix:
-        python-version: [3.6, 3.7, 3.8]
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python 3.8
         uses: actions/setup-python@v1
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.8"
       - name: Cache packages
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ matrix.python-version }}-package-${{ hashFiles('**/Pipfile.lock') }}
+          key: 3.8-package-${{ hashFiles('**/Pipfile.lock') }}
           restore-keys: |
-            ${{ matrix.python-version }}-package-
+            3.8-package-
       - name: Install dependencies
         run: |
-          python -m pip install -r requirements-dev.txt
-          python -m pip install -r requirements.txt
-      - name: Install
-        run: |
-          python setup.py install
+          python -m pip install -U poetry pip wheel
+          python -m poetry config virtualenvs.create false
+          python -m poetry install -n
       - name: Integration tests
         run: |
           scripts/integration.sh

@@ -258,6 +258,7 @@ class ServiceNameCatalog:
         ServiceName("mobile", "Mobile"),
         ServiceName("mq", "MQ"),
         ServiceName("mturk", "MTurk"),
+        ServiceName("mwaa", "MWAA"),
         ServiceName("neptune", "Neptune"),
         ServiceName("network-firewall", "NetworkFirewall"),
         ServiceName("networkmanager", "NetworkManager"),

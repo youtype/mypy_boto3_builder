@@ -1,4 +1,3 @@
-# pylint: disable=unused-argument,multiple-statements,super-init-not-called
 from typing import Any, Iterable
 
 import botocore.exceptions

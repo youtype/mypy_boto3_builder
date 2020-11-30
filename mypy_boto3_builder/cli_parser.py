@@ -5,6 +5,8 @@ import argparse
 from pathlib import Path
 from typing import Sequence
 
+import pkg_resources
+
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 
 
@@ -46,7 +48,7 @@ def parse_args(args: Sequence[str]) -> argparse.Namespace:
     Returns:
         Argument parser.
     """
-    version = (Path(__file__).parent / "version.txt").read_text().strip()
+    version = pkg_resources.get_distribution("mypy-boto3-builder").version
     parser = argparse.ArgumentParser("mypy_boto3_builder", description="Builder for mypy-boto3.")
     parser.add_argument("-d", "--debug", action="store_true", help="Show debug messages")
     parser.add_argument(
@@ -84,6 +86,8 @@ def parse_args(args: Sequence[str]) -> argparse.Namespace:
     parser.add_argument(
         "--installed",
         action="store_true",
-        help="Generate already installed pacakges for typings folder.",
+        help="Generate already installed packages for typings folder.",
     )
-    return parser.parse_args(args)
+    result = parser.parse_args(args)
+    result.builder_version = version
+    return result
