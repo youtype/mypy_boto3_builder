@@ -80,10 +80,14 @@ No explicit type annotations required, write your `boto3` code as usual.
 ### PyCharm
 
 - Install `boto-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
+- Install `mypy_boto3_builder`: `pip install mypy_boto3_builder`
+- Generate stubs in `<project_root>/typings` directory for services you use
 
-Both type checking and auto-complete should work for installed `boto3` services.
-No explicit type annotations required, write your `boto3` code as usual.
-Auto-complete can be slow on big projects or if you have a lot of installed `boto3-stubs` submodules.
+```bash
+python -m mypy_boto3_builder --installed --skip-services typings -d -s s3 ec2
+```
+
+- Add `<project_root>/typings` folder to your [Interpreter Paths](https://www.jetbrains.com/help/pycharm/stubs.html#reuse-stubs)
 
 ### Other IDEs
 

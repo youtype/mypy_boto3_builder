@@ -89,7 +89,6 @@ docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/ou
 
 - Install packages from `output` directory as described above
 
-
 ## Known issues
 
 ### PyCharm consumes too much CPU
