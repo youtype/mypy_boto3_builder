@@ -50,10 +50,13 @@ def parse_boto3_stubs_package(
         Argument("config", TypeSubscript(Type.Optional, [TypeClass(Config)]), Type.none),
     ]
 
+    client_function_decorators = []
+    if len(result.service_packages) > 1:
+        client_function_decorators.append(Type.overload)
     for service_package in result.service_packages:
         client_function = Function(
             name="client",
-            decorators=[Type.overload],
+            decorators=client_function_decorators,
             docstring="",
             arguments=[
                 Argument("service_name", TypeLiteral(service_package.service_name.boto3_name)),
@@ -71,7 +74,7 @@ def parse_boto3_stubs_package(
         result.session_class.methods.append(
             Method(
                 name="client",
-                decorators=[Type.overload],
+                decorators=client_function_decorators,
                 docstring="",
                 arguments=[
                     Argument("self", None),
@@ -88,13 +91,36 @@ def parse_boto3_stubs_package(
             )
         )
 
-    for service_package in result.service_packages:
-        if service_package.service_resource:
-            client_function = Function(
+    service_resource_packages = [i for i in result.service_packages if i.service_resource]
+    resource_function_decorators = []
+    if len(service_resource_packages) > 1:
+        resource_function_decorators.append(Type.overload)
+    for service_package in service_resource_packages:
+        resource_function = Function(
+            name="resource",
+            decorators=resource_function_decorators,
+            docstring="",
+            arguments=[
+                Argument("service_name", TypeLiteral(service_package.service_name.boto3_name)),
+                *init_arguments,
+            ],
+            return_type=ExternalImport(
+                source=ImportString(
+                    service_package.service_name.module_name,
+                    ServiceModuleName.service_resource.value,
+                ),
+                name=service_package.service_resource.name,
+            ),
+            body_lines=["..."],
+        )
+        result.init_functions.append(resource_function)
+        result.session_class.methods.append(
+            Method(
                 name="resource",
-                decorators=[Type.overload],
+                decorators=resource_function_decorators,
                 docstring="",
                 arguments=[
+                    Argument("self", None),
                     Argument("service_name", TypeLiteral(service_package.service_name.boto3_name)),
                     *init_arguments,
                 ],
@@ -107,28 +133,6 @@ def parse_boto3_stubs_package(
                 ),
                 body_lines=["..."],
             )
-            result.init_functions.append(client_function)
-            result.session_class.methods.append(
-                Method(
-                    name="resource",
-                    decorators=[Type.overload],
-                    docstring="",
-                    arguments=[
-                        Argument("self", None),
-                        Argument(
-                            "service_name", TypeLiteral(service_package.service_name.boto3_name)
-                        ),
-                        *init_arguments,
-                    ],
-                    return_type=ExternalImport(
-                        source=ImportString(
-                            service_package.service_name.module_name,
-                            ServiceModuleName.service_resource.value,
-                        ),
-                        name=service_package.service_resource.name,
-                    ),
-                    body_lines=["..."],
-                )
-            )
+        )
 
     return result

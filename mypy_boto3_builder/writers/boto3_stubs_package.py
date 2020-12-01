@@ -20,6 +20,8 @@ def write_boto3_stubs_package(
 
     modified_paths: List[Path] = []
     package_path = setup_path / package.name
+    if not generate_setup:
+        package_path = setup_path / "boto3"
 
     if setup_path.exists():
         shutil.rmtree(setup_path)

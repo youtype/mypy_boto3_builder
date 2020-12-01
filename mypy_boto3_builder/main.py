@@ -77,19 +77,20 @@ def main() -> None:
             )
 
     if not args.skip_master:
-        logger.info(f"Generating {MODULE_NAME} module")
-        process_master(
-            session,
-            args.output_path,
-            master_service_names,
-            generate_setup=not args.installed,
-        )
+        if not args.installed:
+            logger.info(f"Generating {MODULE_NAME} module")
+            process_master(
+                session,
+                args.output_path,
+                service_names,
+                generate_setup=not args.installed,
+            )
 
         logger.info(f"Generating {BOTO3_STUBS_NAME} module")
         process_boto3_stubs(
             session,
             args.output_path,
-            master_service_names,
+            service_names,
             generate_setup=not args.installed,
         )
 

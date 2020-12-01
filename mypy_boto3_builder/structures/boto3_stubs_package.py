@@ -63,6 +63,7 @@ class Boto3StubsPackage(Package):
         import_records: Set[ImportRecord] = set()
         import_records.update(
             [
+                ImportRecord(ImportString("sys")),
                 ImportRecord(ImportString("typing"), "Any"),
                 ImportRecord(ImportString("typing"), "List"),
                 ImportRecord(ImportString("boto3")),
