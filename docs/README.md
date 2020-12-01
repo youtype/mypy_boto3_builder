@@ -23,6 +23,8 @@ Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.
   - [How to build type annotations](#how-to-build-type-annotations)
     - [Locally](#locally)
     - [With Docker image](#with-docker-image)
+  - [Known issues](#known-issues)
+    - [PyCharm consumes too much CPU](#pycharm-consumes-too-much-cpu)
   - [Versioning](#versioning)
   - [Latest changes](#latest-changes)
   - [Thank you](#thank-you)
@@ -90,6 +92,35 @@ docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/ou
 ```
 
 - Install packages from `output` directory as described above
+
+## Known issues
+
+### PyCharm consumes too much CPU
+
+PyCharm does not handle `Literal` overloads properly, so the only way to reduce CPU usage is to generate
+overloads only for services you use
+
+```bash
+# got to your project folder, activate venv
+
+# install boto3-stubs as usual with services you need
+pip install 'boto3-stubs[s3,ec2]'
+
+# install mypy_boto3_builder
+pip install mypy_boto3_builder
+
+# generate boto3 stubs only with services in use, s3 and ec2 in this case
+# stubs should be generated in <project_root>/typings/boto3
+python -m mypy_boto3_builder --installed --skip-services typings -d -s s3 ec2
+```
+
+Add `<project_root>/typings` folder to your [Interpreter Paths](https://www.jetbrains.com/help/pycharm/stubs.html#reuse-stubs)
+
+Autocomplete should work now and do not stress your CPU. Still, try to avoid generation
+for 6 or more services, as it is still stressful for PyCharm. In this case, generate `boto3-stubs`
+for a couple of services and use explicit type annotations for the rest.
+
+Since stubs are stored in your project root, you do not need to re-generate them after update.
 
 ## Versioning
 

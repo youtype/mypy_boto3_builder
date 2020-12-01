@@ -116,6 +116,8 @@ Autocomplete should work now and do not stress your CPU. Still, try to avoid gen
 for 6 or more services, as it is still stressful for PyCharm. In this case, generate `boto3-stubs`
 for a couple of services and use explicit type annotations for the rest.
 
+Since stubs are stored in your project root, you do not need to re-generate them after update.
+
 ## Versioning
 
 `mypy_boto3_builder` version is not related to `boto3` version and follows

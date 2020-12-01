@@ -89,6 +89,8 @@ python -m mypy_boto3_builder --installed --skip-services typings -d -s s3 ec2
 
 - Add `<project_root>/typings` folder to your [Interpreter Paths](https://www.jetbrains.com/help/pycharm/stubs.html#reuse-stubs)
 
+Since stubs are stored in your project root, you do not need to re-generate them after update.
+
 ### Other IDEs
 
 Not tested, but as long as your IDE support `mypy` or `pyright`, everything should work.
