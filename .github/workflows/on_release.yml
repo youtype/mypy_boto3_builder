@@ -55,6 +55,7 @@ jobs:
           VERSION: ${{ steps.vars.outputs.version }}
         run: |
           scripts/bump_version.sh
+          python -m poetry install -n
       - name: Integration tests
         run: |
           scripts/integration.sh
