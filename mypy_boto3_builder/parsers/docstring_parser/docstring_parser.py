@@ -99,7 +99,7 @@ class DocstringParser:
                 self.logger.debug(e)
                 continue
 
-            match_dict = match.asDict()
+            match_dict: Dict[str, str] = match.asDict()  # type: ignore
             argument_name = match_dict["name"]
             type_str = match_dict["type_name"]
             argument = self._find_argument_or_append(argument_name)
@@ -242,7 +242,8 @@ class DocstringParser:
             self.logger.warning(f"Cannot parse rtype for {self.prefix}: {e}")
             return None
 
-        type_name = match.asDict()["type_name"]
+        match_dict: Dict[str, str] = match.asDict()  # type: ignore
+        type_name = match_dict["type_name"]
         return get_type_from_docstring(type_name)
 
     def _parse_response_syntax(self, input_string: str) -> Optional[FakeAnnotation]:
@@ -263,8 +264,8 @@ class DocstringParser:
             self.logger.debug(e)
             return None
 
-        value = match.asDict()["value"]
-        return TypeValue(self.service_name, f"{self.prefix}Response", value).get_type()
+        match_dict: Dict[str, str] = match.asDict()  # type: ignore
+        return TypeValue(self.service_name, f"{self.prefix}Response", match_dict).get_type()
 
     def _parse_response_structure(self, input_string: str) -> Optional[TypeDocLine]:
         if "**Response Structure**" not in input_string:
