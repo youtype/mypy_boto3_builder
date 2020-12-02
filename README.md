@@ -12,8 +12,17 @@
 [![Coverage](https://img.shields.io/codecov/c/github/vemel/mypy_boto3_builder)](https://codecov.io/gh/vemel/mypy_boto3_builder)
 [![PyPI - Downloads](https://img.shields.io/pypi/dw/boto3-stubs?color=blue)](https://pypistats.org/packages/boto3-stubs)
 
+<p align="center">
+  <img src="./logo.png" alt="boto3.typed">
+</p>
 
 Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with [mypy](https://github.com/python/mypy), [pyright](https://github.com/microsoft/pyright), [VSCode](https://code.visualstudio.com/), [PyCharm](https://www.jetbrains.com/pycharm/) and other tools.
+
+See it in action:
+
+<p align="center">
+  <img src="./demo.gif" alt="boto3-stubs demo">
+</p>
 
 - [mypy_boto3_builder](#mypy_boto3_builder)
   - [Using boto3-stubs](#using-boto3-stubs)
