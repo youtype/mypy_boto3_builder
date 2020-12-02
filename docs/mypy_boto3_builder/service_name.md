@@ -134,7 +134,7 @@ Finder for boto3 services by name.
 
 ### ServiceNameCatalog.create
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L379)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L387)
 
 ```python
 @staticmethod
@@ -149,7 +149,7 @@ Create ServiceName for unknown service.
 
 ### ServiceNameCatalog.find
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L360)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L368)
 
 ```python
 @classmethod

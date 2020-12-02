@@ -1,15 +1,12 @@
 """
-Wrapper for path that represents it as relative to workdir.
+Path that represents it as relative to workdir.
 """
 from pathlib import Path
 
 
 class NicePath(type(Path())):
     """
-    Wrapper for path that represents it as relative to workdir.
-
-    Arguments:
-        path -- Original path.
+    Path that represents it as relative to workdir.
     """
 
     def __str__(self) -> str:
