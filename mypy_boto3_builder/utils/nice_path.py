@@ -4,7 +4,7 @@ Wrapper for path that represents it as relative to workdir.
 from pathlib import Path
 
 
-class NicePath:
+class NicePath(type(Path())):
     """
     Wrapper for path that represents it as relative to workdir.
 
@@ -12,14 +12,19 @@ class NicePath:
         path -- Original path.
     """
 
-    def __init__(self, path: Path) -> None:
-        self.path = path
-
     def __str__(self) -> str:
-        path = self.path
-        try:
-            path = path.relative_to(Path.cwd())
-        except ValueError:
-            pass
+        path = Path(self)
+        if self.is_absolute():
+            cwd = self.cwd()
+            if path == cwd or path.parts <= cwd.parts:
+                return str(path)
 
-        return path.as_posix()
+            try:
+                path = Path(self.relative_to(cwd))
+            except ValueError:
+                return str(path)
+
+        if len(path.parts) == 1:
+            return f"./{path}"
+
+        return str(path)
