@@ -4,7 +4,7 @@ Path that represents it as relative to workdir.
 from pathlib import Path
 
 
-class NicePath(type(Path())):
+class NicePath(type(Path())):  # type: ignore
     """
     Path that represents it as relative to workdir.
     """
