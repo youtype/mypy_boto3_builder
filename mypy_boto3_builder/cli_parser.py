@@ -48,7 +48,11 @@ def parse_args(args: Sequence[str]) -> argparse.Namespace:
     Returns:
         Argument parser.
     """
-    version = pkg_resources.get_distribution("mypy-boto3-builder").version
+    try:
+        version = pkg_resources.get_distribution("mypy-boto3-builder").version
+    except pkg_resources.DistributionNotFound:
+        version = "0.0.0"
+
     parser = argparse.ArgumentParser("mypy_boto3_builder", description="Builder for mypy-boto3.")
     parser.add_argument("-d", "--debug", action="store_true", help="Show debug messages")
     parser.add_argument(
