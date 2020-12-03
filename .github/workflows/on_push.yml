@@ -4,6 +4,7 @@ on:
   push:
     paths-ignore:
       - pyproject.toml
+      - setup.cfg
       - CHANGELOG.md
 
 jobs:
