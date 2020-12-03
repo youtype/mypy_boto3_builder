@@ -21,7 +21,7 @@ fi
 
 echo "Bumping version to ${VERSION}"
 python -m poetry version "${VERSION}"
-sed -i -E "s/version = .+/version = ${VERSION}/" setup.cfg
+sed -i -E "s/^version = .+/version = ${VERSION}/" setup.cfg
 
 
 if [[ `git diff --stat | grep pyproject` != "" ]]; then

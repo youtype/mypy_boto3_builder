@@ -3,7 +3,7 @@ Botocore docstring parser.
 """
 import re
 import textwrap
-from typing import Dict, List, Optional, Pattern
+from typing import Any, Dict, List, Optional, Pattern
 
 from pyparsing import ParseException
 
