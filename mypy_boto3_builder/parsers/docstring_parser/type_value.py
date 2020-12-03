@@ -148,7 +148,7 @@ class TypeValue:
         return Type.Any
 
     def _get_type_plain(self) -> FakeAnnotation:
-        if not self.value:
+        if not self.value or isinstance(self.value, dict):
             raise ValueError(f"Value is not plain: {self.raw}")
 
         if self.value in SYNTAX_TYPE_MAP:

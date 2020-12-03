@@ -264,8 +264,9 @@ class DocstringParser:
             self.logger.debug(e)
             return None
 
-        match_dict: Dict[str, str] = match.asDict()  # type: ignore
-        return TypeValue(self.service_name, f"{self.prefix}Response", match_dict).get_type()
+        match_dict: Dict[str, Dict[str, Any]] = match.asDict()  # type: ignore
+        value = match_dict["value"]
+        return TypeValue(self.service_name, f"{self.prefix}Response", value).get_type()
 
     def _parse_response_structure(self, input_string: str) -> Optional[TypeDocLine]:
         if "**Response Structure**" not in input_string:
