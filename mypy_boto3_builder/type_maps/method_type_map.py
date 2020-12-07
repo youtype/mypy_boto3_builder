@@ -79,7 +79,10 @@ TYPE_MAP: ServiceTypeMap = {
         "Object": {"copy": {"CopySource": s3_copy_source_type}},
     },
     ServiceNameCatalog.dynamodb: {
-        "Client": {
+        "Table": {
+            "batch_writer": {
+                "return": ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter")
+            },
             "query": {
                 "KeyConditionExpression": TypeSubscript(
                     Type.Union, [Type.str, TypeClass(ConditionBase)]
@@ -89,11 +92,6 @@ TYPE_MAP: ServiceTypeMap = {
             "scan": {
                 "FilterExpression": TypeSubscript(Type.Union, [Type.str, TypeClass(ConditionBase)]),
             },
-        },
-        "Table": {
-            "batch_writer": {
-                "return": ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter")
-            }
         },
     },
 }
