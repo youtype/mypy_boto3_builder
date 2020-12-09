@@ -145,4 +145,7 @@ Full changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_bu
 - @timothycrosley for [isort](https://github.com/PyCQA/isort) and how flexible it is
 - [mypy](https://github.com/python/mypy) for doing all dirty work for us
 - [pyright](https://github.com/microsoft/pyright) team for the new era of typed Python
-- @jbpratt, @chrishollinworth, @pyto86pri for their contributions
+- [jbpratt](https://github.com/jbpratt),
+  [Chris Hollinworth](https://github.com/chrishollinworth),
+  [pyto86](https://github.com/pyto86pri)
+  for their contributions
