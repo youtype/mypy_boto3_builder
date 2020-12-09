@@ -147,5 +147,5 @@ Full changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_bu
 - [pyright](https://github.com/microsoft/pyright) team for the new era of typed Python
 - [jbpratt](https://github.com/jbpratt),
   [Chris Hollinworth](https://github.com/chrishollinworth),
-  [pyto86](https://github.com/pyto86pri)
+  and [pyto86](https://github.com/pyto86pri)
   for their contributions
