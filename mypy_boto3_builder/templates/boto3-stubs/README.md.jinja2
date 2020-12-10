@@ -11,6 +11,8 @@ Type annotations for
 compatible with
 [VSCode](https://code.visualstudio.com/),
 [PyCharm](https://www.jetbrains.com/pycharm/),
+[Emacs](https://www.gnu.org/software/emacs/),
+[Sublime Text](https://www.sublimetext.com/),
 [mypy](https://github.com/python/mypy),
 [pyright](https://github.com/microsoft/pyright)
 and other tools.
@@ -31,6 +33,8 @@ See how it helps to find and fix potential bugs:
     - [Setup your IDE](#setup-your-ide)
     - [VSCode](#vscode)
     - [PyCharm](#pycharm)
+    - [Emacs](#emacs)
+    - [Sublime Text](#sublime-text)
     - [Other IDEs](#other-ides)
     - [Explicit type annotations](#explicit-type-annotations)
     - [Pylint compatibility](#pylint-compatibility)
@@ -96,6 +100,35 @@ python -m mypy_boto3_builder --installed --skip-services typings -d -s s3 ec2
 - Add `<project_root>/typings` folder to your [Interpreter Paths](https://www.jetbrains.com/help/pycharm/stubs.html#reuse-stubs)
 
 Since stubs are stored in your project root, you do not need to re-generate them after update.
+
+### Emacs
+
+- Install `boto-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
+- Install
+  [use-package](https://github.com/jwiegley/use-package),
+  [lsp](https://github.com/emacs-lsp/lsp-mode/),
+  [company](https://github.com/company-mode/company-mode) and
+  [flycheck](https://github.com/flycheck/flycheck) packages
+- Install [lsp-pyright](https://github.com/emacs-lsp/lsp-pyright) package
+
+```elisp
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp)))  ; or lsp-deferred
+  :init (when (executable-find "python3")
+          (setq lsp-pyright-python-executable-cmd "python3"))
+  )
+```
+
+- Make sure emacs uses the environment where you have installed `boto3-stubs`
+
+### Sublime Text
+
+- Install `boto-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
+- Install [LSP-pyright](https://github.com/sublimelsp/LSP-pyright) package
+- Make sure emacs uses the environment where you have installed `boto3-stubs`
 
 ### Other IDEs
 

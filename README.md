@@ -14,7 +14,14 @@
 
 ![boto3.typed](logo.png)
 
-Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with [mypy](https://github.com/python/mypy), [pyright](https://github.com/microsoft/pyright), [VSCode](https://code.visualstudio.com/), [PyCharm](https://www.jetbrains.com/pycharm/) and other tools.
+Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with
+[VSCode](https://code.visualstudio.com/),
+[PyCharm](https://www.jetbrains.com/pycharm/),
+[Emacs](https://www.gnu.org/software/emacs/),
+[Sublime Text](https://www.sublimetext.com/),
+[mypy](https://github.com/python/mypy),
+[pyright](https://github.com/microsoft/pyright)
+and other tools.
 
 See how it helps to find and fix potential bugs:
 
