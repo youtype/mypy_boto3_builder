@@ -146,11 +146,13 @@ Full changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_bu
 
 ## Thank you
 
-- [Allie Fitter](https://github.com/alliefitter) for [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/),
+- [Allie Fitter](https://github.com/alliefitter) for
+- [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/),
   this package is based on top of his work
 - [black](https://github.com/psf/black) developers for an awesome formatting tool
-- @timothycrosley for [isort](https://github.com/PyCQA/isort) and how flexible it is
-- [mypy](https://github.com/python/mypy) for doing all dirty work for us
+- [Timothy Edmund Crosley](https://github.com/timothycrosley) for
+  [isort](https://github.com/PyCQA/isort) and how flexible it is
+- [mypy](https://github.com/python/mypy) developers for doing all dirty work for us
 - [pyright](https://github.com/microsoft/pyright) team for the new era of typed Python
 - [jbpratt](https://github.com/jbpratt),
   [Chris Hollinworth](https://github.com/chrishollinworth),

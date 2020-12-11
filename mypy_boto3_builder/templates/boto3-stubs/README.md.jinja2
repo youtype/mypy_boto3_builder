@@ -154,9 +154,7 @@ No explicit type annotations required, write your `boto3` code as usual.
 
 ### Explicit type annotations
 
-Automatic type discovery is too stressful for PyCharm.
-
-To seep up type checking and auto-complete, you can set types explicitly.
+To speed up type checking and auto-complete, you can set types explicitly.
 
 ```python
 import boto3
@@ -211,14 +209,15 @@ a drop-in type annotations for you and makes sure that:
   extracted from the documentation (blame `botocore` docs if types are incorrect).
 - Type annotations include up-to-date documentation.
 - Link to documentation is provided for every method.
-- Code is processed by [black](https://github.com/psf/black) for readability.
+- Code is processed by [black](https://github.com/psf/black)
+  and [isort](https://github.com/PyCQA/isort) for readability.
 
 ## What's new
 
 ### Implemented features
 
-- `mypy`, `pyright`, `VSCode` and `PyCharm` compatibility
 - Fully type annotated `boto3` library
+- `mypy`, `pyright`, `VSCode`, `PyCharm`, `Sublime Text` and `Emacs` compatibility
 - `Client` type annotations for each service
 - `ServiceResource` type annotations for each service
 - `Resource` type annotations for each service
@@ -234,23 +233,27 @@ a drop-in type annotations for you and makes sure that:
 
 Builder changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_builder/releases).
 
-### Versioning
+## Versioning
 
 `boto3-stubs` uses format `<boto3_version>.<build>`, e.g. for `boto3 1.10.40`,
 `boto3-stubs` versions are is `1.10.40.0` and `1.10.40.1`.
 
 ## Thank you
 
-- Guys behind [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/),
-  this package is based on top of their work
+- [Allie Fitter](https://github.com/alliefitter) for
+  [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/),
+  this package is based on top of his work
 - [black](https://github.com/psf/black) developers for an awesome formatting tool
-- [mypy](https://github.com/python/mypy) for doing all dirty work for us
+- [Timothy Edmund Crosley](https://github.com/timothycrosley) for
+  [isort](https://github.com/PyCQA/isort) and how flexible it is
+- [mypy](https://github.com/python/mypy) developers for doing all dirty work for us
+- [pyright](https://github.com/microsoft/pyright) team for the new era of typed Python
 
 ## Submodules
-
+ developers
 {{ "- `" -}}
 {{ boto3_stubs_name -}}
-{{ "[all]` - Type annotations for all services" -}}
+{{ "[all]` - Type annotations for all " -}} {{ package.service_names|length -}} {{ " services" -}}
 {{ ".\n" -}}
 {% if package.essential_service_names -%}
     {{ "- `" -}}
