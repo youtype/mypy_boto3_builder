@@ -60,7 +60,7 @@ def parse_args(args: Sequence[str]) -> argparse.Namespace:
         "--build-version",
         help="Set custom output version, otherwise boto3 version is used.",
     )
-    parser.add_argument("-v", "--version", action="version", version=version)
+    parser.add_argument("-V", "--version", action="version", version=version)
     parser.add_argument(
         "--skip-master",
         action="store_true",
