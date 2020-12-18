@@ -13,10 +13,12 @@ else:
 logger: logging.Logger
 
 ActionDefinition = TypedDict(
-    "ActionDefinition", {"request": Dict, "resource": Dict, "path": str}, total=False
+    "ActionDefinition",
+    {"request": Dict[str, Any], "resource": Dict[str, Any], "path": str},
+    total=False,
 )
 DefinitionWithParamsDefinition = TypedDict(
-    "DefinitionWithParamsDefinition", {"params": List[Dict]}, total=False
+    "DefinitionWithParamsDefinition", {"params": List[Dict[str, Any]]}, total=False
 )
 RequestDefinition = TypedDict("RequestDefinition", {"operation": str}, total=False)
 WaiterDefinition = TypedDict("WaiterDefinition", {"waiterName": str}, total=False)
@@ -32,7 +34,7 @@ class Identifier:
 
 class Action:
     def __init__(
-        self, name: str, definition: ActionDefinition, resource_defs: Dict[str, Dict]
+        self, name: str, definition: ActionDefinition, resource_defs: Dict[str, Dict[str, Any]]
     ) -> None:
         self.name: str
         self.request: Optional[Request]
@@ -72,7 +74,7 @@ class Waiter(DefinitionWithParams):
 
 class ResponseResource:
     def __init__(
-        self, definition: ResponseResourceDefinition, resource_defs: Dict[str, Dict]
+        self, definition: ResponseResourceDefinition, resource_defs: Dict[str, Dict[str, Any]]
     ) -> None:
         self.type: str
         self.path: str
@@ -90,7 +92,7 @@ class ResourceModel:
         self,
         name: str,
         definition: ResourceModelDefinition,
-        resource_defs: Dict[str, Dict],
+        resource_defs: Dict[str, Dict[str, Any]],
     ) -> None:
         self.name: str
         self.shape: Optional[Shape]

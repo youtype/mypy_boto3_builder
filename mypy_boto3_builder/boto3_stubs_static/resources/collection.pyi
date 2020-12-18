@@ -10,7 +10,7 @@ from botocore.hooks import HierarchicalEmitter
 
 logger: logging.Logger
 
-ResourceCollectionType = TypeVar("ResourceCollectionType", bound="ResourceCollection")
+ResourceCollectionType = TypeVar("ResourceCollectionType")
 ServiceResourceType = TypeVar("ServiceResourceType", bound="ServiceResource")
 
 class ResourceCollection(Generic[ServiceResourceType]):

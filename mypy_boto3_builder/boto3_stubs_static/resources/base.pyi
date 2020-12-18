@@ -12,13 +12,13 @@ class ResourceMeta:
         service_name: str,
         identifiers: Optional[List[str]] = ...,
         client: Optional[BaseClient] = ...,
-        data: Optional[Dict] = ...,
+        data: Optional[Dict[str, Any]] = ...,
         resource_model: Optional[ResourceModel] = ...,
     ) -> None:
         self.service_name: str
         self.identifiers: List[str]
         self.client: BaseClient
-        self.data: Dict
+        self.data: Dict[str, Any]
         self.resource_model: ResourceModel
     def __repr__(self) -> str: ...
     def __eq__(self, other: Any) -> bool: ...

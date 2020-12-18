@@ -5,7 +5,7 @@ from boto3.resources.model import Request
 
 INDEX_RE: Pattern[str]
 
-def get_data_member(parent: ServiceResource, path: str) -> Optional[Dict]: ...
+def get_data_member(parent: ServiceResource, path: str) -> Optional[Dict[str, Any]]: ...
 def create_request_parameters(
     parent: ServiceResource,
     request_model: Request,
