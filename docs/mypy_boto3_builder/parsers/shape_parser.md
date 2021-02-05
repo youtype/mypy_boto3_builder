@@ -45,7 +45,7 @@ Parser for botocore shape files.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/shape_parser.py#L230)
 
 ```python
-def get_client_method_map() -> Dict[str, Method]:
+def get_client_method_map() -> Dict[(str, Method)]:
 ```
 
 Get client methods from shape.
@@ -147,7 +147,7 @@ A list of paginator names.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/shape_parser.py#L456)
 
 ```python
-def get_resource_method_map(resource_name: str) -> Dict[str, Method]:
+def get_resource_method_map(resource_name: str) -> Dict[(str, Method)]:
 ```
 
 Get methods for Resource.
@@ -165,7 +165,7 @@ A map of method name to Method.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/shape_parser.py#L435)
 
 ```python
-def get_service_resource_method_map() -> Dict[str, Method]:
+def get_service_resource_method_map() -> Dict[(str, Method)]:
 ```
 
 Get methods for ServiceResource.
