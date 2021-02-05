@@ -248,6 +248,8 @@ class ServiceNameCatalog:
         ServiceName("lambda", "Lambda"),
         ServiceName("lex-models", "LexModelBuildingService"),
         ServiceName("lex-runtime", "LexRuntimeService"),
+        ServiceName("lexv2-models", "LexModelsV2"),
+        ServiceName("lexv2-runtime", "LexRuntimeV2"),
         ServiceName("license-manager", "LicenseManager"),
         ServiceName("lightsail", "Lightsail"),
         ServiceName("location", "LocationService"),
