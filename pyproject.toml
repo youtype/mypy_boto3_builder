@@ -35,10 +35,10 @@ pyparsing = "^2.4.7"
 [tool.poetry.dev-dependencies]
 codecov = "2.1.11"
 handsdown = "0.3.9"
-mypy = "0.790"
+mypy = "0.800"
 flake8 = "3.8.4"
-pytest-cov = "2.10.1"
-pytest = "6.2.1"
+pytest-cov = "2.11.1"
+pytest = "6.2.2"
 vulture = "2.1"
 twine = "3.3.0"
 
