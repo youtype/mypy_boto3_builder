@@ -1,3 +1,4 @@
+import tempfile
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
@@ -6,41 +7,30 @@ from mypy_boto3_builder.writers.boto3_stubs_package import write_boto3_stubs_pac
 
 class TestBoto3StubsPackage:
     @patch("mypy_boto3_builder.writers.boto3_stubs_package.sort_imports")
-    @patch("mypy_boto3_builder.writers.boto3_stubs_package.shutil")
-    @patch("mypy_boto3_builder.writers.boto3_stubs_package.filecmp")
-    @patch("mypy_boto3_builder.writers.boto3_stubs_package.BOTO3_STUBS_STATIC_PATH")
     @patch("mypy_boto3_builder.writers.boto3_stubs_package.blackify")
     @patch("mypy_boto3_builder.writers.boto3_stubs_package.render_jinja2_template")
     def test_write_master_package(
         self,
         render_jinja2_template_mock: MagicMock,
         blackify_mock: MagicMock,
-        BOTO3_STUBS_STATIC_PATH_MOCK: MagicMock,
-        filecmp_mock: MagicMock,
-        shutil_mock: MagicMock,
         sort_imports_mock: MagicMock,
     ) -> None:
         package_mock = MagicMock()
-        output_path_mock = MagicMock()
-        static_path_mock = MagicMock()
-        BOTO3_STUBS_STATIC_PATH_MOCK.glob.return_value = [
-            static_path_mock,
-        ]
-        output_path_mock.__truediv__.return_value = output_path_mock
-        assert (
-            write_boto3_stubs_package(package_mock, output_path_mock, True)
-            == [output_path_mock] * 8
-        )
-        render_jinja2_template_mock.assert_called_with(
-            Path("boto3-stubs/boto3-stubs/version.py.jinja2"),
-            package=package_mock,
-        )
-        blackify_mock.assert_called_with(render_jinja2_template_mock(), output_path_mock)
-        sort_imports_mock.assert_called()
+        package_mock.name = "package"
+        package_mock.service_name.module_name = "module"
 
-        filecmp_mock.cmp.return_value = False
-        assert (
-            write_boto3_stubs_package(package_mock, output_path_mock, True)
-            == [output_path_mock] * 9
-        )
-        shutil_mock.copy.assert_called()
+        blackify_mock.return_value = "blackify"
+        sort_imports_mock.return_value = "sort_imports"
+        render_jinja2_template_mock.return_value = "render_jinja2_template_mock"
+
+        with tempfile.TemporaryDirectory() as output_dir:
+            output_path = Path(output_dir)
+            result = write_boto3_stubs_package(package_mock, output_path, True)
+            assert len(result) == 29
+            assert result[0].name == "setup.py"
+            render_jinja2_template_mock.assert_called_with(
+                Path("boto3-stubs/boto3-stubs/version.py.jinja2"),
+                package=package_mock,
+            )
+            assert len(blackify_mock.mock_calls) == 6
+            assert len(sort_imports_mock.mock_calls) == 6

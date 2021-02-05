@@ -112,8 +112,9 @@ def write_service_package(
             package=package,
             service_name=package.service_name,
         )
-        content = blackify(content, file_path)
-        content = sort_imports(content, package.service_name.module_name, extension="pyi")
+        if file_path.suffix in [".py", ".pyi"]:
+            content = blackify(content, file_path)
+            content = sort_imports(content, package.service_name.module_name, extension="pyi")
 
         if not file_path.exists() or file_path.read_text() != content:
             modified_paths.append(file_path)
