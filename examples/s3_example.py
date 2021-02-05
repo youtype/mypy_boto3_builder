@@ -67,6 +67,9 @@ def s3_client_example() -> None:
     except client.exceptions.NoSuchKey as e:
         print(e.operations_name)
 
+    url_stream = client.get_object(Bucket="bucket", Key="key")["Body"]
+    url_stream.iter_chunks()
+
 
 def main() -> None:
     s3_resource_example()

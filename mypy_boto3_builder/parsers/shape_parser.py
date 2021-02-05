@@ -16,6 +16,7 @@ from botocore.model import (
     StringShape,
     StructureShape,
 )
+from botocore.response import StreamingBody
 from botocore.session import Session as BotocoreSession
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -27,6 +28,7 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
@@ -337,7 +339,7 @@ class ShapeParser:
     def _parse_shape(self, shape: Shape, check_streaming: bool = True) -> FakeAnnotation:
         if check_streaming and "streaming" in shape.serialization:
             if shape.serialization["streaming"]:
-                return Type.IOBytes
+                return TypeClass(StreamingBody)
             return Type.bytes
 
         if shape.type_name in self.SHAPE_TYPE_MAP:
