@@ -9,12 +9,10 @@ ADD ./mypy_boto3_builder ./mypy_boto3_builder
 ADD ./LICENSE ./LICENSE
 ADD ./pyproject.toml ./pyproject.toml
 ADD ./setup.cfg ./setup.cfg
-ADD ./requirements.txt ./requirements.txt
 ADD ./setup.py ./setup.py
 ADD ./README.md ./README.md
 ADD ./scripts/docker.sh ./scripts/docker.sh
 
-RUN pip install -r requirements.txt
 RUN pip install .
 
 RUN adduser \
