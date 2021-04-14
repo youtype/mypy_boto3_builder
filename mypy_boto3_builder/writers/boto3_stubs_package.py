@@ -44,7 +44,7 @@ def write_boto3_stubs_package(
         [
             (package_path / "py.typed", module_templates_path / "py.typed.jinja2"),
             (package_path / "__init__.pyi", module_templates_path / "__init__.pyi.jinja2"),
-            (package_path / "__init__.py", module_templates_path / "__init__.pyi.jinja2"),
+            (package_path / "__init__.py", module_templates_path / "__init__.py.jinja2"),
             (package_path / "session.pyi", module_templates_path / "session.pyi.jinja2"),
             (package_path / "__main__.py", module_templates_path / "__main__.py.jinja2"),
             (package_path / "version.py", module_templates_path / "version.py.jinja2"),

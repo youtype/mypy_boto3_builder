@@ -1,0 +1,10 @@
+{% if import_record.is_local() -%}
+try:
+{% filter indent(4, True) -%}
+    {% include "common/import_record_fallback.py.jinja2" with context -%}
+{% endfilter -%}{{ '\n' -}}
+except ModuleNotFoundError:
+    {{ import_record.get_local_name() }} = Any
+{% else -%}
+{% include "common/import_record_fallback.py.jinja2" with context -%}
+{% endif %}

@@ -1,0 +1,29 @@
+{% for import_record in package.get_init_required_import_records() -%}
+    {% include "common/import_record_safe.py.jinja2" with context %}
+{% endfor -%}
+
+__author__: str
+__version__: str
+
+DEFAULT_SESSION: Optional[Session] = None
+
+def setup_default_session(
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    region_name: str = None,
+    botocore_session: str = None,
+    profile_name: str = None,
+) -> Session: ...
+def set_stream_logger(
+    name: str = "boto3", level: int = logging.DEBUG, format_string: Optional[str] = None
+) -> None: ...
+def _get_default_session() -> Session: ...
+
+class NullHandler(logging.Handler):
+    def emit(self, record: Any) -> Any: ...
+
+{% for function in package.init_functions -%}
+    {% include "common/function.py.jinja2" with context -%}
+    {{ '\n' -}}
+{% endfor -%}
