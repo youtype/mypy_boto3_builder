@@ -22,7 +22,7 @@ class ServiceAction:
     ) -> Union[ServiceResource, List[ServiceResource], Dict[str, Any]]: ...
 
 class BatchAction(ServiceAction):
-    def __call__(
+    def __call__(  # type: ignore
         self, parent: ResourceCollection, *args: Any, **kwargs: Any
     ) -> List[Dict[str, Any]]: ...
 
