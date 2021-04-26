@@ -24,7 +24,7 @@ do
         echo "Created ${EXPECTED}"
         continue
     fi
-    mypy ${EXAMPLE} | grep -v ' note: ' > ${OUTPUT} || true
+    python -m mypy ${EXAMPLE} | grep -v ' note: ' > ${OUTPUT} || true
     DIFF=`diff ${OUTPUT} ${EXPECTED}` || true
     rm ${OUTPUT}
 
