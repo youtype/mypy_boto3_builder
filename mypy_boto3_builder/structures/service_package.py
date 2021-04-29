@@ -241,7 +241,7 @@ class ServicePackage(Package):
         )
         return list(sorted(import_records))
 
-    def validate(self):
+    def validate(self) -> None:
         names = set()
         for name in (
             *(i.name for i in self.typed_dicts),

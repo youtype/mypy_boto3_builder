@@ -7,6 +7,7 @@ on:
     paths:
       - mypy_boto3_builder/**
       - tests/**
+  workflow_dispatch: {}
 
 jobs:
   coverage:
