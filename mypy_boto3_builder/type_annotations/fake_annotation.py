@@ -59,11 +59,6 @@ class FakeAnnotation(ABC):
         Add new child to `TypeSubscript` or `TypeTypedDict` annotation.
         """
 
-    def add_literal_child(self, child: Any) -> None:
-        """
-        Add new child to `TypeLiteral` annotation.
-        """
-
     def is_dict(self) -> bool:
         """
         Whether type annotation is `Dict` or `TypedDict`.

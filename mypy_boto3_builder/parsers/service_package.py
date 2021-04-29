@@ -4,7 +4,6 @@ Parser that produces `structures.ServiceModule`.
 
 from boto3.session import Session
 from botocore import xform_name
-
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.client import parse_client
 from mypy_boto3_builder.parsers.service_resource import parse_service_resource
@@ -105,5 +104,7 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
                 result.client.methods.append(method)
 
     result.typed_dicts = result.extract_typed_dicts()
+    result.literals = result.extract_literals()
+    result.validate()
 
     return result

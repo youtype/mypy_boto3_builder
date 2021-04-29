@@ -1,10 +1,11 @@
 """
 Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`
 """
-from typing import Any
+from typing import Any, Iterable
 
+from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
 
@@ -13,11 +14,25 @@ class TypeLiteral(FakeAnnotation):
     Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`
 
     Arguments:
+        name -- Literal name for non-inline.
         children -- Literal values.
+        inline -- Render literal inline.
     """
 
-    def __init__(self, *children: Any) -> None:
-        self.children = list(children)
+    def __init__(self, name: str, children: Iterable[Any], inline: bool = False) -> None:
+        if not name and not inline:
+            raise ValueError("Literal should have name")
+        if not children:
+            raise ValueError("Literal should have children")
+        self.name = self._find_name(name)
+        self.children = set(children)
+        self.inline = inline
+
+    @staticmethod
+    def _find_name(name: str) -> str:
+        if name == "Type":
+            return "TypeType"
+        return name
 
     def render(self, parent_name: str = "") -> str:
         """
@@ -26,27 +41,40 @@ class TypeLiteral(FakeAnnotation):
         Returns:
             A string with a valid type annotation.
         """
-        if not self.children:
-            raise ValueError("Empty children for literal")
-        children = ", ".join([repr(i) for i in self.children])
-        return f"Literal[{children}]"
+        if self.inline:
+            children = ", ".join([repr(i) for i in sorted(self.children)])
+            return f"Literal[{children}]"
+
+        return self.name
+
+    def render_children(self) -> str:
+        """
+        Render literal children to representation.
+        """
+        return ", ".join([repr(child) for child in sorted(self.children)])
 
     def get_import_record(self) -> ImportRecord:
         """
         Get import record required for using type annotation.
         """
-        return ImportRecord(
-            ImportString("typing"),
-            "Literal",
-            min_version=(3, 8),
-            fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
-        )
+        return InternalImportRecord(ServiceModuleName.literals, name=self.name)
+
+    # def get_import_record(self) -> ImportRecord:
+    #     """
+    #     Get import record required for using type annotation.
+    #     """
+    #     return ImportRecord(
+    #         ImportString("typing"),
+    #         "Literal",
+    #         min_version=(3, 8),
+    #         fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
+    #     )
 
     def copy(self) -> "TypeLiteral":
         """
         Create a copy of type annotation wrapper.
         """
-        return TypeLiteral(*self.children)
+        return TypeLiteral(self.name, self.children)
 
     def is_literal(self) -> bool:
         """
@@ -57,8 +85,8 @@ class TypeLiteral(FakeAnnotation):
     def add_child(self, child: FakeAnnotation) -> None:
         raise ValueError("Use add_literal_child function.")
 
-    def add_literal_child(self, child: Any) -> None:
+    def is_same(self, other: "TypeLiteral") -> bool:
         """
-        Add new child to `TypeLiteral` annotation.
+        Check if literals have the same children
         """
-        self.children.append(child)
+        return self.children == other.children

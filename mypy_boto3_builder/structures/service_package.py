@@ -1,4 +1,4 @@
-from typing import Iterable, List, Optional, Set
+from typing import Dict, Iterable, List, Optional, Set
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -11,6 +11,7 @@ from mypy_boto3_builder.structures.paginator import Paginator
 from mypy_boto3_builder.structures.service_resource import ServiceResource
 from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 
 
@@ -25,6 +26,7 @@ class ServicePackage(Package):
         waiters: Iterable[Waiter] = tuple(),
         paginators: Iterable[Paginator] = tuple(),
         typed_dicts: Iterable[TypeTypedDict] = tuple(),
+        literals: Iterable[TypeLiteral] = tuple(),
         helper_functions: Iterable[Function] = tuple(),
     ):
         super().__init__(name=name, pypi_name=pypi_name)
@@ -34,7 +36,28 @@ class ServicePackage(Package):
         self.waiters = list(waiters)
         self.paginators = list(paginators)
         self.typed_dicts = list(typed_dicts)
+        self.literals = list(literals)
         self.helper_functions = list(helper_functions)
+
+    def extract_literals(self) -> List[TypeLiteral]:
+        found: Dict[str, TypeLiteral] = {}
+        for type_annotation in sorted(self.get_types()):
+            current: List[TypeLiteral] = []
+            if isinstance(type_annotation, TypeTypedDict):
+                current.extend(type_annotation.get_children_literals())
+            if isinstance(type_annotation, TypeLiteral):
+                current.append(type_annotation)
+
+            for literal in current:
+                if literal.name not in found:
+                    found[literal.name] = literal
+                    continue
+
+                old_literal = found[literal.name]
+                if not literal.is_same(old_literal):
+                    raise ValueError(f"Duplicate literal: {literal.name}")
+
+        return list(sorted(found.values()))
 
     def extract_typed_dicts(self) -> List[TypeTypedDict]:
         added_names: List[str] = []
@@ -204,3 +227,29 @@ class ServicePackage(Package):
                 import_records.add(import_record.get_external(self.service_name.module_name))
 
         return list(sorted(import_records))
+
+    def get_literals_required_import_records(self) -> List[ImportRecord]:
+        import_records: Set[ImportRecord] = set()
+        import_records.add(ImportRecord(ImportString("sys")))
+        import_records.add(
+            ImportRecord(
+                ImportString("typing"),
+                "Literal",
+                min_version=(3, 8),
+                fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
+            )
+        )
+        return list(sorted(import_records))
+
+    def validate(self):
+        names = set()
+        for name in (
+            *(i.name for i in self.typed_dicts),
+            *(i.name for i in self.literals),
+            *(i.name for i in self.waiters),
+            *(i.name for i in self.paginators),
+            *(self.service_resource.get_all_names() if self.service_resource else []),
+        ):
+            if name in names:
+                raise ValueError(f"Duplicate name {name}")
+            names.add(name)

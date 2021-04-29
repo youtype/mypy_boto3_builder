@@ -8,6 +8,7 @@ from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
 class TypedDictAttribute:
@@ -199,6 +200,16 @@ class TypeTypedDict(FakeAnnotation):
                 continue
             result.add(type_annotation)
 
+        return result
+
+    def get_children_literals(self) -> Set[TypeLiteral]:
+        result: Set[TypeLiteral] = set()
+        children_types = self.get_children_types()
+        for type_annotation in children_types:
+            if isinstance(type_annotation, TypeLiteral):
+                result.add(type_annotation)
+            if isinstance(type_annotation, TypeTypedDict):
+                result.update(type_annotation.get_children_literals())
         return result
 
     def replace_self_references(self) -> List[str]:

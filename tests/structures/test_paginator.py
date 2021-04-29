@@ -19,4 +19,4 @@ class TestPaginator:
         result = paginator.get_client_method()
         assert result.name == "get_paginator"
         assert result.return_type.name == "name"
-        assert result.arguments[1].type_annotation.children[0] == "my_operation_name"
+        assert result.arguments[1].type_annotation.children == {"my_operation_name"}

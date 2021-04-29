@@ -18,7 +18,6 @@ from botocore.model import (
 )
 from botocore.response import StreamingBody
 from botocore.session import Session as BotocoreSession
-
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
@@ -282,11 +281,7 @@ class ShapeParser:
         if not shape.enum:
             return Type.str
 
-        type_literal = TypeLiteral()
-        for option in shape.enum:
-            type_literal.add_literal_child(option)
-
-        return type_literal
+        return TypeLiteral(shape.name, [option for option in shape.enum])
 
     def _parse_shape_map(self, shape: MapShape) -> FakeAnnotation:
         type_subscript = TypeSubscript(Type.Dict)

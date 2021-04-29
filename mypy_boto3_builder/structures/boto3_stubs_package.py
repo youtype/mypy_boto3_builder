@@ -43,8 +43,7 @@ class Boto3StubsPackage(Package):
         return result
 
     def get_init_required_import_records(self) -> List[ImportRecord]:
-        import_records: Set[ImportRecord] = set()
-        import_records.update(
+        import_records: Set[ImportRecord] = set(
             [
                 ImportRecord(ImportString("logging")),
                 ImportRecord(ImportString("typing"), "Any"),
@@ -52,6 +51,12 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("importlib", "util")),
                 ImportRecord(ImportString("boto3", "session")),
                 ImportRecord(ImportString("boto3", "session"), "Session"),
+                ImportRecord(
+                    ImportString("typing"),
+                    "Literal",
+                    min_version=(3, 8),
+                    fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
+                ),
             ]
         )
         for init_function in self.init_functions:
@@ -60,8 +65,7 @@ class Boto3StubsPackage(Package):
         return list(sorted(import_records))
 
     def get_session_required_import_records(self) -> List[ImportRecord]:
-        import_records: Set[ImportRecord] = set()
-        import_records.update(
+        import_records: Set[ImportRecord] = set(
             [
                 ImportRecord(ImportString("sys")),
                 ImportRecord(ImportString("typing"), "Any"),
@@ -78,6 +82,12 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("botocore", "client"), "Config"),
                 ImportRecord(ImportString("botocore", "exceptions"), "DataNotFoundError"),
                 ImportRecord(ImportString("botocore", "exceptions"), "UnknownServiceError"),
+                ImportRecord(
+                    ImportString("typing"),
+                    "Literal",
+                    min_version=(3, 8),
+                    fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
+                ),
             ]
         )
         import_records.update(self.session_class.get_required_import_records())

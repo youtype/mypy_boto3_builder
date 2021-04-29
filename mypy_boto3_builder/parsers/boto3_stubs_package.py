@@ -5,7 +5,6 @@ from typing import List
 
 from boto3.session import Session
 from botocore.config import Config
-
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.parsers.fake_service_package import parse_fake_service_package
@@ -54,12 +53,16 @@ def parse_boto3_stubs_package(
     if len(result.service_packages) > 1:
         client_function_decorators.append(Type.overload)
     for service_package in result.service_packages:
+        service_argument = Argument(
+            "service_name",
+            TypeLiteral("", [service_package.service_name.boto3_name], inline=True),
+        )
         client_function = Function(
             name="client",
             decorators=client_function_decorators,
             docstring="",
             arguments=[
-                Argument("service_name", TypeLiteral(service_package.service_name.boto3_name)),
+                service_argument,
                 *init_arguments,
             ],
             return_type=ExternalImport(
@@ -78,7 +81,7 @@ def parse_boto3_stubs_package(
                 docstring="",
                 arguments=[
                     Argument("self", None),
-                    Argument("service_name", TypeLiteral(service_package.service_name.boto3_name)),
+                    service_argument,
                     *init_arguments,
                 ],
                 return_type=ExternalImport(
@@ -98,12 +101,16 @@ def parse_boto3_stubs_package(
     for service_package in service_resource_packages:
         if not service_package.service_resource:
             continue
+        service_argument = Argument(
+            "service_name",
+            TypeLiteral("", [service_package.service_name.boto3_name], inline=True),
+        )
         resource_function = Function(
             name="resource",
             decorators=resource_function_decorators,
             docstring="",
             arguments=[
-                Argument("service_name", TypeLiteral(service_package.service_name.boto3_name)),
+                service_argument,
                 *init_arguments,
             ],
             return_type=ExternalImport(
@@ -123,7 +130,7 @@ def parse_boto3_stubs_package(
                 docstring="",
                 arguments=[
                     Argument("self", None),
-                    Argument("service_name", TypeLiteral(service_package.service_name.boto3_name)),
+                    service_argument,
                     *init_arguments,
                 ],
                 return_type=ExternalImport(

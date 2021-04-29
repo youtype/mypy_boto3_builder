@@ -54,13 +54,13 @@ def write_boto3_stubs_package(
     for file_path, template_path in file_paths:
         content = render_jinja2_template(template_path, package=package)
         if file_path.suffix in [".py", ".pyi"]:
-            content = blackify(content, file_path)
             content = sort_imports(
                 content,
                 "boto3_stubs",
                 extension="pyi",
                 third_party=["boto3", "botocore", *[i.module_name for i in package.service_names]],
             )
+            content = blackify(content, file_path)
         if not file_path.exists() or file_path.read_text() != content:
             modified_paths.append(file_path)
             file_path.write_text(content)
