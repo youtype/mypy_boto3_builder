@@ -20,7 +20,7 @@ if [[ "$VERSION" == "" ]]; then
 fi
 
 echo "Bumping version to ${VERSION}"
-python -m poetry version "${VERSION}"
+poetry version "${VERSION}"
 sed -i -E "s/^version = .+/version = ${VERSION}/" setup.cfg
 
 
