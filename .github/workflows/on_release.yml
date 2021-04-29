@@ -53,6 +53,7 @@ jobs:
         run: |
           scripts/bump_version.sh
           python -m poetry install -n
+          poetry shell
       - name: Integration tests
         run: |
           scripts/integration.sh
@@ -66,8 +67,8 @@ jobs:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          poetry build
-          twine upload  --non-interactive dist/*
+          python -m poetry build
+          python -m twine upload  --non-interactive dist/*
       - name: Build packages
         env:
           BUILD_VERSION: ${{ steps.vars.outputs.build_version }}

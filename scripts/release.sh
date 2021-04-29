@@ -8,11 +8,6 @@ if [[ "$1" == "" ]]; then
     PACKAGES=${OUTPUT_PATH}/mypy_boto3_*
 fi
 
-if [[ `pip freeze | grep black` == "" ]]; then
-    echo "black not found, installing it now"
-    pip install --user black==20.8b1
-fi
-
 for package in $PACKAGES
 do
     echo Publishing $(basename ${package})
