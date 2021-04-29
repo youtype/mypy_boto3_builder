@@ -1,6 +1,9 @@
 """
 Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`
 """
+import builtins
+import keyword
+import typing
 from typing import Any, Iterable
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -19,6 +22,14 @@ class TypeLiteral(FakeAnnotation):
         inline -- Render literal inline.
     """
 
+    RESERVED_NAMES = set(
+        (
+            *dir(typing),
+            *dir(builtins),
+            *keyword.kwlist,
+        )
+    )
+
     def __init__(self, name: str, children: Iterable[Any], inline: bool = False) -> None:
         if not name and not inline:
             raise ValueError("Literal should have name")
@@ -28,10 +39,10 @@ class TypeLiteral(FakeAnnotation):
         self.children = set(children)
         self.inline = inline
 
-    @staticmethod
-    def _find_name(name: str) -> str:
-        if name == "Type":
-            return "TypeType"
+    @classmethod
+    def _find_name(cls, name: str) -> str:
+        if name in cls.RESERVED_NAMES:
+            return f"{name}Type"
         return name
 
     def render(self, parent_name: str = "") -> str:

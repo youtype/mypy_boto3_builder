@@ -9,6 +9,9 @@ class TestTypeLiteral:
     def test_init(self) -> None:
         assert self.result.children == {"a", "b"}
         assert hash(self.result)
+        assert TypeLiteral("Type", ["a"]).name == "TypeType"
+        assert TypeLiteral("Protocol", ["a"]).name == "ProtocolType"
+        assert TypeLiteral("Other", ["a"]).name == "Other"
         with pytest.raises(ValueError):
             TypeLiteral("test", [])
 

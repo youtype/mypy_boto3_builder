@@ -250,6 +250,8 @@ class ServicePackage(Package):
             *(i.name for i in self.paginators),
             *(self.service_resource.get_all_names() if self.service_resource else []),
         ):
+            if name in TypeLiteral.RESERVED_NAMES:
+                raise ValueError(f"{name} is a reserved keyword")
             if name in names:
                 raise ValueError(f"Duplicate name {name}")
             names.add(name)
