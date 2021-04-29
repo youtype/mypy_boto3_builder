@@ -284,6 +284,7 @@ class ServiceNameCatalog:
         ServiceName("neptune", "Neptune"),
         ServiceName("network-firewall", "NetworkFirewall"),
         ServiceName("networkmanager", "NetworkManager"),
+        ServiceName("nimble", "NimbleStudio"),
         ServiceName("opsworks", "OpsWorks"),
         ServiceName("opsworkscm", "OpsWorksCM"),
         ServiceName("organizations", "Organizations"),
