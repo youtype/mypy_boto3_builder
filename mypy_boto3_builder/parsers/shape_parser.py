@@ -490,6 +490,12 @@ class ShapeParser:
 
         return result
 
+    @staticmethod
+    def _get_arg_from_target(target: str) -> str:
+        if "[" not in target:
+            return target
+        return target.split("[")[0]
+
     def _get_resource_method(
         self, resource_name: str, action_name: str, action_shape: Dict[str, Any]
     ) -> Method:
@@ -507,11 +513,11 @@ class ShapeParser:
         if "request" in action_shape:
             operation_name = action_shape["request"]["operation"]
             operation_shape = self._get_operation(operation_name)
-            skip_argument_names: List[str] = [
-                i["target"]
+            skip_argument_names = set(
+                self._get_arg_from_target(i["target"])
                 for i in action_shape["request"].get("params", {})
                 if i["source"] == "identifier"
-            ]
+            )
             if operation_shape.input_shape is not None:
                 for argument in self._parse_arguments(
                     resource_name,
