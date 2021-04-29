@@ -35,13 +35,14 @@ See how it helps to find and fix potential bugs:
     - [mypy](#mypy)
     - [pyright](#pyright)
   - [Explicit type annotations](#explicit-type-annotations)
-    - [Client annotations](#client-annotations)
-    - [Paginators annotations](#paginators-annotations)
-    - [Waiters annotations](#waiters-annotations)
-    - [Service Resource annotations](#service-resource-annotations)
-    - [Other resources annotations](#other-resources-annotations)
-    - [Collections annotations](#collections-annotations)
-    - [Typed dictionations](#typed-dictionations)
+    - [Client annotations](#client-annotations){% if package.paginators %}
+    - [Paginators annotations](#paginators-annotations){% endif %}{% if package.waiters %}
+    - [Waiters annotations](#waiters-annotations){% endif %}{% if package.service_resource %}
+    - [Service Resource annotations](#service-resource-annotations){% endif %}{% if package.service_resource and package.service_resource.sub_resources %}
+    - [Other resources annotations](#other-resources-annotations){% endif %}{% if package.service_resource and package.service_resource.collections %}
+    - [Collections annotations](#collections-annotations){% endif %}{% if package.literals %}
+    - [Literals](#literals){% endif %}{% if package.typed_dicts %}
+    - [Typed dictionaries](#typed-dictionaries){% endif %}
 
 ## How to install
 
