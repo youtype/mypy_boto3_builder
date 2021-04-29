@@ -218,8 +218,24 @@ resource: {{ package.service_resource.name }} = boto3.resource("{{ service_name.
 {% endif %}
 {% endif %}
 
+{% if package.literals %}
+### Literals
+
+`{{ service_name.module_name }}.literals` module contains literals extracted from shapes
+that can be used in user code for type checking.
+
+```python
+from {{ service_name.module_name }}.literals import (
+{% for literal in package.literals %}    {{ literal.name }},{{ '' if loop.last else '\n' }}{% endfor %}
+)
+
+def check_value(value: {{ package.literals[0].name }}) -> bool:
+    ...
+```
+{% endif %}
+
 {% if package.typed_dicts %}
-### Typed dictionations
+### Typed dictionaries
 
 `{{ service_name.module_name }}.type_defs` module contains structures and shapes assembled
 to typed dictionaries for additional type checking.
