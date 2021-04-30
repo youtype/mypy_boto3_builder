@@ -4,6 +4,7 @@ Parser that produces `structures.ServiceModule`.
 
 from boto3.session import Session
 from botocore import xform_name
+
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.client import parse_client
 from mypy_boto3_builder.parsers.service_resource import parse_service_resource

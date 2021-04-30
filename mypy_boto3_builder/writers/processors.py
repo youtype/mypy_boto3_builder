@@ -19,8 +19,6 @@ from mypy_boto3_builder.writers.boto3_stubs_package import write_boto3_stubs_pac
 from mypy_boto3_builder.writers.master_package import write_master_package
 from mypy_boto3_builder.writers.service_package import write_service_package
 
-logger = get_logger()
-
 
 def process_boto3_stubs(
     session: Session,
@@ -40,6 +38,7 @@ def process_boto3_stubs(
     Return:
         Parsed Boto3StubsPackage.
     """
+    logger = get_logger()
     logger.debug("Parsing boto3 stubs")
     boto3_stub_package = parse_boto3_stubs_package(session=session, service_names=service_names)
     logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
@@ -71,6 +70,7 @@ def process_master(
     Return:
         Parsed MasterPackage.
     """
+    logger = get_logger()
     logger.debug("Parsing master")
     master_package = parse_master_package(session, service_names)
     logger.debug(f"Writing master to {NicePath(output_path)}")
@@ -102,6 +102,7 @@ def process_service(
     Return:
         Parsed ServicePackage.
     """
+    logger = get_logger()
     logger.debug(f"Parsing {service_name.boto3_name}")
     service_module = parse_service_package(session, service_name)
     logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")

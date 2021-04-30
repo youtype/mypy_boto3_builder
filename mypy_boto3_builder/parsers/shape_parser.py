@@ -18,6 +18,7 @@ from botocore.model import (
 )
 from botocore.response import StreamingBody
 from botocore.session import Session as BotocoreSession
+
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog

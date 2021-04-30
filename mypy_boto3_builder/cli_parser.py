@@ -2,8 +2,10 @@
 CLI parser.
 """
 import argparse
+import logging
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Sequence
+from typing import List, Sequence
 
 import pkg_resources
 
@@ -41,7 +43,19 @@ def get_service_name(name: str) -> ServiceName:
     return ServiceNameCatalog.create(name)
 
 
-def parse_args(args: Sequence[str]) -> argparse.Namespace:
+@dataclass
+class Namespace:
+    log_level: int
+    output_path: Path
+    service_names: List[ServiceName]
+    build_version: str
+    installed: bool
+    skip_master: bool
+    skip_services: bool
+    builder_version: str
+
+
+def parse_args(args: Sequence[str]) -> Namespace:
     """
     Main CLI parser for builder.
 
@@ -94,4 +108,13 @@ def parse_args(args: Sequence[str]) -> argparse.Namespace:
     )
     result = parser.parse_args(args)
     result.builder_version = version
-    return result
+    return Namespace(
+        log_level=logging.DEBUG if result.debug else logging.INFO,
+        output_path=result.output_path,
+        service_names=result.service_names,
+        skip_master=result.skip_master,
+        skip_services=result.skip_services,
+        build_version=result.build_version,
+        installed=result.installed,
+        builder_version=result.builder_version,
+    )

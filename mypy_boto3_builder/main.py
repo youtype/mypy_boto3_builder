@@ -24,7 +24,7 @@ def main() -> None:
     Main entrypoint for builder.
     """
     args = parse_args(sys.argv[1:])
-    logger = get_logger(verbose=args.debug, panic=args.panic)
+    logger = get_logger(level=args.log_level)
     session = Session(region_name=DUMMY_REGION)
     args.output_path.mkdir(exist_ok=True)
     service_names: List[ServiceName] = []

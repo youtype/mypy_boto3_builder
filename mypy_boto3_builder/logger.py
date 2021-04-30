@@ -2,46 +2,13 @@
 Logging utils.
 """
 import logging
-from typing import Any
+
+from mypy_boto3_builder.constants import LOGGER_NAME
 
 __all__ = ("get_logger",)
 
 
-class Logger(logging.Logger):
-    """
-    Standard Logger with optional panic mode.
-    """
-
-    # Set to true to raise RuntimeError on warning
-    panic = False
-
-    def warning(self, msg: Any, *args: Any, **kwargs: Any) -> None:  # type: ignore
-        """
-        Overriden default warning with no changes.
-
-        Raises:
-            RuntimeError -- If panic mode is on.
-        """
-        super().warning(msg, *args, **kwargs)
-        if self.panic:
-            raise RuntimeError(msg)
-
-    def set_level(self, level: int) -> None:
-        """
-        Set level of logger and all handlers.
-
-        Arguments:
-            level -- Logging level.
-        """
-        self.setLevel(level)
-        for handler in self.handlers:
-            handler.setLevel(level)
-
-
-logger = Logger("mypy_boto3_builder")
-
-
-def get_logger(verbose: bool = False, panic: bool = False) -> Logger:
+def get_logger(level: int = 0) -> logging.Logger:
     """
     Get Logger instance.
 
@@ -52,19 +19,19 @@ def get_logger(verbose: bool = False, panic: bool = False) -> Logger:
     Returns:
         Overriden Logger.
     """
+    logger = logging.getLogger(LOGGER_NAME)
     if not logger.handlers:
         stream_handler = logging.StreamHandler()
         formatter = logging.Formatter(
             "%(asctime)s %(name)s: %(levelname)-8s %(message)s", datefmt="%H:%M:%S"
         )
         stream_handler.setFormatter(formatter)
+        stream_handler.setLevel(level)
         logger.addHandler(stream_handler)
-        logger.set_level(logging.INFO)
 
-    if verbose:
-        logger.set_level(logging.DEBUG)
-
-    if panic:
-        logger.panic = True
+    if level:
+        logger.setLevel(level)
+        for handler in logger.handlers:
+            handler.setLevel(level)
 
     return logger

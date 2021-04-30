@@ -2,6 +2,7 @@
 Boto3 client Waiter.
 """
 from botocore.waiter import Waiter as Boto3Waiter
+
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName

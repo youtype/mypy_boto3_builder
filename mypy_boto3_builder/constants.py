@@ -26,3 +26,5 @@ LINE_LENGTH = 100
 
 # type defs module name
 TYPE_DEFS_NAME = "type_defs"
+
+LOGGER_NAME = "mypy_boto3_builder"
