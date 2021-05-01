@@ -53,6 +53,7 @@ class Namespace:
     skip_master: bool
     skip_services: bool
     builder_version: str
+    generate_docs: bool
 
 
 def parse_args(args: Sequence[str]) -> Namespace:
@@ -83,6 +84,7 @@ def parse_args(args: Sequence[str]) -> Namespace:
     parser.add_argument(
         "--skip-services", action="store_true", help="Whether to skip service modules"
     )
+    parser.add_argument("--docs", action="store_true", help="Generate docs for modules")
     parser.add_argument(
         "--panic",
         action="store_true",
@@ -117,4 +119,5 @@ def parse_args(args: Sequence[str]) -> Namespace:
         build_version=result.build_version,
         installed=result.installed,
         builder_version=result.builder_version,
+        generate_docs=result.docs,
     )

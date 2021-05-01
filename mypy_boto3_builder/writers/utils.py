@@ -92,3 +92,10 @@ def render_jinja2_template(
 
     template = JinjaManager.get_environment().get_template(template_path.as_posix())
     return template.render(package=package, service_name=service_name)
+
+
+def get_anchor_link(text: str) -> str:
+    """
+    Convert header to markdown anchor link.
+    """
+    return text.strip().replace(" ", "-").replace(".", "").lower()

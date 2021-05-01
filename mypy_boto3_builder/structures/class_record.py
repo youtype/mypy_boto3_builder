@@ -82,3 +82,10 @@ class ClassRecord:
         Get a proper variable name for an instance of this class.
         """
         return xform_name(self.name)
+
+    @property
+    def method_names(self) -> List[str]:
+        """
+        Unique method names.
+        """
+        return list(sorted(set(i.name for i in self.methods)))

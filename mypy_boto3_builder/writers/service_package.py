@@ -134,3 +134,28 @@ def write_service_package(
             file_path.write_text(content)
 
     return modified_paths
+
+
+def write_service_docs(package: ServicePackage, output_path: Path) -> List[Path]:
+    modified_paths = []
+    docs_path = output_path / f"{package.service_name.module_name}"
+    docs_path.mkdir(exist_ok=True)
+    templates_path = Path("service_docs")
+    file_paths = [
+        (docs_path / "README.md", templates_path / "README.md"),
+        (docs_path / "literals.md", templates_path / "literals.md"),
+        (docs_path / "structures.md", templates_path / "structures.md"),
+        (docs_path / "client.md", templates_path / "client.md"),
+    ]
+
+    for file_path, template_path in file_paths:
+        content = render_jinja2_template(
+            template_path,
+            package=package,
+            service_name=package.service_name,
+        )
+        if not file_path.exists() or file_path.read_text() != content:
+            modified_paths.append(file_path)
+            file_path.write_text(content)
+
+    return modified_paths

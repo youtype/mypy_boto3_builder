@@ -16,7 +16,9 @@ from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_master,
     process_service,
+    process_service_docs,
 )
+from mypy_boto3_builder.writers.utils import get_anchor_link
 
 
 def main() -> None:
@@ -60,6 +62,7 @@ def main() -> None:
         boto3_version=boto3_version,
         build_version=build_version,
         builder_version=args.builder_version,
+        get_anchor_link=get_anchor_link,
     )
 
     logger.info(f"Bulding version {build_version}")
@@ -69,12 +72,19 @@ def main() -> None:
         for index, service_name in enumerate(service_names):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
             logger.info(f"[{current_str}/{total_str}] Generating {service_name.module_name} module")
-            process_service(
-                session=session,
-                output_path=args.output_path,
-                service_name=service_name,
-                generate_setup=not args.installed,
-            )
+            if args.generate_docs:
+                process_service_docs(
+                    session=session,
+                    output_path=args.output_path,
+                    service_name=service_name,
+                )
+            else:
+                process_service(
+                    session=session,
+                    output_path=args.output_path,
+                    service_name=service_name,
+                    generate_setup=not args.installed,
+                )
 
     if not args.skip_master:
         if not args.installed:
