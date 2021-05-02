@@ -99,9 +99,7 @@ class ServiceName:
 
     @property
     def auto_doc_link(self) -> str:
-        return (
-            f"https://github.com/vemel/mypy_boto3_builder/services_docs/{self.module_name}/index.md"
-        )
+        return f"https://github.com/vemel/mypy_boto3_builder/services_docs/{self.module_name}/README.md"
 
 
 class ServiceNameCatalog:

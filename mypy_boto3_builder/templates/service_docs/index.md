@@ -1,6 +1,6 @@
 # Type annotations for boto3 {{ package.service_name.class_name }} module
 
-> [Index](../index.md) > {{ package.service_name.class_name }}
+> [Index](../README.md) > {{ package.service_name.class_name }}
 
 Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.doc_link}})
 type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).
