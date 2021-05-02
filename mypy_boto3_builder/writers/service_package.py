@@ -147,7 +147,7 @@ def write_service_docs(package: ServicePackage, output_path: Path) -> List[Path]
     docs_path.mkdir(exist_ok=True)
     templates_path = Path("service_docs")
     file_paths = [
-        (docs_path / "index.md", templates_path / "index.md"),
+        (docs_path / "README.md", templates_path / "README.md"),
         (docs_path / "client.md", templates_path / "client.md"),
     ]
 
