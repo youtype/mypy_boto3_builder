@@ -30,14 +30,20 @@ class TypeLiteral(FakeAnnotation):
         )
     )
 
-    def __init__(self, name: str, children: Iterable[Any], inline: bool = False) -> None:
-        if not name and not inline:
+    def __init__(self, name: str, children: Iterable[Any]) -> None:
+        self.name = self._find_name(name)
+        self.children = set(children)
+        if not name:
             raise ValueError("Literal should have name")
         if not children:
             raise ValueError("Literal should have children")
-        self.name = self._find_name(name)
-        self.children = set(children)
-        self.inline = inline
+
+    def get_sort_key(self) -> str:
+        return self.name
+
+    @property
+    def inline(self) -> bool:
+        return len(self.children) == 1
 
     @classmethod
     def _find_name(cls, name: str) -> str:
@@ -68,18 +74,10 @@ class TypeLiteral(FakeAnnotation):
         """
         Get import record required for using type annotation.
         """
-        return InternalImportRecord(ServiceModuleName.literals, name=self.name)
+        if self.inline:
+            return ImportRecord.empty()
 
-    # def get_import_record(self) -> ImportRecord:
-    #     """
-    #     Get import record required for using type annotation.
-    #     """
-    #     return ImportRecord(
-    #         ImportString("typing"),
-    #         "Literal",
-    #         min_version=(3, 8),
-    #         fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
-    #     )
+        return InternalImportRecord(ServiceModuleName.literals, name=self.name)
 
     def copy(self) -> "TypeLiteral":
         """

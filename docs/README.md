@@ -8,7 +8,7 @@
 
 [![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=Builder%20docs)](https://mypy-boto3-builder.readthedocs.io/)
 [![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=boto3-stubs%20docs)](https://pypi.org/project/boto3-stubs/)
-[![Docs](https://img.shields.io/pypi/wheel/boto3-stubs.svg?color=blue)](https://pypi.org/project/boto3-stubs/)
+[![Docs](https://img.shields.io/pypi/wheel/boto3-stubs.svg?color=blue)](./service_docs/index.md)
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boto3-stubs.svg?color=blue)](https://pypi.org/project/boto3-stubs)
 [![Coverage](https://img.shields.io/codecov/c/github/vemel/mypy_boto3_builder)](https://codecov.io/gh/vemel/mypy_boto3_builder)
@@ -28,6 +28,8 @@ and other tools.
 See how it helps to find and fix potential bugs:
 
 ![boto3-stubs demo](demo.gif)
+
+Do you want more? Check the [documentation](./service_docs/index.md) and use `boto3` like a pro!
 
 Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.md#mypy-boto3-builder-modules)
 

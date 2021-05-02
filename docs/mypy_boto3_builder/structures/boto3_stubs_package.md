@@ -52,7 +52,7 @@ def get_init_required_import_records() -> List[ImportRecord]:
 
 ### Boto3StubsPackage().get_session_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L62)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L67)
 
 ```python
 def get_session_required_import_records() -> List[ImportRecord]:

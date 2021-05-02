@@ -7,26 +7,31 @@ Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](index.md#type-annotations) / TypeLiteral
     - [TypeLiteral](#typeliteral)
         - [TypeLiteral().add_child](#typeliteraladd_child)
-        - [TypeLiteral().add_literal_child](#typeliteraladd_literal_child)
         - [TypeLiteral().copy](#typeliteralcopy)
         - [TypeLiteral().get_import_record](#typeliteralget_import_record)
+        - [TypeLiteral().get_sort_key](#typeliteralget_sort_key)
+        - [TypeLiteral().inline](#typeliteralinline)
         - [TypeLiteral().is_literal](#typeliteralis_literal)
+        - [TypeLiteral().is_same](#typeliteralis_same)
         - [TypeLiteral().render](#typeliteralrender)
+        - [TypeLiteral().render_children](#typeliteralrender_children)
 
 ## TypeLiteral
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L11)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L15)
 
 ```python
 class TypeLiteral(FakeAnnotation):
-    def __init__(*children: Any) -> None:
+    def __init__(name: str, children: Iterable[Any]) -> None:
 ```
 
 Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`
 
 #### Arguments
 
+- `name` - Literal name for non-inline.
 - `children` - Literal values.
+- `inline` - Render literal inline.
 
 #### See also
 
@@ -34,7 +39,7 @@ Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a
 
 ### TypeLiteral().add_child
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L57)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L94)
 
 ```python
 def add_child(child: FakeAnnotation) -> None:
@@ -44,19 +49,9 @@ def add_child(child: FakeAnnotation) -> None:
 
 - [FakeAnnotation](fake_annotation.md#fakeannotation)
 
-### TypeLiteral().add_literal_child
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L60)
-
-```python
-def add_literal_child(child: Any) -> None:
-```
-
-Add new child to [TypeLiteral](#typeliteral) annotation.
-
 ### TypeLiteral().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L45)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L82)
 
 ```python
 def copy() -> 'TypeLiteral':
@@ -66,7 +61,7 @@ Create a copy of type annotation wrapper.
 
 ### TypeLiteral().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L34)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L73)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -78,9 +73,26 @@ Get import record required for using type annotation.
 
 - [ImportRecord](../import_helpers/import_record.md#importrecord)
 
+### TypeLiteral().get_sort_key
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L41)
+
+```python
+def get_sort_key() -> str:
+```
+
+### TypeLiteral().inline
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L44)
+
+```python
+@property
+def inline() -> bool:
+```
+
 ### TypeLiteral().is_literal
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L51)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L88)
 
 ```python
 def is_literal() -> bool:
@@ -88,9 +100,19 @@ def is_literal() -> bool:
 
 Whether type annotation is `Literal`.
 
+### TypeLiteral().is_same
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L97)
+
+```python
+def is_same(other: 'TypeLiteral') -> bool:
+```
+
+Check if literals have the same children
+
 ### TypeLiteral().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L22)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L54)
 
 ```python
 def render(parent_name: str = '') -> str:
@@ -101,3 +123,13 @@ Render type annotation to a valid Python code for local usage.
 #### Returns
 
 A string with a valid type annotation.
+
+### TypeLiteral().render_children
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_literal.py#L67)
+
+```python
+def render_children() -> str:
+```
+
+Render literal children to representation.

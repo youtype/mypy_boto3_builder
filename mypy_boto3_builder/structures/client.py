@@ -1,7 +1,7 @@
 """
 Boto3 Client.
 """
-from typing import List
+from typing import Iterator, List
 
 from botocore.client import BaseClient
 
@@ -57,3 +57,9 @@ class Client(ClassRecord):
 
     def get_all_names(self) -> List[str]:
         return [self.name]
+
+    @property
+    def own_methods(self) -> Iterator[Method]:
+        for method in self.methods:
+            if method.name not in ("get_waiter", "get_paginator"):
+                yield method

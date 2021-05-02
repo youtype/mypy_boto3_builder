@@ -38,7 +38,7 @@ Exceptions:
 
 ## Methods
 
-{% for method in package.client.methods %}
+{% for method in package.client.own_methods %}
 ### {{ method.name }}
 
 Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
@@ -53,3 +53,23 @@ Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").{{ m
 {% else %}
 {{ package.client.name }} has no public methods.
 {% endfor %}
+
+{% if package.paginators %}
+### get_paginator
+
+Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").get_paginator` method with overloads.
+
+{% for paginator in package.paginators -%}
+- `client.get_paginator("{{ paginator.operation_name }}")` -> [{{ paginator.name }}](./paginators.md#{{ get_anchor_link(paginator.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.waiters %}
+### get_waiter
+
+Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").get_waiter` method with overloads.
+
+{% for waiter in package.waiters -%}
+- `client.get_waiter("{{ waiter.waiter_name }}")` -> [{{ waiter.name }}](./waiters.md#{{ get_anchor_link(waiter.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}

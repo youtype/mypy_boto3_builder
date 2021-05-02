@@ -18,7 +18,8 @@ class TestTypeLiteral:
 
     def test_render(self) -> None:
         assert self.result.render() == "test"
-        assert TypeLiteral("test", ("a", "b"), True).render() == "Literal['a', 'b']"
+        assert TypeLiteral("test", ("a", "b")).render() == "test"
+        assert TypeLiteral("test", ["a"]).render() == "Literal['a']"
 
     def test_get_import_record(self) -> None:
         assert self.result.get_import_record().render() == "from literals import test"

@@ -56,7 +56,10 @@ def parse_boto3_stubs_package(
     for service_package in result.service_packages:
         service_argument = Argument(
             "service_name",
-            TypeLiteral("", [service_package.service_name.boto3_name], inline=True),
+            TypeLiteral(
+                service_package.service_name.class_name + "Type",
+                [service_package.service_name.boto3_name],
+            ),
         )
         client_function = Function(
             name="client",
@@ -104,7 +107,10 @@ def parse_boto3_stubs_package(
             continue
         service_argument = Argument(
             "service_name",
-            TypeLiteral("", [service_package.service_name.boto3_name], inline=True),
+            TypeLiteral(
+                service_package.service_name.class_name + "Type",
+                [service_package.service_name.boto3_name],
+            ),
         )
         resource_function = Function(
             name="resource",

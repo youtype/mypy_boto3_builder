@@ -7,6 +7,7 @@ Boto3 Client.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Client
     - [Client](#client)
         - [Client().get_all_names](#clientget_all_names)
+        - [Client().own_methods](#clientown_methods)
 
 ## Client
 
@@ -35,4 +36,13 @@ Boto3 Client.
 
 ```python
 def get_all_names() -> List[str]:
+```
+
+### Client().own_methods
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L61)
+
+```python
+@property
+def own_methods() -> Iterator[Method]:
 ```

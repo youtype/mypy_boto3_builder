@@ -62,6 +62,9 @@ class TypeTypedDict(FakeAnnotation):
         self.stringify = stringify
         self.replace_with_dict = replace_with_dict
 
+    def get_sort_key(self) -> str:
+        return self.name
+
     def get_attribute(self, name: str) -> TypedDictAttribute:
         for child in self.children:
             if child.name == name:

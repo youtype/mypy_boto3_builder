@@ -97,6 +97,12 @@ class ServiceName:
             f"{self.boto3_version}/reference/services/{self.boto3_name}.html#{self.class_name}"
         )
 
+    @property
+    def auto_doc_link(self) -> str:
+        return (
+            f"https://github.com/vemel/mypy_boto3_builder/services_docs/{self.module_name}/index.md"
+        )
+
 
 class ServiceNameCatalog:
     """

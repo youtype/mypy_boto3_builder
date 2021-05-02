@@ -10,6 +10,7 @@ Base class for all structures that can be rendered to a class.
         - [ClassRecord().get_internal_imports](#classrecordget_internal_imports)
         - [ClassRecord().get_required_import_records](#classrecordget_required_import_records)
         - [ClassRecord().get_types](#classrecordget_types)
+        - [ClassRecord().method_names](#classrecordmethod_names)
         - [ClassRecord().render_alias](#classrecordrender_alias)
         - [ClassRecord().variable_name](#classrecordvariable_name)
 
@@ -63,6 +64,17 @@ def get_required_import_records() -> Set[ImportRecord]:
 ```python
 def get_types() -> Set[FakeAnnotation]:
 ```
+
+### ClassRecord().method_names
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L86)
+
+```python
+@property
+def method_names() -> List[str]:
+```
+
+Unique method names.
 
 ### ClassRecord().render_alias
 

@@ -5,11 +5,27 @@
 Service package writer.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Writers](index.md#writers) / Service Package
+    - [write_service_docs](#write_service_docs)
     - [write_service_package](#write_service_package)
+
+## write_service_docs
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/service_package.py#L144)
+
+```python
+def write_service_docs(
+    package: ServicePackage,
+    output_path: Path,
+) -> List[Path]:
+```
+
+#### See also
+
+- [ServicePackage](../structures/service_package.md#servicepackage)
 
 ## write_service_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/service_package.py#L13)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/service_package.py#L18)
 
 ```python
 def write_service_package(

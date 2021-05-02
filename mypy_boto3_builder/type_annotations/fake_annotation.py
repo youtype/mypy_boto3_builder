@@ -19,7 +19,7 @@ class FakeAnnotation(ABC):
         if not isinstance(other, FakeAnnotation):
             raise ValueError(f"Cannot compare FakeAnnotation with {other}")
 
-        return str(self) == str(other)
+        return self.get_sort_key() == other.get_sort_key()
 
     def __ne__(self, other: Any) -> bool:
         if not isinstance(other, FakeAnnotation):
@@ -28,10 +28,16 @@ class FakeAnnotation(ABC):
         return not self == other
 
     def __gt__(self, other: "FakeAnnotation") -> bool:
-        return str(self) > str(other)
+        return self.get_sort_key() > other.get_sort_key()
 
     def __lt__(self, other: "FakeAnnotation") -> bool:
         return not self > other
+
+    def get_sort_key(self) -> str:
+        """
+        Get string to sort annotations.
+        """
+        return str(self)
 
     def __str__(self) -> str:
         return self.render()

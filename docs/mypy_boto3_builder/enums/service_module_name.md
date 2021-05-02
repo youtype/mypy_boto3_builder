@@ -20,7 +20,7 @@ Enum for service modules.
 
 ### ServiceModuleName().file_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/enums/service_module_name.py#L22)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/enums/service_module_name.py#L23)
 
 ```python
 @property
@@ -31,7 +31,7 @@ Module file name.
 
 ### ServiceModuleName().stub_file_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/enums/service_module_name.py#L15)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/enums/service_module_name.py#L16)
 
 ```python
 @property
@@ -42,7 +42,7 @@ Module file name.
 
 ### ServiceModuleName().template_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/enums/service_module_name.py#L29)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/enums/service_module_name.py#L30)
 
 ```python
 @property
