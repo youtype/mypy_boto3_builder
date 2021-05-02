@@ -6,24 +6,67 @@ Auto-generated documentation for [RDSDataService](https://boto3.amazonaws.com/v1
 type annotations stubs module [mypy_boto3_rds_data](https://pypi.org/project/mypy-boto3-rds-data/).
 
 - [Structures for boto3 RDSDataService module](#structures-for-boto3-rdsdataservice-module)
+  - [ArrayValueTypeDef](#arrayvaluetypedef)
+  - [BatchExecuteStatementResponseTypeDef](#batchexecutestatementresponsetypedef)
+  - [BeginTransactionResponseTypeDef](#begintransactionresponsetypedef)
   - [ColumnMetadataTypeDef](#columnmetadatatypedef)
+  - [CommitTransactionResponseTypeDef](#committransactionresponsetypedef)
+  - [ExecuteSqlResponseTypeDef](#executesqlresponsetypedef)
+  - [ExecuteStatementResponseTypeDef](#executestatementresponsetypedef)
   - [FieldTypeDef](#fieldtypedef)
   - [RecordTypeDef](#recordtypedef)
   - [ResultFrameTypeDef](#resultframetypedef)
   - [ResultSetMetadataTypeDef](#resultsetmetadatatypedef)
-  - [SqlStatementResultTypeDef](#sqlstatementresulttypedef)
-  - [StructValueTypeDef](#structvaluetypedef)
-  - [UpdateResultTypeDef](#updateresulttypedef)
-  - [BatchExecuteStatementResponseTypeDef](#batchexecutestatementresponsetypedef)
-  - [BeginTransactionResponseTypeDef](#begintransactionresponsetypedef)
-  - [CommitTransactionResponseTypeDef](#committransactionresponsetypedef)
-  - [ValueTypeDef](#valuetypedef)
-  - [ArrayValueTypeDef](#arrayvaluetypedef)
-  - [ExecuteSqlResponseTypeDef](#executesqlresponsetypedef)
-  - [ExecuteStatementResponseTypeDef](#executestatementresponsetypedef)
   - [ResultSetOptionsTypeDef](#resultsetoptionstypedef)
   - [RollbackTransactionResponseTypeDef](#rollbacktransactionresponsetypedef)
   - [SqlParameterTypeDef](#sqlparametertypedef)
+  - [SqlStatementResultTypeDef](#sqlstatementresulttypedef)
+  - [StructValueTypeDef](#structvaluetypedef)
+  - [UpdateResultTypeDef](#updateresulttypedef)
+  - [ValueTypeDef](#valuetypedef)
+
+## ArrayValueTypeDef
+
+```python
+from mypy_boto3_rds_data.type_defs import ArrayValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `arrayValues`: `List[Dict[str, Any]]`
+- `booleanValues`: `List[bool]`
+- `doubleValues`: `List[float]`
+- `longValues`: `List[int]`
+- `stringValues`: `List[str]`
+
+
+## BatchExecuteStatementResponseTypeDef
+
+```python
+from mypy_boto3_rds_data.type_defs import BatchExecuteStatementResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `updateResults`: `List["UpdateResultTypeDef"]`
+
+
+## BeginTransactionResponseTypeDef
+
+```python
+from mypy_boto3_rds_data.type_defs import BeginTransactionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `transactionId`: `str`
+
 
 ## ColumnMetadataTypeDef
 
@@ -49,6 +92,48 @@ Optional fields:
 - `tableName`: `str`
 - `type`: `int`
 - `typeName`: `str`
+
+
+## CommitTransactionResponseTypeDef
+
+```python
+from mypy_boto3_rds_data.type_defs import CommitTransactionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `transactionStatus`: `str`
+
+
+## ExecuteSqlResponseTypeDef
+
+```python
+from mypy_boto3_rds_data.type_defs import ExecuteSqlResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `sqlStatementResults`: `List["SqlStatementResultTypeDef"]`
+
+
+## ExecuteStatementResponseTypeDef
+
+```python
+from mypy_boto3_rds_data.type_defs import ExecuteStatementResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `columnMetadata`: `List["ColumnMetadataTypeDef"]`
+- `generatedFields`: `List["FieldTypeDef"]`
+- `numberOfRecordsUpdated`: `int`
+- `records`: `List[List["FieldTypeDef"]]`
 
 
 ## FieldTypeDef
@@ -111,6 +196,47 @@ Optional fields:
 - `columnMetadata`: `List["ColumnMetadataTypeDef"]`
 
 
+## ResultSetOptionsTypeDef
+
+```python
+from mypy_boto3_rds_data.type_defs import ResultSetOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `decimalReturnType`: `DecimalReturnType`
+
+
+## RollbackTransactionResponseTypeDef
+
+```python
+from mypy_boto3_rds_data.type_defs import RollbackTransactionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `transactionStatus`: `str`
+
+
+## SqlParameterTypeDef
+
+```python
+from mypy_boto3_rds_data.type_defs import SqlParameterTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `typeHint`: `TypeHint`
+- `value`: `"FieldTypeDef"`
+
+
 ## SqlStatementResultTypeDef
 
 ```python
@@ -151,45 +277,6 @@ Optional fields:
 - `generatedFields`: `List["FieldTypeDef"]`
 
 
-## BatchExecuteStatementResponseTypeDef
-
-```python
-from mypy_boto3_rds_data.type_defs import BatchExecuteStatementResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `updateResults`: `List["UpdateResultTypeDef"]`
-
-
-## BeginTransactionResponseTypeDef
-
-```python
-from mypy_boto3_rds_data.type_defs import BeginTransactionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `transactionId`: `str`
-
-
-## CommitTransactionResponseTypeDef
-
-```python
-from mypy_boto3_rds_data.type_defs import CommitTransactionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `transactionStatus`: `str`
-
-
 ## ValueTypeDef
 
 ```python
@@ -210,91 +297,4 @@ Optional fields:
 - `realValue`: `float`
 - `stringValue`: `str`
 - `structValue`: `"StructValueTypeDef"`
-
-
-## ArrayValueTypeDef
-
-```python
-from mypy_boto3_rds_data.type_defs import ArrayValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `arrayValues`: `List[Dict[str, Any]]`
-- `booleanValues`: `List[bool]`
-- `doubleValues`: `List[float]`
-- `longValues`: `List[int]`
-- `stringValues`: `List[str]`
-
-
-## ExecuteSqlResponseTypeDef
-
-```python
-from mypy_boto3_rds_data.type_defs import ExecuteSqlResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `sqlStatementResults`: `List["SqlStatementResultTypeDef"]`
-
-
-## ExecuteStatementResponseTypeDef
-
-```python
-from mypy_boto3_rds_data.type_defs import ExecuteStatementResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `columnMetadata`: `List["ColumnMetadataTypeDef"]`
-- `generatedFields`: `List["FieldTypeDef"]`
-- `numberOfRecordsUpdated`: `int`
-- `records`: `List[List["FieldTypeDef"]]`
-
-
-## ResultSetOptionsTypeDef
-
-```python
-from mypy_boto3_rds_data.type_defs import ResultSetOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `decimalReturnType`: `DecimalReturnType`
-
-
-## RollbackTransactionResponseTypeDef
-
-```python
-from mypy_boto3_rds_data.type_defs import RollbackTransactionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `transactionStatus`: `str`
-
-
-## SqlParameterTypeDef
-
-```python
-from mypy_boto3_rds_data.type_defs import SqlParameterTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `typeHint`: `TypeHint`
-- `value`: `"FieldTypeDef"`
 

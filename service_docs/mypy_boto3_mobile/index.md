@@ -113,9 +113,6 @@ from mypy_boto3_mobile.type_defs import BundleDetailsTypeDef, ...
 ```
 
 - [BundleDetailsTypeDef](./type_defs.md#bundledetailstypedef)
-- [ProjectDetailsTypeDef](./type_defs.md#projectdetailstypedef)
-- [ProjectSummaryTypeDef](./type_defs.md#projectsummarytypedef)
-- [ResourceTypeDef](./type_defs.md#resourcetypedef)
 - [CreateProjectResultTypeDef](./type_defs.md#createprojectresulttypedef)
 - [DeleteProjectResultTypeDef](./type_defs.md#deleteprojectresulttypedef)
 - [DescribeBundleResultTypeDef](./type_defs.md#describebundleresulttypedef)
@@ -125,4 +122,7 @@ from mypy_boto3_mobile.type_defs import BundleDetailsTypeDef, ...
 - [ListBundlesResultTypeDef](./type_defs.md#listbundlesresulttypedef)
 - [ListProjectsResultTypeDef](./type_defs.md#listprojectsresulttypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ProjectDetailsTypeDef](./type_defs.md#projectdetailstypedef)
+- [ProjectSummaryTypeDef](./type_defs.md#projectsummarytypedef)
+- [ResourceTypeDef](./type_defs.md#resourcetypedef)
 - [UpdateProjectResultTypeDef](./type_defs.md#updateprojectresulttypedef)

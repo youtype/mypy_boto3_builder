@@ -93,7 +93,7 @@ def get_ice_server_config(
     self,
     ChannelARN: str,
     ClientId: str = None,
-    Service: Service = None,
+    Service: Literal['TURN'] = None,
     Username: str = None
 ) -> GetIceServerConfigResponseTypeDef:
     pass
@@ -114,3 +114,6 @@ def send_alexa_offer_to_master(
 ) -> SendAlexaOfferToMasterResponseTypeDef:
     pass
 ```
+
+
+

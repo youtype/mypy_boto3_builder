@@ -104,24 +104,6 @@ type annotations stubs module [mypy_boto3_greengrass](https://pypi.org/project/m
     - [update_subscription_definition](#update_subscription_definition)
     - [update_thing_runtime_configuration](#update_thing_runtime_configuration)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
-    - [get_paginator](#get_paginator-17)
-    - [get_paginator](#get_paginator-18)
 
 ## GreengrassClient
 
@@ -1594,287 +1576,30 @@ def update_thing_runtime_configuration(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListBulkDeploymentDetailedReports documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListBulkDeploymentDetailedReports)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBulkDeploymentDetailedReportsPaginatorName
-) -> ListBulkDeploymentDetailedReportsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("greengrass").get_paginator` method.
+Type annotations for `boto3.client("greengrass").get_paginator` method with overloads.
+
+- `client.get_paginator("list_bulk_deployment_detailed_reports")` -> [ListBulkDeploymentDetailedReportsPaginator](./paginators.md#listbulkdeploymentdetailedreportspaginator)
+- `client.get_paginator("list_bulk_deployments")` -> [ListBulkDeploymentsPaginator](./paginators.md#listbulkdeploymentspaginator)
+- `client.get_paginator("list_connector_definition_versions")` -> [ListConnectorDefinitionVersionsPaginator](./paginators.md#listconnectordefinitionversionspaginator)
+- `client.get_paginator("list_connector_definitions")` -> [ListConnectorDefinitionsPaginator](./paginators.md#listconnectordefinitionspaginator)
+- `client.get_paginator("list_core_definition_versions")` -> [ListCoreDefinitionVersionsPaginator](./paginators.md#listcoredefinitionversionspaginator)
+- `client.get_paginator("list_core_definitions")` -> [ListCoreDefinitionsPaginator](./paginators.md#listcoredefinitionspaginator)
+- `client.get_paginator("list_deployments")` -> [ListDeploymentsPaginator](./paginators.md#listdeploymentspaginator)
+- `client.get_paginator("list_device_definition_versions")` -> [ListDeviceDefinitionVersionsPaginator](./paginators.md#listdevicedefinitionversionspaginator)
+- `client.get_paginator("list_device_definitions")` -> [ListDeviceDefinitionsPaginator](./paginators.md#listdevicedefinitionspaginator)
+- `client.get_paginator("list_function_definition_versions")` -> [ListFunctionDefinitionVersionsPaginator](./paginators.md#listfunctiondefinitionversionspaginator)
+- `client.get_paginator("list_function_definitions")` -> [ListFunctionDefinitionsPaginator](./paginators.md#listfunctiondefinitionspaginator)
+- `client.get_paginator("list_group_versions")` -> [ListGroupVersionsPaginator](./paginators.md#listgroupversionspaginator)
+- `client.get_paginator("list_groups")` -> [ListGroupsPaginator](./paginators.md#listgroupspaginator)
+- `client.get_paginator("list_logger_definition_versions")` -> [ListLoggerDefinitionVersionsPaginator](./paginators.md#listloggerdefinitionversionspaginator)
+- `client.get_paginator("list_logger_definitions")` -> [ListLoggerDefinitionsPaginator](./paginators.md#listloggerdefinitionspaginator)
+- `client.get_paginator("list_resource_definition_versions")` -> [ListResourceDefinitionVersionsPaginator](./paginators.md#listresourcedefinitionversionspaginator)
+- `client.get_paginator("list_resource_definitions")` -> [ListResourceDefinitionsPaginator](./paginators.md#listresourcedefinitionspaginator)
+- `client.get_paginator("list_subscription_definition_versions")` -> [ListSubscriptionDefinitionVersionsPaginator](./paginators.md#listsubscriptiondefinitionversionspaginator)
+- `client.get_paginator("list_subscription_definitions")` -> [ListSubscriptionDefinitionsPaginator](./paginators.md#listsubscriptiondefinitionspaginator)
 
-[Paginator.ListBulkDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListBulkDeployments)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBulkDeploymentsPaginatorName
-) -> ListBulkDeploymentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListConnectorDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListConnectorDefinitionVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListConnectorDefinitionVersionsPaginatorName
-) -> ListConnectorDefinitionVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListConnectorDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListConnectorDefinitions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListConnectorDefinitionsPaginatorName
-) -> ListConnectorDefinitionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListCoreDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListCoreDefinitionVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCoreDefinitionVersionsPaginatorName
-) -> ListCoreDefinitionVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListCoreDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListCoreDefinitions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCoreDefinitionsPaginatorName
-) -> ListCoreDefinitionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListDeployments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeploymentsPaginatorName
-) -> ListDeploymentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListDeviceDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListDeviceDefinitionVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeviceDefinitionVersionsPaginatorName
-) -> ListDeviceDefinitionVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListDeviceDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListDeviceDefinitions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeviceDefinitionsPaginatorName
-) -> ListDeviceDefinitionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListFunctionDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListFunctionDefinitionVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFunctionDefinitionVersionsPaginatorName
-) -> ListFunctionDefinitionVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListFunctionDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListFunctionDefinitions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFunctionDefinitionsPaginatorName
-) -> ListFunctionDefinitionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListGroupVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListGroupVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGroupVersionsPaginatorName
-) -> ListGroupVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGroupsPaginatorName
-) -> ListGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListLoggerDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListLoggerDefinitionVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLoggerDefinitionVersionsPaginatorName
-) -> ListLoggerDefinitionVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListLoggerDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListLoggerDefinitions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLoggerDefinitionsPaginatorName
-) -> ListLoggerDefinitionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListResourceDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListResourceDefinitionVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourceDefinitionVersionsPaginatorName
-) -> ListResourceDefinitionVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListResourceDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListResourceDefinitions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourceDefinitionsPaginatorName
-) -> ListResourceDefinitionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListSubscriptionDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListSubscriptionDefinitionVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSubscriptionDefinitionVersionsPaginatorName
-) -> ListSubscriptionDefinitionVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrass").get_paginator` method.
-
-[Paginator.ListSubscriptionDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrass.html#Greengrass.Paginator.ListSubscriptionDefinitions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSubscriptionDefinitionsPaginatorName
-) -> ListSubscriptionDefinitionsPaginator:
-    pass
-```

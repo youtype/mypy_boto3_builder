@@ -75,16 +75,16 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_sts.type_defs import AssumedRoleUserTypeDef, ...
+from mypy_boto3_sts.type_defs import AssumeRoleResponseTypeDef, ...
 ```
 
-- [AssumedRoleUserTypeDef](./type_defs.md#assumedroleusertypedef)
-- [CredentialsTypeDef](./type_defs.md#credentialstypedef)
-- [FederatedUserTypeDef](./type_defs.md#federatedusertypedef)
 - [AssumeRoleResponseTypeDef](./type_defs.md#assumeroleresponsetypedef)
 - [AssumeRoleWithSAMLResponseTypeDef](./type_defs.md#assumerolewithsamlresponsetypedef)
 - [AssumeRoleWithWebIdentityResponseTypeDef](./type_defs.md#assumerolewithwebidentityresponsetypedef)
+- [AssumedRoleUserTypeDef](./type_defs.md#assumedroleusertypedef)
+- [CredentialsTypeDef](./type_defs.md#credentialstypedef)
 - [DecodeAuthorizationMessageResponseTypeDef](./type_defs.md#decodeauthorizationmessageresponsetypedef)
+- [FederatedUserTypeDef](./type_defs.md#federatedusertypedef)
 - [GetAccessKeyInfoResponseTypeDef](./type_defs.md#getaccesskeyinforesponsetypedef)
 - [GetCallerIdentityResponseTypeDef](./type_defs.md#getcalleridentityresponsetypedef)
 - [GetFederationTokenResponseTypeDef](./type_defs.md#getfederationtokenresponsetypedef)

@@ -6,31 +6,16 @@ Auto-generated documentation for [DirectConnect](https://boto3.amazonaws.com/v1/
 type annotations stubs module [mypy_boto3_directconnect](https://pypi.org/project/mypy-boto3-directconnect/).
 
 - [Structures for boto3 DirectConnect module](#structures-for-boto3-directconnect-module)
-  - [AssociatedGatewayTypeDef](#associatedgatewaytypedef)
-  - [BGPPeerTypeDef](#bgppeertypedef)
-  - [ConnectionTypeDef](#connectiontypedef)
-  - [DirectConnectGatewayAssociationProposalTypeDef](#directconnectgatewayassociationproposaltypedef)
-  - [DirectConnectGatewayAssociationTypeDef](#directconnectgatewayassociationtypedef)
-  - [DirectConnectGatewayAttachmentTypeDef](#directconnectgatewayattachmenttypedef)
-  - [DirectConnectGatewayTypeDef](#directconnectgatewaytypedef)
-  - [InterconnectTypeDef](#interconnecttypedef)
-  - [LagTypeDef](#lagtypedef)
-  - [LoaTypeDef](#loatypedef)
-  - [LocationTypeDef](#locationtypedef)
-  - [MacSecKeyTypeDef](#macseckeytypedef)
-  - [ResourceTagTypeDef](#resourcetagtypedef)
-  - [RouteFilterPrefixTypeDef](#routefilterprefixtypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [VirtualGatewayTypeDef](#virtualgatewaytypedef)
-  - [VirtualInterfaceTestHistoryTypeDef](#virtualinterfacetesthistorytypedef)
-  - [VirtualInterfaceTypeDef](#virtualinterfacetypedef)
   - [AcceptDirectConnectGatewayAssociationProposalResultTypeDef](#acceptdirectconnectgatewayassociationproposalresulttypedef)
   - [AllocateTransitVirtualInterfaceResultTypeDef](#allocatetransitvirtualinterfaceresulttypedef)
   - [AssociateMacSecKeyResponseTypeDef](#associatemacseckeyresponsetypedef)
+  - [AssociatedGatewayTypeDef](#associatedgatewaytypedef)
+  - [BGPPeerTypeDef](#bgppeertypedef)
   - [ConfirmConnectionResponseTypeDef](#confirmconnectionresponsetypedef)
   - [ConfirmPrivateVirtualInterfaceResponseTypeDef](#confirmprivatevirtualinterfaceresponsetypedef)
   - [ConfirmPublicVirtualInterfaceResponseTypeDef](#confirmpublicvirtualinterfaceresponsetypedef)
   - [ConfirmTransitVirtualInterfaceResponseTypeDef](#confirmtransitvirtualinterfaceresponsetypedef)
+  - [ConnectionTypeDef](#connectiontypedef)
   - [ConnectionsTypeDef](#connectionstypedef)
   - [CreateBGPPeerResponseTypeDef](#createbgppeerresponsetypedef)
   - [CreateDirectConnectGatewayAssociationProposalResultTypeDef](#createdirectconnectgatewayassociationproposalresulttypedef)
@@ -50,11 +35,20 @@ type annotations stubs module [mypy_boto3_directconnect](https://pypi.org/projec
   - [DescribeDirectConnectGatewaysResultTypeDef](#describedirectconnectgatewaysresulttypedef)
   - [DescribeInterconnectLoaResponseTypeDef](#describeinterconnectloaresponsetypedef)
   - [DescribeTagsResponseTypeDef](#describetagsresponsetypedef)
+  - [DirectConnectGatewayAssociationProposalTypeDef](#directconnectgatewayassociationproposaltypedef)
+  - [DirectConnectGatewayAssociationTypeDef](#directconnectgatewayassociationtypedef)
+  - [DirectConnectGatewayAttachmentTypeDef](#directconnectgatewayattachmenttypedef)
+  - [DirectConnectGatewayTypeDef](#directconnectgatewaytypedef)
   - [DisassociateMacSecKeyResponseTypeDef](#disassociatemacseckeyresponsetypedef)
+  - [InterconnectTypeDef](#interconnecttypedef)
   - [InterconnectsTypeDef](#interconnectstypedef)
+  - [LagTypeDef](#lagtypedef)
   - [LagsTypeDef](#lagstypedef)
   - [ListVirtualInterfaceTestHistoryResponseTypeDef](#listvirtualinterfacetesthistoryresponsetypedef)
+  - [LoaTypeDef](#loatypedef)
+  - [LocationTypeDef](#locationtypedef)
   - [LocationsTypeDef](#locationstypedef)
+  - [MacSecKeyTypeDef](#macseckeytypedef)
   - [NewBGPPeerTypeDef](#newbgppeertypedef)
   - [NewPrivateVirtualInterfaceAllocationTypeDef](#newprivatevirtualinterfaceallocationtypedef)
   - [NewPrivateVirtualInterfaceTypeDef](#newprivatevirtualinterfacetypedef)
@@ -63,378 +57,17 @@ type annotations stubs module [mypy_boto3_directconnect](https://pypi.org/projec
   - [NewTransitVirtualInterfaceAllocationTypeDef](#newtransitvirtualinterfaceallocationtypedef)
   - [NewTransitVirtualInterfaceTypeDef](#newtransitvirtualinterfacetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ResourceTagTypeDef](#resourcetagtypedef)
+  - [RouteFilterPrefixTypeDef](#routefilterprefixtypedef)
   - [StartBgpFailoverTestResponseTypeDef](#startbgpfailovertestresponsetypedef)
   - [StopBgpFailoverTestResponseTypeDef](#stopbgpfailovertestresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateDirectConnectGatewayAssociationResultTypeDef](#updatedirectconnectgatewayassociationresulttypedef)
+  - [VirtualGatewayTypeDef](#virtualgatewaytypedef)
   - [VirtualGatewaysTypeDef](#virtualgatewaystypedef)
+  - [VirtualInterfaceTestHistoryTypeDef](#virtualinterfacetesthistorytypedef)
+  - [VirtualInterfaceTypeDef](#virtualinterfacetypedef)
   - [VirtualInterfacesTypeDef](#virtualinterfacestypedef)
-
-## AssociatedGatewayTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import AssociatedGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `type`: `GatewayType`
-- `ownerAccount`: `str`
-- `region`: `str`
-
-
-## BGPPeerTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import BGPPeerTypeDef
-```
-
-
-
-
-Optional fields:
-- `bgpPeerId`: `str`
-- `asn`: `int`
-- `authKey`: `str`
-- `addressFamily`: `AddressFamily`
-- `amazonAddress`: `str`
-- `customerAddress`: `str`
-- `bgpPeerState`: `BGPPeerState`
-- `bgpStatus`: `BGPStatus`
-- `awsDeviceV2`: `str`
-
-
-## ConnectionTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import ConnectionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ownerAccount`: `str`
-- `connectionId`: `str`
-- `connectionName`: `str`
-- `connectionState`: `ConnectionState`
-- `region`: `str`
-- `location`: `str`
-- `bandwidth`: `str`
-- `vlan`: `int`
-- `partnerName`: `str`
-- `loaIssueTime`: `datetime`
-- `lagId`: `str`
-- `awsDevice`: `str`
-- `jumboFrameCapable`: `bool`
-- `awsDeviceV2`: `str`
-- `hasLogicalRedundancy`: `HasLogicalRedundancy`
-- `tags`: `List["TagTypeDef"]`
-- `providerName`: `str`
-- `macSecCapable`: `bool`
-- `portEncryptionStatus`: `str`
-- `encryptionMode`: `str`
-- `macSecKeys`: `List["MacSecKeyTypeDef"]`
-
-
-## DirectConnectGatewayAssociationProposalTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import DirectConnectGatewayAssociationProposalTypeDef
-```
-
-
-
-
-Optional fields:
-- `proposalId`: `str`
-- `directConnectGatewayId`: `str`
-- `directConnectGatewayOwnerAccount`: `str`
-- `proposalState`: `DirectConnectGatewayAssociationProposalState`
-- `associatedGateway`: `"AssociatedGatewayTypeDef"`
-- `existingAllowedPrefixesToDirectConnectGateway`: `List["RouteFilterPrefixTypeDef"]`
-- `requestedAllowedPrefixesToDirectConnectGateway`: `List["RouteFilterPrefixTypeDef"]`
-
-
-## DirectConnectGatewayAssociationTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import DirectConnectGatewayAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `directConnectGatewayId`: `str`
-- `directConnectGatewayOwnerAccount`: `str`
-- `associationState`: `DirectConnectGatewayAssociationState`
-- `stateChangeError`: `str`
-- `associatedGateway`: `"AssociatedGatewayTypeDef"`
-- `associationId`: `str`
-- `allowedPrefixesToDirectConnectGateway`: `List["RouteFilterPrefixTypeDef"]`
-- `virtualGatewayId`: `str`
-- `virtualGatewayRegion`: `str`
-- `virtualGatewayOwnerAccount`: `str`
-
-
-## DirectConnectGatewayAttachmentTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import DirectConnectGatewayAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `directConnectGatewayId`: `str`
-- `virtualInterfaceId`: `str`
-- `virtualInterfaceRegion`: `str`
-- `virtualInterfaceOwnerAccount`: `str`
-- `attachmentState`: `DirectConnectGatewayAttachmentState`
-- `attachmentType`: `DirectConnectGatewayAttachmentType`
-- `stateChangeError`: `str`
-
-
-## DirectConnectGatewayTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import DirectConnectGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `directConnectGatewayId`: `str`
-- `directConnectGatewayName`: `str`
-- `amazonSideAsn`: `int`
-- `ownerAccount`: `str`
-- `directConnectGatewayState`: `DirectConnectGatewayState`
-- `stateChangeError`: `str`
-
-
-## InterconnectTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import InterconnectTypeDef
-```
-
-
-
-
-Optional fields:
-- `interconnectId`: `str`
-- `interconnectName`: `str`
-- `interconnectState`: `InterconnectState`
-- `region`: `str`
-- `location`: `str`
-- `bandwidth`: `str`
-- `loaIssueTime`: `datetime`
-- `lagId`: `str`
-- `awsDevice`: `str`
-- `jumboFrameCapable`: `bool`
-- `awsDeviceV2`: `str`
-- `hasLogicalRedundancy`: `HasLogicalRedundancy`
-- `tags`: `List["TagTypeDef"]`
-- `providerName`: `str`
-
-
-## LagTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import LagTypeDef
-```
-
-
-
-
-Optional fields:
-- `connectionsBandwidth`: `str`
-- `numberOfConnections`: `int`
-- `lagId`: `str`
-- `ownerAccount`: `str`
-- `lagName`: `str`
-- `lagState`: `LagState`
-- `location`: `str`
-- `region`: `str`
-- `minimumLinks`: `int`
-- `awsDevice`: `str`
-- `awsDeviceV2`: `str`
-- `connections`: `List["ConnectionTypeDef"]`
-- `allowsHostedConnections`: `bool`
-- `jumboFrameCapable`: `bool`
-- `hasLogicalRedundancy`: `HasLogicalRedundancy`
-- `tags`: `List["TagTypeDef"]`
-- `providerName`: `str`
-- `macSecCapable`: `bool`
-- `encryptionMode`: `str`
-- `macSecKeys`: `List["MacSecKeyTypeDef"]`
-
-
-## LoaTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import LoaTypeDef
-```
-
-
-
-
-Optional fields:
-- `loaContent`: `Union[bytes, IO[bytes]]`
-- `loaContentType`: `LoaContentType`
-
-
-## LocationTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import LocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `locationCode`: `str`
-- `locationName`: `str`
-- `region`: `str`
-- `availablePortSpeeds`: `List[str]`
-- `availableProviders`: `List[str]`
-- `availableMacSecPortSpeeds`: `List[str]`
-
-
-## MacSecKeyTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import MacSecKeyTypeDef
-```
-
-
-
-
-Optional fields:
-- `secretARN`: `str`
-- `ckn`: `str`
-- `state`: `str`
-- `startOn`: `str`
-
-
-## ResourceTagTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import ResourceTagTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceArn`: `str`
-- `tags`: `List["TagTypeDef"]`
-
-
-## RouteFilterPrefixTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import RouteFilterPrefixTypeDef
-```
-
-
-
-
-Optional fields:
-- `cidr`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `key`: `str`
-
-
-
-Optional fields:
-- `value`: `str`
-
-
-## VirtualGatewayTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import VirtualGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `virtualGatewayId`: `str`
-- `virtualGatewayState`: `str`
-
-
-## VirtualInterfaceTestHistoryTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import VirtualInterfaceTestHistoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `testId`: `str`
-- `virtualInterfaceId`: `str`
-- `bgpPeers`: `List[str]`
-- `status`: `str`
-- `ownerAccount`: `str`
-- `testDurationInMinutes`: `int`
-- `startTime`: `datetime`
-- `endTime`: `datetime`
-
-
-## VirtualInterfaceTypeDef
-
-```python
-from mypy_boto3_directconnect.type_defs import VirtualInterfaceTypeDef
-```
-
-
-
-
-Optional fields:
-- `ownerAccount`: `str`
-- `virtualInterfaceId`: `str`
-- `location`: `str`
-- `connectionId`: `str`
-- `virtualInterfaceType`: `str`
-- `virtualInterfaceName`: `str`
-- `vlan`: `int`
-- `asn`: `int`
-- `amazonSideAsn`: `int`
-- `authKey`: `str`
-- `amazonAddress`: `str`
-- `customerAddress`: `str`
-- `addressFamily`: `AddressFamily`
-- `virtualInterfaceState`: `VirtualInterfaceState`
-- `customerRouterConfig`: `str`
-- `mtu`: `int`
-- `jumboFrameCapable`: `bool`
-- `virtualGatewayId`: `str`
-- `directConnectGatewayId`: `str`
-- `routeFilterPrefixes`: `List["RouteFilterPrefixTypeDef"]`
-- `bgpPeers`: `List["BGPPeerTypeDef"]`
-- `region`: `str`
-- `awsDeviceV2`: `str`
-- `tags`: `List["TagTypeDef"]`
-
 
 ## AcceptDirectConnectGatewayAssociationProposalResultTypeDef
 
@@ -474,6 +107,43 @@ from mypy_boto3_directconnect.type_defs import AssociateMacSecKeyResponseTypeDef
 Optional fields:
 - `connectionId`: `str`
 - `macSecKeys`: `List["MacSecKeyTypeDef"]`
+
+
+## AssociatedGatewayTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import AssociatedGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `type`: `GatewayType`
+- `ownerAccount`: `str`
+- `region`: `str`
+
+
+## BGPPeerTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import BGPPeerTypeDef
+```
+
+
+
+
+Optional fields:
+- `bgpPeerId`: `str`
+- `asn`: `int`
+- `authKey`: `str`
+- `addressFamily`: `AddressFamily`
+- `amazonAddress`: `str`
+- `customerAddress`: `str`
+- `bgpPeerState`: `BGPPeerState`
+- `bgpStatus`: `BGPStatus`
+- `awsDeviceV2`: `str`
 
 
 ## ConfirmConnectionResponseTypeDef
@@ -526,6 +196,39 @@ from mypy_boto3_directconnect.type_defs import ConfirmTransitVirtualInterfaceRes
 
 Optional fields:
 - `virtualInterfaceState`: `VirtualInterfaceState`
+
+
+## ConnectionTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import ConnectionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ownerAccount`: `str`
+- `connectionId`: `str`
+- `connectionName`: `str`
+- `connectionState`: `ConnectionState`
+- `region`: `str`
+- `location`: `str`
+- `bandwidth`: `str`
+- `vlan`: `int`
+- `partnerName`: `str`
+- `loaIssueTime`: `datetime`
+- `lagId`: `str`
+- `awsDevice`: `str`
+- `jumboFrameCapable`: `bool`
+- `awsDeviceV2`: `str`
+- `hasLogicalRedundancy`: `HasLogicalRedundancy`
+- `tags`: `List["TagTypeDef"]`
+- `providerName`: `str`
+- `macSecCapable`: `bool`
+- `portEncryptionStatus`: `str`
+- `encryptionMode`: `str`
+- `macSecKeys`: `List["MacSecKeyTypeDef"]`
 
 
 ## ConnectionsTypeDef
@@ -779,6 +482,84 @@ Optional fields:
 - `resourceTags`: `List["ResourceTagTypeDef"]`
 
 
+## DirectConnectGatewayAssociationProposalTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import DirectConnectGatewayAssociationProposalTypeDef
+```
+
+
+
+
+Optional fields:
+- `proposalId`: `str`
+- `directConnectGatewayId`: `str`
+- `directConnectGatewayOwnerAccount`: `str`
+- `proposalState`: `DirectConnectGatewayAssociationProposalState`
+- `associatedGateway`: `"AssociatedGatewayTypeDef"`
+- `existingAllowedPrefixesToDirectConnectGateway`: `List["RouteFilterPrefixTypeDef"]`
+- `requestedAllowedPrefixesToDirectConnectGateway`: `List["RouteFilterPrefixTypeDef"]`
+
+
+## DirectConnectGatewayAssociationTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import DirectConnectGatewayAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `directConnectGatewayId`: `str`
+- `directConnectGatewayOwnerAccount`: `str`
+- `associationState`: `DirectConnectGatewayAssociationState`
+- `stateChangeError`: `str`
+- `associatedGateway`: `"AssociatedGatewayTypeDef"`
+- `associationId`: `str`
+- `allowedPrefixesToDirectConnectGateway`: `List["RouteFilterPrefixTypeDef"]`
+- `virtualGatewayId`: `str`
+- `virtualGatewayRegion`: `str`
+- `virtualGatewayOwnerAccount`: `str`
+
+
+## DirectConnectGatewayAttachmentTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import DirectConnectGatewayAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `directConnectGatewayId`: `str`
+- `virtualInterfaceId`: `str`
+- `virtualInterfaceRegion`: `str`
+- `virtualInterfaceOwnerAccount`: `str`
+- `attachmentState`: `DirectConnectGatewayAttachmentState`
+- `attachmentType`: `DirectConnectGatewayAttachmentType`
+- `stateChangeError`: `str`
+
+
+## DirectConnectGatewayTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import DirectConnectGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `directConnectGatewayId`: `str`
+- `directConnectGatewayName`: `str`
+- `amazonSideAsn`: `int`
+- `ownerAccount`: `str`
+- `directConnectGatewayState`: `DirectConnectGatewayState`
+- `stateChangeError`: `str`
+
+
 ## DisassociateMacSecKeyResponseTypeDef
 
 ```python
@@ -793,6 +574,32 @@ Optional fields:
 - `macSecKeys`: `List["MacSecKeyTypeDef"]`
 
 
+## InterconnectTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import InterconnectTypeDef
+```
+
+
+
+
+Optional fields:
+- `interconnectId`: `str`
+- `interconnectName`: `str`
+- `interconnectState`: `InterconnectState`
+- `region`: `str`
+- `location`: `str`
+- `bandwidth`: `str`
+- `loaIssueTime`: `datetime`
+- `lagId`: `str`
+- `awsDevice`: `str`
+- `jumboFrameCapable`: `bool`
+- `awsDeviceV2`: `str`
+- `hasLogicalRedundancy`: `HasLogicalRedundancy`
+- `tags`: `List["TagTypeDef"]`
+- `providerName`: `str`
+
+
 ## InterconnectsTypeDef
 
 ```python
@@ -804,6 +611,38 @@ from mypy_boto3_directconnect.type_defs import InterconnectsTypeDef
 
 Optional fields:
 - `interconnects`: `List["InterconnectTypeDef"]`
+
+
+## LagTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import LagTypeDef
+```
+
+
+
+
+Optional fields:
+- `connectionsBandwidth`: `str`
+- `numberOfConnections`: `int`
+- `lagId`: `str`
+- `ownerAccount`: `str`
+- `lagName`: `str`
+- `lagState`: `LagState`
+- `location`: `str`
+- `region`: `str`
+- `minimumLinks`: `int`
+- `awsDevice`: `str`
+- `awsDeviceV2`: `str`
+- `connections`: `List["ConnectionTypeDef"]`
+- `allowsHostedConnections`: `bool`
+- `jumboFrameCapable`: `bool`
+- `hasLogicalRedundancy`: `HasLogicalRedundancy`
+- `tags`: `List["TagTypeDef"]`
+- `providerName`: `str`
+- `macSecCapable`: `bool`
+- `encryptionMode`: `str`
+- `macSecKeys`: `List["MacSecKeyTypeDef"]`
 
 
 ## LagsTypeDef
@@ -833,6 +672,38 @@ Optional fields:
 - `nextToken`: `str`
 
 
+## LoaTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import LoaTypeDef
+```
+
+
+
+
+Optional fields:
+- `loaContent`: `Union[bytes, IO[bytes]]`
+- `loaContentType`: `Literal['application/pdf']`
+
+
+## LocationTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import LocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `locationCode`: `str`
+- `locationName`: `str`
+- `region`: `str`
+- `availablePortSpeeds`: `List[str]`
+- `availableProviders`: `List[str]`
+- `availableMacSecPortSpeeds`: `List[str]`
+
+
 ## LocationsTypeDef
 
 ```python
@@ -844,6 +715,22 @@ from mypy_boto3_directconnect.type_defs import LocationsTypeDef
 
 Optional fields:
 - `locations`: `List["LocationTypeDef"]`
+
+
+## MacSecKeyTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import MacSecKeyTypeDef
+```
+
+
+
+
+Optional fields:
+- `secretARN`: `str`
+- `ckn`: `str`
+- `state`: `str`
+- `startOn`: `str`
 
 
 ## NewBGPPeerTypeDef
@@ -1015,6 +902,33 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ResourceTagTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import ResourceTagTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceArn`: `str`
+- `tags`: `List["TagTypeDef"]`
+
+
+## RouteFilterPrefixTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import RouteFilterPrefixTypeDef
+```
+
+
+
+
+Optional fields:
+- `cidr`: `str`
+
+
 ## StartBgpFailoverTestResponseTypeDef
 
 ```python
@@ -1041,6 +955,22 @@ Optional fields:
 - `virtualInterfaceTest`: `"VirtualInterfaceTestHistoryTypeDef"`
 
 
+## TagTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `key`: `str`
+
+
+
+Optional fields:
+- `value`: `str`
+
+
 ## UpdateDirectConnectGatewayAssociationResultTypeDef
 
 ```python
@@ -1054,6 +984,20 @@ Optional fields:
 - `directConnectGatewayAssociation`: `"DirectConnectGatewayAssociationTypeDef"`
 
 
+## VirtualGatewayTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import VirtualGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `virtualGatewayId`: `str`
+- `virtualGatewayState`: `str`
+
+
 ## VirtualGatewaysTypeDef
 
 ```python
@@ -1065,6 +1009,62 @@ from mypy_boto3_directconnect.type_defs import VirtualGatewaysTypeDef
 
 Optional fields:
 - `virtualGateways`: `List["VirtualGatewayTypeDef"]`
+
+
+## VirtualInterfaceTestHistoryTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import VirtualInterfaceTestHistoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `testId`: `str`
+- `virtualInterfaceId`: `str`
+- `bgpPeers`: `List[str]`
+- `status`: `str`
+- `ownerAccount`: `str`
+- `testDurationInMinutes`: `int`
+- `startTime`: `datetime`
+- `endTime`: `datetime`
+
+
+## VirtualInterfaceTypeDef
+
+```python
+from mypy_boto3_directconnect.type_defs import VirtualInterfaceTypeDef
+```
+
+
+
+
+Optional fields:
+- `ownerAccount`: `str`
+- `virtualInterfaceId`: `str`
+- `location`: `str`
+- `connectionId`: `str`
+- `virtualInterfaceType`: `str`
+- `virtualInterfaceName`: `str`
+- `vlan`: `int`
+- `asn`: `int`
+- `amazonSideAsn`: `int`
+- `authKey`: `str`
+- `amazonAddress`: `str`
+- `customerAddress`: `str`
+- `addressFamily`: `AddressFamily`
+- `virtualInterfaceState`: `VirtualInterfaceState`
+- `customerRouterConfig`: `str`
+- `mtu`: `int`
+- `jumboFrameCapable`: `bool`
+- `virtualGatewayId`: `str`
+- `directConnectGatewayId`: `str`
+- `routeFilterPrefixes`: `List["RouteFilterPrefixTypeDef"]`
+- `bgpPeers`: `List["BGPPeerTypeDef"]`
+- `region`: `str`
+- `awsDeviceV2`: `str`
+- `tags`: `List["TagTypeDef"]`
 
 
 ## VirtualInterfacesTypeDef

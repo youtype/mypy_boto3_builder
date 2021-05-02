@@ -101,13 +101,13 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_amp.type_defs import WorkspaceDescriptionTypeDef, ...
+from mypy_boto3_amp.type_defs import CreateWorkspaceResponseTypeDef, ...
 ```
 
-- [WorkspaceDescriptionTypeDef](./type_defs.md#workspacedescriptiontypedef)
-- [WorkspaceStatusTypeDef](./type_defs.md#workspacestatustypedef)
-- [WorkspaceSummaryTypeDef](./type_defs.md#workspacesummarytypedef)
 - [CreateWorkspaceResponseTypeDef](./type_defs.md#createworkspaceresponsetypedef)
 - [DescribeWorkspaceResponseTypeDef](./type_defs.md#describeworkspaceresponsetypedef)
 - [ListWorkspacesResponseTypeDef](./type_defs.md#listworkspacesresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [WorkspaceDescriptionTypeDef](./type_defs.md#workspacedescriptiontypedef)
+- [WorkspaceStatusTypeDef](./type_defs.md#workspacestatustypedef)
+- [WorkspaceSummaryTypeDef](./type_defs.md#workspacesummarytypedef)

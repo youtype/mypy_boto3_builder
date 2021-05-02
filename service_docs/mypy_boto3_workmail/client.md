@@ -66,13 +66,6 @@ type annotations stubs module [mypy_boto3_workmail](https://pypi.org/project/myp
     - [update_primary_email_address](#update_primary_email_address)
     - [update_resource](#update_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
 
 ## WorkMailClient
 
@@ -1041,122 +1034,19 @@ def update_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("workmail").get_paginator` method.
-
-[Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail.html#WorkMail.Paginator.ListAliases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAliasesPaginatorName
-) -> ListAliasesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("workmail").get_paginator` method.
+Type annotations for `boto3.client("workmail").get_paginator` method with overloads.
 
-[Paginator.ListGroupMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail.html#WorkMail.Paginator.ListGroupMembers)
+- `client.get_paginator("list_aliases")` -> [ListAliasesPaginator](./paginators.md#listaliasespaginator)
+- `client.get_paginator("list_group_members")` -> [ListGroupMembersPaginator](./paginators.md#listgroupmemberspaginator)
+- `client.get_paginator("list_groups")` -> [ListGroupsPaginator](./paginators.md#listgroupspaginator)
+- `client.get_paginator("list_mailbox_permissions")` -> [ListMailboxPermissionsPaginator](./paginators.md#listmailboxpermissionspaginator)
+- `client.get_paginator("list_organizations")` -> [ListOrganizationsPaginator](./paginators.md#listorganizationspaginator)
+- `client.get_paginator("list_resource_delegates")` -> [ListResourceDelegatesPaginator](./paginators.md#listresourcedelegatespaginator)
+- `client.get_paginator("list_resources")` -> [ListResourcesPaginator](./paginators.md#listresourcespaginator)
+- `client.get_paginator("list_users")` -> [ListUsersPaginator](./paginators.md#listuserspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGroupMembersPaginatorName
-) -> ListGroupMembersPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("workmail").get_paginator` method.
-
-[Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail.html#WorkMail.Paginator.ListGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGroupsPaginatorName
-) -> ListGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workmail").get_paginator` method.
-
-[Paginator.ListMailboxPermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail.html#WorkMail.Paginator.ListMailboxPermissions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMailboxPermissionsPaginatorName
-) -> ListMailboxPermissionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workmail").get_paginator` method.
-
-[Paginator.ListOrganizations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail.html#WorkMail.Paginator.ListOrganizations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOrganizationsPaginatorName
-) -> ListOrganizationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workmail").get_paginator` method.
-
-[Paginator.ListResourceDelegates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail.html#WorkMail.Paginator.ListResourceDelegates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourceDelegatesPaginatorName
-) -> ListResourceDelegatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workmail").get_paginator` method.
-
-[Paginator.ListResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail.html#WorkMail.Paginator.ListResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourcesPaginatorName
-) -> ListResourcesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workmail").get_paginator` method.
-
-[Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workmail.html#WorkMail.Paginator.ListUsers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUsersPaginatorName
-) -> ListUsersPaginator:
-    pass
-```

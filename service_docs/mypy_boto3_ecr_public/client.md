@@ -35,9 +35,6 @@ type annotations stubs module [mypy_boto3_ecr_public](https://pypi.org/project/m
     - [untag_resource](#untag_resource)
     - [upload_layer_part](#upload_layer_part)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## ECRPublicClient
 
@@ -487,62 +484,15 @@ def upload_layer_part(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("ecr-public").get_paginator` method.
-
-[Paginator.DescribeImageTags documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImageTags)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeImageTagsPaginatorName
-) -> DescribeImageTagsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("ecr-public").get_paginator` method.
+Type annotations for `boto3.client("ecr-public").get_paginator` method with overloads.
 
-[Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImages)
+- `client.get_paginator("describe_image_tags")` -> [DescribeImageTagsPaginator](./paginators.md#describeimagetagspaginator)
+- `client.get_paginator("describe_images")` -> [DescribeImagesPaginator](./paginators.md#describeimagespaginator)
+- `client.get_paginator("describe_registries")` -> [DescribeRegistriesPaginator](./paginators.md#describeregistriespaginator)
+- `client.get_paginator("describe_repositories")` -> [DescribeRepositoriesPaginator](./paginators.md#describerepositoriespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeImagesPaginatorName
-) -> DescribeImagesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("ecr-public").get_paginator` method.
-
-[Paginator.DescribeRegistries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRegistries)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeRegistriesPaginatorName
-) -> DescribeRegistriesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ecr-public").get_paginator` method.
-
-[Paginator.DescribeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRepositories)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeRepositoriesPaginatorName
-) -> DescribeRepositoriesPaginator:
-    pass
-```

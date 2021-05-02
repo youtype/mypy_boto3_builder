@@ -30,9 +30,6 @@ type annotations stubs module [mypy_boto3_cloudtrail](https://pypi.org/project/m
     - [stop_logging](#stop_logging)
     - [update_trail](#update_trail)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## CloudTrailClient
 
@@ -322,7 +319,7 @@ def lookup_events(
     LookupAttributes: List[LookupAttributeTypeDef] = None,
     StartTime: datetime = None,
     EndTime: datetime = None,
-    EventCategory: EventCategory = None,
+    EventCategory: Literal['insight'] = None,
     MaxResults: int = None,
     NextToken: str = None
 ) -> LookupEventsResponseTypeDef:
@@ -427,62 +424,15 @@ def update_trail(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("cloudtrail").get_paginator` method.
-
-[Paginator.ListPublicKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPublicKeysPaginatorName
-) -> ListPublicKeysPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("cloudtrail").get_paginator` method.
+Type annotations for `boto3.client("cloudtrail").get_paginator` method with overloads.
 
-[Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags)
+- `client.get_paginator("list_public_keys")` -> [ListPublicKeysPaginator](./paginators.md#listpublickeyspaginator)
+- `client.get_paginator("list_tags")` -> [ListTagsPaginator](./paginators.md#listtagspaginator)
+- `client.get_paginator("list_trails")` -> [ListTrailsPaginator](./paginators.md#listtrailspaginator)
+- `client.get_paginator("lookup_events")` -> [LookupEventsPaginator](./paginators.md#lookupeventspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsPaginatorName
-) -> ListTagsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("cloudtrail").get_paginator` method.
-
-[Paginator.ListTrails documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTrailsPaginatorName
-) -> ListTrailsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudtrail").get_paginator` method.
-
-[Paginator.LookupEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: LookupEventsPaginatorName
-) -> LookupEventsPaginator:
-    pass
-```

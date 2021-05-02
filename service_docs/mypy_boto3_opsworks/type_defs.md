@@ -11,50 +11,19 @@ type annotations stubs module [mypy_boto3_opsworks](https://pypi.org/project/myp
   - [AutoScalingThresholdsTypeDef](#autoscalingthresholdstypedef)
   - [BlockDeviceMappingTypeDef](#blockdevicemappingtypedef)
   - [ChefConfigurationTypeDef](#chefconfigurationtypedef)
+  - [CloneStackResultTypeDef](#clonestackresulttypedef)
   - [CloudWatchLogsConfigurationTypeDef](#cloudwatchlogsconfigurationtypedef)
   - [CloudWatchLogsLogStreamTypeDef](#cloudwatchlogslogstreamtypedef)
   - [CommandTypeDef](#commandtypedef)
-  - [DataSourceTypeDef](#datasourcetypedef)
-  - [DeploymentCommandTypeDef](#deploymentcommandtypedef)
-  - [DeploymentTypeDef](#deploymenttypedef)
-  - [EbsBlockDeviceTypeDef](#ebsblockdevicetypedef)
-  - [EcsClusterTypeDef](#ecsclustertypedef)
-  - [ElasticIpTypeDef](#elasticiptypedef)
-  - [ElasticLoadBalancerTypeDef](#elasticloadbalancertypedef)
-  - [EnvironmentVariableTypeDef](#environmentvariabletypedef)
-  - [InstanceTypeDef](#instancetypedef)
-  - [InstancesCountTypeDef](#instancescounttypedef)
-  - [LayerTypeDef](#layertypedef)
-  - [LifecycleEventConfigurationTypeDef](#lifecycleeventconfigurationtypedef)
-  - [LoadBasedAutoScalingConfigurationTypeDef](#loadbasedautoscalingconfigurationtypedef)
-  - [OperatingSystemConfigurationManagerTypeDef](#operatingsystemconfigurationmanagertypedef)
-  - [OperatingSystemTypeDef](#operatingsystemtypedef)
-  - [PermissionTypeDef](#permissiontypedef)
-  - [RaidArrayTypeDef](#raidarraytypedef)
-  - [RdsDbInstanceTypeDef](#rdsdbinstancetypedef)
-  - [RecipesTypeDef](#recipestypedef)
-  - [ReportedOsTypeDef](#reportedostypedef)
-  - [SelfUserProfileTypeDef](#selfuserprofiletypedef)
-  - [ServiceErrorTypeDef](#serviceerrortypedef)
-  - [ShutdownEventConfigurationTypeDef](#shutdowneventconfigurationtypedef)
-  - [SourceTypeDef](#sourcetypedef)
-  - [SslConfigurationTypeDef](#sslconfigurationtypedef)
-  - [StackConfigurationManagerTypeDef](#stackconfigurationmanagertypedef)
-  - [StackSummaryTypeDef](#stacksummarytypedef)
-  - [StackTypeDef](#stacktypedef)
-  - [TemporaryCredentialTypeDef](#temporarycredentialtypedef)
-  - [TimeBasedAutoScalingConfigurationTypeDef](#timebasedautoscalingconfigurationtypedef)
-  - [UserProfileTypeDef](#userprofiletypedef)
-  - [VolumeConfigurationTypeDef](#volumeconfigurationtypedef)
-  - [VolumeTypeDef](#volumetypedef)
-  - [WeeklyAutoScalingScheduleTypeDef](#weeklyautoscalingscheduletypedef)
-  - [CloneStackResultTypeDef](#clonestackresulttypedef)
   - [CreateAppResultTypeDef](#createappresulttypedef)
   - [CreateDeploymentResultTypeDef](#createdeploymentresulttypedef)
   - [CreateInstanceResultTypeDef](#createinstanceresulttypedef)
   - [CreateLayerResultTypeDef](#createlayerresulttypedef)
   - [CreateStackResultTypeDef](#createstackresulttypedef)
   - [CreateUserProfileResultTypeDef](#createuserprofileresulttypedef)
+  - [DataSourceTypeDef](#datasourcetypedef)
+  - [DeploymentCommandTypeDef](#deploymentcommandtypedef)
+  - [DeploymentTypeDef](#deploymenttypedef)
   - [DescribeAgentVersionsResultTypeDef](#describeagentversionsresulttypedef)
   - [DescribeAppsResultTypeDef](#describeappsresulttypedef)
   - [DescribeCommandsResultTypeDef](#describecommandsresulttypedef)
@@ -77,16 +46,47 @@ type annotations stubs module [mypy_boto3_opsworks](https://pypi.org/project/myp
   - [DescribeTimeBasedAutoScalingResultTypeDef](#describetimebasedautoscalingresulttypedef)
   - [DescribeUserProfilesResultTypeDef](#describeuserprofilesresulttypedef)
   - [DescribeVolumesResultTypeDef](#describevolumesresulttypedef)
+  - [EbsBlockDeviceTypeDef](#ebsblockdevicetypedef)
+  - [EcsClusterTypeDef](#ecsclustertypedef)
+  - [ElasticIpTypeDef](#elasticiptypedef)
+  - [ElasticLoadBalancerTypeDef](#elasticloadbalancertypedef)
+  - [EnvironmentVariableTypeDef](#environmentvariabletypedef)
   - [GetHostnameSuggestionResultTypeDef](#gethostnamesuggestionresulttypedef)
   - [GrantAccessResultTypeDef](#grantaccessresulttypedef)
   - [InstanceIdentityTypeDef](#instanceidentitytypedef)
+  - [InstanceTypeDef](#instancetypedef)
+  - [InstancesCountTypeDef](#instancescounttypedef)
+  - [LayerTypeDef](#layertypedef)
+  - [LifecycleEventConfigurationTypeDef](#lifecycleeventconfigurationtypedef)
   - [ListTagsResultTypeDef](#listtagsresulttypedef)
+  - [LoadBasedAutoScalingConfigurationTypeDef](#loadbasedautoscalingconfigurationtypedef)
+  - [OperatingSystemConfigurationManagerTypeDef](#operatingsystemconfigurationmanagertypedef)
+  - [OperatingSystemTypeDef](#operatingsystemtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PermissionTypeDef](#permissiontypedef)
+  - [RaidArrayTypeDef](#raidarraytypedef)
+  - [RdsDbInstanceTypeDef](#rdsdbinstancetypedef)
+  - [RecipesTypeDef](#recipestypedef)
   - [RegisterEcsClusterResultTypeDef](#registerecsclusterresulttypedef)
   - [RegisterElasticIpResultTypeDef](#registerelasticipresulttypedef)
   - [RegisterInstanceResultTypeDef](#registerinstanceresulttypedef)
   - [RegisterVolumeResultTypeDef](#registervolumeresulttypedef)
+  - [ReportedOsTypeDef](#reportedostypedef)
+  - [SelfUserProfileTypeDef](#selfuserprofiletypedef)
+  - [ServiceErrorTypeDef](#serviceerrortypedef)
+  - [ShutdownEventConfigurationTypeDef](#shutdowneventconfigurationtypedef)
+  - [SourceTypeDef](#sourcetypedef)
+  - [SslConfigurationTypeDef](#sslconfigurationtypedef)
+  - [StackConfigurationManagerTypeDef](#stackconfigurationmanagertypedef)
+  - [StackSummaryTypeDef](#stacksummarytypedef)
+  - [StackTypeDef](#stacktypedef)
+  - [TemporaryCredentialTypeDef](#temporarycredentialtypedef)
+  - [TimeBasedAutoScalingConfigurationTypeDef](#timebasedautoscalingconfigurationtypedef)
+  - [UserProfileTypeDef](#userprofiletypedef)
+  - [VolumeConfigurationTypeDef](#volumeconfigurationtypedef)
+  - [VolumeTypeDef](#volumetypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
+  - [WeeklyAutoScalingScheduleTypeDef](#weeklyautoscalingscheduletypedef)
 
 ## AgentVersionTypeDef
 
@@ -177,6 +177,19 @@ Optional fields:
 - `BerkshelfVersion`: `str`
 
 
+## CloneStackResultTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import CloneStackResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackId`: `str`
+
+
 ## CloudWatchLogsConfigurationTypeDef
 
 ```python
@@ -234,701 +247,6 @@ Optional fields:
 - `ExitCode`: `int`
 - `LogUrl`: `str`
 - `Type`: `str`
-
-
-## DataSourceTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import DataSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `str`
-- `Arn`: `str`
-- `DatabaseName`: `str`
-
-
-## DeploymentCommandTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import DeploymentCommandTypeDef
-```
-
-
-Required fields:
-- `Name`: `DeploymentCommandName`
-
-
-
-Optional fields:
-- `Args`: `Dict[str, List[str]]`
-
-
-## DeploymentTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import DeploymentTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeploymentId`: `str`
-- `StackId`: `str`
-- `AppId`: `str`
-- `CreatedAt`: `str`
-- `CompletedAt`: `str`
-- `Duration`: `int`
-- `IamUserArn`: `str`
-- `Comment`: `str`
-- `Command`: `"DeploymentCommandTypeDef"`
-- `Status`: `str`
-- `CustomJson`: `str`
-- `InstanceIds`: `List[str]`
-
-
-## EbsBlockDeviceTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import EbsBlockDeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `SnapshotId`: `str`
-- `Iops`: `int`
-- `VolumeSize`: `int`
-- `VolumeType`: `VolumeType`
-- `DeleteOnTermination`: `bool`
-
-
-## EcsClusterTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import EcsClusterTypeDef
-```
-
-
-
-
-Optional fields:
-- `EcsClusterArn`: `str`
-- `EcsClusterName`: `str`
-- `StackId`: `str`
-- `RegisteredAt`: `str`
-
-
-## ElasticIpTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import ElasticIpTypeDef
-```
-
-
-
-
-Optional fields:
-- `Ip`: `str`
-- `Name`: `str`
-- `Domain`: `str`
-- `Region`: `str`
-- `InstanceId`: `str`
-
-
-## ElasticLoadBalancerTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import ElasticLoadBalancerTypeDef
-```
-
-
-
-
-Optional fields:
-- `ElasticLoadBalancerName`: `str`
-- `Region`: `str`
-- `DnsName`: `str`
-- `StackId`: `str`
-- `LayerId`: `str`
-- `VpcId`: `str`
-- `AvailabilityZones`: `List[str]`
-- `SubnetIds`: `List[str]`
-- `Ec2InstanceIds`: `List[str]`
-
-
-## EnvironmentVariableTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import EnvironmentVariableTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-Optional fields:
-- `Secure`: `bool`
-
-
-## InstanceTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import InstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `AgentVersion`: `str`
-- `AmiId`: `str`
-- `Architecture`: `Architecture`
-- `Arn`: `str`
-- `AutoScalingType`: `AutoScalingType`
-- `AvailabilityZone`: `str`
-- `BlockDeviceMappings`: `List["BlockDeviceMappingTypeDef"]`
-- `CreatedAt`: `str`
-- `EbsOptimized`: `bool`
-- `Ec2InstanceId`: `str`
-- `EcsClusterArn`: `str`
-- `EcsContainerInstanceArn`: `str`
-- `ElasticIp`: `str`
-- `Hostname`: `str`
-- `InfrastructureClass`: `str`
-- `InstallUpdatesOnBoot`: `bool`
-- `InstanceId`: `str`
-- `InstanceProfileArn`: `str`
-- `InstanceType`: `str`
-- `LastServiceErrorId`: `str`
-- `LayerIds`: `List[str]`
-- `Os`: `str`
-- `Platform`: `str`
-- `PrivateDns`: `str`
-- `PrivateIp`: `str`
-- `PublicDns`: `str`
-- `PublicIp`: `str`
-- `RegisteredBy`: `str`
-- `ReportedAgentVersion`: `str`
-- `ReportedOs`: `"ReportedOsTypeDef"`
-- `RootDeviceType`: `RootDeviceType`
-- `RootDeviceVolumeId`: `str`
-- `SecurityGroupIds`: `List[str]`
-- `SshHostDsaKeyFingerprint`: `str`
-- `SshHostRsaKeyFingerprint`: `str`
-- `SshKeyName`: `str`
-- `StackId`: `str`
-- `Status`: `str`
-- `SubnetId`: `str`
-- `Tenancy`: `str`
-- `VirtualizationType`: `VirtualizationType`
-
-
-## InstancesCountTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import InstancesCountTypeDef
-```
-
-
-
-
-Optional fields:
-- `Assigning`: `int`
-- `Booting`: `int`
-- `ConnectionLost`: `int`
-- `Deregistering`: `int`
-- `Online`: `int`
-- `Pending`: `int`
-- `Rebooting`: `int`
-- `Registered`: `int`
-- `Registering`: `int`
-- `Requested`: `int`
-- `RunningSetup`: `int`
-- `SetupFailed`: `int`
-- `ShuttingDown`: `int`
-- `StartFailed`: `int`
-- `StopFailed`: `int`
-- `Stopped`: `int`
-- `Stopping`: `int`
-- `Terminated`: `int`
-- `Terminating`: `int`
-- `Unassigning`: `int`
-
-
-## LayerTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import LayerTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `StackId`: `str`
-- `LayerId`: `str`
-- `Type`: `LayerType`
-- `Name`: `str`
-- `Shortname`: `str`
-- `Attributes`: `Dict[LayerAttributesKeys, str]`
-- `CloudWatchLogsConfiguration`: `"CloudWatchLogsConfigurationTypeDef"`
-- `CustomInstanceProfileArn`: `str`
-- `CustomJson`: `str`
-- `CustomSecurityGroupIds`: `List[str]`
-- `DefaultSecurityGroupNames`: `List[str]`
-- `Packages`: `List[str]`
-- `VolumeConfigurations`: `List["VolumeConfigurationTypeDef"]`
-- `EnableAutoHealing`: `bool`
-- `AutoAssignElasticIps`: `bool`
-- `AutoAssignPublicIps`: `bool`
-- `DefaultRecipes`: `"RecipesTypeDef"`
-- `CustomRecipes`: `"RecipesTypeDef"`
-- `CreatedAt`: `str`
-- `InstallUpdatesOnBoot`: `bool`
-- `UseEbsOptimizedInstances`: `bool`
-- `LifecycleEventConfiguration`: `"LifecycleEventConfigurationTypeDef"`
-
-
-## LifecycleEventConfigurationTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import LifecycleEventConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Shutdown`: `"ShutdownEventConfigurationTypeDef"`
-
-
-## LoadBasedAutoScalingConfigurationTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import LoadBasedAutoScalingConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `LayerId`: `str`
-- `Enable`: `bool`
-- `UpScaling`: `"AutoScalingThresholdsTypeDef"`
-- `DownScaling`: `"AutoScalingThresholdsTypeDef"`
-
-
-## OperatingSystemConfigurationManagerTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import OperatingSystemConfigurationManagerTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Version`: `str`
-
-
-## OperatingSystemTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import OperatingSystemTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Id`: `str`
-- `Type`: `str`
-- `ConfigurationManagers`: `List["OperatingSystemConfigurationManagerTypeDef"]`
-- `ReportedName`: `str`
-- `ReportedVersion`: `str`
-- `Supported`: `bool`
-
-
-## PermissionTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import PermissionTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackId`: `str`
-- `IamUserArn`: `str`
-- `AllowSsh`: `bool`
-- `AllowSudo`: `bool`
-- `Level`: `str`
-
-
-## RaidArrayTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import RaidArrayTypeDef
-```
-
-
-
-
-Optional fields:
-- `RaidArrayId`: `str`
-- `InstanceId`: `str`
-- `Name`: `str`
-- `RaidLevel`: `int`
-- `NumberOfDisks`: `int`
-- `Size`: `int`
-- `Device`: `str`
-- `MountPoint`: `str`
-- `AvailabilityZone`: `str`
-- `CreatedAt`: `str`
-- `StackId`: `str`
-- `VolumeType`: `str`
-- `Iops`: `int`
-
-
-## RdsDbInstanceTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import RdsDbInstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `RdsDbInstanceArn`: `str`
-- `DbInstanceIdentifier`: `str`
-- `DbUser`: `str`
-- `DbPassword`: `str`
-- `Region`: `str`
-- `Address`: `str`
-- `Engine`: `str`
-- `StackId`: `str`
-- `MissingOnRds`: `bool`
-
-
-## RecipesTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import RecipesTypeDef
-```
-
-
-
-
-Optional fields:
-- `Setup`: `List[str]`
-- `Configure`: `List[str]`
-- `Deploy`: `List[str]`
-- `Undeploy`: `List[str]`
-- `Shutdown`: `List[str]`
-
-
-## ReportedOsTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import ReportedOsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Family`: `str`
-- `Name`: `str`
-- `Version`: `str`
-
-
-## SelfUserProfileTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import SelfUserProfileTypeDef
-```
-
-
-
-
-Optional fields:
-- `IamUserArn`: `str`
-- `Name`: `str`
-- `SshUsername`: `str`
-- `SshPublicKey`: `str`
-
-
-## ServiceErrorTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import ServiceErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceErrorId`: `str`
-- `StackId`: `str`
-- `InstanceId`: `str`
-- `Type`: `str`
-- `Message`: `str`
-- `CreatedAt`: `str`
-
-
-## ShutdownEventConfigurationTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import ShutdownEventConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ExecutionTimeout`: `int`
-- `DelayUntilElbConnectionsDrained`: `bool`
-
-
-## SourceTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import SourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `SourceType`
-- `Url`: `str`
-- `Username`: `str`
-- `Password`: `str`
-- `SshKey`: `str`
-- `Revision`: `str`
-
-
-## SslConfigurationTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import SslConfigurationTypeDef
-```
-
-
-Required fields:
-- `Certificate`: `str`
-- `PrivateKey`: `str`
-
-
-
-Optional fields:
-- `Chain`: `str`
-
-
-## StackConfigurationManagerTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import StackConfigurationManagerTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Version`: `str`
-
-
-## StackSummaryTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import StackSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackId`: `str`
-- `Name`: `str`
-- `Arn`: `str`
-- `LayersCount`: `int`
-- `AppsCount`: `int`
-- `InstancesCount`: `"InstancesCountTypeDef"`
-
-
-## StackTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import StackTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackId`: `str`
-- `Name`: `str`
-- `Arn`: `str`
-- `Region`: `str`
-- `VpcId`: `str`
-- `Attributes`: `Dict[StackAttributesKeys, str]`
-- `ServiceRoleArn`: `str`
-- `DefaultInstanceProfileArn`: `str`
-- `DefaultOs`: `str`
-- `HostnameTheme`: `str`
-- `DefaultAvailabilityZone`: `str`
-- `DefaultSubnetId`: `str`
-- `CustomJson`: `str`
-- `ConfigurationManager`: `"StackConfigurationManagerTypeDef"`
-- `ChefConfiguration`: `"ChefConfigurationTypeDef"`
-- `UseCustomCookbooks`: `bool`
-- `UseOpsworksSecurityGroups`: `bool`
-- `CustomCookbooksSource`: `"SourceTypeDef"`
-- `DefaultSshKeyName`: `str`
-- `CreatedAt`: `str`
-- `DefaultRootDeviceType`: `RootDeviceType`
-- `AgentVersion`: `str`
-
-
-## TemporaryCredentialTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import TemporaryCredentialTypeDef
-```
-
-
-
-
-Optional fields:
-- `Username`: `str`
-- `Password`: `str`
-- `ValidForInMinutes`: `int`
-- `InstanceId`: `str`
-
-
-## TimeBasedAutoScalingConfigurationTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import TimeBasedAutoScalingConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceId`: `str`
-- `AutoScalingSchedule`: `"WeeklyAutoScalingScheduleTypeDef"`
-
-
-## UserProfileTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import UserProfileTypeDef
-```
-
-
-
-
-Optional fields:
-- `IamUserArn`: `str`
-- `Name`: `str`
-- `SshUsername`: `str`
-- `SshPublicKey`: `str`
-- `AllowSelfManagement`: `bool`
-
-
-## VolumeConfigurationTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import VolumeConfigurationTypeDef
-```
-
-
-Required fields:
-- `MountPoint`: `str`
-- `NumberOfDisks`: `int`
-- `Size`: `int`
-
-
-
-Optional fields:
-- `RaidLevel`: `int`
-- `VolumeType`: `str`
-- `Iops`: `int`
-- `Encrypted`: `bool`
-
-
-## VolumeTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import VolumeTypeDef
-```
-
-
-
-
-Optional fields:
-- `VolumeId`: `str`
-- `Ec2VolumeId`: `str`
-- `Name`: `str`
-- `RaidArrayId`: `str`
-- `InstanceId`: `str`
-- `Status`: `str`
-- `Size`: `int`
-- `Device`: `str`
-- `MountPoint`: `str`
-- `Region`: `str`
-- `AvailabilityZone`: `str`
-- `VolumeType`: `str`
-- `Iops`: `int`
-- `Encrypted`: `bool`
-
-
-## WeeklyAutoScalingScheduleTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import WeeklyAutoScalingScheduleTypeDef
-```
-
-
-
-
-Optional fields:
-- `Monday`: `Dict[str, str]`
-- `Tuesday`: `Dict[str, str]`
-- `Wednesday`: `Dict[str, str]`
-- `Thursday`: `Dict[str, str]`
-- `Friday`: `Dict[str, str]`
-- `Saturday`: `Dict[str, str]`
-- `Sunday`: `Dict[str, str]`
-
-
-## CloneStackResultTypeDef
-
-```python
-from mypy_boto3_opsworks.type_defs import CloneStackResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackId`: `str`
 
 
 ## CreateAppResultTypeDef
@@ -1007,6 +325,61 @@ from mypy_boto3_opsworks.type_defs import CreateUserProfileResultTypeDef
 
 Optional fields:
 - `IamUserArn`: `str`
+
+
+## DataSourceTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import DataSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `str`
+- `Arn`: `str`
+- `DatabaseName`: `str`
+
+
+## DeploymentCommandTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import DeploymentCommandTypeDef
+```
+
+
+Required fields:
+- `Name`: `DeploymentCommandName`
+
+
+
+Optional fields:
+- `Args`: `Dict[str, List[str]]`
+
+
+## DeploymentTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import DeploymentTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeploymentId`: `str`
+- `StackId`: `str`
+- `AppId`: `str`
+- `CreatedAt`: `str`
+- `CompletedAt`: `str`
+- `Duration`: `int`
+- `IamUserArn`: `str`
+- `Comment`: `str`
+- `Command`: `"DeploymentCommandTypeDef"`
+- `Status`: `str`
+- `CustomJson`: `str`
+- `InstanceIds`: `List[str]`
 
 
 ## DescribeAgentVersionsResultTypeDef
@@ -1297,6 +670,94 @@ Optional fields:
 - `Volumes`: `List["VolumeTypeDef"]`
 
 
+## EbsBlockDeviceTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import EbsBlockDeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `SnapshotId`: `str`
+- `Iops`: `int`
+- `VolumeSize`: `int`
+- `VolumeType`: `VolumeType`
+- `DeleteOnTermination`: `bool`
+
+
+## EcsClusterTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import EcsClusterTypeDef
+```
+
+
+
+
+Optional fields:
+- `EcsClusterArn`: `str`
+- `EcsClusterName`: `str`
+- `StackId`: `str`
+- `RegisteredAt`: `str`
+
+
+## ElasticIpTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import ElasticIpTypeDef
+```
+
+
+
+
+Optional fields:
+- `Ip`: `str`
+- `Name`: `str`
+- `Domain`: `str`
+- `Region`: `str`
+- `InstanceId`: `str`
+
+
+## ElasticLoadBalancerTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import ElasticLoadBalancerTypeDef
+```
+
+
+
+
+Optional fields:
+- `ElasticLoadBalancerName`: `str`
+- `Region`: `str`
+- `DnsName`: `str`
+- `StackId`: `str`
+- `LayerId`: `str`
+- `VpcId`: `str`
+- `AvailabilityZones`: `List[str]`
+- `SubnetIds`: `List[str]`
+- `Ec2InstanceIds`: `List[str]`
+
+
+## EnvironmentVariableTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import EnvironmentVariableTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+Optional fields:
+- `Secure`: `bool`
+
+
 ## GetHostnameSuggestionResultTypeDef
 
 ```python
@@ -1338,6 +799,139 @@ Optional fields:
 - `Signature`: `str`
 
 
+## InstanceTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import InstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `AgentVersion`: `str`
+- `AmiId`: `str`
+- `Architecture`: `Architecture`
+- `Arn`: `str`
+- `AutoScalingType`: `AutoScalingType`
+- `AvailabilityZone`: `str`
+- `BlockDeviceMappings`: `List["BlockDeviceMappingTypeDef"]`
+- `CreatedAt`: `str`
+- `EbsOptimized`: `bool`
+- `Ec2InstanceId`: `str`
+- `EcsClusterArn`: `str`
+- `EcsContainerInstanceArn`: `str`
+- `ElasticIp`: `str`
+- `Hostname`: `str`
+- `InfrastructureClass`: `str`
+- `InstallUpdatesOnBoot`: `bool`
+- `InstanceId`: `str`
+- `InstanceProfileArn`: `str`
+- `InstanceType`: `str`
+- `LastServiceErrorId`: `str`
+- `LayerIds`: `List[str]`
+- `Os`: `str`
+- `Platform`: `str`
+- `PrivateDns`: `str`
+- `PrivateIp`: `str`
+- `PublicDns`: `str`
+- `PublicIp`: `str`
+- `RegisteredBy`: `str`
+- `ReportedAgentVersion`: `str`
+- `ReportedOs`: `"ReportedOsTypeDef"`
+- `RootDeviceType`: `RootDeviceType`
+- `RootDeviceVolumeId`: `str`
+- `SecurityGroupIds`: `List[str]`
+- `SshHostDsaKeyFingerprint`: `str`
+- `SshHostRsaKeyFingerprint`: `str`
+- `SshKeyName`: `str`
+- `StackId`: `str`
+- `Status`: `str`
+- `SubnetId`: `str`
+- `Tenancy`: `str`
+- `VirtualizationType`: `VirtualizationType`
+
+
+## InstancesCountTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import InstancesCountTypeDef
+```
+
+
+
+
+Optional fields:
+- `Assigning`: `int`
+- `Booting`: `int`
+- `ConnectionLost`: `int`
+- `Deregistering`: `int`
+- `Online`: `int`
+- `Pending`: `int`
+- `Rebooting`: `int`
+- `Registered`: `int`
+- `Registering`: `int`
+- `Requested`: `int`
+- `RunningSetup`: `int`
+- `SetupFailed`: `int`
+- `ShuttingDown`: `int`
+- `StartFailed`: `int`
+- `StopFailed`: `int`
+- `Stopped`: `int`
+- `Stopping`: `int`
+- `Terminated`: `int`
+- `Terminating`: `int`
+- `Unassigning`: `int`
+
+
+## LayerTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import LayerTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `StackId`: `str`
+- `LayerId`: `str`
+- `Type`: `LayerType`
+- `Name`: `str`
+- `Shortname`: `str`
+- `Attributes`: `Dict[LayerAttributesKeys, str]`
+- `CloudWatchLogsConfiguration`: `"CloudWatchLogsConfigurationTypeDef"`
+- `CustomInstanceProfileArn`: `str`
+- `CustomJson`: `str`
+- `CustomSecurityGroupIds`: `List[str]`
+- `DefaultSecurityGroupNames`: `List[str]`
+- `Packages`: `List[str]`
+- `VolumeConfigurations`: `List["VolumeConfigurationTypeDef"]`
+- `EnableAutoHealing`: `bool`
+- `AutoAssignElasticIps`: `bool`
+- `AutoAssignPublicIps`: `bool`
+- `DefaultRecipes`: `"RecipesTypeDef"`
+- `CustomRecipes`: `"RecipesTypeDef"`
+- `CreatedAt`: `str`
+- `InstallUpdatesOnBoot`: `bool`
+- `UseEbsOptimizedInstances`: `bool`
+- `LifecycleEventConfiguration`: `"LifecycleEventConfigurationTypeDef"`
+
+
+## LifecycleEventConfigurationTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import LifecycleEventConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Shutdown`: `"ShutdownEventConfigurationTypeDef"`
+
+
 ## ListTagsResultTypeDef
 
 ```python
@@ -1350,6 +944,55 @@ from mypy_boto3_opsworks.type_defs import ListTagsResultTypeDef
 Optional fields:
 - `Tags`: `Dict[str, str]`
 - `NextToken`: `str`
+
+
+## LoadBasedAutoScalingConfigurationTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import LoadBasedAutoScalingConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `LayerId`: `str`
+- `Enable`: `bool`
+- `UpScaling`: `"AutoScalingThresholdsTypeDef"`
+- `DownScaling`: `"AutoScalingThresholdsTypeDef"`
+
+
+## OperatingSystemConfigurationManagerTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import OperatingSystemConfigurationManagerTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Version`: `str`
+
+
+## OperatingSystemTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import OperatingSystemTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Id`: `str`
+- `Type`: `str`
+- `ConfigurationManagers`: `List["OperatingSystemConfigurationManagerTypeDef"]`
+- `ReportedName`: `str`
+- `ReportedVersion`: `str`
+- `Supported`: `bool`
 
 
 ## PaginatorConfigTypeDef
@@ -1365,6 +1008,86 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PermissionTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import PermissionTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackId`: `str`
+- `IamUserArn`: `str`
+- `AllowSsh`: `bool`
+- `AllowSudo`: `bool`
+- `Level`: `str`
+
+
+## RaidArrayTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import RaidArrayTypeDef
+```
+
+
+
+
+Optional fields:
+- `RaidArrayId`: `str`
+- `InstanceId`: `str`
+- `Name`: `str`
+- `RaidLevel`: `int`
+- `NumberOfDisks`: `int`
+- `Size`: `int`
+- `Device`: `str`
+- `MountPoint`: `str`
+- `AvailabilityZone`: `str`
+- `CreatedAt`: `str`
+- `StackId`: `str`
+- `VolumeType`: `str`
+- `Iops`: `int`
+
+
+## RdsDbInstanceTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import RdsDbInstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `RdsDbInstanceArn`: `str`
+- `DbInstanceIdentifier`: `str`
+- `DbUser`: `str`
+- `DbPassword`: `str`
+- `Region`: `str`
+- `Address`: `str`
+- `Engine`: `str`
+- `StackId`: `str`
+- `MissingOnRds`: `bool`
+
+
+## RecipesTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import RecipesTypeDef
+```
+
+
+
+
+Optional fields:
+- `Setup`: `List[str]`
+- `Configure`: `List[str]`
+- `Deploy`: `List[str]`
+- `Undeploy`: `List[str]`
+- `Shutdown`: `List[str]`
 
 
 ## RegisterEcsClusterResultTypeDef
@@ -1419,6 +1142,264 @@ Optional fields:
 - `VolumeId`: `str`
 
 
+## ReportedOsTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import ReportedOsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Family`: `str`
+- `Name`: `str`
+- `Version`: `str`
+
+
+## SelfUserProfileTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import SelfUserProfileTypeDef
+```
+
+
+
+
+Optional fields:
+- `IamUserArn`: `str`
+- `Name`: `str`
+- `SshUsername`: `str`
+- `SshPublicKey`: `str`
+
+
+## ServiceErrorTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import ServiceErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceErrorId`: `str`
+- `StackId`: `str`
+- `InstanceId`: `str`
+- `Type`: `str`
+- `Message`: `str`
+- `CreatedAt`: `str`
+
+
+## ShutdownEventConfigurationTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import ShutdownEventConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ExecutionTimeout`: `int`
+- `DelayUntilElbConnectionsDrained`: `bool`
+
+
+## SourceTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import SourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `SourceType`
+- `Url`: `str`
+- `Username`: `str`
+- `Password`: `str`
+- `SshKey`: `str`
+- `Revision`: `str`
+
+
+## SslConfigurationTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import SslConfigurationTypeDef
+```
+
+
+Required fields:
+- `Certificate`: `str`
+- `PrivateKey`: `str`
+
+
+
+Optional fields:
+- `Chain`: `str`
+
+
+## StackConfigurationManagerTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import StackConfigurationManagerTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Version`: `str`
+
+
+## StackSummaryTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import StackSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackId`: `str`
+- `Name`: `str`
+- `Arn`: `str`
+- `LayersCount`: `int`
+- `AppsCount`: `int`
+- `InstancesCount`: `"InstancesCountTypeDef"`
+
+
+## StackTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import StackTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackId`: `str`
+- `Name`: `str`
+- `Arn`: `str`
+- `Region`: `str`
+- `VpcId`: `str`
+- `Attributes`: `Dict[Literal['Color'], str]`
+- `ServiceRoleArn`: `str`
+- `DefaultInstanceProfileArn`: `str`
+- `DefaultOs`: `str`
+- `HostnameTheme`: `str`
+- `DefaultAvailabilityZone`: `str`
+- `DefaultSubnetId`: `str`
+- `CustomJson`: `str`
+- `ConfigurationManager`: `"StackConfigurationManagerTypeDef"`
+- `ChefConfiguration`: `"ChefConfigurationTypeDef"`
+- `UseCustomCookbooks`: `bool`
+- `UseOpsworksSecurityGroups`: `bool`
+- `CustomCookbooksSource`: `"SourceTypeDef"`
+- `DefaultSshKeyName`: `str`
+- `CreatedAt`: `str`
+- `DefaultRootDeviceType`: `RootDeviceType`
+- `AgentVersion`: `str`
+
+
+## TemporaryCredentialTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import TemporaryCredentialTypeDef
+```
+
+
+
+
+Optional fields:
+- `Username`: `str`
+- `Password`: `str`
+- `ValidForInMinutes`: `int`
+- `InstanceId`: `str`
+
+
+## TimeBasedAutoScalingConfigurationTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import TimeBasedAutoScalingConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceId`: `str`
+- `AutoScalingSchedule`: `"WeeklyAutoScalingScheduleTypeDef"`
+
+
+## UserProfileTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import UserProfileTypeDef
+```
+
+
+
+
+Optional fields:
+- `IamUserArn`: `str`
+- `Name`: `str`
+- `SshUsername`: `str`
+- `SshPublicKey`: `str`
+- `AllowSelfManagement`: `bool`
+
+
+## VolumeConfigurationTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import VolumeConfigurationTypeDef
+```
+
+
+Required fields:
+- `MountPoint`: `str`
+- `NumberOfDisks`: `int`
+- `Size`: `int`
+
+
+
+Optional fields:
+- `RaidLevel`: `int`
+- `VolumeType`: `str`
+- `Iops`: `int`
+- `Encrypted`: `bool`
+
+
+## VolumeTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import VolumeTypeDef
+```
+
+
+
+
+Optional fields:
+- `VolumeId`: `str`
+- `Ec2VolumeId`: `str`
+- `Name`: `str`
+- `RaidArrayId`: `str`
+- `InstanceId`: `str`
+- `Status`: `str`
+- `Size`: `int`
+- `Device`: `str`
+- `MountPoint`: `str`
+- `Region`: `str`
+- `AvailabilityZone`: `str`
+- `VolumeType`: `str`
+- `Iops`: `int`
+- `Encrypted`: `bool`
+
+
 ## WaiterConfigTypeDef
 
 ```python
@@ -1431,4 +1412,23 @@ from mypy_boto3_opsworks.type_defs import WaiterConfigTypeDef
 Optional fields:
 - `Delay`: `int`
 - `MaxAttempts`: `int`
+
+
+## WeeklyAutoScalingScheduleTypeDef
+
+```python
+from mypy_boto3_opsworks.type_defs import WeeklyAutoScalingScheduleTypeDef
+```
+
+
+
+
+Optional fields:
+- `Monday`: `Dict[str, str]`
+- `Tuesday`: `Dict[str, str]`
+- `Wednesday`: `Dict[str, str]`
+- `Thursday`: `Dict[str, str]`
+- `Friday`: `Dict[str, str]`
+- `Saturday`: `Dict[str, str]`
+- `Sunday`: `Dict[str, str]`
 

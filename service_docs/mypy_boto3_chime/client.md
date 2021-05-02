@@ -193,7 +193,6 @@ type annotations stubs module [mypy_boto3_chime](https://pypi.org/project/mypy-b
     - [update_voice_connector](#update_voice_connector)
     - [update_voice_connector_group](#update_voice_connector_group)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## ChimeClient
 
@@ -3077,32 +3076,13 @@ def update_voice_connector_group(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("chime").get_paginator` method.
-
-[Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime.html#Chime.Paginator.ListAccounts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccountsPaginatorName
-) -> ListAccountsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("chime").get_paginator` method.
+Type annotations for `boto3.client("chime").get_paginator` method with overloads.
 
-[Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/chime.html#Chime.Paginator.ListUsers)
+- `client.get_paginator("list_accounts")` -> [ListAccountsPaginator](./paginators.md#listaccountspaginator)
+- `client.get_paginator("list_users")` -> [ListUsersPaginator](./paginators.md#listuserspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUsersPaginatorName
-) -> ListUsersPaginator:
-    pass
-```
+

@@ -6,58 +6,18 @@ Auto-generated documentation for [Braket](https://boto3.amazonaws.com/v1/documen
 type annotations stubs module [mypy_boto3_braket](https://pypi.org/project/mypy-boto3-braket/).
 
 - [Structures for boto3 Braket module](#structures-for-boto3-braket-module)
-  - [DeviceSummaryTypeDef](#devicesummarytypedef)
-  - [QuantumTaskSummaryTypeDef](#quantumtasksummarytypedef)
   - [CancelQuantumTaskResponseTypeDef](#cancelquantumtaskresponsetypedef)
   - [CreateQuantumTaskResponseTypeDef](#createquantumtaskresponsetypedef)
+  - [DeviceSummaryTypeDef](#devicesummarytypedef)
   - [GetDeviceResponseTypeDef](#getdeviceresponsetypedef)
   - [GetQuantumTaskResponseTypeDef](#getquantumtaskresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [QuantumTaskSummaryTypeDef](#quantumtasksummarytypedef)
   - [SearchDevicesFilterTypeDef](#searchdevicesfiltertypedef)
   - [SearchDevicesResponseTypeDef](#searchdevicesresponsetypedef)
   - [SearchQuantumTasksFilterTypeDef](#searchquantumtasksfiltertypedef)
   - [SearchQuantumTasksResponseTypeDef](#searchquantumtasksresponsetypedef)
-
-## DeviceSummaryTypeDef
-
-```python
-from mypy_boto3_braket.type_defs import DeviceSummaryTypeDef
-```
-
-
-Required fields:
-- `deviceArn`: `str`
-- `deviceName`: `str`
-- `deviceStatus`: `DeviceStatus`
-- `deviceType`: `DeviceType`
-- `providerName`: `str`
-
-
-
-
-## QuantumTaskSummaryTypeDef
-
-```python
-from mypy_boto3_braket.type_defs import QuantumTaskSummaryTypeDef
-```
-
-
-Required fields:
-- `createdAt`: `datetime`
-- `deviceArn`: `str`
-- `outputS3Bucket`: `str`
-- `outputS3Directory`: `str`
-- `quantumTaskArn`: `str`
-- `shots`: `int`
-- `status`: `QuantumTaskStatus`
-
-
-
-Optional fields:
-- `endedAt`: `datetime`
-- `tags`: `Dict[str, str]`
-
 
 ## CancelQuantumTaskResponseTypeDef
 
@@ -82,6 +42,23 @@ from mypy_boto3_braket.type_defs import CreateQuantumTaskResponseTypeDef
 
 Required fields:
 - `quantumTaskArn`: `str`
+
+
+
+
+## DeviceSummaryTypeDef
+
+```python
+from mypy_boto3_braket.type_defs import DeviceSummaryTypeDef
+```
+
+
+Required fields:
+- `deviceArn`: `str`
+- `deviceName`: `str`
+- `deviceStatus`: `DeviceStatus`
+- `deviceType`: `DeviceType`
+- `providerName`: `str`
 
 
 
@@ -155,6 +132,29 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## QuantumTaskSummaryTypeDef
+
+```python
+from mypy_boto3_braket.type_defs import QuantumTaskSummaryTypeDef
+```
+
+
+Required fields:
+- `createdAt`: `datetime`
+- `deviceArn`: `str`
+- `outputS3Bucket`: `str`
+- `outputS3Directory`: `str`
+- `quantumTaskArn`: `str`
+- `shots`: `int`
+- `status`: `QuantumTaskStatus`
+
+
+
+Optional fields:
+- `endedAt`: `datetime`
+- `tags`: `Dict[str, str]`
 
 
 ## SearchDevicesFilterTypeDef

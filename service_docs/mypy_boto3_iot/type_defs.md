@@ -16,6 +16,7 @@ type annotations stubs module [mypy_boto3_iot](https://pypi.org/project/mypy-bot
   - [AssetPropertyTimestampTypeDef](#assetpropertytimestamptypedef)
   - [AssetPropertyValueTypeDef](#assetpropertyvaluetypedef)
   - [AssetPropertyVariantTypeDef](#assetpropertyvarianttypedef)
+  - [AssociateTargetsWithJobResponseTypeDef](#associatetargetswithjobresponsetypedef)
   - [AttributePayloadTypeDef](#attributepayloadtypedef)
   - [AuditCheckConfigurationTypeDef](#auditcheckconfigurationtypedef)
   - [AuditCheckDetailsTypeDef](#auditcheckdetailstypedef)
@@ -31,11 +32,13 @@ type annotations stubs module [mypy_boto3_iot](https://pypi.org/project/mypy-bot
   - [AuthorizerConfigTypeDef](#authorizerconfigtypedef)
   - [AuthorizerDescriptionTypeDef](#authorizerdescriptiontypedef)
   - [AuthorizerSummaryTypeDef](#authorizersummarytypedef)
+  - [AwsJobAbortConfigTypeDef](#awsjobabortconfigtypedef)
   - [AwsJobAbortCriteriaTypeDef](#awsjobabortcriteriatypedef)
   - [AwsJobExecutionsRolloutConfigTypeDef](#awsjobexecutionsrolloutconfigtypedef)
   - [AwsJobExponentialRolloutRateTypeDef](#awsjobexponentialrolloutratetypedef)
   - [AwsJobPresignedUrlConfigTypeDef](#awsjobpresignedurlconfigtypedef)
   - [AwsJobRateIncreaseCriteriaTypeDef](#awsjobrateincreasecriteriatypedef)
+  - [AwsJobTimeoutConfigTypeDef](#awsjobtimeoutconfigtypedef)
   - [BehaviorCriteriaTypeDef](#behaviorcriteriatypedef)
   - [BehaviorModelTrainingSummaryTypeDef](#behaviormodeltrainingsummarytypedef)
   - [BehaviorTypeDef](#behaviortypedef)
@@ -43,6 +46,7 @@ type annotations stubs module [mypy_boto3_iot](https://pypi.org/project/mypy-bot
   - [BillingGroupPropertiesTypeDef](#billinggrouppropertiestypedef)
   - [CACertificateDescriptionTypeDef](#cacertificatedescriptiontypedef)
   - [CACertificateTypeDef](#cacertificatetypedef)
+  - [CancelJobResponseTypeDef](#canceljobresponsetypedef)
   - [CertificateDescriptionTypeDef](#certificatedescriptiontypedef)
   - [CertificateTypeDef](#certificatetypedef)
   - [CertificateValidityTypeDef](#certificatevaliditytypedef)
@@ -53,138 +57,6 @@ type annotations stubs module [mypy_boto3_iot](https://pypi.org/project/mypy-bot
   - [CodeSigningSignatureTypeDef](#codesigningsignaturetypedef)
   - [CodeSigningTypeDef](#codesigningtypedef)
   - [ConfigurationTypeDef](#configurationtypedef)
-  - [CustomCodeSigningTypeDef](#customcodesigningtypedef)
-  - [DeniedTypeDef](#deniedtypedef)
-  - [DestinationTypeDef](#destinationtypedef)
-  - [DetectMitigationActionExecutionTypeDef](#detectmitigationactionexecutiontypedef)
-  - [DetectMitigationActionsTaskStatisticsTypeDef](#detectmitigationactionstaskstatisticstypedef)
-  - [DetectMitigationActionsTaskSummaryTypeDef](#detectmitigationactionstasksummarytypedef)
-  - [DetectMitigationActionsTaskTargetTypeDef](#detectmitigationactionstasktargettypedef)
-  - [DomainConfigurationSummaryTypeDef](#domainconfigurationsummarytypedef)
-  - [DynamoDBActionTypeDef](#dynamodbactiontypedef)
-  - [DynamoDBv2ActionTypeDef](#dynamodbv2actiontypedef)
-  - [EffectivePolicyTypeDef](#effectivepolicytypedef)
-  - [ElasticsearchActionTypeDef](#elasticsearchactiontypedef)
-  - [EnableIoTLoggingParamsTypeDef](#enableiotloggingparamstypedef)
-  - [ErrorInfoTypeDef](#errorinfotypedef)
-  - [ExplicitDenyTypeDef](#explicitdenytypedef)
-  - [ExponentialRolloutRateTypeDef](#exponentialrolloutratetypedef)
-  - [FieldTypeDef](#fieldtypedef)
-  - [FileLocationTypeDef](#filelocationtypedef)
-  - [FirehoseActionTypeDef](#firehoseactiontypedef)
-  - [GroupNameAndArnTypeDef](#groupnameandarntypedef)
-  - [HttpActionHeaderTypeDef](#httpactionheadertypedef)
-  - [HttpActionTypeDef](#httpactiontypedef)
-  - [HttpAuthorizationTypeDef](#httpauthorizationtypedef)
-  - [HttpUrlDestinationConfigurationTypeDef](#httpurldestinationconfigurationtypedef)
-  - [HttpUrlDestinationPropertiesTypeDef](#httpurldestinationpropertiestypedef)
-  - [HttpUrlDestinationSummaryTypeDef](#httpurldestinationsummarytypedef)
-  - [ImplicitDenyTypeDef](#implicitdenytypedef)
-  - [IotAnalyticsActionTypeDef](#iotanalyticsactiontypedef)
-  - [IotEventsActionTypeDef](#ioteventsactiontypedef)
-  - [IotSiteWiseActionTypeDef](#iotsitewiseactiontypedef)
-  - [JobExecutionStatusDetailsTypeDef](#jobexecutionstatusdetailstypedef)
-  - [JobExecutionSummaryForJobTypeDef](#jobexecutionsummaryforjobtypedef)
-  - [JobExecutionSummaryForThingTypeDef](#jobexecutionsummaryforthingtypedef)
-  - [JobExecutionSummaryTypeDef](#jobexecutionsummarytypedef)
-  - [JobExecutionTypeDef](#jobexecutiontypedef)
-  - [JobExecutionsRolloutConfigTypeDef](#jobexecutionsrolloutconfigtypedef)
-  - [JobProcessDetailsTypeDef](#jobprocessdetailstypedef)
-  - [JobSummaryTypeDef](#jobsummarytypedef)
-  - [JobTypeDef](#jobtypedef)
-  - [KafkaActionTypeDef](#kafkaactiontypedef)
-  - [KeyPairTypeDef](#keypairtypedef)
-  - [KinesisActionTypeDef](#kinesisactiontypedef)
-  - [LambdaActionTypeDef](#lambdaactiontypedef)
-  - [LogTargetConfigurationTypeDef](#logtargetconfigurationtypedef)
-  - [LogTargetTypeDef](#logtargettypedef)
-  - [MachineLearningDetectionConfigTypeDef](#machinelearningdetectionconfigtypedef)
-  - [MetricDimensionTypeDef](#metricdimensiontypedef)
-  - [MetricToRetainTypeDef](#metrictoretaintypedef)
-  - [MetricValueTypeDef](#metricvaluetypedef)
-  - [MitigationActionIdentifierTypeDef](#mitigationactionidentifiertypedef)
-  - [MitigationActionParamsTypeDef](#mitigationactionparamstypedef)
-  - [MitigationActionTypeDef](#mitigationactiontypedef)
-  - [NonCompliantResourceTypeDef](#noncompliantresourcetypedef)
-  - [OTAUpdateFileTypeDef](#otaupdatefiletypedef)
-  - [OTAUpdateInfoTypeDef](#otaupdateinfotypedef)
-  - [OTAUpdateSummaryTypeDef](#otaupdatesummarytypedef)
-  - [OutgoingCertificateTypeDef](#outgoingcertificatetypedef)
-  - [PercentPairTypeDef](#percentpairtypedef)
-  - [PolicyTypeDef](#policytypedef)
-  - [PolicyVersionIdentifierTypeDef](#policyversionidentifiertypedef)
-  - [PolicyVersionTypeDef](#policyversiontypedef)
-  - [PresignedUrlConfigTypeDef](#presignedurlconfigtypedef)
-  - [ProvisioningHookTypeDef](#provisioninghooktypedef)
-  - [ProvisioningTemplateSummaryTypeDef](#provisioningtemplatesummarytypedef)
-  - [ProvisioningTemplateVersionSummaryTypeDef](#provisioningtemplateversionsummarytypedef)
-  - [PublishFindingToSnsParamsTypeDef](#publishfindingtosnsparamstypedef)
-  - [PutAssetPropertyValueEntryTypeDef](#putassetpropertyvalueentrytypedef)
-  - [PutItemInputTypeDef](#putiteminputtypedef)
-  - [RateIncreaseCriteriaTypeDef](#rateincreasecriteriatypedef)
-  - [RegistrationConfigTypeDef](#registrationconfigtypedef)
-  - [RelatedResourceTypeDef](#relatedresourcetypedef)
-  - [ReplaceDefaultPolicyVersionParamsTypeDef](#replacedefaultpolicyversionparamstypedef)
-  - [RepublishActionTypeDef](#republishactiontypedef)
-  - [ResourceIdentifierTypeDef](#resourceidentifiertypedef)
-  - [RoleAliasDescriptionTypeDef](#rolealiasdescriptiontypedef)
-  - [S3ActionTypeDef](#s3actiontypedef)
-  - [S3DestinationTypeDef](#s3destinationtypedef)
-  - [S3LocationTypeDef](#s3locationtypedef)
-  - [SalesforceActionTypeDef](#salesforceactiontypedef)
-  - [ScheduledAuditMetadataTypeDef](#scheduledauditmetadatatypedef)
-  - [SecurityProfileIdentifierTypeDef](#securityprofileidentifiertypedef)
-  - [SecurityProfileTargetMappingTypeDef](#securityprofiletargetmappingtypedef)
-  - [SecurityProfileTargetTypeDef](#securityprofiletargettypedef)
-  - [ServerCertificateSummaryTypeDef](#servercertificatesummarytypedef)
-  - [SigV4AuthorizationTypeDef](#sigv4authorizationtypedef)
-  - [SigningProfileParameterTypeDef](#signingprofileparametertypedef)
-  - [SnsActionTypeDef](#snsactiontypedef)
-  - [SqsActionTypeDef](#sqsactiontypedef)
-  - [StartSigningJobParameterTypeDef](#startsigningjobparametertypedef)
-  - [StatisticalThresholdTypeDef](#statisticalthresholdtypedef)
-  - [StatisticsTypeDef](#statisticstypedef)
-  - [StepFunctionsActionTypeDef](#stepfunctionsactiontypedef)
-  - [StreamFileTypeDef](#streamfiletypedef)
-  - [StreamInfoTypeDef](#streaminfotypedef)
-  - [StreamSummaryTypeDef](#streamsummarytypedef)
-  - [StreamTypeDef](#streamtypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TaskStatisticsForAuditCheckTypeDef](#taskstatisticsforauditchecktypedef)
-  - [TaskStatisticsTypeDef](#taskstatisticstypedef)
-  - [ThingAttributeTypeDef](#thingattributetypedef)
-  - [ThingConnectivityTypeDef](#thingconnectivitytypedef)
-  - [ThingDocumentTypeDef](#thingdocumenttypedef)
-  - [ThingGroupDocumentTypeDef](#thinggroupdocumenttypedef)
-  - [ThingGroupIndexingConfigurationTypeDef](#thinggroupindexingconfigurationtypedef)
-  - [ThingGroupMetadataTypeDef](#thinggroupmetadatatypedef)
-  - [ThingGroupPropertiesTypeDef](#thinggrouppropertiestypedef)
-  - [ThingIndexingConfigurationTypeDef](#thingindexingconfigurationtypedef)
-  - [ThingTypeDefinitionTypeDef](#thingtypedefinitiontypedef)
-  - [ThingTypeMetadataTypeDef](#thingtypemetadatatypedef)
-  - [ThingTypePropertiesTypeDef](#thingtypepropertiestypedef)
-  - [TimeoutConfigTypeDef](#timeoutconfigtypedef)
-  - [TimestreamActionTypeDef](#timestreamactiontypedef)
-  - [TimestreamDimensionTypeDef](#timestreamdimensiontypedef)
-  - [TimestreamTimestampTypeDef](#timestreamtimestamptypedef)
-  - [TopicRuleDestinationSummaryTypeDef](#topicruledestinationsummarytypedef)
-  - [TopicRuleDestinationTypeDef](#topicruledestinationtypedef)
-  - [TopicRuleListItemTypeDef](#topicrulelistitemtypedef)
-  - [TopicRuleTypeDef](#topicruletypedef)
-  - [TransferDataTypeDef](#transferdatatypedef)
-  - [UpdateCACertificateParamsTypeDef](#updatecacertificateparamstypedef)
-  - [UpdateDeviceCertificateParamsTypeDef](#updatedevicecertificateparamstypedef)
-  - [ValidationErrorTypeDef](#validationerrortypedef)
-  - [ViolationEventAdditionalInfoTypeDef](#violationeventadditionalinfotypedef)
-  - [ViolationEventOccurrenceRangeTypeDef](#violationeventoccurrencerangetypedef)
-  - [ViolationEventTypeDef](#violationeventtypedef)
-  - [VpcDestinationConfigurationTypeDef](#vpcdestinationconfigurationtypedef)
-  - [VpcDestinationPropertiesTypeDef](#vpcdestinationpropertiestypedef)
-  - [VpcDestinationSummaryTypeDef](#vpcdestinationsummarytypedef)
-  - [AssociateTargetsWithJobResponseTypeDef](#associatetargetswithjobresponsetypedef)
-  - [AwsJobAbortConfigTypeDef](#awsjobabortconfigtypedef)
-  - [AwsJobTimeoutConfigTypeDef](#awsjobtimeoutconfigtypedef)
-  - [CancelJobResponseTypeDef](#canceljobresponsetypedef)
   - [CreateAuthorizerResponseTypeDef](#createauthorizerresponsetypedef)
   - [CreateBillingGroupResponseTypeDef](#createbillinggroupresponsetypedef)
   - [CreateCertificateFromCsrResponseTypeDef](#createcertificatefromcsrresponsetypedef)
@@ -209,6 +81,8 @@ type annotations stubs module [mypy_boto3_iot](https://pypi.org/project/mypy-bot
   - [CreateThingResponseTypeDef](#createthingresponsetypedef)
   - [CreateThingTypeResponseTypeDef](#createthingtyperesponsetypedef)
   - [CreateTopicRuleDestinationResponseTypeDef](#createtopicruledestinationresponsetypedef)
+  - [CustomCodeSigningTypeDef](#customcodesigningtypedef)
+  - [DeniedTypeDef](#deniedtypedef)
   - [DescribeAccountAuditConfigurationResponseTypeDef](#describeaccountauditconfigurationresponsetypedef)
   - [DescribeAuditFindingResponseTypeDef](#describeauditfindingresponsetypedef)
   - [DescribeAuditMitigationActionsTaskResponseTypeDef](#describeauditmitigationactionstaskresponsetypedef)
@@ -239,6 +113,23 @@ type annotations stubs module [mypy_boto3_iot](https://pypi.org/project/mypy-bot
   - [DescribeThingRegistrationTaskResponseTypeDef](#describethingregistrationtaskresponsetypedef)
   - [DescribeThingResponseTypeDef](#describethingresponsetypedef)
   - [DescribeThingTypeResponseTypeDef](#describethingtyperesponsetypedef)
+  - [DestinationTypeDef](#destinationtypedef)
+  - [DetectMitigationActionExecutionTypeDef](#detectmitigationactionexecutiontypedef)
+  - [DetectMitigationActionsTaskStatisticsTypeDef](#detectmitigationactionstaskstatisticstypedef)
+  - [DetectMitigationActionsTaskSummaryTypeDef](#detectmitigationactionstasksummarytypedef)
+  - [DetectMitigationActionsTaskTargetTypeDef](#detectmitigationactionstasktargettypedef)
+  - [DomainConfigurationSummaryTypeDef](#domainconfigurationsummarytypedef)
+  - [DynamoDBActionTypeDef](#dynamodbactiontypedef)
+  - [DynamoDBv2ActionTypeDef](#dynamodbv2actiontypedef)
+  - [EffectivePolicyTypeDef](#effectivepolicytypedef)
+  - [ElasticsearchActionTypeDef](#elasticsearchactiontypedef)
+  - [EnableIoTLoggingParamsTypeDef](#enableiotloggingparamstypedef)
+  - [ErrorInfoTypeDef](#errorinfotypedef)
+  - [ExplicitDenyTypeDef](#explicitdenytypedef)
+  - [ExponentialRolloutRateTypeDef](#exponentialrolloutratetypedef)
+  - [FieldTypeDef](#fieldtypedef)
+  - [FileLocationTypeDef](#filelocationtypedef)
+  - [FirehoseActionTypeDef](#firehoseactiontypedef)
   - [GetBehaviorModelTrainingSummariesResponseTypeDef](#getbehaviormodeltrainingsummariesresponsetypedef)
   - [GetCardinalityResponseTypeDef](#getcardinalityresponsetypedef)
   - [GetEffectivePoliciesResponseTypeDef](#geteffectivepoliciesresponsetypedef)
@@ -254,7 +145,31 @@ type annotations stubs module [mypy_boto3_iot](https://pypi.org/project/mypy-bot
   - [GetTopicRuleDestinationResponseTypeDef](#gettopicruledestinationresponsetypedef)
   - [GetTopicRuleResponseTypeDef](#gettopicruleresponsetypedef)
   - [GetV2LoggingOptionsResponseTypeDef](#getv2loggingoptionsresponsetypedef)
+  - [GroupNameAndArnTypeDef](#groupnameandarntypedef)
+  - [HttpActionHeaderTypeDef](#httpactionheadertypedef)
+  - [HttpActionTypeDef](#httpactiontypedef)
+  - [HttpAuthorizationTypeDef](#httpauthorizationtypedef)
   - [HttpContextTypeDef](#httpcontexttypedef)
+  - [HttpUrlDestinationConfigurationTypeDef](#httpurldestinationconfigurationtypedef)
+  - [HttpUrlDestinationPropertiesTypeDef](#httpurldestinationpropertiestypedef)
+  - [HttpUrlDestinationSummaryTypeDef](#httpurldestinationsummarytypedef)
+  - [ImplicitDenyTypeDef](#implicitdenytypedef)
+  - [IotAnalyticsActionTypeDef](#iotanalyticsactiontypedef)
+  - [IotEventsActionTypeDef](#ioteventsactiontypedef)
+  - [IotSiteWiseActionTypeDef](#iotsitewiseactiontypedef)
+  - [JobExecutionStatusDetailsTypeDef](#jobexecutionstatusdetailstypedef)
+  - [JobExecutionSummaryForJobTypeDef](#jobexecutionsummaryforjobtypedef)
+  - [JobExecutionSummaryForThingTypeDef](#jobexecutionsummaryforthingtypedef)
+  - [JobExecutionSummaryTypeDef](#jobexecutionsummarytypedef)
+  - [JobExecutionTypeDef](#jobexecutiontypedef)
+  - [JobExecutionsRolloutConfigTypeDef](#jobexecutionsrolloutconfigtypedef)
+  - [JobProcessDetailsTypeDef](#jobprocessdetailstypedef)
+  - [JobSummaryTypeDef](#jobsummarytypedef)
+  - [JobTypeDef](#jobtypedef)
+  - [KafkaActionTypeDef](#kafkaactiontypedef)
+  - [KeyPairTypeDef](#keypairtypedef)
+  - [KinesisActionTypeDef](#kinesisactiontypedef)
+  - [LambdaActionTypeDef](#lambdaactiontypedef)
   - [ListActiveViolationsResponseTypeDef](#listactiveviolationsresponsetypedef)
   - [ListAttachedPoliciesResponseTypeDef](#listattachedpoliciesresponsetypedef)
   - [ListAuditFindingsResponseTypeDef](#listauditfindingsresponsetypedef)
@@ -307,28 +222,106 @@ type annotations stubs module [mypy_boto3_iot](https://pypi.org/project/mypy-bot
   - [ListTopicRulesResponseTypeDef](#listtopicrulesresponsetypedef)
   - [ListV2LoggingLevelsResponseTypeDef](#listv2logginglevelsresponsetypedef)
   - [ListViolationEventsResponseTypeDef](#listviolationeventsresponsetypedef)
+  - [LogTargetConfigurationTypeDef](#logtargetconfigurationtypedef)
+  - [LogTargetTypeDef](#logtargettypedef)
   - [LoggingOptionsPayloadTypeDef](#loggingoptionspayloadtypedef)
+  - [MachineLearningDetectionConfigTypeDef](#machinelearningdetectionconfigtypedef)
+  - [MetricDimensionTypeDef](#metricdimensiontypedef)
+  - [MetricToRetainTypeDef](#metrictoretaintypedef)
+  - [MetricValueTypeDef](#metricvaluetypedef)
+  - [MitigationActionIdentifierTypeDef](#mitigationactionidentifiertypedef)
+  - [MitigationActionParamsTypeDef](#mitigationactionparamstypedef)
+  - [MitigationActionTypeDef](#mitigationactiontypedef)
   - [MqttContextTypeDef](#mqttcontexttypedef)
+  - [NonCompliantResourceTypeDef](#noncompliantresourcetypedef)
+  - [OTAUpdateFileTypeDef](#otaupdatefiletypedef)
+  - [OTAUpdateInfoTypeDef](#otaupdateinfotypedef)
+  - [OTAUpdateSummaryTypeDef](#otaupdatesummarytypedef)
+  - [OutgoingCertificateTypeDef](#outgoingcertificatetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PercentPairTypeDef](#percentpairtypedef)
+  - [PolicyTypeDef](#policytypedef)
+  - [PolicyVersionIdentifierTypeDef](#policyversionidentifiertypedef)
+  - [PolicyVersionTypeDef](#policyversiontypedef)
+  - [PresignedUrlConfigTypeDef](#presignedurlconfigtypedef)
+  - [ProvisioningHookTypeDef](#provisioninghooktypedef)
+  - [ProvisioningTemplateSummaryTypeDef](#provisioningtemplatesummarytypedef)
+  - [ProvisioningTemplateVersionSummaryTypeDef](#provisioningtemplateversionsummarytypedef)
+  - [PublishFindingToSnsParamsTypeDef](#publishfindingtosnsparamstypedef)
+  - [PutAssetPropertyValueEntryTypeDef](#putassetpropertyvalueentrytypedef)
+  - [PutItemInputTypeDef](#putiteminputtypedef)
+  - [RateIncreaseCriteriaTypeDef](#rateincreasecriteriatypedef)
   - [RegisterCACertificateResponseTypeDef](#registercacertificateresponsetypedef)
   - [RegisterCertificateResponseTypeDef](#registercertificateresponsetypedef)
   - [RegisterCertificateWithoutCAResponseTypeDef](#registercertificatewithoutcaresponsetypedef)
   - [RegisterThingResponseTypeDef](#registerthingresponsetypedef)
+  - [RegistrationConfigTypeDef](#registrationconfigtypedef)
+  - [RelatedResourceTypeDef](#relatedresourcetypedef)
+  - [ReplaceDefaultPolicyVersionParamsTypeDef](#replacedefaultpolicyversionparamstypedef)
+  - [RepublishActionTypeDef](#republishactiontypedef)
+  - [ResourceIdentifierTypeDef](#resourceidentifiertypedef)
+  - [RoleAliasDescriptionTypeDef](#rolealiasdescriptiontypedef)
+  - [S3ActionTypeDef](#s3actiontypedef)
+  - [S3DestinationTypeDef](#s3destinationtypedef)
+  - [S3LocationTypeDef](#s3locationtypedef)
+  - [SalesforceActionTypeDef](#salesforceactiontypedef)
+  - [ScheduledAuditMetadataTypeDef](#scheduledauditmetadatatypedef)
   - [SearchIndexResponseTypeDef](#searchindexresponsetypedef)
+  - [SecurityProfileIdentifierTypeDef](#securityprofileidentifiertypedef)
+  - [SecurityProfileTargetMappingTypeDef](#securityprofiletargetmappingtypedef)
+  - [SecurityProfileTargetTypeDef](#securityprofiletargettypedef)
+  - [ServerCertificateSummaryTypeDef](#servercertificatesummarytypedef)
   - [SetDefaultAuthorizerResponseTypeDef](#setdefaultauthorizerresponsetypedef)
+  - [SigV4AuthorizationTypeDef](#sigv4authorizationtypedef)
+  - [SigningProfileParameterTypeDef](#signingprofileparametertypedef)
+  - [SnsActionTypeDef](#snsactiontypedef)
+  - [SqsActionTypeDef](#sqsactiontypedef)
   - [StartAuditMitigationActionsTaskResponseTypeDef](#startauditmitigationactionstaskresponsetypedef)
   - [StartDetectMitigationActionsTaskResponseTypeDef](#startdetectmitigationactionstaskresponsetypedef)
   - [StartOnDemandAuditTaskResponseTypeDef](#startondemandaudittaskresponsetypedef)
+  - [StartSigningJobParameterTypeDef](#startsigningjobparametertypedef)
   - [StartThingRegistrationTaskResponseTypeDef](#startthingregistrationtaskresponsetypedef)
+  - [StatisticalThresholdTypeDef](#statisticalthresholdtypedef)
+  - [StatisticsTypeDef](#statisticstypedef)
+  - [StepFunctionsActionTypeDef](#stepfunctionsactiontypedef)
+  - [StreamFileTypeDef](#streamfiletypedef)
+  - [StreamInfoTypeDef](#streaminfotypedef)
+  - [StreamSummaryTypeDef](#streamsummarytypedef)
+  - [StreamTypeDef](#streamtypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TaskStatisticsForAuditCheckTypeDef](#taskstatisticsforauditchecktypedef)
+  - [TaskStatisticsTypeDef](#taskstatisticstypedef)
   - [TestAuthorizationResponseTypeDef](#testauthorizationresponsetypedef)
   - [TestInvokeAuthorizerResponseTypeDef](#testinvokeauthorizerresponsetypedef)
+  - [ThingAttributeTypeDef](#thingattributetypedef)
+  - [ThingConnectivityTypeDef](#thingconnectivitytypedef)
+  - [ThingDocumentTypeDef](#thingdocumenttypedef)
+  - [ThingGroupDocumentTypeDef](#thinggroupdocumenttypedef)
+  - [ThingGroupIndexingConfigurationTypeDef](#thinggroupindexingconfigurationtypedef)
+  - [ThingGroupMetadataTypeDef](#thinggroupmetadatatypedef)
+  - [ThingGroupPropertiesTypeDef](#thinggrouppropertiestypedef)
+  - [ThingIndexingConfigurationTypeDef](#thingindexingconfigurationtypedef)
+  - [ThingTypeDefinitionTypeDef](#thingtypedefinitiontypedef)
+  - [ThingTypeMetadataTypeDef](#thingtypemetadatatypedef)
+  - [ThingTypePropertiesTypeDef](#thingtypepropertiestypedef)
+  - [TimeoutConfigTypeDef](#timeoutconfigtypedef)
+  - [TimestreamActionTypeDef](#timestreamactiontypedef)
+  - [TimestreamDimensionTypeDef](#timestreamdimensiontypedef)
+  - [TimestreamTimestampTypeDef](#timestreamtimestamptypedef)
   - [TlsContextTypeDef](#tlscontexttypedef)
   - [TopicRuleDestinationConfigurationTypeDef](#topicruledestinationconfigurationtypedef)
+  - [TopicRuleDestinationSummaryTypeDef](#topicruledestinationsummarytypedef)
+  - [TopicRuleDestinationTypeDef](#topicruledestinationtypedef)
+  - [TopicRuleListItemTypeDef](#topicrulelistitemtypedef)
   - [TopicRulePayloadTypeDef](#topicrulepayloadtypedef)
+  - [TopicRuleTypeDef](#topicruletypedef)
   - [TransferCertificateResponseTypeDef](#transfercertificateresponsetypedef)
+  - [TransferDataTypeDef](#transferdatatypedef)
   - [UpdateAuthorizerResponseTypeDef](#updateauthorizerresponsetypedef)
   - [UpdateBillingGroupResponseTypeDef](#updatebillinggroupresponsetypedef)
+  - [UpdateCACertificateParamsTypeDef](#updatecacertificateparamstypedef)
   - [UpdateCustomMetricResponseTypeDef](#updatecustommetricresponsetypedef)
+  - [UpdateDeviceCertificateParamsTypeDef](#updatedevicecertificateparamstypedef)
   - [UpdateDimensionResponseTypeDef](#updatedimensionresponsetypedef)
   - [UpdateDomainConfigurationResponseTypeDef](#updatedomainconfigurationresponsetypedef)
   - [UpdateDynamicThingGroupResponseTypeDef](#updatedynamicthinggroupresponsetypedef)
@@ -339,6 +332,13 @@ type annotations stubs module [mypy_boto3_iot](https://pypi.org/project/mypy-bot
   - [UpdateStreamResponseTypeDef](#updatestreamresponsetypedef)
   - [UpdateThingGroupResponseTypeDef](#updatethinggroupresponsetypedef)
   - [ValidateSecurityProfileBehaviorsResponseTypeDef](#validatesecurityprofilebehaviorsresponsetypedef)
+  - [ValidationErrorTypeDef](#validationerrortypedef)
+  - [ViolationEventAdditionalInfoTypeDef](#violationeventadditionalinfotypedef)
+  - [ViolationEventOccurrenceRangeTypeDef](#violationeventoccurrencerangetypedef)
+  - [ViolationEventTypeDef](#violationeventtypedef)
+  - [VpcDestinationConfigurationTypeDef](#vpcdestinationconfigurationtypedef)
+  - [VpcDestinationPropertiesTypeDef](#vpcdestinationpropertiestypedef)
+  - [VpcDestinationSummaryTypeDef](#vpcdestinationsummarytypedef)
 
 ## AbortConfigTypeDef
 
@@ -362,7 +362,7 @@ from mypy_boto3_iot.type_defs import AbortCriteriaTypeDef
 
 Required fields:
 - `failureType`: `JobExecutionFailureType`
-- `action`: `AbortAction`
+- `action`: `Literal['CANCEL']`
 - `thresholdPercentage`: `float`
 - `minNumberOfExecutedThings`: `int`
 
@@ -512,6 +512,21 @@ Optional fields:
 - `integerValue`: `str`
 - `doubleValue`: `str`
 - `booleanValue`: `str`
+
+
+## AssociateTargetsWithJobResponseTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import AssociateTargetsWithJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobArn`: `str`
+- `jobId`: `str`
+- `description`: `str`
 
 
 ## AttributePayloadTypeDef
@@ -765,6 +780,19 @@ Optional fields:
 - `authorizerArn`: `str`
 
 
+## AwsJobAbortConfigTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import AwsJobAbortConfigTypeDef
+```
+
+
+Required fields:
+- `abortCriteriaList`: `List["AwsJobAbortCriteriaTypeDef"]`
+
+
+
+
 ## AwsJobAbortCriteriaTypeDef
 
 ```python
@@ -774,7 +802,7 @@ from mypy_boto3_iot.type_defs import AwsJobAbortCriteriaTypeDef
 
 Required fields:
 - `failureType`: `AwsJobAbortCriteriaFailureType`
-- `action`: `AwsJobAbortCriteriaAbortAction`
+- `action`: `Literal['CANCEL']`
 - `thresholdPercentage`: `float`
 - `minNumberOfExecutedThings`: `int`
 
@@ -835,6 +863,19 @@ from mypy_boto3_iot.type_defs import AwsJobRateIncreaseCriteriaTypeDef
 Optional fields:
 - `numberOfNotifiedThings`: `int`
 - `numberOfSucceededThings`: `int`
+
+
+## AwsJobTimeoutConfigTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import AwsJobTimeoutConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `inProgressTimeoutInMinutes`: `int`
 
 
 ## BehaviorCriteriaTypeDef
@@ -956,6 +997,21 @@ Optional fields:
 - `certificateId`: `str`
 - `status`: `CACertificateStatus`
 - `creationDate`: `datetime`
+
+
+## CancelJobResponseTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import CancelJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobArn`: `str`
+- `jobId`: `str`
+- `description`: `str`
 
 
 ## CertificateDescriptionTypeDef
@@ -1118,2109 +1174,6 @@ from mypy_boto3_iot.type_defs import ConfigurationTypeDef
 
 Optional fields:
 - `Enabled`: `bool`
-
-
-## CustomCodeSigningTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import CustomCodeSigningTypeDef
-```
-
-
-
-
-Optional fields:
-- `signature`: `"CodeSigningSignatureTypeDef"`
-- `certificateChain`: `"CodeSigningCertificateChainTypeDef"`
-- `hashAlgorithm`: `str`
-- `signatureAlgorithm`: `str`
-
-
-## DeniedTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import DeniedTypeDef
-```
-
-
-
-
-Optional fields:
-- `implicitDeny`: `"ImplicitDenyTypeDef"`
-- `explicitDeny`: `"ExplicitDenyTypeDef"`
-
-
-## DestinationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import DestinationTypeDef
-```
-
-
-
-
-Optional fields:
-- `s3Destination`: `"S3DestinationTypeDef"`
-
-
-## DetectMitigationActionExecutionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import DetectMitigationActionExecutionTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskId`: `str`
-- `violationId`: `str`
-- `actionName`: `str`
-- `thingName`: `str`
-- `executionStartDate`: `datetime`
-- `executionEndDate`: `datetime`
-- `status`: `DetectMitigationActionExecutionStatus`
-- `errorCode`: `str`
-- `message`: `str`
-
-
-## DetectMitigationActionsTaskStatisticsTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import DetectMitigationActionsTaskStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `actionsExecuted`: `int`
-- `actionsSkipped`: `int`
-- `actionsFailed`: `int`
-
-
-## DetectMitigationActionsTaskSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import DetectMitigationActionsTaskSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskId`: `str`
-- `taskStatus`: `DetectMitigationActionsTaskStatus`
-- `taskStartTime`: `datetime`
-- `taskEndTime`: `datetime`
-- `target`: `"DetectMitigationActionsTaskTargetTypeDef"`
-- `violationEventOccurrenceRange`: `"ViolationEventOccurrenceRangeTypeDef"`
-- `onlyActiveViolationsIncluded`: `bool`
-- `suppressedAlertsIncluded`: `bool`
-- `actionsDefinition`: `List["MitigationActionTypeDef"]`
-- `taskStatistics`: `"DetectMitigationActionsTaskStatisticsTypeDef"`
-
-
-## DetectMitigationActionsTaskTargetTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import DetectMitigationActionsTaskTargetTypeDef
-```
-
-
-
-
-Optional fields:
-- `violationIds`: `List[str]`
-- `securityProfileName`: `str`
-- `behaviorName`: `str`
-
-
-## DomainConfigurationSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import DomainConfigurationSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `domainConfigurationName`: `str`
-- `domainConfigurationArn`: `str`
-- `serviceType`: `ServiceType`
-
-
-## DynamoDBActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import DynamoDBActionTypeDef
-```
-
-
-Required fields:
-- `tableName`: `str`
-- `roleArn`: `str`
-- `hashKeyField`: `str`
-- `hashKeyValue`: `str`
-
-
-
-Optional fields:
-- `operation`: `str`
-- `hashKeyType`: `DynamoKeyType`
-- `rangeKeyField`: `str`
-- `rangeKeyValue`: `str`
-- `rangeKeyType`: `DynamoKeyType`
-- `payloadField`: `str`
-
-
-## DynamoDBv2ActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import DynamoDBv2ActionTypeDef
-```
-
-
-Required fields:
-- `roleArn`: `str`
-- `putItem`: `"PutItemInputTypeDef"`
-
-
-
-
-## EffectivePolicyTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import EffectivePolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `policyName`: `str`
-- `policyArn`: `str`
-- `policyDocument`: `str`
-
-
-## ElasticsearchActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ElasticsearchActionTypeDef
-```
-
-
-Required fields:
-- `roleArn`: `str`
-- `endpoint`: `str`
-- `index`: `str`
-- `type`: `str`
-- `id`: `str`
-
-
-
-
-## EnableIoTLoggingParamsTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import EnableIoTLoggingParamsTypeDef
-```
-
-
-Required fields:
-- `roleArnForLogging`: `str`
-- `logLevel`: `LogLevel`
-
-
-
-
-## ErrorInfoTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ErrorInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `code`: `str`
-- `message`: `str`
-
-
-## ExplicitDenyTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ExplicitDenyTypeDef
-```
-
-
-
-
-Optional fields:
-- `policies`: `List["PolicyTypeDef"]`
-
-
-## ExponentialRolloutRateTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ExponentialRolloutRateTypeDef
-```
-
-
-Required fields:
-- `baseRatePerMinute`: `int`
-- `incrementFactor`: `float`
-- `rateIncreaseCriteria`: `"RateIncreaseCriteriaTypeDef"`
-
-
-
-
-## FieldTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import FieldTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `type`: `FieldType`
-
-
-## FileLocationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import FileLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `stream`: `"StreamTypeDef"`
-- `s3Location`: `"S3LocationTypeDef"`
-
-
-## FirehoseActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import FirehoseActionTypeDef
-```
-
-
-Required fields:
-- `roleArn`: `str`
-- `deliveryStreamName`: `str`
-
-
-
-Optional fields:
-- `separator`: `str`
-- `batchMode`: `bool`
-
-
-## GroupNameAndArnTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import GroupNameAndArnTypeDef
-```
-
-
-
-
-Optional fields:
-- `groupName`: `str`
-- `groupArn`: `str`
-
-
-## HttpActionHeaderTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import HttpActionHeaderTypeDef
-```
-
-
-Required fields:
-- `key`: `str`
-- `value`: `str`
-
-
-
-
-## HttpActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import HttpActionTypeDef
-```
-
-
-Required fields:
-- `url`: `str`
-
-
-
-Optional fields:
-- `confirmationUrl`: `str`
-- `headers`: `List["HttpActionHeaderTypeDef"]`
-- `auth`: `"HttpAuthorizationTypeDef"`
-
-
-## HttpAuthorizationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import HttpAuthorizationTypeDef
-```
-
-
-
-
-Optional fields:
-- `sigv4`: `"SigV4AuthorizationTypeDef"`
-
-
-## HttpUrlDestinationConfigurationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import HttpUrlDestinationConfigurationTypeDef
-```
-
-
-Required fields:
-- `confirmationUrl`: `str`
-
-
-
-
-## HttpUrlDestinationPropertiesTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import HttpUrlDestinationPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `confirmationUrl`: `str`
-
-
-## HttpUrlDestinationSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import HttpUrlDestinationSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `confirmationUrl`: `str`
-
-
-## ImplicitDenyTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ImplicitDenyTypeDef
-```
-
-
-
-
-Optional fields:
-- `policies`: `List["PolicyTypeDef"]`
-
-
-## IotAnalyticsActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import IotAnalyticsActionTypeDef
-```
-
-
-
-
-Optional fields:
-- `channelArn`: `str`
-- `channelName`: `str`
-- `batchMode`: `bool`
-- `roleArn`: `str`
-
-
-## IotEventsActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import IotEventsActionTypeDef
-```
-
-
-Required fields:
-- `inputName`: `str`
-- `roleArn`: `str`
-
-
-
-Optional fields:
-- `messageId`: `str`
-- `batchMode`: `bool`
-
-
-## IotSiteWiseActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import IotSiteWiseActionTypeDef
-```
-
-
-Required fields:
-- `putAssetPropertyValueEntries`: `List["PutAssetPropertyValueEntryTypeDef"]`
-- `roleArn`: `str`
-
-
-
-
-## JobExecutionStatusDetailsTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import JobExecutionStatusDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `detailsMap`: `Dict[str, str]`
-
-
-## JobExecutionSummaryForJobTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import JobExecutionSummaryForJobTypeDef
-```
-
-
-
-
-Optional fields:
-- `thingArn`: `str`
-- `jobExecutionSummary`: `"JobExecutionSummaryTypeDef"`
-
-
-## JobExecutionSummaryForThingTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import JobExecutionSummaryForThingTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobId`: `str`
-- `jobExecutionSummary`: `"JobExecutionSummaryTypeDef"`
-
-
-## JobExecutionSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import JobExecutionSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `JobExecutionStatus`
-- `queuedAt`: `datetime`
-- `startedAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `executionNumber`: `int`
-
-
-## JobExecutionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import JobExecutionTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobId`: `str`
-- `status`: `JobExecutionStatus`
-- `forceCanceled`: `bool`
-- `statusDetails`: `"JobExecutionStatusDetailsTypeDef"`
-- `thingArn`: `str`
-- `queuedAt`: `datetime`
-- `startedAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `executionNumber`: `int`
-- `versionNumber`: `int`
-- `approximateSecondsBeforeTimedOut`: `int`
-
-
-## JobExecutionsRolloutConfigTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import JobExecutionsRolloutConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `maximumPerMinute`: `int`
-- `exponentialRate`: `"ExponentialRolloutRateTypeDef"`
-
-
-## JobProcessDetailsTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import JobProcessDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `processingTargets`: `List[str]`
-- `numberOfCanceledThings`: `int`
-- `numberOfSucceededThings`: `int`
-- `numberOfFailedThings`: `int`
-- `numberOfRejectedThings`: `int`
-- `numberOfQueuedThings`: `int`
-- `numberOfInProgressThings`: `int`
-- `numberOfRemovedThings`: `int`
-- `numberOfTimedOutThings`: `int`
-
-
-## JobSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import JobSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobArn`: `str`
-- `jobId`: `str`
-- `thingGroupId`: `str`
-- `targetSelection`: `TargetSelection`
-- `status`: `JobStatus`
-- `createdAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `completedAt`: `datetime`
-
-
-## JobTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import JobTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobArn`: `str`
-- `jobId`: `str`
-- `targetSelection`: `TargetSelection`
-- `status`: `JobStatus`
-- `forceCanceled`: `bool`
-- `reasonCode`: `str`
-- `comment`: `str`
-- `targets`: `List[str]`
-- `description`: `str`
-- `presignedUrlConfig`: `"PresignedUrlConfigTypeDef"`
-- `jobExecutionsRolloutConfig`: `"JobExecutionsRolloutConfigTypeDef"`
-- `abortConfig`: `"AbortConfigTypeDef"`
-- `createdAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `completedAt`: `datetime`
-- `jobProcessDetails`: `"JobProcessDetailsTypeDef"`
-- `timeoutConfig`: `"TimeoutConfigTypeDef"`
-- `namespaceId`: `str`
-
-
-## KafkaActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import KafkaActionTypeDef
-```
-
-
-Required fields:
-- `destinationArn`: `str`
-- `topic`: `str`
-- `clientProperties`: `Dict[str, str]`
-
-
-
-Optional fields:
-- `key`: `str`
-- `partition`: `str`
-
-
-## KeyPairTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import KeyPairTypeDef
-```
-
-
-
-
-Optional fields:
-- `PublicKey`: `str`
-- `PrivateKey`: `str`
-
-
-## KinesisActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import KinesisActionTypeDef
-```
-
-
-Required fields:
-- `roleArn`: `str`
-- `streamName`: `str`
-
-
-
-Optional fields:
-- `partitionKey`: `str`
-
-
-## LambdaActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import LambdaActionTypeDef
-```
-
-
-Required fields:
-- `functionArn`: `str`
-
-
-
-
-## LogTargetConfigurationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import LogTargetConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `logTarget`: `"LogTargetTypeDef"`
-- `logLevel`: `LogLevel`
-
-
-## LogTargetTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import LogTargetTypeDef
-```
-
-
-Required fields:
-- `targetType`: `LogTargetType`
-
-
-
-Optional fields:
-- `targetName`: `str`
-
-
-## MachineLearningDetectionConfigTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import MachineLearningDetectionConfigTypeDef
-```
-
-
-Required fields:
-- `confidenceLevel`: `ConfidenceLevel`
-
-
-
-
-## MetricDimensionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import MetricDimensionTypeDef
-```
-
-
-Required fields:
-- `dimensionName`: `str`
-
-
-
-Optional fields:
-- `operator`: `DimensionValueOperator`
-
-
-## MetricToRetainTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import MetricToRetainTypeDef
-```
-
-
-Required fields:
-- `metric`: `str`
-
-
-
-Optional fields:
-- `metricDimension`: `"MetricDimensionTypeDef"`
-
-
-## MetricValueTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import MetricValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `count`: `int`
-- `cidrs`: `List[str]`
-- `ports`: `List[int]`
-- `number`: `float`
-- `numbers`: `List[float]`
-- `strings`: `List[str]`
-
-
-## MitigationActionIdentifierTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import MitigationActionIdentifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `actionName`: `str`
-- `actionArn`: `str`
-- `creationDate`: `datetime`
-
-
-## MitigationActionParamsTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import MitigationActionParamsTypeDef
-```
-
-
-
-
-Optional fields:
-- `updateDeviceCertificateParams`: `"UpdateDeviceCertificateParamsTypeDef"`
-- `updateCACertificateParams`: `"UpdateCACertificateParamsTypeDef"`
-- `addThingsToThingGroupParams`: `"AddThingsToThingGroupParamsTypeDef"`
-- `replaceDefaultPolicyVersionParams`: `"ReplaceDefaultPolicyVersionParamsTypeDef"`
-- `enableIoTLoggingParams`: `"EnableIoTLoggingParamsTypeDef"`
-- `publishFindingToSnsParams`: `"PublishFindingToSnsParamsTypeDef"`
-
-
-## MitigationActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import MitigationActionTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `id`: `str`
-- `roleArn`: `str`
-- `actionParams`: `"MitigationActionParamsTypeDef"`
-
-
-## NonCompliantResourceTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import NonCompliantResourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceType`: `ResourceType`
-- `resourceIdentifier`: `"ResourceIdentifierTypeDef"`
-- `additionalInfo`: `Dict[str, str]`
-
-
-## OTAUpdateFileTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import OTAUpdateFileTypeDef
-```
-
-
-
-
-Optional fields:
-- `fileName`: `str`
-- `fileType`: `int`
-- `fileVersion`: `str`
-- `fileLocation`: `"FileLocationTypeDef"`
-- `codeSigning`: `"CodeSigningTypeDef"`
-- `attributes`: `Dict[str, str]`
-
-
-## OTAUpdateInfoTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import OTAUpdateInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `otaUpdateId`: `str`
-- `otaUpdateArn`: `str`
-- `creationDate`: `datetime`
-- `lastModifiedDate`: `datetime`
-- `description`: `str`
-- `targets`: `List[str]`
-- `protocols`: `List[ProtocolType]`
-- `awsJobExecutionsRolloutConfig`: `"AwsJobExecutionsRolloutConfigTypeDef"`
-- `awsJobPresignedUrlConfig`: `"AwsJobPresignedUrlConfigTypeDef"`
-- `targetSelection`: `TargetSelection`
-- `otaUpdateFiles`: `List["OTAUpdateFileTypeDef"]`
-- `otaUpdateStatus`: `OTAUpdateStatus`
-- `awsIotJobId`: `str`
-- `awsIotJobArn`: `str`
-- `errorInfo`: `"ErrorInfoTypeDef"`
-- `additionalParameters`: `Dict[str, str]`
-
-
-## OTAUpdateSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import OTAUpdateSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `otaUpdateId`: `str`
-- `otaUpdateArn`: `str`
-- `creationDate`: `datetime`
-
-
-## OutgoingCertificateTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import OutgoingCertificateTypeDef
-```
-
-
-
-
-Optional fields:
-- `certificateArn`: `str`
-- `certificateId`: `str`
-- `transferredTo`: `str`
-- `transferDate`: `datetime`
-- `transferMessage`: `str`
-- `creationDate`: `datetime`
-
-
-## PercentPairTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import PercentPairTypeDef
-```
-
-
-
-
-Optional fields:
-- `percent`: `float`
-- `value`: `float`
-
-
-## PolicyTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import PolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `policyName`: `str`
-- `policyArn`: `str`
-
-
-## PolicyVersionIdentifierTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import PolicyVersionIdentifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `policyName`: `str`
-- `policyVersionId`: `str`
-
-
-## PolicyVersionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import PolicyVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `versionId`: `str`
-- `isDefaultVersion`: `bool`
-- `createDate`: `datetime`
-
-
-## PresignedUrlConfigTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import PresignedUrlConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `roleArn`: `str`
-- `expiresInSec`: `int`
-
-
-## ProvisioningHookTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ProvisioningHookTypeDef
-```
-
-
-Required fields:
-- `targetArn`: `str`
-
-
-
-Optional fields:
-- `payloadVersion`: `str`
-
-
-## ProvisioningTemplateSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ProvisioningTemplateSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `templateArn`: `str`
-- `templateName`: `str`
-- `description`: `str`
-- `creationDate`: `datetime`
-- `lastModifiedDate`: `datetime`
-- `enabled`: `bool`
-
-
-## ProvisioningTemplateVersionSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ProvisioningTemplateVersionSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `versionId`: `int`
-- `creationDate`: `datetime`
-- `isDefaultVersion`: `bool`
-
-
-## PublishFindingToSnsParamsTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import PublishFindingToSnsParamsTypeDef
-```
-
-
-Required fields:
-- `topicArn`: `str`
-
-
-
-
-## PutAssetPropertyValueEntryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import PutAssetPropertyValueEntryTypeDef
-```
-
-
-Required fields:
-- `propertyValues`: `List["AssetPropertyValueTypeDef"]`
-
-
-
-Optional fields:
-- `entryId`: `str`
-- `assetId`: `str`
-- `propertyId`: `str`
-- `propertyAlias`: `str`
-
-
-## PutItemInputTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import PutItemInputTypeDef
-```
-
-
-Required fields:
-- `tableName`: `str`
-
-
-
-
-## RateIncreaseCriteriaTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import RateIncreaseCriteriaTypeDef
-```
-
-
-
-
-Optional fields:
-- `numberOfNotifiedThings`: `int`
-- `numberOfSucceededThings`: `int`
-
-
-## RegistrationConfigTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import RegistrationConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `templateBody`: `str`
-- `roleArn`: `str`
-
-
-## RelatedResourceTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import RelatedResourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceType`: `ResourceType`
-- `resourceIdentifier`: `"ResourceIdentifierTypeDef"`
-- `additionalInfo`: `Dict[str, str]`
-
-
-## ReplaceDefaultPolicyVersionParamsTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ReplaceDefaultPolicyVersionParamsTypeDef
-```
-
-
-Required fields:
-- `templateName`: `PolicyTemplateName`
-
-
-
-
-## RepublishActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import RepublishActionTypeDef
-```
-
-
-Required fields:
-- `roleArn`: `str`
-- `topic`: `str`
-
-
-
-Optional fields:
-- `qos`: `int`
-
-
-## ResourceIdentifierTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ResourceIdentifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `deviceCertificateId`: `str`
-- `caCertificateId`: `str`
-- `cognitoIdentityPoolId`: `str`
-- `clientId`: `str`
-- `policyVersionIdentifier`: `"PolicyVersionIdentifierTypeDef"`
-- `account`: `str`
-- `iamRoleArn`: `str`
-- `roleAliasArn`: `str`
-
-
-## RoleAliasDescriptionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import RoleAliasDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `roleAlias`: `str`
-- `roleAliasArn`: `str`
-- `roleArn`: `str`
-- `owner`: `str`
-- `credentialDurationSeconds`: `int`
-- `creationDate`: `datetime`
-- `lastModifiedDate`: `datetime`
-
-
-## S3ActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import S3ActionTypeDef
-```
-
-
-Required fields:
-- `roleArn`: `str`
-- `bucketName`: `str`
-- `key`: `str`
-
-
-
-Optional fields:
-- `cannedAcl`: `CannedAccessControlList`
-
-
-## S3DestinationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import S3DestinationTypeDef
-```
-
-
-
-
-Optional fields:
-- `bucket`: `str`
-- `prefix`: `str`
-
-
-## S3LocationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import S3LocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `bucket`: `str`
-- `key`: `str`
-- `version`: `str`
-
-
-## SalesforceActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import SalesforceActionTypeDef
-```
-
-
-Required fields:
-- `token`: `str`
-- `url`: `str`
-
-
-
-
-## ScheduledAuditMetadataTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ScheduledAuditMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `scheduledAuditName`: `str`
-- `scheduledAuditArn`: `str`
-- `frequency`: `AuditFrequency`
-- `dayOfMonth`: `str`
-- `dayOfWeek`: `DayOfWeek`
-
-
-## SecurityProfileIdentifierTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import SecurityProfileIdentifierTypeDef
-```
-
-
-Required fields:
-- `name`: `str`
-- `arn`: `str`
-
-
-
-
-## SecurityProfileTargetMappingTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import SecurityProfileTargetMappingTypeDef
-```
-
-
-
-
-Optional fields:
-- `securityProfileIdentifier`: `"SecurityProfileIdentifierTypeDef"`
-- `target`: `"SecurityProfileTargetTypeDef"`
-
-
-## SecurityProfileTargetTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import SecurityProfileTargetTypeDef
-```
-
-
-Required fields:
-- `arn`: `str`
-
-
-
-
-## ServerCertificateSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ServerCertificateSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `serverCertificateArn`: `str`
-- `serverCertificateStatus`: `ServerCertificateStatus`
-- `serverCertificateStatusDetail`: `str`
-
-
-## SigV4AuthorizationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import SigV4AuthorizationTypeDef
-```
-
-
-Required fields:
-- `signingRegion`: `str`
-- `serviceName`: `str`
-- `roleArn`: `str`
-
-
-
-
-## SigningProfileParameterTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import SigningProfileParameterTypeDef
-```
-
-
-
-
-Optional fields:
-- `certificateArn`: `str`
-- `platform`: `str`
-- `certificatePathOnDevice`: `str`
-
-
-## SnsActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import SnsActionTypeDef
-```
-
-
-Required fields:
-- `targetArn`: `str`
-- `roleArn`: `str`
-
-
-
-Optional fields:
-- `messageFormat`: `MessageFormat`
-
-
-## SqsActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import SqsActionTypeDef
-```
-
-
-Required fields:
-- `roleArn`: `str`
-- `queueUrl`: `str`
-
-
-
-Optional fields:
-- `useBase64`: `bool`
-
-
-## StartSigningJobParameterTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import StartSigningJobParameterTypeDef
-```
-
-
-
-
-Optional fields:
-- `signingProfileParameter`: `"SigningProfileParameterTypeDef"`
-- `signingProfileName`: `str`
-- `destination`: `"DestinationTypeDef"`
-
-
-## StatisticalThresholdTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import StatisticalThresholdTypeDef
-```
-
-
-
-
-Optional fields:
-- `statistic`: `str`
-
-
-## StatisticsTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import StatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `count`: `int`
-- `average`: `float`
-- `sum`: `float`
-- `minimum`: `float`
-- `maximum`: `float`
-- `sumOfSquares`: `float`
-- `variance`: `float`
-- `stdDeviation`: `float`
-
-
-## StepFunctionsActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import StepFunctionsActionTypeDef
-```
-
-
-Required fields:
-- `stateMachineName`: `str`
-- `roleArn`: `str`
-
-
-
-Optional fields:
-- `executionNamePrefix`: `str`
-
-
-## StreamFileTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import StreamFileTypeDef
-```
-
-
-
-
-Optional fields:
-- `fileId`: `int`
-- `s3Location`: `"S3LocationTypeDef"`
-
-
-## StreamInfoTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import StreamInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `streamId`: `str`
-- `streamArn`: `str`
-- `streamVersion`: `int`
-- `description`: `str`
-- `files`: `List["StreamFileTypeDef"]`
-- `createdAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `roleArn`: `str`
-
-
-## StreamSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import StreamSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `streamId`: `str`
-- `streamArn`: `str`
-- `streamVersion`: `int`
-- `description`: `str`
-
-
-## StreamTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import StreamTypeDef
-```
-
-
-
-
-Optional fields:
-- `streamId`: `str`
-- `fileId`: `int`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## TaskStatisticsForAuditCheckTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TaskStatisticsForAuditCheckTypeDef
-```
-
-
-
-
-Optional fields:
-- `totalFindingsCount`: `int`
-- `failedFindingsCount`: `int`
-- `succeededFindingsCount`: `int`
-- `skippedFindingsCount`: `int`
-- `canceledFindingsCount`: `int`
-
-
-## TaskStatisticsTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TaskStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `totalChecks`: `int`
-- `inProgressChecks`: `int`
-- `waitingForDataCollectionChecks`: `int`
-- `compliantChecks`: `int`
-- `nonCompliantChecks`: `int`
-- `failedChecks`: `int`
-- `canceledChecks`: `int`
-
-
-## ThingAttributeTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ThingAttributeTypeDef
-```
-
-
-
-
-Optional fields:
-- `thingName`: `str`
-- `thingTypeName`: `str`
-- `thingArn`: `str`
-- `attributes`: `Dict[str, str]`
-- `version`: `int`
-
-
-## ThingConnectivityTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ThingConnectivityTypeDef
-```
-
-
-
-
-Optional fields:
-- `connected`: `bool`
-- `timestamp`: `int`
-
-
-## ThingDocumentTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ThingDocumentTypeDef
-```
-
-
-
-
-Optional fields:
-- `thingName`: `str`
-- `thingId`: `str`
-- `thingTypeName`: `str`
-- `thingGroupNames`: `List[str]`
-- `attributes`: `Dict[str, str]`
-- `shadow`: `str`
-- `connectivity`: `"ThingConnectivityTypeDef"`
-
-
-## ThingGroupDocumentTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ThingGroupDocumentTypeDef
-```
-
-
-
-
-Optional fields:
-- `thingGroupName`: `str`
-- `thingGroupId`: `str`
-- `thingGroupDescription`: `str`
-- `attributes`: `Dict[str, str]`
-- `parentGroupNames`: `List[str]`
-
-
-## ThingGroupIndexingConfigurationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ThingGroupIndexingConfigurationTypeDef
-```
-
-
-Required fields:
-- `thingGroupIndexingMode`: `ThingGroupIndexingMode`
-
-
-
-Optional fields:
-- `managedFields`: `List["FieldTypeDef"]`
-- `customFields`: `List["FieldTypeDef"]`
-
-
-## ThingGroupMetadataTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ThingGroupMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `parentGroupName`: `str`
-- `rootToParentThingGroups`: `List["GroupNameAndArnTypeDef"]`
-- `creationDate`: `datetime`
-
-
-## ThingGroupPropertiesTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ThingGroupPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `thingGroupDescription`: `str`
-- `attributePayload`: `"AttributePayloadTypeDef"`
-
-
-## ThingIndexingConfigurationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ThingIndexingConfigurationTypeDef
-```
-
-
-Required fields:
-- `thingIndexingMode`: `ThingIndexingMode`
-
-
-
-Optional fields:
-- `thingConnectivityIndexingMode`: `ThingConnectivityIndexingMode`
-- `managedFields`: `List["FieldTypeDef"]`
-- `customFields`: `List["FieldTypeDef"]`
-
-
-## ThingTypeDefinitionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ThingTypeDefinitionTypeDef
-```
-
-
-
-
-Optional fields:
-- `thingTypeName`: `str`
-- `thingTypeArn`: `str`
-- `thingTypeProperties`: `"ThingTypePropertiesTypeDef"`
-- `thingTypeMetadata`: `"ThingTypeMetadataTypeDef"`
-
-
-## ThingTypeMetadataTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ThingTypeMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `deprecated`: `bool`
-- `deprecationDate`: `datetime`
-- `creationDate`: `datetime`
-
-
-## ThingTypePropertiesTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ThingTypePropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `thingTypeDescription`: `str`
-- `searchableAttributes`: `List[str]`
-
-
-## TimeoutConfigTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TimeoutConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `inProgressTimeoutInMinutes`: `int`
-
-
-## TimestreamActionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TimestreamActionTypeDef
-```
-
-
-Required fields:
-- `roleArn`: `str`
-- `databaseName`: `str`
-- `tableName`: `str`
-- `dimensions`: `List["TimestreamDimensionTypeDef"]`
-
-
-
-Optional fields:
-- `timestamp`: `"TimestreamTimestampTypeDef"`
-
-
-## TimestreamDimensionTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TimestreamDimensionTypeDef
-```
-
-
-Required fields:
-- `name`: `str`
-- `value`: `str`
-
-
-
-
-## TimestreamTimestampTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TimestreamTimestampTypeDef
-```
-
-
-Required fields:
-- `value`: `str`
-- `unit`: `str`
-
-
-
-
-## TopicRuleDestinationSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TopicRuleDestinationSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `status`: `TopicRuleDestinationStatus`
-- `createdAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `statusReason`: `str`
-- `httpUrlSummary`: `"HttpUrlDestinationSummaryTypeDef"`
-- `vpcDestinationSummary`: `"VpcDestinationSummaryTypeDef"`
-
-
-## TopicRuleDestinationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TopicRuleDestinationTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `status`: `TopicRuleDestinationStatus`
-- `createdAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `statusReason`: `str`
-- `httpUrlProperties`: `"HttpUrlDestinationPropertiesTypeDef"`
-- `vpcProperties`: `"VpcDestinationPropertiesTypeDef"`
-
-
-## TopicRuleListItemTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TopicRuleListItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `ruleArn`: `str`
-- `ruleName`: `str`
-- `topicPattern`: `str`
-- `createdAt`: `datetime`
-- `ruleDisabled`: `bool`
-
-
-## TopicRuleTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TopicRuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `ruleName`: `str`
-- `sql`: `str`
-- `description`: `str`
-- `createdAt`: `datetime`
-- `actions`: `List["ActionTypeDef"]`
-- `ruleDisabled`: `bool`
-- `awsIotSqlVersion`: `str`
-- `errorAction`: `"ActionTypeDef"`
-
-
-## TransferDataTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import TransferDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `transferMessage`: `str`
-- `rejectReason`: `str`
-- `transferDate`: `datetime`
-- `acceptDate`: `datetime`
-- `rejectDate`: `datetime`
-
-
-## UpdateCACertificateParamsTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import UpdateCACertificateParamsTypeDef
-```
-
-
-Required fields:
-- `action`: `CACertificateUpdateAction`
-
-
-
-
-## UpdateDeviceCertificateParamsTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import UpdateDeviceCertificateParamsTypeDef
-```
-
-
-Required fields:
-- `action`: `DeviceCertificateUpdateAction`
-
-
-
-
-## ValidationErrorTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ValidationErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `errorMessage`: `str`
-
-
-## ViolationEventAdditionalInfoTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ViolationEventAdditionalInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `confidenceLevel`: `ConfidenceLevel`
-
-
-## ViolationEventOccurrenceRangeTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ViolationEventOccurrenceRangeTypeDef
-```
-
-
-Required fields:
-- `startTime`: `datetime`
-- `endTime`: `datetime`
-
-
-
-
-## ViolationEventTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import ViolationEventTypeDef
-```
-
-
-
-
-Optional fields:
-- `violationId`: `str`
-- `thingName`: `str`
-- `securityProfileName`: `str`
-- `behavior`: `"BehaviorTypeDef"`
-- `metricValue`: `"MetricValueTypeDef"`
-- `violationEventAdditionalInfo`: `"ViolationEventAdditionalInfoTypeDef"`
-- `violationEventType`: `ViolationEventType`
-- `violationEventTime`: `datetime`
-
-
-## VpcDestinationConfigurationTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import VpcDestinationConfigurationTypeDef
-```
-
-
-Required fields:
-- `subnetIds`: `List[str]`
-- `vpcId`: `str`
-- `roleArn`: `str`
-
-
-
-Optional fields:
-- `securityGroups`: `List[str]`
-
-
-## VpcDestinationPropertiesTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import VpcDestinationPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `subnetIds`: `List[str]`
-- `securityGroups`: `List[str]`
-- `vpcId`: `str`
-- `roleArn`: `str`
-
-
-## VpcDestinationSummaryTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import VpcDestinationSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `subnetIds`: `List[str]`
-- `securityGroups`: `List[str]`
-- `vpcId`: `str`
-- `roleArn`: `str`
-
-
-## AssociateTargetsWithJobResponseTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import AssociateTargetsWithJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobArn`: `str`
-- `jobId`: `str`
-- `description`: `str`
-
-
-## AwsJobAbortConfigTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import AwsJobAbortConfigTypeDef
-```
-
-
-Required fields:
-- `abortCriteriaList`: `List["AwsJobAbortCriteriaTypeDef"]`
-
-
-
-
-## AwsJobTimeoutConfigTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import AwsJobTimeoutConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `inProgressTimeoutInMinutes`: `int`
-
-
-## CancelJobResponseTypeDef
-
-```python
-from mypy_boto3_iot.type_defs import CancelJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobArn`: `str`
-- `jobId`: `str`
-- `description`: `str`
 
 
 ## CreateAuthorizerResponseTypeDef
@@ -3583,6 +1536,36 @@ Optional fields:
 - `topicRuleDestination`: `"TopicRuleDestinationTypeDef"`
 
 
+## CustomCodeSigningTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import CustomCodeSigningTypeDef
+```
+
+
+
+
+Optional fields:
+- `signature`: `"CodeSigningSignatureTypeDef"`
+- `certificateChain`: `"CodeSigningCertificateChainTypeDef"`
+- `hashAlgorithm`: `str`
+- `signatureAlgorithm`: `str`
+
+
+## DeniedTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import DeniedTypeDef
+```
+
+
+
+
+Optional fields:
+- `implicitDeny`: `"ImplicitDenyTypeDef"`
+- `explicitDeny`: `"ExplicitDenyTypeDef"`
+
+
 ## DescribeAccountAuditConfigurationResponseTypeDef
 
 ```python
@@ -3594,7 +1577,7 @@ from mypy_boto3_iot.type_defs import DescribeAccountAuditConfigurationResponseTy
 
 Optional fields:
 - `roleArn`: `str`
-- `auditNotificationTargetConfigurations`: `Dict[AuditNotificationType, "AuditNotificationTargetTypeDef"]`
+- `auditNotificationTargetConfigurations`: `Dict[Literal['SNS'], "AuditNotificationTargetTypeDef"]`
 - `auditCheckConfigurations`: `Dict[str, "AuditCheckConfigurationTypeDef"]`
 
 
@@ -3779,7 +1762,7 @@ from mypy_boto3_iot.type_defs import DescribeDimensionResponseTypeDef
 Optional fields:
 - `name`: `str`
 - `arn`: `str`
-- `type`: `DimensionType`
+- `type`: `Literal['TOPIC_FILTER']`
 - `stringValues`: `List[str]`
 - `creationDate`: `datetime`
 - `lastModifiedDate`: `datetime`
@@ -3979,7 +1962,7 @@ Optional fields:
 - `securityProfileArn`: `str`
 - `securityProfileDescription`: `str`
 - `behaviors`: `List["BehaviorTypeDef"]`
-- `alertTargets`: `Dict[AlertTargetType, "AlertTargetTypeDef"]`
+- `alertTargets`: `Dict[Literal['SNS'], "AlertTargetTypeDef"]`
 - `additionalMetricsToRetain`: `List[str]`
 - `additionalMetricsToRetainV2`: `List["MetricToRetainTypeDef"]`
 - `version`: `int`
@@ -4081,6 +2064,279 @@ Optional fields:
 - `thingTypeArn`: `str`
 - `thingTypeProperties`: `"ThingTypePropertiesTypeDef"`
 - `thingTypeMetadata`: `"ThingTypeMetadataTypeDef"`
+
+
+## DestinationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import DestinationTypeDef
+```
+
+
+
+
+Optional fields:
+- `s3Destination`: `"S3DestinationTypeDef"`
+
+
+## DetectMitigationActionExecutionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import DetectMitigationActionExecutionTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskId`: `str`
+- `violationId`: `str`
+- `actionName`: `str`
+- `thingName`: `str`
+- `executionStartDate`: `datetime`
+- `executionEndDate`: `datetime`
+- `status`: `DetectMitigationActionExecutionStatus`
+- `errorCode`: `str`
+- `message`: `str`
+
+
+## DetectMitigationActionsTaskStatisticsTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import DetectMitigationActionsTaskStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `actionsExecuted`: `int`
+- `actionsSkipped`: `int`
+- `actionsFailed`: `int`
+
+
+## DetectMitigationActionsTaskSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import DetectMitigationActionsTaskSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskId`: `str`
+- `taskStatus`: `DetectMitigationActionsTaskStatus`
+- `taskStartTime`: `datetime`
+- `taskEndTime`: `datetime`
+- `target`: `"DetectMitigationActionsTaskTargetTypeDef"`
+- `violationEventOccurrenceRange`: `"ViolationEventOccurrenceRangeTypeDef"`
+- `onlyActiveViolationsIncluded`: `bool`
+- `suppressedAlertsIncluded`: `bool`
+- `actionsDefinition`: `List["MitigationActionTypeDef"]`
+- `taskStatistics`: `"DetectMitigationActionsTaskStatisticsTypeDef"`
+
+
+## DetectMitigationActionsTaskTargetTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import DetectMitigationActionsTaskTargetTypeDef
+```
+
+
+
+
+Optional fields:
+- `violationIds`: `List[str]`
+- `securityProfileName`: `str`
+- `behaviorName`: `str`
+
+
+## DomainConfigurationSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import DomainConfigurationSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `domainConfigurationName`: `str`
+- `domainConfigurationArn`: `str`
+- `serviceType`: `ServiceType`
+
+
+## DynamoDBActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import DynamoDBActionTypeDef
+```
+
+
+Required fields:
+- `tableName`: `str`
+- `roleArn`: `str`
+- `hashKeyField`: `str`
+- `hashKeyValue`: `str`
+
+
+
+Optional fields:
+- `operation`: `str`
+- `hashKeyType`: `DynamoKeyType`
+- `rangeKeyField`: `str`
+- `rangeKeyValue`: `str`
+- `rangeKeyType`: `DynamoKeyType`
+- `payloadField`: `str`
+
+
+## DynamoDBv2ActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import DynamoDBv2ActionTypeDef
+```
+
+
+Required fields:
+- `roleArn`: `str`
+- `putItem`: `"PutItemInputTypeDef"`
+
+
+
+
+## EffectivePolicyTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import EffectivePolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `policyName`: `str`
+- `policyArn`: `str`
+- `policyDocument`: `str`
+
+
+## ElasticsearchActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ElasticsearchActionTypeDef
+```
+
+
+Required fields:
+- `roleArn`: `str`
+- `endpoint`: `str`
+- `index`: `str`
+- `type`: `str`
+- `id`: `str`
+
+
+
+
+## EnableIoTLoggingParamsTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import EnableIoTLoggingParamsTypeDef
+```
+
+
+Required fields:
+- `roleArnForLogging`: `str`
+- `logLevel`: `LogLevel`
+
+
+
+
+## ErrorInfoTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ErrorInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `code`: `str`
+- `message`: `str`
+
+
+## ExplicitDenyTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ExplicitDenyTypeDef
+```
+
+
+
+
+Optional fields:
+- `policies`: `List["PolicyTypeDef"]`
+
+
+## ExponentialRolloutRateTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ExponentialRolloutRateTypeDef
+```
+
+
+Required fields:
+- `baseRatePerMinute`: `int`
+- `incrementFactor`: `float`
+- `rateIncreaseCriteria`: `"RateIncreaseCriteriaTypeDef"`
+
+
+
+
+## FieldTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import FieldTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `type`: `FieldType`
+
+
+## FileLocationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import FileLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `stream`: `"StreamTypeDef"`
+- `s3Location`: `"S3LocationTypeDef"`
+
+
+## FirehoseActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import FirehoseActionTypeDef
+```
+
+
+Required fields:
+- `roleArn`: `str`
+- `deliveryStreamName`: `str`
+
+
+
+Optional fields:
+- `separator`: `str`
+- `batchMode`: `bool`
 
 
 ## GetBehaviorModelTrainingSummariesResponseTypeDef
@@ -4297,6 +2553,65 @@ Optional fields:
 - `disableAllLogs`: `bool`
 
 
+## GroupNameAndArnTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import GroupNameAndArnTypeDef
+```
+
+
+
+
+Optional fields:
+- `groupName`: `str`
+- `groupArn`: `str`
+
+
+## HttpActionHeaderTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import HttpActionHeaderTypeDef
+```
+
+
+Required fields:
+- `key`: `str`
+- `value`: `str`
+
+
+
+
+## HttpActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import HttpActionTypeDef
+```
+
+
+Required fields:
+- `url`: `str`
+
+
+
+Optional fields:
+- `confirmationUrl`: `str`
+- `headers`: `List["HttpActionHeaderTypeDef"]`
+- `auth`: `"HttpAuthorizationTypeDef"`
+
+
+## HttpAuthorizationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import HttpAuthorizationTypeDef
+```
+
+
+
+
+Optional fields:
+- `sigv4`: `"SigV4AuthorizationTypeDef"`
+
+
 ## HttpContextTypeDef
 
 ```python
@@ -4309,6 +2624,335 @@ from mypy_boto3_iot.type_defs import HttpContextTypeDef
 Optional fields:
 - `headers`: `Dict[str, str]`
 - `queryString`: `str`
+
+
+## HttpUrlDestinationConfigurationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import HttpUrlDestinationConfigurationTypeDef
+```
+
+
+Required fields:
+- `confirmationUrl`: `str`
+
+
+
+
+## HttpUrlDestinationPropertiesTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import HttpUrlDestinationPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `confirmationUrl`: `str`
+
+
+## HttpUrlDestinationSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import HttpUrlDestinationSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `confirmationUrl`: `str`
+
+
+## ImplicitDenyTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ImplicitDenyTypeDef
+```
+
+
+
+
+Optional fields:
+- `policies`: `List["PolicyTypeDef"]`
+
+
+## IotAnalyticsActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import IotAnalyticsActionTypeDef
+```
+
+
+
+
+Optional fields:
+- `channelArn`: `str`
+- `channelName`: `str`
+- `batchMode`: `bool`
+- `roleArn`: `str`
+
+
+## IotEventsActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import IotEventsActionTypeDef
+```
+
+
+Required fields:
+- `inputName`: `str`
+- `roleArn`: `str`
+
+
+
+Optional fields:
+- `messageId`: `str`
+- `batchMode`: `bool`
+
+
+## IotSiteWiseActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import IotSiteWiseActionTypeDef
+```
+
+
+Required fields:
+- `putAssetPropertyValueEntries`: `List["PutAssetPropertyValueEntryTypeDef"]`
+- `roleArn`: `str`
+
+
+
+
+## JobExecutionStatusDetailsTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import JobExecutionStatusDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `detailsMap`: `Dict[str, str]`
+
+
+## JobExecutionSummaryForJobTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import JobExecutionSummaryForJobTypeDef
+```
+
+
+
+
+Optional fields:
+- `thingArn`: `str`
+- `jobExecutionSummary`: `"JobExecutionSummaryTypeDef"`
+
+
+## JobExecutionSummaryForThingTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import JobExecutionSummaryForThingTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobId`: `str`
+- `jobExecutionSummary`: `"JobExecutionSummaryTypeDef"`
+
+
+## JobExecutionSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import JobExecutionSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `JobExecutionStatus`
+- `queuedAt`: `datetime`
+- `startedAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `executionNumber`: `int`
+
+
+## JobExecutionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import JobExecutionTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobId`: `str`
+- `status`: `JobExecutionStatus`
+- `forceCanceled`: `bool`
+- `statusDetails`: `"JobExecutionStatusDetailsTypeDef"`
+- `thingArn`: `str`
+- `queuedAt`: `datetime`
+- `startedAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `executionNumber`: `int`
+- `versionNumber`: `int`
+- `approximateSecondsBeforeTimedOut`: `int`
+
+
+## JobExecutionsRolloutConfigTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import JobExecutionsRolloutConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `maximumPerMinute`: `int`
+- `exponentialRate`: `"ExponentialRolloutRateTypeDef"`
+
+
+## JobProcessDetailsTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import JobProcessDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `processingTargets`: `List[str]`
+- `numberOfCanceledThings`: `int`
+- `numberOfSucceededThings`: `int`
+- `numberOfFailedThings`: `int`
+- `numberOfRejectedThings`: `int`
+- `numberOfQueuedThings`: `int`
+- `numberOfInProgressThings`: `int`
+- `numberOfRemovedThings`: `int`
+- `numberOfTimedOutThings`: `int`
+
+
+## JobSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import JobSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobArn`: `str`
+- `jobId`: `str`
+- `thingGroupId`: `str`
+- `targetSelection`: `TargetSelection`
+- `status`: `JobStatus`
+- `createdAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `completedAt`: `datetime`
+
+
+## JobTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import JobTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobArn`: `str`
+- `jobId`: `str`
+- `targetSelection`: `TargetSelection`
+- `status`: `JobStatus`
+- `forceCanceled`: `bool`
+- `reasonCode`: `str`
+- `comment`: `str`
+- `targets`: `List[str]`
+- `description`: `str`
+- `presignedUrlConfig`: `"PresignedUrlConfigTypeDef"`
+- `jobExecutionsRolloutConfig`: `"JobExecutionsRolloutConfigTypeDef"`
+- `abortConfig`: `"AbortConfigTypeDef"`
+- `createdAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `completedAt`: `datetime`
+- `jobProcessDetails`: `"JobProcessDetailsTypeDef"`
+- `timeoutConfig`: `"TimeoutConfigTypeDef"`
+- `namespaceId`: `str`
+
+
+## KafkaActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import KafkaActionTypeDef
+```
+
+
+Required fields:
+- `destinationArn`: `str`
+- `topic`: `str`
+- `clientProperties`: `Dict[str, str]`
+
+
+
+Optional fields:
+- `key`: `str`
+- `partition`: `str`
+
+
+## KeyPairTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import KeyPairTypeDef
+```
+
+
+
+
+Optional fields:
+- `PublicKey`: `str`
+- `PrivateKey`: `str`
+
+
+## KinesisActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import KinesisActionTypeDef
+```
+
+
+Required fields:
+- `roleArn`: `str`
+- `streamName`: `str`
+
+
+
+Optional fields:
+- `partitionKey`: `str`
+
+
+## LambdaActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import LambdaActionTypeDef
+```
+
+
+Required fields:
+- `functionArn`: `str`
+
+
 
 
 ## ListActiveViolationsResponseTypeDef
@@ -5039,6 +3683,36 @@ Optional fields:
 - `nextToken`: `str`
 
 
+## LogTargetConfigurationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import LogTargetConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `logTarget`: `"LogTargetTypeDef"`
+- `logLevel`: `LogLevel`
+
+
+## LogTargetTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import LogTargetTypeDef
+```
+
+
+Required fields:
+- `targetType`: `LogTargetType`
+
+
+
+Optional fields:
+- `targetName`: `str`
+
+
 ## LoggingOptionsPayloadTypeDef
 
 ```python
@@ -5053,6 +3727,118 @@ Required fields:
 
 Optional fields:
 - `logLevel`: `LogLevel`
+
+
+## MachineLearningDetectionConfigTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import MachineLearningDetectionConfigTypeDef
+```
+
+
+Required fields:
+- `confidenceLevel`: `ConfidenceLevel`
+
+
+
+
+## MetricDimensionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import MetricDimensionTypeDef
+```
+
+
+Required fields:
+- `dimensionName`: `str`
+
+
+
+Optional fields:
+- `operator`: `DimensionValueOperator`
+
+
+## MetricToRetainTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import MetricToRetainTypeDef
+```
+
+
+Required fields:
+- `metric`: `str`
+
+
+
+Optional fields:
+- `metricDimension`: `"MetricDimensionTypeDef"`
+
+
+## MetricValueTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import MetricValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `count`: `int`
+- `cidrs`: `List[str]`
+- `ports`: `List[int]`
+- `number`: `float`
+- `numbers`: `List[float]`
+- `strings`: `List[str]`
+
+
+## MitigationActionIdentifierTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import MitigationActionIdentifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `actionName`: `str`
+- `actionArn`: `str`
+- `creationDate`: `datetime`
+
+
+## MitigationActionParamsTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import MitigationActionParamsTypeDef
+```
+
+
+
+
+Optional fields:
+- `updateDeviceCertificateParams`: `"UpdateDeviceCertificateParamsTypeDef"`
+- `updateCACertificateParams`: `"UpdateCACertificateParamsTypeDef"`
+- `addThingsToThingGroupParams`: `"AddThingsToThingGroupParamsTypeDef"`
+- `replaceDefaultPolicyVersionParams`: `"ReplaceDefaultPolicyVersionParamsTypeDef"`
+- `enableIoTLoggingParams`: `"EnableIoTLoggingParamsTypeDef"`
+- `publishFindingToSnsParams`: `"PublishFindingToSnsParamsTypeDef"`
+
+
+## MitigationActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import MitigationActionTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `id`: `str`
+- `roleArn`: `str`
+- `actionParams`: `"MitigationActionParamsTypeDef"`
 
 
 ## MqttContextTypeDef
@@ -5070,6 +3856,100 @@ Optional fields:
 - `clientId`: `str`
 
 
+## NonCompliantResourceTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import NonCompliantResourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceType`: `ResourceType`
+- `resourceIdentifier`: `"ResourceIdentifierTypeDef"`
+- `additionalInfo`: `Dict[str, str]`
+
+
+## OTAUpdateFileTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import OTAUpdateFileTypeDef
+```
+
+
+
+
+Optional fields:
+- `fileName`: `str`
+- `fileType`: `int`
+- `fileVersion`: `str`
+- `fileLocation`: `"FileLocationTypeDef"`
+- `codeSigning`: `"CodeSigningTypeDef"`
+- `attributes`: `Dict[str, str]`
+
+
+## OTAUpdateInfoTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import OTAUpdateInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `otaUpdateId`: `str`
+- `otaUpdateArn`: `str`
+- `creationDate`: `datetime`
+- `lastModifiedDate`: `datetime`
+- `description`: `str`
+- `targets`: `List[str]`
+- `protocols`: `List[ProtocolType]`
+- `awsJobExecutionsRolloutConfig`: `"AwsJobExecutionsRolloutConfigTypeDef"`
+- `awsJobPresignedUrlConfig`: `"AwsJobPresignedUrlConfigTypeDef"`
+- `targetSelection`: `TargetSelection`
+- `otaUpdateFiles`: `List["OTAUpdateFileTypeDef"]`
+- `otaUpdateStatus`: `OTAUpdateStatus`
+- `awsIotJobId`: `str`
+- `awsIotJobArn`: `str`
+- `errorInfo`: `"ErrorInfoTypeDef"`
+- `additionalParameters`: `Dict[str, str]`
+
+
+## OTAUpdateSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import OTAUpdateSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `otaUpdateId`: `str`
+- `otaUpdateArn`: `str`
+- `creationDate`: `datetime`
+
+
+## OutgoingCertificateTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import OutgoingCertificateTypeDef
+```
+
+
+
+
+Optional fields:
+- `certificateArn`: `str`
+- `certificateId`: `str`
+- `transferredTo`: `str`
+- `transferDate`: `datetime`
+- `transferMessage`: `str`
+- `creationDate`: `datetime`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -5083,6 +3963,185 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PercentPairTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import PercentPairTypeDef
+```
+
+
+
+
+Optional fields:
+- `percent`: `float`
+- `value`: `float`
+
+
+## PolicyTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import PolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `policyName`: `str`
+- `policyArn`: `str`
+
+
+## PolicyVersionIdentifierTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import PolicyVersionIdentifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `policyName`: `str`
+- `policyVersionId`: `str`
+
+
+## PolicyVersionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import PolicyVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `versionId`: `str`
+- `isDefaultVersion`: `bool`
+- `createDate`: `datetime`
+
+
+## PresignedUrlConfigTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import PresignedUrlConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `roleArn`: `str`
+- `expiresInSec`: `int`
+
+
+## ProvisioningHookTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ProvisioningHookTypeDef
+```
+
+
+Required fields:
+- `targetArn`: `str`
+
+
+
+Optional fields:
+- `payloadVersion`: `str`
+
+
+## ProvisioningTemplateSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ProvisioningTemplateSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `templateArn`: `str`
+- `templateName`: `str`
+- `description`: `str`
+- `creationDate`: `datetime`
+- `lastModifiedDate`: `datetime`
+- `enabled`: `bool`
+
+
+## ProvisioningTemplateVersionSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ProvisioningTemplateVersionSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `versionId`: `int`
+- `creationDate`: `datetime`
+- `isDefaultVersion`: `bool`
+
+
+## PublishFindingToSnsParamsTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import PublishFindingToSnsParamsTypeDef
+```
+
+
+Required fields:
+- `topicArn`: `str`
+
+
+
+
+## PutAssetPropertyValueEntryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import PutAssetPropertyValueEntryTypeDef
+```
+
+
+Required fields:
+- `propertyValues`: `List["AssetPropertyValueTypeDef"]`
+
+
+
+Optional fields:
+- `entryId`: `str`
+- `assetId`: `str`
+- `propertyId`: `str`
+- `propertyAlias`: `str`
+
+
+## PutItemInputTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import PutItemInputTypeDef
+```
+
+
+Required fields:
+- `tableName`: `str`
+
+
+
+
+## RateIncreaseCriteriaTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import RateIncreaseCriteriaTypeDef
+```
+
+
+
+
+Optional fields:
+- `numberOfNotifiedThings`: `int`
+- `numberOfSucceededThings`: `int`
 
 
 ## RegisterCACertificateResponseTypeDef
@@ -5141,6 +4200,182 @@ Optional fields:
 - `resourceArns`: `Dict[str, str]`
 
 
+## RegistrationConfigTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import RegistrationConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `templateBody`: `str`
+- `roleArn`: `str`
+
+
+## RelatedResourceTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import RelatedResourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceType`: `ResourceType`
+- `resourceIdentifier`: `"ResourceIdentifierTypeDef"`
+- `additionalInfo`: `Dict[str, str]`
+
+
+## ReplaceDefaultPolicyVersionParamsTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ReplaceDefaultPolicyVersionParamsTypeDef
+```
+
+
+Required fields:
+- `templateName`: `Literal['BLANK_POLICY']`
+
+
+
+
+## RepublishActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import RepublishActionTypeDef
+```
+
+
+Required fields:
+- `roleArn`: `str`
+- `topic`: `str`
+
+
+
+Optional fields:
+- `qos`: `int`
+
+
+## ResourceIdentifierTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ResourceIdentifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `deviceCertificateId`: `str`
+- `caCertificateId`: `str`
+- `cognitoIdentityPoolId`: `str`
+- `clientId`: `str`
+- `policyVersionIdentifier`: `"PolicyVersionIdentifierTypeDef"`
+- `account`: `str`
+- `iamRoleArn`: `str`
+- `roleAliasArn`: `str`
+
+
+## RoleAliasDescriptionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import RoleAliasDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `roleAlias`: `str`
+- `roleAliasArn`: `str`
+- `roleArn`: `str`
+- `owner`: `str`
+- `credentialDurationSeconds`: `int`
+- `creationDate`: `datetime`
+- `lastModifiedDate`: `datetime`
+
+
+## S3ActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import S3ActionTypeDef
+```
+
+
+Required fields:
+- `roleArn`: `str`
+- `bucketName`: `str`
+- `key`: `str`
+
+
+
+Optional fields:
+- `cannedAcl`: `CannedAccessControlList`
+
+
+## S3DestinationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import S3DestinationTypeDef
+```
+
+
+
+
+Optional fields:
+- `bucket`: `str`
+- `prefix`: `str`
+
+
+## S3LocationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import S3LocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `bucket`: `str`
+- `key`: `str`
+- `version`: `str`
+
+
+## SalesforceActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import SalesforceActionTypeDef
+```
+
+
+Required fields:
+- `token`: `str`
+- `url`: `str`
+
+
+
+
+## ScheduledAuditMetadataTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ScheduledAuditMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `scheduledAuditName`: `str`
+- `scheduledAuditArn`: `str`
+- `frequency`: `AuditFrequency`
+- `dayOfMonth`: `str`
+- `dayOfWeek`: `DayOfWeek`
+
+
 ## SearchIndexResponseTypeDef
 
 ```python
@@ -5156,6 +4391,62 @@ Optional fields:
 - `thingGroups`: `List["ThingGroupDocumentTypeDef"]`
 
 
+## SecurityProfileIdentifierTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import SecurityProfileIdentifierTypeDef
+```
+
+
+Required fields:
+- `name`: `str`
+- `arn`: `str`
+
+
+
+
+## SecurityProfileTargetMappingTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import SecurityProfileTargetMappingTypeDef
+```
+
+
+
+
+Optional fields:
+- `securityProfileIdentifier`: `"SecurityProfileIdentifierTypeDef"`
+- `target`: `"SecurityProfileTargetTypeDef"`
+
+
+## SecurityProfileTargetTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import SecurityProfileTargetTypeDef
+```
+
+
+Required fields:
+- `arn`: `str`
+
+
+
+
+## ServerCertificateSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ServerCertificateSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `serverCertificateArn`: `str`
+- `serverCertificateStatus`: `ServerCertificateStatus`
+- `serverCertificateStatusDetail`: `str`
+
+
 ## SetDefaultAuthorizerResponseTypeDef
 
 ```python
@@ -5168,6 +4459,70 @@ from mypy_boto3_iot.type_defs import SetDefaultAuthorizerResponseTypeDef
 Optional fields:
 - `authorizerName`: `str`
 - `authorizerArn`: `str`
+
+
+## SigV4AuthorizationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import SigV4AuthorizationTypeDef
+```
+
+
+Required fields:
+- `signingRegion`: `str`
+- `serviceName`: `str`
+- `roleArn`: `str`
+
+
+
+
+## SigningProfileParameterTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import SigningProfileParameterTypeDef
+```
+
+
+
+
+Optional fields:
+- `certificateArn`: `str`
+- `platform`: `str`
+- `certificatePathOnDevice`: `str`
+
+
+## SnsActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import SnsActionTypeDef
+```
+
+
+Required fields:
+- `targetArn`: `str`
+- `roleArn`: `str`
+
+
+
+Optional fields:
+- `messageFormat`: `MessageFormat`
+
+
+## SqsActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import SqsActionTypeDef
+```
+
+
+Required fields:
+- `roleArn`: `str`
+- `queueUrl`: `str`
+
+
+
+Optional fields:
+- `useBase64`: `bool`
 
 
 ## StartAuditMitigationActionsTaskResponseTypeDef
@@ -5209,6 +4564,21 @@ Optional fields:
 - `taskId`: `str`
 
 
+## StartSigningJobParameterTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import StartSigningJobParameterTypeDef
+```
+
+
+
+
+Optional fields:
+- `signingProfileParameter`: `"SigningProfileParameterTypeDef"`
+- `signingProfileName`: `str`
+- `destination`: `"DestinationTypeDef"`
+
+
 ## StartThingRegistrationTaskResponseTypeDef
 
 ```python
@@ -5220,6 +4590,172 @@ from mypy_boto3_iot.type_defs import StartThingRegistrationTaskResponseTypeDef
 
 Optional fields:
 - `taskId`: `str`
+
+
+## StatisticalThresholdTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import StatisticalThresholdTypeDef
+```
+
+
+
+
+Optional fields:
+- `statistic`: `str`
+
+
+## StatisticsTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import StatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `count`: `int`
+- `average`: `float`
+- `sum`: `float`
+- `minimum`: `float`
+- `maximum`: `float`
+- `sumOfSquares`: `float`
+- `variance`: `float`
+- `stdDeviation`: `float`
+
+
+## StepFunctionsActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import StepFunctionsActionTypeDef
+```
+
+
+Required fields:
+- `stateMachineName`: `str`
+- `roleArn`: `str`
+
+
+
+Optional fields:
+- `executionNamePrefix`: `str`
+
+
+## StreamFileTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import StreamFileTypeDef
+```
+
+
+
+
+Optional fields:
+- `fileId`: `int`
+- `s3Location`: `"S3LocationTypeDef"`
+
+
+## StreamInfoTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import StreamInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `streamId`: `str`
+- `streamArn`: `str`
+- `streamVersion`: `int`
+- `description`: `str`
+- `files`: `List["StreamFileTypeDef"]`
+- `createdAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `roleArn`: `str`
+
+
+## StreamSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import StreamSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `streamId`: `str`
+- `streamArn`: `str`
+- `streamVersion`: `int`
+- `description`: `str`
+
+
+## StreamTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import StreamTypeDef
+```
+
+
+
+
+Optional fields:
+- `streamId`: `str`
+- `fileId`: `int`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## TaskStatisticsForAuditCheckTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TaskStatisticsForAuditCheckTypeDef
+```
+
+
+
+
+Optional fields:
+- `totalFindingsCount`: `int`
+- `failedFindingsCount`: `int`
+- `succeededFindingsCount`: `int`
+- `skippedFindingsCount`: `int`
+- `canceledFindingsCount`: `int`
+
+
+## TaskStatisticsTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TaskStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `totalChecks`: `int`
+- `inProgressChecks`: `int`
+- `waitingForDataCollectionChecks`: `int`
+- `compliantChecks`: `int`
+- `nonCompliantChecks`: `int`
+- `failedChecks`: `int`
+- `canceledChecks`: `int`
 
 
 ## TestAuthorizationResponseTypeDef
@@ -5252,6 +4788,242 @@ Optional fields:
 - `disconnectAfterInSeconds`: `int`
 
 
+## ThingAttributeTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ThingAttributeTypeDef
+```
+
+
+
+
+Optional fields:
+- `thingName`: `str`
+- `thingTypeName`: `str`
+- `thingArn`: `str`
+- `attributes`: `Dict[str, str]`
+- `version`: `int`
+
+
+## ThingConnectivityTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ThingConnectivityTypeDef
+```
+
+
+
+
+Optional fields:
+- `connected`: `bool`
+- `timestamp`: `int`
+
+
+## ThingDocumentTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ThingDocumentTypeDef
+```
+
+
+
+
+Optional fields:
+- `thingName`: `str`
+- `thingId`: `str`
+- `thingTypeName`: `str`
+- `thingGroupNames`: `List[str]`
+- `attributes`: `Dict[str, str]`
+- `shadow`: `str`
+- `connectivity`: `"ThingConnectivityTypeDef"`
+
+
+## ThingGroupDocumentTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ThingGroupDocumentTypeDef
+```
+
+
+
+
+Optional fields:
+- `thingGroupName`: `str`
+- `thingGroupId`: `str`
+- `thingGroupDescription`: `str`
+- `attributes`: `Dict[str, str]`
+- `parentGroupNames`: `List[str]`
+
+
+## ThingGroupIndexingConfigurationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ThingGroupIndexingConfigurationTypeDef
+```
+
+
+Required fields:
+- `thingGroupIndexingMode`: `ThingGroupIndexingMode`
+
+
+
+Optional fields:
+- `managedFields`: `List["FieldTypeDef"]`
+- `customFields`: `List["FieldTypeDef"]`
+
+
+## ThingGroupMetadataTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ThingGroupMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `parentGroupName`: `str`
+- `rootToParentThingGroups`: `List["GroupNameAndArnTypeDef"]`
+- `creationDate`: `datetime`
+
+
+## ThingGroupPropertiesTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ThingGroupPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `thingGroupDescription`: `str`
+- `attributePayload`: `"AttributePayloadTypeDef"`
+
+
+## ThingIndexingConfigurationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ThingIndexingConfigurationTypeDef
+```
+
+
+Required fields:
+- `thingIndexingMode`: `ThingIndexingMode`
+
+
+
+Optional fields:
+- `thingConnectivityIndexingMode`: `ThingConnectivityIndexingMode`
+- `managedFields`: `List["FieldTypeDef"]`
+- `customFields`: `List["FieldTypeDef"]`
+
+
+## ThingTypeDefinitionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ThingTypeDefinitionTypeDef
+```
+
+
+
+
+Optional fields:
+- `thingTypeName`: `str`
+- `thingTypeArn`: `str`
+- `thingTypeProperties`: `"ThingTypePropertiesTypeDef"`
+- `thingTypeMetadata`: `"ThingTypeMetadataTypeDef"`
+
+
+## ThingTypeMetadataTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ThingTypeMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `deprecated`: `bool`
+- `deprecationDate`: `datetime`
+- `creationDate`: `datetime`
+
+
+## ThingTypePropertiesTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ThingTypePropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `thingTypeDescription`: `str`
+- `searchableAttributes`: `List[str]`
+
+
+## TimeoutConfigTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TimeoutConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `inProgressTimeoutInMinutes`: `int`
+
+
+## TimestreamActionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TimestreamActionTypeDef
+```
+
+
+Required fields:
+- `roleArn`: `str`
+- `databaseName`: `str`
+- `tableName`: `str`
+- `dimensions`: `List["TimestreamDimensionTypeDef"]`
+
+
+
+Optional fields:
+- `timestamp`: `"TimestreamTimestampTypeDef"`
+
+
+## TimestreamDimensionTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TimestreamDimensionTypeDef
+```
+
+
+Required fields:
+- `name`: `str`
+- `value`: `str`
+
+
+
+
+## TimestreamTimestampTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TimestreamTimestampTypeDef
+```
+
+
+Required fields:
+- `value`: `str`
+- `unit`: `str`
+
+
+
+
 ## TlsContextTypeDef
 
 ```python
@@ -5279,6 +5051,61 @@ Optional fields:
 - `vpcConfiguration`: `"VpcDestinationConfigurationTypeDef"`
 
 
+## TopicRuleDestinationSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TopicRuleDestinationSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `status`: `TopicRuleDestinationStatus`
+- `createdAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `statusReason`: `str`
+- `httpUrlSummary`: `"HttpUrlDestinationSummaryTypeDef"`
+- `vpcDestinationSummary`: `"VpcDestinationSummaryTypeDef"`
+
+
+## TopicRuleDestinationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TopicRuleDestinationTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `status`: `TopicRuleDestinationStatus`
+- `createdAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `statusReason`: `str`
+- `httpUrlProperties`: `"HttpUrlDestinationPropertiesTypeDef"`
+- `vpcProperties`: `"VpcDestinationPropertiesTypeDef"`
+
+
+## TopicRuleListItemTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TopicRuleListItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `ruleArn`: `str`
+- `ruleName`: `str`
+- `topicPattern`: `str`
+- `createdAt`: `datetime`
+- `ruleDisabled`: `bool`
+
+
 ## TopicRulePayloadTypeDef
 
 ```python
@@ -5299,6 +5126,26 @@ Optional fields:
 - `errorAction`: `"ActionTypeDef"`
 
 
+## TopicRuleTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TopicRuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `ruleName`: `str`
+- `sql`: `str`
+- `description`: `str`
+- `createdAt`: `datetime`
+- `actions`: `List["ActionTypeDef"]`
+- `ruleDisabled`: `bool`
+- `awsIotSqlVersion`: `str`
+- `errorAction`: `"ActionTypeDef"`
+
+
 ## TransferCertificateResponseTypeDef
 
 ```python
@@ -5310,6 +5157,23 @@ from mypy_boto3_iot.type_defs import TransferCertificateResponseTypeDef
 
 Optional fields:
 - `transferredCertificateArn`: `str`
+
+
+## TransferDataTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import TransferDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `transferMessage`: `str`
+- `rejectReason`: `str`
+- `transferDate`: `datetime`
+- `acceptDate`: `datetime`
+- `rejectDate`: `datetime`
 
 
 ## UpdateAuthorizerResponseTypeDef
@@ -5339,6 +5203,19 @@ Optional fields:
 - `version`: `int`
 
 
+## UpdateCACertificateParamsTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import UpdateCACertificateParamsTypeDef
+```
+
+
+Required fields:
+- `action`: `Literal['DEACTIVATE']`
+
+
+
+
 ## UpdateCustomMetricResponseTypeDef
 
 ```python
@@ -5357,6 +5234,19 @@ Optional fields:
 - `lastModifiedDate`: `datetime`
 
 
+## UpdateDeviceCertificateParamsTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import UpdateDeviceCertificateParamsTypeDef
+```
+
+
+Required fields:
+- `action`: `Literal['DEACTIVATE']`
+
+
+
+
 ## UpdateDimensionResponseTypeDef
 
 ```python
@@ -5369,7 +5259,7 @@ from mypy_boto3_iot.type_defs import UpdateDimensionResponseTypeDef
 Optional fields:
 - `name`: `str`
 - `arn`: `str`
-- `type`: `DimensionType`
+- `type`: `Literal['TOPIC_FILTER']`
 - `stringValues`: `List[str]`
 - `creationDate`: `datetime`
 - `lastModifiedDate`: `datetime`
@@ -5457,7 +5347,7 @@ Optional fields:
 - `securityProfileArn`: `str`
 - `securityProfileDescription`: `str`
 - `behaviors`: `List["BehaviorTypeDef"]`
-- `alertTargets`: `Dict[AlertTargetType, "AlertTargetTypeDef"]`
+- `alertTargets`: `Dict[Literal['SNS'], "AlertTargetTypeDef"]`
 - `additionalMetricsToRetain`: `List[str]`
 - `additionalMetricsToRetainV2`: `List["MetricToRetainTypeDef"]`
 - `version`: `int`
@@ -5506,4 +5396,114 @@ from mypy_boto3_iot.type_defs import ValidateSecurityProfileBehaviorsResponseTyp
 Optional fields:
 - `valid`: `bool`
 - `validationErrors`: `List["ValidationErrorTypeDef"]`
+
+
+## ValidationErrorTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ValidationErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `errorMessage`: `str`
+
+
+## ViolationEventAdditionalInfoTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ViolationEventAdditionalInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `confidenceLevel`: `ConfidenceLevel`
+
+
+## ViolationEventOccurrenceRangeTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ViolationEventOccurrenceRangeTypeDef
+```
+
+
+Required fields:
+- `startTime`: `datetime`
+- `endTime`: `datetime`
+
+
+
+
+## ViolationEventTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import ViolationEventTypeDef
+```
+
+
+
+
+Optional fields:
+- `violationId`: `str`
+- `thingName`: `str`
+- `securityProfileName`: `str`
+- `behavior`: `"BehaviorTypeDef"`
+- `metricValue`: `"MetricValueTypeDef"`
+- `violationEventAdditionalInfo`: `"ViolationEventAdditionalInfoTypeDef"`
+- `violationEventType`: `ViolationEventType`
+- `violationEventTime`: `datetime`
+
+
+## VpcDestinationConfigurationTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import VpcDestinationConfigurationTypeDef
+```
+
+
+Required fields:
+- `subnetIds`: `List[str]`
+- `vpcId`: `str`
+- `roleArn`: `str`
+
+
+
+Optional fields:
+- `securityGroups`: `List[str]`
+
+
+## VpcDestinationPropertiesTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import VpcDestinationPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `subnetIds`: `List[str]`
+- `securityGroups`: `List[str]`
+- `vpcId`: `str`
+- `roleArn`: `str`
+
+
+## VpcDestinationSummaryTypeDef
+
+```python
+from mypy_boto3_iot.type_defs import VpcDestinationSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `subnetIds`: `List[str]`
+- `securityGroups`: `List[str]`
+- `vpcId`: `str`
+- `roleArn`: `str`
 

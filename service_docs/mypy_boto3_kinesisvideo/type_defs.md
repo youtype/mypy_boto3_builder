@@ -7,10 +7,6 @@ type annotations stubs module [mypy_boto3_kinesisvideo](https://pypi.org/project
 
 - [Structures for boto3 KinesisVideo module](#structures-for-boto3-kinesisvideo-module)
   - [ChannelInfoTypeDef](#channelinfotypedef)
-  - [ResourceEndpointListItemTypeDef](#resourceendpointlistitemtypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [SingleMasterConfigurationTypeDef](#singlemasterconfigurationtypedef)
-  - [StreamInfoTypeDef](#streaminfotypedef)
   - [ChannelNameConditionTypeDef](#channelnameconditiontypedef)
   - [CreateSignalingChannelOutputTypeDef](#createsignalingchanneloutputtypedef)
   - [CreateStreamOutputTypeDef](#createstreamoutputtypedef)
@@ -23,7 +19,11 @@ type annotations stubs module [mypy_boto3_kinesisvideo](https://pypi.org/project
   - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
   - [ListTagsForStreamOutputTypeDef](#listtagsforstreamoutputtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ResourceEndpointListItemTypeDef](#resourceendpointlistitemtypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [SingleMasterChannelEndpointConfigurationTypeDef](#singlemasterchannelendpointconfigurationtypedef)
+  - [SingleMasterConfigurationTypeDef](#singlemasterconfigurationtypedef)
+  - [StreamInfoTypeDef](#streaminfotypedef)
   - [StreamNameConditionTypeDef](#streamnameconditiontypedef)
   - [TagTypeDef](#tagtypedef)
 
@@ -39,76 +39,11 @@ from mypy_boto3_kinesisvideo.type_defs import ChannelInfoTypeDef
 Optional fields:
 - `ChannelName`: `str`
 - `ChannelARN`: `str`
-- `ChannelType`: `ChannelType`
+- `ChannelType`: `Literal['SINGLE_MASTER']`
 - `ChannelStatus`: `Status`
 - `CreationTime`: `datetime`
 - `SingleMasterConfiguration`: `"SingleMasterConfigurationTypeDef"`
 - `Version`: `str`
-
-
-## ResourceEndpointListItemTypeDef
-
-```python
-from mypy_boto3_kinesisvideo.type_defs import ResourceEndpointListItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `Protocol`: `ChannelProtocol`
-- `ResourceEndpoint`: `str`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_kinesisvideo.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## SingleMasterConfigurationTypeDef
-
-```python
-from mypy_boto3_kinesisvideo.type_defs import SingleMasterConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `MessageTtlSeconds`: `int`
-
-
-## StreamInfoTypeDef
-
-```python
-from mypy_boto3_kinesisvideo.type_defs import StreamInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeviceName`: `str`
-- `StreamName`: `str`
-- `StreamARN`: `str`
-- `MediaType`: `str`
-- `KmsKeyId`: `str`
-- `Version`: `str`
-- `Status`: `Status`
-- `CreationTime`: `datetime`
-- `DataRetentionInHours`: `int`
 
 
 ## ChannelNameConditionTypeDef
@@ -121,7 +56,7 @@ from mypy_boto3_kinesisvideo.type_defs import ChannelNameConditionTypeDef
 
 
 Optional fields:
-- `ComparisonOperator`: `ComparisonOperator`
+- `ComparisonOperator`: `Literal['BEGINS_WITH']`
 - `ComparisonValue`: `str`
 
 
@@ -284,6 +219,37 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ResourceEndpointListItemTypeDef
+
+```python
+from mypy_boto3_kinesisvideo.type_defs import ResourceEndpointListItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `Protocol`: `ChannelProtocol`
+- `ResourceEndpoint`: `str`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_kinesisvideo.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
 ## SingleMasterChannelEndpointConfigurationTypeDef
 
 ```python
@@ -298,6 +264,40 @@ Optional fields:
 - `Role`: `ChannelRole`
 
 
+## SingleMasterConfigurationTypeDef
+
+```python
+from mypy_boto3_kinesisvideo.type_defs import SingleMasterConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `MessageTtlSeconds`: `int`
+
+
+## StreamInfoTypeDef
+
+```python
+from mypy_boto3_kinesisvideo.type_defs import StreamInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeviceName`: `str`
+- `StreamName`: `str`
+- `StreamARN`: `str`
+- `MediaType`: `str`
+- `KmsKeyId`: `str`
+- `Version`: `str`
+- `Status`: `Status`
+- `CreationTime`: `datetime`
+- `DataRetentionInHours`: `int`
+
+
 ## StreamNameConditionTypeDef
 
 ```python
@@ -308,7 +308,7 @@ from mypy_boto3_kinesisvideo.type_defs import StreamNameConditionTypeDef
 
 
 Optional fields:
-- `ComparisonOperator`: `ComparisonOperator`
+- `ComparisonOperator`: `Literal['BEGINS_WITH']`
 - `ComparisonValue`: `str`
 
 

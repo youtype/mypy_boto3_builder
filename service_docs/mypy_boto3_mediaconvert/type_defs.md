@@ -38,10 +38,15 @@ type annotations stubs module [mypy_boto3_mediaconvert](https://pypi.org/project
   - [CmfcSettingsTypeDef](#cmfcsettingstypedef)
   - [ColorCorrectorTypeDef](#colorcorrectortypedef)
   - [ContainerSettingsTypeDef](#containersettingstypedef)
+  - [CreateJobResponseTypeDef](#createjobresponsetypedef)
+  - [CreateJobTemplateResponseTypeDef](#createjobtemplateresponsetypedef)
+  - [CreatePresetResponseTypeDef](#createpresetresponsetypedef)
+  - [CreateQueueResponseTypeDef](#createqueueresponsetypedef)
   - [DashAdditionalManifestTypeDef](#dashadditionalmanifesttypedef)
   - [DashIsoEncryptionSettingsTypeDef](#dashisoencryptionsettingstypedef)
   - [DashIsoGroupSettingsTypeDef](#dashisogroupsettingstypedef)
   - [DeinterlacerTypeDef](#deinterlacertypedef)
+  - [DescribeEndpointsResponseTypeDef](#describeendpointsresponsetypedef)
   - [DestinationSettingsTypeDef](#destinationsettingstypedef)
   - [DolbyVisionLevel6MetadataTypeDef](#dolbyvisionlevel6metadatatypedef)
   - [DolbyVisionTypeDef](#dolbyvisiontypedef)
@@ -62,6 +67,10 @@ type annotations stubs module [mypy_boto3_mediaconvert](https://pypi.org/project
   - [FileGroupSettingsTypeDef](#filegroupsettingstypedef)
   - [FileSourceSettingsTypeDef](#filesourcesettingstypedef)
   - [FrameCaptureSettingsTypeDef](#framecapturesettingstypedef)
+  - [GetJobResponseTypeDef](#getjobresponsetypedef)
+  - [GetJobTemplateResponseTypeDef](#getjobtemplateresponsetypedef)
+  - [GetPresetResponseTypeDef](#getpresetresponsetypedef)
+  - [GetQueueResponseTypeDef](#getqueueresponsetypedef)
   - [H264QvbrSettingsTypeDef](#h264qvbrsettingstypedef)
   - [H264SettingsTypeDef](#h264settingstypedef)
   - [H265QvbrSettingsTypeDef](#h265qvbrsettingstypedef)
@@ -86,6 +95,11 @@ type annotations stubs module [mypy_boto3_mediaconvert](https://pypi.org/project
   - [JobTemplateSettingsTypeDef](#jobtemplatesettingstypedef)
   - [JobTemplateTypeDef](#jobtemplatetypedef)
   - [JobTypeDef](#jobtypedef)
+  - [ListJobTemplatesResponseTypeDef](#listjobtemplatesresponsetypedef)
+  - [ListJobsResponseTypeDef](#listjobsresponsetypedef)
+  - [ListPresetsResponseTypeDef](#listpresetsresponsetypedef)
+  - [ListQueuesResponseTypeDef](#listqueuesresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [M2tsScte35EsamTypeDef](#m2tsscte35esamtypedef)
   - [M2tsSettingsTypeDef](#m2tssettingstypedef)
   - [M3u8SettingsTypeDef](#m3u8settingstypedef)
@@ -117,6 +131,7 @@ type annotations stubs module [mypy_boto3_mediaconvert](https://pypi.org/project
   - [OutputGroupTypeDef](#outputgrouptypedef)
   - [OutputSettingsTypeDef](#outputsettingstypedef)
   - [OutputTypeDef](#outputtypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PartnerWatermarkingTypeDef](#partnerwatermarkingtypedef)
   - [PresetSettingsTypeDef](#presetsettingstypedef)
   - [PresetTypeDef](#presettypedef)
@@ -125,6 +140,7 @@ type annotations stubs module [mypy_boto3_mediaconvert](https://pypi.org/project
   - [QueueTypeDef](#queuetypedef)
   - [RectangleTypeDef](#rectangletypedef)
   - [RemixSettingsTypeDef](#remixsettingstypedef)
+  - [ReservationPlanSettingsTypeDef](#reservationplansettingstypedef)
   - [ReservationPlanTypeDef](#reservationplantypedef)
   - [ResourceTagsTypeDef](#resourcetagstypedef)
   - [ResponseMetadata](#responsemetadata)
@@ -143,6 +159,9 @@ type annotations stubs module [mypy_boto3_mediaconvert](https://pypi.org/project
   - [TimingTypeDef](#timingtypedef)
   - [TrackSourceSettingsTypeDef](#tracksourcesettingstypedef)
   - [TtmlDestinationSettingsTypeDef](#ttmldestinationsettingstypedef)
+  - [UpdateJobTemplateResponseTypeDef](#updatejobtemplateresponsetypedef)
+  - [UpdatePresetResponseTypeDef](#updatepresetresponsetypedef)
+  - [UpdateQueueResponseTypeDef](#updatequeueresponsetypedef)
   - [Vc3SettingsTypeDef](#vc3settingstypedef)
   - [VideoCodecSettingsTypeDef](#videocodecsettingstypedef)
   - [VideoDescriptionTypeDef](#videodescriptiontypedef)
@@ -154,25 +173,6 @@ type annotations stubs module [mypy_boto3_mediaconvert](https://pypi.org/project
   - [Vp9SettingsTypeDef](#vp9settingstypedef)
   - [WavSettingsTypeDef](#wavsettingstypedef)
   - [WebvttDestinationSettingsTypeDef](#webvttdestinationsettingstypedef)
-  - [CreateJobResponseTypeDef](#createjobresponsetypedef)
-  - [CreateJobTemplateResponseTypeDef](#createjobtemplateresponsetypedef)
-  - [CreatePresetResponseTypeDef](#createpresetresponsetypedef)
-  - [CreateQueueResponseTypeDef](#createqueueresponsetypedef)
-  - [DescribeEndpointsResponseTypeDef](#describeendpointsresponsetypedef)
-  - [GetJobResponseTypeDef](#getjobresponsetypedef)
-  - [GetJobTemplateResponseTypeDef](#getjobtemplateresponsetypedef)
-  - [GetPresetResponseTypeDef](#getpresetresponsetypedef)
-  - [GetQueueResponseTypeDef](#getqueueresponsetypedef)
-  - [ListJobTemplatesResponseTypeDef](#listjobtemplatesresponsetypedef)
-  - [ListJobsResponseTypeDef](#listjobsresponsetypedef)
-  - [ListPresetsResponseTypeDef](#listpresetsresponsetypedef)
-  - [ListQueuesResponseTypeDef](#listqueuesresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [ReservationPlanSettingsTypeDef](#reservationplansettingstypedef)
-  - [UpdateJobTemplateResponseTypeDef](#updatejobtemplateresponsetypedef)
-  - [UpdatePresetResponseTypeDef](#updatepresetresponsetypedef)
-  - [UpdateQueueResponseTypeDef](#updatequeueresponsetypedef)
 
 ## AacSettingsTypeDef
 
@@ -433,7 +433,7 @@ Optional fields:
 - `MaxBitrate`: `int`
 - `NumberBFramesBetweenReferenceFrames`: `int`
 - `QvbrSettings`: `"Av1QvbrSettingsTypeDef"`
-- `RateControlMode`: `Av1RateControlMode`
+- `RateControlMode`: `Literal['QVBR']`
 - `Slices`: `int`
 - `SpatialAdaptiveQuantization`: `Av1SpatialAdaptiveQuantization`
 
@@ -753,6 +753,58 @@ Optional fields:
 - `MxfSettings`: `"MxfSettingsTypeDef"`
 
 
+## CreateJobResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import CreateJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Job`: `"JobTypeDef"`
+
+
+## CreateJobTemplateResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import CreateJobTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobTemplate`: `"JobTemplateTypeDef"`
+
+
+## CreatePresetResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import CreatePresetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Preset`: `"PresetTypeDef"`
+
+
+## CreateQueueResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import CreateQueueResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Queue`: `"QueueTypeDef"`
+
+
 ## DashAdditionalManifestTypeDef
 
 ```python
@@ -823,6 +875,20 @@ Optional fields:
 - `Mode`: `DeinterlacerMode`
 
 
+## DescribeEndpointsResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import DescribeEndpointsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Endpoints`: `List["EndpointTypeDef"]`
+- `NextToken`: `str`
+
+
 ## DestinationSettingsTypeDef
 
 ```python
@@ -862,7 +928,7 @@ from mypy_boto3_mediaconvert.type_defs import DolbyVisionTypeDef
 Optional fields:
 - `L6Metadata`: `"DolbyVisionLevel6MetadataTypeDef"`
 - `L6Mode`: `DolbyVisionLevel6Mode`
-- `Profile`: `DolbyVisionProfile`
+- `Profile`: `Literal['PROFILE_5']`
 
 
 ## DvbNitSettingsTypeDef
@@ -963,8 +1029,8 @@ from mypy_boto3_mediaconvert.type_defs import Eac3AtmosSettingsTypeDef
 
 Optional fields:
 - `Bitrate`: `int`
-- `BitstreamMode`: `Eac3AtmosBitstreamMode`
-- `CodingMode`: `Eac3AtmosCodingMode`
+- `BitstreamMode`: `Literal['COMPLETE_MAIN']`
+- `CodingMode`: `Literal['CODING_MODE_9_1_6']`
 - `DialogueIntelligence`: `Eac3AtmosDialogueIntelligence`
 - `DynamicRangeCompressionLine`: `Eac3AtmosDynamicRangeCompressionLine`
 - `DynamicRangeCompressionRf`: `Eac3AtmosDynamicRangeCompressionRf`
@@ -1153,6 +1219,58 @@ Optional fields:
 - `FramerateNumerator`: `int`
 - `MaxCaptures`: `int`
 - `Quality`: `int`
+
+
+## GetJobResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import GetJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Job`: `"JobTypeDef"`
+
+
+## GetJobTemplateResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import GetJobTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobTemplate`: `"JobTemplateTypeDef"`
+
+
+## GetPresetResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import GetPresetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Preset`: `"PresetTypeDef"`
+
+
+## GetQueueResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import GetQueueResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Queue`: `"QueueTypeDef"`
 
 
 ## H264QvbrSettingsTypeDef
@@ -1710,6 +1828,75 @@ Optional fields:
 - `StatusUpdateInterval`: `StatusUpdateInterval`
 - `Timing`: `"TimingTypeDef"`
 - `UserMetadata`: `Dict[str, str]`
+
+
+## ListJobTemplatesResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import ListJobTemplatesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobTemplates`: `List["JobTemplateTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListJobsResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import ListJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Jobs`: `List["JobTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListPresetsResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import ListPresetsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `Presets`: `List["PresetTypeDef"]`
+
+
+## ListQueuesResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import ListQueuesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `Queues`: `List["QueueTypeDef"]`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceTags`: `"ResourceTagsTypeDef"`
 
 
 ## M2tsScte35EsamTypeDef
@@ -2275,6 +2462,21 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
 ## PartnerWatermarkingTypeDef
 
 ```python
@@ -2421,6 +2623,21 @@ Optional fields:
 - `ChannelsOut`: `int`
 
 
+## ReservationPlanSettingsTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import ReservationPlanSettingsTypeDef
+```
+
+
+Required fields:
+- `Commitment`: `Literal['ONE_YEAR']`
+- `RenewalType`: `RenewalType`
+- `ReservedSlots`: `int`
+
+
+
+
 ## ReservationPlanTypeDef
 
 ```python
@@ -2431,7 +2648,7 @@ from mypy_boto3_mediaconvert.type_defs import ReservationPlanTypeDef
 
 
 Optional fields:
-- `Commitment`: `Commitment`
+- `Commitment`: `Literal['ONE_YEAR']`
 - `ExpiresAt`: `datetime`
 - `PurchasedAt`: `datetime`
 - `RenewalType`: `RenewalType`
@@ -2685,6 +2902,45 @@ Optional fields:
 - `StylePassthrough`: `TtmlStylePassthrough`
 
 
+## UpdateJobTemplateResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import UpdateJobTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobTemplate`: `"JobTemplateTypeDef"`
+
+
+## UpdatePresetResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import UpdatePresetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Preset`: `"PresetTypeDef"`
+
+
+## UpdateQueueResponseTypeDef
+
+```python
+from mypy_boto3_mediaconvert.type_defs import UpdateQueueResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Queue`: `"QueueTypeDef"`
+
+
 ## Vc3SettingsTypeDef
 
 ```python
@@ -2845,7 +3101,7 @@ Optional fields:
 - `ParDenominator`: `int`
 - `ParNumerator`: `int`
 - `QualityTuningLevel`: `Vp8QualityTuningLevel`
-- `RateControlMode`: `Vp8RateControlMode`
+- `RateControlMode`: `Literal['VBR']`
 
 
 ## Vp9SettingsTypeDef
@@ -2870,7 +3126,7 @@ Optional fields:
 - `ParDenominator`: `int`
 - `ParNumerator`: `int`
 - `QualityTuningLevel`: `Vp9QualityTuningLevel`
-- `RateControlMode`: `Vp9RateControlMode`
+- `RateControlMode`: `Literal['VBR']`
 
 
 ## WavSettingsTypeDef
@@ -2900,260 +3156,4 @@ from mypy_boto3_mediaconvert.type_defs import WebvttDestinationSettingsTypeDef
 
 Optional fields:
 - `StylePassthrough`: `WebvttStylePassthrough`
-
-
-## CreateJobResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import CreateJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Job`: `"JobTypeDef"`
-
-
-## CreateJobTemplateResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import CreateJobTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobTemplate`: `"JobTemplateTypeDef"`
-
-
-## CreatePresetResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import CreatePresetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Preset`: `"PresetTypeDef"`
-
-
-## CreateQueueResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import CreateQueueResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Queue`: `"QueueTypeDef"`
-
-
-## DescribeEndpointsResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import DescribeEndpointsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Endpoints`: `List["EndpointTypeDef"]`
-- `NextToken`: `str`
-
-
-## GetJobResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import GetJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Job`: `"JobTypeDef"`
-
-
-## GetJobTemplateResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import GetJobTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobTemplate`: `"JobTemplateTypeDef"`
-
-
-## GetPresetResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import GetPresetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Preset`: `"PresetTypeDef"`
-
-
-## GetQueueResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import GetQueueResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Queue`: `"QueueTypeDef"`
-
-
-## ListJobTemplatesResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import ListJobTemplatesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobTemplates`: `List["JobTemplateTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListJobsResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import ListJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Jobs`: `List["JobTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListPresetsResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import ListPresetsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `Presets`: `List["PresetTypeDef"]`
-
-
-## ListQueuesResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import ListQueuesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `Queues`: `List["QueueTypeDef"]`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceTags`: `"ResourceTagsTypeDef"`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## ReservationPlanSettingsTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import ReservationPlanSettingsTypeDef
-```
-
-
-Required fields:
-- `Commitment`: `Commitment`
-- `RenewalType`: `RenewalType`
-- `ReservedSlots`: `int`
-
-
-
-
-## UpdateJobTemplateResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import UpdateJobTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobTemplate`: `"JobTemplateTypeDef"`
-
-
-## UpdatePresetResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import UpdatePresetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Preset`: `"PresetTypeDef"`
-
-
-## UpdateQueueResponseTypeDef
-
-```python
-from mypy_boto3_mediaconvert.type_defs import UpdateQueueResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Queue`: `"QueueTypeDef"`
 

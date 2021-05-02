@@ -58,9 +58,6 @@ type annotations stubs module [mypy_boto3_kms](https://pypi.org/project/mypy-bot
     - [update_key_description](#update_key_description)
     - [verify](#verify)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## KMSClient
 
@@ -563,7 +560,7 @@ def get_parameters_for_import(
     self,
     KeyId: str,
     WrappingAlgorithm: AlgorithmSpec,
-    WrappingKeySpec: WrappingKeySpec
+    WrappingKeySpec: Literal['RSA_2048']
 ) -> GetParametersForImportResponseTypeDef:
     pass
 ```
@@ -896,62 +893,15 @@ def verify(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("kms").get_paginator` method.
-
-[Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kms.html#KMS.Paginator.ListAliases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAliasesPaginatorName
-) -> ListAliasesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("kms").get_paginator` method.
+Type annotations for `boto3.client("kms").get_paginator` method with overloads.
 
-[Paginator.ListGrants documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kms.html#KMS.Paginator.ListGrants)
+- `client.get_paginator("list_aliases")` -> [ListAliasesPaginator](./paginators.md#listaliasespaginator)
+- `client.get_paginator("list_grants")` -> [ListGrantsPaginator](./paginators.md#listgrantspaginator)
+- `client.get_paginator("list_key_policies")` -> [ListKeyPoliciesPaginator](./paginators.md#listkeypoliciespaginator)
+- `client.get_paginator("list_keys")` -> [ListKeysPaginator](./paginators.md#listkeyspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGrantsPaginatorName
-) -> ListGrantsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("kms").get_paginator` method.
-
-[Paginator.ListKeyPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kms.html#KMS.Paginator.ListKeyPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListKeyPoliciesPaginatorName
-) -> ListKeyPoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("kms").get_paginator` method.
-
-[Paginator.ListKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kms.html#KMS.Paginator.ListKeys)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListKeysPaginatorName
-) -> ListKeysPaginator:
-    pass
-```

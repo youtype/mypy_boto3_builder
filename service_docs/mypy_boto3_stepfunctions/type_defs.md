@@ -16,12 +16,20 @@ type annotations stubs module [mypy_boto3_stepfunctions](https://pypi.org/projec
   - [BillingDetailsTypeDef](#billingdetailstypedef)
   - [CloudWatchEventsExecutionDataDetailsTypeDef](#cloudwatcheventsexecutiondatadetailstypedef)
   - [CloudWatchLogsLogGroupTypeDef](#cloudwatchlogsloggrouptypedef)
+  - [CreateActivityOutputTypeDef](#createactivityoutputtypedef)
+  - [CreateStateMachineOutputTypeDef](#createstatemachineoutputtypedef)
+  - [DescribeActivityOutputTypeDef](#describeactivityoutputtypedef)
+  - [DescribeExecutionOutputTypeDef](#describeexecutionoutputtypedef)
+  - [DescribeStateMachineForExecutionOutputTypeDef](#describestatemachineforexecutionoutputtypedef)
+  - [DescribeStateMachineOutputTypeDef](#describestatemachineoutputtypedef)
   - [ExecutionAbortedEventDetailsTypeDef](#executionabortedeventdetailstypedef)
   - [ExecutionFailedEventDetailsTypeDef](#executionfailedeventdetailstypedef)
   - [ExecutionListItemTypeDef](#executionlistitemtypedef)
   - [ExecutionStartedEventDetailsTypeDef](#executionstartedeventdetailstypedef)
   - [ExecutionSucceededEventDetailsTypeDef](#executionsucceededeventdetailstypedef)
   - [ExecutionTimedOutEventDetailsTypeDef](#executiontimedouteventdetailstypedef)
+  - [GetActivityTaskOutputTypeDef](#getactivitytaskoutputtypedef)
+  - [GetExecutionHistoryOutputTypeDef](#getexecutionhistoryoutputtypedef)
   - [HistoryEventExecutionDataDetailsTypeDef](#historyeventexecutiondatadetailstypedef)
   - [HistoryEventTypeDef](#historyeventtypedef)
   - [LambdaFunctionFailedEventDetailsTypeDef](#lambdafunctionfailedeventdetailstypedef)
@@ -30,14 +38,22 @@ type annotations stubs module [mypy_boto3_stepfunctions](https://pypi.org/projec
   - [LambdaFunctionStartFailedEventDetailsTypeDef](#lambdafunctionstartfailedeventdetailstypedef)
   - [LambdaFunctionSucceededEventDetailsTypeDef](#lambdafunctionsucceededeventdetailstypedef)
   - [LambdaFunctionTimedOutEventDetailsTypeDef](#lambdafunctiontimedouteventdetailstypedef)
+  - [ListActivitiesOutputTypeDef](#listactivitiesoutputtypedef)
+  - [ListExecutionsOutputTypeDef](#listexecutionsoutputtypedef)
+  - [ListStateMachinesOutputTypeDef](#liststatemachinesoutputtypedef)
+  - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
   - [LogDestinationTypeDef](#logdestinationtypedef)
   - [LoggingConfigurationTypeDef](#loggingconfigurationtypedef)
   - [MapIterationEventDetailsTypeDef](#mapiterationeventdetailstypedef)
   - [MapStateStartedEventDetailsTypeDef](#mapstatestartedeventdetailstypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ResponseMetadata](#responsemetadata)
+  - [StartExecutionOutputTypeDef](#startexecutionoutputtypedef)
+  - [StartSyncExecutionOutputTypeDef](#startsyncexecutionoutputtypedef)
   - [StateEnteredEventDetailsTypeDef](#stateenteredeventdetailstypedef)
   - [StateExitedEventDetailsTypeDef](#stateexitedeventdetailstypedef)
   - [StateMachineListItemTypeDef](#statemachinelistitemtypedef)
+  - [StopExecutionOutputTypeDef](#stopexecutionoutputtypedef)
   - [TagTypeDef](#tagtypedef)
   - [TaskFailedEventDetailsTypeDef](#taskfailedeventdetailstypedef)
   - [TaskScheduledEventDetailsTypeDef](#taskscheduledeventdetailstypedef)
@@ -48,22 +64,6 @@ type annotations stubs module [mypy_boto3_stepfunctions](https://pypi.org/projec
   - [TaskSucceededEventDetailsTypeDef](#tasksucceededeventdetailstypedef)
   - [TaskTimedOutEventDetailsTypeDef](#tasktimedouteventdetailstypedef)
   - [TracingConfigurationTypeDef](#tracingconfigurationtypedef)
-  - [CreateActivityOutputTypeDef](#createactivityoutputtypedef)
-  - [CreateStateMachineOutputTypeDef](#createstatemachineoutputtypedef)
-  - [DescribeActivityOutputTypeDef](#describeactivityoutputtypedef)
-  - [DescribeExecutionOutputTypeDef](#describeexecutionoutputtypedef)
-  - [DescribeStateMachineForExecutionOutputTypeDef](#describestatemachineforexecutionoutputtypedef)
-  - [DescribeStateMachineOutputTypeDef](#describestatemachineoutputtypedef)
-  - [GetActivityTaskOutputTypeDef](#getactivitytaskoutputtypedef)
-  - [GetExecutionHistoryOutputTypeDef](#getexecutionhistoryoutputtypedef)
-  - [ListActivitiesOutputTypeDef](#listactivitiesoutputtypedef)
-  - [ListExecutionsOutputTypeDef](#listexecutionsoutputtypedef)
-  - [ListStateMachinesOutputTypeDef](#liststatemachinesoutputtypedef)
-  - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [StartExecutionOutputTypeDef](#startexecutionoutputtypedef)
-  - [StartSyncExecutionOutputTypeDef](#startsyncexecutionoutputtypedef)
-  - [StopExecutionOutputTypeDef](#stopexecutionoutputtypedef)
   - [UpdateStateMachineOutputTypeDef](#updatestatemachineoutputtypedef)
 
 ## ActivityFailedEventDetailsTypeDef
@@ -209,6 +209,130 @@ Optional fields:
 - `logGroupArn`: `str`
 
 
+## CreateActivityOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import CreateActivityOutputTypeDef
+```
+
+
+Required fields:
+- `activityArn`: `str`
+- `creationDate`: `datetime`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateStateMachineOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import CreateStateMachineOutputTypeDef
+```
+
+
+Required fields:
+- `stateMachineArn`: `str`
+- `creationDate`: `datetime`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeActivityOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import DescribeActivityOutputTypeDef
+```
+
+
+Required fields:
+- `activityArn`: `str`
+- `name`: `str`
+- `creationDate`: `datetime`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeExecutionOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import DescribeExecutionOutputTypeDef
+```
+
+
+Required fields:
+- `executionArn`: `str`
+- `stateMachineArn`: `str`
+- `status`: `ExecutionStatus`
+- `startDate`: `datetime`
+
+
+
+Optional fields:
+- `name`: `str`
+- `stopDate`: `datetime`
+- `input`: `str`
+- `inputDetails`: `"CloudWatchEventsExecutionDataDetailsTypeDef"`
+- `output`: `str`
+- `outputDetails`: `"CloudWatchEventsExecutionDataDetailsTypeDef"`
+- `traceHeader`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStateMachineForExecutionOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import DescribeStateMachineForExecutionOutputTypeDef
+```
+
+
+Required fields:
+- `stateMachineArn`: `str`
+- `name`: `str`
+- `definition`: `str`
+- `roleArn`: `str`
+- `updateDate`: `datetime`
+
+
+
+Optional fields:
+- `loggingConfiguration`: `"LoggingConfigurationTypeDef"`
+- `tracingConfiguration`: `"TracingConfigurationTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStateMachineOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import DescribeStateMachineOutputTypeDef
+```
+
+
+Required fields:
+- `stateMachineArn`: `str`
+- `name`: `str`
+- `definition`: `str`
+- `roleArn`: `str`
+- `type`: `StateMachineType`
+- `creationDate`: `datetime`
+
+
+
+Optional fields:
+- `status`: `StateMachineStatus`
+- `loggingConfiguration`: `"LoggingConfigurationTypeDef"`
+- `tracingConfiguration`: `"TracingConfigurationTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## ExecutionAbortedEventDetailsTypeDef
 
 ```python
@@ -298,6 +422,38 @@ from mypy_boto3_stepfunctions.type_defs import ExecutionTimedOutEventDetailsType
 Optional fields:
 - `error`: `str`
 - `cause`: `str`
+
+
+## GetActivityTaskOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import GetActivityTaskOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskToken`: `str`
+- `input`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetExecutionHistoryOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import GetExecutionHistoryOutputTypeDef
+```
+
+
+Required fields:
+- `events`: `List["HistoryEventTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## HistoryEventExecutionDataDetailsTypeDef
@@ -451,6 +607,71 @@ Optional fields:
 - `cause`: `str`
 
 
+## ListActivitiesOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import ListActivitiesOutputTypeDef
+```
+
+
+Required fields:
+- `activities`: `List["ActivityListItemTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListExecutionsOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import ListExecutionsOutputTypeDef
+```
+
+
+Required fields:
+- `executions`: `List["ExecutionListItemTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListStateMachinesOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import ListStateMachinesOutputTypeDef
+```
+
+
+Required fields:
+- `stateMachines`: `List["StateMachineListItemTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListTagsForResourceOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import ListTagsForResourceOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `List["TagTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## LogDestinationTypeDef
 
 ```python
@@ -506,6 +727,21 @@ Optional fields:
 - `length`: `int`
 
 
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
 ## ResponseMetadata
 
 ```python
@@ -521,6 +757,52 @@ Required fields:
 - `RetryAttempts`: `int`
 
 
+
+
+## StartExecutionOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import StartExecutionOutputTypeDef
+```
+
+
+Required fields:
+- `executionArn`: `str`
+- `startDate`: `datetime`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## StartSyncExecutionOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import StartSyncExecutionOutputTypeDef
+```
+
+
+Required fields:
+- `executionArn`: `str`
+- `startDate`: `datetime`
+- `stopDate`: `datetime`
+- `status`: `SyncExecutionStatus`
+
+
+
+Optional fields:
+- `stateMachineArn`: `str`
+- `name`: `str`
+- `error`: `str`
+- `cause`: `str`
+- `input`: `str`
+- `inputDetails`: `"CloudWatchEventsExecutionDataDetailsTypeDef"`
+- `output`: `str`
+- `outputDetails`: `"CloudWatchEventsExecutionDataDetailsTypeDef"`
+- `traceHeader`: `str`
+- `billingDetails`: `"BillingDetailsTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## StateEnteredEventDetailsTypeDef
@@ -571,6 +853,22 @@ Required fields:
 - `creationDate`: `datetime`
 
 
+
+
+## StopExecutionOutputTypeDef
+
+```python
+from mypy_boto3_stepfunctions.type_defs import StopExecutionOutputTypeDef
+```
+
+
+Required fields:
+- `stopDate`: `datetime`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## TagTypeDef
@@ -740,304 +1038,6 @@ from mypy_boto3_stepfunctions.type_defs import TracingConfigurationTypeDef
 
 Optional fields:
 - `enabled`: `bool`
-
-
-## CreateActivityOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import CreateActivityOutputTypeDef
-```
-
-
-Required fields:
-- `activityArn`: `str`
-- `creationDate`: `datetime`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateStateMachineOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import CreateStateMachineOutputTypeDef
-```
-
-
-Required fields:
-- `stateMachineArn`: `str`
-- `creationDate`: `datetime`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeActivityOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import DescribeActivityOutputTypeDef
-```
-
-
-Required fields:
-- `activityArn`: `str`
-- `name`: `str`
-- `creationDate`: `datetime`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeExecutionOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import DescribeExecutionOutputTypeDef
-```
-
-
-Required fields:
-- `executionArn`: `str`
-- `stateMachineArn`: `str`
-- `status`: `ExecutionStatus`
-- `startDate`: `datetime`
-
-
-
-Optional fields:
-- `name`: `str`
-- `stopDate`: `datetime`
-- `input`: `str`
-- `inputDetails`: `"CloudWatchEventsExecutionDataDetailsTypeDef"`
-- `output`: `str`
-- `outputDetails`: `"CloudWatchEventsExecutionDataDetailsTypeDef"`
-- `traceHeader`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStateMachineForExecutionOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import DescribeStateMachineForExecutionOutputTypeDef
-```
-
-
-Required fields:
-- `stateMachineArn`: `str`
-- `name`: `str`
-- `definition`: `str`
-- `roleArn`: `str`
-- `updateDate`: `datetime`
-
-
-
-Optional fields:
-- `loggingConfiguration`: `"LoggingConfigurationTypeDef"`
-- `tracingConfiguration`: `"TracingConfigurationTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStateMachineOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import DescribeStateMachineOutputTypeDef
-```
-
-
-Required fields:
-- `stateMachineArn`: `str`
-- `name`: `str`
-- `definition`: `str`
-- `roleArn`: `str`
-- `type`: `StateMachineType`
-- `creationDate`: `datetime`
-
-
-
-Optional fields:
-- `status`: `StateMachineStatus`
-- `loggingConfiguration`: `"LoggingConfigurationTypeDef"`
-- `tracingConfiguration`: `"TracingConfigurationTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetActivityTaskOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import GetActivityTaskOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskToken`: `str`
-- `input`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetExecutionHistoryOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import GetExecutionHistoryOutputTypeDef
-```
-
-
-Required fields:
-- `events`: `List["HistoryEventTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListActivitiesOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import ListActivitiesOutputTypeDef
-```
-
-
-Required fields:
-- `activities`: `List["ActivityListItemTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListExecutionsOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import ListExecutionsOutputTypeDef
-```
-
-
-Required fields:
-- `executions`: `List["ExecutionListItemTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListStateMachinesOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import ListStateMachinesOutputTypeDef
-```
-
-
-Required fields:
-- `stateMachines`: `List["StateMachineListItemTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListTagsForResourceOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import ListTagsForResourceOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `List["TagTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## StartExecutionOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import StartExecutionOutputTypeDef
-```
-
-
-Required fields:
-- `executionArn`: `str`
-- `startDate`: `datetime`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## StartSyncExecutionOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import StartSyncExecutionOutputTypeDef
-```
-
-
-Required fields:
-- `executionArn`: `str`
-- `startDate`: `datetime`
-- `stopDate`: `datetime`
-- `status`: `SyncExecutionStatus`
-
-
-
-Optional fields:
-- `stateMachineArn`: `str`
-- `name`: `str`
-- `error`: `str`
-- `cause`: `str`
-- `input`: `str`
-- `inputDetails`: `"CloudWatchEventsExecutionDataDetailsTypeDef"`
-- `output`: `str`
-- `outputDetails`: `"CloudWatchEventsExecutionDataDetailsTypeDef"`
-- `traceHeader`: `str`
-- `billingDetails`: `"BillingDetailsTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## StopExecutionOutputTypeDef
-
-```python
-from mypy_boto3_stepfunctions.type_defs import StopExecutionOutputTypeDef
-```
-
-
-Required fields:
-- `stopDate`: `datetime`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## UpdateStateMachineOutputTypeDef

@@ -21,7 +21,6 @@ type annotations stubs module [mypy_boto3_mobile](https://pypi.org/project/mypy-
     - [list_projects](#list_projects)
     - [update_project](#update_project)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## MobileClient
 
@@ -228,32 +227,13 @@ def update_project(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("mobile").get_paginator` method.
-
-[Paginator.ListBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mobile.html#Mobile.Paginator.ListBundles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBundlesPaginatorName
-) -> ListBundlesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("mobile").get_paginator` method.
+Type annotations for `boto3.client("mobile").get_paginator` method with overloads.
 
-[Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mobile.html#Mobile.Paginator.ListProjects)
+- `client.get_paginator("list_bundles")` -> [ListBundlesPaginator](./paginators.md#listbundlespaginator)
+- `client.get_paginator("list_projects")` -> [ListProjectsPaginator](./paginators.md#listprojectspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProjectsPaginatorName
-) -> ListProjectsPaginator:
-    pass
-```
+

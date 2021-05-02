@@ -64,8 +64,8 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_sagemaker_runtime.type_defs import ResponseMetadata, ...
+from mypy_boto3_sagemaker_runtime.type_defs import InvokeEndpointOutputTypeDef, ...
 ```
 
-- [ResponseMetadata](./type_defs.md#responsemetadata)
 - [InvokeEndpointOutputTypeDef](./type_defs.md#invokeendpointoutputtypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)

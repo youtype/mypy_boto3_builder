@@ -7,39 +7,19 @@ type annotations stubs module [mypy_boto3_workspaces](https://pypi.org/project/m
 
 - [Structures for boto3 WorkSpaces module](#structures-for-boto3-workspaces-module)
   - [AccountModificationTypeDef](#accountmodificationtypedef)
+  - [AssociateConnectionAliasResultTypeDef](#associateconnectionaliasresulttypedef)
   - [ClientPropertiesResultTypeDef](#clientpropertiesresulttypedef)
   - [ClientPropertiesTypeDef](#clientpropertiestypedef)
   - [ComputeTypeTypeDef](#computetypetypedef)
   - [ConnectionAliasAssociationTypeDef](#connectionaliasassociationtypedef)
   - [ConnectionAliasPermissionTypeDef](#connectionaliaspermissiontypedef)
   - [ConnectionAliasTypeDef](#connectionaliastypedef)
-  - [DefaultWorkspaceCreationPropertiesTypeDef](#defaultworkspacecreationpropertiestypedef)
-  - [FailedCreateWorkspaceRequestTypeDef](#failedcreateworkspacerequesttypedef)
-  - [FailedWorkspaceChangeRequestTypeDef](#failedworkspacechangerequesttypedef)
-  - [ImagePermissionTypeDef](#imagepermissiontypedef)
-  - [IpRuleItemTypeDef](#ipruleitemtypedef)
-  - [ModificationStateTypeDef](#modificationstatetypedef)
-  - [OperatingSystemTypeDef](#operatingsystemtypedef)
-  - [RootStorageTypeDef](#rootstoragetypedef)
-  - [SelfservicePermissionsTypeDef](#selfservicepermissionstypedef)
-  - [SnapshotTypeDef](#snapshottypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [UserStorageTypeDef](#userstoragetypedef)
-  - [WorkspaceAccessPropertiesTypeDef](#workspaceaccesspropertiestypedef)
-  - [WorkspaceBundleTypeDef](#workspacebundletypedef)
-  - [WorkspaceConnectionStatusTypeDef](#workspaceconnectionstatustypedef)
-  - [WorkspaceDirectoryTypeDef](#workspacedirectorytypedef)
-  - [WorkspaceImageTypeDef](#workspaceimagetypedef)
-  - [WorkspacePropertiesTypeDef](#workspacepropertiestypedef)
-  - [WorkspaceRequestTypeDef](#workspacerequesttypedef)
-  - [WorkspaceTypeDef](#workspacetypedef)
-  - [WorkspacesIpGroupTypeDef](#workspacesipgrouptypedef)
-  - [AssociateConnectionAliasResultTypeDef](#associateconnectionaliasresulttypedef)
   - [CopyWorkspaceImageResultTypeDef](#copyworkspaceimageresulttypedef)
   - [CreateConnectionAliasResultTypeDef](#createconnectionaliasresulttypedef)
   - [CreateIpGroupResultTypeDef](#createipgroupresulttypedef)
   - [CreateWorkspaceBundleResultTypeDef](#createworkspacebundleresulttypedef)
   - [CreateWorkspacesResultTypeDef](#createworkspacesresulttypedef)
+  - [DefaultWorkspaceCreationPropertiesTypeDef](#defaultworkspacecreationpropertiestypedef)
   - [DescribeAccountModificationsResultTypeDef](#describeaccountmodificationsresulttypedef)
   - [DescribeAccountResultTypeDef](#describeaccountresulttypedef)
   - [DescribeClientPropertiesResultTypeDef](#describeclientpropertiesresulttypedef)
@@ -54,21 +34,41 @@ type annotations stubs module [mypy_boto3_workspaces](https://pypi.org/project/m
   - [DescribeWorkspaceSnapshotsResultTypeDef](#describeworkspacesnapshotsresulttypedef)
   - [DescribeWorkspacesConnectionStatusResultTypeDef](#describeworkspacesconnectionstatusresulttypedef)
   - [DescribeWorkspacesResultTypeDef](#describeworkspacesresulttypedef)
+  - [FailedCreateWorkspaceRequestTypeDef](#failedcreateworkspacerequesttypedef)
+  - [FailedWorkspaceChangeRequestTypeDef](#failedworkspacechangerequesttypedef)
+  - [ImagePermissionTypeDef](#imagepermissiontypedef)
   - [ImportWorkspaceImageResultTypeDef](#importworkspaceimageresulttypedef)
+  - [IpRuleItemTypeDef](#ipruleitemtypedef)
   - [ListAvailableManagementCidrRangesResultTypeDef](#listavailablemanagementcidrrangesresulttypedef)
   - [MigrateWorkspaceResultTypeDef](#migrateworkspaceresulttypedef)
+  - [ModificationStateTypeDef](#modificationstatetypedef)
+  - [OperatingSystemTypeDef](#operatingsystemtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [RebootRequestTypeDef](#rebootrequesttypedef)
   - [RebootWorkspacesResultTypeDef](#rebootworkspacesresulttypedef)
   - [RebuildRequestTypeDef](#rebuildrequesttypedef)
   - [RebuildWorkspacesResultTypeDef](#rebuildworkspacesresulttypedef)
+  - [RootStorageTypeDef](#rootstoragetypedef)
+  - [SelfservicePermissionsTypeDef](#selfservicepermissionstypedef)
+  - [SnapshotTypeDef](#snapshottypedef)
   - [StartRequestTypeDef](#startrequesttypedef)
   - [StartWorkspacesResultTypeDef](#startworkspacesresulttypedef)
   - [StopRequestTypeDef](#stoprequesttypedef)
   - [StopWorkspacesResultTypeDef](#stopworkspacesresulttypedef)
+  - [TagTypeDef](#tagtypedef)
   - [TerminateRequestTypeDef](#terminaterequesttypedef)
   - [TerminateWorkspacesResultTypeDef](#terminateworkspacesresulttypedef)
+  - [UserStorageTypeDef](#userstoragetypedef)
+  - [WorkspaceAccessPropertiesTypeDef](#workspaceaccesspropertiestypedef)
+  - [WorkspaceBundleTypeDef](#workspacebundletypedef)
+  - [WorkspaceConnectionStatusTypeDef](#workspaceconnectionstatustypedef)
   - [WorkspaceCreationPropertiesTypeDef](#workspacecreationpropertiestypedef)
+  - [WorkspaceDirectoryTypeDef](#workspacedirectorytypedef)
+  - [WorkspaceImageTypeDef](#workspaceimagetypedef)
+  - [WorkspacePropertiesTypeDef](#workspacepropertiestypedef)
+  - [WorkspaceRequestTypeDef](#workspacerequesttypedef)
+  - [WorkspaceTypeDef](#workspacetypedef)
+  - [WorkspacesIpGroupTypeDef](#workspacesipgrouptypedef)
 
 ## AccountModificationTypeDef
 
@@ -86,6 +86,19 @@ Optional fields:
 - `StartTime`: `datetime`
 - `ErrorCode`: `str`
 - `ErrorMessage`: `str`
+
+
+## AssociateConnectionAliasResultTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import AssociateConnectionAliasResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConnectionIdentifier`: `str`
 
 
 ## ClientPropertiesResultTypeDef
@@ -175,382 +188,6 @@ Optional fields:
 - `Associations`: `List["ConnectionAliasAssociationTypeDef"]`
 
 
-## DefaultWorkspaceCreationPropertiesTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import DefaultWorkspaceCreationPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `EnableWorkDocs`: `bool`
-- `EnableInternetAccess`: `bool`
-- `DefaultOu`: `str`
-- `CustomSecurityGroupId`: `str`
-- `UserEnabledAsLocalAdministrator`: `bool`
-- `EnableMaintenanceMode`: `bool`
-
-
-## FailedCreateWorkspaceRequestTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import FailedCreateWorkspaceRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `WorkspaceRequest`: `"WorkspaceRequestTypeDef"`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## FailedWorkspaceChangeRequestTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import FailedWorkspaceChangeRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `WorkspaceId`: `str`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## ImagePermissionTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import ImagePermissionTypeDef
-```
-
-
-
-
-Optional fields:
-- `SharedAccountId`: `str`
-
-
-## IpRuleItemTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import IpRuleItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `ipRule`: `str`
-- `ruleDesc`: `str`
-
-
-## ModificationStateTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import ModificationStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `Resource`: `ModificationResourceEnum`
-- `State`: `ModificationStateEnum`
-
-
-## OperatingSystemTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import OperatingSystemTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `OperatingSystemType`
-
-
-## RootStorageTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import RootStorageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Capacity`: `str`
-
-
-## SelfservicePermissionsTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import SelfservicePermissionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `RestartWorkspace`: `ReconnectEnum`
-- `IncreaseVolumeSize`: `ReconnectEnum`
-- `ChangeComputeType`: `ReconnectEnum`
-- `SwitchRunningMode`: `ReconnectEnum`
-- `RebuildWorkspace`: `ReconnectEnum`
-
-
-## SnapshotTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import SnapshotTypeDef
-```
-
-
-
-
-Optional fields:
-- `SnapshotTime`: `datetime`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## UserStorageTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import UserStorageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Capacity`: `str`
-
-
-## WorkspaceAccessPropertiesTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import WorkspaceAccessPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeviceTypeWindows`: `AccessPropertyValue`
-- `DeviceTypeOsx`: `AccessPropertyValue`
-- `DeviceTypeWeb`: `AccessPropertyValue`
-- `DeviceTypeIos`: `AccessPropertyValue`
-- `DeviceTypeAndroid`: `AccessPropertyValue`
-- `DeviceTypeChromeOs`: `AccessPropertyValue`
-- `DeviceTypeZeroClient`: `AccessPropertyValue`
-
-
-## WorkspaceBundleTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import WorkspaceBundleTypeDef
-```
-
-
-
-
-Optional fields:
-- `BundleId`: `str`
-- `Name`: `str`
-- `Owner`: `str`
-- `Description`: `str`
-- `ImageId`: `str`
-- `RootStorage`: `"RootStorageTypeDef"`
-- `UserStorage`: `"UserStorageTypeDef"`
-- `ComputeType`: `"ComputeTypeTypeDef"`
-- `LastUpdatedTime`: `datetime`
-- `CreationTime`: `datetime`
-
-
-## WorkspaceConnectionStatusTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import WorkspaceConnectionStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `WorkspaceId`: `str`
-- `ConnectionState`: `ConnectionState`
-- `ConnectionStateCheckTimestamp`: `datetime`
-- `LastKnownUserConnectionTimestamp`: `datetime`
-
-
-## WorkspaceDirectoryTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import WorkspaceDirectoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-- `Alias`: `str`
-- `DirectoryName`: `str`
-- `RegistrationCode`: `str`
-- `SubnetIds`: `List[str]`
-- `DnsIpAddresses`: `List[str]`
-- `CustomerUserName`: `str`
-- `IamRoleId`: `str`
-- `DirectoryType`: `WorkspaceDirectoryType`
-- `WorkspaceSecurityGroupId`: `str`
-- `State`: `WorkspaceDirectoryState`
-- `WorkspaceCreationProperties`: `"DefaultWorkspaceCreationPropertiesTypeDef"`
-- `ipGroupIds`: `List[str]`
-- `WorkspaceAccessProperties`: `"WorkspaceAccessPropertiesTypeDef"`
-- `Tenancy`: `Tenancy`
-- `SelfservicePermissions`: `"SelfservicePermissionsTypeDef"`
-
-
-## WorkspaceImageTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import WorkspaceImageTypeDef
-```
-
-
-
-
-Optional fields:
-- `ImageId`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `OperatingSystem`: `"OperatingSystemTypeDef"`
-- `State`: `WorkspaceImageState`
-- `RequiredTenancy`: `WorkspaceImageRequiredTenancy`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-- `Created`: `datetime`
-- `OwnerAccountId`: `str`
-
-
-## WorkspacePropertiesTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import WorkspacePropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `RunningMode`: `RunningMode`
-- `RunningModeAutoStopTimeoutInMinutes`: `int`
-- `RootVolumeSizeGib`: `int`
-- `UserVolumeSizeGib`: `int`
-- `ComputeTypeName`: `Compute`
-
-
-## WorkspaceRequestTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import WorkspaceRequestTypeDef
-```
-
-
-Required fields:
-- `DirectoryId`: `str`
-- `UserName`: `str`
-- `BundleId`: `str`
-
-
-
-Optional fields:
-- `VolumeEncryptionKey`: `str`
-- `UserVolumeEncryptionEnabled`: `bool`
-- `RootVolumeEncryptionEnabled`: `bool`
-- `WorkspaceProperties`: `"WorkspacePropertiesTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## WorkspaceTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import WorkspaceTypeDef
-```
-
-
-
-
-Optional fields:
-- `WorkspaceId`: `str`
-- `DirectoryId`: `str`
-- `UserName`: `str`
-- `IpAddress`: `str`
-- `State`: `WorkspaceState`
-- `BundleId`: `str`
-- `SubnetId`: `str`
-- `ErrorMessage`: `str`
-- `ErrorCode`: `str`
-- `ComputerName`: `str`
-- `VolumeEncryptionKey`: `str`
-- `UserVolumeEncryptionEnabled`: `bool`
-- `RootVolumeEncryptionEnabled`: `bool`
-- `WorkspaceProperties`: `"WorkspacePropertiesTypeDef"`
-- `ModificationStates`: `List["ModificationStateTypeDef"]`
-
-
-## WorkspacesIpGroupTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import WorkspacesIpGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `groupId`: `str`
-- `groupName`: `str`
-- `groupDesc`: `str`
-- `userRules`: `List["IpRuleItemTypeDef"]`
-
-
-## AssociateConnectionAliasResultTypeDef
-
-```python
-from mypy_boto3_workspaces.type_defs import AssociateConnectionAliasResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConnectionIdentifier`: `str`
-
-
 ## CopyWorkspaceImageResultTypeDef
 
 ```python
@@ -615,6 +252,24 @@ from mypy_boto3_workspaces.type_defs import CreateWorkspacesResultTypeDef
 Optional fields:
 - `FailedRequests`: `List["FailedCreateWorkspaceRequestTypeDef"]`
 - `PendingRequests`: `List["WorkspaceTypeDef"]`
+
+
+## DefaultWorkspaceCreationPropertiesTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import DefaultWorkspaceCreationPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `EnableWorkDocs`: `bool`
+- `EnableInternetAccess`: `bool`
+- `DefaultOu`: `str`
+- `CustomSecurityGroupId`: `str`
+- `UserEnabledAsLocalAdministrator`: `bool`
+- `EnableMaintenanceMode`: `bool`
 
 
 ## DescribeAccountModificationsResultTypeDef
@@ -813,6 +468,49 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## FailedCreateWorkspaceRequestTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import FailedCreateWorkspaceRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `WorkspaceRequest`: `"WorkspaceRequestTypeDef"`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+
+
+## FailedWorkspaceChangeRequestTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import FailedWorkspaceChangeRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `WorkspaceId`: `str`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+
+
+## ImagePermissionTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import ImagePermissionTypeDef
+```
+
+
+
+
+Optional fields:
+- `SharedAccountId`: `str`
+
+
 ## ImportWorkspaceImageResultTypeDef
 
 ```python
@@ -824,6 +522,20 @@ from mypy_boto3_workspaces.type_defs import ImportWorkspaceImageResultTypeDef
 
 Optional fields:
 - `ImageId`: `str`
+
+
+## IpRuleItemTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import IpRuleItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `ipRule`: `str`
+- `ruleDesc`: `str`
 
 
 ## ListAvailableManagementCidrRangesResultTypeDef
@@ -852,6 +564,33 @@ from mypy_boto3_workspaces.type_defs import MigrateWorkspaceResultTypeDef
 Optional fields:
 - `SourceWorkspaceId`: `str`
 - `TargetWorkspaceId`: `str`
+
+
+## ModificationStateTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import ModificationStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `Resource`: `ModificationResourceEnum`
+- `State`: `ModificationStateEnum`
+
+
+## OperatingSystemTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import OperatingSystemTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `OperatingSystemType`
 
 
 ## PaginatorConfigTypeDef
@@ -921,6 +660,49 @@ Optional fields:
 - `FailedRequests`: `List["FailedWorkspaceChangeRequestTypeDef"]`
 
 
+## RootStorageTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import RootStorageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Capacity`: `str`
+
+
+## SelfservicePermissionsTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import SelfservicePermissionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `RestartWorkspace`: `ReconnectEnum`
+- `IncreaseVolumeSize`: `ReconnectEnum`
+- `ChangeComputeType`: `ReconnectEnum`
+- `SwitchRunningMode`: `ReconnectEnum`
+- `RebuildWorkspace`: `ReconnectEnum`
+
+
+## SnapshotTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import SnapshotTypeDef
+```
+
+
+
+
+Optional fields:
+- `SnapshotTime`: `datetime`
+
+
 ## StartRequestTypeDef
 
 ```python
@@ -973,6 +755,22 @@ Optional fields:
 - `FailedRequests`: `List["FailedWorkspaceChangeRequestTypeDef"]`
 
 
+## TagTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
 ## TerminateRequestTypeDef
 
 ```python
@@ -999,6 +797,76 @@ Optional fields:
 - `FailedRequests`: `List["FailedWorkspaceChangeRequestTypeDef"]`
 
 
+## UserStorageTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import UserStorageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Capacity`: `str`
+
+
+## WorkspaceAccessPropertiesTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import WorkspaceAccessPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeviceTypeWindows`: `AccessPropertyValue`
+- `DeviceTypeOsx`: `AccessPropertyValue`
+- `DeviceTypeWeb`: `AccessPropertyValue`
+- `DeviceTypeIos`: `AccessPropertyValue`
+- `DeviceTypeAndroid`: `AccessPropertyValue`
+- `DeviceTypeChromeOs`: `AccessPropertyValue`
+- `DeviceTypeZeroClient`: `AccessPropertyValue`
+
+
+## WorkspaceBundleTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import WorkspaceBundleTypeDef
+```
+
+
+
+
+Optional fields:
+- `BundleId`: `str`
+- `Name`: `str`
+- `Owner`: `str`
+- `Description`: `str`
+- `ImageId`: `str`
+- `RootStorage`: `"RootStorageTypeDef"`
+- `UserStorage`: `"UserStorageTypeDef"`
+- `ComputeType`: `"ComputeTypeTypeDef"`
+- `LastUpdatedTime`: `datetime`
+- `CreationTime`: `datetime`
+
+
+## WorkspaceConnectionStatusTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import WorkspaceConnectionStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `WorkspaceId`: `str`
+- `ConnectionState`: `ConnectionState`
+- `ConnectionStateCheckTimestamp`: `datetime`
+- `LastKnownUserConnectionTimestamp`: `datetime`
+
+
 ## WorkspaceCreationPropertiesTypeDef
 
 ```python
@@ -1015,4 +883,136 @@ Optional fields:
 - `CustomSecurityGroupId`: `str`
 - `UserEnabledAsLocalAdministrator`: `bool`
 - `EnableMaintenanceMode`: `bool`
+
+
+## WorkspaceDirectoryTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import WorkspaceDirectoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+- `Alias`: `str`
+- `DirectoryName`: `str`
+- `RegistrationCode`: `str`
+- `SubnetIds`: `List[str]`
+- `DnsIpAddresses`: `List[str]`
+- `CustomerUserName`: `str`
+- `IamRoleId`: `str`
+- `DirectoryType`: `WorkspaceDirectoryType`
+- `WorkspaceSecurityGroupId`: `str`
+- `State`: `WorkspaceDirectoryState`
+- `WorkspaceCreationProperties`: `"DefaultWorkspaceCreationPropertiesTypeDef"`
+- `ipGroupIds`: `List[str]`
+- `WorkspaceAccessProperties`: `"WorkspaceAccessPropertiesTypeDef"`
+- `Tenancy`: `Tenancy`
+- `SelfservicePermissions`: `"SelfservicePermissionsTypeDef"`
+
+
+## WorkspaceImageTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import WorkspaceImageTypeDef
+```
+
+
+
+
+Optional fields:
+- `ImageId`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `OperatingSystem`: `"OperatingSystemTypeDef"`
+- `State`: `WorkspaceImageState`
+- `RequiredTenancy`: `WorkspaceImageRequiredTenancy`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+- `Created`: `datetime`
+- `OwnerAccountId`: `str`
+
+
+## WorkspacePropertiesTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import WorkspacePropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `RunningMode`: `RunningMode`
+- `RunningModeAutoStopTimeoutInMinutes`: `int`
+- `RootVolumeSizeGib`: `int`
+- `UserVolumeSizeGib`: `int`
+- `ComputeTypeName`: `Compute`
+
+
+## WorkspaceRequestTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import WorkspaceRequestTypeDef
+```
+
+
+Required fields:
+- `DirectoryId`: `str`
+- `UserName`: `str`
+- `BundleId`: `str`
+
+
+
+Optional fields:
+- `VolumeEncryptionKey`: `str`
+- `UserVolumeEncryptionEnabled`: `bool`
+- `RootVolumeEncryptionEnabled`: `bool`
+- `WorkspaceProperties`: `"WorkspacePropertiesTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## WorkspaceTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import WorkspaceTypeDef
+```
+
+
+
+
+Optional fields:
+- `WorkspaceId`: `str`
+- `DirectoryId`: `str`
+- `UserName`: `str`
+- `IpAddress`: `str`
+- `State`: `WorkspaceState`
+- `BundleId`: `str`
+- `SubnetId`: `str`
+- `ErrorMessage`: `str`
+- `ErrorCode`: `str`
+- `ComputerName`: `str`
+- `VolumeEncryptionKey`: `str`
+- `UserVolumeEncryptionEnabled`: `bool`
+- `RootVolumeEncryptionEnabled`: `bool`
+- `WorkspaceProperties`: `"WorkspacePropertiesTypeDef"`
+- `ModificationStates`: `List["ModificationStateTypeDef"]`
+
+
+## WorkspacesIpGroupTypeDef
+
+```python
+from mypy_boto3_workspaces.type_defs import WorkspacesIpGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `groupId`: `str`
+- `groupName`: `str`
+- `groupDesc`: `str`
+- `userRules`: `List["IpRuleItemTypeDef"]`
 

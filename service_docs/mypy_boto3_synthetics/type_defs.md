@@ -6,22 +6,19 @@ Auto-generated documentation for [Synthetics](https://boto3.amazonaws.com/v1/doc
 type annotations stubs module [mypy_boto3_synthetics](https://pypi.org/project/mypy-boto3-synthetics/).
 
 - [Structures for boto3 Synthetics module](#structures-for-boto3-synthetics-module)
+  - [CanaryCodeInputTypeDef](#canarycodeinputtypedef)
   - [CanaryCodeOutputTypeDef](#canarycodeoutputtypedef)
   - [CanaryLastRunTypeDef](#canarylastruntypedef)
+  - [CanaryRunConfigInputTypeDef](#canaryrunconfiginputtypedef)
   - [CanaryRunConfigOutputTypeDef](#canaryrunconfigoutputtypedef)
   - [CanaryRunStatusTypeDef](#canaryrunstatustypedef)
   - [CanaryRunTimelineTypeDef](#canaryruntimelinetypedef)
   - [CanaryRunTypeDef](#canaryruntypedef)
+  - [CanaryScheduleInputTypeDef](#canaryscheduleinputtypedef)
   - [CanaryScheduleOutputTypeDef](#canaryscheduleoutputtypedef)
   - [CanaryStatusTypeDef](#canarystatustypedef)
   - [CanaryTimelineTypeDef](#canarytimelinetypedef)
   - [CanaryTypeDef](#canarytypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [RuntimeVersionTypeDef](#runtimeversiontypedef)
-  - [VpcConfigOutputTypeDef](#vpcconfigoutputtypedef)
-  - [CanaryCodeInputTypeDef](#canarycodeinputtypedef)
-  - [CanaryRunConfigInputTypeDef](#canaryrunconfiginputtypedef)
-  - [CanaryScheduleInputTypeDef](#canaryscheduleinputtypedef)
   - [CreateCanaryResponseTypeDef](#createcanaryresponsetypedef)
   - [DescribeCanariesLastRunResponseTypeDef](#describecanarieslastrunresponsetypedef)
   - [DescribeCanariesResponseTypeDef](#describecanariesresponsetypedef)
@@ -29,7 +26,29 @@ type annotations stubs module [mypy_boto3_synthetics](https://pypi.org/project/m
   - [GetCanaryResponseTypeDef](#getcanaryresponsetypedef)
   - [GetCanaryRunsResponseTypeDef](#getcanaryrunsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [RuntimeVersionTypeDef](#runtimeversiontypedef)
   - [VpcConfigInputTypeDef](#vpcconfiginputtypedef)
+  - [VpcConfigOutputTypeDef](#vpcconfigoutputtypedef)
+
+## CanaryCodeInputTypeDef
+
+```python
+from mypy_boto3_synthetics.type_defs import CanaryCodeInputTypeDef
+```
+
+
+Required fields:
+- `Handler`: `str`
+
+
+
+Optional fields:
+- `S3Bucket`: `str`
+- `S3Key`: `str`
+- `S3Version`: `str`
+- `ZipFile`: `Union[bytes, IO[bytes]]`
+
 
 ## CanaryCodeOutputTypeDef
 
@@ -58,6 +77,22 @@ from mypy_boto3_synthetics.type_defs import CanaryLastRunTypeDef
 Optional fields:
 - `CanaryName`: `str`
 - `LastRun`: `"CanaryRunTypeDef"`
+
+
+## CanaryRunConfigInputTypeDef
+
+```python
+from mypy_boto3_synthetics.type_defs import CanaryRunConfigInputTypeDef
+```
+
+
+
+
+Optional fields:
+- `TimeoutInSeconds`: `int`
+- `MemoryInMB`: `int`
+- `ActiveTracing`: `bool`
+- `EnvironmentVariables`: `Dict[str, str]`
 
 
 ## CanaryRunConfigOutputTypeDef
@@ -122,6 +157,22 @@ Optional fields:
 - `ArtifactS3Location`: `str`
 
 
+## CanaryScheduleInputTypeDef
+
+```python
+from mypy_boto3_synthetics.type_defs import CanaryScheduleInputTypeDef
+```
+
+
+Required fields:
+- `Expression`: `str`
+
+
+
+Optional fields:
+- `DurationInSeconds`: `int`
+
+
 ## CanaryScheduleOutputTypeDef
 
 ```python
@@ -149,7 +200,7 @@ from mypy_boto3_synthetics.type_defs import CanaryStatusTypeDef
 Optional fields:
 - `State`: `CanaryState`
 - `StateReason`: `str`
-- `StateReasonCode`: `CanaryStateReasonCode`
+- `StateReasonCode`: `Literal['INVALID_PERMISSIONS']`
 
 
 ## CanaryTimelineTypeDef
@@ -193,106 +244,6 @@ Optional fields:
 - `RuntimeVersion`: `str`
 - `VpcConfig`: `"VpcConfigOutputTypeDef"`
 - `Tags`: `Dict[str, str]`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_synthetics.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## RuntimeVersionTypeDef
-
-```python
-from mypy_boto3_synthetics.type_defs import RuntimeVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `VersionName`: `str`
-- `Description`: `str`
-- `ReleaseDate`: `datetime`
-- `DeprecationDate`: `datetime`
-
-
-## VpcConfigOutputTypeDef
-
-```python
-from mypy_boto3_synthetics.type_defs import VpcConfigOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `VpcId`: `str`
-- `SubnetIds`: `List[str]`
-- `SecurityGroupIds`: `List[str]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CanaryCodeInputTypeDef
-
-```python
-from mypy_boto3_synthetics.type_defs import CanaryCodeInputTypeDef
-```
-
-
-Required fields:
-- `Handler`: `str`
-
-
-
-Optional fields:
-- `S3Bucket`: `str`
-- `S3Key`: `str`
-- `S3Version`: `str`
-- `ZipFile`: `Union[bytes, IO[bytes]]`
-
-
-## CanaryRunConfigInputTypeDef
-
-```python
-from mypy_boto3_synthetics.type_defs import CanaryRunConfigInputTypeDef
-```
-
-
-
-
-Optional fields:
-- `TimeoutInSeconds`: `int`
-- `MemoryInMB`: `int`
-- `ActiveTracing`: `bool`
-- `EnvironmentVariables`: `Dict[str, str]`
-
-
-## CanaryScheduleInputTypeDef
-
-```python
-from mypy_boto3_synthetics.type_defs import CanaryScheduleInputTypeDef
-```
-
-
-Required fields:
-- `Expression`: `str`
-
-
-
-Optional fields:
-- `DurationInSeconds`: `int`
 
 
 ## CreateCanaryResponseTypeDef
@@ -390,6 +341,39 @@ Optional fields:
 - `Tags`: `Dict[str, str]`
 
 
+## ResponseMetadata
+
+```python
+from mypy_boto3_synthetics.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## RuntimeVersionTypeDef
+
+```python
+from mypy_boto3_synthetics.type_defs import RuntimeVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `VersionName`: `str`
+- `Description`: `str`
+- `ReleaseDate`: `datetime`
+- `DeprecationDate`: `datetime`
+
+
 ## VpcConfigInputTypeDef
 
 ```python
@@ -402,4 +386,20 @@ from mypy_boto3_synthetics.type_defs import VpcConfigInputTypeDef
 Optional fields:
 - `SubnetIds`: `List[str]`
 - `SecurityGroupIds`: `List[str]`
+
+
+## VpcConfigOutputTypeDef
+
+```python
+from mypy_boto3_synthetics.type_defs import VpcConfigOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `VpcId`: `str`
+- `SubnetIds`: `List[str]`
+- `SecurityGroupIds`: `List[str]`
+- `ResponseMetadata`: `"ResponseMetadata"`
 

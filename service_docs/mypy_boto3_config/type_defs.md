@@ -11,6 +11,8 @@ type annotations stubs module [mypy_boto3_config](https://pypi.org/project/mypy-
   - [AggregateComplianceByConformancePackTypeDef](#aggregatecompliancebyconformancepacktypedef)
   - [AggregateComplianceCountTypeDef](#aggregatecompliancecounttypedef)
   - [AggregateConformancePackComplianceCountTypeDef](#aggregateconformancepackcompliancecounttypedef)
+  - [AggregateConformancePackComplianceFiltersTypeDef](#aggregateconformancepackcompliancefilterstypedef)
+  - [AggregateConformancePackComplianceSummaryFiltersTypeDef](#aggregateconformancepackcompliancesummaryfilterstypedef)
   - [AggregateConformancePackComplianceSummaryTypeDef](#aggregateconformancepackcompliancesummarytypedef)
   - [AggregateConformancePackComplianceTypeDef](#aggregateconformancepackcompliancetypedef)
   - [AggregateEvaluationResultTypeDef](#aggregateevaluationresulttypedef)
@@ -18,6 +20,8 @@ type annotations stubs module [mypy_boto3_config](https://pypi.org/project/mypy-
   - [AggregatedSourceStatusTypeDef](#aggregatedsourcestatustypedef)
   - [AggregationAuthorizationTypeDef](#aggregationauthorizationtypedef)
   - [BaseConfigurationItemTypeDef](#baseconfigurationitemtypedef)
+  - [BatchGetAggregateResourceConfigResponseTypeDef](#batchgetaggregateresourceconfigresponsetypedef)
+  - [BatchGetResourceConfigResponseTypeDef](#batchgetresourceconfigresponsetypedef)
   - [ComplianceByConfigRuleTypeDef](#compliancebyconfigruletypedef)
   - [ComplianceByResourceTypeDef](#compliancebyresourcetypedef)
   - [ComplianceContributorCountTypeDef](#compliancecontributorcounttypedef)
@@ -25,6 +29,8 @@ type annotations stubs module [mypy_boto3_config](https://pypi.org/project/mypy-
   - [ComplianceSummaryTypeDef](#compliancesummarytypedef)
   - [ComplianceTypeDef](#compliancetypedef)
   - [ConfigExportDeliveryInfoTypeDef](#configexportdeliveryinfotypedef)
+  - [ConfigRuleComplianceFiltersTypeDef](#configrulecompliancefilterstypedef)
+  - [ConfigRuleComplianceSummaryFiltersTypeDef](#configrulecompliancesummaryfilterstypedef)
   - [ConfigRuleEvaluationStatusTypeDef](#configruleevaluationstatustypedef)
   - [ConfigRuleTypeDef](#configruletypedef)
   - [ConfigSnapshotDeliveryPropertiesTypeDef](#configsnapshotdeliverypropertiestypedef)
@@ -33,66 +39,18 @@ type annotations stubs module [mypy_boto3_config](https://pypi.org/project/mypy-
   - [ConfigurationItemTypeDef](#configurationitemtypedef)
   - [ConfigurationRecorderStatusTypeDef](#configurationrecorderstatustypedef)
   - [ConfigurationRecorderTypeDef](#configurationrecordertypedef)
+  - [ConformancePackComplianceFiltersTypeDef](#conformancepackcompliancefilterstypedef)
   - [ConformancePackComplianceSummaryTypeDef](#conformancepackcompliancesummarytypedef)
   - [ConformancePackDetailTypeDef](#conformancepackdetailtypedef)
+  - [ConformancePackEvaluationFiltersTypeDef](#conformancepackevaluationfilterstypedef)
   - [ConformancePackEvaluationResultTypeDef](#conformancepackevaluationresulttypedef)
   - [ConformancePackInputParameterTypeDef](#conformancepackinputparametertypedef)
   - [ConformancePackRuleComplianceTypeDef](#conformancepackrulecompliancetypedef)
   - [ConformancePackStatusDetailTypeDef](#conformancepackstatusdetailtypedef)
-  - [DeliveryChannelStatusTypeDef](#deliverychannelstatustypedef)
-  - [DeliveryChannelTypeDef](#deliverychanneltypedef)
-  - [EvaluationResultIdentifierTypeDef](#evaluationresultidentifiertypedef)
-  - [EvaluationResultQualifierTypeDef](#evaluationresultqualifiertypedef)
-  - [EvaluationResultTypeDef](#evaluationresulttypedef)
-  - [EvaluationTypeDef](#evaluationtypedef)
-  - [ExecutionControlsTypeDef](#executioncontrolstypedef)
-  - [FailedDeleteRemediationExceptionsBatchTypeDef](#faileddeleteremediationexceptionsbatchtypedef)
-  - [FailedRemediationBatchTypeDef](#failedremediationbatchtypedef)
-  - [FailedRemediationExceptionBatchTypeDef](#failedremediationexceptionbatchtypedef)
-  - [FieldInfoTypeDef](#fieldinfotypedef)
-  - [GroupedResourceCountTypeDef](#groupedresourcecounttypedef)
-  - [MemberAccountStatusTypeDef](#memberaccountstatustypedef)
-  - [OrganizationAggregationSourceTypeDef](#organizationaggregationsourcetypedef)
-  - [OrganizationConfigRuleStatusTypeDef](#organizationconfigrulestatustypedef)
-  - [OrganizationConfigRuleTypeDef](#organizationconfigruletypedef)
-  - [OrganizationConformancePackDetailedStatusTypeDef](#organizationconformancepackdetailedstatustypedef)
-  - [OrganizationConformancePackStatusTypeDef](#organizationconformancepackstatustypedef)
-  - [OrganizationConformancePackTypeDef](#organizationconformancepacktypedef)
-  - [OrganizationCustomRuleMetadataTypeDef](#organizationcustomrulemetadatatypedef)
-  - [OrganizationManagedRuleMetadataTypeDef](#organizationmanagedrulemetadatatypedef)
-  - [PendingAggregationRequestTypeDef](#pendingaggregationrequesttypedef)
-  - [QueryInfoTypeDef](#queryinfotypedef)
-  - [RecordingGroupTypeDef](#recordinggrouptypedef)
-  - [RelationshipTypeDef](#relationshiptypedef)
-  - [RemediationConfigurationTypeDef](#remediationconfigurationtypedef)
-  - [RemediationExceptionResourceKeyTypeDef](#remediationexceptionresourcekeytypedef)
-  - [RemediationExceptionTypeDef](#remediationexceptiontypedef)
-  - [RemediationExecutionStatusTypeDef](#remediationexecutionstatustypedef)
-  - [RemediationExecutionStepTypeDef](#remediationexecutionsteptypedef)
-  - [RemediationParameterValueTypeDef](#remediationparametervaluetypedef)
-  - [ResourceCountTypeDef](#resourcecounttypedef)
-  - [ResourceIdentifierTypeDef](#resourceidentifiertypedef)
-  - [ResourceKeyTypeDef](#resourcekeytypedef)
-  - [ResourceValueTypeDef](#resourcevaluetypedef)
-  - [RetentionConfigurationTypeDef](#retentionconfigurationtypedef)
-  - [ScopeTypeDef](#scopetypedef)
-  - [SourceDetailTypeDef](#sourcedetailtypedef)
-  - [SourceTypeDef](#sourcetypedef)
-  - [SsmControlsTypeDef](#ssmcontrolstypedef)
-  - [StaticValueTypeDef](#staticvaluetypedef)
-  - [StoredQueryMetadataTypeDef](#storedquerymetadatatypedef)
-  - [StoredQueryTypeDef](#storedquerytypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [AggregateConformancePackComplianceFiltersTypeDef](#aggregateconformancepackcompliancefilterstypedef)
-  - [AggregateConformancePackComplianceSummaryFiltersTypeDef](#aggregateconformancepackcompliancesummaryfilterstypedef)
-  - [BatchGetAggregateResourceConfigResponseTypeDef](#batchgetaggregateresourceconfigresponsetypedef)
-  - [BatchGetResourceConfigResponseTypeDef](#batchgetresourceconfigresponsetypedef)
-  - [ConfigRuleComplianceFiltersTypeDef](#configrulecompliancefilterstypedef)
-  - [ConfigRuleComplianceSummaryFiltersTypeDef](#configrulecompliancesummaryfilterstypedef)
-  - [ConformancePackComplianceFiltersTypeDef](#conformancepackcompliancefilterstypedef)
-  - [ConformancePackEvaluationFiltersTypeDef](#conformancepackevaluationfilterstypedef)
   - [DeleteRemediationExceptionsResponseTypeDef](#deleteremediationexceptionsresponsetypedef)
   - [DeliverConfigSnapshotResponseTypeDef](#deliverconfigsnapshotresponsetypedef)
+  - [DeliveryChannelStatusTypeDef](#deliverychannelstatustypedef)
+  - [DeliveryChannelTypeDef](#deliverychanneltypedef)
   - [DescribeAggregateComplianceByConfigRulesResponseTypeDef](#describeaggregatecompliancebyconfigrulesresponsetypedef)
   - [DescribeAggregateComplianceByConformancePacksResponseTypeDef](#describeaggregatecompliancebyconformancepacksresponsetypedef)
   - [DescribeAggregationAuthorizationsResponseTypeDef](#describeaggregationauthorizationsresponsetypedef)
@@ -118,7 +76,16 @@ type annotations stubs module [mypy_boto3_config](https://pypi.org/project/mypy-
   - [DescribeRemediationExceptionsResponseTypeDef](#describeremediationexceptionsresponsetypedef)
   - [DescribeRemediationExecutionStatusResponseTypeDef](#describeremediationexecutionstatusresponsetypedef)
   - [DescribeRetentionConfigurationsResponseTypeDef](#describeretentionconfigurationsresponsetypedef)
+  - [EvaluationResultIdentifierTypeDef](#evaluationresultidentifiertypedef)
+  - [EvaluationResultQualifierTypeDef](#evaluationresultqualifiertypedef)
+  - [EvaluationResultTypeDef](#evaluationresulttypedef)
+  - [EvaluationTypeDef](#evaluationtypedef)
+  - [ExecutionControlsTypeDef](#executioncontrolstypedef)
   - [ExternalEvaluationTypeDef](#externalevaluationtypedef)
+  - [FailedDeleteRemediationExceptionsBatchTypeDef](#faileddeleteremediationexceptionsbatchtypedef)
+  - [FailedRemediationBatchTypeDef](#failedremediationbatchtypedef)
+  - [FailedRemediationExceptionBatchTypeDef](#failedremediationexceptionbatchtypedef)
+  - [FieldInfoTypeDef](#fieldinfotypedef)
   - [GetAggregateComplianceDetailsByConfigRuleResponseTypeDef](#getaggregatecompliancedetailsbyconfigruleresponsetypedef)
   - [GetAggregateConfigRuleComplianceSummaryResponseTypeDef](#getaggregateconfigrulecompliancesummaryresponsetypedef)
   - [GetAggregateConformancePackComplianceSummaryResponseTypeDef](#getaggregateconformancepackcompliancesummaryresponsetypedef)
@@ -135,12 +102,23 @@ type annotations stubs module [mypy_boto3_config](https://pypi.org/project/mypy-
   - [GetOrganizationConformancePackDetailedStatusResponseTypeDef](#getorganizationconformancepackdetailedstatusresponsetypedef)
   - [GetResourceConfigHistoryResponseTypeDef](#getresourceconfighistoryresponsetypedef)
   - [GetStoredQueryResponseTypeDef](#getstoredqueryresponsetypedef)
+  - [GroupedResourceCountTypeDef](#groupedresourcecounttypedef)
   - [ListAggregateDiscoveredResourcesResponseTypeDef](#listaggregatediscoveredresourcesresponsetypedef)
   - [ListDiscoveredResourcesResponseTypeDef](#listdiscoveredresourcesresponsetypedef)
   - [ListStoredQueriesResponseTypeDef](#liststoredqueriesresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [MemberAccountStatusTypeDef](#memberaccountstatustypedef)
+  - [OrganizationAggregationSourceTypeDef](#organizationaggregationsourcetypedef)
+  - [OrganizationConfigRuleStatusTypeDef](#organizationconfigrulestatustypedef)
+  - [OrganizationConfigRuleTypeDef](#organizationconfigruletypedef)
+  - [OrganizationConformancePackDetailedStatusTypeDef](#organizationconformancepackdetailedstatustypedef)
+  - [OrganizationConformancePackStatusTypeDef](#organizationconformancepackstatustypedef)
+  - [OrganizationConformancePackTypeDef](#organizationconformancepacktypedef)
+  - [OrganizationCustomRuleMetadataTypeDef](#organizationcustomrulemetadatatypedef)
+  - [OrganizationManagedRuleMetadataTypeDef](#organizationmanagedrulemetadatatypedef)
   - [OrganizationResourceDetailedStatusFiltersTypeDef](#organizationresourcedetailedstatusfilterstypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PendingAggregationRequestTypeDef](#pendingaggregationrequesttypedef)
   - [PutAggregationAuthorizationResponseTypeDef](#putaggregationauthorizationresponsetypedef)
   - [PutConfigurationAggregatorResponseTypeDef](#putconfigurationaggregatorresponsetypedef)
   - [PutConformancePackResponseTypeDef](#putconformancepackresponsetypedef)
@@ -151,12 +129,34 @@ type annotations stubs module [mypy_boto3_config](https://pypi.org/project/mypy-
   - [PutRemediationExceptionsResponseTypeDef](#putremediationexceptionsresponsetypedef)
   - [PutRetentionConfigurationResponseTypeDef](#putretentionconfigurationresponsetypedef)
   - [PutStoredQueryResponseTypeDef](#putstoredqueryresponsetypedef)
+  - [QueryInfoTypeDef](#queryinfotypedef)
+  - [RecordingGroupTypeDef](#recordinggrouptypedef)
+  - [RelationshipTypeDef](#relationshiptypedef)
+  - [RemediationConfigurationTypeDef](#remediationconfigurationtypedef)
+  - [RemediationExceptionResourceKeyTypeDef](#remediationexceptionresourcekeytypedef)
+  - [RemediationExceptionTypeDef](#remediationexceptiontypedef)
+  - [RemediationExecutionStatusTypeDef](#remediationexecutionstatustypedef)
+  - [RemediationExecutionStepTypeDef](#remediationexecutionsteptypedef)
+  - [RemediationParameterValueTypeDef](#remediationparametervaluetypedef)
   - [ResourceCountFiltersTypeDef](#resourcecountfilterstypedef)
+  - [ResourceCountTypeDef](#resourcecounttypedef)
   - [ResourceFiltersTypeDef](#resourcefilterstypedef)
+  - [ResourceIdentifierTypeDef](#resourceidentifiertypedef)
+  - [ResourceKeyTypeDef](#resourcekeytypedef)
+  - [ResourceValueTypeDef](#resourcevaluetypedef)
+  - [RetentionConfigurationTypeDef](#retentionconfigurationtypedef)
+  - [ScopeTypeDef](#scopetypedef)
   - [SelectAggregateResourceConfigResponseTypeDef](#selectaggregateresourceconfigresponsetypedef)
   - [SelectResourceConfigResponseTypeDef](#selectresourceconfigresponsetypedef)
+  - [SourceDetailTypeDef](#sourcedetailtypedef)
+  - [SourceTypeDef](#sourcetypedef)
+  - [SsmControlsTypeDef](#ssmcontrolstypedef)
   - [StartRemediationExecutionResponseTypeDef](#startremediationexecutionresponsetypedef)
+  - [StaticValueTypeDef](#staticvaluetypedef)
   - [StatusDetailFiltersTypeDef](#statusdetailfilterstypedef)
+  - [StoredQueryMetadataTypeDef](#storedquerymetadatatypedef)
+  - [StoredQueryTypeDef](#storedquerytypedef)
+  - [TagTypeDef](#tagtypedef)
 
 ## AccountAggregationSourceTypeDef
 
@@ -233,6 +233,36 @@ from mypy_boto3_config.type_defs import AggregateConformancePackComplianceCountT
 Optional fields:
 - `CompliantConformancePackCount`: `int`
 - `NonCompliantConformancePackCount`: `int`
+
+
+## AggregateConformancePackComplianceFiltersTypeDef
+
+```python
+from mypy_boto3_config.type_defs import AggregateConformancePackComplianceFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConformancePackName`: `str`
+- `ComplianceType`: `ConformancePackComplianceType`
+- `AccountId`: `str`
+- `AwsRegion`: `str`
+
+
+## AggregateConformancePackComplianceSummaryFiltersTypeDef
+
+```python
+from mypy_boto3_config.type_defs import AggregateConformancePackComplianceSummaryFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `AccountId`: `str`
+- `AwsRegion`: `str`
 
 
 ## AggregateConformancePackComplianceSummaryTypeDef
@@ -364,6 +394,34 @@ Optional fields:
 - `supplementaryConfiguration`: `Dict[str, str]`
 
 
+## BatchGetAggregateResourceConfigResponseTypeDef
+
+```python
+from mypy_boto3_config.type_defs import BatchGetAggregateResourceConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `BaseConfigurationItems`: `List["BaseConfigurationItemTypeDef"]`
+- `UnprocessedResourceIdentifiers`: `List["AggregateResourceIdentifierTypeDef"]`
+
+
+## BatchGetResourceConfigResponseTypeDef
+
+```python
+from mypy_boto3_config.type_defs import BatchGetResourceConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `baseConfigurationItems`: `List["BaseConfigurationItemTypeDef"]`
+- `unprocessedResourceKeys`: `List["ResourceKeyTypeDef"]`
+
+
 ## ComplianceByConfigRuleTypeDef
 
 ```python
@@ -466,6 +524,36 @@ Optional fields:
 - `lastAttemptTime`: `datetime`
 - `lastSuccessfulTime`: `datetime`
 - `nextDeliveryTime`: `datetime`
+
+
+## ConfigRuleComplianceFiltersTypeDef
+
+```python
+from mypy_boto3_config.type_defs import ConfigRuleComplianceFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConfigRuleName`: `str`
+- `ComplianceType`: `ComplianceType`
+- `AccountId`: `str`
+- `AwsRegion`: `str`
+
+
+## ConfigRuleComplianceSummaryFiltersTypeDef
+
+```python
+from mypy_boto3_config.type_defs import ConfigRuleComplianceSummaryFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `AccountId`: `str`
+- `AwsRegion`: `str`
 
 
 ## ConfigRuleEvaluationStatusTypeDef
@@ -629,6 +717,20 @@ Optional fields:
 - `recordingGroup`: `"RecordingGroupTypeDef"`
 
 
+## ConformancePackComplianceFiltersTypeDef
+
+```python
+from mypy_boto3_config.type_defs import ConformancePackComplianceFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConfigRuleNames`: `List[str]`
+- `ComplianceType`: `ConformancePackComplianceType`
+
+
 ## ConformancePackComplianceSummaryTypeDef
 
 ```python
@@ -663,6 +765,22 @@ Optional fields:
 - `ConformancePackInputParameters`: `List["ConformancePackInputParameterTypeDef"]`
 - `LastUpdateRequestedTime`: `datetime`
 - `CreatedBy`: `str`
+
+
+## ConformancePackEvaluationFiltersTypeDef
+
+```python
+from mypy_boto3_config.type_defs import ConformancePackEvaluationFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConfigRuleNames`: `List[str]`
+- `ComplianceType`: `ConformancePackComplianceType`
+- `ResourceType`: `str`
+- `ResourceIds`: `List[str]`
 
 
 ## ConformancePackEvaluationResultTypeDef
@@ -735,6 +853,32 @@ Optional fields:
 - `LastUpdateCompletedTime`: `datetime`
 
 
+## DeleteRemediationExceptionsResponseTypeDef
+
+```python
+from mypy_boto3_config.type_defs import DeleteRemediationExceptionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `FailedBatches`: `List["FailedDeleteRemediationExceptionsBatchTypeDef"]`
+
+
+## DeliverConfigSnapshotResponseTypeDef
+
+```python
+from mypy_boto3_config.type_defs import DeliverConfigSnapshotResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `configSnapshotId`: `str`
+
+
 ## DeliveryChannelStatusTypeDef
 
 ```python
@@ -767,841 +911,6 @@ Optional fields:
 - `s3KmsKeyArn`: `str`
 - `snsTopicARN`: `str`
 - `configSnapshotDeliveryProperties`: `"ConfigSnapshotDeliveryPropertiesTypeDef"`
-
-
-## EvaluationResultIdentifierTypeDef
-
-```python
-from mypy_boto3_config.type_defs import EvaluationResultIdentifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `EvaluationResultQualifier`: `"EvaluationResultQualifierTypeDef"`
-- `OrderingTimestamp`: `datetime`
-
-
-## EvaluationResultQualifierTypeDef
-
-```python
-from mypy_boto3_config.type_defs import EvaluationResultQualifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConfigRuleName`: `str`
-- `ResourceType`: `str`
-- `ResourceId`: `str`
-
-
-## EvaluationResultTypeDef
-
-```python
-from mypy_boto3_config.type_defs import EvaluationResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `EvaluationResultIdentifier`: `"EvaluationResultIdentifierTypeDef"`
-- `ComplianceType`: `ComplianceType`
-- `ResultRecordedTime`: `datetime`
-- `ConfigRuleInvokedTime`: `datetime`
-- `Annotation`: `str`
-- `ResultToken`: `str`
-
-
-## EvaluationTypeDef
-
-```python
-from mypy_boto3_config.type_defs import EvaluationTypeDef
-```
-
-
-Required fields:
-- `ComplianceResourceType`: `str`
-- `ComplianceResourceId`: `str`
-- `ComplianceType`: `ComplianceType`
-- `OrderingTimestamp`: `datetime`
-
-
-
-Optional fields:
-- `Annotation`: `str`
-
-
-## ExecutionControlsTypeDef
-
-```python
-from mypy_boto3_config.type_defs import ExecutionControlsTypeDef
-```
-
-
-
-
-Optional fields:
-- `SsmControls`: `"SsmControlsTypeDef"`
-
-
-## FailedDeleteRemediationExceptionsBatchTypeDef
-
-```python
-from mypy_boto3_config.type_defs import FailedDeleteRemediationExceptionsBatchTypeDef
-```
-
-
-
-
-Optional fields:
-- `FailureMessage`: `str`
-- `FailedItems`: `List["RemediationExceptionResourceKeyTypeDef"]`
-
-
-## FailedRemediationBatchTypeDef
-
-```python
-from mypy_boto3_config.type_defs import FailedRemediationBatchTypeDef
-```
-
-
-
-
-Optional fields:
-- `FailureMessage`: `str`
-- `FailedItems`: `List["RemediationConfigurationTypeDef"]`
-
-
-## FailedRemediationExceptionBatchTypeDef
-
-```python
-from mypy_boto3_config.type_defs import FailedRemediationExceptionBatchTypeDef
-```
-
-
-
-
-Optional fields:
-- `FailureMessage`: `str`
-- `FailedItems`: `List["RemediationExceptionTypeDef"]`
-
-
-## FieldInfoTypeDef
-
-```python
-from mypy_boto3_config.type_defs import FieldInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## GroupedResourceCountTypeDef
-
-```python
-from mypy_boto3_config.type_defs import GroupedResourceCountTypeDef
-```
-
-
-Required fields:
-- `GroupName`: `str`
-- `ResourceCount`: `int`
-
-
-
-
-## MemberAccountStatusTypeDef
-
-```python
-from mypy_boto3_config.type_defs import MemberAccountStatusTypeDef
-```
-
-
-Required fields:
-- `AccountId`: `str`
-- `ConfigRuleName`: `str`
-- `MemberAccountRuleStatus`: `MemberAccountRuleStatus`
-
-
-
-Optional fields:
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-- `LastUpdateTime`: `datetime`
-
-
-## OrganizationAggregationSourceTypeDef
-
-```python
-from mypy_boto3_config.type_defs import OrganizationAggregationSourceTypeDef
-```
-
-
-Required fields:
-- `RoleArn`: `str`
-
-
-
-Optional fields:
-- `AwsRegions`: `List[str]`
-- `AllAwsRegions`: `bool`
-
-
-## OrganizationConfigRuleStatusTypeDef
-
-```python
-from mypy_boto3_config.type_defs import OrganizationConfigRuleStatusTypeDef
-```
-
-
-Required fields:
-- `OrganizationConfigRuleName`: `str`
-- `OrganizationRuleStatus`: `OrganizationRuleStatus`
-
-
-
-Optional fields:
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-- `LastUpdateTime`: `datetime`
-
-
-## OrganizationConfigRuleTypeDef
-
-```python
-from mypy_boto3_config.type_defs import OrganizationConfigRuleTypeDef
-```
-
-
-Required fields:
-- `OrganizationConfigRuleName`: `str`
-- `OrganizationConfigRuleArn`: `str`
-
-
-
-Optional fields:
-- `OrganizationManagedRuleMetadata`: `"OrganizationManagedRuleMetadataTypeDef"`
-- `OrganizationCustomRuleMetadata`: `"OrganizationCustomRuleMetadataTypeDef"`
-- `ExcludedAccounts`: `List[str]`
-- `LastUpdateTime`: `datetime`
-
-
-## OrganizationConformancePackDetailedStatusTypeDef
-
-```python
-from mypy_boto3_config.type_defs import OrganizationConformancePackDetailedStatusTypeDef
-```
-
-
-Required fields:
-- `AccountId`: `str`
-- `ConformancePackName`: `str`
-- `Status`: `OrganizationResourceDetailedStatus`
-
-
-
-Optional fields:
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-- `LastUpdateTime`: `datetime`
-
-
-## OrganizationConformancePackStatusTypeDef
-
-```python
-from mypy_boto3_config.type_defs import OrganizationConformancePackStatusTypeDef
-```
-
-
-Required fields:
-- `OrganizationConformancePackName`: `str`
-- `Status`: `OrganizationResourceStatus`
-
-
-
-Optional fields:
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-- `LastUpdateTime`: `datetime`
-
-
-## OrganizationConformancePackTypeDef
-
-```python
-from mypy_boto3_config.type_defs import OrganizationConformancePackTypeDef
-```
-
-
-Required fields:
-- `OrganizationConformancePackName`: `str`
-- `OrganizationConformancePackArn`: `str`
-- `LastUpdateTime`: `datetime`
-
-
-
-Optional fields:
-- `DeliveryS3Bucket`: `str`
-- `DeliveryS3KeyPrefix`: `str`
-- `ConformancePackInputParameters`: `List["ConformancePackInputParameterTypeDef"]`
-- `ExcludedAccounts`: `List[str]`
-
-
-## OrganizationCustomRuleMetadataTypeDef
-
-```python
-from mypy_boto3_config.type_defs import OrganizationCustomRuleMetadataTypeDef
-```
-
-
-Required fields:
-- `LambdaFunctionArn`: `str`
-- `OrganizationConfigRuleTriggerTypes`: `List[OrganizationConfigRuleTriggerType]`
-
-
-
-Optional fields:
-- `Description`: `str`
-- `InputParameters`: `str`
-- `MaximumExecutionFrequency`: `MaximumExecutionFrequency`
-- `ResourceTypesScope`: `List[str]`
-- `ResourceIdScope`: `str`
-- `TagKeyScope`: `str`
-- `TagValueScope`: `str`
-
-
-## OrganizationManagedRuleMetadataTypeDef
-
-```python
-from mypy_boto3_config.type_defs import OrganizationManagedRuleMetadataTypeDef
-```
-
-
-Required fields:
-- `RuleIdentifier`: `str`
-
-
-
-Optional fields:
-- `Description`: `str`
-- `InputParameters`: `str`
-- `MaximumExecutionFrequency`: `MaximumExecutionFrequency`
-- `ResourceTypesScope`: `List[str]`
-- `ResourceIdScope`: `str`
-- `TagKeyScope`: `str`
-- `TagValueScope`: `str`
-
-
-## PendingAggregationRequestTypeDef
-
-```python
-from mypy_boto3_config.type_defs import PendingAggregationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `RequesterAccountId`: `str`
-- `RequesterAwsRegion`: `str`
-
-
-## QueryInfoTypeDef
-
-```python
-from mypy_boto3_config.type_defs import QueryInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `SelectFields`: `List["FieldInfoTypeDef"]`
-
-
-## RecordingGroupTypeDef
-
-```python
-from mypy_boto3_config.type_defs import RecordingGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `allSupported`: `bool`
-- `includeGlobalResourceTypes`: `bool`
-- `resourceTypes`: `List[ResourceType]`
-
-
-## RelationshipTypeDef
-
-```python
-from mypy_boto3_config.type_defs import RelationshipTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceType`: `ResourceType`
-- `resourceId`: `str`
-- `resourceName`: `str`
-- `relationshipName`: `str`
-
-
-## RemediationConfigurationTypeDef
-
-```python
-from mypy_boto3_config.type_defs import RemediationConfigurationTypeDef
-```
-
-
-Required fields:
-- `ConfigRuleName`: `str`
-- `TargetType`: `RemediationTargetType`
-- `TargetId`: `str`
-
-
-
-Optional fields:
-- `TargetVersion`: `str`
-- `Parameters`: `Dict[str, "RemediationParameterValueTypeDef"]`
-- `ResourceType`: `str`
-- `Automatic`: `bool`
-- `ExecutionControls`: `"ExecutionControlsTypeDef"`
-- `MaximumAutomaticAttempts`: `int`
-- `RetryAttemptSeconds`: `int`
-- `Arn`: `str`
-- `CreatedByService`: `str`
-
-
-## RemediationExceptionResourceKeyTypeDef
-
-```python
-from mypy_boto3_config.type_defs import RemediationExceptionResourceKeyTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceType`: `str`
-- `ResourceId`: `str`
-
-
-## RemediationExceptionTypeDef
-
-```python
-from mypy_boto3_config.type_defs import RemediationExceptionTypeDef
-```
-
-
-Required fields:
-- `ConfigRuleName`: `str`
-- `ResourceType`: `str`
-- `ResourceId`: `str`
-
-
-
-Optional fields:
-- `Message`: `str`
-- `ExpirationTime`: `datetime`
-
-
-## RemediationExecutionStatusTypeDef
-
-```python
-from mypy_boto3_config.type_defs import RemediationExecutionStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceKey`: `"ResourceKeyTypeDef"`
-- `State`: `RemediationExecutionState`
-- `StepDetails`: `List["RemediationExecutionStepTypeDef"]`
-- `InvocationTime`: `datetime`
-- `LastUpdatedTime`: `datetime`
-
-
-## RemediationExecutionStepTypeDef
-
-```python
-from mypy_boto3_config.type_defs import RemediationExecutionStepTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `State`: `RemediationExecutionStepState`
-- `ErrorMessage`: `str`
-- `StartTime`: `datetime`
-- `StopTime`: `datetime`
-
-
-## RemediationParameterValueTypeDef
-
-```python
-from mypy_boto3_config.type_defs import RemediationParameterValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceValue`: `"ResourceValueTypeDef"`
-- `StaticValue`: `"StaticValueTypeDef"`
-
-
-## ResourceCountTypeDef
-
-```python
-from mypy_boto3_config.type_defs import ResourceCountTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceType`: `ResourceType`
-- `count`: `int`
-
-
-## ResourceIdentifierTypeDef
-
-```python
-from mypy_boto3_config.type_defs import ResourceIdentifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceType`: `ResourceType`
-- `resourceId`: `str`
-- `resourceName`: `str`
-- `resourceDeletionTime`: `datetime`
-
-
-## ResourceKeyTypeDef
-
-```python
-from mypy_boto3_config.type_defs import ResourceKeyTypeDef
-```
-
-
-Required fields:
-- `resourceType`: `ResourceType`
-- `resourceId`: `str`
-
-
-
-
-## ResourceValueTypeDef
-
-```python
-from mypy_boto3_config.type_defs import ResourceValueTypeDef
-```
-
-
-Required fields:
-- `Value`: `ResourceValueType`
-
-
-
-
-## RetentionConfigurationTypeDef
-
-```python
-from mypy_boto3_config.type_defs import RetentionConfigurationTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `RetentionPeriodInDays`: `int`
-
-
-
-
-## ScopeTypeDef
-
-```python
-from mypy_boto3_config.type_defs import ScopeTypeDef
-```
-
-
-
-
-Optional fields:
-- `ComplianceResourceTypes`: `List[str]`
-- `TagKey`: `str`
-- `TagValue`: `str`
-- `ComplianceResourceId`: `str`
-
-
-## SourceDetailTypeDef
-
-```python
-from mypy_boto3_config.type_defs import SourceDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventSource`: `EventSource`
-- `MessageType`: `MessageType`
-- `MaximumExecutionFrequency`: `MaximumExecutionFrequency`
-
-
-## SourceTypeDef
-
-```python
-from mypy_boto3_config.type_defs import SourceTypeDef
-```
-
-
-Required fields:
-- `Owner`: `Owner`
-- `SourceIdentifier`: `str`
-
-
-
-Optional fields:
-- `SourceDetails`: `List["SourceDetailTypeDef"]`
-
-
-## SsmControlsTypeDef
-
-```python
-from mypy_boto3_config.type_defs import SsmControlsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConcurrentExecutionRatePercentage`: `int`
-- `ErrorPercentage`: `int`
-
-
-## StaticValueTypeDef
-
-```python
-from mypy_boto3_config.type_defs import StaticValueTypeDef
-```
-
-
-Required fields:
-- `Values`: `List[str]`
-
-
-
-
-## StoredQueryMetadataTypeDef
-
-```python
-from mypy_boto3_config.type_defs import StoredQueryMetadataTypeDef
-```
-
-
-Required fields:
-- `QueryId`: `str`
-- `QueryArn`: `str`
-- `QueryName`: `str`
-
-
-
-Optional fields:
-- `Description`: `str`
-
-
-## StoredQueryTypeDef
-
-```python
-from mypy_boto3_config.type_defs import StoredQueryTypeDef
-```
-
-
-Required fields:
-- `QueryName`: `str`
-
-
-
-Optional fields:
-- `QueryId`: `str`
-- `QueryArn`: `str`
-- `Description`: `str`
-- `Expression`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_config.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## AggregateConformancePackComplianceFiltersTypeDef
-
-```python
-from mypy_boto3_config.type_defs import AggregateConformancePackComplianceFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConformancePackName`: `str`
-- `ComplianceType`: `ConformancePackComplianceType`
-- `AccountId`: `str`
-- `AwsRegion`: `str`
-
-
-## AggregateConformancePackComplianceSummaryFiltersTypeDef
-
-```python
-from mypy_boto3_config.type_defs import AggregateConformancePackComplianceSummaryFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `AccountId`: `str`
-- `AwsRegion`: `str`
-
-
-## BatchGetAggregateResourceConfigResponseTypeDef
-
-```python
-from mypy_boto3_config.type_defs import BatchGetAggregateResourceConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `BaseConfigurationItems`: `List["BaseConfigurationItemTypeDef"]`
-- `UnprocessedResourceIdentifiers`: `List["AggregateResourceIdentifierTypeDef"]`
-
-
-## BatchGetResourceConfigResponseTypeDef
-
-```python
-from mypy_boto3_config.type_defs import BatchGetResourceConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `baseConfigurationItems`: `List["BaseConfigurationItemTypeDef"]`
-- `unprocessedResourceKeys`: `List["ResourceKeyTypeDef"]`
-
-
-## ConfigRuleComplianceFiltersTypeDef
-
-```python
-from mypy_boto3_config.type_defs import ConfigRuleComplianceFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConfigRuleName`: `str`
-- `ComplianceType`: `ComplianceType`
-- `AccountId`: `str`
-- `AwsRegion`: `str`
-
-
-## ConfigRuleComplianceSummaryFiltersTypeDef
-
-```python
-from mypy_boto3_config.type_defs import ConfigRuleComplianceSummaryFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `AccountId`: `str`
-- `AwsRegion`: `str`
-
-
-## ConformancePackComplianceFiltersTypeDef
-
-```python
-from mypy_boto3_config.type_defs import ConformancePackComplianceFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConfigRuleNames`: `List[str]`
-- `ComplianceType`: `ConformancePackComplianceType`
-
-
-## ConformancePackEvaluationFiltersTypeDef
-
-```python
-from mypy_boto3_config.type_defs import ConformancePackEvaluationFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConfigRuleNames`: `List[str]`
-- `ComplianceType`: `ConformancePackComplianceType`
-- `ResourceType`: `str`
-- `ResourceIds`: `List[str]`
-
-
-## DeleteRemediationExceptionsResponseTypeDef
-
-```python
-from mypy_boto3_config.type_defs import DeleteRemediationExceptionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `FailedBatches`: `List["FailedDeleteRemediationExceptionsBatchTypeDef"]`
-
-
-## DeliverConfigSnapshotResponseTypeDef
-
-```python
-from mypy_boto3_config.type_defs import DeliverConfigSnapshotResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `configSnapshotId`: `str`
 
 
 ## DescribeAggregateComplianceByConfigRulesResponseTypeDef
@@ -1952,6 +1261,85 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## EvaluationResultIdentifierTypeDef
+
+```python
+from mypy_boto3_config.type_defs import EvaluationResultIdentifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `EvaluationResultQualifier`: `"EvaluationResultQualifierTypeDef"`
+- `OrderingTimestamp`: `datetime`
+
+
+## EvaluationResultQualifierTypeDef
+
+```python
+from mypy_boto3_config.type_defs import EvaluationResultQualifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConfigRuleName`: `str`
+- `ResourceType`: `str`
+- `ResourceId`: `str`
+
+
+## EvaluationResultTypeDef
+
+```python
+from mypy_boto3_config.type_defs import EvaluationResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `EvaluationResultIdentifier`: `"EvaluationResultIdentifierTypeDef"`
+- `ComplianceType`: `ComplianceType`
+- `ResultRecordedTime`: `datetime`
+- `ConfigRuleInvokedTime`: `datetime`
+- `Annotation`: `str`
+- `ResultToken`: `str`
+
+
+## EvaluationTypeDef
+
+```python
+from mypy_boto3_config.type_defs import EvaluationTypeDef
+```
+
+
+Required fields:
+- `ComplianceResourceType`: `str`
+- `ComplianceResourceId`: `str`
+- `ComplianceType`: `ComplianceType`
+- `OrderingTimestamp`: `datetime`
+
+
+
+Optional fields:
+- `Annotation`: `str`
+
+
+## ExecutionControlsTypeDef
+
+```python
+from mypy_boto3_config.type_defs import ExecutionControlsTypeDef
+```
+
+
+
+
+Optional fields:
+- `SsmControls`: `"SsmControlsTypeDef"`
+
+
 ## ExternalEvaluationTypeDef
 
 ```python
@@ -1969,6 +1357,61 @@ Required fields:
 
 Optional fields:
 - `Annotation`: `str`
+
+
+## FailedDeleteRemediationExceptionsBatchTypeDef
+
+```python
+from mypy_boto3_config.type_defs import FailedDeleteRemediationExceptionsBatchTypeDef
+```
+
+
+
+
+Optional fields:
+- `FailureMessage`: `str`
+- `FailedItems`: `List["RemediationExceptionResourceKeyTypeDef"]`
+
+
+## FailedRemediationBatchTypeDef
+
+```python
+from mypy_boto3_config.type_defs import FailedRemediationBatchTypeDef
+```
+
+
+
+
+Optional fields:
+- `FailureMessage`: `str`
+- `FailedItems`: `List["RemediationConfigurationTypeDef"]`
+
+
+## FailedRemediationExceptionBatchTypeDef
+
+```python
+from mypy_boto3_config.type_defs import FailedRemediationExceptionBatchTypeDef
+```
+
+
+
+
+Optional fields:
+- `FailureMessage`: `str`
+- `FailedItems`: `List["RemediationExceptionTypeDef"]`
+
+
+## FieldInfoTypeDef
+
+```python
+from mypy_boto3_config.type_defs import FieldInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
 
 
 ## GetAggregateComplianceDetailsByConfigRuleResponseTypeDef
@@ -2201,6 +1644,20 @@ Optional fields:
 - `StoredQuery`: `"StoredQueryTypeDef"`
 
 
+## GroupedResourceCountTypeDef
+
+```python
+from mypy_boto3_config.type_defs import GroupedResourceCountTypeDef
+```
+
+
+Required fields:
+- `GroupName`: `str`
+- `ResourceCount`: `int`
+
+
+
+
 ## ListAggregateDiscoveredResourcesResponseTypeDef
 
 ```python
@@ -2257,6 +1714,187 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## MemberAccountStatusTypeDef
+
+```python
+from mypy_boto3_config.type_defs import MemberAccountStatusTypeDef
+```
+
+
+Required fields:
+- `AccountId`: `str`
+- `ConfigRuleName`: `str`
+- `MemberAccountRuleStatus`: `MemberAccountRuleStatus`
+
+
+
+Optional fields:
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+- `LastUpdateTime`: `datetime`
+
+
+## OrganizationAggregationSourceTypeDef
+
+```python
+from mypy_boto3_config.type_defs import OrganizationAggregationSourceTypeDef
+```
+
+
+Required fields:
+- `RoleArn`: `str`
+
+
+
+Optional fields:
+- `AwsRegions`: `List[str]`
+- `AllAwsRegions`: `bool`
+
+
+## OrganizationConfigRuleStatusTypeDef
+
+```python
+from mypy_boto3_config.type_defs import OrganizationConfigRuleStatusTypeDef
+```
+
+
+Required fields:
+- `OrganizationConfigRuleName`: `str`
+- `OrganizationRuleStatus`: `OrganizationRuleStatus`
+
+
+
+Optional fields:
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+- `LastUpdateTime`: `datetime`
+
+
+## OrganizationConfigRuleTypeDef
+
+```python
+from mypy_boto3_config.type_defs import OrganizationConfigRuleTypeDef
+```
+
+
+Required fields:
+- `OrganizationConfigRuleName`: `str`
+- `OrganizationConfigRuleArn`: `str`
+
+
+
+Optional fields:
+- `OrganizationManagedRuleMetadata`: `"OrganizationManagedRuleMetadataTypeDef"`
+- `OrganizationCustomRuleMetadata`: `"OrganizationCustomRuleMetadataTypeDef"`
+- `ExcludedAccounts`: `List[str]`
+- `LastUpdateTime`: `datetime`
+
+
+## OrganizationConformancePackDetailedStatusTypeDef
+
+```python
+from mypy_boto3_config.type_defs import OrganizationConformancePackDetailedStatusTypeDef
+```
+
+
+Required fields:
+- `AccountId`: `str`
+- `ConformancePackName`: `str`
+- `Status`: `OrganizationResourceDetailedStatus`
+
+
+
+Optional fields:
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+- `LastUpdateTime`: `datetime`
+
+
+## OrganizationConformancePackStatusTypeDef
+
+```python
+from mypy_boto3_config.type_defs import OrganizationConformancePackStatusTypeDef
+```
+
+
+Required fields:
+- `OrganizationConformancePackName`: `str`
+- `Status`: `OrganizationResourceStatus`
+
+
+
+Optional fields:
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+- `LastUpdateTime`: `datetime`
+
+
+## OrganizationConformancePackTypeDef
+
+```python
+from mypy_boto3_config.type_defs import OrganizationConformancePackTypeDef
+```
+
+
+Required fields:
+- `OrganizationConformancePackName`: `str`
+- `OrganizationConformancePackArn`: `str`
+- `LastUpdateTime`: `datetime`
+
+
+
+Optional fields:
+- `DeliveryS3Bucket`: `str`
+- `DeliveryS3KeyPrefix`: `str`
+- `ConformancePackInputParameters`: `List["ConformancePackInputParameterTypeDef"]`
+- `ExcludedAccounts`: `List[str]`
+
+
+## OrganizationCustomRuleMetadataTypeDef
+
+```python
+from mypy_boto3_config.type_defs import OrganizationCustomRuleMetadataTypeDef
+```
+
+
+Required fields:
+- `LambdaFunctionArn`: `str`
+- `OrganizationConfigRuleTriggerTypes`: `List[OrganizationConfigRuleTriggerType]`
+
+
+
+Optional fields:
+- `Description`: `str`
+- `InputParameters`: `str`
+- `MaximumExecutionFrequency`: `MaximumExecutionFrequency`
+- `ResourceTypesScope`: `List[str]`
+- `ResourceIdScope`: `str`
+- `TagKeyScope`: `str`
+- `TagValueScope`: `str`
+
+
+## OrganizationManagedRuleMetadataTypeDef
+
+```python
+from mypy_boto3_config.type_defs import OrganizationManagedRuleMetadataTypeDef
+```
+
+
+Required fields:
+- `RuleIdentifier`: `str`
+
+
+
+Optional fields:
+- `Description`: `str`
+- `InputParameters`: `str`
+- `MaximumExecutionFrequency`: `MaximumExecutionFrequency`
+- `ResourceTypesScope`: `List[str]`
+- `ResourceIdScope`: `str`
+- `TagKeyScope`: `str`
+- `TagValueScope`: `str`
+
+
 ## OrganizationResourceDetailedStatusFiltersTypeDef
 
 ```python
@@ -2284,6 +1922,20 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PendingAggregationRequestTypeDef
+
+```python
+from mypy_boto3_config.type_defs import PendingAggregationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `RequesterAccountId`: `str`
+- `RequesterAwsRegion`: `str`
 
 
 ## PutAggregationAuthorizationResponseTypeDef
@@ -2416,6 +2068,157 @@ Optional fields:
 - `QueryArn`: `str`
 
 
+## QueryInfoTypeDef
+
+```python
+from mypy_boto3_config.type_defs import QueryInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `SelectFields`: `List["FieldInfoTypeDef"]`
+
+
+## RecordingGroupTypeDef
+
+```python
+from mypy_boto3_config.type_defs import RecordingGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `allSupported`: `bool`
+- `includeGlobalResourceTypes`: `bool`
+- `resourceTypes`: `List[ResourceType]`
+
+
+## RelationshipTypeDef
+
+```python
+from mypy_boto3_config.type_defs import RelationshipTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceType`: `ResourceType`
+- `resourceId`: `str`
+- `resourceName`: `str`
+- `relationshipName`: `str`
+
+
+## RemediationConfigurationTypeDef
+
+```python
+from mypy_boto3_config.type_defs import RemediationConfigurationTypeDef
+```
+
+
+Required fields:
+- `ConfigRuleName`: `str`
+- `TargetType`: `Literal['SSM_DOCUMENT']`
+- `TargetId`: `str`
+
+
+
+Optional fields:
+- `TargetVersion`: `str`
+- `Parameters`: `Dict[str, "RemediationParameterValueTypeDef"]`
+- `ResourceType`: `str`
+- `Automatic`: `bool`
+- `ExecutionControls`: `"ExecutionControlsTypeDef"`
+- `MaximumAutomaticAttempts`: `int`
+- `RetryAttemptSeconds`: `int`
+- `Arn`: `str`
+- `CreatedByService`: `str`
+
+
+## RemediationExceptionResourceKeyTypeDef
+
+```python
+from mypy_boto3_config.type_defs import RemediationExceptionResourceKeyTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceType`: `str`
+- `ResourceId`: `str`
+
+
+## RemediationExceptionTypeDef
+
+```python
+from mypy_boto3_config.type_defs import RemediationExceptionTypeDef
+```
+
+
+Required fields:
+- `ConfigRuleName`: `str`
+- `ResourceType`: `str`
+- `ResourceId`: `str`
+
+
+
+Optional fields:
+- `Message`: `str`
+- `ExpirationTime`: `datetime`
+
+
+## RemediationExecutionStatusTypeDef
+
+```python
+from mypy_boto3_config.type_defs import RemediationExecutionStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceKey`: `"ResourceKeyTypeDef"`
+- `State`: `RemediationExecutionState`
+- `StepDetails`: `List["RemediationExecutionStepTypeDef"]`
+- `InvocationTime`: `datetime`
+- `LastUpdatedTime`: `datetime`
+
+
+## RemediationExecutionStepTypeDef
+
+```python
+from mypy_boto3_config.type_defs import RemediationExecutionStepTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `State`: `RemediationExecutionStepState`
+- `ErrorMessage`: `str`
+- `StartTime`: `datetime`
+- `StopTime`: `datetime`
+
+
+## RemediationParameterValueTypeDef
+
+```python
+from mypy_boto3_config.type_defs import RemediationParameterValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceValue`: `"ResourceValueTypeDef"`
+- `StaticValue`: `"StaticValueTypeDef"`
+
+
 ## ResourceCountFiltersTypeDef
 
 ```python
@@ -2429,6 +2232,20 @@ Optional fields:
 - `ResourceType`: `ResourceType`
 - `AccountId`: `str`
 - `Region`: `str`
+
+
+## ResourceCountTypeDef
+
+```python
+from mypy_boto3_config.type_defs import ResourceCountTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceType`: `ResourceType`
+- `count`: `int`
 
 
 ## ResourceFiltersTypeDef
@@ -2445,6 +2262,79 @@ Optional fields:
 - `ResourceId`: `str`
 - `ResourceName`: `str`
 - `Region`: `str`
+
+
+## ResourceIdentifierTypeDef
+
+```python
+from mypy_boto3_config.type_defs import ResourceIdentifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceType`: `ResourceType`
+- `resourceId`: `str`
+- `resourceName`: `str`
+- `resourceDeletionTime`: `datetime`
+
+
+## ResourceKeyTypeDef
+
+```python
+from mypy_boto3_config.type_defs import ResourceKeyTypeDef
+```
+
+
+Required fields:
+- `resourceType`: `ResourceType`
+- `resourceId`: `str`
+
+
+
+
+## ResourceValueTypeDef
+
+```python
+from mypy_boto3_config.type_defs import ResourceValueTypeDef
+```
+
+
+Required fields:
+- `Value`: `Literal['RESOURCE_ID']`
+
+
+
+
+## RetentionConfigurationTypeDef
+
+```python
+from mypy_boto3_config.type_defs import RetentionConfigurationTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `RetentionPeriodInDays`: `int`
+
+
+
+
+## ScopeTypeDef
+
+```python
+from mypy_boto3_config.type_defs import ScopeTypeDef
+```
+
+
+
+
+Optional fields:
+- `ComplianceResourceTypes`: `List[str]`
+- `TagKey`: `str`
+- `TagValue`: `str`
+- `ComplianceResourceId`: `str`
 
 
 ## SelectAggregateResourceConfigResponseTypeDef
@@ -2477,6 +2367,52 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## SourceDetailTypeDef
+
+```python
+from mypy_boto3_config.type_defs import SourceDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventSource`: `Literal['aws.config']`
+- `MessageType`: `MessageType`
+- `MaximumExecutionFrequency`: `MaximumExecutionFrequency`
+
+
+## SourceTypeDef
+
+```python
+from mypy_boto3_config.type_defs import SourceTypeDef
+```
+
+
+Required fields:
+- `Owner`: `Owner`
+- `SourceIdentifier`: `str`
+
+
+
+Optional fields:
+- `SourceDetails`: `List["SourceDetailTypeDef"]`
+
+
+## SsmControlsTypeDef
+
+```python
+from mypy_boto3_config.type_defs import SsmControlsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConcurrentExecutionRatePercentage`: `int`
+- `ErrorPercentage`: `int`
+
+
 ## StartRemediationExecutionResponseTypeDef
 
 ```python
@@ -2491,6 +2427,19 @@ Optional fields:
 - `FailedItems`: `List["ResourceKeyTypeDef"]`
 
 
+## StaticValueTypeDef
+
+```python
+from mypy_boto3_config.type_defs import StaticValueTypeDef
+```
+
+
+Required fields:
+- `Values`: `List[str]`
+
+
+
+
 ## StatusDetailFiltersTypeDef
 
 ```python
@@ -2503,4 +2452,55 @@ from mypy_boto3_config.type_defs import StatusDetailFiltersTypeDef
 Optional fields:
 - `AccountId`: `str`
 - `MemberAccountRuleStatus`: `MemberAccountRuleStatus`
+
+
+## StoredQueryMetadataTypeDef
+
+```python
+from mypy_boto3_config.type_defs import StoredQueryMetadataTypeDef
+```
+
+
+Required fields:
+- `QueryId`: `str`
+- `QueryArn`: `str`
+- `QueryName`: `str`
+
+
+
+Optional fields:
+- `Description`: `str`
+
+
+## StoredQueryTypeDef
+
+```python
+from mypy_boto3_config.type_defs import StoredQueryTypeDef
+```
+
+
+Required fields:
+- `QueryName`: `str`
+
+
+
+Optional fields:
+- `QueryId`: `str`
+- `QueryArn`: `str`
+- `Description`: `str`
+- `Expression`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_config.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
 

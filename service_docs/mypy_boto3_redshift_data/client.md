@@ -21,11 +21,6 @@ type annotations stubs module [mypy_boto3_redshift_data](https://pypi.org/projec
     - [list_statements](#list_statements)
     - [list_tables](#list_tables)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
 
 ## RedshiftDataAPIServiceClient
 
@@ -259,92 +254,17 @@ def list_tables(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("redshift-data").get_paginator` method.
-
-[Paginator.DescribeTable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTablePaginatorName
-) -> DescribeTablePaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("redshift-data").get_paginator` method.
+Type annotations for `boto3.client("redshift-data").get_paginator` method with overloads.
 
-[Paginator.GetStatementResult documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult)
+- `client.get_paginator("describe_table")` -> [DescribeTablePaginator](./paginators.md#describetablepaginator)
+- `client.get_paginator("get_statement_result")` -> [GetStatementResultPaginator](./paginators.md#getstatementresultpaginator)
+- `client.get_paginator("list_databases")` -> [ListDatabasesPaginator](./paginators.md#listdatabasespaginator)
+- `client.get_paginator("list_schemas")` -> [ListSchemasPaginator](./paginators.md#listschemaspaginator)
+- `client.get_paginator("list_statements")` -> [ListStatementsPaginator](./paginators.md#liststatementspaginator)
+- `client.get_paginator("list_tables")` -> [ListTablesPaginator](./paginators.md#listtablespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetStatementResultPaginatorName
-) -> GetStatementResultPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("redshift-data").get_paginator` method.
-
-[Paginator.ListDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatabasesPaginatorName
-) -> ListDatabasesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("redshift-data").get_paginator` method.
-
-[Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSchemasPaginatorName
-) -> ListSchemasPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("redshift-data").get_paginator` method.
-
-[Paginator.ListStatements documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStatementsPaginatorName
-) -> ListStatementsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("redshift-data").get_paginator` method.
-
-[Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTablesPaginatorName
-) -> ListTablesPaginator:
-    pass
-```

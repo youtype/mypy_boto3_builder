@@ -45,7 +45,6 @@ type annotations stubs module [mypy_boto3_shield](https://pypi.org/project/mypy-
     - [update_protection_group](#update_protection_group)
     - [update_subscription](#update_subscription)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## ShieldClient
 
@@ -598,32 +597,13 @@ def update_subscription(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("shield").get_paginator` method.
-
-[Paginator.ListAttacks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/shield.html#Shield.Paginator.ListAttacks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAttacksPaginatorName
-) -> ListAttacksPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("shield").get_paginator` method.
+Type annotations for `boto3.client("shield").get_paginator` method with overloads.
 
-[Paginator.ListProtections documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/shield.html#Shield.Paginator.ListProtections)
+- `client.get_paginator("list_attacks")` -> [ListAttacksPaginator](./paginators.md#listattackspaginator)
+- `client.get_paginator("list_protections")` -> [ListProtectionsPaginator](./paginators.md#listprotectionspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProtectionsPaginatorName
-) -> ListProtectionsPaginator:
-    pass
-```
+

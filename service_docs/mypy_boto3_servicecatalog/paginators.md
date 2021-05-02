@@ -424,7 +424,7 @@ class SearchProductsAsAdminPaginator(Boto3Paginator):
         Filters: Dict[ProductViewFilterBy, List[str]] = None,
         SortBy: ProductViewSortBy = None,
         SortOrder: SortOrder = None,
-        ProductSource: ProductSource = None,
+        ProductSource: Literal['ACCOUNT'] = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchProductsAsAdminOutputTypeDef]:
         pass

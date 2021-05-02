@@ -67,14 +67,6 @@ type annotations stubs module [mypy_boto3_macie2](https://pypi.org/project/mypy-
     - [update_member_session](#update_member_session)
     - [update_organization_configuration](#update_organization_configuration)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
 
 ## Macie2Client
 
@@ -973,137 +965,20 @@ def update_organization_configuration(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("macie2").get_paginator` method.
-
-[Paginator.DescribeBuckets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/macie2.html#Macie2.Paginator.DescribeBuckets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeBucketsPaginatorName
-) -> DescribeBucketsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("macie2").get_paginator` method.
+Type annotations for `boto3.client("macie2").get_paginator` method with overloads.
 
-[Paginator.GetUsageStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/macie2.html#Macie2.Paginator.GetUsageStatistics)
+- `client.get_paginator("describe_buckets")` -> [DescribeBucketsPaginator](./paginators.md#describebucketspaginator)
+- `client.get_paginator("get_usage_statistics")` -> [GetUsageStatisticsPaginator](./paginators.md#getusagestatisticspaginator)
+- `client.get_paginator("list_classification_jobs")` -> [ListClassificationJobsPaginator](./paginators.md#listclassificationjobspaginator)
+- `client.get_paginator("list_custom_data_identifiers")` -> [ListCustomDataIdentifiersPaginator](./paginators.md#listcustomdataidentifierspaginator)
+- `client.get_paginator("list_findings")` -> [ListFindingsPaginator](./paginators.md#listfindingspaginator)
+- `client.get_paginator("list_findings_filters")` -> [ListFindingsFiltersPaginator](./paginators.md#listfindingsfilterspaginator)
+- `client.get_paginator("list_invitations")` -> [ListInvitationsPaginator](./paginators.md#listinvitationspaginator)
+- `client.get_paginator("list_members")` -> [ListMembersPaginator](./paginators.md#listmemberspaginator)
+- `client.get_paginator("list_organization_admin_accounts")` -> [ListOrganizationAdminAccountsPaginator](./paginators.md#listorganizationadminaccountspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetUsageStatisticsPaginatorName
-) -> GetUsageStatisticsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("macie2").get_paginator` method.
-
-[Paginator.ListClassificationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/macie2.html#Macie2.Paginator.ListClassificationJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListClassificationJobsPaginatorName
-) -> ListClassificationJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("macie2").get_paginator` method.
-
-[Paginator.ListCustomDataIdentifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/macie2.html#Macie2.Paginator.ListCustomDataIdentifiers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCustomDataIdentifiersPaginatorName
-) -> ListCustomDataIdentifiersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("macie2").get_paginator` method.
-
-[Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/macie2.html#Macie2.Paginator.ListFindings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFindingsPaginatorName
-) -> ListFindingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("macie2").get_paginator` method.
-
-[Paginator.ListFindingsFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/macie2.html#Macie2.Paginator.ListFindingsFilters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFindingsFiltersPaginatorName
-) -> ListFindingsFiltersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("macie2").get_paginator` method.
-
-[Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/macie2.html#Macie2.Paginator.ListInvitations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInvitationsPaginatorName
-) -> ListInvitationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("macie2").get_paginator` method.
-
-[Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/macie2.html#Macie2.Paginator.ListMembers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMembersPaginatorName
-) -> ListMembersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("macie2").get_paginator` method.
-
-[Paginator.ListOrganizationAdminAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/macie2.html#Macie2.Paginator.ListOrganizationAdminAccounts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOrganizationAdminAccountsPaginatorName
-) -> ListOrganizationAdminAccountsPaginator:
-    pass
-```

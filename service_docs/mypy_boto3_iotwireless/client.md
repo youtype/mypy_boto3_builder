@@ -409,7 +409,7 @@ Type annotations for `boto3.client("iotwireless").disassociate_aws_account_from_
 def disassociate_aws_account_from_partner_account(
     self,
     PartnerAccountId: str,
-    PartnerType: PartnerType
+    PartnerType: Literal['Sidewalk']
 ) -> Dict[str, Any]:
     pass
 ```
@@ -511,7 +511,7 @@ Type annotations for `boto3.client("iotwireless").get_partner_account` method.
 def get_partner_account(
     self,
     PartnerAccountId: str,
-    PartnerType: PartnerType
+    PartnerType: Literal['Sidewalk']
 ) -> GetPartnerAccountResponseTypeDef:
     pass
 ```
@@ -762,7 +762,7 @@ def list_wireless_gateway_task_definitions(
     self,
     MaxResults: int = None,
     NextToken: str = None,
-    TaskDefinitionType: WirelessGatewayTaskDefinitionType = None
+    TaskDefinitionType: Literal['UPDATE'] = None
 ) -> ListWirelessGatewayTaskDefinitionsResponseTypeDef:
     pass
 ```
@@ -872,7 +872,7 @@ def update_partner_account(
     self,
     Sidewalk: SidewalkUpdateAccountTypeDef,
     PartnerAccountId: str,
-    PartnerType: PartnerType
+    PartnerType: Literal['Sidewalk']
 ) -> Dict[str, Any]:
     pass
 ```
@@ -910,3 +910,6 @@ def update_wireless_gateway(
 ) -> Dict[str, Any]:
     pass
 ```
+
+
+

@@ -6,7 +6,9 @@ Auto-generated documentation for [GreengrassV2](https://boto3.amazonaws.com/v1/d
 type annotations stubs module [mypy_boto3_greengrassv2](https://pypi.org/project/mypy-boto3-greengrassv2/).
 
 - [Structures for boto3 GreengrassV2 module](#structures-for-boto3-greengrassv2-module)
+  - [CancelDeploymentResponseTypeDef](#canceldeploymentresponsetypedef)
   - [CloudComponentStatusTypeDef](#cloudcomponentstatustypedef)
+  - [ComponentCandidateTypeDef](#componentcandidatetypedef)
   - [ComponentConfigurationUpdateTypeDef](#componentconfigurationupdatetypedef)
   - [ComponentDependencyRequirementTypeDef](#componentdependencyrequirementtypedef)
   - [ComponentDeploymentSpecificationTypeDef](#componentdeploymentspecificationtypedef)
@@ -16,12 +18,19 @@ type annotations stubs module [mypy_boto3_greengrassv2](https://pypi.org/project
   - [ComponentTypeDef](#componenttypedef)
   - [ComponentVersionListItemTypeDef](#componentversionlistitemtypedef)
   - [CoreDeviceTypeDef](#coredevicetypedef)
+  - [CreateComponentVersionResponseTypeDef](#createcomponentversionresponsetypedef)
+  - [CreateDeploymentResponseTypeDef](#createdeploymentresponsetypedef)
   - [DeploymentComponentUpdatePolicyTypeDef](#deploymentcomponentupdatepolicytypedef)
   - [DeploymentConfigurationValidationPolicyTypeDef](#deploymentconfigurationvalidationpolicytypedef)
   - [DeploymentIoTJobConfigurationTypeDef](#deploymentiotjobconfigurationtypedef)
   - [DeploymentPoliciesTypeDef](#deploymentpoliciestypedef)
   - [DeploymentTypeDef](#deploymenttypedef)
+  - [DescribeComponentResponseTypeDef](#describecomponentresponsetypedef)
   - [EffectiveDeploymentTypeDef](#effectivedeploymenttypedef)
+  - [GetComponentResponseTypeDef](#getcomponentresponsetypedef)
+  - [GetComponentVersionArtifactResponseTypeDef](#getcomponentversionartifactresponsetypedef)
+  - [GetCoreDeviceResponseTypeDef](#getcoredeviceresponsetypedef)
+  - [GetDeploymentResponseTypeDef](#getdeploymentresponsetypedef)
   - [InstalledComponentTypeDef](#installedcomponenttypedef)
   - [IoTJobAbortConfigTypeDef](#iotjobabortconfigtypedef)
   - [IoTJobAbortCriteriaTypeDef](#iotjobabortcriteriatypedef)
@@ -33,19 +42,9 @@ type annotations stubs module [mypy_boto3_greengrassv2](https://pypi.org/project
   - [LambdaDeviceMountTypeDef](#lambdadevicemounttypedef)
   - [LambdaEventSourceTypeDef](#lambdaeventsourcetypedef)
   - [LambdaExecutionParametersTypeDef](#lambdaexecutionparameterstypedef)
+  - [LambdaFunctionRecipeSourceTypeDef](#lambdafunctionrecipesourcetypedef)
   - [LambdaLinuxProcessParamsTypeDef](#lambdalinuxprocessparamstypedef)
   - [LambdaVolumeMountTypeDef](#lambdavolumemounttypedef)
-  - [ResolvedComponentVersionTypeDef](#resolvedcomponentversiontypedef)
-  - [CancelDeploymentResponseTypeDef](#canceldeploymentresponsetypedef)
-  - [ComponentCandidateTypeDef](#componentcandidatetypedef)
-  - [CreateComponentVersionResponseTypeDef](#createcomponentversionresponsetypedef)
-  - [CreateDeploymentResponseTypeDef](#createdeploymentresponsetypedef)
-  - [DescribeComponentResponseTypeDef](#describecomponentresponsetypedef)
-  - [GetComponentResponseTypeDef](#getcomponentresponsetypedef)
-  - [GetComponentVersionArtifactResponseTypeDef](#getcomponentversionartifactresponsetypedef)
-  - [GetCoreDeviceResponseTypeDef](#getcoredeviceresponsetypedef)
-  - [GetDeploymentResponseTypeDef](#getdeploymentresponsetypedef)
-  - [LambdaFunctionRecipeSourceTypeDef](#lambdafunctionrecipesourcetypedef)
   - [ListComponentVersionsResponseTypeDef](#listcomponentversionsresponsetypedef)
   - [ListComponentsResponseTypeDef](#listcomponentsresponsetypedef)
   - [ListCoreDevicesResponseTypeDef](#listcoredevicesresponsetypedef)
@@ -55,6 +54,20 @@ type annotations stubs module [mypy_boto3_greengrassv2](https://pypi.org/project
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ResolveComponentCandidatesResponseTypeDef](#resolvecomponentcandidatesresponsetypedef)
+  - [ResolvedComponentVersionTypeDef](#resolvedcomponentversiontypedef)
+
+## CancelDeploymentResponseTypeDef
+
+```python
+from mypy_boto3_greengrassv2.type_defs import CancelDeploymentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `message`: `str`
+
 
 ## CloudComponentStatusTypeDef
 
@@ -69,6 +82,21 @@ Optional fields:
 - `componentState`: `CloudComponentState`
 - `message`: `str`
 - `errors`: `Dict[str, str]`
+
+
+## ComponentCandidateTypeDef
+
+```python
+from mypy_boto3_greengrassv2.type_defs import ComponentCandidateTypeDef
+```
+
+
+
+
+Optional fields:
+- `componentName`: `str`
+- `componentVersion`: `str`
+- `versionRequirements`: `Dict[str, str]`
 
 
 ## ComponentConfigurationUpdateTypeDef
@@ -204,6 +232,40 @@ Optional fields:
 - `lastStatusUpdateTimestamp`: `datetime`
 
 
+## CreateComponentVersionResponseTypeDef
+
+```python
+from mypy_boto3_greengrassv2.type_defs import CreateComponentVersionResponseTypeDef
+```
+
+
+Required fields:
+- `componentName`: `str`
+- `componentVersion`: `str`
+- `creationTimestamp`: `datetime`
+- `status`: `"CloudComponentStatusTypeDef"`
+
+
+
+Optional fields:
+- `arn`: `str`
+
+
+## CreateDeploymentResponseTypeDef
+
+```python
+from mypy_boto3_greengrassv2.type_defs import CreateDeploymentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentId`: `str`
+- `iotJobId`: `str`
+- `iotJobArn`: `str`
+
+
 ## DeploymentComponentUpdatePolicyTypeDef
 
 ```python
@@ -280,6 +342,27 @@ Optional fields:
 - `isLatestForTarget`: `bool`
 
 
+## DescribeComponentResponseTypeDef
+
+```python
+from mypy_boto3_greengrassv2.type_defs import DescribeComponentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `componentName`: `str`
+- `componentVersion`: `str`
+- `creationTimestamp`: `datetime`
+- `publisher`: `str`
+- `description`: `str`
+- `status`: `"CloudComponentStatusTypeDef"`
+- `platforms`: `List["ComponentPlatformTypeDef"]`
+- `tags`: `Dict[str, str]`
+
+
 ## EffectiveDeploymentTypeDef
 
 ```python
@@ -302,6 +385,80 @@ Optional fields:
 - `iotJobArn`: `str`
 - `description`: `str`
 - `reason`: `str`
+
+
+## GetComponentResponseTypeDef
+
+```python
+from mypy_boto3_greengrassv2.type_defs import GetComponentResponseTypeDef
+```
+
+
+Required fields:
+- `recipeOutputFormat`: `RecipeOutputFormat`
+- `recipe`: `Union[bytes, IO[bytes]]`
+
+
+
+Optional fields:
+- `tags`: `Dict[str, str]`
+
+
+## GetComponentVersionArtifactResponseTypeDef
+
+```python
+from mypy_boto3_greengrassv2.type_defs import GetComponentVersionArtifactResponseTypeDef
+```
+
+
+Required fields:
+- `preSignedUrl`: `str`
+
+
+
+
+## GetCoreDeviceResponseTypeDef
+
+```python
+from mypy_boto3_greengrassv2.type_defs import GetCoreDeviceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `coreDeviceThingName`: `str`
+- `coreVersion`: `str`
+- `platform`: `str`
+- `architecture`: `str`
+- `status`: `CoreDeviceStatus`
+- `lastStatusUpdateTimestamp`: `datetime`
+- `tags`: `Dict[str, str]`
+
+
+## GetDeploymentResponseTypeDef
+
+```python
+from mypy_boto3_greengrassv2.type_defs import GetDeploymentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `targetArn`: `str`
+- `revisionId`: `str`
+- `deploymentId`: `str`
+- `deploymentName`: `str`
+- `deploymentStatus`: `DeploymentStatus`
+- `iotJobId`: `str`
+- `iotJobArn`: `str`
+- `components`: `Dict[str, "ComponentDeploymentSpecificationTypeDef"]`
+- `deploymentPolicies`: `"DeploymentPoliciesTypeDef"`
+- `iotJobConfiguration`: `"DeploymentIoTJobConfigurationTypeDef"`
+- `creationTimestamp`: `datetime`
+- `isLatestForTarget`: `bool`
+- `tags`: `Dict[str, str]`
 
 
 ## InstalledComponentTypeDef
@@ -343,7 +500,7 @@ from mypy_boto3_greengrassv2.type_defs import IoTJobAbortCriteriaTypeDef
 
 Required fields:
 - `failureType`: `IoTJobExecutionFailureType`
-- `action`: `IoTJobAbortAction`
+- `action`: `Literal['CANCEL']`
 - `thresholdPercentage`: `float`
 - `minNumberOfExecutedThings`: `int`
 
@@ -476,6 +633,26 @@ Optional fields:
 - `linuxProcessParams`: `"LambdaLinuxProcessParamsTypeDef"`
 
 
+## LambdaFunctionRecipeSourceTypeDef
+
+```python
+from mypy_boto3_greengrassv2.type_defs import LambdaFunctionRecipeSourceTypeDef
+```
+
+
+Required fields:
+- `lambdaArn`: `str`
+
+
+
+Optional fields:
+- `componentName`: `str`
+- `componentVersion`: `str`
+- `componentPlatforms`: `List["ComponentPlatformTypeDef"]`
+- `componentDependencies`: `Dict[str, "ComponentDependencyRequirementTypeDef"]`
+- `componentLambdaParameters`: `"LambdaExecutionParametersTypeDef"`
+
+
 ## LambdaLinuxProcessParamsTypeDef
 
 ```python
@@ -506,199 +683,6 @@ Required fields:
 Optional fields:
 - `permission`: `LambdaFilesystemPermission`
 - `addGroupOwner`: `bool`
-
-
-## ResolvedComponentVersionTypeDef
-
-```python
-from mypy_boto3_greengrassv2.type_defs import ResolvedComponentVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `componentName`: `str`
-- `componentVersion`: `str`
-- `recipe`: `Union[bytes, IO[bytes]]`
-
-
-## CancelDeploymentResponseTypeDef
-
-```python
-from mypy_boto3_greengrassv2.type_defs import CancelDeploymentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `message`: `str`
-
-
-## ComponentCandidateTypeDef
-
-```python
-from mypy_boto3_greengrassv2.type_defs import ComponentCandidateTypeDef
-```
-
-
-
-
-Optional fields:
-- `componentName`: `str`
-- `componentVersion`: `str`
-- `versionRequirements`: `Dict[str, str]`
-
-
-## CreateComponentVersionResponseTypeDef
-
-```python
-from mypy_boto3_greengrassv2.type_defs import CreateComponentVersionResponseTypeDef
-```
-
-
-Required fields:
-- `componentName`: `str`
-- `componentVersion`: `str`
-- `creationTimestamp`: `datetime`
-- `status`: `"CloudComponentStatusTypeDef"`
-
-
-
-Optional fields:
-- `arn`: `str`
-
-
-## CreateDeploymentResponseTypeDef
-
-```python
-from mypy_boto3_greengrassv2.type_defs import CreateDeploymentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentId`: `str`
-- `iotJobId`: `str`
-- `iotJobArn`: `str`
-
-
-## DescribeComponentResponseTypeDef
-
-```python
-from mypy_boto3_greengrassv2.type_defs import DescribeComponentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `componentName`: `str`
-- `componentVersion`: `str`
-- `creationTimestamp`: `datetime`
-- `publisher`: `str`
-- `description`: `str`
-- `status`: `"CloudComponentStatusTypeDef"`
-- `platforms`: `List["ComponentPlatformTypeDef"]`
-- `tags`: `Dict[str, str]`
-
-
-## GetComponentResponseTypeDef
-
-```python
-from mypy_boto3_greengrassv2.type_defs import GetComponentResponseTypeDef
-```
-
-
-Required fields:
-- `recipeOutputFormat`: `RecipeOutputFormat`
-- `recipe`: `Union[bytes, IO[bytes]]`
-
-
-
-Optional fields:
-- `tags`: `Dict[str, str]`
-
-
-## GetComponentVersionArtifactResponseTypeDef
-
-```python
-from mypy_boto3_greengrassv2.type_defs import GetComponentVersionArtifactResponseTypeDef
-```
-
-
-Required fields:
-- `preSignedUrl`: `str`
-
-
-
-
-## GetCoreDeviceResponseTypeDef
-
-```python
-from mypy_boto3_greengrassv2.type_defs import GetCoreDeviceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `coreDeviceThingName`: `str`
-- `coreVersion`: `str`
-- `platform`: `str`
-- `architecture`: `str`
-- `status`: `CoreDeviceStatus`
-- `lastStatusUpdateTimestamp`: `datetime`
-- `tags`: `Dict[str, str]`
-
-
-## GetDeploymentResponseTypeDef
-
-```python
-from mypy_boto3_greengrassv2.type_defs import GetDeploymentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `targetArn`: `str`
-- `revisionId`: `str`
-- `deploymentId`: `str`
-- `deploymentName`: `str`
-- `deploymentStatus`: `DeploymentStatus`
-- `iotJobId`: `str`
-- `iotJobArn`: `str`
-- `components`: `Dict[str, "ComponentDeploymentSpecificationTypeDef"]`
-- `deploymentPolicies`: `"DeploymentPoliciesTypeDef"`
-- `iotJobConfiguration`: `"DeploymentIoTJobConfigurationTypeDef"`
-- `creationTimestamp`: `datetime`
-- `isLatestForTarget`: `bool`
-- `tags`: `Dict[str, str]`
-
-
-## LambdaFunctionRecipeSourceTypeDef
-
-```python
-from mypy_boto3_greengrassv2.type_defs import LambdaFunctionRecipeSourceTypeDef
-```
-
-
-Required fields:
-- `lambdaArn`: `str`
-
-
-
-Optional fields:
-- `componentName`: `str`
-- `componentVersion`: `str`
-- `componentPlatforms`: `List["ComponentPlatformTypeDef"]`
-- `componentDependencies`: `Dict[str, "ComponentDependencyRequirementTypeDef"]`
-- `componentLambdaParameters`: `"LambdaExecutionParametersTypeDef"`
 
 
 ## ListComponentVersionsResponseTypeDef
@@ -824,4 +808,20 @@ from mypy_boto3_greengrassv2.type_defs import ResolveComponentCandidatesResponse
 
 Optional fields:
 - `resolvedComponentVersions`: `List["ResolvedComponentVersionTypeDef"]`
+
+
+## ResolvedComponentVersionTypeDef
+
+```python
+from mypy_boto3_greengrassv2.type_defs import ResolvedComponentVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `componentName`: `str`
+- `componentVersion`: `str`
+- `recipe`: `Union[bytes, IO[bytes]]`
 

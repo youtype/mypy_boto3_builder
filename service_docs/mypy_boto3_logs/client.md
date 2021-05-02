@@ -54,14 +54,6 @@ type annotations stubs module [mypy_boto3_logs](https://pypi.org/project/mypy-bo
     - [test_metric_filter](#test_metric_filter)
     - [untag_log_group](#untag_log_group)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
 
 ## CloudWatchLogsClient
 
@@ -805,137 +797,20 @@ def untag_log_group(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("logs").get_paginator` method.
-
-[Paginator.DescribeDestinations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeDestinations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDestinationsPaginatorName
-) -> DescribeDestinationsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("logs").get_paginator` method.
+Type annotations for `boto3.client("logs").get_paginator` method with overloads.
 
-[Paginator.DescribeExportTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeExportTasks)
+- `client.get_paginator("describe_destinations")` -> [DescribeDestinationsPaginator](./paginators.md#describedestinationspaginator)
+- `client.get_paginator("describe_export_tasks")` -> [DescribeExportTasksPaginator](./paginators.md#describeexporttaskspaginator)
+- `client.get_paginator("describe_log_groups")` -> [DescribeLogGroupsPaginator](./paginators.md#describeloggroupspaginator)
+- `client.get_paginator("describe_log_streams")` -> [DescribeLogStreamsPaginator](./paginators.md#describelogstreamspaginator)
+- `client.get_paginator("describe_metric_filters")` -> [DescribeMetricFiltersPaginator](./paginators.md#describemetricfilterspaginator)
+- `client.get_paginator("describe_queries")` -> [DescribeQueriesPaginator](./paginators.md#describequeriespaginator)
+- `client.get_paginator("describe_resource_policies")` -> [DescribeResourcePoliciesPaginator](./paginators.md#describeresourcepoliciespaginator)
+- `client.get_paginator("describe_subscription_filters")` -> [DescribeSubscriptionFiltersPaginator](./paginators.md#describesubscriptionfilterspaginator)
+- `client.get_paginator("filter_log_events")` -> [FilterLogEventsPaginator](./paginators.md#filterlogeventspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeExportTasksPaginatorName
-) -> DescribeExportTasksPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("logs").get_paginator` method.
-
-[Paginator.DescribeLogGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLogGroupsPaginatorName
-) -> DescribeLogGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("logs").get_paginator` method.
-
-[Paginator.DescribeLogStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogStreams)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLogStreamsPaginatorName
-) -> DescribeLogStreamsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("logs").get_paginator` method.
-
-[Paginator.DescribeMetricFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeMetricFilters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMetricFiltersPaginatorName
-) -> DescribeMetricFiltersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("logs").get_paginator` method.
-
-[Paginator.DescribeQueries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeQueries)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeQueriesPaginatorName
-) -> DescribeQueriesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("logs").get_paginator` method.
-
-[Paginator.DescribeResourcePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeResourcePolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeResourcePoliciesPaginatorName
-) -> DescribeResourcePoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("logs").get_paginator` method.
-
-[Paginator.DescribeSubscriptionFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeSubscriptionFilters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSubscriptionFiltersPaginatorName
-) -> DescribeSubscriptionFiltersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("logs").get_paginator` method.
-
-[Paginator.FilterLogEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/logs.html#CloudWatchLogs.Paginator.FilterLogEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: FilterLogEventsPaginatorName
-) -> FilterLogEventsPaginator:
-    pass
-```

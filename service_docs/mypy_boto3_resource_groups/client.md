@@ -28,8 +28,6 @@ type annotations stubs module [mypy_boto3_resource_groups](https://pypi.org/proj
     - [update_group](#update_group)
     - [update_group_query](#update_group_query)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## ResourceGroupsClient
 
@@ -348,47 +346,14 @@ def update_group_query(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("resource-groups").get_paginator` method.
-
-[Paginator.ListGroupResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGroupResourcesPaginatorName
-) -> ListGroupResourcesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("resource-groups").get_paginator` method.
+Type annotations for `boto3.client("resource-groups").get_paginator` method with overloads.
 
-[Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups)
+- `client.get_paginator("list_group_resources")` -> [ListGroupResourcesPaginator](./paginators.md#listgroupresourcespaginator)
+- `client.get_paginator("list_groups")` -> [ListGroupsPaginator](./paginators.md#listgroupspaginator)
+- `client.get_paginator("search_resources")` -> [SearchResourcesPaginator](./paginators.md#searchresourcespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGroupsPaginatorName
-) -> ListGroupsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("resource-groups").get_paginator` method.
-
-[Paginator.SearchResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchResourcesPaginatorName
-) -> SearchResourcesPaginator:
-    pass
-```

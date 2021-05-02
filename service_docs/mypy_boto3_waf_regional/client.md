@@ -229,7 +229,7 @@ def create_rate_based_rule(
     self,
     Name: str,
     MetricName: str,
-    RateKey: RateKey,
+    RateKey: Literal['IP'],
     RateLimit: int,
     ChangeToken: str,
     Tags: List["TagTypeDef"] = None
@@ -1397,3 +1397,6 @@ def update_xss_match_set(
 ) -> UpdateXssMatchSetResponseTypeDef:
     pass
 ```
+
+
+

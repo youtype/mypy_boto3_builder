@@ -6,22 +6,8 @@ Auto-generated documentation for [MachineLearning](https://boto3.amazonaws.com/v
 type annotations stubs module [mypy_boto3_machinelearning](https://pypi.org/project/mypy-boto3-machinelearning/).
 
 - [Structures for boto3 MachineLearning module](#structures-for-boto3-machinelearning-module)
-  - [BatchPredictionTypeDef](#batchpredictiontypedef)
-  - [DataSourceTypeDef](#datasourcetypedef)
-  - [EvaluationTypeDef](#evaluationtypedef)
-  - [MLModelTypeDef](#mlmodeltypedef)
-  - [PerformanceMetricsTypeDef](#performancemetricstypedef)
-  - [PredictionTypeDef](#predictiontypedef)
-  - [RDSDatabaseCredentialsTypeDef](#rdsdatabasecredentialstypedef)
-  - [RDSDatabaseTypeDef](#rdsdatabasetypedef)
-  - [RDSMetadataTypeDef](#rdsmetadatatypedef)
-  - [RealtimeEndpointInfoTypeDef](#realtimeendpointinfotypedef)
-  - [RedshiftDatabaseCredentialsTypeDef](#redshiftdatabasecredentialstypedef)
-  - [RedshiftDatabaseTypeDef](#redshiftdatabasetypedef)
-  - [RedshiftMetadataTypeDef](#redshiftmetadatatypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [TagTypeDef](#tagtypedef)
   - [AddTagsOutputTypeDef](#addtagsoutputtypedef)
+  - [BatchPredictionTypeDef](#batchpredictiontypedef)
   - [CreateBatchPredictionOutputTypeDef](#createbatchpredictionoutputtypedef)
   - [CreateDataSourceFromRDSOutputTypeDef](#createdatasourcefromrdsoutputtypedef)
   - [CreateDataSourceFromRedshiftOutputTypeDef](#createdatasourcefromredshiftoutputtypedef)
@@ -29,6 +15,7 @@ type annotations stubs module [mypy_boto3_machinelearning](https://pypi.org/proj
   - [CreateEvaluationOutputTypeDef](#createevaluationoutputtypedef)
   - [CreateMLModelOutputTypeDef](#createmlmodeloutputtypedef)
   - [CreateRealtimeEndpointOutputTypeDef](#createrealtimeendpointoutputtypedef)
+  - [DataSourceTypeDef](#datasourcetypedef)
   - [DeleteBatchPredictionOutputTypeDef](#deletebatchpredictionoutputtypedef)
   - [DeleteDataSourceOutputTypeDef](#deletedatasourceoutputtypedef)
   - [DeleteEvaluationOutputTypeDef](#deleteevaluationoutputtypedef)
@@ -40,20 +27,48 @@ type annotations stubs module [mypy_boto3_machinelearning](https://pypi.org/proj
   - [DescribeEvaluationsOutputTypeDef](#describeevaluationsoutputtypedef)
   - [DescribeMLModelsOutputTypeDef](#describemlmodelsoutputtypedef)
   - [DescribeTagsOutputTypeDef](#describetagsoutputtypedef)
+  - [EvaluationTypeDef](#evaluationtypedef)
   - [GetBatchPredictionOutputTypeDef](#getbatchpredictionoutputtypedef)
   - [GetDataSourceOutputTypeDef](#getdatasourceoutputtypedef)
   - [GetEvaluationOutputTypeDef](#getevaluationoutputtypedef)
   - [GetMLModelOutputTypeDef](#getmlmodeloutputtypedef)
+  - [MLModelTypeDef](#mlmodeltypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PerformanceMetricsTypeDef](#performancemetricstypedef)
   - [PredictOutputTypeDef](#predictoutputtypedef)
+  - [PredictionTypeDef](#predictiontypedef)
   - [RDSDataSpecTypeDef](#rdsdataspectypedef)
+  - [RDSDatabaseCredentialsTypeDef](#rdsdatabasecredentialstypedef)
+  - [RDSDatabaseTypeDef](#rdsdatabasetypedef)
+  - [RDSMetadataTypeDef](#rdsmetadatatypedef)
+  - [RealtimeEndpointInfoTypeDef](#realtimeendpointinfotypedef)
   - [RedshiftDataSpecTypeDef](#redshiftdataspectypedef)
+  - [RedshiftDatabaseCredentialsTypeDef](#redshiftdatabasecredentialstypedef)
+  - [RedshiftDatabaseTypeDef](#redshiftdatabasetypedef)
+  - [RedshiftMetadataTypeDef](#redshiftmetadatatypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [S3DataSpecTypeDef](#s3dataspectypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateBatchPredictionOutputTypeDef](#updatebatchpredictionoutputtypedef)
   - [UpdateDataSourceOutputTypeDef](#updatedatasourceoutputtypedef)
   - [UpdateEvaluationOutputTypeDef](#updateevaluationoutputtypedef)
   - [UpdateMLModelOutputTypeDef](#updatemlmodeloutputtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
+
+## AddTagsOutputTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import AddTagsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceId`: `str`
+- `ResourceType`: `TaggableResourceType`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
 
 ## BatchPredictionTypeDef
 
@@ -81,273 +96,6 @@ Optional fields:
 - `StartedAt`: `datetime`
 - `TotalRecordCount`: `int`
 - `InvalidRecordCount`: `int`
-
-
-## DataSourceTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import DataSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `DataSourceId`: `str`
-- `DataLocationS3`: `str`
-- `DataRearrangement`: `str`
-- `CreatedByIamUser`: `str`
-- `CreatedAt`: `datetime`
-- `LastUpdatedAt`: `datetime`
-- `DataSizeInBytes`: `int`
-- `NumberOfFiles`: `int`
-- `Name`: `str`
-- `Status`: `EntityStatus`
-- `Message`: `str`
-- `RedshiftMetadata`: `"RedshiftMetadataTypeDef"`
-- `RDSMetadata`: `"RDSMetadataTypeDef"`
-- `RoleARN`: `str`
-- `ComputeStatistics`: `bool`
-- `ComputeTime`: `int`
-- `FinishedAt`: `datetime`
-- `StartedAt`: `datetime`
-
-
-## EvaluationTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import EvaluationTypeDef
-```
-
-
-
-
-Optional fields:
-- `EvaluationId`: `str`
-- `MLModelId`: `str`
-- `EvaluationDataSourceId`: `str`
-- `InputDataLocationS3`: `str`
-- `CreatedByIamUser`: `str`
-- `CreatedAt`: `datetime`
-- `LastUpdatedAt`: `datetime`
-- `Name`: `str`
-- `Status`: `EntityStatus`
-- `PerformanceMetrics`: `"PerformanceMetricsTypeDef"`
-- `Message`: `str`
-- `ComputeTime`: `int`
-- `FinishedAt`: `datetime`
-- `StartedAt`: `datetime`
-
-
-## MLModelTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import MLModelTypeDef
-```
-
-
-
-
-Optional fields:
-- `MLModelId`: `str`
-- `TrainingDataSourceId`: `str`
-- `CreatedByIamUser`: `str`
-- `CreatedAt`: `datetime`
-- `LastUpdatedAt`: `datetime`
-- `Name`: `str`
-- `Status`: `EntityStatus`
-- `SizeInBytes`: `int`
-- `EndpointInfo`: `"RealtimeEndpointInfoTypeDef"`
-- `TrainingParameters`: `Dict[str, str]`
-- `InputDataLocationS3`: `str`
-- `Algorithm`: `Algorithm`
-- `MLModelType`: `MLModelType`
-- `ScoreThreshold`: `float`
-- `ScoreThresholdLastUpdatedAt`: `datetime`
-- `Message`: `str`
-- `ComputeTime`: `int`
-- `FinishedAt`: `datetime`
-- `StartedAt`: `datetime`
-
-
-## PerformanceMetricsTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import PerformanceMetricsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Properties`: `Dict[str, str]`
-
-
-## PredictionTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import PredictionTypeDef
-```
-
-
-
-
-Optional fields:
-- `predictedLabel`: `str`
-- `predictedValue`: `float`
-- `predictedScores`: `Dict[str, float]`
-- `details`: `Dict[DetailsAttributes, str]`
-
-
-## RDSDatabaseCredentialsTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import RDSDatabaseCredentialsTypeDef
-```
-
-
-Required fields:
-- `Username`: `str`
-- `Password`: `str`
-
-
-
-
-## RDSDatabaseTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import RDSDatabaseTypeDef
-```
-
-
-Required fields:
-- `InstanceIdentifier`: `str`
-- `DatabaseName`: `str`
-
-
-
-
-## RDSMetadataTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import RDSMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Database`: `"RDSDatabaseTypeDef"`
-- `DatabaseUserName`: `str`
-- `SelectSqlQuery`: `str`
-- `ResourceRole`: `str`
-- `ServiceRole`: `str`
-- `DataPipelineId`: `str`
-
-
-## RealtimeEndpointInfoTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import RealtimeEndpointInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `PeakRequestsPerSecond`: `int`
-- `CreatedAt`: `datetime`
-- `EndpointUrl`: `str`
-- `EndpointStatus`: `RealtimeEndpointStatus`
-
-
-## RedshiftDatabaseCredentialsTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import RedshiftDatabaseCredentialsTypeDef
-```
-
-
-Required fields:
-- `Username`: `str`
-- `Password`: `str`
-
-
-
-
-## RedshiftDatabaseTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import RedshiftDatabaseTypeDef
-```
-
-
-Required fields:
-- `DatabaseName`: `str`
-- `ClusterIdentifier`: `str`
-
-
-
-
-## RedshiftMetadataTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import RedshiftMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `RedshiftDatabase`: `"RedshiftDatabaseTypeDef"`
-- `DatabaseUserName`: `str`
-- `SelectSqlQuery`: `str`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_machinelearning.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## AddTagsOutputTypeDef
-
-```python
-from mypy_boto3_machinelearning.type_defs import AddTagsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceId`: `str`
-- `ResourceType`: `TaggableResourceType`
-- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## CreateBatchPredictionOutputTypeDef
@@ -447,6 +195,36 @@ Optional fields:
 - `MLModelId`: `str`
 - `RealtimeEndpointInfo`: `"RealtimeEndpointInfoTypeDef"`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DataSourceTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import DataSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `DataSourceId`: `str`
+- `DataLocationS3`: `str`
+- `DataRearrangement`: `str`
+- `CreatedByIamUser`: `str`
+- `CreatedAt`: `datetime`
+- `LastUpdatedAt`: `datetime`
+- `DataSizeInBytes`: `int`
+- `NumberOfFiles`: `int`
+- `Name`: `str`
+- `Status`: `EntityStatus`
+- `Message`: `str`
+- `RedshiftMetadata`: `"RedshiftMetadataTypeDef"`
+- `RDSMetadata`: `"RDSMetadataTypeDef"`
+- `RoleARN`: `str`
+- `ComputeStatistics`: `bool`
+- `ComputeTime`: `int`
+- `FinishedAt`: `datetime`
+- `StartedAt`: `datetime`
 
 
 ## DeleteBatchPredictionOutputTypeDef
@@ -611,6 +389,32 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## EvaluationTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import EvaluationTypeDef
+```
+
+
+
+
+Optional fields:
+- `EvaluationId`: `str`
+- `MLModelId`: `str`
+- `EvaluationDataSourceId`: `str`
+- `InputDataLocationS3`: `str`
+- `CreatedByIamUser`: `str`
+- `CreatedAt`: `datetime`
+- `LastUpdatedAt`: `datetime`
+- `Name`: `str`
+- `Status`: `EntityStatus`
+- `PerformanceMetrics`: `"PerformanceMetricsTypeDef"`
+- `Message`: `str`
+- `ComputeTime`: `int`
+- `FinishedAt`: `datetime`
+- `StartedAt`: `datetime`
+
+
 ## GetBatchPredictionOutputTypeDef
 
 ```python
@@ -736,6 +540,37 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## MLModelTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import MLModelTypeDef
+```
+
+
+
+
+Optional fields:
+- `MLModelId`: `str`
+- `TrainingDataSourceId`: `str`
+- `CreatedByIamUser`: `str`
+- `CreatedAt`: `datetime`
+- `LastUpdatedAt`: `datetime`
+- `Name`: `str`
+- `Status`: `EntityStatus`
+- `SizeInBytes`: `int`
+- `EndpointInfo`: `"RealtimeEndpointInfoTypeDef"`
+- `TrainingParameters`: `Dict[str, str]`
+- `InputDataLocationS3`: `str`
+- `Algorithm`: `Literal['sgd']`
+- `MLModelType`: `MLModelType`
+- `ScoreThreshold`: `float`
+- `ScoreThresholdLastUpdatedAt`: `datetime`
+- `Message`: `str`
+- `ComputeTime`: `int`
+- `FinishedAt`: `datetime`
+- `StartedAt`: `datetime`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -751,6 +586,19 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PerformanceMetricsTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import PerformanceMetricsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Properties`: `Dict[str, str]`
+
+
 ## PredictOutputTypeDef
 
 ```python
@@ -763,6 +611,22 @@ from mypy_boto3_machinelearning.type_defs import PredictOutputTypeDef
 Optional fields:
 - `Prediction`: `"PredictionTypeDef"`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## PredictionTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import PredictionTypeDef
+```
+
+
+
+
+Optional fields:
+- `predictedLabel`: `str`
+- `predictedValue`: `float`
+- `predictedScores`: `Dict[str, float]`
+- `details`: `Dict[DetailsAttributes, str]`
 
 
 ## RDSDataSpecTypeDef
@@ -790,6 +654,68 @@ Optional fields:
 - `DataSchemaUri`: `str`
 
 
+## RDSDatabaseCredentialsTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import RDSDatabaseCredentialsTypeDef
+```
+
+
+Required fields:
+- `Username`: `str`
+- `Password`: `str`
+
+
+
+
+## RDSDatabaseTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import RDSDatabaseTypeDef
+```
+
+
+Required fields:
+- `InstanceIdentifier`: `str`
+- `DatabaseName`: `str`
+
+
+
+
+## RDSMetadataTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import RDSMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Database`: `"RDSDatabaseTypeDef"`
+- `DatabaseUserName`: `str`
+- `SelectSqlQuery`: `str`
+- `ResourceRole`: `str`
+- `ServiceRole`: `str`
+- `DataPipelineId`: `str`
+
+
+## RealtimeEndpointInfoTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import RealtimeEndpointInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `PeakRequestsPerSecond`: `int`
+- `CreatedAt`: `datetime`
+- `EndpointUrl`: `str`
+- `EndpointStatus`: `RealtimeEndpointStatus`
+
+
 ## RedshiftDataSpecTypeDef
 
 ```python
@@ -811,6 +737,66 @@ Optional fields:
 - `DataSchemaUri`: `str`
 
 
+## RedshiftDatabaseCredentialsTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import RedshiftDatabaseCredentialsTypeDef
+```
+
+
+Required fields:
+- `Username`: `str`
+- `Password`: `str`
+
+
+
+
+## RedshiftDatabaseTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import RedshiftDatabaseTypeDef
+```
+
+
+Required fields:
+- `DatabaseName`: `str`
+- `ClusterIdentifier`: `str`
+
+
+
+
+## RedshiftMetadataTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import RedshiftMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `RedshiftDatabase`: `"RedshiftDatabaseTypeDef"`
+- `DatabaseUserName`: `str`
+- `SelectSqlQuery`: `str`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_machinelearning.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
 ## S3DataSpecTypeDef
 
 ```python
@@ -827,6 +813,20 @@ Optional fields:
 - `DataRearrangement`: `str`
 - `DataSchema`: `str`
 - `DataSchemaLocationS3`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_machinelearning.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
 
 
 ## UpdateBatchPredictionOutputTypeDef

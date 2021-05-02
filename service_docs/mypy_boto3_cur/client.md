@@ -141,16 +141,12 @@ def put_report_definition(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("cur").get_paginator` method.
+Type annotations for `boto3.client("cur").get_paginator` method with overloads.
 
-[Paginator.DescribeReportDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cur.html#CostandUsageReportService.Paginator.DescribeReportDefinitions)
+- `client.get_paginator("describe_report_definitions")` -> [DescribeReportDefinitionsPaginator](./paginators.md#describereportdefinitionspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: DescribeReportDefinitionsPaginatorName
-) -> DescribeReportDefinitionsPaginator:
-    pass
-```
+

@@ -6,38 +6,28 @@ Auto-generated documentation for [Glacier](https://boto3.amazonaws.com/v1/docume
 type annotations stubs module [mypy_boto3_glacier](https://pypi.org/project/mypy-boto3-glacier/).
 
 - [Structures for boto3 Glacier module](#structures-for-boto3-glacier-module)
+  - [ArchiveCreationOutputTypeDef](#archivecreationoutputtypedef)
   - [CSVInputTypeDef](#csvinputtypedef)
   - [CSVOutputTypeDef](#csvoutputtypedef)
+  - [CreateVaultOutputTypeDef](#createvaultoutputtypedef)
   - [DataRetrievalPolicyTypeDef](#dataretrievalpolicytypedef)
   - [DataRetrievalRuleTypeDef](#dataretrievalruletypedef)
   - [DescribeVaultOutputTypeDef](#describevaultoutputtypedef)
   - [EncryptionTypeDef](#encryptiontypedef)
-  - [GlacierJobDescriptionTypeDef](#glacierjobdescriptiontypedef)
-  - [GrantTypeDef](#granttypedef)
-  - [GranteeTypeDef](#granteetypedef)
-  - [InputSerializationTypeDef](#inputserializationtypedef)
-  - [InventoryRetrievalJobDescriptionTypeDef](#inventoryretrievaljobdescriptiontypedef)
-  - [InventoryRetrievalJobInputTypeDef](#inventoryretrievaljobinputtypedef)
-  - [OutputLocationTypeDef](#outputlocationtypedef)
-  - [OutputSerializationTypeDef](#outputserializationtypedef)
-  - [PartListElementTypeDef](#partlistelementtypedef)
-  - [ProvisionedCapacityDescriptionTypeDef](#provisionedcapacitydescriptiontypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [S3LocationTypeDef](#s3locationtypedef)
-  - [SelectParametersTypeDef](#selectparameterstypedef)
-  - [UploadListElementTypeDef](#uploadlistelementtypedef)
-  - [VaultAccessPolicyTypeDef](#vaultaccesspolicytypedef)
-  - [VaultNotificationConfigTypeDef](#vaultnotificationconfigtypedef)
-  - [ArchiveCreationOutputTypeDef](#archivecreationoutputtypedef)
-  - [CreateVaultOutputTypeDef](#createvaultoutputtypedef)
   - [GetDataRetrievalPolicyOutputTypeDef](#getdataretrievalpolicyoutputtypedef)
   - [GetJobOutputOutputTypeDef](#getjoboutputoutputtypedef)
   - [GetVaultAccessPolicyOutputTypeDef](#getvaultaccesspolicyoutputtypedef)
   - [GetVaultLockOutputTypeDef](#getvaultlockoutputtypedef)
   - [GetVaultNotificationsOutputTypeDef](#getvaultnotificationsoutputtypedef)
+  - [GlacierJobDescriptionTypeDef](#glacierjobdescriptiontypedef)
+  - [GrantTypeDef](#granttypedef)
+  - [GranteeTypeDef](#granteetypedef)
   - [InitiateJobOutputTypeDef](#initiatejoboutputtypedef)
   - [InitiateMultipartUploadOutputTypeDef](#initiatemultipartuploadoutputtypedef)
   - [InitiateVaultLockOutputTypeDef](#initiatevaultlockoutputtypedef)
+  - [InputSerializationTypeDef](#inputserializationtypedef)
+  - [InventoryRetrievalJobDescriptionTypeDef](#inventoryretrievaljobdescriptiontypedef)
+  - [InventoryRetrievalJobInputTypeDef](#inventoryretrievaljobinputtypedef)
   - [JobParametersTypeDef](#jobparameterstypedef)
   - [ListJobsOutputTypeDef](#listjobsoutputtypedef)
   - [ListMultipartUploadsOutputTypeDef](#listmultipartuploadsoutputtypedef)
@@ -45,11 +35,37 @@ type annotations stubs module [mypy_boto3_glacier](https://pypi.org/project/mypy
   - [ListProvisionedCapacityOutputTypeDef](#listprovisionedcapacityoutputtypedef)
   - [ListTagsForVaultOutputTypeDef](#listtagsforvaultoutputtypedef)
   - [ListVaultsOutputTypeDef](#listvaultsoutputtypedef)
+  - [OutputLocationTypeDef](#outputlocationtypedef)
+  - [OutputSerializationTypeDef](#outputserializationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PartListElementTypeDef](#partlistelementtypedef)
+  - [ProvisionedCapacityDescriptionTypeDef](#provisionedcapacitydescriptiontypedef)
   - [PurchaseProvisionedCapacityOutputTypeDef](#purchaseprovisionedcapacityoutputtypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [S3LocationTypeDef](#s3locationtypedef)
+  - [SelectParametersTypeDef](#selectparameterstypedef)
+  - [UploadListElementTypeDef](#uploadlistelementtypedef)
   - [UploadMultipartPartOutputTypeDef](#uploadmultipartpartoutputtypedef)
+  - [VaultAccessPolicyTypeDef](#vaultaccesspolicytypedef)
   - [VaultLockPolicyTypeDef](#vaultlockpolicytypedef)
+  - [VaultNotificationConfigTypeDef](#vaultnotificationconfigtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
+
+## ArchiveCreationOutputTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import ArchiveCreationOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `location`: `str`
+- `checksum`: `str`
+- `archiveId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
 
 ## CSVInputTypeDef
 
@@ -84,6 +100,20 @@ Optional fields:
 - `RecordDelimiter`: `str`
 - `FieldDelimiter`: `str`
 - `QuoteCharacter`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateVaultOutputTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import CreateVaultOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `location`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
@@ -146,300 +176,6 @@ Optional fields:
 - `EncryptionType`: `EncryptionType`
 - `KMSKeyId`: `str`
 - `KMSContext`: `str`
-
-
-## GlacierJobDescriptionTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import GlacierJobDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-- `JobDescription`: `str`
-- `Action`: `ActionCode`
-- `ArchiveId`: `str`
-- `VaultARN`: `str`
-- `CreationDate`: `str`
-- `Completed`: `bool`
-- `StatusCode`: `StatusCode`
-- `StatusMessage`: `str`
-- `ArchiveSizeInBytes`: `int`
-- `InventorySizeInBytes`: `int`
-- `SNSTopic`: `str`
-- `CompletionDate`: `str`
-- `SHA256TreeHash`: `str`
-- `ArchiveSHA256TreeHash`: `str`
-- `RetrievalByteRange`: `str`
-- `Tier`: `str`
-- `InventoryRetrievalParameters`: `"InventoryRetrievalJobDescriptionTypeDef"`
-- `JobOutputPath`: `str`
-- `SelectParameters`: `"SelectParametersTypeDef"`
-- `OutputLocation`: `"OutputLocationTypeDef"`
-
-
-## GrantTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import GrantTypeDef
-```
-
-
-
-
-Optional fields:
-- `Grantee`: `"GranteeTypeDef"`
-- `Permission`: `Permission`
-
-
-## GranteeTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import GranteeTypeDef
-```
-
-
-Required fields:
-- `Type`: `TypeType`
-
-
-
-Optional fields:
-- `DisplayName`: `str`
-- `URI`: `str`
-- `ID`: `str`
-- `EmailAddress`: `str`
-
-
-## InputSerializationTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import InputSerializationTypeDef
-```
-
-
-
-
-Optional fields:
-- `csv`: `"CSVInputTypeDef"`
-
-
-## InventoryRetrievalJobDescriptionTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import InventoryRetrievalJobDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Format`: `str`
-- `StartDate`: `str`
-- `EndDate`: `str`
-- `Limit`: `str`
-- `Marker`: `str`
-
-
-## InventoryRetrievalJobInputTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import InventoryRetrievalJobInputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StartDate`: `str`
-- `EndDate`: `str`
-- `Limit`: `str`
-- `Marker`: `str`
-
-
-## OutputLocationTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import OutputLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3`: `"S3LocationTypeDef"`
-
-
-## OutputSerializationTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import OutputSerializationTypeDef
-```
-
-
-
-
-Optional fields:
-- `csv`: `"CSVOutputTypeDef"`
-
-
-## PartListElementTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import PartListElementTypeDef
-```
-
-
-
-
-Optional fields:
-- `RangeInBytes`: `str`
-- `SHA256TreeHash`: `str`
-
-
-## ProvisionedCapacityDescriptionTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import ProvisionedCapacityDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `CapacityId`: `str`
-- `StartDate`: `str`
-- `ExpirationDate`: `str`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_glacier.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## S3LocationTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import S3LocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `BucketName`: `str`
-- `Prefix`: `str`
-- `Encryption`: `"EncryptionTypeDef"`
-- `CannedACL`: `CannedACL`
-- `AccessControlList`: `List["GrantTypeDef"]`
-- `Tagging`: `Dict[str, str]`
-- `UserMetadata`: `Dict[str, str]`
-- `StorageClass`: `StorageClass`
-
-
-## SelectParametersTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import SelectParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `InputSerialization`: `"InputSerializationTypeDef"`
-- `ExpressionType`: `ExpressionType`
-- `Expression`: `str`
-- `OutputSerialization`: `"OutputSerializationTypeDef"`
-
-
-## UploadListElementTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import UploadListElementTypeDef
-```
-
-
-
-
-Optional fields:
-- `MultipartUploadId`: `str`
-- `VaultARN`: `str`
-- `ArchiveDescription`: `str`
-- `PartSizeInBytes`: `int`
-- `CreationDate`: `str`
-
-
-## VaultAccessPolicyTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import VaultAccessPolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `Policy`: `str`
-
-
-## VaultNotificationConfigTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import VaultNotificationConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `SNSTopic`: `str`
-- `Events`: `List[str]`
-
-
-## ArchiveCreationOutputTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import ArchiveCreationOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `location`: `str`
-- `checksum`: `str`
-- `archiveId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateVaultOutputTypeDef
-
-```python
-from mypy_boto3_glacier.type_defs import CreateVaultOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `location`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## GetDataRetrievalPolicyOutputTypeDef
@@ -521,6 +257,72 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## GlacierJobDescriptionTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import GlacierJobDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+- `JobDescription`: `str`
+- `Action`: `ActionCode`
+- `ArchiveId`: `str`
+- `VaultARN`: `str`
+- `CreationDate`: `str`
+- `Completed`: `bool`
+- `StatusCode`: `StatusCode`
+- `StatusMessage`: `str`
+- `ArchiveSizeInBytes`: `int`
+- `InventorySizeInBytes`: `int`
+- `SNSTopic`: `str`
+- `CompletionDate`: `str`
+- `SHA256TreeHash`: `str`
+- `ArchiveSHA256TreeHash`: `str`
+- `RetrievalByteRange`: `str`
+- `Tier`: `str`
+- `InventoryRetrievalParameters`: `"InventoryRetrievalJobDescriptionTypeDef"`
+- `JobOutputPath`: `str`
+- `SelectParameters`: `"SelectParametersTypeDef"`
+- `OutputLocation`: `"OutputLocationTypeDef"`
+
+
+## GrantTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import GrantTypeDef
+```
+
+
+
+
+Optional fields:
+- `Grantee`: `"GranteeTypeDef"`
+- `Permission`: `Permission`
+
+
+## GranteeTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import GranteeTypeDef
+```
+
+
+Required fields:
+- `Type`: `TypeType`
+
+
+
+Optional fields:
+- `DisplayName`: `str`
+- `URI`: `str`
+- `ID`: `str`
+- `EmailAddress`: `str`
+
+
 ## InitiateJobOutputTypeDef
 
 ```python
@@ -564,6 +366,52 @@ from mypy_boto3_glacier.type_defs import InitiateVaultLockOutputTypeDef
 Optional fields:
 - `lockId`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## InputSerializationTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import InputSerializationTypeDef
+```
+
+
+
+
+Optional fields:
+- `csv`: `"CSVInputTypeDef"`
+
+
+## InventoryRetrievalJobDescriptionTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import InventoryRetrievalJobDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Format`: `str`
+- `StartDate`: `str`
+- `EndDate`: `str`
+- `Limit`: `str`
+- `Marker`: `str`
+
+
+## InventoryRetrievalJobInputTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import InventoryRetrievalJobInputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StartDate`: `str`
+- `EndDate`: `str`
+- `Limit`: `str`
+- `Marker`: `str`
 
 
 ## JobParametersTypeDef
@@ -681,6 +529,32 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## OutputLocationTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import OutputLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3`: `"S3LocationTypeDef"`
+
+
+## OutputSerializationTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import OutputSerializationTypeDef
+```
+
+
+
+
+Optional fields:
+- `csv`: `"CSVOutputTypeDef"`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -694,6 +568,35 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PartListElementTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import PartListElementTypeDef
+```
+
+
+
+
+Optional fields:
+- `RangeInBytes`: `str`
+- `SHA256TreeHash`: `str`
+
+
+## ProvisionedCapacityDescriptionTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import ProvisionedCapacityDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `CapacityId`: `str`
+- `StartDate`: `str`
+- `ExpirationDate`: `str`
 
 
 ## PurchaseProvisionedCapacityOutputTypeDef
@@ -710,6 +613,76 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## ResponseMetadata
+
+```python
+from mypy_boto3_glacier.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## S3LocationTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import S3LocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `BucketName`: `str`
+- `Prefix`: `str`
+- `Encryption`: `"EncryptionTypeDef"`
+- `CannedACL`: `CannedACL`
+- `AccessControlList`: `List["GrantTypeDef"]`
+- `Tagging`: `Dict[str, str]`
+- `UserMetadata`: `Dict[str, str]`
+- `StorageClass`: `StorageClass`
+
+
+## SelectParametersTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import SelectParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `InputSerialization`: `"InputSerializationTypeDef"`
+- `ExpressionType`: `Literal['SQL']`
+- `Expression`: `str`
+- `OutputSerialization`: `"OutputSerializationTypeDef"`
+
+
+## UploadListElementTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import UploadListElementTypeDef
+```
+
+
+
+
+Optional fields:
+- `MultipartUploadId`: `str`
+- `VaultARN`: `str`
+- `ArchiveDescription`: `str`
+- `PartSizeInBytes`: `int`
+- `CreationDate`: `str`
+
+
 ## UploadMultipartPartOutputTypeDef
 
 ```python
@@ -724,6 +697,19 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## VaultAccessPolicyTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import VaultAccessPolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `Policy`: `str`
+
+
 ## VaultLockPolicyTypeDef
 
 ```python
@@ -735,6 +721,20 @@ from mypy_boto3_glacier.type_defs import VaultLockPolicyTypeDef
 
 Optional fields:
 - `Policy`: `str`
+
+
+## VaultNotificationConfigTypeDef
+
+```python
+from mypy_boto3_glacier.type_defs import VaultNotificationConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `SNSTopic`: `str`
+- `Events`: `List[str]`
 
 
 ## WaiterConfigTypeDef

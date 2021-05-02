@@ -6,20 +6,34 @@ Auto-generated documentation for [MarketplaceCatalog](https://boto3.amazonaws.co
 type annotations stubs module [mypy_boto3_marketplace_catalog](https://pypi.org/project/mypy-boto3-marketplace-catalog/).
 
 - [Structures for boto3 MarketplaceCatalog module](#structures-for-boto3-marketplacecatalog-module)
+  - [CancelChangeSetResponseTypeDef](#cancelchangesetresponsetypedef)
   - [ChangeSetSummaryListItemTypeDef](#changesetsummarylistitemtypedef)
   - [ChangeSummaryTypeDef](#changesummarytypedef)
-  - [EntitySummaryTypeDef](#entitysummarytypedef)
-  - [EntityTypeDef](#entitytypedef)
-  - [ErrorDetailTypeDef](#errordetailtypedef)
-  - [CancelChangeSetResponseTypeDef](#cancelchangesetresponsetypedef)
   - [ChangeTypeDef](#changetypedef)
   - [DescribeChangeSetResponseTypeDef](#describechangesetresponsetypedef)
   - [DescribeEntityResponseTypeDef](#describeentityresponsetypedef)
+  - [EntitySummaryTypeDef](#entitysummarytypedef)
+  - [EntityTypeDef](#entitytypedef)
+  - [ErrorDetailTypeDef](#errordetailtypedef)
   - [FilterTypeDef](#filtertypedef)
   - [ListChangeSetsResponseTypeDef](#listchangesetsresponsetypedef)
   - [ListEntitiesResponseTypeDef](#listentitiesresponsetypedef)
   - [SortTypeDef](#sorttypedef)
   - [StartChangeSetResponseTypeDef](#startchangesetresponsetypedef)
+
+## CancelChangeSetResponseTypeDef
+
+```python
+from mypy_boto3_marketplace_catalog.type_defs import CancelChangeSetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ChangeSetId`: `str`
+- `ChangeSetArn`: `str`
+
 
 ## ChangeSetSummaryListItemTypeDef
 
@@ -56,68 +70,6 @@ Optional fields:
 - `Details`: `str`
 - `ErrorDetailList`: `List["ErrorDetailTypeDef"]`
 - `ChangeName`: `str`
-
-
-## EntitySummaryTypeDef
-
-```python
-from mypy_boto3_marketplace_catalog.type_defs import EntitySummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `EntityType`: `str`
-- `EntityId`: `str`
-- `EntityArn`: `str`
-- `LastModifiedDate`: `str`
-- `Visibility`: `str`
-
-
-## EntityTypeDef
-
-```python
-from mypy_boto3_marketplace_catalog.type_defs import EntityTypeDef
-```
-
-
-Required fields:
-- `Type`: `str`
-
-
-
-Optional fields:
-- `Identifier`: `str`
-
-
-## ErrorDetailTypeDef
-
-```python
-from mypy_boto3_marketplace_catalog.type_defs import ErrorDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## CancelChangeSetResponseTypeDef
-
-```python
-from mypy_boto3_marketplace_catalog.type_defs import CancelChangeSetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ChangeSetId`: `str`
-- `ChangeSetArn`: `str`
 
 
 ## ChangeTypeDef
@@ -174,6 +126,54 @@ Optional fields:
 - `EntityArn`: `str`
 - `LastModifiedDate`: `str`
 - `Details`: `str`
+
+
+## EntitySummaryTypeDef
+
+```python
+from mypy_boto3_marketplace_catalog.type_defs import EntitySummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `EntityType`: `str`
+- `EntityId`: `str`
+- `EntityArn`: `str`
+- `LastModifiedDate`: `str`
+- `Visibility`: `str`
+
+
+## EntityTypeDef
+
+```python
+from mypy_boto3_marketplace_catalog.type_defs import EntityTypeDef
+```
+
+
+Required fields:
+- `Type`: `str`
+
+
+
+Optional fields:
+- `Identifier`: `str`
+
+
+## ErrorDetailTypeDef
+
+```python
+from mypy_boto3_marketplace_catalog.type_defs import ErrorDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
 
 
 ## FilterTypeDef

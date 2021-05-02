@@ -41,10 +41,7 @@ type annotations stubs module [mypy_boto3_elb](https://pypi.org/project/mypy-bot
     - [set_load_balancer_policies_for_backend_server](#set_load_balancer_policies_for_backend_server)
     - [set_load_balancer_policies_of_listener](#set_load_balancer_policies_of_listener)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
 
 ## ElasticLoadBalancingClient
 
@@ -574,77 +571,22 @@ def set_load_balancer_policies_of_listener(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("elb").get_paginator` method.
-
-[Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeAccountLimits)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAccountLimitsPaginatorName
-) -> DescribeAccountLimitsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("elb").get_paginator` method.
+Type annotations for `boto3.client("elb").get_paginator` method with overloads.
 
-[Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeLoadBalancers)
+- `client.get_paginator("describe_account_limits")` -> [DescribeAccountLimitsPaginator](./paginators.md#describeaccountlimitspaginator)
+- `client.get_paginator("describe_load_balancers")` -> [DescribeLoadBalancersPaginator](./paginators.md#describeloadbalancerspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLoadBalancersPaginatorName
-) -> DescribeLoadBalancersPaginator:
-    pass
-```
+
+
 
 ### get_waiter
 
-Type annotations for `boto3.client("elb").get_waiter` method.
+Type annotations for `boto3.client("elb").get_waiter` method with overloads.
 
-[Waiter.AnyInstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elb.html#ElasticLoadBalancing.Waiter.AnyInstanceInService)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: AnyInstanceInServiceWaiterName
-) -> AnyInstanceInServiceWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("elb").get_waiter` method.
-
-[Waiter.InstanceDeregistered documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceDeregistered)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InstanceDeregisteredWaiterName
-) -> InstanceDeregisteredWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("elb").get_waiter` method.
-
-[Waiter.InstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceInService)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InstanceInServiceWaiterName
-) -> InstanceInServiceWaiter:
-    pass
-```
+- `client.get_waiter("any_instance_in_service")` -> [AnyInstanceInServiceWaiter](./waiters.md#anyinstanceinservicewaiter)
+- `client.get_waiter("instance_deregistered")` -> [InstanceDeregisteredWaiter](./waiters.md#instancederegisteredwaiter)
+- `client.get_waiter("instance_in_service")` -> [InstanceInServiceWaiter](./waiters.md#instanceinservicewaiter)

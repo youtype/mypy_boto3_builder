@@ -99,21 +99,6 @@ type annotations stubs module [mypy_boto3_servicecatalog](https://pypi.org/proje
     - [update_service_action](#update_service_action)
     - [update_tag_option](#update_tag_option)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
 
 ## ServiceCatalogClient
 
@@ -196,7 +181,7 @@ def associate_principal_with_portfolio(
     self,
     PortfolioId: str,
     PrincipalARN: str,
-    PrincipalType: PrincipalType,
+    PrincipalType: Literal['IAM'],
     AcceptLanguage: str = None
 ) -> Dict[str, Any]:
     pass
@@ -309,8 +294,8 @@ def copy_product(
     AcceptLanguage: str = None,
     TargetProductId: str = None,
     TargetProductName: str = None,
-    SourceProvisioningArtifactIdentifiers: List[Dict[ProvisioningArtifactPropertyName, str]] = None,
-    CopyOptions: List[CopyOption] = None
+    SourceProvisioningArtifactIdentifiers: List[Dict[Literal['Id'], str]] = None,
+    CopyOptions: List[Literal['CopyTags']] = None
 ) -> CopyProductOutputTypeDef:
     pass
 ```
@@ -407,7 +392,7 @@ Type annotations for `boto3.client("servicecatalog").create_provisioned_product_
 def create_provisioned_product_plan(
     self,
     PlanName: str,
-    PlanType: ProvisionedProductPlanType,
+    PlanType: Literal['CLOUDFORMATION'],
     ProductId: str,
     ProvisionedProductName: str,
     ProvisioningArtifactId: str,
@@ -448,7 +433,7 @@ Type annotations for `boto3.client("servicecatalog").create_service_action` meth
 def create_service_action(
     self,
     Name: str,
-    DefinitionType: ServiceActionDefinitionType,
+    DefinitionType: Literal['SSM_AUTOMATION'],
     Definition: Dict[ServiceActionDefinitionKey, str],
     IdempotencyToken: str,
     Description: str = None,
@@ -1461,7 +1446,7 @@ def search_products_as_admin(
     SortOrder: SortOrder = None,
     PageToken: str = None,
     PageSize: int = None,
-    ProductSource: ProductSource = None
+    ProductSource: Literal['ACCOUNT'] = None
 ) -> SearchProductsAsAdminOutputTypeDef:
     pass
 ```
@@ -1477,7 +1462,7 @@ def search_provisioned_products(
     self,
     AcceptLanguage: str = None,
     AccessLevelFilter: AccessLevelFilterTypeDef = None,
-    Filters: Dict[ProvisionedProductViewFilterBy, List[str]] = None,
+    Filters: Dict[Literal['SearchQuery'], List[str]] = None,
     SortBy: str = None,
     SortOrder: SortOrder = None,
     PageSize: int = None,
@@ -1681,242 +1666,27 @@ def update_tag_option(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListAcceptedPortfolioShares documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListAcceptedPortfolioShares)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAcceptedPortfolioSharesPaginatorName
-) -> ListAcceptedPortfolioSharesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
+Type annotations for `boto3.client("servicecatalog").get_paginator` method with overloads.
 
-[Paginator.ListConstraintsForPortfolio documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListConstraintsForPortfolio)
+- `client.get_paginator("list_accepted_portfolio_shares")` -> [ListAcceptedPortfolioSharesPaginator](./paginators.md#listacceptedportfoliosharespaginator)
+- `client.get_paginator("list_constraints_for_portfolio")` -> [ListConstraintsForPortfolioPaginator](./paginators.md#listconstraintsforportfoliopaginator)
+- `client.get_paginator("list_launch_paths")` -> [ListLaunchPathsPaginator](./paginators.md#listlaunchpathspaginator)
+- `client.get_paginator("list_organization_portfolio_access")` -> [ListOrganizationPortfolioAccessPaginator](./paginators.md#listorganizationportfolioaccesspaginator)
+- `client.get_paginator("list_portfolios")` -> [ListPortfoliosPaginator](./paginators.md#listportfoliospaginator)
+- `client.get_paginator("list_portfolios_for_product")` -> [ListPortfoliosForProductPaginator](./paginators.md#listportfoliosforproductpaginator)
+- `client.get_paginator("list_principals_for_portfolio")` -> [ListPrincipalsForPortfolioPaginator](./paginators.md#listprincipalsforportfoliopaginator)
+- `client.get_paginator("list_provisioned_product_plans")` -> [ListProvisionedProductPlansPaginator](./paginators.md#listprovisionedproductplanspaginator)
+- `client.get_paginator("list_provisioning_artifacts_for_service_action")` -> [ListProvisioningArtifactsForServiceActionPaginator](./paginators.md#listprovisioningartifactsforserviceactionpaginator)
+- `client.get_paginator("list_record_history")` -> [ListRecordHistoryPaginator](./paginators.md#listrecordhistorypaginator)
+- `client.get_paginator("list_resources_for_tag_option")` -> [ListResourcesForTagOptionPaginator](./paginators.md#listresourcesfortagoptionpaginator)
+- `client.get_paginator("list_service_actions")` -> [ListServiceActionsPaginator](./paginators.md#listserviceactionspaginator)
+- `client.get_paginator("list_service_actions_for_provisioning_artifact")` -> [ListServiceActionsForProvisioningArtifactPaginator](./paginators.md#listserviceactionsforprovisioningartifactpaginator)
+- `client.get_paginator("list_tag_options")` -> [ListTagOptionsPaginator](./paginators.md#listtagoptionspaginator)
+- `client.get_paginator("scan_provisioned_products")` -> [ScanProvisionedProductsPaginator](./paginators.md#scanprovisionedproductspaginator)
+- `client.get_paginator("search_products_as_admin")` -> [SearchProductsAsAdminPaginator](./paginators.md#searchproductsasadminpaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListConstraintsForPortfolioPaginatorName
-) -> ListConstraintsForPortfolioPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListLaunchPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListLaunchPaths)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLaunchPathsPaginatorName
-) -> ListLaunchPathsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListOrganizationPortfolioAccess documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListOrganizationPortfolioAccess)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOrganizationPortfolioAccessPaginatorName
-) -> ListOrganizationPortfolioAccessPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListPortfolios documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfolios)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPortfoliosPaginatorName
-) -> ListPortfoliosPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListPortfoliosForProduct documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfoliosForProduct)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPortfoliosForProductPaginatorName
-) -> ListPortfoliosForProductPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListPrincipalsForPortfolio documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPrincipalsForPortfolio)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPrincipalsForPortfolioPaginatorName
-) -> ListPrincipalsForPortfolioPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListProvisionedProductPlans documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisionedProductPlans)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProvisionedProductPlansPaginatorName
-) -> ListProvisionedProductPlansPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListProvisioningArtifactsForServiceAction documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisioningArtifactsForServiceAction)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProvisioningArtifactsForServiceActionPaginatorName
-) -> ListProvisioningArtifactsForServiceActionPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListRecordHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListRecordHistory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRecordHistoryPaginatorName
-) -> ListRecordHistoryPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListResourcesForTagOption documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListResourcesForTagOption)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourcesForTagOptionPaginatorName
-) -> ListResourcesForTagOptionPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListServiceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListServiceActionsPaginatorName
-) -> ListServiceActionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListServiceActionsForProvisioningArtifact documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActionsForProvisioningArtifact)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListServiceActionsForProvisioningArtifactPaginatorName
-) -> ListServiceActionsForProvisioningArtifactPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ListTagOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListTagOptions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagOptionsPaginatorName
-) -> ListTagOptionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.ScanProvisionedProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ScanProvisionedProducts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ScanProvisionedProductsPaginatorName
-) -> ScanProvisionedProductsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog").get_paginator` method.
-
-[Paginator.SearchProductsAsAdmin documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog.html#ServiceCatalog.Paginator.SearchProductsAsAdmin)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchProductsAsAdminPaginatorName
-) -> SearchProductsAsAdminPaginator:
-    pass
-```

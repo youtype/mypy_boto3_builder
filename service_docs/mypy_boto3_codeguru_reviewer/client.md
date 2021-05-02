@@ -320,16 +320,12 @@ def untag_resource(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("codeguru-reviewer").get_paginator` method.
+Type annotations for `boto3.client("codeguru-reviewer").get_paginator` method with overloads.
 
-[Paginator.ListRepositoryAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Paginator.ListRepositoryAssociations)
+- `client.get_paginator("list_repository_associations")` -> [ListRepositoryAssociationsPaginator](./paginators.md#listrepositoryassociationspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListRepositoryAssociationsPaginatorName
-) -> ListRepositoryAssociationsPaginator:
-    pass
-```
+

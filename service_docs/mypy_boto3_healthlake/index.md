@@ -90,21 +90,21 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_healthlake.type_defs import DatastorePropertiesTypeDef, ...
+from mypy_boto3_healthlake.type_defs import CreateFHIRDatastoreResponseTypeDef, ...
 ```
 
-- [DatastorePropertiesTypeDef](./type_defs.md#datastorepropertiestypedef)
-- [ExportJobPropertiesTypeDef](./type_defs.md#exportjobpropertiestypedef)
-- [ImportJobPropertiesTypeDef](./type_defs.md#importjobpropertiestypedef)
-- [InputDataConfigTypeDef](./type_defs.md#inputdataconfigtypedef)
-- [OutputDataConfigTypeDef](./type_defs.md#outputdataconfigtypedef)
-- [PreloadDataConfigTypeDef](./type_defs.md#preloaddataconfigtypedef)
 - [CreateFHIRDatastoreResponseTypeDef](./type_defs.md#createfhirdatastoreresponsetypedef)
 - [DatastoreFilterTypeDef](./type_defs.md#datastorefiltertypedef)
+- [DatastorePropertiesTypeDef](./type_defs.md#datastorepropertiestypedef)
 - [DeleteFHIRDatastoreResponseTypeDef](./type_defs.md#deletefhirdatastoreresponsetypedef)
 - [DescribeFHIRDatastoreResponseTypeDef](./type_defs.md#describefhirdatastoreresponsetypedef)
 - [DescribeFHIRExportJobResponseTypeDef](./type_defs.md#describefhirexportjobresponsetypedef)
 - [DescribeFHIRImportJobResponseTypeDef](./type_defs.md#describefhirimportjobresponsetypedef)
+- [ExportJobPropertiesTypeDef](./type_defs.md#exportjobpropertiestypedef)
+- [ImportJobPropertiesTypeDef](./type_defs.md#importjobpropertiestypedef)
+- [InputDataConfigTypeDef](./type_defs.md#inputdataconfigtypedef)
 - [ListFHIRDatastoresResponseTypeDef](./type_defs.md#listfhirdatastoresresponsetypedef)
+- [OutputDataConfigTypeDef](./type_defs.md#outputdataconfigtypedef)
+- [PreloadDataConfigTypeDef](./type_defs.md#preloaddataconfigtypedef)
 - [StartFHIRExportJobResponseTypeDef](./type_defs.md#startfhirexportjobresponsetypedef)
 - [StartFHIRImportJobResponseTypeDef](./type_defs.md#startfhirimportjobresponsetypedef)

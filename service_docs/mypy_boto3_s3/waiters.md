@@ -91,7 +91,7 @@ class ObjectExistsWaiter(Boto3Waiter):
         SSECustomerAlgorithm: str = None,
         SSECustomerKey: str = None,
         SSECustomerKeyMD5: str = None,
-        RequestPayer: RequestPayer = None,
+        RequestPayer: Literal['requester'] = None,
         PartNumber: int = None,
         ExpectedBucketOwner: str = None,
         WaiterConfig: WaiterConfigTypeDef = None
@@ -128,7 +128,7 @@ class ObjectNotExistsWaiter(Boto3Waiter):
         SSECustomerAlgorithm: str = None,
         SSECustomerKey: str = None,
         SSECustomerKeyMD5: str = None,
-        RequestPayer: RequestPayer = None,
+        RequestPayer: Literal['requester'] = None,
         PartNumber: int = None,
         ExpectedBucketOwner: str = None,
         WaiterConfig: WaiterConfigTypeDef = None

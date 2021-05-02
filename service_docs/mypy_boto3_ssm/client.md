@@ -144,50 +144,6 @@ type annotations stubs module [mypy_boto3_ssm](https://pypi.org/project/mypy-bot
     - [update_resource_data_sync](#update_resource_data_sync)
     - [update_service_setting](#update_service_setting)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
-    - [get_paginator](#get_paginator-17)
-    - [get_paginator](#get_paginator-18)
-    - [get_paginator](#get_paginator-19)
-    - [get_paginator](#get_paginator-20)
-    - [get_paginator](#get_paginator-21)
-    - [get_paginator](#get_paginator-22)
-    - [get_paginator](#get_paginator-23)
-    - [get_paginator](#get_paginator-24)
-    - [get_paginator](#get_paginator-25)
-    - [get_paginator](#get_paginator-26)
-    - [get_paginator](#get_paginator-27)
-    - [get_paginator](#get_paginator-28)
-    - [get_paginator](#get_paginator-29)
-    - [get_paginator](#get_paginator-30)
-    - [get_paginator](#get_paginator-31)
-    - [get_paginator](#get_paginator-32)
-    - [get_paginator](#get_paginator-33)
-    - [get_paginator](#get_paginator-34)
-    - [get_paginator](#get_paginator-35)
-    - [get_paginator](#get_paginator-36)
-    - [get_paginator](#get_paginator-37)
-    - [get_paginator](#get_paginator-38)
-    - [get_paginator](#get_paginator-39)
-    - [get_paginator](#get_paginator-40)
-    - [get_paginator](#get_paginator-41)
-    - [get_paginator](#get_paginator-42)
-    - [get_paginator](#get_paginator-43)
-    - [get_paginator](#get_paginator-44)
     - [get_waiter](#get_waiter)
 
 ## SSMClient
@@ -948,7 +904,7 @@ Type annotations for `boto3.client("ssm").describe_document_permission` method.
 def describe_document_permission(
     self,
     Name: str,
-    PermissionType: DocumentPermissionType,
+    PermissionType: Literal['Share'],
     MaxResults: int = None,
     NextToken: str = None
 ) -> DescribeDocumentPermissionResponseTypeDef:
@@ -1858,7 +1814,7 @@ Type annotations for `boto3.client("ssm").list_document_metadata_history` method
 def list_document_metadata_history(
     self,
     Name: str,
-    Metadata: DocumentMetadataEnum,
+    Metadata: Literal['DocumentReviews'],
     DocumentVersion: str = None,
     NextToken: str = None,
     MaxResults: int = None
@@ -2006,7 +1962,7 @@ Type annotations for `boto3.client("ssm").modify_document_permission` method.
 def modify_document_permission(
     self,
     Name: str,
-    PermissionType: DocumentPermissionType,
+    PermissionType: Literal['Share'],
     AccountIdsToAdd: List[str] = None,
     AccountIdsToRemove: List[str] = None,
     SharedDocumentVersion: str = None
@@ -2646,691 +2602,63 @@ def update_service_setting(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeActivations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeActivations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeActivationsPaginatorName
-) -> DescribeActivationsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("ssm").get_paginator` method.
+Type annotations for `boto3.client("ssm").get_paginator` method with overloads.
+
+- `client.get_paginator("describe_activations")` -> [DescribeActivationsPaginator](./paginators.md#describeactivationspaginator)
+- `client.get_paginator("describe_association_execution_targets")` -> [DescribeAssociationExecutionTargetsPaginator](./paginators.md#describeassociationexecutiontargetspaginator)
+- `client.get_paginator("describe_association_executions")` -> [DescribeAssociationExecutionsPaginator](./paginators.md#describeassociationexecutionspaginator)
+- `client.get_paginator("describe_automation_executions")` -> [DescribeAutomationExecutionsPaginator](./paginators.md#describeautomationexecutionspaginator)
+- `client.get_paginator("describe_automation_step_executions")` -> [DescribeAutomationStepExecutionsPaginator](./paginators.md#describeautomationstepexecutionspaginator)
+- `client.get_paginator("describe_available_patches")` -> [DescribeAvailablePatchesPaginator](./paginators.md#describeavailablepatchespaginator)
+- `client.get_paginator("describe_effective_instance_associations")` -> [DescribeEffectiveInstanceAssociationsPaginator](./paginators.md#describeeffectiveinstanceassociationspaginator)
+- `client.get_paginator("describe_effective_patches_for_patch_baseline")` -> [DescribeEffectivePatchesForPatchBaselinePaginator](./paginators.md#describeeffectivepatchesforpatchbaselinepaginator)
+- `client.get_paginator("describe_instance_associations_status")` -> [DescribeInstanceAssociationsStatusPaginator](./paginators.md#describeinstanceassociationsstatuspaginator)
+- `client.get_paginator("describe_instance_information")` -> [DescribeInstanceInformationPaginator](./paginators.md#describeinstanceinformationpaginator)
+- `client.get_paginator("describe_instance_patch_states")` -> [DescribeInstancePatchStatesPaginator](./paginators.md#describeinstancepatchstatespaginator)
+- `client.get_paginator("describe_instance_patch_states_for_patch_group")` -> [DescribeInstancePatchStatesForPatchGroupPaginator](./paginators.md#describeinstancepatchstatesforpatchgrouppaginator)
+- `client.get_paginator("describe_instance_patches")` -> [DescribeInstancePatchesPaginator](./paginators.md#describeinstancepatchespaginator)
+- `client.get_paginator("describe_inventory_deletions")` -> [DescribeInventoryDeletionsPaginator](./paginators.md#describeinventorydeletionspaginator)
+- `client.get_paginator("describe_maintenance_window_execution_task_invocations")` -> [DescribeMaintenanceWindowExecutionTaskInvocationsPaginator](./paginators.md#describemaintenancewindowexecutiontaskinvocationspaginator)
+- `client.get_paginator("describe_maintenance_window_execution_tasks")` -> [DescribeMaintenanceWindowExecutionTasksPaginator](./paginators.md#describemaintenancewindowexecutiontaskspaginator)
+- `client.get_paginator("describe_maintenance_window_executions")` -> [DescribeMaintenanceWindowExecutionsPaginator](./paginators.md#describemaintenancewindowexecutionspaginator)
+- `client.get_paginator("describe_maintenance_window_schedule")` -> [DescribeMaintenanceWindowSchedulePaginator](./paginators.md#describemaintenancewindowschedulepaginator)
+- `client.get_paginator("describe_maintenance_window_targets")` -> [DescribeMaintenanceWindowTargetsPaginator](./paginators.md#describemaintenancewindowtargetspaginator)
+- `client.get_paginator("describe_maintenance_window_tasks")` -> [DescribeMaintenanceWindowTasksPaginator](./paginators.md#describemaintenancewindowtaskspaginator)
+- `client.get_paginator("describe_maintenance_windows")` -> [DescribeMaintenanceWindowsPaginator](./paginators.md#describemaintenancewindowspaginator)
+- `client.get_paginator("describe_maintenance_windows_for_target")` -> [DescribeMaintenanceWindowsForTargetPaginator](./paginators.md#describemaintenancewindowsfortargetpaginator)
+- `client.get_paginator("describe_ops_items")` -> [DescribeOpsItemsPaginator](./paginators.md#describeopsitemspaginator)
+- `client.get_paginator("describe_parameters")` -> [DescribeParametersPaginator](./paginators.md#describeparameterspaginator)
+- `client.get_paginator("describe_patch_baselines")` -> [DescribePatchBaselinesPaginator](./paginators.md#describepatchbaselinespaginator)
+- `client.get_paginator("describe_patch_groups")` -> [DescribePatchGroupsPaginator](./paginators.md#describepatchgroupspaginator)
+- `client.get_paginator("describe_patch_properties")` -> [DescribePatchPropertiesPaginator](./paginators.md#describepatchpropertiespaginator)
+- `client.get_paginator("describe_sessions")` -> [DescribeSessionsPaginator](./paginators.md#describesessionspaginator)
+- `client.get_paginator("get_inventory")` -> [GetInventoryPaginator](./paginators.md#getinventorypaginator)
+- `client.get_paginator("get_inventory_schema")` -> [GetInventorySchemaPaginator](./paginators.md#getinventoryschemapaginator)
+- `client.get_paginator("get_ops_summary")` -> [GetOpsSummaryPaginator](./paginators.md#getopssummarypaginator)
+- `client.get_paginator("get_parameter_history")` -> [GetParameterHistoryPaginator](./paginators.md#getparameterhistorypaginator)
+- `client.get_paginator("get_parameters_by_path")` -> [GetParametersByPathPaginator](./paginators.md#getparametersbypathpaginator)
+- `client.get_paginator("list_association_versions")` -> [ListAssociationVersionsPaginator](./paginators.md#listassociationversionspaginator)
+- `client.get_paginator("list_associations")` -> [ListAssociationsPaginator](./paginators.md#listassociationspaginator)
+- `client.get_paginator("list_command_invocations")` -> [ListCommandInvocationsPaginator](./paginators.md#listcommandinvocationspaginator)
+- `client.get_paginator("list_commands")` -> [ListCommandsPaginator](./paginators.md#listcommandspaginator)
+- `client.get_paginator("list_compliance_items")` -> [ListComplianceItemsPaginator](./paginators.md#listcomplianceitemspaginator)
+- `client.get_paginator("list_compliance_summaries")` -> [ListComplianceSummariesPaginator](./paginators.md#listcompliancesummariespaginator)
+- `client.get_paginator("list_document_versions")` -> [ListDocumentVersionsPaginator](./paginators.md#listdocumentversionspaginator)
+- `client.get_paginator("list_documents")` -> [ListDocumentsPaginator](./paginators.md#listdocumentspaginator)
+- `client.get_paginator("list_ops_item_events")` -> [ListOpsItemEventsPaginator](./paginators.md#listopsitemeventspaginator)
+- `client.get_paginator("list_ops_metadata")` -> [ListOpsMetadataPaginator](./paginators.md#listopsmetadatapaginator)
+- `client.get_paginator("list_resource_compliance_summaries")` -> [ListResourceComplianceSummariesPaginator](./paginators.md#listresourcecompliancesummariespaginator)
+- `client.get_paginator("list_resource_data_sync")` -> [ListResourceDataSyncPaginator](./paginators.md#listresourcedatasyncpaginator)
 
-[Paginator.DescribeAssociationExecutionTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutionTargets)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAssociationExecutionTargetsPaginatorName
-) -> DescribeAssociationExecutionTargetsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeAssociationExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAssociationExecutionsPaginatorName
-) -> DescribeAssociationExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeAutomationExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeAutomationExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAutomationExecutionsPaginatorName
-) -> DescribeAutomationExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeAutomationStepExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeAutomationStepExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAutomationStepExecutionsPaginatorName
-) -> DescribeAutomationStepExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeAvailablePatches documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeAvailablePatches)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAvailablePatchesPaginatorName
-) -> DescribeAvailablePatchesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeEffectiveInstanceAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeEffectiveInstanceAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEffectiveInstanceAssociationsPaginatorName
-) -> DescribeEffectiveInstanceAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeEffectivePatchesForPatchBaseline documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEffectivePatchesForPatchBaselinePaginatorName
-) -> DescribeEffectivePatchesForPatchBaselinePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeInstanceAssociationsStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeInstanceAssociationsStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInstanceAssociationsStatusPaginatorName
-) -> DescribeInstanceAssociationsStatusPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeInstanceInformation documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeInstanceInformation)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInstanceInformationPaginatorName
-) -> DescribeInstanceInformationPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeInstancePatchStates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInstancePatchStatesPaginatorName
-) -> DescribeInstancePatchStatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeInstancePatchStatesForPatchGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInstancePatchStatesForPatchGroupPaginatorName
-) -> DescribeInstancePatchStatesForPatchGroupPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeInstancePatches documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatches)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInstancePatchesPaginatorName
-) -> DescribeInstancePatchesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeInventoryDeletions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeInventoryDeletions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInventoryDeletionsPaginatorName
-) -> DescribeInventoryDeletionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeMaintenanceWindowExecutionTaskInvocations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMaintenanceWindowExecutionTaskInvocationsPaginatorName
-) -> DescribeMaintenanceWindowExecutionTaskInvocationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeMaintenanceWindowExecutionTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMaintenanceWindowExecutionTasksPaginatorName
-) -> DescribeMaintenanceWindowExecutionTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeMaintenanceWindowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMaintenanceWindowExecutionsPaginatorName
-) -> DescribeMaintenanceWindowExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeMaintenanceWindowSchedule documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowSchedule)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMaintenanceWindowSchedulePaginatorName
-) -> DescribeMaintenanceWindowSchedulePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeMaintenanceWindowTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTargets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMaintenanceWindowTargetsPaginatorName
-) -> DescribeMaintenanceWindowTargetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeMaintenanceWindowTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMaintenanceWindowTasksPaginatorName
-) -> DescribeMaintenanceWindowTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeMaintenanceWindows documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindows)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMaintenanceWindowsPaginatorName
-) -> DescribeMaintenanceWindowsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeMaintenanceWindowsForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMaintenanceWindowsForTargetPaginatorName
-) -> DescribeMaintenanceWindowsForTargetPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeOpsItems documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeOpsItems)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeOpsItemsPaginatorName
-) -> DescribeOpsItemsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeParameters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeParametersPaginatorName
-) -> DescribeParametersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribePatchBaselines documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribePatchBaselines)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribePatchBaselinesPaginatorName
-) -> DescribePatchBaselinesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribePatchGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribePatchGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribePatchGroupsPaginatorName
-) -> DescribePatchGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribePatchProperties documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribePatchProperties)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribePatchPropertiesPaginatorName
-) -> DescribePatchPropertiesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.DescribeSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.DescribeSessions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSessionsPaginatorName
-) -> DescribeSessionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.GetInventory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.GetInventory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetInventoryPaginatorName
-) -> GetInventoryPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.GetInventorySchema documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.GetInventorySchema)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetInventorySchemaPaginatorName
-) -> GetInventorySchemaPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.GetOpsSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.GetOpsSummary)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetOpsSummaryPaginatorName
-) -> GetOpsSummaryPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.GetParameterHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.GetParameterHistory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetParameterHistoryPaginatorName
-) -> GetParameterHistoryPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.GetParametersByPath documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.GetParametersByPath)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetParametersByPathPaginatorName
-) -> GetParametersByPathPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListAssociationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListAssociationVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssociationVersionsPaginatorName
-) -> ListAssociationVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssociationsPaginatorName
-) -> ListAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListCommandInvocations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListCommandInvocations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCommandInvocationsPaginatorName
-) -> ListCommandInvocationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListCommands documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListCommands)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCommandsPaginatorName
-) -> ListCommandsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListComplianceItems documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListComplianceItems)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListComplianceItemsPaginatorName
-) -> ListComplianceItemsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListComplianceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListComplianceSummaries)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListComplianceSummariesPaginatorName
-) -> ListComplianceSummariesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListDocumentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListDocumentVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDocumentVersionsPaginatorName
-) -> ListDocumentVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListDocuments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListDocuments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDocumentsPaginatorName
-) -> ListDocumentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListOpsItemEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListOpsItemEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOpsItemEventsPaginatorName
-) -> ListOpsItemEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListOpsMetadata documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListOpsMetadata)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOpsMetadataPaginatorName
-) -> ListOpsMetadataPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListResourceComplianceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListResourceComplianceSummaries)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourceComplianceSummariesPaginatorName
-) -> ListResourceComplianceSummariesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ssm").get_paginator` method.
-
-[Paginator.ListResourceDataSync documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Paginator.ListResourceDataSync)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourceDataSyncPaginatorName
-) -> ListResourceDataSyncPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("ssm").get_waiter` method.
+Type annotations for `boto3.client("ssm").get_waiter` method with overloads.
 
-[Waiter.CommandExecuted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
-
-```python
-def get_waiter(
-    self,
-    waiter_name: CommandExecutedWaiterName
-) -> CommandExecutedWaiter:
-    pass
-```
+- `client.get_waiter("command_executed")` -> [CommandExecutedWaiter](./waiters.md#commandexecutedwaiter)

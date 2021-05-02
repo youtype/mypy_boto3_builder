@@ -6,11 +6,21 @@ Auto-generated documentation for [EC2](https://boto3.amazonaws.com/v1/documentat
 type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-boto3-ec2/).
 
 - [Structures for boto3 EC2 module](#structures-for-boto3-ec2-module)
+  - [AcceptReservedInstancesExchangeQuoteResultTypeDef](#acceptreservedinstancesexchangequoteresulttypedef)
+  - [AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef](#accepttransitgatewaymulticastdomainassociationsresulttypedef)
+  - [AcceptTransitGatewayPeeringAttachmentResultTypeDef](#accepttransitgatewaypeeringattachmentresulttypedef)
+  - [AcceptTransitGatewayVpcAttachmentResultTypeDef](#accepttransitgatewayvpcattachmentresulttypedef)
+  - [AcceptVpcEndpointConnectionsResultTypeDef](#acceptvpcendpointconnectionsresulttypedef)
+  - [AcceptVpcPeeringConnectionResultTypeDef](#acceptvpcpeeringconnectionresulttypedef)
   - [AccountAttributeTypeDef](#accountattributetypedef)
   - [AccountAttributeValueTypeDef](#accountattributevaluetypedef)
   - [ActiveInstanceTypeDef](#activeinstancetypedef)
+  - [AddPrefixListEntryTypeDef](#addprefixlistentrytypedef)
   - [AddressAttributeTypeDef](#addressattributetypedef)
   - [AddressTypeDef](#addresstypedef)
+  - [AdvertiseByoipCidrResultTypeDef](#advertisebyoipcidrresulttypedef)
+  - [AllocateAddressResultTypeDef](#allocateaddressresulttypedef)
+  - [AllocateHostsResultTypeDef](#allocatehostsresulttypedef)
   - [AllowedPrincipalTypeDef](#allowedprincipaltypedef)
   - [AlternatePathHintTypeDef](#alternatepathhinttypedef)
   - [AnalysisAclRuleTypeDef](#analysisaclruletypedef)
@@ -20,42 +30,71 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [AnalysisPacketHeaderTypeDef](#analysispacketheadertypedef)
   - [AnalysisRouteTableRouteTypeDef](#analysisroutetableroutetypedef)
   - [AnalysisSecurityGroupRuleTypeDef](#analysissecuritygroupruletypedef)
+  - [ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef](#applysecuritygroupstoclientvpntargetnetworkresulttypedef)
+  - [AssignIpv6AddressesResultTypeDef](#assignipv6addressesresulttypedef)
+  - [AssignPrivateIpAddressesResultTypeDef](#assignprivateipaddressesresulttypedef)
   - [AssignedPrivateIpAddressTypeDef](#assignedprivateipaddresstypedef)
+  - [AssociateAddressResultTypeDef](#associateaddressresulttypedef)
+  - [AssociateClientVpnTargetNetworkResultTypeDef](#associateclientvpntargetnetworkresulttypedef)
+  - [AssociateEnclaveCertificateIamRoleResultTypeDef](#associateenclavecertificateiamroleresulttypedef)
+  - [AssociateIamInstanceProfileResultTypeDef](#associateiaminstanceprofileresulttypedef)
+  - [AssociateRouteTableResultTypeDef](#associateroutetableresulttypedef)
+  - [AssociateSubnetCidrBlockResultTypeDef](#associatesubnetcidrblockresulttypedef)
+  - [AssociateTransitGatewayMulticastDomainResultTypeDef](#associatetransitgatewaymulticastdomainresulttypedef)
+  - [AssociateTransitGatewayRouteTableResultTypeDef](#associatetransitgatewayroutetableresulttypedef)
+  - [AssociateVpcCidrBlockResultTypeDef](#associatevpccidrblockresulttypedef)
   - [AssociatedRoleTypeDef](#associatedroletypedef)
   - [AssociatedTargetNetworkTypeDef](#associatedtargetnetworktypedef)
   - [AssociationStatusTypeDef](#associationstatustypedef)
   - [AthenaIntegrationTypeDef](#athenaintegrationtypedef)
+  - [AttachClassicLinkVpcResultTypeDef](#attachclassiclinkvpcresulttypedef)
+  - [AttachNetworkInterfaceResultTypeDef](#attachnetworkinterfaceresulttypedef)
+  - [AttachVpnGatewayResultTypeDef](#attachvpngatewayresulttypedef)
   - [AttributeBooleanValueTypeDef](#attributebooleanvaluetypedef)
   - [AttributeValueTypeDef](#attributevaluetypedef)
   - [AuthorizationRuleTypeDef](#authorizationruletypedef)
+  - [AuthorizeClientVpnIngressResultTypeDef](#authorizeclientvpningressresulttypedef)
   - [AvailabilityZoneMessageTypeDef](#availabilityzonemessagetypedef)
   - [AvailabilityZoneTypeDef](#availabilityzonetypedef)
   - [AvailableCapacityTypeDef](#availablecapacitytypedef)
+  - [BlobAttributeValueTypeDef](#blobattributevaluetypedef)
   - [BlockDeviceMappingTypeDef](#blockdevicemappingtypedef)
+  - [BundleInstanceResultTypeDef](#bundleinstanceresulttypedef)
   - [BundleTaskErrorTypeDef](#bundletaskerrortypedef)
   - [BundleTaskTypeDef](#bundletasktypedef)
   - [ByoipCidrTypeDef](#byoipcidrtypedef)
+  - [CancelBundleTaskResultTypeDef](#cancelbundletaskresulttypedef)
+  - [CancelCapacityReservationResultTypeDef](#cancelcapacityreservationresulttypedef)
+  - [CancelImportTaskResultTypeDef](#cancelimporttaskresulttypedef)
+  - [CancelReservedInstancesListingResultTypeDef](#cancelreservedinstanceslistingresulttypedef)
   - [CancelSpotFleetRequestsErrorItemTypeDef](#cancelspotfleetrequestserroritemtypedef)
   - [CancelSpotFleetRequestsErrorTypeDef](#cancelspotfleetrequestserrortypedef)
+  - [CancelSpotFleetRequestsResponseTypeDef](#cancelspotfleetrequestsresponsetypedef)
   - [CancelSpotFleetRequestsSuccessItemTypeDef](#cancelspotfleetrequestssuccessitemtypedef)
+  - [CancelSpotInstanceRequestsResultTypeDef](#cancelspotinstancerequestsresulttypedef)
   - [CancelledSpotInstanceRequestTypeDef](#cancelledspotinstancerequesttypedef)
   - [CapacityReservationGroupTypeDef](#capacityreservationgrouptypedef)
   - [CapacityReservationOptionsRequestTypeDef](#capacityreservationoptionsrequesttypedef)
   - [CapacityReservationOptionsTypeDef](#capacityreservationoptionstypedef)
   - [CapacityReservationSpecificationResponseTypeDef](#capacityreservationspecificationresponsetypedef)
+  - [CapacityReservationSpecificationTypeDef](#capacityreservationspecificationtypedef)
   - [CapacityReservationTargetResponseTypeDef](#capacityreservationtargetresponsetypedef)
   - [CapacityReservationTargetTypeDef](#capacityreservationtargettypedef)
   - [CapacityReservationTypeDef](#capacityreservationtypedef)
   - [CarrierGatewayTypeDef](#carriergatewaytypedef)
   - [CertificateAuthenticationRequestTypeDef](#certificateauthenticationrequesttypedef)
   - [CertificateAuthenticationTypeDef](#certificateauthenticationtypedef)
+  - [CidrAuthorizationContextTypeDef](#cidrauthorizationcontexttypedef)
   - [CidrBlockTypeDef](#cidrblocktypedef)
   - [ClassicLinkDnsSupportTypeDef](#classiclinkdnssupporttypedef)
   - [ClassicLinkInstanceTypeDef](#classiclinkinstancetypedef)
   - [ClassicLoadBalancerTypeDef](#classicloadbalancertypedef)
   - [ClassicLoadBalancersConfigTypeDef](#classicloadbalancersconfigtypedef)
   - [ClientCertificateRevocationListStatusTypeDef](#clientcertificaterevocationliststatustypedef)
+  - [ClientConnectOptionsTypeDef](#clientconnectoptionstypedef)
   - [ClientConnectResponseOptionsTypeDef](#clientconnectresponseoptionstypedef)
+  - [ClientDataTypeDef](#clientdatatypedef)
+  - [ClientVpnAuthenticationRequestTypeDef](#clientvpnauthenticationrequesttypedef)
   - [ClientVpnAuthenticationTypeDef](#clientvpnauthenticationtypedef)
   - [ClientVpnAuthorizationRuleStatusTypeDef](#clientvpnauthorizationrulestatustypedef)
   - [ClientVpnConnectionStatusTypeDef](#clientvpnconnectionstatustypedef)
@@ -67,457 +106,16 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [ClientVpnRouteTypeDef](#clientvpnroutetypedef)
   - [CoipAddressUsageTypeDef](#coipaddressusagetypedef)
   - [CoipPoolTypeDef](#coippooltypedef)
+  - [ConfirmProductInstanceResultTypeDef](#confirmproductinstanceresulttypedef)
+  - [ConnectionLogOptionsTypeDef](#connectionlogoptionstypedef)
   - [ConnectionLogResponseOptionsTypeDef](#connectionlogresponseoptionstypedef)
   - [ConnectionNotificationTypeDef](#connectionnotificationtypedef)
   - [ConversionTaskTypeDef](#conversiontasktypedef)
-  - [CpuOptionsTypeDef](#cpuoptionstypedef)
-  - [CreateFleetErrorTypeDef](#createfleeterrortypedef)
-  - [CreateFleetInstanceTypeDef](#createfleetinstancetypedef)
-  - [CreateVolumePermissionTypeDef](#createvolumepermissiontypedef)
-  - [CreditSpecificationRequestTypeDef](#creditspecificationrequesttypedef)
-  - [CreditSpecificationTypeDef](#creditspecificationtypedef)
-  - [CustomerGatewayTypeDef](#customergatewaytypedef)
-  - [DeleteFleetErrorItemTypeDef](#deletefleeterroritemtypedef)
-  - [DeleteFleetErrorTypeDef](#deletefleeterrortypedef)
-  - [DeleteFleetSuccessItemTypeDef](#deletefleetsuccessitemtypedef)
-  - [DeleteLaunchTemplateVersionsResponseErrorItemTypeDef](#deletelaunchtemplateversionsresponseerroritemtypedef)
-  - [DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef](#deletelaunchtemplateversionsresponsesuccessitemtypedef)
-  - [DeleteQueuedReservedInstancesErrorTypeDef](#deletequeuedreservedinstanceserrortypedef)
-  - [DescribeFastSnapshotRestoreSuccessItemTypeDef](#describefastsnapshotrestoresuccessitemtypedef)
-  - [DescribeFleetErrorTypeDef](#describefleeterrortypedef)
-  - [DescribeFleetsInstancesTypeDef](#describefleetsinstancestypedef)
-  - [DhcpConfigurationTypeDef](#dhcpconfigurationtypedef)
-  - [DhcpOptionsTypeDef](#dhcpoptionstypedef)
-  - [DirectoryServiceAuthenticationRequestTypeDef](#directoryserviceauthenticationrequesttypedef)
-  - [DirectoryServiceAuthenticationTypeDef](#directoryserviceauthenticationtypedef)
-  - [DisableFastSnapshotRestoreErrorItemTypeDef](#disablefastsnapshotrestoreerroritemtypedef)
-  - [DisableFastSnapshotRestoreStateErrorItemTypeDef](#disablefastsnapshotrestorestateerroritemtypedef)
-  - [DisableFastSnapshotRestoreStateErrorTypeDef](#disablefastsnapshotrestorestateerrortypedef)
-  - [DisableFastSnapshotRestoreSuccessItemTypeDef](#disablefastsnapshotrestoresuccessitemtypedef)
-  - [DiskImageDescriptionTypeDef](#diskimagedescriptiontypedef)
-  - [DiskImageDetailTypeDef](#diskimagedetailtypedef)
-  - [DiskImageVolumeDescriptionTypeDef](#diskimagevolumedescriptiontypedef)
-  - [DiskInfoTypeDef](#diskinfotypedef)
-  - [DnsEntryTypeDef](#dnsentrytypedef)
-  - [EbsBlockDeviceTypeDef](#ebsblockdevicetypedef)
-  - [EbsInfoTypeDef](#ebsinfotypedef)
-  - [EbsInstanceBlockDeviceSpecificationTypeDef](#ebsinstanceblockdevicespecificationtypedef)
-  - [EbsInstanceBlockDeviceTypeDef](#ebsinstanceblockdevicetypedef)
-  - [EbsOptimizedInfoTypeDef](#ebsoptimizedinfotypedef)
-  - [EfaInfoTypeDef](#efainfotypedef)
-  - [EgressOnlyInternetGatewayTypeDef](#egressonlyinternetgatewaytypedef)
-  - [ElasticGpuAssociationTypeDef](#elasticgpuassociationtypedef)
-  - [ElasticGpuHealthTypeDef](#elasticgpuhealthtypedef)
-  - [ElasticGpuSpecificationResponseTypeDef](#elasticgpuspecificationresponsetypedef)
-  - [ElasticGpuSpecificationTypeDef](#elasticgpuspecificationtypedef)
-  - [ElasticGpusTypeDef](#elasticgpustypedef)
-  - [ElasticInferenceAcceleratorAssociationTypeDef](#elasticinferenceacceleratorassociationtypedef)
-  - [EnableFastSnapshotRestoreErrorItemTypeDef](#enablefastsnapshotrestoreerroritemtypedef)
-  - [EnableFastSnapshotRestoreStateErrorItemTypeDef](#enablefastsnapshotrestorestateerroritemtypedef)
-  - [EnableFastSnapshotRestoreStateErrorTypeDef](#enablefastsnapshotrestorestateerrortypedef)
-  - [EnableFastSnapshotRestoreSuccessItemTypeDef](#enablefastsnapshotrestoresuccessitemtypedef)
-  - [EnclaveOptionsTypeDef](#enclaveoptionstypedef)
-  - [EventInformationTypeDef](#eventinformationtypedef)
-  - [ExplanationTypeDef](#explanationtypedef)
-  - [ExportImageTaskTypeDef](#exportimagetasktypedef)
-  - [ExportTaskS3LocationTypeDef](#exporttasks3locationtypedef)
-  - [ExportTaskTypeDef](#exporttasktypedef)
-  - [ExportToS3TaskTypeDef](#exporttos3tasktypedef)
-  - [FailedQueuedPurchaseDeletionTypeDef](#failedqueuedpurchasedeletiontypedef)
-  - [FederatedAuthenticationRequestTypeDef](#federatedauthenticationrequesttypedef)
-  - [FederatedAuthenticationTypeDef](#federatedauthenticationtypedef)
-  - [FleetDataTypeDef](#fleetdatatypedef)
-  - [FleetLaunchTemplateConfigTypeDef](#fleetlaunchtemplateconfigtypedef)
-  - [FleetLaunchTemplateOverridesRequestTypeDef](#fleetlaunchtemplateoverridesrequesttypedef)
-  - [FleetLaunchTemplateOverridesTypeDef](#fleetlaunchtemplateoverridestypedef)
-  - [FleetLaunchTemplateSpecificationRequestTypeDef](#fleetlaunchtemplatespecificationrequesttypedef)
-  - [FleetLaunchTemplateSpecificationTypeDef](#fleetlaunchtemplatespecificationtypedef)
-  - [FleetSpotCapacityRebalanceRequestTypeDef](#fleetspotcapacityrebalancerequesttypedef)
-  - [FleetSpotCapacityRebalanceTypeDef](#fleetspotcapacityrebalancetypedef)
-  - [FleetSpotMaintenanceStrategiesRequestTypeDef](#fleetspotmaintenancestrategiesrequesttypedef)
-  - [FleetSpotMaintenanceStrategiesTypeDef](#fleetspotmaintenancestrategiestypedef)
-  - [FlowLogTypeDef](#flowlogtypedef)
-  - [FpgaDeviceInfoTypeDef](#fpgadeviceinfotypedef)
-  - [FpgaDeviceMemoryInfoTypeDef](#fpgadevicememoryinfotypedef)
-  - [FpgaImageAttributeTypeDef](#fpgaimageattributetypedef)
-  - [FpgaImageStateTypeDef](#fpgaimagestatetypedef)
-  - [FpgaImageTypeDef](#fpgaimagetypedef)
-  - [FpgaInfoTypeDef](#fpgainfotypedef)
-  - [GpuDeviceInfoTypeDef](#gpudeviceinfotypedef)
-  - [GpuDeviceMemoryInfoTypeDef](#gpudevicememoryinfotypedef)
-  - [GpuInfoTypeDef](#gpuinfotypedef)
-  - [GroupIdentifierTypeDef](#groupidentifiertypedef)
-  - [HibernationOptionsTypeDef](#hibernationoptionstypedef)
-  - [HistoryRecordEntryTypeDef](#historyrecordentrytypedef)
-  - [HistoryRecordTypeDef](#historyrecordtypedef)
-  - [HostInstanceTypeDef](#hostinstancetypedef)
-  - [HostOfferingTypeDef](#hostofferingtypedef)
-  - [HostPropertiesTypeDef](#hostpropertiestypedef)
-  - [HostReservationTypeDef](#hostreservationtypedef)
-  - [HostTypeDef](#hosttypedef)
-  - [IKEVersionsListValueTypeDef](#ikeversionslistvaluetypedef)
-  - [IKEVersionsRequestListValueTypeDef](#ikeversionsrequestlistvaluetypedef)
-  - [IamInstanceProfileAssociationTypeDef](#iaminstanceprofileassociationtypedef)
-  - [IamInstanceProfileSpecificationTypeDef](#iaminstanceprofilespecificationtypedef)
-  - [IamInstanceProfileTypeDef](#iaminstanceprofiletypedef)
-  - [IcmpTypeCodeTypeDef](#icmptypecodetypedef)
-  - [IdFormatTypeDef](#idformattypedef)
-  - [ImageTypeDef](#imagetypedef)
-  - [ImportImageLicenseConfigurationResponseTypeDef](#importimagelicenseconfigurationresponsetypedef)
-  - [ImportImageTaskTypeDef](#importimagetasktypedef)
-  - [ImportInstanceTaskDetailsTypeDef](#importinstancetaskdetailstypedef)
-  - [ImportInstanceVolumeDetailItemTypeDef](#importinstancevolumedetailitemtypedef)
-  - [ImportSnapshotTaskTypeDef](#importsnapshottasktypedef)
-  - [ImportVolumeTaskDetailsTypeDef](#importvolumetaskdetailstypedef)
-  - [InferenceAcceleratorInfoTypeDef](#inferenceacceleratorinfotypedef)
-  - [InferenceDeviceInfoTypeDef](#inferencedeviceinfotypedef)
-  - [InstanceBlockDeviceMappingTypeDef](#instanceblockdevicemappingtypedef)
-  - [InstanceCapacityTypeDef](#instancecapacitytypedef)
-  - [InstanceCountTypeDef](#instancecounttypedef)
-  - [InstanceCreditSpecificationTypeDef](#instancecreditspecificationtypedef)
-  - [InstanceExportDetailsTypeDef](#instanceexportdetailstypedef)
-  - [InstanceFamilyCreditSpecificationTypeDef](#instancefamilycreditspecificationtypedef)
-  - [InstanceIpv6AddressRequestTypeDef](#instanceipv6addressrequesttypedef)
-  - [InstanceIpv6AddressTypeDef](#instanceipv6addresstypedef)
-  - [InstanceMetadataOptionsResponseTypeDef](#instancemetadataoptionsresponsetypedef)
-  - [InstanceMonitoringTypeDef](#instancemonitoringtypedef)
-  - [InstanceNetworkInterfaceAssociationTypeDef](#instancenetworkinterfaceassociationtypedef)
-  - [InstanceNetworkInterfaceAttachmentTypeDef](#instancenetworkinterfaceattachmenttypedef)
-  - [InstanceNetworkInterfaceSpecificationTypeDef](#instancenetworkinterfacespecificationtypedef)
-  - [InstanceNetworkInterfaceTypeDef](#instancenetworkinterfacetypedef)
-  - [InstancePrivateIpAddressTypeDef](#instanceprivateipaddresstypedef)
-  - [InstanceStateChangeTypeDef](#instancestatechangetypedef)
-  - [InstanceStateTypeDef](#instancestatetypedef)
-  - [InstanceStatusDetailsTypeDef](#instancestatusdetailstypedef)
-  - [InstanceStatusEventTypeDef](#instancestatuseventtypedef)
-  - [InstanceStatusSummaryTypeDef](#instancestatussummarytypedef)
-  - [InstanceStatusTypeDef](#instancestatustypedef)
-  - [InstanceStorageInfoTypeDef](#instancestorageinfotypedef)
-  - [InstanceTagNotificationAttributeTypeDef](#instancetagnotificationattributetypedef)
-  - [InstanceTypeDef](#instancetypedef)
-  - [InstanceTypeInfoTypeDef](#instancetypeinfotypedef)
-  - [InstanceTypeOfferingTypeDef](#instancetypeofferingtypedef)
-  - [InstanceUsageTypeDef](#instanceusagetypedef)
-  - [InternetGatewayAttachmentTypeDef](#internetgatewayattachmenttypedef)
-  - [InternetGatewayTypeDef](#internetgatewaytypedef)
-  - [IpPermissionTypeDef](#ippermissiontypedef)
-  - [IpRangeTypeDef](#iprangetypedef)
-  - [Ipv6CidrAssociationTypeDef](#ipv6cidrassociationtypedef)
-  - [Ipv6CidrBlockTypeDef](#ipv6cidrblocktypedef)
-  - [Ipv6PoolTypeDef](#ipv6pooltypedef)
-  - [Ipv6RangeTypeDef](#ipv6rangetypedef)
-  - [KeyPairInfoTypeDef](#keypairinfotypedef)
-  - [LastErrorTypeDef](#lasterrortypedef)
-  - [LaunchPermissionTypeDef](#launchpermissiontypedef)
-  - [LaunchSpecificationTypeDef](#launchspecificationtypedef)
-  - [LaunchTemplateAndOverridesResponseTypeDef](#launchtemplateandoverridesresponsetypedef)
-  - [LaunchTemplateBlockDeviceMappingRequestTypeDef](#launchtemplateblockdevicemappingrequesttypedef)
-  - [LaunchTemplateBlockDeviceMappingTypeDef](#launchtemplateblockdevicemappingtypedef)
-  - [LaunchTemplateCapacityReservationSpecificationRequestTypeDef](#launchtemplatecapacityreservationspecificationrequesttypedef)
-  - [LaunchTemplateCapacityReservationSpecificationResponseTypeDef](#launchtemplatecapacityreservationspecificationresponsetypedef)
-  - [LaunchTemplateConfigTypeDef](#launchtemplateconfigtypedef)
-  - [LaunchTemplateCpuOptionsRequestTypeDef](#launchtemplatecpuoptionsrequesttypedef)
-  - [LaunchTemplateCpuOptionsTypeDef](#launchtemplatecpuoptionstypedef)
-  - [LaunchTemplateEbsBlockDeviceRequestTypeDef](#launchtemplateebsblockdevicerequesttypedef)
-  - [LaunchTemplateEbsBlockDeviceTypeDef](#launchtemplateebsblockdevicetypedef)
-  - [LaunchTemplateElasticInferenceAcceleratorResponseTypeDef](#launchtemplateelasticinferenceacceleratorresponsetypedef)
-  - [LaunchTemplateElasticInferenceAcceleratorTypeDef](#launchtemplateelasticinferenceacceleratortypedef)
-  - [LaunchTemplateEnclaveOptionsRequestTypeDef](#launchtemplateenclaveoptionsrequesttypedef)
-  - [LaunchTemplateEnclaveOptionsTypeDef](#launchtemplateenclaveoptionstypedef)
-  - [LaunchTemplateHibernationOptionsRequestTypeDef](#launchtemplatehibernationoptionsrequesttypedef)
-  - [LaunchTemplateHibernationOptionsTypeDef](#launchtemplatehibernationoptionstypedef)
-  - [LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef](#launchtemplateiaminstanceprofilespecificationrequesttypedef)
-  - [LaunchTemplateIamInstanceProfileSpecificationTypeDef](#launchtemplateiaminstanceprofilespecificationtypedef)
-  - [LaunchTemplateInstanceMarketOptionsRequestTypeDef](#launchtemplateinstancemarketoptionsrequesttypedef)
-  - [LaunchTemplateInstanceMarketOptionsTypeDef](#launchtemplateinstancemarketoptionstypedef)
-  - [LaunchTemplateInstanceMetadataOptionsRequestTypeDef](#launchtemplateinstancemetadataoptionsrequesttypedef)
-  - [LaunchTemplateInstanceMetadataOptionsTypeDef](#launchtemplateinstancemetadataoptionstypedef)
-  - [LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef](#launchtemplateinstancenetworkinterfacespecificationrequesttypedef)
-  - [LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef](#launchtemplateinstancenetworkinterfacespecificationtypedef)
-  - [LaunchTemplateLicenseConfigurationRequestTypeDef](#launchtemplatelicenseconfigurationrequesttypedef)
-  - [LaunchTemplateLicenseConfigurationTypeDef](#launchtemplatelicenseconfigurationtypedef)
-  - [LaunchTemplateOverridesTypeDef](#launchtemplateoverridestypedef)
-  - [LaunchTemplatePlacementRequestTypeDef](#launchtemplateplacementrequesttypedef)
-  - [LaunchTemplatePlacementTypeDef](#launchtemplateplacementtypedef)
-  - [LaunchTemplateSpotMarketOptionsRequestTypeDef](#launchtemplatespotmarketoptionsrequesttypedef)
-  - [LaunchTemplateSpotMarketOptionsTypeDef](#launchtemplatespotmarketoptionstypedef)
-  - [LaunchTemplateTagSpecificationRequestTypeDef](#launchtemplatetagspecificationrequesttypedef)
-  - [LaunchTemplateTagSpecificationTypeDef](#launchtemplatetagspecificationtypedef)
-  - [LaunchTemplateTypeDef](#launchtemplatetypedef)
-  - [LaunchTemplateVersionTypeDef](#launchtemplateversiontypedef)
-  - [LaunchTemplatesMonitoringRequestTypeDef](#launchtemplatesmonitoringrequesttypedef)
-  - [LaunchTemplatesMonitoringTypeDef](#launchtemplatesmonitoringtypedef)
-  - [LicenseConfigurationTypeDef](#licenseconfigurationtypedef)
-  - [LoadBalancersConfigTypeDef](#loadbalancersconfigtypedef)
-  - [LoadPermissionRequestTypeDef](#loadpermissionrequesttypedef)
-  - [LoadPermissionTypeDef](#loadpermissiontypedef)
-  - [LocalGatewayRouteTableTypeDef](#localgatewayroutetabletypedef)
-  - [LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef](#localgatewayroutetablevirtualinterfacegroupassociationtypedef)
-  - [LocalGatewayRouteTableVpcAssociationTypeDef](#localgatewayroutetablevpcassociationtypedef)
-  - [LocalGatewayRouteTypeDef](#localgatewayroutetypedef)
-  - [LocalGatewayTypeDef](#localgatewaytypedef)
-  - [LocalGatewayVirtualInterfaceGroupTypeDef](#localgatewayvirtualinterfacegrouptypedef)
-  - [LocalGatewayVirtualInterfaceTypeDef](#localgatewayvirtualinterfacetypedef)
-  - [ManagedPrefixListTypeDef](#managedprefixlisttypedef)
-  - [MemoryInfoTypeDef](#memoryinfotypedef)
-  - [MonitoringTypeDef](#monitoringtypedef)
-  - [MovingAddressStatusTypeDef](#movingaddressstatustypedef)
-  - [NatGatewayAddressTypeDef](#natgatewayaddresstypedef)
-  - [NatGatewayTypeDef](#natgatewaytypedef)
-  - [NetworkAclAssociationTypeDef](#networkaclassociationtypedef)
-  - [NetworkAclEntryTypeDef](#networkaclentrytypedef)
-  - [NetworkAclTypeDef](#networkacltypedef)
-  - [NetworkCardInfoTypeDef](#networkcardinfotypedef)
-  - [NetworkInfoTypeDef](#networkinfotypedef)
-  - [NetworkInsightsAnalysisTypeDef](#networkinsightsanalysistypedef)
-  - [NetworkInsightsPathTypeDef](#networkinsightspathtypedef)
-  - [NetworkInterfaceAssociationTypeDef](#networkinterfaceassociationtypedef)
-  - [NetworkInterfaceAttachmentTypeDef](#networkinterfaceattachmenttypedef)
-  - [NetworkInterfaceIpv6AddressTypeDef](#networkinterfaceipv6addresstypedef)
-  - [NetworkInterfacePermissionStateTypeDef](#networkinterfacepermissionstatetypedef)
-  - [NetworkInterfacePermissionTypeDef](#networkinterfacepermissiontypedef)
-  - [NetworkInterfacePrivateIpAddressTypeDef](#networkinterfaceprivateipaddresstypedef)
-  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
-  - [OnDemandOptionsTypeDef](#ondemandoptionstypedef)
-  - [PathComponentTypeDef](#pathcomponenttypedef)
-  - [PciIdTypeDef](#pciidtypedef)
-  - [PeeringAttachmentStatusTypeDef](#peeringattachmentstatustypedef)
-  - [PeeringConnectionOptionsTypeDef](#peeringconnectionoptionstypedef)
-  - [PeeringTgwInfoTypeDef](#peeringtgwinfotypedef)
-  - [Phase1DHGroupNumbersListValueTypeDef](#phase1dhgroupnumberslistvaluetypedef)
-  - [Phase1DHGroupNumbersRequestListValueTypeDef](#phase1dhgroupnumbersrequestlistvaluetypedef)
-  - [Phase1EncryptionAlgorithmsListValueTypeDef](#phase1encryptionalgorithmslistvaluetypedef)
-  - [Phase1EncryptionAlgorithmsRequestListValueTypeDef](#phase1encryptionalgorithmsrequestlistvaluetypedef)
-  - [Phase1IntegrityAlgorithmsListValueTypeDef](#phase1integrityalgorithmslistvaluetypedef)
-  - [Phase1IntegrityAlgorithmsRequestListValueTypeDef](#phase1integrityalgorithmsrequestlistvaluetypedef)
-  - [Phase2DHGroupNumbersListValueTypeDef](#phase2dhgroupnumberslistvaluetypedef)
-  - [Phase2DHGroupNumbersRequestListValueTypeDef](#phase2dhgroupnumbersrequestlistvaluetypedef)
-  - [Phase2EncryptionAlgorithmsListValueTypeDef](#phase2encryptionalgorithmslistvaluetypedef)
-  - [Phase2EncryptionAlgorithmsRequestListValueTypeDef](#phase2encryptionalgorithmsrequestlistvaluetypedef)
-  - [Phase2IntegrityAlgorithmsListValueTypeDef](#phase2integrityalgorithmslistvaluetypedef)
-  - [Phase2IntegrityAlgorithmsRequestListValueTypeDef](#phase2integrityalgorithmsrequestlistvaluetypedef)
-  - [PlacementGroupInfoTypeDef](#placementgroupinfotypedef)
-  - [PlacementGroupTypeDef](#placementgrouptypedef)
-  - [PlacementResponseTypeDef](#placementresponsetypedef)
-  - [PlacementTypeDef](#placementtypedef)
-  - [PoolCidrBlockTypeDef](#poolcidrblocktypedef)
-  - [PortRangeTypeDef](#portrangetypedef)
-  - [PrefixListAssociationTypeDef](#prefixlistassociationtypedef)
-  - [PrefixListEntryTypeDef](#prefixlistentrytypedef)
-  - [PrefixListIdTypeDef](#prefixlistidtypedef)
-  - [PrefixListTypeDef](#prefixlisttypedef)
-  - [PriceScheduleTypeDef](#pricescheduletypedef)
-  - [PricingDetailTypeDef](#pricingdetailtypedef)
-  - [PrincipalIdFormatTypeDef](#principalidformattypedef)
-  - [PrivateDnsDetailsTypeDef](#privatednsdetailstypedef)
-  - [PrivateDnsNameConfigurationTypeDef](#privatednsnameconfigurationtypedef)
-  - [PrivateIpAddressSpecificationTypeDef](#privateipaddressspecificationtypedef)
-  - [ProcessorInfoTypeDef](#processorinfotypedef)
-  - [ProductCodeTypeDef](#productcodetypedef)
-  - [PropagatingVgwTypeDef](#propagatingvgwtypedef)
-  - [ProvisionedBandwidthTypeDef](#provisionedbandwidthtypedef)
-  - [PtrUpdateStatusTypeDef](#ptrupdatestatustypedef)
-  - [PublicIpv4PoolRangeTypeDef](#publicipv4poolrangetypedef)
-  - [PublicIpv4PoolTypeDef](#publicipv4pooltypedef)
-  - [PurchaseTypeDef](#purchasetypedef)
-  - [RecurringChargeTypeDef](#recurringchargetypedef)
-  - [RegionTypeDef](#regiontypedef)
-  - [ReplaceRootVolumeTaskTypeDef](#replacerootvolumetasktypedef)
-  - [ReservationTypeDef](#reservationtypedef)
-  - [ReservationValueTypeDef](#reservationvaluetypedef)
-  - [ReservedInstanceReservationValueTypeDef](#reservedinstancereservationvaluetypedef)
-  - [ReservedInstancesConfigurationTypeDef](#reservedinstancesconfigurationtypedef)
-  - [ReservedInstancesIdTypeDef](#reservedinstancesidtypedef)
-  - [ReservedInstancesListingTypeDef](#reservedinstanceslistingtypedef)
-  - [ReservedInstancesModificationResultTypeDef](#reservedinstancesmodificationresulttypedef)
-  - [ReservedInstancesModificationTypeDef](#reservedinstancesmodificationtypedef)
-  - [ReservedInstancesOfferingTypeDef](#reservedinstancesofferingtypedef)
-  - [ReservedInstancesTypeDef](#reservedinstancestypedef)
-  - [ResponseErrorTypeDef](#responseerrortypedef)
-  - [ResponseLaunchTemplateDataTypeDef](#responselaunchtemplatedatatypedef)
-  - [RouteTableAssociationStateTypeDef](#routetableassociationstatetypedef)
-  - [RouteTableAssociationTypeDef](#routetableassociationtypedef)
-  - [RouteTableTypeDef](#routetabletypedef)
-  - [RouteTypeDef](#routetypedef)
-  - [RunInstancesMonitoringEnabledTypeDef](#runinstancesmonitoringenabledtypedef)
-  - [S3StorageTypeDef](#s3storagetypedef)
-  - [ScheduledInstanceAvailabilityTypeDef](#scheduledinstanceavailabilitytypedef)
-  - [ScheduledInstanceRecurrenceTypeDef](#scheduledinstancerecurrencetypedef)
-  - [ScheduledInstanceTypeDef](#scheduledinstancetypedef)
-  - [ScheduledInstancesBlockDeviceMappingTypeDef](#scheduledinstancesblockdevicemappingtypedef)
-  - [ScheduledInstancesEbsTypeDef](#scheduledinstancesebstypedef)
-  - [ScheduledInstancesIamInstanceProfileTypeDef](#scheduledinstancesiaminstanceprofiletypedef)
-  - [ScheduledInstancesIpv6AddressTypeDef](#scheduledinstancesipv6addresstypedef)
-  - [ScheduledInstancesMonitoringTypeDef](#scheduledinstancesmonitoringtypedef)
-  - [ScheduledInstancesNetworkInterfaceTypeDef](#scheduledinstancesnetworkinterfacetypedef)
-  - [ScheduledInstancesPlacementTypeDef](#scheduledinstancesplacementtypedef)
-  - [ScheduledInstancesPrivateIpAddressConfigTypeDef](#scheduledinstancesprivateipaddressconfigtypedef)
-  - [SecurityGroupIdentifierTypeDef](#securitygroupidentifiertypedef)
-  - [SecurityGroupReferenceTypeDef](#securitygroupreferencetypedef)
-  - [SecurityGroupTypeDef](#securitygrouptypedef)
-  - [ServiceConfigurationTypeDef](#serviceconfigurationtypedef)
-  - [ServiceDetailTypeDef](#servicedetailtypedef)
-  - [ServiceTypeDetailTypeDef](#servicetypedetailtypedef)
-  - [SnapshotDetailTypeDef](#snapshotdetailtypedef)
-  - [SnapshotInfoTypeDef](#snapshotinfotypedef)
-  - [SnapshotTaskDetailTypeDef](#snapshottaskdetailtypedef)
-  - [SnapshotTypeDef](#snapshottypedef)
-  - [SpotCapacityRebalanceTypeDef](#spotcapacityrebalancetypedef)
-  - [SpotDatafeedSubscriptionTypeDef](#spotdatafeedsubscriptiontypedef)
-  - [SpotFleetLaunchSpecificationTypeDef](#spotfleetlaunchspecificationtypedef)
-  - [SpotFleetMonitoringTypeDef](#spotfleetmonitoringtypedef)
-  - [SpotFleetRequestConfigDataTypeDef](#spotfleetrequestconfigdatatypedef)
-  - [SpotFleetRequestConfigTypeDef](#spotfleetrequestconfigtypedef)
-  - [SpotFleetTagSpecificationTypeDef](#spotfleettagspecificationtypedef)
-  - [SpotInstanceRequestTypeDef](#spotinstancerequesttypedef)
-  - [SpotInstanceStateFaultTypeDef](#spotinstancestatefaulttypedef)
-  - [SpotInstanceStatusTypeDef](#spotinstancestatustypedef)
-  - [SpotMaintenanceStrategiesTypeDef](#spotmaintenancestrategiestypedef)
-  - [SpotMarketOptionsTypeDef](#spotmarketoptionstypedef)
-  - [SpotOptionsTypeDef](#spotoptionstypedef)
-  - [SpotPlacementTypeDef](#spotplacementtypedef)
-  - [SpotPriceTypeDef](#spotpricetypedef)
-  - [StaleIpPermissionTypeDef](#staleippermissiontypedef)
-  - [StaleSecurityGroupTypeDef](#stalesecuritygrouptypedef)
-  - [StateReasonTypeDef](#statereasontypedef)
-  - [StorageTypeDef](#storagetypedef)
-  - [StoreImageTaskResultTypeDef](#storeimagetaskresulttypedef)
-  - [SubnetAssociationTypeDef](#subnetassociationtypedef)
-  - [SubnetCidrBlockStateTypeDef](#subnetcidrblockstatetypedef)
-  - [SubnetIpv6CidrBlockAssociationTypeDef](#subnetipv6cidrblockassociationtypedef)
-  - [SubnetTypeDef](#subnettypedef)
-  - [SuccessfulInstanceCreditSpecificationItemTypeDef](#successfulinstancecreditspecificationitemtypedef)
-  - [SuccessfulQueuedPurchaseDeletionTypeDef](#successfulqueuedpurchasedeletiontypedef)
-  - [TagDescriptionTypeDef](#tagdescriptiontypedef)
-  - [TagSpecificationTypeDef](#tagspecificationtypedef)
-  - [TargetCapacitySpecificationTypeDef](#targetcapacityspecificationtypedef)
-  - [TargetConfigurationTypeDef](#targetconfigurationtypedef)
-  - [TargetGroupTypeDef](#targetgrouptypedef)
-  - [TargetGroupsConfigTypeDef](#targetgroupsconfigtypedef)
-  - [TargetNetworkTypeDef](#targetnetworktypedef)
-  - [TargetReservationValueTypeDef](#targetreservationvaluetypedef)
-  - [TerminateConnectionStatusTypeDef](#terminateconnectionstatustypedef)
-  - [TrafficMirrorFilterRuleTypeDef](#trafficmirrorfilterruletypedef)
-  - [TrafficMirrorFilterTypeDef](#trafficmirrorfiltertypedef)
-  - [TrafficMirrorPortRangeTypeDef](#trafficmirrorportrangetypedef)
-  - [TrafficMirrorSessionTypeDef](#trafficmirrorsessiontypedef)
-  - [TrafficMirrorTargetTypeDef](#trafficmirrortargettypedef)
-  - [TransitGatewayAssociationTypeDef](#transitgatewayassociationtypedef)
-  - [TransitGatewayAttachmentAssociationTypeDef](#transitgatewayattachmentassociationtypedef)
-  - [TransitGatewayAttachmentBgpConfigurationTypeDef](#transitgatewayattachmentbgpconfigurationtypedef)
-  - [TransitGatewayAttachmentPropagationTypeDef](#transitgatewayattachmentpropagationtypedef)
-  - [TransitGatewayAttachmentTypeDef](#transitgatewayattachmenttypedef)
-  - [TransitGatewayConnectOptionsTypeDef](#transitgatewayconnectoptionstypedef)
-  - [TransitGatewayConnectPeerConfigurationTypeDef](#transitgatewayconnectpeerconfigurationtypedef)
-  - [TransitGatewayConnectPeerTypeDef](#transitgatewayconnectpeertypedef)
-  - [TransitGatewayConnectTypeDef](#transitgatewayconnecttypedef)
-  - [TransitGatewayMulticastDeregisteredGroupMembersTypeDef](#transitgatewaymulticastderegisteredgroupmemberstypedef)
-  - [TransitGatewayMulticastDeregisteredGroupSourcesTypeDef](#transitgatewaymulticastderegisteredgroupsourcestypedef)
-  - [TransitGatewayMulticastDomainAssociationTypeDef](#transitgatewaymulticastdomainassociationtypedef)
-  - [TransitGatewayMulticastDomainAssociationsTypeDef](#transitgatewaymulticastdomainassociationstypedef)
-  - [TransitGatewayMulticastDomainOptionsTypeDef](#transitgatewaymulticastdomainoptionstypedef)
-  - [TransitGatewayMulticastDomainTypeDef](#transitgatewaymulticastdomaintypedef)
-  - [TransitGatewayMulticastGroupTypeDef](#transitgatewaymulticastgrouptypedef)
-  - [TransitGatewayMulticastRegisteredGroupMembersTypeDef](#transitgatewaymulticastregisteredgroupmemberstypedef)
-  - [TransitGatewayMulticastRegisteredGroupSourcesTypeDef](#transitgatewaymulticastregisteredgroupsourcestypedef)
-  - [TransitGatewayOptionsTypeDef](#transitgatewayoptionstypedef)
-  - [TransitGatewayPeeringAttachmentTypeDef](#transitgatewaypeeringattachmenttypedef)
-  - [TransitGatewayPrefixListAttachmentTypeDef](#transitgatewayprefixlistattachmenttypedef)
-  - [TransitGatewayPrefixListReferenceTypeDef](#transitgatewayprefixlistreferencetypedef)
-  - [TransitGatewayPropagationTypeDef](#transitgatewaypropagationtypedef)
-  - [TransitGatewayRouteAttachmentTypeDef](#transitgatewayrouteattachmenttypedef)
-  - [TransitGatewayRouteTableAssociationTypeDef](#transitgatewayroutetableassociationtypedef)
-  - [TransitGatewayRouteTablePropagationTypeDef](#transitgatewayroutetablepropagationtypedef)
-  - [TransitGatewayRouteTableTypeDef](#transitgatewayroutetabletypedef)
-  - [TransitGatewayRouteTypeDef](#transitgatewayroutetypedef)
-  - [TransitGatewayTypeDef](#transitgatewaytypedef)
-  - [TransitGatewayVpcAttachmentOptionsTypeDef](#transitgatewayvpcattachmentoptionstypedef)
-  - [TransitGatewayVpcAttachmentTypeDef](#transitgatewayvpcattachmenttypedef)
-  - [TunnelOptionTypeDef](#tunneloptiontypedef)
-  - [UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef](#unsuccessfulinstancecreditspecificationitemerrortypedef)
-  - [UnsuccessfulInstanceCreditSpecificationItemTypeDef](#unsuccessfulinstancecreditspecificationitemtypedef)
-  - [UnsuccessfulItemErrorTypeDef](#unsuccessfulitemerrortypedef)
-  - [UnsuccessfulItemTypeDef](#unsuccessfulitemtypedef)
-  - [UserBucketDetailsTypeDef](#userbucketdetailstypedef)
-  - [UserBucketTypeDef](#userbuckettypedef)
-  - [UserDataTypeDef](#userdatatypedef)
-  - [UserIdGroupPairTypeDef](#useridgrouppairtypedef)
-  - [VCpuInfoTypeDef](#vcpuinfotypedef)
-  - [ValidationErrorTypeDef](#validationerrortypedef)
-  - [ValidationWarningTypeDef](#validationwarningtypedef)
-  - [VgwTelemetryTypeDef](#vgwtelemetrytypedef)
-  - [VolumeAttachmentTypeDef](#volumeattachmenttypedef)
-  - [VolumeDetailTypeDef](#volumedetailtypedef)
-  - [VolumeModificationTypeDef](#volumemodificationtypedef)
-  - [VolumeStatusActionTypeDef](#volumestatusactiontypedef)
-  - [VolumeStatusAttachmentStatusTypeDef](#volumestatusattachmentstatustypedef)
-  - [VolumeStatusDetailsTypeDef](#volumestatusdetailstypedef)
-  - [VolumeStatusEventTypeDef](#volumestatuseventtypedef)
-  - [VolumeStatusInfoTypeDef](#volumestatusinfotypedef)
-  - [VolumeStatusItemTypeDef](#volumestatusitemtypedef)
-  - [VolumeTypeDef](#volumetypedef)
-  - [VpcAttachmentTypeDef](#vpcattachmenttypedef)
-  - [VpcCidrBlockAssociationTypeDef](#vpccidrblockassociationtypedef)
-  - [VpcCidrBlockStateTypeDef](#vpccidrblockstatetypedef)
-  - [VpcClassicLinkTypeDef](#vpcclassiclinktypedef)
-  - [VpcEndpointConnectionTypeDef](#vpcendpointconnectiontypedef)
-  - [VpcEndpointTypeDef](#vpcendpointtypedef)
-  - [VpcIpv6CidrBlockAssociationTypeDef](#vpcipv6cidrblockassociationtypedef)
-  - [VpcPeeringConnectionOptionsDescriptionTypeDef](#vpcpeeringconnectionoptionsdescriptiontypedef)
-  - [VpcPeeringConnectionStateReasonTypeDef](#vpcpeeringconnectionstatereasontypedef)
-  - [VpcPeeringConnectionTypeDef](#vpcpeeringconnectiontypedef)
-  - [VpcPeeringConnectionVpcInfoTypeDef](#vpcpeeringconnectionvpcinfotypedef)
-  - [VpcTypeDef](#vpctypedef)
-  - [VpnConnectionOptionsTypeDef](#vpnconnectionoptionstypedef)
-  - [VpnConnectionTypeDef](#vpnconnectiontypedef)
-  - [VpnGatewayTypeDef](#vpngatewaytypedef)
-  - [VpnStaticRouteTypeDef](#vpnstaticroutetypedef)
-  - [VpnTunnelOptionsSpecificationTypeDef](#vpntunneloptionsspecificationtypedef)
-  - [AcceptReservedInstancesExchangeQuoteResultTypeDef](#acceptreservedinstancesexchangequoteresulttypedef)
-  - [AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef](#accepttransitgatewaymulticastdomainassociationsresulttypedef)
-  - [AcceptTransitGatewayPeeringAttachmentResultTypeDef](#accepttransitgatewaypeeringattachmentresulttypedef)
-  - [AcceptTransitGatewayVpcAttachmentResultTypeDef](#accepttransitgatewayvpcattachmentresulttypedef)
-  - [AcceptVpcEndpointConnectionsResultTypeDef](#acceptvpcendpointconnectionsresulttypedef)
-  - [AcceptVpcPeeringConnectionResultTypeDef](#acceptvpcpeeringconnectionresulttypedef)
-  - [AddPrefixListEntryTypeDef](#addprefixlistentrytypedef)
-  - [AdvertiseByoipCidrResultTypeDef](#advertisebyoipcidrresulttypedef)
-  - [AllocateAddressResultTypeDef](#allocateaddressresulttypedef)
-  - [AllocateHostsResultTypeDef](#allocatehostsresulttypedef)
-  - [ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef](#applysecuritygroupstoclientvpntargetnetworkresulttypedef)
-  - [AssignIpv6AddressesResultTypeDef](#assignipv6addressesresulttypedef)
-  - [AssignPrivateIpAddressesResultTypeDef](#assignprivateipaddressesresulttypedef)
-  - [AssociateAddressResultTypeDef](#associateaddressresulttypedef)
-  - [AssociateClientVpnTargetNetworkResultTypeDef](#associateclientvpntargetnetworkresulttypedef)
-  - [AssociateEnclaveCertificateIamRoleResultTypeDef](#associateenclavecertificateiamroleresulttypedef)
-  - [AssociateIamInstanceProfileResultTypeDef](#associateiaminstanceprofileresulttypedef)
-  - [AssociateRouteTableResultTypeDef](#associateroutetableresulttypedef)
-  - [AssociateSubnetCidrBlockResultTypeDef](#associatesubnetcidrblockresulttypedef)
-  - [AssociateTransitGatewayMulticastDomainResultTypeDef](#associatetransitgatewaymulticastdomainresulttypedef)
-  - [AssociateTransitGatewayRouteTableResultTypeDef](#associatetransitgatewayroutetableresulttypedef)
-  - [AssociateVpcCidrBlockResultTypeDef](#associatevpccidrblockresulttypedef)
-  - [AttachClassicLinkVpcResultTypeDef](#attachclassiclinkvpcresulttypedef)
-  - [AttachNetworkInterfaceResultTypeDef](#attachnetworkinterfaceresulttypedef)
-  - [AttachVpnGatewayResultTypeDef](#attachvpngatewayresulttypedef)
-  - [AuthorizeClientVpnIngressResultTypeDef](#authorizeclientvpningressresulttypedef)
-  - [BlobAttributeValueTypeDef](#blobattributevaluetypedef)
-  - [BundleInstanceResultTypeDef](#bundleinstanceresulttypedef)
-  - [CancelBundleTaskResultTypeDef](#cancelbundletaskresulttypedef)
-  - [CancelCapacityReservationResultTypeDef](#cancelcapacityreservationresulttypedef)
-  - [CancelImportTaskResultTypeDef](#cancelimporttaskresulttypedef)
-  - [CancelReservedInstancesListingResultTypeDef](#cancelreservedinstanceslistingresulttypedef)
-  - [CancelSpotFleetRequestsResponseTypeDef](#cancelspotfleetrequestsresponsetypedef)
-  - [CancelSpotInstanceRequestsResultTypeDef](#cancelspotinstancerequestsresulttypedef)
-  - [CapacityReservationSpecificationTypeDef](#capacityreservationspecificationtypedef)
-  - [CidrAuthorizationContextTypeDef](#cidrauthorizationcontexttypedef)
-  - [ClientConnectOptionsTypeDef](#clientconnectoptionstypedef)
-  - [ClientDataTypeDef](#clientdatatypedef)
-  - [ClientVpnAuthenticationRequestTypeDef](#clientvpnauthenticationrequesttypedef)
-  - [ConfirmProductInstanceResultTypeDef](#confirmproductinstanceresulttypedef)
-  - [ConnectionLogOptionsTypeDef](#connectionlogoptionstypedef)
   - [CopyFpgaImageResultTypeDef](#copyfpgaimageresulttypedef)
   - [CopyImageResultTypeDef](#copyimageresulttypedef)
   - [CopySnapshotResultTypeDef](#copysnapshotresulttypedef)
   - [CpuOptionsRequestTypeDef](#cpuoptionsrequesttypedef)
+  - [CpuOptionsTypeDef](#cpuoptionstypedef)
   - [CreateCapacityReservationResultTypeDef](#createcapacityreservationresulttypedef)
   - [CreateCarrierGatewayResultTypeDef](#createcarriergatewayresulttypedef)
   - [CreateClientVpnEndpointResultTypeDef](#createclientvpnendpointresulttypedef)
@@ -527,6 +125,8 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [CreateDefaultVpcResultTypeDef](#createdefaultvpcresulttypedef)
   - [CreateDhcpOptionsResultTypeDef](#createdhcpoptionsresulttypedef)
   - [CreateEgressOnlyInternetGatewayResultTypeDef](#createegressonlyinternetgatewayresulttypedef)
+  - [CreateFleetErrorTypeDef](#createfleeterrortypedef)
+  - [CreateFleetInstanceTypeDef](#createfleetinstancetypedef)
   - [CreateFleetResultTypeDef](#createfleetresulttypedef)
   - [CreateFlowLogsResultTypeDef](#createflowlogsresulttypedef)
   - [CreateFpgaImageResultTypeDef](#createfpgaimageresulttypedef)
@@ -571,6 +171,7 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef](#createtransitgatewayvpcattachmentrequestoptionstypedef)
   - [CreateTransitGatewayVpcAttachmentResultTypeDef](#createtransitgatewayvpcattachmentresulttypedef)
   - [CreateVolumePermissionModificationsTypeDef](#createvolumepermissionmodificationstypedef)
+  - [CreateVolumePermissionTypeDef](#createvolumepermissiontypedef)
   - [CreateVpcEndpointConnectionNotificationResultTypeDef](#createvpcendpointconnectionnotificationresulttypedef)
   - [CreateVpcEndpointResultTypeDef](#createvpcendpointresulttypedef)
   - [CreateVpcEndpointServiceConfigurationResultTypeDef](#createvpcendpointserviceconfigurationresulttypedef)
@@ -578,14 +179,22 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [CreateVpcResultTypeDef](#createvpcresulttypedef)
   - [CreateVpnConnectionResultTypeDef](#createvpnconnectionresulttypedef)
   - [CreateVpnGatewayResultTypeDef](#createvpngatewayresulttypedef)
+  - [CreditSpecificationRequestTypeDef](#creditspecificationrequesttypedef)
+  - [CreditSpecificationTypeDef](#creditspecificationtypedef)
+  - [CustomerGatewayTypeDef](#customergatewaytypedef)
   - [DeleteCarrierGatewayResultTypeDef](#deletecarriergatewayresulttypedef)
   - [DeleteClientVpnEndpointResultTypeDef](#deleteclientvpnendpointresulttypedef)
   - [DeleteClientVpnRouteResultTypeDef](#deleteclientvpnrouteresulttypedef)
   - [DeleteEgressOnlyInternetGatewayResultTypeDef](#deleteegressonlyinternetgatewayresulttypedef)
+  - [DeleteFleetErrorItemTypeDef](#deletefleeterroritemtypedef)
+  - [DeleteFleetErrorTypeDef](#deletefleeterrortypedef)
+  - [DeleteFleetSuccessItemTypeDef](#deletefleetsuccessitemtypedef)
   - [DeleteFleetsResultTypeDef](#deletefleetsresulttypedef)
   - [DeleteFlowLogsResultTypeDef](#deleteflowlogsresulttypedef)
   - [DeleteFpgaImageResultTypeDef](#deletefpgaimageresulttypedef)
   - [DeleteLaunchTemplateResultTypeDef](#deletelaunchtemplateresulttypedef)
+  - [DeleteLaunchTemplateVersionsResponseErrorItemTypeDef](#deletelaunchtemplateversionsresponseerroritemtypedef)
+  - [DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef](#deletelaunchtemplateversionsresponsesuccessitemtypedef)
   - [DeleteLaunchTemplateVersionsResultTypeDef](#deletelaunchtemplateversionsresulttypedef)
   - [DeleteLocalGatewayRouteResultTypeDef](#deletelocalgatewayrouteresulttypedef)
   - [DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef](#deletelocalgatewayroutetablevpcassociationresulttypedef)
@@ -594,6 +203,7 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [DeleteNetworkInsightsAnalysisResultTypeDef](#deletenetworkinsightsanalysisresulttypedef)
   - [DeleteNetworkInsightsPathResultTypeDef](#deletenetworkinsightspathresulttypedef)
   - [DeleteNetworkInterfacePermissionResultTypeDef](#deletenetworkinterfacepermissionresulttypedef)
+  - [DeleteQueuedReservedInstancesErrorTypeDef](#deletequeuedreservedinstanceserrortypedef)
   - [DeleteQueuedReservedInstancesResultTypeDef](#deletequeuedreservedinstancesresulttypedef)
   - [DeleteTrafficMirrorFilterResultTypeDef](#deletetrafficmirrorfilterresulttypedef)
   - [DeleteTrafficMirrorFilterRuleResultTypeDef](#deletetrafficmirrorfilterruleresulttypedef)
@@ -640,9 +250,12 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [DescribeElasticGpusResultTypeDef](#describeelasticgpusresulttypedef)
   - [DescribeExportImageTasksResultTypeDef](#describeexportimagetasksresulttypedef)
   - [DescribeExportTasksResultTypeDef](#describeexporttasksresulttypedef)
+  - [DescribeFastSnapshotRestoreSuccessItemTypeDef](#describefastsnapshotrestoresuccessitemtypedef)
   - [DescribeFastSnapshotRestoresResultTypeDef](#describefastsnapshotrestoresresulttypedef)
+  - [DescribeFleetErrorTypeDef](#describefleeterrortypedef)
   - [DescribeFleetHistoryResultTypeDef](#describefleethistoryresulttypedef)
   - [DescribeFleetInstancesResultTypeDef](#describefleetinstancesresulttypedef)
+  - [DescribeFleetsInstancesTypeDef](#describefleetsinstancestypedef)
   - [DescribeFleetsResultTypeDef](#describefleetsresulttypedef)
   - [DescribeFlowLogsResultTypeDef](#describeflowlogsresulttypedef)
   - [DescribeFpgaImageAttributeResultTypeDef](#describefpgaimageattributeresulttypedef)
@@ -738,7 +351,15 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [DescribeVpnConnectionsResultTypeDef](#describevpnconnectionsresulttypedef)
   - [DescribeVpnGatewaysResultTypeDef](#describevpngatewaysresulttypedef)
   - [DetachClassicLinkVpcResultTypeDef](#detachclassiclinkvpcresulttypedef)
+  - [DhcpConfigurationTypeDef](#dhcpconfigurationtypedef)
+  - [DhcpOptionsTypeDef](#dhcpoptionstypedef)
+  - [DirectoryServiceAuthenticationRequestTypeDef](#directoryserviceauthenticationrequesttypedef)
+  - [DirectoryServiceAuthenticationTypeDef](#directoryserviceauthenticationtypedef)
   - [DisableEbsEncryptionByDefaultResultTypeDef](#disableebsencryptionbydefaultresulttypedef)
+  - [DisableFastSnapshotRestoreErrorItemTypeDef](#disablefastsnapshotrestoreerroritemtypedef)
+  - [DisableFastSnapshotRestoreStateErrorItemTypeDef](#disablefastsnapshotrestorestateerroritemtypedef)
+  - [DisableFastSnapshotRestoreStateErrorTypeDef](#disablefastsnapshotrestorestateerrortypedef)
+  - [DisableFastSnapshotRestoreSuccessItemTypeDef](#disablefastsnapshotrestoresuccessitemtypedef)
   - [DisableFastSnapshotRestoresResultTypeDef](#disablefastsnapshotrestoresresulttypedef)
   - [DisableSerialConsoleAccessResultTypeDef](#disableserialconsoleaccessresulttypedef)
   - [DisableTransitGatewayRouteTablePropagationResultTypeDef](#disabletransitgatewayroutetablepropagationresulttypedef)
@@ -751,24 +372,73 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [DisassociateTransitGatewayMulticastDomainResultTypeDef](#disassociatetransitgatewaymulticastdomainresulttypedef)
   - [DisassociateTransitGatewayRouteTableResultTypeDef](#disassociatetransitgatewayroutetableresulttypedef)
   - [DisassociateVpcCidrBlockResultTypeDef](#disassociatevpccidrblockresulttypedef)
+  - [DiskImageDescriptionTypeDef](#diskimagedescriptiontypedef)
+  - [DiskImageDetailTypeDef](#diskimagedetailtypedef)
   - [DiskImageTypeDef](#diskimagetypedef)
+  - [DiskImageVolumeDescriptionTypeDef](#diskimagevolumedescriptiontypedef)
+  - [DiskInfoTypeDef](#diskinfotypedef)
+  - [DnsEntryTypeDef](#dnsentrytypedef)
   - [DnsServersOptionsModifyStructureTypeDef](#dnsserversoptionsmodifystructuretypedef)
+  - [EbsBlockDeviceTypeDef](#ebsblockdevicetypedef)
+  - [EbsInfoTypeDef](#ebsinfotypedef)
+  - [EbsInstanceBlockDeviceSpecificationTypeDef](#ebsinstanceblockdevicespecificationtypedef)
+  - [EbsInstanceBlockDeviceTypeDef](#ebsinstanceblockdevicetypedef)
+  - [EbsOptimizedInfoTypeDef](#ebsoptimizedinfotypedef)
+  - [EfaInfoTypeDef](#efainfotypedef)
+  - [EgressOnlyInternetGatewayTypeDef](#egressonlyinternetgatewaytypedef)
+  - [ElasticGpuAssociationTypeDef](#elasticgpuassociationtypedef)
+  - [ElasticGpuHealthTypeDef](#elasticgpuhealthtypedef)
+  - [ElasticGpuSpecificationResponseTypeDef](#elasticgpuspecificationresponsetypedef)
+  - [ElasticGpuSpecificationTypeDef](#elasticgpuspecificationtypedef)
+  - [ElasticGpusTypeDef](#elasticgpustypedef)
+  - [ElasticInferenceAcceleratorAssociationTypeDef](#elasticinferenceacceleratorassociationtypedef)
   - [ElasticInferenceAcceleratorTypeDef](#elasticinferenceacceleratortypedef)
   - [EnableEbsEncryptionByDefaultResultTypeDef](#enableebsencryptionbydefaultresulttypedef)
+  - [EnableFastSnapshotRestoreErrorItemTypeDef](#enablefastsnapshotrestoreerroritemtypedef)
+  - [EnableFastSnapshotRestoreStateErrorItemTypeDef](#enablefastsnapshotrestorestateerroritemtypedef)
+  - [EnableFastSnapshotRestoreStateErrorTypeDef](#enablefastsnapshotrestorestateerrortypedef)
+  - [EnableFastSnapshotRestoreSuccessItemTypeDef](#enablefastsnapshotrestoresuccessitemtypedef)
   - [EnableFastSnapshotRestoresResultTypeDef](#enablefastsnapshotrestoresresulttypedef)
   - [EnableSerialConsoleAccessResultTypeDef](#enableserialconsoleaccessresulttypedef)
   - [EnableTransitGatewayRouteTablePropagationResultTypeDef](#enabletransitgatewayroutetablepropagationresulttypedef)
   - [EnableVpcClassicLinkDnsSupportResultTypeDef](#enablevpcclassiclinkdnssupportresulttypedef)
   - [EnableVpcClassicLinkResultTypeDef](#enablevpcclassiclinkresulttypedef)
   - [EnclaveOptionsRequestTypeDef](#enclaveoptionsrequesttypedef)
+  - [EnclaveOptionsTypeDef](#enclaveoptionstypedef)
+  - [EventInformationTypeDef](#eventinformationtypedef)
+  - [ExplanationTypeDef](#explanationtypedef)
   - [ExportClientVpnClientCertificateRevocationListResultTypeDef](#exportclientvpnclientcertificaterevocationlistresulttypedef)
   - [ExportClientVpnClientConfigurationResultTypeDef](#exportclientvpnclientconfigurationresulttypedef)
   - [ExportImageResultTypeDef](#exportimageresulttypedef)
+  - [ExportImageTaskTypeDef](#exportimagetasktypedef)
   - [ExportTaskS3LocationRequestTypeDef](#exporttasks3locationrequesttypedef)
+  - [ExportTaskS3LocationTypeDef](#exporttasks3locationtypedef)
+  - [ExportTaskTypeDef](#exporttasktypedef)
   - [ExportToS3TaskSpecificationTypeDef](#exporttos3taskspecificationtypedef)
+  - [ExportToS3TaskTypeDef](#exporttos3tasktypedef)
   - [ExportTransitGatewayRoutesResultTypeDef](#exporttransitgatewayroutesresulttypedef)
+  - [FailedQueuedPurchaseDeletionTypeDef](#failedqueuedpurchasedeletiontypedef)
+  - [FederatedAuthenticationRequestTypeDef](#federatedauthenticationrequesttypedef)
+  - [FederatedAuthenticationTypeDef](#federatedauthenticationtypedef)
   - [FilterTypeDef](#filtertypedef)
+  - [FleetDataTypeDef](#fleetdatatypedef)
   - [FleetLaunchTemplateConfigRequestTypeDef](#fleetlaunchtemplateconfigrequesttypedef)
+  - [FleetLaunchTemplateConfigTypeDef](#fleetlaunchtemplateconfigtypedef)
+  - [FleetLaunchTemplateOverridesRequestTypeDef](#fleetlaunchtemplateoverridesrequesttypedef)
+  - [FleetLaunchTemplateOverridesTypeDef](#fleetlaunchtemplateoverridestypedef)
+  - [FleetLaunchTemplateSpecificationRequestTypeDef](#fleetlaunchtemplatespecificationrequesttypedef)
+  - [FleetLaunchTemplateSpecificationTypeDef](#fleetlaunchtemplatespecificationtypedef)
+  - [FleetSpotCapacityRebalanceRequestTypeDef](#fleetspotcapacityrebalancerequesttypedef)
+  - [FleetSpotCapacityRebalanceTypeDef](#fleetspotcapacityrebalancetypedef)
+  - [FleetSpotMaintenanceStrategiesRequestTypeDef](#fleetspotmaintenancestrategiesrequesttypedef)
+  - [FleetSpotMaintenanceStrategiesTypeDef](#fleetspotmaintenancestrategiestypedef)
+  - [FlowLogTypeDef](#flowlogtypedef)
+  - [FpgaDeviceInfoTypeDef](#fpgadeviceinfotypedef)
+  - [FpgaDeviceMemoryInfoTypeDef](#fpgadevicememoryinfotypedef)
+  - [FpgaImageAttributeTypeDef](#fpgaimageattributetypedef)
+  - [FpgaImageStateTypeDef](#fpgaimagestatetypedef)
+  - [FpgaImageTypeDef](#fpgaimagetypedef)
+  - [FpgaInfoTypeDef](#fpgainfotypedef)
   - [GetAssociatedEnclaveCertificateIamRolesResultTypeDef](#getassociatedenclavecertificateiamrolesresulttypedef)
   - [GetAssociatedIpv6PoolCidrsResultTypeDef](#getassociatedipv6poolcidrsresulttypedef)
   - [GetCapacityReservationUsageResultTypeDef](#getcapacityreservationusageresulttypedef)
@@ -792,29 +462,146 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [GetTransitGatewayPrefixListReferencesResultTypeDef](#gettransitgatewayprefixlistreferencesresulttypedef)
   - [GetTransitGatewayRouteTableAssociationsResultTypeDef](#gettransitgatewayroutetableassociationsresulttypedef)
   - [GetTransitGatewayRouteTablePropagationsResultTypeDef](#gettransitgatewayroutetablepropagationsresulttypedef)
+  - [GpuDeviceInfoTypeDef](#gpudeviceinfotypedef)
+  - [GpuDeviceMemoryInfoTypeDef](#gpudevicememoryinfotypedef)
+  - [GpuInfoTypeDef](#gpuinfotypedef)
+  - [GroupIdentifierTypeDef](#groupidentifiertypedef)
   - [HibernationOptionsRequestTypeDef](#hibernationoptionsrequesttypedef)
+  - [HibernationOptionsTypeDef](#hibernationoptionstypedef)
+  - [HistoryRecordEntryTypeDef](#historyrecordentrytypedef)
+  - [HistoryRecordTypeDef](#historyrecordtypedef)
+  - [HostInstanceTypeDef](#hostinstancetypedef)
+  - [HostOfferingTypeDef](#hostofferingtypedef)
+  - [HostPropertiesTypeDef](#hostpropertiestypedef)
+  - [HostReservationTypeDef](#hostreservationtypedef)
+  - [HostTypeDef](#hosttypedef)
+  - [IKEVersionsListValueTypeDef](#ikeversionslistvaluetypedef)
+  - [IKEVersionsRequestListValueTypeDef](#ikeversionsrequestlistvaluetypedef)
+  - [IamInstanceProfileAssociationTypeDef](#iaminstanceprofileassociationtypedef)
+  - [IamInstanceProfileSpecificationTypeDef](#iaminstanceprofilespecificationtypedef)
+  - [IamInstanceProfileTypeDef](#iaminstanceprofiletypedef)
+  - [IcmpTypeCodeTypeDef](#icmptypecodetypedef)
+  - [IdFormatTypeDef](#idformattypedef)
   - [ImageAttributeTypeDef](#imageattributetypedef)
   - [ImageDiskContainerTypeDef](#imagediskcontainertypedef)
+  - [ImageTypeDef](#imagetypedef)
   - [ImportClientVpnClientCertificateRevocationListResultTypeDef](#importclientvpnclientcertificaterevocationlistresulttypedef)
   - [ImportImageLicenseConfigurationRequestTypeDef](#importimagelicenseconfigurationrequesttypedef)
+  - [ImportImageLicenseConfigurationResponseTypeDef](#importimagelicenseconfigurationresponsetypedef)
   - [ImportImageResultTypeDef](#importimageresulttypedef)
+  - [ImportImageTaskTypeDef](#importimagetasktypedef)
   - [ImportInstanceLaunchSpecificationTypeDef](#importinstancelaunchspecificationtypedef)
   - [ImportInstanceResultTypeDef](#importinstanceresulttypedef)
+  - [ImportInstanceTaskDetailsTypeDef](#importinstancetaskdetailstypedef)
+  - [ImportInstanceVolumeDetailItemTypeDef](#importinstancevolumedetailitemtypedef)
   - [ImportKeyPairResultTypeDef](#importkeypairresulttypedef)
   - [ImportSnapshotResultTypeDef](#importsnapshotresulttypedef)
+  - [ImportSnapshotTaskTypeDef](#importsnapshottasktypedef)
   - [ImportVolumeResultTypeDef](#importvolumeresulttypedef)
+  - [ImportVolumeTaskDetailsTypeDef](#importvolumetaskdetailstypedef)
+  - [InferenceAcceleratorInfoTypeDef](#inferenceacceleratorinfotypedef)
+  - [InferenceDeviceInfoTypeDef](#inferencedeviceinfotypedef)
   - [InstanceAttributeTypeDef](#instanceattributetypedef)
   - [InstanceBlockDeviceMappingSpecificationTypeDef](#instanceblockdevicemappingspecificationtypedef)
+  - [InstanceBlockDeviceMappingTypeDef](#instanceblockdevicemappingtypedef)
+  - [InstanceCapacityTypeDef](#instancecapacitytypedef)
+  - [InstanceCountTypeDef](#instancecounttypedef)
   - [InstanceCreditSpecificationRequestTypeDef](#instancecreditspecificationrequesttypedef)
+  - [InstanceCreditSpecificationTypeDef](#instancecreditspecificationtypedef)
+  - [InstanceExportDetailsTypeDef](#instanceexportdetailstypedef)
+  - [InstanceFamilyCreditSpecificationTypeDef](#instancefamilycreditspecificationtypedef)
+  - [InstanceIpv6AddressRequestTypeDef](#instanceipv6addressrequesttypedef)
+  - [InstanceIpv6AddressTypeDef](#instanceipv6addresstypedef)
   - [InstanceMarketOptionsRequestTypeDef](#instancemarketoptionsrequesttypedef)
   - [InstanceMetadataOptionsRequestTypeDef](#instancemetadataoptionsrequesttypedef)
+  - [InstanceMetadataOptionsResponseTypeDef](#instancemetadataoptionsresponsetypedef)
+  - [InstanceMonitoringTypeDef](#instancemonitoringtypedef)
+  - [InstanceNetworkInterfaceAssociationTypeDef](#instancenetworkinterfaceassociationtypedef)
+  - [InstanceNetworkInterfaceAttachmentTypeDef](#instancenetworkinterfaceattachmenttypedef)
+  - [InstanceNetworkInterfaceSpecificationTypeDef](#instancenetworkinterfacespecificationtypedef)
+  - [InstanceNetworkInterfaceTypeDef](#instancenetworkinterfacetypedef)
+  - [InstancePrivateIpAddressTypeDef](#instanceprivateipaddresstypedef)
   - [InstanceSpecificationTypeDef](#instancespecificationtypedef)
+  - [InstanceStateChangeTypeDef](#instancestatechangetypedef)
+  - [InstanceStateTypeDef](#instancestatetypedef)
+  - [InstanceStatusDetailsTypeDef](#instancestatusdetailstypedef)
+  - [InstanceStatusEventTypeDef](#instancestatuseventtypedef)
+  - [InstanceStatusSummaryTypeDef](#instancestatussummarytypedef)
+  - [InstanceStatusTypeDef](#instancestatustypedef)
+  - [InstanceStorageInfoTypeDef](#instancestorageinfotypedef)
+  - [InstanceTagNotificationAttributeTypeDef](#instancetagnotificationattributetypedef)
+  - [InstanceTypeDef](#instancetypedef)
+  - [InstanceTypeInfoTypeDef](#instancetypeinfotypedef)
+  - [InstanceTypeOfferingTypeDef](#instancetypeofferingtypedef)
+  - [InstanceUsageTypeDef](#instanceusagetypedef)
   - [IntegrateServicesTypeDef](#integrateservicestypedef)
+  - [InternetGatewayAttachmentTypeDef](#internetgatewayattachmenttypedef)
+  - [InternetGatewayTypeDef](#internetgatewaytypedef)
+  - [IpPermissionTypeDef](#ippermissiontypedef)
+  - [IpRangeTypeDef](#iprangetypedef)
+  - [Ipv6CidrAssociationTypeDef](#ipv6cidrassociationtypedef)
+  - [Ipv6CidrBlockTypeDef](#ipv6cidrblocktypedef)
+  - [Ipv6PoolTypeDef](#ipv6pooltypedef)
+  - [Ipv6RangeTypeDef](#ipv6rangetypedef)
+  - [KeyPairInfoTypeDef](#keypairinfotypedef)
   - [KeyPairTypeDef](#keypairtypedef)
+  - [LastErrorTypeDef](#lasterrortypedef)
   - [LaunchPermissionModificationsTypeDef](#launchpermissionmodificationstypedef)
+  - [LaunchPermissionTypeDef](#launchpermissiontypedef)
+  - [LaunchSpecificationTypeDef](#launchspecificationtypedef)
+  - [LaunchTemplateAndOverridesResponseTypeDef](#launchtemplateandoverridesresponsetypedef)
+  - [LaunchTemplateBlockDeviceMappingRequestTypeDef](#launchtemplateblockdevicemappingrequesttypedef)
+  - [LaunchTemplateBlockDeviceMappingTypeDef](#launchtemplateblockdevicemappingtypedef)
+  - [LaunchTemplateCapacityReservationSpecificationRequestTypeDef](#launchtemplatecapacityreservationspecificationrequesttypedef)
+  - [LaunchTemplateCapacityReservationSpecificationResponseTypeDef](#launchtemplatecapacityreservationspecificationresponsetypedef)
+  - [LaunchTemplateConfigTypeDef](#launchtemplateconfigtypedef)
+  - [LaunchTemplateCpuOptionsRequestTypeDef](#launchtemplatecpuoptionsrequesttypedef)
+  - [LaunchTemplateCpuOptionsTypeDef](#launchtemplatecpuoptionstypedef)
+  - [LaunchTemplateEbsBlockDeviceRequestTypeDef](#launchtemplateebsblockdevicerequesttypedef)
+  - [LaunchTemplateEbsBlockDeviceTypeDef](#launchtemplateebsblockdevicetypedef)
+  - [LaunchTemplateElasticInferenceAcceleratorResponseTypeDef](#launchtemplateelasticinferenceacceleratorresponsetypedef)
+  - [LaunchTemplateElasticInferenceAcceleratorTypeDef](#launchtemplateelasticinferenceacceleratortypedef)
+  - [LaunchTemplateEnclaveOptionsRequestTypeDef](#launchtemplateenclaveoptionsrequesttypedef)
+  - [LaunchTemplateEnclaveOptionsTypeDef](#launchtemplateenclaveoptionstypedef)
+  - [LaunchTemplateHibernationOptionsRequestTypeDef](#launchtemplatehibernationoptionsrequesttypedef)
+  - [LaunchTemplateHibernationOptionsTypeDef](#launchtemplatehibernationoptionstypedef)
+  - [LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef](#launchtemplateiaminstanceprofilespecificationrequesttypedef)
+  - [LaunchTemplateIamInstanceProfileSpecificationTypeDef](#launchtemplateiaminstanceprofilespecificationtypedef)
+  - [LaunchTemplateInstanceMarketOptionsRequestTypeDef](#launchtemplateinstancemarketoptionsrequesttypedef)
+  - [LaunchTemplateInstanceMarketOptionsTypeDef](#launchtemplateinstancemarketoptionstypedef)
+  - [LaunchTemplateInstanceMetadataOptionsRequestTypeDef](#launchtemplateinstancemetadataoptionsrequesttypedef)
+  - [LaunchTemplateInstanceMetadataOptionsTypeDef](#launchtemplateinstancemetadataoptionstypedef)
+  - [LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef](#launchtemplateinstancenetworkinterfacespecificationrequesttypedef)
+  - [LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef](#launchtemplateinstancenetworkinterfacespecificationtypedef)
+  - [LaunchTemplateLicenseConfigurationRequestTypeDef](#launchtemplatelicenseconfigurationrequesttypedef)
+  - [LaunchTemplateLicenseConfigurationTypeDef](#launchtemplatelicenseconfigurationtypedef)
+  - [LaunchTemplateOverridesTypeDef](#launchtemplateoverridestypedef)
+  - [LaunchTemplatePlacementRequestTypeDef](#launchtemplateplacementrequesttypedef)
+  - [LaunchTemplatePlacementTypeDef](#launchtemplateplacementtypedef)
   - [LaunchTemplateSpecificationTypeDef](#launchtemplatespecificationtypedef)
+  - [LaunchTemplateSpotMarketOptionsRequestTypeDef](#launchtemplatespotmarketoptionsrequesttypedef)
+  - [LaunchTemplateSpotMarketOptionsTypeDef](#launchtemplatespotmarketoptionstypedef)
+  - [LaunchTemplateTagSpecificationRequestTypeDef](#launchtemplatetagspecificationrequesttypedef)
+  - [LaunchTemplateTagSpecificationTypeDef](#launchtemplatetagspecificationtypedef)
+  - [LaunchTemplateTypeDef](#launchtemplatetypedef)
+  - [LaunchTemplateVersionTypeDef](#launchtemplateversiontypedef)
+  - [LaunchTemplatesMonitoringRequestTypeDef](#launchtemplatesmonitoringrequesttypedef)
+  - [LaunchTemplatesMonitoringTypeDef](#launchtemplatesmonitoringtypedef)
   - [LicenseConfigurationRequestTypeDef](#licenseconfigurationrequesttypedef)
+  - [LicenseConfigurationTypeDef](#licenseconfigurationtypedef)
+  - [LoadBalancersConfigTypeDef](#loadbalancersconfigtypedef)
   - [LoadPermissionModificationsTypeDef](#loadpermissionmodificationstypedef)
+  - [LoadPermissionRequestTypeDef](#loadpermissionrequesttypedef)
+  - [LoadPermissionTypeDef](#loadpermissiontypedef)
+  - [LocalGatewayRouteTableTypeDef](#localgatewayroutetabletypedef)
+  - [LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef](#localgatewayroutetablevirtualinterfacegroupassociationtypedef)
+  - [LocalGatewayRouteTableVpcAssociationTypeDef](#localgatewayroutetablevpcassociationtypedef)
+  - [LocalGatewayRouteTypeDef](#localgatewayroutetypedef)
+  - [LocalGatewayTypeDef](#localgatewaytypedef)
+  - [LocalGatewayVirtualInterfaceGroupTypeDef](#localgatewayvirtualinterfacegrouptypedef)
+  - [LocalGatewayVirtualInterfaceTypeDef](#localgatewayvirtualinterfacetypedef)
+  - [ManagedPrefixListTypeDef](#managedprefixlisttypedef)
+  - [MemoryInfoTypeDef](#memoryinfotypedef)
   - [ModifyAddressAttributeResultTypeDef](#modifyaddressattributeresulttypedef)
   - [ModifyAvailabilityZoneGroupResultTypeDef](#modifyavailabilityzonegroupresulttypedef)
   - [ModifyCapacityReservationResultTypeDef](#modifycapacityreservationresulttypedef)
@@ -854,18 +641,80 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [ModifyVpnTunnelOptionsResultTypeDef](#modifyvpntunneloptionsresulttypedef)
   - [ModifyVpnTunnelOptionsSpecificationTypeDef](#modifyvpntunneloptionsspecificationtypedef)
   - [MonitorInstancesResultTypeDef](#monitorinstancesresulttypedef)
+  - [MonitoringTypeDef](#monitoringtypedef)
   - [MoveAddressToVpcResultTypeDef](#moveaddresstovpcresulttypedef)
+  - [MovingAddressStatusTypeDef](#movingaddressstatustypedef)
+  - [NatGatewayAddressTypeDef](#natgatewayaddresstypedef)
+  - [NatGatewayTypeDef](#natgatewaytypedef)
+  - [NetworkAclAssociationTypeDef](#networkaclassociationtypedef)
+  - [NetworkAclEntryTypeDef](#networkaclentrytypedef)
+  - [NetworkAclTypeDef](#networkacltypedef)
+  - [NetworkCardInfoTypeDef](#networkcardinfotypedef)
+  - [NetworkInfoTypeDef](#networkinfotypedef)
+  - [NetworkInsightsAnalysisTypeDef](#networkinsightsanalysistypedef)
+  - [NetworkInsightsPathTypeDef](#networkinsightspathtypedef)
+  - [NetworkInterfaceAssociationTypeDef](#networkinterfaceassociationtypedef)
   - [NetworkInterfaceAttachmentChangesTypeDef](#networkinterfaceattachmentchangestypedef)
+  - [NetworkInterfaceAttachmentTypeDef](#networkinterfaceattachmenttypedef)
+  - [NetworkInterfaceIpv6AddressTypeDef](#networkinterfaceipv6addresstypedef)
+  - [NetworkInterfacePermissionStateTypeDef](#networkinterfacepermissionstatetypedef)
+  - [NetworkInterfacePermissionTypeDef](#networkinterfacepermissiontypedef)
+  - [NetworkInterfacePrivateIpAddressTypeDef](#networkinterfaceprivateipaddresstypedef)
+  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
   - [NewDhcpConfigurationTypeDef](#newdhcpconfigurationtypedef)
   - [OnDemandOptionsRequestTypeDef](#ondemandoptionsrequesttypedef)
+  - [OnDemandOptionsTypeDef](#ondemandoptionstypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PathComponentTypeDef](#pathcomponenttypedef)
+  - [PciIdTypeDef](#pciidtypedef)
+  - [PeeringAttachmentStatusTypeDef](#peeringattachmentstatustypedef)
   - [PeeringConnectionOptionsRequestTypeDef](#peeringconnectionoptionsrequesttypedef)
+  - [PeeringConnectionOptionsTypeDef](#peeringconnectionoptionstypedef)
+  - [PeeringTgwInfoTypeDef](#peeringtgwinfotypedef)
+  - [Phase1DHGroupNumbersListValueTypeDef](#phase1dhgroupnumberslistvaluetypedef)
+  - [Phase1DHGroupNumbersRequestListValueTypeDef](#phase1dhgroupnumbersrequestlistvaluetypedef)
+  - [Phase1EncryptionAlgorithmsListValueTypeDef](#phase1encryptionalgorithmslistvaluetypedef)
+  - [Phase1EncryptionAlgorithmsRequestListValueTypeDef](#phase1encryptionalgorithmsrequestlistvaluetypedef)
+  - [Phase1IntegrityAlgorithmsListValueTypeDef](#phase1integrityalgorithmslistvaluetypedef)
+  - [Phase1IntegrityAlgorithmsRequestListValueTypeDef](#phase1integrityalgorithmsrequestlistvaluetypedef)
+  - [Phase2DHGroupNumbersListValueTypeDef](#phase2dhgroupnumberslistvaluetypedef)
+  - [Phase2DHGroupNumbersRequestListValueTypeDef](#phase2dhgroupnumbersrequestlistvaluetypedef)
+  - [Phase2EncryptionAlgorithmsListValueTypeDef](#phase2encryptionalgorithmslistvaluetypedef)
+  - [Phase2EncryptionAlgorithmsRequestListValueTypeDef](#phase2encryptionalgorithmsrequestlistvaluetypedef)
+  - [Phase2IntegrityAlgorithmsListValueTypeDef](#phase2integrityalgorithmslistvaluetypedef)
+  - [Phase2IntegrityAlgorithmsRequestListValueTypeDef](#phase2integrityalgorithmsrequestlistvaluetypedef)
+  - [PlacementGroupInfoTypeDef](#placementgroupinfotypedef)
+  - [PlacementGroupTypeDef](#placementgrouptypedef)
+  - [PlacementResponseTypeDef](#placementresponsetypedef)
+  - [PlacementTypeDef](#placementtypedef)
+  - [PoolCidrBlockTypeDef](#poolcidrblocktypedef)
+  - [PortRangeTypeDef](#portrangetypedef)
+  - [PrefixListAssociationTypeDef](#prefixlistassociationtypedef)
+  - [PrefixListEntryTypeDef](#prefixlistentrytypedef)
+  - [PrefixListIdTypeDef](#prefixlistidtypedef)
+  - [PrefixListTypeDef](#prefixlisttypedef)
   - [PriceScheduleSpecificationTypeDef](#priceschedulespecificationtypedef)
+  - [PriceScheduleTypeDef](#pricescheduletypedef)
+  - [PricingDetailTypeDef](#pricingdetailtypedef)
+  - [PrincipalIdFormatTypeDef](#principalidformattypedef)
+  - [PrivateDnsDetailsTypeDef](#privatednsdetailstypedef)
+  - [PrivateDnsNameConfigurationTypeDef](#privatednsnameconfigurationtypedef)
+  - [PrivateIpAddressSpecificationTypeDef](#privateipaddressspecificationtypedef)
+  - [ProcessorInfoTypeDef](#processorinfotypedef)
+  - [ProductCodeTypeDef](#productcodetypedef)
+  - [PropagatingVgwTypeDef](#propagatingvgwtypedef)
   - [ProvisionByoipCidrResultTypeDef](#provisionbyoipcidrresulttypedef)
+  - [ProvisionedBandwidthTypeDef](#provisionedbandwidthtypedef)
+  - [PtrUpdateStatusTypeDef](#ptrupdatestatustypedef)
+  - [PublicIpv4PoolRangeTypeDef](#publicipv4poolrangetypedef)
+  - [PublicIpv4PoolTypeDef](#publicipv4pooltypedef)
   - [PurchaseHostReservationResultTypeDef](#purchasehostreservationresulttypedef)
   - [PurchaseRequestTypeDef](#purchaserequesttypedef)
   - [PurchaseReservedInstancesOfferingResultTypeDef](#purchasereservedinstancesofferingresulttypedef)
   - [PurchaseScheduledInstancesResultTypeDef](#purchasescheduledinstancesresulttypedef)
+  - [PurchaseTypeDef](#purchasetypedef)
+  - [RecurringChargeTypeDef](#recurringchargetypedef)
+  - [RegionTypeDef](#regiontypedef)
   - [RegisterImageResultTypeDef](#registerimageresulttypedef)
   - [RegisterInstanceEventNotificationAttributesResultTypeDef](#registerinstanceeventnotificationattributesresulttypedef)
   - [RegisterInstanceTagAttributeRequestTypeDef](#registerinstancetagattributerequesttypedef)
@@ -880,52 +729,281 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
   - [RemovePrefixListEntryTypeDef](#removeprefixlistentrytypedef)
   - [ReplaceIamInstanceProfileAssociationResultTypeDef](#replaceiaminstanceprofileassociationresulttypedef)
   - [ReplaceNetworkAclAssociationResultTypeDef](#replacenetworkaclassociationresulttypedef)
+  - [ReplaceRootVolumeTaskTypeDef](#replacerootvolumetasktypedef)
   - [ReplaceRouteTableAssociationResultTypeDef](#replaceroutetableassociationresulttypedef)
   - [ReplaceTransitGatewayRouteResultTypeDef](#replacetransitgatewayrouteresulttypedef)
   - [RequestLaunchTemplateDataTypeDef](#requestlaunchtemplatedatatypedef)
   - [RequestSpotFleetResponseTypeDef](#requestspotfleetresponsetypedef)
   - [RequestSpotInstancesResultTypeDef](#requestspotinstancesresulttypedef)
   - [RequestSpotLaunchSpecificationTypeDef](#requestspotlaunchspecificationtypedef)
+  - [ReservationTypeDef](#reservationtypedef)
+  - [ReservationValueTypeDef](#reservationvaluetypedef)
   - [ReservedInstanceLimitPriceTypeDef](#reservedinstancelimitpricetypedef)
+  - [ReservedInstanceReservationValueTypeDef](#reservedinstancereservationvaluetypedef)
+  - [ReservedInstancesConfigurationTypeDef](#reservedinstancesconfigurationtypedef)
+  - [ReservedInstancesIdTypeDef](#reservedinstancesidtypedef)
+  - [ReservedInstancesListingTypeDef](#reservedinstanceslistingtypedef)
+  - [ReservedInstancesModificationResultTypeDef](#reservedinstancesmodificationresulttypedef)
+  - [ReservedInstancesModificationTypeDef](#reservedinstancesmodificationtypedef)
+  - [ReservedInstancesOfferingTypeDef](#reservedinstancesofferingtypedef)
+  - [ReservedInstancesTypeDef](#reservedinstancestypedef)
   - [ResetAddressAttributeResultTypeDef](#resetaddressattributeresulttypedef)
   - [ResetEbsDefaultKmsKeyIdResultTypeDef](#resetebsdefaultkmskeyidresulttypedef)
   - [ResetFpgaImageAttributeResultTypeDef](#resetfpgaimageattributeresulttypedef)
+  - [ResponseErrorTypeDef](#responseerrortypedef)
+  - [ResponseLaunchTemplateDataTypeDef](#responselaunchtemplatedatatypedef)
   - [RestoreAddressToClassicResultTypeDef](#restoreaddresstoclassicresulttypedef)
   - [RestoreManagedPrefixListVersionResultTypeDef](#restoremanagedprefixlistversionresulttypedef)
   - [RevokeClientVpnIngressResultTypeDef](#revokeclientvpningressresulttypedef)
   - [RevokeSecurityGroupEgressResultTypeDef](#revokesecuritygroupegressresulttypedef)
   - [RevokeSecurityGroupIngressResultTypeDef](#revokesecuritygroupingressresulttypedef)
+  - [RouteTableAssociationStateTypeDef](#routetableassociationstatetypedef)
+  - [RouteTableAssociationTypeDef](#routetableassociationtypedef)
+  - [RouteTableTypeDef](#routetabletypedef)
+  - [RouteTypeDef](#routetypedef)
+  - [RunInstancesMonitoringEnabledTypeDef](#runinstancesmonitoringenabledtypedef)
   - [RunScheduledInstancesResultTypeDef](#runscheduledinstancesresulttypedef)
   - [S3ObjectTagTypeDef](#s3objecttagtypedef)
+  - [S3StorageTypeDef](#s3storagetypedef)
+  - [ScheduledInstanceAvailabilityTypeDef](#scheduledinstanceavailabilitytypedef)
   - [ScheduledInstanceRecurrenceRequestTypeDef](#scheduledinstancerecurrencerequesttypedef)
+  - [ScheduledInstanceRecurrenceTypeDef](#scheduledinstancerecurrencetypedef)
+  - [ScheduledInstanceTypeDef](#scheduledinstancetypedef)
+  - [ScheduledInstancesBlockDeviceMappingTypeDef](#scheduledinstancesblockdevicemappingtypedef)
+  - [ScheduledInstancesEbsTypeDef](#scheduledinstancesebstypedef)
+  - [ScheduledInstancesIamInstanceProfileTypeDef](#scheduledinstancesiaminstanceprofiletypedef)
+  - [ScheduledInstancesIpv6AddressTypeDef](#scheduledinstancesipv6addresstypedef)
   - [ScheduledInstancesLaunchSpecificationTypeDef](#scheduledinstanceslaunchspecificationtypedef)
+  - [ScheduledInstancesMonitoringTypeDef](#scheduledinstancesmonitoringtypedef)
+  - [ScheduledInstancesNetworkInterfaceTypeDef](#scheduledinstancesnetworkinterfacetypedef)
+  - [ScheduledInstancesPlacementTypeDef](#scheduledinstancesplacementtypedef)
+  - [ScheduledInstancesPrivateIpAddressConfigTypeDef](#scheduledinstancesprivateipaddressconfigtypedef)
   - [SearchLocalGatewayRoutesResultTypeDef](#searchlocalgatewayroutesresulttypedef)
   - [SearchTransitGatewayMulticastGroupsResultTypeDef](#searchtransitgatewaymulticastgroupsresulttypedef)
   - [SearchTransitGatewayRoutesResultTypeDef](#searchtransitgatewayroutesresulttypedef)
+  - [SecurityGroupIdentifierTypeDef](#securitygroupidentifiertypedef)
+  - [SecurityGroupReferenceTypeDef](#securitygroupreferencetypedef)
+  - [SecurityGroupTypeDef](#securitygrouptypedef)
+  - [ServiceConfigurationTypeDef](#serviceconfigurationtypedef)
+  - [ServiceDetailTypeDef](#servicedetailtypedef)
+  - [ServiceTypeDetailTypeDef](#servicetypedetailtypedef)
   - [SlotDateTimeRangeRequestTypeDef](#slotdatetimerangerequesttypedef)
   - [SlotStartTimeRangeRequestTypeDef](#slotstarttimerangerequesttypedef)
+  - [SnapshotDetailTypeDef](#snapshotdetailtypedef)
   - [SnapshotDiskContainerTypeDef](#snapshotdiskcontainertypedef)
+  - [SnapshotInfoTypeDef](#snapshotinfotypedef)
+  - [SnapshotTaskDetailTypeDef](#snapshottaskdetailtypedef)
+  - [SnapshotTypeDef](#snapshottypedef)
+  - [SpotCapacityRebalanceTypeDef](#spotcapacityrebalancetypedef)
+  - [SpotDatafeedSubscriptionTypeDef](#spotdatafeedsubscriptiontypedef)
+  - [SpotFleetLaunchSpecificationTypeDef](#spotfleetlaunchspecificationtypedef)
+  - [SpotFleetMonitoringTypeDef](#spotfleetmonitoringtypedef)
+  - [SpotFleetRequestConfigDataTypeDef](#spotfleetrequestconfigdatatypedef)
+  - [SpotFleetRequestConfigTypeDef](#spotfleetrequestconfigtypedef)
+  - [SpotFleetTagSpecificationTypeDef](#spotfleettagspecificationtypedef)
+  - [SpotInstanceRequestTypeDef](#spotinstancerequesttypedef)
+  - [SpotInstanceStateFaultTypeDef](#spotinstancestatefaulttypedef)
+  - [SpotInstanceStatusTypeDef](#spotinstancestatustypedef)
+  - [SpotMaintenanceStrategiesTypeDef](#spotmaintenancestrategiestypedef)
+  - [SpotMarketOptionsTypeDef](#spotmarketoptionstypedef)
   - [SpotOptionsRequestTypeDef](#spotoptionsrequesttypedef)
+  - [SpotOptionsTypeDef](#spotoptionstypedef)
+  - [SpotPlacementTypeDef](#spotplacementtypedef)
+  - [SpotPriceTypeDef](#spotpricetypedef)
+  - [StaleIpPermissionTypeDef](#staleippermissiontypedef)
+  - [StaleSecurityGroupTypeDef](#stalesecuritygrouptypedef)
   - [StartInstancesResultTypeDef](#startinstancesresulttypedef)
   - [StartNetworkInsightsAnalysisResultTypeDef](#startnetworkinsightsanalysisresulttypedef)
   - [StartVpcEndpointServicePrivateDnsVerificationResultTypeDef](#startvpcendpointserviceprivatednsverificationresulttypedef)
+  - [StateReasonTypeDef](#statereasontypedef)
   - [StopInstancesResultTypeDef](#stopinstancesresulttypedef)
   - [StorageLocationTypeDef](#storagelocationtypedef)
+  - [StorageTypeDef](#storagetypedef)
+  - [StoreImageTaskResultTypeDef](#storeimagetaskresulttypedef)
+  - [SubnetAssociationTypeDef](#subnetassociationtypedef)
+  - [SubnetCidrBlockStateTypeDef](#subnetcidrblockstatetypedef)
+  - [SubnetIpv6CidrBlockAssociationTypeDef](#subnetipv6cidrblockassociationtypedef)
+  - [SubnetTypeDef](#subnettypedef)
+  - [SuccessfulInstanceCreditSpecificationItemTypeDef](#successfulinstancecreditspecificationitemtypedef)
+  - [SuccessfulQueuedPurchaseDeletionTypeDef](#successfulqueuedpurchasedeletiontypedef)
+  - [TagDescriptionTypeDef](#tagdescriptiontypedef)
+  - [TagSpecificationTypeDef](#tagspecificationtypedef)
   - [TagTypeDef](#tagtypedef)
   - [TargetCapacitySpecificationRequestTypeDef](#targetcapacityspecificationrequesttypedef)
+  - [TargetCapacitySpecificationTypeDef](#targetcapacityspecificationtypedef)
   - [TargetConfigurationRequestTypeDef](#targetconfigurationrequesttypedef)
+  - [TargetConfigurationTypeDef](#targetconfigurationtypedef)
+  - [TargetGroupTypeDef](#targetgrouptypedef)
+  - [TargetGroupsConfigTypeDef](#targetgroupsconfigtypedef)
+  - [TargetNetworkTypeDef](#targetnetworktypedef)
+  - [TargetReservationValueTypeDef](#targetreservationvaluetypedef)
   - [TerminateClientVpnConnectionsResultTypeDef](#terminateclientvpnconnectionsresulttypedef)
+  - [TerminateConnectionStatusTypeDef](#terminateconnectionstatustypedef)
   - [TerminateInstancesResultTypeDef](#terminateinstancesresulttypedef)
+  - [TrafficMirrorFilterRuleTypeDef](#trafficmirrorfilterruletypedef)
+  - [TrafficMirrorFilterTypeDef](#trafficmirrorfiltertypedef)
   - [TrafficMirrorPortRangeRequestTypeDef](#trafficmirrorportrangerequesttypedef)
+  - [TrafficMirrorPortRangeTypeDef](#trafficmirrorportrangetypedef)
+  - [TrafficMirrorSessionTypeDef](#trafficmirrorsessiontypedef)
+  - [TrafficMirrorTargetTypeDef](#trafficmirrortargettypedef)
+  - [TransitGatewayAssociationTypeDef](#transitgatewayassociationtypedef)
+  - [TransitGatewayAttachmentAssociationTypeDef](#transitgatewayattachmentassociationtypedef)
+  - [TransitGatewayAttachmentBgpConfigurationTypeDef](#transitgatewayattachmentbgpconfigurationtypedef)
+  - [TransitGatewayAttachmentPropagationTypeDef](#transitgatewayattachmentpropagationtypedef)
+  - [TransitGatewayAttachmentTypeDef](#transitgatewayattachmenttypedef)
+  - [TransitGatewayConnectOptionsTypeDef](#transitgatewayconnectoptionstypedef)
+  - [TransitGatewayConnectPeerConfigurationTypeDef](#transitgatewayconnectpeerconfigurationtypedef)
+  - [TransitGatewayConnectPeerTypeDef](#transitgatewayconnectpeertypedef)
   - [TransitGatewayConnectRequestBgpOptionsTypeDef](#transitgatewayconnectrequestbgpoptionstypedef)
+  - [TransitGatewayConnectTypeDef](#transitgatewayconnecttypedef)
+  - [TransitGatewayMulticastDeregisteredGroupMembersTypeDef](#transitgatewaymulticastderegisteredgroupmemberstypedef)
+  - [TransitGatewayMulticastDeregisteredGroupSourcesTypeDef](#transitgatewaymulticastderegisteredgroupsourcestypedef)
+  - [TransitGatewayMulticastDomainAssociationTypeDef](#transitgatewaymulticastdomainassociationtypedef)
+  - [TransitGatewayMulticastDomainAssociationsTypeDef](#transitgatewaymulticastdomainassociationstypedef)
+  - [TransitGatewayMulticastDomainOptionsTypeDef](#transitgatewaymulticastdomainoptionstypedef)
+  - [TransitGatewayMulticastDomainTypeDef](#transitgatewaymulticastdomaintypedef)
+  - [TransitGatewayMulticastGroupTypeDef](#transitgatewaymulticastgrouptypedef)
+  - [TransitGatewayMulticastRegisteredGroupMembersTypeDef](#transitgatewaymulticastregisteredgroupmemberstypedef)
+  - [TransitGatewayMulticastRegisteredGroupSourcesTypeDef](#transitgatewaymulticastregisteredgroupsourcestypedef)
+  - [TransitGatewayOptionsTypeDef](#transitgatewayoptionstypedef)
+  - [TransitGatewayPeeringAttachmentTypeDef](#transitgatewaypeeringattachmenttypedef)
+  - [TransitGatewayPrefixListAttachmentTypeDef](#transitgatewayprefixlistattachmenttypedef)
+  - [TransitGatewayPrefixListReferenceTypeDef](#transitgatewayprefixlistreferencetypedef)
+  - [TransitGatewayPropagationTypeDef](#transitgatewaypropagationtypedef)
   - [TransitGatewayRequestOptionsTypeDef](#transitgatewayrequestoptionstypedef)
+  - [TransitGatewayRouteAttachmentTypeDef](#transitgatewayrouteattachmenttypedef)
+  - [TransitGatewayRouteTableAssociationTypeDef](#transitgatewayroutetableassociationtypedef)
+  - [TransitGatewayRouteTablePropagationTypeDef](#transitgatewayroutetablepropagationtypedef)
+  - [TransitGatewayRouteTableTypeDef](#transitgatewayroutetabletypedef)
+  - [TransitGatewayRouteTypeDef](#transitgatewayroutetypedef)
+  - [TransitGatewayTypeDef](#transitgatewaytypedef)
+  - [TransitGatewayVpcAttachmentOptionsTypeDef](#transitgatewayvpcattachmentoptionstypedef)
+  - [TransitGatewayVpcAttachmentTypeDef](#transitgatewayvpcattachmenttypedef)
+  - [TunnelOptionTypeDef](#tunneloptiontypedef)
   - [UnassignIpv6AddressesResultTypeDef](#unassignipv6addressesresulttypedef)
   - [UnmonitorInstancesResultTypeDef](#unmonitorinstancesresulttypedef)
+  - [UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef](#unsuccessfulinstancecreditspecificationitemerrortypedef)
+  - [UnsuccessfulInstanceCreditSpecificationItemTypeDef](#unsuccessfulinstancecreditspecificationitemtypedef)
+  - [UnsuccessfulItemErrorTypeDef](#unsuccessfulitemerrortypedef)
+  - [UnsuccessfulItemTypeDef](#unsuccessfulitemtypedef)
   - [UpdateSecurityGroupRuleDescriptionsEgressResultTypeDef](#updatesecuritygroupruledescriptionsegressresulttypedef)
   - [UpdateSecurityGroupRuleDescriptionsIngressResultTypeDef](#updatesecuritygroupruledescriptionsingressresulttypedef)
+  - [UserBucketDetailsTypeDef](#userbucketdetailstypedef)
+  - [UserBucketTypeDef](#userbuckettypedef)
+  - [UserDataTypeDef](#userdatatypedef)
+  - [UserIdGroupPairTypeDef](#useridgrouppairtypedef)
+  - [VCpuInfoTypeDef](#vcpuinfotypedef)
+  - [ValidationErrorTypeDef](#validationerrortypedef)
+  - [ValidationWarningTypeDef](#validationwarningtypedef)
+  - [VgwTelemetryTypeDef](#vgwtelemetrytypedef)
+  - [VolumeAttachmentTypeDef](#volumeattachmenttypedef)
+  - [VolumeDetailTypeDef](#volumedetailtypedef)
+  - [VolumeModificationTypeDef](#volumemodificationtypedef)
+  - [VolumeStatusActionTypeDef](#volumestatusactiontypedef)
+  - [VolumeStatusAttachmentStatusTypeDef](#volumestatusattachmentstatustypedef)
+  - [VolumeStatusDetailsTypeDef](#volumestatusdetailstypedef)
+  - [VolumeStatusEventTypeDef](#volumestatuseventtypedef)
+  - [VolumeStatusInfoTypeDef](#volumestatusinfotypedef)
+  - [VolumeStatusItemTypeDef](#volumestatusitemtypedef)
+  - [VolumeTypeDef](#volumetypedef)
+  - [VpcAttachmentTypeDef](#vpcattachmenttypedef)
+  - [VpcCidrBlockAssociationTypeDef](#vpccidrblockassociationtypedef)
+  - [VpcCidrBlockStateTypeDef](#vpccidrblockstatetypedef)
+  - [VpcClassicLinkTypeDef](#vpcclassiclinktypedef)
+  - [VpcEndpointConnectionTypeDef](#vpcendpointconnectiontypedef)
+  - [VpcEndpointTypeDef](#vpcendpointtypedef)
+  - [VpcIpv6CidrBlockAssociationTypeDef](#vpcipv6cidrblockassociationtypedef)
+  - [VpcPeeringConnectionOptionsDescriptionTypeDef](#vpcpeeringconnectionoptionsdescriptiontypedef)
+  - [VpcPeeringConnectionStateReasonTypeDef](#vpcpeeringconnectionstatereasontypedef)
+  - [VpcPeeringConnectionTypeDef](#vpcpeeringconnectiontypedef)
+  - [VpcPeeringConnectionVpcInfoTypeDef](#vpcpeeringconnectionvpcinfotypedef)
+  - [VpcTypeDef](#vpctypedef)
   - [VpnConnectionOptionsSpecificationTypeDef](#vpnconnectionoptionsspecificationtypedef)
+  - [VpnConnectionOptionsTypeDef](#vpnconnectionoptionstypedef)
+  - [VpnConnectionTypeDef](#vpnconnectiontypedef)
+  - [VpnGatewayTypeDef](#vpngatewaytypedef)
+  - [VpnStaticRouteTypeDef](#vpnstaticroutetypedef)
+  - [VpnTunnelOptionsSpecificationTypeDef](#vpntunneloptionsspecificationtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
   - [WithdrawByoipCidrResultTypeDef](#withdrawbyoipcidrresulttypedef)
+
+## AcceptReservedInstancesExchangeQuoteResultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AcceptReservedInstancesExchangeQuoteResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ExchangeId`: `str`
+
+
+## AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Associations`: `"TransitGatewayMulticastDomainAssociationsTypeDef"`
+
+
+## AcceptTransitGatewayPeeringAttachmentResultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AcceptTransitGatewayPeeringAttachmentResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayPeeringAttachment`: `"TransitGatewayPeeringAttachmentTypeDef"`
+
+
+## AcceptTransitGatewayVpcAttachmentResultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AcceptTransitGatewayVpcAttachmentResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayVpcAttachment`: `"TransitGatewayVpcAttachmentTypeDef"`
+
+
+## AcceptVpcEndpointConnectionsResultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AcceptVpcEndpointConnectionsResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Unsuccessful`: `List["UnsuccessfulItemTypeDef"]`
+
+
+## AcceptVpcPeeringConnectionResultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AcceptVpcPeeringConnectionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `VpcPeeringConnection`: `"VpcPeeringConnectionTypeDef"`
+
 
 ## AccountAttributeTypeDef
 
@@ -970,6 +1048,22 @@ Optional fields:
 - `InstanceHealth`: `InstanceHealthStatus`
 
 
+## AddPrefixListEntryTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AddPrefixListEntryTypeDef
+```
+
+
+Required fields:
+- `Cidr`: `str`
+
+
+
+Optional fields:
+- `Description`: `str`
+
+
 ## AddressAttributeTypeDef
 
 ```python
@@ -1010,6 +1104,52 @@ Optional fields:
 - `CustomerOwnedIp`: `str`
 - `CustomerOwnedIpv4Pool`: `str`
 - `CarrierIp`: `str`
+
+
+## AdvertiseByoipCidrResultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AdvertiseByoipCidrResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ByoipCidr`: `"ByoipCidrTypeDef"`
+
+
+## AllocateAddressResultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AllocateAddressResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `PublicIp`: `str`
+- `AllocationId`: `str`
+- `PublicIpv4Pool`: `str`
+- `NetworkBorderGroup`: `str`
+- `Domain`: `DomainType`
+- `CustomerOwnedIp`: `str`
+- `CustomerOwnedIpv4Pool`: `str`
+- `CarrierIp`: `str`
+
+
+## AllocateHostsResultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AllocateHostsResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `HostIds`: `List[str]`
 
 
 ## AllowedPrincipalTypeDef
@@ -1159,7823 +1299,6 @@ Optional fields:
 - `Protocol`: `str`
 
 
-## AssignedPrivateIpAddressTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AssignedPrivateIpAddressTypeDef
-```
-
-
-
-
-Optional fields:
-- `PrivateIpAddress`: `str`
-
-
-## AssociatedRoleTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AssociatedRoleTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociatedRoleArn`: `str`
-- `CertificateS3BucketName`: `str`
-- `CertificateS3ObjectKey`: `str`
-- `EncryptionKmsKeyId`: `str`
-
-
-## AssociatedTargetNetworkTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AssociatedTargetNetworkTypeDef
-```
-
-
-
-
-Optional fields:
-- `NetworkId`: `str`
-- `NetworkType`: `AssociatedNetworkType`
-
-
-## AssociationStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AssociationStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `AssociationStatusCode`
-- `Message`: `str`
-
-
-## AthenaIntegrationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AthenaIntegrationTypeDef
-```
-
-
-Required fields:
-- `IntegrationResultS3DestinationArn`: `str`
-- `PartitionLoadFrequency`: `PartitionLoadFrequency`
-
-
-
-Optional fields:
-- `PartitionStartDate`: `datetime`
-- `PartitionEndDate`: `datetime`
-
-
-## AttributeBooleanValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AttributeBooleanValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `bool`
-
-
-## AttributeValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AttributeValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## AuthorizationRuleTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AuthorizationRuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientVpnEndpointId`: `str`
-- `Description`: `str`
-- `GroupId`: `str`
-- `AccessAll`: `bool`
-- `DestinationCidr`: `str`
-- `Status`: `"ClientVpnAuthorizationRuleStatusTypeDef"`
-
-
-## AvailabilityZoneMessageTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AvailabilityZoneMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Message`: `str`
-
-
-## AvailabilityZoneTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AvailabilityZoneTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `AvailabilityZoneState`
-- `OptInStatus`: `AvailabilityZoneOptInStatus`
-- `Messages`: `List["AvailabilityZoneMessageTypeDef"]`
-- `RegionName`: `str`
-- `ZoneName`: `str`
-- `ZoneId`: `str`
-- `GroupName`: `str`
-- `NetworkBorderGroup`: `str`
-- `ZoneType`: `str`
-- `ParentZoneName`: `str`
-- `ParentZoneId`: `str`
-
-
-## AvailableCapacityTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AvailableCapacityTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailableInstanceCapacity`: `List["InstanceCapacityTypeDef"]`
-- `AvailableVCpus`: `int`
-
-
-## BlockDeviceMappingTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import BlockDeviceMappingTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeviceName`: `str`
-- `VirtualName`: `str`
-- `Ebs`: `"EbsBlockDeviceTypeDef"`
-- `NoDevice`: `str`
-
-
-## BundleTaskErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import BundleTaskErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-
-
-## BundleTaskTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import BundleTaskTypeDef
-```
-
-
-
-
-Optional fields:
-- `BundleId`: `str`
-- `BundleTaskError`: `"BundleTaskErrorTypeDef"`
-- `InstanceId`: `str`
-- `Progress`: `str`
-- `StartTime`: `datetime`
-- `State`: `BundleTaskState`
-- `Storage`: `"StorageTypeDef"`
-- `UpdateTime`: `datetime`
-
-
-## ByoipCidrTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ByoipCidrTypeDef
-```
-
-
-
-
-Optional fields:
-- `Cidr`: `str`
-- `Description`: `str`
-- `StatusMessage`: `str`
-- `State`: `ByoipCidrState`
-
-
-## CancelSpotFleetRequestsErrorItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CancelSpotFleetRequestsErrorItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `Error`: `"CancelSpotFleetRequestsErrorTypeDef"`
-- `SpotFleetRequestId`: `str`
-
-
-## CancelSpotFleetRequestsErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CancelSpotFleetRequestsErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `CancelBatchErrorCode`
-- `Message`: `str`
-
-
-## CancelSpotFleetRequestsSuccessItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CancelSpotFleetRequestsSuccessItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `CurrentSpotFleetRequestState`: `BatchState`
-- `PreviousSpotFleetRequestState`: `BatchState`
-- `SpotFleetRequestId`: `str`
-
-
-## CancelledSpotInstanceRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CancelledSpotInstanceRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `SpotInstanceRequestId`: `str`
-- `State`: `CancelSpotInstanceRequestState`
-
-
-## CapacityReservationGroupTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CapacityReservationGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupArn`: `str`
-- `OwnerId`: `str`
-
-
-## CapacityReservationOptionsRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CapacityReservationOptionsRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `UsageStrategy`: `FleetCapacityReservationUsageStrategy`
-
-
-## CapacityReservationOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CapacityReservationOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `UsageStrategy`: `FleetCapacityReservationUsageStrategy`
-
-
-## CapacityReservationSpecificationResponseTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CapacityReservationSpecificationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CapacityReservationPreference`: `CapacityReservationPreference`
-- `CapacityReservationTarget`: `"CapacityReservationTargetResponseTypeDef"`
-
-
-## CapacityReservationTargetResponseTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CapacityReservationTargetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CapacityReservationId`: `str`
-- `CapacityReservationResourceGroupArn`: `str`
-
-
-## CapacityReservationTargetTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CapacityReservationTargetTypeDef
-```
-
-
-
-
-Optional fields:
-- `CapacityReservationId`: `str`
-- `CapacityReservationResourceGroupArn`: `str`
-
-
-## CapacityReservationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CapacityReservationTypeDef
-```
-
-
-
-
-Optional fields:
-- `CapacityReservationId`: `str`
-- `OwnerId`: `str`
-- `CapacityReservationArn`: `str`
-- `AvailabilityZoneId`: `str`
-- `InstanceType`: `str`
-- `InstancePlatform`: `CapacityReservationInstancePlatform`
-- `AvailabilityZone`: `str`
-- `Tenancy`: `CapacityReservationTenancy`
-- `TotalInstanceCount`: `int`
-- `AvailableInstanceCount`: `int`
-- `EbsOptimized`: `bool`
-- `EphemeralStorage`: `bool`
-- `State`: `CapacityReservationState`
-- `StartDate`: `datetime`
-- `EndDate`: `datetime`
-- `EndDateType`: `EndDateType`
-- `InstanceMatchCriteria`: `InstanceMatchCriteria`
-- `CreateDate`: `datetime`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## CarrierGatewayTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CarrierGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `CarrierGatewayId`: `str`
-- `VpcId`: `str`
-- `State`: `CarrierGatewayState`
-- `OwnerId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## CertificateAuthenticationRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CertificateAuthenticationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientRootCertificateChainArn`: `str`
-
-
-## CertificateAuthenticationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CertificateAuthenticationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientRootCertificateChain`: `str`
-
-
-## CidrBlockTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CidrBlockTypeDef
-```
-
-
-
-
-Optional fields:
-- `CidrBlock`: `str`
-
-
-## ClassicLinkDnsSupportTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClassicLinkDnsSupportTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClassicLinkDnsSupported`: `bool`
-- `VpcId`: `str`
-
-
-## ClassicLinkInstanceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClassicLinkInstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Groups`: `List["GroupIdentifierTypeDef"]`
-- `InstanceId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `VpcId`: `str`
-
-
-## ClassicLoadBalancerTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClassicLoadBalancerTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## ClassicLoadBalancersConfigTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClassicLoadBalancersConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClassicLoadBalancers`: `List["ClassicLoadBalancerTypeDef"]`
-
-
-## ClientCertificateRevocationListStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClientCertificateRevocationListStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `ClientCertificateRevocationListStatusCode`
-- `Message`: `str`
-
-
-## ClientConnectResponseOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClientConnectResponseOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-- `LambdaFunctionArn`: `str`
-- `Status`: `"ClientVpnEndpointAttributeStatusTypeDef"`
-
-
-## ClientVpnAuthenticationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClientVpnAuthenticationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `ClientVpnAuthenticationType`
-- `ActiveDirectory`: `"DirectoryServiceAuthenticationTypeDef"`
-- `MutualAuthentication`: `"CertificateAuthenticationTypeDef"`
-- `FederatedAuthentication`: `"FederatedAuthenticationTypeDef"`
-
-
-## ClientVpnAuthorizationRuleStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClientVpnAuthorizationRuleStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `ClientVpnAuthorizationRuleStatusCode`
-- `Message`: `str`
-
-
-## ClientVpnConnectionStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClientVpnConnectionStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `ClientVpnConnectionStatusCode`
-- `Message`: `str`
-
-
-## ClientVpnConnectionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClientVpnConnectionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientVpnEndpointId`: `str`
-- `Timestamp`: `str`
-- `ConnectionId`: `str`
-- `Username`: `str`
-- `ConnectionEstablishedTime`: `str`
-- `IngressBytes`: `str`
-- `EgressBytes`: `str`
-- `IngressPackets`: `str`
-- `EgressPackets`: `str`
-- `ClientIp`: `str`
-- `CommonName`: `str`
-- `Status`: `"ClientVpnConnectionStatusTypeDef"`
-- `ConnectionEndTime`: `str`
-- `PostureComplianceStatuses`: `List[str]`
-
-
-## ClientVpnEndpointAttributeStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClientVpnEndpointAttributeStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `ClientVpnEndpointAttributeStatusCode`
-- `Message`: `str`
-
-
-## ClientVpnEndpointStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClientVpnEndpointStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `ClientVpnEndpointStatusCode`
-- `Message`: `str`
-
-
-## ClientVpnEndpointTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClientVpnEndpointTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientVpnEndpointId`: `str`
-- `Description`: `str`
-- `Status`: `"ClientVpnEndpointStatusTypeDef"`
-- `CreationTime`: `str`
-- `DeletionTime`: `str`
-- `DnsName`: `str`
-- `ClientCidrBlock`: `str`
-- `DnsServers`: `List[str]`
-- `SplitTunnel`: `bool`
-- `VpnProtocol`: `VpnProtocol`
-- `TransportProtocol`: `TransportProtocol`
-- `VpnPort`: `int`
-- `AssociatedTargetNetworks`: `List["AssociatedTargetNetworkTypeDef"]`
-- `ServerCertificateArn`: `str`
-- `AuthenticationOptions`: `List["ClientVpnAuthenticationTypeDef"]`
-- `ConnectionLogOptions`: `"ConnectionLogResponseOptionsTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-- `SecurityGroupIds`: `List[str]`
-- `VpcId`: `str`
-- `SelfServicePortalUrl`: `str`
-- `ClientConnectOptions`: `"ClientConnectResponseOptionsTypeDef"`
-
-
-## ClientVpnRouteStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClientVpnRouteStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `ClientVpnRouteStatusCode`
-- `Message`: `str`
-
-
-## ClientVpnRouteTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ClientVpnRouteTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientVpnEndpointId`: `str`
-- `DestinationCidr`: `str`
-- `TargetSubnet`: `str`
-- `Type`: `str`
-- `Origin`: `str`
-- `Status`: `"ClientVpnRouteStatusTypeDef"`
-- `Description`: `str`
-
-
-## CoipAddressUsageTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CoipAddressUsageTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllocationId`: `str`
-- `AwsAccountId`: `str`
-- `AwsService`: `str`
-- `CoIp`: `str`
-
-
-## CoipPoolTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CoipPoolTypeDef
-```
-
-
-
-
-Optional fields:
-- `PoolId`: `str`
-- `PoolCidrs`: `List[str]`
-- `LocalGatewayRouteTableId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `PoolArn`: `str`
-
-
-## ConnectionLogResponseOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ConnectionLogResponseOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-- `CloudwatchLogGroup`: `str`
-- `CloudwatchLogStream`: `str`
-
-
-## ConnectionNotificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ConnectionNotificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConnectionNotificationId`: `str`
-- `ServiceId`: `str`
-- `VpcEndpointId`: `str`
-- `ConnectionNotificationType`: `ConnectionNotificationType`
-- `ConnectionNotificationArn`: `str`
-- `ConnectionEvents`: `List[str]`
-- `ConnectionNotificationState`: `ConnectionNotificationState`
-
-
-## ConversionTaskTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ConversionTaskTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConversionTaskId`: `str`
-- `ExpirationTime`: `str`
-- `ImportInstance`: `"ImportInstanceTaskDetailsTypeDef"`
-- `ImportVolume`: `"ImportVolumeTaskDetailsTypeDef"`
-- `State`: `ConversionTaskState`
-- `StatusMessage`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## CpuOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CpuOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `CoreCount`: `int`
-- `ThreadsPerCore`: `int`
-
-
-## CreateFleetErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CreateFleetErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateAndOverrides`: `"LaunchTemplateAndOverridesResponseTypeDef"`
-- `Lifecycle`: `InstanceLifecycle`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## CreateFleetInstanceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CreateFleetInstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateAndOverrides`: `"LaunchTemplateAndOverridesResponseTypeDef"`
-- `Lifecycle`: `InstanceLifecycle`
-- `InstanceIds`: `List[str]`
-- `InstanceType`: `InstanceType`
-- `Platform`: `PlatformValues`
-
-
-## CreateVolumePermissionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CreateVolumePermissionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Group`: `PermissionGroup`
-- `UserId`: `str`
-
-
-## CreditSpecificationRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CreditSpecificationRequestTypeDef
-```
-
-
-Required fields:
-- `CpuCredits`: `str`
-
-
-
-
-## CreditSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CreditSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `CpuCredits`: `str`
-
-
-## CustomerGatewayTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import CustomerGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `BgpAsn`: `str`
-- `CustomerGatewayId`: `str`
-- `IpAddress`: `str`
-- `CertificateArn`: `str`
-- `State`: `str`
-- `Type`: `str`
-- `DeviceName`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## DeleteFleetErrorItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DeleteFleetErrorItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `Error`: `"DeleteFleetErrorTypeDef"`
-- `FleetId`: `str`
-
-
-## DeleteFleetErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DeleteFleetErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `DeleteFleetErrorCode`
-- `Message`: `str`
-
-
-## DeleteFleetSuccessItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DeleteFleetSuccessItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `CurrentFleetState`: `FleetStateCode`
-- `PreviousFleetState`: `FleetStateCode`
-- `FleetId`: `str`
-
-
-## DeleteLaunchTemplateVersionsResponseErrorItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DeleteLaunchTemplateVersionsResponseErrorItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateId`: `str`
-- `LaunchTemplateName`: `str`
-- `VersionNumber`: `int`
-- `ResponseError`: `"ResponseErrorTypeDef"`
-
-
-## DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateId`: `str`
-- `LaunchTemplateName`: `str`
-- `VersionNumber`: `int`
-
-
-## DeleteQueuedReservedInstancesErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DeleteQueuedReservedInstancesErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `DeleteQueuedReservedInstancesErrorCode`
-- `Message`: `str`
-
-
-## DescribeFastSnapshotRestoreSuccessItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DescribeFastSnapshotRestoreSuccessItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `SnapshotId`: `str`
-- `AvailabilityZone`: `str`
-- `State`: `FastSnapshotRestoreStateCode`
-- `StateTransitionReason`: `str`
-- `OwnerId`: `str`
-- `OwnerAlias`: `str`
-- `EnablingTime`: `datetime`
-- `OptimizingTime`: `datetime`
-- `EnabledTime`: `datetime`
-- `DisablingTime`: `datetime`
-- `DisabledTime`: `datetime`
-
-
-## DescribeFleetErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DescribeFleetErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateAndOverrides`: `"LaunchTemplateAndOverridesResponseTypeDef"`
-- `Lifecycle`: `InstanceLifecycle`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## DescribeFleetsInstancesTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DescribeFleetsInstancesTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateAndOverrides`: `"LaunchTemplateAndOverridesResponseTypeDef"`
-- `Lifecycle`: `InstanceLifecycle`
-- `InstanceIds`: `List[str]`
-- `InstanceType`: `InstanceType`
-- `Platform`: `PlatformValues`
-
-
-## DhcpConfigurationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DhcpConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Values`: `List["AttributeValueTypeDef"]`
-
-
-## DhcpOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DhcpOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `DhcpConfigurations`: `List["DhcpConfigurationTypeDef"]`
-- `DhcpOptionsId`: `str`
-- `OwnerId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## DirectoryServiceAuthenticationRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DirectoryServiceAuthenticationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-
-
-## DirectoryServiceAuthenticationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DirectoryServiceAuthenticationTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-
-
-## DisableFastSnapshotRestoreErrorItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DisableFastSnapshotRestoreErrorItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `SnapshotId`: `str`
-- `FastSnapshotRestoreStateErrors`: `List["DisableFastSnapshotRestoreStateErrorItemTypeDef"]`
-
-
-## DisableFastSnapshotRestoreStateErrorItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DisableFastSnapshotRestoreStateErrorItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `Error`: `"DisableFastSnapshotRestoreStateErrorTypeDef"`
-
-
-## DisableFastSnapshotRestoreStateErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DisableFastSnapshotRestoreStateErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-
-
-## DisableFastSnapshotRestoreSuccessItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DisableFastSnapshotRestoreSuccessItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `SnapshotId`: `str`
-- `AvailabilityZone`: `str`
-- `State`: `FastSnapshotRestoreStateCode`
-- `StateTransitionReason`: `str`
-- `OwnerId`: `str`
-- `OwnerAlias`: `str`
-- `EnablingTime`: `datetime`
-- `OptimizingTime`: `datetime`
-- `EnabledTime`: `datetime`
-- `DisablingTime`: `datetime`
-- `DisabledTime`: `datetime`
-
-
-## DiskImageDescriptionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DiskImageDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Checksum`: `str`
-- `Format`: `DiskImageFormat`
-- `ImportManifestUrl`: `str`
-- `Size`: `int`
-
-
-## DiskImageDetailTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DiskImageDetailTypeDef
-```
-
-
-Required fields:
-- `Bytes`: `int`
-- `Format`: `DiskImageFormat`
-- `ImportManifestUrl`: `str`
-
-
-
-
-## DiskImageVolumeDescriptionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DiskImageVolumeDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Size`: `int`
-
-
-## DiskInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DiskInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `SizeInGB`: `int`
-- `Count`: `int`
-- `Type`: `DiskType`
-
-
-## DnsEntryTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import DnsEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `DnsName`: `str`
-- `HostedZoneId`: `str`
-
-
-## EbsBlockDeviceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EbsBlockDeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeleteOnTermination`: `bool`
-- `Iops`: `int`
-- `SnapshotId`: `str`
-- `VolumeSize`: `int`
-- `VolumeType`: `VolumeType`
-- `KmsKeyId`: `str`
-- `Throughput`: `int`
-- `OutpostArn`: `str`
-- `Encrypted`: `bool`
-
-
-## EbsInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EbsInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `EbsOptimizedSupport`: `EbsOptimizedSupport`
-- `EncryptionSupport`: `EbsEncryptionSupport`
-- `EbsOptimizedInfo`: `"EbsOptimizedInfoTypeDef"`
-- `NvmeSupport`: `EbsNvmeSupport`
-
-
-## EbsInstanceBlockDeviceSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EbsInstanceBlockDeviceSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeleteOnTermination`: `bool`
-- `VolumeId`: `str`
-
-
-## EbsInstanceBlockDeviceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EbsInstanceBlockDeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttachTime`: `datetime`
-- `DeleteOnTermination`: `bool`
-- `Status`: `AttachmentStatus`
-- `VolumeId`: `str`
-
-
-## EbsOptimizedInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EbsOptimizedInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `BaselineBandwidthInMbps`: `int`
-- `BaselineThroughputInMBps`: `float`
-- `BaselineIops`: `int`
-- `MaximumBandwidthInMbps`: `int`
-- `MaximumThroughputInMBps`: `float`
-- `MaximumIops`: `int`
-
-
-## EfaInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EfaInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaximumEfaInterfaces`: `int`
-
-
-## EgressOnlyInternetGatewayTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EgressOnlyInternetGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `Attachments`: `List["InternetGatewayAttachmentTypeDef"]`
-- `EgressOnlyInternetGatewayId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ElasticGpuAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ElasticGpuAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ElasticGpuId`: `str`
-- `ElasticGpuAssociationId`: `str`
-- `ElasticGpuAssociationState`: `str`
-- `ElasticGpuAssociationTime`: `str`
-
-
-## ElasticGpuHealthTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ElasticGpuHealthTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `ElasticGpuStatus`
-
-
-## ElasticGpuSpecificationResponseTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ElasticGpuSpecificationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `str`
-
-
-## ElasticGpuSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ElasticGpuSpecificationTypeDef
-```
-
-
-Required fields:
-- `Type`: `str`
-
-
-
-
-## ElasticGpusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ElasticGpusTypeDef
-```
-
-
-
-
-Optional fields:
-- `ElasticGpuId`: `str`
-- `AvailabilityZone`: `str`
-- `ElasticGpuType`: `str`
-- `ElasticGpuHealth`: `"ElasticGpuHealthTypeDef"`
-- `ElasticGpuState`: `ElasticGpuState`
-- `InstanceId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ElasticInferenceAcceleratorAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ElasticInferenceAcceleratorAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ElasticInferenceAcceleratorArn`: `str`
-- `ElasticInferenceAcceleratorAssociationId`: `str`
-- `ElasticInferenceAcceleratorAssociationState`: `str`
-- `ElasticInferenceAcceleratorAssociationTime`: `datetime`
-
-
-## EnableFastSnapshotRestoreErrorItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EnableFastSnapshotRestoreErrorItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `SnapshotId`: `str`
-- `FastSnapshotRestoreStateErrors`: `List["EnableFastSnapshotRestoreStateErrorItemTypeDef"]`
-
-
-## EnableFastSnapshotRestoreStateErrorItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EnableFastSnapshotRestoreStateErrorItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `Error`: `"EnableFastSnapshotRestoreStateErrorTypeDef"`
-
-
-## EnableFastSnapshotRestoreStateErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EnableFastSnapshotRestoreStateErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-
-
-## EnableFastSnapshotRestoreSuccessItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EnableFastSnapshotRestoreSuccessItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `SnapshotId`: `str`
-- `AvailabilityZone`: `str`
-- `State`: `FastSnapshotRestoreStateCode`
-- `StateTransitionReason`: `str`
-- `OwnerId`: `str`
-- `OwnerAlias`: `str`
-- `EnablingTime`: `datetime`
-- `OptimizingTime`: `datetime`
-- `EnabledTime`: `datetime`
-- `DisablingTime`: `datetime`
-- `DisabledTime`: `datetime`
-
-
-## EnclaveOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EnclaveOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
-## EventInformationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import EventInformationTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventDescription`: `str`
-- `EventSubType`: `str`
-- `InstanceId`: `str`
-
-
-## ExplanationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ExplanationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Acl`: `"AnalysisComponentTypeDef"`
-- `AclRule`: `"AnalysisAclRuleTypeDef"`
-- `Address`: `str`
-- `Addresses`: `List[str]`
-- `AttachedTo`: `"AnalysisComponentTypeDef"`
-- `AvailabilityZones`: `List[str]`
-- `Cidrs`: `List[str]`
-- `Component`: `"AnalysisComponentTypeDef"`
-- `CustomerGateway`: `"AnalysisComponentTypeDef"`
-- `Destination`: `"AnalysisComponentTypeDef"`
-- `DestinationVpc`: `"AnalysisComponentTypeDef"`
-- `Direction`: `str`
-- `ExplanationCode`: `str`
-- `IngressRouteTable`: `"AnalysisComponentTypeDef"`
-- `InternetGateway`: `"AnalysisComponentTypeDef"`
-- `LoadBalancerArn`: `str`
-- `ClassicLoadBalancerListener`: `"AnalysisLoadBalancerListenerTypeDef"`
-- `LoadBalancerListenerPort`: `int`
-- `LoadBalancerTarget`: `"AnalysisLoadBalancerTargetTypeDef"`
-- `LoadBalancerTargetGroup`: `"AnalysisComponentTypeDef"`
-- `LoadBalancerTargetGroups`: `List["AnalysisComponentTypeDef"]`
-- `LoadBalancerTargetPort`: `int`
-- `ElasticLoadBalancerListener`: `"AnalysisComponentTypeDef"`
-- `MissingComponent`: `str`
-- `NatGateway`: `"AnalysisComponentTypeDef"`
-- `NetworkInterface`: `"AnalysisComponentTypeDef"`
-- `PacketField`: `str`
-- `VpcPeeringConnection`: `"AnalysisComponentTypeDef"`
-- `Port`: `int`
-- `PortRanges`: `List["PortRangeTypeDef"]`
-- `PrefixList`: `"AnalysisComponentTypeDef"`
-- `Protocols`: `List[str]`
-- `RouteTableRoute`: `"AnalysisRouteTableRouteTypeDef"`
-- `RouteTable`: `"AnalysisComponentTypeDef"`
-- `SecurityGroup`: `"AnalysisComponentTypeDef"`
-- `SecurityGroupRule`: `"AnalysisSecurityGroupRuleTypeDef"`
-- `SecurityGroups`: `List["AnalysisComponentTypeDef"]`
-- `SourceVpc`: `"AnalysisComponentTypeDef"`
-- `State`: `str`
-- `Subnet`: `"AnalysisComponentTypeDef"`
-- `SubnetRouteTable`: `"AnalysisComponentTypeDef"`
-- `Vpc`: `"AnalysisComponentTypeDef"`
-- `VpcEndpoint`: `"AnalysisComponentTypeDef"`
-- `VpnConnection`: `"AnalysisComponentTypeDef"`
-- `VpnGateway`: `"AnalysisComponentTypeDef"`
-
-
-## ExportImageTaskTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ExportImageTaskTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `ExportImageTaskId`: `str`
-- `ImageId`: `str`
-- `Progress`: `str`
-- `S3ExportLocation`: `"ExportTaskS3LocationTypeDef"`
-- `Status`: `str`
-- `StatusMessage`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ExportTaskS3LocationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ExportTaskS3LocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3Bucket`: `str`
-- `S3Prefix`: `str`
-
-
-## ExportTaskTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ExportTaskTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `ExportTaskId`: `str`
-- `ExportToS3Task`: `"ExportToS3TaskTypeDef"`
-- `InstanceExportDetails`: `"InstanceExportDetailsTypeDef"`
-- `State`: `ExportTaskState`
-- `StatusMessage`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ExportToS3TaskTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ExportToS3TaskTypeDef
-```
-
-
-
-
-Optional fields:
-- `ContainerFormat`: `ContainerFormat`
-- `DiskImageFormat`: `DiskImageFormat`
-- `S3Bucket`: `str`
-- `S3Key`: `str`
-
-
-## FailedQueuedPurchaseDeletionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FailedQueuedPurchaseDeletionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Error`: `"DeleteQueuedReservedInstancesErrorTypeDef"`
-- `ReservedInstancesId`: `str`
-
-
-## FederatedAuthenticationRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FederatedAuthenticationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `SAMLProviderArn`: `str`
-- `SelfServiceSAMLProviderArn`: `str`
-
-
-## FederatedAuthenticationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FederatedAuthenticationTypeDef
-```
-
-
-
-
-Optional fields:
-- `SamlProviderArn`: `str`
-- `SelfServiceSamlProviderArn`: `str`
-
-
-## FleetDataTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FleetDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `ActivityStatus`: `FleetActivityStatus`
-- `CreateTime`: `datetime`
-- `FleetId`: `str`
-- `FleetState`: `FleetStateCode`
-- `ClientToken`: `str`
-- `ExcessCapacityTerminationPolicy`: `FleetExcessCapacityTerminationPolicy`
-- `FulfilledCapacity`: `float`
-- `FulfilledOnDemandCapacity`: `float`
-- `LaunchTemplateConfigs`: `List["FleetLaunchTemplateConfigTypeDef"]`
-- `TargetCapacitySpecification`: `"TargetCapacitySpecificationTypeDef"`
-- `TerminateInstancesWithExpiration`: `bool`
-- `Type`: `FleetType`
-- `ValidFrom`: `datetime`
-- `ValidUntil`: `datetime`
-- `ReplaceUnhealthyInstances`: `bool`
-- `SpotOptions`: `"SpotOptionsTypeDef"`
-- `OnDemandOptions`: `"OnDemandOptionsTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-- `Errors`: `List["DescribeFleetErrorTypeDef"]`
-- `Instances`: `List["DescribeFleetsInstancesTypeDef"]`
-
-
-## FleetLaunchTemplateConfigTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FleetLaunchTemplateConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateSpecification`: `"FleetLaunchTemplateSpecificationTypeDef"`
-- `Overrides`: `List["FleetLaunchTemplateOverridesTypeDef"]`
-
-
-## FleetLaunchTemplateOverridesRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FleetLaunchTemplateOverridesRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceType`: `InstanceType`
-- `MaxPrice`: `str`
-- `SubnetId`: `str`
-- `AvailabilityZone`: `str`
-- `WeightedCapacity`: `float`
-- `Priority`: `float`
-- `Placement`: `"PlacementTypeDef"`
-
-
-## FleetLaunchTemplateOverridesTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FleetLaunchTemplateOverridesTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceType`: `InstanceType`
-- `MaxPrice`: `str`
-- `SubnetId`: `str`
-- `AvailabilityZone`: `str`
-- `WeightedCapacity`: `float`
-- `Priority`: `float`
-- `Placement`: `"PlacementResponseTypeDef"`
-
-
-## FleetLaunchTemplateSpecificationRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FleetLaunchTemplateSpecificationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateId`: `str`
-- `LaunchTemplateName`: `str`
-- `Version`: `str`
-
-
-## FleetLaunchTemplateSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FleetLaunchTemplateSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateId`: `str`
-- `LaunchTemplateName`: `str`
-- `Version`: `str`
-
-
-## FleetSpotCapacityRebalanceRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FleetSpotCapacityRebalanceRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplacementStrategy`: `FleetReplacementStrategy`
-
-
-## FleetSpotCapacityRebalanceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FleetSpotCapacityRebalanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplacementStrategy`: `FleetReplacementStrategy`
-
-
-## FleetSpotMaintenanceStrategiesRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FleetSpotMaintenanceStrategiesRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `CapacityRebalance`: `"FleetSpotCapacityRebalanceRequestTypeDef"`
-
-
-## FleetSpotMaintenanceStrategiesTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FleetSpotMaintenanceStrategiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `CapacityRebalance`: `"FleetSpotCapacityRebalanceTypeDef"`
-
-
-## FlowLogTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FlowLogTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreationTime`: `datetime`
-- `DeliverLogsErrorMessage`: `str`
-- `DeliverLogsPermissionArn`: `str`
-- `DeliverLogsStatus`: `str`
-- `FlowLogId`: `str`
-- `FlowLogStatus`: `str`
-- `LogGroupName`: `str`
-- `ResourceId`: `str`
-- `TrafficType`: `TrafficType`
-- `LogDestinationType`: `LogDestinationType`
-- `LogDestination`: `str`
-- `LogFormat`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `MaxAggregationInterval`: `int`
-
-
-## FpgaDeviceInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FpgaDeviceInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Manufacturer`: `str`
-- `Count`: `int`
-- `MemoryInfo`: `"FpgaDeviceMemoryInfoTypeDef"`
-
-
-## FpgaDeviceMemoryInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FpgaDeviceMemoryInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `SizeInMiB`: `int`
-
-
-## FpgaImageAttributeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FpgaImageAttributeTypeDef
-```
-
-
-
-
-Optional fields:
-- `FpgaImageId`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `LoadPermissions`: `List["LoadPermissionTypeDef"]`
-- `ProductCodes`: `List["ProductCodeTypeDef"]`
-
-
-## FpgaImageStateTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FpgaImageStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `FpgaImageStateCode`
-- `Message`: `str`
-
-
-## FpgaImageTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FpgaImageTypeDef
-```
-
-
-
-
-Optional fields:
-- `FpgaImageId`: `str`
-- `FpgaImageGlobalId`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `ShellVersion`: `str`
-- `PciId`: `"PciIdTypeDef"`
-- `State`: `"FpgaImageStateTypeDef"`
-- `CreateTime`: `datetime`
-- `UpdateTime`: `datetime`
-- `OwnerId`: `str`
-- `OwnerAlias`: `str`
-- `ProductCodes`: `List["ProductCodeTypeDef"]`
-- `Tags`: `List["TagTypeDef"]`
-- `Public`: `bool`
-- `DataRetentionSupport`: `bool`
-
-
-## FpgaInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import FpgaInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Fpgas`: `List["FpgaDeviceInfoTypeDef"]`
-- `TotalFpgaMemoryInMiB`: `int`
-
-
-## GpuDeviceInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import GpuDeviceInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Manufacturer`: `str`
-- `Count`: `int`
-- `MemoryInfo`: `"GpuDeviceMemoryInfoTypeDef"`
-
-
-## GpuDeviceMemoryInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import GpuDeviceMemoryInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `SizeInMiB`: `int`
-
-
-## GpuInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import GpuInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Gpus`: `List["GpuDeviceInfoTypeDef"]`
-- `TotalGpuMemoryInMiB`: `int`
-
-
-## GroupIdentifierTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import GroupIdentifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupName`: `str`
-- `GroupId`: `str`
-
-
-## HibernationOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import HibernationOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Configured`: `bool`
-
-
-## HistoryRecordEntryTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import HistoryRecordEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventInformation`: `"EventInformationTypeDef"`
-- `EventType`: `FleetEventType`
-- `Timestamp`: `datetime`
-
-
-## HistoryRecordTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import HistoryRecordTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventInformation`: `"EventInformationTypeDef"`
-- `EventType`: `EventType`
-- `Timestamp`: `datetime`
-
-
-## HostInstanceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import HostInstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceId`: `str`
-- `InstanceType`: `str`
-- `OwnerId`: `str`
-
-
-## HostOfferingTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import HostOfferingTypeDef
-```
-
-
-
-
-Optional fields:
-- `CurrencyCode`: `CurrencyCodeValues`
-- `Duration`: `int`
-- `HourlyPrice`: `str`
-- `InstanceFamily`: `str`
-- `OfferingId`: `str`
-- `PaymentOption`: `PaymentOption`
-- `UpfrontPrice`: `str`
-
-
-## HostPropertiesTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import HostPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `Cores`: `int`
-- `InstanceType`: `str`
-- `InstanceFamily`: `str`
-- `Sockets`: `int`
-- `TotalVCpus`: `int`
-
-
-## HostReservationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import HostReservationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Count`: `int`
-- `CurrencyCode`: `CurrencyCodeValues`
-- `Duration`: `int`
-- `End`: `datetime`
-- `HostIdSet`: `List[str]`
-- `HostReservationId`: `str`
-- `HourlyPrice`: `str`
-- `InstanceFamily`: `str`
-- `OfferingId`: `str`
-- `PaymentOption`: `PaymentOption`
-- `Start`: `datetime`
-- `State`: `ReservationState`
-- `UpfrontPrice`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## HostTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import HostTypeDef
-```
-
-
-
-
-Optional fields:
-- `AutoPlacement`: `AutoPlacement`
-- `AvailabilityZone`: `str`
-- `AvailableCapacity`: `"AvailableCapacityTypeDef"`
-- `ClientToken`: `str`
-- `HostId`: `str`
-- `HostProperties`: `"HostPropertiesTypeDef"`
-- `HostReservationId`: `str`
-- `Instances`: `List["HostInstanceTypeDef"]`
-- `State`: `AllocationState`
-- `AllocationTime`: `datetime`
-- `ReleaseTime`: `datetime`
-- `Tags`: `List["TagTypeDef"]`
-- `HostRecovery`: `HostRecovery`
-- `AllowsMultipleInstanceTypes`: `AllowsMultipleInstanceTypes`
-- `OwnerId`: `str`
-- `AvailabilityZoneId`: `str`
-- `MemberOfServiceLinkedResourceGroup`: `bool`
-
-
-## IKEVersionsListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import IKEVersionsListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## IKEVersionsRequestListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import IKEVersionsRequestListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## IamInstanceProfileAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import IamInstanceProfileAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociationId`: `str`
-- `InstanceId`: `str`
-- `IamInstanceProfile`: `"IamInstanceProfileTypeDef"`
-- `State`: `IamInstanceProfileAssociationState`
-- `Timestamp`: `datetime`
-
-
-## IamInstanceProfileSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import IamInstanceProfileSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-
-
-## IamInstanceProfileTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import IamInstanceProfileTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Id`: `str`
-
-
-## IcmpTypeCodeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import IcmpTypeCodeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `int`
-- `Type`: `int`
-
-
-## IdFormatTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import IdFormatTypeDef
-```
-
-
-
-
-Optional fields:
-- `Deadline`: `datetime`
-- `Resource`: `str`
-- `UseLongIds`: `bool`
-
-
-## ImageTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ImageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Architecture`: `ArchitectureValues`
-- `CreationDate`: `str`
-- `ImageId`: `str`
-- `ImageLocation`: `str`
-- `ImageType`: `ImageTypeValues`
-- `Public`: `bool`
-- `KernelId`: `str`
-- `OwnerId`: `str`
-- `Platform`: `PlatformValues`
-- `PlatformDetails`: `str`
-- `UsageOperation`: `str`
-- `ProductCodes`: `List["ProductCodeTypeDef"]`
-- `RamdiskId`: `str`
-- `State`: `ImageState`
-- `BlockDeviceMappings`: `List["BlockDeviceMappingTypeDef"]`
-- `Description`: `str`
-- `EnaSupport`: `bool`
-- `Hypervisor`: `HypervisorType`
-- `ImageOwnerAlias`: `str`
-- `Name`: `str`
-- `RootDeviceName`: `str`
-- `RootDeviceType`: `DeviceType`
-- `SriovNetSupport`: `str`
-- `StateReason`: `"StateReasonTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-- `VirtualizationType`: `VirtualizationType`
-- `BootMode`: `BootModeValues`
-
-
-## ImportImageLicenseConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ImportImageLicenseConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `LicenseConfigurationArn`: `str`
-
-
-## ImportImageTaskTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ImportImageTaskTypeDef
-```
-
-
-
-
-Optional fields:
-- `Architecture`: `str`
-- `Description`: `str`
-- `Encrypted`: `bool`
-- `Hypervisor`: `str`
-- `ImageId`: `str`
-- `ImportTaskId`: `str`
-- `KmsKeyId`: `str`
-- `LicenseType`: `str`
-- `Platform`: `str`
-- `Progress`: `str`
-- `SnapshotDetails`: `List["SnapshotDetailTypeDef"]`
-- `Status`: `str`
-- `StatusMessage`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `LicenseSpecifications`: `List["ImportImageLicenseConfigurationResponseTypeDef"]`
-
-
-## ImportInstanceTaskDetailsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ImportInstanceTaskDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `InstanceId`: `str`
-- `Platform`: `PlatformValues`
-- `Volumes`: `List["ImportInstanceVolumeDetailItemTypeDef"]`
-
-
-## ImportInstanceVolumeDetailItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ImportInstanceVolumeDetailItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `BytesConverted`: `int`
-- `Description`: `str`
-- `Image`: `"DiskImageDescriptionTypeDef"`
-- `Status`: `str`
-- `StatusMessage`: `str`
-- `Volume`: `"DiskImageVolumeDescriptionTypeDef"`
-
-
-## ImportSnapshotTaskTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ImportSnapshotTaskTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `ImportTaskId`: `str`
-- `SnapshotTaskDetail`: `"SnapshotTaskDetailTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ImportVolumeTaskDetailsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ImportVolumeTaskDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `BytesConverted`: `int`
-- `Description`: `str`
-- `Image`: `"DiskImageDescriptionTypeDef"`
-- `Volume`: `"DiskImageVolumeDescriptionTypeDef"`
-
-
-## InferenceAcceleratorInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InferenceAcceleratorInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Accelerators`: `List["InferenceDeviceInfoTypeDef"]`
-
-
-## InferenceDeviceInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InferenceDeviceInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Count`: `int`
-- `Name`: `str`
-- `Manufacturer`: `str`
-
-
-## InstanceBlockDeviceMappingTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceBlockDeviceMappingTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeviceName`: `str`
-- `Ebs`: `"EbsInstanceBlockDeviceTypeDef"`
-
-
-## InstanceCapacityTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceCapacityTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailableCapacity`: `int`
-- `InstanceType`: `str`
-- `TotalCapacity`: `int`
-
-
-## InstanceCountTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceCountTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceCount`: `int`
-- `State`: `ListingState`
-
-
-## InstanceCreditSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceCreditSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceId`: `str`
-- `CpuCredits`: `str`
-
-
-## InstanceExportDetailsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceExportDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceId`: `str`
-- `TargetEnvironment`: `ExportEnvironment`
-
-
-## InstanceFamilyCreditSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceFamilyCreditSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceFamily`: `UnlimitedSupportedInstanceFamily`
-- `CpuCredits`: `str`
-
-
-## InstanceIpv6AddressRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceIpv6AddressRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `Ipv6Address`: `str`
-
-
-## InstanceIpv6AddressTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceIpv6AddressTypeDef
-```
-
-
-
-
-Optional fields:
-- `Ipv6Address`: `str`
-
-
-## InstanceMetadataOptionsResponseTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceMetadataOptionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `InstanceMetadataOptionsState`
-- `HttpTokens`: `HttpTokensState`
-- `HttpPutResponseHopLimit`: `int`
-- `HttpEndpoint`: `InstanceMetadataEndpointState`
-
-
-## InstanceMonitoringTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceMonitoringTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceId`: `str`
-- `Monitoring`: `"MonitoringTypeDef"`
-
-
-## InstanceNetworkInterfaceAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceNetworkInterfaceAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `CarrierIp`: `str`
-- `IpOwnerId`: `str`
-- `PublicDnsName`: `str`
-- `PublicIp`: `str`
-
-
-## InstanceNetworkInterfaceAttachmentTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceNetworkInterfaceAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttachTime`: `datetime`
-- `AttachmentId`: `str`
-- `DeleteOnTermination`: `bool`
-- `DeviceIndex`: `int`
-- `Status`: `AttachmentStatus`
-- `NetworkCardIndex`: `int`
-
-
-## InstanceNetworkInterfaceSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceNetworkInterfaceSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociatePublicIpAddress`: `bool`
-- `DeleteOnTermination`: `bool`
-- `Description`: `str`
-- `DeviceIndex`: `int`
-- `Groups`: `List[str]`
-- `Ipv6AddressCount`: `int`
-- `Ipv6Addresses`: `List["InstanceIpv6AddressTypeDef"]`
-- `NetworkInterfaceId`: `str`
-- `PrivateIpAddress`: `str`
-- `PrivateIpAddresses`: `List["PrivateIpAddressSpecificationTypeDef"]`
-- `SecondaryPrivateIpAddressCount`: `int`
-- `SubnetId`: `str`
-- `AssociateCarrierIpAddress`: `bool`
-- `InterfaceType`: `str`
-- `NetworkCardIndex`: `int`
-
-
-## InstanceNetworkInterfaceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceNetworkInterfaceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Association`: `"InstanceNetworkInterfaceAssociationTypeDef"`
-- `Attachment`: `"InstanceNetworkInterfaceAttachmentTypeDef"`
-- `Description`: `str`
-- `Groups`: `List["GroupIdentifierTypeDef"]`
-- `Ipv6Addresses`: `List["InstanceIpv6AddressTypeDef"]`
-- `MacAddress`: `str`
-- `NetworkInterfaceId`: `str`
-- `OwnerId`: `str`
-- `PrivateDnsName`: `str`
-- `PrivateIpAddress`: `str`
-- `PrivateIpAddresses`: `List["InstancePrivateIpAddressTypeDef"]`
-- `SourceDestCheck`: `bool`
-- `Status`: `NetworkInterfaceStatus`
-- `SubnetId`: `str`
-- `VpcId`: `str`
-- `InterfaceType`: `str`
-
-
-## InstancePrivateIpAddressTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstancePrivateIpAddressTypeDef
-```
-
-
-
-
-Optional fields:
-- `Association`: `"InstanceNetworkInterfaceAssociationTypeDef"`
-- `Primary`: `bool`
-- `PrivateDnsName`: `str`
-- `PrivateIpAddress`: `str`
-
-
-## InstanceStateChangeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceStateChangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `CurrentState`: `"InstanceStateTypeDef"`
-- `InstanceId`: `str`
-- `PreviousState`: `"InstanceStateTypeDef"`
-
-
-## InstanceStateTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `int`
-- `Name`: `InstanceStateName`
-
-
-## InstanceStatusDetailsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceStatusDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ImpairedSince`: `datetime`
-- `Name`: `StatusName`
-- `Status`: `StatusType`
-
-
-## InstanceStatusEventTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceStatusEventTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceEventId`: `str`
-- `Code`: `EventCode`
-- `Description`: `str`
-- `NotAfter`: `datetime`
-- `NotBefore`: `datetime`
-- `NotBeforeDeadline`: `datetime`
-
-
-## InstanceStatusSummaryTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceStatusSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Details`: `List["InstanceStatusDetailsTypeDef"]`
-- `Status`: `SummaryStatus`
-
-
-## InstanceStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `OutpostArn`: `str`
-- `Events`: `List["InstanceStatusEventTypeDef"]`
-- `InstanceId`: `str`
-- `InstanceState`: `"InstanceStateTypeDef"`
-- `InstanceStatus`: `"InstanceStatusSummaryTypeDef"`
-- `SystemStatus`: `"InstanceStatusSummaryTypeDef"`
-
-
-## InstanceStorageInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceStorageInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `TotalSizeInGB`: `int`
-- `Disks`: `List["DiskInfoTypeDef"]`
-- `NvmeSupport`: `EphemeralNvmeSupport`
-
-
-## InstanceTagNotificationAttributeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceTagNotificationAttributeTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceTagKeys`: `List[str]`
-- `IncludeAllTagsOfInstance`: `bool`
-
-
-## InstanceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `AmiLaunchIndex`: `int`
-- `ImageId`: `str`
-- `InstanceId`: `str`
-- `InstanceType`: `InstanceType`
-- `KernelId`: `str`
-- `KeyName`: `str`
-- `LaunchTime`: `datetime`
-- `Monitoring`: `"MonitoringTypeDef"`
-- `Placement`: `"PlacementTypeDef"`
-- `Platform`: `PlatformValues`
-- `PrivateDnsName`: `str`
-- `PrivateIpAddress`: `str`
-- `ProductCodes`: `List["ProductCodeTypeDef"]`
-- `PublicDnsName`: `str`
-- `PublicIpAddress`: `str`
-- `RamdiskId`: `str`
-- `State`: `"InstanceStateTypeDef"`
-- `StateTransitionReason`: `str`
-- `SubnetId`: `str`
-- `VpcId`: `str`
-- `Architecture`: `ArchitectureValues`
-- `BlockDeviceMappings`: `List["InstanceBlockDeviceMappingTypeDef"]`
-- `ClientToken`: `str`
-- `EbsOptimized`: `bool`
-- `EnaSupport`: `bool`
-- `Hypervisor`: `HypervisorType`
-- `IamInstanceProfile`: `"IamInstanceProfileTypeDef"`
-- `InstanceLifecycle`: `InstanceLifecycleType`
-- `ElasticGpuAssociations`: `List["ElasticGpuAssociationTypeDef"]`
-- `ElasticInferenceAcceleratorAssociations`: `List["ElasticInferenceAcceleratorAssociationTypeDef"]`
-- `NetworkInterfaces`: `List["InstanceNetworkInterfaceTypeDef"]`
-- `OutpostArn`: `str`
-- `RootDeviceName`: `str`
-- `RootDeviceType`: `DeviceType`
-- `SecurityGroups`: `List["GroupIdentifierTypeDef"]`
-- `SourceDestCheck`: `bool`
-- `SpotInstanceRequestId`: `str`
-- `SriovNetSupport`: `str`
-- `StateReason`: `"StateReasonTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-- `VirtualizationType`: `VirtualizationType`
-- `CpuOptions`: `"CpuOptionsTypeDef"`
-- `CapacityReservationId`: `str`
-- `CapacityReservationSpecification`: `"CapacityReservationSpecificationResponseTypeDef"`
-- `HibernationOptions`: `"HibernationOptionsTypeDef"`
-- `Licenses`: `List["LicenseConfigurationTypeDef"]`
-- `MetadataOptions`: `"InstanceMetadataOptionsResponseTypeDef"`
-- `EnclaveOptions`: `"EnclaveOptionsTypeDef"`
-- `BootMode`: `BootModeValues`
-
-
-## InstanceTypeInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceTypeInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceType`: `InstanceType`
-- `CurrentGeneration`: `bool`
-- `FreeTierEligible`: `bool`
-- `SupportedUsageClasses`: `List[UsageClassType]`
-- `SupportedRootDeviceTypes`: `List[RootDeviceType]`
-- `SupportedVirtualizationTypes`: `List[VirtualizationType]`
-- `BareMetal`: `bool`
-- `Hypervisor`: `InstanceTypeHypervisor`
-- `ProcessorInfo`: `"ProcessorInfoTypeDef"`
-- `VCpuInfo`: `"VCpuInfoTypeDef"`
-- `MemoryInfo`: `"MemoryInfoTypeDef"`
-- `InstanceStorageSupported`: `bool`
-- `InstanceStorageInfo`: `"InstanceStorageInfoTypeDef"`
-- `EbsInfo`: `"EbsInfoTypeDef"`
-- `NetworkInfo`: `"NetworkInfoTypeDef"`
-- `GpuInfo`: `"GpuInfoTypeDef"`
-- `FpgaInfo`: `"FpgaInfoTypeDef"`
-- `PlacementGroupInfo`: `"PlacementGroupInfoTypeDef"`
-- `InferenceAcceleratorInfo`: `"InferenceAcceleratorInfoTypeDef"`
-- `HibernationSupported`: `bool`
-- `BurstablePerformanceSupported`: `bool`
-- `DedicatedHostsSupported`: `bool`
-- `AutoRecoverySupported`: `bool`
-- `SupportedBootModes`: `List[BootModeType]`
-
-
-## InstanceTypeOfferingTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceTypeOfferingTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceType`: `InstanceType`
-- `LocationType`: `LocationType`
-- `Location`: `str`
-
-
-## InstanceUsageTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InstanceUsageTypeDef
-```
-
-
-
-
-Optional fields:
-- `AccountId`: `str`
-- `UsedInstanceCount`: `int`
-
-
-## InternetGatewayAttachmentTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InternetGatewayAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `AttachmentStatus`
-- `VpcId`: `str`
-
-
-## InternetGatewayTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import InternetGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `Attachments`: `List["InternetGatewayAttachmentTypeDef"]`
-- `InternetGatewayId`: `str`
-- `OwnerId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## IpPermissionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import IpPermissionTypeDef
-```
-
-
-
-
-Optional fields:
-- `FromPort`: `int`
-- `IpProtocol`: `str`
-- `IpRanges`: `List["IpRangeTypeDef"]`
-- `Ipv6Ranges`: `List["Ipv6RangeTypeDef"]`
-- `PrefixListIds`: `List["PrefixListIdTypeDef"]`
-- `ToPort`: `int`
-- `UserIdGroupPairs`: `List["UserIdGroupPairTypeDef"]`
-
-
-## IpRangeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import IpRangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `CidrIp`: `str`
-- `Description`: `str`
-
-
-## Ipv6CidrAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Ipv6CidrAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Ipv6Cidr`: `str`
-- `AssociatedResource`: `str`
-
-
-## Ipv6CidrBlockTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Ipv6CidrBlockTypeDef
-```
-
-
-
-
-Optional fields:
-- `Ipv6CidrBlock`: `str`
-
-
-## Ipv6PoolTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Ipv6PoolTypeDef
-```
-
-
-
-
-Optional fields:
-- `PoolId`: `str`
-- `Description`: `str`
-- `PoolCidrBlocks`: `List["PoolCidrBlockTypeDef"]`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## Ipv6RangeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Ipv6RangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `CidrIpv6`: `str`
-- `Description`: `str`
-
-
-## KeyPairInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import KeyPairInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `KeyPairId`: `str`
-- `KeyFingerprint`: `str`
-- `KeyName`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## LastErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LastErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Message`: `str`
-- `Code`: `str`
-
-
-## LaunchPermissionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchPermissionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Group`: `PermissionGroup`
-- `UserId`: `str`
-
-
-## LaunchSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserData`: `str`
-- `SecurityGroups`: `List["GroupIdentifierTypeDef"]`
-- `AddressingType`: `str`
-- `BlockDeviceMappings`: `List["BlockDeviceMappingTypeDef"]`
-- `EbsOptimized`: `bool`
-- `IamInstanceProfile`: `"IamInstanceProfileSpecificationTypeDef"`
-- `ImageId`: `str`
-- `InstanceType`: `InstanceType`
-- `KernelId`: `str`
-- `KeyName`: `str`
-- `NetworkInterfaces`: `List["InstanceNetworkInterfaceSpecificationTypeDef"]`
-- `Placement`: `"SpotPlacementTypeDef"`
-- `RamdiskId`: `str`
-- `SubnetId`: `str`
-- `Monitoring`: `"RunInstancesMonitoringEnabledTypeDef"`
-
-
-## LaunchTemplateAndOverridesResponseTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateAndOverridesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateSpecification`: `"FleetLaunchTemplateSpecificationTypeDef"`
-- `Overrides`: `"FleetLaunchTemplateOverridesTypeDef"`
-
-
-## LaunchTemplateBlockDeviceMappingRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateBlockDeviceMappingRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeviceName`: `str`
-- `VirtualName`: `str`
-- `Ebs`: `"LaunchTemplateEbsBlockDeviceRequestTypeDef"`
-- `NoDevice`: `str`
-
-
-## LaunchTemplateBlockDeviceMappingTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateBlockDeviceMappingTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeviceName`: `str`
-- `VirtualName`: `str`
-- `Ebs`: `"LaunchTemplateEbsBlockDeviceTypeDef"`
-- `NoDevice`: `str`
-
-
-## LaunchTemplateCapacityReservationSpecificationRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateCapacityReservationSpecificationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `CapacityReservationPreference`: `CapacityReservationPreference`
-- `CapacityReservationTarget`: `"CapacityReservationTargetTypeDef"`
-
-
-## LaunchTemplateCapacityReservationSpecificationResponseTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateCapacityReservationSpecificationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CapacityReservationPreference`: `CapacityReservationPreference`
-- `CapacityReservationTarget`: `"CapacityReservationTargetResponseTypeDef"`
-
-
-## LaunchTemplateConfigTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateSpecification`: `"FleetLaunchTemplateSpecificationTypeDef"`
-- `Overrides`: `List["LaunchTemplateOverridesTypeDef"]`
-
-
-## LaunchTemplateCpuOptionsRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateCpuOptionsRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `CoreCount`: `int`
-- `ThreadsPerCore`: `int`
-
-
-## LaunchTemplateCpuOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateCpuOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `CoreCount`: `int`
-- `ThreadsPerCore`: `int`
-
-
-## LaunchTemplateEbsBlockDeviceRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateEbsBlockDeviceRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `Encrypted`: `bool`
-- `DeleteOnTermination`: `bool`
-- `Iops`: `int`
-- `KmsKeyId`: `str`
-- `SnapshotId`: `str`
-- `VolumeSize`: `int`
-- `VolumeType`: `VolumeType`
-- `Throughput`: `int`
-
-
-## LaunchTemplateEbsBlockDeviceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateEbsBlockDeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Encrypted`: `bool`
-- `DeleteOnTermination`: `bool`
-- `Iops`: `int`
-- `KmsKeyId`: `str`
-- `SnapshotId`: `str`
-- `VolumeSize`: `int`
-- `VolumeType`: `VolumeType`
-- `Throughput`: `int`
-
-
-## LaunchTemplateElasticInferenceAcceleratorResponseTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateElasticInferenceAcceleratorResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `str`
-- `Count`: `int`
-
-
-## LaunchTemplateElasticInferenceAcceleratorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateElasticInferenceAcceleratorTypeDef
-```
-
-
-Required fields:
-- `Type`: `str`
-
-
-
-Optional fields:
-- `Count`: `int`
-
-
-## LaunchTemplateEnclaveOptionsRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateEnclaveOptionsRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
-## LaunchTemplateEnclaveOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateEnclaveOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
-## LaunchTemplateHibernationOptionsRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateHibernationOptionsRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `Configured`: `bool`
-
-
-## LaunchTemplateHibernationOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateHibernationOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Configured`: `bool`
-
-
-## LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-
-
-## LaunchTemplateIamInstanceProfileSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateIamInstanceProfileSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-
-
-## LaunchTemplateInstanceMarketOptionsRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceMarketOptionsRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `MarketType`: `MarketType`
-- `SpotOptions`: `"LaunchTemplateSpotMarketOptionsRequestTypeDef"`
-
-
-## LaunchTemplateInstanceMarketOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceMarketOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `MarketType`: `MarketType`
-- `SpotOptions`: `"LaunchTemplateSpotMarketOptionsTypeDef"`
-
-
-## LaunchTemplateInstanceMetadataOptionsRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceMetadataOptionsRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `HttpTokens`: `LaunchTemplateHttpTokensState`
-- `HttpPutResponseHopLimit`: `int`
-- `HttpEndpoint`: `LaunchTemplateInstanceMetadataEndpointState`
-
-
-## LaunchTemplateInstanceMetadataOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceMetadataOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `LaunchTemplateInstanceMetadataOptionsState`
-- `HttpTokens`: `LaunchTemplateHttpTokensState`
-- `HttpPutResponseHopLimit`: `int`
-- `HttpEndpoint`: `LaunchTemplateInstanceMetadataEndpointState`
-
-
-## LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociateCarrierIpAddress`: `bool`
-- `AssociatePublicIpAddress`: `bool`
-- `DeleteOnTermination`: `bool`
-- `Description`: `str`
-- `DeviceIndex`: `int`
-- `Groups`: `List[str]`
-- `InterfaceType`: `str`
-- `Ipv6AddressCount`: `int`
-- `Ipv6Addresses`: `List["InstanceIpv6AddressRequestTypeDef"]`
-- `NetworkInterfaceId`: `str`
-- `PrivateIpAddress`: `str`
-- `PrivateIpAddresses`: `List["PrivateIpAddressSpecificationTypeDef"]`
-- `SecondaryPrivateIpAddressCount`: `int`
-- `SubnetId`: `str`
-- `NetworkCardIndex`: `int`
-
-
-## LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociateCarrierIpAddress`: `bool`
-- `AssociatePublicIpAddress`: `bool`
-- `DeleteOnTermination`: `bool`
-- `Description`: `str`
-- `DeviceIndex`: `int`
-- `Groups`: `List[str]`
-- `InterfaceType`: `str`
-- `Ipv6AddressCount`: `int`
-- `Ipv6Addresses`: `List["InstanceIpv6AddressTypeDef"]`
-- `NetworkInterfaceId`: `str`
-- `PrivateIpAddress`: `str`
-- `PrivateIpAddresses`: `List["PrivateIpAddressSpecificationTypeDef"]`
-- `SecondaryPrivateIpAddressCount`: `int`
-- `SubnetId`: `str`
-- `NetworkCardIndex`: `int`
-
-
-## LaunchTemplateLicenseConfigurationRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateLicenseConfigurationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `LicenseConfigurationArn`: `str`
-
-
-## LaunchTemplateLicenseConfigurationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateLicenseConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `LicenseConfigurationArn`: `str`
-
-
-## LaunchTemplateOverridesTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateOverridesTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceType`: `InstanceType`
-- `SpotPrice`: `str`
-- `SubnetId`: `str`
-- `AvailabilityZone`: `str`
-- `WeightedCapacity`: `float`
-- `Priority`: `float`
-
-
-## LaunchTemplatePlacementRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplatePlacementRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `Affinity`: `str`
-- `GroupName`: `str`
-- `HostId`: `str`
-- `Tenancy`: `Tenancy`
-- `SpreadDomain`: `str`
-- `HostResourceGroupArn`: `str`
-- `PartitionNumber`: `int`
-
-
-## LaunchTemplatePlacementTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplatePlacementTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `Affinity`: `str`
-- `GroupName`: `str`
-- `HostId`: `str`
-- `Tenancy`: `Tenancy`
-- `SpreadDomain`: `str`
-- `HostResourceGroupArn`: `str`
-- `PartitionNumber`: `int`
-
-
-## LaunchTemplateSpotMarketOptionsRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateSpotMarketOptionsRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxPrice`: `str`
-- `SpotInstanceType`: `SpotInstanceType`
-- `BlockDurationMinutes`: `int`
-- `ValidUntil`: `datetime`
-- `InstanceInterruptionBehavior`: `InstanceInterruptionBehavior`
-
-
-## LaunchTemplateSpotMarketOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateSpotMarketOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxPrice`: `str`
-- `SpotInstanceType`: `SpotInstanceType`
-- `BlockDurationMinutes`: `int`
-- `ValidUntil`: `datetime`
-- `InstanceInterruptionBehavior`: `InstanceInterruptionBehavior`
-
-
-## LaunchTemplateTagSpecificationRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateTagSpecificationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceType`: `ResourceType`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## LaunchTemplateTagSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateTagSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceType`: `ResourceType`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## LaunchTemplateTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateId`: `str`
-- `LaunchTemplateName`: `str`
-- `CreateTime`: `datetime`
-- `CreatedBy`: `str`
-- `DefaultVersionNumber`: `int`
-- `LatestVersionNumber`: `int`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## LaunchTemplateVersionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplateVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `LaunchTemplateId`: `str`
-- `LaunchTemplateName`: `str`
-- `VersionNumber`: `int`
-- `VersionDescription`: `str`
-- `CreateTime`: `datetime`
-- `CreatedBy`: `str`
-- `DefaultVersion`: `bool`
-- `LaunchTemplateData`: `"ResponseLaunchTemplateDataTypeDef"`
-
-
-## LaunchTemplatesMonitoringRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplatesMonitoringRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
-## LaunchTemplatesMonitoringTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LaunchTemplatesMonitoringTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
-## LicenseConfigurationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LicenseConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `LicenseConfigurationArn`: `str`
-
-
-## LoadBalancersConfigTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LoadBalancersConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClassicLoadBalancersConfig`: `"ClassicLoadBalancersConfigTypeDef"`
-- `TargetGroupsConfig`: `"TargetGroupsConfigTypeDef"`
-
-
-## LoadPermissionRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LoadPermissionRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `Group`: `PermissionGroup`
-- `UserId`: `str`
-
-
-## LoadPermissionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LoadPermissionTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserId`: `str`
-- `Group`: `PermissionGroup`
-
-
-## LocalGatewayRouteTableTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LocalGatewayRouteTableTypeDef
-```
-
-
-
-
-Optional fields:
-- `LocalGatewayRouteTableId`: `str`
-- `LocalGatewayRouteTableArn`: `str`
-- `LocalGatewayId`: `str`
-- `OutpostArn`: `str`
-- `OwnerId`: `str`
-- `State`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `LocalGatewayRouteTableVirtualInterfaceGroupAssociationId`: `str`
-- `LocalGatewayVirtualInterfaceGroupId`: `str`
-- `LocalGatewayId`: `str`
-- `LocalGatewayRouteTableId`: `str`
-- `LocalGatewayRouteTableArn`: `str`
-- `OwnerId`: `str`
-- `State`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## LocalGatewayRouteTableVpcAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LocalGatewayRouteTableVpcAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `LocalGatewayRouteTableVpcAssociationId`: `str`
-- `LocalGatewayRouteTableId`: `str`
-- `LocalGatewayRouteTableArn`: `str`
-- `LocalGatewayId`: `str`
-- `VpcId`: `str`
-- `OwnerId`: `str`
-- `State`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## LocalGatewayRouteTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LocalGatewayRouteTypeDef
-```
-
-
-
-
-Optional fields:
-- `DestinationCidrBlock`: `str`
-- `LocalGatewayVirtualInterfaceGroupId`: `str`
-- `Type`: `LocalGatewayRouteType`
-- `State`: `LocalGatewayRouteState`
-- `LocalGatewayRouteTableId`: `str`
-- `LocalGatewayRouteTableArn`: `str`
-- `OwnerId`: `str`
-
-
-## LocalGatewayTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LocalGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `LocalGatewayId`: `str`
-- `OutpostArn`: `str`
-- `OwnerId`: `str`
-- `State`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## LocalGatewayVirtualInterfaceGroupTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LocalGatewayVirtualInterfaceGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `LocalGatewayVirtualInterfaceGroupId`: `str`
-- `LocalGatewayVirtualInterfaceIds`: `List[str]`
-- `LocalGatewayId`: `str`
-- `OwnerId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## LocalGatewayVirtualInterfaceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import LocalGatewayVirtualInterfaceTypeDef
-```
-
-
-
-
-Optional fields:
-- `LocalGatewayVirtualInterfaceId`: `str`
-- `LocalGatewayId`: `str`
-- `Vlan`: `int`
-- `LocalAddress`: `str`
-- `PeerAddress`: `str`
-- `LocalBgpAsn`: `int`
-- `PeerBgpAsn`: `int`
-- `OwnerId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ManagedPrefixListTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ManagedPrefixListTypeDef
-```
-
-
-
-
-Optional fields:
-- `PrefixListId`: `str`
-- `AddressFamily`: `str`
-- `State`: `PrefixListState`
-- `StateMessage`: `str`
-- `PrefixListArn`: `str`
-- `PrefixListName`: `str`
-- `MaxEntries`: `int`
-- `Version`: `int`
-- `Tags`: `List["TagTypeDef"]`
-- `OwnerId`: `str`
-
-
-## MemoryInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import MemoryInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `SizeInMiB`: `int`
-
-
-## MonitoringTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import MonitoringTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `MonitoringState`
-
-
-## MovingAddressStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import MovingAddressStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `MoveStatus`: `MoveStatus`
-- `PublicIp`: `str`
-
-
-## NatGatewayAddressTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NatGatewayAddressTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllocationId`: `str`
-- `NetworkInterfaceId`: `str`
-- `PrivateIp`: `str`
-- `PublicIp`: `str`
-
-
-## NatGatewayTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NatGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreateTime`: `datetime`
-- `DeleteTime`: `datetime`
-- `FailureCode`: `str`
-- `FailureMessage`: `str`
-- `NatGatewayAddresses`: `List["NatGatewayAddressTypeDef"]`
-- `NatGatewayId`: `str`
-- `ProvisionedBandwidth`: `"ProvisionedBandwidthTypeDef"`
-- `State`: `NatGatewayState`
-- `SubnetId`: `str`
-- `VpcId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## NetworkAclAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkAclAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `NetworkAclAssociationId`: `str`
-- `NetworkAclId`: `str`
-- `SubnetId`: `str`
-
-
-## NetworkAclEntryTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkAclEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `CidrBlock`: `str`
-- `Egress`: `bool`
-- `IcmpTypeCode`: `"IcmpTypeCodeTypeDef"`
-- `Ipv6CidrBlock`: `str`
-- `PortRange`: `"PortRangeTypeDef"`
-- `Protocol`: `str`
-- `RuleAction`: `RuleAction`
-- `RuleNumber`: `int`
-
-
-## NetworkAclTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkAclTypeDef
-```
-
-
-
-
-Optional fields:
-- `Associations`: `List["NetworkAclAssociationTypeDef"]`
-- `Entries`: `List["NetworkAclEntryTypeDef"]`
-- `IsDefault`: `bool`
-- `NetworkAclId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `VpcId`: `str`
-- `OwnerId`: `str`
-
-
-## NetworkCardInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkCardInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `NetworkCardIndex`: `int`
-- `NetworkPerformance`: `str`
-- `MaximumNetworkInterfaces`: `int`
-
-
-## NetworkInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `NetworkPerformance`: `str`
-- `MaximumNetworkInterfaces`: `int`
-- `MaximumNetworkCards`: `int`
-- `DefaultNetworkCardIndex`: `int`
-- `NetworkCards`: `List["NetworkCardInfoTypeDef"]`
-- `Ipv4AddressesPerInterface`: `int`
-- `Ipv6AddressesPerInterface`: `int`
-- `Ipv6Supported`: `bool`
-- `EnaSupport`: `EnaSupport`
-- `EfaSupported`: `bool`
-- `EfaInfo`: `"EfaInfoTypeDef"`
-
-
-## NetworkInsightsAnalysisTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkInsightsAnalysisTypeDef
-```
-
-
-
-
-Optional fields:
-- `NetworkInsightsAnalysisId`: `str`
-- `NetworkInsightsAnalysisArn`: `str`
-- `NetworkInsightsPathId`: `str`
-- `FilterInArns`: `List[str]`
-- `StartDate`: `datetime`
-- `Status`: `AnalysisStatus`
-- `StatusMessage`: `str`
-- `NetworkPathFound`: `bool`
-- `ForwardPathComponents`: `List["PathComponentTypeDef"]`
-- `ReturnPathComponents`: `List["PathComponentTypeDef"]`
-- `Explanations`: `List["ExplanationTypeDef"]`
-- `AlternatePathHints`: `List["AlternatePathHintTypeDef"]`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## NetworkInsightsPathTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkInsightsPathTypeDef
-```
-
-
-
-
-Optional fields:
-- `NetworkInsightsPathId`: `str`
-- `NetworkInsightsPathArn`: `str`
-- `CreatedDate`: `datetime`
-- `Source`: `str`
-- `Destination`: `str`
-- `SourceIp`: `str`
-- `DestinationIp`: `str`
-- `Protocol`: `ProtocolType`
-- `DestinationPort`: `int`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## NetworkInterfaceAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkInterfaceAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllocationId`: `str`
-- `AssociationId`: `str`
-- `IpOwnerId`: `str`
-- `PublicDnsName`: `str`
-- `PublicIp`: `str`
-- `CustomerOwnedIp`: `str`
-- `CarrierIp`: `str`
-
-
-## NetworkInterfaceAttachmentTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkInterfaceAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttachTime`: `datetime`
-- `AttachmentId`: `str`
-- `DeleteOnTermination`: `bool`
-- `DeviceIndex`: `int`
-- `NetworkCardIndex`: `int`
-- `InstanceId`: `str`
-- `InstanceOwnerId`: `str`
-- `Status`: `AttachmentStatus`
-
-
-## NetworkInterfaceIpv6AddressTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkInterfaceIpv6AddressTypeDef
-```
-
-
-
-
-Optional fields:
-- `Ipv6Address`: `str`
-
-
-## NetworkInterfacePermissionStateTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkInterfacePermissionStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `NetworkInterfacePermissionStateCode`
-- `StatusMessage`: `str`
-
-
-## NetworkInterfacePermissionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkInterfacePermissionTypeDef
-```
-
-
-
-
-Optional fields:
-- `NetworkInterfacePermissionId`: `str`
-- `NetworkInterfaceId`: `str`
-- `AwsAccountId`: `str`
-- `AwsService`: `str`
-- `Permission`: `InterfacePermissionType`
-- `PermissionState`: `"NetworkInterfacePermissionStateTypeDef"`
-
-
-## NetworkInterfacePrivateIpAddressTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkInterfacePrivateIpAddressTypeDef
-```
-
-
-
-
-Optional fields:
-- `Association`: `"NetworkInterfaceAssociationTypeDef"`
-- `Primary`: `bool`
-- `PrivateDnsName`: `str`
-- `PrivateIpAddress`: `str`
-
-
-## NetworkInterfaceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import NetworkInterfaceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Association`: `"NetworkInterfaceAssociationTypeDef"`
-- `Attachment`: `"NetworkInterfaceAttachmentTypeDef"`
-- `AvailabilityZone`: `str`
-- `Description`: `str`
-- `Groups`: `List["GroupIdentifierTypeDef"]`
-- `InterfaceType`: `NetworkInterfaceType`
-- `Ipv6Addresses`: `List["NetworkInterfaceIpv6AddressTypeDef"]`
-- `MacAddress`: `str`
-- `NetworkInterfaceId`: `str`
-- `OutpostArn`: `str`
-- `OwnerId`: `str`
-- `PrivateDnsName`: `str`
-- `PrivateIpAddress`: `str`
-- `PrivateIpAddresses`: `List["NetworkInterfacePrivateIpAddressTypeDef"]`
-- `RequesterId`: `str`
-- `RequesterManaged`: `bool`
-- `SourceDestCheck`: `bool`
-- `Status`: `NetworkInterfaceStatus`
-- `SubnetId`: `str`
-- `TagSet`: `List["TagTypeDef"]`
-- `VpcId`: `str`
-
-
-## OnDemandOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import OnDemandOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllocationStrategy`: `FleetOnDemandAllocationStrategy`
-- `CapacityReservationOptions`: `"CapacityReservationOptionsTypeDef"`
-- `SingleInstanceType`: `bool`
-- `SingleAvailabilityZone`: `bool`
-- `MinTargetCapacity`: `int`
-- `MaxTotalPrice`: `str`
-
-
-## PathComponentTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PathComponentTypeDef
-```
-
-
-
-
-Optional fields:
-- `SequenceNumber`: `int`
-- `AclRule`: `"AnalysisAclRuleTypeDef"`
-- `Component`: `"AnalysisComponentTypeDef"`
-- `DestinationVpc`: `"AnalysisComponentTypeDef"`
-- `OutboundHeader`: `"AnalysisPacketHeaderTypeDef"`
-- `InboundHeader`: `"AnalysisPacketHeaderTypeDef"`
-- `RouteTableRoute`: `"AnalysisRouteTableRouteTypeDef"`
-- `SecurityGroupRule`: `"AnalysisSecurityGroupRuleTypeDef"`
-- `SourceVpc`: `"AnalysisComponentTypeDef"`
-- `Subnet`: `"AnalysisComponentTypeDef"`
-- `Vpc`: `"AnalysisComponentTypeDef"`
-
-
-## PciIdTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PciIdTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeviceId`: `str`
-- `VendorId`: `str`
-- `SubsystemId`: `str`
-- `SubsystemVendorId`: `str`
-
-
-## PeeringAttachmentStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PeeringAttachmentStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-
-
-## PeeringConnectionOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PeeringConnectionOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllowDnsResolutionFromRemoteVpc`: `bool`
-- `AllowEgressFromLocalClassicLinkToRemoteVpc`: `bool`
-- `AllowEgressFromLocalVpcToRemoteClassicLink`: `bool`
-
-
-## PeeringTgwInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PeeringTgwInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayId`: `str`
-- `OwnerId`: `str`
-- `Region`: `str`
-
-
-## Phase1DHGroupNumbersListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase1DHGroupNumbersListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `int`
-
-
-## Phase1DHGroupNumbersRequestListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase1DHGroupNumbersRequestListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `int`
-
-
-## Phase1EncryptionAlgorithmsListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase1EncryptionAlgorithmsListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## Phase1EncryptionAlgorithmsRequestListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase1EncryptionAlgorithmsRequestListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## Phase1IntegrityAlgorithmsListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase1IntegrityAlgorithmsListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## Phase1IntegrityAlgorithmsRequestListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase1IntegrityAlgorithmsRequestListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## Phase2DHGroupNumbersListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase2DHGroupNumbersListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `int`
-
-
-## Phase2DHGroupNumbersRequestListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase2DHGroupNumbersRequestListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `int`
-
-
-## Phase2EncryptionAlgorithmsListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase2EncryptionAlgorithmsListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## Phase2EncryptionAlgorithmsRequestListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase2EncryptionAlgorithmsRequestListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## Phase2IntegrityAlgorithmsListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase2IntegrityAlgorithmsListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## Phase2IntegrityAlgorithmsRequestListValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import Phase2IntegrityAlgorithmsRequestListValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## PlacementGroupInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PlacementGroupInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `SupportedStrategies`: `List[PlacementGroupStrategy]`
-
-
-## PlacementGroupTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PlacementGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupName`: `str`
-- `State`: `PlacementGroupState`
-- `Strategy`: `PlacementStrategy`
-- `PartitionCount`: `int`
-- `GroupId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## PlacementResponseTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PlacementResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupName`: `str`
-
-
-## PlacementTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PlacementTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `Affinity`: `str`
-- `GroupName`: `str`
-- `PartitionNumber`: `int`
-- `HostId`: `str`
-- `Tenancy`: `Tenancy`
-- `SpreadDomain`: `str`
-- `HostResourceGroupArn`: `str`
-
-
-## PoolCidrBlockTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PoolCidrBlockTypeDef
-```
-
-
-
-
-Optional fields:
-- `Cidr`: `str`
-
-
-## PortRangeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PortRangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `From`: `int`
-- `To`: `int`
-
-
-## PrefixListAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PrefixListAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceId`: `str`
-- `ResourceOwner`: `str`
-
-
-## PrefixListEntryTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PrefixListEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Cidr`: `str`
-- `Description`: `str`
-
-
-## PrefixListIdTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PrefixListIdTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `PrefixListId`: `str`
-
-
-## PrefixListTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PrefixListTypeDef
-```
-
-
-
-
-Optional fields:
-- `Cidrs`: `List[str]`
-- `PrefixListId`: `str`
-- `PrefixListName`: `str`
-
-
-## PriceScheduleTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PriceScheduleTypeDef
-```
-
-
-
-
-Optional fields:
-- `Active`: `bool`
-- `CurrencyCode`: `CurrencyCodeValues`
-- `Price`: `float`
-- `Term`: `int`
-
-
-## PricingDetailTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PricingDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Count`: `int`
-- `Price`: `float`
-
-
-## PrincipalIdFormatTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PrincipalIdFormatTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Statuses`: `List["IdFormatTypeDef"]`
-
-
-## PrivateDnsDetailsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PrivateDnsDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `PrivateDnsName`: `str`
-
-
-## PrivateDnsNameConfigurationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PrivateDnsNameConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `DnsNameState`
-- `Type`: `str`
-- `Value`: `str`
-- `Name`: `str`
-
-
-## PrivateIpAddressSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PrivateIpAddressSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Primary`: `bool`
-- `PrivateIpAddress`: `str`
-
-
-## ProcessorInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ProcessorInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `SupportedArchitectures`: `List[ArchitectureType]`
-- `SustainedClockSpeedInGhz`: `float`
-
-
-## ProductCodeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ProductCodeTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProductCodeId`: `str`
-- `ProductCodeType`: `ProductCodeValues`
-
-
-## PropagatingVgwTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PropagatingVgwTypeDef
-```
-
-
-
-
-Optional fields:
-- `GatewayId`: `str`
-
-
-## ProvisionedBandwidthTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ProvisionedBandwidthTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProvisionTime`: `datetime`
-- `Provisioned`: `str`
-- `RequestTime`: `datetime`
-- `Requested`: `str`
-- `Status`: `str`
-
-
-## PtrUpdateStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PtrUpdateStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-- `Status`: `str`
-- `Reason`: `str`
-
-
-## PublicIpv4PoolRangeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PublicIpv4PoolRangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `FirstAddress`: `str`
-- `LastAddress`: `str`
-- `AddressCount`: `int`
-- `AvailableAddressCount`: `int`
-
-
-## PublicIpv4PoolTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PublicIpv4PoolTypeDef
-```
-
-
-
-
-Optional fields:
-- `PoolId`: `str`
-- `Description`: `str`
-- `PoolAddressRanges`: `List["PublicIpv4PoolRangeTypeDef"]`
-- `TotalAddressCount`: `int`
-- `TotalAvailableAddressCount`: `int`
-- `NetworkBorderGroup`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## PurchaseTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import PurchaseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CurrencyCode`: `CurrencyCodeValues`
-- `Duration`: `int`
-- `HostIdSet`: `List[str]`
-- `HostReservationId`: `str`
-- `HourlyPrice`: `str`
-- `InstanceFamily`: `str`
-- `PaymentOption`: `PaymentOption`
-- `UpfrontPrice`: `str`
-
-
-## RecurringChargeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import RecurringChargeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Amount`: `float`
-- `Frequency`: `RecurringChargeFrequency`
-
-
-## RegionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import RegionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Endpoint`: `str`
-- `RegionName`: `str`
-- `OptInStatus`: `str`
-
-
-## ReplaceRootVolumeTaskTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ReplaceRootVolumeTaskTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplaceRootVolumeTaskId`: `str`
-- `InstanceId`: `str`
-- `TaskState`: `ReplaceRootVolumeTaskState`
-- `StartTime`: `str`
-- `CompleteTime`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ReservationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ReservationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Groups`: `List["GroupIdentifierTypeDef"]`
-- `Instances`: `List["InstanceTypeDef"]`
-- `OwnerId`: `str`
-- `RequesterId`: `str`
-- `ReservationId`: `str`
-
-
-## ReservationValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ReservationValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `HourlyPrice`: `str`
-- `RemainingTotalValue`: `str`
-- `RemainingUpfrontValue`: `str`
-
-
-## ReservedInstanceReservationValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ReservedInstanceReservationValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReservationValue`: `"ReservationValueTypeDef"`
-- `ReservedInstanceId`: `str`
-
-
-## ReservedInstancesConfigurationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ReservedInstancesConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `InstanceCount`: `int`
-- `InstanceType`: `InstanceType`
-- `Platform`: `str`
-- `Scope`: `scope`
-
-
-## ReservedInstancesIdTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ReservedInstancesIdTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReservedInstancesId`: `str`
-
-
-## ReservedInstancesListingTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ReservedInstancesListingTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientToken`: `str`
-- `CreateDate`: `datetime`
-- `InstanceCounts`: `List["InstanceCountTypeDef"]`
-- `PriceSchedules`: `List["PriceScheduleTypeDef"]`
-- `ReservedInstancesId`: `str`
-- `ReservedInstancesListingId`: `str`
-- `Status`: `ListingStatus`
-- `StatusMessage`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `UpdateDate`: `datetime`
-
-
-## ReservedInstancesModificationResultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ReservedInstancesModificationResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReservedInstancesId`: `str`
-- `TargetConfiguration`: `"ReservedInstancesConfigurationTypeDef"`
-
-
-## ReservedInstancesModificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ReservedInstancesModificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientToken`: `str`
-- `CreateDate`: `datetime`
-- `EffectiveDate`: `datetime`
-- `ModificationResults`: `List["ReservedInstancesModificationResultTypeDef"]`
-- `ReservedInstancesIds`: `List["ReservedInstancesIdTypeDef"]`
-- `ReservedInstancesModificationId`: `str`
-- `Status`: `str`
-- `StatusMessage`: `str`
-- `UpdateDate`: `datetime`
-
-
-## ReservedInstancesOfferingTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ReservedInstancesOfferingTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `Duration`: `int`
-- `FixedPrice`: `float`
-- `InstanceType`: `InstanceType`
-- `ProductDescription`: `RIProductDescription`
-- `ReservedInstancesOfferingId`: `str`
-- `UsagePrice`: `float`
-- `CurrencyCode`: `CurrencyCodeValues`
-- `InstanceTenancy`: `Tenancy`
-- `Marketplace`: `bool`
-- `OfferingClass`: `OfferingClassType`
-- `OfferingType`: `OfferingTypeValues`
-- `PricingDetails`: `List["PricingDetailTypeDef"]`
-- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
-- `Scope`: `scope`
-
-
-## ReservedInstancesTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ReservedInstancesTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `Duration`: `int`
-- `End`: `datetime`
-- `FixedPrice`: `float`
-- `InstanceCount`: `int`
-- `InstanceType`: `InstanceType`
-- `ProductDescription`: `RIProductDescription`
-- `ReservedInstancesId`: `str`
-- `Start`: `datetime`
-- `State`: `ReservedInstanceState`
-- `UsagePrice`: `float`
-- `CurrencyCode`: `CurrencyCodeValues`
-- `InstanceTenancy`: `Tenancy`
-- `OfferingClass`: `OfferingClassType`
-- `OfferingType`: `OfferingTypeValues`
-- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
-- `Scope`: `scope`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ResponseErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ResponseErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `LaunchTemplateErrorCode`
-- `Message`: `str`
-
-
-## ResponseLaunchTemplateDataTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ResponseLaunchTemplateDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `KernelId`: `str`
-- `EbsOptimized`: `bool`
-- `IamInstanceProfile`: `"LaunchTemplateIamInstanceProfileSpecificationTypeDef"`
-- `BlockDeviceMappings`: `List["LaunchTemplateBlockDeviceMappingTypeDef"]`
-- `NetworkInterfaces`: `List["LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef"]`
-- `ImageId`: `str`
-- `InstanceType`: `InstanceType`
-- `KeyName`: `str`
-- `Monitoring`: `"LaunchTemplatesMonitoringTypeDef"`
-- `Placement`: `"LaunchTemplatePlacementTypeDef"`
-- `RamDiskId`: `str`
-- `DisableApiTermination`: `bool`
-- `InstanceInitiatedShutdownBehavior`: `ShutdownBehavior`
-- `UserData`: `str`
-- `TagSpecifications`: `List["LaunchTemplateTagSpecificationTypeDef"]`
-- `ElasticGpuSpecifications`: `List["ElasticGpuSpecificationResponseTypeDef"]`
-- `ElasticInferenceAccelerators`: `List["LaunchTemplateElasticInferenceAcceleratorResponseTypeDef"]`
-- `SecurityGroupIds`: `List[str]`
-- `SecurityGroups`: `List[str]`
-- `InstanceMarketOptions`: `"LaunchTemplateInstanceMarketOptionsTypeDef"`
-- `CreditSpecification`: `"CreditSpecificationTypeDef"`
-- `CpuOptions`: `"LaunchTemplateCpuOptionsTypeDef"`
-- `CapacityReservationSpecification`: `"LaunchTemplateCapacityReservationSpecificationResponseTypeDef"`
-- `LicenseSpecifications`: `List["LaunchTemplateLicenseConfigurationTypeDef"]`
-- `HibernationOptions`: `"LaunchTemplateHibernationOptionsTypeDef"`
-- `MetadataOptions`: `"LaunchTemplateInstanceMetadataOptionsTypeDef"`
-- `EnclaveOptions`: `"LaunchTemplateEnclaveOptionsTypeDef"`
-
-
-## RouteTableAssociationStateTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import RouteTableAssociationStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `RouteTableAssociationStateCode`
-- `StatusMessage`: `str`
-
-
-## RouteTableAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import RouteTableAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Main`: `bool`
-- `RouteTableAssociationId`: `str`
-- `RouteTableId`: `str`
-- `SubnetId`: `str`
-- `GatewayId`: `str`
-- `AssociationState`: `"RouteTableAssociationStateTypeDef"`
-
-
-## RouteTableTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import RouteTableTypeDef
-```
-
-
-
-
-Optional fields:
-- `Associations`: `List["RouteTableAssociationTypeDef"]`
-- `PropagatingVgws`: `List["PropagatingVgwTypeDef"]`
-- `RouteTableId`: `str`
-- `Routes`: `List["RouteTypeDef"]`
-- `Tags`: `List["TagTypeDef"]`
-- `VpcId`: `str`
-- `OwnerId`: `str`
-
-
-## RouteTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import RouteTypeDef
-```
-
-
-
-
-Optional fields:
-- `DestinationCidrBlock`: `str`
-- `DestinationIpv6CidrBlock`: `str`
-- `DestinationPrefixListId`: `str`
-- `EgressOnlyInternetGatewayId`: `str`
-- `GatewayId`: `str`
-- `InstanceId`: `str`
-- `InstanceOwnerId`: `str`
-- `NatGatewayId`: `str`
-- `TransitGatewayId`: `str`
-- `LocalGatewayId`: `str`
-- `CarrierGatewayId`: `str`
-- `NetworkInterfaceId`: `str`
-- `Origin`: `RouteOrigin`
-- `State`: `RouteState`
-- `VpcPeeringConnectionId`: `str`
-
-
-## RunInstancesMonitoringEnabledTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import RunInstancesMonitoringEnabledTypeDef
-```
-
-
-Required fields:
-- `Enabled`: `bool`
-
-
-
-
-## S3StorageTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import S3StorageTypeDef
-```
-
-
-
-
-Optional fields:
-- `AWSAccessKeyId`: `str`
-- `Bucket`: `str`
-- `Prefix`: `str`
-- `UploadPolicy`: `Union[bytes, IO[bytes]]`
-- `UploadPolicySignature`: `str`
-
-
-## ScheduledInstanceAvailabilityTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ScheduledInstanceAvailabilityTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `AvailableInstanceCount`: `int`
-- `FirstSlotStartTime`: `datetime`
-- `HourlyPrice`: `str`
-- `InstanceType`: `str`
-- `MaxTermDurationInDays`: `int`
-- `MinTermDurationInDays`: `int`
-- `NetworkPlatform`: `str`
-- `Platform`: `str`
-- `PurchaseToken`: `str`
-- `Recurrence`: `"ScheduledInstanceRecurrenceTypeDef"`
-- `SlotDurationInHours`: `int`
-- `TotalScheduledInstanceHours`: `int`
-
-
-## ScheduledInstanceRecurrenceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ScheduledInstanceRecurrenceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Frequency`: `str`
-- `Interval`: `int`
-- `OccurrenceDaySet`: `List[int]`
-- `OccurrenceRelativeToEnd`: `bool`
-- `OccurrenceUnit`: `str`
-
-
-## ScheduledInstanceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ScheduledInstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `CreateDate`: `datetime`
-- `HourlyPrice`: `str`
-- `InstanceCount`: `int`
-- `InstanceType`: `str`
-- `NetworkPlatform`: `str`
-- `NextSlotStartTime`: `datetime`
-- `Platform`: `str`
-- `PreviousSlotEndTime`: `datetime`
-- `Recurrence`: `"ScheduledInstanceRecurrenceTypeDef"`
-- `ScheduledInstanceId`: `str`
-- `SlotDurationInHours`: `int`
-- `TermEndDate`: `datetime`
-- `TermStartDate`: `datetime`
-- `TotalScheduledInstanceHours`: `int`
-
-
-## ScheduledInstancesBlockDeviceMappingTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ScheduledInstancesBlockDeviceMappingTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeviceName`: `str`
-- `Ebs`: `"ScheduledInstancesEbsTypeDef"`
-- `NoDevice`: `str`
-- `VirtualName`: `str`
-
-
-## ScheduledInstancesEbsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ScheduledInstancesEbsTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeleteOnTermination`: `bool`
-- `Encrypted`: `bool`
-- `Iops`: `int`
-- `SnapshotId`: `str`
-- `VolumeSize`: `int`
-- `VolumeType`: `str`
-
-
-## ScheduledInstancesIamInstanceProfileTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ScheduledInstancesIamInstanceProfileTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-
-
-## ScheduledInstancesIpv6AddressTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ScheduledInstancesIpv6AddressTypeDef
-```
-
-
-
-
-Optional fields:
-- `Ipv6Address`: `str`
-
-
-## ScheduledInstancesMonitoringTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ScheduledInstancesMonitoringTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
-## ScheduledInstancesNetworkInterfaceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ScheduledInstancesNetworkInterfaceTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociatePublicIpAddress`: `bool`
-- `DeleteOnTermination`: `bool`
-- `Description`: `str`
-- `DeviceIndex`: `int`
-- `Groups`: `List[str]`
-- `Ipv6AddressCount`: `int`
-- `Ipv6Addresses`: `List["ScheduledInstancesIpv6AddressTypeDef"]`
-- `NetworkInterfaceId`: `str`
-- `PrivateIpAddress`: `str`
-- `PrivateIpAddressConfigs`: `List["ScheduledInstancesPrivateIpAddressConfigTypeDef"]`
-- `SecondaryPrivateIpAddressCount`: `int`
-- `SubnetId`: `str`
-
-
-## ScheduledInstancesPlacementTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ScheduledInstancesPlacementTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `GroupName`: `str`
-
-
-## ScheduledInstancesPrivateIpAddressConfigTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ScheduledInstancesPrivateIpAddressConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Primary`: `bool`
-- `PrivateIpAddress`: `str`
-
-
-## SecurityGroupIdentifierTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SecurityGroupIdentifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupId`: `str`
-- `GroupName`: `str`
-
-
-## SecurityGroupReferenceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SecurityGroupReferenceTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupId`: `str`
-- `ReferencingVpcId`: `str`
-- `VpcPeeringConnectionId`: `str`
-
-
-## SecurityGroupTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SecurityGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `GroupName`: `str`
-- `IpPermissions`: `List["IpPermissionTypeDef"]`
-- `OwnerId`: `str`
-- `GroupId`: `str`
-- `IpPermissionsEgress`: `List["IpPermissionTypeDef"]`
-- `Tags`: `List["TagTypeDef"]`
-- `VpcId`: `str`
-
-
-## ServiceConfigurationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ServiceConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceType`: `List["ServiceTypeDetailTypeDef"]`
-- `ServiceId`: `str`
-- `ServiceName`: `str`
-- `ServiceState`: `ServiceState`
-- `AvailabilityZones`: `List[str]`
-- `AcceptanceRequired`: `bool`
-- `ManagesVpcEndpoints`: `bool`
-- `NetworkLoadBalancerArns`: `List[str]`
-- `GatewayLoadBalancerArns`: `List[str]`
-- `BaseEndpointDnsNames`: `List[str]`
-- `PrivateDnsName`: `str`
-- `PrivateDnsNameConfiguration`: `"PrivateDnsNameConfigurationTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ServiceDetailTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ServiceDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceName`: `str`
-- `ServiceId`: `str`
-- `ServiceType`: `List["ServiceTypeDetailTypeDef"]`
-- `AvailabilityZones`: `List[str]`
-- `Owner`: `str`
-- `BaseEndpointDnsNames`: `List[str]`
-- `PrivateDnsName`: `str`
-- `PrivateDnsNames`: `List["PrivateDnsDetailsTypeDef"]`
-- `VpcEndpointPolicySupported`: `bool`
-- `AcceptanceRequired`: `bool`
-- `ManagesVpcEndpoints`: `bool`
-- `Tags`: `List["TagTypeDef"]`
-- `PrivateDnsNameVerificationState`: `DnsNameState`
-
-
-## ServiceTypeDetailTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ServiceTypeDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceType`: `ServiceType`
-
-
-## SnapshotDetailTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SnapshotDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `DeviceName`: `str`
-- `DiskImageSize`: `float`
-- `Format`: `str`
-- `Progress`: `str`
-- `SnapshotId`: `str`
-- `Status`: `str`
-- `StatusMessage`: `str`
-- `Url`: `str`
-- `UserBucket`: `"UserBucketDetailsTypeDef"`
-
-
-## SnapshotInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SnapshotInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `Encrypted`: `bool`
-- `VolumeId`: `str`
-- `State`: `SnapshotState`
-- `VolumeSize`: `int`
-- `StartTime`: `datetime`
-- `Progress`: `str`
-- `OwnerId`: `str`
-- `SnapshotId`: `str`
-- `OutpostArn`: `str`
-
-
-## SnapshotTaskDetailTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SnapshotTaskDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `DiskImageSize`: `float`
-- `Encrypted`: `bool`
-- `Format`: `str`
-- `KmsKeyId`: `str`
-- `Progress`: `str`
-- `SnapshotId`: `str`
-- `Status`: `str`
-- `StatusMessage`: `str`
-- `Url`: `str`
-- `UserBucket`: `"UserBucketDetailsTypeDef"`
-
-
-## SnapshotTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SnapshotTypeDef
-```
-
-
-
-
-Optional fields:
-- `DataEncryptionKeyId`: `str`
-- `Description`: `str`
-- `Encrypted`: `bool`
-- `KmsKeyId`: `str`
-- `OwnerId`: `str`
-- `Progress`: `str`
-- `SnapshotId`: `str`
-- `StartTime`: `datetime`
-- `State`: `SnapshotState`
-- `StateMessage`: `str`
-- `VolumeId`: `str`
-- `VolumeSize`: `int`
-- `OwnerAlias`: `str`
-- `OutpostArn`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## SpotCapacityRebalanceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotCapacityRebalanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplacementStrategy`: `ReplacementStrategy`
-
-
-## SpotDatafeedSubscriptionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotDatafeedSubscriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Bucket`: `str`
-- `Fault`: `"SpotInstanceStateFaultTypeDef"`
-- `OwnerId`: `str`
-- `Prefix`: `str`
-- `State`: `DatafeedSubscriptionState`
-
-
-## SpotFleetLaunchSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotFleetLaunchSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `SecurityGroups`: `List["GroupIdentifierTypeDef"]`
-- `AddressingType`: `str`
-- `BlockDeviceMappings`: `List["BlockDeviceMappingTypeDef"]`
-- `EbsOptimized`: `bool`
-- `IamInstanceProfile`: `"IamInstanceProfileSpecificationTypeDef"`
-- `ImageId`: `str`
-- `InstanceType`: `InstanceType`
-- `KernelId`: `str`
-- `KeyName`: `str`
-- `Monitoring`: `"SpotFleetMonitoringTypeDef"`
-- `NetworkInterfaces`: `List["InstanceNetworkInterfaceSpecificationTypeDef"]`
-- `Placement`: `"SpotPlacementTypeDef"`
-- `RamdiskId`: `str`
-- `SpotPrice`: `str`
-- `SubnetId`: `str`
-- `UserData`: `str`
-- `WeightedCapacity`: `float`
-- `TagSpecifications`: `List["SpotFleetTagSpecificationTypeDef"]`
-
-
-## SpotFleetMonitoringTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotFleetMonitoringTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
-## SpotFleetRequestConfigDataTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotFleetRequestConfigDataTypeDef
-```
-
-
-Required fields:
-- `IamFleetRole`: `str`
-- `TargetCapacity`: `int`
-
-
-
-Optional fields:
-- `AllocationStrategy`: `AllocationStrategy`
-- `OnDemandAllocationStrategy`: `OnDemandAllocationStrategy`
-- `SpotMaintenanceStrategies`: `"SpotMaintenanceStrategiesTypeDef"`
-- `ClientToken`: `str`
-- `ExcessCapacityTerminationPolicy`: `ExcessCapacityTerminationPolicy`
-- `FulfilledCapacity`: `float`
-- `OnDemandFulfilledCapacity`: `float`
-- `LaunchSpecifications`: `List["SpotFleetLaunchSpecificationTypeDef"]`
-- `LaunchTemplateConfigs`: `List["LaunchTemplateConfigTypeDef"]`
-- `SpotPrice`: `str`
-- `OnDemandTargetCapacity`: `int`
-- `OnDemandMaxTotalPrice`: `str`
-- `SpotMaxTotalPrice`: `str`
-- `TerminateInstancesWithExpiration`: `bool`
-- `Type`: `FleetType`
-- `ValidFrom`: `datetime`
-- `ValidUntil`: `datetime`
-- `ReplaceUnhealthyInstances`: `bool`
-- `InstanceInterruptionBehavior`: `InstanceInterruptionBehavior`
-- `LoadBalancersConfig`: `"LoadBalancersConfigTypeDef"`
-- `InstancePoolsToUseCount`: `int`
-- `TagSpecifications`: `List["TagSpecificationTypeDef"]`
-
-
-## SpotFleetRequestConfigTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotFleetRequestConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `ActivityStatus`: `ActivityStatus`
-- `CreateTime`: `datetime`
-- `SpotFleetRequestConfig`: `"SpotFleetRequestConfigDataTypeDef"`
-- `SpotFleetRequestId`: `str`
-- `SpotFleetRequestState`: `BatchState`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## SpotFleetTagSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotFleetTagSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceType`: `ResourceType`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## SpotInstanceRequestTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotInstanceRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `ActualBlockHourlyPrice`: `str`
-- `AvailabilityZoneGroup`: `str`
-- `BlockDurationMinutes`: `int`
-- `CreateTime`: `datetime`
-- `Fault`: `"SpotInstanceStateFaultTypeDef"`
-- `InstanceId`: `str`
-- `LaunchGroup`: `str`
-- `LaunchSpecification`: `"LaunchSpecificationTypeDef"`
-- `LaunchedAvailabilityZone`: `str`
-- `ProductDescription`: `RIProductDescription`
-- `SpotInstanceRequestId`: `str`
-- `SpotPrice`: `str`
-- `State`: `SpotInstanceState`
-- `Status`: `"SpotInstanceStatusTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-- `Type`: `SpotInstanceType`
-- `ValidFrom`: `datetime`
-- `ValidUntil`: `datetime`
-- `InstanceInterruptionBehavior`: `InstanceInterruptionBehavior`
-
-
-## SpotInstanceStateFaultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotInstanceStateFaultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-
-
-## SpotInstanceStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotInstanceStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-- `UpdateTime`: `datetime`
-
-
-## SpotMaintenanceStrategiesTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotMaintenanceStrategiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `CapacityRebalance`: `"SpotCapacityRebalanceTypeDef"`
-
-
-## SpotMarketOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotMarketOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxPrice`: `str`
-- `SpotInstanceType`: `SpotInstanceType`
-- `BlockDurationMinutes`: `int`
-- `ValidUntil`: `datetime`
-- `InstanceInterruptionBehavior`: `InstanceInterruptionBehavior`
-
-
-## SpotOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllocationStrategy`: `SpotAllocationStrategy`
-- `MaintenanceStrategies`: `"FleetSpotMaintenanceStrategiesTypeDef"`
-- `InstanceInterruptionBehavior`: `SpotInstanceInterruptionBehavior`
-- `InstancePoolsToUseCount`: `int`
-- `SingleInstanceType`: `bool`
-- `SingleAvailabilityZone`: `bool`
-- `MinTargetCapacity`: `int`
-- `MaxTotalPrice`: `str`
-
-
-## SpotPlacementTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotPlacementTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `GroupName`: `str`
-- `Tenancy`: `Tenancy`
-
-
-## SpotPriceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SpotPriceTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `InstanceType`: `InstanceType`
-- `ProductDescription`: `RIProductDescription`
-- `SpotPrice`: `str`
-- `Timestamp`: `datetime`
-
-
-## StaleIpPermissionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import StaleIpPermissionTypeDef
-```
-
-
-
-
-Optional fields:
-- `FromPort`: `int`
-- `IpProtocol`: `str`
-- `IpRanges`: `List[str]`
-- `PrefixListIds`: `List[str]`
-- `ToPort`: `int`
-- `UserIdGroupPairs`: `List["UserIdGroupPairTypeDef"]`
-
-
-## StaleSecurityGroupTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import StaleSecurityGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `GroupId`: `str`
-- `GroupName`: `str`
-- `StaleIpPermissions`: `List["StaleIpPermissionTypeDef"]`
-- `StaleIpPermissionsEgress`: `List["StaleIpPermissionTypeDef"]`
-- `VpcId`: `str`
-
-
-## StateReasonTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import StateReasonTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-
-
-## StorageTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import StorageTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3`: `"S3StorageTypeDef"`
-
-
-## StoreImageTaskResultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import StoreImageTaskResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `AmiId`: `str`
-- `TaskStartTime`: `datetime`
-- `Bucket`: `str`
-- `S3objectKey`: `str`
-- `ProgressPercentage`: `int`
-- `StoreTaskState`: `str`
-- `StoreTaskFailureReason`: `str`
-
-
-## SubnetAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SubnetAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `SubnetId`: `str`
-- `State`: `TransitGatewayMulitcastDomainAssociationState`
-
-
-## SubnetCidrBlockStateTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SubnetCidrBlockStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `SubnetCidrBlockStateCode`
-- `StatusMessage`: `str`
-
-
-## SubnetIpv6CidrBlockAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SubnetIpv6CidrBlockAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociationId`: `str`
-- `Ipv6CidrBlock`: `str`
-- `Ipv6CidrBlockState`: `"SubnetCidrBlockStateTypeDef"`
-
-
-## SubnetTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SubnetTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `AvailabilityZoneId`: `str`
-- `AvailableIpAddressCount`: `int`
-- `CidrBlock`: `str`
-- `DefaultForAz`: `bool`
-- `MapPublicIpOnLaunch`: `bool`
-- `MapCustomerOwnedIpOnLaunch`: `bool`
-- `CustomerOwnedIpv4Pool`: `str`
-- `State`: `SubnetState`
-- `SubnetId`: `str`
-- `VpcId`: `str`
-- `OwnerId`: `str`
-- `AssignIpv6AddressOnCreation`: `bool`
-- `Ipv6CidrBlockAssociationSet`: `List["SubnetIpv6CidrBlockAssociationTypeDef"]`
-- `Tags`: `List["TagTypeDef"]`
-- `SubnetArn`: `str`
-- `OutpostArn`: `str`
-
-
-## SuccessfulInstanceCreditSpecificationItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SuccessfulInstanceCreditSpecificationItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceId`: `str`
-
-
-## SuccessfulQueuedPurchaseDeletionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import SuccessfulQueuedPurchaseDeletionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReservedInstancesId`: `str`
-
-
-## TagDescriptionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TagDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `ResourceId`: `str`
-- `ResourceType`: `ResourceType`
-- `Value`: `str`
-
-
-## TagSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TagSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceType`: `ResourceType`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TargetCapacitySpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TargetCapacitySpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TotalTargetCapacity`: `int`
-- `OnDemandTargetCapacity`: `int`
-- `SpotTargetCapacity`: `int`
-- `DefaultTargetCapacityType`: `DefaultTargetCapacityType`
-
-
-## TargetConfigurationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TargetConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceCount`: `int`
-- `OfferingId`: `str`
-
-
-## TargetGroupTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TargetGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-
-
-## TargetGroupsConfigTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TargetGroupsConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `TargetGroups`: `List["TargetGroupTypeDef"]`
-
-
-## TargetNetworkTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TargetNetworkTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociationId`: `str`
-- `VpcId`: `str`
-- `TargetNetworkId`: `str`
-- `ClientVpnEndpointId`: `str`
-- `Status`: `"AssociationStatusTypeDef"`
-- `SecurityGroups`: `List[str]`
-
-
-## TargetReservationValueTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TargetReservationValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReservationValue`: `"ReservationValueTypeDef"`
-- `TargetConfiguration`: `"TargetConfigurationTypeDef"`
-
-
-## TerminateConnectionStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TerminateConnectionStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConnectionId`: `str`
-- `PreviousStatus`: `"ClientVpnConnectionStatusTypeDef"`
-- `CurrentStatus`: `"ClientVpnConnectionStatusTypeDef"`
-
-
-## TrafficMirrorFilterRuleTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TrafficMirrorFilterRuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrafficMirrorFilterRuleId`: `str`
-- `TrafficMirrorFilterId`: `str`
-- `TrafficDirection`: `TrafficDirection`
-- `RuleNumber`: `int`
-- `RuleAction`: `TrafficMirrorRuleAction`
-- `Protocol`: `int`
-- `DestinationPortRange`: `"TrafficMirrorPortRangeTypeDef"`
-- `SourcePortRange`: `"TrafficMirrorPortRangeTypeDef"`
-- `DestinationCidrBlock`: `str`
-- `SourceCidrBlock`: `str`
-- `Description`: `str`
-
-
-## TrafficMirrorFilterTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TrafficMirrorFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrafficMirrorFilterId`: `str`
-- `IngressFilterRules`: `List["TrafficMirrorFilterRuleTypeDef"]`
-- `EgressFilterRules`: `List["TrafficMirrorFilterRuleTypeDef"]`
-- `NetworkServices`: `List[TrafficMirrorNetworkService]`
-- `Description`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TrafficMirrorPortRangeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TrafficMirrorPortRangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `FromPort`: `int`
-- `ToPort`: `int`
-
-
-## TrafficMirrorSessionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TrafficMirrorSessionTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrafficMirrorSessionId`: `str`
-- `TrafficMirrorTargetId`: `str`
-- `TrafficMirrorFilterId`: `str`
-- `NetworkInterfaceId`: `str`
-- `OwnerId`: `str`
-- `PacketLength`: `int`
-- `SessionNumber`: `int`
-- `VirtualNetworkId`: `int`
-- `Description`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TrafficMirrorTargetTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TrafficMirrorTargetTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrafficMirrorTargetId`: `str`
-- `NetworkInterfaceId`: `str`
-- `NetworkLoadBalancerArn`: `str`
-- `Type`: `TrafficMirrorTargetType`
-- `Description`: `str`
-- `OwnerId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TransitGatewayAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayRouteTableId`: `str`
-- `TransitGatewayAttachmentId`: `str`
-- `ResourceId`: `str`
-- `ResourceType`: `TransitGatewayAttachmentResourceType`
-- `State`: `TransitGatewayAssociationState`
-
-
-## TransitGatewayAttachmentAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayAttachmentAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayRouteTableId`: `str`
-- `State`: `TransitGatewayAssociationState`
-
-
-## TransitGatewayAttachmentBgpConfigurationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayAttachmentBgpConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAsn`: `int`
-- `PeerAsn`: `int`
-- `TransitGatewayAddress`: `str`
-- `PeerAddress`: `str`
-- `BgpStatus`: `BgpStatus`
-
-
-## TransitGatewayAttachmentPropagationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayAttachmentPropagationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayRouteTableId`: `str`
-- `State`: `TransitGatewayPropagationState`
-
-
-## TransitGatewayAttachmentTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAttachmentId`: `str`
-- `TransitGatewayId`: `str`
-- `TransitGatewayOwnerId`: `str`
-- `ResourceOwnerId`: `str`
-- `ResourceType`: `TransitGatewayAttachmentResourceType`
-- `ResourceId`: `str`
-- `State`: `TransitGatewayAttachmentState`
-- `Association`: `"TransitGatewayAttachmentAssociationTypeDef"`
-- `CreationTime`: `datetime`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TransitGatewayConnectOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayConnectOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Protocol`: `ProtocolValue`
-
-
-## TransitGatewayConnectPeerConfigurationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayConnectPeerConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAddress`: `str`
-- `PeerAddress`: `str`
-- `InsideCidrBlocks`: `List[str]`
-- `Protocol`: `ProtocolValue`
-- `BgpConfigurations`: `List["TransitGatewayAttachmentBgpConfigurationTypeDef"]`
-
-
-## TransitGatewayConnectPeerTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayConnectPeerTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAttachmentId`: `str`
-- `TransitGatewayConnectPeerId`: `str`
-- `State`: `TransitGatewayConnectPeerState`
-- `CreationTime`: `datetime`
-- `ConnectPeerConfiguration`: `"TransitGatewayConnectPeerConfigurationTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TransitGatewayConnectTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayConnectTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAttachmentId`: `str`
-- `TransportTransitGatewayAttachmentId`: `str`
-- `TransitGatewayId`: `str`
-- `State`: `TransitGatewayAttachmentState`
-- `CreationTime`: `datetime`
-- `Options`: `"TransitGatewayConnectOptionsTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TransitGatewayMulticastDeregisteredGroupMembersTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDeregisteredGroupMembersTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayMulticastDomainId`: `str`
-- `DeregisteredNetworkInterfaceIds`: `List[str]`
-- `GroupIpAddress`: `str`
-
-
-## TransitGatewayMulticastDeregisteredGroupSourcesTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDeregisteredGroupSourcesTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayMulticastDomainId`: `str`
-- `DeregisteredNetworkInterfaceIds`: `List[str]`
-- `GroupIpAddress`: `str`
-
-
-## TransitGatewayMulticastDomainAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDomainAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAttachmentId`: `str`
-- `ResourceId`: `str`
-- `ResourceType`: `TransitGatewayAttachmentResourceType`
-- `ResourceOwnerId`: `str`
-- `Subnet`: `"SubnetAssociationTypeDef"`
-
-
-## TransitGatewayMulticastDomainAssociationsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDomainAssociationsTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayMulticastDomainId`: `str`
-- `TransitGatewayAttachmentId`: `str`
-- `ResourceId`: `str`
-- `ResourceType`: `TransitGatewayAttachmentResourceType`
-- `ResourceOwnerId`: `str`
-- `Subnets`: `List["SubnetAssociationTypeDef"]`
-
-
-## TransitGatewayMulticastDomainOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDomainOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Igmpv2Support`: `Igmpv2SupportValue`
-- `StaticSourcesSupport`: `StaticSourcesSupportValue`
-- `AutoAcceptSharedAssociations`: `AutoAcceptSharedAssociationsValue`
-
-
-## TransitGatewayMulticastDomainTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDomainTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayMulticastDomainId`: `str`
-- `TransitGatewayId`: `str`
-- `TransitGatewayMulticastDomainArn`: `str`
-- `OwnerId`: `str`
-- `Options`: `"TransitGatewayMulticastDomainOptionsTypeDef"`
-- `State`: `TransitGatewayMulticastDomainState`
-- `CreationTime`: `datetime`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TransitGatewayMulticastGroupTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayMulticastGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupIpAddress`: `str`
-- `TransitGatewayAttachmentId`: `str`
-- `SubnetId`: `str`
-- `ResourceId`: `str`
-- `ResourceType`: `TransitGatewayAttachmentResourceType`
-- `ResourceOwnerId`: `str`
-- `NetworkInterfaceId`: `str`
-- `GroupMember`: `bool`
-- `GroupSource`: `bool`
-- `MemberType`: `MembershipType`
-- `SourceType`: `MembershipType`
-
-
-## TransitGatewayMulticastRegisteredGroupMembersTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayMulticastRegisteredGroupMembersTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayMulticastDomainId`: `str`
-- `RegisteredNetworkInterfaceIds`: `List[str]`
-- `GroupIpAddress`: `str`
-
-
-## TransitGatewayMulticastRegisteredGroupSourcesTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayMulticastRegisteredGroupSourcesTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayMulticastDomainId`: `str`
-- `RegisteredNetworkInterfaceIds`: `List[str]`
-- `GroupIpAddress`: `str`
-
-
-## TransitGatewayOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `AmazonSideAsn`: `int`
-- `TransitGatewayCidrBlocks`: `List[str]`
-- `AutoAcceptSharedAttachments`: `AutoAcceptSharedAttachmentsValue`
-- `DefaultRouteTableAssociation`: `DefaultRouteTableAssociationValue`
-- `AssociationDefaultRouteTableId`: `str`
-- `DefaultRouteTablePropagation`: `DefaultRouteTablePropagationValue`
-- `PropagationDefaultRouteTableId`: `str`
-- `VpnEcmpSupport`: `VpnEcmpSupportValue`
-- `DnsSupport`: `DnsSupportValue`
-- `MulticastSupport`: `MulticastSupportValue`
-
-
-## TransitGatewayPeeringAttachmentTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayPeeringAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAttachmentId`: `str`
-- `RequesterTgwInfo`: `"PeeringTgwInfoTypeDef"`
-- `AccepterTgwInfo`: `"PeeringTgwInfoTypeDef"`
-- `Status`: `"PeeringAttachmentStatusTypeDef"`
-- `State`: `TransitGatewayAttachmentState`
-- `CreationTime`: `datetime`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TransitGatewayPrefixListAttachmentTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayPrefixListAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAttachmentId`: `str`
-- `ResourceType`: `TransitGatewayAttachmentResourceType`
-- `ResourceId`: `str`
-
-
-## TransitGatewayPrefixListReferenceTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayPrefixListReferenceTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayRouteTableId`: `str`
-- `PrefixListId`: `str`
-- `PrefixListOwnerId`: `str`
-- `State`: `TransitGatewayPrefixListReferenceState`
-- `Blackhole`: `bool`
-- `TransitGatewayAttachment`: `"TransitGatewayPrefixListAttachmentTypeDef"`
-
-
-## TransitGatewayPropagationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayPropagationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAttachmentId`: `str`
-- `ResourceId`: `str`
-- `ResourceType`: `TransitGatewayAttachmentResourceType`
-- `TransitGatewayRouteTableId`: `str`
-- `State`: `TransitGatewayPropagationState`
-
-
-## TransitGatewayRouteAttachmentTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayRouteAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceId`: `str`
-- `TransitGatewayAttachmentId`: `str`
-- `ResourceType`: `TransitGatewayAttachmentResourceType`
-
-
-## TransitGatewayRouteTableAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayRouteTableAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAttachmentId`: `str`
-- `ResourceId`: `str`
-- `ResourceType`: `TransitGatewayAttachmentResourceType`
-- `State`: `TransitGatewayAssociationState`
-
-
-## TransitGatewayRouteTablePropagationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayRouteTablePropagationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAttachmentId`: `str`
-- `ResourceId`: `str`
-- `ResourceType`: `TransitGatewayAttachmentResourceType`
-- `State`: `TransitGatewayPropagationState`
-
-
-## TransitGatewayRouteTableTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayRouteTableTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayRouteTableId`: `str`
-- `TransitGatewayId`: `str`
-- `State`: `TransitGatewayRouteTableState`
-- `DefaultAssociationRouteTable`: `bool`
-- `DefaultPropagationRouteTable`: `bool`
-- `CreationTime`: `datetime`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TransitGatewayRouteTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayRouteTypeDef
-```
-
-
-
-
-Optional fields:
-- `DestinationCidrBlock`: `str`
-- `PrefixListId`: `str`
-- `TransitGatewayAttachments`: `List["TransitGatewayRouteAttachmentTypeDef"]`
-- `Type`: `TransitGatewayRouteType`
-- `State`: `TransitGatewayRouteState`
-
-
-## TransitGatewayTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayId`: `str`
-- `TransitGatewayArn`: `str`
-- `State`: `TransitGatewayState`
-- `OwnerId`: `str`
-- `Description`: `str`
-- `CreationTime`: `datetime`
-- `Options`: `"TransitGatewayOptionsTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TransitGatewayVpcAttachmentOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayVpcAttachmentOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `DnsSupport`: `DnsSupportValue`
-- `Ipv6Support`: `Ipv6SupportValue`
-- `ApplianceModeSupport`: `ApplianceModeSupportValue`
-
-
-## TransitGatewayVpcAttachmentTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TransitGatewayVpcAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayAttachmentId`: `str`
-- `TransitGatewayId`: `str`
-- `VpcId`: `str`
-- `VpcOwnerId`: `str`
-- `State`: `TransitGatewayAttachmentState`
-- `SubnetIds`: `List[str]`
-- `CreationTime`: `datetime`
-- `Options`: `"TransitGatewayVpcAttachmentOptionsTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TunnelOptionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import TunnelOptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `OutsideIpAddress`: `str`
-- `TunnelInsideCidr`: `str`
-- `TunnelInsideIpv6Cidr`: `str`
-- `PreSharedKey`: `str`
-- `Phase1LifetimeSeconds`: `int`
-- `Phase2LifetimeSeconds`: `int`
-- `RekeyMarginTimeSeconds`: `int`
-- `RekeyFuzzPercentage`: `int`
-- `ReplayWindowSize`: `int`
-- `DpdTimeoutSeconds`: `int`
-- `DpdTimeoutAction`: `str`
-- `Phase1EncryptionAlgorithms`: `List["Phase1EncryptionAlgorithmsListValueTypeDef"]`
-- `Phase2EncryptionAlgorithms`: `List["Phase2EncryptionAlgorithmsListValueTypeDef"]`
-- `Phase1IntegrityAlgorithms`: `List["Phase1IntegrityAlgorithmsListValueTypeDef"]`
-- `Phase2IntegrityAlgorithms`: `List["Phase2IntegrityAlgorithmsListValueTypeDef"]`
-- `Phase1DHGroupNumbers`: `List["Phase1DHGroupNumbersListValueTypeDef"]`
-- `Phase2DHGroupNumbers`: `List["Phase2DHGroupNumbersListValueTypeDef"]`
-- `IkeVersions`: `List["IKEVersionsListValueTypeDef"]`
-- `StartupAction`: `str`
-
-
-## UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `UnsuccessfulInstanceCreditSpecificationErrorCode`
-- `Message`: `str`
-
-
-## UnsuccessfulInstanceCreditSpecificationItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import UnsuccessfulInstanceCreditSpecificationItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceId`: `str`
-- `Error`: `"UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef"`
-
-
-## UnsuccessfulItemErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import UnsuccessfulItemErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-
-
-## UnsuccessfulItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import UnsuccessfulItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `Error`: `"UnsuccessfulItemErrorTypeDef"`
-- `ResourceId`: `str`
-
-
-## UserBucketDetailsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import UserBucketDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3Bucket`: `str`
-- `S3Key`: `str`
-
-
-## UserBucketTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import UserBucketTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3Bucket`: `str`
-- `S3Key`: `str`
-
-
-## UserDataTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import UserDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Data`: `str`
-
-
-## UserIdGroupPairTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import UserIdGroupPairTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `GroupId`: `str`
-- `GroupName`: `str`
-- `PeeringStatus`: `str`
-- `UserId`: `str`
-- `VpcId`: `str`
-- `VpcPeeringConnectionId`: `str`
-
-
-## VCpuInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VCpuInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `DefaultVCpus`: `int`
-- `DefaultCores`: `int`
-- `DefaultThreadsPerCore`: `int`
-- `ValidCores`: `List[int]`
-- `ValidThreadsPerCore`: `List[int]`
-
-
-## ValidationErrorTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ValidationErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-
-
-## ValidationWarningTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import ValidationWarningTypeDef
-```
-
-
-
-
-Optional fields:
-- `Errors`: `List["ValidationErrorTypeDef"]`
-
-
-## VgwTelemetryTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VgwTelemetryTypeDef
-```
-
-
-
-
-Optional fields:
-- `AcceptedRouteCount`: `int`
-- `LastStatusChange`: `datetime`
-- `OutsideIpAddress`: `str`
-- `Status`: `TelemetryStatus`
-- `StatusMessage`: `str`
-- `CertificateArn`: `str`
-
-
-## VolumeAttachmentTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VolumeAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttachTime`: `datetime`
-- `Device`: `str`
-- `InstanceId`: `str`
-- `State`: `VolumeAttachmentState`
-- `VolumeId`: `str`
-- `DeleteOnTermination`: `bool`
-
-
-## VolumeDetailTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VolumeDetailTypeDef
-```
-
-
-Required fields:
-- `Size`: `int`
-
-
-
-
-## VolumeModificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VolumeModificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `VolumeId`: `str`
-- `ModificationState`: `VolumeModificationState`
-- `StatusMessage`: `str`
-- `TargetSize`: `int`
-- `TargetIops`: `int`
-- `TargetVolumeType`: `VolumeType`
-- `TargetThroughput`: `int`
-- `TargetMultiAttachEnabled`: `bool`
-- `OriginalSize`: `int`
-- `OriginalIops`: `int`
-- `OriginalVolumeType`: `VolumeType`
-- `OriginalThroughput`: `int`
-- `OriginalMultiAttachEnabled`: `bool`
-- `Progress`: `int`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-
-
-## VolumeStatusActionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VolumeStatusActionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Description`: `str`
-- `EventId`: `str`
-- `EventType`: `str`
-
-
-## VolumeStatusAttachmentStatusTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VolumeStatusAttachmentStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `IoPerformance`: `str`
-- `InstanceId`: `str`
-
-
-## VolumeStatusDetailsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VolumeStatusDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `VolumeStatusName`
-- `Status`: `str`
-
-
-## VolumeStatusEventTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VolumeStatusEventTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `EventId`: `str`
-- `EventType`: `str`
-- `NotAfter`: `datetime`
-- `NotBefore`: `datetime`
-- `InstanceId`: `str`
-
-
-## VolumeStatusInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VolumeStatusInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Details`: `List["VolumeStatusDetailsTypeDef"]`
-- `Status`: `VolumeStatusInfoStatus`
-
-
-## VolumeStatusItemTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VolumeStatusItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `Actions`: `List["VolumeStatusActionTypeDef"]`
-- `AvailabilityZone`: `str`
-- `OutpostArn`: `str`
-- `Events`: `List["VolumeStatusEventTypeDef"]`
-- `VolumeId`: `str`
-- `VolumeStatus`: `"VolumeStatusInfoTypeDef"`
-- `AttachmentStatuses`: `List["VolumeStatusAttachmentStatusTypeDef"]`
-
-
-## VolumeTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VolumeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Attachments`: `List["VolumeAttachmentTypeDef"]`
-- `AvailabilityZone`: `str`
-- `CreateTime`: `datetime`
-- `Encrypted`: `bool`
-- `KmsKeyId`: `str`
-- `OutpostArn`: `str`
-- `Size`: `int`
-- `SnapshotId`: `str`
-- `State`: `VolumeState`
-- `VolumeId`: `str`
-- `Iops`: `int`
-- `Tags`: `List["TagTypeDef"]`
-- `VolumeType`: `VolumeType`
-- `FastRestored`: `bool`
-- `MultiAttachEnabled`: `bool`
-- `Throughput`: `int`
-
-
-## VpcAttachmentTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `AttachmentStatus`
-- `VpcId`: `str`
-
-
-## VpcCidrBlockAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcCidrBlockAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociationId`: `str`
-- `CidrBlock`: `str`
-- `CidrBlockState`: `"VpcCidrBlockStateTypeDef"`
-
-
-## VpcCidrBlockStateTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcCidrBlockStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `VpcCidrBlockStateCode`
-- `StatusMessage`: `str`
-
-
-## VpcClassicLinkTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcClassicLinkTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClassicLinkEnabled`: `bool`
-- `Tags`: `List["TagTypeDef"]`
-- `VpcId`: `str`
-
-
-## VpcEndpointConnectionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcEndpointConnectionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceId`: `str`
-- `VpcEndpointId`: `str`
-- `VpcEndpointOwner`: `str`
-- `VpcEndpointState`: `State`
-- `CreationTimestamp`: `datetime`
-- `DnsEntries`: `List["DnsEntryTypeDef"]`
-- `NetworkLoadBalancerArns`: `List[str]`
-- `GatewayLoadBalancerArns`: `List[str]`
-
-
-## VpcEndpointTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcEndpointTypeDef
-```
-
-
-
-
-Optional fields:
-- `VpcEndpointId`: `str`
-- `VpcEndpointType`: `VpcEndpointType`
-- `VpcId`: `str`
-- `ServiceName`: `str`
-- `State`: `State`
-- `PolicyDocument`: `str`
-- `RouteTableIds`: `List[str]`
-- `SubnetIds`: `List[str]`
-- `Groups`: `List["SecurityGroupIdentifierTypeDef"]`
-- `PrivateDnsEnabled`: `bool`
-- `RequesterManaged`: `bool`
-- `NetworkInterfaceIds`: `List[str]`
-- `DnsEntries`: `List["DnsEntryTypeDef"]`
-- `CreationTimestamp`: `datetime`
-- `Tags`: `List["TagTypeDef"]`
-- `OwnerId`: `str`
-- `LastError`: `"LastErrorTypeDef"`
-
-
-## VpcIpv6CidrBlockAssociationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcIpv6CidrBlockAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociationId`: `str`
-- `Ipv6CidrBlock`: `str`
-- `Ipv6CidrBlockState`: `"VpcCidrBlockStateTypeDef"`
-- `NetworkBorderGroup`: `str`
-- `Ipv6Pool`: `str`
-
-
-## VpcPeeringConnectionOptionsDescriptionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcPeeringConnectionOptionsDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllowDnsResolutionFromRemoteVpc`: `bool`
-- `AllowEgressFromLocalClassicLinkToRemoteVpc`: `bool`
-- `AllowEgressFromLocalVpcToRemoteClassicLink`: `bool`
-
-
-## VpcPeeringConnectionStateReasonTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcPeeringConnectionStateReasonTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `VpcPeeringConnectionStateReasonCode`
-- `Message`: `str`
-
-
-## VpcPeeringConnectionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcPeeringConnectionTypeDef
-```
-
-
-
-
-Optional fields:
-- `AccepterVpcInfo`: `"VpcPeeringConnectionVpcInfoTypeDef"`
-- `ExpirationTime`: `datetime`
-- `RequesterVpcInfo`: `"VpcPeeringConnectionVpcInfoTypeDef"`
-- `Status`: `"VpcPeeringConnectionStateReasonTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-- `VpcPeeringConnectionId`: `str`
-
-
-## VpcPeeringConnectionVpcInfoTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcPeeringConnectionVpcInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `CidrBlock`: `str`
-- `Ipv6CidrBlockSet`: `List["Ipv6CidrBlockTypeDef"]`
-- `CidrBlockSet`: `List["CidrBlockTypeDef"]`
-- `OwnerId`: `str`
-- `PeeringOptions`: `"VpcPeeringConnectionOptionsDescriptionTypeDef"`
-- `VpcId`: `str`
-- `Region`: `str`
-
-
-## VpcTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpcTypeDef
-```
-
-
-
-
-Optional fields:
-- `CidrBlock`: `str`
-- `DhcpOptionsId`: `str`
-- `State`: `VpcState`
-- `VpcId`: `str`
-- `OwnerId`: `str`
-- `InstanceTenancy`: `Tenancy`
-- `Ipv6CidrBlockAssociationSet`: `List["VpcIpv6CidrBlockAssociationTypeDef"]`
-- `CidrBlockAssociationSet`: `List["VpcCidrBlockAssociationTypeDef"]`
-- `IsDefault`: `bool`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## VpnConnectionOptionsTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpnConnectionOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `EnableAcceleration`: `bool`
-- `StaticRoutesOnly`: `bool`
-- `LocalIpv4NetworkCidr`: `str`
-- `RemoteIpv4NetworkCidr`: `str`
-- `LocalIpv6NetworkCidr`: `str`
-- `RemoteIpv6NetworkCidr`: `str`
-- `TunnelInsideIpVersion`: `TunnelInsideIpVersion`
-- `TunnelOptions`: `List["TunnelOptionTypeDef"]`
-
-
-## VpnConnectionTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpnConnectionTypeDef
-```
-
-
-
-
-Optional fields:
-- `CustomerGatewayConfiguration`: `str`
-- `CustomerGatewayId`: `str`
-- `Category`: `str`
-- `State`: `VpnState`
-- `Type`: `GatewayType`
-- `VpnConnectionId`: `str`
-- `VpnGatewayId`: `str`
-- `TransitGatewayId`: `str`
-- `Options`: `"VpnConnectionOptionsTypeDef"`
-- `Routes`: `List["VpnStaticRouteTypeDef"]`
-- `Tags`: `List["TagTypeDef"]`
-- `VgwTelemetry`: `List["VgwTelemetryTypeDef"]`
-
-
-## VpnGatewayTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpnGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `State`: `VpnState`
-- `Type`: `GatewayType`
-- `VpcAttachments`: `List["VpcAttachmentTypeDef"]`
-- `VpnGatewayId`: `str`
-- `AmazonSideAsn`: `int`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## VpnStaticRouteTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpnStaticRouteTypeDef
-```
-
-
-
-
-Optional fields:
-- `DestinationCidrBlock`: `str`
-- `Source`: `VpnStaticRouteSource`
-- `State`: `VpnState`
-
-
-## VpnTunnelOptionsSpecificationTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import VpnTunnelOptionsSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TunnelInsideCidr`: `str`
-- `TunnelInsideIpv6Cidr`: `str`
-- `PreSharedKey`: `str`
-- `Phase1LifetimeSeconds`: `int`
-- `Phase2LifetimeSeconds`: `int`
-- `RekeyMarginTimeSeconds`: `int`
-- `RekeyFuzzPercentage`: `int`
-- `ReplayWindowSize`: `int`
-- `DPDTimeoutSeconds`: `int`
-- `DPDTimeoutAction`: `str`
-- `Phase1EncryptionAlgorithms`: `List["Phase1EncryptionAlgorithmsRequestListValueTypeDef"]`
-- `Phase2EncryptionAlgorithms`: `List["Phase2EncryptionAlgorithmsRequestListValueTypeDef"]`
-- `Phase1IntegrityAlgorithms`: `List["Phase1IntegrityAlgorithmsRequestListValueTypeDef"]`
-- `Phase2IntegrityAlgorithms`: `List["Phase2IntegrityAlgorithmsRequestListValueTypeDef"]`
-- `Phase1DHGroupNumbers`: `List["Phase1DHGroupNumbersRequestListValueTypeDef"]`
-- `Phase2DHGroupNumbers`: `List["Phase2DHGroupNumbersRequestListValueTypeDef"]`
-- `IKEVersions`: `List["IKEVersionsRequestListValueTypeDef"]`
-- `StartupAction`: `str`
-
-
-## AcceptReservedInstancesExchangeQuoteResultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AcceptReservedInstancesExchangeQuoteResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ExchangeId`: `str`
-
-
-## AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Associations`: `"TransitGatewayMulticastDomainAssociationsTypeDef"`
-
-
-## AcceptTransitGatewayPeeringAttachmentResultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AcceptTransitGatewayPeeringAttachmentResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayPeeringAttachment`: `"TransitGatewayPeeringAttachmentTypeDef"`
-
-
-## AcceptTransitGatewayVpcAttachmentResultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AcceptTransitGatewayVpcAttachmentResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayVpcAttachment`: `"TransitGatewayVpcAttachmentTypeDef"`
-
-
-## AcceptVpcEndpointConnectionsResultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AcceptVpcEndpointConnectionsResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Unsuccessful`: `List["UnsuccessfulItemTypeDef"]`
-
-
-## AcceptVpcPeeringConnectionResultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AcceptVpcPeeringConnectionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `VpcPeeringConnection`: `"VpcPeeringConnectionTypeDef"`
-
-
-## AddPrefixListEntryTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AddPrefixListEntryTypeDef
-```
-
-
-Required fields:
-- `Cidr`: `str`
-
-
-
-Optional fields:
-- `Description`: `str`
-
-
-## AdvertiseByoipCidrResultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AdvertiseByoipCidrResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ByoipCidr`: `"ByoipCidrTypeDef"`
-
-
-## AllocateAddressResultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AllocateAddressResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `PublicIp`: `str`
-- `AllocationId`: `str`
-- `PublicIpv4Pool`: `str`
-- `NetworkBorderGroup`: `str`
-- `Domain`: `DomainType`
-- `CustomerOwnedIp`: `str`
-- `CustomerOwnedIpv4Pool`: `str`
-- `CarrierIp`: `str`
-
-
-## AllocateHostsResultTypeDef
-
-```python
-from mypy_boto3_ec2.type_defs import AllocateHostsResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `HostIds`: `List[str]`
-
-
 ## ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef
 
 ```python
@@ -9015,6 +1338,19 @@ from mypy_boto3_ec2.type_defs import AssignPrivateIpAddressesResultTypeDef
 Optional fields:
 - `NetworkInterfaceId`: `str`
 - `AssignedPrivateIpAddresses`: `List["AssignedPrivateIpAddressTypeDef"]`
+
+
+## AssignedPrivateIpAddressTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AssignedPrivateIpAddressTypeDef
+```
+
+
+
+
+Optional fields:
+- `PrivateIpAddress`: `str`
 
 
 ## AssociateAddressResultTypeDef
@@ -9141,6 +1477,68 @@ Optional fields:
 - `VpcId`: `str`
 
 
+## AssociatedRoleTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AssociatedRoleTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociatedRoleArn`: `str`
+- `CertificateS3BucketName`: `str`
+- `CertificateS3ObjectKey`: `str`
+- `EncryptionKmsKeyId`: `str`
+
+
+## AssociatedTargetNetworkTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AssociatedTargetNetworkTypeDef
+```
+
+
+
+
+Optional fields:
+- `NetworkId`: `str`
+- `NetworkType`: `Literal['vpc']`
+
+
+## AssociationStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AssociationStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `AssociationStatusCode`
+- `Message`: `str`
+
+
+## AthenaIntegrationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AthenaIntegrationTypeDef
+```
+
+
+Required fields:
+- `IntegrationResultS3DestinationArn`: `str`
+- `PartitionLoadFrequency`: `PartitionLoadFrequency`
+
+
+
+Optional fields:
+- `PartitionStartDate`: `datetime`
+- `PartitionEndDate`: `datetime`
+
+
 ## AttachClassicLinkVpcResultTypeDef
 
 ```python
@@ -9181,6 +1579,50 @@ Optional fields:
 - `VpcAttachment`: `"VpcAttachmentTypeDef"`
 
 
+## AttributeBooleanValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AttributeBooleanValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `bool`
+
+
+## AttributeValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AttributeValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## AuthorizationRuleTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AuthorizationRuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientVpnEndpointId`: `str`
+- `Description`: `str`
+- `GroupId`: `str`
+- `AccessAll`: `bool`
+- `DestinationCidr`: `str`
+- `Status`: `"ClientVpnAuthorizationRuleStatusTypeDef"`
+
+
 ## AuthorizeClientVpnIngressResultTypeDef
 
 ```python
@@ -9192,6 +1634,56 @@ from mypy_boto3_ec2.type_defs import AuthorizeClientVpnIngressResultTypeDef
 
 Optional fields:
 - `Status`: `"ClientVpnAuthorizationRuleStatusTypeDef"`
+
+
+## AvailabilityZoneMessageTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AvailabilityZoneMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Message`: `str`
+
+
+## AvailabilityZoneTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AvailabilityZoneTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `AvailabilityZoneState`
+- `OptInStatus`: `AvailabilityZoneOptInStatus`
+- `Messages`: `List["AvailabilityZoneMessageTypeDef"]`
+- `RegionName`: `str`
+- `ZoneName`: `str`
+- `ZoneId`: `str`
+- `GroupName`: `str`
+- `NetworkBorderGroup`: `str`
+- `ZoneType`: `str`
+- `ParentZoneName`: `str`
+- `ParentZoneId`: `str`
+
+
+## AvailableCapacityTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import AvailableCapacityTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailableInstanceCapacity`: `List["InstanceCapacityTypeDef"]`
+- `AvailableVCpus`: `int`
 
 
 ## BlobAttributeValueTypeDef
@@ -9207,6 +1699,22 @@ Optional fields:
 - `Value`: `Union[bytes, IO[bytes]]`
 
 
+## BlockDeviceMappingTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import BlockDeviceMappingTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeviceName`: `str`
+- `VirtualName`: `str`
+- `Ebs`: `"EbsBlockDeviceTypeDef"`
+- `NoDevice`: `str`
+
+
 ## BundleInstanceResultTypeDef
 
 ```python
@@ -9218,6 +1726,56 @@ from mypy_boto3_ec2.type_defs import BundleInstanceResultTypeDef
 
 Optional fields:
 - `BundleTask`: `"BundleTaskTypeDef"`
+
+
+## BundleTaskErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import BundleTaskErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
+
+
+## BundleTaskTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import BundleTaskTypeDef
+```
+
+
+
+
+Optional fields:
+- `BundleId`: `str`
+- `BundleTaskError`: `"BundleTaskErrorTypeDef"`
+- `InstanceId`: `str`
+- `Progress`: `str`
+- `StartTime`: `datetime`
+- `State`: `BundleTaskState`
+- `Storage`: `"StorageTypeDef"`
+- `UpdateTime`: `datetime`
+
+
+## ByoipCidrTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ByoipCidrTypeDef
+```
+
+
+
+
+Optional fields:
+- `Cidr`: `str`
+- `Description`: `str`
+- `StatusMessage`: `str`
+- `State`: `ByoipCidrState`
 
 
 ## CancelBundleTaskResultTypeDef
@@ -9274,6 +1832,34 @@ Optional fields:
 - `ReservedInstancesListings`: `List["ReservedInstancesListingTypeDef"]`
 
 
+## CancelSpotFleetRequestsErrorItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CancelSpotFleetRequestsErrorItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `Error`: `"CancelSpotFleetRequestsErrorTypeDef"`
+- `SpotFleetRequestId`: `str`
+
+
+## CancelSpotFleetRequestsErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CancelSpotFleetRequestsErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `CancelBatchErrorCode`
+- `Message`: `str`
+
+
 ## CancelSpotFleetRequestsResponseTypeDef
 
 ```python
@@ -9288,6 +1874,21 @@ Optional fields:
 - `UnsuccessfulFleetRequests`: `List["CancelSpotFleetRequestsErrorItemTypeDef"]`
 
 
+## CancelSpotFleetRequestsSuccessItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CancelSpotFleetRequestsSuccessItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `CurrentSpotFleetRequestState`: `BatchState`
+- `PreviousSpotFleetRequestState`: `BatchState`
+- `SpotFleetRequestId`: `str`
+
+
 ## CancelSpotInstanceRequestsResultTypeDef
 
 ```python
@@ -9299,6 +1900,74 @@ from mypy_boto3_ec2.type_defs import CancelSpotInstanceRequestsResultTypeDef
 
 Optional fields:
 - `CancelledSpotInstanceRequests`: `List["CancelledSpotInstanceRequestTypeDef"]`
+
+
+## CancelledSpotInstanceRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CancelledSpotInstanceRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `SpotInstanceRequestId`: `str`
+- `State`: `CancelSpotInstanceRequestState`
+
+
+## CapacityReservationGroupTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CapacityReservationGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupArn`: `str`
+- `OwnerId`: `str`
+
+
+## CapacityReservationOptionsRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CapacityReservationOptionsRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `UsageStrategy`: `Literal['use-capacity-reservations-first']`
+
+
+## CapacityReservationOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CapacityReservationOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `UsageStrategy`: `Literal['use-capacity-reservations-first']`
+
+
+## CapacityReservationSpecificationResponseTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CapacityReservationSpecificationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CapacityReservationPreference`: `CapacityReservationPreference`
+- `CapacityReservationTarget`: `"CapacityReservationTargetResponseTypeDef"`
 
 
 ## CapacityReservationSpecificationTypeDef
@@ -9315,6 +1984,108 @@ Optional fields:
 - `CapacityReservationTarget`: `"CapacityReservationTargetTypeDef"`
 
 
+## CapacityReservationTargetResponseTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CapacityReservationTargetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CapacityReservationId`: `str`
+- `CapacityReservationResourceGroupArn`: `str`
+
+
+## CapacityReservationTargetTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CapacityReservationTargetTypeDef
+```
+
+
+
+
+Optional fields:
+- `CapacityReservationId`: `str`
+- `CapacityReservationResourceGroupArn`: `str`
+
+
+## CapacityReservationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CapacityReservationTypeDef
+```
+
+
+
+
+Optional fields:
+- `CapacityReservationId`: `str`
+- `OwnerId`: `str`
+- `CapacityReservationArn`: `str`
+- `AvailabilityZoneId`: `str`
+- `InstanceType`: `str`
+- `InstancePlatform`: `CapacityReservationInstancePlatform`
+- `AvailabilityZone`: `str`
+- `Tenancy`: `CapacityReservationTenancy`
+- `TotalInstanceCount`: `int`
+- `AvailableInstanceCount`: `int`
+- `EbsOptimized`: `bool`
+- `EphemeralStorage`: `bool`
+- `State`: `CapacityReservationState`
+- `StartDate`: `datetime`
+- `EndDate`: `datetime`
+- `EndDateType`: `EndDateType`
+- `InstanceMatchCriteria`: `InstanceMatchCriteria`
+- `CreateDate`: `datetime`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## CarrierGatewayTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CarrierGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `CarrierGatewayId`: `str`
+- `VpcId`: `str`
+- `State`: `CarrierGatewayState`
+- `OwnerId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## CertificateAuthenticationRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CertificateAuthenticationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientRootCertificateChainArn`: `str`
+
+
+## CertificateAuthenticationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CertificateAuthenticationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientRootCertificateChain`: `str`
+
+
 ## CidrAuthorizationContextTypeDef
 
 ```python
@@ -9329,6 +2100,89 @@ Required fields:
 
 
 
+## CidrBlockTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CidrBlockTypeDef
+```
+
+
+
+
+Optional fields:
+- `CidrBlock`: `str`
+
+
+## ClassicLinkDnsSupportTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClassicLinkDnsSupportTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClassicLinkDnsSupported`: `bool`
+- `VpcId`: `str`
+
+
+## ClassicLinkInstanceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClassicLinkInstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Groups`: `List["GroupIdentifierTypeDef"]`
+- `InstanceId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `VpcId`: `str`
+
+
+## ClassicLoadBalancerTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClassicLoadBalancerTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
+## ClassicLoadBalancersConfigTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClassicLoadBalancersConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClassicLoadBalancers`: `List["ClassicLoadBalancerTypeDef"]`
+
+
+## ClientCertificateRevocationListStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClientCertificateRevocationListStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `ClientCertificateRevocationListStatusCode`
+- `Message`: `str`
+
+
 ## ClientConnectOptionsTypeDef
 
 ```python
@@ -9341,6 +2195,21 @@ from mypy_boto3_ec2.type_defs import ClientConnectOptionsTypeDef
 Optional fields:
 - `Enabled`: `bool`
 - `LambdaFunctionArn`: `str`
+
+
+## ClientConnectResponseOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClientConnectResponseOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+- `LambdaFunctionArn`: `str`
+- `Status`: `"ClientVpnEndpointAttributeStatusTypeDef"`
 
 
 ## ClientDataTypeDef
@@ -9375,6 +2244,203 @@ Optional fields:
 - `FederatedAuthentication`: `"FederatedAuthenticationRequestTypeDef"`
 
 
+## ClientVpnAuthenticationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClientVpnAuthenticationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `ClientVpnAuthenticationType`
+- `ActiveDirectory`: `"DirectoryServiceAuthenticationTypeDef"`
+- `MutualAuthentication`: `"CertificateAuthenticationTypeDef"`
+- `FederatedAuthentication`: `"FederatedAuthenticationTypeDef"`
+
+
+## ClientVpnAuthorizationRuleStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClientVpnAuthorizationRuleStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `ClientVpnAuthorizationRuleStatusCode`
+- `Message`: `str`
+
+
+## ClientVpnConnectionStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClientVpnConnectionStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `ClientVpnConnectionStatusCode`
+- `Message`: `str`
+
+
+## ClientVpnConnectionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClientVpnConnectionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientVpnEndpointId`: `str`
+- `Timestamp`: `str`
+- `ConnectionId`: `str`
+- `Username`: `str`
+- `ConnectionEstablishedTime`: `str`
+- `IngressBytes`: `str`
+- `EgressBytes`: `str`
+- `IngressPackets`: `str`
+- `EgressPackets`: `str`
+- `ClientIp`: `str`
+- `CommonName`: `str`
+- `Status`: `"ClientVpnConnectionStatusTypeDef"`
+- `ConnectionEndTime`: `str`
+- `PostureComplianceStatuses`: `List[str]`
+
+
+## ClientVpnEndpointAttributeStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClientVpnEndpointAttributeStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `ClientVpnEndpointAttributeStatusCode`
+- `Message`: `str`
+
+
+## ClientVpnEndpointStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClientVpnEndpointStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `ClientVpnEndpointStatusCode`
+- `Message`: `str`
+
+
+## ClientVpnEndpointTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClientVpnEndpointTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientVpnEndpointId`: `str`
+- `Description`: `str`
+- `Status`: `"ClientVpnEndpointStatusTypeDef"`
+- `CreationTime`: `str`
+- `DeletionTime`: `str`
+- `DnsName`: `str`
+- `ClientCidrBlock`: `str`
+- `DnsServers`: `List[str]`
+- `SplitTunnel`: `bool`
+- `VpnProtocol`: `Literal['openvpn']`
+- `TransportProtocol`: `TransportProtocol`
+- `VpnPort`: `int`
+- `AssociatedTargetNetworks`: `List["AssociatedTargetNetworkTypeDef"]`
+- `ServerCertificateArn`: `str`
+- `AuthenticationOptions`: `List["ClientVpnAuthenticationTypeDef"]`
+- `ConnectionLogOptions`: `"ConnectionLogResponseOptionsTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+- `SecurityGroupIds`: `List[str]`
+- `VpcId`: `str`
+- `SelfServicePortalUrl`: `str`
+- `ClientConnectOptions`: `"ClientConnectResponseOptionsTypeDef"`
+
+
+## ClientVpnRouteStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClientVpnRouteStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `ClientVpnRouteStatusCode`
+- `Message`: `str`
+
+
+## ClientVpnRouteTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ClientVpnRouteTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientVpnEndpointId`: `str`
+- `DestinationCidr`: `str`
+- `TargetSubnet`: `str`
+- `Type`: `str`
+- `Origin`: `str`
+- `Status`: `"ClientVpnRouteStatusTypeDef"`
+- `Description`: `str`
+
+
+## CoipAddressUsageTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CoipAddressUsageTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllocationId`: `str`
+- `AwsAccountId`: `str`
+- `AwsService`: `str`
+- `CoIp`: `str`
+
+
+## CoipPoolTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CoipPoolTypeDef
+```
+
+
+
+
+Optional fields:
+- `PoolId`: `str`
+- `PoolCidrs`: `List[str]`
+- `LocalGatewayRouteTableId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `PoolArn`: `str`
+
+
 ## ConfirmProductInstanceResultTypeDef
 
 ```python
@@ -9402,6 +2468,59 @@ Optional fields:
 - `Enabled`: `bool`
 - `CloudwatchLogGroup`: `str`
 - `CloudwatchLogStream`: `str`
+
+
+## ConnectionLogResponseOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ConnectionLogResponseOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+- `CloudwatchLogGroup`: `str`
+- `CloudwatchLogStream`: `str`
+
+
+## ConnectionNotificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ConnectionNotificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConnectionNotificationId`: `str`
+- `ServiceId`: `str`
+- `VpcEndpointId`: `str`
+- `ConnectionNotificationType`: `Literal['Topic']`
+- `ConnectionNotificationArn`: `str`
+- `ConnectionEvents`: `List[str]`
+- `ConnectionNotificationState`: `ConnectionNotificationState`
+
+
+## ConversionTaskTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ConversionTaskTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConversionTaskId`: `str`
+- `ExpirationTime`: `str`
+- `ImportInstance`: `"ImportInstanceTaskDetailsTypeDef"`
+- `ImportVolume`: `"ImportVolumeTaskDetailsTypeDef"`
+- `State`: `ConversionTaskState`
+- `StatusMessage`: `str`
+- `Tags`: `List["TagTypeDef"]`
 
 
 ## CopyFpgaImageResultTypeDef
@@ -9448,6 +2567,20 @@ Optional fields:
 
 ```python
 from mypy_boto3_ec2.type_defs import CpuOptionsRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `CoreCount`: `int`
+- `ThreadsPerCore`: `int`
+
+
+## CpuOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CpuOptionsTypeDef
 ```
 
 
@@ -9576,6 +2709,39 @@ from mypy_boto3_ec2.type_defs import CreateEgressOnlyInternetGatewayResultTypeDe
 Optional fields:
 - `ClientToken`: `str`
 - `EgressOnlyInternetGateway`: `"EgressOnlyInternetGatewayTypeDef"`
+
+
+## CreateFleetErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CreateFleetErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateAndOverrides`: `"LaunchTemplateAndOverridesResponseTypeDef"`
+- `Lifecycle`: `InstanceLifecycle`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+
+
+## CreateFleetInstanceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CreateFleetInstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateAndOverrides`: `"LaunchTemplateAndOverridesResponseTypeDef"`
+- `Lifecycle`: `InstanceLifecycle`
+- `InstanceIds`: `List[str]`
+- `InstanceType`: `InstanceType`
+- `Platform`: `Literal['Windows']`
 
 
 ## CreateFleetResultTypeDef
@@ -10015,7 +3181,7 @@ from mypy_boto3_ec2.type_defs import CreateTransitGatewayConnectRequestOptionsTy
 
 
 Required fields:
-- `Protocol`: `ProtocolValue`
+- `Protocol`: `Literal['gre']`
 
 
 
@@ -10168,6 +3334,20 @@ Optional fields:
 - `Remove`: `List["CreateVolumePermissionTypeDef"]`
 
 
+## CreateVolumePermissionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CreateVolumePermissionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Group`: `Literal['all']`
+- `UserId`: `str`
+
+
 ## CreateVpcEndpointConnectionNotificationResultTypeDef
 
 ```python
@@ -10262,6 +3442,52 @@ Optional fields:
 - `VpnGateway`: `"VpnGatewayTypeDef"`
 
 
+## CreditSpecificationRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CreditSpecificationRequestTypeDef
+```
+
+
+Required fields:
+- `CpuCredits`: `str`
+
+
+
+
+## CreditSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CreditSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `CpuCredits`: `str`
+
+
+## CustomerGatewayTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import CustomerGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `BgpAsn`: `str`
+- `CustomerGatewayId`: `str`
+- `IpAddress`: `str`
+- `CertificateArn`: `str`
+- `State`: `str`
+- `Type`: `str`
+- `DeviceName`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## DeleteCarrierGatewayResultTypeDef
 
 ```python
@@ -10312,6 +3538,49 @@ from mypy_boto3_ec2.type_defs import DeleteEgressOnlyInternetGatewayResultTypeDe
 
 Optional fields:
 - `ReturnCode`: `bool`
+
+
+## DeleteFleetErrorItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DeleteFleetErrorItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `Error`: `"DeleteFleetErrorTypeDef"`
+- `FleetId`: `str`
+
+
+## DeleteFleetErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DeleteFleetErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `DeleteFleetErrorCode`
+- `Message`: `str`
+
+
+## DeleteFleetSuccessItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DeleteFleetSuccessItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `CurrentFleetState`: `FleetStateCode`
+- `PreviousFleetState`: `FleetStateCode`
+- `FleetId`: `str`
 
 
 ## DeleteFleetsResultTypeDef
@@ -10365,6 +3634,37 @@ from mypy_boto3_ec2.type_defs import DeleteLaunchTemplateResultTypeDef
 
 Optional fields:
 - `LaunchTemplate`: `"LaunchTemplateTypeDef"`
+
+
+## DeleteLaunchTemplateVersionsResponseErrorItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DeleteLaunchTemplateVersionsResponseErrorItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateId`: `str`
+- `LaunchTemplateName`: `str`
+- `VersionNumber`: `int`
+- `ResponseError`: `"ResponseErrorTypeDef"`
+
+
+## DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DeleteLaunchTemplateVersionsResponseSuccessItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateId`: `str`
+- `LaunchTemplateName`: `str`
+- `VersionNumber`: `int`
 
 
 ## DeleteLaunchTemplateVersionsResultTypeDef
@@ -10470,6 +3770,20 @@ from mypy_boto3_ec2.type_defs import DeleteNetworkInterfacePermissionResultTypeD
 
 Optional fields:
 - `Return`: `bool`
+
+
+## DeleteQueuedReservedInstancesErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DeleteQueuedReservedInstancesErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `DeleteQueuedReservedInstancesErrorCode`
+- `Message`: `str`
 
 
 ## DeleteQueuedReservedInstancesResultTypeDef
@@ -11089,6 +4403,29 @@ Optional fields:
 - `ExportTasks`: `List["ExportTaskTypeDef"]`
 
 
+## DescribeFastSnapshotRestoreSuccessItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DescribeFastSnapshotRestoreSuccessItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `SnapshotId`: `str`
+- `AvailabilityZone`: `str`
+- `State`: `FastSnapshotRestoreStateCode`
+- `StateTransitionReason`: `str`
+- `OwnerId`: `str`
+- `OwnerAlias`: `str`
+- `EnablingTime`: `datetime`
+- `OptimizingTime`: `datetime`
+- `EnabledTime`: `datetime`
+- `DisablingTime`: `datetime`
+- `DisabledTime`: `datetime`
+
+
 ## DescribeFastSnapshotRestoresResultTypeDef
 
 ```python
@@ -11101,6 +4438,22 @@ from mypy_boto3_ec2.type_defs import DescribeFastSnapshotRestoresResultTypeDef
 Optional fields:
 - `FastSnapshotRestores`: `List["DescribeFastSnapshotRestoreSuccessItemTypeDef"]`
 - `NextToken`: `str`
+
+
+## DescribeFleetErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DescribeFleetErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateAndOverrides`: `"LaunchTemplateAndOverridesResponseTypeDef"`
+- `Lifecycle`: `InstanceLifecycle`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
 
 
 ## DescribeFleetHistoryResultTypeDef
@@ -11133,6 +4486,23 @@ Optional fields:
 - `ActiveInstances`: `List["ActiveInstanceTypeDef"]`
 - `NextToken`: `str`
 - `FleetId`: `str`
+
+
+## DescribeFleetsInstancesTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DescribeFleetsInstancesTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateAndOverrides`: `"LaunchTemplateAndOverridesResponseTypeDef"`
+- `Lifecycle`: `InstanceLifecycle`
+- `InstanceIds`: `List[str]`
+- `InstanceType`: `InstanceType`
+- `Platform`: `Literal['Windows']`
 
 
 ## DescribeFleetsResultTypeDef
@@ -12460,6 +5830,62 @@ Optional fields:
 - `Return`: `bool`
 
 
+## DhcpConfigurationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DhcpConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Values`: `List["AttributeValueTypeDef"]`
+
+
+## DhcpOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DhcpOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `DhcpConfigurations`: `List["DhcpConfigurationTypeDef"]`
+- `DhcpOptionsId`: `str`
+- `OwnerId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## DirectoryServiceAuthenticationRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DirectoryServiceAuthenticationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+
+
+## DirectoryServiceAuthenticationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DirectoryServiceAuthenticationTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+
+
 ## DisableEbsEncryptionByDefaultResultTypeDef
 
 ```python
@@ -12471,6 +5897,71 @@ from mypy_boto3_ec2.type_defs import DisableEbsEncryptionByDefaultResultTypeDef
 
 Optional fields:
 - `EbsEncryptionByDefault`: `bool`
+
+
+## DisableFastSnapshotRestoreErrorItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DisableFastSnapshotRestoreErrorItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `SnapshotId`: `str`
+- `FastSnapshotRestoreStateErrors`: `List["DisableFastSnapshotRestoreStateErrorItemTypeDef"]`
+
+
+## DisableFastSnapshotRestoreStateErrorItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DisableFastSnapshotRestoreStateErrorItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `Error`: `"DisableFastSnapshotRestoreStateErrorTypeDef"`
+
+
+## DisableFastSnapshotRestoreStateErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DisableFastSnapshotRestoreStateErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
+
+
+## DisableFastSnapshotRestoreSuccessItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DisableFastSnapshotRestoreSuccessItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `SnapshotId`: `str`
+- `AvailabilityZone`: `str`
+- `State`: `FastSnapshotRestoreStateCode`
+- `StateTransitionReason`: `str`
+- `OwnerId`: `str`
+- `OwnerAlias`: `str`
+- `EnablingTime`: `datetime`
+- `OptimizingTime`: `datetime`
+- `EnabledTime`: `datetime`
+- `DisablingTime`: `datetime`
+- `DisabledTime`: `datetime`
 
 
 ## DisableFastSnapshotRestoresResultTypeDef
@@ -12634,6 +6125,37 @@ Optional fields:
 - `VpcId`: `str`
 
 
+## DiskImageDescriptionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DiskImageDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Checksum`: `str`
+- `Format`: `DiskImageFormat`
+- `ImportManifestUrl`: `str`
+- `Size`: `int`
+
+
+## DiskImageDetailTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DiskImageDetailTypeDef
+```
+
+
+Required fields:
+- `Bytes`: `int`
+- `Format`: `DiskImageFormat`
+- `ImportManifestUrl`: `str`
+
+
+
+
 ## DiskImageTypeDef
 
 ```python
@@ -12649,6 +6171,49 @@ Optional fields:
 - `Volume`: `"VolumeDetailTypeDef"`
 
 
+## DiskImageVolumeDescriptionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DiskImageVolumeDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Size`: `int`
+
+
+## DiskInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DiskInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `SizeInGB`: `int`
+- `Count`: `int`
+- `Type`: `DiskType`
+
+
+## DnsEntryTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import DnsEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `DnsName`: `str`
+- `HostedZoneId`: `str`
+
+
 ## DnsServersOptionsModifyStructureTypeDef
 
 ```python
@@ -12661,6 +6226,209 @@ from mypy_boto3_ec2.type_defs import DnsServersOptionsModifyStructureTypeDef
 Optional fields:
 - `CustomDnsServers`: `List[str]`
 - `Enabled`: `bool`
+
+
+## EbsBlockDeviceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EbsBlockDeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeleteOnTermination`: `bool`
+- `Iops`: `int`
+- `SnapshotId`: `str`
+- `VolumeSize`: `int`
+- `VolumeType`: `VolumeType`
+- `KmsKeyId`: `str`
+- `Throughput`: `int`
+- `OutpostArn`: `str`
+- `Encrypted`: `bool`
+
+
+## EbsInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EbsInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `EbsOptimizedSupport`: `EbsOptimizedSupport`
+- `EncryptionSupport`: `EbsEncryptionSupport`
+- `EbsOptimizedInfo`: `"EbsOptimizedInfoTypeDef"`
+- `NvmeSupport`: `EbsNvmeSupport`
+
+
+## EbsInstanceBlockDeviceSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EbsInstanceBlockDeviceSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeleteOnTermination`: `bool`
+- `VolumeId`: `str`
+
+
+## EbsInstanceBlockDeviceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EbsInstanceBlockDeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttachTime`: `datetime`
+- `DeleteOnTermination`: `bool`
+- `Status`: `AttachmentStatus`
+- `VolumeId`: `str`
+
+
+## EbsOptimizedInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EbsOptimizedInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `BaselineBandwidthInMbps`: `int`
+- `BaselineThroughputInMBps`: `float`
+- `BaselineIops`: `int`
+- `MaximumBandwidthInMbps`: `int`
+- `MaximumThroughputInMBps`: `float`
+- `MaximumIops`: `int`
+
+
+## EfaInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EfaInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaximumEfaInterfaces`: `int`
+
+
+## EgressOnlyInternetGatewayTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EgressOnlyInternetGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `Attachments`: `List["InternetGatewayAttachmentTypeDef"]`
+- `EgressOnlyInternetGatewayId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## ElasticGpuAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ElasticGpuAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ElasticGpuId`: `str`
+- `ElasticGpuAssociationId`: `str`
+- `ElasticGpuAssociationState`: `str`
+- `ElasticGpuAssociationTime`: `str`
+
+
+## ElasticGpuHealthTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ElasticGpuHealthTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `ElasticGpuStatus`
+
+
+## ElasticGpuSpecificationResponseTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ElasticGpuSpecificationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `str`
+
+
+## ElasticGpuSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ElasticGpuSpecificationTypeDef
+```
+
+
+Required fields:
+- `Type`: `str`
+
+
+
+
+## ElasticGpusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ElasticGpusTypeDef
+```
+
+
+
+
+Optional fields:
+- `ElasticGpuId`: `str`
+- `AvailabilityZone`: `str`
+- `ElasticGpuType`: `str`
+- `ElasticGpuHealth`: `"ElasticGpuHealthTypeDef"`
+- `ElasticGpuState`: `Literal['ATTACHED']`
+- `InstanceId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## ElasticInferenceAcceleratorAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ElasticInferenceAcceleratorAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ElasticInferenceAcceleratorArn`: `str`
+- `ElasticInferenceAcceleratorAssociationId`: `str`
+- `ElasticInferenceAcceleratorAssociationState`: `str`
+- `ElasticInferenceAcceleratorAssociationTime`: `datetime`
 
 
 ## ElasticInferenceAcceleratorTypeDef
@@ -12690,6 +6458,71 @@ from mypy_boto3_ec2.type_defs import EnableEbsEncryptionByDefaultResultTypeDef
 
 Optional fields:
 - `EbsEncryptionByDefault`: `bool`
+
+
+## EnableFastSnapshotRestoreErrorItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EnableFastSnapshotRestoreErrorItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `SnapshotId`: `str`
+- `FastSnapshotRestoreStateErrors`: `List["EnableFastSnapshotRestoreStateErrorItemTypeDef"]`
+
+
+## EnableFastSnapshotRestoreStateErrorItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EnableFastSnapshotRestoreStateErrorItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `Error`: `"EnableFastSnapshotRestoreStateErrorTypeDef"`
+
+
+## EnableFastSnapshotRestoreStateErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EnableFastSnapshotRestoreStateErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
+
+
+## EnableFastSnapshotRestoreSuccessItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EnableFastSnapshotRestoreSuccessItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `SnapshotId`: `str`
+- `AvailabilityZone`: `str`
+- `State`: `FastSnapshotRestoreStateCode`
+- `StateTransitionReason`: `str`
+- `OwnerId`: `str`
+- `OwnerAlias`: `str`
+- `EnablingTime`: `datetime`
+- `OptimizingTime`: `datetime`
+- `EnabledTime`: `datetime`
+- `DisablingTime`: `datetime`
+- `DisabledTime`: `datetime`
 
 
 ## EnableFastSnapshotRestoresResultTypeDef
@@ -12771,6 +6604,91 @@ Optional fields:
 - `Enabled`: `bool`
 
 
+## EnclaveOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EnclaveOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+
+
+## EventInformationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import EventInformationTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventDescription`: `str`
+- `EventSubType`: `str`
+- `InstanceId`: `str`
+
+
+## ExplanationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ExplanationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Acl`: `"AnalysisComponentTypeDef"`
+- `AclRule`: `"AnalysisAclRuleTypeDef"`
+- `Address`: `str`
+- `Addresses`: `List[str]`
+- `AttachedTo`: `"AnalysisComponentTypeDef"`
+- `AvailabilityZones`: `List[str]`
+- `Cidrs`: `List[str]`
+- `Component`: `"AnalysisComponentTypeDef"`
+- `CustomerGateway`: `"AnalysisComponentTypeDef"`
+- `Destination`: `"AnalysisComponentTypeDef"`
+- `DestinationVpc`: `"AnalysisComponentTypeDef"`
+- `Direction`: `str`
+- `ExplanationCode`: `str`
+- `IngressRouteTable`: `"AnalysisComponentTypeDef"`
+- `InternetGateway`: `"AnalysisComponentTypeDef"`
+- `LoadBalancerArn`: `str`
+- `ClassicLoadBalancerListener`: `"AnalysisLoadBalancerListenerTypeDef"`
+- `LoadBalancerListenerPort`: `int`
+- `LoadBalancerTarget`: `"AnalysisLoadBalancerTargetTypeDef"`
+- `LoadBalancerTargetGroup`: `"AnalysisComponentTypeDef"`
+- `LoadBalancerTargetGroups`: `List["AnalysisComponentTypeDef"]`
+- `LoadBalancerTargetPort`: `int`
+- `ElasticLoadBalancerListener`: `"AnalysisComponentTypeDef"`
+- `MissingComponent`: `str`
+- `NatGateway`: `"AnalysisComponentTypeDef"`
+- `NetworkInterface`: `"AnalysisComponentTypeDef"`
+- `PacketField`: `str`
+- `VpcPeeringConnection`: `"AnalysisComponentTypeDef"`
+- `Port`: `int`
+- `PortRanges`: `List["PortRangeTypeDef"]`
+- `PrefixList`: `"AnalysisComponentTypeDef"`
+- `Protocols`: `List[str]`
+- `RouteTableRoute`: `"AnalysisRouteTableRouteTypeDef"`
+- `RouteTable`: `"AnalysisComponentTypeDef"`
+- `SecurityGroup`: `"AnalysisComponentTypeDef"`
+- `SecurityGroupRule`: `"AnalysisSecurityGroupRuleTypeDef"`
+- `SecurityGroups`: `List["AnalysisComponentTypeDef"]`
+- `SourceVpc`: `"AnalysisComponentTypeDef"`
+- `State`: `str`
+- `Subnet`: `"AnalysisComponentTypeDef"`
+- `SubnetRouteTable`: `"AnalysisComponentTypeDef"`
+- `Vpc`: `"AnalysisComponentTypeDef"`
+- `VpcEndpoint`: `"AnalysisComponentTypeDef"`
+- `VpnConnection`: `"AnalysisComponentTypeDef"`
+- `VpnGateway`: `"AnalysisComponentTypeDef"`
+
+
 ## ExportClientVpnClientCertificateRevocationListResultTypeDef
 
 ```python
@@ -12820,6 +6738,26 @@ Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 
 
+## ExportImageTaskTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ExportImageTaskTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `ExportImageTaskId`: `str`
+- `ImageId`: `str`
+- `Progress`: `str`
+- `S3ExportLocation`: `"ExportTaskS3LocationTypeDef"`
+- `Status`: `str`
+- `StatusMessage`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## ExportTaskS3LocationRequestTypeDef
 
 ```python
@@ -12836,6 +6774,39 @@ Optional fields:
 - `S3Prefix`: `str`
 
 
+## ExportTaskS3LocationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ExportTaskS3LocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3Bucket`: `str`
+- `S3Prefix`: `str`
+
+
+## ExportTaskTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ExportTaskTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `ExportTaskId`: `str`
+- `ExportToS3Task`: `"ExportToS3TaskTypeDef"`
+- `InstanceExportDetails`: `"InstanceExportDetailsTypeDef"`
+- `State`: `ExportTaskState`
+- `StatusMessage`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## ExportToS3TaskSpecificationTypeDef
 
 ```python
@@ -12846,10 +6817,26 @@ from mypy_boto3_ec2.type_defs import ExportToS3TaskSpecificationTypeDef
 
 
 Optional fields:
-- `ContainerFormat`: `ContainerFormat`
+- `ContainerFormat`: `Literal['ova']`
 - `DiskImageFormat`: `DiskImageFormat`
 - `S3Bucket`: `str`
 - `S3Prefix`: `str`
+
+
+## ExportToS3TaskTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ExportToS3TaskTypeDef
+```
+
+
+
+
+Optional fields:
+- `ContainerFormat`: `Literal['ova']`
+- `DiskImageFormat`: `DiskImageFormat`
+- `S3Bucket`: `str`
+- `S3Key`: `str`
 
 
 ## ExportTransitGatewayRoutesResultTypeDef
@@ -12863,6 +6850,48 @@ from mypy_boto3_ec2.type_defs import ExportTransitGatewayRoutesResultTypeDef
 
 Optional fields:
 - `S3Location`: `str`
+
+
+## FailedQueuedPurchaseDeletionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FailedQueuedPurchaseDeletionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Error`: `"DeleteQueuedReservedInstancesErrorTypeDef"`
+- `ReservedInstancesId`: `str`
+
+
+## FederatedAuthenticationRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FederatedAuthenticationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `SAMLProviderArn`: `str`
+- `SelfServiceSAMLProviderArn`: `str`
+
+
+## FederatedAuthenticationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FederatedAuthenticationTypeDef
+```
+
+
+
+
+Optional fields:
+- `SamlProviderArn`: `str`
+- `SelfServiceSamlProviderArn`: `str`
 
 
 ## FilterTypeDef
@@ -12879,6 +6908,38 @@ Optional fields:
 - `Values`: `List[str]`
 
 
+## FleetDataTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FleetDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `ActivityStatus`: `FleetActivityStatus`
+- `CreateTime`: `datetime`
+- `FleetId`: `str`
+- `FleetState`: `FleetStateCode`
+- `ClientToken`: `str`
+- `ExcessCapacityTerminationPolicy`: `FleetExcessCapacityTerminationPolicy`
+- `FulfilledCapacity`: `float`
+- `FulfilledOnDemandCapacity`: `float`
+- `LaunchTemplateConfigs`: `List["FleetLaunchTemplateConfigTypeDef"]`
+- `TargetCapacitySpecification`: `"TargetCapacitySpecificationTypeDef"`
+- `TerminateInstancesWithExpiration`: `bool`
+- `Type`: `FleetType`
+- `ValidFrom`: `datetime`
+- `ValidUntil`: `datetime`
+- `ReplaceUnhealthyInstances`: `bool`
+- `SpotOptions`: `"SpotOptionsTypeDef"`
+- `OnDemandOptions`: `"OnDemandOptionsTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+- `Errors`: `List["DescribeFleetErrorTypeDef"]`
+- `Instances`: `List["DescribeFleetsInstancesTypeDef"]`
+
+
 ## FleetLaunchTemplateConfigRequestTypeDef
 
 ```python
@@ -12891,6 +6952,267 @@ from mypy_boto3_ec2.type_defs import FleetLaunchTemplateConfigRequestTypeDef
 Optional fields:
 - `LaunchTemplateSpecification`: `"FleetLaunchTemplateSpecificationRequestTypeDef"`
 - `Overrides`: `List["FleetLaunchTemplateOverridesRequestTypeDef"]`
+
+
+## FleetLaunchTemplateConfigTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FleetLaunchTemplateConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateSpecification`: `"FleetLaunchTemplateSpecificationTypeDef"`
+- `Overrides`: `List["FleetLaunchTemplateOverridesTypeDef"]`
+
+
+## FleetLaunchTemplateOverridesRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FleetLaunchTemplateOverridesRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceType`: `InstanceType`
+- `MaxPrice`: `str`
+- `SubnetId`: `str`
+- `AvailabilityZone`: `str`
+- `WeightedCapacity`: `float`
+- `Priority`: `float`
+- `Placement`: `"PlacementTypeDef"`
+
+
+## FleetLaunchTemplateOverridesTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FleetLaunchTemplateOverridesTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceType`: `InstanceType`
+- `MaxPrice`: `str`
+- `SubnetId`: `str`
+- `AvailabilityZone`: `str`
+- `WeightedCapacity`: `float`
+- `Priority`: `float`
+- `Placement`: `"PlacementResponseTypeDef"`
+
+
+## FleetLaunchTemplateSpecificationRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FleetLaunchTemplateSpecificationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateId`: `str`
+- `LaunchTemplateName`: `str`
+- `Version`: `str`
+
+
+## FleetLaunchTemplateSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FleetLaunchTemplateSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateId`: `str`
+- `LaunchTemplateName`: `str`
+- `Version`: `str`
+
+
+## FleetSpotCapacityRebalanceRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FleetSpotCapacityRebalanceRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplacementStrategy`: `Literal['launch']`
+
+
+## FleetSpotCapacityRebalanceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FleetSpotCapacityRebalanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplacementStrategy`: `Literal['launch']`
+
+
+## FleetSpotMaintenanceStrategiesRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FleetSpotMaintenanceStrategiesRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `CapacityRebalance`: `"FleetSpotCapacityRebalanceRequestTypeDef"`
+
+
+## FleetSpotMaintenanceStrategiesTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FleetSpotMaintenanceStrategiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `CapacityRebalance`: `"FleetSpotCapacityRebalanceTypeDef"`
+
+
+## FlowLogTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FlowLogTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreationTime`: `datetime`
+- `DeliverLogsErrorMessage`: `str`
+- `DeliverLogsPermissionArn`: `str`
+- `DeliverLogsStatus`: `str`
+- `FlowLogId`: `str`
+- `FlowLogStatus`: `str`
+- `LogGroupName`: `str`
+- `ResourceId`: `str`
+- `TrafficType`: `TrafficType`
+- `LogDestinationType`: `LogDestinationType`
+- `LogDestination`: `str`
+- `LogFormat`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `MaxAggregationInterval`: `int`
+
+
+## FpgaDeviceInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FpgaDeviceInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Manufacturer`: `str`
+- `Count`: `int`
+- `MemoryInfo`: `"FpgaDeviceMemoryInfoTypeDef"`
+
+
+## FpgaDeviceMemoryInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FpgaDeviceMemoryInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `SizeInMiB`: `int`
+
+
+## FpgaImageAttributeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FpgaImageAttributeTypeDef
+```
+
+
+
+
+Optional fields:
+- `FpgaImageId`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `LoadPermissions`: `List["LoadPermissionTypeDef"]`
+- `ProductCodes`: `List["ProductCodeTypeDef"]`
+
+
+## FpgaImageStateTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FpgaImageStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `FpgaImageStateCode`
+- `Message`: `str`
+
+
+## FpgaImageTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FpgaImageTypeDef
+```
+
+
+
+
+Optional fields:
+- `FpgaImageId`: `str`
+- `FpgaImageGlobalId`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `ShellVersion`: `str`
+- `PciId`: `"PciIdTypeDef"`
+- `State`: `"FpgaImageStateTypeDef"`
+- `CreateTime`: `datetime`
+- `UpdateTime`: `datetime`
+- `OwnerId`: `str`
+- `OwnerAlias`: `str`
+- `ProductCodes`: `List["ProductCodeTypeDef"]`
+- `Tags`: `List["TagTypeDef"]`
+- `Public`: `bool`
+- `DataRetentionSupport`: `bool`
+
+
+## FpgaInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import FpgaInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Fpgas`: `List["FpgaDeviceInfoTypeDef"]`
+- `TotalFpgaMemoryInMiB`: `int`
 
 
 ## GetAssociatedEnclaveCertificateIamRolesResultTypeDef
@@ -13059,7 +7381,7 @@ from mypy_boto3_ec2.type_defs import GetHostReservationPurchasePreviewResultType
 
 
 Optional fields:
-- `CurrencyCode`: `CurrencyCodeValues`
+- `CurrencyCode`: `Literal['USD']`
 - `Purchase`: `List["PurchaseTypeDef"]`
 - `TotalHourlyPrice`: `str`
 - `TotalUpfrontPrice`: `str`
@@ -13225,6 +7547,63 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## GpuDeviceInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import GpuDeviceInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Manufacturer`: `str`
+- `Count`: `int`
+- `MemoryInfo`: `"GpuDeviceMemoryInfoTypeDef"`
+
+
+## GpuDeviceMemoryInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import GpuDeviceMemoryInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `SizeInMiB`: `int`
+
+
+## GpuInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import GpuInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Gpus`: `List["GpuDeviceInfoTypeDef"]`
+- `TotalGpuMemoryInMiB`: `int`
+
+
+## GroupIdentifierTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import GroupIdentifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupName`: `str`
+- `GroupId`: `str`
+
+
 ## HibernationOptionsRequestTypeDef
 
 ```python
@@ -13236,6 +7615,255 @@ from mypy_boto3_ec2.type_defs import HibernationOptionsRequestTypeDef
 
 Optional fields:
 - `Configured`: `bool`
+
+
+## HibernationOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import HibernationOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Configured`: `bool`
+
+
+## HistoryRecordEntryTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import HistoryRecordEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventInformation`: `"EventInformationTypeDef"`
+- `EventType`: `FleetEventType`
+- `Timestamp`: `datetime`
+
+
+## HistoryRecordTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import HistoryRecordTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventInformation`: `"EventInformationTypeDef"`
+- `EventType`: `EventType`
+- `Timestamp`: `datetime`
+
+
+## HostInstanceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import HostInstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceId`: `str`
+- `InstanceType`: `str`
+- `OwnerId`: `str`
+
+
+## HostOfferingTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import HostOfferingTypeDef
+```
+
+
+
+
+Optional fields:
+- `CurrencyCode`: `Literal['USD']`
+- `Duration`: `int`
+- `HourlyPrice`: `str`
+- `InstanceFamily`: `str`
+- `OfferingId`: `str`
+- `PaymentOption`: `PaymentOption`
+- `UpfrontPrice`: `str`
+
+
+## HostPropertiesTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import HostPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `Cores`: `int`
+- `InstanceType`: `str`
+- `InstanceFamily`: `str`
+- `Sockets`: `int`
+- `TotalVCpus`: `int`
+
+
+## HostReservationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import HostReservationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Count`: `int`
+- `CurrencyCode`: `Literal['USD']`
+- `Duration`: `int`
+- `End`: `datetime`
+- `HostIdSet`: `List[str]`
+- `HostReservationId`: `str`
+- `HourlyPrice`: `str`
+- `InstanceFamily`: `str`
+- `OfferingId`: `str`
+- `PaymentOption`: `PaymentOption`
+- `Start`: `datetime`
+- `State`: `ReservationState`
+- `UpfrontPrice`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## HostTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import HostTypeDef
+```
+
+
+
+
+Optional fields:
+- `AutoPlacement`: `AutoPlacement`
+- `AvailabilityZone`: `str`
+- `AvailableCapacity`: `"AvailableCapacityTypeDef"`
+- `ClientToken`: `str`
+- `HostId`: `str`
+- `HostProperties`: `"HostPropertiesTypeDef"`
+- `HostReservationId`: `str`
+- `Instances`: `List["HostInstanceTypeDef"]`
+- `State`: `AllocationState`
+- `AllocationTime`: `datetime`
+- `ReleaseTime`: `datetime`
+- `Tags`: `List["TagTypeDef"]`
+- `HostRecovery`: `HostRecovery`
+- `AllowsMultipleInstanceTypes`: `AllowsMultipleInstanceTypes`
+- `OwnerId`: `str`
+- `AvailabilityZoneId`: `str`
+- `MemberOfServiceLinkedResourceGroup`: `bool`
+
+
+## IKEVersionsListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import IKEVersionsListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## IKEVersionsRequestListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import IKEVersionsRequestListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## IamInstanceProfileAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import IamInstanceProfileAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociationId`: `str`
+- `InstanceId`: `str`
+- `IamInstanceProfile`: `"IamInstanceProfileTypeDef"`
+- `State`: `IamInstanceProfileAssociationState`
+- `Timestamp`: `datetime`
+
+
+## IamInstanceProfileSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import IamInstanceProfileSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+
+
+## IamInstanceProfileTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import IamInstanceProfileTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Id`: `str`
+
+
+## IcmpTypeCodeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import IcmpTypeCodeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `int`
+- `Type`: `int`
+
+
+## IdFormatTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import IdFormatTypeDef
+```
+
+
+
+
+Optional fields:
+- `Deadline`: `datetime`
+- `Resource`: `str`
+- `UseLongIds`: `bool`
 
 
 ## ImageAttributeTypeDef
@@ -13277,6 +7905,45 @@ Optional fields:
 - `UserBucket`: `"UserBucketTypeDef"`
 
 
+## ImageTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ImageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Architecture`: `ArchitectureValues`
+- `CreationDate`: `str`
+- `ImageId`: `str`
+- `ImageLocation`: `str`
+- `ImageType`: `ImageTypeValues`
+- `Public`: `bool`
+- `KernelId`: `str`
+- `OwnerId`: `str`
+- `Platform`: `Literal['Windows']`
+- `PlatformDetails`: `str`
+- `UsageOperation`: `str`
+- `ProductCodes`: `List["ProductCodeTypeDef"]`
+- `RamdiskId`: `str`
+- `State`: `ImageState`
+- `BlockDeviceMappings`: `List["BlockDeviceMappingTypeDef"]`
+- `Description`: `str`
+- `EnaSupport`: `bool`
+- `Hypervisor`: `HypervisorType`
+- `ImageOwnerAlias`: `str`
+- `Name`: `str`
+- `RootDeviceName`: `str`
+- `RootDeviceType`: `DeviceType`
+- `SriovNetSupport`: `str`
+- `StateReason`: `"StateReasonTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+- `VirtualizationType`: `VirtualizationType`
+- `BootMode`: `BootModeValues`
+
+
 ## ImportClientVpnClientCertificateRevocationListResultTypeDef
 
 ```python
@@ -13294,6 +7961,19 @@ Optional fields:
 
 ```python
 from mypy_boto3_ec2.type_defs import ImportImageLicenseConfigurationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `LicenseConfigurationArn`: `str`
+
+
+## ImportImageLicenseConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ImportImageLicenseConfigurationResponseTypeDef
 ```
 
 
@@ -13328,6 +8008,33 @@ Optional fields:
 - `StatusMessage`: `str`
 - `LicenseSpecifications`: `List["ImportImageLicenseConfigurationResponseTypeDef"]`
 - `Tags`: `List["TagTypeDef"]`
+
+
+## ImportImageTaskTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ImportImageTaskTypeDef
+```
+
+
+
+
+Optional fields:
+- `Architecture`: `str`
+- `Description`: `str`
+- `Encrypted`: `bool`
+- `Hypervisor`: `str`
+- `ImageId`: `str`
+- `ImportTaskId`: `str`
+- `KmsKeyId`: `str`
+- `LicenseType`: `str`
+- `Platform`: `str`
+- `Progress`: `str`
+- `SnapshotDetails`: `List["SnapshotDetailTypeDef"]`
+- `Status`: `str`
+- `StatusMessage`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `LicenseSpecifications`: `List["ImportImageLicenseConfigurationResponseTypeDef"]`
 
 
 ## ImportInstanceLaunchSpecificationTypeDef
@@ -13366,6 +8073,41 @@ Optional fields:
 - `ConversionTask`: `"ConversionTaskTypeDef"`
 
 
+## ImportInstanceTaskDetailsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ImportInstanceTaskDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `InstanceId`: `str`
+- `Platform`: `Literal['Windows']`
+- `Volumes`: `List["ImportInstanceVolumeDetailItemTypeDef"]`
+
+
+## ImportInstanceVolumeDetailItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ImportInstanceVolumeDetailItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `BytesConverted`: `int`
+- `Description`: `str`
+- `Image`: `"DiskImageDescriptionTypeDef"`
+- `Status`: `str`
+- `StatusMessage`: `str`
+- `Volume`: `"DiskImageVolumeDescriptionTypeDef"`
+
+
 ## ImportKeyPairResultTypeDef
 
 ```python
@@ -13398,6 +8140,22 @@ Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 
 
+## ImportSnapshotTaskTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ImportSnapshotTaskTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `ImportTaskId`: `str`
+- `SnapshotTaskDetail`: `"SnapshotTaskDetailTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## ImportVolumeResultTypeDef
 
 ```python
@@ -13409,6 +8167,51 @@ from mypy_boto3_ec2.type_defs import ImportVolumeResultTypeDef
 
 Optional fields:
 - `ConversionTask`: `"ConversionTaskTypeDef"`
+
+
+## ImportVolumeTaskDetailsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ImportVolumeTaskDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `BytesConverted`: `int`
+- `Description`: `str`
+- `Image`: `"DiskImageDescriptionTypeDef"`
+- `Volume`: `"DiskImageVolumeDescriptionTypeDef"`
+
+
+## InferenceAcceleratorInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InferenceAcceleratorInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Accelerators`: `List["InferenceDeviceInfoTypeDef"]`
+
+
+## InferenceDeviceInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InferenceDeviceInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Count`: `int`
+- `Name`: `str`
+- `Manufacturer`: `str`
 
 
 ## InstanceAttributeTypeDef
@@ -13455,6 +8258,49 @@ Optional fields:
 - `VirtualName`: `str`
 
 
+## InstanceBlockDeviceMappingTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceBlockDeviceMappingTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeviceName`: `str`
+- `Ebs`: `"EbsInstanceBlockDeviceTypeDef"`
+
+
+## InstanceCapacityTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceCapacityTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailableCapacity`: `int`
+- `InstanceType`: `str`
+- `TotalCapacity`: `int`
+
+
+## InstanceCountTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceCountTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceCount`: `int`
+- `State`: `ListingState`
+
+
 ## InstanceCreditSpecificationRequestTypeDef
 
 ```python
@@ -13469,6 +8315,74 @@ Optional fields:
 - `CpuCredits`: `str`
 
 
+## InstanceCreditSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceCreditSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceId`: `str`
+- `CpuCredits`: `str`
+
+
+## InstanceExportDetailsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceExportDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceId`: `str`
+- `TargetEnvironment`: `ExportEnvironment`
+
+
+## InstanceFamilyCreditSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceFamilyCreditSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceFamily`: `UnlimitedSupportedInstanceFamily`
+- `CpuCredits`: `str`
+
+
+## InstanceIpv6AddressRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceIpv6AddressRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `Ipv6Address`: `str`
+
+
+## InstanceIpv6AddressTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceIpv6AddressTypeDef
+```
+
+
+
+
+Optional fields:
+- `Ipv6Address`: `str`
+
+
 ## InstanceMarketOptionsRequestTypeDef
 
 ```python
@@ -13479,7 +8393,7 @@ from mypy_boto3_ec2.type_defs import InstanceMarketOptionsRequestTypeDef
 
 
 Optional fields:
-- `MarketType`: `MarketType`
+- `MarketType`: `Literal['spot']`
 - `SpotOptions`: `"SpotMarketOptionsTypeDef"`
 
 
@@ -13498,6 +8412,141 @@ Optional fields:
 - `HttpEndpoint`: `InstanceMetadataEndpointState`
 
 
+## InstanceMetadataOptionsResponseTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceMetadataOptionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `InstanceMetadataOptionsState`
+- `HttpTokens`: `HttpTokensState`
+- `HttpPutResponseHopLimit`: `int`
+- `HttpEndpoint`: `InstanceMetadataEndpointState`
+
+
+## InstanceMonitoringTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceMonitoringTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceId`: `str`
+- `Monitoring`: `"MonitoringTypeDef"`
+
+
+## InstanceNetworkInterfaceAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceNetworkInterfaceAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `CarrierIp`: `str`
+- `IpOwnerId`: `str`
+- `PublicDnsName`: `str`
+- `PublicIp`: `str`
+
+
+## InstanceNetworkInterfaceAttachmentTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceNetworkInterfaceAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttachTime`: `datetime`
+- `AttachmentId`: `str`
+- `DeleteOnTermination`: `bool`
+- `DeviceIndex`: `int`
+- `Status`: `AttachmentStatus`
+- `NetworkCardIndex`: `int`
+
+
+## InstanceNetworkInterfaceSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceNetworkInterfaceSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociatePublicIpAddress`: `bool`
+- `DeleteOnTermination`: `bool`
+- `Description`: `str`
+- `DeviceIndex`: `int`
+- `Groups`: `List[str]`
+- `Ipv6AddressCount`: `int`
+- `Ipv6Addresses`: `List["InstanceIpv6AddressTypeDef"]`
+- `NetworkInterfaceId`: `str`
+- `PrivateIpAddress`: `str`
+- `PrivateIpAddresses`: `List["PrivateIpAddressSpecificationTypeDef"]`
+- `SecondaryPrivateIpAddressCount`: `int`
+- `SubnetId`: `str`
+- `AssociateCarrierIpAddress`: `bool`
+- `InterfaceType`: `str`
+- `NetworkCardIndex`: `int`
+
+
+## InstanceNetworkInterfaceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceNetworkInterfaceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Association`: `"InstanceNetworkInterfaceAssociationTypeDef"`
+- `Attachment`: `"InstanceNetworkInterfaceAttachmentTypeDef"`
+- `Description`: `str`
+- `Groups`: `List["GroupIdentifierTypeDef"]`
+- `Ipv6Addresses`: `List["InstanceIpv6AddressTypeDef"]`
+- `MacAddress`: `str`
+- `NetworkInterfaceId`: `str`
+- `OwnerId`: `str`
+- `PrivateDnsName`: `str`
+- `PrivateIpAddress`: `str`
+- `PrivateIpAddresses`: `List["InstancePrivateIpAddressTypeDef"]`
+- `SourceDestCheck`: `bool`
+- `Status`: `NetworkInterfaceStatus`
+- `SubnetId`: `str`
+- `VpcId`: `str`
+- `InterfaceType`: `str`
+
+
+## InstancePrivateIpAddressTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstancePrivateIpAddressTypeDef
+```
+
+
+
+
+Optional fields:
+- `Association`: `"InstanceNetworkInterfaceAssociationTypeDef"`
+- `Primary`: `bool`
+- `PrivateDnsName`: `str`
+- `PrivateIpAddress`: `str`
+
+
 ## InstanceSpecificationTypeDef
 
 ```python
@@ -13512,6 +8561,256 @@ Optional fields:
 - `ExcludeBootVolume`: `bool`
 
 
+## InstanceStateChangeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceStateChangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `CurrentState`: `"InstanceStateTypeDef"`
+- `InstanceId`: `str`
+- `PreviousState`: `"InstanceStateTypeDef"`
+
+
+## InstanceStateTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `int`
+- `Name`: `InstanceStateName`
+
+
+## InstanceStatusDetailsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceStatusDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ImpairedSince`: `datetime`
+- `Name`: `Literal['reachability']`
+- `Status`: `StatusType`
+
+
+## InstanceStatusEventTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceStatusEventTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceEventId`: `str`
+- `Code`: `EventCode`
+- `Description`: `str`
+- `NotAfter`: `datetime`
+- `NotBefore`: `datetime`
+- `NotBeforeDeadline`: `datetime`
+
+
+## InstanceStatusSummaryTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceStatusSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Details`: `List["InstanceStatusDetailsTypeDef"]`
+- `Status`: `SummaryStatus`
+
+
+## InstanceStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `OutpostArn`: `str`
+- `Events`: `List["InstanceStatusEventTypeDef"]`
+- `InstanceId`: `str`
+- `InstanceState`: `"InstanceStateTypeDef"`
+- `InstanceStatus`: `"InstanceStatusSummaryTypeDef"`
+- `SystemStatus`: `"InstanceStatusSummaryTypeDef"`
+
+
+## InstanceStorageInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceStorageInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `TotalSizeInGB`: `int`
+- `Disks`: `List["DiskInfoTypeDef"]`
+- `NvmeSupport`: `EphemeralNvmeSupport`
+
+
+## InstanceTagNotificationAttributeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceTagNotificationAttributeTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceTagKeys`: `List[str]`
+- `IncludeAllTagsOfInstance`: `bool`
+
+
+## InstanceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `AmiLaunchIndex`: `int`
+- `ImageId`: `str`
+- `InstanceId`: `str`
+- `InstanceType`: `InstanceType`
+- `KernelId`: `str`
+- `KeyName`: `str`
+- `LaunchTime`: `datetime`
+- `Monitoring`: `"MonitoringTypeDef"`
+- `Placement`: `"PlacementTypeDef"`
+- `Platform`: `Literal['Windows']`
+- `PrivateDnsName`: `str`
+- `PrivateIpAddress`: `str`
+- `ProductCodes`: `List["ProductCodeTypeDef"]`
+- `PublicDnsName`: `str`
+- `PublicIpAddress`: `str`
+- `RamdiskId`: `str`
+- `State`: `"InstanceStateTypeDef"`
+- `StateTransitionReason`: `str`
+- `SubnetId`: `str`
+- `VpcId`: `str`
+- `Architecture`: `ArchitectureValues`
+- `BlockDeviceMappings`: `List["InstanceBlockDeviceMappingTypeDef"]`
+- `ClientToken`: `str`
+- `EbsOptimized`: `bool`
+- `EnaSupport`: `bool`
+- `Hypervisor`: `HypervisorType`
+- `IamInstanceProfile`: `"IamInstanceProfileTypeDef"`
+- `InstanceLifecycle`: `InstanceLifecycleType`
+- `ElasticGpuAssociations`: `List["ElasticGpuAssociationTypeDef"]`
+- `ElasticInferenceAcceleratorAssociations`: `List["ElasticInferenceAcceleratorAssociationTypeDef"]`
+- `NetworkInterfaces`: `List["InstanceNetworkInterfaceTypeDef"]`
+- `OutpostArn`: `str`
+- `RootDeviceName`: `str`
+- `RootDeviceType`: `DeviceType`
+- `SecurityGroups`: `List["GroupIdentifierTypeDef"]`
+- `SourceDestCheck`: `bool`
+- `SpotInstanceRequestId`: `str`
+- `SriovNetSupport`: `str`
+- `StateReason`: `"StateReasonTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+- `VirtualizationType`: `VirtualizationType`
+- `CpuOptions`: `"CpuOptionsTypeDef"`
+- `CapacityReservationId`: `str`
+- `CapacityReservationSpecification`: `"CapacityReservationSpecificationResponseTypeDef"`
+- `HibernationOptions`: `"HibernationOptionsTypeDef"`
+- `Licenses`: `List["LicenseConfigurationTypeDef"]`
+- `MetadataOptions`: `"InstanceMetadataOptionsResponseTypeDef"`
+- `EnclaveOptions`: `"EnclaveOptionsTypeDef"`
+- `BootMode`: `BootModeValues`
+
+
+## InstanceTypeInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceTypeInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceType`: `InstanceType`
+- `CurrentGeneration`: `bool`
+- `FreeTierEligible`: `bool`
+- `SupportedUsageClasses`: `List[UsageClassType]`
+- `SupportedRootDeviceTypes`: `List[RootDeviceType]`
+- `SupportedVirtualizationTypes`: `List[VirtualizationType]`
+- `BareMetal`: `bool`
+- `Hypervisor`: `InstanceTypeHypervisor`
+- `ProcessorInfo`: `"ProcessorInfoTypeDef"`
+- `VCpuInfo`: `"VCpuInfoTypeDef"`
+- `MemoryInfo`: `"MemoryInfoTypeDef"`
+- `InstanceStorageSupported`: `bool`
+- `InstanceStorageInfo`: `"InstanceStorageInfoTypeDef"`
+- `EbsInfo`: `"EbsInfoTypeDef"`
+- `NetworkInfo`: `"NetworkInfoTypeDef"`
+- `GpuInfo`: `"GpuInfoTypeDef"`
+- `FpgaInfo`: `"FpgaInfoTypeDef"`
+- `PlacementGroupInfo`: `"PlacementGroupInfoTypeDef"`
+- `InferenceAcceleratorInfo`: `"InferenceAcceleratorInfoTypeDef"`
+- `HibernationSupported`: `bool`
+- `BurstablePerformanceSupported`: `bool`
+- `DedicatedHostsSupported`: `bool`
+- `AutoRecoverySupported`: `bool`
+- `SupportedBootModes`: `List[BootModeType]`
+
+
+## InstanceTypeOfferingTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceTypeOfferingTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceType`: `InstanceType`
+- `LocationType`: `LocationType`
+- `Location`: `str`
+
+
+## InstanceUsageTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InstanceUsageTypeDef
+```
+
+
+
+
+Optional fields:
+- `AccountId`: `str`
+- `UsedInstanceCount`: `int`
+
+
 ## IntegrateServicesTypeDef
 
 ```python
@@ -13523,6 +8822,142 @@ from mypy_boto3_ec2.type_defs import IntegrateServicesTypeDef
 
 Optional fields:
 - `AthenaIntegrations`: `List["AthenaIntegrationTypeDef"]`
+
+
+## InternetGatewayAttachmentTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InternetGatewayAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `AttachmentStatus`
+- `VpcId`: `str`
+
+
+## InternetGatewayTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import InternetGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `Attachments`: `List["InternetGatewayAttachmentTypeDef"]`
+- `InternetGatewayId`: `str`
+- `OwnerId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## IpPermissionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import IpPermissionTypeDef
+```
+
+
+
+
+Optional fields:
+- `FromPort`: `int`
+- `IpProtocol`: `str`
+- `IpRanges`: `List["IpRangeTypeDef"]`
+- `Ipv6Ranges`: `List["Ipv6RangeTypeDef"]`
+- `PrefixListIds`: `List["PrefixListIdTypeDef"]`
+- `ToPort`: `int`
+- `UserIdGroupPairs`: `List["UserIdGroupPairTypeDef"]`
+
+
+## IpRangeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import IpRangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `CidrIp`: `str`
+- `Description`: `str`
+
+
+## Ipv6CidrAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Ipv6CidrAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Ipv6Cidr`: `str`
+- `AssociatedResource`: `str`
+
+
+## Ipv6CidrBlockTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Ipv6CidrBlockTypeDef
+```
+
+
+
+
+Optional fields:
+- `Ipv6CidrBlock`: `str`
+
+
+## Ipv6PoolTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Ipv6PoolTypeDef
+```
+
+
+
+
+Optional fields:
+- `PoolId`: `str`
+- `Description`: `str`
+- `PoolCidrBlocks`: `List["PoolCidrBlockTypeDef"]`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## Ipv6RangeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Ipv6RangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `CidrIpv6`: `str`
+- `Description`: `str`
+
+
+## KeyPairInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import KeyPairInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `KeyPairId`: `str`
+- `KeyFingerprint`: `str`
+- `KeyName`: `str`
+- `Tags`: `List["TagTypeDef"]`
 
 
 ## KeyPairTypeDef
@@ -13542,6 +8977,20 @@ Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 
 
+## LastErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LastErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Message`: `str`
+- `Code`: `str`
+
+
 ## LaunchPermissionModificationsTypeDef
 
 ```python
@@ -13554,6 +9003,510 @@ from mypy_boto3_ec2.type_defs import LaunchPermissionModificationsTypeDef
 Optional fields:
 - `Add`: `List["LaunchPermissionTypeDef"]`
 - `Remove`: `List["LaunchPermissionTypeDef"]`
+
+
+## LaunchPermissionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchPermissionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Group`: `Literal['all']`
+- `UserId`: `str`
+
+
+## LaunchSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserData`: `str`
+- `SecurityGroups`: `List["GroupIdentifierTypeDef"]`
+- `AddressingType`: `str`
+- `BlockDeviceMappings`: `List["BlockDeviceMappingTypeDef"]`
+- `EbsOptimized`: `bool`
+- `IamInstanceProfile`: `"IamInstanceProfileSpecificationTypeDef"`
+- `ImageId`: `str`
+- `InstanceType`: `InstanceType`
+- `KernelId`: `str`
+- `KeyName`: `str`
+- `NetworkInterfaces`: `List["InstanceNetworkInterfaceSpecificationTypeDef"]`
+- `Placement`: `"SpotPlacementTypeDef"`
+- `RamdiskId`: `str`
+- `SubnetId`: `str`
+- `Monitoring`: `"RunInstancesMonitoringEnabledTypeDef"`
+
+
+## LaunchTemplateAndOverridesResponseTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateAndOverridesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateSpecification`: `"FleetLaunchTemplateSpecificationTypeDef"`
+- `Overrides`: `"FleetLaunchTemplateOverridesTypeDef"`
+
+
+## LaunchTemplateBlockDeviceMappingRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateBlockDeviceMappingRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeviceName`: `str`
+- `VirtualName`: `str`
+- `Ebs`: `"LaunchTemplateEbsBlockDeviceRequestTypeDef"`
+- `NoDevice`: `str`
+
+
+## LaunchTemplateBlockDeviceMappingTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateBlockDeviceMappingTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeviceName`: `str`
+- `VirtualName`: `str`
+- `Ebs`: `"LaunchTemplateEbsBlockDeviceTypeDef"`
+- `NoDevice`: `str`
+
+
+## LaunchTemplateCapacityReservationSpecificationRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateCapacityReservationSpecificationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `CapacityReservationPreference`: `CapacityReservationPreference`
+- `CapacityReservationTarget`: `"CapacityReservationTargetTypeDef"`
+
+
+## LaunchTemplateCapacityReservationSpecificationResponseTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateCapacityReservationSpecificationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CapacityReservationPreference`: `CapacityReservationPreference`
+- `CapacityReservationTarget`: `"CapacityReservationTargetResponseTypeDef"`
+
+
+## LaunchTemplateConfigTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateSpecification`: `"FleetLaunchTemplateSpecificationTypeDef"`
+- `Overrides`: `List["LaunchTemplateOverridesTypeDef"]`
+
+
+## LaunchTemplateCpuOptionsRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateCpuOptionsRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `CoreCount`: `int`
+- `ThreadsPerCore`: `int`
+
+
+## LaunchTemplateCpuOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateCpuOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `CoreCount`: `int`
+- `ThreadsPerCore`: `int`
+
+
+## LaunchTemplateEbsBlockDeviceRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateEbsBlockDeviceRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `Encrypted`: `bool`
+- `DeleteOnTermination`: `bool`
+- `Iops`: `int`
+- `KmsKeyId`: `str`
+- `SnapshotId`: `str`
+- `VolumeSize`: `int`
+- `VolumeType`: `VolumeType`
+- `Throughput`: `int`
+
+
+## LaunchTemplateEbsBlockDeviceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateEbsBlockDeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Encrypted`: `bool`
+- `DeleteOnTermination`: `bool`
+- `Iops`: `int`
+- `KmsKeyId`: `str`
+- `SnapshotId`: `str`
+- `VolumeSize`: `int`
+- `VolumeType`: `VolumeType`
+- `Throughput`: `int`
+
+
+## LaunchTemplateElasticInferenceAcceleratorResponseTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateElasticInferenceAcceleratorResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `str`
+- `Count`: `int`
+
+
+## LaunchTemplateElasticInferenceAcceleratorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateElasticInferenceAcceleratorTypeDef
+```
+
+
+Required fields:
+- `Type`: `str`
+
+
+
+Optional fields:
+- `Count`: `int`
+
+
+## LaunchTemplateEnclaveOptionsRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateEnclaveOptionsRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+
+
+## LaunchTemplateEnclaveOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateEnclaveOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+
+
+## LaunchTemplateHibernationOptionsRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateHibernationOptionsRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `Configured`: `bool`
+
+
+## LaunchTemplateHibernationOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateHibernationOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Configured`: `bool`
+
+
+## LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+
+
+## LaunchTemplateIamInstanceProfileSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateIamInstanceProfileSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+
+
+## LaunchTemplateInstanceMarketOptionsRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceMarketOptionsRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `MarketType`: `Literal['spot']`
+- `SpotOptions`: `"LaunchTemplateSpotMarketOptionsRequestTypeDef"`
+
+
+## LaunchTemplateInstanceMarketOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceMarketOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `MarketType`: `Literal['spot']`
+- `SpotOptions`: `"LaunchTemplateSpotMarketOptionsTypeDef"`
+
+
+## LaunchTemplateInstanceMetadataOptionsRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceMetadataOptionsRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `HttpTokens`: `LaunchTemplateHttpTokensState`
+- `HttpPutResponseHopLimit`: `int`
+- `HttpEndpoint`: `LaunchTemplateInstanceMetadataEndpointState`
+
+
+## LaunchTemplateInstanceMetadataOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceMetadataOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `LaunchTemplateInstanceMetadataOptionsState`
+- `HttpTokens`: `LaunchTemplateHttpTokensState`
+- `HttpPutResponseHopLimit`: `int`
+- `HttpEndpoint`: `LaunchTemplateInstanceMetadataEndpointState`
+
+
+## LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociateCarrierIpAddress`: `bool`
+- `AssociatePublicIpAddress`: `bool`
+- `DeleteOnTermination`: `bool`
+- `Description`: `str`
+- `DeviceIndex`: `int`
+- `Groups`: `List[str]`
+- `InterfaceType`: `str`
+- `Ipv6AddressCount`: `int`
+- `Ipv6Addresses`: `List["InstanceIpv6AddressRequestTypeDef"]`
+- `NetworkInterfaceId`: `str`
+- `PrivateIpAddress`: `str`
+- `PrivateIpAddresses`: `List["PrivateIpAddressSpecificationTypeDef"]`
+- `SecondaryPrivateIpAddressCount`: `int`
+- `SubnetId`: `str`
+- `NetworkCardIndex`: `int`
+
+
+## LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociateCarrierIpAddress`: `bool`
+- `AssociatePublicIpAddress`: `bool`
+- `DeleteOnTermination`: `bool`
+- `Description`: `str`
+- `DeviceIndex`: `int`
+- `Groups`: `List[str]`
+- `InterfaceType`: `str`
+- `Ipv6AddressCount`: `int`
+- `Ipv6Addresses`: `List["InstanceIpv6AddressTypeDef"]`
+- `NetworkInterfaceId`: `str`
+- `PrivateIpAddress`: `str`
+- `PrivateIpAddresses`: `List["PrivateIpAddressSpecificationTypeDef"]`
+- `SecondaryPrivateIpAddressCount`: `int`
+- `SubnetId`: `str`
+- `NetworkCardIndex`: `int`
+
+
+## LaunchTemplateLicenseConfigurationRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateLicenseConfigurationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `LicenseConfigurationArn`: `str`
+
+
+## LaunchTemplateLicenseConfigurationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateLicenseConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `LicenseConfigurationArn`: `str`
+
+
+## LaunchTemplateOverridesTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateOverridesTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceType`: `InstanceType`
+- `SpotPrice`: `str`
+- `SubnetId`: `str`
+- `AvailabilityZone`: `str`
+- `WeightedCapacity`: `float`
+- `Priority`: `float`
+
+
+## LaunchTemplatePlacementRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplatePlacementRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `Affinity`: `str`
+- `GroupName`: `str`
+- `HostId`: `str`
+- `Tenancy`: `Tenancy`
+- `SpreadDomain`: `str`
+- `HostResourceGroupArn`: `str`
+- `PartitionNumber`: `int`
+
+
+## LaunchTemplatePlacementTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplatePlacementTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `Affinity`: `str`
+- `GroupName`: `str`
+- `HostId`: `str`
+- `Tenancy`: `Tenancy`
+- `SpreadDomain`: `str`
+- `HostResourceGroupArn`: `str`
+- `PartitionNumber`: `int`
 
 
 ## LaunchTemplateSpecificationTypeDef
@@ -13571,6 +9524,133 @@ Optional fields:
 - `Version`: `str`
 
 
+## LaunchTemplateSpotMarketOptionsRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateSpotMarketOptionsRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxPrice`: `str`
+- `SpotInstanceType`: `SpotInstanceType`
+- `BlockDurationMinutes`: `int`
+- `ValidUntil`: `datetime`
+- `InstanceInterruptionBehavior`: `InstanceInterruptionBehavior`
+
+
+## LaunchTemplateSpotMarketOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateSpotMarketOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxPrice`: `str`
+- `SpotInstanceType`: `SpotInstanceType`
+- `BlockDurationMinutes`: `int`
+- `ValidUntil`: `datetime`
+- `InstanceInterruptionBehavior`: `InstanceInterruptionBehavior`
+
+
+## LaunchTemplateTagSpecificationRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateTagSpecificationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceType`: `ResourceType`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## LaunchTemplateTagSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateTagSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceType`: `ResourceType`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## LaunchTemplateTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateId`: `str`
+- `LaunchTemplateName`: `str`
+- `CreateTime`: `datetime`
+- `CreatedBy`: `str`
+- `DefaultVersionNumber`: `int`
+- `LatestVersionNumber`: `int`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## LaunchTemplateVersionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplateVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `LaunchTemplateId`: `str`
+- `LaunchTemplateName`: `str`
+- `VersionNumber`: `int`
+- `VersionDescription`: `str`
+- `CreateTime`: `datetime`
+- `CreatedBy`: `str`
+- `DefaultVersion`: `bool`
+- `LaunchTemplateData`: `"ResponseLaunchTemplateDataTypeDef"`
+
+
+## LaunchTemplatesMonitoringRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplatesMonitoringRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+
+
+## LaunchTemplatesMonitoringTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LaunchTemplatesMonitoringTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+
+
 ## LicenseConfigurationRequestTypeDef
 
 ```python
@@ -13582,6 +9662,33 @@ from mypy_boto3_ec2.type_defs import LicenseConfigurationRequestTypeDef
 
 Optional fields:
 - `LicenseConfigurationArn`: `str`
+
+
+## LicenseConfigurationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LicenseConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `LicenseConfigurationArn`: `str`
+
+
+## LoadBalancersConfigTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LoadBalancersConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClassicLoadBalancersConfig`: `"ClassicLoadBalancersConfigTypeDef"`
+- `TargetGroupsConfig`: `"TargetGroupsConfigTypeDef"`
 
 
 ## LoadPermissionModificationsTypeDef
@@ -13596,6 +9703,202 @@ from mypy_boto3_ec2.type_defs import LoadPermissionModificationsTypeDef
 Optional fields:
 - `Add`: `List["LoadPermissionRequestTypeDef"]`
 - `Remove`: `List["LoadPermissionRequestTypeDef"]`
+
+
+## LoadPermissionRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LoadPermissionRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `Group`: `Literal['all']`
+- `UserId`: `str`
+
+
+## LoadPermissionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LoadPermissionTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserId`: `str`
+- `Group`: `Literal['all']`
+
+
+## LocalGatewayRouteTableTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LocalGatewayRouteTableTypeDef
+```
+
+
+
+
+Optional fields:
+- `LocalGatewayRouteTableId`: `str`
+- `LocalGatewayRouteTableArn`: `str`
+- `LocalGatewayId`: `str`
+- `OutpostArn`: `str`
+- `OwnerId`: `str`
+- `State`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `LocalGatewayRouteTableVirtualInterfaceGroupAssociationId`: `str`
+- `LocalGatewayVirtualInterfaceGroupId`: `str`
+- `LocalGatewayId`: `str`
+- `LocalGatewayRouteTableId`: `str`
+- `LocalGatewayRouteTableArn`: `str`
+- `OwnerId`: `str`
+- `State`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## LocalGatewayRouteTableVpcAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LocalGatewayRouteTableVpcAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `LocalGatewayRouteTableVpcAssociationId`: `str`
+- `LocalGatewayRouteTableId`: `str`
+- `LocalGatewayRouteTableArn`: `str`
+- `LocalGatewayId`: `str`
+- `VpcId`: `str`
+- `OwnerId`: `str`
+- `State`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## LocalGatewayRouteTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LocalGatewayRouteTypeDef
+```
+
+
+
+
+Optional fields:
+- `DestinationCidrBlock`: `str`
+- `LocalGatewayVirtualInterfaceGroupId`: `str`
+- `Type`: `LocalGatewayRouteType`
+- `State`: `LocalGatewayRouteState`
+- `LocalGatewayRouteTableId`: `str`
+- `LocalGatewayRouteTableArn`: `str`
+- `OwnerId`: `str`
+
+
+## LocalGatewayTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LocalGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `LocalGatewayId`: `str`
+- `OutpostArn`: `str`
+- `OwnerId`: `str`
+- `State`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## LocalGatewayVirtualInterfaceGroupTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LocalGatewayVirtualInterfaceGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `LocalGatewayVirtualInterfaceGroupId`: `str`
+- `LocalGatewayVirtualInterfaceIds`: `List[str]`
+- `LocalGatewayId`: `str`
+- `OwnerId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## LocalGatewayVirtualInterfaceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import LocalGatewayVirtualInterfaceTypeDef
+```
+
+
+
+
+Optional fields:
+- `LocalGatewayVirtualInterfaceId`: `str`
+- `LocalGatewayId`: `str`
+- `Vlan`: `int`
+- `LocalAddress`: `str`
+- `PeerAddress`: `str`
+- `LocalBgpAsn`: `int`
+- `PeerBgpAsn`: `int`
+- `OwnerId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## ManagedPrefixListTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ManagedPrefixListTypeDef
+```
+
+
+
+
+Optional fields:
+- `PrefixListId`: `str`
+- `AddressFamily`: `str`
+- `State`: `PrefixListState`
+- `StateMessage`: `str`
+- `PrefixListArn`: `str`
+- `PrefixListName`: `str`
+- `MaxEntries`: `int`
+- `Version`: `int`
+- `Tags`: `List["TagTypeDef"]`
+- `OwnerId`: `str`
+
+
+## MemoryInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import MemoryInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `SizeInMiB`: `int`
 
 
 ## ModifyAddressAttributeResultTypeDef
@@ -14136,6 +10439,19 @@ Optional fields:
 - `InstanceMonitorings`: `List["InstanceMonitoringTypeDef"]`
 
 
+## MonitoringTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import MonitoringTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `MonitoringState`
+
+
 ## MoveAddressToVpcResultTypeDef
 
 ```python
@@ -14150,6 +10466,217 @@ Optional fields:
 - `Status`: `Status`
 
 
+## MovingAddressStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import MovingAddressStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `MoveStatus`: `MoveStatus`
+- `PublicIp`: `str`
+
+
+## NatGatewayAddressTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NatGatewayAddressTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllocationId`: `str`
+- `NetworkInterfaceId`: `str`
+- `PrivateIp`: `str`
+- `PublicIp`: `str`
+
+
+## NatGatewayTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NatGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreateTime`: `datetime`
+- `DeleteTime`: `datetime`
+- `FailureCode`: `str`
+- `FailureMessage`: `str`
+- `NatGatewayAddresses`: `List["NatGatewayAddressTypeDef"]`
+- `NatGatewayId`: `str`
+- `ProvisionedBandwidth`: `"ProvisionedBandwidthTypeDef"`
+- `State`: `NatGatewayState`
+- `SubnetId`: `str`
+- `VpcId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## NetworkAclAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkAclAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `NetworkAclAssociationId`: `str`
+- `NetworkAclId`: `str`
+- `SubnetId`: `str`
+
+
+## NetworkAclEntryTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkAclEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `CidrBlock`: `str`
+- `Egress`: `bool`
+- `IcmpTypeCode`: `"IcmpTypeCodeTypeDef"`
+- `Ipv6CidrBlock`: `str`
+- `PortRange`: `"PortRangeTypeDef"`
+- `Protocol`: `str`
+- `RuleAction`: `RuleAction`
+- `RuleNumber`: `int`
+
+
+## NetworkAclTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkAclTypeDef
+```
+
+
+
+
+Optional fields:
+- `Associations`: `List["NetworkAclAssociationTypeDef"]`
+- `Entries`: `List["NetworkAclEntryTypeDef"]`
+- `IsDefault`: `bool`
+- `NetworkAclId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `VpcId`: `str`
+- `OwnerId`: `str`
+
+
+## NetworkCardInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkCardInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `NetworkCardIndex`: `int`
+- `NetworkPerformance`: `str`
+- `MaximumNetworkInterfaces`: `int`
+
+
+## NetworkInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `NetworkPerformance`: `str`
+- `MaximumNetworkInterfaces`: `int`
+- `MaximumNetworkCards`: `int`
+- `DefaultNetworkCardIndex`: `int`
+- `NetworkCards`: `List["NetworkCardInfoTypeDef"]`
+- `Ipv4AddressesPerInterface`: `int`
+- `Ipv6AddressesPerInterface`: `int`
+- `Ipv6Supported`: `bool`
+- `EnaSupport`: `EnaSupport`
+- `EfaSupported`: `bool`
+- `EfaInfo`: `"EfaInfoTypeDef"`
+
+
+## NetworkInsightsAnalysisTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkInsightsAnalysisTypeDef
+```
+
+
+
+
+Optional fields:
+- `NetworkInsightsAnalysisId`: `str`
+- `NetworkInsightsAnalysisArn`: `str`
+- `NetworkInsightsPathId`: `str`
+- `FilterInArns`: `List[str]`
+- `StartDate`: `datetime`
+- `Status`: `AnalysisStatus`
+- `StatusMessage`: `str`
+- `NetworkPathFound`: `bool`
+- `ForwardPathComponents`: `List["PathComponentTypeDef"]`
+- `ReturnPathComponents`: `List["PathComponentTypeDef"]`
+- `Explanations`: `List["ExplanationTypeDef"]`
+- `AlternatePathHints`: `List["AlternatePathHintTypeDef"]`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## NetworkInsightsPathTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkInsightsPathTypeDef
+```
+
+
+
+
+Optional fields:
+- `NetworkInsightsPathId`: `str`
+- `NetworkInsightsPathArn`: `str`
+- `CreatedDate`: `datetime`
+- `Source`: `str`
+- `Destination`: `str`
+- `SourceIp`: `str`
+- `DestinationIp`: `str`
+- `Protocol`: `ProtocolType`
+- `DestinationPort`: `int`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## NetworkInterfaceAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkInterfaceAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllocationId`: `str`
+- `AssociationId`: `str`
+- `IpOwnerId`: `str`
+- `PublicDnsName`: `str`
+- `PublicIp`: `str`
+- `CustomerOwnedIp`: `str`
+- `CarrierIp`: `str`
+
+
 ## NetworkInterfaceAttachmentChangesTypeDef
 
 ```python
@@ -14162,6 +10689,120 @@ from mypy_boto3_ec2.type_defs import NetworkInterfaceAttachmentChangesTypeDef
 Optional fields:
 - `AttachmentId`: `str`
 - `DeleteOnTermination`: `bool`
+
+
+## NetworkInterfaceAttachmentTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkInterfaceAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttachTime`: `datetime`
+- `AttachmentId`: `str`
+- `DeleteOnTermination`: `bool`
+- `DeviceIndex`: `int`
+- `NetworkCardIndex`: `int`
+- `InstanceId`: `str`
+- `InstanceOwnerId`: `str`
+- `Status`: `AttachmentStatus`
+
+
+## NetworkInterfaceIpv6AddressTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkInterfaceIpv6AddressTypeDef
+```
+
+
+
+
+Optional fields:
+- `Ipv6Address`: `str`
+
+
+## NetworkInterfacePermissionStateTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkInterfacePermissionStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `NetworkInterfacePermissionStateCode`
+- `StatusMessage`: `str`
+
+
+## NetworkInterfacePermissionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkInterfacePermissionTypeDef
+```
+
+
+
+
+Optional fields:
+- `NetworkInterfacePermissionId`: `str`
+- `NetworkInterfaceId`: `str`
+- `AwsAccountId`: `str`
+- `AwsService`: `str`
+- `Permission`: `InterfacePermissionType`
+- `PermissionState`: `"NetworkInterfacePermissionStateTypeDef"`
+
+
+## NetworkInterfacePrivateIpAddressTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkInterfacePrivateIpAddressTypeDef
+```
+
+
+
+
+Optional fields:
+- `Association`: `"NetworkInterfaceAssociationTypeDef"`
+- `Primary`: `bool`
+- `PrivateDnsName`: `str`
+- `PrivateIpAddress`: `str`
+
+
+## NetworkInterfaceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import NetworkInterfaceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Association`: `"NetworkInterfaceAssociationTypeDef"`
+- `Attachment`: `"NetworkInterfaceAttachmentTypeDef"`
+- `AvailabilityZone`: `str`
+- `Description`: `str`
+- `Groups`: `List["GroupIdentifierTypeDef"]`
+- `InterfaceType`: `NetworkInterfaceType`
+- `Ipv6Addresses`: `List["NetworkInterfaceIpv6AddressTypeDef"]`
+- `MacAddress`: `str`
+- `NetworkInterfaceId`: `str`
+- `OutpostArn`: `str`
+- `OwnerId`: `str`
+- `PrivateDnsName`: `str`
+- `PrivateIpAddress`: `str`
+- `PrivateIpAddresses`: `List["NetworkInterfacePrivateIpAddressTypeDef"]`
+- `RequesterId`: `str`
+- `RequesterManaged`: `bool`
+- `SourceDestCheck`: `bool`
+- `Status`: `NetworkInterfaceStatus`
+- `SubnetId`: `str`
+- `TagSet`: `List["TagTypeDef"]`
+- `VpcId`: `str`
 
 
 ## NewDhcpConfigurationTypeDef
@@ -14196,6 +10837,24 @@ Optional fields:
 - `MaxTotalPrice`: `str`
 
 
+## OnDemandOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import OnDemandOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllocationStrategy`: `FleetOnDemandAllocationStrategy`
+- `CapacityReservationOptions`: `"CapacityReservationOptionsTypeDef"`
+- `SingleInstanceType`: `bool`
+- `SingleAvailabilityZone`: `bool`
+- `MinTargetCapacity`: `int`
+- `MaxTotalPrice`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -14209,6 +10868,59 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PathComponentTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PathComponentTypeDef
+```
+
+
+
+
+Optional fields:
+- `SequenceNumber`: `int`
+- `AclRule`: `"AnalysisAclRuleTypeDef"`
+- `Component`: `"AnalysisComponentTypeDef"`
+- `DestinationVpc`: `"AnalysisComponentTypeDef"`
+- `OutboundHeader`: `"AnalysisPacketHeaderTypeDef"`
+- `InboundHeader`: `"AnalysisPacketHeaderTypeDef"`
+- `RouteTableRoute`: `"AnalysisRouteTableRouteTypeDef"`
+- `SecurityGroupRule`: `"AnalysisSecurityGroupRuleTypeDef"`
+- `SourceVpc`: `"AnalysisComponentTypeDef"`
+- `Subnet`: `"AnalysisComponentTypeDef"`
+- `Vpc`: `"AnalysisComponentTypeDef"`
+
+
+## PciIdTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PciIdTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeviceId`: `str`
+- `VendorId`: `str`
+- `SubsystemId`: `str`
+- `SubsystemVendorId`: `str`
+
+
+## PeeringAttachmentStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PeeringAttachmentStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
 
 
 ## PeeringConnectionOptionsRequestTypeDef
@@ -14226,6 +10938,340 @@ Optional fields:
 - `AllowEgressFromLocalVpcToRemoteClassicLink`: `bool`
 
 
+## PeeringConnectionOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PeeringConnectionOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllowDnsResolutionFromRemoteVpc`: `bool`
+- `AllowEgressFromLocalClassicLinkToRemoteVpc`: `bool`
+- `AllowEgressFromLocalVpcToRemoteClassicLink`: `bool`
+
+
+## PeeringTgwInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PeeringTgwInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayId`: `str`
+- `OwnerId`: `str`
+- `Region`: `str`
+
+
+## Phase1DHGroupNumbersListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase1DHGroupNumbersListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `int`
+
+
+## Phase1DHGroupNumbersRequestListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase1DHGroupNumbersRequestListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `int`
+
+
+## Phase1EncryptionAlgorithmsListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase1EncryptionAlgorithmsListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## Phase1EncryptionAlgorithmsRequestListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase1EncryptionAlgorithmsRequestListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## Phase1IntegrityAlgorithmsListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase1IntegrityAlgorithmsListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## Phase1IntegrityAlgorithmsRequestListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase1IntegrityAlgorithmsRequestListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## Phase2DHGroupNumbersListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase2DHGroupNumbersListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `int`
+
+
+## Phase2DHGroupNumbersRequestListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase2DHGroupNumbersRequestListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `int`
+
+
+## Phase2EncryptionAlgorithmsListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase2EncryptionAlgorithmsListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## Phase2EncryptionAlgorithmsRequestListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase2EncryptionAlgorithmsRequestListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## Phase2IntegrityAlgorithmsListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase2IntegrityAlgorithmsListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## Phase2IntegrityAlgorithmsRequestListValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import Phase2IntegrityAlgorithmsRequestListValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## PlacementGroupInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PlacementGroupInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `SupportedStrategies`: `List[PlacementGroupStrategy]`
+
+
+## PlacementGroupTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PlacementGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupName`: `str`
+- `State`: `PlacementGroupState`
+- `Strategy`: `PlacementStrategy`
+- `PartitionCount`: `int`
+- `GroupId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## PlacementResponseTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PlacementResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupName`: `str`
+
+
+## PlacementTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PlacementTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `Affinity`: `str`
+- `GroupName`: `str`
+- `PartitionNumber`: `int`
+- `HostId`: `str`
+- `Tenancy`: `Tenancy`
+- `SpreadDomain`: `str`
+- `HostResourceGroupArn`: `str`
+
+
+## PoolCidrBlockTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PoolCidrBlockTypeDef
+```
+
+
+
+
+Optional fields:
+- `Cidr`: `str`
+
+
+## PortRangeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PortRangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `From`: `int`
+- `To`: `int`
+
+
+## PrefixListAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PrefixListAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceId`: `str`
+- `ResourceOwner`: `str`
+
+
+## PrefixListEntryTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PrefixListEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Cidr`: `str`
+- `Description`: `str`
+
+
+## PrefixListIdTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PrefixListIdTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `PrefixListId`: `str`
+
+
+## PrefixListTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PrefixListTypeDef
+```
+
+
+
+
+Optional fields:
+- `Cidrs`: `List[str]`
+- `PrefixListId`: `str`
+- `PrefixListName`: `str`
+
+
 ## PriceScheduleSpecificationTypeDef
 
 ```python
@@ -14236,9 +11282,137 @@ from mypy_boto3_ec2.type_defs import PriceScheduleSpecificationTypeDef
 
 
 Optional fields:
-- `CurrencyCode`: `CurrencyCodeValues`
+- `CurrencyCode`: `Literal['USD']`
 - `Price`: `float`
 - `Term`: `int`
+
+
+## PriceScheduleTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PriceScheduleTypeDef
+```
+
+
+
+
+Optional fields:
+- `Active`: `bool`
+- `CurrencyCode`: `Literal['USD']`
+- `Price`: `float`
+- `Term`: `int`
+
+
+## PricingDetailTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PricingDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Count`: `int`
+- `Price`: `float`
+
+
+## PrincipalIdFormatTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PrincipalIdFormatTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Statuses`: `List["IdFormatTypeDef"]`
+
+
+## PrivateDnsDetailsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PrivateDnsDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `PrivateDnsName`: `str`
+
+
+## PrivateDnsNameConfigurationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PrivateDnsNameConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `DnsNameState`
+- `Type`: `str`
+- `Value`: `str`
+- `Name`: `str`
+
+
+## PrivateIpAddressSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PrivateIpAddressSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Primary`: `bool`
+- `PrivateIpAddress`: `str`
+
+
+## ProcessorInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ProcessorInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `SupportedArchitectures`: `List[ArchitectureType]`
+- `SustainedClockSpeedInGhz`: `float`
+
+
+## ProductCodeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ProductCodeTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProductCodeId`: `str`
+- `ProductCodeType`: `ProductCodeValues`
+
+
+## PropagatingVgwTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PropagatingVgwTypeDef
+```
+
+
+
+
+Optional fields:
+- `GatewayId`: `str`
 
 
 ## ProvisionByoipCidrResultTypeDef
@@ -14254,6 +11428,73 @@ Optional fields:
 - `ByoipCidr`: `"ByoipCidrTypeDef"`
 
 
+## ProvisionedBandwidthTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ProvisionedBandwidthTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProvisionTime`: `datetime`
+- `Provisioned`: `str`
+- `RequestTime`: `datetime`
+- `Requested`: `str`
+- `Status`: `str`
+
+
+## PtrUpdateStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PtrUpdateStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+- `Status`: `str`
+- `Reason`: `str`
+
+
+## PublicIpv4PoolRangeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PublicIpv4PoolRangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `FirstAddress`: `str`
+- `LastAddress`: `str`
+- `AddressCount`: `int`
+- `AvailableAddressCount`: `int`
+
+
+## PublicIpv4PoolTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PublicIpv4PoolTypeDef
+```
+
+
+
+
+Optional fields:
+- `PoolId`: `str`
+- `Description`: `str`
+- `PoolAddressRanges`: `List["PublicIpv4PoolRangeTypeDef"]`
+- `TotalAddressCount`: `int`
+- `TotalAvailableAddressCount`: `int`
+- `NetworkBorderGroup`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## PurchaseHostReservationResultTypeDef
 
 ```python
@@ -14265,7 +11506,7 @@ from mypy_boto3_ec2.type_defs import PurchaseHostReservationResultTypeDef
 
 Optional fields:
 - `ClientToken`: `str`
-- `CurrencyCode`: `CurrencyCodeValues`
+- `CurrencyCode`: `Literal['USD']`
 - `Purchase`: `List["PurchaseTypeDef"]`
 - `TotalHourlyPrice`: `str`
 - `TotalUpfrontPrice`: `str`
@@ -14309,6 +11550,55 @@ from mypy_boto3_ec2.type_defs import PurchaseScheduledInstancesResultTypeDef
 
 Optional fields:
 - `ScheduledInstanceSet`: `List["ScheduledInstanceTypeDef"]`
+
+
+## PurchaseTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import PurchaseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CurrencyCode`: `Literal['USD']`
+- `Duration`: `int`
+- `HostIdSet`: `List[str]`
+- `HostReservationId`: `str`
+- `HourlyPrice`: `str`
+- `InstanceFamily`: `str`
+- `PaymentOption`: `PaymentOption`
+- `UpfrontPrice`: `str`
+
+
+## RecurringChargeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import RecurringChargeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Amount`: `float`
+- `Frequency`: `Literal['Hourly']`
+
+
+## RegionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import RegionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Endpoint`: `str`
+- `RegionName`: `str`
+- `OptInStatus`: `str`
 
 
 ## RegisterImageResultTypeDef
@@ -14495,6 +11785,24 @@ Optional fields:
 - `NewAssociationId`: `str`
 
 
+## ReplaceRootVolumeTaskTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ReplaceRootVolumeTaskTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplaceRootVolumeTaskId`: `str`
+- `InstanceId`: `str`
+- `TaskState`: `ReplaceRootVolumeTaskState`
+- `StartTime`: `str`
+- `CompleteTime`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## ReplaceRouteTableAssociationResultTypeDef
 
 ```python
@@ -14615,6 +11923,38 @@ Optional fields:
 - `UserData`: `str`
 
 
+## ReservationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ReservationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Groups`: `List["GroupIdentifierTypeDef"]`
+- `Instances`: `List["InstanceTypeDef"]`
+- `OwnerId`: `str`
+- `RequesterId`: `str`
+- `ReservationId`: `str`
+
+
+## ReservationValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ReservationValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `HourlyPrice`: `str`
+- `RemainingTotalValue`: `str`
+- `RemainingUpfrontValue`: `str`
+
+
 ## ReservedInstanceLimitPriceTypeDef
 
 ```python
@@ -14626,7 +11966,165 @@ from mypy_boto3_ec2.type_defs import ReservedInstanceLimitPriceTypeDef
 
 Optional fields:
 - `Amount`: `float`
-- `CurrencyCode`: `CurrencyCodeValues`
+- `CurrencyCode`: `Literal['USD']`
+
+
+## ReservedInstanceReservationValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ReservedInstanceReservationValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReservationValue`: `"ReservationValueTypeDef"`
+- `ReservedInstanceId`: `str`
+
+
+## ReservedInstancesConfigurationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ReservedInstancesConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `InstanceCount`: `int`
+- `InstanceType`: `InstanceType`
+- `Platform`: `str`
+- `Scope`: `scope`
+
+
+## ReservedInstancesIdTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ReservedInstancesIdTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReservedInstancesId`: `str`
+
+
+## ReservedInstancesListingTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ReservedInstancesListingTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientToken`: `str`
+- `CreateDate`: `datetime`
+- `InstanceCounts`: `List["InstanceCountTypeDef"]`
+- `PriceSchedules`: `List["PriceScheduleTypeDef"]`
+- `ReservedInstancesId`: `str`
+- `ReservedInstancesListingId`: `str`
+- `Status`: `ListingStatus`
+- `StatusMessage`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `UpdateDate`: `datetime`
+
+
+## ReservedInstancesModificationResultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ReservedInstancesModificationResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReservedInstancesId`: `str`
+- `TargetConfiguration`: `"ReservedInstancesConfigurationTypeDef"`
+
+
+## ReservedInstancesModificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ReservedInstancesModificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientToken`: `str`
+- `CreateDate`: `datetime`
+- `EffectiveDate`: `datetime`
+- `ModificationResults`: `List["ReservedInstancesModificationResultTypeDef"]`
+- `ReservedInstancesIds`: `List["ReservedInstancesIdTypeDef"]`
+- `ReservedInstancesModificationId`: `str`
+- `Status`: `str`
+- `StatusMessage`: `str`
+- `UpdateDate`: `datetime`
+
+
+## ReservedInstancesOfferingTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ReservedInstancesOfferingTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `Duration`: `int`
+- `FixedPrice`: `float`
+- `InstanceType`: `InstanceType`
+- `ProductDescription`: `RIProductDescription`
+- `ReservedInstancesOfferingId`: `str`
+- `UsagePrice`: `float`
+- `CurrencyCode`: `Literal['USD']`
+- `InstanceTenancy`: `Tenancy`
+- `Marketplace`: `bool`
+- `OfferingClass`: `OfferingClassType`
+- `OfferingType`: `OfferingTypeValues`
+- `PricingDetails`: `List["PricingDetailTypeDef"]`
+- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
+- `Scope`: `scope`
+
+
+## ReservedInstancesTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ReservedInstancesTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `Duration`: `int`
+- `End`: `datetime`
+- `FixedPrice`: `float`
+- `InstanceCount`: `int`
+- `InstanceType`: `InstanceType`
+- `ProductDescription`: `RIProductDescription`
+- `ReservedInstancesId`: `str`
+- `Start`: `datetime`
+- `State`: `ReservedInstanceState`
+- `UsagePrice`: `float`
+- `CurrencyCode`: `Literal['USD']`
+- `InstanceTenancy`: `Tenancy`
+- `OfferingClass`: `OfferingClassType`
+- `OfferingType`: `OfferingTypeValues`
+- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
+- `Scope`: `scope`
+- `Tags`: `List["TagTypeDef"]`
 
 
 ## ResetAddressAttributeResultTypeDef
@@ -14666,6 +12164,59 @@ from mypy_boto3_ec2.type_defs import ResetFpgaImageAttributeResultTypeDef
 
 Optional fields:
 - `Return`: `bool`
+
+
+## ResponseErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ResponseErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `LaunchTemplateErrorCode`
+- `Message`: `str`
+
+
+## ResponseLaunchTemplateDataTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ResponseLaunchTemplateDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `KernelId`: `str`
+- `EbsOptimized`: `bool`
+- `IamInstanceProfile`: `"LaunchTemplateIamInstanceProfileSpecificationTypeDef"`
+- `BlockDeviceMappings`: `List["LaunchTemplateBlockDeviceMappingTypeDef"]`
+- `NetworkInterfaces`: `List["LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef"]`
+- `ImageId`: `str`
+- `InstanceType`: `InstanceType`
+- `KeyName`: `str`
+- `Monitoring`: `"LaunchTemplatesMonitoringTypeDef"`
+- `Placement`: `"LaunchTemplatePlacementTypeDef"`
+- `RamDiskId`: `str`
+- `DisableApiTermination`: `bool`
+- `InstanceInitiatedShutdownBehavior`: `ShutdownBehavior`
+- `UserData`: `str`
+- `TagSpecifications`: `List["LaunchTemplateTagSpecificationTypeDef"]`
+- `ElasticGpuSpecifications`: `List["ElasticGpuSpecificationResponseTypeDef"]`
+- `ElasticInferenceAccelerators`: `List["LaunchTemplateElasticInferenceAcceleratorResponseTypeDef"]`
+- `SecurityGroupIds`: `List[str]`
+- `SecurityGroups`: `List[str]`
+- `InstanceMarketOptions`: `"LaunchTemplateInstanceMarketOptionsTypeDef"`
+- `CreditSpecification`: `"CreditSpecificationTypeDef"`
+- `CpuOptions`: `"LaunchTemplateCpuOptionsTypeDef"`
+- `CapacityReservationSpecification`: `"LaunchTemplateCapacityReservationSpecificationResponseTypeDef"`
+- `LicenseSpecifications`: `List["LaunchTemplateLicenseConfigurationTypeDef"]`
+- `HibernationOptions`: `"LaunchTemplateHibernationOptionsTypeDef"`
+- `MetadataOptions`: `"LaunchTemplateInstanceMetadataOptionsTypeDef"`
+- `EnclaveOptions`: `"LaunchTemplateEnclaveOptionsTypeDef"`
 
 
 ## RestoreAddressToClassicResultTypeDef
@@ -14736,6 +12287,97 @@ Optional fields:
 - `UnknownIpPermissions`: `List["IpPermissionTypeDef"]`
 
 
+## RouteTableAssociationStateTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import RouteTableAssociationStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `RouteTableAssociationStateCode`
+- `StatusMessage`: `str`
+
+
+## RouteTableAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import RouteTableAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Main`: `bool`
+- `RouteTableAssociationId`: `str`
+- `RouteTableId`: `str`
+- `SubnetId`: `str`
+- `GatewayId`: `str`
+- `AssociationState`: `"RouteTableAssociationStateTypeDef"`
+
+
+## RouteTableTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import RouteTableTypeDef
+```
+
+
+
+
+Optional fields:
+- `Associations`: `List["RouteTableAssociationTypeDef"]`
+- `PropagatingVgws`: `List["PropagatingVgwTypeDef"]`
+- `RouteTableId`: `str`
+- `Routes`: `List["RouteTypeDef"]`
+- `Tags`: `List["TagTypeDef"]`
+- `VpcId`: `str`
+- `OwnerId`: `str`
+
+
+## RouteTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import RouteTypeDef
+```
+
+
+
+
+Optional fields:
+- `DestinationCidrBlock`: `str`
+- `DestinationIpv6CidrBlock`: `str`
+- `DestinationPrefixListId`: `str`
+- `EgressOnlyInternetGatewayId`: `str`
+- `GatewayId`: `str`
+- `InstanceId`: `str`
+- `InstanceOwnerId`: `str`
+- `NatGatewayId`: `str`
+- `TransitGatewayId`: `str`
+- `LocalGatewayId`: `str`
+- `CarrierGatewayId`: `str`
+- `NetworkInterfaceId`: `str`
+- `Origin`: `RouteOrigin`
+- `State`: `RouteState`
+- `VpcPeeringConnectionId`: `str`
+
+
+## RunInstancesMonitoringEnabledTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import RunInstancesMonitoringEnabledTypeDef
+```
+
+
+Required fields:
+- `Enabled`: `bool`
+
+
+
+
 ## RunScheduledInstancesResultTypeDef
 
 ```python
@@ -14763,6 +12405,48 @@ Optional fields:
 - `Value`: `str`
 
 
+## S3StorageTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import S3StorageTypeDef
+```
+
+
+
+
+Optional fields:
+- `AWSAccessKeyId`: `str`
+- `Bucket`: `str`
+- `Prefix`: `str`
+- `UploadPolicy`: `Union[bytes, IO[bytes]]`
+- `UploadPolicySignature`: `str`
+
+
+## ScheduledInstanceAvailabilityTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ScheduledInstanceAvailabilityTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `AvailableInstanceCount`: `int`
+- `FirstSlotStartTime`: `datetime`
+- `HourlyPrice`: `str`
+- `InstanceType`: `str`
+- `MaxTermDurationInDays`: `int`
+- `MinTermDurationInDays`: `int`
+- `NetworkPlatform`: `str`
+- `Platform`: `str`
+- `PurchaseToken`: `str`
+- `Recurrence`: `"ScheduledInstanceRecurrenceTypeDef"`
+- `SlotDurationInHours`: `int`
+- `TotalScheduledInstanceHours`: `int`
+
+
 ## ScheduledInstanceRecurrenceRequestTypeDef
 
 ```python
@@ -14778,6 +12462,111 @@ Optional fields:
 - `OccurrenceDays`: `List[int]`
 - `OccurrenceRelativeToEnd`: `bool`
 - `OccurrenceUnit`: `str`
+
+
+## ScheduledInstanceRecurrenceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ScheduledInstanceRecurrenceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Frequency`: `str`
+- `Interval`: `int`
+- `OccurrenceDaySet`: `List[int]`
+- `OccurrenceRelativeToEnd`: `bool`
+- `OccurrenceUnit`: `str`
+
+
+## ScheduledInstanceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ScheduledInstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `CreateDate`: `datetime`
+- `HourlyPrice`: `str`
+- `InstanceCount`: `int`
+- `InstanceType`: `str`
+- `NetworkPlatform`: `str`
+- `NextSlotStartTime`: `datetime`
+- `Platform`: `str`
+- `PreviousSlotEndTime`: `datetime`
+- `Recurrence`: `"ScheduledInstanceRecurrenceTypeDef"`
+- `ScheduledInstanceId`: `str`
+- `SlotDurationInHours`: `int`
+- `TermEndDate`: `datetime`
+- `TermStartDate`: `datetime`
+- `TotalScheduledInstanceHours`: `int`
+
+
+## ScheduledInstancesBlockDeviceMappingTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ScheduledInstancesBlockDeviceMappingTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeviceName`: `str`
+- `Ebs`: `"ScheduledInstancesEbsTypeDef"`
+- `NoDevice`: `str`
+- `VirtualName`: `str`
+
+
+## ScheduledInstancesEbsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ScheduledInstancesEbsTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeleteOnTermination`: `bool`
+- `Encrypted`: `bool`
+- `Iops`: `int`
+- `SnapshotId`: `str`
+- `VolumeSize`: `int`
+- `VolumeType`: `str`
+
+
+## ScheduledInstancesIamInstanceProfileTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ScheduledInstancesIamInstanceProfileTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+
+
+## ScheduledInstancesIpv6AddressTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ScheduledInstancesIpv6AddressTypeDef
+```
+
+
+
+
+Optional fields:
+- `Ipv6Address`: `str`
 
 
 ## ScheduledInstancesLaunchSpecificationTypeDef
@@ -14806,6 +12595,71 @@ Optional fields:
 - `SecurityGroupIds`: `List[str]`
 - `SubnetId`: `str`
 - `UserData`: `str`
+
+
+## ScheduledInstancesMonitoringTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ScheduledInstancesMonitoringTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+
+
+## ScheduledInstancesNetworkInterfaceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ScheduledInstancesNetworkInterfaceTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociatePublicIpAddress`: `bool`
+- `DeleteOnTermination`: `bool`
+- `Description`: `str`
+- `DeviceIndex`: `int`
+- `Groups`: `List[str]`
+- `Ipv6AddressCount`: `int`
+- `Ipv6Addresses`: `List["ScheduledInstancesIpv6AddressTypeDef"]`
+- `NetworkInterfaceId`: `str`
+- `PrivateIpAddress`: `str`
+- `PrivateIpAddressConfigs`: `List["ScheduledInstancesPrivateIpAddressConfigTypeDef"]`
+- `SecondaryPrivateIpAddressCount`: `int`
+- `SubnetId`: `str`
+
+
+## ScheduledInstancesPlacementTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ScheduledInstancesPlacementTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `GroupName`: `str`
+
+
+## ScheduledInstancesPrivateIpAddressConfigTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ScheduledInstancesPrivateIpAddressConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Primary`: `bool`
+- `PrivateIpAddress`: `str`
 
 
 ## SearchLocalGatewayRoutesResultTypeDef
@@ -14850,6 +12704,118 @@ Optional fields:
 - `AdditionalRoutesAvailable`: `bool`
 
 
+## SecurityGroupIdentifierTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SecurityGroupIdentifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupId`: `str`
+- `GroupName`: `str`
+
+
+## SecurityGroupReferenceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SecurityGroupReferenceTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupId`: `str`
+- `ReferencingVpcId`: `str`
+- `VpcPeeringConnectionId`: `str`
+
+
+## SecurityGroupTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SecurityGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `GroupName`: `str`
+- `IpPermissions`: `List["IpPermissionTypeDef"]`
+- `OwnerId`: `str`
+- `GroupId`: `str`
+- `IpPermissionsEgress`: `List["IpPermissionTypeDef"]`
+- `Tags`: `List["TagTypeDef"]`
+- `VpcId`: `str`
+
+
+## ServiceConfigurationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ServiceConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceType`: `List["ServiceTypeDetailTypeDef"]`
+- `ServiceId`: `str`
+- `ServiceName`: `str`
+- `ServiceState`: `ServiceState`
+- `AvailabilityZones`: `List[str]`
+- `AcceptanceRequired`: `bool`
+- `ManagesVpcEndpoints`: `bool`
+- `NetworkLoadBalancerArns`: `List[str]`
+- `GatewayLoadBalancerArns`: `List[str]`
+- `BaseEndpointDnsNames`: `List[str]`
+- `PrivateDnsName`: `str`
+- `PrivateDnsNameConfiguration`: `"PrivateDnsNameConfigurationTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## ServiceDetailTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ServiceDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceName`: `str`
+- `ServiceId`: `str`
+- `ServiceType`: `List["ServiceTypeDetailTypeDef"]`
+- `AvailabilityZones`: `List[str]`
+- `Owner`: `str`
+- `BaseEndpointDnsNames`: `List[str]`
+- `PrivateDnsName`: `str`
+- `PrivateDnsNames`: `List["PrivateDnsDetailsTypeDef"]`
+- `VpcEndpointPolicySupported`: `bool`
+- `AcceptanceRequired`: `bool`
+- `ManagesVpcEndpoints`: `bool`
+- `Tags`: `List["TagTypeDef"]`
+- `PrivateDnsNameVerificationState`: `DnsNameState`
+
+
+## ServiceTypeDetailTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ServiceTypeDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceType`: `ServiceType`
+
+
 ## SlotDateTimeRangeRequestTypeDef
 
 ```python
@@ -14878,6 +12844,28 @@ Optional fields:
 - `LatestTime`: `datetime`
 
 
+## SnapshotDetailTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SnapshotDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `DeviceName`: `str`
+- `DiskImageSize`: `float`
+- `Format`: `str`
+- `Progress`: `str`
+- `SnapshotId`: `str`
+- `Status`: `str`
+- `StatusMessage`: `str`
+- `Url`: `str`
+- `UserBucket`: `"UserBucketDetailsTypeDef"`
+
+
 ## SnapshotDiskContainerTypeDef
 
 ```python
@@ -14892,6 +12880,312 @@ Optional fields:
 - `Format`: `str`
 - `Url`: `str`
 - `UserBucket`: `"UserBucketTypeDef"`
+
+
+## SnapshotInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SnapshotInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `Encrypted`: `bool`
+- `VolumeId`: `str`
+- `State`: `SnapshotState`
+- `VolumeSize`: `int`
+- `StartTime`: `datetime`
+- `Progress`: `str`
+- `OwnerId`: `str`
+- `SnapshotId`: `str`
+- `OutpostArn`: `str`
+
+
+## SnapshotTaskDetailTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SnapshotTaskDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `DiskImageSize`: `float`
+- `Encrypted`: `bool`
+- `Format`: `str`
+- `KmsKeyId`: `str`
+- `Progress`: `str`
+- `SnapshotId`: `str`
+- `Status`: `str`
+- `StatusMessage`: `str`
+- `Url`: `str`
+- `UserBucket`: `"UserBucketDetailsTypeDef"`
+
+
+## SnapshotTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SnapshotTypeDef
+```
+
+
+
+
+Optional fields:
+- `DataEncryptionKeyId`: `str`
+- `Description`: `str`
+- `Encrypted`: `bool`
+- `KmsKeyId`: `str`
+- `OwnerId`: `str`
+- `Progress`: `str`
+- `SnapshotId`: `str`
+- `StartTime`: `datetime`
+- `State`: `SnapshotState`
+- `StateMessage`: `str`
+- `VolumeId`: `str`
+- `VolumeSize`: `int`
+- `OwnerAlias`: `str`
+- `OutpostArn`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## SpotCapacityRebalanceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotCapacityRebalanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplacementStrategy`: `Literal['launch']`
+
+
+## SpotDatafeedSubscriptionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotDatafeedSubscriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Bucket`: `str`
+- `Fault`: `"SpotInstanceStateFaultTypeDef"`
+- `OwnerId`: `str`
+- `Prefix`: `str`
+- `State`: `DatafeedSubscriptionState`
+
+
+## SpotFleetLaunchSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotFleetLaunchSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `SecurityGroups`: `List["GroupIdentifierTypeDef"]`
+- `AddressingType`: `str`
+- `BlockDeviceMappings`: `List["BlockDeviceMappingTypeDef"]`
+- `EbsOptimized`: `bool`
+- `IamInstanceProfile`: `"IamInstanceProfileSpecificationTypeDef"`
+- `ImageId`: `str`
+- `InstanceType`: `InstanceType`
+- `KernelId`: `str`
+- `KeyName`: `str`
+- `Monitoring`: `"SpotFleetMonitoringTypeDef"`
+- `NetworkInterfaces`: `List["InstanceNetworkInterfaceSpecificationTypeDef"]`
+- `Placement`: `"SpotPlacementTypeDef"`
+- `RamdiskId`: `str`
+- `SpotPrice`: `str`
+- `SubnetId`: `str`
+- `UserData`: `str`
+- `WeightedCapacity`: `float`
+- `TagSpecifications`: `List["SpotFleetTagSpecificationTypeDef"]`
+
+
+## SpotFleetMonitoringTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotFleetMonitoringTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+
+
+## SpotFleetRequestConfigDataTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotFleetRequestConfigDataTypeDef
+```
+
+
+Required fields:
+- `IamFleetRole`: `str`
+- `TargetCapacity`: `int`
+
+
+
+Optional fields:
+- `AllocationStrategy`: `AllocationStrategy`
+- `OnDemandAllocationStrategy`: `OnDemandAllocationStrategy`
+- `SpotMaintenanceStrategies`: `"SpotMaintenanceStrategiesTypeDef"`
+- `ClientToken`: `str`
+- `ExcessCapacityTerminationPolicy`: `ExcessCapacityTerminationPolicy`
+- `FulfilledCapacity`: `float`
+- `OnDemandFulfilledCapacity`: `float`
+- `LaunchSpecifications`: `List["SpotFleetLaunchSpecificationTypeDef"]`
+- `LaunchTemplateConfigs`: `List["LaunchTemplateConfigTypeDef"]`
+- `SpotPrice`: `str`
+- `OnDemandTargetCapacity`: `int`
+- `OnDemandMaxTotalPrice`: `str`
+- `SpotMaxTotalPrice`: `str`
+- `TerminateInstancesWithExpiration`: `bool`
+- `Type`: `FleetType`
+- `ValidFrom`: `datetime`
+- `ValidUntil`: `datetime`
+- `ReplaceUnhealthyInstances`: `bool`
+- `InstanceInterruptionBehavior`: `InstanceInterruptionBehavior`
+- `LoadBalancersConfig`: `"LoadBalancersConfigTypeDef"`
+- `InstancePoolsToUseCount`: `int`
+- `TagSpecifications`: `List["TagSpecificationTypeDef"]`
+
+
+## SpotFleetRequestConfigTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotFleetRequestConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `ActivityStatus`: `ActivityStatus`
+- `CreateTime`: `datetime`
+- `SpotFleetRequestConfig`: `"SpotFleetRequestConfigDataTypeDef"`
+- `SpotFleetRequestId`: `str`
+- `SpotFleetRequestState`: `BatchState`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## SpotFleetTagSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotFleetTagSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceType`: `ResourceType`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## SpotInstanceRequestTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotInstanceRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `ActualBlockHourlyPrice`: `str`
+- `AvailabilityZoneGroup`: `str`
+- `BlockDurationMinutes`: `int`
+- `CreateTime`: `datetime`
+- `Fault`: `"SpotInstanceStateFaultTypeDef"`
+- `InstanceId`: `str`
+- `LaunchGroup`: `str`
+- `LaunchSpecification`: `"LaunchSpecificationTypeDef"`
+- `LaunchedAvailabilityZone`: `str`
+- `ProductDescription`: `RIProductDescription`
+- `SpotInstanceRequestId`: `str`
+- `SpotPrice`: `str`
+- `State`: `SpotInstanceState`
+- `Status`: `"SpotInstanceStatusTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+- `Type`: `SpotInstanceType`
+- `ValidFrom`: `datetime`
+- `ValidUntil`: `datetime`
+- `InstanceInterruptionBehavior`: `InstanceInterruptionBehavior`
+
+
+## SpotInstanceStateFaultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotInstanceStateFaultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
+
+
+## SpotInstanceStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotInstanceStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
+- `UpdateTime`: `datetime`
+
+
+## SpotMaintenanceStrategiesTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotMaintenanceStrategiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `CapacityRebalance`: `"SpotCapacityRebalanceTypeDef"`
+
+
+## SpotMarketOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotMarketOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxPrice`: `str`
+- `SpotInstanceType`: `SpotInstanceType`
+- `BlockDurationMinutes`: `int`
+- `ValidUntil`: `datetime`
+- `InstanceInterruptionBehavior`: `InstanceInterruptionBehavior`
 
 
 ## SpotOptionsRequestTypeDef
@@ -14912,6 +13206,94 @@ Optional fields:
 - `SingleAvailabilityZone`: `bool`
 - `MinTargetCapacity`: `int`
 - `MaxTotalPrice`: `str`
+
+
+## SpotOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllocationStrategy`: `SpotAllocationStrategy`
+- `MaintenanceStrategies`: `"FleetSpotMaintenanceStrategiesTypeDef"`
+- `InstanceInterruptionBehavior`: `SpotInstanceInterruptionBehavior`
+- `InstancePoolsToUseCount`: `int`
+- `SingleInstanceType`: `bool`
+- `SingleAvailabilityZone`: `bool`
+- `MinTargetCapacity`: `int`
+- `MaxTotalPrice`: `str`
+
+
+## SpotPlacementTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotPlacementTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `GroupName`: `str`
+- `Tenancy`: `Tenancy`
+
+
+## SpotPriceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SpotPriceTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `InstanceType`: `InstanceType`
+- `ProductDescription`: `RIProductDescription`
+- `SpotPrice`: `str`
+- `Timestamp`: `datetime`
+
+
+## StaleIpPermissionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import StaleIpPermissionTypeDef
+```
+
+
+
+
+Optional fields:
+- `FromPort`: `int`
+- `IpProtocol`: `str`
+- `IpRanges`: `List[str]`
+- `PrefixListIds`: `List[str]`
+- `ToPort`: `int`
+- `UserIdGroupPairs`: `List["UserIdGroupPairTypeDef"]`
+
+
+## StaleSecurityGroupTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import StaleSecurityGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `GroupId`: `str`
+- `GroupName`: `str`
+- `StaleIpPermissions`: `List["StaleIpPermissionTypeDef"]`
+- `StaleIpPermissionsEgress`: `List["StaleIpPermissionTypeDef"]`
+- `VpcId`: `str`
 
 
 ## StartInstancesResultTypeDef
@@ -14953,6 +13335,20 @@ Optional fields:
 - `ReturnValue`: `bool`
 
 
+## StateReasonTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import StateReasonTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
+
+
 ## StopInstancesResultTypeDef
 
 ```python
@@ -14978,6 +13374,166 @@ from mypy_boto3_ec2.type_defs import StorageLocationTypeDef
 Optional fields:
 - `Bucket`: `str`
 - `Key`: `str`
+
+
+## StorageTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import StorageTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3`: `"S3StorageTypeDef"`
+
+
+## StoreImageTaskResultTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import StoreImageTaskResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `AmiId`: `str`
+- `TaskStartTime`: `datetime`
+- `Bucket`: `str`
+- `S3objectKey`: `str`
+- `ProgressPercentage`: `int`
+- `StoreTaskState`: `str`
+- `StoreTaskFailureReason`: `str`
+
+
+## SubnetAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SubnetAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `SubnetId`: `str`
+- `State`: `TransitGatewayMulitcastDomainAssociationState`
+
+
+## SubnetCidrBlockStateTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SubnetCidrBlockStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `SubnetCidrBlockStateCode`
+- `StatusMessage`: `str`
+
+
+## SubnetIpv6CidrBlockAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SubnetIpv6CidrBlockAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociationId`: `str`
+- `Ipv6CidrBlock`: `str`
+- `Ipv6CidrBlockState`: `"SubnetCidrBlockStateTypeDef"`
+
+
+## SubnetTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SubnetTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `AvailabilityZoneId`: `str`
+- `AvailableIpAddressCount`: `int`
+- `CidrBlock`: `str`
+- `DefaultForAz`: `bool`
+- `MapPublicIpOnLaunch`: `bool`
+- `MapCustomerOwnedIpOnLaunch`: `bool`
+- `CustomerOwnedIpv4Pool`: `str`
+- `State`: `SubnetState`
+- `SubnetId`: `str`
+- `VpcId`: `str`
+- `OwnerId`: `str`
+- `AssignIpv6AddressOnCreation`: `bool`
+- `Ipv6CidrBlockAssociationSet`: `List["SubnetIpv6CidrBlockAssociationTypeDef"]`
+- `Tags`: `List["TagTypeDef"]`
+- `SubnetArn`: `str`
+- `OutpostArn`: `str`
+
+
+## SuccessfulInstanceCreditSpecificationItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SuccessfulInstanceCreditSpecificationItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceId`: `str`
+
+
+## SuccessfulQueuedPurchaseDeletionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import SuccessfulQueuedPurchaseDeletionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReservedInstancesId`: `str`
+
+
+## TagDescriptionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TagDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `ResourceId`: `str`
+- `ResourceType`: `ResourceType`
+- `Value`: `str`
+
+
+## TagSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TagSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceType`: `ResourceType`
+- `Tags`: `List["TagTypeDef"]`
 
 
 ## TagTypeDef
@@ -15014,6 +13570,22 @@ Optional fields:
 - `DefaultTargetCapacityType`: `DefaultTargetCapacityType`
 
 
+## TargetCapacitySpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TargetCapacitySpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TotalTargetCapacity`: `int`
+- `OnDemandTargetCapacity`: `int`
+- `SpotTargetCapacity`: `int`
+- `DefaultTargetCapacityType`: `DefaultTargetCapacityType`
+
+
 ## TargetConfigurationRequestTypeDef
 
 ```python
@@ -15028,6 +13600,78 @@ Required fields:
 
 Optional fields:
 - `InstanceCount`: `int`
+
+
+## TargetConfigurationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TargetConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceCount`: `int`
+- `OfferingId`: `str`
+
+
+## TargetGroupTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TargetGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+
+
+## TargetGroupsConfigTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TargetGroupsConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `TargetGroups`: `List["TargetGroupTypeDef"]`
+
+
+## TargetNetworkTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TargetNetworkTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociationId`: `str`
+- `VpcId`: `str`
+- `TargetNetworkId`: `str`
+- `ClientVpnEndpointId`: `str`
+- `Status`: `"AssociationStatusTypeDef"`
+- `SecurityGroups`: `List[str]`
+
+
+## TargetReservationValueTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TargetReservationValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReservationValue`: `"ReservationValueTypeDef"`
+- `TargetConfiguration`: `"TargetConfigurationTypeDef"`
 
 
 ## TerminateClientVpnConnectionsResultTypeDef
@@ -15045,6 +13689,21 @@ Optional fields:
 - `ConnectionStatuses`: `List["TerminateConnectionStatusTypeDef"]`
 
 
+## TerminateConnectionStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TerminateConnectionStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConnectionId`: `str`
+- `PreviousStatus`: `"ClientVpnConnectionStatusTypeDef"`
+- `CurrentStatus`: `"ClientVpnConnectionStatusTypeDef"`
+
+
 ## TerminateInstancesResultTypeDef
 
 ```python
@@ -15056,6 +13715,47 @@ from mypy_boto3_ec2.type_defs import TerminateInstancesResultTypeDef
 
 Optional fields:
 - `TerminatingInstances`: `List["InstanceStateChangeTypeDef"]`
+
+
+## TrafficMirrorFilterRuleTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TrafficMirrorFilterRuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrafficMirrorFilterRuleId`: `str`
+- `TrafficMirrorFilterId`: `str`
+- `TrafficDirection`: `TrafficDirection`
+- `RuleNumber`: `int`
+- `RuleAction`: `TrafficMirrorRuleAction`
+- `Protocol`: `int`
+- `DestinationPortRange`: `"TrafficMirrorPortRangeTypeDef"`
+- `SourcePortRange`: `"TrafficMirrorPortRangeTypeDef"`
+- `DestinationCidrBlock`: `str`
+- `SourceCidrBlock`: `str`
+- `Description`: `str`
+
+
+## TrafficMirrorFilterTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TrafficMirrorFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrafficMirrorFilterId`: `str`
+- `IngressFilterRules`: `List["TrafficMirrorFilterRuleTypeDef"]`
+- `EgressFilterRules`: `List["TrafficMirrorFilterRuleTypeDef"]`
+- `NetworkServices`: `List[Literal['amazon-dns']]`
+- `Description`: `str`
+- `Tags`: `List["TagTypeDef"]`
 
 
 ## TrafficMirrorPortRangeRequestTypeDef
@@ -15072,6 +13772,193 @@ Optional fields:
 - `ToPort`: `int`
 
 
+## TrafficMirrorPortRangeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TrafficMirrorPortRangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `FromPort`: `int`
+- `ToPort`: `int`
+
+
+## TrafficMirrorSessionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TrafficMirrorSessionTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrafficMirrorSessionId`: `str`
+- `TrafficMirrorTargetId`: `str`
+- `TrafficMirrorFilterId`: `str`
+- `NetworkInterfaceId`: `str`
+- `OwnerId`: `str`
+- `PacketLength`: `int`
+- `SessionNumber`: `int`
+- `VirtualNetworkId`: `int`
+- `Description`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## TrafficMirrorTargetTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TrafficMirrorTargetTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrafficMirrorTargetId`: `str`
+- `NetworkInterfaceId`: `str`
+- `NetworkLoadBalancerArn`: `str`
+- `Type`: `TrafficMirrorTargetType`
+- `Description`: `str`
+- `OwnerId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## TransitGatewayAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayRouteTableId`: `str`
+- `TransitGatewayAttachmentId`: `str`
+- `ResourceId`: `str`
+- `ResourceType`: `TransitGatewayAttachmentResourceType`
+- `State`: `TransitGatewayAssociationState`
+
+
+## TransitGatewayAttachmentAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayAttachmentAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayRouteTableId`: `str`
+- `State`: `TransitGatewayAssociationState`
+
+
+## TransitGatewayAttachmentBgpConfigurationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayAttachmentBgpConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAsn`: `int`
+- `PeerAsn`: `int`
+- `TransitGatewayAddress`: `str`
+- `PeerAddress`: `str`
+- `BgpStatus`: `BgpStatus`
+
+
+## TransitGatewayAttachmentPropagationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayAttachmentPropagationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayRouteTableId`: `str`
+- `State`: `TransitGatewayPropagationState`
+
+
+## TransitGatewayAttachmentTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAttachmentId`: `str`
+- `TransitGatewayId`: `str`
+- `TransitGatewayOwnerId`: `str`
+- `ResourceOwnerId`: `str`
+- `ResourceType`: `TransitGatewayAttachmentResourceType`
+- `ResourceId`: `str`
+- `State`: `TransitGatewayAttachmentState`
+- `Association`: `"TransitGatewayAttachmentAssociationTypeDef"`
+- `CreationTime`: `datetime`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## TransitGatewayConnectOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayConnectOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Protocol`: `Literal['gre']`
+
+
+## TransitGatewayConnectPeerConfigurationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayConnectPeerConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAddress`: `str`
+- `PeerAddress`: `str`
+- `InsideCidrBlocks`: `List[str]`
+- `Protocol`: `Literal['gre']`
+- `BgpConfigurations`: `List["TransitGatewayAttachmentBgpConfigurationTypeDef"]`
+
+
+## TransitGatewayConnectPeerTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayConnectPeerTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAttachmentId`: `str`
+- `TransitGatewayConnectPeerId`: `str`
+- `State`: `TransitGatewayConnectPeerState`
+- `CreationTime`: `datetime`
+- `ConnectPeerConfiguration`: `"TransitGatewayConnectPeerConfigurationTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## TransitGatewayConnectRequestBgpOptionsTypeDef
 
 ```python
@@ -15083,6 +13970,269 @@ from mypy_boto3_ec2.type_defs import TransitGatewayConnectRequestBgpOptionsTypeD
 
 Optional fields:
 - `PeerAsn`: `int`
+
+
+## TransitGatewayConnectTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayConnectTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAttachmentId`: `str`
+- `TransportTransitGatewayAttachmentId`: `str`
+- `TransitGatewayId`: `str`
+- `State`: `TransitGatewayAttachmentState`
+- `CreationTime`: `datetime`
+- `Options`: `"TransitGatewayConnectOptionsTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## TransitGatewayMulticastDeregisteredGroupMembersTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDeregisteredGroupMembersTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayMulticastDomainId`: `str`
+- `DeregisteredNetworkInterfaceIds`: `List[str]`
+- `GroupIpAddress`: `str`
+
+
+## TransitGatewayMulticastDeregisteredGroupSourcesTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDeregisteredGroupSourcesTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayMulticastDomainId`: `str`
+- `DeregisteredNetworkInterfaceIds`: `List[str]`
+- `GroupIpAddress`: `str`
+
+
+## TransitGatewayMulticastDomainAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDomainAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAttachmentId`: `str`
+- `ResourceId`: `str`
+- `ResourceType`: `TransitGatewayAttachmentResourceType`
+- `ResourceOwnerId`: `str`
+- `Subnet`: `"SubnetAssociationTypeDef"`
+
+
+## TransitGatewayMulticastDomainAssociationsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDomainAssociationsTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayMulticastDomainId`: `str`
+- `TransitGatewayAttachmentId`: `str`
+- `ResourceId`: `str`
+- `ResourceType`: `TransitGatewayAttachmentResourceType`
+- `ResourceOwnerId`: `str`
+- `Subnets`: `List["SubnetAssociationTypeDef"]`
+
+
+## TransitGatewayMulticastDomainOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDomainOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Igmpv2Support`: `Igmpv2SupportValue`
+- `StaticSourcesSupport`: `StaticSourcesSupportValue`
+- `AutoAcceptSharedAssociations`: `AutoAcceptSharedAssociationsValue`
+
+
+## TransitGatewayMulticastDomainTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayMulticastDomainTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayMulticastDomainId`: `str`
+- `TransitGatewayId`: `str`
+- `TransitGatewayMulticastDomainArn`: `str`
+- `OwnerId`: `str`
+- `Options`: `"TransitGatewayMulticastDomainOptionsTypeDef"`
+- `State`: `TransitGatewayMulticastDomainState`
+- `CreationTime`: `datetime`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## TransitGatewayMulticastGroupTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayMulticastGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupIpAddress`: `str`
+- `TransitGatewayAttachmentId`: `str`
+- `SubnetId`: `str`
+- `ResourceId`: `str`
+- `ResourceType`: `TransitGatewayAttachmentResourceType`
+- `ResourceOwnerId`: `str`
+- `NetworkInterfaceId`: `str`
+- `GroupMember`: `bool`
+- `GroupSource`: `bool`
+- `MemberType`: `MembershipType`
+- `SourceType`: `MembershipType`
+
+
+## TransitGatewayMulticastRegisteredGroupMembersTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayMulticastRegisteredGroupMembersTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayMulticastDomainId`: `str`
+- `RegisteredNetworkInterfaceIds`: `List[str]`
+- `GroupIpAddress`: `str`
+
+
+## TransitGatewayMulticastRegisteredGroupSourcesTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayMulticastRegisteredGroupSourcesTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayMulticastDomainId`: `str`
+- `RegisteredNetworkInterfaceIds`: `List[str]`
+- `GroupIpAddress`: `str`
+
+
+## TransitGatewayOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `AmazonSideAsn`: `int`
+- `TransitGatewayCidrBlocks`: `List[str]`
+- `AutoAcceptSharedAttachments`: `AutoAcceptSharedAttachmentsValue`
+- `DefaultRouteTableAssociation`: `DefaultRouteTableAssociationValue`
+- `AssociationDefaultRouteTableId`: `str`
+- `DefaultRouteTablePropagation`: `DefaultRouteTablePropagationValue`
+- `PropagationDefaultRouteTableId`: `str`
+- `VpnEcmpSupport`: `VpnEcmpSupportValue`
+- `DnsSupport`: `DnsSupportValue`
+- `MulticastSupport`: `MulticastSupportValue`
+
+
+## TransitGatewayPeeringAttachmentTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayPeeringAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAttachmentId`: `str`
+- `RequesterTgwInfo`: `"PeeringTgwInfoTypeDef"`
+- `AccepterTgwInfo`: `"PeeringTgwInfoTypeDef"`
+- `Status`: `"PeeringAttachmentStatusTypeDef"`
+- `State`: `TransitGatewayAttachmentState`
+- `CreationTime`: `datetime`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## TransitGatewayPrefixListAttachmentTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayPrefixListAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAttachmentId`: `str`
+- `ResourceType`: `TransitGatewayAttachmentResourceType`
+- `ResourceId`: `str`
+
+
+## TransitGatewayPrefixListReferenceTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayPrefixListReferenceTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayRouteTableId`: `str`
+- `PrefixListId`: `str`
+- `PrefixListOwnerId`: `str`
+- `State`: `TransitGatewayPrefixListReferenceState`
+- `Blackhole`: `bool`
+- `TransitGatewayAttachment`: `"TransitGatewayPrefixListAttachmentTypeDef"`
+
+
+## TransitGatewayPropagationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayPropagationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAttachmentId`: `str`
+- `ResourceId`: `str`
+- `ResourceType`: `TransitGatewayAttachmentResourceType`
+- `TransitGatewayRouteTableId`: `str`
+- `State`: `TransitGatewayPropagationState`
 
 
 ## TransitGatewayRequestOptionsTypeDef
@@ -15103,6 +14253,176 @@ Optional fields:
 - `DnsSupport`: `DnsSupportValue`
 - `MulticastSupport`: `MulticastSupportValue`
 - `TransitGatewayCidrBlocks`: `List[str]`
+
+
+## TransitGatewayRouteAttachmentTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayRouteAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceId`: `str`
+- `TransitGatewayAttachmentId`: `str`
+- `ResourceType`: `TransitGatewayAttachmentResourceType`
+
+
+## TransitGatewayRouteTableAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayRouteTableAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAttachmentId`: `str`
+- `ResourceId`: `str`
+- `ResourceType`: `TransitGatewayAttachmentResourceType`
+- `State`: `TransitGatewayAssociationState`
+
+
+## TransitGatewayRouteTablePropagationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayRouteTablePropagationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAttachmentId`: `str`
+- `ResourceId`: `str`
+- `ResourceType`: `TransitGatewayAttachmentResourceType`
+- `State`: `TransitGatewayPropagationState`
+
+
+## TransitGatewayRouteTableTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayRouteTableTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayRouteTableId`: `str`
+- `TransitGatewayId`: `str`
+- `State`: `TransitGatewayRouteTableState`
+- `DefaultAssociationRouteTable`: `bool`
+- `DefaultPropagationRouteTable`: `bool`
+- `CreationTime`: `datetime`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## TransitGatewayRouteTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayRouteTypeDef
+```
+
+
+
+
+Optional fields:
+- `DestinationCidrBlock`: `str`
+- `PrefixListId`: `str`
+- `TransitGatewayAttachments`: `List["TransitGatewayRouteAttachmentTypeDef"]`
+- `Type`: `TransitGatewayRouteType`
+- `State`: `TransitGatewayRouteState`
+
+
+## TransitGatewayTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayId`: `str`
+- `TransitGatewayArn`: `str`
+- `State`: `TransitGatewayState`
+- `OwnerId`: `str`
+- `Description`: `str`
+- `CreationTime`: `datetime`
+- `Options`: `"TransitGatewayOptionsTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## TransitGatewayVpcAttachmentOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayVpcAttachmentOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `DnsSupport`: `DnsSupportValue`
+- `Ipv6Support`: `Ipv6SupportValue`
+- `ApplianceModeSupport`: `ApplianceModeSupportValue`
+
+
+## TransitGatewayVpcAttachmentTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TransitGatewayVpcAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayAttachmentId`: `str`
+- `TransitGatewayId`: `str`
+- `VpcId`: `str`
+- `VpcOwnerId`: `str`
+- `State`: `TransitGatewayAttachmentState`
+- `SubnetIds`: `List[str]`
+- `CreationTime`: `datetime`
+- `Options`: `"TransitGatewayVpcAttachmentOptionsTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## TunnelOptionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import TunnelOptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `OutsideIpAddress`: `str`
+- `TunnelInsideCidr`: `str`
+- `TunnelInsideIpv6Cidr`: `str`
+- `PreSharedKey`: `str`
+- `Phase1LifetimeSeconds`: `int`
+- `Phase2LifetimeSeconds`: `int`
+- `RekeyMarginTimeSeconds`: `int`
+- `RekeyFuzzPercentage`: `int`
+- `ReplayWindowSize`: `int`
+- `DpdTimeoutSeconds`: `int`
+- `DpdTimeoutAction`: `str`
+- `Phase1EncryptionAlgorithms`: `List["Phase1EncryptionAlgorithmsListValueTypeDef"]`
+- `Phase2EncryptionAlgorithms`: `List["Phase2EncryptionAlgorithmsListValueTypeDef"]`
+- `Phase1IntegrityAlgorithms`: `List["Phase1IntegrityAlgorithmsListValueTypeDef"]`
+- `Phase2IntegrityAlgorithms`: `List["Phase2IntegrityAlgorithmsListValueTypeDef"]`
+- `Phase1DHGroupNumbers`: `List["Phase1DHGroupNumbersListValueTypeDef"]`
+- `Phase2DHGroupNumbers`: `List["Phase2DHGroupNumbersListValueTypeDef"]`
+- `IkeVersions`: `List["IKEVersionsListValueTypeDef"]`
+- `StartupAction`: `str`
 
 
 ## UnassignIpv6AddressesResultTypeDef
@@ -15132,6 +14452,62 @@ Optional fields:
 - `InstanceMonitorings`: `List["InstanceMonitoringTypeDef"]`
 
 
+## UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `UnsuccessfulInstanceCreditSpecificationErrorCode`
+- `Message`: `str`
+
+
+## UnsuccessfulInstanceCreditSpecificationItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import UnsuccessfulInstanceCreditSpecificationItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceId`: `str`
+- `Error`: `"UnsuccessfulInstanceCreditSpecificationItemErrorTypeDef"`
+
+
+## UnsuccessfulItemErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import UnsuccessfulItemErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
+
+
+## UnsuccessfulItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import UnsuccessfulItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `Error`: `"UnsuccessfulItemErrorTypeDef"`
+- `ResourceId`: `str`
+
+
 ## UpdateSecurityGroupRuleDescriptionsEgressResultTypeDef
 
 ```python
@@ -15158,6 +14534,522 @@ Optional fields:
 - `Return`: `bool`
 
 
+## UserBucketDetailsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import UserBucketDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3Bucket`: `str`
+- `S3Key`: `str`
+
+
+## UserBucketTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import UserBucketTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3Bucket`: `str`
+- `S3Key`: `str`
+
+
+## UserDataTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import UserDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Data`: `str`
+
+
+## UserIdGroupPairTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import UserIdGroupPairTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `GroupId`: `str`
+- `GroupName`: `str`
+- `PeeringStatus`: `str`
+- `UserId`: `str`
+- `VpcId`: `str`
+- `VpcPeeringConnectionId`: `str`
+
+
+## VCpuInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VCpuInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `DefaultVCpus`: `int`
+- `DefaultCores`: `int`
+- `DefaultThreadsPerCore`: `int`
+- `ValidCores`: `List[int]`
+- `ValidThreadsPerCore`: `List[int]`
+
+
+## ValidationErrorTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ValidationErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
+
+
+## ValidationWarningTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import ValidationWarningTypeDef
+```
+
+
+
+
+Optional fields:
+- `Errors`: `List["ValidationErrorTypeDef"]`
+
+
+## VgwTelemetryTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VgwTelemetryTypeDef
+```
+
+
+
+
+Optional fields:
+- `AcceptedRouteCount`: `int`
+- `LastStatusChange`: `datetime`
+- `OutsideIpAddress`: `str`
+- `Status`: `TelemetryStatus`
+- `StatusMessage`: `str`
+- `CertificateArn`: `str`
+
+
+## VolumeAttachmentTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VolumeAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttachTime`: `datetime`
+- `Device`: `str`
+- `InstanceId`: `str`
+- `State`: `VolumeAttachmentState`
+- `VolumeId`: `str`
+- `DeleteOnTermination`: `bool`
+
+
+## VolumeDetailTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VolumeDetailTypeDef
+```
+
+
+Required fields:
+- `Size`: `int`
+
+
+
+
+## VolumeModificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VolumeModificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `VolumeId`: `str`
+- `ModificationState`: `VolumeModificationState`
+- `StatusMessage`: `str`
+- `TargetSize`: `int`
+- `TargetIops`: `int`
+- `TargetVolumeType`: `VolumeType`
+- `TargetThroughput`: `int`
+- `TargetMultiAttachEnabled`: `bool`
+- `OriginalSize`: `int`
+- `OriginalIops`: `int`
+- `OriginalVolumeType`: `VolumeType`
+- `OriginalThroughput`: `int`
+- `OriginalMultiAttachEnabled`: `bool`
+- `Progress`: `int`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+
+
+## VolumeStatusActionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VolumeStatusActionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Description`: `str`
+- `EventId`: `str`
+- `EventType`: `str`
+
+
+## VolumeStatusAttachmentStatusTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VolumeStatusAttachmentStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `IoPerformance`: `str`
+- `InstanceId`: `str`
+
+
+## VolumeStatusDetailsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VolumeStatusDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `VolumeStatusName`
+- `Status`: `str`
+
+
+## VolumeStatusEventTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VolumeStatusEventTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `EventId`: `str`
+- `EventType`: `str`
+- `NotAfter`: `datetime`
+- `NotBefore`: `datetime`
+- `InstanceId`: `str`
+
+
+## VolumeStatusInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VolumeStatusInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Details`: `List["VolumeStatusDetailsTypeDef"]`
+- `Status`: `VolumeStatusInfoStatus`
+
+
+## VolumeStatusItemTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VolumeStatusItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `Actions`: `List["VolumeStatusActionTypeDef"]`
+- `AvailabilityZone`: `str`
+- `OutpostArn`: `str`
+- `Events`: `List["VolumeStatusEventTypeDef"]`
+- `VolumeId`: `str`
+- `VolumeStatus`: `"VolumeStatusInfoTypeDef"`
+- `AttachmentStatuses`: `List["VolumeStatusAttachmentStatusTypeDef"]`
+
+
+## VolumeTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VolumeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Attachments`: `List["VolumeAttachmentTypeDef"]`
+- `AvailabilityZone`: `str`
+- `CreateTime`: `datetime`
+- `Encrypted`: `bool`
+- `KmsKeyId`: `str`
+- `OutpostArn`: `str`
+- `Size`: `int`
+- `SnapshotId`: `str`
+- `State`: `VolumeState`
+- `VolumeId`: `str`
+- `Iops`: `int`
+- `Tags`: `List["TagTypeDef"]`
+- `VolumeType`: `VolumeType`
+- `FastRestored`: `bool`
+- `MultiAttachEnabled`: `bool`
+- `Throughput`: `int`
+
+
+## VpcAttachmentTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `AttachmentStatus`
+- `VpcId`: `str`
+
+
+## VpcCidrBlockAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcCidrBlockAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociationId`: `str`
+- `CidrBlock`: `str`
+- `CidrBlockState`: `"VpcCidrBlockStateTypeDef"`
+
+
+## VpcCidrBlockStateTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcCidrBlockStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `VpcCidrBlockStateCode`
+- `StatusMessage`: `str`
+
+
+## VpcClassicLinkTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcClassicLinkTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClassicLinkEnabled`: `bool`
+- `Tags`: `List["TagTypeDef"]`
+- `VpcId`: `str`
+
+
+## VpcEndpointConnectionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcEndpointConnectionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceId`: `str`
+- `VpcEndpointId`: `str`
+- `VpcEndpointOwner`: `str`
+- `VpcEndpointState`: `State`
+- `CreationTimestamp`: `datetime`
+- `DnsEntries`: `List["DnsEntryTypeDef"]`
+- `NetworkLoadBalancerArns`: `List[str]`
+- `GatewayLoadBalancerArns`: `List[str]`
+
+
+## VpcEndpointTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcEndpointTypeDef
+```
+
+
+
+
+Optional fields:
+- `VpcEndpointId`: `str`
+- `VpcEndpointType`: `VpcEndpointType`
+- `VpcId`: `str`
+- `ServiceName`: `str`
+- `State`: `State`
+- `PolicyDocument`: `str`
+- `RouteTableIds`: `List[str]`
+- `SubnetIds`: `List[str]`
+- `Groups`: `List["SecurityGroupIdentifierTypeDef"]`
+- `PrivateDnsEnabled`: `bool`
+- `RequesterManaged`: `bool`
+- `NetworkInterfaceIds`: `List[str]`
+- `DnsEntries`: `List["DnsEntryTypeDef"]`
+- `CreationTimestamp`: `datetime`
+- `Tags`: `List["TagTypeDef"]`
+- `OwnerId`: `str`
+- `LastError`: `"LastErrorTypeDef"`
+
+
+## VpcIpv6CidrBlockAssociationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcIpv6CidrBlockAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociationId`: `str`
+- `Ipv6CidrBlock`: `str`
+- `Ipv6CidrBlockState`: `"VpcCidrBlockStateTypeDef"`
+- `NetworkBorderGroup`: `str`
+- `Ipv6Pool`: `str`
+
+
+## VpcPeeringConnectionOptionsDescriptionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcPeeringConnectionOptionsDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllowDnsResolutionFromRemoteVpc`: `bool`
+- `AllowEgressFromLocalClassicLinkToRemoteVpc`: `bool`
+- `AllowEgressFromLocalVpcToRemoteClassicLink`: `bool`
+
+
+## VpcPeeringConnectionStateReasonTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcPeeringConnectionStateReasonTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `VpcPeeringConnectionStateReasonCode`
+- `Message`: `str`
+
+
+## VpcPeeringConnectionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcPeeringConnectionTypeDef
+```
+
+
+
+
+Optional fields:
+- `AccepterVpcInfo`: `"VpcPeeringConnectionVpcInfoTypeDef"`
+- `ExpirationTime`: `datetime`
+- `RequesterVpcInfo`: `"VpcPeeringConnectionVpcInfoTypeDef"`
+- `Status`: `"VpcPeeringConnectionStateReasonTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+- `VpcPeeringConnectionId`: `str`
+
+
+## VpcPeeringConnectionVpcInfoTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcPeeringConnectionVpcInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `CidrBlock`: `str`
+- `Ipv6CidrBlockSet`: `List["Ipv6CidrBlockTypeDef"]`
+- `CidrBlockSet`: `List["CidrBlockTypeDef"]`
+- `OwnerId`: `str`
+- `PeeringOptions`: `"VpcPeeringConnectionOptionsDescriptionTypeDef"`
+- `VpcId`: `str`
+- `Region`: `str`
+
+
+## VpcTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpcTypeDef
+```
+
+
+
+
+Optional fields:
+- `CidrBlock`: `str`
+- `DhcpOptionsId`: `str`
+- `State`: `VpcState`
+- `VpcId`: `str`
+- `OwnerId`: `str`
+- `InstanceTenancy`: `Tenancy`
+- `Ipv6CidrBlockAssociationSet`: `List["VpcIpv6CidrBlockAssociationTypeDef"]`
+- `CidrBlockAssociationSet`: `List["VpcCidrBlockAssociationTypeDef"]`
+- `IsDefault`: `bool`
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## VpnConnectionOptionsSpecificationTypeDef
 
 ```python
@@ -15176,6 +15068,114 @@ Optional fields:
 - `RemoteIpv4NetworkCidr`: `str`
 - `LocalIpv6NetworkCidr`: `str`
 - `RemoteIpv6NetworkCidr`: `str`
+
+
+## VpnConnectionOptionsTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpnConnectionOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `EnableAcceleration`: `bool`
+- `StaticRoutesOnly`: `bool`
+- `LocalIpv4NetworkCidr`: `str`
+- `RemoteIpv4NetworkCidr`: `str`
+- `LocalIpv6NetworkCidr`: `str`
+- `RemoteIpv6NetworkCidr`: `str`
+- `TunnelInsideIpVersion`: `TunnelInsideIpVersion`
+- `TunnelOptions`: `List["TunnelOptionTypeDef"]`
+
+
+## VpnConnectionTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpnConnectionTypeDef
+```
+
+
+
+
+Optional fields:
+- `CustomerGatewayConfiguration`: `str`
+- `CustomerGatewayId`: `str`
+- `Category`: `str`
+- `State`: `VpnState`
+- `Type`: `Literal['ipsec.1']`
+- `VpnConnectionId`: `str`
+- `VpnGatewayId`: `str`
+- `TransitGatewayId`: `str`
+- `Options`: `"VpnConnectionOptionsTypeDef"`
+- `Routes`: `List["VpnStaticRouteTypeDef"]`
+- `Tags`: `List["TagTypeDef"]`
+- `VgwTelemetry`: `List["VgwTelemetryTypeDef"]`
+
+
+## VpnGatewayTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpnGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `State`: `VpnState`
+- `Type`: `Literal['ipsec.1']`
+- `VpcAttachments`: `List["VpcAttachmentTypeDef"]`
+- `VpnGatewayId`: `str`
+- `AmazonSideAsn`: `int`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## VpnStaticRouteTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpnStaticRouteTypeDef
+```
+
+
+
+
+Optional fields:
+- `DestinationCidrBlock`: `str`
+- `Source`: `Literal['Static']`
+- `State`: `VpnState`
+
+
+## VpnTunnelOptionsSpecificationTypeDef
+
+```python
+from mypy_boto3_ec2.type_defs import VpnTunnelOptionsSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TunnelInsideCidr`: `str`
+- `TunnelInsideIpv6Cidr`: `str`
+- `PreSharedKey`: `str`
+- `Phase1LifetimeSeconds`: `int`
+- `Phase2LifetimeSeconds`: `int`
+- `RekeyMarginTimeSeconds`: `int`
+- `RekeyFuzzPercentage`: `int`
+- `ReplayWindowSize`: `int`
+- `DPDTimeoutSeconds`: `int`
+- `DPDTimeoutAction`: `str`
+- `Phase1EncryptionAlgorithms`: `List["Phase1EncryptionAlgorithmsRequestListValueTypeDef"]`
+- `Phase2EncryptionAlgorithms`: `List["Phase2EncryptionAlgorithmsRequestListValueTypeDef"]`
+- `Phase1IntegrityAlgorithms`: `List["Phase1IntegrityAlgorithmsRequestListValueTypeDef"]`
+- `Phase2IntegrityAlgorithms`: `List["Phase2IntegrityAlgorithmsRequestListValueTypeDef"]`
+- `Phase1DHGroupNumbers`: `List["Phase1DHGroupNumbersRequestListValueTypeDef"]`
+- `Phase2DHGroupNumbers`: `List["Phase2DHGroupNumbersRequestListValueTypeDef"]`
+- `IKEVersions`: `List["IKEVersionsRequestListValueTypeDef"]`
+- `StartupAction`: `str`
 
 
 ## WaiterConfigTypeDef

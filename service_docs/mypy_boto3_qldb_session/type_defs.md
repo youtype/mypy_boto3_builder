@@ -7,21 +7,21 @@ type annotations stubs module [mypy_boto3_qldb_session](https://pypi.org/project
 
 - [Structures for boto3 QLDBSession module](#structures-for-boto3-qldbsession-module)
   - [AbortTransactionResultTypeDef](#aborttransactionresulttypedef)
+  - [CommitTransactionRequestTypeDef](#committransactionrequesttypedef)
   - [CommitTransactionResultTypeDef](#committransactionresulttypedef)
   - [EndSessionResultTypeDef](#endsessionresulttypedef)
+  - [ExecuteStatementRequestTypeDef](#executestatementrequesttypedef)
   - [ExecuteStatementResultTypeDef](#executestatementresulttypedef)
+  - [FetchPageRequestTypeDef](#fetchpagerequesttypedef)
   - [FetchPageResultTypeDef](#fetchpageresulttypedef)
   - [IOUsageTypeDef](#iousagetypedef)
   - [PageTypeDef](#pagetypedef)
+  - [SendCommandResultTypeDef](#sendcommandresulttypedef)
+  - [StartSessionRequestTypeDef](#startsessionrequesttypedef)
   - [StartSessionResultTypeDef](#startsessionresulttypedef)
   - [StartTransactionResultTypeDef](#starttransactionresulttypedef)
   - [TimingInformationTypeDef](#timinginformationtypedef)
   - [ValueHolderTypeDef](#valueholdertypedef)
-  - [CommitTransactionRequestTypeDef](#committransactionrequesttypedef)
-  - [ExecuteStatementRequestTypeDef](#executestatementrequesttypedef)
-  - [FetchPageRequestTypeDef](#fetchpagerequesttypedef)
-  - [SendCommandResultTypeDef](#sendcommandresulttypedef)
-  - [StartSessionRequestTypeDef](#startsessionrequesttypedef)
 
 ## AbortTransactionResultTypeDef
 
@@ -34,6 +34,20 @@ from mypy_boto3_qldb_session.type_defs import AbortTransactionResultTypeDef
 
 Optional fields:
 - `TimingInformation`: `"TimingInformationTypeDef"`
+
+
+## CommitTransactionRequestTypeDef
+
+```python
+from mypy_boto3_qldb_session.type_defs import CommitTransactionRequestTypeDef
+```
+
+
+Required fields:
+- `TransactionId`: `str`
+- `CommitDigest`: `Union[bytes, IO[bytes]]`
+
+
 
 
 ## CommitTransactionResultTypeDef
@@ -65,6 +79,23 @@ Optional fields:
 - `TimingInformation`: `"TimingInformationTypeDef"`
 
 
+## ExecuteStatementRequestTypeDef
+
+```python
+from mypy_boto3_qldb_session.type_defs import ExecuteStatementRequestTypeDef
+```
+
+
+Required fields:
+- `TransactionId`: `str`
+- `Statement`: `str`
+
+
+
+Optional fields:
+- `Parameters`: `List["ValueHolderTypeDef"]`
+
+
 ## ExecuteStatementResultTypeDef
 
 ```python
@@ -78,6 +109,20 @@ Optional fields:
 - `FirstPage`: `"PageTypeDef"`
 - `TimingInformation`: `"TimingInformationTypeDef"`
 - `ConsumedIOs`: `"IOUsageTypeDef"`
+
+
+## FetchPageRequestTypeDef
+
+```python
+from mypy_boto3_qldb_session.type_defs import FetchPageRequestTypeDef
+```
+
+
+Required fields:
+- `TransactionId`: `str`
+- `NextPageToken`: `str`
+
+
 
 
 ## FetchPageResultTypeDef
@@ -121,6 +166,38 @@ from mypy_boto3_qldb_session.type_defs import PageTypeDef
 Optional fields:
 - `Values`: `List["ValueHolderTypeDef"]`
 - `NextPageToken`: `str`
+
+
+## SendCommandResultTypeDef
+
+```python
+from mypy_boto3_qldb_session.type_defs import SendCommandResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `StartSession`: `"StartSessionResultTypeDef"`
+- `StartTransaction`: `"StartTransactionResultTypeDef"`
+- `EndSession`: `"EndSessionResultTypeDef"`
+- `CommitTransaction`: `"CommitTransactionResultTypeDef"`
+- `AbortTransaction`: `"AbortTransactionResultTypeDef"`
+- `ExecuteStatement`: `"ExecuteStatementResultTypeDef"`
+- `FetchPage`: `"FetchPageResultTypeDef"`
+
+
+## StartSessionRequestTypeDef
+
+```python
+from mypy_boto3_qldb_session.type_defs import StartSessionRequestTypeDef
+```
+
+
+Required fields:
+- `LedgerName`: `str`
+
+
 
 
 ## StartSessionResultTypeDef
@@ -176,81 +253,4 @@ from mypy_boto3_qldb_session.type_defs import ValueHolderTypeDef
 Optional fields:
 - `IonBinary`: `Union[bytes, IO[bytes]]`
 - `IonText`: `str`
-
-
-## CommitTransactionRequestTypeDef
-
-```python
-from mypy_boto3_qldb_session.type_defs import CommitTransactionRequestTypeDef
-```
-
-
-Required fields:
-- `TransactionId`: `str`
-- `CommitDigest`: `Union[bytes, IO[bytes]]`
-
-
-
-
-## ExecuteStatementRequestTypeDef
-
-```python
-from mypy_boto3_qldb_session.type_defs import ExecuteStatementRequestTypeDef
-```
-
-
-Required fields:
-- `TransactionId`: `str`
-- `Statement`: `str`
-
-
-
-Optional fields:
-- `Parameters`: `List["ValueHolderTypeDef"]`
-
-
-## FetchPageRequestTypeDef
-
-```python
-from mypy_boto3_qldb_session.type_defs import FetchPageRequestTypeDef
-```
-
-
-Required fields:
-- `TransactionId`: `str`
-- `NextPageToken`: `str`
-
-
-
-
-## SendCommandResultTypeDef
-
-```python
-from mypy_boto3_qldb_session.type_defs import SendCommandResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `StartSession`: `"StartSessionResultTypeDef"`
-- `StartTransaction`: `"StartTransactionResultTypeDef"`
-- `EndSession`: `"EndSessionResultTypeDef"`
-- `CommitTransaction`: `"CommitTransactionResultTypeDef"`
-- `AbortTransaction`: `"AbortTransactionResultTypeDef"`
-- `ExecuteStatement`: `"ExecuteStatementResultTypeDef"`
-- `FetchPage`: `"FetchPageResultTypeDef"`
-
-
-## StartSessionRequestTypeDef
-
-```python
-from mypy_boto3_qldb_session.type_defs import StartSessionRequestTypeDef
-```
-
-
-Required fields:
-- `LedgerName`: `str`
-
-
 

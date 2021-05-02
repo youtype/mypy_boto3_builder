@@ -119,15 +119,13 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_codestar_notifications.type_defs import EventTypeSummaryTypeDef, ...
+from mypy_boto3_codestar_notifications.type_defs import CreateNotificationRuleResultTypeDef, ...
 ```
 
-- [EventTypeSummaryTypeDef](./type_defs.md#eventtypesummarytypedef)
-- [NotificationRuleSummaryTypeDef](./type_defs.md#notificationrulesummarytypedef)
-- [TargetSummaryTypeDef](./type_defs.md#targetsummarytypedef)
 - [CreateNotificationRuleResultTypeDef](./type_defs.md#createnotificationruleresulttypedef)
 - [DeleteNotificationRuleResultTypeDef](./type_defs.md#deletenotificationruleresulttypedef)
 - [DescribeNotificationRuleResultTypeDef](./type_defs.md#describenotificationruleresulttypedef)
+- [EventTypeSummaryTypeDef](./type_defs.md#eventtypesummarytypedef)
 - [ListEventTypesFilterTypeDef](./type_defs.md#listeventtypesfiltertypedef)
 - [ListEventTypesResultTypeDef](./type_defs.md#listeventtypesresulttypedef)
 - [ListNotificationRulesFilterTypeDef](./type_defs.md#listnotificationrulesfiltertypedef)
@@ -135,8 +133,10 @@ from mypy_boto3_codestar_notifications.type_defs import EventTypeSummaryTypeDef,
 - [ListTagsForResourceResultTypeDef](./type_defs.md#listtagsforresourceresulttypedef)
 - [ListTargetsFilterTypeDef](./type_defs.md#listtargetsfiltertypedef)
 - [ListTargetsResultTypeDef](./type_defs.md#listtargetsresulttypedef)
+- [NotificationRuleSummaryTypeDef](./type_defs.md#notificationrulesummarytypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
 - [SubscribeResultTypeDef](./type_defs.md#subscriberesulttypedef)
 - [TagResourceResultTypeDef](./type_defs.md#tagresourceresulttypedef)
+- [TargetSummaryTypeDef](./type_defs.md#targetsummarytypedef)
 - [TargetTypeDef](./type_defs.md#targettypedef)
 - [UnsubscribeResultTypeDef](./type_defs.md#unsubscriberesulttypedef)

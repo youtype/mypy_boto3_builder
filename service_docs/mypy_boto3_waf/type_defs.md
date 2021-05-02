@@ -9,48 +9,8 @@ type annotations stubs module [mypy_boto3_waf](https://pypi.org/project/mypy-bot
   - [ActivatedRuleTypeDef](#activatedruletypedef)
   - [ByteMatchSetSummaryTypeDef](#bytematchsetsummarytypedef)
   - [ByteMatchSetTypeDef](#bytematchsettypedef)
-  - [ByteMatchTupleTypeDef](#bytematchtupletypedef)
-  - [ExcludedRuleTypeDef](#excludedruletypedef)
-  - [FieldToMatchTypeDef](#fieldtomatchtypedef)
-  - [GeoMatchConstraintTypeDef](#geomatchconstrainttypedef)
-  - [GeoMatchSetSummaryTypeDef](#geomatchsetsummarytypedef)
-  - [GeoMatchSetTypeDef](#geomatchsettypedef)
-  - [HTTPHeaderTypeDef](#httpheadertypedef)
-  - [HTTPRequestTypeDef](#httprequesttypedef)
-  - [IPSetDescriptorTypeDef](#ipsetdescriptortypedef)
-  - [IPSetSummaryTypeDef](#ipsetsummarytypedef)
-  - [IPSetTypeDef](#ipsettypedef)
-  - [LoggingConfigurationTypeDef](#loggingconfigurationtypedef)
-  - [PredicateTypeDef](#predicatetypedef)
-  - [RateBasedRuleTypeDef](#ratebasedruletypedef)
-  - [RegexMatchSetSummaryTypeDef](#regexmatchsetsummarytypedef)
-  - [RegexMatchSetTypeDef](#regexmatchsettypedef)
-  - [RegexMatchTupleTypeDef](#regexmatchtupletypedef)
-  - [RegexPatternSetSummaryTypeDef](#regexpatternsetsummarytypedef)
-  - [RegexPatternSetTypeDef](#regexpatternsettypedef)
-  - [RuleGroupSummaryTypeDef](#rulegroupsummarytypedef)
-  - [RuleGroupTypeDef](#rulegrouptypedef)
-  - [RuleSummaryTypeDef](#rulesummarytypedef)
-  - [RuleTypeDef](#ruletypedef)
-  - [SampledHTTPRequestTypeDef](#sampledhttprequesttypedef)
-  - [SizeConstraintSetSummaryTypeDef](#sizeconstraintsetsummarytypedef)
-  - [SizeConstraintSetTypeDef](#sizeconstraintsettypedef)
-  - [SizeConstraintTypeDef](#sizeconstrainttypedef)
-  - [SqlInjectionMatchSetSummaryTypeDef](#sqlinjectionmatchsetsummarytypedef)
-  - [SqlInjectionMatchSetTypeDef](#sqlinjectionmatchsettypedef)
-  - [SqlInjectionMatchTupleTypeDef](#sqlinjectionmatchtupletypedef)
-  - [SubscribedRuleGroupSummaryTypeDef](#subscribedrulegroupsummarytypedef)
-  - [TagInfoForResourceTypeDef](#taginfoforresourcetypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TimeWindowTypeDef](#timewindowtypedef)
-  - [WafActionTypeDef](#wafactiontypedef)
-  - [WafOverrideActionTypeDef](#wafoverrideactiontypedef)
-  - [WebACLSummaryTypeDef](#webaclsummarytypedef)
-  - [WebACLTypeDef](#webacltypedef)
-  - [XssMatchSetSummaryTypeDef](#xssmatchsetsummarytypedef)
-  - [XssMatchSetTypeDef](#xssmatchsettypedef)
-  - [XssMatchTupleTypeDef](#xssmatchtupletypedef)
   - [ByteMatchSetUpdateTypeDef](#bytematchsetupdatetypedef)
+  - [ByteMatchTupleTypeDef](#bytematchtupletypedef)
   - [CreateByteMatchSetResponseTypeDef](#createbytematchsetresponsetypedef)
   - [CreateGeoMatchSetResponseTypeDef](#creategeomatchsetresponsetypedef)
   - [CreateIPSetResponseTypeDef](#createipsetresponsetypedef)
@@ -76,6 +36,11 @@ type annotations stubs module [mypy_boto3_waf](https://pypi.org/project/mypy-bot
   - [DeleteSqlInjectionMatchSetResponseTypeDef](#deletesqlinjectionmatchsetresponsetypedef)
   - [DeleteWebACLResponseTypeDef](#deletewebaclresponsetypedef)
   - [DeleteXssMatchSetResponseTypeDef](#deletexssmatchsetresponsetypedef)
+  - [ExcludedRuleTypeDef](#excludedruletypedef)
+  - [FieldToMatchTypeDef](#fieldtomatchtypedef)
+  - [GeoMatchConstraintTypeDef](#geomatchconstrainttypedef)
+  - [GeoMatchSetSummaryTypeDef](#geomatchsetsummarytypedef)
+  - [GeoMatchSetTypeDef](#geomatchsettypedef)
   - [GeoMatchSetUpdateTypeDef](#geomatchsetupdatetypedef)
   - [GetByteMatchSetResponseTypeDef](#getbytematchsetresponsetypedef)
   - [GetChangeTokenResponseTypeDef](#getchangetokenresponsetypedef)
@@ -95,6 +60,11 @@ type annotations stubs module [mypy_boto3_waf](https://pypi.org/project/mypy-bot
   - [GetSqlInjectionMatchSetResponseTypeDef](#getsqlinjectionmatchsetresponsetypedef)
   - [GetWebACLResponseTypeDef](#getwebaclresponsetypedef)
   - [GetXssMatchSetResponseTypeDef](#getxssmatchsetresponsetypedef)
+  - [HTTPHeaderTypeDef](#httpheadertypedef)
+  - [HTTPRequestTypeDef](#httprequesttypedef)
+  - [IPSetDescriptorTypeDef](#ipsetdescriptortypedef)
+  - [IPSetSummaryTypeDef](#ipsetsummarytypedef)
+  - [IPSetTypeDef](#ipsettypedef)
   - [IPSetUpdateTypeDef](#ipsetupdatetypedef)
   - [ListActivatedRulesInRuleGroupResponseTypeDef](#listactivatedrulesinrulegroupresponsetypedef)
   - [ListByteMatchSetsResponseTypeDef](#listbytematchsetsresponsetypedef)
@@ -112,14 +82,37 @@ type annotations stubs module [mypy_boto3_waf](https://pypi.org/project/mypy-bot
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListWebACLsResponseTypeDef](#listwebaclsresponsetypedef)
   - [ListXssMatchSetsResponseTypeDef](#listxssmatchsetsresponsetypedef)
+  - [LoggingConfigurationTypeDef](#loggingconfigurationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PredicateTypeDef](#predicatetypedef)
   - [PutLoggingConfigurationResponseTypeDef](#putloggingconfigurationresponsetypedef)
+  - [RateBasedRuleTypeDef](#ratebasedruletypedef)
+  - [RegexMatchSetSummaryTypeDef](#regexmatchsetsummarytypedef)
+  - [RegexMatchSetTypeDef](#regexmatchsettypedef)
   - [RegexMatchSetUpdateTypeDef](#regexmatchsetupdatetypedef)
+  - [RegexMatchTupleTypeDef](#regexmatchtupletypedef)
+  - [RegexPatternSetSummaryTypeDef](#regexpatternsetsummarytypedef)
+  - [RegexPatternSetTypeDef](#regexpatternsettypedef)
   - [RegexPatternSetUpdateTypeDef](#regexpatternsetupdatetypedef)
+  - [RuleGroupSummaryTypeDef](#rulegroupsummarytypedef)
+  - [RuleGroupTypeDef](#rulegrouptypedef)
   - [RuleGroupUpdateTypeDef](#rulegroupupdatetypedef)
+  - [RuleSummaryTypeDef](#rulesummarytypedef)
+  - [RuleTypeDef](#ruletypedef)
   - [RuleUpdateTypeDef](#ruleupdatetypedef)
+  - [SampledHTTPRequestTypeDef](#sampledhttprequesttypedef)
+  - [SizeConstraintSetSummaryTypeDef](#sizeconstraintsetsummarytypedef)
+  - [SizeConstraintSetTypeDef](#sizeconstraintsettypedef)
   - [SizeConstraintSetUpdateTypeDef](#sizeconstraintsetupdatetypedef)
+  - [SizeConstraintTypeDef](#sizeconstrainttypedef)
+  - [SqlInjectionMatchSetSummaryTypeDef](#sqlinjectionmatchsetsummarytypedef)
+  - [SqlInjectionMatchSetTypeDef](#sqlinjectionmatchsettypedef)
   - [SqlInjectionMatchSetUpdateTypeDef](#sqlinjectionmatchsetupdatetypedef)
+  - [SqlInjectionMatchTupleTypeDef](#sqlinjectionmatchtupletypedef)
+  - [SubscribedRuleGroupSummaryTypeDef](#subscribedrulegroupsummarytypedef)
+  - [TagInfoForResourceTypeDef](#taginfoforresourcetypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TimeWindowTypeDef](#timewindowtypedef)
   - [UpdateByteMatchSetResponseTypeDef](#updatebytematchsetresponsetypedef)
   - [UpdateGeoMatchSetResponseTypeDef](#updategeomatchsetresponsetypedef)
   - [UpdateIPSetResponseTypeDef](#updateipsetresponsetypedef)
@@ -132,8 +125,15 @@ type annotations stubs module [mypy_boto3_waf](https://pypi.org/project/mypy-bot
   - [UpdateSqlInjectionMatchSetResponseTypeDef](#updatesqlinjectionmatchsetresponsetypedef)
   - [UpdateWebACLResponseTypeDef](#updatewebaclresponsetypedef)
   - [UpdateXssMatchSetResponseTypeDef](#updatexssmatchsetresponsetypedef)
+  - [WafActionTypeDef](#wafactiontypedef)
+  - [WafOverrideActionTypeDef](#wafoverrideactiontypedef)
+  - [WebACLSummaryTypeDef](#webaclsummarytypedef)
+  - [WebACLTypeDef](#webacltypedef)
   - [WebACLUpdateTypeDef](#webaclupdatetypedef)
+  - [XssMatchSetSummaryTypeDef](#xssmatchsetsummarytypedef)
+  - [XssMatchSetTypeDef](#xssmatchsettypedef)
   - [XssMatchSetUpdateTypeDef](#xssmatchsetupdatetypedef)
+  - [XssMatchTupleTypeDef](#xssmatchtupletypedef)
 
 ## ActivatedRuleTypeDef
 
@@ -186,6 +186,20 @@ Optional fields:
 - `Name`: `str`
 
 
+## ByteMatchSetUpdateTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import ByteMatchSetUpdateTypeDef
+```
+
+
+Required fields:
+- `Action`: `ChangeAction`
+- `ByteMatchTuple`: `"ByteMatchTupleTypeDef"`
+
+
+
+
 ## ByteMatchTupleTypeDef
 
 ```python
@@ -198,634 +212,6 @@ Required fields:
 - `TargetString`: `Union[bytes, IO[bytes]]`
 - `TextTransformation`: `TextTransformation`
 - `PositionalConstraint`: `PositionalConstraint`
-
-
-
-
-## ExcludedRuleTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import ExcludedRuleTypeDef
-```
-
-
-Required fields:
-- `RuleId`: `str`
-
-
-
-
-## FieldToMatchTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import FieldToMatchTypeDef
-```
-
-
-Required fields:
-- `Type`: `MatchFieldType`
-
-
-
-Optional fields:
-- `Data`: `str`
-
-
-## GeoMatchConstraintTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import GeoMatchConstraintTypeDef
-```
-
-
-Required fields:
-- `Type`: `GeoMatchConstraintType`
-- `Value`: `GeoMatchConstraintValue`
-
-
-
-
-## GeoMatchSetSummaryTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import GeoMatchSetSummaryTypeDef
-```
-
-
-Required fields:
-- `GeoMatchSetId`: `str`
-- `Name`: `str`
-
-
-
-
-## GeoMatchSetTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import GeoMatchSetTypeDef
-```
-
-
-Required fields:
-- `GeoMatchSetId`: `str`
-- `GeoMatchConstraints`: `List["GeoMatchConstraintTypeDef"]`
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## HTTPHeaderTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import HTTPHeaderTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Value`: `str`
-
-
-## HTTPRequestTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import HTTPRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientIP`: `str`
-- `Country`: `str`
-- `URI`: `str`
-- `Method`: `str`
-- `HTTPVersion`: `str`
-- `Headers`: `List["HTTPHeaderTypeDef"]`
-
-
-## IPSetDescriptorTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import IPSetDescriptorTypeDef
-```
-
-
-Required fields:
-- `Type`: `IPSetDescriptorType`
-- `Value`: `str`
-
-
-
-
-## IPSetSummaryTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import IPSetSummaryTypeDef
-```
-
-
-Required fields:
-- `IPSetId`: `str`
-- `Name`: `str`
-
-
-
-
-## IPSetTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import IPSetTypeDef
-```
-
-
-Required fields:
-- `IPSetId`: `str`
-- `IPSetDescriptors`: `List["IPSetDescriptorTypeDef"]`
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## LoggingConfigurationTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import LoggingConfigurationTypeDef
-```
-
-
-Required fields:
-- `ResourceArn`: `str`
-- `LogDestinationConfigs`: `List[str]`
-
-
-
-Optional fields:
-- `RedactedFields`: `List["FieldToMatchTypeDef"]`
-
-
-## PredicateTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import PredicateTypeDef
-```
-
-
-Required fields:
-- `Negated`: `bool`
-- `Type`: `PredicateType`
-- `DataId`: `str`
-
-
-
-
-## RateBasedRuleTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import RateBasedRuleTypeDef
-```
-
-
-Required fields:
-- `RuleId`: `str`
-- `MatchPredicates`: `List["PredicateTypeDef"]`
-- `RateKey`: `RateKey`
-- `RateLimit`: `int`
-
-
-
-Optional fields:
-- `Name`: `str`
-- `MetricName`: `str`
-
-
-## RegexMatchSetSummaryTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import RegexMatchSetSummaryTypeDef
-```
-
-
-Required fields:
-- `RegexMatchSetId`: `str`
-- `Name`: `str`
-
-
-
-
-## RegexMatchSetTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import RegexMatchSetTypeDef
-```
-
-
-
-
-Optional fields:
-- `RegexMatchSetId`: `str`
-- `Name`: `str`
-- `RegexMatchTuples`: `List["RegexMatchTupleTypeDef"]`
-
-
-## RegexMatchTupleTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import RegexMatchTupleTypeDef
-```
-
-
-Required fields:
-- `FieldToMatch`: `"FieldToMatchTypeDef"`
-- `TextTransformation`: `TextTransformation`
-- `RegexPatternSetId`: `str`
-
-
-
-
-## RegexPatternSetSummaryTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import RegexPatternSetSummaryTypeDef
-```
-
-
-Required fields:
-- `RegexPatternSetId`: `str`
-- `Name`: `str`
-
-
-
-
-## RegexPatternSetTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import RegexPatternSetTypeDef
-```
-
-
-Required fields:
-- `RegexPatternSetId`: `str`
-- `RegexPatternStrings`: `List[str]`
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## RuleGroupSummaryTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import RuleGroupSummaryTypeDef
-```
-
-
-Required fields:
-- `RuleGroupId`: `str`
-- `Name`: `str`
-
-
-
-
-## RuleGroupTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import RuleGroupTypeDef
-```
-
-
-Required fields:
-- `RuleGroupId`: `str`
-
-
-
-Optional fields:
-- `Name`: `str`
-- `MetricName`: `str`
-
-
-## RuleSummaryTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import RuleSummaryTypeDef
-```
-
-
-Required fields:
-- `RuleId`: `str`
-- `Name`: `str`
-
-
-
-
-## RuleTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import RuleTypeDef
-```
-
-
-Required fields:
-- `RuleId`: `str`
-- `Predicates`: `List["PredicateTypeDef"]`
-
-
-
-Optional fields:
-- `Name`: `str`
-- `MetricName`: `str`
-
-
-## SampledHTTPRequestTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import SampledHTTPRequestTypeDef
-```
-
-
-Required fields:
-- `Request`: `"HTTPRequestTypeDef"`
-- `Weight`: `int`
-
-
-
-Optional fields:
-- `Timestamp`: `datetime`
-- `Action`: `str`
-- `RuleWithinRuleGroup`: `str`
-
-
-## SizeConstraintSetSummaryTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import SizeConstraintSetSummaryTypeDef
-```
-
-
-Required fields:
-- `SizeConstraintSetId`: `str`
-- `Name`: `str`
-
-
-
-
-## SizeConstraintSetTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import SizeConstraintSetTypeDef
-```
-
-
-Required fields:
-- `SizeConstraintSetId`: `str`
-- `SizeConstraints`: `List["SizeConstraintTypeDef"]`
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## SizeConstraintTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import SizeConstraintTypeDef
-```
-
-
-Required fields:
-- `FieldToMatch`: `"FieldToMatchTypeDef"`
-- `TextTransformation`: `TextTransformation`
-- `ComparisonOperator`: `ComparisonOperator`
-- `Size`: `int`
-
-
-
-
-## SqlInjectionMatchSetSummaryTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import SqlInjectionMatchSetSummaryTypeDef
-```
-
-
-Required fields:
-- `SqlInjectionMatchSetId`: `str`
-- `Name`: `str`
-
-
-
-
-## SqlInjectionMatchSetTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import SqlInjectionMatchSetTypeDef
-```
-
-
-Required fields:
-- `SqlInjectionMatchSetId`: `str`
-- `SqlInjectionMatchTuples`: `List["SqlInjectionMatchTupleTypeDef"]`
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## SqlInjectionMatchTupleTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import SqlInjectionMatchTupleTypeDef
-```
-
-
-Required fields:
-- `FieldToMatch`: `"FieldToMatchTypeDef"`
-- `TextTransformation`: `TextTransformation`
-
-
-
-
-## SubscribedRuleGroupSummaryTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import SubscribedRuleGroupSummaryTypeDef
-```
-
-
-Required fields:
-- `RuleGroupId`: `str`
-- `Name`: `str`
-- `MetricName`: `str`
-
-
-
-
-## TagInfoForResourceTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import TagInfoForResourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceARN`: `str`
-- `TagList`: `List["TagTypeDef"]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TimeWindowTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import TimeWindowTypeDef
-```
-
-
-Required fields:
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-
-
-
-
-## WafActionTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import WafActionTypeDef
-```
-
-
-Required fields:
-- `Type`: `WafActionType`
-
-
-
-
-## WafOverrideActionTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import WafOverrideActionTypeDef
-```
-
-
-Required fields:
-- `Type`: `WafOverrideActionType`
-
-
-
-
-## WebACLSummaryTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import WebACLSummaryTypeDef
-```
-
-
-Required fields:
-- `WebACLId`: `str`
-- `Name`: `str`
-
-
-
-
-## WebACLTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import WebACLTypeDef
-```
-
-
-Required fields:
-- `WebACLId`: `str`
-- `DefaultAction`: `"WafActionTypeDef"`
-- `Rules`: `List["ActivatedRuleTypeDef"]`
-
-
-
-Optional fields:
-- `Name`: `str`
-- `MetricName`: `str`
-- `WebACLArn`: `str`
-
-
-## XssMatchSetSummaryTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import XssMatchSetSummaryTypeDef
-```
-
-
-Required fields:
-- `XssMatchSetId`: `str`
-- `Name`: `str`
-
-
-
-
-## XssMatchSetTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import XssMatchSetTypeDef
-```
-
-
-Required fields:
-- `XssMatchSetId`: `str`
-- `XssMatchTuples`: `List["XssMatchTupleTypeDef"]`
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## XssMatchTupleTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import XssMatchTupleTypeDef
-```
-
-
-Required fields:
-- `FieldToMatch`: `"FieldToMatchTypeDef"`
-- `TextTransformation`: `TextTransformation`
-
-
-
-
-## ByteMatchSetUpdateTypeDef
-
-```python
-from mypy_boto3_waf.type_defs import ByteMatchSetUpdateTypeDef
-```
-
-
-Required fields:
-- `Action`: `ChangeAction`
-- `ByteMatchTuple`: `"ByteMatchTupleTypeDef"`
 
 
 
@@ -1167,6 +553,80 @@ Optional fields:
 - `ChangeToken`: `str`
 
 
+## ExcludedRuleTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import ExcludedRuleTypeDef
+```
+
+
+Required fields:
+- `RuleId`: `str`
+
+
+
+
+## FieldToMatchTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import FieldToMatchTypeDef
+```
+
+
+Required fields:
+- `Type`: `MatchFieldType`
+
+
+
+Optional fields:
+- `Data`: `str`
+
+
+## GeoMatchConstraintTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import GeoMatchConstraintTypeDef
+```
+
+
+Required fields:
+- `Type`: `Literal['Country']`
+- `Value`: `GeoMatchConstraintValue`
+
+
+
+
+## GeoMatchSetSummaryTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import GeoMatchSetSummaryTypeDef
+```
+
+
+Required fields:
+- `GeoMatchSetId`: `str`
+- `Name`: `str`
+
+
+
+
+## GeoMatchSetTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import GeoMatchSetTypeDef
+```
+
+
+Required fields:
+- `GeoMatchSetId`: `str`
+- `GeoMatchConstraints`: `List["GeoMatchConstraintTypeDef"]`
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
 ## GeoMatchSetUpdateTypeDef
 
 ```python
@@ -1418,6 +878,83 @@ Optional fields:
 - `XssMatchSet`: `"XssMatchSetTypeDef"`
 
 
+## HTTPHeaderTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import HTTPHeaderTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Value`: `str`
+
+
+## HTTPRequestTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import HTTPRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientIP`: `str`
+- `Country`: `str`
+- `URI`: `str`
+- `Method`: `str`
+- `HTTPVersion`: `str`
+- `Headers`: `List["HTTPHeaderTypeDef"]`
+
+
+## IPSetDescriptorTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import IPSetDescriptorTypeDef
+```
+
+
+Required fields:
+- `Type`: `IPSetDescriptorType`
+- `Value`: `str`
+
+
+
+
+## IPSetSummaryTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import IPSetSummaryTypeDef
+```
+
+
+Required fields:
+- `IPSetId`: `str`
+- `Name`: `str`
+
+
+
+
+## IPSetTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import IPSetTypeDef
+```
+
+
+Required fields:
+- `IPSetId`: `str`
+- `IPSetDescriptors`: `List["IPSetDescriptorTypeDef"]`
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
 ## IPSetUpdateTypeDef
 
 ```python
@@ -1656,6 +1193,23 @@ Optional fields:
 - `XssMatchSets`: `List["XssMatchSetSummaryTypeDef"]`
 
 
+## LoggingConfigurationTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import LoggingConfigurationTypeDef
+```
+
+
+Required fields:
+- `ResourceArn`: `str`
+- `LogDestinationConfigs`: `List[str]`
+
+
+
+Optional fields:
+- `RedactedFields`: `List["FieldToMatchTypeDef"]`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -1671,6 +1225,21 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PredicateTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import PredicateTypeDef
+```
+
+
+Required fields:
+- `Negated`: `bool`
+- `Type`: `PredicateType`
+- `DataId`: `str`
+
+
+
+
 ## PutLoggingConfigurationResponseTypeDef
 
 ```python
@@ -1682,6 +1251,55 @@ from mypy_boto3_waf.type_defs import PutLoggingConfigurationResponseTypeDef
 
 Optional fields:
 - `LoggingConfiguration`: `"LoggingConfigurationTypeDef"`
+
+
+## RateBasedRuleTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import RateBasedRuleTypeDef
+```
+
+
+Required fields:
+- `RuleId`: `str`
+- `MatchPredicates`: `List["PredicateTypeDef"]`
+- `RateKey`: `Literal['IP']`
+- `RateLimit`: `int`
+
+
+
+Optional fields:
+- `Name`: `str`
+- `MetricName`: `str`
+
+
+## RegexMatchSetSummaryTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import RegexMatchSetSummaryTypeDef
+```
+
+
+Required fields:
+- `RegexMatchSetId`: `str`
+- `Name`: `str`
+
+
+
+
+## RegexMatchSetTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import RegexMatchSetTypeDef
+```
+
+
+
+
+Optional fields:
+- `RegexMatchSetId`: `str`
+- `Name`: `str`
+- `RegexMatchTuples`: `List["RegexMatchTupleTypeDef"]`
 
 
 ## RegexMatchSetUpdateTypeDef
@@ -1698,6 +1316,52 @@ Required fields:
 
 
 
+## RegexMatchTupleTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import RegexMatchTupleTypeDef
+```
+
+
+Required fields:
+- `FieldToMatch`: `"FieldToMatchTypeDef"`
+- `TextTransformation`: `TextTransformation`
+- `RegexPatternSetId`: `str`
+
+
+
+
+## RegexPatternSetSummaryTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import RegexPatternSetSummaryTypeDef
+```
+
+
+Required fields:
+- `RegexPatternSetId`: `str`
+- `Name`: `str`
+
+
+
+
+## RegexPatternSetTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import RegexPatternSetTypeDef
+```
+
+
+Required fields:
+- `RegexPatternSetId`: `str`
+- `RegexPatternStrings`: `List[str]`
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
 ## RegexPatternSetUpdateTypeDef
 
 ```python
@@ -1710,6 +1374,37 @@ Required fields:
 - `RegexPatternString`: `str`
 
 
+
+
+## RuleGroupSummaryTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import RuleGroupSummaryTypeDef
+```
+
+
+Required fields:
+- `RuleGroupId`: `str`
+- `Name`: `str`
+
+
+
+
+## RuleGroupTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import RuleGroupTypeDef
+```
+
+
+Required fields:
+- `RuleGroupId`: `str`
+
+
+
+Optional fields:
+- `Name`: `str`
+- `MetricName`: `str`
 
 
 ## RuleGroupUpdateTypeDef
@@ -1726,6 +1421,38 @@ Required fields:
 
 
 
+## RuleSummaryTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import RuleSummaryTypeDef
+```
+
+
+Required fields:
+- `RuleId`: `str`
+- `Name`: `str`
+
+
+
+
+## RuleTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import RuleTypeDef
+```
+
+
+Required fields:
+- `RuleId`: `str`
+- `Predicates`: `List["PredicateTypeDef"]`
+
+
+
+Optional fields:
+- `Name`: `str`
+- `MetricName`: `str`
+
+
 ## RuleUpdateTypeDef
 
 ```python
@@ -1738,6 +1465,56 @@ Required fields:
 - `Predicate`: `"PredicateTypeDef"`
 
 
+
+
+## SampledHTTPRequestTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import SampledHTTPRequestTypeDef
+```
+
+
+Required fields:
+- `Request`: `"HTTPRequestTypeDef"`
+- `Weight`: `int`
+
+
+
+Optional fields:
+- `Timestamp`: `datetime`
+- `Action`: `str`
+- `RuleWithinRuleGroup`: `str`
+
+
+## SizeConstraintSetSummaryTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import SizeConstraintSetSummaryTypeDef
+```
+
+
+Required fields:
+- `SizeConstraintSetId`: `str`
+- `Name`: `str`
+
+
+
+
+## SizeConstraintSetTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import SizeConstraintSetTypeDef
+```
+
+
+Required fields:
+- `SizeConstraintSetId`: `str`
+- `SizeConstraints`: `List["SizeConstraintTypeDef"]`
+
+
+
+Optional fields:
+- `Name`: `str`
 
 
 ## SizeConstraintSetUpdateTypeDef
@@ -1754,6 +1531,53 @@ Required fields:
 
 
 
+## SizeConstraintTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import SizeConstraintTypeDef
+```
+
+
+Required fields:
+- `FieldToMatch`: `"FieldToMatchTypeDef"`
+- `TextTransformation`: `TextTransformation`
+- `ComparisonOperator`: `ComparisonOperator`
+- `Size`: `int`
+
+
+
+
+## SqlInjectionMatchSetSummaryTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import SqlInjectionMatchSetSummaryTypeDef
+```
+
+
+Required fields:
+- `SqlInjectionMatchSetId`: `str`
+- `Name`: `str`
+
+
+
+
+## SqlInjectionMatchSetTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import SqlInjectionMatchSetTypeDef
+```
+
+
+Required fields:
+- `SqlInjectionMatchSetId`: `str`
+- `SqlInjectionMatchTuples`: `List["SqlInjectionMatchTupleTypeDef"]`
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
 ## SqlInjectionMatchSetUpdateTypeDef
 
 ```python
@@ -1764,6 +1588,77 @@ from mypy_boto3_waf.type_defs import SqlInjectionMatchSetUpdateTypeDef
 Required fields:
 - `Action`: `ChangeAction`
 - `SqlInjectionMatchTuple`: `"SqlInjectionMatchTupleTypeDef"`
+
+
+
+
+## SqlInjectionMatchTupleTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import SqlInjectionMatchTupleTypeDef
+```
+
+
+Required fields:
+- `FieldToMatch`: `"FieldToMatchTypeDef"`
+- `TextTransformation`: `TextTransformation`
+
+
+
+
+## SubscribedRuleGroupSummaryTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import SubscribedRuleGroupSummaryTypeDef
+```
+
+
+Required fields:
+- `RuleGroupId`: `str`
+- `Name`: `str`
+- `MetricName`: `str`
+
+
+
+
+## TagInfoForResourceTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import TagInfoForResourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceARN`: `str`
+- `TagList`: `List["TagTypeDef"]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TimeWindowTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import TimeWindowTypeDef
+```
+
+
+Required fields:
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
 
 
 
@@ -1924,6 +1819,66 @@ Optional fields:
 - `ChangeToken`: `str`
 
 
+## WafActionTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import WafActionTypeDef
+```
+
+
+Required fields:
+- `Type`: `WafActionType`
+
+
+
+
+## WafOverrideActionTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import WafOverrideActionTypeDef
+```
+
+
+Required fields:
+- `Type`: `WafOverrideActionType`
+
+
+
+
+## WebACLSummaryTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import WebACLSummaryTypeDef
+```
+
+
+Required fields:
+- `WebACLId`: `str`
+- `Name`: `str`
+
+
+
+
+## WebACLTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import WebACLTypeDef
+```
+
+
+Required fields:
+- `WebACLId`: `str`
+- `DefaultAction`: `"WafActionTypeDef"`
+- `Rules`: `List["ActivatedRuleTypeDef"]`
+
+
+
+Optional fields:
+- `Name`: `str`
+- `MetricName`: `str`
+- `WebACLArn`: `str`
+
+
 ## WebACLUpdateTypeDef
 
 ```python
@@ -1938,6 +1893,37 @@ Required fields:
 
 
 
+## XssMatchSetSummaryTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import XssMatchSetSummaryTypeDef
+```
+
+
+Required fields:
+- `XssMatchSetId`: `str`
+- `Name`: `str`
+
+
+
+
+## XssMatchSetTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import XssMatchSetTypeDef
+```
+
+
+Required fields:
+- `XssMatchSetId`: `str`
+- `XssMatchTuples`: `List["XssMatchTupleTypeDef"]`
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
 ## XssMatchSetUpdateTypeDef
 
 ```python
@@ -1948,6 +1934,20 @@ from mypy_boto3_waf.type_defs import XssMatchSetUpdateTypeDef
 Required fields:
 - `Action`: `ChangeAction`
 - `XssMatchTuple`: `"XssMatchTupleTypeDef"`
+
+
+
+
+## XssMatchTupleTypeDef
+
+```python
+from mypy_boto3_waf.type_defs import XssMatchTupleTypeDef
+```
+
+
+Required fields:
+- `FieldToMatch`: `"FieldToMatchTypeDef"`
+- `TextTransformation`: `TextTransformation`
 
 
 

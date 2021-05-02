@@ -34,9 +34,6 @@ type annotations stubs module [mypy_boto3_dataexchange](https://pypi.org/project
     - [update_data_set](#update_data_set)
     - [update_revision](#update_revision)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## DataExchangeClient
 
@@ -113,7 +110,7 @@ Type annotations for `boto3.client("dataexchange").create_data_set` method.
 ```python
 def create_data_set(
     self,
-    AssetType: AssetType,
+    AssetType: Literal['S3_SNAPSHOT'],
     Description: str,
     Name: str,
     Tags: Dict[str, str] = None
@@ -447,62 +444,15 @@ def update_revision(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("dataexchange").get_paginator` method.
-
-[Paginator.ListDataSetRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSetRevisions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDataSetRevisionsPaginatorName
-) -> ListDataSetRevisionsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("dataexchange").get_paginator` method.
+Type annotations for `boto3.client("dataexchange").get_paginator` method with overloads.
 
-[Paginator.ListDataSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSets)
+- `client.get_paginator("list_data_set_revisions")` -> [ListDataSetRevisionsPaginator](./paginators.md#listdatasetrevisionspaginator)
+- `client.get_paginator("list_data_sets")` -> [ListDataSetsPaginator](./paginators.md#listdatasetspaginator)
+- `client.get_paginator("list_jobs")` -> [ListJobsPaginator](./paginators.md#listjobspaginator)
+- `client.get_paginator("list_revision_assets")` -> [ListRevisionAssetsPaginator](./paginators.md#listrevisionassetspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDataSetsPaginatorName
-) -> ListDataSetsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("dataexchange").get_paginator` method.
-
-[Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dataexchange.html#DataExchange.Paginator.ListJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobsPaginatorName
-) -> ListJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dataexchange").get_paginator` method.
-
-[Paginator.ListRevisionAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dataexchange.html#DataExchange.Paginator.ListRevisionAssets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRevisionAssetsPaginatorName
-) -> ListRevisionAssetsPaginator:
-    pass
-```

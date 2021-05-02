@@ -45,11 +45,6 @@ type annotations stubs module [mypy_boto3_sns](https://pypi.org/project/mypy-bot
     - [unsubscribe](#unsubscribe)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
 
 ## SNSClient
 
@@ -633,92 +628,17 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("sns").get_paginator` method.
-
-[Paginator.ListEndpointsByPlatformApplication documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#SNS.Paginator.ListEndpointsByPlatformApplication)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEndpointsByPlatformApplicationPaginatorName
-) -> ListEndpointsByPlatformApplicationPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("sns").get_paginator` method.
+Type annotations for `boto3.client("sns").get_paginator` method with overloads.
 
-[Paginator.ListPhoneNumbersOptedOut documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#SNS.Paginator.ListPhoneNumbersOptedOut)
+- `client.get_paginator("list_endpoints_by_platform_application")` -> [ListEndpointsByPlatformApplicationPaginator](./paginators.md#listendpointsbyplatformapplicationpaginator)
+- `client.get_paginator("list_phone_numbers_opted_out")` -> [ListPhoneNumbersOptedOutPaginator](./paginators.md#listphonenumbersoptedoutpaginator)
+- `client.get_paginator("list_platform_applications")` -> [ListPlatformApplicationsPaginator](./paginators.md#listplatformapplicationspaginator)
+- `client.get_paginator("list_subscriptions")` -> [ListSubscriptionsPaginator](./paginators.md#listsubscriptionspaginator)
+- `client.get_paginator("list_subscriptions_by_topic")` -> [ListSubscriptionsByTopicPaginator](./paginators.md#listsubscriptionsbytopicpaginator)
+- `client.get_paginator("list_topics")` -> [ListTopicsPaginator](./paginators.md#listtopicspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPhoneNumbersOptedOutPaginatorName
-) -> ListPhoneNumbersOptedOutPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("sns").get_paginator` method.
-
-[Paginator.ListPlatformApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#SNS.Paginator.ListPlatformApplications)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPlatformApplicationsPaginatorName
-) -> ListPlatformApplicationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sns").get_paginator` method.
-
-[Paginator.ListSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#SNS.Paginator.ListSubscriptions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSubscriptionsPaginatorName
-) -> ListSubscriptionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sns").get_paginator` method.
-
-[Paginator.ListSubscriptionsByTopic documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#SNS.Paginator.ListSubscriptionsByTopic)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSubscriptionsByTopicPaginatorName
-) -> ListSubscriptionsByTopicPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sns").get_paginator` method.
-
-[Paginator.ListTopics documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sns.html#SNS.Paginator.ListTopics)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTopicsPaginatorName
-) -> ListTopicsPaginator:
-    pass
-```

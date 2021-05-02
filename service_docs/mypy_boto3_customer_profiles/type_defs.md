@@ -6,32 +6,9 @@ Auto-generated documentation for [CustomerProfiles](https://boto3.amazonaws.com/
 type annotations stubs module [mypy_boto3_customer_profiles](https://pypi.org/project/mypy-boto3-customer-profiles/).
 
 - [Structures for boto3 CustomerProfiles module](#structures-for-boto3-customerprofiles-module)
+  - [AddProfileKeyResponseTypeDef](#addprofilekeyresponsetypedef)
   - [AddressTypeDef](#addresstypedef)
   - [ConnectorOperatorTypeDef](#connectoroperatortypedef)
-  - [DomainStatsTypeDef](#domainstatstypedef)
-  - [IncrementalPullConfigTypeDef](#incrementalpullconfigtypedef)
-  - [ListDomainItemTypeDef](#listdomainitemtypedef)
-  - [ListIntegrationItemTypeDef](#listintegrationitemtypedef)
-  - [ListProfileObjectTypeItemTypeDef](#listprofileobjecttypeitemtypedef)
-  - [ListProfileObjectTypeTemplateItemTypeDef](#listprofileobjecttypetemplateitemtypedef)
-  - [ListProfileObjectsItemTypeDef](#listprofileobjectsitemtypedef)
-  - [MarketoSourcePropertiesTypeDef](#marketosourcepropertiestypedef)
-  - [MatchItemTypeDef](#matchitemtypedef)
-  - [MatchingResponseTypeDef](#matchingresponsetypedef)
-  - [ObjectTypeFieldTypeDef](#objecttypefieldtypedef)
-  - [ObjectTypeKeyTypeDef](#objecttypekeytypedef)
-  - [ProfileTypeDef](#profiletypedef)
-  - [S3SourcePropertiesTypeDef](#s3sourcepropertiestypedef)
-  - [SalesforceSourcePropertiesTypeDef](#salesforcesourcepropertiestypedef)
-  - [ScheduledTriggerPropertiesTypeDef](#scheduledtriggerpropertiestypedef)
-  - [ServiceNowSourcePropertiesTypeDef](#servicenowsourcepropertiestypedef)
-  - [SourceConnectorPropertiesTypeDef](#sourceconnectorpropertiestypedef)
-  - [SourceFlowConfigTypeDef](#sourceflowconfigtypedef)
-  - [TaskTypeDef](#tasktypedef)
-  - [TriggerConfigTypeDef](#triggerconfigtypedef)
-  - [TriggerPropertiesTypeDef](#triggerpropertiestypedef)
-  - [ZendeskSourcePropertiesTypeDef](#zendesksourcepropertiestypedef)
-  - [AddProfileKeyResponseTypeDef](#addprofilekeyresponsetypedef)
   - [CreateDomainResponseTypeDef](#createdomainresponsetypedef)
   - [CreateProfileResponseTypeDef](#createprofileresponsetypedef)
   - [DeleteDomainResponseTypeDef](#deletedomainresponsetypedef)
@@ -40,6 +17,7 @@ type annotations stubs module [mypy_boto3_customer_profiles](https://pypi.org/pr
   - [DeleteProfileObjectResponseTypeDef](#deleteprofileobjectresponsetypedef)
   - [DeleteProfileObjectTypeResponseTypeDef](#deleteprofileobjecttyperesponsetypedef)
   - [DeleteProfileResponseTypeDef](#deleteprofileresponsetypedef)
+  - [DomainStatsTypeDef](#domainstatstypedef)
   - [FieldSourceProfileIdsTypeDef](#fieldsourceprofileidstypedef)
   - [FlowDefinitionTypeDef](#flowdefinitiontypedef)
   - [GetDomainResponseTypeDef](#getdomainresponsetypedef)
@@ -47,22 +25,58 @@ type annotations stubs module [mypy_boto3_customer_profiles](https://pypi.org/pr
   - [GetMatchesResponseTypeDef](#getmatchesresponsetypedef)
   - [GetProfileObjectTypeResponseTypeDef](#getprofileobjecttyperesponsetypedef)
   - [GetProfileObjectTypeTemplateResponseTypeDef](#getprofileobjecttypetemplateresponsetypedef)
+  - [IncrementalPullConfigTypeDef](#incrementalpullconfigtypedef)
   - [ListAccountIntegrationsResponseTypeDef](#listaccountintegrationsresponsetypedef)
+  - [ListDomainItemTypeDef](#listdomainitemtypedef)
   - [ListDomainsResponseTypeDef](#listdomainsresponsetypedef)
+  - [ListIntegrationItemTypeDef](#listintegrationitemtypedef)
   - [ListIntegrationsResponseTypeDef](#listintegrationsresponsetypedef)
+  - [ListProfileObjectTypeItemTypeDef](#listprofileobjecttypeitemtypedef)
+  - [ListProfileObjectTypeTemplateItemTypeDef](#listprofileobjecttypetemplateitemtypedef)
   - [ListProfileObjectTypeTemplatesResponseTypeDef](#listprofileobjecttypetemplatesresponsetypedef)
   - [ListProfileObjectTypesResponseTypeDef](#listprofileobjecttypesresponsetypedef)
+  - [ListProfileObjectsItemTypeDef](#listprofileobjectsitemtypedef)
   - [ListProfileObjectsResponseTypeDef](#listprofileobjectsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [MarketoSourcePropertiesTypeDef](#marketosourcepropertiestypedef)
+  - [MatchItemTypeDef](#matchitemtypedef)
   - [MatchingRequestTypeDef](#matchingrequesttypedef)
+  - [MatchingResponseTypeDef](#matchingresponsetypedef)
   - [MergeProfilesResponseTypeDef](#mergeprofilesresponsetypedef)
+  - [ObjectTypeFieldTypeDef](#objecttypefieldtypedef)
+  - [ObjectTypeKeyTypeDef](#objecttypekeytypedef)
+  - [ProfileTypeDef](#profiletypedef)
   - [PutIntegrationResponseTypeDef](#putintegrationresponsetypedef)
   - [PutProfileObjectResponseTypeDef](#putprofileobjectresponsetypedef)
   - [PutProfileObjectTypeResponseTypeDef](#putprofileobjecttyperesponsetypedef)
+  - [S3SourcePropertiesTypeDef](#s3sourcepropertiestypedef)
+  - [SalesforceSourcePropertiesTypeDef](#salesforcesourcepropertiestypedef)
+  - [ScheduledTriggerPropertiesTypeDef](#scheduledtriggerpropertiestypedef)
   - [SearchProfilesResponseTypeDef](#searchprofilesresponsetypedef)
+  - [ServiceNowSourcePropertiesTypeDef](#servicenowsourcepropertiestypedef)
+  - [SourceConnectorPropertiesTypeDef](#sourceconnectorpropertiestypedef)
+  - [SourceFlowConfigTypeDef](#sourceflowconfigtypedef)
+  - [TaskTypeDef](#tasktypedef)
+  - [TriggerConfigTypeDef](#triggerconfigtypedef)
+  - [TriggerPropertiesTypeDef](#triggerpropertiestypedef)
   - [UpdateAddressTypeDef](#updateaddresstypedef)
   - [UpdateDomainResponseTypeDef](#updatedomainresponsetypedef)
   - [UpdateProfileResponseTypeDef](#updateprofileresponsetypedef)
+  - [ZendeskSourcePropertiesTypeDef](#zendesksourcepropertiestypedef)
+
+## AddProfileKeyResponseTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import AddProfileKeyResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `KeyName`: `str`
+- `Values`: `List[str]`
+
 
 ## AddressTypeDef
 
@@ -101,402 +115,6 @@ Optional fields:
 - `Salesforce`: `SalesforceConnectorOperator`
 - `ServiceNow`: `ServiceNowConnectorOperator`
 - `Zendesk`: `ZendeskConnectorOperator`
-
-
-## DomainStatsTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import DomainStatsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProfileCount`: `int`
-- `MeteringProfileCount`: `int`
-- `ObjectCount`: `int`
-- `TotalSize`: `int`
-
-
-## IncrementalPullConfigTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import IncrementalPullConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatetimeTypeFieldName`: `str`
-
-
-## ListDomainItemTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import ListDomainItemTypeDef
-```
-
-
-Required fields:
-- `DomainName`: `str`
-- `CreatedAt`: `datetime`
-- `LastUpdatedAt`: `datetime`
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## ListIntegrationItemTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import ListIntegrationItemTypeDef
-```
-
-
-Required fields:
-- `DomainName`: `str`
-- `Uri`: `str`
-- `ObjectTypeName`: `str`
-- `CreatedAt`: `datetime`
-- `LastUpdatedAt`: `datetime`
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## ListProfileObjectTypeItemTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import ListProfileObjectTypeItemTypeDef
-```
-
-
-Required fields:
-- `ObjectTypeName`: `str`
-- `Description`: `str`
-
-
-
-Optional fields:
-- `CreatedAt`: `datetime`
-- `LastUpdatedAt`: `datetime`
-- `Tags`: `Dict[str, str]`
-
-
-## ListProfileObjectTypeTemplateItemTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import ListProfileObjectTypeTemplateItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `TemplateId`: `str`
-- `SourceName`: `str`
-- `SourceObject`: `str`
-
-
-## ListProfileObjectsItemTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import ListProfileObjectsItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `ObjectTypeName`: `str`
-- `ProfileObjectUniqueKey`: `str`
-- `Object`: `str`
-
-
-## MarketoSourcePropertiesTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import MarketoSourcePropertiesTypeDef
-```
-
-
-Required fields:
-- `Object`: `str`
-
-
-
-
-## MatchItemTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import MatchItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `MatchId`: `str`
-- `ProfileIds`: `List[str]`
-
-
-## MatchingResponseTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import MatchingResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
-## ObjectTypeFieldTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import ObjectTypeFieldTypeDef
-```
-
-
-
-
-Optional fields:
-- `Source`: `str`
-- `Target`: `str`
-- `ContentType`: `FieldContentType`
-
-
-## ObjectTypeKeyTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import ObjectTypeKeyTypeDef
-```
-
-
-
-
-Optional fields:
-- `StandardIdentifiers`: `List[StandardIdentifier]`
-- `FieldNames`: `List[str]`
-
-
-## ProfileTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import ProfileTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProfileId`: `str`
-- `AccountNumber`: `str`
-- `AdditionalInformation`: `str`
-- `PartyType`: `PartyType`
-- `BusinessName`: `str`
-- `FirstName`: `str`
-- `MiddleName`: `str`
-- `LastName`: `str`
-- `BirthDate`: `str`
-- `Gender`: `Gender`
-- `PhoneNumber`: `str`
-- `MobilePhoneNumber`: `str`
-- `HomePhoneNumber`: `str`
-- `BusinessPhoneNumber`: `str`
-- `EmailAddress`: `str`
-- `PersonalEmailAddress`: `str`
-- `BusinessEmailAddress`: `str`
-- `Address`: `"AddressTypeDef"`
-- `ShippingAddress`: `"AddressTypeDef"`
-- `MailingAddress`: `"AddressTypeDef"`
-- `BillingAddress`: `"AddressTypeDef"`
-- `Attributes`: `Dict[str, str]`
-
-
-## S3SourcePropertiesTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import S3SourcePropertiesTypeDef
-```
-
-
-Required fields:
-- `BucketName`: `str`
-
-
-
-Optional fields:
-- `BucketPrefix`: `str`
-
-
-## SalesforceSourcePropertiesTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import SalesforceSourcePropertiesTypeDef
-```
-
-
-Required fields:
-- `Object`: `str`
-
-
-
-Optional fields:
-- `EnableDynamicFieldUpdate`: `bool`
-- `IncludeDeletedRecords`: `bool`
-
-
-## ScheduledTriggerPropertiesTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import ScheduledTriggerPropertiesTypeDef
-```
-
-
-Required fields:
-- `ScheduleExpression`: `str`
-
-
-
-Optional fields:
-- `DataPullMode`: `DataPullMode`
-- `ScheduleStartTime`: `datetime`
-- `ScheduleEndTime`: `datetime`
-- `Timezone`: `str`
-- `ScheduleOffset`: `int`
-- `FirstExecutionFrom`: `datetime`
-
-
-## ServiceNowSourcePropertiesTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import ServiceNowSourcePropertiesTypeDef
-```
-
-
-Required fields:
-- `Object`: `str`
-
-
-
-
-## SourceConnectorPropertiesTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import SourceConnectorPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `Marketo`: `"MarketoSourcePropertiesTypeDef"`
-- `S3`: `"S3SourcePropertiesTypeDef"`
-- `Salesforce`: `"SalesforceSourcePropertiesTypeDef"`
-- `ServiceNow`: `"ServiceNowSourcePropertiesTypeDef"`
-- `Zendesk`: `"ZendeskSourcePropertiesTypeDef"`
-
-
-## SourceFlowConfigTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import SourceFlowConfigTypeDef
-```
-
-
-Required fields:
-- `ConnectorType`: `SourceConnectorType`
-- `SourceConnectorProperties`: `"SourceConnectorPropertiesTypeDef"`
-
-
-
-Optional fields:
-- `ConnectorProfileName`: `str`
-- `IncrementalPullConfig`: `"IncrementalPullConfigTypeDef"`
-
-
-## TaskTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import TaskTypeDef
-```
-
-
-Required fields:
-- `SourceFields`: `List[str]`
-- `TaskType`: `TaskType`
-
-
-
-Optional fields:
-- `ConnectorOperator`: `"ConnectorOperatorTypeDef"`
-- `DestinationField`: `str`
-- `TaskProperties`: `Dict[OperatorPropertiesKeys, str]`
-
-
-## TriggerConfigTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import TriggerConfigTypeDef
-```
-
-
-Required fields:
-- `TriggerType`: `TriggerType`
-
-
-
-Optional fields:
-- `TriggerProperties`: `"TriggerPropertiesTypeDef"`
-
-
-## TriggerPropertiesTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import TriggerPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `Scheduled`: `"ScheduledTriggerPropertiesTypeDef"`
-
-
-## ZendeskSourcePropertiesTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import ZendeskSourcePropertiesTypeDef
-```
-
-
-Required fields:
-- `Object`: `str`
-
-
-
-
-## AddProfileKeyResponseTypeDef
-
-```python
-from mypy_boto3_customer_profiles.type_defs import AddProfileKeyResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `KeyName`: `str`
-- `Values`: `List[str]`
 
 
 ## CreateDomainResponseTypeDef
@@ -610,6 +228,22 @@ from mypy_boto3_customer_profiles.type_defs import DeleteProfileResponseTypeDef
 
 Optional fields:
 - `Message`: `str`
+
+
+## DomainStatsTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import DomainStatsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProfileCount`: `int`
+- `MeteringProfileCount`: `int`
+- `ObjectCount`: `int`
+- `TotalSize`: `int`
 
 
 ## FieldSourceProfileIdsTypeDef
@@ -767,6 +401,19 @@ Optional fields:
 - `Keys`: `Dict[str, List["ObjectTypeKeyTypeDef"]]`
 
 
+## IncrementalPullConfigTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import IncrementalPullConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatetimeTypeFieldName`: `str`
+
+
 ## ListAccountIntegrationsResponseTypeDef
 
 ```python
@@ -779,6 +426,24 @@ from mypy_boto3_customer_profiles.type_defs import ListAccountIntegrationsRespon
 Optional fields:
 - `Items`: `List["ListIntegrationItemTypeDef"]`
 - `NextToken`: `str`
+
+
+## ListDomainItemTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import ListDomainItemTypeDef
+```
+
+
+Required fields:
+- `DomainName`: `str`
+- `CreatedAt`: `datetime`
+- `LastUpdatedAt`: `datetime`
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
 
 
 ## ListDomainsResponseTypeDef
@@ -795,6 +460,26 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## ListIntegrationItemTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import ListIntegrationItemTypeDef
+```
+
+
+Required fields:
+- `DomainName`: `str`
+- `Uri`: `str`
+- `ObjectTypeName`: `str`
+- `CreatedAt`: `datetime`
+- `LastUpdatedAt`: `datetime`
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
+
+
 ## ListIntegrationsResponseTypeDef
 
 ```python
@@ -807,6 +492,40 @@ from mypy_boto3_customer_profiles.type_defs import ListIntegrationsResponseTypeD
 Optional fields:
 - `Items`: `List["ListIntegrationItemTypeDef"]`
 - `NextToken`: `str`
+
+
+## ListProfileObjectTypeItemTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import ListProfileObjectTypeItemTypeDef
+```
+
+
+Required fields:
+- `ObjectTypeName`: `str`
+- `Description`: `str`
+
+
+
+Optional fields:
+- `CreatedAt`: `datetime`
+- `LastUpdatedAt`: `datetime`
+- `Tags`: `Dict[str, str]`
+
+
+## ListProfileObjectTypeTemplateItemTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import ListProfileObjectTypeTemplateItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `TemplateId`: `str`
+- `SourceName`: `str`
+- `SourceObject`: `str`
 
 
 ## ListProfileObjectTypeTemplatesResponseTypeDef
@@ -837,6 +556,21 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## ListProfileObjectsItemTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import ListProfileObjectsItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `ObjectTypeName`: `str`
+- `ProfileObjectUniqueKey`: `str`
+- `Object`: `str`
+
+
 ## ListProfileObjectsResponseTypeDef
 
 ```python
@@ -864,6 +598,33 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
+## MarketoSourcePropertiesTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import MarketoSourcePropertiesTypeDef
+```
+
+
+Required fields:
+- `Object`: `str`
+
+
+
+
+## MatchItemTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import MatchItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `MatchId`: `str`
+- `ProfileIds`: `List[str]`
+
+
 ## MatchingRequestTypeDef
 
 ```python
@@ -877,6 +638,19 @@ Required fields:
 
 
 
+## MatchingResponseTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import MatchingResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+
+
 ## MergeProfilesResponseTypeDef
 
 ```python
@@ -888,6 +662,69 @@ from mypy_boto3_customer_profiles.type_defs import MergeProfilesResponseTypeDef
 
 Optional fields:
 - `Message`: `str`
+
+
+## ObjectTypeFieldTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import ObjectTypeFieldTypeDef
+```
+
+
+
+
+Optional fields:
+- `Source`: `str`
+- `Target`: `str`
+- `ContentType`: `FieldContentType`
+
+
+## ObjectTypeKeyTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import ObjectTypeKeyTypeDef
+```
+
+
+
+
+Optional fields:
+- `StandardIdentifiers`: `List[StandardIdentifier]`
+- `FieldNames`: `List[str]`
+
+
+## ProfileTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import ProfileTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProfileId`: `str`
+- `AccountNumber`: `str`
+- `AdditionalInformation`: `str`
+- `PartyType`: `PartyType`
+- `BusinessName`: `str`
+- `FirstName`: `str`
+- `MiddleName`: `str`
+- `LastName`: `str`
+- `BirthDate`: `str`
+- `Gender`: `Gender`
+- `PhoneNumber`: `str`
+- `MobilePhoneNumber`: `str`
+- `HomePhoneNumber`: `str`
+- `BusinessPhoneNumber`: `str`
+- `EmailAddress`: `str`
+- `PersonalEmailAddress`: `str`
+- `BusinessEmailAddress`: `str`
+- `Address`: `"AddressTypeDef"`
+- `ShippingAddress`: `"AddressTypeDef"`
+- `MailingAddress`: `"AddressTypeDef"`
+- `BillingAddress`: `"AddressTypeDef"`
+- `Attributes`: `Dict[str, str]`
 
 
 ## PutIntegrationResponseTypeDef
@@ -948,6 +785,60 @@ Optional fields:
 - `Tags`: `Dict[str, str]`
 
 
+## S3SourcePropertiesTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import S3SourcePropertiesTypeDef
+```
+
+
+Required fields:
+- `BucketName`: `str`
+
+
+
+Optional fields:
+- `BucketPrefix`: `str`
+
+
+## SalesforceSourcePropertiesTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import SalesforceSourcePropertiesTypeDef
+```
+
+
+Required fields:
+- `Object`: `str`
+
+
+
+Optional fields:
+- `EnableDynamicFieldUpdate`: `bool`
+- `IncludeDeletedRecords`: `bool`
+
+
+## ScheduledTriggerPropertiesTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import ScheduledTriggerPropertiesTypeDef
+```
+
+
+Required fields:
+- `ScheduleExpression`: `str`
+
+
+
+Optional fields:
+- `DataPullMode`: `DataPullMode`
+- `ScheduleStartTime`: `datetime`
+- `ScheduleEndTime`: `datetime`
+- `Timezone`: `str`
+- `ScheduleOffset`: `int`
+- `FirstExecutionFrom`: `datetime`
+
+
 ## SearchProfilesResponseTypeDef
 
 ```python
@@ -960,6 +851,102 @@ from mypy_boto3_customer_profiles.type_defs import SearchProfilesResponseTypeDef
 Optional fields:
 - `Items`: `List["ProfileTypeDef"]`
 - `NextToken`: `str`
+
+
+## ServiceNowSourcePropertiesTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import ServiceNowSourcePropertiesTypeDef
+```
+
+
+Required fields:
+- `Object`: `str`
+
+
+
+
+## SourceConnectorPropertiesTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import SourceConnectorPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `Marketo`: `"MarketoSourcePropertiesTypeDef"`
+- `S3`: `"S3SourcePropertiesTypeDef"`
+- `Salesforce`: `"SalesforceSourcePropertiesTypeDef"`
+- `ServiceNow`: `"ServiceNowSourcePropertiesTypeDef"`
+- `Zendesk`: `"ZendeskSourcePropertiesTypeDef"`
+
+
+## SourceFlowConfigTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import SourceFlowConfigTypeDef
+```
+
+
+Required fields:
+- `ConnectorType`: `SourceConnectorType`
+- `SourceConnectorProperties`: `"SourceConnectorPropertiesTypeDef"`
+
+
+
+Optional fields:
+- `ConnectorProfileName`: `str`
+- `IncrementalPullConfig`: `"IncrementalPullConfigTypeDef"`
+
+
+## TaskTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import TaskTypeDef
+```
+
+
+Required fields:
+- `SourceFields`: `List[str]`
+- `TaskType`: `TaskType`
+
+
+
+Optional fields:
+- `ConnectorOperator`: `"ConnectorOperatorTypeDef"`
+- `DestinationField`: `str`
+- `TaskProperties`: `Dict[OperatorPropertiesKeys, str]`
+
+
+## TriggerConfigTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import TriggerConfigTypeDef
+```
+
+
+Required fields:
+- `TriggerType`: `TriggerType`
+
+
+
+Optional fields:
+- `TriggerProperties`: `"TriggerPropertiesTypeDef"`
+
+
+## TriggerPropertiesTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import TriggerPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `Scheduled`: `"ScheduledTriggerPropertiesTypeDef"`
 
 
 ## UpdateAddressTypeDef
@@ -1015,6 +1002,19 @@ from mypy_boto3_customer_profiles.type_defs import UpdateProfileResponseTypeDef
 
 Required fields:
 - `ProfileId`: `str`
+
+
+
+
+## ZendeskSourcePropertiesTypeDef
+
+```python
+from mypy_boto3_customer_profiles.type_defs import ZendeskSourcePropertiesTypeDef
+```
+
+
+Required fields:
+- `Object`: `str`
 
 
 

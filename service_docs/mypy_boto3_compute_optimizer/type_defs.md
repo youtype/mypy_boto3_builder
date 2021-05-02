@@ -9,30 +9,11 @@ type annotations stubs module [mypy_boto3_compute_optimizer](https://pypi.org/pr
   - [AutoScalingGroupConfigurationTypeDef](#autoscalinggroupconfigurationtypedef)
   - [AutoScalingGroupRecommendationOptionTypeDef](#autoscalinggrouprecommendationoptiontypedef)
   - [AutoScalingGroupRecommendationTypeDef](#autoscalinggrouprecommendationtypedef)
-  - [EBSUtilizationMetricTypeDef](#ebsutilizationmetrictypedef)
-  - [ExportDestinationTypeDef](#exportdestinationtypedef)
-  - [GetRecommendationErrorTypeDef](#getrecommendationerrortypedef)
-  - [InstanceRecommendationOptionTypeDef](#instancerecommendationoptiontypedef)
-  - [InstanceRecommendationTypeDef](#instancerecommendationtypedef)
-  - [LambdaFunctionMemoryProjectedMetricTypeDef](#lambdafunctionmemoryprojectedmetrictypedef)
-  - [LambdaFunctionMemoryRecommendationOptionTypeDef](#lambdafunctionmemoryrecommendationoptiontypedef)
-  - [LambdaFunctionRecommendationTypeDef](#lambdafunctionrecommendationtypedef)
-  - [LambdaFunctionUtilizationMetricTypeDef](#lambdafunctionutilizationmetrictypedef)
-  - [ProjectedMetricTypeDef](#projectedmetrictypedef)
-  - [ReasonCodeSummaryTypeDef](#reasoncodesummarytypedef)
-  - [RecommendationExportJobTypeDef](#recommendationexportjobtypedef)
-  - [RecommendationSourceTypeDef](#recommendationsourcetypedef)
-  - [RecommendationSummaryTypeDef](#recommendationsummarytypedef)
-  - [RecommendedOptionProjectedMetricTypeDef](#recommendedoptionprojectedmetrictypedef)
-  - [S3DestinationTypeDef](#s3destinationtypedef)
-  - [SummaryTypeDef](#summarytypedef)
-  - [UtilizationMetricTypeDef](#utilizationmetrictypedef)
-  - [VolumeConfigurationTypeDef](#volumeconfigurationtypedef)
-  - [VolumeRecommendationOptionTypeDef](#volumerecommendationoptiontypedef)
-  - [VolumeRecommendationTypeDef](#volumerecommendationtypedef)
   - [DescribeRecommendationExportJobsResponseTypeDef](#describerecommendationexportjobsresponsetypedef)
   - [EBSFilterTypeDef](#ebsfiltertypedef)
+  - [EBSUtilizationMetricTypeDef](#ebsutilizationmetrictypedef)
   - [ExportAutoScalingGroupRecommendationsResponseTypeDef](#exportautoscalinggrouprecommendationsresponsetypedef)
+  - [ExportDestinationTypeDef](#exportdestinationtypedef)
   - [ExportEC2InstanceRecommendationsResponseTypeDef](#exportec2instancerecommendationsresponsetypedef)
   - [FilterTypeDef](#filtertypedef)
   - [GetAutoScalingGroupRecommendationsResponseTypeDef](#getautoscalinggrouprecommendationsresponsetypedef)
@@ -41,11 +22,30 @@ type annotations stubs module [mypy_boto3_compute_optimizer](https://pypi.org/pr
   - [GetEC2RecommendationProjectedMetricsResponseTypeDef](#getec2recommendationprojectedmetricsresponsetypedef)
   - [GetEnrollmentStatusResponseTypeDef](#getenrollmentstatusresponsetypedef)
   - [GetLambdaFunctionRecommendationsResponseTypeDef](#getlambdafunctionrecommendationsresponsetypedef)
+  - [GetRecommendationErrorTypeDef](#getrecommendationerrortypedef)
   - [GetRecommendationSummariesResponseTypeDef](#getrecommendationsummariesresponsetypedef)
+  - [InstanceRecommendationOptionTypeDef](#instancerecommendationoptiontypedef)
+  - [InstanceRecommendationTypeDef](#instancerecommendationtypedef)
   - [JobFilterTypeDef](#jobfiltertypedef)
+  - [LambdaFunctionMemoryProjectedMetricTypeDef](#lambdafunctionmemoryprojectedmetrictypedef)
+  - [LambdaFunctionMemoryRecommendationOptionTypeDef](#lambdafunctionmemoryrecommendationoptiontypedef)
   - [LambdaFunctionRecommendationFilterTypeDef](#lambdafunctionrecommendationfiltertypedef)
+  - [LambdaFunctionRecommendationTypeDef](#lambdafunctionrecommendationtypedef)
+  - [LambdaFunctionUtilizationMetricTypeDef](#lambdafunctionutilizationmetrictypedef)
+  - [ProjectedMetricTypeDef](#projectedmetrictypedef)
+  - [ReasonCodeSummaryTypeDef](#reasoncodesummarytypedef)
+  - [RecommendationExportJobTypeDef](#recommendationexportjobtypedef)
+  - [RecommendationSourceTypeDef](#recommendationsourcetypedef)
+  - [RecommendationSummaryTypeDef](#recommendationsummarytypedef)
+  - [RecommendedOptionProjectedMetricTypeDef](#recommendedoptionprojectedmetrictypedef)
   - [S3DestinationConfigTypeDef](#s3destinationconfigtypedef)
+  - [S3DestinationTypeDef](#s3destinationtypedef)
+  - [SummaryTypeDef](#summarytypedef)
   - [UpdateEnrollmentStatusResponseTypeDef](#updateenrollmentstatusresponsetypedef)
+  - [UtilizationMetricTypeDef](#utilizationmetrictypedef)
+  - [VolumeConfigurationTypeDef](#volumeconfigurationtypedef)
+  - [VolumeRecommendationOptionTypeDef](#volumerecommendationoptiontypedef)
+  - [VolumeRecommendationTypeDef](#volumerecommendationtypedef)
 
 ## AutoScalingGroupConfigurationTypeDef
 
@@ -100,6 +100,34 @@ Optional fields:
 - `lastRefreshTimestamp`: `datetime`
 
 
+## DescribeRecommendationExportJobsResponseTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import DescribeRecommendationExportJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `recommendationExportJobs`: `List["RecommendationExportJobTypeDef"]`
+- `nextToken`: `str`
+
+
+## EBSFilterTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import EBSFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `Literal['Finding']`
+- `values`: `List[str]`
+
+
 ## EBSUtilizationMetricTypeDef
 
 ```python
@@ -115,6 +143,20 @@ Optional fields:
 - `value`: `float`
 
 
+## ExportAutoScalingGroupRecommendationsResponseTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import ExportAutoScalingGroupRecommendationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobId`: `str`
+- `s3Destination`: `"S3DestinationTypeDef"`
+
+
 ## ExportDestinationTypeDef
 
 ```python
@@ -126,6 +168,121 @@ from mypy_boto3_compute_optimizer.type_defs import ExportDestinationTypeDef
 
 Optional fields:
 - `s3`: `"S3DestinationTypeDef"`
+
+
+## ExportEC2InstanceRecommendationsResponseTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import ExportEC2InstanceRecommendationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobId`: `str`
+- `s3Destination`: `"S3DestinationTypeDef"`
+
+
+## FilterTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import FilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `FilterName`
+- `values`: `List[str]`
+
+
+## GetAutoScalingGroupRecommendationsResponseTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import GetAutoScalingGroupRecommendationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `autoScalingGroupRecommendations`: `List["AutoScalingGroupRecommendationTypeDef"]`
+- `errors`: `List["GetRecommendationErrorTypeDef"]`
+
+
+## GetEBSVolumeRecommendationsResponseTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import GetEBSVolumeRecommendationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `volumeRecommendations`: `List["VolumeRecommendationTypeDef"]`
+- `errors`: `List["GetRecommendationErrorTypeDef"]`
+
+
+## GetEC2InstanceRecommendationsResponseTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import GetEC2InstanceRecommendationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `instanceRecommendations`: `List["InstanceRecommendationTypeDef"]`
+- `errors`: `List["GetRecommendationErrorTypeDef"]`
+
+
+## GetEC2RecommendationProjectedMetricsResponseTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import GetEC2RecommendationProjectedMetricsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `recommendedOptionProjectedMetrics`: `List["RecommendedOptionProjectedMetricTypeDef"]`
+
+
+## GetEnrollmentStatusResponseTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import GetEnrollmentStatusResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `Status`
+- `statusReason`: `str`
+- `memberAccountsEnrolled`: `bool`
+
+
+## GetLambdaFunctionRecommendationsResponseTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import GetLambdaFunctionRecommendationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `lambdaFunctionRecommendations`: `List["LambdaFunctionRecommendationTypeDef"]`
 
 
 ## GetRecommendationErrorTypeDef
@@ -141,6 +298,20 @@ Optional fields:
 - `identifier`: `str`
 - `code`: `str`
 - `message`: `str`
+
+
+## GetRecommendationSummariesResponseTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import GetRecommendationSummariesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `recommendationSummaries`: `List["RecommendationSummaryTypeDef"]`
 
 
 ## InstanceRecommendationOptionTypeDef
@@ -181,6 +352,20 @@ Optional fields:
 - `lastRefreshTimestamp`: `datetime`
 
 
+## JobFilterTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import JobFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `JobFilterName`
+- `values`: `List[str]`
+
+
 ## LambdaFunctionMemoryProjectedMetricTypeDef
 
 ```python
@@ -191,7 +376,7 @@ from mypy_boto3_compute_optimizer.type_defs import LambdaFunctionMemoryProjected
 
 
 Optional fields:
-- `name`: `LambdaFunctionMemoryMetricName`
+- `name`: `Literal['Duration']`
 - `statistic`: `LambdaFunctionMemoryMetricStatistic`
 - `value`: `float`
 
@@ -209,6 +394,20 @@ Optional fields:
 - `rank`: `int`
 - `memorySize`: `int`
 - `projectedUtilizationMetrics`: `List["LambdaFunctionMemoryProjectedMetricTypeDef"]`
+
+
+## LambdaFunctionRecommendationFilterTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import LambdaFunctionRecommendationFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `LambdaFunctionRecommendationFilterName`
+- `values`: `List[str]`
 
 
 ## LambdaFunctionRecommendationTypeDef
@@ -341,6 +540,20 @@ Optional fields:
 - `projectedMetrics`: `List["ProjectedMetricTypeDef"]`
 
 
+## S3DestinationConfigTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import S3DestinationConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `bucket`: `str`
+- `keyPrefix`: `str`
+
+
 ## S3DestinationTypeDef
 
 ```python
@@ -369,6 +582,20 @@ Optional fields:
 - `name`: `Finding`
 - `value`: `float`
 - `reasonCodeSummaries`: `List["ReasonCodeSummaryTypeDef"]`
+
+
+## UpdateEnrollmentStatusResponseTypeDef
+
+```python
+from mypy_boto3_compute_optimizer.type_defs import UpdateEnrollmentStatusResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `Status`
+- `statusReason`: `str`
 
 
 ## UtilizationMetricTypeDef
@@ -437,231 +664,4 @@ Optional fields:
 - `lookBackPeriodInDays`: `float`
 - `volumeRecommendationOptions`: `List["VolumeRecommendationOptionTypeDef"]`
 - `lastRefreshTimestamp`: `datetime`
-
-
-## DescribeRecommendationExportJobsResponseTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import DescribeRecommendationExportJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `recommendationExportJobs`: `List["RecommendationExportJobTypeDef"]`
-- `nextToken`: `str`
-
-
-## EBSFilterTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import EBSFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `EBSFilterName`
-- `values`: `List[str]`
-
-
-## ExportAutoScalingGroupRecommendationsResponseTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import ExportAutoScalingGroupRecommendationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobId`: `str`
-- `s3Destination`: `"S3DestinationTypeDef"`
-
-
-## ExportEC2InstanceRecommendationsResponseTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import ExportEC2InstanceRecommendationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobId`: `str`
-- `s3Destination`: `"S3DestinationTypeDef"`
-
-
-## FilterTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import FilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `FilterName`
-- `values`: `List[str]`
-
-
-## GetAutoScalingGroupRecommendationsResponseTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import GetAutoScalingGroupRecommendationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `autoScalingGroupRecommendations`: `List["AutoScalingGroupRecommendationTypeDef"]`
-- `errors`: `List["GetRecommendationErrorTypeDef"]`
-
-
-## GetEBSVolumeRecommendationsResponseTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import GetEBSVolumeRecommendationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `volumeRecommendations`: `List["VolumeRecommendationTypeDef"]`
-- `errors`: `List["GetRecommendationErrorTypeDef"]`
-
-
-## GetEC2InstanceRecommendationsResponseTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import GetEC2InstanceRecommendationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `instanceRecommendations`: `List["InstanceRecommendationTypeDef"]`
-- `errors`: `List["GetRecommendationErrorTypeDef"]`
-
-
-## GetEC2RecommendationProjectedMetricsResponseTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import GetEC2RecommendationProjectedMetricsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `recommendedOptionProjectedMetrics`: `List["RecommendedOptionProjectedMetricTypeDef"]`
-
-
-## GetEnrollmentStatusResponseTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import GetEnrollmentStatusResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `Status`
-- `statusReason`: `str`
-- `memberAccountsEnrolled`: `bool`
-
-
-## GetLambdaFunctionRecommendationsResponseTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import GetLambdaFunctionRecommendationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `lambdaFunctionRecommendations`: `List["LambdaFunctionRecommendationTypeDef"]`
-
-
-## GetRecommendationSummariesResponseTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import GetRecommendationSummariesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `recommendationSummaries`: `List["RecommendationSummaryTypeDef"]`
-
-
-## JobFilterTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import JobFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `JobFilterName`
-- `values`: `List[str]`
-
-
-## LambdaFunctionRecommendationFilterTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import LambdaFunctionRecommendationFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `LambdaFunctionRecommendationFilterName`
-- `values`: `List[str]`
-
-
-## S3DestinationConfigTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import S3DestinationConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `bucket`: `str`
-- `keyPrefix`: `str`
-
-
-## UpdateEnrollmentStatusResponseTypeDef
-
-```python
-from mypy_boto3_compute_optimizer.type_defs import UpdateEnrollmentStatusResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `Status`
-- `statusReason`: `str`
 

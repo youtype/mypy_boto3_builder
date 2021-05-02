@@ -53,12 +53,6 @@ type annotations stubs module [mypy_boto3_appsync](https://pypi.org/project/mypy
     - [update_resolver](#update_resolver)
     - [update_type](#update_type)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
 
 ## AppSyncClient
 
@@ -823,107 +817,18 @@ def update_type(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("appsync").get_paginator` method.
-
-[Paginator.ListApiKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appsync.html#AppSync.Paginator.ListApiKeys)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListApiKeysPaginatorName
-) -> ListApiKeysPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("appsync").get_paginator` method.
+Type annotations for `boto3.client("appsync").get_paginator` method with overloads.
 
-[Paginator.ListDataSources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appsync.html#AppSync.Paginator.ListDataSources)
+- `client.get_paginator("list_api_keys")` -> [ListApiKeysPaginator](./paginators.md#listapikeyspaginator)
+- `client.get_paginator("list_data_sources")` -> [ListDataSourcesPaginator](./paginators.md#listdatasourcespaginator)
+- `client.get_paginator("list_functions")` -> [ListFunctionsPaginator](./paginators.md#listfunctionspaginator)
+- `client.get_paginator("list_graphql_apis")` -> [ListGraphqlApisPaginator](./paginators.md#listgraphqlapispaginator)
+- `client.get_paginator("list_resolvers")` -> [ListResolversPaginator](./paginators.md#listresolverspaginator)
+- `client.get_paginator("list_resolvers_by_function")` -> [ListResolversByFunctionPaginator](./paginators.md#listresolversbyfunctionpaginator)
+- `client.get_paginator("list_types")` -> [ListTypesPaginator](./paginators.md#listtypespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDataSourcesPaginatorName
-) -> ListDataSourcesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("appsync").get_paginator` method.
-
-[Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appsync.html#AppSync.Paginator.ListFunctions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFunctionsPaginatorName
-) -> ListFunctionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appsync").get_paginator` method.
-
-[Paginator.ListGraphqlApis documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGraphqlApisPaginatorName
-) -> ListGraphqlApisPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appsync").get_paginator` method.
-
-[Paginator.ListResolvers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appsync.html#AppSync.Paginator.ListResolvers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResolversPaginatorName
-) -> ListResolversPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appsync").get_paginator` method.
-
-[Paginator.ListResolversByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResolversByFunctionPaginatorName
-) -> ListResolversByFunctionPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appsync").get_paginator` method.
-
-[Paginator.ListTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appsync.html#AppSync.Paginator.ListTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTypesPaginatorName
-) -> ListTypesPaginator:
-    pass
-```

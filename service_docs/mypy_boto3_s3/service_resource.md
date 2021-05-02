@@ -757,7 +757,7 @@ def delete_objects(
     self,
     Delete: DeleteTypeDef,
     MFA: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     BypassGovernanceRetention: bool = None,
     ExpectedBucketOwner: str = None
 ) -> DeleteObjectsOutputTypeDef:
@@ -860,7 +860,7 @@ def put_object(
     SSEKMSKeyId: str = None,
     SSEKMSEncryptionContext: str = None,
     BucketKeyEnabled: bool = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     Tagging: str = None,
     ObjectLockMode: ObjectLockMode = None,
     ObjectLockRetainUntilDate: datetime = None,
@@ -964,7 +964,7 @@ class BucketMultipartUploadsCollection(ResourceCollection):
     def filter(  # type: ignore
         self,
         Delimiter: str = None,
-        EncodingType: EncodingType = None,
+        EncodingType: Literal['url'] = None,
         KeyMarker: str = None,
         MaxUploads: int = None,
         Prefix: str = None,
@@ -1022,7 +1022,7 @@ class BucketObjectVersionsCollection(ResourceCollection):
     def filter(  # type: ignore
         self,
         Delimiter: str = None,
-        EncodingType: EncodingType = None,
+        EncodingType: Literal['url'] = None,
         KeyMarker: str = None,
         MaxKeys: int = None,
         Prefix: str = None,
@@ -1034,7 +1034,7 @@ class BucketObjectVersionsCollection(ResourceCollection):
     def delete(
         self,
         MFA: str = None,
-        RequestPayer: RequestPayer = None,
+        RequestPayer: Literal['requester'] = None,
         BypassGovernanceRetention: bool = None,
         ExpectedBucketOwner: str = None
     ) -> DeleteObjectsOutputTypeDef:
@@ -1089,11 +1089,11 @@ class BucketObjectsCollection(ResourceCollection):
     def filter(  # type: ignore
         self,
         Delimiter: str = None,
-        EncodingType: EncodingType = None,
+        EncodingType: Literal['url'] = None,
         Marker: str = None,
         MaxKeys: int = None,
         Prefix: str = None,
-        RequestPayer: RequestPayer = None,
+        RequestPayer: Literal['requester'] = None,
         ExpectedBucketOwner: str = None
     ) -> "BucketObjectsCollection":
         pass
@@ -1101,7 +1101,7 @@ class BucketObjectsCollection(ResourceCollection):
     def delete(
         self,
         MFA: str = None,
-        RequestPayer: RequestPayer = None,
+        RequestPayer: Literal['requester'] = None,
         BypassGovernanceRetention: bool = None,
         ExpectedBucketOwner: str = None
     ) -> DeleteObjectsOutputTypeDef:
@@ -2463,7 +2463,7 @@ Type annotations for `boto3.resource("s3").abort` method.
 ```python
 def abort(
     self,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> AbortMultipartUploadOutputTypeDef:
     pass
@@ -2479,7 +2479,7 @@ Type annotations for `boto3.resource("s3").complete` method.
 def complete(
     self,
     MultipartUpload: CompletedMultipartUploadTypeDef = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> _Object:
     pass
@@ -2531,7 +2531,7 @@ class MultipartUploadPartsCollection(ResourceCollection):
         self,
         MaxParts: int = None,
         PartNumberMarker: int = None,
-        RequestPayer: RequestPayer = None,
+        RequestPayer: Literal['requester'] = None,
         ExpectedBucketOwner: str = None
     ) -> "MultipartUploadPartsCollection":
         pass
@@ -2635,7 +2635,7 @@ def copy_from(
     CopySourceSSECustomerAlgorithm: str = None,
     CopySourceSSECustomerKey: str = None,
     CopySourceSSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None,
     ExpectedSourceBucketOwner: str = None
 ) -> UploadPartCopyOutputTypeDef:
@@ -2670,7 +2670,7 @@ def upload(
     SSECustomerAlgorithm: str = None,
     SSECustomerKey: str = None,
     SSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> UploadPartOutputTypeDef:
     pass
@@ -2882,7 +2882,7 @@ def copy_from(
     CopySourceSSECustomerAlgorithm: str = None,
     CopySourceSSECustomerKey: str = None,
     CopySourceSSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     Tagging: str = None,
     ObjectLockMode: ObjectLockMode = None,
     ObjectLockRetainUntilDate: datetime = None,
@@ -2904,7 +2904,7 @@ def delete(
     self,
     MFA: str = None,
     VersionId: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     BypassGovernanceRetention: bool = None,
     ExpectedBucketOwner: str = None
 ) -> DeleteObjectOutputTypeDef:
@@ -2969,7 +2969,7 @@ def get(
     SSECustomerAlgorithm: str = None,
     SSECustomerKey: str = None,
     SSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     PartNumber: int = None,
     ExpectedBucketOwner: str = None
 ) -> GetObjectOutputTypeDef:
@@ -3019,7 +3019,7 @@ def initiate_multipart_upload(
     SSEKMSKeyId: str = None,
     SSEKMSEncryptionContext: str = None,
     BucketKeyEnabled: bool = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     Tagging: str = None,
     ObjectLockMode: ObjectLockMode = None,
     ObjectLockRetainUntilDate: datetime = None,
@@ -3075,7 +3075,7 @@ def put(
     SSEKMSKeyId: str = None,
     SSEKMSEncryptionContext: str = None,
     BucketKeyEnabled: bool = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     Tagging: str = None,
     ObjectLockMode: ObjectLockMode = None,
     ObjectLockRetainUntilDate: datetime = None,
@@ -3109,7 +3109,7 @@ def restore_object(
     self,
     VersionId: str = None,
     RestoreRequest: RestoreRequestTypeDef = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> RestoreObjectOutputTypeDef:
     pass
@@ -3270,7 +3270,7 @@ def put(
     GrantReadACP: str = None,
     GrantWrite: str = None,
     GrantWriteACP: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     VersionId: str = None,
     ExpectedBucketOwner: str = None
 ) -> PutObjectAclOutputTypeDef:
@@ -3441,7 +3441,7 @@ def copy_from(
     CopySourceSSECustomerAlgorithm: str = None,
     CopySourceSSECustomerKey: str = None,
     CopySourceSSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     Tagging: str = None,
     ObjectLockMode: ObjectLockMode = None,
     ObjectLockRetainUntilDate: datetime = None,
@@ -3463,7 +3463,7 @@ def delete(
     self,
     MFA: str = None,
     VersionId: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     BypassGovernanceRetention: bool = None,
     ExpectedBucketOwner: str = None
 ) -> DeleteObjectOutputTypeDef:
@@ -3494,7 +3494,7 @@ def get(
     SSECustomerAlgorithm: str = None,
     SSECustomerKey: str = None,
     SSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     PartNumber: int = None,
     ExpectedBucketOwner: str = None
 ) -> GetObjectOutputTypeDef:
@@ -3544,7 +3544,7 @@ def initiate_multipart_upload(
     SSEKMSKeyId: str = None,
     SSEKMSEncryptionContext: str = None,
     BucketKeyEnabled: bool = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     Tagging: str = None,
     ObjectLockMode: ObjectLockMode = None,
     ObjectLockRetainUntilDate: datetime = None,
@@ -3600,7 +3600,7 @@ def put(
     SSEKMSKeyId: str = None,
     SSEKMSEncryptionContext: str = None,
     BucketKeyEnabled: bool = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     Tagging: str = None,
     ObjectLockMode: ObjectLockMode = None,
     ObjectLockRetainUntilDate: datetime = None,
@@ -3621,7 +3621,7 @@ def restore_object(
     self,
     VersionId: str = None,
     RestoreRequest: RestoreRequestTypeDef = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> RestoreObjectOutputTypeDef:
     pass
@@ -3728,7 +3728,7 @@ Type annotations for `boto3.resource("s3").delete` method.
 def delete(
     self,
     MFA: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     BypassGovernanceRetention: bool = None,
     ExpectedBucketOwner: str = None
 ) -> DeleteObjectOutputTypeDef:
@@ -3758,7 +3758,7 @@ def get(
     SSECustomerAlgorithm: str = None,
     SSECustomerKey: str = None,
     SSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     PartNumber: int = None,
     ExpectedBucketOwner: str = None
 ) -> GetObjectOutputTypeDef:
@@ -3795,7 +3795,7 @@ def head(
     SSECustomerAlgorithm: str = None,
     SSECustomerKey: str = None,
     SSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     PartNumber: int = None,
     ExpectedBucketOwner: str = None
 ) -> HeadObjectOutputTypeDef:

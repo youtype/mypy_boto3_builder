@@ -46,12 +46,6 @@ type annotations stubs module [mypy_boto3_athena](https://pypi.org/project/mypy-
     - [update_prepared_statement](#update_prepared_statement)
     - [update_work_group](#update_work_group)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
 
 ## AthenaClient
 
@@ -651,107 +645,18 @@ def update_work_group(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("athena").get_paginator` method.
-
-[Paginator.GetQueryResults documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena.html#Athena.Paginator.GetQueryResults)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetQueryResultsPaginatorName
-) -> GetQueryResultsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("athena").get_paginator` method.
+Type annotations for `boto3.client("athena").get_paginator` method with overloads.
 
-[Paginator.ListDataCatalogs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena.html#Athena.Paginator.ListDataCatalogs)
+- `client.get_paginator("get_query_results")` -> [GetQueryResultsPaginator](./paginators.md#getqueryresultspaginator)
+- `client.get_paginator("list_data_catalogs")` -> [ListDataCatalogsPaginator](./paginators.md#listdatacatalogspaginator)
+- `client.get_paginator("list_databases")` -> [ListDatabasesPaginator](./paginators.md#listdatabasespaginator)
+- `client.get_paginator("list_named_queries")` -> [ListNamedQueriesPaginator](./paginators.md#listnamedqueriespaginator)
+- `client.get_paginator("list_query_executions")` -> [ListQueryExecutionsPaginator](./paginators.md#listqueryexecutionspaginator)
+- `client.get_paginator("list_table_metadata")` -> [ListTableMetadataPaginator](./paginators.md#listtablemetadatapaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDataCatalogsPaginatorName
-) -> ListDataCatalogsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("athena").get_paginator` method.
-
-[Paginator.ListDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena.html#Athena.Paginator.ListDatabases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatabasesPaginatorName
-) -> ListDatabasesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("athena").get_paginator` method.
-
-[Paginator.ListNamedQueries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena.html#Athena.Paginator.ListNamedQueries)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListNamedQueriesPaginatorName
-) -> ListNamedQueriesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("athena").get_paginator` method.
-
-[Paginator.ListQueryExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena.html#Athena.Paginator.ListQueryExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListQueryExecutionsPaginatorName
-) -> ListQueryExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("athena").get_paginator` method.
-
-[Paginator.ListTableMetadata documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena.html#Athena.Paginator.ListTableMetadata)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTableMetadataPaginatorName
-) -> ListTableMetadataPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("athena").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/athena.html#Athena.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```

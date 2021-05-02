@@ -44,18 +44,7 @@ type annotations stubs module [mypy_boto3_eks](https://pypi.org/project/mypy-bot
     - [update_nodegroup_config](#update_nodegroup_config)
     - [update_nodegroup_version](#update_nodegroup_version)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
-    - [get_waiter](#get_waiter-4)
-    - [get_waiter](#get_waiter-5)
 
 ## EKSClient
 
@@ -668,197 +657,30 @@ def update_nodegroup_version(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("eks").get_paginator` method.
-
-[Paginator.DescribeAddonVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Paginator.DescribeAddonVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAddonVersionsPaginatorName
-) -> DescribeAddonVersionsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("eks").get_paginator` method.
+Type annotations for `boto3.client("eks").get_paginator` method with overloads.
 
-[Paginator.ListAddons documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Paginator.ListAddons)
+- `client.get_paginator("describe_addon_versions")` -> [DescribeAddonVersionsPaginator](./paginators.md#describeaddonversionspaginator)
+- `client.get_paginator("list_addons")` -> [ListAddonsPaginator](./paginators.md#listaddonspaginator)
+- `client.get_paginator("list_clusters")` -> [ListClustersPaginator](./paginators.md#listclusterspaginator)
+- `client.get_paginator("list_fargate_profiles")` -> [ListFargateProfilesPaginator](./paginators.md#listfargateprofilespaginator)
+- `client.get_paginator("list_identity_provider_configs")` -> [ListIdentityProviderConfigsPaginator](./paginators.md#listidentityproviderconfigspaginator)
+- `client.get_paginator("list_nodegroups")` -> [ListNodegroupsPaginator](./paginators.md#listnodegroupspaginator)
+- `client.get_paginator("list_updates")` -> [ListUpdatesPaginator](./paginators.md#listupdatespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAddonsPaginatorName
-) -> ListAddonsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("eks").get_paginator` method.
-
-[Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Paginator.ListClusters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListClustersPaginatorName
-) -> ListClustersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("eks").get_paginator` method.
-
-[Paginator.ListFargateProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Paginator.ListFargateProfiles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFargateProfilesPaginatorName
-) -> ListFargateProfilesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("eks").get_paginator` method.
-
-[Paginator.ListIdentityProviderConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Paginator.ListIdentityProviderConfigs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListIdentityProviderConfigsPaginatorName
-) -> ListIdentityProviderConfigsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("eks").get_paginator` method.
-
-[Paginator.ListNodegroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Paginator.ListNodegroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListNodegroupsPaginatorName
-) -> ListNodegroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("eks").get_paginator` method.
-
-[Paginator.ListUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Paginator.ListUpdates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUpdatesPaginatorName
-) -> ListUpdatesPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("eks").get_waiter` method.
+Type annotations for `boto3.client("eks").get_waiter` method with overloads.
 
-[Waiter.AddonActive documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Waiter.AddonActive)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: AddonActiveWaiterName
-) -> AddonActiveWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("eks").get_waiter` method.
-
-[Waiter.AddonDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Waiter.AddonDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: AddonDeletedWaiterName
-) -> AddonDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("eks").get_waiter` method.
-
-[Waiter.ClusterActive documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Waiter.ClusterActive)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ClusterActiveWaiterName
-) -> ClusterActiveWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("eks").get_waiter` method.
-
-[Waiter.ClusterDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Waiter.ClusterDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ClusterDeletedWaiterName
-) -> ClusterDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("eks").get_waiter` method.
-
-[Waiter.NodegroupActive documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Waiter.NodegroupActive)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: NodegroupActiveWaiterName
-) -> NodegroupActiveWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("eks").get_waiter` method.
-
-[Waiter.NodegroupDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/eks.html#EKS.Waiter.NodegroupDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: NodegroupDeletedWaiterName
-) -> NodegroupDeletedWaiter:
-    pass
-```
+- `client.get_waiter("addon_active")` -> [AddonActiveWaiter](./waiters.md#addonactivewaiter)
+- `client.get_waiter("addon_deleted")` -> [AddonDeletedWaiter](./waiters.md#addondeletedwaiter)
+- `client.get_waiter("cluster_active")` -> [ClusterActiveWaiter](./waiters.md#clusteractivewaiter)
+- `client.get_waiter("cluster_deleted")` -> [ClusterDeletedWaiter](./waiters.md#clusterdeletedwaiter)
+- `client.get_waiter("nodegroup_active")` -> [NodegroupActiveWaiter](./waiters.md#nodegroupactivewaiter)
+- `client.get_waiter("nodegroup_deleted")` -> [NodegroupDeletedWaiter](./waiters.md#nodegroupdeletedwaiter)

@@ -112,14 +112,6 @@ type annotations stubs module [mypy_boto3_cognito_idp](https://pypi.org/project/
     - [verify_software_token](#verify_software_token)
     - [verify_user_attribute](#verify_user_attribute)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
 
 ## CognitoIdentityProviderClient
 
@@ -1908,137 +1900,20 @@ def verify_user_attribute(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("cognito-idp").get_paginator` method.
-
-[Paginator.AdminListGroupsForUser documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListGroupsForUser)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: AdminListGroupsForUserPaginatorName
-) -> AdminListGroupsForUserPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("cognito-idp").get_paginator` method.
+Type annotations for `boto3.client("cognito-idp").get_paginator` method with overloads.
 
-[Paginator.AdminListUserAuthEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListUserAuthEvents)
+- `client.get_paginator("admin_list_groups_for_user")` -> [AdminListGroupsForUserPaginator](./paginators.md#adminlistgroupsforuserpaginator)
+- `client.get_paginator("admin_list_user_auth_events")` -> [AdminListUserAuthEventsPaginator](./paginators.md#adminlistuserautheventspaginator)
+- `client.get_paginator("list_groups")` -> [ListGroupsPaginator](./paginators.md#listgroupspaginator)
+- `client.get_paginator("list_identity_providers")` -> [ListIdentityProvidersPaginator](./paginators.md#listidentityproviderspaginator)
+- `client.get_paginator("list_resource_servers")` -> [ListResourceServersPaginator](./paginators.md#listresourceserverspaginator)
+- `client.get_paginator("list_user_pool_clients")` -> [ListUserPoolClientsPaginator](./paginators.md#listuserpoolclientspaginator)
+- `client.get_paginator("list_user_pools")` -> [ListUserPoolsPaginator](./paginators.md#listuserpoolspaginator)
+- `client.get_paginator("list_users")` -> [ListUsersPaginator](./paginators.md#listuserspaginator)
+- `client.get_paginator("list_users_in_group")` -> [ListUsersInGroupPaginator](./paginators.md#listusersingrouppaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: AdminListUserAuthEventsPaginatorName
-) -> AdminListUserAuthEventsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("cognito-idp").get_paginator` method.
-
-[Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGroupsPaginatorName
-) -> ListGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cognito-idp").get_paginator` method.
-
-[Paginator.ListIdentityProviders documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListIdentityProviders)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListIdentityProvidersPaginatorName
-) -> ListIdentityProvidersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cognito-idp").get_paginator` method.
-
-[Paginator.ListResourceServers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListResourceServers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourceServersPaginatorName
-) -> ListResourceServersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cognito-idp").get_paginator` method.
-
-[Paginator.ListUserPoolClients documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPoolClients)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUserPoolClientsPaginatorName
-) -> ListUserPoolClientsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cognito-idp").get_paginator` method.
-
-[Paginator.ListUserPools documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPools)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUserPoolsPaginatorName
-) -> ListUserPoolsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cognito-idp").get_paginator` method.
-
-[Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUsersPaginatorName
-) -> ListUsersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cognito-idp").get_paginator` method.
-
-[Paginator.ListUsersInGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsersInGroup)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUsersInGroupPaginatorName
-) -> ListUsersInGroupPaginator:
-    pass
-```

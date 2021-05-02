@@ -11,58 +11,6 @@ type annotations stubs module [mypy_boto3_cognito_idp](https://pypi.org/project/
   - [AccountTakeoverActionsTypeTypeDef](#accounttakeoveractionstypetypedef)
   - [AccountTakeoverRiskConfigurationTypeTypeDef](#accounttakeoverriskconfigurationtypetypedef)
   - [AdminCreateUserConfigTypeTypeDef](#admincreateuserconfigtypetypedef)
-  - [AnalyticsConfigurationTypeTypeDef](#analyticsconfigurationtypetypedef)
-  - [AttributeTypeTypeDef](#attributetypetypedef)
-  - [AuthEventTypeTypeDef](#autheventtypetypedef)
-  - [AuthenticationResultTypeTypeDef](#authenticationresulttypetypedef)
-  - [ChallengeResponseTypeTypeDef](#challengeresponsetypetypedef)
-  - [CodeDeliveryDetailsTypeTypeDef](#codedeliverydetailstypetypedef)
-  - [CompromisedCredentialsActionsTypeTypeDef](#compromisedcredentialsactionstypetypedef)
-  - [CompromisedCredentialsRiskConfigurationTypeTypeDef](#compromisedcredentialsriskconfigurationtypetypedef)
-  - [CustomDomainConfigTypeTypeDef](#customdomainconfigtypetypedef)
-  - [CustomEmailLambdaVersionConfigTypeTypeDef](#customemaillambdaversionconfigtypetypedef)
-  - [CustomSMSLambdaVersionConfigTypeTypeDef](#customsmslambdaversionconfigtypetypedef)
-  - [DeviceConfigurationTypeTypeDef](#deviceconfigurationtypetypedef)
-  - [DeviceTypeTypeDef](#devicetypetypedef)
-  - [DomainDescriptionTypeTypeDef](#domaindescriptiontypetypedef)
-  - [EmailConfigurationTypeTypeDef](#emailconfigurationtypetypedef)
-  - [EventContextDataTypeTypeDef](#eventcontextdatatypetypedef)
-  - [EventFeedbackTypeTypeDef](#eventfeedbacktypetypedef)
-  - [EventRiskTypeTypeDef](#eventrisktypetypedef)
-  - [GroupTypeTypeDef](#grouptypetypedef)
-  - [HttpHeaderTypeDef](#httpheadertypedef)
-  - [IdentityProviderTypeTypeDef](#identityprovidertypetypedef)
-  - [LambdaConfigTypeTypeDef](#lambdaconfigtypetypedef)
-  - [MFAOptionTypeTypeDef](#mfaoptiontypetypedef)
-  - [MessageTemplateTypeTypeDef](#messagetemplatetypetypedef)
-  - [NewDeviceMetadataTypeTypeDef](#newdevicemetadatatypetypedef)
-  - [NotifyConfigurationTypeTypeDef](#notifyconfigurationtypetypedef)
-  - [NotifyEmailTypeTypeDef](#notifyemailtypetypedef)
-  - [NumberAttributeConstraintsTypeTypeDef](#numberattributeconstraintstypetypedef)
-  - [PasswordPolicyTypeTypeDef](#passwordpolicytypetypedef)
-  - [ProviderDescriptionTypeDef](#providerdescriptiontypedef)
-  - [RecoveryOptionTypeTypeDef](#recoveryoptiontypetypedef)
-  - [ResourceServerScopeTypeTypeDef](#resourceserverscopetypetypedef)
-  - [ResourceServerTypeTypeDef](#resourceservertypetypedef)
-  - [RiskConfigurationTypeTypeDef](#riskconfigurationtypetypedef)
-  - [RiskExceptionConfigurationTypeTypeDef](#riskexceptionconfigurationtypetypedef)
-  - [SchemaAttributeTypeTypeDef](#schemaattributetypetypedef)
-  - [SmsConfigurationTypeTypeDef](#smsconfigurationtypetypedef)
-  - [SmsMfaConfigTypeTypeDef](#smsmfaconfigtypetypedef)
-  - [SoftwareTokenMfaConfigTypeTypeDef](#softwaretokenmfaconfigtypetypedef)
-  - [StringAttributeConstraintsTypeTypeDef](#stringattributeconstraintstypetypedef)
-  - [TokenValidityUnitsTypeTypeDef](#tokenvalidityunitstypetypedef)
-  - [UICustomizationTypeTypeDef](#uicustomizationtypetypedef)
-  - [UserImportJobTypeTypeDef](#userimportjobtypetypedef)
-  - [UserPoolAddOnsTypeTypeDef](#userpooladdonstypetypedef)
-  - [UserPoolClientDescriptionTypeDef](#userpoolclientdescriptiontypedef)
-  - [UserPoolClientTypeTypeDef](#userpoolclienttypetypedef)
-  - [UserPoolDescriptionTypeTypeDef](#userpooldescriptiontypetypedef)
-  - [UserPoolPolicyTypeTypeDef](#userpoolpolicytypetypedef)
-  - [UserPoolTypeTypeDef](#userpooltypetypedef)
-  - [UserTypeTypeDef](#usertypetypedef)
-  - [UsernameConfigurationTypeTypeDef](#usernameconfigurationtypetypedef)
-  - [VerificationMessageTemplateTypeTypeDef](#verificationmessagetemplatetypetypedef)
   - [AdminCreateUserResponseTypeDef](#admincreateuserresponsetypedef)
   - [AdminGetDeviceResponseTypeDef](#admingetdeviceresponsetypedef)
   - [AdminGetUserResponseTypeDef](#admingetuserresponsetypedef)
@@ -71,8 +19,16 @@ type annotations stubs module [mypy_boto3_cognito_idp](https://pypi.org/project/
   - [AdminListGroupsForUserResponseTypeDef](#adminlistgroupsforuserresponsetypedef)
   - [AdminListUserAuthEventsResponseTypeDef](#adminlistuserautheventsresponsetypedef)
   - [AdminRespondToAuthChallengeResponseTypeDef](#adminrespondtoauthchallengeresponsetypedef)
+  - [AnalyticsConfigurationTypeTypeDef](#analyticsconfigurationtypetypedef)
   - [AnalyticsMetadataTypeTypeDef](#analyticsmetadatatypetypedef)
   - [AssociateSoftwareTokenResponseTypeDef](#associatesoftwaretokenresponsetypedef)
+  - [AttributeTypeTypeDef](#attributetypetypedef)
+  - [AuthEventTypeTypeDef](#autheventtypetypedef)
+  - [AuthenticationResultTypeTypeDef](#authenticationresulttypetypedef)
+  - [ChallengeResponseTypeTypeDef](#challengeresponsetypetypedef)
+  - [CodeDeliveryDetailsTypeTypeDef](#codedeliverydetailstypetypedef)
+  - [CompromisedCredentialsActionsTypeTypeDef](#compromisedcredentialsactionstypetypedef)
+  - [CompromisedCredentialsRiskConfigurationTypeTypeDef](#compromisedcredentialsriskconfigurationtypetypedef)
   - [ConfirmDeviceResponseTypeDef](#confirmdeviceresponsetypedef)
   - [ContextDataTypeTypeDef](#contextdatatypetypedef)
   - [CreateGroupResponseTypeDef](#creategroupresponsetypedef)
@@ -82,6 +38,9 @@ type annotations stubs module [mypy_boto3_cognito_idp](https://pypi.org/project/
   - [CreateUserPoolClientResponseTypeDef](#createuserpoolclientresponsetypedef)
   - [CreateUserPoolDomainResponseTypeDef](#createuserpooldomainresponsetypedef)
   - [CreateUserPoolResponseTypeDef](#createuserpoolresponsetypedef)
+  - [CustomDomainConfigTypeTypeDef](#customdomainconfigtypetypedef)
+  - [CustomEmailLambdaVersionConfigTypeTypeDef](#customemaillambdaversionconfigtypetypedef)
+  - [CustomSMSLambdaVersionConfigTypeTypeDef](#customsmslambdaversionconfigtypetypedef)
   - [DescribeIdentityProviderResponseTypeDef](#describeidentityproviderresponsetypedef)
   - [DescribeResourceServerResponseTypeDef](#describeresourceserverresponsetypedef)
   - [DescribeRiskConfigurationResponseTypeDef](#describeriskconfigurationresponsetypedef)
@@ -89,7 +48,14 @@ type annotations stubs module [mypy_boto3_cognito_idp](https://pypi.org/project/
   - [DescribeUserPoolClientResponseTypeDef](#describeuserpoolclientresponsetypedef)
   - [DescribeUserPoolDomainResponseTypeDef](#describeuserpooldomainresponsetypedef)
   - [DescribeUserPoolResponseTypeDef](#describeuserpoolresponsetypedef)
+  - [DeviceConfigurationTypeTypeDef](#deviceconfigurationtypetypedef)
   - [DeviceSecretVerifierConfigTypeTypeDef](#devicesecretverifierconfigtypetypedef)
+  - [DeviceTypeTypeDef](#devicetypetypedef)
+  - [DomainDescriptionTypeTypeDef](#domaindescriptiontypetypedef)
+  - [EmailConfigurationTypeTypeDef](#emailconfigurationtypetypedef)
+  - [EventContextDataTypeTypeDef](#eventcontextdatatypetypedef)
+  - [EventFeedbackTypeTypeDef](#eventfeedbacktypetypedef)
+  - [EventRiskTypeTypeDef](#eventrisktypetypedef)
   - [ForgotPasswordResponseTypeDef](#forgotpasswordresponsetypedef)
   - [GetCSVHeaderResponseTypeDef](#getcsvheaderresponsetypedef)
   - [GetDeviceResponseTypeDef](#getdeviceresponsetypedef)
@@ -100,7 +66,11 @@ type annotations stubs module [mypy_boto3_cognito_idp](https://pypi.org/project/
   - [GetUserAttributeVerificationCodeResponseTypeDef](#getuserattributeverificationcoderesponsetypedef)
   - [GetUserPoolMfaConfigResponseTypeDef](#getuserpoolmfaconfigresponsetypedef)
   - [GetUserResponseTypeDef](#getuserresponsetypedef)
+  - [GroupTypeTypeDef](#grouptypetypedef)
+  - [HttpHeaderTypeDef](#httpheadertypedef)
+  - [IdentityProviderTypeTypeDef](#identityprovidertypetypedef)
   - [InitiateAuthResponseTypeDef](#initiateauthresponsetypedef)
+  - [LambdaConfigTypeTypeDef](#lambdaconfigtypetypedef)
   - [ListDevicesResponseTypeDef](#listdevicesresponsetypedef)
   - [ListGroupsResponseTypeDef](#listgroupsresponsetypedef)
   - [ListIdentityProvidersResponseTypeDef](#listidentityprovidersresponsetypedef)
@@ -111,18 +81,38 @@ type annotations stubs module [mypy_boto3_cognito_idp](https://pypi.org/project/
   - [ListUserPoolsResponseTypeDef](#listuserpoolsresponsetypedef)
   - [ListUsersInGroupResponseTypeDef](#listusersingroupresponsetypedef)
   - [ListUsersResponseTypeDef](#listusersresponsetypedef)
+  - [MFAOptionTypeTypeDef](#mfaoptiontypetypedef)
+  - [MessageTemplateTypeTypeDef](#messagetemplatetypetypedef)
+  - [NewDeviceMetadataTypeTypeDef](#newdevicemetadatatypetypedef)
+  - [NotifyConfigurationTypeTypeDef](#notifyconfigurationtypetypedef)
+  - [NotifyEmailTypeTypeDef](#notifyemailtypetypedef)
+  - [NumberAttributeConstraintsTypeTypeDef](#numberattributeconstraintstypetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PasswordPolicyTypeTypeDef](#passwordpolicytypetypedef)
+  - [ProviderDescriptionTypeDef](#providerdescriptiontypedef)
   - [ProviderUserIdentifierTypeTypeDef](#provideruseridentifiertypetypedef)
+  - [RecoveryOptionTypeTypeDef](#recoveryoptiontypetypedef)
   - [ResendConfirmationCodeResponseTypeDef](#resendconfirmationcoderesponsetypedef)
+  - [ResourceServerScopeTypeTypeDef](#resourceserverscopetypetypedef)
+  - [ResourceServerTypeTypeDef](#resourceservertypetypedef)
   - [RespondToAuthChallengeResponseTypeDef](#respondtoauthchallengeresponsetypedef)
+  - [RiskConfigurationTypeTypeDef](#riskconfigurationtypetypedef)
+  - [RiskExceptionConfigurationTypeTypeDef](#riskexceptionconfigurationtypetypedef)
   - [SMSMfaSettingsTypeTypeDef](#smsmfasettingstypetypedef)
+  - [SchemaAttributeTypeTypeDef](#schemaattributetypetypedef)
   - [SetRiskConfigurationResponseTypeDef](#setriskconfigurationresponsetypedef)
   - [SetUICustomizationResponseTypeDef](#setuicustomizationresponsetypedef)
   - [SetUserPoolMfaConfigResponseTypeDef](#setuserpoolmfaconfigresponsetypedef)
   - [SignUpResponseTypeDef](#signupresponsetypedef)
+  - [SmsConfigurationTypeTypeDef](#smsconfigurationtypetypedef)
+  - [SmsMfaConfigTypeTypeDef](#smsmfaconfigtypetypedef)
+  - [SoftwareTokenMfaConfigTypeTypeDef](#softwaretokenmfaconfigtypetypedef)
   - [SoftwareTokenMfaSettingsTypeTypeDef](#softwaretokenmfasettingstypetypedef)
   - [StartUserImportJobResponseTypeDef](#startuserimportjobresponsetypedef)
   - [StopUserImportJobResponseTypeDef](#stopuserimportjobresponsetypedef)
+  - [StringAttributeConstraintsTypeTypeDef](#stringattributeconstraintstypetypedef)
+  - [TokenValidityUnitsTypeTypeDef](#tokenvalidityunitstypetypedef)
+  - [UICustomizationTypeTypeDef](#uicustomizationtypetypedef)
   - [UpdateGroupResponseTypeDef](#updategroupresponsetypedef)
   - [UpdateIdentityProviderResponseTypeDef](#updateidentityproviderresponsetypedef)
   - [UpdateResourceServerResponseTypeDef](#updateresourceserverresponsetypedef)
@@ -130,6 +120,16 @@ type annotations stubs module [mypy_boto3_cognito_idp](https://pypi.org/project/
   - [UpdateUserPoolClientResponseTypeDef](#updateuserpoolclientresponsetypedef)
   - [UpdateUserPoolDomainResponseTypeDef](#updateuserpooldomainresponsetypedef)
   - [UserContextDataTypeTypeDef](#usercontextdatatypetypedef)
+  - [UserImportJobTypeTypeDef](#userimportjobtypetypedef)
+  - [UserPoolAddOnsTypeTypeDef](#userpooladdonstypetypedef)
+  - [UserPoolClientDescriptionTypeDef](#userpoolclientdescriptiontypedef)
+  - [UserPoolClientTypeTypeDef](#userpoolclienttypetypedef)
+  - [UserPoolDescriptionTypeTypeDef](#userpooldescriptiontypetypedef)
+  - [UserPoolPolicyTypeTypeDef](#userpoolpolicytypetypedef)
+  - [UserPoolTypeTypeDef](#userpooltypetypedef)
+  - [UserTypeTypeDef](#usertypetypedef)
+  - [UsernameConfigurationTypeTypeDef](#usernameconfigurationtypetypedef)
+  - [VerificationMessageTemplateTypeTypeDef](#verificationmessagetemplatetypetypedef)
   - [VerifySoftwareTokenResponseTypeDef](#verifysoftwaretokenresponsetypedef)
 
 ## AccountRecoverySettingTypeTypeDef
@@ -205,6 +205,129 @@ Optional fields:
 - `InviteMessageTemplate`: `"MessageTemplateTypeTypeDef"`
 
 
+## AdminCreateUserResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import AdminCreateUserResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `User`: `"UserTypeTypeDef"`
+
+
+## AdminGetDeviceResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import AdminGetDeviceResponseTypeDef
+```
+
+
+Required fields:
+- `Device`: `"DeviceTypeTypeDef"`
+
+
+
+
+## AdminGetUserResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import AdminGetUserResponseTypeDef
+```
+
+
+Required fields:
+- `Username`: `str`
+
+
+
+Optional fields:
+- `UserAttributes`: `List["AttributeTypeTypeDef"]`
+- `UserCreateDate`: `datetime`
+- `UserLastModifiedDate`: `datetime`
+- `Enabled`: `bool`
+- `UserStatus`: `UserStatusType`
+- `MFAOptions`: `List["MFAOptionTypeTypeDef"]`
+- `PreferredMfaSetting`: `str`
+- `UserMFASettingList`: `List[str]`
+
+
+## AdminInitiateAuthResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import AdminInitiateAuthResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ChallengeName`: `ChallengeNameType`
+- `Session`: `str`
+- `ChallengeParameters`: `Dict[str, str]`
+- `AuthenticationResult`: `"AuthenticationResultTypeTypeDef"`
+
+
+## AdminListDevicesResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import AdminListDevicesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Devices`: `List["DeviceTypeTypeDef"]`
+- `PaginationToken`: `str`
+
+
+## AdminListGroupsForUserResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import AdminListGroupsForUserResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Groups`: `List["GroupTypeTypeDef"]`
+- `NextToken`: `str`
+
+
+## AdminListUserAuthEventsResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import AdminListUserAuthEventsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AuthEvents`: `List["AuthEventTypeTypeDef"]`
+- `NextToken`: `str`
+
+
+## AdminRespondToAuthChallengeResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import AdminRespondToAuthChallengeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ChallengeName`: `ChallengeNameType`
+- `Session`: `str`
+- `ChallengeParameters`: `Dict[str, str]`
+- `AuthenticationResult`: `"AuthenticationResultTypeTypeDef"`
+
+
 ## AnalyticsConfigurationTypeTypeDef
 
 ```python
@@ -220,6 +343,33 @@ Optional fields:
 - `RoleArn`: `str`
 - `ExternalId`: `str`
 - `UserDataShared`: `bool`
+
+
+## AnalyticsMetadataTypeTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import AnalyticsMetadataTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `AnalyticsEndpointId`: `str`
+
+
+## AssociateSoftwareTokenResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import AssociateSoftwareTokenResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SecretCode`: `str`
+- `Session`: `str`
 
 
 ## AttributeTypeTypeDef
@@ -334,6 +484,129 @@ Optional fields:
 - `EventFilter`: `List[EventFilterType]`
 
 
+## ConfirmDeviceResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ConfirmDeviceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserConfirmationNecessary`: `bool`
+
+
+## ContextDataTypeTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ContextDataTypeTypeDef
+```
+
+
+Required fields:
+- `IpAddress`: `str`
+- `ServerName`: `str`
+- `ServerPath`: `str`
+- `HttpHeaders`: `List["HttpHeaderTypeDef"]`
+
+
+
+Optional fields:
+- `EncodedData`: `str`
+
+
+## CreateGroupResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import CreateGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Group`: `"GroupTypeTypeDef"`
+
+
+## CreateIdentityProviderResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import CreateIdentityProviderResponseTypeDef
+```
+
+
+Required fields:
+- `IdentityProvider`: `"IdentityProviderTypeTypeDef"`
+
+
+
+
+## CreateResourceServerResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import CreateResourceServerResponseTypeDef
+```
+
+
+Required fields:
+- `ResourceServer`: `"ResourceServerTypeTypeDef"`
+
+
+
+
+## CreateUserImportJobResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import CreateUserImportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserImportJob`: `"UserImportJobTypeTypeDef"`
+
+
+## CreateUserPoolClientResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import CreateUserPoolClientResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserPoolClient`: `"UserPoolClientTypeTypeDef"`
+
+
+## CreateUserPoolDomainResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import CreateUserPoolDomainResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CloudFrontDomain`: `str`
+
+
+## CreateUserPoolResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import CreateUserPoolResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserPool`: `"UserPoolTypeTypeDef"`
+
+
 ## CustomDomainConfigTypeTypeDef
 
 ```python
@@ -355,7 +628,7 @@ from mypy_boto3_cognito_idp.type_defs import CustomEmailLambdaVersionConfigTypeT
 
 
 Required fields:
-- `LambdaVersion`: `CustomEmailSenderLambdaVersionType`
+- `LambdaVersion`: `Literal['V1_0']`
 - `LambdaArn`: `str`
 
 
@@ -369,10 +642,101 @@ from mypy_boto3_cognito_idp.type_defs import CustomSMSLambdaVersionConfigTypeTyp
 
 
 Required fields:
-- `LambdaVersion`: `CustomSMSSenderLambdaVersionType`
+- `LambdaVersion`: `Literal['V1_0']`
 - `LambdaArn`: `str`
 
 
+
+
+## DescribeIdentityProviderResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import DescribeIdentityProviderResponseTypeDef
+```
+
+
+Required fields:
+- `IdentityProvider`: `"IdentityProviderTypeTypeDef"`
+
+
+
+
+## DescribeResourceServerResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import DescribeResourceServerResponseTypeDef
+```
+
+
+Required fields:
+- `ResourceServer`: `"ResourceServerTypeTypeDef"`
+
+
+
+
+## DescribeRiskConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import DescribeRiskConfigurationResponseTypeDef
+```
+
+
+Required fields:
+- `RiskConfiguration`: `"RiskConfigurationTypeTypeDef"`
+
+
+
+
+## DescribeUserImportJobResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import DescribeUserImportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserImportJob`: `"UserImportJobTypeTypeDef"`
+
+
+## DescribeUserPoolClientResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import DescribeUserPoolClientResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserPoolClient`: `"UserPoolClientTypeTypeDef"`
+
+
+## DescribeUserPoolDomainResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import DescribeUserPoolDomainResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DomainDescription`: `"DomainDescriptionTypeTypeDef"`
+
+
+## DescribeUserPoolResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import DescribeUserPoolResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserPool`: `"UserPoolTypeTypeDef"`
 
 
 ## DeviceConfigurationTypeTypeDef
@@ -387,6 +751,20 @@ from mypy_boto3_cognito_idp.type_defs import DeviceConfigurationTypeTypeDef
 Optional fields:
 - `ChallengeRequiredOnNewDevice`: `bool`
 - `DeviceOnlyRememberedOnUserPrompt`: `bool`
+
+
+## DeviceSecretVerifierConfigTypeTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import DeviceSecretVerifierConfigTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `PasswordVerifier`: `str`
+- `Salt`: `str`
 
 
 ## DeviceTypeTypeDef
@@ -492,6 +870,145 @@ Optional fields:
 - `CompromisedCredentialsDetected`: `bool`
 
 
+## ForgotPasswordResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ForgotPasswordResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CodeDeliveryDetails`: `"CodeDeliveryDetailsTypeTypeDef"`
+
+
+## GetCSVHeaderResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import GetCSVHeaderResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserPoolId`: `str`
+- `CSVHeader`: `List[str]`
+
+
+## GetDeviceResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import GetDeviceResponseTypeDef
+```
+
+
+Required fields:
+- `Device`: `"DeviceTypeTypeDef"`
+
+
+
+
+## GetGroupResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import GetGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Group`: `"GroupTypeTypeDef"`
+
+
+## GetIdentityProviderByIdentifierResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import GetIdentityProviderByIdentifierResponseTypeDef
+```
+
+
+Required fields:
+- `IdentityProvider`: `"IdentityProviderTypeTypeDef"`
+
+
+
+
+## GetSigningCertificateResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import GetSigningCertificateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Certificate`: `str`
+
+
+## GetUICustomizationResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import GetUICustomizationResponseTypeDef
+```
+
+
+Required fields:
+- `UICustomization`: `"UICustomizationTypeTypeDef"`
+
+
+
+
+## GetUserAttributeVerificationCodeResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import GetUserAttributeVerificationCodeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CodeDeliveryDetails`: `"CodeDeliveryDetailsTypeTypeDef"`
+
+
+## GetUserPoolMfaConfigResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import GetUserPoolMfaConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SmsMfaConfiguration`: `"SmsMfaConfigTypeTypeDef"`
+- `SoftwareTokenMfaConfiguration`: `"SoftwareTokenMfaConfigTypeTypeDef"`
+- `MfaConfiguration`: `UserPoolMfaType`
+
+
+## GetUserResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import GetUserResponseTypeDef
+```
+
+
+Required fields:
+- `Username`: `str`
+- `UserAttributes`: `List["AttributeTypeTypeDef"]`
+
+
+
+Optional fields:
+- `MFAOptions`: `List["MFAOptionTypeTypeDef"]`
+- `PreferredMfaSetting`: `str`
+- `UserMFASettingList`: `List[str]`
+
+
 ## GroupTypeTypeDef
 
 ```python
@@ -545,6 +1062,22 @@ Optional fields:
 - `CreationDate`: `datetime`
 
 
+## InitiateAuthResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import InitiateAuthResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ChallengeName`: `ChallengeNameType`
+- `Session`: `str`
+- `ChallengeParameters`: `Dict[str, str]`
+- `AuthenticationResult`: `"AuthenticationResultTypeTypeDef"`
+
+
 ## LambdaConfigTypeTypeDef
 
 ```python
@@ -568,6 +1101,149 @@ Optional fields:
 - `CustomSMSSender`: `"CustomSMSLambdaVersionConfigTypeTypeDef"`
 - `CustomEmailSender`: `"CustomEmailLambdaVersionConfigTypeTypeDef"`
 - `KMSKeyID`: `str`
+
+
+## ListDevicesResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ListDevicesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Devices`: `List["DeviceTypeTypeDef"]`
+- `PaginationToken`: `str`
+
+
+## ListGroupsResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ListGroupsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Groups`: `List["GroupTypeTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListIdentityProvidersResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ListIdentityProvidersResponseTypeDef
+```
+
+
+Required fields:
+- `Providers`: `List["ProviderDescriptionTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListResourceServersResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ListResourceServersResponseTypeDef
+```
+
+
+Required fields:
+- `ResourceServers`: `List["ResourceServerTypeTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
+
+
+## ListUserImportJobsResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ListUserImportJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserImportJobs`: `List["UserImportJobTypeTypeDef"]`
+- `PaginationToken`: `str`
+
+
+## ListUserPoolClientsResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ListUserPoolClientsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserPoolClients`: `List["UserPoolClientDescriptionTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListUserPoolsResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ListUserPoolsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserPools`: `List["UserPoolDescriptionTypeTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListUsersInGroupResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ListUsersInGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Users`: `List["UserTypeTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListUsersResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ListUsersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Users`: `List["UserTypeTypeDef"]`
+- `PaginationToken`: `str`
 
 
 ## MFAOptionTypeTypeDef
@@ -664,6 +1340,21 @@ Optional fields:
 - `MaxValue`: `str`
 
 
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
 ## PasswordPolicyTypeTypeDef
 
 ```python
@@ -698,6 +1389,21 @@ Optional fields:
 - `CreationDate`: `datetime`
 
 
+## ProviderUserIdentifierTypeTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ProviderUserIdentifierTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProviderName`: `str`
+- `ProviderAttributeName`: `str`
+- `ProviderAttributeValue`: `str`
+
+
 ## RecoveryOptionTypeTypeDef
 
 ```python
@@ -710,6 +1416,19 @@ Required fields:
 - `Name`: `RecoveryOptionNameType`
 
 
+
+
+## ResendConfirmationCodeResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import ResendConfirmationCodeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CodeDeliveryDetails`: `"CodeDeliveryDetailsTypeTypeDef"`
 
 
 ## ResourceServerScopeTypeTypeDef
@@ -740,6 +1459,22 @@ Optional fields:
 - `Identifier`: `str`
 - `Name`: `str`
 - `Scopes`: `List["ResourceServerScopeTypeTypeDef"]`
+
+
+## RespondToAuthChallengeResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import RespondToAuthChallengeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ChallengeName`: `ChallengeNameType`
+- `Session`: `str`
+- `ChallengeParameters`: `Dict[str, str]`
+- `AuthenticationResult`: `"AuthenticationResultTypeTypeDef"`
 
 
 ## RiskConfigurationTypeTypeDef
@@ -774,6 +1509,20 @@ Optional fields:
 - `SkippedIPRangeList`: `List[str]`
 
 
+## SMSMfaSettingsTypeTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import SMSMfaSettingsTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+- `PreferredMfa`: `bool`
+
+
 ## SchemaAttributeTypeTypeDef
 
 ```python
@@ -791,6 +1540,64 @@ Optional fields:
 - `Required`: `bool`
 - `NumberAttributeConstraints`: `"NumberAttributeConstraintsTypeTypeDef"`
 - `StringAttributeConstraints`: `"StringAttributeConstraintsTypeTypeDef"`
+
+
+## SetRiskConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import SetRiskConfigurationResponseTypeDef
+```
+
+
+Required fields:
+- `RiskConfiguration`: `"RiskConfigurationTypeTypeDef"`
+
+
+
+
+## SetUICustomizationResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import SetUICustomizationResponseTypeDef
+```
+
+
+Required fields:
+- `UICustomization`: `"UICustomizationTypeTypeDef"`
+
+
+
+
+## SetUserPoolMfaConfigResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import SetUserPoolMfaConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SmsMfaConfiguration`: `"SmsMfaConfigTypeTypeDef"`
+- `SoftwareTokenMfaConfiguration`: `"SoftwareTokenMfaConfigTypeTypeDef"`
+- `MfaConfiguration`: `UserPoolMfaType`
+
+
+## SignUpResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import SignUpResponseTypeDef
+```
+
+
+Required fields:
+- `UserConfirmed`: `bool`
+- `UserSub`: `str`
+
+
+
+Optional fields:
+- `CodeDeliveryDetails`: `"CodeDeliveryDetailsTypeTypeDef"`
 
 
 ## SmsConfigurationTypeTypeDef
@@ -834,6 +1641,46 @@ from mypy_boto3_cognito_idp.type_defs import SoftwareTokenMfaConfigTypeTypeDef
 
 Optional fields:
 - `Enabled`: `bool`
+
+
+## SoftwareTokenMfaSettingsTypeTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import SoftwareTokenMfaSettingsTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+- `PreferredMfa`: `bool`
+
+
+## StartUserImportJobResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import StartUserImportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserImportJob`: `"UserImportJobTypeTypeDef"`
+
+
+## StopUserImportJobResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import StopUserImportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserImportJob`: `"UserImportJobTypeTypeDef"`
 
 
 ## StringAttributeConstraintsTypeTypeDef
@@ -882,6 +1729,97 @@ Optional fields:
 - `CSSVersion`: `str`
 - `LastModifiedDate`: `datetime`
 - `CreationDate`: `datetime`
+
+
+## UpdateGroupResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import UpdateGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Group`: `"GroupTypeTypeDef"`
+
+
+## UpdateIdentityProviderResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import UpdateIdentityProviderResponseTypeDef
+```
+
+
+Required fields:
+- `IdentityProvider`: `"IdentityProviderTypeTypeDef"`
+
+
+
+
+## UpdateResourceServerResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import UpdateResourceServerResponseTypeDef
+```
+
+
+Required fields:
+- `ResourceServer`: `"ResourceServerTypeTypeDef"`
+
+
+
+
+## UpdateUserAttributesResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import UpdateUserAttributesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CodeDeliveryDetailsList`: `List["CodeDeliveryDetailsTypeTypeDef"]`
+
+
+## UpdateUserPoolClientResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import UpdateUserPoolClientResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserPoolClient`: `"UserPoolClientTypeTypeDef"`
+
+
+## UpdateUserPoolDomainResponseTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import UpdateUserPoolDomainResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CloudFrontDomain`: `str`
+
+
+## UserContextDataTypeTypeDef
+
+```python
+from mypy_boto3_cognito_idp.type_defs import UserContextDataTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `EncodedData`: `str`
 
 
 ## UserImportJobTypeTypeDef
@@ -1093,944 +2031,6 @@ Optional fields:
 - `EmailMessageByLink`: `str`
 - `EmailSubjectByLink`: `str`
 - `DefaultEmailOption`: `DefaultEmailOptionType`
-
-
-## AdminCreateUserResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import AdminCreateUserResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `User`: `"UserTypeTypeDef"`
-
-
-## AdminGetDeviceResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import AdminGetDeviceResponseTypeDef
-```
-
-
-Required fields:
-- `Device`: `"DeviceTypeTypeDef"`
-
-
-
-
-## AdminGetUserResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import AdminGetUserResponseTypeDef
-```
-
-
-Required fields:
-- `Username`: `str`
-
-
-
-Optional fields:
-- `UserAttributes`: `List["AttributeTypeTypeDef"]`
-- `UserCreateDate`: `datetime`
-- `UserLastModifiedDate`: `datetime`
-- `Enabled`: `bool`
-- `UserStatus`: `UserStatusType`
-- `MFAOptions`: `List["MFAOptionTypeTypeDef"]`
-- `PreferredMfaSetting`: `str`
-- `UserMFASettingList`: `List[str]`
-
-
-## AdminInitiateAuthResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import AdminInitiateAuthResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ChallengeName`: `ChallengeNameType`
-- `Session`: `str`
-- `ChallengeParameters`: `Dict[str, str]`
-- `AuthenticationResult`: `"AuthenticationResultTypeTypeDef"`
-
-
-## AdminListDevicesResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import AdminListDevicesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Devices`: `List["DeviceTypeTypeDef"]`
-- `PaginationToken`: `str`
-
-
-## AdminListGroupsForUserResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import AdminListGroupsForUserResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Groups`: `List["GroupTypeTypeDef"]`
-- `NextToken`: `str`
-
-
-## AdminListUserAuthEventsResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import AdminListUserAuthEventsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AuthEvents`: `List["AuthEventTypeTypeDef"]`
-- `NextToken`: `str`
-
-
-## AdminRespondToAuthChallengeResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import AdminRespondToAuthChallengeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ChallengeName`: `ChallengeNameType`
-- `Session`: `str`
-- `ChallengeParameters`: `Dict[str, str]`
-- `AuthenticationResult`: `"AuthenticationResultTypeTypeDef"`
-
-
-## AnalyticsMetadataTypeTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import AnalyticsMetadataTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `AnalyticsEndpointId`: `str`
-
-
-## AssociateSoftwareTokenResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import AssociateSoftwareTokenResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SecretCode`: `str`
-- `Session`: `str`
-
-
-## ConfirmDeviceResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ConfirmDeviceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserConfirmationNecessary`: `bool`
-
-
-## ContextDataTypeTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ContextDataTypeTypeDef
-```
-
-
-Required fields:
-- `IpAddress`: `str`
-- `ServerName`: `str`
-- `ServerPath`: `str`
-- `HttpHeaders`: `List["HttpHeaderTypeDef"]`
-
-
-
-Optional fields:
-- `EncodedData`: `str`
-
-
-## CreateGroupResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import CreateGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Group`: `"GroupTypeTypeDef"`
-
-
-## CreateIdentityProviderResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import CreateIdentityProviderResponseTypeDef
-```
-
-
-Required fields:
-- `IdentityProvider`: `"IdentityProviderTypeTypeDef"`
-
-
-
-
-## CreateResourceServerResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import CreateResourceServerResponseTypeDef
-```
-
-
-Required fields:
-- `ResourceServer`: `"ResourceServerTypeTypeDef"`
-
-
-
-
-## CreateUserImportJobResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import CreateUserImportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserImportJob`: `"UserImportJobTypeTypeDef"`
-
-
-## CreateUserPoolClientResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import CreateUserPoolClientResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserPoolClient`: `"UserPoolClientTypeTypeDef"`
-
-
-## CreateUserPoolDomainResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import CreateUserPoolDomainResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CloudFrontDomain`: `str`
-
-
-## CreateUserPoolResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import CreateUserPoolResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserPool`: `"UserPoolTypeTypeDef"`
-
-
-## DescribeIdentityProviderResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import DescribeIdentityProviderResponseTypeDef
-```
-
-
-Required fields:
-- `IdentityProvider`: `"IdentityProviderTypeTypeDef"`
-
-
-
-
-## DescribeResourceServerResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import DescribeResourceServerResponseTypeDef
-```
-
-
-Required fields:
-- `ResourceServer`: `"ResourceServerTypeTypeDef"`
-
-
-
-
-## DescribeRiskConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import DescribeRiskConfigurationResponseTypeDef
-```
-
-
-Required fields:
-- `RiskConfiguration`: `"RiskConfigurationTypeTypeDef"`
-
-
-
-
-## DescribeUserImportJobResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import DescribeUserImportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserImportJob`: `"UserImportJobTypeTypeDef"`
-
-
-## DescribeUserPoolClientResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import DescribeUserPoolClientResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserPoolClient`: `"UserPoolClientTypeTypeDef"`
-
-
-## DescribeUserPoolDomainResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import DescribeUserPoolDomainResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DomainDescription`: `"DomainDescriptionTypeTypeDef"`
-
-
-## DescribeUserPoolResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import DescribeUserPoolResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserPool`: `"UserPoolTypeTypeDef"`
-
-
-## DeviceSecretVerifierConfigTypeTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import DeviceSecretVerifierConfigTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `PasswordVerifier`: `str`
-- `Salt`: `str`
-
-
-## ForgotPasswordResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ForgotPasswordResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CodeDeliveryDetails`: `"CodeDeliveryDetailsTypeTypeDef"`
-
-
-## GetCSVHeaderResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import GetCSVHeaderResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserPoolId`: `str`
-- `CSVHeader`: `List[str]`
-
-
-## GetDeviceResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import GetDeviceResponseTypeDef
-```
-
-
-Required fields:
-- `Device`: `"DeviceTypeTypeDef"`
-
-
-
-
-## GetGroupResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import GetGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Group`: `"GroupTypeTypeDef"`
-
-
-## GetIdentityProviderByIdentifierResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import GetIdentityProviderByIdentifierResponseTypeDef
-```
-
-
-Required fields:
-- `IdentityProvider`: `"IdentityProviderTypeTypeDef"`
-
-
-
-
-## GetSigningCertificateResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import GetSigningCertificateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Certificate`: `str`
-
-
-## GetUICustomizationResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import GetUICustomizationResponseTypeDef
-```
-
-
-Required fields:
-- `UICustomization`: `"UICustomizationTypeTypeDef"`
-
-
-
-
-## GetUserAttributeVerificationCodeResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import GetUserAttributeVerificationCodeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CodeDeliveryDetails`: `"CodeDeliveryDetailsTypeTypeDef"`
-
-
-## GetUserPoolMfaConfigResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import GetUserPoolMfaConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SmsMfaConfiguration`: `"SmsMfaConfigTypeTypeDef"`
-- `SoftwareTokenMfaConfiguration`: `"SoftwareTokenMfaConfigTypeTypeDef"`
-- `MfaConfiguration`: `UserPoolMfaType`
-
-
-## GetUserResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import GetUserResponseTypeDef
-```
-
-
-Required fields:
-- `Username`: `str`
-- `UserAttributes`: `List["AttributeTypeTypeDef"]`
-
-
-
-Optional fields:
-- `MFAOptions`: `List["MFAOptionTypeTypeDef"]`
-- `PreferredMfaSetting`: `str`
-- `UserMFASettingList`: `List[str]`
-
-
-## InitiateAuthResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import InitiateAuthResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ChallengeName`: `ChallengeNameType`
-- `Session`: `str`
-- `ChallengeParameters`: `Dict[str, str]`
-- `AuthenticationResult`: `"AuthenticationResultTypeTypeDef"`
-
-
-## ListDevicesResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ListDevicesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Devices`: `List["DeviceTypeTypeDef"]`
-- `PaginationToken`: `str`
-
-
-## ListGroupsResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ListGroupsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Groups`: `List["GroupTypeTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListIdentityProvidersResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ListIdentityProvidersResponseTypeDef
-```
-
-
-Required fields:
-- `Providers`: `List["ProviderDescriptionTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListResourceServersResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ListResourceServersResponseTypeDef
-```
-
-
-Required fields:
-- `ResourceServers`: `List["ResourceServerTypeTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## ListUserImportJobsResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ListUserImportJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserImportJobs`: `List["UserImportJobTypeTypeDef"]`
-- `PaginationToken`: `str`
-
-
-## ListUserPoolClientsResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ListUserPoolClientsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserPoolClients`: `List["UserPoolClientDescriptionTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListUserPoolsResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ListUserPoolsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserPools`: `List["UserPoolDescriptionTypeTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListUsersInGroupResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ListUsersInGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Users`: `List["UserTypeTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListUsersResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ListUsersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Users`: `List["UserTypeTypeDef"]`
-- `PaginationToken`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## ProviderUserIdentifierTypeTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ProviderUserIdentifierTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProviderName`: `str`
-- `ProviderAttributeName`: `str`
-- `ProviderAttributeValue`: `str`
-
-
-## ResendConfirmationCodeResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import ResendConfirmationCodeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CodeDeliveryDetails`: `"CodeDeliveryDetailsTypeTypeDef"`
-
-
-## RespondToAuthChallengeResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import RespondToAuthChallengeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ChallengeName`: `ChallengeNameType`
-- `Session`: `str`
-- `ChallengeParameters`: `Dict[str, str]`
-- `AuthenticationResult`: `"AuthenticationResultTypeTypeDef"`
-
-
-## SMSMfaSettingsTypeTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import SMSMfaSettingsTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-- `PreferredMfa`: `bool`
-
-
-## SetRiskConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import SetRiskConfigurationResponseTypeDef
-```
-
-
-Required fields:
-- `RiskConfiguration`: `"RiskConfigurationTypeTypeDef"`
-
-
-
-
-## SetUICustomizationResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import SetUICustomizationResponseTypeDef
-```
-
-
-Required fields:
-- `UICustomization`: `"UICustomizationTypeTypeDef"`
-
-
-
-
-## SetUserPoolMfaConfigResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import SetUserPoolMfaConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SmsMfaConfiguration`: `"SmsMfaConfigTypeTypeDef"`
-- `SoftwareTokenMfaConfiguration`: `"SoftwareTokenMfaConfigTypeTypeDef"`
-- `MfaConfiguration`: `UserPoolMfaType`
-
-
-## SignUpResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import SignUpResponseTypeDef
-```
-
-
-Required fields:
-- `UserConfirmed`: `bool`
-- `UserSub`: `str`
-
-
-
-Optional fields:
-- `CodeDeliveryDetails`: `"CodeDeliveryDetailsTypeTypeDef"`
-
-
-## SoftwareTokenMfaSettingsTypeTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import SoftwareTokenMfaSettingsTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-- `PreferredMfa`: `bool`
-
-
-## StartUserImportJobResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import StartUserImportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserImportJob`: `"UserImportJobTypeTypeDef"`
-
-
-## StopUserImportJobResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import StopUserImportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserImportJob`: `"UserImportJobTypeTypeDef"`
-
-
-## UpdateGroupResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import UpdateGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Group`: `"GroupTypeTypeDef"`
-
-
-## UpdateIdentityProviderResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import UpdateIdentityProviderResponseTypeDef
-```
-
-
-Required fields:
-- `IdentityProvider`: `"IdentityProviderTypeTypeDef"`
-
-
-
-
-## UpdateResourceServerResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import UpdateResourceServerResponseTypeDef
-```
-
-
-Required fields:
-- `ResourceServer`: `"ResourceServerTypeTypeDef"`
-
-
-
-
-## UpdateUserAttributesResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import UpdateUserAttributesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CodeDeliveryDetailsList`: `List["CodeDeliveryDetailsTypeTypeDef"]`
-
-
-## UpdateUserPoolClientResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import UpdateUserPoolClientResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserPoolClient`: `"UserPoolClientTypeTypeDef"`
-
-
-## UpdateUserPoolDomainResponseTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import UpdateUserPoolDomainResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CloudFrontDomain`: `str`
-
-
-## UserContextDataTypeTypeDef
-
-```python
-from mypy_boto3_cognito_idp.type_defs import UserContextDataTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `EncodedData`: `str`
 
 
 ## VerifySoftwareTokenResponseTypeDef

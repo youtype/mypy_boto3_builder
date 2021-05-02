@@ -31,8 +31,6 @@ type annotations stubs module [mypy_boto3_mediapackage](https://pypi.org/project
     - [update_channel](#update_channel)
     - [update_origin_endpoint](#update_origin_endpoint)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## MediaPackageClient
 
@@ -410,47 +408,14 @@ def update_origin_endpoint(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("mediapackage").get_paginator` method.
-
-[Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage.html#MediaPackage.Paginator.ListChannels)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListChannelsPaginatorName
-) -> ListChannelsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("mediapackage").get_paginator` method.
+Type annotations for `boto3.client("mediapackage").get_paginator` method with overloads.
 
-[Paginator.ListHarvestJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage.html#MediaPackage.Paginator.ListHarvestJobs)
+- `client.get_paginator("list_channels")` -> [ListChannelsPaginator](./paginators.md#listchannelspaginator)
+- `client.get_paginator("list_harvest_jobs")` -> [ListHarvestJobsPaginator](./paginators.md#listharvestjobspaginator)
+- `client.get_paginator("list_origin_endpoints")` -> [ListOriginEndpointsPaginator](./paginators.md#listoriginendpointspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListHarvestJobsPaginatorName
-) -> ListHarvestJobsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("mediapackage").get_paginator` method.
-
-[Paginator.ListOriginEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage.html#MediaPackage.Paginator.ListOriginEndpoints)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOriginEndpointsPaginatorName
-) -> ListOriginEndpointsPaginator:
-    pass
-```

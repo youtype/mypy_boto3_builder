@@ -123,31 +123,31 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_transfer.type_defs import DescribedSecurityPolicyTypeDef, ...
+from mypy_boto3_transfer.type_defs import CreateServerResponseTypeDef, ...
 ```
 
+- [CreateServerResponseTypeDef](./type_defs.md#createserverresponsetypedef)
+- [CreateUserResponseTypeDef](./type_defs.md#createuserresponsetypedef)
+- [DescribeSecurityPolicyResponseTypeDef](./type_defs.md#describesecuritypolicyresponsetypedef)
+- [DescribeServerResponseTypeDef](./type_defs.md#describeserverresponsetypedef)
+- [DescribeUserResponseTypeDef](./type_defs.md#describeuserresponsetypedef)
 - [DescribedSecurityPolicyTypeDef](./type_defs.md#describedsecuritypolicytypedef)
 - [DescribedServerTypeDef](./type_defs.md#describedservertypedef)
 - [DescribedUserTypeDef](./type_defs.md#describedusertypedef)
 - [EndpointDetailsTypeDef](./type_defs.md#endpointdetailstypedef)
 - [HomeDirectoryMapEntryTypeDef](./type_defs.md#homedirectorymapentrytypedef)
 - [IdentityProviderDetailsTypeDef](./type_defs.md#identityproviderdetailstypedef)
-- [ListedServerTypeDef](./type_defs.md#listedservertypedef)
-- [ListedUserTypeDef](./type_defs.md#listedusertypedef)
-- [PosixProfileTypeDef](./type_defs.md#posixprofiletypedef)
-- [SshPublicKeyTypeDef](./type_defs.md#sshpublickeytypedef)
-- [TagTypeDef](./type_defs.md#tagtypedef)
-- [CreateServerResponseTypeDef](./type_defs.md#createserverresponsetypedef)
-- [CreateUserResponseTypeDef](./type_defs.md#createuserresponsetypedef)
-- [DescribeSecurityPolicyResponseTypeDef](./type_defs.md#describesecuritypolicyresponsetypedef)
-- [DescribeServerResponseTypeDef](./type_defs.md#describeserverresponsetypedef)
-- [DescribeUserResponseTypeDef](./type_defs.md#describeuserresponsetypedef)
 - [ImportSshPublicKeyResponseTypeDef](./type_defs.md#importsshpublickeyresponsetypedef)
 - [ListSecurityPoliciesResponseTypeDef](./type_defs.md#listsecuritypoliciesresponsetypedef)
 - [ListServersResponseTypeDef](./type_defs.md#listserversresponsetypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
 - [ListUsersResponseTypeDef](./type_defs.md#listusersresponsetypedef)
+- [ListedServerTypeDef](./type_defs.md#listedservertypedef)
+- [ListedUserTypeDef](./type_defs.md#listedusertypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [PosixProfileTypeDef](./type_defs.md#posixprofiletypedef)
+- [SshPublicKeyTypeDef](./type_defs.md#sshpublickeytypedef)
+- [TagTypeDef](./type_defs.md#tagtypedef)
 - [TestIdentityProviderResponseTypeDef](./type_defs.md#testidentityproviderresponsetypedef)
 - [UpdateServerResponseTypeDef](./type_defs.md#updateserverresponsetypedef)
 - [UpdateUserResponseTypeDef](./type_defs.md#updateuserresponsetypedef)

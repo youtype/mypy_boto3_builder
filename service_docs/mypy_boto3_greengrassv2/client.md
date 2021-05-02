@@ -32,11 +32,6 @@ type annotations stubs module [mypy_boto3_greengrassv2](https://pypi.org/project
     - [tag_resource](#tag_resource)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
 
 ## GreengrassV2Client
 
@@ -413,92 +408,17 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("greengrassv2").get_paginator` method.
-
-[Paginator.ListComponentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponentVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListComponentVersionsPaginatorName
-) -> ListComponentVersionsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("greengrassv2").get_paginator` method.
+Type annotations for `boto3.client("greengrassv2").get_paginator` method with overloads.
 
-[Paginator.ListComponents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListComponents)
+- `client.get_paginator("list_component_versions")` -> [ListComponentVersionsPaginator](./paginators.md#listcomponentversionspaginator)
+- `client.get_paginator("list_components")` -> [ListComponentsPaginator](./paginators.md#listcomponentspaginator)
+- `client.get_paginator("list_core_devices")` -> [ListCoreDevicesPaginator](./paginators.md#listcoredevicespaginator)
+- `client.get_paginator("list_deployments")` -> [ListDeploymentsPaginator](./paginators.md#listdeploymentspaginator)
+- `client.get_paginator("list_effective_deployments")` -> [ListEffectiveDeploymentsPaginator](./paginators.md#listeffectivedeploymentspaginator)
+- `client.get_paginator("list_installed_components")` -> [ListInstalledComponentsPaginator](./paginators.md#listinstalledcomponentspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListComponentsPaginatorName
-) -> ListComponentsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("greengrassv2").get_paginator` method.
-
-[Paginator.ListCoreDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListCoreDevices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCoreDevicesPaginatorName
-) -> ListCoreDevicesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrassv2").get_paginator` method.
-
-[Paginator.ListDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListDeployments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeploymentsPaginatorName
-) -> ListDeploymentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrassv2").get_paginator` method.
-
-[Paginator.ListEffectiveDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListEffectiveDeployments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEffectiveDeploymentsPaginatorName
-) -> ListEffectiveDeploymentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("greengrassv2").get_paginator` method.
-
-[Paginator.ListInstalledComponents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/greengrassv2.html#GreengrassV2.Paginator.ListInstalledComponents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInstalledComponentsPaginatorName
-) -> ListInstalledComponentsPaginator:
-    pass
-```

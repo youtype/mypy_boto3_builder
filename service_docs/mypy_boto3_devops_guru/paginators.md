@@ -34,7 +34,7 @@ def get_describe_resource_collection_health_paginator() -> DescribeResourceColle
 class DescribeResourceCollectionHealthPaginator(Boto3Paginator):
     def paginate(
         self,
-        ResourceCollectionType: ResourceCollectionType,
+        ResourceCollectionType: Literal['AWS_CLOUD_FORMATION'],
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeResourceCollectionHealthResponseTypeDef]:
         pass
@@ -58,7 +58,7 @@ def get_get_resource_collection_paginator() -> GetResourceCollectionPaginator:
 class GetResourceCollectionPaginator(Boto3Paginator):
     def paginate(
         self,
-        ResourceCollectionType: ResourceCollectionType,
+        ResourceCollectionType: Literal['AWS_CLOUD_FORMATION'],
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetResourceCollectionResponseTypeDef]:
         pass

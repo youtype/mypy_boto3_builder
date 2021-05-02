@@ -8,12 +8,6 @@ type annotations stubs module [mypy_boto3_cognito_identity](https://pypi.org/pro
 - [Structures for boto3 CognitoIdentity module](#structures-for-boto3-cognitoidentity-module)
   - [CognitoIdentityProviderTypeDef](#cognitoidentityprovidertypedef)
   - [CredentialsTypeDef](#credentialstypedef)
-  - [IdentityDescriptionTypeDef](#identitydescriptiontypedef)
-  - [IdentityPoolShortDescriptionTypeDef](#identitypoolshortdescriptiontypedef)
-  - [MappingRuleTypeDef](#mappingruletypedef)
-  - [RoleMappingTypeDef](#rolemappingtypedef)
-  - [RulesConfigurationTypeTypeDef](#rulesconfigurationtypetypedef)
-  - [UnprocessedIdentityIdTypeDef](#unprocessedidentityidtypedef)
   - [DeleteIdentitiesResponseTypeDef](#deleteidentitiesresponsetypedef)
   - [GetCredentialsForIdentityResponseTypeDef](#getcredentialsforidentityresponsetypedef)
   - [GetIdResponseTypeDef](#getidresponsetypedef)
@@ -21,14 +15,20 @@ type annotations stubs module [mypy_boto3_cognito_identity](https://pypi.org/pro
   - [GetOpenIdTokenForDeveloperIdentityResponseTypeDef](#getopenidtokenfordeveloperidentityresponsetypedef)
   - [GetOpenIdTokenResponseTypeDef](#getopenidtokenresponsetypedef)
   - [GetPrincipalTagAttributeMapResponseTypeDef](#getprincipaltagattributemapresponsetypedef)
+  - [IdentityDescriptionTypeDef](#identitydescriptiontypedef)
+  - [IdentityPoolShortDescriptionTypeDef](#identitypoolshortdescriptiontypedef)
   - [IdentityPoolTypeDef](#identitypooltypedef)
   - [ListIdentitiesResponseTypeDef](#listidentitiesresponsetypedef)
   - [ListIdentityPoolsResponseTypeDef](#listidentitypoolsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [LookupDeveloperIdentityResponseTypeDef](#lookupdeveloperidentityresponsetypedef)
+  - [MappingRuleTypeDef](#mappingruletypedef)
   - [MergeDeveloperIdentitiesResponseTypeDef](#mergedeveloperidentitiesresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [RoleMappingTypeDef](#rolemappingtypedef)
+  - [RulesConfigurationTypeTypeDef](#rulesconfigurationtypetypedef)
   - [SetPrincipalTagAttributeMapResponseTypeDef](#setprincipaltagattributemapresponsetypedef)
+  - [UnprocessedIdentityIdTypeDef](#unprocessedidentityidtypedef)
 
 ## CognitoIdentityProviderTypeDef
 
@@ -59,96 +59,6 @@ Optional fields:
 - `SecretKey`: `str`
 - `SessionToken`: `str`
 - `Expiration`: `datetime`
-
-
-## IdentityDescriptionTypeDef
-
-```python
-from mypy_boto3_cognito_identity.type_defs import IdentityDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `IdentityId`: `str`
-- `Logins`: `List[str]`
-- `CreationDate`: `datetime`
-- `LastModifiedDate`: `datetime`
-
-
-## IdentityPoolShortDescriptionTypeDef
-
-```python
-from mypy_boto3_cognito_identity.type_defs import IdentityPoolShortDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `IdentityPoolId`: `str`
-- `IdentityPoolName`: `str`
-
-
-## MappingRuleTypeDef
-
-```python
-from mypy_boto3_cognito_identity.type_defs import MappingRuleTypeDef
-```
-
-
-Required fields:
-- `Claim`: `str`
-- `MatchType`: `MappingRuleMatchType`
-- `Value`: `str`
-- `RoleARN`: `str`
-
-
-
-
-## RoleMappingTypeDef
-
-```python
-from mypy_boto3_cognito_identity.type_defs import RoleMappingTypeDef
-```
-
-
-Required fields:
-- `Type`: `RoleMappingType`
-
-
-
-Optional fields:
-- `AmbiguousRoleResolution`: `AmbiguousRoleResolutionType`
-- `RulesConfiguration`: `"RulesConfigurationTypeTypeDef"`
-
-
-## RulesConfigurationTypeTypeDef
-
-```python
-from mypy_boto3_cognito_identity.type_defs import RulesConfigurationTypeTypeDef
-```
-
-
-Required fields:
-- `Rules`: `List["MappingRuleTypeDef"]`
-
-
-
-
-## UnprocessedIdentityIdTypeDef
-
-```python
-from mypy_boto3_cognito_identity.type_defs import UnprocessedIdentityIdTypeDef
-```
-
-
-
-
-Optional fields:
-- `IdentityId`: `str`
-- `ErrorCode`: `ErrorCode`
 
 
 ## DeleteIdentitiesResponseTypeDef
@@ -250,6 +160,36 @@ Optional fields:
 - `PrincipalTags`: `Dict[str, str]`
 
 
+## IdentityDescriptionTypeDef
+
+```python
+from mypy_boto3_cognito_identity.type_defs import IdentityDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `IdentityId`: `str`
+- `Logins`: `List[str]`
+- `CreationDate`: `datetime`
+- `LastModifiedDate`: `datetime`
+
+
+## IdentityPoolShortDescriptionTypeDef
+
+```python
+from mypy_boto3_cognito_identity.type_defs import IdentityPoolShortDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `IdentityPoolId`: `str`
+- `IdentityPoolName`: `str`
+
+
 ## IdentityPoolTypeDef
 
 ```python
@@ -331,6 +271,22 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## MappingRuleTypeDef
+
+```python
+from mypy_boto3_cognito_identity.type_defs import MappingRuleTypeDef
+```
+
+
+Required fields:
+- `Claim`: `str`
+- `MatchType`: `MappingRuleMatchType`
+- `Value`: `str`
+- `RoleARN`: `str`
+
+
+
+
 ## MergeDeveloperIdentitiesResponseTypeDef
 
 ```python
@@ -359,6 +315,36 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## RoleMappingTypeDef
+
+```python
+from mypy_boto3_cognito_identity.type_defs import RoleMappingTypeDef
+```
+
+
+Required fields:
+- `Type`: `RoleMappingType`
+
+
+
+Optional fields:
+- `AmbiguousRoleResolution`: `AmbiguousRoleResolutionType`
+- `RulesConfiguration`: `"RulesConfigurationTypeTypeDef"`
+
+
+## RulesConfigurationTypeTypeDef
+
+```python
+from mypy_boto3_cognito_identity.type_defs import RulesConfigurationTypeTypeDef
+```
+
+
+Required fields:
+- `Rules`: `List["MappingRuleTypeDef"]`
+
+
+
+
 ## SetPrincipalTagAttributeMapResponseTypeDef
 
 ```python
@@ -373,4 +359,18 @@ Optional fields:
 - `IdentityProviderName`: `str`
 - `UseDefaults`: `bool`
 - `PrincipalTags`: `Dict[str, str]`
+
+
+## UnprocessedIdentityIdTypeDef
+
+```python
+from mypy_boto3_cognito_identity.type_defs import UnprocessedIdentityIdTypeDef
+```
+
+
+
+
+Optional fields:
+- `IdentityId`: `str`
+- `ErrorCode`: `ErrorCode`
 

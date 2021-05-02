@@ -7,42 +7,30 @@ type annotations stubs module [mypy_boto3_location](https://pypi.org/project/myp
 
 - [Structures for boto3 LocationService module](#structures-for-boto3-locationservice-module)
   - [BatchDeleteGeofenceErrorTypeDef](#batchdeletegeofenceerrortypedef)
+  - [BatchDeleteGeofenceResponseTypeDef](#batchdeletegeofenceresponsetypedef)
   - [BatchEvaluateGeofencesErrorTypeDef](#batchevaluategeofenceserrortypedef)
+  - [BatchEvaluateGeofencesResponseTypeDef](#batchevaluategeofencesresponsetypedef)
   - [BatchGetDevicePositionErrorTypeDef](#batchgetdevicepositionerrortypedef)
+  - [BatchGetDevicePositionResponseTypeDef](#batchgetdevicepositionresponsetypedef)
   - [BatchItemErrorTypeDef](#batchitemerrortypedef)
   - [BatchPutGeofenceErrorTypeDef](#batchputgeofenceerrortypedef)
-  - [BatchPutGeofenceSuccessTypeDef](#batchputgeofencesuccesstypedef)
-  - [BatchUpdateDevicePositionErrorTypeDef](#batchupdatedevicepositionerrortypedef)
-  - [DataSourceConfigurationTypeDef](#datasourceconfigurationtypedef)
-  - [DevicePositionTypeDef](#devicepositiontypedef)
-  - [GeofenceGeometryTypeDef](#geofencegeometrytypedef)
-  - [ListGeofenceCollectionsResponseEntryTypeDef](#listgeofencecollectionsresponseentrytypedef)
-  - [ListGeofenceResponseEntryTypeDef](#listgeofenceresponseentrytypedef)
-  - [ListMapsResponseEntryTypeDef](#listmapsresponseentrytypedef)
-  - [ListPlaceIndexesResponseEntryTypeDef](#listplaceindexesresponseentrytypedef)
-  - [ListTrackersResponseEntryTypeDef](#listtrackersresponseentrytypedef)
-  - [MapConfigurationTypeDef](#mapconfigurationtypedef)
-  - [PlaceGeometryTypeDef](#placegeometrytypedef)
-  - [PlaceTypeDef](#placetypedef)
-  - [SearchForPositionResultTypeDef](#searchforpositionresulttypedef)
-  - [SearchForTextResultTypeDef](#searchfortextresulttypedef)
-  - [SearchPlaceIndexForPositionSummaryTypeDef](#searchplaceindexforpositionsummarytypedef)
-  - [SearchPlaceIndexForTextSummaryTypeDef](#searchplaceindexfortextsummarytypedef)
-  - [BatchDeleteGeofenceResponseTypeDef](#batchdeletegeofenceresponsetypedef)
-  - [BatchEvaluateGeofencesResponseTypeDef](#batchevaluategeofencesresponsetypedef)
-  - [BatchGetDevicePositionResponseTypeDef](#batchgetdevicepositionresponsetypedef)
   - [BatchPutGeofenceRequestEntryTypeDef](#batchputgeofencerequestentrytypedef)
   - [BatchPutGeofenceResponseTypeDef](#batchputgeofenceresponsetypedef)
+  - [BatchPutGeofenceSuccessTypeDef](#batchputgeofencesuccesstypedef)
+  - [BatchUpdateDevicePositionErrorTypeDef](#batchupdatedevicepositionerrortypedef)
   - [BatchUpdateDevicePositionResponseTypeDef](#batchupdatedevicepositionresponsetypedef)
   - [CreateGeofenceCollectionResponseTypeDef](#creategeofencecollectionresponsetypedef)
   - [CreateMapResponseTypeDef](#createmapresponsetypedef)
   - [CreatePlaceIndexResponseTypeDef](#createplaceindexresponsetypedef)
   - [CreateTrackerResponseTypeDef](#createtrackerresponsetypedef)
+  - [DataSourceConfigurationTypeDef](#datasourceconfigurationtypedef)
   - [DescribeGeofenceCollectionResponseTypeDef](#describegeofencecollectionresponsetypedef)
   - [DescribeMapResponseTypeDef](#describemapresponsetypedef)
   - [DescribePlaceIndexResponseTypeDef](#describeplaceindexresponsetypedef)
   - [DescribeTrackerResponseTypeDef](#describetrackerresponsetypedef)
+  - [DevicePositionTypeDef](#devicepositiontypedef)
   - [DevicePositionUpdateTypeDef](#devicepositionupdatetypedef)
+  - [GeofenceGeometryTypeDef](#geofencegeometrytypedef)
   - [GetDevicePositionHistoryResponseTypeDef](#getdevicepositionhistoryresponsetypedef)
   - [GetDevicePositionResponseTypeDef](#getdevicepositionresponsetypedef)
   - [GetGeofenceResponseTypeDef](#getgeofenceresponsetypedef)
@@ -50,16 +38,28 @@ type annotations stubs module [mypy_boto3_location](https://pypi.org/project/myp
   - [GetMapSpritesResponseTypeDef](#getmapspritesresponsetypedef)
   - [GetMapStyleDescriptorResponseTypeDef](#getmapstyledescriptorresponsetypedef)
   - [GetMapTileResponseTypeDef](#getmaptileresponsetypedef)
+  - [ListGeofenceCollectionsResponseEntryTypeDef](#listgeofencecollectionsresponseentrytypedef)
   - [ListGeofenceCollectionsResponseTypeDef](#listgeofencecollectionsresponsetypedef)
+  - [ListGeofenceResponseEntryTypeDef](#listgeofenceresponseentrytypedef)
   - [ListGeofencesResponseTypeDef](#listgeofencesresponsetypedef)
+  - [ListMapsResponseEntryTypeDef](#listmapsresponseentrytypedef)
   - [ListMapsResponseTypeDef](#listmapsresponsetypedef)
+  - [ListPlaceIndexesResponseEntryTypeDef](#listplaceindexesresponseentrytypedef)
   - [ListPlaceIndexesResponseTypeDef](#listplaceindexesresponsetypedef)
   - [ListTrackerConsumersResponseTypeDef](#listtrackerconsumersresponsetypedef)
+  - [ListTrackersResponseEntryTypeDef](#listtrackersresponseentrytypedef)
   - [ListTrackersResponseTypeDef](#listtrackersresponsetypedef)
+  - [MapConfigurationTypeDef](#mapconfigurationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PlaceGeometryTypeDef](#placegeometrytypedef)
+  - [PlaceTypeDef](#placetypedef)
   - [PutGeofenceResponseTypeDef](#putgeofenceresponsetypedef)
+  - [SearchForPositionResultTypeDef](#searchforpositionresulttypedef)
+  - [SearchForTextResultTypeDef](#searchfortextresulttypedef)
   - [SearchPlaceIndexForPositionResponseTypeDef](#searchplaceindexforpositionresponsetypedef)
+  - [SearchPlaceIndexForPositionSummaryTypeDef](#searchplaceindexforpositionsummarytypedef)
   - [SearchPlaceIndexForTextResponseTypeDef](#searchplaceindexfortextresponsetypedef)
+  - [SearchPlaceIndexForTextSummaryTypeDef](#searchplaceindexfortextsummarytypedef)
 
 ## BatchDeleteGeofenceErrorTypeDef
 
@@ -71,6 +71,19 @@ from mypy_boto3_location.type_defs import BatchDeleteGeofenceErrorTypeDef
 Required fields:
 - `Error`: `"BatchItemErrorTypeDef"`
 - `GeofenceId`: `str`
+
+
+
+
+## BatchDeleteGeofenceResponseTypeDef
+
+```python
+from mypy_boto3_location.type_defs import BatchDeleteGeofenceResponseTypeDef
+```
+
+
+Required fields:
+- `Errors`: `List["BatchDeleteGeofenceErrorTypeDef"]`
 
 
 
@@ -90,6 +103,19 @@ Required fields:
 
 
 
+## BatchEvaluateGeofencesResponseTypeDef
+
+```python
+from mypy_boto3_location.type_defs import BatchEvaluateGeofencesResponseTypeDef
+```
+
+
+Required fields:
+- `Errors`: `List["BatchEvaluateGeofencesErrorTypeDef"]`
+
+
+
+
 ## BatchGetDevicePositionErrorTypeDef
 
 ```python
@@ -100,6 +126,20 @@ from mypy_boto3_location.type_defs import BatchGetDevicePositionErrorTypeDef
 Required fields:
 - `DeviceId`: `str`
 - `Error`: `"BatchItemErrorTypeDef"`
+
+
+
+
+## BatchGetDevicePositionResponseTypeDef
+
+```python
+from mypy_boto3_location.type_defs import BatchGetDevicePositionResponseTypeDef
+```
+
+
+Required fields:
+- `DevicePositions`: `List["DevicePositionTypeDef"]`
+- `Errors`: `List["BatchGetDevicePositionErrorTypeDef"]`
 
 
 
@@ -132,6 +172,34 @@ Required fields:
 
 
 
+## BatchPutGeofenceRequestEntryTypeDef
+
+```python
+from mypy_boto3_location.type_defs import BatchPutGeofenceRequestEntryTypeDef
+```
+
+
+Required fields:
+- `GeofenceId`: `str`
+- `Geometry`: `"GeofenceGeometryTypeDef"`
+
+
+
+
+## BatchPutGeofenceResponseTypeDef
+
+```python
+from mypy_boto3_location.type_defs import BatchPutGeofenceResponseTypeDef
+```
+
+
+Required fields:
+- `Errors`: `List["BatchPutGeofenceErrorTypeDef"]`
+- `Successes`: `List["BatchPutGeofenceSuccessTypeDef"]`
+
+
+
+
 ## BatchPutGeofenceSuccessTypeDef
 
 ```python
@@ -158,325 +226,6 @@ Required fields:
 - `DeviceId`: `str`
 - `Error`: `"BatchItemErrorTypeDef"`
 - `SampleTime`: `datetime`
-
-
-
-
-## DataSourceConfigurationTypeDef
-
-```python
-from mypy_boto3_location.type_defs import DataSourceConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `IntendedUse`: `IntendedUse`
-
-
-## DevicePositionTypeDef
-
-```python
-from mypy_boto3_location.type_defs import DevicePositionTypeDef
-```
-
-
-Required fields:
-- `Position`: `List[float]`
-- `ReceivedTime`: `datetime`
-- `SampleTime`: `datetime`
-
-
-
-Optional fields:
-- `DeviceId`: `str`
-
-
-## GeofenceGeometryTypeDef
-
-```python
-from mypy_boto3_location.type_defs import GeofenceGeometryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Polygon`: `List[List[List[float]]]`
-
-
-## ListGeofenceCollectionsResponseEntryTypeDef
-
-```python
-from mypy_boto3_location.type_defs import ListGeofenceCollectionsResponseEntryTypeDef
-```
-
-
-Required fields:
-- `CollectionName`: `str`
-- `CreateTime`: `datetime`
-- `Description`: `str`
-- `PricingPlan`: `PricingPlan`
-- `UpdateTime`: `datetime`
-
-
-
-Optional fields:
-- `PricingPlanDataSource`: `str`
-
-
-## ListGeofenceResponseEntryTypeDef
-
-```python
-from mypy_boto3_location.type_defs import ListGeofenceResponseEntryTypeDef
-```
-
-
-Required fields:
-- `CreateTime`: `datetime`
-- `GeofenceId`: `str`
-- `Geometry`: `"GeofenceGeometryTypeDef"`
-- `Status`: `str`
-- `UpdateTime`: `datetime`
-
-
-
-
-## ListMapsResponseEntryTypeDef
-
-```python
-from mypy_boto3_location.type_defs import ListMapsResponseEntryTypeDef
-```
-
-
-Required fields:
-- `CreateTime`: `datetime`
-- `DataSource`: `str`
-- `Description`: `str`
-- `MapName`: `str`
-- `PricingPlan`: `PricingPlan`
-- `UpdateTime`: `datetime`
-
-
-
-
-## ListPlaceIndexesResponseEntryTypeDef
-
-```python
-from mypy_boto3_location.type_defs import ListPlaceIndexesResponseEntryTypeDef
-```
-
-
-Required fields:
-- `CreateTime`: `datetime`
-- `DataSource`: `str`
-- `Description`: `str`
-- `IndexName`: `str`
-- `PricingPlan`: `PricingPlan`
-- `UpdateTime`: `datetime`
-
-
-
-
-## ListTrackersResponseEntryTypeDef
-
-```python
-from mypy_boto3_location.type_defs import ListTrackersResponseEntryTypeDef
-```
-
-
-Required fields:
-- `CreateTime`: `datetime`
-- `Description`: `str`
-- `PricingPlan`: `PricingPlan`
-- `TrackerName`: `str`
-- `UpdateTime`: `datetime`
-
-
-
-Optional fields:
-- `PricingPlanDataSource`: `str`
-
-
-## MapConfigurationTypeDef
-
-```python
-from mypy_boto3_location.type_defs import MapConfigurationTypeDef
-```
-
-
-Required fields:
-- `Style`: `str`
-
-
-
-
-## PlaceGeometryTypeDef
-
-```python
-from mypy_boto3_location.type_defs import PlaceGeometryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Point`: `List[float]`
-
-
-## PlaceTypeDef
-
-```python
-from mypy_boto3_location.type_defs import PlaceTypeDef
-```
-
-
-Required fields:
-- `Geometry`: `"PlaceGeometryTypeDef"`
-
-
-
-Optional fields:
-- `AddressNumber`: `str`
-- `Country`: `str`
-- `Label`: `str`
-- `Municipality`: `str`
-- `Neighborhood`: `str`
-- `PostalCode`: `str`
-- `Region`: `str`
-- `Street`: `str`
-- `SubRegion`: `str`
-
-
-## SearchForPositionResultTypeDef
-
-```python
-from mypy_boto3_location.type_defs import SearchForPositionResultTypeDef
-```
-
-
-Required fields:
-- `Place`: `"PlaceTypeDef"`
-
-
-
-
-## SearchForTextResultTypeDef
-
-```python
-from mypy_boto3_location.type_defs import SearchForTextResultTypeDef
-```
-
-
-Required fields:
-- `Place`: `"PlaceTypeDef"`
-
-
-
-
-## SearchPlaceIndexForPositionSummaryTypeDef
-
-```python
-from mypy_boto3_location.type_defs import SearchPlaceIndexForPositionSummaryTypeDef
-```
-
-
-Required fields:
-- `DataSource`: `str`
-- `Position`: `List[float]`
-
-
-
-Optional fields:
-- `MaxResults`: `int`
-
-
-## SearchPlaceIndexForTextSummaryTypeDef
-
-```python
-from mypy_boto3_location.type_defs import SearchPlaceIndexForTextSummaryTypeDef
-```
-
-
-Required fields:
-- `DataSource`: `str`
-- `Text`: `str`
-
-
-
-Optional fields:
-- `BiasPosition`: `List[float]`
-- `FilterBBox`: `List[float]`
-- `FilterCountries`: `List[str]`
-- `MaxResults`: `int`
-- `ResultBBox`: `List[float]`
-
-
-## BatchDeleteGeofenceResponseTypeDef
-
-```python
-from mypy_boto3_location.type_defs import BatchDeleteGeofenceResponseTypeDef
-```
-
-
-Required fields:
-- `Errors`: `List["BatchDeleteGeofenceErrorTypeDef"]`
-
-
-
-
-## BatchEvaluateGeofencesResponseTypeDef
-
-```python
-from mypy_boto3_location.type_defs import BatchEvaluateGeofencesResponseTypeDef
-```
-
-
-Required fields:
-- `Errors`: `List["BatchEvaluateGeofencesErrorTypeDef"]`
-
-
-
-
-## BatchGetDevicePositionResponseTypeDef
-
-```python
-from mypy_boto3_location.type_defs import BatchGetDevicePositionResponseTypeDef
-```
-
-
-Required fields:
-- `DevicePositions`: `List["DevicePositionTypeDef"]`
-- `Errors`: `List["BatchGetDevicePositionErrorTypeDef"]`
-
-
-
-
-## BatchPutGeofenceRequestEntryTypeDef
-
-```python
-from mypy_boto3_location.type_defs import BatchPutGeofenceRequestEntryTypeDef
-```
-
-
-Required fields:
-- `GeofenceId`: `str`
-- `Geometry`: `"GeofenceGeometryTypeDef"`
-
-
-
-
-## BatchPutGeofenceResponseTypeDef
-
-```python
-from mypy_boto3_location.type_defs import BatchPutGeofenceResponseTypeDef
-```
-
-
-Required fields:
-- `Errors`: `List["BatchPutGeofenceErrorTypeDef"]`
-- `Successes`: `List["BatchPutGeofenceSuccessTypeDef"]`
 
 
 
@@ -552,6 +301,19 @@ Required fields:
 - `TrackerName`: `str`
 
 
+
+
+## DataSourceConfigurationTypeDef
+
+```python
+from mypy_boto3_location.type_defs import DataSourceConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `IntendedUse`: `IntendedUse`
 
 
 ## DescribeGeofenceCollectionResponseTypeDef
@@ -636,6 +398,24 @@ Optional fields:
 - `PricingPlanDataSource`: `str`
 
 
+## DevicePositionTypeDef
+
+```python
+from mypy_boto3_location.type_defs import DevicePositionTypeDef
+```
+
+
+Required fields:
+- `Position`: `List[float]`
+- `ReceivedTime`: `datetime`
+- `SampleTime`: `datetime`
+
+
+
+Optional fields:
+- `DeviceId`: `str`
+
+
 ## DevicePositionUpdateTypeDef
 
 ```python
@@ -649,6 +429,19 @@ Required fields:
 - `SampleTime`: `datetime`
 
 
+
+
+## GeofenceGeometryTypeDef
+
+```python
+from mypy_boto3_location.type_defs import GeofenceGeometryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Polygon`: `List[List[List[float]]]`
 
 
 ## GetDevicePositionHistoryResponseTypeDef
@@ -758,6 +551,26 @@ Optional fields:
 - `ContentType`: `str`
 
 
+## ListGeofenceCollectionsResponseEntryTypeDef
+
+```python
+from mypy_boto3_location.type_defs import ListGeofenceCollectionsResponseEntryTypeDef
+```
+
+
+Required fields:
+- `CollectionName`: `str`
+- `CreateTime`: `datetime`
+- `Description`: `str`
+- `PricingPlan`: `PricingPlan`
+- `UpdateTime`: `datetime`
+
+
+
+Optional fields:
+- `PricingPlanDataSource`: `str`
+
+
 ## ListGeofenceCollectionsResponseTypeDef
 
 ```python
@@ -772,6 +585,23 @@ Required fields:
 
 Optional fields:
 - `NextToken`: `str`
+
+
+## ListGeofenceResponseEntryTypeDef
+
+```python
+from mypy_boto3_location.type_defs import ListGeofenceResponseEntryTypeDef
+```
+
+
+Required fields:
+- `CreateTime`: `datetime`
+- `GeofenceId`: `str`
+- `Geometry`: `"GeofenceGeometryTypeDef"`
+- `Status`: `str`
+- `UpdateTime`: `datetime`
+
+
 
 
 ## ListGeofencesResponseTypeDef
@@ -790,6 +620,24 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## ListMapsResponseEntryTypeDef
+
+```python
+from mypy_boto3_location.type_defs import ListMapsResponseEntryTypeDef
+```
+
+
+Required fields:
+- `CreateTime`: `datetime`
+- `DataSource`: `str`
+- `Description`: `str`
+- `MapName`: `str`
+- `PricingPlan`: `PricingPlan`
+- `UpdateTime`: `datetime`
+
+
+
+
 ## ListMapsResponseTypeDef
 
 ```python
@@ -804,6 +652,24 @@ Required fields:
 
 Optional fields:
 - `NextToken`: `str`
+
+
+## ListPlaceIndexesResponseEntryTypeDef
+
+```python
+from mypy_boto3_location.type_defs import ListPlaceIndexesResponseEntryTypeDef
+```
+
+
+Required fields:
+- `CreateTime`: `datetime`
+- `DataSource`: `str`
+- `Description`: `str`
+- `IndexName`: `str`
+- `PricingPlan`: `PricingPlan`
+- `UpdateTime`: `datetime`
+
+
 
 
 ## ListPlaceIndexesResponseTypeDef
@@ -838,6 +704,26 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## ListTrackersResponseEntryTypeDef
+
+```python
+from mypy_boto3_location.type_defs import ListTrackersResponseEntryTypeDef
+```
+
+
+Required fields:
+- `CreateTime`: `datetime`
+- `Description`: `str`
+- `PricingPlan`: `PricingPlan`
+- `TrackerName`: `str`
+- `UpdateTime`: `datetime`
+
+
+
+Optional fields:
+- `PricingPlanDataSource`: `str`
+
+
 ## ListTrackersResponseTypeDef
 
 ```python
@@ -852,6 +738,19 @@ Required fields:
 
 Optional fields:
 - `NextToken`: `str`
+
+
+## MapConfigurationTypeDef
+
+```python
+from mypy_boto3_location.type_defs import MapConfigurationTypeDef
+```
+
+
+Required fields:
+- `Style`: `str`
+
+
 
 
 ## PaginatorConfigTypeDef
@@ -869,6 +768,43 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PlaceGeometryTypeDef
+
+```python
+from mypy_boto3_location.type_defs import PlaceGeometryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Point`: `List[float]`
+
+
+## PlaceTypeDef
+
+```python
+from mypy_boto3_location.type_defs import PlaceTypeDef
+```
+
+
+Required fields:
+- `Geometry`: `"PlaceGeometryTypeDef"`
+
+
+
+Optional fields:
+- `AddressNumber`: `str`
+- `Country`: `str`
+- `Label`: `str`
+- `Municipality`: `str`
+- `Neighborhood`: `str`
+- `PostalCode`: `str`
+- `Region`: `str`
+- `Street`: `str`
+- `SubRegion`: `str`
+
+
 ## PutGeofenceResponseTypeDef
 
 ```python
@@ -880,6 +816,32 @@ Required fields:
 - `CreateTime`: `datetime`
 - `GeofenceId`: `str`
 - `UpdateTime`: `datetime`
+
+
+
+
+## SearchForPositionResultTypeDef
+
+```python
+from mypy_boto3_location.type_defs import SearchForPositionResultTypeDef
+```
+
+
+Required fields:
+- `Place`: `"PlaceTypeDef"`
+
+
+
+
+## SearchForTextResultTypeDef
+
+```python
+from mypy_boto3_location.type_defs import SearchForTextResultTypeDef
+```
+
+
+Required fields:
+- `Place`: `"PlaceTypeDef"`
 
 
 
@@ -898,6 +860,23 @@ Required fields:
 
 
 
+## SearchPlaceIndexForPositionSummaryTypeDef
+
+```python
+from mypy_boto3_location.type_defs import SearchPlaceIndexForPositionSummaryTypeDef
+```
+
+
+Required fields:
+- `DataSource`: `str`
+- `Position`: `List[float]`
+
+
+
+Optional fields:
+- `MaxResults`: `int`
+
+
 ## SearchPlaceIndexForTextResponseTypeDef
 
 ```python
@@ -910,4 +889,25 @@ Required fields:
 - `Summary`: `"SearchPlaceIndexForTextSummaryTypeDef"`
 
 
+
+
+## SearchPlaceIndexForTextSummaryTypeDef
+
+```python
+from mypy_boto3_location.type_defs import SearchPlaceIndexForTextSummaryTypeDef
+```
+
+
+Required fields:
+- `DataSource`: `str`
+- `Text`: `str`
+
+
+
+Optional fields:
+- `BiasPosition`: `List[float]`
+- `FilterBBox`: `List[float]`
+- `FilterCountries`: `List[str]`
+- `MaxResults`: `int`
+- `ResultBBox`: `List[float]`
 

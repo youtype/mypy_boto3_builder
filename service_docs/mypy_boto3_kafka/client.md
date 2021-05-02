@@ -42,12 +42,6 @@ type annotations stubs module [mypy_boto3_kafka](https://pypi.org/project/mypy-b
     - [update_configuration](#update_configuration)
     - [update_monitoring](#update_monitoring)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
 
 ## KafkaClient
 
@@ -588,107 +582,18 @@ def update_monitoring(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("kafka").get_paginator` method.
-
-[Paginator.ListClusterOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka.html#Kafka.Paginator.ListClusterOperations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListClusterOperationsPaginatorName
-) -> ListClusterOperationsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("kafka").get_paginator` method.
+Type annotations for `boto3.client("kafka").get_paginator` method with overloads.
 
-[Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka.html#Kafka.Paginator.ListClusters)
+- `client.get_paginator("list_cluster_operations")` -> [ListClusterOperationsPaginator](./paginators.md#listclusteroperationspaginator)
+- `client.get_paginator("list_clusters")` -> [ListClustersPaginator](./paginators.md#listclusterspaginator)
+- `client.get_paginator("list_configuration_revisions")` -> [ListConfigurationRevisionsPaginator](./paginators.md#listconfigurationrevisionspaginator)
+- `client.get_paginator("list_configurations")` -> [ListConfigurationsPaginator](./paginators.md#listconfigurationspaginator)
+- `client.get_paginator("list_kafka_versions")` -> [ListKafkaVersionsPaginator](./paginators.md#listkafkaversionspaginator)
+- `client.get_paginator("list_nodes")` -> [ListNodesPaginator](./paginators.md#listnodespaginator)
+- `client.get_paginator("list_scram_secrets")` -> [ListScramSecretsPaginator](./paginators.md#listscramsecretspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListClustersPaginatorName
-) -> ListClustersPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("kafka").get_paginator` method.
-
-[Paginator.ListConfigurationRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka.html#Kafka.Paginator.ListConfigurationRevisions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListConfigurationRevisionsPaginatorName
-) -> ListConfigurationRevisionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("kafka").get_paginator` method.
-
-[Paginator.ListConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka.html#Kafka.Paginator.ListConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListConfigurationsPaginatorName
-) -> ListConfigurationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("kafka").get_paginator` method.
-
-[Paginator.ListKafkaVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka.html#Kafka.Paginator.ListKafkaVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListKafkaVersionsPaginatorName
-) -> ListKafkaVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("kafka").get_paginator` method.
-
-[Paginator.ListNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka.html#Kafka.Paginator.ListNodes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListNodesPaginatorName
-) -> ListNodesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("kafka").get_paginator` method.
-
-[Paginator.ListScramSecrets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kafka.html#Kafka.Paginator.ListScramSecrets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListScramSecretsPaginatorName
-) -> ListScramSecretsPaginator:
-    pass
-```

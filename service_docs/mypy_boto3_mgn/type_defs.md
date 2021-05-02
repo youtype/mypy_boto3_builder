@@ -7,16 +7,24 @@ type annotations stubs module [mypy_boto3_mgn](https://pypi.org/project/mypy-bot
 
 - [Structures for boto3 mgn module](#structures-for-boto3-mgn-module)
   - [CPUTypeDef](#cputypedef)
+  - [ChangeServerLifeCycleStateSourceServerLifecycleTypeDef](#changeserverlifecyclestatesourceserverlifecycletypedef)
   - [DataReplicationErrorTypeDef](#datareplicationerrortypedef)
   - [DataReplicationInfoReplicatedDiskTypeDef](#datareplicationinforeplicateddisktypedef)
   - [DataReplicationInfoTypeDef](#datareplicationinfotypedef)
   - [DataReplicationInitiationStepTypeDef](#datareplicationinitiationsteptypedef)
   - [DataReplicationInitiationTypeDef](#datareplicationinitiationtypedef)
+  - [DescribeJobLogItemsResponseTypeDef](#describejoblogitemsresponsetypedef)
+  - [DescribeJobsRequestFiltersTypeDef](#describejobsrequestfilterstypedef)
+  - [DescribeJobsResponseTypeDef](#describejobsresponsetypedef)
+  - [DescribeReplicationConfigurationTemplatesResponseTypeDef](#describereplicationconfigurationtemplatesresponsetypedef)
+  - [DescribeSourceServersRequestFiltersTypeDef](#describesourceserversrequestfilterstypedef)
+  - [DescribeSourceServersResponseTypeDef](#describesourceserversresponsetypedef)
   - [DiskTypeDef](#disktypedef)
   - [IdentificationHintsTypeDef](#identificationhintstypedef)
   - [JobLogEventDataTypeDef](#joblogeventdatatypedef)
   - [JobLogTypeDef](#joblogtypedef)
   - [JobTypeDef](#jobtypedef)
+  - [LaunchConfigurationTypeDef](#launchconfigurationtypedef)
   - [LaunchedInstanceTypeDef](#launchedinstancetypedef)
   - [LicensingTypeDef](#licensingtypedef)
   - [LifeCycleLastCutoverFinalizedTypeDef](#lifecyclelastcutoverfinalizedtypedef)
@@ -28,24 +36,16 @@ type annotations stubs module [mypy_boto3_mgn](https://pypi.org/project/mypy-bot
   - [LifeCycleLastTestRevertedTypeDef](#lifecyclelasttestrevertedtypedef)
   - [LifeCycleLastTestTypeDef](#lifecyclelasttesttypedef)
   - [LifeCycleTypeDef](#lifecycletypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
   - [OSTypeDef](#ostypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ParticipatingServerTypeDef](#participatingservertypedef)
   - [ReplicationConfigurationReplicatedDiskTypeDef](#replicationconfigurationreplicateddisktypedef)
   - [ReplicationConfigurationTemplateTypeDef](#replicationconfigurationtemplatetypedef)
+  - [ReplicationConfigurationTypeDef](#replicationconfigurationtypedef)
   - [SourcePropertiesTypeDef](#sourcepropertiestypedef)
   - [SourceServerTypeDef](#sourceservertypedef)
-  - [ChangeServerLifeCycleStateSourceServerLifecycleTypeDef](#changeserverlifecyclestatesourceserverlifecycletypedef)
-  - [DescribeJobLogItemsResponseTypeDef](#describejoblogitemsresponsetypedef)
-  - [DescribeJobsRequestFiltersTypeDef](#describejobsrequestfilterstypedef)
-  - [DescribeJobsResponseTypeDef](#describejobsresponsetypedef)
-  - [DescribeReplicationConfigurationTemplatesResponseTypeDef](#describereplicationconfigurationtemplatesresponsetypedef)
-  - [DescribeSourceServersRequestFiltersTypeDef](#describesourceserversrequestfilterstypedef)
-  - [DescribeSourceServersResponseTypeDef](#describesourceserversresponsetypedef)
-  - [LaunchConfigurationTypeDef](#launchconfigurationtypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [ReplicationConfigurationTypeDef](#replicationconfigurationtypedef)
   - [StartCutoverResponseTypeDef](#startcutoverresponsetypedef)
   - [StartTestResponseTypeDef](#starttestresponsetypedef)
   - [TerminateTargetInstancesResponseTypeDef](#terminatetargetinstancesresponsetypedef)
@@ -62,6 +62,19 @@ from mypy_boto3_mgn.type_defs import CPUTypeDef
 Optional fields:
 - `cores`: `int`
 - `modelName`: `str`
+
+
+## ChangeServerLifeCycleStateSourceServerLifecycleTypeDef
+
+```python
+from mypy_boto3_mgn.type_defs import ChangeServerLifeCycleStateSourceServerLifecycleTypeDef
+```
+
+
+Required fields:
+- `state`: `ChangeServerLifeCycleStateSourceServerLifecycleState`
+
+
 
 
 ## DataReplicationErrorTypeDef
@@ -140,6 +153,91 @@ Optional fields:
 - `nextAttemptDateTime`: `str`
 - `startDateTime`: `str`
 - `steps`: `List["DataReplicationInitiationStepTypeDef"]`
+
+
+## DescribeJobLogItemsResponseTypeDef
+
+```python
+from mypy_boto3_mgn.type_defs import DescribeJobLogItemsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `items`: `List["JobLogTypeDef"]`
+- `nextToken`: `str`
+
+
+## DescribeJobsRequestFiltersTypeDef
+
+```python
+from mypy_boto3_mgn.type_defs import DescribeJobsRequestFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `fromDate`: `str`
+- `jobIDs`: `List[str]`
+- `toDate`: `str`
+
+
+## DescribeJobsResponseTypeDef
+
+```python
+from mypy_boto3_mgn.type_defs import DescribeJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `items`: `List["JobTypeDef"]`
+- `nextToken`: `str`
+
+
+## DescribeReplicationConfigurationTemplatesResponseTypeDef
+
+```python
+from mypy_boto3_mgn.type_defs import DescribeReplicationConfigurationTemplatesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `items`: `List["ReplicationConfigurationTemplateTypeDef"]`
+- `nextToken`: `str`
+
+
+## DescribeSourceServersRequestFiltersTypeDef
+
+```python
+from mypy_boto3_mgn.type_defs import DescribeSourceServersRequestFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `isArchived`: `bool`
+- `sourceServerIDs`: `List[str]`
+
+
+## DescribeSourceServersResponseTypeDef
+
+```python
+from mypy_boto3_mgn.type_defs import DescribeSourceServersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `items`: `List["SourceServerTypeDef"]`
+- `nextToken`: `str`
 
 
 ## DiskTypeDef
@@ -224,6 +322,26 @@ Optional fields:
 - `status`: `JobStatus`
 - `tags`: `Dict[str, str]`
 - `type`: `JobType`
+
+
+## LaunchConfigurationTypeDef
+
+```python
+from mypy_boto3_mgn.type_defs import LaunchConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `copyPrivateIp`: `bool`
+- `copyTags`: `bool`
+- `ec2LaunchTemplateID`: `str`
+- `launchDisposition`: `LaunchDisposition`
+- `licensing`: `"LicensingTypeDef"`
+- `name`: `str`
+- `sourceServerID`: `str`
+- `targetInstanceTypeRightSizingMethod`: `TargetInstanceTypeRightSizingMethod`
 
 
 ## LaunchedInstanceTypeDef
@@ -383,6 +501,19 @@ Optional fields:
 - `state`: `LifeCycleState`
 
 
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_mgn.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `Dict[str, str]`
+
+
 ## NetworkInterfaceTypeDef
 
 ```python
@@ -409,6 +540,21 @@ from mypy_boto3_mgn.type_defs import OSTypeDef
 
 Optional fields:
 - `fullString`: `str`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_mgn.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## ParticipatingServerTypeDef
@@ -470,6 +616,33 @@ Optional fields:
 - `useDedicatedReplicationServer`: `bool`
 
 
+## ReplicationConfigurationTypeDef
+
+```python
+from mypy_boto3_mgn.type_defs import ReplicationConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `associateDefaultSecurityGroup`: `bool`
+- `bandwidthThrottling`: `int`
+- `createPublicIP`: `bool`
+- `dataPlaneRouting`: `ReplicationConfigurationDataPlaneRouting`
+- `defaultLargeStagingDiskType`: `ReplicationConfigurationDefaultLargeStagingDiskType`
+- `ebsEncryption`: `ReplicationConfigurationEbsEncryption`
+- `ebsEncryptionKeyArn`: `str`
+- `name`: `str`
+- `replicatedDisks`: `List["ReplicationConfigurationReplicatedDiskTypeDef"]`
+- `replicationServerInstanceType`: `str`
+- `replicationServersSecurityGroupsIDs`: `List[str]`
+- `sourceServerID`: `str`
+- `stagingAreaSubnetId`: `str`
+- `stagingAreaTags`: `Dict[str, str]`
+- `useDedicatedReplicationServer`: `bool`
+
+
 ## SourcePropertiesTypeDef
 
 ```python
@@ -508,179 +681,6 @@ Optional fields:
 - `sourceProperties`: `"SourcePropertiesTypeDef"`
 - `sourceServerID`: `str`
 - `tags`: `Dict[str, str]`
-
-
-## ChangeServerLifeCycleStateSourceServerLifecycleTypeDef
-
-```python
-from mypy_boto3_mgn.type_defs import ChangeServerLifeCycleStateSourceServerLifecycleTypeDef
-```
-
-
-Required fields:
-- `state`: `ChangeServerLifeCycleStateSourceServerLifecycleState`
-
-
-
-
-## DescribeJobLogItemsResponseTypeDef
-
-```python
-from mypy_boto3_mgn.type_defs import DescribeJobLogItemsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `items`: `List["JobLogTypeDef"]`
-- `nextToken`: `str`
-
-
-## DescribeJobsRequestFiltersTypeDef
-
-```python
-from mypy_boto3_mgn.type_defs import DescribeJobsRequestFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `fromDate`: `str`
-- `jobIDs`: `List[str]`
-- `toDate`: `str`
-
-
-## DescribeJobsResponseTypeDef
-
-```python
-from mypy_boto3_mgn.type_defs import DescribeJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `items`: `List["JobTypeDef"]`
-- `nextToken`: `str`
-
-
-## DescribeReplicationConfigurationTemplatesResponseTypeDef
-
-```python
-from mypy_boto3_mgn.type_defs import DescribeReplicationConfigurationTemplatesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `items`: `List["ReplicationConfigurationTemplateTypeDef"]`
-- `nextToken`: `str`
-
-
-## DescribeSourceServersRequestFiltersTypeDef
-
-```python
-from mypy_boto3_mgn.type_defs import DescribeSourceServersRequestFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `isArchived`: `bool`
-- `sourceServerIDs`: `List[str]`
-
-
-## DescribeSourceServersResponseTypeDef
-
-```python
-from mypy_boto3_mgn.type_defs import DescribeSourceServersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `items`: `List["SourceServerTypeDef"]`
-- `nextToken`: `str`
-
-
-## LaunchConfigurationTypeDef
-
-```python
-from mypy_boto3_mgn.type_defs import LaunchConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `copyPrivateIp`: `bool`
-- `copyTags`: `bool`
-- `ec2LaunchTemplateID`: `str`
-- `launchDisposition`: `LaunchDisposition`
-- `licensing`: `"LicensingTypeDef"`
-- `name`: `str`
-- `sourceServerID`: `str`
-- `targetInstanceTypeRightSizingMethod`: `TargetInstanceTypeRightSizingMethod`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_mgn.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `Dict[str, str]`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_mgn.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## ReplicationConfigurationTypeDef
-
-```python
-from mypy_boto3_mgn.type_defs import ReplicationConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `associateDefaultSecurityGroup`: `bool`
-- `bandwidthThrottling`: `int`
-- `createPublicIP`: `bool`
-- `dataPlaneRouting`: `ReplicationConfigurationDataPlaneRouting`
-- `defaultLargeStagingDiskType`: `ReplicationConfigurationDefaultLargeStagingDiskType`
-- `ebsEncryption`: `ReplicationConfigurationEbsEncryption`
-- `ebsEncryptionKeyArn`: `str`
-- `name`: `str`
-- `replicatedDisks`: `List["ReplicationConfigurationReplicatedDiskTypeDef"]`
-- `replicationServerInstanceType`: `str`
-- `replicationServersSecurityGroupsIDs`: `List[str]`
-- `sourceServerID`: `str`
-- `stagingAreaSubnetId`: `str`
-- `stagingAreaTags`: `Dict[str, str]`
-- `useDedicatedReplicationServer`: `bool`
 
 
 ## StartCutoverResponseTypeDef

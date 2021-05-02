@@ -634,7 +634,7 @@ def create_network_interface(
     PrivateIpAddress: str = None,
     PrivateIpAddresses: List["PrivateIpAddressSpecificationTypeDef"] = None,
     SecondaryPrivateIpAddressCount: int = None,
-    InterfaceType: NetworkInterfaceCreationType = None,
+    InterfaceType: Literal['efa'] = None,
     TagSpecifications: List["TagSpecificationTypeDef"] = None
 ) -> _NetworkInterface:
     pass
@@ -2432,7 +2432,7 @@ Type annotations for `boto3.resource("ec2").reset_attribute` method.
 ```python
 def reset_attribute(
     self,
-    Attribute: ResetImageAttributeName,
+    Attribute: Literal['launchPermission'],
     DryRun: bool = None
 ) -> None:
     pass
@@ -5149,7 +5149,7 @@ def create_network_interface(
     PrivateIpAddress: str = None,
     PrivateIpAddresses: List["PrivateIpAddressSpecificationTypeDef"] = None,
     SecondaryPrivateIpAddressCount: int = None,
-    InterfaceType: NetworkInterfaceCreationType = None,
+    InterfaceType: Literal['efa'] = None,
     TagSpecifications: List["TagSpecificationTypeDef"] = None
 ) -> _NetworkInterface:
     pass

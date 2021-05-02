@@ -31,13 +31,6 @@ type annotations stubs module [mypy_boto3_devops_guru](https://pypi.org/project/
     - [update_resource_collection](#update_resource_collection)
     - [update_service_integration](#update_service_integration)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
 
 ## DevopsGuruClient
 
@@ -184,7 +177,7 @@ Type annotations for `boto3.client("devops-guru").describe_resource_collection_h
 ```python
 def describe_resource_collection_health(
     self,
-    ResourceCollectionType: ResourceCollectionType,
+    ResourceCollectionType: Literal['AWS_CLOUD_FORMATION'],
     NextToken: str = None
 ) -> DescribeResourceCollectionHealthResponseTypeDef:
     pass
@@ -229,7 +222,7 @@ Type annotations for `boto3.client("devops-guru").get_resource_collection` metho
 ```python
 def get_resource_collection(
     self,
-    ResourceCollectionType: ResourceCollectionType,
+    ResourceCollectionType: Literal['AWS_CLOUD_FORMATION'],
     NextToken: str = None
 ) -> GetResourceCollectionResponseTypeDef:
     pass
@@ -388,122 +381,19 @@ def update_service_integration(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("devops-guru").get_paginator` method.
-
-[Paginator.DescribeResourceCollectionHealth documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru.html#DevopsGuru.Paginator.DescribeResourceCollectionHealth)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeResourceCollectionHealthPaginatorName
-) -> DescribeResourceCollectionHealthPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("devops-guru").get_paginator` method.
+Type annotations for `boto3.client("devops-guru").get_paginator` method with overloads.
 
-[Paginator.GetResourceCollection documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru.html#DevopsGuru.Paginator.GetResourceCollection)
+- `client.get_paginator("describe_resource_collection_health")` -> [DescribeResourceCollectionHealthPaginator](./paginators.md#describeresourcecollectionhealthpaginator)
+- `client.get_paginator("get_resource_collection")` -> [GetResourceCollectionPaginator](./paginators.md#getresourcecollectionpaginator)
+- `client.get_paginator("list_anomalies_for_insight")` -> [ListAnomaliesForInsightPaginator](./paginators.md#listanomaliesforinsightpaginator)
+- `client.get_paginator("list_events")` -> [ListEventsPaginator](./paginators.md#listeventspaginator)
+- `client.get_paginator("list_insights")` -> [ListInsightsPaginator](./paginators.md#listinsightspaginator)
+- `client.get_paginator("list_notification_channels")` -> [ListNotificationChannelsPaginator](./paginators.md#listnotificationchannelspaginator)
+- `client.get_paginator("list_recommendations")` -> [ListRecommendationsPaginator](./paginators.md#listrecommendationspaginator)
+- `client.get_paginator("search_insights")` -> [SearchInsightsPaginator](./paginators.md#searchinsightspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetResourceCollectionPaginatorName
-) -> GetResourceCollectionPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("devops-guru").get_paginator` method.
-
-[Paginator.ListAnomaliesForInsight documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru.html#DevopsGuru.Paginator.ListAnomaliesForInsight)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAnomaliesForInsightPaginatorName
-) -> ListAnomaliesForInsightPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devops-guru").get_paginator` method.
-
-[Paginator.ListEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru.html#DevopsGuru.Paginator.ListEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEventsPaginatorName
-) -> ListEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devops-guru").get_paginator` method.
-
-[Paginator.ListInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru.html#DevopsGuru.Paginator.ListInsights)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInsightsPaginatorName
-) -> ListInsightsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devops-guru").get_paginator` method.
-
-[Paginator.ListNotificationChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru.html#DevopsGuru.Paginator.ListNotificationChannels)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListNotificationChannelsPaginatorName
-) -> ListNotificationChannelsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devops-guru").get_paginator` method.
-
-[Paginator.ListRecommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru.html#DevopsGuru.Paginator.ListRecommendations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRecommendationsPaginatorName
-) -> ListRecommendationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devops-guru").get_paginator` method.
-
-[Paginator.SearchInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devops-guru.html#DevopsGuru.Paginator.SearchInsights)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchInsightsPaginatorName
-) -> SearchInsightsPaginator:
-    pass
-```

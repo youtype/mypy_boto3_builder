@@ -20,43 +20,34 @@ type annotations stubs module [mypy_boto3_auditmanager](https://pypi.org/project
   - [AssessmentReportTypeDef](#assessmentreporttypedef)
   - [AssessmentReportsDestinationTypeDef](#assessmentreportsdestinationtypedef)
   - [AssessmentTypeDef](#assessmenttypedef)
+  - [BatchAssociateAssessmentReportEvidenceResponseTypeDef](#batchassociateassessmentreportevidenceresponsetypedef)
   - [BatchCreateDelegationByAssessmentErrorTypeDef](#batchcreatedelegationbyassessmenterrortypedef)
+  - [BatchCreateDelegationByAssessmentResponseTypeDef](#batchcreatedelegationbyassessmentresponsetypedef)
   - [BatchDeleteDelegationByAssessmentErrorTypeDef](#batchdeletedelegationbyassessmenterrortypedef)
+  - [BatchDeleteDelegationByAssessmentResponseTypeDef](#batchdeletedelegationbyassessmentresponsetypedef)
+  - [BatchDisassociateAssessmentReportEvidenceResponseTypeDef](#batchdisassociateassessmentreportevidenceresponsetypedef)
   - [BatchImportEvidenceToAssessmentControlErrorTypeDef](#batchimportevidencetoassessmentcontrolerrortypedef)
+  - [BatchImportEvidenceToAssessmentControlResponseTypeDef](#batchimportevidencetoassessmentcontrolresponsetypedef)
   - [ChangeLogTypeDef](#changelogtypedef)
   - [ControlCommentTypeDef](#controlcommenttypedef)
   - [ControlMappingSourceTypeDef](#controlmappingsourcetypedef)
   - [ControlMetadataTypeDef](#controlmetadatatypedef)
   - [ControlSetTypeDef](#controlsettypedef)
   - [ControlTypeDef](#controltypedef)
-  - [CreateAssessmentFrameworkControlTypeDef](#createassessmentframeworkcontroltypedef)
-  - [CreateDelegationRequestTypeDef](#createdelegationrequesttypedef)
-  - [DelegationMetadataTypeDef](#delegationmetadatatypedef)
-  - [DelegationTypeDef](#delegationtypedef)
-  - [EvidenceTypeDef](#evidencetypedef)
-  - [FrameworkMetadataTypeDef](#frameworkmetadatatypedef)
-  - [FrameworkTypeDef](#frameworktypedef)
-  - [ManualEvidenceTypeDef](#manualevidencetypedef)
-  - [NotificationTypeDef](#notificationtypedef)
-  - [ResourceTypeDef](#resourcetypedef)
-  - [RoleTypeDef](#roletypedef)
-  - [ScopeTypeDef](#scopetypedef)
-  - [ServiceMetadataTypeDef](#servicemetadatatypedef)
-  - [SettingsTypeDef](#settingstypedef)
-  - [SourceKeywordTypeDef](#sourcekeywordtypedef)
-  - [URLTypeDef](#urltypedef)
-  - [BatchAssociateAssessmentReportEvidenceResponseTypeDef](#batchassociateassessmentreportevidenceresponsetypedef)
-  - [BatchCreateDelegationByAssessmentResponseTypeDef](#batchcreatedelegationbyassessmentresponsetypedef)
-  - [BatchDeleteDelegationByAssessmentResponseTypeDef](#batchdeletedelegationbyassessmentresponsetypedef)
-  - [BatchDisassociateAssessmentReportEvidenceResponseTypeDef](#batchdisassociateassessmentreportevidenceresponsetypedef)
-  - [BatchImportEvidenceToAssessmentControlResponseTypeDef](#batchimportevidencetoassessmentcontrolresponsetypedef)
   - [CreateAssessmentFrameworkControlSetTypeDef](#createassessmentframeworkcontrolsettypedef)
+  - [CreateAssessmentFrameworkControlTypeDef](#createassessmentframeworkcontroltypedef)
   - [CreateAssessmentFrameworkResponseTypeDef](#createassessmentframeworkresponsetypedef)
   - [CreateAssessmentReportResponseTypeDef](#createassessmentreportresponsetypedef)
   - [CreateAssessmentResponseTypeDef](#createassessmentresponsetypedef)
   - [CreateControlMappingSourceTypeDef](#createcontrolmappingsourcetypedef)
   - [CreateControlResponseTypeDef](#createcontrolresponsetypedef)
+  - [CreateDelegationRequestTypeDef](#createdelegationrequesttypedef)
+  - [DelegationMetadataTypeDef](#delegationmetadatatypedef)
+  - [DelegationTypeDef](#delegationtypedef)
   - [DeregisterAccountResponseTypeDef](#deregisteraccountresponsetypedef)
+  - [EvidenceTypeDef](#evidencetypedef)
+  - [FrameworkMetadataTypeDef](#frameworkmetadatatypedef)
+  - [FrameworkTypeDef](#frameworktypedef)
   - [GetAccountStatusResponseTypeDef](#getaccountstatusresponsetypedef)
   - [GetAssessmentFrameworkResponseTypeDef](#getassessmentframeworkresponsetypedef)
   - [GetAssessmentReportUrlResponseTypeDef](#getassessmentreporturlresponsetypedef)
@@ -79,8 +70,17 @@ type annotations stubs module [mypy_boto3_auditmanager](https://pypi.org/project
   - [ListKeywordsForDataSourceResponseTypeDef](#listkeywordsfordatasourceresponsetypedef)
   - [ListNotificationsResponseTypeDef](#listnotificationsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [ManualEvidenceTypeDef](#manualevidencetypedef)
+  - [NotificationTypeDef](#notificationtypedef)
   - [RegisterAccountResponseTypeDef](#registeraccountresponsetypedef)
   - [RegisterOrganizationAdminAccountResponseTypeDef](#registerorganizationadminaccountresponsetypedef)
+  - [ResourceTypeDef](#resourcetypedef)
+  - [RoleTypeDef](#roletypedef)
+  - [ScopeTypeDef](#scopetypedef)
+  - [ServiceMetadataTypeDef](#servicemetadatatypedef)
+  - [SettingsTypeDef](#settingstypedef)
+  - [SourceKeywordTypeDef](#sourcekeywordtypedef)
+  - [URLTypeDef](#urltypedef)
   - [UpdateAssessmentControlResponseTypeDef](#updateassessmentcontrolresponsetypedef)
   - [UpdateAssessmentControlSetStatusResponseTypeDef](#updateassessmentcontrolsetstatusresponsetypedef)
   - [UpdateAssessmentFrameworkControlSetTypeDef](#updateassessmentframeworkcontrolsettypedef)
@@ -338,7 +338,7 @@ from mypy_boto3_auditmanager.type_defs import AssessmentReportsDestinationTypeDe
 
 
 Optional fields:
-- `destinationType`: `AssessmentReportDestinationType`
+- `destinationType`: `Literal['S3']`
 - `destination`: `str`
 
 
@@ -359,6 +359,20 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
+## BatchAssociateAssessmentReportEvidenceResponseTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import BatchAssociateAssessmentReportEvidenceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `evidenceIds`: `List[str]`
+- `errors`: `List["AssessmentReportEvidenceErrorTypeDef"]`
+
+
 ## BatchCreateDelegationByAssessmentErrorTypeDef
 
 ```python
@@ -372,6 +386,20 @@ Optional fields:
 - `createDelegationRequest`: `"CreateDelegationRequestTypeDef"`
 - `errorCode`: `str`
 - `errorMessage`: `str`
+
+
+## BatchCreateDelegationByAssessmentResponseTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import BatchCreateDelegationByAssessmentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `delegations`: `List["DelegationTypeDef"]`
+- `errors`: `List["BatchCreateDelegationByAssessmentErrorTypeDef"]`
 
 
 ## BatchDeleteDelegationByAssessmentErrorTypeDef
@@ -389,6 +417,33 @@ Optional fields:
 - `errorMessage`: `str`
 
 
+## BatchDeleteDelegationByAssessmentResponseTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import BatchDeleteDelegationByAssessmentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `errors`: `List["BatchDeleteDelegationByAssessmentErrorTypeDef"]`
+
+
+## BatchDisassociateAssessmentReportEvidenceResponseTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import BatchDisassociateAssessmentReportEvidenceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `evidenceIds`: `List[str]`
+- `errors`: `List["AssessmentReportEvidenceErrorTypeDef"]`
+
+
 ## BatchImportEvidenceToAssessmentControlErrorTypeDef
 
 ```python
@@ -402,6 +457,19 @@ Optional fields:
 - `manualEvidence`: `"ManualEvidenceTypeDef"`
 - `errorCode`: `str`
 - `errorMessage`: `str`
+
+
+## BatchImportEvidenceToAssessmentControlResponseTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import BatchImportEvidenceToAssessmentControlResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `errors`: `List["BatchImportEvidenceToAssessmentControlErrorTypeDef"]`
 
 
 ## ChangeLogTypeDef
@@ -516,350 +584,6 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
-## CreateAssessmentFrameworkControlTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import CreateAssessmentFrameworkControlTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-
-
-## CreateDelegationRequestTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import CreateDelegationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `comment`: `str`
-- `controlSetId`: `str`
-- `roleArn`: `str`
-- `roleType`: `RoleType`
-
-
-## DelegationMetadataTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import DelegationMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `assessmentName`: `str`
-- `assessmentId`: `str`
-- `status`: `DelegationStatus`
-- `roleArn`: `str`
-- `creationTime`: `datetime`
-- `controlSetName`: `str`
-
-
-## DelegationTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import DelegationTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `assessmentName`: `str`
-- `assessmentId`: `str`
-- `status`: `DelegationStatus`
-- `roleArn`: `str`
-- `roleType`: `RoleType`
-- `creationTime`: `datetime`
-- `lastUpdated`: `datetime`
-- `controlSetId`: `str`
-- `comment`: `str`
-- `createdBy`: `str`
-
-
-## EvidenceTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import EvidenceTypeDef
-```
-
-
-
-
-Optional fields:
-- `dataSource`: `str`
-- `evidenceAwsAccountId`: `str`
-- `time`: `datetime`
-- `eventSource`: `str`
-- `eventName`: `str`
-- `evidenceByType`: `str`
-- `resourcesIncluded`: `List["ResourceTypeDef"]`
-- `attributes`: `Dict[str, str]`
-- `iamId`: `str`
-- `complianceCheck`: `str`
-- `awsOrganization`: `str`
-- `awsAccountId`: `str`
-- `evidenceFolderId`: `str`
-- `id`: `str`
-- `assessmentReportSelection`: `str`
-
-
-## FrameworkMetadataTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import FrameworkMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `description`: `str`
-- `logo`: `str`
-- `complianceType`: `str`
-
-
-## FrameworkTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import FrameworkTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `id`: `str`
-- `name`: `str`
-- `type`: `FrameworkType`
-- `complianceType`: `str`
-- `description`: `str`
-- `logo`: `str`
-- `controlSources`: `str`
-- `controlSets`: `List["ControlSetTypeDef"]`
-- `createdAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `createdBy`: `str`
-- `lastUpdatedBy`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## ManualEvidenceTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import ManualEvidenceTypeDef
-```
-
-
-
-
-Optional fields:
-- `s3ResourcePath`: `str`
-
-
-## NotificationTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import NotificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `assessmentId`: `str`
-- `assessmentName`: `str`
-- `controlSetId`: `str`
-- `controlSetName`: `str`
-- `description`: `str`
-- `eventTime`: `datetime`
-- `source`: `str`
-
-
-## ResourceTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import ResourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `value`: `str`
-
-
-## RoleTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import RoleTypeDef
-```
-
-
-
-
-Optional fields:
-- `roleType`: `RoleType`
-- `roleArn`: `str`
-
-
-## ScopeTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import ScopeTypeDef
-```
-
-
-
-
-Optional fields:
-- `awsAccounts`: `List["AWSAccountTypeDef"]`
-- `awsServices`: `List["AWSServiceTypeDef"]`
-
-
-## ServiceMetadataTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import ServiceMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `displayName`: `str`
-- `description`: `str`
-- `category`: `str`
-
-
-## SettingsTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import SettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `isAwsOrgEnabled`: `bool`
-- `snsTopic`: `str`
-- `defaultAssessmentReportsDestination`: `"AssessmentReportsDestinationTypeDef"`
-- `defaultProcessOwners`: `List["RoleTypeDef"]`
-- `kmsKey`: `str`
-
-
-## SourceKeywordTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import SourceKeywordTypeDef
-```
-
-
-
-
-Optional fields:
-- `keywordInputType`: `KeywordInputType`
-- `keywordValue`: `str`
-
-
-## URLTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import URLTypeDef
-```
-
-
-
-
-Optional fields:
-- `hyperlinkName`: `str`
-- `link`: `str`
-
-
-## BatchAssociateAssessmentReportEvidenceResponseTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import BatchAssociateAssessmentReportEvidenceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `evidenceIds`: `List[str]`
-- `errors`: `List["AssessmentReportEvidenceErrorTypeDef"]`
-
-
-## BatchCreateDelegationByAssessmentResponseTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import BatchCreateDelegationByAssessmentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `delegations`: `List["DelegationTypeDef"]`
-- `errors`: `List["BatchCreateDelegationByAssessmentErrorTypeDef"]`
-
-
-## BatchDeleteDelegationByAssessmentResponseTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import BatchDeleteDelegationByAssessmentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `errors`: `List["BatchDeleteDelegationByAssessmentErrorTypeDef"]`
-
-
-## BatchDisassociateAssessmentReportEvidenceResponseTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import BatchDisassociateAssessmentReportEvidenceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `evidenceIds`: `List[str]`
-- `errors`: `List["AssessmentReportEvidenceErrorTypeDef"]`
-
-
-## BatchImportEvidenceToAssessmentControlResponseTypeDef
-
-```python
-from mypy_boto3_auditmanager.type_defs import BatchImportEvidenceToAssessmentControlResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `errors`: `List["BatchImportEvidenceToAssessmentControlErrorTypeDef"]`
-
-
 ## CreateAssessmentFrameworkControlSetTypeDef
 
 ```python
@@ -872,6 +596,19 @@ from mypy_boto3_auditmanager.type_defs import CreateAssessmentFrameworkControlSe
 Optional fields:
 - `name`: `str`
 - `controls`: `List["CreateAssessmentFrameworkControlTypeDef"]`
+
+
+## CreateAssessmentFrameworkControlTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import CreateAssessmentFrameworkControlTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
 
 
 ## CreateAssessmentFrameworkResponseTypeDef
@@ -945,6 +682,64 @@ Optional fields:
 - `control`: `"ControlTypeDef"`
 
 
+## CreateDelegationRequestTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import CreateDelegationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `comment`: `str`
+- `controlSetId`: `str`
+- `roleArn`: `str`
+- `roleType`: `RoleType`
+
+
+## DelegationMetadataTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import DelegationMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `assessmentName`: `str`
+- `assessmentId`: `str`
+- `status`: `DelegationStatus`
+- `roleArn`: `str`
+- `creationTime`: `datetime`
+- `controlSetName`: `str`
+
+
+## DelegationTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import DelegationTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `assessmentName`: `str`
+- `assessmentId`: `str`
+- `status`: `DelegationStatus`
+- `roleArn`: `str`
+- `roleType`: `RoleType`
+- `creationTime`: `datetime`
+- `lastUpdated`: `datetime`
+- `controlSetId`: `str`
+- `comment`: `str`
+- `createdBy`: `str`
+
+
 ## DeregisterAccountResponseTypeDef
 
 ```python
@@ -956,6 +751,75 @@ from mypy_boto3_auditmanager.type_defs import DeregisterAccountResponseTypeDef
 
 Optional fields:
 - `status`: `AccountStatus`
+
+
+## EvidenceTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import EvidenceTypeDef
+```
+
+
+
+
+Optional fields:
+- `dataSource`: `str`
+- `evidenceAwsAccountId`: `str`
+- `time`: `datetime`
+- `eventSource`: `str`
+- `eventName`: `str`
+- `evidenceByType`: `str`
+- `resourcesIncluded`: `List["ResourceTypeDef"]`
+- `attributes`: `Dict[str, str]`
+- `iamId`: `str`
+- `complianceCheck`: `str`
+- `awsOrganization`: `str`
+- `awsAccountId`: `str`
+- `evidenceFolderId`: `str`
+- `id`: `str`
+- `assessmentReportSelection`: `str`
+
+
+## FrameworkMetadataTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import FrameworkMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `description`: `str`
+- `logo`: `str`
+- `complianceType`: `str`
+
+
+## FrameworkTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import FrameworkTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `id`: `str`
+- `name`: `str`
+- `type`: `FrameworkType`
+- `complianceType`: `str`
+- `description`: `str`
+- `logo`: `str`
+- `controlSources`: `str`
+- `controlSets`: `List["ControlSetTypeDef"]`
+- `createdAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `createdBy`: `str`
+- `lastUpdatedBy`: `str`
+- `tags`: `Dict[str, str]`
 
 
 ## GetAccountStatusResponseTypeDef
@@ -1257,6 +1121,39 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
+## ManualEvidenceTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import ManualEvidenceTypeDef
+```
+
+
+
+
+Optional fields:
+- `s3ResourcePath`: `str`
+
+
+## NotificationTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import NotificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `assessmentId`: `str`
+- `assessmentName`: `str`
+- `controlSetId`: `str`
+- `controlSetName`: `str`
+- `description`: `str`
+- `eventTime`: `datetime`
+- `source`: `str`
+
+
 ## RegisterAccountResponseTypeDef
 
 ```python
@@ -1282,6 +1179,109 @@ from mypy_boto3_auditmanager.type_defs import RegisterOrganizationAdminAccountRe
 Optional fields:
 - `adminAccountId`: `str`
 - `organizationId`: `str`
+
+
+## ResourceTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import ResourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `value`: `str`
+
+
+## RoleTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import RoleTypeDef
+```
+
+
+
+
+Optional fields:
+- `roleType`: `RoleType`
+- `roleArn`: `str`
+
+
+## ScopeTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import ScopeTypeDef
+```
+
+
+
+
+Optional fields:
+- `awsAccounts`: `List["AWSAccountTypeDef"]`
+- `awsServices`: `List["AWSServiceTypeDef"]`
+
+
+## ServiceMetadataTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import ServiceMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `displayName`: `str`
+- `description`: `str`
+- `category`: `str`
+
+
+## SettingsTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import SettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `isAwsOrgEnabled`: `bool`
+- `snsTopic`: `str`
+- `defaultAssessmentReportsDestination`: `"AssessmentReportsDestinationTypeDef"`
+- `defaultProcessOwners`: `List["RoleTypeDef"]`
+- `kmsKey`: `str`
+
+
+## SourceKeywordTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import SourceKeywordTypeDef
+```
+
+
+
+
+Optional fields:
+- `keywordInputType`: `Literal['SELECT_FROM_LIST']`
+- `keywordValue`: `str`
+
+
+## URLTypeDef
+
+```python
+from mypy_boto3_auditmanager.type_defs import URLTypeDef
+```
+
+
+
+
+Optional fields:
+- `hyperlinkName`: `str`
+- `link`: `str`
 
 
 ## UpdateAssessmentControlResponseTypeDef

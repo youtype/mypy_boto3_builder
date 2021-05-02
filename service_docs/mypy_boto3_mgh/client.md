@@ -29,10 +29,6 @@ type annotations stubs module [mypy_boto3_mgh](https://pypi.org/project/mypy-bot
     - [notify_migration_task_state](#notify_migration_task_state)
     - [put_resource_attributes](#put_resource_attributes)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
 
 ## MigrationHubClient
 
@@ -383,77 +379,16 @@ def put_resource_attributes(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("mgh").get_paginator` method.
-
-[Paginator.ListApplicationStates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListApplicationStatesPaginatorName
-) -> ListApplicationStatesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("mgh").get_paginator` method.
+Type annotations for `boto3.client("mgh").get_paginator` method with overloads.
 
-[Paginator.ListCreatedArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts)
+- `client.get_paginator("list_application_states")` -> [ListApplicationStatesPaginator](./paginators.md#listapplicationstatespaginator)
+- `client.get_paginator("list_created_artifacts")` -> [ListCreatedArtifactsPaginator](./paginators.md#listcreatedartifactspaginator)
+- `client.get_paginator("list_discovered_resources")` -> [ListDiscoveredResourcesPaginator](./paginators.md#listdiscoveredresourcespaginator)
+- `client.get_paginator("list_migration_tasks")` -> [ListMigrationTasksPaginator](./paginators.md#listmigrationtaskspaginator)
+- `client.get_paginator("list_progress_update_streams")` -> [ListProgressUpdateStreamsPaginator](./paginators.md#listprogressupdatestreamspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCreatedArtifactsPaginatorName
-) -> ListCreatedArtifactsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("mgh").get_paginator` method.
-
-[Paginator.ListDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDiscoveredResourcesPaginatorName
-) -> ListDiscoveredResourcesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mgh").get_paginator` method.
-
-[Paginator.ListMigrationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMigrationTasksPaginatorName
-) -> ListMigrationTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mgh").get_paginator` method.
-
-[Paginator.ListProgressUpdateStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProgressUpdateStreamsPaginatorName
-) -> ListProgressUpdateStreamsPaginator:
-    pass
-```

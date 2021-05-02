@@ -7,19 +7,33 @@ type annotations stubs module [mypy_boto3_apigateway](https://pypi.org/project/m
 
 - [Structures for boto3 APIGateway module](#structures-for-boto3-apigateway-module)
   - [AccessLogSettingsTypeDef](#accesslogsettingstypedef)
+  - [AccountTypeDef](#accounttypedef)
+  - [ApiKeyIdsTypeDef](#apikeyidstypedef)
   - [ApiKeyTypeDef](#apikeytypedef)
+  - [ApiKeysTypeDef](#apikeystypedef)
   - [ApiStageTypeDef](#apistagetypedef)
   - [AuthorizerTypeDef](#authorizertypedef)
+  - [AuthorizersTypeDef](#authorizerstypedef)
   - [BasePathMappingTypeDef](#basepathmappingtypedef)
+  - [BasePathMappingsTypeDef](#basepathmappingstypedef)
   - [CanarySettingsTypeDef](#canarysettingstypedef)
   - [ClientCertificateTypeDef](#clientcertificatetypedef)
+  - [ClientCertificatesTypeDef](#clientcertificatestypedef)
+  - [DeploymentCanarySettingsTypeDef](#deploymentcanarysettingstypedef)
   - [DeploymentTypeDef](#deploymenttypedef)
+  - [DeploymentsTypeDef](#deploymentstypedef)
+  - [DocumentationPartIdsTypeDef](#documentationpartidstypedef)
   - [DocumentationPartLocationTypeDef](#documentationpartlocationtypedef)
   - [DocumentationPartTypeDef](#documentationparttypedef)
+  - [DocumentationPartsTypeDef](#documentationpartstypedef)
   - [DocumentationVersionTypeDef](#documentationversiontypedef)
+  - [DocumentationVersionsTypeDef](#documentationversionstypedef)
   - [DomainNameTypeDef](#domainnametypedef)
+  - [DomainNamesTypeDef](#domainnamestypedef)
   - [EndpointConfigurationTypeDef](#endpointconfigurationtypedef)
+  - [ExportResponseTypeDef](#exportresponsetypedef)
   - [GatewayResponseTypeDef](#gatewayresponsetypedef)
+  - [GatewayResponsesTypeDef](#gatewayresponsestypedef)
   - [IntegrationResponseTypeDef](#integrationresponsetypedef)
   - [IntegrationTypeDef](#integrationtypedef)
   - [MethodResponseTypeDef](#methodresponsetypedef)
@@ -27,51 +41,37 @@ type annotations stubs module [mypy_boto3_apigateway](https://pypi.org/project/m
   - [MethodSnapshotTypeDef](#methodsnapshottypedef)
   - [MethodTypeDef](#methodtypedef)
   - [ModelTypeDef](#modeltypedef)
-  - [MutualTlsAuthenticationTypeDef](#mutualtlsauthenticationtypedef)
-  - [QuotaSettingsTypeDef](#quotasettingstypedef)
-  - [RequestValidatorTypeDef](#requestvalidatortypedef)
-  - [ResourceTypeDef](#resourcetypedef)
-  - [RestApiTypeDef](#restapitypedef)
-  - [SdkConfigurationPropertyTypeDef](#sdkconfigurationpropertytypedef)
-  - [SdkTypeTypeDef](#sdktypetypedef)
-  - [StageTypeDef](#stagetypedef)
-  - [ThrottleSettingsTypeDef](#throttlesettingstypedef)
-  - [TlsConfigTypeDef](#tlsconfigtypedef)
-  - [UsagePlanKeyTypeDef](#usageplankeytypedef)
-  - [UsagePlanTypeDef](#usageplantypedef)
-  - [VpcLinkTypeDef](#vpclinktypedef)
-  - [AccountTypeDef](#accounttypedef)
-  - [ApiKeyIdsTypeDef](#apikeyidstypedef)
-  - [ApiKeysTypeDef](#apikeystypedef)
-  - [AuthorizersTypeDef](#authorizerstypedef)
-  - [BasePathMappingsTypeDef](#basepathmappingstypedef)
-  - [ClientCertificatesTypeDef](#clientcertificatestypedef)
-  - [DeploymentCanarySettingsTypeDef](#deploymentcanarysettingstypedef)
-  - [DeploymentsTypeDef](#deploymentstypedef)
-  - [DocumentationPartIdsTypeDef](#documentationpartidstypedef)
-  - [DocumentationPartsTypeDef](#documentationpartstypedef)
-  - [DocumentationVersionsTypeDef](#documentationversionstypedef)
-  - [DomainNamesTypeDef](#domainnamestypedef)
-  - [ExportResponseTypeDef](#exportresponsetypedef)
-  - [GatewayResponsesTypeDef](#gatewayresponsestypedef)
   - [ModelsTypeDef](#modelstypedef)
   - [MutualTlsAuthenticationInputTypeDef](#mutualtlsauthenticationinputtypedef)
+  - [MutualTlsAuthenticationTypeDef](#mutualtlsauthenticationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PatchOperationTypeDef](#patchoperationtypedef)
+  - [QuotaSettingsTypeDef](#quotasettingstypedef)
+  - [RequestValidatorTypeDef](#requestvalidatortypedef)
   - [RequestValidatorsTypeDef](#requestvalidatorstypedef)
+  - [ResourceTypeDef](#resourcetypedef)
   - [ResourcesTypeDef](#resourcestypedef)
+  - [RestApiTypeDef](#restapitypedef)
   - [RestApisTypeDef](#restapistypedef)
+  - [SdkConfigurationPropertyTypeDef](#sdkconfigurationpropertytypedef)
   - [SdkResponseTypeDef](#sdkresponsetypedef)
+  - [SdkTypeTypeDef](#sdktypetypedef)
   - [SdkTypesTypeDef](#sdktypestypedef)
   - [StageKeyTypeDef](#stagekeytypedef)
+  - [StageTypeDef](#stagetypedef)
   - [StagesTypeDef](#stagestypedef)
   - [TagsTypeDef](#tagstypedef)
   - [TemplateTypeDef](#templatetypedef)
   - [TestInvokeAuthorizerResponseTypeDef](#testinvokeauthorizerresponsetypedef)
   - [TestInvokeMethodResponseTypeDef](#testinvokemethodresponsetypedef)
+  - [ThrottleSettingsTypeDef](#throttlesettingstypedef)
+  - [TlsConfigTypeDef](#tlsconfigtypedef)
+  - [UsagePlanKeyTypeDef](#usageplankeytypedef)
   - [UsagePlanKeysTypeDef](#usageplankeystypedef)
+  - [UsagePlanTypeDef](#usageplantypedef)
   - [UsagePlansTypeDef](#usageplanstypedef)
   - [UsageTypeDef](#usagetypedef)
+  - [VpcLinkTypeDef](#vpclinktypedef)
   - [VpcLinksTypeDef](#vpclinkstypedef)
 
 ## AccessLogSettingsTypeDef
@@ -86,6 +86,36 @@ from mypy_boto3_apigateway.type_defs import AccessLogSettingsTypeDef
 Optional fields:
 - `format`: `str`
 - `destinationArn`: `str`
+
+
+## AccountTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import AccountTypeDef
+```
+
+
+
+
+Optional fields:
+- `cloudwatchRoleArn`: `str`
+- `throttleSettings`: `"ThrottleSettingsTypeDef"`
+- `features`: `List[str]`
+- `apiKeyVersion`: `str`
+
+
+## ApiKeyIdsTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import ApiKeyIdsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ids`: `List[str]`
+- `warnings`: `List[str]`
 
 
 ## ApiKeyTypeDef
@@ -108,6 +138,21 @@ Optional fields:
 - `lastUpdatedDate`: `datetime`
 - `stageKeys`: `List[str]`
 - `tags`: `Dict[str, str]`
+
+
+## ApiKeysTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import ApiKeysTypeDef
+```
+
+
+
+
+Optional fields:
+- `warnings`: `List[str]`
+- `position`: `str`
+- `items`: `List["ApiKeyTypeDef"]`
 
 
 ## ApiStageTypeDef
@@ -147,6 +192,20 @@ Optional fields:
 - `authorizerResultTtlInSeconds`: `int`
 
 
+## AuthorizersTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import AuthorizersTypeDef
+```
+
+
+
+
+Optional fields:
+- `position`: `str`
+- `items`: `List["AuthorizerTypeDef"]`
+
+
 ## BasePathMappingTypeDef
 
 ```python
@@ -160,6 +219,20 @@ Optional fields:
 - `basePath`: `str`
 - `restApiId`: `str`
 - `stage`: `str`
+
+
+## BasePathMappingsTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import BasePathMappingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `position`: `str`
+- `items`: `List["BasePathMappingTypeDef"]`
 
 
 ## CanarySettingsTypeDef
@@ -196,6 +269,35 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
+## ClientCertificatesTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import ClientCertificatesTypeDef
+```
+
+
+
+
+Optional fields:
+- `position`: `str`
+- `items`: `List["ClientCertificateTypeDef"]`
+
+
+## DeploymentCanarySettingsTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import DeploymentCanarySettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `percentTraffic`: `float`
+- `stageVariableOverrides`: `Dict[str, str]`
+- `useStageCache`: `bool`
+
+
 ## DeploymentTypeDef
 
 ```python
@@ -210,6 +312,34 @@ Optional fields:
 - `description`: `str`
 - `createdDate`: `datetime`
 - `apiSummary`: `Dict[str, Dict[str, "MethodSnapshotTypeDef"]]`
+
+
+## DeploymentsTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import DeploymentsTypeDef
+```
+
+
+
+
+Optional fields:
+- `position`: `str`
+- `items`: `List["DeploymentTypeDef"]`
+
+
+## DocumentationPartIdsTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import DocumentationPartIdsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ids`: `List[str]`
+- `warnings`: `List[str]`
 
 
 ## DocumentationPartLocationTypeDef
@@ -246,6 +376,20 @@ Optional fields:
 - `properties`: `str`
 
 
+## DocumentationPartsTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import DocumentationPartsTypeDef
+```
+
+
+
+
+Optional fields:
+- `position`: `str`
+- `items`: `List["DocumentationPartTypeDef"]`
+
+
 ## DocumentationVersionTypeDef
 
 ```python
@@ -259,6 +403,20 @@ Optional fields:
 - `version`: `str`
 - `createdDate`: `datetime`
 - `description`: `str`
+
+
+## DocumentationVersionsTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import DocumentationVersionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `position`: `str`
+- `items`: `List["DocumentationVersionTypeDef"]`
 
 
 ## DomainNameTypeDef
@@ -289,6 +447,20 @@ Optional fields:
 - `mutualTlsAuthentication`: `"MutualTlsAuthenticationTypeDef"`
 
 
+## DomainNamesTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import DomainNamesTypeDef
+```
+
+
+
+
+Optional fields:
+- `position`: `str`
+- `items`: `List["DomainNameTypeDef"]`
+
+
 ## EndpointConfigurationTypeDef
 
 ```python
@@ -301,6 +473,21 @@ from mypy_boto3_apigateway.type_defs import EndpointConfigurationTypeDef
 Optional fields:
 - `types`: `List[EndpointType]`
 - `vpcEndpointIds`: `List[str]`
+
+
+## ExportResponseTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import ExportResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `contentType`: `str`
+- `contentDisposition`: `str`
+- `body`: `Union[bytes, IO[bytes]]`
 
 
 ## GatewayResponseTypeDef
@@ -318,6 +505,20 @@ Optional fields:
 - `responseParameters`: `Dict[str, str]`
 - `responseTemplates`: `Dict[str, str]`
 - `defaultResponse`: `bool`
+
+
+## GatewayResponsesTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import GatewayResponsesTypeDef
+```
+
+
+
+
+Optional fields:
+- `position`: `str`
+- `items`: `List["GatewayResponseTypeDef"]`
 
 
 ## IntegrationResponseTypeDef
@@ -455,439 +656,6 @@ Optional fields:
 - `contentType`: `str`
 
 
-## MutualTlsAuthenticationTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import MutualTlsAuthenticationTypeDef
-```
-
-
-
-
-Optional fields:
-- `truststoreUri`: `str`
-- `truststoreVersion`: `str`
-- `truststoreWarnings`: `List[str]`
-
-
-## QuotaSettingsTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import QuotaSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `limit`: `int`
-- `offset`: `int`
-- `period`: `QuotaPeriodType`
-
-
-## RequestValidatorTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import RequestValidatorTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `name`: `str`
-- `validateRequestBody`: `bool`
-- `validateRequestParameters`: `bool`
-
-
-## ResourceTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import ResourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `parentId`: `str`
-- `pathPart`: `str`
-- `path`: `str`
-- `resourceMethods`: `Dict[str, "MethodTypeDef"]`
-
-
-## RestApiTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import RestApiTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `name`: `str`
-- `description`: `str`
-- `createdDate`: `datetime`
-- `version`: `str`
-- `warnings`: `List[str]`
-- `binaryMediaTypes`: `List[str]`
-- `minimumCompressionSize`: `int`
-- `apiKeySource`: `ApiKeySourceType`
-- `endpointConfiguration`: `"EndpointConfigurationTypeDef"`
-- `policy`: `str`
-- `tags`: `Dict[str, str]`
-- `disableExecuteApiEndpoint`: `bool`
-
-
-## SdkConfigurationPropertyTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import SdkConfigurationPropertyTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `friendlyName`: `str`
-- `description`: `str`
-- `required`: `bool`
-- `defaultValue`: `str`
-
-
-## SdkTypeTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import SdkTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `friendlyName`: `str`
-- `description`: `str`
-- `configurationProperties`: `List["SdkConfigurationPropertyTypeDef"]`
-
-
-## StageTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import StageTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentId`: `str`
-- `clientCertificateId`: `str`
-- `stageName`: `str`
-- `description`: `str`
-- `cacheClusterEnabled`: `bool`
-- `cacheClusterSize`: `CacheClusterSize`
-- `cacheClusterStatus`: `CacheClusterStatus`
-- `methodSettings`: `Dict[str, "MethodSettingTypeDef"]`
-- `variables`: `Dict[str, str]`
-- `documentationVersion`: `str`
-- `accessLogSettings`: `"AccessLogSettingsTypeDef"`
-- `canarySettings`: `"CanarySettingsTypeDef"`
-- `tracingEnabled`: `bool`
-- `webAclArn`: `str`
-- `tags`: `Dict[str, str]`
-- `createdDate`: `datetime`
-- `lastUpdatedDate`: `datetime`
-
-
-## ThrottleSettingsTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import ThrottleSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `burstLimit`: `int`
-- `rateLimit`: `float`
-
-
-## TlsConfigTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import TlsConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `insecureSkipVerification`: `bool`
-
-
-## UsagePlanKeyTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import UsagePlanKeyTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `type`: `str`
-- `value`: `str`
-- `name`: `str`
-
-
-## UsagePlanTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import UsagePlanTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `name`: `str`
-- `description`: `str`
-- `apiStages`: `List["ApiStageTypeDef"]`
-- `throttle`: `"ThrottleSettingsTypeDef"`
-- `quota`: `"QuotaSettingsTypeDef"`
-- `productCode`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## VpcLinkTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import VpcLinkTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `name`: `str`
-- `description`: `str`
-- `targetArns`: `List[str]`
-- `status`: `VpcLinkStatus`
-- `statusMessage`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## AccountTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import AccountTypeDef
-```
-
-
-
-
-Optional fields:
-- `cloudwatchRoleArn`: `str`
-- `throttleSettings`: `"ThrottleSettingsTypeDef"`
-- `features`: `List[str]`
-- `apiKeyVersion`: `str`
-
-
-## ApiKeyIdsTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import ApiKeyIdsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ids`: `List[str]`
-- `warnings`: `List[str]`
-
-
-## ApiKeysTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import ApiKeysTypeDef
-```
-
-
-
-
-Optional fields:
-- `warnings`: `List[str]`
-- `position`: `str`
-- `items`: `List["ApiKeyTypeDef"]`
-
-
-## AuthorizersTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import AuthorizersTypeDef
-```
-
-
-
-
-Optional fields:
-- `position`: `str`
-- `items`: `List["AuthorizerTypeDef"]`
-
-
-## BasePathMappingsTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import BasePathMappingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `position`: `str`
-- `items`: `List["BasePathMappingTypeDef"]`
-
-
-## ClientCertificatesTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import ClientCertificatesTypeDef
-```
-
-
-
-
-Optional fields:
-- `position`: `str`
-- `items`: `List["ClientCertificateTypeDef"]`
-
-
-## DeploymentCanarySettingsTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import DeploymentCanarySettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `percentTraffic`: `float`
-- `stageVariableOverrides`: `Dict[str, str]`
-- `useStageCache`: `bool`
-
-
-## DeploymentsTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import DeploymentsTypeDef
-```
-
-
-
-
-Optional fields:
-- `position`: `str`
-- `items`: `List["DeploymentTypeDef"]`
-
-
-## DocumentationPartIdsTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import DocumentationPartIdsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ids`: `List[str]`
-- `warnings`: `List[str]`
-
-
-## DocumentationPartsTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import DocumentationPartsTypeDef
-```
-
-
-
-
-Optional fields:
-- `position`: `str`
-- `items`: `List["DocumentationPartTypeDef"]`
-
-
-## DocumentationVersionsTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import DocumentationVersionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `position`: `str`
-- `items`: `List["DocumentationVersionTypeDef"]`
-
-
-## DomainNamesTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import DomainNamesTypeDef
-```
-
-
-
-
-Optional fields:
-- `position`: `str`
-- `items`: `List["DomainNameTypeDef"]`
-
-
-## ExportResponseTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import ExportResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `contentType`: `str`
-- `contentDisposition`: `str`
-- `body`: `Union[bytes, IO[bytes]]`
-
-
-## GatewayResponsesTypeDef
-
-```python
-from mypy_boto3_apigateway.type_defs import GatewayResponsesTypeDef
-```
-
-
-
-
-Optional fields:
-- `position`: `str`
-- `items`: `List["GatewayResponseTypeDef"]`
-
-
 ## ModelsTypeDef
 
 ```python
@@ -914,6 +682,21 @@ from mypy_boto3_apigateway.type_defs import MutualTlsAuthenticationInputTypeDef
 Optional fields:
 - `truststoreUri`: `str`
 - `truststoreVersion`: `str`
+
+
+## MutualTlsAuthenticationTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import MutualTlsAuthenticationTypeDef
+```
+
+
+
+
+Optional fields:
+- `truststoreUri`: `str`
+- `truststoreVersion`: `str`
+- `truststoreWarnings`: `List[str]`
 
 
 ## PaginatorConfigTypeDef
@@ -947,6 +730,37 @@ Optional fields:
 - `from`: `str`
 
 
+## QuotaSettingsTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import QuotaSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `limit`: `int`
+- `offset`: `int`
+- `period`: `QuotaPeriodType`
+
+
+## RequestValidatorTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import RequestValidatorTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `name`: `str`
+- `validateRequestBody`: `bool`
+- `validateRequestParameters`: `bool`
+
+
 ## RequestValidatorsTypeDef
 
 ```python
@@ -959,6 +773,23 @@ from mypy_boto3_apigateway.type_defs import RequestValidatorsTypeDef
 Optional fields:
 - `position`: `str`
 - `items`: `List["RequestValidatorTypeDef"]`
+
+
+## ResourceTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import ResourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `parentId`: `str`
+- `pathPart`: `str`
+- `path`: `str`
+- `resourceMethods`: `Dict[str, "MethodTypeDef"]`
 
 
 ## ResourcesTypeDef
@@ -975,6 +806,31 @@ Optional fields:
 - `items`: `List["ResourceTypeDef"]`
 
 
+## RestApiTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import RestApiTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `name`: `str`
+- `description`: `str`
+- `createdDate`: `datetime`
+- `version`: `str`
+- `warnings`: `List[str]`
+- `binaryMediaTypes`: `List[str]`
+- `minimumCompressionSize`: `int`
+- `apiKeySource`: `ApiKeySourceType`
+- `endpointConfiguration`: `"EndpointConfigurationTypeDef"`
+- `policy`: `str`
+- `tags`: `Dict[str, str]`
+- `disableExecuteApiEndpoint`: `bool`
+
+
 ## RestApisTypeDef
 
 ```python
@@ -987,6 +843,23 @@ from mypy_boto3_apigateway.type_defs import RestApisTypeDef
 Optional fields:
 - `position`: `str`
 - `items`: `List["RestApiTypeDef"]`
+
+
+## SdkConfigurationPropertyTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import SdkConfigurationPropertyTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `friendlyName`: `str`
+- `description`: `str`
+- `required`: `bool`
+- `defaultValue`: `str`
 
 
 ## SdkResponseTypeDef
@@ -1002,6 +875,22 @@ Optional fields:
 - `contentType`: `str`
 - `contentDisposition`: `str`
 - `body`: `Union[bytes, IO[bytes]]`
+
+
+## SdkTypeTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import SdkTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `friendlyName`: `str`
+- `description`: `str`
+- `configurationProperties`: `List["SdkConfigurationPropertyTypeDef"]`
 
 
 ## SdkTypesTypeDef
@@ -1030,6 +919,35 @@ from mypy_boto3_apigateway.type_defs import StageKeyTypeDef
 Optional fields:
 - `restApiId`: `str`
 - `stageName`: `str`
+
+
+## StageTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import StageTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentId`: `str`
+- `clientCertificateId`: `str`
+- `stageName`: `str`
+- `description`: `str`
+- `cacheClusterEnabled`: `bool`
+- `cacheClusterSize`: `CacheClusterSize`
+- `cacheClusterStatus`: `CacheClusterStatus`
+- `methodSettings`: `Dict[str, "MethodSettingTypeDef"]`
+- `variables`: `Dict[str, str]`
+- `documentationVersion`: `str`
+- `accessLogSettings`: `"AccessLogSettingsTypeDef"`
+- `canarySettings`: `"CanarySettingsTypeDef"`
+- `tracingEnabled`: `bool`
+- `webAclArn`: `str`
+- `tags`: `Dict[str, str]`
+- `createdDate`: `datetime`
+- `lastUpdatedDate`: `datetime`
 
 
 ## StagesTypeDef
@@ -1108,6 +1026,49 @@ Optional fields:
 - `latency`: `int`
 
 
+## ThrottleSettingsTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import ThrottleSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `burstLimit`: `int`
+- `rateLimit`: `float`
+
+
+## TlsConfigTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import TlsConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `insecureSkipVerification`: `bool`
+
+
+## UsagePlanKeyTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import UsagePlanKeyTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `type`: `str`
+- `value`: `str`
+- `name`: `str`
+
+
 ## UsagePlanKeysTypeDef
 
 ```python
@@ -1120,6 +1081,26 @@ from mypy_boto3_apigateway.type_defs import UsagePlanKeysTypeDef
 Optional fields:
 - `position`: `str`
 - `items`: `List["UsagePlanKeyTypeDef"]`
+
+
+## UsagePlanTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import UsagePlanTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `name`: `str`
+- `description`: `str`
+- `apiStages`: `List["ApiStageTypeDef"]`
+- `throttle`: `"ThrottleSettingsTypeDef"`
+- `quota`: `"QuotaSettingsTypeDef"`
+- `productCode`: `str`
+- `tags`: `Dict[str, str]`
 
 
 ## UsagePlansTypeDef
@@ -1151,6 +1132,25 @@ Optional fields:
 - `endDate`: `str`
 - `position`: `str`
 - `items`: `Dict[str, List[List[int]]]`
+
+
+## VpcLinkTypeDef
+
+```python
+from mypy_boto3_apigateway.type_defs import VpcLinkTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `name`: `str`
+- `description`: `str`
+- `targetArns`: `List[str]`
+- `status`: `VpcLinkStatus`
+- `statusMessage`: `str`
+- `tags`: `Dict[str, str]`
 
 
 ## VpcLinksTypeDef

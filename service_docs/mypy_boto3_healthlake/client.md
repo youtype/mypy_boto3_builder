@@ -80,7 +80,7 @@ Type annotations for `boto3.client("healthlake").create_fhir_datastore` method.
 ```python
 def create_fhir_datastore(
     self,
-    DatastoreTypeVersion: FHIRVersion,
+    DatastoreTypeVersion: Literal['R4'],
     DatastoreName: str = None,
     PreloadDataConfig: "PreloadDataConfigTypeDef" = None,
     ClientToken: str = None
@@ -214,3 +214,6 @@ def start_fhir_import_job(
 ) -> StartFHIRImportJobResponseTypeDef:
     pass
 ```
+
+
+

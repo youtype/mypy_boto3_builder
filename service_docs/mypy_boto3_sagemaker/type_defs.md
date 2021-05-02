@@ -8,6 +8,8 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
 - [Structures for boto3 SageMaker module](#structures-for-boto3-sagemaker-module)
   - [ActionSourceTypeDef](#actionsourcetypedef)
   - [ActionSummaryTypeDef](#actionsummarytypedef)
+  - [AddAssociationResponseTypeDef](#addassociationresponsetypedef)
+  - [AddTagsOutputTypeDef](#addtagsoutputtypedef)
   - [AgentVersionTypeDef](#agentversiontypedef)
   - [AlarmTypeDef](#alarmtypedef)
   - [AlgorithmSpecificationTypeDef](#algorithmspecificationtypedef)
@@ -23,6 +25,7 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [ArtifactSourceTypeDef](#artifactsourcetypedef)
   - [ArtifactSourceTypeTypeDef](#artifactsourcetypetypedef)
   - [ArtifactSummaryTypeDef](#artifactsummarytypedef)
+  - [AssociateTrialComponentResponseTypeDef](#associatetrialcomponentresponsetypedef)
   - [AssociationSummaryTypeDef](#associationsummarytypedef)
   - [AthenaDatasetDefinitionTypeDef](#athenadatasetdefinitiontypedef)
   - [AutoMLCandidateStepTypeDef](#automlcandidatesteptypedef)
@@ -64,6 +67,48 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [ContextSummaryTypeDef](#contextsummarytypedef)
   - [ContinuousParameterRangeSpecificationTypeDef](#continuousparameterrangespecificationtypedef)
   - [ContinuousParameterRangeTypeDef](#continuousparameterrangetypedef)
+  - [CreateActionResponseTypeDef](#createactionresponsetypedef)
+  - [CreateAlgorithmOutputTypeDef](#createalgorithmoutputtypedef)
+  - [CreateAppImageConfigResponseTypeDef](#createappimageconfigresponsetypedef)
+  - [CreateAppResponseTypeDef](#createappresponsetypedef)
+  - [CreateArtifactResponseTypeDef](#createartifactresponsetypedef)
+  - [CreateAutoMLJobResponseTypeDef](#createautomljobresponsetypedef)
+  - [CreateCodeRepositoryOutputTypeDef](#createcoderepositoryoutputtypedef)
+  - [CreateCompilationJobResponseTypeDef](#createcompilationjobresponsetypedef)
+  - [CreateContextResponseTypeDef](#createcontextresponsetypedef)
+  - [CreateDataQualityJobDefinitionResponseTypeDef](#createdataqualityjobdefinitionresponsetypedef)
+  - [CreateDomainResponseTypeDef](#createdomainresponsetypedef)
+  - [CreateEndpointConfigOutputTypeDef](#createendpointconfigoutputtypedef)
+  - [CreateEndpointOutputTypeDef](#createendpointoutputtypedef)
+  - [CreateExperimentResponseTypeDef](#createexperimentresponsetypedef)
+  - [CreateFeatureGroupResponseTypeDef](#createfeaturegroupresponsetypedef)
+  - [CreateFlowDefinitionResponseTypeDef](#createflowdefinitionresponsetypedef)
+  - [CreateHumanTaskUiResponseTypeDef](#createhumantaskuiresponsetypedef)
+  - [CreateHyperParameterTuningJobResponseTypeDef](#createhyperparametertuningjobresponsetypedef)
+  - [CreateImageResponseTypeDef](#createimageresponsetypedef)
+  - [CreateImageVersionResponseTypeDef](#createimageversionresponsetypedef)
+  - [CreateLabelingJobResponseTypeDef](#createlabelingjobresponsetypedef)
+  - [CreateModelBiasJobDefinitionResponseTypeDef](#createmodelbiasjobdefinitionresponsetypedef)
+  - [CreateModelExplainabilityJobDefinitionResponseTypeDef](#createmodelexplainabilityjobdefinitionresponsetypedef)
+  - [CreateModelOutputTypeDef](#createmodeloutputtypedef)
+  - [CreateModelPackageGroupOutputTypeDef](#createmodelpackagegroupoutputtypedef)
+  - [CreateModelPackageOutputTypeDef](#createmodelpackageoutputtypedef)
+  - [CreateModelQualityJobDefinitionResponseTypeDef](#createmodelqualityjobdefinitionresponsetypedef)
+  - [CreateMonitoringScheduleResponseTypeDef](#createmonitoringscheduleresponsetypedef)
+  - [CreateNotebookInstanceLifecycleConfigOutputTypeDef](#createnotebookinstancelifecycleconfigoutputtypedef)
+  - [CreateNotebookInstanceOutputTypeDef](#createnotebookinstanceoutputtypedef)
+  - [CreatePipelineResponseTypeDef](#createpipelineresponsetypedef)
+  - [CreatePresignedDomainUrlResponseTypeDef](#createpresigneddomainurlresponsetypedef)
+  - [CreatePresignedNotebookInstanceUrlOutputTypeDef](#createpresignednotebookinstanceurloutputtypedef)
+  - [CreateProcessingJobResponseTypeDef](#createprocessingjobresponsetypedef)
+  - [CreateProjectOutputTypeDef](#createprojectoutputtypedef)
+  - [CreateTrainingJobResponseTypeDef](#createtrainingjobresponsetypedef)
+  - [CreateTransformJobResponseTypeDef](#createtransformjobresponsetypedef)
+  - [CreateTrialComponentResponseTypeDef](#createtrialcomponentresponsetypedef)
+  - [CreateTrialResponseTypeDef](#createtrialresponsetypedef)
+  - [CreateUserProfileResponseTypeDef](#createuserprofileresponsetypedef)
+  - [CreateWorkforceResponseTypeDef](#createworkforceresponsetypedef)
+  - [CreateWorkteamResponseTypeDef](#createworkteamresponsetypedef)
   - [CustomImageTypeDef](#customimagetypedef)
   - [DataCaptureConfigSummaryTypeDef](#datacaptureconfigsummarytypedef)
   - [DataCaptureConfigTypeDef](#datacaptureconfigtypedef)
@@ -77,11 +122,69 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [DebugHookConfigTypeDef](#debughookconfigtypedef)
   - [DebugRuleConfigurationTypeDef](#debugruleconfigurationtypedef)
   - [DebugRuleEvaluationStatusTypeDef](#debugruleevaluationstatustypedef)
+  - [DeleteActionResponseTypeDef](#deleteactionresponsetypedef)
+  - [DeleteArtifactResponseTypeDef](#deleteartifactresponsetypedef)
+  - [DeleteAssociationResponseTypeDef](#deleteassociationresponsetypedef)
+  - [DeleteContextResponseTypeDef](#deletecontextresponsetypedef)
+  - [DeleteExperimentResponseTypeDef](#deleteexperimentresponsetypedef)
+  - [DeletePipelineResponseTypeDef](#deletepipelineresponsetypedef)
+  - [DeleteTrialComponentResponseTypeDef](#deletetrialcomponentresponsetypedef)
+  - [DeleteTrialResponseTypeDef](#deletetrialresponsetypedef)
+  - [DeleteWorkteamResponseTypeDef](#deleteworkteamresponsetypedef)
   - [DeployedImageTypeDef](#deployedimagetypedef)
   - [DeploymentConfigTypeDef](#deploymentconfigtypedef)
+  - [DescribeActionResponseTypeDef](#describeactionresponsetypedef)
+  - [DescribeAlgorithmOutputTypeDef](#describealgorithmoutputtypedef)
+  - [DescribeAppImageConfigResponseTypeDef](#describeappimageconfigresponsetypedef)
+  - [DescribeAppResponseTypeDef](#describeappresponsetypedef)
+  - [DescribeArtifactResponseTypeDef](#describeartifactresponsetypedef)
+  - [DescribeAutoMLJobResponseTypeDef](#describeautomljobresponsetypedef)
+  - [DescribeCodeRepositoryOutputTypeDef](#describecoderepositoryoutputtypedef)
+  - [DescribeCompilationJobResponseTypeDef](#describecompilationjobresponsetypedef)
+  - [DescribeContextResponseTypeDef](#describecontextresponsetypedef)
+  - [DescribeDataQualityJobDefinitionResponseTypeDef](#describedataqualityjobdefinitionresponsetypedef)
+  - [DescribeDeviceFleetResponseTypeDef](#describedevicefleetresponsetypedef)
+  - [DescribeDeviceResponseTypeDef](#describedeviceresponsetypedef)
+  - [DescribeDomainResponseTypeDef](#describedomainresponsetypedef)
+  - [DescribeEdgePackagingJobResponseTypeDef](#describeedgepackagingjobresponsetypedef)
+  - [DescribeEndpointConfigOutputTypeDef](#describeendpointconfigoutputtypedef)
+  - [DescribeEndpointOutputTypeDef](#describeendpointoutputtypedef)
+  - [DescribeExperimentResponseTypeDef](#describeexperimentresponsetypedef)
+  - [DescribeFeatureGroupResponseTypeDef](#describefeaturegroupresponsetypedef)
+  - [DescribeFlowDefinitionResponseTypeDef](#describeflowdefinitionresponsetypedef)
+  - [DescribeHumanTaskUiResponseTypeDef](#describehumantaskuiresponsetypedef)
+  - [DescribeHyperParameterTuningJobResponseTypeDef](#describehyperparametertuningjobresponsetypedef)
+  - [DescribeImageResponseTypeDef](#describeimageresponsetypedef)
+  - [DescribeImageVersionResponseTypeDef](#describeimageversionresponsetypedef)
+  - [DescribeLabelingJobResponseTypeDef](#describelabelingjobresponsetypedef)
+  - [DescribeModelBiasJobDefinitionResponseTypeDef](#describemodelbiasjobdefinitionresponsetypedef)
+  - [DescribeModelExplainabilityJobDefinitionResponseTypeDef](#describemodelexplainabilityjobdefinitionresponsetypedef)
+  - [DescribeModelOutputTypeDef](#describemodeloutputtypedef)
+  - [DescribeModelPackageGroupOutputTypeDef](#describemodelpackagegroupoutputtypedef)
+  - [DescribeModelPackageOutputTypeDef](#describemodelpackageoutputtypedef)
+  - [DescribeModelQualityJobDefinitionResponseTypeDef](#describemodelqualityjobdefinitionresponsetypedef)
+  - [DescribeMonitoringScheduleResponseTypeDef](#describemonitoringscheduleresponsetypedef)
+  - [DescribeNotebookInstanceLifecycleConfigOutputTypeDef](#describenotebookinstancelifecycleconfigoutputtypedef)
+  - [DescribeNotebookInstanceOutputTypeDef](#describenotebookinstanceoutputtypedef)
+  - [DescribePipelineDefinitionForExecutionResponseTypeDef](#describepipelinedefinitionforexecutionresponsetypedef)
+  - [DescribePipelineExecutionResponseTypeDef](#describepipelineexecutionresponsetypedef)
+  - [DescribePipelineResponseTypeDef](#describepipelineresponsetypedef)
+  - [DescribeProcessingJobResponseTypeDef](#describeprocessingjobresponsetypedef)
+  - [DescribeProjectOutputTypeDef](#describeprojectoutputtypedef)
+  - [DescribeSubscribedWorkteamResponseTypeDef](#describesubscribedworkteamresponsetypedef)
+  - [DescribeTrainingJobResponseTypeDef](#describetrainingjobresponsetypedef)
+  - [DescribeTransformJobResponseTypeDef](#describetransformjobresponsetypedef)
+  - [DescribeTrialComponentResponseTypeDef](#describetrialcomponentresponsetypedef)
+  - [DescribeTrialResponseTypeDef](#describetrialresponsetypedef)
+  - [DescribeUserProfileResponseTypeDef](#describeuserprofileresponsetypedef)
+  - [DescribeWorkforceResponseTypeDef](#describeworkforceresponsetypedef)
+  - [DescribeWorkteamResponseTypeDef](#describeworkteamresponsetypedef)
+  - [DesiredWeightAndCapacityTypeDef](#desiredweightandcapacitytypedef)
   - [DeviceFleetSummaryTypeDef](#devicefleetsummarytypedef)
   - [DeviceStatsTypeDef](#devicestatstypedef)
   - [DeviceSummaryTypeDef](#devicesummarytypedef)
+  - [DeviceTypeDef](#devicetypedef)
+  - [DisassociateTrialComponentResponseTypeDef](#disassociatetrialcomponentresponsetypedef)
   - [DomainDetailsTypeDef](#domaindetailstypedef)
   - [EdgeModelStatTypeDef](#edgemodelstattypedef)
   - [EdgeModelSummaryTypeDef](#edgemodelsummarytypedef)
@@ -107,6 +210,11 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [FinalHyperParameterTuningJobObjectiveMetricTypeDef](#finalhyperparametertuningjobobjectivemetrictypedef)
   - [FlowDefinitionOutputConfigTypeDef](#flowdefinitionoutputconfigtypedef)
   - [FlowDefinitionSummaryTypeDef](#flowdefinitionsummarytypedef)
+  - [GetDeviceFleetReportResponseTypeDef](#getdevicefleetreportresponsetypedef)
+  - [GetModelPackageGroupPolicyOutputTypeDef](#getmodelpackagegrouppolicyoutputtypedef)
+  - [GetSagemakerServicecatalogPortfolioStatusOutputTypeDef](#getsagemakerservicecatalogportfoliostatusoutputtypedef)
+  - [GetSearchSuggestionsResponseTypeDef](#getsearchsuggestionsresponsetypedef)
+  - [GitConfigForUpdateTypeDef](#gitconfigforupdatetypedef)
   - [GitConfigTypeDef](#gitconfigtypedef)
   - [HumanLoopActivationConditionsConfigTypeDef](#humanloopactivationconditionsconfigtypedef)
   - [HumanLoopActivationConfigTypeDef](#humanloopactivationconfigtypedef)
@@ -148,6 +256,59 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [LabelingJobSnsDataSourceTypeDef](#labelingjobsnsdatasourcetypedef)
   - [LabelingJobStoppingConditionsTypeDef](#labelingjobstoppingconditionstypedef)
   - [LabelingJobSummaryTypeDef](#labelingjobsummarytypedef)
+  - [ListActionsResponseTypeDef](#listactionsresponsetypedef)
+  - [ListAlgorithmsOutputTypeDef](#listalgorithmsoutputtypedef)
+  - [ListAppImageConfigsResponseTypeDef](#listappimageconfigsresponsetypedef)
+  - [ListAppsResponseTypeDef](#listappsresponsetypedef)
+  - [ListArtifactsResponseTypeDef](#listartifactsresponsetypedef)
+  - [ListAssociationsResponseTypeDef](#listassociationsresponsetypedef)
+  - [ListAutoMLJobsResponseTypeDef](#listautomljobsresponsetypedef)
+  - [ListCandidatesForAutoMLJobResponseTypeDef](#listcandidatesforautomljobresponsetypedef)
+  - [ListCodeRepositoriesOutputTypeDef](#listcoderepositoriesoutputtypedef)
+  - [ListCompilationJobsResponseTypeDef](#listcompilationjobsresponsetypedef)
+  - [ListContextsResponseTypeDef](#listcontextsresponsetypedef)
+  - [ListDataQualityJobDefinitionsResponseTypeDef](#listdataqualityjobdefinitionsresponsetypedef)
+  - [ListDeviceFleetsResponseTypeDef](#listdevicefleetsresponsetypedef)
+  - [ListDevicesResponseTypeDef](#listdevicesresponsetypedef)
+  - [ListDomainsResponseTypeDef](#listdomainsresponsetypedef)
+  - [ListEdgePackagingJobsResponseTypeDef](#listedgepackagingjobsresponsetypedef)
+  - [ListEndpointConfigsOutputTypeDef](#listendpointconfigsoutputtypedef)
+  - [ListEndpointsOutputTypeDef](#listendpointsoutputtypedef)
+  - [ListExperimentsResponseTypeDef](#listexperimentsresponsetypedef)
+  - [ListFeatureGroupsResponseTypeDef](#listfeaturegroupsresponsetypedef)
+  - [ListFlowDefinitionsResponseTypeDef](#listflowdefinitionsresponsetypedef)
+  - [ListHumanTaskUisResponseTypeDef](#listhumantaskuisresponsetypedef)
+  - [ListHyperParameterTuningJobsResponseTypeDef](#listhyperparametertuningjobsresponsetypedef)
+  - [ListImageVersionsResponseTypeDef](#listimageversionsresponsetypedef)
+  - [ListImagesResponseTypeDef](#listimagesresponsetypedef)
+  - [ListLabelingJobsForWorkteamResponseTypeDef](#listlabelingjobsforworkteamresponsetypedef)
+  - [ListLabelingJobsResponseTypeDef](#listlabelingjobsresponsetypedef)
+  - [ListModelBiasJobDefinitionsResponseTypeDef](#listmodelbiasjobdefinitionsresponsetypedef)
+  - [ListModelExplainabilityJobDefinitionsResponseTypeDef](#listmodelexplainabilityjobdefinitionsresponsetypedef)
+  - [ListModelPackageGroupsOutputTypeDef](#listmodelpackagegroupsoutputtypedef)
+  - [ListModelPackagesOutputTypeDef](#listmodelpackagesoutputtypedef)
+  - [ListModelQualityJobDefinitionsResponseTypeDef](#listmodelqualityjobdefinitionsresponsetypedef)
+  - [ListModelsOutputTypeDef](#listmodelsoutputtypedef)
+  - [ListMonitoringExecutionsResponseTypeDef](#listmonitoringexecutionsresponsetypedef)
+  - [ListMonitoringSchedulesResponseTypeDef](#listmonitoringschedulesresponsetypedef)
+  - [ListNotebookInstanceLifecycleConfigsOutputTypeDef](#listnotebookinstancelifecycleconfigsoutputtypedef)
+  - [ListNotebookInstancesOutputTypeDef](#listnotebookinstancesoutputtypedef)
+  - [ListPipelineExecutionStepsResponseTypeDef](#listpipelineexecutionstepsresponsetypedef)
+  - [ListPipelineExecutionsResponseTypeDef](#listpipelineexecutionsresponsetypedef)
+  - [ListPipelineParametersForExecutionResponseTypeDef](#listpipelineparametersforexecutionresponsetypedef)
+  - [ListPipelinesResponseTypeDef](#listpipelinesresponsetypedef)
+  - [ListProcessingJobsResponseTypeDef](#listprocessingjobsresponsetypedef)
+  - [ListProjectsOutputTypeDef](#listprojectsoutputtypedef)
+  - [ListSubscribedWorkteamsResponseTypeDef](#listsubscribedworkteamsresponsetypedef)
+  - [ListTagsOutputTypeDef](#listtagsoutputtypedef)
+  - [ListTrainingJobsForHyperParameterTuningJobResponseTypeDef](#listtrainingjobsforhyperparametertuningjobresponsetypedef)
+  - [ListTrainingJobsResponseTypeDef](#listtrainingjobsresponsetypedef)
+  - [ListTransformJobsResponseTypeDef](#listtransformjobsresponsetypedef)
+  - [ListTrialComponentsResponseTypeDef](#listtrialcomponentsresponsetypedef)
+  - [ListTrialsResponseTypeDef](#listtrialsresponsetypedef)
+  - [ListUserProfilesResponseTypeDef](#listuserprofilesresponsetypedef)
+  - [ListWorkforcesResponseTypeDef](#listworkforcesresponsetypedef)
+  - [ListWorkteamsResponseTypeDef](#listworkteamsresponsetypedef)
   - [MemberDefinitionTypeDef](#memberdefinitiontypedef)
   - [MetadataPropertiesTypeDef](#metadatapropertiestypedef)
   - [MetricDataTypeDef](#metricdatatypedef)
@@ -209,11 +370,13 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [OfflineStoreConfigTypeDef](#offlinestoreconfigtypedef)
   - [OfflineStoreStatusTypeDef](#offlinestorestatustypedef)
   - [OidcConfigForResponseTypeDef](#oidcconfigforresponsetypedef)
+  - [OidcConfigTypeDef](#oidcconfigtypedef)
   - [OidcMemberDefinitionTypeDef](#oidcmemberdefinitiontypedef)
   - [OnlineStoreConfigTypeDef](#onlinestoreconfigtypedef)
   - [OnlineStoreSecurityConfigTypeDef](#onlinestoresecurityconfigtypedef)
   - [OutputConfigTypeDef](#outputconfigtypedef)
   - [OutputDataConfigTypeDef](#outputdataconfigtypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ParameterRangeTypeDef](#parameterrangetypedef)
   - [ParameterRangesTypeDef](#parameterrangestypedef)
   - [ParameterTypeDef](#parametertypedef)
@@ -240,6 +403,7 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [ProductionVariantCoreDumpConfigTypeDef](#productionvariantcoredumpconfigtypedef)
   - [ProductionVariantSummaryTypeDef](#productionvariantsummarytypedef)
   - [ProductionVariantTypeDef](#productionvarianttypedef)
+  - [ProfilerConfigForUpdateTypeDef](#profilerconfigforupdatetypedef)
   - [ProfilerConfigTypeDef](#profilerconfigtypedef)
   - [ProfilerRuleConfigurationTypeDef](#profilerruleconfigurationtypedef)
   - [ProfilerRuleEvaluationStatusTypeDef](#profilerruleevaluationstatustypedef)
@@ -248,8 +412,11 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [PropertyNameSuggestionTypeDef](#propertynamesuggestiontypedef)
   - [ProvisioningParameterTypeDef](#provisioningparametertypedef)
   - [PublicWorkforceTaskPriceTypeDef](#publicworkforcetaskpricetypedef)
+  - [PutModelPackageGroupPolicyOutputTypeDef](#putmodelpackagegrouppolicyoutputtypedef)
   - [RedshiftDatasetDefinitionTypeDef](#redshiftdatasetdefinitiontypedef)
   - [RegisterModelStepMetadataTypeDef](#registermodelstepmetadatatypedef)
+  - [RenderUiTemplateResponseTypeDef](#renderuitemplateresponsetypedef)
+  - [RenderableTaskTypeDef](#renderabletasktypedef)
   - [RenderingErrorTypeDef](#renderingerrortypedef)
   - [RepositoryAuthConfigTypeDef](#repositoryauthconfigtypedef)
   - [ResolvedAttributesTypeDef](#resolvedattributestypedef)
@@ -257,10 +424,13 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [ResourceLimitsTypeDef](#resourcelimitstypedef)
   - [ResourceSpecTypeDef](#resourcespectypedef)
   - [ResponseMetadata](#responsemetadata)
+  - [RetentionPolicyTypeDef](#retentionpolicytypedef)
   - [S3DataSourceTypeDef](#s3datasourcetypedef)
   - [S3StorageConfigTypeDef](#s3storageconfigtypedef)
   - [ScheduleConfigTypeDef](#scheduleconfigtypedef)
+  - [SearchExpressionTypeDef](#searchexpressiontypedef)
   - [SearchRecordTypeDef](#searchrecordtypedef)
+  - [SearchResponseTypeDef](#searchresponsetypedef)
   - [SecondaryStatusTransitionTypeDef](#secondarystatustransitiontypedef)
   - [ServiceCatalogProvisionedProductDetailsTypeDef](#servicecatalogprovisionedproductdetailstypedef)
   - [ServiceCatalogProvisioningDetailsTypeDef](#servicecatalogprovisioningdetailstypedef)
@@ -269,8 +439,11 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [SourceAlgorithmSpecificationTypeDef](#sourcealgorithmspecificationtypedef)
   - [SourceAlgorithmTypeDef](#sourcealgorithmtypedef)
   - [SourceIpConfigTypeDef](#sourceipconfigtypedef)
+  - [StartPipelineExecutionResponseTypeDef](#startpipelineexecutionresponsetypedef)
+  - [StopPipelineExecutionResponseTypeDef](#stoppipelineexecutionresponsetypedef)
   - [StoppingConditionTypeDef](#stoppingconditiontypedef)
   - [SubscribedWorkteamTypeDef](#subscribedworkteamtypedef)
+  - [SuggestionQueryTypeDef](#suggestionquerytypedef)
   - [TagTypeDef](#tagtypedef)
   - [TargetPlatformTypeDef](#targetplatformtypedef)
   - [TensorBoardAppSettingsTypeDef](#tensorboardappsettingstypedef)
@@ -307,185 +480,6 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [USDTypeDef](#usdtypedef)
   - [UiConfigTypeDef](#uiconfigtypedef)
   - [UiTemplateInfoTypeDef](#uitemplateinfotypedef)
-  - [UserContextTypeDef](#usercontexttypedef)
-  - [UserProfileDetailsTypeDef](#userprofiledetailstypedef)
-  - [UserSettingsTypeDef](#usersettingstypedef)
-  - [VpcConfigTypeDef](#vpcconfigtypedef)
-  - [WorkforceTypeDef](#workforcetypedef)
-  - [WorkteamTypeDef](#workteamtypedef)
-  - [AddAssociationResponseTypeDef](#addassociationresponsetypedef)
-  - [AddTagsOutputTypeDef](#addtagsoutputtypedef)
-  - [AssociateTrialComponentResponseTypeDef](#associatetrialcomponentresponsetypedef)
-  - [CreateActionResponseTypeDef](#createactionresponsetypedef)
-  - [CreateAlgorithmOutputTypeDef](#createalgorithmoutputtypedef)
-  - [CreateAppImageConfigResponseTypeDef](#createappimageconfigresponsetypedef)
-  - [CreateAppResponseTypeDef](#createappresponsetypedef)
-  - [CreateArtifactResponseTypeDef](#createartifactresponsetypedef)
-  - [CreateAutoMLJobResponseTypeDef](#createautomljobresponsetypedef)
-  - [CreateCodeRepositoryOutputTypeDef](#createcoderepositoryoutputtypedef)
-  - [CreateCompilationJobResponseTypeDef](#createcompilationjobresponsetypedef)
-  - [CreateContextResponseTypeDef](#createcontextresponsetypedef)
-  - [CreateDataQualityJobDefinitionResponseTypeDef](#createdataqualityjobdefinitionresponsetypedef)
-  - [CreateDomainResponseTypeDef](#createdomainresponsetypedef)
-  - [CreateEndpointConfigOutputTypeDef](#createendpointconfigoutputtypedef)
-  - [CreateEndpointOutputTypeDef](#createendpointoutputtypedef)
-  - [CreateExperimentResponseTypeDef](#createexperimentresponsetypedef)
-  - [CreateFeatureGroupResponseTypeDef](#createfeaturegroupresponsetypedef)
-  - [CreateFlowDefinitionResponseTypeDef](#createflowdefinitionresponsetypedef)
-  - [CreateHumanTaskUiResponseTypeDef](#createhumantaskuiresponsetypedef)
-  - [CreateHyperParameterTuningJobResponseTypeDef](#createhyperparametertuningjobresponsetypedef)
-  - [CreateImageResponseTypeDef](#createimageresponsetypedef)
-  - [CreateImageVersionResponseTypeDef](#createimageversionresponsetypedef)
-  - [CreateLabelingJobResponseTypeDef](#createlabelingjobresponsetypedef)
-  - [CreateModelBiasJobDefinitionResponseTypeDef](#createmodelbiasjobdefinitionresponsetypedef)
-  - [CreateModelExplainabilityJobDefinitionResponseTypeDef](#createmodelexplainabilityjobdefinitionresponsetypedef)
-  - [CreateModelOutputTypeDef](#createmodeloutputtypedef)
-  - [CreateModelPackageGroupOutputTypeDef](#createmodelpackagegroupoutputtypedef)
-  - [CreateModelPackageOutputTypeDef](#createmodelpackageoutputtypedef)
-  - [CreateModelQualityJobDefinitionResponseTypeDef](#createmodelqualityjobdefinitionresponsetypedef)
-  - [CreateMonitoringScheduleResponseTypeDef](#createmonitoringscheduleresponsetypedef)
-  - [CreateNotebookInstanceLifecycleConfigOutputTypeDef](#createnotebookinstancelifecycleconfigoutputtypedef)
-  - [CreateNotebookInstanceOutputTypeDef](#createnotebookinstanceoutputtypedef)
-  - [CreatePipelineResponseTypeDef](#createpipelineresponsetypedef)
-  - [CreatePresignedDomainUrlResponseTypeDef](#createpresigneddomainurlresponsetypedef)
-  - [CreatePresignedNotebookInstanceUrlOutputTypeDef](#createpresignednotebookinstanceurloutputtypedef)
-  - [CreateProcessingJobResponseTypeDef](#createprocessingjobresponsetypedef)
-  - [CreateProjectOutputTypeDef](#createprojectoutputtypedef)
-  - [CreateTrainingJobResponseTypeDef](#createtrainingjobresponsetypedef)
-  - [CreateTransformJobResponseTypeDef](#createtransformjobresponsetypedef)
-  - [CreateTrialComponentResponseTypeDef](#createtrialcomponentresponsetypedef)
-  - [CreateTrialResponseTypeDef](#createtrialresponsetypedef)
-  - [CreateUserProfileResponseTypeDef](#createuserprofileresponsetypedef)
-  - [CreateWorkforceResponseTypeDef](#createworkforceresponsetypedef)
-  - [CreateWorkteamResponseTypeDef](#createworkteamresponsetypedef)
-  - [DeleteActionResponseTypeDef](#deleteactionresponsetypedef)
-  - [DeleteArtifactResponseTypeDef](#deleteartifactresponsetypedef)
-  - [DeleteAssociationResponseTypeDef](#deleteassociationresponsetypedef)
-  - [DeleteContextResponseTypeDef](#deletecontextresponsetypedef)
-  - [DeleteExperimentResponseTypeDef](#deleteexperimentresponsetypedef)
-  - [DeletePipelineResponseTypeDef](#deletepipelineresponsetypedef)
-  - [DeleteTrialComponentResponseTypeDef](#deletetrialcomponentresponsetypedef)
-  - [DeleteTrialResponseTypeDef](#deletetrialresponsetypedef)
-  - [DeleteWorkteamResponseTypeDef](#deleteworkteamresponsetypedef)
-  - [DescribeActionResponseTypeDef](#describeactionresponsetypedef)
-  - [DescribeAlgorithmOutputTypeDef](#describealgorithmoutputtypedef)
-  - [DescribeAppImageConfigResponseTypeDef](#describeappimageconfigresponsetypedef)
-  - [DescribeAppResponseTypeDef](#describeappresponsetypedef)
-  - [DescribeArtifactResponseTypeDef](#describeartifactresponsetypedef)
-  - [DescribeAutoMLJobResponseTypeDef](#describeautomljobresponsetypedef)
-  - [DescribeCodeRepositoryOutputTypeDef](#describecoderepositoryoutputtypedef)
-  - [DescribeCompilationJobResponseTypeDef](#describecompilationjobresponsetypedef)
-  - [DescribeContextResponseTypeDef](#describecontextresponsetypedef)
-  - [DescribeDataQualityJobDefinitionResponseTypeDef](#describedataqualityjobdefinitionresponsetypedef)
-  - [DescribeDeviceFleetResponseTypeDef](#describedevicefleetresponsetypedef)
-  - [DescribeDeviceResponseTypeDef](#describedeviceresponsetypedef)
-  - [DescribeDomainResponseTypeDef](#describedomainresponsetypedef)
-  - [DescribeEdgePackagingJobResponseTypeDef](#describeedgepackagingjobresponsetypedef)
-  - [DescribeEndpointConfigOutputTypeDef](#describeendpointconfigoutputtypedef)
-  - [DescribeEndpointOutputTypeDef](#describeendpointoutputtypedef)
-  - [DescribeExperimentResponseTypeDef](#describeexperimentresponsetypedef)
-  - [DescribeFeatureGroupResponseTypeDef](#describefeaturegroupresponsetypedef)
-  - [DescribeFlowDefinitionResponseTypeDef](#describeflowdefinitionresponsetypedef)
-  - [DescribeHumanTaskUiResponseTypeDef](#describehumantaskuiresponsetypedef)
-  - [DescribeHyperParameterTuningJobResponseTypeDef](#describehyperparametertuningjobresponsetypedef)
-  - [DescribeImageResponseTypeDef](#describeimageresponsetypedef)
-  - [DescribeImageVersionResponseTypeDef](#describeimageversionresponsetypedef)
-  - [DescribeLabelingJobResponseTypeDef](#describelabelingjobresponsetypedef)
-  - [DescribeModelBiasJobDefinitionResponseTypeDef](#describemodelbiasjobdefinitionresponsetypedef)
-  - [DescribeModelExplainabilityJobDefinitionResponseTypeDef](#describemodelexplainabilityjobdefinitionresponsetypedef)
-  - [DescribeModelOutputTypeDef](#describemodeloutputtypedef)
-  - [DescribeModelPackageGroupOutputTypeDef](#describemodelpackagegroupoutputtypedef)
-  - [DescribeModelPackageOutputTypeDef](#describemodelpackageoutputtypedef)
-  - [DescribeModelQualityJobDefinitionResponseTypeDef](#describemodelqualityjobdefinitionresponsetypedef)
-  - [DescribeMonitoringScheduleResponseTypeDef](#describemonitoringscheduleresponsetypedef)
-  - [DescribeNotebookInstanceLifecycleConfigOutputTypeDef](#describenotebookinstancelifecycleconfigoutputtypedef)
-  - [DescribeNotebookInstanceOutputTypeDef](#describenotebookinstanceoutputtypedef)
-  - [DescribePipelineDefinitionForExecutionResponseTypeDef](#describepipelinedefinitionforexecutionresponsetypedef)
-  - [DescribePipelineExecutionResponseTypeDef](#describepipelineexecutionresponsetypedef)
-  - [DescribePipelineResponseTypeDef](#describepipelineresponsetypedef)
-  - [DescribeProcessingJobResponseTypeDef](#describeprocessingjobresponsetypedef)
-  - [DescribeProjectOutputTypeDef](#describeprojectoutputtypedef)
-  - [DescribeSubscribedWorkteamResponseTypeDef](#describesubscribedworkteamresponsetypedef)
-  - [DescribeTrainingJobResponseTypeDef](#describetrainingjobresponsetypedef)
-  - [DescribeTransformJobResponseTypeDef](#describetransformjobresponsetypedef)
-  - [DescribeTrialComponentResponseTypeDef](#describetrialcomponentresponsetypedef)
-  - [DescribeTrialResponseTypeDef](#describetrialresponsetypedef)
-  - [DescribeUserProfileResponseTypeDef](#describeuserprofileresponsetypedef)
-  - [DescribeWorkforceResponseTypeDef](#describeworkforceresponsetypedef)
-  - [DescribeWorkteamResponseTypeDef](#describeworkteamresponsetypedef)
-  - [DesiredWeightAndCapacityTypeDef](#desiredweightandcapacitytypedef)
-  - [DeviceTypeDef](#devicetypedef)
-  - [SearchExpressionTypeDef](#searchexpressiontypedef)
-  - [DisassociateTrialComponentResponseTypeDef](#disassociatetrialcomponentresponsetypedef)
-  - [GetDeviceFleetReportResponseTypeDef](#getdevicefleetreportresponsetypedef)
-  - [GetModelPackageGroupPolicyOutputTypeDef](#getmodelpackagegrouppolicyoutputtypedef)
-  - [GetSagemakerServicecatalogPortfolioStatusOutputTypeDef](#getsagemakerservicecatalogportfoliostatusoutputtypedef)
-  - [GetSearchSuggestionsResponseTypeDef](#getsearchsuggestionsresponsetypedef)
-  - [GitConfigForUpdateTypeDef](#gitconfigforupdatetypedef)
-  - [ListActionsResponseTypeDef](#listactionsresponsetypedef)
-  - [ListAlgorithmsOutputTypeDef](#listalgorithmsoutputtypedef)
-  - [ListAppImageConfigsResponseTypeDef](#listappimageconfigsresponsetypedef)
-  - [ListAppsResponseTypeDef](#listappsresponsetypedef)
-  - [ListArtifactsResponseTypeDef](#listartifactsresponsetypedef)
-  - [ListAssociationsResponseTypeDef](#listassociationsresponsetypedef)
-  - [ListAutoMLJobsResponseTypeDef](#listautomljobsresponsetypedef)
-  - [ListCandidatesForAutoMLJobResponseTypeDef](#listcandidatesforautomljobresponsetypedef)
-  - [ListCodeRepositoriesOutputTypeDef](#listcoderepositoriesoutputtypedef)
-  - [ListCompilationJobsResponseTypeDef](#listcompilationjobsresponsetypedef)
-  - [ListContextsResponseTypeDef](#listcontextsresponsetypedef)
-  - [ListDataQualityJobDefinitionsResponseTypeDef](#listdataqualityjobdefinitionsresponsetypedef)
-  - [ListDeviceFleetsResponseTypeDef](#listdevicefleetsresponsetypedef)
-  - [ListDevicesResponseTypeDef](#listdevicesresponsetypedef)
-  - [ListDomainsResponseTypeDef](#listdomainsresponsetypedef)
-  - [ListEdgePackagingJobsResponseTypeDef](#listedgepackagingjobsresponsetypedef)
-  - [ListEndpointConfigsOutputTypeDef](#listendpointconfigsoutputtypedef)
-  - [ListEndpointsOutputTypeDef](#listendpointsoutputtypedef)
-  - [ListExperimentsResponseTypeDef](#listexperimentsresponsetypedef)
-  - [ListFeatureGroupsResponseTypeDef](#listfeaturegroupsresponsetypedef)
-  - [ListFlowDefinitionsResponseTypeDef](#listflowdefinitionsresponsetypedef)
-  - [ListHumanTaskUisResponseTypeDef](#listhumantaskuisresponsetypedef)
-  - [ListHyperParameterTuningJobsResponseTypeDef](#listhyperparametertuningjobsresponsetypedef)
-  - [ListImageVersionsResponseTypeDef](#listimageversionsresponsetypedef)
-  - [ListImagesResponseTypeDef](#listimagesresponsetypedef)
-  - [ListLabelingJobsForWorkteamResponseTypeDef](#listlabelingjobsforworkteamresponsetypedef)
-  - [ListLabelingJobsResponseTypeDef](#listlabelingjobsresponsetypedef)
-  - [ListModelBiasJobDefinitionsResponseTypeDef](#listmodelbiasjobdefinitionsresponsetypedef)
-  - [ListModelExplainabilityJobDefinitionsResponseTypeDef](#listmodelexplainabilityjobdefinitionsresponsetypedef)
-  - [ListModelPackageGroupsOutputTypeDef](#listmodelpackagegroupsoutputtypedef)
-  - [ListModelPackagesOutputTypeDef](#listmodelpackagesoutputtypedef)
-  - [ListModelQualityJobDefinitionsResponseTypeDef](#listmodelqualityjobdefinitionsresponsetypedef)
-  - [ListModelsOutputTypeDef](#listmodelsoutputtypedef)
-  - [ListMonitoringExecutionsResponseTypeDef](#listmonitoringexecutionsresponsetypedef)
-  - [ListMonitoringSchedulesResponseTypeDef](#listmonitoringschedulesresponsetypedef)
-  - [ListNotebookInstanceLifecycleConfigsOutputTypeDef](#listnotebookinstancelifecycleconfigsoutputtypedef)
-  - [ListNotebookInstancesOutputTypeDef](#listnotebookinstancesoutputtypedef)
-  - [ListPipelineExecutionStepsResponseTypeDef](#listpipelineexecutionstepsresponsetypedef)
-  - [ListPipelineExecutionsResponseTypeDef](#listpipelineexecutionsresponsetypedef)
-  - [ListPipelineParametersForExecutionResponseTypeDef](#listpipelineparametersforexecutionresponsetypedef)
-  - [ListPipelinesResponseTypeDef](#listpipelinesresponsetypedef)
-  - [ListProcessingJobsResponseTypeDef](#listprocessingjobsresponsetypedef)
-  - [ListProjectsOutputTypeDef](#listprojectsoutputtypedef)
-  - [ListSubscribedWorkteamsResponseTypeDef](#listsubscribedworkteamsresponsetypedef)
-  - [ListTagsOutputTypeDef](#listtagsoutputtypedef)
-  - [ListTrainingJobsForHyperParameterTuningJobResponseTypeDef](#listtrainingjobsforhyperparametertuningjobresponsetypedef)
-  - [ListTrainingJobsResponseTypeDef](#listtrainingjobsresponsetypedef)
-  - [ListTransformJobsResponseTypeDef](#listtransformjobsresponsetypedef)
-  - [ListTrialComponentsResponseTypeDef](#listtrialcomponentsresponsetypedef)
-  - [ListTrialsResponseTypeDef](#listtrialsresponsetypedef)
-  - [ListUserProfilesResponseTypeDef](#listuserprofilesresponsetypedef)
-  - [ListWorkforcesResponseTypeDef](#listworkforcesresponsetypedef)
-  - [ListWorkteamsResponseTypeDef](#listworkteamsresponsetypedef)
-  - [OidcConfigTypeDef](#oidcconfigtypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [ProfilerConfigForUpdateTypeDef](#profilerconfigforupdatetypedef)
-  - [PutModelPackageGroupPolicyOutputTypeDef](#putmodelpackagegrouppolicyoutputtypedef)
-  - [RenderUiTemplateResponseTypeDef](#renderuitemplateresponsetypedef)
-  - [RenderableTaskTypeDef](#renderabletasktypedef)
-  - [RetentionPolicyTypeDef](#retentionpolicytypedef)
-  - [SearchResponseTypeDef](#searchresponsetypedef)
-  - [StartPipelineExecutionResponseTypeDef](#startpipelineexecutionresponsetypedef)
-  - [StopPipelineExecutionResponseTypeDef](#stoppipelineexecutionresponsetypedef)
-  - [SuggestionQueryTypeDef](#suggestionquerytypedef)
   - [UiTemplateTypeDef](#uitemplatetypedef)
   - [UpdateActionResponseTypeDef](#updateactionresponsetypedef)
   - [UpdateAppImageConfigResponseTypeDef](#updateappimageconfigresponsetypedef)
@@ -507,8 +501,14 @@ type annotations stubs module [mypy_boto3_sagemaker](https://pypi.org/project/my
   - [UpdateUserProfileResponseTypeDef](#updateuserprofileresponsetypedef)
   - [UpdateWorkforceResponseTypeDef](#updateworkforceresponsetypedef)
   - [UpdateWorkteamResponseTypeDef](#updateworkteamresponsetypedef)
+  - [UserContextTypeDef](#usercontexttypedef)
+  - [UserProfileDetailsTypeDef](#userprofiledetailstypedef)
+  - [UserSettingsTypeDef](#usersettingstypedef)
   - [VariantPropertyTypeDef](#variantpropertytypedef)
+  - [VpcConfigTypeDef](#vpcconfigtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
+  - [WorkforceTypeDef](#workforcetypedef)
+  - [WorkteamTypeDef](#workteamtypedef)
 
 ## ActionSourceTypeDef
 
@@ -544,6 +544,34 @@ Optional fields:
 - `Status`: `ActionStatus`
 - `CreationTime`: `datetime`
 - `LastModifiedTime`: `datetime`
+
+
+## AddAssociationResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import AddAssociationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceArn`: `str`
+- `DestinationArn`: `str`
+
+
+## AddTagsOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import AddTagsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `List["TagTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## AgentVersionTypeDef
@@ -784,6 +812,20 @@ Optional fields:
 - `ArtifactType`: `str`
 - `CreationTime`: `datetime`
 - `LastModifiedTime`: `datetime`
+
+
+## AssociateTrialComponentResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import AssociateTrialComponentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrialComponentArn`: `str`
+- `TrialArn`: `str`
 
 
 ## AssociationSummaryTypeDef
@@ -1447,6 +1489,581 @@ Optional fields:
 - `ScalingType`: `HyperParameterScalingType`
 
 
+## CreateActionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateActionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ActionArn`: `str`
+
+
+## CreateAlgorithmOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateAlgorithmOutputTypeDef
+```
+
+
+Required fields:
+- `AlgorithmArn`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateAppImageConfigResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateAppImageConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AppImageConfigArn`: `str`
+
+
+## CreateAppResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateAppResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AppArn`: `str`
+
+
+## CreateArtifactResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateArtifactResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ArtifactArn`: `str`
+
+
+## CreateAutoMLJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateAutoMLJobResponseTypeDef
+```
+
+
+Required fields:
+- `AutoMLJobArn`: `str`
+
+
+
+
+## CreateCodeRepositoryOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateCodeRepositoryOutputTypeDef
+```
+
+
+Required fields:
+- `CodeRepositoryArn`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateCompilationJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateCompilationJobResponseTypeDef
+```
+
+
+Required fields:
+- `CompilationJobArn`: `str`
+
+
+
+
+## CreateContextResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateContextResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ContextArn`: `str`
+
+
+## CreateDataQualityJobDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateDataQualityJobDefinitionResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionArn`: `str`
+
+
+
+
+## CreateDomainResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateDomainResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DomainArn`: `str`
+- `Url`: `str`
+
+
+## CreateEndpointConfigOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateEndpointConfigOutputTypeDef
+```
+
+
+Required fields:
+- `EndpointConfigArn`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateEndpointOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateEndpointOutputTypeDef
+```
+
+
+Required fields:
+- `EndpointArn`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateExperimentResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateExperimentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ExperimentArn`: `str`
+
+
+## CreateFeatureGroupResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateFeatureGroupResponseTypeDef
+```
+
+
+Required fields:
+- `FeatureGroupArn`: `str`
+
+
+
+
+## CreateFlowDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateFlowDefinitionResponseTypeDef
+```
+
+
+Required fields:
+- `FlowDefinitionArn`: `str`
+
+
+
+
+## CreateHumanTaskUiResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateHumanTaskUiResponseTypeDef
+```
+
+
+Required fields:
+- `HumanTaskUiArn`: `str`
+
+
+
+
+## CreateHyperParameterTuningJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateHyperParameterTuningJobResponseTypeDef
+```
+
+
+Required fields:
+- `HyperParameterTuningJobArn`: `str`
+
+
+
+
+## CreateImageResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateImageResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ImageArn`: `str`
+
+
+## CreateImageVersionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateImageVersionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ImageVersionArn`: `str`
+
+
+## CreateLabelingJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateLabelingJobResponseTypeDef
+```
+
+
+Required fields:
+- `LabelingJobArn`: `str`
+
+
+
+
+## CreateModelBiasJobDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateModelBiasJobDefinitionResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionArn`: `str`
+
+
+
+
+## CreateModelExplainabilityJobDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateModelExplainabilityJobDefinitionResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionArn`: `str`
+
+
+
+
+## CreateModelOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateModelOutputTypeDef
+```
+
+
+Required fields:
+- `ModelArn`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateModelPackageGroupOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateModelPackageGroupOutputTypeDef
+```
+
+
+Required fields:
+- `ModelPackageGroupArn`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateModelPackageOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateModelPackageOutputTypeDef
+```
+
+
+Required fields:
+- `ModelPackageArn`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateModelQualityJobDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateModelQualityJobDefinitionResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionArn`: `str`
+
+
+
+
+## CreateMonitoringScheduleResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateMonitoringScheduleResponseTypeDef
+```
+
+
+Required fields:
+- `MonitoringScheduleArn`: `str`
+
+
+
+
+## CreateNotebookInstanceLifecycleConfigOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateNotebookInstanceLifecycleConfigOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NotebookInstanceLifecycleConfigArn`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateNotebookInstanceOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateNotebookInstanceOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NotebookInstanceArn`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreatePipelineResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreatePipelineResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineArn`: `str`
+
+
+## CreatePresignedDomainUrlResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreatePresignedDomainUrlResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AuthorizedUrl`: `str`
+
+
+## CreatePresignedNotebookInstanceUrlOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreatePresignedNotebookInstanceUrlOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `AuthorizedUrl`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateProcessingJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateProcessingJobResponseTypeDef
+```
+
+
+Required fields:
+- `ProcessingJobArn`: `str`
+
+
+
+
+## CreateProjectOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateProjectOutputTypeDef
+```
+
+
+Required fields:
+- `ProjectArn`: `str`
+- `ProjectId`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateTrainingJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateTrainingJobResponseTypeDef
+```
+
+
+Required fields:
+- `TrainingJobArn`: `str`
+
+
+
+
+## CreateTransformJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateTransformJobResponseTypeDef
+```
+
+
+Required fields:
+- `TransformJobArn`: `str`
+
+
+
+
+## CreateTrialComponentResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateTrialComponentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrialComponentArn`: `str`
+
+
+## CreateTrialResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateTrialResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrialArn`: `str`
+
+
+## CreateUserProfileResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateUserProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserProfileArn`: `str`
+
+
+## CreateWorkforceResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateWorkforceResponseTypeDef
+```
+
+
+Required fields:
+- `WorkforceArn`: `str`
+
+
+
+
+## CreateWorkteamResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import CreateWorkteamResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `WorkteamArn`: `str`
+
+
 ## CustomImageTypeDef
 
 ```python
@@ -1666,6 +2283,124 @@ Optional fields:
 - `LastModifiedTime`: `datetime`
 
 
+## DeleteActionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DeleteActionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ActionArn`: `str`
+
+
+## DeleteArtifactResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DeleteArtifactResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ArtifactArn`: `str`
+
+
+## DeleteAssociationResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DeleteAssociationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceArn`: `str`
+- `DestinationArn`: `str`
+
+
+## DeleteContextResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DeleteContextResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ContextArn`: `str`
+
+
+## DeleteExperimentResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DeleteExperimentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ExperimentArn`: `str`
+
+
+## DeletePipelineResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DeletePipelineResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineArn`: `str`
+
+
+## DeleteTrialComponentResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DeleteTrialComponentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrialComponentArn`: `str`
+
+
+## DeleteTrialResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DeleteTrialResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrialArn`: `str`
+
+
+## DeleteWorkteamResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DeleteWorkteamResponseTypeDef
+```
+
+
+Required fields:
+- `Success`: `bool`
+
+
+
+
 ## DeployedImageTypeDef
 
 ```python
@@ -1695,6 +2430,1154 @@ Required fields:
 
 Optional fields:
 - `AutoRollbackConfiguration`: `"AutoRollbackConfigTypeDef"`
+
+
+## DescribeActionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeActionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ActionName`: `str`
+- `ActionArn`: `str`
+- `Source`: `"ActionSourceTypeDef"`
+- `ActionType`: `str`
+- `Description`: `str`
+- `Status`: `ActionStatus`
+- `Properties`: `Dict[str, str]`
+- `CreationTime`: `datetime`
+- `CreatedBy`: `"UserContextTypeDef"`
+- `LastModifiedTime`: `datetime`
+- `LastModifiedBy`: `"UserContextTypeDef"`
+- `MetadataProperties`: `"MetadataPropertiesTypeDef"`
+
+
+## DescribeAlgorithmOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeAlgorithmOutputTypeDef
+```
+
+
+Required fields:
+- `AlgorithmName`: `str`
+- `AlgorithmArn`: `str`
+- `CreationTime`: `datetime`
+- `TrainingSpecification`: `"TrainingSpecificationTypeDef"`
+- `AlgorithmStatus`: `AlgorithmStatus`
+- `AlgorithmStatusDetails`: `"AlgorithmStatusDetailsTypeDef"`
+
+
+
+Optional fields:
+- `AlgorithmDescription`: `str`
+- `InferenceSpecification`: `"InferenceSpecificationTypeDef"`
+- `ValidationSpecification`: `"AlgorithmValidationSpecificationTypeDef"`
+- `ProductId`: `str`
+- `CertifyForMarketplace`: `bool`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeAppImageConfigResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeAppImageConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AppImageConfigArn`: `str`
+- `AppImageConfigName`: `str`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `KernelGatewayImageConfig`: `"KernelGatewayImageConfigTypeDef"`
+
+
+## DescribeAppResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeAppResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AppArn`: `str`
+- `AppType`: `AppType`
+- `AppName`: `str`
+- `DomainId`: `str`
+- `UserProfileName`: `str`
+- `Status`: `AppStatus`
+- `LastHealthCheckTimestamp`: `datetime`
+- `LastUserActivityTimestamp`: `datetime`
+- `CreationTime`: `datetime`
+- `FailureReason`: `str`
+- `ResourceSpec`: `"ResourceSpecTypeDef"`
+
+
+## DescribeArtifactResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeArtifactResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ArtifactName`: `str`
+- `ArtifactArn`: `str`
+- `Source`: `"ArtifactSourceTypeDef"`
+- `ArtifactType`: `str`
+- `Properties`: `Dict[str, str]`
+- `CreationTime`: `datetime`
+- `CreatedBy`: `"UserContextTypeDef"`
+- `LastModifiedTime`: `datetime`
+- `LastModifiedBy`: `"UserContextTypeDef"`
+- `MetadataProperties`: `"MetadataPropertiesTypeDef"`
+
+
+## DescribeAutoMLJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeAutoMLJobResponseTypeDef
+```
+
+
+Required fields:
+- `AutoMLJobName`: `str`
+- `AutoMLJobArn`: `str`
+- `InputDataConfig`: `List["AutoMLChannelTypeDef"]`
+- `OutputDataConfig`: `"AutoMLOutputDataConfigTypeDef"`
+- `RoleArn`: `str`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `AutoMLJobStatus`: `AutoMLJobStatus`
+- `AutoMLJobSecondaryStatus`: `AutoMLJobSecondaryStatus`
+
+
+
+Optional fields:
+- `AutoMLJobObjective`: `"AutoMLJobObjectiveTypeDef"`
+- `ProblemType`: `ProblemType`
+- `AutoMLJobConfig`: `"AutoMLJobConfigTypeDef"`
+- `EndTime`: `datetime`
+- `FailureReason`: `str`
+- `PartialFailureReasons`: `List["AutoMLPartialFailureReasonTypeDef"]`
+- `BestCandidate`: `"AutoMLCandidateTypeDef"`
+- `GenerateCandidateDefinitionsOnly`: `bool`
+- `AutoMLJobArtifacts`: `"AutoMLJobArtifactsTypeDef"`
+- `ResolvedAttributes`: `"ResolvedAttributesTypeDef"`
+
+
+## DescribeCodeRepositoryOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeCodeRepositoryOutputTypeDef
+```
+
+
+Required fields:
+- `CodeRepositoryName`: `str`
+- `CodeRepositoryArn`: `str`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+
+
+
+Optional fields:
+- `GitConfig`: `"GitConfigTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeCompilationJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeCompilationJobResponseTypeDef
+```
+
+
+Required fields:
+- `CompilationJobName`: `str`
+- `CompilationJobArn`: `str`
+- `CompilationJobStatus`: `CompilationJobStatus`
+- `StoppingCondition`: `"StoppingConditionTypeDef"`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `FailureReason`: `str`
+- `ModelArtifacts`: `"ModelArtifactsTypeDef"`
+- `RoleArn`: `str`
+- `InputConfig`: `"InputConfigTypeDef"`
+- `OutputConfig`: `"OutputConfigTypeDef"`
+
+
+
+Optional fields:
+- `CompilationStartTime`: `datetime`
+- `CompilationEndTime`: `datetime`
+- `ModelDigests`: `"ModelDigestsTypeDef"`
+
+
+## DescribeContextResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeContextResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ContextName`: `str`
+- `ContextArn`: `str`
+- `Source`: `"ContextSourceTypeDef"`
+- `ContextType`: `str`
+- `Description`: `str`
+- `Properties`: `Dict[str, str]`
+- `CreationTime`: `datetime`
+- `CreatedBy`: `"UserContextTypeDef"`
+- `LastModifiedTime`: `datetime`
+- `LastModifiedBy`: `"UserContextTypeDef"`
+
+
+## DescribeDataQualityJobDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeDataQualityJobDefinitionResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionArn`: `str`
+- `JobDefinitionName`: `str`
+- `CreationTime`: `datetime`
+- `DataQualityAppSpecification`: `"DataQualityAppSpecificationTypeDef"`
+- `DataQualityJobInput`: `"DataQualityJobInputTypeDef"`
+- `DataQualityJobOutputConfig`: `"MonitoringOutputConfigTypeDef"`
+- `JobResources`: `"MonitoringResourcesTypeDef"`
+- `RoleArn`: `str`
+
+
+
+Optional fields:
+- `DataQualityBaselineConfig`: `"DataQualityBaselineConfigTypeDef"`
+- `NetworkConfig`: `"MonitoringNetworkConfigTypeDef"`
+- `StoppingCondition`: `"MonitoringStoppingConditionTypeDef"`
+
+
+## DescribeDeviceFleetResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeDeviceFleetResponseTypeDef
+```
+
+
+Required fields:
+- `DeviceFleetName`: `str`
+- `DeviceFleetArn`: `str`
+- `OutputConfig`: `"EdgeOutputConfigTypeDef"`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+
+
+
+Optional fields:
+- `Description`: `str`
+- `RoleArn`: `str`
+- `IotRoleAlias`: `str`
+
+
+## DescribeDeviceResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeDeviceResponseTypeDef
+```
+
+
+Required fields:
+- `DeviceName`: `str`
+- `DeviceFleetName`: `str`
+- `RegistrationTime`: `datetime`
+
+
+
+Optional fields:
+- `DeviceArn`: `str`
+- `Description`: `str`
+- `IotThingName`: `str`
+- `LatestHeartbeat`: `datetime`
+- `Models`: `List["EdgeModelTypeDef"]`
+- `MaxModels`: `int`
+- `NextToken`: `str`
+
+
+## DescribeDomainResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeDomainResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DomainArn`: `str`
+- `DomainId`: `str`
+- `DomainName`: `str`
+- `HomeEfsFileSystemId`: `str`
+- `SingleSignOnManagedApplicationInstanceId`: `str`
+- `Status`: `DomainStatus`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `FailureReason`: `str`
+- `AuthMode`: `AuthMode`
+- `DefaultUserSettings`: `"UserSettingsTypeDef"`
+- `AppNetworkAccessType`: `AppNetworkAccessType`
+- `HomeEfsFileSystemKmsKeyId`: `str`
+- `SubnetIds`: `List[str]`
+- `Url`: `str`
+- `VpcId`: `str`
+- `KmsKeyId`: `str`
+
+
+## DescribeEdgePackagingJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeEdgePackagingJobResponseTypeDef
+```
+
+
+Required fields:
+- `EdgePackagingJobArn`: `str`
+- `EdgePackagingJobName`: `str`
+- `EdgePackagingJobStatus`: `EdgePackagingJobStatus`
+
+
+
+Optional fields:
+- `CompilationJobName`: `str`
+- `ModelName`: `str`
+- `ModelVersion`: `str`
+- `RoleArn`: `str`
+- `OutputConfig`: `"EdgeOutputConfigTypeDef"`
+- `ResourceKey`: `str`
+- `EdgePackagingJobStatusMessage`: `str`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `ModelArtifact`: `str`
+- `ModelSignature`: `str`
+
+
+## DescribeEndpointConfigOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeEndpointConfigOutputTypeDef
+```
+
+
+Required fields:
+- `EndpointConfigName`: `str`
+- `EndpointConfigArn`: `str`
+- `ProductionVariants`: `List["ProductionVariantTypeDef"]`
+- `CreationTime`: `datetime`
+
+
+
+Optional fields:
+- `DataCaptureConfig`: `"DataCaptureConfigTypeDef"`
+- `KmsKeyId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeEndpointOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeEndpointOutputTypeDef
+```
+
+
+Required fields:
+- `EndpointName`: `str`
+- `EndpointArn`: `str`
+- `EndpointConfigName`: `str`
+- `EndpointStatus`: `EndpointStatus`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+
+
+
+Optional fields:
+- `ProductionVariants`: `List["ProductionVariantSummaryTypeDef"]`
+- `DataCaptureConfig`: `"DataCaptureConfigSummaryTypeDef"`
+- `FailureReason`: `str`
+- `LastDeploymentConfig`: `"DeploymentConfigTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeExperimentResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeExperimentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ExperimentName`: `str`
+- `ExperimentArn`: `str`
+- `DisplayName`: `str`
+- `Source`: `"ExperimentSourceTypeDef"`
+- `Description`: `str`
+- `CreationTime`: `datetime`
+- `CreatedBy`: `"UserContextTypeDef"`
+- `LastModifiedTime`: `datetime`
+- `LastModifiedBy`: `"UserContextTypeDef"`
+
+
+## DescribeFeatureGroupResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeFeatureGroupResponseTypeDef
+```
+
+
+Required fields:
+- `FeatureGroupArn`: `str`
+- `FeatureGroupName`: `str`
+- `RecordIdentifierFeatureName`: `str`
+- `EventTimeFeatureName`: `str`
+- `FeatureDefinitions`: `List["FeatureDefinitionTypeDef"]`
+- `CreationTime`: `datetime`
+- `NextToken`: `str`
+
+
+
+Optional fields:
+- `OnlineStoreConfig`: `"OnlineStoreConfigTypeDef"`
+- `OfflineStoreConfig`: `"OfflineStoreConfigTypeDef"`
+- `RoleArn`: `str`
+- `FeatureGroupStatus`: `FeatureGroupStatus`
+- `OfflineStoreStatus`: `"OfflineStoreStatusTypeDef"`
+- `FailureReason`: `str`
+- `Description`: `str`
+
+
+## DescribeFlowDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeFlowDefinitionResponseTypeDef
+```
+
+
+Required fields:
+- `FlowDefinitionArn`: `str`
+- `FlowDefinitionName`: `str`
+- `FlowDefinitionStatus`: `FlowDefinitionStatus`
+- `CreationTime`: `datetime`
+- `HumanLoopConfig`: `"HumanLoopConfigTypeDef"`
+- `OutputConfig`: `"FlowDefinitionOutputConfigTypeDef"`
+- `RoleArn`: `str`
+
+
+
+Optional fields:
+- `HumanLoopRequestSource`: `"HumanLoopRequestSourceTypeDef"`
+- `HumanLoopActivationConfig`: `"HumanLoopActivationConfigTypeDef"`
+- `FailureReason`: `str`
+
+
+## DescribeHumanTaskUiResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeHumanTaskUiResponseTypeDef
+```
+
+
+Required fields:
+- `HumanTaskUiArn`: `str`
+- `HumanTaskUiName`: `str`
+- `CreationTime`: `datetime`
+- `UiTemplate`: `"UiTemplateInfoTypeDef"`
+
+
+
+Optional fields:
+- `HumanTaskUiStatus`: `HumanTaskUiStatus`
+
+
+## DescribeHyperParameterTuningJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeHyperParameterTuningJobResponseTypeDef
+```
+
+
+Required fields:
+- `HyperParameterTuningJobName`: `str`
+- `HyperParameterTuningJobArn`: `str`
+- `HyperParameterTuningJobConfig`: `"HyperParameterTuningJobConfigTypeDef"`
+- `HyperParameterTuningJobStatus`: `HyperParameterTuningJobStatus`
+- `CreationTime`: `datetime`
+- `TrainingJobStatusCounters`: `"TrainingJobStatusCountersTypeDef"`
+- `ObjectiveStatusCounters`: `"ObjectiveStatusCountersTypeDef"`
+
+
+
+Optional fields:
+- `TrainingJobDefinition`: `"HyperParameterTrainingJobDefinitionTypeDef"`
+- `TrainingJobDefinitions`: `List["HyperParameterTrainingJobDefinitionTypeDef"]`
+- `HyperParameterTuningEndTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `BestTrainingJob`: `"HyperParameterTrainingJobSummaryTypeDef"`
+- `OverallBestTrainingJob`: `"HyperParameterTrainingJobSummaryTypeDef"`
+- `WarmStartConfig`: `"HyperParameterTuningJobWarmStartConfigTypeDef"`
+- `FailureReason`: `str`
+
+
+## DescribeImageResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeImageResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreationTime`: `datetime`
+- `Description`: `str`
+- `DisplayName`: `str`
+- `FailureReason`: `str`
+- `ImageArn`: `str`
+- `ImageName`: `str`
+- `ImageStatus`: `ImageStatus`
+- `LastModifiedTime`: `datetime`
+- `RoleArn`: `str`
+
+
+## DescribeImageVersionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeImageVersionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `BaseImage`: `str`
+- `ContainerImage`: `str`
+- `CreationTime`: `datetime`
+- `FailureReason`: `str`
+- `ImageArn`: `str`
+- `ImageVersionArn`: `str`
+- `ImageVersionStatus`: `ImageVersionStatus`
+- `LastModifiedTime`: `datetime`
+- `Version`: `int`
+
+
+## DescribeLabelingJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeLabelingJobResponseTypeDef
+```
+
+
+Required fields:
+- `LabelingJobStatus`: `LabelingJobStatus`
+- `LabelCounters`: `"LabelCountersTypeDef"`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `JobReferenceCode`: `str`
+- `LabelingJobName`: `str`
+- `LabelingJobArn`: `str`
+- `InputConfig`: `"LabelingJobInputConfigTypeDef"`
+- `OutputConfig`: `"LabelingJobOutputConfigTypeDef"`
+- `RoleArn`: `str`
+- `HumanTaskConfig`: `"HumanTaskConfigTypeDef"`
+
+
+
+Optional fields:
+- `FailureReason`: `str`
+- `LabelAttributeName`: `str`
+- `LabelCategoryConfigS3Uri`: `str`
+- `StoppingConditions`: `"LabelingJobStoppingConditionsTypeDef"`
+- `LabelingJobAlgorithmsConfig`: `"LabelingJobAlgorithmsConfigTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+- `LabelingJobOutput`: `"LabelingJobOutputTypeDef"`
+
+
+## DescribeModelBiasJobDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeModelBiasJobDefinitionResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionArn`: `str`
+- `JobDefinitionName`: `str`
+- `CreationTime`: `datetime`
+- `ModelBiasAppSpecification`: `"ModelBiasAppSpecificationTypeDef"`
+- `ModelBiasJobInput`: `"ModelBiasJobInputTypeDef"`
+- `ModelBiasJobOutputConfig`: `"MonitoringOutputConfigTypeDef"`
+- `JobResources`: `"MonitoringResourcesTypeDef"`
+- `RoleArn`: `str`
+
+
+
+Optional fields:
+- `ModelBiasBaselineConfig`: `"ModelBiasBaselineConfigTypeDef"`
+- `NetworkConfig`: `"MonitoringNetworkConfigTypeDef"`
+- `StoppingCondition`: `"MonitoringStoppingConditionTypeDef"`
+
+
+## DescribeModelExplainabilityJobDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeModelExplainabilityJobDefinitionResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionArn`: `str`
+- `JobDefinitionName`: `str`
+- `CreationTime`: `datetime`
+- `ModelExplainabilityAppSpecification`: `"ModelExplainabilityAppSpecificationTypeDef"`
+- `ModelExplainabilityJobInput`: `"ModelExplainabilityJobInputTypeDef"`
+- `ModelExplainabilityJobOutputConfig`: `"MonitoringOutputConfigTypeDef"`
+- `JobResources`: `"MonitoringResourcesTypeDef"`
+- `RoleArn`: `str`
+
+
+
+Optional fields:
+- `ModelExplainabilityBaselineConfig`: `"ModelExplainabilityBaselineConfigTypeDef"`
+- `NetworkConfig`: `"MonitoringNetworkConfigTypeDef"`
+- `StoppingCondition`: `"MonitoringStoppingConditionTypeDef"`
+
+
+## DescribeModelOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeModelOutputTypeDef
+```
+
+
+Required fields:
+- `ModelName`: `str`
+- `ExecutionRoleArn`: `str`
+- `CreationTime`: `datetime`
+- `ModelArn`: `str`
+
+
+
+Optional fields:
+- `PrimaryContainer`: `"ContainerDefinitionTypeDef"`
+- `Containers`: `List["ContainerDefinitionTypeDef"]`
+- `InferenceExecutionConfig`: `"InferenceExecutionConfigTypeDef"`
+- `VpcConfig`: `"VpcConfigTypeDef"`
+- `EnableNetworkIsolation`: `bool`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeModelPackageGroupOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeModelPackageGroupOutputTypeDef
+```
+
+
+Required fields:
+- `ModelPackageGroupName`: `str`
+- `ModelPackageGroupArn`: `str`
+- `CreationTime`: `datetime`
+- `CreatedBy`: `"UserContextTypeDef"`
+- `ModelPackageGroupStatus`: `ModelPackageGroupStatus`
+
+
+
+Optional fields:
+- `ModelPackageGroupDescription`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeModelPackageOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeModelPackageOutputTypeDef
+```
+
+
+Required fields:
+- `ModelPackageName`: `str`
+- `ModelPackageArn`: `str`
+- `CreationTime`: `datetime`
+- `ModelPackageStatus`: `ModelPackageStatus`
+- `ModelPackageStatusDetails`: `"ModelPackageStatusDetailsTypeDef"`
+
+
+
+Optional fields:
+- `ModelPackageGroupName`: `str`
+- `ModelPackageVersion`: `int`
+- `ModelPackageDescription`: `str`
+- `InferenceSpecification`: `"InferenceSpecificationTypeDef"`
+- `SourceAlgorithmSpecification`: `"SourceAlgorithmSpecificationTypeDef"`
+- `ValidationSpecification`: `"ModelPackageValidationSpecificationTypeDef"`
+- `CertifyForMarketplace`: `bool`
+- `ModelApprovalStatus`: `ModelApprovalStatus`
+- `CreatedBy`: `"UserContextTypeDef"`
+- `MetadataProperties`: `"MetadataPropertiesTypeDef"`
+- `ModelMetrics`: `"ModelMetricsTypeDef"`
+- `LastModifiedTime`: `datetime`
+- `LastModifiedBy`: `"UserContextTypeDef"`
+- `ApprovalDescription`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeModelQualityJobDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeModelQualityJobDefinitionResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionArn`: `str`
+- `JobDefinitionName`: `str`
+- `CreationTime`: `datetime`
+- `ModelQualityAppSpecification`: `"ModelQualityAppSpecificationTypeDef"`
+- `ModelQualityJobInput`: `"ModelQualityJobInputTypeDef"`
+- `ModelQualityJobOutputConfig`: `"MonitoringOutputConfigTypeDef"`
+- `JobResources`: `"MonitoringResourcesTypeDef"`
+- `RoleArn`: `str`
+
+
+
+Optional fields:
+- `ModelQualityBaselineConfig`: `"ModelQualityBaselineConfigTypeDef"`
+- `NetworkConfig`: `"MonitoringNetworkConfigTypeDef"`
+- `StoppingCondition`: `"MonitoringStoppingConditionTypeDef"`
+
+
+## DescribeMonitoringScheduleResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeMonitoringScheduleResponseTypeDef
+```
+
+
+Required fields:
+- `MonitoringScheduleArn`: `str`
+- `MonitoringScheduleName`: `str`
+- `MonitoringScheduleStatus`: `ScheduleStatus`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `MonitoringScheduleConfig`: `"MonitoringScheduleConfigTypeDef"`
+
+
+
+Optional fields:
+- `MonitoringType`: `MonitoringType`
+- `FailureReason`: `str`
+- `EndpointName`: `str`
+- `LastMonitoringExecutionSummary`: `"MonitoringExecutionSummaryTypeDef"`
+
+
+## DescribeNotebookInstanceLifecycleConfigOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeNotebookInstanceLifecycleConfigOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NotebookInstanceLifecycleConfigArn`: `str`
+- `NotebookInstanceLifecycleConfigName`: `str`
+- `OnCreate`: `List["NotebookInstanceLifecycleHookTypeDef"]`
+- `OnStart`: `List["NotebookInstanceLifecycleHookTypeDef"]`
+- `LastModifiedTime`: `datetime`
+- `CreationTime`: `datetime`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeNotebookInstanceOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeNotebookInstanceOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NotebookInstanceArn`: `str`
+- `NotebookInstanceName`: `str`
+- `NotebookInstanceStatus`: `NotebookInstanceStatus`
+- `FailureReason`: `str`
+- `Url`: `str`
+- `InstanceType`: `InstanceType`
+- `SubnetId`: `str`
+- `SecurityGroups`: `List[str]`
+- `RoleArn`: `str`
+- `KmsKeyId`: `str`
+- `NetworkInterfaceId`: `str`
+- `LastModifiedTime`: `datetime`
+- `CreationTime`: `datetime`
+- `NotebookInstanceLifecycleConfigName`: `str`
+- `DirectInternetAccess`: `DirectInternetAccess`
+- `VolumeSizeInGB`: `int`
+- `AcceleratorTypes`: `List[NotebookInstanceAcceleratorType]`
+- `DefaultCodeRepository`: `str`
+- `AdditionalCodeRepositories`: `List[str]`
+- `RootAccess`: `RootAccess`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribePipelineDefinitionForExecutionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribePipelineDefinitionForExecutionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineDefinition`: `str`
+- `CreationTime`: `datetime`
+
+
+## DescribePipelineExecutionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribePipelineExecutionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineArn`: `str`
+- `PipelineExecutionArn`: `str`
+- `PipelineExecutionDisplayName`: `str`
+- `PipelineExecutionStatus`: `PipelineExecutionStatus`
+- `PipelineExecutionDescription`: `str`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `CreatedBy`: `"UserContextTypeDef"`
+- `LastModifiedBy`: `"UserContextTypeDef"`
+
+
+## DescribePipelineResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribePipelineResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineArn`: `str`
+- `PipelineName`: `str`
+- `PipelineDisplayName`: `str`
+- `PipelineDefinition`: `str`
+- `PipelineDescription`: `str`
+- `RoleArn`: `str`
+- `PipelineStatus`: `Literal['Active']`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `LastRunTime`: `datetime`
+- `CreatedBy`: `"UserContextTypeDef"`
+- `LastModifiedBy`: `"UserContextTypeDef"`
+
+
+## DescribeProcessingJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeProcessingJobResponseTypeDef
+```
+
+
+Required fields:
+- `ProcessingJobName`: `str`
+- `ProcessingResources`: `"ProcessingResourcesTypeDef"`
+- `AppSpecification`: `"AppSpecificationTypeDef"`
+- `ProcessingJobArn`: `str`
+- `ProcessingJobStatus`: `ProcessingJobStatus`
+- `CreationTime`: `datetime`
+
+
+
+Optional fields:
+- `ProcessingInputs`: `List["ProcessingInputTypeDef"]`
+- `ProcessingOutputConfig`: `"ProcessingOutputConfigTypeDef"`
+- `StoppingCondition`: `"ProcessingStoppingConditionTypeDef"`
+- `Environment`: `Dict[str, str]`
+- `NetworkConfig`: `"NetworkConfigTypeDef"`
+- `RoleArn`: `str`
+- `ExperimentConfig`: `"ExperimentConfigTypeDef"`
+- `ExitMessage`: `str`
+- `FailureReason`: `str`
+- `ProcessingEndTime`: `datetime`
+- `ProcessingStartTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `MonitoringScheduleArn`: `str`
+- `AutoMLJobArn`: `str`
+- `TrainingJobArn`: `str`
+
+
+## DescribeProjectOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeProjectOutputTypeDef
+```
+
+
+Required fields:
+- `ProjectArn`: `str`
+- `ProjectName`: `str`
+- `ProjectId`: `str`
+- `ServiceCatalogProvisioningDetails`: `"ServiceCatalogProvisioningDetailsTypeDef"`
+- `ProjectStatus`: `ProjectStatus`
+- `CreationTime`: `datetime`
+
+
+
+Optional fields:
+- `ProjectDescription`: `str`
+- `ServiceCatalogProvisionedProductDetails`: `"ServiceCatalogProvisionedProductDetailsTypeDef"`
+- `CreatedBy`: `"UserContextTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeSubscribedWorkteamResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeSubscribedWorkteamResponseTypeDef
+```
+
+
+Required fields:
+- `SubscribedWorkteam`: `"SubscribedWorkteamTypeDef"`
+
+
+
+
+## DescribeTrainingJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeTrainingJobResponseTypeDef
+```
+
+
+Required fields:
+- `TrainingJobName`: `str`
+- `TrainingJobArn`: `str`
+- `ModelArtifacts`: `"ModelArtifactsTypeDef"`
+- `TrainingJobStatus`: `TrainingJobStatus`
+- `SecondaryStatus`: `SecondaryStatus`
+- `AlgorithmSpecification`: `"AlgorithmSpecificationTypeDef"`
+- `ResourceConfig`: `"ResourceConfigTypeDef"`
+- `StoppingCondition`: `"StoppingConditionTypeDef"`
+- `CreationTime`: `datetime`
+
+
+
+Optional fields:
+- `TuningJobArn`: `str`
+- `LabelingJobArn`: `str`
+- `AutoMLJobArn`: `str`
+- `FailureReason`: `str`
+- `HyperParameters`: `Dict[str, str]`
+- `RoleArn`: `str`
+- `InputDataConfig`: `List["ChannelTypeDef"]`
+- `OutputDataConfig`: `"OutputDataConfigTypeDef"`
+- `VpcConfig`: `"VpcConfigTypeDef"`
+- `TrainingStartTime`: `datetime`
+- `TrainingEndTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `SecondaryStatusTransitions`: `List["SecondaryStatusTransitionTypeDef"]`
+- `FinalMetricDataList`: `List["MetricDataTypeDef"]`
+- `EnableNetworkIsolation`: `bool`
+- `EnableInterContainerTrafficEncryption`: `bool`
+- `EnableManagedSpotTraining`: `bool`
+- `CheckpointConfig`: `"CheckpointConfigTypeDef"`
+- `TrainingTimeInSeconds`: `int`
+- `BillableTimeInSeconds`: `int`
+- `DebugHookConfig`: `"DebugHookConfigTypeDef"`
+- `ExperimentConfig`: `"ExperimentConfigTypeDef"`
+- `DebugRuleConfigurations`: `List["DebugRuleConfigurationTypeDef"]`
+- `TensorBoardOutputConfig`: `"TensorBoardOutputConfigTypeDef"`
+- `DebugRuleEvaluationStatuses`: `List["DebugRuleEvaluationStatusTypeDef"]`
+- `ProfilerConfig`: `"ProfilerConfigTypeDef"`
+- `ProfilerRuleConfigurations`: `List["ProfilerRuleConfigurationTypeDef"]`
+- `ProfilerRuleEvaluationStatuses`: `List["ProfilerRuleEvaluationStatusTypeDef"]`
+- `ProfilingStatus`: `ProfilingStatus`
+- `Environment`: `Dict[str, str]`
+
+
+## DescribeTransformJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeTransformJobResponseTypeDef
+```
+
+
+Required fields:
+- `TransformJobName`: `str`
+- `TransformJobArn`: `str`
+- `TransformJobStatus`: `TransformJobStatus`
+- `ModelName`: `str`
+- `TransformInput`: `"TransformInputTypeDef"`
+- `TransformResources`: `"TransformResourcesTypeDef"`
+- `CreationTime`: `datetime`
+
+
+
+Optional fields:
+- `FailureReason`: `str`
+- `MaxConcurrentTransforms`: `int`
+- `ModelClientConfig`: `"ModelClientConfigTypeDef"`
+- `MaxPayloadInMB`: `int`
+- `BatchStrategy`: `BatchStrategy`
+- `Environment`: `Dict[str, str]`
+- `TransformOutput`: `"TransformOutputTypeDef"`
+- `TransformStartTime`: `datetime`
+- `TransformEndTime`: `datetime`
+- `LabelingJobArn`: `str`
+- `AutoMLJobArn`: `str`
+- `DataProcessing`: `"DataProcessingTypeDef"`
+- `ExperimentConfig`: `"ExperimentConfigTypeDef"`
+
+
+## DescribeTrialComponentResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeTrialComponentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrialComponentName`: `str`
+- `TrialComponentArn`: `str`
+- `DisplayName`: `str`
+- `Source`: `"TrialComponentSourceTypeDef"`
+- `Status`: `"TrialComponentStatusTypeDef"`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+- `CreationTime`: `datetime`
+- `CreatedBy`: `"UserContextTypeDef"`
+- `LastModifiedTime`: `datetime`
+- `LastModifiedBy`: `"UserContextTypeDef"`
+- `Parameters`: `Dict[str, "TrialComponentParameterValueTypeDef"]`
+- `InputArtifacts`: `Dict[str, "TrialComponentArtifactTypeDef"]`
+- `OutputArtifacts`: `Dict[str, "TrialComponentArtifactTypeDef"]`
+- `MetadataProperties`: `"MetadataPropertiesTypeDef"`
+- `Metrics`: `List["TrialComponentMetricSummaryTypeDef"]`
+
+
+## DescribeTrialResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeTrialResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrialName`: `str`
+- `TrialArn`: `str`
+- `DisplayName`: `str`
+- `ExperimentName`: `str`
+- `Source`: `"TrialSourceTypeDef"`
+- `CreationTime`: `datetime`
+- `CreatedBy`: `"UserContextTypeDef"`
+- `LastModifiedTime`: `datetime`
+- `LastModifiedBy`: `"UserContextTypeDef"`
+- `MetadataProperties`: `"MetadataPropertiesTypeDef"`
+
+
+## DescribeUserProfileResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeUserProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DomainId`: `str`
+- `UserProfileArn`: `str`
+- `UserProfileName`: `str`
+- `HomeEfsFileSystemUid`: `str`
+- `Status`: `UserProfileStatus`
+- `LastModifiedTime`: `datetime`
+- `CreationTime`: `datetime`
+- `FailureReason`: `str`
+- `SingleSignOnUserIdentifier`: `str`
+- `SingleSignOnUserValue`: `str`
+- `UserSettings`: `"UserSettingsTypeDef"`
+
+
+## DescribeWorkforceResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeWorkforceResponseTypeDef
+```
+
+
+Required fields:
+- `Workforce`: `"WorkforceTypeDef"`
+
+
+
+
+## DescribeWorkteamResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DescribeWorkteamResponseTypeDef
+```
+
+
+Required fields:
+- `Workteam`: `"WorkteamTypeDef"`
+
+
+
+
+## DesiredWeightAndCapacityTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DesiredWeightAndCapacityTypeDef
+```
+
+
+Required fields:
+- `VariantName`: `str`
+
+
+
+Optional fields:
+- `DesiredWeight`: `float`
+- `DesiredInstanceCount`: `int`
 
 
 ## DeviceFleetSummaryTypeDef
@@ -1749,6 +3632,37 @@ Optional fields:
 - `RegistrationTime`: `datetime`
 - `LatestHeartbeat`: `datetime`
 - `Models`: `List["EdgeModelSummaryTypeDef"]`
+
+
+## DeviceTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DeviceTypeDef
+```
+
+
+Required fields:
+- `DeviceName`: `str`
+
+
+
+Optional fields:
+- `Description`: `str`
+- `IotThingName`: `str`
+
+
+## DisassociateTrialComponentResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import DisassociateTrialComponentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrialComponentArn`: `str`
+- `TrialArn`: `str`
 
 
 ## DomainDetailsTypeDef
@@ -2197,6 +4111,84 @@ Required fields:
 
 Optional fields:
 - `FailureReason`: `str`
+
+
+## GetDeviceFleetReportResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import GetDeviceFleetReportResponseTypeDef
+```
+
+
+Required fields:
+- `DeviceFleetArn`: `str`
+- `DeviceFleetName`: `str`
+
+
+
+Optional fields:
+- `OutputConfig`: `"EdgeOutputConfigTypeDef"`
+- `Description`: `str`
+- `ReportGenerated`: `datetime`
+- `DeviceStats`: `"DeviceStatsTypeDef"`
+- `AgentVersions`: `List["AgentVersionTypeDef"]`
+- `ModelStats`: `List["EdgeModelStatTypeDef"]`
+
+
+## GetModelPackageGroupPolicyOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import GetModelPackageGroupPolicyOutputTypeDef
+```
+
+
+Required fields:
+- `ResourcePolicy`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetSagemakerServicecatalogPortfolioStatusOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import GetSagemakerServicecatalogPortfolioStatusOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `SagemakerServicecatalogStatus`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetSearchSuggestionsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import GetSearchSuggestionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PropertyNameSuggestions`: `List["PropertyNameSuggestionTypeDef"]`
+
+
+## GitConfigForUpdateTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import GitConfigForUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `SecretArn`: `str`
 
 
 ## GitConfigTypeDef
@@ -2908,6 +4900,821 @@ Optional fields:
 - `FailureReason`: `str`
 - `LabelingJobOutput`: `"LabelingJobOutputTypeDef"`
 - `InputConfig`: `"LabelingJobInputConfigTypeDef"`
+
+
+## ListActionsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListActionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ActionSummaries`: `List["ActionSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListAlgorithmsOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListAlgorithmsOutputTypeDef
+```
+
+
+Required fields:
+- `AlgorithmSummaryList`: `List["AlgorithmSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListAppImageConfigsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListAppImageConfigsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `AppImageConfigs`: `List["AppImageConfigDetailsTypeDef"]`
+
+
+## ListAppsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListAppsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Apps`: `List["AppDetailsTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListArtifactsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListArtifactsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ArtifactSummaries`: `List["ArtifactSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListAssociationsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListAssociationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociationSummaries`: `List["AssociationSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListAutoMLJobsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListAutoMLJobsResponseTypeDef
+```
+
+
+Required fields:
+- `AutoMLJobSummaries`: `List["AutoMLJobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListCandidatesForAutoMLJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListCandidatesForAutoMLJobResponseTypeDef
+```
+
+
+Required fields:
+- `Candidates`: `List["AutoMLCandidateTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListCodeRepositoriesOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListCodeRepositoriesOutputTypeDef
+```
+
+
+Required fields:
+- `CodeRepositorySummaryList`: `List["CodeRepositorySummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListCompilationJobsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListCompilationJobsResponseTypeDef
+```
+
+
+Required fields:
+- `CompilationJobSummaries`: `List["CompilationJobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListContextsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListContextsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ContextSummaries`: `List["ContextSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListDataQualityJobDefinitionsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListDataQualityJobDefinitionsResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionSummaries`: `List["MonitoringJobDefinitionSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListDeviceFleetsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListDeviceFleetsResponseTypeDef
+```
+
+
+Required fields:
+- `DeviceFleetSummaries`: `List["DeviceFleetSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListDevicesResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListDevicesResponseTypeDef
+```
+
+
+Required fields:
+- `DeviceSummaries`: `List["DeviceSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListDomainsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListDomainsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Domains`: `List["DomainDetailsTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListEdgePackagingJobsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListEdgePackagingJobsResponseTypeDef
+```
+
+
+Required fields:
+- `EdgePackagingJobSummaries`: `List["EdgePackagingJobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListEndpointConfigsOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListEndpointConfigsOutputTypeDef
+```
+
+
+Required fields:
+- `EndpointConfigs`: `List["EndpointConfigSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListEndpointsOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListEndpointsOutputTypeDef
+```
+
+
+Required fields:
+- `Endpoints`: `List["EndpointSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListExperimentsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListExperimentsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ExperimentSummaries`: `List["ExperimentSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListFeatureGroupsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListFeatureGroupsResponseTypeDef
+```
+
+
+Required fields:
+- `FeatureGroupSummaries`: `List["FeatureGroupSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+
+
+## ListFlowDefinitionsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListFlowDefinitionsResponseTypeDef
+```
+
+
+Required fields:
+- `FlowDefinitionSummaries`: `List["FlowDefinitionSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListHumanTaskUisResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListHumanTaskUisResponseTypeDef
+```
+
+
+Required fields:
+- `HumanTaskUiSummaries`: `List["HumanTaskUiSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListHyperParameterTuningJobsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListHyperParameterTuningJobsResponseTypeDef
+```
+
+
+Required fields:
+- `HyperParameterTuningJobSummaries`: `List["HyperParameterTuningJobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListImageVersionsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListImageVersionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ImageVersions`: `List["ImageVersionTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListImagesResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListImagesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Images`: `List["ImageTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListLabelingJobsForWorkteamResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListLabelingJobsForWorkteamResponseTypeDef
+```
+
+
+Required fields:
+- `LabelingJobSummaryList`: `List["LabelingJobForWorkteamSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListLabelingJobsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListLabelingJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `LabelingJobSummaryList`: `List["LabelingJobSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListModelBiasJobDefinitionsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListModelBiasJobDefinitionsResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionSummaries`: `List["MonitoringJobDefinitionSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListModelExplainabilityJobDefinitionsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListModelExplainabilityJobDefinitionsResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionSummaries`: `List["MonitoringJobDefinitionSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListModelPackageGroupsOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListModelPackageGroupsOutputTypeDef
+```
+
+
+Required fields:
+- `ModelPackageGroupSummaryList`: `List["ModelPackageGroupSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListModelPackagesOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListModelPackagesOutputTypeDef
+```
+
+
+Required fields:
+- `ModelPackageSummaryList`: `List["ModelPackageSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListModelQualityJobDefinitionsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListModelQualityJobDefinitionsResponseTypeDef
+```
+
+
+Required fields:
+- `JobDefinitionSummaries`: `List["MonitoringJobDefinitionSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListModelsOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListModelsOutputTypeDef
+```
+
+
+Required fields:
+- `Models`: `List["ModelSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListMonitoringExecutionsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListMonitoringExecutionsResponseTypeDef
+```
+
+
+Required fields:
+- `MonitoringExecutionSummaries`: `List["MonitoringExecutionSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListMonitoringSchedulesResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListMonitoringSchedulesResponseTypeDef
+```
+
+
+Required fields:
+- `MonitoringScheduleSummaries`: `List["MonitoringScheduleSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListNotebookInstanceLifecycleConfigsOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListNotebookInstanceLifecycleConfigsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `NotebookInstanceLifecycleConfigs`: `List["NotebookInstanceLifecycleConfigSummaryTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListNotebookInstancesOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListNotebookInstancesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `NotebookInstances`: `List["NotebookInstanceSummaryTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListPipelineExecutionStepsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListPipelineExecutionStepsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineExecutionSteps`: `List["PipelineExecutionStepTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListPipelineExecutionsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListPipelineExecutionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineExecutionSummaries`: `List["PipelineExecutionSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListPipelineParametersForExecutionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListPipelineParametersForExecutionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineParameters`: `List["ParameterTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListPipelinesResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListPipelinesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineSummaries`: `List["PipelineSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListProcessingJobsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListProcessingJobsResponseTypeDef
+```
+
+
+Required fields:
+- `ProcessingJobSummaries`: `List["ProcessingJobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListProjectsOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListProjectsOutputTypeDef
+```
+
+
+Required fields:
+- `ProjectSummaryList`: `List["ProjectSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListSubscribedWorkteamsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListSubscribedWorkteamsResponseTypeDef
+```
+
+
+Required fields:
+- `SubscribedWorkteams`: `List["SubscribedWorkteamTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListTagsOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListTagsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `List["TagTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListTrainingJobsForHyperParameterTuningJobResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListTrainingJobsForHyperParameterTuningJobResponseTypeDef
+```
+
+
+Required fields:
+- `TrainingJobSummaries`: `List["HyperParameterTrainingJobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListTrainingJobsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListTrainingJobsResponseTypeDef
+```
+
+
+Required fields:
+- `TrainingJobSummaries`: `List["TrainingJobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListTransformJobsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListTransformJobsResponseTypeDef
+```
+
+
+Required fields:
+- `TransformJobSummaries`: `List["TransformJobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListTrialComponentsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListTrialComponentsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrialComponentSummaries`: `List["TrialComponentSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListTrialsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListTrialsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TrialSummaries`: `List["TrialSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListUserProfilesResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListUserProfilesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserProfiles`: `List["UserProfileDetailsTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListWorkforcesResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListWorkforcesResponseTypeDef
+```
+
+
+Required fields:
+- `Workforces`: `List["WorkforceTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListWorkteamsResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ListWorkteamsResponseTypeDef
+```
+
+
+Required fields:
+- `Workteams`: `List["WorkteamTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
 
 
 ## MemberDefinitionTypeDef
@@ -3904,6 +6711,26 @@ Optional fields:
 - `JwksUri`: `str`
 
 
+## OidcConfigTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import OidcConfigTypeDef
+```
+
+
+Required fields:
+- `ClientId`: `str`
+- `ClientSecret`: `str`
+- `Issuer`: `str`
+- `AuthorizationEndpoint`: `str`
+- `TokenEndpoint`: `str`
+- `UserInfoEndpoint`: `str`
+- `LogoutEndpoint`: `str`
+- `JwksUri`: `str`
+
+
+
+
 ## OidcMemberDefinitionTypeDef
 
 ```python
@@ -3977,6 +6804,21 @@ Required fields:
 
 Optional fields:
 - `KmsKeyId`: `str`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## ParameterRangeTypeDef
@@ -4161,7 +7003,7 @@ Optional fields:
 - `PipelineDisplayName`: `str`
 - `PipelineDescription`: `str`
 - `RoleArn`: `str`
-- `PipelineStatus`: `PipelineStatus`
+- `PipelineStatus`: `Literal['Active']`
 - `CreationTime`: `datetime`
 - `LastModifiedTime`: `datetime`
 - `LastRunTime`: `datetime`
@@ -4447,6 +7289,22 @@ Optional fields:
 - `CoreDumpConfig`: `"ProductionVariantCoreDumpConfigTypeDef"`
 
 
+## ProfilerConfigForUpdateTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import ProfilerConfigForUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3OutputPath`: `str`
+- `ProfilingIntervalInMilliseconds`: `int`
+- `ProfilingParameters`: `Dict[str, str]`
+- `DisableProfiler`: `bool`
+
+
 ## ProfilerConfigTypeDef
 
 ```python
@@ -4575,6 +7433,22 @@ Optional fields:
 - `AmountInUsd`: `"USDTypeDef"`
 
 
+## PutModelPackageGroupPolicyOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import PutModelPackageGroupPolicyOutputTypeDef
+```
+
+
+Required fields:
+- `ModelPackageGroupArn`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## RedshiftDatasetDefinitionTypeDef
 
 ```python
@@ -4609,6 +7483,33 @@ from mypy_boto3_sagemaker.type_defs import RegisterModelStepMetadataTypeDef
 
 Optional fields:
 - `Arn`: `str`
+
+
+## RenderUiTemplateResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import RenderUiTemplateResponseTypeDef
+```
+
+
+Required fields:
+- `RenderedContent`: `str`
+- `Errors`: `List["RenderingErrorTypeDef"]`
+
+
+
+
+## RenderableTaskTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import RenderableTaskTypeDef
+```
+
+
+Required fields:
+- `Input`: `str`
+
+
 
 
 ## RenderingErrorTypeDef
@@ -4717,6 +7618,19 @@ Required fields:
 
 
 
+## RetentionPolicyTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import RetentionPolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `HomeEfsFileSystem`: `RetentionType`
+
+
 ## S3DataSourceTypeDef
 
 ```python
@@ -4765,6 +7679,22 @@ Required fields:
 
 
 
+## SearchExpressionTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import SearchExpressionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Filters`: `List["FilterTypeDef"]`
+- `NestedFilters`: `List["NestedFiltersTypeDef"]`
+- `SubExpressions`: `List[Dict[str, Any]]`
+- `Operator`: `BooleanOperator`
+
+
 ## SearchRecordTypeDef
 
 ```python
@@ -4785,6 +7715,20 @@ Optional fields:
 - `Pipeline`: `"PipelineTypeDef"`
 - `PipelineExecution`: `"PipelineExecutionTypeDef"`
 - `FeatureGroup`: `"FeatureGroupTypeDef"`
+
+
+## SearchResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import SearchResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Results`: `List["SearchRecordTypeDef"]`
+- `NextToken`: `str`
 
 
 ## SecondaryStatusTransitionTypeDef
@@ -4907,6 +7851,32 @@ Required fields:
 
 
 
+## StartPipelineExecutionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import StartPipelineExecutionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineExecutionArn`: `str`
+
+
+## StopPipelineExecutionResponseTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import StopPipelineExecutionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineExecutionArn`: `str`
+
+
 ## StoppingConditionTypeDef
 
 ```python
@@ -4938,6 +7908,19 @@ Optional fields:
 - `SellerName`: `str`
 - `MarketplaceDescription`: `str`
 - `ListingId`: `str`
+
+
+## SuggestionQueryTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import SuggestionQueryTypeDef
+```
+
+
+
+
+Optional fields:
+- `PropertyNameQuery`: `"PropertyNameQueryTypeDef"`
 
 
 ## TagTypeDef
@@ -5608,3099 +8591,6 @@ Optional fields:
 - `ContentSha256`: `str`
 
 
-## UserContextTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import UserContextTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserProfileArn`: `str`
-- `UserProfileName`: `str`
-- `DomainId`: `str`
-
-
-## UserProfileDetailsTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import UserProfileDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `DomainId`: `str`
-- `UserProfileName`: `str`
-- `Status`: `UserProfileStatus`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-
-
-## UserSettingsTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import UserSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ExecutionRole`: `str`
-- `SecurityGroups`: `List[str]`
-- `SharingSettings`: `"SharingSettingsTypeDef"`
-- `JupyterServerAppSettings`: `"JupyterServerAppSettingsTypeDef"`
-- `KernelGatewayAppSettings`: `"KernelGatewayAppSettingsTypeDef"`
-- `TensorBoardAppSettings`: `"TensorBoardAppSettingsTypeDef"`
-
-
-## VpcConfigTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import VpcConfigTypeDef
-```
-
-
-Required fields:
-- `SecurityGroupIds`: `List[str]`
-- `Subnets`: `List[str]`
-
-
-
-
-## WorkforceTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import WorkforceTypeDef
-```
-
-
-Required fields:
-- `WorkforceName`: `str`
-- `WorkforceArn`: `str`
-
-
-
-Optional fields:
-- `LastUpdatedDate`: `datetime`
-- `SourceIpConfig`: `"SourceIpConfigTypeDef"`
-- `SubDomain`: `str`
-- `CognitoConfig`: `"CognitoConfigTypeDef"`
-- `OidcConfig`: `"OidcConfigForResponseTypeDef"`
-- `CreateDate`: `datetime`
-
-
-## WorkteamTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import WorkteamTypeDef
-```
-
-
-Required fields:
-- `WorkteamName`: `str`
-- `MemberDefinitions`: `List["MemberDefinitionTypeDef"]`
-- `WorkteamArn`: `str`
-- `Description`: `str`
-
-
-
-Optional fields:
-- `WorkforceArn`: `str`
-- `ProductListingIds`: `List[str]`
-- `SubDomain`: `str`
-- `CreateDate`: `datetime`
-- `LastUpdatedDate`: `datetime`
-- `NotificationConfiguration`: `"NotificationConfigurationTypeDef"`
-
-
-## AddAssociationResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import AddAssociationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceArn`: `str`
-- `DestinationArn`: `str`
-
-
-## AddTagsOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import AddTagsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `List["TagTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## AssociateTrialComponentResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import AssociateTrialComponentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrialComponentArn`: `str`
-- `TrialArn`: `str`
-
-
-## CreateActionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateActionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ActionArn`: `str`
-
-
-## CreateAlgorithmOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateAlgorithmOutputTypeDef
-```
-
-
-Required fields:
-- `AlgorithmArn`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateAppImageConfigResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateAppImageConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AppImageConfigArn`: `str`
-
-
-## CreateAppResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateAppResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AppArn`: `str`
-
-
-## CreateArtifactResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateArtifactResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ArtifactArn`: `str`
-
-
-## CreateAutoMLJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateAutoMLJobResponseTypeDef
-```
-
-
-Required fields:
-- `AutoMLJobArn`: `str`
-
-
-
-
-## CreateCodeRepositoryOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateCodeRepositoryOutputTypeDef
-```
-
-
-Required fields:
-- `CodeRepositoryArn`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateCompilationJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateCompilationJobResponseTypeDef
-```
-
-
-Required fields:
-- `CompilationJobArn`: `str`
-
-
-
-
-## CreateContextResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateContextResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ContextArn`: `str`
-
-
-## CreateDataQualityJobDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateDataQualityJobDefinitionResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionArn`: `str`
-
-
-
-
-## CreateDomainResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateDomainResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DomainArn`: `str`
-- `Url`: `str`
-
-
-## CreateEndpointConfigOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateEndpointConfigOutputTypeDef
-```
-
-
-Required fields:
-- `EndpointConfigArn`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateEndpointOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateEndpointOutputTypeDef
-```
-
-
-Required fields:
-- `EndpointArn`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateExperimentResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateExperimentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ExperimentArn`: `str`
-
-
-## CreateFeatureGroupResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateFeatureGroupResponseTypeDef
-```
-
-
-Required fields:
-- `FeatureGroupArn`: `str`
-
-
-
-
-## CreateFlowDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateFlowDefinitionResponseTypeDef
-```
-
-
-Required fields:
-- `FlowDefinitionArn`: `str`
-
-
-
-
-## CreateHumanTaskUiResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateHumanTaskUiResponseTypeDef
-```
-
-
-Required fields:
-- `HumanTaskUiArn`: `str`
-
-
-
-
-## CreateHyperParameterTuningJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateHyperParameterTuningJobResponseTypeDef
-```
-
-
-Required fields:
-- `HyperParameterTuningJobArn`: `str`
-
-
-
-
-## CreateImageResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateImageResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ImageArn`: `str`
-
-
-## CreateImageVersionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateImageVersionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ImageVersionArn`: `str`
-
-
-## CreateLabelingJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateLabelingJobResponseTypeDef
-```
-
-
-Required fields:
-- `LabelingJobArn`: `str`
-
-
-
-
-## CreateModelBiasJobDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateModelBiasJobDefinitionResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionArn`: `str`
-
-
-
-
-## CreateModelExplainabilityJobDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateModelExplainabilityJobDefinitionResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionArn`: `str`
-
-
-
-
-## CreateModelOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateModelOutputTypeDef
-```
-
-
-Required fields:
-- `ModelArn`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateModelPackageGroupOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateModelPackageGroupOutputTypeDef
-```
-
-
-Required fields:
-- `ModelPackageGroupArn`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateModelPackageOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateModelPackageOutputTypeDef
-```
-
-
-Required fields:
-- `ModelPackageArn`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateModelQualityJobDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateModelQualityJobDefinitionResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionArn`: `str`
-
-
-
-
-## CreateMonitoringScheduleResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateMonitoringScheduleResponseTypeDef
-```
-
-
-Required fields:
-- `MonitoringScheduleArn`: `str`
-
-
-
-
-## CreateNotebookInstanceLifecycleConfigOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateNotebookInstanceLifecycleConfigOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NotebookInstanceLifecycleConfigArn`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateNotebookInstanceOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateNotebookInstanceOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NotebookInstanceArn`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreatePipelineResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreatePipelineResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineArn`: `str`
-
-
-## CreatePresignedDomainUrlResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreatePresignedDomainUrlResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AuthorizedUrl`: `str`
-
-
-## CreatePresignedNotebookInstanceUrlOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreatePresignedNotebookInstanceUrlOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `AuthorizedUrl`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateProcessingJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateProcessingJobResponseTypeDef
-```
-
-
-Required fields:
-- `ProcessingJobArn`: `str`
-
-
-
-
-## CreateProjectOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateProjectOutputTypeDef
-```
-
-
-Required fields:
-- `ProjectArn`: `str`
-- `ProjectId`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateTrainingJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateTrainingJobResponseTypeDef
-```
-
-
-Required fields:
-- `TrainingJobArn`: `str`
-
-
-
-
-## CreateTransformJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateTransformJobResponseTypeDef
-```
-
-
-Required fields:
-- `TransformJobArn`: `str`
-
-
-
-
-## CreateTrialComponentResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateTrialComponentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrialComponentArn`: `str`
-
-
-## CreateTrialResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateTrialResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrialArn`: `str`
-
-
-## CreateUserProfileResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateUserProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserProfileArn`: `str`
-
-
-## CreateWorkforceResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateWorkforceResponseTypeDef
-```
-
-
-Required fields:
-- `WorkforceArn`: `str`
-
-
-
-
-## CreateWorkteamResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import CreateWorkteamResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `WorkteamArn`: `str`
-
-
-## DeleteActionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DeleteActionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ActionArn`: `str`
-
-
-## DeleteArtifactResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DeleteArtifactResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ArtifactArn`: `str`
-
-
-## DeleteAssociationResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DeleteAssociationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceArn`: `str`
-- `DestinationArn`: `str`
-
-
-## DeleteContextResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DeleteContextResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ContextArn`: `str`
-
-
-## DeleteExperimentResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DeleteExperimentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ExperimentArn`: `str`
-
-
-## DeletePipelineResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DeletePipelineResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineArn`: `str`
-
-
-## DeleteTrialComponentResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DeleteTrialComponentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrialComponentArn`: `str`
-
-
-## DeleteTrialResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DeleteTrialResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrialArn`: `str`
-
-
-## DeleteWorkteamResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DeleteWorkteamResponseTypeDef
-```
-
-
-Required fields:
-- `Success`: `bool`
-
-
-
-
-## DescribeActionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeActionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ActionName`: `str`
-- `ActionArn`: `str`
-- `Source`: `"ActionSourceTypeDef"`
-- `ActionType`: `str`
-- `Description`: `str`
-- `Status`: `ActionStatus`
-- `Properties`: `Dict[str, str]`
-- `CreationTime`: `datetime`
-- `CreatedBy`: `"UserContextTypeDef"`
-- `LastModifiedTime`: `datetime`
-- `LastModifiedBy`: `"UserContextTypeDef"`
-- `MetadataProperties`: `"MetadataPropertiesTypeDef"`
-
-
-## DescribeAlgorithmOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeAlgorithmOutputTypeDef
-```
-
-
-Required fields:
-- `AlgorithmName`: `str`
-- `AlgorithmArn`: `str`
-- `CreationTime`: `datetime`
-- `TrainingSpecification`: `"TrainingSpecificationTypeDef"`
-- `AlgorithmStatus`: `AlgorithmStatus`
-- `AlgorithmStatusDetails`: `"AlgorithmStatusDetailsTypeDef"`
-
-
-
-Optional fields:
-- `AlgorithmDescription`: `str`
-- `InferenceSpecification`: `"InferenceSpecificationTypeDef"`
-- `ValidationSpecification`: `"AlgorithmValidationSpecificationTypeDef"`
-- `ProductId`: `str`
-- `CertifyForMarketplace`: `bool`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeAppImageConfigResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeAppImageConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AppImageConfigArn`: `str`
-- `AppImageConfigName`: `str`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `KernelGatewayImageConfig`: `"KernelGatewayImageConfigTypeDef"`
-
-
-## DescribeAppResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeAppResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AppArn`: `str`
-- `AppType`: `AppType`
-- `AppName`: `str`
-- `DomainId`: `str`
-- `UserProfileName`: `str`
-- `Status`: `AppStatus`
-- `LastHealthCheckTimestamp`: `datetime`
-- `LastUserActivityTimestamp`: `datetime`
-- `CreationTime`: `datetime`
-- `FailureReason`: `str`
-- `ResourceSpec`: `"ResourceSpecTypeDef"`
-
-
-## DescribeArtifactResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeArtifactResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ArtifactName`: `str`
-- `ArtifactArn`: `str`
-- `Source`: `"ArtifactSourceTypeDef"`
-- `ArtifactType`: `str`
-- `Properties`: `Dict[str, str]`
-- `CreationTime`: `datetime`
-- `CreatedBy`: `"UserContextTypeDef"`
-- `LastModifiedTime`: `datetime`
-- `LastModifiedBy`: `"UserContextTypeDef"`
-- `MetadataProperties`: `"MetadataPropertiesTypeDef"`
-
-
-## DescribeAutoMLJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeAutoMLJobResponseTypeDef
-```
-
-
-Required fields:
-- `AutoMLJobName`: `str`
-- `AutoMLJobArn`: `str`
-- `InputDataConfig`: `List["AutoMLChannelTypeDef"]`
-- `OutputDataConfig`: `"AutoMLOutputDataConfigTypeDef"`
-- `RoleArn`: `str`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `AutoMLJobStatus`: `AutoMLJobStatus`
-- `AutoMLJobSecondaryStatus`: `AutoMLJobSecondaryStatus`
-
-
-
-Optional fields:
-- `AutoMLJobObjective`: `"AutoMLJobObjectiveTypeDef"`
-- `ProblemType`: `ProblemType`
-- `AutoMLJobConfig`: `"AutoMLJobConfigTypeDef"`
-- `EndTime`: `datetime`
-- `FailureReason`: `str`
-- `PartialFailureReasons`: `List["AutoMLPartialFailureReasonTypeDef"]`
-- `BestCandidate`: `"AutoMLCandidateTypeDef"`
-- `GenerateCandidateDefinitionsOnly`: `bool`
-- `AutoMLJobArtifacts`: `"AutoMLJobArtifactsTypeDef"`
-- `ResolvedAttributes`: `"ResolvedAttributesTypeDef"`
-
-
-## DescribeCodeRepositoryOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeCodeRepositoryOutputTypeDef
-```
-
-
-Required fields:
-- `CodeRepositoryName`: `str`
-- `CodeRepositoryArn`: `str`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-
-
-
-Optional fields:
-- `GitConfig`: `"GitConfigTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeCompilationJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeCompilationJobResponseTypeDef
-```
-
-
-Required fields:
-- `CompilationJobName`: `str`
-- `CompilationJobArn`: `str`
-- `CompilationJobStatus`: `CompilationJobStatus`
-- `StoppingCondition`: `"StoppingConditionTypeDef"`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `FailureReason`: `str`
-- `ModelArtifacts`: `"ModelArtifactsTypeDef"`
-- `RoleArn`: `str`
-- `InputConfig`: `"InputConfigTypeDef"`
-- `OutputConfig`: `"OutputConfigTypeDef"`
-
-
-
-Optional fields:
-- `CompilationStartTime`: `datetime`
-- `CompilationEndTime`: `datetime`
-- `ModelDigests`: `"ModelDigestsTypeDef"`
-
-
-## DescribeContextResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeContextResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ContextName`: `str`
-- `ContextArn`: `str`
-- `Source`: `"ContextSourceTypeDef"`
-- `ContextType`: `str`
-- `Description`: `str`
-- `Properties`: `Dict[str, str]`
-- `CreationTime`: `datetime`
-- `CreatedBy`: `"UserContextTypeDef"`
-- `LastModifiedTime`: `datetime`
-- `LastModifiedBy`: `"UserContextTypeDef"`
-
-
-## DescribeDataQualityJobDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeDataQualityJobDefinitionResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionArn`: `str`
-- `JobDefinitionName`: `str`
-- `CreationTime`: `datetime`
-- `DataQualityAppSpecification`: `"DataQualityAppSpecificationTypeDef"`
-- `DataQualityJobInput`: `"DataQualityJobInputTypeDef"`
-- `DataQualityJobOutputConfig`: `"MonitoringOutputConfigTypeDef"`
-- `JobResources`: `"MonitoringResourcesTypeDef"`
-- `RoleArn`: `str`
-
-
-
-Optional fields:
-- `DataQualityBaselineConfig`: `"DataQualityBaselineConfigTypeDef"`
-- `NetworkConfig`: `"MonitoringNetworkConfigTypeDef"`
-- `StoppingCondition`: `"MonitoringStoppingConditionTypeDef"`
-
-
-## DescribeDeviceFleetResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeDeviceFleetResponseTypeDef
-```
-
-
-Required fields:
-- `DeviceFleetName`: `str`
-- `DeviceFleetArn`: `str`
-- `OutputConfig`: `"EdgeOutputConfigTypeDef"`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-
-
-
-Optional fields:
-- `Description`: `str`
-- `RoleArn`: `str`
-- `IotRoleAlias`: `str`
-
-
-## DescribeDeviceResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeDeviceResponseTypeDef
-```
-
-
-Required fields:
-- `DeviceName`: `str`
-- `DeviceFleetName`: `str`
-- `RegistrationTime`: `datetime`
-
-
-
-Optional fields:
-- `DeviceArn`: `str`
-- `Description`: `str`
-- `IotThingName`: `str`
-- `LatestHeartbeat`: `datetime`
-- `Models`: `List["EdgeModelTypeDef"]`
-- `MaxModels`: `int`
-- `NextToken`: `str`
-
-
-## DescribeDomainResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeDomainResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DomainArn`: `str`
-- `DomainId`: `str`
-- `DomainName`: `str`
-- `HomeEfsFileSystemId`: `str`
-- `SingleSignOnManagedApplicationInstanceId`: `str`
-- `Status`: `DomainStatus`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `FailureReason`: `str`
-- `AuthMode`: `AuthMode`
-- `DefaultUserSettings`: `"UserSettingsTypeDef"`
-- `AppNetworkAccessType`: `AppNetworkAccessType`
-- `HomeEfsFileSystemKmsKeyId`: `str`
-- `SubnetIds`: `List[str]`
-- `Url`: `str`
-- `VpcId`: `str`
-- `KmsKeyId`: `str`
-
-
-## DescribeEdgePackagingJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeEdgePackagingJobResponseTypeDef
-```
-
-
-Required fields:
-- `EdgePackagingJobArn`: `str`
-- `EdgePackagingJobName`: `str`
-- `EdgePackagingJobStatus`: `EdgePackagingJobStatus`
-
-
-
-Optional fields:
-- `CompilationJobName`: `str`
-- `ModelName`: `str`
-- `ModelVersion`: `str`
-- `RoleArn`: `str`
-- `OutputConfig`: `"EdgeOutputConfigTypeDef"`
-- `ResourceKey`: `str`
-- `EdgePackagingJobStatusMessage`: `str`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `ModelArtifact`: `str`
-- `ModelSignature`: `str`
-
-
-## DescribeEndpointConfigOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeEndpointConfigOutputTypeDef
-```
-
-
-Required fields:
-- `EndpointConfigName`: `str`
-- `EndpointConfigArn`: `str`
-- `ProductionVariants`: `List["ProductionVariantTypeDef"]`
-- `CreationTime`: `datetime`
-
-
-
-Optional fields:
-- `DataCaptureConfig`: `"DataCaptureConfigTypeDef"`
-- `KmsKeyId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeEndpointOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeEndpointOutputTypeDef
-```
-
-
-Required fields:
-- `EndpointName`: `str`
-- `EndpointArn`: `str`
-- `EndpointConfigName`: `str`
-- `EndpointStatus`: `EndpointStatus`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-
-
-
-Optional fields:
-- `ProductionVariants`: `List["ProductionVariantSummaryTypeDef"]`
-- `DataCaptureConfig`: `"DataCaptureConfigSummaryTypeDef"`
-- `FailureReason`: `str`
-- `LastDeploymentConfig`: `"DeploymentConfigTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeExperimentResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeExperimentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ExperimentName`: `str`
-- `ExperimentArn`: `str`
-- `DisplayName`: `str`
-- `Source`: `"ExperimentSourceTypeDef"`
-- `Description`: `str`
-- `CreationTime`: `datetime`
-- `CreatedBy`: `"UserContextTypeDef"`
-- `LastModifiedTime`: `datetime`
-- `LastModifiedBy`: `"UserContextTypeDef"`
-
-
-## DescribeFeatureGroupResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeFeatureGroupResponseTypeDef
-```
-
-
-Required fields:
-- `FeatureGroupArn`: `str`
-- `FeatureGroupName`: `str`
-- `RecordIdentifierFeatureName`: `str`
-- `EventTimeFeatureName`: `str`
-- `FeatureDefinitions`: `List["FeatureDefinitionTypeDef"]`
-- `CreationTime`: `datetime`
-- `NextToken`: `str`
-
-
-
-Optional fields:
-- `OnlineStoreConfig`: `"OnlineStoreConfigTypeDef"`
-- `OfflineStoreConfig`: `"OfflineStoreConfigTypeDef"`
-- `RoleArn`: `str`
-- `FeatureGroupStatus`: `FeatureGroupStatus`
-- `OfflineStoreStatus`: `"OfflineStoreStatusTypeDef"`
-- `FailureReason`: `str`
-- `Description`: `str`
-
-
-## DescribeFlowDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeFlowDefinitionResponseTypeDef
-```
-
-
-Required fields:
-- `FlowDefinitionArn`: `str`
-- `FlowDefinitionName`: `str`
-- `FlowDefinitionStatus`: `FlowDefinitionStatus`
-- `CreationTime`: `datetime`
-- `HumanLoopConfig`: `"HumanLoopConfigTypeDef"`
-- `OutputConfig`: `"FlowDefinitionOutputConfigTypeDef"`
-- `RoleArn`: `str`
-
-
-
-Optional fields:
-- `HumanLoopRequestSource`: `"HumanLoopRequestSourceTypeDef"`
-- `HumanLoopActivationConfig`: `"HumanLoopActivationConfigTypeDef"`
-- `FailureReason`: `str`
-
-
-## DescribeHumanTaskUiResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeHumanTaskUiResponseTypeDef
-```
-
-
-Required fields:
-- `HumanTaskUiArn`: `str`
-- `HumanTaskUiName`: `str`
-- `CreationTime`: `datetime`
-- `UiTemplate`: `"UiTemplateInfoTypeDef"`
-
-
-
-Optional fields:
-- `HumanTaskUiStatus`: `HumanTaskUiStatus`
-
-
-## DescribeHyperParameterTuningJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeHyperParameterTuningJobResponseTypeDef
-```
-
-
-Required fields:
-- `HyperParameterTuningJobName`: `str`
-- `HyperParameterTuningJobArn`: `str`
-- `HyperParameterTuningJobConfig`: `"HyperParameterTuningJobConfigTypeDef"`
-- `HyperParameterTuningJobStatus`: `HyperParameterTuningJobStatus`
-- `CreationTime`: `datetime`
-- `TrainingJobStatusCounters`: `"TrainingJobStatusCountersTypeDef"`
-- `ObjectiveStatusCounters`: `"ObjectiveStatusCountersTypeDef"`
-
-
-
-Optional fields:
-- `TrainingJobDefinition`: `"HyperParameterTrainingJobDefinitionTypeDef"`
-- `TrainingJobDefinitions`: `List["HyperParameterTrainingJobDefinitionTypeDef"]`
-- `HyperParameterTuningEndTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `BestTrainingJob`: `"HyperParameterTrainingJobSummaryTypeDef"`
-- `OverallBestTrainingJob`: `"HyperParameterTrainingJobSummaryTypeDef"`
-- `WarmStartConfig`: `"HyperParameterTuningJobWarmStartConfigTypeDef"`
-- `FailureReason`: `str`
-
-
-## DescribeImageResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeImageResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreationTime`: `datetime`
-- `Description`: `str`
-- `DisplayName`: `str`
-- `FailureReason`: `str`
-- `ImageArn`: `str`
-- `ImageName`: `str`
-- `ImageStatus`: `ImageStatus`
-- `LastModifiedTime`: `datetime`
-- `RoleArn`: `str`
-
-
-## DescribeImageVersionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeImageVersionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `BaseImage`: `str`
-- `ContainerImage`: `str`
-- `CreationTime`: `datetime`
-- `FailureReason`: `str`
-- `ImageArn`: `str`
-- `ImageVersionArn`: `str`
-- `ImageVersionStatus`: `ImageVersionStatus`
-- `LastModifiedTime`: `datetime`
-- `Version`: `int`
-
-
-## DescribeLabelingJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeLabelingJobResponseTypeDef
-```
-
-
-Required fields:
-- `LabelingJobStatus`: `LabelingJobStatus`
-- `LabelCounters`: `"LabelCountersTypeDef"`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `JobReferenceCode`: `str`
-- `LabelingJobName`: `str`
-- `LabelingJobArn`: `str`
-- `InputConfig`: `"LabelingJobInputConfigTypeDef"`
-- `OutputConfig`: `"LabelingJobOutputConfigTypeDef"`
-- `RoleArn`: `str`
-- `HumanTaskConfig`: `"HumanTaskConfigTypeDef"`
-
-
-
-Optional fields:
-- `FailureReason`: `str`
-- `LabelAttributeName`: `str`
-- `LabelCategoryConfigS3Uri`: `str`
-- `StoppingConditions`: `"LabelingJobStoppingConditionsTypeDef"`
-- `LabelingJobAlgorithmsConfig`: `"LabelingJobAlgorithmsConfigTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-- `LabelingJobOutput`: `"LabelingJobOutputTypeDef"`
-
-
-## DescribeModelBiasJobDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeModelBiasJobDefinitionResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionArn`: `str`
-- `JobDefinitionName`: `str`
-- `CreationTime`: `datetime`
-- `ModelBiasAppSpecification`: `"ModelBiasAppSpecificationTypeDef"`
-- `ModelBiasJobInput`: `"ModelBiasJobInputTypeDef"`
-- `ModelBiasJobOutputConfig`: `"MonitoringOutputConfigTypeDef"`
-- `JobResources`: `"MonitoringResourcesTypeDef"`
-- `RoleArn`: `str`
-
-
-
-Optional fields:
-- `ModelBiasBaselineConfig`: `"ModelBiasBaselineConfigTypeDef"`
-- `NetworkConfig`: `"MonitoringNetworkConfigTypeDef"`
-- `StoppingCondition`: `"MonitoringStoppingConditionTypeDef"`
-
-
-## DescribeModelExplainabilityJobDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeModelExplainabilityJobDefinitionResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionArn`: `str`
-- `JobDefinitionName`: `str`
-- `CreationTime`: `datetime`
-- `ModelExplainabilityAppSpecification`: `"ModelExplainabilityAppSpecificationTypeDef"`
-- `ModelExplainabilityJobInput`: `"ModelExplainabilityJobInputTypeDef"`
-- `ModelExplainabilityJobOutputConfig`: `"MonitoringOutputConfigTypeDef"`
-- `JobResources`: `"MonitoringResourcesTypeDef"`
-- `RoleArn`: `str`
-
-
-
-Optional fields:
-- `ModelExplainabilityBaselineConfig`: `"ModelExplainabilityBaselineConfigTypeDef"`
-- `NetworkConfig`: `"MonitoringNetworkConfigTypeDef"`
-- `StoppingCondition`: `"MonitoringStoppingConditionTypeDef"`
-
-
-## DescribeModelOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeModelOutputTypeDef
-```
-
-
-Required fields:
-- `ModelName`: `str`
-- `ExecutionRoleArn`: `str`
-- `CreationTime`: `datetime`
-- `ModelArn`: `str`
-
-
-
-Optional fields:
-- `PrimaryContainer`: `"ContainerDefinitionTypeDef"`
-- `Containers`: `List["ContainerDefinitionTypeDef"]`
-- `InferenceExecutionConfig`: `"InferenceExecutionConfigTypeDef"`
-- `VpcConfig`: `"VpcConfigTypeDef"`
-- `EnableNetworkIsolation`: `bool`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeModelPackageGroupOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeModelPackageGroupOutputTypeDef
-```
-
-
-Required fields:
-- `ModelPackageGroupName`: `str`
-- `ModelPackageGroupArn`: `str`
-- `CreationTime`: `datetime`
-- `CreatedBy`: `"UserContextTypeDef"`
-- `ModelPackageGroupStatus`: `ModelPackageGroupStatus`
-
-
-
-Optional fields:
-- `ModelPackageGroupDescription`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeModelPackageOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeModelPackageOutputTypeDef
-```
-
-
-Required fields:
-- `ModelPackageName`: `str`
-- `ModelPackageArn`: `str`
-- `CreationTime`: `datetime`
-- `ModelPackageStatus`: `ModelPackageStatus`
-- `ModelPackageStatusDetails`: `"ModelPackageStatusDetailsTypeDef"`
-
-
-
-Optional fields:
-- `ModelPackageGroupName`: `str`
-- `ModelPackageVersion`: `int`
-- `ModelPackageDescription`: `str`
-- `InferenceSpecification`: `"InferenceSpecificationTypeDef"`
-- `SourceAlgorithmSpecification`: `"SourceAlgorithmSpecificationTypeDef"`
-- `ValidationSpecification`: `"ModelPackageValidationSpecificationTypeDef"`
-- `CertifyForMarketplace`: `bool`
-- `ModelApprovalStatus`: `ModelApprovalStatus`
-- `CreatedBy`: `"UserContextTypeDef"`
-- `MetadataProperties`: `"MetadataPropertiesTypeDef"`
-- `ModelMetrics`: `"ModelMetricsTypeDef"`
-- `LastModifiedTime`: `datetime`
-- `LastModifiedBy`: `"UserContextTypeDef"`
-- `ApprovalDescription`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeModelQualityJobDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeModelQualityJobDefinitionResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionArn`: `str`
-- `JobDefinitionName`: `str`
-- `CreationTime`: `datetime`
-- `ModelQualityAppSpecification`: `"ModelQualityAppSpecificationTypeDef"`
-- `ModelQualityJobInput`: `"ModelQualityJobInputTypeDef"`
-- `ModelQualityJobOutputConfig`: `"MonitoringOutputConfigTypeDef"`
-- `JobResources`: `"MonitoringResourcesTypeDef"`
-- `RoleArn`: `str`
-
-
-
-Optional fields:
-- `ModelQualityBaselineConfig`: `"ModelQualityBaselineConfigTypeDef"`
-- `NetworkConfig`: `"MonitoringNetworkConfigTypeDef"`
-- `StoppingCondition`: `"MonitoringStoppingConditionTypeDef"`
-
-
-## DescribeMonitoringScheduleResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeMonitoringScheduleResponseTypeDef
-```
-
-
-Required fields:
-- `MonitoringScheduleArn`: `str`
-- `MonitoringScheduleName`: `str`
-- `MonitoringScheduleStatus`: `ScheduleStatus`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `MonitoringScheduleConfig`: `"MonitoringScheduleConfigTypeDef"`
-
-
-
-Optional fields:
-- `MonitoringType`: `MonitoringType`
-- `FailureReason`: `str`
-- `EndpointName`: `str`
-- `LastMonitoringExecutionSummary`: `"MonitoringExecutionSummaryTypeDef"`
-
-
-## DescribeNotebookInstanceLifecycleConfigOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeNotebookInstanceLifecycleConfigOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NotebookInstanceLifecycleConfigArn`: `str`
-- `NotebookInstanceLifecycleConfigName`: `str`
-- `OnCreate`: `List["NotebookInstanceLifecycleHookTypeDef"]`
-- `OnStart`: `List["NotebookInstanceLifecycleHookTypeDef"]`
-- `LastModifiedTime`: `datetime`
-- `CreationTime`: `datetime`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeNotebookInstanceOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeNotebookInstanceOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NotebookInstanceArn`: `str`
-- `NotebookInstanceName`: `str`
-- `NotebookInstanceStatus`: `NotebookInstanceStatus`
-- `FailureReason`: `str`
-- `Url`: `str`
-- `InstanceType`: `InstanceType`
-- `SubnetId`: `str`
-- `SecurityGroups`: `List[str]`
-- `RoleArn`: `str`
-- `KmsKeyId`: `str`
-- `NetworkInterfaceId`: `str`
-- `LastModifiedTime`: `datetime`
-- `CreationTime`: `datetime`
-- `NotebookInstanceLifecycleConfigName`: `str`
-- `DirectInternetAccess`: `DirectInternetAccess`
-- `VolumeSizeInGB`: `int`
-- `AcceleratorTypes`: `List[NotebookInstanceAcceleratorType]`
-- `DefaultCodeRepository`: `str`
-- `AdditionalCodeRepositories`: `List[str]`
-- `RootAccess`: `RootAccess`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribePipelineDefinitionForExecutionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribePipelineDefinitionForExecutionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineDefinition`: `str`
-- `CreationTime`: `datetime`
-
-
-## DescribePipelineExecutionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribePipelineExecutionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineArn`: `str`
-- `PipelineExecutionArn`: `str`
-- `PipelineExecutionDisplayName`: `str`
-- `PipelineExecutionStatus`: `PipelineExecutionStatus`
-- `PipelineExecutionDescription`: `str`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `CreatedBy`: `"UserContextTypeDef"`
-- `LastModifiedBy`: `"UserContextTypeDef"`
-
-
-## DescribePipelineResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribePipelineResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineArn`: `str`
-- `PipelineName`: `str`
-- `PipelineDisplayName`: `str`
-- `PipelineDefinition`: `str`
-- `PipelineDescription`: `str`
-- `RoleArn`: `str`
-- `PipelineStatus`: `PipelineStatus`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `LastRunTime`: `datetime`
-- `CreatedBy`: `"UserContextTypeDef"`
-- `LastModifiedBy`: `"UserContextTypeDef"`
-
-
-## DescribeProcessingJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeProcessingJobResponseTypeDef
-```
-
-
-Required fields:
-- `ProcessingJobName`: `str`
-- `ProcessingResources`: `"ProcessingResourcesTypeDef"`
-- `AppSpecification`: `"AppSpecificationTypeDef"`
-- `ProcessingJobArn`: `str`
-- `ProcessingJobStatus`: `ProcessingJobStatus`
-- `CreationTime`: `datetime`
-
-
-
-Optional fields:
-- `ProcessingInputs`: `List["ProcessingInputTypeDef"]`
-- `ProcessingOutputConfig`: `"ProcessingOutputConfigTypeDef"`
-- `StoppingCondition`: `"ProcessingStoppingConditionTypeDef"`
-- `Environment`: `Dict[str, str]`
-- `NetworkConfig`: `"NetworkConfigTypeDef"`
-- `RoleArn`: `str`
-- `ExperimentConfig`: `"ExperimentConfigTypeDef"`
-- `ExitMessage`: `str`
-- `FailureReason`: `str`
-- `ProcessingEndTime`: `datetime`
-- `ProcessingStartTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `MonitoringScheduleArn`: `str`
-- `AutoMLJobArn`: `str`
-- `TrainingJobArn`: `str`
-
-
-## DescribeProjectOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeProjectOutputTypeDef
-```
-
-
-Required fields:
-- `ProjectArn`: `str`
-- `ProjectName`: `str`
-- `ProjectId`: `str`
-- `ServiceCatalogProvisioningDetails`: `"ServiceCatalogProvisioningDetailsTypeDef"`
-- `ProjectStatus`: `ProjectStatus`
-- `CreationTime`: `datetime`
-
-
-
-Optional fields:
-- `ProjectDescription`: `str`
-- `ServiceCatalogProvisionedProductDetails`: `"ServiceCatalogProvisionedProductDetailsTypeDef"`
-- `CreatedBy`: `"UserContextTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeSubscribedWorkteamResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeSubscribedWorkteamResponseTypeDef
-```
-
-
-Required fields:
-- `SubscribedWorkteam`: `"SubscribedWorkteamTypeDef"`
-
-
-
-
-## DescribeTrainingJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeTrainingJobResponseTypeDef
-```
-
-
-Required fields:
-- `TrainingJobName`: `str`
-- `TrainingJobArn`: `str`
-- `ModelArtifacts`: `"ModelArtifactsTypeDef"`
-- `TrainingJobStatus`: `TrainingJobStatus`
-- `SecondaryStatus`: `SecondaryStatus`
-- `AlgorithmSpecification`: `"AlgorithmSpecificationTypeDef"`
-- `ResourceConfig`: `"ResourceConfigTypeDef"`
-- `StoppingCondition`: `"StoppingConditionTypeDef"`
-- `CreationTime`: `datetime`
-
-
-
-Optional fields:
-- `TuningJobArn`: `str`
-- `LabelingJobArn`: `str`
-- `AutoMLJobArn`: `str`
-- `FailureReason`: `str`
-- `HyperParameters`: `Dict[str, str]`
-- `RoleArn`: `str`
-- `InputDataConfig`: `List["ChannelTypeDef"]`
-- `OutputDataConfig`: `"OutputDataConfigTypeDef"`
-- `VpcConfig`: `"VpcConfigTypeDef"`
-- `TrainingStartTime`: `datetime`
-- `TrainingEndTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `SecondaryStatusTransitions`: `List["SecondaryStatusTransitionTypeDef"]`
-- `FinalMetricDataList`: `List["MetricDataTypeDef"]`
-- `EnableNetworkIsolation`: `bool`
-- `EnableInterContainerTrafficEncryption`: `bool`
-- `EnableManagedSpotTraining`: `bool`
-- `CheckpointConfig`: `"CheckpointConfigTypeDef"`
-- `TrainingTimeInSeconds`: `int`
-- `BillableTimeInSeconds`: `int`
-- `DebugHookConfig`: `"DebugHookConfigTypeDef"`
-- `ExperimentConfig`: `"ExperimentConfigTypeDef"`
-- `DebugRuleConfigurations`: `List["DebugRuleConfigurationTypeDef"]`
-- `TensorBoardOutputConfig`: `"TensorBoardOutputConfigTypeDef"`
-- `DebugRuleEvaluationStatuses`: `List["DebugRuleEvaluationStatusTypeDef"]`
-- `ProfilerConfig`: `"ProfilerConfigTypeDef"`
-- `ProfilerRuleConfigurations`: `List["ProfilerRuleConfigurationTypeDef"]`
-- `ProfilerRuleEvaluationStatuses`: `List["ProfilerRuleEvaluationStatusTypeDef"]`
-- `ProfilingStatus`: `ProfilingStatus`
-- `Environment`: `Dict[str, str]`
-
-
-## DescribeTransformJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeTransformJobResponseTypeDef
-```
-
-
-Required fields:
-- `TransformJobName`: `str`
-- `TransformJobArn`: `str`
-- `TransformJobStatus`: `TransformJobStatus`
-- `ModelName`: `str`
-- `TransformInput`: `"TransformInputTypeDef"`
-- `TransformResources`: `"TransformResourcesTypeDef"`
-- `CreationTime`: `datetime`
-
-
-
-Optional fields:
-- `FailureReason`: `str`
-- `MaxConcurrentTransforms`: `int`
-- `ModelClientConfig`: `"ModelClientConfigTypeDef"`
-- `MaxPayloadInMB`: `int`
-- `BatchStrategy`: `BatchStrategy`
-- `Environment`: `Dict[str, str]`
-- `TransformOutput`: `"TransformOutputTypeDef"`
-- `TransformStartTime`: `datetime`
-- `TransformEndTime`: `datetime`
-- `LabelingJobArn`: `str`
-- `AutoMLJobArn`: `str`
-- `DataProcessing`: `"DataProcessingTypeDef"`
-- `ExperimentConfig`: `"ExperimentConfigTypeDef"`
-
-
-## DescribeTrialComponentResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeTrialComponentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrialComponentName`: `str`
-- `TrialComponentArn`: `str`
-- `DisplayName`: `str`
-- `Source`: `"TrialComponentSourceTypeDef"`
-- `Status`: `"TrialComponentStatusTypeDef"`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-- `CreationTime`: `datetime`
-- `CreatedBy`: `"UserContextTypeDef"`
-- `LastModifiedTime`: `datetime`
-- `LastModifiedBy`: `"UserContextTypeDef"`
-- `Parameters`: `Dict[str, "TrialComponentParameterValueTypeDef"]`
-- `InputArtifacts`: `Dict[str, "TrialComponentArtifactTypeDef"]`
-- `OutputArtifacts`: `Dict[str, "TrialComponentArtifactTypeDef"]`
-- `MetadataProperties`: `"MetadataPropertiesTypeDef"`
-- `Metrics`: `List["TrialComponentMetricSummaryTypeDef"]`
-
-
-## DescribeTrialResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeTrialResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrialName`: `str`
-- `TrialArn`: `str`
-- `DisplayName`: `str`
-- `ExperimentName`: `str`
-- `Source`: `"TrialSourceTypeDef"`
-- `CreationTime`: `datetime`
-- `CreatedBy`: `"UserContextTypeDef"`
-- `LastModifiedTime`: `datetime`
-- `LastModifiedBy`: `"UserContextTypeDef"`
-- `MetadataProperties`: `"MetadataPropertiesTypeDef"`
-
-
-## DescribeUserProfileResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeUserProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DomainId`: `str`
-- `UserProfileArn`: `str`
-- `UserProfileName`: `str`
-- `HomeEfsFileSystemUid`: `str`
-- `Status`: `UserProfileStatus`
-- `LastModifiedTime`: `datetime`
-- `CreationTime`: `datetime`
-- `FailureReason`: `str`
-- `SingleSignOnUserIdentifier`: `str`
-- `SingleSignOnUserValue`: `str`
-- `UserSettings`: `"UserSettingsTypeDef"`
-
-
-## DescribeWorkforceResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeWorkforceResponseTypeDef
-```
-
-
-Required fields:
-- `Workforce`: `"WorkforceTypeDef"`
-
-
-
-
-## DescribeWorkteamResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DescribeWorkteamResponseTypeDef
-```
-
-
-Required fields:
-- `Workteam`: `"WorkteamTypeDef"`
-
-
-
-
-## DesiredWeightAndCapacityTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DesiredWeightAndCapacityTypeDef
-```
-
-
-Required fields:
-- `VariantName`: `str`
-
-
-
-Optional fields:
-- `DesiredWeight`: `float`
-- `DesiredInstanceCount`: `int`
-
-
-## DeviceTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DeviceTypeDef
-```
-
-
-Required fields:
-- `DeviceName`: `str`
-
-
-
-Optional fields:
-- `Description`: `str`
-- `IotThingName`: `str`
-
-
-## SearchExpressionTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import SearchExpressionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Filters`: `List["FilterTypeDef"]`
-- `NestedFilters`: `List["NestedFiltersTypeDef"]`
-- `SubExpressions`: `List[Dict[str, Any]]`
-- `Operator`: `BooleanOperator`
-
-
-## DisassociateTrialComponentResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import DisassociateTrialComponentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrialComponentArn`: `str`
-- `TrialArn`: `str`
-
-
-## GetDeviceFleetReportResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import GetDeviceFleetReportResponseTypeDef
-```
-
-
-Required fields:
-- `DeviceFleetArn`: `str`
-- `DeviceFleetName`: `str`
-
-
-
-Optional fields:
-- `OutputConfig`: `"EdgeOutputConfigTypeDef"`
-- `Description`: `str`
-- `ReportGenerated`: `datetime`
-- `DeviceStats`: `"DeviceStatsTypeDef"`
-- `AgentVersions`: `List["AgentVersionTypeDef"]`
-- `ModelStats`: `List["EdgeModelStatTypeDef"]`
-
-
-## GetModelPackageGroupPolicyOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import GetModelPackageGroupPolicyOutputTypeDef
-```
-
-
-Required fields:
-- `ResourcePolicy`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetSagemakerServicecatalogPortfolioStatusOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import GetSagemakerServicecatalogPortfolioStatusOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `SagemakerServicecatalogStatus`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetSearchSuggestionsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import GetSearchSuggestionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PropertyNameSuggestions`: `List["PropertyNameSuggestionTypeDef"]`
-
-
-## GitConfigForUpdateTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import GitConfigForUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `SecretArn`: `str`
-
-
-## ListActionsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListActionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ActionSummaries`: `List["ActionSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListAlgorithmsOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListAlgorithmsOutputTypeDef
-```
-
-
-Required fields:
-- `AlgorithmSummaryList`: `List["AlgorithmSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListAppImageConfigsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListAppImageConfigsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `AppImageConfigs`: `List["AppImageConfigDetailsTypeDef"]`
-
-
-## ListAppsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListAppsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Apps`: `List["AppDetailsTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListArtifactsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListArtifactsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ArtifactSummaries`: `List["ArtifactSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListAssociationsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListAssociationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociationSummaries`: `List["AssociationSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListAutoMLJobsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListAutoMLJobsResponseTypeDef
-```
-
-
-Required fields:
-- `AutoMLJobSummaries`: `List["AutoMLJobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListCandidatesForAutoMLJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListCandidatesForAutoMLJobResponseTypeDef
-```
-
-
-Required fields:
-- `Candidates`: `List["AutoMLCandidateTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListCodeRepositoriesOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListCodeRepositoriesOutputTypeDef
-```
-
-
-Required fields:
-- `CodeRepositorySummaryList`: `List["CodeRepositorySummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListCompilationJobsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListCompilationJobsResponseTypeDef
-```
-
-
-Required fields:
-- `CompilationJobSummaries`: `List["CompilationJobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListContextsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListContextsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ContextSummaries`: `List["ContextSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListDataQualityJobDefinitionsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListDataQualityJobDefinitionsResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionSummaries`: `List["MonitoringJobDefinitionSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListDeviceFleetsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListDeviceFleetsResponseTypeDef
-```
-
-
-Required fields:
-- `DeviceFleetSummaries`: `List["DeviceFleetSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListDevicesResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListDevicesResponseTypeDef
-```
-
-
-Required fields:
-- `DeviceSummaries`: `List["DeviceSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListDomainsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListDomainsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Domains`: `List["DomainDetailsTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListEdgePackagingJobsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListEdgePackagingJobsResponseTypeDef
-```
-
-
-Required fields:
-- `EdgePackagingJobSummaries`: `List["EdgePackagingJobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListEndpointConfigsOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListEndpointConfigsOutputTypeDef
-```
-
-
-Required fields:
-- `EndpointConfigs`: `List["EndpointConfigSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListEndpointsOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListEndpointsOutputTypeDef
-```
-
-
-Required fields:
-- `Endpoints`: `List["EndpointSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListExperimentsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListExperimentsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ExperimentSummaries`: `List["ExperimentSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListFeatureGroupsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListFeatureGroupsResponseTypeDef
-```
-
-
-Required fields:
-- `FeatureGroupSummaries`: `List["FeatureGroupSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-
-
-## ListFlowDefinitionsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListFlowDefinitionsResponseTypeDef
-```
-
-
-Required fields:
-- `FlowDefinitionSummaries`: `List["FlowDefinitionSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListHumanTaskUisResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListHumanTaskUisResponseTypeDef
-```
-
-
-Required fields:
-- `HumanTaskUiSummaries`: `List["HumanTaskUiSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListHyperParameterTuningJobsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListHyperParameterTuningJobsResponseTypeDef
-```
-
-
-Required fields:
-- `HyperParameterTuningJobSummaries`: `List["HyperParameterTuningJobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListImageVersionsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListImageVersionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ImageVersions`: `List["ImageVersionTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListImagesResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListImagesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Images`: `List["ImageTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListLabelingJobsForWorkteamResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListLabelingJobsForWorkteamResponseTypeDef
-```
-
-
-Required fields:
-- `LabelingJobSummaryList`: `List["LabelingJobForWorkteamSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListLabelingJobsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListLabelingJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `LabelingJobSummaryList`: `List["LabelingJobSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListModelBiasJobDefinitionsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListModelBiasJobDefinitionsResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionSummaries`: `List["MonitoringJobDefinitionSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListModelExplainabilityJobDefinitionsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListModelExplainabilityJobDefinitionsResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionSummaries`: `List["MonitoringJobDefinitionSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListModelPackageGroupsOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListModelPackageGroupsOutputTypeDef
-```
-
-
-Required fields:
-- `ModelPackageGroupSummaryList`: `List["ModelPackageGroupSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListModelPackagesOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListModelPackagesOutputTypeDef
-```
-
-
-Required fields:
-- `ModelPackageSummaryList`: `List["ModelPackageSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListModelQualityJobDefinitionsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListModelQualityJobDefinitionsResponseTypeDef
-```
-
-
-Required fields:
-- `JobDefinitionSummaries`: `List["MonitoringJobDefinitionSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListModelsOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListModelsOutputTypeDef
-```
-
-
-Required fields:
-- `Models`: `List["ModelSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListMonitoringExecutionsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListMonitoringExecutionsResponseTypeDef
-```
-
-
-Required fields:
-- `MonitoringExecutionSummaries`: `List["MonitoringExecutionSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListMonitoringSchedulesResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListMonitoringSchedulesResponseTypeDef
-```
-
-
-Required fields:
-- `MonitoringScheduleSummaries`: `List["MonitoringScheduleSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListNotebookInstanceLifecycleConfigsOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListNotebookInstanceLifecycleConfigsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `NotebookInstanceLifecycleConfigs`: `List["NotebookInstanceLifecycleConfigSummaryTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListNotebookInstancesOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListNotebookInstancesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `NotebookInstances`: `List["NotebookInstanceSummaryTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListPipelineExecutionStepsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListPipelineExecutionStepsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineExecutionSteps`: `List["PipelineExecutionStepTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListPipelineExecutionsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListPipelineExecutionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineExecutionSummaries`: `List["PipelineExecutionSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListPipelineParametersForExecutionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListPipelineParametersForExecutionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineParameters`: `List["ParameterTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListPipelinesResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListPipelinesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineSummaries`: `List["PipelineSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListProcessingJobsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListProcessingJobsResponseTypeDef
-```
-
-
-Required fields:
-- `ProcessingJobSummaries`: `List["ProcessingJobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListProjectsOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListProjectsOutputTypeDef
-```
-
-
-Required fields:
-- `ProjectSummaryList`: `List["ProjectSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListSubscribedWorkteamsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListSubscribedWorkteamsResponseTypeDef
-```
-
-
-Required fields:
-- `SubscribedWorkteams`: `List["SubscribedWorkteamTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListTagsOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListTagsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `List["TagTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListTrainingJobsForHyperParameterTuningJobResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListTrainingJobsForHyperParameterTuningJobResponseTypeDef
-```
-
-
-Required fields:
-- `TrainingJobSummaries`: `List["HyperParameterTrainingJobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListTrainingJobsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListTrainingJobsResponseTypeDef
-```
-
-
-Required fields:
-- `TrainingJobSummaries`: `List["TrainingJobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListTransformJobsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListTransformJobsResponseTypeDef
-```
-
-
-Required fields:
-- `TransformJobSummaries`: `List["TransformJobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListTrialComponentsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListTrialComponentsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrialComponentSummaries`: `List["TrialComponentSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListTrialsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListTrialsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TrialSummaries`: `List["TrialSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListUserProfilesResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListUserProfilesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserProfiles`: `List["UserProfileDetailsTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListWorkforcesResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListWorkforcesResponseTypeDef
-```
-
-
-Required fields:
-- `Workforces`: `List["WorkforceTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListWorkteamsResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ListWorkteamsResponseTypeDef
-```
-
-
-Required fields:
-- `Workteams`: `List["WorkteamTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## OidcConfigTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import OidcConfigTypeDef
-```
-
-
-Required fields:
-- `ClientId`: `str`
-- `ClientSecret`: `str`
-- `Issuer`: `str`
-- `AuthorizationEndpoint`: `str`
-- `TokenEndpoint`: `str`
-- `UserInfoEndpoint`: `str`
-- `LogoutEndpoint`: `str`
-- `JwksUri`: `str`
-
-
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## ProfilerConfigForUpdateTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import ProfilerConfigForUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3OutputPath`: `str`
-- `ProfilingIntervalInMilliseconds`: `int`
-- `ProfilingParameters`: `Dict[str, str]`
-- `DisableProfiler`: `bool`
-
-
-## PutModelPackageGroupPolicyOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import PutModelPackageGroupPolicyOutputTypeDef
-```
-
-
-Required fields:
-- `ModelPackageGroupArn`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## RenderUiTemplateResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import RenderUiTemplateResponseTypeDef
-```
-
-
-Required fields:
-- `RenderedContent`: `str`
-- `Errors`: `List["RenderingErrorTypeDef"]`
-
-
-
-
-## RenderableTaskTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import RenderableTaskTypeDef
-```
-
-
-Required fields:
-- `Input`: `str`
-
-
-
-
-## RetentionPolicyTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import RetentionPolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `HomeEfsFileSystem`: `RetentionType`
-
-
-## SearchResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import SearchResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Results`: `List["SearchRecordTypeDef"]`
-- `NextToken`: `str`
-
-
-## StartPipelineExecutionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import StartPipelineExecutionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineExecutionArn`: `str`
-
-
-## StopPipelineExecutionResponseTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import StopPipelineExecutionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineExecutionArn`: `str`
-
-
-## SuggestionQueryTypeDef
-
-```python
-from mypy_boto3_sagemaker.type_defs import SuggestionQueryTypeDef
-```
-
-
-
-
-Optional fields:
-- `PropertyNameQuery`: `"PropertyNameQueryTypeDef"`
-
-
 ## UiTemplateTypeDef
 
 ```python
@@ -8986,6 +8876,56 @@ Required fields:
 
 
 
+## UserContextTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import UserContextTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserProfileArn`: `str`
+- `UserProfileName`: `str`
+- `DomainId`: `str`
+
+
+## UserProfileDetailsTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import UserProfileDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `DomainId`: `str`
+- `UserProfileName`: `str`
+- `Status`: `UserProfileStatus`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+
+
+## UserSettingsTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import UserSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ExecutionRole`: `str`
+- `SecurityGroups`: `List[str]`
+- `SharingSettings`: `"SharingSettingsTypeDef"`
+- `JupyterServerAppSettings`: `"JupyterServerAppSettingsTypeDef"`
+- `KernelGatewayAppSettings`: `"KernelGatewayAppSettingsTypeDef"`
+- `TensorBoardAppSettings`: `"TensorBoardAppSettingsTypeDef"`
+
+
 ## VariantPropertyTypeDef
 
 ```python
@@ -8995,6 +8935,20 @@ from mypy_boto3_sagemaker.type_defs import VariantPropertyTypeDef
 
 Required fields:
 - `VariantPropertyType`: `VariantPropertyType`
+
+
+
+
+## VpcConfigTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import VpcConfigTypeDef
+```
+
+
+Required fields:
+- `SecurityGroupIds`: `List[str]`
+- `Subnets`: `List[str]`
 
 
 
@@ -9011,4 +8965,50 @@ from mypy_boto3_sagemaker.type_defs import WaiterConfigTypeDef
 Optional fields:
 - `Delay`: `int`
 - `MaxAttempts`: `int`
+
+
+## WorkforceTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import WorkforceTypeDef
+```
+
+
+Required fields:
+- `WorkforceName`: `str`
+- `WorkforceArn`: `str`
+
+
+
+Optional fields:
+- `LastUpdatedDate`: `datetime`
+- `SourceIpConfig`: `"SourceIpConfigTypeDef"`
+- `SubDomain`: `str`
+- `CognitoConfig`: `"CognitoConfigTypeDef"`
+- `OidcConfig`: `"OidcConfigForResponseTypeDef"`
+- `CreateDate`: `datetime`
+
+
+## WorkteamTypeDef
+
+```python
+from mypy_boto3_sagemaker.type_defs import WorkteamTypeDef
+```
+
+
+Required fields:
+- `WorkteamName`: `str`
+- `MemberDefinitions`: `List["MemberDefinitionTypeDef"]`
+- `WorkteamArn`: `str`
+- `Description`: `str`
+
+
+
+Optional fields:
+- `WorkforceArn`: `str`
+- `ProductListingIds`: `List[str]`
+- `SubDomain`: `str`
+- `CreateDate`: `datetime`
+- `LastUpdatedDate`: `datetime`
+- `NotificationConfiguration`: `"NotificationConfigurationTypeDef"`
 

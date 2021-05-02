@@ -11,35 +11,12 @@ type annotations stubs module [mypy_boto3_eks](https://pypi.org/project/mypy-bot
   - [AddonIssueTypeDef](#addonissuetypedef)
   - [AddonTypeDef](#addontypedef)
   - [AddonVersionInfoTypeDef](#addonversioninfotypedef)
+  - [AssociateEncryptionConfigResponseTypeDef](#associateencryptionconfigresponsetypedef)
+  - [AssociateIdentityProviderConfigResponseTypeDef](#associateidentityproviderconfigresponsetypedef)
   - [AutoScalingGroupTypeDef](#autoscalinggrouptypedef)
   - [CertificateTypeDef](#certificatetypedef)
   - [ClusterTypeDef](#clustertypedef)
   - [CompatibilityTypeDef](#compatibilitytypedef)
-  - [EncryptionConfigTypeDef](#encryptionconfigtypedef)
-  - [ErrorDetailTypeDef](#errordetailtypedef)
-  - [FargateProfileSelectorTypeDef](#fargateprofileselectortypedef)
-  - [FargateProfileTypeDef](#fargateprofiletypedef)
-  - [IdentityProviderConfigResponseTypeDef](#identityproviderconfigresponsetypedef)
-  - [IdentityProviderConfigTypeDef](#identityproviderconfigtypedef)
-  - [IdentityTypeDef](#identitytypedef)
-  - [IssueTypeDef](#issuetypedef)
-  - [KubernetesNetworkConfigResponseTypeDef](#kubernetesnetworkconfigresponsetypedef)
-  - [LaunchTemplateSpecificationTypeDef](#launchtemplatespecificationtypedef)
-  - [LogSetupTypeDef](#logsetuptypedef)
-  - [LoggingTypeDef](#loggingtypedef)
-  - [NodegroupHealthTypeDef](#nodegrouphealthtypedef)
-  - [NodegroupResourcesTypeDef](#nodegroupresourcestypedef)
-  - [NodegroupScalingConfigTypeDef](#nodegroupscalingconfigtypedef)
-  - [NodegroupTypeDef](#nodegrouptypedef)
-  - [OIDCTypeDef](#oidctypedef)
-  - [OidcIdentityProviderConfigTypeDef](#oidcidentityproviderconfigtypedef)
-  - [ProviderTypeDef](#providertypedef)
-  - [RemoteAccessConfigTypeDef](#remoteaccessconfigtypedef)
-  - [UpdateParamTypeDef](#updateparamtypedef)
-  - [UpdateTypeDef](#updatetypedef)
-  - [VpcConfigResponseTypeDef](#vpcconfigresponsetypedef)
-  - [AssociateEncryptionConfigResponseTypeDef](#associateencryptionconfigresponsetypedef)
-  - [AssociateIdentityProviderConfigResponseTypeDef](#associateidentityproviderconfigresponsetypedef)
   - [CreateAddonResponseTypeDef](#createaddonresponsetypedef)
   - [CreateClusterResponseTypeDef](#createclusterresponsetypedef)
   - [CreateFargateProfileResponseTypeDef](#createfargateprofileresponsetypedef)
@@ -56,7 +33,17 @@ type annotations stubs module [mypy_boto3_eks](https://pypi.org/project/mypy-bot
   - [DescribeNodegroupResponseTypeDef](#describenodegroupresponsetypedef)
   - [DescribeUpdateResponseTypeDef](#describeupdateresponsetypedef)
   - [DisassociateIdentityProviderConfigResponseTypeDef](#disassociateidentityproviderconfigresponsetypedef)
+  - [EncryptionConfigTypeDef](#encryptionconfigtypedef)
+  - [ErrorDetailTypeDef](#errordetailtypedef)
+  - [FargateProfileSelectorTypeDef](#fargateprofileselectortypedef)
+  - [FargateProfileTypeDef](#fargateprofiletypedef)
+  - [IdentityProviderConfigResponseTypeDef](#identityproviderconfigresponsetypedef)
+  - [IdentityProviderConfigTypeDef](#identityproviderconfigtypedef)
+  - [IdentityTypeDef](#identitytypedef)
+  - [IssueTypeDef](#issuetypedef)
   - [KubernetesNetworkConfigRequestTypeDef](#kubernetesnetworkconfigrequesttypedef)
+  - [KubernetesNetworkConfigResponseTypeDef](#kubernetesnetworkconfigresponsetypedef)
+  - [LaunchTemplateSpecificationTypeDef](#launchtemplatespecificationtypedef)
   - [ListAddonsResponseTypeDef](#listaddonsresponsetypedef)
   - [ListClustersResponseTypeDef](#listclustersresponsetypedef)
   - [ListFargateProfilesResponseTypeDef](#listfargateprofilesresponsetypedef)
@@ -64,15 +51,28 @@ type annotations stubs module [mypy_boto3_eks](https://pypi.org/project/mypy-bot
   - [ListNodegroupsResponseTypeDef](#listnodegroupsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListUpdatesResponseTypeDef](#listupdatesresponsetypedef)
+  - [LogSetupTypeDef](#logsetuptypedef)
+  - [LoggingTypeDef](#loggingtypedef)
+  - [NodegroupHealthTypeDef](#nodegrouphealthtypedef)
+  - [NodegroupResourcesTypeDef](#nodegroupresourcestypedef)
+  - [NodegroupScalingConfigTypeDef](#nodegroupscalingconfigtypedef)
+  - [NodegroupTypeDef](#nodegrouptypedef)
+  - [OIDCTypeDef](#oidctypedef)
   - [OidcIdentityProviderConfigRequestTypeDef](#oidcidentityproviderconfigrequesttypedef)
+  - [OidcIdentityProviderConfigTypeDef](#oidcidentityproviderconfigtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ProviderTypeDef](#providertypedef)
+  - [RemoteAccessConfigTypeDef](#remoteaccessconfigtypedef)
   - [UpdateAddonResponseTypeDef](#updateaddonresponsetypedef)
   - [UpdateClusterConfigResponseTypeDef](#updateclusterconfigresponsetypedef)
   - [UpdateClusterVersionResponseTypeDef](#updateclusterversionresponsetypedef)
   - [UpdateLabelsPayloadTypeDef](#updatelabelspayloadtypedef)
   - [UpdateNodegroupConfigResponseTypeDef](#updatenodegroupconfigresponsetypedef)
   - [UpdateNodegroupVersionResponseTypeDef](#updatenodegroupversionresponsetypedef)
+  - [UpdateParamTypeDef](#updateparamtypedef)
+  - [UpdateTypeDef](#updatetypedef)
   - [VpcConfigRequestTypeDef](#vpcconfigrequesttypedef)
+  - [VpcConfigResponseTypeDef](#vpcconfigresponsetypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
 ## AddonHealthTypeDef
@@ -155,6 +155,33 @@ Optional fields:
 - `compatibilities`: `List["CompatibilityTypeDef"]`
 
 
+## AssociateEncryptionConfigResponseTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import AssociateEncryptionConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `update`: `"UpdateTypeDef"`
+
+
+## AssociateIdentityProviderConfigResponseTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import AssociateIdentityProviderConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `update`: `"UpdateTypeDef"`
+- `tags`: `Dict[str, str]`
+
+
 ## AutoScalingGroupTypeDef
 
 ```python
@@ -222,397 +249,6 @@ Optional fields:
 - `clusterVersion`: `str`
 - `platformVersions`: `List[str]`
 - `defaultVersion`: `bool`
-
-
-## EncryptionConfigTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import EncryptionConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `resources`: `List[str]`
-- `provider`: `"ProviderTypeDef"`
-
-
-## ErrorDetailTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import ErrorDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `errorCode`: `ErrorCode`
-- `errorMessage`: `str`
-- `resourceIds`: `List[str]`
-
-
-## FargateProfileSelectorTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import FargateProfileSelectorTypeDef
-```
-
-
-
-
-Optional fields:
-- `namespace`: `str`
-- `labels`: `Dict[str, str]`
-
-
-## FargateProfileTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import FargateProfileTypeDef
-```
-
-
-
-
-Optional fields:
-- `fargateProfileName`: `str`
-- `fargateProfileArn`: `str`
-- `clusterName`: `str`
-- `createdAt`: `datetime`
-- `podExecutionRoleArn`: `str`
-- `subnets`: `List[str]`
-- `selectors`: `List["FargateProfileSelectorTypeDef"]`
-- `status`: `FargateProfileStatus`
-- `tags`: `Dict[str, str]`
-
-
-## IdentityProviderConfigResponseTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import IdentityProviderConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `oidc`: `"OidcIdentityProviderConfigTypeDef"`
-
-
-## IdentityProviderConfigTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import IdentityProviderConfigTypeDef
-```
-
-
-Required fields:
-- `type`: `str`
-- `name`: `str`
-
-
-
-
-## IdentityTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import IdentityTypeDef
-```
-
-
-
-
-Optional fields:
-- `oidc`: `"OIDCTypeDef"`
-
-
-## IssueTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import IssueTypeDef
-```
-
-
-
-
-Optional fields:
-- `code`: `NodegroupIssueCode`
-- `message`: `str`
-- `resourceIds`: `List[str]`
-
-
-## KubernetesNetworkConfigResponseTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import KubernetesNetworkConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `serviceIpv4Cidr`: `str`
-
-
-## LaunchTemplateSpecificationTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import LaunchTemplateSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `version`: `str`
-- `id`: `str`
-
-
-## LogSetupTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import LogSetupTypeDef
-```
-
-
-
-
-Optional fields:
-- `types`: `List[LogType]`
-- `enabled`: `bool`
-
-
-## LoggingTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import LoggingTypeDef
-```
-
-
-
-
-Optional fields:
-- `clusterLogging`: `List["LogSetupTypeDef"]`
-
-
-## NodegroupHealthTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import NodegroupHealthTypeDef
-```
-
-
-
-
-Optional fields:
-- `issues`: `List["IssueTypeDef"]`
-
-
-## NodegroupResourcesTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import NodegroupResourcesTypeDef
-```
-
-
-
-
-Optional fields:
-- `autoScalingGroups`: `List["AutoScalingGroupTypeDef"]`
-- `remoteAccessSecurityGroup`: `str`
-
-
-## NodegroupScalingConfigTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import NodegroupScalingConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `minSize`: `int`
-- `maxSize`: `int`
-- `desiredSize`: `int`
-
-
-## NodegroupTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import NodegroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `nodegroupName`: `str`
-- `nodegroupArn`: `str`
-- `clusterName`: `str`
-- `version`: `str`
-- `releaseVersion`: `str`
-- `createdAt`: `datetime`
-- `modifiedAt`: `datetime`
-- `status`: `NodegroupStatus`
-- `capacityType`: `CapacityTypes`
-- `scalingConfig`: `"NodegroupScalingConfigTypeDef"`
-- `instanceTypes`: `List[str]`
-- `subnets`: `List[str]`
-- `remoteAccess`: `"RemoteAccessConfigTypeDef"`
-- `amiType`: `AMITypes`
-- `nodeRole`: `str`
-- `labels`: `Dict[str, str]`
-- `resources`: `"NodegroupResourcesTypeDef"`
-- `diskSize`: `int`
-- `health`: `"NodegroupHealthTypeDef"`
-- `launchTemplate`: `"LaunchTemplateSpecificationTypeDef"`
-- `tags`: `Dict[str, str]`
-
-
-## OIDCTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import OIDCTypeDef
-```
-
-
-
-
-Optional fields:
-- `issuer`: `str`
-
-
-## OidcIdentityProviderConfigTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import OidcIdentityProviderConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `identityProviderConfigName`: `str`
-- `identityProviderConfigArn`: `str`
-- `clusterName`: `str`
-- `issuerUrl`: `str`
-- `clientId`: `str`
-- `usernameClaim`: `str`
-- `usernamePrefix`: `str`
-- `groupsClaim`: `str`
-- `groupsPrefix`: `str`
-- `requiredClaims`: `Dict[str, str]`
-- `tags`: `Dict[str, str]`
-- `status`: `configStatus`
-
-
-## ProviderTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import ProviderTypeDef
-```
-
-
-
-
-Optional fields:
-- `keyArn`: `str`
-
-
-## RemoteAccessConfigTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import RemoteAccessConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `ec2SshKey`: `str`
-- `sourceSecurityGroups`: `List[str]`
-
-
-## UpdateParamTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import UpdateParamTypeDef
-```
-
-
-
-
-Optional fields:
-- `type`: `UpdateParamType`
-- `value`: `str`
-
-
-## UpdateTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import UpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `status`: `UpdateStatus`
-- `type`: `UpdateType`
-- `params`: `List["UpdateParamTypeDef"]`
-- `createdAt`: `datetime`
-- `errors`: `List["ErrorDetailTypeDef"]`
-
-
-## VpcConfigResponseTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import VpcConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `subnetIds`: `List[str]`
-- `securityGroupIds`: `List[str]`
-- `clusterSecurityGroupId`: `str`
-- `vpcId`: `str`
-- `endpointPublicAccess`: `bool`
-- `endpointPrivateAccess`: `bool`
-- `publicAccessCidrs`: `List[str]`
-
-
-## AssociateEncryptionConfigResponseTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import AssociateEncryptionConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `update`: `"UpdateTypeDef"`
-
-
-## AssociateIdentityProviderConfigResponseTypeDef
-
-```python
-from mypy_boto3_eks.type_defs import AssociateIdentityProviderConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `update`: `"UpdateTypeDef"`
-- `tags`: `Dict[str, str]`
 
 
 ## CreateAddonResponseTypeDef
@@ -824,6 +460,125 @@ Optional fields:
 - `update`: `"UpdateTypeDef"`
 
 
+## EncryptionConfigTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import EncryptionConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `resources`: `List[str]`
+- `provider`: `"ProviderTypeDef"`
+
+
+## ErrorDetailTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import ErrorDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `errorCode`: `ErrorCode`
+- `errorMessage`: `str`
+- `resourceIds`: `List[str]`
+
+
+## FargateProfileSelectorTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import FargateProfileSelectorTypeDef
+```
+
+
+
+
+Optional fields:
+- `namespace`: `str`
+- `labels`: `Dict[str, str]`
+
+
+## FargateProfileTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import FargateProfileTypeDef
+```
+
+
+
+
+Optional fields:
+- `fargateProfileName`: `str`
+- `fargateProfileArn`: `str`
+- `clusterName`: `str`
+- `createdAt`: `datetime`
+- `podExecutionRoleArn`: `str`
+- `subnets`: `List[str]`
+- `selectors`: `List["FargateProfileSelectorTypeDef"]`
+- `status`: `FargateProfileStatus`
+- `tags`: `Dict[str, str]`
+
+
+## IdentityProviderConfigResponseTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import IdentityProviderConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `oidc`: `"OidcIdentityProviderConfigTypeDef"`
+
+
+## IdentityProviderConfigTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import IdentityProviderConfigTypeDef
+```
+
+
+Required fields:
+- `type`: `str`
+- `name`: `str`
+
+
+
+
+## IdentityTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import IdentityTypeDef
+```
+
+
+
+
+Optional fields:
+- `oidc`: `"OIDCTypeDef"`
+
+
+## IssueTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import IssueTypeDef
+```
+
+
+
+
+Optional fields:
+- `code`: `NodegroupIssueCode`
+- `message`: `str`
+- `resourceIds`: `List[str]`
+
+
 ## KubernetesNetworkConfigRequestTypeDef
 
 ```python
@@ -835,6 +590,34 @@ from mypy_boto3_eks.type_defs import KubernetesNetworkConfigRequestTypeDef
 
 Optional fields:
 - `serviceIpv4Cidr`: `str`
+
+
+## KubernetesNetworkConfigResponseTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import KubernetesNetworkConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `serviceIpv4Cidr`: `str`
+
+
+## LaunchTemplateSpecificationTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import LaunchTemplateSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `version`: `str`
+- `id`: `str`
 
 
 ## ListAddonsResponseTypeDef
@@ -934,6 +717,121 @@ Optional fields:
 - `nextToken`: `str`
 
 
+## LogSetupTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import LogSetupTypeDef
+```
+
+
+
+
+Optional fields:
+- `types`: `List[LogType]`
+- `enabled`: `bool`
+
+
+## LoggingTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import LoggingTypeDef
+```
+
+
+
+
+Optional fields:
+- `clusterLogging`: `List["LogSetupTypeDef"]`
+
+
+## NodegroupHealthTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import NodegroupHealthTypeDef
+```
+
+
+
+
+Optional fields:
+- `issues`: `List["IssueTypeDef"]`
+
+
+## NodegroupResourcesTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import NodegroupResourcesTypeDef
+```
+
+
+
+
+Optional fields:
+- `autoScalingGroups`: `List["AutoScalingGroupTypeDef"]`
+- `remoteAccessSecurityGroup`: `str`
+
+
+## NodegroupScalingConfigTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import NodegroupScalingConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `minSize`: `int`
+- `maxSize`: `int`
+- `desiredSize`: `int`
+
+
+## NodegroupTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import NodegroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `nodegroupName`: `str`
+- `nodegroupArn`: `str`
+- `clusterName`: `str`
+- `version`: `str`
+- `releaseVersion`: `str`
+- `createdAt`: `datetime`
+- `modifiedAt`: `datetime`
+- `status`: `NodegroupStatus`
+- `capacityType`: `CapacityTypes`
+- `scalingConfig`: `"NodegroupScalingConfigTypeDef"`
+- `instanceTypes`: `List[str]`
+- `subnets`: `List[str]`
+- `remoteAccess`: `"RemoteAccessConfigTypeDef"`
+- `amiType`: `AMITypes`
+- `nodeRole`: `str`
+- `labels`: `Dict[str, str]`
+- `resources`: `"NodegroupResourcesTypeDef"`
+- `diskSize`: `int`
+- `health`: `"NodegroupHealthTypeDef"`
+- `launchTemplate`: `"LaunchTemplateSpecificationTypeDef"`
+- `tags`: `Dict[str, str]`
+
+
+## OIDCTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import OIDCTypeDef
+```
+
+
+
+
+Optional fields:
+- `issuer`: `str`
+
+
 ## OidcIdentityProviderConfigRequestTypeDef
 
 ```python
@@ -956,6 +854,30 @@ Optional fields:
 - `requiredClaims`: `Dict[str, str]`
 
 
+## OidcIdentityProviderConfigTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import OidcIdentityProviderConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `identityProviderConfigName`: `str`
+- `identityProviderConfigArn`: `str`
+- `clusterName`: `str`
+- `issuerUrl`: `str`
+- `clientId`: `str`
+- `usernameClaim`: `str`
+- `usernamePrefix`: `str`
+- `groupsClaim`: `str`
+- `groupsPrefix`: `str`
+- `requiredClaims`: `Dict[str, str]`
+- `tags`: `Dict[str, str]`
+- `status`: `configStatus`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -969,6 +891,33 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ProviderTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import ProviderTypeDef
+```
+
+
+
+
+Optional fields:
+- `keyArn`: `str`
+
+
+## RemoteAccessConfigTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import RemoteAccessConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `ec2SshKey`: `str`
+- `sourceSecurityGroups`: `List[str]`
 
 
 ## UpdateAddonResponseTypeDef
@@ -1050,6 +999,38 @@ Optional fields:
 - `update`: `"UpdateTypeDef"`
 
 
+## UpdateParamTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import UpdateParamTypeDef
+```
+
+
+
+
+Optional fields:
+- `type`: `UpdateParamType`
+- `value`: `str`
+
+
+## UpdateTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import UpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `status`: `UpdateStatus`
+- `type`: `UpdateType`
+- `params`: `List["UpdateParamTypeDef"]`
+- `createdAt`: `datetime`
+- `errors`: `List["ErrorDetailTypeDef"]`
+
+
 ## VpcConfigRequestTypeDef
 
 ```python
@@ -1062,6 +1043,25 @@ from mypy_boto3_eks.type_defs import VpcConfigRequestTypeDef
 Optional fields:
 - `subnetIds`: `List[str]`
 - `securityGroupIds`: `List[str]`
+- `endpointPublicAccess`: `bool`
+- `endpointPrivateAccess`: `bool`
+- `publicAccessCidrs`: `List[str]`
+
+
+## VpcConfigResponseTypeDef
+
+```python
+from mypy_boto3_eks.type_defs import VpcConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `subnetIds`: `List[str]`
+- `securityGroupIds`: `List[str]`
+- `clusterSecurityGroupId`: `str`
+- `vpcId`: `str`
 - `endpointPublicAccess`: `bool`
 - `endpointPrivateAccess`: `bool`
 - `publicAccessCidrs`: `List[str]`

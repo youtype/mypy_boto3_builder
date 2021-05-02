@@ -166,3 +166,6 @@ def update_thing_shadow(
 ) -> UpdateThingShadowResponseTypeDef:
     pass
 ```
+
+
+

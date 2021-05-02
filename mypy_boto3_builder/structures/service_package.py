@@ -55,7 +55,9 @@ class ServicePackage(Package):
 
                 old_literal = found[literal.name]
                 if not literal.is_same(old_literal):
-                    raise ValueError(f"Duplicate literal: {literal.name}")
+                    raise ValueError(
+                        f"Duplicate literal: {literal.name} {literal.children} != {old_literal.children}"
+                    )
 
         return list(sorted(found.values()))
 

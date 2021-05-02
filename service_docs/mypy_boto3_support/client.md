@@ -26,7 +26,6 @@ type annotations stubs module [mypy_boto3_support](https://pypi.org/project/mypy
     - [refresh_trusted_advisor_check](#refresh_trusted_advisor_check)
     - [resolve_case](#resolve_case)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## SupportClient
 
@@ -321,32 +320,13 @@ def resolve_case(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("support").get_paginator` method.
-
-[Paginator.DescribeCases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/support.html#Support.Paginator.DescribeCases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCasesPaginatorName
-) -> DescribeCasesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("support").get_paginator` method.
+Type annotations for `boto3.client("support").get_paginator` method with overloads.
 
-[Paginator.DescribeCommunications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/support.html#Support.Paginator.DescribeCommunications)
+- `client.get_paginator("describe_cases")` -> [DescribeCasesPaginator](./paginators.md#describecasespaginator)
+- `client.get_paginator("describe_communications")` -> [DescribeCommunicationsPaginator](./paginators.md#describecommunicationspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCommunicationsPaginatorName
-) -> DescribeCommunicationsPaginator:
-    pass
-```
+

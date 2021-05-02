@@ -82,11 +82,11 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_migrationhub_config.type_defs import HomeRegionControlTypeDef, ...
+from mypy_boto3_migrationhub_config.type_defs import CreateHomeRegionControlResultTypeDef, ...
 ```
 
-- [HomeRegionControlTypeDef](./type_defs.md#homeregioncontroltypedef)
-- [TargetTypeDef](./type_defs.md#targettypedef)
 - [CreateHomeRegionControlResultTypeDef](./type_defs.md#createhomeregioncontrolresulttypedef)
 - [DescribeHomeRegionControlsResultTypeDef](./type_defs.md#describehomeregioncontrolsresulttypedef)
 - [GetHomeRegionResultTypeDef](./type_defs.md#gethomeregionresulttypedef)
+- [HomeRegionControlTypeDef](./type_defs.md#homeregioncontroltypedef)
+- [TargetTypeDef](./type_defs.md#targettypedef)

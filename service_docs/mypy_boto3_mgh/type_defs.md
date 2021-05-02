@@ -8,20 +8,20 @@ type annotations stubs module [mypy_boto3_mgh](https://pypi.org/project/mypy-bot
 - [Structures for boto3 MigrationHub module](#structures-for-boto3-migrationhub-module)
   - [ApplicationStateTypeDef](#applicationstatetypedef)
   - [CreatedArtifactTypeDef](#createdartifacttypedef)
-  - [DiscoveredResourceTypeDef](#discoveredresourcetypedef)
-  - [MigrationTaskSummaryTypeDef](#migrationtasksummarytypedef)
-  - [MigrationTaskTypeDef](#migrationtasktypedef)
-  - [ProgressUpdateStreamSummaryTypeDef](#progressupdatestreamsummarytypedef)
-  - [ResourceAttributeTypeDef](#resourceattributetypedef)
-  - [TaskTypeDef](#tasktypedef)
   - [DescribeApplicationStateResultTypeDef](#describeapplicationstateresulttypedef)
   - [DescribeMigrationTaskResultTypeDef](#describemigrationtaskresulttypedef)
+  - [DiscoveredResourceTypeDef](#discoveredresourcetypedef)
   - [ListApplicationStatesResultTypeDef](#listapplicationstatesresulttypedef)
   - [ListCreatedArtifactsResultTypeDef](#listcreatedartifactsresulttypedef)
   - [ListDiscoveredResourcesResultTypeDef](#listdiscoveredresourcesresulttypedef)
   - [ListMigrationTasksResultTypeDef](#listmigrationtasksresulttypedef)
   - [ListProgressUpdateStreamsResultTypeDef](#listprogressupdatestreamsresulttypedef)
+  - [MigrationTaskSummaryTypeDef](#migrationtasksummarytypedef)
+  - [MigrationTaskTypeDef](#migrationtasktypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ProgressUpdateStreamSummaryTypeDef](#progressupdatestreamsummarytypedef)
+  - [ResourceAttributeTypeDef](#resourceattributetypedef)
+  - [TaskTypeDef](#tasktypedef)
 
 ## ApplicationStateTypeDef
 
@@ -54,101 +54,6 @@ Optional fields:
 - `Description`: `str`
 
 
-## DiscoveredResourceTypeDef
-
-```python
-from mypy_boto3_mgh.type_defs import DiscoveredResourceTypeDef
-```
-
-
-Required fields:
-- `ConfigurationId`: `str`
-
-
-
-Optional fields:
-- `Description`: `str`
-
-
-## MigrationTaskSummaryTypeDef
-
-```python
-from mypy_boto3_mgh.type_defs import MigrationTaskSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProgressUpdateStream`: `str`
-- `MigrationTaskName`: `str`
-- `Status`: `Status`
-- `ProgressPercent`: `int`
-- `StatusDetail`: `str`
-- `UpdateDateTime`: `datetime`
-
-
-## MigrationTaskTypeDef
-
-```python
-from mypy_boto3_mgh.type_defs import MigrationTaskTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProgressUpdateStream`: `str`
-- `MigrationTaskName`: `str`
-- `Task`: `"TaskTypeDef"`
-- `UpdateDateTime`: `datetime`
-- `ResourceAttributeList`: `List["ResourceAttributeTypeDef"]`
-
-
-## ProgressUpdateStreamSummaryTypeDef
-
-```python
-from mypy_boto3_mgh.type_defs import ProgressUpdateStreamSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProgressUpdateStreamName`: `str`
-
-
-## ResourceAttributeTypeDef
-
-```python
-from mypy_boto3_mgh.type_defs import ResourceAttributeTypeDef
-```
-
-
-Required fields:
-- `Type`: `ResourceAttributeType`
-- `Value`: `str`
-
-
-
-
-## TaskTypeDef
-
-```python
-from mypy_boto3_mgh.type_defs import TaskTypeDef
-```
-
-
-Required fields:
-- `Status`: `Status`
-
-
-
-Optional fields:
-- `StatusDetail`: `str`
-- `ProgressPercent`: `int`
-
-
 ## DescribeApplicationStateResultTypeDef
 
 ```python
@@ -174,6 +79,22 @@ from mypy_boto3_mgh.type_defs import DescribeMigrationTaskResultTypeDef
 
 Optional fields:
 - `MigrationTask`: `"MigrationTaskTypeDef"`
+
+
+## DiscoveredResourceTypeDef
+
+```python
+from mypy_boto3_mgh.type_defs import DiscoveredResourceTypeDef
+```
+
+
+Required fields:
+- `ConfigurationId`: `str`
+
+
+
+Optional fields:
+- `Description`: `str`
 
 
 ## ListApplicationStatesResultTypeDef
@@ -246,6 +167,41 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## MigrationTaskSummaryTypeDef
+
+```python
+from mypy_boto3_mgh.type_defs import MigrationTaskSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProgressUpdateStream`: `str`
+- `MigrationTaskName`: `str`
+- `Status`: `Status`
+- `ProgressPercent`: `int`
+- `StatusDetail`: `str`
+- `UpdateDateTime`: `datetime`
+
+
+## MigrationTaskTypeDef
+
+```python
+from mypy_boto3_mgh.type_defs import MigrationTaskTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProgressUpdateStream`: `str`
+- `MigrationTaskName`: `str`
+- `Task`: `"TaskTypeDef"`
+- `UpdateDateTime`: `datetime`
+- `ResourceAttributeList`: `List["ResourceAttributeTypeDef"]`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -259,4 +215,48 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ProgressUpdateStreamSummaryTypeDef
+
+```python
+from mypy_boto3_mgh.type_defs import ProgressUpdateStreamSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProgressUpdateStreamName`: `str`
+
+
+## ResourceAttributeTypeDef
+
+```python
+from mypy_boto3_mgh.type_defs import ResourceAttributeTypeDef
+```
+
+
+Required fields:
+- `Type`: `ResourceAttributeType`
+- `Value`: `str`
+
+
+
+
+## TaskTypeDef
+
+```python
+from mypy_boto3_mgh.type_defs import TaskTypeDef
+```
+
+
+Required fields:
+- `Status`: `Status`
+
+
+
+Optional fields:
+- `StatusDetail`: `str`
+- `ProgressPercent`: `int`
 

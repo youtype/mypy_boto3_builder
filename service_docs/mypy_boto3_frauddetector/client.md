@@ -214,7 +214,7 @@ Type annotations for `boto3.client("frauddetector").create_model` method.
 def create_model(
     self,
     modelId: str,
-    modelType: ModelTypeEnum,
+    modelType: Literal['ONLINE_FRAUD_INSIGHTS'],
     eventTypeName: str,
     description: str = None,
     tags: List["TagTypeDef"] = None
@@ -232,8 +232,8 @@ Type annotations for `boto3.client("frauddetector").create_model_version` method
 def create_model_version(
     self,
     modelId: str,
-    modelType: ModelTypeEnum,
-    trainingDataSource: TrainingDataSourceEnum,
+    modelType: Literal['ONLINE_FRAUD_INSIGHTS'],
+    trainingDataSource: Literal['EXTERNAL_EVENTS'],
     trainingDataSchema: "TrainingDataSchemaTypeDef",
     externalEventsDetail: "ExternalEventsDetailTypeDef" = None,
     tags: List["TagTypeDef"] = None
@@ -253,7 +253,7 @@ def create_rule(
     ruleId: str,
     detectorId: str,
     expression: str,
-    language: Language,
+    language: Literal['DETECTORPL'],
     outcomes: List[str],
     description: str = None,
     tags: List["TagTypeDef"] = None
@@ -405,7 +405,7 @@ Type annotations for `boto3.client("frauddetector").delete_model` method.
 def delete_model(
     self,
     modelId: str,
-    modelType: ModelTypeEnum
+    modelType: Literal['ONLINE_FRAUD_INSIGHTS']
 ) -> Dict[str, Any]:
     pass
 ```
@@ -420,7 +420,7 @@ Type annotations for `boto3.client("frauddetector").delete_model_version` method
 def delete_model_version(
     self,
     modelId: str,
-    modelType: ModelTypeEnum,
+    modelType: Literal['ONLINE_FRAUD_INSIGHTS'],
     modelVersionNumber: str
 ) -> Dict[str, Any]:
     pass
@@ -495,7 +495,7 @@ def describe_model_versions(
     self,
     modelId: str = None,
     modelVersionNumber: str = None,
-    modelType: ModelTypeEnum = None,
+    modelType: Literal['ONLINE_FRAUD_INSIGHTS'] = None,
     nextToken: str = None,
     maxResults: int = None
 ) -> DescribeModelVersionsResultTypeDef:
@@ -674,7 +674,7 @@ Type annotations for `boto3.client("frauddetector").get_model_version` method.
 def get_model_version(
     self,
     modelId: str,
-    modelType: ModelTypeEnum,
+    modelType: Literal['ONLINE_FRAUD_INSIGHTS'],
     modelVersionNumber: str
 ) -> GetModelVersionResultTypeDef:
     pass
@@ -690,7 +690,7 @@ Type annotations for `boto3.client("frauddetector").get_models` method.
 def get_models(
     self,
     modelId: str = None,
-    modelType: ModelTypeEnum = None,
+    modelType: Literal['ONLINE_FRAUD_INSIGHTS'] = None,
     nextToken: str = None,
     maxResults: int = None
 ) -> GetModelsResultTypeDef:
@@ -825,7 +825,7 @@ Type annotations for `boto3.client("frauddetector").put_external_model` method.
 def put_external_model(
     self,
     modelEndpoint: str,
-    modelSource: ModelSource,
+    modelSource: Literal['SAGEMAKER'],
     invokeModelEndpointRoleArn: str,
     inputConfiguration: "ModelInputConfigurationTypeDef",
     outputConfiguration: "ModelOutputConfigurationTypeDef",
@@ -973,7 +973,7 @@ Type annotations for `boto3.client("frauddetector").update_model` method.
 def update_model(
     self,
     modelId: str,
-    modelType: ModelTypeEnum,
+    modelType: Literal['ONLINE_FRAUD_INSIGHTS'],
     description: str = None
 ) -> Dict[str, Any]:
     pass
@@ -989,7 +989,7 @@ Type annotations for `boto3.client("frauddetector").update_model_version` method
 def update_model_version(
     self,
     modelId: str,
-    modelType: ModelTypeEnum,
+    modelType: Literal['ONLINE_FRAUD_INSIGHTS'],
     majorVersionNumber: str,
     externalEventsDetail: "ExternalEventsDetailTypeDef" = None,
     tags: List["TagTypeDef"] = None
@@ -1007,7 +1007,7 @@ Type annotations for `boto3.client("frauddetector").update_model_version_status`
 def update_model_version_status(
     self,
     modelId: str,
-    modelType: ModelTypeEnum,
+    modelType: Literal['ONLINE_FRAUD_INSIGHTS'],
     modelVersionNumber: str,
     status: ModelVersionStatus
 ) -> Dict[str, Any]:
@@ -1040,7 +1040,7 @@ def update_rule_version(
     self,
     rule: "RuleTypeDef",
     expression: str,
-    language: Language,
+    language: Literal['DETECTORPL'],
     outcomes: List[str],
     description: str = None,
     tags: List["TagTypeDef"] = None
@@ -1064,3 +1064,6 @@ def update_variable(
 ) -> Dict[str, Any]:
     pass
 ```
+
+
+

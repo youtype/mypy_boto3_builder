@@ -8,17 +8,6 @@ type annotations stubs module [mypy_boto3_health](https://pypi.org/project/mypy-
 - [Structures for boto3 Health module](#structures-for-boto3-health-module)
   - [AffectedEntityTypeDef](#affectedentitytypedef)
   - [DateTimeRangeTypeDef](#datetimerangetypedef)
-  - [EntityAggregateTypeDef](#entityaggregatetypedef)
-  - [EventAggregateTypeDef](#eventaggregatetypedef)
-  - [EventDescriptionTypeDef](#eventdescriptiontypedef)
-  - [EventDetailsErrorItemTypeDef](#eventdetailserroritemtypedef)
-  - [EventDetailsTypeDef](#eventdetailstypedef)
-  - [EventTypeDef](#eventtypedef)
-  - [EventTypeTypeDef](#eventtypetypedef)
-  - [OrganizationAffectedEntitiesErrorItemTypeDef](#organizationaffectedentitieserroritemtypedef)
-  - [OrganizationEventDetailsErrorItemTypeDef](#organizationeventdetailserroritemtypedef)
-  - [OrganizationEventDetailsTypeDef](#organizationeventdetailstypedef)
-  - [OrganizationEventTypeDef](#organizationeventtypedef)
   - [DescribeAffectedAccountsForOrganizationResponseTypeDef](#describeaffectedaccountsfororganizationresponsetypedef)
   - [DescribeAffectedEntitiesForOrganizationResponseTypeDef](#describeaffectedentitiesfororganizationresponsetypedef)
   - [DescribeAffectedEntitiesResponseTypeDef](#describeaffectedentitiesresponsetypedef)
@@ -30,11 +19,22 @@ type annotations stubs module [mypy_boto3_health](https://pypi.org/project/mypy-
   - [DescribeEventsForOrganizationResponseTypeDef](#describeeventsfororganizationresponsetypedef)
   - [DescribeEventsResponseTypeDef](#describeeventsresponsetypedef)
   - [DescribeHealthServiceStatusForOrganizationResponseTypeDef](#describehealthservicestatusfororganizationresponsetypedef)
+  - [EntityAggregateTypeDef](#entityaggregatetypedef)
   - [EntityFilterTypeDef](#entityfiltertypedef)
   - [EventAccountFilterTypeDef](#eventaccountfiltertypedef)
+  - [EventAggregateTypeDef](#eventaggregatetypedef)
+  - [EventDescriptionTypeDef](#eventdescriptiontypedef)
+  - [EventDetailsErrorItemTypeDef](#eventdetailserroritemtypedef)
+  - [EventDetailsTypeDef](#eventdetailstypedef)
   - [EventFilterTypeDef](#eventfiltertypedef)
+  - [EventTypeDef](#eventtypedef)
   - [EventTypeFilterTypeDef](#eventtypefiltertypedef)
+  - [EventTypeTypeDef](#eventtypetypedef)
+  - [OrganizationAffectedEntitiesErrorItemTypeDef](#organizationaffectedentitieserroritemtypedef)
+  - [OrganizationEventDetailsErrorItemTypeDef](#organizationeventdetailserroritemtypedef)
+  - [OrganizationEventDetailsTypeDef](#organizationeventdetailstypedef)
   - [OrganizationEventFilterTypeDef](#organizationeventfiltertypedef)
+  - [OrganizationEventTypeDef](#organizationeventtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
 
 ## AffectedEntityTypeDef
@@ -69,185 +69,6 @@ from mypy_boto3_health.type_defs import DateTimeRangeTypeDef
 Optional fields:
 - `from`: `datetime`
 - `to`: `datetime`
-
-
-## EntityAggregateTypeDef
-
-```python
-from mypy_boto3_health.type_defs import EntityAggregateTypeDef
-```
-
-
-
-
-Optional fields:
-- `eventArn`: `str`
-- `count`: `int`
-
-
-## EventAggregateTypeDef
-
-```python
-from mypy_boto3_health.type_defs import EventAggregateTypeDef
-```
-
-
-
-
-Optional fields:
-- `aggregateValue`: `str`
-- `count`: `int`
-
-
-## EventDescriptionTypeDef
-
-```python
-from mypy_boto3_health.type_defs import EventDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `latestDescription`: `str`
-
-
-## EventDetailsErrorItemTypeDef
-
-```python
-from mypy_boto3_health.type_defs import EventDetailsErrorItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `eventArn`: `str`
-- `errorName`: `str`
-- `errorMessage`: `str`
-
-
-## EventDetailsTypeDef
-
-```python
-from mypy_boto3_health.type_defs import EventDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `event`: `"EventTypeDef"`
-- `eventDescription`: `"EventDescriptionTypeDef"`
-- `eventMetadata`: `Dict[str, str]`
-
-
-## EventTypeDef
-
-```python
-from mypy_boto3_health.type_defs import EventTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `service`: `str`
-- `eventTypeCode`: `str`
-- `eventTypeCategory`: `eventTypeCategory`
-- `region`: `str`
-- `availabilityZone`: `str`
-- `startTime`: `datetime`
-- `endTime`: `datetime`
-- `lastUpdatedTime`: `datetime`
-- `statusCode`: `eventStatusCode`
-- `eventScopeCode`: `eventScopeCode`
-
-
-## EventTypeTypeDef
-
-```python
-from mypy_boto3_health.type_defs import EventTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `service`: `str`
-- `code`: `str`
-- `category`: `eventTypeCategory`
-
-
-## OrganizationAffectedEntitiesErrorItemTypeDef
-
-```python
-from mypy_boto3_health.type_defs import OrganizationAffectedEntitiesErrorItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `awsAccountId`: `str`
-- `eventArn`: `str`
-- `errorName`: `str`
-- `errorMessage`: `str`
-
-
-## OrganizationEventDetailsErrorItemTypeDef
-
-```python
-from mypy_boto3_health.type_defs import OrganizationEventDetailsErrorItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `awsAccountId`: `str`
-- `eventArn`: `str`
-- `errorName`: `str`
-- `errorMessage`: `str`
-
-
-## OrganizationEventDetailsTypeDef
-
-```python
-from mypy_boto3_health.type_defs import OrganizationEventDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `awsAccountId`: `str`
-- `event`: `"EventTypeDef"`
-- `eventDescription`: `"EventDescriptionTypeDef"`
-- `eventMetadata`: `Dict[str, str]`
-
-
-## OrganizationEventTypeDef
-
-```python
-from mypy_boto3_health.type_defs import OrganizationEventTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `service`: `str`
-- `eventTypeCode`: `str`
-- `eventTypeCategory`: `eventTypeCategory`
-- `eventScopeCode`: `eventScopeCode`
-- `region`: `str`
-- `startTime`: `datetime`
-- `endTime`: `datetime`
-- `lastUpdatedTime`: `datetime`
-- `statusCode`: `eventStatusCode`
 
 
 ## DescribeAffectedAccountsForOrganizationResponseTypeDef
@@ -404,6 +225,20 @@ Optional fields:
 - `healthServiceAccessStatusForOrganization`: `str`
 
 
+## EntityAggregateTypeDef
+
+```python
+from mypy_boto3_health.type_defs import EntityAggregateTypeDef
+```
+
+
+
+
+Optional fields:
+- `eventArn`: `str`
+- `count`: `int`
+
+
 ## EntityFilterTypeDef
 
 ```python
@@ -440,6 +275,63 @@ Optional fields:
 - `awsAccountId`: `str`
 
 
+## EventAggregateTypeDef
+
+```python
+from mypy_boto3_health.type_defs import EventAggregateTypeDef
+```
+
+
+
+
+Optional fields:
+- `aggregateValue`: `str`
+- `count`: `int`
+
+
+## EventDescriptionTypeDef
+
+```python
+from mypy_boto3_health.type_defs import EventDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `latestDescription`: `str`
+
+
+## EventDetailsErrorItemTypeDef
+
+```python
+from mypy_boto3_health.type_defs import EventDetailsErrorItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `eventArn`: `str`
+- `errorName`: `str`
+- `errorMessage`: `str`
+
+
+## EventDetailsTypeDef
+
+```python
+from mypy_boto3_health.type_defs import EventDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `event`: `"EventTypeDef"`
+- `eventDescription`: `"EventDescriptionTypeDef"`
+- `eventMetadata`: `Dict[str, str]`
+
+
 ## EventFilterTypeDef
 
 ```python
@@ -465,6 +357,29 @@ Optional fields:
 - `eventStatusCodes`: `List[eventStatusCode]`
 
 
+## EventTypeDef
+
+```python
+from mypy_boto3_health.type_defs import EventTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `service`: `str`
+- `eventTypeCode`: `str`
+- `eventTypeCategory`: `eventTypeCategory`
+- `region`: `str`
+- `availabilityZone`: `str`
+- `startTime`: `datetime`
+- `endTime`: `datetime`
+- `lastUpdatedTime`: `datetime`
+- `statusCode`: `eventStatusCode`
+- `eventScopeCode`: `eventScopeCode`
+
+
 ## EventTypeFilterTypeDef
 
 ```python
@@ -478,6 +393,69 @@ Optional fields:
 - `eventTypeCodes`: `List[str]`
 - `services`: `List[str]`
 - `eventTypeCategories`: `List[eventTypeCategory]`
+
+
+## EventTypeTypeDef
+
+```python
+from mypy_boto3_health.type_defs import EventTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `service`: `str`
+- `code`: `str`
+- `category`: `eventTypeCategory`
+
+
+## OrganizationAffectedEntitiesErrorItemTypeDef
+
+```python
+from mypy_boto3_health.type_defs import OrganizationAffectedEntitiesErrorItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `awsAccountId`: `str`
+- `eventArn`: `str`
+- `errorName`: `str`
+- `errorMessage`: `str`
+
+
+## OrganizationEventDetailsErrorItemTypeDef
+
+```python
+from mypy_boto3_health.type_defs import OrganizationEventDetailsErrorItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `awsAccountId`: `str`
+- `eventArn`: `str`
+- `errorName`: `str`
+- `errorMessage`: `str`
+
+
+## OrganizationEventDetailsTypeDef
+
+```python
+from mypy_boto3_health.type_defs import OrganizationEventDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `awsAccountId`: `str`
+- `event`: `"EventTypeDef"`
+- `eventDescription`: `"EventDescriptionTypeDef"`
+- `eventMetadata`: `Dict[str, str]`
 
 
 ## OrganizationEventFilterTypeDef
@@ -501,6 +479,28 @@ Optional fields:
 - `entityValues`: `List[str]`
 - `eventTypeCategories`: `List[eventTypeCategory]`
 - `eventStatusCodes`: `List[eventStatusCode]`
+
+
+## OrganizationEventTypeDef
+
+```python
+from mypy_boto3_health.type_defs import OrganizationEventTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `service`: `str`
+- `eventTypeCode`: `str`
+- `eventTypeCategory`: `eventTypeCategory`
+- `eventScopeCode`: `eventScopeCode`
+- `region`: `str`
+- `startTime`: `datetime`
+- `endTime`: `datetime`
+- `lastUpdatedTime`: `datetime`
+- `statusCode`: `eventStatusCode`
 
 
 ## PaginatorConfigTypeDef

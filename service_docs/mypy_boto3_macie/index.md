@@ -103,19 +103,19 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_macie.type_defs import ClassificationTypeTypeDef, ...
+from mypy_boto3_macie.type_defs import AssociateS3ResourcesResultTypeDef, ...
 ```
 
+- [AssociateS3ResourcesResultTypeDef](./type_defs.md#associates3resourcesresulttypedef)
 - [ClassificationTypeTypeDef](./type_defs.md#classificationtypetypedef)
 - [ClassificationTypeUpdateTypeDef](./type_defs.md#classificationtypeupdatetypedef)
-- [FailedS3ResourceTypeDef](./type_defs.md#faileds3resourcetypedef)
-- [MemberAccountTypeDef](./type_defs.md#memberaccounttypedef)
-- [S3ResourceClassificationTypeDef](./type_defs.md#s3resourceclassificationtypedef)
-- [S3ResourceTypeDef](./type_defs.md#s3resourcetypedef)
-- [AssociateS3ResourcesResultTypeDef](./type_defs.md#associates3resourcesresulttypedef)
 - [DisassociateS3ResourcesResultTypeDef](./type_defs.md#disassociates3resourcesresulttypedef)
+- [FailedS3ResourceTypeDef](./type_defs.md#faileds3resourcetypedef)
 - [ListMemberAccountsResultTypeDef](./type_defs.md#listmemberaccountsresulttypedef)
 - [ListS3ResourcesResultTypeDef](./type_defs.md#lists3resourcesresulttypedef)
+- [MemberAccountTypeDef](./type_defs.md#memberaccounttypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [S3ResourceClassificationTypeDef](./type_defs.md#s3resourceclassificationtypedef)
 - [S3ResourceClassificationUpdateTypeDef](./type_defs.md#s3resourceclassificationupdatetypedef)
+- [S3ResourceTypeDef](./type_defs.md#s3resourcetypedef)
 - [UpdateS3ResourcesResultTypeDef](./type_defs.md#updates3resourcesresulttypedef)

@@ -66,8 +66,8 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_apigatewaymanagementapi.type_defs import IdentityTypeDef, ...
+from mypy_boto3_apigatewaymanagementapi.type_defs import GetConnectionResponseTypeDef, ...
 ```
 
-- [IdentityTypeDef](./type_defs.md#identitytypedef)
 - [GetConnectionResponseTypeDef](./type_defs.md#getconnectionresponsetypedef)
+- [IdentityTypeDef](./type_defs.md#identitytypedef)

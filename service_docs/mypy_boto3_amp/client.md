@@ -163,16 +163,12 @@ def update_workspace_alias(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("amp").get_paginator` method.
+Type annotations for `boto3.client("amp").get_paginator` method with overloads.
 
-[Paginator.ListWorkspaces documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amp.html#PrometheusService.Paginator.ListWorkspaces)
+- `client.get_paginator("list_workspaces")` -> [ListWorkspacesPaginator](./paginators.md#listworkspacespaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListWorkspacesPaginatorName
-) -> ListWorkspacesPaginator:
-    pass
-```
+

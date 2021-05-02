@@ -9,129 +9,36 @@ type annotations stubs module [mypy_boto3_ssm](https://pypi.org/project/mypy-bot
   - [AccountSharingInfoTypeDef](#accountsharinginfotypedef)
   - [ActivationTypeDef](#activationtypedef)
   - [AssociationDescriptionTypeDef](#associationdescriptiontypedef)
+  - [AssociationExecutionFilterTypeDef](#associationexecutionfiltertypedef)
   - [AssociationExecutionTargetTypeDef](#associationexecutiontargettypedef)
+  - [AssociationExecutionTargetsFilterTypeDef](#associationexecutiontargetsfiltertypedef)
   - [AssociationExecutionTypeDef](#associationexecutiontypedef)
+  - [AssociationFilterTypeDef](#associationfiltertypedef)
   - [AssociationOverviewTypeDef](#associationoverviewtypedef)
   - [AssociationStatusTypeDef](#associationstatustypedef)
   - [AssociationTypeDef](#associationtypedef)
   - [AssociationVersionInfoTypeDef](#associationversioninfotypedef)
   - [AttachmentContentTypeDef](#attachmentcontenttypedef)
   - [AttachmentInformationTypeDef](#attachmentinformationtypedef)
+  - [AttachmentsSourceTypeDef](#attachmentssourcetypedef)
+  - [AutomationExecutionFilterTypeDef](#automationexecutionfiltertypedef)
   - [AutomationExecutionMetadataTypeDef](#automationexecutionmetadatatypedef)
   - [AutomationExecutionTypeDef](#automationexecutiontypedef)
+  - [BaselineOverrideTypeDef](#baselineoverridetypedef)
+  - [CancelMaintenanceWindowExecutionResultTypeDef](#cancelmaintenancewindowexecutionresulttypedef)
   - [CloudWatchOutputConfigTypeDef](#cloudwatchoutputconfigtypedef)
+  - [CommandFilterTypeDef](#commandfiltertypedef)
   - [CommandInvocationTypeDef](#commandinvocationtypedef)
   - [CommandPluginTypeDef](#commandplugintypedef)
   - [CommandTypeDef](#commandtypedef)
   - [ComplianceExecutionSummaryTypeDef](#complianceexecutionsummarytypedef)
+  - [ComplianceItemEntryTypeDef](#complianceitementrytypedef)
   - [ComplianceItemTypeDef](#complianceitemtypedef)
+  - [ComplianceStringFilterTypeDef](#compliancestringfiltertypedef)
   - [ComplianceSummaryItemTypeDef](#compliancesummaryitemtypedef)
   - [CompliantSummaryTypeDef](#compliantsummarytypedef)
-  - [CreateAssociationBatchRequestEntryTypeDef](#createassociationbatchrequestentrytypedef)
-  - [DocumentDefaultVersionDescriptionTypeDef](#documentdefaultversiondescriptiontypedef)
-  - [DocumentDescriptionTypeDef](#documentdescriptiontypedef)
-  - [DocumentIdentifierTypeDef](#documentidentifiertypedef)
-  - [DocumentMetadataResponseInfoTypeDef](#documentmetadataresponseinfotypedef)
-  - [DocumentParameterTypeDef](#documentparametertypedef)
-  - [DocumentRequiresTypeDef](#documentrequirestypedef)
-  - [DocumentReviewCommentSourceTypeDef](#documentreviewcommentsourcetypedef)
-  - [DocumentReviewerResponseSourceTypeDef](#documentreviewerresponsesourcetypedef)
-  - [DocumentVersionInfoTypeDef](#documentversioninfotypedef)
-  - [EffectivePatchTypeDef](#effectivepatchtypedef)
-  - [FailedCreateAssociationTypeDef](#failedcreateassociationtypedef)
-  - [FailureDetailsTypeDef](#failuredetailstypedef)
-  - [InstanceAggregatedAssociationOverviewTypeDef](#instanceaggregatedassociationoverviewtypedef)
-  - [InstanceAssociationOutputLocationTypeDef](#instanceassociationoutputlocationtypedef)
-  - [InstanceAssociationOutputUrlTypeDef](#instanceassociationoutputurltypedef)
-  - [InstanceAssociationStatusInfoTypeDef](#instanceassociationstatusinfotypedef)
-  - [InstanceAssociationTypeDef](#instanceassociationtypedef)
-  - [InstanceInformationTypeDef](#instanceinformationtypedef)
-  - [InstancePatchStateTypeDef](#instancepatchstatetypedef)
-  - [InventoryDeletionStatusItemTypeDef](#inventorydeletionstatusitemtypedef)
-  - [InventoryDeletionSummaryItemTypeDef](#inventorydeletionsummaryitemtypedef)
-  - [InventoryDeletionSummaryTypeDef](#inventorydeletionsummarytypedef)
-  - [InventoryFilterTypeDef](#inventoryfiltertypedef)
-  - [InventoryGroupTypeDef](#inventorygrouptypedef)
-  - [InventoryItemAttributeTypeDef](#inventoryitemattributetypedef)
-  - [InventoryItemSchemaTypeDef](#inventoryitemschematypedef)
-  - [InventoryResultEntityTypeDef](#inventoryresultentitytypedef)
-  - [InventoryResultItemTypeDef](#inventoryresultitemtypedef)
-  - [LoggingInfoTypeDef](#logginginfotypedef)
-  - [MaintenanceWindowAutomationParametersTypeDef](#maintenancewindowautomationparameterstypedef)
-  - [MaintenanceWindowExecutionTaskIdentityTypeDef](#maintenancewindowexecutiontaskidentitytypedef)
-  - [MaintenanceWindowExecutionTaskInvocationIdentityTypeDef](#maintenancewindowexecutiontaskinvocationidentitytypedef)
-  - [MaintenanceWindowExecutionTypeDef](#maintenancewindowexecutiontypedef)
-  - [MaintenanceWindowIdentityForTargetTypeDef](#maintenancewindowidentityfortargettypedef)
-  - [MaintenanceWindowIdentityTypeDef](#maintenancewindowidentitytypedef)
-  - [MaintenanceWindowLambdaParametersTypeDef](#maintenancewindowlambdaparameterstypedef)
-  - [MaintenanceWindowRunCommandParametersTypeDef](#maintenancewindowruncommandparameterstypedef)
-  - [MaintenanceWindowStepFunctionsParametersTypeDef](#maintenancewindowstepfunctionsparameterstypedef)
-  - [MaintenanceWindowTargetTypeDef](#maintenancewindowtargettypedef)
-  - [MaintenanceWindowTaskInvocationParametersTypeDef](#maintenancewindowtaskinvocationparameterstypedef)
-  - [MaintenanceWindowTaskParameterValueExpressionTypeDef](#maintenancewindowtaskparametervalueexpressiontypedef)
-  - [MaintenanceWindowTaskTypeDef](#maintenancewindowtasktypedef)
-  - [MetadataValueTypeDef](#metadatavaluetypedef)
-  - [NonCompliantSummaryTypeDef](#noncompliantsummarytypedef)
-  - [NotificationConfigTypeDef](#notificationconfigtypedef)
-  - [OpsEntityItemTypeDef](#opsentityitemtypedef)
-  - [OpsEntityTypeDef](#opsentitytypedef)
-  - [OpsFilterTypeDef](#opsfiltertypedef)
-  - [OpsItemDataValueTypeDef](#opsitemdatavaluetypedef)
-  - [OpsItemEventSummaryTypeDef](#opsitemeventsummarytypedef)
-  - [OpsItemIdentityTypeDef](#opsitemidentitytypedef)
-  - [OpsItemNotificationTypeDef](#opsitemnotificationtypedef)
-  - [OpsItemSummaryTypeDef](#opsitemsummarytypedef)
-  - [OpsItemTypeDef](#opsitemtypedef)
-  - [OpsMetadataTypeDef](#opsmetadatatypedef)
-  - [OutputSourceTypeDef](#outputsourcetypedef)
-  - [ParameterHistoryTypeDef](#parameterhistorytypedef)
-  - [ParameterInlinePolicyTypeDef](#parameterinlinepolicytypedef)
-  - [ParameterMetadataTypeDef](#parametermetadatatypedef)
-  - [ParameterTypeDef](#parametertypedef)
-  - [PatchBaselineIdentityTypeDef](#patchbaselineidentitytypedef)
-  - [PatchComplianceDataTypeDef](#patchcompliancedatatypedef)
-  - [PatchFilterGroupTypeDef](#patchfiltergrouptypedef)
-  - [PatchFilterTypeDef](#patchfiltertypedef)
-  - [PatchGroupPatchBaselineMappingTypeDef](#patchgrouppatchbaselinemappingtypedef)
-  - [PatchRuleGroupTypeDef](#patchrulegrouptypedef)
-  - [PatchRuleTypeDef](#patchruletypedef)
-  - [PatchSourceTypeDef](#patchsourcetypedef)
-  - [PatchStatusTypeDef](#patchstatustypedef)
-  - [PatchTypeDef](#patchtypedef)
-  - [ProgressCountersTypeDef](#progresscounterstypedef)
-  - [RelatedOpsItemTypeDef](#relatedopsitemtypedef)
-  - [ResolvedTargetsTypeDef](#resolvedtargetstypedef)
-  - [ResourceComplianceSummaryItemTypeDef](#resourcecompliancesummaryitemtypedef)
-  - [ResourceDataSyncAwsOrganizationsSourceTypeDef](#resourcedatasyncawsorganizationssourcetypedef)
-  - [ResourceDataSyncDestinationDataSharingTypeDef](#resourcedatasyncdestinationdatasharingtypedef)
-  - [ResourceDataSyncItemTypeDef](#resourcedatasyncitemtypedef)
-  - [ResourceDataSyncOrganizationalUnitTypeDef](#resourcedatasyncorganizationalunittypedef)
-  - [ResourceDataSyncS3DestinationTypeDef](#resourcedatasyncs3destinationtypedef)
-  - [ResourceDataSyncSourceWithStateTypeDef](#resourcedatasyncsourcewithstatetypedef)
-  - [ReviewInformationTypeDef](#reviewinformationtypedef)
-  - [RunbookTypeDef](#runbooktypedef)
-  - [S3OutputLocationTypeDef](#s3outputlocationtypedef)
-  - [S3OutputUrlTypeDef](#s3outputurltypedef)
-  - [ScheduledWindowExecutionTypeDef](#scheduledwindowexecutiontypedef)
-  - [ServiceSettingTypeDef](#servicesettingtypedef)
-  - [SessionManagerOutputUrlTypeDef](#sessionmanageroutputurltypedef)
-  - [SessionTypeDef](#sessiontypedef)
-  - [SeveritySummaryTypeDef](#severitysummarytypedef)
-  - [StepExecutionTypeDef](#stepexecutiontypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TargetLocationTypeDef](#targetlocationtypedef)
-  - [TargetTypeDef](#targettypedef)
-  - [AssociationExecutionFilterTypeDef](#associationexecutionfiltertypedef)
-  - [AssociationExecutionTargetsFilterTypeDef](#associationexecutiontargetsfiltertypedef)
-  - [AssociationFilterTypeDef](#associationfiltertypedef)
-  - [AttachmentsSourceTypeDef](#attachmentssourcetypedef)
-  - [AutomationExecutionFilterTypeDef](#automationexecutionfiltertypedef)
-  - [BaselineOverrideTypeDef](#baselineoverridetypedef)
-  - [CancelMaintenanceWindowExecutionResultTypeDef](#cancelmaintenancewindowexecutionresulttypedef)
-  - [CommandFilterTypeDef](#commandfiltertypedef)
-  - [ComplianceItemEntryTypeDef](#complianceitementrytypedef)
-  - [ComplianceStringFilterTypeDef](#compliancestringfiltertypedef)
   - [CreateActivationResultTypeDef](#createactivationresulttypedef)
+  - [CreateAssociationBatchRequestEntryTypeDef](#createassociationbatchrequestentrytypedef)
   - [CreateAssociationBatchResultTypeDef](#createassociationbatchresulttypedef)
   - [CreateAssociationResultTypeDef](#createassociationresulttypedef)
   - [CreateDocumentResultTypeDef](#createdocumentresulttypedef)
@@ -179,11 +86,21 @@ type annotations stubs module [mypy_boto3_ssm](https://pypi.org/project/mypy-bot
   - [DescribePatchGroupsResultTypeDef](#describepatchgroupsresulttypedef)
   - [DescribePatchPropertiesResultTypeDef](#describepatchpropertiesresulttypedef)
   - [DescribeSessionsResponseTypeDef](#describesessionsresponsetypedef)
-  - [OpsAggregatorTypeDef](#opsaggregatortypedef)
-  - [InventoryAggregatorTypeDef](#inventoryaggregatortypedef)
+  - [DocumentDefaultVersionDescriptionTypeDef](#documentdefaultversiondescriptiontypedef)
+  - [DocumentDescriptionTypeDef](#documentdescriptiontypedef)
   - [DocumentFilterTypeDef](#documentfiltertypedef)
+  - [DocumentIdentifierTypeDef](#documentidentifiertypedef)
   - [DocumentKeyValuesFilterTypeDef](#documentkeyvaluesfiltertypedef)
+  - [DocumentMetadataResponseInfoTypeDef](#documentmetadataresponseinfotypedef)
+  - [DocumentParameterTypeDef](#documentparametertypedef)
+  - [DocumentRequiresTypeDef](#documentrequirestypedef)
+  - [DocumentReviewCommentSourceTypeDef](#documentreviewcommentsourcetypedef)
+  - [DocumentReviewerResponseSourceTypeDef](#documentreviewerresponsesourcetypedef)
   - [DocumentReviewsTypeDef](#documentreviewstypedef)
+  - [DocumentVersionInfoTypeDef](#documentversioninfotypedef)
+  - [EffectivePatchTypeDef](#effectivepatchtypedef)
+  - [FailedCreateAssociationTypeDef](#failedcreateassociationtypedef)
+  - [FailureDetailsTypeDef](#failuredetailstypedef)
   - [GetAutomationExecutionResultTypeDef](#getautomationexecutionresulttypedef)
   - [GetCalendarStateResponseTypeDef](#getcalendarstateresponsetypedef)
   - [GetCommandInvocationResultTypeDef](#getcommandinvocationresulttypedef)
@@ -208,10 +125,27 @@ type annotations stubs module [mypy_boto3_ssm](https://pypi.org/project/mypy-bot
   - [GetPatchBaselineForPatchGroupResultTypeDef](#getpatchbaselineforpatchgroupresulttypedef)
   - [GetPatchBaselineResultTypeDef](#getpatchbaselineresulttypedef)
   - [GetServiceSettingResultTypeDef](#getservicesettingresulttypedef)
+  - [InstanceAggregatedAssociationOverviewTypeDef](#instanceaggregatedassociationoverviewtypedef)
+  - [InstanceAssociationOutputLocationTypeDef](#instanceassociationoutputlocationtypedef)
+  - [InstanceAssociationOutputUrlTypeDef](#instanceassociationoutputurltypedef)
+  - [InstanceAssociationStatusInfoTypeDef](#instanceassociationstatusinfotypedef)
+  - [InstanceAssociationTypeDef](#instanceassociationtypedef)
   - [InstanceInformationFilterTypeDef](#instanceinformationfiltertypedef)
   - [InstanceInformationStringFilterTypeDef](#instanceinformationstringfiltertypedef)
+  - [InstanceInformationTypeDef](#instanceinformationtypedef)
   - [InstancePatchStateFilterTypeDef](#instancepatchstatefiltertypedef)
+  - [InstancePatchStateTypeDef](#instancepatchstatetypedef)
+  - [InventoryAggregatorTypeDef](#inventoryaggregatortypedef)
+  - [InventoryDeletionStatusItemTypeDef](#inventorydeletionstatusitemtypedef)
+  - [InventoryDeletionSummaryItemTypeDef](#inventorydeletionsummaryitemtypedef)
+  - [InventoryDeletionSummaryTypeDef](#inventorydeletionsummarytypedef)
+  - [InventoryFilterTypeDef](#inventoryfiltertypedef)
+  - [InventoryGroupTypeDef](#inventorygrouptypedef)
+  - [InventoryItemAttributeTypeDef](#inventoryitemattributetypedef)
+  - [InventoryItemSchemaTypeDef](#inventoryitemschematypedef)
   - [InventoryItemTypeDef](#inventoryitemtypedef)
+  - [InventoryResultEntityTypeDef](#inventoryresultentitytypedef)
+  - [InventoryResultItemTypeDef](#inventoryresultitemtypedef)
   - [LabelParameterVersionResultTypeDef](#labelparameterversionresulttypedef)
   - [ListAssociationVersionsResultTypeDef](#listassociationversionsresulttypedef)
   - [ListAssociationsResultTypeDef](#listassociationsresulttypedef)
@@ -228,31 +162,97 @@ type annotations stubs module [mypy_boto3_ssm](https://pypi.org/project/mypy-bot
   - [ListResourceComplianceSummariesResultTypeDef](#listresourcecompliancesummariesresulttypedef)
   - [ListResourceDataSyncResultTypeDef](#listresourcedatasyncresulttypedef)
   - [ListTagsForResourceResultTypeDef](#listtagsforresourceresulttypedef)
+  - [LoggingInfoTypeDef](#logginginfotypedef)
+  - [MaintenanceWindowAutomationParametersTypeDef](#maintenancewindowautomationparameterstypedef)
+  - [MaintenanceWindowExecutionTaskIdentityTypeDef](#maintenancewindowexecutiontaskidentitytypedef)
+  - [MaintenanceWindowExecutionTaskInvocationIdentityTypeDef](#maintenancewindowexecutiontaskinvocationidentitytypedef)
+  - [MaintenanceWindowExecutionTypeDef](#maintenancewindowexecutiontypedef)
   - [MaintenanceWindowFilterTypeDef](#maintenancewindowfiltertypedef)
+  - [MaintenanceWindowIdentityForTargetTypeDef](#maintenancewindowidentityfortargettypedef)
+  - [MaintenanceWindowIdentityTypeDef](#maintenancewindowidentitytypedef)
+  - [MaintenanceWindowLambdaParametersTypeDef](#maintenancewindowlambdaparameterstypedef)
+  - [MaintenanceWindowRunCommandParametersTypeDef](#maintenancewindowruncommandparameterstypedef)
+  - [MaintenanceWindowStepFunctionsParametersTypeDef](#maintenancewindowstepfunctionsparameterstypedef)
+  - [MaintenanceWindowTargetTypeDef](#maintenancewindowtargettypedef)
+  - [MaintenanceWindowTaskInvocationParametersTypeDef](#maintenancewindowtaskinvocationparameterstypedef)
+  - [MaintenanceWindowTaskParameterValueExpressionTypeDef](#maintenancewindowtaskparametervalueexpressiontypedef)
+  - [MaintenanceWindowTaskTypeDef](#maintenancewindowtasktypedef)
+  - [MetadataValueTypeDef](#metadatavaluetypedef)
+  - [NonCompliantSummaryTypeDef](#noncompliantsummarytypedef)
+  - [NotificationConfigTypeDef](#notificationconfigtypedef)
+  - [OpsAggregatorTypeDef](#opsaggregatortypedef)
+  - [OpsEntityItemTypeDef](#opsentityitemtypedef)
+  - [OpsEntityTypeDef](#opsentitytypedef)
+  - [OpsFilterTypeDef](#opsfiltertypedef)
+  - [OpsItemDataValueTypeDef](#opsitemdatavaluetypedef)
   - [OpsItemEventFilterTypeDef](#opsitemeventfiltertypedef)
+  - [OpsItemEventSummaryTypeDef](#opsitemeventsummarytypedef)
   - [OpsItemFilterTypeDef](#opsitemfiltertypedef)
+  - [OpsItemIdentityTypeDef](#opsitemidentitytypedef)
+  - [OpsItemNotificationTypeDef](#opsitemnotificationtypedef)
+  - [OpsItemSummaryTypeDef](#opsitemsummarytypedef)
+  - [OpsItemTypeDef](#opsitemtypedef)
   - [OpsMetadataFilterTypeDef](#opsmetadatafiltertypedef)
+  - [OpsMetadataTypeDef](#opsmetadatatypedef)
   - [OpsResultAttributeTypeDef](#opsresultattributetypedef)
+  - [OutputSourceTypeDef](#outputsourcetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ParameterHistoryTypeDef](#parameterhistorytypedef)
+  - [ParameterInlinePolicyTypeDef](#parameterinlinepolicytypedef)
+  - [ParameterMetadataTypeDef](#parametermetadatatypedef)
   - [ParameterStringFilterTypeDef](#parameterstringfiltertypedef)
+  - [ParameterTypeDef](#parametertypedef)
   - [ParametersFilterTypeDef](#parametersfiltertypedef)
+  - [PatchBaselineIdentityTypeDef](#patchbaselineidentitytypedef)
+  - [PatchComplianceDataTypeDef](#patchcompliancedatatypedef)
+  - [PatchFilterGroupTypeDef](#patchfiltergrouptypedef)
+  - [PatchFilterTypeDef](#patchfiltertypedef)
+  - [PatchGroupPatchBaselineMappingTypeDef](#patchgrouppatchbaselinemappingtypedef)
   - [PatchOrchestratorFilterTypeDef](#patchorchestratorfiltertypedef)
+  - [PatchRuleGroupTypeDef](#patchrulegrouptypedef)
+  - [PatchRuleTypeDef](#patchruletypedef)
+  - [PatchSourceTypeDef](#patchsourcetypedef)
+  - [PatchStatusTypeDef](#patchstatustypedef)
+  - [PatchTypeDef](#patchtypedef)
+  - [ProgressCountersTypeDef](#progresscounterstypedef)
   - [PutInventoryResultTypeDef](#putinventoryresulttypedef)
   - [PutParameterResultTypeDef](#putparameterresulttypedef)
   - [RegisterDefaultPatchBaselineResultTypeDef](#registerdefaultpatchbaselineresulttypedef)
   - [RegisterPatchBaselineForPatchGroupResultTypeDef](#registerpatchbaselineforpatchgroupresulttypedef)
   - [RegisterTargetWithMaintenanceWindowResultTypeDef](#registertargetwithmaintenancewindowresulttypedef)
   - [RegisterTaskWithMaintenanceWindowResultTypeDef](#registertaskwithmaintenancewindowresulttypedef)
+  - [RelatedOpsItemTypeDef](#relatedopsitemtypedef)
   - [ResetServiceSettingResultTypeDef](#resetservicesettingresulttypedef)
+  - [ResolvedTargetsTypeDef](#resolvedtargetstypedef)
+  - [ResourceComplianceSummaryItemTypeDef](#resourcecompliancesummaryitemtypedef)
+  - [ResourceDataSyncAwsOrganizationsSourceTypeDef](#resourcedatasyncawsorganizationssourcetypedef)
+  - [ResourceDataSyncDestinationDataSharingTypeDef](#resourcedatasyncdestinationdatasharingtypedef)
+  - [ResourceDataSyncItemTypeDef](#resourcedatasyncitemtypedef)
+  - [ResourceDataSyncOrganizationalUnitTypeDef](#resourcedatasyncorganizationalunittypedef)
+  - [ResourceDataSyncS3DestinationTypeDef](#resourcedatasyncs3destinationtypedef)
   - [ResourceDataSyncSourceTypeDef](#resourcedatasyncsourcetypedef)
+  - [ResourceDataSyncSourceWithStateTypeDef](#resourcedatasyncsourcewithstatetypedef)
   - [ResultAttributeTypeDef](#resultattributetypedef)
   - [ResumeSessionResponseTypeDef](#resumesessionresponsetypedef)
+  - [ReviewInformationTypeDef](#reviewinformationtypedef)
+  - [RunbookTypeDef](#runbooktypedef)
+  - [S3OutputLocationTypeDef](#s3outputlocationtypedef)
+  - [S3OutputUrlTypeDef](#s3outputurltypedef)
+  - [ScheduledWindowExecutionTypeDef](#scheduledwindowexecutiontypedef)
   - [SendCommandResultTypeDef](#sendcommandresulttypedef)
+  - [ServiceSettingTypeDef](#servicesettingtypedef)
   - [SessionFilterTypeDef](#sessionfiltertypedef)
+  - [SessionManagerOutputUrlTypeDef](#sessionmanageroutputurltypedef)
+  - [SessionTypeDef](#sessiontypedef)
+  - [SeveritySummaryTypeDef](#severitysummarytypedef)
   - [StartAutomationExecutionResultTypeDef](#startautomationexecutionresulttypedef)
   - [StartChangeRequestExecutionResultTypeDef](#startchangerequestexecutionresulttypedef)
   - [StartSessionResponseTypeDef](#startsessionresponsetypedef)
   - [StepExecutionFilterTypeDef](#stepexecutionfiltertypedef)
+  - [StepExecutionTypeDef](#stepexecutiontypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TargetLocationTypeDef](#targetlocationtypedef)
+  - [TargetTypeDef](#targettypedef)
   - [TerminateSessionResponseTypeDef](#terminatesessionresponsetypedef)
   - [UnlabelParameterVersionResultTypeDef](#unlabelparameterversionresulttypedef)
   - [UpdateAssociationResultTypeDef](#updateassociationresulttypedef)
@@ -337,6 +337,21 @@ Optional fields:
 - `TargetLocations`: `List["TargetLocationTypeDef"]`
 
 
+## AssociationExecutionFilterTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import AssociationExecutionFilterTypeDef
+```
+
+
+Required fields:
+- `Key`: `AssociationExecutionFilterKey`
+- `Value`: `str`
+- `Type`: `AssociationFilterOperatorType`
+
+
+
+
 ## AssociationExecutionTargetTypeDef
 
 ```python
@@ -358,6 +373,20 @@ Optional fields:
 - `OutputSource`: `"OutputSourceTypeDef"`
 
 
+## AssociationExecutionTargetsFilterTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import AssociationExecutionTargetsFilterTypeDef
+```
+
+
+Required fields:
+- `Key`: `AssociationExecutionTargetsFilterKey`
+- `Value`: `str`
+
+
+
+
 ## AssociationExecutionTypeDef
 
 ```python
@@ -376,6 +405,20 @@ Optional fields:
 - `CreatedTime`: `datetime`
 - `LastExecutionDate`: `datetime`
 - `ResourceCountByStatus`: `str`
+
+
+## AssociationFilterTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import AssociationFilterTypeDef
+```
+
+
+Required fields:
+- `key`: `AssociationFilterKey`
+- `value`: `str`
+
+
 
 
 ## AssociationOverviewTypeDef
@@ -474,7 +517,7 @@ Optional fields:
 - `Name`: `str`
 - `Size`: `int`
 - `Hash`: `str`
-- `HashType`: `AttachmentHashType`
+- `HashType`: `Literal['Sha256']`
 - `Url`: `str`
 
 
@@ -489,6 +532,35 @@ from mypy_boto3_ssm.type_defs import AttachmentInformationTypeDef
 
 Optional fields:
 - `Name`: `str`
+
+
+## AttachmentsSourceTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import AttachmentsSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `AttachmentsSourceKey`
+- `Values`: `List[str]`
+- `Name`: `str`
+
+
+## AutomationExecutionFilterTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import AutomationExecutionFilterTypeDef
+```
+
+
+Required fields:
+- `Key`: `AutomationExecutionFilterKey`
+- `Values`: `List[str]`
+
+
 
 
 ## AutomationExecutionMetadataTypeDef
@@ -523,7 +595,7 @@ Optional fields:
 - `MaxErrors`: `str`
 - `Target`: `str`
 - `AutomationType`: `AutomationType`
-- `AutomationSubtype`: `AutomationSubtype`
+- `AutomationSubtype`: `Literal['ChangeRequest']`
 - `ScheduledTime`: `datetime`
 - `Runbooks`: `List["RunbookTypeDef"]`
 - `OpsItemId`: `str`
@@ -566,12 +638,46 @@ Optional fields:
 - `Target`: `str`
 - `TargetLocations`: `List["TargetLocationTypeDef"]`
 - `ProgressCounters`: `"ProgressCountersTypeDef"`
-- `AutomationSubtype`: `AutomationSubtype`
+- `AutomationSubtype`: `Literal['ChangeRequest']`
 - `ScheduledTime`: `datetime`
 - `Runbooks`: `List["RunbookTypeDef"]`
 - `OpsItemId`: `str`
 - `AssociationId`: `str`
 - `ChangeRequestName`: `str`
+
+
+## BaselineOverrideTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import BaselineOverrideTypeDef
+```
+
+
+
+
+Optional fields:
+- `OperatingSystem`: `OperatingSystem`
+- `GlobalFilters`: `"PatchFilterGroupTypeDef"`
+- `ApprovalRules`: `"PatchRuleGroupTypeDef"`
+- `ApprovedPatches`: `List[str]`
+- `ApprovedPatchesComplianceLevel`: `PatchComplianceLevel`
+- `RejectedPatches`: `List[str]`
+- `RejectedPatchesAction`: `PatchAction`
+- `ApprovedPatchesEnableNonSecurity`: `bool`
+- `Sources`: `List["PatchSourceTypeDef"]`
+
+
+## CancelMaintenanceWindowExecutionResultTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import CancelMaintenanceWindowExecutionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `WindowExecutionId`: `str`
 
 
 ## CloudWatchOutputConfigTypeDef
@@ -586,6 +692,20 @@ from mypy_boto3_ssm.type_defs import CloudWatchOutputConfigTypeDef
 Optional fields:
 - `CloudWatchLogGroupName`: `str`
 - `CloudWatchOutputEnabled`: `bool`
+
+
+## CommandFilterTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import CommandFilterTypeDef
+```
+
+
+Required fields:
+- `key`: `CommandFilterKey`
+- `value`: `str`
+
+
 
 
 ## CommandInvocationTypeDef
@@ -693,6 +813,25 @@ Optional fields:
 - `ExecutionType`: `str`
 
 
+## ComplianceItemEntryTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ComplianceItemEntryTypeDef
+```
+
+
+Required fields:
+- `Severity`: `ComplianceSeverity`
+- `Status`: `ComplianceStatus`
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Title`: `str`
+- `Details`: `Dict[str, str]`
+
+
 ## ComplianceItemTypeDef
 
 ```python
@@ -712,6 +851,21 @@ Optional fields:
 - `Severity`: `ComplianceSeverity`
 - `ExecutionSummary`: `"ComplianceExecutionSummaryTypeDef"`
 - `Details`: `Dict[str, str]`
+
+
+## ComplianceStringFilterTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ComplianceStringFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Values`: `List[str]`
+- `Type`: `ComplianceQueryOperatorType`
 
 
 ## ComplianceSummaryItemTypeDef
@@ -743,6 +897,20 @@ Optional fields:
 - `SeveritySummary`: `"SeveritySummaryTypeDef"`
 
 
+## CreateActivationResultTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import CreateActivationResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ActivationId`: `str`
+- `ActivationCode`: `str`
+
+
 ## CreateAssociationBatchRequestEntryTypeDef
 
 ```python
@@ -770,1837 +938,6 @@ Optional fields:
 - `SyncCompliance`: `AssociationSyncCompliance`
 - `ApplyOnlyAtCronInterval`: `bool`
 - `TargetLocations`: `List["TargetLocationTypeDef"]`
-
-
-## DocumentDefaultVersionDescriptionTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import DocumentDefaultVersionDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `DefaultVersion`: `str`
-- `DefaultVersionName`: `str`
-
-
-## DocumentDescriptionTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import DocumentDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Sha1`: `str`
-- `Hash`: `str`
-- `HashType`: `DocumentHashType`
-- `Name`: `str`
-- `VersionName`: `str`
-- `Owner`: `str`
-- `CreatedDate`: `datetime`
-- `Status`: `DocumentStatus`
-- `StatusInformation`: `str`
-- `DocumentVersion`: `str`
-- `Description`: `str`
-- `Parameters`: `List["DocumentParameterTypeDef"]`
-- `PlatformTypes`: `List[PlatformType]`
-- `DocumentType`: `DocumentType`
-- `SchemaVersion`: `str`
-- `LatestVersion`: `str`
-- `DefaultVersion`: `str`
-- `DocumentFormat`: `DocumentFormat`
-- `TargetType`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `AttachmentsInformation`: `List["AttachmentInformationTypeDef"]`
-- `Requires`: `List["DocumentRequiresTypeDef"]`
-- `Author`: `str`
-- `ReviewInformation`: `List["ReviewInformationTypeDef"]`
-- `ApprovedVersion`: `str`
-- `PendingReviewVersion`: `str`
-- `ReviewStatus`: `ReviewStatus`
-
-
-## DocumentIdentifierTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import DocumentIdentifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Owner`: `str`
-- `VersionName`: `str`
-- `PlatformTypes`: `List[PlatformType]`
-- `DocumentVersion`: `str`
-- `DocumentType`: `DocumentType`
-- `SchemaVersion`: `str`
-- `DocumentFormat`: `DocumentFormat`
-- `TargetType`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `Requires`: `List["DocumentRequiresTypeDef"]`
-- `ReviewStatus`: `ReviewStatus`
-- `Author`: `str`
-
-
-## DocumentMetadataResponseInfoTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import DocumentMetadataResponseInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReviewerResponse`: `List["DocumentReviewerResponseSourceTypeDef"]`
-
-
-## DocumentParameterTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import DocumentParameterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Type`: `DocumentParameterType`
-- `Description`: `str`
-- `DefaultValue`: `str`
-
-
-## DocumentRequiresTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import DocumentRequiresTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-
-
-
-Optional fields:
-- `Version`: `str`
-
-
-## DocumentReviewCommentSourceTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import DocumentReviewCommentSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `DocumentReviewCommentType`
-- `Content`: `str`
-
-
-## DocumentReviewerResponseSourceTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import DocumentReviewerResponseSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreateTime`: `datetime`
-- `UpdatedTime`: `datetime`
-- `ReviewStatus`: `ReviewStatus`
-- `Comment`: `List["DocumentReviewCommentSourceTypeDef"]`
-- `Reviewer`: `str`
-
-
-## DocumentVersionInfoTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import DocumentVersionInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `DocumentVersion`: `str`
-- `VersionName`: `str`
-- `CreatedDate`: `datetime`
-- `IsDefaultVersion`: `bool`
-- `DocumentFormat`: `DocumentFormat`
-- `Status`: `DocumentStatus`
-- `StatusInformation`: `str`
-- `ReviewStatus`: `ReviewStatus`
-
-
-## EffectivePatchTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import EffectivePatchTypeDef
-```
-
-
-
-
-Optional fields:
-- `Patch`: `"PatchTypeDef"`
-- `PatchStatus`: `"PatchStatusTypeDef"`
-
-
-## FailedCreateAssociationTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import FailedCreateAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Entry`: `"CreateAssociationBatchRequestEntryTypeDef"`
-- `Message`: `str`
-- `Fault`: `Fault`
-
-
-## FailureDetailsTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import FailureDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `FailureStage`: `str`
-- `FailureType`: `str`
-- `Details`: `Dict[str, List[str]]`
-
-
-## InstanceAggregatedAssociationOverviewTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InstanceAggregatedAssociationOverviewTypeDef
-```
-
-
-
-
-Optional fields:
-- `DetailedStatus`: `str`
-- `InstanceAssociationStatusAggregatedCount`: `Dict[str, int]`
-
-
-## InstanceAssociationOutputLocationTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InstanceAssociationOutputLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3Location`: `"S3OutputLocationTypeDef"`
-
-
-## InstanceAssociationOutputUrlTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InstanceAssociationOutputUrlTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3OutputUrl`: `"S3OutputUrlTypeDef"`
-
-
-## InstanceAssociationStatusInfoTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InstanceAssociationStatusInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociationId`: `str`
-- `Name`: `str`
-- `DocumentVersion`: `str`
-- `AssociationVersion`: `str`
-- `InstanceId`: `str`
-- `ExecutionDate`: `datetime`
-- `Status`: `str`
-- `DetailedStatus`: `str`
-- `ExecutionSummary`: `str`
-- `ErrorCode`: `str`
-- `OutputUrl`: `"InstanceAssociationOutputUrlTypeDef"`
-- `AssociationName`: `str`
-
-
-## InstanceAssociationTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InstanceAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociationId`: `str`
-- `InstanceId`: `str`
-- `Content`: `str`
-- `AssociationVersion`: `str`
-
-
-## InstanceInformationTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InstanceInformationTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceId`: `str`
-- `PingStatus`: `PingStatus`
-- `LastPingDateTime`: `datetime`
-- `AgentVersion`: `str`
-- `IsLatestVersion`: `bool`
-- `PlatformType`: `PlatformType`
-- `PlatformName`: `str`
-- `PlatformVersion`: `str`
-- `ActivationId`: `str`
-- `IamRole`: `str`
-- `RegistrationDate`: `datetime`
-- `ResourceType`: `ResourceType`
-- `Name`: `str`
-- `IPAddress`: `str`
-- `ComputerName`: `str`
-- `AssociationStatus`: `str`
-- `LastAssociationExecutionDate`: `datetime`
-- `LastSuccessfulAssociationExecutionDate`: `datetime`
-- `AssociationOverview`: `"InstanceAggregatedAssociationOverviewTypeDef"`
-
-
-## InstancePatchStateTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InstancePatchStateTypeDef
-```
-
-
-Required fields:
-- `InstanceId`: `str`
-- `PatchGroup`: `str`
-- `BaselineId`: `str`
-- `OperationStartTime`: `datetime`
-- `OperationEndTime`: `datetime`
-- `Operation`: `PatchOperationType`
-
-
-
-Optional fields:
-- `SnapshotId`: `str`
-- `InstallOverrideList`: `str`
-- `OwnerInformation`: `str`
-- `InstalledCount`: `int`
-- `InstalledOtherCount`: `int`
-- `InstalledPendingRebootCount`: `int`
-- `InstalledRejectedCount`: `int`
-- `MissingCount`: `int`
-- `FailedCount`: `int`
-- `UnreportedNotApplicableCount`: `int`
-- `NotApplicableCount`: `int`
-- `LastNoRebootInstallOperationTime`: `datetime`
-- `RebootOption`: `RebootOption`
-- `CriticalNonCompliantCount`: `int`
-- `SecurityNonCompliantCount`: `int`
-- `OtherNonCompliantCount`: `int`
-
-
-## InventoryDeletionStatusItemTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InventoryDeletionStatusItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeletionId`: `str`
-- `TypeName`: `str`
-- `DeletionStartTime`: `datetime`
-- `LastStatus`: `InventoryDeletionStatus`
-- `LastStatusMessage`: `str`
-- `DeletionSummary`: `"InventoryDeletionSummaryTypeDef"`
-- `LastStatusUpdateTime`: `datetime`
-
-
-## InventoryDeletionSummaryItemTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InventoryDeletionSummaryItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `Version`: `str`
-- `Count`: `int`
-- `RemainingCount`: `int`
-
-
-## InventoryDeletionSummaryTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InventoryDeletionSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `TotalCount`: `int`
-- `RemainingCount`: `int`
-- `SummaryItems`: `List["InventoryDeletionSummaryItemTypeDef"]`
-
-
-## InventoryFilterTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InventoryFilterTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Values`: `List[str]`
-
-
-
-Optional fields:
-- `Type`: `InventoryQueryOperatorType`
-
-
-## InventoryGroupTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InventoryGroupTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Filters`: `List["InventoryFilterTypeDef"]`
-
-
-
-
-## InventoryItemAttributeTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InventoryItemAttributeTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `DataType`: `InventoryAttributeDataType`
-
-
-
-
-## InventoryItemSchemaTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InventoryItemSchemaTypeDef
-```
-
-
-Required fields:
-- `TypeName`: `str`
-- `Attributes`: `List["InventoryItemAttributeTypeDef"]`
-
-
-
-Optional fields:
-- `Version`: `str`
-- `DisplayName`: `str`
-
-
-## InventoryResultEntityTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InventoryResultEntityTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Data`: `Dict[str, "InventoryResultItemTypeDef"]`
-
-
-## InventoryResultItemTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import InventoryResultItemTypeDef
-```
-
-
-Required fields:
-- `TypeName`: `str`
-- `SchemaVersion`: `str`
-- `Content`: `List[Dict[str, str]]`
-
-
-
-Optional fields:
-- `CaptureTime`: `str`
-- `ContentHash`: `str`
-
-
-## LoggingInfoTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import LoggingInfoTypeDef
-```
-
-
-Required fields:
-- `S3BucketName`: `str`
-- `S3Region`: `str`
-
-
-
-Optional fields:
-- `S3KeyPrefix`: `str`
-
-
-## MaintenanceWindowAutomationParametersTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowAutomationParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `DocumentVersion`: `str`
-- `Parameters`: `Dict[str, List[str]]`
-
-
-## MaintenanceWindowExecutionTaskIdentityTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowExecutionTaskIdentityTypeDef
-```
-
-
-
-
-Optional fields:
-- `WindowExecutionId`: `str`
-- `TaskExecutionId`: `str`
-- `Status`: `MaintenanceWindowExecutionStatus`
-- `StatusDetails`: `str`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-- `TaskArn`: `str`
-- `TaskType`: `MaintenanceWindowTaskType`
-
-
-## MaintenanceWindowExecutionTaskInvocationIdentityTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowExecutionTaskInvocationIdentityTypeDef
-```
-
-
-
-
-Optional fields:
-- `WindowExecutionId`: `str`
-- `TaskExecutionId`: `str`
-- `InvocationId`: `str`
-- `ExecutionId`: `str`
-- `TaskType`: `MaintenanceWindowTaskType`
-- `Parameters`: `str`
-- `Status`: `MaintenanceWindowExecutionStatus`
-- `StatusDetails`: `str`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-- `OwnerInformation`: `str`
-- `WindowTargetId`: `str`
-
-
-## MaintenanceWindowExecutionTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowExecutionTypeDef
-```
-
-
-
-
-Optional fields:
-- `WindowId`: `str`
-- `WindowExecutionId`: `str`
-- `Status`: `MaintenanceWindowExecutionStatus`
-- `StatusDetails`: `str`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-
-
-## MaintenanceWindowIdentityForTargetTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowIdentityForTargetTypeDef
-```
-
-
-
-
-Optional fields:
-- `WindowId`: `str`
-- `Name`: `str`
-
-
-## MaintenanceWindowIdentityTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowIdentityTypeDef
-```
-
-
-
-
-Optional fields:
-- `WindowId`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `Enabled`: `bool`
-- `Duration`: `int`
-- `Cutoff`: `int`
-- `Schedule`: `str`
-- `ScheduleTimezone`: `str`
-- `ScheduleOffset`: `int`
-- `EndDate`: `str`
-- `StartDate`: `str`
-- `NextExecutionTime`: `str`
-
-
-## MaintenanceWindowLambdaParametersTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowLambdaParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientContext`: `str`
-- `Qualifier`: `str`
-- `Payload`: `Union[bytes, IO[bytes]]`
-
-
-## MaintenanceWindowRunCommandParametersTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowRunCommandParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `Comment`: `str`
-- `CloudWatchOutputConfig`: `"CloudWatchOutputConfigTypeDef"`
-- `DocumentHash`: `str`
-- `DocumentHashType`: `DocumentHashType`
-- `DocumentVersion`: `str`
-- `NotificationConfig`: `"NotificationConfigTypeDef"`
-- `OutputS3BucketName`: `str`
-- `OutputS3KeyPrefix`: `str`
-- `Parameters`: `Dict[str, List[str]]`
-- `ServiceRoleArn`: `str`
-- `TimeoutSeconds`: `int`
-
-
-## MaintenanceWindowStepFunctionsParametersTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowStepFunctionsParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `Input`: `str`
-- `Name`: `str`
-
-
-## MaintenanceWindowTargetTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowTargetTypeDef
-```
-
-
-
-
-Optional fields:
-- `WindowId`: `str`
-- `WindowTargetId`: `str`
-- `ResourceType`: `MaintenanceWindowResourceType`
-- `Targets`: `List["TargetTypeDef"]`
-- `OwnerInformation`: `str`
-- `Name`: `str`
-- `Description`: `str`
-
-
-## MaintenanceWindowTaskInvocationParametersTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowTaskInvocationParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `RunCommand`: `"MaintenanceWindowRunCommandParametersTypeDef"`
-- `Automation`: `"MaintenanceWindowAutomationParametersTypeDef"`
-- `StepFunctions`: `"MaintenanceWindowStepFunctionsParametersTypeDef"`
-- `Lambda`: `"MaintenanceWindowLambdaParametersTypeDef"`
-
-
-## MaintenanceWindowTaskParameterValueExpressionTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowTaskParameterValueExpressionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Values`: `List[str]`
-
-
-## MaintenanceWindowTaskTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MaintenanceWindowTaskTypeDef
-```
-
-
-
-
-Optional fields:
-- `WindowId`: `str`
-- `WindowTaskId`: `str`
-- `TaskArn`: `str`
-- `Type`: `MaintenanceWindowTaskType`
-- `Targets`: `List["TargetTypeDef"]`
-- `TaskParameters`: `Dict[str, "MaintenanceWindowTaskParameterValueExpressionTypeDef"]`
-- `Priority`: `int`
-- `LoggingInfo`: `"LoggingInfoTypeDef"`
-- `ServiceRoleArn`: `str`
-- `MaxConcurrency`: `str`
-- `MaxErrors`: `str`
-- `Name`: `str`
-- `Description`: `str`
-
-
-## MetadataValueTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import MetadataValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## NonCompliantSummaryTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import NonCompliantSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `NonCompliantCount`: `int`
-- `SeveritySummary`: `"SeveritySummaryTypeDef"`
-
-
-## NotificationConfigTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import NotificationConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `NotificationArn`: `str`
-- `NotificationEvents`: `List[NotificationEvent]`
-- `NotificationType`: `NotificationType`
-
-
-## OpsEntityItemTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import OpsEntityItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `CaptureTime`: `str`
-- `Content`: `List[Dict[str, str]]`
-
-
-## OpsEntityTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import OpsEntityTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Data`: `Dict[str, "OpsEntityItemTypeDef"]`
-
-
-## OpsFilterTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import OpsFilterTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Values`: `List[str]`
-
-
-
-Optional fields:
-- `Type`: `OpsFilterOperatorType`
-
-
-## OpsItemDataValueTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import OpsItemDataValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-- `Type`: `OpsItemDataType`
-
-
-## OpsItemEventSummaryTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import OpsItemEventSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `OpsItemId`: `str`
-- `EventId`: `str`
-- `Source`: `str`
-- `DetailType`: `str`
-- `Detail`: `str`
-- `CreatedBy`: `"OpsItemIdentityTypeDef"`
-- `CreatedTime`: `datetime`
-
-
-## OpsItemIdentityTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import OpsItemIdentityTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-
-
-## OpsItemNotificationTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import OpsItemNotificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-
-
-## OpsItemSummaryTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import OpsItemSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreatedBy`: `str`
-- `CreatedTime`: `datetime`
-- `LastModifiedBy`: `str`
-- `LastModifiedTime`: `datetime`
-- `Priority`: `int`
-- `Source`: `str`
-- `Status`: `OpsItemStatus`
-- `OpsItemId`: `str`
-- `Title`: `str`
-- `OperationalData`: `Dict[str, "OpsItemDataValueTypeDef"]`
-- `Category`: `str`
-- `Severity`: `str`
-- `OpsItemType`: `str`
-- `ActualStartTime`: `datetime`
-- `ActualEndTime`: `datetime`
-- `PlannedStartTime`: `datetime`
-- `PlannedEndTime`: `datetime`
-
-
-## OpsItemTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import OpsItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreatedBy`: `str`
-- `OpsItemType`: `str`
-- `CreatedTime`: `datetime`
-- `Description`: `str`
-- `LastModifiedBy`: `str`
-- `LastModifiedTime`: `datetime`
-- `Notifications`: `List["OpsItemNotificationTypeDef"]`
-- `Priority`: `int`
-- `RelatedOpsItems`: `List["RelatedOpsItemTypeDef"]`
-- `Status`: `OpsItemStatus`
-- `OpsItemId`: `str`
-- `Version`: `str`
-- `Title`: `str`
-- `Source`: `str`
-- `OperationalData`: `Dict[str, "OpsItemDataValueTypeDef"]`
-- `Category`: `str`
-- `Severity`: `str`
-- `ActualStartTime`: `datetime`
-- `ActualEndTime`: `datetime`
-- `PlannedStartTime`: `datetime`
-- `PlannedEndTime`: `datetime`
-
-
-## OpsMetadataTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import OpsMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceId`: `str`
-- `OpsMetadataArn`: `str`
-- `LastModifiedDate`: `datetime`
-- `LastModifiedUser`: `str`
-- `CreationDate`: `datetime`
-
-
-## OutputSourceTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import OutputSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `OutputSourceId`: `str`
-- `OutputSourceType`: `str`
-
-
-## ParameterHistoryTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ParameterHistoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Type`: `ParameterType`
-- `KeyId`: `str`
-- `LastModifiedDate`: `datetime`
-- `LastModifiedUser`: `str`
-- `Description`: `str`
-- `Value`: `str`
-- `AllowedPattern`: `str`
-- `Version`: `int`
-- `Labels`: `List[str]`
-- `Tier`: `ParameterTier`
-- `Policies`: `List["ParameterInlinePolicyTypeDef"]`
-- `DataType`: `str`
-
-
-## ParameterInlinePolicyTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ParameterInlinePolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicyText`: `str`
-- `PolicyType`: `str`
-- `PolicyStatus`: `str`
-
-
-## ParameterMetadataTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ParameterMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Type`: `ParameterType`
-- `KeyId`: `str`
-- `LastModifiedDate`: `datetime`
-- `LastModifiedUser`: `str`
-- `Description`: `str`
-- `AllowedPattern`: `str`
-- `Version`: `int`
-- `Tier`: `ParameterTier`
-- `Policies`: `List["ParameterInlinePolicyTypeDef"]`
-- `DataType`: `str`
-
-
-## ParameterTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ParameterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Type`: `ParameterType`
-- `Value`: `str`
-- `Version`: `int`
-- `Selector`: `str`
-- `SourceResult`: `str`
-- `LastModifiedDate`: `datetime`
-- `ARN`: `str`
-- `DataType`: `str`
-
-
-## PatchBaselineIdentityTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import PatchBaselineIdentityTypeDef
-```
-
-
-
-
-Optional fields:
-- `BaselineId`: `str`
-- `BaselineName`: `str`
-- `OperatingSystem`: `OperatingSystem`
-- `BaselineDescription`: `str`
-- `DefaultBaseline`: `bool`
-
-
-## PatchComplianceDataTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import PatchComplianceDataTypeDef
-```
-
-
-Required fields:
-- `Title`: `str`
-- `KBId`: `str`
-- `Classification`: `str`
-- `Severity`: `str`
-- `State`: `PatchComplianceDataState`
-- `InstalledTime`: `datetime`
-
-
-
-Optional fields:
-- `CVEIds`: `str`
-
-
-## PatchFilterGroupTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import PatchFilterGroupTypeDef
-```
-
-
-Required fields:
-- `PatchFilters`: `List["PatchFilterTypeDef"]`
-
-
-
-
-## PatchFilterTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import PatchFilterTypeDef
-```
-
-
-Required fields:
-- `Key`: `PatchFilterKey`
-- `Values`: `List[str]`
-
-
-
-
-## PatchGroupPatchBaselineMappingTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import PatchGroupPatchBaselineMappingTypeDef
-```
-
-
-
-
-Optional fields:
-- `PatchGroup`: `str`
-- `BaselineIdentity`: `"PatchBaselineIdentityTypeDef"`
-
-
-## PatchRuleGroupTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import PatchRuleGroupTypeDef
-```
-
-
-Required fields:
-- `PatchRules`: `List["PatchRuleTypeDef"]`
-
-
-
-
-## PatchRuleTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import PatchRuleTypeDef
-```
-
-
-Required fields:
-- `PatchFilterGroup`: `"PatchFilterGroupTypeDef"`
-
-
-
-Optional fields:
-- `ComplianceLevel`: `PatchComplianceLevel`
-- `ApproveAfterDays`: `int`
-- `ApproveUntilDate`: `str`
-- `EnableNonSecurity`: `bool`
-
-
-## PatchSourceTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import PatchSourceTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Products`: `List[str]`
-- `Configuration`: `str`
-
-
-
-
-## PatchStatusTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import PatchStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeploymentStatus`: `PatchDeploymentStatus`
-- `ComplianceLevel`: `PatchComplianceLevel`
-- `ApprovalDate`: `datetime`
-
-
-## PatchTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import PatchTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `ReleaseDate`: `datetime`
-- `Title`: `str`
-- `Description`: `str`
-- `ContentUrl`: `str`
-- `Vendor`: `str`
-- `ProductFamily`: `str`
-- `Product`: `str`
-- `Classification`: `str`
-- `MsrcSeverity`: `str`
-- `KbNumber`: `str`
-- `MsrcNumber`: `str`
-- `Language`: `str`
-- `AdvisoryIds`: `List[str]`
-- `BugzillaIds`: `List[str]`
-- `CVEIds`: `List[str]`
-- `Name`: `str`
-- `Epoch`: `int`
-- `Version`: `str`
-- `Release`: `str`
-- `Arch`: `str`
-- `Severity`: `str`
-- `Repository`: `str`
-
-
-## ProgressCountersTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ProgressCountersTypeDef
-```
-
-
-
-
-Optional fields:
-- `TotalSteps`: `int`
-- `SuccessSteps`: `int`
-- `FailedSteps`: `int`
-- `CancelledSteps`: `int`
-- `TimedOutSteps`: `int`
-
-
-## RelatedOpsItemTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import RelatedOpsItemTypeDef
-```
-
-
-Required fields:
-- `OpsItemId`: `str`
-
-
-
-
-## ResolvedTargetsTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ResolvedTargetsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ParameterValues`: `List[str]`
-- `Truncated`: `bool`
-
-
-## ResourceComplianceSummaryItemTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ResourceComplianceSummaryItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `ComplianceType`: `str`
-- `ResourceType`: `str`
-- `ResourceId`: `str`
-- `Status`: `ComplianceStatus`
-- `OverallSeverity`: `ComplianceSeverity`
-- `ExecutionSummary`: `"ComplianceExecutionSummaryTypeDef"`
-- `CompliantSummary`: `"CompliantSummaryTypeDef"`
-- `NonCompliantSummary`: `"NonCompliantSummaryTypeDef"`
-
-
-## ResourceDataSyncAwsOrganizationsSourceTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ResourceDataSyncAwsOrganizationsSourceTypeDef
-```
-
-
-Required fields:
-- `OrganizationSourceType`: `str`
-
-
-
-Optional fields:
-- `OrganizationalUnits`: `List["ResourceDataSyncOrganizationalUnitTypeDef"]`
-
-
-## ResourceDataSyncDestinationDataSharingTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ResourceDataSyncDestinationDataSharingTypeDef
-```
-
-
-
-
-Optional fields:
-- `DestinationDataSharingType`: `str`
-
-
-## ResourceDataSyncItemTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ResourceDataSyncItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `SyncName`: `str`
-- `SyncType`: `str`
-- `SyncSource`: `"ResourceDataSyncSourceWithStateTypeDef"`
-- `S3Destination`: `"ResourceDataSyncS3DestinationTypeDef"`
-- `LastSyncTime`: `datetime`
-- `LastSuccessfulSyncTime`: `datetime`
-- `SyncLastModifiedTime`: `datetime`
-- `LastStatus`: `LastResourceDataSyncStatus`
-- `SyncCreatedTime`: `datetime`
-- `LastSyncStatusMessage`: `str`
-
-
-## ResourceDataSyncOrganizationalUnitTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ResourceDataSyncOrganizationalUnitTypeDef
-```
-
-
-
-
-Optional fields:
-- `OrganizationalUnitId`: `str`
-
-
-## ResourceDataSyncS3DestinationTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ResourceDataSyncS3DestinationTypeDef
-```
-
-
-Required fields:
-- `BucketName`: `str`
-- `SyncFormat`: `ResourceDataSyncS3Format`
-- `Region`: `str`
-
-
-
-Optional fields:
-- `Prefix`: `str`
-- `AWSKMSKeyARN`: `str`
-- `DestinationDataSharing`: `"ResourceDataSyncDestinationDataSharingTypeDef"`
-
-
-## ResourceDataSyncSourceWithStateTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ResourceDataSyncSourceWithStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceType`: `str`
-- `AwsOrganizationsSource`: `"ResourceDataSyncAwsOrganizationsSourceTypeDef"`
-- `SourceRegions`: `List[str]`
-- `IncludeFutureRegions`: `bool`
-- `State`: `str`
-- `EnableAllOpsDataSources`: `bool`
-
-
-## ReviewInformationTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ReviewInformationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReviewedTime`: `datetime`
-- `Status`: `ReviewStatus`
-- `Reviewer`: `str`
-
-
-## RunbookTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import RunbookTypeDef
-```
-
-
-Required fields:
-- `DocumentName`: `str`
-
-
-
-Optional fields:
-- `DocumentVersion`: `str`
-- `Parameters`: `Dict[str, List[str]]`
-- `TargetParameterName`: `str`
-- `Targets`: `List["TargetTypeDef"]`
-- `MaxConcurrency`: `str`
-- `MaxErrors`: `str`
-- `TargetLocations`: `List["TargetLocationTypeDef"]`
-
-
-## S3OutputLocationTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import S3OutputLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `OutputS3Region`: `str`
-- `OutputS3BucketName`: `str`
-- `OutputS3KeyPrefix`: `str`
-
-
-## S3OutputUrlTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import S3OutputUrlTypeDef
-```
-
-
-
-
-Optional fields:
-- `OutputUrl`: `str`
-
-
-## ScheduledWindowExecutionTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ScheduledWindowExecutionTypeDef
-```
-
-
-
-
-Optional fields:
-- `WindowId`: `str`
-- `Name`: `str`
-- `ExecutionTime`: `str`
-
-
-## ServiceSettingTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ServiceSettingTypeDef
-```
-
-
-
-
-Optional fields:
-- `SettingId`: `str`
-- `SettingValue`: `str`
-- `LastModifiedDate`: `datetime`
-- `LastModifiedUser`: `str`
-- `ARN`: `str`
-- `Status`: `str`
-
-
-## SessionManagerOutputUrlTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import SessionManagerOutputUrlTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3OutputUrl`: `str`
-- `CloudWatchOutputUrl`: `str`
-
-
-## SessionTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import SessionTypeDef
-```
-
-
-
-
-Optional fields:
-- `SessionId`: `str`
-- `Target`: `str`
-- `Status`: `SessionStatus`
-- `StartDate`: `datetime`
-- `EndDate`: `datetime`
-- `DocumentName`: `str`
-- `Owner`: `str`
-- `Details`: `str`
-- `OutputUrl`: `"SessionManagerOutputUrlTypeDef"`
-
-
-## SeveritySummaryTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import SeveritySummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `CriticalCount`: `int`
-- `HighCount`: `int`
-- `MediumCount`: `int`
-- `LowCount`: `int`
-- `InformationalCount`: `int`
-- `UnspecifiedCount`: `int`
-
-
-## StepExecutionTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import StepExecutionTypeDef
-```
-
-
-
-
-Optional fields:
-- `StepName`: `str`
-- `Action`: `str`
-- `TimeoutSeconds`: `int`
-- `OnFailure`: `str`
-- `MaxAttempts`: `int`
-- `ExecutionStartTime`: `datetime`
-- `ExecutionEndTime`: `datetime`
-- `StepStatus`: `AutomationExecutionStatus`
-- `ResponseCode`: `str`
-- `Inputs`: `Dict[str, str]`
-- `Outputs`: `Dict[str, List[str]]`
-- `Response`: `str`
-- `FailureMessage`: `str`
-- `FailureDetails`: `"FailureDetailsTypeDef"`
-- `StepExecutionId`: `str`
-- `OverriddenParameters`: `Dict[str, List[str]]`
-- `IsEnd`: `bool`
-- `NextStep`: `str`
-- `IsCritical`: `bool`
-- `ValidNextSteps`: `List[str]`
-- `Targets`: `List["TargetTypeDef"]`
-- `TargetLocation`: `"TargetLocationTypeDef"`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TargetLocationTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import TargetLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Accounts`: `List[str]`
-- `Regions`: `List[str]`
-- `TargetLocationMaxConcurrency`: `str`
-- `TargetLocationMaxErrors`: `str`
-- `ExecutionRoleName`: `str`
-
-
-## TargetTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import TargetTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Values`: `List[str]`
-
-
-## AssociationExecutionFilterTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import AssociationExecutionFilterTypeDef
-```
-
-
-Required fields:
-- `Key`: `AssociationExecutionFilterKey`
-- `Value`: `str`
-- `Type`: `AssociationFilterOperatorType`
-
-
-
-
-## AssociationExecutionTargetsFilterTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import AssociationExecutionTargetsFilterTypeDef
-```
-
-
-Required fields:
-- `Key`: `AssociationExecutionTargetsFilterKey`
-- `Value`: `str`
-
-
-
-
-## AssociationFilterTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import AssociationFilterTypeDef
-```
-
-
-Required fields:
-- `key`: `AssociationFilterKey`
-- `value`: `str`
-
-
-
-
-## AttachmentsSourceTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import AttachmentsSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `AttachmentsSourceKey`
-- `Values`: `List[str]`
-- `Name`: `str`
-
-
-## AutomationExecutionFilterTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import AutomationExecutionFilterTypeDef
-```
-
-
-Required fields:
-- `Key`: `AutomationExecutionFilterKey`
-- `Values`: `List[str]`
-
-
-
-
-## BaselineOverrideTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import BaselineOverrideTypeDef
-```
-
-
-
-
-Optional fields:
-- `OperatingSystem`: `OperatingSystem`
-- `GlobalFilters`: `"PatchFilterGroupTypeDef"`
-- `ApprovalRules`: `"PatchRuleGroupTypeDef"`
-- `ApprovedPatches`: `List[str]`
-- `ApprovedPatchesComplianceLevel`: `PatchComplianceLevel`
-- `RejectedPatches`: `List[str]`
-- `RejectedPatchesAction`: `PatchAction`
-- `ApprovedPatchesEnableNonSecurity`: `bool`
-- `Sources`: `List["PatchSourceTypeDef"]`
-
-
-## CancelMaintenanceWindowExecutionResultTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import CancelMaintenanceWindowExecutionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `WindowExecutionId`: `str`
-
-
-## CommandFilterTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import CommandFilterTypeDef
-```
-
-
-Required fields:
-- `key`: `CommandFilterKey`
-- `value`: `str`
-
-
-
-
-## ComplianceItemEntryTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ComplianceItemEntryTypeDef
-```
-
-
-Required fields:
-- `Severity`: `ComplianceSeverity`
-- `Status`: `ComplianceStatus`
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Title`: `str`
-- `Details`: `Dict[str, str]`
-
-
-## ComplianceStringFilterTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import ComplianceStringFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Values`: `List[str]`
-- `Type`: `ComplianceQueryOperatorType`
-
-
-## CreateActivationResultTypeDef
-
-```python
-from mypy_boto3_ssm.type_defs import CreateActivationResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ActivationId`: `str`
-- `ActivationCode`: `str`
 
 
 ## CreateAssociationBatchResultTypeDef
@@ -3263,37 +1600,58 @@ Optional fields:
 - `NextToken`: `str`
 
 
-## OpsAggregatorTypeDef
+## DocumentDefaultVersionDescriptionTypeDef
 
 ```python
-from mypy_boto3_ssm.type_defs import OpsAggregatorTypeDef
+from mypy_boto3_ssm.type_defs import DocumentDefaultVersionDescriptionTypeDef
 ```
 
 
 
 
 Optional fields:
-- `AggregatorType`: `str`
-- `TypeName`: `str`
-- `AttributeName`: `str`
-- `Values`: `Dict[str, str]`
-- `Filters`: `List["OpsFilterTypeDef"]`
-- `Aggregators`: `List[Dict[str, Any]]`
+- `Name`: `str`
+- `DefaultVersion`: `str`
+- `DefaultVersionName`: `str`
 
 
-## InventoryAggregatorTypeDef
+## DocumentDescriptionTypeDef
 
 ```python
-from mypy_boto3_ssm.type_defs import InventoryAggregatorTypeDef
+from mypy_boto3_ssm.type_defs import DocumentDescriptionTypeDef
 ```
 
 
 
 
 Optional fields:
-- `Expression`: `str`
-- `Aggregators`: `List[Dict[str, Any]]`
-- `Groups`: `List["InventoryGroupTypeDef"]`
+- `Sha1`: `str`
+- `Hash`: `str`
+- `HashType`: `DocumentHashType`
+- `Name`: `str`
+- `VersionName`: `str`
+- `Owner`: `str`
+- `CreatedDate`: `datetime`
+- `Status`: `DocumentStatus`
+- `StatusInformation`: `str`
+- `DocumentVersion`: `str`
+- `Description`: `str`
+- `Parameters`: `List["DocumentParameterTypeDef"]`
+- `PlatformTypes`: `List[PlatformType]`
+- `DocumentType`: `DocumentType`
+- `SchemaVersion`: `str`
+- `LatestVersion`: `str`
+- `DefaultVersion`: `str`
+- `DocumentFormat`: `DocumentFormat`
+- `TargetType`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `AttachmentsInformation`: `List["AttachmentInformationTypeDef"]`
+- `Requires`: `List["DocumentRequiresTypeDef"]`
+- `Author`: `str`
+- `ReviewInformation`: `List["ReviewInformationTypeDef"]`
+- `ApprovedVersion`: `str`
+- `PendingReviewVersion`: `str`
+- `ReviewStatus`: `ReviewStatus`
 
 
 ## DocumentFilterTypeDef
@@ -3310,6 +1668,31 @@ Required fields:
 
 
 
+## DocumentIdentifierTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import DocumentIdentifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Owner`: `str`
+- `VersionName`: `str`
+- `PlatformTypes`: `List[PlatformType]`
+- `DocumentVersion`: `str`
+- `DocumentType`: `DocumentType`
+- `SchemaVersion`: `str`
+- `DocumentFormat`: `DocumentFormat`
+- `TargetType`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `Requires`: `List["DocumentRequiresTypeDef"]`
+- `ReviewStatus`: `ReviewStatus`
+- `Author`: `str`
+
+
 ## DocumentKeyValuesFilterTypeDef
 
 ```python
@@ -3322,6 +1705,82 @@ from mypy_boto3_ssm.type_defs import DocumentKeyValuesFilterTypeDef
 Optional fields:
 - `Key`: `str`
 - `Values`: `List[str]`
+
+
+## DocumentMetadataResponseInfoTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import DocumentMetadataResponseInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReviewerResponse`: `List["DocumentReviewerResponseSourceTypeDef"]`
+
+
+## DocumentParameterTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import DocumentParameterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Type`: `DocumentParameterType`
+- `Description`: `str`
+- `DefaultValue`: `str`
+
+
+## DocumentRequiresTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import DocumentRequiresTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+
+
+
+Optional fields:
+- `Version`: `str`
+
+
+## DocumentReviewCommentSourceTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import DocumentReviewCommentSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `Literal['Comment']`
+- `Content`: `str`
+
+
+## DocumentReviewerResponseSourceTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import DocumentReviewerResponseSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreateTime`: `datetime`
+- `UpdatedTime`: `datetime`
+- `ReviewStatus`: `ReviewStatus`
+- `Comment`: `List["DocumentReviewCommentSourceTypeDef"]`
+- `Reviewer`: `str`
 
 
 ## DocumentReviewsTypeDef
@@ -3338,6 +1797,71 @@ Required fields:
 
 Optional fields:
 - `Comment`: `List["DocumentReviewCommentSourceTypeDef"]`
+
+
+## DocumentVersionInfoTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import DocumentVersionInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `DocumentVersion`: `str`
+- `VersionName`: `str`
+- `CreatedDate`: `datetime`
+- `IsDefaultVersion`: `bool`
+- `DocumentFormat`: `DocumentFormat`
+- `Status`: `DocumentStatus`
+- `StatusInformation`: `str`
+- `ReviewStatus`: `ReviewStatus`
+
+
+## EffectivePatchTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import EffectivePatchTypeDef
+```
+
+
+
+
+Optional fields:
+- `Patch`: `"PatchTypeDef"`
+- `PatchStatus`: `"PatchStatusTypeDef"`
+
+
+## FailedCreateAssociationTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import FailedCreateAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Entry`: `"CreateAssociationBatchRequestEntryTypeDef"`
+- `Message`: `str`
+- `Fault`: `Fault`
+
+
+## FailureDetailsTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import FailureDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `FailureStage`: `str`
+- `FailureType`: `str`
+- `Details`: `Dict[str, List[str]]`
 
 
 ## GetAutomationExecutionResultTypeDef
@@ -3764,6 +2288,86 @@ Optional fields:
 - `ServiceSetting`: `"ServiceSettingTypeDef"`
 
 
+## InstanceAggregatedAssociationOverviewTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InstanceAggregatedAssociationOverviewTypeDef
+```
+
+
+
+
+Optional fields:
+- `DetailedStatus`: `str`
+- `InstanceAssociationStatusAggregatedCount`: `Dict[str, int]`
+
+
+## InstanceAssociationOutputLocationTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InstanceAssociationOutputLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3Location`: `"S3OutputLocationTypeDef"`
+
+
+## InstanceAssociationOutputUrlTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InstanceAssociationOutputUrlTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3OutputUrl`: `"S3OutputUrlTypeDef"`
+
+
+## InstanceAssociationStatusInfoTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InstanceAssociationStatusInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociationId`: `str`
+- `Name`: `str`
+- `DocumentVersion`: `str`
+- `AssociationVersion`: `str`
+- `InstanceId`: `str`
+- `ExecutionDate`: `datetime`
+- `Status`: `str`
+- `DetailedStatus`: `str`
+- `ExecutionSummary`: `str`
+- `ErrorCode`: `str`
+- `OutputUrl`: `"InstanceAssociationOutputUrlTypeDef"`
+- `AssociationName`: `str`
+
+
+## InstanceAssociationTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InstanceAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociationId`: `str`
+- `InstanceId`: `str`
+- `Content`: `str`
+- `AssociationVersion`: `str`
+
+
 ## InstanceInformationFilterTypeDef
 
 ```python
@@ -3792,6 +2396,37 @@ Required fields:
 
 
 
+## InstanceInformationTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InstanceInformationTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceId`: `str`
+- `PingStatus`: `PingStatus`
+- `LastPingDateTime`: `datetime`
+- `AgentVersion`: `str`
+- `IsLatestVersion`: `bool`
+- `PlatformType`: `PlatformType`
+- `PlatformName`: `str`
+- `PlatformVersion`: `str`
+- `ActivationId`: `str`
+- `IamRole`: `str`
+- `RegistrationDate`: `datetime`
+- `ResourceType`: `ResourceType`
+- `Name`: `str`
+- `IPAddress`: `str`
+- `ComputerName`: `str`
+- `AssociationStatus`: `str`
+- `LastAssociationExecutionDate`: `datetime`
+- `LastSuccessfulAssociationExecutionDate`: `datetime`
+- `AssociationOverview`: `"InstanceAggregatedAssociationOverviewTypeDef"`
+
+
 ## InstancePatchStateFilterTypeDef
 
 ```python
@@ -3805,6 +2440,169 @@ Required fields:
 - `Type`: `InstancePatchStateOperatorType`
 
 
+
+
+## InstancePatchStateTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InstancePatchStateTypeDef
+```
+
+
+Required fields:
+- `InstanceId`: `str`
+- `PatchGroup`: `str`
+- `BaselineId`: `str`
+- `OperationStartTime`: `datetime`
+- `OperationEndTime`: `datetime`
+- `Operation`: `PatchOperationType`
+
+
+
+Optional fields:
+- `SnapshotId`: `str`
+- `InstallOverrideList`: `str`
+- `OwnerInformation`: `str`
+- `InstalledCount`: `int`
+- `InstalledOtherCount`: `int`
+- `InstalledPendingRebootCount`: `int`
+- `InstalledRejectedCount`: `int`
+- `MissingCount`: `int`
+- `FailedCount`: `int`
+- `UnreportedNotApplicableCount`: `int`
+- `NotApplicableCount`: `int`
+- `LastNoRebootInstallOperationTime`: `datetime`
+- `RebootOption`: `RebootOption`
+- `CriticalNonCompliantCount`: `int`
+- `SecurityNonCompliantCount`: `int`
+- `OtherNonCompliantCount`: `int`
+
+
+## InventoryAggregatorTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InventoryAggregatorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Expression`: `str`
+- `Aggregators`: `List[Dict[str, Any]]`
+- `Groups`: `List["InventoryGroupTypeDef"]`
+
+
+## InventoryDeletionStatusItemTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InventoryDeletionStatusItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeletionId`: `str`
+- `TypeName`: `str`
+- `DeletionStartTime`: `datetime`
+- `LastStatus`: `InventoryDeletionStatus`
+- `LastStatusMessage`: `str`
+- `DeletionSummary`: `"InventoryDeletionSummaryTypeDef"`
+- `LastStatusUpdateTime`: `datetime`
+
+
+## InventoryDeletionSummaryItemTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InventoryDeletionSummaryItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `Version`: `str`
+- `Count`: `int`
+- `RemainingCount`: `int`
+
+
+## InventoryDeletionSummaryTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InventoryDeletionSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `TotalCount`: `int`
+- `RemainingCount`: `int`
+- `SummaryItems`: `List["InventoryDeletionSummaryItemTypeDef"]`
+
+
+## InventoryFilterTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InventoryFilterTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Values`: `List[str]`
+
+
+
+Optional fields:
+- `Type`: `InventoryQueryOperatorType`
+
+
+## InventoryGroupTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InventoryGroupTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Filters`: `List["InventoryFilterTypeDef"]`
+
+
+
+
+## InventoryItemAttributeTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InventoryItemAttributeTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `DataType`: `InventoryAttributeDataType`
+
+
+
+
+## InventoryItemSchemaTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InventoryItemSchemaTypeDef
+```
+
+
+Required fields:
+- `TypeName`: `str`
+- `Attributes`: `List["InventoryItemAttributeTypeDef"]`
+
+
+
+Optional fields:
+- `Version`: `str`
+- `DisplayName`: `str`
 
 
 ## InventoryItemTypeDef
@@ -3825,6 +2623,39 @@ Optional fields:
 - `ContentHash`: `str`
 - `Content`: `List[Dict[str, str]]`
 - `Context`: `Dict[str, str]`
+
+
+## InventoryResultEntityTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InventoryResultEntityTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Data`: `Dict[str, "InventoryResultItemTypeDef"]`
+
+
+## InventoryResultItemTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import InventoryResultItemTypeDef
+```
+
+
+Required fields:
+- `TypeName`: `str`
+- `SchemaVersion`: `str`
+- `Content`: `List[Dict[str, str]]`
+
+
+
+Optional fields:
+- `CaptureTime`: `str`
+- `ContentHash`: `str`
 
 
 ## LabelParameterVersionResultTypeDef
@@ -4057,6 +2888,99 @@ Optional fields:
 - `TagList`: `List["TagTypeDef"]`
 
 
+## LoggingInfoTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import LoggingInfoTypeDef
+```
+
+
+Required fields:
+- `S3BucketName`: `str`
+- `S3Region`: `str`
+
+
+
+Optional fields:
+- `S3KeyPrefix`: `str`
+
+
+## MaintenanceWindowAutomationParametersTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowAutomationParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `DocumentVersion`: `str`
+- `Parameters`: `Dict[str, List[str]]`
+
+
+## MaintenanceWindowExecutionTaskIdentityTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowExecutionTaskIdentityTypeDef
+```
+
+
+
+
+Optional fields:
+- `WindowExecutionId`: `str`
+- `TaskExecutionId`: `str`
+- `Status`: `MaintenanceWindowExecutionStatus`
+- `StatusDetails`: `str`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+- `TaskArn`: `str`
+- `TaskType`: `MaintenanceWindowTaskType`
+
+
+## MaintenanceWindowExecutionTaskInvocationIdentityTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowExecutionTaskInvocationIdentityTypeDef
+```
+
+
+
+
+Optional fields:
+- `WindowExecutionId`: `str`
+- `TaskExecutionId`: `str`
+- `InvocationId`: `str`
+- `ExecutionId`: `str`
+- `TaskType`: `MaintenanceWindowTaskType`
+- `Parameters`: `str`
+- `Status`: `MaintenanceWindowExecutionStatus`
+- `StatusDetails`: `str`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+- `OwnerInformation`: `str`
+- `WindowTargetId`: `str`
+
+
+## MaintenanceWindowExecutionTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowExecutionTypeDef
+```
+
+
+
+
+Optional fields:
+- `WindowId`: `str`
+- `WindowExecutionId`: `str`
+- `Status`: `MaintenanceWindowExecutionStatus`
+- `StatusDetails`: `str`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+
+
 ## MaintenanceWindowFilterTypeDef
 
 ```python
@@ -4071,6 +2995,288 @@ Optional fields:
 - `Values`: `List[str]`
 
 
+## MaintenanceWindowIdentityForTargetTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowIdentityForTargetTypeDef
+```
+
+
+
+
+Optional fields:
+- `WindowId`: `str`
+- `Name`: `str`
+
+
+## MaintenanceWindowIdentityTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowIdentityTypeDef
+```
+
+
+
+
+Optional fields:
+- `WindowId`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `Enabled`: `bool`
+- `Duration`: `int`
+- `Cutoff`: `int`
+- `Schedule`: `str`
+- `ScheduleTimezone`: `str`
+- `ScheduleOffset`: `int`
+- `EndDate`: `str`
+- `StartDate`: `str`
+- `NextExecutionTime`: `str`
+
+
+## MaintenanceWindowLambdaParametersTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowLambdaParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientContext`: `str`
+- `Qualifier`: `str`
+- `Payload`: `Union[bytes, IO[bytes]]`
+
+
+## MaintenanceWindowRunCommandParametersTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowRunCommandParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `Comment`: `str`
+- `CloudWatchOutputConfig`: `"CloudWatchOutputConfigTypeDef"`
+- `DocumentHash`: `str`
+- `DocumentHashType`: `DocumentHashType`
+- `DocumentVersion`: `str`
+- `NotificationConfig`: `"NotificationConfigTypeDef"`
+- `OutputS3BucketName`: `str`
+- `OutputS3KeyPrefix`: `str`
+- `Parameters`: `Dict[str, List[str]]`
+- `ServiceRoleArn`: `str`
+- `TimeoutSeconds`: `int`
+
+
+## MaintenanceWindowStepFunctionsParametersTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowStepFunctionsParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `Input`: `str`
+- `Name`: `str`
+
+
+## MaintenanceWindowTargetTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowTargetTypeDef
+```
+
+
+
+
+Optional fields:
+- `WindowId`: `str`
+- `WindowTargetId`: `str`
+- `ResourceType`: `MaintenanceWindowResourceType`
+- `Targets`: `List["TargetTypeDef"]`
+- `OwnerInformation`: `str`
+- `Name`: `str`
+- `Description`: `str`
+
+
+## MaintenanceWindowTaskInvocationParametersTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowTaskInvocationParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `RunCommand`: `"MaintenanceWindowRunCommandParametersTypeDef"`
+- `Automation`: `"MaintenanceWindowAutomationParametersTypeDef"`
+- `StepFunctions`: `"MaintenanceWindowStepFunctionsParametersTypeDef"`
+- `Lambda`: `"MaintenanceWindowLambdaParametersTypeDef"`
+
+
+## MaintenanceWindowTaskParameterValueExpressionTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowTaskParameterValueExpressionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Values`: `List[str]`
+
+
+## MaintenanceWindowTaskTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MaintenanceWindowTaskTypeDef
+```
+
+
+
+
+Optional fields:
+- `WindowId`: `str`
+- `WindowTaskId`: `str`
+- `TaskArn`: `str`
+- `Type`: `MaintenanceWindowTaskType`
+- `Targets`: `List["TargetTypeDef"]`
+- `TaskParameters`: `Dict[str, "MaintenanceWindowTaskParameterValueExpressionTypeDef"]`
+- `Priority`: `int`
+- `LoggingInfo`: `"LoggingInfoTypeDef"`
+- `ServiceRoleArn`: `str`
+- `MaxConcurrency`: `str`
+- `MaxErrors`: `str`
+- `Name`: `str`
+- `Description`: `str`
+
+
+## MetadataValueTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import MetadataValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## NonCompliantSummaryTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import NonCompliantSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `NonCompliantCount`: `int`
+- `SeveritySummary`: `"SeveritySummaryTypeDef"`
+
+
+## NotificationConfigTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import NotificationConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `NotificationArn`: `str`
+- `NotificationEvents`: `List[NotificationEvent]`
+- `NotificationType`: `NotificationType`
+
+
+## OpsAggregatorTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OpsAggregatorTypeDef
+```
+
+
+
+
+Optional fields:
+- `AggregatorType`: `str`
+- `TypeName`: `str`
+- `AttributeName`: `str`
+- `Values`: `Dict[str, str]`
+- `Filters`: `List["OpsFilterTypeDef"]`
+- `Aggregators`: `List[Dict[str, Any]]`
+
+
+## OpsEntityItemTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OpsEntityItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `CaptureTime`: `str`
+- `Content`: `List[Dict[str, str]]`
+
+
+## OpsEntityTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OpsEntityTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Data`: `Dict[str, "OpsEntityItemTypeDef"]`
+
+
+## OpsFilterTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OpsFilterTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Values`: `List[str]`
+
+
+
+Optional fields:
+- `Type`: `OpsFilterOperatorType`
+
+
+## OpsItemDataValueTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OpsItemDataValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+- `Type`: `OpsItemDataType`
+
+
 ## OpsItemEventFilterTypeDef
 
 ```python
@@ -4079,11 +3285,30 @@ from mypy_boto3_ssm.type_defs import OpsItemEventFilterTypeDef
 
 
 Required fields:
-- `Key`: `OpsItemEventFilterKey`
+- `Key`: `Literal['OpsItemId']`
 - `Values`: `List[str]`
-- `Operator`: `OpsItemEventFilterOperator`
+- `Operator`: `Literal['Equal']`
 
 
+
+
+## OpsItemEventSummaryTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OpsItemEventSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `OpsItemId`: `str`
+- `EventId`: `str`
+- `Source`: `str`
+- `DetailType`: `str`
+- `Detail`: `str`
+- `CreatedBy`: `"OpsItemIdentityTypeDef"`
+- `CreatedTime`: `datetime`
 
 
 ## OpsItemFilterTypeDef
@@ -4101,6 +3326,94 @@ Required fields:
 
 
 
+## OpsItemIdentityTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OpsItemIdentityTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+
+
+## OpsItemNotificationTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OpsItemNotificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+
+
+## OpsItemSummaryTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OpsItemSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreatedBy`: `str`
+- `CreatedTime`: `datetime`
+- `LastModifiedBy`: `str`
+- `LastModifiedTime`: `datetime`
+- `Priority`: `int`
+- `Source`: `str`
+- `Status`: `OpsItemStatus`
+- `OpsItemId`: `str`
+- `Title`: `str`
+- `OperationalData`: `Dict[str, "OpsItemDataValueTypeDef"]`
+- `Category`: `str`
+- `Severity`: `str`
+- `OpsItemType`: `str`
+- `ActualStartTime`: `datetime`
+- `ActualEndTime`: `datetime`
+- `PlannedStartTime`: `datetime`
+- `PlannedEndTime`: `datetime`
+
+
+## OpsItemTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OpsItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreatedBy`: `str`
+- `OpsItemType`: `str`
+- `CreatedTime`: `datetime`
+- `Description`: `str`
+- `LastModifiedBy`: `str`
+- `LastModifiedTime`: `datetime`
+- `Notifications`: `List["OpsItemNotificationTypeDef"]`
+- `Priority`: `int`
+- `RelatedOpsItems`: `List["RelatedOpsItemTypeDef"]`
+- `Status`: `OpsItemStatus`
+- `OpsItemId`: `str`
+- `Version`: `str`
+- `Title`: `str`
+- `Source`: `str`
+- `OperationalData`: `Dict[str, "OpsItemDataValueTypeDef"]`
+- `Category`: `str`
+- `Severity`: `str`
+- `ActualStartTime`: `datetime`
+- `ActualEndTime`: `datetime`
+- `PlannedStartTime`: `datetime`
+- `PlannedEndTime`: `datetime`
+
+
 ## OpsMetadataFilterTypeDef
 
 ```python
@@ -4113,6 +3426,23 @@ Required fields:
 - `Values`: `List[str]`
 
 
+
+
+## OpsMetadataTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OpsMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceId`: `str`
+- `OpsMetadataArn`: `str`
+- `LastModifiedDate`: `datetime`
+- `LastModifiedUser`: `str`
+- `CreationDate`: `datetime`
 
 
 ## OpsResultAttributeTypeDef
@@ -4128,6 +3458,20 @@ Required fields:
 
 
 
+## OutputSourceTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import OutputSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `OutputSourceId`: `str`
+- `OutputSourceType`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -4141,6 +3485,69 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ParameterHistoryTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ParameterHistoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Type`: `ParameterType`
+- `KeyId`: `str`
+- `LastModifiedDate`: `datetime`
+- `LastModifiedUser`: `str`
+- `Description`: `str`
+- `Value`: `str`
+- `AllowedPattern`: `str`
+- `Version`: `int`
+- `Labels`: `List[str]`
+- `Tier`: `ParameterTier`
+- `Policies`: `List["ParameterInlinePolicyTypeDef"]`
+- `DataType`: `str`
+
+
+## ParameterInlinePolicyTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ParameterInlinePolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicyText`: `str`
+- `PolicyType`: `str`
+- `PolicyStatus`: `str`
+
+
+## ParameterMetadataTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ParameterMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Type`: `ParameterType`
+- `KeyId`: `str`
+- `LastModifiedDate`: `datetime`
+- `LastModifiedUser`: `str`
+- `Description`: `str`
+- `AllowedPattern`: `str`
+- `Version`: `int`
+- `Tier`: `ParameterTier`
+- `Policies`: `List["ParameterInlinePolicyTypeDef"]`
+- `DataType`: `str`
 
 
 ## ParameterStringFilterTypeDef
@@ -4160,6 +3567,27 @@ Optional fields:
 - `Values`: `List[str]`
 
 
+## ParameterTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ParameterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Type`: `ParameterType`
+- `Value`: `str`
+- `Version`: `int`
+- `Selector`: `str`
+- `SourceResult`: `str`
+- `LastModifiedDate`: `datetime`
+- `ARN`: `str`
+- `DataType`: `str`
+
+
 ## ParametersFilterTypeDef
 
 ```python
@@ -4174,6 +3602,85 @@ Required fields:
 
 
 
+## PatchBaselineIdentityTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import PatchBaselineIdentityTypeDef
+```
+
+
+
+
+Optional fields:
+- `BaselineId`: `str`
+- `BaselineName`: `str`
+- `OperatingSystem`: `OperatingSystem`
+- `BaselineDescription`: `str`
+- `DefaultBaseline`: `bool`
+
+
+## PatchComplianceDataTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import PatchComplianceDataTypeDef
+```
+
+
+Required fields:
+- `Title`: `str`
+- `KBId`: `str`
+- `Classification`: `str`
+- `Severity`: `str`
+- `State`: `PatchComplianceDataState`
+- `InstalledTime`: `datetime`
+
+
+
+Optional fields:
+- `CVEIds`: `str`
+
+
+## PatchFilterGroupTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import PatchFilterGroupTypeDef
+```
+
+
+Required fields:
+- `PatchFilters`: `List["PatchFilterTypeDef"]`
+
+
+
+
+## PatchFilterTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import PatchFilterTypeDef
+```
+
+
+Required fields:
+- `Key`: `PatchFilterKey`
+- `Values`: `List[str]`
+
+
+
+
+## PatchGroupPatchBaselineMappingTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import PatchGroupPatchBaselineMappingTypeDef
+```
+
+
+
+
+Optional fields:
+- `PatchGroup`: `str`
+- `BaselineIdentity`: `"PatchBaselineIdentityTypeDef"`
+
+
 ## PatchOrchestratorFilterTypeDef
 
 ```python
@@ -4186,6 +3693,120 @@ from mypy_boto3_ssm.type_defs import PatchOrchestratorFilterTypeDef
 Optional fields:
 - `Key`: `str`
 - `Values`: `List[str]`
+
+
+## PatchRuleGroupTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import PatchRuleGroupTypeDef
+```
+
+
+Required fields:
+- `PatchRules`: `List["PatchRuleTypeDef"]`
+
+
+
+
+## PatchRuleTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import PatchRuleTypeDef
+```
+
+
+Required fields:
+- `PatchFilterGroup`: `"PatchFilterGroupTypeDef"`
+
+
+
+Optional fields:
+- `ComplianceLevel`: `PatchComplianceLevel`
+- `ApproveAfterDays`: `int`
+- `ApproveUntilDate`: `str`
+- `EnableNonSecurity`: `bool`
+
+
+## PatchSourceTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import PatchSourceTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Products`: `List[str]`
+- `Configuration`: `str`
+
+
+
+
+## PatchStatusTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import PatchStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeploymentStatus`: `PatchDeploymentStatus`
+- `ComplianceLevel`: `PatchComplianceLevel`
+- `ApprovalDate`: `datetime`
+
+
+## PatchTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import PatchTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `ReleaseDate`: `datetime`
+- `Title`: `str`
+- `Description`: `str`
+- `ContentUrl`: `str`
+- `Vendor`: `str`
+- `ProductFamily`: `str`
+- `Product`: `str`
+- `Classification`: `str`
+- `MsrcSeverity`: `str`
+- `KbNumber`: `str`
+- `MsrcNumber`: `str`
+- `Language`: `str`
+- `AdvisoryIds`: `List[str]`
+- `BugzillaIds`: `List[str]`
+- `CVEIds`: `List[str]`
+- `Name`: `str`
+- `Epoch`: `int`
+- `Version`: `str`
+- `Release`: `str`
+- `Arch`: `str`
+- `Severity`: `str`
+- `Repository`: `str`
+
+
+## ProgressCountersTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ProgressCountersTypeDef
+```
+
+
+
+
+Optional fields:
+- `TotalSteps`: `int`
+- `SuccessSteps`: `int`
+- `FailedSteps`: `int`
+- `CancelledSteps`: `int`
+- `TimedOutSteps`: `int`
 
 
 ## PutInventoryResultTypeDef
@@ -4268,6 +3889,19 @@ Optional fields:
 - `WindowTaskId`: `str`
 
 
+## RelatedOpsItemTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import RelatedOpsItemTypeDef
+```
+
+
+Required fields:
+- `OpsItemId`: `str`
+
+
+
+
 ## ResetServiceSettingResultTypeDef
 
 ```python
@@ -4279,6 +3913,124 @@ from mypy_boto3_ssm.type_defs import ResetServiceSettingResultTypeDef
 
 Optional fields:
 - `ServiceSetting`: `"ServiceSettingTypeDef"`
+
+
+## ResolvedTargetsTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ResolvedTargetsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ParameterValues`: `List[str]`
+- `Truncated`: `bool`
+
+
+## ResourceComplianceSummaryItemTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ResourceComplianceSummaryItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `ComplianceType`: `str`
+- `ResourceType`: `str`
+- `ResourceId`: `str`
+- `Status`: `ComplianceStatus`
+- `OverallSeverity`: `ComplianceSeverity`
+- `ExecutionSummary`: `"ComplianceExecutionSummaryTypeDef"`
+- `CompliantSummary`: `"CompliantSummaryTypeDef"`
+- `NonCompliantSummary`: `"NonCompliantSummaryTypeDef"`
+
+
+## ResourceDataSyncAwsOrganizationsSourceTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ResourceDataSyncAwsOrganizationsSourceTypeDef
+```
+
+
+Required fields:
+- `OrganizationSourceType`: `str`
+
+
+
+Optional fields:
+- `OrganizationalUnits`: `List["ResourceDataSyncOrganizationalUnitTypeDef"]`
+
+
+## ResourceDataSyncDestinationDataSharingTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ResourceDataSyncDestinationDataSharingTypeDef
+```
+
+
+
+
+Optional fields:
+- `DestinationDataSharingType`: `str`
+
+
+## ResourceDataSyncItemTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ResourceDataSyncItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `SyncName`: `str`
+- `SyncType`: `str`
+- `SyncSource`: `"ResourceDataSyncSourceWithStateTypeDef"`
+- `S3Destination`: `"ResourceDataSyncS3DestinationTypeDef"`
+- `LastSyncTime`: `datetime`
+- `LastSuccessfulSyncTime`: `datetime`
+- `SyncLastModifiedTime`: `datetime`
+- `LastStatus`: `LastResourceDataSyncStatus`
+- `SyncCreatedTime`: `datetime`
+- `LastSyncStatusMessage`: `str`
+
+
+## ResourceDataSyncOrganizationalUnitTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ResourceDataSyncOrganizationalUnitTypeDef
+```
+
+
+
+
+Optional fields:
+- `OrganizationalUnitId`: `str`
+
+
+## ResourceDataSyncS3DestinationTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ResourceDataSyncS3DestinationTypeDef
+```
+
+
+Required fields:
+- `BucketName`: `str`
+- `SyncFormat`: `Literal['JsonSerDe']`
+- `Region`: `str`
+
+
+
+Optional fields:
+- `Prefix`: `str`
+- `AWSKMSKeyARN`: `str`
+- `DestinationDataSharing`: `"ResourceDataSyncDestinationDataSharingTypeDef"`
 
 
 ## ResourceDataSyncSourceTypeDef
@@ -4297,6 +4049,24 @@ Required fields:
 Optional fields:
 - `AwsOrganizationsSource`: `"ResourceDataSyncAwsOrganizationsSourceTypeDef"`
 - `IncludeFutureRegions`: `bool`
+- `EnableAllOpsDataSources`: `bool`
+
+
+## ResourceDataSyncSourceWithStateTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ResourceDataSyncSourceWithStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceType`: `str`
+- `AwsOrganizationsSource`: `"ResourceDataSyncAwsOrganizationsSourceTypeDef"`
+- `SourceRegions`: `List[str]`
+- `IncludeFutureRegions`: `bool`
+- `State`: `str`
 - `EnableAllOpsDataSources`: `bool`
 
 
@@ -4328,6 +4098,86 @@ Optional fields:
 - `StreamUrl`: `str`
 
 
+## ReviewInformationTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ReviewInformationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReviewedTime`: `datetime`
+- `Status`: `ReviewStatus`
+- `Reviewer`: `str`
+
+
+## RunbookTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import RunbookTypeDef
+```
+
+
+Required fields:
+- `DocumentName`: `str`
+
+
+
+Optional fields:
+- `DocumentVersion`: `str`
+- `Parameters`: `Dict[str, List[str]]`
+- `TargetParameterName`: `str`
+- `Targets`: `List["TargetTypeDef"]`
+- `MaxConcurrency`: `str`
+- `MaxErrors`: `str`
+- `TargetLocations`: `List["TargetLocationTypeDef"]`
+
+
+## S3OutputLocationTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import S3OutputLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `OutputS3Region`: `str`
+- `OutputS3BucketName`: `str`
+- `OutputS3KeyPrefix`: `str`
+
+
+## S3OutputUrlTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import S3OutputUrlTypeDef
+```
+
+
+
+
+Optional fields:
+- `OutputUrl`: `str`
+
+
+## ScheduledWindowExecutionTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ScheduledWindowExecutionTypeDef
+```
+
+
+
+
+Optional fields:
+- `WindowId`: `str`
+- `Name`: `str`
+- `ExecutionTime`: `str`
+
+
 ## SendCommandResultTypeDef
 
 ```python
@@ -4339,6 +4189,24 @@ from mypy_boto3_ssm.type_defs import SendCommandResultTypeDef
 
 Optional fields:
 - `Command`: `"CommandTypeDef"`
+
+
+## ServiceSettingTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import ServiceSettingTypeDef
+```
+
+
+
+
+Optional fields:
+- `SettingId`: `str`
+- `SettingValue`: `str`
+- `LastModifiedDate`: `datetime`
+- `LastModifiedUser`: `str`
+- `ARN`: `str`
+- `Status`: `str`
 
 
 ## SessionFilterTypeDef
@@ -4353,6 +4221,59 @@ Required fields:
 - `value`: `str`
 
 
+
+
+## SessionManagerOutputUrlTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import SessionManagerOutputUrlTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3OutputUrl`: `str`
+- `CloudWatchOutputUrl`: `str`
+
+
+## SessionTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import SessionTypeDef
+```
+
+
+
+
+Optional fields:
+- `SessionId`: `str`
+- `Target`: `str`
+- `Status`: `SessionStatus`
+- `StartDate`: `datetime`
+- `EndDate`: `datetime`
+- `DocumentName`: `str`
+- `Owner`: `str`
+- `Details`: `str`
+- `OutputUrl`: `"SessionManagerOutputUrlTypeDef"`
+
+
+## SeveritySummaryTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import SeveritySummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `CriticalCount`: `int`
+- `HighCount`: `int`
+- `MediumCount`: `int`
+- `LowCount`: `int`
+- `InformationalCount`: `int`
+- `UnspecifiedCount`: `int`
 
 
 ## StartAutomationExecutionResultTypeDef
@@ -4408,6 +4329,85 @@ Required fields:
 - `Values`: `List[str]`
 
 
+
+
+## StepExecutionTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import StepExecutionTypeDef
+```
+
+
+
+
+Optional fields:
+- `StepName`: `str`
+- `Action`: `str`
+- `TimeoutSeconds`: `int`
+- `OnFailure`: `str`
+- `MaxAttempts`: `int`
+- `ExecutionStartTime`: `datetime`
+- `ExecutionEndTime`: `datetime`
+- `StepStatus`: `AutomationExecutionStatus`
+- `ResponseCode`: `str`
+- `Inputs`: `Dict[str, str]`
+- `Outputs`: `Dict[str, List[str]]`
+- `Response`: `str`
+- `FailureMessage`: `str`
+- `FailureDetails`: `"FailureDetailsTypeDef"`
+- `StepExecutionId`: `str`
+- `OverriddenParameters`: `Dict[str, List[str]]`
+- `IsEnd`: `bool`
+- `NextStep`: `str`
+- `IsCritical`: `bool`
+- `ValidNextSteps`: `List[str]`
+- `Targets`: `List["TargetTypeDef"]`
+- `TargetLocation`: `"TargetLocationTypeDef"`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TargetLocationTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import TargetLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Accounts`: `List[str]`
+- `Regions`: `List[str]`
+- `TargetLocationMaxConcurrency`: `str`
+- `TargetLocationMaxErrors`: `str`
+- `ExecutionRoleName`: `str`
+
+
+## TargetTypeDef
+
+```python
+from mypy_boto3_ssm.type_defs import TargetTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Values`: `List[str]`
 
 
 ## TerminateSessionResponseTypeDef

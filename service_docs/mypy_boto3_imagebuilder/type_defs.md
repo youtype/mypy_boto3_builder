@@ -8,6 +8,7 @@ type annotations stubs module [mypy_boto3_imagebuilder](https://pypi.org/project
 - [Structures for boto3 Imagebuilder module](#structures-for-boto3-imagebuilder-module)
   - [AmiDistributionConfigurationTypeDef](#amidistributionconfigurationtypedef)
   - [AmiTypeDef](#amitypedef)
+  - [CancelImageCreationResponseTypeDef](#cancelimagecreationresponsetypedef)
   - [ComponentConfigurationTypeDef](#componentconfigurationtypedef)
   - [ComponentSummaryTypeDef](#componentsummarytypedef)
   - [ComponentTypeDef](#componenttypedef)
@@ -16,31 +17,6 @@ type annotations stubs module [mypy_boto3_imagebuilder](https://pypi.org/project
   - [ContainerRecipeSummaryTypeDef](#containerrecipesummarytypedef)
   - [ContainerRecipeTypeDef](#containerrecipetypedef)
   - [ContainerTypeDef](#containertypedef)
-  - [DistributionConfigurationSummaryTypeDef](#distributionconfigurationsummarytypedef)
-  - [DistributionConfigurationTypeDef](#distributionconfigurationtypedef)
-  - [DistributionTypeDef](#distributiontypedef)
-  - [EbsInstanceBlockDeviceSpecificationTypeDef](#ebsinstanceblockdevicespecificationtypedef)
-  - [ImagePackageTypeDef](#imagepackagetypedef)
-  - [ImagePipelineTypeDef](#imagepipelinetypedef)
-  - [ImageRecipeSummaryTypeDef](#imagerecipesummarytypedef)
-  - [ImageRecipeTypeDef](#imagerecipetypedef)
-  - [ImageStateTypeDef](#imagestatetypedef)
-  - [ImageSummaryTypeDef](#imagesummarytypedef)
-  - [ImageTestsConfigurationTypeDef](#imagetestsconfigurationtypedef)
-  - [ImageTypeDef](#imagetypedef)
-  - [ImageVersionTypeDef](#imageversiontypedef)
-  - [InfrastructureConfigurationSummaryTypeDef](#infrastructureconfigurationsummarytypedef)
-  - [InfrastructureConfigurationTypeDef](#infrastructureconfigurationtypedef)
-  - [InstanceBlockDeviceMappingTypeDef](#instanceblockdevicemappingtypedef)
-  - [InstanceConfigurationTypeDef](#instanceconfigurationtypedef)
-  - [LaunchPermissionConfigurationTypeDef](#launchpermissionconfigurationtypedef)
-  - [LaunchTemplateConfigurationTypeDef](#launchtemplateconfigurationtypedef)
-  - [LoggingTypeDef](#loggingtypedef)
-  - [OutputResourcesTypeDef](#outputresourcestypedef)
-  - [S3LogsTypeDef](#s3logstypedef)
-  - [ScheduleTypeDef](#scheduletypedef)
-  - [TargetContainerRepositoryTypeDef](#targetcontainerrepositorytypedef)
-  - [CancelImageCreationResponseTypeDef](#cancelimagecreationresponsetypedef)
   - [CreateComponentResponseTypeDef](#createcomponentresponsetypedef)
   - [CreateContainerRecipeResponseTypeDef](#createcontainerreciperesponsetypedef)
   - [CreateDistributionConfigurationResponseTypeDef](#createdistributionconfigurationresponsetypedef)
@@ -55,6 +31,10 @@ type annotations stubs module [mypy_boto3_imagebuilder](https://pypi.org/project
   - [DeleteImageRecipeResponseTypeDef](#deleteimagereciperesponsetypedef)
   - [DeleteImageResponseTypeDef](#deleteimageresponsetypedef)
   - [DeleteInfrastructureConfigurationResponseTypeDef](#deleteinfrastructureconfigurationresponsetypedef)
+  - [DistributionConfigurationSummaryTypeDef](#distributionconfigurationsummarytypedef)
+  - [DistributionConfigurationTypeDef](#distributionconfigurationtypedef)
+  - [DistributionTypeDef](#distributiontypedef)
+  - [EbsInstanceBlockDeviceSpecificationTypeDef](#ebsinstanceblockdevicespecificationtypedef)
   - [FilterTypeDef](#filtertypedef)
   - [GetComponentPolicyResponseTypeDef](#getcomponentpolicyresponsetypedef)
   - [GetComponentResponseTypeDef](#getcomponentresponsetypedef)
@@ -67,7 +47,22 @@ type annotations stubs module [mypy_boto3_imagebuilder](https://pypi.org/project
   - [GetImageRecipeResponseTypeDef](#getimagereciperesponsetypedef)
   - [GetImageResponseTypeDef](#getimageresponsetypedef)
   - [GetInfrastructureConfigurationResponseTypeDef](#getinfrastructureconfigurationresponsetypedef)
+  - [ImagePackageTypeDef](#imagepackagetypedef)
+  - [ImagePipelineTypeDef](#imagepipelinetypedef)
+  - [ImageRecipeSummaryTypeDef](#imagerecipesummarytypedef)
+  - [ImageRecipeTypeDef](#imagerecipetypedef)
+  - [ImageStateTypeDef](#imagestatetypedef)
+  - [ImageSummaryTypeDef](#imagesummarytypedef)
+  - [ImageTestsConfigurationTypeDef](#imagetestsconfigurationtypedef)
+  - [ImageTypeDef](#imagetypedef)
+  - [ImageVersionTypeDef](#imageversiontypedef)
   - [ImportComponentResponseTypeDef](#importcomponentresponsetypedef)
+  - [InfrastructureConfigurationSummaryTypeDef](#infrastructureconfigurationsummarytypedef)
+  - [InfrastructureConfigurationTypeDef](#infrastructureconfigurationtypedef)
+  - [InstanceBlockDeviceMappingTypeDef](#instanceblockdevicemappingtypedef)
+  - [InstanceConfigurationTypeDef](#instanceconfigurationtypedef)
+  - [LaunchPermissionConfigurationTypeDef](#launchpermissionconfigurationtypedef)
+  - [LaunchTemplateConfigurationTypeDef](#launchtemplateconfigurationtypedef)
   - [ListComponentBuildVersionsResponseTypeDef](#listcomponentbuildversionsresponsetypedef)
   - [ListComponentsResponseTypeDef](#listcomponentsresponsetypedef)
   - [ListContainerRecipesResponseTypeDef](#listcontainerrecipesresponsetypedef)
@@ -80,11 +75,16 @@ type annotations stubs module [mypy_boto3_imagebuilder](https://pypi.org/project
   - [ListImagesResponseTypeDef](#listimagesresponsetypedef)
   - [ListInfrastructureConfigurationsResponseTypeDef](#listinfrastructureconfigurationsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [LoggingTypeDef](#loggingtypedef)
+  - [OutputResourcesTypeDef](#outputresourcestypedef)
   - [PutComponentPolicyResponseTypeDef](#putcomponentpolicyresponsetypedef)
   - [PutContainerRecipePolicyResponseTypeDef](#putcontainerrecipepolicyresponsetypedef)
   - [PutImagePolicyResponseTypeDef](#putimagepolicyresponsetypedef)
   - [PutImageRecipePolicyResponseTypeDef](#putimagerecipepolicyresponsetypedef)
+  - [S3LogsTypeDef](#s3logstypedef)
+  - [ScheduleTypeDef](#scheduletypedef)
   - [StartImagePipelineExecutionResponseTypeDef](#startimagepipelineexecutionresponsetypedef)
+  - [TargetContainerRepositoryTypeDef](#targetcontainerrepositorytypedef)
   - [UpdateDistributionConfigurationResponseTypeDef](#updatedistributionconfigurationresponsetypedef)
   - [UpdateImagePipelineResponseTypeDef](#updateimagepipelineresponsetypedef)
   - [UpdateInfrastructureConfigurationResponseTypeDef](#updateinfrastructureconfigurationresponsetypedef)
@@ -123,6 +123,21 @@ Optional fields:
 - `description`: `str`
 - `state`: `"ImageStateTypeDef"`
 - `accountId`: `str`
+
+
+## CancelImageCreationResponseTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import CancelImageCreationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `requestId`: `str`
+- `clientToken`: `str`
+- `imageBuildVersionArn`: `str`
 
 
 ## ComponentConfigurationTypeDef
@@ -236,7 +251,7 @@ from mypy_boto3_imagebuilder.type_defs import ContainerRecipeSummaryTypeDef
 
 Optional fields:
 - `arn`: `str`
-- `containerType`: `ContainerType`
+- `containerType`: `Literal['DOCKER']`
 - `name`: `str`
 - `platform`: `Platform`
 - `owner`: `str`
@@ -256,7 +271,7 @@ from mypy_boto3_imagebuilder.type_defs import ContainerRecipeTypeDef
 
 Optional fields:
 - `arn`: `str`
-- `containerType`: `ContainerType`
+- `containerType`: `Literal['DOCKER']`
 - `name`: `str`
 - `description`: `str`
 - `platform`: `Platform`
@@ -286,467 +301,6 @@ from mypy_boto3_imagebuilder.type_defs import ContainerTypeDef
 Optional fields:
 - `region`: `str`
 - `imageUris`: `List[str]`
-
-
-## DistributionConfigurationSummaryTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import DistributionConfigurationSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `description`: `str`
-- `dateCreated`: `str`
-- `dateUpdated`: `str`
-- `tags`: `Dict[str, str]`
-- `regions`: `List[str]`
-
-
-## DistributionConfigurationTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import DistributionConfigurationTypeDef
-```
-
-
-Required fields:
-- `timeoutMinutes`: `int`
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `description`: `str`
-- `distributions`: `List["DistributionTypeDef"]`
-- `dateCreated`: `str`
-- `dateUpdated`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## DistributionTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import DistributionTypeDef
-```
-
-
-Required fields:
-- `region`: `str`
-
-
-
-Optional fields:
-- `amiDistributionConfiguration`: `"AmiDistributionConfigurationTypeDef"`
-- `containerDistributionConfiguration`: `"ContainerDistributionConfigurationTypeDef"`
-- `licenseConfigurationArns`: `List[str]`
-- `launchTemplateConfigurations`: `List["LaunchTemplateConfigurationTypeDef"]`
-
-
-## EbsInstanceBlockDeviceSpecificationTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import EbsInstanceBlockDeviceSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `encrypted`: `bool`
-- `deleteOnTermination`: `bool`
-- `iops`: `int`
-- `kmsKeyId`: `str`
-- `snapshotId`: `str`
-- `volumeSize`: `int`
-- `volumeType`: `EbsVolumeType`
-
-
-## ImagePackageTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import ImagePackageTypeDef
-```
-
-
-
-
-Optional fields:
-- `packageName`: `str`
-- `packageVersion`: `str`
-
-
-## ImagePipelineTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import ImagePipelineTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `description`: `str`
-- `platform`: `Platform`
-- `enhancedImageMetadataEnabled`: `bool`
-- `imageRecipeArn`: `str`
-- `containerRecipeArn`: `str`
-- `infrastructureConfigurationArn`: `str`
-- `distributionConfigurationArn`: `str`
-- `imageTestsConfiguration`: `"ImageTestsConfigurationTypeDef"`
-- `schedule`: `"ScheduleTypeDef"`
-- `status`: `PipelineStatus`
-- `dateCreated`: `str`
-- `dateUpdated`: `str`
-- `dateLastRun`: `str`
-- `dateNextRun`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## ImageRecipeSummaryTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import ImageRecipeSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `platform`: `Platform`
-- `owner`: `str`
-- `parentImage`: `str`
-- `dateCreated`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## ImageRecipeTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import ImageRecipeTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `type`: `ImageType`
-- `name`: `str`
-- `description`: `str`
-- `platform`: `Platform`
-- `owner`: `str`
-- `version`: `str`
-- `components`: `List["ComponentConfigurationTypeDef"]`
-- `parentImage`: `str`
-- `blockDeviceMappings`: `List["InstanceBlockDeviceMappingTypeDef"]`
-- `dateCreated`: `str`
-- `tags`: `Dict[str, str]`
-- `workingDirectory`: `str`
-
-
-## ImageStateTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import ImageStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `ImageStatus`
-- `reason`: `str`
-
-
-## ImageSummaryTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import ImageSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `type`: `ImageType`
-- `version`: `str`
-- `platform`: `Platform`
-- `osVersion`: `str`
-- `state`: `"ImageStateTypeDef"`
-- `owner`: `str`
-- `dateCreated`: `str`
-- `outputResources`: `"OutputResourcesTypeDef"`
-- `tags`: `Dict[str, str]`
-
-
-## ImageTestsConfigurationTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import ImageTestsConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `imageTestsEnabled`: `bool`
-- `timeoutMinutes`: `int`
-
-
-## ImageTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import ImageTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `type`: `ImageType`
-- `name`: `str`
-- `version`: `str`
-- `platform`: `Platform`
-- `enhancedImageMetadataEnabled`: `bool`
-- `osVersion`: `str`
-- `state`: `"ImageStateTypeDef"`
-- `imageRecipe`: `"ImageRecipeTypeDef"`
-- `containerRecipe`: `"ContainerRecipeTypeDef"`
-- `sourcePipelineName`: `str`
-- `sourcePipelineArn`: `str`
-- `infrastructureConfiguration`: `"InfrastructureConfigurationTypeDef"`
-- `distributionConfiguration`: `"DistributionConfigurationTypeDef"`
-- `imageTestsConfiguration`: `"ImageTestsConfigurationTypeDef"`
-- `dateCreated`: `str`
-- `outputResources`: `"OutputResourcesTypeDef"`
-- `tags`: `Dict[str, str]`
-
-
-## ImageVersionTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import ImageVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `type`: `ImageType`
-- `version`: `str`
-- `platform`: `Platform`
-- `osVersion`: `str`
-- `owner`: `str`
-- `dateCreated`: `str`
-
-
-## InfrastructureConfigurationSummaryTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import InfrastructureConfigurationSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `description`: `str`
-- `dateCreated`: `str`
-- `dateUpdated`: `str`
-- `resourceTags`: `Dict[str, str]`
-- `tags`: `Dict[str, str]`
-- `instanceTypes`: `List[str]`
-- `instanceProfileName`: `str`
-
-
-## InfrastructureConfigurationTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import InfrastructureConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `description`: `str`
-- `instanceTypes`: `List[str]`
-- `instanceProfileName`: `str`
-- `securityGroupIds`: `List[str]`
-- `subnetId`: `str`
-- `logging`: `"LoggingTypeDef"`
-- `keyPair`: `str`
-- `terminateInstanceOnFailure`: `bool`
-- `snsTopicArn`: `str`
-- `dateCreated`: `str`
-- `dateUpdated`: `str`
-- `resourceTags`: `Dict[str, str]`
-- `tags`: `Dict[str, str]`
-
-
-## InstanceBlockDeviceMappingTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import InstanceBlockDeviceMappingTypeDef
-```
-
-
-
-
-Optional fields:
-- `deviceName`: `str`
-- `ebs`: `"EbsInstanceBlockDeviceSpecificationTypeDef"`
-- `virtualName`: `str`
-- `noDevice`: `str`
-
-
-## InstanceConfigurationTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import InstanceConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `image`: `str`
-- `blockDeviceMappings`: `List["InstanceBlockDeviceMappingTypeDef"]`
-
-
-## LaunchPermissionConfigurationTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import LaunchPermissionConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `userIds`: `List[str]`
-- `userGroups`: `List[str]`
-
-
-## LaunchTemplateConfigurationTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import LaunchTemplateConfigurationTypeDef
-```
-
-
-Required fields:
-- `launchTemplateId`: `str`
-
-
-
-Optional fields:
-- `accountId`: `str`
-- `setDefaultVersion`: `bool`
-
-
-## LoggingTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import LoggingTypeDef
-```
-
-
-
-
-Optional fields:
-- `s3Logs`: `"S3LogsTypeDef"`
-
-
-## OutputResourcesTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import OutputResourcesTypeDef
-```
-
-
-
-
-Optional fields:
-- `amis`: `List["AmiTypeDef"]`
-- `containers`: `List["ContainerTypeDef"]`
-
-
-## S3LogsTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import S3LogsTypeDef
-```
-
-
-
-
-Optional fields:
-- `s3BucketName`: `str`
-- `s3KeyPrefix`: `str`
-
-
-## ScheduleTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import ScheduleTypeDef
-```
-
-
-
-
-Optional fields:
-- `scheduleExpression`: `str`
-- `timezone`: `str`
-- `pipelineExecutionStartCondition`: `PipelineExecutionStartCondition`
-
-
-## TargetContainerRepositoryTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import TargetContainerRepositoryTypeDef
-```
-
-
-Required fields:
-- `service`: `ContainerRepositoryService`
-- `repositoryName`: `str`
-
-
-
-
-## CancelImageCreationResponseTypeDef
-
-```python
-from mypy_boto3_imagebuilder.type_defs import CancelImageCreationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `requestId`: `str`
-- `clientToken`: `str`
-- `imageBuildVersionArn`: `str`
 
 
 ## CreateComponentResponseTypeDef
@@ -952,6 +506,85 @@ Optional fields:
 - `infrastructureConfigurationArn`: `str`
 
 
+## DistributionConfigurationSummaryTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import DistributionConfigurationSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `description`: `str`
+- `dateCreated`: `str`
+- `dateUpdated`: `str`
+- `tags`: `Dict[str, str]`
+- `regions`: `List[str]`
+
+
+## DistributionConfigurationTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import DistributionConfigurationTypeDef
+```
+
+
+Required fields:
+- `timeoutMinutes`: `int`
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `description`: `str`
+- `distributions`: `List["DistributionTypeDef"]`
+- `dateCreated`: `str`
+- `dateUpdated`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## DistributionTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import DistributionTypeDef
+```
+
+
+Required fields:
+- `region`: `str`
+
+
+
+Optional fields:
+- `amiDistributionConfiguration`: `"AmiDistributionConfigurationTypeDef"`
+- `containerDistributionConfiguration`: `"ContainerDistributionConfigurationTypeDef"`
+- `licenseConfigurationArns`: `List[str]`
+- `launchTemplateConfigurations`: `List["LaunchTemplateConfigurationTypeDef"]`
+
+
+## EbsInstanceBlockDeviceSpecificationTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import EbsInstanceBlockDeviceSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `encrypted`: `bool`
+- `deleteOnTermination`: `bool`
+- `iops`: `int`
+- `kmsKeyId`: `str`
+- `snapshotId`: `str`
+- `volumeSize`: `int`
+- `volumeType`: `EbsVolumeType`
+
+
 ## FilterTypeDef
 
 ```python
@@ -1120,6 +753,194 @@ Optional fields:
 - `infrastructureConfiguration`: `"InfrastructureConfigurationTypeDef"`
 
 
+## ImagePackageTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import ImagePackageTypeDef
+```
+
+
+
+
+Optional fields:
+- `packageName`: `str`
+- `packageVersion`: `str`
+
+
+## ImagePipelineTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import ImagePipelineTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `description`: `str`
+- `platform`: `Platform`
+- `enhancedImageMetadataEnabled`: `bool`
+- `imageRecipeArn`: `str`
+- `containerRecipeArn`: `str`
+- `infrastructureConfigurationArn`: `str`
+- `distributionConfigurationArn`: `str`
+- `imageTestsConfiguration`: `"ImageTestsConfigurationTypeDef"`
+- `schedule`: `"ScheduleTypeDef"`
+- `status`: `PipelineStatus`
+- `dateCreated`: `str`
+- `dateUpdated`: `str`
+- `dateLastRun`: `str`
+- `dateNextRun`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## ImageRecipeSummaryTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import ImageRecipeSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `platform`: `Platform`
+- `owner`: `str`
+- `parentImage`: `str`
+- `dateCreated`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## ImageRecipeTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import ImageRecipeTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `type`: `ImageType`
+- `name`: `str`
+- `description`: `str`
+- `platform`: `Platform`
+- `owner`: `str`
+- `version`: `str`
+- `components`: `List["ComponentConfigurationTypeDef"]`
+- `parentImage`: `str`
+- `blockDeviceMappings`: `List["InstanceBlockDeviceMappingTypeDef"]`
+- `dateCreated`: `str`
+- `tags`: `Dict[str, str]`
+- `workingDirectory`: `str`
+
+
+## ImageStateTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import ImageStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `ImageStatus`
+- `reason`: `str`
+
+
+## ImageSummaryTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import ImageSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `type`: `ImageType`
+- `version`: `str`
+- `platform`: `Platform`
+- `osVersion`: `str`
+- `state`: `"ImageStateTypeDef"`
+- `owner`: `str`
+- `dateCreated`: `str`
+- `outputResources`: `"OutputResourcesTypeDef"`
+- `tags`: `Dict[str, str]`
+
+
+## ImageTestsConfigurationTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import ImageTestsConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `imageTestsEnabled`: `bool`
+- `timeoutMinutes`: `int`
+
+
+## ImageTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import ImageTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `type`: `ImageType`
+- `name`: `str`
+- `version`: `str`
+- `platform`: `Platform`
+- `enhancedImageMetadataEnabled`: `bool`
+- `osVersion`: `str`
+- `state`: `"ImageStateTypeDef"`
+- `imageRecipe`: `"ImageRecipeTypeDef"`
+- `containerRecipe`: `"ContainerRecipeTypeDef"`
+- `sourcePipelineName`: `str`
+- `sourcePipelineArn`: `str`
+- `infrastructureConfiguration`: `"InfrastructureConfigurationTypeDef"`
+- `distributionConfiguration`: `"DistributionConfigurationTypeDef"`
+- `imageTestsConfiguration`: `"ImageTestsConfigurationTypeDef"`
+- `dateCreated`: `str`
+- `outputResources`: `"OutputResourcesTypeDef"`
+- `tags`: `Dict[str, str]`
+
+
+## ImageVersionTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import ImageVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `type`: `ImageType`
+- `version`: `str`
+- `platform`: `Platform`
+- `osVersion`: `str`
+- `owner`: `str`
+- `dateCreated`: `str`
+
+
 ## ImportComponentResponseTypeDef
 
 ```python
@@ -1133,6 +954,115 @@ Optional fields:
 - `requestId`: `str`
 - `clientToken`: `str`
 - `componentBuildVersionArn`: `str`
+
+
+## InfrastructureConfigurationSummaryTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import InfrastructureConfigurationSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `description`: `str`
+- `dateCreated`: `str`
+- `dateUpdated`: `str`
+- `resourceTags`: `Dict[str, str]`
+- `tags`: `Dict[str, str]`
+- `instanceTypes`: `List[str]`
+- `instanceProfileName`: `str`
+
+
+## InfrastructureConfigurationTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import InfrastructureConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `description`: `str`
+- `instanceTypes`: `List[str]`
+- `instanceProfileName`: `str`
+- `securityGroupIds`: `List[str]`
+- `subnetId`: `str`
+- `logging`: `"LoggingTypeDef"`
+- `keyPair`: `str`
+- `terminateInstanceOnFailure`: `bool`
+- `snsTopicArn`: `str`
+- `dateCreated`: `str`
+- `dateUpdated`: `str`
+- `resourceTags`: `Dict[str, str]`
+- `tags`: `Dict[str, str]`
+
+
+## InstanceBlockDeviceMappingTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import InstanceBlockDeviceMappingTypeDef
+```
+
+
+
+
+Optional fields:
+- `deviceName`: `str`
+- `ebs`: `"EbsInstanceBlockDeviceSpecificationTypeDef"`
+- `virtualName`: `str`
+- `noDevice`: `str`
+
+
+## InstanceConfigurationTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import InstanceConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `image`: `str`
+- `blockDeviceMappings`: `List["InstanceBlockDeviceMappingTypeDef"]`
+
+
+## LaunchPermissionConfigurationTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import LaunchPermissionConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `userIds`: `List[str]`
+- `userGroups`: `List[str]`
+
+
+## LaunchTemplateConfigurationTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import LaunchTemplateConfigurationTypeDef
+```
+
+
+Required fields:
+- `launchTemplateId`: `str`
+
+
+
+Optional fields:
+- `accountId`: `str`
+- `setDefaultVersion`: `bool`
 
 
 ## ListComponentBuildVersionsResponseTypeDef
@@ -1313,6 +1243,33 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
+## LoggingTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import LoggingTypeDef
+```
+
+
+
+
+Optional fields:
+- `s3Logs`: `"S3LogsTypeDef"`
+
+
+## OutputResourcesTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import OutputResourcesTypeDef
+```
+
+
+
+
+Optional fields:
+- `amis`: `List["AmiTypeDef"]`
+- `containers`: `List["ContainerTypeDef"]`
+
+
 ## PutComponentPolicyResponseTypeDef
 
 ```python
@@ -1369,6 +1326,35 @@ Optional fields:
 - `imageRecipeArn`: `str`
 
 
+## S3LogsTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import S3LogsTypeDef
+```
+
+
+
+
+Optional fields:
+- `s3BucketName`: `str`
+- `s3KeyPrefix`: `str`
+
+
+## ScheduleTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import ScheduleTypeDef
+```
+
+
+
+
+Optional fields:
+- `scheduleExpression`: `str`
+- `timezone`: `str`
+- `pipelineExecutionStartCondition`: `PipelineExecutionStartCondition`
+
+
 ## StartImagePipelineExecutionResponseTypeDef
 
 ```python
@@ -1382,6 +1368,20 @@ Optional fields:
 - `requestId`: `str`
 - `clientToken`: `str`
 - `imageBuildVersionArn`: `str`
+
+
+## TargetContainerRepositoryTypeDef
+
+```python
+from mypy_boto3_imagebuilder.type_defs import TargetContainerRepositoryTypeDef
+```
+
+
+Required fields:
+- `service`: `Literal['ECR']`
+- `repositoryName`: `str`
+
+
 
 
 ## UpdateDistributionConfigurationResponseTypeDef

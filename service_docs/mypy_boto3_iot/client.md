@@ -235,57 +235,6 @@ type annotations stubs module [mypy_boto3_iot](https://pypi.org/project/mypy-bot
     - [update_topic_rule_destination](#update_topic_rule_destination)
     - [validate_security_profile_behaviors](#validate_security_profile_behaviors)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
-    - [get_paginator](#get_paginator-17)
-    - [get_paginator](#get_paginator-18)
-    - [get_paginator](#get_paginator-19)
-    - [get_paginator](#get_paginator-20)
-    - [get_paginator](#get_paginator-21)
-    - [get_paginator](#get_paginator-22)
-    - [get_paginator](#get_paginator-23)
-    - [get_paginator](#get_paginator-24)
-    - [get_paginator](#get_paginator-25)
-    - [get_paginator](#get_paginator-26)
-    - [get_paginator](#get_paginator-27)
-    - [get_paginator](#get_paginator-28)
-    - [get_paginator](#get_paginator-29)
-    - [get_paginator](#get_paginator-30)
-    - [get_paginator](#get_paginator-31)
-    - [get_paginator](#get_paginator-32)
-    - [get_paginator](#get_paginator-33)
-    - [get_paginator](#get_paginator-34)
-    - [get_paginator](#get_paginator-35)
-    - [get_paginator](#get_paginator-36)
-    - [get_paginator](#get_paginator-37)
-    - [get_paginator](#get_paginator-38)
-    - [get_paginator](#get_paginator-39)
-    - [get_paginator](#get_paginator-40)
-    - [get_paginator](#get_paginator-41)
-    - [get_paginator](#get_paginator-42)
-    - [get_paginator](#get_paginator-43)
-    - [get_paginator](#get_paginator-44)
-    - [get_paginator](#get_paginator-45)
-    - [get_paginator](#get_paginator-46)
-    - [get_paginator](#get_paginator-47)
-    - [get_paginator](#get_paginator-48)
-    - [get_paginator](#get_paginator-49)
-    - [get_paginator](#get_paginator-50)
-    - [get_paginator](#get_paginator-51)
 
 ## IoTClient
 
@@ -704,7 +653,7 @@ Type annotations for `boto3.client("iot").create_dimension` method.
 def create_dimension(
     self,
     name: str,
-    type: DimensionType,
+    type: Literal['TOPIC_FILTER'],
     stringValues: List[str],
     clientRequestToken: str,
     tags: List["TagTypeDef"] = None
@@ -963,7 +912,7 @@ def create_security_profile(
     securityProfileName: str,
     securityProfileDescription: str = None,
     behaviors: List["BehaviorTypeDef"] = None,
-    alertTargets: Dict[AlertTargetType, "AlertTargetTypeDef"] = None,
+    alertTargets: Dict[Literal['SNS'], "AlertTargetTypeDef"] = None,
     additionalMetricsToRetain: List[str] = None,
     additionalMetricsToRetainV2: List["MetricToRetainTypeDef"] = None,
     tags: List["TagTypeDef"] = None
@@ -3526,7 +3475,7 @@ Type annotations for `boto3.client("iot").update_account_audit_configuration` me
 def update_account_audit_configuration(
     self,
     roleArn: str = None,
-    auditNotificationTargetConfigurations: Dict[AuditNotificationType, "AuditNotificationTargetTypeDef"] = None,
+    auditNotificationTargetConfigurations: Dict[Literal['SNS'], "AuditNotificationTargetTypeDef"] = None,
     auditCheckConfigurations: Dict[str, "AuditCheckConfigurationTypeDef"] = None
 ) -> Dict[str, Any]:
     pass
@@ -3814,7 +3763,7 @@ def update_security_profile(
     securityProfileName: str,
     securityProfileDescription: str = None,
     behaviors: List["BehaviorTypeDef"] = None,
-    alertTargets: Dict[AlertTargetType, "AlertTargetTypeDef"] = None,
+    alertTargets: Dict[Literal['SNS'], "AlertTargetTypeDef"] = None,
     additionalMetricsToRetain: List[str] = None,
     additionalMetricsToRetainV2: List["MetricToRetainTypeDef"] = None,
     deleteBehaviors: bool = None,
@@ -3922,782 +3871,63 @@ def validate_security_profile_behaviors(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.GetBehaviorModelTrainingSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.GetBehaviorModelTrainingSummaries)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetBehaviorModelTrainingSummariesPaginatorName
-) -> GetBehaviorModelTrainingSummariesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("iot").get_paginator` method.
+Type annotations for `boto3.client("iot").get_paginator` method with overloads.
+
+- `client.get_paginator("get_behavior_model_training_summaries")` -> [GetBehaviorModelTrainingSummariesPaginator](./paginators.md#getbehaviormodeltrainingsummariespaginator)
+- `client.get_paginator("list_active_violations")` -> [ListActiveViolationsPaginator](./paginators.md#listactiveviolationspaginator)
+- `client.get_paginator("list_attached_policies")` -> [ListAttachedPoliciesPaginator](./paginators.md#listattachedpoliciespaginator)
+- `client.get_paginator("list_audit_findings")` -> [ListAuditFindingsPaginator](./paginators.md#listauditfindingspaginator)
+- `client.get_paginator("list_audit_mitigation_actions_executions")` -> [ListAuditMitigationActionsExecutionsPaginator](./paginators.md#listauditmitigationactionsexecutionspaginator)
+- `client.get_paginator("list_audit_mitigation_actions_tasks")` -> [ListAuditMitigationActionsTasksPaginator](./paginators.md#listauditmitigationactionstaskspaginator)
+- `client.get_paginator("list_audit_suppressions")` -> [ListAuditSuppressionsPaginator](./paginators.md#listauditsuppressionspaginator)
+- `client.get_paginator("list_audit_tasks")` -> [ListAuditTasksPaginator](./paginators.md#listaudittaskspaginator)
+- `client.get_paginator("list_authorizers")` -> [ListAuthorizersPaginator](./paginators.md#listauthorizerspaginator)
+- `client.get_paginator("list_billing_groups")` -> [ListBillingGroupsPaginator](./paginators.md#listbillinggroupspaginator)
+- `client.get_paginator("list_ca_certificates")` -> [ListCACertificatesPaginator](./paginators.md#listcacertificatespaginator)
+- `client.get_paginator("list_certificates")` -> [ListCertificatesPaginator](./paginators.md#listcertificatespaginator)
+- `client.get_paginator("list_certificates_by_ca")` -> [ListCertificatesByCAPaginator](./paginators.md#listcertificatesbycapaginator)
+- `client.get_paginator("list_custom_metrics")` -> [ListCustomMetricsPaginator](./paginators.md#listcustommetricspaginator)
+- `client.get_paginator("list_detect_mitigation_actions_executions")` -> [ListDetectMitigationActionsExecutionsPaginator](./paginators.md#listdetectmitigationactionsexecutionspaginator)
+- `client.get_paginator("list_detect_mitigation_actions_tasks")` -> [ListDetectMitigationActionsTasksPaginator](./paginators.md#listdetectmitigationactionstaskspaginator)
+- `client.get_paginator("list_dimensions")` -> [ListDimensionsPaginator](./paginators.md#listdimensionspaginator)
+- `client.get_paginator("list_domain_configurations")` -> [ListDomainConfigurationsPaginator](./paginators.md#listdomainconfigurationspaginator)
+- `client.get_paginator("list_indices")` -> [ListIndicesPaginator](./paginators.md#listindicespaginator)
+- `client.get_paginator("list_job_executions_for_job")` -> [ListJobExecutionsForJobPaginator](./paginators.md#listjobexecutionsforjobpaginator)
+- `client.get_paginator("list_job_executions_for_thing")` -> [ListJobExecutionsForThingPaginator](./paginators.md#listjobexecutionsforthingpaginator)
+- `client.get_paginator("list_jobs")` -> [ListJobsPaginator](./paginators.md#listjobspaginator)
+- `client.get_paginator("list_mitigation_actions")` -> [ListMitigationActionsPaginator](./paginators.md#listmitigationactionspaginator)
+- `client.get_paginator("list_ota_updates")` -> [ListOTAUpdatesPaginator](./paginators.md#listotaupdatespaginator)
+- `client.get_paginator("list_outgoing_certificates")` -> [ListOutgoingCertificatesPaginator](./paginators.md#listoutgoingcertificatespaginator)
+- `client.get_paginator("list_policies")` -> [ListPoliciesPaginator](./paginators.md#listpoliciespaginator)
+- `client.get_paginator("list_policy_principals")` -> [ListPolicyPrincipalsPaginator](./paginators.md#listpolicyprincipalspaginator)
+- `client.get_paginator("list_principal_policies")` -> [ListPrincipalPoliciesPaginator](./paginators.md#listprincipalpoliciespaginator)
+- `client.get_paginator("list_principal_things")` -> [ListPrincipalThingsPaginator](./paginators.md#listprincipalthingspaginator)
+- `client.get_paginator("list_provisioning_template_versions")` -> [ListProvisioningTemplateVersionsPaginator](./paginators.md#listprovisioningtemplateversionspaginator)
+- `client.get_paginator("list_provisioning_templates")` -> [ListProvisioningTemplatesPaginator](./paginators.md#listprovisioningtemplatespaginator)
+- `client.get_paginator("list_role_aliases")` -> [ListRoleAliasesPaginator](./paginators.md#listrolealiasespaginator)
+- `client.get_paginator("list_scheduled_audits")` -> [ListScheduledAuditsPaginator](./paginators.md#listscheduledauditspaginator)
+- `client.get_paginator("list_security_profiles")` -> [ListSecurityProfilesPaginator](./paginators.md#listsecurityprofilespaginator)
+- `client.get_paginator("list_security_profiles_for_target")` -> [ListSecurityProfilesForTargetPaginator](./paginators.md#listsecurityprofilesfortargetpaginator)
+- `client.get_paginator("list_streams")` -> [ListStreamsPaginator](./paginators.md#liststreamspaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
+- `client.get_paginator("list_targets_for_policy")` -> [ListTargetsForPolicyPaginator](./paginators.md#listtargetsforpolicypaginator)
+- `client.get_paginator("list_targets_for_security_profile")` -> [ListTargetsForSecurityProfilePaginator](./paginators.md#listtargetsforsecurityprofilepaginator)
+- `client.get_paginator("list_thing_groups")` -> [ListThingGroupsPaginator](./paginators.md#listthinggroupspaginator)
+- `client.get_paginator("list_thing_groups_for_thing")` -> [ListThingGroupsForThingPaginator](./paginators.md#listthinggroupsforthingpaginator)
+- `client.get_paginator("list_thing_principals")` -> [ListThingPrincipalsPaginator](./paginators.md#listthingprincipalspaginator)
+- `client.get_paginator("list_thing_registration_task_reports")` -> [ListThingRegistrationTaskReportsPaginator](./paginators.md#listthingregistrationtaskreportspaginator)
+- `client.get_paginator("list_thing_registration_tasks")` -> [ListThingRegistrationTasksPaginator](./paginators.md#listthingregistrationtaskspaginator)
+- `client.get_paginator("list_thing_types")` -> [ListThingTypesPaginator](./paginators.md#listthingtypespaginator)
+- `client.get_paginator("list_things")` -> [ListThingsPaginator](./paginators.md#listthingspaginator)
+- `client.get_paginator("list_things_in_billing_group")` -> [ListThingsInBillingGroupPaginator](./paginators.md#listthingsinbillinggrouppaginator)
+- `client.get_paginator("list_things_in_thing_group")` -> [ListThingsInThingGroupPaginator](./paginators.md#listthingsinthinggrouppaginator)
+- `client.get_paginator("list_topic_rule_destinations")` -> [ListTopicRuleDestinationsPaginator](./paginators.md#listtopicruledestinationspaginator)
+- `client.get_paginator("list_topic_rules")` -> [ListTopicRulesPaginator](./paginators.md#listtopicrulespaginator)
+- `client.get_paginator("list_v2_logging_levels")` -> [ListV2LoggingLevelsPaginator](./paginators.md#listv2logginglevelspaginator)
+- `client.get_paginator("list_violation_events")` -> [ListViolationEventsPaginator](./paginators.md#listviolationeventspaginator)
 
-[Paginator.ListActiveViolations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListActiveViolations)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListActiveViolationsPaginatorName
-) -> ListActiveViolationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListAttachedPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListAttachedPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAttachedPoliciesPaginatorName
-) -> ListAttachedPoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListAuditFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListAuditFindings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAuditFindingsPaginatorName
-) -> ListAuditFindingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListAuditMitigationActionsExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAuditMitigationActionsExecutionsPaginatorName
-) -> ListAuditMitigationActionsExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListAuditMitigationActionsTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAuditMitigationActionsTasksPaginatorName
-) -> ListAuditMitigationActionsTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListAuditSuppressions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListAuditSuppressions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAuditSuppressionsPaginatorName
-) -> ListAuditSuppressionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListAuditTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListAuditTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAuditTasksPaginatorName
-) -> ListAuditTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListAuthorizers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListAuthorizers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAuthorizersPaginatorName
-) -> ListAuthorizersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListBillingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListBillingGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBillingGroupsPaginatorName
-) -> ListBillingGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListCACertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListCACertificates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCACertificatesPaginatorName
-) -> ListCACertificatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListCertificates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCertificatesPaginatorName
-) -> ListCertificatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListCertificatesByCA documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListCertificatesByCA)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCertificatesByCAPaginatorName
-) -> ListCertificatesByCAPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListCustomMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListCustomMetrics)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCustomMetricsPaginatorName
-) -> ListCustomMetricsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListDetectMitigationActionsExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListDetectMitigationActionsExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDetectMitigationActionsExecutionsPaginatorName
-) -> ListDetectMitigationActionsExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListDetectMitigationActionsTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListDetectMitigationActionsTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDetectMitigationActionsTasksPaginatorName
-) -> ListDetectMitigationActionsTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListDimensions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListDimensions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDimensionsPaginatorName
-) -> ListDimensionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListDomainConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListDomainConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDomainConfigurationsPaginatorName
-) -> ListDomainConfigurationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListIndices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListIndices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListIndicesPaginatorName
-) -> ListIndicesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListJobExecutionsForJob documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForJob)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobExecutionsForJobPaginatorName
-) -> ListJobExecutionsForJobPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListJobExecutionsForThing documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForThing)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobExecutionsForThingPaginatorName
-) -> ListJobExecutionsForThingPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobsPaginatorName
-) -> ListJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListMitigationActions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListMitigationActions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMitigationActionsPaginatorName
-) -> ListMitigationActionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListOTAUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListOTAUpdates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOTAUpdatesPaginatorName
-) -> ListOTAUpdatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListOutgoingCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListOutgoingCertificates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOutgoingCertificatesPaginatorName
-) -> ListOutgoingCertificatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPoliciesPaginatorName
-) -> ListPoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListPolicyPrincipals documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListPolicyPrincipals)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPolicyPrincipalsPaginatorName
-) -> ListPolicyPrincipalsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListPrincipalPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListPrincipalPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPrincipalPoliciesPaginatorName
-) -> ListPrincipalPoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListPrincipalThings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListPrincipalThings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPrincipalThingsPaginatorName
-) -> ListPrincipalThingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListProvisioningTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplateVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProvisioningTemplateVersionsPaginatorName
-) -> ListProvisioningTemplateVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListProvisioningTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProvisioningTemplatesPaginatorName
-) -> ListProvisioningTemplatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListRoleAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListRoleAliases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRoleAliasesPaginatorName
-) -> ListRoleAliasesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListScheduledAudits documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListScheduledAudits)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListScheduledAuditsPaginatorName
-) -> ListScheduledAuditsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListSecurityProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListSecurityProfiles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSecurityProfilesPaginatorName
-) -> ListSecurityProfilesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListSecurityProfilesForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListSecurityProfilesForTarget)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSecurityProfilesForTargetPaginatorName
-) -> ListSecurityProfilesForTargetPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListStreams)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStreamsPaginatorName
-) -> ListStreamsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListTargetsForPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListTargetsForPolicy)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTargetsForPolicyPaginatorName
-) -> ListTargetsForPolicyPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListTargetsForSecurityProfile documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListTargetsForSecurityProfile)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTargetsForSecurityProfilePaginatorName
-) -> ListTargetsForSecurityProfilePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListThingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListThingGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThingGroupsPaginatorName
-) -> ListThingGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListThingGroupsForThing documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListThingGroupsForThing)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThingGroupsForThingPaginatorName
-) -> ListThingGroupsForThingPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListThingPrincipals documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListThingPrincipals)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThingPrincipalsPaginatorName
-) -> ListThingPrincipalsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListThingRegistrationTaskReports documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTaskReports)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThingRegistrationTaskReportsPaginatorName
-) -> ListThingRegistrationTaskReportsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListThingRegistrationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThingRegistrationTasksPaginatorName
-) -> ListThingRegistrationTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListThingTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListThingTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThingTypesPaginatorName
-) -> ListThingTypesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListThings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListThings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThingsPaginatorName
-) -> ListThingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListThingsInBillingGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListThingsInBillingGroup)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThingsInBillingGroupPaginatorName
-) -> ListThingsInBillingGroupPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListThingsInThingGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListThingsInThingGroup)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThingsInThingGroupPaginatorName
-) -> ListThingsInThingGroupPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListTopicRuleDestinations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListTopicRuleDestinations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTopicRuleDestinationsPaginatorName
-) -> ListTopicRuleDestinationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListTopicRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListTopicRules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTopicRulesPaginatorName
-) -> ListTopicRulesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListV2LoggingLevels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListV2LoggingLevels)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListV2LoggingLevelsPaginatorName
-) -> ListV2LoggingLevelsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iot").get_paginator` method.
-
-[Paginator.ListViolationEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot.html#IoT.Paginator.ListViolationEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListViolationEventsPaginatorName
-) -> ListViolationEventsPaginator:
-    pass
-```

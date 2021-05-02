@@ -156,22 +156,18 @@ def put_object(
     Path: str,
     ContentType: str = None,
     CacheControl: str = None,
-    StorageClass: StorageClass = None,
+    StorageClass: Literal['TEMPORAL'] = None,
     UploadAvailability: UploadAvailability = None
 ) -> PutObjectResponseTypeDef:
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("mediastore-data").get_paginator` method.
+Type annotations for `boto3.client("mediastore-data").get_paginator` method with overloads.
 
-[Paginator.ListItems documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediastore-data.html#MediaStoreData.Paginator.ListItems)
+- `client.get_paginator("list_items")` -> [ListItemsPaginator](./paginators.md#listitemspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListItemsPaginatorName
-) -> ListItemsPaginator:
-    pass
-```
+

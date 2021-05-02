@@ -6,19 +6,12 @@ Auto-generated documentation for [EMRContainers](https://boto3.amazonaws.com/v1/
 type annotations stubs module [mypy_boto3_emr_containers](https://pypi.org/project/mypy-boto3-emr-containers/).
 
 - [Structures for boto3 EMRContainers module](#structures-for-boto3-emrcontainers-module)
+  - [CancelJobRunResponseTypeDef](#canceljobrunresponsetypedef)
   - [CloudWatchMonitoringConfigurationTypeDef](#cloudwatchmonitoringconfigurationtypedef)
   - [ConfigurationOverridesTypeDef](#configurationoverridestypedef)
+  - [ConfigurationTypeDef](#configurationtypedef)
   - [ContainerInfoTypeDef](#containerinfotypedef)
   - [ContainerProviderTypeDef](#containerprovidertypedef)
-  - [EksInfoTypeDef](#eksinfotypedef)
-  - [EndpointTypeDef](#endpointtypedef)
-  - [JobDriverTypeDef](#jobdrivertypedef)
-  - [JobRunTypeDef](#jobruntypedef)
-  - [MonitoringConfigurationTypeDef](#monitoringconfigurationtypedef)
-  - [S3MonitoringConfigurationTypeDef](#s3monitoringconfigurationtypedef)
-  - [SparkSubmitJobDriverTypeDef](#sparksubmitjobdrivertypedef)
-  - [VirtualClusterTypeDef](#virtualclustertypedef)
-  - [CancelJobRunResponseTypeDef](#canceljobrunresponsetypedef)
   - [CreateManagedEndpointResponseTypeDef](#createmanagedendpointresponsetypedef)
   - [CreateVirtualClusterResponseTypeDef](#createvirtualclusterresponsetypedef)
   - [DeleteManagedEndpointResponseTypeDef](#deletemanagedendpointresponsetypedef)
@@ -26,13 +19,34 @@ type annotations stubs module [mypy_boto3_emr_containers](https://pypi.org/proje
   - [DescribeJobRunResponseTypeDef](#describejobrunresponsetypedef)
   - [DescribeManagedEndpointResponseTypeDef](#describemanagedendpointresponsetypedef)
   - [DescribeVirtualClusterResponseTypeDef](#describevirtualclusterresponsetypedef)
-  - [ConfigurationTypeDef](#configurationtypedef)
+  - [EksInfoTypeDef](#eksinfotypedef)
+  - [EndpointTypeDef](#endpointtypedef)
+  - [JobDriverTypeDef](#jobdrivertypedef)
+  - [JobRunTypeDef](#jobruntypedef)
   - [ListJobRunsResponseTypeDef](#listjobrunsresponsetypedef)
   - [ListManagedEndpointsResponseTypeDef](#listmanagedendpointsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListVirtualClustersResponseTypeDef](#listvirtualclustersresponsetypedef)
+  - [MonitoringConfigurationTypeDef](#monitoringconfigurationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [S3MonitoringConfigurationTypeDef](#s3monitoringconfigurationtypedef)
+  - [SparkSubmitJobDriverTypeDef](#sparksubmitjobdrivertypedef)
   - [StartJobRunResponseTypeDef](#startjobrunresponsetypedef)
+  - [VirtualClusterTypeDef](#virtualclustertypedef)
+
+## CancelJobRunResponseTypeDef
+
+```python
+from mypy_boto3_emr_containers.type_defs import CancelJobRunResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `virtualClusterId`: `str`
+
 
 ## CloudWatchMonitoringConfigurationTypeDef
 
@@ -64,6 +78,23 @@ Optional fields:
 - `monitoringConfiguration`: `"MonitoringConfigurationTypeDef"`
 
 
+## ConfigurationTypeDef
+
+```python
+from mypy_boto3_emr_containers.type_defs import ConfigurationTypeDef
+```
+
+
+Required fields:
+- `classification`: `str`
+
+
+
+Optional fields:
+- `properties`: `Dict[str, str]`
+- `configurations`: `List[Dict[str, Any]]`
+
+
 ## ContainerInfoTypeDef
 
 ```python
@@ -85,172 +116,13 @@ from mypy_boto3_emr_containers.type_defs import ContainerProviderTypeDef
 
 
 Required fields:
-- `type`: `ContainerProviderType`
+- `type`: `Literal['EKS']`
 - `id`: `str`
 
 
 
 Optional fields:
 - `info`: `"ContainerInfoTypeDef"`
-
-
-## EksInfoTypeDef
-
-```python
-from mypy_boto3_emr_containers.type_defs import EksInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `namespace`: `str`
-
-
-## EndpointTypeDef
-
-```python
-from mypy_boto3_emr_containers.type_defs import EndpointTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `name`: `str`
-- `arn`: `str`
-- `virtualClusterId`: `str`
-- `type`: `str`
-- `state`: `EndpointState`
-- `releaseLabel`: `str`
-- `executionRoleArn`: `str`
-- `certificateArn`: `str`
-- `configurationOverrides`: `"ConfigurationOverridesTypeDef"`
-- `serverUrl`: `str`
-- `createdAt`: `datetime`
-- `securityGroup`: `str`
-- `subnetIds`: `List[str]`
-- `tags`: `Dict[str, str]`
-
-
-## JobDriverTypeDef
-
-```python
-from mypy_boto3_emr_containers.type_defs import JobDriverTypeDef
-```
-
-
-
-
-Optional fields:
-- `sparkSubmitJobDriver`: `"SparkSubmitJobDriverTypeDef"`
-
-
-## JobRunTypeDef
-
-```python
-from mypy_boto3_emr_containers.type_defs import JobRunTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `name`: `str`
-- `virtualClusterId`: `str`
-- `arn`: `str`
-- `state`: `JobRunState`
-- `clientToken`: `str`
-- `executionRoleArn`: `str`
-- `releaseLabel`: `str`
-- `configurationOverrides`: `"ConfigurationOverridesTypeDef"`
-- `jobDriver`: `"JobDriverTypeDef"`
-- `createdAt`: `datetime`
-- `createdBy`: `str`
-- `finishedAt`: `datetime`
-- `stateDetails`: `str`
-- `failureReason`: `FailureReason`
-- `tags`: `Dict[str, str]`
-
-
-## MonitoringConfigurationTypeDef
-
-```python
-from mypy_boto3_emr_containers.type_defs import MonitoringConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `persistentAppUI`: `PersistentAppUI`
-- `cloudWatchMonitoringConfiguration`: `"CloudWatchMonitoringConfigurationTypeDef"`
-- `s3MonitoringConfiguration`: `"S3MonitoringConfigurationTypeDef"`
-
-
-## S3MonitoringConfigurationTypeDef
-
-```python
-from mypy_boto3_emr_containers.type_defs import S3MonitoringConfigurationTypeDef
-```
-
-
-Required fields:
-- `logUri`: `str`
-
-
-
-
-## SparkSubmitJobDriverTypeDef
-
-```python
-from mypy_boto3_emr_containers.type_defs import SparkSubmitJobDriverTypeDef
-```
-
-
-Required fields:
-- `entryPoint`: `str`
-
-
-
-Optional fields:
-- `entryPointArguments`: `List[str]`
-- `sparkSubmitParameters`: `str`
-
-
-## VirtualClusterTypeDef
-
-```python
-from mypy_boto3_emr_containers.type_defs import VirtualClusterTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `name`: `str`
-- `arn`: `str`
-- `state`: `VirtualClusterState`
-- `containerProvider`: `"ContainerProviderTypeDef"`
-- `createdAt`: `datetime`
-- `tags`: `Dict[str, str]`
-
-
-## CancelJobRunResponseTypeDef
-
-```python
-from mypy_boto3_emr_containers.type_defs import CancelJobRunResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `virtualClusterId`: `str`
 
 
 ## CreateManagedEndpointResponseTypeDef
@@ -350,21 +222,85 @@ Optional fields:
 - `virtualCluster`: `"VirtualClusterTypeDef"`
 
 
-## ConfigurationTypeDef
+## EksInfoTypeDef
 
 ```python
-from mypy_boto3_emr_containers.type_defs import ConfigurationTypeDef
+from mypy_boto3_emr_containers.type_defs import EksInfoTypeDef
 ```
 
-
-Required fields:
-- `classification`: `str`
 
 
 
 Optional fields:
-- `properties`: `Dict[str, str]`
-- `configurations`: `List[Dict[str, Any]]`
+- `namespace`: `str`
+
+
+## EndpointTypeDef
+
+```python
+from mypy_boto3_emr_containers.type_defs import EndpointTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `name`: `str`
+- `arn`: `str`
+- `virtualClusterId`: `str`
+- `type`: `str`
+- `state`: `EndpointState`
+- `releaseLabel`: `str`
+- `executionRoleArn`: `str`
+- `certificateArn`: `str`
+- `configurationOverrides`: `"ConfigurationOverridesTypeDef"`
+- `serverUrl`: `str`
+- `createdAt`: `datetime`
+- `securityGroup`: `str`
+- `subnetIds`: `List[str]`
+- `tags`: `Dict[str, str]`
+
+
+## JobDriverTypeDef
+
+```python
+from mypy_boto3_emr_containers.type_defs import JobDriverTypeDef
+```
+
+
+
+
+Optional fields:
+- `sparkSubmitJobDriver`: `"SparkSubmitJobDriverTypeDef"`
+
+
+## JobRunTypeDef
+
+```python
+from mypy_boto3_emr_containers.type_defs import JobRunTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `name`: `str`
+- `virtualClusterId`: `str`
+- `arn`: `str`
+- `state`: `JobRunState`
+- `clientToken`: `str`
+- `executionRoleArn`: `str`
+- `releaseLabel`: `str`
+- `configurationOverrides`: `"ConfigurationOverridesTypeDef"`
+- `jobDriver`: `"JobDriverTypeDef"`
+- `createdAt`: `datetime`
+- `createdBy`: `str`
+- `finishedAt`: `datetime`
+- `stateDetails`: `str`
+- `failureReason`: `FailureReason`
+- `tags`: `Dict[str, str]`
 
 
 ## ListJobRunsResponseTypeDef
@@ -422,6 +358,21 @@ Optional fields:
 - `nextToken`: `str`
 
 
+## MonitoringConfigurationTypeDef
+
+```python
+from mypy_boto3_emr_containers.type_defs import MonitoringConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `persistentAppUI`: `PersistentAppUI`
+- `cloudWatchMonitoringConfiguration`: `"CloudWatchMonitoringConfigurationTypeDef"`
+- `s3MonitoringConfiguration`: `"S3MonitoringConfigurationTypeDef"`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -435,6 +386,36 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## S3MonitoringConfigurationTypeDef
+
+```python
+from mypy_boto3_emr_containers.type_defs import S3MonitoringConfigurationTypeDef
+```
+
+
+Required fields:
+- `logUri`: `str`
+
+
+
+
+## SparkSubmitJobDriverTypeDef
+
+```python
+from mypy_boto3_emr_containers.type_defs import SparkSubmitJobDriverTypeDef
+```
+
+
+Required fields:
+- `entryPoint`: `str`
+
+
+
+Optional fields:
+- `entryPointArguments`: `List[str]`
+- `sparkSubmitParameters`: `str`
 
 
 ## StartJobRunResponseTypeDef
@@ -451,4 +432,23 @@ Optional fields:
 - `name`: `str`
 - `arn`: `str`
 - `virtualClusterId`: `str`
+
+
+## VirtualClusterTypeDef
+
+```python
+from mypy_boto3_emr_containers.type_defs import VirtualClusterTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `name`: `str`
+- `arn`: `str`
+- `state`: `VirtualClusterState`
+- `containerProvider`: `"ContainerProviderTypeDef"`
+- `createdAt`: `datetime`
+- `tags`: `Dict[str, str]`
 

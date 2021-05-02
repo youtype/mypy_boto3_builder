@@ -6,65 +6,13 @@ Auto-generated documentation for [PrometheusService](https://boto3.amazonaws.com
 type annotations stubs module [mypy_boto3_amp](https://pypi.org/project/mypy-boto3-amp/).
 
 - [Structures for boto3 PrometheusService module](#structures-for-boto3-prometheusservice-module)
-  - [WorkspaceDescriptionTypeDef](#workspacedescriptiontypedef)
-  - [WorkspaceStatusTypeDef](#workspacestatustypedef)
-  - [WorkspaceSummaryTypeDef](#workspacesummarytypedef)
   - [CreateWorkspaceResponseTypeDef](#createworkspaceresponsetypedef)
   - [DescribeWorkspaceResponseTypeDef](#describeworkspaceresponsetypedef)
   - [ListWorkspacesResponseTypeDef](#listworkspacesresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-
-## WorkspaceDescriptionTypeDef
-
-```python
-from mypy_boto3_amp.type_defs import WorkspaceDescriptionTypeDef
-```
-
-
-Required fields:
-- `arn`: `str`
-- `createdAt`: `datetime`
-- `status`: `"WorkspaceStatusTypeDef"`
-- `workspaceId`: `str`
-
-
-
-Optional fields:
-- `alias`: `str`
-- `prometheusEndpoint`: `str`
-
-
-## WorkspaceStatusTypeDef
-
-```python
-from mypy_boto3_amp.type_defs import WorkspaceStatusTypeDef
-```
-
-
-Required fields:
-- `statusCode`: `WorkspaceStatusCode`
-
-
-
-
-## WorkspaceSummaryTypeDef
-
-```python
-from mypy_boto3_amp.type_defs import WorkspaceSummaryTypeDef
-```
-
-
-Required fields:
-- `arn`: `str`
-- `createdAt`: `datetime`
-- `status`: `"WorkspaceStatusTypeDef"`
-- `workspaceId`: `str`
-
-
-
-Optional fields:
-- `alias`: `str`
-
+  - [WorkspaceDescriptionTypeDef](#workspacedescriptiontypedef)
+  - [WorkspaceStatusTypeDef](#workspacestatustypedef)
+  - [WorkspaceSummaryTypeDef](#workspacesummarytypedef)
 
 ## CreateWorkspaceResponseTypeDef
 
@@ -123,4 +71,56 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## WorkspaceDescriptionTypeDef
+
+```python
+from mypy_boto3_amp.type_defs import WorkspaceDescriptionTypeDef
+```
+
+
+Required fields:
+- `arn`: `str`
+- `createdAt`: `datetime`
+- `status`: `"WorkspaceStatusTypeDef"`
+- `workspaceId`: `str`
+
+
+
+Optional fields:
+- `alias`: `str`
+- `prometheusEndpoint`: `str`
+
+
+## WorkspaceStatusTypeDef
+
+```python
+from mypy_boto3_amp.type_defs import WorkspaceStatusTypeDef
+```
+
+
+Required fields:
+- `statusCode`: `WorkspaceStatusCode`
+
+
+
+
+## WorkspaceSummaryTypeDef
+
+```python
+from mypy_boto3_amp.type_defs import WorkspaceSummaryTypeDef
+```
+
+
+Required fields:
+- `arn`: `str`
+- `createdAt`: `datetime`
+- `status`: `"WorkspaceStatusTypeDef"`
+- `workspaceId`: `str`
+
+
+
+Optional fields:
+- `alias`: `str`
 

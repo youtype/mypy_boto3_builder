@@ -6,13 +6,18 @@ Auto-generated documentation for [Pinpoint](https://boto3.amazonaws.com/v1/docum
 type annotations stubs module [mypy_boto3_pinpoint](https://pypi.org/project/mypy-boto3-pinpoint/).
 
 - [Structures for boto3 Pinpoint module](#structures-for-boto3-pinpoint-module)
+  - [ADMChannelRequestTypeDef](#admchannelrequesttypedef)
   - [ADMChannelResponseTypeDef](#admchannelresponsetypedef)
   - [ADMMessageTypeDef](#admmessagetypedef)
+  - [APNSChannelRequestTypeDef](#apnschannelrequesttypedef)
   - [APNSChannelResponseTypeDef](#apnschannelresponsetypedef)
   - [APNSMessageTypeDef](#apnsmessagetypedef)
   - [APNSPushNotificationTemplateTypeDef](#apnspushnotificationtemplatetypedef)
+  - [APNSSandboxChannelRequestTypeDef](#apnssandboxchannelrequesttypedef)
   - [APNSSandboxChannelResponseTypeDef](#apnssandboxchannelresponsetypedef)
+  - [APNSVoipChannelRequestTypeDef](#apnsvoipchannelrequesttypedef)
   - [APNSVoipChannelResponseTypeDef](#apnsvoipchannelresponsetypedef)
+  - [APNSVoipSandboxChannelRequestTypeDef](#apnsvoipsandboxchannelrequesttypedef)
   - [APNSVoipSandboxChannelResponseTypeDef](#apnsvoipsandboxchannelresponsetypedef)
   - [ActivitiesResponseTypeDef](#activitiesresponsetypedef)
   - [ActivityResponseTypeDef](#activityresponsetypedef)
@@ -25,6 +30,7 @@ type annotations stubs module [mypy_boto3_pinpoint](https://pypi.org/project/myp
   - [ApplicationsResponseTypeDef](#applicationsresponsetypedef)
   - [AttributeDimensionTypeDef](#attributedimensiontypedef)
   - [AttributesResourceTypeDef](#attributesresourcetypedef)
+  - [BaiduChannelRequestTypeDef](#baiduchannelrequesttypedef)
   - [BaiduChannelResponseTypeDef](#baiduchannelresponsetypedef)
   - [BaiduMessageTypeDef](#baidumessagetypedef)
   - [BaseKpiResultTypeDef](#basekpiresulttypedef)
@@ -42,122 +48,6 @@ type annotations stubs module [mypy_boto3_pinpoint](https://pypi.org/project/myp
   - [ChannelsResponseTypeDef](#channelsresponsetypedef)
   - [ConditionTypeDef](#conditiontypedef)
   - [ConditionalSplitActivityTypeDef](#conditionalsplitactivitytypedef)
-  - [CreateTemplateMessageBodyTypeDef](#createtemplatemessagebodytypedef)
-  - [CustomDeliveryConfigurationTypeDef](#customdeliveryconfigurationtypedef)
-  - [CustomMessageActivityTypeDef](#custommessageactivitytypedef)
-  - [DefaultMessageTypeDef](#defaultmessagetypedef)
-  - [DefaultPushNotificationMessageTypeDef](#defaultpushnotificationmessagetypedef)
-  - [DefaultPushNotificationTemplateTypeDef](#defaultpushnotificationtemplatetypedef)
-  - [DirectMessageConfigurationTypeDef](#directmessageconfigurationtypedef)
-  - [EmailChannelResponseTypeDef](#emailchannelresponsetypedef)
-  - [EmailMessageActivityTypeDef](#emailmessageactivitytypedef)
-  - [EmailMessageTypeDef](#emailmessagetypedef)
-  - [EmailTemplateResponseTypeDef](#emailtemplateresponsetypedef)
-  - [EndpointBatchItemTypeDef](#endpointbatchitemtypedef)
-  - [EndpointDemographicTypeDef](#endpointdemographictypedef)
-  - [EndpointItemResponseTypeDef](#endpointitemresponsetypedef)
-  - [EndpointLocationTypeDef](#endpointlocationtypedef)
-  - [EndpointMessageResultTypeDef](#endpointmessageresulttypedef)
-  - [EndpointResponseTypeDef](#endpointresponsetypedef)
-  - [EndpointSendConfigurationTypeDef](#endpointsendconfigurationtypedef)
-  - [EndpointUserTypeDef](#endpointusertypedef)
-  - [EndpointsResponseTypeDef](#endpointsresponsetypedef)
-  - [EventConditionTypeDef](#eventconditiontypedef)
-  - [EventDimensionsTypeDef](#eventdimensionstypedef)
-  - [EventFilterTypeDef](#eventfiltertypedef)
-  - [EventItemResponseTypeDef](#eventitemresponsetypedef)
-  - [EventStartConditionTypeDef](#eventstartconditiontypedef)
-  - [EventStreamTypeDef](#eventstreamtypedef)
-  - [EventTypeDef](#eventtypedef)
-  - [EventsBatchTypeDef](#eventsbatchtypedef)
-  - [EventsResponseTypeDef](#eventsresponsetypedef)
-  - [ExportJobResourceTypeDef](#exportjobresourcetypedef)
-  - [ExportJobResponseTypeDef](#exportjobresponsetypedef)
-  - [ExportJobsResponseTypeDef](#exportjobsresponsetypedef)
-  - [GCMChannelResponseTypeDef](#gcmchannelresponsetypedef)
-  - [GCMMessageTypeDef](#gcmmessagetypedef)
-  - [GPSCoordinatesTypeDef](#gpscoordinatestypedef)
-  - [GPSPointDimensionTypeDef](#gpspointdimensiontypedef)
-  - [HoldoutActivityTypeDef](#holdoutactivitytypedef)
-  - [ImportJobResourceTypeDef](#importjobresourcetypedef)
-  - [ImportJobResponseTypeDef](#importjobresponsetypedef)
-  - [ImportJobsResponseTypeDef](#importjobsresponsetypedef)
-  - [ItemResponseTypeDef](#itemresponsetypedef)
-  - [JourneyCustomMessageTypeDef](#journeycustommessagetypedef)
-  - [JourneyDateRangeKpiResponseTypeDef](#journeydaterangekpiresponsetypedef)
-  - [JourneyEmailMessageTypeDef](#journeyemailmessagetypedef)
-  - [JourneyExecutionActivityMetricsResponseTypeDef](#journeyexecutionactivitymetricsresponsetypedef)
-  - [JourneyExecutionMetricsResponseTypeDef](#journeyexecutionmetricsresponsetypedef)
-  - [JourneyLimitsTypeDef](#journeylimitstypedef)
-  - [JourneyPushMessageTypeDef](#journeypushmessagetypedef)
-  - [JourneyResponseTypeDef](#journeyresponsetypedef)
-  - [JourneySMSMessageTypeDef](#journeysmsmessagetypedef)
-  - [JourneyScheduleTypeDef](#journeyscheduletypedef)
-  - [JourneysResponseTypeDef](#journeysresponsetypedef)
-  - [ListRecommenderConfigurationsResponseTypeDef](#listrecommenderconfigurationsresponsetypedef)
-  - [MessageBodyTypeDef](#messagebodytypedef)
-  - [MessageConfigurationTypeDef](#messageconfigurationtypedef)
-  - [MessageResponseTypeDef](#messageresponsetypedef)
-  - [MessageResultTypeDef](#messageresulttypedef)
-  - [MessageTypeDef](#messagetypedef)
-  - [MetricDimensionTypeDef](#metricdimensiontypedef)
-  - [MultiConditionalBranchTypeDef](#multiconditionalbranchtypedef)
-  - [MultiConditionalSplitActivityTypeDef](#multiconditionalsplitactivitytypedef)
-  - [NumberValidateResponseTypeDef](#numbervalidateresponsetypedef)
-  - [PublicEndpointTypeDef](#publicendpointtypedef)
-  - [PushMessageActivityTypeDef](#pushmessageactivitytypedef)
-  - [PushNotificationTemplateResponseTypeDef](#pushnotificationtemplateresponsetypedef)
-  - [QuietTimeTypeDef](#quiettimetypedef)
-  - [RandomSplitActivityTypeDef](#randomsplitactivitytypedef)
-  - [RandomSplitEntryTypeDef](#randomsplitentrytypedef)
-  - [RawEmailTypeDef](#rawemailtypedef)
-  - [RecencyDimensionTypeDef](#recencydimensiontypedef)
-  - [RecommenderConfigurationResponseTypeDef](#recommenderconfigurationresponsetypedef)
-  - [ResultRowTypeDef](#resultrowtypedef)
-  - [ResultRowValueTypeDef](#resultrowvaluetypedef)
-  - [SMSChannelResponseTypeDef](#smschannelresponsetypedef)
-  - [SMSMessageActivityTypeDef](#smsmessageactivitytypedef)
-  - [SMSMessageTypeDef](#smsmessagetypedef)
-  - [SMSTemplateResponseTypeDef](#smstemplateresponsetypedef)
-  - [ScheduleTypeDef](#scheduletypedef)
-  - [SegmentBehaviorsTypeDef](#segmentbehaviorstypedef)
-  - [SegmentConditionTypeDef](#segmentconditiontypedef)
-  - [SegmentDemographicsTypeDef](#segmentdemographicstypedef)
-  - [SegmentDimensionsTypeDef](#segmentdimensionstypedef)
-  - [SegmentGroupListTypeDef](#segmentgrouplisttypedef)
-  - [SegmentGroupTypeDef](#segmentgrouptypedef)
-  - [SegmentImportResourceTypeDef](#segmentimportresourcetypedef)
-  - [SegmentLocationTypeDef](#segmentlocationtypedef)
-  - [SegmentReferenceTypeDef](#segmentreferencetypedef)
-  - [SegmentResponseTypeDef](#segmentresponsetypedef)
-  - [SegmentsResponseTypeDef](#segmentsresponsetypedef)
-  - [SendUsersMessageResponseTypeDef](#sendusersmessageresponsetypedef)
-  - [SessionTypeDef](#sessiontypedef)
-  - [SetDimensionTypeDef](#setdimensiontypedef)
-  - [SimpleConditionTypeDef](#simpleconditiontypedef)
-  - [SimpleEmailPartTypeDef](#simpleemailparttypedef)
-  - [SimpleEmailTypeDef](#simpleemailtypedef)
-  - [StartConditionTypeDef](#startconditiontypedef)
-  - [TagsModelTypeDef](#tagsmodeltypedef)
-  - [TemplateConfigurationTypeDef](#templateconfigurationtypedef)
-  - [TemplateResponseTypeDef](#templateresponsetypedef)
-  - [TemplateTypeDef](#templatetypedef)
-  - [TemplateVersionResponseTypeDef](#templateversionresponsetypedef)
-  - [TemplateVersionsResponseTypeDef](#templateversionsresponsetypedef)
-  - [TemplatesResponseTypeDef](#templatesresponsetypedef)
-  - [TreatmentResourceTypeDef](#treatmentresourcetypedef)
-  - [VoiceChannelResponseTypeDef](#voicechannelresponsetypedef)
-  - [VoiceMessageTypeDef](#voicemessagetypedef)
-  - [VoiceTemplateResponseTypeDef](#voicetemplateresponsetypedef)
-  - [WaitActivityTypeDef](#waitactivitytypedef)
-  - [WaitTimeTypeDef](#waittimetypedef)
-  - [WriteTreatmentResourceTypeDef](#writetreatmentresourcetypedef)
-  - [ADMChannelRequestTypeDef](#admchannelrequesttypedef)
-  - [APNSChannelRequestTypeDef](#apnschannelrequesttypedef)
-  - [APNSSandboxChannelRequestTypeDef](#apnssandboxchannelrequesttypedef)
-  - [APNSVoipChannelRequestTypeDef](#apnsvoipchannelrequesttypedef)
-  - [APNSVoipSandboxChannelRequestTypeDef](#apnsvoipsandboxchannelrequesttypedef)
-  - [BaiduChannelRequestTypeDef](#baiduchannelrequesttypedef)
   - [CreateAppResponseTypeDef](#createappresponsetypedef)
   - [CreateApplicationRequestTypeDef](#createapplicationrequesttypedef)
   - [CreateCampaignResponseTypeDef](#createcampaignresponsetypedef)
@@ -170,7 +60,13 @@ type annotations stubs module [mypy_boto3_pinpoint](https://pypi.org/project/myp
   - [CreateRecommenderConfigurationTypeDef](#createrecommenderconfigurationtypedef)
   - [CreateSegmentResponseTypeDef](#createsegmentresponsetypedef)
   - [CreateSmsTemplateResponseTypeDef](#createsmstemplateresponsetypedef)
+  - [CreateTemplateMessageBodyTypeDef](#createtemplatemessagebodytypedef)
   - [CreateVoiceTemplateResponseTypeDef](#createvoicetemplateresponsetypedef)
+  - [CustomDeliveryConfigurationTypeDef](#customdeliveryconfigurationtypedef)
+  - [CustomMessageActivityTypeDef](#custommessageactivitytypedef)
+  - [DefaultMessageTypeDef](#defaultmessagetypedef)
+  - [DefaultPushNotificationMessageTypeDef](#defaultpushnotificationmessagetypedef)
+  - [DefaultPushNotificationTemplateTypeDef](#defaultpushnotificationtemplatetypedef)
   - [DeleteAdmChannelResponseTypeDef](#deleteadmchannelresponsetypedef)
   - [DeleteApnsChannelResponseTypeDef](#deleteapnschannelresponsetypedef)
   - [DeleteApnsSandboxChannelResponseTypeDef](#deleteapnssandboxchannelresponsetypedef)
@@ -193,13 +89,43 @@ type annotations stubs module [mypy_boto3_pinpoint](https://pypi.org/project/myp
   - [DeleteUserEndpointsResponseTypeDef](#deleteuserendpointsresponsetypedef)
   - [DeleteVoiceChannelResponseTypeDef](#deletevoicechannelresponsetypedef)
   - [DeleteVoiceTemplateResponseTypeDef](#deletevoicetemplateresponsetypedef)
+  - [DirectMessageConfigurationTypeDef](#directmessageconfigurationtypedef)
   - [EmailChannelRequestTypeDef](#emailchannelrequesttypedef)
+  - [EmailChannelResponseTypeDef](#emailchannelresponsetypedef)
+  - [EmailMessageActivityTypeDef](#emailmessageactivitytypedef)
+  - [EmailMessageTypeDef](#emailmessagetypedef)
   - [EmailTemplateRequestTypeDef](#emailtemplaterequesttypedef)
+  - [EmailTemplateResponseTypeDef](#emailtemplateresponsetypedef)
+  - [EndpointBatchItemTypeDef](#endpointbatchitemtypedef)
   - [EndpointBatchRequestTypeDef](#endpointbatchrequesttypedef)
+  - [EndpointDemographicTypeDef](#endpointdemographictypedef)
+  - [EndpointItemResponseTypeDef](#endpointitemresponsetypedef)
+  - [EndpointLocationTypeDef](#endpointlocationtypedef)
+  - [EndpointMessageResultTypeDef](#endpointmessageresulttypedef)
   - [EndpointRequestTypeDef](#endpointrequesttypedef)
+  - [EndpointResponseTypeDef](#endpointresponsetypedef)
+  - [EndpointSendConfigurationTypeDef](#endpointsendconfigurationtypedef)
+  - [EndpointUserTypeDef](#endpointusertypedef)
+  - [EndpointsResponseTypeDef](#endpointsresponsetypedef)
+  - [EventConditionTypeDef](#eventconditiontypedef)
+  - [EventDimensionsTypeDef](#eventdimensionstypedef)
+  - [EventFilterTypeDef](#eventfiltertypedef)
+  - [EventItemResponseTypeDef](#eventitemresponsetypedef)
+  - [EventStartConditionTypeDef](#eventstartconditiontypedef)
+  - [EventStreamTypeDef](#eventstreamtypedef)
+  - [EventTypeDef](#eventtypedef)
+  - [EventsBatchTypeDef](#eventsbatchtypedef)
   - [EventsRequestTypeDef](#eventsrequesttypedef)
+  - [EventsResponseTypeDef](#eventsresponsetypedef)
   - [ExportJobRequestTypeDef](#exportjobrequesttypedef)
+  - [ExportJobResourceTypeDef](#exportjobresourcetypedef)
+  - [ExportJobResponseTypeDef](#exportjobresponsetypedef)
+  - [ExportJobsResponseTypeDef](#exportjobsresponsetypedef)
   - [GCMChannelRequestTypeDef](#gcmchannelrequesttypedef)
+  - [GCMChannelResponseTypeDef](#gcmchannelresponsetypedef)
+  - [GCMMessageTypeDef](#gcmmessagetypedef)
+  - [GPSCoordinatesTypeDef](#gpscoordinatestypedef)
+  - [GPSPointDimensionTypeDef](#gpspointdimensiontypedef)
   - [GetAdmChannelResponseTypeDef](#getadmchannelresponsetypedef)
   - [GetApnsChannelResponseTypeDef](#getapnschannelresponsetypedef)
   - [GetApnsSandboxChannelResponseTypeDef](#getapnssandboxchannelresponsetypedef)
@@ -244,25 +170,93 @@ type annotations stubs module [mypy_boto3_pinpoint](https://pypi.org/project/myp
   - [GetUserEndpointsResponseTypeDef](#getuserendpointsresponsetypedef)
   - [GetVoiceChannelResponseTypeDef](#getvoicechannelresponsetypedef)
   - [GetVoiceTemplateResponseTypeDef](#getvoicetemplateresponsetypedef)
+  - [HoldoutActivityTypeDef](#holdoutactivitytypedef)
   - [ImportJobRequestTypeDef](#importjobrequesttypedef)
+  - [ImportJobResourceTypeDef](#importjobresourcetypedef)
+  - [ImportJobResponseTypeDef](#importjobresponsetypedef)
+  - [ImportJobsResponseTypeDef](#importjobsresponsetypedef)
+  - [ItemResponseTypeDef](#itemresponsetypedef)
+  - [JourneyCustomMessageTypeDef](#journeycustommessagetypedef)
+  - [JourneyDateRangeKpiResponseTypeDef](#journeydaterangekpiresponsetypedef)
+  - [JourneyEmailMessageTypeDef](#journeyemailmessagetypedef)
+  - [JourneyExecutionActivityMetricsResponseTypeDef](#journeyexecutionactivitymetricsresponsetypedef)
+  - [JourneyExecutionMetricsResponseTypeDef](#journeyexecutionmetricsresponsetypedef)
+  - [JourneyLimitsTypeDef](#journeylimitstypedef)
+  - [JourneyPushMessageTypeDef](#journeypushmessagetypedef)
+  - [JourneyResponseTypeDef](#journeyresponsetypedef)
+  - [JourneySMSMessageTypeDef](#journeysmsmessagetypedef)
+  - [JourneyScheduleTypeDef](#journeyscheduletypedef)
   - [JourneyStateRequestTypeDef](#journeystaterequesttypedef)
+  - [JourneysResponseTypeDef](#journeysresponsetypedef)
   - [ListJourneysResponseTypeDef](#listjourneysresponsetypedef)
+  - [ListRecommenderConfigurationsResponseTypeDef](#listrecommenderconfigurationsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListTemplateVersionsResponseTypeDef](#listtemplateversionsresponsetypedef)
   - [ListTemplatesResponseTypeDef](#listtemplatesresponsetypedef)
+  - [MessageBodyTypeDef](#messagebodytypedef)
+  - [MessageConfigurationTypeDef](#messageconfigurationtypedef)
   - [MessageRequestTypeDef](#messagerequesttypedef)
+  - [MessageResponseTypeDef](#messageresponsetypedef)
+  - [MessageResultTypeDef](#messageresulttypedef)
+  - [MessageTypeDef](#messagetypedef)
+  - [MetricDimensionTypeDef](#metricdimensiontypedef)
+  - [MultiConditionalBranchTypeDef](#multiconditionalbranchtypedef)
+  - [MultiConditionalSplitActivityTypeDef](#multiconditionalsplitactivitytypedef)
   - [NumberValidateRequestTypeDef](#numbervalidaterequesttypedef)
+  - [NumberValidateResponseTypeDef](#numbervalidateresponsetypedef)
   - [PhoneNumberValidateResponseTypeDef](#phonenumbervalidateresponsetypedef)
+  - [PublicEndpointTypeDef](#publicendpointtypedef)
+  - [PushMessageActivityTypeDef](#pushmessageactivitytypedef)
   - [PushNotificationTemplateRequestTypeDef](#pushnotificationtemplaterequesttypedef)
+  - [PushNotificationTemplateResponseTypeDef](#pushnotificationtemplateresponsetypedef)
   - [PutEventStreamResponseTypeDef](#puteventstreamresponsetypedef)
   - [PutEventsResponseTypeDef](#puteventsresponsetypedef)
+  - [QuietTimeTypeDef](#quiettimetypedef)
+  - [RandomSplitActivityTypeDef](#randomsplitactivitytypedef)
+  - [RandomSplitEntryTypeDef](#randomsplitentrytypedef)
+  - [RawEmailTypeDef](#rawemailtypedef)
+  - [RecencyDimensionTypeDef](#recencydimensiontypedef)
+  - [RecommenderConfigurationResponseTypeDef](#recommenderconfigurationresponsetypedef)
   - [RemoveAttributesResponseTypeDef](#removeattributesresponsetypedef)
+  - [ResultRowTypeDef](#resultrowtypedef)
+  - [ResultRowValueTypeDef](#resultrowvaluetypedef)
   - [SMSChannelRequestTypeDef](#smschannelrequesttypedef)
+  - [SMSChannelResponseTypeDef](#smschannelresponsetypedef)
+  - [SMSMessageActivityTypeDef](#smsmessageactivitytypedef)
+  - [SMSMessageTypeDef](#smsmessagetypedef)
   - [SMSTemplateRequestTypeDef](#smstemplaterequesttypedef)
+  - [SMSTemplateResponseTypeDef](#smstemplateresponsetypedef)
+  - [ScheduleTypeDef](#scheduletypedef)
+  - [SegmentBehaviorsTypeDef](#segmentbehaviorstypedef)
+  - [SegmentConditionTypeDef](#segmentconditiontypedef)
+  - [SegmentDemographicsTypeDef](#segmentdemographicstypedef)
+  - [SegmentDimensionsTypeDef](#segmentdimensionstypedef)
+  - [SegmentGroupListTypeDef](#segmentgrouplisttypedef)
+  - [SegmentGroupTypeDef](#segmentgrouptypedef)
+  - [SegmentImportResourceTypeDef](#segmentimportresourcetypedef)
+  - [SegmentLocationTypeDef](#segmentlocationtypedef)
+  - [SegmentReferenceTypeDef](#segmentreferencetypedef)
+  - [SegmentResponseTypeDef](#segmentresponsetypedef)
+  - [SegmentsResponseTypeDef](#segmentsresponsetypedef)
   - [SendMessagesResponseTypeDef](#sendmessagesresponsetypedef)
   - [SendUsersMessageRequestTypeDef](#sendusersmessagerequesttypedef)
+  - [SendUsersMessageResponseTypeDef](#sendusersmessageresponsetypedef)
   - [SendUsersMessagesResponseTypeDef](#sendusersmessagesresponsetypedef)
+  - [SessionTypeDef](#sessiontypedef)
+  - [SetDimensionTypeDef](#setdimensiontypedef)
+  - [SimpleConditionTypeDef](#simpleconditiontypedef)
+  - [SimpleEmailPartTypeDef](#simpleemailparttypedef)
+  - [SimpleEmailTypeDef](#simpleemailtypedef)
+  - [StartConditionTypeDef](#startconditiontypedef)
+  - [TagsModelTypeDef](#tagsmodeltypedef)
   - [TemplateActiveVersionRequestTypeDef](#templateactiveversionrequesttypedef)
+  - [TemplateConfigurationTypeDef](#templateconfigurationtypedef)
+  - [TemplateResponseTypeDef](#templateresponsetypedef)
+  - [TemplateTypeDef](#templatetypedef)
+  - [TemplateVersionResponseTypeDef](#templateversionresponsetypedef)
+  - [TemplateVersionsResponseTypeDef](#templateversionsresponsetypedef)
+  - [TemplatesResponseTypeDef](#templatesresponsetypedef)
+  - [TreatmentResourceTypeDef](#treatmentresourcetypedef)
   - [UpdateAdmChannelResponseTypeDef](#updateadmchannelresponsetypedef)
   - [UpdateApnsChannelResponseTypeDef](#updateapnschannelresponsetypedef)
   - [UpdateApnsSandboxChannelResponseTypeDef](#updateapnssandboxchannelresponsetypedef)
@@ -289,12 +283,35 @@ type annotations stubs module [mypy_boto3_pinpoint](https://pypi.org/project/myp
   - [UpdateVoiceChannelResponseTypeDef](#updatevoicechannelresponsetypedef)
   - [UpdateVoiceTemplateResponseTypeDef](#updatevoicetemplateresponsetypedef)
   - [VoiceChannelRequestTypeDef](#voicechannelrequesttypedef)
+  - [VoiceChannelResponseTypeDef](#voicechannelresponsetypedef)
+  - [VoiceMessageTypeDef](#voicemessagetypedef)
   - [VoiceTemplateRequestTypeDef](#voicetemplaterequesttypedef)
+  - [VoiceTemplateResponseTypeDef](#voicetemplateresponsetypedef)
+  - [WaitActivityTypeDef](#waitactivitytypedef)
+  - [WaitTimeTypeDef](#waittimetypedef)
   - [WriteApplicationSettingsRequestTypeDef](#writeapplicationsettingsrequesttypedef)
   - [WriteCampaignRequestTypeDef](#writecampaignrequesttypedef)
   - [WriteEventStreamTypeDef](#writeeventstreamtypedef)
   - [WriteJourneyRequestTypeDef](#writejourneyrequesttypedef)
   - [WriteSegmentRequestTypeDef](#writesegmentrequesttypedef)
+  - [WriteTreatmentResourceTypeDef](#writetreatmentresourcetypedef)
+
+## ADMChannelRequestTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ADMChannelRequestTypeDef
+```
+
+
+Required fields:
+- `ClientId`: `str`
+- `ClientSecret`: `str`
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+
 
 ## ADMChannelResponseTypeDef
 
@@ -346,6 +363,26 @@ Optional fields:
 - `Substitutions`: `Dict[str, List[str]]`
 - `Title`: `str`
 - `Url`: `str`
+
+
+## APNSChannelRequestTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import APNSChannelRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `BundleId`: `str`
+- `Certificate`: `str`
+- `DefaultAuthenticationMethod`: `str`
+- `Enabled`: `bool`
+- `PrivateKey`: `str`
+- `TeamId`: `str`
+- `TokenKey`: `str`
+- `TokenKeyId`: `str`
 
 
 ## APNSChannelResponseTypeDef
@@ -423,6 +460,26 @@ Optional fields:
 - `Url`: `str`
 
 
+## APNSSandboxChannelRequestTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import APNSSandboxChannelRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `BundleId`: `str`
+- `Certificate`: `str`
+- `DefaultAuthenticationMethod`: `str`
+- `Enabled`: `bool`
+- `PrivateKey`: `str`
+- `TeamId`: `str`
+- `TokenKey`: `str`
+- `TokenKeyId`: `str`
+
+
 ## APNSSandboxChannelResponseTypeDef
 
 ```python
@@ -449,6 +506,26 @@ Optional fields:
 - `Version`: `int`
 
 
+## APNSVoipChannelRequestTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import APNSVoipChannelRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `BundleId`: `str`
+- `Certificate`: `str`
+- `DefaultAuthenticationMethod`: `str`
+- `Enabled`: `bool`
+- `PrivateKey`: `str`
+- `TeamId`: `str`
+- `TokenKey`: `str`
+- `TokenKeyId`: `str`
+
+
 ## APNSVoipChannelResponseTypeDef
 
 ```python
@@ -473,6 +550,26 @@ Optional fields:
 - `LastModifiedBy`: `str`
 - `LastModifiedDate`: `str`
 - `Version`: `int`
+
+
+## APNSVoipSandboxChannelRequestTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import APNSVoipSandboxChannelRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `BundleId`: `str`
+- `Certificate`: `str`
+- `DefaultAuthenticationMethod`: `str`
+- `Enabled`: `bool`
+- `PrivateKey`: `str`
+- `TeamId`: `str`
+- `TokenKey`: `str`
+- `TokenKeyId`: `str`
 
 
 ## APNSVoipSandboxChannelResponseTypeDef
@@ -707,6 +804,23 @@ Required fields:
 
 Optional fields:
 - `Attributes`: `List[str]`
+
+
+## BaiduChannelRequestTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import BaiduChannelRequestTypeDef
+```
+
+
+Required fields:
+- `ApiKey`: `str`
+- `SecretKey`: `str`
+
+
+
+Optional fields:
+- `Enabled`: `bool`
 
 
 ## BaiduChannelResponseTypeDef
@@ -1017,2105 +1131,6 @@ Optional fields:
 - `TrueActivity`: `str`
 
 
-## CreateTemplateMessageBodyTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import CreateTemplateMessageBodyTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Message`: `str`
-- `RequestID`: `str`
-
-
-## CustomDeliveryConfigurationTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import CustomDeliveryConfigurationTypeDef
-```
-
-
-Required fields:
-- `DeliveryUri`: `str`
-
-
-
-Optional fields:
-- `EndpointTypes`: `List[__EndpointTypesElement]`
-
-
-## CustomMessageActivityTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import CustomMessageActivityTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeliveryUri`: `str`
-- `EndpointTypes`: `List[__EndpointTypesElement]`
-- `MessageConfig`: `"JourneyCustomMessageTypeDef"`
-- `NextActivity`: `str`
-- `TemplateName`: `str`
-- `TemplateVersion`: `str`
-
-
-## DefaultMessageTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import DefaultMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Body`: `str`
-- `Substitutions`: `Dict[str, List[str]]`
-
-
-## DefaultPushNotificationMessageTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import DefaultPushNotificationMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Action`: `Action`
-- `Body`: `str`
-- `Data`: `Dict[str, str]`
-- `SilentPush`: `bool`
-- `Substitutions`: `Dict[str, List[str]]`
-- `Title`: `str`
-- `Url`: `str`
-
-
-## DefaultPushNotificationTemplateTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import DefaultPushNotificationTemplateTypeDef
-```
-
-
-
-
-Optional fields:
-- `Action`: `Action`
-- `Body`: `str`
-- `Sound`: `str`
-- `Title`: `str`
-- `Url`: `str`
-
-
-## DirectMessageConfigurationTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import DirectMessageConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ADMMessage`: `"ADMMessageTypeDef"`
-- `APNSMessage`: `"APNSMessageTypeDef"`
-- `BaiduMessage`: `"BaiduMessageTypeDef"`
-- `DefaultMessage`: `"DefaultMessageTypeDef"`
-- `DefaultPushNotificationMessage`: `"DefaultPushNotificationMessageTypeDef"`
-- `EmailMessage`: `"EmailMessageTypeDef"`
-- `GCMMessage`: `"GCMMessageTypeDef"`
-- `SMSMessage`: `"SMSMessageTypeDef"`
-- `VoiceMessage`: `"VoiceMessageTypeDef"`
-
-
-## EmailChannelResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EmailChannelResponseTypeDef
-```
-
-
-Required fields:
-- `Platform`: `str`
-
-
-
-Optional fields:
-- `ApplicationId`: `str`
-- `ConfigurationSet`: `str`
-- `CreationDate`: `str`
-- `Enabled`: `bool`
-- `FromAddress`: `str`
-- `HasCredential`: `bool`
-- `Id`: `str`
-- `Identity`: `str`
-- `IsArchived`: `bool`
-- `LastModifiedBy`: `str`
-- `LastModifiedDate`: `str`
-- `MessagesPerSecond`: `int`
-- `RoleArn`: `str`
-- `Version`: `int`
-
-
-## EmailMessageActivityTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EmailMessageActivityTypeDef
-```
-
-
-
-
-Optional fields:
-- `MessageConfig`: `"JourneyEmailMessageTypeDef"`
-- `NextActivity`: `str`
-- `TemplateName`: `str`
-- `TemplateVersion`: `str`
-
-
-## EmailMessageTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EmailMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Body`: `str`
-- `FeedbackForwardingAddress`: `str`
-- `FromAddress`: `str`
-- `RawEmail`: `"RawEmailTypeDef"`
-- `ReplyToAddresses`: `List[str]`
-- `SimpleEmail`: `"SimpleEmailTypeDef"`
-- `Substitutions`: `Dict[str, List[str]]`
-
-
-## EmailTemplateResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EmailTemplateResponseTypeDef
-```
-
-
-Required fields:
-- `CreationDate`: `str`
-- `LastModifiedDate`: `str`
-- `TemplateName`: `str`
-- `TemplateType`: `TemplateType`
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `DefaultSubstitutions`: `str`
-- `HtmlPart`: `str`
-- `RecommenderId`: `str`
-- `Subject`: `str`
-- `tags`: `Dict[str, str]`
-- `TemplateDescription`: `str`
-- `TextPart`: `str`
-- `Version`: `str`
-
-
-## EndpointBatchItemTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EndpointBatchItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `Address`: `str`
-- `Attributes`: `Dict[str, List[str]]`
-- `ChannelType`: `ChannelType`
-- `Demographic`: `"EndpointDemographicTypeDef"`
-- `EffectiveDate`: `str`
-- `EndpointStatus`: `str`
-- `Id`: `str`
-- `Location`: `"EndpointLocationTypeDef"`
-- `Metrics`: `Dict[str, float]`
-- `OptOut`: `str`
-- `RequestId`: `str`
-- `User`: `"EndpointUserTypeDef"`
-
-
-## EndpointDemographicTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EndpointDemographicTypeDef
-```
-
-
-
-
-Optional fields:
-- `AppVersion`: `str`
-- `Locale`: `str`
-- `Make`: `str`
-- `Model`: `str`
-- `ModelVersion`: `str`
-- `Platform`: `str`
-- `PlatformVersion`: `str`
-- `Timezone`: `str`
-
-
-## EndpointItemResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EndpointItemResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Message`: `str`
-- `StatusCode`: `int`
-
-
-## EndpointLocationTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EndpointLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `City`: `str`
-- `Country`: `str`
-- `Latitude`: `float`
-- `Longitude`: `float`
-- `PostalCode`: `str`
-- `Region`: `str`
-
-
-## EndpointMessageResultTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EndpointMessageResultTypeDef
-```
-
-
-Required fields:
-- `DeliveryStatus`: `DeliveryStatus`
-- `StatusCode`: `int`
-
-
-
-Optional fields:
-- `Address`: `str`
-- `MessageId`: `str`
-- `StatusMessage`: `str`
-- `UpdatedToken`: `str`
-
-
-## EndpointResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EndpointResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Address`: `str`
-- `ApplicationId`: `str`
-- `Attributes`: `Dict[str, List[str]]`
-- `ChannelType`: `ChannelType`
-- `CohortId`: `str`
-- `CreationDate`: `str`
-- `Demographic`: `"EndpointDemographicTypeDef"`
-- `EffectiveDate`: `str`
-- `EndpointStatus`: `str`
-- `Id`: `str`
-- `Location`: `"EndpointLocationTypeDef"`
-- `Metrics`: `Dict[str, float]`
-- `OptOut`: `str`
-- `RequestId`: `str`
-- `User`: `"EndpointUserTypeDef"`
-
-
-## EndpointSendConfigurationTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EndpointSendConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `BodyOverride`: `str`
-- `Context`: `Dict[str, str]`
-- `RawContent`: `str`
-- `Substitutions`: `Dict[str, List[str]]`
-- `TitleOverride`: `str`
-
-
-## EndpointUserTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EndpointUserTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserAttributes`: `Dict[str, List[str]]`
-- `UserId`: `str`
-
-
-## EndpointsResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EndpointsResponseTypeDef
-```
-
-
-Required fields:
-- `Item`: `List["EndpointResponseTypeDef"]`
-
-
-
-
-## EventConditionTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EventConditionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Dimensions`: `"EventDimensionsTypeDef"`
-- `MessageActivity`: `str`
-
-
-## EventDimensionsTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EventDimensionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Attributes`: `Dict[str, "AttributeDimensionTypeDef"]`
-- `EventType`: `"SetDimensionTypeDef"`
-- `Metrics`: `Dict[str, "MetricDimensionTypeDef"]`
-
-
-## EventFilterTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EventFilterTypeDef
-```
-
-
-Required fields:
-- `Dimensions`: `"EventDimensionsTypeDef"`
-- `FilterType`: `FilterType`
-
-
-
-
-## EventItemResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EventItemResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Message`: `str`
-- `StatusCode`: `int`
-
-
-## EventStartConditionTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EventStartConditionTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventFilter`: `"EventFilterTypeDef"`
-- `SegmentId`: `str`
-
-
-## EventStreamTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EventStreamTypeDef
-```
-
-
-Required fields:
-- `ApplicationId`: `str`
-- `DestinationStreamArn`: `str`
-- `RoleArn`: `str`
-
-
-
-Optional fields:
-- `ExternalId`: `str`
-- `LastModifiedDate`: `str`
-- `LastUpdatedBy`: `str`
-
-
-## EventTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EventTypeDef
-```
-
-
-Required fields:
-- `EventType`: `str`
-- `Timestamp`: `str`
-
-
-
-Optional fields:
-- `AppPackageName`: `str`
-- `AppTitle`: `str`
-- `AppVersionCode`: `str`
-- `Attributes`: `Dict[str, str]`
-- `ClientSdkVersion`: `str`
-- `Metrics`: `Dict[str, float]`
-- `SdkName`: `str`
-- `Session`: `"SessionTypeDef"`
-
-
-## EventsBatchTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EventsBatchTypeDef
-```
-
-
-Required fields:
-- `Endpoint`: `"PublicEndpointTypeDef"`
-- `Events`: `Dict[str, "EventTypeDef"]`
-
-
-
-
-## EventsResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import EventsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Results`: `Dict[str, "ItemResponseTypeDef"]`
-
-
-## ExportJobResourceTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ExportJobResourceTypeDef
-```
-
-
-Required fields:
-- `RoleArn`: `str`
-- `S3UrlPrefix`: `str`
-
-
-
-Optional fields:
-- `SegmentId`: `str`
-- `SegmentVersion`: `int`
-
-
-## ExportJobResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ExportJobResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationId`: `str`
-- `CreationDate`: `str`
-- `Definition`: `"ExportJobResourceTypeDef"`
-- `Id`: `str`
-- `JobStatus`: `JobStatus`
-- `Type`: `str`
-
-
-
-Optional fields:
-- `CompletedPieces`: `int`
-- `CompletionDate`: `str`
-- `FailedPieces`: `int`
-- `Failures`: `List[str]`
-- `TotalFailures`: `int`
-- `TotalPieces`: `int`
-- `TotalProcessed`: `int`
-
-
-## ExportJobsResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ExportJobsResponseTypeDef
-```
-
-
-Required fields:
-- `Item`: `List["ExportJobResponseTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## GCMChannelResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import GCMChannelResponseTypeDef
-```
-
-
-Required fields:
-- `Credential`: `str`
-- `Platform`: `str`
-
-
-
-Optional fields:
-- `ApplicationId`: `str`
-- `CreationDate`: `str`
-- `Enabled`: `bool`
-- `HasCredential`: `bool`
-- `Id`: `str`
-- `IsArchived`: `bool`
-- `LastModifiedBy`: `str`
-- `LastModifiedDate`: `str`
-- `Version`: `int`
-
-
-## GCMMessageTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import GCMMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Action`: `Action`
-- `Body`: `str`
-- `CollapseKey`: `str`
-- `Data`: `Dict[str, str]`
-- `IconReference`: `str`
-- `ImageIconUrl`: `str`
-- `ImageUrl`: `str`
-- `Priority`: `str`
-- `RawContent`: `str`
-- `RestrictedPackageName`: `str`
-- `SilentPush`: `bool`
-- `SmallImageIconUrl`: `str`
-- `Sound`: `str`
-- `Substitutions`: `Dict[str, List[str]]`
-- `TimeToLive`: `int`
-- `Title`: `str`
-- `Url`: `str`
-
-
-## GPSCoordinatesTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import GPSCoordinatesTypeDef
-```
-
-
-Required fields:
-- `Latitude`: `float`
-- `Longitude`: `float`
-
-
-
-
-## GPSPointDimensionTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import GPSPointDimensionTypeDef
-```
-
-
-Required fields:
-- `Coordinates`: `"GPSCoordinatesTypeDef"`
-
-
-
-Optional fields:
-- `RangeInKilometers`: `float`
-
-
-## HoldoutActivityTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import HoldoutActivityTypeDef
-```
-
-
-Required fields:
-- `Percentage`: `int`
-
-
-
-Optional fields:
-- `NextActivity`: `str`
-
-
-## ImportJobResourceTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ImportJobResourceTypeDef
-```
-
-
-Required fields:
-- `Format`: `Format`
-- `RoleArn`: `str`
-- `S3Url`: `str`
-
-
-
-Optional fields:
-- `DefineSegment`: `bool`
-- `ExternalId`: `str`
-- `RegisterEndpoints`: `bool`
-- `SegmentId`: `str`
-- `SegmentName`: `str`
-
-
-## ImportJobResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ImportJobResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationId`: `str`
-- `CreationDate`: `str`
-- `Definition`: `"ImportJobResourceTypeDef"`
-- `Id`: `str`
-- `JobStatus`: `JobStatus`
-- `Type`: `str`
-
-
-
-Optional fields:
-- `CompletedPieces`: `int`
-- `CompletionDate`: `str`
-- `FailedPieces`: `int`
-- `Failures`: `List[str]`
-- `TotalFailures`: `int`
-- `TotalPieces`: `int`
-- `TotalProcessed`: `int`
-
-
-## ImportJobsResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ImportJobsResponseTypeDef
-```
-
-
-Required fields:
-- `Item`: `List["ImportJobResponseTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ItemResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ItemResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `EndpointItemResponse`: `"EndpointItemResponseTypeDef"`
-- `EventsItemResponse`: `Dict[str, "EventItemResponseTypeDef"]`
-
-
-## JourneyCustomMessageTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import JourneyCustomMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Data`: `str`
-
-
-## JourneyDateRangeKpiResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import JourneyDateRangeKpiResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationId`: `str`
-- `EndTime`: `datetime`
-- `JourneyId`: `str`
-- `KpiName`: `str`
-- `KpiResult`: `"BaseKpiResultTypeDef"`
-- `StartTime`: `datetime`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## JourneyEmailMessageTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import JourneyEmailMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `FromAddress`: `str`
-
-
-## JourneyExecutionActivityMetricsResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import JourneyExecutionActivityMetricsResponseTypeDef
-```
-
-
-Required fields:
-- `ActivityType`: `str`
-- `ApplicationId`: `str`
-- `JourneyActivityId`: `str`
-- `JourneyId`: `str`
-- `LastEvaluatedTime`: `str`
-- `Metrics`: `Dict[str, str]`
-
-
-
-
-## JourneyExecutionMetricsResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import JourneyExecutionMetricsResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationId`: `str`
-- `JourneyId`: `str`
-- `LastEvaluatedTime`: `str`
-- `Metrics`: `Dict[str, str]`
-
-
-
-
-## JourneyLimitsTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import JourneyLimitsTypeDef
-```
-
-
-
-
-Optional fields:
-- `DailyCap`: `int`
-- `EndpointReentryCap`: `int`
-- `MessagesPerSecond`: `int`
-- `EndpointReentryInterval`: `str`
-
-
-## JourneyPushMessageTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import JourneyPushMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `TimeToLive`: `str`
-
-
-## JourneyResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import JourneyResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationId`: `str`
-- `Id`: `str`
-- `Name`: `str`
-
-
-
-Optional fields:
-- `Activities`: `Dict[str, "ActivityTypeDef"]`
-- `CreationDate`: `str`
-- `LastModifiedDate`: `str`
-- `Limits`: `"JourneyLimitsTypeDef"`
-- `LocalTime`: `bool`
-- `QuietTime`: `"QuietTimeTypeDef"`
-- `RefreshFrequency`: `str`
-- `Schedule`: `"JourneyScheduleTypeDef"`
-- `StartActivity`: `str`
-- `StartCondition`: `"StartConditionTypeDef"`
-- `State`: `State`
-- `tags`: `Dict[str, str]`
-- `WaitForQuietTime`: `bool`
-- `RefreshOnSegmentUpdate`: `bool`
-
-
-## JourneySMSMessageTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import JourneySMSMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `MessageType`: `MessageType`
-- `OriginationNumber`: `str`
-- `SenderId`: `str`
-- `EntityId`: `str`
-- `TemplateId`: `str`
-
-
-## JourneyScheduleTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import JourneyScheduleTypeDef
-```
-
-
-
-
-Optional fields:
-- `EndTime`: `datetime`
-- `StartTime`: `datetime`
-- `Timezone`: `str`
-
-
-## JourneysResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import JourneysResponseTypeDef
-```
-
-
-Required fields:
-- `Item`: `List["JourneyResponseTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListRecommenderConfigurationsResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ListRecommenderConfigurationsResponseTypeDef
-```
-
-
-Required fields:
-- `Item`: `List["RecommenderConfigurationResponseTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## MessageBodyTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import MessageBodyTypeDef
-```
-
-
-
-
-Optional fields:
-- `Message`: `str`
-- `RequestID`: `str`
-
-
-## MessageConfigurationTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import MessageConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ADMMessage`: `"MessageTypeDef"`
-- `APNSMessage`: `"MessageTypeDef"`
-- `BaiduMessage`: `"MessageTypeDef"`
-- `CustomMessage`: `"CampaignCustomMessageTypeDef"`
-- `DefaultMessage`: `"MessageTypeDef"`
-- `EmailMessage`: `"CampaignEmailMessageTypeDef"`
-- `GCMMessage`: `"MessageTypeDef"`
-- `SMSMessage`: `"CampaignSmsMessageTypeDef"`
-
-
-## MessageResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import MessageResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationId`: `str`
-
-
-
-Optional fields:
-- `EndpointResult`: `Dict[str, "EndpointMessageResultTypeDef"]`
-- `RequestId`: `str`
-- `Result`: `Dict[str, "MessageResultTypeDef"]`
-
-
-## MessageResultTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import MessageResultTypeDef
-```
-
-
-Required fields:
-- `DeliveryStatus`: `DeliveryStatus`
-- `StatusCode`: `int`
-
-
-
-Optional fields:
-- `MessageId`: `str`
-- `StatusMessage`: `str`
-- `UpdatedToken`: `str`
-
-
-## MessageTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import MessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Action`: `Action`
-- `Body`: `str`
-- `ImageIconUrl`: `str`
-- `ImageSmallIconUrl`: `str`
-- `ImageUrl`: `str`
-- `JsonBody`: `str`
-- `MediaUrl`: `str`
-- `RawContent`: `str`
-- `SilentPush`: `bool`
-- `TimeToLive`: `int`
-- `Title`: `str`
-- `Url`: `str`
-
-
-## MetricDimensionTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import MetricDimensionTypeDef
-```
-
-
-Required fields:
-- `ComparisonOperator`: `str`
-- `Value`: `float`
-
-
-
-
-## MultiConditionalBranchTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import MultiConditionalBranchTypeDef
-```
-
-
-
-
-Optional fields:
-- `Condition`: `"SimpleConditionTypeDef"`
-- `NextActivity`: `str`
-
-
-## MultiConditionalSplitActivityTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import MultiConditionalSplitActivityTypeDef
-```
-
-
-
-
-Optional fields:
-- `Branches`: `List["MultiConditionalBranchTypeDef"]`
-- `DefaultActivity`: `str`
-- `EvaluationWaitTime`: `"WaitTimeTypeDef"`
-
-
-## NumberValidateResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import NumberValidateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Carrier`: `str`
-- `City`: `str`
-- `CleansedPhoneNumberE164`: `str`
-- `CleansedPhoneNumberNational`: `str`
-- `Country`: `str`
-- `CountryCodeIso2`: `str`
-- `CountryCodeNumeric`: `str`
-- `County`: `str`
-- `OriginalCountryCodeIso2`: `str`
-- `OriginalPhoneNumber`: `str`
-- `PhoneType`: `str`
-- `PhoneTypeCode`: `int`
-- `Timezone`: `str`
-- `ZipCode`: `str`
-
-
-## PublicEndpointTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import PublicEndpointTypeDef
-```
-
-
-
-
-Optional fields:
-- `Address`: `str`
-- `Attributes`: `Dict[str, List[str]]`
-- `ChannelType`: `ChannelType`
-- `Demographic`: `"EndpointDemographicTypeDef"`
-- `EffectiveDate`: `str`
-- `EndpointStatus`: `str`
-- `Location`: `"EndpointLocationTypeDef"`
-- `Metrics`: `Dict[str, float]`
-- `OptOut`: `str`
-- `RequestId`: `str`
-- `User`: `"EndpointUserTypeDef"`
-
-
-## PushMessageActivityTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import PushMessageActivityTypeDef
-```
-
-
-
-
-Optional fields:
-- `MessageConfig`: `"JourneyPushMessageTypeDef"`
-- `NextActivity`: `str`
-- `TemplateName`: `str`
-- `TemplateVersion`: `str`
-
-
-## PushNotificationTemplateResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import PushNotificationTemplateResponseTypeDef
-```
-
-
-Required fields:
-- `CreationDate`: `str`
-- `LastModifiedDate`: `str`
-- `TemplateName`: `str`
-- `TemplateType`: `TemplateType`
-
-
-
-Optional fields:
-- `ADM`: `"AndroidPushNotificationTemplateTypeDef"`
-- `APNS`: `"APNSPushNotificationTemplateTypeDef"`
-- `Arn`: `str`
-- `Baidu`: `"AndroidPushNotificationTemplateTypeDef"`
-- `Default`: `"DefaultPushNotificationTemplateTypeDef"`
-- `DefaultSubstitutions`: `str`
-- `GCM`: `"AndroidPushNotificationTemplateTypeDef"`
-- `RecommenderId`: `str`
-- `tags`: `Dict[str, str]`
-- `TemplateDescription`: `str`
-- `Version`: `str`
-
-
-## QuietTimeTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import QuietTimeTypeDef
-```
-
-
-
-
-Optional fields:
-- `End`: `str`
-- `Start`: `str`
-
-
-## RandomSplitActivityTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import RandomSplitActivityTypeDef
-```
-
-
-
-
-Optional fields:
-- `Branches`: `List["RandomSplitEntryTypeDef"]`
-
-
-## RandomSplitEntryTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import RandomSplitEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextActivity`: `str`
-- `Percentage`: `int`
-
-
-## RawEmailTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import RawEmailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Data`: `Union[bytes, IO[bytes]]`
-
-
-## RecencyDimensionTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import RecencyDimensionTypeDef
-```
-
-
-Required fields:
-- `Duration`: `Duration`
-- `RecencyType`: `RecencyType`
-
-
-
-
-## RecommenderConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import RecommenderConfigurationResponseTypeDef
-```
-
-
-Required fields:
-- `CreationDate`: `str`
-- `Id`: `str`
-- `LastModifiedDate`: `str`
-- `RecommendationProviderRoleArn`: `str`
-- `RecommendationProviderUri`: `str`
-
-
-
-Optional fields:
-- `Attributes`: `Dict[str, str]`
-- `Description`: `str`
-- `Name`: `str`
-- `RecommendationProviderIdType`: `str`
-- `RecommendationTransformerUri`: `str`
-- `RecommendationsDisplayName`: `str`
-- `RecommendationsPerMessage`: `int`
-
-
-## ResultRowTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ResultRowTypeDef
-```
-
-
-Required fields:
-- `GroupedBys`: `List["ResultRowValueTypeDef"]`
-- `Values`: `List["ResultRowValueTypeDef"]`
-
-
-
-
-## ResultRowValueTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ResultRowValueTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Type`: `str`
-- `Value`: `str`
-
-
-
-
-## SMSChannelResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SMSChannelResponseTypeDef
-```
-
-
-Required fields:
-- `Platform`: `str`
-
-
-
-Optional fields:
-- `ApplicationId`: `str`
-- `CreationDate`: `str`
-- `Enabled`: `bool`
-- `HasCredential`: `bool`
-- `Id`: `str`
-- `IsArchived`: `bool`
-- `LastModifiedBy`: `str`
-- `LastModifiedDate`: `str`
-- `PromotionalMessagesPerSecond`: `int`
-- `SenderId`: `str`
-- `ShortCode`: `str`
-- `TransactionalMessagesPerSecond`: `int`
-- `Version`: `int`
-
-
-## SMSMessageActivityTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SMSMessageActivityTypeDef
-```
-
-
-
-
-Optional fields:
-- `MessageConfig`: `"JourneySMSMessageTypeDef"`
-- `NextActivity`: `str`
-- `TemplateName`: `str`
-- `TemplateVersion`: `str`
-
-
-## SMSMessageTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SMSMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Body`: `str`
-- `Keyword`: `str`
-- `MediaUrl`: `str`
-- `MessageType`: `MessageType`
-- `OriginationNumber`: `str`
-- `SenderId`: `str`
-- `Substitutions`: `Dict[str, List[str]]`
-- `EntityId`: `str`
-- `TemplateId`: `str`
-
-
-## SMSTemplateResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SMSTemplateResponseTypeDef
-```
-
-
-Required fields:
-- `CreationDate`: `str`
-- `LastModifiedDate`: `str`
-- `TemplateName`: `str`
-- `TemplateType`: `TemplateType`
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Body`: `str`
-- `DefaultSubstitutions`: `str`
-- `RecommenderId`: `str`
-- `tags`: `Dict[str, str]`
-- `TemplateDescription`: `str`
-- `Version`: `str`
-
-
-## ScheduleTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ScheduleTypeDef
-```
-
-
-Required fields:
-- `StartTime`: `str`
-
-
-
-Optional fields:
-- `EndTime`: `str`
-- `EventFilter`: `"CampaignEventFilterTypeDef"`
-- `Frequency`: `Frequency`
-- `IsLocalTime`: `bool`
-- `QuietTime`: `"QuietTimeTypeDef"`
-- `Timezone`: `str`
-
-
-## SegmentBehaviorsTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SegmentBehaviorsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Recency`: `"RecencyDimensionTypeDef"`
-
-
-## SegmentConditionTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SegmentConditionTypeDef
-```
-
-
-Required fields:
-- `SegmentId`: `str`
-
-
-
-
-## SegmentDemographicsTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SegmentDemographicsTypeDef
-```
-
-
-
-
-Optional fields:
-- `AppVersion`: `"SetDimensionTypeDef"`
-- `Channel`: `"SetDimensionTypeDef"`
-- `DeviceType`: `"SetDimensionTypeDef"`
-- `Make`: `"SetDimensionTypeDef"`
-- `Model`: `"SetDimensionTypeDef"`
-- `Platform`: `"SetDimensionTypeDef"`
-
-
-## SegmentDimensionsTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SegmentDimensionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Attributes`: `Dict[str, "AttributeDimensionTypeDef"]`
-- `Behavior`: `"SegmentBehaviorsTypeDef"`
-- `Demographic`: `"SegmentDemographicsTypeDef"`
-- `Location`: `"SegmentLocationTypeDef"`
-- `Metrics`: `Dict[str, "MetricDimensionTypeDef"]`
-- `UserAttributes`: `Dict[str, "AttributeDimensionTypeDef"]`
-
-
-## SegmentGroupListTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SegmentGroupListTypeDef
-```
-
-
-
-
-Optional fields:
-- `Groups`: `List["SegmentGroupTypeDef"]`
-- `Include`: `Include`
-
-
-## SegmentGroupTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SegmentGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `Dimensions`: `List["SegmentDimensionsTypeDef"]`
-- `SourceSegments`: `List["SegmentReferenceTypeDef"]`
-- `SourceType`: `SourceType`
-- `Type`: `TypeType`
-
-
-## SegmentImportResourceTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SegmentImportResourceTypeDef
-```
-
-
-Required fields:
-- `ExternalId`: `str`
-- `Format`: `Format`
-- `RoleArn`: `str`
-- `S3Url`: `str`
-- `Size`: `int`
-
-
-
-Optional fields:
-- `ChannelCounts`: `Dict[str, int]`
-
-
-## SegmentLocationTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SegmentLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Country`: `"SetDimensionTypeDef"`
-- `GPSPoint`: `"GPSPointDimensionTypeDef"`
-
-
-## SegmentReferenceTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SegmentReferenceTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-
-
-
-Optional fields:
-- `Version`: `int`
-
-
-## SegmentResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SegmentResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationId`: `str`
-- `Arn`: `str`
-- `CreationDate`: `str`
-- `Id`: `str`
-- `SegmentType`: `SegmentType`
-
-
-
-Optional fields:
-- `Dimensions`: `"SegmentDimensionsTypeDef"`
-- `ImportDefinition`: `"SegmentImportResourceTypeDef"`
-- `LastModifiedDate`: `str`
-- `Name`: `str`
-- `SegmentGroups`: `"SegmentGroupListTypeDef"`
-- `tags`: `Dict[str, str]`
-- `Version`: `int`
-
-
-## SegmentsResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SegmentsResponseTypeDef
-```
-
-
-Required fields:
-- `Item`: `List["SegmentResponseTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## SendUsersMessageResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SendUsersMessageResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationId`: `str`
-
-
-
-Optional fields:
-- `RequestId`: `str`
-- `Result`: `Dict[str, Dict[str, "EndpointMessageResultTypeDef"]]`
-
-
-## SessionTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SessionTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `StartTimestamp`: `str`
-
-
-
-Optional fields:
-- `Duration`: `int`
-- `StopTimestamp`: `str`
-
-
-## SetDimensionTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SetDimensionTypeDef
-```
-
-
-Required fields:
-- `Values`: `List[str]`
-
-
-
-Optional fields:
-- `DimensionType`: `DimensionType`
-
-
-## SimpleConditionTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SimpleConditionTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventCondition`: `"EventConditionTypeDef"`
-- `SegmentCondition`: `"SegmentConditionTypeDef"`
-- `SegmentDimensions`: `"SegmentDimensionsTypeDef"`
-
-
-## SimpleEmailPartTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SimpleEmailPartTypeDef
-```
-
-
-
-
-Optional fields:
-- `Charset`: `str`
-- `Data`: `str`
-
-
-## SimpleEmailTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import SimpleEmailTypeDef
-```
-
-
-
-
-Optional fields:
-- `HtmlPart`: `"SimpleEmailPartTypeDef"`
-- `Subject`: `"SimpleEmailPartTypeDef"`
-- `TextPart`: `"SimpleEmailPartTypeDef"`
-
-
-## StartConditionTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import StartConditionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `EventStartCondition`: `"EventStartConditionTypeDef"`
-- `SegmentStartCondition`: `"SegmentConditionTypeDef"`
-
-
-## TagsModelTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import TagsModelTypeDef
-```
-
-
-Required fields:
-- `tags`: `Dict[str, str]`
-
-
-
-
-## TemplateConfigurationTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import TemplateConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `EmailTemplate`: `"TemplateTypeDef"`
-- `PushTemplate`: `"TemplateTypeDef"`
-- `SMSTemplate`: `"TemplateTypeDef"`
-- `VoiceTemplate`: `"TemplateTypeDef"`
-
-
-## TemplateResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import TemplateResponseTypeDef
-```
-
-
-Required fields:
-- `CreationDate`: `str`
-- `LastModifiedDate`: `str`
-- `TemplateName`: `str`
-- `TemplateType`: `TemplateType`
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `DefaultSubstitutions`: `str`
-- `tags`: `Dict[str, str]`
-- `TemplateDescription`: `str`
-- `Version`: `str`
-
-
-## TemplateTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import TemplateTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Version`: `str`
-
-
-## TemplateVersionResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import TemplateVersionResponseTypeDef
-```
-
-
-Required fields:
-- `CreationDate`: `str`
-- `LastModifiedDate`: `str`
-- `TemplateName`: `str`
-- `TemplateType`: `str`
-
-
-
-Optional fields:
-- `DefaultSubstitutions`: `str`
-- `TemplateDescription`: `str`
-- `Version`: `str`
-
-
-## TemplateVersionsResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import TemplateVersionsResponseTypeDef
-```
-
-
-Required fields:
-- `Item`: `List["TemplateVersionResponseTypeDef"]`
-
-
-
-Optional fields:
-- `Message`: `str`
-- `NextToken`: `str`
-- `RequestID`: `str`
-
-
-## TemplatesResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import TemplatesResponseTypeDef
-```
-
-
-Required fields:
-- `Item`: `List["TemplateResponseTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## TreatmentResourceTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import TreatmentResourceTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `SizePercent`: `int`
-
-
-
-Optional fields:
-- `CustomDeliveryConfiguration`: `"CustomDeliveryConfigurationTypeDef"`
-- `MessageConfiguration`: `"MessageConfigurationTypeDef"`
-- `Schedule`: `"ScheduleTypeDef"`
-- `State`: `"CampaignStateTypeDef"`
-- `TemplateConfiguration`: `"TemplateConfigurationTypeDef"`
-- `TreatmentDescription`: `str`
-- `TreatmentName`: `str`
-
-
-## VoiceChannelResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import VoiceChannelResponseTypeDef
-```
-
-
-Required fields:
-- `Platform`: `str`
-
-
-
-Optional fields:
-- `ApplicationId`: `str`
-- `CreationDate`: `str`
-- `Enabled`: `bool`
-- `HasCredential`: `bool`
-- `Id`: `str`
-- `IsArchived`: `bool`
-- `LastModifiedBy`: `str`
-- `LastModifiedDate`: `str`
-- `Version`: `int`
-
-
-## VoiceMessageTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import VoiceMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Body`: `str`
-- `LanguageCode`: `str`
-- `OriginationNumber`: `str`
-- `Substitutions`: `Dict[str, List[str]]`
-- `VoiceId`: `str`
-
-
-## VoiceTemplateResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import VoiceTemplateResponseTypeDef
-```
-
-
-Required fields:
-- `CreationDate`: `str`
-- `LastModifiedDate`: `str`
-- `TemplateName`: `str`
-- `TemplateType`: `TemplateType`
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Body`: `str`
-- `DefaultSubstitutions`: `str`
-- `LanguageCode`: `str`
-- `tags`: `Dict[str, str]`
-- `TemplateDescription`: `str`
-- `Version`: `str`
-- `VoiceId`: `str`
-
-
-## WaitActivityTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import WaitActivityTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextActivity`: `str`
-- `WaitTime`: `"WaitTimeTypeDef"`
-
-
-## WaitTimeTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import WaitTimeTypeDef
-```
-
-
-
-
-Optional fields:
-- `WaitFor`: `str`
-- `WaitUntil`: `str`
-
-
-## WriteTreatmentResourceTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import WriteTreatmentResourceTypeDef
-```
-
-
-Required fields:
-- `SizePercent`: `int`
-
-
-
-Optional fields:
-- `CustomDeliveryConfiguration`: `"CustomDeliveryConfigurationTypeDef"`
-- `MessageConfiguration`: `"MessageConfigurationTypeDef"`
-- `Schedule`: `"ScheduleTypeDef"`
-- `TemplateConfiguration`: `"TemplateConfigurationTypeDef"`
-- `TreatmentDescription`: `str`
-- `TreatmentName`: `str`
-
-
-## ADMChannelRequestTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import ADMChannelRequestTypeDef
-```
-
-
-Required fields:
-- `ClientId`: `str`
-- `ClientSecret`: `str`
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
-## APNSChannelRequestTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import APNSChannelRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `BundleId`: `str`
-- `Certificate`: `str`
-- `DefaultAuthenticationMethod`: `str`
-- `Enabled`: `bool`
-- `PrivateKey`: `str`
-- `TeamId`: `str`
-- `TokenKey`: `str`
-- `TokenKeyId`: `str`
-
-
-## APNSSandboxChannelRequestTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import APNSSandboxChannelRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `BundleId`: `str`
-- `Certificate`: `str`
-- `DefaultAuthenticationMethod`: `str`
-- `Enabled`: `bool`
-- `PrivateKey`: `str`
-- `TeamId`: `str`
-- `TokenKey`: `str`
-- `TokenKeyId`: `str`
-
-
-## APNSVoipChannelRequestTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import APNSVoipChannelRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `BundleId`: `str`
-- `Certificate`: `str`
-- `DefaultAuthenticationMethod`: `str`
-- `Enabled`: `bool`
-- `PrivateKey`: `str`
-- `TeamId`: `str`
-- `TokenKey`: `str`
-- `TokenKeyId`: `str`
-
-
-## APNSVoipSandboxChannelRequestTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import APNSVoipSandboxChannelRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `BundleId`: `str`
-- `Certificate`: `str`
-- `DefaultAuthenticationMethod`: `str`
-- `Enabled`: `bool`
-- `PrivateKey`: `str`
-- `TeamId`: `str`
-- `TokenKey`: `str`
-- `TokenKeyId`: `str`
-
-
-## BaiduChannelRequestTypeDef
-
-```python
-from mypy_boto3_pinpoint.type_defs import BaiduChannelRequestTypeDef
-```
-
-
-Required fields:
-- `ApiKey`: `str`
-- `SecretKey`: `str`
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
 ## CreateAppResponseTypeDef
 
 ```python
@@ -3285,6 +1300,21 @@ Required fields:
 
 
 
+## CreateTemplateMessageBodyTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import CreateTemplateMessageBodyTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Message`: `str`
+- `RequestID`: `str`
+
+
 ## CreateVoiceTemplateResponseTypeDef
 
 ```python
@@ -3296,6 +1326,90 @@ Required fields:
 - `CreateTemplateMessageBody`: `"CreateTemplateMessageBodyTypeDef"`
 
 
+
+
+## CustomDeliveryConfigurationTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import CustomDeliveryConfigurationTypeDef
+```
+
+
+Required fields:
+- `DeliveryUri`: `str`
+
+
+
+Optional fields:
+- `EndpointTypes`: `List[__EndpointTypesElement]`
+
+
+## CustomMessageActivityTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import CustomMessageActivityTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeliveryUri`: `str`
+- `EndpointTypes`: `List[__EndpointTypesElement]`
+- `MessageConfig`: `"JourneyCustomMessageTypeDef"`
+- `NextActivity`: `str`
+- `TemplateName`: `str`
+- `TemplateVersion`: `str`
+
+
+## DefaultMessageTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import DefaultMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Body`: `str`
+- `Substitutions`: `Dict[str, List[str]]`
+
+
+## DefaultPushNotificationMessageTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import DefaultPushNotificationMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Action`: `Action`
+- `Body`: `str`
+- `Data`: `Dict[str, str]`
+- `SilentPush`: `bool`
+- `Substitutions`: `Dict[str, List[str]]`
+- `Title`: `str`
+- `Url`: `str`
+
+
+## DefaultPushNotificationTemplateTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import DefaultPushNotificationTemplateTypeDef
+```
+
+
+
+
+Optional fields:
+- `Action`: `Action`
+- `Body`: `str`
+- `Sound`: `str`
+- `Title`: `str`
+- `Url`: `str`
 
 
 ## DeleteAdmChannelResponseTypeDef
@@ -3584,6 +1698,27 @@ Required fields:
 
 
 
+## DirectMessageConfigurationTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import DirectMessageConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ADMMessage`: `"ADMMessageTypeDef"`
+- `APNSMessage`: `"APNSMessageTypeDef"`
+- `BaiduMessage`: `"BaiduMessageTypeDef"`
+- `DefaultMessage`: `"DefaultMessageTypeDef"`
+- `DefaultPushNotificationMessage`: `"DefaultPushNotificationMessageTypeDef"`
+- `EmailMessage`: `"EmailMessageTypeDef"`
+- `GCMMessage`: `"GCMMessageTypeDef"`
+- `SMSMessage`: `"SMSMessageTypeDef"`
+- `VoiceMessage`: `"VoiceMessageTypeDef"`
+
+
 ## EmailChannelRequestTypeDef
 
 ```python
@@ -3601,6 +1736,70 @@ Optional fields:
 - `ConfigurationSet`: `str`
 - `Enabled`: `bool`
 - `RoleArn`: `str`
+
+
+## EmailChannelResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EmailChannelResponseTypeDef
+```
+
+
+Required fields:
+- `Platform`: `str`
+
+
+
+Optional fields:
+- `ApplicationId`: `str`
+- `ConfigurationSet`: `str`
+- `CreationDate`: `str`
+- `Enabled`: `bool`
+- `FromAddress`: `str`
+- `HasCredential`: `bool`
+- `Id`: `str`
+- `Identity`: `str`
+- `IsArchived`: `bool`
+- `LastModifiedBy`: `str`
+- `LastModifiedDate`: `str`
+- `MessagesPerSecond`: `int`
+- `RoleArn`: `str`
+- `Version`: `int`
+
+
+## EmailMessageActivityTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EmailMessageActivityTypeDef
+```
+
+
+
+
+Optional fields:
+- `MessageConfig`: `"JourneyEmailMessageTypeDef"`
+- `NextActivity`: `str`
+- `TemplateName`: `str`
+- `TemplateVersion`: `str`
+
+
+## EmailMessageTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EmailMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Body`: `str`
+- `FeedbackForwardingAddress`: `str`
+- `FromAddress`: `str`
+- `RawEmail`: `"RawEmailTypeDef"`
+- `ReplyToAddresses`: `List[str]`
+- `SimpleEmail`: `"SimpleEmailTypeDef"`
+- `Substitutions`: `Dict[str, List[str]]`
 
 
 ## EmailTemplateRequestTypeDef
@@ -3622,6 +1821,57 @@ Optional fields:
 - `TextPart`: `str`
 
 
+## EmailTemplateResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EmailTemplateResponseTypeDef
+```
+
+
+Required fields:
+- `CreationDate`: `str`
+- `LastModifiedDate`: `str`
+- `TemplateName`: `str`
+- `TemplateType`: `TemplateType`
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `DefaultSubstitutions`: `str`
+- `HtmlPart`: `str`
+- `RecommenderId`: `str`
+- `Subject`: `str`
+- `tags`: `Dict[str, str]`
+- `TemplateDescription`: `str`
+- `TextPart`: `str`
+- `Version`: `str`
+
+
+## EndpointBatchItemTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EndpointBatchItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `Address`: `str`
+- `Attributes`: `Dict[str, List[str]]`
+- `ChannelType`: `ChannelType`
+- `Demographic`: `"EndpointDemographicTypeDef"`
+- `EffectiveDate`: `str`
+- `EndpointStatus`: `str`
+- `Id`: `str`
+- `Location`: `"EndpointLocationTypeDef"`
+- `Metrics`: `Dict[str, float]`
+- `OptOut`: `str`
+- `RequestId`: `str`
+- `User`: `"EndpointUserTypeDef"`
+
+
 ## EndpointBatchRequestTypeDef
 
 ```python
@@ -3633,6 +1883,78 @@ Required fields:
 - `Item`: `List["EndpointBatchItemTypeDef"]`
 
 
+
+
+## EndpointDemographicTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EndpointDemographicTypeDef
+```
+
+
+
+
+Optional fields:
+- `AppVersion`: `str`
+- `Locale`: `str`
+- `Make`: `str`
+- `Model`: `str`
+- `ModelVersion`: `str`
+- `Platform`: `str`
+- `PlatformVersion`: `str`
+- `Timezone`: `str`
+
+
+## EndpointItemResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EndpointItemResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Message`: `str`
+- `StatusCode`: `int`
+
+
+## EndpointLocationTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EndpointLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `City`: `str`
+- `Country`: `str`
+- `Latitude`: `float`
+- `Longitude`: `float`
+- `PostalCode`: `str`
+- `Region`: `str`
+
+
+## EndpointMessageResultTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EndpointMessageResultTypeDef
+```
+
+
+Required fields:
+- `DeliveryStatus`: `DeliveryStatus`
+- `StatusCode`: `int`
+
+
+
+Optional fields:
+- `Address`: `str`
+- `MessageId`: `str`
+- `StatusMessage`: `str`
+- `UpdatedToken`: `str`
 
 
 ## EndpointRequestTypeDef
@@ -3658,6 +1980,206 @@ Optional fields:
 - `User`: `"EndpointUserTypeDef"`
 
 
+## EndpointResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EndpointResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Address`: `str`
+- `ApplicationId`: `str`
+- `Attributes`: `Dict[str, List[str]]`
+- `ChannelType`: `ChannelType`
+- `CohortId`: `str`
+- `CreationDate`: `str`
+- `Demographic`: `"EndpointDemographicTypeDef"`
+- `EffectiveDate`: `str`
+- `EndpointStatus`: `str`
+- `Id`: `str`
+- `Location`: `"EndpointLocationTypeDef"`
+- `Metrics`: `Dict[str, float]`
+- `OptOut`: `str`
+- `RequestId`: `str`
+- `User`: `"EndpointUserTypeDef"`
+
+
+## EndpointSendConfigurationTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EndpointSendConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `BodyOverride`: `str`
+- `Context`: `Dict[str, str]`
+- `RawContent`: `str`
+- `Substitutions`: `Dict[str, List[str]]`
+- `TitleOverride`: `str`
+
+
+## EndpointUserTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EndpointUserTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserAttributes`: `Dict[str, List[str]]`
+- `UserId`: `str`
+
+
+## EndpointsResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EndpointsResponseTypeDef
+```
+
+
+Required fields:
+- `Item`: `List["EndpointResponseTypeDef"]`
+
+
+
+
+## EventConditionTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EventConditionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Dimensions`: `"EventDimensionsTypeDef"`
+- `MessageActivity`: `str`
+
+
+## EventDimensionsTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EventDimensionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Attributes`: `Dict[str, "AttributeDimensionTypeDef"]`
+- `EventType`: `"SetDimensionTypeDef"`
+- `Metrics`: `Dict[str, "MetricDimensionTypeDef"]`
+
+
+## EventFilterTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EventFilterTypeDef
+```
+
+
+Required fields:
+- `Dimensions`: `"EventDimensionsTypeDef"`
+- `FilterType`: `FilterType`
+
+
+
+
+## EventItemResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EventItemResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Message`: `str`
+- `StatusCode`: `int`
+
+
+## EventStartConditionTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EventStartConditionTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventFilter`: `"EventFilterTypeDef"`
+- `SegmentId`: `str`
+
+
+## EventStreamTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EventStreamTypeDef
+```
+
+
+Required fields:
+- `ApplicationId`: `str`
+- `DestinationStreamArn`: `str`
+- `RoleArn`: `str`
+
+
+
+Optional fields:
+- `ExternalId`: `str`
+- `LastModifiedDate`: `str`
+- `LastUpdatedBy`: `str`
+
+
+## EventTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EventTypeDef
+```
+
+
+Required fields:
+- `EventType`: `str`
+- `Timestamp`: `str`
+
+
+
+Optional fields:
+- `AppPackageName`: `str`
+- `AppTitle`: `str`
+- `AppVersionCode`: `str`
+- `Attributes`: `Dict[str, str]`
+- `ClientSdkVersion`: `str`
+- `Metrics`: `Dict[str, float]`
+- `SdkName`: `str`
+- `Session`: `"SessionTypeDef"`
+
+
+## EventsBatchTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EventsBatchTypeDef
+```
+
+
+Required fields:
+- `Endpoint`: `"PublicEndpointTypeDef"`
+- `Events`: `Dict[str, "EventTypeDef"]`
+
+
+
+
 ## EventsRequestTypeDef
 
 ```python
@@ -3669,6 +2191,19 @@ Required fields:
 - `BatchItem`: `Dict[str, "EventsBatchTypeDef"]`
 
 
+
+
+## EventsResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import EventsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Results`: `Dict[str, "ItemResponseTypeDef"]`
 
 
 ## ExportJobRequestTypeDef
@@ -3689,6 +2224,67 @@ Optional fields:
 - `SegmentVersion`: `int`
 
 
+## ExportJobResourceTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ExportJobResourceTypeDef
+```
+
+
+Required fields:
+- `RoleArn`: `str`
+- `S3UrlPrefix`: `str`
+
+
+
+Optional fields:
+- `SegmentId`: `str`
+- `SegmentVersion`: `int`
+
+
+## ExportJobResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ExportJobResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationId`: `str`
+- `CreationDate`: `str`
+- `Definition`: `"ExportJobResourceTypeDef"`
+- `Id`: `str`
+- `JobStatus`: `JobStatus`
+- `Type`: `str`
+
+
+
+Optional fields:
+- `CompletedPieces`: `int`
+- `CompletionDate`: `str`
+- `FailedPieces`: `int`
+- `Failures`: `List[str]`
+- `TotalFailures`: `int`
+- `TotalPieces`: `int`
+- `TotalProcessed`: `int`
+
+
+## ExportJobsResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ExportJobsResponseTypeDef
+```
+
+
+Required fields:
+- `Item`: `List["ExportJobResponseTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
 ## GCMChannelRequestTypeDef
 
 ```python
@@ -3703,6 +2299,90 @@ Required fields:
 
 Optional fields:
 - `Enabled`: `bool`
+
+
+## GCMChannelResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import GCMChannelResponseTypeDef
+```
+
+
+Required fields:
+- `Credential`: `str`
+- `Platform`: `str`
+
+
+
+Optional fields:
+- `ApplicationId`: `str`
+- `CreationDate`: `str`
+- `Enabled`: `bool`
+- `HasCredential`: `bool`
+- `Id`: `str`
+- `IsArchived`: `bool`
+- `LastModifiedBy`: `str`
+- `LastModifiedDate`: `str`
+- `Version`: `int`
+
+
+## GCMMessageTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import GCMMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Action`: `Action`
+- `Body`: `str`
+- `CollapseKey`: `str`
+- `Data`: `Dict[str, str]`
+- `IconReference`: `str`
+- `ImageIconUrl`: `str`
+- `ImageUrl`: `str`
+- `Priority`: `str`
+- `RawContent`: `str`
+- `RestrictedPackageName`: `str`
+- `SilentPush`: `bool`
+- `SmallImageIconUrl`: `str`
+- `Sound`: `str`
+- `Substitutions`: `Dict[str, List[str]]`
+- `TimeToLive`: `int`
+- `Title`: `str`
+- `Url`: `str`
+
+
+## GPSCoordinatesTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import GPSCoordinatesTypeDef
+```
+
+
+Required fields:
+- `Latitude`: `float`
+- `Longitude`: `float`
+
+
+
+
+## GPSPointDimensionTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import GPSPointDimensionTypeDef
+```
+
+
+Required fields:
+- `Coordinates`: `"GPSCoordinatesTypeDef"`
+
+
+
+Optional fields:
+- `RangeInKilometers`: `float`
 
 
 ## GetAdmChannelResponseTypeDef
@@ -4277,6 +2957,22 @@ Required fields:
 
 
 
+## HoldoutActivityTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import HoldoutActivityTypeDef
+```
+
+
+Required fields:
+- `Percentage`: `int`
+
+
+
+Optional fields:
+- `NextActivity`: `str`
+
+
 ## ImportJobRequestTypeDef
 
 ```python
@@ -4299,6 +2995,258 @@ Optional fields:
 - `SegmentName`: `str`
 
 
+## ImportJobResourceTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ImportJobResourceTypeDef
+```
+
+
+Required fields:
+- `Format`: `Format`
+- `RoleArn`: `str`
+- `S3Url`: `str`
+
+
+
+Optional fields:
+- `DefineSegment`: `bool`
+- `ExternalId`: `str`
+- `RegisterEndpoints`: `bool`
+- `SegmentId`: `str`
+- `SegmentName`: `str`
+
+
+## ImportJobResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ImportJobResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationId`: `str`
+- `CreationDate`: `str`
+- `Definition`: `"ImportJobResourceTypeDef"`
+- `Id`: `str`
+- `JobStatus`: `JobStatus`
+- `Type`: `str`
+
+
+
+Optional fields:
+- `CompletedPieces`: `int`
+- `CompletionDate`: `str`
+- `FailedPieces`: `int`
+- `Failures`: `List[str]`
+- `TotalFailures`: `int`
+- `TotalPieces`: `int`
+- `TotalProcessed`: `int`
+
+
+## ImportJobsResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ImportJobsResponseTypeDef
+```
+
+
+Required fields:
+- `Item`: `List["ImportJobResponseTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ItemResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ItemResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `EndpointItemResponse`: `"EndpointItemResponseTypeDef"`
+- `EventsItemResponse`: `Dict[str, "EventItemResponseTypeDef"]`
+
+
+## JourneyCustomMessageTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import JourneyCustomMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Data`: `str`
+
+
+## JourneyDateRangeKpiResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import JourneyDateRangeKpiResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationId`: `str`
+- `EndTime`: `datetime`
+- `JourneyId`: `str`
+- `KpiName`: `str`
+- `KpiResult`: `"BaseKpiResultTypeDef"`
+- `StartTime`: `datetime`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## JourneyEmailMessageTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import JourneyEmailMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `FromAddress`: `str`
+
+
+## JourneyExecutionActivityMetricsResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import JourneyExecutionActivityMetricsResponseTypeDef
+```
+
+
+Required fields:
+- `ActivityType`: `str`
+- `ApplicationId`: `str`
+- `JourneyActivityId`: `str`
+- `JourneyId`: `str`
+- `LastEvaluatedTime`: `str`
+- `Metrics`: `Dict[str, str]`
+
+
+
+
+## JourneyExecutionMetricsResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import JourneyExecutionMetricsResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationId`: `str`
+- `JourneyId`: `str`
+- `LastEvaluatedTime`: `str`
+- `Metrics`: `Dict[str, str]`
+
+
+
+
+## JourneyLimitsTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import JourneyLimitsTypeDef
+```
+
+
+
+
+Optional fields:
+- `DailyCap`: `int`
+- `EndpointReentryCap`: `int`
+- `MessagesPerSecond`: `int`
+- `EndpointReentryInterval`: `str`
+
+
+## JourneyPushMessageTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import JourneyPushMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `TimeToLive`: `str`
+
+
+## JourneyResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import JourneyResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationId`: `str`
+- `Id`: `str`
+- `Name`: `str`
+
+
+
+Optional fields:
+- `Activities`: `Dict[str, "ActivityTypeDef"]`
+- `CreationDate`: `str`
+- `LastModifiedDate`: `str`
+- `Limits`: `"JourneyLimitsTypeDef"`
+- `LocalTime`: `bool`
+- `QuietTime`: `"QuietTimeTypeDef"`
+- `RefreshFrequency`: `str`
+- `Schedule`: `"JourneyScheduleTypeDef"`
+- `StartActivity`: `str`
+- `StartCondition`: `"StartConditionTypeDef"`
+- `State`: `State`
+- `tags`: `Dict[str, str]`
+- `WaitForQuietTime`: `bool`
+- `RefreshOnSegmentUpdate`: `bool`
+
+
+## JourneySMSMessageTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import JourneySMSMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `MessageType`: `MessageType`
+- `OriginationNumber`: `str`
+- `SenderId`: `str`
+- `EntityId`: `str`
+- `TemplateId`: `str`
+
+
+## JourneyScheduleTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import JourneyScheduleTypeDef
+```
+
+
+
+
+Optional fields:
+- `EndTime`: `datetime`
+- `StartTime`: `datetime`
+- `Timezone`: `str`
+
+
 ## JourneyStateRequestTypeDef
 
 ```python
@@ -4312,6 +3260,22 @@ Optional fields:
 - `State`: `State`
 
 
+## JourneysResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import JourneysResponseTypeDef
+```
+
+
+Required fields:
+- `Item`: `List["JourneyResponseTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
 ## ListJourneysResponseTypeDef
 
 ```python
@@ -4323,6 +3287,22 @@ Required fields:
 - `JourneysResponse`: `"JourneysResponseTypeDef"`
 
 
+
+
+## ListRecommenderConfigurationsResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ListRecommenderConfigurationsResponseTypeDef
+```
+
+
+Required fields:
+- `Item`: `List["RecommenderConfigurationResponseTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
 
 
 ## ListTagsForResourceResponseTypeDef
@@ -4364,6 +3344,40 @@ Required fields:
 
 
 
+## MessageBodyTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import MessageBodyTypeDef
+```
+
+
+
+
+Optional fields:
+- `Message`: `str`
+- `RequestID`: `str`
+
+
+## MessageConfigurationTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import MessageConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ADMMessage`: `"MessageTypeDef"`
+- `APNSMessage`: `"MessageTypeDef"`
+- `BaiduMessage`: `"MessageTypeDef"`
+- `CustomMessage`: `"CampaignCustomMessageTypeDef"`
+- `DefaultMessage`: `"MessageTypeDef"`
+- `EmailMessage`: `"CampaignEmailMessageTypeDef"`
+- `GCMMessage`: `"MessageTypeDef"`
+- `SMSMessage`: `"CampaignSmsMessageTypeDef"`
+
+
 ## MessageRequestTypeDef
 
 ```python
@@ -4384,6 +3398,110 @@ Optional fields:
 - `TraceId`: `str`
 
 
+## MessageResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import MessageResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationId`: `str`
+
+
+
+Optional fields:
+- `EndpointResult`: `Dict[str, "EndpointMessageResultTypeDef"]`
+- `RequestId`: `str`
+- `Result`: `Dict[str, "MessageResultTypeDef"]`
+
+
+## MessageResultTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import MessageResultTypeDef
+```
+
+
+Required fields:
+- `DeliveryStatus`: `DeliveryStatus`
+- `StatusCode`: `int`
+
+
+
+Optional fields:
+- `MessageId`: `str`
+- `StatusMessage`: `str`
+- `UpdatedToken`: `str`
+
+
+## MessageTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import MessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Action`: `Action`
+- `Body`: `str`
+- `ImageIconUrl`: `str`
+- `ImageSmallIconUrl`: `str`
+- `ImageUrl`: `str`
+- `JsonBody`: `str`
+- `MediaUrl`: `str`
+- `RawContent`: `str`
+- `SilentPush`: `bool`
+- `TimeToLive`: `int`
+- `Title`: `str`
+- `Url`: `str`
+
+
+## MetricDimensionTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import MetricDimensionTypeDef
+```
+
+
+Required fields:
+- `ComparisonOperator`: `str`
+- `Value`: `float`
+
+
+
+
+## MultiConditionalBranchTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import MultiConditionalBranchTypeDef
+```
+
+
+
+
+Optional fields:
+- `Condition`: `"SimpleConditionTypeDef"`
+- `NextActivity`: `str`
+
+
+## MultiConditionalSplitActivityTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import MultiConditionalSplitActivityTypeDef
+```
+
+
+
+
+Optional fields:
+- `Branches`: `List["MultiConditionalBranchTypeDef"]`
+- `DefaultActivity`: `str`
+- `EvaluationWaitTime`: `"WaitTimeTypeDef"`
+
+
 ## NumberValidateRequestTypeDef
 
 ```python
@@ -4398,6 +3516,32 @@ Optional fields:
 - `PhoneNumber`: `str`
 
 
+## NumberValidateResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import NumberValidateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Carrier`: `str`
+- `City`: `str`
+- `CleansedPhoneNumberE164`: `str`
+- `CleansedPhoneNumberNational`: `str`
+- `Country`: `str`
+- `CountryCodeIso2`: `str`
+- `CountryCodeNumeric`: `str`
+- `County`: `str`
+- `OriginalCountryCodeIso2`: `str`
+- `OriginalPhoneNumber`: `str`
+- `PhoneType`: `str`
+- `PhoneTypeCode`: `int`
+- `Timezone`: `str`
+- `ZipCode`: `str`
+
+
 ## PhoneNumberValidateResponseTypeDef
 
 ```python
@@ -4409,6 +3553,45 @@ Required fields:
 - `NumberValidateResponse`: `"NumberValidateResponseTypeDef"`
 
 
+
+
+## PublicEndpointTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import PublicEndpointTypeDef
+```
+
+
+
+
+Optional fields:
+- `Address`: `str`
+- `Attributes`: `Dict[str, List[str]]`
+- `ChannelType`: `ChannelType`
+- `Demographic`: `"EndpointDemographicTypeDef"`
+- `EffectiveDate`: `str`
+- `EndpointStatus`: `str`
+- `Location`: `"EndpointLocationTypeDef"`
+- `Metrics`: `Dict[str, float]`
+- `OptOut`: `str`
+- `RequestId`: `str`
+- `User`: `"EndpointUserTypeDef"`
+
+
+## PushMessageActivityTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import PushMessageActivityTypeDef
+```
+
+
+
+
+Optional fields:
+- `MessageConfig`: `"JourneyPushMessageTypeDef"`
+- `NextActivity`: `str`
+- `TemplateName`: `str`
+- `TemplateVersion`: `str`
 
 
 ## PushNotificationTemplateRequestTypeDef
@@ -4430,6 +3613,35 @@ Optional fields:
 - `RecommenderId`: `str`
 - `tags`: `Dict[str, str]`
 - `TemplateDescription`: `str`
+
+
+## PushNotificationTemplateResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import PushNotificationTemplateResponseTypeDef
+```
+
+
+Required fields:
+- `CreationDate`: `str`
+- `LastModifiedDate`: `str`
+- `TemplateName`: `str`
+- `TemplateType`: `TemplateType`
+
+
+
+Optional fields:
+- `ADM`: `"AndroidPushNotificationTemplateTypeDef"`
+- `APNS`: `"APNSPushNotificationTemplateTypeDef"`
+- `Arn`: `str`
+- `Baidu`: `"AndroidPushNotificationTemplateTypeDef"`
+- `Default`: `"DefaultPushNotificationTemplateTypeDef"`
+- `DefaultSubstitutions`: `str`
+- `GCM`: `"AndroidPushNotificationTemplateTypeDef"`
+- `RecommenderId`: `str`
+- `tags`: `Dict[str, str]`
+- `TemplateDescription`: `str`
+- `Version`: `str`
 
 
 ## PutEventStreamResponseTypeDef
@@ -4458,6 +3670,100 @@ Required fields:
 
 
 
+## QuietTimeTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import QuietTimeTypeDef
+```
+
+
+
+
+Optional fields:
+- `End`: `str`
+- `Start`: `str`
+
+
+## RandomSplitActivityTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import RandomSplitActivityTypeDef
+```
+
+
+
+
+Optional fields:
+- `Branches`: `List["RandomSplitEntryTypeDef"]`
+
+
+## RandomSplitEntryTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import RandomSplitEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextActivity`: `str`
+- `Percentage`: `int`
+
+
+## RawEmailTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import RawEmailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Data`: `Union[bytes, IO[bytes]]`
+
+
+## RecencyDimensionTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import RecencyDimensionTypeDef
+```
+
+
+Required fields:
+- `Duration`: `Duration`
+- `RecencyType`: `RecencyType`
+
+
+
+
+## RecommenderConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import RecommenderConfigurationResponseTypeDef
+```
+
+
+Required fields:
+- `CreationDate`: `str`
+- `Id`: `str`
+- `LastModifiedDate`: `str`
+- `RecommendationProviderRoleArn`: `str`
+- `RecommendationProviderUri`: `str`
+
+
+
+Optional fields:
+- `Attributes`: `Dict[str, str]`
+- `Description`: `str`
+- `Name`: `str`
+- `RecommendationProviderIdType`: `str`
+- `RecommendationTransformerUri`: `str`
+- `RecommendationsDisplayName`: `str`
+- `RecommendationsPerMessage`: `int`
+
+
 ## RemoveAttributesResponseTypeDef
 
 ```python
@@ -4467,6 +3773,35 @@ from mypy_boto3_pinpoint.type_defs import RemoveAttributesResponseTypeDef
 
 Required fields:
 - `AttributesResource`: `"AttributesResourceTypeDef"`
+
+
+
+
+## ResultRowTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ResultRowTypeDef
+```
+
+
+Required fields:
+- `GroupedBys`: `List["ResultRowValueTypeDef"]`
+- `Values`: `List["ResultRowValueTypeDef"]`
+
+
+
+
+## ResultRowValueTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ResultRowValueTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Type`: `str`
+- `Value`: `str`
 
 
 
@@ -4486,6 +3821,71 @@ Optional fields:
 - `ShortCode`: `str`
 
 
+## SMSChannelResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SMSChannelResponseTypeDef
+```
+
+
+Required fields:
+- `Platform`: `str`
+
+
+
+Optional fields:
+- `ApplicationId`: `str`
+- `CreationDate`: `str`
+- `Enabled`: `bool`
+- `HasCredential`: `bool`
+- `Id`: `str`
+- `IsArchived`: `bool`
+- `LastModifiedBy`: `str`
+- `LastModifiedDate`: `str`
+- `PromotionalMessagesPerSecond`: `int`
+- `SenderId`: `str`
+- `ShortCode`: `str`
+- `TransactionalMessagesPerSecond`: `int`
+- `Version`: `int`
+
+
+## SMSMessageActivityTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SMSMessageActivityTypeDef
+```
+
+
+
+
+Optional fields:
+- `MessageConfig`: `"JourneySMSMessageTypeDef"`
+- `NextActivity`: `str`
+- `TemplateName`: `str`
+- `TemplateVersion`: `str`
+
+
+## SMSMessageTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SMSMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Body`: `str`
+- `Keyword`: `str`
+- `MediaUrl`: `str`
+- `MessageType`: `MessageType`
+- `OriginationNumber`: `str`
+- `SenderId`: `str`
+- `Substitutions`: `Dict[str, List[str]]`
+- `EntityId`: `str`
+- `TemplateId`: `str`
+
+
 ## SMSTemplateRequestTypeDef
 
 ```python
@@ -4501,6 +3901,236 @@ Optional fields:
 - `RecommenderId`: `str`
 - `tags`: `Dict[str, str]`
 - `TemplateDescription`: `str`
+
+
+## SMSTemplateResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SMSTemplateResponseTypeDef
+```
+
+
+Required fields:
+- `CreationDate`: `str`
+- `LastModifiedDate`: `str`
+- `TemplateName`: `str`
+- `TemplateType`: `TemplateType`
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Body`: `str`
+- `DefaultSubstitutions`: `str`
+- `RecommenderId`: `str`
+- `tags`: `Dict[str, str]`
+- `TemplateDescription`: `str`
+- `Version`: `str`
+
+
+## ScheduleTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import ScheduleTypeDef
+```
+
+
+Required fields:
+- `StartTime`: `str`
+
+
+
+Optional fields:
+- `EndTime`: `str`
+- `EventFilter`: `"CampaignEventFilterTypeDef"`
+- `Frequency`: `Frequency`
+- `IsLocalTime`: `bool`
+- `QuietTime`: `"QuietTimeTypeDef"`
+- `Timezone`: `str`
+
+
+## SegmentBehaviorsTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SegmentBehaviorsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Recency`: `"RecencyDimensionTypeDef"`
+
+
+## SegmentConditionTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SegmentConditionTypeDef
+```
+
+
+Required fields:
+- `SegmentId`: `str`
+
+
+
+
+## SegmentDemographicsTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SegmentDemographicsTypeDef
+```
+
+
+
+
+Optional fields:
+- `AppVersion`: `"SetDimensionTypeDef"`
+- `Channel`: `"SetDimensionTypeDef"`
+- `DeviceType`: `"SetDimensionTypeDef"`
+- `Make`: `"SetDimensionTypeDef"`
+- `Model`: `"SetDimensionTypeDef"`
+- `Platform`: `"SetDimensionTypeDef"`
+
+
+## SegmentDimensionsTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SegmentDimensionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Attributes`: `Dict[str, "AttributeDimensionTypeDef"]`
+- `Behavior`: `"SegmentBehaviorsTypeDef"`
+- `Demographic`: `"SegmentDemographicsTypeDef"`
+- `Location`: `"SegmentLocationTypeDef"`
+- `Metrics`: `Dict[str, "MetricDimensionTypeDef"]`
+- `UserAttributes`: `Dict[str, "AttributeDimensionTypeDef"]`
+
+
+## SegmentGroupListTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SegmentGroupListTypeDef
+```
+
+
+
+
+Optional fields:
+- `Groups`: `List["SegmentGroupTypeDef"]`
+- `Include`: `Include`
+
+
+## SegmentGroupTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SegmentGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `Dimensions`: `List["SegmentDimensionsTypeDef"]`
+- `SourceSegments`: `List["SegmentReferenceTypeDef"]`
+- `SourceType`: `SourceType`
+- `Type`: `TypeType`
+
+
+## SegmentImportResourceTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SegmentImportResourceTypeDef
+```
+
+
+Required fields:
+- `ExternalId`: `str`
+- `Format`: `Format`
+- `RoleArn`: `str`
+- `S3Url`: `str`
+- `Size`: `int`
+
+
+
+Optional fields:
+- `ChannelCounts`: `Dict[str, int]`
+
+
+## SegmentLocationTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SegmentLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Country`: `"SetDimensionTypeDef"`
+- `GPSPoint`: `"GPSPointDimensionTypeDef"`
+
+
+## SegmentReferenceTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SegmentReferenceTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+
+
+
+Optional fields:
+- `Version`: `int`
+
+
+## SegmentResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SegmentResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationId`: `str`
+- `Arn`: `str`
+- `CreationDate`: `str`
+- `Id`: `str`
+- `SegmentType`: `SegmentType`
+
+
+
+Optional fields:
+- `Dimensions`: `"SegmentDimensionsTypeDef"`
+- `ImportDefinition`: `"SegmentImportResourceTypeDef"`
+- `LastModifiedDate`: `str`
+- `Name`: `str`
+- `SegmentGroups`: `"SegmentGroupListTypeDef"`
+- `tags`: `Dict[str, str]`
+- `Version`: `int`
+
+
+## SegmentsResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SegmentsResponseTypeDef
+```
+
+
+Required fields:
+- `Item`: `List["SegmentResponseTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
 
 
 ## SendMessagesResponseTypeDef
@@ -4535,6 +4165,23 @@ Optional fields:
 - `TraceId`: `str`
 
 
+## SendUsersMessageResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SendUsersMessageResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationId`: `str`
+
+
+
+Optional fields:
+- `RequestId`: `str`
+- `Result`: `Dict[str, Dict[str, "EndpointMessageResultTypeDef"]]`
+
+
 ## SendUsersMessagesResponseTypeDef
 
 ```python
@@ -4544,6 +4191,112 @@ from mypy_boto3_pinpoint.type_defs import SendUsersMessagesResponseTypeDef
 
 Required fields:
 - `SendUsersMessageResponse`: `"SendUsersMessageResponseTypeDef"`
+
+
+
+
+## SessionTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SessionTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `StartTimestamp`: `str`
+
+
+
+Optional fields:
+- `Duration`: `int`
+- `StopTimestamp`: `str`
+
+
+## SetDimensionTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SetDimensionTypeDef
+```
+
+
+Required fields:
+- `Values`: `List[str]`
+
+
+
+Optional fields:
+- `DimensionType`: `DimensionType`
+
+
+## SimpleConditionTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SimpleConditionTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventCondition`: `"EventConditionTypeDef"`
+- `SegmentCondition`: `"SegmentConditionTypeDef"`
+- `SegmentDimensions`: `"SegmentDimensionsTypeDef"`
+
+
+## SimpleEmailPartTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SimpleEmailPartTypeDef
+```
+
+
+
+
+Optional fields:
+- `Charset`: `str`
+- `Data`: `str`
+
+
+## SimpleEmailTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import SimpleEmailTypeDef
+```
+
+
+
+
+Optional fields:
+- `HtmlPart`: `"SimpleEmailPartTypeDef"`
+- `Subject`: `"SimpleEmailPartTypeDef"`
+- `TextPart`: `"SimpleEmailPartTypeDef"`
+
+
+## StartConditionTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import StartConditionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `EventStartCondition`: `"EventStartConditionTypeDef"`
+- `SegmentStartCondition`: `"SegmentConditionTypeDef"`
+
+
+## TagsModelTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import TagsModelTypeDef
+```
+
+
+Required fields:
+- `tags`: `Dict[str, str]`
 
 
 
@@ -4559,6 +4312,137 @@ from mypy_boto3_pinpoint.type_defs import TemplateActiveVersionRequestTypeDef
 
 Optional fields:
 - `Version`: `str`
+
+
+## TemplateConfigurationTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import TemplateConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `EmailTemplate`: `"TemplateTypeDef"`
+- `PushTemplate`: `"TemplateTypeDef"`
+- `SMSTemplate`: `"TemplateTypeDef"`
+- `VoiceTemplate`: `"TemplateTypeDef"`
+
+
+## TemplateResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import TemplateResponseTypeDef
+```
+
+
+Required fields:
+- `CreationDate`: `str`
+- `LastModifiedDate`: `str`
+- `TemplateName`: `str`
+- `TemplateType`: `TemplateType`
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `DefaultSubstitutions`: `str`
+- `tags`: `Dict[str, str]`
+- `TemplateDescription`: `str`
+- `Version`: `str`
+
+
+## TemplateTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import TemplateTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Version`: `str`
+
+
+## TemplateVersionResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import TemplateVersionResponseTypeDef
+```
+
+
+Required fields:
+- `CreationDate`: `str`
+- `LastModifiedDate`: `str`
+- `TemplateName`: `str`
+- `TemplateType`: `str`
+
+
+
+Optional fields:
+- `DefaultSubstitutions`: `str`
+- `TemplateDescription`: `str`
+- `Version`: `str`
+
+
+## TemplateVersionsResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import TemplateVersionsResponseTypeDef
+```
+
+
+Required fields:
+- `Item`: `List["TemplateVersionResponseTypeDef"]`
+
+
+
+Optional fields:
+- `Message`: `str`
+- `NextToken`: `str`
+- `RequestID`: `str`
+
+
+## TemplatesResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import TemplatesResponseTypeDef
+```
+
+
+Required fields:
+- `Item`: `List["TemplateResponseTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## TreatmentResourceTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import TreatmentResourceTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `SizePercent`: `int`
+
+
+
+Optional fields:
+- `CustomDeliveryConfiguration`: `"CustomDeliveryConfigurationTypeDef"`
+- `MessageConfiguration`: `"MessageConfigurationTypeDef"`
+- `Schedule`: `"ScheduleTypeDef"`
+- `State`: `"CampaignStateTypeDef"`
+- `TemplateConfiguration`: `"TemplateConfigurationTypeDef"`
+- `TreatmentDescription`: `str`
+- `TreatmentName`: `str`
 
 
 ## UpdateAdmChannelResponseTypeDef
@@ -4909,6 +4793,47 @@ Optional fields:
 - `Enabled`: `bool`
 
 
+## VoiceChannelResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import VoiceChannelResponseTypeDef
+```
+
+
+Required fields:
+- `Platform`: `str`
+
+
+
+Optional fields:
+- `ApplicationId`: `str`
+- `CreationDate`: `str`
+- `Enabled`: `bool`
+- `HasCredential`: `bool`
+- `Id`: `str`
+- `IsArchived`: `bool`
+- `LastModifiedBy`: `str`
+- `LastModifiedDate`: `str`
+- `Version`: `int`
+
+
+## VoiceMessageTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import VoiceMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Body`: `str`
+- `LanguageCode`: `str`
+- `OriginationNumber`: `str`
+- `Substitutions`: `Dict[str, List[str]]`
+- `VoiceId`: `str`
+
+
 ## VoiceTemplateRequestTypeDef
 
 ```python
@@ -4925,6 +4850,60 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 - `TemplateDescription`: `str`
 - `VoiceId`: `str`
+
+
+## VoiceTemplateResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import VoiceTemplateResponseTypeDef
+```
+
+
+Required fields:
+- `CreationDate`: `str`
+- `LastModifiedDate`: `str`
+- `TemplateName`: `str`
+- `TemplateType`: `TemplateType`
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Body`: `str`
+- `DefaultSubstitutions`: `str`
+- `LanguageCode`: `str`
+- `tags`: `Dict[str, str]`
+- `TemplateDescription`: `str`
+- `Version`: `str`
+- `VoiceId`: `str`
+
+
+## WaitActivityTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import WaitActivityTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextActivity`: `str`
+- `WaitTime`: `"WaitTimeTypeDef"`
+
+
+## WaitTimeTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import WaitTimeTypeDef
+```
+
+
+
+
+Optional fields:
+- `WaitFor`: `str`
+- `WaitUntil`: `str`
 
 
 ## WriteApplicationSettingsRequestTypeDef
@@ -5028,4 +5007,25 @@ Optional fields:
 - `Name`: `str`
 - `SegmentGroups`: `"SegmentGroupListTypeDef"`
 - `tags`: `Dict[str, str]`
+
+
+## WriteTreatmentResourceTypeDef
+
+```python
+from mypy_boto3_pinpoint.type_defs import WriteTreatmentResourceTypeDef
+```
+
+
+Required fields:
+- `SizePercent`: `int`
+
+
+
+Optional fields:
+- `CustomDeliveryConfiguration`: `"CustomDeliveryConfigurationTypeDef"`
+- `MessageConfiguration`: `"MessageConfigurationTypeDef"`
+- `Schedule`: `"ScheduleTypeDef"`
+- `TemplateConfiguration`: `"TemplateConfigurationTypeDef"`
+- `TreatmentDescription`: `str`
+- `TreatmentName`: `str`
 

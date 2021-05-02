@@ -47,15 +47,6 @@ type annotations stubs module [mypy_boto3_iotthingsgraph](https://pypi.org/proje
     - [update_system_template](#update_system_template)
     - [upload_entity_definitions](#upload_entity_definitions)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
 
 ## IoTThingsGraphClient
 
@@ -662,152 +653,21 @@ def upload_entity_definitions(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("iotthingsgraph").get_paginator` method.
-
-[Paginator.GetFlowTemplateRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetFlowTemplateRevisionsPaginatorName
-) -> GetFlowTemplateRevisionsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("iotthingsgraph").get_paginator` method.
+Type annotations for `boto3.client("iotthingsgraph").get_paginator` method with overloads.
 
-[Paginator.GetSystemTemplateRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions)
+- `client.get_paginator("get_flow_template_revisions")` -> [GetFlowTemplateRevisionsPaginator](./paginators.md#getflowtemplaterevisionspaginator)
+- `client.get_paginator("get_system_template_revisions")` -> [GetSystemTemplateRevisionsPaginator](./paginators.md#getsystemtemplaterevisionspaginator)
+- `client.get_paginator("list_flow_execution_messages")` -> [ListFlowExecutionMessagesPaginator](./paginators.md#listflowexecutionmessagespaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
+- `client.get_paginator("search_entities")` -> [SearchEntitiesPaginator](./paginators.md#searchentitiespaginator)
+- `client.get_paginator("search_flow_executions")` -> [SearchFlowExecutionsPaginator](./paginators.md#searchflowexecutionspaginator)
+- `client.get_paginator("search_flow_templates")` -> [SearchFlowTemplatesPaginator](./paginators.md#searchflowtemplatespaginator)
+- `client.get_paginator("search_system_instances")` -> [SearchSystemInstancesPaginator](./paginators.md#searchsysteminstancespaginator)
+- `client.get_paginator("search_system_templates")` -> [SearchSystemTemplatesPaginator](./paginators.md#searchsystemtemplatespaginator)
+- `client.get_paginator("search_things")` -> [SearchThingsPaginator](./paginators.md#searchthingspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetSystemTemplateRevisionsPaginatorName
-) -> GetSystemTemplateRevisionsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("iotthingsgraph").get_paginator` method.
-
-[Paginator.ListFlowExecutionMessages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFlowExecutionMessagesPaginatorName
-) -> ListFlowExecutionMessagesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotthingsgraph").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotthingsgraph").get_paginator` method.
-
-[Paginator.SearchEntities documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchEntities)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchEntitiesPaginatorName
-) -> SearchEntitiesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotthingsgraph").get_paginator` method.
-
-[Paginator.SearchFlowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchFlowExecutionsPaginatorName
-) -> SearchFlowExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotthingsgraph").get_paginator` method.
-
-[Paginator.SearchFlowTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowTemplates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchFlowTemplatesPaginatorName
-) -> SearchFlowTemplatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotthingsgraph").get_paginator` method.
-
-[Paginator.SearchSystemInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchSystemInstancesPaginatorName
-) -> SearchSystemInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotthingsgraph").get_paginator` method.
-
-[Paginator.SearchSystemTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemTemplates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchSystemTemplatesPaginatorName
-) -> SearchSystemTemplatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotthingsgraph").get_paginator` method.
-
-[Paginator.SearchThings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchThings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchThingsPaginatorName
-) -> SearchThingsPaginator:
-    pass
-```

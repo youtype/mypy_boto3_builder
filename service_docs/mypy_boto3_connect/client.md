@@ -111,27 +111,6 @@ type annotations stubs module [mypy_boto3_connect](https://pypi.org/project/mypy
     - [update_user_routing_profile](#update_user_routing_profile)
     - [update_user_security_profiles](#update_user_security_profiles)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
-    - [get_paginator](#get_paginator-17)
-    - [get_paginator](#get_paginator-18)
-    - [get_paginator](#get_paginator-19)
-    - [get_paginator](#get_paginator-20)
-    - [get_paginator](#get_paginator-21)
 
 ## ConnectClient
 
@@ -350,7 +329,7 @@ Type annotations for `boto3.client("connect").create_integration_association` me
 def create_integration_association(
     self,
     InstanceId: str,
-    IntegrationType: IntegrationType,
+    IntegrationType: Literal['EVENT'],
     IntegrationArn: str,
     SourceApplicationUrl: str,
     SourceApplicationName: str,
@@ -429,7 +408,7 @@ def create_use_case(
     self,
     InstanceId: str,
     IntegrationAssociationId: str,
-    UseCaseType: UseCaseType
+    UseCaseType: Literal['RULES_EVALUATION']
 ) -> CreateUseCaseResponseTypeDef:
     pass
 ```
@@ -1822,332 +1801,33 @@ def update_user_security_profiles(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.GetMetricData documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.GetMetricData)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetMetricDataPaginatorName
-) -> GetMetricDataPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("connect").get_paginator` method.
+Type annotations for `boto3.client("connect").get_paginator` method with overloads.
+
+- `client.get_paginator("get_metric_data")` -> [GetMetricDataPaginator](./paginators.md#getmetricdatapaginator)
+- `client.get_paginator("list_approved_origins")` -> [ListApprovedOriginsPaginator](./paginators.md#listapprovedoriginspaginator)
+- `client.get_paginator("list_contact_flows")` -> [ListContactFlowsPaginator](./paginators.md#listcontactflowspaginator)
+- `client.get_paginator("list_hours_of_operations")` -> [ListHoursOfOperationsPaginator](./paginators.md#listhoursofoperationspaginator)
+- `client.get_paginator("list_instance_attributes")` -> [ListInstanceAttributesPaginator](./paginators.md#listinstanceattributespaginator)
+- `client.get_paginator("list_instance_storage_configs")` -> [ListInstanceStorageConfigsPaginator](./paginators.md#listinstancestorageconfigspaginator)
+- `client.get_paginator("list_instances")` -> [ListInstancesPaginator](./paginators.md#listinstancespaginator)
+- `client.get_paginator("list_integration_associations")` -> [ListIntegrationAssociationsPaginator](./paginators.md#listintegrationassociationspaginator)
+- `client.get_paginator("list_lambda_functions")` -> [ListLambdaFunctionsPaginator](./paginators.md#listlambdafunctionspaginator)
+- `client.get_paginator("list_lex_bots")` -> [ListLexBotsPaginator](./paginators.md#listlexbotspaginator)
+- `client.get_paginator("list_phone_numbers")` -> [ListPhoneNumbersPaginator](./paginators.md#listphonenumberspaginator)
+- `client.get_paginator("list_prompts")` -> [ListPromptsPaginator](./paginators.md#listpromptspaginator)
+- `client.get_paginator("list_queue_quick_connects")` -> [ListQueueQuickConnectsPaginator](./paginators.md#listqueuequickconnectspaginator)
+- `client.get_paginator("list_queues")` -> [ListQueuesPaginator](./paginators.md#listqueuespaginator)
+- `client.get_paginator("list_quick_connects")` -> [ListQuickConnectsPaginator](./paginators.md#listquickconnectspaginator)
+- `client.get_paginator("list_routing_profile_queues")` -> [ListRoutingProfileQueuesPaginator](./paginators.md#listroutingprofilequeuespaginator)
+- `client.get_paginator("list_routing_profiles")` -> [ListRoutingProfilesPaginator](./paginators.md#listroutingprofilespaginator)
+- `client.get_paginator("list_security_keys")` -> [ListSecurityKeysPaginator](./paginators.md#listsecuritykeyspaginator)
+- `client.get_paginator("list_security_profiles")` -> [ListSecurityProfilesPaginator](./paginators.md#listsecurityprofilespaginator)
+- `client.get_paginator("list_use_cases")` -> [ListUseCasesPaginator](./paginators.md#listusecasespaginator)
+- `client.get_paginator("list_user_hierarchy_groups")` -> [ListUserHierarchyGroupsPaginator](./paginators.md#listuserhierarchygroupspaginator)
+- `client.get_paginator("list_users")` -> [ListUsersPaginator](./paginators.md#listuserspaginator)
 
-[Paginator.ListApprovedOrigins documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListApprovedOrigins)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListApprovedOriginsPaginatorName
-) -> ListApprovedOriginsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListContactFlows documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListContactFlows)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListContactFlowsPaginatorName
-) -> ListContactFlowsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListHoursOfOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListHoursOfOperationsPaginatorName
-) -> ListHoursOfOperationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListInstanceAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListInstanceAttributes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInstanceAttributesPaginatorName
-) -> ListInstanceAttributesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListInstanceStorageConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListInstanceStorageConfigs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInstanceStorageConfigsPaginatorName
-) -> ListInstanceStorageConfigsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInstancesPaginatorName
-) -> ListInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListIntegrationAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListIntegrationAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListIntegrationAssociationsPaginatorName
-) -> ListIntegrationAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListLambdaFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListLambdaFunctions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLambdaFunctionsPaginatorName
-) -> ListLambdaFunctionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListLexBots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListLexBots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLexBotsPaginatorName
-) -> ListLexBotsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListPhoneNumbers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPhoneNumbersPaginatorName
-) -> ListPhoneNumbersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListPrompts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListPrompts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPromptsPaginatorName
-) -> ListPromptsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListQueueQuickConnects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListQueueQuickConnects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListQueueQuickConnectsPaginatorName
-) -> ListQueueQuickConnectsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListQueues)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListQueuesPaginatorName
-) -> ListQueuesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListQuickConnects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListQuickConnects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListQuickConnectsPaginatorName
-) -> ListQuickConnectsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListRoutingProfileQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRoutingProfileQueuesPaginatorName
-) -> ListRoutingProfileQueuesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListRoutingProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRoutingProfilesPaginatorName
-) -> ListRoutingProfilesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListSecurityKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListSecurityKeys)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSecurityKeysPaginatorName
-) -> ListSecurityKeysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListSecurityProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSecurityProfilesPaginatorName
-) -> ListSecurityProfilesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListUseCases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListUseCases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUseCasesPaginatorName
-) -> ListUseCasesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListUserHierarchyGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUserHierarchyGroupsPaginatorName
-) -> ListUserHierarchyGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("connect").get_paginator` method.
-
-[Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/connect.html#Connect.Paginator.ListUsers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUsersPaginatorName
-) -> ListUsersPaginator:
-    pass
-```

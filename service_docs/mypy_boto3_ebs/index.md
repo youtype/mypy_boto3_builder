@@ -94,10 +94,10 @@ from mypy_boto3_ebs.type_defs import BlockTypeDef, ...
 
 - [BlockTypeDef](./type_defs.md#blocktypedef)
 - [ChangedBlockTypeDef](./type_defs.md#changedblocktypedef)
-- [TagTypeDef](./type_defs.md#tagtypedef)
 - [CompleteSnapshotResponseTypeDef](./type_defs.md#completesnapshotresponsetypedef)
 - [GetSnapshotBlockResponseTypeDef](./type_defs.md#getsnapshotblockresponsetypedef)
 - [ListChangedBlocksResponseTypeDef](./type_defs.md#listchangedblocksresponsetypedef)
 - [ListSnapshotBlocksResponseTypeDef](./type_defs.md#listsnapshotblocksresponsetypedef)
 - [PutSnapshotBlockResponseTypeDef](./type_defs.md#putsnapshotblockresponsetypedef)
 - [StartSnapshotResponseTypeDef](./type_defs.md#startsnapshotresponsetypedef)
+- [TagTypeDef](./type_defs.md#tagtypedef)

@@ -6,21 +6,34 @@ Auto-generated documentation for [RedshiftDataAPIService](https://boto3.amazonaw
 type annotations stubs module [mypy_boto3_redshift_data](https://pypi.org/project/mypy-boto3-redshift-data/).
 
 - [Structures for boto3 RedshiftDataAPIService module](#structures-for-boto3-redshiftdataapiservice-module)
-  - [ColumnMetadataTypeDef](#columnmetadatatypedef)
-  - [FieldTypeDef](#fieldtypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [StatementDataTypeDef](#statementdatatypedef)
-  - [TableMemberTypeDef](#tablemembertypedef)
   - [CancelStatementResponseTypeDef](#cancelstatementresponsetypedef)
+  - [ColumnMetadataTypeDef](#columnmetadatatypedef)
   - [DescribeStatementResponseTypeDef](#describestatementresponsetypedef)
   - [DescribeTableResponseTypeDef](#describetableresponsetypedef)
   - [ExecuteStatementOutputTypeDef](#executestatementoutputtypedef)
+  - [FieldTypeDef](#fieldtypedef)
   - [GetStatementResultResponseTypeDef](#getstatementresultresponsetypedef)
   - [ListDatabasesResponseTypeDef](#listdatabasesresponsetypedef)
   - [ListSchemasResponseTypeDef](#listschemasresponsetypedef)
   - [ListStatementsResponseTypeDef](#liststatementsresponsetypedef)
   - [ListTablesResponseTypeDef](#listtablesresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [StatementDataTypeDef](#statementdatatypedef)
+  - [TableMemberTypeDef](#tablemembertypedef)
+
+## CancelStatementResponseTypeDef
+
+```python
+from mypy_boto3_redshift_data.type_defs import CancelStatementResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `bool`
+
 
 ## ColumnMetadataTypeDef
 
@@ -45,90 +58,6 @@ Optional fields:
 - `schemaName`: `str`
 - `tableName`: `str`
 - `typeName`: `str`
-
-
-## FieldTypeDef
-
-```python
-from mypy_boto3_redshift_data.type_defs import FieldTypeDef
-```
-
-
-
-
-Optional fields:
-- `blobValue`: `Union[bytes, IO[bytes]]`
-- `booleanValue`: `bool`
-- `doubleValue`: `float`
-- `isNull`: `bool`
-- `longValue`: `int`
-- `stringValue`: `str`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_redshift_data.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## StatementDataTypeDef
-
-```python
-from mypy_boto3_redshift_data.type_defs import StatementDataTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-
-
-
-Optional fields:
-- `CreatedAt`: `datetime`
-- `QueryString`: `str`
-- `SecretArn`: `str`
-- `StatementName`: `str`
-- `Status`: `StatusString`
-- `UpdatedAt`: `datetime`
-
-
-## TableMemberTypeDef
-
-```python
-from mypy_boto3_redshift_data.type_defs import TableMemberTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `schema`: `str`
-- `type`: `str`
-
-
-## CancelStatementResponseTypeDef
-
-```python
-from mypy_boto3_redshift_data.type_defs import CancelStatementResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `bool`
 
 
 ## DescribeStatementResponseTypeDef
@@ -193,6 +122,24 @@ Optional fields:
 - `Id`: `str`
 - `SecretArn`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## FieldTypeDef
+
+```python
+from mypy_boto3_redshift_data.type_defs import FieldTypeDef
+```
+
+
+
+
+Optional fields:
+- `blobValue`: `Union[bytes, IO[bytes]]`
+- `booleanValue`: `bool`
+- `doubleValue`: `float`
+- `isNull`: `bool`
+- `longValue`: `int`
+- `stringValue`: `str`
 
 
 ## GetStatementResultResponseTypeDef
@@ -284,4 +231,57 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_redshift_data.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## StatementDataTypeDef
+
+```python
+from mypy_boto3_redshift_data.type_defs import StatementDataTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+
+
+
+Optional fields:
+- `CreatedAt`: `datetime`
+- `QueryString`: `str`
+- `SecretArn`: `str`
+- `StatementName`: `str`
+- `Status`: `StatusString`
+- `UpdatedAt`: `datetime`
+
+
+## TableMemberTypeDef
+
+```python
+from mypy_boto3_redshift_data.type_defs import TableMemberTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `schema`: `str`
+- `type`: `str`
 

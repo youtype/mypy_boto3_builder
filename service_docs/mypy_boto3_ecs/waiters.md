@@ -32,7 +32,7 @@ class ServicesInactiveWaiter(Boto3Waiter):
         self,
         services: List[str],
         cluster: str = None,
-        include: List[ServiceField] = None,
+        include: List[Literal['TAGS']] = None,
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         pass
@@ -58,7 +58,7 @@ class ServicesStableWaiter(Boto3Waiter):
         self,
         services: List[str],
         cluster: str = None,
-        include: List[ServiceField] = None,
+        include: List[Literal['TAGS']] = None,
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         pass
@@ -84,7 +84,7 @@ class TasksRunningWaiter(Boto3Waiter):
         self,
         tasks: List[str],
         cluster: str = None,
-        include: List[TaskField] = None,
+        include: List[Literal['TAGS']] = None,
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         pass
@@ -110,7 +110,7 @@ class TasksStoppedWaiter(Boto3Waiter):
         self,
         tasks: List[str],
         cluster: str = None,
-        include: List[TaskField] = None,
+        include: List[Literal['TAGS']] = None,
         WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         pass

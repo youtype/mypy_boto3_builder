@@ -8,10 +8,6 @@ type annotations stubs module [mypy_boto3_mediastore](https://pypi.org/project/m
 - [Structures for boto3 MediaStore module](#structures-for-boto3-mediastore-module)
   - [ContainerTypeDef](#containertypedef)
   - [CorsRuleTypeDef](#corsruletypedef)
-  - [MetricPolicyRuleTypeDef](#metricpolicyruletypedef)
-  - [MetricPolicyTypeDef](#metricpolicytypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [TagTypeDef](#tagtypedef)
   - [CreateContainerOutputTypeDef](#createcontaineroutputtypedef)
   - [DescribeContainerOutputTypeDef](#describecontaineroutputtypedef)
   - [GetContainerPolicyOutputTypeDef](#getcontainerpolicyoutputtypedef)
@@ -20,7 +16,11 @@ type annotations stubs module [mypy_boto3_mediastore](https://pypi.org/project/m
   - [GetMetricPolicyOutputTypeDef](#getmetricpolicyoutputtypedef)
   - [ListContainersOutputTypeDef](#listcontainersoutputtypedef)
   - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
+  - [MetricPolicyRuleTypeDef](#metricpolicyruletypedef)
+  - [MetricPolicyTypeDef](#metricpolicytypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [TagTypeDef](#tagtypedef)
 
 ## ContainerTypeDef
 
@@ -57,69 +57,6 @@ Optional fields:
 - `AllowedMethods`: `List[MethodName]`
 - `MaxAgeSeconds`: `int`
 - `ExposeHeaders`: `List[str]`
-
-
-## MetricPolicyRuleTypeDef
-
-```python
-from mypy_boto3_mediastore.type_defs import MetricPolicyRuleTypeDef
-```
-
-
-Required fields:
-- `ObjectGroup`: `str`
-- `ObjectGroupName`: `str`
-
-
-
-
-## MetricPolicyTypeDef
-
-```python
-from mypy_boto3_mediastore.type_defs import MetricPolicyTypeDef
-```
-
-
-Required fields:
-- `ContainerLevelMetrics`: `ContainerLevelMetrics`
-
-
-
-Optional fields:
-- `MetricPolicyRules`: `List["MetricPolicyRuleTypeDef"]`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_mediastore.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_mediastore.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-
-
-
-Optional fields:
-- `Value`: `str`
 
 
 ## CreateContainerOutputTypeDef
@@ -247,6 +184,36 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## MetricPolicyRuleTypeDef
+
+```python
+from mypy_boto3_mediastore.type_defs import MetricPolicyRuleTypeDef
+```
+
+
+Required fields:
+- `ObjectGroup`: `str`
+- `ObjectGroupName`: `str`
+
+
+
+
+## MetricPolicyTypeDef
+
+```python
+from mypy_boto3_mediastore.type_defs import MetricPolicyTypeDef
+```
+
+
+Required fields:
+- `ContainerLevelMetrics`: `ContainerLevelMetrics`
+
+
+
+Optional fields:
+- `MetricPolicyRules`: `List["MetricPolicyRuleTypeDef"]`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -260,4 +227,37 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_mediastore.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_mediastore.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+
+
+
+Optional fields:
+- `Value`: `str`
 

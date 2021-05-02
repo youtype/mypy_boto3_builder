@@ -7,25 +7,25 @@ type annotations stubs module [mypy_boto3_efs](https://pypi.org/project/mypy-bot
 
 - [Structures for boto3 EFS module](#structures-for-boto3-efs-module)
   - [AccessPointDescriptionTypeDef](#accesspointdescriptiontypedef)
+  - [BackupPolicyDescriptionTypeDef](#backuppolicydescriptiontypedef)
   - [BackupPolicyTypeDef](#backuppolicytypedef)
   - [CreationInfoTypeDef](#creationinfotypedef)
-  - [FileSystemDescriptionTypeDef](#filesystemdescriptiontypedef)
-  - [FileSystemSizeTypeDef](#filesystemsizetypedef)
-  - [LifecyclePolicyTypeDef](#lifecyclepolicytypedef)
-  - [MountTargetDescriptionTypeDef](#mounttargetdescriptiontypedef)
-  - [PosixUserTypeDef](#posixusertypedef)
-  - [RootDirectoryTypeDef](#rootdirectorytypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [BackupPolicyDescriptionTypeDef](#backuppolicydescriptiontypedef)
   - [DescribeAccessPointsResponseTypeDef](#describeaccesspointsresponsetypedef)
   - [DescribeFileSystemsResponseTypeDef](#describefilesystemsresponsetypedef)
   - [DescribeMountTargetSecurityGroupsResponseTypeDef](#describemounttargetsecuritygroupsresponsetypedef)
   - [DescribeMountTargetsResponseTypeDef](#describemounttargetsresponsetypedef)
   - [DescribeTagsResponseTypeDef](#describetagsresponsetypedef)
+  - [FileSystemDescriptionTypeDef](#filesystemdescriptiontypedef)
   - [FileSystemPolicyDescriptionTypeDef](#filesystempolicydescriptiontypedef)
+  - [FileSystemSizeTypeDef](#filesystemsizetypedef)
   - [LifecycleConfigurationDescriptionTypeDef](#lifecycleconfigurationdescriptiontypedef)
+  - [LifecyclePolicyTypeDef](#lifecyclepolicytypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [MountTargetDescriptionTypeDef](#mounttargetdescriptiontypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PosixUserTypeDef](#posixusertypedef)
+  - [RootDirectoryTypeDef](#rootdirectorytypedef)
+  - [TagTypeDef](#tagtypedef)
 
 ## AccessPointDescriptionTypeDef
 
@@ -47,6 +47,19 @@ Optional fields:
 - `RootDirectory`: `"RootDirectoryTypeDef"`
 - `OwnerId`: `str`
 - `LifeCycleState`: `LifeCycleState`
+
+
+## BackupPolicyDescriptionTypeDef
+
+```python
+from mypy_boto3_efs.type_defs import BackupPolicyDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `BackupPolicy`: `"BackupPolicyTypeDef"`
 
 
 ## BackupPolicyTypeDef
@@ -75,150 +88,6 @@ Required fields:
 - `Permissions`: `str`
 
 
-
-
-## FileSystemDescriptionTypeDef
-
-```python
-from mypy_boto3_efs.type_defs import FileSystemDescriptionTypeDef
-```
-
-
-Required fields:
-- `OwnerId`: `str`
-- `CreationToken`: `str`
-- `FileSystemId`: `str`
-- `CreationTime`: `datetime`
-- `LifeCycleState`: `LifeCycleState`
-- `NumberOfMountTargets`: `int`
-- `SizeInBytes`: `"FileSystemSizeTypeDef"`
-- `PerformanceMode`: `PerformanceMode`
-- `Tags`: `List["TagTypeDef"]`
-
-
-
-Optional fields:
-- `FileSystemArn`: `str`
-- `Name`: `str`
-- `Encrypted`: `bool`
-- `KmsKeyId`: `str`
-- `ThroughputMode`: `ThroughputMode`
-- `ProvisionedThroughputInMibps`: `float`
-- `AvailabilityZoneName`: `str`
-- `AvailabilityZoneId`: `str`
-
-
-## FileSystemSizeTypeDef
-
-```python
-from mypy_boto3_efs.type_defs import FileSystemSizeTypeDef
-```
-
-
-Required fields:
-- `Value`: `int`
-
-
-
-Optional fields:
-- `Timestamp`: `datetime`
-- `ValueInIA`: `int`
-- `ValueInStandard`: `int`
-
-
-## LifecyclePolicyTypeDef
-
-```python
-from mypy_boto3_efs.type_defs import LifecyclePolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitionToIA`: `TransitionToIARules`
-
-
-## MountTargetDescriptionTypeDef
-
-```python
-from mypy_boto3_efs.type_defs import MountTargetDescriptionTypeDef
-```
-
-
-Required fields:
-- `MountTargetId`: `str`
-- `FileSystemId`: `str`
-- `SubnetId`: `str`
-- `LifeCycleState`: `LifeCycleState`
-
-
-
-Optional fields:
-- `OwnerId`: `str`
-- `IpAddress`: `str`
-- `NetworkInterfaceId`: `str`
-- `AvailabilityZoneId`: `str`
-- `AvailabilityZoneName`: `str`
-- `VpcId`: `str`
-
-
-## PosixUserTypeDef
-
-```python
-from mypy_boto3_efs.type_defs import PosixUserTypeDef
-```
-
-
-Required fields:
-- `Uid`: `int`
-- `Gid`: `int`
-
-
-
-Optional fields:
-- `SecondaryGids`: `List[int]`
-
-
-## RootDirectoryTypeDef
-
-```python
-from mypy_boto3_efs.type_defs import RootDirectoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Path`: `str`
-- `CreationInfo`: `"CreationInfoTypeDef"`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_efs.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## BackupPolicyDescriptionTypeDef
-
-```python
-from mypy_boto3_efs.type_defs import BackupPolicyDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `BackupPolicy`: `"BackupPolicyTypeDef"`
 
 
 ## DescribeAccessPointsResponseTypeDef
@@ -295,6 +164,37 @@ Optional fields:
 - `NextMarker`: `str`
 
 
+## FileSystemDescriptionTypeDef
+
+```python
+from mypy_boto3_efs.type_defs import FileSystemDescriptionTypeDef
+```
+
+
+Required fields:
+- `OwnerId`: `str`
+- `CreationToken`: `str`
+- `FileSystemId`: `str`
+- `CreationTime`: `datetime`
+- `LifeCycleState`: `LifeCycleState`
+- `NumberOfMountTargets`: `int`
+- `SizeInBytes`: `"FileSystemSizeTypeDef"`
+- `PerformanceMode`: `PerformanceMode`
+- `Tags`: `List["TagTypeDef"]`
+
+
+
+Optional fields:
+- `FileSystemArn`: `str`
+- `Name`: `str`
+- `Encrypted`: `bool`
+- `KmsKeyId`: `str`
+- `ThroughputMode`: `ThroughputMode`
+- `ProvisionedThroughputInMibps`: `float`
+- `AvailabilityZoneName`: `str`
+- `AvailabilityZoneId`: `str`
+
+
 ## FileSystemPolicyDescriptionTypeDef
 
 ```python
@@ -309,6 +209,24 @@ Optional fields:
 - `Policy`: `str`
 
 
+## FileSystemSizeTypeDef
+
+```python
+from mypy_boto3_efs.type_defs import FileSystemSizeTypeDef
+```
+
+
+Required fields:
+- `Value`: `int`
+
+
+
+Optional fields:
+- `Timestamp`: `datetime`
+- `ValueInIA`: `int`
+- `ValueInStandard`: `int`
+
+
 ## LifecycleConfigurationDescriptionTypeDef
 
 ```python
@@ -320,6 +238,19 @@ from mypy_boto3_efs.type_defs import LifecycleConfigurationDescriptionTypeDef
 
 Optional fields:
 - `LifecyclePolicies`: `List["LifecyclePolicyTypeDef"]`
+
+
+## LifecyclePolicyTypeDef
+
+```python
+from mypy_boto3_efs.type_defs import LifecyclePolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitionToIA`: `TransitionToIARules`
 
 
 ## ListTagsForResourceResponseTypeDef
@@ -336,6 +267,30 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## MountTargetDescriptionTypeDef
+
+```python
+from mypy_boto3_efs.type_defs import MountTargetDescriptionTypeDef
+```
+
+
+Required fields:
+- `MountTargetId`: `str`
+- `FileSystemId`: `str`
+- `SubnetId`: `str`
+- `LifeCycleState`: `LifeCycleState`
+
+
+
+Optional fields:
+- `OwnerId`: `str`
+- `IpAddress`: `str`
+- `NetworkInterfaceId`: `str`
+- `AvailabilityZoneId`: `str`
+- `AvailabilityZoneName`: `str`
+- `VpcId`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -349,4 +304,49 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PosixUserTypeDef
+
+```python
+from mypy_boto3_efs.type_defs import PosixUserTypeDef
+```
+
+
+Required fields:
+- `Uid`: `int`
+- `Gid`: `int`
+
+
+
+Optional fields:
+- `SecondaryGids`: `List[int]`
+
+
+## RootDirectoryTypeDef
+
+```python
+from mypy_boto3_efs.type_defs import RootDirectoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Path`: `str`
+- `CreationInfo`: `"CreationInfoTypeDef"`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_efs.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 

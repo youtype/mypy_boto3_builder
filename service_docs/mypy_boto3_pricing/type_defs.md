@@ -7,12 +7,12 @@ type annotations stubs module [mypy_boto3_pricing](https://pypi.org/project/mypy
 
 - [Structures for boto3 Pricing module](#structures-for-boto3-pricing-module)
   - [AttributeValueTypeDef](#attributevaluetypedef)
-  - [ServiceTypeDef](#servicetypedef)
   - [DescribeServicesResponseTypeDef](#describeservicesresponsetypedef)
   - [FilterTypeDef](#filtertypedef)
   - [GetAttributeValuesResponseTypeDef](#getattributevaluesresponsetypedef)
   - [GetProductsResponseTypeDef](#getproductsresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ServiceTypeDef](#servicetypedef)
 
 ## AttributeValueTypeDef
 
@@ -25,20 +25,6 @@ from mypy_boto3_pricing.type_defs import AttributeValueTypeDef
 
 Optional fields:
 - `Value`: `str`
-
-
-## ServiceTypeDef
-
-```python
-from mypy_boto3_pricing.type_defs import ServiceTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceCode`: `str`
-- `AttributeNames`: `List[str]`
 
 
 ## DescribeServicesResponseTypeDef
@@ -64,7 +50,7 @@ from mypy_boto3_pricing.type_defs import FilterTypeDef
 
 
 Required fields:
-- `Type`: `FilterType`
+- `Type`: `Literal['TERM_MATCH']`
 - `Field`: `str`
 - `Value`: `str`
 
@@ -113,4 +99,18 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ServiceTypeDef
+
+```python
+from mypy_boto3_pricing.type_defs import ServiceTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceCode`: `str`
+- `AttributeNames`: `List[str]`
 

@@ -6,71 +6,29 @@ Auto-generated documentation for [ElastiCache](https://boto3.amazonaws.com/v1/do
 type annotations stubs module [mypy_boto3_elasticache](https://pypi.org/project/mypy-boto3-elasticache/).
 
 - [Structures for boto3 ElastiCache module](#structures-for-boto3-elasticache-module)
+  - [AllowedNodeTypeModificationsMessageTypeDef](#allowednodetypemodificationsmessagetypedef)
   - [AuthenticationTypeDef](#authenticationtypedef)
+  - [AuthorizeCacheSecurityGroupIngressResultTypeDef](#authorizecachesecuritygroupingressresulttypedef)
   - [AvailabilityZoneTypeDef](#availabilityzonetypedef)
+  - [CacheClusterMessageTypeDef](#cacheclustermessagetypedef)
   - [CacheClusterTypeDef](#cacheclustertypedef)
+  - [CacheEngineVersionMessageTypeDef](#cacheengineversionmessagetypedef)
   - [CacheEngineVersionTypeDef](#cacheengineversiontypedef)
   - [CacheNodeTypeDef](#cachenodetypedef)
   - [CacheNodeTypeSpecificParameterTypeDef](#cachenodetypespecificparametertypedef)
   - [CacheNodeTypeSpecificValueTypeDef](#cachenodetypespecificvaluetypedef)
   - [CacheNodeUpdateStatusTypeDef](#cachenodeupdatestatustypedef)
-  - [CacheParameterGroupStatusTypeDef](#cacheparametergroupstatustypedef)
-  - [CacheParameterGroupTypeDef](#cacheparametergrouptypedef)
-  - [CacheSecurityGroupMembershipTypeDef](#cachesecuritygroupmembershiptypedef)
-  - [CacheSecurityGroupTypeDef](#cachesecuritygrouptypedef)
-  - [CacheSubnetGroupTypeDef](#cachesubnetgrouptypedef)
-  - [CloudWatchLogsDestinationDetailsTypeDef](#cloudwatchlogsdestinationdetailstypedef)
-  - [DestinationDetailsTypeDef](#destinationdetailstypedef)
-  - [EC2SecurityGroupTypeDef](#ec2securitygrouptypedef)
-  - [EndpointTypeDef](#endpointtypedef)
-  - [EngineDefaultsTypeDef](#enginedefaultstypedef)
-  - [EventTypeDef](#eventtypedef)
-  - [GlobalNodeGroupTypeDef](#globalnodegrouptypedef)
-  - [GlobalReplicationGroupInfoTypeDef](#globalreplicationgroupinfotypedef)
-  - [GlobalReplicationGroupMemberTypeDef](#globalreplicationgroupmembertypedef)
-  - [GlobalReplicationGroupTypeDef](#globalreplicationgrouptypedef)
-  - [KinesisFirehoseDestinationDetailsTypeDef](#kinesisfirehosedestinationdetailstypedef)
-  - [LogDeliveryConfigurationTypeDef](#logdeliveryconfigurationtypedef)
-  - [NodeGroupConfigurationTypeDef](#nodegroupconfigurationtypedef)
-  - [NodeGroupMemberTypeDef](#nodegroupmembertypedef)
-  - [NodeGroupMemberUpdateStatusTypeDef](#nodegroupmemberupdatestatustypedef)
-  - [NodeGroupTypeDef](#nodegrouptypedef)
-  - [NodeGroupUpdateStatusTypeDef](#nodegroupupdatestatustypedef)
-  - [NodeSnapshotTypeDef](#nodesnapshottypedef)
-  - [NotificationConfigurationTypeDef](#notificationconfigurationtypedef)
-  - [ParameterTypeDef](#parametertypedef)
-  - [PendingLogDeliveryConfigurationTypeDef](#pendinglogdeliveryconfigurationtypedef)
-  - [PendingModifiedValuesTypeDef](#pendingmodifiedvaluestypedef)
-  - [ProcessedUpdateActionTypeDef](#processedupdateactiontypedef)
-  - [RecurringChargeTypeDef](#recurringchargetypedef)
-  - [ReplicationGroupPendingModifiedValuesTypeDef](#replicationgrouppendingmodifiedvaluestypedef)
-  - [ReplicationGroupTypeDef](#replicationgrouptypedef)
-  - [ReservedCacheNodeTypeDef](#reservedcachenodetypedef)
-  - [ReservedCacheNodesOfferingTypeDef](#reservedcachenodesofferingtypedef)
-  - [ReshardingConfigurationTypeDef](#reshardingconfigurationtypedef)
-  - [ReshardingStatusTypeDef](#reshardingstatustypedef)
-  - [SecurityGroupMembershipTypeDef](#securitygroupmembershiptypedef)
-  - [ServiceUpdateTypeDef](#serviceupdatetypedef)
-  - [SlotMigrationTypeDef](#slotmigrationtypedef)
-  - [SnapshotTypeDef](#snapshottypedef)
-  - [SubnetOutpostTypeDef](#subnetoutposttypedef)
-  - [SubnetTypeDef](#subnettypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [UnprocessedUpdateActionTypeDef](#unprocessedupdateactiontypedef)
-  - [UpdateActionTypeDef](#updateactiontypedef)
-  - [UserGroupPendingChangesTypeDef](#usergrouppendingchangestypedef)
-  - [UserGroupTypeDef](#usergrouptypedef)
-  - [UserGroupsUpdateStatusTypeDef](#usergroupsupdatestatustypedef)
-  - [UserTypeDef](#usertypedef)
-  - [AllowedNodeTypeModificationsMessageTypeDef](#allowednodetypemodificationsmessagetypedef)
-  - [AuthorizeCacheSecurityGroupIngressResultTypeDef](#authorizecachesecuritygroupingressresulttypedef)
-  - [CacheClusterMessageTypeDef](#cacheclustermessagetypedef)
-  - [CacheEngineVersionMessageTypeDef](#cacheengineversionmessagetypedef)
   - [CacheParameterGroupDetailsTypeDef](#cacheparametergroupdetailstypedef)
   - [CacheParameterGroupNameMessageTypeDef](#cacheparametergroupnamemessagetypedef)
+  - [CacheParameterGroupStatusTypeDef](#cacheparametergroupstatustypedef)
+  - [CacheParameterGroupTypeDef](#cacheparametergrouptypedef)
   - [CacheParameterGroupsMessageTypeDef](#cacheparametergroupsmessagetypedef)
+  - [CacheSecurityGroupMembershipTypeDef](#cachesecuritygroupmembershiptypedef)
   - [CacheSecurityGroupMessageTypeDef](#cachesecuritygroupmessagetypedef)
+  - [CacheSecurityGroupTypeDef](#cachesecuritygrouptypedef)
   - [CacheSubnetGroupMessageTypeDef](#cachesubnetgroupmessagetypedef)
+  - [CacheSubnetGroupTypeDef](#cachesubnetgrouptypedef)
+  - [CloudWatchLogsDestinationDetailsTypeDef](#cloudwatchlogsdestinationdetailstypedef)
   - [CompleteMigrationResponseTypeDef](#completemigrationresponsetypedef)
   - [ConfigureShardTypeDef](#configureshardtypedef)
   - [CopySnapshotResultTypeDef](#copysnapshotresulttypedef)
@@ -93,36 +51,92 @@ type annotations stubs module [mypy_boto3_elasticache](https://pypi.org/project/
   - [DescribeSnapshotsListMessageTypeDef](#describesnapshotslistmessagetypedef)
   - [DescribeUserGroupsResultTypeDef](#describeusergroupsresulttypedef)
   - [DescribeUsersResultTypeDef](#describeusersresulttypedef)
+  - [DestinationDetailsTypeDef](#destinationdetailstypedef)
   - [DisassociateGlobalReplicationGroupResultTypeDef](#disassociateglobalreplicationgroupresulttypedef)
+  - [EC2SecurityGroupTypeDef](#ec2securitygrouptypedef)
+  - [EndpointTypeDef](#endpointtypedef)
+  - [EngineDefaultsTypeDef](#enginedefaultstypedef)
+  - [EventTypeDef](#eventtypedef)
   - [EventsMessageTypeDef](#eventsmessagetypedef)
   - [FailoverGlobalReplicationGroupResultTypeDef](#failoverglobalreplicationgroupresulttypedef)
   - [FilterTypeDef](#filtertypedef)
+  - [GlobalNodeGroupTypeDef](#globalnodegrouptypedef)
+  - [GlobalReplicationGroupInfoTypeDef](#globalreplicationgroupinfotypedef)
+  - [GlobalReplicationGroupMemberTypeDef](#globalreplicationgroupmembertypedef)
+  - [GlobalReplicationGroupTypeDef](#globalreplicationgrouptypedef)
   - [IncreaseNodeGroupsInGlobalReplicationGroupResultTypeDef](#increasenodegroupsinglobalreplicationgroupresulttypedef)
   - [IncreaseReplicaCountResultTypeDef](#increasereplicacountresulttypedef)
+  - [KinesisFirehoseDestinationDetailsTypeDef](#kinesisfirehosedestinationdetailstypedef)
   - [LogDeliveryConfigurationRequestTypeDef](#logdeliveryconfigurationrequesttypedef)
+  - [LogDeliveryConfigurationTypeDef](#logdeliveryconfigurationtypedef)
   - [ModifyCacheClusterResultTypeDef](#modifycacheclusterresulttypedef)
   - [ModifyCacheSubnetGroupResultTypeDef](#modifycachesubnetgroupresulttypedef)
   - [ModifyGlobalReplicationGroupResultTypeDef](#modifyglobalreplicationgroupresulttypedef)
   - [ModifyReplicationGroupResultTypeDef](#modifyreplicationgroupresulttypedef)
   - [ModifyReplicationGroupShardConfigurationResultTypeDef](#modifyreplicationgroupshardconfigurationresulttypedef)
+  - [NodeGroupConfigurationTypeDef](#nodegroupconfigurationtypedef)
+  - [NodeGroupMemberTypeDef](#nodegroupmembertypedef)
+  - [NodeGroupMemberUpdateStatusTypeDef](#nodegroupmemberupdatestatustypedef)
+  - [NodeGroupTypeDef](#nodegrouptypedef)
+  - [NodeGroupUpdateStatusTypeDef](#nodegroupupdatestatustypedef)
+  - [NodeSnapshotTypeDef](#nodesnapshottypedef)
+  - [NotificationConfigurationTypeDef](#notificationconfigurationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ParameterNameValueTypeDef](#parameternamevaluetypedef)
+  - [ParameterTypeDef](#parametertypedef)
+  - [PendingLogDeliveryConfigurationTypeDef](#pendinglogdeliveryconfigurationtypedef)
+  - [PendingModifiedValuesTypeDef](#pendingmodifiedvaluestypedef)
+  - [ProcessedUpdateActionTypeDef](#processedupdateactiontypedef)
   - [PurchaseReservedCacheNodesOfferingResultTypeDef](#purchasereservedcachenodesofferingresulttypedef)
   - [RebalanceSlotsInGlobalReplicationGroupResultTypeDef](#rebalanceslotsinglobalreplicationgroupresulttypedef)
   - [RebootCacheClusterResultTypeDef](#rebootcacheclusterresulttypedef)
+  - [RecurringChargeTypeDef](#recurringchargetypedef)
   - [RegionalConfigurationTypeDef](#regionalconfigurationtypedef)
   - [ReplicationGroupMessageTypeDef](#replicationgroupmessagetypedef)
+  - [ReplicationGroupPendingModifiedValuesTypeDef](#replicationgrouppendingmodifiedvaluestypedef)
+  - [ReplicationGroupTypeDef](#replicationgrouptypedef)
   - [ReservedCacheNodeMessageTypeDef](#reservedcachenodemessagetypedef)
+  - [ReservedCacheNodeTypeDef](#reservedcachenodetypedef)
   - [ReservedCacheNodesOfferingMessageTypeDef](#reservedcachenodesofferingmessagetypedef)
+  - [ReservedCacheNodesOfferingTypeDef](#reservedcachenodesofferingtypedef)
+  - [ReshardingConfigurationTypeDef](#reshardingconfigurationtypedef)
+  - [ReshardingStatusTypeDef](#reshardingstatustypedef)
   - [RevokeCacheSecurityGroupIngressResultTypeDef](#revokecachesecuritygroupingressresulttypedef)
+  - [SecurityGroupMembershipTypeDef](#securitygroupmembershiptypedef)
+  - [ServiceUpdateTypeDef](#serviceupdatetypedef)
   - [ServiceUpdatesMessageTypeDef](#serviceupdatesmessagetypedef)
+  - [SlotMigrationTypeDef](#slotmigrationtypedef)
+  - [SnapshotTypeDef](#snapshottypedef)
   - [StartMigrationResponseTypeDef](#startmigrationresponsetypedef)
+  - [SubnetOutpostTypeDef](#subnetoutposttypedef)
+  - [SubnetTypeDef](#subnettypedef)
   - [TagListMessageTypeDef](#taglistmessagetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [TestFailoverResultTypeDef](#testfailoverresulttypedef)
   - [TimeRangeFilterTypeDef](#timerangefiltertypedef)
+  - [UnprocessedUpdateActionTypeDef](#unprocessedupdateactiontypedef)
   - [UpdateActionResultsMessageTypeDef](#updateactionresultsmessagetypedef)
+  - [UpdateActionTypeDef](#updateactiontypedef)
   - [UpdateActionsMessageTypeDef](#updateactionsmessagetypedef)
+  - [UserGroupPendingChangesTypeDef](#usergrouppendingchangestypedef)
+  - [UserGroupTypeDef](#usergrouptypedef)
+  - [UserGroupsUpdateStatusTypeDef](#usergroupsupdatestatustypedef)
+  - [UserTypeDef](#usertypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
+
+## AllowedNodeTypeModificationsMessageTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import AllowedNodeTypeModificationsMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `ScaleUpModifications`: `List[str]`
+- `ScaleDownModifications`: `List[str]`
+
 
 ## AuthenticationTypeDef
 
@@ -138,6 +152,19 @@ Optional fields:
 - `PasswordCount`: `int`
 
 
+## AuthorizeCacheSecurityGroupIngressResultTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import AuthorizeCacheSecurityGroupIngressResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `CacheSecurityGroup`: `"CacheSecurityGroupTypeDef"`
+
+
 ## AvailabilityZoneTypeDef
 
 ```python
@@ -149,6 +176,20 @@ from mypy_boto3_elasticache.type_defs import AvailabilityZoneTypeDef
 
 Optional fields:
 - `Name`: `str`
+
+
+## CacheClusterMessageTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import CacheClusterMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Marker`: `str`
+- `CacheClusters`: `List["CacheClusterTypeDef"]`
 
 
 ## CacheClusterTypeDef
@@ -191,6 +232,20 @@ Optional fields:
 - `ARN`: `str`
 - `ReplicationGroupLogDeliveryEnabled`: `bool`
 - `LogDeliveryConfigurations`: `List["LogDeliveryConfigurationTypeDef"]`
+
+
+## CacheEngineVersionMessageTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import CacheEngineVersionMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Marker`: `str`
+- `CacheEngineVersions`: `List["CacheEngineVersionTypeDef"]`
 
 
 ## CacheEngineVersionTypeDef
@@ -285,6 +340,34 @@ Optional fields:
 - `NodeUpdateStatusModifiedDate`: `datetime`
 
 
+## CacheParameterGroupDetailsTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import CacheParameterGroupDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Marker`: `str`
+- `Parameters`: `List["ParameterTypeDef"]`
+- `CacheNodeTypeSpecificParameters`: `List["CacheNodeTypeSpecificParameterTypeDef"]`
+
+
+## CacheParameterGroupNameMessageTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import CacheParameterGroupNameMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `CacheParameterGroupName`: `str`
+
+
 ## CacheParameterGroupStatusTypeDef
 
 ```python
@@ -317,6 +400,20 @@ Optional fields:
 - `ARN`: `str`
 
 
+## CacheParameterGroupsMessageTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import CacheParameterGroupsMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Marker`: `str`
+- `CacheParameterGroups`: `List["CacheParameterGroupTypeDef"]`
+
+
 ## CacheSecurityGroupMembershipTypeDef
 
 ```python
@@ -329,6 +426,20 @@ from mypy_boto3_elasticache.type_defs import CacheSecurityGroupMembershipTypeDef
 Optional fields:
 - `CacheSecurityGroupName`: `str`
 - `Status`: `str`
+
+
+## CacheSecurityGroupMessageTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import CacheSecurityGroupMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Marker`: `str`
+- `CacheSecurityGroups`: `List["CacheSecurityGroupTypeDef"]`
 
 
 ## CacheSecurityGroupTypeDef
@@ -346,6 +457,20 @@ Optional fields:
 - `Description`: `str`
 - `EC2SecurityGroups`: `List["EC2SecurityGroupTypeDef"]`
 - `ARN`: `str`
+
+
+## CacheSubnetGroupMessageTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import CacheSubnetGroupMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Marker`: `str`
+- `CacheSubnetGroups`: `List["CacheSubnetGroupTypeDef"]`
 
 
 ## CacheSubnetGroupTypeDef
@@ -376,886 +501,6 @@ from mypy_boto3_elasticache.type_defs import CloudWatchLogsDestinationDetailsTyp
 
 Optional fields:
 - `LogGroup`: `str`
-
-
-## DestinationDetailsTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import DestinationDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `CloudWatchLogsDetails`: `"CloudWatchLogsDestinationDetailsTypeDef"`
-- `KinesisFirehoseDetails`: `"KinesisFirehoseDestinationDetailsTypeDef"`
-
-
-## EC2SecurityGroupTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import EC2SecurityGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `str`
-- `EC2SecurityGroupName`: `str`
-- `EC2SecurityGroupOwnerId`: `str`
-
-
-## EndpointTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import EndpointTypeDef
-```
-
-
-
-
-Optional fields:
-- `Address`: `str`
-- `Port`: `int`
-
-
-## EngineDefaultsTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import EngineDefaultsTypeDef
-```
-
-
-
-
-Optional fields:
-- `CacheParameterGroupFamily`: `str`
-- `Marker`: `str`
-- `Parameters`: `List["ParameterTypeDef"]`
-- `CacheNodeTypeSpecificParameters`: `List["CacheNodeTypeSpecificParameterTypeDef"]`
-
-
-## EventTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import EventTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceIdentifier`: `str`
-- `SourceType`: `SourceType`
-- `Message`: `str`
-- `Date`: `datetime`
-
-
-## GlobalNodeGroupTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import GlobalNodeGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `GlobalNodeGroupId`: `str`
-- `Slots`: `str`
-
-
-## GlobalReplicationGroupInfoTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import GlobalReplicationGroupInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `GlobalReplicationGroupId`: `str`
-- `GlobalReplicationGroupMemberRole`: `str`
-
-
-## GlobalReplicationGroupMemberTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import GlobalReplicationGroupMemberTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplicationGroupId`: `str`
-- `ReplicationGroupRegion`: `str`
-- `Role`: `str`
-- `AutomaticFailover`: `AutomaticFailoverStatus`
-- `Status`: `str`
-
-
-## GlobalReplicationGroupTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import GlobalReplicationGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `GlobalReplicationGroupId`: `str`
-- `GlobalReplicationGroupDescription`: `str`
-- `Status`: `str`
-- `CacheNodeType`: `str`
-- `Engine`: `str`
-- `EngineVersion`: `str`
-- `Members`: `List["GlobalReplicationGroupMemberTypeDef"]`
-- `ClusterEnabled`: `bool`
-- `GlobalNodeGroups`: `List["GlobalNodeGroupTypeDef"]`
-- `AuthTokenEnabled`: `bool`
-- `TransitEncryptionEnabled`: `bool`
-- `AtRestEncryptionEnabled`: `bool`
-- `ARN`: `str`
-
-
-## KinesisFirehoseDestinationDetailsTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import KinesisFirehoseDestinationDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeliveryStream`: `str`
-
-
-## LogDeliveryConfigurationTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import LogDeliveryConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `LogType`: `LogType`
-- `DestinationType`: `DestinationType`
-- `DestinationDetails`: `"DestinationDetailsTypeDef"`
-- `LogFormat`: `LogFormat`
-- `Status`: `LogDeliveryConfigurationStatus`
-- `Message`: `str`
-
-
-## NodeGroupConfigurationTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import NodeGroupConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `NodeGroupId`: `str`
-- `Slots`: `str`
-- `ReplicaCount`: `int`
-- `PrimaryAvailabilityZone`: `str`
-- `ReplicaAvailabilityZones`: `List[str]`
-- `PrimaryOutpostArn`: `str`
-- `ReplicaOutpostArns`: `List[str]`
-
-
-## NodeGroupMemberTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import NodeGroupMemberTypeDef
-```
-
-
-
-
-Optional fields:
-- `CacheClusterId`: `str`
-- `CacheNodeId`: `str`
-- `ReadEndpoint`: `"EndpointTypeDef"`
-- `PreferredAvailabilityZone`: `str`
-- `PreferredOutpostArn`: `str`
-- `CurrentRole`: `str`
-
-
-## NodeGroupMemberUpdateStatusTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import NodeGroupMemberUpdateStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `CacheClusterId`: `str`
-- `CacheNodeId`: `str`
-- `NodeUpdateStatus`: `NodeUpdateStatus`
-- `NodeDeletionDate`: `datetime`
-- `NodeUpdateStartDate`: `datetime`
-- `NodeUpdateEndDate`: `datetime`
-- `NodeUpdateInitiatedBy`: `NodeUpdateInitiatedBy`
-- `NodeUpdateInitiatedDate`: `datetime`
-- `NodeUpdateStatusModifiedDate`: `datetime`
-
-
-## NodeGroupTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import NodeGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `NodeGroupId`: `str`
-- `Status`: `str`
-- `PrimaryEndpoint`: `"EndpointTypeDef"`
-- `ReaderEndpoint`: `"EndpointTypeDef"`
-- `Slots`: `str`
-- `NodeGroupMembers`: `List["NodeGroupMemberTypeDef"]`
-
-
-## NodeGroupUpdateStatusTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import NodeGroupUpdateStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `NodeGroupId`: `str`
-- `NodeGroupMemberUpdateStatus`: `List["NodeGroupMemberUpdateStatusTypeDef"]`
-
-
-## NodeSnapshotTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import NodeSnapshotTypeDef
-```
-
-
-
-
-Optional fields:
-- `CacheClusterId`: `str`
-- `NodeGroupId`: `str`
-- `CacheNodeId`: `str`
-- `NodeGroupConfiguration`: `"NodeGroupConfigurationTypeDef"`
-- `CacheSize`: `str`
-- `CacheNodeCreateTime`: `datetime`
-- `SnapshotCreateTime`: `datetime`
-
-
-## NotificationConfigurationTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import NotificationConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TopicArn`: `str`
-- `TopicStatus`: `str`
-
-
-## ParameterTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import ParameterTypeDef
-```
-
-
-
-
-Optional fields:
-- `ParameterName`: `str`
-- `ParameterValue`: `str`
-- `Description`: `str`
-- `Source`: `str`
-- `DataType`: `str`
-- `AllowedValues`: `str`
-- `IsModifiable`: `bool`
-- `MinimumEngineVersion`: `str`
-- `ChangeType`: `ChangeType`
-
-
-## PendingLogDeliveryConfigurationTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import PendingLogDeliveryConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `LogType`: `LogType`
-- `DestinationType`: `DestinationType`
-- `DestinationDetails`: `"DestinationDetailsTypeDef"`
-- `LogFormat`: `LogFormat`
-
-
-## PendingModifiedValuesTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import PendingModifiedValuesTypeDef
-```
-
-
-
-
-Optional fields:
-- `NumCacheNodes`: `int`
-- `CacheNodeIdsToRemove`: `List[str]`
-- `EngineVersion`: `str`
-- `CacheNodeType`: `str`
-- `AuthTokenStatus`: `AuthTokenUpdateStatus`
-- `LogDeliveryConfigurations`: `List["PendingLogDeliveryConfigurationTypeDef"]`
-
-
-## ProcessedUpdateActionTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import ProcessedUpdateActionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplicationGroupId`: `str`
-- `CacheClusterId`: `str`
-- `ServiceUpdateName`: `str`
-- `UpdateActionStatus`: `UpdateActionStatus`
-
-
-## RecurringChargeTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import RecurringChargeTypeDef
-```
-
-
-
-
-Optional fields:
-- `RecurringChargeAmount`: `float`
-- `RecurringChargeFrequency`: `str`
-
-
-## ReplicationGroupPendingModifiedValuesTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import ReplicationGroupPendingModifiedValuesTypeDef
-```
-
-
-
-
-Optional fields:
-- `PrimaryClusterId`: `str`
-- `AutomaticFailoverStatus`: `PendingAutomaticFailoverStatus`
-- `Resharding`: `"ReshardingStatusTypeDef"`
-- `AuthTokenStatus`: `AuthTokenUpdateStatus`
-- `UserGroups`: `"UserGroupsUpdateStatusTypeDef"`
-- `LogDeliveryConfigurations`: `List["PendingLogDeliveryConfigurationTypeDef"]`
-
-
-## ReplicationGroupTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import ReplicationGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplicationGroupId`: `str`
-- `Description`: `str`
-- `GlobalReplicationGroupInfo`: `"GlobalReplicationGroupInfoTypeDef"`
-- `Status`: `str`
-- `PendingModifiedValues`: `"ReplicationGroupPendingModifiedValuesTypeDef"`
-- `MemberClusters`: `List[str]`
-- `NodeGroups`: `List["NodeGroupTypeDef"]`
-- `SnapshottingClusterId`: `str`
-- `AutomaticFailover`: `AutomaticFailoverStatus`
-- `MultiAZ`: `MultiAZStatus`
-- `ConfigurationEndpoint`: `"EndpointTypeDef"`
-- `SnapshotRetentionLimit`: `int`
-- `SnapshotWindow`: `str`
-- `ClusterEnabled`: `bool`
-- `CacheNodeType`: `str`
-- `AuthTokenEnabled`: `bool`
-- `AuthTokenLastModifiedDate`: `datetime`
-- `TransitEncryptionEnabled`: `bool`
-- `AtRestEncryptionEnabled`: `bool`
-- `MemberClustersOutpostArns`: `List[str]`
-- `KmsKeyId`: `str`
-- `ARN`: `str`
-- `UserGroupIds`: `List[str]`
-- `LogDeliveryConfigurations`: `List["LogDeliveryConfigurationTypeDef"]`
-
-
-## ReservedCacheNodeTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import ReservedCacheNodeTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReservedCacheNodeId`: `str`
-- `ReservedCacheNodesOfferingId`: `str`
-- `CacheNodeType`: `str`
-- `StartTime`: `datetime`
-- `Duration`: `int`
-- `FixedPrice`: `float`
-- `UsagePrice`: `float`
-- `CacheNodeCount`: `int`
-- `ProductDescription`: `str`
-- `OfferingType`: `str`
-- `State`: `str`
-- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
-- `ReservationARN`: `str`
-
-
-## ReservedCacheNodesOfferingTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import ReservedCacheNodesOfferingTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReservedCacheNodesOfferingId`: `str`
-- `CacheNodeType`: `str`
-- `Duration`: `int`
-- `FixedPrice`: `float`
-- `UsagePrice`: `float`
-- `ProductDescription`: `str`
-- `OfferingType`: `str`
-- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
-
-
-## ReshardingConfigurationTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import ReshardingConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `NodeGroupId`: `str`
-- `PreferredAvailabilityZones`: `List[str]`
-
-
-## ReshardingStatusTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import ReshardingStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `SlotMigration`: `"SlotMigrationTypeDef"`
-
-
-## SecurityGroupMembershipTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import SecurityGroupMembershipTypeDef
-```
-
-
-
-
-Optional fields:
-- `SecurityGroupId`: `str`
-- `Status`: `str`
-
-
-## ServiceUpdateTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import ServiceUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceUpdateName`: `str`
-- `ServiceUpdateReleaseDate`: `datetime`
-- `ServiceUpdateEndDate`: `datetime`
-- `ServiceUpdateSeverity`: `ServiceUpdateSeverity`
-- `ServiceUpdateRecommendedApplyByDate`: `datetime`
-- `ServiceUpdateStatus`: `ServiceUpdateStatus`
-- `ServiceUpdateDescription`: `str`
-- `ServiceUpdateType`: `ServiceUpdateType`
-- `Engine`: `str`
-- `EngineVersion`: `str`
-- `AutoUpdateAfterRecommendedApplyByDate`: `bool`
-- `EstimatedUpdateTime`: `str`
-
-
-## SlotMigrationTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import SlotMigrationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProgressPercentage`: `float`
-
-
-## SnapshotTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import SnapshotTypeDef
-```
-
-
-
-
-Optional fields:
-- `SnapshotName`: `str`
-- `ReplicationGroupId`: `str`
-- `ReplicationGroupDescription`: `str`
-- `CacheClusterId`: `str`
-- `SnapshotStatus`: `str`
-- `SnapshotSource`: `str`
-- `CacheNodeType`: `str`
-- `Engine`: `str`
-- `EngineVersion`: `str`
-- `NumCacheNodes`: `int`
-- `PreferredAvailabilityZone`: `str`
-- `PreferredOutpostArn`: `str`
-- `CacheClusterCreateTime`: `datetime`
-- `PreferredMaintenanceWindow`: `str`
-- `TopicArn`: `str`
-- `Port`: `int`
-- `CacheParameterGroupName`: `str`
-- `CacheSubnetGroupName`: `str`
-- `VpcId`: `str`
-- `AutoMinorVersionUpgrade`: `bool`
-- `SnapshotRetentionLimit`: `int`
-- `SnapshotWindow`: `str`
-- `NumNodeGroups`: `int`
-- `AutomaticFailover`: `AutomaticFailoverStatus`
-- `NodeSnapshots`: `List["NodeSnapshotTypeDef"]`
-- `KmsKeyId`: `str`
-- `ARN`: `str`
-
-
-## SubnetOutpostTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import SubnetOutpostTypeDef
-```
-
-
-
-
-Optional fields:
-- `SubnetOutpostArn`: `str`
-
-
-## SubnetTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import SubnetTypeDef
-```
-
-
-
-
-Optional fields:
-- `SubnetIdentifier`: `str`
-- `SubnetAvailabilityZone`: `"AvailabilityZoneTypeDef"`
-- `SubnetOutpost`: `"SubnetOutpostTypeDef"`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## UnprocessedUpdateActionTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import UnprocessedUpdateActionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplicationGroupId`: `str`
-- `CacheClusterId`: `str`
-- `ServiceUpdateName`: `str`
-- `ErrorType`: `str`
-- `ErrorMessage`: `str`
-
-
-## UpdateActionTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import UpdateActionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplicationGroupId`: `str`
-- `CacheClusterId`: `str`
-- `ServiceUpdateName`: `str`
-- `ServiceUpdateReleaseDate`: `datetime`
-- `ServiceUpdateSeverity`: `ServiceUpdateSeverity`
-- `ServiceUpdateStatus`: `ServiceUpdateStatus`
-- `ServiceUpdateRecommendedApplyByDate`: `datetime`
-- `ServiceUpdateType`: `ServiceUpdateType`
-- `UpdateActionAvailableDate`: `datetime`
-- `UpdateActionStatus`: `UpdateActionStatus`
-- `NodesUpdated`: `str`
-- `UpdateActionStatusModifiedDate`: `datetime`
-- `SlaMet`: `SlaMet`
-- `NodeGroupUpdateStatus`: `List["NodeGroupUpdateStatusTypeDef"]`
-- `CacheNodeUpdateStatus`: `List["CacheNodeUpdateStatusTypeDef"]`
-- `EstimatedUpdateTime`: `str`
-- `Engine`: `str`
-
-
-## UserGroupPendingChangesTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import UserGroupPendingChangesTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserIdsToRemove`: `List[str]`
-- `UserIdsToAdd`: `List[str]`
-
-
-## UserGroupTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import UserGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserGroupId`: `str`
-- `Status`: `str`
-- `Engine`: `str`
-- `UserIds`: `List[str]`
-- `PendingChanges`: `"UserGroupPendingChangesTypeDef"`
-- `ReplicationGroups`: `List[str]`
-- `ARN`: `str`
-
-
-## UserGroupsUpdateStatusTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import UserGroupsUpdateStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserGroupIdsToAdd`: `List[str]`
-- `UserGroupIdsToRemove`: `List[str]`
-
-
-## UserTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import UserTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserId`: `str`
-- `UserName`: `str`
-- `Status`: `str`
-- `Engine`: `str`
-- `AccessString`: `str`
-- `UserGroupIds`: `List[str]`
-- `Authentication`: `"AuthenticationTypeDef"`
-- `ARN`: `str`
-
-
-## AllowedNodeTypeModificationsMessageTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import AllowedNodeTypeModificationsMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `ScaleUpModifications`: `List[str]`
-- `ScaleDownModifications`: `List[str]`
-
-
-## AuthorizeCacheSecurityGroupIngressResultTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import AuthorizeCacheSecurityGroupIngressResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `CacheSecurityGroup`: `"CacheSecurityGroupTypeDef"`
-
-
-## CacheClusterMessageTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import CacheClusterMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Marker`: `str`
-- `CacheClusters`: `List["CacheClusterTypeDef"]`
-
-
-## CacheEngineVersionMessageTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import CacheEngineVersionMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Marker`: `str`
-- `CacheEngineVersions`: `List["CacheEngineVersionTypeDef"]`
-
-
-## CacheParameterGroupDetailsTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import CacheParameterGroupDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Marker`: `str`
-- `Parameters`: `List["ParameterTypeDef"]`
-- `CacheNodeTypeSpecificParameters`: `List["CacheNodeTypeSpecificParameterTypeDef"]`
-
-
-## CacheParameterGroupNameMessageTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import CacheParameterGroupNameMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `CacheParameterGroupName`: `str`
-
-
-## CacheParameterGroupsMessageTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import CacheParameterGroupsMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Marker`: `str`
-- `CacheParameterGroups`: `List["CacheParameterGroupTypeDef"]`
-
-
-## CacheSecurityGroupMessageTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import CacheSecurityGroupMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Marker`: `str`
-- `CacheSecurityGroups`: `List["CacheSecurityGroupTypeDef"]`
-
-
-## CacheSubnetGroupMessageTypeDef
-
-```python
-from mypy_boto3_elasticache.type_defs import CacheSubnetGroupMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Marker`: `str`
-- `CacheSubnetGroups`: `List["CacheSubnetGroupTypeDef"]`
 
 
 ## CompleteMigrationResponseTypeDef
@@ -1554,6 +799,20 @@ Optional fields:
 - `Marker`: `str`
 
 
+## DestinationDetailsTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import DestinationDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `CloudWatchLogsDetails`: `"CloudWatchLogsDestinationDetailsTypeDef"`
+- `KinesisFirehoseDetails`: `"KinesisFirehoseDestinationDetailsTypeDef"`
+
+
 ## DisassociateGlobalReplicationGroupResultTypeDef
 
 ```python
@@ -1565,6 +824,67 @@ from mypy_boto3_elasticache.type_defs import DisassociateGlobalReplicationGroupR
 
 Optional fields:
 - `GlobalReplicationGroup`: `"GlobalReplicationGroupTypeDef"`
+
+
+## EC2SecurityGroupTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import EC2SecurityGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `str`
+- `EC2SecurityGroupName`: `str`
+- `EC2SecurityGroupOwnerId`: `str`
+
+
+## EndpointTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import EndpointTypeDef
+```
+
+
+
+
+Optional fields:
+- `Address`: `str`
+- `Port`: `int`
+
+
+## EngineDefaultsTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import EngineDefaultsTypeDef
+```
+
+
+
+
+Optional fields:
+- `CacheParameterGroupFamily`: `str`
+- `Marker`: `str`
+- `Parameters`: `List["ParameterTypeDef"]`
+- `CacheNodeTypeSpecificParameters`: `List["CacheNodeTypeSpecificParameterTypeDef"]`
+
+
+## EventTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import EventTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceIdentifier`: `str`
+- `SourceType`: `SourceType`
+- `Message`: `str`
+- `Date`: `datetime`
 
 
 ## EventsMessageTypeDef
@@ -1608,6 +928,76 @@ Required fields:
 
 
 
+## GlobalNodeGroupTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import GlobalNodeGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `GlobalNodeGroupId`: `str`
+- `Slots`: `str`
+
+
+## GlobalReplicationGroupInfoTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import GlobalReplicationGroupInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `GlobalReplicationGroupId`: `str`
+- `GlobalReplicationGroupMemberRole`: `str`
+
+
+## GlobalReplicationGroupMemberTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import GlobalReplicationGroupMemberTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplicationGroupId`: `str`
+- `ReplicationGroupRegion`: `str`
+- `Role`: `str`
+- `AutomaticFailover`: `AutomaticFailoverStatus`
+- `Status`: `str`
+
+
+## GlobalReplicationGroupTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import GlobalReplicationGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `GlobalReplicationGroupId`: `str`
+- `GlobalReplicationGroupDescription`: `str`
+- `Status`: `str`
+- `CacheNodeType`: `str`
+- `Engine`: `str`
+- `EngineVersion`: `str`
+- `Members`: `List["GlobalReplicationGroupMemberTypeDef"]`
+- `ClusterEnabled`: `bool`
+- `GlobalNodeGroups`: `List["GlobalNodeGroupTypeDef"]`
+- `AuthTokenEnabled`: `bool`
+- `TransitEncryptionEnabled`: `bool`
+- `AtRestEncryptionEnabled`: `bool`
+- `ARN`: `str`
+
+
 ## IncreaseNodeGroupsInGlobalReplicationGroupResultTypeDef
 
 ```python
@@ -1634,6 +1024,19 @@ Optional fields:
 - `ReplicationGroup`: `"ReplicationGroupTypeDef"`
 
 
+## KinesisFirehoseDestinationDetailsTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import KinesisFirehoseDestinationDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeliveryStream`: `str`
+
+
 ## LogDeliveryConfigurationRequestTypeDef
 
 ```python
@@ -1644,11 +1047,29 @@ from mypy_boto3_elasticache.type_defs import LogDeliveryConfigurationRequestType
 
 
 Optional fields:
-- `LogType`: `LogType`
+- `LogType`: `Literal['slow-log']`
 - `DestinationType`: `DestinationType`
 - `DestinationDetails`: `"DestinationDetailsTypeDef"`
 - `LogFormat`: `LogFormat`
 - `Enabled`: `bool`
+
+
+## LogDeliveryConfigurationTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import LogDeliveryConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `LogType`: `Literal['slow-log']`
+- `DestinationType`: `DestinationType`
+- `DestinationDetails`: `"DestinationDetailsTypeDef"`
+- `LogFormat`: `LogFormat`
+- `Status`: `LogDeliveryConfigurationStatus`
+- `Message`: `str`
 
 
 ## ModifyCacheClusterResultTypeDef
@@ -1716,6 +1137,129 @@ Optional fields:
 - `ReplicationGroup`: `"ReplicationGroupTypeDef"`
 
 
+## NodeGroupConfigurationTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import NodeGroupConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `NodeGroupId`: `str`
+- `Slots`: `str`
+- `ReplicaCount`: `int`
+- `PrimaryAvailabilityZone`: `str`
+- `ReplicaAvailabilityZones`: `List[str]`
+- `PrimaryOutpostArn`: `str`
+- `ReplicaOutpostArns`: `List[str]`
+
+
+## NodeGroupMemberTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import NodeGroupMemberTypeDef
+```
+
+
+
+
+Optional fields:
+- `CacheClusterId`: `str`
+- `CacheNodeId`: `str`
+- `ReadEndpoint`: `"EndpointTypeDef"`
+- `PreferredAvailabilityZone`: `str`
+- `PreferredOutpostArn`: `str`
+- `CurrentRole`: `str`
+
+
+## NodeGroupMemberUpdateStatusTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import NodeGroupMemberUpdateStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `CacheClusterId`: `str`
+- `CacheNodeId`: `str`
+- `NodeUpdateStatus`: `NodeUpdateStatus`
+- `NodeDeletionDate`: `datetime`
+- `NodeUpdateStartDate`: `datetime`
+- `NodeUpdateEndDate`: `datetime`
+- `NodeUpdateInitiatedBy`: `NodeUpdateInitiatedBy`
+- `NodeUpdateInitiatedDate`: `datetime`
+- `NodeUpdateStatusModifiedDate`: `datetime`
+
+
+## NodeGroupTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import NodeGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `NodeGroupId`: `str`
+- `Status`: `str`
+- `PrimaryEndpoint`: `"EndpointTypeDef"`
+- `ReaderEndpoint`: `"EndpointTypeDef"`
+- `Slots`: `str`
+- `NodeGroupMembers`: `List["NodeGroupMemberTypeDef"]`
+
+
+## NodeGroupUpdateStatusTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import NodeGroupUpdateStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `NodeGroupId`: `str`
+- `NodeGroupMemberUpdateStatus`: `List["NodeGroupMemberUpdateStatusTypeDef"]`
+
+
+## NodeSnapshotTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import NodeSnapshotTypeDef
+```
+
+
+
+
+Optional fields:
+- `CacheClusterId`: `str`
+- `NodeGroupId`: `str`
+- `CacheNodeId`: `str`
+- `NodeGroupConfiguration`: `"NodeGroupConfigurationTypeDef"`
+- `CacheSize`: `str`
+- `CacheNodeCreateTime`: `datetime`
+- `SnapshotCreateTime`: `datetime`
+
+
+## NotificationConfigurationTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import NotificationConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TopicArn`: `str`
+- `TopicStatus`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -1743,6 +1287,77 @@ from mypy_boto3_elasticache.type_defs import ParameterNameValueTypeDef
 Optional fields:
 - `ParameterName`: `str`
 - `ParameterValue`: `str`
+
+
+## ParameterTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import ParameterTypeDef
+```
+
+
+
+
+Optional fields:
+- `ParameterName`: `str`
+- `ParameterValue`: `str`
+- `Description`: `str`
+- `Source`: `str`
+- `DataType`: `str`
+- `AllowedValues`: `str`
+- `IsModifiable`: `bool`
+- `MinimumEngineVersion`: `str`
+- `ChangeType`: `ChangeType`
+
+
+## PendingLogDeliveryConfigurationTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import PendingLogDeliveryConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `LogType`: `Literal['slow-log']`
+- `DestinationType`: `DestinationType`
+- `DestinationDetails`: `"DestinationDetailsTypeDef"`
+- `LogFormat`: `LogFormat`
+
+
+## PendingModifiedValuesTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import PendingModifiedValuesTypeDef
+```
+
+
+
+
+Optional fields:
+- `NumCacheNodes`: `int`
+- `CacheNodeIdsToRemove`: `List[str]`
+- `EngineVersion`: `str`
+- `CacheNodeType`: `str`
+- `AuthTokenStatus`: `AuthTokenUpdateStatus`
+- `LogDeliveryConfigurations`: `List["PendingLogDeliveryConfigurationTypeDef"]`
+
+
+## ProcessedUpdateActionTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import ProcessedUpdateActionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplicationGroupId`: `str`
+- `CacheClusterId`: `str`
+- `ServiceUpdateName`: `str`
+- `UpdateActionStatus`: `UpdateActionStatus`
 
 
 ## PurchaseReservedCacheNodesOfferingResultTypeDef
@@ -1784,6 +1399,20 @@ Optional fields:
 - `CacheCluster`: `"CacheClusterTypeDef"`
 
 
+## RecurringChargeTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import RecurringChargeTypeDef
+```
+
+
+
+
+Optional fields:
+- `RecurringChargeAmount`: `float`
+- `RecurringChargeFrequency`: `str`
+
+
 ## RegionalConfigurationTypeDef
 
 ```python
@@ -1813,6 +1442,60 @@ Optional fields:
 - `ReplicationGroups`: `List["ReplicationGroupTypeDef"]`
 
 
+## ReplicationGroupPendingModifiedValuesTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import ReplicationGroupPendingModifiedValuesTypeDef
+```
+
+
+
+
+Optional fields:
+- `PrimaryClusterId`: `str`
+- `AutomaticFailoverStatus`: `PendingAutomaticFailoverStatus`
+- `Resharding`: `"ReshardingStatusTypeDef"`
+- `AuthTokenStatus`: `AuthTokenUpdateStatus`
+- `UserGroups`: `"UserGroupsUpdateStatusTypeDef"`
+- `LogDeliveryConfigurations`: `List["PendingLogDeliveryConfigurationTypeDef"]`
+
+
+## ReplicationGroupTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import ReplicationGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplicationGroupId`: `str`
+- `Description`: `str`
+- `GlobalReplicationGroupInfo`: `"GlobalReplicationGroupInfoTypeDef"`
+- `Status`: `str`
+- `PendingModifiedValues`: `"ReplicationGroupPendingModifiedValuesTypeDef"`
+- `MemberClusters`: `List[str]`
+- `NodeGroups`: `List["NodeGroupTypeDef"]`
+- `SnapshottingClusterId`: `str`
+- `AutomaticFailover`: `AutomaticFailoverStatus`
+- `MultiAZ`: `MultiAZStatus`
+- `ConfigurationEndpoint`: `"EndpointTypeDef"`
+- `SnapshotRetentionLimit`: `int`
+- `SnapshotWindow`: `str`
+- `ClusterEnabled`: `bool`
+- `CacheNodeType`: `str`
+- `AuthTokenEnabled`: `bool`
+- `AuthTokenLastModifiedDate`: `datetime`
+- `TransitEncryptionEnabled`: `bool`
+- `AtRestEncryptionEnabled`: `bool`
+- `MemberClustersOutpostArns`: `List[str]`
+- `KmsKeyId`: `str`
+- `ARN`: `str`
+- `UserGroupIds`: `List[str]`
+- `LogDeliveryConfigurations`: `List["LogDeliveryConfigurationTypeDef"]`
+
+
 ## ReservedCacheNodeMessageTypeDef
 
 ```python
@@ -1825,6 +1508,31 @@ from mypy_boto3_elasticache.type_defs import ReservedCacheNodeMessageTypeDef
 Optional fields:
 - `Marker`: `str`
 - `ReservedCacheNodes`: `List["ReservedCacheNodeTypeDef"]`
+
+
+## ReservedCacheNodeTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import ReservedCacheNodeTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReservedCacheNodeId`: `str`
+- `ReservedCacheNodesOfferingId`: `str`
+- `CacheNodeType`: `str`
+- `StartTime`: `datetime`
+- `Duration`: `int`
+- `FixedPrice`: `float`
+- `UsagePrice`: `float`
+- `CacheNodeCount`: `int`
+- `ProductDescription`: `str`
+- `OfferingType`: `str`
+- `State`: `str`
+- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
+- `ReservationARN`: `str`
 
 
 ## ReservedCacheNodesOfferingMessageTypeDef
@@ -1841,6 +1549,53 @@ Optional fields:
 - `ReservedCacheNodesOfferings`: `List["ReservedCacheNodesOfferingTypeDef"]`
 
 
+## ReservedCacheNodesOfferingTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import ReservedCacheNodesOfferingTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReservedCacheNodesOfferingId`: `str`
+- `CacheNodeType`: `str`
+- `Duration`: `int`
+- `FixedPrice`: `float`
+- `UsagePrice`: `float`
+- `ProductDescription`: `str`
+- `OfferingType`: `str`
+- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
+
+
+## ReshardingConfigurationTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import ReshardingConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `NodeGroupId`: `str`
+- `PreferredAvailabilityZones`: `List[str]`
+
+
+## ReshardingStatusTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import ReshardingStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `SlotMigration`: `"SlotMigrationTypeDef"`
+
+
 ## RevokeCacheSecurityGroupIngressResultTypeDef
 
 ```python
@@ -1852,6 +1607,44 @@ from mypy_boto3_elasticache.type_defs import RevokeCacheSecurityGroupIngressResu
 
 Optional fields:
 - `CacheSecurityGroup`: `"CacheSecurityGroupTypeDef"`
+
+
+## SecurityGroupMembershipTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import SecurityGroupMembershipTypeDef
+```
+
+
+
+
+Optional fields:
+- `SecurityGroupId`: `str`
+- `Status`: `str`
+
+
+## ServiceUpdateTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import ServiceUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceUpdateName`: `str`
+- `ServiceUpdateReleaseDate`: `datetime`
+- `ServiceUpdateEndDate`: `datetime`
+- `ServiceUpdateSeverity`: `ServiceUpdateSeverity`
+- `ServiceUpdateRecommendedApplyByDate`: `datetime`
+- `ServiceUpdateStatus`: `ServiceUpdateStatus`
+- `ServiceUpdateDescription`: `str`
+- `ServiceUpdateType`: `Literal['security-update']`
+- `Engine`: `str`
+- `EngineVersion`: `str`
+- `AutoUpdateAfterRecommendedApplyByDate`: `bool`
+- `EstimatedUpdateTime`: `str`
 
 
 ## ServiceUpdatesMessageTypeDef
@@ -1868,6 +1661,58 @@ Optional fields:
 - `ServiceUpdates`: `List["ServiceUpdateTypeDef"]`
 
 
+## SlotMigrationTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import SlotMigrationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProgressPercentage`: `float`
+
+
+## SnapshotTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import SnapshotTypeDef
+```
+
+
+
+
+Optional fields:
+- `SnapshotName`: `str`
+- `ReplicationGroupId`: `str`
+- `ReplicationGroupDescription`: `str`
+- `CacheClusterId`: `str`
+- `SnapshotStatus`: `str`
+- `SnapshotSource`: `str`
+- `CacheNodeType`: `str`
+- `Engine`: `str`
+- `EngineVersion`: `str`
+- `NumCacheNodes`: `int`
+- `PreferredAvailabilityZone`: `str`
+- `PreferredOutpostArn`: `str`
+- `CacheClusterCreateTime`: `datetime`
+- `PreferredMaintenanceWindow`: `str`
+- `TopicArn`: `str`
+- `Port`: `int`
+- `CacheParameterGroupName`: `str`
+- `CacheSubnetGroupName`: `str`
+- `VpcId`: `str`
+- `AutoMinorVersionUpgrade`: `bool`
+- `SnapshotRetentionLimit`: `int`
+- `SnapshotWindow`: `str`
+- `NumNodeGroups`: `int`
+- `AutomaticFailover`: `AutomaticFailoverStatus`
+- `NodeSnapshots`: `List["NodeSnapshotTypeDef"]`
+- `KmsKeyId`: `str`
+- `ARN`: `str`
+
+
 ## StartMigrationResponseTypeDef
 
 ```python
@@ -1881,6 +1726,34 @@ Optional fields:
 - `ReplicationGroup`: `"ReplicationGroupTypeDef"`
 
 
+## SubnetOutpostTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import SubnetOutpostTypeDef
+```
+
+
+
+
+Optional fields:
+- `SubnetOutpostArn`: `str`
+
+
+## SubnetTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import SubnetTypeDef
+```
+
+
+
+
+Optional fields:
+- `SubnetIdentifier`: `str`
+- `SubnetAvailabilityZone`: `"AvailabilityZoneTypeDef"`
+- `SubnetOutpost`: `"SubnetOutpostTypeDef"`
+
+
 ## TagListMessageTypeDef
 
 ```python
@@ -1892,6 +1765,20 @@ from mypy_boto3_elasticache.type_defs import TagListMessageTypeDef
 
 Optional fields:
 - `TagList`: `List["TagTypeDef"]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
 
 
 ## TestFailoverResultTypeDef
@@ -1921,6 +1808,23 @@ Optional fields:
 - `EndTime`: `datetime`
 
 
+## UnprocessedUpdateActionTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import UnprocessedUpdateActionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplicationGroupId`: `str`
+- `CacheClusterId`: `str`
+- `ServiceUpdateName`: `str`
+- `ErrorType`: `str`
+- `ErrorMessage`: `str`
+
+
 ## UpdateActionResultsMessageTypeDef
 
 ```python
@@ -1935,6 +1839,35 @@ Optional fields:
 - `UnprocessedUpdateActions`: `List["UnprocessedUpdateActionTypeDef"]`
 
 
+## UpdateActionTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import UpdateActionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplicationGroupId`: `str`
+- `CacheClusterId`: `str`
+- `ServiceUpdateName`: `str`
+- `ServiceUpdateReleaseDate`: `datetime`
+- `ServiceUpdateSeverity`: `ServiceUpdateSeverity`
+- `ServiceUpdateStatus`: `ServiceUpdateStatus`
+- `ServiceUpdateRecommendedApplyByDate`: `datetime`
+- `ServiceUpdateType`: `Literal['security-update']`
+- `UpdateActionAvailableDate`: `datetime`
+- `UpdateActionStatus`: `UpdateActionStatus`
+- `NodesUpdated`: `str`
+- `UpdateActionStatusModifiedDate`: `datetime`
+- `SlaMet`: `SlaMet`
+- `NodeGroupUpdateStatus`: `List["NodeGroupUpdateStatusTypeDef"]`
+- `CacheNodeUpdateStatus`: `List["CacheNodeUpdateStatusTypeDef"]`
+- `EstimatedUpdateTime`: `str`
+- `Engine`: `str`
+
+
 ## UpdateActionsMessageTypeDef
 
 ```python
@@ -1947,6 +1880,73 @@ from mypy_boto3_elasticache.type_defs import UpdateActionsMessageTypeDef
 Optional fields:
 - `Marker`: `str`
 - `UpdateActions`: `List["UpdateActionTypeDef"]`
+
+
+## UserGroupPendingChangesTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import UserGroupPendingChangesTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserIdsToRemove`: `List[str]`
+- `UserIdsToAdd`: `List[str]`
+
+
+## UserGroupTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import UserGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserGroupId`: `str`
+- `Status`: `str`
+- `Engine`: `str`
+- `UserIds`: `List[str]`
+- `PendingChanges`: `"UserGroupPendingChangesTypeDef"`
+- `ReplicationGroups`: `List[str]`
+- `ARN`: `str`
+
+
+## UserGroupsUpdateStatusTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import UserGroupsUpdateStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserGroupIdsToAdd`: `List[str]`
+- `UserGroupIdsToRemove`: `List[str]`
+
+
+## UserTypeDef
+
+```python
+from mypy_boto3_elasticache.type_defs import UserTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserId`: `str`
+- `UserName`: `str`
+- `Status`: `str`
+- `Engine`: `str`
+- `AccessString`: `str`
+- `UserGroupIds`: `List[str]`
+- `Authentication`: `"AuthenticationTypeDef"`
+- `ARN`: `str`
 
 
 ## WaiterConfigTypeDef

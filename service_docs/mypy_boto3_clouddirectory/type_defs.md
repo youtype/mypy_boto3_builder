@@ -6,6 +6,10 @@ Auto-generated documentation for [CloudDirectory](https://boto3.amazonaws.com/v1
 type annotations stubs module [mypy_boto3_clouddirectory](https://pypi.org/project/mypy-boto3-clouddirectory/).
 
 - [Structures for boto3 CloudDirectory module](#structures-for-boto3-clouddirectory-module)
+  - [ApplySchemaResponseTypeDef](#applyschemaresponsetypedef)
+  - [AttachObjectResponseTypeDef](#attachobjectresponsetypedef)
+  - [AttachToIndexResponseTypeDef](#attachtoindexresponsetypedef)
+  - [AttachTypedLinkResponseTypeDef](#attachtypedlinkresponsetypedef)
   - [AttributeKeyAndValueTypeDef](#attributekeyandvaluetypedef)
   - [AttributeKeyTypeDef](#attributekeytypedef)
   - [AttributeNameAndValueTypeDef](#attributenameandvaluetypedef)
@@ -58,43 +62,14 @@ type annotations stubs module [mypy_boto3_clouddirectory](https://pypi.org/proje
   - [BatchLookupPolicyTypeDef](#batchlookuppolicytypedef)
   - [BatchReadExceptionTypeDef](#batchreadexceptiontypedef)
   - [BatchReadOperationResponseTypeDef](#batchreadoperationresponsetypedef)
+  - [BatchReadOperationTypeDef](#batchreadoperationtypedef)
+  - [BatchReadResponseTypeDef](#batchreadresponsetypedef)
   - [BatchReadSuccessfulResponseTypeDef](#batchreadsuccessfulresponsetypedef)
   - [BatchRemoveFacetFromObjectTypeDef](#batchremovefacetfromobjecttypedef)
   - [BatchUpdateLinkAttributesTypeDef](#batchupdatelinkattributestypedef)
   - [BatchUpdateObjectAttributesResponseTypeDef](#batchupdateobjectattributesresponsetypedef)
   - [BatchUpdateObjectAttributesTypeDef](#batchupdateobjectattributestypedef)
   - [BatchWriteOperationResponseTypeDef](#batchwriteoperationresponsetypedef)
-  - [DirectoryTypeDef](#directorytypedef)
-  - [FacetAttributeDefinitionTypeDef](#facetattributedefinitiontypedef)
-  - [FacetAttributeReferenceTypeDef](#facetattributereferencetypedef)
-  - [FacetAttributeTypeDef](#facetattributetypedef)
-  - [FacetTypeDef](#facettypedef)
-  - [IndexAttachmentTypeDef](#indexattachmenttypedef)
-  - [LinkAttributeActionTypeDef](#linkattributeactiontypedef)
-  - [LinkAttributeUpdateTypeDef](#linkattributeupdatetypedef)
-  - [ObjectAttributeActionTypeDef](#objectattributeactiontypedef)
-  - [ObjectAttributeRangeTypeDef](#objectattributerangetypedef)
-  - [ObjectAttributeUpdateTypeDef](#objectattributeupdatetypedef)
-  - [ObjectIdentifierAndLinkNameTupleTypeDef](#objectidentifierandlinknametupletypedef)
-  - [ObjectReferenceTypeDef](#objectreferencetypedef)
-  - [PathToObjectIdentifiersTypeDef](#pathtoobjectidentifierstypedef)
-  - [PolicyAttachmentTypeDef](#policyattachmenttypedef)
-  - [PolicyToPathTypeDef](#policytopathtypedef)
-  - [RuleTypeDef](#ruletypedef)
-  - [SchemaFacetTypeDef](#schemafacettypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TypedAttributeValueRangeTypeDef](#typedattributevaluerangetypedef)
-  - [TypedAttributeValueTypeDef](#typedattributevaluetypedef)
-  - [TypedLinkAttributeDefinitionTypeDef](#typedlinkattributedefinitiontypedef)
-  - [TypedLinkAttributeRangeTypeDef](#typedlinkattributerangetypedef)
-  - [TypedLinkSchemaAndFacetNameTypeDef](#typedlinkschemaandfacetnametypedef)
-  - [TypedLinkSpecifierTypeDef](#typedlinkspecifiertypedef)
-  - [ApplySchemaResponseTypeDef](#applyschemaresponsetypedef)
-  - [AttachObjectResponseTypeDef](#attachobjectresponsetypedef)
-  - [AttachToIndexResponseTypeDef](#attachtoindexresponsetypedef)
-  - [AttachTypedLinkResponseTypeDef](#attachtypedlinkresponsetypedef)
-  - [BatchReadOperationTypeDef](#batchreadoperationtypedef)
-  - [BatchReadResponseTypeDef](#batchreadresponsetypedef)
   - [BatchWriteOperationTypeDef](#batchwriteoperationtypedef)
   - [BatchWriteResponseTypeDef](#batchwriteresponsetypedef)
   - [CreateDirectoryResponseTypeDef](#createdirectoryresponsetypedef)
@@ -105,9 +80,14 @@ type annotations stubs module [mypy_boto3_clouddirectory](https://pypi.org/proje
   - [DeleteSchemaResponseTypeDef](#deleteschemaresponsetypedef)
   - [DetachFromIndexResponseTypeDef](#detachfromindexresponsetypedef)
   - [DetachObjectResponseTypeDef](#detachobjectresponsetypedef)
+  - [DirectoryTypeDef](#directorytypedef)
   - [DisableDirectoryResponseTypeDef](#disabledirectoryresponsetypedef)
   - [EnableDirectoryResponseTypeDef](#enabledirectoryresponsetypedef)
+  - [FacetAttributeDefinitionTypeDef](#facetattributedefinitiontypedef)
+  - [FacetAttributeReferenceTypeDef](#facetattributereferencetypedef)
+  - [FacetAttributeTypeDef](#facetattributetypedef)
   - [FacetAttributeUpdateTypeDef](#facetattributeupdatetypedef)
+  - [FacetTypeDef](#facettypedef)
   - [GetAppliedSchemaVersionResponseTypeDef](#getappliedschemaversionresponsetypedef)
   - [GetDirectoryResponseTypeDef](#getdirectoryresponsetypedef)
   - [GetFacetResponseTypeDef](#getfacetresponsetypedef)
@@ -116,6 +96,9 @@ type annotations stubs module [mypy_boto3_clouddirectory](https://pypi.org/proje
   - [GetObjectInformationResponseTypeDef](#getobjectinformationresponsetypedef)
   - [GetSchemaAsJsonResponseTypeDef](#getschemaasjsonresponsetypedef)
   - [GetTypedLinkFacetInformationResponseTypeDef](#gettypedlinkfacetinformationresponsetypedef)
+  - [IndexAttachmentTypeDef](#indexattachmenttypedef)
+  - [LinkAttributeActionTypeDef](#linkattributeactiontypedef)
+  - [LinkAttributeUpdateTypeDef](#linkattributeupdatetypedef)
   - [ListAppliedSchemaArnsResponseTypeDef](#listappliedschemaarnsresponsetypedef)
   - [ListAttachedIndicesResponseTypeDef](#listattachedindicesresponsetypedef)
   - [ListDevelopmentSchemaArnsResponseTypeDef](#listdevelopmentschemaarnsresponsetypedef)
@@ -137,15 +120,85 @@ type annotations stubs module [mypy_boto3_clouddirectory](https://pypi.org/proje
   - [ListTypedLinkFacetAttributesResponseTypeDef](#listtypedlinkfacetattributesresponsetypedef)
   - [ListTypedLinkFacetNamesResponseTypeDef](#listtypedlinkfacetnamesresponsetypedef)
   - [LookupPolicyResponseTypeDef](#lookuppolicyresponsetypedef)
+  - [ObjectAttributeActionTypeDef](#objectattributeactiontypedef)
+  - [ObjectAttributeRangeTypeDef](#objectattributerangetypedef)
+  - [ObjectAttributeUpdateTypeDef](#objectattributeupdatetypedef)
+  - [ObjectIdentifierAndLinkNameTupleTypeDef](#objectidentifierandlinknametupletypedef)
+  - [ObjectReferenceTypeDef](#objectreferencetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PathToObjectIdentifiersTypeDef](#pathtoobjectidentifierstypedef)
+  - [PolicyAttachmentTypeDef](#policyattachmenttypedef)
+  - [PolicyToPathTypeDef](#policytopathtypedef)
   - [PublishSchemaResponseTypeDef](#publishschemaresponsetypedef)
   - [PutSchemaFromJsonResponseTypeDef](#putschemafromjsonresponsetypedef)
+  - [RuleTypeDef](#ruletypedef)
+  - [SchemaFacetTypeDef](#schemafacettypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TypedAttributeValueRangeTypeDef](#typedattributevaluerangetypedef)
+  - [TypedAttributeValueTypeDef](#typedattributevaluetypedef)
+  - [TypedLinkAttributeDefinitionTypeDef](#typedlinkattributedefinitiontypedef)
+  - [TypedLinkAttributeRangeTypeDef](#typedlinkattributerangetypedef)
   - [TypedLinkFacetAttributeUpdateTypeDef](#typedlinkfacetattributeupdatetypedef)
   - [TypedLinkFacetTypeDef](#typedlinkfacettypedef)
+  - [TypedLinkSchemaAndFacetNameTypeDef](#typedlinkschemaandfacetnametypedef)
+  - [TypedLinkSpecifierTypeDef](#typedlinkspecifiertypedef)
   - [UpdateObjectAttributesResponseTypeDef](#updateobjectattributesresponsetypedef)
   - [UpdateSchemaResponseTypeDef](#updateschemaresponsetypedef)
   - [UpgradeAppliedSchemaResponseTypeDef](#upgradeappliedschemaresponsetypedef)
   - [UpgradePublishedSchemaResponseTypeDef](#upgradepublishedschemaresponsetypedef)
+
+## ApplySchemaResponseTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import ApplySchemaResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AppliedSchemaArn`: `str`
+- `DirectoryArn`: `str`
+
+
+## AttachObjectResponseTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import AttachObjectResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttachedObjectIdentifier`: `str`
+
+
+## AttachToIndexResponseTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import AttachToIndexResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttachedObjectIdentifier`: `str`
+
+
+## AttachTypedLinkResponseTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import AttachTypedLinkResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TypedLinkSpecifier`: `"TypedLinkSpecifierTypeDef"`
+
 
 ## AttributeKeyAndValueTypeDef
 
@@ -921,6 +974,45 @@ Optional fields:
 - `ExceptionResponse`: `"BatchReadExceptionTypeDef"`
 
 
+## BatchReadOperationTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import BatchReadOperationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ListObjectAttributes`: `"BatchListObjectAttributesTypeDef"`
+- `ListObjectChildren`: `"BatchListObjectChildrenTypeDef"`
+- `ListAttachedIndices`: `"BatchListAttachedIndicesTypeDef"`
+- `ListObjectParentPaths`: `"BatchListObjectParentPathsTypeDef"`
+- `GetObjectInformation`: `"BatchGetObjectInformationTypeDef"`
+- `GetObjectAttributes`: `"BatchGetObjectAttributesTypeDef"`
+- `ListObjectParents`: `"BatchListObjectParentsTypeDef"`
+- `ListObjectPolicies`: `"BatchListObjectPoliciesTypeDef"`
+- `ListPolicyAttachments`: `"BatchListPolicyAttachmentsTypeDef"`
+- `LookupPolicy`: `"BatchLookupPolicyTypeDef"`
+- `ListIndex`: `"BatchListIndexTypeDef"`
+- `ListOutgoingTypedLinks`: `"BatchListOutgoingTypedLinksTypeDef"`
+- `ListIncomingTypedLinks`: `"BatchListIncomingTypedLinksTypeDef"`
+- `GetLinkAttributes`: `"BatchGetLinkAttributesTypeDef"`
+
+
+## BatchReadResponseTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import BatchReadResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Responses`: `List["BatchReadOperationResponseTypeDef"]`
+
+
 ## BatchReadSuccessfulResponseTypeDef
 
 ```python
@@ -1027,476 +1119,6 @@ Optional fields:
 - `AttachTypedLink`: `"BatchAttachTypedLinkResponseTypeDef"`
 - `DetachTypedLink`: `Dict[str, Any]`
 - `UpdateLinkAttributes`: `Dict[str, Any]`
-
-
-## DirectoryTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import DirectoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `DirectoryArn`: `str`
-- `State`: `DirectoryState`
-- `CreationDateTime`: `datetime`
-
-
-## FacetAttributeDefinitionTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import FacetAttributeDefinitionTypeDef
-```
-
-
-Required fields:
-- `Type`: `FacetAttributeType`
-
-
-
-Optional fields:
-- `DefaultValue`: `"TypedAttributeValueTypeDef"`
-- `IsImmutable`: `bool`
-- `Rules`: `Dict[str, "RuleTypeDef"]`
-
-
-## FacetAttributeReferenceTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import FacetAttributeReferenceTypeDef
-```
-
-
-Required fields:
-- `TargetFacetName`: `str`
-- `TargetAttributeName`: `str`
-
-
-
-
-## FacetAttributeTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import FacetAttributeTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-
-
-
-Optional fields:
-- `AttributeDefinition`: `"FacetAttributeDefinitionTypeDef"`
-- `AttributeReference`: `"FacetAttributeReferenceTypeDef"`
-- `RequiredBehavior`: `RequiredAttributeBehavior`
-
-
-## FacetTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import FacetTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `ObjectType`: `ObjectType`
-- `FacetStyle`: `FacetStyle`
-
-
-## IndexAttachmentTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import IndexAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `IndexedAttributes`: `List["AttributeKeyAndValueTypeDef"]`
-- `ObjectIdentifier`: `str`
-
-
-## LinkAttributeActionTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import LinkAttributeActionTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttributeActionType`: `UpdateActionType`
-- `AttributeUpdateValue`: `"TypedAttributeValueTypeDef"`
-
-
-## LinkAttributeUpdateTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import LinkAttributeUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttributeKey`: `"AttributeKeyTypeDef"`
-- `AttributeAction`: `"LinkAttributeActionTypeDef"`
-
-
-## ObjectAttributeActionTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import ObjectAttributeActionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ObjectAttributeActionType`: `UpdateActionType`
-- `ObjectAttributeUpdateValue`: `"TypedAttributeValueTypeDef"`
-
-
-## ObjectAttributeRangeTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import ObjectAttributeRangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttributeKey`: `"AttributeKeyTypeDef"`
-- `Range`: `"TypedAttributeValueRangeTypeDef"`
-
-
-## ObjectAttributeUpdateTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import ObjectAttributeUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `ObjectAttributeKey`: `"AttributeKeyTypeDef"`
-- `ObjectAttributeAction`: `"ObjectAttributeActionTypeDef"`
-
-
-## ObjectIdentifierAndLinkNameTupleTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import ObjectIdentifierAndLinkNameTupleTypeDef
-```
-
-
-
-
-Optional fields:
-- `ObjectIdentifier`: `str`
-- `LinkName`: `str`
-
-
-## ObjectReferenceTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import ObjectReferenceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Selector`: `str`
-
-
-## PathToObjectIdentifiersTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import PathToObjectIdentifiersTypeDef
-```
-
-
-
-
-Optional fields:
-- `Path`: `str`
-- `ObjectIdentifiers`: `List[str]`
-
-
-## PolicyAttachmentTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import PolicyAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicyId`: `str`
-- `ObjectIdentifier`: `str`
-- `PolicyType`: `str`
-
-
-## PolicyToPathTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import PolicyToPathTypeDef
-```
-
-
-
-
-Optional fields:
-- `Path`: `str`
-- `Policies`: `List["PolicyAttachmentTypeDef"]`
-
-
-## RuleTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import RuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `RuleType`
-- `Parameters`: `Dict[str, str]`
-
-
-## SchemaFacetTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import SchemaFacetTypeDef
-```
-
-
-
-
-Optional fields:
-- `SchemaArn`: `str`
-- `FacetName`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## TypedAttributeValueRangeTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import TypedAttributeValueRangeTypeDef
-```
-
-
-Required fields:
-- `StartMode`: `RangeMode`
-- `EndMode`: `RangeMode`
-
-
-
-Optional fields:
-- `StartValue`: `"TypedAttributeValueTypeDef"`
-- `EndValue`: `"TypedAttributeValueTypeDef"`
-
-
-## TypedAttributeValueTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import TypedAttributeValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `StringValue`: `str`
-- `BinaryValue`: `Union[bytes, IO[bytes]]`
-- `BooleanValue`: `bool`
-- `NumberValue`: `str`
-- `DatetimeValue`: `datetime`
-
-
-## TypedLinkAttributeDefinitionTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import TypedLinkAttributeDefinitionTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Type`: `FacetAttributeType`
-- `RequiredBehavior`: `RequiredAttributeBehavior`
-
-
-
-Optional fields:
-- `DefaultValue`: `"TypedAttributeValueTypeDef"`
-- `IsImmutable`: `bool`
-- `Rules`: `Dict[str, "RuleTypeDef"]`
-
-
-## TypedLinkAttributeRangeTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import TypedLinkAttributeRangeTypeDef
-```
-
-
-Required fields:
-- `Range`: `"TypedAttributeValueRangeTypeDef"`
-
-
-
-Optional fields:
-- `AttributeName`: `str`
-
-
-## TypedLinkSchemaAndFacetNameTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import TypedLinkSchemaAndFacetNameTypeDef
-```
-
-
-Required fields:
-- `SchemaArn`: `str`
-- `TypedLinkName`: `str`
-
-
-
-
-## TypedLinkSpecifierTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import TypedLinkSpecifierTypeDef
-```
-
-
-Required fields:
-- `TypedLinkFacet`: `"TypedLinkSchemaAndFacetNameTypeDef"`
-- `SourceObjectReference`: `"ObjectReferenceTypeDef"`
-- `TargetObjectReference`: `"ObjectReferenceTypeDef"`
-- `IdentityAttributeValues`: `List["AttributeNameAndValueTypeDef"]`
-
-
-
-
-## ApplySchemaResponseTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import ApplySchemaResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AppliedSchemaArn`: `str`
-- `DirectoryArn`: `str`
-
-
-## AttachObjectResponseTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import AttachObjectResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttachedObjectIdentifier`: `str`
-
-
-## AttachToIndexResponseTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import AttachToIndexResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttachedObjectIdentifier`: `str`
-
-
-## AttachTypedLinkResponseTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import AttachTypedLinkResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TypedLinkSpecifier`: `"TypedLinkSpecifierTypeDef"`
-
-
-## BatchReadOperationTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import BatchReadOperationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ListObjectAttributes`: `"BatchListObjectAttributesTypeDef"`
-- `ListObjectChildren`: `"BatchListObjectChildrenTypeDef"`
-- `ListAttachedIndices`: `"BatchListAttachedIndicesTypeDef"`
-- `ListObjectParentPaths`: `"BatchListObjectParentPathsTypeDef"`
-- `GetObjectInformation`: `"BatchGetObjectInformationTypeDef"`
-- `GetObjectAttributes`: `"BatchGetObjectAttributesTypeDef"`
-- `ListObjectParents`: `"BatchListObjectParentsTypeDef"`
-- `ListObjectPolicies`: `"BatchListObjectPoliciesTypeDef"`
-- `ListPolicyAttachments`: `"BatchListPolicyAttachmentsTypeDef"`
-- `LookupPolicy`: `"BatchLookupPolicyTypeDef"`
-- `ListIndex`: `"BatchListIndexTypeDef"`
-- `ListOutgoingTypedLinks`: `"BatchListOutgoingTypedLinksTypeDef"`
-- `ListIncomingTypedLinks`: `"BatchListIncomingTypedLinksTypeDef"`
-- `GetLinkAttributes`: `"BatchGetLinkAttributesTypeDef"`
-
-
-## BatchReadResponseTypeDef
-
-```python
-from mypy_boto3_clouddirectory.type_defs import BatchReadResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Responses`: `List["BatchReadOperationResponseTypeDef"]`
 
 
 ## BatchWriteOperationTypeDef
@@ -1646,6 +1268,22 @@ Optional fields:
 - `DetachedObjectIdentifier`: `str`
 
 
+## DirectoryTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import DirectoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `DirectoryArn`: `str`
+- `State`: `DirectoryState`
+- `CreationDateTime`: `datetime`
+
+
 ## DisableDirectoryResponseTypeDef
 
 ```python
@@ -1672,6 +1310,56 @@ Required fields:
 
 
 
+## FacetAttributeDefinitionTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import FacetAttributeDefinitionTypeDef
+```
+
+
+Required fields:
+- `Type`: `FacetAttributeType`
+
+
+
+Optional fields:
+- `DefaultValue`: `"TypedAttributeValueTypeDef"`
+- `IsImmutable`: `bool`
+- `Rules`: `Dict[str, "RuleTypeDef"]`
+
+
+## FacetAttributeReferenceTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import FacetAttributeReferenceTypeDef
+```
+
+
+Required fields:
+- `TargetFacetName`: `str`
+- `TargetAttributeName`: `str`
+
+
+
+
+## FacetAttributeTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import FacetAttributeTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+
+
+
+Optional fields:
+- `AttributeDefinition`: `"FacetAttributeDefinitionTypeDef"`
+- `AttributeReference`: `"FacetAttributeReferenceTypeDef"`
+- `RequiredBehavior`: `RequiredAttributeBehavior`
+
+
 ## FacetAttributeUpdateTypeDef
 
 ```python
@@ -1684,6 +1372,21 @@ from mypy_boto3_clouddirectory.type_defs import FacetAttributeUpdateTypeDef
 Optional fields:
 - `Attribute`: `"FacetAttributeTypeDef"`
 - `Action`: `UpdateActionType`
+
+
+## FacetTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import FacetTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `ObjectType`: `ObjectType`
+- `FacetStyle`: `FacetStyle`
 
 
 ## GetAppliedSchemaVersionResponseTypeDef
@@ -1790,6 +1493,48 @@ from mypy_boto3_clouddirectory.type_defs import GetTypedLinkFacetInformationResp
 
 Optional fields:
 - `IdentityAttributeOrder`: `List[str]`
+
+
+## IndexAttachmentTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import IndexAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `IndexedAttributes`: `List["AttributeKeyAndValueTypeDef"]`
+- `ObjectIdentifier`: `str`
+
+
+## LinkAttributeActionTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import LinkAttributeActionTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttributeActionType`: `UpdateActionType`
+- `AttributeUpdateValue`: `"TypedAttributeValueTypeDef"`
+
+
+## LinkAttributeUpdateTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import LinkAttributeUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttributeKey`: `"AttributeKeyTypeDef"`
+- `AttributeAction`: `"LinkAttributeActionTypeDef"`
 
 
 ## ListAppliedSchemaArnsResponseTypeDef
@@ -2089,6 +1834,75 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## ObjectAttributeActionTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import ObjectAttributeActionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ObjectAttributeActionType`: `UpdateActionType`
+- `ObjectAttributeUpdateValue`: `"TypedAttributeValueTypeDef"`
+
+
+## ObjectAttributeRangeTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import ObjectAttributeRangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttributeKey`: `"AttributeKeyTypeDef"`
+- `Range`: `"TypedAttributeValueRangeTypeDef"`
+
+
+## ObjectAttributeUpdateTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import ObjectAttributeUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `ObjectAttributeKey`: `"AttributeKeyTypeDef"`
+- `ObjectAttributeAction`: `"ObjectAttributeActionTypeDef"`
+
+
+## ObjectIdentifierAndLinkNameTupleTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import ObjectIdentifierAndLinkNameTupleTypeDef
+```
+
+
+
+
+Optional fields:
+- `ObjectIdentifier`: `str`
+- `LinkName`: `str`
+
+
+## ObjectReferenceTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import ObjectReferenceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Selector`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -2102,6 +1916,49 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PathToObjectIdentifiersTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import PathToObjectIdentifiersTypeDef
+```
+
+
+
+
+Optional fields:
+- `Path`: `str`
+- `ObjectIdentifiers`: `List[str]`
+
+
+## PolicyAttachmentTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import PolicyAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicyId`: `str`
+- `ObjectIdentifier`: `str`
+- `PolicyType`: `str`
+
+
+## PolicyToPathTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import PolicyToPathTypeDef
+```
+
+
+
+
+Optional fields:
+- `Path`: `str`
+- `Policies`: `List["PolicyAttachmentTypeDef"]`
 
 
 ## PublishSchemaResponseTypeDef
@@ -2130,6 +1987,119 @@ Optional fields:
 - `Arn`: `str`
 
 
+## RuleTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import RuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `RuleType`
+- `Parameters`: `Dict[str, str]`
+
+
+## SchemaFacetTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import SchemaFacetTypeDef
+```
+
+
+
+
+Optional fields:
+- `SchemaArn`: `str`
+- `FacetName`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+## TypedAttributeValueRangeTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import TypedAttributeValueRangeTypeDef
+```
+
+
+Required fields:
+- `StartMode`: `RangeMode`
+- `EndMode`: `RangeMode`
+
+
+
+Optional fields:
+- `StartValue`: `"TypedAttributeValueTypeDef"`
+- `EndValue`: `"TypedAttributeValueTypeDef"`
+
+
+## TypedAttributeValueTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import TypedAttributeValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `StringValue`: `str`
+- `BinaryValue`: `Union[bytes, IO[bytes]]`
+- `BooleanValue`: `bool`
+- `NumberValue`: `str`
+- `DatetimeValue`: `datetime`
+
+
+## TypedLinkAttributeDefinitionTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import TypedLinkAttributeDefinitionTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Type`: `FacetAttributeType`
+- `RequiredBehavior`: `RequiredAttributeBehavior`
+
+
+
+Optional fields:
+- `DefaultValue`: `"TypedAttributeValueTypeDef"`
+- `IsImmutable`: `bool`
+- `Rules`: `Dict[str, "RuleTypeDef"]`
+
+
+## TypedLinkAttributeRangeTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import TypedLinkAttributeRangeTypeDef
+```
+
+
+Required fields:
+- `Range`: `"TypedAttributeValueRangeTypeDef"`
+
+
+
+Optional fields:
+- `AttributeName`: `str`
+
+
 ## TypedLinkFacetAttributeUpdateTypeDef
 
 ```python
@@ -2155,6 +2125,36 @@ Required fields:
 - `Name`: `str`
 - `Attributes`: `List["TypedLinkAttributeDefinitionTypeDef"]`
 - `IdentityAttributeOrder`: `List[str]`
+
+
+
+
+## TypedLinkSchemaAndFacetNameTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import TypedLinkSchemaAndFacetNameTypeDef
+```
+
+
+Required fields:
+- `SchemaArn`: `str`
+- `TypedLinkName`: `str`
+
+
+
+
+## TypedLinkSpecifierTypeDef
+
+```python
+from mypy_boto3_clouddirectory.type_defs import TypedLinkSpecifierTypeDef
+```
+
+
+Required fields:
+- `TypedLinkFacet`: `"TypedLinkSchemaAndFacetNameTypeDef"`
+- `SourceObjectReference`: `"ObjectReferenceTypeDef"`
+- `TargetObjectReference`: `"ObjectReferenceTypeDef"`
+- `IdentityAttributeValues`: `List["AttributeNameAndValueTypeDef"]`
 
 
 

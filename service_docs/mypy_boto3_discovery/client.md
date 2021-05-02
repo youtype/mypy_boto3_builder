@@ -37,11 +37,6 @@ type annotations stubs module [mypy_boto3_discovery](https://pypi.org/project/my
     - [stop_data_collection_by_agent_ids](#stop_data_collection_by_agent_ids)
     - [update_application](#update_application)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
 
 ## ApplicationDiscoveryServiceClient
 
@@ -495,92 +490,17 @@ def update_application(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("discovery").get_paginator` method.
-
-[Paginator.DescribeAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeAgents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAgentsPaginatorName
-) -> DescribeAgentsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("discovery").get_paginator` method.
+Type annotations for `boto3.client("discovery").get_paginator` method with overloads.
 
-[Paginator.DescribeContinuousExports documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports)
+- `client.get_paginator("describe_agents")` -> [DescribeAgentsPaginator](./paginators.md#describeagentspaginator)
+- `client.get_paginator("describe_continuous_exports")` -> [DescribeContinuousExportsPaginator](./paginators.md#describecontinuousexportspaginator)
+- `client.get_paginator("describe_export_configurations")` -> [DescribeExportConfigurationsPaginator](./paginators.md#describeexportconfigurationspaginator)
+- `client.get_paginator("describe_export_tasks")` -> [DescribeExportTasksPaginator](./paginators.md#describeexporttaskspaginator)
+- `client.get_paginator("describe_tags")` -> [DescribeTagsPaginator](./paginators.md#describetagspaginator)
+- `client.get_paginator("list_configurations")` -> [ListConfigurationsPaginator](./paginators.md#listconfigurationspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeContinuousExportsPaginatorName
-) -> DescribeContinuousExportsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("discovery").get_paginator` method.
-
-[Paginator.DescribeExportConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeExportConfigurationsPaginatorName
-) -> DescribeExportConfigurationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("discovery").get_paginator` method.
-
-[Paginator.DescribeExportTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeExportTasksPaginatorName
-) -> DescribeExportTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("discovery").get_paginator` method.
-
-[Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeTags)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTagsPaginatorName
-) -> DescribeTagsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("discovery").get_paginator` method.
-
-[Paginator.ListConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.ListConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListConfigurationsPaginatorName
-) -> ListConfigurationsPaginator:
-    pass
-```

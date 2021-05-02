@@ -9,13 +9,18 @@ type annotations stubs module [mypy_boto3_sesv2](https://pypi.org/project/mypy-b
   - [AccountDetailsTypeDef](#accountdetailstypedef)
   - [BlacklistEntryTypeDef](#blacklistentrytypedef)
   - [BodyTypeDef](#bodytypedef)
+  - [BulkEmailContentTypeDef](#bulkemailcontenttypedef)
   - [BulkEmailEntryResultTypeDef](#bulkemailentryresulttypedef)
+  - [BulkEmailEntryTypeDef](#bulkemailentrytypedef)
   - [CloudWatchDestinationTypeDef](#cloudwatchdestinationtypedef)
   - [CloudWatchDimensionConfigurationTypeDef](#cloudwatchdimensionconfigurationtypedef)
   - [ContactListDestinationTypeDef](#contactlistdestinationtypedef)
   - [ContactListTypeDef](#contactlisttypedef)
   - [ContactTypeDef](#contacttypedef)
   - [ContentTypeDef](#contenttypedef)
+  - [CreateDeliverabilityTestReportResponseTypeDef](#createdeliverabilitytestreportresponsetypedef)
+  - [CreateEmailIdentityResponseTypeDef](#createemailidentityresponsetypedef)
+  - [CreateImportJobResponseTypeDef](#createimportjobresponsetypedef)
   - [CustomVerificationEmailTemplateMetadataTypeDef](#customverificationemailtemplatemetadatatypedef)
   - [DailyVolumeTypeDef](#dailyvolumetypedef)
   - [DedicatedIpTypeDef](#dedicatediptypedef)
@@ -23,55 +28,16 @@ type annotations stubs module [mypy_boto3_sesv2](https://pypi.org/project/mypy-b
   - [DeliveryOptionsTypeDef](#deliveryoptionstypedef)
   - [DestinationTypeDef](#destinationtypedef)
   - [DkimAttributesTypeDef](#dkimattributestypedef)
+  - [DkimSigningAttributesTypeDef](#dkimsigningattributestypedef)
   - [DomainDeliverabilityCampaignTypeDef](#domaindeliverabilitycampaigntypedef)
   - [DomainDeliverabilityTrackingOptionTypeDef](#domaindeliverabilitytrackingoptiontypedef)
   - [DomainIspPlacementTypeDef](#domainispplacementtypedef)
+  - [EmailContentTypeDef](#emailcontenttypedef)
   - [EmailTemplateContentTypeDef](#emailtemplatecontenttypedef)
   - [EmailTemplateMetadataTypeDef](#emailtemplatemetadatatypedef)
+  - [EventDestinationDefinitionTypeDef](#eventdestinationdefinitiontypedef)
   - [EventDestinationTypeDef](#eventdestinationtypedef)
   - [FailureInfoTypeDef](#failureinfotypedef)
-  - [IdentityInfoTypeDef](#identityinfotypedef)
-  - [ImportDataSourceTypeDef](#importdatasourcetypedef)
-  - [ImportDestinationTypeDef](#importdestinationtypedef)
-  - [ImportJobSummaryTypeDef](#importjobsummarytypedef)
-  - [InboxPlacementTrackingOptionTypeDef](#inboxplacementtrackingoptiontypedef)
-  - [IspPlacementTypeDef](#ispplacementtypedef)
-  - [KinesisFirehoseDestinationTypeDef](#kinesisfirehosedestinationtypedef)
-  - [MailFromAttributesTypeDef](#mailfromattributestypedef)
-  - [MessageTagTypeDef](#messagetagtypedef)
-  - [MessageTypeDef](#messagetypedef)
-  - [OverallVolumeTypeDef](#overallvolumetypedef)
-  - [PinpointDestinationTypeDef](#pinpointdestinationtypedef)
-  - [PlacementStatisticsTypeDef](#placementstatisticstypedef)
-  - [RawMessageTypeDef](#rawmessagetypedef)
-  - [ReplacementEmailContentTypeDef](#replacementemailcontenttypedef)
-  - [ReplacementTemplateTypeDef](#replacementtemplatetypedef)
-  - [ReputationOptionsTypeDef](#reputationoptionstypedef)
-  - [ReviewDetailsTypeDef](#reviewdetailstypedef)
-  - [SendQuotaTypeDef](#sendquotatypedef)
-  - [SendingOptionsTypeDef](#sendingoptionstypedef)
-  - [SnsDestinationTypeDef](#snsdestinationtypedef)
-  - [SuppressedDestinationAttributesTypeDef](#suppresseddestinationattributestypedef)
-  - [SuppressedDestinationSummaryTypeDef](#suppresseddestinationsummarytypedef)
-  - [SuppressedDestinationTypeDef](#suppresseddestinationtypedef)
-  - [SuppressionAttributesTypeDef](#suppressionattributestypedef)
-  - [SuppressionListDestinationTypeDef](#suppressionlistdestinationtypedef)
-  - [SuppressionOptionsTypeDef](#suppressionoptionstypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TemplateTypeDef](#templatetypedef)
-  - [TopicFilterTypeDef](#topicfiltertypedef)
-  - [TopicPreferenceTypeDef](#topicpreferencetypedef)
-  - [TopicTypeDef](#topictypedef)
-  - [TrackingOptionsTypeDef](#trackingoptionstypedef)
-  - [VolumeStatisticsTypeDef](#volumestatisticstypedef)
-  - [BulkEmailContentTypeDef](#bulkemailcontenttypedef)
-  - [BulkEmailEntryTypeDef](#bulkemailentrytypedef)
-  - [CreateDeliverabilityTestReportResponseTypeDef](#createdeliverabilitytestreportresponsetypedef)
-  - [CreateEmailIdentityResponseTypeDef](#createemailidentityresponsetypedef)
-  - [CreateImportJobResponseTypeDef](#createimportjobresponsetypedef)
-  - [DkimSigningAttributesTypeDef](#dkimsigningattributestypedef)
-  - [EmailContentTypeDef](#emailcontenttypedef)
-  - [EventDestinationDefinitionTypeDef](#eventdestinationdefinitiontypedef)
   - [GetAccountResponseTypeDef](#getaccountresponsetypedef)
   - [GetBlacklistReportsResponseTypeDef](#getblacklistreportsresponsetypedef)
   - [GetConfigurationSetEventDestinationsResponseTypeDef](#getconfigurationseteventdestinationsresponsetypedef)
@@ -90,6 +56,13 @@ type annotations stubs module [mypy_boto3_sesv2](https://pypi.org/project/mypy-b
   - [GetEmailTemplateResponseTypeDef](#getemailtemplateresponsetypedef)
   - [GetImportJobResponseTypeDef](#getimportjobresponsetypedef)
   - [GetSuppressedDestinationResponseTypeDef](#getsuppresseddestinationresponsetypedef)
+  - [IdentityInfoTypeDef](#identityinfotypedef)
+  - [ImportDataSourceTypeDef](#importdatasourcetypedef)
+  - [ImportDestinationTypeDef](#importdestinationtypedef)
+  - [ImportJobSummaryTypeDef](#importjobsummarytypedef)
+  - [InboxPlacementTrackingOptionTypeDef](#inboxplacementtrackingoptiontypedef)
+  - [IspPlacementTypeDef](#ispplacementtypedef)
+  - [KinesisFirehoseDestinationTypeDef](#kinesisfirehosedestinationtypedef)
   - [ListConfigurationSetsResponseTypeDef](#listconfigurationsetsresponsetypedef)
   - [ListContactListsResponseTypeDef](#listcontactlistsresponsetypedef)
   - [ListContactsFilterTypeDef](#listcontactsfiltertypedef)
@@ -104,11 +77,38 @@ type annotations stubs module [mypy_boto3_sesv2](https://pypi.org/project/mypy-b
   - [ListManagementOptionsTypeDef](#listmanagementoptionstypedef)
   - [ListSuppressedDestinationsResponseTypeDef](#listsuppresseddestinationsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [MailFromAttributesTypeDef](#mailfromattributestypedef)
+  - [MessageTagTypeDef](#messagetagtypedef)
+  - [MessageTypeDef](#messagetypedef)
+  - [OverallVolumeTypeDef](#overallvolumetypedef)
+  - [PinpointDestinationTypeDef](#pinpointdestinationtypedef)
+  - [PlacementStatisticsTypeDef](#placementstatisticstypedef)
   - [PutEmailIdentityDkimSigningAttributesResponseTypeDef](#putemailidentitydkimsigningattributesresponsetypedef)
+  - [RawMessageTypeDef](#rawmessagetypedef)
+  - [ReplacementEmailContentTypeDef](#replacementemailcontenttypedef)
+  - [ReplacementTemplateTypeDef](#replacementtemplatetypedef)
+  - [ReputationOptionsTypeDef](#reputationoptionstypedef)
+  - [ReviewDetailsTypeDef](#reviewdetailstypedef)
   - [SendBulkEmailResponseTypeDef](#sendbulkemailresponsetypedef)
   - [SendCustomVerificationEmailResponseTypeDef](#sendcustomverificationemailresponsetypedef)
   - [SendEmailResponseTypeDef](#sendemailresponsetypedef)
+  - [SendQuotaTypeDef](#sendquotatypedef)
+  - [SendingOptionsTypeDef](#sendingoptionstypedef)
+  - [SnsDestinationTypeDef](#snsdestinationtypedef)
+  - [SuppressedDestinationAttributesTypeDef](#suppresseddestinationattributestypedef)
+  - [SuppressedDestinationSummaryTypeDef](#suppresseddestinationsummarytypedef)
+  - [SuppressedDestinationTypeDef](#suppresseddestinationtypedef)
+  - [SuppressionAttributesTypeDef](#suppressionattributestypedef)
+  - [SuppressionListDestinationTypeDef](#suppressionlistdestinationtypedef)
+  - [SuppressionOptionsTypeDef](#suppressionoptionstypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TemplateTypeDef](#templatetypedef)
   - [TestRenderEmailTemplateResponseTypeDef](#testrenderemailtemplateresponsetypedef)
+  - [TopicFilterTypeDef](#topicfiltertypedef)
+  - [TopicPreferenceTypeDef](#topicpreferencetypedef)
+  - [TopicTypeDef](#topictypedef)
+  - [TrackingOptionsTypeDef](#trackingoptionstypedef)
+  - [VolumeStatisticsTypeDef](#volumestatisticstypedef)
 
 ## AccountDetailsTypeDef
 
@@ -157,6 +157,19 @@ Optional fields:
 - `Html`: `"ContentTypeDef"`
 
 
+## BulkEmailContentTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import BulkEmailContentTypeDef
+```
+
+
+
+
+Optional fields:
+- `Template`: `"TemplateTypeDef"`
+
+
 ## BulkEmailEntryResultTypeDef
 
 ```python
@@ -170,6 +183,23 @@ Optional fields:
 - `Status`: `BulkEmailStatus`
 - `Error`: `str`
 - `MessageId`: `str`
+
+
+## BulkEmailEntryTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import BulkEmailEntryTypeDef
+```
+
+
+Required fields:
+- `Destination`: `"DestinationTypeDef"`
+
+
+
+Optional fields:
+- `ReplacementTags`: `List["MessageTagTypeDef"]`
+- `ReplacementEmailContent`: `"ReplacementEmailContentTypeDef"`
 
 
 ## CloudWatchDestinationTypeDef
@@ -259,6 +289,48 @@ Required fields:
 
 Optional fields:
 - `Charset`: `str`
+
+
+## CreateDeliverabilityTestReportResponseTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import CreateDeliverabilityTestReportResponseTypeDef
+```
+
+
+Required fields:
+- `ReportId`: `str`
+- `DeliverabilityTestStatus`: `DeliverabilityTestStatus`
+
+
+
+
+## CreateEmailIdentityResponseTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import CreateEmailIdentityResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `IdentityType`: `IdentityType`
+- `VerifiedForSendingStatus`: `bool`
+- `DkimAttributes`: `"DkimAttributesTypeDef"`
+
+
+## CreateImportJobResponseTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import CreateImportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
 
 
 ## CustomVerificationEmailTemplateMetadataTypeDef
@@ -374,6 +446,20 @@ Optional fields:
 - `SigningAttributesOrigin`: `DkimSigningAttributesOrigin`
 
 
+## DkimSigningAttributesTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import DkimSigningAttributesTypeDef
+```
+
+
+Required fields:
+- `DomainSigningSelector`: `str`
+- `DomainSigningPrivateKey`: `str`
+
+
+
+
 ## DomainDeliverabilityCampaignTypeDef
 
 ```python
@@ -432,6 +518,21 @@ Optional fields:
 - `SpamPercentage`: `float`
 
 
+## EmailContentTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import EmailContentTypeDef
+```
+
+
+
+
+Optional fields:
+- `Simple`: `"MessageTypeDef"`
+- `Raw`: `"RawMessageTypeDef"`
+- `Template`: `"TemplateTypeDef"`
+
+
 ## EmailTemplateContentTypeDef
 
 ```python
@@ -459,6 +560,24 @@ from mypy_boto3_sesv2.type_defs import EmailTemplateMetadataTypeDef
 Optional fields:
 - `TemplateName`: `str`
 - `CreatedTimestamp`: `datetime`
+
+
+## EventDestinationDefinitionTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import EventDestinationDefinitionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+- `MatchingEventTypes`: `List[EventType]`
+- `KinesisFirehoseDestination`: `"KinesisFirehoseDestinationTypeDef"`
+- `CloudWatchDestination`: `"CloudWatchDestinationTypeDef"`
+- `SnsDestination`: `"SnsDestinationTypeDef"`
+- `PinpointDestination`: `"PinpointDestinationTypeDef"`
 
 
 ## EventDestinationTypeDef
@@ -494,612 +613,6 @@ from mypy_boto3_sesv2.type_defs import FailureInfoTypeDef
 Optional fields:
 - `FailedRecordsS3Url`: `str`
 - `ErrorMessage`: `str`
-
-
-## IdentityInfoTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import IdentityInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `IdentityType`: `IdentityType`
-- `IdentityName`: `str`
-- `SendingEnabled`: `bool`
-
-
-## ImportDataSourceTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import ImportDataSourceTypeDef
-```
-
-
-Required fields:
-- `S3Url`: `str`
-- `DataFormat`: `DataFormat`
-
-
-
-
-## ImportDestinationTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import ImportDestinationTypeDef
-```
-
-
-
-
-Optional fields:
-- `SuppressionListDestination`: `"SuppressionListDestinationTypeDef"`
-- `ContactListDestination`: `"ContactListDestinationTypeDef"`
-
-
-## ImportJobSummaryTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import ImportJobSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-- `ImportDestination`: `"ImportDestinationTypeDef"`
-- `JobStatus`: `JobStatus`
-- `CreatedTimestamp`: `datetime`
-
-
-## InboxPlacementTrackingOptionTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import InboxPlacementTrackingOptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Global`: `bool`
-- `TrackedIsps`: `List[str]`
-
-
-## IspPlacementTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import IspPlacementTypeDef
-```
-
-
-
-
-Optional fields:
-- `IspName`: `str`
-- `PlacementStatistics`: `"PlacementStatisticsTypeDef"`
-
-
-## KinesisFirehoseDestinationTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import KinesisFirehoseDestinationTypeDef
-```
-
-
-Required fields:
-- `IamRoleArn`: `str`
-- `DeliveryStreamArn`: `str`
-
-
-
-
-## MailFromAttributesTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import MailFromAttributesTypeDef
-```
-
-
-Required fields:
-- `MailFromDomain`: `str`
-- `MailFromDomainStatus`: `MailFromDomainStatus`
-- `BehaviorOnMxFailure`: `BehaviorOnMxFailure`
-
-
-
-
-## MessageTagTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import MessageTagTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Value`: `str`
-
-
-
-
-## MessageTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import MessageTypeDef
-```
-
-
-Required fields:
-- `Subject`: `"ContentTypeDef"`
-- `Body`: `"BodyTypeDef"`
-
-
-
-
-## OverallVolumeTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import OverallVolumeTypeDef
-```
-
-
-
-
-Optional fields:
-- `VolumeStatistics`: `"VolumeStatisticsTypeDef"`
-- `ReadRatePercent`: `float`
-- `DomainIspPlacements`: `List["DomainIspPlacementTypeDef"]`
-
-
-## PinpointDestinationTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import PinpointDestinationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationArn`: `str`
-
-
-## PlacementStatisticsTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import PlacementStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `InboxPercentage`: `float`
-- `SpamPercentage`: `float`
-- `MissingPercentage`: `float`
-- `SpfPercentage`: `float`
-- `DkimPercentage`: `float`
-
-
-## RawMessageTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import RawMessageTypeDef
-```
-
-
-Required fields:
-- `Data`: `Union[bytes, IO[bytes]]`
-
-
-
-
-## ReplacementEmailContentTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import ReplacementEmailContentTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplacementTemplate`: `"ReplacementTemplateTypeDef"`
-
-
-## ReplacementTemplateTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import ReplacementTemplateTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplacementTemplateData`: `str`
-
-
-## ReputationOptionsTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import ReputationOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReputationMetricsEnabled`: `bool`
-- `LastFreshStart`: `datetime`
-
-
-## ReviewDetailsTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import ReviewDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `ReviewStatus`
-- `CaseId`: `str`
-
-
-## SendQuotaTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import SendQuotaTypeDef
-```
-
-
-
-
-Optional fields:
-- `Max24HourSend`: `float`
-- `MaxSendRate`: `float`
-- `SentLast24Hours`: `float`
-
-
-## SendingOptionsTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import SendingOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `SendingEnabled`: `bool`
-
-
-## SnsDestinationTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import SnsDestinationTypeDef
-```
-
-
-Required fields:
-- `TopicArn`: `str`
-
-
-
-
-## SuppressedDestinationAttributesTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import SuppressedDestinationAttributesTypeDef
-```
-
-
-
-
-Optional fields:
-- `MessageId`: `str`
-- `FeedbackId`: `str`
-
-
-## SuppressedDestinationSummaryTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import SuppressedDestinationSummaryTypeDef
-```
-
-
-Required fields:
-- `EmailAddress`: `str`
-- `Reason`: `SuppressionListReason`
-- `LastUpdateTime`: `datetime`
-
-
-
-
-## SuppressedDestinationTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import SuppressedDestinationTypeDef
-```
-
-
-Required fields:
-- `EmailAddress`: `str`
-- `Reason`: `SuppressionListReason`
-- `LastUpdateTime`: `datetime`
-
-
-
-Optional fields:
-- `Attributes`: `"SuppressedDestinationAttributesTypeDef"`
-
-
-## SuppressionAttributesTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import SuppressionAttributesTypeDef
-```
-
-
-
-
-Optional fields:
-- `SuppressedReasons`: `List[SuppressionListReason]`
-
-
-## SuppressionListDestinationTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import SuppressionListDestinationTypeDef
-```
-
-
-Required fields:
-- `SuppressionListImportAction`: `SuppressionListImportAction`
-
-
-
-
-## SuppressionOptionsTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import SuppressionOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `SuppressedReasons`: `List[SuppressionListReason]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TemplateTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import TemplateTypeDef
-```
-
-
-
-
-Optional fields:
-- `TemplateName`: `str`
-- `TemplateArn`: `str`
-- `TemplateData`: `str`
-
-
-## TopicFilterTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import TopicFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `TopicName`: `str`
-- `UseDefaultIfPreferenceUnavailable`: `bool`
-
-
-## TopicPreferenceTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import TopicPreferenceTypeDef
-```
-
-
-Required fields:
-- `TopicName`: `str`
-- `SubscriptionStatus`: `SubscriptionStatus`
-
-
-
-
-## TopicTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import TopicTypeDef
-```
-
-
-Required fields:
-- `TopicName`: `str`
-- `DisplayName`: `str`
-- `DefaultSubscriptionStatus`: `SubscriptionStatus`
-
-
-
-Optional fields:
-- `Description`: `str`
-
-
-## TrackingOptionsTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import TrackingOptionsTypeDef
-```
-
-
-Required fields:
-- `CustomRedirectDomain`: `str`
-
-
-
-
-## VolumeStatisticsTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import VolumeStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `InboxRawCount`: `int`
-- `SpamRawCount`: `int`
-- `ProjectedInbox`: `int`
-- `ProjectedSpam`: `int`
-
-
-## BulkEmailContentTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import BulkEmailContentTypeDef
-```
-
-
-
-
-Optional fields:
-- `Template`: `"TemplateTypeDef"`
-
-
-## BulkEmailEntryTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import BulkEmailEntryTypeDef
-```
-
-
-Required fields:
-- `Destination`: `"DestinationTypeDef"`
-
-
-
-Optional fields:
-- `ReplacementTags`: `List["MessageTagTypeDef"]`
-- `ReplacementEmailContent`: `"ReplacementEmailContentTypeDef"`
-
-
-## CreateDeliverabilityTestReportResponseTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import CreateDeliverabilityTestReportResponseTypeDef
-```
-
-
-Required fields:
-- `ReportId`: `str`
-- `DeliverabilityTestStatus`: `DeliverabilityTestStatus`
-
-
-
-
-## CreateEmailIdentityResponseTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import CreateEmailIdentityResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `IdentityType`: `IdentityType`
-- `VerifiedForSendingStatus`: `bool`
-- `DkimAttributes`: `"DkimAttributesTypeDef"`
-
-
-## CreateImportJobResponseTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import CreateImportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-
-
-## DkimSigningAttributesTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import DkimSigningAttributesTypeDef
-```
-
-
-Required fields:
-- `DomainSigningSelector`: `str`
-- `DomainSigningPrivateKey`: `str`
-
-
-
-
-## EmailContentTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import EmailContentTypeDef
-```
-
-
-
-
-Optional fields:
-- `Simple`: `"MessageTypeDef"`
-- `Raw`: `"RawMessageTypeDef"`
-- `Template`: `"TemplateTypeDef"`
-
-
-## EventDestinationDefinitionTypeDef
-
-```python
-from mypy_boto3_sesv2.type_defs import EventDestinationDefinitionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-- `MatchingEventTypes`: `List[EventType]`
-- `KinesisFirehoseDestination`: `"KinesisFirehoseDestinationTypeDef"`
-- `CloudWatchDestination`: `"CloudWatchDestinationTypeDef"`
-- `SnsDestination`: `"SnsDestinationTypeDef"`
-- `PinpointDestination`: `"PinpointDestinationTypeDef"`
 
 
 ## GetAccountResponseTypeDef
@@ -1395,6 +908,107 @@ Required fields:
 
 
 
+## IdentityInfoTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import IdentityInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `IdentityType`: `IdentityType`
+- `IdentityName`: `str`
+- `SendingEnabled`: `bool`
+
+
+## ImportDataSourceTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import ImportDataSourceTypeDef
+```
+
+
+Required fields:
+- `S3Url`: `str`
+- `DataFormat`: `DataFormat`
+
+
+
+
+## ImportDestinationTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import ImportDestinationTypeDef
+```
+
+
+
+
+Optional fields:
+- `SuppressionListDestination`: `"SuppressionListDestinationTypeDef"`
+- `ContactListDestination`: `"ContactListDestinationTypeDef"`
+
+
+## ImportJobSummaryTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import ImportJobSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+- `ImportDestination`: `"ImportDestinationTypeDef"`
+- `JobStatus`: `JobStatus`
+- `CreatedTimestamp`: `datetime`
+
+
+## InboxPlacementTrackingOptionTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import InboxPlacementTrackingOptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Global`: `bool`
+- `TrackedIsps`: `List[str]`
+
+
+## IspPlacementTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import IspPlacementTypeDef
+```
+
+
+
+
+Optional fields:
+- `IspName`: `str`
+- `PlacementStatistics`: `"PlacementStatisticsTypeDef"`
+
+
+## KinesisFirehoseDestinationTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import KinesisFirehoseDestinationTypeDef
+```
+
+
+Required fields:
+- `IamRoleArn`: `str`
+- `DeliveryStreamArn`: `str`
+
+
+
+
 ## ListConfigurationSetsResponseTypeDef
 
 ```python
@@ -1596,6 +1210,94 @@ Required fields:
 
 
 
+## MailFromAttributesTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import MailFromAttributesTypeDef
+```
+
+
+Required fields:
+- `MailFromDomain`: `str`
+- `MailFromDomainStatus`: `MailFromDomainStatus`
+- `BehaviorOnMxFailure`: `BehaviorOnMxFailure`
+
+
+
+
+## MessageTagTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import MessageTagTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Value`: `str`
+
+
+
+
+## MessageTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import MessageTypeDef
+```
+
+
+Required fields:
+- `Subject`: `"ContentTypeDef"`
+- `Body`: `"BodyTypeDef"`
+
+
+
+
+## OverallVolumeTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import OverallVolumeTypeDef
+```
+
+
+
+
+Optional fields:
+- `VolumeStatistics`: `"VolumeStatisticsTypeDef"`
+- `ReadRatePercent`: `float`
+- `DomainIspPlacements`: `List["DomainIspPlacementTypeDef"]`
+
+
+## PinpointDestinationTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import PinpointDestinationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationArn`: `str`
+
+
+## PlacementStatisticsTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import PlacementStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `InboxPercentage`: `float`
+- `SpamPercentage`: `float`
+- `MissingPercentage`: `float`
+- `SpfPercentage`: `float`
+- `DkimPercentage`: `float`
+
+
 ## PutEmailIdentityDkimSigningAttributesResponseTypeDef
 
 ```python
@@ -1608,6 +1310,73 @@ from mypy_boto3_sesv2.type_defs import PutEmailIdentityDkimSigningAttributesResp
 Optional fields:
 - `DkimStatus`: `DkimStatus`
 - `DkimTokens`: `List[str]`
+
+
+## RawMessageTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import RawMessageTypeDef
+```
+
+
+Required fields:
+- `Data`: `Union[bytes, IO[bytes]]`
+
+
+
+
+## ReplacementEmailContentTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import ReplacementEmailContentTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplacementTemplate`: `"ReplacementTemplateTypeDef"`
+
+
+## ReplacementTemplateTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import ReplacementTemplateTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplacementTemplateData`: `str`
+
+
+## ReputationOptionsTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import ReputationOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReputationMetricsEnabled`: `bool`
+- `LastFreshStart`: `datetime`
+
+
+## ReviewDetailsTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import ReviewDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `ReviewStatus`
+- `CaseId`: `str`
 
 
 ## SendBulkEmailResponseTypeDef
@@ -1649,6 +1418,162 @@ Optional fields:
 - `MessageId`: `str`
 
 
+## SendQuotaTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import SendQuotaTypeDef
+```
+
+
+
+
+Optional fields:
+- `Max24HourSend`: `float`
+- `MaxSendRate`: `float`
+- `SentLast24Hours`: `float`
+
+
+## SendingOptionsTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import SendingOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `SendingEnabled`: `bool`
+
+
+## SnsDestinationTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import SnsDestinationTypeDef
+```
+
+
+Required fields:
+- `TopicArn`: `str`
+
+
+
+
+## SuppressedDestinationAttributesTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import SuppressedDestinationAttributesTypeDef
+```
+
+
+
+
+Optional fields:
+- `MessageId`: `str`
+- `FeedbackId`: `str`
+
+
+## SuppressedDestinationSummaryTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import SuppressedDestinationSummaryTypeDef
+```
+
+
+Required fields:
+- `EmailAddress`: `str`
+- `Reason`: `SuppressionListReason`
+- `LastUpdateTime`: `datetime`
+
+
+
+
+## SuppressedDestinationTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import SuppressedDestinationTypeDef
+```
+
+
+Required fields:
+- `EmailAddress`: `str`
+- `Reason`: `SuppressionListReason`
+- `LastUpdateTime`: `datetime`
+
+
+
+Optional fields:
+- `Attributes`: `"SuppressedDestinationAttributesTypeDef"`
+
+
+## SuppressionAttributesTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import SuppressionAttributesTypeDef
+```
+
+
+
+
+Optional fields:
+- `SuppressedReasons`: `List[SuppressionListReason]`
+
+
+## SuppressionListDestinationTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import SuppressionListDestinationTypeDef
+```
+
+
+Required fields:
+- `SuppressionListImportAction`: `SuppressionListImportAction`
+
+
+
+
+## SuppressionOptionsTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import SuppressionOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `SuppressedReasons`: `List[SuppressionListReason]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TemplateTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import TemplateTypeDef
+```
+
+
+
+
+Optional fields:
+- `TemplateName`: `str`
+- `TemplateArn`: `str`
+- `TemplateData`: `str`
+
+
 ## TestRenderEmailTemplateResponseTypeDef
 
 ```python
@@ -1660,4 +1585,79 @@ Required fields:
 - `RenderedTemplate`: `str`
 
 
+
+
+## TopicFilterTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import TopicFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `TopicName`: `str`
+- `UseDefaultIfPreferenceUnavailable`: `bool`
+
+
+## TopicPreferenceTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import TopicPreferenceTypeDef
+```
+
+
+Required fields:
+- `TopicName`: `str`
+- `SubscriptionStatus`: `SubscriptionStatus`
+
+
+
+
+## TopicTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import TopicTypeDef
+```
+
+
+Required fields:
+- `TopicName`: `str`
+- `DisplayName`: `str`
+- `DefaultSubscriptionStatus`: `SubscriptionStatus`
+
+
+
+Optional fields:
+- `Description`: `str`
+
+
+## TrackingOptionsTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import TrackingOptionsTypeDef
+```
+
+
+Required fields:
+- `CustomRedirectDomain`: `str`
+
+
+
+
+## VolumeStatisticsTypeDef
+
+```python
+from mypy_boto3_sesv2.type_defs import VolumeStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `InboxRawCount`: `int`
+- `SpamRawCount`: `int`
+- `ProjectedInbox`: `int`
+- `ProjectedSpam`: `int`
 

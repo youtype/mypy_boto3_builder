@@ -142,12 +142,25 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_signer.type_defs import EncryptionAlgorithmOptionsTypeDef, ...
+from mypy_boto3_signer.type_defs import AddProfilePermissionResponseTypeDef, ...
 ```
 
+- [AddProfilePermissionResponseTypeDef](./type_defs.md#addprofilepermissionresponsetypedef)
+- [DescribeSigningJobResponseTypeDef](./type_defs.md#describesigningjobresponsetypedef)
+- [DestinationTypeDef](./type_defs.md#destinationtypedef)
 - [EncryptionAlgorithmOptionsTypeDef](./type_defs.md#encryptionalgorithmoptionstypedef)
+- [GetSigningPlatformResponseTypeDef](./type_defs.md#getsigningplatformresponsetypedef)
+- [GetSigningProfileResponseTypeDef](./type_defs.md#getsigningprofileresponsetypedef)
 - [HashAlgorithmOptionsTypeDef](./type_defs.md#hashalgorithmoptionstypedef)
+- [ListProfilePermissionsResponseTypeDef](./type_defs.md#listprofilepermissionsresponsetypedef)
+- [ListSigningJobsResponseTypeDef](./type_defs.md#listsigningjobsresponsetypedef)
+- [ListSigningPlatformsResponseTypeDef](./type_defs.md#listsigningplatformsresponsetypedef)
+- [ListSigningProfilesResponseTypeDef](./type_defs.md#listsigningprofilesresponsetypedef)
+- [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
+- [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
 - [PermissionTypeDef](./type_defs.md#permissiontypedef)
+- [PutSigningProfileResponseTypeDef](./type_defs.md#putsigningprofileresponsetypedef)
+- [RemoveProfilePermissionResponseTypeDef](./type_defs.md#removeprofilepermissionresponsetypedef)
 - [S3DestinationTypeDef](./type_defs.md#s3destinationtypedef)
 - [S3SignedObjectTypeDef](./type_defs.md#s3signedobjecttypedef)
 - [S3SourceTypeDef](./type_defs.md#s3sourcetypedef)
@@ -164,18 +177,5 @@ from mypy_boto3_signer.type_defs import EncryptionAlgorithmOptionsTypeDef, ...
 - [SigningProfileRevocationRecordTypeDef](./type_defs.md#signingprofilerevocationrecordtypedef)
 - [SigningProfileTypeDef](./type_defs.md#signingprofiletypedef)
 - [SourceTypeDef](./type_defs.md#sourcetypedef)
-- [AddProfilePermissionResponseTypeDef](./type_defs.md#addprofilepermissionresponsetypedef)
-- [DescribeSigningJobResponseTypeDef](./type_defs.md#describesigningjobresponsetypedef)
-- [DestinationTypeDef](./type_defs.md#destinationtypedef)
-- [GetSigningPlatformResponseTypeDef](./type_defs.md#getsigningplatformresponsetypedef)
-- [GetSigningProfileResponseTypeDef](./type_defs.md#getsigningprofileresponsetypedef)
-- [ListProfilePermissionsResponseTypeDef](./type_defs.md#listprofilepermissionsresponsetypedef)
-- [ListSigningJobsResponseTypeDef](./type_defs.md#listsigningjobsresponsetypedef)
-- [ListSigningPlatformsResponseTypeDef](./type_defs.md#listsigningplatformsresponsetypedef)
-- [ListSigningProfilesResponseTypeDef](./type_defs.md#listsigningprofilesresponsetypedef)
-- [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
-- [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
-- [PutSigningProfileResponseTypeDef](./type_defs.md#putsigningprofileresponsetypedef)
-- [RemoveProfilePermissionResponseTypeDef](./type_defs.md#removeprofilepermissionresponsetypedef)
 - [StartSigningJobResponseTypeDef](./type_defs.md#startsigningjobresponsetypedef)
 - [WaiterConfigTypeDef](./type_defs.md#waiterconfigtypedef)

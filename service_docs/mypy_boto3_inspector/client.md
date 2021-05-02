@@ -49,14 +49,6 @@ type annotations stubs module [mypy_boto3_inspector](https://pypi.org/project/my
     - [unsubscribe_from_event](#unsubscribe_from_event)
     - [update_assessment_target](#update_assessment_target)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
 
 ## InspectorClient
 
@@ -297,7 +289,7 @@ Type annotations for `boto3.client("inspector").describe_exclusions` method.
 def describe_exclusions(
     self,
     exclusionArns: List[str],
-    locale: Locale = None
+    locale: Literal['EN_US'] = None
 ) -> DescribeExclusionsResponseTypeDef:
     pass
 ```
@@ -312,7 +304,7 @@ Type annotations for `boto3.client("inspector").describe_findings` method.
 def describe_findings(
     self,
     findingArns: List[str],
-    locale: Locale = None
+    locale: Literal['EN_US'] = None
 ) -> DescribeFindingsResponseTypeDef:
     pass
 ```
@@ -341,7 +333,7 @@ Type annotations for `boto3.client("inspector").describe_rules_packages` method.
 def describe_rules_packages(
     self,
     rulesPackageArns: List[str],
-    locale: Locale = None
+    locale: Literal['EN_US'] = None
 ) -> DescribeRulesPackagesResponseTypeDef:
     pass
 ```
@@ -392,7 +384,7 @@ def get_exclusions_preview(
     previewToken: str,
     nextToken: str = None,
     maxResults: int = None,
-    locale: Locale = None
+    locale: Literal['EN_US'] = None
 ) -> GetExclusionsPreviewResponseTypeDef:
     pass
 ```
@@ -694,137 +686,20 @@ def update_assessment_target(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("inspector").get_paginator` method.
-
-[Paginator.ListAssessmentRunAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector.html#Inspector.Paginator.ListAssessmentRunAgents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssessmentRunAgentsPaginatorName
-) -> ListAssessmentRunAgentsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("inspector").get_paginator` method.
+Type annotations for `boto3.client("inspector").get_paginator` method with overloads.
 
-[Paginator.ListAssessmentRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector.html#Inspector.Paginator.ListAssessmentRuns)
+- `client.get_paginator("list_assessment_run_agents")` -> [ListAssessmentRunAgentsPaginator](./paginators.md#listassessmentrunagentspaginator)
+- `client.get_paginator("list_assessment_runs")` -> [ListAssessmentRunsPaginator](./paginators.md#listassessmentrunspaginator)
+- `client.get_paginator("list_assessment_targets")` -> [ListAssessmentTargetsPaginator](./paginators.md#listassessmenttargetspaginator)
+- `client.get_paginator("list_assessment_templates")` -> [ListAssessmentTemplatesPaginator](./paginators.md#listassessmenttemplatespaginator)
+- `client.get_paginator("list_event_subscriptions")` -> [ListEventSubscriptionsPaginator](./paginators.md#listeventsubscriptionspaginator)
+- `client.get_paginator("list_exclusions")` -> [ListExclusionsPaginator](./paginators.md#listexclusionspaginator)
+- `client.get_paginator("list_findings")` -> [ListFindingsPaginator](./paginators.md#listfindingspaginator)
+- `client.get_paginator("list_rules_packages")` -> [ListRulesPackagesPaginator](./paginators.md#listrulespackagespaginator)
+- `client.get_paginator("preview_agents")` -> [PreviewAgentsPaginator](./paginators.md#previewagentspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssessmentRunsPaginatorName
-) -> ListAssessmentRunsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("inspector").get_paginator` method.
-
-[Paginator.ListAssessmentTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector.html#Inspector.Paginator.ListAssessmentTargets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssessmentTargetsPaginatorName
-) -> ListAssessmentTargetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("inspector").get_paginator` method.
-
-[Paginator.ListAssessmentTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector.html#Inspector.Paginator.ListAssessmentTemplates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssessmentTemplatesPaginatorName
-) -> ListAssessmentTemplatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("inspector").get_paginator` method.
-
-[Paginator.ListEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector.html#Inspector.Paginator.ListEventSubscriptions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEventSubscriptionsPaginatorName
-) -> ListEventSubscriptionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("inspector").get_paginator` method.
-
-[Paginator.ListExclusions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector.html#Inspector.Paginator.ListExclusions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListExclusionsPaginatorName
-) -> ListExclusionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("inspector").get_paginator` method.
-
-[Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector.html#Inspector.Paginator.ListFindings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFindingsPaginatorName
-) -> ListFindingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("inspector").get_paginator` method.
-
-[Paginator.ListRulesPackages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector.html#Inspector.Paginator.ListRulesPackages)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRulesPackagesPaginatorName
-) -> ListRulesPackagesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("inspector").get_paginator` method.
-
-[Paginator.PreviewAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/inspector.html#Inspector.Paginator.PreviewAgents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: PreviewAgentsPaginatorName
-) -> PreviewAgentsPaginator:
-    pass
-```

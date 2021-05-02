@@ -282,16 +282,12 @@ def update_environment(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("mwaa").get_paginator` method.
+Type annotations for `boto3.client("mwaa").get_paginator` method with overloads.
 
-[Paginator.ListEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mwaa.html#MWAA.Paginator.ListEnvironments)
+- `client.get_paginator("list_environments")` -> [ListEnvironmentsPaginator](./paginators.md#listenvironmentspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListEnvironmentsPaginatorName
-) -> ListEnvironmentsPaginator:
-    pass
-```
+

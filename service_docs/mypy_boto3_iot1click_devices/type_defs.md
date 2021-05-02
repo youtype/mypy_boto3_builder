@@ -6,12 +6,12 @@ Auto-generated documentation for [IoT1ClickDevicesService](https://boto3.amazona
 type annotations stubs module [mypy_boto3_iot1click_devices](https://pypi.org/project/mypy-boto3-iot1click-devices/).
 
 - [Structures for boto3 IoT1ClickDevicesService module](#structures-for-boto3-iot1clickdevicesservice-module)
+  - [ClaimDevicesByClaimCodeResponseTypeDef](#claimdevicesbyclaimcoderesponsetypedef)
+  - [DescribeDeviceResponseTypeDef](#describedeviceresponsetypedef)
   - [DeviceDescriptionTypeDef](#devicedescriptiontypedef)
   - [DeviceEventTypeDef](#deviceeventtypedef)
   - [DeviceMethodTypeDef](#devicemethodtypedef)
   - [DeviceTypeDef](#devicetypedef)
-  - [ClaimDevicesByClaimCodeResponseTypeDef](#claimdevicesbyclaimcoderesponsetypedef)
-  - [DescribeDeviceResponseTypeDef](#describedeviceresponsetypedef)
   - [FinalizeDeviceClaimResponseTypeDef](#finalizedeviceclaimresponsetypedef)
   - [GetDeviceMethodsResponseTypeDef](#getdevicemethodsresponsetypedef)
   - [InitiateDeviceClaimResponseTypeDef](#initiatedeviceclaimresponsetypedef)
@@ -21,6 +21,33 @@ type annotations stubs module [mypy_boto3_iot1click_devices](https://pypi.org/pr
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [UnclaimDeviceResponseTypeDef](#unclaimdeviceresponsetypedef)
+
+## ClaimDevicesByClaimCodeResponseTypeDef
+
+```python
+from mypy_boto3_iot1click_devices.type_defs import ClaimDevicesByClaimCodeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClaimCode`: `str`
+- `Total`: `int`
+
+
+## DescribeDeviceResponseTypeDef
+
+```python
+from mypy_boto3_iot1click_devices.type_defs import DescribeDeviceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeviceDescription`: `"DeviceDescriptionTypeDef"`
+
 
 ## DeviceDescriptionTypeDef
 
@@ -82,33 +109,6 @@ Optional fields:
 - `Attributes`: `Dict[str, Any]`
 - `DeviceId`: `str`
 - `Type`: `str`
-
-
-## ClaimDevicesByClaimCodeResponseTypeDef
-
-```python
-from mypy_boto3_iot1click_devices.type_defs import ClaimDevicesByClaimCodeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClaimCode`: `str`
-- `Total`: `int`
-
-
-## DescribeDeviceResponseTypeDef
-
-```python
-from mypy_boto3_iot1click_devices.type_defs import DescribeDeviceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeviceDescription`: `"DeviceDescriptionTypeDef"`
 
 
 ## FinalizeDeviceClaimResponseTypeDef

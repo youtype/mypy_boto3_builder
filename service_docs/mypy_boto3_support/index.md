@@ -113,27 +113,16 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_support.type_defs import AttachmentDetailsTypeDef, ...
+from mypy_boto3_support.type_defs import AddAttachmentsToSetResponseTypeDef, ...
 ```
 
+- [AddAttachmentsToSetResponseTypeDef](./type_defs.md#addattachmentstosetresponsetypedef)
+- [AddCommunicationToCaseResponseTypeDef](./type_defs.md#addcommunicationtocaseresponsetypedef)
 - [AttachmentDetailsTypeDef](./type_defs.md#attachmentdetailstypedef)
 - [AttachmentTypeDef](./type_defs.md#attachmenttypedef)
 - [CaseDetailsTypeDef](./type_defs.md#casedetailstypedef)
 - [CategoryTypeDef](./type_defs.md#categorytypedef)
 - [CommunicationTypeDef](./type_defs.md#communicationtypedef)
-- [RecentCaseCommunicationsTypeDef](./type_defs.md#recentcasecommunicationstypedef)
-- [ServiceTypeDef](./type_defs.md#servicetypedef)
-- [SeverityLevelTypeDef](./type_defs.md#severityleveltypedef)
-- [TrustedAdvisorCategorySpecificSummaryTypeDef](./type_defs.md#trustedadvisorcategoryspecificsummarytypedef)
-- [TrustedAdvisorCheckDescriptionTypeDef](./type_defs.md#trustedadvisorcheckdescriptiontypedef)
-- [TrustedAdvisorCheckRefreshStatusTypeDef](./type_defs.md#trustedadvisorcheckrefreshstatustypedef)
-- [TrustedAdvisorCheckResultTypeDef](./type_defs.md#trustedadvisorcheckresulttypedef)
-- [TrustedAdvisorCheckSummaryTypeDef](./type_defs.md#trustedadvisorchecksummarytypedef)
-- [TrustedAdvisorCostOptimizingSummaryTypeDef](./type_defs.md#trustedadvisorcostoptimizingsummarytypedef)
-- [TrustedAdvisorResourceDetailTypeDef](./type_defs.md#trustedadvisorresourcedetailtypedef)
-- [TrustedAdvisorResourcesSummaryTypeDef](./type_defs.md#trustedadvisorresourcessummarytypedef)
-- [AddAttachmentsToSetResponseTypeDef](./type_defs.md#addattachmentstosetresponsetypedef)
-- [AddCommunicationToCaseResponseTypeDef](./type_defs.md#addcommunicationtocaseresponsetypedef)
 - [CreateCaseResponseTypeDef](./type_defs.md#createcaseresponsetypedef)
 - [DescribeAttachmentResponseTypeDef](./type_defs.md#describeattachmentresponsetypedef)
 - [DescribeCasesResponseTypeDef](./type_defs.md#describecasesresponsetypedef)
@@ -145,5 +134,16 @@ from mypy_boto3_support.type_defs import AttachmentDetailsTypeDef, ...
 - [DescribeTrustedAdvisorCheckSummariesResponseTypeDef](./type_defs.md#describetrustedadvisorchecksummariesresponsetypedef)
 - [DescribeTrustedAdvisorChecksResponseTypeDef](./type_defs.md#describetrustedadvisorchecksresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [RecentCaseCommunicationsTypeDef](./type_defs.md#recentcasecommunicationstypedef)
 - [RefreshTrustedAdvisorCheckResponseTypeDef](./type_defs.md#refreshtrustedadvisorcheckresponsetypedef)
 - [ResolveCaseResponseTypeDef](./type_defs.md#resolvecaseresponsetypedef)
+- [ServiceTypeDef](./type_defs.md#servicetypedef)
+- [SeverityLevelTypeDef](./type_defs.md#severityleveltypedef)
+- [TrustedAdvisorCategorySpecificSummaryTypeDef](./type_defs.md#trustedadvisorcategoryspecificsummarytypedef)
+- [TrustedAdvisorCheckDescriptionTypeDef](./type_defs.md#trustedadvisorcheckdescriptiontypedef)
+- [TrustedAdvisorCheckRefreshStatusTypeDef](./type_defs.md#trustedadvisorcheckrefreshstatustypedef)
+- [TrustedAdvisorCheckResultTypeDef](./type_defs.md#trustedadvisorcheckresulttypedef)
+- [TrustedAdvisorCheckSummaryTypeDef](./type_defs.md#trustedadvisorchecksummarytypedef)
+- [TrustedAdvisorCostOptimizingSummaryTypeDef](./type_defs.md#trustedadvisorcostoptimizingsummarytypedef)
+- [TrustedAdvisorResourceDetailTypeDef](./type_defs.md#trustedadvisorresourcedetailtypedef)
+- [TrustedAdvisorResourcesSummaryTypeDef](./type_defs.md#trustedadvisorresourcessummarytypedef)

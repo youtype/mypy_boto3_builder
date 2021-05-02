@@ -7,17 +7,17 @@ type annotations stubs module [mypy_boto3_codestar_connections](https://pypi.org
 
 - [Structures for boto3 CodeStarconnections module](#structures-for-boto3-codestarconnections-module)
   - [ConnectionTypeDef](#connectiontypedef)
-  - [HostTypeDef](#hosttypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [TagTypeDef](#tagtypedef)
-  - [VpcConfigurationTypeDef](#vpcconfigurationtypedef)
   - [CreateConnectionOutputTypeDef](#createconnectionoutputtypedef)
   - [CreateHostOutputTypeDef](#createhostoutputtypedef)
   - [GetConnectionOutputTypeDef](#getconnectionoutputtypedef)
   - [GetHostOutputTypeDef](#gethostoutputtypedef)
+  - [HostTypeDef](#hosttypedef)
   - [ListConnectionsOutputTypeDef](#listconnectionsoutputtypedef)
   - [ListHostsOutputTypeDef](#listhostsoutputtypedef)
   - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [TagTypeDef](#tagtypedef)
+  - [VpcConfigurationTypeDef](#vpcconfigurationtypedef)
 
 ## ConnectionTypeDef
 
@@ -35,74 +35,6 @@ Optional fields:
 - `OwnerAccountId`: `str`
 - `ConnectionStatus`: `ConnectionStatus`
 - `HostArn`: `str`
-
-
-## HostTypeDef
-
-```python
-from mypy_boto3_codestar_connections.type_defs import HostTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `HostArn`: `str`
-- `ProviderType`: `ProviderType`
-- `ProviderEndpoint`: `str`
-- `VpcConfiguration`: `"VpcConfigurationTypeDef"`
-- `Status`: `str`
-- `StatusMessage`: `str`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_codestar_connections.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_codestar_connections.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## VpcConfigurationTypeDef
-
-```python
-from mypy_boto3_codestar_connections.type_defs import VpcConfigurationTypeDef
-```
-
-
-Required fields:
-- `VpcId`: `str`
-- `SubnetIds`: `List[str]`
-- `SecurityGroupIds`: `List[str]`
-
-
-
-Optional fields:
-- `TlsCertificate`: `str`
 
 
 ## CreateConnectionOutputTypeDef
@@ -169,6 +101,25 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## HostTypeDef
+
+```python
+from mypy_boto3_codestar_connections.type_defs import HostTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `HostArn`: `str`
+- `ProviderType`: `ProviderType`
+- `ProviderEndpoint`: `str`
+- `VpcConfiguration`: `"VpcConfigurationTypeDef"`
+- `Status`: `str`
+- `StatusMessage`: `str`
+
+
 ## ListConnectionsOutputTypeDef
 
 ```python
@@ -211,4 +162,53 @@ from mypy_boto3_codestar_connections.type_defs import ListTagsForResourceOutputT
 Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_codestar_connections.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_codestar_connections.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## VpcConfigurationTypeDef
+
+```python
+from mypy_boto3_codestar_connections.type_defs import VpcConfigurationTypeDef
+```
+
+
+Required fields:
+- `VpcId`: `str`
+- `SubnetIds`: `List[str]`
+- `SecurityGroupIds`: `List[str]`
+
+
+
+Optional fields:
+- `TlsCertificate`: `str`
 

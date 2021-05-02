@@ -111,19 +111,19 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_iot1click_projects.type_defs import DeviceTemplateTypeDef, ...
+from mypy_boto3_iot1click_projects.type_defs import DescribePlacementResponseTypeDef, ...
 ```
 
-- [DeviceTemplateTypeDef](./type_defs.md#devicetemplatetypedef)
-- [PlacementDescriptionTypeDef](./type_defs.md#placementdescriptiontypedef)
-- [PlacementSummaryTypeDef](./type_defs.md#placementsummarytypedef)
-- [PlacementTemplateTypeDef](./type_defs.md#placementtemplatetypedef)
-- [ProjectDescriptionTypeDef](./type_defs.md#projectdescriptiontypedef)
-- [ProjectSummaryTypeDef](./type_defs.md#projectsummarytypedef)
 - [DescribePlacementResponseTypeDef](./type_defs.md#describeplacementresponsetypedef)
 - [DescribeProjectResponseTypeDef](./type_defs.md#describeprojectresponsetypedef)
+- [DeviceTemplateTypeDef](./type_defs.md#devicetemplatetypedef)
 - [GetDevicesInPlacementResponseTypeDef](./type_defs.md#getdevicesinplacementresponsetypedef)
 - [ListPlacementsResponseTypeDef](./type_defs.md#listplacementsresponsetypedef)
 - [ListProjectsResponseTypeDef](./type_defs.md#listprojectsresponsetypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [PlacementDescriptionTypeDef](./type_defs.md#placementdescriptiontypedef)
+- [PlacementSummaryTypeDef](./type_defs.md#placementsummarytypedef)
+- [PlacementTemplateTypeDef](./type_defs.md#placementtemplatetypedef)
+- [ProjectDescriptionTypeDef](./type_defs.md#projectdescriptiontypedef)
+- [ProjectSummaryTypeDef](./type_defs.md#projectsummarytypedef)

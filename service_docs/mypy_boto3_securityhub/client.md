@@ -63,11 +63,6 @@ type annotations stubs module [mypy_boto3_securityhub](https://pypi.org/project/
     - [update_security_hub_configuration](#update_security_hub_configuration)
     - [update_standards_control](#update_standards_control)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
 
 ## SecurityHubClient
 
@@ -891,92 +886,17 @@ def update_standards_control(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("securityhub").get_paginator` method.
-
-[Paginator.GetEnabledStandards documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub.html#SecurityHub.Paginator.GetEnabledStandards)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetEnabledStandardsPaginatorName
-) -> GetEnabledStandardsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("securityhub").get_paginator` method.
+Type annotations for `boto3.client("securityhub").get_paginator` method with overloads.
 
-[Paginator.GetFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub.html#SecurityHub.Paginator.GetFindings)
+- `client.get_paginator("get_enabled_standards")` -> [GetEnabledStandardsPaginator](./paginators.md#getenabledstandardspaginator)
+- `client.get_paginator("get_findings")` -> [GetFindingsPaginator](./paginators.md#getfindingspaginator)
+- `client.get_paginator("get_insights")` -> [GetInsightsPaginator](./paginators.md#getinsightspaginator)
+- `client.get_paginator("list_enabled_products_for_import")` -> [ListEnabledProductsForImportPaginator](./paginators.md#listenabledproductsforimportpaginator)
+- `client.get_paginator("list_invitations")` -> [ListInvitationsPaginator](./paginators.md#listinvitationspaginator)
+- `client.get_paginator("list_members")` -> [ListMembersPaginator](./paginators.md#listmemberspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetFindingsPaginatorName
-) -> GetFindingsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("securityhub").get_paginator` method.
-
-[Paginator.GetInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub.html#SecurityHub.Paginator.GetInsights)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetInsightsPaginatorName
-) -> GetInsightsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("securityhub").get_paginator` method.
-
-[Paginator.ListEnabledProductsForImport documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub.html#SecurityHub.Paginator.ListEnabledProductsForImport)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEnabledProductsForImportPaginatorName
-) -> ListEnabledProductsForImportPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("securityhub").get_paginator` method.
-
-[Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub.html#SecurityHub.Paginator.ListInvitations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInvitationsPaginatorName
-) -> ListInvitationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("securityhub").get_paginator` method.
-
-[Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/securityhub.html#SecurityHub.Paginator.ListMembers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMembersPaginatorName
-) -> ListMembersPaginator:
-    pass
-```

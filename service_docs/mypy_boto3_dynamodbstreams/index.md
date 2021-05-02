@@ -86,11 +86,16 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_dynamodbstreams.type_defs import IdentityTypeDef, ...
+from mypy_boto3_dynamodbstreams.type_defs import AttributeValueTypeDef, ...
 ```
 
+- [AttributeValueTypeDef](./type_defs.md#attributevaluetypedef)
+- [DescribeStreamOutputTypeDef](./type_defs.md#describestreamoutputtypedef)
+- [GetRecordsOutputTypeDef](./type_defs.md#getrecordsoutputtypedef)
+- [GetShardIteratorOutputTypeDef](./type_defs.md#getsharditeratoroutputtypedef)
 - [IdentityTypeDef](./type_defs.md#identitytypedef)
 - [KeySchemaElementTypeDef](./type_defs.md#keyschemaelementtypedef)
+- [ListStreamsOutputTypeDef](./type_defs.md#liststreamsoutputtypedef)
 - [RecordTypeDef](./type_defs.md#recordtypedef)
 - [ResponseMetadata](./type_defs.md#responsemetadata)
 - [SequenceNumberRangeTypeDef](./type_defs.md#sequencenumberrangetypedef)
@@ -98,8 +103,3 @@ from mypy_boto3_dynamodbstreams.type_defs import IdentityTypeDef, ...
 - [StreamDescriptionTypeDef](./type_defs.md#streamdescriptiontypedef)
 - [StreamRecordTypeDef](./type_defs.md#streamrecordtypedef)
 - [StreamTypeDef](./type_defs.md#streamtypedef)
-- [DescribeStreamOutputTypeDef](./type_defs.md#describestreamoutputtypedef)
-- [AttributeValueTypeDef](./type_defs.md#attributevaluetypedef)
-- [GetRecordsOutputTypeDef](./type_defs.md#getrecordsoutputtypedef)
-- [GetShardIteratorOutputTypeDef](./type_defs.md#getsharditeratoroutputtypedef)
-- [ListStreamsOutputTypeDef](./type_defs.md#liststreamsoutputtypedef)

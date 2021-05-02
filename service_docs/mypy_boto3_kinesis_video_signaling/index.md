@@ -81,9 +81,9 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_kinesis_video_signaling.type_defs import IceServerTypeDef, ...
+from mypy_boto3_kinesis_video_signaling.type_defs import GetIceServerConfigResponseTypeDef, ...
 ```
 
-- [IceServerTypeDef](./type_defs.md#iceservertypedef)
 - [GetIceServerConfigResponseTypeDef](./type_defs.md#geticeserverconfigresponsetypedef)
+- [IceServerTypeDef](./type_defs.md#iceservertypedef)
 - [SendAlexaOfferToMasterResponseTypeDef](./type_defs.md#sendalexaoffertomasterresponsetypedef)

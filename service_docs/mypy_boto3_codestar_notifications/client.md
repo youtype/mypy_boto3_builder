@@ -25,8 +25,6 @@ type annotations stubs module [mypy_boto3_codestar_notifications](https://pypi.o
     - [untag_resource](#untag_resource)
     - [update_notification_rule](#update_notification_rule)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## CodeStarNotificationsClient
 
@@ -304,47 +302,14 @@ def update_notification_rule(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("codestar-notifications").get_paginator` method.
-
-[Paginator.ListEventTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListEventTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEventTypesPaginatorName
-) -> ListEventTypesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("codestar-notifications").get_paginator` method.
+Type annotations for `boto3.client("codestar-notifications").get_paginator` method with overloads.
 
-[Paginator.ListNotificationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListNotificationRules)
+- `client.get_paginator("list_event_types")` -> [ListEventTypesPaginator](./paginators.md#listeventtypespaginator)
+- `client.get_paginator("list_notification_rules")` -> [ListNotificationRulesPaginator](./paginators.md#listnotificationrulespaginator)
+- `client.get_paginator("list_targets")` -> [ListTargetsPaginator](./paginators.md#listtargetspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListNotificationRulesPaginatorName
-) -> ListNotificationRulesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("codestar-notifications").get_paginator` method.
-
-[Paginator.ListTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListTargets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTargetsPaginatorName
-) -> ListTargetsPaginator:
-    pass
-```

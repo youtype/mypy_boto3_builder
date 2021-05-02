@@ -26,8 +26,6 @@ type annotations stubs module [mypy_boto3_serverlessrepo](https://pypi.org/proje
     - [unshare_application](#unshare_application)
     - [update_application](#update_application)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## ServerlessApplicationRepositoryClient
 
@@ -341,47 +339,14 @@ def update_application(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("serverlessrepo").get_paginator` method.
-
-[Paginator.ListApplicationDependencies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationDependencies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListApplicationDependenciesPaginatorName
-) -> ListApplicationDependenciesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("serverlessrepo").get_paginator` method.
+Type annotations for `boto3.client("serverlessrepo").get_paginator` method with overloads.
 
-[Paginator.ListApplicationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationVersions)
+- `client.get_paginator("list_application_dependencies")` -> [ListApplicationDependenciesPaginator](./paginators.md#listapplicationdependenciespaginator)
+- `client.get_paginator("list_application_versions")` -> [ListApplicationVersionsPaginator](./paginators.md#listapplicationversionspaginator)
+- `client.get_paginator("list_applications")` -> [ListApplicationsPaginator](./paginators.md#listapplicationspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListApplicationVersionsPaginatorName
-) -> ListApplicationVersionsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("serverlessrepo").get_paginator` method.
-
-[Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplications)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListApplicationsPaginatorName
-) -> ListApplicationsPaginator:
-    pass
-```

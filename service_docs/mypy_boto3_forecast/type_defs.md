@@ -8,11 +8,25 @@ type annotations stubs module [mypy_boto3_forecast](https://pypi.org/project/myp
 - [Structures for boto3 ForecastService module](#structures-for-boto3-forecastservice-module)
   - [CategoricalParameterRangeTypeDef](#categoricalparameterrangetypedef)
   - [ContinuousParameterRangeTypeDef](#continuousparameterrangetypedef)
+  - [CreateDatasetGroupResponseTypeDef](#createdatasetgroupresponsetypedef)
+  - [CreateDatasetImportJobResponseTypeDef](#createdatasetimportjobresponsetypedef)
+  - [CreateDatasetResponseTypeDef](#createdatasetresponsetypedef)
+  - [CreateForecastExportJobResponseTypeDef](#createforecastexportjobresponsetypedef)
+  - [CreateForecastResponseTypeDef](#createforecastresponsetypedef)
+  - [CreatePredictorBacktestExportJobResponseTypeDef](#createpredictorbacktestexportjobresponsetypedef)
+  - [CreatePredictorResponseTypeDef](#createpredictorresponsetypedef)
   - [DataDestinationTypeDef](#datadestinationtypedef)
   - [DataSourceTypeDef](#datasourcetypedef)
   - [DatasetGroupSummaryTypeDef](#datasetgroupsummarytypedef)
   - [DatasetImportJobSummaryTypeDef](#datasetimportjobsummarytypedef)
   - [DatasetSummaryTypeDef](#datasetsummarytypedef)
+  - [DescribeDatasetGroupResponseTypeDef](#describedatasetgroupresponsetypedef)
+  - [DescribeDatasetImportJobResponseTypeDef](#describedatasetimportjobresponsetypedef)
+  - [DescribeDatasetResponseTypeDef](#describedatasetresponsetypedef)
+  - [DescribeForecastExportJobResponseTypeDef](#describeforecastexportjobresponsetypedef)
+  - [DescribeForecastResponseTypeDef](#describeforecastresponsetypedef)
+  - [DescribePredictorBacktestExportJobResponseTypeDef](#describepredictorbacktestexportjobresponsetypedef)
+  - [DescribePredictorResponseTypeDef](#describepredictorresponsetypedef)
   - [EncryptionConfigTypeDef](#encryptionconfigtypedef)
   - [ErrorMetricTypeDef](#errormetrictypedef)
   - [EvaluationParametersTypeDef](#evaluationparameterstypedef)
@@ -20,12 +34,23 @@ type annotations stubs module [mypy_boto3_forecast](https://pypi.org/project/myp
   - [FeaturizationConfigTypeDef](#featurizationconfigtypedef)
   - [FeaturizationMethodTypeDef](#featurizationmethodtypedef)
   - [FeaturizationTypeDef](#featurizationtypedef)
+  - [FilterTypeDef](#filtertypedef)
   - [ForecastExportJobSummaryTypeDef](#forecastexportjobsummarytypedef)
   - [ForecastSummaryTypeDef](#forecastsummarytypedef)
+  - [GetAccuracyMetricsResponseTypeDef](#getaccuracymetricsresponsetypedef)
   - [HyperParameterTuningJobConfigTypeDef](#hyperparametertuningjobconfigtypedef)
   - [InputDataConfigTypeDef](#inputdataconfigtypedef)
   - [IntegerParameterRangeTypeDef](#integerparameterrangetypedef)
+  - [ListDatasetGroupsResponseTypeDef](#listdatasetgroupsresponsetypedef)
+  - [ListDatasetImportJobsResponseTypeDef](#listdatasetimportjobsresponsetypedef)
+  - [ListDatasetsResponseTypeDef](#listdatasetsresponsetypedef)
+  - [ListForecastExportJobsResponseTypeDef](#listforecastexportjobsresponsetypedef)
+  - [ListForecastsResponseTypeDef](#listforecastsresponsetypedef)
+  - [ListPredictorBacktestExportJobsResponseTypeDef](#listpredictorbacktestexportjobsresponsetypedef)
+  - [ListPredictorsResponseTypeDef](#listpredictorsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [MetricsTypeDef](#metricstypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ParameterRangesTypeDef](#parameterrangestypedef)
   - [PredictorBacktestExportJobSummaryTypeDef](#predictorbacktestexportjobsummarytypedef)
   - [PredictorExecutionDetailsTypeDef](#predictorexecutiondetailstypedef)
@@ -40,31 +65,6 @@ type annotations stubs module [mypy_boto3_forecast](https://pypi.org/project/myp
   - [TestWindowSummaryTypeDef](#testwindowsummarytypedef)
   - [WeightedQuantileLossTypeDef](#weightedquantilelosstypedef)
   - [WindowSummaryTypeDef](#windowsummarytypedef)
-  - [CreateDatasetGroupResponseTypeDef](#createdatasetgroupresponsetypedef)
-  - [CreateDatasetImportJobResponseTypeDef](#createdatasetimportjobresponsetypedef)
-  - [CreateDatasetResponseTypeDef](#createdatasetresponsetypedef)
-  - [CreateForecastExportJobResponseTypeDef](#createforecastexportjobresponsetypedef)
-  - [CreateForecastResponseTypeDef](#createforecastresponsetypedef)
-  - [CreatePredictorBacktestExportJobResponseTypeDef](#createpredictorbacktestexportjobresponsetypedef)
-  - [CreatePredictorResponseTypeDef](#createpredictorresponsetypedef)
-  - [DescribeDatasetGroupResponseTypeDef](#describedatasetgroupresponsetypedef)
-  - [DescribeDatasetImportJobResponseTypeDef](#describedatasetimportjobresponsetypedef)
-  - [DescribeDatasetResponseTypeDef](#describedatasetresponsetypedef)
-  - [DescribeForecastExportJobResponseTypeDef](#describeforecastexportjobresponsetypedef)
-  - [DescribeForecastResponseTypeDef](#describeforecastresponsetypedef)
-  - [DescribePredictorBacktestExportJobResponseTypeDef](#describepredictorbacktestexportjobresponsetypedef)
-  - [DescribePredictorResponseTypeDef](#describepredictorresponsetypedef)
-  - [FilterTypeDef](#filtertypedef)
-  - [GetAccuracyMetricsResponseTypeDef](#getaccuracymetricsresponsetypedef)
-  - [ListDatasetGroupsResponseTypeDef](#listdatasetgroupsresponsetypedef)
-  - [ListDatasetImportJobsResponseTypeDef](#listdatasetimportjobsresponsetypedef)
-  - [ListDatasetsResponseTypeDef](#listdatasetsresponsetypedef)
-  - [ListForecastExportJobsResponseTypeDef](#listforecastexportjobsresponsetypedef)
-  - [ListForecastsResponseTypeDef](#listforecastsresponsetypedef)
-  - [ListPredictorBacktestExportJobsResponseTypeDef](#listpredictorbacktestexportjobsresponsetypedef)
-  - [ListPredictorsResponseTypeDef](#listpredictorsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
 
 ## CategoricalParameterRangeTypeDef
 
@@ -96,6 +96,97 @@ Required fields:
 
 Optional fields:
 - `ScalingType`: `ScalingType`
+
+
+## CreateDatasetGroupResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import CreateDatasetGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatasetGroupArn`: `str`
+
+
+## CreateDatasetImportJobResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import CreateDatasetImportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatasetImportJobArn`: `str`
+
+
+## CreateDatasetResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import CreateDatasetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatasetArn`: `str`
+
+
+## CreateForecastExportJobResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import CreateForecastExportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ForecastExportJobArn`: `str`
+
+
+## CreateForecastResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import CreateForecastResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ForecastArn`: `str`
+
+
+## CreatePredictorBacktestExportJobResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import CreatePredictorBacktestExportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PredictorBacktestExportJobArn`: `str`
+
+
+## CreatePredictorResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import CreatePredictorResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PredictorArn`: `str`
 
 
 ## DataDestinationTypeDef
@@ -173,6 +264,169 @@ Optional fields:
 - `DatasetName`: `str`
 - `DatasetType`: `DatasetType`
 - `Domain`: `Domain`
+- `CreationTime`: `datetime`
+- `LastModificationTime`: `datetime`
+
+
+## DescribeDatasetGroupResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import DescribeDatasetGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatasetGroupName`: `str`
+- `DatasetGroupArn`: `str`
+- `DatasetArns`: `List[str]`
+- `Domain`: `Domain`
+- `Status`: `str`
+- `CreationTime`: `datetime`
+- `LastModificationTime`: `datetime`
+
+
+## DescribeDatasetImportJobResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import DescribeDatasetImportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatasetImportJobName`: `str`
+- `DatasetImportJobArn`: `str`
+- `DatasetArn`: `str`
+- `TimestampFormat`: `str`
+- `TimeZone`: `str`
+- `UseGeolocationForTimeZone`: `bool`
+- `GeolocationFormat`: `str`
+- `DataSource`: `"DataSourceTypeDef"`
+- `EstimatedTimeRemainingInMinutes`: `int`
+- `FieldStatistics`: `Dict[str, "StatisticsTypeDef"]`
+- `DataSize`: `float`
+- `Status`: `str`
+- `Message`: `str`
+- `CreationTime`: `datetime`
+- `LastModificationTime`: `datetime`
+
+
+## DescribeDatasetResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import DescribeDatasetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatasetArn`: `str`
+- `DatasetName`: `str`
+- `Domain`: `Domain`
+- `DatasetType`: `DatasetType`
+- `DataFrequency`: `str`
+- `Schema`: `"SchemaTypeDef"`
+- `EncryptionConfig`: `"EncryptionConfigTypeDef"`
+- `Status`: `str`
+- `CreationTime`: `datetime`
+- `LastModificationTime`: `datetime`
+
+
+## DescribeForecastExportJobResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import DescribeForecastExportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ForecastExportJobArn`: `str`
+- `ForecastExportJobName`: `str`
+- `ForecastArn`: `str`
+- `Destination`: `"DataDestinationTypeDef"`
+- `Message`: `str`
+- `Status`: `str`
+- `CreationTime`: `datetime`
+- `LastModificationTime`: `datetime`
+
+
+## DescribeForecastResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import DescribeForecastResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ForecastArn`: `str`
+- `ForecastName`: `str`
+- `ForecastTypes`: `List[str]`
+- `PredictorArn`: `str`
+- `DatasetGroupArn`: `str`
+- `EstimatedTimeRemainingInMinutes`: `int`
+- `Status`: `str`
+- `Message`: `str`
+- `CreationTime`: `datetime`
+- `LastModificationTime`: `datetime`
+
+
+## DescribePredictorBacktestExportJobResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import DescribePredictorBacktestExportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PredictorBacktestExportJobArn`: `str`
+- `PredictorBacktestExportJobName`: `str`
+- `PredictorArn`: `str`
+- `Destination`: `"DataDestinationTypeDef"`
+- `Message`: `str`
+- `Status`: `str`
+- `CreationTime`: `datetime`
+- `LastModificationTime`: `datetime`
+
+
+## DescribePredictorResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import DescribePredictorResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PredictorArn`: `str`
+- `PredictorName`: `str`
+- `AlgorithmArn`: `str`
+- `ForecastHorizon`: `int`
+- `ForecastTypes`: `List[str]`
+- `PerformAutoML`: `bool`
+- `PerformHPO`: `bool`
+- `TrainingParameters`: `Dict[str, str]`
+- `EvaluationParameters`: `"EvaluationParametersTypeDef"`
+- `HPOConfig`: `"HyperParameterTuningJobConfigTypeDef"`
+- `InputDataConfig`: `"InputDataConfigTypeDef"`
+- `FeaturizationConfig`: `"FeaturizationConfigTypeDef"`
+- `EncryptionConfig`: `"EncryptionConfigTypeDef"`
+- `PredictorExecutionDetails`: `"PredictorExecutionDetailsTypeDef"`
+- `EstimatedTimeRemainingInMinutes`: `int`
+- `DatasetImportJobArns`: `List[str]`
+- `AutoMLAlgorithmArns`: `List[str]`
+- `Status`: `str`
+- `Message`: `str`
 - `CreationTime`: `datetime`
 - `LastModificationTime`: `datetime`
 
@@ -259,7 +513,7 @@ from mypy_boto3_forecast.type_defs import FeaturizationMethodTypeDef
 
 
 Required fields:
-- `FeaturizationMethodName`: `FeaturizationMethodName`
+- `FeaturizationMethodName`: `Literal['filling']`
 
 
 
@@ -281,6 +535,21 @@ Required fields:
 
 Optional fields:
 - `FeaturizationPipeline`: `List["FeaturizationMethodTypeDef"]`
+
+
+## FilterTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import FilterTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+- `Condition`: `FilterConditionString`
+
+
 
 
 ## ForecastExportJobSummaryTypeDef
@@ -320,6 +589,19 @@ Optional fields:
 - `Message`: `str`
 - `CreationTime`: `datetime`
 - `LastModificationTime`: `datetime`
+
+
+## GetAccuracyMetricsResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import GetAccuracyMetricsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PredictorEvaluationResults`: `List["EvaluationResultTypeDef"]`
 
 
 ## HyperParameterTuningJobConfigTypeDef
@@ -369,6 +651,117 @@ Optional fields:
 - `ScalingType`: `ScalingType`
 
 
+## ListDatasetGroupsResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import ListDatasetGroupsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatasetGroups`: `List["DatasetGroupSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListDatasetImportJobsResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import ListDatasetImportJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatasetImportJobs`: `List["DatasetImportJobSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListDatasetsResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import ListDatasetsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Datasets`: `List["DatasetSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListForecastExportJobsResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import ListForecastExportJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ForecastExportJobs`: `List["ForecastExportJobSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListForecastsResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import ListForecastsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Forecasts`: `List["ForecastSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListPredictorBacktestExportJobsResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import ListPredictorBacktestExportJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PredictorBacktestExportJobs`: `List["PredictorBacktestExportJobSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListPredictorsResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import ListPredictorsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Predictors`: `List["PredictorSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## MetricsTypeDef
 
 ```python
@@ -382,6 +775,21 @@ Optional fields:
 - `RMSE`: `float`
 - `WeightedQuantileLosses`: `List["WeightedQuantileLossTypeDef"]`
 - `ErrorMetrics`: `List["ErrorMetricTypeDef"]`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_forecast.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## ParameterRangesTypeDef
@@ -601,412 +1009,4 @@ Optional fields:
 - `ItemCount`: `int`
 - `EvaluationType`: `EvaluationType`
 - `Metrics`: `"MetricsTypeDef"`
-
-
-## CreateDatasetGroupResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import CreateDatasetGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatasetGroupArn`: `str`
-
-
-## CreateDatasetImportJobResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import CreateDatasetImportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatasetImportJobArn`: `str`
-
-
-## CreateDatasetResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import CreateDatasetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatasetArn`: `str`
-
-
-## CreateForecastExportJobResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import CreateForecastExportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ForecastExportJobArn`: `str`
-
-
-## CreateForecastResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import CreateForecastResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ForecastArn`: `str`
-
-
-## CreatePredictorBacktestExportJobResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import CreatePredictorBacktestExportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PredictorBacktestExportJobArn`: `str`
-
-
-## CreatePredictorResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import CreatePredictorResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PredictorArn`: `str`
-
-
-## DescribeDatasetGroupResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import DescribeDatasetGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatasetGroupName`: `str`
-- `DatasetGroupArn`: `str`
-- `DatasetArns`: `List[str]`
-- `Domain`: `Domain`
-- `Status`: `str`
-- `CreationTime`: `datetime`
-- `LastModificationTime`: `datetime`
-
-
-## DescribeDatasetImportJobResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import DescribeDatasetImportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatasetImportJobName`: `str`
-- `DatasetImportJobArn`: `str`
-- `DatasetArn`: `str`
-- `TimestampFormat`: `str`
-- `TimeZone`: `str`
-- `UseGeolocationForTimeZone`: `bool`
-- `GeolocationFormat`: `str`
-- `DataSource`: `"DataSourceTypeDef"`
-- `EstimatedTimeRemainingInMinutes`: `int`
-- `FieldStatistics`: `Dict[str, "StatisticsTypeDef"]`
-- `DataSize`: `float`
-- `Status`: `str`
-- `Message`: `str`
-- `CreationTime`: `datetime`
-- `LastModificationTime`: `datetime`
-
-
-## DescribeDatasetResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import DescribeDatasetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatasetArn`: `str`
-- `DatasetName`: `str`
-- `Domain`: `Domain`
-- `DatasetType`: `DatasetType`
-- `DataFrequency`: `str`
-- `Schema`: `"SchemaTypeDef"`
-- `EncryptionConfig`: `"EncryptionConfigTypeDef"`
-- `Status`: `str`
-- `CreationTime`: `datetime`
-- `LastModificationTime`: `datetime`
-
-
-## DescribeForecastExportJobResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import DescribeForecastExportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ForecastExportJobArn`: `str`
-- `ForecastExportJobName`: `str`
-- `ForecastArn`: `str`
-- `Destination`: `"DataDestinationTypeDef"`
-- `Message`: `str`
-- `Status`: `str`
-- `CreationTime`: `datetime`
-- `LastModificationTime`: `datetime`
-
-
-## DescribeForecastResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import DescribeForecastResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ForecastArn`: `str`
-- `ForecastName`: `str`
-- `ForecastTypes`: `List[str]`
-- `PredictorArn`: `str`
-- `DatasetGroupArn`: `str`
-- `EstimatedTimeRemainingInMinutes`: `int`
-- `Status`: `str`
-- `Message`: `str`
-- `CreationTime`: `datetime`
-- `LastModificationTime`: `datetime`
-
-
-## DescribePredictorBacktestExportJobResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import DescribePredictorBacktestExportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PredictorBacktestExportJobArn`: `str`
-- `PredictorBacktestExportJobName`: `str`
-- `PredictorArn`: `str`
-- `Destination`: `"DataDestinationTypeDef"`
-- `Message`: `str`
-- `Status`: `str`
-- `CreationTime`: `datetime`
-- `LastModificationTime`: `datetime`
-
-
-## DescribePredictorResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import DescribePredictorResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PredictorArn`: `str`
-- `PredictorName`: `str`
-- `AlgorithmArn`: `str`
-- `ForecastHorizon`: `int`
-- `ForecastTypes`: `List[str]`
-- `PerformAutoML`: `bool`
-- `PerformHPO`: `bool`
-- `TrainingParameters`: `Dict[str, str]`
-- `EvaluationParameters`: `"EvaluationParametersTypeDef"`
-- `HPOConfig`: `"HyperParameterTuningJobConfigTypeDef"`
-- `InputDataConfig`: `"InputDataConfigTypeDef"`
-- `FeaturizationConfig`: `"FeaturizationConfigTypeDef"`
-- `EncryptionConfig`: `"EncryptionConfigTypeDef"`
-- `PredictorExecutionDetails`: `"PredictorExecutionDetailsTypeDef"`
-- `EstimatedTimeRemainingInMinutes`: `int`
-- `DatasetImportJobArns`: `List[str]`
-- `AutoMLAlgorithmArns`: `List[str]`
-- `Status`: `str`
-- `Message`: `str`
-- `CreationTime`: `datetime`
-- `LastModificationTime`: `datetime`
-
-
-## FilterTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import FilterTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-- `Condition`: `FilterConditionString`
-
-
-
-
-## GetAccuracyMetricsResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import GetAccuracyMetricsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PredictorEvaluationResults`: `List["EvaluationResultTypeDef"]`
-
-
-## ListDatasetGroupsResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import ListDatasetGroupsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatasetGroups`: `List["DatasetGroupSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListDatasetImportJobsResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import ListDatasetImportJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatasetImportJobs`: `List["DatasetImportJobSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListDatasetsResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import ListDatasetsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Datasets`: `List["DatasetSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListForecastExportJobsResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import ListForecastExportJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ForecastExportJobs`: `List["ForecastExportJobSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListForecastsResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import ListForecastsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Forecasts`: `List["ForecastSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListPredictorBacktestExportJobsResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import ListPredictorBacktestExportJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PredictorBacktestExportJobs`: `List["PredictorBacktestExportJobSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListPredictorsResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import ListPredictorsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Predictors`: `List["PredictorSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `List["TagTypeDef"]`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_forecast.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
 

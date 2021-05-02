@@ -10,25 +10,11 @@ type annotations stubs module [mypy_boto3_fsx](https://pypi.org/project/mypy-bot
   - [AdministrativeActionFailureDetailsTypeDef](#administrativeactionfailuredetailstypedef)
   - [AdministrativeActionTypeDef](#administrativeactiontypedef)
   - [AliasTypeDef](#aliastypedef)
+  - [AssociateFileSystemAliasesResponseTypeDef](#associatefilesystemaliasesresponsetypedef)
   - [BackupFailureDetailsTypeDef](#backupfailuredetailstypedef)
   - [BackupTypeDef](#backuptypedef)
-  - [CompletionReportTypeDef](#completionreporttypedef)
-  - [DataRepositoryConfigurationTypeDef](#datarepositoryconfigurationtypedef)
-  - [DataRepositoryFailureDetailsTypeDef](#datarepositoryfailuredetailstypedef)
-  - [DataRepositoryTaskFailureDetailsTypeDef](#datarepositorytaskfailuredetailstypedef)
-  - [DataRepositoryTaskStatusTypeDef](#datarepositorytaskstatustypedef)
-  - [DataRepositoryTaskTypeDef](#datarepositorytasktypedef)
-  - [DeleteFileSystemLustreResponseTypeDef](#deletefilesystemlustreresponsetypedef)
-  - [DeleteFileSystemWindowsResponseTypeDef](#deletefilesystemwindowsresponsetypedef)
-  - [FileSystemFailureDetailsTypeDef](#filesystemfailuredetailstypedef)
-  - [LustreFileSystemConfigurationTypeDef](#lustrefilesystemconfigurationtypedef)
-  - [SelfManagedActiveDirectoryAttributesTypeDef](#selfmanagedactivedirectoryattributestypedef)
-  - [SelfManagedActiveDirectoryConfigurationTypeDef](#selfmanagedactivedirectoryconfigurationtypedef)
-  - [SelfManagedActiveDirectoryConfigurationUpdatesTypeDef](#selfmanagedactivedirectoryconfigurationupdatestypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [WindowsFileSystemConfigurationTypeDef](#windowsfilesystemconfigurationtypedef)
-  - [AssociateFileSystemAliasesResponseTypeDef](#associatefilesystemaliasesresponsetypedef)
   - [CancelDataRepositoryTaskResponseTypeDef](#canceldatarepositorytaskresponsetypedef)
+  - [CompletionReportTypeDef](#completionreporttypedef)
   - [CopyBackupResponseTypeDef](#copybackupresponsetypedef)
   - [CreateBackupResponseTypeDef](#createbackupresponsetypedef)
   - [CreateDataRepositoryTaskResponseTypeDef](#createdatarepositorytaskresponsetypedef)
@@ -36,23 +22,37 @@ type annotations stubs module [mypy_boto3_fsx](https://pypi.org/project/mypy-bot
   - [CreateFileSystemLustreConfigurationTypeDef](#createfilesystemlustreconfigurationtypedef)
   - [CreateFileSystemResponseTypeDef](#createfilesystemresponsetypedef)
   - [CreateFileSystemWindowsConfigurationTypeDef](#createfilesystemwindowsconfigurationtypedef)
+  - [DataRepositoryConfigurationTypeDef](#datarepositoryconfigurationtypedef)
+  - [DataRepositoryFailureDetailsTypeDef](#datarepositoryfailuredetailstypedef)
+  - [DataRepositoryTaskFailureDetailsTypeDef](#datarepositorytaskfailuredetailstypedef)
   - [DataRepositoryTaskFilterTypeDef](#datarepositorytaskfiltertypedef)
+  - [DataRepositoryTaskStatusTypeDef](#datarepositorytaskstatustypedef)
+  - [DataRepositoryTaskTypeDef](#datarepositorytasktypedef)
   - [DeleteBackupResponseTypeDef](#deletebackupresponsetypedef)
   - [DeleteFileSystemLustreConfigurationTypeDef](#deletefilesystemlustreconfigurationtypedef)
+  - [DeleteFileSystemLustreResponseTypeDef](#deletefilesystemlustreresponsetypedef)
   - [DeleteFileSystemResponseTypeDef](#deletefilesystemresponsetypedef)
   - [DeleteFileSystemWindowsConfigurationTypeDef](#deletefilesystemwindowsconfigurationtypedef)
+  - [DeleteFileSystemWindowsResponseTypeDef](#deletefilesystemwindowsresponsetypedef)
   - [DescribeBackupsResponseTypeDef](#describebackupsresponsetypedef)
   - [DescribeDataRepositoryTasksResponseTypeDef](#describedatarepositorytasksresponsetypedef)
   - [DescribeFileSystemAliasesResponseTypeDef](#describefilesystemaliasesresponsetypedef)
   - [DescribeFileSystemsResponseTypeDef](#describefilesystemsresponsetypedef)
-  - [FileSystemTypeDef](#filesystemtypedef)
   - [DisassociateFileSystemAliasesResponseTypeDef](#disassociatefilesystemaliasesresponsetypedef)
+  - [FileSystemFailureDetailsTypeDef](#filesystemfailuredetailstypedef)
+  - [FileSystemTypeDef](#filesystemtypedef)
   - [FilterTypeDef](#filtertypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [LustreFileSystemConfigurationTypeDef](#lustrefilesystemconfigurationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [SelfManagedActiveDirectoryAttributesTypeDef](#selfmanagedactivedirectoryattributestypedef)
+  - [SelfManagedActiveDirectoryConfigurationTypeDef](#selfmanagedactivedirectoryconfigurationtypedef)
+  - [SelfManagedActiveDirectoryConfigurationUpdatesTypeDef](#selfmanagedactivedirectoryconfigurationupdatestypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateFileSystemLustreConfigurationTypeDef](#updatefilesystemlustreconfigurationtypedef)
   - [UpdateFileSystemResponseTypeDef](#updatefilesystemresponsetypedef)
   - [UpdateFileSystemWindowsConfigurationTypeDef](#updatefilesystemwindowsconfigurationtypedef)
+  - [WindowsFileSystemConfigurationTypeDef](#windowsfilesystemconfigurationtypedef)
 
 ## ActiveDirectoryBackupAttributesTypeDef
 
@@ -114,6 +114,19 @@ Optional fields:
 - `Lifecycle`: `AliasLifecycle`
 
 
+## AssociateFileSystemAliasesResponseTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import AssociateFileSystemAliasesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Aliases`: `List["AliasTypeDef"]`
+
+
 ## BackupFailureDetailsTypeDef
 
 ```python
@@ -155,6 +168,20 @@ Optional fields:
 - `SourceBackupRegion`: `str`
 
 
+## CancelDataRepositoryTaskResponseTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import CancelDataRepositoryTaskResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Lifecycle`: `DataRepositoryTaskLifecycle`
+- `TaskId`: `str`
+
+
 ## CompletionReportTypeDef
 
 ```python
@@ -169,275 +196,8 @@ Required fields:
 
 Optional fields:
 - `Path`: `str`
-- `Format`: `ReportFormat`
-- `Scope`: `ReportScope`
-
-
-## DataRepositoryConfigurationTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import DataRepositoryConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Lifecycle`: `DataRepositoryLifecycle`
-- `ImportPath`: `str`
-- `ExportPath`: `str`
-- `ImportedFileChunkSize`: `int`
-- `AutoImportPolicy`: `AutoImportPolicyType`
-- `FailureDetails`: `"DataRepositoryFailureDetailsTypeDef"`
-
-
-## DataRepositoryFailureDetailsTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import DataRepositoryFailureDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Message`: `str`
-
-
-## DataRepositoryTaskFailureDetailsTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import DataRepositoryTaskFailureDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Message`: `str`
-
-
-## DataRepositoryTaskStatusTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import DataRepositoryTaskStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `TotalCount`: `int`
-- `SucceededCount`: `int`
-- `FailedCount`: `int`
-- `LastUpdatedTime`: `datetime`
-
-
-## DataRepositoryTaskTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import DataRepositoryTaskTypeDef
-```
-
-
-Required fields:
-- `TaskId`: `str`
-- `Lifecycle`: `DataRepositoryTaskLifecycle`
-- `Type`: `DataRepositoryTaskType`
-- `CreationTime`: `datetime`
-- `FileSystemId`: `str`
-
-
-
-Optional fields:
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-- `ResourceARN`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `Paths`: `List[str]`
-- `FailureDetails`: `"DataRepositoryTaskFailureDetailsTypeDef"`
-- `Status`: `"DataRepositoryTaskStatusTypeDef"`
-- `Report`: `"CompletionReportTypeDef"`
-
-
-## DeleteFileSystemLustreResponseTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import DeleteFileSystemLustreResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `FinalBackupId`: `str`
-- `FinalBackupTags`: `List["TagTypeDef"]`
-
-
-## DeleteFileSystemWindowsResponseTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import DeleteFileSystemWindowsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `FinalBackupId`: `str`
-- `FinalBackupTags`: `List["TagTypeDef"]`
-
-
-## FileSystemFailureDetailsTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import FileSystemFailureDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Message`: `str`
-
-
-## LustreFileSystemConfigurationTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import LustreFileSystemConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `WeeklyMaintenanceStartTime`: `str`
-- `DataRepositoryConfiguration`: `"DataRepositoryConfigurationTypeDef"`
-- `DeploymentType`: `LustreDeploymentType`
-- `PerUnitStorageThroughput`: `int`
-- `MountName`: `str`
-- `DailyAutomaticBackupStartTime`: `str`
-- `AutomaticBackupRetentionDays`: `int`
-- `CopyTagsToBackups`: `bool`
-- `DriveCacheType`: `DriveCacheType`
-
-
-## SelfManagedActiveDirectoryAttributesTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import SelfManagedActiveDirectoryAttributesTypeDef
-```
-
-
-
-
-Optional fields:
-- `DomainName`: `str`
-- `OrganizationalUnitDistinguishedName`: `str`
-- `FileSystemAdministratorsGroup`: `str`
-- `UserName`: `str`
-- `DnsIps`: `List[str]`
-
-
-## SelfManagedActiveDirectoryConfigurationTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import SelfManagedActiveDirectoryConfigurationTypeDef
-```
-
-
-Required fields:
-- `DomainName`: `str`
-- `UserName`: `str`
-- `Password`: `str`
-- `DnsIps`: `List[str]`
-
-
-
-Optional fields:
-- `OrganizationalUnitDistinguishedName`: `str`
-- `FileSystemAdministratorsGroup`: `str`
-
-
-## SelfManagedActiveDirectoryConfigurationUpdatesTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import SelfManagedActiveDirectoryConfigurationUpdatesTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserName`: `str`
-- `Password`: `str`
-- `DnsIps`: `List[str]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## WindowsFileSystemConfigurationTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import WindowsFileSystemConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ActiveDirectoryId`: `str`
-- `SelfManagedActiveDirectoryConfiguration`: `"SelfManagedActiveDirectoryAttributesTypeDef"`
-- `DeploymentType`: `WindowsDeploymentType`
-- `RemoteAdministrationEndpoint`: `str`
-- `PreferredSubnetId`: `str`
-- `PreferredFileServerIp`: `str`
-- `ThroughputCapacity`: `int`
-- `MaintenanceOperationsInProgress`: `List[FileSystemMaintenanceOperation]`
-- `WeeklyMaintenanceStartTime`: `str`
-- `DailyAutomaticBackupStartTime`: `str`
-- `AutomaticBackupRetentionDays`: `int`
-- `CopyTagsToBackups`: `bool`
-- `Aliases`: `List["AliasTypeDef"]`
-
-
-## AssociateFileSystemAliasesResponseTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import AssociateFileSystemAliasesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Aliases`: `List["AliasTypeDef"]`
-
-
-## CancelDataRepositoryTaskResponseTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import CancelDataRepositoryTaskResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Lifecycle`: `DataRepositoryTaskLifecycle`
-- `TaskId`: `str`
+- `Format`: `Literal['REPORT_CSV_20191124']`
+- `Scope`: `Literal['FAILED_FILES_ONLY']`
 
 
 ## CopyBackupResponseTypeDef
@@ -552,6 +312,50 @@ Optional fields:
 - `Aliases`: `List[str]`
 
 
+## DataRepositoryConfigurationTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import DataRepositoryConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Lifecycle`: `DataRepositoryLifecycle`
+- `ImportPath`: `str`
+- `ExportPath`: `str`
+- `ImportedFileChunkSize`: `int`
+- `AutoImportPolicy`: `AutoImportPolicyType`
+- `FailureDetails`: `"DataRepositoryFailureDetailsTypeDef"`
+
+
+## DataRepositoryFailureDetailsTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import DataRepositoryFailureDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Message`: `str`
+
+
+## DataRepositoryTaskFailureDetailsTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import DataRepositoryTaskFailureDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Message`: `str`
+
+
 ## DataRepositoryTaskFilterTypeDef
 
 ```python
@@ -564,6 +368,49 @@ from mypy_boto3_fsx.type_defs import DataRepositoryTaskFilterTypeDef
 Optional fields:
 - `Name`: `DataRepositoryTaskFilterName`
 - `Values`: `List[str]`
+
+
+## DataRepositoryTaskStatusTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import DataRepositoryTaskStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `TotalCount`: `int`
+- `SucceededCount`: `int`
+- `FailedCount`: `int`
+- `LastUpdatedTime`: `datetime`
+
+
+## DataRepositoryTaskTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import DataRepositoryTaskTypeDef
+```
+
+
+Required fields:
+- `TaskId`: `str`
+- `Lifecycle`: `DataRepositoryTaskLifecycle`
+- `Type`: `Literal['EXPORT_TO_REPOSITORY']`
+- `CreationTime`: `datetime`
+- `FileSystemId`: `str`
+
+
+
+Optional fields:
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+- `ResourceARN`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `Paths`: `List[str]`
+- `FailureDetails`: `"DataRepositoryTaskFailureDetailsTypeDef"`
+- `Status`: `"DataRepositoryTaskStatusTypeDef"`
+- `Report`: `"CompletionReportTypeDef"`
 
 
 ## DeleteBackupResponseTypeDef
@@ -594,6 +441,20 @@ Optional fields:
 - `FinalBackupTags`: `List["TagTypeDef"]`
 
 
+## DeleteFileSystemLustreResponseTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import DeleteFileSystemLustreResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `FinalBackupId`: `str`
+- `FinalBackupTags`: `List["TagTypeDef"]`
+
+
 ## DeleteFileSystemResponseTypeDef
 
 ```python
@@ -621,6 +482,20 @@ from mypy_boto3_fsx.type_defs import DeleteFileSystemWindowsConfigurationTypeDef
 
 Optional fields:
 - `SkipFinalBackup`: `bool`
+- `FinalBackupTags`: `List["TagTypeDef"]`
+
+
+## DeleteFileSystemWindowsResponseTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import DeleteFileSystemWindowsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `FinalBackupId`: `str`
 - `FinalBackupTags`: `List["TagTypeDef"]`
 
 
@@ -680,6 +555,32 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## DisassociateFileSystemAliasesResponseTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import DisassociateFileSystemAliasesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Aliases`: `List["AliasTypeDef"]`
+
+
+## FileSystemFailureDetailsTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import FileSystemFailureDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Message`: `str`
+
+
 ## FileSystemTypeDef
 
 ```python
@@ -710,19 +611,6 @@ Optional fields:
 - `AdministrativeActions`: `List["AdministrativeActionTypeDef"]`
 
 
-## DisassociateFileSystemAliasesResponseTypeDef
-
-```python
-from mypy_boto3_fsx.type_defs import DisassociateFileSystemAliasesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Aliases`: `List["AliasTypeDef"]`
-
-
 ## FilterTypeDef
 
 ```python
@@ -751,6 +639,27 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## LustreFileSystemConfigurationTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import LustreFileSystemConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `WeeklyMaintenanceStartTime`: `str`
+- `DataRepositoryConfiguration`: `"DataRepositoryConfigurationTypeDef"`
+- `DeploymentType`: `LustreDeploymentType`
+- `PerUnitStorageThroughput`: `int`
+- `MountName`: `str`
+- `DailyAutomaticBackupStartTime`: `str`
+- `AutomaticBackupRetentionDays`: `int`
+- `CopyTagsToBackups`: `bool`
+- `DriveCacheType`: `DriveCacheType`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -764,6 +673,72 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## SelfManagedActiveDirectoryAttributesTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import SelfManagedActiveDirectoryAttributesTypeDef
+```
+
+
+
+
+Optional fields:
+- `DomainName`: `str`
+- `OrganizationalUnitDistinguishedName`: `str`
+- `FileSystemAdministratorsGroup`: `str`
+- `UserName`: `str`
+- `DnsIps`: `List[str]`
+
+
+## SelfManagedActiveDirectoryConfigurationTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import SelfManagedActiveDirectoryConfigurationTypeDef
+```
+
+
+Required fields:
+- `DomainName`: `str`
+- `UserName`: `str`
+- `Password`: `str`
+- `DnsIps`: `List[str]`
+
+
+
+Optional fields:
+- `OrganizationalUnitDistinguishedName`: `str`
+- `FileSystemAdministratorsGroup`: `str`
+
+
+## SelfManagedActiveDirectoryConfigurationUpdatesTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import SelfManagedActiveDirectoryConfigurationUpdatesTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserName`: `str`
+- `Password`: `str`
+- `DnsIps`: `List[str]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## UpdateFileSystemLustreConfigurationTypeDef
@@ -810,4 +785,29 @@ Optional fields:
 - `AutomaticBackupRetentionDays`: `int`
 - `ThroughputCapacity`: `int`
 - `SelfManagedActiveDirectoryConfiguration`: `"SelfManagedActiveDirectoryConfigurationUpdatesTypeDef"`
+
+
+## WindowsFileSystemConfigurationTypeDef
+
+```python
+from mypy_boto3_fsx.type_defs import WindowsFileSystemConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ActiveDirectoryId`: `str`
+- `SelfManagedActiveDirectoryConfiguration`: `"SelfManagedActiveDirectoryAttributesTypeDef"`
+- `DeploymentType`: `WindowsDeploymentType`
+- `RemoteAdministrationEndpoint`: `str`
+- `PreferredSubnetId`: `str`
+- `PreferredFileServerIp`: `str`
+- `ThroughputCapacity`: `int`
+- `MaintenanceOperationsInProgress`: `List[FileSystemMaintenanceOperation]`
+- `WeeklyMaintenanceStartTime`: `str`
+- `DailyAutomaticBackupStartTime`: `str`
+- `AutomaticBackupRetentionDays`: `int`
+- `CopyTagsToBackups`: `bool`
+- `Aliases`: `List["AliasTypeDef"]`
 

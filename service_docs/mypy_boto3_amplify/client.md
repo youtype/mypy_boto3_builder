@@ -49,9 +49,6 @@ type annotations stubs module [mypy_boto3_amplify](https://pypi.org/project/mypy
     - [update_domain_association](#update_domain_association)
     - [update_webhook](#update_webhook)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## AmplifyClient
 
@@ -117,7 +114,7 @@ def create_app(
     name: str,
     description: str = None,
     repository: str = None,
-    platform: Platform = None,
+    platform: Literal['WEB'] = None,
     iamServiceRoleArn: str = None,
     oauthToken: str = None,
     accessToken: str = None,
@@ -687,7 +684,7 @@ def update_app(
     appId: str,
     name: str = None,
     description: str = None,
-    platform: Platform = None,
+    platform: Literal['WEB'] = None,
     iamServiceRoleArn: str = None,
     environmentVariables: Dict[str, str] = None,
     enableBranchAutoBuild: bool = None,
@@ -772,62 +769,15 @@ def update_webhook(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("amplify").get_paginator` method.
-
-[Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amplify.html#Amplify.Paginator.ListApps)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAppsPaginatorName
-) -> ListAppsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("amplify").get_paginator` method.
+Type annotations for `boto3.client("amplify").get_paginator` method with overloads.
 
-[Paginator.ListBranches documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amplify.html#Amplify.Paginator.ListBranches)
+- `client.get_paginator("list_apps")` -> [ListAppsPaginator](./paginators.md#listappspaginator)
+- `client.get_paginator("list_branches")` -> [ListBranchesPaginator](./paginators.md#listbranchespaginator)
+- `client.get_paginator("list_domain_associations")` -> [ListDomainAssociationsPaginator](./paginators.md#listdomainassociationspaginator)
+- `client.get_paginator("list_jobs")` -> [ListJobsPaginator](./paginators.md#listjobspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBranchesPaginatorName
-) -> ListBranchesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("amplify").get_paginator` method.
-
-[Paginator.ListDomainAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDomainAssociationsPaginatorName
-) -> ListDomainAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("amplify").get_paginator` method.
-
-[Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amplify.html#Amplify.Paginator.ListJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobsPaginatorName
-) -> ListJobsPaginator:
-    pass
-```

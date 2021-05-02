@@ -110,15 +110,15 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_iot1click_devices.type_defs import DeviceDescriptionTypeDef, ...
+from mypy_boto3_iot1click_devices.type_defs import ClaimDevicesByClaimCodeResponseTypeDef, ...
 ```
 
+- [ClaimDevicesByClaimCodeResponseTypeDef](./type_defs.md#claimdevicesbyclaimcoderesponsetypedef)
+- [DescribeDeviceResponseTypeDef](./type_defs.md#describedeviceresponsetypedef)
 - [DeviceDescriptionTypeDef](./type_defs.md#devicedescriptiontypedef)
 - [DeviceEventTypeDef](./type_defs.md#deviceeventtypedef)
 - [DeviceMethodTypeDef](./type_defs.md#devicemethodtypedef)
 - [DeviceTypeDef](./type_defs.md#devicetypedef)
-- [ClaimDevicesByClaimCodeResponseTypeDef](./type_defs.md#claimdevicesbyclaimcoderesponsetypedef)
-- [DescribeDeviceResponseTypeDef](./type_defs.md#describedeviceresponsetypedef)
 - [FinalizeDeviceClaimResponseTypeDef](./type_defs.md#finalizedeviceclaimresponsetypedef)
 - [GetDeviceMethodsResponseTypeDef](./type_defs.md#getdevicemethodsresponsetypedef)
 - [InitiateDeviceClaimResponseTypeDef](./type_defs.md#initiatedeviceclaimresponsetypedef)

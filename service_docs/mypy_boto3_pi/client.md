@@ -71,7 +71,7 @@ Type annotations for `boto3.client("pi").describe_dimension_keys` method.
 ```python
 def describe_dimension_keys(
     self,
-    ServiceType: ServiceType,
+    ServiceType: Literal['RDS'],
     Identifier: str,
     StartTime: datetime,
     EndTime: datetime,
@@ -112,7 +112,7 @@ Type annotations for `boto3.client("pi").get_resource_metrics` method.
 ```python
 def get_resource_metrics(
     self,
-    ServiceType: ServiceType,
+    ServiceType: Literal['RDS'],
     Identifier: str,
     MetricQueries: List[MetricQueryTypeDef],
     StartTime: datetime,
@@ -123,3 +123,6 @@ def get_resource_metrics(
 ) -> GetResourceMetricsResponseTypeDef:
     pass
 ```
+
+
+

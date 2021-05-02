@@ -69,16 +69,6 @@ type annotations stubs module [mypy_boto3_robomaker](https://pypi.org/project/my
     - [update_simulation_application](#update_simulation_application)
     - [update_world_template](#update_world_template)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
 
 ## RoboMakerClient
 
@@ -1037,167 +1027,22 @@ def update_world_template(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("robomaker").get_paginator` method.
-
-[Paginator.ListDeploymentJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/robomaker.html#RoboMaker.Paginator.ListDeploymentJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeploymentJobsPaginatorName
-) -> ListDeploymentJobsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("robomaker").get_paginator` method.
+Type annotations for `boto3.client("robomaker").get_paginator` method with overloads.
 
-[Paginator.ListFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/robomaker.html#RoboMaker.Paginator.ListFleets)
+- `client.get_paginator("list_deployment_jobs")` -> [ListDeploymentJobsPaginator](./paginators.md#listdeploymentjobspaginator)
+- `client.get_paginator("list_fleets")` -> [ListFleetsPaginator](./paginators.md#listfleetspaginator)
+- `client.get_paginator("list_robot_applications")` -> [ListRobotApplicationsPaginator](./paginators.md#listrobotapplicationspaginator)
+- `client.get_paginator("list_robots")` -> [ListRobotsPaginator](./paginators.md#listrobotspaginator)
+- `client.get_paginator("list_simulation_applications")` -> [ListSimulationApplicationsPaginator](./paginators.md#listsimulationapplicationspaginator)
+- `client.get_paginator("list_simulation_job_batches")` -> [ListSimulationJobBatchesPaginator](./paginators.md#listsimulationjobbatchespaginator)
+- `client.get_paginator("list_simulation_jobs")` -> [ListSimulationJobsPaginator](./paginators.md#listsimulationjobspaginator)
+- `client.get_paginator("list_world_export_jobs")` -> [ListWorldExportJobsPaginator](./paginators.md#listworldexportjobspaginator)
+- `client.get_paginator("list_world_generation_jobs")` -> [ListWorldGenerationJobsPaginator](./paginators.md#listworldgenerationjobspaginator)
+- `client.get_paginator("list_world_templates")` -> [ListWorldTemplatesPaginator](./paginators.md#listworldtemplatespaginator)
+- `client.get_paginator("list_worlds")` -> [ListWorldsPaginator](./paginators.md#listworldspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFleetsPaginatorName
-) -> ListFleetsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("robomaker").get_paginator` method.
-
-[Paginator.ListRobotApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/robomaker.html#RoboMaker.Paginator.ListRobotApplications)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRobotApplicationsPaginatorName
-) -> ListRobotApplicationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("robomaker").get_paginator` method.
-
-[Paginator.ListRobots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/robomaker.html#RoboMaker.Paginator.ListRobots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRobotsPaginatorName
-) -> ListRobotsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("robomaker").get_paginator` method.
-
-[Paginator.ListSimulationApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationApplications)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSimulationApplicationsPaginatorName
-) -> ListSimulationApplicationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("robomaker").get_paginator` method.
-
-[Paginator.ListSimulationJobBatches documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobBatches)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSimulationJobBatchesPaginatorName
-) -> ListSimulationJobBatchesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("robomaker").get_paginator` method.
-
-[Paginator.ListSimulationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSimulationJobsPaginatorName
-) -> ListSimulationJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("robomaker").get_paginator` method.
-
-[Paginator.ListWorldExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldExportJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListWorldExportJobsPaginatorName
-) -> ListWorldExportJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("robomaker").get_paginator` method.
-
-[Paginator.ListWorldGenerationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldGenerationJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListWorldGenerationJobsPaginatorName
-) -> ListWorldGenerationJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("robomaker").get_paginator` method.
-
-[Paginator.ListWorldTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldTemplates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListWorldTemplatesPaginatorName
-) -> ListWorldTemplatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("robomaker").get_paginator` method.
-
-[Paginator.ListWorlds documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/robomaker.html#RoboMaker.Paginator.ListWorlds)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListWorldsPaginatorName
-) -> ListWorldsPaginator:
-    pass
-```

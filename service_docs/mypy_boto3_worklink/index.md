@@ -116,14 +116,9 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_worklink.type_defs import DeviceSummaryTypeDef, ...
+from mypy_boto3_worklink.type_defs import AssociateWebsiteAuthorizationProviderResponseTypeDef, ...
 ```
 
-- [DeviceSummaryTypeDef](./type_defs.md#devicesummarytypedef)
-- [DomainSummaryTypeDef](./type_defs.md#domainsummarytypedef)
-- [FleetSummaryTypeDef](./type_defs.md#fleetsummarytypedef)
-- [WebsiteAuthorizationProviderSummaryTypeDef](./type_defs.md#websiteauthorizationprovidersummarytypedef)
-- [WebsiteCaSummaryTypeDef](./type_defs.md#websitecasummarytypedef)
 - [AssociateWebsiteAuthorizationProviderResponseTypeDef](./type_defs.md#associatewebsiteauthorizationproviderresponsetypedef)
 - [AssociateWebsiteCertificateAuthorityResponseTypeDef](./type_defs.md#associatewebsitecertificateauthorityresponsetypedef)
 - [CreateFleetResponseTypeDef](./type_defs.md#createfleetresponsetypedef)
@@ -135,9 +130,14 @@ from mypy_boto3_worklink.type_defs import DeviceSummaryTypeDef, ...
 - [DescribeFleetMetadataResponseTypeDef](./type_defs.md#describefleetmetadataresponsetypedef)
 - [DescribeIdentityProviderConfigurationResponseTypeDef](./type_defs.md#describeidentityproviderconfigurationresponsetypedef)
 - [DescribeWebsiteCertificateAuthorityResponseTypeDef](./type_defs.md#describewebsitecertificateauthorityresponsetypedef)
+- [DeviceSummaryTypeDef](./type_defs.md#devicesummarytypedef)
+- [DomainSummaryTypeDef](./type_defs.md#domainsummarytypedef)
+- [FleetSummaryTypeDef](./type_defs.md#fleetsummarytypedef)
 - [ListDevicesResponseTypeDef](./type_defs.md#listdevicesresponsetypedef)
 - [ListDomainsResponseTypeDef](./type_defs.md#listdomainsresponsetypedef)
 - [ListFleetsResponseTypeDef](./type_defs.md#listfleetsresponsetypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
 - [ListWebsiteAuthorizationProvidersResponseTypeDef](./type_defs.md#listwebsiteauthorizationprovidersresponsetypedef)
 - [ListWebsiteCertificateAuthoritiesResponseTypeDef](./type_defs.md#listwebsitecertificateauthoritiesresponsetypedef)
+- [WebsiteAuthorizationProviderSummaryTypeDef](./type_defs.md#websiteauthorizationprovidersummarytypedef)
+- [WebsiteCaSummaryTypeDef](./type_defs.md#websitecasummarytypedef)

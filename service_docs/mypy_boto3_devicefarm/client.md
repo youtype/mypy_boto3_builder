@@ -89,25 +89,6 @@ type annotations stubs module [mypy_boto3_devicefarm](https://pypi.org/project/m
     - [update_upload](#update_upload)
     - [update_vpce_configuration](#update_vpce_configuration)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
-    - [get_paginator](#get_paginator-17)
-    - [get_paginator](#get_paginator-18)
-    - [get_paginator](#get_paginator-19)
 
 ## DeviceFarmClient
 
@@ -1386,302 +1367,31 @@ def update_vpce_configuration(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.GetOfferingStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.GetOfferingStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetOfferingStatusPaginatorName
-) -> GetOfferingStatusPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
+Type annotations for `boto3.client("devicefarm").get_paginator` method with overloads.
+
+- `client.get_paginator("get_offering_status")` -> [GetOfferingStatusPaginator](./paginators.md#getofferingstatuspaginator)
+- `client.get_paginator("list_artifacts")` -> [ListArtifactsPaginator](./paginators.md#listartifactspaginator)
+- `client.get_paginator("list_device_instances")` -> [ListDeviceInstancesPaginator](./paginators.md#listdeviceinstancespaginator)
+- `client.get_paginator("list_device_pools")` -> [ListDevicePoolsPaginator](./paginators.md#listdevicepoolspaginator)
+- `client.get_paginator("list_devices")` -> [ListDevicesPaginator](./paginators.md#listdevicespaginator)
+- `client.get_paginator("list_instance_profiles")` -> [ListInstanceProfilesPaginator](./paginators.md#listinstanceprofilespaginator)
+- `client.get_paginator("list_jobs")` -> [ListJobsPaginator](./paginators.md#listjobspaginator)
+- `client.get_paginator("list_network_profiles")` -> [ListNetworkProfilesPaginator](./paginators.md#listnetworkprofilespaginator)
+- `client.get_paginator("list_offering_promotions")` -> [ListOfferingPromotionsPaginator](./paginators.md#listofferingpromotionspaginator)
+- `client.get_paginator("list_offering_transactions")` -> [ListOfferingTransactionsPaginator](./paginators.md#listofferingtransactionspaginator)
+- `client.get_paginator("list_offerings")` -> [ListOfferingsPaginator](./paginators.md#listofferingspaginator)
+- `client.get_paginator("list_projects")` -> [ListProjectsPaginator](./paginators.md#listprojectspaginator)
+- `client.get_paginator("list_remote_access_sessions")` -> [ListRemoteAccessSessionsPaginator](./paginators.md#listremoteaccesssessionspaginator)
+- `client.get_paginator("list_runs")` -> [ListRunsPaginator](./paginators.md#listrunspaginator)
+- `client.get_paginator("list_samples")` -> [ListSamplesPaginator](./paginators.md#listsamplespaginator)
+- `client.get_paginator("list_suites")` -> [ListSuitesPaginator](./paginators.md#listsuitespaginator)
+- `client.get_paginator("list_tests")` -> [ListTestsPaginator](./paginators.md#listtestspaginator)
+- `client.get_paginator("list_unique_problems")` -> [ListUniqueProblemsPaginator](./paginators.md#listuniqueproblemspaginator)
+- `client.get_paginator("list_uploads")` -> [ListUploadsPaginator](./paginators.md#listuploadspaginator)
+- `client.get_paginator("list_vpce_configurations")` -> [ListVPCEConfigurationsPaginator](./paginators.md#listvpceconfigurationspaginator)
 
-[Paginator.ListArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListArtifacts)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListArtifactsPaginatorName
-) -> ListArtifactsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListDeviceInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDeviceInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeviceInstancesPaginatorName
-) -> ListDeviceInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListDevicePools documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevicePools)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDevicePoolsPaginatorName
-) -> ListDevicePoolsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDevicesPaginatorName
-) -> ListDevicesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListInstanceProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListInstanceProfiles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInstanceProfilesPaginatorName
-) -> ListInstanceProfilesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobsPaginatorName
-) -> ListJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListNetworkProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListNetworkProfiles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListNetworkProfilesPaginatorName
-) -> ListNetworkProfilesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListOfferingPromotions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingPromotions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOfferingPromotionsPaginatorName
-) -> ListOfferingPromotionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListOfferingTransactions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingTransactions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOfferingTransactionsPaginatorName
-) -> ListOfferingTransactionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOfferingsPaginatorName
-) -> ListOfferingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListProjects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProjectsPaginatorName
-) -> ListProjectsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListRemoteAccessSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRemoteAccessSessions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRemoteAccessSessionsPaginatorName
-) -> ListRemoteAccessSessionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRuns)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRunsPaginatorName
-) -> ListRunsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListSamples documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSamples)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSamplesPaginatorName
-) -> ListSamplesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListSuites documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSuites)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSuitesPaginatorName
-) -> ListSuitesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListTests documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListTests)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTestsPaginatorName
-) -> ListTestsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListUniqueProblems documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUniqueProblems)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUniqueProblemsPaginatorName
-) -> ListUniqueProblemsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUploads)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUploadsPaginatorName
-) -> ListUploadsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("devicefarm").get_paginator` method.
-
-[Paginator.ListVPCEConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/devicefarm.html#DeviceFarm.Paginator.ListVPCEConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListVPCEConfigurationsPaginatorName
-) -> ListVPCEConfigurationsPaginator:
-    pass
-```

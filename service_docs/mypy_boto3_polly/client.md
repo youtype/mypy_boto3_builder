@@ -21,8 +21,6 @@ type annotations stubs module [mypy_boto3_polly](https://pypi.org/project/mypy-b
     - [start_speech_synthesis_task](#start_speech_synthesis_task)
     - [synthesize_speech](#synthesize_speech)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## PollyClient
 
@@ -258,47 +256,14 @@ def synthesize_speech(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("polly").get_paginator` method.
-
-[Paginator.DescribeVoices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/polly.html#Polly.Paginator.DescribeVoices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVoicesPaginatorName
-) -> DescribeVoicesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("polly").get_paginator` method.
+Type annotations for `boto3.client("polly").get_paginator` method with overloads.
 
-[Paginator.ListLexicons documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/polly.html#Polly.Paginator.ListLexicons)
+- `client.get_paginator("describe_voices")` -> [DescribeVoicesPaginator](./paginators.md#describevoicespaginator)
+- `client.get_paginator("list_lexicons")` -> [ListLexiconsPaginator](./paginators.md#listlexiconspaginator)
+- `client.get_paginator("list_speech_synthesis_tasks")` -> [ListSpeechSynthesisTasksPaginator](./paginators.md#listspeechsynthesistaskspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLexiconsPaginatorName
-) -> ListLexiconsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("polly").get_paginator` method.
-
-[Paginator.ListSpeechSynthesisTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSpeechSynthesisTasksPaginatorName
-) -> ListSpeechSynthesisTasksPaginator:
-    pass
-```

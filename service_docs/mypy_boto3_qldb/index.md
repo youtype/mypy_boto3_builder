@@ -103,16 +103,9 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_qldb.type_defs import JournalKinesisStreamDescriptionTypeDef, ...
+from mypy_boto3_qldb.type_defs import CancelJournalKinesisStreamResponseTypeDef, ...
 ```
 
-- [JournalKinesisStreamDescriptionTypeDef](./type_defs.md#journalkinesisstreamdescriptiontypedef)
-- [JournalS3ExportDescriptionTypeDef](./type_defs.md#journals3exportdescriptiontypedef)
-- [KinesisConfigurationTypeDef](./type_defs.md#kinesisconfigurationtypedef)
-- [LedgerSummaryTypeDef](./type_defs.md#ledgersummarytypedef)
-- [S3EncryptionConfigurationTypeDef](./type_defs.md#s3encryptionconfigurationtypedef)
-- [S3ExportConfigurationTypeDef](./type_defs.md#s3exportconfigurationtypedef)
-- [ValueHolderTypeDef](./type_defs.md#valueholdertypedef)
 - [CancelJournalKinesisStreamResponseTypeDef](./type_defs.md#canceljournalkinesisstreamresponsetypedef)
 - [CreateLedgerResponseTypeDef](./type_defs.md#createledgerresponsetypedef)
 - [DescribeJournalKinesisStreamResponseTypeDef](./type_defs.md#describejournalkinesisstreamresponsetypedef)
@@ -122,10 +115,17 @@ from mypy_boto3_qldb.type_defs import JournalKinesisStreamDescriptionTypeDef, ..
 - [GetBlockResponseTypeDef](./type_defs.md#getblockresponsetypedef)
 - [GetDigestResponseTypeDef](./type_defs.md#getdigestresponsetypedef)
 - [GetRevisionResponseTypeDef](./type_defs.md#getrevisionresponsetypedef)
+- [JournalKinesisStreamDescriptionTypeDef](./type_defs.md#journalkinesisstreamdescriptiontypedef)
+- [JournalS3ExportDescriptionTypeDef](./type_defs.md#journals3exportdescriptiontypedef)
+- [KinesisConfigurationTypeDef](./type_defs.md#kinesisconfigurationtypedef)
+- [LedgerSummaryTypeDef](./type_defs.md#ledgersummarytypedef)
 - [ListJournalKinesisStreamsForLedgerResponseTypeDef](./type_defs.md#listjournalkinesisstreamsforledgerresponsetypedef)
 - [ListJournalS3ExportsForLedgerResponseTypeDef](./type_defs.md#listjournals3exportsforledgerresponsetypedef)
 - [ListJournalS3ExportsResponseTypeDef](./type_defs.md#listjournals3exportsresponsetypedef)
 - [ListLedgersResponseTypeDef](./type_defs.md#listledgersresponsetypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
+- [S3EncryptionConfigurationTypeDef](./type_defs.md#s3encryptionconfigurationtypedef)
+- [S3ExportConfigurationTypeDef](./type_defs.md#s3exportconfigurationtypedef)
 - [StreamJournalToKinesisResponseTypeDef](./type_defs.md#streamjournaltokinesisresponsetypedef)
 - [UpdateLedgerResponseTypeDef](./type_defs.md#updateledgerresponsetypedef)
+- [ValueHolderTypeDef](./type_defs.md#valueholdertypedef)

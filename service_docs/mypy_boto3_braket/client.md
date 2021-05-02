@@ -21,7 +21,6 @@ type annotations stubs module [mypy_boto3_braket](https://pypi.org/project/mypy-
     - [tag_resource](#tag_resource)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## BraketClient
 
@@ -233,32 +232,13 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("braket").get_paginator` method.
-
-[Paginator.SearchDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket.html#Braket.Paginator.SearchDevices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchDevicesPaginatorName
-) -> SearchDevicesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("braket").get_paginator` method.
+Type annotations for `boto3.client("braket").get_paginator` method with overloads.
 
-[Paginator.SearchQuantumTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/braket.html#Braket.Paginator.SearchQuantumTasks)
+- `client.get_paginator("search_devices")` -> [SearchDevicesPaginator](./paginators.md#searchdevicespaginator)
+- `client.get_paginator("search_quantum_tasks")` -> [SearchQuantumTasksPaginator](./paginators.md#searchquantumtaskspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchQuantumTasksPaginatorName
-) -> SearchQuantumTasksPaginator:
-    pass
-```
+

@@ -7,31 +7,31 @@ type annotations stubs module [mypy_boto3_translate](https://pypi.org/project/my
 
 - [Structures for boto3 Translate module](#structures-for-boto3-translate-module)
   - [AppliedTerminologyTypeDef](#appliedterminologytypedef)
-  - [EncryptionKeyTypeDef](#encryptionkeytypedef)
-  - [InputDataConfigTypeDef](#inputdataconfigtypedef)
-  - [JobDetailsTypeDef](#jobdetailstypedef)
-  - [OutputDataConfigTypeDef](#outputdataconfigtypedef)
-  - [ParallelDataConfigTypeDef](#paralleldataconfigtypedef)
-  - [ParallelDataDataLocationTypeDef](#paralleldatadatalocationtypedef)
-  - [ParallelDataPropertiesTypeDef](#paralleldatapropertiestypedef)
-  - [TermTypeDef](#termtypedef)
-  - [TerminologyDataLocationTypeDef](#terminologydatalocationtypedef)
-  - [TerminologyPropertiesTypeDef](#terminologypropertiestypedef)
-  - [TextTranslationJobPropertiesTypeDef](#texttranslationjobpropertiestypedef)
   - [CreateParallelDataResponseTypeDef](#createparalleldataresponsetypedef)
   - [DeleteParallelDataResponseTypeDef](#deleteparalleldataresponsetypedef)
   - [DescribeTextTranslationJobResponseTypeDef](#describetexttranslationjobresponsetypedef)
+  - [EncryptionKeyTypeDef](#encryptionkeytypedef)
   - [GetParallelDataResponseTypeDef](#getparalleldataresponsetypedef)
   - [GetTerminologyResponseTypeDef](#getterminologyresponsetypedef)
   - [ImportTerminologyResponseTypeDef](#importterminologyresponsetypedef)
+  - [InputDataConfigTypeDef](#inputdataconfigtypedef)
+  - [JobDetailsTypeDef](#jobdetailstypedef)
   - [ListParallelDataResponseTypeDef](#listparalleldataresponsetypedef)
   - [ListTerminologiesResponseTypeDef](#listterminologiesresponsetypedef)
   - [ListTextTranslationJobsResponseTypeDef](#listtexttranslationjobsresponsetypedef)
+  - [OutputDataConfigTypeDef](#outputdataconfigtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ParallelDataConfigTypeDef](#paralleldataconfigtypedef)
+  - [ParallelDataDataLocationTypeDef](#paralleldatadatalocationtypedef)
+  - [ParallelDataPropertiesTypeDef](#paralleldatapropertiestypedef)
   - [StartTextTranslationJobResponseTypeDef](#starttexttranslationjobresponsetypedef)
   - [StopTextTranslationJobResponseTypeDef](#stoptexttranslationjobresponsetypedef)
+  - [TermTypeDef](#termtypedef)
+  - [TerminologyDataLocationTypeDef](#terminologydatalocationtypedef)
   - [TerminologyDataTypeDef](#terminologydatatypedef)
+  - [TerminologyPropertiesTypeDef](#terminologypropertiestypedef)
   - [TextTranslationJobFilterTypeDef](#texttranslationjobfiltertypedef)
+  - [TextTranslationJobPropertiesTypeDef](#texttranslationjobpropertiestypedef)
   - [TranslateTextResponseTypeDef](#translatetextresponsetypedef)
   - [UpdateParallelDataResponseTypeDef](#updateparalleldataresponsetypedef)
 
@@ -49,6 +49,47 @@ Optional fields:
 - `Terms`: `List["TermTypeDef"]`
 
 
+## CreateParallelDataResponseTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import CreateParallelDataResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Status`: `ParallelDataStatus`
+
+
+## DeleteParallelDataResponseTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import DeleteParallelDataResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Status`: `ParallelDataStatus`
+
+
+## DescribeTextTranslationJobResponseTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import DescribeTextTranslationJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TextTranslationJobProperties`: `"TextTranslationJobPropertiesTypeDef"`
+
+
 ## EncryptionKeyTypeDef
 
 ```python
@@ -57,10 +98,53 @@ from mypy_boto3_translate.type_defs import EncryptionKeyTypeDef
 
 
 Required fields:
-- `Type`: `EncryptionKeyType`
+- `Type`: `Literal['KMS']`
 - `Id`: `str`
 
 
+
+
+## GetParallelDataResponseTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import GetParallelDataResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ParallelDataProperties`: `"ParallelDataPropertiesTypeDef"`
+- `DataLocation`: `"ParallelDataDataLocationTypeDef"`
+- `AuxiliaryDataLocation`: `"ParallelDataDataLocationTypeDef"`
+- `LatestUpdateAttemptAuxiliaryDataLocation`: `"ParallelDataDataLocationTypeDef"`
+
+
+## GetTerminologyResponseTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import GetTerminologyResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TerminologyProperties`: `"TerminologyPropertiesTypeDef"`
+- `TerminologyDataLocation`: `"TerminologyDataLocationTypeDef"`
+
+
+## ImportTerminologyResponseTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import ImportTerminologyResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TerminologyProperties`: `"TerminologyPropertiesTypeDef"`
 
 
 ## InputDataConfigTypeDef
@@ -92,6 +176,48 @@ Optional fields:
 - `InputDocumentsCount`: `int`
 
 
+## ListParallelDataResponseTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import ListParallelDataResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ParallelDataPropertiesList`: `List["ParallelDataPropertiesTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListTerminologiesResponseTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import ListTerminologiesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TerminologyPropertiesList`: `List["TerminologyPropertiesTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListTextTranslationJobsResponseTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import ListTextTranslationJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TextTranslationJobPropertiesList`: `List["TextTranslationJobPropertiesTypeDef"]`
+- `NextToken`: `str`
+
+
 ## OutputDataConfigTypeDef
 
 ```python
@@ -103,6 +229,21 @@ Required fields:
 - `S3Uri`: `str`
 
 
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## ParallelDataConfigTypeDef
@@ -162,223 +303,6 @@ Optional fields:
 - `LatestUpdateAttemptAt`: `datetime`
 
 
-## TermTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import TermTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceText`: `str`
-- `TargetText`: `str`
-
-
-## TerminologyDataLocationTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import TerminologyDataLocationTypeDef
-```
-
-
-Required fields:
-- `RepositoryType`: `str`
-- `Location`: `str`
-
-
-
-
-## TerminologyPropertiesTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import TerminologyPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Description`: `str`
-- `Arn`: `str`
-- `SourceLanguageCode`: `str`
-- `TargetLanguageCodes`: `List[str]`
-- `EncryptionKey`: `"EncryptionKeyTypeDef"`
-- `SizeBytes`: `int`
-- `TermCount`: `int`
-- `CreatedAt`: `datetime`
-- `LastUpdatedAt`: `datetime`
-
-
-## TextTranslationJobPropertiesTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import TextTranslationJobPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-- `JobName`: `str`
-- `JobStatus`: `JobStatus`
-- `JobDetails`: `"JobDetailsTypeDef"`
-- `SourceLanguageCode`: `str`
-- `TargetLanguageCodes`: `List[str]`
-- `TerminologyNames`: `List[str]`
-- `ParallelDataNames`: `List[str]`
-- `Message`: `str`
-- `SubmittedTime`: `datetime`
-- `EndTime`: `datetime`
-- `InputDataConfig`: `"InputDataConfigTypeDef"`
-- `OutputDataConfig`: `"OutputDataConfigTypeDef"`
-- `DataAccessRoleArn`: `str`
-
-
-## CreateParallelDataResponseTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import CreateParallelDataResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Status`: `ParallelDataStatus`
-
-
-## DeleteParallelDataResponseTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import DeleteParallelDataResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Status`: `ParallelDataStatus`
-
-
-## DescribeTextTranslationJobResponseTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import DescribeTextTranslationJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TextTranslationJobProperties`: `"TextTranslationJobPropertiesTypeDef"`
-
-
-## GetParallelDataResponseTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import GetParallelDataResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ParallelDataProperties`: `"ParallelDataPropertiesTypeDef"`
-- `DataLocation`: `"ParallelDataDataLocationTypeDef"`
-- `AuxiliaryDataLocation`: `"ParallelDataDataLocationTypeDef"`
-- `LatestUpdateAttemptAuxiliaryDataLocation`: `"ParallelDataDataLocationTypeDef"`
-
-
-## GetTerminologyResponseTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import GetTerminologyResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TerminologyProperties`: `"TerminologyPropertiesTypeDef"`
-- `TerminologyDataLocation`: `"TerminologyDataLocationTypeDef"`
-
-
-## ImportTerminologyResponseTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import ImportTerminologyResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TerminologyProperties`: `"TerminologyPropertiesTypeDef"`
-
-
-## ListParallelDataResponseTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import ListParallelDataResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ParallelDataPropertiesList`: `List["ParallelDataPropertiesTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListTerminologiesResponseTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import ListTerminologiesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TerminologyPropertiesList`: `List["TerminologyPropertiesTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListTextTranslationJobsResponseTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import ListTextTranslationJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TextTranslationJobPropertiesList`: `List["TextTranslationJobPropertiesTypeDef"]`
-- `NextToken`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_translate.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
 ## StartTextTranslationJobResponseTypeDef
 
 ```python
@@ -407,6 +331,34 @@ Optional fields:
 - `JobStatus`: `JobStatus`
 
 
+## TermTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import TermTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceText`: `str`
+- `TargetText`: `str`
+
+
+## TerminologyDataLocationTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import TerminologyDataLocationTypeDef
+```
+
+
+Required fields:
+- `RepositoryType`: `str`
+- `Location`: `str`
+
+
+
+
 ## TerminologyDataTypeDef
 
 ```python
@@ -419,6 +371,28 @@ Required fields:
 - `Format`: `TerminologyDataFormat`
 
 
+
+
+## TerminologyPropertiesTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import TerminologyPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Description`: `str`
+- `Arn`: `str`
+- `SourceLanguageCode`: `str`
+- `TargetLanguageCodes`: `List[str]`
+- `EncryptionKey`: `"EncryptionKeyTypeDef"`
+- `SizeBytes`: `int`
+- `TermCount`: `int`
+- `CreatedAt`: `datetime`
+- `LastUpdatedAt`: `datetime`
 
 
 ## TextTranslationJobFilterTypeDef
@@ -435,6 +409,32 @@ Optional fields:
 - `JobStatus`: `JobStatus`
 - `SubmittedBeforeTime`: `datetime`
 - `SubmittedAfterTime`: `datetime`
+
+
+## TextTranslationJobPropertiesTypeDef
+
+```python
+from mypy_boto3_translate.type_defs import TextTranslationJobPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+- `JobName`: `str`
+- `JobStatus`: `JobStatus`
+- `JobDetails`: `"JobDetailsTypeDef"`
+- `SourceLanguageCode`: `str`
+- `TargetLanguageCodes`: `List[str]`
+- `TerminologyNames`: `List[str]`
+- `ParallelDataNames`: `List[str]`
+- `Message`: `str`
+- `SubmittedTime`: `datetime`
+- `EndTime`: `datetime`
+- `InputDataConfig`: `"InputDataConfigTypeDef"`
+- `OutputDataConfig`: `"OutputDataConfigTypeDef"`
+- `DataAccessRoleArn`: `str`
 
 
 ## TranslateTextResponseTypeDef

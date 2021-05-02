@@ -27,8 +27,6 @@ type annotations stubs module [mypy_boto3_cloudhsmv2](https://pypi.org/project/m
     - [tag_resource](#tag_resource)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## CloudHSMV2Client
 
@@ -332,47 +330,14 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("cloudhsmv2").get_paginator` method.
-
-[Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeBackups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeBackupsPaginatorName
-) -> DescribeBackupsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("cloudhsmv2").get_paginator` method.
+Type annotations for `boto3.client("cloudhsmv2").get_paginator` method with overloads.
 
-[Paginator.DescribeClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeClusters)
+- `client.get_paginator("describe_backups")` -> [DescribeBackupsPaginator](./paginators.md#describebackupspaginator)
+- `client.get_paginator("describe_clusters")` -> [DescribeClustersPaginator](./paginators.md#describeclusterspaginator)
+- `client.get_paginator("list_tags")` -> [ListTagsPaginator](./paginators.md#listtagspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeClustersPaginatorName
-) -> DescribeClustersPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("cloudhsmv2").get_paginator` method.
-
-[Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.ListTags)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsPaginatorName
-) -> ListTagsPaginator:
-    pass
-```

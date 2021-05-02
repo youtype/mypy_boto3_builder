@@ -17,27 +17,6 @@ type annotations stubs module [mypy_boto3_fms](https://pypi.org/project/mypy-bot
   - [DnsRuleGroupLimitExceededViolationTypeDef](#dnsrulegrouplimitexceededviolationtypedef)
   - [DnsRuleGroupPriorityConflictViolationTypeDef](#dnsrulegrouppriorityconflictviolationtypedef)
   - [EvaluationResultTypeDef](#evaluationresulttypedef)
-  - [NetworkFirewallMissingExpectedRTViolationTypeDef](#networkfirewallmissingexpectedrtviolationtypedef)
-  - [NetworkFirewallMissingFirewallViolationTypeDef](#networkfirewallmissingfirewallviolationtypedef)
-  - [NetworkFirewallMissingSubnetViolationTypeDef](#networkfirewallmissingsubnetviolationtypedef)
-  - [NetworkFirewallPolicyDescriptionTypeDef](#networkfirewallpolicydescriptiontypedef)
-  - [NetworkFirewallPolicyModifiedViolationTypeDef](#networkfirewallpolicymodifiedviolationtypedef)
-  - [PartialMatchTypeDef](#partialmatchtypedef)
-  - [PolicyComplianceDetailTypeDef](#policycompliancedetailtypedef)
-  - [PolicyComplianceStatusTypeDef](#policycompliancestatustypedef)
-  - [PolicySummaryTypeDef](#policysummarytypedef)
-  - [PolicyTypeDef](#policytypedef)
-  - [ProtocolsListDataSummaryTypeDef](#protocolslistdatasummarytypedef)
-  - [ProtocolsListDataTypeDef](#protocolslistdatatypedef)
-  - [ResourceTagTypeDef](#resourcetagtypedef)
-  - [ResourceViolationTypeDef](#resourceviolationtypedef)
-  - [SecurityGroupRemediationActionTypeDef](#securitygroupremediationactiontypedef)
-  - [SecurityGroupRuleDescriptionTypeDef](#securitygroupruledescriptiontypedef)
-  - [SecurityServicePolicyDataTypeDef](#securityservicepolicydatatypedef)
-  - [StatefulRuleGroupTypeDef](#statefulrulegrouptypedef)
-  - [StatelessRuleGroupTypeDef](#statelessrulegrouptypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [ViolationDetailTypeDef](#violationdetailtypedef)
   - [GetAdminAccountResponseTypeDef](#getadminaccountresponsetypedef)
   - [GetAppsListResponseTypeDef](#getappslistresponsetypedef)
   - [GetComplianceDetailResponseTypeDef](#getcompliancedetailresponsetypedef)
@@ -52,10 +31,31 @@ type annotations stubs module [mypy_boto3_fms](https://pypi.org/project/mypy-bot
   - [ListPoliciesResponseTypeDef](#listpoliciesresponsetypedef)
   - [ListProtocolsListsResponseTypeDef](#listprotocolslistsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [NetworkFirewallMissingExpectedRTViolationTypeDef](#networkfirewallmissingexpectedrtviolationtypedef)
+  - [NetworkFirewallMissingFirewallViolationTypeDef](#networkfirewallmissingfirewallviolationtypedef)
+  - [NetworkFirewallMissingSubnetViolationTypeDef](#networkfirewallmissingsubnetviolationtypedef)
+  - [NetworkFirewallPolicyDescriptionTypeDef](#networkfirewallpolicydescriptiontypedef)
+  - [NetworkFirewallPolicyModifiedViolationTypeDef](#networkfirewallpolicymodifiedviolationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PartialMatchTypeDef](#partialmatchtypedef)
+  - [PolicyComplianceDetailTypeDef](#policycompliancedetailtypedef)
+  - [PolicyComplianceStatusTypeDef](#policycompliancestatustypedef)
+  - [PolicySummaryTypeDef](#policysummarytypedef)
+  - [PolicyTypeDef](#policytypedef)
+  - [ProtocolsListDataSummaryTypeDef](#protocolslistdatasummarytypedef)
+  - [ProtocolsListDataTypeDef](#protocolslistdatatypedef)
   - [PutAppsListResponseTypeDef](#putappslistresponsetypedef)
   - [PutPolicyResponseTypeDef](#putpolicyresponsetypedef)
   - [PutProtocolsListResponseTypeDef](#putprotocolslistresponsetypedef)
+  - [ResourceTagTypeDef](#resourcetagtypedef)
+  - [ResourceViolationTypeDef](#resourceviolationtypedef)
+  - [SecurityGroupRemediationActionTypeDef](#securitygroupremediationactiontypedef)
+  - [SecurityGroupRuleDescriptionTypeDef](#securitygroupruledescriptiontypedef)
+  - [SecurityServicePolicyDataTypeDef](#securityservicepolicydatatypedef)
+  - [StatefulRuleGroupTypeDef](#statefulrulegrouptypedef)
+  - [StatelessRuleGroupTypeDef](#statelessrulegrouptypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [ViolationDetailTypeDef](#violationdetailtypedef)
 
 ## AppTypeDef
 
@@ -227,371 +227,6 @@ Optional fields:
 - `ComplianceStatus`: `PolicyComplianceStatusType`
 - `ViolatorCount`: `int`
 - `EvaluationLimitExceeded`: `bool`
-
-
-## NetworkFirewallMissingExpectedRTViolationTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import NetworkFirewallMissingExpectedRTViolationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ViolationTarget`: `str`
-- `VPC`: `str`
-- `AvailabilityZone`: `str`
-- `CurrentRouteTable`: `str`
-- `ExpectedRouteTable`: `str`
-
-
-## NetworkFirewallMissingFirewallViolationTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import NetworkFirewallMissingFirewallViolationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ViolationTarget`: `str`
-- `VPC`: `str`
-- `AvailabilityZone`: `str`
-- `TargetViolationReason`: `str`
-
-
-## NetworkFirewallMissingSubnetViolationTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import NetworkFirewallMissingSubnetViolationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ViolationTarget`: `str`
-- `VPC`: `str`
-- `AvailabilityZone`: `str`
-- `TargetViolationReason`: `str`
-
-
-## NetworkFirewallPolicyDescriptionTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import NetworkFirewallPolicyDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `StatelessRuleGroups`: `List["StatelessRuleGroupTypeDef"]`
-- `StatelessDefaultActions`: `List[str]`
-- `StatelessFragmentDefaultActions`: `List[str]`
-- `StatelessCustomActions`: `List[str]`
-- `StatefulRuleGroups`: `List["StatefulRuleGroupTypeDef"]`
-
-
-## NetworkFirewallPolicyModifiedViolationTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import NetworkFirewallPolicyModifiedViolationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ViolationTarget`: `str`
-- `CurrentPolicyDescription`: `"NetworkFirewallPolicyDescriptionTypeDef"`
-- `ExpectedPolicyDescription`: `"NetworkFirewallPolicyDescriptionTypeDef"`
-
-
-## PartialMatchTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import PartialMatchTypeDef
-```
-
-
-
-
-Optional fields:
-- `Reference`: `str`
-- `TargetViolationReasons`: `List[str]`
-
-
-## PolicyComplianceDetailTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import PolicyComplianceDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicyOwner`: `str`
-- `PolicyId`: `str`
-- `MemberAccount`: `str`
-- `Violators`: `List["ComplianceViolatorTypeDef"]`
-- `EvaluationLimitExceeded`: `bool`
-- `ExpiredAt`: `datetime`
-- `IssueInfoMap`: `Dict[DependentServiceName, str]`
-
-
-## PolicyComplianceStatusTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import PolicyComplianceStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicyOwner`: `str`
-- `PolicyId`: `str`
-- `PolicyName`: `str`
-- `MemberAccount`: `str`
-- `EvaluationResults`: `List["EvaluationResultTypeDef"]`
-- `LastUpdated`: `datetime`
-- `IssueInfoMap`: `Dict[DependentServiceName, str]`
-
-
-## PolicySummaryTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import PolicySummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicyArn`: `str`
-- `PolicyId`: `str`
-- `PolicyName`: `str`
-- `ResourceType`: `str`
-- `SecurityServiceType`: `SecurityServiceType`
-- `RemediationEnabled`: `bool`
-
-
-## PolicyTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import PolicyTypeDef
-```
-
-
-Required fields:
-- `PolicyName`: `str`
-- `SecurityServicePolicyData`: `"SecurityServicePolicyDataTypeDef"`
-- `ResourceType`: `str`
-- `ExcludeResourceTags`: `bool`
-- `RemediationEnabled`: `bool`
-
-
-
-Optional fields:
-- `PolicyId`: `str`
-- `PolicyUpdateToken`: `str`
-- `ResourceTypeList`: `List[str]`
-- `ResourceTags`: `List["ResourceTagTypeDef"]`
-- `IncludeMap`: `Dict[CustomerPolicyScopeIdType, List[str]]`
-- `ExcludeMap`: `Dict[CustomerPolicyScopeIdType, List[str]]`
-
-
-## ProtocolsListDataSummaryTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import ProtocolsListDataSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `ListArn`: `str`
-- `ListId`: `str`
-- `ListName`: `str`
-- `ProtocolsList`: `List[str]`
-
-
-## ProtocolsListDataTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import ProtocolsListDataTypeDef
-```
-
-
-Required fields:
-- `ListName`: `str`
-- `ProtocolsList`: `List[str]`
-
-
-
-Optional fields:
-- `ListId`: `str`
-- `ListUpdateToken`: `str`
-- `CreateTime`: `datetime`
-- `LastUpdateTime`: `datetime`
-- `PreviousProtocolsList`: `Dict[str, List[str]]`
-
-
-## ResourceTagTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import ResourceTagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## ResourceViolationTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import ResourceViolationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AwsVPCSecurityGroupViolation`: `"AwsVPCSecurityGroupViolationTypeDef"`
-- `AwsEc2NetworkInterfaceViolation`: `"AwsEc2NetworkInterfaceViolationTypeDef"`
-- `AwsEc2InstanceViolation`: `"AwsEc2InstanceViolationTypeDef"`
-- `NetworkFirewallMissingFirewallViolation`: `"NetworkFirewallMissingFirewallViolationTypeDef"`
-- `NetworkFirewallMissingSubnetViolation`: `"NetworkFirewallMissingSubnetViolationTypeDef"`
-- `NetworkFirewallMissingExpectedRTViolation`: `"NetworkFirewallMissingExpectedRTViolationTypeDef"`
-- `NetworkFirewallPolicyModifiedViolation`: `"NetworkFirewallPolicyModifiedViolationTypeDef"`
-- `DnsRuleGroupPriorityConflictViolation`: `"DnsRuleGroupPriorityConflictViolationTypeDef"`
-- `DnsDuplicateRuleGroupViolation`: `"DnsDuplicateRuleGroupViolationTypeDef"`
-- `DnsRuleGroupLimitExceededViolation`: `"DnsRuleGroupLimitExceededViolationTypeDef"`
-
-
-## SecurityGroupRemediationActionTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import SecurityGroupRemediationActionTypeDef
-```
-
-
-
-
-Optional fields:
-- `RemediationActionType`: `RemediationActionType`
-- `Description`: `str`
-- `RemediationResult`: `"SecurityGroupRuleDescriptionTypeDef"`
-- `IsDefaultAction`: `bool`
-
-
-## SecurityGroupRuleDescriptionTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import SecurityGroupRuleDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `IPV4Range`: `str`
-- `IPV6Range`: `str`
-- `PrefixListId`: `str`
-- `Protocol`: `str`
-- `FromPort`: `int`
-- `ToPort`: `int`
-
-
-## SecurityServicePolicyDataTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import SecurityServicePolicyDataTypeDef
-```
-
-
-Required fields:
-- `Type`: `SecurityServiceType`
-
-
-
-Optional fields:
-- `ManagedServiceData`: `str`
-
-
-## StatefulRuleGroupTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import StatefulRuleGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `RuleGroupName`: `str`
-- `ResourceId`: `str`
-
-
-## StatelessRuleGroupTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import StatelessRuleGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `RuleGroupName`: `str`
-- `ResourceId`: `str`
-- `Priority`: `int`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## ViolationDetailTypeDef
-
-```python
-from mypy_boto3_fms.type_defs import ViolationDetailTypeDef
-```
-
-
-Required fields:
-- `PolicyId`: `str`
-- `MemberAccount`: `str`
-- `ResourceId`: `str`
-- `ResourceType`: `str`
-- `ResourceViolations`: `List["ResourceViolationTypeDef"]`
-
-
-
-Optional fields:
-- `ResourceTags`: `List["TagTypeDef"]`
-- `ResourceDescription`: `str`
 
 
 ## GetAdminAccountResponseTypeDef
@@ -789,6 +424,87 @@ Optional fields:
 - `TagList`: `List["TagTypeDef"]`
 
 
+## NetworkFirewallMissingExpectedRTViolationTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import NetworkFirewallMissingExpectedRTViolationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ViolationTarget`: `str`
+- `VPC`: `str`
+- `AvailabilityZone`: `str`
+- `CurrentRouteTable`: `str`
+- `ExpectedRouteTable`: `str`
+
+
+## NetworkFirewallMissingFirewallViolationTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import NetworkFirewallMissingFirewallViolationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ViolationTarget`: `str`
+- `VPC`: `str`
+- `AvailabilityZone`: `str`
+- `TargetViolationReason`: `str`
+
+
+## NetworkFirewallMissingSubnetViolationTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import NetworkFirewallMissingSubnetViolationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ViolationTarget`: `str`
+- `VPC`: `str`
+- `AvailabilityZone`: `str`
+- `TargetViolationReason`: `str`
+
+
+## NetworkFirewallPolicyDescriptionTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import NetworkFirewallPolicyDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `StatelessRuleGroups`: `List["StatelessRuleGroupTypeDef"]`
+- `StatelessDefaultActions`: `List[str]`
+- `StatelessFragmentDefaultActions`: `List[str]`
+- `StatelessCustomActions`: `List[str]`
+- `StatefulRuleGroups`: `List["StatefulRuleGroupTypeDef"]`
+
+
+## NetworkFirewallPolicyModifiedViolationTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import NetworkFirewallPolicyModifiedViolationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ViolationTarget`: `str`
+- `CurrentPolicyDescription`: `"NetworkFirewallPolicyDescriptionTypeDef"`
+- `ExpectedPolicyDescription`: `"NetworkFirewallPolicyDescriptionTypeDef"`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -802,6 +518,138 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PartialMatchTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import PartialMatchTypeDef
+```
+
+
+
+
+Optional fields:
+- `Reference`: `str`
+- `TargetViolationReasons`: `List[str]`
+
+
+## PolicyComplianceDetailTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import PolicyComplianceDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicyOwner`: `str`
+- `PolicyId`: `str`
+- `MemberAccount`: `str`
+- `Violators`: `List["ComplianceViolatorTypeDef"]`
+- `EvaluationLimitExceeded`: `bool`
+- `ExpiredAt`: `datetime`
+- `IssueInfoMap`: `Dict[DependentServiceName, str]`
+
+
+## PolicyComplianceStatusTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import PolicyComplianceStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicyOwner`: `str`
+- `PolicyId`: `str`
+- `PolicyName`: `str`
+- `MemberAccount`: `str`
+- `EvaluationResults`: `List["EvaluationResultTypeDef"]`
+- `LastUpdated`: `datetime`
+- `IssueInfoMap`: `Dict[DependentServiceName, str]`
+
+
+## PolicySummaryTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import PolicySummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicyArn`: `str`
+- `PolicyId`: `str`
+- `PolicyName`: `str`
+- `ResourceType`: `str`
+- `SecurityServiceType`: `SecurityServiceType`
+- `RemediationEnabled`: `bool`
+
+
+## PolicyTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import PolicyTypeDef
+```
+
+
+Required fields:
+- `PolicyName`: `str`
+- `SecurityServicePolicyData`: `"SecurityServicePolicyDataTypeDef"`
+- `ResourceType`: `str`
+- `ExcludeResourceTags`: `bool`
+- `RemediationEnabled`: `bool`
+
+
+
+Optional fields:
+- `PolicyId`: `str`
+- `PolicyUpdateToken`: `str`
+- `ResourceTypeList`: `List[str]`
+- `ResourceTags`: `List["ResourceTagTypeDef"]`
+- `IncludeMap`: `Dict[CustomerPolicyScopeIdType, List[str]]`
+- `ExcludeMap`: `Dict[CustomerPolicyScopeIdType, List[str]]`
+
+
+## ProtocolsListDataSummaryTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import ProtocolsListDataSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `ListArn`: `str`
+- `ListId`: `str`
+- `ListName`: `str`
+- `ProtocolsList`: `List[str]`
+
+
+## ProtocolsListDataTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import ProtocolsListDataTypeDef
+```
+
+
+Required fields:
+- `ListName`: `str`
+- `ProtocolsList`: `List[str]`
+
+
+
+Optional fields:
+- `ListId`: `str`
+- `ListUpdateToken`: `str`
+- `CreateTime`: `datetime`
+- `LastUpdateTime`: `datetime`
+- `PreviousProtocolsList`: `Dict[str, List[str]]`
 
 
 ## PutAppsListResponseTypeDef
@@ -844,4 +692,156 @@ from mypy_boto3_fms.type_defs import PutProtocolsListResponseTypeDef
 Optional fields:
 - `ProtocolsList`: `"ProtocolsListDataTypeDef"`
 - `ProtocolsListArn`: `str`
+
+
+## ResourceTagTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import ResourceTagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## ResourceViolationTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import ResourceViolationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AwsVPCSecurityGroupViolation`: `"AwsVPCSecurityGroupViolationTypeDef"`
+- `AwsEc2NetworkInterfaceViolation`: `"AwsEc2NetworkInterfaceViolationTypeDef"`
+- `AwsEc2InstanceViolation`: `"AwsEc2InstanceViolationTypeDef"`
+- `NetworkFirewallMissingFirewallViolation`: `"NetworkFirewallMissingFirewallViolationTypeDef"`
+- `NetworkFirewallMissingSubnetViolation`: `"NetworkFirewallMissingSubnetViolationTypeDef"`
+- `NetworkFirewallMissingExpectedRTViolation`: `"NetworkFirewallMissingExpectedRTViolationTypeDef"`
+- `NetworkFirewallPolicyModifiedViolation`: `"NetworkFirewallPolicyModifiedViolationTypeDef"`
+- `DnsRuleGroupPriorityConflictViolation`: `"DnsRuleGroupPriorityConflictViolationTypeDef"`
+- `DnsDuplicateRuleGroupViolation`: `"DnsDuplicateRuleGroupViolationTypeDef"`
+- `DnsRuleGroupLimitExceededViolation`: `"DnsRuleGroupLimitExceededViolationTypeDef"`
+
+
+## SecurityGroupRemediationActionTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import SecurityGroupRemediationActionTypeDef
+```
+
+
+
+
+Optional fields:
+- `RemediationActionType`: `RemediationActionType`
+- `Description`: `str`
+- `RemediationResult`: `"SecurityGroupRuleDescriptionTypeDef"`
+- `IsDefaultAction`: `bool`
+
+
+## SecurityGroupRuleDescriptionTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import SecurityGroupRuleDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `IPV4Range`: `str`
+- `IPV6Range`: `str`
+- `PrefixListId`: `str`
+- `Protocol`: `str`
+- `FromPort`: `int`
+- `ToPort`: `int`
+
+
+## SecurityServicePolicyDataTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import SecurityServicePolicyDataTypeDef
+```
+
+
+Required fields:
+- `Type`: `SecurityServiceType`
+
+
+
+Optional fields:
+- `ManagedServiceData`: `str`
+
+
+## StatefulRuleGroupTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import StatefulRuleGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `RuleGroupName`: `str`
+- `ResourceId`: `str`
+
+
+## StatelessRuleGroupTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import StatelessRuleGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `RuleGroupName`: `str`
+- `ResourceId`: `str`
+- `Priority`: `int`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## ViolationDetailTypeDef
+
+```python
+from mypy_boto3_fms.type_defs import ViolationDetailTypeDef
+```
+
+
+Required fields:
+- `PolicyId`: `str`
+- `MemberAccount`: `str`
+- `ResourceId`: `str`
+- `ResourceType`: `str`
+- `ResourceViolations`: `List["ResourceViolationTypeDef"]`
+
+
+
+Optional fields:
+- `ResourceTags`: `List["TagTypeDef"]`
+- `ResourceDescription`: `str`
 

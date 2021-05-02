@@ -125,21 +125,13 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_codestar.type_defs import CodeCommitCodeDestinationTypeDef, ...
+from mypy_boto3_codestar.type_defs import AssociateTeamMemberResultTypeDef, ...
 ```
 
+- [AssociateTeamMemberResultTypeDef](./type_defs.md#associateteammemberresulttypedef)
 - [CodeCommitCodeDestinationTypeDef](./type_defs.md#codecommitcodedestinationtypedef)
 - [CodeDestinationTypeDef](./type_defs.md#codedestinationtypedef)
 - [CodeSourceTypeDef](./type_defs.md#codesourcetypedef)
-- [GitHubCodeDestinationTypeDef](./type_defs.md#githubcodedestinationtypedef)
-- [ProjectStatusTypeDef](./type_defs.md#projectstatustypedef)
-- [ProjectSummaryTypeDef](./type_defs.md#projectsummarytypedef)
-- [ResourceTypeDef](./type_defs.md#resourcetypedef)
-- [S3LocationTypeDef](./type_defs.md#s3locationtypedef)
-- [TeamMemberTypeDef](./type_defs.md#teammembertypedef)
-- [ToolchainSourceTypeDef](./type_defs.md#toolchainsourcetypedef)
-- [UserProfileSummaryTypeDef](./type_defs.md#userprofilesummarytypedef)
-- [AssociateTeamMemberResultTypeDef](./type_defs.md#associateteammemberresulttypedef)
 - [CodeTypeDef](./type_defs.md#codetypedef)
 - [CreateProjectResultTypeDef](./type_defs.md#createprojectresulttypedef)
 - [CreateUserProfileResultTypeDef](./type_defs.md#createuserprofileresulttypedef)
@@ -147,13 +139,21 @@ from mypy_boto3_codestar.type_defs import CodeCommitCodeDestinationTypeDef, ...
 - [DeleteUserProfileResultTypeDef](./type_defs.md#deleteuserprofileresulttypedef)
 - [DescribeProjectResultTypeDef](./type_defs.md#describeprojectresulttypedef)
 - [DescribeUserProfileResultTypeDef](./type_defs.md#describeuserprofileresulttypedef)
+- [GitHubCodeDestinationTypeDef](./type_defs.md#githubcodedestinationtypedef)
 - [ListProjectsResultTypeDef](./type_defs.md#listprojectsresulttypedef)
 - [ListResourcesResultTypeDef](./type_defs.md#listresourcesresulttypedef)
 - [ListTagsForProjectResultTypeDef](./type_defs.md#listtagsforprojectresulttypedef)
 - [ListTeamMembersResultTypeDef](./type_defs.md#listteammembersresulttypedef)
 - [ListUserProfilesResultTypeDef](./type_defs.md#listuserprofilesresulttypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ProjectStatusTypeDef](./type_defs.md#projectstatustypedef)
+- [ProjectSummaryTypeDef](./type_defs.md#projectsummarytypedef)
+- [ResourceTypeDef](./type_defs.md#resourcetypedef)
+- [S3LocationTypeDef](./type_defs.md#s3locationtypedef)
 - [TagProjectResultTypeDef](./type_defs.md#tagprojectresulttypedef)
+- [TeamMemberTypeDef](./type_defs.md#teammembertypedef)
+- [ToolchainSourceTypeDef](./type_defs.md#toolchainsourcetypedef)
 - [ToolchainTypeDef](./type_defs.md#toolchaintypedef)
 - [UpdateTeamMemberResultTypeDef](./type_defs.md#updateteammemberresulttypedef)
 - [UpdateUserProfileResultTypeDef](./type_defs.md#updateuserprofileresulttypedef)
+- [UserProfileSummaryTypeDef](./type_defs.md#userprofilesummarytypedef)

@@ -70,18 +70,7 @@ type annotations stubs module [mypy_boto3_lambda](https://pypi.org/project/mypy-
     - [update_function_configuration](#update_function_configuration)
     - [update_function_event_invoke_config](#update_function_event_invoke_config)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
 
 ## LambdaClient
 
@@ -264,7 +253,7 @@ def create_event_source_mapping(
     Queues: List[str] = None,
     SourceAccessConfigurations: List["SourceAccessConfigurationTypeDef"] = None,
     SelfManagedEventSource: "SelfManagedEventSourceTypeDef" = None,
-    FunctionResponseTypes: List[FunctionResponseType] = None
+    FunctionResponseTypes: List[Literal['ReportBatchItemFailures']] = None
 ) -> "EventSourceMappingConfigurationTypeDef":
     pass
 ```
@@ -762,7 +751,7 @@ Type annotations for `boto3.client("lambda").list_functions` method.
 def list_functions(
     self,
     MasterRegion: str = None,
-    FunctionVersion: FunctionVersion = None,
+    FunctionVersion: Literal['ALL'] = None,
     Marker: str = None,
     MaxItems: int = None
 ) -> ListFunctionsResponseTypeDef:
@@ -1084,7 +1073,7 @@ def update_event_source_mapping(
     ParallelizationFactor: int = None,
     SourceAccessConfigurations: List["SourceAccessConfigurationTypeDef"] = None,
     TumblingWindowInSeconds: int = None,
-    FunctionResponseTypes: List[FunctionResponseType] = None
+    FunctionResponseTypes: List[Literal['ReportBatchItemFailures']] = None
 ) -> "EventSourceMappingConfigurationTypeDef":
     pass
 ```
@@ -1158,197 +1147,30 @@ def update_function_event_invoke_config(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("lambda").get_paginator` method.
-
-[Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Paginator.ListAliases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAliasesPaginatorName
-) -> ListAliasesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("lambda").get_paginator` method.
+Type annotations for `boto3.client("lambda").get_paginator` method with overloads.
 
-[Paginator.ListCodeSigningConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs)
+- `client.get_paginator("list_aliases")` -> [ListAliasesPaginator](./paginators.md#listaliasespaginator)
+- `client.get_paginator("list_code_signing_configs")` -> [ListCodeSigningConfigsPaginator](./paginators.md#listcodesigningconfigspaginator)
+- `client.get_paginator("list_event_source_mappings")` -> [ListEventSourceMappingsPaginator](./paginators.md#listeventsourcemappingspaginator)
+- `client.get_paginator("list_function_event_invoke_configs")` -> [ListFunctionEventInvokeConfigsPaginator](./paginators.md#listfunctioneventinvokeconfigspaginator)
+- `client.get_paginator("list_functions")` -> [ListFunctionsPaginator](./paginators.md#listfunctionspaginator)
+- `client.get_paginator("list_functions_by_code_signing_config")` -> [ListFunctionsByCodeSigningConfigPaginator](./paginators.md#listfunctionsbycodesigningconfigpaginator)
+- `client.get_paginator("list_layer_versions")` -> [ListLayerVersionsPaginator](./paginators.md#listlayerversionspaginator)
+- `client.get_paginator("list_layers")` -> [ListLayersPaginator](./paginators.md#listlayerspaginator)
+- `client.get_paginator("list_provisioned_concurrency_configs")` -> [ListProvisionedConcurrencyConfigsPaginator](./paginators.md#listprovisionedconcurrencyconfigspaginator)
+- `client.get_paginator("list_versions_by_function")` -> [ListVersionsByFunctionPaginator](./paginators.md#listversionsbyfunctionpaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCodeSigningConfigsPaginatorName
-) -> ListCodeSigningConfigsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("lambda").get_paginator` method.
-
-[Paginator.ListEventSourceMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEventSourceMappingsPaginatorName
-) -> ListEventSourceMappingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lambda").get_paginator` method.
-
-[Paginator.ListFunctionEventInvokeConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFunctionEventInvokeConfigsPaginatorName
-) -> ListFunctionEventInvokeConfigsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lambda").get_paginator` method.
-
-[Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Paginator.ListFunctions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFunctionsPaginatorName
-) -> ListFunctionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lambda").get_paginator` method.
-
-[Paginator.ListFunctionsByCodeSigningConfig documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFunctionsByCodeSigningConfigPaginatorName
-) -> ListFunctionsByCodeSigningConfigPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lambda").get_paginator` method.
-
-[Paginator.ListLayerVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLayerVersionsPaginatorName
-) -> ListLayerVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lambda").get_paginator` method.
-
-[Paginator.ListLayers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Paginator.ListLayers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLayersPaginatorName
-) -> ListLayersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lambda").get_paginator` method.
-
-[Paginator.ListProvisionedConcurrencyConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProvisionedConcurrencyConfigsPaginatorName
-) -> ListProvisionedConcurrencyConfigsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lambda").get_paginator` method.
-
-[Paginator.ListVersionsByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListVersionsByFunctionPaginatorName
-) -> ListVersionsByFunctionPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("lambda").get_waiter` method.
+Type annotations for `boto3.client("lambda").get_waiter` method with overloads.
 
-[Waiter.FunctionActive documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Waiter.FunctionActive)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: FunctionActiveWaiterName
-) -> FunctionActiveWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("lambda").get_waiter` method.
-
-[Waiter.FunctionExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Waiter.FunctionExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: FunctionExistsWaiterName
-) -> FunctionExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("lambda").get_waiter` method.
-
-[Waiter.FunctionUpdated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: FunctionUpdatedWaiterName
-) -> FunctionUpdatedWaiter:
-    pass
-```
+- `client.get_waiter("function_active")` -> [FunctionActiveWaiter](./waiters.md#functionactivewaiter)
+- `client.get_waiter("function_exists")` -> [FunctionExistsWaiter](./waiters.md#functionexistswaiter)
+- `client.get_waiter("function_updated")` -> [FunctionUpdatedWaiter](./waiters.md#functionupdatedwaiter)

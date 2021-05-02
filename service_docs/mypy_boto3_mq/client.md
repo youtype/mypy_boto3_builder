@@ -468,16 +468,12 @@ def update_user(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("mq").get_paginator` method.
+Type annotations for `boto3.client("mq").get_paginator` method with overloads.
 
-[Paginator.ListBrokers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mq.html#MQ.Paginator.ListBrokers)
+- `client.get_paginator("list_brokers")` -> [ListBrokersPaginator](./paginators.md#listbrokerspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListBrokersPaginatorName
-) -> ListBrokersPaginator:
-    pass
-```
+

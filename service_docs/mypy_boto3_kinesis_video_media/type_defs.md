@@ -6,9 +6,24 @@ Auto-generated documentation for [KinesisVideoMedia](https://boto3.amazonaws.com
 type annotations stubs module [mypy_boto3_kinesis_video_media](https://pypi.org/project/mypy-boto3-kinesis-video-media/).
 
 - [Structures for boto3 KinesisVideoMedia module](#structures-for-boto3-kinesisvideomedia-module)
-  - [ResponseMetadata](#responsemetadata)
   - [GetMediaOutputTypeDef](#getmediaoutputtypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [StartSelectorTypeDef](#startselectortypedef)
+
+## GetMediaOutputTypeDef
+
+```python
+from mypy_boto3_kinesis_video_media.type_defs import GetMediaOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ContentType`: `str`
+- `Payload`: `StreamingBody`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
 
 ## ResponseMetadata
 
@@ -25,21 +40,6 @@ Required fields:
 - `RetryAttempts`: `int`
 
 
-
-
-## GetMediaOutputTypeDef
-
-```python
-from mypy_boto3_kinesis_video_media.type_defs import GetMediaOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `ContentType`: `str`
-- `Payload`: `StreamingBody`
-- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## StartSelectorTypeDef

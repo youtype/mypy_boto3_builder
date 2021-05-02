@@ -100,28 +100,28 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_textract.type_defs import BlockTypeDef, ...
+from mypy_boto3_textract.type_defs import AnalyzeDocumentResponseTypeDef, ...
 ```
 
+- [AnalyzeDocumentResponseTypeDef](./type_defs.md#analyzedocumentresponsetypedef)
 - [BlockTypeDef](./type_defs.md#blocktypedef)
 - [BoundingBoxTypeDef](./type_defs.md#boundingboxtypedef)
+- [DetectDocumentTextResponseTypeDef](./type_defs.md#detectdocumenttextresponsetypedef)
+- [DocumentLocationTypeDef](./type_defs.md#documentlocationtypedef)
 - [DocumentMetadataTypeDef](./type_defs.md#documentmetadatatypedef)
+- [DocumentTypeDef](./type_defs.md#documenttypedef)
 - [GeometryTypeDef](./type_defs.md#geometrytypedef)
+- [GetDocumentAnalysisResponseTypeDef](./type_defs.md#getdocumentanalysisresponsetypedef)
+- [GetDocumentTextDetectionResponseTypeDef](./type_defs.md#getdocumenttextdetectionresponsetypedef)
 - [HumanLoopActivationOutputTypeDef](./type_defs.md#humanloopactivationoutputtypedef)
+- [HumanLoopConfigTypeDef](./type_defs.md#humanloopconfigtypedef)
 - [HumanLoopDataAttributesTypeDef](./type_defs.md#humanloopdataattributestypedef)
+- [NotificationChannelTypeDef](./type_defs.md#notificationchanneltypedef)
+- [OutputConfigTypeDef](./type_defs.md#outputconfigtypedef)
 - [PointTypeDef](./type_defs.md#pointtypedef)
 - [RelationshipTypeDef](./type_defs.md#relationshiptypedef)
 - [ResponseMetadata](./type_defs.md#responsemetadata)
 - [S3ObjectTypeDef](./type_defs.md#s3objecttypedef)
-- [WarningTypeDef](./type_defs.md#warningtypedef)
-- [AnalyzeDocumentResponseTypeDef](./type_defs.md#analyzedocumentresponsetypedef)
-- [DetectDocumentTextResponseTypeDef](./type_defs.md#detectdocumenttextresponsetypedef)
-- [DocumentLocationTypeDef](./type_defs.md#documentlocationtypedef)
-- [DocumentTypeDef](./type_defs.md#documenttypedef)
-- [GetDocumentAnalysisResponseTypeDef](./type_defs.md#getdocumentanalysisresponsetypedef)
-- [GetDocumentTextDetectionResponseTypeDef](./type_defs.md#getdocumenttextdetectionresponsetypedef)
-- [HumanLoopConfigTypeDef](./type_defs.md#humanloopconfigtypedef)
-- [NotificationChannelTypeDef](./type_defs.md#notificationchanneltypedef)
-- [OutputConfigTypeDef](./type_defs.md#outputconfigtypedef)
 - [StartDocumentAnalysisResponseTypeDef](./type_defs.md#startdocumentanalysisresponsetypedef)
 - [StartDocumentTextDetectionResponseTypeDef](./type_defs.md#startdocumenttextdetectionresponsetypedef)
+- [WarningTypeDef](./type_defs.md#warningtypedef)

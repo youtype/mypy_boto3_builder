@@ -201,7 +201,7 @@ Type annotations for `boto3.client("translate").import_terminology` method.
 def import_terminology(
     self,
     Name: str,
-    MergeStrategy: MergeStrategy,
+    MergeStrategy: Literal['OVERWRITE'],
     TerminologyData: TerminologyDataTypeDef,
     Description: str = None,
     EncryptionKey: "EncryptionKeyTypeDef" = None
@@ -325,16 +325,12 @@ def update_parallel_data(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("translate").get_paginator` method.
+Type annotations for `boto3.client("translate").get_paginator` method with overloads.
 
-[Paginator.ListTerminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/translate.html#Translate.Paginator.ListTerminologies)
+- `client.get_paginator("list_terminologies")` -> [ListTerminologiesPaginator](./paginators.md#listterminologiespaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListTerminologiesPaginatorName
-) -> ListTerminologiesPaginator:
-    pass
-```
+

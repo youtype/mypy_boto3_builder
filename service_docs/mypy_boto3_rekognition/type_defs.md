@@ -15,11 +15,31 @@ type annotations stubs module [mypy_boto3_rekognition](https://pypi.org/project/
   - [CelebrityRecognitionTypeDef](#celebrityrecognitiontypedef)
   - [CelebrityTypeDef](#celebritytypedef)
   - [CompareFacesMatchTypeDef](#comparefacesmatchtypedef)
+  - [CompareFacesResponseTypeDef](#comparefacesresponsetypedef)
   - [ComparedFaceTypeDef](#comparedfacetypedef)
   - [ComparedSourceImageFaceTypeDef](#comparedsourceimagefacetypedef)
   - [ContentModerationDetectionTypeDef](#contentmoderationdetectiontypedef)
   - [CoversBodyPartTypeDef](#coversbodyparttypedef)
+  - [CreateCollectionResponseTypeDef](#createcollectionresponsetypedef)
+  - [CreateProjectResponseTypeDef](#createprojectresponsetypedef)
+  - [CreateProjectVersionResponseTypeDef](#createprojectversionresponsetypedef)
+  - [CreateStreamProcessorResponseTypeDef](#createstreamprocessorresponsetypedef)
   - [CustomLabelTypeDef](#customlabeltypedef)
+  - [DeleteCollectionResponseTypeDef](#deletecollectionresponsetypedef)
+  - [DeleteFacesResponseTypeDef](#deletefacesresponsetypedef)
+  - [DeleteProjectResponseTypeDef](#deleteprojectresponsetypedef)
+  - [DeleteProjectVersionResponseTypeDef](#deleteprojectversionresponsetypedef)
+  - [DescribeCollectionResponseTypeDef](#describecollectionresponsetypedef)
+  - [DescribeProjectVersionsResponseTypeDef](#describeprojectversionsresponsetypedef)
+  - [DescribeProjectsResponseTypeDef](#describeprojectsresponsetypedef)
+  - [DescribeStreamProcessorResponseTypeDef](#describestreamprocessorresponsetypedef)
+  - [DetectCustomLabelsResponseTypeDef](#detectcustomlabelsresponsetypedef)
+  - [DetectFacesResponseTypeDef](#detectfacesresponsetypedef)
+  - [DetectLabelsResponseTypeDef](#detectlabelsresponsetypedef)
+  - [DetectModerationLabelsResponseTypeDef](#detectmoderationlabelsresponsetypedef)
+  - [DetectProtectiveEquipmentResponseTypeDef](#detectprotectiveequipmentresponsetypedef)
+  - [DetectTextFiltersTypeDef](#detecttextfilterstypedef)
+  - [DetectTextResponseTypeDef](#detecttextresponsetypedef)
   - [DetectionFilterTypeDef](#detectionfiltertypedef)
   - [EmotionTypeDef](#emotiontypedef)
   - [EquipmentDetectionTypeDef](#equipmentdetectiontypedef)
@@ -34,20 +54,38 @@ type annotations stubs module [mypy_boto3_rekognition](https://pypi.org/project/
   - [FaceTypeDef](#facetypedef)
   - [GenderTypeDef](#gendertypedef)
   - [GeometryTypeDef](#geometrytypedef)
+  - [GetCelebrityInfoResponseTypeDef](#getcelebrityinforesponsetypedef)
+  - [GetCelebrityRecognitionResponseTypeDef](#getcelebrityrecognitionresponsetypedef)
+  - [GetContentModerationResponseTypeDef](#getcontentmoderationresponsetypedef)
+  - [GetFaceDetectionResponseTypeDef](#getfacedetectionresponsetypedef)
+  - [GetFaceSearchResponseTypeDef](#getfacesearchresponsetypedef)
+  - [GetLabelDetectionResponseTypeDef](#getlabeldetectionresponsetypedef)
+  - [GetPersonTrackingResponseTypeDef](#getpersontrackingresponsetypedef)
+  - [GetSegmentDetectionResponseTypeDef](#getsegmentdetectionresponsetypedef)
+  - [GetTextDetectionResponseTypeDef](#gettextdetectionresponsetypedef)
   - [GroundTruthManifestTypeDef](#groundtruthmanifesttypedef)
   - [HumanLoopActivationOutputTypeDef](#humanloopactivationoutputtypedef)
+  - [HumanLoopConfigTypeDef](#humanloopconfigtypedef)
   - [HumanLoopDataAttributesTypeDef](#humanloopdataattributestypedef)
   - [ImageQualityTypeDef](#imagequalitytypedef)
+  - [ImageTypeDef](#imagetypedef)
+  - [IndexFacesResponseTypeDef](#indexfacesresponsetypedef)
   - [InstanceTypeDef](#instancetypedef)
   - [KinesisDataStreamTypeDef](#kinesisdatastreamtypedef)
   - [KinesisVideoStreamTypeDef](#kinesisvideostreamtypedef)
   - [LabelDetectionTypeDef](#labeldetectiontypedef)
   - [LabelTypeDef](#labeltypedef)
   - [LandmarkTypeDef](#landmarktypedef)
+  - [ListCollectionsResponseTypeDef](#listcollectionsresponsetypedef)
+  - [ListFacesResponseTypeDef](#listfacesresponsetypedef)
+  - [ListStreamProcessorsResponseTypeDef](#liststreamprocessorsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ModerationLabelTypeDef](#moderationlabeltypedef)
   - [MouthOpenTypeDef](#mouthopentypedef)
   - [MustacheTypeDef](#mustachetypedef)
+  - [NotificationChannelTypeDef](#notificationchanneltypedef)
   - [OutputConfigTypeDef](#outputconfigtypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ParentTypeDef](#parenttypedef)
   - [PersonDetailTypeDef](#persondetailtypedef)
   - [PersonDetectionTypeDef](#persondetectiontypedef)
@@ -58,16 +96,32 @@ type annotations stubs module [mypy_boto3_rekognition](https://pypi.org/project/
   - [ProjectVersionDescriptionTypeDef](#projectversiondescriptiontypedef)
   - [ProtectiveEquipmentBodyPartTypeDef](#protectiveequipmentbodyparttypedef)
   - [ProtectiveEquipmentPersonTypeDef](#protectiveequipmentpersontypedef)
+  - [ProtectiveEquipmentSummarizationAttributesTypeDef](#protectiveequipmentsummarizationattributestypedef)
   - [ProtectiveEquipmentSummaryTypeDef](#protectiveequipmentsummarytypedef)
+  - [RecognizeCelebritiesResponseTypeDef](#recognizecelebritiesresponsetypedef)
   - [RegionOfInterestTypeDef](#regionofinteresttypedef)
   - [ResponseMetadata](#responsemetadata)
   - [S3ObjectTypeDef](#s3objecttypedef)
+  - [SearchFacesByImageResponseTypeDef](#searchfacesbyimageresponsetypedef)
+  - [SearchFacesResponseTypeDef](#searchfacesresponsetypedef)
   - [SegmentDetectionTypeDef](#segmentdetectiontypedef)
   - [SegmentTypeInfoTypeDef](#segmenttypeinfotypedef)
   - [ShotSegmentTypeDef](#shotsegmenttypedef)
   - [SmileTypeDef](#smiletypedef)
+  - [StartCelebrityRecognitionResponseTypeDef](#startcelebrityrecognitionresponsetypedef)
+  - [StartContentModerationResponseTypeDef](#startcontentmoderationresponsetypedef)
+  - [StartFaceDetectionResponseTypeDef](#startfacedetectionresponsetypedef)
+  - [StartFaceSearchResponseTypeDef](#startfacesearchresponsetypedef)
+  - [StartLabelDetectionResponseTypeDef](#startlabeldetectionresponsetypedef)
+  - [StartPersonTrackingResponseTypeDef](#startpersontrackingresponsetypedef)
+  - [StartProjectVersionResponseTypeDef](#startprojectversionresponsetypedef)
+  - [StartSegmentDetectionFiltersTypeDef](#startsegmentdetectionfilterstypedef)
+  - [StartSegmentDetectionResponseTypeDef](#startsegmentdetectionresponsetypedef)
   - [StartShotDetectionFilterTypeDef](#startshotdetectionfiltertypedef)
   - [StartTechnicalCueDetectionFilterTypeDef](#starttechnicalcuedetectionfiltertypedef)
+  - [StartTextDetectionFiltersTypeDef](#starttextdetectionfilterstypedef)
+  - [StartTextDetectionResponseTypeDef](#starttextdetectionresponsetypedef)
+  - [StopProjectVersionResponseTypeDef](#stopprojectversionresponsetypedef)
   - [StreamProcessorInputTypeDef](#streamprocessorinputtypedef)
   - [StreamProcessorOutputTypeDef](#streamprocessoroutputtypedef)
   - [StreamProcessorSettingsTypeDef](#streamprocessorsettingstypedef)
@@ -84,60 +138,6 @@ type annotations stubs module [mypy_boto3_rekognition](https://pypi.org/project/
   - [UnindexedFaceTypeDef](#unindexedfacetypedef)
   - [ValidationDataTypeDef](#validationdatatypedef)
   - [VideoMetadataTypeDef](#videometadatatypedef)
-  - [CompareFacesResponseTypeDef](#comparefacesresponsetypedef)
-  - [CreateCollectionResponseTypeDef](#createcollectionresponsetypedef)
-  - [CreateProjectResponseTypeDef](#createprojectresponsetypedef)
-  - [CreateProjectVersionResponseTypeDef](#createprojectversionresponsetypedef)
-  - [CreateStreamProcessorResponseTypeDef](#createstreamprocessorresponsetypedef)
-  - [DeleteCollectionResponseTypeDef](#deletecollectionresponsetypedef)
-  - [DeleteFacesResponseTypeDef](#deletefacesresponsetypedef)
-  - [DeleteProjectResponseTypeDef](#deleteprojectresponsetypedef)
-  - [DeleteProjectVersionResponseTypeDef](#deleteprojectversionresponsetypedef)
-  - [DescribeCollectionResponseTypeDef](#describecollectionresponsetypedef)
-  - [DescribeProjectVersionsResponseTypeDef](#describeprojectversionsresponsetypedef)
-  - [DescribeProjectsResponseTypeDef](#describeprojectsresponsetypedef)
-  - [DescribeStreamProcessorResponseTypeDef](#describestreamprocessorresponsetypedef)
-  - [DetectCustomLabelsResponseTypeDef](#detectcustomlabelsresponsetypedef)
-  - [DetectFacesResponseTypeDef](#detectfacesresponsetypedef)
-  - [DetectLabelsResponseTypeDef](#detectlabelsresponsetypedef)
-  - [DetectModerationLabelsResponseTypeDef](#detectmoderationlabelsresponsetypedef)
-  - [DetectProtectiveEquipmentResponseTypeDef](#detectprotectiveequipmentresponsetypedef)
-  - [DetectTextFiltersTypeDef](#detecttextfilterstypedef)
-  - [DetectTextResponseTypeDef](#detecttextresponsetypedef)
-  - [GetCelebrityInfoResponseTypeDef](#getcelebrityinforesponsetypedef)
-  - [GetCelebrityRecognitionResponseTypeDef](#getcelebrityrecognitionresponsetypedef)
-  - [GetContentModerationResponseTypeDef](#getcontentmoderationresponsetypedef)
-  - [GetFaceDetectionResponseTypeDef](#getfacedetectionresponsetypedef)
-  - [GetFaceSearchResponseTypeDef](#getfacesearchresponsetypedef)
-  - [GetLabelDetectionResponseTypeDef](#getlabeldetectionresponsetypedef)
-  - [GetPersonTrackingResponseTypeDef](#getpersontrackingresponsetypedef)
-  - [GetSegmentDetectionResponseTypeDef](#getsegmentdetectionresponsetypedef)
-  - [GetTextDetectionResponseTypeDef](#gettextdetectionresponsetypedef)
-  - [HumanLoopConfigTypeDef](#humanloopconfigtypedef)
-  - [ImageTypeDef](#imagetypedef)
-  - [IndexFacesResponseTypeDef](#indexfacesresponsetypedef)
-  - [ListCollectionsResponseTypeDef](#listcollectionsresponsetypedef)
-  - [ListFacesResponseTypeDef](#listfacesresponsetypedef)
-  - [ListStreamProcessorsResponseTypeDef](#liststreamprocessorsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [NotificationChannelTypeDef](#notificationchanneltypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [ProtectiveEquipmentSummarizationAttributesTypeDef](#protectiveequipmentsummarizationattributestypedef)
-  - [RecognizeCelebritiesResponseTypeDef](#recognizecelebritiesresponsetypedef)
-  - [SearchFacesByImageResponseTypeDef](#searchfacesbyimageresponsetypedef)
-  - [SearchFacesResponseTypeDef](#searchfacesresponsetypedef)
-  - [StartCelebrityRecognitionResponseTypeDef](#startcelebrityrecognitionresponsetypedef)
-  - [StartContentModerationResponseTypeDef](#startcontentmoderationresponsetypedef)
-  - [StartFaceDetectionResponseTypeDef](#startfacedetectionresponsetypedef)
-  - [StartFaceSearchResponseTypeDef](#startfacesearchresponsetypedef)
-  - [StartLabelDetectionResponseTypeDef](#startlabeldetectionresponsetypedef)
-  - [StartPersonTrackingResponseTypeDef](#startpersontrackingresponsetypedef)
-  - [StartProjectVersionResponseTypeDef](#startprojectversionresponsetypedef)
-  - [StartSegmentDetectionFiltersTypeDef](#startsegmentdetectionfilterstypedef)
-  - [StartSegmentDetectionResponseTypeDef](#startsegmentdetectionresponsetypedef)
-  - [StartTextDetectionFiltersTypeDef](#starttextdetectionfilterstypedef)
-  - [StartTextDetectionResponseTypeDef](#starttextdetectionresponsetypedef)
-  - [StopProjectVersionResponseTypeDef](#stopprojectversionresponsetypedef)
   - [VideoTypeDef](#videotypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
@@ -277,6 +277,23 @@ Optional fields:
 - `Face`: `"ComparedFaceTypeDef"`
 
 
+## CompareFacesResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import CompareFacesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceImageFace`: `"ComparedSourceImageFaceTypeDef"`
+- `FaceMatches`: `List["CompareFacesMatchTypeDef"]`
+- `UnmatchedFaces`: `List["ComparedFaceTypeDef"]`
+- `SourceImageOrientationCorrection`: `OrientationCorrection`
+- `TargetImageOrientationCorrection`: `OrientationCorrection`
+
+
 ## ComparedFaceTypeDef
 
 ```python
@@ -336,6 +353,60 @@ Optional fields:
 - `Value`: `bool`
 
 
+## CreateCollectionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import CreateCollectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `StatusCode`: `int`
+- `CollectionArn`: `str`
+- `FaceModelVersion`: `str`
+
+
+## CreateProjectResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import CreateProjectResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProjectArn`: `str`
+
+
+## CreateProjectVersionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import CreateProjectVersionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProjectVersionArn`: `str`
+
+
+## CreateStreamProcessorResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import CreateStreamProcessorResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `StreamProcessorArn`: `str`
+
+
 ## CustomLabelTypeDef
 
 ```python
@@ -349,6 +420,224 @@ Optional fields:
 - `Name`: `str`
 - `Confidence`: `float`
 - `Geometry`: `"GeometryTypeDef"`
+
+
+## DeleteCollectionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DeleteCollectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `StatusCode`: `int`
+
+
+## DeleteFacesResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DeleteFacesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeletedFaces`: `List[str]`
+
+
+## DeleteProjectResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DeleteProjectResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `ProjectStatus`
+
+
+## DeleteProjectVersionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DeleteProjectVersionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `ProjectVersionStatus`
+
+
+## DescribeCollectionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DescribeCollectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `FaceCount`: `int`
+- `FaceModelVersion`: `str`
+- `CollectionARN`: `str`
+- `CreationTimestamp`: `datetime`
+
+
+## DescribeProjectVersionsResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DescribeProjectVersionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProjectVersionDescriptions`: `List["ProjectVersionDescriptionTypeDef"]`
+- `NextToken`: `str`
+
+
+## DescribeProjectsResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DescribeProjectsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProjectDescriptions`: `List["ProjectDescriptionTypeDef"]`
+- `NextToken`: `str`
+
+
+## DescribeStreamProcessorResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DescribeStreamProcessorResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `StreamProcessorArn`: `str`
+- `Status`: `StreamProcessorStatus`
+- `StatusMessage`: `str`
+- `CreationTimestamp`: `datetime`
+- `LastUpdateTimestamp`: `datetime`
+- `Input`: `"StreamProcessorInputTypeDef"`
+- `Output`: `"StreamProcessorOutputTypeDef"`
+- `RoleArn`: `str`
+- `Settings`: `"StreamProcessorSettingsTypeDef"`
+
+
+## DetectCustomLabelsResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DetectCustomLabelsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CustomLabels`: `List["CustomLabelTypeDef"]`
+
+
+## DetectFacesResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DetectFacesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `FaceDetails`: `List["FaceDetailTypeDef"]`
+- `OrientationCorrection`: `OrientationCorrection`
+
+
+## DetectLabelsResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DetectLabelsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Labels`: `List["LabelTypeDef"]`
+- `OrientationCorrection`: `OrientationCorrection`
+- `LabelModelVersion`: `str`
+
+
+## DetectModerationLabelsResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DetectModerationLabelsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ModerationLabels`: `List["ModerationLabelTypeDef"]`
+- `ModerationModelVersion`: `str`
+- `HumanLoopActivationOutput`: `"HumanLoopActivationOutputTypeDef"`
+
+
+## DetectProtectiveEquipmentResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DetectProtectiveEquipmentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProtectiveEquipmentModelVersion`: `str`
+- `Persons`: `List["ProtectiveEquipmentPersonTypeDef"]`
+- `Summary`: `"ProtectiveEquipmentSummaryTypeDef"`
+
+
+## DetectTextFiltersTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DetectTextFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `WordFilter`: `"DetectionFilterTypeDef"`
+- `RegionsOfInterest`: `List["RegionOfInterestTypeDef"]`
+
+
+## DetectTextResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import DetectTextResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TextDetections`: `List["TextDetectionTypeDef"]`
+- `TextModelVersion`: `str`
 
 
 ## DetectionFilterTypeDef
@@ -566,6 +855,161 @@ Optional fields:
 - `Polygon`: `List["PointTypeDef"]`
 
 
+## GetCelebrityInfoResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import GetCelebrityInfoResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Urls`: `List[str]`
+- `Name`: `str`
+
+
+## GetCelebrityRecognitionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import GetCelebrityRecognitionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobStatus`: `VideoJobStatus`
+- `StatusMessage`: `str`
+- `VideoMetadata`: `"VideoMetadataTypeDef"`
+- `NextToken`: `str`
+- `Celebrities`: `List["CelebrityRecognitionTypeDef"]`
+
+
+## GetContentModerationResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import GetContentModerationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobStatus`: `VideoJobStatus`
+- `StatusMessage`: `str`
+- `VideoMetadata`: `"VideoMetadataTypeDef"`
+- `ModerationLabels`: `List["ContentModerationDetectionTypeDef"]`
+- `NextToken`: `str`
+- `ModerationModelVersion`: `str`
+
+
+## GetFaceDetectionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import GetFaceDetectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobStatus`: `VideoJobStatus`
+- `StatusMessage`: `str`
+- `VideoMetadata`: `"VideoMetadataTypeDef"`
+- `NextToken`: `str`
+- `Faces`: `List["FaceDetectionTypeDef"]`
+
+
+## GetFaceSearchResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import GetFaceSearchResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobStatus`: `VideoJobStatus`
+- `StatusMessage`: `str`
+- `NextToken`: `str`
+- `VideoMetadata`: `"VideoMetadataTypeDef"`
+- `Persons`: `List["PersonMatchTypeDef"]`
+
+
+## GetLabelDetectionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import GetLabelDetectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobStatus`: `VideoJobStatus`
+- `StatusMessage`: `str`
+- `VideoMetadata`: `"VideoMetadataTypeDef"`
+- `NextToken`: `str`
+- `Labels`: `List["LabelDetectionTypeDef"]`
+- `LabelModelVersion`: `str`
+
+
+## GetPersonTrackingResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import GetPersonTrackingResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobStatus`: `VideoJobStatus`
+- `StatusMessage`: `str`
+- `VideoMetadata`: `"VideoMetadataTypeDef"`
+- `NextToken`: `str`
+- `Persons`: `List["PersonDetectionTypeDef"]`
+
+
+## GetSegmentDetectionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import GetSegmentDetectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobStatus`: `VideoJobStatus`
+- `StatusMessage`: `str`
+- `VideoMetadata`: `List["VideoMetadataTypeDef"]`
+- `AudioMetadata`: `List["AudioMetadataTypeDef"]`
+- `NextToken`: `str`
+- `Segments`: `List["SegmentDetectionTypeDef"]`
+- `SelectedSegmentTypes`: `List["SegmentTypeInfoTypeDef"]`
+
+
+## GetTextDetectionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import GetTextDetectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobStatus`: `VideoJobStatus`
+- `StatusMessage`: `str`
+- `VideoMetadata`: `"VideoMetadataTypeDef"`
+- `TextDetections`: `List["TextDetectionResultTypeDef"]`
+- `NextToken`: `str`
+- `TextModelVersion`: `str`
+
+
 ## GroundTruthManifestTypeDef
 
 ```python
@@ -595,6 +1039,23 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## HumanLoopConfigTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import HumanLoopConfigTypeDef
+```
+
+
+Required fields:
+- `HumanLoopName`: `str`
+- `FlowDefinitionArn`: `str`
+
+
+
+Optional fields:
+- `DataAttributes`: `"HumanLoopDataAttributesTypeDef"`
+
+
 ## HumanLoopDataAttributesTypeDef
 
 ```python
@@ -620,6 +1081,36 @@ from mypy_boto3_rekognition.type_defs import ImageQualityTypeDef
 Optional fields:
 - `Brightness`: `float`
 - `Sharpness`: `float`
+
+
+## ImageTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import ImageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Bytes`: `Union[bytes, IO[bytes]]`
+- `S3Object`: `"S3ObjectTypeDef"`
+
+
+## IndexFacesResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import IndexFacesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `FaceRecords`: `List["FaceRecordTypeDef"]`
+- `OrientationCorrection`: `OrientationCorrection`
+- `FaceModelVersion`: `str`
+- `UnindexedFaces`: `List["UnindexedFaceTypeDef"]`
 
 
 ## InstanceTypeDef
@@ -707,6 +1198,63 @@ Optional fields:
 - `Y`: `float`
 
 
+## ListCollectionsResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import ListCollectionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CollectionIds`: `List[str]`
+- `NextToken`: `str`
+- `FaceModelVersions`: `List[str]`
+
+
+## ListFacesResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import ListFacesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Faces`: `List["FaceTypeDef"]`
+- `NextToken`: `str`
+- `FaceModelVersion`: `str`
+
+
+## ListStreamProcessorsResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import ListStreamProcessorsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `StreamProcessors`: `List["StreamProcessorTypeDef"]`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
+
+
 ## ModerationLabelTypeDef
 
 ```python
@@ -750,6 +1298,20 @@ Optional fields:
 - `Confidence`: `float`
 
 
+## NotificationChannelTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import NotificationChannelTypeDef
+```
+
+
+Required fields:
+- `SNSTopicArn`: `str`
+- `RoleArn`: `str`
+
+
+
+
 ## OutputConfigTypeDef
 
 ```python
@@ -762,6 +1324,21 @@ from mypy_boto3_rekognition.type_defs import OutputConfigTypeDef
 Optional fields:
 - `S3Bucket`: `str`
 - `S3KeyPrefix`: `str`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## ParentTypeDef
@@ -920,6 +1497,20 @@ Optional fields:
 - `Id`: `int`
 
 
+## ProtectiveEquipmentSummarizationAttributesTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import ProtectiveEquipmentSummarizationAttributesTypeDef
+```
+
+
+Required fields:
+- `MinConfidence`: `float`
+- `RequiredEquipmentTypes`: `List[ProtectiveEquipmentType]`
+
+
+
+
 ## ProtectiveEquipmentSummaryTypeDef
 
 ```python
@@ -933,6 +1524,21 @@ Optional fields:
 - `PersonsWithRequiredEquipment`: `List[int]`
 - `PersonsWithoutRequiredEquipment`: `List[int]`
 - `PersonsIndeterminate`: `List[int]`
+
+
+## RecognizeCelebritiesResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import RecognizeCelebritiesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CelebrityFaces`: `List["CelebrityTypeDef"]`
+- `UnrecognizedFaces`: `List["ComparedFaceTypeDef"]`
+- `OrientationCorrection`: `OrientationCorrection`
 
 
 ## RegionOfInterestTypeDef
@@ -978,6 +1584,37 @@ Optional fields:
 - `Bucket`: `str`
 - `Name`: `str`
 - `Version`: `str`
+
+
+## SearchFacesByImageResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import SearchFacesByImageResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SearchedFaceBoundingBox`: `"BoundingBoxTypeDef"`
+- `SearchedFaceConfidence`: `float`
+- `FaceMatches`: `List["FaceMatchTypeDef"]`
+- `FaceModelVersion`: `str`
+
+
+## SearchFacesResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import SearchFacesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SearchedFaceId`: `str`
+- `FaceMatches`: `List["FaceMatchTypeDef"]`
+- `FaceModelVersion`: `str`
 
 
 ## SegmentDetectionTypeDef
@@ -1043,6 +1680,124 @@ Optional fields:
 - `Confidence`: `float`
 
 
+## StartCelebrityRecognitionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StartCelebrityRecognitionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+
+
+## StartContentModerationResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StartContentModerationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+
+
+## StartFaceDetectionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StartFaceDetectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+
+
+## StartFaceSearchResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StartFaceSearchResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+
+
+## StartLabelDetectionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StartLabelDetectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+
+
+## StartPersonTrackingResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StartPersonTrackingResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+
+
+## StartProjectVersionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StartProjectVersionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `ProjectVersionStatus`
+
+
+## StartSegmentDetectionFiltersTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StartSegmentDetectionFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `TechnicalCueFilter`: `"StartTechnicalCueDetectionFilterTypeDef"`
+- `ShotFilter`: `"StartShotDetectionFilterTypeDef"`
+
+
+## StartSegmentDetectionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StartSegmentDetectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+
+
 ## StartShotDetectionFilterTypeDef
 
 ```python
@@ -1067,6 +1822,46 @@ from mypy_boto3_rekognition.type_defs import StartTechnicalCueDetectionFilterTyp
 
 Optional fields:
 - `MinSegmentConfidence`: `float`
+
+
+## StartTextDetectionFiltersTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StartTextDetectionFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `WordFilter`: `"DetectionFilterTypeDef"`
+- `RegionsOfInterest`: `List["RegionOfInterestTypeDef"]`
+
+
+## StartTextDetectionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StartTextDetectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+
+
+## StopProjectVersionResponseTypeDef
+
+```python
+from mypy_boto3_rekognition.type_defs import StopProjectVersionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `ProjectVersionStatus`
 
 
 ## StreamProcessorInputTypeDef
@@ -1296,801 +2091,6 @@ Optional fields:
 - `FrameRate`: `float`
 - `FrameHeight`: `int`
 - `FrameWidth`: `int`
-
-
-## CompareFacesResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import CompareFacesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceImageFace`: `"ComparedSourceImageFaceTypeDef"`
-- `FaceMatches`: `List["CompareFacesMatchTypeDef"]`
-- `UnmatchedFaces`: `List["ComparedFaceTypeDef"]`
-- `SourceImageOrientationCorrection`: `OrientationCorrection`
-- `TargetImageOrientationCorrection`: `OrientationCorrection`
-
-
-## CreateCollectionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import CreateCollectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `StatusCode`: `int`
-- `CollectionArn`: `str`
-- `FaceModelVersion`: `str`
-
-
-## CreateProjectResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import CreateProjectResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProjectArn`: `str`
-
-
-## CreateProjectVersionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import CreateProjectVersionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProjectVersionArn`: `str`
-
-
-## CreateStreamProcessorResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import CreateStreamProcessorResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `StreamProcessorArn`: `str`
-
-
-## DeleteCollectionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DeleteCollectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `StatusCode`: `int`
-
-
-## DeleteFacesResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DeleteFacesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeletedFaces`: `List[str]`
-
-
-## DeleteProjectResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DeleteProjectResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `ProjectStatus`
-
-
-## DeleteProjectVersionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DeleteProjectVersionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `ProjectVersionStatus`
-
-
-## DescribeCollectionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DescribeCollectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `FaceCount`: `int`
-- `FaceModelVersion`: `str`
-- `CollectionARN`: `str`
-- `CreationTimestamp`: `datetime`
-
-
-## DescribeProjectVersionsResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DescribeProjectVersionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProjectVersionDescriptions`: `List["ProjectVersionDescriptionTypeDef"]`
-- `NextToken`: `str`
-
-
-## DescribeProjectsResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DescribeProjectsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProjectDescriptions`: `List["ProjectDescriptionTypeDef"]`
-- `NextToken`: `str`
-
-
-## DescribeStreamProcessorResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DescribeStreamProcessorResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `StreamProcessorArn`: `str`
-- `Status`: `StreamProcessorStatus`
-- `StatusMessage`: `str`
-- `CreationTimestamp`: `datetime`
-- `LastUpdateTimestamp`: `datetime`
-- `Input`: `"StreamProcessorInputTypeDef"`
-- `Output`: `"StreamProcessorOutputTypeDef"`
-- `RoleArn`: `str`
-- `Settings`: `"StreamProcessorSettingsTypeDef"`
-
-
-## DetectCustomLabelsResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DetectCustomLabelsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CustomLabels`: `List["CustomLabelTypeDef"]`
-
-
-## DetectFacesResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DetectFacesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `FaceDetails`: `List["FaceDetailTypeDef"]`
-- `OrientationCorrection`: `OrientationCorrection`
-
-
-## DetectLabelsResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DetectLabelsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Labels`: `List["LabelTypeDef"]`
-- `OrientationCorrection`: `OrientationCorrection`
-- `LabelModelVersion`: `str`
-
-
-## DetectModerationLabelsResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DetectModerationLabelsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ModerationLabels`: `List["ModerationLabelTypeDef"]`
-- `ModerationModelVersion`: `str`
-- `HumanLoopActivationOutput`: `"HumanLoopActivationOutputTypeDef"`
-
-
-## DetectProtectiveEquipmentResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DetectProtectiveEquipmentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProtectiveEquipmentModelVersion`: `str`
-- `Persons`: `List["ProtectiveEquipmentPersonTypeDef"]`
-- `Summary`: `"ProtectiveEquipmentSummaryTypeDef"`
-
-
-## DetectTextFiltersTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DetectTextFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `WordFilter`: `"DetectionFilterTypeDef"`
-- `RegionsOfInterest`: `List["RegionOfInterestTypeDef"]`
-
-
-## DetectTextResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import DetectTextResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TextDetections`: `List["TextDetectionTypeDef"]`
-- `TextModelVersion`: `str`
-
-
-## GetCelebrityInfoResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import GetCelebrityInfoResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Urls`: `List[str]`
-- `Name`: `str`
-
-
-## GetCelebrityRecognitionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import GetCelebrityRecognitionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobStatus`: `VideoJobStatus`
-- `StatusMessage`: `str`
-- `VideoMetadata`: `"VideoMetadataTypeDef"`
-- `NextToken`: `str`
-- `Celebrities`: `List["CelebrityRecognitionTypeDef"]`
-
-
-## GetContentModerationResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import GetContentModerationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobStatus`: `VideoJobStatus`
-- `StatusMessage`: `str`
-- `VideoMetadata`: `"VideoMetadataTypeDef"`
-- `ModerationLabels`: `List["ContentModerationDetectionTypeDef"]`
-- `NextToken`: `str`
-- `ModerationModelVersion`: `str`
-
-
-## GetFaceDetectionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import GetFaceDetectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobStatus`: `VideoJobStatus`
-- `StatusMessage`: `str`
-- `VideoMetadata`: `"VideoMetadataTypeDef"`
-- `NextToken`: `str`
-- `Faces`: `List["FaceDetectionTypeDef"]`
-
-
-## GetFaceSearchResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import GetFaceSearchResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobStatus`: `VideoJobStatus`
-- `StatusMessage`: `str`
-- `NextToken`: `str`
-- `VideoMetadata`: `"VideoMetadataTypeDef"`
-- `Persons`: `List["PersonMatchTypeDef"]`
-
-
-## GetLabelDetectionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import GetLabelDetectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobStatus`: `VideoJobStatus`
-- `StatusMessage`: `str`
-- `VideoMetadata`: `"VideoMetadataTypeDef"`
-- `NextToken`: `str`
-- `Labels`: `List["LabelDetectionTypeDef"]`
-- `LabelModelVersion`: `str`
-
-
-## GetPersonTrackingResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import GetPersonTrackingResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobStatus`: `VideoJobStatus`
-- `StatusMessage`: `str`
-- `VideoMetadata`: `"VideoMetadataTypeDef"`
-- `NextToken`: `str`
-- `Persons`: `List["PersonDetectionTypeDef"]`
-
-
-## GetSegmentDetectionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import GetSegmentDetectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobStatus`: `VideoJobStatus`
-- `StatusMessage`: `str`
-- `VideoMetadata`: `List["VideoMetadataTypeDef"]`
-- `AudioMetadata`: `List["AudioMetadataTypeDef"]`
-- `NextToken`: `str`
-- `Segments`: `List["SegmentDetectionTypeDef"]`
-- `SelectedSegmentTypes`: `List["SegmentTypeInfoTypeDef"]`
-
-
-## GetTextDetectionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import GetTextDetectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobStatus`: `VideoJobStatus`
-- `StatusMessage`: `str`
-- `VideoMetadata`: `"VideoMetadataTypeDef"`
-- `TextDetections`: `List["TextDetectionResultTypeDef"]`
-- `NextToken`: `str`
-- `TextModelVersion`: `str`
-
-
-## HumanLoopConfigTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import HumanLoopConfigTypeDef
-```
-
-
-Required fields:
-- `HumanLoopName`: `str`
-- `FlowDefinitionArn`: `str`
-
-
-
-Optional fields:
-- `DataAttributes`: `"HumanLoopDataAttributesTypeDef"`
-
-
-## ImageTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import ImageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Bytes`: `Union[bytes, IO[bytes]]`
-- `S3Object`: `"S3ObjectTypeDef"`
-
-
-## IndexFacesResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import IndexFacesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `FaceRecords`: `List["FaceRecordTypeDef"]`
-- `OrientationCorrection`: `OrientationCorrection`
-- `FaceModelVersion`: `str`
-- `UnindexedFaces`: `List["UnindexedFaceTypeDef"]`
-
-
-## ListCollectionsResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import ListCollectionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CollectionIds`: `List[str]`
-- `NextToken`: `str`
-- `FaceModelVersions`: `List[str]`
-
-
-## ListFacesResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import ListFacesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Faces`: `List["FaceTypeDef"]`
-- `NextToken`: `str`
-- `FaceModelVersion`: `str`
-
-
-## ListStreamProcessorsResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import ListStreamProcessorsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `StreamProcessors`: `List["StreamProcessorTypeDef"]`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## NotificationChannelTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import NotificationChannelTypeDef
-```
-
-
-Required fields:
-- `SNSTopicArn`: `str`
-- `RoleArn`: `str`
-
-
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## ProtectiveEquipmentSummarizationAttributesTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import ProtectiveEquipmentSummarizationAttributesTypeDef
-```
-
-
-Required fields:
-- `MinConfidence`: `float`
-- `RequiredEquipmentTypes`: `List[ProtectiveEquipmentType]`
-
-
-
-
-## RecognizeCelebritiesResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import RecognizeCelebritiesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CelebrityFaces`: `List["CelebrityTypeDef"]`
-- `UnrecognizedFaces`: `List["ComparedFaceTypeDef"]`
-- `OrientationCorrection`: `OrientationCorrection`
-
-
-## SearchFacesByImageResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import SearchFacesByImageResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SearchedFaceBoundingBox`: `"BoundingBoxTypeDef"`
-- `SearchedFaceConfidence`: `float`
-- `FaceMatches`: `List["FaceMatchTypeDef"]`
-- `FaceModelVersion`: `str`
-
-
-## SearchFacesResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import SearchFacesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SearchedFaceId`: `str`
-- `FaceMatches`: `List["FaceMatchTypeDef"]`
-- `FaceModelVersion`: `str`
-
-
-## StartCelebrityRecognitionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StartCelebrityRecognitionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-
-
-## StartContentModerationResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StartContentModerationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-
-
-## StartFaceDetectionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StartFaceDetectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-
-
-## StartFaceSearchResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StartFaceSearchResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-
-
-## StartLabelDetectionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StartLabelDetectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-
-
-## StartPersonTrackingResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StartPersonTrackingResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-
-
-## StartProjectVersionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StartProjectVersionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `ProjectVersionStatus`
-
-
-## StartSegmentDetectionFiltersTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StartSegmentDetectionFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `TechnicalCueFilter`: `"StartTechnicalCueDetectionFilterTypeDef"`
-- `ShotFilter`: `"StartShotDetectionFilterTypeDef"`
-
-
-## StartSegmentDetectionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StartSegmentDetectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-
-
-## StartTextDetectionFiltersTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StartTextDetectionFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `WordFilter`: `"DetectionFilterTypeDef"`
-- `RegionsOfInterest`: `List["RegionOfInterestTypeDef"]`
-
-
-## StartTextDetectionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StartTextDetectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-
-
-## StopProjectVersionResponseTypeDef
-
-```python
-from mypy_boto3_rekognition.type_defs import StopProjectVersionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `ProjectVersionStatus`
 
 
 ## VideoTypeDef

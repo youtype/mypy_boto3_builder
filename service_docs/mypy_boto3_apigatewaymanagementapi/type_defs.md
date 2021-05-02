@@ -6,22 +6,8 @@ Auto-generated documentation for [ApiGatewayManagementApi](https://boto3.amazona
 type annotations stubs module [mypy_boto3_apigatewaymanagementapi](https://pypi.org/project/mypy-boto3-apigatewaymanagementapi/).
 
 - [Structures for boto3 ApiGatewayManagementApi module](#structures-for-boto3-apigatewaymanagementapi-module)
-  - [IdentityTypeDef](#identitytypedef)
   - [GetConnectionResponseTypeDef](#getconnectionresponsetypedef)
-
-## IdentityTypeDef
-
-```python
-from mypy_boto3_apigatewaymanagementapi.type_defs import IdentityTypeDef
-```
-
-
-Required fields:
-- `SourceIp`: `str`
-- `UserAgent`: `str`
-
-
-
+  - [IdentityTypeDef](#identitytypedef)
 
 ## GetConnectionResponseTypeDef
 
@@ -36,4 +22,18 @@ Optional fields:
 - `ConnectedAt`: `datetime`
 - `Identity`: `"IdentityTypeDef"`
 - `LastActiveAt`: `datetime`
+
+
+## IdentityTypeDef
+
+```python
+from mypy_boto3_apigatewaymanagementapi.type_defs import IdentityTypeDef
+```
+
+
+Required fields:
+- `SourceIp`: `str`
+- `UserAgent`: `str`
+
+
 

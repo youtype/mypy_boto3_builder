@@ -95,14 +95,14 @@ from mypy_boto3_codestar_connections.type_defs import ConnectionTypeDef, ...
 ```
 
 - [ConnectionTypeDef](./type_defs.md#connectiontypedef)
-- [HostTypeDef](./type_defs.md#hosttypedef)
-- [ResponseMetadata](./type_defs.md#responsemetadata)
-- [TagTypeDef](./type_defs.md#tagtypedef)
-- [VpcConfigurationTypeDef](./type_defs.md#vpcconfigurationtypedef)
 - [CreateConnectionOutputTypeDef](./type_defs.md#createconnectionoutputtypedef)
 - [CreateHostOutputTypeDef](./type_defs.md#createhostoutputtypedef)
 - [GetConnectionOutputTypeDef](./type_defs.md#getconnectionoutputtypedef)
 - [GetHostOutputTypeDef](./type_defs.md#gethostoutputtypedef)
+- [HostTypeDef](./type_defs.md#hosttypedef)
 - [ListConnectionsOutputTypeDef](./type_defs.md#listconnectionsoutputtypedef)
 - [ListHostsOutputTypeDef](./type_defs.md#listhostsoutputtypedef)
 - [ListTagsForResourceOutputTypeDef](./type_defs.md#listtagsforresourceoutputtypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)
+- [TagTypeDef](./type_defs.md#tagtypedef)
+- [VpcConfigurationTypeDef](./type_defs.md#vpcconfigurationtypedef)

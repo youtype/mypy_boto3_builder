@@ -105,7 +105,7 @@ class LookupEventsPaginator(Boto3Paginator):
         LookupAttributes: List[LookupAttributeTypeDef] = None,
         StartTime: datetime = None,
         EndTime: datetime = None,
-        EventCategory: EventCategory = None,
+        EventCategory: Literal['insight'] = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[LookupEventsResponseTypeDef]:
         pass

@@ -50,13 +50,6 @@ type annotations stubs module [mypy_boto3_appmesh](https://pypi.org/project/mypy
     - [update_virtual_router](#update_virtual_router)
     - [update_virtual_service](#update_virtual_service)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
 
 ## AppMeshClient
 
@@ -779,122 +772,19 @@ def update_virtual_service(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("appmesh").get_paginator` method.
-
-[Paginator.ListGatewayRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appmesh.html#AppMesh.Paginator.ListGatewayRoutes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGatewayRoutesPaginatorName
-) -> ListGatewayRoutesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("appmesh").get_paginator` method.
+Type annotations for `boto3.client("appmesh").get_paginator` method with overloads.
 
-[Paginator.ListMeshes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appmesh.html#AppMesh.Paginator.ListMeshes)
+- `client.get_paginator("list_gateway_routes")` -> [ListGatewayRoutesPaginator](./paginators.md#listgatewayroutespaginator)
+- `client.get_paginator("list_meshes")` -> [ListMeshesPaginator](./paginators.md#listmeshespaginator)
+- `client.get_paginator("list_routes")` -> [ListRoutesPaginator](./paginators.md#listroutespaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
+- `client.get_paginator("list_virtual_gateways")` -> [ListVirtualGatewaysPaginator](./paginators.md#listvirtualgatewayspaginator)
+- `client.get_paginator("list_virtual_nodes")` -> [ListVirtualNodesPaginator](./paginators.md#listvirtualnodespaginator)
+- `client.get_paginator("list_virtual_routers")` -> [ListVirtualRoutersPaginator](./paginators.md#listvirtualrouterspaginator)
+- `client.get_paginator("list_virtual_services")` -> [ListVirtualServicesPaginator](./paginators.md#listvirtualservicespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMeshesPaginatorName
-) -> ListMeshesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("appmesh").get_paginator` method.
-
-[Paginator.ListRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appmesh.html#AppMesh.Paginator.ListRoutes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRoutesPaginatorName
-) -> ListRoutesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appmesh").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appmesh.html#AppMesh.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appmesh").get_paginator` method.
-
-[Paginator.ListVirtualGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appmesh.html#AppMesh.Paginator.ListVirtualGateways)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListVirtualGatewaysPaginatorName
-) -> ListVirtualGatewaysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appmesh").get_paginator` method.
-
-[Paginator.ListVirtualNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appmesh.html#AppMesh.Paginator.ListVirtualNodes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListVirtualNodesPaginatorName
-) -> ListVirtualNodesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appmesh").get_paginator` method.
-
-[Paginator.ListVirtualRouters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appmesh.html#AppMesh.Paginator.ListVirtualRouters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListVirtualRoutersPaginatorName
-) -> ListVirtualRoutersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appmesh").get_paginator` method.
-
-[Paginator.ListVirtualServices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appmesh.html#AppMesh.Paginator.ListVirtualServices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListVirtualServicesPaginatorName
-) -> ListVirtualServicesPaginator:
-    pass
-```

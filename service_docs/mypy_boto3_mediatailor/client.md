@@ -43,10 +43,6 @@ type annotations stubs module [mypy_boto3_mediatailor](https://pypi.org/project/
     - [update_source_location](#update_source_location)
     - [update_vod_source](#update_vod_source)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
 
 ## MediaTailorClient
 
@@ -105,7 +101,7 @@ def create_channel(
     self,
     ChannelName: str,
     Outputs: List[RequestOutputItemTypeDef],
-    PlaybackMode: PlaybackMode,
+    PlaybackMode: Literal['LOOP'],
     Tags: Dict[str, str] = None
 ) -> CreateChannelResponseTypeDef:
     pass
@@ -594,77 +590,16 @@ def update_vod_source(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("mediatailor").get_paginator` method.
-
-[Paginator.GetChannelSchedule documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor.html#MediaTailor.Paginator.GetChannelSchedule)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetChannelSchedulePaginatorName
-) -> GetChannelSchedulePaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("mediatailor").get_paginator` method.
+Type annotations for `boto3.client("mediatailor").get_paginator` method with overloads.
 
-[Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor.html#MediaTailor.Paginator.ListChannels)
+- `client.get_paginator("get_channel_schedule")` -> [GetChannelSchedulePaginator](./paginators.md#getchannelschedulepaginator)
+- `client.get_paginator("list_channels")` -> [ListChannelsPaginator](./paginators.md#listchannelspaginator)
+- `client.get_paginator("list_playback_configurations")` -> [ListPlaybackConfigurationsPaginator](./paginators.md#listplaybackconfigurationspaginator)
+- `client.get_paginator("list_source_locations")` -> [ListSourceLocationsPaginator](./paginators.md#listsourcelocationspaginator)
+- `client.get_paginator("list_vod_sources")` -> [ListVodSourcesPaginator](./paginators.md#listvodsourcespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListChannelsPaginatorName
-) -> ListChannelsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("mediatailor").get_paginator` method.
-
-[Paginator.ListPlaybackConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor.html#MediaTailor.Paginator.ListPlaybackConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPlaybackConfigurationsPaginatorName
-) -> ListPlaybackConfigurationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mediatailor").get_paginator` method.
-
-[Paginator.ListSourceLocations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor.html#MediaTailor.Paginator.ListSourceLocations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSourceLocationsPaginatorName
-) -> ListSourceLocationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mediatailor").get_paginator` method.
-
-[Paginator.ListVodSources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediatailor.html#MediaTailor.Paginator.ListVodSources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListVodSourcesPaginatorName
-) -> ListVodSourcesPaginator:
-    pass
-```

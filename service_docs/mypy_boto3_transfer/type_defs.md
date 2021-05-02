@@ -6,31 +6,98 @@ Auto-generated documentation for [Transfer](https://boto3.amazonaws.com/v1/docum
 type annotations stubs module [mypy_boto3_transfer](https://pypi.org/project/mypy-boto3-transfer/).
 
 - [Structures for boto3 Transfer module](#structures-for-boto3-transfer-module)
+  - [CreateServerResponseTypeDef](#createserverresponsetypedef)
+  - [CreateUserResponseTypeDef](#createuserresponsetypedef)
+  - [DescribeSecurityPolicyResponseTypeDef](#describesecuritypolicyresponsetypedef)
+  - [DescribeServerResponseTypeDef](#describeserverresponsetypedef)
+  - [DescribeUserResponseTypeDef](#describeuserresponsetypedef)
   - [DescribedSecurityPolicyTypeDef](#describedsecuritypolicytypedef)
   - [DescribedServerTypeDef](#describedservertypedef)
   - [DescribedUserTypeDef](#describedusertypedef)
   - [EndpointDetailsTypeDef](#endpointdetailstypedef)
   - [HomeDirectoryMapEntryTypeDef](#homedirectorymapentrytypedef)
   - [IdentityProviderDetailsTypeDef](#identityproviderdetailstypedef)
-  - [ListedServerTypeDef](#listedservertypedef)
-  - [ListedUserTypeDef](#listedusertypedef)
-  - [PosixProfileTypeDef](#posixprofiletypedef)
-  - [SshPublicKeyTypeDef](#sshpublickeytypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [CreateServerResponseTypeDef](#createserverresponsetypedef)
-  - [CreateUserResponseTypeDef](#createuserresponsetypedef)
-  - [DescribeSecurityPolicyResponseTypeDef](#describesecuritypolicyresponsetypedef)
-  - [DescribeServerResponseTypeDef](#describeserverresponsetypedef)
-  - [DescribeUserResponseTypeDef](#describeuserresponsetypedef)
   - [ImportSshPublicKeyResponseTypeDef](#importsshpublickeyresponsetypedef)
   - [ListSecurityPoliciesResponseTypeDef](#listsecuritypoliciesresponsetypedef)
   - [ListServersResponseTypeDef](#listserversresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListUsersResponseTypeDef](#listusersresponsetypedef)
+  - [ListedServerTypeDef](#listedservertypedef)
+  - [ListedUserTypeDef](#listedusertypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PosixProfileTypeDef](#posixprofiletypedef)
+  - [SshPublicKeyTypeDef](#sshpublickeytypedef)
+  - [TagTypeDef](#tagtypedef)
   - [TestIdentityProviderResponseTypeDef](#testidentityproviderresponsetypedef)
   - [UpdateServerResponseTypeDef](#updateserverresponsetypedef)
   - [UpdateUserResponseTypeDef](#updateuserresponsetypedef)
+
+## CreateServerResponseTypeDef
+
+```python
+from mypy_boto3_transfer.type_defs import CreateServerResponseTypeDef
+```
+
+
+Required fields:
+- `ServerId`: `str`
+
+
+
+
+## CreateUserResponseTypeDef
+
+```python
+from mypy_boto3_transfer.type_defs import CreateUserResponseTypeDef
+```
+
+
+Required fields:
+- `ServerId`: `str`
+- `UserName`: `str`
+
+
+
+
+## DescribeSecurityPolicyResponseTypeDef
+
+```python
+from mypy_boto3_transfer.type_defs import DescribeSecurityPolicyResponseTypeDef
+```
+
+
+Required fields:
+- `SecurityPolicy`: `"DescribedSecurityPolicyTypeDef"`
+
+
+
+
+## DescribeServerResponseTypeDef
+
+```python
+from mypy_boto3_transfer.type_defs import DescribeServerResponseTypeDef
+```
+
+
+Required fields:
+- `Server`: `"DescribedServerTypeDef"`
+
+
+
+
+## DescribeUserResponseTypeDef
+
+```python
+from mypy_boto3_transfer.type_defs import DescribeUserResponseTypeDef
+```
+
+
+Required fields:
+- `ServerId`: `str`
+- `User`: `"DescribedUserTypeDef"`
+
+
+
 
 ## DescribedSecurityPolicyTypeDef
 
@@ -150,161 +217,6 @@ Optional fields:
 - `InvocationRole`: `str`
 
 
-## ListedServerTypeDef
-
-```python
-from mypy_boto3_transfer.type_defs import ListedServerTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-
-
-
-Optional fields:
-- `Domain`: `Domain`
-- `IdentityProviderType`: `IdentityProviderType`
-- `EndpointType`: `EndpointType`
-- `LoggingRole`: `str`
-- `ServerId`: `str`
-- `State`: `State`
-- `UserCount`: `int`
-
-
-## ListedUserTypeDef
-
-```python
-from mypy_boto3_transfer.type_defs import ListedUserTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-
-
-
-Optional fields:
-- `HomeDirectory`: `str`
-- `HomeDirectoryType`: `HomeDirectoryType`
-- `Role`: `str`
-- `SshPublicKeyCount`: `int`
-- `UserName`: `str`
-
-
-## PosixProfileTypeDef
-
-```python
-from mypy_boto3_transfer.type_defs import PosixProfileTypeDef
-```
-
-
-Required fields:
-- `Uid`: `int`
-- `Gid`: `int`
-
-
-
-Optional fields:
-- `SecondaryGids`: `List[int]`
-
-
-## SshPublicKeyTypeDef
-
-```python
-from mypy_boto3_transfer.type_defs import SshPublicKeyTypeDef
-```
-
-
-Required fields:
-- `DateImported`: `datetime`
-- `SshPublicKeyBody`: `str`
-- `SshPublicKeyId`: `str`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_transfer.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## CreateServerResponseTypeDef
-
-```python
-from mypy_boto3_transfer.type_defs import CreateServerResponseTypeDef
-```
-
-
-Required fields:
-- `ServerId`: `str`
-
-
-
-
-## CreateUserResponseTypeDef
-
-```python
-from mypy_boto3_transfer.type_defs import CreateUserResponseTypeDef
-```
-
-
-Required fields:
-- `ServerId`: `str`
-- `UserName`: `str`
-
-
-
-
-## DescribeSecurityPolicyResponseTypeDef
-
-```python
-from mypy_boto3_transfer.type_defs import DescribeSecurityPolicyResponseTypeDef
-```
-
-
-Required fields:
-- `SecurityPolicy`: `"DescribedSecurityPolicyTypeDef"`
-
-
-
-
-## DescribeServerResponseTypeDef
-
-```python
-from mypy_boto3_transfer.type_defs import DescribeServerResponseTypeDef
-```
-
-
-Required fields:
-- `Server`: `"DescribedServerTypeDef"`
-
-
-
-
-## DescribeUserResponseTypeDef
-
-```python
-from mypy_boto3_transfer.type_defs import DescribeUserResponseTypeDef
-```
-
-
-Required fields:
-- `ServerId`: `str`
-- `User`: `"DescribedUserTypeDef"`
-
-
-
-
 ## ImportSshPublicKeyResponseTypeDef
 
 ```python
@@ -384,6 +296,48 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## ListedServerTypeDef
+
+```python
+from mypy_boto3_transfer.type_defs import ListedServerTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+
+
+
+Optional fields:
+- `Domain`: `Domain`
+- `IdentityProviderType`: `IdentityProviderType`
+- `EndpointType`: `EndpointType`
+- `LoggingRole`: `str`
+- `ServerId`: `str`
+- `State`: `State`
+- `UserCount`: `int`
+
+
+## ListedUserTypeDef
+
+```python
+from mypy_boto3_transfer.type_defs import ListedUserTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+
+
+
+Optional fields:
+- `HomeDirectory`: `str`
+- `HomeDirectoryType`: `HomeDirectoryType`
+- `Role`: `str`
+- `SshPublicKeyCount`: `int`
+- `UserName`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -397,6 +351,52 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PosixProfileTypeDef
+
+```python
+from mypy_boto3_transfer.type_defs import PosixProfileTypeDef
+```
+
+
+Required fields:
+- `Uid`: `int`
+- `Gid`: `int`
+
+
+
+Optional fields:
+- `SecondaryGids`: `List[int]`
+
+
+## SshPublicKeyTypeDef
+
+```python
+from mypy_boto3_transfer.type_defs import SshPublicKeyTypeDef
+```
+
+
+Required fields:
+- `DateImported`: `datetime`
+- `SshPublicKeyBody`: `str`
+- `SshPublicKeyId`: `str`
+
+
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_transfer.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## TestIdentityProviderResponseTypeDef

@@ -14,6 +14,27 @@ type annotations stubs module [mypy_boto3_appmesh](https://pypi.org/project/mypy
   - [ClientPolicyTlsTypeDef](#clientpolicytlstypedef)
   - [ClientPolicyTypeDef](#clientpolicytypedef)
   - [ClientTlsCertificateTypeDef](#clienttlscertificatetypedef)
+  - [CreateGatewayRouteOutputTypeDef](#creategatewayrouteoutputtypedef)
+  - [CreateMeshOutputTypeDef](#createmeshoutputtypedef)
+  - [CreateRouteOutputTypeDef](#createrouteoutputtypedef)
+  - [CreateVirtualGatewayOutputTypeDef](#createvirtualgatewayoutputtypedef)
+  - [CreateVirtualNodeOutputTypeDef](#createvirtualnodeoutputtypedef)
+  - [CreateVirtualRouterOutputTypeDef](#createvirtualrouteroutputtypedef)
+  - [CreateVirtualServiceOutputTypeDef](#createvirtualserviceoutputtypedef)
+  - [DeleteGatewayRouteOutputTypeDef](#deletegatewayrouteoutputtypedef)
+  - [DeleteMeshOutputTypeDef](#deletemeshoutputtypedef)
+  - [DeleteRouteOutputTypeDef](#deleterouteoutputtypedef)
+  - [DeleteVirtualGatewayOutputTypeDef](#deletevirtualgatewayoutputtypedef)
+  - [DeleteVirtualNodeOutputTypeDef](#deletevirtualnodeoutputtypedef)
+  - [DeleteVirtualRouterOutputTypeDef](#deletevirtualrouteroutputtypedef)
+  - [DeleteVirtualServiceOutputTypeDef](#deletevirtualserviceoutputtypedef)
+  - [DescribeGatewayRouteOutputTypeDef](#describegatewayrouteoutputtypedef)
+  - [DescribeMeshOutputTypeDef](#describemeshoutputtypedef)
+  - [DescribeRouteOutputTypeDef](#describerouteoutputtypedef)
+  - [DescribeVirtualGatewayOutputTypeDef](#describevirtualgatewayoutputtypedef)
+  - [DescribeVirtualNodeOutputTypeDef](#describevirtualnodeoutputtypedef)
+  - [DescribeVirtualRouterOutputTypeDef](#describevirtualrouteroutputtypedef)
+  - [DescribeVirtualServiceOutputTypeDef](#describevirtualserviceoutputtypedef)
   - [DnsServiceDiscoveryTypeDef](#dnsservicediscoverytypedef)
   - [DurationTypeDef](#durationtypedef)
   - [EgressFilterTypeDef](#egressfiltertypedef)
@@ -45,6 +66,14 @@ type annotations stubs module [mypy_boto3_appmesh](https://pypi.org/project/mypy
   - [HttpRouteMatchTypeDef](#httproutematchtypedef)
   - [HttpRouteTypeDef](#httproutetypedef)
   - [HttpTimeoutTypeDef](#httptimeouttypedef)
+  - [ListGatewayRoutesOutputTypeDef](#listgatewayroutesoutputtypedef)
+  - [ListMeshesOutputTypeDef](#listmeshesoutputtypedef)
+  - [ListRoutesOutputTypeDef](#listroutesoutputtypedef)
+  - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
+  - [ListVirtualGatewaysOutputTypeDef](#listvirtualgatewaysoutputtypedef)
+  - [ListVirtualNodesOutputTypeDef](#listvirtualnodesoutputtypedef)
+  - [ListVirtualRoutersOutputTypeDef](#listvirtualroutersoutputtypedef)
+  - [ListVirtualServicesOutputTypeDef](#listvirtualservicesoutputtypedef)
   - [ListenerTimeoutTypeDef](#listenertimeouttypedef)
   - [ListenerTlsAcmCertificateTypeDef](#listenertlsacmcertificatetypedef)
   - [ListenerTlsCertificateTypeDef](#listenertlscertificatetypedef)
@@ -61,6 +90,7 @@ type annotations stubs module [mypy_boto3_appmesh](https://pypi.org/project/mypy
   - [MeshSpecTypeDef](#meshspectypedef)
   - [MeshStatusTypeDef](#meshstatustypedef)
   - [OutlierDetectionTypeDef](#outlierdetectiontypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PortMappingTypeDef](#portmappingtypedef)
   - [ResourceMetadataTypeDef](#resourcemetadatatypedef)
   - [ResponseMetadata](#responsemetadata)
@@ -80,6 +110,13 @@ type annotations stubs module [mypy_boto3_appmesh](https://pypi.org/project/mypy
   - [TlsValidationContextSdsTrustTypeDef](#tlsvalidationcontextsdstrusttypedef)
   - [TlsValidationContextTrustTypeDef](#tlsvalidationcontexttrusttypedef)
   - [TlsValidationContextTypeDef](#tlsvalidationcontexttypedef)
+  - [UpdateGatewayRouteOutputTypeDef](#updategatewayrouteoutputtypedef)
+  - [UpdateMeshOutputTypeDef](#updatemeshoutputtypedef)
+  - [UpdateRouteOutputTypeDef](#updaterouteoutputtypedef)
+  - [UpdateVirtualGatewayOutputTypeDef](#updatevirtualgatewayoutputtypedef)
+  - [UpdateVirtualNodeOutputTypeDef](#updatevirtualnodeoutputtypedef)
+  - [UpdateVirtualRouterOutputTypeDef](#updatevirtualrouteroutputtypedef)
+  - [UpdateVirtualServiceOutputTypeDef](#updatevirtualserviceoutputtypedef)
   - [VirtualGatewayAccessLogTypeDef](#virtualgatewayaccesslogtypedef)
   - [VirtualGatewayBackendDefaultsTypeDef](#virtualgatewaybackenddefaultstypedef)
   - [VirtualGatewayClientPolicyTlsTypeDef](#virtualgatewayclientpolicytlstypedef)
@@ -133,43 +170,6 @@ type annotations stubs module [mypy_boto3_appmesh](https://pypi.org/project/mypy
   - [VirtualServiceSpecTypeDef](#virtualservicespectypedef)
   - [VirtualServiceStatusTypeDef](#virtualservicestatustypedef)
   - [WeightedTargetTypeDef](#weightedtargettypedef)
-  - [CreateGatewayRouteOutputTypeDef](#creategatewayrouteoutputtypedef)
-  - [CreateMeshOutputTypeDef](#createmeshoutputtypedef)
-  - [CreateRouteOutputTypeDef](#createrouteoutputtypedef)
-  - [CreateVirtualGatewayOutputTypeDef](#createvirtualgatewayoutputtypedef)
-  - [CreateVirtualNodeOutputTypeDef](#createvirtualnodeoutputtypedef)
-  - [CreateVirtualRouterOutputTypeDef](#createvirtualrouteroutputtypedef)
-  - [CreateVirtualServiceOutputTypeDef](#createvirtualserviceoutputtypedef)
-  - [DeleteGatewayRouteOutputTypeDef](#deletegatewayrouteoutputtypedef)
-  - [DeleteMeshOutputTypeDef](#deletemeshoutputtypedef)
-  - [DeleteRouteOutputTypeDef](#deleterouteoutputtypedef)
-  - [DeleteVirtualGatewayOutputTypeDef](#deletevirtualgatewayoutputtypedef)
-  - [DeleteVirtualNodeOutputTypeDef](#deletevirtualnodeoutputtypedef)
-  - [DeleteVirtualRouterOutputTypeDef](#deletevirtualrouteroutputtypedef)
-  - [DeleteVirtualServiceOutputTypeDef](#deletevirtualserviceoutputtypedef)
-  - [DescribeGatewayRouteOutputTypeDef](#describegatewayrouteoutputtypedef)
-  - [DescribeMeshOutputTypeDef](#describemeshoutputtypedef)
-  - [DescribeRouteOutputTypeDef](#describerouteoutputtypedef)
-  - [DescribeVirtualGatewayOutputTypeDef](#describevirtualgatewayoutputtypedef)
-  - [DescribeVirtualNodeOutputTypeDef](#describevirtualnodeoutputtypedef)
-  - [DescribeVirtualRouterOutputTypeDef](#describevirtualrouteroutputtypedef)
-  - [DescribeVirtualServiceOutputTypeDef](#describevirtualserviceoutputtypedef)
-  - [ListGatewayRoutesOutputTypeDef](#listgatewayroutesoutputtypedef)
-  - [ListMeshesOutputTypeDef](#listmeshesoutputtypedef)
-  - [ListRoutesOutputTypeDef](#listroutesoutputtypedef)
-  - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
-  - [ListVirtualGatewaysOutputTypeDef](#listvirtualgatewaysoutputtypedef)
-  - [ListVirtualNodesOutputTypeDef](#listvirtualnodesoutputtypedef)
-  - [ListVirtualRoutersOutputTypeDef](#listvirtualroutersoutputtypedef)
-  - [ListVirtualServicesOutputTypeDef](#listvirtualservicesoutputtypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [UpdateGatewayRouteOutputTypeDef](#updategatewayrouteoutputtypedef)
-  - [UpdateMeshOutputTypeDef](#updatemeshoutputtypedef)
-  - [UpdateRouteOutputTypeDef](#updaterouteoutputtypedef)
-  - [UpdateVirtualGatewayOutputTypeDef](#updatevirtualgatewayoutputtypedef)
-  - [UpdateVirtualNodeOutputTypeDef](#updatevirtualnodeoutputtypedef)
-  - [UpdateVirtualRouterOutputTypeDef](#updatevirtualrouteroutputtypedef)
-  - [UpdateVirtualServiceOutputTypeDef](#updatevirtualserviceoutputtypedef)
 
 ## AccessLogTypeDef
 
@@ -284,6 +284,342 @@ from mypy_boto3_appmesh.type_defs import ClientTlsCertificateTypeDef
 Optional fields:
 - `file`: `"ListenerTlsFileCertificateTypeDef"`
 - `sds`: `"ListenerTlsSdsCertificateTypeDef"`
+
+
+## CreateGatewayRouteOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import CreateGatewayRouteOutputTypeDef
+```
+
+
+Required fields:
+- `gatewayRoute`: `"GatewayRouteDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateMeshOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import CreateMeshOutputTypeDef
+```
+
+
+Required fields:
+- `mesh`: `"MeshDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateRouteOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import CreateRouteOutputTypeDef
+```
+
+
+Required fields:
+- `route`: `"RouteDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateVirtualGatewayOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import CreateVirtualGatewayOutputTypeDef
+```
+
+
+Required fields:
+- `virtualGateway`: `"VirtualGatewayDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateVirtualNodeOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import CreateVirtualNodeOutputTypeDef
+```
+
+
+Required fields:
+- `virtualNode`: `"VirtualNodeDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateVirtualRouterOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import CreateVirtualRouterOutputTypeDef
+```
+
+
+Required fields:
+- `virtualRouter`: `"VirtualRouterDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateVirtualServiceOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import CreateVirtualServiceOutputTypeDef
+```
+
+
+Required fields:
+- `virtualService`: `"VirtualServiceDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DeleteGatewayRouteOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DeleteGatewayRouteOutputTypeDef
+```
+
+
+Required fields:
+- `gatewayRoute`: `"GatewayRouteDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DeleteMeshOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DeleteMeshOutputTypeDef
+```
+
+
+Required fields:
+- `mesh`: `"MeshDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DeleteRouteOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DeleteRouteOutputTypeDef
+```
+
+
+Required fields:
+- `route`: `"RouteDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DeleteVirtualGatewayOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DeleteVirtualGatewayOutputTypeDef
+```
+
+
+Required fields:
+- `virtualGateway`: `"VirtualGatewayDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DeleteVirtualNodeOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DeleteVirtualNodeOutputTypeDef
+```
+
+
+Required fields:
+- `virtualNode`: `"VirtualNodeDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DeleteVirtualRouterOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DeleteVirtualRouterOutputTypeDef
+```
+
+
+Required fields:
+- `virtualRouter`: `"VirtualRouterDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DeleteVirtualServiceOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DeleteVirtualServiceOutputTypeDef
+```
+
+
+Required fields:
+- `virtualService`: `"VirtualServiceDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeGatewayRouteOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DescribeGatewayRouteOutputTypeDef
+```
+
+
+Required fields:
+- `gatewayRoute`: `"GatewayRouteDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeMeshOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DescribeMeshOutputTypeDef
+```
+
+
+Required fields:
+- `mesh`: `"MeshDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeRouteOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DescribeRouteOutputTypeDef
+```
+
+
+Required fields:
+- `route`: `"RouteDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeVirtualGatewayOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DescribeVirtualGatewayOutputTypeDef
+```
+
+
+Required fields:
+- `virtualGateway`: `"VirtualGatewayDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeVirtualNodeOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DescribeVirtualNodeOutputTypeDef
+```
+
+
+Required fields:
+- `virtualNode`: `"VirtualNodeDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeVirtualRouterOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DescribeVirtualRouterOutputTypeDef
+```
+
+
+Required fields:
+- `virtualRouter`: `"VirtualRouterDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeVirtualServiceOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import DescribeVirtualServiceOutputTypeDef
+```
+
+
+Required fields:
+- `virtualService`: `"VirtualServiceDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## DnsServiceDiscoveryTypeDef
@@ -488,7 +824,7 @@ Required fields:
 Optional fields:
 - `grpcRetryEvents`: `List[GrpcRetryPolicyEvent]`
 - `httpRetryEvents`: `List[str]`
-- `tcpRetryEvents`: `List[TcpRetryPolicyEvent]`
+- `tcpRetryEvents`: `List[Literal['connection-error']]`
 
 
 ## GrpcRouteActionTypeDef
@@ -678,7 +1014,7 @@ Required fields:
 
 Optional fields:
 - `httpRetryEvents`: `List[str]`
-- `tcpRetryEvents`: `List[TcpRetryPolicyEvent]`
+- `tcpRetryEvents`: `List[Literal['connection-error']]`
 
 
 ## HttpRouteActionTypeDef
@@ -759,6 +1095,142 @@ from mypy_boto3_appmesh.type_defs import HttpTimeoutTypeDef
 Optional fields:
 - `idle`: `"DurationTypeDef"`
 - `perRequest`: `"DurationTypeDef"`
+
+
+## ListGatewayRoutesOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import ListGatewayRoutesOutputTypeDef
+```
+
+
+Required fields:
+- `gatewayRoutes`: `List["GatewayRouteRefTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListMeshesOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import ListMeshesOutputTypeDef
+```
+
+
+Required fields:
+- `meshes`: `List["MeshRefTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListRoutesOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import ListRoutesOutputTypeDef
+```
+
+
+Required fields:
+- `routes`: `List["RouteRefTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListTagsForResourceOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import ListTagsForResourceOutputTypeDef
+```
+
+
+Required fields:
+- `tags`: `List["TagRefTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListVirtualGatewaysOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import ListVirtualGatewaysOutputTypeDef
+```
+
+
+Required fields:
+- `virtualGateways`: `List["VirtualGatewayRefTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListVirtualNodesOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import ListVirtualNodesOutputTypeDef
+```
+
+
+Required fields:
+- `virtualNodes`: `List["VirtualNodeRefTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListVirtualRoutersOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import ListVirtualRoutersOutputTypeDef
+```
+
+
+Required fields:
+- `virtualRouters`: `List["VirtualRouterRefTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListVirtualServicesOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import ListVirtualServicesOutputTypeDef
+```
+
+
+Required fields:
+- `virtualServices`: `List["VirtualServiceRefTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## ListenerTimeoutTypeDef
@@ -1001,6 +1473,21 @@ Required fields:
 - `maxServerErrors`: `int`
 
 
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## PortMappingTypeDef
@@ -1286,6 +1773,118 @@ Required fields:
 
 Optional fields:
 - `subjectAlternativeNames`: `"SubjectAlternativeNamesTypeDef"`
+
+
+## UpdateGatewayRouteOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import UpdateGatewayRouteOutputTypeDef
+```
+
+
+Required fields:
+- `gatewayRoute`: `"GatewayRouteDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## UpdateMeshOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import UpdateMeshOutputTypeDef
+```
+
+
+Required fields:
+- `mesh`: `"MeshDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## UpdateRouteOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import UpdateRouteOutputTypeDef
+```
+
+
+Required fields:
+- `route`: `"RouteDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## UpdateVirtualGatewayOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import UpdateVirtualGatewayOutputTypeDef
+```
+
+
+Required fields:
+- `virtualGateway`: `"VirtualGatewayDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## UpdateVirtualNodeOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import UpdateVirtualNodeOutputTypeDef
+```
+
+
+Required fields:
+- `virtualNode`: `"VirtualNodeDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## UpdateVirtualRouterOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import UpdateVirtualRouterOutputTypeDef
+```
+
+
+Required fields:
+- `virtualRouter`: `"VirtualRouterDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## UpdateVirtualServiceOutputTypeDef
+
+```python
+from mypy_boto3_appmesh.type_defs import UpdateVirtualServiceOutputTypeDef
+```
+
+
+Required fields:
+- `virtualService`: `"VirtualServiceDataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## VirtualGatewayAccessLogTypeDef
@@ -2079,603 +2678,4 @@ Required fields:
 - `weight`: `int`
 
 
-
-
-## CreateGatewayRouteOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import CreateGatewayRouteOutputTypeDef
-```
-
-
-Required fields:
-- `gatewayRoute`: `"GatewayRouteDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateMeshOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import CreateMeshOutputTypeDef
-```
-
-
-Required fields:
-- `mesh`: `"MeshDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateRouteOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import CreateRouteOutputTypeDef
-```
-
-
-Required fields:
-- `route`: `"RouteDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateVirtualGatewayOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import CreateVirtualGatewayOutputTypeDef
-```
-
-
-Required fields:
-- `virtualGateway`: `"VirtualGatewayDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateVirtualNodeOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import CreateVirtualNodeOutputTypeDef
-```
-
-
-Required fields:
-- `virtualNode`: `"VirtualNodeDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateVirtualRouterOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import CreateVirtualRouterOutputTypeDef
-```
-
-
-Required fields:
-- `virtualRouter`: `"VirtualRouterDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateVirtualServiceOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import CreateVirtualServiceOutputTypeDef
-```
-
-
-Required fields:
-- `virtualService`: `"VirtualServiceDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteGatewayRouteOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DeleteGatewayRouteOutputTypeDef
-```
-
-
-Required fields:
-- `gatewayRoute`: `"GatewayRouteDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteMeshOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DeleteMeshOutputTypeDef
-```
-
-
-Required fields:
-- `mesh`: `"MeshDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteRouteOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DeleteRouteOutputTypeDef
-```
-
-
-Required fields:
-- `route`: `"RouteDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteVirtualGatewayOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DeleteVirtualGatewayOutputTypeDef
-```
-
-
-Required fields:
-- `virtualGateway`: `"VirtualGatewayDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteVirtualNodeOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DeleteVirtualNodeOutputTypeDef
-```
-
-
-Required fields:
-- `virtualNode`: `"VirtualNodeDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteVirtualRouterOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DeleteVirtualRouterOutputTypeDef
-```
-
-
-Required fields:
-- `virtualRouter`: `"VirtualRouterDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteVirtualServiceOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DeleteVirtualServiceOutputTypeDef
-```
-
-
-Required fields:
-- `virtualService`: `"VirtualServiceDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeGatewayRouteOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DescribeGatewayRouteOutputTypeDef
-```
-
-
-Required fields:
-- `gatewayRoute`: `"GatewayRouteDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeMeshOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DescribeMeshOutputTypeDef
-```
-
-
-Required fields:
-- `mesh`: `"MeshDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeRouteOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DescribeRouteOutputTypeDef
-```
-
-
-Required fields:
-- `route`: `"RouteDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeVirtualGatewayOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DescribeVirtualGatewayOutputTypeDef
-```
-
-
-Required fields:
-- `virtualGateway`: `"VirtualGatewayDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeVirtualNodeOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DescribeVirtualNodeOutputTypeDef
-```
-
-
-Required fields:
-- `virtualNode`: `"VirtualNodeDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeVirtualRouterOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DescribeVirtualRouterOutputTypeDef
-```
-
-
-Required fields:
-- `virtualRouter`: `"VirtualRouterDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeVirtualServiceOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import DescribeVirtualServiceOutputTypeDef
-```
-
-
-Required fields:
-- `virtualService`: `"VirtualServiceDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListGatewayRoutesOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import ListGatewayRoutesOutputTypeDef
-```
-
-
-Required fields:
-- `gatewayRoutes`: `List["GatewayRouteRefTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListMeshesOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import ListMeshesOutputTypeDef
-```
-
-
-Required fields:
-- `meshes`: `List["MeshRefTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListRoutesOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import ListRoutesOutputTypeDef
-```
-
-
-Required fields:
-- `routes`: `List["RouteRefTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListTagsForResourceOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import ListTagsForResourceOutputTypeDef
-```
-
-
-Required fields:
-- `tags`: `List["TagRefTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListVirtualGatewaysOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import ListVirtualGatewaysOutputTypeDef
-```
-
-
-Required fields:
-- `virtualGateways`: `List["VirtualGatewayRefTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListVirtualNodesOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import ListVirtualNodesOutputTypeDef
-```
-
-
-Required fields:
-- `virtualNodes`: `List["VirtualNodeRefTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListVirtualRoutersOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import ListVirtualRoutersOutputTypeDef
-```
-
-
-Required fields:
-- `virtualRouters`: `List["VirtualRouterRefTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListVirtualServicesOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import ListVirtualServicesOutputTypeDef
-```
-
-
-Required fields:
-- `virtualServices`: `List["VirtualServiceRefTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## UpdateGatewayRouteOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import UpdateGatewayRouteOutputTypeDef
-```
-
-
-Required fields:
-- `gatewayRoute`: `"GatewayRouteDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## UpdateMeshOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import UpdateMeshOutputTypeDef
-```
-
-
-Required fields:
-- `mesh`: `"MeshDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## UpdateRouteOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import UpdateRouteOutputTypeDef
-```
-
-
-Required fields:
-- `route`: `"RouteDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## UpdateVirtualGatewayOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import UpdateVirtualGatewayOutputTypeDef
-```
-
-
-Required fields:
-- `virtualGateway`: `"VirtualGatewayDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## UpdateVirtualNodeOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import UpdateVirtualNodeOutputTypeDef
-```
-
-
-Required fields:
-- `virtualNode`: `"VirtualNodeDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## UpdateVirtualRouterOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import UpdateVirtualRouterOutputTypeDef
-```
-
-
-Required fields:
-- `virtualRouter`: `"VirtualRouterDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## UpdateVirtualServiceOutputTypeDef
-
-```python
-from mypy_boto3_appmesh.type_defs import UpdateVirtualServiceOutputTypeDef
-```
-
-
-Required fields:
-- `virtualService`: `"VirtualServiceDataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
 

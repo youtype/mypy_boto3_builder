@@ -70,24 +70,7 @@ type annotations stubs module [mypy_boto3_iotsitewise](https://pypi.org/project/
     - [update_portal](#update_portal)
     - [update_project](#update_project)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
-    - [get_waiter](#get_waiter-4)
-    - [get_waiter](#get_waiter-5)
 
 ## IoTSiteWiseClient
 
@@ -760,7 +743,7 @@ Type annotations for `boto3.client("iotsitewise").list_asset_relationships` meth
 def list_asset_relationships(
     self,
     assetId: str,
-    traversalType: TraversalType,
+    traversalType: Literal['PATH_TO_ROOT'],
     nextToken: str = None,
     maxResults: int = None
 ) -> ListAssetRelationshipsResponseTypeDef:
@@ -1111,287 +1094,36 @@ def update_project(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.GetAssetPropertyAggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.GetAssetPropertyAggregates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetAssetPropertyAggregatesPaginatorName
-) -> GetAssetPropertyAggregatesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
+Type annotations for `boto3.client("iotsitewise").get_paginator` method with overloads.
 
-[Paginator.GetAssetPropertyValueHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.GetAssetPropertyValueHistory)
+- `client.get_paginator("get_asset_property_aggregates")` -> [GetAssetPropertyAggregatesPaginator](./paginators.md#getassetpropertyaggregatespaginator)
+- `client.get_paginator("get_asset_property_value_history")` -> [GetAssetPropertyValueHistoryPaginator](./paginators.md#getassetpropertyvaluehistorypaginator)
+- `client.get_paginator("get_interpolated_asset_property_values")` -> [GetInterpolatedAssetPropertyValuesPaginator](./paginators.md#getinterpolatedassetpropertyvaluespaginator)
+- `client.get_paginator("list_access_policies")` -> [ListAccessPoliciesPaginator](./paginators.md#listaccesspoliciespaginator)
+- `client.get_paginator("list_asset_models")` -> [ListAssetModelsPaginator](./paginators.md#listassetmodelspaginator)
+- `client.get_paginator("list_asset_relationships")` -> [ListAssetRelationshipsPaginator](./paginators.md#listassetrelationshipspaginator)
+- `client.get_paginator("list_assets")` -> [ListAssetsPaginator](./paginators.md#listassetspaginator)
+- `client.get_paginator("list_associated_assets")` -> [ListAssociatedAssetsPaginator](./paginators.md#listassociatedassetspaginator)
+- `client.get_paginator("list_dashboards")` -> [ListDashboardsPaginator](./paginators.md#listdashboardspaginator)
+- `client.get_paginator("list_gateways")` -> [ListGatewaysPaginator](./paginators.md#listgatewayspaginator)
+- `client.get_paginator("list_portals")` -> [ListPortalsPaginator](./paginators.md#listportalspaginator)
+- `client.get_paginator("list_project_assets")` -> [ListProjectAssetsPaginator](./paginators.md#listprojectassetspaginator)
+- `client.get_paginator("list_projects")` -> [ListProjectsPaginator](./paginators.md#listprojectspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetAssetPropertyValueHistoryPaginatorName
-) -> GetAssetPropertyValueHistoryPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.GetInterpolatedAssetPropertyValues documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.GetInterpolatedAssetPropertyValues)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetInterpolatedAssetPropertyValuesPaginatorName
-) -> GetInterpolatedAssetPropertyValuesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.ListAccessPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAccessPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccessPoliciesPaginatorName
-) -> ListAccessPoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.ListAssetModels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssetModels)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssetModelsPaginatorName
-) -> ListAssetModelsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.ListAssetRelationships documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssetRelationships)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssetRelationshipsPaginatorName
-) -> ListAssetRelationshipsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.ListAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssetsPaginatorName
-) -> ListAssetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.ListAssociatedAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssociatedAssets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssociatedAssetsPaginatorName
-) -> ListAssociatedAssetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.ListDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListDashboards)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDashboardsPaginatorName
-) -> ListDashboardsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.ListGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListGateways)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGatewaysPaginatorName
-) -> ListGatewaysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.ListPortals documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListPortals)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPortalsPaginatorName
-) -> ListPortalsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.ListProjectAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListProjectAssets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProjectAssetsPaginatorName
-) -> ListProjectAssetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotsitewise").get_paginator` method.
-
-[Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListProjects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProjectsPaginatorName
-) -> ListProjectsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("iotsitewise").get_waiter` method.
+Type annotations for `boto3.client("iotsitewise").get_waiter` method with overloads.
 
-[Waiter.AssetActive documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: AssetActiveWaiterName
-) -> AssetActiveWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("iotsitewise").get_waiter` method.
-
-[Waiter.AssetModelActive documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: AssetModelActiveWaiterName
-) -> AssetModelActiveWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("iotsitewise").get_waiter` method.
-
-[Waiter.AssetModelNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: AssetModelNotExistsWaiterName
-) -> AssetModelNotExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("iotsitewise").get_waiter` method.
-
-[Waiter.AssetNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: AssetNotExistsWaiterName
-) -> AssetNotExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("iotsitewise").get_waiter` method.
-
-[Waiter.PortalActive documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: PortalActiveWaiterName
-) -> PortalActiveWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("iotsitewise").get_waiter` method.
-
-[Waiter.PortalNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: PortalNotExistsWaiterName
-) -> PortalNotExistsWaiter:
-    pass
-```
+- `client.get_waiter("asset_active")` -> [AssetActiveWaiter](./waiters.md#assetactivewaiter)
+- `client.get_waiter("asset_model_active")` -> [AssetModelActiveWaiter](./waiters.md#assetmodelactivewaiter)
+- `client.get_waiter("asset_model_not_exists")` -> [AssetModelNotExistsWaiter](./waiters.md#assetmodelnotexistswaiter)
+- `client.get_waiter("asset_not_exists")` -> [AssetNotExistsWaiter](./waiters.md#assetnotexistswaiter)
+- `client.get_waiter("portal_active")` -> [PortalActiveWaiter](./waiters.md#portalactivewaiter)
+- `client.get_waiter("portal_not_exists")` -> [PortalNotExistsWaiter](./waiters.md#portalnotexistswaiter)

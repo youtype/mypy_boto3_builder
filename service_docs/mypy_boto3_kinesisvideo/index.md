@@ -133,10 +133,6 @@ from mypy_boto3_kinesisvideo.type_defs import ChannelInfoTypeDef, ...
 ```
 
 - [ChannelInfoTypeDef](./type_defs.md#channelinfotypedef)
-- [ResourceEndpointListItemTypeDef](./type_defs.md#resourceendpointlistitemtypedef)
-- [ResponseMetadata](./type_defs.md#responsemetadata)
-- [SingleMasterConfigurationTypeDef](./type_defs.md#singlemasterconfigurationtypedef)
-- [StreamInfoTypeDef](./type_defs.md#streaminfotypedef)
 - [ChannelNameConditionTypeDef](./type_defs.md#channelnameconditiontypedef)
 - [CreateSignalingChannelOutputTypeDef](./type_defs.md#createsignalingchanneloutputtypedef)
 - [CreateStreamOutputTypeDef](./type_defs.md#createstreamoutputtypedef)
@@ -149,6 +145,10 @@ from mypy_boto3_kinesisvideo.type_defs import ChannelInfoTypeDef, ...
 - [ListTagsForResourceOutputTypeDef](./type_defs.md#listtagsforresourceoutputtypedef)
 - [ListTagsForStreamOutputTypeDef](./type_defs.md#listtagsforstreamoutputtypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ResourceEndpointListItemTypeDef](./type_defs.md#resourceendpointlistitemtypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)
 - [SingleMasterChannelEndpointConfigurationTypeDef](./type_defs.md#singlemasterchannelendpointconfigurationtypedef)
+- [SingleMasterConfigurationTypeDef](./type_defs.md#singlemasterconfigurationtypedef)
+- [StreamInfoTypeDef](./type_defs.md#streaminfotypedef)
 - [StreamNameConditionTypeDef](./type_defs.md#streamnameconditiontypedef)
 - [TagTypeDef](./type_defs.md#tagtypedef)

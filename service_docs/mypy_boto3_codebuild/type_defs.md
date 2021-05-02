@@ -6,8 +6,15 @@ Auto-generated documentation for [CodeBuild](https://boto3.amazonaws.com/v1/docu
 type annotations stubs module [mypy_boto3_codebuild](https://pypi.org/project/mypy-boto3-codebuild/).
 
 - [Structures for boto3 CodeBuild module](#structures-for-boto3-codebuild-module)
+  - [BatchDeleteBuildsOutputTypeDef](#batchdeletebuildsoutputtypedef)
+  - [BatchGetBuildBatchesOutputTypeDef](#batchgetbuildbatchesoutputtypedef)
+  - [BatchGetBuildsOutputTypeDef](#batchgetbuildsoutputtypedef)
+  - [BatchGetProjectsOutputTypeDef](#batchgetprojectsoutputtypedef)
+  - [BatchGetReportGroupsOutputTypeDef](#batchgetreportgroupsoutputtypedef)
+  - [BatchGetReportsOutputTypeDef](#batchgetreportsoutputtypedef)
   - [BatchRestrictionsTypeDef](#batchrestrictionstypedef)
   - [BuildArtifactsTypeDef](#buildartifactstypedef)
+  - [BuildBatchFilterTypeDef](#buildbatchfiltertypedef)
   - [BuildBatchPhaseTypeDef](#buildbatchphasetypedef)
   - [BuildBatchTypeDef](#buildbatchtypedef)
   - [BuildGroupTypeDef](#buildgrouptypedef)
@@ -19,60 +26,22 @@ type annotations stubs module [mypy_boto3_codebuild](https://pypi.org/project/my
   - [CloudWatchLogsConfigTypeDef](#cloudwatchlogsconfigtypedef)
   - [CodeCoverageReportSummaryTypeDef](#codecoveragereportsummarytypedef)
   - [CodeCoverageTypeDef](#codecoveragetypedef)
+  - [CreateProjectOutputTypeDef](#createprojectoutputtypedef)
+  - [CreateReportGroupOutputTypeDef](#createreportgroupoutputtypedef)
+  - [CreateWebhookOutputTypeDef](#createwebhookoutputtypedef)
   - [DebugSessionTypeDef](#debugsessiontypedef)
+  - [DeleteBuildBatchOutputTypeDef](#deletebuildbatchoutputtypedef)
+  - [DeleteSourceCredentialsOutputTypeDef](#deletesourcecredentialsoutputtypedef)
+  - [DescribeCodeCoveragesOutputTypeDef](#describecodecoveragesoutputtypedef)
+  - [DescribeTestCasesOutputTypeDef](#describetestcasesoutputtypedef)
   - [EnvironmentImageTypeDef](#environmentimagetypedef)
   - [EnvironmentLanguageTypeDef](#environmentlanguagetypedef)
   - [EnvironmentPlatformTypeDef](#environmentplatformtypedef)
   - [EnvironmentVariableTypeDef](#environmentvariabletypedef)
   - [ExportedEnvironmentVariableTypeDef](#exportedenvironmentvariabletypedef)
-  - [GitSubmodulesConfigTypeDef](#gitsubmodulesconfigtypedef)
-  - [LogsConfigTypeDef](#logsconfigtypedef)
-  - [LogsLocationTypeDef](#logslocationtypedef)
-  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
-  - [PhaseContextTypeDef](#phasecontexttypedef)
-  - [ProjectArtifactsTypeDef](#projectartifactstypedef)
-  - [ProjectBadgeTypeDef](#projectbadgetypedef)
-  - [ProjectBuildBatchConfigTypeDef](#projectbuildbatchconfigtypedef)
-  - [ProjectCacheTypeDef](#projectcachetypedef)
-  - [ProjectEnvironmentTypeDef](#projectenvironmenttypedef)
-  - [ProjectFileSystemLocationTypeDef](#projectfilesystemlocationtypedef)
-  - [ProjectSourceTypeDef](#projectsourcetypedef)
-  - [ProjectSourceVersionTypeDef](#projectsourceversiontypedef)
-  - [ProjectTypeDef](#projecttypedef)
-  - [RegistryCredentialTypeDef](#registrycredentialtypedef)
-  - [ReportExportConfigTypeDef](#reportexportconfigtypedef)
-  - [ReportGroupTrendStatsTypeDef](#reportgrouptrendstatstypedef)
-  - [ReportGroupTypeDef](#reportgrouptypedef)
-  - [ReportTypeDef](#reporttypedef)
-  - [ReportWithRawDataTypeDef](#reportwithrawdatatypedef)
-  - [ResolvedArtifactTypeDef](#resolvedartifacttypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [S3LogsConfigTypeDef](#s3logsconfigtypedef)
-  - [S3ReportExportConfigTypeDef](#s3reportexportconfigtypedef)
-  - [SourceAuthTypeDef](#sourceauthtypedef)
-  - [SourceCredentialsInfoTypeDef](#sourcecredentialsinfotypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TestCaseTypeDef](#testcasetypedef)
-  - [TestReportSummaryTypeDef](#testreportsummarytypedef)
-  - [VpcConfigTypeDef](#vpcconfigtypedef)
-  - [WebhookFilterTypeDef](#webhookfiltertypedef)
-  - [WebhookTypeDef](#webhooktypedef)
-  - [BatchDeleteBuildsOutputTypeDef](#batchdeletebuildsoutputtypedef)
-  - [BatchGetBuildBatchesOutputTypeDef](#batchgetbuildbatchesoutputtypedef)
-  - [BatchGetBuildsOutputTypeDef](#batchgetbuildsoutputtypedef)
-  - [BatchGetProjectsOutputTypeDef](#batchgetprojectsoutputtypedef)
-  - [BatchGetReportGroupsOutputTypeDef](#batchgetreportgroupsoutputtypedef)
-  - [BatchGetReportsOutputTypeDef](#batchgetreportsoutputtypedef)
-  - [BuildBatchFilterTypeDef](#buildbatchfiltertypedef)
-  - [CreateProjectOutputTypeDef](#createprojectoutputtypedef)
-  - [CreateReportGroupOutputTypeDef](#createreportgroupoutputtypedef)
-  - [CreateWebhookOutputTypeDef](#createwebhookoutputtypedef)
-  - [DeleteBuildBatchOutputTypeDef](#deletebuildbatchoutputtypedef)
-  - [DeleteSourceCredentialsOutputTypeDef](#deletesourcecredentialsoutputtypedef)
-  - [DescribeCodeCoveragesOutputTypeDef](#describecodecoveragesoutputtypedef)
-  - [DescribeTestCasesOutputTypeDef](#describetestcasesoutputtypedef)
   - [GetReportGroupTrendOutputTypeDef](#getreportgrouptrendoutputtypedef)
   - [GetResourcePolicyOutputTypeDef](#getresourcepolicyoutputtypedef)
+  - [GitSubmodulesConfigTypeDef](#gitsubmodulesconfigtypedef)
   - [ImportSourceCredentialsOutputTypeDef](#importsourcecredentialsoutputtypedef)
   - [ListBuildBatchesForProjectOutputTypeDef](#listbuildbatchesforprojectoutputtypedef)
   - [ListBuildBatchesOutputTypeDef](#listbuildbatchesoutputtypedef)
@@ -86,19 +55,140 @@ type annotations stubs module [mypy_boto3_codebuild](https://pypi.org/project/my
   - [ListSharedProjectsOutputTypeDef](#listsharedprojectsoutputtypedef)
   - [ListSharedReportGroupsOutputTypeDef](#listsharedreportgroupsoutputtypedef)
   - [ListSourceCredentialsOutputTypeDef](#listsourcecredentialsoutputtypedef)
+  - [LogsConfigTypeDef](#logsconfigtypedef)
+  - [LogsLocationTypeDef](#logslocationtypedef)
+  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PhaseContextTypeDef](#phasecontexttypedef)
+  - [ProjectArtifactsTypeDef](#projectartifactstypedef)
+  - [ProjectBadgeTypeDef](#projectbadgetypedef)
+  - [ProjectBuildBatchConfigTypeDef](#projectbuildbatchconfigtypedef)
+  - [ProjectCacheTypeDef](#projectcachetypedef)
+  - [ProjectEnvironmentTypeDef](#projectenvironmenttypedef)
+  - [ProjectFileSystemLocationTypeDef](#projectfilesystemlocationtypedef)
+  - [ProjectSourceTypeDef](#projectsourcetypedef)
+  - [ProjectSourceVersionTypeDef](#projectsourceversiontypedef)
+  - [ProjectTypeDef](#projecttypedef)
   - [PutResourcePolicyOutputTypeDef](#putresourcepolicyoutputtypedef)
+  - [RegistryCredentialTypeDef](#registrycredentialtypedef)
+  - [ReportExportConfigTypeDef](#reportexportconfigtypedef)
   - [ReportFilterTypeDef](#reportfiltertypedef)
+  - [ReportGroupTrendStatsTypeDef](#reportgrouptrendstatstypedef)
+  - [ReportGroupTypeDef](#reportgrouptypedef)
+  - [ReportTypeDef](#reporttypedef)
+  - [ReportWithRawDataTypeDef](#reportwithrawdatatypedef)
+  - [ResolvedArtifactTypeDef](#resolvedartifacttypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [RetryBuildBatchOutputTypeDef](#retrybuildbatchoutputtypedef)
   - [RetryBuildOutputTypeDef](#retrybuildoutputtypedef)
+  - [S3LogsConfigTypeDef](#s3logsconfigtypedef)
+  - [S3ReportExportConfigTypeDef](#s3reportexportconfigtypedef)
+  - [SourceAuthTypeDef](#sourceauthtypedef)
+  - [SourceCredentialsInfoTypeDef](#sourcecredentialsinfotypedef)
   - [StartBuildBatchOutputTypeDef](#startbuildbatchoutputtypedef)
   - [StartBuildOutputTypeDef](#startbuildoutputtypedef)
   - [StopBuildBatchOutputTypeDef](#stopbuildbatchoutputtypedef)
   - [StopBuildOutputTypeDef](#stopbuildoutputtypedef)
+  - [TagTypeDef](#tagtypedef)
   - [TestCaseFilterTypeDef](#testcasefiltertypedef)
+  - [TestCaseTypeDef](#testcasetypedef)
+  - [TestReportSummaryTypeDef](#testreportsummarytypedef)
   - [UpdateProjectOutputTypeDef](#updateprojectoutputtypedef)
   - [UpdateReportGroupOutputTypeDef](#updatereportgroupoutputtypedef)
   - [UpdateWebhookOutputTypeDef](#updatewebhookoutputtypedef)
+  - [VpcConfigTypeDef](#vpcconfigtypedef)
+  - [WebhookFilterTypeDef](#webhookfiltertypedef)
+  - [WebhookTypeDef](#webhooktypedef)
+
+## BatchDeleteBuildsOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import BatchDeleteBuildsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `buildsDeleted`: `List[str]`
+- `buildsNotDeleted`: `List["BuildNotDeletedTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetBuildBatchesOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import BatchGetBuildBatchesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `buildBatches`: `List["BuildBatchTypeDef"]`
+- `buildBatchesNotFound`: `List[str]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetBuildsOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import BatchGetBuildsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `builds`: `List["BuildTypeDef"]`
+- `buildsNotFound`: `List[str]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetProjectsOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import BatchGetProjectsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `projects`: `List["ProjectTypeDef"]`
+- `projectsNotFound`: `List[str]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetReportGroupsOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import BatchGetReportGroupsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `reportGroups`: `List["ReportGroupTypeDef"]`
+- `reportGroupsNotFound`: `List[str]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetReportsOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import BatchGetReportsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `reports`: `List["ReportTypeDef"]`
+- `reportsNotFound`: `List[str]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
 
 ## BatchRestrictionsTypeDef
 
@@ -131,6 +221,19 @@ Optional fields:
 - `encryptionDisabled`: `bool`
 - `artifactIdentifier`: `str`
 - `bucketOwnerAccess`: `BucketOwnerAccess`
+
+
+## BuildBatchFilterTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import BuildBatchFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `StatusType`
 
 
 ## BuildBatchPhaseTypeDef
@@ -374,6 +477,48 @@ Optional fields:
 - `expired`: `datetime`
 
 
+## CreateProjectOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import CreateProjectOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `project`: `"ProjectTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateReportGroupOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import CreateReportGroupOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `reportGroup`: `"ReportGroupTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateWebhookOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import CreateWebhookOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `webhook`: `"WebhookTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## DebugSessionTypeDef
 
 ```python
@@ -386,6 +531,66 @@ from mypy_boto3_codebuild.type_defs import DebugSessionTypeDef
 Optional fields:
 - `sessionEnabled`: `bool`
 - `sessionTarget`: `str`
+
+
+## DeleteBuildBatchOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import DeleteBuildBatchOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `statusCode`: `str`
+- `buildsDeleted`: `List[str]`
+- `buildsNotDeleted`: `List["BuildNotDeletedTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DeleteSourceCredentialsOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import DeleteSourceCredentialsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeCodeCoveragesOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import DescribeCodeCoveragesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `codeCoverages`: `List["CodeCoverageTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeTestCasesOutputTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import DescribeTestCasesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `testCases`: `List["TestCaseTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## EnvironmentImageTypeDef
@@ -462,771 +667,6 @@ Optional fields:
 - `value`: `str`
 
 
-## GitSubmodulesConfigTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import GitSubmodulesConfigTypeDef
-```
-
-
-Required fields:
-- `fetchSubmodules`: `bool`
-
-
-
-
-## LogsConfigTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import LogsConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `cloudWatchLogs`: `"CloudWatchLogsConfigTypeDef"`
-- `s3Logs`: `"S3LogsConfigTypeDef"`
-
-
-## LogsLocationTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import LogsLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `groupName`: `str`
-- `streamName`: `str`
-- `deepLink`: `str`
-- `s3DeepLink`: `str`
-- `cloudWatchLogsArn`: `str`
-- `s3LogsArn`: `str`
-- `cloudWatchLogs`: `"CloudWatchLogsConfigTypeDef"`
-- `s3Logs`: `"S3LogsConfigTypeDef"`
-
-
-## NetworkInterfaceTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import NetworkInterfaceTypeDef
-```
-
-
-
-
-Optional fields:
-- `subnetId`: `str`
-- `networkInterfaceId`: `str`
-
-
-## PhaseContextTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import PhaseContextTypeDef
-```
-
-
-
-
-Optional fields:
-- `statusCode`: `str`
-- `message`: `str`
-
-
-## ProjectArtifactsTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ProjectArtifactsTypeDef
-```
-
-
-Required fields:
-- `type`: `ArtifactsType`
-
-
-
-Optional fields:
-- `location`: `str`
-- `path`: `str`
-- `namespaceType`: `ArtifactNamespace`
-- `name`: `str`
-- `packaging`: `ArtifactPackaging`
-- `overrideArtifactName`: `bool`
-- `encryptionDisabled`: `bool`
-- `artifactIdentifier`: `str`
-- `bucketOwnerAccess`: `BucketOwnerAccess`
-
-
-## ProjectBadgeTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ProjectBadgeTypeDef
-```
-
-
-
-
-Optional fields:
-- `badgeEnabled`: `bool`
-- `badgeRequestUrl`: `str`
-
-
-## ProjectBuildBatchConfigTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ProjectBuildBatchConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `serviceRole`: `str`
-- `combineArtifacts`: `bool`
-- `restrictions`: `"BatchRestrictionsTypeDef"`
-- `timeoutInMins`: `int`
-
-
-## ProjectCacheTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ProjectCacheTypeDef
-```
-
-
-Required fields:
-- `type`: `CacheType`
-
-
-
-Optional fields:
-- `location`: `str`
-- `modes`: `List[CacheMode]`
-
-
-## ProjectEnvironmentTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ProjectEnvironmentTypeDef
-```
-
-
-Required fields:
-- `type`: `EnvironmentType`
-- `image`: `str`
-- `computeType`: `ComputeType`
-
-
-
-Optional fields:
-- `environmentVariables`: `List["EnvironmentVariableTypeDef"]`
-- `privilegedMode`: `bool`
-- `certificate`: `str`
-- `registryCredential`: `"RegistryCredentialTypeDef"`
-- `imagePullCredentialsType`: `ImagePullCredentialsType`
-
-
-## ProjectFileSystemLocationTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ProjectFileSystemLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `type`: `FileSystemType`
-- `location`: `str`
-- `mountPoint`: `str`
-- `identifier`: `str`
-- `mountOptions`: `str`
-
-
-## ProjectSourceTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ProjectSourceTypeDef
-```
-
-
-Required fields:
-- `type`: `SourceType`
-
-
-
-Optional fields:
-- `location`: `str`
-- `gitCloneDepth`: `int`
-- `gitSubmodulesConfig`: `"GitSubmodulesConfigTypeDef"`
-- `buildspec`: `str`
-- `auth`: `"SourceAuthTypeDef"`
-- `reportBuildStatus`: `bool`
-- `buildStatusConfig`: `"BuildStatusConfigTypeDef"`
-- `insecureSsl`: `bool`
-- `sourceIdentifier`: `str`
-
-
-## ProjectSourceVersionTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ProjectSourceVersionTypeDef
-```
-
-
-Required fields:
-- `sourceIdentifier`: `str`
-- `sourceVersion`: `str`
-
-
-
-
-## ProjectTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ProjectTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `description`: `str`
-- `source`: `"ProjectSourceTypeDef"`
-- `secondarySources`: `List["ProjectSourceTypeDef"]`
-- `sourceVersion`: `str`
-- `secondarySourceVersions`: `List["ProjectSourceVersionTypeDef"]`
-- `artifacts`: `"ProjectArtifactsTypeDef"`
-- `secondaryArtifacts`: `List["ProjectArtifactsTypeDef"]`
-- `cache`: `"ProjectCacheTypeDef"`
-- `environment`: `"ProjectEnvironmentTypeDef"`
-- `serviceRole`: `str`
-- `timeoutInMinutes`: `int`
-- `queuedTimeoutInMinutes`: `int`
-- `encryptionKey`: `str`
-- `tags`: `List["TagTypeDef"]`
-- `created`: `datetime`
-- `lastModified`: `datetime`
-- `webhook`: `"WebhookTypeDef"`
-- `vpcConfig`: `"VpcConfigTypeDef"`
-- `badge`: `"ProjectBadgeTypeDef"`
-- `logsConfig`: `"LogsConfigTypeDef"`
-- `fileSystemLocations`: `List["ProjectFileSystemLocationTypeDef"]`
-- `buildBatchConfig`: `"ProjectBuildBatchConfigTypeDef"`
-- `concurrentBuildLimit`: `int`
-
-
-## RegistryCredentialTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import RegistryCredentialTypeDef
-```
-
-
-Required fields:
-- `credential`: `str`
-- `credentialProvider`: `CredentialProviderType`
-
-
-
-
-## ReportExportConfigTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ReportExportConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `exportConfigType`: `ReportExportConfigType`
-- `s3Destination`: `"S3ReportExportConfigTypeDef"`
-
-
-## ReportGroupTrendStatsTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ReportGroupTrendStatsTypeDef
-```
-
-
-
-
-Optional fields:
-- `average`: `str`
-- `max`: `str`
-- `min`: `str`
-
-
-## ReportGroupTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ReportGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `type`: `ReportType`
-- `exportConfig`: `"ReportExportConfigTypeDef"`
-- `created`: `datetime`
-- `lastModified`: `datetime`
-- `tags`: `List["TagTypeDef"]`
-- `status`: `ReportGroupStatusType`
-
-
-## ReportTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ReportTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `type`: `ReportType`
-- `name`: `str`
-- `reportGroupArn`: `str`
-- `executionId`: `str`
-- `status`: `ReportStatusType`
-- `created`: `datetime`
-- `expired`: `datetime`
-- `exportConfig`: `"ReportExportConfigTypeDef"`
-- `truncated`: `bool`
-- `testSummary`: `"TestReportSummaryTypeDef"`
-- `codeCoverageSummary`: `"CodeCoverageReportSummaryTypeDef"`
-
-
-## ReportWithRawDataTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ReportWithRawDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `reportArn`: `str`
-- `data`: `str`
-
-
-## ResolvedArtifactTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import ResolvedArtifactTypeDef
-```
-
-
-
-
-Optional fields:
-- `type`: `ArtifactsType`
-- `location`: `str`
-- `identifier`: `str`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_codebuild.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## S3LogsConfigTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import S3LogsConfigTypeDef
-```
-
-
-Required fields:
-- `status`: `LogsConfigStatusType`
-
-
-
-Optional fields:
-- `location`: `str`
-- `encryptionDisabled`: `bool`
-- `bucketOwnerAccess`: `BucketOwnerAccess`
-
-
-## S3ReportExportConfigTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import S3ReportExportConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `bucket`: `str`
-- `bucketOwner`: `str`
-- `path`: `str`
-- `packaging`: `ReportPackagingType`
-- `encryptionKey`: `str`
-- `encryptionDisabled`: `bool`
-
-
-## SourceAuthTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import SourceAuthTypeDef
-```
-
-
-Required fields:
-- `type`: `SourceAuthType`
-
-
-
-Optional fields:
-- `resource`: `str`
-
-
-## SourceCredentialsInfoTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import SourceCredentialsInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `serverType`: `ServerType`
-- `authType`: `AuthType`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `key`: `str`
-- `value`: `str`
-
-
-## TestCaseTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import TestCaseTypeDef
-```
-
-
-
-
-Optional fields:
-- `reportArn`: `str`
-- `testRawDataPath`: `str`
-- `prefix`: `str`
-- `name`: `str`
-- `status`: `str`
-- `durationInNanoSeconds`: `int`
-- `message`: `str`
-- `expired`: `datetime`
-
-
-## TestReportSummaryTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import TestReportSummaryTypeDef
-```
-
-
-Required fields:
-- `total`: `int`
-- `statusCounts`: `Dict[str, int]`
-- `durationInNanoSeconds`: `int`
-
-
-
-
-## VpcConfigTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import VpcConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `vpcId`: `str`
-- `subnets`: `List[str]`
-- `securityGroupIds`: `List[str]`
-
-
-## WebhookFilterTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import WebhookFilterTypeDef
-```
-
-
-Required fields:
-- `type`: `WebhookFilterType`
-- `pattern`: `str`
-
-
-
-Optional fields:
-- `excludeMatchedPattern`: `bool`
-
-
-## WebhookTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import WebhookTypeDef
-```
-
-
-
-
-Optional fields:
-- `url`: `str`
-- `payloadUrl`: `str`
-- `secret`: `str`
-- `branchFilter`: `str`
-- `filterGroups`: `List[List["WebhookFilterTypeDef"]]`
-- `buildType`: `WebhookBuildType`
-- `lastModifiedSecret`: `datetime`
-
-
-## BatchDeleteBuildsOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import BatchDeleteBuildsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `buildsDeleted`: `List[str]`
-- `buildsNotDeleted`: `List["BuildNotDeletedTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetBuildBatchesOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import BatchGetBuildBatchesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `buildBatches`: `List["BuildBatchTypeDef"]`
-- `buildBatchesNotFound`: `List[str]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetBuildsOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import BatchGetBuildsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `builds`: `List["BuildTypeDef"]`
-- `buildsNotFound`: `List[str]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetProjectsOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import BatchGetProjectsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `projects`: `List["ProjectTypeDef"]`
-- `projectsNotFound`: `List[str]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetReportGroupsOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import BatchGetReportGroupsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `reportGroups`: `List["ReportGroupTypeDef"]`
-- `reportGroupsNotFound`: `List[str]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetReportsOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import BatchGetReportsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `reports`: `List["ReportTypeDef"]`
-- `reportsNotFound`: `List[str]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BuildBatchFilterTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import BuildBatchFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `StatusType`
-
-
-## CreateProjectOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import CreateProjectOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `project`: `"ProjectTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateReportGroupOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import CreateReportGroupOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `reportGroup`: `"ReportGroupTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateWebhookOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import CreateWebhookOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `webhook`: `"WebhookTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteBuildBatchOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import DeleteBuildBatchOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `statusCode`: `str`
-- `buildsDeleted`: `List[str]`
-- `buildsNotDeleted`: `List["BuildNotDeletedTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteSourceCredentialsOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import DeleteSourceCredentialsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeCodeCoveragesOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import DescribeCodeCoveragesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `codeCoverages`: `List["CodeCoverageTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeTestCasesOutputTypeDef
-
-```python
-from mypy_boto3_codebuild.type_defs import DescribeTestCasesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `testCases`: `List["TestCaseTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
 ## GetReportGroupTrendOutputTypeDef
 
 ```python
@@ -1254,6 +694,19 @@ from mypy_boto3_codebuild.type_defs import GetResourcePolicyOutputTypeDef
 Optional fields:
 - `policy`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GitSubmodulesConfigTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import GitSubmodulesConfigTypeDef
+```
+
+
+Required fields:
+- `fetchSubmodules`: `bool`
+
+
 
 
 ## ImportSourceCredentialsOutputTypeDef
@@ -1448,6 +901,54 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## LogsConfigTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import LogsConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `cloudWatchLogs`: `"CloudWatchLogsConfigTypeDef"`
+- `s3Logs`: `"S3LogsConfigTypeDef"`
+
+
+## LogsLocationTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import LogsLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `groupName`: `str`
+- `streamName`: `str`
+- `deepLink`: `str`
+- `s3DeepLink`: `str`
+- `cloudWatchLogsArn`: `str`
+- `s3LogsArn`: `str`
+- `cloudWatchLogs`: `"CloudWatchLogsConfigTypeDef"`
+- `s3Logs`: `"S3LogsConfigTypeDef"`
+
+
+## NetworkInterfaceTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import NetworkInterfaceTypeDef
+```
+
+
+
+
+Optional fields:
+- `subnetId`: `str`
+- `networkInterfaceId`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -1461,6 +962,205 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PhaseContextTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import PhaseContextTypeDef
+```
+
+
+
+
+Optional fields:
+- `statusCode`: `str`
+- `message`: `str`
+
+
+## ProjectArtifactsTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ProjectArtifactsTypeDef
+```
+
+
+Required fields:
+- `type`: `ArtifactsType`
+
+
+
+Optional fields:
+- `location`: `str`
+- `path`: `str`
+- `namespaceType`: `ArtifactNamespace`
+- `name`: `str`
+- `packaging`: `ArtifactPackaging`
+- `overrideArtifactName`: `bool`
+- `encryptionDisabled`: `bool`
+- `artifactIdentifier`: `str`
+- `bucketOwnerAccess`: `BucketOwnerAccess`
+
+
+## ProjectBadgeTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ProjectBadgeTypeDef
+```
+
+
+
+
+Optional fields:
+- `badgeEnabled`: `bool`
+- `badgeRequestUrl`: `str`
+
+
+## ProjectBuildBatchConfigTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ProjectBuildBatchConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `serviceRole`: `str`
+- `combineArtifacts`: `bool`
+- `restrictions`: `"BatchRestrictionsTypeDef"`
+- `timeoutInMins`: `int`
+
+
+## ProjectCacheTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ProjectCacheTypeDef
+```
+
+
+Required fields:
+- `type`: `CacheType`
+
+
+
+Optional fields:
+- `location`: `str`
+- `modes`: `List[CacheMode]`
+
+
+## ProjectEnvironmentTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ProjectEnvironmentTypeDef
+```
+
+
+Required fields:
+- `type`: `EnvironmentType`
+- `image`: `str`
+- `computeType`: `ComputeType`
+
+
+
+Optional fields:
+- `environmentVariables`: `List["EnvironmentVariableTypeDef"]`
+- `privilegedMode`: `bool`
+- `certificate`: `str`
+- `registryCredential`: `"RegistryCredentialTypeDef"`
+- `imagePullCredentialsType`: `ImagePullCredentialsType`
+
+
+## ProjectFileSystemLocationTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ProjectFileSystemLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `type`: `Literal['EFS']`
+- `location`: `str`
+- `mountPoint`: `str`
+- `identifier`: `str`
+- `mountOptions`: `str`
+
+
+## ProjectSourceTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ProjectSourceTypeDef
+```
+
+
+Required fields:
+- `type`: `SourceType`
+
+
+
+Optional fields:
+- `location`: `str`
+- `gitCloneDepth`: `int`
+- `gitSubmodulesConfig`: `"GitSubmodulesConfigTypeDef"`
+- `buildspec`: `str`
+- `auth`: `"SourceAuthTypeDef"`
+- `reportBuildStatus`: `bool`
+- `buildStatusConfig`: `"BuildStatusConfigTypeDef"`
+- `insecureSsl`: `bool`
+- `sourceIdentifier`: `str`
+
+
+## ProjectSourceVersionTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ProjectSourceVersionTypeDef
+```
+
+
+Required fields:
+- `sourceIdentifier`: `str`
+- `sourceVersion`: `str`
+
+
+
+
+## ProjectTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ProjectTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `description`: `str`
+- `source`: `"ProjectSourceTypeDef"`
+- `secondarySources`: `List["ProjectSourceTypeDef"]`
+- `sourceVersion`: `str`
+- `secondarySourceVersions`: `List["ProjectSourceVersionTypeDef"]`
+- `artifacts`: `"ProjectArtifactsTypeDef"`
+- `secondaryArtifacts`: `List["ProjectArtifactsTypeDef"]`
+- `cache`: `"ProjectCacheTypeDef"`
+- `environment`: `"ProjectEnvironmentTypeDef"`
+- `serviceRole`: `str`
+- `timeoutInMinutes`: `int`
+- `queuedTimeoutInMinutes`: `int`
+- `encryptionKey`: `str`
+- `tags`: `List["TagTypeDef"]`
+- `created`: `datetime`
+- `lastModified`: `datetime`
+- `webhook`: `"WebhookTypeDef"`
+- `vpcConfig`: `"VpcConfigTypeDef"`
+- `badge`: `"ProjectBadgeTypeDef"`
+- `logsConfig`: `"LogsConfigTypeDef"`
+- `fileSystemLocations`: `List["ProjectFileSystemLocationTypeDef"]`
+- `buildBatchConfig`: `"ProjectBuildBatchConfigTypeDef"`
+- `concurrentBuildLimit`: `int`
 
 
 ## PutResourcePolicyOutputTypeDef
@@ -1477,6 +1177,34 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## RegistryCredentialTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import RegistryCredentialTypeDef
+```
+
+
+Required fields:
+- `credential`: `str`
+- `credentialProvider`: `Literal['SECRETS_MANAGER']`
+
+
+
+
+## ReportExportConfigTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ReportExportConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `exportConfigType`: `ReportExportConfigType`
+- `s3Destination`: `"S3ReportExportConfigTypeDef"`
+
+
 ## ReportFilterTypeDef
 
 ```python
@@ -1488,6 +1216,111 @@ from mypy_boto3_codebuild.type_defs import ReportFilterTypeDef
 
 Optional fields:
 - `status`: `ReportStatusType`
+
+
+## ReportGroupTrendStatsTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ReportGroupTrendStatsTypeDef
+```
+
+
+
+
+Optional fields:
+- `average`: `str`
+- `max`: `str`
+- `min`: `str`
+
+
+## ReportGroupTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ReportGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `type`: `ReportType`
+- `exportConfig`: `"ReportExportConfigTypeDef"`
+- `created`: `datetime`
+- `lastModified`: `datetime`
+- `tags`: `List["TagTypeDef"]`
+- `status`: `ReportGroupStatusType`
+
+
+## ReportTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ReportTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `type`: `ReportType`
+- `name`: `str`
+- `reportGroupArn`: `str`
+- `executionId`: `str`
+- `status`: `ReportStatusType`
+- `created`: `datetime`
+- `expired`: `datetime`
+- `exportConfig`: `"ReportExportConfigTypeDef"`
+- `truncated`: `bool`
+- `testSummary`: `"TestReportSummaryTypeDef"`
+- `codeCoverageSummary`: `"CodeCoverageReportSummaryTypeDef"`
+
+
+## ReportWithRawDataTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ReportWithRawDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `reportArn`: `str`
+- `data`: `str`
+
+
+## ResolvedArtifactTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import ResolvedArtifactTypeDef
+```
+
+
+
+
+Optional fields:
+- `type`: `ArtifactsType`
+- `location`: `str`
+- `identifier`: `str`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_codebuild.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
 
 
 ## RetryBuildBatchOutputTypeDef
@@ -1516,6 +1349,73 @@ from mypy_boto3_codebuild.type_defs import RetryBuildOutputTypeDef
 Optional fields:
 - `build`: `"BuildTypeDef"`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## S3LogsConfigTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import S3LogsConfigTypeDef
+```
+
+
+Required fields:
+- `status`: `LogsConfigStatusType`
+
+
+
+Optional fields:
+- `location`: `str`
+- `encryptionDisabled`: `bool`
+- `bucketOwnerAccess`: `BucketOwnerAccess`
+
+
+## S3ReportExportConfigTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import S3ReportExportConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `bucket`: `str`
+- `bucketOwner`: `str`
+- `path`: `str`
+- `packaging`: `ReportPackagingType`
+- `encryptionKey`: `str`
+- `encryptionDisabled`: `bool`
+
+
+## SourceAuthTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import SourceAuthTypeDef
+```
+
+
+Required fields:
+- `type`: `Literal['OAUTH']`
+
+
+
+Optional fields:
+- `resource`: `str`
+
+
+## SourceCredentialsInfoTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import SourceCredentialsInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `serverType`: `ServerType`
+- `authType`: `AuthType`
 
 
 ## StartBuildBatchOutputTypeDef
@@ -1574,6 +1474,20 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## TagTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `key`: `str`
+- `value`: `str`
+
+
 ## TestCaseFilterTypeDef
 
 ```python
@@ -1586,6 +1500,41 @@ from mypy_boto3_codebuild.type_defs import TestCaseFilterTypeDef
 Optional fields:
 - `status`: `str`
 - `keyword`: `str`
+
+
+## TestCaseTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import TestCaseTypeDef
+```
+
+
+
+
+Optional fields:
+- `reportArn`: `str`
+- `testRawDataPath`: `str`
+- `prefix`: `str`
+- `name`: `str`
+- `status`: `str`
+- `durationInNanoSeconds`: `int`
+- `message`: `str`
+- `expired`: `datetime`
+
+
+## TestReportSummaryTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import TestReportSummaryTypeDef
+```
+
+
+Required fields:
+- `total`: `int`
+- `statusCounts`: `Dict[str, int]`
+- `durationInNanoSeconds`: `int`
+
+
 
 
 ## UpdateProjectOutputTypeDef
@@ -1628,4 +1577,55 @@ from mypy_boto3_codebuild.type_defs import UpdateWebhookOutputTypeDef
 Optional fields:
 - `webhook`: `"WebhookTypeDef"`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## VpcConfigTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import VpcConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `vpcId`: `str`
+- `subnets`: `List[str]`
+- `securityGroupIds`: `List[str]`
+
+
+## WebhookFilterTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import WebhookFilterTypeDef
+```
+
+
+Required fields:
+- `type`: `WebhookFilterType`
+- `pattern`: `str`
+
+
+
+Optional fields:
+- `excludeMatchedPattern`: `bool`
+
+
+## WebhookTypeDef
+
+```python
+from mypy_boto3_codebuild.type_defs import WebhookTypeDef
+```
+
+
+
+
+Optional fields:
+- `url`: `str`
+- `payloadUrl`: `str`
+- `secret`: `str`
+- `branchFilter`: `str`
+- `filterGroups`: `List[List["WebhookFilterTypeDef"]]`
+- `buildType`: `WebhookBuildType`
+- `lastModifiedSecret`: `datetime`
 

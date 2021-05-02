@@ -32,8 +32,6 @@ type annotations stubs module [mypy_boto3_cloudhsm](https://pypi.org/project/myp
     - [modify_luna_client](#modify_luna_client)
     - [remove_tags_from_resource](#remove_tags_from_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## CloudHSMClient
 
@@ -124,7 +122,7 @@ def create_hsm(
     SubnetId: str,
     SshKey: str,
     IamRoleArn: str,
-    SubscriptionType: SubscriptionType,
+    SubscriptionType: Literal['PRODUCTION'],
     EniIp: str = None,
     ExternalId: str = None,
     ClientToken: str = None,
@@ -401,47 +399,14 @@ def remove_tags_from_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("cloudhsm").get_paginator` method.
-
-[Paginator.ListHapgs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHapgs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListHapgsPaginatorName
-) -> ListHapgsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("cloudhsm").get_paginator` method.
+Type annotations for `boto3.client("cloudhsm").get_paginator` method with overloads.
 
-[Paginator.ListHsms documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHsms)
+- `client.get_paginator("list_hapgs")` -> [ListHapgsPaginator](./paginators.md#listhapgspaginator)
+- `client.get_paginator("list_hsms")` -> [ListHsmsPaginator](./paginators.md#listhsmspaginator)
+- `client.get_paginator("list_luna_clients")` -> [ListLunaClientsPaginator](./paginators.md#listlunaclientspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListHsmsPaginatorName
-) -> ListHsmsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("cloudhsm").get_paginator` method.
-
-[Paginator.ListLunaClients documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudhsm.html#CloudHSM.Paginator.ListLunaClients)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLunaClientsPaginatorName
-) -> ListLunaClientsPaginator:
-    pass
-```

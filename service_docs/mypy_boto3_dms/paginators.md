@@ -161,7 +161,7 @@ class DescribeEventsPaginator(Boto3Paginator):
     def paginate(
         self,
         SourceIdentifier: str = None,
-        SourceType: SourceType = None,
+        SourceType: Literal['replication-instance'] = None,
         StartTime: datetime = None,
         EndTime: datetime = None,
         Duration: int = None,

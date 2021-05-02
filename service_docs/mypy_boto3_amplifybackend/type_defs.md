@@ -12,27 +12,16 @@ type annotations stubs module [mypy_boto3_amplifybackend](https://pypi.org/proje
   - [BackendAPIResourceConfigTypeDef](#backendapiresourceconfigtypedef)
   - [BackendAuthSocialProviderConfigTypeDef](#backendauthsocialproviderconfigtypedef)
   - [BackendJobRespObjTypeDef](#backendjobrespobjtypedef)
+  - [CloneBackendResponseTypeDef](#clonebackendresponsetypedef)
+  - [CreateBackendAPIResponseTypeDef](#createbackendapiresponsetypedef)
   - [CreateBackendAuthForgotPasswordConfigTypeDef](#createbackendauthforgotpasswordconfigtypedef)
   - [CreateBackendAuthIdentityPoolConfigTypeDef](#createbackendauthidentitypoolconfigtypedef)
   - [CreateBackendAuthMFAConfigTypeDef](#createbackendauthmfaconfigtypedef)
   - [CreateBackendAuthOAuthConfigTypeDef](#createbackendauthoauthconfigtypedef)
   - [CreateBackendAuthPasswordPolicyConfigTypeDef](#createbackendauthpasswordpolicyconfigtypedef)
   - [CreateBackendAuthResourceConfigTypeDef](#createbackendauthresourceconfigtypedef)
-  - [CreateBackendAuthUserPoolConfigTypeDef](#createbackendauthuserpoolconfigtypedef)
-  - [EmailSettingsTypeDef](#emailsettingstypedef)
-  - [LoginAuthConfigReqObjTypeDef](#loginauthconfigreqobjtypedef)
-  - [SettingsTypeDef](#settingstypedef)
-  - [SmsSettingsTypeDef](#smssettingstypedef)
-  - [SocialProviderSettingsTypeDef](#socialprovidersettingstypedef)
-  - [UpdateBackendAuthForgotPasswordConfigTypeDef](#updatebackendauthforgotpasswordconfigtypedef)
-  - [UpdateBackendAuthIdentityPoolConfigTypeDef](#updatebackendauthidentitypoolconfigtypedef)
-  - [UpdateBackendAuthMFAConfigTypeDef](#updatebackendauthmfaconfigtypedef)
-  - [UpdateBackendAuthOAuthConfigTypeDef](#updatebackendauthoauthconfigtypedef)
-  - [UpdateBackendAuthPasswordPolicyConfigTypeDef](#updatebackendauthpasswordpolicyconfigtypedef)
-  - [UpdateBackendAuthUserPoolConfigTypeDef](#updatebackendauthuserpoolconfigtypedef)
-  - [CloneBackendResponseTypeDef](#clonebackendresponsetypedef)
-  - [CreateBackendAPIResponseTypeDef](#createbackendapiresponsetypedef)
   - [CreateBackendAuthResponseTypeDef](#createbackendauthresponsetypedef)
+  - [CreateBackendAuthUserPoolConfigTypeDef](#createbackendauthuserpoolconfigtypedef)
   - [CreateBackendConfigResponseTypeDef](#createbackendconfigresponsetypedef)
   - [CreateBackendResponseTypeDef](#createbackendresponsetypedef)
   - [CreateTokenResponseTypeDef](#createtokenresponsetypedef)
@@ -40,6 +29,7 @@ type annotations stubs module [mypy_boto3_amplifybackend](https://pypi.org/proje
   - [DeleteBackendAuthResponseTypeDef](#deletebackendauthresponsetypedef)
   - [DeleteBackendResponseTypeDef](#deletebackendresponsetypedef)
   - [DeleteTokenResponseTypeDef](#deletetokenresponsetypedef)
+  - [EmailSettingsTypeDef](#emailsettingstypedef)
   - [GenerateBackendAPIModelsResponseTypeDef](#generatebackendapimodelsresponsetypedef)
   - [GetBackendAPIModelsResponseTypeDef](#getbackendapimodelsresponsetypedef)
   - [GetBackendAPIResponseTypeDef](#getbackendapiresponsetypedef)
@@ -48,12 +38,22 @@ type annotations stubs module [mypy_boto3_amplifybackend](https://pypi.org/proje
   - [GetBackendResponseTypeDef](#getbackendresponsetypedef)
   - [GetTokenResponseTypeDef](#gettokenresponsetypedef)
   - [ListBackendJobsResponseTypeDef](#listbackendjobsresponsetypedef)
+  - [LoginAuthConfigReqObjTypeDef](#loginauthconfigreqobjtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [RemoveAllBackendsResponseTypeDef](#removeallbackendsresponsetypedef)
   - [RemoveBackendConfigResponseTypeDef](#removebackendconfigresponsetypedef)
+  - [SettingsTypeDef](#settingstypedef)
+  - [SmsSettingsTypeDef](#smssettingstypedef)
+  - [SocialProviderSettingsTypeDef](#socialprovidersettingstypedef)
   - [UpdateBackendAPIResponseTypeDef](#updatebackendapiresponsetypedef)
+  - [UpdateBackendAuthForgotPasswordConfigTypeDef](#updatebackendauthforgotpasswordconfigtypedef)
+  - [UpdateBackendAuthIdentityPoolConfigTypeDef](#updatebackendauthidentitypoolconfigtypedef)
+  - [UpdateBackendAuthMFAConfigTypeDef](#updatebackendauthmfaconfigtypedef)
+  - [UpdateBackendAuthOAuthConfigTypeDef](#updatebackendauthoauthconfigtypedef)
+  - [UpdateBackendAuthPasswordPolicyConfigTypeDef](#updatebackendauthpasswordpolicyconfigtypedef)
   - [UpdateBackendAuthResourceConfigTypeDef](#updatebackendauthresourceconfigtypedef)
   - [UpdateBackendAuthResponseTypeDef](#updatebackendauthresponsetypedef)
+  - [UpdateBackendAuthUserPoolConfigTypeDef](#updatebackendauthuserpoolconfigtypedef)
   - [UpdateBackendConfigResponseTypeDef](#updatebackendconfigresponsetypedef)
   - [UpdateBackendJobResponseTypeDef](#updatebackendjobresponsetypedef)
 
@@ -158,6 +158,42 @@ Optional fields:
 - `UpdateTime`: `str`
 
 
+## CloneBackendResponseTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import CloneBackendResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AppId`: `str`
+- `BackendEnvironmentName`: `str`
+- `Error`: `str`
+- `JobId`: `str`
+- `Operation`: `str`
+- `Status`: `str`
+
+
+## CreateBackendAPIResponseTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import CreateBackendAPIResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AppId`: `str`
+- `BackendEnvironmentName`: `str`
+- `Error`: `str`
+- `JobId`: `str`
+- `Operation`: `str`
+- `Status`: `str`
+
+
 ## CreateBackendAuthForgotPasswordConfigTypeDef
 
 ```python
@@ -250,13 +286,31 @@ from mypy_boto3_amplifybackend.type_defs import CreateBackendAuthResourceConfigT
 
 Required fields:
 - `AuthResources`: `AuthResources`
-- `Service`: `Service`
+- `Service`: `Literal['COGNITO']`
 - `UserPoolConfigs`: `"CreateBackendAuthUserPoolConfigTypeDef"`
 
 
 
 Optional fields:
 - `IdentityPoolConfigs`: `"CreateBackendAuthIdentityPoolConfigTypeDef"`
+
+
+## CreateBackendAuthResponseTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import CreateBackendAuthResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AppId`: `str`
+- `BackendEnvironmentName`: `str`
+- `Error`: `str`
+- `JobId`: `str`
+- `Operation`: `str`
+- `Status`: `str`
 
 
 ## CreateBackendAuthUserPoolConfigTypeDef
@@ -278,222 +332,6 @@ Optional fields:
 - `Mfa`: `"CreateBackendAuthMFAConfigTypeDef"`
 - `OAuth`: `"CreateBackendAuthOAuthConfigTypeDef"`
 - `PasswordPolicy`: `"CreateBackendAuthPasswordPolicyConfigTypeDef"`
-
-
-## EmailSettingsTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import EmailSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `EmailMessage`: `str`
-- `EmailSubject`: `str`
-
-
-## LoginAuthConfigReqObjTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import LoginAuthConfigReqObjTypeDef
-```
-
-
-
-
-Optional fields:
-- `AwsCognitoIdentityPoolId`: `str`
-- `AwsCognitoRegion`: `str`
-- `AwsUserPoolsId`: `str`
-- `AwsUserPoolsWebClientId`: `str`
-
-
-## SettingsTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import SettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `MfaTypes`: `List[MfaTypesElement]`
-- `SmsMessage`: `str`
-
-
-## SmsSettingsTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import SmsSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `SmsMessage`: `str`
-
-
-## SocialProviderSettingsTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import SocialProviderSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Facebook`: `"BackendAuthSocialProviderConfigTypeDef"`
-- `Google`: `"BackendAuthSocialProviderConfigTypeDef"`
-- `LoginWithAmazon`: `"BackendAuthSocialProviderConfigTypeDef"`
-
-
-## UpdateBackendAuthForgotPasswordConfigTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthForgotPasswordConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeliveryMethod`: `DeliveryMethod`
-- `EmailSettings`: `"EmailSettingsTypeDef"`
-- `SmsSettings`: `"SmsSettingsTypeDef"`
-
-
-## UpdateBackendAuthIdentityPoolConfigTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthIdentityPoolConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `UnauthenticatedLogin`: `bool`
-
-
-## UpdateBackendAuthMFAConfigTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthMFAConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MFAMode`: `MFAMode`
-- `Settings`: `"SettingsTypeDef"`
-
-
-## UpdateBackendAuthOAuthConfigTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthOAuthConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `DomainPrefix`: `str`
-- `OAuthGrantType`: `OAuthGrantType`
-- `OAuthScopes`: `List[OAuthScopesElement]`
-- `RedirectSignInURIs`: `List[str]`
-- `RedirectSignOutURIs`: `List[str]`
-- `SocialProviderSettings`: `"SocialProviderSettingsTypeDef"`
-
-
-## UpdateBackendAuthPasswordPolicyConfigTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthPasswordPolicyConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `AdditionalConstraints`: `List[AdditionalConstraintsElement]`
-- `MinimumLength`: `float`
-
-
-## UpdateBackendAuthUserPoolConfigTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthUserPoolConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `ForgotPassword`: `"UpdateBackendAuthForgotPasswordConfigTypeDef"`
-- `Mfa`: `"UpdateBackendAuthMFAConfigTypeDef"`
-- `OAuth`: `"UpdateBackendAuthOAuthConfigTypeDef"`
-- `PasswordPolicy`: `"UpdateBackendAuthPasswordPolicyConfigTypeDef"`
-
-
-## CloneBackendResponseTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import CloneBackendResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AppId`: `str`
-- `BackendEnvironmentName`: `str`
-- `Error`: `str`
-- `JobId`: `str`
-- `Operation`: `str`
-- `Status`: `str`
-
-
-## CreateBackendAPIResponseTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import CreateBackendAPIResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AppId`: `str`
-- `BackendEnvironmentName`: `str`
-- `Error`: `str`
-- `JobId`: `str`
-- `Operation`: `str`
-- `Status`: `str`
-
-
-## CreateBackendAuthResponseTypeDef
-
-```python
-from mypy_boto3_amplifybackend.type_defs import CreateBackendAuthResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AppId`: `str`
-- `BackendEnvironmentName`: `str`
-- `Error`: `str`
-- `JobId`: `str`
-- `Operation`: `str`
-- `Status`: `str`
 
 
 ## CreateBackendConfigResponseTypeDef
@@ -611,6 +449,20 @@ from mypy_boto3_amplifybackend.type_defs import DeleteTokenResponseTypeDef
 
 Optional fields:
 - `IsSuccess`: `bool`
+
+
+## EmailSettingsTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import EmailSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `EmailMessage`: `str`
+- `EmailSubject`: `str`
 
 
 ## GenerateBackendAPIModelsResponseTypeDef
@@ -747,6 +599,22 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## LoginAuthConfigReqObjTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import LoginAuthConfigReqObjTypeDef
+```
+
+
+
+
+Optional fields:
+- `AwsCognitoIdentityPoolId`: `str`
+- `AwsCognitoRegion`: `str`
+- `AwsUserPoolsId`: `str`
+- `AwsUserPoolsWebClientId`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -792,6 +660,48 @@ Optional fields:
 - `Error`: `str`
 
 
+## SettingsTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import SettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `MfaTypes`: `List[MfaTypesElement]`
+- `SmsMessage`: `str`
+
+
+## SmsSettingsTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import SmsSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `SmsMessage`: `str`
+
+
+## SocialProviderSettingsTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import SocialProviderSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Facebook`: `"BackendAuthSocialProviderConfigTypeDef"`
+- `Google`: `"BackendAuthSocialProviderConfigTypeDef"`
+- `LoginWithAmazon`: `"BackendAuthSocialProviderConfigTypeDef"`
+
+
 ## UpdateBackendAPIResponseTypeDef
 
 ```python
@@ -810,6 +720,80 @@ Optional fields:
 - `Status`: `str`
 
 
+## UpdateBackendAuthForgotPasswordConfigTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthForgotPasswordConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeliveryMethod`: `DeliveryMethod`
+- `EmailSettings`: `"EmailSettingsTypeDef"`
+- `SmsSettings`: `"SmsSettingsTypeDef"`
+
+
+## UpdateBackendAuthIdentityPoolConfigTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthIdentityPoolConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `UnauthenticatedLogin`: `bool`
+
+
+## UpdateBackendAuthMFAConfigTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthMFAConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MFAMode`: `MFAMode`
+- `Settings`: `"SettingsTypeDef"`
+
+
+## UpdateBackendAuthOAuthConfigTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthOAuthConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `DomainPrefix`: `str`
+- `OAuthGrantType`: `OAuthGrantType`
+- `OAuthScopes`: `List[OAuthScopesElement]`
+- `RedirectSignInURIs`: `List[str]`
+- `RedirectSignOutURIs`: `List[str]`
+- `SocialProviderSettings`: `"SocialProviderSettingsTypeDef"`
+
+
+## UpdateBackendAuthPasswordPolicyConfigTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthPasswordPolicyConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `AdditionalConstraints`: `List[AdditionalConstraintsElement]`
+- `MinimumLength`: `float`
+
+
 ## UpdateBackendAuthResourceConfigTypeDef
 
 ```python
@@ -819,7 +803,7 @@ from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthResourceConfigT
 
 Required fields:
 - `AuthResources`: `AuthResources`
-- `Service`: `Service`
+- `Service`: `Literal['COGNITO']`
 - `UserPoolConfigs`: `"UpdateBackendAuthUserPoolConfigTypeDef"`
 
 
@@ -844,6 +828,22 @@ Optional fields:
 - `JobId`: `str`
 - `Operation`: `str`
 - `Status`: `str`
+
+
+## UpdateBackendAuthUserPoolConfigTypeDef
+
+```python
+from mypy_boto3_amplifybackend.type_defs import UpdateBackendAuthUserPoolConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `ForgotPassword`: `"UpdateBackendAuthForgotPasswordConfigTypeDef"`
+- `Mfa`: `"UpdateBackendAuthMFAConfigTypeDef"`
+- `OAuth`: `"UpdateBackendAuthOAuthConfigTypeDef"`
+- `PasswordPolicy`: `"UpdateBackendAuthPasswordPolicyConfigTypeDef"`
 
 
 ## UpdateBackendConfigResponseTypeDef

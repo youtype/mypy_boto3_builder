@@ -25,12 +25,6 @@ type annotations stubs module [mypy_boto3_health](https://pypi.org/project/mypy-
     - [enable_health_service_access_for_organization](#enable_health_service_access_for_organization)
     - [generate_presigned_url](#generate_presigned_url)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
 
 ## HealthClient
 
@@ -153,7 +147,7 @@ Type annotations for `boto3.client("health").describe_event_aggregates` method.
 ```python
 def describe_event_aggregates(
     self,
-    aggregateField: eventAggregateField,
+    aggregateField: Literal['eventTypeCategory'],
     filter: EventFilterTypeDef = None,
     maxResults: int = None,
     nextToken: str = None
@@ -298,107 +292,18 @@ def generate_presigned_url(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("health").get_paginator` method.
-
-[Paginator.DescribeAffectedAccountsForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/health.html#Health.Paginator.DescribeAffectedAccountsForOrganization)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAffectedAccountsForOrganizationPaginatorName
-) -> DescribeAffectedAccountsForOrganizationPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("health").get_paginator` method.
+Type annotations for `boto3.client("health").get_paginator` method with overloads.
 
-[Paginator.DescribeAffectedEntities documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/health.html#Health.Paginator.DescribeAffectedEntities)
+- `client.get_paginator("describe_affected_accounts_for_organization")` -> [DescribeAffectedAccountsForOrganizationPaginator](./paginators.md#describeaffectedaccountsfororganizationpaginator)
+- `client.get_paginator("describe_affected_entities")` -> [DescribeAffectedEntitiesPaginator](./paginators.md#describeaffectedentitiespaginator)
+- `client.get_paginator("describe_affected_entities_for_organization")` -> [DescribeAffectedEntitiesForOrganizationPaginator](./paginators.md#describeaffectedentitiesfororganizationpaginator)
+- `client.get_paginator("describe_event_aggregates")` -> [DescribeEventAggregatesPaginator](./paginators.md#describeeventaggregatespaginator)
+- `client.get_paginator("describe_event_types")` -> [DescribeEventTypesPaginator](./paginators.md#describeeventtypespaginator)
+- `client.get_paginator("describe_events")` -> [DescribeEventsPaginator](./paginators.md#describeeventspaginator)
+- `client.get_paginator("describe_events_for_organization")` -> [DescribeEventsForOrganizationPaginator](./paginators.md#describeeventsfororganizationpaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAffectedEntitiesPaginatorName
-) -> DescribeAffectedEntitiesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("health").get_paginator` method.
-
-[Paginator.DescribeAffectedEntitiesForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/health.html#Health.Paginator.DescribeAffectedEntitiesForOrganization)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAffectedEntitiesForOrganizationPaginatorName
-) -> DescribeAffectedEntitiesForOrganizationPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("health").get_paginator` method.
-
-[Paginator.DescribeEventAggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/health.html#Health.Paginator.DescribeEventAggregates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventAggregatesPaginatorName
-) -> DescribeEventAggregatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("health").get_paginator` method.
-
-[Paginator.DescribeEventTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/health.html#Health.Paginator.DescribeEventTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventTypesPaginatorName
-) -> DescribeEventTypesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("health").get_paginator` method.
-
-[Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/health.html#Health.Paginator.DescribeEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventsPaginatorName
-) -> DescribeEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("health").get_paginator` method.
-
-[Paginator.DescribeEventsForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/health.html#Health.Paginator.DescribeEventsForOrganization)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventsForOrganizationPaginatorName
-) -> DescribeEventsForOrganizationPaginator:
-    pass
-```

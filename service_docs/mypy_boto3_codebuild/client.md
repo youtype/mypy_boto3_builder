@@ -56,17 +56,6 @@ type annotations stubs module [mypy_boto3_codebuild](https://pypi.org/project/my
     - [update_report_group](#update_report_group)
     - [update_webhook](#update_webhook)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
 
 ## CodeBuildClient
 
@@ -909,182 +898,23 @@ def update_webhook(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("codebuild").get_paginator` method.
-
-[Paginator.DescribeCodeCoverages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.DescribeCodeCoverages)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCodeCoveragesPaginatorName
-) -> DescribeCodeCoveragesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("codebuild").get_paginator` method.
+Type annotations for `boto3.client("codebuild").get_paginator` method with overloads.
 
-[Paginator.DescribeTestCases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.DescribeTestCases)
+- `client.get_paginator("describe_code_coverages")` -> [DescribeCodeCoveragesPaginator](./paginators.md#describecodecoveragespaginator)
+- `client.get_paginator("describe_test_cases")` -> [DescribeTestCasesPaginator](./paginators.md#describetestcasespaginator)
+- `client.get_paginator("list_build_batches")` -> [ListBuildBatchesPaginator](./paginators.md#listbuildbatchespaginator)
+- `client.get_paginator("list_build_batches_for_project")` -> [ListBuildBatchesForProjectPaginator](./paginators.md#listbuildbatchesforprojectpaginator)
+- `client.get_paginator("list_builds")` -> [ListBuildsPaginator](./paginators.md#listbuildspaginator)
+- `client.get_paginator("list_builds_for_project")` -> [ListBuildsForProjectPaginator](./paginators.md#listbuildsforprojectpaginator)
+- `client.get_paginator("list_projects")` -> [ListProjectsPaginator](./paginators.md#listprojectspaginator)
+- `client.get_paginator("list_report_groups")` -> [ListReportGroupsPaginator](./paginators.md#listreportgroupspaginator)
+- `client.get_paginator("list_reports")` -> [ListReportsPaginator](./paginators.md#listreportspaginator)
+- `client.get_paginator("list_reports_for_report_group")` -> [ListReportsForReportGroupPaginator](./paginators.md#listreportsforreportgrouppaginator)
+- `client.get_paginator("list_shared_projects")` -> [ListSharedProjectsPaginator](./paginators.md#listsharedprojectspaginator)
+- `client.get_paginator("list_shared_report_groups")` -> [ListSharedReportGroupsPaginator](./paginators.md#listsharedreportgroupspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTestCasesPaginatorName
-) -> DescribeTestCasesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("codebuild").get_paginator` method.
-
-[Paginator.ListBuildBatches documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatches)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBuildBatchesPaginatorName
-) -> ListBuildBatchesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codebuild").get_paginator` method.
-
-[Paginator.ListBuildBatchesForProject documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatchesForProject)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBuildBatchesForProjectPaginatorName
-) -> ListBuildBatchesForProjectPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codebuild").get_paginator` method.
-
-[Paginator.ListBuilds documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.ListBuilds)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBuildsPaginatorName
-) -> ListBuildsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codebuild").get_paginator` method.
-
-[Paginator.ListBuildsForProject documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildsForProject)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBuildsForProjectPaginatorName
-) -> ListBuildsForProjectPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codebuild").get_paginator` method.
-
-[Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.ListProjects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProjectsPaginatorName
-) -> ListProjectsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codebuild").get_paginator` method.
-
-[Paginator.ListReportGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.ListReportGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListReportGroupsPaginatorName
-) -> ListReportGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codebuild").get_paginator` method.
-
-[Paginator.ListReports documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.ListReports)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListReportsPaginatorName
-) -> ListReportsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codebuild").get_paginator` method.
-
-[Paginator.ListReportsForReportGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.ListReportsForReportGroup)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListReportsForReportGroupPaginatorName
-) -> ListReportsForReportGroupPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codebuild").get_paginator` method.
-
-[Paginator.ListSharedProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedProjects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSharedProjectsPaginatorName
-) -> ListSharedProjectsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codebuild").get_paginator` method.
-
-[Paginator.ListSharedReportGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedReportGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSharedReportGroupsPaginatorName
-) -> ListSharedReportGroupsPaginator:
-    pass
-```

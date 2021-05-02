@@ -6,32 +6,19 @@ Auto-generated documentation for [Organizations](https://boto3.amazonaws.com/v1/
 type annotations stubs module [mypy_boto3_organizations](https://pypi.org/project/mypy-boto3-organizations/).
 
 - [Structures for boto3 Organizations module](#structures-for-boto3-organizations-module)
-  - [AccountTypeDef](#accounttypedef)
-  - [ChildTypeDef](#childtypedef)
-  - [CreateAccountStatusTypeDef](#createaccountstatustypedef)
-  - [DelegatedAdministratorTypeDef](#delegatedadministratortypedef)
-  - [DelegatedServiceTypeDef](#delegatedservicetypedef)
-  - [EffectivePolicyTypeDef](#effectivepolicytypedef)
-  - [EnabledServicePrincipalTypeDef](#enabledserviceprincipaltypedef)
-  - [HandshakePartyTypeDef](#handshakepartytypedef)
-  - [HandshakeTypeDef](#handshaketypedef)
-  - [OrganizationTypeDef](#organizationtypedef)
-  - [OrganizationalUnitTypeDef](#organizationalunittypedef)
-  - [ParentTypeDef](#parenttypedef)
-  - [PolicySummaryTypeDef](#policysummarytypedef)
-  - [PolicyTargetSummaryTypeDef](#policytargetsummarytypedef)
-  - [PolicyTypeDef](#policytypedef)
-  - [PolicyTypeSummaryTypeDef](#policytypesummarytypedef)
-  - [RootTypeDef](#roottypedef)
-  - [TagTypeDef](#tagtypedef)
   - [AcceptHandshakeResponseTypeDef](#accepthandshakeresponsetypedef)
+  - [AccountTypeDef](#accounttypedef)
   - [CancelHandshakeResponseTypeDef](#cancelhandshakeresponsetypedef)
+  - [ChildTypeDef](#childtypedef)
   - [CreateAccountResponseTypeDef](#createaccountresponsetypedef)
+  - [CreateAccountStatusTypeDef](#createaccountstatustypedef)
   - [CreateGovCloudAccountResponseTypeDef](#creategovcloudaccountresponsetypedef)
   - [CreateOrganizationResponseTypeDef](#createorganizationresponsetypedef)
   - [CreateOrganizationalUnitResponseTypeDef](#createorganizationalunitresponsetypedef)
   - [CreatePolicyResponseTypeDef](#createpolicyresponsetypedef)
   - [DeclineHandshakeResponseTypeDef](#declinehandshakeresponsetypedef)
+  - [DelegatedAdministratorTypeDef](#delegatedadministratortypedef)
+  - [DelegatedServiceTypeDef](#delegatedservicetypedef)
   - [DescribeAccountResponseTypeDef](#describeaccountresponsetypedef)
   - [DescribeCreateAccountStatusResponseTypeDef](#describecreateaccountstatusresponsetypedef)
   - [DescribeEffectivePolicyResponseTypeDef](#describeeffectivepolicyresponsetypedef)
@@ -39,11 +26,15 @@ type annotations stubs module [mypy_boto3_organizations](https://pypi.org/projec
   - [DescribeOrganizationResponseTypeDef](#describeorganizationresponsetypedef)
   - [DescribeOrganizationalUnitResponseTypeDef](#describeorganizationalunitresponsetypedef)
   - [DescribePolicyResponseTypeDef](#describepolicyresponsetypedef)
-  - [HandshakeResourceTypeDef](#handshakeresourcetypedef)
   - [DisablePolicyTypeResponseTypeDef](#disablepolicytyperesponsetypedef)
+  - [EffectivePolicyTypeDef](#effectivepolicytypedef)
   - [EnableAllFeaturesResponseTypeDef](#enableallfeaturesresponsetypedef)
   - [EnablePolicyTypeResponseTypeDef](#enablepolicytyperesponsetypedef)
+  - [EnabledServicePrincipalTypeDef](#enabledserviceprincipaltypedef)
   - [HandshakeFilterTypeDef](#handshakefiltertypedef)
+  - [HandshakePartyTypeDef](#handshakepartytypedef)
+  - [HandshakeResourceTypeDef](#handshakeresourcetypedef)
+  - [HandshakeTypeDef](#handshaketypedef)
   - [InviteAccountToOrganizationResponseTypeDef](#inviteaccounttoorganizationresponsetypedef)
   - [ListAWSServiceAccessForOrganizationResponseTypeDef](#listawsserviceaccessfororganizationresponsetypedef)
   - [ListAccountsForParentResponseTypeDef](#listaccountsforparentresponsetypedef)
@@ -61,9 +52,31 @@ type annotations stubs module [mypy_boto3_organizations](https://pypi.org/projec
   - [ListRootsResponseTypeDef](#listrootsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListTargetsForPolicyResponseTypeDef](#listtargetsforpolicyresponsetypedef)
+  - [OrganizationTypeDef](#organizationtypedef)
+  - [OrganizationalUnitTypeDef](#organizationalunittypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ParentTypeDef](#parenttypedef)
+  - [PolicySummaryTypeDef](#policysummarytypedef)
+  - [PolicyTargetSummaryTypeDef](#policytargetsummarytypedef)
+  - [PolicyTypeDef](#policytypedef)
+  - [PolicyTypeSummaryTypeDef](#policytypesummarytypedef)
+  - [RootTypeDef](#roottypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateOrganizationalUnitResponseTypeDef](#updateorganizationalunitresponsetypedef)
   - [UpdatePolicyResponseTypeDef](#updatepolicyresponsetypedef)
+
+## AcceptHandshakeResponseTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import AcceptHandshakeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Handshake`: `"HandshakeTypeDef"`
+
 
 ## AccountTypeDef
 
@@ -84,6 +97,19 @@ Optional fields:
 - `JoinedTimestamp`: `datetime`
 
 
+## CancelHandshakeResponseTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import CancelHandshakeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Handshake`: `"HandshakeTypeDef"`
+
+
 ## ChildTypeDef
 
 ```python
@@ -96,6 +122,19 @@ from mypy_boto3_organizations.type_defs import ChildTypeDef
 Optional fields:
 - `Id`: `str`
 - `Type`: `ChildType`
+
+
+## CreateAccountResponseTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import CreateAccountResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreateAccountStatus`: `"CreateAccountStatusTypeDef"`
 
 
 ## CreateAccountStatusTypeDef
@@ -116,283 +155,6 @@ Optional fields:
 - `AccountId`: `str`
 - `GovCloudAccountId`: `str`
 - `FailureReason`: `CreateAccountFailureReason`
-
-
-## DelegatedAdministratorTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import DelegatedAdministratorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Email`: `str`
-- `Name`: `str`
-- `Status`: `AccountStatus`
-- `JoinedMethod`: `AccountJoinedMethod`
-- `JoinedTimestamp`: `datetime`
-- `DelegationEnabledDate`: `datetime`
-
-
-## DelegatedServiceTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import DelegatedServiceTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServicePrincipal`: `str`
-- `DelegationEnabledDate`: `datetime`
-
-
-## EffectivePolicyTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import EffectivePolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicyContent`: `str`
-- `LastUpdatedTimestamp`: `datetime`
-- `TargetId`: `str`
-- `PolicyType`: `EffectivePolicyType`
-
-
-## EnabledServicePrincipalTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import EnabledServicePrincipalTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServicePrincipal`: `str`
-- `DateEnabled`: `datetime`
-
-
-## HandshakePartyTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import HandshakePartyTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `Type`: `HandshakePartyType`
-
-
-
-
-## HandshakeTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import HandshakeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Parties`: `List["HandshakePartyTypeDef"]`
-- `State`: `HandshakeState`
-- `RequestedTimestamp`: `datetime`
-- `ExpirationTimestamp`: `datetime`
-- `Action`: `ActionType`
-- `Resources`: `List[Dict[str, Any]]`
-
-
-## OrganizationTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import OrganizationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `FeatureSet`: `OrganizationFeatureSet`
-- `MasterAccountArn`: `str`
-- `MasterAccountId`: `str`
-- `MasterAccountEmail`: `str`
-- `AvailablePolicyTypes`: `List["PolicyTypeSummaryTypeDef"]`
-
-
-## OrganizationalUnitTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import OrganizationalUnitTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-
-
-## ParentTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import ParentTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Type`: `ParentType`
-
-
-## PolicySummaryTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import PolicySummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `Type`: `PolicyType`
-- `AwsManaged`: `bool`
-
-
-## PolicyTargetSummaryTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import PolicyTargetSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `TargetId`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `Type`: `TargetType`
-
-
-## PolicyTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import PolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicySummary`: `"PolicySummaryTypeDef"`
-- `Content`: `str`
-
-
-## PolicyTypeSummaryTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import PolicyTypeSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `PolicyType`
-- `Status`: `PolicyTypeStatus`
-
-
-## RootTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import RootTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `PolicyTypes`: `List["PolicyTypeSummaryTypeDef"]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## AcceptHandshakeResponseTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import AcceptHandshakeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Handshake`: `"HandshakeTypeDef"`
-
-
-## CancelHandshakeResponseTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import CancelHandshakeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Handshake`: `"HandshakeTypeDef"`
-
-
-## CreateAccountResponseTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import CreateAccountResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreateAccountStatus`: `"CreateAccountStatusTypeDef"`
 
 
 ## CreateGovCloudAccountResponseTypeDef
@@ -458,6 +220,40 @@ from mypy_boto3_organizations.type_defs import DeclineHandshakeResponseTypeDef
 
 Optional fields:
 - `Handshake`: `"HandshakeTypeDef"`
+
+
+## DelegatedAdministratorTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import DelegatedAdministratorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Email`: `str`
+- `Name`: `str`
+- `Status`: `AccountStatus`
+- `JoinedMethod`: `AccountJoinedMethod`
+- `JoinedTimestamp`: `datetime`
+- `DelegationEnabledDate`: `datetime`
+
+
+## DelegatedServiceTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import DelegatedServiceTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServicePrincipal`: `str`
+- `DelegationEnabledDate`: `datetime`
 
 
 ## DescribeAccountResponseTypeDef
@@ -551,21 +347,6 @@ Optional fields:
 - `Policy`: `"PolicyTypeDef"`
 
 
-## HandshakeResourceTypeDef
-
-```python
-from mypy_boto3_organizations.type_defs import HandshakeResourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-- `Type`: `HandshakeResourceType`
-- `Resources`: `List[Dict[str, Any]]`
-
-
 ## DisablePolicyTypeResponseTypeDef
 
 ```python
@@ -577,6 +358,22 @@ from mypy_boto3_organizations.type_defs import DisablePolicyTypeResponseTypeDef
 
 Optional fields:
 - `Root`: `"RootTypeDef"`
+
+
+## EffectivePolicyTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import EffectivePolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicyContent`: `str`
+- `LastUpdatedTimestamp`: `datetime`
+- `TargetId`: `str`
+- `PolicyType`: `EffectivePolicyType`
 
 
 ## EnableAllFeaturesResponseTypeDef
@@ -605,6 +402,20 @@ Optional fields:
 - `Root`: `"RootTypeDef"`
 
 
+## EnabledServicePrincipalTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import EnabledServicePrincipalTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServicePrincipal`: `str`
+- `DateEnabled`: `datetime`
+
+
 ## HandshakeFilterTypeDef
 
 ```python
@@ -617,6 +428,55 @@ from mypy_boto3_organizations.type_defs import HandshakeFilterTypeDef
 Optional fields:
 - `ActionType`: `ActionType`
 - `ParentHandshakeId`: `str`
+
+
+## HandshakePartyTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import HandshakePartyTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `Type`: `HandshakePartyType`
+
+
+
+
+## HandshakeResourceTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import HandshakeResourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+- `Type`: `HandshakeResourceType`
+- `Resources`: `List[Dict[str, Any]]`
+
+
+## HandshakeTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import HandshakeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Parties`: `List["HandshakePartyTypeDef"]`
+- `State`: `HandshakeState`
+- `RequestedTimestamp`: `datetime`
+- `ExpirationTimestamp`: `datetime`
+- `Action`: `ActionType`
+- `Resources`: `List[Dict[str, Any]]`
 
 
 ## InviteAccountToOrganizationResponseTypeDef
@@ -856,6 +716,40 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## OrganizationTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import OrganizationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `FeatureSet`: `OrganizationFeatureSet`
+- `MasterAccountArn`: `str`
+- `MasterAccountId`: `str`
+- `MasterAccountEmail`: `str`
+- `AvailablePolicyTypes`: `List["PolicyTypeSummaryTypeDef"]`
+
+
+## OrganizationalUnitTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import OrganizationalUnitTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -869,6 +763,112 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ParentTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import ParentTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Type`: `ParentType`
+
+
+## PolicySummaryTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import PolicySummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `Type`: `PolicyType`
+- `AwsManaged`: `bool`
+
+
+## PolicyTargetSummaryTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import PolicyTargetSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `TargetId`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `Type`: `TargetType`
+
+
+## PolicyTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import PolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicySummary`: `"PolicySummaryTypeDef"`
+- `Content`: `str`
+
+
+## PolicyTypeSummaryTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import PolicyTypeSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `PolicyType`
+- `Status`: `PolicyTypeStatus`
+
+
+## RootTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import RootTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `PolicyTypes`: `List["PolicyTypeSummaryTypeDef"]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_organizations.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## UpdateOrganizationalUnitResponseTypeDef

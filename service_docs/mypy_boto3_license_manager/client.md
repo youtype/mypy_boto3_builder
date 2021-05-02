@@ -52,10 +52,6 @@ type annotations stubs module [mypy_boto3_license_manager](https://pypi.org/proj
     - [update_license_specifications_for_resource](#update_license_specifications_for_resource)
     - [update_service_settings](#update_service_settings)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
 
 ## LicenseManagerClient
 
@@ -159,7 +155,7 @@ def checkout_borrow_license(
     self,
     LicenseArn: str,
     Entitlements: List["EntitlementDataTypeDef"],
-    DigitalSignatureMethod: DigitalSignatureMethod,
+    DigitalSignatureMethod: Literal['JWT_PS384'],
     ClientToken: str,
     NodeId: str = None,
     CheckoutMetadata: List["MetadataTypeDef"] = None
@@ -177,7 +173,7 @@ Type annotations for `boto3.client("license-manager").checkout_license` method.
 def checkout_license(
     self,
     ProductSKU: str,
-    CheckoutType: CheckoutType,
+    CheckoutType: Literal['PROVISIONAL'],
     KeyFingerprint: str,
     Entitlements: List["EntitlementDataTypeDef"],
     ClientToken: str,
@@ -802,77 +798,16 @@ def update_service_settings(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("license-manager").get_paginator` method.
-
-[Paginator.ListAssociationsForLicenseConfiguration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager.html#LicenseManager.Paginator.ListAssociationsForLicenseConfiguration)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssociationsForLicenseConfigurationPaginatorName
-) -> ListAssociationsForLicenseConfigurationPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("license-manager").get_paginator` method.
+Type annotations for `boto3.client("license-manager").get_paginator` method with overloads.
 
-[Paginator.ListLicenseConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseConfigurations)
+- `client.get_paginator("list_associations_for_license_configuration")` -> [ListAssociationsForLicenseConfigurationPaginator](./paginators.md#listassociationsforlicenseconfigurationpaginator)
+- `client.get_paginator("list_license_configurations")` -> [ListLicenseConfigurationsPaginator](./paginators.md#listlicenseconfigurationspaginator)
+- `client.get_paginator("list_license_specifications_for_resource")` -> [ListLicenseSpecificationsForResourcePaginator](./paginators.md#listlicensespecificationsforresourcepaginator)
+- `client.get_paginator("list_resource_inventory")` -> [ListResourceInventoryPaginator](./paginators.md#listresourceinventorypaginator)
+- `client.get_paginator("list_usage_for_license_configuration")` -> [ListUsageForLicenseConfigurationPaginator](./paginators.md#listusageforlicenseconfigurationpaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLicenseConfigurationsPaginatorName
-) -> ListLicenseConfigurationsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("license-manager").get_paginator` method.
-
-[Paginator.ListLicenseSpecificationsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseSpecificationsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLicenseSpecificationsForResourcePaginatorName
-) -> ListLicenseSpecificationsForResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("license-manager").get_paginator` method.
-
-[Paginator.ListResourceInventory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager.html#LicenseManager.Paginator.ListResourceInventory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourceInventoryPaginatorName
-) -> ListResourceInventoryPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("license-manager").get_paginator` method.
-
-[Paginator.ListUsageForLicenseConfiguration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/license-manager.html#LicenseManager.Paginator.ListUsageForLicenseConfiguration)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUsageForLicenseConfigurationPaginatorName
-) -> ListUsageForLicenseConfigurationPaginator:
-    pass
-```

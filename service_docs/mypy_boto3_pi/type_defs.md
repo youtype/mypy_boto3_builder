@@ -7,14 +7,14 @@ type annotations stubs module [mypy_boto3_pi](https://pypi.org/project/mypy-boto
 
 - [Structures for boto3 PI module](#structures-for-boto3-pi-module)
   - [DataPointTypeDef](#datapointtypedef)
+  - [DescribeDimensionKeysResponseTypeDef](#describedimensionkeysresponsetypedef)
   - [DimensionGroupTypeDef](#dimensiongrouptypedef)
   - [DimensionKeyDescriptionTypeDef](#dimensionkeydescriptiontypedef)
+  - [GetResourceMetricsResponseTypeDef](#getresourcemetricsresponsetypedef)
   - [MetricKeyDataPointsTypeDef](#metrickeydatapointstypedef)
+  - [MetricQueryTypeDef](#metricquerytypedef)
   - [ResponsePartitionKeyTypeDef](#responsepartitionkeytypedef)
   - [ResponseResourceMetricKeyTypeDef](#responseresourcemetrickeytypedef)
-  - [DescribeDimensionKeysResponseTypeDef](#describedimensionkeysresponsetypedef)
-  - [GetResourceMetricsResponseTypeDef](#getresourcemetricsresponsetypedef)
-  - [MetricQueryTypeDef](#metricquerytypedef)
 
 ## DataPointTypeDef
 
@@ -28,6 +28,23 @@ Required fields:
 - `Value`: `float`
 
 
+
+
+## DescribeDimensionKeysResponseTypeDef
+
+```python
+from mypy_boto3_pi.type_defs import DescribeDimensionKeysResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AlignedStartTime`: `datetime`
+- `AlignedEndTime`: `datetime`
+- `PartitionKeys`: `List["ResponsePartitionKeyTypeDef"]`
+- `Keys`: `List["DimensionKeyDescriptionTypeDef"]`
+- `NextToken`: `str`
 
 
 ## DimensionGroupTypeDef
@@ -62,6 +79,23 @@ Optional fields:
 - `Partitions`: `List[float]`
 
 
+## GetResourceMetricsResponseTypeDef
+
+```python
+from mypy_boto3_pi.type_defs import GetResourceMetricsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AlignedStartTime`: `datetime`
+- `AlignedEndTime`: `datetime`
+- `Identifier`: `str`
+- `MetricList`: `List["MetricKeyDataPointsTypeDef"]`
+- `NextToken`: `str`
+
+
 ## MetricKeyDataPointsTypeDef
 
 ```python
@@ -74,6 +108,23 @@ from mypy_boto3_pi.type_defs import MetricKeyDataPointsTypeDef
 Optional fields:
 - `Key`: `"ResponseResourceMetricKeyTypeDef"`
 - `DataPoints`: `List["DataPointTypeDef"]`
+
+
+## MetricQueryTypeDef
+
+```python
+from mypy_boto3_pi.type_defs import MetricQueryTypeDef
+```
+
+
+Required fields:
+- `Metric`: `str`
+
+
+
+Optional fields:
+- `GroupBy`: `"DimensionGroupTypeDef"`
+- `Filter`: `Dict[str, str]`
 
 
 ## ResponsePartitionKeyTypeDef
@@ -103,55 +154,4 @@ Required fields:
 
 Optional fields:
 - `Dimensions`: `Dict[str, str]`
-
-
-## DescribeDimensionKeysResponseTypeDef
-
-```python
-from mypy_boto3_pi.type_defs import DescribeDimensionKeysResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AlignedStartTime`: `datetime`
-- `AlignedEndTime`: `datetime`
-- `PartitionKeys`: `List["ResponsePartitionKeyTypeDef"]`
-- `Keys`: `List["DimensionKeyDescriptionTypeDef"]`
-- `NextToken`: `str`
-
-
-## GetResourceMetricsResponseTypeDef
-
-```python
-from mypy_boto3_pi.type_defs import GetResourceMetricsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AlignedStartTime`: `datetime`
-- `AlignedEndTime`: `datetime`
-- `Identifier`: `str`
-- `MetricList`: `List["MetricKeyDataPointsTypeDef"]`
-- `NextToken`: `str`
-
-
-## MetricQueryTypeDef
-
-```python
-from mypy_boto3_pi.type_defs import MetricQueryTypeDef
-```
-
-
-Required fields:
-- `Metric`: `str`
-
-
-
-Optional fields:
-- `GroupBy`: `"DimensionGroupTypeDef"`
-- `Filter`: `Dict[str, str]`
 

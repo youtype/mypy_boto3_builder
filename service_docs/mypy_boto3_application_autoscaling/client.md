@@ -22,9 +22,6 @@ type annotations stubs module [mypy_boto3_application_autoscaling](https://pypi.
     - [put_scheduled_action](#put_scheduled_action)
     - [register_scalable_target](#register_scalable_target)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## ApplicationAutoScalingClient
 
@@ -281,62 +278,15 @@ def register_scalable_target(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("application-autoscaling").get_paginator` method.
-
-[Paginator.DescribeScalableTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalableTargets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeScalableTargetsPaginatorName
-) -> DescribeScalableTargetsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("application-autoscaling").get_paginator` method.
+Type annotations for `boto3.client("application-autoscaling").get_paginator` method with overloads.
 
-[Paginator.DescribeScalingActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingActivities)
+- `client.get_paginator("describe_scalable_targets")` -> [DescribeScalableTargetsPaginator](./paginators.md#describescalabletargetspaginator)
+- `client.get_paginator("describe_scaling_activities")` -> [DescribeScalingActivitiesPaginator](./paginators.md#describescalingactivitiespaginator)
+- `client.get_paginator("describe_scaling_policies")` -> [DescribeScalingPoliciesPaginator](./paginators.md#describescalingpoliciespaginator)
+- `client.get_paginator("describe_scheduled_actions")` -> [DescribeScheduledActionsPaginator](./paginators.md#describescheduledactionspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeScalingActivitiesPaginatorName
-) -> DescribeScalingActivitiesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("application-autoscaling").get_paginator` method.
-
-[Paginator.DescribeScalingPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScalingPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeScalingPoliciesPaginatorName
-) -> DescribeScalingPoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("application-autoscaling").get_paginator` method.
-
-[Paginator.DescribeScheduledActions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/application-autoscaling.html#ApplicationAutoScaling.Paginator.DescribeScheduledActions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeScheduledActionsPaginatorName
-) -> DescribeScheduledActionsPaginator:
-    pass
-```

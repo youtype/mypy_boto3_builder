@@ -6,18 +6,10 @@ Auto-generated documentation for [CodeStar](https://boto3.amazonaws.com/v1/docum
 type annotations stubs module [mypy_boto3_codestar](https://pypi.org/project/mypy-boto3-codestar/).
 
 - [Structures for boto3 CodeStar module](#structures-for-boto3-codestar-module)
+  - [AssociateTeamMemberResultTypeDef](#associateteammemberresulttypedef)
   - [CodeCommitCodeDestinationTypeDef](#codecommitcodedestinationtypedef)
   - [CodeDestinationTypeDef](#codedestinationtypedef)
   - [CodeSourceTypeDef](#codesourcetypedef)
-  - [GitHubCodeDestinationTypeDef](#githubcodedestinationtypedef)
-  - [ProjectStatusTypeDef](#projectstatustypedef)
-  - [ProjectSummaryTypeDef](#projectsummarytypedef)
-  - [ResourceTypeDef](#resourcetypedef)
-  - [S3LocationTypeDef](#s3locationtypedef)
-  - [TeamMemberTypeDef](#teammembertypedef)
-  - [ToolchainSourceTypeDef](#toolchainsourcetypedef)
-  - [UserProfileSummaryTypeDef](#userprofilesummarytypedef)
-  - [AssociateTeamMemberResultTypeDef](#associateteammemberresulttypedef)
   - [CodeTypeDef](#codetypedef)
   - [CreateProjectResultTypeDef](#createprojectresulttypedef)
   - [CreateUserProfileResultTypeDef](#createuserprofileresulttypedef)
@@ -25,16 +17,37 @@ type annotations stubs module [mypy_boto3_codestar](https://pypi.org/project/myp
   - [DeleteUserProfileResultTypeDef](#deleteuserprofileresulttypedef)
   - [DescribeProjectResultTypeDef](#describeprojectresulttypedef)
   - [DescribeUserProfileResultTypeDef](#describeuserprofileresulttypedef)
+  - [GitHubCodeDestinationTypeDef](#githubcodedestinationtypedef)
   - [ListProjectsResultTypeDef](#listprojectsresulttypedef)
   - [ListResourcesResultTypeDef](#listresourcesresulttypedef)
   - [ListTagsForProjectResultTypeDef](#listtagsforprojectresulttypedef)
   - [ListTeamMembersResultTypeDef](#listteammembersresulttypedef)
   - [ListUserProfilesResultTypeDef](#listuserprofilesresulttypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ProjectStatusTypeDef](#projectstatustypedef)
+  - [ProjectSummaryTypeDef](#projectsummarytypedef)
+  - [ResourceTypeDef](#resourcetypedef)
+  - [S3LocationTypeDef](#s3locationtypedef)
   - [TagProjectResultTypeDef](#tagprojectresulttypedef)
+  - [TeamMemberTypeDef](#teammembertypedef)
+  - [ToolchainSourceTypeDef](#toolchainsourcetypedef)
   - [ToolchainTypeDef](#toolchaintypedef)
   - [UpdateTeamMemberResultTypeDef](#updateteammemberresulttypedef)
   - [UpdateUserProfileResultTypeDef](#updateuserprofileresulttypedef)
+  - [UserProfileSummaryTypeDef](#userprofilesummarytypedef)
+
+## AssociateTeamMemberResultTypeDef
+
+```python
+from mypy_boto3_codestar.type_defs import AssociateTeamMemberResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `clientRequestToken`: `str`
+
 
 ## CodeCommitCodeDestinationTypeDef
 
@@ -74,143 +87,6 @@ Required fields:
 - `s3`: `"S3LocationTypeDef"`
 
 
-
-
-## GitHubCodeDestinationTypeDef
-
-```python
-from mypy_boto3_codestar.type_defs import GitHubCodeDestinationTypeDef
-```
-
-
-Required fields:
-- `name`: `str`
-- `type`: `str`
-- `owner`: `str`
-- `privateRepository`: `bool`
-- `issuesEnabled`: `bool`
-- `token`: `str`
-
-
-
-Optional fields:
-- `description`: `str`
-
-
-## ProjectStatusTypeDef
-
-```python
-from mypy_boto3_codestar.type_defs import ProjectStatusTypeDef
-```
-
-
-Required fields:
-- `state`: `str`
-
-
-
-Optional fields:
-- `reason`: `str`
-
-
-## ProjectSummaryTypeDef
-
-```python
-from mypy_boto3_codestar.type_defs import ProjectSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `projectId`: `str`
-- `projectArn`: `str`
-
-
-## ResourceTypeDef
-
-```python
-from mypy_boto3_codestar.type_defs import ResourceTypeDef
-```
-
-
-Required fields:
-- `id`: `str`
-
-
-
-
-## S3LocationTypeDef
-
-```python
-from mypy_boto3_codestar.type_defs import S3LocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `bucketName`: `str`
-- `bucketKey`: `str`
-
-
-## TeamMemberTypeDef
-
-```python
-from mypy_boto3_codestar.type_defs import TeamMemberTypeDef
-```
-
-
-Required fields:
-- `userArn`: `str`
-- `projectRole`: `str`
-
-
-
-Optional fields:
-- `remoteAccessAllowed`: `bool`
-
-
-## ToolchainSourceTypeDef
-
-```python
-from mypy_boto3_codestar.type_defs import ToolchainSourceTypeDef
-```
-
-
-Required fields:
-- `s3`: `"S3LocationTypeDef"`
-
-
-
-
-## UserProfileSummaryTypeDef
-
-```python
-from mypy_boto3_codestar.type_defs import UserProfileSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `userArn`: `str`
-- `displayName`: `str`
-- `emailAddress`: `str`
-- `sshPublicKey`: `str`
-
-
-## AssociateTeamMemberResultTypeDef
-
-```python
-from mypy_boto3_codestar.type_defs import AssociateTeamMemberResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `clientRequestToken`: `str`
 
 
 ## CodeTypeDef
@@ -333,6 +209,27 @@ Optional fields:
 - `sshPublicKey`: `str`
 
 
+## GitHubCodeDestinationTypeDef
+
+```python
+from mypy_boto3_codestar.type_defs import GitHubCodeDestinationTypeDef
+```
+
+
+Required fields:
+- `name`: `str`
+- `type`: `str`
+- `owner`: `str`
+- `privateRepository`: `bool`
+- `issuesEnabled`: `bool`
+- `token`: `str`
+
+
+
+Optional fields:
+- `description`: `str`
+
+
 ## ListProjectsResultTypeDef
 
 ```python
@@ -424,6 +321,63 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ProjectStatusTypeDef
+
+```python
+from mypy_boto3_codestar.type_defs import ProjectStatusTypeDef
+```
+
+
+Required fields:
+- `state`: `str`
+
+
+
+Optional fields:
+- `reason`: `str`
+
+
+## ProjectSummaryTypeDef
+
+```python
+from mypy_boto3_codestar.type_defs import ProjectSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `projectId`: `str`
+- `projectArn`: `str`
+
+
+## ResourceTypeDef
+
+```python
+from mypy_boto3_codestar.type_defs import ResourceTypeDef
+```
+
+
+Required fields:
+- `id`: `str`
+
+
+
+
+## S3LocationTypeDef
+
+```python
+from mypy_boto3_codestar.type_defs import S3LocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `bucketName`: `str`
+- `bucketKey`: `str`
+
+
 ## TagProjectResultTypeDef
 
 ```python
@@ -435,6 +389,36 @@ from mypy_boto3_codestar.type_defs import TagProjectResultTypeDef
 
 Optional fields:
 - `tags`: `Dict[str, str]`
+
+
+## TeamMemberTypeDef
+
+```python
+from mypy_boto3_codestar.type_defs import TeamMemberTypeDef
+```
+
+
+Required fields:
+- `userArn`: `str`
+- `projectRole`: `str`
+
+
+
+Optional fields:
+- `remoteAccessAllowed`: `bool`
+
+
+## ToolchainSourceTypeDef
+
+```python
+from mypy_boto3_codestar.type_defs import ToolchainSourceTypeDef
+```
+
+
+Required fields:
+- `s3`: `"S3LocationTypeDef"`
+
+
 
 
 ## ToolchainTypeDef
@@ -487,4 +471,20 @@ Optional fields:
 - `sshPublicKey`: `str`
 - `createdTimestamp`: `datetime`
 - `lastModifiedTimestamp`: `datetime`
+
+
+## UserProfileSummaryTypeDef
+
+```python
+from mypy_boto3_codestar.type_defs import UserProfileSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `userArn`: `str`
+- `displayName`: `str`
+- `emailAddress`: `str`
+- `sshPublicKey`: `str`
 

@@ -9,10 +9,6 @@ type annotations stubs module [mypy_boto3_serverlessrepo](https://pypi.org/proje
   - [ApplicationDependencySummaryTypeDef](#applicationdependencysummarytypedef)
   - [ApplicationPolicyStatementTypeDef](#applicationpolicystatementtypedef)
   - [ApplicationSummaryTypeDef](#applicationsummarytypedef)
-  - [ParameterDefinitionTypeDef](#parameterdefinitiontypedef)
-  - [RollbackTriggerTypeDef](#rollbacktriggertypedef)
-  - [VersionSummaryTypeDef](#versionsummarytypedef)
-  - [VersionTypeDef](#versiontypedef)
   - [CreateApplicationResponseTypeDef](#createapplicationresponsetypedef)
   - [CreateApplicationVersionResponseTypeDef](#createapplicationversionresponsetypedef)
   - [CreateCloudFormationChangeSetResponseTypeDef](#createcloudformationchangesetresponsetypedef)
@@ -24,11 +20,15 @@ type annotations stubs module [mypy_boto3_serverlessrepo](https://pypi.org/proje
   - [ListApplicationVersionsResponseTypeDef](#listapplicationversionsresponsetypedef)
   - [ListApplicationsResponseTypeDef](#listapplicationsresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ParameterDefinitionTypeDef](#parameterdefinitiontypedef)
   - [ParameterValueTypeDef](#parametervaluetypedef)
   - [PutApplicationPolicyResponseTypeDef](#putapplicationpolicyresponsetypedef)
   - [RollbackConfigurationTypeDef](#rollbackconfigurationtypedef)
+  - [RollbackTriggerTypeDef](#rollbacktriggertypedef)
   - [TagTypeDef](#tagtypedef)
   - [UpdateApplicationResponseTypeDef](#updateapplicationresponsetypedef)
+  - [VersionSummaryTypeDef](#versionsummarytypedef)
+  - [VersionTypeDef](#versiontypedef)
 
 ## ApplicationDependencySummaryTypeDef
 
@@ -82,88 +82,6 @@ Optional fields:
 - `HomePageUrl`: `str`
 - `Labels`: `List[str]`
 - `SpdxLicenseId`: `str`
-
-
-## ParameterDefinitionTypeDef
-
-```python
-from mypy_boto3_serverlessrepo.type_defs import ParameterDefinitionTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `ReferencedByResources`: `List[str]`
-
-
-
-Optional fields:
-- `AllowedPattern`: `str`
-- `AllowedValues`: `List[str]`
-- `ConstraintDescription`: `str`
-- `DefaultValue`: `str`
-- `Description`: `str`
-- `MaxLength`: `int`
-- `MaxValue`: `int`
-- `MinLength`: `int`
-- `MinValue`: `int`
-- `NoEcho`: `bool`
-- `Type`: `str`
-
-
-## RollbackTriggerTypeDef
-
-```python
-from mypy_boto3_serverlessrepo.type_defs import RollbackTriggerTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-- `Type`: `str`
-
-
-
-
-## VersionSummaryTypeDef
-
-```python
-from mypy_boto3_serverlessrepo.type_defs import VersionSummaryTypeDef
-```
-
-
-Required fields:
-- `ApplicationId`: `str`
-- `CreationTime`: `str`
-- `SemanticVersion`: `str`
-
-
-
-Optional fields:
-- `SourceCodeUrl`: `str`
-
-
-## VersionTypeDef
-
-```python
-from mypy_boto3_serverlessrepo.type_defs import VersionTypeDef
-```
-
-
-Required fields:
-- `ApplicationId`: `str`
-- `CreationTime`: `str`
-- `ParameterDefinitions`: `List["ParameterDefinitionTypeDef"]`
-- `RequiredCapabilities`: `List[Capability]`
-- `ResourcesSupported`: `bool`
-- `SemanticVersion`: `str`
-- `TemplateUrl`: `str`
-
-
-
-Optional fields:
-- `SourceCodeArchiveUrl`: `str`
-- `SourceCodeUrl`: `str`
 
 
 ## CreateApplicationResponseTypeDef
@@ -361,6 +279,33 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ParameterDefinitionTypeDef
+
+```python
+from mypy_boto3_serverlessrepo.type_defs import ParameterDefinitionTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `ReferencedByResources`: `List[str]`
+
+
+
+Optional fields:
+- `AllowedPattern`: `str`
+- `AllowedValues`: `List[str]`
+- `ConstraintDescription`: `str`
+- `DefaultValue`: `str`
+- `Description`: `str`
+- `MaxLength`: `int`
+- `MaxValue`: `int`
+- `MinLength`: `int`
+- `MinValue`: `int`
+- `NoEcho`: `bool`
+- `Type`: `str`
+
+
 ## ParameterValueTypeDef
 
 ```python
@@ -402,6 +347,20 @@ Optional fields:
 - `RollbackTriggers`: `List["RollbackTriggerTypeDef"]`
 
 
+## RollbackTriggerTypeDef
+
+```python
+from mypy_boto3_serverlessrepo.type_defs import RollbackTriggerTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+- `Type`: `str`
+
+
+
+
 ## TagTypeDef
 
 ```python
@@ -439,4 +398,45 @@ Optional fields:
 - `SpdxLicenseId`: `str`
 - `VerifiedAuthorUrl`: `str`
 - `Version`: `"VersionTypeDef"`
+
+
+## VersionSummaryTypeDef
+
+```python
+from mypy_boto3_serverlessrepo.type_defs import VersionSummaryTypeDef
+```
+
+
+Required fields:
+- `ApplicationId`: `str`
+- `CreationTime`: `str`
+- `SemanticVersion`: `str`
+
+
+
+Optional fields:
+- `SourceCodeUrl`: `str`
+
+
+## VersionTypeDef
+
+```python
+from mypy_boto3_serverlessrepo.type_defs import VersionTypeDef
+```
+
+
+Required fields:
+- `ApplicationId`: `str`
+- `CreationTime`: `str`
+- `ParameterDefinitions`: `List["ParameterDefinitionTypeDef"]`
+- `RequiredCapabilities`: `List[Capability]`
+- `ResourcesSupported`: `bool`
+- `SemanticVersion`: `str`
+- `TemplateUrl`: `str`
+
+
+
+Optional fields:
+- `SourceCodeArchiveUrl`: `str`
+- `SourceCodeUrl`: `str`
 

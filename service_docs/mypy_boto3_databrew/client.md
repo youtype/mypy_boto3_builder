@@ -51,12 +51,6 @@ type annotations stubs module [mypy_boto3_databrew](https://pypi.org/project/myp
     - [update_recipe_job](#update_recipe_job)
     - [update_schedule](#update_schedule)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
 
 ## GlueDataBrewClient
 
@@ -765,107 +759,18 @@ def update_schedule(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("databrew").get_paginator` method.
-
-[Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew.html#GlueDataBrew.Paginator.ListDatasets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatasetsPaginatorName
-) -> ListDatasetsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("databrew").get_paginator` method.
+Type annotations for `boto3.client("databrew").get_paginator` method with overloads.
 
-[Paginator.ListJobRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobRuns)
+- `client.get_paginator("list_datasets")` -> [ListDatasetsPaginator](./paginators.md#listdatasetspaginator)
+- `client.get_paginator("list_job_runs")` -> [ListJobRunsPaginator](./paginators.md#listjobrunspaginator)
+- `client.get_paginator("list_jobs")` -> [ListJobsPaginator](./paginators.md#listjobspaginator)
+- `client.get_paginator("list_projects")` -> [ListProjectsPaginator](./paginators.md#listprojectspaginator)
+- `client.get_paginator("list_recipe_versions")` -> [ListRecipeVersionsPaginator](./paginators.md#listrecipeversionspaginator)
+- `client.get_paginator("list_recipes")` -> [ListRecipesPaginator](./paginators.md#listrecipespaginator)
+- `client.get_paginator("list_schedules")` -> [ListSchedulesPaginator](./paginators.md#listschedulespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobRunsPaginatorName
-) -> ListJobRunsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("databrew").get_paginator` method.
-
-[Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobsPaginatorName
-) -> ListJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("databrew").get_paginator` method.
-
-[Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew.html#GlueDataBrew.Paginator.ListProjects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProjectsPaginatorName
-) -> ListProjectsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("databrew").get_paginator` method.
-
-[Paginator.ListRecipeVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipeVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRecipeVersionsPaginatorName
-) -> ListRecipeVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("databrew").get_paginator` method.
-
-[Paginator.ListRecipes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRecipesPaginatorName
-) -> ListRecipesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("databrew").get_paginator` method.
-
-[Paginator.ListSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/databrew.html#GlueDataBrew.Paginator.ListSchedules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSchedulesPaginatorName
-) -> ListSchedulesPaginator:
-    pass
-```

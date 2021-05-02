@@ -37,11 +37,6 @@ type annotations stubs module [mypy_boto3_groundstation](https://pypi.org/projec
     - [update_config](#update_config)
     - [update_mission_profile](#update_mission_profile)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
 
 ## GroundStationClient
 
@@ -500,92 +495,17 @@ def update_mission_profile(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("groundstation").get_paginator` method.
-
-[Paginator.ListConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/groundstation.html#GroundStation.Paginator.ListConfigs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListConfigsPaginatorName
-) -> ListConfigsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("groundstation").get_paginator` method.
+Type annotations for `boto3.client("groundstation").get_paginator` method with overloads.
 
-[Paginator.ListContacts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/groundstation.html#GroundStation.Paginator.ListContacts)
+- `client.get_paginator("list_configs")` -> [ListConfigsPaginator](./paginators.md#listconfigspaginator)
+- `client.get_paginator("list_contacts")` -> [ListContactsPaginator](./paginators.md#listcontactspaginator)
+- `client.get_paginator("list_dataflow_endpoint_groups")` -> [ListDataflowEndpointGroupsPaginator](./paginators.md#listdataflowendpointgroupspaginator)
+- `client.get_paginator("list_ground_stations")` -> [ListGroundStationsPaginator](./paginators.md#listgroundstationspaginator)
+- `client.get_paginator("list_mission_profiles")` -> [ListMissionProfilesPaginator](./paginators.md#listmissionprofilespaginator)
+- `client.get_paginator("list_satellites")` -> [ListSatellitesPaginator](./paginators.md#listsatellitespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListContactsPaginatorName
-) -> ListContactsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("groundstation").get_paginator` method.
-
-[Paginator.ListDataflowEndpointGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/groundstation.html#GroundStation.Paginator.ListDataflowEndpointGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDataflowEndpointGroupsPaginatorName
-) -> ListDataflowEndpointGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("groundstation").get_paginator` method.
-
-[Paginator.ListGroundStations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/groundstation.html#GroundStation.Paginator.ListGroundStations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGroundStationsPaginatorName
-) -> ListGroundStationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("groundstation").get_paginator` method.
-
-[Paginator.ListMissionProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/groundstation.html#GroundStation.Paginator.ListMissionProfiles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMissionProfilesPaginatorName
-) -> ListMissionProfilesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("groundstation").get_paginator` method.
-
-[Paginator.ListSatellites documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/groundstation.html#GroundStation.Paginator.ListSatellites)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSatellitesPaginatorName
-) -> ListSatellitesPaginator:
-    pass
-```

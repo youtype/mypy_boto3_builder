@@ -108,12 +108,20 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_lookoutequipment.type_defs import DataIngestionJobSummaryTypeDef, ...
+from mypy_boto3_lookoutequipment.type_defs import CreateDatasetResponseTypeDef, ...
 ```
 
+- [CreateDatasetResponseTypeDef](./type_defs.md#createdatasetresponsetypedef)
+- [CreateInferenceSchedulerResponseTypeDef](./type_defs.md#createinferenceschedulerresponsetypedef)
+- [CreateModelResponseTypeDef](./type_defs.md#createmodelresponsetypedef)
 - [DataIngestionJobSummaryTypeDef](./type_defs.md#dataingestionjobsummarytypedef)
 - [DataPreProcessingConfigurationTypeDef](./type_defs.md#datapreprocessingconfigurationtypedef)
+- [DatasetSchemaTypeDef](./type_defs.md#datasetschematypedef)
 - [DatasetSummaryTypeDef](./type_defs.md#datasetsummarytypedef)
+- [DescribeDataIngestionJobResponseTypeDef](./type_defs.md#describedataingestionjobresponsetypedef)
+- [DescribeDatasetResponseTypeDef](./type_defs.md#describedatasetresponsetypedef)
+- [DescribeInferenceSchedulerResponseTypeDef](./type_defs.md#describeinferenceschedulerresponsetypedef)
+- [DescribeModelResponseTypeDef](./type_defs.md#describemodelresponsetypedef)
 - [InferenceExecutionSummaryTypeDef](./type_defs.md#inferenceexecutionsummarytypedef)
 - [InferenceInputConfigurationTypeDef](./type_defs.md#inferenceinputconfigurationtypedef)
 - [InferenceInputNameConfigurationTypeDef](./type_defs.md#inferenceinputnameconfigurationtypedef)
@@ -125,23 +133,15 @@ from mypy_boto3_lookoutequipment.type_defs import DataIngestionJobSummaryTypeDef
 - [IngestionS3InputConfigurationTypeDef](./type_defs.md#ingestions3inputconfigurationtypedef)
 - [LabelsInputConfigurationTypeDef](./type_defs.md#labelsinputconfigurationtypedef)
 - [LabelsS3InputConfigurationTypeDef](./type_defs.md#labelss3inputconfigurationtypedef)
-- [ModelSummaryTypeDef](./type_defs.md#modelsummarytypedef)
-- [S3ObjectTypeDef](./type_defs.md#s3objecttypedef)
-- [TagTypeDef](./type_defs.md#tagtypedef)
-- [CreateDatasetResponseTypeDef](./type_defs.md#createdatasetresponsetypedef)
-- [CreateInferenceSchedulerResponseTypeDef](./type_defs.md#createinferenceschedulerresponsetypedef)
-- [CreateModelResponseTypeDef](./type_defs.md#createmodelresponsetypedef)
-- [DatasetSchemaTypeDef](./type_defs.md#datasetschematypedef)
-- [DescribeDataIngestionJobResponseTypeDef](./type_defs.md#describedataingestionjobresponsetypedef)
-- [DescribeDatasetResponseTypeDef](./type_defs.md#describedatasetresponsetypedef)
-- [DescribeInferenceSchedulerResponseTypeDef](./type_defs.md#describeinferenceschedulerresponsetypedef)
-- [DescribeModelResponseTypeDef](./type_defs.md#describemodelresponsetypedef)
 - [ListDataIngestionJobsResponseTypeDef](./type_defs.md#listdataingestionjobsresponsetypedef)
 - [ListDatasetsResponseTypeDef](./type_defs.md#listdatasetsresponsetypedef)
 - [ListInferenceExecutionsResponseTypeDef](./type_defs.md#listinferenceexecutionsresponsetypedef)
 - [ListInferenceSchedulersResponseTypeDef](./type_defs.md#listinferenceschedulersresponsetypedef)
 - [ListModelsResponseTypeDef](./type_defs.md#listmodelsresponsetypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
+- [ModelSummaryTypeDef](./type_defs.md#modelsummarytypedef)
+- [S3ObjectTypeDef](./type_defs.md#s3objecttypedef)
 - [StartDataIngestionJobResponseTypeDef](./type_defs.md#startdataingestionjobresponsetypedef)
 - [StartInferenceSchedulerResponseTypeDef](./type_defs.md#startinferenceschedulerresponsetypedef)
 - [StopInferenceSchedulerResponseTypeDef](./type_defs.md#stopinferenceschedulerresponsetypedef)
+- [TagTypeDef](./type_defs.md#tagtypedef)

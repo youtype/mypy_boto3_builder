@@ -84,13 +84,13 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_iot_jobs_data.type_defs import JobExecutionStateTypeDef, ...
+from mypy_boto3_iot_jobs_data.type_defs import DescribeJobExecutionResponseTypeDef, ...
 ```
 
+- [DescribeJobExecutionResponseTypeDef](./type_defs.md#describejobexecutionresponsetypedef)
+- [GetPendingJobExecutionsResponseTypeDef](./type_defs.md#getpendingjobexecutionsresponsetypedef)
 - [JobExecutionStateTypeDef](./type_defs.md#jobexecutionstatetypedef)
 - [JobExecutionSummaryTypeDef](./type_defs.md#jobexecutionsummarytypedef)
 - [JobExecutionTypeDef](./type_defs.md#jobexecutiontypedef)
-- [DescribeJobExecutionResponseTypeDef](./type_defs.md#describejobexecutionresponsetypedef)
-- [GetPendingJobExecutionsResponseTypeDef](./type_defs.md#getpendingjobexecutionsresponsetypedef)
 - [StartNextPendingJobExecutionResponseTypeDef](./type_defs.md#startnextpendingjobexecutionresponsetypedef)
 - [UpdateJobExecutionResponseTypeDef](./type_defs.md#updatejobexecutionresponsetypedef)

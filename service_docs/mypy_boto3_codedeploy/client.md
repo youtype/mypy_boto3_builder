@@ -59,14 +59,6 @@ type annotations stubs module [mypy_boto3_codedeploy](https://pypi.org/project/m
     - [update_application](#update_application)
     - [update_deployment_group](#update_deployment_group)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
     - [get_waiter](#get_waiter)
 
 ## CodeDeployClient
@@ -991,151 +983,27 @@ def update_deployment_group(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("codedeploy").get_paginator` method.
-
-[Paginator.ListApplicationRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplicationRevisions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListApplicationRevisionsPaginatorName
-) -> ListApplicationRevisionsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("codedeploy").get_paginator` method.
+Type annotations for `boto3.client("codedeploy").get_paginator` method with overloads.
 
-[Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplications)
+- `client.get_paginator("list_application_revisions")` -> [ListApplicationRevisionsPaginator](./paginators.md#listapplicationrevisionspaginator)
+- `client.get_paginator("list_applications")` -> [ListApplicationsPaginator](./paginators.md#listapplicationspaginator)
+- `client.get_paginator("list_deployment_configs")` -> [ListDeploymentConfigsPaginator](./paginators.md#listdeploymentconfigspaginator)
+- `client.get_paginator("list_deployment_groups")` -> [ListDeploymentGroupsPaginator](./paginators.md#listdeploymentgroupspaginator)
+- `client.get_paginator("list_deployment_instances")` -> [ListDeploymentInstancesPaginator](./paginators.md#listdeploymentinstancespaginator)
+- `client.get_paginator("list_deployment_targets")` -> [ListDeploymentTargetsPaginator](./paginators.md#listdeploymenttargetspaginator)
+- `client.get_paginator("list_deployments")` -> [ListDeploymentsPaginator](./paginators.md#listdeploymentspaginator)
+- `client.get_paginator("list_git_hub_account_token_names")` -> [ListGitHubAccountTokenNamesPaginator](./paginators.md#listgithubaccounttokennamespaginator)
+- `client.get_paginator("list_on_premises_instances")` -> [ListOnPremisesInstancesPaginator](./paginators.md#listonpremisesinstancespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListApplicationsPaginatorName
-) -> ListApplicationsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("codedeploy").get_paginator` method.
-
-[Paginator.ListDeploymentConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentConfigs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeploymentConfigsPaginatorName
-) -> ListDeploymentConfigsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codedeploy").get_paginator` method.
-
-[Paginator.ListDeploymentGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeploymentGroupsPaginatorName
-) -> ListDeploymentGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codedeploy").get_paginator` method.
-
-[Paginator.ListDeploymentInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeploymentInstancesPaginatorName
-) -> ListDeploymentInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codedeploy").get_paginator` method.
-
-[Paginator.ListDeploymentTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentTargets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeploymentTargetsPaginatorName
-) -> ListDeploymentTargetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codedeploy").get_paginator` method.
-
-[Paginator.ListDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeployments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeploymentsPaginatorName
-) -> ListDeploymentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codedeploy").get_paginator` method.
-
-[Paginator.ListGitHubAccountTokenNames documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy.html#CodeDeploy.Paginator.ListGitHubAccountTokenNames)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGitHubAccountTokenNamesPaginatorName
-) -> ListGitHubAccountTokenNamesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codedeploy").get_paginator` method.
-
-[Paginator.ListOnPremisesInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy.html#CodeDeploy.Paginator.ListOnPremisesInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOnPremisesInstancesPaginatorName
-) -> ListOnPremisesInstancesPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("codedeploy").get_waiter` method.
+Type annotations for `boto3.client("codedeploy").get_waiter` method with overloads.
 
-[Waiter.DeploymentSuccessful documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful)
-
-```python
-def get_waiter(
-    self,
-    waiter_name: DeploymentSuccessfulWaiterName
-) -> DeploymentSuccessfulWaiter:
-    pass
-```
+- `client.get_waiter("deployment_successful")` -> [DeploymentSuccessfulWaiter](./waiters.md#deploymentsuccessfulwaiter)

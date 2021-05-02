@@ -125,15 +125,9 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_secretsmanager.type_defs import ReplicationStatusTypeTypeDef, ...
+from mypy_boto3_secretsmanager.type_defs import CancelRotateSecretResponseTypeDef, ...
 ```
 
-- [ReplicationStatusTypeTypeDef](./type_defs.md#replicationstatustypetypedef)
-- [RotationRulesTypeTypeDef](./type_defs.md#rotationrulestypetypedef)
-- [SecretListEntryTypeDef](./type_defs.md#secretlistentrytypedef)
-- [SecretVersionsListEntryTypeDef](./type_defs.md#secretversionslistentrytypedef)
-- [TagTypeDef](./type_defs.md#tagtypedef)
-- [ValidationErrorsEntryTypeDef](./type_defs.md#validationerrorsentrytypedef)
 - [CancelRotateSecretResponseTypeDef](./type_defs.md#cancelrotatesecretresponsetypedef)
 - [CreateSecretResponseTypeDef](./type_defs.md#createsecretresponsetypedef)
 - [DeleteResourcePolicyResponseTypeDef](./type_defs.md#deleteresourcepolicyresponsetypedef)
@@ -151,9 +145,15 @@ from mypy_boto3_secretsmanager.type_defs import ReplicationStatusTypeTypeDef, ..
 - [RemoveRegionsFromReplicationResponseTypeDef](./type_defs.md#removeregionsfromreplicationresponsetypedef)
 - [ReplicaRegionTypeTypeDef](./type_defs.md#replicaregiontypetypedef)
 - [ReplicateSecretToRegionsResponseTypeDef](./type_defs.md#replicatesecrettoregionsresponsetypedef)
+- [ReplicationStatusTypeTypeDef](./type_defs.md#replicationstatustypetypedef)
 - [RestoreSecretResponseTypeDef](./type_defs.md#restoresecretresponsetypedef)
 - [RotateSecretResponseTypeDef](./type_defs.md#rotatesecretresponsetypedef)
+- [RotationRulesTypeTypeDef](./type_defs.md#rotationrulestypetypedef)
+- [SecretListEntryTypeDef](./type_defs.md#secretlistentrytypedef)
+- [SecretVersionsListEntryTypeDef](./type_defs.md#secretversionslistentrytypedef)
 - [StopReplicationToReplicaResponseTypeDef](./type_defs.md#stopreplicationtoreplicaresponsetypedef)
+- [TagTypeDef](./type_defs.md#tagtypedef)
 - [UpdateSecretResponseTypeDef](./type_defs.md#updatesecretresponsetypedef)
 - [UpdateSecretVersionStageResponseTypeDef](./type_defs.md#updatesecretversionstageresponsetypedef)
 - [ValidateResourcePolicyResponseTypeDef](./type_defs.md#validateresourcepolicyresponsetypedef)
+- [ValidationErrorsEntryTypeDef](./type_defs.md#validationerrorsentrytypedef)

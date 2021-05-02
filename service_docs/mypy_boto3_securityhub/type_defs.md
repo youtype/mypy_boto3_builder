@@ -6,6 +6,7 @@ Auto-generated documentation for [SecurityHub](https://boto3.amazonaws.com/v1/do
 type annotations stubs module [mypy_boto3_securityhub](https://pypi.org/project/mypy-boto3-securityhub/).
 
 - [Structures for boto3 SecurityHub module](#structures-for-boto3-securityhub-module)
+  - [AccountDetailsTypeDef](#accountdetailstypedef)
   - [ActionLocalIpDetailsTypeDef](#actionlocalipdetailstypedef)
   - [ActionLocalPortDetailsTypeDef](#actionlocalportdetailstypedef)
   - [ActionRemoteIpDetailsTypeDef](#actionremoteipdetailstypedef)
@@ -183,6 +184,10 @@ type annotations stubs module [mypy_boto3_securityhub](https://pypi.org/project/
   - [AwsSsmPatchTypeDef](#awsssmpatchtypedef)
   - [AwsWafWebAclDetailsTypeDef](#awswafwebacldetailstypedef)
   - [AwsWafWebAclRuleTypeDef](#awswafwebaclruletypedef)
+  - [BatchDisableStandardsResponseTypeDef](#batchdisablestandardsresponsetypedef)
+  - [BatchEnableStandardsResponseTypeDef](#batchenablestandardsresponsetypedef)
+  - [BatchImportFindingsResponseTypeDef](#batchimportfindingsresponsetypedef)
+  - [BatchUpdateFindingsResponseTypeDef](#batchupdatefindingsresponsetypedef)
   - [BatchUpdateFindingsUnprocessedFindingTypeDef](#batchupdatefindingsunprocessedfindingtypedef)
   - [CellTypeDef](#celltypedef)
   - [CidrBlockAssociationTypeDef](#cidrblockassociationtypedef)
@@ -192,25 +197,54 @@ type annotations stubs module [mypy_boto3_securityhub](https://pypi.org/project/
   - [ComplianceTypeDef](#compliancetypedef)
   - [ContainerDetailsTypeDef](#containerdetailstypedef)
   - [CountryTypeDef](#countrytypedef)
+  - [CreateActionTargetResponseTypeDef](#createactiontargetresponsetypedef)
+  - [CreateInsightResponseTypeDef](#createinsightresponsetypedef)
+  - [CreateMembersResponseTypeDef](#createmembersresponsetypedef)
   - [CustomDataIdentifiersDetectionsTypeDef](#customdataidentifiersdetectionstypedef)
   - [CustomDataIdentifiersResultTypeDef](#customdataidentifiersresulttypedef)
   - [CvssTypeDef](#cvsstypedef)
   - [DataClassificationDetailsTypeDef](#dataclassificationdetailstypedef)
   - [DateFilterTypeDef](#datefiltertypedef)
   - [DateRangeTypeDef](#daterangetypedef)
+  - [DeclineInvitationsResponseTypeDef](#declineinvitationsresponsetypedef)
+  - [DeleteActionTargetResponseTypeDef](#deleteactiontargetresponsetypedef)
+  - [DeleteInsightResponseTypeDef](#deleteinsightresponsetypedef)
+  - [DeleteInvitationsResponseTypeDef](#deleteinvitationsresponsetypedef)
+  - [DeleteMembersResponseTypeDef](#deletemembersresponsetypedef)
+  - [DescribeActionTargetsResponseTypeDef](#describeactiontargetsresponsetypedef)
+  - [DescribeHubResponseTypeDef](#describehubresponsetypedef)
+  - [DescribeOrganizationConfigurationResponseTypeDef](#describeorganizationconfigurationresponsetypedef)
+  - [DescribeProductsResponseTypeDef](#describeproductsresponsetypedef)
+  - [DescribeStandardsControlsResponseTypeDef](#describestandardscontrolsresponsetypedef)
+  - [DescribeStandardsResponseTypeDef](#describestandardsresponsetypedef)
   - [DnsRequestActionTypeDef](#dnsrequestactiontypedef)
+  - [EnableImportFindingsForProductResponseTypeDef](#enableimportfindingsforproductresponsetypedef)
   - [FindingProviderFieldsTypeDef](#findingproviderfieldstypedef)
   - [FindingProviderSeverityTypeDef](#findingproviderseveritytypedef)
   - [GeoLocationTypeDef](#geolocationtypedef)
+  - [GetAdministratorAccountResponseTypeDef](#getadministratoraccountresponsetypedef)
+  - [GetEnabledStandardsResponseTypeDef](#getenabledstandardsresponsetypedef)
+  - [GetFindingsResponseTypeDef](#getfindingsresponsetypedef)
+  - [GetInsightResultsResponseTypeDef](#getinsightresultsresponsetypedef)
+  - [GetInsightsResponseTypeDef](#getinsightsresponsetypedef)
+  - [GetInvitationsCountResponseTypeDef](#getinvitationscountresponsetypedef)
+  - [GetMasterAccountResponseTypeDef](#getmasteraccountresponsetypedef)
+  - [GetMembersResponseTypeDef](#getmembersresponsetypedef)
   - [ImportFindingsErrorTypeDef](#importfindingserrortypedef)
   - [InsightResultValueTypeDef](#insightresultvaluetypedef)
   - [InsightResultsTypeDef](#insightresultstypedef)
   - [InsightTypeDef](#insighttypedef)
   - [InvitationTypeDef](#invitationtypedef)
+  - [InviteMembersResponseTypeDef](#invitemembersresponsetypedef)
   - [IpFilterTypeDef](#ipfiltertypedef)
   - [IpOrganizationDetailsTypeDef](#iporganizationdetailstypedef)
   - [Ipv6CidrBlockAssociationTypeDef](#ipv6cidrblockassociationtypedef)
   - [KeywordFilterTypeDef](#keywordfiltertypedef)
+  - [ListEnabledProductsForImportResponseTypeDef](#listenabledproductsforimportresponsetypedef)
+  - [ListInvitationsResponseTypeDef](#listinvitationsresponsetypedef)
+  - [ListMembersResponseTypeDef](#listmembersresponsetypedef)
+  - [ListOrganizationAdminAccountsResponseTypeDef](#listorganizationadminaccountsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [LoadBalancerStateTypeDef](#loadbalancerstatetypedef)
   - [MalwareTypeDef](#malwaretypedef)
   - [MapFilterTypeDef](#mapfiltertypedef)
@@ -221,9 +255,11 @@ type annotations stubs module [mypy_boto3_securityhub](https://pypi.org/project/
   - [NetworkPathComponentTypeDef](#networkpathcomponenttypedef)
   - [NetworkTypeDef](#networktypedef)
   - [NoteTypeDef](#notetypedef)
+  - [NoteUpdateTypeDef](#noteupdatetypedef)
   - [NumberFilterTypeDef](#numberfiltertypedef)
   - [OccurrencesTypeDef](#occurrencestypedef)
   - [PageTypeDef](#pagetypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PatchSummaryTypeDef](#patchsummarytypedef)
   - [PortProbeActionTypeDef](#portprobeactiontypedef)
   - [PortProbeDetailTypeDef](#portprobedetailtypedef)
@@ -241,9 +277,12 @@ type annotations stubs module [mypy_boto3_securityhub](https://pypi.org/project/
   - [SensitiveDataDetectionsTypeDef](#sensitivedatadetectionstypedef)
   - [SensitiveDataResultTypeDef](#sensitivedataresulttypedef)
   - [SeverityTypeDef](#severitytypedef)
+  - [SeverityUpdateTypeDef](#severityupdatetypedef)
   - [SoftwarePackageTypeDef](#softwarepackagetypedef)
+  - [SortCriterionTypeDef](#sortcriteriontypedef)
   - [StandardTypeDef](#standardtypedef)
   - [StandardsControlTypeDef](#standardscontroltypedef)
+  - [StandardsSubscriptionRequestTypeDef](#standardssubscriptionrequesttypedef)
   - [StandardsSubscriptionTypeDef](#standardssubscriptiontypedef)
   - [StatusReasonTypeDef](#statusreasontypedef)
   - [StringFilterTypeDef](#stringfiltertypedef)
@@ -254,46 +293,23 @@ type annotations stubs module [mypy_boto3_securityhub](https://pypi.org/project/
   - [WafExcludedRuleTypeDef](#wafexcludedruletypedef)
   - [WafOverrideActionTypeDef](#wafoverrideactiontypedef)
   - [WorkflowTypeDef](#workflowtypedef)
-  - [AccountDetailsTypeDef](#accountdetailstypedef)
-  - [BatchDisableStandardsResponseTypeDef](#batchdisablestandardsresponsetypedef)
-  - [BatchEnableStandardsResponseTypeDef](#batchenablestandardsresponsetypedef)
-  - [BatchImportFindingsResponseTypeDef](#batchimportfindingsresponsetypedef)
-  - [BatchUpdateFindingsResponseTypeDef](#batchupdatefindingsresponsetypedef)
-  - [CreateActionTargetResponseTypeDef](#createactiontargetresponsetypedef)
-  - [CreateInsightResponseTypeDef](#createinsightresponsetypedef)
-  - [CreateMembersResponseTypeDef](#createmembersresponsetypedef)
-  - [DeclineInvitationsResponseTypeDef](#declineinvitationsresponsetypedef)
-  - [DeleteActionTargetResponseTypeDef](#deleteactiontargetresponsetypedef)
-  - [DeleteInsightResponseTypeDef](#deleteinsightresponsetypedef)
-  - [DeleteInvitationsResponseTypeDef](#deleteinvitationsresponsetypedef)
-  - [DeleteMembersResponseTypeDef](#deletemembersresponsetypedef)
-  - [DescribeActionTargetsResponseTypeDef](#describeactiontargetsresponsetypedef)
-  - [DescribeHubResponseTypeDef](#describehubresponsetypedef)
-  - [DescribeOrganizationConfigurationResponseTypeDef](#describeorganizationconfigurationresponsetypedef)
-  - [DescribeProductsResponseTypeDef](#describeproductsresponsetypedef)
-  - [DescribeStandardsControlsResponseTypeDef](#describestandardscontrolsresponsetypedef)
-  - [DescribeStandardsResponseTypeDef](#describestandardsresponsetypedef)
-  - [EnableImportFindingsForProductResponseTypeDef](#enableimportfindingsforproductresponsetypedef)
-  - [GetAdministratorAccountResponseTypeDef](#getadministratoraccountresponsetypedef)
-  - [GetEnabledStandardsResponseTypeDef](#getenabledstandardsresponsetypedef)
-  - [GetFindingsResponseTypeDef](#getfindingsresponsetypedef)
-  - [GetInsightResultsResponseTypeDef](#getinsightresultsresponsetypedef)
-  - [GetInsightsResponseTypeDef](#getinsightsresponsetypedef)
-  - [GetInvitationsCountResponseTypeDef](#getinvitationscountresponsetypedef)
-  - [GetMasterAccountResponseTypeDef](#getmasteraccountresponsetypedef)
-  - [GetMembersResponseTypeDef](#getmembersresponsetypedef)
-  - [InviteMembersResponseTypeDef](#invitemembersresponsetypedef)
-  - [ListEnabledProductsForImportResponseTypeDef](#listenabledproductsforimportresponsetypedef)
-  - [ListInvitationsResponseTypeDef](#listinvitationsresponsetypedef)
-  - [ListMembersResponseTypeDef](#listmembersresponsetypedef)
-  - [ListOrganizationAdminAccountsResponseTypeDef](#listorganizationadminaccountsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [NoteUpdateTypeDef](#noteupdatetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [SeverityUpdateTypeDef](#severityupdatetypedef)
-  - [SortCriterionTypeDef](#sortcriteriontypedef)
-  - [StandardsSubscriptionRequestTypeDef](#standardssubscriptionrequesttypedef)
   - [WorkflowUpdateTypeDef](#workflowupdatetypedef)
+
+## AccountDetailsTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import AccountDetailsTypeDef
+```
+
+
+Required fields:
+- `AccountId`: `str`
+
+
+
+Optional fields:
+- `Email`: `str`
+
 
 ## ActionLocalIpDetailsTypeDef
 
@@ -3461,6 +3477,63 @@ Optional fields:
 - `Type`: `str`
 
 
+## BatchDisableStandardsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import BatchDisableStandardsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `StandardsSubscriptions`: `List["StandardsSubscriptionTypeDef"]`
+
+
+## BatchEnableStandardsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import BatchEnableStandardsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `StandardsSubscriptions`: `List["StandardsSubscriptionTypeDef"]`
+
+
+## BatchImportFindingsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import BatchImportFindingsResponseTypeDef
+```
+
+
+Required fields:
+- `FailedCount`: `int`
+- `SuccessCount`: `int`
+
+
+
+Optional fields:
+- `FailedFindings`: `List["ImportFindingsErrorTypeDef"]`
+
+
+## BatchUpdateFindingsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import BatchUpdateFindingsResponseTypeDef
+```
+
+
+Required fields:
+- `ProcessedFindings`: `List["AwsSecurityFindingIdentifierTypeDef"]`
+- `UnprocessedFindings`: `List["BatchUpdateFindingsUnprocessedFindingTypeDef"]`
+
+
+
+
 ## BatchUpdateFindingsUnprocessedFindingTypeDef
 
 ```python
@@ -3597,6 +3670,45 @@ Optional fields:
 - `CountryName`: `str`
 
 
+## CreateActionTargetResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import CreateActionTargetResponseTypeDef
+```
+
+
+Required fields:
+- `ActionTargetArn`: `str`
+
+
+
+
+## CreateInsightResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import CreateInsightResponseTypeDef
+```
+
+
+Required fields:
+- `InsightArn`: `str`
+
+
+
+
+## CreateMembersResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import CreateMembersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UnprocessedAccounts`: `List["ResultTypeDef"]`
+
+
 ## CustomDataIdentifiersDetectionsTypeDef
 
 ```python
@@ -3682,7 +3794,161 @@ from mypy_boto3_securityhub.type_defs import DateRangeTypeDef
 
 Optional fields:
 - `Value`: `int`
-- `Unit`: `DateRangeUnit`
+- `Unit`: `Literal['DAYS']`
+
+
+## DeclineInvitationsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import DeclineInvitationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UnprocessedAccounts`: `List["ResultTypeDef"]`
+
+
+## DeleteActionTargetResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import DeleteActionTargetResponseTypeDef
+```
+
+
+Required fields:
+- `ActionTargetArn`: `str`
+
+
+
+
+## DeleteInsightResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import DeleteInsightResponseTypeDef
+```
+
+
+Required fields:
+- `InsightArn`: `str`
+
+
+
+
+## DeleteInvitationsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import DeleteInvitationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UnprocessedAccounts`: `List["ResultTypeDef"]`
+
+
+## DeleteMembersResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import DeleteMembersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UnprocessedAccounts`: `List["ResultTypeDef"]`
+
+
+## DescribeActionTargetsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import DescribeActionTargetsResponseTypeDef
+```
+
+
+Required fields:
+- `ActionTargets`: `List["ActionTargetTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## DescribeHubResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import DescribeHubResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `HubArn`: `str`
+- `SubscribedAt`: `str`
+- `AutoEnableControls`: `bool`
+
+
+## DescribeOrganizationConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import DescribeOrganizationConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AutoEnable`: `bool`
+- `MemberAccountLimitReached`: `bool`
+
+
+## DescribeProductsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import DescribeProductsResponseTypeDef
+```
+
+
+Required fields:
+- `Products`: `List["ProductTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## DescribeStandardsControlsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import DescribeStandardsControlsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Controls`: `List["StandardsControlTypeDef"]`
+- `NextToken`: `str`
+
+
+## DescribeStandardsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import DescribeStandardsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Standards`: `List["StandardTypeDef"]`
+- `NextToken`: `str`
 
 
 ## DnsRequestActionTypeDef
@@ -3698,6 +3964,19 @@ Optional fields:
 - `Domain`: `str`
 - `Protocol`: `str`
 - `Blocked`: `bool`
+
+
+## EnableImportFindingsForProductResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import EnableImportFindingsForProductResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProductSubscriptionArn`: `str`
 
 
 ## FindingProviderFieldsTypeDef
@@ -3743,6 +4022,118 @@ from mypy_boto3_securityhub.type_defs import GeoLocationTypeDef
 Optional fields:
 - `Lon`: `float`
 - `Lat`: `float`
+
+
+## GetAdministratorAccountResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import GetAdministratorAccountResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Administrator`: `"InvitationTypeDef"`
+
+
+## GetEnabledStandardsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import GetEnabledStandardsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `StandardsSubscriptions`: `List["StandardsSubscriptionTypeDef"]`
+- `NextToken`: `str`
+
+
+## GetFindingsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import GetFindingsResponseTypeDef
+```
+
+
+Required fields:
+- `Findings`: `List["AwsSecurityFindingTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## GetInsightResultsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import GetInsightResultsResponseTypeDef
+```
+
+
+Required fields:
+- `InsightResults`: `"InsightResultsTypeDef"`
+
+
+
+
+## GetInsightsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import GetInsightsResponseTypeDef
+```
+
+
+Required fields:
+- `Insights`: `List["InsightTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## GetInvitationsCountResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import GetInvitationsCountResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `InvitationsCount`: `int`
+
+
+## GetMasterAccountResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import GetMasterAccountResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Master`: `"InvitationTypeDef"`
+
+
+## GetMembersResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import GetMembersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Members`: `List["MemberTypeDef"]`
+- `UnprocessedAccounts`: `List["ResultTypeDef"]`
 
 
 ## ImportFindingsErrorTypeDef
@@ -3821,6 +4212,19 @@ Optional fields:
 - `MemberStatus`: `str`
 
 
+## InviteMembersResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import InviteMembersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UnprocessedAccounts`: `List["ResultTypeDef"]`
+
+
 ## IpFilterTypeDef
 
 ```python
@@ -3876,6 +4280,75 @@ from mypy_boto3_securityhub.type_defs import KeywordFilterTypeDef
 
 Optional fields:
 - `Value`: `str`
+
+
+## ListEnabledProductsForImportResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import ListEnabledProductsForImportResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProductSubscriptions`: `List[str]`
+- `NextToken`: `str`
+
+
+## ListInvitationsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import ListInvitationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Invitations`: `List["InvitationTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListMembersResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import ListMembersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Members`: `List["MemberTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListOrganizationAdminAccountsResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import ListOrganizationAdminAccountsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AdminAccounts`: `List["AdminAccountTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
 
 
 ## LoadBalancerStateTypeDef
@@ -4046,6 +4519,20 @@ Required fields:
 
 
 
+## NoteUpdateTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import NoteUpdateTypeDef
+```
+
+
+Required fields:
+- `Text`: `str`
+- `UpdatedBy`: `str`
+
+
+
+
 ## NumberFilterTypeDef
 
 ```python
@@ -4091,6 +4578,21 @@ Optional fields:
 - `PageNumber`: `int`
 - `LineRange`: `"RangeTypeDef"`
 - `OffsetRange`: `"RangeTypeDef"`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## PatchSummaryTypeDef
@@ -4408,6 +4910,21 @@ Optional fields:
 - `Original`: `str`
 
 
+## SeverityUpdateTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import SeverityUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `Normalized`: `int`
+- `Product`: `float`
+- `Label`: `SeverityLabel`
+
+
 ## SoftwarePackageTypeDef
 
 ```python
@@ -4423,6 +4940,20 @@ Optional fields:
 - `Epoch`: `str`
 - `Release`: `str`
 - `Architecture`: `str`
+
+
+## SortCriterionTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import SortCriterionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Field`: `str`
+- `SortOrder`: `SortOrder`
 
 
 ## StandardTypeDef
@@ -4461,6 +4992,22 @@ Optional fields:
 - `RemediationUrl`: `str`
 - `SeverityRating`: `SeverityRating`
 - `RelatedRequirements`: `List[str]`
+
+
+## StandardsSubscriptionRequestTypeDef
+
+```python
+from mypy_boto3_securityhub.type_defs import StandardsSubscriptionRequestTypeDef
+```
+
+
+Required fields:
+- `StandardsArn`: `str`
+
+
+
+Optional fields:
+- `StandardsInput`: `Dict[str, str]`
 
 
 ## StandardsSubscriptionTypeDef
@@ -4616,553 +5163,6 @@ from mypy_boto3_securityhub.type_defs import WorkflowTypeDef
 
 Optional fields:
 - `Status`: `WorkflowStatus`
-
-
-## AccountDetailsTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import AccountDetailsTypeDef
-```
-
-
-Required fields:
-- `AccountId`: `str`
-
-
-
-Optional fields:
-- `Email`: `str`
-
-
-## BatchDisableStandardsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import BatchDisableStandardsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `StandardsSubscriptions`: `List["StandardsSubscriptionTypeDef"]`
-
-
-## BatchEnableStandardsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import BatchEnableStandardsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `StandardsSubscriptions`: `List["StandardsSubscriptionTypeDef"]`
-
-
-## BatchImportFindingsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import BatchImportFindingsResponseTypeDef
-```
-
-
-Required fields:
-- `FailedCount`: `int`
-- `SuccessCount`: `int`
-
-
-
-Optional fields:
-- `FailedFindings`: `List["ImportFindingsErrorTypeDef"]`
-
-
-## BatchUpdateFindingsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import BatchUpdateFindingsResponseTypeDef
-```
-
-
-Required fields:
-- `ProcessedFindings`: `List["AwsSecurityFindingIdentifierTypeDef"]`
-- `UnprocessedFindings`: `List["BatchUpdateFindingsUnprocessedFindingTypeDef"]`
-
-
-
-
-## CreateActionTargetResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import CreateActionTargetResponseTypeDef
-```
-
-
-Required fields:
-- `ActionTargetArn`: `str`
-
-
-
-
-## CreateInsightResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import CreateInsightResponseTypeDef
-```
-
-
-Required fields:
-- `InsightArn`: `str`
-
-
-
-
-## CreateMembersResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import CreateMembersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UnprocessedAccounts`: `List["ResultTypeDef"]`
-
-
-## DeclineInvitationsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import DeclineInvitationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UnprocessedAccounts`: `List["ResultTypeDef"]`
-
-
-## DeleteActionTargetResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import DeleteActionTargetResponseTypeDef
-```
-
-
-Required fields:
-- `ActionTargetArn`: `str`
-
-
-
-
-## DeleteInsightResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import DeleteInsightResponseTypeDef
-```
-
-
-Required fields:
-- `InsightArn`: `str`
-
-
-
-
-## DeleteInvitationsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import DeleteInvitationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UnprocessedAccounts`: `List["ResultTypeDef"]`
-
-
-## DeleteMembersResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import DeleteMembersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UnprocessedAccounts`: `List["ResultTypeDef"]`
-
-
-## DescribeActionTargetsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import DescribeActionTargetsResponseTypeDef
-```
-
-
-Required fields:
-- `ActionTargets`: `List["ActionTargetTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## DescribeHubResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import DescribeHubResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `HubArn`: `str`
-- `SubscribedAt`: `str`
-- `AutoEnableControls`: `bool`
-
-
-## DescribeOrganizationConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import DescribeOrganizationConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AutoEnable`: `bool`
-- `MemberAccountLimitReached`: `bool`
-
-
-## DescribeProductsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import DescribeProductsResponseTypeDef
-```
-
-
-Required fields:
-- `Products`: `List["ProductTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## DescribeStandardsControlsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import DescribeStandardsControlsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Controls`: `List["StandardsControlTypeDef"]`
-- `NextToken`: `str`
-
-
-## DescribeStandardsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import DescribeStandardsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Standards`: `List["StandardTypeDef"]`
-- `NextToken`: `str`
-
-
-## EnableImportFindingsForProductResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import EnableImportFindingsForProductResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProductSubscriptionArn`: `str`
-
-
-## GetAdministratorAccountResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import GetAdministratorAccountResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Administrator`: `"InvitationTypeDef"`
-
-
-## GetEnabledStandardsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import GetEnabledStandardsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `StandardsSubscriptions`: `List["StandardsSubscriptionTypeDef"]`
-- `NextToken`: `str`
-
-
-## GetFindingsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import GetFindingsResponseTypeDef
-```
-
-
-Required fields:
-- `Findings`: `List["AwsSecurityFindingTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## GetInsightResultsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import GetInsightResultsResponseTypeDef
-```
-
-
-Required fields:
-- `InsightResults`: `"InsightResultsTypeDef"`
-
-
-
-
-## GetInsightsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import GetInsightsResponseTypeDef
-```
-
-
-Required fields:
-- `Insights`: `List["InsightTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## GetInvitationsCountResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import GetInvitationsCountResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `InvitationsCount`: `int`
-
-
-## GetMasterAccountResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import GetMasterAccountResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Master`: `"InvitationTypeDef"`
-
-
-## GetMembersResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import GetMembersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Members`: `List["MemberTypeDef"]`
-- `UnprocessedAccounts`: `List["ResultTypeDef"]`
-
-
-## InviteMembersResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import InviteMembersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UnprocessedAccounts`: `List["ResultTypeDef"]`
-
-
-## ListEnabledProductsForImportResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import ListEnabledProductsForImportResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProductSubscriptions`: `List[str]`
-- `NextToken`: `str`
-
-
-## ListInvitationsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import ListInvitationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Invitations`: `List["InvitationTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListMembersResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import ListMembersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Members`: `List["MemberTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListOrganizationAdminAccountsResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import ListOrganizationAdminAccountsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AdminAccounts`: `List["AdminAccountTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## NoteUpdateTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import NoteUpdateTypeDef
-```
-
-
-Required fields:
-- `Text`: `str`
-- `UpdatedBy`: `str`
-
-
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## SeverityUpdateTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import SeverityUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `Normalized`: `int`
-- `Product`: `float`
-- `Label`: `SeverityLabel`
-
-
-## SortCriterionTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import SortCriterionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Field`: `str`
-- `SortOrder`: `SortOrder`
-
-
-## StandardsSubscriptionRequestTypeDef
-
-```python
-from mypy_boto3_securityhub.type_defs import StandardsSubscriptionRequestTypeDef
-```
-
-
-Required fields:
-- `StandardsArn`: `str`
-
-
-
-Optional fields:
-- `StandardsInput`: `Dict[str, str]`
 
 
 ## WorkflowUpdateTypeDef

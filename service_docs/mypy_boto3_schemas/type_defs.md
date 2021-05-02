@@ -6,12 +6,6 @@ Auto-generated documentation for [Schemas](https://boto3.amazonaws.com/v1/docume
 type annotations stubs module [mypy_boto3_schemas](https://pypi.org/project/mypy-boto3-schemas/).
 
 - [Structures for boto3 Schemas module](#structures-for-boto3-schemas-module)
-  - [DiscovererSummaryTypeDef](#discoverersummarytypedef)
-  - [RegistrySummaryTypeDef](#registrysummarytypedef)
-  - [SchemaSummaryTypeDef](#schemasummarytypedef)
-  - [SchemaVersionSummaryTypeDef](#schemaversionsummarytypedef)
-  - [SearchSchemaSummaryTypeDef](#searchschemasummarytypedef)
-  - [SearchSchemaVersionSummaryTypeDef](#searchschemaversionsummarytypedef)
   - [CreateDiscovererResponseTypeDef](#creatediscovererresponsetypedef)
   - [CreateRegistryResponseTypeDef](#createregistryresponsetypedef)
   - [CreateSchemaResponseTypeDef](#createschemaresponsetypedef)
@@ -19,6 +13,7 @@ type annotations stubs module [mypy_boto3_schemas](https://pypi.org/project/mypy
   - [DescribeDiscovererResponseTypeDef](#describediscovererresponsetypedef)
   - [DescribeRegistryResponseTypeDef](#describeregistryresponsetypedef)
   - [DescribeSchemaResponseTypeDef](#describeschemaresponsetypedef)
+  - [DiscovererSummaryTypeDef](#discoverersummarytypedef)
   - [ExportSchemaResponseTypeDef](#exportschemaresponsetypedef)
   - [GetCodeBindingSourceResponseTypeDef](#getcodebindingsourceresponsetypedef)
   - [GetDiscoveredSchemaResponseTypeDef](#getdiscoveredschemaresponsetypedef)
@@ -31,6 +26,11 @@ type annotations stubs module [mypy_boto3_schemas](https://pypi.org/project/mypy
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PutCodeBindingResponseTypeDef](#putcodebindingresponsetypedef)
   - [PutResourcePolicyResponseTypeDef](#putresourcepolicyresponsetypedef)
+  - [RegistrySummaryTypeDef](#registrysummarytypedef)
+  - [SchemaSummaryTypeDef](#schemasummarytypedef)
+  - [SchemaVersionSummaryTypeDef](#schemaversionsummarytypedef)
+  - [SearchSchemaSummaryTypeDef](#searchschemasummarytypedef)
+  - [SearchSchemaVersionSummaryTypeDef](#searchschemaversionsummarytypedef)
   - [SearchSchemasResponseTypeDef](#searchschemasresponsetypedef)
   - [StartDiscovererResponseTypeDef](#startdiscovererresponsetypedef)
   - [StopDiscovererResponseTypeDef](#stopdiscovererresponsetypedef)
@@ -38,102 +38,6 @@ type annotations stubs module [mypy_boto3_schemas](https://pypi.org/project/mypy
   - [UpdateRegistryResponseTypeDef](#updateregistryresponsetypedef)
   - [UpdateSchemaResponseTypeDef](#updateschemaresponsetypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
-
-## DiscovererSummaryTypeDef
-
-```python
-from mypy_boto3_schemas.type_defs import DiscovererSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `DiscovererArn`: `str`
-- `DiscovererId`: `str`
-- `SourceArn`: `str`
-- `State`: `DiscovererState`
-- `Tags`: `Dict[str, str]`
-
-
-## RegistrySummaryTypeDef
-
-```python
-from mypy_boto3_schemas.type_defs import RegistrySummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `RegistryArn`: `str`
-- `RegistryName`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## SchemaSummaryTypeDef
-
-```python
-from mypy_boto3_schemas.type_defs import SchemaSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `LastModified`: `datetime`
-- `SchemaArn`: `str`
-- `SchemaName`: `str`
-- `Tags`: `Dict[str, str]`
-- `VersionCount`: `int`
-
-
-## SchemaVersionSummaryTypeDef
-
-```python
-from mypy_boto3_schemas.type_defs import SchemaVersionSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `SchemaArn`: `str`
-- `SchemaName`: `str`
-- `SchemaVersion`: `str`
-- `Type`: `TypeType`
-
-
-## SearchSchemaSummaryTypeDef
-
-```python
-from mypy_boto3_schemas.type_defs import SearchSchemaSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `RegistryName`: `str`
-- `SchemaArn`: `str`
-- `SchemaName`: `str`
-- `SchemaVersions`: `List["SearchSchemaVersionSummaryTypeDef"]`
-
-
-## SearchSchemaVersionSummaryTypeDef
-
-```python
-from mypy_boto3_schemas.type_defs import SearchSchemaVersionSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreatedDate`: `datetime`
-- `SchemaVersion`: `str`
-- `Type`: `TypeType`
-
 
 ## CreateDiscovererResponseTypeDef
 
@@ -258,6 +162,23 @@ Optional fields:
 - `Tags`: `Dict[str, str]`
 - `Type`: `str`
 - `VersionCreatedDate`: `datetime`
+
+
+## DiscovererSummaryTypeDef
+
+```python
+from mypy_boto3_schemas.type_defs import DiscovererSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `DiscovererArn`: `str`
+- `DiscovererId`: `str`
+- `SourceArn`: `str`
+- `State`: `DiscovererState`
+- `Tags`: `Dict[str, str]`
 
 
 ## ExportSchemaResponseTypeDef
@@ -429,6 +350,85 @@ from mypy_boto3_schemas.type_defs import PutResourcePolicyResponseTypeDef
 Optional fields:
 - `Policy`: `str`
 - `RevisionId`: `str`
+
+
+## RegistrySummaryTypeDef
+
+```python
+from mypy_boto3_schemas.type_defs import RegistrySummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `RegistryArn`: `str`
+- `RegistryName`: `str`
+- `Tags`: `Dict[str, str]`
+
+
+## SchemaSummaryTypeDef
+
+```python
+from mypy_boto3_schemas.type_defs import SchemaSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `LastModified`: `datetime`
+- `SchemaArn`: `str`
+- `SchemaName`: `str`
+- `Tags`: `Dict[str, str]`
+- `VersionCount`: `int`
+
+
+## SchemaVersionSummaryTypeDef
+
+```python
+from mypy_boto3_schemas.type_defs import SchemaVersionSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `SchemaArn`: `str`
+- `SchemaName`: `str`
+- `SchemaVersion`: `str`
+- `Type`: `TypeType`
+
+
+## SearchSchemaSummaryTypeDef
+
+```python
+from mypy_boto3_schemas.type_defs import SearchSchemaSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `RegistryName`: `str`
+- `SchemaArn`: `str`
+- `SchemaName`: `str`
+- `SchemaVersions`: `List["SearchSchemaVersionSummaryTypeDef"]`
+
+
+## SearchSchemaVersionSummaryTypeDef
+
+```python
+from mypy_boto3_schemas.type_defs import SearchSchemaVersionSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreatedDate`: `datetime`
+- `SchemaVersion`: `str`
+- `Type`: `TypeType`
 
 
 ## SearchSchemasResponseTypeDef

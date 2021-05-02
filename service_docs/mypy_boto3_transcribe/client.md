@@ -455,7 +455,7 @@ def start_medical_transcription_job(
     LanguageCode: LanguageCode,
     Media: "MediaTypeDef",
     OutputBucketName: str,
-    Specialty: Specialty,
+    Specialty: Literal['PRIMARYCARE'],
     Type: TypeType,
     MediaSampleRateHertz: int = None,
     MediaFormat: MediaFormat = None,
@@ -541,3 +541,6 @@ def update_vocabulary_filter(
 ) -> UpdateVocabularyFilterResponseTypeDef:
     pass
 ```
+
+
+

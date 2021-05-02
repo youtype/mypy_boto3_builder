@@ -31,11 +31,6 @@ type annotations stubs module [mypy_boto3_service_quotas](https://pypi.org/proje
     - [tag_resource](#tag_resource)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
 
 ## ServiceQuotasClient
 
@@ -407,92 +402,17 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("service-quotas").get_paginator` method.
-
-[Paginator.ListAWSDefaultServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAWSDefaultServiceQuotasPaginatorName
-) -> ListAWSDefaultServiceQuotasPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("service-quotas").get_paginator` method.
+Type annotations for `boto3.client("service-quotas").get_paginator` method with overloads.
 
-[Paginator.ListRequestedServiceQuotaChangeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory)
+- `client.get_paginator("list_aws_default_service_quotas")` -> [ListAWSDefaultServiceQuotasPaginator](./paginators.md#listawsdefaultservicequotaspaginator)
+- `client.get_paginator("list_requested_service_quota_change_history")` -> [ListRequestedServiceQuotaChangeHistoryPaginator](./paginators.md#listrequestedservicequotachangehistorypaginator)
+- `client.get_paginator("list_requested_service_quota_change_history_by_quota")` -> [ListRequestedServiceQuotaChangeHistoryByQuotaPaginator](./paginators.md#listrequestedservicequotachangehistorybyquotapaginator)
+- `client.get_paginator("list_service_quota_increase_requests_in_template")` -> [ListServiceQuotaIncreaseRequestsInTemplatePaginator](./paginators.md#listservicequotaincreaserequestsintemplatepaginator)
+- `client.get_paginator("list_service_quotas")` -> [ListServiceQuotasPaginator](./paginators.md#listservicequotaspaginator)
+- `client.get_paginator("list_services")` -> [ListServicesPaginator](./paginators.md#listservicespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRequestedServiceQuotaChangeHistoryPaginatorName
-) -> ListRequestedServiceQuotaChangeHistoryPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("service-quotas").get_paginator` method.
-
-[Paginator.ListRequestedServiceQuotaChangeHistoryByQuota documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRequestedServiceQuotaChangeHistoryByQuotaPaginatorName
-) -> ListRequestedServiceQuotaChangeHistoryByQuotaPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("service-quotas").get_paginator` method.
-
-[Paginator.ListServiceQuotaIncreaseRequestsInTemplate documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListServiceQuotaIncreaseRequestsInTemplatePaginatorName
-) -> ListServiceQuotaIncreaseRequestsInTemplatePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("service-quotas").get_paginator` method.
-
-[Paginator.ListServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListServiceQuotasPaginatorName
-) -> ListServiceQuotasPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("service-quotas").get_paginator` method.
-
-[Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListServicesPaginatorName
-) -> ListServicesPaginator:
-    pass
-```

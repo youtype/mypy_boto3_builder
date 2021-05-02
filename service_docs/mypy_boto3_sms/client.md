@@ -47,10 +47,6 @@ type annotations stubs module [mypy_boto3_sms](https://pypi.org/project/mypy-bot
     - [update_app](#update_app)
     - [update_replication_job](#update_replication_job)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
 
 ## SMSClient
 
@@ -663,77 +659,16 @@ def update_replication_job(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("sms").get_paginator` method.
-
-[Paginator.GetConnectors documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms.html#SMS.Paginator.GetConnectors)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetConnectorsPaginatorName
-) -> GetConnectorsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("sms").get_paginator` method.
+Type annotations for `boto3.client("sms").get_paginator` method with overloads.
 
-[Paginator.GetReplicationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms.html#SMS.Paginator.GetReplicationJobs)
+- `client.get_paginator("get_connectors")` -> [GetConnectorsPaginator](./paginators.md#getconnectorspaginator)
+- `client.get_paginator("get_replication_jobs")` -> [GetReplicationJobsPaginator](./paginators.md#getreplicationjobspaginator)
+- `client.get_paginator("get_replication_runs")` -> [GetReplicationRunsPaginator](./paginators.md#getreplicationrunspaginator)
+- `client.get_paginator("get_servers")` -> [GetServersPaginator](./paginators.md#getserverspaginator)
+- `client.get_paginator("list_apps")` -> [ListAppsPaginator](./paginators.md#listappspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetReplicationJobsPaginatorName
-) -> GetReplicationJobsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("sms").get_paginator` method.
-
-[Paginator.GetReplicationRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms.html#SMS.Paginator.GetReplicationRuns)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetReplicationRunsPaginatorName
-) -> GetReplicationRunsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sms").get_paginator` method.
-
-[Paginator.GetServers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms.html#SMS.Paginator.GetServers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetServersPaginatorName
-) -> GetServersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sms").get_paginator` method.
-
-[Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sms.html#SMS.Paginator.ListApps)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAppsPaginatorName
-) -> ListAppsPaginator:
-    pass
-```

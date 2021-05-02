@@ -11,20 +11,60 @@ type annotations stubs module [mypy_boto3_cloudformation](https://pypi.org/proje
   - [AutoDeploymentTypeDef](#autodeploymenttypedef)
   - [ChangeSetSummaryTypeDef](#changesetsummarytypedef)
   - [ChangeTypeDef](#changetypedef)
+  - [CreateChangeSetOutputTypeDef](#createchangesetoutputtypedef)
+  - [CreateStackInstancesOutputTypeDef](#createstackinstancesoutputtypedef)
+  - [CreateStackOutputTypeDef](#createstackoutputtypedef)
+  - [CreateStackSetOutputTypeDef](#createstacksetoutputtypedef)
+  - [DeleteStackInstancesOutputTypeDef](#deletestackinstancesoutputtypedef)
   - [DeploymentTargetsTypeDef](#deploymenttargetstypedef)
+  - [DescribeAccountLimitsOutputTypeDef](#describeaccountlimitsoutputtypedef)
+  - [DescribeChangeSetOutputTypeDef](#describechangesetoutputtypedef)
+  - [DescribeStackDriftDetectionStatusOutputTypeDef](#describestackdriftdetectionstatusoutputtypedef)
+  - [DescribeStackEventsOutputTypeDef](#describestackeventsoutputtypedef)
+  - [DescribeStackInstanceOutputTypeDef](#describestackinstanceoutputtypedef)
+  - [DescribeStackResourceDriftsOutputTypeDef](#describestackresourcedriftsoutputtypedef)
+  - [DescribeStackResourceOutputTypeDef](#describestackresourceoutputtypedef)
+  - [DescribeStackResourcesOutputTypeDef](#describestackresourcesoutputtypedef)
+  - [DescribeStackSetOperationOutputTypeDef](#describestacksetoperationoutputtypedef)
+  - [DescribeStackSetOutputTypeDef](#describestacksetoutputtypedef)
+  - [DescribeStacksOutputTypeDef](#describestacksoutputtypedef)
+  - [DescribeTypeOutputTypeDef](#describetypeoutputtypedef)
+  - [DescribeTypeRegistrationOutputTypeDef](#describetyperegistrationoutputtypedef)
+  - [DetectStackDriftOutputTypeDef](#detectstackdriftoutputtypedef)
+  - [DetectStackResourceDriftOutputTypeDef](#detectstackresourcedriftoutputtypedef)
+  - [DetectStackSetDriftOutputTypeDef](#detectstacksetdriftoutputtypedef)
+  - [EstimateTemplateCostOutputTypeDef](#estimatetemplatecostoutputtypedef)
   - [ExportTypeDef](#exporttypedef)
+  - [GetStackPolicyOutputTypeDef](#getstackpolicyoutputtypedef)
+  - [GetTemplateOutputTypeDef](#gettemplateoutputtypedef)
+  - [GetTemplateSummaryOutputTypeDef](#gettemplatesummaryoutputtypedef)
+  - [ListChangeSetsOutputTypeDef](#listchangesetsoutputtypedef)
+  - [ListExportsOutputTypeDef](#listexportsoutputtypedef)
+  - [ListImportsOutputTypeDef](#listimportsoutputtypedef)
+  - [ListStackInstancesOutputTypeDef](#liststackinstancesoutputtypedef)
+  - [ListStackResourcesOutputTypeDef](#liststackresourcesoutputtypedef)
+  - [ListStackSetOperationResultsOutputTypeDef](#liststacksetoperationresultsoutputtypedef)
+  - [ListStackSetOperationsOutputTypeDef](#liststacksetoperationsoutputtypedef)
+  - [ListStackSetsOutputTypeDef](#liststacksetsoutputtypedef)
+  - [ListStacksOutputTypeDef](#liststacksoutputtypedef)
+  - [ListTypeRegistrationsOutputTypeDef](#listtyperegistrationsoutputtypedef)
+  - [ListTypeVersionsOutputTypeDef](#listtypeversionsoutputtypedef)
+  - [ListTypesOutputTypeDef](#listtypesoutputtypedef)
   - [LoggingConfigTypeDef](#loggingconfigtypedef)
   - [ModuleInfoTypeDef](#moduleinfotypedef)
   - [OutputTypeDef](#outputtypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ParameterConstraintsTypeDef](#parameterconstraintstypedef)
   - [ParameterDeclarationTypeDef](#parameterdeclarationtypedef)
   - [ParameterTypeDef](#parametertypedef)
   - [PhysicalResourceIdContextKeyValuePairTypeDef](#physicalresourceidcontextkeyvaluepairtypedef)
   - [PropertyDifferenceTypeDef](#propertydifferencetypedef)
+  - [RegisterTypeOutputTypeDef](#registertypeoutputtypedef)
   - [ResourceChangeDetailTypeDef](#resourcechangedetailtypedef)
   - [ResourceChangeTypeDef](#resourcechangetypedef)
   - [ResourceIdentifierSummaryTypeDef](#resourceidentifiersummarytypedef)
   - [ResourceTargetDefinitionTypeDef](#resourcetargetdefinitiontypedef)
+  - [ResourceToImportTypeDef](#resourcetoimporttypedef)
   - [ResponseMetadata](#responsemetadata)
   - [RollbackConfigurationTypeDef](#rollbackconfigurationtypedef)
   - [RollbackTriggerTypeDef](#rollbacktriggertypedef)
@@ -32,6 +72,7 @@ type annotations stubs module [mypy_boto3_cloudformation](https://pypi.org/proje
   - [StackDriftInformationTypeDef](#stackdriftinformationtypedef)
   - [StackEventTypeDef](#stackeventtypedef)
   - [StackInstanceComprehensiveStatusTypeDef](#stackinstancecomprehensivestatustypedef)
+  - [StackInstanceFilterTypeDef](#stackinstancefiltertypedef)
   - [StackInstanceSummaryTypeDef](#stackinstancesummarytypedef)
   - [StackInstanceTypeDef](#stackinstancetypedef)
   - [StackResourceDetailTypeDef](#stackresourcedetailtypedef)
@@ -53,47 +94,6 @@ type annotations stubs module [mypy_boto3_cloudformation](https://pypi.org/proje
   - [TemplateParameterTypeDef](#templateparametertypedef)
   - [TypeSummaryTypeDef](#typesummarytypedef)
   - [TypeVersionSummaryTypeDef](#typeversionsummarytypedef)
-  - [CreateChangeSetOutputTypeDef](#createchangesetoutputtypedef)
-  - [CreateStackInstancesOutputTypeDef](#createstackinstancesoutputtypedef)
-  - [CreateStackOutputTypeDef](#createstackoutputtypedef)
-  - [CreateStackSetOutputTypeDef](#createstacksetoutputtypedef)
-  - [DeleteStackInstancesOutputTypeDef](#deletestackinstancesoutputtypedef)
-  - [DescribeAccountLimitsOutputTypeDef](#describeaccountlimitsoutputtypedef)
-  - [DescribeChangeSetOutputTypeDef](#describechangesetoutputtypedef)
-  - [DescribeStackDriftDetectionStatusOutputTypeDef](#describestackdriftdetectionstatusoutputtypedef)
-  - [DescribeStackEventsOutputTypeDef](#describestackeventsoutputtypedef)
-  - [DescribeStackInstanceOutputTypeDef](#describestackinstanceoutputtypedef)
-  - [DescribeStackResourceDriftsOutputTypeDef](#describestackresourcedriftsoutputtypedef)
-  - [DescribeStackResourceOutputTypeDef](#describestackresourceoutputtypedef)
-  - [DescribeStackResourcesOutputTypeDef](#describestackresourcesoutputtypedef)
-  - [DescribeStackSetOperationOutputTypeDef](#describestacksetoperationoutputtypedef)
-  - [DescribeStackSetOutputTypeDef](#describestacksetoutputtypedef)
-  - [DescribeStacksOutputTypeDef](#describestacksoutputtypedef)
-  - [DescribeTypeOutputTypeDef](#describetypeoutputtypedef)
-  - [DescribeTypeRegistrationOutputTypeDef](#describetyperegistrationoutputtypedef)
-  - [DetectStackDriftOutputTypeDef](#detectstackdriftoutputtypedef)
-  - [DetectStackResourceDriftOutputTypeDef](#detectstackresourcedriftoutputtypedef)
-  - [DetectStackSetDriftOutputTypeDef](#detectstacksetdriftoutputtypedef)
-  - [EstimateTemplateCostOutputTypeDef](#estimatetemplatecostoutputtypedef)
-  - [GetStackPolicyOutputTypeDef](#getstackpolicyoutputtypedef)
-  - [GetTemplateOutputTypeDef](#gettemplateoutputtypedef)
-  - [GetTemplateSummaryOutputTypeDef](#gettemplatesummaryoutputtypedef)
-  - [ListChangeSetsOutputTypeDef](#listchangesetsoutputtypedef)
-  - [ListExportsOutputTypeDef](#listexportsoutputtypedef)
-  - [ListImportsOutputTypeDef](#listimportsoutputtypedef)
-  - [ListStackInstancesOutputTypeDef](#liststackinstancesoutputtypedef)
-  - [ListStackResourcesOutputTypeDef](#liststackresourcesoutputtypedef)
-  - [ListStackSetOperationResultsOutputTypeDef](#liststacksetoperationresultsoutputtypedef)
-  - [ListStackSetOperationsOutputTypeDef](#liststacksetoperationsoutputtypedef)
-  - [ListStackSetsOutputTypeDef](#liststacksetsoutputtypedef)
-  - [ListStacksOutputTypeDef](#liststacksoutputtypedef)
-  - [ListTypeRegistrationsOutputTypeDef](#listtyperegistrationsoutputtypedef)
-  - [ListTypeVersionsOutputTypeDef](#listtypeversionsoutputtypedef)
-  - [ListTypesOutputTypeDef](#listtypesoutputtypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [RegisterTypeOutputTypeDef](#registertypeoutputtypedef)
-  - [ResourceToImportTypeDef](#resourcetoimporttypedef)
-  - [StackInstanceFilterTypeDef](#stackinstancefiltertypedef)
   - [UpdateStackInstancesOutputTypeDef](#updatestackinstancesoutputtypedef)
   - [UpdateStackOutputTypeDef](#updatestackoutputtypedef)
   - [UpdateStackSetOutputTypeDef](#updatestacksetoutputtypedef)
@@ -177,8 +177,79 @@ from mypy_boto3_cloudformation.type_defs import ChangeTypeDef
 
 
 Optional fields:
-- `Type`: `ChangeType`
+- `Type`: `Literal['Resource']`
 - `ResourceChange`: `"ResourceChangeTypeDef"`
+
+
+## CreateChangeSetOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import CreateChangeSetOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `StackId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateStackInstancesOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import CreateStackInstancesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `OperationId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateStackOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import CreateStackOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateStackSetOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import CreateStackSetOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackSetId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DeleteStackInstancesOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DeleteStackInstancesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `OperationId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## DeploymentTargetsTypeDef
@@ -196,6 +267,298 @@ Optional fields:
 - `OrganizationalUnitIds`: `List[str]`
 
 
+## DescribeAccountLimitsOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeAccountLimitsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `AccountLimits`: `List["AccountLimitTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeChangeSetOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeChangeSetOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ChangeSetName`: `str`
+- `ChangeSetId`: `str`
+- `StackId`: `str`
+- `StackName`: `str`
+- `Description`: `str`
+- `Parameters`: `List["ParameterTypeDef"]`
+- `CreationTime`: `datetime`
+- `ExecutionStatus`: `ExecutionStatus`
+- `Status`: `ChangeSetStatus`
+- `StatusReason`: `str`
+- `NotificationARNs`: `List[str]`
+- `RollbackConfiguration`: `"RollbackConfigurationTypeDef"`
+- `Capabilities`: `List[Capability]`
+- `Tags`: `List["TagTypeDef"]`
+- `Changes`: `List["ChangeTypeDef"]`
+- `NextToken`: `str`
+- `IncludeNestedStacks`: `bool`
+- `ParentChangeSetId`: `str`
+- `RootChangeSetId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStackDriftDetectionStatusOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeStackDriftDetectionStatusOutputTypeDef
+```
+
+
+Required fields:
+- `StackId`: `str`
+- `StackDriftDetectionId`: `str`
+- `DetectionStatus`: `StackDriftDetectionStatus`
+- `Timestamp`: `datetime`
+
+
+
+Optional fields:
+- `StackDriftStatus`: `StackDriftStatus`
+- `DetectionStatusReason`: `str`
+- `DriftedStackResourceCount`: `int`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStackEventsOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeStackEventsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackEvents`: `List["StackEventTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStackInstanceOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeStackInstanceOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackInstance`: `"StackInstanceTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStackResourceDriftsOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeStackResourceDriftsOutputTypeDef
+```
+
+
+Required fields:
+- `StackResourceDrifts`: `List["StackResourceDriftTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStackResourceOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeStackResourceOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackResourceDetail`: `"StackResourceDetailTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStackResourcesOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeStackResourcesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackResources`: `List["StackResourceTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStackSetOperationOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeStackSetOperationOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackSetOperation`: `"StackSetOperationTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStackSetOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeStackSetOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackSet`: `"StackSetTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStacksOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeStacksOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Stacks`: `List["StackTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeTypeOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeTypeOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Type`: `RegistryType`
+- `TypeName`: `str`
+- `DefaultVersionId`: `str`
+- `IsDefaultVersion`: `bool`
+- `Description`: `str`
+- `Schema`: `str`
+- `ProvisioningType`: `ProvisioningType`
+- `DeprecatedStatus`: `DeprecatedStatus`
+- `LoggingConfig`: `"LoggingConfigTypeDef"`
+- `ExecutionRoleArn`: `str`
+- `Visibility`: `Visibility`
+- `SourceUrl`: `str`
+- `DocumentationUrl`: `str`
+- `LastUpdated`: `datetime`
+- `TimeCreated`: `datetime`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeTypeRegistrationOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DescribeTypeRegistrationOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProgressStatus`: `RegistrationStatus`
+- `Description`: `str`
+- `TypeArn`: `str`
+- `TypeVersionArn`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DetectStackDriftOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DetectStackDriftOutputTypeDef
+```
+
+
+Required fields:
+- `StackDriftDetectionId`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DetectStackResourceDriftOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DetectStackResourceDriftOutputTypeDef
+```
+
+
+Required fields:
+- `StackResourceDrift`: `"StackResourceDriftTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DetectStackSetDriftOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import DetectStackSetDriftOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `OperationId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## EstimateTemplateCostOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import EstimateTemplateCostOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Url`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## ExportTypeDef
 
 ```python
@@ -209,6 +572,237 @@ Optional fields:
 - `ExportingStackId`: `str`
 - `Name`: `str`
 - `Value`: `str`
+
+
+## GetStackPolicyOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import GetStackPolicyOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackPolicyBody`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetTemplateOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import GetTemplateOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `TemplateBody`: `str`
+- `StagesAvailable`: `List[TemplateStage]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetTemplateSummaryOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import GetTemplateSummaryOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Parameters`: `List["ParameterDeclarationTypeDef"]`
+- `Description`: `str`
+- `Capabilities`: `List[Capability]`
+- `CapabilitiesReason`: `str`
+- `ResourceTypes`: `List[str]`
+- `Version`: `str`
+- `Metadata`: `str`
+- `DeclaredTransforms`: `List[str]`
+- `ResourceIdentifierSummaries`: `List["ResourceIdentifierSummaryTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListChangeSetsOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListChangeSetsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Summaries`: `List["ChangeSetSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListExportsOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListExportsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Exports`: `List["ExportTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListImportsOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListImportsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Imports`: `List[str]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListStackInstancesOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListStackInstancesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Summaries`: `List["StackInstanceSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListStackResourcesOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListStackResourcesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackResourceSummaries`: `List["StackResourceSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListStackSetOperationResultsOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListStackSetOperationResultsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Summaries`: `List["StackSetOperationResultSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListStackSetOperationsOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListStackSetOperationsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Summaries`: `List["StackSetOperationSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListStackSetsOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListStackSetsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Summaries`: `List["StackSetSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListStacksOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListStacksOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackSummaries`: `List["StackSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListTypeRegistrationsOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListTypeRegistrationsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `RegistrationTokenList`: `List[str]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListTypeVersionsOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListTypeVersionsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `TypeVersionSummaries`: `List["TypeVersionSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListTypesOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ListTypesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `TypeSummaries`: `List["TypeSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## LoggingConfigTypeDef
@@ -254,6 +848,21 @@ Optional fields:
 - `Description`: `str`
 - `ExportName`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## ParameterConstraintsTypeDef
@@ -333,6 +942,20 @@ Required fields:
 
 
 
+## RegisterTypeOutputTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import RegisterTypeOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `RegistrationToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## ResourceChangeDetailTypeDef
 
 ```python
@@ -398,6 +1021,21 @@ Optional fields:
 - `Attribute`: `ResourceAttribute`
 - `Name`: `str`
 - `RequiresRecreation`: `RequiresRecreation`
+
+
+## ResourceToImportTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import ResourceToImportTypeDef
+```
+
+
+Required fields:
+- `ResourceType`: `str`
+- `LogicalResourceId`: `str`
+- `ResourceIdentifier`: `Dict[str, str]`
+
+
 
 
 ## ResponseMetadata
@@ -513,6 +1151,20 @@ from mypy_boto3_cloudformation.type_defs import StackInstanceComprehensiveStatus
 
 Optional fields:
 - `DetailedStatus`: `StackInstanceDetailedStatus`
+
+
+## StackInstanceFilterTypeDef
+
+```python
+from mypy_boto3_cloudformation.type_defs import StackInstanceFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `Literal['DETAILED_STATUS']`
+- `Values`: `str`
 
 
 ## StackInstanceSummaryTypeDef
@@ -960,658 +1612,6 @@ Optional fields:
 - `Arn`: `str`
 - `TimeCreated`: `datetime`
 - `Description`: `str`
-
-
-## CreateChangeSetOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import CreateChangeSetOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `StackId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateStackInstancesOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import CreateStackInstancesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `OperationId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateStackOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import CreateStackOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateStackSetOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import CreateStackSetOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackSetId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteStackInstancesOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DeleteStackInstancesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `OperationId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeAccountLimitsOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeAccountLimitsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `AccountLimits`: `List["AccountLimitTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeChangeSetOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeChangeSetOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `ChangeSetName`: `str`
-- `ChangeSetId`: `str`
-- `StackId`: `str`
-- `StackName`: `str`
-- `Description`: `str`
-- `Parameters`: `List["ParameterTypeDef"]`
-- `CreationTime`: `datetime`
-- `ExecutionStatus`: `ExecutionStatus`
-- `Status`: `ChangeSetStatus`
-- `StatusReason`: `str`
-- `NotificationARNs`: `List[str]`
-- `RollbackConfiguration`: `"RollbackConfigurationTypeDef"`
-- `Capabilities`: `List[Capability]`
-- `Tags`: `List["TagTypeDef"]`
-- `Changes`: `List["ChangeTypeDef"]`
-- `NextToken`: `str`
-- `IncludeNestedStacks`: `bool`
-- `ParentChangeSetId`: `str`
-- `RootChangeSetId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStackDriftDetectionStatusOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeStackDriftDetectionStatusOutputTypeDef
-```
-
-
-Required fields:
-- `StackId`: `str`
-- `StackDriftDetectionId`: `str`
-- `DetectionStatus`: `StackDriftDetectionStatus`
-- `Timestamp`: `datetime`
-
-
-
-Optional fields:
-- `StackDriftStatus`: `StackDriftStatus`
-- `DetectionStatusReason`: `str`
-- `DriftedStackResourceCount`: `int`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStackEventsOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeStackEventsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackEvents`: `List["StackEventTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStackInstanceOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeStackInstanceOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackInstance`: `"StackInstanceTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStackResourceDriftsOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeStackResourceDriftsOutputTypeDef
-```
-
-
-Required fields:
-- `StackResourceDrifts`: `List["StackResourceDriftTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStackResourceOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeStackResourceOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackResourceDetail`: `"StackResourceDetailTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStackResourcesOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeStackResourcesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackResources`: `List["StackResourceTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStackSetOperationOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeStackSetOperationOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackSetOperation`: `"StackSetOperationTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStackSetOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeStackSetOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackSet`: `"StackSetTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStacksOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeStacksOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Stacks`: `List["StackTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeTypeOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeTypeOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Type`: `RegistryType`
-- `TypeName`: `str`
-- `DefaultVersionId`: `str`
-- `IsDefaultVersion`: `bool`
-- `Description`: `str`
-- `Schema`: `str`
-- `ProvisioningType`: `ProvisioningType`
-- `DeprecatedStatus`: `DeprecatedStatus`
-- `LoggingConfig`: `"LoggingConfigTypeDef"`
-- `ExecutionRoleArn`: `str`
-- `Visibility`: `Visibility`
-- `SourceUrl`: `str`
-- `DocumentationUrl`: `str`
-- `LastUpdated`: `datetime`
-- `TimeCreated`: `datetime`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeTypeRegistrationOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DescribeTypeRegistrationOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProgressStatus`: `RegistrationStatus`
-- `Description`: `str`
-- `TypeArn`: `str`
-- `TypeVersionArn`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DetectStackDriftOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DetectStackDriftOutputTypeDef
-```
-
-
-Required fields:
-- `StackDriftDetectionId`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DetectStackResourceDriftOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DetectStackResourceDriftOutputTypeDef
-```
-
-
-Required fields:
-- `StackResourceDrift`: `"StackResourceDriftTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DetectStackSetDriftOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import DetectStackSetDriftOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `OperationId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## EstimateTemplateCostOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import EstimateTemplateCostOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Url`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetStackPolicyOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import GetStackPolicyOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackPolicyBody`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetTemplateOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import GetTemplateOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `TemplateBody`: `str`
-- `StagesAvailable`: `List[TemplateStage]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetTemplateSummaryOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import GetTemplateSummaryOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Parameters`: `List["ParameterDeclarationTypeDef"]`
-- `Description`: `str`
-- `Capabilities`: `List[Capability]`
-- `CapabilitiesReason`: `str`
-- `ResourceTypes`: `List[str]`
-- `Version`: `str`
-- `Metadata`: `str`
-- `DeclaredTransforms`: `List[str]`
-- `ResourceIdentifierSummaries`: `List["ResourceIdentifierSummaryTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListChangeSetsOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListChangeSetsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Summaries`: `List["ChangeSetSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListExportsOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListExportsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Exports`: `List["ExportTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListImportsOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListImportsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Imports`: `List[str]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListStackInstancesOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListStackInstancesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Summaries`: `List["StackInstanceSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListStackResourcesOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListStackResourcesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackResourceSummaries`: `List["StackResourceSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListStackSetOperationResultsOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListStackSetOperationResultsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Summaries`: `List["StackSetOperationResultSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListStackSetOperationsOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListStackSetOperationsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Summaries`: `List["StackSetOperationSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListStackSetsOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListStackSetsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Summaries`: `List["StackSetSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListStacksOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListStacksOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackSummaries`: `List["StackSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListTypeRegistrationsOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListTypeRegistrationsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `RegistrationTokenList`: `List[str]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListTypeVersionsOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListTypeVersionsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `TypeVersionSummaries`: `List["TypeVersionSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListTypesOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ListTypesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `TypeSummaries`: `List["TypeSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## RegisterTypeOutputTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import RegisterTypeOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `RegistrationToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ResourceToImportTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import ResourceToImportTypeDef
-```
-
-
-Required fields:
-- `ResourceType`: `str`
-- `LogicalResourceId`: `str`
-- `ResourceIdentifier`: `Dict[str, str]`
-
-
-
-
-## StackInstanceFilterTypeDef
-
-```python
-from mypy_boto3_cloudformation.type_defs import StackInstanceFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `StackInstanceFilterName`
-- `Values`: `str`
 
 
 ## UpdateStackInstancesOutputTypeDef

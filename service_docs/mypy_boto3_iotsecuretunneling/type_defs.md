@@ -7,15 +7,15 @@ type annotations stubs module [mypy_boto3_iotsecuretunneling](https://pypi.org/p
 
 - [Structures for boto3 IoTSecureTunneling module](#structures-for-boto3-iotsecuretunneling-module)
   - [ConnectionStateTypeDef](#connectionstatetypedef)
+  - [DescribeTunnelResponseTypeDef](#describetunnelresponsetypedef)
   - [DestinationConfigTypeDef](#destinationconfigtypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [ListTunnelsResponseTypeDef](#listtunnelsresponsetypedef)
+  - [OpenTunnelResponseTypeDef](#opentunnelresponsetypedef)
   - [TagTypeDef](#tagtypedef)
   - [TimeoutConfigTypeDef](#timeoutconfigtypedef)
   - [TunnelSummaryTypeDef](#tunnelsummarytypedef)
   - [TunnelTypeDef](#tunneltypedef)
-  - [DescribeTunnelResponseTypeDef](#describetunnelresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [ListTunnelsResponseTypeDef](#listtunnelsresponsetypedef)
-  - [OpenTunnelResponseTypeDef](#opentunnelresponsetypedef)
 
 ## ConnectionStateTypeDef
 
@@ -29,6 +29,19 @@ from mypy_boto3_iotsecuretunneling.type_defs import ConnectionStateTypeDef
 Optional fields:
 - `status`: `ConnectionStatus`
 - `lastUpdatedAt`: `datetime`
+
+
+## DescribeTunnelResponseTypeDef
+
+```python
+from mypy_boto3_iotsecuretunneling.type_defs import DescribeTunnelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tunnel`: `"TunnelTypeDef"`
 
 
 ## DestinationConfigTypeDef
@@ -45,6 +58,49 @@ Required fields:
 
 Optional fields:
 - `thingName`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_iotsecuretunneling.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `List["TagTypeDef"]`
+
+
+## ListTunnelsResponseTypeDef
+
+```python
+from mypy_boto3_iotsecuretunneling.type_defs import ListTunnelsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tunnelSummaries`: `List["TunnelSummaryTypeDef"]`
+- `nextToken`: `str`
+
+
+## OpenTunnelResponseTypeDef
+
+```python
+from mypy_boto3_iotsecuretunneling.type_defs import OpenTunnelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tunnelId`: `str`
+- `tunnelArn`: `str`
+- `sourceAccessToken`: `str`
+- `destinationAccessToken`: `str`
 
 
 ## TagTypeDef
@@ -113,60 +169,4 @@ Optional fields:
 - `tags`: `List["TagTypeDef"]`
 - `createdAt`: `datetime`
 - `lastUpdatedAt`: `datetime`
-
-
-## DescribeTunnelResponseTypeDef
-
-```python
-from mypy_boto3_iotsecuretunneling.type_defs import DescribeTunnelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tunnel`: `"TunnelTypeDef"`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_iotsecuretunneling.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `List["TagTypeDef"]`
-
-
-## ListTunnelsResponseTypeDef
-
-```python
-from mypy_boto3_iotsecuretunneling.type_defs import ListTunnelsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tunnelSummaries`: `List["TunnelSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## OpenTunnelResponseTypeDef
-
-```python
-from mypy_boto3_iotsecuretunneling.type_defs import OpenTunnelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tunnelId`: `str`
-- `tunnelArn`: `str`
-- `sourceAccessToken`: `str`
-- `destinationAccessToken`: `str`
 

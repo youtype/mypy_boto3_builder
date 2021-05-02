@@ -54,10 +54,6 @@ type annotations stubs module [mypy_boto3_pinpoint_email](https://pypi.org/proje
     - [untag_resource](#untag_resource)
     - [update_configuration_set_event_destination](#update_configuration_set_event_destination)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
 
 ## PinpointEmailClient
 
@@ -764,77 +760,16 @@ def update_configuration_set_event_destination(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("pinpoint-email").get_paginator` method.
-
-[Paginator.GetDedicatedIps documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-email.html#PinpointEmail.Paginator.GetDedicatedIps)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDedicatedIpsPaginatorName
-) -> GetDedicatedIpsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("pinpoint-email").get_paginator` method.
+Type annotations for `boto3.client("pinpoint-email").get_paginator` method with overloads.
 
-[Paginator.ListConfigurationSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListConfigurationSets)
+- `client.get_paginator("get_dedicated_ips")` -> [GetDedicatedIpsPaginator](./paginators.md#getdedicatedipspaginator)
+- `client.get_paginator("list_configuration_sets")` -> [ListConfigurationSetsPaginator](./paginators.md#listconfigurationsetspaginator)
+- `client.get_paginator("list_dedicated_ip_pools")` -> [ListDedicatedIpPoolsPaginator](./paginators.md#listdedicatedippoolspaginator)
+- `client.get_paginator("list_deliverability_test_reports")` -> [ListDeliverabilityTestReportsPaginator](./paginators.md#listdeliverabilitytestreportspaginator)
+- `client.get_paginator("list_email_identities")` -> [ListEmailIdentitiesPaginator](./paginators.md#listemailidentitiespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListConfigurationSetsPaginatorName
-) -> ListConfigurationSetsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("pinpoint-email").get_paginator` method.
-
-[Paginator.ListDedicatedIpPools documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDedicatedIpPools)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDedicatedIpPoolsPaginatorName
-) -> ListDedicatedIpPoolsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("pinpoint-email").get_paginator` method.
-
-[Paginator.ListDeliverabilityTestReports documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDeliverabilityTestReports)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeliverabilityTestReportsPaginatorName
-) -> ListDeliverabilityTestReportsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("pinpoint-email").get_paginator` method.
-
-[Paginator.ListEmailIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListEmailIdentities)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEmailIdentitiesPaginatorName
-) -> ListEmailIdentitiesPaginator:
-    pass
-```

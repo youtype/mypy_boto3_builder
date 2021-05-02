@@ -6,76 +6,26 @@ Auto-generated documentation for [ElasticsearchService](https://boto3.amazonaws.
 type annotations stubs module [mypy_boto3_es](https://pypi.org/project/mypy-boto3-es/).
 
 - [Structures for boto3 ElasticsearchService module](#structures-for-boto3-elasticsearchservice-module)
+  - [AcceptInboundCrossClusterSearchConnectionResponseTypeDef](#acceptinboundcrossclustersearchconnectionresponsetypedef)
   - [AccessPoliciesStatusTypeDef](#accesspoliciesstatustypedef)
   - [AdditionalLimitTypeDef](#additionallimittypedef)
   - [AdvancedOptionsStatusTypeDef](#advancedoptionsstatustypedef)
+  - [AdvancedSecurityOptionsInputTypeDef](#advancedsecurityoptionsinputtypedef)
   - [AdvancedSecurityOptionsStatusTypeDef](#advancedsecurityoptionsstatustypedef)
   - [AdvancedSecurityOptionsTypeDef](#advancedsecurityoptionstypedef)
+  - [AssociatePackageResponseTypeDef](#associatepackageresponsetypedef)
   - [AutoTuneDetailsTypeDef](#autotunedetailstypedef)
   - [AutoTuneMaintenanceScheduleTypeDef](#autotunemaintenancescheduletypedef)
+  - [AutoTuneOptionsInputTypeDef](#autotuneoptionsinputtypedef)
   - [AutoTuneOptionsOutputTypeDef](#autotuneoptionsoutputtypedef)
   - [AutoTuneOptionsStatusTypeDef](#autotuneoptionsstatustypedef)
   - [AutoTuneOptionsTypeDef](#autotuneoptionstypedef)
   - [AutoTuneStatusTypeDef](#autotunestatustypedef)
   - [AutoTuneTypeDef](#autotunetypedef)
+  - [CancelElasticsearchServiceSoftwareUpdateResponseTypeDef](#cancelelasticsearchservicesoftwareupdateresponsetypedef)
   - [CognitoOptionsStatusTypeDef](#cognitooptionsstatustypedef)
   - [CognitoOptionsTypeDef](#cognitooptionstypedef)
   - [CompatibleVersionsMapTypeDef](#compatibleversionsmaptypedef)
-  - [DomainEndpointOptionsStatusTypeDef](#domainendpointoptionsstatustypedef)
-  - [DomainEndpointOptionsTypeDef](#domainendpointoptionstypedef)
-  - [DomainInfoTypeDef](#domaininfotypedef)
-  - [DomainInformationTypeDef](#domaininformationtypedef)
-  - [DomainPackageDetailsTypeDef](#domainpackagedetailstypedef)
-  - [DurationTypeDef](#durationtypedef)
-  - [EBSOptionsStatusTypeDef](#ebsoptionsstatustypedef)
-  - [EBSOptionsTypeDef](#ebsoptionstypedef)
-  - [ElasticsearchClusterConfigStatusTypeDef](#elasticsearchclusterconfigstatustypedef)
-  - [ElasticsearchClusterConfigTypeDef](#elasticsearchclusterconfigtypedef)
-  - [ElasticsearchDomainConfigTypeDef](#elasticsearchdomainconfigtypedef)
-  - [ElasticsearchDomainStatusTypeDef](#elasticsearchdomainstatustypedef)
-  - [ElasticsearchVersionStatusTypeDef](#elasticsearchversionstatustypedef)
-  - [EncryptionAtRestOptionsStatusTypeDef](#encryptionatrestoptionsstatustypedef)
-  - [EncryptionAtRestOptionsTypeDef](#encryptionatrestoptionstypedef)
-  - [ErrorDetailsTypeDef](#errordetailstypedef)
-  - [InboundCrossClusterSearchConnectionStatusTypeDef](#inboundcrossclustersearchconnectionstatustypedef)
-  - [InboundCrossClusterSearchConnectionTypeDef](#inboundcrossclustersearchconnectiontypedef)
-  - [InstanceCountLimitsTypeDef](#instancecountlimitstypedef)
-  - [InstanceLimitsTypeDef](#instancelimitstypedef)
-  - [LimitsTypeDef](#limitstypedef)
-  - [LogPublishingOptionTypeDef](#logpublishingoptiontypedef)
-  - [LogPublishingOptionsStatusTypeDef](#logpublishingoptionsstatustypedef)
-  - [MasterUserOptionsTypeDef](#masteruseroptionstypedef)
-  - [NodeToNodeEncryptionOptionsStatusTypeDef](#nodetonodeencryptionoptionsstatustypedef)
-  - [NodeToNodeEncryptionOptionsTypeDef](#nodetonodeencryptionoptionstypedef)
-  - [OptionStatusTypeDef](#optionstatustypedef)
-  - [OutboundCrossClusterSearchConnectionStatusTypeDef](#outboundcrossclustersearchconnectionstatustypedef)
-  - [OutboundCrossClusterSearchConnectionTypeDef](#outboundcrossclustersearchconnectiontypedef)
-  - [PackageDetailsTypeDef](#packagedetailstypedef)
-  - [PackageVersionHistoryTypeDef](#packageversionhistorytypedef)
-  - [RecurringChargeTypeDef](#recurringchargetypedef)
-  - [ReservedElasticsearchInstanceOfferingTypeDef](#reservedelasticsearchinstanceofferingtypedef)
-  - [ReservedElasticsearchInstanceTypeDef](#reservedelasticsearchinstancetypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [SAMLIdpTypeDef](#samlidptypedef)
-  - [SAMLOptionsInputTypeDef](#samloptionsinputtypedef)
-  - [SAMLOptionsOutputTypeDef](#samloptionsoutputtypedef)
-  - [ScheduledAutoTuneDetailsTypeDef](#scheduledautotunedetailstypedef)
-  - [ServiceSoftwareOptionsTypeDef](#servicesoftwareoptionstypedef)
-  - [SnapshotOptionsStatusTypeDef](#snapshotoptionsstatustypedef)
-  - [SnapshotOptionsTypeDef](#snapshotoptionstypedef)
-  - [StorageTypeLimitTypeDef](#storagetypelimittypedef)
-  - [StorageTypeTypeDef](#storagetypetypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [UpgradeHistoryTypeDef](#upgradehistorytypedef)
-  - [UpgradeStepItemTypeDef](#upgradestepitemtypedef)
-  - [VPCDerivedInfoStatusTypeDef](#vpcderivedinfostatustypedef)
-  - [VPCDerivedInfoTypeDef](#vpcderivedinfotypedef)
-  - [ZoneAwarenessConfigTypeDef](#zoneawarenessconfigtypedef)
-  - [AcceptInboundCrossClusterSearchConnectionResponseTypeDef](#acceptinboundcrossclustersearchconnectionresponsetypedef)
-  - [AdvancedSecurityOptionsInputTypeDef](#advancedsecurityoptionsinputtypedef)
-  - [AssociatePackageResponseTypeDef](#associatepackageresponsetypedef)
-  - [AutoTuneOptionsInputTypeDef](#autotuneoptionsinputtypedef)
-  - [CancelElasticsearchServiceSoftwareUpdateResponseTypeDef](#cancelelasticsearchservicesoftwareupdateresponsetypedef)
   - [CreateElasticsearchDomainResponseTypeDef](#createelasticsearchdomainresponsetypedef)
   - [CreateOutboundCrossClusterSearchConnectionResponseTypeDef](#createoutboundcrossclustersearchconnectionresponsetypedef)
   - [CreatePackageResponseTypeDef](#createpackageresponsetypedef)
@@ -95,26 +45,89 @@ type annotations stubs module [mypy_boto3_es](https://pypi.org/project/mypy-boto
   - [DescribeReservedElasticsearchInstanceOfferingsResponseTypeDef](#describereservedelasticsearchinstanceofferingsresponsetypedef)
   - [DescribeReservedElasticsearchInstancesResponseTypeDef](#describereservedelasticsearchinstancesresponsetypedef)
   - [DissociatePackageResponseTypeDef](#dissociatepackageresponsetypedef)
+  - [DomainEndpointOptionsStatusTypeDef](#domainendpointoptionsstatustypedef)
+  - [DomainEndpointOptionsTypeDef](#domainendpointoptionstypedef)
+  - [DomainInfoTypeDef](#domaininfotypedef)
+  - [DomainInformationTypeDef](#domaininformationtypedef)
+  - [DomainPackageDetailsTypeDef](#domainpackagedetailstypedef)
+  - [DurationTypeDef](#durationtypedef)
+  - [EBSOptionsStatusTypeDef](#ebsoptionsstatustypedef)
+  - [EBSOptionsTypeDef](#ebsoptionstypedef)
+  - [ElasticsearchClusterConfigStatusTypeDef](#elasticsearchclusterconfigstatustypedef)
+  - [ElasticsearchClusterConfigTypeDef](#elasticsearchclusterconfigtypedef)
+  - [ElasticsearchDomainConfigTypeDef](#elasticsearchdomainconfigtypedef)
+  - [ElasticsearchDomainStatusTypeDef](#elasticsearchdomainstatustypedef)
+  - [ElasticsearchVersionStatusTypeDef](#elasticsearchversionstatustypedef)
+  - [EncryptionAtRestOptionsStatusTypeDef](#encryptionatrestoptionsstatustypedef)
+  - [EncryptionAtRestOptionsTypeDef](#encryptionatrestoptionstypedef)
+  - [ErrorDetailsTypeDef](#errordetailstypedef)
   - [FilterTypeDef](#filtertypedef)
   - [GetCompatibleElasticsearchVersionsResponseTypeDef](#getcompatibleelasticsearchversionsresponsetypedef)
   - [GetPackageVersionHistoryResponseTypeDef](#getpackageversionhistoryresponsetypedef)
   - [GetUpgradeHistoryResponseTypeDef](#getupgradehistoryresponsetypedef)
   - [GetUpgradeStatusResponseTypeDef](#getupgradestatusresponsetypedef)
+  - [InboundCrossClusterSearchConnectionStatusTypeDef](#inboundcrossclustersearchconnectionstatustypedef)
+  - [InboundCrossClusterSearchConnectionTypeDef](#inboundcrossclustersearchconnectiontypedef)
+  - [InstanceCountLimitsTypeDef](#instancecountlimitstypedef)
+  - [InstanceLimitsTypeDef](#instancelimitstypedef)
+  - [LimitsTypeDef](#limitstypedef)
   - [ListDomainNamesResponseTypeDef](#listdomainnamesresponsetypedef)
   - [ListDomainsForPackageResponseTypeDef](#listdomainsforpackageresponsetypedef)
   - [ListElasticsearchInstanceTypesResponseTypeDef](#listelasticsearchinstancetypesresponsetypedef)
   - [ListElasticsearchVersionsResponseTypeDef](#listelasticsearchversionsresponsetypedef)
   - [ListPackagesForDomainResponseTypeDef](#listpackagesfordomainresponsetypedef)
   - [ListTagsResponseTypeDef](#listtagsresponsetypedef)
+  - [LogPublishingOptionTypeDef](#logpublishingoptiontypedef)
+  - [LogPublishingOptionsStatusTypeDef](#logpublishingoptionsstatustypedef)
+  - [MasterUserOptionsTypeDef](#masteruseroptionstypedef)
+  - [NodeToNodeEncryptionOptionsStatusTypeDef](#nodetonodeencryptionoptionsstatustypedef)
+  - [NodeToNodeEncryptionOptionsTypeDef](#nodetonodeencryptionoptionstypedef)
+  - [OptionStatusTypeDef](#optionstatustypedef)
+  - [OutboundCrossClusterSearchConnectionStatusTypeDef](#outboundcrossclustersearchconnectionstatustypedef)
+  - [OutboundCrossClusterSearchConnectionTypeDef](#outboundcrossclustersearchconnectiontypedef)
+  - [PackageDetailsTypeDef](#packagedetailstypedef)
   - [PackageSourceTypeDef](#packagesourcetypedef)
+  - [PackageVersionHistoryTypeDef](#packageversionhistorytypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PurchaseReservedElasticsearchInstanceOfferingResponseTypeDef](#purchasereservedelasticsearchinstanceofferingresponsetypedef)
+  - [RecurringChargeTypeDef](#recurringchargetypedef)
   - [RejectInboundCrossClusterSearchConnectionResponseTypeDef](#rejectinboundcrossclustersearchconnectionresponsetypedef)
+  - [ReservedElasticsearchInstanceOfferingTypeDef](#reservedelasticsearchinstanceofferingtypedef)
+  - [ReservedElasticsearchInstanceTypeDef](#reservedelasticsearchinstancetypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [SAMLIdpTypeDef](#samlidptypedef)
+  - [SAMLOptionsInputTypeDef](#samloptionsinputtypedef)
+  - [SAMLOptionsOutputTypeDef](#samloptionsoutputtypedef)
+  - [ScheduledAutoTuneDetailsTypeDef](#scheduledautotunedetailstypedef)
+  - [ServiceSoftwareOptionsTypeDef](#servicesoftwareoptionstypedef)
+  - [SnapshotOptionsStatusTypeDef](#snapshotoptionsstatustypedef)
+  - [SnapshotOptionsTypeDef](#snapshotoptionstypedef)
   - [StartElasticsearchServiceSoftwareUpdateResponseTypeDef](#startelasticsearchservicesoftwareupdateresponsetypedef)
+  - [StorageTypeLimitTypeDef](#storagetypelimittypedef)
+  - [StorageTypeTypeDef](#storagetypetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateElasticsearchDomainConfigResponseTypeDef](#updateelasticsearchdomainconfigresponsetypedef)
   - [UpdatePackageResponseTypeDef](#updatepackageresponsetypedef)
   - [UpgradeElasticsearchDomainResponseTypeDef](#upgradeelasticsearchdomainresponsetypedef)
+  - [UpgradeHistoryTypeDef](#upgradehistorytypedef)
+  - [UpgradeStepItemTypeDef](#upgradestepitemtypedef)
+  - [VPCDerivedInfoStatusTypeDef](#vpcderivedinfostatustypedef)
+  - [VPCDerivedInfoTypeDef](#vpcderivedinfotypedef)
   - [VPCOptionsTypeDef](#vpcoptionstypedef)
+  - [ZoneAwarenessConfigTypeDef](#zoneawarenessconfigtypedef)
+
+## AcceptInboundCrossClusterSearchConnectionResponseTypeDef
+
+```python
+from mypy_boto3_es.type_defs import AcceptInboundCrossClusterSearchConnectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CrossClusterSearchConnection`: `"InboundCrossClusterSearchConnectionTypeDef"`
+
 
 ## AccessPoliciesStatusTypeDef
 
@@ -158,6 +171,22 @@ Required fields:
 
 
 
+## AdvancedSecurityOptionsInputTypeDef
+
+```python
+from mypy_boto3_es.type_defs import AdvancedSecurityOptionsInputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+- `InternalUserDatabaseEnabled`: `bool`
+- `MasterUserOptions`: `"MasterUserOptionsTypeDef"`
+- `SAMLOptions`: `"SAMLOptionsInputTypeDef"`
+
+
 ## AdvancedSecurityOptionsStatusTypeDef
 
 ```python
@@ -187,6 +216,19 @@ Optional fields:
 - `SAMLOptions`: `"SAMLOptionsOutputTypeDef"`
 
 
+## AssociatePackageResponseTypeDef
+
+```python
+from mypy_boto3_es.type_defs import AssociatePackageResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DomainPackageDetails`: `"DomainPackageDetailsTypeDef"`
+
+
 ## AutoTuneDetailsTypeDef
 
 ```python
@@ -213,6 +255,20 @@ Optional fields:
 - `StartAt`: `datetime`
 - `Duration`: `"DurationTypeDef"`
 - `CronExpressionForRecurrence`: `str`
+
+
+## AutoTuneOptionsInputTypeDef
+
+```python
+from mypy_boto3_es.type_defs import AutoTuneOptionsInputTypeDef
+```
+
+
+
+
+Optional fields:
+- `DesiredState`: `AutoTuneDesiredState`
+- `MaintenanceSchedules`: `List["AutoTuneMaintenanceScheduleTypeDef"]`
 
 
 ## AutoTuneOptionsOutputTypeDef
@@ -289,8 +345,21 @@ from mypy_boto3_es.type_defs import AutoTuneTypeDef
 
 
 Optional fields:
-- `AutoTuneType`: `AutoTuneType`
+- `AutoTuneType`: `Literal['SCHEDULED_ACTION']`
 - `AutoTuneDetails`: `"AutoTuneDetailsTypeDef"`
+
+
+## CancelElasticsearchServiceSoftwareUpdateResponseTypeDef
+
+```python
+from mypy_boto3_es.type_defs import CancelElasticsearchServiceSoftwareUpdateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceSoftwareOptions`: `"ServiceSoftwareOptionsTypeDef"`
 
 
 ## CognitoOptionsStatusTypeDef
@@ -335,893 +404,6 @@ from mypy_boto3_es.type_defs import CompatibleVersionsMapTypeDef
 Optional fields:
 - `SourceVersion`: `str`
 - `TargetVersions`: `List[str]`
-
-
-## DomainEndpointOptionsStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import DomainEndpointOptionsStatusTypeDef
-```
-
-
-Required fields:
-- `Options`: `"DomainEndpointOptionsTypeDef"`
-- `Status`: `"OptionStatusTypeDef"`
-
-
-
-
-## DomainEndpointOptionsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import DomainEndpointOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `EnforceHTTPS`: `bool`
-- `TLSSecurityPolicy`: `TLSSecurityPolicy`
-- `CustomEndpointEnabled`: `bool`
-- `CustomEndpoint`: `str`
-- `CustomEndpointCertificateArn`: `str`
-
-
-## DomainInfoTypeDef
-
-```python
-from mypy_boto3_es.type_defs import DomainInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `DomainName`: `str`
-
-
-## DomainInformationTypeDef
-
-```python
-from mypy_boto3_es.type_defs import DomainInformationTypeDef
-```
-
-
-Required fields:
-- `DomainName`: `str`
-
-
-
-Optional fields:
-- `OwnerId`: `str`
-- `Region`: `str`
-
-
-## DomainPackageDetailsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import DomainPackageDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `PackageID`: `str`
-- `PackageName`: `str`
-- `PackageType`: `PackageType`
-- `LastUpdated`: `datetime`
-- `DomainName`: `str`
-- `DomainPackageStatus`: `DomainPackageStatus`
-- `PackageVersion`: `str`
-- `ReferencePath`: `str`
-- `ErrorDetails`: `"ErrorDetailsTypeDef"`
-
-
-## DurationTypeDef
-
-```python
-from mypy_boto3_es.type_defs import DurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `int`
-- `Unit`: `TimeUnit`
-
-
-## EBSOptionsStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import EBSOptionsStatusTypeDef
-```
-
-
-Required fields:
-- `Options`: `"EBSOptionsTypeDef"`
-- `Status`: `"OptionStatusTypeDef"`
-
-
-
-
-## EBSOptionsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import EBSOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `EBSEnabled`: `bool`
-- `VolumeType`: `VolumeType`
-- `VolumeSize`: `int`
-- `Iops`: `int`
-
-
-## ElasticsearchClusterConfigStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import ElasticsearchClusterConfigStatusTypeDef
-```
-
-
-Required fields:
-- `Options`: `"ElasticsearchClusterConfigTypeDef"`
-- `Status`: `"OptionStatusTypeDef"`
-
-
-
-
-## ElasticsearchClusterConfigTypeDef
-
-```python
-from mypy_boto3_es.type_defs import ElasticsearchClusterConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceType`: `ESPartitionInstanceType`
-- `InstanceCount`: `int`
-- `DedicatedMasterEnabled`: `bool`
-- `ZoneAwarenessEnabled`: `bool`
-- `ZoneAwarenessConfig`: `"ZoneAwarenessConfigTypeDef"`
-- `DedicatedMasterType`: `ESPartitionInstanceType`
-- `DedicatedMasterCount`: `int`
-- `WarmEnabled`: `bool`
-- `WarmType`: `ESWarmPartitionInstanceType`
-- `WarmCount`: `int`
-
-
-## ElasticsearchDomainConfigTypeDef
-
-```python
-from mypy_boto3_es.type_defs import ElasticsearchDomainConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `ElasticsearchVersion`: `"ElasticsearchVersionStatusTypeDef"`
-- `ElasticsearchClusterConfig`: `"ElasticsearchClusterConfigStatusTypeDef"`
-- `EBSOptions`: `"EBSOptionsStatusTypeDef"`
-- `AccessPolicies`: `"AccessPoliciesStatusTypeDef"`
-- `SnapshotOptions`: `"SnapshotOptionsStatusTypeDef"`
-- `VPCOptions`: `"VPCDerivedInfoStatusTypeDef"`
-- `CognitoOptions`: `"CognitoOptionsStatusTypeDef"`
-- `EncryptionAtRestOptions`: `"EncryptionAtRestOptionsStatusTypeDef"`
-- `NodeToNodeEncryptionOptions`: `"NodeToNodeEncryptionOptionsStatusTypeDef"`
-- `AdvancedOptions`: `"AdvancedOptionsStatusTypeDef"`
-- `LogPublishingOptions`: `"LogPublishingOptionsStatusTypeDef"`
-- `DomainEndpointOptions`: `"DomainEndpointOptionsStatusTypeDef"`
-- `AdvancedSecurityOptions`: `"AdvancedSecurityOptionsStatusTypeDef"`
-- `AutoTuneOptions`: `"AutoTuneOptionsStatusTypeDef"`
-
-
-## ElasticsearchDomainStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import ElasticsearchDomainStatusTypeDef
-```
-
-
-Required fields:
-- `DomainId`: `str`
-- `DomainName`: `str`
-- `ARN`: `str`
-- `ElasticsearchClusterConfig`: `"ElasticsearchClusterConfigTypeDef"`
-
-
-
-Optional fields:
-- `Created`: `bool`
-- `Deleted`: `bool`
-- `Endpoint`: `str`
-- `Endpoints`: `Dict[str, str]`
-- `Processing`: `bool`
-- `UpgradeProcessing`: `bool`
-- `ElasticsearchVersion`: `str`
-- `EBSOptions`: `"EBSOptionsTypeDef"`
-- `AccessPolicies`: `str`
-- `SnapshotOptions`: `"SnapshotOptionsTypeDef"`
-- `VPCOptions`: `"VPCDerivedInfoTypeDef"`
-- `CognitoOptions`: `"CognitoOptionsTypeDef"`
-- `EncryptionAtRestOptions`: `"EncryptionAtRestOptionsTypeDef"`
-- `NodeToNodeEncryptionOptions`: `"NodeToNodeEncryptionOptionsTypeDef"`
-- `AdvancedOptions`: `Dict[str, str]`
-- `LogPublishingOptions`: `Dict[LogType, "LogPublishingOptionTypeDef"]`
-- `ServiceSoftwareOptions`: `"ServiceSoftwareOptionsTypeDef"`
-- `DomainEndpointOptions`: `"DomainEndpointOptionsTypeDef"`
-- `AdvancedSecurityOptions`: `"AdvancedSecurityOptionsTypeDef"`
-- `AutoTuneOptions`: `"AutoTuneOptionsOutputTypeDef"`
-
-
-## ElasticsearchVersionStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import ElasticsearchVersionStatusTypeDef
-```
-
-
-Required fields:
-- `Options`: `str`
-- `Status`: `"OptionStatusTypeDef"`
-
-
-
-
-## EncryptionAtRestOptionsStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import EncryptionAtRestOptionsStatusTypeDef
-```
-
-
-Required fields:
-- `Options`: `"EncryptionAtRestOptionsTypeDef"`
-- `Status`: `"OptionStatusTypeDef"`
-
-
-
-
-## EncryptionAtRestOptionsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import EncryptionAtRestOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-- `KmsKeyId`: `str`
-
-
-## ErrorDetailsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import ErrorDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ErrorType`: `str`
-- `ErrorMessage`: `str`
-
-
-## InboundCrossClusterSearchConnectionStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import InboundCrossClusterSearchConnectionStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `StatusCode`: `InboundCrossClusterSearchConnectionStatusCode`
-- `Message`: `str`
-
-
-## InboundCrossClusterSearchConnectionTypeDef
-
-```python
-from mypy_boto3_es.type_defs import InboundCrossClusterSearchConnectionTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceDomainInfo`: `"DomainInformationTypeDef"`
-- `DestinationDomainInfo`: `"DomainInformationTypeDef"`
-- `CrossClusterSearchConnectionId`: `str`
-- `ConnectionStatus`: `"InboundCrossClusterSearchConnectionStatusTypeDef"`
-
-
-## InstanceCountLimitsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import InstanceCountLimitsTypeDef
-```
-
-
-
-
-Optional fields:
-- `MinimumInstanceCount`: `int`
-- `MaximumInstanceCount`: `int`
-
-
-## InstanceLimitsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import InstanceLimitsTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceCountLimits`: `"InstanceCountLimitsTypeDef"`
-
-
-## LimitsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import LimitsTypeDef
-```
-
-
-
-
-Optional fields:
-- `StorageTypes`: `List["StorageTypeTypeDef"]`
-- `InstanceLimits`: `"InstanceLimitsTypeDef"`
-- `AdditionalLimits`: `List["AdditionalLimitTypeDef"]`
-
-
-## LogPublishingOptionTypeDef
-
-```python
-from mypy_boto3_es.type_defs import LogPublishingOptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `CloudWatchLogsLogGroupArn`: `str`
-- `Enabled`: `bool`
-
-
-## LogPublishingOptionsStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import LogPublishingOptionsStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Options`: `Dict[LogType, "LogPublishingOptionTypeDef"]`
-- `Status`: `"OptionStatusTypeDef"`
-
-
-## MasterUserOptionsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import MasterUserOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `MasterUserARN`: `str`
-- `MasterUserName`: `str`
-- `MasterUserPassword`: `str`
-
-
-## NodeToNodeEncryptionOptionsStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import NodeToNodeEncryptionOptionsStatusTypeDef
-```
-
-
-Required fields:
-- `Options`: `"NodeToNodeEncryptionOptionsTypeDef"`
-- `Status`: `"OptionStatusTypeDef"`
-
-
-
-
-## NodeToNodeEncryptionOptionsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import NodeToNodeEncryptionOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
-## OptionStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import OptionStatusTypeDef
-```
-
-
-Required fields:
-- `CreationDate`: `datetime`
-- `UpdateDate`: `datetime`
-- `State`: `OptionState`
-
-
-
-Optional fields:
-- `UpdateVersion`: `int`
-- `PendingDeletion`: `bool`
-
-
-## OutboundCrossClusterSearchConnectionStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import OutboundCrossClusterSearchConnectionStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `StatusCode`: `OutboundCrossClusterSearchConnectionStatusCode`
-- `Message`: `str`
-
-
-## OutboundCrossClusterSearchConnectionTypeDef
-
-```python
-from mypy_boto3_es.type_defs import OutboundCrossClusterSearchConnectionTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceDomainInfo`: `"DomainInformationTypeDef"`
-- `DestinationDomainInfo`: `"DomainInformationTypeDef"`
-- `CrossClusterSearchConnectionId`: `str`
-- `ConnectionAlias`: `str`
-- `ConnectionStatus`: `"OutboundCrossClusterSearchConnectionStatusTypeDef"`
-
-
-## PackageDetailsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import PackageDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `PackageID`: `str`
-- `PackageName`: `str`
-- `PackageType`: `PackageType`
-- `PackageDescription`: `str`
-- `PackageStatus`: `PackageStatus`
-- `CreatedAt`: `datetime`
-- `LastUpdatedAt`: `datetime`
-- `AvailablePackageVersion`: `str`
-- `ErrorDetails`: `"ErrorDetailsTypeDef"`
-
-
-## PackageVersionHistoryTypeDef
-
-```python
-from mypy_boto3_es.type_defs import PackageVersionHistoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `PackageVersion`: `str`
-- `CommitMessage`: `str`
-- `CreatedAt`: `datetime`
-
-
-## RecurringChargeTypeDef
-
-```python
-from mypy_boto3_es.type_defs import RecurringChargeTypeDef
-```
-
-
-
-
-Optional fields:
-- `RecurringChargeAmount`: `float`
-- `RecurringChargeFrequency`: `str`
-
-
-## ReservedElasticsearchInstanceOfferingTypeDef
-
-```python
-from mypy_boto3_es.type_defs import ReservedElasticsearchInstanceOfferingTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReservedElasticsearchInstanceOfferingId`: `str`
-- `ElasticsearchInstanceType`: `ESPartitionInstanceType`
-- `Duration`: `int`
-- `FixedPrice`: `float`
-- `UsagePrice`: `float`
-- `CurrencyCode`: `str`
-- `PaymentOption`: `ReservedElasticsearchInstancePaymentOption`
-- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
-
-
-## ReservedElasticsearchInstanceTypeDef
-
-```python
-from mypy_boto3_es.type_defs import ReservedElasticsearchInstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReservationName`: `str`
-- `ReservedElasticsearchInstanceId`: `str`
-- `ReservedElasticsearchInstanceOfferingId`: `str`
-- `ElasticsearchInstanceType`: `ESPartitionInstanceType`
-- `StartTime`: `datetime`
-- `Duration`: `int`
-- `FixedPrice`: `float`
-- `UsagePrice`: `float`
-- `CurrencyCode`: `str`
-- `ElasticsearchInstanceCount`: `int`
-- `State`: `str`
-- `PaymentOption`: `ReservedElasticsearchInstancePaymentOption`
-- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_es.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## SAMLIdpTypeDef
-
-```python
-from mypy_boto3_es.type_defs import SAMLIdpTypeDef
-```
-
-
-Required fields:
-- `MetadataContent`: `str`
-- `EntityId`: `str`
-
-
-
-
-## SAMLOptionsInputTypeDef
-
-```python
-from mypy_boto3_es.type_defs import SAMLOptionsInputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-- `Idp`: `"SAMLIdpTypeDef"`
-- `MasterUserName`: `str`
-- `MasterBackendRole`: `str`
-- `SubjectKey`: `str`
-- `RolesKey`: `str`
-- `SessionTimeoutMinutes`: `int`
-
-
-## SAMLOptionsOutputTypeDef
-
-```python
-from mypy_boto3_es.type_defs import SAMLOptionsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-- `Idp`: `"SAMLIdpTypeDef"`
-- `SubjectKey`: `str`
-- `RolesKey`: `str`
-- `SessionTimeoutMinutes`: `int`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ScheduledAutoTuneDetailsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import ScheduledAutoTuneDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Date`: `datetime`
-- `ActionType`: `ScheduledAutoTuneActionType`
-- `Action`: `str`
-- `Severity`: `ScheduledAutoTuneSeverityType`
-
-
-## ServiceSoftwareOptionsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import ServiceSoftwareOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `CurrentVersion`: `str`
-- `NewVersion`: `str`
-- `UpdateAvailable`: `bool`
-- `Cancellable`: `bool`
-- `UpdateStatus`: `DeploymentStatus`
-- `Description`: `str`
-- `AutomatedUpdateDate`: `datetime`
-- `OptionalDeployment`: `bool`
-
-
-## SnapshotOptionsStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import SnapshotOptionsStatusTypeDef
-```
-
-
-Required fields:
-- `Options`: `"SnapshotOptionsTypeDef"`
-- `Status`: `"OptionStatusTypeDef"`
-
-
-
-
-## SnapshotOptionsTypeDef
-
-```python
-from mypy_boto3_es.type_defs import SnapshotOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `AutomatedSnapshotStartHour`: `int`
-
-
-## StorageTypeLimitTypeDef
-
-```python
-from mypy_boto3_es.type_defs import StorageTypeLimitTypeDef
-```
-
-
-
-
-Optional fields:
-- `LimitName`: `str`
-- `LimitValues`: `List[str]`
-
-
-## StorageTypeTypeDef
-
-```python
-from mypy_boto3_es.type_defs import StorageTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `StorageTypeName`: `str`
-- `StorageSubTypeName`: `str`
-- `StorageTypeLimits`: `List["StorageTypeLimitTypeDef"]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_es.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## UpgradeHistoryTypeDef
-
-```python
-from mypy_boto3_es.type_defs import UpgradeHistoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `UpgradeName`: `str`
-- `StartTimestamp`: `datetime`
-- `UpgradeStatus`: `UpgradeStatus`
-- `StepsList`: `List["UpgradeStepItemTypeDef"]`
-
-
-## UpgradeStepItemTypeDef
-
-```python
-from mypy_boto3_es.type_defs import UpgradeStepItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `UpgradeStep`: `UpgradeStep`
-- `UpgradeStepStatus`: `UpgradeStatus`
-- `Issues`: `List[str]`
-- `ProgressPercent`: `float`
-
-
-## VPCDerivedInfoStatusTypeDef
-
-```python
-from mypy_boto3_es.type_defs import VPCDerivedInfoStatusTypeDef
-```
-
-
-Required fields:
-- `Options`: `"VPCDerivedInfoTypeDef"`
-- `Status`: `"OptionStatusTypeDef"`
-
-
-
-
-## VPCDerivedInfoTypeDef
-
-```python
-from mypy_boto3_es.type_defs import VPCDerivedInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `VPCId`: `str`
-- `SubnetIds`: `List[str]`
-- `AvailabilityZones`: `List[str]`
-- `SecurityGroupIds`: `List[str]`
-
-
-## ZoneAwarenessConfigTypeDef
-
-```python
-from mypy_boto3_es.type_defs import ZoneAwarenessConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityZoneCount`: `int`
-
-
-## AcceptInboundCrossClusterSearchConnectionResponseTypeDef
-
-```python
-from mypy_boto3_es.type_defs import AcceptInboundCrossClusterSearchConnectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CrossClusterSearchConnection`: `"InboundCrossClusterSearchConnectionTypeDef"`
-
-
-## AdvancedSecurityOptionsInputTypeDef
-
-```python
-from mypy_boto3_es.type_defs import AdvancedSecurityOptionsInputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-- `InternalUserDatabaseEnabled`: `bool`
-- `MasterUserOptions`: `"MasterUserOptionsTypeDef"`
-- `SAMLOptions`: `"SAMLOptionsInputTypeDef"`
-
-
-## AssociatePackageResponseTypeDef
-
-```python
-from mypy_boto3_es.type_defs import AssociatePackageResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DomainPackageDetails`: `"DomainPackageDetailsTypeDef"`
-
-
-## AutoTuneOptionsInputTypeDef
-
-```python
-from mypy_boto3_es.type_defs import AutoTuneOptionsInputTypeDef
-```
-
-
-
-
-Optional fields:
-- `DesiredState`: `AutoTuneDesiredState`
-- `MaintenanceSchedules`: `List["AutoTuneMaintenanceScheduleTypeDef"]`
-
-
-## CancelElasticsearchServiceSoftwareUpdateResponseTypeDef
-
-```python
-from mypy_boto3_es.type_defs import CancelElasticsearchServiceSoftwareUpdateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceSoftwareOptions`: `"ServiceSoftwareOptionsTypeDef"`
 
 
 ## CreateElasticsearchDomainResponseTypeDef
@@ -1482,6 +664,288 @@ Optional fields:
 - `DomainPackageDetails`: `"DomainPackageDetailsTypeDef"`
 
 
+## DomainEndpointOptionsStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import DomainEndpointOptionsStatusTypeDef
+```
+
+
+Required fields:
+- `Options`: `"DomainEndpointOptionsTypeDef"`
+- `Status`: `"OptionStatusTypeDef"`
+
+
+
+
+## DomainEndpointOptionsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import DomainEndpointOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `EnforceHTTPS`: `bool`
+- `TLSSecurityPolicy`: `TLSSecurityPolicy`
+- `CustomEndpointEnabled`: `bool`
+- `CustomEndpoint`: `str`
+- `CustomEndpointCertificateArn`: `str`
+
+
+## DomainInfoTypeDef
+
+```python
+from mypy_boto3_es.type_defs import DomainInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `DomainName`: `str`
+
+
+## DomainInformationTypeDef
+
+```python
+from mypy_boto3_es.type_defs import DomainInformationTypeDef
+```
+
+
+Required fields:
+- `DomainName`: `str`
+
+
+
+Optional fields:
+- `OwnerId`: `str`
+- `Region`: `str`
+
+
+## DomainPackageDetailsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import DomainPackageDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `PackageID`: `str`
+- `PackageName`: `str`
+- `PackageType`: `Literal['TXT-DICTIONARY']`
+- `LastUpdated`: `datetime`
+- `DomainName`: `str`
+- `DomainPackageStatus`: `DomainPackageStatus`
+- `PackageVersion`: `str`
+- `ReferencePath`: `str`
+- `ErrorDetails`: `"ErrorDetailsTypeDef"`
+
+
+## DurationTypeDef
+
+```python
+from mypy_boto3_es.type_defs import DurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `int`
+- `Unit`: `Literal['HOURS']`
+
+
+## EBSOptionsStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import EBSOptionsStatusTypeDef
+```
+
+
+Required fields:
+- `Options`: `"EBSOptionsTypeDef"`
+- `Status`: `"OptionStatusTypeDef"`
+
+
+
+
+## EBSOptionsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import EBSOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `EBSEnabled`: `bool`
+- `VolumeType`: `VolumeType`
+- `VolumeSize`: `int`
+- `Iops`: `int`
+
+
+## ElasticsearchClusterConfigStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import ElasticsearchClusterConfigStatusTypeDef
+```
+
+
+Required fields:
+- `Options`: `"ElasticsearchClusterConfigTypeDef"`
+- `Status`: `"OptionStatusTypeDef"`
+
+
+
+
+## ElasticsearchClusterConfigTypeDef
+
+```python
+from mypy_boto3_es.type_defs import ElasticsearchClusterConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceType`: `ESPartitionInstanceType`
+- `InstanceCount`: `int`
+- `DedicatedMasterEnabled`: `bool`
+- `ZoneAwarenessEnabled`: `bool`
+- `ZoneAwarenessConfig`: `"ZoneAwarenessConfigTypeDef"`
+- `DedicatedMasterType`: `ESPartitionInstanceType`
+- `DedicatedMasterCount`: `int`
+- `WarmEnabled`: `bool`
+- `WarmType`: `ESWarmPartitionInstanceType`
+- `WarmCount`: `int`
+
+
+## ElasticsearchDomainConfigTypeDef
+
+```python
+from mypy_boto3_es.type_defs import ElasticsearchDomainConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `ElasticsearchVersion`: `"ElasticsearchVersionStatusTypeDef"`
+- `ElasticsearchClusterConfig`: `"ElasticsearchClusterConfigStatusTypeDef"`
+- `EBSOptions`: `"EBSOptionsStatusTypeDef"`
+- `AccessPolicies`: `"AccessPoliciesStatusTypeDef"`
+- `SnapshotOptions`: `"SnapshotOptionsStatusTypeDef"`
+- `VPCOptions`: `"VPCDerivedInfoStatusTypeDef"`
+- `CognitoOptions`: `"CognitoOptionsStatusTypeDef"`
+- `EncryptionAtRestOptions`: `"EncryptionAtRestOptionsStatusTypeDef"`
+- `NodeToNodeEncryptionOptions`: `"NodeToNodeEncryptionOptionsStatusTypeDef"`
+- `AdvancedOptions`: `"AdvancedOptionsStatusTypeDef"`
+- `LogPublishingOptions`: `"LogPublishingOptionsStatusTypeDef"`
+- `DomainEndpointOptions`: `"DomainEndpointOptionsStatusTypeDef"`
+- `AdvancedSecurityOptions`: `"AdvancedSecurityOptionsStatusTypeDef"`
+- `AutoTuneOptions`: `"AutoTuneOptionsStatusTypeDef"`
+
+
+## ElasticsearchDomainStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import ElasticsearchDomainStatusTypeDef
+```
+
+
+Required fields:
+- `DomainId`: `str`
+- `DomainName`: `str`
+- `ARN`: `str`
+- `ElasticsearchClusterConfig`: `"ElasticsearchClusterConfigTypeDef"`
+
+
+
+Optional fields:
+- `Created`: `bool`
+- `Deleted`: `bool`
+- `Endpoint`: `str`
+- `Endpoints`: `Dict[str, str]`
+- `Processing`: `bool`
+- `UpgradeProcessing`: `bool`
+- `ElasticsearchVersion`: `str`
+- `EBSOptions`: `"EBSOptionsTypeDef"`
+- `AccessPolicies`: `str`
+- `SnapshotOptions`: `"SnapshotOptionsTypeDef"`
+- `VPCOptions`: `"VPCDerivedInfoTypeDef"`
+- `CognitoOptions`: `"CognitoOptionsTypeDef"`
+- `EncryptionAtRestOptions`: `"EncryptionAtRestOptionsTypeDef"`
+- `NodeToNodeEncryptionOptions`: `"NodeToNodeEncryptionOptionsTypeDef"`
+- `AdvancedOptions`: `Dict[str, str]`
+- `LogPublishingOptions`: `Dict[LogType, "LogPublishingOptionTypeDef"]`
+- `ServiceSoftwareOptions`: `"ServiceSoftwareOptionsTypeDef"`
+- `DomainEndpointOptions`: `"DomainEndpointOptionsTypeDef"`
+- `AdvancedSecurityOptions`: `"AdvancedSecurityOptionsTypeDef"`
+- `AutoTuneOptions`: `"AutoTuneOptionsOutputTypeDef"`
+
+
+## ElasticsearchVersionStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import ElasticsearchVersionStatusTypeDef
+```
+
+
+Required fields:
+- `Options`: `str`
+- `Status`: `"OptionStatusTypeDef"`
+
+
+
+
+## EncryptionAtRestOptionsStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import EncryptionAtRestOptionsStatusTypeDef
+```
+
+
+Required fields:
+- `Options`: `"EncryptionAtRestOptionsTypeDef"`
+- `Status`: `"OptionStatusTypeDef"`
+
+
+
+
+## EncryptionAtRestOptionsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import EncryptionAtRestOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+- `KmsKeyId`: `str`
+
+
+## ErrorDetailsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import ErrorDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ErrorType`: `str`
+- `ErrorMessage`: `str`
+
+
 ## FilterTypeDef
 
 ```python
@@ -1551,6 +1015,78 @@ Optional fields:
 - `UpgradeStep`: `UpgradeStep`
 - `StepStatus`: `UpgradeStatus`
 - `UpgradeName`: `str`
+
+
+## InboundCrossClusterSearchConnectionStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import InboundCrossClusterSearchConnectionStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `StatusCode`: `InboundCrossClusterSearchConnectionStatusCode`
+- `Message`: `str`
+
+
+## InboundCrossClusterSearchConnectionTypeDef
+
+```python
+from mypy_boto3_es.type_defs import InboundCrossClusterSearchConnectionTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceDomainInfo`: `"DomainInformationTypeDef"`
+- `DestinationDomainInfo`: `"DomainInformationTypeDef"`
+- `CrossClusterSearchConnectionId`: `str`
+- `ConnectionStatus`: `"InboundCrossClusterSearchConnectionStatusTypeDef"`
+
+
+## InstanceCountLimitsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import InstanceCountLimitsTypeDef
+```
+
+
+
+
+Optional fields:
+- `MinimumInstanceCount`: `int`
+- `MaximumInstanceCount`: `int`
+
+
+## InstanceLimitsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import InstanceLimitsTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceCountLimits`: `"InstanceCountLimitsTypeDef"`
+
+
+## LimitsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import LimitsTypeDef
+```
+
+
+
+
+Optional fields:
+- `StorageTypes`: `List["StorageTypeTypeDef"]`
+- `InstanceLimits`: `"InstanceLimitsTypeDef"`
+- `AdditionalLimits`: `List["AdditionalLimitTypeDef"]`
 
 
 ## ListDomainNamesResponseTypeDef
@@ -1635,6 +1171,147 @@ Optional fields:
 - `TagList`: `List["TagTypeDef"]`
 
 
+## LogPublishingOptionTypeDef
+
+```python
+from mypy_boto3_es.type_defs import LogPublishingOptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `CloudWatchLogsLogGroupArn`: `str`
+- `Enabled`: `bool`
+
+
+## LogPublishingOptionsStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import LogPublishingOptionsStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Options`: `Dict[LogType, "LogPublishingOptionTypeDef"]`
+- `Status`: `"OptionStatusTypeDef"`
+
+
+## MasterUserOptionsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import MasterUserOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `MasterUserARN`: `str`
+- `MasterUserName`: `str`
+- `MasterUserPassword`: `str`
+
+
+## NodeToNodeEncryptionOptionsStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import NodeToNodeEncryptionOptionsStatusTypeDef
+```
+
+
+Required fields:
+- `Options`: `"NodeToNodeEncryptionOptionsTypeDef"`
+- `Status`: `"OptionStatusTypeDef"`
+
+
+
+
+## NodeToNodeEncryptionOptionsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import NodeToNodeEncryptionOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+
+
+## OptionStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import OptionStatusTypeDef
+```
+
+
+Required fields:
+- `CreationDate`: `datetime`
+- `UpdateDate`: `datetime`
+- `State`: `OptionState`
+
+
+
+Optional fields:
+- `UpdateVersion`: `int`
+- `PendingDeletion`: `bool`
+
+
+## OutboundCrossClusterSearchConnectionStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import OutboundCrossClusterSearchConnectionStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `StatusCode`: `OutboundCrossClusterSearchConnectionStatusCode`
+- `Message`: `str`
+
+
+## OutboundCrossClusterSearchConnectionTypeDef
+
+```python
+from mypy_boto3_es.type_defs import OutboundCrossClusterSearchConnectionTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceDomainInfo`: `"DomainInformationTypeDef"`
+- `DestinationDomainInfo`: `"DomainInformationTypeDef"`
+- `CrossClusterSearchConnectionId`: `str`
+- `ConnectionAlias`: `str`
+- `ConnectionStatus`: `"OutboundCrossClusterSearchConnectionStatusTypeDef"`
+
+
+## PackageDetailsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import PackageDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `PackageID`: `str`
+- `PackageName`: `str`
+- `PackageType`: `Literal['TXT-DICTIONARY']`
+- `PackageDescription`: `str`
+- `PackageStatus`: `PackageStatus`
+- `CreatedAt`: `datetime`
+- `LastUpdatedAt`: `datetime`
+- `AvailablePackageVersion`: `str`
+- `ErrorDetails`: `"ErrorDetailsTypeDef"`
+
+
 ## PackageSourceTypeDef
 
 ```python
@@ -1647,6 +1324,21 @@ from mypy_boto3_es.type_defs import PackageSourceTypeDef
 Optional fields:
 - `S3BucketName`: `str`
 - `S3Key`: `str`
+
+
+## PackageVersionHistoryTypeDef
+
+```python
+from mypy_boto3_es.type_defs import PackageVersionHistoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `PackageVersion`: `str`
+- `CommitMessage`: `str`
+- `CreatedAt`: `datetime`
 
 
 ## PaginatorConfigTypeDef
@@ -1678,6 +1370,20 @@ Optional fields:
 - `ReservationName`: `str`
 
 
+## RecurringChargeTypeDef
+
+```python
+from mypy_boto3_es.type_defs import RecurringChargeTypeDef
+```
+
+
+
+
+Optional fields:
+- `RecurringChargeAmount`: `float`
+- `RecurringChargeFrequency`: `str`
+
+
 ## RejectInboundCrossClusterSearchConnectionResponseTypeDef
 
 ```python
@@ -1691,6 +1397,182 @@ Optional fields:
 - `CrossClusterSearchConnection`: `"InboundCrossClusterSearchConnectionTypeDef"`
 
 
+## ReservedElasticsearchInstanceOfferingTypeDef
+
+```python
+from mypy_boto3_es.type_defs import ReservedElasticsearchInstanceOfferingTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReservedElasticsearchInstanceOfferingId`: `str`
+- `ElasticsearchInstanceType`: `ESPartitionInstanceType`
+- `Duration`: `int`
+- `FixedPrice`: `float`
+- `UsagePrice`: `float`
+- `CurrencyCode`: `str`
+- `PaymentOption`: `ReservedElasticsearchInstancePaymentOption`
+- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
+
+
+## ReservedElasticsearchInstanceTypeDef
+
+```python
+from mypy_boto3_es.type_defs import ReservedElasticsearchInstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReservationName`: `str`
+- `ReservedElasticsearchInstanceId`: `str`
+- `ReservedElasticsearchInstanceOfferingId`: `str`
+- `ElasticsearchInstanceType`: `ESPartitionInstanceType`
+- `StartTime`: `datetime`
+- `Duration`: `int`
+- `FixedPrice`: `float`
+- `UsagePrice`: `float`
+- `CurrencyCode`: `str`
+- `ElasticsearchInstanceCount`: `int`
+- `State`: `str`
+- `PaymentOption`: `ReservedElasticsearchInstancePaymentOption`
+- `RecurringCharges`: `List["RecurringChargeTypeDef"]`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_es.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## SAMLIdpTypeDef
+
+```python
+from mypy_boto3_es.type_defs import SAMLIdpTypeDef
+```
+
+
+Required fields:
+- `MetadataContent`: `str`
+- `EntityId`: `str`
+
+
+
+
+## SAMLOptionsInputTypeDef
+
+```python
+from mypy_boto3_es.type_defs import SAMLOptionsInputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+- `Idp`: `"SAMLIdpTypeDef"`
+- `MasterUserName`: `str`
+- `MasterBackendRole`: `str`
+- `SubjectKey`: `str`
+- `RolesKey`: `str`
+- `SessionTimeoutMinutes`: `int`
+
+
+## SAMLOptionsOutputTypeDef
+
+```python
+from mypy_boto3_es.type_defs import SAMLOptionsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+- `Idp`: `"SAMLIdpTypeDef"`
+- `SubjectKey`: `str`
+- `RolesKey`: `str`
+- `SessionTimeoutMinutes`: `int`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ScheduledAutoTuneDetailsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import ScheduledAutoTuneDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Date`: `datetime`
+- `ActionType`: `ScheduledAutoTuneActionType`
+- `Action`: `str`
+- `Severity`: `ScheduledAutoTuneSeverityType`
+
+
+## ServiceSoftwareOptionsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import ServiceSoftwareOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `CurrentVersion`: `str`
+- `NewVersion`: `str`
+- `UpdateAvailable`: `bool`
+- `Cancellable`: `bool`
+- `UpdateStatus`: `DeploymentStatus`
+- `Description`: `str`
+- `AutomatedUpdateDate`: `datetime`
+- `OptionalDeployment`: `bool`
+
+
+## SnapshotOptionsStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import SnapshotOptionsStatusTypeDef
+```
+
+
+Required fields:
+- `Options`: `"SnapshotOptionsTypeDef"`
+- `Status`: `"OptionStatusTypeDef"`
+
+
+
+
+## SnapshotOptionsTypeDef
+
+```python
+from mypy_boto3_es.type_defs import SnapshotOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `AutomatedSnapshotStartHour`: `int`
+
+
 ## StartElasticsearchServiceSoftwareUpdateResponseTypeDef
 
 ```python
@@ -1702,6 +1584,49 @@ from mypy_boto3_es.type_defs import StartElasticsearchServiceSoftwareUpdateRespo
 
 Optional fields:
 - `ServiceSoftwareOptions`: `"ServiceSoftwareOptionsTypeDef"`
+
+
+## StorageTypeLimitTypeDef
+
+```python
+from mypy_boto3_es.type_defs import StorageTypeLimitTypeDef
+```
+
+
+
+
+Optional fields:
+- `LimitName`: `str`
+- `LimitValues`: `List[str]`
+
+
+## StorageTypeTypeDef
+
+```python
+from mypy_boto3_es.type_defs import StorageTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `StorageTypeName`: `str`
+- `StorageSubTypeName`: `str`
+- `StorageTypeLimits`: `List["StorageTypeLimitTypeDef"]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_es.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## UpdateElasticsearchDomainConfigResponseTypeDef
@@ -1745,6 +1670,68 @@ Optional fields:
 - `PerformCheckOnly`: `bool`
 
 
+## UpgradeHistoryTypeDef
+
+```python
+from mypy_boto3_es.type_defs import UpgradeHistoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `UpgradeName`: `str`
+- `StartTimestamp`: `datetime`
+- `UpgradeStatus`: `UpgradeStatus`
+- `StepsList`: `List["UpgradeStepItemTypeDef"]`
+
+
+## UpgradeStepItemTypeDef
+
+```python
+from mypy_boto3_es.type_defs import UpgradeStepItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `UpgradeStep`: `UpgradeStep`
+- `UpgradeStepStatus`: `UpgradeStatus`
+- `Issues`: `List[str]`
+- `ProgressPercent`: `float`
+
+
+## VPCDerivedInfoStatusTypeDef
+
+```python
+from mypy_boto3_es.type_defs import VPCDerivedInfoStatusTypeDef
+```
+
+
+Required fields:
+- `Options`: `"VPCDerivedInfoTypeDef"`
+- `Status`: `"OptionStatusTypeDef"`
+
+
+
+
+## VPCDerivedInfoTypeDef
+
+```python
+from mypy_boto3_es.type_defs import VPCDerivedInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `VPCId`: `str`
+- `SubnetIds`: `List[str]`
+- `AvailabilityZones`: `List[str]`
+- `SecurityGroupIds`: `List[str]`
+
+
 ## VPCOptionsTypeDef
 
 ```python
@@ -1757,4 +1744,17 @@ from mypy_boto3_es.type_defs import VPCOptionsTypeDef
 Optional fields:
 - `SubnetIds`: `List[str]`
 - `SecurityGroupIds`: `List[str]`
+
+
+## ZoneAwarenessConfigTypeDef
+
+```python
+from mypy_boto3_es.type_defs import ZoneAwarenessConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityZoneCount`: `int`
 

@@ -70,13 +70,6 @@ type annotations stubs module [mypy_boto3_guardduty](https://pypi.org/project/my
     - [update_publishing_destination](#update_publishing_destination)
     - [update_threat_intel_set](#update_threat_intel_set)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
 
 ## GuardDutyClient
 
@@ -240,7 +233,7 @@ Type annotations for `boto3.client("guardduty").create_publishing_destination` m
 def create_publishing_destination(
     self,
     DetectorId: str,
-    DestinationType: DestinationType,
+    DestinationType: Literal['S3'],
     DestinationProperties: "DestinationPropertiesTypeDef",
     ClientToken: str = None
 ) -> CreatePublishingDestinationResponseTypeDef:
@@ -557,7 +550,7 @@ Type annotations for `boto3.client("guardduty").get_findings_statistics` method.
 def get_findings_statistics(
     self,
     DetectorId: str,
-    FindingStatisticTypes: List[FindingStatisticType],
+    FindingStatisticTypes: List[Literal['COUNT_BY_SEVERITY']],
     FindingCriteria: "FindingCriteriaTypeDef" = None
 ) -> GetFindingsStatisticsResponseTypeDef:
     pass
@@ -1056,122 +1049,19 @@ def update_threat_intel_set(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("guardduty").get_paginator` method.
-
-[Paginator.ListDetectors documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty.html#GuardDuty.Paginator.ListDetectors)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDetectorsPaginatorName
-) -> ListDetectorsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("guardduty").get_paginator` method.
+Type annotations for `boto3.client("guardduty").get_paginator` method with overloads.
 
-[Paginator.ListFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty.html#GuardDuty.Paginator.ListFilters)
+- `client.get_paginator("list_detectors")` -> [ListDetectorsPaginator](./paginators.md#listdetectorspaginator)
+- `client.get_paginator("list_filters")` -> [ListFiltersPaginator](./paginators.md#listfilterspaginator)
+- `client.get_paginator("list_findings")` -> [ListFindingsPaginator](./paginators.md#listfindingspaginator)
+- `client.get_paginator("list_ip_sets")` -> [ListIPSetsPaginator](./paginators.md#listipsetspaginator)
+- `client.get_paginator("list_invitations")` -> [ListInvitationsPaginator](./paginators.md#listinvitationspaginator)
+- `client.get_paginator("list_members")` -> [ListMembersPaginator](./paginators.md#listmemberspaginator)
+- `client.get_paginator("list_organization_admin_accounts")` -> [ListOrganizationAdminAccountsPaginator](./paginators.md#listorganizationadminaccountspaginator)
+- `client.get_paginator("list_threat_intel_sets")` -> [ListThreatIntelSetsPaginator](./paginators.md#listthreatintelsetspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFiltersPaginatorName
-) -> ListFiltersPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("guardduty").get_paginator` method.
-
-[Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty.html#GuardDuty.Paginator.ListFindings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFindingsPaginatorName
-) -> ListFindingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("guardduty").get_paginator` method.
-
-[Paginator.ListIPSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty.html#GuardDuty.Paginator.ListIPSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListIPSetsPaginatorName
-) -> ListIPSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("guardduty").get_paginator` method.
-
-[Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty.html#GuardDuty.Paginator.ListInvitations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInvitationsPaginatorName
-) -> ListInvitationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("guardduty").get_paginator` method.
-
-[Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty.html#GuardDuty.Paginator.ListMembers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMembersPaginatorName
-) -> ListMembersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("guardduty").get_paginator` method.
-
-[Paginator.ListOrganizationAdminAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty.html#GuardDuty.Paginator.ListOrganizationAdminAccounts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOrganizationAdminAccountsPaginatorName
-) -> ListOrganizationAdminAccountsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("guardduty").get_paginator` method.
-
-[Paginator.ListThreatIntelSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/guardduty.html#GuardDuty.Paginator.ListThreatIntelSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThreatIntelSetsPaginatorName
-) -> ListThreatIntelSetsPaginator:
-    pass
-```

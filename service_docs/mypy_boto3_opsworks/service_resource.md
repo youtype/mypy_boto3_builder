@@ -104,7 +104,7 @@ def create_stack(
     ServiceRoleArn: str,
     DefaultInstanceProfileArn: str,
     VpcId: str = None,
-    Attributes: Dict[StackAttributesKeys, str] = None,
+    Attributes: Dict[Literal['Color'], str] = None,
     DefaultOs: str = None,
     HostnameTheme: str = None,
     DefaultAvailabilityZone: str = None,

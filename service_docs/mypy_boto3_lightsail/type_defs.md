@@ -6,8 +6,15 @@ Auto-generated documentation for [Lightsail](https://boto3.amazonaws.com/v1/docu
 type annotations stubs module [mypy_boto3_lightsail](https://pypi.org/project/mypy-boto3-lightsail/).
 
 - [Structures for boto3 Lightsail module](#structures-for-boto3-lightsail-module)
+  - [AddOnRequestTypeDef](#addonrequesttypedef)
   - [AddOnTypeDef](#addontypedef)
   - [AlarmTypeDef](#alarmtypedef)
+  - [AllocateStaticIpResultTypeDef](#allocatestaticipresulttypedef)
+  - [AttachCertificateToDistributionResultTypeDef](#attachcertificatetodistributionresulttypedef)
+  - [AttachDiskResultTypeDef](#attachdiskresulttypedef)
+  - [AttachInstancesToLoadBalancerResultTypeDef](#attachinstancestoloadbalancerresulttypedef)
+  - [AttachLoadBalancerTlsCertificateResultTypeDef](#attachloadbalancertlscertificateresulttypedef)
+  - [AttachStaticIpResultTypeDef](#attachstaticipresulttypedef)
   - [AttachedDiskTypeDef](#attacheddisktypedef)
   - [AutoSnapshotAddOnRequestTypeDef](#autosnapshotaddonrequesttypedef)
   - [AutoSnapshotDetailsTypeDef](#autosnapshotdetailstypedef)
@@ -19,10 +26,12 @@ type annotations stubs module [mypy_boto3_lightsail](https://pypi.org/project/my
   - [CacheSettingsTypeDef](#cachesettingstypedef)
   - [CertificateSummaryTypeDef](#certificatesummarytypedef)
   - [CertificateTypeDef](#certificatetypedef)
+  - [CloseInstancePublicPortsResultTypeDef](#closeinstancepublicportsresulttypedef)
   - [CloudFormationStackRecordSourceInfoTypeDef](#cloudformationstackrecordsourceinfotypedef)
   - [CloudFormationStackRecordTypeDef](#cloudformationstackrecordtypedef)
   - [ContactMethodTypeDef](#contactmethodtypedef)
   - [ContainerImageTypeDef](#containerimagetypedef)
+  - [ContainerServiceDeploymentRequestTypeDef](#containerservicedeploymentrequesttypedef)
   - [ContainerServiceDeploymentTypeDef](#containerservicedeploymenttypedef)
   - [ContainerServiceEndpointTypeDef](#containerserviceendpointtypedef)
   - [ContainerServiceHealthCheckConfigTypeDef](#containerservicehealthcheckconfigtypedef)
@@ -31,74 +40,9 @@ type annotations stubs module [mypy_boto3_lightsail](https://pypi.org/project/my
   - [ContainerServiceRegistryLoginTypeDef](#containerserviceregistrylogintypedef)
   - [ContainerServiceStateDetailTypeDef](#containerservicestatedetailtypedef)
   - [ContainerServiceTypeDef](#containerservicetypedef)
+  - [ContainerServicesListResultTypeDef](#containerserviceslistresulttypedef)
   - [ContainerTypeDef](#containertypedef)
   - [CookieObjectTypeDef](#cookieobjecttypedef)
-  - [DestinationInfoTypeDef](#destinationinfotypedef)
-  - [DiskInfoTypeDef](#diskinfotypedef)
-  - [DiskSnapshotInfoTypeDef](#disksnapshotinfotypedef)
-  - [DiskSnapshotTypeDef](#disksnapshottypedef)
-  - [DiskTypeDef](#disktypedef)
-  - [DistributionBundleTypeDef](#distributionbundletypedef)
-  - [DomainEntryTypeDef](#domainentrytypedef)
-  - [DomainTypeDef](#domaintypedef)
-  - [DomainValidationRecordTypeDef](#domainvalidationrecordtypedef)
-  - [EndpointRequestTypeDef](#endpointrequesttypedef)
-  - [ExportSnapshotRecordSourceInfoTypeDef](#exportsnapshotrecordsourceinfotypedef)
-  - [ExportSnapshotRecordTypeDef](#exportsnapshotrecordtypedef)
-  - [HeaderObjectTypeDef](#headerobjecttypedef)
-  - [HostKeyAttributesTypeDef](#hostkeyattributestypedef)
-  - [InstanceAccessDetailsTypeDef](#instanceaccessdetailstypedef)
-  - [InstanceHardwareTypeDef](#instancehardwaretypedef)
-  - [InstanceHealthSummaryTypeDef](#instancehealthsummarytypedef)
-  - [InstanceNetworkingTypeDef](#instancenetworkingtypedef)
-  - [InstancePortInfoTypeDef](#instanceportinfotypedef)
-  - [InstancePortStateTypeDef](#instanceportstatetypedef)
-  - [InstanceSnapshotInfoTypeDef](#instancesnapshotinfotypedef)
-  - [InstanceSnapshotTypeDef](#instancesnapshottypedef)
-  - [InstanceStateTypeDef](#instancestatetypedef)
-  - [InstanceTypeDef](#instancetypedef)
-  - [KeyPairTypeDef](#keypairtypedef)
-  - [LightsailDistributionTypeDef](#lightsaildistributiontypedef)
-  - [LoadBalancerTlsCertificateDomainValidationOptionTypeDef](#loadbalancertlscertificatedomainvalidationoptiontypedef)
-  - [LoadBalancerTlsCertificateDomainValidationRecordTypeDef](#loadbalancertlscertificatedomainvalidationrecordtypedef)
-  - [LoadBalancerTlsCertificateRenewalSummaryTypeDef](#loadbalancertlscertificaterenewalsummarytypedef)
-  - [LoadBalancerTlsCertificateSummaryTypeDef](#loadbalancertlscertificatesummarytypedef)
-  - [LoadBalancerTlsCertificateTypeDef](#loadbalancertlscertificatetypedef)
-  - [LoadBalancerTypeDef](#loadbalancertypedef)
-  - [LogEventTypeDef](#logeventtypedef)
-  - [MetricDatapointTypeDef](#metricdatapointtypedef)
-  - [MonitoredResourceInfoTypeDef](#monitoredresourceinfotypedef)
-  - [MonthlyTransferTypeDef](#monthlytransfertypedef)
-  - [OperationTypeDef](#operationtypedef)
-  - [OriginTypeDef](#origintypedef)
-  - [PasswordDataTypeDef](#passworddatatypedef)
-  - [PendingMaintenanceActionTypeDef](#pendingmaintenanceactiontypedef)
-  - [PendingModifiedRelationalDatabaseValuesTypeDef](#pendingmodifiedrelationaldatabasevaluestypedef)
-  - [QueryStringObjectTypeDef](#querystringobjecttypedef)
-  - [RegionTypeDef](#regiontypedef)
-  - [RelationalDatabaseBlueprintTypeDef](#relationaldatabaseblueprinttypedef)
-  - [RelationalDatabaseBundleTypeDef](#relationaldatabasebundletypedef)
-  - [RelationalDatabaseEndpointTypeDef](#relationaldatabaseendpointtypedef)
-  - [RelationalDatabaseEventTypeDef](#relationaldatabaseeventtypedef)
-  - [RelationalDatabaseHardwareTypeDef](#relationaldatabasehardwaretypedef)
-  - [RelationalDatabaseParameterTypeDef](#relationaldatabaseparametertypedef)
-  - [RelationalDatabaseSnapshotTypeDef](#relationaldatabasesnapshottypedef)
-  - [RelationalDatabaseTypeDef](#relationaldatabasetypedef)
-  - [RenewalSummaryTypeDef](#renewalsummarytypedef)
-  - [ResourceLocationTypeDef](#resourcelocationtypedef)
-  - [ResourceRecordTypeDef](#resourcerecordtypedef)
-  - [StaticIpTypeDef](#staticiptypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [AddOnRequestTypeDef](#addonrequesttypedef)
-  - [AllocateStaticIpResultTypeDef](#allocatestaticipresulttypedef)
-  - [AttachCertificateToDistributionResultTypeDef](#attachcertificatetodistributionresulttypedef)
-  - [AttachDiskResultTypeDef](#attachdiskresulttypedef)
-  - [AttachInstancesToLoadBalancerResultTypeDef](#attachinstancestoloadbalancerresulttypedef)
-  - [AttachLoadBalancerTlsCertificateResultTypeDef](#attachloadbalancertlscertificateresulttypedef)
-  - [AttachStaticIpResultTypeDef](#attachstaticipresulttypedef)
-  - [CloseInstancePublicPortsResultTypeDef](#closeinstancepublicportsresulttypedef)
-  - [ContainerServiceDeploymentRequestTypeDef](#containerservicedeploymentrequesttypedef)
-  - [ContainerServicesListResultTypeDef](#containerserviceslistresulttypedef)
   - [CopySnapshotResultTypeDef](#copysnapshotresulttypedef)
   - [CreateCertificateResultTypeDef](#createcertificateresulttypedef)
   - [CreateCloudFormationStackResultTypeDef](#createcloudformationstackresulttypedef)
@@ -138,14 +82,26 @@ type annotations stubs module [mypy_boto3_lightsail](https://pypi.org/project/my
   - [DeleteLoadBalancerTlsCertificateResultTypeDef](#deleteloadbalancertlscertificateresulttypedef)
   - [DeleteRelationalDatabaseResultTypeDef](#deleterelationaldatabaseresulttypedef)
   - [DeleteRelationalDatabaseSnapshotResultTypeDef](#deleterelationaldatabasesnapshotresulttypedef)
+  - [DestinationInfoTypeDef](#destinationinfotypedef)
   - [DetachCertificateFromDistributionResultTypeDef](#detachcertificatefromdistributionresulttypedef)
   - [DetachDiskResultTypeDef](#detachdiskresulttypedef)
   - [DetachInstancesFromLoadBalancerResultTypeDef](#detachinstancesfromloadbalancerresulttypedef)
   - [DetachStaticIpResultTypeDef](#detachstaticipresulttypedef)
   - [DisableAddOnResultTypeDef](#disableaddonresulttypedef)
+  - [DiskInfoTypeDef](#diskinfotypedef)
   - [DiskMapTypeDef](#diskmaptypedef)
+  - [DiskSnapshotInfoTypeDef](#disksnapshotinfotypedef)
+  - [DiskSnapshotTypeDef](#disksnapshottypedef)
+  - [DiskTypeDef](#disktypedef)
+  - [DistributionBundleTypeDef](#distributionbundletypedef)
+  - [DomainEntryTypeDef](#domainentrytypedef)
+  - [DomainTypeDef](#domaintypedef)
+  - [DomainValidationRecordTypeDef](#domainvalidationrecordtypedef)
   - [DownloadDefaultKeyPairResultTypeDef](#downloaddefaultkeypairresulttypedef)
   - [EnableAddOnResultTypeDef](#enableaddonresulttypedef)
+  - [EndpointRequestTypeDef](#endpointrequesttypedef)
+  - [ExportSnapshotRecordSourceInfoTypeDef](#exportsnapshotrecordsourceinfotypedef)
+  - [ExportSnapshotRecordTypeDef](#exportsnapshotrecordtypedef)
   - [ExportSnapshotResultTypeDef](#exportsnapshotresulttypedef)
   - [GetActiveNamesResultTypeDef](#getactivenamesresulttypedef)
   - [GetAlarmsResultTypeDef](#getalarmsresulttypedef)
@@ -204,28 +160,72 @@ type annotations stubs module [mypy_boto3_lightsail](https://pypi.org/project/my
   - [GetRelationalDatabasesResultTypeDef](#getrelationaldatabasesresulttypedef)
   - [GetStaticIpResultTypeDef](#getstaticipresulttypedef)
   - [GetStaticIpsResultTypeDef](#getstaticipsresulttypedef)
+  - [HeaderObjectTypeDef](#headerobjecttypedef)
+  - [HostKeyAttributesTypeDef](#hostkeyattributestypedef)
   - [ImportKeyPairResultTypeDef](#importkeypairresulttypedef)
   - [InputOriginTypeDef](#inputorigintypedef)
+  - [InstanceAccessDetailsTypeDef](#instanceaccessdetailstypedef)
   - [InstanceEntryTypeDef](#instanceentrytypedef)
+  - [InstanceHardwareTypeDef](#instancehardwaretypedef)
+  - [InstanceHealthSummaryTypeDef](#instancehealthsummarytypedef)
+  - [InstanceNetworkingTypeDef](#instancenetworkingtypedef)
+  - [InstancePortInfoTypeDef](#instanceportinfotypedef)
+  - [InstancePortStateTypeDef](#instanceportstatetypedef)
+  - [InstanceSnapshotInfoTypeDef](#instancesnapshotinfotypedef)
+  - [InstanceSnapshotTypeDef](#instancesnapshottypedef)
+  - [InstanceStateTypeDef](#instancestatetypedef)
+  - [InstanceTypeDef](#instancetypedef)
   - [IsVpcPeeredResultTypeDef](#isvpcpeeredresulttypedef)
+  - [KeyPairTypeDef](#keypairtypedef)
+  - [LightsailDistributionTypeDef](#lightsaildistributiontypedef)
+  - [LoadBalancerTlsCertificateDomainValidationOptionTypeDef](#loadbalancertlscertificatedomainvalidationoptiontypedef)
+  - [LoadBalancerTlsCertificateDomainValidationRecordTypeDef](#loadbalancertlscertificatedomainvalidationrecordtypedef)
+  - [LoadBalancerTlsCertificateRenewalSummaryTypeDef](#loadbalancertlscertificaterenewalsummarytypedef)
+  - [LoadBalancerTlsCertificateSummaryTypeDef](#loadbalancertlscertificatesummarytypedef)
+  - [LoadBalancerTlsCertificateTypeDef](#loadbalancertlscertificatetypedef)
+  - [LoadBalancerTypeDef](#loadbalancertypedef)
+  - [LogEventTypeDef](#logeventtypedef)
+  - [MetricDatapointTypeDef](#metricdatapointtypedef)
+  - [MonitoredResourceInfoTypeDef](#monitoredresourceinfotypedef)
+  - [MonthlyTransferTypeDef](#monthlytransfertypedef)
   - [OpenInstancePublicPortsResultTypeDef](#openinstancepublicportsresulttypedef)
+  - [OperationTypeDef](#operationtypedef)
+  - [OriginTypeDef](#origintypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PasswordDataTypeDef](#passworddatatypedef)
   - [PeerVpcResultTypeDef](#peervpcresulttypedef)
+  - [PendingMaintenanceActionTypeDef](#pendingmaintenanceactiontypedef)
+  - [PendingModifiedRelationalDatabaseValuesTypeDef](#pendingmodifiedrelationaldatabasevaluestypedef)
   - [PortInfoTypeDef](#portinfotypedef)
   - [PutAlarmResultTypeDef](#putalarmresulttypedef)
   - [PutInstancePublicPortsResultTypeDef](#putinstancepublicportsresulttypedef)
+  - [QueryStringObjectTypeDef](#querystringobjecttypedef)
   - [RebootInstanceResultTypeDef](#rebootinstanceresulttypedef)
   - [RebootRelationalDatabaseResultTypeDef](#rebootrelationaldatabaseresulttypedef)
+  - [RegionTypeDef](#regiontypedef)
   - [RegisterContainerImageResultTypeDef](#registercontainerimageresulttypedef)
+  - [RelationalDatabaseBlueprintTypeDef](#relationaldatabaseblueprinttypedef)
+  - [RelationalDatabaseBundleTypeDef](#relationaldatabasebundletypedef)
+  - [RelationalDatabaseEndpointTypeDef](#relationaldatabaseendpointtypedef)
+  - [RelationalDatabaseEventTypeDef](#relationaldatabaseeventtypedef)
+  - [RelationalDatabaseHardwareTypeDef](#relationaldatabasehardwaretypedef)
+  - [RelationalDatabaseParameterTypeDef](#relationaldatabaseparametertypedef)
+  - [RelationalDatabaseSnapshotTypeDef](#relationaldatabasesnapshottypedef)
+  - [RelationalDatabaseTypeDef](#relationaldatabasetypedef)
   - [ReleaseStaticIpResultTypeDef](#releasestaticipresulttypedef)
+  - [RenewalSummaryTypeDef](#renewalsummarytypedef)
   - [ResetDistributionCacheResultTypeDef](#resetdistributioncacheresulttypedef)
+  - [ResourceLocationTypeDef](#resourcelocationtypedef)
+  - [ResourceRecordTypeDef](#resourcerecordtypedef)
   - [SendContactMethodVerificationResultTypeDef](#sendcontactmethodverificationresulttypedef)
   - [SetIpAddressTypeResultTypeDef](#setipaddresstyperesulttypedef)
   - [StartInstanceResultTypeDef](#startinstanceresulttypedef)
   - [StartRelationalDatabaseResultTypeDef](#startrelationaldatabaseresulttypedef)
+  - [StaticIpTypeDef](#staticiptypedef)
   - [StopInstanceResultTypeDef](#stopinstanceresulttypedef)
   - [StopRelationalDatabaseResultTypeDef](#stoprelationaldatabaseresulttypedef)
   - [TagResourceResultTypeDef](#tagresourceresulttypedef)
+  - [TagTypeDef](#tagtypedef)
   - [TestAlarmResultTypeDef](#testalarmresulttypedef)
   - [UnpeerVpcResultTypeDef](#unpeervpcresulttypedef)
   - [UntagResourceResultTypeDef](#untagresourceresulttypedef)
@@ -236,6 +236,22 @@ type annotations stubs module [mypy_boto3_lightsail](https://pypi.org/project/my
   - [UpdateLoadBalancerAttributeResultTypeDef](#updateloadbalancerattributeresulttypedef)
   - [UpdateRelationalDatabaseParametersResultTypeDef](#updaterelationaldatabaseparametersresulttypedef)
   - [UpdateRelationalDatabaseResultTypeDef](#updaterelationaldatabaseresulttypedef)
+
+## AddOnRequestTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import AddOnRequestTypeDef
+```
+
+
+Required fields:
+- `addOnType`: `Literal['AutoSnapshot']`
+
+
+
+Optional fields:
+- `autoSnapshotAddOnRequest`: `"AutoSnapshotAddOnRequestTypeDef"`
+
 
 ## AddOnTypeDef
 
@@ -283,6 +299,84 @@ Optional fields:
 - `contactProtocols`: `List[ContactProtocol]`
 - `notificationTriggers`: `List[AlarmState]`
 - `notificationEnabled`: `bool`
+
+
+## AllocateStaticIpResultTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import AllocateStaticIpResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `operations`: `List["OperationTypeDef"]`
+
+
+## AttachCertificateToDistributionResultTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import AttachCertificateToDistributionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `operation`: `"OperationTypeDef"`
+
+
+## AttachDiskResultTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import AttachDiskResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `operations`: `List["OperationTypeDef"]`
+
+
+## AttachInstancesToLoadBalancerResultTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import AttachInstancesToLoadBalancerResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `operations`: `List["OperationTypeDef"]`
+
+
+## AttachLoadBalancerTlsCertificateResultTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import AttachLoadBalancerTlsCertificateResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `operations`: `List["OperationTypeDef"]`
+
+
+## AttachStaticIpResultTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import AttachStaticIpResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `operations`: `List["OperationTypeDef"]`
 
 
 ## AttachedDiskTypeDef
@@ -486,6 +580,19 @@ Optional fields:
 - `supportCode`: `str`
 
 
+## CloseInstancePublicPortsResultTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import CloseInstancePublicPortsResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `operation`: `"OperationTypeDef"`
+
+
 ## CloudFormationStackRecordSourceInfoTypeDef
 
 ```python
@@ -496,7 +603,7 @@ from mypy_boto3_lightsail.type_defs import CloudFormationStackRecordSourceInfoTy
 
 
 Optional fields:
-- `resourceType`: `CloudFormationStackRecordSourceType`
+- `resourceType`: `Literal['ExportSnapshotRecord']`
 - `name`: `str`
 - `arn`: `str`
 
@@ -555,6 +662,20 @@ Optional fields:
 - `image`: `str`
 - `digest`: `str`
 - `createdAt`: `datetime`
+
+
+## ContainerServiceDeploymentRequestTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import ContainerServiceDeploymentRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `containers`: `Dict[str, "ContainerTypeDef"]`
+- `publicEndpoint`: `"EndpointRequestTypeDef"`
 
 
 ## ContainerServiceDeploymentTypeDef
@@ -699,6 +820,19 @@ Optional fields:
 - `url`: `str`
 
 
+## ContainerServicesListResultTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import ContainerServicesListResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `containerServices`: `List["ContainerServiceTypeDef"]`
+
+
 ## ContainerTypeDef
 
 ```python
@@ -727,1198 +861,6 @@ from mypy_boto3_lightsail.type_defs import CookieObjectTypeDef
 Optional fields:
 - `option`: `ForwardValues`
 - `cookiesAllowList`: `List[str]`
-
-
-## DestinationInfoTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import DestinationInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `service`: `str`
-
-
-## DiskInfoTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import DiskInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `path`: `str`
-- `sizeInGb`: `int`
-- `isSystemDisk`: `bool`
-
-
-## DiskSnapshotInfoTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import DiskSnapshotInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `sizeInGb`: `int`
-
-
-## DiskSnapshotTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import DiskSnapshotTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `tags`: `List["TagTypeDef"]`
-- `sizeInGb`: `int`
-- `state`: `DiskSnapshotState`
-- `progress`: `str`
-- `fromDiskName`: `str`
-- `fromDiskArn`: `str`
-- `fromInstanceName`: `str`
-- `fromInstanceArn`: `str`
-- `isFromAutoSnapshot`: `bool`
-
-
-## DiskTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import DiskTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `tags`: `List["TagTypeDef"]`
-- `addOns`: `List["AddOnTypeDef"]`
-- `sizeInGb`: `int`
-- `isSystemDisk`: `bool`
-- `iops`: `int`
-- `path`: `str`
-- `state`: `DiskState`
-- `attachedTo`: `str`
-- `isAttached`: `bool`
-- `attachmentState`: `str`
-- `gbInUse`: `int`
-
-
-## DistributionBundleTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import DistributionBundleTypeDef
-```
-
-
-
-
-Optional fields:
-- `bundleId`: `str`
-- `name`: `str`
-- `price`: `float`
-- `transferPerMonthInGb`: `int`
-- `isActive`: `bool`
-
-
-## DomainEntryTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import DomainEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `name`: `str`
-- `target`: `str`
-- `isAlias`: `bool`
-- `type`: `str`
-- `options`: `Dict[str, str]`
-
-
-## DomainTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import DomainTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `tags`: `List["TagTypeDef"]`
-- `domainEntries`: `List["DomainEntryTypeDef"]`
-
-
-## DomainValidationRecordTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import DomainValidationRecordTypeDef
-```
-
-
-
-
-Optional fields:
-- `domainName`: `str`
-- `resourceRecord`: `"ResourceRecordTypeDef"`
-
-
-## EndpointRequestTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import EndpointRequestTypeDef
-```
-
-
-Required fields:
-- `containerName`: `str`
-- `containerPort`: `int`
-
-
-
-Optional fields:
-- `healthCheck`: `"ContainerServiceHealthCheckConfigTypeDef"`
-
-
-## ExportSnapshotRecordSourceInfoTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import ExportSnapshotRecordSourceInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceType`: `ExportSnapshotRecordSourceType`
-- `createdAt`: `datetime`
-- `name`: `str`
-- `arn`: `str`
-- `fromResourceName`: `str`
-- `fromResourceArn`: `str`
-- `instanceSnapshotInfo`: `"InstanceSnapshotInfoTypeDef"`
-- `diskSnapshotInfo`: `"DiskSnapshotInfoTypeDef"`
-
-
-## ExportSnapshotRecordTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import ExportSnapshotRecordTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `state`: `RecordState`
-- `sourceInfo`: `"ExportSnapshotRecordSourceInfoTypeDef"`
-- `destinationInfo`: `"DestinationInfoTypeDef"`
-
-
-## HeaderObjectTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import HeaderObjectTypeDef
-```
-
-
-
-
-Optional fields:
-- `option`: `ForwardValues`
-- `headersAllowList`: `List[HeaderEnum]`
-
-
-## HostKeyAttributesTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import HostKeyAttributesTypeDef
-```
-
-
-
-
-Optional fields:
-- `algorithm`: `str`
-- `publicKey`: `str`
-- `witnessedAt`: `datetime`
-- `fingerprintSHA1`: `str`
-- `fingerprintSHA256`: `str`
-- `notValidBefore`: `datetime`
-- `notValidAfter`: `datetime`
-
-
-## InstanceAccessDetailsTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import InstanceAccessDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `certKey`: `str`
-- `expiresAt`: `datetime`
-- `ipAddress`: `str`
-- `password`: `str`
-- `passwordData`: `"PasswordDataTypeDef"`
-- `privateKey`: `str`
-- `protocol`: `InstanceAccessProtocol`
-- `instanceName`: `str`
-- `username`: `str`
-- `hostKeys`: `List["HostKeyAttributesTypeDef"]`
-
-
-## InstanceHardwareTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import InstanceHardwareTypeDef
-```
-
-
-
-
-Optional fields:
-- `cpuCount`: `int`
-- `disks`: `List["DiskTypeDef"]`
-- `ramSizeInGb`: `float`
-
-
-## InstanceHealthSummaryTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import InstanceHealthSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `instanceName`: `str`
-- `instanceHealth`: `InstanceHealthState`
-- `instanceHealthReason`: `InstanceHealthReason`
-
-
-## InstanceNetworkingTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import InstanceNetworkingTypeDef
-```
-
-
-
-
-Optional fields:
-- `monthlyTransfer`: `"MonthlyTransferTypeDef"`
-- `ports`: `List["InstancePortInfoTypeDef"]`
-
-
-## InstancePortInfoTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import InstancePortInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `fromPort`: `int`
-- `toPort`: `int`
-- `protocol`: `NetworkProtocol`
-- `accessFrom`: `str`
-- `accessType`: `PortAccessType`
-- `commonName`: `str`
-- `accessDirection`: `AccessDirection`
-- `cidrs`: `List[str]`
-- `ipv6Cidrs`: `List[str]`
-- `cidrListAliases`: `List[str]`
-
-
-## InstancePortStateTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import InstancePortStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `fromPort`: `int`
-- `toPort`: `int`
-- `protocol`: `NetworkProtocol`
-- `state`: `PortState`
-- `cidrs`: `List[str]`
-- `ipv6Cidrs`: `List[str]`
-- `cidrListAliases`: `List[str]`
-
-
-## InstanceSnapshotInfoTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import InstanceSnapshotInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `fromBundleId`: `str`
-- `fromBlueprintId`: `str`
-- `fromDiskInfo`: `List["DiskInfoTypeDef"]`
-
-
-## InstanceSnapshotTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import InstanceSnapshotTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `tags`: `List["TagTypeDef"]`
-- `state`: `InstanceSnapshotState`
-- `progress`: `str`
-- `fromAttachedDisks`: `List["DiskTypeDef"]`
-- `fromInstanceName`: `str`
-- `fromInstanceArn`: `str`
-- `fromBlueprintId`: `str`
-- `fromBundleId`: `str`
-- `isFromAutoSnapshot`: `bool`
-- `sizeInGb`: `int`
-
-
-## InstanceStateTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import InstanceStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `code`: `int`
-- `name`: `str`
-
-
-## InstanceTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import InstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `tags`: `List["TagTypeDef"]`
-- `blueprintId`: `str`
-- `blueprintName`: `str`
-- `bundleId`: `str`
-- `addOns`: `List["AddOnTypeDef"]`
-- `isStaticIp`: `bool`
-- `privateIpAddress`: `str`
-- `publicIpAddress`: `str`
-- `ipv6Addresses`: `List[str]`
-- `ipAddressType`: `IpAddressType`
-- `hardware`: `"InstanceHardwareTypeDef"`
-- `networking`: `"InstanceNetworkingTypeDef"`
-- `state`: `"InstanceStateTypeDef"`
-- `username`: `str`
-- `sshKeyName`: `str`
-
-
-## KeyPairTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import KeyPairTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `tags`: `List["TagTypeDef"]`
-- `fingerprint`: `str`
-
-
-## LightsailDistributionTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import LightsailDistributionTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `alternativeDomainNames`: `List[str]`
-- `status`: `str`
-- `isEnabled`: `bool`
-- `domainName`: `str`
-- `bundleId`: `str`
-- `certificateName`: `str`
-- `origin`: `"OriginTypeDef"`
-- `originPublicDNS`: `str`
-- `defaultCacheBehavior`: `"CacheBehaviorTypeDef"`
-- `cacheBehaviorSettings`: `"CacheSettingsTypeDef"`
-- `cacheBehaviors`: `List["CacheBehaviorPerPathTypeDef"]`
-- `ableToUpdateBundle`: `bool`
-- `ipAddressType`: `IpAddressType`
-- `tags`: `List["TagTypeDef"]`
-
-
-## LoadBalancerTlsCertificateDomainValidationOptionTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import LoadBalancerTlsCertificateDomainValidationOptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `domainName`: `str`
-- `validationStatus`: `LoadBalancerTlsCertificateDomainStatus`
-
-
-## LoadBalancerTlsCertificateDomainValidationRecordTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import LoadBalancerTlsCertificateDomainValidationRecordTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `type`: `str`
-- `value`: `str`
-- `validationStatus`: `LoadBalancerTlsCertificateDomainStatus`
-- `domainName`: `str`
-
-
-## LoadBalancerTlsCertificateRenewalSummaryTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import LoadBalancerTlsCertificateRenewalSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `renewalStatus`: `LoadBalancerTlsCertificateRenewalStatus`
-- `domainValidationOptions`: `List["LoadBalancerTlsCertificateDomainValidationOptionTypeDef"]`
-
-
-## LoadBalancerTlsCertificateSummaryTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import LoadBalancerTlsCertificateSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `isAttached`: `bool`
-
-
-## LoadBalancerTlsCertificateTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import LoadBalancerTlsCertificateTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `tags`: `List["TagTypeDef"]`
-- `loadBalancerName`: `str`
-- `isAttached`: `bool`
-- `status`: `LoadBalancerTlsCertificateStatus`
-- `domainName`: `str`
-- `domainValidationRecords`: `List["LoadBalancerTlsCertificateDomainValidationRecordTypeDef"]`
-- `failureReason`: `LoadBalancerTlsCertificateFailureReason`
-- `issuedAt`: `datetime`
-- `issuer`: `str`
-- `keyAlgorithm`: `str`
-- `notAfter`: `datetime`
-- `notBefore`: `datetime`
-- `renewalSummary`: `"LoadBalancerTlsCertificateRenewalSummaryTypeDef"`
-- `revocationReason`: `LoadBalancerTlsCertificateRevocationReason`
-- `revokedAt`: `datetime`
-- `serial`: `str`
-- `signatureAlgorithm`: `str`
-- `subject`: `str`
-- `subjectAlternativeNames`: `List[str]`
-
-
-## LoadBalancerTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import LoadBalancerTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `tags`: `List["TagTypeDef"]`
-- `dnsName`: `str`
-- `state`: `LoadBalancerState`
-- `protocol`: `LoadBalancerProtocol`
-- `publicPorts`: `List[int]`
-- `healthCheckPath`: `str`
-- `instancePort`: `int`
-- `instanceHealthSummary`: `List["InstanceHealthSummaryTypeDef"]`
-- `tlsCertificateSummaries`: `List["LoadBalancerTlsCertificateSummaryTypeDef"]`
-- `configurationOptions`: `Dict[LoadBalancerAttributeName, str]`
-- `ipAddressType`: `IpAddressType`
-
-
-## LogEventTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import LogEventTypeDef
-```
-
-
-
-
-Optional fields:
-- `createdAt`: `datetime`
-- `message`: `str`
-
-
-## MetricDatapointTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import MetricDatapointTypeDef
-```
-
-
-
-
-Optional fields:
-- `average`: `float`
-- `maximum`: `float`
-- `minimum`: `float`
-- `sampleCount`: `float`
-- `sum`: `float`
-- `timestamp`: `datetime`
-- `unit`: `MetricUnit`
-
-
-## MonitoredResourceInfoTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import MonitoredResourceInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `resourceType`: `ResourceType`
-
-
-## MonthlyTransferTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import MonthlyTransferTypeDef
-```
-
-
-
-
-Optional fields:
-- `gbPerMonthAllocated`: `int`
-
-
-## OperationTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import OperationTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `resourceName`: `str`
-- `resourceType`: `ResourceType`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `isTerminal`: `bool`
-- `operationDetails`: `str`
-- `operationType`: `OperationType`
-- `status`: `OperationStatus`
-- `statusChangedAt`: `datetime`
-- `errorCode`: `str`
-- `errorDetails`: `str`
-
-
-## OriginTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import OriginTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `resourceType`: `ResourceType`
-- `regionName`: `RegionName`
-- `protocolPolicy`: `OriginProtocolPolicyEnum`
-
-
-## PasswordDataTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import PasswordDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `ciphertext`: `str`
-- `keyPairName`: `str`
-
-
-## PendingMaintenanceActionTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import PendingMaintenanceActionTypeDef
-```
-
-
-
-
-Optional fields:
-- `action`: `str`
-- `description`: `str`
-- `currentApplyDate`: `datetime`
-
-
-## PendingModifiedRelationalDatabaseValuesTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import PendingModifiedRelationalDatabaseValuesTypeDef
-```
-
-
-
-
-Optional fields:
-- `masterUserPassword`: `str`
-- `engineVersion`: `str`
-- `backupRetentionEnabled`: `bool`
-
-
-## QueryStringObjectTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import QueryStringObjectTypeDef
-```
-
-
-
-
-Optional fields:
-- `option`: `bool`
-- `queryStringsAllowList`: `List[str]`
-
-
-## RegionTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import RegionTypeDef
-```
-
-
-
-
-Optional fields:
-- `continentCode`: `str`
-- `description`: `str`
-- `displayName`: `str`
-- `name`: `RegionName`
-- `availabilityZones`: `List["AvailabilityZoneTypeDef"]`
-- `relationalDatabaseAvailabilityZones`: `List["AvailabilityZoneTypeDef"]`
-
-
-## RelationalDatabaseBlueprintTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import RelationalDatabaseBlueprintTypeDef
-```
-
-
-
-
-Optional fields:
-- `blueprintId`: `str`
-- `engine`: `RelationalDatabaseEngine`
-- `engineVersion`: `str`
-- `engineDescription`: `str`
-- `engineVersionDescription`: `str`
-- `isEngineDefault`: `bool`
-
-
-## RelationalDatabaseBundleTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import RelationalDatabaseBundleTypeDef
-```
-
-
-
-
-Optional fields:
-- `bundleId`: `str`
-- `name`: `str`
-- `price`: `float`
-- `ramSizeInGb`: `float`
-- `diskSizeInGb`: `int`
-- `transferPerMonthInGb`: `int`
-- `cpuCount`: `int`
-- `isEncrypted`: `bool`
-- `isActive`: `bool`
-
-
-## RelationalDatabaseEndpointTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import RelationalDatabaseEndpointTypeDef
-```
-
-
-
-
-Optional fields:
-- `port`: `int`
-- `address`: `str`
-
-
-## RelationalDatabaseEventTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import RelationalDatabaseEventTypeDef
-```
-
-
-
-
-Optional fields:
-- `resource`: `str`
-- `createdAt`: `datetime`
-- `message`: `str`
-- `eventCategories`: `List[str]`
-
-
-## RelationalDatabaseHardwareTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import RelationalDatabaseHardwareTypeDef
-```
-
-
-
-
-Optional fields:
-- `cpuCount`: `int`
-- `diskSizeInGb`: `int`
-- `ramSizeInGb`: `float`
-
-
-## RelationalDatabaseParameterTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import RelationalDatabaseParameterTypeDef
-```
-
-
-
-
-Optional fields:
-- `allowedValues`: `str`
-- `applyMethod`: `str`
-- `applyType`: `str`
-- `dataType`: `str`
-- `description`: `str`
-- `isModifiable`: `bool`
-- `parameterName`: `str`
-- `parameterValue`: `str`
-
-
-## RelationalDatabaseSnapshotTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import RelationalDatabaseSnapshotTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `tags`: `List["TagTypeDef"]`
-- `engine`: `str`
-- `engineVersion`: `str`
-- `sizeInGb`: `int`
-- `state`: `str`
-- `fromRelationalDatabaseName`: `str`
-- `fromRelationalDatabaseArn`: `str`
-- `fromRelationalDatabaseBundleId`: `str`
-- `fromRelationalDatabaseBlueprintId`: `str`
-
-
-## RelationalDatabaseTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import RelationalDatabaseTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `tags`: `List["TagTypeDef"]`
-- `relationalDatabaseBlueprintId`: `str`
-- `relationalDatabaseBundleId`: `str`
-- `masterDatabaseName`: `str`
-- `hardware`: `"RelationalDatabaseHardwareTypeDef"`
-- `state`: `str`
-- `secondaryAvailabilityZone`: `str`
-- `backupRetentionEnabled`: `bool`
-- `pendingModifiedValues`: `"PendingModifiedRelationalDatabaseValuesTypeDef"`
-- `engine`: `str`
-- `engineVersion`: `str`
-- `latestRestorableTime`: `datetime`
-- `masterUsername`: `str`
-- `parameterApplyStatus`: `str`
-- `preferredBackupWindow`: `str`
-- `preferredMaintenanceWindow`: `str`
-- `publiclyAccessible`: `bool`
-- `masterEndpoint`: `"RelationalDatabaseEndpointTypeDef"`
-- `pendingMaintenanceActions`: `List["PendingMaintenanceActionTypeDef"]`
-- `caCertificateIdentifier`: `str`
-
-
-## RenewalSummaryTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import RenewalSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `domainValidationRecords`: `List["DomainValidationRecordTypeDef"]`
-- `renewalStatus`: `RenewalStatus`
-- `renewalStatusReason`: `str`
-- `updatedAt`: `datetime`
-
-
-## ResourceLocationTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import ResourceLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `availabilityZone`: `str`
-- `regionName`: `RegionName`
-
-
-## ResourceRecordTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import ResourceRecordTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `type`: `str`
-- `value`: `str`
-
-
-## StaticIpTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import StaticIpTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `supportCode`: `str`
-- `createdAt`: `datetime`
-- `location`: `"ResourceLocationTypeDef"`
-- `resourceType`: `ResourceType`
-- `ipAddress`: `str`
-- `attachedTo`: `str`
-- `isAttached`: `bool`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `key`: `str`
-- `value`: `str`
-
-
-## AddOnRequestTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import AddOnRequestTypeDef
-```
-
-
-Required fields:
-- `addOnType`: `AddOnType`
-
-
-
-Optional fields:
-- `autoSnapshotAddOnRequest`: `"AutoSnapshotAddOnRequestTypeDef"`
-
-
-## AllocateStaticIpResultTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import AllocateStaticIpResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `operations`: `List["OperationTypeDef"]`
-
-
-## AttachCertificateToDistributionResultTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import AttachCertificateToDistributionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `operation`: `"OperationTypeDef"`
-
-
-## AttachDiskResultTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import AttachDiskResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `operations`: `List["OperationTypeDef"]`
-
-
-## AttachInstancesToLoadBalancerResultTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import AttachInstancesToLoadBalancerResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `operations`: `List["OperationTypeDef"]`
-
-
-## AttachLoadBalancerTlsCertificateResultTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import AttachLoadBalancerTlsCertificateResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `operations`: `List["OperationTypeDef"]`
-
-
-## AttachStaticIpResultTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import AttachStaticIpResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `operations`: `List["OperationTypeDef"]`
-
-
-## CloseInstancePublicPortsResultTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import CloseInstancePublicPortsResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `operation`: `"OperationTypeDef"`
-
-
-## ContainerServiceDeploymentRequestTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import ContainerServiceDeploymentRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `containers`: `Dict[str, "ContainerTypeDef"]`
-- `publicEndpoint`: `"EndpointRequestTypeDef"`
-
-
-## ContainerServicesListResultTypeDef
-
-```python
-from mypy_boto3_lightsail.type_defs import ContainerServicesListResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `containerServices`: `List["ContainerServiceTypeDef"]`
 
 
 ## CopySnapshotResultTypeDef
@@ -2433,6 +1375,20 @@ Optional fields:
 - `operations`: `List["OperationTypeDef"]`
 
 
+## DestinationInfoTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import DestinationInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `service`: `str`
+
+
 ## DetachCertificateFromDistributionResultTypeDef
 
 ```python
@@ -2498,6 +1454,22 @@ Optional fields:
 - `operations`: `List["OperationTypeDef"]`
 
 
+## DiskInfoTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import DiskInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `path`: `str`
+- `sizeInGb`: `int`
+- `isSystemDisk`: `bool`
+
+
 ## DiskMapTypeDef
 
 ```python
@@ -2510,6 +1482,144 @@ from mypy_boto3_lightsail.type_defs import DiskMapTypeDef
 Optional fields:
 - `originalDiskPath`: `str`
 - `newDiskName`: `str`
+
+
+## DiskSnapshotInfoTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import DiskSnapshotInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `sizeInGb`: `int`
+
+
+## DiskSnapshotTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import DiskSnapshotTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `tags`: `List["TagTypeDef"]`
+- `sizeInGb`: `int`
+- `state`: `DiskSnapshotState`
+- `progress`: `str`
+- `fromDiskName`: `str`
+- `fromDiskArn`: `str`
+- `fromInstanceName`: `str`
+- `fromInstanceArn`: `str`
+- `isFromAutoSnapshot`: `bool`
+
+
+## DiskTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import DiskTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `tags`: `List["TagTypeDef"]`
+- `addOns`: `List["AddOnTypeDef"]`
+- `sizeInGb`: `int`
+- `isSystemDisk`: `bool`
+- `iops`: `int`
+- `path`: `str`
+- `state`: `DiskState`
+- `attachedTo`: `str`
+- `isAttached`: `bool`
+- `attachmentState`: `str`
+- `gbInUse`: `int`
+
+
+## DistributionBundleTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import DistributionBundleTypeDef
+```
+
+
+
+
+Optional fields:
+- `bundleId`: `str`
+- `name`: `str`
+- `price`: `float`
+- `transferPerMonthInGb`: `int`
+- `isActive`: `bool`
+
+
+## DomainEntryTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import DomainEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `name`: `str`
+- `target`: `str`
+- `isAlias`: `bool`
+- `type`: `str`
+- `options`: `Dict[str, str]`
+
+
+## DomainTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import DomainTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `tags`: `List["TagTypeDef"]`
+- `domainEntries`: `List["DomainEntryTypeDef"]`
+
+
+## DomainValidationRecordTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import DomainValidationRecordTypeDef
+```
+
+
+
+
+Optional fields:
+- `domainName`: `str`
+- `resourceRecord`: `"ResourceRecordTypeDef"`
 
 
 ## DownloadDefaultKeyPairResultTypeDef
@@ -2537,6 +1647,63 @@ from mypy_boto3_lightsail.type_defs import EnableAddOnResultTypeDef
 
 Optional fields:
 - `operations`: `List["OperationTypeDef"]`
+
+
+## EndpointRequestTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import EndpointRequestTypeDef
+```
+
+
+Required fields:
+- `containerName`: `str`
+- `containerPort`: `int`
+
+
+
+Optional fields:
+- `healthCheck`: `"ContainerServiceHealthCheckConfigTypeDef"`
+
+
+## ExportSnapshotRecordSourceInfoTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import ExportSnapshotRecordSourceInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceType`: `ExportSnapshotRecordSourceType`
+- `createdAt`: `datetime`
+- `name`: `str`
+- `arn`: `str`
+- `fromResourceName`: `str`
+- `fromResourceArn`: `str`
+- `instanceSnapshotInfo`: `"InstanceSnapshotInfoTypeDef"`
+- `diskSnapshotInfo`: `"DiskSnapshotInfoTypeDef"`
+
+
+## ExportSnapshotRecordTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import ExportSnapshotRecordTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `state`: `RecordState`
+- `sourceInfo`: `"ExportSnapshotRecordSourceInfoTypeDef"`
+- `destinationInfo`: `"DestinationInfoTypeDef"`
 
 
 ## ExportSnapshotResultTypeDef
@@ -3329,6 +2496,39 @@ Optional fields:
 - `nextPageToken`: `str`
 
 
+## HeaderObjectTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import HeaderObjectTypeDef
+```
+
+
+
+
+Optional fields:
+- `option`: `ForwardValues`
+- `headersAllowList`: `List[HeaderEnum]`
+
+
+## HostKeyAttributesTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import HostKeyAttributesTypeDef
+```
+
+
+
+
+Optional fields:
+- `algorithm`: `str`
+- `publicKey`: `str`
+- `witnessedAt`: `datetime`
+- `fingerprintSHA1`: `str`
+- `fingerprintSHA256`: `str`
+- `notValidBefore`: `datetime`
+- `notValidAfter`: `datetime`
+
+
 ## ImportKeyPairResultTypeDef
 
 ```python
@@ -3357,6 +2557,28 @@ Optional fields:
 - `protocolPolicy`: `OriginProtocolPolicyEnum`
 
 
+## InstanceAccessDetailsTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import InstanceAccessDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `certKey`: `str`
+- `expiresAt`: `datetime`
+- `ipAddress`: `str`
+- `password`: `str`
+- `passwordData`: `"PasswordDataTypeDef"`
+- `privateKey`: `str`
+- `protocol`: `InstanceAccessProtocol`
+- `instanceName`: `str`
+- `username`: `str`
+- `hostKeys`: `List["HostKeyAttributesTypeDef"]`
+
+
 ## InstanceEntryTypeDef
 
 ```python
@@ -3376,6 +2598,181 @@ Optional fields:
 - `userData`: `str`
 
 
+## InstanceHardwareTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import InstanceHardwareTypeDef
+```
+
+
+
+
+Optional fields:
+- `cpuCount`: `int`
+- `disks`: `List["DiskTypeDef"]`
+- `ramSizeInGb`: `float`
+
+
+## InstanceHealthSummaryTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import InstanceHealthSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `instanceName`: `str`
+- `instanceHealth`: `InstanceHealthState`
+- `instanceHealthReason`: `InstanceHealthReason`
+
+
+## InstanceNetworkingTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import InstanceNetworkingTypeDef
+```
+
+
+
+
+Optional fields:
+- `monthlyTransfer`: `"MonthlyTransferTypeDef"`
+- `ports`: `List["InstancePortInfoTypeDef"]`
+
+
+## InstancePortInfoTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import InstancePortInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `fromPort`: `int`
+- `toPort`: `int`
+- `protocol`: `NetworkProtocol`
+- `accessFrom`: `str`
+- `accessType`: `PortAccessType`
+- `commonName`: `str`
+- `accessDirection`: `AccessDirection`
+- `cidrs`: `List[str]`
+- `ipv6Cidrs`: `List[str]`
+- `cidrListAliases`: `List[str]`
+
+
+## InstancePortStateTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import InstancePortStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `fromPort`: `int`
+- `toPort`: `int`
+- `protocol`: `NetworkProtocol`
+- `state`: `PortState`
+- `cidrs`: `List[str]`
+- `ipv6Cidrs`: `List[str]`
+- `cidrListAliases`: `List[str]`
+
+
+## InstanceSnapshotInfoTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import InstanceSnapshotInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `fromBundleId`: `str`
+- `fromBlueprintId`: `str`
+- `fromDiskInfo`: `List["DiskInfoTypeDef"]`
+
+
+## InstanceSnapshotTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import InstanceSnapshotTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `tags`: `List["TagTypeDef"]`
+- `state`: `InstanceSnapshotState`
+- `progress`: `str`
+- `fromAttachedDisks`: `List["DiskTypeDef"]`
+- `fromInstanceName`: `str`
+- `fromInstanceArn`: `str`
+- `fromBlueprintId`: `str`
+- `fromBundleId`: `str`
+- `isFromAutoSnapshot`: `bool`
+- `sizeInGb`: `int`
+
+
+## InstanceStateTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import InstanceStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `code`: `int`
+- `name`: `str`
+
+
+## InstanceTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import InstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `tags`: `List["TagTypeDef"]`
+- `blueprintId`: `str`
+- `blueprintName`: `str`
+- `bundleId`: `str`
+- `addOns`: `List["AddOnTypeDef"]`
+- `isStaticIp`: `bool`
+- `privateIpAddress`: `str`
+- `publicIpAddress`: `str`
+- `ipv6Addresses`: `List[str]`
+- `ipAddressType`: `IpAddressType`
+- `hardware`: `"InstanceHardwareTypeDef"`
+- `networking`: `"InstanceNetworkingTypeDef"`
+- `state`: `"InstanceStateTypeDef"`
+- `username`: `str`
+- `sshKeyName`: `str`
+
+
 ## IsVpcPeeredResultTypeDef
 
 ```python
@@ -3389,6 +2786,244 @@ Optional fields:
 - `isPeered`: `bool`
 
 
+## KeyPairTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import KeyPairTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `tags`: `List["TagTypeDef"]`
+- `fingerprint`: `str`
+
+
+## LightsailDistributionTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import LightsailDistributionTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `alternativeDomainNames`: `List[str]`
+- `status`: `str`
+- `isEnabled`: `bool`
+- `domainName`: `str`
+- `bundleId`: `str`
+- `certificateName`: `str`
+- `origin`: `"OriginTypeDef"`
+- `originPublicDNS`: `str`
+- `defaultCacheBehavior`: `"CacheBehaviorTypeDef"`
+- `cacheBehaviorSettings`: `"CacheSettingsTypeDef"`
+- `cacheBehaviors`: `List["CacheBehaviorPerPathTypeDef"]`
+- `ableToUpdateBundle`: `bool`
+- `ipAddressType`: `IpAddressType`
+- `tags`: `List["TagTypeDef"]`
+
+
+## LoadBalancerTlsCertificateDomainValidationOptionTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import LoadBalancerTlsCertificateDomainValidationOptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `domainName`: `str`
+- `validationStatus`: `LoadBalancerTlsCertificateDomainStatus`
+
+
+## LoadBalancerTlsCertificateDomainValidationRecordTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import LoadBalancerTlsCertificateDomainValidationRecordTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `type`: `str`
+- `value`: `str`
+- `validationStatus`: `LoadBalancerTlsCertificateDomainStatus`
+- `domainName`: `str`
+
+
+## LoadBalancerTlsCertificateRenewalSummaryTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import LoadBalancerTlsCertificateRenewalSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `renewalStatus`: `LoadBalancerTlsCertificateRenewalStatus`
+- `domainValidationOptions`: `List["LoadBalancerTlsCertificateDomainValidationOptionTypeDef"]`
+
+
+## LoadBalancerTlsCertificateSummaryTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import LoadBalancerTlsCertificateSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `isAttached`: `bool`
+
+
+## LoadBalancerTlsCertificateTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import LoadBalancerTlsCertificateTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `tags`: `List["TagTypeDef"]`
+- `loadBalancerName`: `str`
+- `isAttached`: `bool`
+- `status`: `LoadBalancerTlsCertificateStatus`
+- `domainName`: `str`
+- `domainValidationRecords`: `List["LoadBalancerTlsCertificateDomainValidationRecordTypeDef"]`
+- `failureReason`: `LoadBalancerTlsCertificateFailureReason`
+- `issuedAt`: `datetime`
+- `issuer`: `str`
+- `keyAlgorithm`: `str`
+- `notAfter`: `datetime`
+- `notBefore`: `datetime`
+- `renewalSummary`: `"LoadBalancerTlsCertificateRenewalSummaryTypeDef"`
+- `revocationReason`: `LoadBalancerTlsCertificateRevocationReason`
+- `revokedAt`: `datetime`
+- `serial`: `str`
+- `signatureAlgorithm`: `str`
+- `subject`: `str`
+- `subjectAlternativeNames`: `List[str]`
+
+
+## LoadBalancerTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import LoadBalancerTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `tags`: `List["TagTypeDef"]`
+- `dnsName`: `str`
+- `state`: `LoadBalancerState`
+- `protocol`: `LoadBalancerProtocol`
+- `publicPorts`: `List[int]`
+- `healthCheckPath`: `str`
+- `instancePort`: `int`
+- `instanceHealthSummary`: `List["InstanceHealthSummaryTypeDef"]`
+- `tlsCertificateSummaries`: `List["LoadBalancerTlsCertificateSummaryTypeDef"]`
+- `configurationOptions`: `Dict[LoadBalancerAttributeName, str]`
+- `ipAddressType`: `IpAddressType`
+
+
+## LogEventTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import LogEventTypeDef
+```
+
+
+
+
+Optional fields:
+- `createdAt`: `datetime`
+- `message`: `str`
+
+
+## MetricDatapointTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import MetricDatapointTypeDef
+```
+
+
+
+
+Optional fields:
+- `average`: `float`
+- `maximum`: `float`
+- `minimum`: `float`
+- `sampleCount`: `float`
+- `sum`: `float`
+- `timestamp`: `datetime`
+- `unit`: `MetricUnit`
+
+
+## MonitoredResourceInfoTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import MonitoredResourceInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `resourceType`: `ResourceType`
+
+
+## MonthlyTransferTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import MonthlyTransferTypeDef
+```
+
+
+
+
+Optional fields:
+- `gbPerMonthAllocated`: `int`
+
+
 ## OpenInstancePublicPortsResultTypeDef
 
 ```python
@@ -3400,6 +3035,46 @@ from mypy_boto3_lightsail.type_defs import OpenInstancePublicPortsResultTypeDef
 
 Optional fields:
 - `operation`: `"OperationTypeDef"`
+
+
+## OperationTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import OperationTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `resourceName`: `str`
+- `resourceType`: `ResourceType`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `isTerminal`: `bool`
+- `operationDetails`: `str`
+- `operationType`: `OperationType`
+- `status`: `OperationStatus`
+- `statusChangedAt`: `datetime`
+- `errorCode`: `str`
+- `errorDetails`: `str`
+
+
+## OriginTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import OriginTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `resourceType`: `ResourceType`
+- `regionName`: `RegionName`
+- `protocolPolicy`: `OriginProtocolPolicyEnum`
 
 
 ## PaginatorConfigTypeDef
@@ -3417,6 +3092,20 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PasswordDataTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import PasswordDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `ciphertext`: `str`
+- `keyPairName`: `str`
+
+
 ## PeerVpcResultTypeDef
 
 ```python
@@ -3428,6 +3117,36 @@ from mypy_boto3_lightsail.type_defs import PeerVpcResultTypeDef
 
 Optional fields:
 - `operation`: `"OperationTypeDef"`
+
+
+## PendingMaintenanceActionTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import PendingMaintenanceActionTypeDef
+```
+
+
+
+
+Optional fields:
+- `action`: `str`
+- `description`: `str`
+- `currentApplyDate`: `datetime`
+
+
+## PendingModifiedRelationalDatabaseValuesTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import PendingModifiedRelationalDatabaseValuesTypeDef
+```
+
+
+
+
+Optional fields:
+- `masterUserPassword`: `str`
+- `engineVersion`: `str`
+- `backupRetentionEnabled`: `bool`
 
 
 ## PortInfoTypeDef
@@ -3474,6 +3193,20 @@ Optional fields:
 - `operation`: `"OperationTypeDef"`
 
 
+## QueryStringObjectTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import QueryStringObjectTypeDef
+```
+
+
+
+
+Optional fields:
+- `option`: `bool`
+- `queryStringsAllowList`: `List[str]`
+
+
 ## RebootInstanceResultTypeDef
 
 ```python
@@ -3500,6 +3233,24 @@ Optional fields:
 - `operations`: `List["OperationTypeDef"]`
 
 
+## RegionTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import RegionTypeDef
+```
+
+
+
+
+Optional fields:
+- `continentCode`: `str`
+- `description`: `str`
+- `displayName`: `str`
+- `name`: `RegionName`
+- `availabilityZones`: `List["AvailabilityZoneTypeDef"]`
+- `relationalDatabaseAvailabilityZones`: `List["AvailabilityZoneTypeDef"]`
+
+
 ## RegisterContainerImageResultTypeDef
 
 ```python
@@ -3511,6 +3262,175 @@ from mypy_boto3_lightsail.type_defs import RegisterContainerImageResultTypeDef
 
 Optional fields:
 - `containerImage`: `"ContainerImageTypeDef"`
+
+
+## RelationalDatabaseBlueprintTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import RelationalDatabaseBlueprintTypeDef
+```
+
+
+
+
+Optional fields:
+- `blueprintId`: `str`
+- `engine`: `Literal['mysql']`
+- `engineVersion`: `str`
+- `engineDescription`: `str`
+- `engineVersionDescription`: `str`
+- `isEngineDefault`: `bool`
+
+
+## RelationalDatabaseBundleTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import RelationalDatabaseBundleTypeDef
+```
+
+
+
+
+Optional fields:
+- `bundleId`: `str`
+- `name`: `str`
+- `price`: `float`
+- `ramSizeInGb`: `float`
+- `diskSizeInGb`: `int`
+- `transferPerMonthInGb`: `int`
+- `cpuCount`: `int`
+- `isEncrypted`: `bool`
+- `isActive`: `bool`
+
+
+## RelationalDatabaseEndpointTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import RelationalDatabaseEndpointTypeDef
+```
+
+
+
+
+Optional fields:
+- `port`: `int`
+- `address`: `str`
+
+
+## RelationalDatabaseEventTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import RelationalDatabaseEventTypeDef
+```
+
+
+
+
+Optional fields:
+- `resource`: `str`
+- `createdAt`: `datetime`
+- `message`: `str`
+- `eventCategories`: `List[str]`
+
+
+## RelationalDatabaseHardwareTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import RelationalDatabaseHardwareTypeDef
+```
+
+
+
+
+Optional fields:
+- `cpuCount`: `int`
+- `diskSizeInGb`: `int`
+- `ramSizeInGb`: `float`
+
+
+## RelationalDatabaseParameterTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import RelationalDatabaseParameterTypeDef
+```
+
+
+
+
+Optional fields:
+- `allowedValues`: `str`
+- `applyMethod`: `str`
+- `applyType`: `str`
+- `dataType`: `str`
+- `description`: `str`
+- `isModifiable`: `bool`
+- `parameterName`: `str`
+- `parameterValue`: `str`
+
+
+## RelationalDatabaseSnapshotTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import RelationalDatabaseSnapshotTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `tags`: `List["TagTypeDef"]`
+- `engine`: `str`
+- `engineVersion`: `str`
+- `sizeInGb`: `int`
+- `state`: `str`
+- `fromRelationalDatabaseName`: `str`
+- `fromRelationalDatabaseArn`: `str`
+- `fromRelationalDatabaseBundleId`: `str`
+- `fromRelationalDatabaseBlueprintId`: `str`
+
+
+## RelationalDatabaseTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import RelationalDatabaseTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `tags`: `List["TagTypeDef"]`
+- `relationalDatabaseBlueprintId`: `str`
+- `relationalDatabaseBundleId`: `str`
+- `masterDatabaseName`: `str`
+- `hardware`: `"RelationalDatabaseHardwareTypeDef"`
+- `state`: `str`
+- `secondaryAvailabilityZone`: `str`
+- `backupRetentionEnabled`: `bool`
+- `pendingModifiedValues`: `"PendingModifiedRelationalDatabaseValuesTypeDef"`
+- `engine`: `str`
+- `engineVersion`: `str`
+- `latestRestorableTime`: `datetime`
+- `masterUsername`: `str`
+- `parameterApplyStatus`: `str`
+- `preferredBackupWindow`: `str`
+- `preferredMaintenanceWindow`: `str`
+- `publiclyAccessible`: `bool`
+- `masterEndpoint`: `"RelationalDatabaseEndpointTypeDef"`
+- `pendingMaintenanceActions`: `List["PendingMaintenanceActionTypeDef"]`
+- `caCertificateIdentifier`: `str`
 
 
 ## ReleaseStaticIpResultTypeDef
@@ -3526,6 +3446,22 @@ Optional fields:
 - `operations`: `List["OperationTypeDef"]`
 
 
+## RenewalSummaryTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import RenewalSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `domainValidationRecords`: `List["DomainValidationRecordTypeDef"]`
+- `renewalStatus`: `RenewalStatus`
+- `renewalStatusReason`: `str`
+- `updatedAt`: `datetime`
+
+
 ## ResetDistributionCacheResultTypeDef
 
 ```python
@@ -3539,6 +3475,35 @@ Optional fields:
 - `status`: `str`
 - `createTime`: `datetime`
 - `operation`: `"OperationTypeDef"`
+
+
+## ResourceLocationTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import ResourceLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `availabilityZone`: `str`
+- `regionName`: `RegionName`
+
+
+## ResourceRecordTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import ResourceRecordTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `type`: `str`
+- `value`: `str`
 
 
 ## SendContactMethodVerificationResultTypeDef
@@ -3593,6 +3558,27 @@ Optional fields:
 - `operations`: `List["OperationTypeDef"]`
 
 
+## StaticIpTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import StaticIpTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `supportCode`: `str`
+- `createdAt`: `datetime`
+- `location`: `"ResourceLocationTypeDef"`
+- `resourceType`: `ResourceType`
+- `ipAddress`: `str`
+- `attachedTo`: `str`
+- `isAttached`: `bool`
+
+
 ## StopInstanceResultTypeDef
 
 ```python
@@ -3630,6 +3616,20 @@ from mypy_boto3_lightsail.type_defs import TagResourceResultTypeDef
 
 Optional fields:
 - `operations`: `List["OperationTypeDef"]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_lightsail.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `key`: `str`
+- `value`: `str`
 
 
 ## TestAlarmResultTypeDef

@@ -45,11 +45,7 @@ type annotations stubs module [mypy_boto3_glacier](https://pypi.org/project/mypy
     - [upload_archive](#upload_archive)
     - [upload_multipart_part](#upload_multipart_part)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
 
 ## GlacierClient
 
@@ -647,92 +643,23 @@ def upload_multipart_part(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("glacier").get_paginator` method.
-
-[Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glacier.html#Glacier.Paginator.ListJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobsPaginatorName
-) -> ListJobsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("glacier").get_paginator` method.
+Type annotations for `boto3.client("glacier").get_paginator` method with overloads.
 
-[Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glacier.html#Glacier.Paginator.ListMultipartUploads)
+- `client.get_paginator("list_jobs")` -> [ListJobsPaginator](./paginators.md#listjobspaginator)
+- `client.get_paginator("list_multipart_uploads")` -> [ListMultipartUploadsPaginator](./paginators.md#listmultipartuploadspaginator)
+- `client.get_paginator("list_parts")` -> [ListPartsPaginator](./paginators.md#listpartspaginator)
+- `client.get_paginator("list_vaults")` -> [ListVaultsPaginator](./paginators.md#listvaultspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMultipartUploadsPaginatorName
-) -> ListMultipartUploadsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("glacier").get_paginator` method.
-
-[Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glacier.html#Glacier.Paginator.ListParts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPartsPaginatorName
-) -> ListPartsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glacier").get_paginator` method.
-
-[Paginator.ListVaults documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glacier.html#Glacier.Paginator.ListVaults)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListVaultsPaginatorName
-) -> ListVaultsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("glacier").get_waiter` method.
+Type annotations for `boto3.client("glacier").get_waiter` method with overloads.
 
-[Waiter.VaultExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glacier.html#Glacier.Waiter.VaultExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: VaultExistsWaiterName
-) -> VaultExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("glacier").get_waiter` method.
-
-[Waiter.VaultNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glacier.html#Glacier.Waiter.VaultNotExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: VaultNotExistsWaiterName
-) -> VaultNotExistsWaiter:
-    pass
-```
+- `client.get_waiter("vault_exists")` -> [VaultExistsWaiter](./waiters.md#vaultexistswaiter)
+- `client.get_waiter("vault_not_exists")` -> [VaultNotExistsWaiter](./waiters.md#vaultnotexistswaiter)

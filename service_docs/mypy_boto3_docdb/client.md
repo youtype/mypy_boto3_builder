@@ -60,19 +60,7 @@ type annotations stubs module [mypy_boto3_docdb](https://pypi.org/project/mypy-b
     - [start_db_cluster](#start_db_cluster)
     - [stop_db_cluster](#stop_db_cluster)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
 
 ## DocDBClient
 
@@ -1033,212 +1021,31 @@ def stop_db_cluster(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("docdb").get_paginator` method.
-
-[Paginator.DescribeCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribeCertificates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCertificatesPaginatorName
-) -> DescribeCertificatesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("docdb").get_paginator` method.
+Type annotations for `boto3.client("docdb").get_paginator` method with overloads.
 
-[Paginator.DescribeDBClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterParameterGroups)
+- `client.get_paginator("describe_certificates")` -> [DescribeCertificatesPaginator](./paginators.md#describecertificatespaginator)
+- `client.get_paginator("describe_db_cluster_parameter_groups")` -> [DescribeDBClusterParameterGroupsPaginator](./paginators.md#describedbclusterparametergroupspaginator)
+- `client.get_paginator("describe_db_cluster_parameters")` -> [DescribeDBClusterParametersPaginator](./paginators.md#describedbclusterparameterspaginator)
+- `client.get_paginator("describe_db_cluster_snapshots")` -> [DescribeDBClusterSnapshotsPaginator](./paginators.md#describedbclustersnapshotspaginator)
+- `client.get_paginator("describe_db_clusters")` -> [DescribeDBClustersPaginator](./paginators.md#describedbclusterspaginator)
+- `client.get_paginator("describe_db_engine_versions")` -> [DescribeDBEngineVersionsPaginator](./paginators.md#describedbengineversionspaginator)
+- `client.get_paginator("describe_db_instances")` -> [DescribeDBInstancesPaginator](./paginators.md#describedbinstancespaginator)
+- `client.get_paginator("describe_db_subnet_groups")` -> [DescribeDBSubnetGroupsPaginator](./paginators.md#describedbsubnetgroupspaginator)
+- `client.get_paginator("describe_event_subscriptions")` -> [DescribeEventSubscriptionsPaginator](./paginators.md#describeeventsubscriptionspaginator)
+- `client.get_paginator("describe_events")` -> [DescribeEventsPaginator](./paginators.md#describeeventspaginator)
+- `client.get_paginator("describe_orderable_db_instance_options")` -> [DescribeOrderableDBInstanceOptionsPaginator](./paginators.md#describeorderabledbinstanceoptionspaginator)
+- `client.get_paginator("describe_pending_maintenance_actions")` -> [DescribePendingMaintenanceActionsPaginator](./paginators.md#describependingmaintenanceactionspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDBClusterParameterGroupsPaginatorName
-) -> DescribeDBClusterParameterGroupsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("docdb").get_paginator` method.
-
-[Paginator.DescribeDBClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterParameters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDBClusterParametersPaginatorName
-) -> DescribeDBClusterParametersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("docdb").get_paginator` method.
-
-[Paginator.DescribeDBClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterSnapshots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDBClusterSnapshotsPaginatorName
-) -> DescribeDBClusterSnapshotsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("docdb").get_paginator` method.
-
-[Paginator.DescribeDBClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDBClustersPaginatorName
-) -> DescribeDBClustersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("docdb").get_paginator` method.
-
-[Paginator.DescribeDBEngineVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribeDBEngineVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDBEngineVersionsPaginatorName
-) -> DescribeDBEngineVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("docdb").get_paginator` method.
-
-[Paginator.DescribeDBInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribeDBInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDBInstancesPaginatorName
-) -> DescribeDBInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("docdb").get_paginator` method.
-
-[Paginator.DescribeDBSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribeDBSubnetGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDBSubnetGroupsPaginatorName
-) -> DescribeDBSubnetGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("docdb").get_paginator` method.
-
-[Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribeEventSubscriptions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventSubscriptionsPaginatorName
-) -> DescribeEventSubscriptionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("docdb").get_paginator` method.
-
-[Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribeEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventsPaginatorName
-) -> DescribeEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("docdb").get_paginator` method.
-
-[Paginator.DescribeOrderableDBInstanceOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribeOrderableDBInstanceOptions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeOrderableDBInstanceOptionsPaginatorName
-) -> DescribeOrderableDBInstanceOptionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("docdb").get_paginator` method.
-
-[Paginator.DescribePendingMaintenanceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Paginator.DescribePendingMaintenanceActions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribePendingMaintenanceActionsPaginatorName
-) -> DescribePendingMaintenanceActionsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("docdb").get_waiter` method.
+Type annotations for `boto3.client("docdb").get_waiter` method with overloads.
 
-[Waiter.DBInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Waiter.DBInstanceAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: DBInstanceAvailableWaiterName
-) -> DBInstanceAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("docdb").get_waiter` method.
-
-[Waiter.DBInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/docdb.html#DocDB.Waiter.DBInstanceDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: DBInstanceDeletedWaiterName
-) -> DBInstanceDeletedWaiter:
-    pass
-```
+- `client.get_waiter("db_instance_available")` -> [DBInstanceAvailableWaiter](./waiters.md#dbinstanceavailablewaiter)
+- `client.get_waiter("db_instance_deleted")` -> [DBInstanceDeletedWaiter](./waiters.md#dbinstancedeletedwaiter)

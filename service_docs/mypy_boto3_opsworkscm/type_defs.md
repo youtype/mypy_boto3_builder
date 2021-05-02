@@ -7,12 +7,8 @@ type annotations stubs module [mypy_boto3_opsworkscm](https://pypi.org/project/m
 
 - [Structures for boto3 OpsWorksCM module](#structures-for-boto3-opsworkscm-module)
   - [AccountAttributeTypeDef](#accountattributetypedef)
-  - [BackupTypeDef](#backuptypedef)
-  - [EngineAttributeTypeDef](#engineattributetypedef)
-  - [ServerEventTypeDef](#servereventtypedef)
-  - [ServerTypeDef](#servertypedef)
-  - [TagTypeDef](#tagtypedef)
   - [AssociateNodeResponseTypeDef](#associatenoderesponsetypedef)
+  - [BackupTypeDef](#backuptypedef)
   - [CreateBackupResponseTypeDef](#createbackupresponsetypedef)
   - [CreateServerResponseTypeDef](#createserverresponsetypedef)
   - [DescribeAccountAttributesResponseTypeDef](#describeaccountattributesresponsetypedef)
@@ -21,10 +17,14 @@ type annotations stubs module [mypy_boto3_opsworkscm](https://pypi.org/project/m
   - [DescribeNodeAssociationStatusResponseTypeDef](#describenodeassociationstatusresponsetypedef)
   - [DescribeServersResponseTypeDef](#describeserversresponsetypedef)
   - [DisassociateNodeResponseTypeDef](#disassociatenoderesponsetypedef)
+  - [EngineAttributeTypeDef](#engineattributetypedef)
   - [ExportServerEngineAttributeResponseTypeDef](#exportserverengineattributeresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ServerEventTypeDef](#servereventtypedef)
+  - [ServerTypeDef](#servertypedef)
   - [StartMaintenanceResponseTypeDef](#startmaintenanceresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateServerEngineAttributesResponseTypeDef](#updateserverengineattributesresponsetypedef)
   - [UpdateServerResponseTypeDef](#updateserverresponsetypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
@@ -42,6 +42,19 @@ Optional fields:
 - `Name`: `str`
 - `Maximum`: `int`
 - `Used`: `int`
+
+
+## AssociateNodeResponseTypeDef
+
+```python
+from mypy_boto3_opsworkscm.type_defs import AssociateNodeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NodeAssociationStatusToken`: `str`
 
 
 ## BackupTypeDef
@@ -78,99 +91,6 @@ Optional fields:
 - `SubnetIds`: `List[str]`
 - `ToolsVersion`: `str`
 - `UserArn`: `str`
-
-
-## EngineAttributeTypeDef
-
-```python
-from mypy_boto3_opsworkscm.type_defs import EngineAttributeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Value`: `str`
-
-
-## ServerEventTypeDef
-
-```python
-from mypy_boto3_opsworkscm.type_defs import ServerEventTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreatedAt`: `datetime`
-- `ServerName`: `str`
-- `Message`: `str`
-- `LogUrl`: `str`
-
-
-## ServerTypeDef
-
-```python
-from mypy_boto3_opsworkscm.type_defs import ServerTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociatePublicIpAddress`: `bool`
-- `BackupRetentionCount`: `int`
-- `ServerName`: `str`
-- `CreatedAt`: `datetime`
-- `CloudFormationStackArn`: `str`
-- `CustomDomain`: `str`
-- `DisableAutomatedBackup`: `bool`
-- `Endpoint`: `str`
-- `Engine`: `str`
-- `EngineModel`: `str`
-- `EngineAttributes`: `List["EngineAttributeTypeDef"]`
-- `EngineVersion`: `str`
-- `InstanceProfileArn`: `str`
-- `InstanceType`: `str`
-- `KeyPair`: `str`
-- `MaintenanceStatus`: `MaintenanceStatus`
-- `PreferredMaintenanceWindow`: `str`
-- `PreferredBackupWindow`: `str`
-- `SecurityGroupIds`: `List[str]`
-- `ServiceRoleArn`: `str`
-- `Status`: `ServerStatus`
-- `StatusReason`: `str`
-- `SubnetIds`: `List[str]`
-- `ServerArn`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_opsworkscm.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## AssociateNodeResponseTypeDef
-
-```python
-from mypy_boto3_opsworkscm.type_defs import AssociateNodeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NodeAssociationStatusToken`: `str`
 
 
 ## CreateBackupResponseTypeDef
@@ -281,6 +201,20 @@ Optional fields:
 - `NodeAssociationStatusToken`: `str`
 
 
+## EngineAttributeTypeDef
+
+```python
+from mypy_boto3_opsworkscm.type_defs import EngineAttributeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Value`: `str`
+
+
 ## ExportServerEngineAttributeResponseTypeDef
 
 ```python
@@ -324,6 +258,58 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ServerEventTypeDef
+
+```python
+from mypy_boto3_opsworkscm.type_defs import ServerEventTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreatedAt`: `datetime`
+- `ServerName`: `str`
+- `Message`: `str`
+- `LogUrl`: `str`
+
+
+## ServerTypeDef
+
+```python
+from mypy_boto3_opsworkscm.type_defs import ServerTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociatePublicIpAddress`: `bool`
+- `BackupRetentionCount`: `int`
+- `ServerName`: `str`
+- `CreatedAt`: `datetime`
+- `CloudFormationStackArn`: `str`
+- `CustomDomain`: `str`
+- `DisableAutomatedBackup`: `bool`
+- `Endpoint`: `str`
+- `Engine`: `str`
+- `EngineModel`: `str`
+- `EngineAttributes`: `List["EngineAttributeTypeDef"]`
+- `EngineVersion`: `str`
+- `InstanceProfileArn`: `str`
+- `InstanceType`: `str`
+- `KeyPair`: `str`
+- `MaintenanceStatus`: `MaintenanceStatus`
+- `PreferredMaintenanceWindow`: `str`
+- `PreferredBackupWindow`: `str`
+- `SecurityGroupIds`: `List[str]`
+- `ServiceRoleArn`: `str`
+- `Status`: `ServerStatus`
+- `StatusReason`: `str`
+- `SubnetIds`: `List[str]`
+- `ServerArn`: `str`
+
+
 ## StartMaintenanceResponseTypeDef
 
 ```python
@@ -335,6 +321,20 @@ from mypy_boto3_opsworkscm.type_defs import StartMaintenanceResponseTypeDef
 
 Optional fields:
 - `Server`: `"ServerTypeDef"`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_opsworkscm.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## UpdateServerEngineAttributesResponseTypeDef

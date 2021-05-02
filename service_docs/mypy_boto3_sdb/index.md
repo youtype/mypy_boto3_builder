@@ -121,13 +121,13 @@ from mypy_boto3_sdb.type_defs import AttributeTypeDef, ...
 ```
 
 - [AttributeTypeDef](./type_defs.md#attributetypedef)
-- [ItemTypeDef](./type_defs.md#itemtypedef)
-- [ReplaceableAttributeTypeDef](./type_defs.md#replaceableattributetypedef)
 - [DeletableItemTypeDef](./type_defs.md#deletableitemtypedef)
 - [DomainMetadataResultTypeDef](./type_defs.md#domainmetadataresulttypedef)
 - [GetAttributesResultTypeDef](./type_defs.md#getattributesresulttypedef)
+- [ItemTypeDef](./type_defs.md#itemtypedef)
 - [ListDomainsResultTypeDef](./type_defs.md#listdomainsresulttypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ReplaceableAttributeTypeDef](./type_defs.md#replaceableattributetypedef)
 - [ReplaceableItemTypeDef](./type_defs.md#replaceableitemtypedef)
 - [SelectResultTypeDef](./type_defs.md#selectresulttypedef)
 - [UpdateConditionTypeDef](./type_defs.md#updateconditiontypedef)

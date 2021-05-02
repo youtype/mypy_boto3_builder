@@ -43,15 +43,6 @@ type annotations stubs module [mypy_boto3_sso_admin](https://pypi.org/project/my
     - [update_instance_access_control_attribute_configuration](#update_instance_access_control_attribute_configuration)
     - [update_permission_set](#update_permission_set)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
 
 ## SSOAdminClient
 
@@ -132,7 +123,7 @@ def create_account_assignment(
     self,
     InstanceArn: str,
     TargetId: str,
-    TargetType: TargetType,
+    TargetType: Literal['AWS_ACCOUNT'],
     PermissionSetArn: str,
     PrincipalType: PrincipalType,
     PrincipalId: str
@@ -185,7 +176,7 @@ def delete_account_assignment(
     self,
     InstanceArn: str,
     TargetId: str,
-    TargetType: TargetType,
+    TargetType: Literal['AWS_ACCOUNT'],
     PermissionSetArn: str,
     PrincipalType: PrincipalType,
     PrincipalId: str
@@ -626,152 +617,21 @@ def update_permission_set(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("sso-admin").get_paginator` method.
-
-[Paginator.ListAccountAssignmentCreationStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccountAssignmentCreationStatusPaginatorName
-) -> ListAccountAssignmentCreationStatusPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("sso-admin").get_paginator` method.
+Type annotations for `boto3.client("sso-admin").get_paginator` method with overloads.
 
-[Paginator.ListAccountAssignmentDeletionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus)
+- `client.get_paginator("list_account_assignment_creation_status")` -> [ListAccountAssignmentCreationStatusPaginator](./paginators.md#listaccountassignmentcreationstatuspaginator)
+- `client.get_paginator("list_account_assignment_deletion_status")` -> [ListAccountAssignmentDeletionStatusPaginator](./paginators.md#listaccountassignmentdeletionstatuspaginator)
+- `client.get_paginator("list_account_assignments")` -> [ListAccountAssignmentsPaginator](./paginators.md#listaccountassignmentspaginator)
+- `client.get_paginator("list_accounts_for_provisioned_permission_set")` -> [ListAccountsForProvisionedPermissionSetPaginator](./paginators.md#listaccountsforprovisionedpermissionsetpaginator)
+- `client.get_paginator("list_instances")` -> [ListInstancesPaginator](./paginators.md#listinstancespaginator)
+- `client.get_paginator("list_managed_policies_in_permission_set")` -> [ListManagedPoliciesInPermissionSetPaginator](./paginators.md#listmanagedpoliciesinpermissionsetpaginator)
+- `client.get_paginator("list_permission_set_provisioning_status")` -> [ListPermissionSetProvisioningStatusPaginator](./paginators.md#listpermissionsetprovisioningstatuspaginator)
+- `client.get_paginator("list_permission_sets")` -> [ListPermissionSetsPaginator](./paginators.md#listpermissionsetspaginator)
+- `client.get_paginator("list_permission_sets_provisioned_to_account")` -> [ListPermissionSetsProvisionedToAccountPaginator](./paginators.md#listpermissionsetsprovisionedtoaccountpaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccountAssignmentDeletionStatusPaginatorName
-) -> ListAccountAssignmentDeletionStatusPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("sso-admin").get_paginator` method.
-
-[Paginator.ListAccountAssignments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccountAssignmentsPaginatorName
-) -> ListAccountAssignmentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sso-admin").get_paginator` method.
-
-[Paginator.ListAccountsForProvisionedPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccountsForProvisionedPermissionSetPaginatorName
-) -> ListAccountsForProvisionedPermissionSetPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sso-admin").get_paginator` method.
-
-[Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInstancesPaginatorName
-) -> ListInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sso-admin").get_paginator` method.
-
-[Paginator.ListManagedPoliciesInPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListManagedPoliciesInPermissionSetPaginatorName
-) -> ListManagedPoliciesInPermissionSetPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sso-admin").get_paginator` method.
-
-[Paginator.ListPermissionSetProvisioningStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPermissionSetProvisioningStatusPaginatorName
-) -> ListPermissionSetProvisioningStatusPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sso-admin").get_paginator` method.
-
-[Paginator.ListPermissionSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPermissionSetsPaginatorName
-) -> ListPermissionSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sso-admin").get_paginator` method.
-
-[Paginator.ListPermissionSetsProvisionedToAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPermissionSetsProvisionedToAccountPaginatorName
-) -> ListPermissionSetsProvisionedToAccountPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("sso-admin").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```

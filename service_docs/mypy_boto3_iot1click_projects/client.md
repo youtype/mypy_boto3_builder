@@ -28,7 +28,6 @@ type annotations stubs module [mypy_boto3_iot1click_projects](https://pypi.org/p
     - [update_placement](#update_placement)
     - [update_project](#update_project)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## IoT1ClickProjectsClient
 
@@ -343,32 +342,13 @@ def update_project(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("iot1click-projects").get_paginator` method.
-
-[Paginator.ListPlacements documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListPlacements)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPlacementsPaginatorName
-) -> ListPlacementsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("iot1click-projects").get_paginator` method.
+Type annotations for `boto3.client("iot1click-projects").get_paginator` method with overloads.
 
-[Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListProjects)
+- `client.get_paginator("list_placements")` -> [ListPlacementsPaginator](./paginators.md#listplacementspaginator)
+- `client.get_paginator("list_projects")` -> [ListProjectsPaginator](./paginators.md#listprojectspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProjectsPaginatorName
-) -> ListProjectsPaginator:
-    pass
-```
+

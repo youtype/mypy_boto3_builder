@@ -63,9 +63,9 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_personalize_runtime.type_defs import PredictedItemTypeDef, ...
+from mypy_boto3_personalize_runtime.type_defs import GetPersonalizedRankingResponseTypeDef, ...
 ```
 
-- [PredictedItemTypeDef](./type_defs.md#predicteditemtypedef)
 - [GetPersonalizedRankingResponseTypeDef](./type_defs.md#getpersonalizedrankingresponsetypedef)
 - [GetRecommendationsResponseTypeDef](./type_defs.md#getrecommendationsresponsetypedef)
+- [PredictedItemTypeDef](./type_defs.md#predicteditemtypedef)

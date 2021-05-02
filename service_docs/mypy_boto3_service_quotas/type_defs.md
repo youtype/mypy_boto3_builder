@@ -7,13 +7,6 @@ type annotations stubs module [mypy_boto3_service_quotas](https://pypi.org/proje
 
 - [Structures for boto3 ServiceQuotas module](#structures-for-boto3-servicequotas-module)
   - [ErrorReasonTypeDef](#errorreasontypedef)
-  - [MetricInfoTypeDef](#metricinfotypedef)
-  - [QuotaPeriodTypeDef](#quotaperiodtypedef)
-  - [RequestedServiceQuotaChangeTypeDef](#requestedservicequotachangetypedef)
-  - [ServiceInfoTypeDef](#serviceinfotypedef)
-  - [ServiceQuotaIncreaseRequestInTemplateTypeDef](#servicequotaincreaserequestintemplatetypedef)
-  - [ServiceQuotaTypeDef](#servicequotatypedef)
-  - [TagTypeDef](#tagtypedef)
   - [GetAWSDefaultServiceQuotaResponseTypeDef](#getawsdefaultservicequotaresponsetypedef)
   - [GetAssociationForServiceQuotaTemplateResponseTypeDef](#getassociationforservicequotatemplateresponsetypedef)
   - [GetRequestedServiceQuotaChangeResponseTypeDef](#getrequestedservicequotachangeresponsetypedef)
@@ -26,9 +19,16 @@ type annotations stubs module [mypy_boto3_service_quotas](https://pypi.org/proje
   - [ListServiceQuotasResponseTypeDef](#listservicequotasresponsetypedef)
   - [ListServicesResponseTypeDef](#listservicesresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [MetricInfoTypeDef](#metricinfotypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PutServiceQuotaIncreaseRequestIntoTemplateResponseTypeDef](#putservicequotaincreaserequestintotemplateresponsetypedef)
+  - [QuotaPeriodTypeDef](#quotaperiodtypedef)
   - [RequestServiceQuotaIncreaseResponseTypeDef](#requestservicequotaincreaseresponsetypedef)
+  - [RequestedServiceQuotaChangeTypeDef](#requestedservicequotachangetypedef)
+  - [ServiceInfoTypeDef](#serviceinfotypedef)
+  - [ServiceQuotaIncreaseRequestInTemplateTypeDef](#servicequotaincreaserequestintemplatetypedef)
+  - [ServiceQuotaTypeDef](#servicequotatypedef)
+  - [TagTypeDef](#tagtypedef)
 
 ## ErrorReasonTypeDef
 
@@ -42,134 +42,6 @@ from mypy_boto3_service_quotas.type_defs import ErrorReasonTypeDef
 Optional fields:
 - `ErrorCode`: `ErrorCode`
 - `ErrorMessage`: `str`
-
-
-## MetricInfoTypeDef
-
-```python
-from mypy_boto3_service_quotas.type_defs import MetricInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `MetricNamespace`: `str`
-- `MetricName`: `str`
-- `MetricDimensions`: `Dict[str, str]`
-- `MetricStatisticRecommendation`: `str`
-
-
-## QuotaPeriodTypeDef
-
-```python
-from mypy_boto3_service_quotas.type_defs import QuotaPeriodTypeDef
-```
-
-
-
-
-Optional fields:
-- `PeriodValue`: `int`
-- `PeriodUnit`: `PeriodUnit`
-
-
-## RequestedServiceQuotaChangeTypeDef
-
-```python
-from mypy_boto3_service_quotas.type_defs import RequestedServiceQuotaChangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `CaseId`: `str`
-- `ServiceCode`: `str`
-- `ServiceName`: `str`
-- `QuotaCode`: `str`
-- `QuotaName`: `str`
-- `DesiredValue`: `float`
-- `Status`: `RequestStatus`
-- `Created`: `datetime`
-- `LastUpdated`: `datetime`
-- `Requester`: `str`
-- `QuotaArn`: `str`
-- `GlobalQuota`: `bool`
-- `Unit`: `str`
-
-
-## ServiceInfoTypeDef
-
-```python
-from mypy_boto3_service_quotas.type_defs import ServiceInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceCode`: `str`
-- `ServiceName`: `str`
-
-
-## ServiceQuotaIncreaseRequestInTemplateTypeDef
-
-```python
-from mypy_boto3_service_quotas.type_defs import ServiceQuotaIncreaseRequestInTemplateTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceCode`: `str`
-- `ServiceName`: `str`
-- `QuotaCode`: `str`
-- `QuotaName`: `str`
-- `DesiredValue`: `float`
-- `AwsRegion`: `str`
-- `Unit`: `str`
-- `GlobalQuota`: `bool`
-
-
-## ServiceQuotaTypeDef
-
-```python
-from mypy_boto3_service_quotas.type_defs import ServiceQuotaTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceCode`: `str`
-- `ServiceName`: `str`
-- `QuotaArn`: `str`
-- `QuotaCode`: `str`
-- `QuotaName`: `str`
-- `Value`: `float`
-- `Unit`: `str`
-- `Adjustable`: `bool`
-- `GlobalQuota`: `bool`
-- `UsageMetric`: `"MetricInfoTypeDef"`
-- `Period`: `"QuotaPeriodTypeDef"`
-- `ErrorReason`: `"ErrorReasonTypeDef"`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_service_quotas.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
 
 
 ## GetAWSDefaultServiceQuotaResponseTypeDef
@@ -334,6 +206,22 @@ Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 
 
+## MetricInfoTypeDef
+
+```python
+from mypy_boto3_service_quotas.type_defs import MetricInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `MetricNamespace`: `str`
+- `MetricName`: `str`
+- `MetricDimensions`: `Dict[str, str]`
+- `MetricStatisticRecommendation`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -362,6 +250,20 @@ Optional fields:
 - `ServiceQuotaIncreaseRequestInTemplate`: `"ServiceQuotaIncreaseRequestInTemplateTypeDef"`
 
 
+## QuotaPeriodTypeDef
+
+```python
+from mypy_boto3_service_quotas.type_defs import QuotaPeriodTypeDef
+```
+
+
+
+
+Optional fields:
+- `PeriodValue`: `int`
+- `PeriodUnit`: `PeriodUnit`
+
+
 ## RequestServiceQuotaIncreaseResponseTypeDef
 
 ```python
@@ -373,4 +275,102 @@ from mypy_boto3_service_quotas.type_defs import RequestServiceQuotaIncreaseRespo
 
 Optional fields:
 - `RequestedQuota`: `"RequestedServiceQuotaChangeTypeDef"`
+
+
+## RequestedServiceQuotaChangeTypeDef
+
+```python
+from mypy_boto3_service_quotas.type_defs import RequestedServiceQuotaChangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `CaseId`: `str`
+- `ServiceCode`: `str`
+- `ServiceName`: `str`
+- `QuotaCode`: `str`
+- `QuotaName`: `str`
+- `DesiredValue`: `float`
+- `Status`: `RequestStatus`
+- `Created`: `datetime`
+- `LastUpdated`: `datetime`
+- `Requester`: `str`
+- `QuotaArn`: `str`
+- `GlobalQuota`: `bool`
+- `Unit`: `str`
+
+
+## ServiceInfoTypeDef
+
+```python
+from mypy_boto3_service_quotas.type_defs import ServiceInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceCode`: `str`
+- `ServiceName`: `str`
+
+
+## ServiceQuotaIncreaseRequestInTemplateTypeDef
+
+```python
+from mypy_boto3_service_quotas.type_defs import ServiceQuotaIncreaseRequestInTemplateTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceCode`: `str`
+- `ServiceName`: `str`
+- `QuotaCode`: `str`
+- `QuotaName`: `str`
+- `DesiredValue`: `float`
+- `AwsRegion`: `str`
+- `Unit`: `str`
+- `GlobalQuota`: `bool`
+
+
+## ServiceQuotaTypeDef
+
+```python
+from mypy_boto3_service_quotas.type_defs import ServiceQuotaTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceCode`: `str`
+- `ServiceName`: `str`
+- `QuotaArn`: `str`
+- `QuotaCode`: `str`
+- `QuotaName`: `str`
+- `Value`: `float`
+- `Unit`: `str`
+- `Adjustable`: `bool`
+- `GlobalQuota`: `bool`
+- `UsageMetric`: `"MetricInfoTypeDef"`
+- `Period`: `"QuotaPeriodTypeDef"`
+- `ErrorReason`: `"ErrorReasonTypeDef"`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_service_quotas.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 

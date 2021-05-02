@@ -89,21 +89,6 @@ type annotations stubs module [mypy_boto3_waf](https://pypi.org/project/mypy-bot
     - [update_web_acl](#update_web_acl)
     - [update_xss_match_set](#update_xss_match_set)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
 
 ## WAFClient
 
@@ -225,7 +210,7 @@ def create_rate_based_rule(
     self,
     Name: str,
     MetricName: str,
-    RateKey: RateKey,
+    RateKey: Literal['IP'],
     RateLimit: int,
     ChangeToken: str,
     Tags: List["TagTypeDef"] = None
@@ -1351,242 +1336,27 @@ def update_xss_match_set(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.GetRateBasedRuleManagedKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.GetRateBasedRuleManagedKeys)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetRateBasedRuleManagedKeysPaginatorName
-) -> GetRateBasedRuleManagedKeysPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("waf").get_paginator` method.
+Type annotations for `boto3.client("waf").get_paginator` method with overloads.
 
-[Paginator.ListActivatedRulesInRuleGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListActivatedRulesInRuleGroup)
+- `client.get_paginator("get_rate_based_rule_managed_keys")` -> [GetRateBasedRuleManagedKeysPaginator](./paginators.md#getratebasedrulemanagedkeyspaginator)
+- `client.get_paginator("list_activated_rules_in_rule_group")` -> [ListActivatedRulesInRuleGroupPaginator](./paginators.md#listactivatedrulesinrulegrouppaginator)
+- `client.get_paginator("list_byte_match_sets")` -> [ListByteMatchSetsPaginator](./paginators.md#listbytematchsetspaginator)
+- `client.get_paginator("list_geo_match_sets")` -> [ListGeoMatchSetsPaginator](./paginators.md#listgeomatchsetspaginator)
+- `client.get_paginator("list_ip_sets")` -> [ListIPSetsPaginator](./paginators.md#listipsetspaginator)
+- `client.get_paginator("list_logging_configurations")` -> [ListLoggingConfigurationsPaginator](./paginators.md#listloggingconfigurationspaginator)
+- `client.get_paginator("list_rate_based_rules")` -> [ListRateBasedRulesPaginator](./paginators.md#listratebasedrulespaginator)
+- `client.get_paginator("list_regex_match_sets")` -> [ListRegexMatchSetsPaginator](./paginators.md#listregexmatchsetspaginator)
+- `client.get_paginator("list_regex_pattern_sets")` -> [ListRegexPatternSetsPaginator](./paginators.md#listregexpatternsetspaginator)
+- `client.get_paginator("list_rule_groups")` -> [ListRuleGroupsPaginator](./paginators.md#listrulegroupspaginator)
+- `client.get_paginator("list_rules")` -> [ListRulesPaginator](./paginators.md#listrulespaginator)
+- `client.get_paginator("list_size_constraint_sets")` -> [ListSizeConstraintSetsPaginator](./paginators.md#listsizeconstraintsetspaginator)
+- `client.get_paginator("list_sql_injection_match_sets")` -> [ListSqlInjectionMatchSetsPaginator](./paginators.md#listsqlinjectionmatchsetspaginator)
+- `client.get_paginator("list_subscribed_rule_groups")` -> [ListSubscribedRuleGroupsPaginator](./paginators.md#listsubscribedrulegroupspaginator)
+- `client.get_paginator("list_web_acls")` -> [ListWebACLsPaginator](./paginators.md#listwebaclspaginator)
+- `client.get_paginator("list_xss_match_sets")` -> [ListXssMatchSetsPaginator](./paginators.md#listxssmatchsetspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListActivatedRulesInRuleGroupPaginatorName
-) -> ListActivatedRulesInRuleGroupPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListByteMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListByteMatchSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListByteMatchSetsPaginatorName
-) -> ListByteMatchSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListGeoMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListGeoMatchSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGeoMatchSetsPaginatorName
-) -> ListGeoMatchSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListIPSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListIPSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListIPSetsPaginatorName
-) -> ListIPSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListLoggingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListLoggingConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLoggingConfigurationsPaginatorName
-) -> ListLoggingConfigurationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListRateBasedRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListRateBasedRules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRateBasedRulesPaginatorName
-) -> ListRateBasedRulesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListRegexMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListRegexMatchSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRegexMatchSetsPaginatorName
-) -> ListRegexMatchSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListRegexPatternSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListRegexPatternSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRegexPatternSetsPaginatorName
-) -> ListRegexPatternSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListRuleGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRuleGroupsPaginatorName
-) -> ListRuleGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListRules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRulesPaginatorName
-) -> ListRulesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListSizeConstraintSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListSizeConstraintSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSizeConstraintSetsPaginatorName
-) -> ListSizeConstraintSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListSqlInjectionMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListSqlInjectionMatchSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSqlInjectionMatchSetsPaginatorName
-) -> ListSqlInjectionMatchSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListSubscribedRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListSubscribedRuleGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSubscribedRuleGroupsPaginatorName
-) -> ListSubscribedRuleGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListWebACLs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListWebACLs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListWebACLsPaginatorName
-) -> ListWebACLsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("waf").get_paginator` method.
-
-[Paginator.ListXssMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/waf.html#WAF.Paginator.ListXssMatchSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListXssMatchSetsPaginatorName
-) -> ListXssMatchSetsPaginator:
-    pass
-```

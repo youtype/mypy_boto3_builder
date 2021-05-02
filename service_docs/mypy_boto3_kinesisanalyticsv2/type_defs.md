@@ -6,12 +6,21 @@ Auto-generated documentation for [KinesisAnalyticsV2](https://boto3.amazonaws.co
 type annotations stubs module [mypy_boto3_kinesisanalyticsv2](https://pypi.org/project/mypy-boto3-kinesisanalyticsv2/).
 
 - [Structures for boto3 KinesisAnalyticsV2 module](#structures-for-boto3-kinesisanalyticsv2-module)
+  - [AddApplicationCloudWatchLoggingOptionResponseTypeDef](#addapplicationcloudwatchloggingoptionresponsetypedef)
+  - [AddApplicationInputProcessingConfigurationResponseTypeDef](#addapplicationinputprocessingconfigurationresponsetypedef)
+  - [AddApplicationInputResponseTypeDef](#addapplicationinputresponsetypedef)
+  - [AddApplicationOutputResponseTypeDef](#addapplicationoutputresponsetypedef)
+  - [AddApplicationReferenceDataSourceResponseTypeDef](#addapplicationreferencedatasourceresponsetypedef)
+  - [AddApplicationVpcConfigurationResponseTypeDef](#addapplicationvpcconfigurationresponsetypedef)
   - [ApplicationCodeConfigurationDescriptionTypeDef](#applicationcodeconfigurationdescriptiontypedef)
   - [ApplicationCodeConfigurationTypeDef](#applicationcodeconfigurationtypedef)
   - [ApplicationCodeConfigurationUpdateTypeDef](#applicationcodeconfigurationupdatetypedef)
   - [ApplicationConfigurationDescriptionTypeDef](#applicationconfigurationdescriptiontypedef)
+  - [ApplicationConfigurationTypeDef](#applicationconfigurationtypedef)
+  - [ApplicationConfigurationUpdateTypeDef](#applicationconfigurationupdatetypedef)
   - [ApplicationDetailTypeDef](#applicationdetailtypedef)
   - [ApplicationMaintenanceConfigurationDescriptionTypeDef](#applicationmaintenanceconfigurationdescriptiontypedef)
+  - [ApplicationMaintenanceConfigurationUpdateTypeDef](#applicationmaintenanceconfigurationupdatetypedef)
   - [ApplicationRestoreConfigurationTypeDef](#applicationrestoreconfigurationtypedef)
   - [ApplicationSnapshotConfigurationDescriptionTypeDef](#applicationsnapshotconfigurationdescriptiontypedef)
   - [ApplicationSnapshotConfigurationTypeDef](#applicationsnapshotconfigurationtypedef)
@@ -22,10 +31,22 @@ type annotations stubs module [mypy_boto3_kinesisanalyticsv2](https://pypi.org/p
   - [CheckpointConfigurationTypeDef](#checkpointconfigurationtypedef)
   - [CheckpointConfigurationUpdateTypeDef](#checkpointconfigurationupdatetypedef)
   - [CloudWatchLoggingOptionDescriptionTypeDef](#cloudwatchloggingoptiondescriptiontypedef)
+  - [CloudWatchLoggingOptionTypeDef](#cloudwatchloggingoptiontypedef)
+  - [CloudWatchLoggingOptionUpdateTypeDef](#cloudwatchloggingoptionupdatetypedef)
   - [CodeContentDescriptionTypeDef](#codecontentdescriptiontypedef)
   - [CodeContentTypeDef](#codecontenttypedef)
   - [CodeContentUpdateTypeDef](#codecontentupdatetypedef)
+  - [CreateApplicationPresignedUrlResponseTypeDef](#createapplicationpresignedurlresponsetypedef)
+  - [CreateApplicationResponseTypeDef](#createapplicationresponsetypedef)
+  - [DeleteApplicationCloudWatchLoggingOptionResponseTypeDef](#deleteapplicationcloudwatchloggingoptionresponsetypedef)
+  - [DeleteApplicationInputProcessingConfigurationResponseTypeDef](#deleteapplicationinputprocessingconfigurationresponsetypedef)
+  - [DeleteApplicationOutputResponseTypeDef](#deleteapplicationoutputresponsetypedef)
+  - [DeleteApplicationReferenceDataSourceResponseTypeDef](#deleteapplicationreferencedatasourceresponsetypedef)
+  - [DeleteApplicationVpcConfigurationResponseTypeDef](#deleteapplicationvpcconfigurationresponsetypedef)
+  - [DescribeApplicationResponseTypeDef](#describeapplicationresponsetypedef)
+  - [DescribeApplicationSnapshotResponseTypeDef](#describeapplicationsnapshotresponsetypedef)
   - [DestinationSchemaTypeDef](#destinationschematypedef)
+  - [DiscoverInputSchemaResponseTypeDef](#discoverinputschemaresponsetypedef)
   - [EnvironmentPropertiesTypeDef](#environmentpropertiestypedef)
   - [EnvironmentPropertyDescriptionsTypeDef](#environmentpropertydescriptionstypedef)
   - [EnvironmentPropertyUpdatesTypeDef](#environmentpropertyupdatestypedef)
@@ -62,6 +83,9 @@ type annotations stubs module [mypy_boto3_kinesisanalyticsv2](https://pypi.org/p
   - [LambdaOutputDescriptionTypeDef](#lambdaoutputdescriptiontypedef)
   - [LambdaOutputTypeDef](#lambdaoutputtypedef)
   - [LambdaOutputUpdateTypeDef](#lambdaoutputupdatetypedef)
+  - [ListApplicationSnapshotsResponseTypeDef](#listapplicationsnapshotsresponsetypedef)
+  - [ListApplicationsResponseTypeDef](#listapplicationsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [MappingParametersTypeDef](#mappingparameterstypedef)
   - [MonitoringConfigurationDescriptionTypeDef](#monitoringconfigurationdescriptiontypedef)
   - [MonitoringConfigurationTypeDef](#monitoringconfigurationtypedef)
@@ -69,6 +93,7 @@ type annotations stubs module [mypy_boto3_kinesisanalyticsv2](https://pypi.org/p
   - [OutputDescriptionTypeDef](#outputdescriptiontypedef)
   - [OutputTypeDef](#outputtypedef)
   - [OutputUpdateTypeDef](#outputupdatetypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ParallelismConfigurationDescriptionTypeDef](#parallelismconfigurationdescriptiontypedef)
   - [ParallelismConfigurationTypeDef](#parallelismconfigurationtypedef)
   - [ParallelismConfigurationUpdateTypeDef](#parallelismconfigurationupdatetypedef)
@@ -80,7 +105,10 @@ type annotations stubs module [mypy_boto3_kinesisanalyticsv2](https://pypi.org/p
   - [ReferenceDataSourceUpdateTypeDef](#referencedatasourceupdatetypedef)
   - [ResponseMetadata](#responsemetadata)
   - [RunConfigurationDescriptionTypeDef](#runconfigurationdescriptiontypedef)
+  - [RunConfigurationTypeDef](#runconfigurationtypedef)
+  - [RunConfigurationUpdateTypeDef](#runconfigurationupdatetypedef)
   - [S3ApplicationCodeLocationDescriptionTypeDef](#s3applicationcodelocationdescriptiontypedef)
+  - [S3ConfigurationTypeDef](#s3configurationtypedef)
   - [S3ContentLocationTypeDef](#s3contentlocationtypedef)
   - [S3ContentLocationUpdateTypeDef](#s3contentlocationupdatetypedef)
   - [S3ReferenceDataSourceDescriptionTypeDef](#s3referencedatasourcedescriptiontypedef)
@@ -93,39 +121,102 @@ type annotations stubs module [mypy_boto3_kinesisanalyticsv2](https://pypi.org/p
   - [SqlApplicationConfigurationUpdateTypeDef](#sqlapplicationconfigurationupdatetypedef)
   - [SqlRunConfigurationTypeDef](#sqlrunconfigurationtypedef)
   - [TagTypeDef](#tagtypedef)
+  - [UpdateApplicationMaintenanceConfigurationResponseTypeDef](#updateapplicationmaintenanceconfigurationresponsetypedef)
+  - [UpdateApplicationResponseTypeDef](#updateapplicationresponsetypedef)
   - [VpcConfigurationDescriptionTypeDef](#vpcconfigurationdescriptiontypedef)
   - [VpcConfigurationTypeDef](#vpcconfigurationtypedef)
   - [VpcConfigurationUpdateTypeDef](#vpcconfigurationupdatetypedef)
-  - [AddApplicationCloudWatchLoggingOptionResponseTypeDef](#addapplicationcloudwatchloggingoptionresponsetypedef)
-  - [AddApplicationInputProcessingConfigurationResponseTypeDef](#addapplicationinputprocessingconfigurationresponsetypedef)
-  - [AddApplicationInputResponseTypeDef](#addapplicationinputresponsetypedef)
-  - [AddApplicationOutputResponseTypeDef](#addapplicationoutputresponsetypedef)
-  - [AddApplicationReferenceDataSourceResponseTypeDef](#addapplicationreferencedatasourceresponsetypedef)
-  - [AddApplicationVpcConfigurationResponseTypeDef](#addapplicationvpcconfigurationresponsetypedef)
-  - [ApplicationConfigurationTypeDef](#applicationconfigurationtypedef)
-  - [ApplicationConfigurationUpdateTypeDef](#applicationconfigurationupdatetypedef)
-  - [ApplicationMaintenanceConfigurationUpdateTypeDef](#applicationmaintenanceconfigurationupdatetypedef)
-  - [CloudWatchLoggingOptionTypeDef](#cloudwatchloggingoptiontypedef)
-  - [CloudWatchLoggingOptionUpdateTypeDef](#cloudwatchloggingoptionupdatetypedef)
-  - [CreateApplicationPresignedUrlResponseTypeDef](#createapplicationpresignedurlresponsetypedef)
-  - [CreateApplicationResponseTypeDef](#createapplicationresponsetypedef)
-  - [DeleteApplicationCloudWatchLoggingOptionResponseTypeDef](#deleteapplicationcloudwatchloggingoptionresponsetypedef)
-  - [DeleteApplicationInputProcessingConfigurationResponseTypeDef](#deleteapplicationinputprocessingconfigurationresponsetypedef)
-  - [DeleteApplicationOutputResponseTypeDef](#deleteapplicationoutputresponsetypedef)
-  - [DeleteApplicationReferenceDataSourceResponseTypeDef](#deleteapplicationreferencedatasourceresponsetypedef)
-  - [DeleteApplicationVpcConfigurationResponseTypeDef](#deleteapplicationvpcconfigurationresponsetypedef)
-  - [DescribeApplicationResponseTypeDef](#describeapplicationresponsetypedef)
-  - [DescribeApplicationSnapshotResponseTypeDef](#describeapplicationsnapshotresponsetypedef)
-  - [DiscoverInputSchemaResponseTypeDef](#discoverinputschemaresponsetypedef)
-  - [ListApplicationSnapshotsResponseTypeDef](#listapplicationsnapshotsresponsetypedef)
-  - [ListApplicationsResponseTypeDef](#listapplicationsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [RunConfigurationTypeDef](#runconfigurationtypedef)
-  - [RunConfigurationUpdateTypeDef](#runconfigurationupdatetypedef)
-  - [S3ConfigurationTypeDef](#s3configurationtypedef)
-  - [UpdateApplicationMaintenanceConfigurationResponseTypeDef](#updateapplicationmaintenanceconfigurationresponsetypedef)
-  - [UpdateApplicationResponseTypeDef](#updateapplicationresponsetypedef)
+
+## AddApplicationCloudWatchLoggingOptionResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationCloudWatchLoggingOptionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationVersionId`: `int`
+- `CloudWatchLoggingOptionDescriptions`: `List["CloudWatchLoggingOptionDescriptionTypeDef"]`
+
+
+## AddApplicationInputProcessingConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationInputProcessingConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationVersionId`: `int`
+- `InputId`: `str`
+- `InputProcessingConfigurationDescription`: `"InputProcessingConfigurationDescriptionTypeDef"`
+
+
+## AddApplicationInputResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationInputResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationVersionId`: `int`
+- `InputDescriptions`: `List["InputDescriptionTypeDef"]`
+
+
+## AddApplicationOutputResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationOutputResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationVersionId`: `int`
+- `OutputDescriptions`: `List["OutputDescriptionTypeDef"]`
+
+
+## AddApplicationReferenceDataSourceResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationReferenceDataSourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationVersionId`: `int`
+- `ReferenceDataSourceDescriptions`: `List["ReferenceDataSourceDescriptionTypeDef"]`
+
+
+## AddApplicationVpcConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationVpcConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationVersionId`: `int`
+- `VpcConfigurationDescription`: `"VpcConfigurationDescriptionTypeDef"`
+
 
 ## ApplicationCodeConfigurationDescriptionTypeDef
 
@@ -192,6 +283,44 @@ Optional fields:
 - `VpcConfigurationDescriptions`: `List["VpcConfigurationDescriptionTypeDef"]`
 
 
+## ApplicationConfigurationTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import ApplicationConfigurationTypeDef
+```
+
+
+Required fields:
+- `ApplicationCodeConfiguration`: `"ApplicationCodeConfigurationTypeDef"`
+
+
+
+Optional fields:
+- `SqlApplicationConfiguration`: `"SqlApplicationConfigurationTypeDef"`
+- `FlinkApplicationConfiguration`: `"FlinkApplicationConfigurationTypeDef"`
+- `EnvironmentProperties`: `"EnvironmentPropertiesTypeDef"`
+- `ApplicationSnapshotConfiguration`: `"ApplicationSnapshotConfigurationTypeDef"`
+- `VpcConfigurations`: `List["VpcConfigurationTypeDef"]`
+
+
+## ApplicationConfigurationUpdateTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import ApplicationConfigurationUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `SqlApplicationConfigurationUpdate`: `"SqlApplicationConfigurationUpdateTypeDef"`
+- `ApplicationCodeConfigurationUpdate`: `"ApplicationCodeConfigurationUpdateTypeDef"`
+- `FlinkApplicationConfigurationUpdate`: `"FlinkApplicationConfigurationUpdateTypeDef"`
+- `EnvironmentPropertyUpdates`: `"EnvironmentPropertyUpdatesTypeDef"`
+- `ApplicationSnapshotConfigurationUpdate`: `"ApplicationSnapshotConfigurationUpdateTypeDef"`
+- `VpcConfigurationUpdates`: `List["VpcConfigurationUpdateTypeDef"]`
+
+
 ## ApplicationDetailTypeDef
 
 ```python
@@ -228,6 +357,19 @@ from mypy_boto3_kinesisanalyticsv2.type_defs import ApplicationMaintenanceConfig
 Required fields:
 - `ApplicationMaintenanceWindowStartTime`: `str`
 - `ApplicationMaintenanceWindowEndTime`: `str`
+
+
+
+
+## ApplicationMaintenanceConfigurationUpdateTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import ApplicationMaintenanceConfigurationUpdateTypeDef
+```
+
+
+Required fields:
+- `ApplicationMaintenanceWindowStartTimeUpdate`: `str`
 
 
 
@@ -385,6 +527,35 @@ Optional fields:
 - `RoleARN`: `str`
 
 
+## CloudWatchLoggingOptionTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import CloudWatchLoggingOptionTypeDef
+```
+
+
+Required fields:
+- `LogStreamARN`: `str`
+
+
+
+
+## CloudWatchLoggingOptionUpdateTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import CloudWatchLoggingOptionUpdateTypeDef
+```
+
+
+Required fields:
+- `CloudWatchLoggingOptionId`: `str`
+
+
+
+Optional fields:
+- `LogStreamARNUpdate`: `str`
+
+
 ## CodeContentDescriptionTypeDef
 
 ```python
@@ -431,6 +602,129 @@ Optional fields:
 - `S3ContentLocationUpdate`: `"S3ContentLocationUpdateTypeDef"`
 
 
+## CreateApplicationPresignedUrlResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import CreateApplicationPresignedUrlResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AuthorizedUrl`: `str`
+
+
+## CreateApplicationResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import CreateApplicationResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationDetail`: `"ApplicationDetailTypeDef"`
+
+
+
+
+## DeleteApplicationCloudWatchLoggingOptionResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import DeleteApplicationCloudWatchLoggingOptionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationVersionId`: `int`
+- `CloudWatchLoggingOptionDescriptions`: `List["CloudWatchLoggingOptionDescriptionTypeDef"]`
+
+
+## DeleteApplicationInputProcessingConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import DeleteApplicationInputProcessingConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationVersionId`: `int`
+
+
+## DeleteApplicationOutputResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import DeleteApplicationOutputResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationVersionId`: `int`
+
+
+## DeleteApplicationReferenceDataSourceResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import DeleteApplicationReferenceDataSourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationVersionId`: `int`
+
+
+## DeleteApplicationVpcConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import DeleteApplicationVpcConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationVersionId`: `int`
+
+
+## DescribeApplicationResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import DescribeApplicationResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationDetail`: `"ApplicationDetailTypeDef"`
+
+
+
+
+## DescribeApplicationSnapshotResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import DescribeApplicationSnapshotResponseTypeDef
+```
+
+
+Required fields:
+- `SnapshotDetails`: `"SnapshotDetailsTypeDef"`
+
+
+
+
 ## DestinationSchemaTypeDef
 
 ```python
@@ -442,6 +736,22 @@ Required fields:
 - `RecordFormatType`: `RecordFormatType`
 
 
+
+
+## DiscoverInputSchemaResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import DiscoverInputSchemaResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `InputSchema`: `"SourceSchemaTypeDef"`
+- `ParsedInputRecords`: `List[List[str]]`
+- `ProcessedInputRecords`: `List[str]`
+- `RawInputRecords`: `List[str]`
 
 
 ## EnvironmentPropertiesTypeDef
@@ -971,6 +1281,49 @@ Required fields:
 
 
 
+## ListApplicationSnapshotsResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import ListApplicationSnapshotsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SnapshotSummaries`: `List["SnapshotDetailsTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListApplicationsResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import ListApplicationsResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationSummaries`: `List["ApplicationSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## MappingParametersTypeDef
 
 ```python
@@ -1088,6 +1441,21 @@ Optional fields:
 - `KinesisFirehoseOutputUpdate`: `"KinesisFirehoseOutputUpdateTypeDef"`
 - `LambdaOutputUpdate`: `"LambdaOutputUpdateTypeDef"`
 - `DestinationSchemaUpdate`: `"DestinationSchemaTypeDef"`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## ParallelismConfigurationDescriptionTypeDef
@@ -1272,6 +1640,35 @@ Optional fields:
 - `FlinkRunConfigurationDescription`: `"FlinkRunConfigurationTypeDef"`
 
 
+## RunConfigurationTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import RunConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `FlinkRunConfiguration`: `"FlinkRunConfigurationTypeDef"`
+- `SqlRunConfigurations`: `List["SqlRunConfigurationTypeDef"]`
+- `ApplicationRestoreConfiguration`: `"ApplicationRestoreConfigurationTypeDef"`
+
+
+## RunConfigurationUpdateTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import RunConfigurationUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `FlinkRunConfiguration`: `"FlinkRunConfigurationTypeDef"`
+- `ApplicationRestoreConfiguration`: `"ApplicationRestoreConfigurationTypeDef"`
+
+
 ## S3ApplicationCodeLocationDescriptionTypeDef
 
 ```python
@@ -1287,6 +1684,20 @@ Required fields:
 
 Optional fields:
 - `ObjectVersion`: `str`
+
+
+## S3ConfigurationTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import S3ConfigurationTypeDef
+```
+
+
+Required fields:
+- `BucketARN`: `str`
+- `FileKey`: `str`
+
+
 
 
 ## S3ContentLocationTypeDef
@@ -1476,6 +1887,33 @@ Optional fields:
 - `Value`: `str`
 
 
+## UpdateApplicationMaintenanceConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import UpdateApplicationMaintenanceConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationARN`: `str`
+- `ApplicationMaintenanceConfigurationDescription`: `"ApplicationMaintenanceConfigurationDescriptionTypeDef"`
+
+
+## UpdateApplicationResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalyticsv2.type_defs import UpdateApplicationResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationDetail`: `"ApplicationDetailTypeDef"`
+
+
+
+
 ## VpcConfigurationDescriptionTypeDef
 
 ```python
@@ -1521,442 +1959,4 @@ Required fields:
 Optional fields:
 - `SubnetIdUpdates`: `List[str]`
 - `SecurityGroupIdUpdates`: `List[str]`
-
-
-## AddApplicationCloudWatchLoggingOptionResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationCloudWatchLoggingOptionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationVersionId`: `int`
-- `CloudWatchLoggingOptionDescriptions`: `List["CloudWatchLoggingOptionDescriptionTypeDef"]`
-
-
-## AddApplicationInputProcessingConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationInputProcessingConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationVersionId`: `int`
-- `InputId`: `str`
-- `InputProcessingConfigurationDescription`: `"InputProcessingConfigurationDescriptionTypeDef"`
-
-
-## AddApplicationInputResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationInputResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationVersionId`: `int`
-- `InputDescriptions`: `List["InputDescriptionTypeDef"]`
-
-
-## AddApplicationOutputResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationOutputResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationVersionId`: `int`
-- `OutputDescriptions`: `List["OutputDescriptionTypeDef"]`
-
-
-## AddApplicationReferenceDataSourceResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationReferenceDataSourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationVersionId`: `int`
-- `ReferenceDataSourceDescriptions`: `List["ReferenceDataSourceDescriptionTypeDef"]`
-
-
-## AddApplicationVpcConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import AddApplicationVpcConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationVersionId`: `int`
-- `VpcConfigurationDescription`: `"VpcConfigurationDescriptionTypeDef"`
-
-
-## ApplicationConfigurationTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import ApplicationConfigurationTypeDef
-```
-
-
-Required fields:
-- `ApplicationCodeConfiguration`: `"ApplicationCodeConfigurationTypeDef"`
-
-
-
-Optional fields:
-- `SqlApplicationConfiguration`: `"SqlApplicationConfigurationTypeDef"`
-- `FlinkApplicationConfiguration`: `"FlinkApplicationConfigurationTypeDef"`
-- `EnvironmentProperties`: `"EnvironmentPropertiesTypeDef"`
-- `ApplicationSnapshotConfiguration`: `"ApplicationSnapshotConfigurationTypeDef"`
-- `VpcConfigurations`: `List["VpcConfigurationTypeDef"]`
-
-
-## ApplicationConfigurationUpdateTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import ApplicationConfigurationUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `SqlApplicationConfigurationUpdate`: `"SqlApplicationConfigurationUpdateTypeDef"`
-- `ApplicationCodeConfigurationUpdate`: `"ApplicationCodeConfigurationUpdateTypeDef"`
-- `FlinkApplicationConfigurationUpdate`: `"FlinkApplicationConfigurationUpdateTypeDef"`
-- `EnvironmentPropertyUpdates`: `"EnvironmentPropertyUpdatesTypeDef"`
-- `ApplicationSnapshotConfigurationUpdate`: `"ApplicationSnapshotConfigurationUpdateTypeDef"`
-- `VpcConfigurationUpdates`: `List["VpcConfigurationUpdateTypeDef"]`
-
-
-## ApplicationMaintenanceConfigurationUpdateTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import ApplicationMaintenanceConfigurationUpdateTypeDef
-```
-
-
-Required fields:
-- `ApplicationMaintenanceWindowStartTimeUpdate`: `str`
-
-
-
-
-## CloudWatchLoggingOptionTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import CloudWatchLoggingOptionTypeDef
-```
-
-
-Required fields:
-- `LogStreamARN`: `str`
-
-
-
-
-## CloudWatchLoggingOptionUpdateTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import CloudWatchLoggingOptionUpdateTypeDef
-```
-
-
-Required fields:
-- `CloudWatchLoggingOptionId`: `str`
-
-
-
-Optional fields:
-- `LogStreamARNUpdate`: `str`
-
-
-## CreateApplicationPresignedUrlResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import CreateApplicationPresignedUrlResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AuthorizedUrl`: `str`
-
-
-## CreateApplicationResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import CreateApplicationResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationDetail`: `"ApplicationDetailTypeDef"`
-
-
-
-
-## DeleteApplicationCloudWatchLoggingOptionResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import DeleteApplicationCloudWatchLoggingOptionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationVersionId`: `int`
-- `CloudWatchLoggingOptionDescriptions`: `List["CloudWatchLoggingOptionDescriptionTypeDef"]`
-
-
-## DeleteApplicationInputProcessingConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import DeleteApplicationInputProcessingConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationVersionId`: `int`
-
-
-## DeleteApplicationOutputResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import DeleteApplicationOutputResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationVersionId`: `int`
-
-
-## DeleteApplicationReferenceDataSourceResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import DeleteApplicationReferenceDataSourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationVersionId`: `int`
-
-
-## DeleteApplicationVpcConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import DeleteApplicationVpcConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationVersionId`: `int`
-
-
-## DescribeApplicationResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import DescribeApplicationResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationDetail`: `"ApplicationDetailTypeDef"`
-
-
-
-
-## DescribeApplicationSnapshotResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import DescribeApplicationSnapshotResponseTypeDef
-```
-
-
-Required fields:
-- `SnapshotDetails`: `"SnapshotDetailsTypeDef"`
-
-
-
-
-## DiscoverInputSchemaResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import DiscoverInputSchemaResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `InputSchema`: `"SourceSchemaTypeDef"`
-- `ParsedInputRecords`: `List[List[str]]`
-- `ProcessedInputRecords`: `List[str]`
-- `RawInputRecords`: `List[str]`
-
-
-## ListApplicationSnapshotsResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import ListApplicationSnapshotsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SnapshotSummaries`: `List["SnapshotDetailsTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListApplicationsResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import ListApplicationsResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationSummaries`: `List["ApplicationSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `List["TagTypeDef"]`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## RunConfigurationTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import RunConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `FlinkRunConfiguration`: `"FlinkRunConfigurationTypeDef"`
-- `SqlRunConfigurations`: `List["SqlRunConfigurationTypeDef"]`
-- `ApplicationRestoreConfiguration`: `"ApplicationRestoreConfigurationTypeDef"`
-
-
-## RunConfigurationUpdateTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import RunConfigurationUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `FlinkRunConfiguration`: `"FlinkRunConfigurationTypeDef"`
-- `ApplicationRestoreConfiguration`: `"ApplicationRestoreConfigurationTypeDef"`
-
-
-## S3ConfigurationTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import S3ConfigurationTypeDef
-```
-
-
-Required fields:
-- `BucketARN`: `str`
-- `FileKey`: `str`
-
-
-
-
-## UpdateApplicationMaintenanceConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import UpdateApplicationMaintenanceConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationARN`: `str`
-- `ApplicationMaintenanceConfigurationDescription`: `"ApplicationMaintenanceConfigurationDescriptionTypeDef"`
-
-
-## UpdateApplicationResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalyticsv2.type_defs import UpdateApplicationResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationDetail`: `"ApplicationDetailTypeDef"`
-
-
 

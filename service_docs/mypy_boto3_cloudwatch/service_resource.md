@@ -199,7 +199,7 @@ class ServiceResourceMetricsCollection(ResourceCollection):
         MetricName: str = None,
         Dimensions: List[DimensionFilterTypeDef] = None,
         NextToken: str = None,
-        RecentlyActive: RecentlyActive = None
+        RecentlyActive: Literal['PT3H'] = None
     ) -> "ServiceResourceMetricsCollection":
         pass
 

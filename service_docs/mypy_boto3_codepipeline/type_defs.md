@@ -7,11 +7,14 @@ type annotations stubs module [mypy_boto3_codepipeline](https://pypi.org/project
 
 - [Structures for boto3 CodePipeline module](#structures-for-boto3-codepipeline-module)
   - [AWSSessionCredentialsTypeDef](#awssessioncredentialstypedef)
+  - [AcknowledgeJobOutputTypeDef](#acknowledgejoboutputtypedef)
+  - [AcknowledgeThirdPartyJobOutputTypeDef](#acknowledgethirdpartyjoboutputtypedef)
   - [ActionConfigurationPropertyTypeDef](#actionconfigurationpropertytypedef)
   - [ActionConfigurationTypeDef](#actionconfigurationtypedef)
   - [ActionContextTypeDef](#actioncontexttypedef)
   - [ActionDeclarationTypeDef](#actiondeclarationtypedef)
   - [ActionExecutionDetailTypeDef](#actionexecutiondetailtypedef)
+  - [ActionExecutionFilterTypeDef](#actionexecutionfiltertypedef)
   - [ActionExecutionInputTypeDef](#actionexecutioninputtypedef)
   - [ActionExecutionOutputTypeDef](#actionexecutionoutputtypedef)
   - [ActionExecutionResultTypeDef](#actionexecutionresulttypedef)
@@ -28,6 +31,7 @@ type annotations stubs module [mypy_boto3_codepipeline](https://pypi.org/project
   - [ActionTypeSettingsTypeDef](#actiontypesettingstypedef)
   - [ActionTypeTypeDef](#actiontypetypedef)
   - [ActionTypeUrlsTypeDef](#actiontypeurlstypedef)
+  - [ApprovalResultTypeDef](#approvalresulttypedef)
   - [ArtifactDetailTypeDef](#artifactdetailtypedef)
   - [ArtifactDetailsTypeDef](#artifactdetailstypedef)
   - [ArtifactLocationTypeDef](#artifactlocationtypedef)
@@ -35,49 +39,14 @@ type annotations stubs module [mypy_boto3_codepipeline](https://pypi.org/project
   - [ArtifactStoreTypeDef](#artifactstoretypedef)
   - [ArtifactTypeDef](#artifacttypedef)
   - [BlockerDeclarationTypeDef](#blockerdeclarationtypedef)
-  - [EncryptionKeyTypeDef](#encryptionkeytypedef)
-  - [ErrorDetailsTypeDef](#errordetailstypedef)
-  - [ExecutionTriggerTypeDef](#executiontriggertypedef)
-  - [ExecutorConfigurationTypeDef](#executorconfigurationtypedef)
-  - [InputArtifactTypeDef](#inputartifacttypedef)
-  - [JobDataTypeDef](#jobdatatypedef)
-  - [JobDetailsTypeDef](#jobdetailstypedef)
-  - [JobTypeDef](#jobtypedef)
-  - [JobWorkerExecutorConfigurationTypeDef](#jobworkerexecutorconfigurationtypedef)
-  - [LambdaExecutorConfigurationTypeDef](#lambdaexecutorconfigurationtypedef)
-  - [ListWebhookItemTypeDef](#listwebhookitemtypedef)
-  - [OutputArtifactTypeDef](#outputartifacttypedef)
-  - [PipelineContextTypeDef](#pipelinecontexttypedef)
-  - [PipelineDeclarationTypeDef](#pipelinedeclarationtypedef)
-  - [PipelineExecutionSummaryTypeDef](#pipelineexecutionsummarytypedef)
-  - [PipelineExecutionTypeDef](#pipelineexecutiontypedef)
-  - [PipelineMetadataTypeDef](#pipelinemetadatatypedef)
-  - [PipelineSummaryTypeDef](#pipelinesummarytypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [S3ArtifactLocationTypeDef](#s3artifactlocationtypedef)
-  - [S3LocationTypeDef](#s3locationtypedef)
-  - [SourceRevisionTypeDef](#sourcerevisiontypedef)
-  - [StageContextTypeDef](#stagecontexttypedef)
-  - [StageDeclarationTypeDef](#stagedeclarationtypedef)
-  - [StageExecutionTypeDef](#stageexecutiontypedef)
-  - [StageStateTypeDef](#stagestatetypedef)
-  - [StopExecutionTriggerTypeDef](#stopexecutiontriggertypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [ThirdPartyJobDataTypeDef](#thirdpartyjobdatatypedef)
-  - [ThirdPartyJobDetailsTypeDef](#thirdpartyjobdetailstypedef)
-  - [ThirdPartyJobTypeDef](#thirdpartyjobtypedef)
-  - [TransitionStateTypeDef](#transitionstatetypedef)
-  - [WebhookAuthConfigurationTypeDef](#webhookauthconfigurationtypedef)
-  - [WebhookDefinitionTypeDef](#webhookdefinitiontypedef)
-  - [WebhookFilterRuleTypeDef](#webhookfilterruletypedef)
-  - [AcknowledgeJobOutputTypeDef](#acknowledgejoboutputtypedef)
-  - [AcknowledgeThirdPartyJobOutputTypeDef](#acknowledgethirdpartyjoboutputtypedef)
-  - [ActionExecutionFilterTypeDef](#actionexecutionfiltertypedef)
-  - [ApprovalResultTypeDef](#approvalresulttypedef)
   - [CreateCustomActionTypeOutputTypeDef](#createcustomactiontypeoutputtypedef)
   - [CreatePipelineOutputTypeDef](#createpipelineoutputtypedef)
   - [CurrentRevisionTypeDef](#currentrevisiontypedef)
+  - [EncryptionKeyTypeDef](#encryptionkeytypedef)
+  - [ErrorDetailsTypeDef](#errordetailstypedef)
   - [ExecutionDetailsTypeDef](#executiondetailstypedef)
+  - [ExecutionTriggerTypeDef](#executiontriggertypedef)
+  - [ExecutorConfigurationTypeDef](#executorconfigurationtypedef)
   - [FailureDetailsTypeDef](#failuredetailstypedef)
   - [GetActionTypeOutputTypeDef](#getactiontypeoutputtypedef)
   - [GetJobDetailsOutputTypeDef](#getjobdetailsoutputtypedef)
@@ -85,22 +54,53 @@ type annotations stubs module [mypy_boto3_codepipeline](https://pypi.org/project
   - [GetPipelineOutputTypeDef](#getpipelineoutputtypedef)
   - [GetPipelineStateOutputTypeDef](#getpipelinestateoutputtypedef)
   - [GetThirdPartyJobDetailsOutputTypeDef](#getthirdpartyjobdetailsoutputtypedef)
+  - [InputArtifactTypeDef](#inputartifacttypedef)
+  - [JobDataTypeDef](#jobdatatypedef)
+  - [JobDetailsTypeDef](#jobdetailstypedef)
+  - [JobTypeDef](#jobtypedef)
+  - [JobWorkerExecutorConfigurationTypeDef](#jobworkerexecutorconfigurationtypedef)
+  - [LambdaExecutorConfigurationTypeDef](#lambdaexecutorconfigurationtypedef)
   - [ListActionExecutionsOutputTypeDef](#listactionexecutionsoutputtypedef)
   - [ListActionTypesOutputTypeDef](#listactiontypesoutputtypedef)
   - [ListPipelineExecutionsOutputTypeDef](#listpipelineexecutionsoutputtypedef)
   - [ListPipelinesOutputTypeDef](#listpipelinesoutputtypedef)
   - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
+  - [ListWebhookItemTypeDef](#listwebhookitemtypedef)
   - [ListWebhooksOutputTypeDef](#listwebhooksoutputtypedef)
+  - [OutputArtifactTypeDef](#outputartifacttypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PipelineContextTypeDef](#pipelinecontexttypedef)
+  - [PipelineDeclarationTypeDef](#pipelinedeclarationtypedef)
+  - [PipelineExecutionSummaryTypeDef](#pipelineexecutionsummarytypedef)
+  - [PipelineExecutionTypeDef](#pipelineexecutiontypedef)
+  - [PipelineMetadataTypeDef](#pipelinemetadatatypedef)
+  - [PipelineSummaryTypeDef](#pipelinesummarytypedef)
   - [PollForJobsOutputTypeDef](#pollforjobsoutputtypedef)
   - [PollForThirdPartyJobsOutputTypeDef](#pollforthirdpartyjobsoutputtypedef)
   - [PutActionRevisionOutputTypeDef](#putactionrevisionoutputtypedef)
   - [PutApprovalResultOutputTypeDef](#putapprovalresultoutputtypedef)
   - [PutWebhookOutputTypeDef](#putwebhookoutputtypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [RetryStageExecutionOutputTypeDef](#retrystageexecutionoutputtypedef)
+  - [S3ArtifactLocationTypeDef](#s3artifactlocationtypedef)
+  - [S3LocationTypeDef](#s3locationtypedef)
+  - [SourceRevisionTypeDef](#sourcerevisiontypedef)
+  - [StageContextTypeDef](#stagecontexttypedef)
+  - [StageDeclarationTypeDef](#stagedeclarationtypedef)
+  - [StageExecutionTypeDef](#stageexecutiontypedef)
+  - [StageStateTypeDef](#stagestatetypedef)
   - [StartPipelineExecutionOutputTypeDef](#startpipelineexecutionoutputtypedef)
+  - [StopExecutionTriggerTypeDef](#stopexecutiontriggertypedef)
   - [StopPipelineExecutionOutputTypeDef](#stoppipelineexecutionoutputtypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [ThirdPartyJobDataTypeDef](#thirdpartyjobdatatypedef)
+  - [ThirdPartyJobDetailsTypeDef](#thirdpartyjobdetailstypedef)
+  - [ThirdPartyJobTypeDef](#thirdpartyjobtypedef)
+  - [TransitionStateTypeDef](#transitionstatetypedef)
   - [UpdatePipelineOutputTypeDef](#updatepipelineoutputtypedef)
+  - [WebhookAuthConfigurationTypeDef](#webhookauthconfigurationtypedef)
+  - [WebhookDefinitionTypeDef](#webhookdefinitiontypedef)
+  - [WebhookFilterRuleTypeDef](#webhookfilterruletypedef)
 
 ## AWSSessionCredentialsTypeDef
 
@@ -115,6 +115,34 @@ Required fields:
 - `sessionToken`: `str`
 
 
+
+
+## AcknowledgeJobOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import AcknowledgeJobOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `JobStatus`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## AcknowledgeThirdPartyJobOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import AcknowledgeThirdPartyJobOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `JobStatus`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## ActionConfigurationPropertyTypeDef
@@ -208,6 +236,19 @@ Optional fields:
 - `status`: `ActionExecutionStatus`
 - `input`: `"ActionExecutionInputTypeDef"`
 - `output`: `"ActionExecutionOutputTypeDef"`
+
+
+## ActionExecutionFilterTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import ActionExecutionFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipelineExecutionId`: `str`
 
 
 ## ActionExecutionInputTypeDef
@@ -484,6 +525,20 @@ Optional fields:
 - `revisionUrlTemplate`: `str`
 
 
+## ApprovalResultTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import ApprovalResultTypeDef
+```
+
+
+Required fields:
+- `summary`: `str`
+- `status`: `ApprovalStatus`
+
+
+
+
 ## ArtifactDetailTypeDef
 
 ```python
@@ -522,7 +577,7 @@ from mypy_boto3_codepipeline.type_defs import ArtifactLocationTypeDef
 
 
 Optional fields:
-- `type`: `ArtifactLocationType`
+- `type`: `Literal['S3']`
 - `s3Location`: `"S3ArtifactLocationTypeDef"`
 
 
@@ -552,7 +607,7 @@ from mypy_boto3_codepipeline.type_defs import ArtifactStoreTypeDef
 
 
 Required fields:
-- `type`: `ArtifactStoreType`
+- `type`: `Literal['S3']`
 - `location`: `str`
 
 
@@ -585,9 +640,59 @@ from mypy_boto3_codepipeline.type_defs import BlockerDeclarationTypeDef
 
 Required fields:
 - `name`: `str`
-- `type`: `BlockerType`
+- `type`: `Literal['Schedule']`
 
 
+
+
+## CreateCustomActionTypeOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import CreateCustomActionTypeOutputTypeDef
+```
+
+
+Required fields:
+- `actionType`: `"ActionTypeTypeDef"`
+
+
+
+Optional fields:
+- `tags`: `List["TagTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreatePipelineOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import CreatePipelineOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipeline`: `"PipelineDeclarationTypeDef"`
+- `tags`: `List["TagTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CurrentRevisionTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import CurrentRevisionTypeDef
+```
+
+
+Required fields:
+- `revision`: `str`
+- `changeIdentifier`: `str`
+
+
+
+Optional fields:
+- `created`: `datetime`
+- `revisionSummary`: `str`
 
 
 ## EncryptionKeyTypeDef
@@ -599,7 +704,7 @@ from mypy_boto3_codepipeline.type_defs import EncryptionKeyTypeDef
 
 Required fields:
 - `id`: `str`
-- `type`: `EncryptionKeyType`
+- `type`: `Literal['KMS']`
 
 
 
@@ -616,6 +721,21 @@ from mypy_boto3_codepipeline.type_defs import ErrorDetailsTypeDef
 Optional fields:
 - `code`: `str`
 - `message`: `str`
+
+
+## ExecutionDetailsTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import ExecutionDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `summary`: `str`
+- `externalExecutionId`: `str`
+- `percentComplete`: `int`
 
 
 ## ExecutionTriggerTypeDef
@@ -644,6 +764,112 @@ from mypy_boto3_codepipeline.type_defs import ExecutorConfigurationTypeDef
 Optional fields:
 - `lambdaExecutorConfiguration`: `"LambdaExecutorConfigurationTypeDef"`
 - `jobWorkerExecutorConfiguration`: `"JobWorkerExecutorConfigurationTypeDef"`
+
+
+## FailureDetailsTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import FailureDetailsTypeDef
+```
+
+
+Required fields:
+- `type`: `FailureType`
+- `message`: `str`
+
+
+
+Optional fields:
+- `externalExecutionId`: `str`
+
+
+## GetActionTypeOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import GetActionTypeOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `actionType`: `"ActionTypeDeclarationTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetJobDetailsOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import GetJobDetailsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobDetails`: `"JobDetailsTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetPipelineExecutionOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import GetPipelineExecutionOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipelineExecution`: `"PipelineExecutionTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetPipelineOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import GetPipelineOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipeline`: `"PipelineDeclarationTypeDef"`
+- `metadata`: `"PipelineMetadataTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetPipelineStateOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import GetPipelineStateOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipelineName`: `str`
+- `pipelineVersion`: `int`
+- `stageStates`: `List["StageStateTypeDef"]`
+- `created`: `datetime`
+- `updated`: `datetime`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetThirdPartyJobDetailsOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import GetThirdPartyJobDetailsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobDetails`: `"ThirdPartyJobDetailsTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## InputArtifactTypeDef
@@ -737,6 +963,83 @@ Required fields:
 
 
 
+## ListActionExecutionsOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import ListActionExecutionsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `actionExecutionDetails`: `List["ActionExecutionDetailTypeDef"]`
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListActionTypesOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import ListActionTypesOutputTypeDef
+```
+
+
+Required fields:
+- `actionTypes`: `List["ActionTypeTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListPipelineExecutionsOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import ListPipelineExecutionsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipelineExecutionSummaries`: `List["PipelineExecutionSummaryTypeDef"]`
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListPipelinesOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import ListPipelinesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipelines`: `List["PipelineSummaryTypeDef"]`
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListTagsForResourceOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import ListTagsForResourceOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `List["TagTypeDef"]`
+- `nextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## ListWebhookItemTypeDef
 
 ```python
@@ -758,6 +1061,21 @@ Optional fields:
 - `tags`: `List["TagTypeDef"]`
 
 
+## ListWebhooksOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import ListWebhooksOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `webhooks`: `List["ListWebhookItemTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## OutputArtifactTypeDef
 
 ```python
@@ -769,6 +1087,21 @@ Required fields:
 - `name`: `str`
 
 
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## PipelineContextTypeDef
@@ -876,6 +1209,77 @@ Optional fields:
 - `updated`: `datetime`
 
 
+## PollForJobsOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import PollForJobsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobs`: `List["JobTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## PollForThirdPartyJobsOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import PollForThirdPartyJobsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobs`: `List["ThirdPartyJobTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## PutActionRevisionOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import PutActionRevisionOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `newRevision`: `bool`
+- `pipelineExecutionId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## PutApprovalResultOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import PutApprovalResultOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `approvedAt`: `datetime`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## PutWebhookOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import PutWebhookOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `webhook`: `"ListWebhookItemTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## ResponseMetadata
 
 ```python
@@ -891,6 +1295,20 @@ Required fields:
 - `RetryAttempts`: `int`
 
 
+
+
+## RetryStageExecutionOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import RetryStageExecutionOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipelineExecutionId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## S3ArtifactLocationTypeDef
@@ -1000,6 +1418,20 @@ Optional fields:
 - `latestExecution`: `"StageExecutionTypeDef"`
 
 
+## StartPipelineExecutionOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import StartPipelineExecutionOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipelineExecutionId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## StopExecutionTriggerTypeDef
 
 ```python
@@ -1011,6 +1443,20 @@ from mypy_boto3_codepipeline.type_defs import StopExecutionTriggerTypeDef
 
 Optional fields:
 - `reason`: `str`
+
+
+## StopPipelineExecutionOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import StopPipelineExecutionOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipelineExecutionId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## TagTypeDef
@@ -1092,6 +1538,20 @@ Optional fields:
 - `disabledReason`: `str`
 
 
+## UpdatePipelineOutputTypeDef
+
+```python
+from mypy_boto3_codepipeline.type_defs import UpdatePipelineOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipeline`: `"PipelineDeclarationTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## WebhookAuthConfigurationTypeDef
 
 ```python
@@ -1138,464 +1598,4 @@ Required fields:
 
 Optional fields:
 - `matchEquals`: `str`
-
-
-## AcknowledgeJobOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import AcknowledgeJobOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `JobStatus`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## AcknowledgeThirdPartyJobOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import AcknowledgeThirdPartyJobOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `JobStatus`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ActionExecutionFilterTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import ActionExecutionFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipelineExecutionId`: `str`
-
-
-## ApprovalResultTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import ApprovalResultTypeDef
-```
-
-
-Required fields:
-- `summary`: `str`
-- `status`: `ApprovalStatus`
-
-
-
-
-## CreateCustomActionTypeOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import CreateCustomActionTypeOutputTypeDef
-```
-
-
-Required fields:
-- `actionType`: `"ActionTypeTypeDef"`
-
-
-
-Optional fields:
-- `tags`: `List["TagTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreatePipelineOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import CreatePipelineOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipeline`: `"PipelineDeclarationTypeDef"`
-- `tags`: `List["TagTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CurrentRevisionTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import CurrentRevisionTypeDef
-```
-
-
-Required fields:
-- `revision`: `str`
-- `changeIdentifier`: `str`
-
-
-
-Optional fields:
-- `created`: `datetime`
-- `revisionSummary`: `str`
-
-
-## ExecutionDetailsTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import ExecutionDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `summary`: `str`
-- `externalExecutionId`: `str`
-- `percentComplete`: `int`
-
-
-## FailureDetailsTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import FailureDetailsTypeDef
-```
-
-
-Required fields:
-- `type`: `FailureType`
-- `message`: `str`
-
-
-
-Optional fields:
-- `externalExecutionId`: `str`
-
-
-## GetActionTypeOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import GetActionTypeOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `actionType`: `"ActionTypeDeclarationTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetJobDetailsOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import GetJobDetailsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobDetails`: `"JobDetailsTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetPipelineExecutionOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import GetPipelineExecutionOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipelineExecution`: `"PipelineExecutionTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetPipelineOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import GetPipelineOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipeline`: `"PipelineDeclarationTypeDef"`
-- `metadata`: `"PipelineMetadataTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetPipelineStateOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import GetPipelineStateOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipelineName`: `str`
-- `pipelineVersion`: `int`
-- `stageStates`: `List["StageStateTypeDef"]`
-- `created`: `datetime`
-- `updated`: `datetime`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetThirdPartyJobDetailsOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import GetThirdPartyJobDetailsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobDetails`: `"ThirdPartyJobDetailsTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListActionExecutionsOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import ListActionExecutionsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `actionExecutionDetails`: `List["ActionExecutionDetailTypeDef"]`
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListActionTypesOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import ListActionTypesOutputTypeDef
-```
-
-
-Required fields:
-- `actionTypes`: `List["ActionTypeTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListPipelineExecutionsOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import ListPipelineExecutionsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipelineExecutionSummaries`: `List["PipelineExecutionSummaryTypeDef"]`
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListPipelinesOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import ListPipelinesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipelines`: `List["PipelineSummaryTypeDef"]`
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListTagsForResourceOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import ListTagsForResourceOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `List["TagTypeDef"]`
-- `nextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListWebhooksOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import ListWebhooksOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `webhooks`: `List["ListWebhookItemTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## PollForJobsOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import PollForJobsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobs`: `List["JobTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PollForThirdPartyJobsOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import PollForThirdPartyJobsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobs`: `List["ThirdPartyJobTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PutActionRevisionOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import PutActionRevisionOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `newRevision`: `bool`
-- `pipelineExecutionId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PutApprovalResultOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import PutApprovalResultOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `approvedAt`: `datetime`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PutWebhookOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import PutWebhookOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `webhook`: `"ListWebhookItemTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## RetryStageExecutionOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import RetryStageExecutionOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipelineExecutionId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## StartPipelineExecutionOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import StartPipelineExecutionOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipelineExecutionId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## StopPipelineExecutionOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import StopPipelineExecutionOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipelineExecutionId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## UpdatePipelineOutputTypeDef
-
-```python
-from mypy_boto3_codepipeline.type_defs import UpdatePipelineOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipeline`: `"PipelineDeclarationTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
 

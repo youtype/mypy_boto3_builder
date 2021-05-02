@@ -87,12 +87,12 @@ from mypy_boto3_iotsecuretunneling.type_defs import ConnectionStateTypeDef, ...
 ```
 
 - [ConnectionStateTypeDef](./type_defs.md#connectionstatetypedef)
+- [DescribeTunnelResponseTypeDef](./type_defs.md#describetunnelresponsetypedef)
 - [DestinationConfigTypeDef](./type_defs.md#destinationconfigtypedef)
+- [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
+- [ListTunnelsResponseTypeDef](./type_defs.md#listtunnelsresponsetypedef)
+- [OpenTunnelResponseTypeDef](./type_defs.md#opentunnelresponsetypedef)
 - [TagTypeDef](./type_defs.md#tagtypedef)
 - [TimeoutConfigTypeDef](./type_defs.md#timeoutconfigtypedef)
 - [TunnelSummaryTypeDef](./type_defs.md#tunnelsummarytypedef)
 - [TunnelTypeDef](./type_defs.md#tunneltypedef)
-- [DescribeTunnelResponseTypeDef](./type_defs.md#describetunnelresponsetypedef)
-- [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
-- [ListTunnelsResponseTypeDef](./type_defs.md#listtunnelsresponsetypedef)
-- [OpenTunnelResponseTypeDef](./type_defs.md#opentunnelresponsetypedef)

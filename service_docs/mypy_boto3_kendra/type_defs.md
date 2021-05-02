@@ -10,9 +10,13 @@ type annotations stubs module [mypy_boto3_kendra](https://pypi.org/project/mypy-
   - [AclConfigurationTypeDef](#aclconfigurationtypedef)
   - [AdditionalResultAttributeTypeDef](#additionalresultattributetypedef)
   - [AdditionalResultAttributeValueTypeDef](#additionalresultattributevaluetypedef)
+  - [AttributeFilterTypeDef](#attributefiltertypedef)
   - [BatchDeleteDocumentResponseFailedDocumentTypeDef](#batchdeletedocumentresponsefaileddocumenttypedef)
+  - [BatchDeleteDocumentResponseTypeDef](#batchdeletedocumentresponsetypedef)
   - [BatchPutDocumentResponseFailedDocumentTypeDef](#batchputdocumentresponsefaileddocumenttypedef)
+  - [BatchPutDocumentResponseTypeDef](#batchputdocumentresponsetypedef)
   - [CapacityUnitsConfigurationTypeDef](#capacityunitsconfigurationtypedef)
+  - [ClickFeedbackTypeDef](#clickfeedbacktypedef)
   - [ColumnConfigurationTypeDef](#columnconfigurationtypedef)
   - [ConfluenceAttachmentConfigurationTypeDef](#confluenceattachmentconfigurationtypedef)
   - [ConfluenceAttachmentToIndexFieldMappingTypeDef](#confluenceattachmenttoindexfieldmappingtypedef)
@@ -24,19 +28,31 @@ type annotations stubs module [mypy_boto3_kendra](https://pypi.org/project/mypy-
   - [ConfluenceSpaceConfigurationTypeDef](#confluencespaceconfigurationtypedef)
   - [ConfluenceSpaceToIndexFieldMappingTypeDef](#confluencespacetoindexfieldmappingtypedef)
   - [ConnectionConfigurationTypeDef](#connectionconfigurationtypedef)
+  - [CreateDataSourceResponseTypeDef](#createdatasourceresponsetypedef)
+  - [CreateFaqResponseTypeDef](#createfaqresponsetypedef)
+  - [CreateIndexResponseTypeDef](#createindexresponsetypedef)
+  - [CreateThesaurusResponseTypeDef](#createthesaurusresponsetypedef)
   - [DataSourceConfigurationTypeDef](#datasourceconfigurationtypedef)
   - [DataSourceSummaryTypeDef](#datasourcesummarytypedef)
+  - [DataSourceSyncJobMetricTargetTypeDef](#datasourcesyncjobmetrictargettypedef)
   - [DataSourceSyncJobMetricsTypeDef](#datasourcesyncjobmetricstypedef)
   - [DataSourceSyncJobTypeDef](#datasourcesyncjobtypedef)
   - [DataSourceToIndexFieldMappingTypeDef](#datasourcetoindexfieldmappingtypedef)
   - [DataSourceVpcConfigurationTypeDef](#datasourcevpcconfigurationtypedef)
   - [DatabaseConfigurationTypeDef](#databaseconfigurationtypedef)
+  - [DescribeDataSourceResponseTypeDef](#describedatasourceresponsetypedef)
+  - [DescribeFaqResponseTypeDef](#describefaqresponsetypedef)
+  - [DescribeIndexResponseTypeDef](#describeindexresponsetypedef)
+  - [DescribeThesaurusResponseTypeDef](#describethesaurusresponsetypedef)
   - [DocumentAttributeTypeDef](#documentattributetypedef)
   - [DocumentAttributeValueCountPairTypeDef](#documentattributevaluecountpairtypedef)
   - [DocumentAttributeValueTypeDef](#documentattributevaluetypedef)
   - [DocumentMetadataConfigurationTypeDef](#documentmetadataconfigurationtypedef)
+  - [DocumentRelevanceConfigurationTypeDef](#documentrelevanceconfigurationtypedef)
+  - [DocumentTypeDef](#documenttypedef)
   - [DocumentsMetadataConfigurationTypeDef](#documentsmetadataconfigurationtypedef)
   - [FacetResultTypeDef](#facetresulttypedef)
+  - [FacetTypeDef](#facettypedef)
   - [FaqStatisticsTypeDef](#faqstatisticstypedef)
   - [FaqSummaryTypeDef](#faqsummarytypedef)
   - [GoogleDriveConfigurationTypeDef](#googledriveconfigurationtypedef)
@@ -45,10 +61,18 @@ type annotations stubs module [mypy_boto3_kendra](https://pypi.org/project/mypy-
   - [IndexStatisticsTypeDef](#indexstatisticstypedef)
   - [JsonTokenTypeConfigurationTypeDef](#jsontokentypeconfigurationtypedef)
   - [JwtTokenTypeConfigurationTypeDef](#jwttokentypeconfigurationtypedef)
+  - [ListDataSourceSyncJobsResponseTypeDef](#listdatasourcesyncjobsresponsetypedef)
+  - [ListDataSourcesResponseTypeDef](#listdatasourcesresponsetypedef)
+  - [ListFaqsResponseTypeDef](#listfaqsresponsetypedef)
+  - [ListIndicesResponseTypeDef](#listindicesresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [ListThesauriResponseTypeDef](#listthesauriresponsetypedef)
   - [OneDriveConfigurationTypeDef](#onedriveconfigurationtypedef)
   - [OneDriveUsersTypeDef](#onedriveuserstypedef)
   - [PrincipalTypeDef](#principaltypedef)
   - [QueryResultItemTypeDef](#queryresultitemtypedef)
+  - [QueryResultTypeDef](#queryresulttypedef)
+  - [RelevanceFeedbackTypeDef](#relevancefeedbacktypedef)
   - [RelevanceTypeDef](#relevancetypedef)
   - [S3DataSourceConfigurationTypeDef](#s3datasourceconfigurationtypedef)
   - [S3PathTypeDef](#s3pathtypedef)
@@ -66,40 +90,16 @@ type annotations stubs module [mypy_boto3_kendra](https://pypi.org/project/mypy-
   - [ServiceNowKnowledgeArticleConfigurationTypeDef](#servicenowknowledgearticleconfigurationtypedef)
   - [ServiceNowServiceCatalogConfigurationTypeDef](#servicenowservicecatalogconfigurationtypedef)
   - [SharePointConfigurationTypeDef](#sharepointconfigurationtypedef)
+  - [SortingConfigurationTypeDef](#sortingconfigurationtypedef)
   - [SqlConfigurationTypeDef](#sqlconfigurationtypedef)
+  - [StartDataSourceSyncJobResponseTypeDef](#startdatasourcesyncjobresponsetypedef)
   - [TagTypeDef](#tagtypedef)
   - [TextDocumentStatisticsTypeDef](#textdocumentstatisticstypedef)
   - [TextWithHighlightsTypeDef](#textwithhighlightstypedef)
   - [ThesaurusSummaryTypeDef](#thesaurussummarytypedef)
-  - [UserTokenConfigurationTypeDef](#usertokenconfigurationtypedef)
-  - [BatchDeleteDocumentResponseTypeDef](#batchdeletedocumentresponsetypedef)
-  - [BatchPutDocumentResponseTypeDef](#batchputdocumentresponsetypedef)
-  - [ClickFeedbackTypeDef](#clickfeedbacktypedef)
-  - [CreateDataSourceResponseTypeDef](#createdatasourceresponsetypedef)
-  - [CreateFaqResponseTypeDef](#createfaqresponsetypedef)
-  - [CreateIndexResponseTypeDef](#createindexresponsetypedef)
-  - [CreateThesaurusResponseTypeDef](#createthesaurusresponsetypedef)
-  - [DataSourceSyncJobMetricTargetTypeDef](#datasourcesyncjobmetrictargettypedef)
-  - [DescribeDataSourceResponseTypeDef](#describedatasourceresponsetypedef)
-  - [DescribeFaqResponseTypeDef](#describefaqresponsetypedef)
-  - [DescribeIndexResponseTypeDef](#describeindexresponsetypedef)
-  - [DescribeThesaurusResponseTypeDef](#describethesaurusresponsetypedef)
-  - [AttributeFilterTypeDef](#attributefiltertypedef)
-  - [DocumentRelevanceConfigurationTypeDef](#documentrelevanceconfigurationtypedef)
-  - [DocumentTypeDef](#documenttypedef)
-  - [FacetTypeDef](#facettypedef)
-  - [ListDataSourceSyncJobsResponseTypeDef](#listdatasourcesyncjobsresponsetypedef)
-  - [ListDataSourcesResponseTypeDef](#listdatasourcesresponsetypedef)
-  - [ListFaqsResponseTypeDef](#listfaqsresponsetypedef)
-  - [ListIndicesResponseTypeDef](#listindicesresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [ListThesauriResponseTypeDef](#listthesauriresponsetypedef)
-  - [QueryResultTypeDef](#queryresulttypedef)
-  - [RelevanceFeedbackTypeDef](#relevancefeedbacktypedef)
-  - [SortingConfigurationTypeDef](#sortingconfigurationtypedef)
-  - [StartDataSourceSyncJobResponseTypeDef](#startdatasourcesyncjobresponsetypedef)
   - [TimeRangeTypeDef](#timerangetypedef)
   - [UserContextTypeDef](#usercontexttypedef)
+  - [UserTokenConfigurationTypeDef](#usertokenconfigurationtypedef)
 
 ## AccessControlListConfigurationTypeDef
 
@@ -136,7 +136,7 @@ from mypy_boto3_kendra.type_defs import AdditionalResultAttributeTypeDef
 
 Required fields:
 - `Key`: `str`
-- `ValueType`: `AdditionalResultAttributeValueType`
+- `ValueType`: `Literal['TEXT_WITH_HIGHLIGHTS_VALUE']`
 - `Value`: `"AdditionalResultAttributeValueTypeDef"`
 
 
@@ -155,6 +155,28 @@ Optional fields:
 - `TextWithHighlightsValue`: `"TextWithHighlightsTypeDef"`
 
 
+## AttributeFilterTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import AttributeFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `AndAllFilters`: `List[Dict[str, Any]]`
+- `OrAllFilters`: `List[Dict[str, Any]]`
+- `NotFilter`: `Dict[str, Any]`
+- `EqualsTo`: `"DocumentAttributeTypeDef"`
+- `ContainsAll`: `"DocumentAttributeTypeDef"`
+- `ContainsAny`: `"DocumentAttributeTypeDef"`
+- `GreaterThan`: `"DocumentAttributeTypeDef"`
+- `GreaterThanOrEquals`: `"DocumentAttributeTypeDef"`
+- `LessThan`: `"DocumentAttributeTypeDef"`
+- `LessThanOrEquals`: `"DocumentAttributeTypeDef"`
+
+
 ## BatchDeleteDocumentResponseFailedDocumentTypeDef
 
 ```python
@@ -168,6 +190,19 @@ Optional fields:
 - `Id`: `str`
 - `ErrorCode`: `ErrorCode`
 - `ErrorMessage`: `str`
+
+
+## BatchDeleteDocumentResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import BatchDeleteDocumentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `FailedDocuments`: `List["BatchDeleteDocumentResponseFailedDocumentTypeDef"]`
 
 
 ## BatchPutDocumentResponseFailedDocumentTypeDef
@@ -185,6 +220,19 @@ Optional fields:
 - `ErrorMessage`: `str`
 
 
+## BatchPutDocumentResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import BatchPutDocumentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `FailedDocuments`: `List["BatchPutDocumentResponseFailedDocumentTypeDef"]`
+
+
 ## CapacityUnitsConfigurationTypeDef
 
 ```python
@@ -195,6 +243,20 @@ from mypy_boto3_kendra.type_defs import CapacityUnitsConfigurationTypeDef
 Required fields:
 - `StorageCapacityUnits`: `int`
 - `QueryCapacityUnits`: `int`
+
+
+
+
+## ClickFeedbackTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import ClickFeedbackTypeDef
+```
+
+
+Required fields:
+- `ResultId`: `str`
+- `ClickTime`: `datetime`
 
 
 
@@ -376,6 +438,58 @@ Required fields:
 
 
 
+## CreateDataSourceResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import CreateDataSourceResponseTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+
+
+
+
+## CreateFaqResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import CreateFaqResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+
+
+## CreateIndexResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import CreateIndexResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+
+
+## CreateThesaurusResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import CreateThesaurusResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+
+
 ## DataSourceConfigurationTypeDef
 
 ```python
@@ -412,6 +526,20 @@ Optional fields:
 - `CreatedAt`: `datetime`
 - `UpdatedAt`: `datetime`
 - `Status`: `DataSourceStatus`
+
+
+## DataSourceSyncJobMetricTargetTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import DataSourceSyncJobMetricTargetTypeDef
+```
+
+
+Required fields:
+- `DataSourceId`: `str`
+- `DataSourceSyncJobId`: `str`
+
+
 
 
 ## DataSourceSyncJobMetricsTypeDef
@@ -502,6 +630,105 @@ Optional fields:
 - `SqlConfiguration`: `"SqlConfigurationTypeDef"`
 
 
+## DescribeDataSourceResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import DescribeDataSourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `IndexId`: `str`
+- `Name`: `str`
+- `Type`: `DataSourceType`
+- `Configuration`: `"DataSourceConfigurationTypeDef"`
+- `CreatedAt`: `datetime`
+- `UpdatedAt`: `datetime`
+- `Description`: `str`
+- `Status`: `DataSourceStatus`
+- `Schedule`: `str`
+- `RoleArn`: `str`
+- `ErrorMessage`: `str`
+
+
+## DescribeFaqResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import DescribeFaqResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `IndexId`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `CreatedAt`: `datetime`
+- `UpdatedAt`: `datetime`
+- `S3Path`: `"S3PathTypeDef"`
+- `Status`: `FaqStatus`
+- `RoleArn`: `str`
+- `ErrorMessage`: `str`
+- `FileFormat`: `FaqFileFormat`
+
+
+## DescribeIndexResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import DescribeIndexResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Id`: `str`
+- `Edition`: `IndexEdition`
+- `RoleArn`: `str`
+- `ServerSideEncryptionConfiguration`: `"ServerSideEncryptionConfigurationTypeDef"`
+- `Status`: `IndexStatus`
+- `Description`: `str`
+- `CreatedAt`: `datetime`
+- `UpdatedAt`: `datetime`
+- `DocumentMetadataConfigurations`: `List["DocumentMetadataConfigurationTypeDef"]`
+- `IndexStatistics`: `"IndexStatisticsTypeDef"`
+- `ErrorMessage`: `str`
+- `CapacityUnits`: `"CapacityUnitsConfigurationTypeDef"`
+- `UserTokenConfigurations`: `List["UserTokenConfigurationTypeDef"]`
+- `UserContextPolicy`: `UserContextPolicy`
+
+
+## DescribeThesaurusResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import DescribeThesaurusResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `IndexId`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `Status`: `ThesaurusStatus`
+- `ErrorMessage`: `str`
+- `CreatedAt`: `datetime`
+- `UpdatedAt`: `datetime`
+- `RoleArn`: `str`
+- `SourceS3Path`: `"S3PathTypeDef"`
+- `FileSizeBytes`: `int`
+- `TermCount`: `int`
+- `SynonymRuleCount`: `int`
+
+
 ## DocumentAttributeTypeDef
 
 ```python
@@ -564,6 +791,41 @@ Optional fields:
 - `Search`: `"SearchTypeDef"`
 
 
+## DocumentRelevanceConfigurationTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import DocumentRelevanceConfigurationTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Relevance`: `"RelevanceTypeDef"`
+
+
+
+
+## DocumentTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import DocumentTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+
+
+
+Optional fields:
+- `Title`: `str`
+- `Blob`: `Union[bytes, IO[bytes]]`
+- `S3Path`: `"S3PathTypeDef"`
+- `Attributes`: `List["DocumentAttributeTypeDef"]`
+- `AccessControlList`: `List["PrincipalTypeDef"]`
+- `ContentType`: `ContentType`
+
+
 ## DocumentsMetadataConfigurationTypeDef
 
 ```python
@@ -590,6 +852,19 @@ Optional fields:
 - `DocumentAttributeKey`: `str`
 - `DocumentAttributeValueType`: `DocumentAttributeValueType`
 - `DocumentAttributeValueCountPairs`: `List["DocumentAttributeValueCountPairTypeDef"]`
+
+
+## FacetTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import FacetTypeDef
+```
+
+
+
+
+Optional fields:
+- `DocumentAttributeKey`: `str`
 
 
 ## FaqStatisticsTypeDef
@@ -731,6 +1006,89 @@ Optional fields:
 - `ClaimRegex`: `str`
 
 
+## ListDataSourceSyncJobsResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import ListDataSourceSyncJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `History`: `List["DataSourceSyncJobTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListDataSourcesResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import ListDataSourcesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SummaryItems`: `List["DataSourceSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListFaqsResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import ListFaqsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `FaqSummaryItems`: `List["FaqSummaryTypeDef"]`
+
+
+## ListIndicesResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import ListIndicesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `IndexConfigurationSummaryItems`: `List["IndexConfigurationSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `List["TagTypeDef"]`
+
+
+## ListThesauriResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import ListThesauriResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `ThesaurusSummaryItems`: `List["ThesaurusSummaryTypeDef"]`
+
+
 ## OneDriveConfigurationTypeDef
 
 ```python
@@ -801,6 +1159,36 @@ Optional fields:
 - `DocumentAttributes`: `List["DocumentAttributeTypeDef"]`
 - `ScoreAttributes`: `"ScoreAttributesTypeDef"`
 - `FeedbackToken`: `str`
+
+
+## QueryResultTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import QueryResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `QueryId`: `str`
+- `ResultItems`: `List["QueryResultItemTypeDef"]`
+- `FacetResults`: `List["FacetResultTypeDef"]`
+- `TotalNumberOfResults`: `int`
+
+
+## RelevanceFeedbackTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import RelevanceFeedbackTypeDef
+```
+
+
+Required fields:
+- `ResultId`: `str`
+- `RelevanceValue`: `RelevanceType`
+
+
 
 
 ## RelevanceTypeDef
@@ -1090,7 +1478,7 @@ from mypy_boto3_kendra.type_defs import SharePointConfigurationTypeDef
 
 
 Required fields:
-- `SharePointVersion`: `SharePointVersion`
+- `SharePointVersion`: `Literal['SHAREPOINT_ONLINE']`
 - `Urls`: `List[str]`
 - `SecretArn`: `str`
 
@@ -1107,6 +1495,20 @@ Optional fields:
 - `DisableLocalGroups`: `bool`
 
 
+## SortingConfigurationTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import SortingConfigurationTypeDef
+```
+
+
+Required fields:
+- `DocumentAttributeKey`: `str`
+- `SortOrder`: `SortOrder`
+
+
+
+
 ## SqlConfigurationTypeDef
 
 ```python
@@ -1118,6 +1520,19 @@ from mypy_boto3_kendra.type_defs import SqlConfigurationTypeDef
 
 Optional fields:
 - `QueryIdentifiersEnclosingOption`: `QueryIdentifiersEnclosingOption`
+
+
+## StartDataSourceSyncJobResponseTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import StartDataSourceSyncJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ExecutionId`: `str`
 
 
 ## TagTypeDef
@@ -1179,435 +1594,6 @@ Optional fields:
 - `UpdatedAt`: `datetime`
 
 
-## UserTokenConfigurationTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import UserTokenConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `JwtTokenTypeConfiguration`: `"JwtTokenTypeConfigurationTypeDef"`
-- `JsonTokenTypeConfiguration`: `"JsonTokenTypeConfigurationTypeDef"`
-
-
-## BatchDeleteDocumentResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import BatchDeleteDocumentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `FailedDocuments`: `List["BatchDeleteDocumentResponseFailedDocumentTypeDef"]`
-
-
-## BatchPutDocumentResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import BatchPutDocumentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `FailedDocuments`: `List["BatchPutDocumentResponseFailedDocumentTypeDef"]`
-
-
-## ClickFeedbackTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import ClickFeedbackTypeDef
-```
-
-
-Required fields:
-- `ResultId`: `str`
-- `ClickTime`: `datetime`
-
-
-
-
-## CreateDataSourceResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import CreateDataSourceResponseTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-
-
-
-
-## CreateFaqResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import CreateFaqResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-
-
-## CreateIndexResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import CreateIndexResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-
-
-## CreateThesaurusResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import CreateThesaurusResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-
-
-## DataSourceSyncJobMetricTargetTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import DataSourceSyncJobMetricTargetTypeDef
-```
-
-
-Required fields:
-- `DataSourceId`: `str`
-- `DataSourceSyncJobId`: `str`
-
-
-
-
-## DescribeDataSourceResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import DescribeDataSourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `IndexId`: `str`
-- `Name`: `str`
-- `Type`: `DataSourceType`
-- `Configuration`: `"DataSourceConfigurationTypeDef"`
-- `CreatedAt`: `datetime`
-- `UpdatedAt`: `datetime`
-- `Description`: `str`
-- `Status`: `DataSourceStatus`
-- `Schedule`: `str`
-- `RoleArn`: `str`
-- `ErrorMessage`: `str`
-
-
-## DescribeFaqResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import DescribeFaqResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `IndexId`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `CreatedAt`: `datetime`
-- `UpdatedAt`: `datetime`
-- `S3Path`: `"S3PathTypeDef"`
-- `Status`: `FaqStatus`
-- `RoleArn`: `str`
-- `ErrorMessage`: `str`
-- `FileFormat`: `FaqFileFormat`
-
-
-## DescribeIndexResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import DescribeIndexResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Id`: `str`
-- `Edition`: `IndexEdition`
-- `RoleArn`: `str`
-- `ServerSideEncryptionConfiguration`: `"ServerSideEncryptionConfigurationTypeDef"`
-- `Status`: `IndexStatus`
-- `Description`: `str`
-- `CreatedAt`: `datetime`
-- `UpdatedAt`: `datetime`
-- `DocumentMetadataConfigurations`: `List["DocumentMetadataConfigurationTypeDef"]`
-- `IndexStatistics`: `"IndexStatisticsTypeDef"`
-- `ErrorMessage`: `str`
-- `CapacityUnits`: `"CapacityUnitsConfigurationTypeDef"`
-- `UserTokenConfigurations`: `List["UserTokenConfigurationTypeDef"]`
-- `UserContextPolicy`: `UserContextPolicy`
-
-
-## DescribeThesaurusResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import DescribeThesaurusResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `IndexId`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `Status`: `ThesaurusStatus`
-- `ErrorMessage`: `str`
-- `CreatedAt`: `datetime`
-- `UpdatedAt`: `datetime`
-- `RoleArn`: `str`
-- `SourceS3Path`: `"S3PathTypeDef"`
-- `FileSizeBytes`: `int`
-- `TermCount`: `int`
-- `SynonymRuleCount`: `int`
-
-
-## AttributeFilterTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import AttributeFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `AndAllFilters`: `List[Dict[str, Any]]`
-- `OrAllFilters`: `List[Dict[str, Any]]`
-- `NotFilter`: `Dict[str, Any]`
-- `EqualsTo`: `"DocumentAttributeTypeDef"`
-- `ContainsAll`: `"DocumentAttributeTypeDef"`
-- `ContainsAny`: `"DocumentAttributeTypeDef"`
-- `GreaterThan`: `"DocumentAttributeTypeDef"`
-- `GreaterThanOrEquals`: `"DocumentAttributeTypeDef"`
-- `LessThan`: `"DocumentAttributeTypeDef"`
-- `LessThanOrEquals`: `"DocumentAttributeTypeDef"`
-
-
-## DocumentRelevanceConfigurationTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import DocumentRelevanceConfigurationTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Relevance`: `"RelevanceTypeDef"`
-
-
-
-
-## DocumentTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import DocumentTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-
-
-
-Optional fields:
-- `Title`: `str`
-- `Blob`: `Union[bytes, IO[bytes]]`
-- `S3Path`: `"S3PathTypeDef"`
-- `Attributes`: `List["DocumentAttributeTypeDef"]`
-- `AccessControlList`: `List["PrincipalTypeDef"]`
-- `ContentType`: `ContentType`
-
-
-## FacetTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import FacetTypeDef
-```
-
-
-
-
-Optional fields:
-- `DocumentAttributeKey`: `str`
-
-
-## ListDataSourceSyncJobsResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import ListDataSourceSyncJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `History`: `List["DataSourceSyncJobTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListDataSourcesResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import ListDataSourcesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SummaryItems`: `List["DataSourceSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListFaqsResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import ListFaqsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `FaqSummaryItems`: `List["FaqSummaryTypeDef"]`
-
-
-## ListIndicesResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import ListIndicesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `IndexConfigurationSummaryItems`: `List["IndexConfigurationSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ListThesauriResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import ListThesauriResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `ThesaurusSummaryItems`: `List["ThesaurusSummaryTypeDef"]`
-
-
-## QueryResultTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import QueryResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `QueryId`: `str`
-- `ResultItems`: `List["QueryResultItemTypeDef"]`
-- `FacetResults`: `List["FacetResultTypeDef"]`
-- `TotalNumberOfResults`: `int`
-
-
-## RelevanceFeedbackTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import RelevanceFeedbackTypeDef
-```
-
-
-Required fields:
-- `ResultId`: `str`
-- `RelevanceValue`: `RelevanceType`
-
-
-
-
-## SortingConfigurationTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import SortingConfigurationTypeDef
-```
-
-
-Required fields:
-- `DocumentAttributeKey`: `str`
-- `SortOrder`: `SortOrder`
-
-
-
-
-## StartDataSourceSyncJobResponseTypeDef
-
-```python
-from mypy_boto3_kendra.type_defs import StartDataSourceSyncJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ExecutionId`: `str`
-
-
 ## TimeRangeTypeDef
 
 ```python
@@ -1633,4 +1619,18 @@ from mypy_boto3_kendra.type_defs import UserContextTypeDef
 
 Optional fields:
 - `Token`: `str`
+
+
+## UserTokenConfigurationTypeDef
+
+```python
+from mypy_boto3_kendra.type_defs import UserTokenConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `JwtTokenTypeConfiguration`: `"JwtTokenTypeConfigurationTypeDef"`
+- `JsonTokenTypeConfiguration`: `"JsonTokenTypeConfigurationTypeDef"`
 

@@ -7,9 +7,6 @@ type annotations stubs module [mypy_boto3_mobile](https://pypi.org/project/mypy-
 
 - [Structures for boto3 Mobile module](#structures-for-boto3-mobile-module)
   - [BundleDetailsTypeDef](#bundledetailstypedef)
-  - [ProjectDetailsTypeDef](#projectdetailstypedef)
-  - [ProjectSummaryTypeDef](#projectsummarytypedef)
-  - [ResourceTypeDef](#resourcetypedef)
   - [CreateProjectResultTypeDef](#createprojectresulttypedef)
   - [DeleteProjectResultTypeDef](#deleteprojectresulttypedef)
   - [DescribeBundleResultTypeDef](#describebundleresulttypedef)
@@ -19,6 +16,9 @@ type annotations stubs module [mypy_boto3_mobile](https://pypi.org/project/mypy-
   - [ListBundlesResultTypeDef](#listbundlesresulttypedef)
   - [ListProjectsResultTypeDef](#listprojectsresulttypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ProjectDetailsTypeDef](#projectdetailstypedef)
+  - [ProjectSummaryTypeDef](#projectsummarytypedef)
+  - [ResourceTypeDef](#resourcetypedef)
   - [UpdateProjectResultTypeDef](#updateprojectresulttypedef)
 
 ## BundleDetailsTypeDef
@@ -37,57 +37,6 @@ Optional fields:
 - `description`: `str`
 - `iconUrl`: `str`
 - `availablePlatforms`: `List[Platform]`
-
-
-## ProjectDetailsTypeDef
-
-```python
-from mypy_boto3_mobile.type_defs import ProjectDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `projectId`: `str`
-- `region`: `str`
-- `state`: `ProjectState`
-- `createdDate`: `datetime`
-- `lastUpdatedDate`: `datetime`
-- `consoleUrl`: `str`
-- `resources`: `List["ResourceTypeDef"]`
-
-
-## ProjectSummaryTypeDef
-
-```python
-from mypy_boto3_mobile.type_defs import ProjectSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `projectId`: `str`
-
-
-## ResourceTypeDef
-
-```python
-from mypy_boto3_mobile.type_defs import ResourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `type`: `str`
-- `name`: `str`
-- `arn`: `str`
-- `feature`: `str`
-- `attributes`: `Dict[str, str]`
 
 
 ## CreateProjectResultTypeDef
@@ -212,6 +161,57 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ProjectDetailsTypeDef
+
+```python
+from mypy_boto3_mobile.type_defs import ProjectDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `projectId`: `str`
+- `region`: `str`
+- `state`: `ProjectState`
+- `createdDate`: `datetime`
+- `lastUpdatedDate`: `datetime`
+- `consoleUrl`: `str`
+- `resources`: `List["ResourceTypeDef"]`
+
+
+## ProjectSummaryTypeDef
+
+```python
+from mypy_boto3_mobile.type_defs import ProjectSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `projectId`: `str`
+
+
+## ResourceTypeDef
+
+```python
+from mypy_boto3_mobile.type_defs import ResourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `type`: `str`
+- `name`: `str`
+- `arn`: `str`
+- `feature`: `str`
+- `attributes`: `Dict[str, str]`
 
 
 ## UpdateProjectResultTypeDef

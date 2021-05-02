@@ -6,76 +6,17 @@ Auto-generated documentation for [TimestreamQuery](https://boto3.amazonaws.com/v
 type annotations stubs module [mypy_boto3_timestream_query](https://pypi.org/project/mypy-boto3-timestream-query/).
 
 - [Structures for boto3 TimestreamQuery module](#structures-for-boto3-timestreamquery-module)
-  - [EndpointTypeDef](#endpointtypedef)
-  - [QueryStatusTypeDef](#querystatustypedef)
-  - [TimeSeriesDataPointTypeDef](#timeseriesdatapointtypedef)
-  - [TypeTypeDef](#typetypedef)
   - [CancelQueryResponseTypeDef](#cancelqueryresponsetypedef)
-  - [DescribeEndpointsResponseTypeDef](#describeendpointsresponsetypedef)
-  - [DatumTypeDef](#datumtypedef)
-  - [RowTypeDef](#rowtypedef)
   - [ColumnInfoTypeDef](#columninfotypedef)
+  - [DatumTypeDef](#datumtypedef)
+  - [DescribeEndpointsResponseTypeDef](#describeendpointsresponsetypedef)
+  - [EndpointTypeDef](#endpointtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [QueryResponseTypeDef](#queryresponsetypedef)
-
-## EndpointTypeDef
-
-```python
-from mypy_boto3_timestream_query.type_defs import EndpointTypeDef
-```
-
-
-Required fields:
-- `Address`: `str`
-- `CachePeriodInMinutes`: `int`
-
-
-
-
-## QueryStatusTypeDef
-
-```python
-from mypy_boto3_timestream_query.type_defs import QueryStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProgressPercentage`: `float`
-- `CumulativeBytesScanned`: `int`
-- `CumulativeBytesMetered`: `int`
-
-
-## TimeSeriesDataPointTypeDef
-
-```python
-from mypy_boto3_timestream_query.type_defs import TimeSeriesDataPointTypeDef
-```
-
-
-Required fields:
-- `Time`: `str`
-- `Value`: `Dict[str, Any]`
-
-
-
-
-## TypeTypeDef
-
-```python
-from mypy_boto3_timestream_query.type_defs import TypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `ScalarType`: `ScalarType`
-- `ArrayColumnInfo`: `Dict[str, Any]`
-- `TimeSeriesMeasureValueColumnInfo`: `Dict[str, Any]`
-- `RowColumnInfo`: `List[Dict[str, Any]]`
-
+  - [QueryStatusTypeDef](#querystatustypedef)
+  - [RowTypeDef](#rowtypedef)
+  - [TimeSeriesDataPointTypeDef](#timeseriesdatapointtypedef)
+  - [TypeTypeDef](#typetypedef)
 
 ## CancelQueryResponseTypeDef
 
@@ -90,17 +31,20 @@ Optional fields:
 - `CancellationMessage`: `str`
 
 
-## DescribeEndpointsResponseTypeDef
+## ColumnInfoTypeDef
 
 ```python
-from mypy_boto3_timestream_query.type_defs import DescribeEndpointsResponseTypeDef
+from mypy_boto3_timestream_query.type_defs import ColumnInfoTypeDef
 ```
 
 
 Required fields:
-- `Endpoints`: `List["EndpointTypeDef"]`
+- `Type`: `"TypeTypeDef"`
 
 
+
+Optional fields:
+- `Name`: `str`
 
 
 ## DatumTypeDef
@@ -120,33 +64,31 @@ Optional fields:
 - `NullValue`: `bool`
 
 
-## RowTypeDef
+## DescribeEndpointsResponseTypeDef
 
 ```python
-from mypy_boto3_timestream_query.type_defs import RowTypeDef
+from mypy_boto3_timestream_query.type_defs import DescribeEndpointsResponseTypeDef
 ```
 
 
 Required fields:
-- `Data`: `List[Dict[str, Any]]`
+- `Endpoints`: `List["EndpointTypeDef"]`
 
 
 
 
-## ColumnInfoTypeDef
+## EndpointTypeDef
 
 ```python
-from mypy_boto3_timestream_query.type_defs import ColumnInfoTypeDef
+from mypy_boto3_timestream_query.type_defs import EndpointTypeDef
 ```
 
 
 Required fields:
-- `Type`: `"TypeTypeDef"`
+- `Address`: `str`
+- `CachePeriodInMinutes`: `int`
 
 
-
-Optional fields:
-- `Name`: `str`
 
 
 ## PaginatorConfigTypeDef
@@ -181,4 +123,62 @@ Required fields:
 Optional fields:
 - `NextToken`: `str`
 - `QueryStatus`: `"QueryStatusTypeDef"`
+
+
+## QueryStatusTypeDef
+
+```python
+from mypy_boto3_timestream_query.type_defs import QueryStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProgressPercentage`: `float`
+- `CumulativeBytesScanned`: `int`
+- `CumulativeBytesMetered`: `int`
+
+
+## RowTypeDef
+
+```python
+from mypy_boto3_timestream_query.type_defs import RowTypeDef
+```
+
+
+Required fields:
+- `Data`: `List[Dict[str, Any]]`
+
+
+
+
+## TimeSeriesDataPointTypeDef
+
+```python
+from mypy_boto3_timestream_query.type_defs import TimeSeriesDataPointTypeDef
+```
+
+
+Required fields:
+- `Time`: `str`
+- `Value`: `Dict[str, Any]`
+
+
+
+
+## TypeTypeDef
+
+```python
+from mypy_boto3_timestream_query.type_defs import TypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `ScalarType`: `ScalarType`
+- `ArrayColumnInfo`: `Dict[str, Any]`
+- `TimeSeriesMeasureValueColumnInfo`: `Dict[str, Any]`
+- `RowColumnInfo`: `List[Dict[str, Any]]`
 

@@ -7,16 +7,11 @@ type annotations stubs module [mypy_boto3_kms](https://pypi.org/project/mypy-bot
 
 - [Structures for boto3 KMS module](#structures-for-boto3-kms-module)
   - [AliasListEntryTypeDef](#aliaslistentrytypedef)
-  - [CustomKeyStoresListEntryTypeDef](#customkeystoreslistentrytypedef)
-  - [GrantConstraintsTypeDef](#grantconstraintstypedef)
-  - [GrantListEntryTypeDef](#grantlistentrytypedef)
-  - [KeyListEntryTypeDef](#keylistentrytypedef)
-  - [KeyMetadataTypeDef](#keymetadatatypedef)
-  - [TagTypeDef](#tagtypedef)
   - [CancelKeyDeletionResponseTypeDef](#cancelkeydeletionresponsetypedef)
   - [CreateCustomKeyStoreResponseTypeDef](#createcustomkeystoreresponsetypedef)
   - [CreateGrantResponseTypeDef](#creategrantresponsetypedef)
   - [CreateKeyResponseTypeDef](#createkeyresponsetypedef)
+  - [CustomKeyStoresListEntryTypeDef](#customkeystoreslistentrytypedef)
   - [DecryptResponseTypeDef](#decryptresponsetypedef)
   - [DescribeCustomKeyStoresResponseTypeDef](#describecustomkeystoresresponsetypedef)
   - [DescribeKeyResponseTypeDef](#describekeyresponsetypedef)
@@ -30,6 +25,10 @@ type annotations stubs module [mypy_boto3_kms](https://pypi.org/project/mypy-bot
   - [GetKeyRotationStatusResponseTypeDef](#getkeyrotationstatusresponsetypedef)
   - [GetParametersForImportResponseTypeDef](#getparametersforimportresponsetypedef)
   - [GetPublicKeyResponseTypeDef](#getpublickeyresponsetypedef)
+  - [GrantConstraintsTypeDef](#grantconstraintstypedef)
+  - [GrantListEntryTypeDef](#grantlistentrytypedef)
+  - [KeyListEntryTypeDef](#keylistentrytypedef)
+  - [KeyMetadataTypeDef](#keymetadatatypedef)
   - [ListAliasesResponseTypeDef](#listaliasesresponsetypedef)
   - [ListGrantsResponseTypeDef](#listgrantsresponsetypedef)
   - [ListKeyPoliciesResponseTypeDef](#listkeypoliciesresponsetypedef)
@@ -39,6 +38,7 @@ type annotations stubs module [mypy_boto3_kms](https://pypi.org/project/mypy-bot
   - [ReEncryptResponseTypeDef](#reencryptresponsetypedef)
   - [ScheduleKeyDeletionResponseTypeDef](#schedulekeydeletionresponsetypedef)
   - [SignResponseTypeDef](#signresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [VerifyResponseTypeDef](#verifyresponsetypedef)
 
 ## AliasListEntryTypeDef
@@ -56,120 +56,6 @@ Optional fields:
 - `TargetKeyId`: `str`
 - `CreationDate`: `datetime`
 - `LastUpdatedDate`: `datetime`
-
-
-## CustomKeyStoresListEntryTypeDef
-
-```python
-from mypy_boto3_kms.type_defs import CustomKeyStoresListEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `CustomKeyStoreId`: `str`
-- `CustomKeyStoreName`: `str`
-- `CloudHsmClusterId`: `str`
-- `TrustAnchorCertificate`: `str`
-- `ConnectionState`: `ConnectionStateType`
-- `ConnectionErrorCode`: `ConnectionErrorCodeType`
-- `CreationDate`: `datetime`
-
-
-## GrantConstraintsTypeDef
-
-```python
-from mypy_boto3_kms.type_defs import GrantConstraintsTypeDef
-```
-
-
-
-
-Optional fields:
-- `EncryptionContextSubset`: `Dict[str, str]`
-- `EncryptionContextEquals`: `Dict[str, str]`
-
-
-## GrantListEntryTypeDef
-
-```python
-from mypy_boto3_kms.type_defs import GrantListEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `KeyId`: `str`
-- `GrantId`: `str`
-- `Name`: `str`
-- `CreationDate`: `datetime`
-- `GranteePrincipal`: `str`
-- `RetiringPrincipal`: `str`
-- `IssuingAccount`: `str`
-- `Operations`: `List[GrantOperation]`
-- `Constraints`: `"GrantConstraintsTypeDef"`
-
-
-## KeyListEntryTypeDef
-
-```python
-from mypy_boto3_kms.type_defs import KeyListEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `KeyId`: `str`
-- `KeyArn`: `str`
-
-
-## KeyMetadataTypeDef
-
-```python
-from mypy_boto3_kms.type_defs import KeyMetadataTypeDef
-```
-
-
-Required fields:
-- `KeyId`: `str`
-
-
-
-Optional fields:
-- `AWSAccountId`: `str`
-- `Arn`: `str`
-- `CreationDate`: `datetime`
-- `Enabled`: `bool`
-- `Description`: `str`
-- `KeyUsage`: `KeyUsageType`
-- `KeyState`: `KeyState`
-- `DeletionDate`: `datetime`
-- `ValidTo`: `datetime`
-- `Origin`: `OriginType`
-- `CustomKeyStoreId`: `str`
-- `CloudHsmClusterId`: `str`
-- `ExpirationModel`: `ExpirationModelType`
-- `KeyManager`: `KeyManagerType`
-- `CustomerMasterKeySpec`: `CustomerMasterKeySpec`
-- `EncryptionAlgorithms`: `List[EncryptionAlgorithmSpec]`
-- `SigningAlgorithms`: `List[SigningAlgorithmSpec]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_kms.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `TagKey`: `str`
-- `TagValue`: `str`
-
-
 
 
 ## CancelKeyDeletionResponseTypeDef
@@ -223,6 +109,25 @@ from mypy_boto3_kms.type_defs import CreateKeyResponseTypeDef
 
 Optional fields:
 - `KeyMetadata`: `"KeyMetadataTypeDef"`
+
+
+## CustomKeyStoresListEntryTypeDef
+
+```python
+from mypy_boto3_kms.type_defs import CustomKeyStoresListEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `CustomKeyStoreId`: `str`
+- `CustomKeyStoreName`: `str`
+- `CloudHsmClusterId`: `str`
+- `TrustAnchorCertificate`: `str`
+- `ConnectionState`: `ConnectionStateType`
+- `ConnectionErrorCode`: `ConnectionErrorCodeType`
+- `CreationDate`: `datetime`
 
 
 ## DecryptResponseTypeDef
@@ -418,6 +323,87 @@ Optional fields:
 - `SigningAlgorithms`: `List[SigningAlgorithmSpec]`
 
 
+## GrantConstraintsTypeDef
+
+```python
+from mypy_boto3_kms.type_defs import GrantConstraintsTypeDef
+```
+
+
+
+
+Optional fields:
+- `EncryptionContextSubset`: `Dict[str, str]`
+- `EncryptionContextEquals`: `Dict[str, str]`
+
+
+## GrantListEntryTypeDef
+
+```python
+from mypy_boto3_kms.type_defs import GrantListEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `KeyId`: `str`
+- `GrantId`: `str`
+- `Name`: `str`
+- `CreationDate`: `datetime`
+- `GranteePrincipal`: `str`
+- `RetiringPrincipal`: `str`
+- `IssuingAccount`: `str`
+- `Operations`: `List[GrantOperation]`
+- `Constraints`: `"GrantConstraintsTypeDef"`
+
+
+## KeyListEntryTypeDef
+
+```python
+from mypy_boto3_kms.type_defs import KeyListEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `KeyId`: `str`
+- `KeyArn`: `str`
+
+
+## KeyMetadataTypeDef
+
+```python
+from mypy_boto3_kms.type_defs import KeyMetadataTypeDef
+```
+
+
+Required fields:
+- `KeyId`: `str`
+
+
+
+Optional fields:
+- `AWSAccountId`: `str`
+- `Arn`: `str`
+- `CreationDate`: `datetime`
+- `Enabled`: `bool`
+- `Description`: `str`
+- `KeyUsage`: `KeyUsageType`
+- `KeyState`: `KeyState`
+- `DeletionDate`: `datetime`
+- `ValidTo`: `datetime`
+- `Origin`: `OriginType`
+- `CustomKeyStoreId`: `str`
+- `CloudHsmClusterId`: `str`
+- `ExpirationModel`: `ExpirationModelType`
+- `KeyManager`: `KeyManagerType`
+- `CustomerMasterKeySpec`: `CustomerMasterKeySpec`
+- `EncryptionAlgorithms`: `List[EncryptionAlgorithmSpec]`
+- `SigningAlgorithms`: `List[SigningAlgorithmSpec]`
+
+
 ## ListAliasesResponseTypeDef
 
 ```python
@@ -552,6 +538,20 @@ Optional fields:
 - `KeyId`: `str`
 - `Signature`: `Union[bytes, IO[bytes]]`
 - `SigningAlgorithm`: `SigningAlgorithmSpec`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_kms.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `TagKey`: `str`
+- `TagValue`: `str`
+
+
 
 
 ## VerifyResponseTypeDef

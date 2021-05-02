@@ -71,8 +71,6 @@ type annotations stubs module [mypy_boto3_directconnect](https://pypi.org/projec
     - [update_lag](#update_lag)
     - [update_virtual_interface_attributes](#update_virtual_interface_attributes)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## DirectConnectClient
 
@@ -645,7 +643,7 @@ def describe_connection_loa(
     self,
     connectionId: str,
     providerName: str = None,
-    loaContentType: LoaContentType = None
+    loaContentType: Literal['application/pdf'] = None
 ) -> DescribeConnectionLoaResponseTypeDef:
     pass
 ```
@@ -773,7 +771,7 @@ def describe_interconnect_loa(
     self,
     interconnectId: str,
     providerName: str = None,
-    loaContentType: LoaContentType = None
+    loaContentType: Literal['application/pdf'] = None
 ) -> DescribeInterconnectLoaResponseTypeDef:
     pass
 ```
@@ -817,7 +815,7 @@ def describe_loa(
     self,
     connectionId: str,
     providerName: str = None,
-    loaContentType: LoaContentType = None
+    loaContentType: Literal['application/pdf'] = None
 ) -> "LoaTypeDef":
     pass
 ```
@@ -1067,47 +1065,14 @@ def update_virtual_interface_attributes(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("directconnect").get_paginator` method.
-
-[Paginator.DescribeDirectConnectGatewayAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDirectConnectGatewayAssociationsPaginatorName
-) -> DescribeDirectConnectGatewayAssociationsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("directconnect").get_paginator` method.
+Type annotations for `boto3.client("directconnect").get_paginator` method with overloads.
 
-[Paginator.DescribeDirectConnectGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments)
+- `client.get_paginator("describe_direct_connect_gateway_associations")` -> [DescribeDirectConnectGatewayAssociationsPaginator](./paginators.md#describedirectconnectgatewayassociationspaginator)
+- `client.get_paginator("describe_direct_connect_gateway_attachments")` -> [DescribeDirectConnectGatewayAttachmentsPaginator](./paginators.md#describedirectconnectgatewayattachmentspaginator)
+- `client.get_paginator("describe_direct_connect_gateways")` -> [DescribeDirectConnectGatewaysPaginator](./paginators.md#describedirectconnectgatewayspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDirectConnectGatewayAttachmentsPaginatorName
-) -> DescribeDirectConnectGatewayAttachmentsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("directconnect").get_paginator` method.
-
-[Paginator.DescribeDirectConnectGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDirectConnectGatewaysPaginatorName
-) -> DescribeDirectConnectGatewaysPaginator:
-    pass
-```

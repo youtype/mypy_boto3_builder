@@ -33,12 +33,6 @@ type annotations stubs module [mypy_boto3_dax](https://pypi.org/project/mypy-bot
     - [update_parameter_group](#update_parameter_group)
     - [update_subnet_group](#update_subnet_group)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
 
 ## DAXClient
 
@@ -471,107 +465,18 @@ def update_subnet_group(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("dax").get_paginator` method.
-
-[Paginator.DescribeClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax.html#DAX.Paginator.DescribeClusters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeClustersPaginatorName
-) -> DescribeClustersPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("dax").get_paginator` method.
+Type annotations for `boto3.client("dax").get_paginator` method with overloads.
 
-[Paginator.DescribeDefaultParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax.html#DAX.Paginator.DescribeDefaultParameters)
+- `client.get_paginator("describe_clusters")` -> [DescribeClustersPaginator](./paginators.md#describeclusterspaginator)
+- `client.get_paginator("describe_default_parameters")` -> [DescribeDefaultParametersPaginator](./paginators.md#describedefaultparameterspaginator)
+- `client.get_paginator("describe_events")` -> [DescribeEventsPaginator](./paginators.md#describeeventspaginator)
+- `client.get_paginator("describe_parameter_groups")` -> [DescribeParameterGroupsPaginator](./paginators.md#describeparametergroupspaginator)
+- `client.get_paginator("describe_parameters")` -> [DescribeParametersPaginator](./paginators.md#describeparameterspaginator)
+- `client.get_paginator("describe_subnet_groups")` -> [DescribeSubnetGroupsPaginator](./paginators.md#describesubnetgroupspaginator)
+- `client.get_paginator("list_tags")` -> [ListTagsPaginator](./paginators.md#listtagspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDefaultParametersPaginatorName
-) -> DescribeDefaultParametersPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("dax").get_paginator` method.
-
-[Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax.html#DAX.Paginator.DescribeEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventsPaginatorName
-) -> DescribeEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dax").get_paginator` method.
-
-[Paginator.DescribeParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax.html#DAX.Paginator.DescribeParameterGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeParameterGroupsPaginatorName
-) -> DescribeParameterGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dax").get_paginator` method.
-
-[Paginator.DescribeParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax.html#DAX.Paginator.DescribeParameters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeParametersPaginatorName
-) -> DescribeParametersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dax").get_paginator` method.
-
-[Paginator.DescribeSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax.html#DAX.Paginator.DescribeSubnetGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSubnetGroupsPaginatorName
-) -> DescribeSubnetGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dax").get_paginator` method.
-
-[Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dax.html#DAX.Paginator.ListTags)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsPaginatorName
-) -> ListTagsPaginator:
-    pass
-```

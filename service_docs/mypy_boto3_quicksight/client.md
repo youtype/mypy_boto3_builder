@@ -111,19 +111,6 @@ type annotations stubs module [mypy_boto3_quicksight](https://pypi.org/project/m
     - [update_theme_permissions](#update_theme_permissions)
     - [update_user](#update_user)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
 
 ## QuickSightClient
 
@@ -393,7 +380,7 @@ def create_namespace(
     self,
     AwsAccountId: str,
     Namespace: str,
-    IdentityStore: IdentityStore,
+    IdentityStore: Literal['QUICKSIGHT'],
     Tags: List["TagTypeDef"] = None
 ) -> CreateNamespaceResponseTypeDef:
     pass
@@ -1892,212 +1879,25 @@ def update_user(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.ListAnalyses documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListAnalyses)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAnalysesPaginatorName
-) -> ListAnalysesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("quicksight").get_paginator` method.
+Type annotations for `boto3.client("quicksight").get_paginator` method with overloads.
 
-[Paginator.ListDashboardVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListDashboardVersions)
+- `client.get_paginator("list_analyses")` -> [ListAnalysesPaginator](./paginators.md#listanalysespaginator)
+- `client.get_paginator("list_dashboard_versions")` -> [ListDashboardVersionsPaginator](./paginators.md#listdashboardversionspaginator)
+- `client.get_paginator("list_dashboards")` -> [ListDashboardsPaginator](./paginators.md#listdashboardspaginator)
+- `client.get_paginator("list_data_sets")` -> [ListDataSetsPaginator](./paginators.md#listdatasetspaginator)
+- `client.get_paginator("list_data_sources")` -> [ListDataSourcesPaginator](./paginators.md#listdatasourcespaginator)
+- `client.get_paginator("list_ingestions")` -> [ListIngestionsPaginator](./paginators.md#listingestionspaginator)
+- `client.get_paginator("list_namespaces")` -> [ListNamespacesPaginator](./paginators.md#listnamespacespaginator)
+- `client.get_paginator("list_template_aliases")` -> [ListTemplateAliasesPaginator](./paginators.md#listtemplatealiasespaginator)
+- `client.get_paginator("list_template_versions")` -> [ListTemplateVersionsPaginator](./paginators.md#listtemplateversionspaginator)
+- `client.get_paginator("list_templates")` -> [ListTemplatesPaginator](./paginators.md#listtemplatespaginator)
+- `client.get_paginator("list_theme_versions")` -> [ListThemeVersionsPaginator](./paginators.md#listthemeversionspaginator)
+- `client.get_paginator("list_themes")` -> [ListThemesPaginator](./paginators.md#listthemespaginator)
+- `client.get_paginator("search_analyses")` -> [SearchAnalysesPaginator](./paginators.md#searchanalysespaginator)
+- `client.get_paginator("search_dashboards")` -> [SearchDashboardsPaginator](./paginators.md#searchdashboardspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDashboardVersionsPaginatorName
-) -> ListDashboardVersionsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.ListDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListDashboards)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDashboardsPaginatorName
-) -> ListDashboardsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.ListDataSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListDataSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDataSetsPaginatorName
-) -> ListDataSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.ListDataSources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListDataSources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDataSourcesPaginatorName
-) -> ListDataSourcesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.ListIngestions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListIngestions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListIngestionsPaginatorName
-) -> ListIngestionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.ListNamespaces documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListNamespaces)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListNamespacesPaginatorName
-) -> ListNamespacesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.ListTemplateAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateAliases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTemplateAliasesPaginatorName
-) -> ListTemplateAliasesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.ListTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListTemplateVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTemplateVersionsPaginatorName
-) -> ListTemplateVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.ListTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListTemplates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTemplatesPaginatorName
-) -> ListTemplatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.ListThemeVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListThemeVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThemeVersionsPaginatorName
-) -> ListThemeVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.ListThemes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.ListThemes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListThemesPaginatorName
-) -> ListThemesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.SearchAnalyses documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.SearchAnalyses)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchAnalysesPaginatorName
-) -> SearchAnalysesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("quicksight").get_paginator` method.
-
-[Paginator.SearchDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/quicksight.html#QuickSight.Paginator.SearchDashboards)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchDashboardsPaginatorName
-) -> SearchDashboardsPaginator:
-    pass
-```

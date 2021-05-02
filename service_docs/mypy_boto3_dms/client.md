@@ -67,26 +67,7 @@ type annotations stubs module [mypy_boto3_dms](https://pypi.org/project/mypy-bot
     - [stop_replication_task](#stop_replication_task)
     - [test_connection](#test_connection)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
-    - [get_waiter](#get_waiter-4)
-    - [get_waiter](#get_waiter-5)
-    - [get_waiter](#get_waiter-6)
-    - [get_waiter](#get_waiter-7)
 
 ## DatabaseMigrationServiceClient
 
@@ -605,7 +586,7 @@ Type annotations for `boto3.client("dms").describe_events` method.
 def describe_events(
     self,
     SourceIdentifier: str = None,
-    SourceType: SourceType = None,
+    SourceType: Literal['replication-instance'] = None,
     StartTime: datetime = None,
     EndTime: datetime = None,
     Duration: int = None,
@@ -1139,317 +1120,38 @@ def test_connection(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeCertificates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCertificatesPaginatorName
-) -> DescribeCertificatesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("dms").get_paginator` method.
+Type annotations for `boto3.client("dms").get_paginator` method with overloads.
 
-[Paginator.DescribeConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeConnections)
+- `client.get_paginator("describe_certificates")` -> [DescribeCertificatesPaginator](./paginators.md#describecertificatespaginator)
+- `client.get_paginator("describe_connections")` -> [DescribeConnectionsPaginator](./paginators.md#describeconnectionspaginator)
+- `client.get_paginator("describe_endpoint_types")` -> [DescribeEndpointTypesPaginator](./paginators.md#describeendpointtypespaginator)
+- `client.get_paginator("describe_endpoints")` -> [DescribeEndpointsPaginator](./paginators.md#describeendpointspaginator)
+- `client.get_paginator("describe_event_subscriptions")` -> [DescribeEventSubscriptionsPaginator](./paginators.md#describeeventsubscriptionspaginator)
+- `client.get_paginator("describe_events")` -> [DescribeEventsPaginator](./paginators.md#describeeventspaginator)
+- `client.get_paginator("describe_orderable_replication_instances")` -> [DescribeOrderableReplicationInstancesPaginator](./paginators.md#describeorderablereplicationinstancespaginator)
+- `client.get_paginator("describe_replication_instances")` -> [DescribeReplicationInstancesPaginator](./paginators.md#describereplicationinstancespaginator)
+- `client.get_paginator("describe_replication_subnet_groups")` -> [DescribeReplicationSubnetGroupsPaginator](./paginators.md#describereplicationsubnetgroupspaginator)
+- `client.get_paginator("describe_replication_task_assessment_results")` -> [DescribeReplicationTaskAssessmentResultsPaginator](./paginators.md#describereplicationtaskassessmentresultspaginator)
+- `client.get_paginator("describe_replication_tasks")` -> [DescribeReplicationTasksPaginator](./paginators.md#describereplicationtaskspaginator)
+- `client.get_paginator("describe_schemas")` -> [DescribeSchemasPaginator](./paginators.md#describeschemaspaginator)
+- `client.get_paginator("describe_table_statistics")` -> [DescribeTableStatisticsPaginator](./paginators.md#describetablestatisticspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeConnectionsPaginatorName
-) -> DescribeConnectionsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeEndpointTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpointTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEndpointTypesPaginatorName
-) -> DescribeEndpointTypesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpoints)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEndpointsPaginatorName
-) -> DescribeEndpointsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEventSubscriptions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventSubscriptionsPaginatorName
-) -> DescribeEventSubscriptionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventsPaginatorName
-) -> DescribeEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeOrderableReplicationInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeOrderableReplicationInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeOrderableReplicationInstancesPaginatorName
-) -> DescribeOrderableReplicationInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeReplicationInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReplicationInstancesPaginatorName
-) -> DescribeReplicationInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeReplicationSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationSubnetGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReplicationSubnetGroupsPaginatorName
-) -> DescribeReplicationSubnetGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeReplicationTaskAssessmentResults documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTaskAssessmentResults)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReplicationTaskAssessmentResultsPaginatorName
-) -> DescribeReplicationTaskAssessmentResultsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeReplicationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReplicationTasksPaginatorName
-) -> DescribeReplicationTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeSchemas)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSchemasPaginatorName
-) -> DescribeSchemasPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dms").get_paginator` method.
-
-[Paginator.DescribeTableStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeTableStatistics)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTableStatisticsPaginatorName
-) -> DescribeTableStatisticsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("dms").get_waiter` method.
+Type annotations for `boto3.client("dms").get_waiter` method with overloads.
 
-[Waiter.EndpointDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Waiter.EndpointDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: EndpointDeletedWaiterName
-) -> EndpointDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("dms").get_waiter` method.
-
-[Waiter.ReplicationInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ReplicationInstanceAvailableWaiterName
-) -> ReplicationInstanceAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("dms").get_waiter` method.
-
-[Waiter.ReplicationInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ReplicationInstanceDeletedWaiterName
-) -> ReplicationInstanceDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("dms").get_waiter` method.
-
-[Waiter.ReplicationTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ReplicationTaskDeletedWaiterName
-) -> ReplicationTaskDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("dms").get_waiter` method.
-
-[Waiter.ReplicationTaskReady documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskReady)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ReplicationTaskReadyWaiterName
-) -> ReplicationTaskReadyWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("dms").get_waiter` method.
-
-[Waiter.ReplicationTaskRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskRunning)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ReplicationTaskRunningWaiterName
-) -> ReplicationTaskRunningWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("dms").get_waiter` method.
-
-[Waiter.ReplicationTaskStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskStopped)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ReplicationTaskStoppedWaiterName
-) -> ReplicationTaskStoppedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("dms").get_waiter` method.
-
-[Waiter.TestConnectionSucceeds documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dms.html#DatabaseMigrationService.Waiter.TestConnectionSucceeds)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: TestConnectionSucceedsWaiterName
-) -> TestConnectionSucceedsWaiter:
-    pass
-```
+- `client.get_waiter("endpoint_deleted")` -> [EndpointDeletedWaiter](./waiters.md#endpointdeletedwaiter)
+- `client.get_waiter("replication_instance_available")` -> [ReplicationInstanceAvailableWaiter](./waiters.md#replicationinstanceavailablewaiter)
+- `client.get_waiter("replication_instance_deleted")` -> [ReplicationInstanceDeletedWaiter](./waiters.md#replicationinstancedeletedwaiter)
+- `client.get_waiter("replication_task_deleted")` -> [ReplicationTaskDeletedWaiter](./waiters.md#replicationtaskdeletedwaiter)
+- `client.get_waiter("replication_task_ready")` -> [ReplicationTaskReadyWaiter](./waiters.md#replicationtaskreadywaiter)
+- `client.get_waiter("replication_task_running")` -> [ReplicationTaskRunningWaiter](./waiters.md#replicationtaskrunningwaiter)
+- `client.get_waiter("replication_task_stopped")` -> [ReplicationTaskStoppedWaiter](./waiters.md#replicationtaskstoppedwaiter)
+- `client.get_waiter("test_connection_succeeds")` -> [TestConnectionSucceedsWaiter](./waiters.md#testconnectionsucceedswaiter)

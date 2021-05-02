@@ -12,6 +12,8 @@ type annotations stubs module [mypy_boto3_quicksight](https://pypi.org/project/m
   - [AdHocFilteringOptionTypeDef](#adhocfilteringoptiontypedef)
   - [AmazonElasticsearchParametersTypeDef](#amazonelasticsearchparameterstypedef)
   - [AnalysisErrorTypeDef](#analysiserrortypedef)
+  - [AnalysisSearchFilterTypeDef](#analysissearchfiltertypedef)
+  - [AnalysisSourceEntityTypeDef](#analysissourceentitytypedef)
   - [AnalysisSourceTemplateTypeDef](#analysissourcetemplatetypedef)
   - [AnalysisSummaryTypeDef](#analysissummarytypedef)
   - [AnalysisTypeDef](#analysistypedef)
@@ -21,6 +23,7 @@ type annotations stubs module [mypy_boto3_quicksight](https://pypi.org/project/m
   - [AwsIotAnalyticsParametersTypeDef](#awsiotanalyticsparameterstypedef)
   - [BorderStyleTypeDef](#borderstyletypedef)
   - [CalculatedColumnTypeDef](#calculatedcolumntypedef)
+  - [CancelIngestionResponseTypeDef](#cancelingestionresponsetypedef)
   - [CastColumnTypeOperationTypeDef](#castcolumntypeoperationtypedef)
   - [ColumnDescriptionTypeDef](#columndescriptiontypedef)
   - [ColumnGroupColumnSchemaTypeDef](#columngroupcolumnschematypedef)
@@ -29,106 +32,9 @@ type annotations stubs module [mypy_boto3_quicksight](https://pypi.org/project/m
   - [ColumnLevelPermissionRuleTypeDef](#columnlevelpermissionruletypedef)
   - [ColumnSchemaTypeDef](#columnschematypedef)
   - [ColumnTagTypeDef](#columntagtypedef)
-  - [CreateColumnsOperationTypeDef](#createcolumnsoperationtypedef)
-  - [CredentialPairTypeDef](#credentialpairtypedef)
-  - [CustomSqlTypeDef](#customsqltypedef)
-  - [DashboardErrorTypeDef](#dashboarderrortypedef)
-  - [DashboardSourceTemplateTypeDef](#dashboardsourcetemplatetypedef)
-  - [DashboardSummaryTypeDef](#dashboardsummarytypedef)
-  - [DashboardTypeDef](#dashboardtypedef)
-  - [DashboardVersionSummaryTypeDef](#dashboardversionsummarytypedef)
-  - [DashboardVersionTypeDef](#dashboardversiontypedef)
-  - [DataColorPaletteTypeDef](#datacolorpalettetypedef)
-  - [DataSetConfigurationTypeDef](#datasetconfigurationtypedef)
-  - [DataSetReferenceTypeDef](#datasetreferencetypedef)
-  - [DataSetSchemaTypeDef](#datasetschematypedef)
-  - [DataSetSummaryTypeDef](#datasetsummarytypedef)
-  - [DataSetTypeDef](#datasettypedef)
-  - [DataSourceErrorInfoTypeDef](#datasourceerrorinfotypedef)
-  - [DataSourceParametersTypeDef](#datasourceparameterstypedef)
-  - [DataSourceTypeDef](#datasourcetypedef)
-  - [DateTimeParameterTypeDef](#datetimeparametertypedef)
-  - [DecimalParameterTypeDef](#decimalparametertypedef)
-  - [ErrorInfoTypeDef](#errorinfotypedef)
-  - [ExportToCSVOptionTypeDef](#exporttocsvoptiontypedef)
-  - [FieldFolderTypeDef](#fieldfoldertypedef)
-  - [FilterOperationTypeDef](#filteroperationtypedef)
-  - [GeoSpatialColumnGroupTypeDef](#geospatialcolumngrouptypedef)
-  - [GroupMemberTypeDef](#groupmembertypedef)
-  - [GroupTypeDef](#grouptypedef)
-  - [GutterStyleTypeDef](#gutterstyletypedef)
-  - [IAMPolicyAssignmentSummaryTypeDef](#iampolicyassignmentsummarytypedef)
-  - [IAMPolicyAssignmentTypeDef](#iampolicyassignmenttypedef)
-  - [IngestionTypeDef](#ingestiontypedef)
-  - [InputColumnTypeDef](#inputcolumntypedef)
-  - [IntegerParameterTypeDef](#integerparametertypedef)
-  - [JiraParametersTypeDef](#jiraparameterstypedef)
-  - [JoinInstructionTypeDef](#joininstructiontypedef)
-  - [JoinKeyPropertiesTypeDef](#joinkeypropertiestypedef)
-  - [LogicalTableSourceTypeDef](#logicaltablesourcetypedef)
-  - [LogicalTableTypeDef](#logicaltabletypedef)
-  - [ManifestFileLocationTypeDef](#manifestfilelocationtypedef)
-  - [MarginStyleTypeDef](#marginstyletypedef)
-  - [MariaDbParametersTypeDef](#mariadbparameterstypedef)
-  - [MySqlParametersTypeDef](#mysqlparameterstypedef)
-  - [NamespaceErrorTypeDef](#namespaceerrortypedef)
-  - [NamespaceInfoV2TypeDef](#namespaceinfov2typedef)
-  - [OracleParametersTypeDef](#oracleparameterstypedef)
-  - [OutputColumnTypeDef](#outputcolumntypedef)
-  - [PhysicalTableTypeDef](#physicaltabletypedef)
-  - [PostgreSqlParametersTypeDef](#postgresqlparameterstypedef)
-  - [PrestoParametersTypeDef](#prestoparameterstypedef)
-  - [ProjectOperationTypeDef](#projectoperationtypedef)
-  - [QueueInfoTypeDef](#queueinfotypedef)
-  - [RdsParametersTypeDef](#rdsparameterstypedef)
-  - [RedshiftParametersTypeDef](#redshiftparameterstypedef)
-  - [RelationalTableTypeDef](#relationaltabletypedef)
-  - [RenameColumnOperationTypeDef](#renamecolumnoperationtypedef)
-  - [ResourcePermissionTypeDef](#resourcepermissiontypedef)
-  - [RowInfoTypeDef](#rowinfotypedef)
-  - [RowLevelPermissionDataSetTypeDef](#rowlevelpermissiondatasettypedef)
-  - [S3ParametersTypeDef](#s3parameterstypedef)
-  - [S3SourceTypeDef](#s3sourcetypedef)
-  - [ServiceNowParametersTypeDef](#servicenowparameterstypedef)
-  - [SheetControlsOptionTypeDef](#sheetcontrolsoptiontypedef)
-  - [SheetStyleTypeDef](#sheetstyletypedef)
-  - [SheetTypeDef](#sheettypedef)
-  - [SnowflakeParametersTypeDef](#snowflakeparameterstypedef)
-  - [SparkParametersTypeDef](#sparkparameterstypedef)
-  - [SqlServerParametersTypeDef](#sqlserverparameterstypedef)
-  - [SslPropertiesTypeDef](#sslpropertiestypedef)
-  - [StringParameterTypeDef](#stringparametertypedef)
-  - [TagColumnOperationTypeDef](#tagcolumnoperationtypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TemplateAliasTypeDef](#templatealiastypedef)
-  - [TemplateErrorTypeDef](#templateerrortypedef)
-  - [TemplateSourceAnalysisTypeDef](#templatesourceanalysistypedef)
-  - [TemplateSourceTemplateTypeDef](#templatesourcetemplatetypedef)
-  - [TemplateSummaryTypeDef](#templatesummarytypedef)
-  - [TemplateTypeDef](#templatetypedef)
-  - [TemplateVersionSummaryTypeDef](#templateversionsummarytypedef)
-  - [TemplateVersionTypeDef](#templateversiontypedef)
-  - [TeradataParametersTypeDef](#teradataparameterstypedef)
-  - [ThemeAliasTypeDef](#themealiastypedef)
-  - [ThemeConfigurationTypeDef](#themeconfigurationtypedef)
-  - [ThemeErrorTypeDef](#themeerrortypedef)
-  - [ThemeSummaryTypeDef](#themesummarytypedef)
-  - [ThemeTypeDef](#themetypedef)
-  - [ThemeVersionSummaryTypeDef](#themeversionsummarytypedef)
-  - [ThemeVersionTypeDef](#themeversiontypedef)
-  - [TileLayoutStyleTypeDef](#tilelayoutstyletypedef)
-  - [TileStyleTypeDef](#tilestyletypedef)
-  - [TransformOperationTypeDef](#transformoperationtypedef)
-  - [TwitterParametersTypeDef](#twitterparameterstypedef)
-  - [UIColorPaletteTypeDef](#uicolorpalettetypedef)
-  - [UploadSettingsTypeDef](#uploadsettingstypedef)
-  - [UserTypeDef](#usertypedef)
-  - [VpcConnectionPropertiesTypeDef](#vpcconnectionpropertiestypedef)
-  - [AnalysisSearchFilterTypeDef](#analysissearchfiltertypedef)
-  - [AnalysisSourceEntityTypeDef](#analysissourceentitytypedef)
-  - [CancelIngestionResponseTypeDef](#cancelingestionresponsetypedef)
   - [CreateAccountCustomizationResponseTypeDef](#createaccountcustomizationresponsetypedef)
   - [CreateAnalysisResponseTypeDef](#createanalysisresponsetypedef)
+  - [CreateColumnsOperationTypeDef](#createcolumnsoperationtypedef)
   - [CreateDashboardResponseTypeDef](#createdashboardresponsetypedef)
   - [CreateDataSetResponseTypeDef](#createdatasetresponsetypedef)
   - [CreateDataSourceResponseTypeDef](#createdatasourceresponsetypedef)
@@ -141,10 +47,29 @@ type annotations stubs module [mypy_boto3_quicksight](https://pypi.org/project/m
   - [CreateTemplateResponseTypeDef](#createtemplateresponsetypedef)
   - [CreateThemeAliasResponseTypeDef](#createthemealiasresponsetypedef)
   - [CreateThemeResponseTypeDef](#createthemeresponsetypedef)
+  - [CredentialPairTypeDef](#credentialpairtypedef)
+  - [CustomSqlTypeDef](#customsqltypedef)
+  - [DashboardErrorTypeDef](#dashboarderrortypedef)
   - [DashboardPublishOptionsTypeDef](#dashboardpublishoptionstypedef)
   - [DashboardSearchFilterTypeDef](#dashboardsearchfiltertypedef)
   - [DashboardSourceEntityTypeDef](#dashboardsourceentitytypedef)
+  - [DashboardSourceTemplateTypeDef](#dashboardsourcetemplatetypedef)
+  - [DashboardSummaryTypeDef](#dashboardsummarytypedef)
+  - [DashboardTypeDef](#dashboardtypedef)
+  - [DashboardVersionSummaryTypeDef](#dashboardversionsummarytypedef)
+  - [DashboardVersionTypeDef](#dashboardversiontypedef)
+  - [DataColorPaletteTypeDef](#datacolorpalettetypedef)
+  - [DataSetConfigurationTypeDef](#datasetconfigurationtypedef)
+  - [DataSetReferenceTypeDef](#datasetreferencetypedef)
+  - [DataSetSchemaTypeDef](#datasetschematypedef)
+  - [DataSetSummaryTypeDef](#datasetsummarytypedef)
+  - [DataSetTypeDef](#datasettypedef)
   - [DataSourceCredentialsTypeDef](#datasourcecredentialstypedef)
+  - [DataSourceErrorInfoTypeDef](#datasourceerrorinfotypedef)
+  - [DataSourceParametersTypeDef](#datasourceparameterstypedef)
+  - [DataSourceTypeDef](#datasourcetypedef)
+  - [DateTimeParameterTypeDef](#datetimeparametertypedef)
+  - [DecimalParameterTypeDef](#decimalparametertypedef)
   - [DeleteAccountCustomizationResponseTypeDef](#deleteaccountcustomizationresponsetypedef)
   - [DeleteAnalysisResponseTypeDef](#deleteanalysisresponsetypedef)
   - [DeleteDashboardResponseTypeDef](#deletedashboardresponsetypedef)
@@ -181,8 +106,24 @@ type annotations stubs module [mypy_boto3_quicksight](https://pypi.org/project/m
   - [DescribeThemePermissionsResponseTypeDef](#describethemepermissionsresponsetypedef)
   - [DescribeThemeResponseTypeDef](#describethemeresponsetypedef)
   - [DescribeUserResponseTypeDef](#describeuserresponsetypedef)
+  - [ErrorInfoTypeDef](#errorinfotypedef)
+  - [ExportToCSVOptionTypeDef](#exporttocsvoptiontypedef)
+  - [FieldFolderTypeDef](#fieldfoldertypedef)
+  - [FilterOperationTypeDef](#filteroperationtypedef)
+  - [GeoSpatialColumnGroupTypeDef](#geospatialcolumngrouptypedef)
   - [GetDashboardEmbedUrlResponseTypeDef](#getdashboardembedurlresponsetypedef)
   - [GetSessionEmbedUrlResponseTypeDef](#getsessionembedurlresponsetypedef)
+  - [GroupMemberTypeDef](#groupmembertypedef)
+  - [GroupTypeDef](#grouptypedef)
+  - [GutterStyleTypeDef](#gutterstyletypedef)
+  - [IAMPolicyAssignmentSummaryTypeDef](#iampolicyassignmentsummarytypedef)
+  - [IAMPolicyAssignmentTypeDef](#iampolicyassignmenttypedef)
+  - [IngestionTypeDef](#ingestiontypedef)
+  - [InputColumnTypeDef](#inputcolumntypedef)
+  - [IntegerParameterTypeDef](#integerparametertypedef)
+  - [JiraParametersTypeDef](#jiraparameterstypedef)
+  - [JoinInstructionTypeDef](#joininstructiontypedef)
+  - [JoinKeyPropertiesTypeDef](#joinkeypropertiestypedef)
   - [ListAnalysesResponseTypeDef](#listanalysesresponsetypedef)
   - [ListDashboardVersionsResponseTypeDef](#listdashboardversionsresponsetypedef)
   - [ListDashboardsResponseTypeDef](#listdashboardsresponsetypedef)
@@ -203,14 +144,70 @@ type annotations stubs module [mypy_boto3_quicksight](https://pypi.org/project/m
   - [ListThemesResponseTypeDef](#listthemesresponsetypedef)
   - [ListUserGroupsResponseTypeDef](#listusergroupsresponsetypedef)
   - [ListUsersResponseTypeDef](#listusersresponsetypedef)
+  - [LogicalTableSourceTypeDef](#logicaltablesourcetypedef)
+  - [LogicalTableTypeDef](#logicaltabletypedef)
+  - [ManifestFileLocationTypeDef](#manifestfilelocationtypedef)
+  - [MarginStyleTypeDef](#marginstyletypedef)
+  - [MariaDbParametersTypeDef](#mariadbparameterstypedef)
+  - [MySqlParametersTypeDef](#mysqlparameterstypedef)
+  - [NamespaceErrorTypeDef](#namespaceerrortypedef)
+  - [NamespaceInfoV2TypeDef](#namespaceinfov2typedef)
+  - [OracleParametersTypeDef](#oracleparameterstypedef)
+  - [OutputColumnTypeDef](#outputcolumntypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ParametersTypeDef](#parameterstypedef)
+  - [PhysicalTableTypeDef](#physicaltabletypedef)
+  - [PostgreSqlParametersTypeDef](#postgresqlparameterstypedef)
+  - [PrestoParametersTypeDef](#prestoparameterstypedef)
+  - [ProjectOperationTypeDef](#projectoperationtypedef)
+  - [QueueInfoTypeDef](#queueinfotypedef)
+  - [RdsParametersTypeDef](#rdsparameterstypedef)
+  - [RedshiftParametersTypeDef](#redshiftparameterstypedef)
   - [RegisterUserResponseTypeDef](#registeruserresponsetypedef)
+  - [RelationalTableTypeDef](#relationaltabletypedef)
+  - [RenameColumnOperationTypeDef](#renamecolumnoperationtypedef)
+  - [ResourcePermissionTypeDef](#resourcepermissiontypedef)
   - [RestoreAnalysisResponseTypeDef](#restoreanalysisresponsetypedef)
+  - [RowInfoTypeDef](#rowinfotypedef)
+  - [RowLevelPermissionDataSetTypeDef](#rowlevelpermissiondatasettypedef)
+  - [S3ParametersTypeDef](#s3parameterstypedef)
+  - [S3SourceTypeDef](#s3sourcetypedef)
   - [SearchAnalysesResponseTypeDef](#searchanalysesresponsetypedef)
   - [SearchDashboardsResponseTypeDef](#searchdashboardsresponsetypedef)
+  - [ServiceNowParametersTypeDef](#servicenowparameterstypedef)
+  - [SheetControlsOptionTypeDef](#sheetcontrolsoptiontypedef)
+  - [SheetStyleTypeDef](#sheetstyletypedef)
+  - [SheetTypeDef](#sheettypedef)
+  - [SnowflakeParametersTypeDef](#snowflakeparameterstypedef)
+  - [SparkParametersTypeDef](#sparkparameterstypedef)
+  - [SqlServerParametersTypeDef](#sqlserverparameterstypedef)
+  - [SslPropertiesTypeDef](#sslpropertiestypedef)
+  - [StringParameterTypeDef](#stringparametertypedef)
+  - [TagColumnOperationTypeDef](#tagcolumnoperationtypedef)
   - [TagResourceResponseTypeDef](#tagresourceresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TemplateAliasTypeDef](#templatealiastypedef)
+  - [TemplateErrorTypeDef](#templateerrortypedef)
+  - [TemplateSourceAnalysisTypeDef](#templatesourceanalysistypedef)
   - [TemplateSourceEntityTypeDef](#templatesourceentitytypedef)
+  - [TemplateSourceTemplateTypeDef](#templatesourcetemplatetypedef)
+  - [TemplateSummaryTypeDef](#templatesummarytypedef)
+  - [TemplateTypeDef](#templatetypedef)
+  - [TemplateVersionSummaryTypeDef](#templateversionsummarytypedef)
+  - [TemplateVersionTypeDef](#templateversiontypedef)
+  - [TeradataParametersTypeDef](#teradataparameterstypedef)
+  - [ThemeAliasTypeDef](#themealiastypedef)
+  - [ThemeConfigurationTypeDef](#themeconfigurationtypedef)
+  - [ThemeErrorTypeDef](#themeerrortypedef)
+  - [ThemeSummaryTypeDef](#themesummarytypedef)
+  - [ThemeTypeDef](#themetypedef)
+  - [ThemeVersionSummaryTypeDef](#themeversionsummarytypedef)
+  - [ThemeVersionTypeDef](#themeversiontypedef)
+  - [TileLayoutStyleTypeDef](#tilelayoutstyletypedef)
+  - [TileStyleTypeDef](#tilestyletypedef)
+  - [TransformOperationTypeDef](#transformoperationtypedef)
+  - [TwitterParametersTypeDef](#twitterparameterstypedef)
+  - [UIColorPaletteTypeDef](#uicolorpalettetypedef)
   - [UntagResourceResponseTypeDef](#untagresourceresponsetypedef)
   - [UpdateAccountCustomizationResponseTypeDef](#updateaccountcustomizationresponsetypedef)
   - [UpdateAccountSettingsResponseTypeDef](#updateaccountsettingsresponsetypedef)
@@ -232,6 +229,9 @@ type annotations stubs module [mypy_boto3_quicksight](https://pypi.org/project/m
   - [UpdateThemePermissionsResponseTypeDef](#updatethemepermissionsresponsetypedef)
   - [UpdateThemeResponseTypeDef](#updatethemeresponsetypedef)
   - [UpdateUserResponseTypeDef](#updateuserresponsetypedef)
+  - [UploadSettingsTypeDef](#uploadsettingstypedef)
+  - [UserTypeDef](#usertypedef)
+  - [VpcConnectionPropertiesTypeDef](#vpcconnectionpropertiestypedef)
 
 ## AccountCustomizationTypeDef
 
@@ -314,6 +314,34 @@ from mypy_boto3_quicksight.type_defs import AnalysisErrorTypeDef
 Optional fields:
 - `Type`: `AnalysisErrorType`
 - `Message`: `str`
+
+
+## AnalysisSearchFilterTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import AnalysisSearchFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Operator`: `Literal['StringEquals']`
+- `Name`: `Literal['QUICKSIGHT_USER']`
+- `Value`: `str`
+
+
+## AnalysisSourceEntityTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import AnalysisSourceEntityTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceTemplate`: `"AnalysisSourceTemplateTypeDef"`
 
 
 ## AnalysisSourceTemplateTypeDef
@@ -454,6 +482,22 @@ Required fields:
 
 
 
+## CancelIngestionResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CancelIngestionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `IngestionId`: `str`
+- `RequestId`: `str`
+- `Status`: `int`
+
+
 ## CastColumnTypeOperationTypeDef
 
 ```python
@@ -567,6 +611,41 @@ Optional fields:
 - `ColumnDescription`: `"ColumnDescriptionTypeDef"`
 
 
+## CreateAccountCustomizationResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateAccountCustomizationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `AwsAccountId`: `str`
+- `Namespace`: `str`
+- `AccountCustomization`: `"AccountCustomizationTypeDef"`
+- `RequestId`: `str`
+- `Status`: `int`
+
+
+## CreateAnalysisResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateAnalysisResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `AnalysisId`: `str`
+- `CreationStatus`: `ResourceStatus`
+- `Status`: `int`
+- `RequestId`: `str`
+
+
 ## CreateColumnsOperationTypeDef
 
 ```python
@@ -578,6 +657,210 @@ Required fields:
 - `Columns`: `List["CalculatedColumnTypeDef"]`
 
 
+
+
+## CreateDashboardResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateDashboardResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `VersionArn`: `str`
+- `DashboardId`: `str`
+- `CreationStatus`: `ResourceStatus`
+- `Status`: `int`
+- `RequestId`: `str`
+
+
+## CreateDataSetResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateDataSetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `DataSetId`: `str`
+- `IngestionArn`: `str`
+- `IngestionId`: `str`
+- `RequestId`: `str`
+- `Status`: `int`
+
+
+## CreateDataSourceResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateDataSourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `DataSourceId`: `str`
+- `CreationStatus`: `ResourceStatus`
+- `RequestId`: `str`
+- `Status`: `int`
+
+
+## CreateGroupMembershipResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateGroupMembershipResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupMember`: `"GroupMemberTypeDef"`
+- `RequestId`: `str`
+- `Status`: `int`
+
+
+## CreateGroupResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Group`: `"GroupTypeDef"`
+- `RequestId`: `str`
+- `Status`: `int`
+
+
+## CreateIAMPolicyAssignmentResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateIAMPolicyAssignmentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssignmentName`: `str`
+- `AssignmentId`: `str`
+- `AssignmentStatus`: `AssignmentStatus`
+- `PolicyArn`: `str`
+- `Identities`: `Dict[str, List[str]]`
+- `RequestId`: `str`
+- `Status`: `int`
+
+
+## CreateIngestionResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateIngestionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `IngestionId`: `str`
+- `IngestionStatus`: `IngestionStatus`
+- `RequestId`: `str`
+- `Status`: `int`
+
+
+## CreateNamespaceResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateNamespaceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+- `CapacityRegion`: `str`
+- `CreationStatus`: `NamespaceStatus`
+- `IdentityStore`: `Literal['QUICKSIGHT']`
+- `RequestId`: `str`
+- `Status`: `int`
+
+
+## CreateTemplateAliasResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateTemplateAliasResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TemplateAlias`: `"TemplateAliasTypeDef"`
+- `Status`: `int`
+- `RequestId`: `str`
+
+
+## CreateTemplateResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `VersionArn`: `str`
+- `TemplateId`: `str`
+- `CreationStatus`: `ResourceStatus`
+- `Status`: `int`
+- `RequestId`: `str`
+
+
+## CreateThemeAliasResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateThemeAliasResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ThemeAlias`: `"ThemeAliasTypeDef"`
+- `Status`: `int`
+- `RequestId`: `str`
+
+
+## CreateThemeResponseTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import CreateThemeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `VersionArn`: `str`
+- `ThemeId`: `str`
+- `CreationStatus`: `ResourceStatus`
+- `Status`: `int`
+- `RequestId`: `str`
 
 
 ## CredentialPairTypeDef
@@ -627,6 +910,51 @@ from mypy_boto3_quicksight.type_defs import DashboardErrorTypeDef
 Optional fields:
 - `Type`: `DashboardErrorType`
 - `Message`: `str`
+
+
+## DashboardPublishOptionsTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import DashboardPublishOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `AdHocFilteringOption`: `"AdHocFilteringOptionTypeDef"`
+- `ExportToCSVOption`: `"ExportToCSVOptionTypeDef"`
+- `SheetControlsOption`: `"SheetControlsOptionTypeDef"`
+
+
+## DashboardSearchFilterTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import DashboardSearchFilterTypeDef
+```
+
+
+Required fields:
+- `Operator`: `Literal['StringEquals']`
+
+
+
+Optional fields:
+- `Name`: `Literal['QUICKSIGHT_USER']`
+- `Value`: `str`
+
+
+## DashboardSourceEntityTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import DashboardSourceEntityTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceTemplate`: `"DashboardSourceTemplateTypeDef"`
 
 
 ## DashboardSourceTemplateTypeDef
@@ -824,6 +1152,20 @@ Optional fields:
 - `ColumnLevelPermissionRules`: `List["ColumnLevelPermissionRuleTypeDef"]`
 
 
+## DataSourceCredentialsTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import DataSourceCredentialsTypeDef
+```
+
+
+
+
+Optional fields:
+- `CredentialPair`: `"CredentialPairTypeDef"`
+- `CopySourceArn`: `str`
+
+
 ## DataSourceErrorInfoTypeDef
 
 ```python
@@ -920,1506 +1262,6 @@ Required fields:
 - `Values`: `List[float]`
 
 
-
-
-## ErrorInfoTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ErrorInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `IngestionErrorType`
-- `Message`: `str`
-
-
-## ExportToCSVOptionTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ExportToCSVOptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailabilityStatus`: `DashboardBehavior`
-
-
-## FieldFolderTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import FieldFolderTypeDef
-```
-
-
-
-
-Optional fields:
-- `description`: `str`
-- `columns`: `List[str]`
-
-
-## FilterOperationTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import FilterOperationTypeDef
-```
-
-
-Required fields:
-- `ConditionExpression`: `str`
-
-
-
-
-## GeoSpatialColumnGroupTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import GeoSpatialColumnGroupTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `CountryCode`: `GeoSpatialCountryCode`
-- `Columns`: `List[str]`
-
-
-
-
-## GroupMemberTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import GroupMemberTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `MemberName`: `str`
-
-
-## GroupTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import GroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `GroupName`: `str`
-- `Description`: `str`
-- `PrincipalId`: `str`
-
-
-## GutterStyleTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import GutterStyleTypeDef
-```
-
-
-
-
-Optional fields:
-- `Show`: `bool`
-
-
-## IAMPolicyAssignmentSummaryTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import IAMPolicyAssignmentSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssignmentName`: `str`
-- `AssignmentStatus`: `AssignmentStatus`
-
-
-## IAMPolicyAssignmentTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import IAMPolicyAssignmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `AwsAccountId`: `str`
-- `AssignmentId`: `str`
-- `AssignmentName`: `str`
-- `PolicyArn`: `str`
-- `Identities`: `Dict[str, List[str]]`
-- `AssignmentStatus`: `AssignmentStatus`
-
-
-## IngestionTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import IngestionTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-- `IngestionStatus`: `IngestionStatus`
-- `CreatedTime`: `datetime`
-
-
-
-Optional fields:
-- `IngestionId`: `str`
-- `ErrorInfo`: `"ErrorInfoTypeDef"`
-- `RowInfo`: `"RowInfoTypeDef"`
-- `QueueInfo`: `"QueueInfoTypeDef"`
-- `IngestionTimeInSeconds`: `int`
-- `IngestionSizeInBytes`: `int`
-- `RequestSource`: `IngestionRequestSource`
-- `RequestType`: `IngestionRequestType`
-
-
-## InputColumnTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import InputColumnTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Type`: `InputColumnDataType`
-
-
-
-
-## IntegerParameterTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import IntegerParameterTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Values`: `List[int]`
-
-
-
-
-## JiraParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import JiraParametersTypeDef
-```
-
-
-Required fields:
-- `SiteBaseUrl`: `str`
-
-
-
-
-## JoinInstructionTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import JoinInstructionTypeDef
-```
-
-
-Required fields:
-- `LeftOperand`: `str`
-- `RightOperand`: `str`
-- `Type`: `JoinType`
-- `OnClause`: `str`
-
-
-
-Optional fields:
-- `LeftJoinKeyProperties`: `"JoinKeyPropertiesTypeDef"`
-- `RightJoinKeyProperties`: `"JoinKeyPropertiesTypeDef"`
-
-
-## JoinKeyPropertiesTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import JoinKeyPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `UniqueKey`: `bool`
-
-
-## LogicalTableSourceTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import LogicalTableSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `JoinInstruction`: `"JoinInstructionTypeDef"`
-- `PhysicalTableId`: `str`
-
-
-## LogicalTableTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import LogicalTableTypeDef
-```
-
-
-Required fields:
-- `Alias`: `str`
-- `Source`: `"LogicalTableSourceTypeDef"`
-
-
-
-Optional fields:
-- `DataTransforms`: `List["TransformOperationTypeDef"]`
-
-
-## ManifestFileLocationTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ManifestFileLocationTypeDef
-```
-
-
-Required fields:
-- `Bucket`: `str`
-- `Key`: `str`
-
-
-
-
-## MarginStyleTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import MarginStyleTypeDef
-```
-
-
-
-
-Optional fields:
-- `Show`: `bool`
-
-
-## MariaDbParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import MariaDbParametersTypeDef
-```
-
-
-Required fields:
-- `Host`: `str`
-- `Port`: `int`
-- `Database`: `str`
-
-
-
-
-## MySqlParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import MySqlParametersTypeDef
-```
-
-
-Required fields:
-- `Host`: `str`
-- `Port`: `int`
-- `Database`: `str`
-
-
-
-
-## NamespaceErrorTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import NamespaceErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `NamespaceErrorType`
-- `Message`: `str`
-
-
-## NamespaceInfoV2TypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import NamespaceInfoV2TypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Arn`: `str`
-- `CapacityRegion`: `str`
-- `CreationStatus`: `NamespaceStatus`
-- `IdentityStore`: `IdentityStore`
-- `NamespaceError`: `"NamespaceErrorTypeDef"`
-
-
-## OracleParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import OracleParametersTypeDef
-```
-
-
-Required fields:
-- `Host`: `str`
-- `Port`: `int`
-- `Database`: `str`
-
-
-
-
-## OutputColumnTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import OutputColumnTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Description`: `str`
-- `Type`: `ColumnDataType`
-
-
-## PhysicalTableTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import PhysicalTableTypeDef
-```
-
-
-
-
-Optional fields:
-- `RelationalTable`: `"RelationalTableTypeDef"`
-- `CustomSql`: `"CustomSqlTypeDef"`
-- `S3Source`: `"S3SourceTypeDef"`
-
-
-## PostgreSqlParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import PostgreSqlParametersTypeDef
-```
-
-
-Required fields:
-- `Host`: `str`
-- `Port`: `int`
-- `Database`: `str`
-
-
-
-
-## PrestoParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import PrestoParametersTypeDef
-```
-
-
-Required fields:
-- `Host`: `str`
-- `Port`: `int`
-- `Catalog`: `str`
-
-
-
-
-## ProjectOperationTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ProjectOperationTypeDef
-```
-
-
-Required fields:
-- `ProjectedColumns`: `List[str]`
-
-
-
-
-## QueueInfoTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import QueueInfoTypeDef
-```
-
-
-Required fields:
-- `WaitingOnIngestion`: `str`
-- `QueuedIngestion`: `str`
-
-
-
-
-## RdsParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import RdsParametersTypeDef
-```
-
-
-Required fields:
-- `InstanceId`: `str`
-- `Database`: `str`
-
-
-
-
-## RedshiftParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import RedshiftParametersTypeDef
-```
-
-
-Required fields:
-- `Database`: `str`
-
-
-
-Optional fields:
-- `Host`: `str`
-- `Port`: `int`
-- `ClusterId`: `str`
-
-
-## RelationalTableTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import RelationalTableTypeDef
-```
-
-
-Required fields:
-- `DataSourceArn`: `str`
-- `Name`: `str`
-- `InputColumns`: `List["InputColumnTypeDef"]`
-
-
-
-Optional fields:
-- `Catalog`: `str`
-- `Schema`: `str`
-
-
-## RenameColumnOperationTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import RenameColumnOperationTypeDef
-```
-
-
-Required fields:
-- `ColumnName`: `str`
-- `NewColumnName`: `str`
-
-
-
-
-## ResourcePermissionTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ResourcePermissionTypeDef
-```
-
-
-Required fields:
-- `Principal`: `str`
-- `Actions`: `List[str]`
-
-
-
-
-## RowInfoTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import RowInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `RowsIngested`: `int`
-- `RowsDropped`: `int`
-
-
-## RowLevelPermissionDataSetTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import RowLevelPermissionDataSetTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-- `PermissionPolicy`: `RowLevelPermissionPolicy`
-
-
-
-Optional fields:
-- `Namespace`: `str`
-
-
-## S3ParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import S3ParametersTypeDef
-```
-
-
-Required fields:
-- `ManifestFileLocation`: `"ManifestFileLocationTypeDef"`
-
-
-
-
-## S3SourceTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import S3SourceTypeDef
-```
-
-
-Required fields:
-- `DataSourceArn`: `str`
-- `InputColumns`: `List["InputColumnTypeDef"]`
-
-
-
-Optional fields:
-- `UploadSettings`: `"UploadSettingsTypeDef"`
-
-
-## ServiceNowParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ServiceNowParametersTypeDef
-```
-
-
-Required fields:
-- `SiteBaseUrl`: `str`
-
-
-
-
-## SheetControlsOptionTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import SheetControlsOptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `VisibilityState`: `DashboardUIState`
-
-
-## SheetStyleTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import SheetStyleTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tile`: `"TileStyleTypeDef"`
-- `TileLayout`: `"TileLayoutStyleTypeDef"`
-
-
-## SheetTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import SheetTypeDef
-```
-
-
-
-
-Optional fields:
-- `SheetId`: `str`
-- `Name`: `str`
-
-
-## SnowflakeParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import SnowflakeParametersTypeDef
-```
-
-
-Required fields:
-- `Host`: `str`
-- `Database`: `str`
-- `Warehouse`: `str`
-
-
-
-
-## SparkParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import SparkParametersTypeDef
-```
-
-
-Required fields:
-- `Host`: `str`
-- `Port`: `int`
-
-
-
-
-## SqlServerParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import SqlServerParametersTypeDef
-```
-
-
-Required fields:
-- `Host`: `str`
-- `Port`: `int`
-- `Database`: `str`
-
-
-
-
-## SslPropertiesTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import SslPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `DisableSsl`: `bool`
-
-
-## StringParameterTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import StringParameterTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Values`: `List[str]`
-
-
-
-
-## TagColumnOperationTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TagColumnOperationTypeDef
-```
-
-
-Required fields:
-- `ColumnName`: `str`
-- `Tags`: `List["ColumnTagTypeDef"]`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TemplateAliasTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TemplateAliasTypeDef
-```
-
-
-
-
-Optional fields:
-- `AliasName`: `str`
-- `Arn`: `str`
-- `TemplateVersionNumber`: `int`
-
-
-## TemplateErrorTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TemplateErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `TemplateErrorType`
-- `Message`: `str`
-
-
-## TemplateSourceAnalysisTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TemplateSourceAnalysisTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-- `DataSetReferences`: `List["DataSetReferenceTypeDef"]`
-
-
-
-
-## TemplateSourceTemplateTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TemplateSourceTemplateTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-
-
-
-
-## TemplateSummaryTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TemplateSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `TemplateId`: `str`
-- `Name`: `str`
-- `LatestVersionNumber`: `int`
-- `CreatedTime`: `datetime`
-- `LastUpdatedTime`: `datetime`
-
-
-## TemplateTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TemplateTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-- `Version`: `"TemplateVersionTypeDef"`
-- `TemplateId`: `str`
-- `LastUpdatedTime`: `datetime`
-- `CreatedTime`: `datetime`
-
-
-## TemplateVersionSummaryTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TemplateVersionSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `VersionNumber`: `int`
-- `CreatedTime`: `datetime`
-- `Status`: `ResourceStatus`
-- `Description`: `str`
-
-
-## TemplateVersionTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TemplateVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreatedTime`: `datetime`
-- `Errors`: `List["TemplateErrorTypeDef"]`
-- `VersionNumber`: `int`
-- `Status`: `ResourceStatus`
-- `DataSetConfigurations`: `List["DataSetConfigurationTypeDef"]`
-- `Description`: `str`
-- `SourceEntityArn`: `str`
-- `ThemeArn`: `str`
-- `Sheets`: `List["SheetTypeDef"]`
-
-
-## TeradataParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TeradataParametersTypeDef
-```
-
-
-Required fields:
-- `Host`: `str`
-- `Port`: `int`
-- `Database`: `str`
-
-
-
-
-## ThemeAliasTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ThemeAliasTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `AliasName`: `str`
-- `ThemeVersionNumber`: `int`
-
-
-## ThemeConfigurationTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ThemeConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `DataColorPalette`: `"DataColorPaletteTypeDef"`
-- `UIColorPalette`: `"UIColorPaletteTypeDef"`
-- `Sheet`: `"SheetStyleTypeDef"`
-
-
-## ThemeErrorTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ThemeErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `ThemeErrorType`
-- `Message`: `str`
-
-
-## ThemeSummaryTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ThemeSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-- `ThemeId`: `str`
-- `LatestVersionNumber`: `int`
-- `CreatedTime`: `datetime`
-- `LastUpdatedTime`: `datetime`
-
-
-## ThemeTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ThemeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-- `ThemeId`: `str`
-- `Version`: `"ThemeVersionTypeDef"`
-- `CreatedTime`: `datetime`
-- `LastUpdatedTime`: `datetime`
-- `Type`: `ThemeType`
-
-
-## ThemeVersionSummaryTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ThemeVersionSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `VersionNumber`: `int`
-- `Arn`: `str`
-- `Description`: `str`
-- `CreatedTime`: `datetime`
-- `Status`: `ResourceStatus`
-
-
-## ThemeVersionTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import ThemeVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `VersionNumber`: `int`
-- `Arn`: `str`
-- `Description`: `str`
-- `BaseThemeId`: `str`
-- `CreatedTime`: `datetime`
-- `Configuration`: `"ThemeConfigurationTypeDef"`
-- `Errors`: `List["ThemeErrorTypeDef"]`
-- `Status`: `ResourceStatus`
-
-
-## TileLayoutStyleTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TileLayoutStyleTypeDef
-```
-
-
-
-
-Optional fields:
-- `Gutter`: `"GutterStyleTypeDef"`
-- `Margin`: `"MarginStyleTypeDef"`
-
-
-## TileStyleTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TileStyleTypeDef
-```
-
-
-
-
-Optional fields:
-- `Border`: `"BorderStyleTypeDef"`
-
-
-## TransformOperationTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TransformOperationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProjectOperation`: `"ProjectOperationTypeDef"`
-- `FilterOperation`: `"FilterOperationTypeDef"`
-- `CreateColumnsOperation`: `"CreateColumnsOperationTypeDef"`
-- `RenameColumnOperation`: `"RenameColumnOperationTypeDef"`
-- `CastColumnTypeOperation`: `"CastColumnTypeOperationTypeDef"`
-- `TagColumnOperation`: `"TagColumnOperationTypeDef"`
-
-
-## TwitterParametersTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import TwitterParametersTypeDef
-```
-
-
-Required fields:
-- `Query`: `str`
-- `MaxRows`: `int`
-
-
-
-
-## UIColorPaletteTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import UIColorPaletteTypeDef
-```
-
-
-
-
-Optional fields:
-- `PrimaryForeground`: `str`
-- `PrimaryBackground`: `str`
-- `SecondaryForeground`: `str`
-- `SecondaryBackground`: `str`
-- `Accent`: `str`
-- `AccentForeground`: `str`
-- `Danger`: `str`
-- `DangerForeground`: `str`
-- `Warning`: `str`
-- `WarningForeground`: `str`
-- `Success`: `str`
-- `SuccessForeground`: `str`
-- `Dimension`: `str`
-- `DimensionForeground`: `str`
-- `Measure`: `str`
-- `MeasureForeground`: `str`
-
-
-## UploadSettingsTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import UploadSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Format`: `FileFormat`
-- `StartFromRow`: `int`
-- `ContainsHeader`: `bool`
-- `TextQualifier`: `TextQualifier`
-- `Delimiter`: `str`
-
-
-## UserTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import UserTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `UserName`: `str`
-- `Email`: `str`
-- `Role`: `UserRole`
-- `IdentityType`: `IdentityType`
-- `Active`: `bool`
-- `PrincipalId`: `str`
-- `CustomPermissionsName`: `str`
-
-
-## VpcConnectionPropertiesTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import VpcConnectionPropertiesTypeDef
-```
-
-
-Required fields:
-- `VpcConnectionArn`: `str`
-
-
-
-
-## AnalysisSearchFilterTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import AnalysisSearchFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Operator`: `FilterOperator`
-- `Name`: `AnalysisFilterAttribute`
-- `Value`: `str`
-
-
-## AnalysisSourceEntityTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import AnalysisSourceEntityTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceTemplate`: `"AnalysisSourceTemplateTypeDef"`
-
-
-## CancelIngestionResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CancelIngestionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `IngestionId`: `str`
-- `RequestId`: `str`
-- `Status`: `int`
-
-
-## CreateAccountCustomizationResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateAccountCustomizationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `AwsAccountId`: `str`
-- `Namespace`: `str`
-- `AccountCustomization`: `"AccountCustomizationTypeDef"`
-- `RequestId`: `str`
-- `Status`: `int`
-
-
-## CreateAnalysisResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateAnalysisResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `AnalysisId`: `str`
-- `CreationStatus`: `ResourceStatus`
-- `Status`: `int`
-- `RequestId`: `str`
-
-
-## CreateDashboardResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateDashboardResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `VersionArn`: `str`
-- `DashboardId`: `str`
-- `CreationStatus`: `ResourceStatus`
-- `Status`: `int`
-- `RequestId`: `str`
-
-
-## CreateDataSetResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateDataSetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `DataSetId`: `str`
-- `IngestionArn`: `str`
-- `IngestionId`: `str`
-- `RequestId`: `str`
-- `Status`: `int`
-
-
-## CreateDataSourceResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateDataSourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `DataSourceId`: `str`
-- `CreationStatus`: `ResourceStatus`
-- `RequestId`: `str`
-- `Status`: `int`
-
-
-## CreateGroupMembershipResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateGroupMembershipResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupMember`: `"GroupMemberTypeDef"`
-- `RequestId`: `str`
-- `Status`: `int`
-
-
-## CreateGroupResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Group`: `"GroupTypeDef"`
-- `RequestId`: `str`
-- `Status`: `int`
-
-
-## CreateIAMPolicyAssignmentResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateIAMPolicyAssignmentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssignmentName`: `str`
-- `AssignmentId`: `str`
-- `AssignmentStatus`: `AssignmentStatus`
-- `PolicyArn`: `str`
-- `Identities`: `Dict[str, List[str]]`
-- `RequestId`: `str`
-- `Status`: `int`
-
-
-## CreateIngestionResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateIngestionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `IngestionId`: `str`
-- `IngestionStatus`: `IngestionStatus`
-- `RequestId`: `str`
-- `Status`: `int`
-
-
-## CreateNamespaceResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateNamespaceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-- `CapacityRegion`: `str`
-- `CreationStatus`: `NamespaceStatus`
-- `IdentityStore`: `IdentityStore`
-- `RequestId`: `str`
-- `Status`: `int`
-
-
-## CreateTemplateAliasResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateTemplateAliasResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TemplateAlias`: `"TemplateAliasTypeDef"`
-- `Status`: `int`
-- `RequestId`: `str`
-
-
-## CreateTemplateResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `VersionArn`: `str`
-- `TemplateId`: `str`
-- `CreationStatus`: `ResourceStatus`
-- `Status`: `int`
-- `RequestId`: `str`
-
-
-## CreateThemeAliasResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateThemeAliasResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ThemeAlias`: `"ThemeAliasTypeDef"`
-- `Status`: `int`
-- `RequestId`: `str`
-
-
-## CreateThemeResponseTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import CreateThemeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `VersionArn`: `str`
-- `ThemeId`: `str`
-- `CreationStatus`: `ResourceStatus`
-- `Status`: `int`
-- `RequestId`: `str`
-
-
-## DashboardPublishOptionsTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import DashboardPublishOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `AdHocFilteringOption`: `"AdHocFilteringOptionTypeDef"`
-- `ExportToCSVOption`: `"ExportToCSVOptionTypeDef"`
-- `SheetControlsOption`: `"SheetControlsOptionTypeDef"`
-
-
-## DashboardSearchFilterTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import DashboardSearchFilterTypeDef
-```
-
-
-Required fields:
-- `Operator`: `FilterOperator`
-
-
-
-Optional fields:
-- `Name`: `DashboardFilterAttribute`
-- `Value`: `str`
-
-
-## DashboardSourceEntityTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import DashboardSourceEntityTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceTemplate`: `"DashboardSourceTemplateTypeDef"`
-
-
-## DataSourceCredentialsTypeDef
-
-```python
-from mypy_boto3_quicksight.type_defs import DataSourceCredentialsTypeDef
-```
-
-
-
-
-Optional fields:
-- `CredentialPair`: `"CredentialPairTypeDef"`
-- `CopySourceArn`: `str`
 
 
 ## DeleteAccountCustomizationResponseTypeDef
@@ -2982,6 +1824,75 @@ Optional fields:
 - `Status`: `int`
 
 
+## ErrorInfoTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ErrorInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `IngestionErrorType`
+- `Message`: `str`
+
+
+## ExportToCSVOptionTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ExportToCSVOptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailabilityStatus`: `DashboardBehavior`
+
+
+## FieldFolderTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import FieldFolderTypeDef
+```
+
+
+
+
+Optional fields:
+- `description`: `str`
+- `columns`: `List[str]`
+
+
+## FilterOperationTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import FilterOperationTypeDef
+```
+
+
+Required fields:
+- `ConditionExpression`: `str`
+
+
+
+
+## GeoSpatialColumnGroupTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import GeoSpatialColumnGroupTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `CountryCode`: `Literal['US']`
+- `Columns`: `List[str]`
+
+
+
+
 ## GetDashboardEmbedUrlResponseTypeDef
 
 ```python
@@ -3010,6 +1921,180 @@ Optional fields:
 - `EmbedUrl`: `str`
 - `Status`: `int`
 - `RequestId`: `str`
+
+
+## GroupMemberTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import GroupMemberTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `MemberName`: `str`
+
+
+## GroupTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import GroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `GroupName`: `str`
+- `Description`: `str`
+- `PrincipalId`: `str`
+
+
+## GutterStyleTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import GutterStyleTypeDef
+```
+
+
+
+
+Optional fields:
+- `Show`: `bool`
+
+
+## IAMPolicyAssignmentSummaryTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import IAMPolicyAssignmentSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssignmentName`: `str`
+- `AssignmentStatus`: `AssignmentStatus`
+
+
+## IAMPolicyAssignmentTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import IAMPolicyAssignmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `AwsAccountId`: `str`
+- `AssignmentId`: `str`
+- `AssignmentName`: `str`
+- `PolicyArn`: `str`
+- `Identities`: `Dict[str, List[str]]`
+- `AssignmentStatus`: `AssignmentStatus`
+
+
+## IngestionTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import IngestionTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+- `IngestionStatus`: `IngestionStatus`
+- `CreatedTime`: `datetime`
+
+
+
+Optional fields:
+- `IngestionId`: `str`
+- `ErrorInfo`: `"ErrorInfoTypeDef"`
+- `RowInfo`: `"RowInfoTypeDef"`
+- `QueueInfo`: `"QueueInfoTypeDef"`
+- `IngestionTimeInSeconds`: `int`
+- `IngestionSizeInBytes`: `int`
+- `RequestSource`: `IngestionRequestSource`
+- `RequestType`: `IngestionRequestType`
+
+
+## InputColumnTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import InputColumnTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Type`: `InputColumnDataType`
+
+
+
+
+## IntegerParameterTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import IntegerParameterTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Values`: `List[int]`
+
+
+
+
+## JiraParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import JiraParametersTypeDef
+```
+
+
+Required fields:
+- `SiteBaseUrl`: `str`
+
+
+
+
+## JoinInstructionTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import JoinInstructionTypeDef
+```
+
+
+Required fields:
+- `LeftOperand`: `str`
+- `RightOperand`: `str`
+- `Type`: `JoinType`
+- `OnClause`: `str`
+
+
+
+Optional fields:
+- `LeftJoinKeyProperties`: `"JoinKeyPropertiesTypeDef"`
+- `RightJoinKeyProperties`: `"JoinKeyPropertiesTypeDef"`
+
+
+## JoinKeyPropertiesTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import JoinKeyPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `UniqueKey`: `bool`
 
 
 ## ListAnalysesResponseTypeDef
@@ -3331,6 +2416,156 @@ Optional fields:
 - `Status`: `int`
 
 
+## LogicalTableSourceTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import LogicalTableSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `JoinInstruction`: `"JoinInstructionTypeDef"`
+- `PhysicalTableId`: `str`
+
+
+## LogicalTableTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import LogicalTableTypeDef
+```
+
+
+Required fields:
+- `Alias`: `str`
+- `Source`: `"LogicalTableSourceTypeDef"`
+
+
+
+Optional fields:
+- `DataTransforms`: `List["TransformOperationTypeDef"]`
+
+
+## ManifestFileLocationTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ManifestFileLocationTypeDef
+```
+
+
+Required fields:
+- `Bucket`: `str`
+- `Key`: `str`
+
+
+
+
+## MarginStyleTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import MarginStyleTypeDef
+```
+
+
+
+
+Optional fields:
+- `Show`: `bool`
+
+
+## MariaDbParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import MariaDbParametersTypeDef
+```
+
+
+Required fields:
+- `Host`: `str`
+- `Port`: `int`
+- `Database`: `str`
+
+
+
+
+## MySqlParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import MySqlParametersTypeDef
+```
+
+
+Required fields:
+- `Host`: `str`
+- `Port`: `int`
+- `Database`: `str`
+
+
+
+
+## NamespaceErrorTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import NamespaceErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `NamespaceErrorType`
+- `Message`: `str`
+
+
+## NamespaceInfoV2TypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import NamespaceInfoV2TypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Arn`: `str`
+- `CapacityRegion`: `str`
+- `CreationStatus`: `NamespaceStatus`
+- `IdentityStore`: `Literal['QUICKSIGHT']`
+- `NamespaceError`: `"NamespaceErrorTypeDef"`
+
+
+## OracleParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import OracleParametersTypeDef
+```
+
+
+Required fields:
+- `Host`: `str`
+- `Port`: `int`
+- `Database`: `str`
+
+
+
+
+## OutputColumnTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import OutputColumnTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Description`: `str`
+- `Type`: `ColumnDataType`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -3362,6 +2597,110 @@ Optional fields:
 - `DateTimeParameters`: `List["DateTimeParameterTypeDef"]`
 
 
+## PhysicalTableTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import PhysicalTableTypeDef
+```
+
+
+
+
+Optional fields:
+- `RelationalTable`: `"RelationalTableTypeDef"`
+- `CustomSql`: `"CustomSqlTypeDef"`
+- `S3Source`: `"S3SourceTypeDef"`
+
+
+## PostgreSqlParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import PostgreSqlParametersTypeDef
+```
+
+
+Required fields:
+- `Host`: `str`
+- `Port`: `int`
+- `Database`: `str`
+
+
+
+
+## PrestoParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import PrestoParametersTypeDef
+```
+
+
+Required fields:
+- `Host`: `str`
+- `Port`: `int`
+- `Catalog`: `str`
+
+
+
+
+## ProjectOperationTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ProjectOperationTypeDef
+```
+
+
+Required fields:
+- `ProjectedColumns`: `List[str]`
+
+
+
+
+## QueueInfoTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import QueueInfoTypeDef
+```
+
+
+Required fields:
+- `WaitingOnIngestion`: `str`
+- `QueuedIngestion`: `str`
+
+
+
+
+## RdsParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import RdsParametersTypeDef
+```
+
+
+Required fields:
+- `InstanceId`: `str`
+- `Database`: `str`
+
+
+
+
+## RedshiftParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import RedshiftParametersTypeDef
+```
+
+
+Required fields:
+- `Database`: `str`
+
+
+
+Optional fields:
+- `Host`: `str`
+- `Port`: `int`
+- `ClusterId`: `str`
+
+
 ## RegisterUserResponseTypeDef
 
 ```python
@@ -3378,6 +2717,53 @@ Optional fields:
 - `Status`: `int`
 
 
+## RelationalTableTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import RelationalTableTypeDef
+```
+
+
+Required fields:
+- `DataSourceArn`: `str`
+- `Name`: `str`
+- `InputColumns`: `List["InputColumnTypeDef"]`
+
+
+
+Optional fields:
+- `Catalog`: `str`
+- `Schema`: `str`
+
+
+## RenameColumnOperationTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import RenameColumnOperationTypeDef
+```
+
+
+Required fields:
+- `ColumnName`: `str`
+- `NewColumnName`: `str`
+
+
+
+
+## ResourcePermissionTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ResourcePermissionTypeDef
+```
+
+
+Required fields:
+- `Principal`: `str`
+- `Actions`: `List[str]`
+
+
+
+
 ## RestoreAnalysisResponseTypeDef
 
 ```python
@@ -3392,6 +2778,67 @@ Optional fields:
 - `Arn`: `str`
 - `AnalysisId`: `str`
 - `RequestId`: `str`
+
+
+## RowInfoTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import RowInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `RowsIngested`: `int`
+- `RowsDropped`: `int`
+
+
+## RowLevelPermissionDataSetTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import RowLevelPermissionDataSetTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+- `PermissionPolicy`: `RowLevelPermissionPolicy`
+
+
+
+Optional fields:
+- `Namespace`: `str`
+
+
+## S3ParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import S3ParametersTypeDef
+```
+
+
+Required fields:
+- `ManifestFileLocation`: `"ManifestFileLocationTypeDef"`
+
+
+
+
+## S3SourceTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import S3SourceTypeDef
+```
+
+
+Required fields:
+- `DataSourceArn`: `str`
+- `InputColumns`: `List["InputColumnTypeDef"]`
+
+
+
+Optional fields:
+- `UploadSettings`: `"UploadSettingsTypeDef"`
 
 
 ## SearchAnalysesResponseTypeDef
@@ -3426,6 +2873,145 @@ Optional fields:
 - `RequestId`: `str`
 
 
+## ServiceNowParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ServiceNowParametersTypeDef
+```
+
+
+Required fields:
+- `SiteBaseUrl`: `str`
+
+
+
+
+## SheetControlsOptionTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import SheetControlsOptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `VisibilityState`: `DashboardUIState`
+
+
+## SheetStyleTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import SheetStyleTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tile`: `"TileStyleTypeDef"`
+- `TileLayout`: `"TileLayoutStyleTypeDef"`
+
+
+## SheetTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import SheetTypeDef
+```
+
+
+
+
+Optional fields:
+- `SheetId`: `str`
+- `Name`: `str`
+
+
+## SnowflakeParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import SnowflakeParametersTypeDef
+```
+
+
+Required fields:
+- `Host`: `str`
+- `Database`: `str`
+- `Warehouse`: `str`
+
+
+
+
+## SparkParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import SparkParametersTypeDef
+```
+
+
+Required fields:
+- `Host`: `str`
+- `Port`: `int`
+
+
+
+
+## SqlServerParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import SqlServerParametersTypeDef
+```
+
+
+Required fields:
+- `Host`: `str`
+- `Port`: `int`
+- `Database`: `str`
+
+
+
+
+## SslPropertiesTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import SslPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `DisableSsl`: `bool`
+
+
+## StringParameterTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import StringParameterTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Values`: `List[str]`
+
+
+
+
+## TagColumnOperationTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TagColumnOperationTypeDef
+```
+
+
+Required fields:
+- `ColumnName`: `str`
+- `Tags`: `List["ColumnTagTypeDef"]`
+
+
+
+
 ## TagResourceResponseTypeDef
 
 ```python
@@ -3440,6 +3026,63 @@ Optional fields:
 - `Status`: `int`
 
 
+## TagTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TemplateAliasTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TemplateAliasTypeDef
+```
+
+
+
+
+Optional fields:
+- `AliasName`: `str`
+- `Arn`: `str`
+- `TemplateVersionNumber`: `int`
+
+
+## TemplateErrorTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TemplateErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `TemplateErrorType`
+- `Message`: `str`
+
+
+## TemplateSourceAnalysisTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TemplateSourceAnalysisTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+- `DataSetReferences`: `List["DataSetReferenceTypeDef"]`
+
+
+
+
 ## TemplateSourceEntityTypeDef
 
 ```python
@@ -3452,6 +3095,313 @@ from mypy_boto3_quicksight.type_defs import TemplateSourceEntityTypeDef
 Optional fields:
 - `SourceAnalysis`: `"TemplateSourceAnalysisTypeDef"`
 - `SourceTemplate`: `"TemplateSourceTemplateTypeDef"`
+
+
+## TemplateSourceTemplateTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TemplateSourceTemplateTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+
+
+
+
+## TemplateSummaryTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TemplateSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `TemplateId`: `str`
+- `Name`: `str`
+- `LatestVersionNumber`: `int`
+- `CreatedTime`: `datetime`
+- `LastUpdatedTime`: `datetime`
+
+
+## TemplateTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TemplateTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+- `Version`: `"TemplateVersionTypeDef"`
+- `TemplateId`: `str`
+- `LastUpdatedTime`: `datetime`
+- `CreatedTime`: `datetime`
+
+
+## TemplateVersionSummaryTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TemplateVersionSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `VersionNumber`: `int`
+- `CreatedTime`: `datetime`
+- `Status`: `ResourceStatus`
+- `Description`: `str`
+
+
+## TemplateVersionTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TemplateVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreatedTime`: `datetime`
+- `Errors`: `List["TemplateErrorTypeDef"]`
+- `VersionNumber`: `int`
+- `Status`: `ResourceStatus`
+- `DataSetConfigurations`: `List["DataSetConfigurationTypeDef"]`
+- `Description`: `str`
+- `SourceEntityArn`: `str`
+- `ThemeArn`: `str`
+- `Sheets`: `List["SheetTypeDef"]`
+
+
+## TeradataParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TeradataParametersTypeDef
+```
+
+
+Required fields:
+- `Host`: `str`
+- `Port`: `int`
+- `Database`: `str`
+
+
+
+
+## ThemeAliasTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ThemeAliasTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `AliasName`: `str`
+- `ThemeVersionNumber`: `int`
+
+
+## ThemeConfigurationTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ThemeConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `DataColorPalette`: `"DataColorPaletteTypeDef"`
+- `UIColorPalette`: `"UIColorPaletteTypeDef"`
+- `Sheet`: `"SheetStyleTypeDef"`
+
+
+## ThemeErrorTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ThemeErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `Literal['INTERNAL_FAILURE']`
+- `Message`: `str`
+
+
+## ThemeSummaryTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ThemeSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+- `ThemeId`: `str`
+- `LatestVersionNumber`: `int`
+- `CreatedTime`: `datetime`
+- `LastUpdatedTime`: `datetime`
+
+
+## ThemeTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ThemeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+- `ThemeId`: `str`
+- `Version`: `"ThemeVersionTypeDef"`
+- `CreatedTime`: `datetime`
+- `LastUpdatedTime`: `datetime`
+- `Type`: `ThemeType`
+
+
+## ThemeVersionSummaryTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ThemeVersionSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `VersionNumber`: `int`
+- `Arn`: `str`
+- `Description`: `str`
+- `CreatedTime`: `datetime`
+- `Status`: `ResourceStatus`
+
+
+## ThemeVersionTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import ThemeVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `VersionNumber`: `int`
+- `Arn`: `str`
+- `Description`: `str`
+- `BaseThemeId`: `str`
+- `CreatedTime`: `datetime`
+- `Configuration`: `"ThemeConfigurationTypeDef"`
+- `Errors`: `List["ThemeErrorTypeDef"]`
+- `Status`: `ResourceStatus`
+
+
+## TileLayoutStyleTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TileLayoutStyleTypeDef
+```
+
+
+
+
+Optional fields:
+- `Gutter`: `"GutterStyleTypeDef"`
+- `Margin`: `"MarginStyleTypeDef"`
+
+
+## TileStyleTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TileStyleTypeDef
+```
+
+
+
+
+Optional fields:
+- `Border`: `"BorderStyleTypeDef"`
+
+
+## TransformOperationTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TransformOperationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProjectOperation`: `"ProjectOperationTypeDef"`
+- `FilterOperation`: `"FilterOperationTypeDef"`
+- `CreateColumnsOperation`: `"CreateColumnsOperationTypeDef"`
+- `RenameColumnOperation`: `"RenameColumnOperationTypeDef"`
+- `CastColumnTypeOperation`: `"CastColumnTypeOperationTypeDef"`
+- `TagColumnOperation`: `"TagColumnOperationTypeDef"`
+
+
+## TwitterParametersTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import TwitterParametersTypeDef
+```
+
+
+Required fields:
+- `Query`: `str`
+- `MaxRows`: `int`
+
+
+
+
+## UIColorPaletteTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import UIColorPaletteTypeDef
+```
+
+
+
+
+Optional fields:
+- `PrimaryForeground`: `str`
+- `PrimaryBackground`: `str`
+- `SecondaryForeground`: `str`
+- `SecondaryBackground`: `str`
+- `Accent`: `str`
+- `AccentForeground`: `str`
+- `Danger`: `str`
+- `DangerForeground`: `str`
+- `Warning`: `str`
+- `WarningForeground`: `str`
+- `Success`: `str`
+- `SuccessForeground`: `str`
+- `Dimension`: `str`
+- `DimensionForeground`: `str`
+- `Measure`: `str`
+- `MeasureForeground`: `str`
 
 
 ## UntagResourceResponseTypeDef
@@ -3799,4 +3749,54 @@ Optional fields:
 - `User`: `"UserTypeDef"`
 - `RequestId`: `str`
 - `Status`: `int`
+
+
+## UploadSettingsTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import UploadSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Format`: `FileFormat`
+- `StartFromRow`: `int`
+- `ContainsHeader`: `bool`
+- `TextQualifier`: `TextQualifier`
+- `Delimiter`: `str`
+
+
+## UserTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import UserTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `UserName`: `str`
+- `Email`: `str`
+- `Role`: `UserRole`
+- `IdentityType`: `IdentityType`
+- `Active`: `bool`
+- `PrincipalId`: `str`
+- `CustomPermissionsName`: `str`
+
+
+## VpcConnectionPropertiesTypeDef
+
+```python
+from mypy_boto3_quicksight.type_defs import VpcConnectionPropertiesTypeDef
+```
+
+
+Required fields:
+- `VpcConnectionArn`: `str`
+
+
 

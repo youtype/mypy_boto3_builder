@@ -6,71 +6,18 @@ Auto-generated documentation for [Detective](https://boto3.amazonaws.com/v1/docu
 type annotations stubs module [mypy_boto3_detective](https://pypi.org/project/mypy-boto3-detective/).
 
 - [Structures for boto3 Detective module](#structures-for-boto3-detective-module)
-  - [GraphTypeDef](#graphtypedef)
-  - [MemberDetailTypeDef](#memberdetailtypedef)
-  - [UnprocessedAccountTypeDef](#unprocessedaccounttypedef)
   - [AccountTypeDef](#accounttypedef)
   - [CreateGraphResponseTypeDef](#creategraphresponsetypedef)
   - [CreateMembersResponseTypeDef](#createmembersresponsetypedef)
   - [DeleteMembersResponseTypeDef](#deletemembersresponsetypedef)
   - [GetMembersResponseTypeDef](#getmembersresponsetypedef)
+  - [GraphTypeDef](#graphtypedef)
   - [ListGraphsResponseTypeDef](#listgraphsresponsetypedef)
   - [ListInvitationsResponseTypeDef](#listinvitationsresponsetypedef)
   - [ListMembersResponseTypeDef](#listmembersresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-
-## GraphTypeDef
-
-```python
-from mypy_boto3_detective.type_defs import GraphTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CreatedTime`: `datetime`
-
-
-## MemberDetailTypeDef
-
-```python
-from mypy_boto3_detective.type_defs import MemberDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `AccountId`: `str`
-- `EmailAddress`: `str`
-- `GraphArn`: `str`
-- `MasterId`: `str`
-- `AdministratorId`: `str`
-- `Status`: `MemberStatus`
-- `DisabledReason`: `MemberDisabledReason`
-- `InvitedTime`: `datetime`
-- `UpdatedTime`: `datetime`
-- `VolumeUsageInBytes`: `int`
-- `VolumeUsageUpdatedTime`: `datetime`
-- `PercentOfGraphUtilization`: `float`
-- `PercentOfGraphUtilizationUpdatedTime`: `datetime`
-
-
-## UnprocessedAccountTypeDef
-
-```python
-from mypy_boto3_detective.type_defs import UnprocessedAccountTypeDef
-```
-
-
-
-
-Optional fields:
-- `AccountId`: `str`
-- `Reason`: `str`
-
+  - [MemberDetailTypeDef](#memberdetailtypedef)
+  - [UnprocessedAccountTypeDef](#unprocessedaccounttypedef)
 
 ## AccountTypeDef
 
@@ -141,6 +88,20 @@ Optional fields:
 - `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
 
 
+## GraphTypeDef
+
+```python
+from mypy_boto3_detective.type_defs import GraphTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CreatedTime`: `datetime`
+
+
 ## ListGraphsResponseTypeDef
 
 ```python
@@ -194,4 +155,43 @@ from mypy_boto3_detective.type_defs import ListTagsForResourceResponseTypeDef
 
 Optional fields:
 - `Tags`: `Dict[str, str]`
+
+
+## MemberDetailTypeDef
+
+```python
+from mypy_boto3_detective.type_defs import MemberDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `AccountId`: `str`
+- `EmailAddress`: `str`
+- `GraphArn`: `str`
+- `MasterId`: `str`
+- `AdministratorId`: `str`
+- `Status`: `MemberStatus`
+- `DisabledReason`: `MemberDisabledReason`
+- `InvitedTime`: `datetime`
+- `UpdatedTime`: `datetime`
+- `VolumeUsageInBytes`: `int`
+- `VolumeUsageUpdatedTime`: `datetime`
+- `PercentOfGraphUtilization`: `float`
+- `PercentOfGraphUtilizationUpdatedTime`: `datetime`
+
+
+## UnprocessedAccountTypeDef
+
+```python
+from mypy_boto3_detective.type_defs import UnprocessedAccountTypeDef
+```
+
+
+
+
+Optional fields:
+- `AccountId`: `str`
+- `Reason`: `str`
 

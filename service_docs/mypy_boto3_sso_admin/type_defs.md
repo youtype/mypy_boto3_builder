@@ -12,12 +12,6 @@ type annotations stubs module [mypy_boto3_sso_admin](https://pypi.org/project/my
   - [AccountAssignmentOperationStatusTypeDef](#accountassignmentoperationstatustypedef)
   - [AccountAssignmentTypeDef](#accountassignmenttypedef)
   - [AttachedManagedPolicyTypeDef](#attachedmanagedpolicytypedef)
-  - [InstanceAccessControlAttributeConfigurationTypeDef](#instanceaccesscontrolattributeconfigurationtypedef)
-  - [InstanceMetadataTypeDef](#instancemetadatatypedef)
-  - [PermissionSetProvisioningStatusMetadataTypeDef](#permissionsetprovisioningstatusmetadatatypedef)
-  - [PermissionSetProvisioningStatusTypeDef](#permissionsetprovisioningstatustypedef)
-  - [PermissionSetTypeDef](#permissionsettypedef)
-  - [TagTypeDef](#tagtypedef)
   - [CreateAccountAssignmentResponseTypeDef](#createaccountassignmentresponsetypedef)
   - [CreatePermissionSetResponseTypeDef](#createpermissionsetresponsetypedef)
   - [DeleteAccountAssignmentResponseTypeDef](#deleteaccountassignmentresponsetypedef)
@@ -27,6 +21,8 @@ type annotations stubs module [mypy_boto3_sso_admin](https://pypi.org/project/my
   - [DescribePermissionSetProvisioningStatusResponseTypeDef](#describepermissionsetprovisioningstatusresponsetypedef)
   - [DescribePermissionSetResponseTypeDef](#describepermissionsetresponsetypedef)
   - [GetInlinePolicyForPermissionSetResponseTypeDef](#getinlinepolicyforpermissionsetresponsetypedef)
+  - [InstanceAccessControlAttributeConfigurationTypeDef](#instanceaccesscontrolattributeconfigurationtypedef)
+  - [InstanceMetadataTypeDef](#instancemetadatatypedef)
   - [ListAccountAssignmentCreationStatusResponseTypeDef](#listaccountassignmentcreationstatusresponsetypedef)
   - [ListAccountAssignmentDeletionStatusResponseTypeDef](#listaccountassignmentdeletionstatusresponsetypedef)
   - [ListAccountAssignmentsResponseTypeDef](#listaccountassignmentsresponsetypedef)
@@ -39,7 +35,11 @@ type annotations stubs module [mypy_boto3_sso_admin](https://pypi.org/project/my
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [OperationStatusFilterTypeDef](#operationstatusfiltertypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PermissionSetProvisioningStatusMetadataTypeDef](#permissionsetprovisioningstatusmetadatatypedef)
+  - [PermissionSetProvisioningStatusTypeDef](#permissionsetprovisioningstatustypedef)
+  - [PermissionSetTypeDef](#permissionsettypedef)
   - [ProvisionPermissionSetResponseTypeDef](#provisionpermissionsetresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
 
 ## AccessControlAttributeTypeDef
 
@@ -97,7 +97,7 @@ Optional fields:
 - `RequestId`: `str`
 - `FailureReason`: `str`
 - `TargetId`: `str`
-- `TargetType`: `TargetType`
+- `TargetType`: `Literal['AWS_ACCOUNT']`
 - `PermissionSetArn`: `str`
 - `PrincipalType`: `PrincipalType`
 - `PrincipalId`: `str`
@@ -132,98 +132,6 @@ from mypy_boto3_sso_admin.type_defs import AttachedManagedPolicyTypeDef
 Optional fields:
 - `Name`: `str`
 - `Arn`: `str`
-
-
-## InstanceAccessControlAttributeConfigurationTypeDef
-
-```python
-from mypy_boto3_sso_admin.type_defs import InstanceAccessControlAttributeConfigurationTypeDef
-```
-
-
-Required fields:
-- `AccessControlAttributes`: `List["AccessControlAttributeTypeDef"]`
-
-
-
-
-## InstanceMetadataTypeDef
-
-```python
-from mypy_boto3_sso_admin.type_defs import InstanceMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceArn`: `str`
-- `IdentityStoreId`: `str`
-
-
-## PermissionSetProvisioningStatusMetadataTypeDef
-
-```python
-from mypy_boto3_sso_admin.type_defs import PermissionSetProvisioningStatusMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `StatusValues`
-- `RequestId`: `str`
-- `CreatedDate`: `datetime`
-
-
-## PermissionSetProvisioningStatusTypeDef
-
-```python
-from mypy_boto3_sso_admin.type_defs import PermissionSetProvisioningStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `StatusValues`
-- `RequestId`: `str`
-- `AccountId`: `str`
-- `PermissionSetArn`: `str`
-- `FailureReason`: `str`
-- `CreatedDate`: `datetime`
-
-
-## PermissionSetTypeDef
-
-```python
-from mypy_boto3_sso_admin.type_defs import PermissionSetTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `PermissionSetArn`: `str`
-- `Description`: `str`
-- `CreatedDate`: `datetime`
-- `SessionDuration`: `str`
-- `RelayState`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_sso_admin.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
 
 
 ## CreateAccountAssignmentResponseTypeDef
@@ -343,6 +251,33 @@ from mypy_boto3_sso_admin.type_defs import GetInlinePolicyForPermissionSetRespon
 
 Optional fields:
 - `InlinePolicy`: `str`
+
+
+## InstanceAccessControlAttributeConfigurationTypeDef
+
+```python
+from mypy_boto3_sso_admin.type_defs import InstanceAccessControlAttributeConfigurationTypeDef
+```
+
+
+Required fields:
+- `AccessControlAttributes`: `List["AccessControlAttributeTypeDef"]`
+
+
+
+
+## InstanceMetadataTypeDef
+
+```python
+from mypy_boto3_sso_admin.type_defs import InstanceMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceArn`: `str`
+- `IdentityStoreId`: `str`
 
 
 ## ListAccountAssignmentCreationStatusResponseTypeDef
@@ -513,6 +448,57 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PermissionSetProvisioningStatusMetadataTypeDef
+
+```python
+from mypy_boto3_sso_admin.type_defs import PermissionSetProvisioningStatusMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `StatusValues`
+- `RequestId`: `str`
+- `CreatedDate`: `datetime`
+
+
+## PermissionSetProvisioningStatusTypeDef
+
+```python
+from mypy_boto3_sso_admin.type_defs import PermissionSetProvisioningStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `StatusValues`
+- `RequestId`: `str`
+- `AccountId`: `str`
+- `PermissionSetArn`: `str`
+- `FailureReason`: `str`
+- `CreatedDate`: `datetime`
+
+
+## PermissionSetTypeDef
+
+```python
+from mypy_boto3_sso_admin.type_defs import PermissionSetTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `PermissionSetArn`: `str`
+- `Description`: `str`
+- `CreatedDate`: `datetime`
+- `SessionDuration`: `str`
+- `RelayState`: `str`
+
+
 ## ProvisionPermissionSetResponseTypeDef
 
 ```python
@@ -524,4 +510,18 @@ from mypy_boto3_sso_admin.type_defs import ProvisionPermissionSetResponseTypeDef
 
 Optional fields:
 - `PermissionSetProvisioningStatus`: `"PermissionSetProvisioningStatusTypeDef"`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_sso_admin.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
 

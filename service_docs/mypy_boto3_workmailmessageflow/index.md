@@ -65,9 +65,9 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_workmailmessageflow.type_defs import S3ReferenceTypeDef, ...
+from mypy_boto3_workmailmessageflow.type_defs import GetRawMessageContentResponseTypeDef, ...
 ```
 
-- [S3ReferenceTypeDef](./type_defs.md#s3referencetypedef)
 - [GetRawMessageContentResponseTypeDef](./type_defs.md#getrawmessagecontentresponsetypedef)
 - [RawMessageContentTypeDef](./type_defs.md#rawmessagecontenttypedef)
+- [S3ReferenceTypeDef](./type_defs.md#s3referencetypedef)

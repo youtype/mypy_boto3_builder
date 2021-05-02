@@ -9,24 +9,24 @@ type annotations stubs module [mypy_boto3_acm](https://pypi.org/project/mypy-bot
   - [CertificateDetailTypeDef](#certificatedetailtypedef)
   - [CertificateOptionsTypeDef](#certificateoptionstypedef)
   - [CertificateSummaryTypeDef](#certificatesummarytypedef)
-  - [DomainValidationTypeDef](#domainvalidationtypedef)
-  - [ExpiryEventsConfigurationTypeDef](#expiryeventsconfigurationtypedef)
-  - [ExtendedKeyUsageTypeDef](#extendedkeyusagetypedef)
-  - [KeyUsageTypeDef](#keyusagetypedef)
-  - [RenewalSummaryTypeDef](#renewalsummarytypedef)
-  - [ResourceRecordTypeDef](#resourcerecordtypedef)
-  - [TagTypeDef](#tagtypedef)
   - [DescribeCertificateResponseTypeDef](#describecertificateresponsetypedef)
   - [DomainValidationOptionTypeDef](#domainvalidationoptiontypedef)
+  - [DomainValidationTypeDef](#domainvalidationtypedef)
+  - [ExpiryEventsConfigurationTypeDef](#expiryeventsconfigurationtypedef)
   - [ExportCertificateResponseTypeDef](#exportcertificateresponsetypedef)
+  - [ExtendedKeyUsageTypeDef](#extendedkeyusagetypedef)
   - [FiltersTypeDef](#filterstypedef)
   - [GetAccountConfigurationResponseTypeDef](#getaccountconfigurationresponsetypedef)
   - [GetCertificateResponseTypeDef](#getcertificateresponsetypedef)
   - [ImportCertificateResponseTypeDef](#importcertificateresponsetypedef)
+  - [KeyUsageTypeDef](#keyusagetypedef)
   - [ListCertificatesResponseTypeDef](#listcertificatesresponsetypedef)
   - [ListTagsForCertificateResponseTypeDef](#listtagsforcertificateresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [RenewalSummaryTypeDef](#renewalsummarytypedef)
   - [RequestCertificateResponseTypeDef](#requestcertificateresponsetypedef)
+  - [ResourceRecordTypeDef](#resourcerecordtypedef)
+  - [TagTypeDef](#tagtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
 ## CertificateDetailTypeDef
@@ -94,6 +94,33 @@ Optional fields:
 - `DomainName`: `str`
 
 
+## DescribeCertificateResponseTypeDef
+
+```python
+from mypy_boto3_acm.type_defs import DescribeCertificateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Certificate`: `"CertificateDetailTypeDef"`
+
+
+## DomainValidationOptionTypeDef
+
+```python
+from mypy_boto3_acm.type_defs import DomainValidationOptionTypeDef
+```
+
+
+Required fields:
+- `DomainName`: `str`
+- `ValidationDomain`: `str`
+
+
+
+
 ## DomainValidationTypeDef
 
 ```python
@@ -127,109 +154,6 @@ Optional fields:
 - `DaysBeforeExpiry`: `int`
 
 
-## ExtendedKeyUsageTypeDef
-
-```python
-from mypy_boto3_acm.type_defs import ExtendedKeyUsageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `ExtendedKeyUsageName`
-- `OID`: `str`
-
-
-## KeyUsageTypeDef
-
-```python
-from mypy_boto3_acm.type_defs import KeyUsageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `KeyUsageName`
-
-
-## RenewalSummaryTypeDef
-
-```python
-from mypy_boto3_acm.type_defs import RenewalSummaryTypeDef
-```
-
-
-Required fields:
-- `RenewalStatus`: `RenewalStatus`
-- `DomainValidationOptions`: `List["DomainValidationTypeDef"]`
-- `UpdatedAt`: `datetime`
-
-
-
-Optional fields:
-- `RenewalStatusReason`: `FailureReason`
-
-
-## ResourceRecordTypeDef
-
-```python
-from mypy_boto3_acm.type_defs import ResourceRecordTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Type`: `RecordType`
-- `Value`: `str`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_acm.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## DescribeCertificateResponseTypeDef
-
-```python
-from mypy_boto3_acm.type_defs import DescribeCertificateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Certificate`: `"CertificateDetailTypeDef"`
-
-
-## DomainValidationOptionTypeDef
-
-```python
-from mypy_boto3_acm.type_defs import DomainValidationOptionTypeDef
-```
-
-
-Required fields:
-- `DomainName`: `str`
-- `ValidationDomain`: `str`
-
-
-
-
 ## ExportCertificateResponseTypeDef
 
 ```python
@@ -243,6 +167,20 @@ Optional fields:
 - `Certificate`: `str`
 - `CertificateChain`: `str`
 - `PrivateKey`: `str`
+
+
+## ExtendedKeyUsageTypeDef
+
+```python
+from mypy_boto3_acm.type_defs import ExtendedKeyUsageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `ExtendedKeyUsageName`
+- `OID`: `str`
 
 
 ## FiltersTypeDef
@@ -300,6 +238,19 @@ Optional fields:
 - `CertificateArn`: `str`
 
 
+## KeyUsageTypeDef
+
+```python
+from mypy_boto3_acm.type_defs import KeyUsageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `KeyUsageName`
+
+
 ## ListCertificatesResponseTypeDef
 
 ```python
@@ -342,6 +293,24 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## RenewalSummaryTypeDef
+
+```python
+from mypy_boto3_acm.type_defs import RenewalSummaryTypeDef
+```
+
+
+Required fields:
+- `RenewalStatus`: `RenewalStatus`
+- `DomainValidationOptions`: `List["DomainValidationTypeDef"]`
+- `UpdatedAt`: `datetime`
+
+
+
+Optional fields:
+- `RenewalStatusReason`: `FailureReason`
+
+
 ## RequestCertificateResponseTypeDef
 
 ```python
@@ -353,6 +322,37 @@ from mypy_boto3_acm.type_defs import RequestCertificateResponseTypeDef
 
 Optional fields:
 - `CertificateArn`: `str`
+
+
+## ResourceRecordTypeDef
+
+```python
+from mypy_boto3_acm.type_defs import ResourceRecordTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Type`: `Literal['CNAME']`
+- `Value`: `str`
+
+
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_acm.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+
+
+
+Optional fields:
+- `Value`: `str`
 
 
 ## WaiterConfigTypeDef

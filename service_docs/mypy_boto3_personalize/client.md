@@ -58,17 +58,6 @@ type annotations stubs module [mypy_boto3_personalize](https://pypi.org/project/
     - [list_solutions](#list_solutions)
     - [update_campaign](#update_campaign)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
 
 ## PersonalizeClient
 
@@ -769,7 +758,7 @@ Type annotations for `boto3.client("personalize").list_recipes` method.
 ```python
 def list_recipes(
     self,
-    recipeProvider: RecipeProvider = None,
+    recipeProvider: Literal['SERVICE'] = None,
     nextToken: str = None,
     maxResults: int = None
 ) -> ListRecipesResponseTypeDef:
@@ -840,182 +829,23 @@ def update_campaign(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("personalize").get_paginator` method.
-
-[Paginator.ListBatchInferenceJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBatchInferenceJobsPaginatorName
-) -> ListBatchInferenceJobsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("personalize").get_paginator` method.
+Type annotations for `boto3.client("personalize").get_paginator` method with overloads.
 
-[Paginator.ListCampaigns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListCampaigns)
+- `client.get_paginator("list_batch_inference_jobs")` -> [ListBatchInferenceJobsPaginator](./paginators.md#listbatchinferencejobspaginator)
+- `client.get_paginator("list_campaigns")` -> [ListCampaignsPaginator](./paginators.md#listcampaignspaginator)
+- `client.get_paginator("list_dataset_export_jobs")` -> [ListDatasetExportJobsPaginator](./paginators.md#listdatasetexportjobspaginator)
+- `client.get_paginator("list_dataset_groups")` -> [ListDatasetGroupsPaginator](./paginators.md#listdatasetgroupspaginator)
+- `client.get_paginator("list_dataset_import_jobs")` -> [ListDatasetImportJobsPaginator](./paginators.md#listdatasetimportjobspaginator)
+- `client.get_paginator("list_datasets")` -> [ListDatasetsPaginator](./paginators.md#listdatasetspaginator)
+- `client.get_paginator("list_event_trackers")` -> [ListEventTrackersPaginator](./paginators.md#listeventtrackerspaginator)
+- `client.get_paginator("list_filters")` -> [ListFiltersPaginator](./paginators.md#listfilterspaginator)
+- `client.get_paginator("list_recipes")` -> [ListRecipesPaginator](./paginators.md#listrecipespaginator)
+- `client.get_paginator("list_schemas")` -> [ListSchemasPaginator](./paginators.md#listschemaspaginator)
+- `client.get_paginator("list_solution_versions")` -> [ListSolutionVersionsPaginator](./paginators.md#listsolutionversionspaginator)
+- `client.get_paginator("list_solutions")` -> [ListSolutionsPaginator](./paginators.md#listsolutionspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCampaignsPaginatorName
-) -> ListCampaignsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("personalize").get_paginator` method.
-
-[Paginator.ListDatasetExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListDatasetExportJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatasetExportJobsPaginatorName
-) -> ListDatasetExportJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("personalize").get_paginator` method.
-
-[Paginator.ListDatasetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatasetGroupsPaginatorName
-) -> ListDatasetGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("personalize").get_paginator` method.
-
-[Paginator.ListDatasetImportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatasetImportJobsPaginatorName
-) -> ListDatasetImportJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("personalize").get_paginator` method.
-
-[Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListDatasets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatasetsPaginatorName
-) -> ListDatasetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("personalize").get_paginator` method.
-
-[Paginator.ListEventTrackers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEventTrackersPaginatorName
-) -> ListEventTrackersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("personalize").get_paginator` method.
-
-[Paginator.ListFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListFilters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFiltersPaginatorName
-) -> ListFiltersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("personalize").get_paginator` method.
-
-[Paginator.ListRecipes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListRecipes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRecipesPaginatorName
-) -> ListRecipesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("personalize").get_paginator` method.
-
-[Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListSchemas)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSchemasPaginatorName
-) -> ListSchemasPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("personalize").get_paginator` method.
-
-[Paginator.ListSolutionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSolutionVersionsPaginatorName
-) -> ListSolutionVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("personalize").get_paginator` method.
-
-[Paginator.ListSolutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/personalize.html#Personalize.Paginator.ListSolutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSolutionsPaginatorName
-) -> ListSolutionsPaginator:
-    pass
-```

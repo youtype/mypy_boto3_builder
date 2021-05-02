@@ -6,65 +6,15 @@ Auto-generated documentation for [AugmentedAIRuntime](https://boto3.amazonaws.co
 type annotations stubs module [mypy_boto3_sagemaker_a2i_runtime](https://pypi.org/project/mypy-boto3-sagemaker-a2i-runtime/).
 
 - [Structures for boto3 AugmentedAIRuntime module](#structures-for-boto3-augmentedairuntime-module)
-  - [HumanLoopOutputTypeDef](#humanloopoutputtypedef)
-  - [HumanLoopSummaryTypeDef](#humanloopsummarytypedef)
-  - [ResponseMetadata](#responsemetadata)
   - [DescribeHumanLoopResponseTypeDef](#describehumanloopresponsetypedef)
   - [HumanLoopDataAttributesTypeDef](#humanloopdataattributestypedef)
   - [HumanLoopInputTypeDef](#humanloopinputtypedef)
+  - [HumanLoopOutputTypeDef](#humanloopoutputtypedef)
+  - [HumanLoopSummaryTypeDef](#humanloopsummarytypedef)
   - [ListHumanLoopsResponseTypeDef](#listhumanloopsresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [StartHumanLoopResponseTypeDef](#starthumanloopresponsetypedef)
-
-## HumanLoopOutputTypeDef
-
-```python
-from mypy_boto3_sagemaker_a2i_runtime.type_defs import HumanLoopOutputTypeDef
-```
-
-
-Required fields:
-- `OutputS3Uri`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## HumanLoopSummaryTypeDef
-
-```python
-from mypy_boto3_sagemaker_a2i_runtime.type_defs import HumanLoopSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `HumanLoopName`: `str`
-- `HumanLoopStatus`: `HumanLoopStatus`
-- `CreationTime`: `datetime`
-- `FailureReason`: `str`
-- `FlowDefinitionArn`: `str`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_sagemaker_a2i_runtime.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
 
 ## DescribeHumanLoopResponseTypeDef
 
@@ -114,6 +64,39 @@ Required fields:
 
 
 
+## HumanLoopOutputTypeDef
+
+```python
+from mypy_boto3_sagemaker_a2i_runtime.type_defs import HumanLoopOutputTypeDef
+```
+
+
+Required fields:
+- `OutputS3Uri`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## HumanLoopSummaryTypeDef
+
+```python
+from mypy_boto3_sagemaker_a2i_runtime.type_defs import HumanLoopSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `HumanLoopName`: `str`
+- `HumanLoopStatus`: `HumanLoopStatus`
+- `CreationTime`: `datetime`
+- `FailureReason`: `str`
+- `FlowDefinitionArn`: `str`
+
+
 ## ListHumanLoopsResponseTypeDef
 
 ```python
@@ -143,6 +126,23 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_sagemaker_a2i_runtime.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
 
 
 ## StartHumanLoopResponseTypeDef

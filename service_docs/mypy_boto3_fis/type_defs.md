@@ -10,6 +10,11 @@ type annotations stubs module [mypy_boto3_fis](https://pypi.org/project/mypy-bot
   - [ActionSummaryTypeDef](#actionsummarytypedef)
   - [ActionTargetTypeDef](#actiontargettypedef)
   - [ActionTypeDef](#actiontypedef)
+  - [CreateExperimentTemplateActionInputTypeDef](#createexperimenttemplateactioninputtypedef)
+  - [CreateExperimentTemplateResponseTypeDef](#createexperimenttemplateresponsetypedef)
+  - [CreateExperimentTemplateStopConditionInputTypeDef](#createexperimenttemplatestopconditioninputtypedef)
+  - [CreateExperimentTemplateTargetInputTypeDef](#createexperimenttemplatetargetinputtypedef)
+  - [DeleteExperimentTemplateResponseTypeDef](#deleteexperimenttemplateresponsetypedef)
   - [ExperimentActionStateTypeDef](#experimentactionstatetypedef)
   - [ExperimentActionTypeDef](#experimentactiontypedef)
   - [ExperimentStateTypeDef](#experimentstatetypedef)
@@ -25,11 +30,6 @@ type annotations stubs module [mypy_boto3_fis](https://pypi.org/project/mypy-bot
   - [ExperimentTemplateTargetTypeDef](#experimenttemplatetargettypedef)
   - [ExperimentTemplateTypeDef](#experimenttemplatetypedef)
   - [ExperimentTypeDef](#experimenttypedef)
-  - [CreateExperimentTemplateActionInputTypeDef](#createexperimenttemplateactioninputtypedef)
-  - [CreateExperimentTemplateResponseTypeDef](#createexperimenttemplateresponsetypedef)
-  - [CreateExperimentTemplateStopConditionInputTypeDef](#createexperimenttemplatestopconditioninputtypedef)
-  - [CreateExperimentTemplateTargetInputTypeDef](#createexperimenttemplatetargetinputtypedef)
-  - [DeleteExperimentTemplateResponseTypeDef](#deleteexperimenttemplateresponsetypedef)
   - [GetActionResponseTypeDef](#getactionresponsetypedef)
   - [GetExperimentResponseTypeDef](#getexperimentresponsetypedef)
   - [GetExperimentTemplateResponseTypeDef](#getexperimenttemplateresponsetypedef)
@@ -102,6 +102,86 @@ Optional fields:
 - `parameters`: `Dict[str, "ActionParameterTypeDef"]`
 - `targets`: `Dict[str, "ActionTargetTypeDef"]`
 - `tags`: `Dict[str, str]`
+
+
+## CreateExperimentTemplateActionInputTypeDef
+
+```python
+from mypy_boto3_fis.type_defs import CreateExperimentTemplateActionInputTypeDef
+```
+
+
+Required fields:
+- `actionId`: `str`
+
+
+
+Optional fields:
+- `description`: `str`
+- `parameters`: `Dict[str, str]`
+- `targets`: `Dict[str, str]`
+- `startAfter`: `List[str]`
+
+
+## CreateExperimentTemplateResponseTypeDef
+
+```python
+from mypy_boto3_fis.type_defs import CreateExperimentTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `experimentTemplate`: `"ExperimentTemplateTypeDef"`
+
+
+## CreateExperimentTemplateStopConditionInputTypeDef
+
+```python
+from mypy_boto3_fis.type_defs import CreateExperimentTemplateStopConditionInputTypeDef
+```
+
+
+Required fields:
+- `source`: `str`
+
+
+
+Optional fields:
+- `value`: `str`
+
+
+## CreateExperimentTemplateTargetInputTypeDef
+
+```python
+from mypy_boto3_fis.type_defs import CreateExperimentTemplateTargetInputTypeDef
+```
+
+
+Required fields:
+- `resourceType`: `str`
+- `selectionMode`: `str`
+
+
+
+Optional fields:
+- `resourceArns`: `List[str]`
+- `resourceTags`: `Dict[str, str]`
+- `filters`: `List["ExperimentTemplateTargetInputFilterTypeDef"]`
+
+
+## DeleteExperimentTemplateResponseTypeDef
+
+```python
+from mypy_boto3_fis.type_defs import DeleteExperimentTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `experimentTemplate`: `"ExperimentTemplateTypeDef"`
 
 
 ## ExperimentActionStateTypeDef
@@ -347,86 +427,6 @@ Optional fields:
 - `startTime`: `datetime`
 - `endTime`: `datetime`
 - `tags`: `Dict[str, str]`
-
-
-## CreateExperimentTemplateActionInputTypeDef
-
-```python
-from mypy_boto3_fis.type_defs import CreateExperimentTemplateActionInputTypeDef
-```
-
-
-Required fields:
-- `actionId`: `str`
-
-
-
-Optional fields:
-- `description`: `str`
-- `parameters`: `Dict[str, str]`
-- `targets`: `Dict[str, str]`
-- `startAfter`: `List[str]`
-
-
-## CreateExperimentTemplateResponseTypeDef
-
-```python
-from mypy_boto3_fis.type_defs import CreateExperimentTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `experimentTemplate`: `"ExperimentTemplateTypeDef"`
-
-
-## CreateExperimentTemplateStopConditionInputTypeDef
-
-```python
-from mypy_boto3_fis.type_defs import CreateExperimentTemplateStopConditionInputTypeDef
-```
-
-
-Required fields:
-- `source`: `str`
-
-
-
-Optional fields:
-- `value`: `str`
-
-
-## CreateExperimentTemplateTargetInputTypeDef
-
-```python
-from mypy_boto3_fis.type_defs import CreateExperimentTemplateTargetInputTypeDef
-```
-
-
-Required fields:
-- `resourceType`: `str`
-- `selectionMode`: `str`
-
-
-
-Optional fields:
-- `resourceArns`: `List[str]`
-- `resourceTags`: `Dict[str, str]`
-- `filters`: `List["ExperimentTemplateTargetInputFilterTypeDef"]`
-
-
-## DeleteExperimentTemplateResponseTypeDef
-
-```python
-from mypy_boto3_fis.type_defs import DeleteExperimentTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `experimentTemplate`: `"ExperimentTemplateTypeDef"`
 
 
 ## GetActionResponseTypeDef

@@ -6,36 +6,10 @@ Auto-generated documentation for [CostandUsageReportService](https://boto3.amazo
 type annotations stubs module [mypy_boto3_cur](https://pypi.org/project/mypy-boto3-cur/).
 
 - [Structures for boto3 CostandUsageReportService module](#structures-for-boto3-costandusagereportservice-module)
-  - [ReportDefinitionTypeDef](#reportdefinitiontypedef)
   - [DeleteReportDefinitionResponseTypeDef](#deletereportdefinitionresponsetypedef)
   - [DescribeReportDefinitionsResponseTypeDef](#describereportdefinitionsresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-
-## ReportDefinitionTypeDef
-
-```python
-from mypy_boto3_cur.type_defs import ReportDefinitionTypeDef
-```
-
-
-Required fields:
-- `ReportName`: `str`
-- `TimeUnit`: `TimeUnit`
-- `Format`: `ReportFormat`
-- `Compression`: `CompressionFormat`
-- `AdditionalSchemaElements`: `List[SchemaElement]`
-- `S3Bucket`: `str`
-- `S3Prefix`: `str`
-- `S3Region`: `AWSRegion`
-
-
-
-Optional fields:
-- `AdditionalArtifacts`: `List[AdditionalArtifact]`
-- `RefreshClosedReports`: `bool`
-- `ReportVersioning`: `ReportVersioning`
-- `BillingViewArn`: `str`
-
+  - [ReportDefinitionTypeDef](#reportdefinitiontypedef)
 
 ## DeleteReportDefinitionResponseTypeDef
 
@@ -77,4 +51,30 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ReportDefinitionTypeDef
+
+```python
+from mypy_boto3_cur.type_defs import ReportDefinitionTypeDef
+```
+
+
+Required fields:
+- `ReportName`: `str`
+- `TimeUnit`: `TimeUnit`
+- `Format`: `ReportFormat`
+- `Compression`: `CompressionFormat`
+- `AdditionalSchemaElements`: `List[Literal['RESOURCES']]`
+- `S3Bucket`: `str`
+- `S3Prefix`: `str`
+- `S3Region`: `AWSRegion`
+
+
+
+Optional fields:
+- `AdditionalArtifacts`: `List[AdditionalArtifact]`
+- `RefreshClosedReports`: `bool`
+- `ReportVersioning`: `ReportVersioning`
+- `BillingViewArn`: `str`
 

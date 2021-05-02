@@ -51,14 +51,6 @@ type annotations stubs module [mypy_boto3_mturk](https://pypi.org/project/mypy-b
     - [update_notification_settings](#update_notification_settings)
     - [update_qualification_type](#update_qualification_type)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
 
 ## MTurkClient
 
@@ -771,137 +763,20 @@ def update_qualification_type(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("mturk").get_paginator` method.
-
-[Paginator.ListAssignmentsForHIT documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Paginator.ListAssignmentsForHIT)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssignmentsForHITPaginatorName
-) -> ListAssignmentsForHITPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("mturk").get_paginator` method.
+Type annotations for `boto3.client("mturk").get_paginator` method with overloads.
 
-[Paginator.ListBonusPayments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Paginator.ListBonusPayments)
+- `client.get_paginator("list_assignments_for_hit")` -> [ListAssignmentsForHITPaginator](./paginators.md#listassignmentsforhitpaginator)
+- `client.get_paginator("list_bonus_payments")` -> [ListBonusPaymentsPaginator](./paginators.md#listbonuspaymentspaginator)
+- `client.get_paginator("list_hits")` -> [ListHITsPaginator](./paginators.md#listhitspaginator)
+- `client.get_paginator("list_hits_for_qualification_type")` -> [ListHITsForQualificationTypePaginator](./paginators.md#listhitsforqualificationtypepaginator)
+- `client.get_paginator("list_qualification_requests")` -> [ListQualificationRequestsPaginator](./paginators.md#listqualificationrequestspaginator)
+- `client.get_paginator("list_qualification_types")` -> [ListQualificationTypesPaginator](./paginators.md#listqualificationtypespaginator)
+- `client.get_paginator("list_reviewable_hits")` -> [ListReviewableHITsPaginator](./paginators.md#listreviewablehitspaginator)
+- `client.get_paginator("list_worker_blocks")` -> [ListWorkerBlocksPaginator](./paginators.md#listworkerblockspaginator)
+- `client.get_paginator("list_workers_with_qualification_type")` -> [ListWorkersWithQualificationTypePaginator](./paginators.md#listworkerswithqualificationtypepaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBonusPaymentsPaginatorName
-) -> ListBonusPaymentsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("mturk").get_paginator` method.
-
-[Paginator.ListHITs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Paginator.ListHITs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListHITsPaginatorName
-) -> ListHITsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mturk").get_paginator` method.
-
-[Paginator.ListHITsForQualificationType documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Paginator.ListHITsForQualificationType)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListHITsForQualificationTypePaginatorName
-) -> ListHITsForQualificationTypePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mturk").get_paginator` method.
-
-[Paginator.ListQualificationRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Paginator.ListQualificationRequests)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListQualificationRequestsPaginatorName
-) -> ListQualificationRequestsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mturk").get_paginator` method.
-
-[Paginator.ListQualificationTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Paginator.ListQualificationTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListQualificationTypesPaginatorName
-) -> ListQualificationTypesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mturk").get_paginator` method.
-
-[Paginator.ListReviewableHITs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Paginator.ListReviewableHITs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListReviewableHITsPaginatorName
-) -> ListReviewableHITsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mturk").get_paginator` method.
-
-[Paginator.ListWorkerBlocks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Paginator.ListWorkerBlocks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListWorkerBlocksPaginatorName
-) -> ListWorkerBlocksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mturk").get_paginator` method.
-
-[Paginator.ListWorkersWithQualificationType documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mturk.html#MTurk.Paginator.ListWorkersWithQualificationType)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListWorkersWithQualificationTypePaginatorName
-) -> ListWorkersWithQualificationTypePaginator:
-    pass
-```

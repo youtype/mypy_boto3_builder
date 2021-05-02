@@ -7,22 +7,22 @@ type annotations stubs module [mypy_boto3_iotevents_data](https://pypi.org/proje
 
 - [Structures for boto3 IoTEventsData module](#structures-for-boto3-ioteventsdata-module)
   - [BatchPutMessageErrorEntryTypeDef](#batchputmessageerrorentrytypedef)
+  - [BatchPutMessageResponseTypeDef](#batchputmessageresponsetypedef)
   - [BatchUpdateDetectorErrorEntryTypeDef](#batchupdatedetectorerrorentrytypedef)
+  - [BatchUpdateDetectorResponseTypeDef](#batchupdatedetectorresponsetypedef)
+  - [DescribeDetectorResponseTypeDef](#describedetectorresponsetypedef)
   - [DetectorStateDefinitionTypeDef](#detectorstatedefinitiontypedef)
   - [DetectorStateSummaryTypeDef](#detectorstatesummarytypedef)
   - [DetectorStateTypeDef](#detectorstatetypedef)
   - [DetectorSummaryTypeDef](#detectorsummarytypedef)
   - [DetectorTypeDef](#detectortypedef)
-  - [TimerDefinitionTypeDef](#timerdefinitiontypedef)
-  - [TimerTypeDef](#timertypedef)
-  - [VariableDefinitionTypeDef](#variabledefinitiontypedef)
-  - [VariableTypeDef](#variabletypedef)
-  - [BatchPutMessageResponseTypeDef](#batchputmessageresponsetypedef)
-  - [BatchUpdateDetectorResponseTypeDef](#batchupdatedetectorresponsetypedef)
-  - [DescribeDetectorResponseTypeDef](#describedetectorresponsetypedef)
   - [ListDetectorsResponseTypeDef](#listdetectorsresponsetypedef)
   - [MessageTypeDef](#messagetypedef)
+  - [TimerDefinitionTypeDef](#timerdefinitiontypedef)
+  - [TimerTypeDef](#timertypedef)
   - [UpdateDetectorRequestTypeDef](#updatedetectorrequesttypedef)
+  - [VariableDefinitionTypeDef](#variabledefinitiontypedef)
+  - [VariableTypeDef](#variabletypedef)
 
 ## BatchPutMessageErrorEntryTypeDef
 
@@ -39,6 +39,19 @@ Optional fields:
 - `errorMessage`: `str`
 
 
+## BatchPutMessageResponseTypeDef
+
+```python
+from mypy_boto3_iotevents_data.type_defs import BatchPutMessageResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `BatchPutMessageErrorEntries`: `List["BatchPutMessageErrorEntryTypeDef"]`
+
+
 ## BatchUpdateDetectorErrorEntryTypeDef
 
 ```python
@@ -52,6 +65,32 @@ Optional fields:
 - `messageId`: `str`
 - `errorCode`: `ErrorCode`
 - `errorMessage`: `str`
+
+
+## BatchUpdateDetectorResponseTypeDef
+
+```python
+from mypy_boto3_iotevents_data.type_defs import BatchUpdateDetectorResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `batchUpdateDetectorErrorEntries`: `List["BatchUpdateDetectorErrorEntryTypeDef"]`
+
+
+## DescribeDetectorResponseTypeDef
+
+```python
+from mypy_boto3_iotevents_data.type_defs import DescribeDetectorResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `detector`: `"DetectorTypeDef"`
 
 
 ## DetectorStateDefinitionTypeDef
@@ -133,101 +172,6 @@ Optional fields:
 - `lastUpdateTime`: `datetime`
 
 
-## TimerDefinitionTypeDef
-
-```python
-from mypy_boto3_iotevents_data.type_defs import TimerDefinitionTypeDef
-```
-
-
-Required fields:
-- `name`: `str`
-- `seconds`: `int`
-
-
-
-
-## TimerTypeDef
-
-```python
-from mypy_boto3_iotevents_data.type_defs import TimerTypeDef
-```
-
-
-Required fields:
-- `name`: `str`
-- `timestamp`: `datetime`
-
-
-
-
-## VariableDefinitionTypeDef
-
-```python
-from mypy_boto3_iotevents_data.type_defs import VariableDefinitionTypeDef
-```
-
-
-Required fields:
-- `name`: `str`
-- `value`: `str`
-
-
-
-
-## VariableTypeDef
-
-```python
-from mypy_boto3_iotevents_data.type_defs import VariableTypeDef
-```
-
-
-Required fields:
-- `name`: `str`
-- `value`: `str`
-
-
-
-
-## BatchPutMessageResponseTypeDef
-
-```python
-from mypy_boto3_iotevents_data.type_defs import BatchPutMessageResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `BatchPutMessageErrorEntries`: `List["BatchPutMessageErrorEntryTypeDef"]`
-
-
-## BatchUpdateDetectorResponseTypeDef
-
-```python
-from mypy_boto3_iotevents_data.type_defs import BatchUpdateDetectorResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `batchUpdateDetectorErrorEntries`: `List["BatchUpdateDetectorErrorEntryTypeDef"]`
-
-
-## DescribeDetectorResponseTypeDef
-
-```python
-from mypy_boto3_iotevents_data.type_defs import DescribeDetectorResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `detector`: `"DetectorTypeDef"`
-
-
 ## ListDetectorsResponseTypeDef
 
 ```python
@@ -257,6 +201,34 @@ Required fields:
 
 
 
+## TimerDefinitionTypeDef
+
+```python
+from mypy_boto3_iotevents_data.type_defs import TimerDefinitionTypeDef
+```
+
+
+Required fields:
+- `name`: `str`
+- `seconds`: `int`
+
+
+
+
+## TimerTypeDef
+
+```python
+from mypy_boto3_iotevents_data.type_defs import TimerTypeDef
+```
+
+
+Required fields:
+- `name`: `str`
+- `timestamp`: `datetime`
+
+
+
+
 ## UpdateDetectorRequestTypeDef
 
 ```python
@@ -273,4 +245,32 @@ Required fields:
 
 Optional fields:
 - `keyValue`: `str`
+
+
+## VariableDefinitionTypeDef
+
+```python
+from mypy_boto3_iotevents_data.type_defs import VariableDefinitionTypeDef
+```
+
+
+Required fields:
+- `name`: `str`
+- `value`: `str`
+
+
+
+
+## VariableTypeDef
+
+```python
+from mypy_boto3_iotevents_data.type_defs import VariableTypeDef
+```
+
+
+Required fields:
+- `name`: `str`
+- `value`: `str`
+
+
 

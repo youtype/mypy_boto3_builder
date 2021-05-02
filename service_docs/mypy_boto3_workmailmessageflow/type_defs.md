@@ -6,26 +6,9 @@ Auto-generated documentation for [WorkMailMessageFlow](https://boto3.amazonaws.c
 type annotations stubs module [mypy_boto3_workmailmessageflow](https://pypi.org/project/mypy-boto3-workmailmessageflow/).
 
 - [Structures for boto3 WorkMailMessageFlow module](#structures-for-boto3-workmailmessageflow-module)
-  - [S3ReferenceTypeDef](#s3referencetypedef)
   - [GetRawMessageContentResponseTypeDef](#getrawmessagecontentresponsetypedef)
   - [RawMessageContentTypeDef](#rawmessagecontenttypedef)
-
-## S3ReferenceTypeDef
-
-```python
-from mypy_boto3_workmailmessageflow.type_defs import S3ReferenceTypeDef
-```
-
-
-Required fields:
-- `bucket`: `str`
-- `key`: `str`
-
-
-
-Optional fields:
-- `objectVersion`: `str`
-
+  - [S3ReferenceTypeDef](#s3referencetypedef)
 
 ## GetRawMessageContentResponseTypeDef
 
@@ -51,4 +34,21 @@ Required fields:
 - `s3Reference`: `"S3ReferenceTypeDef"`
 
 
+
+
+## S3ReferenceTypeDef
+
+```python
+from mypy_boto3_workmailmessageflow.type_defs import S3ReferenceTypeDef
+```
+
+
+Required fields:
+- `bucket`: `str`
+- `key`: `str`
+
+
+
+Optional fields:
+- `objectVersion`: `str`
 

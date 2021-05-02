@@ -62,12 +62,7 @@ type annotations stubs module [mypy_boto3_dynamodb](https://pypi.org/project/myp
     - [update_table_replica_auto_scaling](#update_table_replica_auto_scaling)
     - [update_time_to_live](#update_time_to_live)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
 
 ## DynamoDBClient
 
@@ -1007,107 +1002,24 @@ def update_time_to_live(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("dynamodb").get_paginator` method.
-
-[Paginator.ListBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Paginator.ListBackups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBackupsPaginatorName
-) -> ListBackupsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("dynamodb").get_paginator` method.
+Type annotations for `boto3.client("dynamodb").get_paginator` method with overloads.
 
-[Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Paginator.ListTables)
+- `client.get_paginator("list_backups")` -> [ListBackupsPaginator](./paginators.md#listbackupspaginator)
+- `client.get_paginator("list_tables")` -> [ListTablesPaginator](./paginators.md#listtablespaginator)
+- `client.get_paginator("list_tags_of_resource")` -> [ListTagsOfResourcePaginator](./paginators.md#listtagsofresourcepaginator)
+- `client.get_paginator("query")` -> [QueryPaginator](./paginators.md#querypaginator)
+- `client.get_paginator("scan")` -> [ScanPaginator](./paginators.md#scanpaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTablesPaginatorName
-) -> ListTablesPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("dynamodb").get_paginator` method.
-
-[Paginator.ListTagsOfResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Paginator.ListTagsOfResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsOfResourcePaginatorName
-) -> ListTagsOfResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dynamodb").get_paginator` method.
-
-[Paginator.Query documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Paginator.Query)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: QueryPaginatorName
-) -> QueryPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("dynamodb").get_paginator` method.
-
-[Paginator.Scan documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Paginator.Scan)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ScanPaginatorName
-) -> ScanPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("dynamodb").get_waiter` method.
+Type annotations for `boto3.client("dynamodb").get_waiter` method with overloads.
 
-[Waiter.TableExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: TableExistsWaiterName
-) -> TableExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("dynamodb").get_waiter` method.
-
-[Waiter.TableNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: TableNotExistsWaiterName
-) -> TableNotExistsWaiter:
-    pass
-```
+- `client.get_waiter("table_exists")` -> [TableExistsWaiter](./waiters.md#tableexistswaiter)
+- `client.get_waiter("table_not_exists")` -> [TableNotExistsWaiter](./waiters.md#tablenotexistswaiter)

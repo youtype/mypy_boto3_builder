@@ -10,9 +10,6 @@ type annotations stubs module [mypy_boto3_cloudhsmv2](https://pypi.org/project/m
   - [BackupTypeDef](#backuptypedef)
   - [CertificatesTypeDef](#certificatestypedef)
   - [ClusterTypeDef](#clustertypedef)
-  - [DestinationBackupTypeDef](#destinationbackuptypedef)
-  - [HsmTypeDef](#hsmtypedef)
-  - [TagTypeDef](#tagtypedef)
   - [CopyBackupToRegionResponseTypeDef](#copybackuptoregionresponsetypedef)
   - [CreateClusterResponseTypeDef](#createclusterresponsetypedef)
   - [CreateHsmResponseTypeDef](#createhsmresponsetypedef)
@@ -21,12 +18,15 @@ type annotations stubs module [mypy_boto3_cloudhsmv2](https://pypi.org/project/m
   - [DeleteHsmResponseTypeDef](#deletehsmresponsetypedef)
   - [DescribeBackupsResponseTypeDef](#describebackupsresponsetypedef)
   - [DescribeClustersResponseTypeDef](#describeclustersresponsetypedef)
+  - [DestinationBackupTypeDef](#destinationbackuptypedef)
+  - [HsmTypeDef](#hsmtypedef)
   - [InitializeClusterResponseTypeDef](#initializeclusterresponsetypedef)
   - [ListTagsResponseTypeDef](#listtagsresponsetypedef)
   - [ModifyBackupAttributesResponseTypeDef](#modifybackupattributesresponsetypedef)
   - [ModifyClusterResponseTypeDef](#modifyclusterresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [RestoreBackupResponseTypeDef](#restorebackupresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
 
 ## BackupRetentionPolicyTypeDef
 
@@ -38,7 +38,7 @@ from mypy_boto3_cloudhsmv2.type_defs import BackupRetentionPolicyTypeDef
 
 
 Optional fields:
-- `Type`: `BackupRetentionType`
+- `Type`: `Literal['DAYS']`
 - `Value`: `str`
 
 
@@ -94,7 +94,7 @@ from mypy_boto3_cloudhsmv2.type_defs import ClusterTypeDef
 
 
 Optional fields:
-- `BackupPolicy`: `BackupPolicy`
+- `BackupPolicy`: `Literal['DEFAULT']`
 - `BackupRetentionPolicy`: `"BackupRetentionPolicyTypeDef"`
 - `ClusterId`: `str`
 - `CreateTimestamp`: `datetime`
@@ -109,58 +109,6 @@ Optional fields:
 - `VpcId`: `str`
 - `Certificates`: `"CertificatesTypeDef"`
 - `TagList`: `List["TagTypeDef"]`
-
-
-## DestinationBackupTypeDef
-
-```python
-from mypy_boto3_cloudhsmv2.type_defs import DestinationBackupTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreateTimestamp`: `datetime`
-- `SourceRegion`: `str`
-- `SourceBackup`: `str`
-- `SourceCluster`: `str`
-
-
-## HsmTypeDef
-
-```python
-from mypy_boto3_cloudhsmv2.type_defs import HsmTypeDef
-```
-
-
-Required fields:
-- `HsmId`: `str`
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `ClusterId`: `str`
-- `SubnetId`: `str`
-- `EniId`: `str`
-- `EniIp`: `str`
-- `State`: `HsmState`
-- `StateMessage`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_cloudhsmv2.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
 
 
 ## CopyBackupToRegionResponseTypeDef
@@ -269,6 +217,44 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## DestinationBackupTypeDef
+
+```python
+from mypy_boto3_cloudhsmv2.type_defs import DestinationBackupTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreateTimestamp`: `datetime`
+- `SourceRegion`: `str`
+- `SourceBackup`: `str`
+- `SourceCluster`: `str`
+
+
+## HsmTypeDef
+
+```python
+from mypy_boto3_cloudhsmv2.type_defs import HsmTypeDef
+```
+
+
+Required fields:
+- `HsmId`: `str`
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `ClusterId`: `str`
+- `SubnetId`: `str`
+- `EniId`: `str`
+- `EniIp`: `str`
+- `State`: `HsmState`
+- `StateMessage`: `str`
+
+
 ## InitializeClusterResponseTypeDef
 
 ```python
@@ -351,4 +337,18 @@ from mypy_boto3_cloudhsmv2.type_defs import RestoreBackupResponseTypeDef
 
 Optional fields:
 - `Backup`: `"BackupTypeDef"`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_cloudhsmv2.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 

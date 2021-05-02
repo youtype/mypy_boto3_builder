@@ -375,7 +375,7 @@ Type annotations for `boto3.client("codeguruprofiler").put_permission` method.
 ```python
 def put_permission(
     self,
-    actionGroup: ActionGroup,
+    actionGroup: Literal['agentPermissions'],
     principals: List[str],
     profilingGroupName: str,
     revisionId: str = None
@@ -407,7 +407,7 @@ Type annotations for `boto3.client("codeguruprofiler").remove_permission` method
 ```python
 def remove_permission(
     self,
-    actionGroup: ActionGroup,
+    actionGroup: Literal['agentPermissions'],
     profilingGroupName: str,
     revisionId: str
 ) -> RemovePermissionResponseTypeDef:
@@ -476,16 +476,12 @@ def update_profiling_group(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("codeguruprofiler").get_paginator` method.
+Type annotations for `boto3.client("codeguruprofiler").get_paginator` method with overloads.
 
-[Paginator.ListProfileTimes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes)
+- `client.get_paginator("list_profile_times")` -> [ListProfileTimesPaginator](./paginators.md#listprofiletimespaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListProfileTimesPaginatorName
-) -> ListProfileTimesPaginator:
-    pass
-```
+

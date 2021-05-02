@@ -202,19 +202,15 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_sns.type_defs import EndpointTypeDef, ...
+from mypy_boto3_sns.type_defs import CheckIfPhoneNumberIsOptedOutResponseTypeDef, ...
 ```
 
-- [EndpointTypeDef](./type_defs.md#endpointtypedef)
-- [PlatformApplicationTypeDef](./type_defs.md#platformapplicationtypedef)
-- [SubscriptionTypeDef](./type_defs.md#subscriptiontypedef)
-- [TagTypeDef](./type_defs.md#tagtypedef)
-- [TopicTypeDef](./type_defs.md#topictypedef)
 - [CheckIfPhoneNumberIsOptedOutResponseTypeDef](./type_defs.md#checkifphonenumberisoptedoutresponsetypedef)
 - [ConfirmSubscriptionResponseTypeDef](./type_defs.md#confirmsubscriptionresponsetypedef)
 - [CreateEndpointResponseTypeDef](./type_defs.md#createendpointresponsetypedef)
 - [CreatePlatformApplicationResponseTypeDef](./type_defs.md#createplatformapplicationresponsetypedef)
 - [CreateTopicResponseTypeDef](./type_defs.md#createtopicresponsetypedef)
+- [EndpointTypeDef](./type_defs.md#endpointtypedef)
 - [GetEndpointAttributesResponseTypeDef](./type_defs.md#getendpointattributesresponsetypedef)
 - [GetPlatformApplicationAttributesResponseTypeDef](./type_defs.md#getplatformapplicationattributesresponsetypedef)
 - [GetSMSAttributesResponseTypeDef](./type_defs.md#getsmsattributesresponsetypedef)
@@ -229,5 +225,9 @@ from mypy_boto3_sns.type_defs import EndpointTypeDef, ...
 - [ListTopicsResponseTypeDef](./type_defs.md#listtopicsresponsetypedef)
 - [MessageAttributeValueTypeDef](./type_defs.md#messageattributevaluetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [PlatformApplicationTypeDef](./type_defs.md#platformapplicationtypedef)
 - [PublishResponseTypeDef](./type_defs.md#publishresponsetypedef)
 - [SubscribeResponseTypeDef](./type_defs.md#subscriberesponsetypedef)
+- [SubscriptionTypeDef](./type_defs.md#subscriptiontypedef)
+- [TagTypeDef](./type_defs.md#tagtypedef)
+- [TopicTypeDef](./type_defs.md#topictypedef)

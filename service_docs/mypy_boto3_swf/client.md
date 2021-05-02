@@ -49,12 +49,6 @@ type annotations stubs module [mypy_boto3_swf](https://pypi.org/project/mypy-bot
     - [undeprecate_workflow_type](#undeprecate_workflow_type)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
 
 ## SWFClient
 
@@ -756,107 +750,18 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("swf").get_paginator` method.
-
-[Paginator.GetWorkflowExecutionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/swf.html#SWF.Paginator.GetWorkflowExecutionHistory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetWorkflowExecutionHistoryPaginatorName
-) -> GetWorkflowExecutionHistoryPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("swf").get_paginator` method.
+Type annotations for `boto3.client("swf").get_paginator` method with overloads.
 
-[Paginator.ListActivityTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/swf.html#SWF.Paginator.ListActivityTypes)
+- `client.get_paginator("get_workflow_execution_history")` -> [GetWorkflowExecutionHistoryPaginator](./paginators.md#getworkflowexecutionhistorypaginator)
+- `client.get_paginator("list_activity_types")` -> [ListActivityTypesPaginator](./paginators.md#listactivitytypespaginator)
+- `client.get_paginator("list_closed_workflow_executions")` -> [ListClosedWorkflowExecutionsPaginator](./paginators.md#listclosedworkflowexecutionspaginator)
+- `client.get_paginator("list_domains")` -> [ListDomainsPaginator](./paginators.md#listdomainspaginator)
+- `client.get_paginator("list_open_workflow_executions")` -> [ListOpenWorkflowExecutionsPaginator](./paginators.md#listopenworkflowexecutionspaginator)
+- `client.get_paginator("list_workflow_types")` -> [ListWorkflowTypesPaginator](./paginators.md#listworkflowtypespaginator)
+- `client.get_paginator("poll_for_decision_task")` -> [PollForDecisionTaskPaginator](./paginators.md#pollfordecisiontaskpaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListActivityTypesPaginatorName
-) -> ListActivityTypesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("swf").get_paginator` method.
-
-[Paginator.ListClosedWorkflowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/swf.html#SWF.Paginator.ListClosedWorkflowExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListClosedWorkflowExecutionsPaginatorName
-) -> ListClosedWorkflowExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("swf").get_paginator` method.
-
-[Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/swf.html#SWF.Paginator.ListDomains)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDomainsPaginatorName
-) -> ListDomainsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("swf").get_paginator` method.
-
-[Paginator.ListOpenWorkflowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/swf.html#SWF.Paginator.ListOpenWorkflowExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOpenWorkflowExecutionsPaginatorName
-) -> ListOpenWorkflowExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("swf").get_paginator` method.
-
-[Paginator.ListWorkflowTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/swf.html#SWF.Paginator.ListWorkflowTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListWorkflowTypesPaginatorName
-) -> ListWorkflowTypesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("swf").get_paginator` method.
-
-[Paginator.PollForDecisionTask documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/swf.html#SWF.Paginator.PollForDecisionTask)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: PollForDecisionTaskPaginatorName
-) -> PollForDecisionTaskPaginator:
-    pass
-```

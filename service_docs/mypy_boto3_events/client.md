@@ -63,8 +63,6 @@ type annotations stubs module [mypy_boto3_events](https://pypi.org/project/mypy-
     - [update_archive](#update_archive)
     - [update_connection](#update_connection)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## EventBridgeClient
 
@@ -943,47 +941,14 @@ def update_connection(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("events").get_paginator` method.
-
-[Paginator.ListRuleNamesByTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRuleNamesByTargetPaginatorName
-) -> ListRuleNamesByTargetPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("events").get_paginator` method.
+Type annotations for `boto3.client("events").get_paginator` method with overloads.
 
-[Paginator.ListRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events.html#EventBridge.Paginator.ListRules)
+- `client.get_paginator("list_rule_names_by_target")` -> [ListRuleNamesByTargetPaginator](./paginators.md#listrulenamesbytargetpaginator)
+- `client.get_paginator("list_rules")` -> [ListRulesPaginator](./paginators.md#listrulespaginator)
+- `client.get_paginator("list_targets_by_rule")` -> [ListTargetsByRulePaginator](./paginators.md#listtargetsbyrulepaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRulesPaginatorName
-) -> ListRulesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("events").get_paginator` method.
-
-[Paginator.ListTargetsByRule documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTargetsByRulePaginatorName
-) -> ListTargetsByRulePaginator:
-    pass
-```

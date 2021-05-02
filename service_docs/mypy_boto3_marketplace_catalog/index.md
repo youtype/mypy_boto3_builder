@@ -89,18 +89,18 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_marketplace_catalog.type_defs import ChangeSetSummaryListItemTypeDef, ...
+from mypy_boto3_marketplace_catalog.type_defs import CancelChangeSetResponseTypeDef, ...
 ```
 
+- [CancelChangeSetResponseTypeDef](./type_defs.md#cancelchangesetresponsetypedef)
 - [ChangeSetSummaryListItemTypeDef](./type_defs.md#changesetsummarylistitemtypedef)
 - [ChangeSummaryTypeDef](./type_defs.md#changesummarytypedef)
-- [EntitySummaryTypeDef](./type_defs.md#entitysummarytypedef)
-- [EntityTypeDef](./type_defs.md#entitytypedef)
-- [ErrorDetailTypeDef](./type_defs.md#errordetailtypedef)
-- [CancelChangeSetResponseTypeDef](./type_defs.md#cancelchangesetresponsetypedef)
 - [ChangeTypeDef](./type_defs.md#changetypedef)
 - [DescribeChangeSetResponseTypeDef](./type_defs.md#describechangesetresponsetypedef)
 - [DescribeEntityResponseTypeDef](./type_defs.md#describeentityresponsetypedef)
+- [EntitySummaryTypeDef](./type_defs.md#entitysummarytypedef)
+- [EntityTypeDef](./type_defs.md#entitytypedef)
+- [ErrorDetailTypeDef](./type_defs.md#errordetailtypedef)
 - [FilterTypeDef](./type_defs.md#filtertypedef)
 - [ListChangeSetsResponseTypeDef](./type_defs.md#listchangesetsresponsetypedef)
 - [ListEntitiesResponseTypeDef](./type_defs.md#listentitiesresponsetypedef)

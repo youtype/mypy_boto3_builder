@@ -461,137 +461,7 @@ type annotations stubs module [mypy_boto3_ec2](https://pypi.org/project/mypy-bot
     - [update_security_group_rule_descriptions_ingress](#update_security_group_rule_descriptions_ingress)
     - [withdraw_byoip_cidr](#withdraw_byoip_cidr)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
-    - [get_paginator](#get_paginator-17)
-    - [get_paginator](#get_paginator-18)
-    - [get_paginator](#get_paginator-19)
-    - [get_paginator](#get_paginator-20)
-    - [get_paginator](#get_paginator-21)
-    - [get_paginator](#get_paginator-22)
-    - [get_paginator](#get_paginator-23)
-    - [get_paginator](#get_paginator-24)
-    - [get_paginator](#get_paginator-25)
-    - [get_paginator](#get_paginator-26)
-    - [get_paginator](#get_paginator-27)
-    - [get_paginator](#get_paginator-28)
-    - [get_paginator](#get_paginator-29)
-    - [get_paginator](#get_paginator-30)
-    - [get_paginator](#get_paginator-31)
-    - [get_paginator](#get_paginator-32)
-    - [get_paginator](#get_paginator-33)
-    - [get_paginator](#get_paginator-34)
-    - [get_paginator](#get_paginator-35)
-    - [get_paginator](#get_paginator-36)
-    - [get_paginator](#get_paginator-37)
-    - [get_paginator](#get_paginator-38)
-    - [get_paginator](#get_paginator-39)
-    - [get_paginator](#get_paginator-40)
-    - [get_paginator](#get_paginator-41)
-    - [get_paginator](#get_paginator-42)
-    - [get_paginator](#get_paginator-43)
-    - [get_paginator](#get_paginator-44)
-    - [get_paginator](#get_paginator-45)
-    - [get_paginator](#get_paginator-46)
-    - [get_paginator](#get_paginator-47)
-    - [get_paginator](#get_paginator-48)
-    - [get_paginator](#get_paginator-49)
-    - [get_paginator](#get_paginator-50)
-    - [get_paginator](#get_paginator-51)
-    - [get_paginator](#get_paginator-52)
-    - [get_paginator](#get_paginator-53)
-    - [get_paginator](#get_paginator-54)
-    - [get_paginator](#get_paginator-55)
-    - [get_paginator](#get_paginator-56)
-    - [get_paginator](#get_paginator-57)
-    - [get_paginator](#get_paginator-58)
-    - [get_paginator](#get_paginator-59)
-    - [get_paginator](#get_paginator-60)
-    - [get_paginator](#get_paginator-61)
-    - [get_paginator](#get_paginator-62)
-    - [get_paginator](#get_paginator-63)
-    - [get_paginator](#get_paginator-64)
-    - [get_paginator](#get_paginator-65)
-    - [get_paginator](#get_paginator-66)
-    - [get_paginator](#get_paginator-67)
-    - [get_paginator](#get_paginator-68)
-    - [get_paginator](#get_paginator-69)
-    - [get_paginator](#get_paginator-70)
-    - [get_paginator](#get_paginator-71)
-    - [get_paginator](#get_paginator-72)
-    - [get_paginator](#get_paginator-73)
-    - [get_paginator](#get_paginator-74)
-    - [get_paginator](#get_paginator-75)
-    - [get_paginator](#get_paginator-76)
-    - [get_paginator](#get_paginator-77)
-    - [get_paginator](#get_paginator-78)
-    - [get_paginator](#get_paginator-79)
-    - [get_paginator](#get_paginator-80)
-    - [get_paginator](#get_paginator-81)
-    - [get_paginator](#get_paginator-82)
-    - [get_paginator](#get_paginator-83)
-    - [get_paginator](#get_paginator-84)
-    - [get_paginator](#get_paginator-85)
-    - [get_paginator](#get_paginator-86)
-    - [get_paginator](#get_paginator-87)
-    - [get_paginator](#get_paginator-88)
-    - [get_paginator](#get_paginator-89)
-    - [get_paginator](#get_paginator-90)
-    - [get_paginator](#get_paginator-91)
-    - [get_paginator](#get_paginator-92)
-    - [get_paginator](#get_paginator-93)
-    - [get_paginator](#get_paginator-94)
-    - [get_paginator](#get_paginator-95)
-    - [get_paginator](#get_paginator-96)
-    - [get_paginator](#get_paginator-97)
-    - [get_paginator](#get_paginator-98)
-    - [get_paginator](#get_paginator-99)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
-    - [get_waiter](#get_waiter-4)
-    - [get_waiter](#get_waiter-5)
-    - [get_waiter](#get_waiter-6)
-    - [get_waiter](#get_waiter-7)
-    - [get_waiter](#get_waiter-8)
-    - [get_waiter](#get_waiter-9)
-    - [get_waiter](#get_waiter-10)
-    - [get_waiter](#get_waiter-11)
-    - [get_waiter](#get_waiter-12)
-    - [get_waiter](#get_waiter-13)
-    - [get_waiter](#get_waiter-14)
-    - [get_waiter](#get_waiter-15)
-    - [get_waiter](#get_waiter-16)
-    - [get_waiter](#get_waiter-17)
-    - [get_waiter](#get_waiter-18)
-    - [get_waiter](#get_waiter-19)
-    - [get_waiter](#get_waiter-20)
-    - [get_waiter](#get_waiter-21)
-    - [get_waiter](#get_waiter-22)
-    - [get_waiter](#get_waiter-23)
-    - [get_waiter](#get_waiter-24)
-    - [get_waiter](#get_waiter-25)
-    - [get_waiter](#get_waiter-26)
-    - [get_waiter](#get_waiter-27)
-    - [get_waiter](#get_waiter-28)
-    - [get_waiter](#get_waiter-29)
-    - [get_waiter](#get_waiter-30)
-    - [get_waiter](#get_waiter-31)
 
 ## EC2Client
 
@@ -1474,7 +1344,7 @@ Type annotations for `boto3.client("ec2").create_customer_gateway` method.
 def create_customer_gateway(
     self,
     BgpAsn: int,
-    Type: GatewayType,
+    Type: Literal['ipsec.1'],
     PublicIp: str = None,
     CertificateArn: str = None,
     TagSpecifications: List["TagSpecificationTypeDef"] = None,
@@ -1876,7 +1746,7 @@ def create_network_interface(
     PrivateIpAddress: str = None,
     PrivateIpAddresses: List["PrivateIpAddressSpecificationTypeDef"] = None,
     SecondaryPrivateIpAddressCount: int = None,
-    InterfaceType: NetworkInterfaceCreationType = None,
+    InterfaceType: Literal['efa'] = None,
     TagSpecifications: List["TagSpecificationTypeDef"] = None
 ) -> CreateNetworkInterfaceResultTypeDef:
     pass
@@ -2065,7 +1935,7 @@ def create_snapshots(
     OutpostArn: str = None,
     TagSpecifications: List["TagSpecificationTypeDef"] = None,
     DryRun: bool = None,
-    CopyTagsFromSource: CopyTagsFromSource = None
+    CopyTagsFromSource: Literal['volume'] = None
 ) -> CreateSnapshotsResultTypeDef:
     pass
 ```
@@ -2557,7 +2427,7 @@ Type annotations for `boto3.client("ec2").create_vpn_gateway` method.
 ```python
 def create_vpn_gateway(
     self,
-    Type: GatewayType,
+    Type: Literal['ipsec.1'],
     AvailabilityZone: str = None,
     TagSpecifications: List["TagSpecificationTypeDef"] = None,
     AmazonSideAsn: int = None,
@@ -3514,7 +3384,7 @@ Type annotations for `boto3.client("ec2").describe_addresses_attribute` method.
 def describe_addresses_attribute(
     self,
     AllocationIds: List[str] = None,
-    Attribute: AddressAttributeName = None,
+    Attribute: Literal['domain-name'] = None,
     NextToken: str = None,
     MaxResults: int = None,
     DryRun: bool = None
@@ -6582,7 +6452,7 @@ Type annotations for `boto3.client("ec2").import_instance` method.
 ```python
 def import_instance(
     self,
-    Platform: PlatformValues,
+    Platform: Literal['Windows'],
     Description: str = None,
     DiskImages: List[DiskImageTypeDef] = None,
     DryRun: bool = None,
@@ -7122,8 +6992,8 @@ Type annotations for `boto3.client("ec2").modify_traffic_mirror_filter_network_s
 def modify_traffic_mirror_filter_network_services(
     self,
     TrafficMirrorFilterId: str,
-    AddNetworkServices: List[TrafficMirrorNetworkService] = None,
-    RemoveNetworkServices: List[TrafficMirrorNetworkService] = None,
+    AddNetworkServices: List[Literal['amazon-dns']] = None,
+    RemoveNetworkServices: List[Literal['amazon-dns']] = None,
     DryRun: bool = None
 ) -> ModifyTrafficMirrorFilterNetworkServicesResultTypeDef:
     pass
@@ -7388,7 +7258,7 @@ Type annotations for `boto3.client("ec2").modify_vpc_tenancy` method.
 def modify_vpc_tenancy(
     self,
     VpcId: str,
-    InstanceTenancy: VpcTenancy,
+    InstanceTenancy: Literal['default'],
     DryRun: bool = None
 ) -> ModifyVpcTenancyResultTypeDef:
     pass
@@ -7525,7 +7395,7 @@ def purchase_host_reservation(
     HostIdSet: List[str],
     OfferingId: str,
     ClientToken: str = None,
-    CurrencyCode: CurrencyCodeValues = None,
+    CurrencyCode: Literal['USD'] = None,
     LimitPrice: str = None,
     TagSpecifications: List["TagSpecificationTypeDef"] = None
 ) -> PurchaseHostReservationResultTypeDef:
@@ -7954,7 +7824,7 @@ Type annotations for `boto3.client("ec2").reset_address_attribute` method.
 def reset_address_attribute(
     self,
     AllocationId: str,
-    Attribute: AddressAttributeName,
+    Attribute: Literal['domain-name'],
     DryRun: bool = None
 ) -> ResetAddressAttributeResultTypeDef:
     pass
@@ -7985,7 +7855,7 @@ def reset_fpga_image_attribute(
     self,
     FpgaImageId: str,
     DryRun: bool = None,
-    Attribute: ResetFpgaImageAttributeName = None
+    Attribute: Literal['loadPermission'] = None
 ) -> ResetFpgaImageAttributeResultTypeDef:
     pass
 ```
@@ -7999,7 +7869,7 @@ Type annotations for `boto3.client("ec2").reset_image_attribute` method.
 ```python
 def reset_image_attribute(
     self,
-    Attribute: ResetImageAttributeName,
+    Attribute: Literal['launchPermission'],
     ImageId: str,
     DryRun: bool = None
 ) -> None:
@@ -8477,1982 +8347,149 @@ def withdraw_byoip_cidr(
     pass
 ```
 
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeAddressesAttribute documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeAddressesAttribute)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAddressesAttributePaginatorName
-) -> DescribeAddressesAttributePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeByoipCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeByoipCidrs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeByoipCidrsPaginatorName
-) -> DescribeByoipCidrsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeCapacityReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeCapacityReservations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCapacityReservationsPaginatorName
-) -> DescribeCapacityReservationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeCarrierGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeCarrierGateways)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCarrierGatewaysPaginatorName
-) -> DescribeCarrierGatewaysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeClassicLinkInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeClassicLinkInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeClassicLinkInstancesPaginatorName
-) -> DescribeClassicLinkInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeClientVpnAuthorizationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnAuthorizationRules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeClientVpnAuthorizationRulesPaginatorName
-) -> DescribeClientVpnAuthorizationRulesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeClientVpnConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnConnections)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeClientVpnConnectionsPaginatorName
-) -> DescribeClientVpnConnectionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeClientVpnEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnEndpoints)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeClientVpnEndpointsPaginatorName
-) -> DescribeClientVpnEndpointsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeClientVpnRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnRoutes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeClientVpnRoutesPaginatorName
-) -> DescribeClientVpnRoutesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeClientVpnTargetNetworks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnTargetNetworks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeClientVpnTargetNetworksPaginatorName
-) -> DescribeClientVpnTargetNetworksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeCoipPools documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeCoipPools)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCoipPoolsPaginatorName
-) -> DescribeCoipPoolsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeDhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeDhcpOptions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDhcpOptionsPaginatorName
-) -> DescribeDhcpOptionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeEgressOnlyInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeEgressOnlyInternetGateways)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEgressOnlyInternetGatewaysPaginatorName
-) -> DescribeEgressOnlyInternetGatewaysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeExportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeExportImageTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeExportImageTasksPaginatorName
-) -> DescribeExportImageTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeFastSnapshotRestores documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeFastSnapshotRestores)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFastSnapshotRestoresPaginatorName
-) -> DescribeFastSnapshotRestoresPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeFleets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFleetsPaginatorName
-) -> DescribeFleetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeFlowLogs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeFlowLogs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFlowLogsPaginatorName
-) -> DescribeFlowLogsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeFpgaImages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeFpgaImages)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFpgaImagesPaginatorName
-) -> DescribeFpgaImagesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeHostReservationOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeHostReservationOfferings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeHostReservationOfferingsPaginatorName
-) -> DescribeHostReservationOfferingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeHostReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeHostReservations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeHostReservationsPaginatorName
-) -> DescribeHostReservationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeHosts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeHosts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeHostsPaginatorName
-) -> DescribeHostsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeIamInstanceProfileAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeIamInstanceProfileAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeIamInstanceProfileAssociationsPaginatorName
-) -> DescribeIamInstanceProfileAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeImportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeImportImageTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeImportImageTasksPaginatorName
-) -> DescribeImportImageTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeImportSnapshotTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeImportSnapshotTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeImportSnapshotTasksPaginatorName
-) -> DescribeImportSnapshotTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeInstanceCreditSpecifications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeInstanceCreditSpecifications)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInstanceCreditSpecificationsPaginatorName
-) -> DescribeInstanceCreditSpecificationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeInstanceStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeInstanceStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInstanceStatusPaginatorName
-) -> DescribeInstanceStatusPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeInstanceTypeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypeOfferings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInstanceTypeOfferingsPaginatorName
-) -> DescribeInstanceTypeOfferingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeInstanceTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInstanceTypesPaginatorName
-) -> DescribeInstanceTypesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInstancesPaginatorName
-) -> DescribeInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeInternetGateways)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInternetGatewaysPaginatorName
-) -> DescribeInternetGatewaysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeIpv6Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeIpv6Pools)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeIpv6PoolsPaginatorName
-) -> DescribeIpv6PoolsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeLaunchTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplateVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLaunchTemplateVersionsPaginatorName
-) -> DescribeLaunchTemplateVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeLaunchTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLaunchTemplatesPaginatorName
-) -> DescribeLaunchTemplatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginatorName
-) -> DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeLocalGatewayRouteTableVpcAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVpcAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLocalGatewayRouteTableVpcAssociationsPaginatorName
-) -> DescribeLocalGatewayRouteTableVpcAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeLocalGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTables)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLocalGatewayRouteTablesPaginatorName
-) -> DescribeLocalGatewayRouteTablesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeLocalGatewayVirtualInterfaceGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaceGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLocalGatewayVirtualInterfaceGroupsPaginatorName
-) -> DescribeLocalGatewayVirtualInterfaceGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeLocalGatewayVirtualInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaces)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLocalGatewayVirtualInterfacesPaginatorName
-) -> DescribeLocalGatewayVirtualInterfacesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeLocalGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeLocalGateways)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLocalGatewaysPaginatorName
-) -> DescribeLocalGatewaysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeManagedPrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeManagedPrefixLists)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeManagedPrefixListsPaginatorName
-) -> DescribeManagedPrefixListsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeMovingAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeMovingAddresses)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMovingAddressesPaginatorName
-) -> DescribeMovingAddressesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeNatGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeNatGateways)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeNatGatewaysPaginatorName
-) -> DescribeNatGatewaysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeNetworkAcls documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeNetworkAcls)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeNetworkAclsPaginatorName
-) -> DescribeNetworkAclsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeNetworkInsightsAnalyses documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsAnalyses)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeNetworkInsightsAnalysesPaginatorName
-) -> DescribeNetworkInsightsAnalysesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeNetworkInsightsPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsPaths)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeNetworkInsightsPathsPaginatorName
-) -> DescribeNetworkInsightsPathsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeNetworkInterfacePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfacePermissions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeNetworkInterfacePermissionsPaginatorName
-) -> DescribeNetworkInterfacePermissionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeNetworkInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfaces)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeNetworkInterfacesPaginatorName
-) -> DescribeNetworkInterfacesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribePrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribePrefixLists)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribePrefixListsPaginatorName
-) -> DescribePrefixListsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribePrincipalIdFormat documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribePrincipalIdFormat)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribePrincipalIdFormatPaginatorName
-) -> DescribePrincipalIdFormatPaginator:
-    pass
-```
-
-### get_paginator
 
-Type annotations for `boto3.client("ec2").get_paginator` method.
 
-[Paginator.DescribePublicIpv4Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribePublicIpv4Pools)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribePublicIpv4PoolsPaginatorName
-) -> DescribePublicIpv4PoolsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeReplaceRootVolumeTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeReplaceRootVolumeTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReplaceRootVolumeTasksPaginatorName
-) -> DescribeReplaceRootVolumeTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeReservedInstancesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesModifications)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReservedInstancesModificationsPaginatorName
-) -> DescribeReservedInstancesModificationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeReservedInstancesOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesOfferings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReservedInstancesOfferingsPaginatorName
-) -> DescribeReservedInstancesOfferingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeRouteTables)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeRouteTablesPaginatorName
-) -> DescribeRouteTablesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeScheduledInstanceAvailability documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstanceAvailability)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeScheduledInstanceAvailabilityPaginatorName
-) -> DescribeScheduledInstanceAvailabilityPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeScheduledInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeScheduledInstancesPaginatorName
-) -> DescribeScheduledInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSecurityGroupsPaginatorName
-) -> DescribeSecurityGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeSnapshots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSnapshotsPaginatorName
-) -> DescribeSnapshotsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeSpotFleetInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSpotFleetInstancesPaginatorName
-) -> DescribeSpotFleetInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeSpotFleetRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetRequests)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSpotFleetRequestsPaginatorName
-) -> DescribeSpotFleetRequestsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeSpotInstanceRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeSpotInstanceRequests)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSpotInstanceRequestsPaginatorName
-) -> DescribeSpotInstanceRequestsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeSpotPriceHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeSpotPriceHistory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSpotPriceHistoryPaginatorName
-) -> DescribeSpotPriceHistoryPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeStaleSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeStaleSecurityGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeStaleSecurityGroupsPaginatorName
-) -> DescribeStaleSecurityGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeStoreImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeStoreImageTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeStoreImageTasksPaginatorName
-) -> DescribeStoreImageTasksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeSubnets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeSubnets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSubnetsPaginatorName
-) -> DescribeSubnetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTags)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTagsPaginatorName
-) -> DescribeTagsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTrafficMirrorFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorFilters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTrafficMirrorFiltersPaginatorName
-) -> DescribeTrafficMirrorFiltersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTrafficMirrorSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorSessions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTrafficMirrorSessionsPaginatorName
-) -> DescribeTrafficMirrorSessionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTrafficMirrorTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorTargets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTrafficMirrorTargetsPaginatorName
-) -> DescribeTrafficMirrorTargetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTransitGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayAttachments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTransitGatewayAttachmentsPaginatorName
-) -> DescribeTransitGatewayAttachmentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTransitGatewayConnectPeers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnectPeers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTransitGatewayConnectPeersPaginatorName
-) -> DescribeTransitGatewayConnectPeersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTransitGatewayConnects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTransitGatewayConnectsPaginatorName
-) -> DescribeTransitGatewayConnectsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTransitGatewayMulticastDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayMulticastDomains)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTransitGatewayMulticastDomainsPaginatorName
-) -> DescribeTransitGatewayMulticastDomainsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTransitGatewayPeeringAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayPeeringAttachments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTransitGatewayPeeringAttachmentsPaginatorName
-) -> DescribeTransitGatewayPeeringAttachmentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTransitGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayRouteTables)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTransitGatewayRouteTablesPaginatorName
-) -> DescribeTransitGatewayRouteTablesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTransitGatewayVpcAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayVpcAttachments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTransitGatewayVpcAttachmentsPaginatorName
-) -> DescribeTransitGatewayVpcAttachmentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeTransitGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeTransitGateways)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTransitGatewaysPaginatorName
-) -> DescribeTransitGatewaysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVolumeStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVolumeStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVolumeStatusPaginatorName
-) -> DescribeVolumeStatusPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVolumes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVolumes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVolumesPaginatorName
-) -> DescribeVolumesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVolumesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVolumesModifications)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVolumesModificationsPaginatorName
-) -> DescribeVolumesModificationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVpcClassicLinkDnsSupport documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVpcClassicLinkDnsSupport)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVpcClassicLinkDnsSupportPaginatorName
-) -> DescribeVpcClassicLinkDnsSupportPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVpcEndpointConnectionNotifications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnectionNotifications)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVpcEndpointConnectionNotificationsPaginatorName
-) -> DescribeVpcEndpointConnectionNotificationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVpcEndpointConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnections)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVpcEndpointConnectionsPaginatorName
-) -> DescribeVpcEndpointConnectionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVpcEndpointServiceConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServiceConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVpcEndpointServiceConfigurationsPaginatorName
-) -> DescribeVpcEndpointServiceConfigurationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVpcEndpointServicePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServicePermissions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVpcEndpointServicePermissionsPaginatorName
-) -> DescribeVpcEndpointServicePermissionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVpcEndpointServices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVpcEndpointServicesPaginatorName
-) -> DescribeVpcEndpointServicesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVpcEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpoints)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVpcEndpointsPaginatorName
-) -> DescribeVpcEndpointsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVpcPeeringConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVpcPeeringConnections)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVpcPeeringConnectionsPaginatorName
-) -> DescribeVpcPeeringConnectionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.DescribeVpcs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.DescribeVpcs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVpcsPaginatorName
-) -> DescribeVpcsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.GetAssociatedIpv6PoolCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.GetAssociatedIpv6PoolCidrs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetAssociatedIpv6PoolCidrsPaginatorName
-) -> GetAssociatedIpv6PoolCidrsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.GetGroupsForCapacityReservation documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.GetGroupsForCapacityReservation)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetGroupsForCapacityReservationPaginatorName
-) -> GetGroupsForCapacityReservationPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.GetManagedPrefixListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetManagedPrefixListAssociationsPaginatorName
-) -> GetManagedPrefixListAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.GetManagedPrefixListEntries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListEntries)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetManagedPrefixListEntriesPaginatorName
-) -> GetManagedPrefixListEntriesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.GetTransitGatewayAttachmentPropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayAttachmentPropagations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTransitGatewayAttachmentPropagationsPaginatorName
-) -> GetTransitGatewayAttachmentPropagationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.GetTransitGatewayMulticastDomainAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayMulticastDomainAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTransitGatewayMulticastDomainAssociationsPaginatorName
-) -> GetTransitGatewayMulticastDomainAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.GetTransitGatewayPrefixListReferences documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayPrefixListReferences)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTransitGatewayPrefixListReferencesPaginatorName
-) -> GetTransitGatewayPrefixListReferencesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.GetTransitGatewayRouteTableAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTableAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTransitGatewayRouteTableAssociationsPaginatorName
-) -> GetTransitGatewayRouteTableAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.GetTransitGatewayRouteTablePropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTablePropagations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTransitGatewayRouteTablePropagationsPaginatorName
-) -> GetTransitGatewayRouteTablePropagationsPaginator:
-    pass
-```
-
 ### get_paginator
 
-Type annotations for `boto3.client("ec2").get_paginator` method.
-
-[Paginator.SearchLocalGatewayRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.SearchLocalGatewayRoutes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchLocalGatewayRoutesPaginatorName
-) -> SearchLocalGatewayRoutesPaginator:
-    pass
-```
-
-### get_paginator
+Type annotations for `boto3.client("ec2").get_paginator` method with overloads.
+
+- `client.get_paginator("describe_addresses_attribute")` -> [DescribeAddressesAttributePaginator](./paginators.md#describeaddressesattributepaginator)
+- `client.get_paginator("describe_byoip_cidrs")` -> [DescribeByoipCidrsPaginator](./paginators.md#describebyoipcidrspaginator)
+- `client.get_paginator("describe_capacity_reservations")` -> [DescribeCapacityReservationsPaginator](./paginators.md#describecapacityreservationspaginator)
+- `client.get_paginator("describe_carrier_gateways")` -> [DescribeCarrierGatewaysPaginator](./paginators.md#describecarriergatewayspaginator)
+- `client.get_paginator("describe_classic_link_instances")` -> [DescribeClassicLinkInstancesPaginator](./paginators.md#describeclassiclinkinstancespaginator)
+- `client.get_paginator("describe_client_vpn_authorization_rules")` -> [DescribeClientVpnAuthorizationRulesPaginator](./paginators.md#describeclientvpnauthorizationrulespaginator)
+- `client.get_paginator("describe_client_vpn_connections")` -> [DescribeClientVpnConnectionsPaginator](./paginators.md#describeclientvpnconnectionspaginator)
+- `client.get_paginator("describe_client_vpn_endpoints")` -> [DescribeClientVpnEndpointsPaginator](./paginators.md#describeclientvpnendpointspaginator)
+- `client.get_paginator("describe_client_vpn_routes")` -> [DescribeClientVpnRoutesPaginator](./paginators.md#describeclientvpnroutespaginator)
+- `client.get_paginator("describe_client_vpn_target_networks")` -> [DescribeClientVpnTargetNetworksPaginator](./paginators.md#describeclientvpntargetnetworkspaginator)
+- `client.get_paginator("describe_coip_pools")` -> [DescribeCoipPoolsPaginator](./paginators.md#describecoippoolspaginator)
+- `client.get_paginator("describe_dhcp_options")` -> [DescribeDhcpOptionsPaginator](./paginators.md#describedhcpoptionspaginator)
+- `client.get_paginator("describe_egress_only_internet_gateways")` -> [DescribeEgressOnlyInternetGatewaysPaginator](./paginators.md#describeegressonlyinternetgatewayspaginator)
+- `client.get_paginator("describe_export_image_tasks")` -> [DescribeExportImageTasksPaginator](./paginators.md#describeexportimagetaskspaginator)
+- `client.get_paginator("describe_fast_snapshot_restores")` -> [DescribeFastSnapshotRestoresPaginator](./paginators.md#describefastsnapshotrestorespaginator)
+- `client.get_paginator("describe_fleets")` -> [DescribeFleetsPaginator](./paginators.md#describefleetspaginator)
+- `client.get_paginator("describe_flow_logs")` -> [DescribeFlowLogsPaginator](./paginators.md#describeflowlogspaginator)
+- `client.get_paginator("describe_fpga_images")` -> [DescribeFpgaImagesPaginator](./paginators.md#describefpgaimagespaginator)
+- `client.get_paginator("describe_host_reservation_offerings")` -> [DescribeHostReservationOfferingsPaginator](./paginators.md#describehostreservationofferingspaginator)
+- `client.get_paginator("describe_host_reservations")` -> [DescribeHostReservationsPaginator](./paginators.md#describehostreservationspaginator)
+- `client.get_paginator("describe_hosts")` -> [DescribeHostsPaginator](./paginators.md#describehostspaginator)
+- `client.get_paginator("describe_iam_instance_profile_associations")` -> [DescribeIamInstanceProfileAssociationsPaginator](./paginators.md#describeiaminstanceprofileassociationspaginator)
+- `client.get_paginator("describe_import_image_tasks")` -> [DescribeImportImageTasksPaginator](./paginators.md#describeimportimagetaskspaginator)
+- `client.get_paginator("describe_import_snapshot_tasks")` -> [DescribeImportSnapshotTasksPaginator](./paginators.md#describeimportsnapshottaskspaginator)
+- `client.get_paginator("describe_instance_credit_specifications")` -> [DescribeInstanceCreditSpecificationsPaginator](./paginators.md#describeinstancecreditspecificationspaginator)
+- `client.get_paginator("describe_instance_status")` -> [DescribeInstanceStatusPaginator](./paginators.md#describeinstancestatuspaginator)
+- `client.get_paginator("describe_instance_type_offerings")` -> [DescribeInstanceTypeOfferingsPaginator](./paginators.md#describeinstancetypeofferingspaginator)
+- `client.get_paginator("describe_instance_types")` -> [DescribeInstanceTypesPaginator](./paginators.md#describeinstancetypespaginator)
+- `client.get_paginator("describe_instances")` -> [DescribeInstancesPaginator](./paginators.md#describeinstancespaginator)
+- `client.get_paginator("describe_internet_gateways")` -> [DescribeInternetGatewaysPaginator](./paginators.md#describeinternetgatewayspaginator)
+- `client.get_paginator("describe_ipv6_pools")` -> [DescribeIpv6PoolsPaginator](./paginators.md#describeipv6poolspaginator)
+- `client.get_paginator("describe_launch_template_versions")` -> [DescribeLaunchTemplateVersionsPaginator](./paginators.md#describelaunchtemplateversionspaginator)
+- `client.get_paginator("describe_launch_templates")` -> [DescribeLaunchTemplatesPaginator](./paginators.md#describelaunchtemplatespaginator)
+- `client.get_paginator("describe_local_gateway_route_table_virtual_interface_group_associations")` -> [DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator](./paginators.md#describelocalgatewayroutetablevirtualinterfacegroupassociationspaginator)
+- `client.get_paginator("describe_local_gateway_route_table_vpc_associations")` -> [DescribeLocalGatewayRouteTableVpcAssociationsPaginator](./paginators.md#describelocalgatewayroutetablevpcassociationspaginator)
+- `client.get_paginator("describe_local_gateway_route_tables")` -> [DescribeLocalGatewayRouteTablesPaginator](./paginators.md#describelocalgatewayroutetablespaginator)
+- `client.get_paginator("describe_local_gateway_virtual_interface_groups")` -> [DescribeLocalGatewayVirtualInterfaceGroupsPaginator](./paginators.md#describelocalgatewayvirtualinterfacegroupspaginator)
+- `client.get_paginator("describe_local_gateway_virtual_interfaces")` -> [DescribeLocalGatewayVirtualInterfacesPaginator](./paginators.md#describelocalgatewayvirtualinterfacespaginator)
+- `client.get_paginator("describe_local_gateways")` -> [DescribeLocalGatewaysPaginator](./paginators.md#describelocalgatewayspaginator)
+- `client.get_paginator("describe_managed_prefix_lists")` -> [DescribeManagedPrefixListsPaginator](./paginators.md#describemanagedprefixlistspaginator)
+- `client.get_paginator("describe_moving_addresses")` -> [DescribeMovingAddressesPaginator](./paginators.md#describemovingaddressespaginator)
+- `client.get_paginator("describe_nat_gateways")` -> [DescribeNatGatewaysPaginator](./paginators.md#describenatgatewayspaginator)
+- `client.get_paginator("describe_network_acls")` -> [DescribeNetworkAclsPaginator](./paginators.md#describenetworkaclspaginator)
+- `client.get_paginator("describe_network_insights_analyses")` -> [DescribeNetworkInsightsAnalysesPaginator](./paginators.md#describenetworkinsightsanalysespaginator)
+- `client.get_paginator("describe_network_insights_paths")` -> [DescribeNetworkInsightsPathsPaginator](./paginators.md#describenetworkinsightspathspaginator)
+- `client.get_paginator("describe_network_interface_permissions")` -> [DescribeNetworkInterfacePermissionsPaginator](./paginators.md#describenetworkinterfacepermissionspaginator)
+- `client.get_paginator("describe_network_interfaces")` -> [DescribeNetworkInterfacesPaginator](./paginators.md#describenetworkinterfacespaginator)
+- `client.get_paginator("describe_prefix_lists")` -> [DescribePrefixListsPaginator](./paginators.md#describeprefixlistspaginator)
+- `client.get_paginator("describe_principal_id_format")` -> [DescribePrincipalIdFormatPaginator](./paginators.md#describeprincipalidformatpaginator)
+- `client.get_paginator("describe_public_ipv4_pools")` -> [DescribePublicIpv4PoolsPaginator](./paginators.md#describepublicipv4poolspaginator)
+- `client.get_paginator("describe_replace_root_volume_tasks")` -> [DescribeReplaceRootVolumeTasksPaginator](./paginators.md#describereplacerootvolumetaskspaginator)
+- `client.get_paginator("describe_reserved_instances_modifications")` -> [DescribeReservedInstancesModificationsPaginator](./paginators.md#describereservedinstancesmodificationspaginator)
+- `client.get_paginator("describe_reserved_instances_offerings")` -> [DescribeReservedInstancesOfferingsPaginator](./paginators.md#describereservedinstancesofferingspaginator)
+- `client.get_paginator("describe_route_tables")` -> [DescribeRouteTablesPaginator](./paginators.md#describeroutetablespaginator)
+- `client.get_paginator("describe_scheduled_instance_availability")` -> [DescribeScheduledInstanceAvailabilityPaginator](./paginators.md#describescheduledinstanceavailabilitypaginator)
+- `client.get_paginator("describe_scheduled_instances")` -> [DescribeScheduledInstancesPaginator](./paginators.md#describescheduledinstancespaginator)
+- `client.get_paginator("describe_security_groups")` -> [DescribeSecurityGroupsPaginator](./paginators.md#describesecuritygroupspaginator)
+- `client.get_paginator("describe_snapshots")` -> [DescribeSnapshotsPaginator](./paginators.md#describesnapshotspaginator)
+- `client.get_paginator("describe_spot_fleet_instances")` -> [DescribeSpotFleetInstancesPaginator](./paginators.md#describespotfleetinstancespaginator)
+- `client.get_paginator("describe_spot_fleet_requests")` -> [DescribeSpotFleetRequestsPaginator](./paginators.md#describespotfleetrequestspaginator)
+- `client.get_paginator("describe_spot_instance_requests")` -> [DescribeSpotInstanceRequestsPaginator](./paginators.md#describespotinstancerequestspaginator)
+- `client.get_paginator("describe_spot_price_history")` -> [DescribeSpotPriceHistoryPaginator](./paginators.md#describespotpricehistorypaginator)
+- `client.get_paginator("describe_stale_security_groups")` -> [DescribeStaleSecurityGroupsPaginator](./paginators.md#describestalesecuritygroupspaginator)
+- `client.get_paginator("describe_store_image_tasks")` -> [DescribeStoreImageTasksPaginator](./paginators.md#describestoreimagetaskspaginator)
+- `client.get_paginator("describe_subnets")` -> [DescribeSubnetsPaginator](./paginators.md#describesubnetspaginator)
+- `client.get_paginator("describe_tags")` -> [DescribeTagsPaginator](./paginators.md#describetagspaginator)
+- `client.get_paginator("describe_traffic_mirror_filters")` -> [DescribeTrafficMirrorFiltersPaginator](./paginators.md#describetrafficmirrorfilterspaginator)
+- `client.get_paginator("describe_traffic_mirror_sessions")` -> [DescribeTrafficMirrorSessionsPaginator](./paginators.md#describetrafficmirrorsessionspaginator)
+- `client.get_paginator("describe_traffic_mirror_targets")` -> [DescribeTrafficMirrorTargetsPaginator](./paginators.md#describetrafficmirrortargetspaginator)
+- `client.get_paginator("describe_transit_gateway_attachments")` -> [DescribeTransitGatewayAttachmentsPaginator](./paginators.md#describetransitgatewayattachmentspaginator)
+- `client.get_paginator("describe_transit_gateway_connect_peers")` -> [DescribeTransitGatewayConnectPeersPaginator](./paginators.md#describetransitgatewayconnectpeerspaginator)
+- `client.get_paginator("describe_transit_gateway_connects")` -> [DescribeTransitGatewayConnectsPaginator](./paginators.md#describetransitgatewayconnectspaginator)
+- `client.get_paginator("describe_transit_gateway_multicast_domains")` -> [DescribeTransitGatewayMulticastDomainsPaginator](./paginators.md#describetransitgatewaymulticastdomainspaginator)
+- `client.get_paginator("describe_transit_gateway_peering_attachments")` -> [DescribeTransitGatewayPeeringAttachmentsPaginator](./paginators.md#describetransitgatewaypeeringattachmentspaginator)
+- `client.get_paginator("describe_transit_gateway_route_tables")` -> [DescribeTransitGatewayRouteTablesPaginator](./paginators.md#describetransitgatewayroutetablespaginator)
+- `client.get_paginator("describe_transit_gateway_vpc_attachments")` -> [DescribeTransitGatewayVpcAttachmentsPaginator](./paginators.md#describetransitgatewayvpcattachmentspaginator)
+- `client.get_paginator("describe_transit_gateways")` -> [DescribeTransitGatewaysPaginator](./paginators.md#describetransitgatewayspaginator)
+- `client.get_paginator("describe_volume_status")` -> [DescribeVolumeStatusPaginator](./paginators.md#describevolumestatuspaginator)
+- `client.get_paginator("describe_volumes")` -> [DescribeVolumesPaginator](./paginators.md#describevolumespaginator)
+- `client.get_paginator("describe_volumes_modifications")` -> [DescribeVolumesModificationsPaginator](./paginators.md#describevolumesmodificationspaginator)
+- `client.get_paginator("describe_vpc_classic_link_dns_support")` -> [DescribeVpcClassicLinkDnsSupportPaginator](./paginators.md#describevpcclassiclinkdnssupportpaginator)
+- `client.get_paginator("describe_vpc_endpoint_connection_notifications")` -> [DescribeVpcEndpointConnectionNotificationsPaginator](./paginators.md#describevpcendpointconnectionnotificationspaginator)
+- `client.get_paginator("describe_vpc_endpoint_connections")` -> [DescribeVpcEndpointConnectionsPaginator](./paginators.md#describevpcendpointconnectionspaginator)
+- `client.get_paginator("describe_vpc_endpoint_service_configurations")` -> [DescribeVpcEndpointServiceConfigurationsPaginator](./paginators.md#describevpcendpointserviceconfigurationspaginator)
+- `client.get_paginator("describe_vpc_endpoint_service_permissions")` -> [DescribeVpcEndpointServicePermissionsPaginator](./paginators.md#describevpcendpointservicepermissionspaginator)
+- `client.get_paginator("describe_vpc_endpoint_services")` -> [DescribeVpcEndpointServicesPaginator](./paginators.md#describevpcendpointservicespaginator)
+- `client.get_paginator("describe_vpc_endpoints")` -> [DescribeVpcEndpointsPaginator](./paginators.md#describevpcendpointspaginator)
+- `client.get_paginator("describe_vpc_peering_connections")` -> [DescribeVpcPeeringConnectionsPaginator](./paginators.md#describevpcpeeringconnectionspaginator)
+- `client.get_paginator("describe_vpcs")` -> [DescribeVpcsPaginator](./paginators.md#describevpcspaginator)
+- `client.get_paginator("get_associated_ipv6_pool_cidrs")` -> [GetAssociatedIpv6PoolCidrsPaginator](./paginators.md#getassociatedipv6poolcidrspaginator)
+- `client.get_paginator("get_groups_for_capacity_reservation")` -> [GetGroupsForCapacityReservationPaginator](./paginators.md#getgroupsforcapacityreservationpaginator)
+- `client.get_paginator("get_managed_prefix_list_associations")` -> [GetManagedPrefixListAssociationsPaginator](./paginators.md#getmanagedprefixlistassociationspaginator)
+- `client.get_paginator("get_managed_prefix_list_entries")` -> [GetManagedPrefixListEntriesPaginator](./paginators.md#getmanagedprefixlistentriespaginator)
+- `client.get_paginator("get_transit_gateway_attachment_propagations")` -> [GetTransitGatewayAttachmentPropagationsPaginator](./paginators.md#gettransitgatewayattachmentpropagationspaginator)
+- `client.get_paginator("get_transit_gateway_multicast_domain_associations")` -> [GetTransitGatewayMulticastDomainAssociationsPaginator](./paginators.md#gettransitgatewaymulticastdomainassociationspaginator)
+- `client.get_paginator("get_transit_gateway_prefix_list_references")` -> [GetTransitGatewayPrefixListReferencesPaginator](./paginators.md#gettransitgatewayprefixlistreferencespaginator)
+- `client.get_paginator("get_transit_gateway_route_table_associations")` -> [GetTransitGatewayRouteTableAssociationsPaginator](./paginators.md#gettransitgatewayroutetableassociationspaginator)
+- `client.get_paginator("get_transit_gateway_route_table_propagations")` -> [GetTransitGatewayRouteTablePropagationsPaginator](./paginators.md#gettransitgatewayroutetablepropagationspaginator)
+- `client.get_paginator("search_local_gateway_routes")` -> [SearchLocalGatewayRoutesPaginator](./paginators.md#searchlocalgatewayroutespaginator)
+- `client.get_paginator("search_transit_gateway_multicast_groups")` -> [SearchTransitGatewayMulticastGroupsPaginator](./paginators.md#searchtransitgatewaymulticastgroupspaginator)
 
-Type annotations for `boto3.client("ec2").get_paginator` method.
 
-[Paginator.SearchTransitGatewayMulticastGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Paginator.SearchTransitGatewayMulticastGroups)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchTransitGatewayMulticastGroupsPaginatorName
-) -> SearchTransitGatewayMulticastGroupsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.BundleTaskComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.BundleTaskComplete)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: BundleTaskCompleteWaiterName
-) -> BundleTaskCompleteWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.ConversionTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.ConversionTaskCancelled)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ConversionTaskCancelledWaiterName
-) -> ConversionTaskCancelledWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.ConversionTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.ConversionTaskCompleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ConversionTaskCompletedWaiterName
-) -> ConversionTaskCompletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.ConversionTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.ConversionTaskDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ConversionTaskDeletedWaiterName
-) -> ConversionTaskDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.CustomerGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.CustomerGatewayAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: CustomerGatewayAvailableWaiterName
-) -> CustomerGatewayAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.ExportTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.ExportTaskCancelled)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ExportTaskCancelledWaiterName
-) -> ExportTaskCancelledWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.ExportTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.ExportTaskCompleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ExportTaskCompletedWaiterName
-) -> ExportTaskCompletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.ImageAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.ImageAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ImageAvailableWaiterName
-) -> ImageAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.ImageExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.ImageExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ImageExistsWaiterName
-) -> ImageExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.InstanceExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.InstanceExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InstanceExistsWaiterName
-) -> InstanceExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.InstanceRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.InstanceRunning)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InstanceRunningWaiterName
-) -> InstanceRunningWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.InstanceStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.InstanceStatusOk)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InstanceStatusOkWaiterName
-) -> InstanceStatusOkWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.InstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.InstanceStopped)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InstanceStoppedWaiterName
-) -> InstanceStoppedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.InstanceTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.InstanceTerminated)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InstanceTerminatedWaiterName
-) -> InstanceTerminatedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.KeyPairExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.KeyPairExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: KeyPairExistsWaiterName
-) -> KeyPairExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.NatGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.NatGatewayAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: NatGatewayAvailableWaiterName
-) -> NatGatewayAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.NetworkInterfaceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.NetworkInterfaceAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: NetworkInterfaceAvailableWaiterName
-) -> NetworkInterfaceAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.PasswordDataAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.PasswordDataAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: PasswordDataAvailableWaiterName
-) -> PasswordDataAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.SecurityGroupExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.SecurityGroupExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: SecurityGroupExistsWaiterName
-) -> SecurityGroupExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.SnapshotCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.SnapshotCompleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: SnapshotCompletedWaiterName
-) -> SnapshotCompletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.SpotInstanceRequestFulfilled documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.SpotInstanceRequestFulfilled)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: SpotInstanceRequestFulfilledWaiterName
-) -> SpotInstanceRequestFulfilledWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.SubnetAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.SubnetAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: SubnetAvailableWaiterName
-) -> SubnetAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.SystemStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.SystemStatusOk)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: SystemStatusOkWaiterName
-) -> SystemStatusOkWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.VolumeAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.VolumeAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: VolumeAvailableWaiterName
-) -> VolumeAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.VolumeDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.VolumeDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: VolumeDeletedWaiterName
-) -> VolumeDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.VolumeInUse documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.VolumeInUse)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: VolumeInUseWaiterName
-) -> VolumeInUseWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.VpcAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.VpcAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: VpcAvailableWaiterName
-) -> VpcAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.VpcExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.VpcExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: VpcExistsWaiterName
-) -> VpcExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.VpcPeeringConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: VpcPeeringConnectionDeletedWaiterName
-) -> VpcPeeringConnectionDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.VpcPeeringConnectionExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: VpcPeeringConnectionExistsWaiterName
-) -> VpcPeeringConnectionExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.VpnConnectionAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.VpnConnectionAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: VpnConnectionAvailableWaiterName
-) -> VpnConnectionAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ec2").get_waiter` method.
-
-[Waiter.VpnConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html#EC2.Waiter.VpnConnectionDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: VpnConnectionDeletedWaiterName
-) -> VpnConnectionDeletedWaiter:
-    pass
-```
+Type annotations for `boto3.client("ec2").get_waiter` method with overloads.
+
+- `client.get_waiter("bundle_task_complete")` -> [BundleTaskCompleteWaiter](./waiters.md#bundletaskcompletewaiter)
+- `client.get_waiter("conversion_task_cancelled")` -> [ConversionTaskCancelledWaiter](./waiters.md#conversiontaskcancelledwaiter)
+- `client.get_waiter("conversion_task_completed")` -> [ConversionTaskCompletedWaiter](./waiters.md#conversiontaskcompletedwaiter)
+- `client.get_waiter("conversion_task_deleted")` -> [ConversionTaskDeletedWaiter](./waiters.md#conversiontaskdeletedwaiter)
+- `client.get_waiter("customer_gateway_available")` -> [CustomerGatewayAvailableWaiter](./waiters.md#customergatewayavailablewaiter)
+- `client.get_waiter("export_task_cancelled")` -> [ExportTaskCancelledWaiter](./waiters.md#exporttaskcancelledwaiter)
+- `client.get_waiter("export_task_completed")` -> [ExportTaskCompletedWaiter](./waiters.md#exporttaskcompletedwaiter)
+- `client.get_waiter("image_available")` -> [ImageAvailableWaiter](./waiters.md#imageavailablewaiter)
+- `client.get_waiter("image_exists")` -> [ImageExistsWaiter](./waiters.md#imageexistswaiter)
+- `client.get_waiter("instance_exists")` -> [InstanceExistsWaiter](./waiters.md#instanceexistswaiter)
+- `client.get_waiter("instance_running")` -> [InstanceRunningWaiter](./waiters.md#instancerunningwaiter)
+- `client.get_waiter("instance_status_ok")` -> [InstanceStatusOkWaiter](./waiters.md#instancestatusokwaiter)
+- `client.get_waiter("instance_stopped")` -> [InstanceStoppedWaiter](./waiters.md#instancestoppedwaiter)
+- `client.get_waiter("instance_terminated")` -> [InstanceTerminatedWaiter](./waiters.md#instanceterminatedwaiter)
+- `client.get_waiter("key_pair_exists")` -> [KeyPairExistsWaiter](./waiters.md#keypairexistswaiter)
+- `client.get_waiter("nat_gateway_available")` -> [NatGatewayAvailableWaiter](./waiters.md#natgatewayavailablewaiter)
+- `client.get_waiter("network_interface_available")` -> [NetworkInterfaceAvailableWaiter](./waiters.md#networkinterfaceavailablewaiter)
+- `client.get_waiter("password_data_available")` -> [PasswordDataAvailableWaiter](./waiters.md#passworddataavailablewaiter)
+- `client.get_waiter("security_group_exists")` -> [SecurityGroupExistsWaiter](./waiters.md#securitygroupexistswaiter)
+- `client.get_waiter("snapshot_completed")` -> [SnapshotCompletedWaiter](./waiters.md#snapshotcompletedwaiter)
+- `client.get_waiter("spot_instance_request_fulfilled")` -> [SpotInstanceRequestFulfilledWaiter](./waiters.md#spotinstancerequestfulfilledwaiter)
+- `client.get_waiter("subnet_available")` -> [SubnetAvailableWaiter](./waiters.md#subnetavailablewaiter)
+- `client.get_waiter("system_status_ok")` -> [SystemStatusOkWaiter](./waiters.md#systemstatusokwaiter)
+- `client.get_waiter("volume_available")` -> [VolumeAvailableWaiter](./waiters.md#volumeavailablewaiter)
+- `client.get_waiter("volume_deleted")` -> [VolumeDeletedWaiter](./waiters.md#volumedeletedwaiter)
+- `client.get_waiter("volume_in_use")` -> [VolumeInUseWaiter](./waiters.md#volumeinusewaiter)
+- `client.get_waiter("vpc_available")` -> [VpcAvailableWaiter](./waiters.md#vpcavailablewaiter)
+- `client.get_waiter("vpc_exists")` -> [VpcExistsWaiter](./waiters.md#vpcexistswaiter)
+- `client.get_waiter("vpc_peering_connection_deleted")` -> [VpcPeeringConnectionDeletedWaiter](./waiters.md#vpcpeeringconnectiondeletedwaiter)
+- `client.get_waiter("vpc_peering_connection_exists")` -> [VpcPeeringConnectionExistsWaiter](./waiters.md#vpcpeeringconnectionexistswaiter)
+- `client.get_waiter("vpn_connection_available")` -> [VpnConnectionAvailableWaiter](./waiters.md#vpnconnectionavailablewaiter)
+- `client.get_waiter("vpn_connection_deleted")` -> [VpnConnectionDeletedWaiter](./waiters.md#vpnconnectiondeletedwaiter)

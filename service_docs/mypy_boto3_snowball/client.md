@@ -34,10 +34,6 @@ type annotations stubs module [mypy_boto3_snowball](https://pypi.org/project/myp
     - [update_job](#update_job)
     - [update_job_shipment_state](#update_job_shipment_state)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
 
 ## SnowballClient
 
@@ -465,77 +461,16 @@ def update_job_shipment_state(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("snowball").get_paginator` method.
-
-[Paginator.DescribeAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snowball.html#Snowball.Paginator.DescribeAddresses)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAddressesPaginatorName
-) -> DescribeAddressesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("snowball").get_paginator` method.
+Type annotations for `boto3.client("snowball").get_paginator` method with overloads.
 
-[Paginator.ListClusterJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snowball.html#Snowball.Paginator.ListClusterJobs)
+- `client.get_paginator("describe_addresses")` -> [DescribeAddressesPaginator](./paginators.md#describeaddressespaginator)
+- `client.get_paginator("list_cluster_jobs")` -> [ListClusterJobsPaginator](./paginators.md#listclusterjobspaginator)
+- `client.get_paginator("list_clusters")` -> [ListClustersPaginator](./paginators.md#listclusterspaginator)
+- `client.get_paginator("list_compatible_images")` -> [ListCompatibleImagesPaginator](./paginators.md#listcompatibleimagespaginator)
+- `client.get_paginator("list_jobs")` -> [ListJobsPaginator](./paginators.md#listjobspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListClusterJobsPaginatorName
-) -> ListClusterJobsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("snowball").get_paginator` method.
-
-[Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snowball.html#Snowball.Paginator.ListClusters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListClustersPaginatorName
-) -> ListClustersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("snowball").get_paginator` method.
-
-[Paginator.ListCompatibleImages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snowball.html#Snowball.Paginator.ListCompatibleImages)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCompatibleImagesPaginatorName
-) -> ListCompatibleImagesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("snowball").get_paginator` method.
-
-[Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/snowball.html#Snowball.Paginator.ListJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobsPaginatorName
-) -> ListJobsPaginator:
-    pass
-```

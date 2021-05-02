@@ -12,12 +12,12 @@ type annotations stubs module [mypy_boto3_cloudsearchdomain](https://pypi.org/pr
   - [FieldStatsTypeDef](#fieldstatstypedef)
   - [HitTypeDef](#hittypedef)
   - [HitsTypeDef](#hitstypedef)
+  - [SearchResponseTypeDef](#searchresponsetypedef)
   - [SearchStatusTypeDef](#searchstatustypedef)
   - [SuggestModelTypeDef](#suggestmodeltypedef)
+  - [SuggestResponseTypeDef](#suggestresponsetypedef)
   - [SuggestStatusTypeDef](#suggeststatustypedef)
   - [SuggestionMatchTypeDef](#suggestionmatchtypedef)
-  - [SearchResponseTypeDef](#searchresponsetypedef)
-  - [SuggestResponseTypeDef](#suggestresponsetypedef)
   - [UploadDocumentsResponseTypeDef](#uploaddocumentsresponsetypedef)
 
 ## BucketInfoTypeDef
@@ -112,6 +112,22 @@ Optional fields:
 - `hit`: `List["HitTypeDef"]`
 
 
+## SearchResponseTypeDef
+
+```python
+from mypy_boto3_cloudsearchdomain.type_defs import SearchResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `"SearchStatusTypeDef"`
+- `hits`: `"HitsTypeDef"`
+- `facets`: `Dict[str, "BucketInfoTypeDef"]`
+- `stats`: `Dict[str, "FieldStatsTypeDef"]`
+
+
 ## SearchStatusTypeDef
 
 ```python
@@ -141,6 +157,20 @@ Optional fields:
 - `suggestions`: `List["SuggestionMatchTypeDef"]`
 
 
+## SuggestResponseTypeDef
+
+```python
+from mypy_boto3_cloudsearchdomain.type_defs import SuggestResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `"SuggestStatusTypeDef"`
+- `suggest`: `"SuggestModelTypeDef"`
+
+
 ## SuggestStatusTypeDef
 
 ```python
@@ -168,36 +198,6 @@ Optional fields:
 - `suggestion`: `str`
 - `score`: `int`
 - `id`: `str`
-
-
-## SearchResponseTypeDef
-
-```python
-from mypy_boto3_cloudsearchdomain.type_defs import SearchResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `"SearchStatusTypeDef"`
-- `hits`: `"HitsTypeDef"`
-- `facets`: `Dict[str, "BucketInfoTypeDef"]`
-- `stats`: `Dict[str, "FieldStatsTypeDef"]`
-
-
-## SuggestResponseTypeDef
-
-```python
-from mypy_boto3_cloudsearchdomain.type_defs import SuggestResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `"SuggestStatusTypeDef"`
-- `suggest`: `"SuggestModelTypeDef"`
 
 
 ## UploadDocumentsResponseTypeDef

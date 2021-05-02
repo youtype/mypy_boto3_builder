@@ -156,15 +156,9 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_schemas.type_defs import DiscovererSummaryTypeDef, ...
+from mypy_boto3_schemas.type_defs import CreateDiscovererResponseTypeDef, ...
 ```
 
-- [DiscovererSummaryTypeDef](./type_defs.md#discoverersummarytypedef)
-- [RegistrySummaryTypeDef](./type_defs.md#registrysummarytypedef)
-- [SchemaSummaryTypeDef](./type_defs.md#schemasummarytypedef)
-- [SchemaVersionSummaryTypeDef](./type_defs.md#schemaversionsummarytypedef)
-- [SearchSchemaSummaryTypeDef](./type_defs.md#searchschemasummarytypedef)
-- [SearchSchemaVersionSummaryTypeDef](./type_defs.md#searchschemaversionsummarytypedef)
 - [CreateDiscovererResponseTypeDef](./type_defs.md#creatediscovererresponsetypedef)
 - [CreateRegistryResponseTypeDef](./type_defs.md#createregistryresponsetypedef)
 - [CreateSchemaResponseTypeDef](./type_defs.md#createschemaresponsetypedef)
@@ -172,6 +166,7 @@ from mypy_boto3_schemas.type_defs import DiscovererSummaryTypeDef, ...
 - [DescribeDiscovererResponseTypeDef](./type_defs.md#describediscovererresponsetypedef)
 - [DescribeRegistryResponseTypeDef](./type_defs.md#describeregistryresponsetypedef)
 - [DescribeSchemaResponseTypeDef](./type_defs.md#describeschemaresponsetypedef)
+- [DiscovererSummaryTypeDef](./type_defs.md#discoverersummarytypedef)
 - [ExportSchemaResponseTypeDef](./type_defs.md#exportschemaresponsetypedef)
 - [GetCodeBindingSourceResponseTypeDef](./type_defs.md#getcodebindingsourceresponsetypedef)
 - [GetDiscoveredSchemaResponseTypeDef](./type_defs.md#getdiscoveredschemaresponsetypedef)
@@ -184,6 +179,11 @@ from mypy_boto3_schemas.type_defs import DiscovererSummaryTypeDef, ...
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
 - [PutCodeBindingResponseTypeDef](./type_defs.md#putcodebindingresponsetypedef)
 - [PutResourcePolicyResponseTypeDef](./type_defs.md#putresourcepolicyresponsetypedef)
+- [RegistrySummaryTypeDef](./type_defs.md#registrysummarytypedef)
+- [SchemaSummaryTypeDef](./type_defs.md#schemasummarytypedef)
+- [SchemaVersionSummaryTypeDef](./type_defs.md#schemaversionsummarytypedef)
+- [SearchSchemaSummaryTypeDef](./type_defs.md#searchschemasummarytypedef)
+- [SearchSchemaVersionSummaryTypeDef](./type_defs.md#searchschemaversionsummarytypedef)
 - [SearchSchemasResponseTypeDef](./type_defs.md#searchschemasresponsetypedef)
 - [StartDiscovererResponseTypeDef](./type_defs.md#startdiscovererresponsetypedef)
 - [StopDiscovererResponseTypeDef](./type_defs.md#stopdiscovererresponsetypedef)

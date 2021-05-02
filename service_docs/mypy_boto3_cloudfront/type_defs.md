@@ -30,12 +30,29 @@ type annotations stubs module [mypy_boto3_cloudfront](https://pypi.org/project/m
   - [ContentTypeProfilesTypeDef](#contenttypeprofilestypedef)
   - [CookieNamesTypeDef](#cookienamestypedef)
   - [CookiePreferenceTypeDef](#cookiepreferencetypedef)
+  - [CreateCachePolicyResultTypeDef](#createcachepolicyresulttypedef)
+  - [CreateCloudFrontOriginAccessIdentityResultTypeDef](#createcloudfrontoriginaccessidentityresulttypedef)
+  - [CreateDistributionResultTypeDef](#createdistributionresulttypedef)
+  - [CreateDistributionWithTagsResultTypeDef](#createdistributionwithtagsresulttypedef)
+  - [CreateFieldLevelEncryptionConfigResultTypeDef](#createfieldlevelencryptionconfigresulttypedef)
+  - [CreateFieldLevelEncryptionProfileResultTypeDef](#createfieldlevelencryptionprofileresulttypedef)
+  - [CreateFunctionResultTypeDef](#createfunctionresulttypedef)
+  - [CreateInvalidationResultTypeDef](#createinvalidationresulttypedef)
+  - [CreateKeyGroupResultTypeDef](#createkeygroupresulttypedef)
+  - [CreateMonitoringSubscriptionResultTypeDef](#createmonitoringsubscriptionresulttypedef)
+  - [CreateOriginRequestPolicyResultTypeDef](#createoriginrequestpolicyresulttypedef)
+  - [CreatePublicKeyResultTypeDef](#createpublickeyresulttypedef)
+  - [CreateRealtimeLogConfigResultTypeDef](#createrealtimelogconfigresulttypedef)
+  - [CreateStreamingDistributionResultTypeDef](#createstreamingdistributionresulttypedef)
+  - [CreateStreamingDistributionWithTagsResultTypeDef](#createstreamingdistributionwithtagsresulttypedef)
   - [CustomErrorResponseTypeDef](#customerrorresponsetypedef)
   - [CustomErrorResponsesTypeDef](#customerrorresponsestypedef)
   - [CustomHeadersTypeDef](#customheaderstypedef)
   - [CustomOriginConfigTypeDef](#customoriginconfigtypedef)
   - [DefaultCacheBehaviorTypeDef](#defaultcachebehaviortypedef)
+  - [DescribeFunctionResultTypeDef](#describefunctionresulttypedef)
   - [DistributionConfigTypeDef](#distributionconfigtypedef)
+  - [DistributionConfigWithTagsTypeDef](#distributionconfigwithtagstypedef)
   - [DistributionIdListTypeDef](#distributionidlisttypedef)
   - [DistributionListTypeDef](#distributionlisttypedef)
   - [DistributionSummaryTypeDef](#distributionsummarytypedef)
@@ -60,86 +77,6 @@ type annotations stubs module [mypy_boto3_cloudfront](https://pypi.org/project/m
   - [FunctionMetadataTypeDef](#functionmetadatatypedef)
   - [FunctionSummaryTypeDef](#functionsummarytypedef)
   - [GeoRestrictionTypeDef](#georestrictiontypedef)
-  - [HeadersTypeDef](#headerstypedef)
-  - [InvalidationBatchTypeDef](#invalidationbatchtypedef)
-  - [InvalidationListTypeDef](#invalidationlisttypedef)
-  - [InvalidationSummaryTypeDef](#invalidationsummarytypedef)
-  - [InvalidationTypeDef](#invalidationtypedef)
-  - [KGKeyPairIdsTypeDef](#kgkeypairidstypedef)
-  - [KeyGroupConfigTypeDef](#keygroupconfigtypedef)
-  - [KeyGroupListTypeDef](#keygrouplisttypedef)
-  - [KeyGroupSummaryTypeDef](#keygroupsummarytypedef)
-  - [KeyGroupTypeDef](#keygrouptypedef)
-  - [KeyPairIdsTypeDef](#keypairidstypedef)
-  - [KinesisStreamConfigTypeDef](#kinesisstreamconfigtypedef)
-  - [LambdaFunctionAssociationTypeDef](#lambdafunctionassociationtypedef)
-  - [LambdaFunctionAssociationsTypeDef](#lambdafunctionassociationstypedef)
-  - [LoggingConfigTypeDef](#loggingconfigtypedef)
-  - [MonitoringSubscriptionTypeDef](#monitoringsubscriptiontypedef)
-  - [OriginCustomHeaderTypeDef](#origincustomheadertypedef)
-  - [OriginGroupFailoverCriteriaTypeDef](#origingroupfailovercriteriatypedef)
-  - [OriginGroupMemberTypeDef](#origingroupmembertypedef)
-  - [OriginGroupMembersTypeDef](#origingroupmemberstypedef)
-  - [OriginGroupTypeDef](#origingrouptypedef)
-  - [OriginGroupsTypeDef](#origingroupstypedef)
-  - [OriginRequestPolicyConfigTypeDef](#originrequestpolicyconfigtypedef)
-  - [OriginRequestPolicyCookiesConfigTypeDef](#originrequestpolicycookiesconfigtypedef)
-  - [OriginRequestPolicyHeadersConfigTypeDef](#originrequestpolicyheadersconfigtypedef)
-  - [OriginRequestPolicyListTypeDef](#originrequestpolicylisttypedef)
-  - [OriginRequestPolicyQueryStringsConfigTypeDef](#originrequestpolicyquerystringsconfigtypedef)
-  - [OriginRequestPolicySummaryTypeDef](#originrequestpolicysummarytypedef)
-  - [OriginRequestPolicyTypeDef](#originrequestpolicytypedef)
-  - [OriginShieldTypeDef](#originshieldtypedef)
-  - [OriginSslProtocolsTypeDef](#originsslprotocolstypedef)
-  - [OriginTypeDef](#origintypedef)
-  - [OriginsTypeDef](#originstypedef)
-  - [ParametersInCacheKeyAndForwardedToOriginTypeDef](#parametersincachekeyandforwardedtoorigintypedef)
-  - [PathsTypeDef](#pathstypedef)
-  - [PublicKeyConfigTypeDef](#publickeyconfigtypedef)
-  - [PublicKeyListTypeDef](#publickeylisttypedef)
-  - [PublicKeySummaryTypeDef](#publickeysummarytypedef)
-  - [PublicKeyTypeDef](#publickeytypedef)
-  - [QueryArgProfileConfigTypeDef](#queryargprofileconfigtypedef)
-  - [QueryArgProfileTypeDef](#queryargprofiletypedef)
-  - [QueryArgProfilesTypeDef](#queryargprofilestypedef)
-  - [QueryStringCacheKeysTypeDef](#querystringcachekeystypedef)
-  - [QueryStringNamesTypeDef](#querystringnamestypedef)
-  - [RealtimeLogConfigTypeDef](#realtimelogconfigtypedef)
-  - [RealtimeLogConfigsTypeDef](#realtimelogconfigstypedef)
-  - [RealtimeMetricsSubscriptionConfigTypeDef](#realtimemetricssubscriptionconfigtypedef)
-  - [RestrictionsTypeDef](#restrictionstypedef)
-  - [S3OriginConfigTypeDef](#s3originconfigtypedef)
-  - [S3OriginTypeDef](#s3origintypedef)
-  - [SignerTypeDef](#signertypedef)
-  - [StatusCodesTypeDef](#statuscodestypedef)
-  - [StreamingDistributionConfigTypeDef](#streamingdistributionconfigtypedef)
-  - [StreamingDistributionListTypeDef](#streamingdistributionlisttypedef)
-  - [StreamingDistributionSummaryTypeDef](#streamingdistributionsummarytypedef)
-  - [StreamingDistributionTypeDef](#streamingdistributiontypedef)
-  - [StreamingLoggingConfigTypeDef](#streamingloggingconfigtypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TagsTypeDef](#tagstypedef)
-  - [TestResultTypeDef](#testresulttypedef)
-  - [TrustedKeyGroupsTypeDef](#trustedkeygroupstypedef)
-  - [TrustedSignersTypeDef](#trustedsignerstypedef)
-  - [ViewerCertificateTypeDef](#viewercertificatetypedef)
-  - [CreateCachePolicyResultTypeDef](#createcachepolicyresulttypedef)
-  - [CreateCloudFrontOriginAccessIdentityResultTypeDef](#createcloudfrontoriginaccessidentityresulttypedef)
-  - [CreateDistributionResultTypeDef](#createdistributionresulttypedef)
-  - [CreateDistributionWithTagsResultTypeDef](#createdistributionwithtagsresulttypedef)
-  - [CreateFieldLevelEncryptionConfigResultTypeDef](#createfieldlevelencryptionconfigresulttypedef)
-  - [CreateFieldLevelEncryptionProfileResultTypeDef](#createfieldlevelencryptionprofileresulttypedef)
-  - [CreateFunctionResultTypeDef](#createfunctionresulttypedef)
-  - [CreateInvalidationResultTypeDef](#createinvalidationresulttypedef)
-  - [CreateKeyGroupResultTypeDef](#createkeygroupresulttypedef)
-  - [CreateMonitoringSubscriptionResultTypeDef](#createmonitoringsubscriptionresulttypedef)
-  - [CreateOriginRequestPolicyResultTypeDef](#createoriginrequestpolicyresulttypedef)
-  - [CreatePublicKeyResultTypeDef](#createpublickeyresulttypedef)
-  - [CreateRealtimeLogConfigResultTypeDef](#createrealtimelogconfigresulttypedef)
-  - [CreateStreamingDistributionResultTypeDef](#createstreamingdistributionresulttypedef)
-  - [CreateStreamingDistributionWithTagsResultTypeDef](#createstreamingdistributionwithtagsresulttypedef)
-  - [DescribeFunctionResultTypeDef](#describefunctionresulttypedef)
-  - [DistributionConfigWithTagsTypeDef](#distributionconfigwithtagstypedef)
   - [GetCachePolicyConfigResultTypeDef](#getcachepolicyconfigresulttypedef)
   - [GetCachePolicyResultTypeDef](#getcachepolicyresulttypedef)
   - [GetCloudFrontOriginAccessIdentityConfigResultTypeDef](#getcloudfrontoriginaccessidentityconfigresulttypedef)
@@ -162,6 +99,20 @@ type annotations stubs module [mypy_boto3_cloudfront](https://pypi.org/project/m
   - [GetRealtimeLogConfigResultTypeDef](#getrealtimelogconfigresulttypedef)
   - [GetStreamingDistributionConfigResultTypeDef](#getstreamingdistributionconfigresulttypedef)
   - [GetStreamingDistributionResultTypeDef](#getstreamingdistributionresulttypedef)
+  - [HeadersTypeDef](#headerstypedef)
+  - [InvalidationBatchTypeDef](#invalidationbatchtypedef)
+  - [InvalidationListTypeDef](#invalidationlisttypedef)
+  - [InvalidationSummaryTypeDef](#invalidationsummarytypedef)
+  - [InvalidationTypeDef](#invalidationtypedef)
+  - [KGKeyPairIdsTypeDef](#kgkeypairidstypedef)
+  - [KeyGroupConfigTypeDef](#keygroupconfigtypedef)
+  - [KeyGroupListTypeDef](#keygrouplisttypedef)
+  - [KeyGroupSummaryTypeDef](#keygroupsummarytypedef)
+  - [KeyGroupTypeDef](#keygrouptypedef)
+  - [KeyPairIdsTypeDef](#keypairidstypedef)
+  - [KinesisStreamConfigTypeDef](#kinesisstreamconfigtypedef)
+  - [LambdaFunctionAssociationTypeDef](#lambdafunctionassociationtypedef)
+  - [LambdaFunctionAssociationsTypeDef](#lambdafunctionassociationstypedef)
   - [ListCachePoliciesResultTypeDef](#listcachepoliciesresulttypedef)
   - [ListCloudFrontOriginAccessIdentitiesResultTypeDef](#listcloudfrontoriginaccessidentitiesresulttypedef)
   - [ListDistributionsByCachePolicyIdResultTypeDef](#listdistributionsbycachepolicyidresulttypedef)
@@ -180,11 +131,59 @@ type annotations stubs module [mypy_boto3_cloudfront](https://pypi.org/project/m
   - [ListRealtimeLogConfigsResultTypeDef](#listrealtimelogconfigsresulttypedef)
   - [ListStreamingDistributionsResultTypeDef](#liststreamingdistributionsresulttypedef)
   - [ListTagsForResourceResultTypeDef](#listtagsforresourceresulttypedef)
+  - [LoggingConfigTypeDef](#loggingconfigtypedef)
+  - [MonitoringSubscriptionTypeDef](#monitoringsubscriptiontypedef)
+  - [OriginCustomHeaderTypeDef](#origincustomheadertypedef)
+  - [OriginGroupFailoverCriteriaTypeDef](#origingroupfailovercriteriatypedef)
+  - [OriginGroupMemberTypeDef](#origingroupmembertypedef)
+  - [OriginGroupMembersTypeDef](#origingroupmemberstypedef)
+  - [OriginGroupTypeDef](#origingrouptypedef)
+  - [OriginGroupsTypeDef](#origingroupstypedef)
+  - [OriginRequestPolicyConfigTypeDef](#originrequestpolicyconfigtypedef)
+  - [OriginRequestPolicyCookiesConfigTypeDef](#originrequestpolicycookiesconfigtypedef)
+  - [OriginRequestPolicyHeadersConfigTypeDef](#originrequestpolicyheadersconfigtypedef)
+  - [OriginRequestPolicyListTypeDef](#originrequestpolicylisttypedef)
+  - [OriginRequestPolicyQueryStringsConfigTypeDef](#originrequestpolicyquerystringsconfigtypedef)
+  - [OriginRequestPolicySummaryTypeDef](#originrequestpolicysummarytypedef)
+  - [OriginRequestPolicyTypeDef](#originrequestpolicytypedef)
+  - [OriginShieldTypeDef](#originshieldtypedef)
+  - [OriginSslProtocolsTypeDef](#originsslprotocolstypedef)
+  - [OriginTypeDef](#origintypedef)
+  - [OriginsTypeDef](#originstypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ParametersInCacheKeyAndForwardedToOriginTypeDef](#parametersincachekeyandforwardedtoorigintypedef)
+  - [PathsTypeDef](#pathstypedef)
+  - [PublicKeyConfigTypeDef](#publickeyconfigtypedef)
+  - [PublicKeyListTypeDef](#publickeylisttypedef)
+  - [PublicKeySummaryTypeDef](#publickeysummarytypedef)
+  - [PublicKeyTypeDef](#publickeytypedef)
   - [PublishFunctionResultTypeDef](#publishfunctionresulttypedef)
+  - [QueryArgProfileConfigTypeDef](#queryargprofileconfigtypedef)
+  - [QueryArgProfileTypeDef](#queryargprofiletypedef)
+  - [QueryArgProfilesTypeDef](#queryargprofilestypedef)
+  - [QueryStringCacheKeysTypeDef](#querystringcachekeystypedef)
+  - [QueryStringNamesTypeDef](#querystringnamestypedef)
+  - [RealtimeLogConfigTypeDef](#realtimelogconfigtypedef)
+  - [RealtimeLogConfigsTypeDef](#realtimelogconfigstypedef)
+  - [RealtimeMetricsSubscriptionConfigTypeDef](#realtimemetricssubscriptionconfigtypedef)
+  - [RestrictionsTypeDef](#restrictionstypedef)
+  - [S3OriginConfigTypeDef](#s3originconfigtypedef)
+  - [S3OriginTypeDef](#s3origintypedef)
+  - [SignerTypeDef](#signertypedef)
+  - [StatusCodesTypeDef](#statuscodestypedef)
+  - [StreamingDistributionConfigTypeDef](#streamingdistributionconfigtypedef)
   - [StreamingDistributionConfigWithTagsTypeDef](#streamingdistributionconfigwithtagstypedef)
+  - [StreamingDistributionListTypeDef](#streamingdistributionlisttypedef)
+  - [StreamingDistributionSummaryTypeDef](#streamingdistributionsummarytypedef)
+  - [StreamingDistributionTypeDef](#streamingdistributiontypedef)
+  - [StreamingLoggingConfigTypeDef](#streamingloggingconfigtypedef)
   - [TagKeysTypeDef](#tagkeystypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TagsTypeDef](#tagstypedef)
   - [TestFunctionResultTypeDef](#testfunctionresulttypedef)
+  - [TestResultTypeDef](#testresulttypedef)
+  - [TrustedKeyGroupsTypeDef](#trustedkeygroupstypedef)
+  - [TrustedSignersTypeDef](#trustedsignerstypedef)
   - [UpdateCachePolicyResultTypeDef](#updatecachepolicyresulttypedef)
   - [UpdateCloudFrontOriginAccessIdentityResultTypeDef](#updatecloudfrontoriginaccessidentityresulttypedef)
   - [UpdateDistributionResultTypeDef](#updatedistributionresulttypedef)
@@ -196,6 +195,7 @@ type annotations stubs module [mypy_boto3_cloudfront](https://pypi.org/project/m
   - [UpdatePublicKeyResultTypeDef](#updatepublickeyresulttypedef)
   - [UpdateRealtimeLogConfigResultTypeDef](#updaterealtimelogconfigresulttypedef)
   - [UpdateStreamingDistributionResultTypeDef](#updatestreamingdistributionresulttypedef)
+  - [ViewerCertificateTypeDef](#viewercertificatetypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
 ## ActiveTrustedKeyGroupsTypeDef
@@ -546,7 +546,7 @@ from mypy_boto3_cloudfront.type_defs import ContentTypeProfileTypeDef
 
 
 Required fields:
-- `Format`: `Format`
+- `Format`: `Literal['URLEncoded']`
 - `ContentType`: `str`
 
 
@@ -601,6 +601,226 @@ Required fields:
 
 Optional fields:
 - `WhitelistedNames`: `"CookieNamesTypeDef"`
+
+
+## CreateCachePolicyResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateCachePolicyResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `CachePolicy`: `"CachePolicyTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
+
+
+## CreateCloudFrontOriginAccessIdentityResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateCloudFrontOriginAccessIdentityResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `CloudFrontOriginAccessIdentity`: `"CloudFrontOriginAccessIdentityTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
+
+
+## CreateDistributionResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateDistributionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Distribution`: `"DistributionTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
+
+
+## CreateDistributionWithTagsResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateDistributionWithTagsResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Distribution`: `"DistributionTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
+
+
+## CreateFieldLevelEncryptionConfigResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateFieldLevelEncryptionConfigResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `FieldLevelEncryption`: `"FieldLevelEncryptionTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
+
+
+## CreateFieldLevelEncryptionProfileResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateFieldLevelEncryptionProfileResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `FieldLevelEncryptionProfile`: `"FieldLevelEncryptionProfileTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
+
+
+## CreateFunctionResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateFunctionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `FunctionSummary`: `"FunctionSummaryTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
+
+
+## CreateInvalidationResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateInvalidationResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Location`: `str`
+- `Invalidation`: `"InvalidationTypeDef"`
+
+
+## CreateKeyGroupResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateKeyGroupResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `KeyGroup`: `"KeyGroupTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
+
+
+## CreateMonitoringSubscriptionResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateMonitoringSubscriptionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `MonitoringSubscription`: `"MonitoringSubscriptionTypeDef"`
+
+
+## CreateOriginRequestPolicyResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateOriginRequestPolicyResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `OriginRequestPolicy`: `"OriginRequestPolicyTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
+
+
+## CreatePublicKeyResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreatePublicKeyResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `PublicKey`: `"PublicKeyTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
+
+
+## CreateRealtimeLogConfigResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateRealtimeLogConfigResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `RealtimeLogConfig`: `"RealtimeLogConfigTypeDef"`
+
+
+## CreateStreamingDistributionResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateStreamingDistributionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `StreamingDistribution`: `"StreamingDistributionTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
+
+
+## CreateStreamingDistributionWithTagsResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import CreateStreamingDistributionWithTagsResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `StreamingDistribution`: `"StreamingDistributionTypeDef"`
+- `Location`: `str`
+- `ETag`: `str`
 
 
 ## CustomErrorResponseTypeDef
@@ -704,6 +924,20 @@ Optional fields:
 - `MaxTTL`: `int`
 
 
+## DescribeFunctionResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import DescribeFunctionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `FunctionSummary`: `"FunctionSummaryTypeDef"`
+- `ETag`: `str`
+
+
 ## DistributionConfigTypeDef
 
 ```python
@@ -733,6 +967,20 @@ Optional fields:
 - `WebACLId`: `str`
 - `HttpVersion`: `HttpVersion`
 - `IsIPV6Enabled`: `bool`
+
+
+## DistributionConfigWithTagsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import DistributionConfigWithTagsTypeDef
+```
+
+
+Required fields:
+- `DistributionConfig`: `"DistributionConfigTypeDef"`
+- `Tags`: `"TagsTypeDef"`
+
+
 
 
 ## DistributionIdListTypeDef
@@ -1093,7 +1341,7 @@ from mypy_boto3_cloudfront.type_defs import FunctionConfigTypeDef
 
 Required fields:
 - `Comment`: `str`
-- `Runtime`: `FunctionRuntime`
+- `Runtime`: `Literal['cloudfront-js-1.0']`
 
 
 
@@ -1167,1270 +1415,6 @@ Required fields:
 
 Optional fields:
 - `Items`: `List[str]`
-
-
-## HeadersTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import HeadersTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `Items`: `List[str]`
-
-
-## InvalidationBatchTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import InvalidationBatchTypeDef
-```
-
-
-Required fields:
-- `Paths`: `"PathsTypeDef"`
-- `CallerReference`: `str`
-
-
-
-
-## InvalidationListTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import InvalidationListTypeDef
-```
-
-
-Required fields:
-- `Marker`: `str`
-- `MaxItems`: `int`
-- `IsTruncated`: `bool`
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `NextMarker`: `str`
-- `Items`: `List["InvalidationSummaryTypeDef"]`
-
-
-## InvalidationSummaryTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import InvalidationSummaryTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `CreateTime`: `datetime`
-- `Status`: `str`
-
-
-
-
-## InvalidationTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import InvalidationTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `Status`: `str`
-- `CreateTime`: `datetime`
-- `InvalidationBatch`: `"InvalidationBatchTypeDef"`
-
-
-
-
-## KGKeyPairIdsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import KGKeyPairIdsTypeDef
-```
-
-
-
-
-Optional fields:
-- `KeyGroupId`: `str`
-- `KeyPairIds`: `"KeyPairIdsTypeDef"`
-
-
-## KeyGroupConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import KeyGroupConfigTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Items`: `List[str]`
-
-
-
-Optional fields:
-- `Comment`: `str`
-
-
-## KeyGroupListTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import KeyGroupListTypeDef
-```
-
-
-Required fields:
-- `MaxItems`: `int`
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `NextMarker`: `str`
-- `Items`: `List["KeyGroupSummaryTypeDef"]`
-
-
-## KeyGroupSummaryTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import KeyGroupSummaryTypeDef
-```
-
-
-Required fields:
-- `KeyGroup`: `"KeyGroupTypeDef"`
-
-
-
-
-## KeyGroupTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import KeyGroupTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `LastModifiedTime`: `datetime`
-- `KeyGroupConfig`: `"KeyGroupConfigTypeDef"`
-
-
-
-
-## KeyPairIdsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import KeyPairIdsTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `Items`: `List[str]`
-
-
-## KinesisStreamConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import KinesisStreamConfigTypeDef
-```
-
-
-Required fields:
-- `RoleARN`: `str`
-- `StreamARN`: `str`
-
-
-
-
-## LambdaFunctionAssociationTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import LambdaFunctionAssociationTypeDef
-```
-
-
-Required fields:
-- `LambdaFunctionARN`: `str`
-- `EventType`: `EventType`
-
-
-
-Optional fields:
-- `IncludeBody`: `bool`
-
-
-## LambdaFunctionAssociationsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import LambdaFunctionAssociationsTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `Items`: `List["LambdaFunctionAssociationTypeDef"]`
-
-
-## LoggingConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import LoggingConfigTypeDef
-```
-
-
-Required fields:
-- `Enabled`: `bool`
-- `IncludeCookies`: `bool`
-- `Bucket`: `str`
-- `Prefix`: `str`
-
-
-
-
-## MonitoringSubscriptionTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import MonitoringSubscriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `RealtimeMetricsSubscriptionConfig`: `"RealtimeMetricsSubscriptionConfigTypeDef"`
-
-
-## OriginCustomHeaderTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginCustomHeaderTypeDef
-```
-
-
-Required fields:
-- `HeaderName`: `str`
-- `HeaderValue`: `str`
-
-
-
-
-## OriginGroupFailoverCriteriaTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginGroupFailoverCriteriaTypeDef
-```
-
-
-Required fields:
-- `StatusCodes`: `"StatusCodesTypeDef"`
-
-
-
-
-## OriginGroupMemberTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginGroupMemberTypeDef
-```
-
-
-Required fields:
-- `OriginId`: `str`
-
-
-
-
-## OriginGroupMembersTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginGroupMembersTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-- `Items`: `List["OriginGroupMemberTypeDef"]`
-
-
-
-
-## OriginGroupTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginGroupTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `FailoverCriteria`: `"OriginGroupFailoverCriteriaTypeDef"`
-- `Members`: `"OriginGroupMembersTypeDef"`
-
-
-
-
-## OriginGroupsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginGroupsTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `Items`: `List["OriginGroupTypeDef"]`
-
-
-## OriginRequestPolicyConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyConfigTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `HeadersConfig`: `"OriginRequestPolicyHeadersConfigTypeDef"`
-- `CookiesConfig`: `"OriginRequestPolicyCookiesConfigTypeDef"`
-- `QueryStringsConfig`: `"OriginRequestPolicyQueryStringsConfigTypeDef"`
-
-
-
-Optional fields:
-- `Comment`: `str`
-
-
-## OriginRequestPolicyCookiesConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyCookiesConfigTypeDef
-```
-
-
-Required fields:
-- `CookieBehavior`: `OriginRequestPolicyCookieBehavior`
-
-
-
-Optional fields:
-- `Cookies`: `"CookieNamesTypeDef"`
-
-
-## OriginRequestPolicyHeadersConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyHeadersConfigTypeDef
-```
-
-
-Required fields:
-- `HeaderBehavior`: `OriginRequestPolicyHeaderBehavior`
-
-
-
-Optional fields:
-- `Headers`: `"HeadersTypeDef"`
-
-
-## OriginRequestPolicyListTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyListTypeDef
-```
-
-
-Required fields:
-- `MaxItems`: `int`
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `NextMarker`: `str`
-- `Items`: `List["OriginRequestPolicySummaryTypeDef"]`
-
-
-## OriginRequestPolicyQueryStringsConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyQueryStringsConfigTypeDef
-```
-
-
-Required fields:
-- `QueryStringBehavior`: `OriginRequestPolicyQueryStringBehavior`
-
-
-
-Optional fields:
-- `QueryStrings`: `"QueryStringNamesTypeDef"`
-
-
-## OriginRequestPolicySummaryTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginRequestPolicySummaryTypeDef
-```
-
-
-Required fields:
-- `Type`: `OriginRequestPolicyType`
-- `OriginRequestPolicy`: `"OriginRequestPolicyTypeDef"`
-
-
-
-
-## OriginRequestPolicyTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `LastModifiedTime`: `datetime`
-- `OriginRequestPolicyConfig`: `"OriginRequestPolicyConfigTypeDef"`
-
-
-
-
-## OriginShieldTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginShieldTypeDef
-```
-
-
-Required fields:
-- `Enabled`: `bool`
-
-
-
-Optional fields:
-- `OriginShieldRegion`: `str`
-
-
-## OriginSslProtocolsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginSslProtocolsTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-- `Items`: `List[SslProtocol]`
-
-
-
-
-## OriginTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `DomainName`: `str`
-
-
-
-Optional fields:
-- `OriginPath`: `str`
-- `CustomHeaders`: `"CustomHeadersTypeDef"`
-- `S3OriginConfig`: `"S3OriginConfigTypeDef"`
-- `CustomOriginConfig`: `"CustomOriginConfigTypeDef"`
-- `ConnectionAttempts`: `int`
-- `ConnectionTimeout`: `int`
-- `OriginShield`: `"OriginShieldTypeDef"`
-
-
-## OriginsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import OriginsTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-- `Items`: `List["OriginTypeDef"]`
-
-
-
-
-## ParametersInCacheKeyAndForwardedToOriginTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import ParametersInCacheKeyAndForwardedToOriginTypeDef
-```
-
-
-Required fields:
-- `EnableAcceptEncodingGzip`: `bool`
-- `HeadersConfig`: `"CachePolicyHeadersConfigTypeDef"`
-- `CookiesConfig`: `"CachePolicyCookiesConfigTypeDef"`
-- `QueryStringsConfig`: `"CachePolicyQueryStringsConfigTypeDef"`
-
-
-
-Optional fields:
-- `EnableAcceptEncodingBrotli`: `bool`
-
-
-## PathsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import PathsTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `Items`: `List[str]`
-
-
-## PublicKeyConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import PublicKeyConfigTypeDef
-```
-
-
-Required fields:
-- `CallerReference`: `str`
-- `Name`: `str`
-- `EncodedKey`: `str`
-
-
-
-Optional fields:
-- `Comment`: `str`
-
-
-## PublicKeyListTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import PublicKeyListTypeDef
-```
-
-
-Required fields:
-- `MaxItems`: `int`
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `NextMarker`: `str`
-- `Items`: `List["PublicKeySummaryTypeDef"]`
-
-
-## PublicKeySummaryTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import PublicKeySummaryTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `Name`: `str`
-- `CreatedTime`: `datetime`
-- `EncodedKey`: `str`
-
-
-
-Optional fields:
-- `Comment`: `str`
-
-
-## PublicKeyTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import PublicKeyTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `CreatedTime`: `datetime`
-- `PublicKeyConfig`: `"PublicKeyConfigTypeDef"`
-
-
-
-
-## QueryArgProfileConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import QueryArgProfileConfigTypeDef
-```
-
-
-Required fields:
-- `ForwardWhenQueryArgProfileIsUnknown`: `bool`
-
-
-
-Optional fields:
-- `QueryArgProfiles`: `"QueryArgProfilesTypeDef"`
-
-
-## QueryArgProfileTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import QueryArgProfileTypeDef
-```
-
-
-Required fields:
-- `QueryArg`: `str`
-- `ProfileId`: `str`
-
-
-
-
-## QueryArgProfilesTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import QueryArgProfilesTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `Items`: `List["QueryArgProfileTypeDef"]`
-
-
-## QueryStringCacheKeysTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import QueryStringCacheKeysTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `Items`: `List[str]`
-
-
-## QueryStringNamesTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import QueryStringNamesTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `Items`: `List[str]`
-
-
-## RealtimeLogConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import RealtimeLogConfigTypeDef
-```
-
-
-Required fields:
-- `ARN`: `str`
-- `Name`: `str`
-- `SamplingRate`: `int`
-- `EndPoints`: `List["EndPointTypeDef"]`
-- `Fields`: `List[str]`
-
-
-
-
-## RealtimeLogConfigsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import RealtimeLogConfigsTypeDef
-```
-
-
-Required fields:
-- `MaxItems`: `int`
-- `IsTruncated`: `bool`
-- `Marker`: `str`
-
-
-
-Optional fields:
-- `Items`: `List["RealtimeLogConfigTypeDef"]`
-- `NextMarker`: `str`
-
-
-## RealtimeMetricsSubscriptionConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import RealtimeMetricsSubscriptionConfigTypeDef
-```
-
-
-Required fields:
-- `RealtimeMetricsSubscriptionStatus`: `RealtimeMetricsSubscriptionStatus`
-
-
-
-
-## RestrictionsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import RestrictionsTypeDef
-```
-
-
-Required fields:
-- `GeoRestriction`: `"GeoRestrictionTypeDef"`
-
-
-
-
-## S3OriginConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import S3OriginConfigTypeDef
-```
-
-
-Required fields:
-- `OriginAccessIdentity`: `str`
-
-
-
-
-## S3OriginTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import S3OriginTypeDef
-```
-
-
-Required fields:
-- `DomainName`: `str`
-- `OriginAccessIdentity`: `str`
-
-
-
-
-## SignerTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import SignerTypeDef
-```
-
-
-
-
-Optional fields:
-- `AwsAccountNumber`: `str`
-- `KeyPairIds`: `"KeyPairIdsTypeDef"`
-
-
-## StatusCodesTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import StatusCodesTypeDef
-```
-
-
-Required fields:
-- `Quantity`: `int`
-- `Items`: `List[int]`
-
-
-
-
-## StreamingDistributionConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import StreamingDistributionConfigTypeDef
-```
-
-
-Required fields:
-- `CallerReference`: `str`
-- `S3Origin`: `"S3OriginTypeDef"`
-- `Comment`: `str`
-- `TrustedSigners`: `"TrustedSignersTypeDef"`
-- `Enabled`: `bool`
-
-
-
-Optional fields:
-- `Aliases`: `"AliasesTypeDef"`
-- `Logging`: `"StreamingLoggingConfigTypeDef"`
-- `PriceClass`: `PriceClass`
-
-
-## StreamingDistributionListTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import StreamingDistributionListTypeDef
-```
-
-
-Required fields:
-- `Marker`: `str`
-- `MaxItems`: `int`
-- `IsTruncated`: `bool`
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `NextMarker`: `str`
-- `Items`: `List["StreamingDistributionSummaryTypeDef"]`
-
-
-## StreamingDistributionSummaryTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import StreamingDistributionSummaryTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `ARN`: `str`
-- `Status`: `str`
-- `LastModifiedTime`: `datetime`
-- `DomainName`: `str`
-- `S3Origin`: `"S3OriginTypeDef"`
-- `Aliases`: `"AliasesTypeDef"`
-- `TrustedSigners`: `"TrustedSignersTypeDef"`
-- `Comment`: `str`
-- `PriceClass`: `PriceClass`
-- `Enabled`: `bool`
-
-
-
-
-## StreamingDistributionTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import StreamingDistributionTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `ARN`: `str`
-- `Status`: `str`
-- `DomainName`: `str`
-- `ActiveTrustedSigners`: `"ActiveTrustedSignersTypeDef"`
-- `StreamingDistributionConfig`: `"StreamingDistributionConfigTypeDef"`
-
-
-
-Optional fields:
-- `LastModifiedTime`: `datetime`
-
-
-## StreamingLoggingConfigTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import StreamingLoggingConfigTypeDef
-```
-
-
-Required fields:
-- `Enabled`: `bool`
-- `Bucket`: `str`
-- `Prefix`: `str`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## TagsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import TagsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Items`: `List["TagTypeDef"]`
-
-
-## TestResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import TestResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `FunctionSummary`: `"FunctionSummaryTypeDef"`
-- `ComputeUtilization`: `str`
-- `FunctionExecutionLogs`: `List[str]`
-- `FunctionErrorMessage`: `str`
-- `FunctionOutput`: `str`
-
-
-## TrustedKeyGroupsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import TrustedKeyGroupsTypeDef
-```
-
-
-Required fields:
-- `Enabled`: `bool`
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `Items`: `List[str]`
-
-
-## TrustedSignersTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import TrustedSignersTypeDef
-```
-
-
-Required fields:
-- `Enabled`: `bool`
-- `Quantity`: `int`
-
-
-
-Optional fields:
-- `Items`: `List[str]`
-
-
-## ViewerCertificateTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import ViewerCertificateTypeDef
-```
-
-
-
-
-Optional fields:
-- `CloudFrontDefaultCertificate`: `bool`
-- `IAMCertificateId`: `str`
-- `ACMCertificateArn`: `str`
-- `SSLSupportMethod`: `SSLSupportMethod`
-- `MinimumProtocolVersion`: `MinimumProtocolVersion`
-- `Certificate`: `str`
-- `CertificateSource`: `CertificateSource`
-
-
-## CreateCachePolicyResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateCachePolicyResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `CachePolicy`: `"CachePolicyTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## CreateCloudFrontOriginAccessIdentityResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateCloudFrontOriginAccessIdentityResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `CloudFrontOriginAccessIdentity`: `"CloudFrontOriginAccessIdentityTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## CreateDistributionResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateDistributionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Distribution`: `"DistributionTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## CreateDistributionWithTagsResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateDistributionWithTagsResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Distribution`: `"DistributionTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## CreateFieldLevelEncryptionConfigResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateFieldLevelEncryptionConfigResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `FieldLevelEncryption`: `"FieldLevelEncryptionTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## CreateFieldLevelEncryptionProfileResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateFieldLevelEncryptionProfileResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `FieldLevelEncryptionProfile`: `"FieldLevelEncryptionProfileTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## CreateFunctionResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateFunctionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `FunctionSummary`: `"FunctionSummaryTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## CreateInvalidationResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateInvalidationResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Location`: `str`
-- `Invalidation`: `"InvalidationTypeDef"`
-
-
-## CreateKeyGroupResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateKeyGroupResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `KeyGroup`: `"KeyGroupTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## CreateMonitoringSubscriptionResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateMonitoringSubscriptionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `MonitoringSubscription`: `"MonitoringSubscriptionTypeDef"`
-
-
-## CreateOriginRequestPolicyResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateOriginRequestPolicyResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `OriginRequestPolicy`: `"OriginRequestPolicyTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## CreatePublicKeyResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreatePublicKeyResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `PublicKey`: `"PublicKeyTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## CreateRealtimeLogConfigResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateRealtimeLogConfigResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `RealtimeLogConfig`: `"RealtimeLogConfigTypeDef"`
-
-
-## CreateStreamingDistributionResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateStreamingDistributionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `StreamingDistribution`: `"StreamingDistributionTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## CreateStreamingDistributionWithTagsResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import CreateStreamingDistributionWithTagsResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `StreamingDistribution`: `"StreamingDistributionTypeDef"`
-- `Location`: `str`
-- `ETag`: `str`
-
-
-## DescribeFunctionResultTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import DescribeFunctionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `FunctionSummary`: `"FunctionSummaryTypeDef"`
-- `ETag`: `str`
-
-
-## DistributionConfigWithTagsTypeDef
-
-```python
-from mypy_boto3_cloudfront.type_defs import DistributionConfigWithTagsTypeDef
-```
-
-
-Required fields:
-- `DistributionConfig`: `"DistributionConfigTypeDef"`
-- `Tags`: `"TagsTypeDef"`
-
-
 
 
 ## GetCachePolicyConfigResultTypeDef
@@ -2739,6 +1723,227 @@ Optional fields:
 - `ETag`: `str`
 
 
+## HeadersTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import HeadersTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `Items`: `List[str]`
+
+
+## InvalidationBatchTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import InvalidationBatchTypeDef
+```
+
+
+Required fields:
+- `Paths`: `"PathsTypeDef"`
+- `CallerReference`: `str`
+
+
+
+
+## InvalidationListTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import InvalidationListTypeDef
+```
+
+
+Required fields:
+- `Marker`: `str`
+- `MaxItems`: `int`
+- `IsTruncated`: `bool`
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `NextMarker`: `str`
+- `Items`: `List["InvalidationSummaryTypeDef"]`
+
+
+## InvalidationSummaryTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import InvalidationSummaryTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `CreateTime`: `datetime`
+- `Status`: `str`
+
+
+
+
+## InvalidationTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import InvalidationTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `Status`: `str`
+- `CreateTime`: `datetime`
+- `InvalidationBatch`: `"InvalidationBatchTypeDef"`
+
+
+
+
+## KGKeyPairIdsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import KGKeyPairIdsTypeDef
+```
+
+
+
+
+Optional fields:
+- `KeyGroupId`: `str`
+- `KeyPairIds`: `"KeyPairIdsTypeDef"`
+
+
+## KeyGroupConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import KeyGroupConfigTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Items`: `List[str]`
+
+
+
+Optional fields:
+- `Comment`: `str`
+
+
+## KeyGroupListTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import KeyGroupListTypeDef
+```
+
+
+Required fields:
+- `MaxItems`: `int`
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `NextMarker`: `str`
+- `Items`: `List["KeyGroupSummaryTypeDef"]`
+
+
+## KeyGroupSummaryTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import KeyGroupSummaryTypeDef
+```
+
+
+Required fields:
+- `KeyGroup`: `"KeyGroupTypeDef"`
+
+
+
+
+## KeyGroupTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import KeyGroupTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `LastModifiedTime`: `datetime`
+- `KeyGroupConfig`: `"KeyGroupConfigTypeDef"`
+
+
+
+
+## KeyPairIdsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import KeyPairIdsTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `Items`: `List[str]`
+
+
+## KinesisStreamConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import KinesisStreamConfigTypeDef
+```
+
+
+Required fields:
+- `RoleARN`: `str`
+- `StreamARN`: `str`
+
+
+
+
+## LambdaFunctionAssociationTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import LambdaFunctionAssociationTypeDef
+```
+
+
+Required fields:
+- `LambdaFunctionARN`: `str`
+- `EventType`: `EventType`
+
+
+
+Optional fields:
+- `IncludeBody`: `bool`
+
+
+## LambdaFunctionAssociationsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import LambdaFunctionAssociationsTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `Items`: `List["LambdaFunctionAssociationTypeDef"]`
+
+
 ## ListCachePoliciesResultTypeDef
 
 ```python
@@ -2973,6 +2178,301 @@ Required fields:
 
 
 
+## LoggingConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import LoggingConfigTypeDef
+```
+
+
+Required fields:
+- `Enabled`: `bool`
+- `IncludeCookies`: `bool`
+- `Bucket`: `str`
+- `Prefix`: `str`
+
+
+
+
+## MonitoringSubscriptionTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import MonitoringSubscriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `RealtimeMetricsSubscriptionConfig`: `"RealtimeMetricsSubscriptionConfigTypeDef"`
+
+
+## OriginCustomHeaderTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginCustomHeaderTypeDef
+```
+
+
+Required fields:
+- `HeaderName`: `str`
+- `HeaderValue`: `str`
+
+
+
+
+## OriginGroupFailoverCriteriaTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginGroupFailoverCriteriaTypeDef
+```
+
+
+Required fields:
+- `StatusCodes`: `"StatusCodesTypeDef"`
+
+
+
+
+## OriginGroupMemberTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginGroupMemberTypeDef
+```
+
+
+Required fields:
+- `OriginId`: `str`
+
+
+
+
+## OriginGroupMembersTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginGroupMembersTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+- `Items`: `List["OriginGroupMemberTypeDef"]`
+
+
+
+
+## OriginGroupTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginGroupTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `FailoverCriteria`: `"OriginGroupFailoverCriteriaTypeDef"`
+- `Members`: `"OriginGroupMembersTypeDef"`
+
+
+
+
+## OriginGroupsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginGroupsTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `Items`: `List["OriginGroupTypeDef"]`
+
+
+## OriginRequestPolicyConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyConfigTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `HeadersConfig`: `"OriginRequestPolicyHeadersConfigTypeDef"`
+- `CookiesConfig`: `"OriginRequestPolicyCookiesConfigTypeDef"`
+- `QueryStringsConfig`: `"OriginRequestPolicyQueryStringsConfigTypeDef"`
+
+
+
+Optional fields:
+- `Comment`: `str`
+
+
+## OriginRequestPolicyCookiesConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyCookiesConfigTypeDef
+```
+
+
+Required fields:
+- `CookieBehavior`: `OriginRequestPolicyCookieBehavior`
+
+
+
+Optional fields:
+- `Cookies`: `"CookieNamesTypeDef"`
+
+
+## OriginRequestPolicyHeadersConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyHeadersConfigTypeDef
+```
+
+
+Required fields:
+- `HeaderBehavior`: `OriginRequestPolicyHeaderBehavior`
+
+
+
+Optional fields:
+- `Headers`: `"HeadersTypeDef"`
+
+
+## OriginRequestPolicyListTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyListTypeDef
+```
+
+
+Required fields:
+- `MaxItems`: `int`
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `NextMarker`: `str`
+- `Items`: `List["OriginRequestPolicySummaryTypeDef"]`
+
+
+## OriginRequestPolicyQueryStringsConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyQueryStringsConfigTypeDef
+```
+
+
+Required fields:
+- `QueryStringBehavior`: `OriginRequestPolicyQueryStringBehavior`
+
+
+
+Optional fields:
+- `QueryStrings`: `"QueryStringNamesTypeDef"`
+
+
+## OriginRequestPolicySummaryTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginRequestPolicySummaryTypeDef
+```
+
+
+Required fields:
+- `Type`: `OriginRequestPolicyType`
+- `OriginRequestPolicy`: `"OriginRequestPolicyTypeDef"`
+
+
+
+
+## OriginRequestPolicyTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginRequestPolicyTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `LastModifiedTime`: `datetime`
+- `OriginRequestPolicyConfig`: `"OriginRequestPolicyConfigTypeDef"`
+
+
+
+
+## OriginShieldTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginShieldTypeDef
+```
+
+
+Required fields:
+- `Enabled`: `bool`
+
+
+
+Optional fields:
+- `OriginShieldRegion`: `str`
+
+
+## OriginSslProtocolsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginSslProtocolsTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+- `Items`: `List[SslProtocol]`
+
+
+
+
+## OriginTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `DomainName`: `str`
+
+
+
+Optional fields:
+- `OriginPath`: `str`
+- `CustomHeaders`: `"CustomHeadersTypeDef"`
+- `S3OriginConfig`: `"S3OriginConfigTypeDef"`
+- `CustomOriginConfig`: `"CustomOriginConfigTypeDef"`
+- `ConnectionAttempts`: `int`
+- `ConnectionTimeout`: `int`
+- `OriginShield`: `"OriginShieldTypeDef"`
+
+
+## OriginsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import OriginsTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+- `Items`: `List["OriginTypeDef"]`
+
+
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -2988,6 +2488,111 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ParametersInCacheKeyAndForwardedToOriginTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import ParametersInCacheKeyAndForwardedToOriginTypeDef
+```
+
+
+Required fields:
+- `EnableAcceptEncodingGzip`: `bool`
+- `HeadersConfig`: `"CachePolicyHeadersConfigTypeDef"`
+- `CookiesConfig`: `"CachePolicyCookiesConfigTypeDef"`
+- `QueryStringsConfig`: `"CachePolicyQueryStringsConfigTypeDef"`
+
+
+
+Optional fields:
+- `EnableAcceptEncodingBrotli`: `bool`
+
+
+## PathsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import PathsTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `Items`: `List[str]`
+
+
+## PublicKeyConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import PublicKeyConfigTypeDef
+```
+
+
+Required fields:
+- `CallerReference`: `str`
+- `Name`: `str`
+- `EncodedKey`: `str`
+
+
+
+Optional fields:
+- `Comment`: `str`
+
+
+## PublicKeyListTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import PublicKeyListTypeDef
+```
+
+
+Required fields:
+- `MaxItems`: `int`
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `NextMarker`: `str`
+- `Items`: `List["PublicKeySummaryTypeDef"]`
+
+
+## PublicKeySummaryTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import PublicKeySummaryTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `Name`: `str`
+- `CreatedTime`: `datetime`
+- `EncodedKey`: `str`
+
+
+
+Optional fields:
+- `Comment`: `str`
+
+
+## PublicKeyTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import PublicKeyTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `CreatedTime`: `datetime`
+- `PublicKeyConfig`: `"PublicKeyConfigTypeDef"`
+
+
+
+
 ## PublishFunctionResultTypeDef
 
 ```python
@@ -3001,6 +2606,223 @@ Optional fields:
 - `FunctionSummary`: `"FunctionSummaryTypeDef"`
 
 
+## QueryArgProfileConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import QueryArgProfileConfigTypeDef
+```
+
+
+Required fields:
+- `ForwardWhenQueryArgProfileIsUnknown`: `bool`
+
+
+
+Optional fields:
+- `QueryArgProfiles`: `"QueryArgProfilesTypeDef"`
+
+
+## QueryArgProfileTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import QueryArgProfileTypeDef
+```
+
+
+Required fields:
+- `QueryArg`: `str`
+- `ProfileId`: `str`
+
+
+
+
+## QueryArgProfilesTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import QueryArgProfilesTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `Items`: `List["QueryArgProfileTypeDef"]`
+
+
+## QueryStringCacheKeysTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import QueryStringCacheKeysTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `Items`: `List[str]`
+
+
+## QueryStringNamesTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import QueryStringNamesTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `Items`: `List[str]`
+
+
+## RealtimeLogConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import RealtimeLogConfigTypeDef
+```
+
+
+Required fields:
+- `ARN`: `str`
+- `Name`: `str`
+- `SamplingRate`: `int`
+- `EndPoints`: `List["EndPointTypeDef"]`
+- `Fields`: `List[str]`
+
+
+
+
+## RealtimeLogConfigsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import RealtimeLogConfigsTypeDef
+```
+
+
+Required fields:
+- `MaxItems`: `int`
+- `IsTruncated`: `bool`
+- `Marker`: `str`
+
+
+
+Optional fields:
+- `Items`: `List["RealtimeLogConfigTypeDef"]`
+- `NextMarker`: `str`
+
+
+## RealtimeMetricsSubscriptionConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import RealtimeMetricsSubscriptionConfigTypeDef
+```
+
+
+Required fields:
+- `RealtimeMetricsSubscriptionStatus`: `RealtimeMetricsSubscriptionStatus`
+
+
+
+
+## RestrictionsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import RestrictionsTypeDef
+```
+
+
+Required fields:
+- `GeoRestriction`: `"GeoRestrictionTypeDef"`
+
+
+
+
+## S3OriginConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import S3OriginConfigTypeDef
+```
+
+
+Required fields:
+- `OriginAccessIdentity`: `str`
+
+
+
+
+## S3OriginTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import S3OriginTypeDef
+```
+
+
+Required fields:
+- `DomainName`: `str`
+- `OriginAccessIdentity`: `str`
+
+
+
+
+## SignerTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import SignerTypeDef
+```
+
+
+
+
+Optional fields:
+- `AwsAccountNumber`: `str`
+- `KeyPairIds`: `"KeyPairIdsTypeDef"`
+
+
+## StatusCodesTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import StatusCodesTypeDef
+```
+
+
+Required fields:
+- `Quantity`: `int`
+- `Items`: `List[int]`
+
+
+
+
+## StreamingDistributionConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import StreamingDistributionConfigTypeDef
+```
+
+
+Required fields:
+- `CallerReference`: `str`
+- `S3Origin`: `"S3OriginTypeDef"`
+- `Comment`: `str`
+- `TrustedSigners`: `"TrustedSignersTypeDef"`
+- `Enabled`: `bool`
+
+
+
+Optional fields:
+- `Aliases`: `"AliasesTypeDef"`
+- `Logging`: `"StreamingLoggingConfigTypeDef"`
+- `PriceClass`: `PriceClass`
+
+
 ## StreamingDistributionConfigWithTagsTypeDef
 
 ```python
@@ -3011,6 +2833,85 @@ from mypy_boto3_cloudfront.type_defs import StreamingDistributionConfigWithTagsT
 Required fields:
 - `StreamingDistributionConfig`: `"StreamingDistributionConfigTypeDef"`
 - `Tags`: `"TagsTypeDef"`
+
+
+
+
+## StreamingDistributionListTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import StreamingDistributionListTypeDef
+```
+
+
+Required fields:
+- `Marker`: `str`
+- `MaxItems`: `int`
+- `IsTruncated`: `bool`
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `NextMarker`: `str`
+- `Items`: `List["StreamingDistributionSummaryTypeDef"]`
+
+
+## StreamingDistributionSummaryTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import StreamingDistributionSummaryTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `ARN`: `str`
+- `Status`: `str`
+- `LastModifiedTime`: `datetime`
+- `DomainName`: `str`
+- `S3Origin`: `"S3OriginTypeDef"`
+- `Aliases`: `"AliasesTypeDef"`
+- `TrustedSigners`: `"TrustedSignersTypeDef"`
+- `Comment`: `str`
+- `PriceClass`: `PriceClass`
+- `Enabled`: `bool`
+
+
+
+
+## StreamingDistributionTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import StreamingDistributionTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `ARN`: `str`
+- `Status`: `str`
+- `DomainName`: `str`
+- `ActiveTrustedSigners`: `"ActiveTrustedSignersTypeDef"`
+- `StreamingDistributionConfig`: `"StreamingDistributionConfigTypeDef"`
+
+
+
+Optional fields:
+- `LastModifiedTime`: `datetime`
+
+
+## StreamingLoggingConfigTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import StreamingLoggingConfigTypeDef
+```
+
+
+Required fields:
+- `Enabled`: `bool`
+- `Bucket`: `str`
+- `Prefix`: `str`
 
 
 
@@ -3028,6 +2929,35 @@ Optional fields:
 - `Items`: `List[str]`
 
 
+## TagTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## TagsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import TagsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Items`: `List["TagTypeDef"]`
+
+
 ## TestFunctionResultTypeDef
 
 ```python
@@ -3039,6 +2969,57 @@ from mypy_boto3_cloudfront.type_defs import TestFunctionResultTypeDef
 
 Optional fields:
 - `TestResult`: `"TestResultTypeDef"`
+
+
+## TestResultTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import TestResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `FunctionSummary`: `"FunctionSummaryTypeDef"`
+- `ComputeUtilization`: `str`
+- `FunctionExecutionLogs`: `List[str]`
+- `FunctionErrorMessage`: `str`
+- `FunctionOutput`: `str`
+
+
+## TrustedKeyGroupsTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import TrustedKeyGroupsTypeDef
+```
+
+
+Required fields:
+- `Enabled`: `bool`
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `Items`: `List[str]`
+
+
+## TrustedSignersTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import TrustedSignersTypeDef
+```
+
+
+Required fields:
+- `Enabled`: `bool`
+- `Quantity`: `int`
+
+
+
+Optional fields:
+- `Items`: `List[str]`
 
 
 ## UpdateCachePolicyResultTypeDef
@@ -3192,6 +3173,25 @@ from mypy_boto3_cloudfront.type_defs import UpdateStreamingDistributionResultTyp
 Optional fields:
 - `StreamingDistribution`: `"StreamingDistributionTypeDef"`
 - `ETag`: `str`
+
+
+## ViewerCertificateTypeDef
+
+```python
+from mypy_boto3_cloudfront.type_defs import ViewerCertificateTypeDef
+```
+
+
+
+
+Optional fields:
+- `CloudFrontDefaultCertificate`: `bool`
+- `IAMCertificateId`: `str`
+- `ACMCertificateArn`: `str`
+- `SSLSupportMethod`: `SSLSupportMethod`
+- `MinimumProtocolVersion`: `MinimumProtocolVersion`
+- `Certificate`: `str`
+- `CertificateSource`: `CertificateSource`
 
 
 ## WaiterConfigTypeDef

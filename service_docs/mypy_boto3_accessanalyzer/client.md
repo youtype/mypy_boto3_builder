@@ -40,13 +40,6 @@ type annotations stubs module [mypy_boto3_accessanalyzer](https://pypi.org/proje
     - [update_findings](#update_findings)
     - [validate_policy](#validate_policy)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
 
 ## AccessAnalyzerClient
 
@@ -564,122 +557,19 @@ def validate_policy(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("accessanalyzer").get_paginator` method.
-
-[Paginator.ListAccessPreviewFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAccessPreviewFindings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccessPreviewFindingsPaginatorName
-) -> ListAccessPreviewFindingsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("accessanalyzer").get_paginator` method.
+Type annotations for `boto3.client("accessanalyzer").get_paginator` method with overloads.
 
-[Paginator.ListAccessPreviews documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAccessPreviews)
+- `client.get_paginator("list_access_preview_findings")` -> [ListAccessPreviewFindingsPaginator](./paginators.md#listaccesspreviewfindingspaginator)
+- `client.get_paginator("list_access_previews")` -> [ListAccessPreviewsPaginator](./paginators.md#listaccesspreviewspaginator)
+- `client.get_paginator("list_analyzed_resources")` -> [ListAnalyzedResourcesPaginator](./paginators.md#listanalyzedresourcespaginator)
+- `client.get_paginator("list_analyzers")` -> [ListAnalyzersPaginator](./paginators.md#listanalyzerspaginator)
+- `client.get_paginator("list_archive_rules")` -> [ListArchiveRulesPaginator](./paginators.md#listarchiverulespaginator)
+- `client.get_paginator("list_findings")` -> [ListFindingsPaginator](./paginators.md#listfindingspaginator)
+- `client.get_paginator("list_policy_generations")` -> [ListPolicyGenerationsPaginator](./paginators.md#listpolicygenerationspaginator)
+- `client.get_paginator("validate_policy")` -> [ValidatePolicyPaginator](./paginators.md#validatepolicypaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccessPreviewsPaginatorName
-) -> ListAccessPreviewsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("accessanalyzer").get_paginator` method.
-
-[Paginator.ListAnalyzedResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzedResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAnalyzedResourcesPaginatorName
-) -> ListAnalyzedResourcesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("accessanalyzer").get_paginator` method.
-
-[Paginator.ListAnalyzers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAnalyzersPaginatorName
-) -> ListAnalyzersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("accessanalyzer").get_paginator` method.
-
-[Paginator.ListArchiveRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListArchiveRules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListArchiveRulesPaginatorName
-) -> ListArchiveRulesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("accessanalyzer").get_paginator` method.
-
-[Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListFindings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFindingsPaginatorName
-) -> ListFindingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("accessanalyzer").get_paginator` method.
-
-[Paginator.ListPolicyGenerations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListPolicyGenerations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPolicyGenerationsPaginatorName
-) -> ListPolicyGenerationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("accessanalyzer").get_paginator` method.
-
-[Paginator.ValidatePolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ValidatePolicy)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ValidatePolicyPaginatorName
-) -> ValidatePolicyPaginator:
-    pass
-```

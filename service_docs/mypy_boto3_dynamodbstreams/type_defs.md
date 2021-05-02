@@ -6,8 +6,13 @@ Auto-generated documentation for [DynamoDBStreams](https://boto3.amazonaws.com/v
 type annotations stubs module [mypy_boto3_dynamodbstreams](https://pypi.org/project/mypy-boto3-dynamodbstreams/).
 
 - [Structures for boto3 DynamoDBStreams module](#structures-for-boto3-dynamodbstreams-module)
+  - [AttributeValueTypeDef](#attributevaluetypedef)
+  - [DescribeStreamOutputTypeDef](#describestreamoutputtypedef)
+  - [GetRecordsOutputTypeDef](#getrecordsoutputtypedef)
+  - [GetShardIteratorOutputTypeDef](#getsharditeratoroutputtypedef)
   - [IdentityTypeDef](#identitytypedef)
   - [KeySchemaElementTypeDef](#keyschemaelementtypedef)
+  - [ListStreamsOutputTypeDef](#liststreamsoutputtypedef)
   - [RecordTypeDef](#recordtypedef)
   - [ResponseMetadata](#responsemetadata)
   - [SequenceNumberRangeTypeDef](#sequencenumberrangetypedef)
@@ -15,11 +20,71 @@ type annotations stubs module [mypy_boto3_dynamodbstreams](https://pypi.org/proj
   - [StreamDescriptionTypeDef](#streamdescriptiontypedef)
   - [StreamRecordTypeDef](#streamrecordtypedef)
   - [StreamTypeDef](#streamtypedef)
-  - [DescribeStreamOutputTypeDef](#describestreamoutputtypedef)
-  - [AttributeValueTypeDef](#attributevaluetypedef)
-  - [GetRecordsOutputTypeDef](#getrecordsoutputtypedef)
-  - [GetShardIteratorOutputTypeDef](#getsharditeratoroutputtypedef)
-  - [ListStreamsOutputTypeDef](#liststreamsoutputtypedef)
+
+## AttributeValueTypeDef
+
+```python
+from mypy_boto3_dynamodbstreams.type_defs import AttributeValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `S`: `str`
+- `N`: `str`
+- `B`: `Union[bytes, IO[bytes]]`
+- `SS`: `List[str]`
+- `NS`: `List[str]`
+- `BS`: `List[Union[bytes, IO[bytes]]]`
+- `M`: `Dict[str, Dict[str, Any]]`
+- `L`: `List[Dict[str, Any]]`
+- `NULL`: `bool`
+- `BOOL`: `bool`
+
+
+## DescribeStreamOutputTypeDef
+
+```python
+from mypy_boto3_dynamodbstreams.type_defs import DescribeStreamOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StreamDescription`: `"StreamDescriptionTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetRecordsOutputTypeDef
+
+```python
+from mypy_boto3_dynamodbstreams.type_defs import GetRecordsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Records`: `List["RecordTypeDef"]`
+- `NextShardIterator`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetShardIteratorOutputTypeDef
+
+```python
+from mypy_boto3_dynamodbstreams.type_defs import GetShardIteratorOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ShardIterator`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
 
 ## IdentityTypeDef
 
@@ -47,6 +112,21 @@ Required fields:
 - `KeyType`: `KeyType`
 
 
+
+
+## ListStreamsOutputTypeDef
+
+```python
+from mypy_boto3_dynamodbstreams.type_defs import ListStreamsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Streams`: `List["StreamTypeDef"]`
+- `LastEvaluatedStreamArn`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## RecordTypeDef
@@ -167,84 +247,4 @@ Optional fields:
 - `StreamArn`: `str`
 - `TableName`: `str`
 - `StreamLabel`: `str`
-
-
-## DescribeStreamOutputTypeDef
-
-```python
-from mypy_boto3_dynamodbstreams.type_defs import DescribeStreamOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StreamDescription`: `"StreamDescriptionTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## AttributeValueTypeDef
-
-```python
-from mypy_boto3_dynamodbstreams.type_defs import AttributeValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `S`: `str`
-- `N`: `str`
-- `B`: `Union[bytes, IO[bytes]]`
-- `SS`: `List[str]`
-- `NS`: `List[str]`
-- `BS`: `List[Union[bytes, IO[bytes]]]`
-- `M`: `Dict[str, Dict[str, Any]]`
-- `L`: `List[Dict[str, Any]]`
-- `NULL`: `bool`
-- `BOOL`: `bool`
-
-
-## GetRecordsOutputTypeDef
-
-```python
-from mypy_boto3_dynamodbstreams.type_defs import GetRecordsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Records`: `List["RecordTypeDef"]`
-- `NextShardIterator`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetShardIteratorOutputTypeDef
-
-```python
-from mypy_boto3_dynamodbstreams.type_defs import GetShardIteratorOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `ShardIterator`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListStreamsOutputTypeDef
-
-```python
-from mypy_boto3_dynamodbstreams.type_defs import ListStreamsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Streams`: `List["StreamTypeDef"]`
-- `LastEvaluatedStreamArn`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
 

@@ -31,8 +31,6 @@ type annotations stubs module [mypy_boto3_datapipeline](https://pypi.org/project
     - [set_task_status](#set_task_status)
     - [validate_pipeline_definition](#validate_pipeline_definition)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## DataPipelineClient
 
@@ -402,47 +400,14 @@ def validate_pipeline_definition(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("datapipeline").get_paginator` method.
-
-[Paginator.DescribeObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datapipeline.html#DataPipeline.Paginator.DescribeObjects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeObjectsPaginatorName
-) -> DescribeObjectsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("datapipeline").get_paginator` method.
+Type annotations for `boto3.client("datapipeline").get_paginator` method with overloads.
 
-[Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datapipeline.html#DataPipeline.Paginator.ListPipelines)
+- `client.get_paginator("describe_objects")` -> [DescribeObjectsPaginator](./paginators.md#describeobjectspaginator)
+- `client.get_paginator("list_pipelines")` -> [ListPipelinesPaginator](./paginators.md#listpipelinespaginator)
+- `client.get_paginator("query_objects")` -> [QueryObjectsPaginator](./paginators.md#queryobjectspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPipelinesPaginatorName
-) -> ListPipelinesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("datapipeline").get_paginator` method.
-
-[Paginator.QueryObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datapipeline.html#DataPipeline.Paginator.QueryObjects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: QueryObjectsPaginatorName
-) -> QueryObjectsPaginator:
-    pass
-```

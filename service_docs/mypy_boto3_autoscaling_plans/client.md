@@ -18,7 +18,6 @@ type annotations stubs module [mypy_boto3_autoscaling_plans](https://pypi.org/pr
     - [get_scaling_plan_resource_forecast_data](#get_scaling_plan_resource_forecast_data)
     - [update_scaling_plan](#update_scaling_plan)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## AutoScalingPlansClient
 
@@ -192,32 +191,13 @@ def update_scaling_plan(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("autoscaling-plans").get_paginator` method.
-
-[Paginator.DescribeScalingPlanResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlanResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeScalingPlanResourcesPaginatorName
-) -> DescribeScalingPlanResourcesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("autoscaling-plans").get_paginator` method.
+Type annotations for `boto3.client("autoscaling-plans").get_paginator` method with overloads.
 
-[Paginator.DescribeScalingPlans documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlans)
+- `client.get_paginator("describe_scaling_plan_resources")` -> [DescribeScalingPlanResourcesPaginator](./paginators.md#describescalingplanresourcespaginator)
+- `client.get_paginator("describe_scaling_plans")` -> [DescribeScalingPlansPaginator](./paginators.md#describescalingplanspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeScalingPlansPaginatorName
-) -> DescribeScalingPlansPaginator:
-    pass
-```
+

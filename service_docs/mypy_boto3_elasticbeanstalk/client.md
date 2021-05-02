@@ -59,13 +59,7 @@ type annotations stubs module [mypy_boto3_elasticbeanstalk](https://pypi.org/pro
     - [update_tags_for_resource](#update_tags_for_resource)
     - [validate_configuration_settings](#validate_configuration_settings)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
 
 ## ElasticBeanstalkClient
 
@@ -930,122 +924,25 @@ def validate_configuration_settings(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("elasticbeanstalk").get_paginator` method.
-
-[Paginator.DescribeApplicationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeApplicationVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeApplicationVersionsPaginatorName
-) -> DescribeApplicationVersionsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("elasticbeanstalk").get_paginator` method.
+Type annotations for `boto3.client("elasticbeanstalk").get_paginator` method with overloads.
 
-[Paginator.DescribeEnvironmentManagedActionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironmentManagedActionHistory)
+- `client.get_paginator("describe_application_versions")` -> [DescribeApplicationVersionsPaginator](./paginators.md#describeapplicationversionspaginator)
+- `client.get_paginator("describe_environment_managed_action_history")` -> [DescribeEnvironmentManagedActionHistoryPaginator](./paginators.md#describeenvironmentmanagedactionhistorypaginator)
+- `client.get_paginator("describe_environments")` -> [DescribeEnvironmentsPaginator](./paginators.md#describeenvironmentspaginator)
+- `client.get_paginator("describe_events")` -> [DescribeEventsPaginator](./paginators.md#describeeventspaginator)
+- `client.get_paginator("list_platform_versions")` -> [ListPlatformVersionsPaginator](./paginators.md#listplatformversionspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEnvironmentManagedActionHistoryPaginatorName
-) -> DescribeEnvironmentManagedActionHistoryPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("elasticbeanstalk").get_paginator` method.
-
-[Paginator.DescribeEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEnvironmentsPaginatorName
-) -> DescribeEnvironmentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticbeanstalk").get_paginator` method.
-
-[Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventsPaginatorName
-) -> DescribeEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticbeanstalk").get_paginator` method.
-
-[Paginator.ListPlatformVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.ListPlatformVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPlatformVersionsPaginatorName
-) -> ListPlatformVersionsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("elasticbeanstalk").get_waiter` method.
+Type annotations for `boto3.client("elasticbeanstalk").get_waiter` method with overloads.
 
-[Waiter.EnvironmentExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: EnvironmentExistsWaiterName
-) -> EnvironmentExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("elasticbeanstalk").get_waiter` method.
-
-[Waiter.EnvironmentTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentTerminated)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: EnvironmentTerminatedWaiterName
-) -> EnvironmentTerminatedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("elasticbeanstalk").get_waiter` method.
-
-[Waiter.EnvironmentUpdated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentUpdated)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: EnvironmentUpdatedWaiterName
-) -> EnvironmentUpdatedWaiter:
-    pass
-```
+- `client.get_waiter("environment_exists")` -> [EnvironmentExistsWaiter](./waiters.md#environmentexistswaiter)
+- `client.get_waiter("environment_terminated")` -> [EnvironmentTerminatedWaiter](./waiters.md#environmentterminatedwaiter)
+- `client.get_waiter("environment_updated")` -> [EnvironmentUpdatedWaiter](./waiters.md#environmentupdatedwaiter)

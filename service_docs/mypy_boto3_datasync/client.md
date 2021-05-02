@@ -47,10 +47,6 @@ type annotations stubs module [mypy_boto3_datasync](https://pypi.org/project/myp
     - [update_task](#update_task)
     - [update_task_execution](#update_task_execution)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
 
 ## DataSyncClient
 
@@ -686,77 +682,16 @@ def update_task_execution(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("datasync").get_paginator` method.
-
-[Paginator.ListAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync.html#DataSync.Paginator.ListAgents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAgentsPaginatorName
-) -> ListAgentsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("datasync").get_paginator` method.
+Type annotations for `boto3.client("datasync").get_paginator` method with overloads.
 
-[Paginator.ListLocations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync.html#DataSync.Paginator.ListLocations)
+- `client.get_paginator("list_agents")` -> [ListAgentsPaginator](./paginators.md#listagentspaginator)
+- `client.get_paginator("list_locations")` -> [ListLocationsPaginator](./paginators.md#listlocationspaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
+- `client.get_paginator("list_task_executions")` -> [ListTaskExecutionsPaginator](./paginators.md#listtaskexecutionspaginator)
+- `client.get_paginator("list_tasks")` -> [ListTasksPaginator](./paginators.md#listtaskspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLocationsPaginatorName
-) -> ListLocationsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("datasync").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync.html#DataSync.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("datasync").get_paginator` method.
-
-[Paginator.ListTaskExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync.html#DataSync.Paginator.ListTaskExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTaskExecutionsPaginatorName
-) -> ListTaskExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("datasync").get_paginator` method.
-
-[Paginator.ListTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/datasync.html#DataSync.Paginator.ListTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTasksPaginatorName
-) -> ListTasksPaginator:
-    pass
-```

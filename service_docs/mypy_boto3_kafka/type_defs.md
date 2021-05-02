@@ -6,6 +6,8 @@ Auto-generated documentation for [Kafka](https://boto3.amazonaws.com/v1/document
 type annotations stubs module [mypy_boto3_kafka](https://pypi.org/project/mypy-boto3-kafka/).
 
 - [Structures for boto3 Kafka module](#structures-for-boto3-kafka-module)
+  - [BatchAssociateScramSecretResponseTypeDef](#batchassociatescramsecretresponsetypedef)
+  - [BatchDisassociateScramSecretResponseTypeDef](#batchdisassociatescramsecretresponsetypedef)
   - [BrokerEBSVolumeInfoTypeDef](#brokerebsvolumeinfotypedef)
   - [BrokerLogsTypeDef](#brokerlogstypedef)
   - [BrokerNodeGroupInfoTypeDef](#brokernodegroupinfotypedef)
@@ -21,33 +23,6 @@ type annotations stubs module [mypy_boto3_kafka](https://pypi.org/project/mypy-b
   - [ConfigurationInfoTypeDef](#configurationinfotypedef)
   - [ConfigurationRevisionTypeDef](#configurationrevisiontypedef)
   - [ConfigurationTypeDef](#configurationtypedef)
-  - [EBSStorageInfoTypeDef](#ebsstorageinfotypedef)
-  - [EncryptionAtRestTypeDef](#encryptionatresttypedef)
-  - [EncryptionInTransitTypeDef](#encryptionintransittypedef)
-  - [EncryptionInfoTypeDef](#encryptioninfotypedef)
-  - [ErrorInfoTypeDef](#errorinfotypedef)
-  - [FirehoseTypeDef](#firehosetypedef)
-  - [JmxExporterInfoTypeDef](#jmxexporterinfotypedef)
-  - [JmxExporterTypeDef](#jmxexportertypedef)
-  - [KafkaVersionTypeDef](#kafkaversiontypedef)
-  - [LoggingInfoTypeDef](#logginginfotypedef)
-  - [MutableClusterInfoTypeDef](#mutableclusterinfotypedef)
-  - [NodeExporterInfoTypeDef](#nodeexporterinfotypedef)
-  - [NodeExporterTypeDef](#nodeexportertypedef)
-  - [NodeInfoTypeDef](#nodeinfotypedef)
-  - [OpenMonitoringTypeDef](#openmonitoringtypedef)
-  - [PrometheusInfoTypeDef](#prometheusinfotypedef)
-  - [PrometheusTypeDef](#prometheustypedef)
-  - [S3TypeDef](#s3typedef)
-  - [SaslTypeDef](#sasltypedef)
-  - [ScramTypeDef](#scramtypedef)
-  - [StateInfoTypeDef](#stateinfotypedef)
-  - [StorageInfoTypeDef](#storageinfotypedef)
-  - [TlsTypeDef](#tlstypedef)
-  - [UnprocessedScramSecretTypeDef](#unprocessedscramsecrettypedef)
-  - [ZookeeperNodeInfoTypeDef](#zookeepernodeinfotypedef)
-  - [BatchAssociateScramSecretResponseTypeDef](#batchassociatescramsecretresponsetypedef)
-  - [BatchDisassociateScramSecretResponseTypeDef](#batchdisassociatescramsecretresponsetypedef)
   - [CreateClusterResponseTypeDef](#createclusterresponsetypedef)
   - [CreateConfigurationResponseTypeDef](#createconfigurationresponsetypedef)
   - [DeleteClusterResponseTypeDef](#deleteclusterresponsetypedef)
@@ -56,8 +31,17 @@ type annotations stubs module [mypy_boto3_kafka](https://pypi.org/project/mypy-b
   - [DescribeClusterResponseTypeDef](#describeclusterresponsetypedef)
   - [DescribeConfigurationResponseTypeDef](#describeconfigurationresponsetypedef)
   - [DescribeConfigurationRevisionResponseTypeDef](#describeconfigurationrevisionresponsetypedef)
+  - [EBSStorageInfoTypeDef](#ebsstorageinfotypedef)
+  - [EncryptionAtRestTypeDef](#encryptionatresttypedef)
+  - [EncryptionInTransitTypeDef](#encryptionintransittypedef)
+  - [EncryptionInfoTypeDef](#encryptioninfotypedef)
+  - [ErrorInfoTypeDef](#errorinfotypedef)
+  - [FirehoseTypeDef](#firehosetypedef)
   - [GetBootstrapBrokersResponseTypeDef](#getbootstrapbrokersresponsetypedef)
   - [GetCompatibleKafkaVersionsResponseTypeDef](#getcompatiblekafkaversionsresponsetypedef)
+  - [JmxExporterInfoTypeDef](#jmxexporterinfotypedef)
+  - [JmxExporterTypeDef](#jmxexportertypedef)
+  - [KafkaVersionTypeDef](#kafkaversiontypedef)
   - [ListClusterOperationsResponseTypeDef](#listclusteroperationsresponsetypedef)
   - [ListClustersResponseTypeDef](#listclustersresponsetypedef)
   - [ListConfigurationRevisionsResponseTypeDef](#listconfigurationrevisionsresponsetypedef)
@@ -66,9 +50,24 @@ type annotations stubs module [mypy_boto3_kafka](https://pypi.org/project/mypy-b
   - [ListNodesResponseTypeDef](#listnodesresponsetypedef)
   - [ListScramSecretsResponseTypeDef](#listscramsecretsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [LoggingInfoTypeDef](#logginginfotypedef)
+  - [MutableClusterInfoTypeDef](#mutableclusterinfotypedef)
+  - [NodeExporterInfoTypeDef](#nodeexporterinfotypedef)
+  - [NodeExporterTypeDef](#nodeexportertypedef)
+  - [NodeInfoTypeDef](#nodeinfotypedef)
   - [OpenMonitoringInfoTypeDef](#openmonitoringinfotypedef)
+  - [OpenMonitoringTypeDef](#openmonitoringtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PrometheusInfoTypeDef](#prometheusinfotypedef)
+  - [PrometheusTypeDef](#prometheustypedef)
   - [RebootBrokerResponseTypeDef](#rebootbrokerresponsetypedef)
+  - [S3TypeDef](#s3typedef)
+  - [SaslTypeDef](#sasltypedef)
+  - [ScramTypeDef](#scramtypedef)
+  - [StateInfoTypeDef](#stateinfotypedef)
+  - [StorageInfoTypeDef](#storageinfotypedef)
+  - [TlsTypeDef](#tlstypedef)
+  - [UnprocessedScramSecretTypeDef](#unprocessedscramsecrettypedef)
   - [UpdateBrokerCountResponseTypeDef](#updatebrokercountresponsetypedef)
   - [UpdateBrokerStorageResponseTypeDef](#updatebrokerstorageresponsetypedef)
   - [UpdateBrokerTypeResponseTypeDef](#updatebrokertyperesponsetypedef)
@@ -76,6 +75,35 @@ type annotations stubs module [mypy_boto3_kafka](https://pypi.org/project/mypy-b
   - [UpdateClusterKafkaVersionResponseTypeDef](#updateclusterkafkaversionresponsetypedef)
   - [UpdateConfigurationResponseTypeDef](#updateconfigurationresponsetypedef)
   - [UpdateMonitoringResponseTypeDef](#updatemonitoringresponsetypedef)
+  - [ZookeeperNodeInfoTypeDef](#zookeepernodeinfotypedef)
+
+## BatchAssociateScramSecretResponseTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import BatchAssociateScramSecretResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClusterArn`: `str`
+- `UnprocessedScramSecrets`: `List["UnprocessedScramSecretTypeDef"]`
+
+
+## BatchDisassociateScramSecretResponseTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import BatchDisassociateScramSecretResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClusterArn`: `str`
+- `UnprocessedScramSecrets`: `List["UnprocessedScramSecretTypeDef"]`
+
 
 ## BrokerEBSVolumeInfoTypeDef
 
@@ -120,7 +148,7 @@ Required fields:
 
 
 Optional fields:
-- `BrokerAZDistribution`: `BrokerAZDistribution`
+- `BrokerAZDistribution`: `Literal['DEFAULT']`
 - `SecurityGroups`: `List[str]`
 - `StorageInfo`: `"StorageInfoTypeDef"`
 
@@ -332,391 +360,6 @@ Required fields:
 
 
 
-## EBSStorageInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import EBSStorageInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `VolumeSize`: `int`
-
-
-## EncryptionAtRestTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import EncryptionAtRestTypeDef
-```
-
-
-Required fields:
-- `DataVolumeKMSKeyId`: `str`
-
-
-
-
-## EncryptionInTransitTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import EncryptionInTransitTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientBroker`: `ClientBroker`
-- `InCluster`: `bool`
-
-
-## EncryptionInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import EncryptionInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `EncryptionAtRest`: `"EncryptionAtRestTypeDef"`
-- `EncryptionInTransit`: `"EncryptionInTransitTypeDef"`
-
-
-## ErrorInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import ErrorInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `ErrorCode`: `str`
-- `ErrorString`: `str`
-
-
-## FirehoseTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import FirehoseTypeDef
-```
-
-
-Required fields:
-- `Enabled`: `bool`
-
-
-
-Optional fields:
-- `DeliveryStream`: `str`
-
-
-## JmxExporterInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import JmxExporterInfoTypeDef
-```
-
-
-Required fields:
-- `EnabledInBroker`: `bool`
-
-
-
-
-## JmxExporterTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import JmxExporterTypeDef
-```
-
-
-Required fields:
-- `EnabledInBroker`: `bool`
-
-
-
-
-## KafkaVersionTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import KafkaVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Version`: `str`
-- `Status`: `KafkaVersionStatus`
-
-
-## LoggingInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import LoggingInfoTypeDef
-```
-
-
-Required fields:
-- `BrokerLogs`: `"BrokerLogsTypeDef"`
-
-
-
-
-## MutableClusterInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import MutableClusterInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `BrokerEBSVolumeInfo`: `List["BrokerEBSVolumeInfoTypeDef"]`
-- `ConfigurationInfo`: `"ConfigurationInfoTypeDef"`
-- `NumberOfBrokerNodes`: `int`
-- `EnhancedMonitoring`: `EnhancedMonitoring`
-- `OpenMonitoring`: `"OpenMonitoringTypeDef"`
-- `KafkaVersion`: `str`
-- `LoggingInfo`: `"LoggingInfoTypeDef"`
-- `InstanceType`: `str`
-
-
-## NodeExporterInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import NodeExporterInfoTypeDef
-```
-
-
-Required fields:
-- `EnabledInBroker`: `bool`
-
-
-
-
-## NodeExporterTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import NodeExporterTypeDef
-```
-
-
-Required fields:
-- `EnabledInBroker`: `bool`
-
-
-
-
-## NodeInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import NodeInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `AddedToClusterTime`: `str`
-- `BrokerNodeInfo`: `"BrokerNodeInfoTypeDef"`
-- `InstanceType`: `str`
-- `NodeARN`: `str`
-- `NodeType`: `NodeType`
-- `ZookeeperNodeInfo`: `"ZookeeperNodeInfoTypeDef"`
-
-
-## OpenMonitoringTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import OpenMonitoringTypeDef
-```
-
-
-Required fields:
-- `Prometheus`: `"PrometheusTypeDef"`
-
-
-
-
-## PrometheusInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import PrometheusInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `JmxExporter`: `"JmxExporterInfoTypeDef"`
-- `NodeExporter`: `"NodeExporterInfoTypeDef"`
-
-
-## PrometheusTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import PrometheusTypeDef
-```
-
-
-
-
-Optional fields:
-- `JmxExporter`: `"JmxExporterTypeDef"`
-- `NodeExporter`: `"NodeExporterTypeDef"`
-
-
-## S3TypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import S3TypeDef
-```
-
-
-Required fields:
-- `Enabled`: `bool`
-
-
-
-Optional fields:
-- `Bucket`: `str`
-- `Prefix`: `str`
-
-
-## SaslTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import SaslTypeDef
-```
-
-
-
-
-Optional fields:
-- `Scram`: `"ScramTypeDef"`
-
-
-## ScramTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import ScramTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-
-
-## StateInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import StateInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-
-
-## StorageInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import StorageInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `EbsStorageInfo`: `"EBSStorageInfoTypeDef"`
-
-
-## TlsTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import TlsTypeDef
-```
-
-
-
-
-Optional fields:
-- `CertificateAuthorityArnList`: `List[str]`
-
-
-## UnprocessedScramSecretTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import UnprocessedScramSecretTypeDef
-```
-
-
-
-
-Optional fields:
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-- `SecretArn`: `str`
-
-
-## ZookeeperNodeInfoTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import ZookeeperNodeInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttachedENIId`: `str`
-- `ClientVpcIpAddress`: `str`
-- `Endpoints`: `List[str]`
-- `ZookeeperId`: `float`
-- `ZookeeperVersion`: `str`
-
-
-## BatchAssociateScramSecretResponseTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import BatchAssociateScramSecretResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClusterArn`: `str`
-- `UnprocessedScramSecrets`: `List["UnprocessedScramSecretTypeDef"]`
-
-
-## BatchDisassociateScramSecretResponseTypeDef
-
-```python
-from mypy_boto3_kafka.type_defs import BatchDisassociateScramSecretResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClusterArn`: `str`
-- `UnprocessedScramSecrets`: `List["UnprocessedScramSecretTypeDef"]`
-
-
 ## CreateClusterResponseTypeDef
 
 ```python
@@ -839,6 +482,90 @@ Optional fields:
 - `ServerProperties`: `Union[bytes, IO[bytes]]`
 
 
+## EBSStorageInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import EBSStorageInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `VolumeSize`: `int`
+
+
+## EncryptionAtRestTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import EncryptionAtRestTypeDef
+```
+
+
+Required fields:
+- `DataVolumeKMSKeyId`: `str`
+
+
+
+
+## EncryptionInTransitTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import EncryptionInTransitTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientBroker`: `ClientBroker`
+- `InCluster`: `bool`
+
+
+## EncryptionInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import EncryptionInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `EncryptionAtRest`: `"EncryptionAtRestTypeDef"`
+- `EncryptionInTransit`: `"EncryptionInTransitTypeDef"`
+
+
+## ErrorInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import ErrorInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `ErrorCode`: `str`
+- `ErrorString`: `str`
+
+
+## FirehoseTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import FirehoseTypeDef
+```
+
+
+Required fields:
+- `Enabled`: `bool`
+
+
+
+Optional fields:
+- `DeliveryStream`: `str`
+
+
 ## GetBootstrapBrokersResponseTypeDef
 
 ```python
@@ -865,6 +592,46 @@ from mypy_boto3_kafka.type_defs import GetCompatibleKafkaVersionsResponseTypeDef
 
 Optional fields:
 - `CompatibleKafkaVersions`: `List["CompatibleKafkaVersionTypeDef"]`
+
+
+## JmxExporterInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import JmxExporterInfoTypeDef
+```
+
+
+Required fields:
+- `EnabledInBroker`: `bool`
+
+
+
+
+## JmxExporterTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import JmxExporterTypeDef
+```
+
+
+Required fields:
+- `EnabledInBroker`: `bool`
+
+
+
+
+## KafkaVersionTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import KafkaVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Version`: `str`
+- `Status`: `KafkaVersionStatus`
 
 
 ## ListClusterOperationsResponseTypeDef
@@ -978,6 +745,83 @@ Optional fields:
 - `Tags`: `Dict[str, str]`
 
 
+## LoggingInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import LoggingInfoTypeDef
+```
+
+
+Required fields:
+- `BrokerLogs`: `"BrokerLogsTypeDef"`
+
+
+
+
+## MutableClusterInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import MutableClusterInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `BrokerEBSVolumeInfo`: `List["BrokerEBSVolumeInfoTypeDef"]`
+- `ConfigurationInfo`: `"ConfigurationInfoTypeDef"`
+- `NumberOfBrokerNodes`: `int`
+- `EnhancedMonitoring`: `EnhancedMonitoring`
+- `OpenMonitoring`: `"OpenMonitoringTypeDef"`
+- `KafkaVersion`: `str`
+- `LoggingInfo`: `"LoggingInfoTypeDef"`
+- `InstanceType`: `str`
+
+
+## NodeExporterInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import NodeExporterInfoTypeDef
+```
+
+
+Required fields:
+- `EnabledInBroker`: `bool`
+
+
+
+
+## NodeExporterTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import NodeExporterTypeDef
+```
+
+
+Required fields:
+- `EnabledInBroker`: `bool`
+
+
+
+
+## NodeInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import NodeInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `AddedToClusterTime`: `str`
+- `BrokerNodeInfo`: `"BrokerNodeInfoTypeDef"`
+- `InstanceType`: `str`
+- `NodeARN`: `str`
+- `NodeType`: `Literal['BROKER']`
+- `ZookeeperNodeInfo`: `"ZookeeperNodeInfoTypeDef"`
+
+
 ## OpenMonitoringInfoTypeDef
 
 ```python
@@ -987,6 +831,19 @@ from mypy_boto3_kafka.type_defs import OpenMonitoringInfoTypeDef
 
 Required fields:
 - `Prometheus`: `"PrometheusInfoTypeDef"`
+
+
+
+
+## OpenMonitoringTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import OpenMonitoringTypeDef
+```
+
+
+Required fields:
+- `Prometheus`: `"PrometheusTypeDef"`
 
 
 
@@ -1006,6 +863,34 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PrometheusInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import PrometheusInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `JmxExporter`: `"JmxExporterInfoTypeDef"`
+- `NodeExporter`: `"NodeExporterInfoTypeDef"`
+
+
+## PrometheusTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import PrometheusTypeDef
+```
+
+
+
+
+Optional fields:
+- `JmxExporter`: `"JmxExporterTypeDef"`
+- `NodeExporter`: `"NodeExporterTypeDef"`
+
+
 ## RebootBrokerResponseTypeDef
 
 ```python
@@ -1018,6 +903,104 @@ from mypy_boto3_kafka.type_defs import RebootBrokerResponseTypeDef
 Optional fields:
 - `ClusterArn`: `str`
 - `ClusterOperationArn`: `str`
+
+
+## S3TypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import S3TypeDef
+```
+
+
+Required fields:
+- `Enabled`: `bool`
+
+
+
+Optional fields:
+- `Bucket`: `str`
+- `Prefix`: `str`
+
+
+## SaslTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import SaslTypeDef
+```
+
+
+
+
+Optional fields:
+- `Scram`: `"ScramTypeDef"`
+
+
+## ScramTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import ScramTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+
+
+## StateInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import StateInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
+
+
+## StorageInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import StorageInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `EbsStorageInfo`: `"EBSStorageInfoTypeDef"`
+
+
+## TlsTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import TlsTypeDef
+```
+
+
+
+
+Optional fields:
+- `CertificateAuthorityArnList`: `List[str]`
+
+
+## UnprocessedScramSecretTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import UnprocessedScramSecretTypeDef
+```
+
+
+
+
+Optional fields:
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+- `SecretArn`: `str`
 
 
 ## UpdateBrokerCountResponseTypeDef
@@ -1116,4 +1099,21 @@ from mypy_boto3_kafka.type_defs import UpdateMonitoringResponseTypeDef
 Optional fields:
 - `ClusterArn`: `str`
 - `ClusterOperationArn`: `str`
+
+
+## ZookeeperNodeInfoTypeDef
+
+```python
+from mypy_boto3_kafka.type_defs import ZookeeperNodeInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttachedENIId`: `str`
+- `ClientVpcIpAddress`: `str`
+- `Endpoints`: `List[str]`
+- `ZookeeperId`: `float`
+- `ZookeeperVersion`: `str`
 

@@ -6,16 +6,12 @@ Auto-generated documentation for [SNS](https://boto3.amazonaws.com/v1/documentat
 type annotations stubs module [mypy_boto3_sns](https://pypi.org/project/mypy-boto3-sns/).
 
 - [Structures for boto3 SNS module](#structures-for-boto3-sns-module)
-  - [EndpointTypeDef](#endpointtypedef)
-  - [PlatformApplicationTypeDef](#platformapplicationtypedef)
-  - [SubscriptionTypeDef](#subscriptiontypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TopicTypeDef](#topictypedef)
   - [CheckIfPhoneNumberIsOptedOutResponseTypeDef](#checkifphonenumberisoptedoutresponsetypedef)
   - [ConfirmSubscriptionResponseTypeDef](#confirmsubscriptionresponsetypedef)
   - [CreateEndpointResponseTypeDef](#createendpointresponsetypedef)
   - [CreatePlatformApplicationResponseTypeDef](#createplatformapplicationresponsetypedef)
   - [CreateTopicResponseTypeDef](#createtopicresponsetypedef)
+  - [EndpointTypeDef](#endpointtypedef)
   - [GetEndpointAttributesResponseTypeDef](#getendpointattributesresponsetypedef)
   - [GetPlatformApplicationAttributesResponseTypeDef](#getplatformapplicationattributesresponsetypedef)
   - [GetSMSAttributesResponseTypeDef](#getsmsattributesresponsetypedef)
@@ -30,80 +26,12 @@ type annotations stubs module [mypy_boto3_sns](https://pypi.org/project/mypy-bot
   - [ListTopicsResponseTypeDef](#listtopicsresponsetypedef)
   - [MessageAttributeValueTypeDef](#messageattributevaluetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PlatformApplicationTypeDef](#platformapplicationtypedef)
   - [PublishResponseTypeDef](#publishresponsetypedef)
   - [SubscribeResponseTypeDef](#subscriberesponsetypedef)
-
-## EndpointTypeDef
-
-```python
-from mypy_boto3_sns.type_defs import EndpointTypeDef
-```
-
-
-
-
-Optional fields:
-- `EndpointArn`: `str`
-- `Attributes`: `Dict[str, str]`
-
-
-## PlatformApplicationTypeDef
-
-```python
-from mypy_boto3_sns.type_defs import PlatformApplicationTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlatformApplicationArn`: `str`
-- `Attributes`: `Dict[str, str]`
-
-
-## SubscriptionTypeDef
-
-```python
-from mypy_boto3_sns.type_defs import SubscriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `SubscriptionArn`: `str`
-- `Owner`: `str`
-- `Protocol`: `str`
-- `Endpoint`: `str`
-- `TopicArn`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_sns.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TopicTypeDef
-
-```python
-from mypy_boto3_sns.type_defs import TopicTypeDef
-```
-
-
-
-
-Optional fields:
-- `TopicArn`: `str`
-
+  - [SubscriptionTypeDef](#subscriptiontypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TopicTypeDef](#topictypedef)
 
 ## CheckIfPhoneNumberIsOptedOutResponseTypeDef
 
@@ -168,6 +96,20 @@ from mypy_boto3_sns.type_defs import CreateTopicResponseTypeDef
 
 Optional fields:
 - `TopicArn`: `str`
+
+
+## EndpointTypeDef
+
+```python
+from mypy_boto3_sns.type_defs import EndpointTypeDef
+```
+
+
+
+
+Optional fields:
+- `EndpointArn`: `str`
+- `Attributes`: `Dict[str, str]`
 
 
 ## GetEndpointAttributesResponseTypeDef
@@ -364,6 +306,20 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PlatformApplicationTypeDef
+
+```python
+from mypy_boto3_sns.type_defs import PlatformApplicationTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlatformApplicationArn`: `str`
+- `Attributes`: `Dict[str, str]`
+
+
 ## PublishResponseTypeDef
 
 ```python
@@ -389,4 +345,48 @@ from mypy_boto3_sns.type_defs import SubscribeResponseTypeDef
 
 Optional fields:
 - `SubscriptionArn`: `str`
+
+
+## SubscriptionTypeDef
+
+```python
+from mypy_boto3_sns.type_defs import SubscriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `SubscriptionArn`: `str`
+- `Owner`: `str`
+- `Protocol`: `str`
+- `Endpoint`: `str`
+- `TopicArn`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_sns.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TopicTypeDef
+
+```python
+from mypy_boto3_sns.type_defs import TopicTypeDef
+```
+
+
+
+
+Optional fields:
+- `TopicArn`: `str`
 

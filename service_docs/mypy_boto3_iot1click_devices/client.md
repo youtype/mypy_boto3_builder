@@ -25,7 +25,6 @@ type annotations stubs module [mypy_boto3_iot1click_devices](https://pypi.org/pr
     - [untag_resource](#untag_resource)
     - [update_device_state](#update_device_state)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## IoT1ClickDevicesServiceClient
 
@@ -290,32 +289,13 @@ def update_device_state(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("iot1click-devices").get_paginator` method.
-
-[Paginator.ListDeviceEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDeviceEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeviceEventsPaginatorName
-) -> ListDeviceEventsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("iot1click-devices").get_paginator` method.
+Type annotations for `boto3.client("iot1click-devices").get_paginator` method with overloads.
 
-[Paginator.ListDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDevices)
+- `client.get_paginator("list_device_events")` -> [ListDeviceEventsPaginator](./paginators.md#listdeviceeventspaginator)
+- `client.get_paginator("list_devices")` -> [ListDevicesPaginator](./paginators.md#listdevicespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDevicesPaginatorName
-) -> ListDevicesPaginator:
-    pass
-```
+

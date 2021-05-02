@@ -94,18 +94,18 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_detective.type_defs import GraphTypeDef, ...
+from mypy_boto3_detective.type_defs import AccountTypeDef, ...
 ```
 
-- [GraphTypeDef](./type_defs.md#graphtypedef)
-- [MemberDetailTypeDef](./type_defs.md#memberdetailtypedef)
-- [UnprocessedAccountTypeDef](./type_defs.md#unprocessedaccounttypedef)
 - [AccountTypeDef](./type_defs.md#accounttypedef)
 - [CreateGraphResponseTypeDef](./type_defs.md#creategraphresponsetypedef)
 - [CreateMembersResponseTypeDef](./type_defs.md#createmembersresponsetypedef)
 - [DeleteMembersResponseTypeDef](./type_defs.md#deletemembersresponsetypedef)
 - [GetMembersResponseTypeDef](./type_defs.md#getmembersresponsetypedef)
+- [GraphTypeDef](./type_defs.md#graphtypedef)
 - [ListGraphsResponseTypeDef](./type_defs.md#listgraphsresponsetypedef)
 - [ListInvitationsResponseTypeDef](./type_defs.md#listinvitationsresponsetypedef)
 - [ListMembersResponseTypeDef](./type_defs.md#listmembersresponsetypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
+- [MemberDetailTypeDef](./type_defs.md#memberdetailtypedef)
+- [UnprocessedAccountTypeDef](./type_defs.md#unprocessedaccounttypedef)

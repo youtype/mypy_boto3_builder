@@ -119,12 +119,12 @@ from mypy_boto3_importexport.type_defs import ArtifactTypeDef, ...
 ```
 
 - [ArtifactTypeDef](./type_defs.md#artifacttypedef)
-- [JobTypeDef](./type_defs.md#jobtypedef)
-- [ResponseMetadata](./type_defs.md#responsemetadata)
 - [CancelJobOutputTypeDef](./type_defs.md#canceljoboutputtypedef)
 - [CreateJobOutputTypeDef](./type_defs.md#createjoboutputtypedef)
 - [GetShippingLabelOutputTypeDef](./type_defs.md#getshippinglabeloutputtypedef)
 - [GetStatusOutputTypeDef](./type_defs.md#getstatusoutputtypedef)
+- [JobTypeDef](./type_defs.md#jobtypedef)
 - [ListJobsOutputTypeDef](./type_defs.md#listjobsoutputtypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)
 - [UpdateJobOutputTypeDef](./type_defs.md#updatejoboutputtypedef)

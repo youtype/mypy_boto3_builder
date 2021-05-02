@@ -27,8 +27,6 @@ type annotations stubs module [mypy_boto3_emr_containers](https://pypi.org/proje
     - [tag_resource](#tag_resource)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## EMRContainersClient
 
@@ -286,7 +284,7 @@ Type annotations for `boto3.client("emr-containers").list_virtual_clusters` meth
 def list_virtual_clusters(
     self,
     containerProviderId: str = None,
-    containerProviderType: ContainerProviderType = None,
+    containerProviderType: Literal['EKS'] = None,
     createdAfter: datetime = None,
     createdBefore: datetime = None,
     states: List[VirtualClusterState] = None,
@@ -347,47 +345,14 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("emr-containers").get_paginator` method.
-
-[Paginator.ListJobRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers.html#EMRContainers.Paginator.ListJobRuns)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobRunsPaginatorName
-) -> ListJobRunsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("emr-containers").get_paginator` method.
+Type annotations for `boto3.client("emr-containers").get_paginator` method with overloads.
 
-[Paginator.ListManagedEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers.html#EMRContainers.Paginator.ListManagedEndpoints)
+- `client.get_paginator("list_job_runs")` -> [ListJobRunsPaginator](./paginators.md#listjobrunspaginator)
+- `client.get_paginator("list_managed_endpoints")` -> [ListManagedEndpointsPaginator](./paginators.md#listmanagedendpointspaginator)
+- `client.get_paginator("list_virtual_clusters")` -> [ListVirtualClustersPaginator](./paginators.md#listvirtualclusterspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListManagedEndpointsPaginatorName
-) -> ListManagedEndpointsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("emr-containers").get_paginator` method.
-
-[Paginator.ListVirtualClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr-containers.html#EMRContainers.Paginator.ListVirtualClusters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListVirtualClustersPaginatorName
-) -> ListVirtualClustersPaginator:
-    pass
-```

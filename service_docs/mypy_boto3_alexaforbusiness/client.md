@@ -105,18 +105,6 @@ type annotations stubs module [mypy_boto3_alexaforbusiness](https://pypi.org/pro
     - [update_room](#update_room)
     - [update_skill_group](#update_skill_group)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
 
 ## AlexaForBusinessClient
 
@@ -391,7 +379,7 @@ def create_network_profile(
     SecurityType: NetworkSecurityType,
     ClientRequestToken: str,
     Description: str = None,
-    EapMethod: NetworkEapMethod = None,
+    EapMethod: Literal['EAP_TLS'] = None,
     CurrentPassword: str = None,
     NextPassword: str = None,
     CertificateAuthorityArn: str = None,
@@ -563,7 +551,7 @@ Type annotations for `boto3.client("alexaforbusiness").delete_device_usage_data`
 def delete_device_usage_data(
     self,
     DeviceArn: str,
-    DeviceUsageType: DeviceUsageType
+    DeviceUsageType: Literal['VOICE']
 ) -> Dict[str, Any]:
     pass
 ```
@@ -1684,197 +1672,24 @@ def update_skill_group(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.ListBusinessReportSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListBusinessReportSchedules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBusinessReportSchedulesPaginatorName
-) -> ListBusinessReportSchedulesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
+Type annotations for `boto3.client("alexaforbusiness").get_paginator` method with overloads.
 
-[Paginator.ListConferenceProviders documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListConferenceProviders)
+- `client.get_paginator("list_business_report_schedules")` -> [ListBusinessReportSchedulesPaginator](./paginators.md#listbusinessreportschedulespaginator)
+- `client.get_paginator("list_conference_providers")` -> [ListConferenceProvidersPaginator](./paginators.md#listconferenceproviderspaginator)
+- `client.get_paginator("list_device_events")` -> [ListDeviceEventsPaginator](./paginators.md#listdeviceeventspaginator)
+- `client.get_paginator("list_skills")` -> [ListSkillsPaginator](./paginators.md#listskillspaginator)
+- `client.get_paginator("list_skills_store_categories")` -> [ListSkillsStoreCategoriesPaginator](./paginators.md#listskillsstorecategoriespaginator)
+- `client.get_paginator("list_skills_store_skills_by_category")` -> [ListSkillsStoreSkillsByCategoryPaginator](./paginators.md#listskillsstoreskillsbycategorypaginator)
+- `client.get_paginator("list_smart_home_appliances")` -> [ListSmartHomeAppliancesPaginator](./paginators.md#listsmarthomeappliancespaginator)
+- `client.get_paginator("list_tags")` -> [ListTagsPaginator](./paginators.md#listtagspaginator)
+- `client.get_paginator("search_devices")` -> [SearchDevicesPaginator](./paginators.md#searchdevicespaginator)
+- `client.get_paginator("search_profiles")` -> [SearchProfilesPaginator](./paginators.md#searchprofilespaginator)
+- `client.get_paginator("search_rooms")` -> [SearchRoomsPaginator](./paginators.md#searchroomspaginator)
+- `client.get_paginator("search_skill_groups")` -> [SearchSkillGroupsPaginator](./paginators.md#searchskillgroupspaginator)
+- `client.get_paginator("search_users")` -> [SearchUsersPaginator](./paginators.md#searchuserspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListConferenceProvidersPaginatorName
-) -> ListConferenceProvidersPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.ListDeviceEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListDeviceEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeviceEventsPaginatorName
-) -> ListDeviceEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.ListSkills documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkills)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSkillsPaginatorName
-) -> ListSkillsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.ListSkillsStoreCategories documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreCategories)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSkillsStoreCategoriesPaginatorName
-) -> ListSkillsStoreCategoriesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.ListSkillsStoreSkillsByCategory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreSkillsByCategory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSkillsStoreSkillsByCategoryPaginatorName
-) -> ListSkillsStoreSkillsByCategoryPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.ListSmartHomeAppliances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSmartHomeAppliances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSmartHomeAppliancesPaginatorName
-) -> ListSmartHomeAppliancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListTags)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsPaginatorName
-) -> ListTagsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.SearchDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchDevices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchDevicesPaginatorName
-) -> SearchDevicesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.SearchProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchProfiles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchProfilesPaginatorName
-) -> SearchProfilesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.SearchRooms documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchRooms)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchRoomsPaginatorName
-) -> SearchRoomsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.SearchSkillGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchSkillGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchSkillGroupsPaginatorName
-) -> SearchSkillGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("alexaforbusiness").get_paginator` method.
-
-[Paginator.SearchUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchUsers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchUsersPaginatorName
-) -> SearchUsersPaginator:
-    pass
-```

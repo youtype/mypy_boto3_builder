@@ -6,34 +6,6 @@ Auto-generated documentation for [StorageGateway](https://boto3.amazonaws.com/v1
 type annotations stubs module [mypy_boto3_storagegateway](https://pypi.org/project/mypy-boto3-storagegateway/).
 
 - [Structures for boto3 StorageGateway module](#structures-for-boto3-storagegateway-module)
-  - [AutomaticTapeCreationPolicyInfoTypeDef](#automatictapecreationpolicyinfotypedef)
-  - [AutomaticTapeCreationRuleTypeDef](#automatictapecreationruletypedef)
-  - [BandwidthRateLimitIntervalTypeDef](#bandwidthratelimitintervaltypedef)
-  - [CacheAttributesTypeDef](#cacheattributestypedef)
-  - [CachediSCSIVolumeTypeDef](#cachediscsivolumetypedef)
-  - [ChapInfoTypeDef](#chapinfotypedef)
-  - [DeviceiSCSIAttributesTypeDef](#deviceiscsiattributestypedef)
-  - [DiskTypeDef](#disktypedef)
-  - [FileShareInfoTypeDef](#fileshareinfotypedef)
-  - [FileSystemAssociationInfoTypeDef](#filesystemassociationinfotypedef)
-  - [FileSystemAssociationSummaryTypeDef](#filesystemassociationsummarytypedef)
-  - [GatewayInfoTypeDef](#gatewayinfotypedef)
-  - [NFSFileShareDefaultsTypeDef](#nfsfilesharedefaultstypedef)
-  - [NFSFileShareInfoTypeDef](#nfsfileshareinfotypedef)
-  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
-  - [PoolInfoTypeDef](#poolinfotypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [SMBFileShareInfoTypeDef](#smbfileshareinfotypedef)
-  - [StorediSCSIVolumeTypeDef](#storediscsivolumetypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TapeArchiveTypeDef](#tapearchivetypedef)
-  - [TapeInfoTypeDef](#tapeinfotypedef)
-  - [TapeRecoveryPointInfoTypeDef](#taperecoverypointinfotypedef)
-  - [TapeTypeDef](#tapetypedef)
-  - [VTLDeviceTypeDef](#vtldevicetypedef)
-  - [VolumeInfoTypeDef](#volumeinfotypedef)
-  - [VolumeRecoveryPointInfoTypeDef](#volumerecoverypointinfotypedef)
-  - [VolumeiSCSIAttributesTypeDef](#volumeiscsiattributestypedef)
   - [ActivateGatewayOutputTypeDef](#activategatewayoutputtypedef)
   - [AddCacheOutputTypeDef](#addcacheoutputtypedef)
   - [AddTagsToResourceOutputTypeDef](#addtagstoresourceoutputtypedef)
@@ -42,8 +14,14 @@ type annotations stubs module [mypy_boto3_storagegateway](https://pypi.org/proje
   - [AssignTapePoolOutputTypeDef](#assigntapepooloutputtypedef)
   - [AssociateFileSystemOutputTypeDef](#associatefilesystemoutputtypedef)
   - [AttachVolumeOutputTypeDef](#attachvolumeoutputtypedef)
+  - [AutomaticTapeCreationPolicyInfoTypeDef](#automatictapecreationpolicyinfotypedef)
+  - [AutomaticTapeCreationRuleTypeDef](#automatictapecreationruletypedef)
+  - [BandwidthRateLimitIntervalTypeDef](#bandwidthratelimitintervaltypedef)
+  - [CacheAttributesTypeDef](#cacheattributestypedef)
+  - [CachediSCSIVolumeTypeDef](#cachediscsivolumetypedef)
   - [CancelArchivalOutputTypeDef](#cancelarchivaloutputtypedef)
   - [CancelRetrievalOutputTypeDef](#cancelretrievaloutputtypedef)
+  - [ChapInfoTypeDef](#chapinfotypedef)
   - [CreateCachediSCSIVolumeOutputTypeDef](#createcachediscsivolumeoutputtypedef)
   - [CreateNFSFileShareOutputTypeDef](#createnfsfileshareoutputtypedef)
   - [CreateSMBFileShareOutputTypeDef](#createsmbfileshareoutputtypedef)
@@ -84,8 +62,14 @@ type annotations stubs module [mypy_boto3_storagegateway](https://pypi.org/proje
   - [DescribeVTLDevicesOutputTypeDef](#describevtldevicesoutputtypedef)
   - [DescribeWorkingStorageOutputTypeDef](#describeworkingstorageoutputtypedef)
   - [DetachVolumeOutputTypeDef](#detachvolumeoutputtypedef)
+  - [DeviceiSCSIAttributesTypeDef](#deviceiscsiattributestypedef)
   - [DisableGatewayOutputTypeDef](#disablegatewayoutputtypedef)
   - [DisassociateFileSystemOutputTypeDef](#disassociatefilesystemoutputtypedef)
+  - [DiskTypeDef](#disktypedef)
+  - [FileShareInfoTypeDef](#fileshareinfotypedef)
+  - [FileSystemAssociationInfoTypeDef](#filesystemassociationinfotypedef)
+  - [FileSystemAssociationSummaryTypeDef](#filesystemassociationsummarytypedef)
+  - [GatewayInfoTypeDef](#gatewayinfotypedef)
   - [JoinDomainOutputTypeDef](#joindomainoutputtypedef)
   - [ListAutomaticTapeCreationPoliciesOutputTypeDef](#listautomatictapecreationpoliciesoutputtypedef)
   - [ListFileSharesOutputTypeDef](#listfilesharesoutputtypedef)
@@ -98,18 +82,30 @@ type annotations stubs module [mypy_boto3_storagegateway](https://pypi.org/proje
   - [ListVolumeInitiatorsOutputTypeDef](#listvolumeinitiatorsoutputtypedef)
   - [ListVolumeRecoveryPointsOutputTypeDef](#listvolumerecoverypointsoutputtypedef)
   - [ListVolumesOutputTypeDef](#listvolumesoutputtypedef)
+  - [NFSFileShareDefaultsTypeDef](#nfsfilesharedefaultstypedef)
+  - [NFSFileShareInfoTypeDef](#nfsfileshareinfotypedef)
+  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
   - [NotifyWhenUploadedOutputTypeDef](#notifywhenuploadedoutputtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PoolInfoTypeDef](#poolinfotypedef)
   - [RefreshCacheOutputTypeDef](#refreshcacheoutputtypedef)
   - [RemoveTagsFromResourceOutputTypeDef](#removetagsfromresourceoutputtypedef)
   - [ResetCacheOutputTypeDef](#resetcacheoutputtypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [RetrieveTapeArchiveOutputTypeDef](#retrievetapearchiveoutputtypedef)
   - [RetrieveTapeRecoveryPointOutputTypeDef](#retrievetaperecoverypointoutputtypedef)
+  - [SMBFileShareInfoTypeDef](#smbfileshareinfotypedef)
   - [SetLocalConsolePasswordOutputTypeDef](#setlocalconsolepasswordoutputtypedef)
   - [SetSMBGuestPasswordOutputTypeDef](#setsmbguestpasswordoutputtypedef)
   - [ShutdownGatewayOutputTypeDef](#shutdowngatewayoutputtypedef)
   - [StartAvailabilityMonitorTestOutputTypeDef](#startavailabilitymonitortestoutputtypedef)
   - [StartGatewayOutputTypeDef](#startgatewayoutputtypedef)
+  - [StorediSCSIVolumeTypeDef](#storediscsivolumetypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TapeArchiveTypeDef](#tapearchivetypedef)
+  - [TapeInfoTypeDef](#tapeinfotypedef)
+  - [TapeRecoveryPointInfoTypeDef](#taperecoverypointinfotypedef)
+  - [TapeTypeDef](#tapetypedef)
   - [UpdateAutomaticTapeCreationPolicyOutputTypeDef](#updateautomatictapecreationpolicyoutputtypedef)
   - [UpdateBandwidthRateLimitOutputTypeDef](#updatebandwidthratelimitoutputtypedef)
   - [UpdateBandwidthRateLimitScheduleOutputTypeDef](#updatebandwidthratelimitscheduleoutputtypedef)
@@ -124,554 +120,10 @@ type annotations stubs module [mypy_boto3_storagegateway](https://pypi.org/proje
   - [UpdateSMBSecurityStrategyOutputTypeDef](#updatesmbsecuritystrategyoutputtypedef)
   - [UpdateSnapshotScheduleOutputTypeDef](#updatesnapshotscheduleoutputtypedef)
   - [UpdateVTLDeviceTypeOutputTypeDef](#updatevtldevicetypeoutputtypedef)
-
-## AutomaticTapeCreationPolicyInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import AutomaticTapeCreationPolicyInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `AutomaticTapeCreationRules`: `List["AutomaticTapeCreationRuleTypeDef"]`
-- `GatewayARN`: `str`
-
-
-## AutomaticTapeCreationRuleTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import AutomaticTapeCreationRuleTypeDef
-```
-
-
-Required fields:
-- `TapeBarcodePrefix`: `str`
-- `PoolId`: `str`
-- `TapeSizeInBytes`: `int`
-- `MinimumNumTapes`: `int`
-
-
-
-Optional fields:
-- `Worm`: `bool`
-
-
-## BandwidthRateLimitIntervalTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import BandwidthRateLimitIntervalTypeDef
-```
-
-
-Required fields:
-- `StartHourOfDay`: `int`
-- `StartMinuteOfHour`: `int`
-- `EndHourOfDay`: `int`
-- `EndMinuteOfHour`: `int`
-- `DaysOfWeek`: `List[int]`
-
-
-
-Optional fields:
-- `AverageUploadRateLimitInBitsPerSec`: `int`
-- `AverageDownloadRateLimitInBitsPerSec`: `int`
-
-
-## CacheAttributesTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import CacheAttributesTypeDef
-```
-
-
-
-
-Optional fields:
-- `CacheStaleTimeoutInSeconds`: `int`
-
-
-## CachediSCSIVolumeTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import CachediSCSIVolumeTypeDef
-```
-
-
-
-
-Optional fields:
-- `VolumeARN`: `str`
-- `VolumeId`: `str`
-- `VolumeType`: `str`
-- `VolumeStatus`: `str`
-- `VolumeAttachmentStatus`: `str`
-- `VolumeSizeInBytes`: `int`
-- `VolumeProgress`: `float`
-- `SourceSnapshotId`: `str`
-- `VolumeiSCSIAttributes`: `"VolumeiSCSIAttributesTypeDef"`
-- `CreatedDate`: `datetime`
-- `VolumeUsedInBytes`: `int`
-- `KMSKey`: `str`
-- `TargetName`: `str`
-
-
-## ChapInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import ChapInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `TargetARN`: `str`
-- `SecretToAuthenticateInitiator`: `str`
-- `InitiatorName`: `str`
-- `SecretToAuthenticateTarget`: `str`
-
-
-## DeviceiSCSIAttributesTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import DeviceiSCSIAttributesTypeDef
-```
-
-
-
-
-Optional fields:
-- `TargetARN`: `str`
-- `NetworkInterfaceId`: `str`
-- `NetworkInterfacePort`: `int`
-- `ChapEnabled`: `bool`
-
-
-## DiskTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import DiskTypeDef
-```
-
-
-
-
-Optional fields:
-- `DiskId`: `str`
-- `DiskPath`: `str`
-- `DiskNode`: `str`
-- `DiskStatus`: `str`
-- `DiskSizeInBytes`: `int`
-- `DiskAllocationType`: `str`
-- `DiskAllocationResource`: `str`
-- `DiskAttributeList`: `List[str]`
-
-
-## FileShareInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import FileShareInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `FileShareType`: `FileShareType`
-- `FileShareARN`: `str`
-- `FileShareId`: `str`
-- `FileShareStatus`: `str`
-- `GatewayARN`: `str`
-
-
-## FileSystemAssociationInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import FileSystemAssociationInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `FileSystemAssociationARN`: `str`
-- `LocationARN`: `str`
-- `FileSystemAssociationStatus`: `str`
-- `AuditDestinationARN`: `str`
-- `GatewayARN`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `CacheAttributes`: `"CacheAttributesTypeDef"`
-
-
-## FileSystemAssociationSummaryTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import FileSystemAssociationSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `FileSystemAssociationId`: `str`
-- `FileSystemAssociationARN`: `str`
-- `FileSystemAssociationStatus`: `str`
-- `GatewayARN`: `str`
-
-
-## GatewayInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import GatewayInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `GatewayId`: `str`
-- `GatewayARN`: `str`
-- `GatewayType`: `str`
-- `GatewayOperationalState`: `str`
-- `GatewayName`: `str`
-- `Ec2InstanceId`: `str`
-- `Ec2InstanceRegion`: `str`
-
-
-## NFSFileShareDefaultsTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import NFSFileShareDefaultsTypeDef
-```
-
-
-
-
-Optional fields:
-- `FileMode`: `str`
-- `DirectoryMode`: `str`
-- `GroupId`: `int`
-- `OwnerId`: `int`
-
-
-## NFSFileShareInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import NFSFileShareInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `NFSFileShareDefaults`: `"NFSFileShareDefaultsTypeDef"`
-- `FileShareARN`: `str`
-- `FileShareId`: `str`
-- `FileShareStatus`: `str`
-- `GatewayARN`: `str`
-- `KMSEncrypted`: `bool`
-- `KMSKey`: `str`
-- `Path`: `str`
-- `Role`: `str`
-- `LocationARN`: `str`
-- `DefaultStorageClass`: `str`
-- `ObjectACL`: `ObjectACL`
-- `ClientList`: `List[str]`
-- `Squash`: `str`
-- `ReadOnly`: `bool`
-- `GuessMIMETypeEnabled`: `bool`
-- `RequesterPays`: `bool`
-- `Tags`: `List["TagTypeDef"]`
-- `FileShareName`: `str`
-- `CacheAttributes`: `"CacheAttributesTypeDef"`
-- `NotificationPolicy`: `str`
-
-
-## NetworkInterfaceTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import NetworkInterfaceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Ipv4Address`: `str`
-- `MacAddress`: `str`
-- `Ipv6Address`: `str`
-
-
-## PoolInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import PoolInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `PoolARN`: `str`
-- `PoolName`: `str`
-- `StorageClass`: `TapeStorageClass`
-- `RetentionLockType`: `RetentionLockType`
-- `RetentionLockTimeInDays`: `int`
-- `PoolStatus`: `PoolStatus`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_storagegateway.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## SMBFileShareInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import SMBFileShareInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `FileShareARN`: `str`
-- `FileShareId`: `str`
-- `FileShareStatus`: `str`
-- `GatewayARN`: `str`
-- `KMSEncrypted`: `bool`
-- `KMSKey`: `str`
-- `Path`: `str`
-- `Role`: `str`
-- `LocationARN`: `str`
-- `DefaultStorageClass`: `str`
-- `ObjectACL`: `ObjectACL`
-- `ReadOnly`: `bool`
-- `GuessMIMETypeEnabled`: `bool`
-- `RequesterPays`: `bool`
-- `SMBACLEnabled`: `bool`
-- `AccessBasedEnumeration`: `bool`
-- `AdminUserList`: `List[str]`
-- `ValidUserList`: `List[str]`
-- `InvalidUserList`: `List[str]`
-- `AuditDestinationARN`: `str`
-- `Authentication`: `str`
-- `CaseSensitivity`: `CaseSensitivity`
-- `Tags`: `List["TagTypeDef"]`
-- `FileShareName`: `str`
-- `CacheAttributes`: `"CacheAttributesTypeDef"`
-- `NotificationPolicy`: `str`
-
-
-## StorediSCSIVolumeTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import StorediSCSIVolumeTypeDef
-```
-
-
-
-
-Optional fields:
-- `VolumeARN`: `str`
-- `VolumeId`: `str`
-- `VolumeType`: `str`
-- `VolumeStatus`: `str`
-- `VolumeAttachmentStatus`: `str`
-- `VolumeSizeInBytes`: `int`
-- `VolumeProgress`: `float`
-- `VolumeDiskId`: `str`
-- `SourceSnapshotId`: `str`
-- `PreservedExistingData`: `bool`
-- `VolumeiSCSIAttributes`: `"VolumeiSCSIAttributesTypeDef"`
-- `CreatedDate`: `datetime`
-- `VolumeUsedInBytes`: `int`
-- `KMSKey`: `str`
-- `TargetName`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TapeArchiveTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import TapeArchiveTypeDef
-```
-
-
-
-
-Optional fields:
-- `TapeARN`: `str`
-- `TapeBarcode`: `str`
-- `TapeCreatedDate`: `datetime`
-- `TapeSizeInBytes`: `int`
-- `CompletionTime`: `datetime`
-- `RetrievedTo`: `str`
-- `TapeStatus`: `str`
-- `TapeUsedInBytes`: `int`
-- `KMSKey`: `str`
-- `PoolId`: `str`
-- `Worm`: `bool`
-- `RetentionStartDate`: `datetime`
-- `PoolEntryDate`: `datetime`
-
-
-## TapeInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import TapeInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `TapeARN`: `str`
-- `TapeBarcode`: `str`
-- `TapeSizeInBytes`: `int`
-- `TapeStatus`: `str`
-- `GatewayARN`: `str`
-- `PoolId`: `str`
-- `RetentionStartDate`: `datetime`
-- `PoolEntryDate`: `datetime`
-
-
-## TapeRecoveryPointInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import TapeRecoveryPointInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `TapeARN`: `str`
-- `TapeRecoveryPointTime`: `datetime`
-- `TapeSizeInBytes`: `int`
-- `TapeStatus`: `str`
-
-
-## TapeTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import TapeTypeDef
-```
-
-
-
-
-Optional fields:
-- `TapeARN`: `str`
-- `TapeBarcode`: `str`
-- `TapeCreatedDate`: `datetime`
-- `TapeSizeInBytes`: `int`
-- `TapeStatus`: `str`
-- `VTLDevice`: `str`
-- `Progress`: `float`
-- `TapeUsedInBytes`: `int`
-- `KMSKey`: `str`
-- `PoolId`: `str`
-- `Worm`: `bool`
-- `RetentionStartDate`: `datetime`
-- `PoolEntryDate`: `datetime`
-
-
-## VTLDeviceTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import VTLDeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `VTLDeviceARN`: `str`
-- `VTLDeviceType`: `str`
-- `VTLDeviceVendor`: `str`
-- `VTLDeviceProductIdentifier`: `str`
-- `DeviceiSCSIAttributes`: `"DeviceiSCSIAttributesTypeDef"`
-
-
-## VolumeInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import VolumeInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `VolumeARN`: `str`
-- `VolumeId`: `str`
-- `GatewayARN`: `str`
-- `GatewayId`: `str`
-- `VolumeType`: `str`
-- `VolumeSizeInBytes`: `int`
-- `VolumeAttachmentStatus`: `str`
-
-
-## VolumeRecoveryPointInfoTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import VolumeRecoveryPointInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `VolumeARN`: `str`
-- `VolumeSizeInBytes`: `int`
-- `VolumeUsageInBytes`: `int`
-- `VolumeRecoveryPointTime`: `str`
-
-
-## VolumeiSCSIAttributesTypeDef
-
-```python
-from mypy_boto3_storagegateway.type_defs import VolumeiSCSIAttributesTypeDef
-```
-
-
-
-
-Optional fields:
-- `TargetARN`: `str`
-- `NetworkInterfaceId`: `str`
-- `NetworkInterfacePort`: `int`
-- `LunNumber`: `int`
-- `ChapEnabled`: `bool`
-
+  - [VTLDeviceTypeDef](#vtldevicetypedef)
+  - [VolumeInfoTypeDef](#volumeinfotypedef)
+  - [VolumeRecoveryPointInfoTypeDef](#volumerecoverypointinfotypedef)
+  - [VolumeiSCSIAttributesTypeDef](#volumeiscsiattributestypedef)
 
 ## ActivateGatewayOutputTypeDef
 
@@ -786,6 +238,98 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## AutomaticTapeCreationPolicyInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import AutomaticTapeCreationPolicyInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `AutomaticTapeCreationRules`: `List["AutomaticTapeCreationRuleTypeDef"]`
+- `GatewayARN`: `str`
+
+
+## AutomaticTapeCreationRuleTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import AutomaticTapeCreationRuleTypeDef
+```
+
+
+Required fields:
+- `TapeBarcodePrefix`: `str`
+- `PoolId`: `str`
+- `TapeSizeInBytes`: `int`
+- `MinimumNumTapes`: `int`
+
+
+
+Optional fields:
+- `Worm`: `bool`
+
+
+## BandwidthRateLimitIntervalTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import BandwidthRateLimitIntervalTypeDef
+```
+
+
+Required fields:
+- `StartHourOfDay`: `int`
+- `StartMinuteOfHour`: `int`
+- `EndHourOfDay`: `int`
+- `EndMinuteOfHour`: `int`
+- `DaysOfWeek`: `List[int]`
+
+
+
+Optional fields:
+- `AverageUploadRateLimitInBitsPerSec`: `int`
+- `AverageDownloadRateLimitInBitsPerSec`: `int`
+
+
+## CacheAttributesTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import CacheAttributesTypeDef
+```
+
+
+
+
+Optional fields:
+- `CacheStaleTimeoutInSeconds`: `int`
+
+
+## CachediSCSIVolumeTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import CachediSCSIVolumeTypeDef
+```
+
+
+
+
+Optional fields:
+- `VolumeARN`: `str`
+- `VolumeId`: `str`
+- `VolumeType`: `str`
+- `VolumeStatus`: `str`
+- `VolumeAttachmentStatus`: `str`
+- `VolumeSizeInBytes`: `int`
+- `VolumeProgress`: `float`
+- `SourceSnapshotId`: `str`
+- `VolumeiSCSIAttributes`: `"VolumeiSCSIAttributesTypeDef"`
+- `CreatedDate`: `datetime`
+- `VolumeUsedInBytes`: `int`
+- `KMSKey`: `str`
+- `TargetName`: `str`
+
+
 ## CancelArchivalOutputTypeDef
 
 ```python
@@ -812,6 +356,22 @@ from mypy_boto3_storagegateway.type_defs import CancelRetrievalOutputTypeDef
 Optional fields:
 - `TapeARN`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ChapInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import ChapInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `TargetARN`: `str`
+- `SecretToAuthenticateInitiator`: `str`
+- `InitiatorName`: `str`
+- `SecretToAuthenticateTarget`: `str`
 
 
 ## CreateCachediSCSIVolumeOutputTypeDef
@@ -1436,6 +996,22 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## DeviceiSCSIAttributesTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import DeviceiSCSIAttributesTypeDef
+```
+
+
+
+
+Optional fields:
+- `TargetARN`: `str`
+- `NetworkInterfaceId`: `str`
+- `NetworkInterfacePort`: `int`
+- `ChapEnabled`: `bool`
+
+
 ## DisableGatewayOutputTypeDef
 
 ```python
@@ -1462,6 +1038,97 @@ from mypy_boto3_storagegateway.type_defs import DisassociateFileSystemOutputType
 Optional fields:
 - `FileSystemAssociationARN`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DiskTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import DiskTypeDef
+```
+
+
+
+
+Optional fields:
+- `DiskId`: `str`
+- `DiskPath`: `str`
+- `DiskNode`: `str`
+- `DiskStatus`: `str`
+- `DiskSizeInBytes`: `int`
+- `DiskAllocationType`: `str`
+- `DiskAllocationResource`: `str`
+- `DiskAttributeList`: `List[str]`
+
+
+## FileShareInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import FileShareInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `FileShareType`: `FileShareType`
+- `FileShareARN`: `str`
+- `FileShareId`: `str`
+- `FileShareStatus`: `str`
+- `GatewayARN`: `str`
+
+
+## FileSystemAssociationInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import FileSystemAssociationInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `FileSystemAssociationARN`: `str`
+- `LocationARN`: `str`
+- `FileSystemAssociationStatus`: `str`
+- `AuditDestinationARN`: `str`
+- `GatewayARN`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `CacheAttributes`: `"CacheAttributesTypeDef"`
+
+
+## FileSystemAssociationSummaryTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import FileSystemAssociationSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `FileSystemAssociationId`: `str`
+- `FileSystemAssociationARN`: `str`
+- `FileSystemAssociationStatus`: `str`
+- `GatewayARN`: `str`
+
+
+## GatewayInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import GatewayInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `GatewayId`: `str`
+- `GatewayARN`: `str`
+- `GatewayType`: `str`
+- `GatewayOperationalState`: `str`
+- `GatewayName`: `str`
+- `Ec2InstanceId`: `str`
+- `Ec2InstanceRegion`: `str`
 
 
 ## JoinDomainOutputTypeDef
@@ -1646,6 +1313,70 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## NFSFileShareDefaultsTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import NFSFileShareDefaultsTypeDef
+```
+
+
+
+
+Optional fields:
+- `FileMode`: `str`
+- `DirectoryMode`: `str`
+- `GroupId`: `int`
+- `OwnerId`: `int`
+
+
+## NFSFileShareInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import NFSFileShareInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `NFSFileShareDefaults`: `"NFSFileShareDefaultsTypeDef"`
+- `FileShareARN`: `str`
+- `FileShareId`: `str`
+- `FileShareStatus`: `str`
+- `GatewayARN`: `str`
+- `KMSEncrypted`: `bool`
+- `KMSKey`: `str`
+- `Path`: `str`
+- `Role`: `str`
+- `LocationARN`: `str`
+- `DefaultStorageClass`: `str`
+- `ObjectACL`: `ObjectACL`
+- `ClientList`: `List[str]`
+- `Squash`: `str`
+- `ReadOnly`: `bool`
+- `GuessMIMETypeEnabled`: `bool`
+- `RequesterPays`: `bool`
+- `Tags`: `List["TagTypeDef"]`
+- `FileShareName`: `str`
+- `CacheAttributes`: `"CacheAttributesTypeDef"`
+- `NotificationPolicy`: `str`
+
+
+## NetworkInterfaceTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import NetworkInterfaceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Ipv4Address`: `str`
+- `MacAddress`: `str`
+- `Ipv6Address`: `str`
+
+
 ## NotifyWhenUploadedOutputTypeDef
 
 ```python
@@ -1674,6 +1405,24 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PoolInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import PoolInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `PoolARN`: `str`
+- `PoolName`: `str`
+- `StorageClass`: `TapeStorageClass`
+- `RetentionLockType`: `RetentionLockType`
+- `RetentionLockTimeInDays`: `int`
+- `PoolStatus`: `PoolStatus`
 
 
 ## RefreshCacheOutputTypeDef
@@ -1719,6 +1468,23 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## ResponseMetadata
+
+```python
+from mypy_boto3_storagegateway.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
 ## RetrieveTapeArchiveOutputTypeDef
 
 ```python
@@ -1745,6 +1511,44 @@ from mypy_boto3_storagegateway.type_defs import RetrieveTapeRecoveryPointOutputT
 Optional fields:
 - `TapeARN`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## SMBFileShareInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import SMBFileShareInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `FileShareARN`: `str`
+- `FileShareId`: `str`
+- `FileShareStatus`: `str`
+- `GatewayARN`: `str`
+- `KMSEncrypted`: `bool`
+- `KMSKey`: `str`
+- `Path`: `str`
+- `Role`: `str`
+- `LocationARN`: `str`
+- `DefaultStorageClass`: `str`
+- `ObjectACL`: `ObjectACL`
+- `ReadOnly`: `bool`
+- `GuessMIMETypeEnabled`: `bool`
+- `RequesterPays`: `bool`
+- `SMBACLEnabled`: `bool`
+- `AccessBasedEnumeration`: `bool`
+- `AdminUserList`: `List[str]`
+- `ValidUserList`: `List[str]`
+- `InvalidUserList`: `List[str]`
+- `AuditDestinationARN`: `str`
+- `Authentication`: `str`
+- `CaseSensitivity`: `CaseSensitivity`
+- `Tags`: `List["TagTypeDef"]`
+- `FileShareName`: `str`
+- `CacheAttributes`: `"CacheAttributesTypeDef"`
+- `NotificationPolicy`: `str`
 
 
 ## SetLocalConsolePasswordOutputTypeDef
@@ -1815,6 +1619,133 @@ from mypy_boto3_storagegateway.type_defs import StartGatewayOutputTypeDef
 Optional fields:
 - `GatewayARN`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## StorediSCSIVolumeTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import StorediSCSIVolumeTypeDef
+```
+
+
+
+
+Optional fields:
+- `VolumeARN`: `str`
+- `VolumeId`: `str`
+- `VolumeType`: `str`
+- `VolumeStatus`: `str`
+- `VolumeAttachmentStatus`: `str`
+- `VolumeSizeInBytes`: `int`
+- `VolumeProgress`: `float`
+- `VolumeDiskId`: `str`
+- `SourceSnapshotId`: `str`
+- `PreservedExistingData`: `bool`
+- `VolumeiSCSIAttributes`: `"VolumeiSCSIAttributesTypeDef"`
+- `CreatedDate`: `datetime`
+- `VolumeUsedInBytes`: `int`
+- `KMSKey`: `str`
+- `TargetName`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TapeArchiveTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import TapeArchiveTypeDef
+```
+
+
+
+
+Optional fields:
+- `TapeARN`: `str`
+- `TapeBarcode`: `str`
+- `TapeCreatedDate`: `datetime`
+- `TapeSizeInBytes`: `int`
+- `CompletionTime`: `datetime`
+- `RetrievedTo`: `str`
+- `TapeStatus`: `str`
+- `TapeUsedInBytes`: `int`
+- `KMSKey`: `str`
+- `PoolId`: `str`
+- `Worm`: `bool`
+- `RetentionStartDate`: `datetime`
+- `PoolEntryDate`: `datetime`
+
+
+## TapeInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import TapeInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `TapeARN`: `str`
+- `TapeBarcode`: `str`
+- `TapeSizeInBytes`: `int`
+- `TapeStatus`: `str`
+- `GatewayARN`: `str`
+- `PoolId`: `str`
+- `RetentionStartDate`: `datetime`
+- `PoolEntryDate`: `datetime`
+
+
+## TapeRecoveryPointInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import TapeRecoveryPointInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `TapeARN`: `str`
+- `TapeRecoveryPointTime`: `datetime`
+- `TapeSizeInBytes`: `int`
+- `TapeStatus`: `str`
+
+
+## TapeTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import TapeTypeDef
+```
+
+
+
+
+Optional fields:
+- `TapeARN`: `str`
+- `TapeBarcode`: `str`
+- `TapeCreatedDate`: `datetime`
+- `TapeSizeInBytes`: `int`
+- `TapeStatus`: `str`
+- `VTLDevice`: `str`
+- `Progress`: `float`
+- `TapeUsedInBytes`: `int`
+- `KMSKey`: `str`
+- `PoolId`: `str`
+- `Worm`: `bool`
+- `RetentionStartDate`: `datetime`
+- `PoolEntryDate`: `datetime`
 
 
 ## UpdateAutomaticTapeCreationPolicyOutputTypeDef
@@ -2013,4 +1944,73 @@ from mypy_boto3_storagegateway.type_defs import UpdateVTLDeviceTypeOutputTypeDef
 Optional fields:
 - `VTLDeviceARN`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## VTLDeviceTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import VTLDeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `VTLDeviceARN`: `str`
+- `VTLDeviceType`: `str`
+- `VTLDeviceVendor`: `str`
+- `VTLDeviceProductIdentifier`: `str`
+- `DeviceiSCSIAttributes`: `"DeviceiSCSIAttributesTypeDef"`
+
+
+## VolumeInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import VolumeInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `VolumeARN`: `str`
+- `VolumeId`: `str`
+- `GatewayARN`: `str`
+- `GatewayId`: `str`
+- `VolumeType`: `str`
+- `VolumeSizeInBytes`: `int`
+- `VolumeAttachmentStatus`: `str`
+
+
+## VolumeRecoveryPointInfoTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import VolumeRecoveryPointInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `VolumeARN`: `str`
+- `VolumeSizeInBytes`: `int`
+- `VolumeUsageInBytes`: `int`
+- `VolumeRecoveryPointTime`: `str`
+
+
+## VolumeiSCSIAttributesTypeDef
+
+```python
+from mypy_boto3_storagegateway.type_defs import VolumeiSCSIAttributesTypeDef
+```
+
+
+
+
+Optional fields:
+- `TargetARN`: `str`
+- `NetworkInterfaceId`: `str`
+- `NetworkInterfacePort`: `int`
+- `LunNumber`: `int`
+- `ChapEnabled`: `bool`
 

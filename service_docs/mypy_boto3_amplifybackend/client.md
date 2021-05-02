@@ -490,16 +490,12 @@ def update_backend_job(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("amplifybackend").get_paginator` method.
+Type annotations for `boto3.client("amplifybackend").get_paginator` method with overloads.
 
-[Paginator.ListBackendJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/amplifybackend.html#AmplifyBackend.Paginator.ListBackendJobs)
+- `client.get_paginator("list_backend_jobs")` -> [ListBackendJobsPaginator](./paginators.md#listbackendjobspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListBackendJobsPaginatorName
-) -> ListBackendJobsPaginator:
-    pass
-```
+

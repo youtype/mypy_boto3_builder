@@ -91,11 +91,20 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_iotdeviceadvisor.type_defs import DeviceUnderTestTypeDef, ...
+from mypy_boto3_iotdeviceadvisor.type_defs import CreateSuiteDefinitionResponseTypeDef, ...
 ```
 
+- [CreateSuiteDefinitionResponseTypeDef](./type_defs.md#createsuitedefinitionresponsetypedef)
 - [DeviceUnderTestTypeDef](./type_defs.md#deviceundertesttypedef)
+- [GetSuiteDefinitionResponseTypeDef](./type_defs.md#getsuitedefinitionresponsetypedef)
+- [GetSuiteRunReportResponseTypeDef](./type_defs.md#getsuiterunreportresponsetypedef)
+- [GetSuiteRunResponseTypeDef](./type_defs.md#getsuiterunresponsetypedef)
 - [GroupResultTypeDef](./type_defs.md#groupresulttypedef)
+- [ListSuiteDefinitionsResponseTypeDef](./type_defs.md#listsuitedefinitionsresponsetypedef)
+- [ListSuiteRunsResponseTypeDef](./type_defs.md#listsuiterunsresponsetypedef)
+- [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
+- [ListTestCasesResponseTypeDef](./type_defs.md#listtestcasesresponsetypedef)
+- [StartSuiteRunResponseTypeDef](./type_defs.md#startsuiterunresponsetypedef)
 - [SuiteDefinitionConfigurationTypeDef](./type_defs.md#suitedefinitionconfigurationtypedef)
 - [SuiteDefinitionInformationTypeDef](./type_defs.md#suitedefinitioninformationtypedef)
 - [SuiteRunConfigurationTypeDef](./type_defs.md#suiterunconfigurationtypedef)
@@ -105,13 +114,4 @@ from mypy_boto3_iotdeviceadvisor.type_defs import DeviceUnderTestTypeDef, ...
 - [TestCaseRunTypeDef](./type_defs.md#testcaseruntypedef)
 - [TestCaseTypeDef](./type_defs.md#testcasetypedef)
 - [TestResultTypeDef](./type_defs.md#testresulttypedef)
-- [CreateSuiteDefinitionResponseTypeDef](./type_defs.md#createsuitedefinitionresponsetypedef)
-- [GetSuiteDefinitionResponseTypeDef](./type_defs.md#getsuitedefinitionresponsetypedef)
-- [GetSuiteRunReportResponseTypeDef](./type_defs.md#getsuiterunreportresponsetypedef)
-- [GetSuiteRunResponseTypeDef](./type_defs.md#getsuiterunresponsetypedef)
-- [ListSuiteDefinitionsResponseTypeDef](./type_defs.md#listsuitedefinitionsresponsetypedef)
-- [ListSuiteRunsResponseTypeDef](./type_defs.md#listsuiterunsresponsetypedef)
-- [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
-- [ListTestCasesResponseTypeDef](./type_defs.md#listtestcasesresponsetypedef)
-- [StartSuiteRunResponseTypeDef](./type_defs.md#startsuiterunresponsetypedef)
 - [UpdateSuiteDefinitionResponseTypeDef](./type_defs.md#updatesuitedefinitionresponsetypedef)

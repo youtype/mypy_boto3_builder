@@ -6,28 +6,44 @@ Auto-generated documentation for [Textract](https://boto3.amazonaws.com/v1/docum
 type annotations stubs module [mypy_boto3_textract](https://pypi.org/project/mypy-boto3-textract/).
 
 - [Structures for boto3 Textract module](#structures-for-boto3-textract-module)
+  - [AnalyzeDocumentResponseTypeDef](#analyzedocumentresponsetypedef)
   - [BlockTypeDef](#blocktypedef)
   - [BoundingBoxTypeDef](#boundingboxtypedef)
+  - [DetectDocumentTextResponseTypeDef](#detectdocumenttextresponsetypedef)
+  - [DocumentLocationTypeDef](#documentlocationtypedef)
   - [DocumentMetadataTypeDef](#documentmetadatatypedef)
+  - [DocumentTypeDef](#documenttypedef)
   - [GeometryTypeDef](#geometrytypedef)
+  - [GetDocumentAnalysisResponseTypeDef](#getdocumentanalysisresponsetypedef)
+  - [GetDocumentTextDetectionResponseTypeDef](#getdocumenttextdetectionresponsetypedef)
   - [HumanLoopActivationOutputTypeDef](#humanloopactivationoutputtypedef)
+  - [HumanLoopConfigTypeDef](#humanloopconfigtypedef)
   - [HumanLoopDataAttributesTypeDef](#humanloopdataattributestypedef)
+  - [NotificationChannelTypeDef](#notificationchanneltypedef)
+  - [OutputConfigTypeDef](#outputconfigtypedef)
   - [PointTypeDef](#pointtypedef)
   - [RelationshipTypeDef](#relationshiptypedef)
   - [ResponseMetadata](#responsemetadata)
   - [S3ObjectTypeDef](#s3objecttypedef)
-  - [WarningTypeDef](#warningtypedef)
-  - [AnalyzeDocumentResponseTypeDef](#analyzedocumentresponsetypedef)
-  - [DetectDocumentTextResponseTypeDef](#detectdocumenttextresponsetypedef)
-  - [DocumentLocationTypeDef](#documentlocationtypedef)
-  - [DocumentTypeDef](#documenttypedef)
-  - [GetDocumentAnalysisResponseTypeDef](#getdocumentanalysisresponsetypedef)
-  - [GetDocumentTextDetectionResponseTypeDef](#getdocumenttextdetectionresponsetypedef)
-  - [HumanLoopConfigTypeDef](#humanloopconfigtypedef)
-  - [NotificationChannelTypeDef](#notificationchanneltypedef)
-  - [OutputConfigTypeDef](#outputconfigtypedef)
   - [StartDocumentAnalysisResponseTypeDef](#startdocumentanalysisresponsetypedef)
   - [StartDocumentTextDetectionResponseTypeDef](#startdocumenttextdetectionresponsetypedef)
+  - [WarningTypeDef](#warningtypedef)
+
+## AnalyzeDocumentResponseTypeDef
+
+```python
+from mypy_boto3_textract.type_defs import AnalyzeDocumentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DocumentMetadata`: `"DocumentMetadataTypeDef"`
+- `Blocks`: `List["BlockTypeDef"]`
+- `HumanLoopActivationOutput`: `"HumanLoopActivationOutputTypeDef"`
+- `AnalyzeDocumentModelVersion`: `str`
+
 
 ## BlockTypeDef
 
@@ -71,6 +87,34 @@ Optional fields:
 - `Top`: `float`
 
 
+## DetectDocumentTextResponseTypeDef
+
+```python
+from mypy_boto3_textract.type_defs import DetectDocumentTextResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DocumentMetadata`: `"DocumentMetadataTypeDef"`
+- `Blocks`: `List["BlockTypeDef"]`
+- `DetectDocumentTextModelVersion`: `str`
+
+
+## DocumentLocationTypeDef
+
+```python
+from mypy_boto3_textract.type_defs import DocumentLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3Object`: `"S3ObjectTypeDef"`
+
+
 ## DocumentMetadataTypeDef
 
 ```python
@@ -82,6 +126,20 @@ from mypy_boto3_textract.type_defs import DocumentMetadataTypeDef
 
 Optional fields:
 - `Pages`: `int`
+
+
+## DocumentTypeDef
+
+```python
+from mypy_boto3_textract.type_defs import DocumentTypeDef
+```
+
+
+
+
+Optional fields:
+- `Bytes`: `Union[bytes, IO[bytes]]`
+- `S3Object`: `"S3ObjectTypeDef"`
 
 
 ## GeometryTypeDef
@@ -96,6 +154,44 @@ from mypy_boto3_textract.type_defs import GeometryTypeDef
 Optional fields:
 - `BoundingBox`: `"BoundingBoxTypeDef"`
 - `Polygon`: `List["PointTypeDef"]`
+
+
+## GetDocumentAnalysisResponseTypeDef
+
+```python
+from mypy_boto3_textract.type_defs import GetDocumentAnalysisResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DocumentMetadata`: `"DocumentMetadataTypeDef"`
+- `JobStatus`: `JobStatus`
+- `NextToken`: `str`
+- `Blocks`: `List["BlockTypeDef"]`
+- `Warnings`: `List["WarningTypeDef"]`
+- `StatusMessage`: `str`
+- `AnalyzeDocumentModelVersion`: `str`
+
+
+## GetDocumentTextDetectionResponseTypeDef
+
+```python
+from mypy_boto3_textract.type_defs import GetDocumentTextDetectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DocumentMetadata`: `"DocumentMetadataTypeDef"`
+- `JobStatus`: `JobStatus`
+- `NextToken`: `str`
+- `Blocks`: `List["BlockTypeDef"]`
+- `Warnings`: `List["WarningTypeDef"]`
+- `StatusMessage`: `str`
+- `DetectDocumentTextModelVersion`: `str`
 
 
 ## HumanLoopActivationOutputTypeDef
@@ -114,6 +210,23 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## HumanLoopConfigTypeDef
+
+```python
+from mypy_boto3_textract.type_defs import HumanLoopConfigTypeDef
+```
+
+
+Required fields:
+- `HumanLoopName`: `str`
+- `FlowDefinitionArn`: `str`
+
+
+
+Optional fields:
+- `DataAttributes`: `"HumanLoopDataAttributesTypeDef"`
+
+
 ## HumanLoopDataAttributesTypeDef
 
 ```python
@@ -125,6 +238,36 @@ from mypy_boto3_textract.type_defs import HumanLoopDataAttributesTypeDef
 
 Optional fields:
 - `ContentClassifiers`: `List[ContentClassifier]`
+
+
+## NotificationChannelTypeDef
+
+```python
+from mypy_boto3_textract.type_defs import NotificationChannelTypeDef
+```
+
+
+Required fields:
+- `SNSTopicArn`: `str`
+- `RoleArn`: `str`
+
+
+
+
+## OutputConfigTypeDef
+
+```python
+from mypy_boto3_textract.type_defs import OutputConfigTypeDef
+```
+
+
+Required fields:
+- `S3Bucket`: `str`
+
+
+
+Optional fields:
+- `S3Prefix`: `str`
 
 
 ## PointTypeDef
@@ -187,163 +330,6 @@ Optional fields:
 - `Version`: `str`
 
 
-## WarningTypeDef
-
-```python
-from mypy_boto3_textract.type_defs import WarningTypeDef
-```
-
-
-
-
-Optional fields:
-- `ErrorCode`: `str`
-- `Pages`: `List[int]`
-
-
-## AnalyzeDocumentResponseTypeDef
-
-```python
-from mypy_boto3_textract.type_defs import AnalyzeDocumentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DocumentMetadata`: `"DocumentMetadataTypeDef"`
-- `Blocks`: `List["BlockTypeDef"]`
-- `HumanLoopActivationOutput`: `"HumanLoopActivationOutputTypeDef"`
-- `AnalyzeDocumentModelVersion`: `str`
-
-
-## DetectDocumentTextResponseTypeDef
-
-```python
-from mypy_boto3_textract.type_defs import DetectDocumentTextResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DocumentMetadata`: `"DocumentMetadataTypeDef"`
-- `Blocks`: `List["BlockTypeDef"]`
-- `DetectDocumentTextModelVersion`: `str`
-
-
-## DocumentLocationTypeDef
-
-```python
-from mypy_boto3_textract.type_defs import DocumentLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3Object`: `"S3ObjectTypeDef"`
-
-
-## DocumentTypeDef
-
-```python
-from mypy_boto3_textract.type_defs import DocumentTypeDef
-```
-
-
-
-
-Optional fields:
-- `Bytes`: `Union[bytes, IO[bytes]]`
-- `S3Object`: `"S3ObjectTypeDef"`
-
-
-## GetDocumentAnalysisResponseTypeDef
-
-```python
-from mypy_boto3_textract.type_defs import GetDocumentAnalysisResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DocumentMetadata`: `"DocumentMetadataTypeDef"`
-- `JobStatus`: `JobStatus`
-- `NextToken`: `str`
-- `Blocks`: `List["BlockTypeDef"]`
-- `Warnings`: `List["WarningTypeDef"]`
-- `StatusMessage`: `str`
-- `AnalyzeDocumentModelVersion`: `str`
-
-
-## GetDocumentTextDetectionResponseTypeDef
-
-```python
-from mypy_boto3_textract.type_defs import GetDocumentTextDetectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DocumentMetadata`: `"DocumentMetadataTypeDef"`
-- `JobStatus`: `JobStatus`
-- `NextToken`: `str`
-- `Blocks`: `List["BlockTypeDef"]`
-- `Warnings`: `List["WarningTypeDef"]`
-- `StatusMessage`: `str`
-- `DetectDocumentTextModelVersion`: `str`
-
-
-## HumanLoopConfigTypeDef
-
-```python
-from mypy_boto3_textract.type_defs import HumanLoopConfigTypeDef
-```
-
-
-Required fields:
-- `HumanLoopName`: `str`
-- `FlowDefinitionArn`: `str`
-
-
-
-Optional fields:
-- `DataAttributes`: `"HumanLoopDataAttributesTypeDef"`
-
-
-## NotificationChannelTypeDef
-
-```python
-from mypy_boto3_textract.type_defs import NotificationChannelTypeDef
-```
-
-
-Required fields:
-- `SNSTopicArn`: `str`
-- `RoleArn`: `str`
-
-
-
-
-## OutputConfigTypeDef
-
-```python
-from mypy_boto3_textract.type_defs import OutputConfigTypeDef
-```
-
-
-Required fields:
-- `S3Bucket`: `str`
-
-
-
-Optional fields:
-- `S3Prefix`: `str`
-
-
 ## StartDocumentAnalysisResponseTypeDef
 
 ```python
@@ -368,4 +354,18 @@ from mypy_boto3_textract.type_defs import StartDocumentTextDetectionResponseType
 
 Optional fields:
 - `JobId`: `str`
+
+
+## WarningTypeDef
+
+```python
+from mypy_boto3_textract.type_defs import WarningTypeDef
+```
+
+
+
+
+Optional fields:
+- `ErrorCode`: `str`
+- `Pages`: `List[int]`
 

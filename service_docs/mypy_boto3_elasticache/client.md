@@ -77,26 +77,7 @@ type annotations stubs module [mypy_boto3_elasticache](https://pypi.org/project/
     - [start_migration](#start_migration)
     - [test_failover](#test_failover)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
 
 ## ElastiCacheClient
 
@@ -1396,317 +1377,38 @@ def test_failover(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeCacheClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheClusters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCacheClustersPaginatorName
-) -> DescribeCacheClustersPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("elasticache").get_paginator` method.
+Type annotations for `boto3.client("elasticache").get_paginator` method with overloads.
 
-[Paginator.DescribeCacheEngineVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheEngineVersions)
+- `client.get_paginator("describe_cache_clusters")` -> [DescribeCacheClustersPaginator](./paginators.md#describecacheclusterspaginator)
+- `client.get_paginator("describe_cache_engine_versions")` -> [DescribeCacheEngineVersionsPaginator](./paginators.md#describecacheengineversionspaginator)
+- `client.get_paginator("describe_cache_parameter_groups")` -> [DescribeCacheParameterGroupsPaginator](./paginators.md#describecacheparametergroupspaginator)
+- `client.get_paginator("describe_cache_parameters")` -> [DescribeCacheParametersPaginator](./paginators.md#describecacheparameterspaginator)
+- `client.get_paginator("describe_cache_security_groups")` -> [DescribeCacheSecurityGroupsPaginator](./paginators.md#describecachesecuritygroupspaginator)
+- `client.get_paginator("describe_cache_subnet_groups")` -> [DescribeCacheSubnetGroupsPaginator](./paginators.md#describecachesubnetgroupspaginator)
+- `client.get_paginator("describe_engine_default_parameters")` -> [DescribeEngineDefaultParametersPaginator](./paginators.md#describeenginedefaultparameterspaginator)
+- `client.get_paginator("describe_events")` -> [DescribeEventsPaginator](./paginators.md#describeeventspaginator)
+- `client.get_paginator("describe_global_replication_groups")` -> [DescribeGlobalReplicationGroupsPaginator](./paginators.md#describeglobalreplicationgroupspaginator)
+- `client.get_paginator("describe_replication_groups")` -> [DescribeReplicationGroupsPaginator](./paginators.md#describereplicationgroupspaginator)
+- `client.get_paginator("describe_reserved_cache_nodes")` -> [DescribeReservedCacheNodesPaginator](./paginators.md#describereservedcachenodespaginator)
+- `client.get_paginator("describe_reserved_cache_nodes_offerings")` -> [DescribeReservedCacheNodesOfferingsPaginator](./paginators.md#describereservedcachenodesofferingspaginator)
+- `client.get_paginator("describe_service_updates")` -> [DescribeServiceUpdatesPaginator](./paginators.md#describeserviceupdatespaginator)
+- `client.get_paginator("describe_snapshots")` -> [DescribeSnapshotsPaginator](./paginators.md#describesnapshotspaginator)
+- `client.get_paginator("describe_update_actions")` -> [DescribeUpdateActionsPaginator](./paginators.md#describeupdateactionspaginator)
+- `client.get_paginator("describe_user_groups")` -> [DescribeUserGroupsPaginator](./paginators.md#describeusergroupspaginator)
+- `client.get_paginator("describe_users")` -> [DescribeUsersPaginator](./paginators.md#describeuserspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCacheEngineVersionsPaginatorName
-) -> DescribeCacheEngineVersionsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeCacheParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameterGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCacheParameterGroupsPaginatorName
-) -> DescribeCacheParameterGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeCacheParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCacheParametersPaginatorName
-) -> DescribeCacheParametersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeCacheSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSecurityGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCacheSecurityGroupsPaginatorName
-) -> DescribeCacheSecurityGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeCacheSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSubnetGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCacheSubnetGroupsPaginatorName
-) -> DescribeCacheSubnetGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeEngineDefaultParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEngineDefaultParameters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEngineDefaultParametersPaginatorName
-) -> DescribeEngineDefaultParametersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventsPaginatorName
-) -> DescribeEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeGlobalReplicationGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeGlobalReplicationGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeGlobalReplicationGroupsPaginatorName
-) -> DescribeGlobalReplicationGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeReplicationGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReplicationGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReplicationGroupsPaginatorName
-) -> DescribeReplicationGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeReservedCacheNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReservedCacheNodesPaginatorName
-) -> DescribeReservedCacheNodesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeReservedCacheNodesOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodesOfferings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReservedCacheNodesOfferingsPaginatorName
-) -> DescribeReservedCacheNodesOfferingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeServiceUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServiceUpdates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeServiceUpdatesPaginatorName
-) -> DescribeServiceUpdatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeSnapshots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSnapshotsPaginatorName
-) -> DescribeSnapshotsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeUpdateActions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUpdateActions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeUpdateActionsPaginatorName
-) -> DescribeUpdateActionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeUserGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUserGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeUserGroupsPaginatorName
-) -> DescribeUserGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elasticache").get_paginator` method.
-
-[Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUsers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeUsersPaginatorName
-) -> DescribeUsersPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("elasticache").get_waiter` method.
+Type annotations for `boto3.client("elasticache").get_waiter` method with overloads.
 
-[Waiter.CacheClusterAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: CacheClusterAvailableWaiterName
-) -> CacheClusterAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("elasticache").get_waiter` method.
-
-[Waiter.CacheClusterDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: CacheClusterDeletedWaiterName
-) -> CacheClusterDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("elasticache").get_waiter` method.
-
-[Waiter.ReplicationGroupAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ReplicationGroupAvailableWaiterName
-) -> ReplicationGroupAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("elasticache").get_waiter` method.
-
-[Waiter.ReplicationGroupDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ReplicationGroupDeletedWaiterName
-) -> ReplicationGroupDeletedWaiter:
-    pass
-```
+- `client.get_waiter("cache_cluster_available")` -> [CacheClusterAvailableWaiter](./waiters.md#cacheclusteravailablewaiter)
+- `client.get_waiter("cache_cluster_deleted")` -> [CacheClusterDeletedWaiter](./waiters.md#cacheclusterdeletedwaiter)
+- `client.get_waiter("replication_group_available")` -> [ReplicationGroupAvailableWaiter](./waiters.md#replicationgroupavailablewaiter)
+- `client.get_waiter("replication_group_deleted")` -> [ReplicationGroupDeletedWaiter](./waiters.md#replicationgroupdeletedwaiter)

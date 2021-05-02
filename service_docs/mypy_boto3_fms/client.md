@@ -38,8 +38,6 @@ type annotations stubs module [mypy_boto3_fms](https://pypi.org/project/mypy-bot
     - [tag_resource](#tag_resource)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## FMSClient
 
@@ -495,47 +493,14 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("fms").get_paginator` method.
-
-[Paginator.ListComplianceStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms.html#FMS.Paginator.ListComplianceStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListComplianceStatusPaginatorName
-) -> ListComplianceStatusPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("fms").get_paginator` method.
+Type annotations for `boto3.client("fms").get_paginator` method with overloads.
 
-[Paginator.ListMemberAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms.html#FMS.Paginator.ListMemberAccounts)
+- `client.get_paginator("list_compliance_status")` -> [ListComplianceStatusPaginator](./paginators.md#listcompliancestatuspaginator)
+- `client.get_paginator("list_member_accounts")` -> [ListMemberAccountsPaginator](./paginators.md#listmemberaccountspaginator)
+- `client.get_paginator("list_policies")` -> [ListPoliciesPaginator](./paginators.md#listpoliciespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMemberAccountsPaginatorName
-) -> ListMemberAccountsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("fms").get_paginator` method.
-
-[Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fms.html#FMS.Paginator.ListPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPoliciesPaginatorName
-) -> ListPoliciesPaginator:
-    pass
-```

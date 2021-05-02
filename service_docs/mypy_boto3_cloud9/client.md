@@ -25,7 +25,6 @@ type annotations stubs module [mypy_boto3_cloud9](https://pypi.org/project/mypy-
     - [update_environment](#update_environment)
     - [update_environment_membership](#update_environment_membership)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## Cloud9Client
 
@@ -302,32 +301,13 @@ def update_environment_membership(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("cloud9").get_paginator` method.
-
-[Paginator.DescribeEnvironmentMemberships documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloud9.html#Cloud9.Paginator.DescribeEnvironmentMemberships)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEnvironmentMembershipsPaginatorName
-) -> DescribeEnvironmentMembershipsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("cloud9").get_paginator` method.
+Type annotations for `boto3.client("cloud9").get_paginator` method with overloads.
 
-[Paginator.ListEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloud9.html#Cloud9.Paginator.ListEnvironments)
+- `client.get_paginator("describe_environment_memberships")` -> [DescribeEnvironmentMembershipsPaginator](./paginators.md#describeenvironmentmembershipspaginator)
+- `client.get_paginator("list_environments")` -> [ListEnvironmentsPaginator](./paginators.md#listenvironmentspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEnvironmentsPaginatorName
-) -> ListEnvironmentsPaginator:
-    pass
-```
+

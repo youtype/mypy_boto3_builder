@@ -182,16 +182,12 @@ def list_fragments(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("kinesis-video-archived-media").get_paginator` method.
+Type annotations for `boto3.client("kinesis-video-archived-media").get_paginator` method with overloads.
 
-[Paginator.ListFragments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Paginator.ListFragments)
+- `client.get_paginator("list_fragments")` -> [ListFragmentsPaginator](./paginators.md#listfragmentspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListFragmentsPaginatorName
-) -> ListFragmentsPaginator:
-    pass
-```
+

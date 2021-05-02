@@ -32,7 +32,6 @@ type annotations stubs module [mypy_boto3_sqs](https://pypi.org/project/mypy-bot
     - [tag_queue](#tag_queue)
     - [untag_queue](#untag_queue)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## SQSClient
 
@@ -358,7 +357,7 @@ def send_message(
     MessageBody: str,
     DelaySeconds: int = None,
     MessageAttributes: Dict[str, "MessageAttributeValueTypeDef"] = None,
-    MessageSystemAttributes: Dict[MessageSystemAttributeNameForSends, "MessageSystemAttributeValueTypeDef"] = None,
+    MessageSystemAttributes: Dict[Literal['AWSTraceHeader'], "MessageSystemAttributeValueTypeDef"] = None,
     MessageDeduplicationId: str = None,
     MessageGroupId: str = None
 ) -> SendMessageResultTypeDef:
@@ -425,32 +424,13 @@ def untag_queue(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("sqs").get_paginator` method.
-
-[Paginator.ListDeadLetterSourceQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Paginator.ListDeadLetterSourceQueues)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDeadLetterSourceQueuesPaginatorName
-) -> ListDeadLetterSourceQueuesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("sqs").get_paginator` method.
+Type annotations for `boto3.client("sqs").get_paginator` method with overloads.
 
-[Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sqs.html#SQS.Paginator.ListQueues)
+- `client.get_paginator("list_dead_letter_source_queues")` -> [ListDeadLetterSourceQueuesPaginator](./paginators.md#listdeadlettersourcequeuespaginator)
+- `client.get_paginator("list_queues")` -> [ListQueuesPaginator](./paginators.md#listqueuespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListQueuesPaginatorName
-) -> ListQueuesPaginator:
-    pass
-```
+

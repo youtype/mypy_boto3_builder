@@ -46,17 +46,7 @@ type annotations stubs module [mypy_boto3_elbv2](https://pypi.org/project/mypy-b
     - [set_security_groups](#set_security_groups)
     - [set_subnets](#set_subnets)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
-    - [get_waiter](#get_waiter-4)
 
 ## ElasticLoadBalancingv2Client
 
@@ -716,182 +706,29 @@ def set_subnets(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("elbv2").get_paginator` method.
-
-[Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeAccountLimits)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAccountLimitsPaginatorName
-) -> DescribeAccountLimitsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("elbv2").get_paginator` method.
+Type annotations for `boto3.client("elbv2").get_paginator` method with overloads.
 
-[Paginator.DescribeListenerCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListenerCertificates)
+- `client.get_paginator("describe_account_limits")` -> [DescribeAccountLimitsPaginator](./paginators.md#describeaccountlimitspaginator)
+- `client.get_paginator("describe_listener_certificates")` -> [DescribeListenerCertificatesPaginator](./paginators.md#describelistenercertificatespaginator)
+- `client.get_paginator("describe_listeners")` -> [DescribeListenersPaginator](./paginators.md#describelistenerspaginator)
+- `client.get_paginator("describe_load_balancers")` -> [DescribeLoadBalancersPaginator](./paginators.md#describeloadbalancerspaginator)
+- `client.get_paginator("describe_rules")` -> [DescribeRulesPaginator](./paginators.md#describerulespaginator)
+- `client.get_paginator("describe_ssl_policies")` -> [DescribeSSLPoliciesPaginator](./paginators.md#describesslpoliciespaginator)
+- `client.get_paginator("describe_target_groups")` -> [DescribeTargetGroupsPaginator](./paginators.md#describetargetgroupspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeListenerCertificatesPaginatorName
-) -> DescribeListenerCertificatesPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("elbv2").get_paginator` method.
-
-[Paginator.DescribeListeners documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListeners)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeListenersPaginatorName
-) -> DescribeListenersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elbv2").get_paginator` method.
-
-[Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeLoadBalancers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeLoadBalancersPaginatorName
-) -> DescribeLoadBalancersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elbv2").get_paginator` method.
-
-[Paginator.DescribeRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeRules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeRulesPaginatorName
-) -> DescribeRulesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elbv2").get_paginator` method.
-
-[Paginator.DescribeSSLPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeSSLPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSSLPoliciesPaginatorName
-) -> DescribeSSLPoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elbv2").get_paginator` method.
-
-[Paginator.DescribeTargetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeTargetGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTargetGroupsPaginatorName
-) -> DescribeTargetGroupsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("elbv2").get_waiter` method.
+Type annotations for `boto3.client("elbv2").get_waiter` method with overloads.
 
-[Waiter.LoadBalancerAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: LoadBalancerAvailableWaiterName
-) -> LoadBalancerAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("elbv2").get_waiter` method.
-
-[Waiter.LoadBalancerExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: LoadBalancerExistsWaiterName
-) -> LoadBalancerExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("elbv2").get_waiter` method.
-
-[Waiter.LoadBalancersDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: LoadBalancersDeletedWaiterName
-) -> LoadBalancersDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("elbv2").get_waiter` method.
-
-[Waiter.TargetDeregistered documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: TargetDeregisteredWaiterName
-) -> TargetDeregisteredWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("elbv2").get_waiter` method.
-
-[Waiter.TargetInService documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetInService)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: TargetInServiceWaiterName
-) -> TargetInServiceWaiter:
-    pass
-```
+- `client.get_waiter("load_balancer_available")` -> [LoadBalancerAvailableWaiter](./waiters.md#loadbalanceravailablewaiter)
+- `client.get_waiter("load_balancer_exists")` -> [LoadBalancerExistsWaiter](./waiters.md#loadbalancerexistswaiter)
+- `client.get_waiter("load_balancers_deleted")` -> [LoadBalancersDeletedWaiter](./waiters.md#loadbalancersdeletedwaiter)
+- `client.get_waiter("target_deregistered")` -> [TargetDeregisteredWaiter](./waiters.md#targetderegisteredwaiter)
+- `client.get_waiter("target_in_service")` -> [TargetInServiceWaiter](./waiters.md#targetinservicewaiter)

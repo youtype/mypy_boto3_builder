@@ -8,41 +8,26 @@ type annotations stubs module [mypy_boto3_lambda](https://pypi.org/project/mypy-
 - [Structures for boto3 Lambda module](#structures-for-boto3-lambda-module)
   - [AccountLimitTypeDef](#accountlimittypedef)
   - [AccountUsageTypeDef](#accountusagetypedef)
+  - [AddLayerVersionPermissionResponseTypeDef](#addlayerversionpermissionresponsetypedef)
+  - [AddPermissionResponseTypeDef](#addpermissionresponsetypedef)
   - [AliasConfigurationTypeDef](#aliasconfigurationtypedef)
   - [AliasRoutingConfigurationTypeDef](#aliasroutingconfigurationtypedef)
   - [AllowedPublishersTypeDef](#allowedpublisherstypedef)
   - [CodeSigningConfigTypeDef](#codesigningconfigtypedef)
   - [CodeSigningPoliciesTypeDef](#codesigningpoliciestypedef)
   - [ConcurrencyTypeDef](#concurrencytypedef)
+  - [CreateCodeSigningConfigResponseTypeDef](#createcodesigningconfigresponsetypedef)
   - [DeadLetterConfigTypeDef](#deadletterconfigtypedef)
   - [DestinationConfigTypeDef](#destinationconfigtypedef)
   - [EnvironmentErrorTypeDef](#environmenterrortypedef)
   - [EnvironmentResponseTypeDef](#environmentresponsetypedef)
+  - [EnvironmentTypeDef](#environmenttypedef)
   - [EventSourceMappingConfigurationTypeDef](#eventsourcemappingconfigurationtypedef)
   - [FileSystemConfigTypeDef](#filesystemconfigtypedef)
   - [FunctionCodeLocationTypeDef](#functioncodelocationtypedef)
+  - [FunctionCodeTypeDef](#functioncodetypedef)
   - [FunctionConfigurationTypeDef](#functionconfigurationtypedef)
   - [FunctionEventInvokeConfigTypeDef](#functioneventinvokeconfigtypedef)
-  - [ImageConfigErrorTypeDef](#imageconfigerrortypedef)
-  - [ImageConfigResponseTypeDef](#imageconfigresponsetypedef)
-  - [ImageConfigTypeDef](#imageconfigtypedef)
-  - [LayerTypeDef](#layertypedef)
-  - [LayerVersionContentOutputTypeDef](#layerversioncontentoutputtypedef)
-  - [LayerVersionsListItemTypeDef](#layerversionslistitemtypedef)
-  - [LayersListItemTypeDef](#layerslistitemtypedef)
-  - [OnFailureTypeDef](#onfailuretypedef)
-  - [OnSuccessTypeDef](#onsuccesstypedef)
-  - [ProvisionedConcurrencyConfigListItemTypeDef](#provisionedconcurrencyconfiglistitemtypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [SelfManagedEventSourceTypeDef](#selfmanagedeventsourcetypedef)
-  - [SourceAccessConfigurationTypeDef](#sourceaccessconfigurationtypedef)
-  - [TracingConfigResponseTypeDef](#tracingconfigresponsetypedef)
-  - [VpcConfigResponseTypeDef](#vpcconfigresponsetypedef)
-  - [AddLayerVersionPermissionResponseTypeDef](#addlayerversionpermissionresponsetypedef)
-  - [AddPermissionResponseTypeDef](#addpermissionresponsetypedef)
-  - [CreateCodeSigningConfigResponseTypeDef](#createcodesigningconfigresponsetypedef)
-  - [EnvironmentTypeDef](#environmenttypedef)
-  - [FunctionCodeTypeDef](#functioncodetypedef)
   - [GetAccountSettingsResponseTypeDef](#getaccountsettingsresponsetypedef)
   - [GetCodeSigningConfigResponseTypeDef](#getcodesigningconfigresponsetypedef)
   - [GetFunctionCodeSigningConfigResponseTypeDef](#getfunctioncodesigningconfigresponsetypedef)
@@ -52,9 +37,16 @@ type annotations stubs module [mypy_boto3_lambda](https://pypi.org/project/mypy-
   - [GetLayerVersionResponseTypeDef](#getlayerversionresponsetypedef)
   - [GetPolicyResponseTypeDef](#getpolicyresponsetypedef)
   - [GetProvisionedConcurrencyConfigResponseTypeDef](#getprovisionedconcurrencyconfigresponsetypedef)
+  - [ImageConfigErrorTypeDef](#imageconfigerrortypedef)
+  - [ImageConfigResponseTypeDef](#imageconfigresponsetypedef)
+  - [ImageConfigTypeDef](#imageconfigtypedef)
   - [InvocationResponseTypeDef](#invocationresponsetypedef)
   - [InvokeAsyncResponseTypeDef](#invokeasyncresponsetypedef)
+  - [LayerTypeDef](#layertypedef)
   - [LayerVersionContentInputTypeDef](#layerversioncontentinputtypedef)
+  - [LayerVersionContentOutputTypeDef](#layerversioncontentoutputtypedef)
+  - [LayerVersionsListItemTypeDef](#layerversionslistitemtypedef)
+  - [LayersListItemTypeDef](#layerslistitemtypedef)
   - [ListAliasesResponseTypeDef](#listaliasesresponsetypedef)
   - [ListCodeSigningConfigsResponseTypeDef](#listcodesigningconfigsresponsetypedef)
   - [ListEventSourceMappingsResponseTypeDef](#listeventsourcemappingsresponsetypedef)
@@ -66,12 +58,20 @@ type annotations stubs module [mypy_boto3_lambda](https://pypi.org/project/mypy-
   - [ListProvisionedConcurrencyConfigsResponseTypeDef](#listprovisionedconcurrencyconfigsresponsetypedef)
   - [ListTagsResponseTypeDef](#listtagsresponsetypedef)
   - [ListVersionsByFunctionResponseTypeDef](#listversionsbyfunctionresponsetypedef)
+  - [OnFailureTypeDef](#onfailuretypedef)
+  - [OnSuccessTypeDef](#onsuccesstypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ProvisionedConcurrencyConfigListItemTypeDef](#provisionedconcurrencyconfiglistitemtypedef)
   - [PublishLayerVersionResponseTypeDef](#publishlayerversionresponsetypedef)
   - [PutFunctionCodeSigningConfigResponseTypeDef](#putfunctioncodesigningconfigresponsetypedef)
   - [PutProvisionedConcurrencyConfigResponseTypeDef](#putprovisionedconcurrencyconfigresponsetypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [SelfManagedEventSourceTypeDef](#selfmanagedeventsourcetypedef)
+  - [SourceAccessConfigurationTypeDef](#sourceaccessconfigurationtypedef)
+  - [TracingConfigResponseTypeDef](#tracingconfigresponsetypedef)
   - [TracingConfigTypeDef](#tracingconfigtypedef)
   - [UpdateCodeSigningConfigResponseTypeDef](#updatecodesigningconfigresponsetypedef)
+  - [VpcConfigResponseTypeDef](#vpcconfigresponsetypedef)
   - [VpcConfigTypeDef](#vpcconfigtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
@@ -104,6 +104,33 @@ from mypy_boto3_lambda.type_defs import AccountUsageTypeDef
 Optional fields:
 - `TotalCodeSize`: `int`
 - `FunctionCount`: `int`
+
+
+## AddLayerVersionPermissionResponseTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import AddLayerVersionPermissionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Statement`: `str`
+- `RevisionId`: `str`
+
+
+## AddPermissionResponseTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import AddPermissionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Statement`: `str`
 
 
 ## AliasConfigurationTypeDef
@@ -196,6 +223,19 @@ Optional fields:
 - `ReservedConcurrentExecutions`: `int`
 
 
+## CreateCodeSigningConfigResponseTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import CreateCodeSigningConfigResponseTypeDef
+```
+
+
+Required fields:
+- `CodeSigningConfig`: `"CodeSigningConfigTypeDef"`
+
+
+
+
 ## DeadLetterConfigTypeDef
 
 ```python
@@ -251,6 +291,19 @@ Optional fields:
 - `Error`: `"EnvironmentErrorTypeDef"`
 
 
+## EnvironmentTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import EnvironmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `Variables`: `Dict[str, str]`
+
+
 ## EventSourceMappingConfigurationTypeDef
 
 ```python
@@ -282,7 +335,7 @@ Optional fields:
 - `BisectBatchOnFunctionError`: `bool`
 - `MaximumRetryAttempts`: `int`
 - `TumblingWindowInSeconds`: `int`
-- `FunctionResponseTypes`: `List[FunctionResponseType]`
+- `FunctionResponseTypes`: `List[Literal['ReportBatchItemFailures']]`
 
 
 ## FileSystemConfigTypeDef
@@ -313,6 +366,23 @@ Optional fields:
 - `Location`: `str`
 - `ImageUri`: `str`
 - `ResolvedImageUri`: `str`
+
+
+## FunctionCodeTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import FunctionCodeTypeDef
+```
+
+
+
+
+Optional fields:
+- `ZipFile`: `Union[bytes, IO[bytes]]`
+- `S3Bucket`: `str`
+- `S3Key`: `str`
+- `S3ObjectVersion`: `str`
+- `ImageUri`: `str`
 
 
 ## FunctionConfigurationTypeDef
@@ -373,303 +443,6 @@ Optional fields:
 - `MaximumRetryAttempts`: `int`
 - `MaximumEventAgeInSeconds`: `int`
 - `DestinationConfig`: `"DestinationConfigTypeDef"`
-
-
-## ImageConfigErrorTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import ImageConfigErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `ErrorCode`: `str`
-- `Message`: `str`
-
-
-## ImageConfigResponseTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import ImageConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ImageConfig`: `"ImageConfigTypeDef"`
-- `Error`: `"ImageConfigErrorTypeDef"`
-
-
-## ImageConfigTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import ImageConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `EntryPoint`: `List[str]`
-- `Command`: `List[str]`
-- `WorkingDirectory`: `str`
-
-
-## LayerTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import LayerTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CodeSize`: `int`
-- `SigningProfileVersionArn`: `str`
-- `SigningJobArn`: `str`
-
-
-## LayerVersionContentOutputTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import LayerVersionContentOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Location`: `str`
-- `CodeSha256`: `str`
-- `CodeSize`: `int`
-- `SigningProfileVersionArn`: `str`
-- `SigningJobArn`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## LayerVersionsListItemTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import LayerVersionsListItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `LayerVersionArn`: `str`
-- `Version`: `int`
-- `Description`: `str`
-- `CreatedDate`: `str`
-- `CompatibleRuntimes`: `List[Runtime]`
-- `LicenseInfo`: `str`
-
-
-## LayersListItemTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import LayersListItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `LayerName`: `str`
-- `LayerArn`: `str`
-- `LatestMatchingVersion`: `"LayerVersionsListItemTypeDef"`
-
-
-## OnFailureTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import OnFailureTypeDef
-```
-
-
-
-
-Optional fields:
-- `Destination`: `str`
-
-
-## OnSuccessTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import OnSuccessTypeDef
-```
-
-
-
-
-Optional fields:
-- `Destination`: `str`
-
-
-## ProvisionedConcurrencyConfigListItemTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import ProvisionedConcurrencyConfigListItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `FunctionArn`: `str`
-- `RequestedProvisionedConcurrentExecutions`: `int`
-- `AvailableProvisionedConcurrentExecutions`: `int`
-- `AllocatedProvisionedConcurrentExecutions`: `int`
-- `Status`: `ProvisionedConcurrencyStatusEnum`
-- `StatusReason`: `str`
-- `LastModified`: `str`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_lambda.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## SelfManagedEventSourceTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import SelfManagedEventSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Endpoints`: `Dict[EndPointType, List[str]]`
-
-
-## SourceAccessConfigurationTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import SourceAccessConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `SourceAccessType`
-- `URI`: `str`
-
-
-## TracingConfigResponseTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import TracingConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Mode`: `TracingMode`
-
-
-## VpcConfigResponseTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import VpcConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SubnetIds`: `List[str]`
-- `SecurityGroupIds`: `List[str]`
-- `VpcId`: `str`
-
-
-## AddLayerVersionPermissionResponseTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import AddLayerVersionPermissionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Statement`: `str`
-- `RevisionId`: `str`
-
-
-## AddPermissionResponseTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import AddPermissionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Statement`: `str`
-
-
-## CreateCodeSigningConfigResponseTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import CreateCodeSigningConfigResponseTypeDef
-```
-
-
-Required fields:
-- `CodeSigningConfig`: `"CodeSigningConfigTypeDef"`
-
-
-
-
-## EnvironmentTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import EnvironmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `Variables`: `Dict[str, str]`
-
-
-## FunctionCodeTypeDef
-
-```python
-from mypy_boto3_lambda.type_defs import FunctionCodeTypeDef
-```
-
-
-
-
-Optional fields:
-- `ZipFile`: `Union[bytes, IO[bytes]]`
-- `S3Bucket`: `str`
-- `S3Key`: `str`
-- `S3ObjectVersion`: `str`
-- `ImageUri`: `str`
 
 
 ## GetAccountSettingsResponseTypeDef
@@ -808,6 +581,49 @@ Optional fields:
 - `LastModified`: `str`
 
 
+## ImageConfigErrorTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import ImageConfigErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `ErrorCode`: `str`
+- `Message`: `str`
+
+
+## ImageConfigResponseTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import ImageConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ImageConfig`: `"ImageConfigTypeDef"`
+- `Error`: `"ImageConfigErrorTypeDef"`
+
+
+## ImageConfigTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import ImageConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `EntryPoint`: `List[str]`
+- `Command`: `List[str]`
+- `WorkingDirectory`: `str`
+
+
 ## InvocationResponseTypeDef
 
 ```python
@@ -838,6 +654,22 @@ Optional fields:
 - `Status`: `int`
 
 
+## LayerTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import LayerTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CodeSize`: `int`
+- `SigningProfileVersionArn`: `str`
+- `SigningJobArn`: `str`
+
+
 ## LayerVersionContentInputTypeDef
 
 ```python
@@ -852,6 +684,57 @@ Optional fields:
 - `S3Key`: `str`
 - `S3ObjectVersion`: `str`
 - `ZipFile`: `Union[bytes, IO[bytes]]`
+
+
+## LayerVersionContentOutputTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import LayerVersionContentOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Location`: `str`
+- `CodeSha256`: `str`
+- `CodeSize`: `int`
+- `SigningProfileVersionArn`: `str`
+- `SigningJobArn`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## LayerVersionsListItemTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import LayerVersionsListItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `LayerVersionArn`: `str`
+- `Version`: `int`
+- `Description`: `str`
+- `CreatedDate`: `str`
+- `CompatibleRuntimes`: `List[Runtime]`
+- `LicenseInfo`: `str`
+
+
+## LayersListItemTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import LayersListItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `LayerName`: `str`
+- `LayerArn`: `str`
+- `LatestMatchingVersion`: `"LayerVersionsListItemTypeDef"`
 
 
 ## ListAliasesResponseTypeDef
@@ -1007,6 +890,32 @@ Optional fields:
 - `Versions`: `List["FunctionConfigurationTypeDef"]`
 
 
+## OnFailureTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import OnFailureTypeDef
+```
+
+
+
+
+Optional fields:
+- `Destination`: `str`
+
+
+## OnSuccessTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import OnSuccessTypeDef
+```
+
+
+
+
+Optional fields:
+- `Destination`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -1020,6 +929,25 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ProvisionedConcurrencyConfigListItemTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import ProvisionedConcurrencyConfigListItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `FunctionArn`: `str`
+- `RequestedProvisionedConcurrentExecutions`: `int`
+- `AvailableProvisionedConcurrentExecutions`: `int`
+- `AllocatedProvisionedConcurrentExecutions`: `int`
+- `Status`: `ProvisionedConcurrencyStatusEnum`
+- `StatusReason`: `str`
+- `LastModified`: `str`
 
 
 ## PublishLayerVersionResponseTypeDef
@@ -1074,6 +1002,63 @@ Optional fields:
 - `LastModified`: `str`
 
 
+## ResponseMetadata
+
+```python
+from mypy_boto3_lambda.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## SelfManagedEventSourceTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import SelfManagedEventSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Endpoints`: `Dict[Literal['KAFKA_BOOTSTRAP_SERVERS'], List[str]]`
+
+
+## SourceAccessConfigurationTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import SourceAccessConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `SourceAccessType`
+- `URI`: `str`
+
+
+## TracingConfigResponseTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import TracingConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Mode`: `TracingMode`
+
+
 ## TracingConfigTypeDef
 
 ```python
@@ -1098,6 +1083,21 @@ Required fields:
 - `CodeSigningConfig`: `"CodeSigningConfigTypeDef"`
 
 
+
+
+## VpcConfigResponseTypeDef
+
+```python
+from mypy_boto3_lambda.type_defs import VpcConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SubnetIds`: `List[str]`
+- `SecurityGroupIds`: `List[str]`
+- `VpcId`: `str`
 
 
 ## VpcConfigTypeDef

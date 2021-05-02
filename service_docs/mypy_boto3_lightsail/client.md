@@ -154,25 +154,6 @@ type annotations stubs module [mypy_boto3_lightsail](https://pypi.org/project/my
     - [update_relational_database](#update_relational_database)
     - [update_relational_database_parameters](#update_relational_database_parameters)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
-    - [get_paginator](#get_paginator-17)
-    - [get_paginator](#get_paginator-18)
-    - [get_paginator](#get_paginator-19)
 
 ## LightsailClient
 
@@ -1074,7 +1055,7 @@ Type annotations for `boto3.client("lightsail").disable_add_on` method.
 ```python
 def disable_add_on(
     self,
-    addOnType: AddOnType,
+    addOnType: Literal['AutoSnapshot'],
     resourceName: str
 ) -> DisableAddOnResultTypeDef:
     pass
@@ -2177,7 +2158,7 @@ Type annotations for `boto3.client("lightsail").send_contact_method_verification
 ```python
 def send_contact_method_verification(
     self,
-    protocol: ContactMethodVerificationProtocol
+    protocol: Literal['Email']
 ) -> SendContactMethodVerificationResultTypeDef:
     pass
 ```
@@ -2437,302 +2418,31 @@ def update_relational_database_parameters(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetActiveNames documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetActiveNames)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetActiveNamesPaginatorName
-) -> GetActiveNamesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("lightsail").get_paginator` method.
+Type annotations for `boto3.client("lightsail").get_paginator` method with overloads.
+
+- `client.get_paginator("get_active_names")` -> [GetActiveNamesPaginator](./paginators.md#getactivenamespaginator)
+- `client.get_paginator("get_blueprints")` -> [GetBlueprintsPaginator](./paginators.md#getblueprintspaginator)
+- `client.get_paginator("get_bundles")` -> [GetBundlesPaginator](./paginators.md#getbundlespaginator)
+- `client.get_paginator("get_cloud_formation_stack_records")` -> [GetCloudFormationStackRecordsPaginator](./paginators.md#getcloudformationstackrecordspaginator)
+- `client.get_paginator("get_disk_snapshots")` -> [GetDiskSnapshotsPaginator](./paginators.md#getdisksnapshotspaginator)
+- `client.get_paginator("get_disks")` -> [GetDisksPaginator](./paginators.md#getdiskspaginator)
+- `client.get_paginator("get_domains")` -> [GetDomainsPaginator](./paginators.md#getdomainspaginator)
+- `client.get_paginator("get_export_snapshot_records")` -> [GetExportSnapshotRecordsPaginator](./paginators.md#getexportsnapshotrecordspaginator)
+- `client.get_paginator("get_instance_snapshots")` -> [GetInstanceSnapshotsPaginator](./paginators.md#getinstancesnapshotspaginator)
+- `client.get_paginator("get_instances")` -> [GetInstancesPaginator](./paginators.md#getinstancespaginator)
+- `client.get_paginator("get_key_pairs")` -> [GetKeyPairsPaginator](./paginators.md#getkeypairspaginator)
+- `client.get_paginator("get_load_balancers")` -> [GetLoadBalancersPaginator](./paginators.md#getloadbalancerspaginator)
+- `client.get_paginator("get_operations")` -> [GetOperationsPaginator](./paginators.md#getoperationspaginator)
+- `client.get_paginator("get_relational_database_blueprints")` -> [GetRelationalDatabaseBlueprintsPaginator](./paginators.md#getrelationaldatabaseblueprintspaginator)
+- `client.get_paginator("get_relational_database_bundles")` -> [GetRelationalDatabaseBundlesPaginator](./paginators.md#getrelationaldatabasebundlespaginator)
+- `client.get_paginator("get_relational_database_events")` -> [GetRelationalDatabaseEventsPaginator](./paginators.md#getrelationaldatabaseeventspaginator)
+- `client.get_paginator("get_relational_database_parameters")` -> [GetRelationalDatabaseParametersPaginator](./paginators.md#getrelationaldatabaseparameterspaginator)
+- `client.get_paginator("get_relational_database_snapshots")` -> [GetRelationalDatabaseSnapshotsPaginator](./paginators.md#getrelationaldatabasesnapshotspaginator)
+- `client.get_paginator("get_relational_databases")` -> [GetRelationalDatabasesPaginator](./paginators.md#getrelationaldatabasespaginator)
+- `client.get_paginator("get_static_ips")` -> [GetStaticIpsPaginator](./paginators.md#getstaticipspaginator)
 
-[Paginator.GetBlueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetBlueprints)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetBlueprintsPaginatorName
-) -> GetBlueprintsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetBundles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetBundlesPaginatorName
-) -> GetBundlesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetCloudFormationStackRecords documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetCloudFormationStackRecords)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetCloudFormationStackRecordsPaginatorName
-) -> GetCloudFormationStackRecordsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetDiskSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetDiskSnapshots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDiskSnapshotsPaginatorName
-) -> GetDiskSnapshotsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetDisks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetDisks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDisksPaginatorName
-) -> GetDisksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetDomains)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDomainsPaginatorName
-) -> GetDomainsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetExportSnapshotRecords documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetExportSnapshotRecords)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetExportSnapshotRecordsPaginatorName
-) -> GetExportSnapshotRecordsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetInstanceSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetInstanceSnapshots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetInstanceSnapshotsPaginatorName
-) -> GetInstanceSnapshotsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetInstancesPaginatorName
-) -> GetInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetKeyPairs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetKeyPairs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetKeyPairsPaginatorName
-) -> GetKeyPairsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetLoadBalancers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetLoadBalancersPaginatorName
-) -> GetLoadBalancersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetOperations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetOperationsPaginatorName
-) -> GetOperationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetRelationalDatabaseBlueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBlueprints)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetRelationalDatabaseBlueprintsPaginatorName
-) -> GetRelationalDatabaseBlueprintsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetRelationalDatabaseBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBundles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetRelationalDatabaseBundlesPaginatorName
-) -> GetRelationalDatabaseBundlesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetRelationalDatabaseEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetRelationalDatabaseEventsPaginatorName
-) -> GetRelationalDatabaseEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetRelationalDatabaseParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseParameters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetRelationalDatabaseParametersPaginatorName
-) -> GetRelationalDatabaseParametersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetRelationalDatabaseSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseSnapshots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetRelationalDatabaseSnapshotsPaginatorName
-) -> GetRelationalDatabaseSnapshotsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetRelationalDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetRelationalDatabasesPaginatorName
-) -> GetRelationalDatabasesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lightsail").get_paginator` method.
-
-[Paginator.GetStaticIps documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lightsail.html#Lightsail.Paginator.GetStaticIps)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetStaticIpsPaginatorName
-) -> GetStaticIpsPaginator:
-    pass
-```

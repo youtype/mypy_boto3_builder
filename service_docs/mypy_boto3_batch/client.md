@@ -31,9 +31,6 @@ type annotations stubs module [mypy_boto3_batch](https://pypi.org/project/mypy-b
     - [update_compute_environment](#update_compute_environment)
     - [update_job_queue](#update_job_queue)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## BatchClient
 
@@ -417,62 +414,15 @@ def update_job_queue(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("batch").get_paginator` method.
-
-[Paginator.DescribeComputeEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeComputeEnvironmentsPaginatorName
-) -> DescribeComputeEnvironmentsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("batch").get_paginator` method.
+Type annotations for `boto3.client("batch").get_paginator` method with overloads.
 
-[Paginator.DescribeJobDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions)
+- `client.get_paginator("describe_compute_environments")` -> [DescribeComputeEnvironmentsPaginator](./paginators.md#describecomputeenvironmentspaginator)
+- `client.get_paginator("describe_job_definitions")` -> [DescribeJobDefinitionsPaginator](./paginators.md#describejobdefinitionspaginator)
+- `client.get_paginator("describe_job_queues")` -> [DescribeJobQueuesPaginator](./paginators.md#describejobqueuespaginator)
+- `client.get_paginator("list_jobs")` -> [ListJobsPaginator](./paginators.md#listjobspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeJobDefinitionsPaginatorName
-) -> DescribeJobDefinitionsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("batch").get_paginator` method.
-
-[Paginator.DescribeJobQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/batch.html#Batch.Paginator.DescribeJobQueues)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeJobQueuesPaginatorName
-) -> DescribeJobQueuesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("batch").get_paginator` method.
-
-[Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/batch.html#Batch.Paginator.ListJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobsPaginatorName
-) -> ListJobsPaginator:
-    pass
-```

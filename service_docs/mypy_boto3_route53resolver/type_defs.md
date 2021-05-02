@@ -6,22 +6,6 @@ Auto-generated documentation for [Route53Resolver](https://boto3.amazonaws.com/v
 type annotations stubs module [mypy_boto3_route53resolver](https://pypi.org/project/mypy-boto3-route53resolver/).
 
 - [Structures for boto3 Route53Resolver module](#structures-for-boto3-route53resolver-module)
-  - [FirewallConfigTypeDef](#firewallconfigtypedef)
-  - [FirewallDomainListMetadataTypeDef](#firewalldomainlistmetadatatypedef)
-  - [FirewallDomainListTypeDef](#firewalldomainlisttypedef)
-  - [FirewallRuleGroupAssociationTypeDef](#firewallrulegroupassociationtypedef)
-  - [FirewallRuleGroupMetadataTypeDef](#firewallrulegroupmetadatatypedef)
-  - [FirewallRuleGroupTypeDef](#firewallrulegrouptypedef)
-  - [FirewallRuleTypeDef](#firewallruletypedef)
-  - [IpAddressResponseTypeDef](#ipaddressresponsetypedef)
-  - [ResolverDnssecConfigTypeDef](#resolverdnssecconfigtypedef)
-  - [ResolverEndpointTypeDef](#resolverendpointtypedef)
-  - [ResolverQueryLogConfigAssociationTypeDef](#resolverquerylogconfigassociationtypedef)
-  - [ResolverQueryLogConfigTypeDef](#resolverquerylogconfigtypedef)
-  - [ResolverRuleAssociationTypeDef](#resolverruleassociationtypedef)
-  - [ResolverRuleTypeDef](#resolverruletypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TargetAddressTypeDef](#targetaddresstypedef)
   - [AssociateFirewallRuleGroupResponseTypeDef](#associatefirewallrulegroupresponsetypedef)
   - [AssociateResolverEndpointIpAddressResponseTypeDef](#associateresolverendpointipaddressresponsetypedef)
   - [AssociateResolverQueryLogConfigResponseTypeDef](#associateresolverquerylogconfigresponsetypedef)
@@ -43,6 +27,13 @@ type annotations stubs module [mypy_boto3_route53resolver](https://pypi.org/proj
   - [DisassociateResolverQueryLogConfigResponseTypeDef](#disassociateresolverquerylogconfigresponsetypedef)
   - [DisassociateResolverRuleResponseTypeDef](#disassociateresolverruleresponsetypedef)
   - [FilterTypeDef](#filtertypedef)
+  - [FirewallConfigTypeDef](#firewallconfigtypedef)
+  - [FirewallDomainListMetadataTypeDef](#firewalldomainlistmetadatatypedef)
+  - [FirewallDomainListTypeDef](#firewalldomainlisttypedef)
+  - [FirewallRuleGroupAssociationTypeDef](#firewallrulegroupassociationtypedef)
+  - [FirewallRuleGroupMetadataTypeDef](#firewallrulegroupmetadatatypedef)
+  - [FirewallRuleGroupTypeDef](#firewallrulegrouptypedef)
+  - [FirewallRuleTypeDef](#firewallruletypedef)
   - [GetFirewallConfigResponseTypeDef](#getfirewallconfigresponsetypedef)
   - [GetFirewallDomainListResponseTypeDef](#getfirewalldomainlistresponsetypedef)
   - [GetFirewallRuleGroupAssociationResponseTypeDef](#getfirewallrulegroupassociationresponsetypedef)
@@ -58,6 +49,7 @@ type annotations stubs module [mypy_boto3_route53resolver](https://pypi.org/proj
   - [GetResolverRuleResponseTypeDef](#getresolverruleresponsetypedef)
   - [ImportFirewallDomainsResponseTypeDef](#importfirewalldomainsresponsetypedef)
   - [IpAddressRequestTypeDef](#ipaddressrequesttypedef)
+  - [IpAddressResponseTypeDef](#ipaddressresponsetypedef)
   - [IpAddressUpdateTypeDef](#ipaddressupdatetypedef)
   - [ListFirewallConfigsResponseTypeDef](#listfirewallconfigsresponsetypedef)
   - [ListFirewallDomainListsResponseTypeDef](#listfirewalldomainlistsresponsetypedef)
@@ -77,7 +69,15 @@ type annotations stubs module [mypy_boto3_route53resolver](https://pypi.org/proj
   - [PutFirewallRuleGroupPolicyResponseTypeDef](#putfirewallrulegrouppolicyresponsetypedef)
   - [PutResolverQueryLogConfigPolicyResponseTypeDef](#putresolverquerylogconfigpolicyresponsetypedef)
   - [PutResolverRulePolicyResponseTypeDef](#putresolverrulepolicyresponsetypedef)
+  - [ResolverDnssecConfigTypeDef](#resolverdnssecconfigtypedef)
+  - [ResolverEndpointTypeDef](#resolverendpointtypedef)
+  - [ResolverQueryLogConfigAssociationTypeDef](#resolverquerylogconfigassociationtypedef)
+  - [ResolverQueryLogConfigTypeDef](#resolverquerylogconfigtypedef)
+  - [ResolverRuleAssociationTypeDef](#resolverruleassociationtypedef)
   - [ResolverRuleConfigTypeDef](#resolverruleconfigtypedef)
+  - [ResolverRuleTypeDef](#resolverruletypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TargetAddressTypeDef](#targetaddresstypedef)
   - [UpdateFirewallConfigResponseTypeDef](#updatefirewallconfigresponsetypedef)
   - [UpdateFirewallDomainsResponseTypeDef](#updatefirewalldomainsresponsetypedef)
   - [UpdateFirewallRuleGroupAssociationResponseTypeDef](#updatefirewallrulegroupassociationresponsetypedef)
@@ -85,325 +85,6 @@ type annotations stubs module [mypy_boto3_route53resolver](https://pypi.org/proj
   - [UpdateResolverDnssecConfigResponseTypeDef](#updateresolverdnssecconfigresponsetypedef)
   - [UpdateResolverEndpointResponseTypeDef](#updateresolverendpointresponsetypedef)
   - [UpdateResolverRuleResponseTypeDef](#updateresolverruleresponsetypedef)
-
-## FirewallConfigTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import FirewallConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `ResourceId`: `str`
-- `OwnerId`: `str`
-- `FirewallFailOpen`: `FirewallFailOpenStatus`
-
-
-## FirewallDomainListMetadataTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import FirewallDomainListMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `CreatorRequestId`: `str`
-- `ManagedOwnerName`: `str`
-
-
-## FirewallDomainListTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import FirewallDomainListTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `DomainCount`: `int`
-- `Status`: `FirewallDomainListStatus`
-- `StatusMessage`: `str`
-- `ManagedOwnerName`: `str`
-- `CreatorRequestId`: `str`
-- `CreationTime`: `str`
-- `ModificationTime`: `str`
-
-
-## FirewallRuleGroupAssociationTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import FirewallRuleGroupAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `FirewallRuleGroupId`: `str`
-- `VpcId`: `str`
-- `Name`: `str`
-- `Priority`: `int`
-- `MutationProtection`: `MutationProtectionStatus`
-- `ManagedOwnerName`: `str`
-- `Status`: `FirewallRuleGroupAssociationStatus`
-- `StatusMessage`: `str`
-- `CreatorRequestId`: `str`
-- `CreationTime`: `str`
-- `ModificationTime`: `str`
-
-
-## FirewallRuleGroupMetadataTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import FirewallRuleGroupMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `OwnerId`: `str`
-- `CreatorRequestId`: `str`
-- `ShareStatus`: `ShareStatus`
-
-
-## FirewallRuleGroupTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import FirewallRuleGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `RuleCount`: `int`
-- `Status`: `FirewallRuleGroupStatus`
-- `StatusMessage`: `str`
-- `OwnerId`: `str`
-- `CreatorRequestId`: `str`
-- `ShareStatus`: `ShareStatus`
-- `CreationTime`: `str`
-- `ModificationTime`: `str`
-
-
-## FirewallRuleTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import FirewallRuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `FirewallRuleGroupId`: `str`
-- `FirewallDomainListId`: `str`
-- `Name`: `str`
-- `Priority`: `int`
-- `Action`: `Action`
-- `BlockResponse`: `BlockResponse`
-- `BlockOverrideDomain`: `str`
-- `BlockOverrideDnsType`: `BlockOverrideDnsType`
-- `BlockOverrideTtl`: `int`
-- `CreatorRequestId`: `str`
-- `CreationTime`: `str`
-- `ModificationTime`: `str`
-
-
-## IpAddressResponseTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import IpAddressResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `IpId`: `str`
-- `SubnetId`: `str`
-- `Ip`: `str`
-- `Status`: `IpAddressStatus`
-- `StatusMessage`: `str`
-- `CreationTime`: `str`
-- `ModificationTime`: `str`
-
-
-## ResolverDnssecConfigTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import ResolverDnssecConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `OwnerId`: `str`
-- `ResourceId`: `str`
-- `ValidationStatus`: `ResolverDNSSECValidationStatus`
-
-
-## ResolverEndpointTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import ResolverEndpointTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `CreatorRequestId`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `SecurityGroupIds`: `List[str]`
-- `Direction`: `ResolverEndpointDirection`
-- `IpAddressCount`: `int`
-- `HostVPCId`: `str`
-- `Status`: `ResolverEndpointStatus`
-- `StatusMessage`: `str`
-- `CreationTime`: `str`
-- `ModificationTime`: `str`
-
-
-## ResolverQueryLogConfigAssociationTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import ResolverQueryLogConfigAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `ResolverQueryLogConfigId`: `str`
-- `ResourceId`: `str`
-- `Status`: `ResolverQueryLogConfigAssociationStatus`
-- `Error`: `ResolverQueryLogConfigAssociationError`
-- `ErrorMessage`: `str`
-- `CreationTime`: `str`
-
-
-## ResolverQueryLogConfigTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import ResolverQueryLogConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `OwnerId`: `str`
-- `Status`: `ResolverQueryLogConfigStatus`
-- `ShareStatus`: `ShareStatus`
-- `AssociationCount`: `int`
-- `Arn`: `str`
-- `Name`: `str`
-- `DestinationArn`: `str`
-- `CreatorRequestId`: `str`
-- `CreationTime`: `str`
-
-
-## ResolverRuleAssociationTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import ResolverRuleAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `ResolverRuleId`: `str`
-- `Name`: `str`
-- `VPCId`: `str`
-- `Status`: `ResolverRuleAssociationStatus`
-- `StatusMessage`: `str`
-
-
-## ResolverRuleTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import ResolverRuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `CreatorRequestId`: `str`
-- `Arn`: `str`
-- `DomainName`: `str`
-- `Status`: `ResolverRuleStatus`
-- `StatusMessage`: `str`
-- `RuleType`: `RuleTypeOption`
-- `Name`: `str`
-- `TargetIps`: `List["TargetAddressTypeDef"]`
-- `ResolverEndpointId`: `str`
-- `OwnerId`: `str`
-- `ShareStatus`: `ShareStatus`
-- `CreationTime`: `str`
-- `ModificationTime`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TargetAddressTypeDef
-
-```python
-from mypy_boto3_route53resolver.type_defs import TargetAddressTypeDef
-```
-
-
-Required fields:
-- `Ip`: `str`
-
-
-
-Optional fields:
-- `Port`: `int`
-
 
 ## AssociateFirewallRuleGroupResponseTypeDef
 
@@ -679,6 +360,151 @@ Optional fields:
 - `Values`: `List[str]`
 
 
+## FirewallConfigTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import FirewallConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `ResourceId`: `str`
+- `OwnerId`: `str`
+- `FirewallFailOpen`: `FirewallFailOpenStatus`
+
+
+## FirewallDomainListMetadataTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import FirewallDomainListMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `CreatorRequestId`: `str`
+- `ManagedOwnerName`: `str`
+
+
+## FirewallDomainListTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import FirewallDomainListTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `DomainCount`: `int`
+- `Status`: `FirewallDomainListStatus`
+- `StatusMessage`: `str`
+- `ManagedOwnerName`: `str`
+- `CreatorRequestId`: `str`
+- `CreationTime`: `str`
+- `ModificationTime`: `str`
+
+
+## FirewallRuleGroupAssociationTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import FirewallRuleGroupAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `FirewallRuleGroupId`: `str`
+- `VpcId`: `str`
+- `Name`: `str`
+- `Priority`: `int`
+- `MutationProtection`: `MutationProtectionStatus`
+- `ManagedOwnerName`: `str`
+- `Status`: `FirewallRuleGroupAssociationStatus`
+- `StatusMessage`: `str`
+- `CreatorRequestId`: `str`
+- `CreationTime`: `str`
+- `ModificationTime`: `str`
+
+
+## FirewallRuleGroupMetadataTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import FirewallRuleGroupMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `OwnerId`: `str`
+- `CreatorRequestId`: `str`
+- `ShareStatus`: `ShareStatus`
+
+
+## FirewallRuleGroupTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import FirewallRuleGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `RuleCount`: `int`
+- `Status`: `FirewallRuleGroupStatus`
+- `StatusMessage`: `str`
+- `OwnerId`: `str`
+- `CreatorRequestId`: `str`
+- `ShareStatus`: `ShareStatus`
+- `CreationTime`: `str`
+- `ModificationTime`: `str`
+
+
+## FirewallRuleTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import FirewallRuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `FirewallRuleGroupId`: `str`
+- `FirewallDomainListId`: `str`
+- `Name`: `str`
+- `Priority`: `int`
+- `Action`: `Action`
+- `BlockResponse`: `BlockResponse`
+- `BlockOverrideDomain`: `str`
+- `BlockOverrideDnsType`: `Literal['CNAME']`
+- `BlockOverrideTtl`: `int`
+- `CreatorRequestId`: `str`
+- `CreationTime`: `str`
+- `ModificationTime`: `str`
+
+
 ## GetFirewallConfigResponseTypeDef
 
 ```python
@@ -878,6 +704,25 @@ Required fields:
 
 Optional fields:
 - `Ip`: `str`
+
+
+## IpAddressResponseTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import IpAddressResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `IpId`: `str`
+- `SubnetId`: `str`
+- `Ip`: `str`
+- `Status`: `IpAddressStatus`
+- `StatusMessage`: `str`
+- `CreationTime`: `str`
+- `ModificationTime`: `str`
 
 
 ## IpAddressUpdateTypeDef
@@ -1153,6 +998,105 @@ Optional fields:
 - `ReturnValue`: `bool`
 
 
+## ResolverDnssecConfigTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import ResolverDnssecConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `OwnerId`: `str`
+- `ResourceId`: `str`
+- `ValidationStatus`: `ResolverDNSSECValidationStatus`
+
+
+## ResolverEndpointTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import ResolverEndpointTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `CreatorRequestId`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `SecurityGroupIds`: `List[str]`
+- `Direction`: `ResolverEndpointDirection`
+- `IpAddressCount`: `int`
+- `HostVPCId`: `str`
+- `Status`: `ResolverEndpointStatus`
+- `StatusMessage`: `str`
+- `CreationTime`: `str`
+- `ModificationTime`: `str`
+
+
+## ResolverQueryLogConfigAssociationTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import ResolverQueryLogConfigAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `ResolverQueryLogConfigId`: `str`
+- `ResourceId`: `str`
+- `Status`: `ResolverQueryLogConfigAssociationStatus`
+- `Error`: `ResolverQueryLogConfigAssociationError`
+- `ErrorMessage`: `str`
+- `CreationTime`: `str`
+
+
+## ResolverQueryLogConfigTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import ResolverQueryLogConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `OwnerId`: `str`
+- `Status`: `ResolverQueryLogConfigStatus`
+- `ShareStatus`: `ShareStatus`
+- `AssociationCount`: `int`
+- `Arn`: `str`
+- `Name`: `str`
+- `DestinationArn`: `str`
+- `CreatorRequestId`: `str`
+- `CreationTime`: `str`
+
+
+## ResolverRuleAssociationTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import ResolverRuleAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `ResolverRuleId`: `str`
+- `Name`: `str`
+- `VPCId`: `str`
+- `Status`: `ResolverRuleAssociationStatus`
+- `StatusMessage`: `str`
+
+
 ## ResolverRuleConfigTypeDef
 
 ```python
@@ -1166,6 +1110,62 @@ Optional fields:
 - `Name`: `str`
 - `TargetIps`: `List["TargetAddressTypeDef"]`
 - `ResolverEndpointId`: `str`
+
+
+## ResolverRuleTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import ResolverRuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `CreatorRequestId`: `str`
+- `Arn`: `str`
+- `DomainName`: `str`
+- `Status`: `ResolverRuleStatus`
+- `StatusMessage`: `str`
+- `RuleType`: `RuleTypeOption`
+- `Name`: `str`
+- `TargetIps`: `List["TargetAddressTypeDef"]`
+- `ResolverEndpointId`: `str`
+- `OwnerId`: `str`
+- `ShareStatus`: `ShareStatus`
+- `CreationTime`: `str`
+- `ModificationTime`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TargetAddressTypeDef
+
+```python
+from mypy_boto3_route53resolver.type_defs import TargetAddressTypeDef
+```
+
+
+Required fields:
+- `Ip`: `str`
+
+
+
+Optional fields:
+- `Port`: `int`
 
 
 ## UpdateFirewallConfigResponseTypeDef

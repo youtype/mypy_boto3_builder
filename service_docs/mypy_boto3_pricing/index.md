@@ -105,9 +105,9 @@ from mypy_boto3_pricing.type_defs import AttributeValueTypeDef, ...
 ```
 
 - [AttributeValueTypeDef](./type_defs.md#attributevaluetypedef)
-- [ServiceTypeDef](./type_defs.md#servicetypedef)
 - [DescribeServicesResponseTypeDef](./type_defs.md#describeservicesresponsetypedef)
 - [FilterTypeDef](./type_defs.md#filtertypedef)
 - [GetAttributeValuesResponseTypeDef](./type_defs.md#getattributevaluesresponsetypedef)
 - [GetProductsResponseTypeDef](./type_defs.md#getproductsresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ServiceTypeDef](./type_defs.md#servicetypedef)

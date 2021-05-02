@@ -6,9 +6,17 @@ Auto-generated documentation for [LookoutEquipment](https://boto3.amazonaws.com/
 type annotations stubs module [mypy_boto3_lookoutequipment](https://pypi.org/project/mypy-boto3-lookoutequipment/).
 
 - [Structures for boto3 LookoutEquipment module](#structures-for-boto3-lookoutequipment-module)
+  - [CreateDatasetResponseTypeDef](#createdatasetresponsetypedef)
+  - [CreateInferenceSchedulerResponseTypeDef](#createinferenceschedulerresponsetypedef)
+  - [CreateModelResponseTypeDef](#createmodelresponsetypedef)
   - [DataIngestionJobSummaryTypeDef](#dataingestionjobsummarytypedef)
   - [DataPreProcessingConfigurationTypeDef](#datapreprocessingconfigurationtypedef)
+  - [DatasetSchemaTypeDef](#datasetschematypedef)
   - [DatasetSummaryTypeDef](#datasetsummarytypedef)
+  - [DescribeDataIngestionJobResponseTypeDef](#describedataingestionjobresponsetypedef)
+  - [DescribeDatasetResponseTypeDef](#describedatasetresponsetypedef)
+  - [DescribeInferenceSchedulerResponseTypeDef](#describeinferenceschedulerresponsetypedef)
+  - [DescribeModelResponseTypeDef](#describemodelresponsetypedef)
   - [InferenceExecutionSummaryTypeDef](#inferenceexecutionsummarytypedef)
   - [InferenceInputConfigurationTypeDef](#inferenceinputconfigurationtypedef)
   - [InferenceInputNameConfigurationTypeDef](#inferenceinputnameconfigurationtypedef)
@@ -20,26 +28,62 @@ type annotations stubs module [mypy_boto3_lookoutequipment](https://pypi.org/pro
   - [IngestionS3InputConfigurationTypeDef](#ingestions3inputconfigurationtypedef)
   - [LabelsInputConfigurationTypeDef](#labelsinputconfigurationtypedef)
   - [LabelsS3InputConfigurationTypeDef](#labelss3inputconfigurationtypedef)
-  - [ModelSummaryTypeDef](#modelsummarytypedef)
-  - [S3ObjectTypeDef](#s3objecttypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [CreateDatasetResponseTypeDef](#createdatasetresponsetypedef)
-  - [CreateInferenceSchedulerResponseTypeDef](#createinferenceschedulerresponsetypedef)
-  - [CreateModelResponseTypeDef](#createmodelresponsetypedef)
-  - [DatasetSchemaTypeDef](#datasetschematypedef)
-  - [DescribeDataIngestionJobResponseTypeDef](#describedataingestionjobresponsetypedef)
-  - [DescribeDatasetResponseTypeDef](#describedatasetresponsetypedef)
-  - [DescribeInferenceSchedulerResponseTypeDef](#describeinferenceschedulerresponsetypedef)
-  - [DescribeModelResponseTypeDef](#describemodelresponsetypedef)
   - [ListDataIngestionJobsResponseTypeDef](#listdataingestionjobsresponsetypedef)
   - [ListDatasetsResponseTypeDef](#listdatasetsresponsetypedef)
   - [ListInferenceExecutionsResponseTypeDef](#listinferenceexecutionsresponsetypedef)
   - [ListInferenceSchedulersResponseTypeDef](#listinferenceschedulersresponsetypedef)
   - [ListModelsResponseTypeDef](#listmodelsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [ModelSummaryTypeDef](#modelsummarytypedef)
+  - [S3ObjectTypeDef](#s3objecttypedef)
   - [StartDataIngestionJobResponseTypeDef](#startdataingestionjobresponsetypedef)
   - [StartInferenceSchedulerResponseTypeDef](#startinferenceschedulerresponsetypedef)
   - [StopInferenceSchedulerResponseTypeDef](#stopinferenceschedulerresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
+
+## CreateDatasetResponseTypeDef
+
+```python
+from mypy_boto3_lookoutequipment.type_defs import CreateDatasetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatasetName`: `str`
+- `DatasetArn`: `str`
+- `Status`: `DatasetStatus`
+
+
+## CreateInferenceSchedulerResponseTypeDef
+
+```python
+from mypy_boto3_lookoutequipment.type_defs import CreateInferenceSchedulerResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `InferenceSchedulerArn`: `str`
+- `InferenceSchedulerName`: `str`
+- `Status`: `InferenceSchedulerStatus`
+
+
+## CreateModelResponseTypeDef
+
+```python
+from mypy_boto3_lookoutequipment.type_defs import CreateModelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ModelArn`: `str`
+- `Status`: `ModelStatus`
+
 
 ## DataIngestionJobSummaryTypeDef
 
@@ -71,6 +115,19 @@ Optional fields:
 - `TargetSamplingRate`: `TargetSamplingRate`
 
 
+## DatasetSchemaTypeDef
+
+```python
+from mypy_boto3_lookoutequipment.type_defs import DatasetSchemaTypeDef
+```
+
+
+
+
+Optional fields:
+- `InlineDataSchema`: `str`
+
+
 ## DatasetSummaryTypeDef
 
 ```python
@@ -85,6 +142,102 @@ Optional fields:
 - `DatasetArn`: `str`
 - `Status`: `DatasetStatus`
 - `CreatedAt`: `datetime`
+
+
+## DescribeDataIngestionJobResponseTypeDef
+
+```python
+from mypy_boto3_lookoutequipment.type_defs import DescribeDataIngestionJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+- `DatasetArn`: `str`
+- `IngestionInputConfiguration`: `"IngestionInputConfigurationTypeDef"`
+- `RoleArn`: `str`
+- `CreatedAt`: `datetime`
+- `Status`: `IngestionJobStatus`
+- `FailedReason`: `str`
+
+
+## DescribeDatasetResponseTypeDef
+
+```python
+from mypy_boto3_lookoutequipment.type_defs import DescribeDatasetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatasetName`: `str`
+- `DatasetArn`: `str`
+- `CreatedAt`: `datetime`
+- `LastUpdatedAt`: `datetime`
+- `Status`: `DatasetStatus`
+- `Schema`: `str`
+- `ServerSideKmsKeyId`: `str`
+- `IngestionInputConfiguration`: `"IngestionInputConfigurationTypeDef"`
+
+
+## DescribeInferenceSchedulerResponseTypeDef
+
+```python
+from mypy_boto3_lookoutequipment.type_defs import DescribeInferenceSchedulerResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ModelArn`: `str`
+- `ModelName`: `str`
+- `InferenceSchedulerName`: `str`
+- `InferenceSchedulerArn`: `str`
+- `Status`: `InferenceSchedulerStatus`
+- `DataDelayOffsetInMinutes`: `int`
+- `DataUploadFrequency`: `DataUploadFrequency`
+- `CreatedAt`: `datetime`
+- `UpdatedAt`: `datetime`
+- `DataInputConfiguration`: `"InferenceInputConfigurationTypeDef"`
+- `DataOutputConfiguration`: `"InferenceOutputConfigurationTypeDef"`
+- `RoleArn`: `str`
+- `ServerSideKmsKeyId`: `str`
+
+
+## DescribeModelResponseTypeDef
+
+```python
+from mypy_boto3_lookoutequipment.type_defs import DescribeModelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ModelName`: `str`
+- `ModelArn`: `str`
+- `DatasetName`: `str`
+- `DatasetArn`: `str`
+- `Schema`: `str`
+- `LabelsInputConfiguration`: `"LabelsInputConfigurationTypeDef"`
+- `TrainingDataStartTime`: `datetime`
+- `TrainingDataEndTime`: `datetime`
+- `EvaluationDataStartTime`: `datetime`
+- `EvaluationDataEndTime`: `datetime`
+- `RoleArn`: `str`
+- `DataPreProcessingConfiguration`: `"DataPreProcessingConfigurationTypeDef"`
+- `Status`: `ModelStatus`
+- `TrainingExecutionStartTime`: `datetime`
+- `TrainingExecutionEndTime`: `datetime`
+- `FailedReason`: `str`
+- `ModelMetrics`: `str`
+- `LastUpdatedTime`: `datetime`
+- `CreatedAt`: `datetime`
+- `ServerSideKmsKeyId`: `str`
 
 
 ## InferenceExecutionSummaryTypeDef
@@ -265,205 +418,6 @@ Optional fields:
 - `Prefix`: `str`
 
 
-## ModelSummaryTypeDef
-
-```python
-from mypy_boto3_lookoutequipment.type_defs import ModelSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `ModelName`: `str`
-- `ModelArn`: `str`
-- `DatasetName`: `str`
-- `DatasetArn`: `str`
-- `Status`: `ModelStatus`
-- `CreatedAt`: `datetime`
-
-
-## S3ObjectTypeDef
-
-```python
-from mypy_boto3_lookoutequipment.type_defs import S3ObjectTypeDef
-```
-
-
-Required fields:
-- `Bucket`: `str`
-- `Key`: `str`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_lookoutequipment.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## CreateDatasetResponseTypeDef
-
-```python
-from mypy_boto3_lookoutequipment.type_defs import CreateDatasetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatasetName`: `str`
-- `DatasetArn`: `str`
-- `Status`: `DatasetStatus`
-
-
-## CreateInferenceSchedulerResponseTypeDef
-
-```python
-from mypy_boto3_lookoutequipment.type_defs import CreateInferenceSchedulerResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `InferenceSchedulerArn`: `str`
-- `InferenceSchedulerName`: `str`
-- `Status`: `InferenceSchedulerStatus`
-
-
-## CreateModelResponseTypeDef
-
-```python
-from mypy_boto3_lookoutequipment.type_defs import CreateModelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ModelArn`: `str`
-- `Status`: `ModelStatus`
-
-
-## DatasetSchemaTypeDef
-
-```python
-from mypy_boto3_lookoutequipment.type_defs import DatasetSchemaTypeDef
-```
-
-
-
-
-Optional fields:
-- `InlineDataSchema`: `str`
-
-
-## DescribeDataIngestionJobResponseTypeDef
-
-```python
-from mypy_boto3_lookoutequipment.type_defs import DescribeDataIngestionJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-- `DatasetArn`: `str`
-- `IngestionInputConfiguration`: `"IngestionInputConfigurationTypeDef"`
-- `RoleArn`: `str`
-- `CreatedAt`: `datetime`
-- `Status`: `IngestionJobStatus`
-- `FailedReason`: `str`
-
-
-## DescribeDatasetResponseTypeDef
-
-```python
-from mypy_boto3_lookoutequipment.type_defs import DescribeDatasetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatasetName`: `str`
-- `DatasetArn`: `str`
-- `CreatedAt`: `datetime`
-- `LastUpdatedAt`: `datetime`
-- `Status`: `DatasetStatus`
-- `Schema`: `str`
-- `ServerSideKmsKeyId`: `str`
-- `IngestionInputConfiguration`: `"IngestionInputConfigurationTypeDef"`
-
-
-## DescribeInferenceSchedulerResponseTypeDef
-
-```python
-from mypy_boto3_lookoutequipment.type_defs import DescribeInferenceSchedulerResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ModelArn`: `str`
-- `ModelName`: `str`
-- `InferenceSchedulerName`: `str`
-- `InferenceSchedulerArn`: `str`
-- `Status`: `InferenceSchedulerStatus`
-- `DataDelayOffsetInMinutes`: `int`
-- `DataUploadFrequency`: `DataUploadFrequency`
-- `CreatedAt`: `datetime`
-- `UpdatedAt`: `datetime`
-- `DataInputConfiguration`: `"InferenceInputConfigurationTypeDef"`
-- `DataOutputConfiguration`: `"InferenceOutputConfigurationTypeDef"`
-- `RoleArn`: `str`
-- `ServerSideKmsKeyId`: `str`
-
-
-## DescribeModelResponseTypeDef
-
-```python
-from mypy_boto3_lookoutequipment.type_defs import DescribeModelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ModelName`: `str`
-- `ModelArn`: `str`
-- `DatasetName`: `str`
-- `DatasetArn`: `str`
-- `Schema`: `str`
-- `LabelsInputConfiguration`: `"LabelsInputConfigurationTypeDef"`
-- `TrainingDataStartTime`: `datetime`
-- `TrainingDataEndTime`: `datetime`
-- `EvaluationDataStartTime`: `datetime`
-- `EvaluationDataEndTime`: `datetime`
-- `RoleArn`: `str`
-- `DataPreProcessingConfiguration`: `"DataPreProcessingConfigurationTypeDef"`
-- `Status`: `ModelStatus`
-- `TrainingExecutionStartTime`: `datetime`
-- `TrainingExecutionEndTime`: `datetime`
-- `FailedReason`: `str`
-- `ModelMetrics`: `str`
-- `LastUpdatedTime`: `datetime`
-- `CreatedAt`: `datetime`
-- `ServerSideKmsKeyId`: `str`
-
-
 ## ListDataIngestionJobsResponseTypeDef
 
 ```python
@@ -547,6 +501,38 @@ Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 
 
+## ModelSummaryTypeDef
+
+```python
+from mypy_boto3_lookoutequipment.type_defs import ModelSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `ModelName`: `str`
+- `ModelArn`: `str`
+- `DatasetName`: `str`
+- `DatasetArn`: `str`
+- `Status`: `ModelStatus`
+- `CreatedAt`: `datetime`
+
+
+## S3ObjectTypeDef
+
+```python
+from mypy_boto3_lookoutequipment.type_defs import S3ObjectTypeDef
+```
+
+
+Required fields:
+- `Bucket`: `str`
+- `Key`: `str`
+
+
+
+
 ## StartDataIngestionJobResponseTypeDef
 
 ```python
@@ -593,4 +579,18 @@ Optional fields:
 - `InferenceSchedulerName`: `str`
 - `InferenceSchedulerArn`: `str`
 - `Status`: `InferenceSchedulerStatus`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_lookoutequipment.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 

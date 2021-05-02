@@ -7,25 +7,25 @@ type annotations stubs module [mypy_boto3_sqs](https://pypi.org/project/mypy-bot
 
 - [Structures for boto3 SQS module](#structures-for-boto3-sqs-module)
   - [BatchResultErrorEntryTypeDef](#batchresulterrorentrytypedef)
-  - [ChangeMessageVisibilityBatchResultEntryTypeDef](#changemessagevisibilitybatchresultentrytypedef)
-  - [DeleteMessageBatchResultEntryTypeDef](#deletemessagebatchresultentrytypedef)
-  - [MessageAttributeValueTypeDef](#messageattributevaluetypedef)
-  - [MessageSystemAttributeValueTypeDef](#messagesystemattributevaluetypedef)
-  - [MessageTypeDef](#messagetypedef)
-  - [SendMessageBatchResultEntryTypeDef](#sendmessagebatchresultentrytypedef)
   - [ChangeMessageVisibilityBatchRequestEntryTypeDef](#changemessagevisibilitybatchrequestentrytypedef)
+  - [ChangeMessageVisibilityBatchResultEntryTypeDef](#changemessagevisibilitybatchresultentrytypedef)
   - [ChangeMessageVisibilityBatchResultTypeDef](#changemessagevisibilitybatchresulttypedef)
   - [CreateQueueResultTypeDef](#createqueueresulttypedef)
   - [DeleteMessageBatchRequestEntryTypeDef](#deletemessagebatchrequestentrytypedef)
+  - [DeleteMessageBatchResultEntryTypeDef](#deletemessagebatchresultentrytypedef)
   - [DeleteMessageBatchResultTypeDef](#deletemessagebatchresulttypedef)
   - [GetQueueAttributesResultTypeDef](#getqueueattributesresulttypedef)
   - [GetQueueUrlResultTypeDef](#getqueueurlresulttypedef)
   - [ListDeadLetterSourceQueuesResultTypeDef](#listdeadlettersourcequeuesresulttypedef)
   - [ListQueueTagsResultTypeDef](#listqueuetagsresulttypedef)
   - [ListQueuesResultTypeDef](#listqueuesresulttypedef)
+  - [MessageAttributeValueTypeDef](#messageattributevaluetypedef)
+  - [MessageSystemAttributeValueTypeDef](#messagesystemattributevaluetypedef)
+  - [MessageTypeDef](#messagetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ReceiveMessageResultTypeDef](#receivemessageresulttypedef)
   - [SendMessageBatchRequestEntryTypeDef](#sendmessagebatchrequestentrytypedef)
+  - [SendMessageBatchResultEntryTypeDef](#sendmessagebatchresultentrytypedef)
   - [SendMessageBatchResultTypeDef](#sendmessagebatchresulttypedef)
   - [SendMessageResultTypeDef](#sendmessageresulttypedef)
 
@@ -47,109 +47,6 @@ Optional fields:
 - `Message`: `str`
 
 
-## ChangeMessageVisibilityBatchResultEntryTypeDef
-
-```python
-from mypy_boto3_sqs.type_defs import ChangeMessageVisibilityBatchResultEntryTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-
-
-
-
-## DeleteMessageBatchResultEntryTypeDef
-
-```python
-from mypy_boto3_sqs.type_defs import DeleteMessageBatchResultEntryTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-
-
-
-
-## MessageAttributeValueTypeDef
-
-```python
-from mypy_boto3_sqs.type_defs import MessageAttributeValueTypeDef
-```
-
-
-Required fields:
-- `DataType`: `str`
-
-
-
-Optional fields:
-- `StringValue`: `str`
-- `BinaryValue`: `Union[bytes, IO[bytes]]`
-- `StringListValues`: `List[str]`
-- `BinaryListValues`: `List[Union[bytes, IO[bytes]]]`
-
-
-## MessageSystemAttributeValueTypeDef
-
-```python
-from mypy_boto3_sqs.type_defs import MessageSystemAttributeValueTypeDef
-```
-
-
-Required fields:
-- `DataType`: `str`
-
-
-
-Optional fields:
-- `StringValue`: `str`
-- `BinaryValue`: `Union[bytes, IO[bytes]]`
-- `StringListValues`: `List[str]`
-- `BinaryListValues`: `List[Union[bytes, IO[bytes]]]`
-
-
-## MessageTypeDef
-
-```python
-from mypy_boto3_sqs.type_defs import MessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `MessageId`: `str`
-- `ReceiptHandle`: `str`
-- `MD5OfBody`: `str`
-- `Body`: `str`
-- `Attributes`: `Dict[MessageSystemAttributeName, str]`
-- `MD5OfMessageAttributes`: `str`
-- `MessageAttributes`: `Dict[str, "MessageAttributeValueTypeDef"]`
-
-
-## SendMessageBatchResultEntryTypeDef
-
-```python
-from mypy_boto3_sqs.type_defs import SendMessageBatchResultEntryTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `MessageId`: `str`
-- `MD5OfMessageBody`: `str`
-
-
-
-Optional fields:
-- `MD5OfMessageAttributes`: `str`
-- `MD5OfMessageSystemAttributes`: `str`
-- `SequenceNumber`: `str`
-
-
 ## ChangeMessageVisibilityBatchRequestEntryTypeDef
 
 ```python
@@ -165,6 +62,19 @@ Required fields:
 
 Optional fields:
 - `VisibilityTimeout`: `int`
+
+
+## ChangeMessageVisibilityBatchResultEntryTypeDef
+
+```python
+from mypy_boto3_sqs.type_defs import ChangeMessageVisibilityBatchResultEntryTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+
+
 
 
 ## ChangeMessageVisibilityBatchResultTypeDef
@@ -204,6 +114,19 @@ from mypy_boto3_sqs.type_defs import DeleteMessageBatchRequestEntryTypeDef
 Required fields:
 - `Id`: `str`
 - `ReceiptHandle`: `str`
+
+
+
+
+## DeleteMessageBatchResultEntryTypeDef
+
+```python
+from mypy_boto3_sqs.type_defs import DeleteMessageBatchResultEntryTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
 
 
 
@@ -291,6 +214,63 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## MessageAttributeValueTypeDef
+
+```python
+from mypy_boto3_sqs.type_defs import MessageAttributeValueTypeDef
+```
+
+
+Required fields:
+- `DataType`: `str`
+
+
+
+Optional fields:
+- `StringValue`: `str`
+- `BinaryValue`: `Union[bytes, IO[bytes]]`
+- `StringListValues`: `List[str]`
+- `BinaryListValues`: `List[Union[bytes, IO[bytes]]]`
+
+
+## MessageSystemAttributeValueTypeDef
+
+```python
+from mypy_boto3_sqs.type_defs import MessageSystemAttributeValueTypeDef
+```
+
+
+Required fields:
+- `DataType`: `str`
+
+
+
+Optional fields:
+- `StringValue`: `str`
+- `BinaryValue`: `Union[bytes, IO[bytes]]`
+- `StringListValues`: `List[str]`
+- `BinaryListValues`: `List[Union[bytes, IO[bytes]]]`
+
+
+## MessageTypeDef
+
+```python
+from mypy_boto3_sqs.type_defs import MessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `MessageId`: `str`
+- `ReceiptHandle`: `str`
+- `MD5OfBody`: `str`
+- `Body`: `str`
+- `Attributes`: `Dict[MessageSystemAttributeName, str]`
+- `MD5OfMessageAttributes`: `str`
+- `MessageAttributes`: `Dict[str, "MessageAttributeValueTypeDef"]`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -335,9 +315,29 @@ Required fields:
 Optional fields:
 - `DelaySeconds`: `int`
 - `MessageAttributes`: `Dict[str, "MessageAttributeValueTypeDef"]`
-- `MessageSystemAttributes`: `Dict[MessageSystemAttributeNameForSends, "MessageSystemAttributeValueTypeDef"]`
+- `MessageSystemAttributes`: `Dict[Literal['AWSTraceHeader'], "MessageSystemAttributeValueTypeDef"]`
 - `MessageDeduplicationId`: `str`
 - `MessageGroupId`: `str`
+
+
+## SendMessageBatchResultEntryTypeDef
+
+```python
+from mypy_boto3_sqs.type_defs import SendMessageBatchResultEntryTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `MessageId`: `str`
+- `MD5OfMessageBody`: `str`
+
+
+
+Optional fields:
+- `MD5OfMessageAttributes`: `str`
+- `MD5OfMessageSystemAttributes`: `str`
+- `SequenceNumber`: `str`
 
 
 ## SendMessageBatchResultTypeDef

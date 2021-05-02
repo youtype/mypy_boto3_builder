@@ -135,7 +135,7 @@ Type annotations for `boto3.client("ce").create_cost_category_definition` method
 def create_cost_category_definition(
     self,
     Name: str,
-    RuleVersion: CostCategoryRuleVersion,
+    RuleVersion: Literal['CostCategoryExpression.v1'],
     Rules: List["CostCategoryRuleTypeDef"],
     DefaultValue: str = None
 ) -> CreateCostCategoryDefinitionResponseTypeDef:
@@ -638,9 +638,12 @@ Type annotations for `boto3.client("ce").update_cost_category_definition` method
 def update_cost_category_definition(
     self,
     CostCategoryArn: str,
-    RuleVersion: CostCategoryRuleVersion,
+    RuleVersion: Literal['CostCategoryExpression.v1'],
     Rules: List["CostCategoryRuleTypeDef"],
     DefaultValue: str = None
 ) -> UpdateCostCategoryDefinitionResponseTypeDef:
     pass
 ```
+
+
+

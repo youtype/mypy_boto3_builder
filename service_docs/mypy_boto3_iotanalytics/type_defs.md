@@ -8,7 +8,9 @@ type annotations stubs module [mypy_boto3_iotanalytics](https://pypi.org/project
 - [Structures for boto3 IoTAnalytics module](#structures-for-boto3-iotanalytics-module)
   - [AddAttributesActivityTypeDef](#addattributesactivitytypedef)
   - [BatchPutMessageErrorEntryTypeDef](#batchputmessageerrorentrytypedef)
+  - [BatchPutMessageResponseTypeDef](#batchputmessageresponsetypedef)
   - [ChannelActivityTypeDef](#channelactivitytypedef)
+  - [ChannelMessagesTypeDef](#channelmessagestypedef)
   - [ChannelStatisticsTypeDef](#channelstatisticstypedef)
   - [ChannelStorageSummaryTypeDef](#channelstoragesummarytypedef)
   - [ChannelStorageTypeDef](#channelstoragetypedef)
@@ -16,6 +18,11 @@ type annotations stubs module [mypy_boto3_iotanalytics](https://pypi.org/project
   - [ChannelTypeDef](#channeltypedef)
   - [ColumnTypeDef](#columntypedef)
   - [ContainerDatasetActionTypeDef](#containerdatasetactiontypedef)
+  - [CreateChannelResponseTypeDef](#createchannelresponsetypedef)
+  - [CreateDatasetContentResponseTypeDef](#createdatasetcontentresponsetypedef)
+  - [CreateDatasetResponseTypeDef](#createdatasetresponsetypedef)
+  - [CreateDatastoreResponseTypeDef](#createdatastoreresponsetypedef)
+  - [CreatePipelineResponseTypeDef](#createpipelineresponsetypedef)
   - [CustomerManagedChannelS3StorageSummaryTypeDef](#customermanagedchannels3storagesummarytypedef)
   - [CustomerManagedChannelS3StorageTypeDef](#customermanagedchannels3storagetypedef)
   - [CustomerManagedDatastoreS3StorageSummaryTypeDef](#customermanageddatastores3storagesummarytypedef)
@@ -39,19 +46,33 @@ type annotations stubs module [mypy_boto3_iotanalytics](https://pypi.org/project
   - [DatastoreTypeDef](#datastoretypedef)
   - [DeltaTimeSessionWindowConfigurationTypeDef](#deltatimesessionwindowconfigurationtypedef)
   - [DeltaTimeTypeDef](#deltatimetypedef)
+  - [DescribeChannelResponseTypeDef](#describechannelresponsetypedef)
+  - [DescribeDatasetResponseTypeDef](#describedatasetresponsetypedef)
+  - [DescribeDatastoreResponseTypeDef](#describedatastoreresponsetypedef)
+  - [DescribeLoggingOptionsResponseTypeDef](#describeloggingoptionsresponsetypedef)
+  - [DescribePipelineResponseTypeDef](#describepipelineresponsetypedef)
   - [DeviceRegistryEnrichActivityTypeDef](#deviceregistryenrichactivitytypedef)
   - [DeviceShadowEnrichActivityTypeDef](#deviceshadowenrichactivitytypedef)
   - [EstimatedResourceSizeTypeDef](#estimatedresourcesizetypedef)
   - [FileFormatConfigurationTypeDef](#fileformatconfigurationtypedef)
   - [FilterActivityTypeDef](#filteractivitytypedef)
+  - [GetDatasetContentResponseTypeDef](#getdatasetcontentresponsetypedef)
   - [GlueConfigurationTypeDef](#glueconfigurationtypedef)
   - [IotEventsDestinationConfigurationTypeDef](#ioteventsdestinationconfigurationtypedef)
   - [LambdaActivityTypeDef](#lambdaactivitytypedef)
   - [LateDataRuleConfigurationTypeDef](#latedataruleconfigurationtypedef)
   - [LateDataRuleTypeDef](#latedataruletypedef)
+  - [ListChannelsResponseTypeDef](#listchannelsresponsetypedef)
+  - [ListDatasetContentsResponseTypeDef](#listdatasetcontentsresponsetypedef)
+  - [ListDatasetsResponseTypeDef](#listdatasetsresponsetypedef)
+  - [ListDatastoresResponseTypeDef](#listdatastoresresponsetypedef)
+  - [ListPipelinesResponseTypeDef](#listpipelinesresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [LoggingOptionsTypeDef](#loggingoptionstypedef)
   - [MathActivityTypeDef](#mathactivitytypedef)
+  - [MessageTypeDef](#messagetypedef)
   - [OutputFileUriValueTypeDef](#outputfileurivaluetypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ParquetConfigurationTypeDef](#parquetconfigurationtypedef)
   - [PipelineActivityTypeDef](#pipelineactivitytypedef)
   - [PipelineSummaryTypeDef](#pipelinesummarytypedef)
@@ -61,39 +82,18 @@ type annotations stubs module [mypy_boto3_iotanalytics](https://pypi.org/project
   - [ReprocessingSummaryTypeDef](#reprocessingsummarytypedef)
   - [ResourceConfigurationTypeDef](#resourceconfigurationtypedef)
   - [RetentionPeriodTypeDef](#retentionperiodtypedef)
+  - [RunPipelineActivityResponseTypeDef](#runpipelineactivityresponsetypedef)
   - [S3DestinationConfigurationTypeDef](#s3destinationconfigurationtypedef)
+  - [SampleChannelDataResponseTypeDef](#samplechanneldataresponsetypedef)
   - [ScheduleTypeDef](#scheduletypedef)
   - [SchemaDefinitionTypeDef](#schemadefinitiontypedef)
   - [SelectAttributesActivityTypeDef](#selectattributesactivitytypedef)
   - [SqlQueryDatasetActionTypeDef](#sqlquerydatasetactiontypedef)
+  - [StartPipelineReprocessingResponseTypeDef](#startpipelinereprocessingresponsetypedef)
   - [TagTypeDef](#tagtypedef)
   - [TriggeringDatasetTypeDef](#triggeringdatasettypedef)
   - [VariableTypeDef](#variabletypedef)
   - [VersioningConfigurationTypeDef](#versioningconfigurationtypedef)
-  - [BatchPutMessageResponseTypeDef](#batchputmessageresponsetypedef)
-  - [ChannelMessagesTypeDef](#channelmessagestypedef)
-  - [CreateChannelResponseTypeDef](#createchannelresponsetypedef)
-  - [CreateDatasetContentResponseTypeDef](#createdatasetcontentresponsetypedef)
-  - [CreateDatasetResponseTypeDef](#createdatasetresponsetypedef)
-  - [CreateDatastoreResponseTypeDef](#createdatastoreresponsetypedef)
-  - [CreatePipelineResponseTypeDef](#createpipelineresponsetypedef)
-  - [DescribeChannelResponseTypeDef](#describechannelresponsetypedef)
-  - [DescribeDatasetResponseTypeDef](#describedatasetresponsetypedef)
-  - [DescribeDatastoreResponseTypeDef](#describedatastoreresponsetypedef)
-  - [DescribeLoggingOptionsResponseTypeDef](#describeloggingoptionsresponsetypedef)
-  - [DescribePipelineResponseTypeDef](#describepipelineresponsetypedef)
-  - [GetDatasetContentResponseTypeDef](#getdatasetcontentresponsetypedef)
-  - [ListChannelsResponseTypeDef](#listchannelsresponsetypedef)
-  - [ListDatasetContentsResponseTypeDef](#listdatasetcontentsresponsetypedef)
-  - [ListDatasetsResponseTypeDef](#listdatasetsresponsetypedef)
-  - [ListDatastoresResponseTypeDef](#listdatastoresresponsetypedef)
-  - [ListPipelinesResponseTypeDef](#listpipelinesresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [MessageTypeDef](#messagetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [RunPipelineActivityResponseTypeDef](#runpipelineactivityresponsetypedef)
-  - [SampleChannelDataResponseTypeDef](#samplechanneldataresponsetypedef)
-  - [StartPipelineReprocessingResponseTypeDef](#startpipelinereprocessingresponsetypedef)
 
 ## AddAttributesActivityTypeDef
 
@@ -127,6 +127,19 @@ Optional fields:
 - `errorMessage`: `str`
 
 
+## BatchPutMessageResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import BatchPutMessageResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `batchPutMessageErrorEntries`: `List["BatchPutMessageErrorEntryTypeDef"]`
+
+
 ## ChannelActivityTypeDef
 
 ```python
@@ -142,6 +155,19 @@ Required fields:
 
 Optional fields:
 - `next`: `str`
+
+
+## ChannelMessagesTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import ChannelMessagesTypeDef
+```
+
+
+
+
+Optional fields:
+- `s3Paths`: `List[str]`
 
 
 ## ChannelStatisticsTypeDef
@@ -253,6 +279,78 @@ Required fields:
 
 Optional fields:
 - `variables`: `List["VariableTypeDef"]`
+
+
+## CreateChannelResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import CreateChannelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `channelName`: `str`
+- `channelArn`: `str`
+- `retentionPeriod`: `"RetentionPeriodTypeDef"`
+
+
+## CreateDatasetContentResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import CreateDatasetContentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `versionId`: `str`
+
+
+## CreateDatasetResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import CreateDatasetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `datasetName`: `str`
+- `datasetArn`: `str`
+- `retentionPeriod`: `"RetentionPeriodTypeDef"`
+
+
+## CreateDatastoreResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import CreateDatastoreResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `datastoreName`: `str`
+- `datastoreArn`: `str`
+- `retentionPeriod`: `"RetentionPeriodTypeDef"`
+
+
+## CreatePipelineResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import CreatePipelineResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipelineName`: `str`
+- `pipelineArn`: `str`
 
 
 ## CustomerManagedChannelS3StorageSummaryTypeDef
@@ -613,6 +711,73 @@ Required fields:
 
 
 
+## DescribeChannelResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import DescribeChannelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `channel`: `"ChannelTypeDef"`
+- `statistics`: `"ChannelStatisticsTypeDef"`
+
+
+## DescribeDatasetResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import DescribeDatasetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `dataset`: `"DatasetTypeDef"`
+
+
+## DescribeDatastoreResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import DescribeDatastoreResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `datastore`: `"DatastoreTypeDef"`
+- `statistics`: `"DatastoreStatisticsTypeDef"`
+
+
+## DescribeLoggingOptionsResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import DescribeLoggingOptionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `loggingOptions`: `"LoggingOptionsTypeDef"`
+
+
+## DescribePipelineResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import DescribePipelineResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipeline`: `"PipelineTypeDef"`
+
+
 ## DeviceRegistryEnrichActivityTypeDef
 
 ```python
@@ -696,6 +861,21 @@ Optional fields:
 - `next`: `str`
 
 
+## GetDatasetContentResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import GetDatasetContentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `entries`: `List["DatasetEntryTypeDef"]`
+- `timestamp`: `datetime`
+- `status`: `"DatasetContentStatusTypeDef"`
+
+
 ## GlueConfigurationTypeDef
 
 ```python
@@ -771,6 +951,89 @@ Optional fields:
 - `ruleName`: `str`
 
 
+## ListChannelsResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import ListChannelsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `channelSummaries`: `List["ChannelSummaryTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListDatasetContentsResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import ListDatasetContentsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `datasetContentSummaries`: `List["DatasetContentSummaryTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListDatasetsResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import ListDatasetsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `datasetSummaries`: `List["DatasetSummaryTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListDatastoresResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import ListDatastoresResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `datastoreSummaries`: `List["DatastoreSummaryTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListPipelinesResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import ListPipelinesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipelineSummaries`: `List["PipelineSummaryTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `List["TagTypeDef"]`
+
+
 ## LoggingOptionsTypeDef
 
 ```python
@@ -780,7 +1043,7 @@ from mypy_boto3_iotanalytics.type_defs import LoggingOptionsTypeDef
 
 Required fields:
 - `roleArn`: `str`
-- `level`: `LoggingLevel`
+- `level`: `Literal['ERROR']`
 - `enabled`: `bool`
 
 
@@ -804,6 +1067,20 @@ Optional fields:
 - `next`: `str`
 
 
+## MessageTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import MessageTypeDef
+```
+
+
+Required fields:
+- `messageId`: `str`
+- `payload`: `Union[bytes, IO[bytes]]`
+
+
+
+
 ## OutputFileUriValueTypeDef
 
 ```python
@@ -815,6 +1092,21 @@ Required fields:
 - `fileName`: `str`
 
 
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## ParquetConfigurationTypeDef
@@ -959,6 +1251,20 @@ Optional fields:
 - `numberOfDays`: `int`
 
 
+## RunPipelineActivityResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import RunPipelineActivityResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `payloads`: `List[Union[bytes, IO[bytes]]]`
+- `logResult`: `str`
+
+
 ## S3DestinationConfigurationTypeDef
 
 ```python
@@ -975,6 +1281,19 @@ Required fields:
 
 Optional fields:
 - `glueConfiguration`: `"GlueConfigurationTypeDef"`
+
+
+## SampleChannelDataResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import SampleChannelDataResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `payloads`: `List[Union[bytes, IO[bytes]]]`
 
 
 ## ScheduleTypeDef
@@ -1036,6 +1355,19 @@ Optional fields:
 - `filters`: `List["QueryFilterTypeDef"]`
 
 
+## StartPipelineReprocessingResponseTypeDef
+
+```python
+from mypy_boto3_iotanalytics.type_defs import StartPipelineReprocessingResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `reprocessingId`: `str`
+
+
 ## TagTypeDef
 
 ```python
@@ -1094,336 +1426,4 @@ from mypy_boto3_iotanalytics.type_defs import VersioningConfigurationTypeDef
 Optional fields:
 - `unlimited`: `bool`
 - `maxVersions`: `int`
-
-
-## BatchPutMessageResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import BatchPutMessageResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `batchPutMessageErrorEntries`: `List["BatchPutMessageErrorEntryTypeDef"]`
-
-
-## ChannelMessagesTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import ChannelMessagesTypeDef
-```
-
-
-
-
-Optional fields:
-- `s3Paths`: `List[str]`
-
-
-## CreateChannelResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import CreateChannelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `channelName`: `str`
-- `channelArn`: `str`
-- `retentionPeriod`: `"RetentionPeriodTypeDef"`
-
-
-## CreateDatasetContentResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import CreateDatasetContentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `versionId`: `str`
-
-
-## CreateDatasetResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import CreateDatasetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `datasetName`: `str`
-- `datasetArn`: `str`
-- `retentionPeriod`: `"RetentionPeriodTypeDef"`
-
-
-## CreateDatastoreResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import CreateDatastoreResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `datastoreName`: `str`
-- `datastoreArn`: `str`
-- `retentionPeriod`: `"RetentionPeriodTypeDef"`
-
-
-## CreatePipelineResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import CreatePipelineResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipelineName`: `str`
-- `pipelineArn`: `str`
-
-
-## DescribeChannelResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import DescribeChannelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `channel`: `"ChannelTypeDef"`
-- `statistics`: `"ChannelStatisticsTypeDef"`
-
-
-## DescribeDatasetResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import DescribeDatasetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `dataset`: `"DatasetTypeDef"`
-
-
-## DescribeDatastoreResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import DescribeDatastoreResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `datastore`: `"DatastoreTypeDef"`
-- `statistics`: `"DatastoreStatisticsTypeDef"`
-
-
-## DescribeLoggingOptionsResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import DescribeLoggingOptionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `loggingOptions`: `"LoggingOptionsTypeDef"`
-
-
-## DescribePipelineResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import DescribePipelineResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipeline`: `"PipelineTypeDef"`
-
-
-## GetDatasetContentResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import GetDatasetContentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `entries`: `List["DatasetEntryTypeDef"]`
-- `timestamp`: `datetime`
-- `status`: `"DatasetContentStatusTypeDef"`
-
-
-## ListChannelsResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import ListChannelsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `channelSummaries`: `List["ChannelSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListDatasetContentsResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import ListDatasetContentsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `datasetContentSummaries`: `List["DatasetContentSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListDatasetsResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import ListDatasetsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `datasetSummaries`: `List["DatasetSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListDatastoresResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import ListDatastoresResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `datastoreSummaries`: `List["DatastoreSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListPipelinesResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import ListPipelinesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipelineSummaries`: `List["PipelineSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `List["TagTypeDef"]`
-
-
-## MessageTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import MessageTypeDef
-```
-
-
-Required fields:
-- `messageId`: `str`
-- `payload`: `Union[bytes, IO[bytes]]`
-
-
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## RunPipelineActivityResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import RunPipelineActivityResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `payloads`: `List[Union[bytes, IO[bytes]]]`
-- `logResult`: `str`
-
-
-## SampleChannelDataResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import SampleChannelDataResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `payloads`: `List[Union[bytes, IO[bytes]]]`
-
-
-## StartPipelineReprocessingResponseTypeDef
-
-```python
-from mypy_boto3_iotanalytics.type_defs import StartPipelineReprocessingResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `reprocessingId`: `str`
 

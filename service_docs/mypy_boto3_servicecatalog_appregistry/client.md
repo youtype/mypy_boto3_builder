@@ -32,9 +32,6 @@ type annotations stubs module [mypy_boto3_servicecatalog_appregistry](https://py
     - [update_application](#update_application)
     - [update_attribute_group](#update_attribute_group)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## AppRegistryClient
 
@@ -97,7 +94,7 @@ Type annotations for `boto3.client("servicecatalog-appregistry").associate_resou
 def associate_resource(
     self,
     application: str,
-    resourceType: ResourceType,
+    resourceType: Literal['CFN_STACK'],
     resource: str
 ) -> AssociateResourceResponseTypeDef:
     pass
@@ -205,7 +202,7 @@ Type annotations for `boto3.client("servicecatalog-appregistry").disassociate_re
 def disassociate_resource(
     self,
     application: str,
-    resourceType: ResourceType,
+    resourceType: Literal['CFN_STACK'],
     resource: str
 ) -> DisassociateResourceResponseTypeDef:
     pass
@@ -341,7 +338,7 @@ Type annotations for `boto3.client("servicecatalog-appregistry").sync_resource` 
 ```python
 def sync_resource(
     self,
-    resourceType: ResourceType,
+    resourceType: Literal['CFN_STACK'],
     resource: str
 ) -> SyncResourceResponseTypeDef:
     pass
@@ -410,62 +407,15 @@ def update_attribute_group(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("servicecatalog-appregistry").get_paginator` method.
-
-[Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListApplications)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListApplicationsPaginatorName
-) -> ListApplicationsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("servicecatalog-appregistry").get_paginator` method.
+Type annotations for `boto3.client("servicecatalog-appregistry").get_paginator` method with overloads.
 
-[Paginator.ListAssociatedAttributeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedAttributeGroups)
+- `client.get_paginator("list_applications")` -> [ListApplicationsPaginator](./paginators.md#listapplicationspaginator)
+- `client.get_paginator("list_associated_attribute_groups")` -> [ListAssociatedAttributeGroupsPaginator](./paginators.md#listassociatedattributegroupspaginator)
+- `client.get_paginator("list_associated_resources")` -> [ListAssociatedResourcesPaginator](./paginators.md#listassociatedresourcespaginator)
+- `client.get_paginator("list_attribute_groups")` -> [ListAttributeGroupsPaginator](./paginators.md#listattributegroupspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssociatedAttributeGroupsPaginatorName
-) -> ListAssociatedAttributeGroupsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog-appregistry").get_paginator` method.
-
-[Paginator.ListAssociatedResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAssociatedResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssociatedResourcesPaginatorName
-) -> ListAssociatedResourcesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicecatalog-appregistry").get_paginator` method.
-
-[Paginator.ListAttributeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicecatalog-appregistry.html#AppRegistry.Paginator.ListAttributeGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAttributeGroupsPaginatorName
-) -> ListAttributeGroupsPaginator:
-    pass
-```

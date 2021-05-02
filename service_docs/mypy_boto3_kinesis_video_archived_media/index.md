@@ -113,22 +113,22 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_kinesis_video_archived_media.type_defs import ClipTimestampRangeTypeDef, ...
+from mypy_boto3_kinesis_video_archived_media.type_defs import ClipFragmentSelectorTypeDef, ...
 ```
 
-- [ClipTimestampRangeTypeDef](./type_defs.md#cliptimestamprangetypedef)
-- [DASHTimestampRangeTypeDef](./type_defs.md#dashtimestamprangetypedef)
-- [FragmentTypeDef](./type_defs.md#fragmenttypedef)
-- [HLSTimestampRangeTypeDef](./type_defs.md#hlstimestamprangetypedef)
-- [ResponseMetadata](./type_defs.md#responsemetadata)
-- [TimestampRangeTypeDef](./type_defs.md#timestamprangetypedef)
 - [ClipFragmentSelectorTypeDef](./type_defs.md#clipfragmentselectortypedef)
+- [ClipTimestampRangeTypeDef](./type_defs.md#cliptimestamprangetypedef)
 - [DASHFragmentSelectorTypeDef](./type_defs.md#dashfragmentselectortypedef)
+- [DASHTimestampRangeTypeDef](./type_defs.md#dashtimestamprangetypedef)
 - [FragmentSelectorTypeDef](./type_defs.md#fragmentselectortypedef)
+- [FragmentTypeDef](./type_defs.md#fragmenttypedef)
 - [GetClipOutputTypeDef](./type_defs.md#getclipoutputtypedef)
 - [GetDASHStreamingSessionURLOutputTypeDef](./type_defs.md#getdashstreamingsessionurloutputtypedef)
 - [GetHLSStreamingSessionURLOutputTypeDef](./type_defs.md#gethlsstreamingsessionurloutputtypedef)
 - [GetMediaForFragmentListOutputTypeDef](./type_defs.md#getmediaforfragmentlistoutputtypedef)
 - [HLSFragmentSelectorTypeDef](./type_defs.md#hlsfragmentselectortypedef)
+- [HLSTimestampRangeTypeDef](./type_defs.md#hlstimestamprangetypedef)
 - [ListFragmentsOutputTypeDef](./type_defs.md#listfragmentsoutputtypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)
+- [TimestampRangeTypeDef](./type_defs.md#timestamprangetypedef)

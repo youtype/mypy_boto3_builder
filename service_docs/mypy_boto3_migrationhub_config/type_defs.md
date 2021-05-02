@@ -6,43 +6,11 @@ Auto-generated documentation for [MigrationHubConfig](https://boto3.amazonaws.co
 type annotations stubs module [mypy_boto3_migrationhub_config](https://pypi.org/project/mypy-boto3-migrationhub-config/).
 
 - [Structures for boto3 MigrationHubConfig module](#structures-for-boto3-migrationhubconfig-module)
-  - [HomeRegionControlTypeDef](#homeregioncontroltypedef)
-  - [TargetTypeDef](#targettypedef)
   - [CreateHomeRegionControlResultTypeDef](#createhomeregioncontrolresulttypedef)
   - [DescribeHomeRegionControlsResultTypeDef](#describehomeregioncontrolsresulttypedef)
   - [GetHomeRegionResultTypeDef](#gethomeregionresulttypedef)
-
-## HomeRegionControlTypeDef
-
-```python
-from mypy_boto3_migrationhub_config.type_defs import HomeRegionControlTypeDef
-```
-
-
-
-
-Optional fields:
-- `ControlId`: `str`
-- `HomeRegion`: `str`
-- `Target`: `"TargetTypeDef"`
-- `RequestedTime`: `datetime`
-
-
-## TargetTypeDef
-
-```python
-from mypy_boto3_migrationhub_config.type_defs import TargetTypeDef
-```
-
-
-Required fields:
-- `Type`: `TargetType`
-
-
-
-Optional fields:
-- `Id`: `str`
-
+  - [HomeRegionControlTypeDef](#homeregioncontroltypedef)
+  - [TargetTypeDef](#targettypedef)
 
 ## CreateHomeRegionControlResultTypeDef
 
@@ -82,4 +50,36 @@ from mypy_boto3_migrationhub_config.type_defs import GetHomeRegionResultTypeDef
 
 Optional fields:
 - `HomeRegion`: `str`
+
+
+## HomeRegionControlTypeDef
+
+```python
+from mypy_boto3_migrationhub_config.type_defs import HomeRegionControlTypeDef
+```
+
+
+
+
+Optional fields:
+- `ControlId`: `str`
+- `HomeRegion`: `str`
+- `Target`: `"TargetTypeDef"`
+- `RequestedTime`: `datetime`
+
+
+## TargetTypeDef
+
+```python
+from mypy_boto3_migrationhub_config.type_defs import TargetTypeDef
+```
+
+
+Required fields:
+- `Type`: `Literal['ACCOUNT']`
+
+
+
+Optional fields:
+- `Id`: `str`
 

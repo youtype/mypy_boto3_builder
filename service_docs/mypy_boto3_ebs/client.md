@@ -83,8 +83,8 @@ def complete_snapshot(
     SnapshotId: str,
     ChangedBlocksCount: int,
     Checksum: str = None,
-    ChecksumAlgorithm: ChecksumAlgorithm = None,
-    ChecksumAggregationMethod: ChecksumAggregationMethod = None
+    ChecksumAlgorithm: Literal['SHA256'] = None,
+    ChecksumAggregationMethod: Literal['LINEAR'] = None
 ) -> CompleteSnapshotResponseTypeDef:
     pass
 ```
@@ -171,7 +171,7 @@ def put_snapshot_block(
     BlockData: Union[bytes, IO[bytes]],
     DataLength: int,
     Checksum: str,
-    ChecksumAlgorithm: ChecksumAlgorithm,
+    ChecksumAlgorithm: Literal['SHA256'],
     Progress: int = None
 ) -> PutSnapshotBlockResponseTypeDef:
     pass
@@ -197,3 +197,6 @@ def start_snapshot(
 ) -> StartSnapshotResponseTypeDef:
     pass
 ```
+
+
+

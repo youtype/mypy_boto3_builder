@@ -38,10 +38,6 @@ type annotations stubs module [mypy_boto3_ivs](https://pypi.org/project/mypy-bot
     - [untag_resource](#untag_resource)
     - [update_channel](#update_channel)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
 
 ## IVSClient
 
@@ -507,77 +503,16 @@ def update_channel(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("ivs").get_paginator` method.
-
-[Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs.html#IVS.Paginator.ListChannels)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListChannelsPaginatorName
-) -> ListChannelsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("ivs").get_paginator` method.
+Type annotations for `boto3.client("ivs").get_paginator` method with overloads.
 
-[Paginator.ListPlaybackKeyPairs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs.html#IVS.Paginator.ListPlaybackKeyPairs)
+- `client.get_paginator("list_channels")` -> [ListChannelsPaginator](./paginators.md#listchannelspaginator)
+- `client.get_paginator("list_playback_key_pairs")` -> [ListPlaybackKeyPairsPaginator](./paginators.md#listplaybackkeypairspaginator)
+- `client.get_paginator("list_recording_configurations")` -> [ListRecordingConfigurationsPaginator](./paginators.md#listrecordingconfigurationspaginator)
+- `client.get_paginator("list_stream_keys")` -> [ListStreamKeysPaginator](./paginators.md#liststreamkeyspaginator)
+- `client.get_paginator("list_streams")` -> [ListStreamsPaginator](./paginators.md#liststreamspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPlaybackKeyPairsPaginatorName
-) -> ListPlaybackKeyPairsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("ivs").get_paginator` method.
-
-[Paginator.ListRecordingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs.html#IVS.Paginator.ListRecordingConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRecordingConfigurationsPaginatorName
-) -> ListRecordingConfigurationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ivs").get_paginator` method.
-
-[Paginator.ListStreamKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs.html#IVS.Paginator.ListStreamKeys)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStreamKeysPaginatorName
-) -> ListStreamKeysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ivs").get_paginator` method.
-
-[Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ivs.html#IVS.Paginator.ListStreams)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStreamsPaginatorName
-) -> ListStreamsPaginator:
-    pass
-```

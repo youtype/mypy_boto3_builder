@@ -173,16 +173,12 @@ def untag_resource(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("elastic-inference").get_paginator` method.
+Type annotations for `boto3.client("elastic-inference").get_paginator` method with overloads.
 
-[Paginator.DescribeAccelerators documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators)
+- `client.get_paginator("describe_accelerators")` -> [DescribeAcceleratorsPaginator](./paginators.md#describeacceleratorspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: DescribeAcceleratorsPaginatorName
-) -> DescribeAcceleratorsPaginator:
-    pass
-```
+

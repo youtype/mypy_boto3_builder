@@ -6,32 +6,10 @@ Auto-generated documentation for [NimbleStudio](https://boto3.amazonaws.com/v1/d
 type annotations stubs module [mypy_boto3_nimble](https://pypi.org/project/mypy-boto3-nimble/).
 
 - [Structures for boto3 NimbleStudio module](#structures-for-boto3-nimblestudio-module)
+  - [AcceptEulasResponseTypeDef](#accepteulasresponsetypedef)
   - [ActiveDirectoryComputerAttributeTypeDef](#activedirectorycomputerattributetypedef)
   - [ActiveDirectoryConfigurationTypeDef](#activedirectoryconfigurationtypedef)
   - [ComputeFarmConfigurationTypeDef](#computefarmconfigurationtypedef)
-  - [EulaAcceptanceTypeDef](#eulaacceptancetypedef)
-  - [EulaTypeDef](#eulatypedef)
-  - [LaunchProfileInitializationActiveDirectoryTypeDef](#launchprofileinitializationactivedirectorytypedef)
-  - [LaunchProfileInitializationScriptTypeDef](#launchprofileinitializationscripttypedef)
-  - [LaunchProfileInitializationTypeDef](#launchprofileinitializationtypedef)
-  - [LaunchProfileMembershipTypeDef](#launchprofilemembershiptypedef)
-  - [LaunchProfileTypeDef](#launchprofiletypedef)
-  - [LicenseServiceConfigurationTypeDef](#licenseserviceconfigurationtypedef)
-  - [ScriptParameterKeyValueTypeDef](#scriptparameterkeyvaluetypedef)
-  - [SharedFileSystemConfigurationTypeDef](#sharedfilesystemconfigurationtypedef)
-  - [StreamConfigurationTypeDef](#streamconfigurationtypedef)
-  - [StreamingImageEncryptionConfigurationTypeDef](#streamingimageencryptionconfigurationtypedef)
-  - [StreamingImageTypeDef](#streamingimagetypedef)
-  - [StreamingSessionStreamTypeDef](#streamingsessionstreamtypedef)
-  - [StreamingSessionTypeDef](#streamingsessiontypedef)
-  - [StudioComponentConfigurationTypeDef](#studiocomponentconfigurationtypedef)
-  - [StudioComponentInitializationScriptTypeDef](#studiocomponentinitializationscripttypedef)
-  - [StudioComponentSummaryTypeDef](#studiocomponentsummarytypedef)
-  - [StudioComponentTypeDef](#studiocomponenttypedef)
-  - [StudioEncryptionConfigurationTypeDef](#studioencryptionconfigurationtypedef)
-  - [StudioMembershipTypeDef](#studiomembershiptypedef)
-  - [StudioTypeDef](#studiotypedef)
-  - [AcceptEulasResponseTypeDef](#accepteulasresponsetypedef)
   - [CreateLaunchProfileResponseTypeDef](#createlaunchprofileresponsetypedef)
   - [CreateStreamingImageResponseTypeDef](#createstreamingimageresponsetypedef)
   - [CreateStreamingSessionResponseTypeDef](#createstreamingsessionresponsetypedef)
@@ -43,6 +21,8 @@ type annotations stubs module [mypy_boto3_nimble](https://pypi.org/project/mypy-
   - [DeleteStreamingSessionResponseTypeDef](#deletestreamingsessionresponsetypedef)
   - [DeleteStudioComponentResponseTypeDef](#deletestudiocomponentresponsetypedef)
   - [DeleteStudioResponseTypeDef](#deletestudioresponsetypedef)
+  - [EulaAcceptanceTypeDef](#eulaacceptancetypedef)
+  - [EulaTypeDef](#eulatypedef)
   - [GetEulaResponseTypeDef](#geteularesponsetypedef)
   - [GetLaunchProfileDetailsResponseTypeDef](#getlaunchprofiledetailsresponsetypedef)
   - [GetLaunchProfileInitializationResponseTypeDef](#getlaunchprofileinitializationresponsetypedef)
@@ -54,6 +34,12 @@ type annotations stubs module [mypy_boto3_nimble](https://pypi.org/project/mypy-
   - [GetStudioComponentResponseTypeDef](#getstudiocomponentresponsetypedef)
   - [GetStudioMemberResponseTypeDef](#getstudiomemberresponsetypedef)
   - [GetStudioResponseTypeDef](#getstudioresponsetypedef)
+  - [LaunchProfileInitializationActiveDirectoryTypeDef](#launchprofileinitializationactivedirectorytypedef)
+  - [LaunchProfileInitializationScriptTypeDef](#launchprofileinitializationscripttypedef)
+  - [LaunchProfileInitializationTypeDef](#launchprofileinitializationtypedef)
+  - [LaunchProfileMembershipTypeDef](#launchprofilemembershiptypedef)
+  - [LaunchProfileTypeDef](#launchprofiletypedef)
+  - [LicenseServiceConfigurationTypeDef](#licenseserviceconfigurationtypedef)
   - [ListEulaAcceptancesResponseTypeDef](#listeulaacceptancesresponsetypedef)
   - [ListEulasResponseTypeDef](#listeulasresponsetypedef)
   - [ListLaunchProfileMembersResponseTypeDef](#listlaunchprofilemembersresponsetypedef)
@@ -67,13 +53,40 @@ type annotations stubs module [mypy_boto3_nimble](https://pypi.org/project/mypy-
   - [NewLaunchProfileMemberTypeDef](#newlaunchprofilemembertypedef)
   - [NewStudioMemberTypeDef](#newstudiomembertypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ScriptParameterKeyValueTypeDef](#scriptparameterkeyvaluetypedef)
+  - [SharedFileSystemConfigurationTypeDef](#sharedfilesystemconfigurationtypedef)
   - [StartStudioSSOConfigurationRepairResponseTypeDef](#startstudiossoconfigurationrepairresponsetypedef)
   - [StreamConfigurationCreateTypeDef](#streamconfigurationcreatetypedef)
+  - [StreamConfigurationTypeDef](#streamconfigurationtypedef)
+  - [StreamingImageEncryptionConfigurationTypeDef](#streamingimageencryptionconfigurationtypedef)
+  - [StreamingImageTypeDef](#streamingimagetypedef)
+  - [StreamingSessionStreamTypeDef](#streamingsessionstreamtypedef)
+  - [StreamingSessionTypeDef](#streamingsessiontypedef)
+  - [StudioComponentConfigurationTypeDef](#studiocomponentconfigurationtypedef)
+  - [StudioComponentInitializationScriptTypeDef](#studiocomponentinitializationscripttypedef)
+  - [StudioComponentSummaryTypeDef](#studiocomponentsummarytypedef)
+  - [StudioComponentTypeDef](#studiocomponenttypedef)
+  - [StudioEncryptionConfigurationTypeDef](#studioencryptionconfigurationtypedef)
+  - [StudioMembershipTypeDef](#studiomembershiptypedef)
+  - [StudioTypeDef](#studiotypedef)
   - [UpdateLaunchProfileMemberResponseTypeDef](#updatelaunchprofilememberresponsetypedef)
   - [UpdateLaunchProfileResponseTypeDef](#updatelaunchprofileresponsetypedef)
   - [UpdateStreamingImageResponseTypeDef](#updatestreamingimageresponsetypedef)
   - [UpdateStudioComponentResponseTypeDef](#updatestudiocomponentresponsetypedef)
   - [UpdateStudioResponseTypeDef](#updatestudioresponsetypedef)
+
+## AcceptEulasResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import AcceptEulasResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `eulaAcceptances`: `List["EulaAcceptanceTypeDef"]`
+
 
 ## ActiveDirectoryComputerAttributeTypeDef
 
@@ -118,6 +131,149 @@ Optional fields:
 - `endpoint`: `str`
 
 
+## CreateLaunchProfileResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import CreateLaunchProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `launchProfile`: `"LaunchProfileTypeDef"`
+
+
+## CreateStreamingImageResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import CreateStreamingImageResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `streamingImage`: `"StreamingImageTypeDef"`
+
+
+## CreateStreamingSessionResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import CreateStreamingSessionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `session`: `"StreamingSessionTypeDef"`
+
+
+## CreateStreamingSessionStreamResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import CreateStreamingSessionStreamResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `stream`: `"StreamingSessionStreamTypeDef"`
+
+
+## CreateStudioComponentResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import CreateStudioComponentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `studioComponent`: `"StudioComponentTypeDef"`
+
+
+## CreateStudioResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import CreateStudioResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `studio`: `"StudioTypeDef"`
+
+
+## DeleteLaunchProfileResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import DeleteLaunchProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `launchProfile`: `"LaunchProfileTypeDef"`
+
+
+## DeleteStreamingImageResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import DeleteStreamingImageResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `streamingImage`: `"StreamingImageTypeDef"`
+
+
+## DeleteStreamingSessionResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import DeleteStreamingSessionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `session`: `"StreamingSessionTypeDef"`
+
+
+## DeleteStudioComponentResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import DeleteStudioComponentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `studioComponent`: `"StudioComponentTypeDef"`
+
+
+## DeleteStudioResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import DeleteStudioResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `studio`: `"StudioTypeDef"`
+
+
 ## EulaAcceptanceTypeDef
 
 ```python
@@ -150,6 +306,151 @@ Optional fields:
 - `eulaId`: `str`
 - `name`: `str`
 - `updatedAt`: `datetime`
+
+
+## GetEulaResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import GetEulaResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `eula`: `"EulaTypeDef"`
+
+
+## GetLaunchProfileDetailsResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import GetLaunchProfileDetailsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `launchProfile`: `"LaunchProfileTypeDef"`
+- `streamingImages`: `List["StreamingImageTypeDef"]`
+- `studioComponentSummaries`: `List["StudioComponentSummaryTypeDef"]`
+
+
+## GetLaunchProfileInitializationResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import GetLaunchProfileInitializationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `launchProfileInitialization`: `"LaunchProfileInitializationTypeDef"`
+
+
+## GetLaunchProfileMemberResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import GetLaunchProfileMemberResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `member`: `"LaunchProfileMembershipTypeDef"`
+
+
+## GetLaunchProfileResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import GetLaunchProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `launchProfile`: `"LaunchProfileTypeDef"`
+
+
+## GetStreamingImageResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import GetStreamingImageResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `streamingImage`: `"StreamingImageTypeDef"`
+
+
+## GetStreamingSessionResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import GetStreamingSessionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `session`: `"StreamingSessionTypeDef"`
+
+
+## GetStreamingSessionStreamResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import GetStreamingSessionStreamResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `stream`: `"StreamingSessionStreamTypeDef"`
+
+
+## GetStudioComponentResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import GetStudioComponentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `studioComponent`: `"StudioComponentTypeDef"`
+
+
+## GetStudioMemberResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import GetStudioMemberResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `member`: `"StudioMembershipTypeDef"`
+
+
+## GetStudioResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import GetStudioResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `studio`: `"StudioTypeDef"`
 
 
 ## LaunchProfileInitializationActiveDirectoryTypeDef
@@ -218,7 +519,7 @@ from mypy_boto3_nimble.type_defs import LaunchProfileMembershipTypeDef
 
 Optional fields:
 - `identityStoreId`: `str`
-- `persona`: `LaunchProfilePersona`
+- `persona`: `Literal['USER']`
 - `principalId`: `str`
 
 
@@ -263,6 +564,188 @@ Optional fields:
 - `endpoint`: `str`
 
 
+## ListEulaAcceptancesResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import ListEulaAcceptancesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `eulaAcceptances`: `List["EulaAcceptanceTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListEulasResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import ListEulasResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `eulas`: `List["EulaTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListLaunchProfileMembersResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import ListLaunchProfileMembersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `members`: `List["LaunchProfileMembershipTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListLaunchProfilesResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import ListLaunchProfilesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `launchProfiles`: `List["LaunchProfileTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListStreamingImagesResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import ListStreamingImagesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `streamingImages`: `List["StreamingImageTypeDef"]`
+
+
+## ListStreamingSessionsResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import ListStreamingSessionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `sessions`: `List["StreamingSessionTypeDef"]`
+
+
+## ListStudioComponentsResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import ListStudioComponentsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `studioComponents`: `List["StudioComponentTypeDef"]`
+
+
+## ListStudioMembersResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import ListStudioMembersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `members`: `List["StudioMembershipTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListStudiosResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import ListStudiosResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `studios`: `List["StudioTypeDef"]`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `Dict[str, str]`
+
+
+## NewLaunchProfileMemberTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import NewLaunchProfileMemberTypeDef
+```
+
+
+Required fields:
+- `persona`: `Literal['USER']`
+- `principalId`: `str`
+
+
+
+
+## NewStudioMemberTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import NewStudioMemberTypeDef
+```
+
+
+Required fields:
+- `persona`: `Literal['ADMINISTRATOR']`
+- `principalId`: `str`
+
+
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
 ## ScriptParameterKeyValueTypeDef
 
 ```python
@@ -294,6 +777,37 @@ Optional fields:
 - `windowsMountDrive`: `str`
 
 
+## StartStudioSSOConfigurationRepairResponseTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import StartStudioSSOConfigurationRepairResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `studio`: `"StudioTypeDef"`
+
+
+## StreamConfigurationCreateTypeDef
+
+```python
+from mypy_boto3_nimble.type_defs import StreamConfigurationCreateTypeDef
+```
+
+
+Required fields:
+- `clipboardMode`: `StreamingClipboardMode`
+- `ec2InstanceTypes`: `List[StreamingInstanceType]`
+- `streamingImageIds`: `List[str]`
+
+
+
+Optional fields:
+- `maxSessionLengthInMinutes`: `int`
+
+
 ## StreamConfigurationTypeDef
 
 ```python
@@ -318,7 +832,7 @@ from mypy_boto3_nimble.type_defs import StreamingImageEncryptionConfigurationTyp
 
 
 Required fields:
-- `keyType`: `StreamingImageEncryptionConfigurationKeyType`
+- `keyType`: `Literal['CUSTOMER_MANAGED_KEY']`
 
 
 
@@ -506,7 +1020,7 @@ from mypy_boto3_nimble.type_defs import StudioMembershipTypeDef
 
 Optional fields:
 - `identityStoreId`: `str`
-- `persona`: `StudioPersona`
+- `persona`: `Literal['ADMINISTRATOR']`
 - `principalId`: `str`
 
 
@@ -536,520 +1050,6 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 - `updatedAt`: `datetime`
 - `userRoleArn`: `str`
-
-
-## AcceptEulasResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import AcceptEulasResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `eulaAcceptances`: `List["EulaAcceptanceTypeDef"]`
-
-
-## CreateLaunchProfileResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import CreateLaunchProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `launchProfile`: `"LaunchProfileTypeDef"`
-
-
-## CreateStreamingImageResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import CreateStreamingImageResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `streamingImage`: `"StreamingImageTypeDef"`
-
-
-## CreateStreamingSessionResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import CreateStreamingSessionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `session`: `"StreamingSessionTypeDef"`
-
-
-## CreateStreamingSessionStreamResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import CreateStreamingSessionStreamResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `stream`: `"StreamingSessionStreamTypeDef"`
-
-
-## CreateStudioComponentResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import CreateStudioComponentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `studioComponent`: `"StudioComponentTypeDef"`
-
-
-## CreateStudioResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import CreateStudioResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `studio`: `"StudioTypeDef"`
-
-
-## DeleteLaunchProfileResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import DeleteLaunchProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `launchProfile`: `"LaunchProfileTypeDef"`
-
-
-## DeleteStreamingImageResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import DeleteStreamingImageResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `streamingImage`: `"StreamingImageTypeDef"`
-
-
-## DeleteStreamingSessionResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import DeleteStreamingSessionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `session`: `"StreamingSessionTypeDef"`
-
-
-## DeleteStudioComponentResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import DeleteStudioComponentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `studioComponent`: `"StudioComponentTypeDef"`
-
-
-## DeleteStudioResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import DeleteStudioResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `studio`: `"StudioTypeDef"`
-
-
-## GetEulaResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import GetEulaResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `eula`: `"EulaTypeDef"`
-
-
-## GetLaunchProfileDetailsResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import GetLaunchProfileDetailsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `launchProfile`: `"LaunchProfileTypeDef"`
-- `streamingImages`: `List["StreamingImageTypeDef"]`
-- `studioComponentSummaries`: `List["StudioComponentSummaryTypeDef"]`
-
-
-## GetLaunchProfileInitializationResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import GetLaunchProfileInitializationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `launchProfileInitialization`: `"LaunchProfileInitializationTypeDef"`
-
-
-## GetLaunchProfileMemberResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import GetLaunchProfileMemberResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `member`: `"LaunchProfileMembershipTypeDef"`
-
-
-## GetLaunchProfileResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import GetLaunchProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `launchProfile`: `"LaunchProfileTypeDef"`
-
-
-## GetStreamingImageResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import GetStreamingImageResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `streamingImage`: `"StreamingImageTypeDef"`
-
-
-## GetStreamingSessionResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import GetStreamingSessionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `session`: `"StreamingSessionTypeDef"`
-
-
-## GetStreamingSessionStreamResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import GetStreamingSessionStreamResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `stream`: `"StreamingSessionStreamTypeDef"`
-
-
-## GetStudioComponentResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import GetStudioComponentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `studioComponent`: `"StudioComponentTypeDef"`
-
-
-## GetStudioMemberResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import GetStudioMemberResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `member`: `"StudioMembershipTypeDef"`
-
-
-## GetStudioResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import GetStudioResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `studio`: `"StudioTypeDef"`
-
-
-## ListEulaAcceptancesResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import ListEulaAcceptancesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `eulaAcceptances`: `List["EulaAcceptanceTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListEulasResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import ListEulasResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `eulas`: `List["EulaTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListLaunchProfileMembersResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import ListLaunchProfileMembersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `members`: `List["LaunchProfileMembershipTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListLaunchProfilesResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import ListLaunchProfilesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `launchProfiles`: `List["LaunchProfileTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListStreamingImagesResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import ListStreamingImagesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `streamingImages`: `List["StreamingImageTypeDef"]`
-
-
-## ListStreamingSessionsResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import ListStreamingSessionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `sessions`: `List["StreamingSessionTypeDef"]`
-
-
-## ListStudioComponentsResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import ListStudioComponentsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `studioComponents`: `List["StudioComponentTypeDef"]`
-
-
-## ListStudioMembersResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import ListStudioMembersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `members`: `List["StudioMembershipTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListStudiosResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import ListStudiosResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `studios`: `List["StudioTypeDef"]`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `Dict[str, str]`
-
-
-## NewLaunchProfileMemberTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import NewLaunchProfileMemberTypeDef
-```
-
-
-Required fields:
-- `persona`: `LaunchProfilePersona`
-- `principalId`: `str`
-
-
-
-
-## NewStudioMemberTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import NewStudioMemberTypeDef
-```
-
-
-Required fields:
-- `persona`: `StudioPersona`
-- `principalId`: `str`
-
-
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## StartStudioSSOConfigurationRepairResponseTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import StartStudioSSOConfigurationRepairResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `studio`: `"StudioTypeDef"`
-
-
-## StreamConfigurationCreateTypeDef
-
-```python
-from mypy_boto3_nimble.type_defs import StreamConfigurationCreateTypeDef
-```
-
-
-Required fields:
-- `clipboardMode`: `StreamingClipboardMode`
-- `ec2InstanceTypes`: `List[StreamingInstanceType]`
-- `streamingImageIds`: `List[str]`
-
-
-
-Optional fields:
-- `maxSessionLengthInMinutes`: `int`
 
 
 ## UpdateLaunchProfileMemberResponseTypeDef

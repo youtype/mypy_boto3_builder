@@ -30,9 +30,6 @@ type annotations stubs module [mypy_boto3_codestar](https://pypi.org/project/myp
     - [update_team_member](#update_team_member)
     - [update_user_profile](#update_user_profile)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## CodeStarClient
 
@@ -395,62 +392,15 @@ def update_user_profile(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("codestar").get_paginator` method.
-
-[Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codestar.html#CodeStar.Paginator.ListProjects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProjectsPaginatorName
-) -> ListProjectsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("codestar").get_paginator` method.
+Type annotations for `boto3.client("codestar").get_paginator` method with overloads.
 
-[Paginator.ListResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codestar.html#CodeStar.Paginator.ListResources)
+- `client.get_paginator("list_projects")` -> [ListProjectsPaginator](./paginators.md#listprojectspaginator)
+- `client.get_paginator("list_resources")` -> [ListResourcesPaginator](./paginators.md#listresourcespaginator)
+- `client.get_paginator("list_team_members")` -> [ListTeamMembersPaginator](./paginators.md#listteammemberspaginator)
+- `client.get_paginator("list_user_profiles")` -> [ListUserProfilesPaginator](./paginators.md#listuserprofilespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourcesPaginatorName
-) -> ListResourcesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("codestar").get_paginator` method.
-
-[Paginator.ListTeamMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTeamMembersPaginatorName
-) -> ListTeamMembersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codestar").get_paginator` method.
-
-[Paginator.ListUserProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListUserProfilesPaginatorName
-) -> ListUserProfilesPaginator:
-    pass
-```

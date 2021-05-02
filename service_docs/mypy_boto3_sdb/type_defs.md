@@ -7,13 +7,13 @@ type annotations stubs module [mypy_boto3_sdb](https://pypi.org/project/mypy-bot
 
 - [Structures for boto3 SimpleDB module](#structures-for-boto3-simpledb-module)
   - [AttributeTypeDef](#attributetypedef)
-  - [ItemTypeDef](#itemtypedef)
-  - [ReplaceableAttributeTypeDef](#replaceableattributetypedef)
   - [DeletableItemTypeDef](#deletableitemtypedef)
   - [DomainMetadataResultTypeDef](#domainmetadataresulttypedef)
   - [GetAttributesResultTypeDef](#getattributesresulttypedef)
+  - [ItemTypeDef](#itemtypedef)
   - [ListDomainsResultTypeDef](#listdomainsresulttypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ReplaceableAttributeTypeDef](#replaceableattributetypedef)
   - [ReplaceableItemTypeDef](#replaceableitemtypedef)
   - [SelectResultTypeDef](#selectresulttypedef)
   - [UpdateConditionTypeDef](#updateconditiontypedef)
@@ -34,40 +34,6 @@ Required fields:
 Optional fields:
 - `AlternateNameEncoding`: `str`
 - `AlternateValueEncoding`: `str`
-
-
-## ItemTypeDef
-
-```python
-from mypy_boto3_sdb.type_defs import ItemTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Attributes`: `List["AttributeTypeDef"]`
-
-
-
-Optional fields:
-- `AlternateNameEncoding`: `str`
-
-
-## ReplaceableAttributeTypeDef
-
-```python
-from mypy_boto3_sdb.type_defs import ReplaceableAttributeTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Value`: `str`
-
-
-
-Optional fields:
-- `Replace`: `bool`
 
 
 ## DeletableItemTypeDef
@@ -118,6 +84,23 @@ Optional fields:
 - `Attributes`: `List["AttributeTypeDef"]`
 
 
+## ItemTypeDef
+
+```python
+from mypy_boto3_sdb.type_defs import ItemTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Attributes`: `List["AttributeTypeDef"]`
+
+
+
+Optional fields:
+- `AlternateNameEncoding`: `str`
+
+
 ## ListDomainsResultTypeDef
 
 ```python
@@ -145,6 +128,23 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ReplaceableAttributeTypeDef
+
+```python
+from mypy_boto3_sdb.type_defs import ReplaceableAttributeTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Value`: `str`
+
+
+
+Optional fields:
+- `Replace`: `bool`
 
 
 ## ReplaceableItemTypeDef

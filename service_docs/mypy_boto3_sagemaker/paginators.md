@@ -167,7 +167,7 @@ class ListAppsPaginator(Boto3Paginator):
     def paginate(
         self,
         SortOrder: SortOrder = None,
-        SortBy: AppSortKey = None,
+        SortBy: Literal['CreationTime'] = None,
         DomainIdEquals: str = None,
         UserProfileNameEquals: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None
@@ -197,7 +197,7 @@ class ListArtifactsPaginator(Boto3Paginator):
         ArtifactType: str = None,
         CreatedAfter: datetime = None,
         CreatedBefore: datetime = None,
-        SortBy: SortArtifactsBy = None,
+        SortBy: Literal['CreationTime'] = None,
         SortOrder: SortOrder = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListArtifactsResponseTypeDef]:
@@ -837,7 +837,7 @@ class ListLabelingJobsForWorkteamPaginator(Boto3Paginator):
         CreationTimeAfter: datetime = None,
         CreationTimeBefore: datetime = None,
         JobReferenceCodeContains: str = None,
-        SortBy: ListLabelingJobsForWorkteamSortByOptions = None,
+        SortBy: Literal['CreationTime'] = None,
         SortOrder: SortOrder = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLabelingJobsForWorkteamResponseTypeDef]:

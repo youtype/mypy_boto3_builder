@@ -436,16 +436,12 @@ def update_user(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("transfer").get_paginator` method.
+Type annotations for `boto3.client("transfer").get_paginator` method with overloads.
 
-[Paginator.ListServers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/transfer.html#Transfer.Paginator.ListServers)
+- `client.get_paginator("list_servers")` -> [ListServersPaginator](./paginators.md#listserverspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListServersPaginatorName
-) -> ListServersPaginator:
-    pass
-```
+

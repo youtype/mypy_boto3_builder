@@ -9,28 +9,40 @@ type annotations stubs module [mypy_boto3_firehose](https://pypi.org/project/myp
   - [BufferingHintsTypeDef](#bufferinghintstypedef)
   - [CloudWatchLoggingOptionsTypeDef](#cloudwatchloggingoptionstypedef)
   - [CopyCommandTypeDef](#copycommandtypedef)
+  - [CreateDeliveryStreamOutputTypeDef](#createdeliverystreamoutputtypedef)
   - [DataFormatConversionConfigurationTypeDef](#dataformatconversionconfigurationtypedef)
   - [DeliveryStreamDescriptionTypeDef](#deliverystreamdescriptiontypedef)
+  - [DeliveryStreamEncryptionConfigurationInputTypeDef](#deliverystreamencryptionconfigurationinputtypedef)
   - [DeliveryStreamEncryptionConfigurationTypeDef](#deliverystreamencryptionconfigurationtypedef)
+  - [DescribeDeliveryStreamOutputTypeDef](#describedeliverystreamoutputtypedef)
   - [DeserializerTypeDef](#deserializertypedef)
   - [DestinationDescriptionTypeDef](#destinationdescriptiontypedef)
   - [ElasticsearchBufferingHintsTypeDef](#elasticsearchbufferinghintstypedef)
+  - [ElasticsearchDestinationConfigurationTypeDef](#elasticsearchdestinationconfigurationtypedef)
   - [ElasticsearchDestinationDescriptionTypeDef](#elasticsearchdestinationdescriptiontypedef)
+  - [ElasticsearchDestinationUpdateTypeDef](#elasticsearchdestinationupdatetypedef)
   - [ElasticsearchRetryOptionsTypeDef](#elasticsearchretryoptionstypedef)
   - [EncryptionConfigurationTypeDef](#encryptionconfigurationtypedef)
+  - [ExtendedS3DestinationConfigurationTypeDef](#extendeds3destinationconfigurationtypedef)
   - [ExtendedS3DestinationDescriptionTypeDef](#extendeds3destinationdescriptiontypedef)
+  - [ExtendedS3DestinationUpdateTypeDef](#extendeds3destinationupdatetypedef)
   - [FailureDescriptionTypeDef](#failuredescriptiontypedef)
   - [HiveJsonSerDeTypeDef](#hivejsonserdetypedef)
   - [HttpEndpointBufferingHintsTypeDef](#httpendpointbufferinghintstypedef)
   - [HttpEndpointCommonAttributeTypeDef](#httpendpointcommonattributetypedef)
   - [HttpEndpointConfigurationTypeDef](#httpendpointconfigurationtypedef)
   - [HttpEndpointDescriptionTypeDef](#httpendpointdescriptiontypedef)
+  - [HttpEndpointDestinationConfigurationTypeDef](#httpendpointdestinationconfigurationtypedef)
   - [HttpEndpointDestinationDescriptionTypeDef](#httpendpointdestinationdescriptiontypedef)
+  - [HttpEndpointDestinationUpdateTypeDef](#httpendpointdestinationupdatetypedef)
   - [HttpEndpointRequestConfigurationTypeDef](#httpendpointrequestconfigurationtypedef)
   - [HttpEndpointRetryOptionsTypeDef](#httpendpointretryoptionstypedef)
   - [InputFormatConfigurationTypeDef](#inputformatconfigurationtypedef)
   - [KMSEncryptionConfigTypeDef](#kmsencryptionconfigtypedef)
+  - [KinesisStreamSourceConfigurationTypeDef](#kinesisstreamsourceconfigurationtypedef)
   - [KinesisStreamSourceDescriptionTypeDef](#kinesisstreamsourcedescriptiontypedef)
+  - [ListDeliveryStreamsOutputTypeDef](#listdeliverystreamsoutputtypedef)
+  - [ListTagsForDeliveryStreamOutputTypeDef](#listtagsfordeliverystreamoutputtypedef)
   - [OpenXJsonSerDeTypeDef](#openxjsonserdetypedef)
   - [OrcSerDeTypeDef](#orcserdetypedef)
   - [OutputFormatConfigurationTypeDef](#outputformatconfigurationtypedef)
@@ -38,8 +50,13 @@ type annotations stubs module [mypy_boto3_firehose](https://pypi.org/project/myp
   - [ProcessingConfigurationTypeDef](#processingconfigurationtypedef)
   - [ProcessorParameterTypeDef](#processorparametertypedef)
   - [ProcessorTypeDef](#processortypedef)
+  - [PutRecordBatchOutputTypeDef](#putrecordbatchoutputtypedef)
   - [PutRecordBatchResponseEntryTypeDef](#putrecordbatchresponseentrytypedef)
+  - [PutRecordOutputTypeDef](#putrecordoutputtypedef)
+  - [RecordTypeDef](#recordtypedef)
+  - [RedshiftDestinationConfigurationTypeDef](#redshiftdestinationconfigurationtypedef)
   - [RedshiftDestinationDescriptionTypeDef](#redshiftdestinationdescriptiontypedef)
+  - [RedshiftDestinationUpdateTypeDef](#redshiftdestinationupdatetypedef)
   - [RedshiftRetryOptionsTypeDef](#redshiftretryoptionstypedef)
   - [ResponseMetadata](#responsemetadata)
   - [S3DestinationConfigurationTypeDef](#s3destinationconfigurationtypedef)
@@ -48,30 +65,13 @@ type annotations stubs module [mypy_boto3_firehose](https://pypi.org/project/myp
   - [SchemaConfigurationTypeDef](#schemaconfigurationtypedef)
   - [SerializerTypeDef](#serializertypedef)
   - [SourceDescriptionTypeDef](#sourcedescriptiontypedef)
+  - [SplunkDestinationConfigurationTypeDef](#splunkdestinationconfigurationtypedef)
   - [SplunkDestinationDescriptionTypeDef](#splunkdestinationdescriptiontypedef)
+  - [SplunkDestinationUpdateTypeDef](#splunkdestinationupdatetypedef)
   - [SplunkRetryOptionsTypeDef](#splunkretryoptionstypedef)
   - [TagTypeDef](#tagtypedef)
   - [VpcConfigurationDescriptionTypeDef](#vpcconfigurationdescriptiontypedef)
   - [VpcConfigurationTypeDef](#vpcconfigurationtypedef)
-  - [CreateDeliveryStreamOutputTypeDef](#createdeliverystreamoutputtypedef)
-  - [DeliveryStreamEncryptionConfigurationInputTypeDef](#deliverystreamencryptionconfigurationinputtypedef)
-  - [DescribeDeliveryStreamOutputTypeDef](#describedeliverystreamoutputtypedef)
-  - [ElasticsearchDestinationConfigurationTypeDef](#elasticsearchdestinationconfigurationtypedef)
-  - [ElasticsearchDestinationUpdateTypeDef](#elasticsearchdestinationupdatetypedef)
-  - [ExtendedS3DestinationConfigurationTypeDef](#extendeds3destinationconfigurationtypedef)
-  - [ExtendedS3DestinationUpdateTypeDef](#extendeds3destinationupdatetypedef)
-  - [HttpEndpointDestinationConfigurationTypeDef](#httpendpointdestinationconfigurationtypedef)
-  - [HttpEndpointDestinationUpdateTypeDef](#httpendpointdestinationupdatetypedef)
-  - [KinesisStreamSourceConfigurationTypeDef](#kinesisstreamsourceconfigurationtypedef)
-  - [ListDeliveryStreamsOutputTypeDef](#listdeliverystreamsoutputtypedef)
-  - [ListTagsForDeliveryStreamOutputTypeDef](#listtagsfordeliverystreamoutputtypedef)
-  - [PutRecordBatchOutputTypeDef](#putrecordbatchoutputtypedef)
-  - [PutRecordOutputTypeDef](#putrecordoutputtypedef)
-  - [RecordTypeDef](#recordtypedef)
-  - [RedshiftDestinationConfigurationTypeDef](#redshiftdestinationconfigurationtypedef)
-  - [RedshiftDestinationUpdateTypeDef](#redshiftdestinationupdatetypedef)
-  - [SplunkDestinationConfigurationTypeDef](#splunkdestinationconfigurationtypedef)
-  - [SplunkDestinationUpdateTypeDef](#splunkdestinationupdatetypedef)
 
 ## BufferingHintsTypeDef
 
@@ -119,6 +119,20 @@ Optional fields:
 - `CopyOptions`: `str`
 
 
+## CreateDeliveryStreamOutputTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import CreateDeliveryStreamOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeliveryStreamARN`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## DataFormatConversionConfigurationTypeDef
 
 ```python
@@ -161,6 +175,22 @@ Optional fields:
 - `Source`: `"SourceDescriptionTypeDef"`
 
 
+## DeliveryStreamEncryptionConfigurationInputTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import DeliveryStreamEncryptionConfigurationInputTypeDef
+```
+
+
+Required fields:
+- `KeyType`: `KeyType`
+
+
+
+Optional fields:
+- `KeyARN`: `str`
+
+
 ## DeliveryStreamEncryptionConfigurationTypeDef
 
 ```python
@@ -175,6 +205,22 @@ Optional fields:
 - `KeyType`: `KeyType`
 - `Status`: `DeliveryStreamEncryptionStatus`
 - `FailureDescription`: `"FailureDescriptionTypeDef"`
+
+
+## DescribeDeliveryStreamOutputTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import DescribeDeliveryStreamOutputTypeDef
+```
+
+
+Required fields:
+- `DeliveryStreamDescription`: `"DeliveryStreamDescriptionTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## DeserializerTypeDef
@@ -226,6 +272,33 @@ Optional fields:
 - `SizeInMBs`: `int`
 
 
+## ElasticsearchDestinationConfigurationTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import ElasticsearchDestinationConfigurationTypeDef
+```
+
+
+Required fields:
+- `RoleARN`: `str`
+- `IndexName`: `str`
+- `S3Configuration`: `"S3DestinationConfigurationTypeDef"`
+
+
+
+Optional fields:
+- `DomainARN`: `str`
+- `ClusterEndpoint`: `str`
+- `TypeName`: `str`
+- `IndexRotationPeriod`: `ElasticsearchIndexRotationPeriod`
+- `BufferingHints`: `"ElasticsearchBufferingHintsTypeDef"`
+- `RetryOptions`: `"ElasticsearchRetryOptionsTypeDef"`
+- `S3BackupMode`: `ElasticsearchS3BackupMode`
+- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
+- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
+- `VpcConfiguration`: `"VpcConfigurationTypeDef"`
+
+
 ## ElasticsearchDestinationDescriptionTypeDef
 
 ```python
@@ -251,6 +324,29 @@ Optional fields:
 - `VpcConfigurationDescription`: `"VpcConfigurationDescriptionTypeDef"`
 
 
+## ElasticsearchDestinationUpdateTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import ElasticsearchDestinationUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `RoleARN`: `str`
+- `DomainARN`: `str`
+- `ClusterEndpoint`: `str`
+- `IndexName`: `str`
+- `TypeName`: `str`
+- `IndexRotationPeriod`: `ElasticsearchIndexRotationPeriod`
+- `BufferingHints`: `"ElasticsearchBufferingHintsTypeDef"`
+- `RetryOptions`: `"ElasticsearchRetryOptionsTypeDef"`
+- `S3Update`: `"S3DestinationUpdateTypeDef"`
+- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
+- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
+
+
 ## ElasticsearchRetryOptionsTypeDef
 
 ```python
@@ -274,8 +370,34 @@ from mypy_boto3_firehose.type_defs import EncryptionConfigurationTypeDef
 
 
 Optional fields:
-- `NoEncryptionConfig`: `NoEncryptionConfig`
+- `NoEncryptionConfig`: `Literal['NoEncryption']`
 - `KMSEncryptionConfig`: `"KMSEncryptionConfigTypeDef"`
+
+
+## ExtendedS3DestinationConfigurationTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import ExtendedS3DestinationConfigurationTypeDef
+```
+
+
+Required fields:
+- `RoleARN`: `str`
+- `BucketARN`: `str`
+
+
+
+Optional fields:
+- `Prefix`: `str`
+- `ErrorOutputPrefix`: `str`
+- `BufferingHints`: `"BufferingHintsTypeDef"`
+- `CompressionFormat`: `CompressionFormat`
+- `EncryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
+- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
+- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
+- `S3BackupMode`: `S3BackupMode`
+- `S3BackupConfiguration`: `"S3DestinationConfigurationTypeDef"`
+- `DataFormatConversionConfiguration`: `"DataFormatConversionConfigurationTypeDef"`
 
 
 ## ExtendedS3DestinationDescriptionTypeDef
@@ -301,6 +423,30 @@ Optional fields:
 - `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
 - `S3BackupMode`: `S3BackupMode`
 - `S3BackupDescription`: `"S3DestinationDescriptionTypeDef"`
+- `DataFormatConversionConfiguration`: `"DataFormatConversionConfigurationTypeDef"`
+
+
+## ExtendedS3DestinationUpdateTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import ExtendedS3DestinationUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `RoleARN`: `str`
+- `BucketARN`: `str`
+- `Prefix`: `str`
+- `ErrorOutputPrefix`: `str`
+- `BufferingHints`: `"BufferingHintsTypeDef"`
+- `CompressionFormat`: `CompressionFormat`
+- `EncryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
+- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
+- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
+- `S3BackupMode`: `S3BackupMode`
+- `S3BackupUpdate`: `"S3DestinationUpdateTypeDef"`
 - `DataFormatConversionConfiguration`: `"DataFormatConversionConfigurationTypeDef"`
 
 
@@ -390,6 +536,29 @@ Optional fields:
 - `Name`: `str`
 
 
+## HttpEndpointDestinationConfigurationTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import HttpEndpointDestinationConfigurationTypeDef
+```
+
+
+Required fields:
+- `EndpointConfiguration`: `"HttpEndpointConfigurationTypeDef"`
+- `S3Configuration`: `"S3DestinationConfigurationTypeDef"`
+
+
+
+Optional fields:
+- `BufferingHints`: `"HttpEndpointBufferingHintsTypeDef"`
+- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
+- `RequestConfiguration`: `"HttpEndpointRequestConfigurationTypeDef"`
+- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
+- `RoleARN`: `str`
+- `RetryOptions`: `"HttpEndpointRetryOptionsTypeDef"`
+- `S3BackupMode`: `HttpEndpointS3BackupMode`
+
+
 ## HttpEndpointDestinationDescriptionTypeDef
 
 ```python
@@ -409,6 +578,27 @@ Optional fields:
 - `RetryOptions`: `"HttpEndpointRetryOptionsTypeDef"`
 - `S3BackupMode`: `HttpEndpointS3BackupMode`
 - `S3DestinationDescription`: `"S3DestinationDescriptionTypeDef"`
+
+
+## HttpEndpointDestinationUpdateTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import HttpEndpointDestinationUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `EndpointConfiguration`: `"HttpEndpointConfigurationTypeDef"`
+- `BufferingHints`: `"HttpEndpointBufferingHintsTypeDef"`
+- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
+- `RequestConfiguration`: `"HttpEndpointRequestConfigurationTypeDef"`
+- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
+- `RoleARN`: `str`
+- `RetryOptions`: `"HttpEndpointRetryOptionsTypeDef"`
+- `S3BackupMode`: `HttpEndpointS3BackupMode`
+- `S3Update`: `"S3DestinationUpdateTypeDef"`
 
 
 ## HttpEndpointRequestConfigurationTypeDef
@@ -464,6 +654,20 @@ Required fields:
 
 
 
+## KinesisStreamSourceConfigurationTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import KinesisStreamSourceConfigurationTypeDef
+```
+
+
+Required fields:
+- `KinesisStreamARN`: `str`
+- `RoleARN`: `str`
+
+
+
+
 ## KinesisStreamSourceDescriptionTypeDef
 
 ```python
@@ -477,6 +681,40 @@ Optional fields:
 - `KinesisStreamARN`: `str`
 - `RoleARN`: `str`
 - `DeliveryStartTimestamp`: `datetime`
+
+
+## ListDeliveryStreamsOutputTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import ListDeliveryStreamsOutputTypeDef
+```
+
+
+Required fields:
+- `DeliveryStreamNames`: `List[str]`
+- `HasMoreDeliveryStreams`: `bool`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListTagsForDeliveryStreamOutputTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import ListTagsForDeliveryStreamOutputTypeDef
+```
+
+
+Required fields:
+- `Tags`: `List["TagTypeDef"]`
+- `HasMoreTags`: `bool`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## OpenXJsonSerDeTypeDef
@@ -583,12 +821,30 @@ from mypy_boto3_firehose.type_defs import ProcessorTypeDef
 
 
 Required fields:
-- `Type`: `ProcessorType`
+- `Type`: `Literal['Lambda']`
 
 
 
 Optional fields:
 - `Parameters`: `List["ProcessorParameterTypeDef"]`
+
+
+## PutRecordBatchOutputTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import PutRecordBatchOutputTypeDef
+```
+
+
+Required fields:
+- `FailedPutCount`: `int`
+- `RequestResponses`: `List["PutRecordBatchResponseEntryTypeDef"]`
+
+
+
+Optional fields:
+- `Encrypted`: `bool`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## PutRecordBatchResponseEntryTypeDef
@@ -604,6 +860,61 @@ Optional fields:
 - `RecordId`: `str`
 - `ErrorCode`: `str`
 - `ErrorMessage`: `str`
+
+
+## PutRecordOutputTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import PutRecordOutputTypeDef
+```
+
+
+Required fields:
+- `RecordId`: `str`
+
+
+
+Optional fields:
+- `Encrypted`: `bool`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## RecordTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import RecordTypeDef
+```
+
+
+Required fields:
+- `Data`: `Union[bytes, IO[bytes]]`
+
+
+
+
+## RedshiftDestinationConfigurationTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import RedshiftDestinationConfigurationTypeDef
+```
+
+
+Required fields:
+- `RoleARN`: `str`
+- `ClusterJDBCURL`: `str`
+- `CopyCommand`: `"CopyCommandTypeDef"`
+- `Username`: `str`
+- `Password`: `str`
+- `S3Configuration`: `"S3DestinationConfigurationTypeDef"`
+
+
+
+Optional fields:
+- `RetryOptions`: `"RedshiftRetryOptionsTypeDef"`
+- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
+- `S3BackupMode`: `RedshiftS3BackupMode`
+- `S3BackupConfiguration`: `"S3DestinationConfigurationTypeDef"`
+- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
 
 
 ## RedshiftDestinationDescriptionTypeDef
@@ -627,6 +938,29 @@ Optional fields:
 - `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
 - `S3BackupMode`: `RedshiftS3BackupMode`
 - `S3BackupDescription`: `"S3DestinationDescriptionTypeDef"`
+- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
+
+
+## RedshiftDestinationUpdateTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import RedshiftDestinationUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `RoleARN`: `str`
+- `ClusterJDBCURL`: `str`
+- `CopyCommand`: `"CopyCommandTypeDef"`
+- `Username`: `str`
+- `Password`: `str`
+- `RetryOptions`: `"RedshiftRetryOptionsTypeDef"`
+- `S3Update`: `"S3DestinationUpdateTypeDef"`
+- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
+- `S3BackupMode`: `RedshiftS3BackupMode`
+- `S3BackupUpdate`: `"S3DestinationUpdateTypeDef"`
 - `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
 
 
@@ -769,6 +1103,29 @@ Optional fields:
 - `KinesisStreamSourceDescription`: `"KinesisStreamSourceDescriptionTypeDef"`
 
 
+## SplunkDestinationConfigurationTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import SplunkDestinationConfigurationTypeDef
+```
+
+
+Required fields:
+- `HECEndpoint`: `str`
+- `HECEndpointType`: `HECEndpointType`
+- `HECToken`: `str`
+- `S3Configuration`: `"S3DestinationConfigurationTypeDef"`
+
+
+
+Optional fields:
+- `HECAcknowledgmentTimeoutInSeconds`: `int`
+- `RetryOptions`: `"SplunkRetryOptionsTypeDef"`
+- `S3BackupMode`: `SplunkS3BackupMode`
+- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
+- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
+
+
 ## SplunkDestinationDescriptionTypeDef
 
 ```python
@@ -786,6 +1143,27 @@ Optional fields:
 - `RetryOptions`: `"SplunkRetryOptionsTypeDef"`
 - `S3BackupMode`: `SplunkS3BackupMode`
 - `S3DestinationDescription`: `"S3DestinationDescriptionTypeDef"`
+- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
+- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
+
+
+## SplunkDestinationUpdateTypeDef
+
+```python
+from mypy_boto3_firehose.type_defs import SplunkDestinationUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `HECEndpoint`: `str`
+- `HECEndpointType`: `HECEndpointType`
+- `HECToken`: `str`
+- `HECAcknowledgmentTimeoutInSeconds`: `int`
+- `RetryOptions`: `"SplunkRetryOptionsTypeDef"`
+- `S3BackupMode`: `SplunkS3BackupMode`
+- `S3Update`: `"S3DestinationUpdateTypeDef"`
 - `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
 - `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
 
@@ -848,382 +1226,4 @@ Required fields:
 - `SecurityGroupIds`: `List[str]`
 
 
-
-
-## CreateDeliveryStreamOutputTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import CreateDeliveryStreamOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeliveryStreamARN`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeliveryStreamEncryptionConfigurationInputTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import DeliveryStreamEncryptionConfigurationInputTypeDef
-```
-
-
-Required fields:
-- `KeyType`: `KeyType`
-
-
-
-Optional fields:
-- `KeyARN`: `str`
-
-
-## DescribeDeliveryStreamOutputTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import DescribeDeliveryStreamOutputTypeDef
-```
-
-
-Required fields:
-- `DeliveryStreamDescription`: `"DeliveryStreamDescriptionTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ElasticsearchDestinationConfigurationTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import ElasticsearchDestinationConfigurationTypeDef
-```
-
-
-Required fields:
-- `RoleARN`: `str`
-- `IndexName`: `str`
-- `S3Configuration`: `"S3DestinationConfigurationTypeDef"`
-
-
-
-Optional fields:
-- `DomainARN`: `str`
-- `ClusterEndpoint`: `str`
-- `TypeName`: `str`
-- `IndexRotationPeriod`: `ElasticsearchIndexRotationPeriod`
-- `BufferingHints`: `"ElasticsearchBufferingHintsTypeDef"`
-- `RetryOptions`: `"ElasticsearchRetryOptionsTypeDef"`
-- `S3BackupMode`: `ElasticsearchS3BackupMode`
-- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
-- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
-- `VpcConfiguration`: `"VpcConfigurationTypeDef"`
-
-
-## ElasticsearchDestinationUpdateTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import ElasticsearchDestinationUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `RoleARN`: `str`
-- `DomainARN`: `str`
-- `ClusterEndpoint`: `str`
-- `IndexName`: `str`
-- `TypeName`: `str`
-- `IndexRotationPeriod`: `ElasticsearchIndexRotationPeriod`
-- `BufferingHints`: `"ElasticsearchBufferingHintsTypeDef"`
-- `RetryOptions`: `"ElasticsearchRetryOptionsTypeDef"`
-- `S3Update`: `"S3DestinationUpdateTypeDef"`
-- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
-- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
-
-
-## ExtendedS3DestinationConfigurationTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import ExtendedS3DestinationConfigurationTypeDef
-```
-
-
-Required fields:
-- `RoleARN`: `str`
-- `BucketARN`: `str`
-
-
-
-Optional fields:
-- `Prefix`: `str`
-- `ErrorOutputPrefix`: `str`
-- `BufferingHints`: `"BufferingHintsTypeDef"`
-- `CompressionFormat`: `CompressionFormat`
-- `EncryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
-- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
-- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
-- `S3BackupMode`: `S3BackupMode`
-- `S3BackupConfiguration`: `"S3DestinationConfigurationTypeDef"`
-- `DataFormatConversionConfiguration`: `"DataFormatConversionConfigurationTypeDef"`
-
-
-## ExtendedS3DestinationUpdateTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import ExtendedS3DestinationUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `RoleARN`: `str`
-- `BucketARN`: `str`
-- `Prefix`: `str`
-- `ErrorOutputPrefix`: `str`
-- `BufferingHints`: `"BufferingHintsTypeDef"`
-- `CompressionFormat`: `CompressionFormat`
-- `EncryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
-- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
-- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
-- `S3BackupMode`: `S3BackupMode`
-- `S3BackupUpdate`: `"S3DestinationUpdateTypeDef"`
-- `DataFormatConversionConfiguration`: `"DataFormatConversionConfigurationTypeDef"`
-
-
-## HttpEndpointDestinationConfigurationTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import HttpEndpointDestinationConfigurationTypeDef
-```
-
-
-Required fields:
-- `EndpointConfiguration`: `"HttpEndpointConfigurationTypeDef"`
-- `S3Configuration`: `"S3DestinationConfigurationTypeDef"`
-
-
-
-Optional fields:
-- `BufferingHints`: `"HttpEndpointBufferingHintsTypeDef"`
-- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
-- `RequestConfiguration`: `"HttpEndpointRequestConfigurationTypeDef"`
-- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
-- `RoleARN`: `str`
-- `RetryOptions`: `"HttpEndpointRetryOptionsTypeDef"`
-- `S3BackupMode`: `HttpEndpointS3BackupMode`
-
-
-## HttpEndpointDestinationUpdateTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import HttpEndpointDestinationUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `EndpointConfiguration`: `"HttpEndpointConfigurationTypeDef"`
-- `BufferingHints`: `"HttpEndpointBufferingHintsTypeDef"`
-- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
-- `RequestConfiguration`: `"HttpEndpointRequestConfigurationTypeDef"`
-- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
-- `RoleARN`: `str`
-- `RetryOptions`: `"HttpEndpointRetryOptionsTypeDef"`
-- `S3BackupMode`: `HttpEndpointS3BackupMode`
-- `S3Update`: `"S3DestinationUpdateTypeDef"`
-
-
-## KinesisStreamSourceConfigurationTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import KinesisStreamSourceConfigurationTypeDef
-```
-
-
-Required fields:
-- `KinesisStreamARN`: `str`
-- `RoleARN`: `str`
-
-
-
-
-## ListDeliveryStreamsOutputTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import ListDeliveryStreamsOutputTypeDef
-```
-
-
-Required fields:
-- `DeliveryStreamNames`: `List[str]`
-- `HasMoreDeliveryStreams`: `bool`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListTagsForDeliveryStreamOutputTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import ListTagsForDeliveryStreamOutputTypeDef
-```
-
-
-Required fields:
-- `Tags`: `List["TagTypeDef"]`
-- `HasMoreTags`: `bool`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PutRecordBatchOutputTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import PutRecordBatchOutputTypeDef
-```
-
-
-Required fields:
-- `FailedPutCount`: `int`
-- `RequestResponses`: `List["PutRecordBatchResponseEntryTypeDef"]`
-
-
-
-Optional fields:
-- `Encrypted`: `bool`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PutRecordOutputTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import PutRecordOutputTypeDef
-```
-
-
-Required fields:
-- `RecordId`: `str`
-
-
-
-Optional fields:
-- `Encrypted`: `bool`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## RecordTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import RecordTypeDef
-```
-
-
-Required fields:
-- `Data`: `Union[bytes, IO[bytes]]`
-
-
-
-
-## RedshiftDestinationConfigurationTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import RedshiftDestinationConfigurationTypeDef
-```
-
-
-Required fields:
-- `RoleARN`: `str`
-- `ClusterJDBCURL`: `str`
-- `CopyCommand`: `"CopyCommandTypeDef"`
-- `Username`: `str`
-- `Password`: `str`
-- `S3Configuration`: `"S3DestinationConfigurationTypeDef"`
-
-
-
-Optional fields:
-- `RetryOptions`: `"RedshiftRetryOptionsTypeDef"`
-- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
-- `S3BackupMode`: `RedshiftS3BackupMode`
-- `S3BackupConfiguration`: `"S3DestinationConfigurationTypeDef"`
-- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
-
-
-## RedshiftDestinationUpdateTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import RedshiftDestinationUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `RoleARN`: `str`
-- `ClusterJDBCURL`: `str`
-- `CopyCommand`: `"CopyCommandTypeDef"`
-- `Username`: `str`
-- `Password`: `str`
-- `RetryOptions`: `"RedshiftRetryOptionsTypeDef"`
-- `S3Update`: `"S3DestinationUpdateTypeDef"`
-- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
-- `S3BackupMode`: `RedshiftS3BackupMode`
-- `S3BackupUpdate`: `"S3DestinationUpdateTypeDef"`
-- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
-
-
-## SplunkDestinationConfigurationTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import SplunkDestinationConfigurationTypeDef
-```
-
-
-Required fields:
-- `HECEndpoint`: `str`
-- `HECEndpointType`: `HECEndpointType`
-- `HECToken`: `str`
-- `S3Configuration`: `"S3DestinationConfigurationTypeDef"`
-
-
-
-Optional fields:
-- `HECAcknowledgmentTimeoutInSeconds`: `int`
-- `RetryOptions`: `"SplunkRetryOptionsTypeDef"`
-- `S3BackupMode`: `SplunkS3BackupMode`
-- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
-- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
-
-
-## SplunkDestinationUpdateTypeDef
-
-```python
-from mypy_boto3_firehose.type_defs import SplunkDestinationUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `HECEndpoint`: `str`
-- `HECEndpointType`: `HECEndpointType`
-- `HECToken`: `str`
-- `HECAcknowledgmentTimeoutInSeconds`: `int`
-- `RetryOptions`: `"SplunkRetryOptionsTypeDef"`
-- `S3BackupMode`: `SplunkS3BackupMode`
-- `S3Update`: `"S3DestinationUpdateTypeDef"`
-- `ProcessingConfiguration`: `"ProcessingConfigurationTypeDef"`
-- `CloudWatchLoggingOptions`: `"CloudWatchLoggingOptionsTypeDef"`
 

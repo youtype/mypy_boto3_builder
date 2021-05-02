@@ -31,8 +31,6 @@ type annotations stubs module [mypy_boto3_lookoutvision](https://pypi.org/projec
     - [untag_resource](#untag_resource)
     - [update_dataset_entries](#update_dataset_entries)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## LookoutforVisionClient
 
@@ -409,47 +407,14 @@ def update_dataset_entries(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("lookoutvision").get_paginator` method.
-
-[Paginator.ListDatasetEntries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListDatasetEntries)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatasetEntriesPaginatorName
-) -> ListDatasetEntriesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("lookoutvision").get_paginator` method.
+Type annotations for `boto3.client("lookoutvision").get_paginator` method with overloads.
 
-[Paginator.ListModels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListModels)
+- `client.get_paginator("list_dataset_entries")` -> [ListDatasetEntriesPaginator](./paginators.md#listdatasetentriespaginator)
+- `client.get_paginator("list_models")` -> [ListModelsPaginator](./paginators.md#listmodelspaginator)
+- `client.get_paginator("list_projects")` -> [ListProjectsPaginator](./paginators.md#listprojectspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListModelsPaginatorName
-) -> ListModelsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("lookoutvision").get_paginator` method.
-
-[Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListProjects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListProjectsPaginatorName
-) -> ListProjectsPaginator:
-    pass
-```

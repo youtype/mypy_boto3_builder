@@ -60,17 +60,7 @@ type annotations stubs module [mypy_boto3_appstream](https://pypi.org/project/my
     - [update_image_permissions](#update_image_permissions)
     - [update_stack](#update_stack)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
 
 ## AppStreamClient
 
@@ -941,182 +931,29 @@ def update_stack(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("appstream").get_paginator` method.
-
-[Paginator.DescribeDirectoryConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDirectoryConfigsPaginatorName
-) -> DescribeDirectoryConfigsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("appstream").get_paginator` method.
+Type annotations for `boto3.client("appstream").get_paginator` method with overloads.
 
-[Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Paginator.DescribeFleets)
+- `client.get_paginator("describe_directory_configs")` -> [DescribeDirectoryConfigsPaginator](./paginators.md#describedirectoryconfigspaginator)
+- `client.get_paginator("describe_fleets")` -> [DescribeFleetsPaginator](./paginators.md#describefleetspaginator)
+- `client.get_paginator("describe_image_builders")` -> [DescribeImageBuildersPaginator](./paginators.md#describeimagebuilderspaginator)
+- `client.get_paginator("describe_images")` -> [DescribeImagesPaginator](./paginators.md#describeimagespaginator)
+- `client.get_paginator("describe_sessions")` -> [DescribeSessionsPaginator](./paginators.md#describesessionspaginator)
+- `client.get_paginator("describe_stacks")` -> [DescribeStacksPaginator](./paginators.md#describestackspaginator)
+- `client.get_paginator("describe_user_stack_associations")` -> [DescribeUserStackAssociationsPaginator](./paginators.md#describeuserstackassociationspaginator)
+- `client.get_paginator("describe_users")` -> [DescribeUsersPaginator](./paginators.md#describeuserspaginator)
+- `client.get_paginator("list_associated_fleets")` -> [ListAssociatedFleetsPaginator](./paginators.md#listassociatedfleetspaginator)
+- `client.get_paginator("list_associated_stacks")` -> [ListAssociatedStacksPaginator](./paginators.md#listassociatedstackspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFleetsPaginatorName
-) -> DescribeFleetsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("appstream").get_paginator` method.
-
-[Paginator.DescribeImageBuilders documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeImageBuildersPaginatorName
-) -> DescribeImageBuildersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appstream").get_paginator` method.
-
-[Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Paginator.DescribeImages)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeImagesPaginatorName
-) -> DescribeImagesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appstream").get_paginator` method.
-
-[Paginator.DescribeSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Paginator.DescribeSessions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSessionsPaginatorName
-) -> DescribeSessionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appstream").get_paginator` method.
-
-[Paginator.DescribeStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Paginator.DescribeStacks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeStacksPaginatorName
-) -> DescribeStacksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appstream").get_paginator` method.
-
-[Paginator.DescribeUserStackAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeUserStackAssociationsPaginatorName
-) -> DescribeUserStackAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appstream").get_paginator` method.
-
-[Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Paginator.DescribeUsers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeUsersPaginatorName
-) -> DescribeUsersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appstream").get_paginator` method.
-
-[Paginator.ListAssociatedFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssociatedFleetsPaginatorName
-) -> ListAssociatedFleetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("appstream").get_paginator` method.
-
-[Paginator.ListAssociatedStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssociatedStacksPaginatorName
-) -> ListAssociatedStacksPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("appstream").get_waiter` method.
+Type annotations for `boto3.client("appstream").get_waiter` method with overloads.
 
-[Waiter.FleetStarted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Waiter.FleetStarted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: FleetStartedWaiterName
-) -> FleetStartedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("appstream").get_waiter` method.
-
-[Waiter.FleetStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/appstream.html#AppStream.Waiter.FleetStopped)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: FleetStoppedWaiterName
-) -> FleetStoppedWaiter:
-    pass
-```
+- `client.get_waiter("fleet_started")` -> [FleetStartedWaiter](./waiters.md#fleetstartedwaiter)
+- `client.get_waiter("fleet_stopped")` -> [FleetStoppedWaiter](./waiters.md#fleetstoppedwaiter)

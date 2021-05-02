@@ -93,25 +93,22 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_synthetics.type_defs import CanaryCodeOutputTypeDef, ...
+from mypy_boto3_synthetics.type_defs import CanaryCodeInputTypeDef, ...
 ```
 
+- [CanaryCodeInputTypeDef](./type_defs.md#canarycodeinputtypedef)
 - [CanaryCodeOutputTypeDef](./type_defs.md#canarycodeoutputtypedef)
 - [CanaryLastRunTypeDef](./type_defs.md#canarylastruntypedef)
+- [CanaryRunConfigInputTypeDef](./type_defs.md#canaryrunconfiginputtypedef)
 - [CanaryRunConfigOutputTypeDef](./type_defs.md#canaryrunconfigoutputtypedef)
 - [CanaryRunStatusTypeDef](./type_defs.md#canaryrunstatustypedef)
 - [CanaryRunTimelineTypeDef](./type_defs.md#canaryruntimelinetypedef)
 - [CanaryRunTypeDef](./type_defs.md#canaryruntypedef)
+- [CanaryScheduleInputTypeDef](./type_defs.md#canaryscheduleinputtypedef)
 - [CanaryScheduleOutputTypeDef](./type_defs.md#canaryscheduleoutputtypedef)
 - [CanaryStatusTypeDef](./type_defs.md#canarystatustypedef)
 - [CanaryTimelineTypeDef](./type_defs.md#canarytimelinetypedef)
 - [CanaryTypeDef](./type_defs.md#canarytypedef)
-- [ResponseMetadata](./type_defs.md#responsemetadata)
-- [RuntimeVersionTypeDef](./type_defs.md#runtimeversiontypedef)
-- [VpcConfigOutputTypeDef](./type_defs.md#vpcconfigoutputtypedef)
-- [CanaryCodeInputTypeDef](./type_defs.md#canarycodeinputtypedef)
-- [CanaryRunConfigInputTypeDef](./type_defs.md#canaryrunconfiginputtypedef)
-- [CanaryScheduleInputTypeDef](./type_defs.md#canaryscheduleinputtypedef)
 - [CreateCanaryResponseTypeDef](./type_defs.md#createcanaryresponsetypedef)
 - [DescribeCanariesLastRunResponseTypeDef](./type_defs.md#describecanarieslastrunresponsetypedef)
 - [DescribeCanariesResponseTypeDef](./type_defs.md#describecanariesresponsetypedef)
@@ -119,4 +116,7 @@ from mypy_boto3_synthetics.type_defs import CanaryCodeOutputTypeDef, ...
 - [GetCanaryResponseTypeDef](./type_defs.md#getcanaryresponsetypedef)
 - [GetCanaryRunsResponseTypeDef](./type_defs.md#getcanaryrunsresponsetypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)
+- [RuntimeVersionTypeDef](./type_defs.md#runtimeversiontypedef)
 - [VpcConfigInputTypeDef](./type_defs.md#vpcconfiginputtypedef)
+- [VpcConfigOutputTypeDef](./type_defs.md#vpcconfigoutputtypedef)

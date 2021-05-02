@@ -132,23 +132,6 @@ type annotations stubs module [mypy_boto3_apigateway](https://pypi.org/project/m
     - [update_usage_plan](#update_usage_plan)
     - [update_vpc_link](#update_vpc_link)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
-    - [get_paginator](#get_paginator-17)
 
 ## APIGatewayClient
 
@@ -1602,7 +1585,7 @@ Type annotations for `boto3.client("apigateway").import_api_keys` method.
 def import_api_keys(
     self,
     body: Union[bytes, IO[bytes]],
-    format: ApiKeysFormat,
+    format: Literal['csv'],
     failOnWarnings: bool = None
 ) -> ApiKeyIdsTypeDef:
     pass
@@ -2194,272 +2177,29 @@ def update_vpc_link(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetApiKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetApiKeys)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetApiKeysPaginatorName
-) -> GetApiKeysPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("apigateway").get_paginator` method.
+Type annotations for `boto3.client("apigateway").get_paginator` method with overloads.
+
+- `client.get_paginator("get_api_keys")` -> [GetApiKeysPaginator](./paginators.md#getapikeyspaginator)
+- `client.get_paginator("get_authorizers")` -> [GetAuthorizersPaginator](./paginators.md#getauthorizerspaginator)
+- `client.get_paginator("get_base_path_mappings")` -> [GetBasePathMappingsPaginator](./paginators.md#getbasepathmappingspaginator)
+- `client.get_paginator("get_client_certificates")` -> [GetClientCertificatesPaginator](./paginators.md#getclientcertificatespaginator)
+- `client.get_paginator("get_deployments")` -> [GetDeploymentsPaginator](./paginators.md#getdeploymentspaginator)
+- `client.get_paginator("get_documentation_parts")` -> [GetDocumentationPartsPaginator](./paginators.md#getdocumentationpartspaginator)
+- `client.get_paginator("get_documentation_versions")` -> [GetDocumentationVersionsPaginator](./paginators.md#getdocumentationversionspaginator)
+- `client.get_paginator("get_domain_names")` -> [GetDomainNamesPaginator](./paginators.md#getdomainnamespaginator)
+- `client.get_paginator("get_gateway_responses")` -> [GetGatewayResponsesPaginator](./paginators.md#getgatewayresponsespaginator)
+- `client.get_paginator("get_models")` -> [GetModelsPaginator](./paginators.md#getmodelspaginator)
+- `client.get_paginator("get_request_validators")` -> [GetRequestValidatorsPaginator](./paginators.md#getrequestvalidatorspaginator)
+- `client.get_paginator("get_resources")` -> [GetResourcesPaginator](./paginators.md#getresourcespaginator)
+- `client.get_paginator("get_rest_apis")` -> [GetRestApisPaginator](./paginators.md#getrestapispaginator)
+- `client.get_paginator("get_sdk_types")` -> [GetSdkTypesPaginator](./paginators.md#getsdktypespaginator)
+- `client.get_paginator("get_usage")` -> [GetUsagePaginator](./paginators.md#getusagepaginator)
+- `client.get_paginator("get_usage_plan_keys")` -> [GetUsagePlanKeysPaginator](./paginators.md#getusageplankeyspaginator)
+- `client.get_paginator("get_usage_plans")` -> [GetUsagePlansPaginator](./paginators.md#getusageplanspaginator)
+- `client.get_paginator("get_vpc_links")` -> [GetVpcLinksPaginator](./paginators.md#getvpclinkspaginator)
 
-[Paginator.GetAuthorizers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetAuthorizers)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetAuthorizersPaginatorName
-) -> GetAuthorizersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetBasePathMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetBasePathMappings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetBasePathMappingsPaginatorName
-) -> GetBasePathMappingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetClientCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetClientCertificates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetClientCertificatesPaginatorName
-) -> GetClientCertificatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetDeployments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDeploymentsPaginatorName
-) -> GetDeploymentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetDocumentationParts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationParts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDocumentationPartsPaginatorName
-) -> GetDocumentationPartsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetDocumentationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDocumentationVersionsPaginatorName
-) -> GetDocumentationVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetDomainNames documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetDomainNames)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDomainNamesPaginatorName
-) -> GetDomainNamesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetGatewayResponses documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetGatewayResponses)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetGatewayResponsesPaginatorName
-) -> GetGatewayResponsesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetModels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetModels)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetModelsPaginatorName
-) -> GetModelsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetRequestValidators documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetRequestValidators)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetRequestValidatorsPaginatorName
-) -> GetRequestValidatorsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetResourcesPaginatorName
-) -> GetResourcesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetRestApis documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetRestApis)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetRestApisPaginatorName
-) -> GetRestApisPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetSdkTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetSdkTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetSdkTypesPaginatorName
-) -> GetSdkTypesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetUsage documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetUsage)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetUsagePaginatorName
-) -> GetUsagePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetUsagePlanKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlanKeys)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetUsagePlanKeysPaginatorName
-) -> GetUsagePlanKeysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetUsagePlans documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlans)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetUsagePlansPaginatorName
-) -> GetUsagePlansPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("apigateway").get_paginator` method.
-
-[Paginator.GetVpcLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/apigateway.html#APIGateway.Paginator.GetVpcLinks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetVpcLinksPaginatorName
-) -> GetVpcLinksPaginator:
-    pass
-```

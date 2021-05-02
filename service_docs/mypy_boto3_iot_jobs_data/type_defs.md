@@ -6,13 +6,40 @@ Auto-generated documentation for [IoTJobsDataPlane](https://boto3.amazonaws.com/
 type annotations stubs module [mypy_boto3_iot_jobs_data](https://pypi.org/project/mypy-boto3-iot-jobs-data/).
 
 - [Structures for boto3 IoTJobsDataPlane module](#structures-for-boto3-iotjobsdataplane-module)
+  - [DescribeJobExecutionResponseTypeDef](#describejobexecutionresponsetypedef)
+  - [GetPendingJobExecutionsResponseTypeDef](#getpendingjobexecutionsresponsetypedef)
   - [JobExecutionStateTypeDef](#jobexecutionstatetypedef)
   - [JobExecutionSummaryTypeDef](#jobexecutionsummarytypedef)
   - [JobExecutionTypeDef](#jobexecutiontypedef)
-  - [DescribeJobExecutionResponseTypeDef](#describejobexecutionresponsetypedef)
-  - [GetPendingJobExecutionsResponseTypeDef](#getpendingjobexecutionsresponsetypedef)
   - [StartNextPendingJobExecutionResponseTypeDef](#startnextpendingjobexecutionresponsetypedef)
   - [UpdateJobExecutionResponseTypeDef](#updatejobexecutionresponsetypedef)
+
+## DescribeJobExecutionResponseTypeDef
+
+```python
+from mypy_boto3_iot_jobs_data.type_defs import DescribeJobExecutionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `execution`: `"JobExecutionTypeDef"`
+
+
+## GetPendingJobExecutionsResponseTypeDef
+
+```python
+from mypy_boto3_iot_jobs_data.type_defs import GetPendingJobExecutionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `inProgressJobs`: `List["JobExecutionSummaryTypeDef"]`
+- `queuedJobs`: `List["JobExecutionSummaryTypeDef"]`
+
 
 ## JobExecutionStateTypeDef
 
@@ -68,33 +95,6 @@ Optional fields:
 - `versionNumber`: `int`
 - `executionNumber`: `int`
 - `jobDocument`: `str`
-
-
-## DescribeJobExecutionResponseTypeDef
-
-```python
-from mypy_boto3_iot_jobs_data.type_defs import DescribeJobExecutionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `execution`: `"JobExecutionTypeDef"`
-
-
-## GetPendingJobExecutionsResponseTypeDef
-
-```python
-from mypy_boto3_iot_jobs_data.type_defs import GetPendingJobExecutionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `inProgressJobs`: `List["JobExecutionSummaryTypeDef"]`
-- `queuedJobs`: `List["JobExecutionSummaryTypeDef"]`
 
 
 ## StartNextPendingJobExecutionResponseTypeDef

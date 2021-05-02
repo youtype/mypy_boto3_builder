@@ -6,25 +6,8 @@ Auto-generated documentation for [SageMakerRuntime](https://boto3.amazonaws.com/
 type annotations stubs module [mypy_boto3_sagemaker_runtime](https://pypi.org/project/mypy-boto3-sagemaker-runtime/).
 
 - [Structures for boto3 SageMakerRuntime module](#structures-for-boto3-sagemakerruntime-module)
-  - [ResponseMetadata](#responsemetadata)
   - [InvokeEndpointOutputTypeDef](#invokeendpointoutputtypedef)
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_sagemaker_runtime.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
+  - [ResponseMetadata](#responsemetadata)
 
 ## InvokeEndpointOutputTypeDef
 
@@ -43,4 +26,21 @@ Optional fields:
 - `InvokedProductionVariant`: `str`
 - `CustomAttributes`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_sagemaker_runtime.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
 

@@ -63,12 +63,7 @@ type annotations stubs module [mypy_boto3_rekognition](https://pypi.org/project/
     - [tag_resource](#tag_resource)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
 
 ## RekognitionClient
 
@@ -965,107 +960,24 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("rekognition").get_paginator` method.
-
-[Paginator.DescribeProjectVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjectVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeProjectVersionsPaginatorName
-) -> DescribeProjectVersionsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("rekognition").get_paginator` method.
+Type annotations for `boto3.client("rekognition").get_paginator` method with overloads.
 
-[Paginator.DescribeProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjects)
+- `client.get_paginator("describe_project_versions")` -> [DescribeProjectVersionsPaginator](./paginators.md#describeprojectversionspaginator)
+- `client.get_paginator("describe_projects")` -> [DescribeProjectsPaginator](./paginators.md#describeprojectspaginator)
+- `client.get_paginator("list_collections")` -> [ListCollectionsPaginator](./paginators.md#listcollectionspaginator)
+- `client.get_paginator("list_faces")` -> [ListFacesPaginator](./paginators.md#listfacespaginator)
+- `client.get_paginator("list_stream_processors")` -> [ListStreamProcessorsPaginator](./paginators.md#liststreamprocessorspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeProjectsPaginatorName
-) -> DescribeProjectsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("rekognition").get_paginator` method.
-
-[Paginator.ListCollections documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Paginator.ListCollections)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCollectionsPaginatorName
-) -> ListCollectionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("rekognition").get_paginator` method.
-
-[Paginator.ListFaces documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Paginator.ListFaces)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFacesPaginatorName
-) -> ListFacesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("rekognition").get_paginator` method.
-
-[Paginator.ListStreamProcessors documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Paginator.ListStreamProcessors)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStreamProcessorsPaginatorName
-) -> ListStreamProcessorsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("rekognition").get_waiter` method.
+Type annotations for `boto3.client("rekognition").get_waiter` method with overloads.
 
-[Waiter.ProjectVersionRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionRunning)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ProjectVersionRunningWaiterName
-) -> ProjectVersionRunningWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("rekognition").get_waiter` method.
-
-[Waiter.ProjectVersionTrainingCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionTrainingCompleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ProjectVersionTrainingCompletedWaiterName
-) -> ProjectVersionTrainingCompletedWaiter:
-    pass
-```
+- `client.get_waiter("project_version_running")` -> [ProjectVersionRunningWaiter](./waiters.md#projectversionrunningwaiter)
+- `client.get_waiter("project_version_training_completed")` -> [ProjectVersionTrainingCompletedWaiter](./waiters.md#projectversiontrainingcompletedwaiter)

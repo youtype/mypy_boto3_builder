@@ -12,9 +12,22 @@ type annotations stubs module [mypy_boto3_codedeploy](https://pypi.org/project/m
   - [ApplicationInfoTypeDef](#applicationinfotypedef)
   - [AutoRollbackConfigurationTypeDef](#autorollbackconfigurationtypedef)
   - [AutoScalingGroupTypeDef](#autoscalinggrouptypedef)
+  - [BatchGetApplicationRevisionsOutputTypeDef](#batchgetapplicationrevisionsoutputtypedef)
+  - [BatchGetApplicationsOutputTypeDef](#batchgetapplicationsoutputtypedef)
+  - [BatchGetDeploymentGroupsOutputTypeDef](#batchgetdeploymentgroupsoutputtypedef)
+  - [BatchGetDeploymentInstancesOutputTypeDef](#batchgetdeploymentinstancesoutputtypedef)
+  - [BatchGetDeploymentTargetsOutputTypeDef](#batchgetdeploymenttargetsoutputtypedef)
+  - [BatchGetDeploymentsOutputTypeDef](#batchgetdeploymentsoutputtypedef)
+  - [BatchGetOnPremisesInstancesOutputTypeDef](#batchgetonpremisesinstancesoutputtypedef)
   - [BlueGreenDeploymentConfigurationTypeDef](#bluegreendeploymentconfigurationtypedef)
   - [BlueInstanceTerminationOptionTypeDef](#blueinstanceterminationoptiontypedef)
   - [CloudFormationTargetTypeDef](#cloudformationtargettypedef)
+  - [CreateApplicationOutputTypeDef](#createapplicationoutputtypedef)
+  - [CreateDeploymentConfigOutputTypeDef](#createdeploymentconfigoutputtypedef)
+  - [CreateDeploymentGroupOutputTypeDef](#createdeploymentgroupoutputtypedef)
+  - [CreateDeploymentOutputTypeDef](#createdeploymentoutputtypedef)
+  - [DeleteDeploymentGroupOutputTypeDef](#deletedeploymentgroupoutputtypedef)
+  - [DeleteGitHubAccountTokenOutputTypeDef](#deletegithubaccounttokenoutputtypedef)
   - [DeploymentConfigInfoTypeDef](#deploymentconfiginfotypedef)
   - [DeploymentGroupInfoTypeDef](#deploymentgroupinfotypedef)
   - [DeploymentInfoTypeDef](#deploymentinfotypedef)
@@ -31,6 +44,14 @@ type annotations stubs module [mypy_boto3_codedeploy](https://pypi.org/project/m
   - [ELBInfoTypeDef](#elbinfotypedef)
   - [ErrorInformationTypeDef](#errorinformationtypedef)
   - [GenericRevisionInfoTypeDef](#genericrevisioninfotypedef)
+  - [GetApplicationOutputTypeDef](#getapplicationoutputtypedef)
+  - [GetApplicationRevisionOutputTypeDef](#getapplicationrevisionoutputtypedef)
+  - [GetDeploymentConfigOutputTypeDef](#getdeploymentconfigoutputtypedef)
+  - [GetDeploymentGroupOutputTypeDef](#getdeploymentgroupoutputtypedef)
+  - [GetDeploymentInstanceOutputTypeDef](#getdeploymentinstanceoutputtypedef)
+  - [GetDeploymentOutputTypeDef](#getdeploymentoutputtypedef)
+  - [GetDeploymentTargetOutputTypeDef](#getdeploymenttargetoutputtypedef)
+  - [GetOnPremisesInstanceOutputTypeDef](#getonpremisesinstanceoutputtypedef)
   - [GitHubLocationTypeDef](#githublocationtypedef)
   - [GreenFleetProvisioningOptionTypeDef](#greenfleetprovisioningoptiontypedef)
   - [InstanceInfoTypeDef](#instanceinfotypedef)
@@ -40,47 +61,6 @@ type annotations stubs module [mypy_boto3_codedeploy](https://pypi.org/project/m
   - [LambdaTargetTypeDef](#lambdatargettypedef)
   - [LastDeploymentInfoTypeDef](#lastdeploymentinfotypedef)
   - [LifecycleEventTypeDef](#lifecycleeventtypedef)
-  - [LoadBalancerInfoTypeDef](#loadbalancerinfotypedef)
-  - [MinimumHealthyHostsTypeDef](#minimumhealthyhoststypedef)
-  - [OnPremisesTagSetTypeDef](#onpremisestagsettypedef)
-  - [RawStringTypeDef](#rawstringtypedef)
-  - [RelatedDeploymentsTypeDef](#relateddeploymentstypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [RevisionInfoTypeDef](#revisioninfotypedef)
-  - [RevisionLocationTypeDef](#revisionlocationtypedef)
-  - [RollbackInfoTypeDef](#rollbackinfotypedef)
-  - [S3LocationTypeDef](#s3locationtypedef)
-  - [TagFilterTypeDef](#tagfiltertypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TargetGroupInfoTypeDef](#targetgroupinfotypedef)
-  - [TargetGroupPairInfoTypeDef](#targetgrouppairinfotypedef)
-  - [TargetInstancesTypeDef](#targetinstancestypedef)
-  - [TimeBasedCanaryTypeDef](#timebasedcanarytypedef)
-  - [TimeBasedLinearTypeDef](#timebasedlineartypedef)
-  - [TrafficRouteTypeDef](#trafficroutetypedef)
-  - [TrafficRoutingConfigTypeDef](#trafficroutingconfigtypedef)
-  - [TriggerConfigTypeDef](#triggerconfigtypedef)
-  - [BatchGetApplicationRevisionsOutputTypeDef](#batchgetapplicationrevisionsoutputtypedef)
-  - [BatchGetApplicationsOutputTypeDef](#batchgetapplicationsoutputtypedef)
-  - [BatchGetDeploymentGroupsOutputTypeDef](#batchgetdeploymentgroupsoutputtypedef)
-  - [BatchGetDeploymentInstancesOutputTypeDef](#batchgetdeploymentinstancesoutputtypedef)
-  - [BatchGetDeploymentTargetsOutputTypeDef](#batchgetdeploymenttargetsoutputtypedef)
-  - [BatchGetDeploymentsOutputTypeDef](#batchgetdeploymentsoutputtypedef)
-  - [BatchGetOnPremisesInstancesOutputTypeDef](#batchgetonpremisesinstancesoutputtypedef)
-  - [CreateApplicationOutputTypeDef](#createapplicationoutputtypedef)
-  - [CreateDeploymentConfigOutputTypeDef](#createdeploymentconfigoutputtypedef)
-  - [CreateDeploymentGroupOutputTypeDef](#createdeploymentgroupoutputtypedef)
-  - [CreateDeploymentOutputTypeDef](#createdeploymentoutputtypedef)
-  - [DeleteDeploymentGroupOutputTypeDef](#deletedeploymentgroupoutputtypedef)
-  - [DeleteGitHubAccountTokenOutputTypeDef](#deletegithubaccounttokenoutputtypedef)
-  - [GetApplicationOutputTypeDef](#getapplicationoutputtypedef)
-  - [GetApplicationRevisionOutputTypeDef](#getapplicationrevisionoutputtypedef)
-  - [GetDeploymentConfigOutputTypeDef](#getdeploymentconfigoutputtypedef)
-  - [GetDeploymentGroupOutputTypeDef](#getdeploymentgroupoutputtypedef)
-  - [GetDeploymentInstanceOutputTypeDef](#getdeploymentinstanceoutputtypedef)
-  - [GetDeploymentOutputTypeDef](#getdeploymentoutputtypedef)
-  - [GetDeploymentTargetOutputTypeDef](#getdeploymenttargetoutputtypedef)
-  - [GetOnPremisesInstanceOutputTypeDef](#getonpremisesinstanceoutputtypedef)
   - [ListApplicationRevisionsOutputTypeDef](#listapplicationrevisionsoutputtypedef)
   - [ListApplicationsOutputTypeDef](#listapplicationsoutputtypedef)
   - [ListDeploymentConfigsOutputTypeDef](#listdeploymentconfigsoutputtypedef)
@@ -91,10 +71,30 @@ type annotations stubs module [mypy_boto3_codedeploy](https://pypi.org/project/m
   - [ListGitHubAccountTokenNamesOutputTypeDef](#listgithubaccounttokennamesoutputtypedef)
   - [ListOnPremisesInstancesOutputTypeDef](#listonpremisesinstancesoutputtypedef)
   - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
+  - [LoadBalancerInfoTypeDef](#loadbalancerinfotypedef)
+  - [MinimumHealthyHostsTypeDef](#minimumhealthyhoststypedef)
+  - [OnPremisesTagSetTypeDef](#onpremisestagsettypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PutLifecycleEventHookExecutionStatusOutputTypeDef](#putlifecycleeventhookexecutionstatusoutputtypedef)
+  - [RawStringTypeDef](#rawstringtypedef)
+  - [RelatedDeploymentsTypeDef](#relateddeploymentstypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [RevisionInfoTypeDef](#revisioninfotypedef)
+  - [RevisionLocationTypeDef](#revisionlocationtypedef)
+  - [RollbackInfoTypeDef](#rollbackinfotypedef)
+  - [S3LocationTypeDef](#s3locationtypedef)
   - [StopDeploymentOutputTypeDef](#stopdeploymentoutputtypedef)
+  - [TagFilterTypeDef](#tagfiltertypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TargetGroupInfoTypeDef](#targetgroupinfotypedef)
+  - [TargetGroupPairInfoTypeDef](#targetgrouppairinfotypedef)
+  - [TargetInstancesTypeDef](#targetinstancestypedef)
+  - [TimeBasedCanaryTypeDef](#timebasedcanarytypedef)
+  - [TimeBasedLinearTypeDef](#timebasedlineartypedef)
   - [TimeRangeTypeDef](#timerangetypedef)
+  - [TrafficRouteTypeDef](#trafficroutetypedef)
+  - [TrafficRoutingConfigTypeDef](#trafficroutingconfigtypedef)
+  - [TriggerConfigTypeDef](#triggerconfigtypedef)
   - [UpdateDeploymentGroupOutputTypeDef](#updatedeploymentgroupoutputtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
@@ -186,6 +186,108 @@ Optional fields:
 - `hook`: `str`
 
 
+## BatchGetApplicationRevisionsOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import BatchGetApplicationRevisionsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `applicationName`: `str`
+- `errorMessage`: `str`
+- `revisions`: `List["RevisionInfoTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetApplicationsOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import BatchGetApplicationsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `applicationsInfo`: `List["ApplicationInfoTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetDeploymentGroupsOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import BatchGetDeploymentGroupsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentGroupsInfo`: `List["DeploymentGroupInfoTypeDef"]`
+- `errorMessage`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetDeploymentInstancesOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import BatchGetDeploymentInstancesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `instancesSummary`: `List["InstanceSummaryTypeDef"]`
+- `errorMessage`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetDeploymentTargetsOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import BatchGetDeploymentTargetsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentTargets`: `List["DeploymentTargetTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetDeploymentsOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import BatchGetDeploymentsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentsInfo`: `List["DeploymentInfoTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetOnPremisesInstancesOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import BatchGetOnPremisesInstancesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `instanceInfos`: `List["InstanceInfoTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## BlueGreenDeploymentConfigurationTypeDef
 
 ```python
@@ -232,6 +334,90 @@ Optional fields:
 - `status`: `TargetStatus`
 - `resourceType`: `str`
 - `targetVersionWeight`: `float`
+
+
+## CreateApplicationOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import CreateApplicationOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `applicationId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateDeploymentConfigOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import CreateDeploymentConfigOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentConfigId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateDeploymentGroupOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import CreateDeploymentGroupOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentGroupId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateDeploymentOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import CreateDeploymentOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DeleteDeploymentGroupOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import DeleteDeploymentGroupOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `hooksNotCleanedUp`: `List["AutoScalingGroupTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DeleteGitHubAccountTokenOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import DeleteGitHubAccountTokenOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `tokenName`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## DeploymentConfigInfoTypeDef
@@ -531,6 +717,120 @@ Optional fields:
 - `registerTime`: `datetime`
 
 
+## GetApplicationOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import GetApplicationOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `application`: `"ApplicationInfoTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetApplicationRevisionOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import GetApplicationRevisionOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `applicationName`: `str`
+- `revision`: `"RevisionLocationTypeDef"`
+- `revisionInfo`: `"GenericRevisionInfoTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetDeploymentConfigOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import GetDeploymentConfigOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentConfigInfo`: `"DeploymentConfigInfoTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetDeploymentGroupOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import GetDeploymentGroupOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentGroupInfo`: `"DeploymentGroupInfoTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetDeploymentInstanceOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import GetDeploymentInstanceOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `instanceSummary`: `"InstanceSummaryTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetDeploymentOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import GetDeploymentOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentInfo`: `"DeploymentInfoTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetDeploymentTargetOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import GetDeploymentTargetOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentTarget`: `"DeploymentTargetTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetOnPremisesInstanceOutputTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import GetOnPremisesInstanceOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `instanceInfo`: `"InstanceInfoTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## GitHubLocationTypeDef
 
 ```python
@@ -681,599 +981,6 @@ Optional fields:
 - `startTime`: `datetime`
 - `endTime`: `datetime`
 - `status`: `LifecycleEventStatus`
-
-
-## LoadBalancerInfoTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import LoadBalancerInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `elbInfoList`: `List["ELBInfoTypeDef"]`
-- `targetGroupInfoList`: `List["TargetGroupInfoTypeDef"]`
-- `targetGroupPairInfoList`: `List["TargetGroupPairInfoTypeDef"]`
-
-
-## MinimumHealthyHostsTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import MinimumHealthyHostsTypeDef
-```
-
-
-
-
-Optional fields:
-- `type`: `MinimumHealthyHostsType`
-- `value`: `int`
-
-
-## OnPremisesTagSetTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import OnPremisesTagSetTypeDef
-```
-
-
-
-
-Optional fields:
-- `onPremisesTagSetList`: `List[List["TagFilterTypeDef"]]`
-
-
-## RawStringTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import RawStringTypeDef
-```
-
-
-
-
-Optional fields:
-- `content`: `str`
-- `sha256`: `str`
-
-
-## RelatedDeploymentsTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import RelatedDeploymentsTypeDef
-```
-
-
-
-
-Optional fields:
-- `autoUpdateOutdatedInstancesRootDeploymentId`: `str`
-- `autoUpdateOutdatedInstancesDeploymentIds`: `List[str]`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_codedeploy.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## RevisionInfoTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import RevisionInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `revisionLocation`: `"RevisionLocationTypeDef"`
-- `genericRevisionInfo`: `"GenericRevisionInfoTypeDef"`
-
-
-## RevisionLocationTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import RevisionLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `revisionType`: `RevisionLocationType`
-- `s3Location`: `"S3LocationTypeDef"`
-- `gitHubLocation`: `"GitHubLocationTypeDef"`
-- `string`: `"RawStringTypeDef"`
-- `appSpecContent`: `"AppSpecContentTypeDef"`
-
-
-## RollbackInfoTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import RollbackInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `rollbackDeploymentId`: `str`
-- `rollbackTriggeringDeploymentId`: `str`
-- `rollbackMessage`: `str`
-
-
-## S3LocationTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import S3LocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `bucket`: `str`
-- `key`: `str`
-- `bundleType`: `BundleType`
-- `version`: `str`
-- `eTag`: `str`
-
-
-## TagFilterTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import TagFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-- `Type`: `TagFilterType`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## TargetGroupInfoTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import TargetGroupInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-
-
-## TargetGroupPairInfoTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import TargetGroupPairInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `targetGroups`: `List["TargetGroupInfoTypeDef"]`
-- `prodTrafficRoute`: `"TrafficRouteTypeDef"`
-- `testTrafficRoute`: `"TrafficRouteTypeDef"`
-
-
-## TargetInstancesTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import TargetInstancesTypeDef
-```
-
-
-
-
-Optional fields:
-- `tagFilters`: `List["EC2TagFilterTypeDef"]`
-- `autoScalingGroups`: `List[str]`
-- `ec2TagSet`: `"EC2TagSetTypeDef"`
-
-
-## TimeBasedCanaryTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import TimeBasedCanaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `canaryPercentage`: `int`
-- `canaryInterval`: `int`
-
-
-## TimeBasedLinearTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import TimeBasedLinearTypeDef
-```
-
-
-
-
-Optional fields:
-- `linearPercentage`: `int`
-- `linearInterval`: `int`
-
-
-## TrafficRouteTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import TrafficRouteTypeDef
-```
-
-
-
-
-Optional fields:
-- `listenerArns`: `List[str]`
-
-
-## TrafficRoutingConfigTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import TrafficRoutingConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `type`: `TrafficRoutingType`
-- `timeBasedCanary`: `"TimeBasedCanaryTypeDef"`
-- `timeBasedLinear`: `"TimeBasedLinearTypeDef"`
-
-
-## TriggerConfigTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import TriggerConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `triggerName`: `str`
-- `triggerTargetArn`: `str`
-- `triggerEvents`: `List[TriggerEventType]`
-
-
-## BatchGetApplicationRevisionsOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import BatchGetApplicationRevisionsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `applicationName`: `str`
-- `errorMessage`: `str`
-- `revisions`: `List["RevisionInfoTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetApplicationsOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import BatchGetApplicationsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `applicationsInfo`: `List["ApplicationInfoTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetDeploymentGroupsOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import BatchGetDeploymentGroupsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentGroupsInfo`: `List["DeploymentGroupInfoTypeDef"]`
-- `errorMessage`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetDeploymentInstancesOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import BatchGetDeploymentInstancesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `instancesSummary`: `List["InstanceSummaryTypeDef"]`
-- `errorMessage`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetDeploymentTargetsOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import BatchGetDeploymentTargetsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentTargets`: `List["DeploymentTargetTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetDeploymentsOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import BatchGetDeploymentsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentsInfo`: `List["DeploymentInfoTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetOnPremisesInstancesOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import BatchGetOnPremisesInstancesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `instanceInfos`: `List["InstanceInfoTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateApplicationOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import CreateApplicationOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `applicationId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateDeploymentConfigOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import CreateDeploymentConfigOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentConfigId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateDeploymentGroupOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import CreateDeploymentGroupOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentGroupId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateDeploymentOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import CreateDeploymentOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteDeploymentGroupOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import DeleteDeploymentGroupOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `hooksNotCleanedUp`: `List["AutoScalingGroupTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DeleteGitHubAccountTokenOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import DeleteGitHubAccountTokenOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `tokenName`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetApplicationOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import GetApplicationOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `application`: `"ApplicationInfoTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetApplicationRevisionOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import GetApplicationRevisionOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `applicationName`: `str`
-- `revision`: `"RevisionLocationTypeDef"`
-- `revisionInfo`: `"GenericRevisionInfoTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetDeploymentConfigOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import GetDeploymentConfigOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentConfigInfo`: `"DeploymentConfigInfoTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetDeploymentGroupOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import GetDeploymentGroupOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentGroupInfo`: `"DeploymentGroupInfoTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetDeploymentInstanceOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import GetDeploymentInstanceOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `instanceSummary`: `"InstanceSummaryTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetDeploymentOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import GetDeploymentOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentInfo`: `"DeploymentInfoTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetDeploymentTargetOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import GetDeploymentTargetOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentTarget`: `"DeploymentTargetTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetOnPremisesInstanceOutputTypeDef
-
-```python
-from mypy_boto3_codedeploy.type_defs import GetOnPremisesInstanceOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `instanceInfo`: `"InstanceInfoTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## ListApplicationRevisionsOutputTypeDef
@@ -1427,6 +1134,48 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## LoadBalancerInfoTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import LoadBalancerInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `elbInfoList`: `List["ELBInfoTypeDef"]`
+- `targetGroupInfoList`: `List["TargetGroupInfoTypeDef"]`
+- `targetGroupPairInfoList`: `List["TargetGroupPairInfoTypeDef"]`
+
+
+## MinimumHealthyHostsTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import MinimumHealthyHostsTypeDef
+```
+
+
+
+
+Optional fields:
+- `type`: `MinimumHealthyHostsType`
+- `value`: `int`
+
+
+## OnPremisesTagSetTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import OnPremisesTagSetTypeDef
+```
+
+
+
+
+Optional fields:
+- `onPremisesTagSetList`: `List[List["TagFilterTypeDef"]]`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -1456,6 +1205,114 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## RawStringTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import RawStringTypeDef
+```
+
+
+
+
+Optional fields:
+- `content`: `str`
+- `sha256`: `str`
+
+
+## RelatedDeploymentsTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import RelatedDeploymentsTypeDef
+```
+
+
+
+
+Optional fields:
+- `autoUpdateOutdatedInstancesRootDeploymentId`: `str`
+- `autoUpdateOutdatedInstancesDeploymentIds`: `List[str]`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_codedeploy.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## RevisionInfoTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import RevisionInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `revisionLocation`: `"RevisionLocationTypeDef"`
+- `genericRevisionInfo`: `"GenericRevisionInfoTypeDef"`
+
+
+## RevisionLocationTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import RevisionLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `revisionType`: `RevisionLocationType`
+- `s3Location`: `"S3LocationTypeDef"`
+- `gitHubLocation`: `"GitHubLocationTypeDef"`
+- `string`: `"RawStringTypeDef"`
+- `appSpecContent`: `"AppSpecContentTypeDef"`
+
+
+## RollbackInfoTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import RollbackInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `rollbackDeploymentId`: `str`
+- `rollbackTriggeringDeploymentId`: `str`
+- `rollbackMessage`: `str`
+
+
+## S3LocationTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import S3LocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `bucket`: `str`
+- `key`: `str`
+- `bundleType`: `BundleType`
+- `version`: `str`
+- `eTag`: `str`
+
+
 ## StopDeploymentOutputTypeDef
 
 ```python
@@ -1471,6 +1328,106 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## TagFilterTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import TagFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+- `Type`: `TagFilterType`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+## TargetGroupInfoTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import TargetGroupInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+
+
+## TargetGroupPairInfoTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import TargetGroupPairInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `targetGroups`: `List["TargetGroupInfoTypeDef"]`
+- `prodTrafficRoute`: `"TrafficRouteTypeDef"`
+- `testTrafficRoute`: `"TrafficRouteTypeDef"`
+
+
+## TargetInstancesTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import TargetInstancesTypeDef
+```
+
+
+
+
+Optional fields:
+- `tagFilters`: `List["EC2TagFilterTypeDef"]`
+- `autoScalingGroups`: `List[str]`
+- `ec2TagSet`: `"EC2TagSetTypeDef"`
+
+
+## TimeBasedCanaryTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import TimeBasedCanaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `canaryPercentage`: `int`
+- `canaryInterval`: `int`
+
+
+## TimeBasedLinearTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import TimeBasedLinearTypeDef
+```
+
+
+
+
+Optional fields:
+- `linearPercentage`: `int`
+- `linearInterval`: `int`
+
+
 ## TimeRangeTypeDef
 
 ```python
@@ -1483,6 +1440,49 @@ from mypy_boto3_codedeploy.type_defs import TimeRangeTypeDef
 Optional fields:
 - `start`: `datetime`
 - `end`: `datetime`
+
+
+## TrafficRouteTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import TrafficRouteTypeDef
+```
+
+
+
+
+Optional fields:
+- `listenerArns`: `List[str]`
+
+
+## TrafficRoutingConfigTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import TrafficRoutingConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `type`: `TrafficRoutingType`
+- `timeBasedCanary`: `"TimeBasedCanaryTypeDef"`
+- `timeBasedLinear`: `"TimeBasedLinearTypeDef"`
+
+
+## TriggerConfigTypeDef
+
+```python
+from mypy_boto3_codedeploy.type_defs import TriggerConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `triggerName`: `str`
+- `triggerTargetArn`: `str`
+- `triggerEvents`: `List[TriggerEventType]`
 
 
 ## UpdateDeploymentGroupOutputTypeDef

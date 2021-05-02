@@ -164,16 +164,12 @@ def stop_human_loop(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("sagemaker-a2i-runtime").get_paginator` method.
+Type annotations for `boto3.client("sagemaker-a2i-runtime").get_paginator` method with overloads.
 
-[Paginator.ListHumanLoops documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Paginator.ListHumanLoops)
+- `client.get_paginator("list_human_loops")` -> [ListHumanLoopsPaginator](./paginators.md#listhumanloopspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListHumanLoopsPaginatorName
-) -> ListHumanLoopsPaginator:
-    pass
-```
+

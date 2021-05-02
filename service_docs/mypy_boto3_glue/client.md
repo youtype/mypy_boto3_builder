@@ -169,24 +169,6 @@ type annotations stubs module [mypy_boto3_glue](https://pypi.org/project/mypy-bo
     - [update_user_defined_function](#update_user_defined_function)
     - [update_workflow](#update_workflow)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
-    - [get_paginator](#get_paginator-17)
-    - [get_paginator](#get_paginator-18)
 
 ## GlueClient
 
@@ -483,7 +465,7 @@ Type annotations for `boto3.client("glue").check_schema_version_validity` method
 ```python
 def check_schema_version_validity(
     self,
-    DataFormat: DataFormat,
+    DataFormat: Literal['AVRO'],
     SchemaDefinition: str
 ) -> CheckSchemaVersionValidityResponseTypeDef:
     pass
@@ -709,7 +691,7 @@ Type annotations for `boto3.client("glue").create_schema` method.
 def create_schema(
     self,
     SchemaName: str,
-    DataFormat: DataFormat,
+    DataFormat: Literal['AVRO'],
     RegistryId: RegistryIdTypeDef = None,
     Compatibility: Compatibility = None,
     Description: str = None,
@@ -1734,7 +1716,7 @@ def get_schema_versions_diff(
     SchemaId: "SchemaIdTypeDef",
     FirstSchemaVersionNumber: SchemaVersionNumberTypeDef,
     SecondSchemaVersionNumber: SchemaVersionNumberTypeDef,
-    SchemaDiffType: SchemaDiffType
+    SchemaDiffType: Literal['SYNTAX_DIFF']
 ) -> GetSchemaVersionsDiffResponseTypeDef:
     pass
 ```
@@ -2832,287 +2814,30 @@ def update_workflow(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetClassifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetClassifiers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetClassifiersPaginatorName
-) -> GetClassifiersPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("glue").get_paginator` method.
+Type annotations for `boto3.client("glue").get_paginator` method with overloads.
+
+- `client.get_paginator("get_classifiers")` -> [GetClassifiersPaginator](./paginators.md#getclassifierspaginator)
+- `client.get_paginator("get_connections")` -> [GetConnectionsPaginator](./paginators.md#getconnectionspaginator)
+- `client.get_paginator("get_crawler_metrics")` -> [GetCrawlerMetricsPaginator](./paginators.md#getcrawlermetricspaginator)
+- `client.get_paginator("get_crawlers")` -> [GetCrawlersPaginator](./paginators.md#getcrawlerspaginator)
+- `client.get_paginator("get_databases")` -> [GetDatabasesPaginator](./paginators.md#getdatabasespaginator)
+- `client.get_paginator("get_dev_endpoints")` -> [GetDevEndpointsPaginator](./paginators.md#getdevendpointspaginator)
+- `client.get_paginator("get_job_runs")` -> [GetJobRunsPaginator](./paginators.md#getjobrunspaginator)
+- `client.get_paginator("get_jobs")` -> [GetJobsPaginator](./paginators.md#getjobspaginator)
+- `client.get_paginator("get_partition_indexes")` -> [GetPartitionIndexesPaginator](./paginators.md#getpartitionindexespaginator)
+- `client.get_paginator("get_partitions")` -> [GetPartitionsPaginator](./paginators.md#getpartitionspaginator)
+- `client.get_paginator("get_resource_policies")` -> [GetResourcePoliciesPaginator](./paginators.md#getresourcepoliciespaginator)
+- `client.get_paginator("get_security_configurations")` -> [GetSecurityConfigurationsPaginator](./paginators.md#getsecurityconfigurationspaginator)
+- `client.get_paginator("get_table_versions")` -> [GetTableVersionsPaginator](./paginators.md#gettableversionspaginator)
+- `client.get_paginator("get_tables")` -> [GetTablesPaginator](./paginators.md#gettablespaginator)
+- `client.get_paginator("get_triggers")` -> [GetTriggersPaginator](./paginators.md#gettriggerspaginator)
+- `client.get_paginator("get_user_defined_functions")` -> [GetUserDefinedFunctionsPaginator](./paginators.md#getuserdefinedfunctionspaginator)
+- `client.get_paginator("list_registries")` -> [ListRegistriesPaginator](./paginators.md#listregistriespaginator)
+- `client.get_paginator("list_schema_versions")` -> [ListSchemaVersionsPaginator](./paginators.md#listschemaversionspaginator)
+- `client.get_paginator("list_schemas")` -> [ListSchemasPaginator](./paginators.md#listschemaspaginator)
 
-[Paginator.GetConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetConnections)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetConnectionsPaginatorName
-) -> GetConnectionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetCrawlerMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetCrawlerMetrics)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetCrawlerMetricsPaginatorName
-) -> GetCrawlerMetricsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetCrawlers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetCrawlers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetCrawlersPaginatorName
-) -> GetCrawlersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetDatabases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDatabasesPaginatorName
-) -> GetDatabasesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetDevEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetDevEndpoints)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDevEndpointsPaginatorName
-) -> GetDevEndpointsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetJobRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetJobRuns)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetJobRunsPaginatorName
-) -> GetJobRunsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetJobsPaginatorName
-) -> GetJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetPartitionIndexes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetPartitionIndexes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetPartitionIndexesPaginatorName
-) -> GetPartitionIndexesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetPartitions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetPartitions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetPartitionsPaginatorName
-) -> GetPartitionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetResourcePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetResourcePolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetResourcePoliciesPaginatorName
-) -> GetResourcePoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetSecurityConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetSecurityConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetSecurityConfigurationsPaginatorName
-) -> GetSecurityConfigurationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetTableVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetTableVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTableVersionsPaginatorName
-) -> GetTableVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetTables documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetTables)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTablesPaginatorName
-) -> GetTablesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetTriggers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetTriggers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTriggersPaginatorName
-) -> GetTriggersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.GetUserDefinedFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.GetUserDefinedFunctions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetUserDefinedFunctionsPaginatorName
-) -> GetUserDefinedFunctionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.ListRegistries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.ListRegistries)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRegistriesPaginatorName
-) -> ListRegistriesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.ListSchemaVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.ListSchemaVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSchemaVersionsPaginatorName
-) -> ListSchemaVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("glue").get_paginator` method.
-
-[Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/glue.html#Glue.Paginator.ListSchemas)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSchemasPaginatorName
-) -> ListSchemasPaginator:
-    pass
-```

@@ -6,14 +6,27 @@ Auto-generated documentation for [AppIntegrationsService](https://boto3.amazonaw
 type annotations stubs module [mypy_boto3_appintegrations](https://pypi.org/project/mypy-boto3-appintegrations/).
 
 - [Structures for boto3 AppIntegrationsService module](#structures-for-boto3-appintegrationsservice-module)
+  - [CreateEventIntegrationResponseTypeDef](#createeventintegrationresponsetypedef)
   - [EventFilterTypeDef](#eventfiltertypedef)
   - [EventIntegrationAssociationTypeDef](#eventintegrationassociationtypedef)
   - [EventIntegrationTypeDef](#eventintegrationtypedef)
-  - [CreateEventIntegrationResponseTypeDef](#createeventintegrationresponsetypedef)
   - [GetEventIntegrationResponseTypeDef](#geteventintegrationresponsetypedef)
   - [ListEventIntegrationAssociationsResponseTypeDef](#listeventintegrationassociationsresponsetypedef)
   - [ListEventIntegrationsResponseTypeDef](#listeventintegrationsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+
+## CreateEventIntegrationResponseTypeDef
+
+```python
+from mypy_boto3_appintegrations.type_defs import CreateEventIntegrationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventIntegrationArn`: `str`
+
 
 ## EventFilterTypeDef
 
@@ -62,19 +75,6 @@ Optional fields:
 - `EventFilter`: `"EventFilterTypeDef"`
 - `EventBridgeBus`: `str`
 - `Tags`: `Dict[str, str]`
-
-
-## CreateEventIntegrationResponseTypeDef
-
-```python
-from mypy_boto3_appintegrations.type_defs import CreateEventIntegrationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventIntegrationArn`: `str`
 
 
 ## GetEventIntegrationResponseTypeDef

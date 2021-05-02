@@ -7,20 +7,6 @@ type annotations stubs module [mypy_boto3_datasync](https://pypi.org/project/myp
 
 - [Structures for boto3 DataSync module](#structures-for-boto3-datasync-module)
   - [AgentListEntryTypeDef](#agentlistentrytypedef)
-  - [Ec2ConfigTypeDef](#ec2configtypedef)
-  - [FilterRuleTypeDef](#filterruletypedef)
-  - [LocationListEntryTypeDef](#locationlistentrytypedef)
-  - [NfsMountOptionsTypeDef](#nfsmountoptionstypedef)
-  - [OnPremConfigTypeDef](#onpremconfigtypedef)
-  - [OptionsTypeDef](#optionstypedef)
-  - [PrivateLinkConfigTypeDef](#privatelinkconfigtypedef)
-  - [S3ConfigTypeDef](#s3configtypedef)
-  - [SmbMountOptionsTypeDef](#smbmountoptionstypedef)
-  - [TagListEntryTypeDef](#taglistentrytypedef)
-  - [TaskExecutionListEntryTypeDef](#taskexecutionlistentrytypedef)
-  - [TaskExecutionResultDetailTypeDef](#taskexecutionresultdetailtypedef)
-  - [TaskListEntryTypeDef](#tasklistentrytypedef)
-  - [TaskScheduleTypeDef](#taskscheduletypedef)
   - [CreateAgentResponseTypeDef](#createagentresponsetypedef)
   - [CreateLocationEfsResponseTypeDef](#createlocationefsresponsetypedef)
   - [CreateLocationFsxWindowsResponseTypeDef](#createlocationfsxwindowsresponsetypedef)
@@ -38,15 +24,29 @@ type annotations stubs module [mypy_boto3_datasync](https://pypi.org/project/myp
   - [DescribeLocationSmbResponseTypeDef](#describelocationsmbresponsetypedef)
   - [DescribeTaskExecutionResponseTypeDef](#describetaskexecutionresponsetypedef)
   - [DescribeTaskResponseTypeDef](#describetaskresponsetypedef)
+  - [Ec2ConfigTypeDef](#ec2configtypedef)
+  - [FilterRuleTypeDef](#filterruletypedef)
   - [ListAgentsResponseTypeDef](#listagentsresponsetypedef)
   - [ListLocationsResponseTypeDef](#listlocationsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListTaskExecutionsResponseTypeDef](#listtaskexecutionsresponsetypedef)
   - [ListTasksResponseTypeDef](#listtasksresponsetypedef)
   - [LocationFilterTypeDef](#locationfiltertypedef)
+  - [LocationListEntryTypeDef](#locationlistentrytypedef)
+  - [NfsMountOptionsTypeDef](#nfsmountoptionstypedef)
+  - [OnPremConfigTypeDef](#onpremconfigtypedef)
+  - [OptionsTypeDef](#optionstypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PrivateLinkConfigTypeDef](#privatelinkconfigtypedef)
+  - [S3ConfigTypeDef](#s3configtypedef)
+  - [SmbMountOptionsTypeDef](#smbmountoptionstypedef)
   - [StartTaskExecutionResponseTypeDef](#starttaskexecutionresponsetypedef)
+  - [TagListEntryTypeDef](#taglistentrytypedef)
+  - [TaskExecutionListEntryTypeDef](#taskexecutionlistentrytypedef)
+  - [TaskExecutionResultDetailTypeDef](#taskexecutionresultdetailtypedef)
   - [TaskFilterTypeDef](#taskfiltertypedef)
+  - [TaskListEntryTypeDef](#tasklistentrytypedef)
+  - [TaskScheduleTypeDef](#taskscheduletypedef)
 
 ## AgentListEntryTypeDef
 
@@ -61,220 +61,6 @@ Optional fields:
 - `AgentArn`: `str`
 - `Name`: `str`
 - `Status`: `AgentStatus`
-
-
-## Ec2ConfigTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import Ec2ConfigTypeDef
-```
-
-
-Required fields:
-- `SubnetArn`: `str`
-- `SecurityGroupArns`: `List[str]`
-
-
-
-
-## FilterRuleTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import FilterRuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `FilterType`: `FilterType`
-- `Value`: `str`
-
-
-## LocationListEntryTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import LocationListEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `LocationArn`: `str`
-- `LocationUri`: `str`
-
-
-## NfsMountOptionsTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import NfsMountOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Version`: `NfsVersion`
-
-
-## OnPremConfigTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import OnPremConfigTypeDef
-```
-
-
-Required fields:
-- `AgentArns`: `List[str]`
-
-
-
-
-## OptionsTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import OptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `VerifyMode`: `VerifyMode`
-- `OverwriteMode`: `OverwriteMode`
-- `Atime`: `Atime`
-- `Mtime`: `Mtime`
-- `Uid`: `Uid`
-- `Gid`: `Gid`
-- `PreserveDeletedFiles`: `PreserveDeletedFiles`
-- `PreserveDevices`: `PreserveDevices`
-- `PosixPermissions`: `PosixPermissions`
-- `BytesPerSecond`: `int`
-- `TaskQueueing`: `TaskQueueing`
-- `LogLevel`: `LogLevel`
-- `TransferMode`: `TransferMode`
-
-
-## PrivateLinkConfigTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import PrivateLinkConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `VpcEndpointId`: `str`
-- `PrivateLinkEndpoint`: `str`
-- `SubnetArns`: `List[str]`
-- `SecurityGroupArns`: `List[str]`
-
-
-## S3ConfigTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import S3ConfigTypeDef
-```
-
-
-Required fields:
-- `BucketAccessRoleArn`: `str`
-
-
-
-
-## SmbMountOptionsTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import SmbMountOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Version`: `SmbVersion`
-
-
-## TagListEntryTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import TagListEntryTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## TaskExecutionListEntryTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import TaskExecutionListEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `TaskExecutionArn`: `str`
-- `Status`: `TaskExecutionStatus`
-
-
-## TaskExecutionResultDetailTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import TaskExecutionResultDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `PrepareDuration`: `int`
-- `PrepareStatus`: `PhaseStatus`
-- `TotalDuration`: `int`
-- `TransferDuration`: `int`
-- `TransferStatus`: `PhaseStatus`
-- `VerifyDuration`: `int`
-- `VerifyStatus`: `PhaseStatus`
-- `ErrorCode`: `str`
-- `ErrorDetail`: `str`
-
-
-## TaskListEntryTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import TaskListEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `TaskArn`: `str`
-- `Status`: `TaskStatus`
-- `Name`: `str`
-
-
-## TaskScheduleTypeDef
-
-```python
-from mypy_boto3_datasync.type_defs import TaskScheduleTypeDef
-```
-
-
-Required fields:
-- `ScheduleExpression`: `str`
-
-
 
 
 ## CreateAgentResponseTypeDef
@@ -558,6 +344,34 @@ Optional fields:
 - `CreationTime`: `datetime`
 
 
+## Ec2ConfigTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import Ec2ConfigTypeDef
+```
+
+
+Required fields:
+- `SubnetArn`: `str`
+- `SecurityGroupArns`: `List[str]`
+
+
+
+
+## FilterRuleTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import FilterRuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `FilterType`: `Literal['SIMPLE_PATTERN']`
+- `Value`: `str`
+
+
 ## ListAgentsResponseTypeDef
 
 ```python
@@ -643,6 +457,71 @@ Required fields:
 
 
 
+## LocationListEntryTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import LocationListEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `LocationArn`: `str`
+- `LocationUri`: `str`
+
+
+## NfsMountOptionsTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import NfsMountOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Version`: `NfsVersion`
+
+
+## OnPremConfigTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import OnPremConfigTypeDef
+```
+
+
+Required fields:
+- `AgentArns`: `List[str]`
+
+
+
+
+## OptionsTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import OptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `VerifyMode`: `VerifyMode`
+- `OverwriteMode`: `OverwriteMode`
+- `Atime`: `Atime`
+- `Mtime`: `Mtime`
+- `Uid`: `Uid`
+- `Gid`: `Gid`
+- `PreserveDeletedFiles`: `PreserveDeletedFiles`
+- `PreserveDevices`: `PreserveDevices`
+- `PosixPermissions`: `PosixPermissions`
+- `BytesPerSecond`: `int`
+- `TaskQueueing`: `TaskQueueing`
+- `LogLevel`: `LogLevel`
+- `TransferMode`: `TransferMode`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -658,6 +537,48 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PrivateLinkConfigTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import PrivateLinkConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `VpcEndpointId`: `str`
+- `PrivateLinkEndpoint`: `str`
+- `SubnetArns`: `List[str]`
+- `SecurityGroupArns`: `List[str]`
+
+
+## S3ConfigTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import S3ConfigTypeDef
+```
+
+
+Required fields:
+- `BucketAccessRoleArn`: `str`
+
+
+
+
+## SmbMountOptionsTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import SmbMountOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Version`: `SmbVersion`
+
+
 ## StartTaskExecutionResponseTypeDef
 
 ```python
@@ -671,6 +592,57 @@ Optional fields:
 - `TaskExecutionArn`: `str`
 
 
+## TagListEntryTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import TagListEntryTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## TaskExecutionListEntryTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import TaskExecutionListEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `TaskExecutionArn`: `str`
+- `Status`: `TaskExecutionStatus`
+
+
+## TaskExecutionResultDetailTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import TaskExecutionResultDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `PrepareDuration`: `int`
+- `PrepareStatus`: `PhaseStatus`
+- `TotalDuration`: `int`
+- `TransferDuration`: `int`
+- `TransferStatus`: `PhaseStatus`
+- `VerifyDuration`: `int`
+- `VerifyStatus`: `PhaseStatus`
+- `ErrorCode`: `str`
+- `ErrorDetail`: `str`
+
+
 ## TaskFilterTypeDef
 
 ```python
@@ -682,6 +654,34 @@ Required fields:
 - `Name`: `TaskFilterName`
 - `Values`: `List[str]`
 - `Operator`: `Operator`
+
+
+
+
+## TaskListEntryTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import TaskListEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `TaskArn`: `str`
+- `Status`: `TaskStatus`
+- `Name`: `str`
+
+
+## TaskScheduleTypeDef
+
+```python
+from mypy_boto3_datasync.type_defs import TaskScheduleTypeDef
+```
+
+
+Required fields:
+- `ScheduleExpression`: `str`
 
 
 

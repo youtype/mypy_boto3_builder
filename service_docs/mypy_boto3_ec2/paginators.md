@@ -127,7 +127,7 @@ class DescribeAddressesAttributePaginator(Boto3Paginator):
     def paginate(
         self,
         AllocationIds: List[str] = None,
-        Attribute: AddressAttributeName = None,
+        Attribute: Literal['domain-name'] = None,
         DryRun: bool = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAddressesAttributeResultTypeDef]:

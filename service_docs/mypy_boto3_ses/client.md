@@ -83,10 +83,6 @@ type annotations stubs module [mypy_boto3_ses](https://pypi.org/project/mypy-bot
     - [verify_email_address](#verify_email_address)
     - [verify_email_identity](#verify_email_identity)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
     - [get_waiter](#get_waiter)
 
 ## SESClient
@@ -1261,91 +1257,23 @@ def verify_email_identity(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("ses").get_paginator` method.
-
-[Paginator.ListConfigurationSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ses.html#SES.Paginator.ListConfigurationSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListConfigurationSetsPaginatorName
-) -> ListConfigurationSetsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("ses").get_paginator` method.
+Type annotations for `boto3.client("ses").get_paginator` method with overloads.
 
-[Paginator.ListCustomVerificationEmailTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ses.html#SES.Paginator.ListCustomVerificationEmailTemplates)
+- `client.get_paginator("list_configuration_sets")` -> [ListConfigurationSetsPaginator](./paginators.md#listconfigurationsetspaginator)
+- `client.get_paginator("list_custom_verification_email_templates")` -> [ListCustomVerificationEmailTemplatesPaginator](./paginators.md#listcustomverificationemailtemplatespaginator)
+- `client.get_paginator("list_identities")` -> [ListIdentitiesPaginator](./paginators.md#listidentitiespaginator)
+- `client.get_paginator("list_receipt_rule_sets")` -> [ListReceiptRuleSetsPaginator](./paginators.md#listreceiptrulesetspaginator)
+- `client.get_paginator("list_templates")` -> [ListTemplatesPaginator](./paginators.md#listtemplatespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCustomVerificationEmailTemplatesPaginatorName
-) -> ListCustomVerificationEmailTemplatesPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("ses").get_paginator` method.
-
-[Paginator.ListIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ses.html#SES.Paginator.ListIdentities)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListIdentitiesPaginatorName
-) -> ListIdentitiesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ses").get_paginator` method.
-
-[Paginator.ListReceiptRuleSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ses.html#SES.Paginator.ListReceiptRuleSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListReceiptRuleSetsPaginatorName
-) -> ListReceiptRuleSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ses").get_paginator` method.
-
-[Paginator.ListTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ses.html#SES.Paginator.ListTemplates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTemplatesPaginatorName
-) -> ListTemplatesPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("ses").get_waiter` method.
+Type annotations for `boto3.client("ses").get_waiter` method with overloads.
 
-[Waiter.IdentityExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ses.html#SES.Waiter.IdentityExists)
-
-```python
-def get_waiter(
-    self,
-    waiter_name: IdentityExistsWaiterName
-) -> IdentityExistsWaiter:
-    pass
-```
+- `client.get_waiter("identity_exists")` -> [IdentityExistsWaiter](./waiters.md#identityexistswaiter)

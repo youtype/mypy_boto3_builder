@@ -6,13 +6,26 @@ Auto-generated documentation for [CodeGuruReviewer](https://boto3.amazonaws.com/
 type annotations stubs module [mypy_boto3_codeguru_reviewer](https://pypi.org/project/mypy-boto3-codeguru-reviewer/).
 
 - [Structures for boto3 CodeGuruReviewer module](#structures-for-boto3-codegurureviewer-module)
+  - [AssociateRepositoryResponseTypeDef](#associaterepositoryresponsetypedef)
   - [CodeCommitRepositoryTypeDef](#codecommitrepositorytypedef)
   - [CodeReviewSummaryTypeDef](#codereviewsummarytypedef)
   - [CodeReviewTypeDef](#codereviewtypedef)
+  - [CodeReviewTypeTypeDef](#codereviewtypetypedef)
   - [CommitDiffSourceCodeTypeTypeDef](#commitdiffsourcecodetypetypedef)
+  - [CreateCodeReviewResponseTypeDef](#createcodereviewresponsetypedef)
+  - [DescribeCodeReviewResponseTypeDef](#describecodereviewresponsetypedef)
+  - [DescribeRecommendationFeedbackResponseTypeDef](#describerecommendationfeedbackresponsetypedef)
+  - [DescribeRepositoryAssociationResponseTypeDef](#describerepositoryassociationresponsetypedef)
+  - [DisassociateRepositoryResponseTypeDef](#disassociaterepositoryresponsetypedef)
   - [KMSKeyDetailsTypeDef](#kmskeydetailstypedef)
+  - [ListCodeReviewsResponseTypeDef](#listcodereviewsresponsetypedef)
+  - [ListRecommendationFeedbackResponseTypeDef](#listrecommendationfeedbackresponsetypedef)
+  - [ListRecommendationsResponseTypeDef](#listrecommendationsresponsetypedef)
+  - [ListRepositoryAssociationsResponseTypeDef](#listrepositoryassociationsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [MetricsSummaryTypeDef](#metricssummarytypedef)
   - [MetricsTypeDef](#metricstypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [RecommendationFeedbackSummaryTypeDef](#recommendationfeedbacksummarytypedef)
   - [RecommendationFeedbackTypeDef](#recommendationfeedbacktypedef)
   - [RecommendationSummaryTypeDef](#recommendationsummarytypedef)
@@ -20,22 +33,23 @@ type annotations stubs module [mypy_boto3_codeguru_reviewer](https://pypi.org/pr
   - [RepositoryAssociationSummaryTypeDef](#repositoryassociationsummarytypedef)
   - [RepositoryAssociationTypeDef](#repositoryassociationtypedef)
   - [RepositoryHeadSourceCodeTypeTypeDef](#repositoryheadsourcecodetypetypedef)
+  - [RepositoryTypeDef](#repositorytypedef)
   - [SourceCodeTypeTypeDef](#sourcecodetypetypedef)
   - [ThirdPartySourceRepositoryTypeDef](#thirdpartysourcerepositorytypedef)
-  - [AssociateRepositoryResponseTypeDef](#associaterepositoryresponsetypedef)
-  - [CodeReviewTypeTypeDef](#codereviewtypetypedef)
-  - [CreateCodeReviewResponseTypeDef](#createcodereviewresponsetypedef)
-  - [DescribeCodeReviewResponseTypeDef](#describecodereviewresponsetypedef)
-  - [DescribeRecommendationFeedbackResponseTypeDef](#describerecommendationfeedbackresponsetypedef)
-  - [DescribeRepositoryAssociationResponseTypeDef](#describerepositoryassociationresponsetypedef)
-  - [DisassociateRepositoryResponseTypeDef](#disassociaterepositoryresponsetypedef)
-  - [ListCodeReviewsResponseTypeDef](#listcodereviewsresponsetypedef)
-  - [ListRecommendationFeedbackResponseTypeDef](#listrecommendationfeedbackresponsetypedef)
-  - [ListRecommendationsResponseTypeDef](#listrecommendationsresponsetypedef)
-  - [ListRepositoryAssociationsResponseTypeDef](#listrepositoryassociationsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [RepositoryTypeDef](#repositorytypedef)
+
+## AssociateRepositoryResponseTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import AssociateRepositoryResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RepositoryAssociation`: `"RepositoryAssociationTypeDef"`
+- `Tags`: `Dict[str, str]`
+
 
 ## CodeCommitRepositoryTypeDef
 
@@ -99,6 +113,19 @@ Optional fields:
 - `Metrics`: `"MetricsTypeDef"`
 
 
+## CodeReviewTypeTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import CodeReviewTypeTypeDef
+```
+
+
+Required fields:
+- `RepositoryAnalysis`: `"RepositoryAnalysisTypeDef"`
+
+
+
+
 ## CommitDiffSourceCodeTypeTypeDef
 
 ```python
@@ -113,6 +140,73 @@ Optional fields:
 - `DestinationCommit`: `str`
 
 
+## CreateCodeReviewResponseTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import CreateCodeReviewResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CodeReview`: `"CodeReviewTypeDef"`
+
+
+## DescribeCodeReviewResponseTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import DescribeCodeReviewResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CodeReview`: `"CodeReviewTypeDef"`
+
+
+## DescribeRecommendationFeedbackResponseTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import DescribeRecommendationFeedbackResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RecommendationFeedback`: `"RecommendationFeedbackTypeDef"`
+
+
+## DescribeRepositoryAssociationResponseTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import DescribeRepositoryAssociationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RepositoryAssociation`: `"RepositoryAssociationTypeDef"`
+- `Tags`: `Dict[str, str]`
+
+
+## DisassociateRepositoryResponseTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import DisassociateRepositoryResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RepositoryAssociation`: `"RepositoryAssociationTypeDef"`
+- `Tags`: `Dict[str, str]`
+
+
 ## KMSKeyDetailsTypeDef
 
 ```python
@@ -125,6 +219,75 @@ from mypy_boto3_codeguru_reviewer.type_defs import KMSKeyDetailsTypeDef
 Optional fields:
 - `KMSKeyId`: `str`
 - `EncryptionOption`: `EncryptionOption`
+
+
+## ListCodeReviewsResponseTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import ListCodeReviewsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CodeReviewSummaries`: `List["CodeReviewSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListRecommendationFeedbackResponseTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import ListRecommendationFeedbackResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RecommendationFeedbackSummaries`: `List["RecommendationFeedbackSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListRecommendationsResponseTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import ListRecommendationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RecommendationSummaries`: `List["RecommendationSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListRepositoryAssociationsResponseTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import ListRepositoryAssociationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RepositoryAssociationSummaries`: `List["RepositoryAssociationSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
 
 
 ## MetricsSummaryTypeDef
@@ -153,6 +316,21 @@ from mypy_boto3_codeguru_reviewer.type_defs import MetricsTypeDef
 Optional fields:
 - `MeteredLinesOfCodeCount`: `int`
 - `FindingsCount`: `int`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## RecommendationFeedbackSummaryTypeDef
@@ -274,6 +452,21 @@ Required fields:
 
 
 
+## RepositoryTypeDef
+
+```python
+from mypy_boto3_codeguru_reviewer.type_defs import RepositoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `CodeCommit`: `"CodeCommitRepositoryTypeDef"`
+- `Bitbucket`: `"ThirdPartySourceRepositoryTypeDef"`
+- `GitHubEnterpriseServer`: `"ThirdPartySourceRepositoryTypeDef"`
+
+
 ## SourceCodeTypeTypeDef
 
 ```python
@@ -301,197 +494,4 @@ Required fields:
 - `Owner`: `str`
 
 
-
-
-## AssociateRepositoryResponseTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import AssociateRepositoryResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RepositoryAssociation`: `"RepositoryAssociationTypeDef"`
-- `Tags`: `Dict[str, str]`
-
-
-## CodeReviewTypeTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import CodeReviewTypeTypeDef
-```
-
-
-Required fields:
-- `RepositoryAnalysis`: `"RepositoryAnalysisTypeDef"`
-
-
-
-
-## CreateCodeReviewResponseTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import CreateCodeReviewResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CodeReview`: `"CodeReviewTypeDef"`
-
-
-## DescribeCodeReviewResponseTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import DescribeCodeReviewResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CodeReview`: `"CodeReviewTypeDef"`
-
-
-## DescribeRecommendationFeedbackResponseTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import DescribeRecommendationFeedbackResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RecommendationFeedback`: `"RecommendationFeedbackTypeDef"`
-
-
-## DescribeRepositoryAssociationResponseTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import DescribeRepositoryAssociationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RepositoryAssociation`: `"RepositoryAssociationTypeDef"`
-- `Tags`: `Dict[str, str]`
-
-
-## DisassociateRepositoryResponseTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import DisassociateRepositoryResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RepositoryAssociation`: `"RepositoryAssociationTypeDef"`
-- `Tags`: `Dict[str, str]`
-
-
-## ListCodeReviewsResponseTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import ListCodeReviewsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CodeReviewSummaries`: `List["CodeReviewSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListRecommendationFeedbackResponseTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import ListRecommendationFeedbackResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RecommendationFeedbackSummaries`: `List["RecommendationFeedbackSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListRecommendationsResponseTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import ListRecommendationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RecommendationSummaries`: `List["RecommendationSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListRepositoryAssociationsResponseTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import ListRepositoryAssociationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RepositoryAssociationSummaries`: `List["RepositoryAssociationSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## RepositoryTypeDef
-
-```python
-from mypy_boto3_codeguru_reviewer.type_defs import RepositoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `CodeCommit`: `"CodeCommitRepositoryTypeDef"`
-- `Bitbucket`: `"ThirdPartySourceRepositoryTypeDef"`
-- `GitHubEnterpriseServer`: `"ThirdPartySourceRepositoryTypeDef"`
 

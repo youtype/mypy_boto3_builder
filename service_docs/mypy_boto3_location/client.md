@@ -47,12 +47,6 @@ type annotations stubs module [mypy_boto3_location](https://pypi.org/project/myp
     - [search_place_index_for_position](#search_place_index_for_position)
     - [search_place_index_for_text](#search_place_index_for_text)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
 
 ## LocationServiceClient
 
@@ -660,107 +654,18 @@ def search_place_index_for_text(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("location").get_paginator` method.
-
-[Paginator.GetDevicePositionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location.html#LocationService.Paginator.GetDevicePositionHistory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDevicePositionHistoryPaginatorName
-) -> GetDevicePositionHistoryPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("location").get_paginator` method.
+Type annotations for `boto3.client("location").get_paginator` method with overloads.
 
-[Paginator.ListGeofenceCollections documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location.html#LocationService.Paginator.ListGeofenceCollections)
+- `client.get_paginator("get_device_position_history")` -> [GetDevicePositionHistoryPaginator](./paginators.md#getdevicepositionhistorypaginator)
+- `client.get_paginator("list_geofence_collections")` -> [ListGeofenceCollectionsPaginator](./paginators.md#listgeofencecollectionspaginator)
+- `client.get_paginator("list_geofences")` -> [ListGeofencesPaginator](./paginators.md#listgeofencespaginator)
+- `client.get_paginator("list_maps")` -> [ListMapsPaginator](./paginators.md#listmapspaginator)
+- `client.get_paginator("list_place_indexes")` -> [ListPlaceIndexesPaginator](./paginators.md#listplaceindexespaginator)
+- `client.get_paginator("list_tracker_consumers")` -> [ListTrackerConsumersPaginator](./paginators.md#listtrackerconsumerspaginator)
+- `client.get_paginator("list_trackers")` -> [ListTrackersPaginator](./paginators.md#listtrackerspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGeofenceCollectionsPaginatorName
-) -> ListGeofenceCollectionsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("location").get_paginator` method.
-
-[Paginator.ListGeofences documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location.html#LocationService.Paginator.ListGeofences)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGeofencesPaginatorName
-) -> ListGeofencesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("location").get_paginator` method.
-
-[Paginator.ListMaps documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location.html#LocationService.Paginator.ListMaps)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMapsPaginatorName
-) -> ListMapsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("location").get_paginator` method.
-
-[Paginator.ListPlaceIndexes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location.html#LocationService.Paginator.ListPlaceIndexes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPlaceIndexesPaginatorName
-) -> ListPlaceIndexesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("location").get_paginator` method.
-
-[Paginator.ListTrackerConsumers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location.html#LocationService.Paginator.ListTrackerConsumers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTrackerConsumersPaginatorName
-) -> ListTrackerConsumersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("location").get_paginator` method.
-
-[Paginator.ListTrackers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/location.html#LocationService.Paginator.ListTrackers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTrackersPaginatorName
-) -> ListTrackersPaginator:
-    pass
-```

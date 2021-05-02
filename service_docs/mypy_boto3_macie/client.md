@@ -19,7 +19,6 @@ type annotations stubs module [mypy_boto3_macie](https://pypi.org/project/mypy-b
     - [list_s3_resources](#list_s3_resources)
     - [update_s3_resources](#update_s3_resources)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## MacieClient
 
@@ -191,32 +190,13 @@ def update_s3_resources(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("macie").get_paginator` method.
-
-[Paginator.ListMemberAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/macie.html#Macie.Paginator.ListMemberAccounts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMemberAccountsPaginatorName
-) -> ListMemberAccountsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("macie").get_paginator` method.
+Type annotations for `boto3.client("macie").get_paginator` method with overloads.
 
-[Paginator.ListS3Resources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/macie.html#Macie.Paginator.ListS3Resources)
+- `client.get_paginator("list_member_accounts")` -> [ListMemberAccountsPaginator](./paginators.md#listmemberaccountspaginator)
+- `client.get_paginator("list_s3_resources")` -> [ListS3ResourcesPaginator](./paginators.md#lists3resourcespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListS3ResourcesPaginatorName
-) -> ListS3ResourcesPaginator:
-    pass
-```
+

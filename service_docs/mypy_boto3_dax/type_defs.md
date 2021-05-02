@@ -7,19 +7,6 @@ type annotations stubs module [mypy_boto3_dax](https://pypi.org/project/mypy-bot
 
 - [Structures for boto3 DAX module](#structures-for-boto3-dax-module)
   - [ClusterTypeDef](#clustertypedef)
-  - [EndpointTypeDef](#endpointtypedef)
-  - [EventTypeDef](#eventtypedef)
-  - [NodeTypeDef](#nodetypedef)
-  - [NodeTypeSpecificValueTypeDef](#nodetypespecificvaluetypedef)
-  - [NotificationConfigurationTypeDef](#notificationconfigurationtypedef)
-  - [ParameterGroupStatusTypeDef](#parametergroupstatustypedef)
-  - [ParameterGroupTypeDef](#parametergrouptypedef)
-  - [ParameterTypeDef](#parametertypedef)
-  - [SSEDescriptionTypeDef](#ssedescriptiontypedef)
-  - [SecurityGroupMembershipTypeDef](#securitygroupmembershiptypedef)
-  - [SubnetGroupTypeDef](#subnetgrouptypedef)
-  - [SubnetTypeDef](#subnettypedef)
-  - [TagTypeDef](#tagtypedef)
   - [CreateClusterResponseTypeDef](#createclusterresponsetypedef)
   - [CreateParameterGroupResponseTypeDef](#createparametergroupresponsetypedef)
   - [CreateSubnetGroupResponseTypeDef](#createsubnetgroupresponsetypedef)
@@ -33,13 +20,26 @@ type annotations stubs module [mypy_boto3_dax](https://pypi.org/project/mypy-bot
   - [DescribeParameterGroupsResponseTypeDef](#describeparametergroupsresponsetypedef)
   - [DescribeParametersResponseTypeDef](#describeparametersresponsetypedef)
   - [DescribeSubnetGroupsResponseTypeDef](#describesubnetgroupsresponsetypedef)
+  - [EndpointTypeDef](#endpointtypedef)
+  - [EventTypeDef](#eventtypedef)
   - [IncreaseReplicationFactorResponseTypeDef](#increasereplicationfactorresponsetypedef)
   - [ListTagsResponseTypeDef](#listtagsresponsetypedef)
+  - [NodeTypeDef](#nodetypedef)
+  - [NodeTypeSpecificValueTypeDef](#nodetypespecificvaluetypedef)
+  - [NotificationConfigurationTypeDef](#notificationconfigurationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ParameterGroupStatusTypeDef](#parametergroupstatustypedef)
+  - [ParameterGroupTypeDef](#parametergrouptypedef)
   - [ParameterNameValueTypeDef](#parameternamevaluetypedef)
+  - [ParameterTypeDef](#parametertypedef)
   - [RebootNodeResponseTypeDef](#rebootnoderesponsetypedef)
+  - [SSEDescriptionTypeDef](#ssedescriptiontypedef)
   - [SSESpecificationTypeDef](#ssespecificationtypedef)
+  - [SecurityGroupMembershipTypeDef](#securitygroupmembershiptypedef)
+  - [SubnetGroupTypeDef](#subnetgrouptypedef)
+  - [SubnetTypeDef](#subnettypedef)
   - [TagResourceResponseTypeDef](#tagresourceresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UntagResourceResponseTypeDef](#untagresourceresponsetypedef)
   - [UpdateClusterResponseTypeDef](#updateclusterresponsetypedef)
   - [UpdateParameterGroupResponseTypeDef](#updateparametergroupresponsetypedef)
@@ -72,204 +72,6 @@ Optional fields:
 - `IamRoleArn`: `str`
 - `ParameterGroup`: `"ParameterGroupStatusTypeDef"`
 - `SSEDescription`: `"SSEDescriptionTypeDef"`
-
-
-## EndpointTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import EndpointTypeDef
-```
-
-
-
-
-Optional fields:
-- `Address`: `str`
-- `Port`: `int`
-
-
-## EventTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import EventTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceName`: `str`
-- `SourceType`: `SourceType`
-- `Message`: `str`
-- `Date`: `datetime`
-
-
-## NodeTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import NodeTypeDef
-```
-
-
-
-
-Optional fields:
-- `NodeId`: `str`
-- `Endpoint`: `"EndpointTypeDef"`
-- `NodeCreateTime`: `datetime`
-- `AvailabilityZone`: `str`
-- `NodeStatus`: `str`
-- `ParameterGroupStatus`: `str`
-
-
-## NodeTypeSpecificValueTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import NodeTypeSpecificValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `NodeType`: `str`
-- `Value`: `str`
-
-
-## NotificationConfigurationTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import NotificationConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TopicArn`: `str`
-- `TopicStatus`: `str`
-
-
-## ParameterGroupStatusTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import ParameterGroupStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `ParameterGroupName`: `str`
-- `ParameterApplyStatus`: `str`
-- `NodeIdsToReboot`: `List[str]`
-
-
-## ParameterGroupTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import ParameterGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `ParameterGroupName`: `str`
-- `Description`: `str`
-
-
-## ParameterTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import ParameterTypeDef
-```
-
-
-
-
-Optional fields:
-- `ParameterName`: `str`
-- `ParameterType`: `ParameterType`
-- `ParameterValue`: `str`
-- `NodeTypeSpecificValues`: `List["NodeTypeSpecificValueTypeDef"]`
-- `Description`: `str`
-- `Source`: `str`
-- `DataType`: `str`
-- `AllowedValues`: `str`
-- `IsModifiable`: `IsModifiable`
-- `ChangeType`: `ChangeType`
-
-
-## SSEDescriptionTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import SSEDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `SSEStatus`
-
-
-## SecurityGroupMembershipTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import SecurityGroupMembershipTypeDef
-```
-
-
-
-
-Optional fields:
-- `SecurityGroupIdentifier`: `str`
-- `Status`: `str`
-
-
-## SubnetGroupTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import SubnetGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `SubnetGroupName`: `str`
-- `Description`: `str`
-- `VpcId`: `str`
-- `Subnets`: `List["SubnetTypeDef"]`
-
-
-## SubnetTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import SubnetTypeDef
-```
-
-
-
-
-Optional fields:
-- `SubnetIdentifier`: `str`
-- `SubnetAvailabilityZone`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_dax.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
 
 
 ## CreateClusterResponseTypeDef
@@ -447,6 +249,36 @@ Optional fields:
 - `SubnetGroups`: `List["SubnetGroupTypeDef"]`
 
 
+## EndpointTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import EndpointTypeDef
+```
+
+
+
+
+Optional fields:
+- `Address`: `str`
+- `Port`: `int`
+
+
+## EventTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import EventTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceName`: `str`
+- `SourceType`: `SourceType`
+- `Message`: `str`
+- `Date`: `datetime`
+
+
 ## IncreaseReplicationFactorResponseTypeDef
 
 ```python
@@ -474,6 +306,52 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## NodeTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import NodeTypeDef
+```
+
+
+
+
+Optional fields:
+- `NodeId`: `str`
+- `Endpoint`: `"EndpointTypeDef"`
+- `NodeCreateTime`: `datetime`
+- `AvailabilityZone`: `str`
+- `NodeStatus`: `str`
+- `ParameterGroupStatus`: `str`
+
+
+## NodeTypeSpecificValueTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import NodeTypeSpecificValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `NodeType`: `str`
+- `Value`: `str`
+
+
+## NotificationConfigurationTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import NotificationConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TopicArn`: `str`
+- `TopicStatus`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -487,6 +365,35 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ParameterGroupStatusTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import ParameterGroupStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `ParameterGroupName`: `str`
+- `ParameterApplyStatus`: `str`
+- `NodeIdsToReboot`: `List[str]`
+
+
+## ParameterGroupTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import ParameterGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `ParameterGroupName`: `str`
+- `Description`: `str`
 
 
 ## ParameterNameValueTypeDef
@@ -503,6 +410,28 @@ Optional fields:
 - `ParameterValue`: `str`
 
 
+## ParameterTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import ParameterTypeDef
+```
+
+
+
+
+Optional fields:
+- `ParameterName`: `str`
+- `ParameterType`: `ParameterType`
+- `ParameterValue`: `str`
+- `NodeTypeSpecificValues`: `List["NodeTypeSpecificValueTypeDef"]`
+- `Description`: `str`
+- `Source`: `str`
+- `DataType`: `str`
+- `AllowedValues`: `str`
+- `IsModifiable`: `IsModifiable`
+- `ChangeType`: `ChangeType`
+
+
 ## RebootNodeResponseTypeDef
 
 ```python
@@ -514,6 +443,19 @@ from mypy_boto3_dax.type_defs import RebootNodeResponseTypeDef
 
 Optional fields:
 - `Cluster`: `"ClusterTypeDef"`
+
+
+## SSEDescriptionTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import SSEDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `SSEStatus`
 
 
 ## SSESpecificationTypeDef
@@ -529,6 +471,50 @@ Required fields:
 
 
 
+## SecurityGroupMembershipTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import SecurityGroupMembershipTypeDef
+```
+
+
+
+
+Optional fields:
+- `SecurityGroupIdentifier`: `str`
+- `Status`: `str`
+
+
+## SubnetGroupTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import SubnetGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `SubnetGroupName`: `str`
+- `Description`: `str`
+- `VpcId`: `str`
+- `Subnets`: `List["SubnetTypeDef"]`
+
+
+## SubnetTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import SubnetTypeDef
+```
+
+
+
+
+Optional fields:
+- `SubnetIdentifier`: `str`
+- `SubnetAvailabilityZone`: `str`
+
+
 ## TagResourceResponseTypeDef
 
 ```python
@@ -540,6 +526,20 @@ from mypy_boto3_dax.type_defs import TagResourceResponseTypeDef
 
 Optional fields:
 - `Tags`: `List["TagTypeDef"]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_dax.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
 
 
 ## UntagResourceResponseTypeDef

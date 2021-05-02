@@ -41,9 +41,6 @@ type annotations stubs module [mypy_boto3_network_firewall](https://pypi.org/pro
     - [update_rule_group](#update_rule_group)
     - [update_subnet_change_protection](#update_subnet_change_protection)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## NetworkFirewallClient
 
@@ -597,62 +594,15 @@ def update_subnet_change_protection(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("network-firewall").get_paginator` method.
-
-[Paginator.ListFirewallPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewallPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFirewallPoliciesPaginatorName
-) -> ListFirewallPoliciesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("network-firewall").get_paginator` method.
+Type annotations for `boto3.client("network-firewall").get_paginator` method with overloads.
 
-[Paginator.ListFirewalls documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewalls)
+- `client.get_paginator("list_firewall_policies")` -> [ListFirewallPoliciesPaginator](./paginators.md#listfirewallpoliciespaginator)
+- `client.get_paginator("list_firewalls")` -> [ListFirewallsPaginator](./paginators.md#listfirewallspaginator)
+- `client.get_paginator("list_rule_groups")` -> [ListRuleGroupsPaginator](./paginators.md#listrulegroupspaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFirewallsPaginatorName
-) -> ListFirewallsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("network-firewall").get_paginator` method.
-
-[Paginator.ListRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListRuleGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRuleGroupsPaginatorName
-) -> ListRuleGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("network-firewall").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```

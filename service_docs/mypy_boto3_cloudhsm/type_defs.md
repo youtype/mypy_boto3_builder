@@ -6,7 +6,6 @@ Auto-generated documentation for [CloudHSM](https://boto3.amazonaws.com/v1/docum
 type annotations stubs module [mypy_boto3_cloudhsm](https://pypi.org/project/mypy-boto3-cloudhsm/).
 
 - [Structures for boto3 CloudHSM module](#structures-for-boto3-cloudhsm-module)
-  - [TagTypeDef](#tagtypedef)
   - [AddTagsToResourceResponseTypeDef](#addtagstoresourceresponsetypedef)
   - [CreateHapgResponseTypeDef](#createhapgresponsetypedef)
   - [CreateHsmResponseTypeDef](#createhsmresponsetypedef)
@@ -28,20 +27,7 @@ type annotations stubs module [mypy_boto3_cloudhsm](https://pypi.org/project/myp
   - [ModifyLunaClientResponseTypeDef](#modifylunaclientresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [RemoveTagsFromResourceResponseTypeDef](#removetagsfromresourceresponsetypedef)
-
-## TagTypeDef
-
-```python
-from mypy_boto3_cloudhsm.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
+  - [TagTypeDef](#tagtypedef)
 
 ## AddTagsToResourceResponseTypeDef
 
@@ -171,7 +157,7 @@ Optional fields:
 - `AvailabilityZone`: `str`
 - `EniId`: `str`
 - `EniIp`: `str`
-- `SubscriptionType`: `SubscriptionType`
+- `SubscriptionType`: `Literal['PRODUCTION']`
 - `SubscriptionStartDate`: `str`
 - `SubscriptionEndDate`: `str`
 - `VpcId`: `str`
@@ -355,6 +341,20 @@ from mypy_boto3_cloudhsm.type_defs import RemoveTagsFromResourceResponseTypeDef
 
 Required fields:
 - `Status`: `str`
+
+
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_cloudhsm.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
 
 
 

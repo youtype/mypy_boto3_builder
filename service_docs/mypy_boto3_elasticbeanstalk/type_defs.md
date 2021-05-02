@@ -6,31 +6,57 @@ Auto-generated documentation for [ElasticBeanstalk](https://boto3.amazonaws.com/
 type annotations stubs module [mypy_boto3_elasticbeanstalk](https://pypi.org/project/mypy-boto3-elasticbeanstalk/).
 
 - [Structures for boto3 ElasticBeanstalk module](#structures-for-boto3-elasticbeanstalk-module)
+  - [ApplicationDescriptionMessageTypeDef](#applicationdescriptionmessagetypedef)
   - [ApplicationDescriptionTypeDef](#applicationdescriptiontypedef)
+  - [ApplicationDescriptionsMessageTypeDef](#applicationdescriptionsmessagetypedef)
   - [ApplicationMetricsTypeDef](#applicationmetricstypedef)
   - [ApplicationResourceLifecycleConfigTypeDef](#applicationresourcelifecycleconfigtypedef)
+  - [ApplicationResourceLifecycleDescriptionMessageTypeDef](#applicationresourcelifecycledescriptionmessagetypedef)
+  - [ApplicationVersionDescriptionMessageTypeDef](#applicationversiondescriptionmessagetypedef)
   - [ApplicationVersionDescriptionTypeDef](#applicationversiondescriptiontypedef)
+  - [ApplicationVersionDescriptionsMessageTypeDef](#applicationversiondescriptionsmessagetypedef)
   - [ApplicationVersionLifecycleConfigTypeDef](#applicationversionlifecycleconfigtypedef)
+  - [ApplyEnvironmentManagedActionResultTypeDef](#applyenvironmentmanagedactionresulttypedef)
   - [AutoScalingGroupTypeDef](#autoscalinggrouptypedef)
+  - [BuildConfigurationTypeDef](#buildconfigurationtypedef)
   - [BuilderTypeDef](#buildertypedef)
   - [CPUUtilizationTypeDef](#cpuutilizationtypedef)
+  - [CheckDNSAvailabilityResultMessageTypeDef](#checkdnsavailabilityresultmessagetypedef)
   - [ConfigurationOptionDescriptionTypeDef](#configurationoptiondescriptiontypedef)
   - [ConfigurationOptionSettingTypeDef](#configurationoptionsettingtypedef)
+  - [ConfigurationOptionsDescriptionTypeDef](#configurationoptionsdescriptiontypedef)
   - [ConfigurationSettingsDescriptionTypeDef](#configurationsettingsdescriptiontypedef)
+  - [ConfigurationSettingsDescriptionsTypeDef](#configurationsettingsdescriptionstypedef)
+  - [ConfigurationSettingsValidationMessagesTypeDef](#configurationsettingsvalidationmessagestypedef)
+  - [CreatePlatformVersionResultTypeDef](#createplatformversionresulttypedef)
+  - [CreateStorageLocationResultMessageTypeDef](#createstoragelocationresultmessagetypedef)
   - [CustomAmiTypeDef](#customamitypedef)
+  - [DeletePlatformVersionResultTypeDef](#deleteplatformversionresulttypedef)
   - [DeploymentTypeDef](#deploymenttypedef)
+  - [DescribeAccountAttributesResultTypeDef](#describeaccountattributesresulttypedef)
+  - [DescribeEnvironmentHealthResultTypeDef](#describeenvironmenthealthresulttypedef)
+  - [DescribeEnvironmentManagedActionHistoryResultTypeDef](#describeenvironmentmanagedactionhistoryresulttypedef)
+  - [DescribeEnvironmentManagedActionsResultTypeDef](#describeenvironmentmanagedactionsresulttypedef)
+  - [DescribeInstancesHealthResultTypeDef](#describeinstanceshealthresulttypedef)
+  - [DescribePlatformVersionResultTypeDef](#describeplatformversionresulttypedef)
   - [EnvironmentDescriptionTypeDef](#environmentdescriptiontypedef)
+  - [EnvironmentDescriptionsMessageTypeDef](#environmentdescriptionsmessagetypedef)
   - [EnvironmentInfoDescriptionTypeDef](#environmentinfodescriptiontypedef)
   - [EnvironmentLinkTypeDef](#environmentlinktypedef)
   - [EnvironmentResourceDescriptionTypeDef](#environmentresourcedescriptiontypedef)
+  - [EnvironmentResourceDescriptionsMessageTypeDef](#environmentresourcedescriptionsmessagetypedef)
   - [EnvironmentResourcesDescriptionTypeDef](#environmentresourcesdescriptiontypedef)
   - [EnvironmentTierTypeDef](#environmenttiertypedef)
   - [EventDescriptionTypeDef](#eventdescriptiontypedef)
+  - [EventDescriptionsMessageTypeDef](#eventdescriptionsmessagetypedef)
   - [InstanceHealthSummaryTypeDef](#instancehealthsummarytypedef)
   - [InstanceTypeDef](#instancetypedef)
   - [LatencyTypeDef](#latencytypedef)
   - [LaunchConfigurationTypeDef](#launchconfigurationtypedef)
   - [LaunchTemplateTypeDef](#launchtemplatetypedef)
+  - [ListAvailableSolutionStacksResultMessageTypeDef](#listavailablesolutionstacksresultmessagetypedef)
+  - [ListPlatformBranchesResultTypeDef](#listplatformbranchesresulttypedef)
+  - [ListPlatformVersionsResultTypeDef](#listplatformversionsresulttypedef)
   - [ListenerTypeDef](#listenertypedef)
   - [LoadBalancerDescriptionTypeDef](#loadbalancerdescriptiontypedef)
   - [LoadBalancerTypeDef](#loadbalancertypedef)
@@ -39,57 +65,44 @@ type annotations stubs module [mypy_boto3_elasticbeanstalk](https://pypi.org/pro
   - [MaxAgeRuleTypeDef](#maxageruletypedef)
   - [MaxCountRuleTypeDef](#maxcountruletypedef)
   - [OptionRestrictionRegexTypeDef](#optionrestrictionregextypedef)
+  - [OptionSpecificationTypeDef](#optionspecificationtypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PlatformBranchSummaryTypeDef](#platformbranchsummarytypedef)
   - [PlatformDescriptionTypeDef](#platformdescriptiontypedef)
+  - [PlatformFilterTypeDef](#platformfiltertypedef)
   - [PlatformFrameworkTypeDef](#platformframeworktypedef)
   - [PlatformProgrammingLanguageTypeDef](#platformprogramminglanguagetypedef)
   - [PlatformSummaryTypeDef](#platformsummarytypedef)
   - [QueueTypeDef](#queuetypedef)
   - [ResourceQuotaTypeDef](#resourcequotatypedef)
   - [ResourceQuotasTypeDef](#resourcequotastypedef)
+  - [ResourceTagsDescriptionMessageTypeDef](#resourcetagsdescriptionmessagetypedef)
+  - [RetrieveEnvironmentInfoResultMessageTypeDef](#retrieveenvironmentinforesultmessagetypedef)
   - [S3LocationTypeDef](#s3locationtypedef)
+  - [SearchFilterTypeDef](#searchfiltertypedef)
   - [SingleInstanceHealthTypeDef](#singleinstancehealthtypedef)
   - [SolutionStackDescriptionTypeDef](#solutionstackdescriptiontypedef)
   - [SourceBuildInformationTypeDef](#sourcebuildinformationtypedef)
+  - [SourceConfigurationTypeDef](#sourceconfigurationtypedef)
   - [StatusCodesTypeDef](#statuscodestypedef)
   - [SystemStatusTypeDef](#systemstatustypedef)
   - [TagTypeDef](#tagtypedef)
   - [TriggerTypeDef](#triggertypedef)
   - [ValidationMessageTypeDef](#validationmessagetypedef)
-  - [ApplicationDescriptionMessageTypeDef](#applicationdescriptionmessagetypedef)
-  - [ApplicationDescriptionsMessageTypeDef](#applicationdescriptionsmessagetypedef)
-  - [ApplicationResourceLifecycleDescriptionMessageTypeDef](#applicationresourcelifecycledescriptionmessagetypedef)
-  - [ApplicationVersionDescriptionMessageTypeDef](#applicationversiondescriptionmessagetypedef)
-  - [ApplicationVersionDescriptionsMessageTypeDef](#applicationversiondescriptionsmessagetypedef)
-  - [ApplyEnvironmentManagedActionResultTypeDef](#applyenvironmentmanagedactionresulttypedef)
-  - [BuildConfigurationTypeDef](#buildconfigurationtypedef)
-  - [CheckDNSAvailabilityResultMessageTypeDef](#checkdnsavailabilityresultmessagetypedef)
-  - [ConfigurationOptionsDescriptionTypeDef](#configurationoptionsdescriptiontypedef)
-  - [ConfigurationSettingsDescriptionsTypeDef](#configurationsettingsdescriptionstypedef)
-  - [ConfigurationSettingsValidationMessagesTypeDef](#configurationsettingsvalidationmessagestypedef)
-  - [CreatePlatformVersionResultTypeDef](#createplatformversionresulttypedef)
-  - [CreateStorageLocationResultMessageTypeDef](#createstoragelocationresultmessagetypedef)
-  - [DeletePlatformVersionResultTypeDef](#deleteplatformversionresulttypedef)
-  - [DescribeAccountAttributesResultTypeDef](#describeaccountattributesresulttypedef)
-  - [DescribeEnvironmentHealthResultTypeDef](#describeenvironmenthealthresulttypedef)
-  - [DescribeEnvironmentManagedActionHistoryResultTypeDef](#describeenvironmentmanagedactionhistoryresulttypedef)
-  - [DescribeEnvironmentManagedActionsResultTypeDef](#describeenvironmentmanagedactionsresulttypedef)
-  - [DescribeInstancesHealthResultTypeDef](#describeinstanceshealthresulttypedef)
-  - [DescribePlatformVersionResultTypeDef](#describeplatformversionresulttypedef)
-  - [EnvironmentDescriptionsMessageTypeDef](#environmentdescriptionsmessagetypedef)
-  - [EnvironmentResourceDescriptionsMessageTypeDef](#environmentresourcedescriptionsmessagetypedef)
-  - [EventDescriptionsMessageTypeDef](#eventdescriptionsmessagetypedef)
-  - [ListAvailableSolutionStacksResultMessageTypeDef](#listavailablesolutionstacksresultmessagetypedef)
-  - [ListPlatformBranchesResultTypeDef](#listplatformbranchesresulttypedef)
-  - [ListPlatformVersionsResultTypeDef](#listplatformversionsresulttypedef)
-  - [OptionSpecificationTypeDef](#optionspecificationtypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [PlatformFilterTypeDef](#platformfiltertypedef)
-  - [ResourceTagsDescriptionMessageTypeDef](#resourcetagsdescriptionmessagetypedef)
-  - [RetrieveEnvironmentInfoResultMessageTypeDef](#retrieveenvironmentinforesultmessagetypedef)
-  - [SearchFilterTypeDef](#searchfiltertypedef)
-  - [SourceConfigurationTypeDef](#sourceconfigurationtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
+
+## ApplicationDescriptionMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ApplicationDescriptionMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Application`: `"ApplicationDescriptionTypeDef"`
+
 
 ## ApplicationDescriptionTypeDef
 
@@ -109,6 +122,19 @@ Optional fields:
 - `Versions`: `List[str]`
 - `ConfigurationTemplates`: `List[str]`
 - `ResourceLifecycleConfig`: `"ApplicationResourceLifecycleConfigTypeDef"`
+
+
+## ApplicationDescriptionsMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ApplicationDescriptionsMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Applications`: `List["ApplicationDescriptionTypeDef"]`
 
 
 ## ApplicationMetricsTypeDef
@@ -141,6 +167,33 @@ Optional fields:
 - `VersionLifecycleConfig`: `"ApplicationVersionLifecycleConfigTypeDef"`
 
 
+## ApplicationResourceLifecycleDescriptionMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ApplicationResourceLifecycleDescriptionMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationName`: `str`
+- `ResourceLifecycleConfig`: `"ApplicationResourceLifecycleConfigTypeDef"`
+
+
+## ApplicationVersionDescriptionMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ApplicationVersionDescriptionMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationVersion`: `"ApplicationVersionDescriptionTypeDef"`
+
+
 ## ApplicationVersionDescriptionTypeDef
 
 ```python
@@ -163,6 +216,20 @@ Optional fields:
 - `Status`: `ApplicationVersionStatus`
 
 
+## ApplicationVersionDescriptionsMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ApplicationVersionDescriptionsMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationVersions`: `List["ApplicationVersionDescriptionTypeDef"]`
+- `NextToken`: `str`
+
+
 ## ApplicationVersionLifecycleConfigTypeDef
 
 ```python
@@ -177,6 +244,22 @@ Optional fields:
 - `MaxAgeRule`: `"MaxAgeRuleTypeDef"`
 
 
+## ApplyEnvironmentManagedActionResultTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ApplyEnvironmentManagedActionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ActionId`: `str`
+- `ActionDescription`: `str`
+- `ActionType`: `ActionType`
+- `Status`: `str`
+
+
 ## AutoScalingGroupTypeDef
 
 ```python
@@ -188,6 +271,25 @@ from mypy_boto3_elasticbeanstalk.type_defs import AutoScalingGroupTypeDef
 
 Optional fields:
 - `Name`: `str`
+
+
+## BuildConfigurationTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import BuildConfigurationTypeDef
+```
+
+
+Required fields:
+- `CodeBuildServiceRole`: `str`
+- `Image`: `str`
+
+
+
+Optional fields:
+- `ArtifactName`: `str`
+- `ComputeType`: `ComputeType`
+- `TimeoutInMinutes`: `int`
 
 
 ## BuilderTypeDef
@@ -221,6 +323,20 @@ Optional fields:
 - `IRQ`: `float`
 - `SoftIRQ`: `float`
 - `Privileged`: `float`
+
+
+## CheckDNSAvailabilityResultMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import CheckDNSAvailabilityResultMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Available`: `bool`
+- `FullyQualifiedCNAME`: `str`
 
 
 ## ConfigurationOptionDescriptionTypeDef
@@ -262,6 +378,21 @@ Optional fields:
 - `Value`: `str`
 
 
+## ConfigurationOptionsDescriptionTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ConfigurationOptionsDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `SolutionStackName`: `str`
+- `PlatformArn`: `str`
+- `Options`: `List["ConfigurationOptionDescriptionTypeDef"]`
+
+
 ## ConfigurationSettingsDescriptionTypeDef
 
 ```python
@@ -284,6 +415,59 @@ Optional fields:
 - `OptionSettings`: `List["ConfigurationOptionSettingTypeDef"]`
 
 
+## ConfigurationSettingsDescriptionsTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ConfigurationSettingsDescriptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConfigurationSettings`: `List["ConfigurationSettingsDescriptionTypeDef"]`
+
+
+## ConfigurationSettingsValidationMessagesTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ConfigurationSettingsValidationMessagesTypeDef
+```
+
+
+
+
+Optional fields:
+- `Messages`: `List["ValidationMessageTypeDef"]`
+
+
+## CreatePlatformVersionResultTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import CreatePlatformVersionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlatformSummary`: `"PlatformSummaryTypeDef"`
+- `Builder`: `"BuilderTypeDef"`
+
+
+## CreateStorageLocationResultMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import CreateStorageLocationResultMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3Bucket`: `str`
+
+
 ## CustomAmiTypeDef
 
 ```python
@@ -296,6 +480,19 @@ from mypy_boto3_elasticbeanstalk.type_defs import CustomAmiTypeDef
 Optional fields:
 - `VirtualizationType`: `str`
 - `ImageId`: `str`
+
+
+## DeletePlatformVersionResultTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import DeletePlatformVersionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlatformSummary`: `"PlatformSummaryTypeDef"`
 
 
 ## DeploymentTypeDef
@@ -312,6 +509,94 @@ Optional fields:
 - `DeploymentId`: `int`
 - `Status`: `str`
 - `DeploymentTime`: `datetime`
+
+
+## DescribeAccountAttributesResultTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import DescribeAccountAttributesResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceQuotas`: `"ResourceQuotasTypeDef"`
+
+
+## DescribeEnvironmentHealthResultTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import DescribeEnvironmentHealthResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `EnvironmentName`: `str`
+- `HealthStatus`: `str`
+- `Status`: `EnvironmentHealth`
+- `Color`: `str`
+- `Causes`: `List[str]`
+- `ApplicationMetrics`: `"ApplicationMetricsTypeDef"`
+- `InstancesHealth`: `"InstanceHealthSummaryTypeDef"`
+- `RefreshedAt`: `datetime`
+
+
+## DescribeEnvironmentManagedActionHistoryResultTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import DescribeEnvironmentManagedActionHistoryResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ManagedActionHistoryItems`: `List["ManagedActionHistoryItemTypeDef"]`
+- `NextToken`: `str`
+
+
+## DescribeEnvironmentManagedActionsResultTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import DescribeEnvironmentManagedActionsResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ManagedActions`: `List["ManagedActionTypeDef"]`
+
+
+## DescribeInstancesHealthResultTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import DescribeInstancesHealthResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceHealthList`: `List["SingleInstanceHealthTypeDef"]`
+- `RefreshedAt`: `datetime`
+- `NextToken`: `str`
+
+
+## DescribePlatformVersionResultTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import DescribePlatformVersionResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlatformDescription`: `"PlatformDescriptionTypeDef"`
 
 
 ## EnvironmentDescriptionTypeDef
@@ -345,6 +630,20 @@ Optional fields:
 - `EnvironmentLinks`: `List["EnvironmentLinkTypeDef"]`
 - `EnvironmentArn`: `str`
 - `OperationsRole`: `str`
+
+
+## EnvironmentDescriptionsMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import EnvironmentDescriptionsMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Environments`: `List["EnvironmentDescriptionTypeDef"]`
+- `NextToken`: `str`
 
 
 ## EnvironmentInfoDescriptionTypeDef
@@ -397,6 +696,19 @@ Optional fields:
 - `Queues`: `List["QueueTypeDef"]`
 
 
+## EnvironmentResourceDescriptionsMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import EnvironmentResourceDescriptionsMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `EnvironmentResources`: `"EnvironmentResourceDescriptionTypeDef"`
+
+
 ## EnvironmentResourcesDescriptionTypeDef
 
 ```python
@@ -444,6 +756,20 @@ Optional fields:
 - `PlatformArn`: `str`
 - `RequestId`: `str`
 - `Severity`: `EventSeverity`
+
+
+## EventDescriptionsMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import EventDescriptionsMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `Events`: `List["EventDescriptionTypeDef"]`
+- `NextToken`: `str`
 
 
 ## InstanceHealthSummaryTypeDef
@@ -523,6 +849,48 @@ from mypy_boto3_elasticbeanstalk.type_defs import LaunchTemplateTypeDef
 
 Optional fields:
 - `Id`: `str`
+
+
+## ListAvailableSolutionStacksResultMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ListAvailableSolutionStacksResultMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `SolutionStacks`: `List[str]`
+- `SolutionStackDetails`: `List["SolutionStackDescriptionTypeDef"]`
+
+
+## ListPlatformBranchesResultTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ListPlatformBranchesResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlatformBranchSummaryList`: `List["PlatformBranchSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListPlatformVersionsResultTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ListPlatformVersionsResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlatformSummaryList`: `List["PlatformSummaryTypeDef"]`
+- `NextToken`: `str`
 
 
 ## ListenerTypeDef
@@ -652,6 +1020,36 @@ Optional fields:
 - `Label`: `str`
 
 
+## OptionSpecificationTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import OptionSpecificationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceName`: `str`
+- `Namespace`: `str`
+- `OptionName`: `str`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
 ## PlatformBranchSummaryTypeDef
 
 ```python
@@ -700,6 +1098,21 @@ Optional fields:
 - `PlatformLifecycleState`: `str`
 - `PlatformBranchName`: `str`
 - `PlatformBranchLifecycleState`: `str`
+
+
+## PlatformFilterTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import PlatformFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `str`
+- `Operator`: `str`
+- `Values`: `List[str]`
 
 
 ## PlatformFrameworkTypeDef
@@ -798,6 +1211,33 @@ Optional fields:
 - `CustomPlatformQuota`: `"ResourceQuotaTypeDef"`
 
 
+## ResourceTagsDescriptionMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import ResourceTagsDescriptionMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceArn`: `str`
+- `ResourceTags`: `List["TagTypeDef"]`
+
+
+## RetrieveEnvironmentInfoResultMessageTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import RetrieveEnvironmentInfoResultMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `EnvironmentInfo`: `List["EnvironmentInfoDescriptionTypeDef"]`
+
+
 ## S3LocationTypeDef
 
 ```python
@@ -810,6 +1250,21 @@ from mypy_boto3_elasticbeanstalk.type_defs import S3LocationTypeDef
 Optional fields:
 - `S3Bucket`: `str`
 - `S3Key`: `str`
+
+
+## SearchFilterTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import SearchFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Attribute`: `str`
+- `Operator`: `str`
+- `Values`: `List[str]`
 
 
 ## SingleInstanceHealthTypeDef
@@ -861,6 +1316,20 @@ Required fields:
 - `SourceLocation`: `str`
 
 
+
+
+## SourceConfigurationTypeDef
+
+```python
+from mypy_boto3_elasticbeanstalk.type_defs import SourceConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationName`: `str`
+- `TemplateName`: `str`
 
 
 ## StatusCodesTypeDef
@@ -934,475 +1403,6 @@ Optional fields:
 - `Severity`: `ValidationSeverity`
 - `Namespace`: `str`
 - `OptionName`: `str`
-
-
-## ApplicationDescriptionMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ApplicationDescriptionMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Application`: `"ApplicationDescriptionTypeDef"`
-
-
-## ApplicationDescriptionsMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ApplicationDescriptionsMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Applications`: `List["ApplicationDescriptionTypeDef"]`
-
-
-## ApplicationResourceLifecycleDescriptionMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ApplicationResourceLifecycleDescriptionMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationName`: `str`
-- `ResourceLifecycleConfig`: `"ApplicationResourceLifecycleConfigTypeDef"`
-
-
-## ApplicationVersionDescriptionMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ApplicationVersionDescriptionMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationVersion`: `"ApplicationVersionDescriptionTypeDef"`
-
-
-## ApplicationVersionDescriptionsMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ApplicationVersionDescriptionsMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationVersions`: `List["ApplicationVersionDescriptionTypeDef"]`
-- `NextToken`: `str`
-
-
-## ApplyEnvironmentManagedActionResultTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ApplyEnvironmentManagedActionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ActionId`: `str`
-- `ActionDescription`: `str`
-- `ActionType`: `ActionType`
-- `Status`: `str`
-
-
-## BuildConfigurationTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import BuildConfigurationTypeDef
-```
-
-
-Required fields:
-- `CodeBuildServiceRole`: `str`
-- `Image`: `str`
-
-
-
-Optional fields:
-- `ArtifactName`: `str`
-- `ComputeType`: `ComputeType`
-- `TimeoutInMinutes`: `int`
-
-
-## CheckDNSAvailabilityResultMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import CheckDNSAvailabilityResultMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Available`: `bool`
-- `FullyQualifiedCNAME`: `str`
-
-
-## ConfigurationOptionsDescriptionTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ConfigurationOptionsDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `SolutionStackName`: `str`
-- `PlatformArn`: `str`
-- `Options`: `List["ConfigurationOptionDescriptionTypeDef"]`
-
-
-## ConfigurationSettingsDescriptionsTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ConfigurationSettingsDescriptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConfigurationSettings`: `List["ConfigurationSettingsDescriptionTypeDef"]`
-
-
-## ConfigurationSettingsValidationMessagesTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ConfigurationSettingsValidationMessagesTypeDef
-```
-
-
-
-
-Optional fields:
-- `Messages`: `List["ValidationMessageTypeDef"]`
-
-
-## CreatePlatformVersionResultTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import CreatePlatformVersionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlatformSummary`: `"PlatformSummaryTypeDef"`
-- `Builder`: `"BuilderTypeDef"`
-
-
-## CreateStorageLocationResultMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import CreateStorageLocationResultMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3Bucket`: `str`
-
-
-## DeletePlatformVersionResultTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import DeletePlatformVersionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlatformSummary`: `"PlatformSummaryTypeDef"`
-
-
-## DescribeAccountAttributesResultTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import DescribeAccountAttributesResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceQuotas`: `"ResourceQuotasTypeDef"`
-
-
-## DescribeEnvironmentHealthResultTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import DescribeEnvironmentHealthResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `EnvironmentName`: `str`
-- `HealthStatus`: `str`
-- `Status`: `EnvironmentHealth`
-- `Color`: `str`
-- `Causes`: `List[str]`
-- `ApplicationMetrics`: `"ApplicationMetricsTypeDef"`
-- `InstancesHealth`: `"InstanceHealthSummaryTypeDef"`
-- `RefreshedAt`: `datetime`
-
-
-## DescribeEnvironmentManagedActionHistoryResultTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import DescribeEnvironmentManagedActionHistoryResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ManagedActionHistoryItems`: `List["ManagedActionHistoryItemTypeDef"]`
-- `NextToken`: `str`
-
-
-## DescribeEnvironmentManagedActionsResultTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import DescribeEnvironmentManagedActionsResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ManagedActions`: `List["ManagedActionTypeDef"]`
-
-
-## DescribeInstancesHealthResultTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import DescribeInstancesHealthResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceHealthList`: `List["SingleInstanceHealthTypeDef"]`
-- `RefreshedAt`: `datetime`
-- `NextToken`: `str`
-
-
-## DescribePlatformVersionResultTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import DescribePlatformVersionResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlatformDescription`: `"PlatformDescriptionTypeDef"`
-
-
-## EnvironmentDescriptionsMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import EnvironmentDescriptionsMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Environments`: `List["EnvironmentDescriptionTypeDef"]`
-- `NextToken`: `str`
-
-
-## EnvironmentResourceDescriptionsMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import EnvironmentResourceDescriptionsMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `EnvironmentResources`: `"EnvironmentResourceDescriptionTypeDef"`
-
-
-## EventDescriptionsMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import EventDescriptionsMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `Events`: `List["EventDescriptionTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListAvailableSolutionStacksResultMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ListAvailableSolutionStacksResultMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `SolutionStacks`: `List[str]`
-- `SolutionStackDetails`: `List["SolutionStackDescriptionTypeDef"]`
-
-
-## ListPlatformBranchesResultTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ListPlatformBranchesResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlatformBranchSummaryList`: `List["PlatformBranchSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListPlatformVersionsResultTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ListPlatformVersionsResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlatformSummaryList`: `List["PlatformSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## OptionSpecificationTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import OptionSpecificationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceName`: `str`
-- `Namespace`: `str`
-- `OptionName`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## PlatformFilterTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import PlatformFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `str`
-- `Operator`: `str`
-- `Values`: `List[str]`
-
-
-## ResourceTagsDescriptionMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import ResourceTagsDescriptionMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceArn`: `str`
-- `ResourceTags`: `List["TagTypeDef"]`
-
-
-## RetrieveEnvironmentInfoResultMessageTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import RetrieveEnvironmentInfoResultMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `EnvironmentInfo`: `List["EnvironmentInfoDescriptionTypeDef"]`
-
-
-## SearchFilterTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import SearchFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Attribute`: `str`
-- `Operator`: `str`
-- `Values`: `List[str]`
-
-
-## SourceConfigurationTypeDef
-
-```python
-from mypy_boto3_elasticbeanstalk.type_defs import SourceConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationName`: `str`
-- `TemplateName`: `str`
 
 
 ## WaiterConfigTypeDef

@@ -24,9 +24,6 @@ type annotations stubs module [mypy_boto3_honeycode](https://pypi.org/project/my
     - [query_table_rows](#query_table_rows)
     - [start_table_data_import_job](#start_table_data_import_job)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## HoneycodeClient
 
@@ -302,7 +299,7 @@ def start_table_data_import_job(
     self,
     workbookId: str,
     dataSource: "ImportDataSourceTypeDef",
-    dataFormat: ImportSourceDataFormat,
+    dataFormat: Literal['DELIMITED_TEXT'],
     destinationTableId: str,
     importOptions: "ImportOptionsTypeDef",
     clientRequestToken: str
@@ -310,62 +307,15 @@ def start_table_data_import_job(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("honeycode").get_paginator` method.
-
-[Paginator.ListTableColumns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/honeycode.html#Honeycode.Paginator.ListTableColumns)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTableColumnsPaginatorName
-) -> ListTableColumnsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("honeycode").get_paginator` method.
+Type annotations for `boto3.client("honeycode").get_paginator` method with overloads.
 
-[Paginator.ListTableRows documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/honeycode.html#Honeycode.Paginator.ListTableRows)
+- `client.get_paginator("list_table_columns")` -> [ListTableColumnsPaginator](./paginators.md#listtablecolumnspaginator)
+- `client.get_paginator("list_table_rows")` -> [ListTableRowsPaginator](./paginators.md#listtablerowspaginator)
+- `client.get_paginator("list_tables")` -> [ListTablesPaginator](./paginators.md#listtablespaginator)
+- `client.get_paginator("query_table_rows")` -> [QueryTableRowsPaginator](./paginators.md#querytablerowspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTableRowsPaginatorName
-) -> ListTableRowsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("honeycode").get_paginator` method.
-
-[Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/honeycode.html#Honeycode.Paginator.ListTables)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTablesPaginatorName
-) -> ListTablesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("honeycode").get_paginator` method.
-
-[Paginator.QueryTableRows documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/honeycode.html#Honeycode.Paginator.QueryTableRows)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: QueryTableRowsPaginatorName
-) -> QueryTableRowsPaginator:
-    pass
-```

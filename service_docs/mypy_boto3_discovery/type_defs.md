@@ -10,15 +10,12 @@ type annotations stubs module [mypy_boto3_discovery](https://pypi.org/project/my
   - [AgentInfoTypeDef](#agentinfotypedef)
   - [AgentNetworkInfoTypeDef](#agentnetworkinfotypedef)
   - [BatchDeleteImportDataErrorTypeDef](#batchdeleteimportdataerrortypedef)
+  - [BatchDeleteImportDataResponseTypeDef](#batchdeleteimportdataresponsetypedef)
   - [ConfigurationTagTypeDef](#configurationtagtypedef)
   - [ContinuousExportDescriptionTypeDef](#continuousexportdescriptiontypedef)
+  - [CreateApplicationResponseTypeDef](#createapplicationresponsetypedef)
   - [CustomerAgentInfoTypeDef](#customeragentinfotypedef)
   - [CustomerConnectorInfoTypeDef](#customerconnectorinfotypedef)
-  - [ExportInfoTypeDef](#exportinfotypedef)
-  - [ImportTaskTypeDef](#importtasktypedef)
-  - [NeighborConnectionDetailTypeDef](#neighborconnectiondetailtypedef)
-  - [BatchDeleteImportDataResponseTypeDef](#batchdeleteimportdataresponsetypedef)
-  - [CreateApplicationResponseTypeDef](#createapplicationresponsetypedef)
   - [DescribeAgentsResponseTypeDef](#describeagentsresponsetypedef)
   - [DescribeConfigurationsResponseTypeDef](#describeconfigurationsresponsetypedef)
   - [DescribeContinuousExportsResponseTypeDef](#describecontinuousexportsresponsetypedef)
@@ -28,11 +25,14 @@ type annotations stubs module [mypy_boto3_discovery](https://pypi.org/project/my
   - [DescribeTagsResponseTypeDef](#describetagsresponsetypedef)
   - [ExportConfigurationsResponseTypeDef](#exportconfigurationsresponsetypedef)
   - [ExportFilterTypeDef](#exportfiltertypedef)
+  - [ExportInfoTypeDef](#exportinfotypedef)
   - [FilterTypeDef](#filtertypedef)
   - [GetDiscoverySummaryResponseTypeDef](#getdiscoverysummaryresponsetypedef)
   - [ImportTaskFilterTypeDef](#importtaskfiltertypedef)
+  - [ImportTaskTypeDef](#importtasktypedef)
   - [ListConfigurationsResponseTypeDef](#listconfigurationsresponsetypedef)
   - [ListServerNeighborsResponseTypeDef](#listserverneighborsresponsetypedef)
+  - [NeighborConnectionDetailTypeDef](#neighborconnectiondetailtypedef)
   - [OrderByElementTypeDef](#orderbyelementtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [StartContinuousExportResponseTypeDef](#startcontinuousexportresponsetypedef)
@@ -110,6 +110,19 @@ Optional fields:
 - `errorDescription`: `str`
 
 
+## BatchDeleteImportDataResponseTypeDef
+
+```python
+from mypy_boto3_discovery.type_defs import BatchDeleteImportDataResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `errors`: `List["BatchDeleteImportDataErrorTypeDef"]`
+
+
 ## ConfigurationTagTypeDef
 
 ```python
@@ -143,8 +156,21 @@ Optional fields:
 - `s3Bucket`: `str`
 - `startTime`: `datetime`
 - `stopTime`: `datetime`
-- `dataSource`: `DataSource`
+- `dataSource`: `Literal['AGENT']`
 - `schemaStorageConfig`: `Dict[str, str]`
+
+
+## CreateApplicationResponseTypeDef
+
+```python
+from mypy_boto3_discovery.type_defs import CreateApplicationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `configurationId`: `str`
 
 
 ## CustomerAgentInfoTypeDef
@@ -183,98 +209,6 @@ Required fields:
 - `unknownConnectors`: `int`
 
 
-
-
-## ExportInfoTypeDef
-
-```python
-from mypy_boto3_discovery.type_defs import ExportInfoTypeDef
-```
-
-
-Required fields:
-- `exportId`: `str`
-- `exportStatus`: `ExportStatus`
-- `statusMessage`: `str`
-- `exportRequestTime`: `datetime`
-
-
-
-Optional fields:
-- `configurationsDownloadUrl`: `str`
-- `isTruncated`: `bool`
-- `requestedStartTime`: `datetime`
-- `requestedEndTime`: `datetime`
-
-
-## ImportTaskTypeDef
-
-```python
-from mypy_boto3_discovery.type_defs import ImportTaskTypeDef
-```
-
-
-
-
-Optional fields:
-- `importTaskId`: `str`
-- `clientRequestToken`: `str`
-- `name`: `str`
-- `importUrl`: `str`
-- `status`: `ImportStatus`
-- `importRequestTime`: `datetime`
-- `importCompletionTime`: `datetime`
-- `importDeletedTime`: `datetime`
-- `serverImportSuccess`: `int`
-- `serverImportFailure`: `int`
-- `applicationImportSuccess`: `int`
-- `applicationImportFailure`: `int`
-- `errorsAndFailedEntriesZip`: `str`
-
-
-## NeighborConnectionDetailTypeDef
-
-```python
-from mypy_boto3_discovery.type_defs import NeighborConnectionDetailTypeDef
-```
-
-
-Required fields:
-- `sourceServerId`: `str`
-- `destinationServerId`: `str`
-- `connectionsCount`: `int`
-
-
-
-Optional fields:
-- `destinationPort`: `int`
-- `transportProtocol`: `str`
-
-
-## BatchDeleteImportDataResponseTypeDef
-
-```python
-from mypy_boto3_discovery.type_defs import BatchDeleteImportDataResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `errors`: `List["BatchDeleteImportDataErrorTypeDef"]`
-
-
-## CreateApplicationResponseTypeDef
-
-```python
-from mypy_boto3_discovery.type_defs import CreateApplicationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `configurationId`: `str`
 
 
 ## DescribeAgentsResponseTypeDef
@@ -402,6 +336,28 @@ Required fields:
 
 
 
+## ExportInfoTypeDef
+
+```python
+from mypy_boto3_discovery.type_defs import ExportInfoTypeDef
+```
+
+
+Required fields:
+- `exportId`: `str`
+- `exportStatus`: `ExportStatus`
+- `statusMessage`: `str`
+- `exportRequestTime`: `datetime`
+
+
+
+Optional fields:
+- `configurationsDownloadUrl`: `str`
+- `isTruncated`: `bool`
+- `requestedStartTime`: `datetime`
+- `requestedEndTime`: `datetime`
+
+
 ## FilterTypeDef
 
 ```python
@@ -449,6 +405,31 @@ Optional fields:
 - `values`: `List[str]`
 
 
+## ImportTaskTypeDef
+
+```python
+from mypy_boto3_discovery.type_defs import ImportTaskTypeDef
+```
+
+
+
+
+Optional fields:
+- `importTaskId`: `str`
+- `clientRequestToken`: `str`
+- `name`: `str`
+- `importUrl`: `str`
+- `status`: `ImportStatus`
+- `importRequestTime`: `datetime`
+- `importCompletionTime`: `datetime`
+- `importDeletedTime`: `datetime`
+- `serverImportSuccess`: `int`
+- `serverImportFailure`: `int`
+- `applicationImportSuccess`: `int`
+- `applicationImportFailure`: `int`
+- `errorsAndFailedEntriesZip`: `str`
+
+
 ## ListConfigurationsResponseTypeDef
 
 ```python
@@ -478,6 +459,25 @@ Required fields:
 Optional fields:
 - `nextToken`: `str`
 - `knownDependencyCount`: `int`
+
+
+## NeighborConnectionDetailTypeDef
+
+```python
+from mypy_boto3_discovery.type_defs import NeighborConnectionDetailTypeDef
+```
+
+
+Required fields:
+- `sourceServerId`: `str`
+- `destinationServerId`: `str`
+- `connectionsCount`: `int`
+
+
+
+Optional fields:
+- `destinationPort`: `int`
+- `transportProtocol`: `str`
 
 
 ## OrderByElementTypeDef
@@ -524,7 +524,7 @@ Optional fields:
 - `exportId`: `str`
 - `s3Bucket`: `str`
 - `startTime`: `datetime`
-- `dataSource`: `DataSource`
+- `dataSource`: `Literal['AGENT']`
 - `schemaStorageConfig`: `Dict[str, str]`
 
 

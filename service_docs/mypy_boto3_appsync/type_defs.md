@@ -13,24 +13,6 @@ type annotations stubs module [mypy_boto3_appsync](https://pypi.org/project/mypy
   - [AwsIamConfigTypeDef](#awsiamconfigtypedef)
   - [CachingConfigTypeDef](#cachingconfigtypedef)
   - [CognitoUserPoolConfigTypeDef](#cognitouserpoolconfigtypedef)
-  - [DataSourceTypeDef](#datasourcetypedef)
-  - [DeltaSyncConfigTypeDef](#deltasyncconfigtypedef)
-  - [DynamodbDataSourceConfigTypeDef](#dynamodbdatasourceconfigtypedef)
-  - [ElasticsearchDataSourceConfigTypeDef](#elasticsearchdatasourceconfigtypedef)
-  - [FunctionConfigurationTypeDef](#functionconfigurationtypedef)
-  - [GraphqlApiTypeDef](#graphqlapitypedef)
-  - [HttpDataSourceConfigTypeDef](#httpdatasourceconfigtypedef)
-  - [LambdaConflictHandlerConfigTypeDef](#lambdaconflicthandlerconfigtypedef)
-  - [LambdaDataSourceConfigTypeDef](#lambdadatasourceconfigtypedef)
-  - [LogConfigTypeDef](#logconfigtypedef)
-  - [OpenIDConnectConfigTypeDef](#openidconnectconfigtypedef)
-  - [PipelineConfigTypeDef](#pipelineconfigtypedef)
-  - [RdsHttpEndpointConfigTypeDef](#rdshttpendpointconfigtypedef)
-  - [RelationalDatabaseDataSourceConfigTypeDef](#relationaldatabasedatasourceconfigtypedef)
-  - [ResolverTypeDef](#resolvertypedef)
-  - [SyncConfigTypeDef](#syncconfigtypedef)
-  - [TypeTypeDef](#typetypedef)
-  - [UserPoolConfigTypeDef](#userpoolconfigtypedef)
   - [CreateApiCacheResponseTypeDef](#createapicacheresponsetypedef)
   - [CreateApiKeyResponseTypeDef](#createapikeyresponsetypedef)
   - [CreateDataSourceResponseTypeDef](#createdatasourceresponsetypedef)
@@ -38,6 +20,11 @@ type annotations stubs module [mypy_boto3_appsync](https://pypi.org/project/mypy
   - [CreateGraphqlApiResponseTypeDef](#creategraphqlapiresponsetypedef)
   - [CreateResolverResponseTypeDef](#createresolverresponsetypedef)
   - [CreateTypeResponseTypeDef](#createtyperesponsetypedef)
+  - [DataSourceTypeDef](#datasourcetypedef)
+  - [DeltaSyncConfigTypeDef](#deltasyncconfigtypedef)
+  - [DynamodbDataSourceConfigTypeDef](#dynamodbdatasourceconfigtypedef)
+  - [ElasticsearchDataSourceConfigTypeDef](#elasticsearchdatasourceconfigtypedef)
+  - [FunctionConfigurationTypeDef](#functionconfigurationtypedef)
   - [GetApiCacheResponseTypeDef](#getapicacheresponsetypedef)
   - [GetDataSourceResponseTypeDef](#getdatasourceresponsetypedef)
   - [GetFunctionResponseTypeDef](#getfunctionresponsetypedef)
@@ -46,6 +33,10 @@ type annotations stubs module [mypy_boto3_appsync](https://pypi.org/project/mypy
   - [GetResolverResponseTypeDef](#getresolverresponsetypedef)
   - [GetSchemaCreationStatusResponseTypeDef](#getschemacreationstatusresponsetypedef)
   - [GetTypeResponseTypeDef](#gettyperesponsetypedef)
+  - [GraphqlApiTypeDef](#graphqlapitypedef)
+  - [HttpDataSourceConfigTypeDef](#httpdatasourceconfigtypedef)
+  - [LambdaConflictHandlerConfigTypeDef](#lambdaconflicthandlerconfigtypedef)
+  - [LambdaDataSourceConfigTypeDef](#lambdadatasourceconfigtypedef)
   - [ListApiKeysResponseTypeDef](#listapikeysresponsetypedef)
   - [ListDataSourcesResponseTypeDef](#listdatasourcesresponsetypedef)
   - [ListFunctionsResponseTypeDef](#listfunctionsresponsetypedef)
@@ -54,8 +45,16 @@ type annotations stubs module [mypy_boto3_appsync](https://pypi.org/project/mypy
   - [ListResolversResponseTypeDef](#listresolversresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListTypesResponseTypeDef](#listtypesresponsetypedef)
+  - [LogConfigTypeDef](#logconfigtypedef)
+  - [OpenIDConnectConfigTypeDef](#openidconnectconfigtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PipelineConfigTypeDef](#pipelineconfigtypedef)
+  - [RdsHttpEndpointConfigTypeDef](#rdshttpendpointconfigtypedef)
+  - [RelationalDatabaseDataSourceConfigTypeDef](#relationaldatabasedatasourceconfigtypedef)
+  - [ResolverTypeDef](#resolvertypedef)
   - [StartSchemaCreationResponseTypeDef](#startschemacreationresponsetypedef)
+  - [SyncConfigTypeDef](#syncconfigtypedef)
+  - [TypeTypeDef](#typetypedef)
   - [UpdateApiCacheResponseTypeDef](#updateapicacheresponsetypedef)
   - [UpdateApiKeyResponseTypeDef](#updateapikeyresponsetypedef)
   - [UpdateDataSourceResponseTypeDef](#updatedatasourceresponsetypedef)
@@ -63,6 +62,7 @@ type annotations stubs module [mypy_boto3_appsync](https://pypi.org/project/mypy
   - [UpdateGraphqlApiResponseTypeDef](#updategraphqlapiresponsetypedef)
   - [UpdateResolverResponseTypeDef](#updateresolverresponsetypedef)
   - [UpdateTypeResponseTypeDef](#updatetyperesponsetypedef)
+  - [UserPoolConfigTypeDef](#userpoolconfigtypedef)
 
 ## AdditionalAuthenticationProviderTypeDef
 
@@ -121,7 +121,7 @@ from mypy_boto3_appsync.type_defs import AuthorizationConfigTypeDef
 
 
 Required fields:
-- `authorizationType`: `AuthorizationType`
+- `authorizationType`: `Literal['AWS_IAM']`
 
 
 
@@ -167,312 +167,6 @@ from mypy_boto3_appsync.type_defs import CognitoUserPoolConfigTypeDef
 Required fields:
 - `userPoolId`: `str`
 - `awsRegion`: `str`
-
-
-
-Optional fields:
-- `appIdClientRegex`: `str`
-
-
-## DataSourceTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import DataSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `dataSourceArn`: `str`
-- `name`: `str`
-- `description`: `str`
-- `type`: `DataSourceType`
-- `serviceRoleArn`: `str`
-- `dynamodbConfig`: `"DynamodbDataSourceConfigTypeDef"`
-- `lambdaConfig`: `"LambdaDataSourceConfigTypeDef"`
-- `elasticsearchConfig`: `"ElasticsearchDataSourceConfigTypeDef"`
-- `httpConfig`: `"HttpDataSourceConfigTypeDef"`
-- `relationalDatabaseConfig`: `"RelationalDatabaseDataSourceConfigTypeDef"`
-
-
-## DeltaSyncConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import DeltaSyncConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `baseTableTTL`: `int`
-- `deltaSyncTableName`: `str`
-- `deltaSyncTableTTL`: `int`
-
-
-## DynamodbDataSourceConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import DynamodbDataSourceConfigTypeDef
-```
-
-
-Required fields:
-- `tableName`: `str`
-- `awsRegion`: `str`
-
-
-
-Optional fields:
-- `useCallerCredentials`: `bool`
-- `deltaSyncConfig`: `"DeltaSyncConfigTypeDef"`
-- `versioned`: `bool`
-
-
-## ElasticsearchDataSourceConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import ElasticsearchDataSourceConfigTypeDef
-```
-
-
-Required fields:
-- `endpoint`: `str`
-- `awsRegion`: `str`
-
-
-
-
-## FunctionConfigurationTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import FunctionConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `functionId`: `str`
-- `functionArn`: `str`
-- `name`: `str`
-- `description`: `str`
-- `dataSourceName`: `str`
-- `requestMappingTemplate`: `str`
-- `responseMappingTemplate`: `str`
-- `functionVersion`: `str`
-- `syncConfig`: `"SyncConfigTypeDef"`
-
-
-## GraphqlApiTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import GraphqlApiTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `apiId`: `str`
-- `authenticationType`: `AuthenticationType`
-- `logConfig`: `"LogConfigTypeDef"`
-- `userPoolConfig`: `"UserPoolConfigTypeDef"`
-- `openIDConnectConfig`: `"OpenIDConnectConfigTypeDef"`
-- `arn`: `str`
-- `uris`: `Dict[str, str]`
-- `tags`: `Dict[str, str]`
-- `additionalAuthenticationProviders`: `List["AdditionalAuthenticationProviderTypeDef"]`
-- `xrayEnabled`: `bool`
-- `wafWebAclArn`: `str`
-
-
-## HttpDataSourceConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import HttpDataSourceConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `endpoint`: `str`
-- `authorizationConfig`: `"AuthorizationConfigTypeDef"`
-
-
-## LambdaConflictHandlerConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import LambdaConflictHandlerConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `lambdaConflictHandlerArn`: `str`
-
-
-## LambdaDataSourceConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import LambdaDataSourceConfigTypeDef
-```
-
-
-Required fields:
-- `lambdaFunctionArn`: `str`
-
-
-
-
-## LogConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import LogConfigTypeDef
-```
-
-
-Required fields:
-- `fieldLogLevel`: `FieldLogLevel`
-- `cloudWatchLogsRoleArn`: `str`
-
-
-
-Optional fields:
-- `excludeVerboseContent`: `bool`
-
-
-## OpenIDConnectConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import OpenIDConnectConfigTypeDef
-```
-
-
-Required fields:
-- `issuer`: `str`
-
-
-
-Optional fields:
-- `clientId`: `str`
-- `iatTTL`: `int`
-- `authTTL`: `int`
-
-
-## PipelineConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import PipelineConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `functions`: `List[str]`
-
-
-## RdsHttpEndpointConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import RdsHttpEndpointConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `awsRegion`: `str`
-- `dbClusterIdentifier`: `str`
-- `databaseName`: `str`
-- `schema`: `str`
-- `awsSecretStoreArn`: `str`
-
-
-## RelationalDatabaseDataSourceConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import RelationalDatabaseDataSourceConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `relationalDatabaseSourceType`: `RelationalDatabaseSourceType`
-- `rdsHttpEndpointConfig`: `"RdsHttpEndpointConfigTypeDef"`
-
-
-## ResolverTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import ResolverTypeDef
-```
-
-
-
-
-Optional fields:
-- `typeName`: `str`
-- `fieldName`: `str`
-- `dataSourceName`: `str`
-- `resolverArn`: `str`
-- `requestMappingTemplate`: `str`
-- `responseMappingTemplate`: `str`
-- `kind`: `ResolverKind`
-- `pipelineConfig`: `"PipelineConfigTypeDef"`
-- `syncConfig`: `"SyncConfigTypeDef"`
-- `cachingConfig`: `"CachingConfigTypeDef"`
-
-
-## SyncConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import SyncConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `conflictHandler`: `ConflictHandlerType`
-- `conflictDetection`: `ConflictDetectionType`
-- `lambdaConflictHandlerConfig`: `"LambdaConflictHandlerConfigTypeDef"`
-
-
-## TypeTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import TypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `description`: `str`
-- `arn`: `str`
-- `definition`: `str`
-- `format`: `TypeDefinitionFormat`
-
-
-## UserPoolConfigTypeDef
-
-```python
-from mypy_boto3_appsync.type_defs import UserPoolConfigTypeDef
-```
-
-
-Required fields:
-- `userPoolId`: `str`
-- `awsRegion`: `str`
-- `defaultAction`: `DefaultAction`
 
 
 
@@ -569,6 +263,97 @@ from mypy_boto3_appsync.type_defs import CreateTypeResponseTypeDef
 
 Optional fields:
 - `type`: `"TypeTypeDef"`
+
+
+## DataSourceTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import DataSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `dataSourceArn`: `str`
+- `name`: `str`
+- `description`: `str`
+- `type`: `DataSourceType`
+- `serviceRoleArn`: `str`
+- `dynamodbConfig`: `"DynamodbDataSourceConfigTypeDef"`
+- `lambdaConfig`: `"LambdaDataSourceConfigTypeDef"`
+- `elasticsearchConfig`: `"ElasticsearchDataSourceConfigTypeDef"`
+- `httpConfig`: `"HttpDataSourceConfigTypeDef"`
+- `relationalDatabaseConfig`: `"RelationalDatabaseDataSourceConfigTypeDef"`
+
+
+## DeltaSyncConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import DeltaSyncConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `baseTableTTL`: `int`
+- `deltaSyncTableName`: `str`
+- `deltaSyncTableTTL`: `int`
+
+
+## DynamodbDataSourceConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import DynamodbDataSourceConfigTypeDef
+```
+
+
+Required fields:
+- `tableName`: `str`
+- `awsRegion`: `str`
+
+
+
+Optional fields:
+- `useCallerCredentials`: `bool`
+- `deltaSyncConfig`: `"DeltaSyncConfigTypeDef"`
+- `versioned`: `bool`
+
+
+## ElasticsearchDataSourceConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import ElasticsearchDataSourceConfigTypeDef
+```
+
+
+Required fields:
+- `endpoint`: `str`
+- `awsRegion`: `str`
+
+
+
+
+## FunctionConfigurationTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import FunctionConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `functionId`: `str`
+- `functionArn`: `str`
+- `name`: `str`
+- `description`: `str`
+- `dataSourceName`: `str`
+- `requestMappingTemplate`: `str`
+- `responseMappingTemplate`: `str`
+- `functionVersion`: `str`
+- `syncConfig`: `"SyncConfigTypeDef"`
 
 
 ## GetApiCacheResponseTypeDef
@@ -674,6 +459,70 @@ from mypy_boto3_appsync.type_defs import GetTypeResponseTypeDef
 
 Optional fields:
 - `type`: `"TypeTypeDef"`
+
+
+## GraphqlApiTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import GraphqlApiTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `apiId`: `str`
+- `authenticationType`: `AuthenticationType`
+- `logConfig`: `"LogConfigTypeDef"`
+- `userPoolConfig`: `"UserPoolConfigTypeDef"`
+- `openIDConnectConfig`: `"OpenIDConnectConfigTypeDef"`
+- `arn`: `str`
+- `uris`: `Dict[str, str]`
+- `tags`: `Dict[str, str]`
+- `additionalAuthenticationProviders`: `List["AdditionalAuthenticationProviderTypeDef"]`
+- `xrayEnabled`: `bool`
+- `wafWebAclArn`: `str`
+
+
+## HttpDataSourceConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import HttpDataSourceConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `endpoint`: `str`
+- `authorizationConfig`: `"AuthorizationConfigTypeDef"`
+
+
+## LambdaConflictHandlerConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import LambdaConflictHandlerConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `lambdaConflictHandlerArn`: `str`
+
+
+## LambdaDataSourceConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import LambdaDataSourceConfigTypeDef
+```
+
+
+Required fields:
+- `lambdaFunctionArn`: `str`
+
+
 
 
 ## ListApiKeysResponseTypeDef
@@ -787,6 +636,41 @@ Optional fields:
 - `nextToken`: `str`
 
 
+## LogConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import LogConfigTypeDef
+```
+
+
+Required fields:
+- `fieldLogLevel`: `FieldLogLevel`
+- `cloudWatchLogsRoleArn`: `str`
+
+
+
+Optional fields:
+- `excludeVerboseContent`: `bool`
+
+
+## OpenIDConnectConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import OpenIDConnectConfigTypeDef
+```
+
+
+Required fields:
+- `issuer`: `str`
+
+
+
+Optional fields:
+- `clientId`: `str`
+- `iatTTL`: `int`
+- `authTTL`: `int`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -802,6 +686,72 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PipelineConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import PipelineConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `functions`: `List[str]`
+
+
+## RdsHttpEndpointConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import RdsHttpEndpointConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `awsRegion`: `str`
+- `dbClusterIdentifier`: `str`
+- `databaseName`: `str`
+- `schema`: `str`
+- `awsSecretStoreArn`: `str`
+
+
+## RelationalDatabaseDataSourceConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import RelationalDatabaseDataSourceConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `relationalDatabaseSourceType`: `Literal['RDS_HTTP_ENDPOINT']`
+- `rdsHttpEndpointConfig`: `"RdsHttpEndpointConfigTypeDef"`
+
+
+## ResolverTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import ResolverTypeDef
+```
+
+
+
+
+Optional fields:
+- `typeName`: `str`
+- `fieldName`: `str`
+- `dataSourceName`: `str`
+- `resolverArn`: `str`
+- `requestMappingTemplate`: `str`
+- `responseMappingTemplate`: `str`
+- `kind`: `ResolverKind`
+- `pipelineConfig`: `"PipelineConfigTypeDef"`
+- `syncConfig`: `"SyncConfigTypeDef"`
+- `cachingConfig`: `"CachingConfigTypeDef"`
+
+
 ## StartSchemaCreationResponseTypeDef
 
 ```python
@@ -813,6 +763,38 @@ from mypy_boto3_appsync.type_defs import StartSchemaCreationResponseTypeDef
 
 Optional fields:
 - `status`: `SchemaStatus`
+
+
+## SyncConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import SyncConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `conflictHandler`: `ConflictHandlerType`
+- `conflictDetection`: `ConflictDetectionType`
+- `lambdaConflictHandlerConfig`: `"LambdaConflictHandlerConfigTypeDef"`
+
+
+## TypeTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import TypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `description`: `str`
+- `arn`: `str`
+- `definition`: `str`
+- `format`: `TypeDefinitionFormat`
 
 
 ## UpdateApiCacheResponseTypeDef
@@ -904,4 +886,22 @@ from mypy_boto3_appsync.type_defs import UpdateTypeResponseTypeDef
 
 Optional fields:
 - `type`: `"TypeTypeDef"`
+
+
+## UserPoolConfigTypeDef
+
+```python
+from mypy_boto3_appsync.type_defs import UserPoolConfigTypeDef
+```
+
+
+Required fields:
+- `userPoolId`: `str`
+- `awsRegion`: `str`
+- `defaultAction`: `DefaultAction`
+
+
+
+Optional fields:
+- `appIdClientRegex`: `str`
 

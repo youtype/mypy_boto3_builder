@@ -6,9 +6,11 @@ Auto-generated documentation for [ECS](https://boto3.amazonaws.com/v1/documentat
 type annotations stubs module [mypy_boto3_ecs](https://pypi.org/project/mypy-boto3-ecs/).
 
 - [Structures for boto3 ECS module](#structures-for-boto3-ecs-module)
+  - [AttachmentStateChangeTypeDef](#attachmentstatechangetypedef)
   - [AttachmentTypeDef](#attachmenttypedef)
   - [AttributeTypeDef](#attributetypedef)
   - [AutoScalingGroupProviderTypeDef](#autoscalinggroupprovidertypedef)
+  - [AutoScalingGroupProviderUpdateTypeDef](#autoscalinggroupproviderupdatetypedef)
   - [AwsVpcConfigurationTypeDef](#awsvpcconfigurationtypedef)
   - [CapacityProviderStrategyItemTypeDef](#capacityproviderstrategyitemtypedef)
   - [CapacityProviderTypeDef](#capacityprovidertypedef)
@@ -19,12 +21,33 @@ type annotations stubs module [mypy_boto3_ecs](https://pypi.org/project/mypy-bot
   - [ContainerDependencyTypeDef](#containerdependencytypedef)
   - [ContainerInstanceTypeDef](#containerinstancetypedef)
   - [ContainerOverrideTypeDef](#containeroverridetypedef)
+  - [ContainerStateChangeTypeDef](#containerstatechangetypedef)
   - [ContainerTypeDef](#containertypedef)
+  - [CreateCapacityProviderResponseTypeDef](#createcapacityproviderresponsetypedef)
+  - [CreateClusterResponseTypeDef](#createclusterresponsetypedef)
+  - [CreateServiceResponseTypeDef](#createserviceresponsetypedef)
+  - [CreateTaskSetResponseTypeDef](#createtasksetresponsetypedef)
+  - [DeleteAccountSettingResponseTypeDef](#deleteaccountsettingresponsetypedef)
+  - [DeleteAttributesResponseTypeDef](#deleteattributesresponsetypedef)
+  - [DeleteCapacityProviderResponseTypeDef](#deletecapacityproviderresponsetypedef)
+  - [DeleteClusterResponseTypeDef](#deleteclusterresponsetypedef)
+  - [DeleteServiceResponseTypeDef](#deleteserviceresponsetypedef)
+  - [DeleteTaskSetResponseTypeDef](#deletetasksetresponsetypedef)
   - [DeploymentCircuitBreakerTypeDef](#deploymentcircuitbreakertypedef)
   - [DeploymentConfigurationTypeDef](#deploymentconfigurationtypedef)
   - [DeploymentControllerTypeDef](#deploymentcontrollertypedef)
   - [DeploymentTypeDef](#deploymenttypedef)
+  - [DeregisterContainerInstanceResponseTypeDef](#deregistercontainerinstanceresponsetypedef)
+  - [DeregisterTaskDefinitionResponseTypeDef](#deregistertaskdefinitionresponsetypedef)
+  - [DescribeCapacityProvidersResponseTypeDef](#describecapacityprovidersresponsetypedef)
+  - [DescribeClustersResponseTypeDef](#describeclustersresponsetypedef)
+  - [DescribeContainerInstancesResponseTypeDef](#describecontainerinstancesresponsetypedef)
+  - [DescribeServicesResponseTypeDef](#describeservicesresponsetypedef)
+  - [DescribeTaskDefinitionResponseTypeDef](#describetaskdefinitionresponsetypedef)
+  - [DescribeTaskSetsResponseTypeDef](#describetasksetsresponsetypedef)
+  - [DescribeTasksResponseTypeDef](#describetasksresponsetypedef)
   - [DeviceTypeDef](#devicetypedef)
+  - [DiscoverPollEndpointResponseTypeDef](#discoverpollendpointresponsetypedef)
   - [DockerVolumeConfigurationTypeDef](#dockervolumeconfigurationtypedef)
   - [EFSAuthorizationConfigTypeDef](#efsauthorizationconfigtypedef)
   - [EFSVolumeConfigurationTypeDef](#efsvolumeconfigurationtypedef)
@@ -32,6 +55,7 @@ type annotations stubs module [mypy_boto3_ecs](https://pypi.org/project/mypy-bot
   - [EphemeralStorageTypeDef](#ephemeralstoragetypedef)
   - [ExecuteCommandConfigurationTypeDef](#executecommandconfigurationtypedef)
   - [ExecuteCommandLogConfigurationTypeDef](#executecommandlogconfigurationtypedef)
+  - [ExecuteCommandResponseTypeDef](#executecommandresponsetypedef)
   - [FSxWindowsFileServerAuthorizationConfigTypeDef](#fsxwindowsfileserverauthorizationconfigtypedef)
   - [FSxWindowsFileServerVolumeConfigurationTypeDef](#fsxwindowsfileservervolumeconfigurationtypedef)
   - [FailureTypeDef](#failuretypedef)
@@ -44,64 +68,6 @@ type annotations stubs module [mypy_boto3_ecs](https://pypi.org/project/mypy-bot
   - [KernelCapabilitiesTypeDef](#kernelcapabilitiestypedef)
   - [KeyValuePairTypeDef](#keyvaluepairtypedef)
   - [LinuxParametersTypeDef](#linuxparameterstypedef)
-  - [LoadBalancerTypeDef](#loadbalancertypedef)
-  - [LogConfigurationTypeDef](#logconfigurationtypedef)
-  - [ManagedAgentTypeDef](#managedagenttypedef)
-  - [ManagedScalingTypeDef](#managedscalingtypedef)
-  - [MountPointTypeDef](#mountpointtypedef)
-  - [NetworkBindingTypeDef](#networkbindingtypedef)
-  - [NetworkConfigurationTypeDef](#networkconfigurationtypedef)
-  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
-  - [PlacementConstraintTypeDef](#placementconstrainttypedef)
-  - [PlacementStrategyTypeDef](#placementstrategytypedef)
-  - [PortMappingTypeDef](#portmappingtypedef)
-  - [ProxyConfigurationTypeDef](#proxyconfigurationtypedef)
-  - [RepositoryCredentialsTypeDef](#repositorycredentialstypedef)
-  - [ResourceRequirementTypeDef](#resourcerequirementtypedef)
-  - [ResourceTypeDef](#resourcetypedef)
-  - [ScaleTypeDef](#scaletypedef)
-  - [SecretTypeDef](#secrettypedef)
-  - [ServiceEventTypeDef](#serviceeventtypedef)
-  - [ServiceRegistryTypeDef](#serviceregistrytypedef)
-  - [ServiceTypeDef](#servicetypedef)
-  - [SessionTypeDef](#sessiontypedef)
-  - [SettingTypeDef](#settingtypedef)
-  - [SystemControlTypeDef](#systemcontroltypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TaskDefinitionPlacementConstraintTypeDef](#taskdefinitionplacementconstrainttypedef)
-  - [TaskDefinitionTypeDef](#taskdefinitiontypedef)
-  - [TaskOverrideTypeDef](#taskoverridetypedef)
-  - [TaskSetTypeDef](#tasksettypedef)
-  - [TaskTypeDef](#tasktypedef)
-  - [TmpfsTypeDef](#tmpfstypedef)
-  - [UlimitTypeDef](#ulimittypedef)
-  - [VersionInfoTypeDef](#versioninfotypedef)
-  - [VolumeFromTypeDef](#volumefromtypedef)
-  - [VolumeTypeDef](#volumetypedef)
-  - [AttachmentStateChangeTypeDef](#attachmentstatechangetypedef)
-  - [AutoScalingGroupProviderUpdateTypeDef](#autoscalinggroupproviderupdatetypedef)
-  - [ContainerStateChangeTypeDef](#containerstatechangetypedef)
-  - [CreateCapacityProviderResponseTypeDef](#createcapacityproviderresponsetypedef)
-  - [CreateClusterResponseTypeDef](#createclusterresponsetypedef)
-  - [CreateServiceResponseTypeDef](#createserviceresponsetypedef)
-  - [CreateTaskSetResponseTypeDef](#createtasksetresponsetypedef)
-  - [DeleteAccountSettingResponseTypeDef](#deleteaccountsettingresponsetypedef)
-  - [DeleteAttributesResponseTypeDef](#deleteattributesresponsetypedef)
-  - [DeleteCapacityProviderResponseTypeDef](#deletecapacityproviderresponsetypedef)
-  - [DeleteClusterResponseTypeDef](#deleteclusterresponsetypedef)
-  - [DeleteServiceResponseTypeDef](#deleteserviceresponsetypedef)
-  - [DeleteTaskSetResponseTypeDef](#deletetasksetresponsetypedef)
-  - [DeregisterContainerInstanceResponseTypeDef](#deregistercontainerinstanceresponsetypedef)
-  - [DeregisterTaskDefinitionResponseTypeDef](#deregistertaskdefinitionresponsetypedef)
-  - [DescribeCapacityProvidersResponseTypeDef](#describecapacityprovidersresponsetypedef)
-  - [DescribeClustersResponseTypeDef](#describeclustersresponsetypedef)
-  - [DescribeContainerInstancesResponseTypeDef](#describecontainerinstancesresponsetypedef)
-  - [DescribeServicesResponseTypeDef](#describeservicesresponsetypedef)
-  - [DescribeTaskDefinitionResponseTypeDef](#describetaskdefinitionresponsetypedef)
-  - [DescribeTaskSetsResponseTypeDef](#describetasksetsresponsetypedef)
-  - [DescribeTasksResponseTypeDef](#describetasksresponsetypedef)
-  - [DiscoverPollEndpointResponseTypeDef](#discoverpollendpointresponsetypedef)
-  - [ExecuteCommandResponseTypeDef](#executecommandresponsetypedef)
   - [ListAccountSettingsResponseTypeDef](#listaccountsettingsresponsetypedef)
   - [ListAttributesResponseTypeDef](#listattributesresponsetypedef)
   - [ListClustersResponseTypeDef](#listclustersresponsetypedef)
@@ -111,21 +77,52 @@ type annotations stubs module [mypy_boto3_ecs](https://pypi.org/project/mypy-bot
   - [ListTaskDefinitionFamiliesResponseTypeDef](#listtaskdefinitionfamiliesresponsetypedef)
   - [ListTaskDefinitionsResponseTypeDef](#listtaskdefinitionsresponsetypedef)
   - [ListTasksResponseTypeDef](#listtasksresponsetypedef)
+  - [LoadBalancerTypeDef](#loadbalancertypedef)
+  - [LogConfigurationTypeDef](#logconfigurationtypedef)
   - [ManagedAgentStateChangeTypeDef](#managedagentstatechangetypedef)
+  - [ManagedAgentTypeDef](#managedagenttypedef)
+  - [ManagedScalingTypeDef](#managedscalingtypedef)
+  - [MountPointTypeDef](#mountpointtypedef)
+  - [NetworkBindingTypeDef](#networkbindingtypedef)
+  - [NetworkConfigurationTypeDef](#networkconfigurationtypedef)
+  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PlacementConstraintTypeDef](#placementconstrainttypedef)
+  - [PlacementStrategyTypeDef](#placementstrategytypedef)
   - [PlatformDeviceTypeDef](#platformdevicetypedef)
+  - [PortMappingTypeDef](#portmappingtypedef)
+  - [ProxyConfigurationTypeDef](#proxyconfigurationtypedef)
   - [PutAccountSettingDefaultResponseTypeDef](#putaccountsettingdefaultresponsetypedef)
   - [PutAccountSettingResponseTypeDef](#putaccountsettingresponsetypedef)
   - [PutAttributesResponseTypeDef](#putattributesresponsetypedef)
   - [PutClusterCapacityProvidersResponseTypeDef](#putclustercapacityprovidersresponsetypedef)
   - [RegisterContainerInstanceResponseTypeDef](#registercontainerinstanceresponsetypedef)
   - [RegisterTaskDefinitionResponseTypeDef](#registertaskdefinitionresponsetypedef)
+  - [RepositoryCredentialsTypeDef](#repositorycredentialstypedef)
+  - [ResourceRequirementTypeDef](#resourcerequirementtypedef)
+  - [ResourceTypeDef](#resourcetypedef)
   - [RunTaskResponseTypeDef](#runtaskresponsetypedef)
+  - [ScaleTypeDef](#scaletypedef)
+  - [SecretTypeDef](#secrettypedef)
+  - [ServiceEventTypeDef](#serviceeventtypedef)
+  - [ServiceRegistryTypeDef](#serviceregistrytypedef)
+  - [ServiceTypeDef](#servicetypedef)
+  - [SessionTypeDef](#sessiontypedef)
+  - [SettingTypeDef](#settingtypedef)
   - [StartTaskResponseTypeDef](#starttaskresponsetypedef)
   - [StopTaskResponseTypeDef](#stoptaskresponsetypedef)
   - [SubmitAttachmentStateChangesResponseTypeDef](#submitattachmentstatechangesresponsetypedef)
   - [SubmitContainerStateChangeResponseTypeDef](#submitcontainerstatechangeresponsetypedef)
   - [SubmitTaskStateChangeResponseTypeDef](#submittaskstatechangeresponsetypedef)
+  - [SystemControlTypeDef](#systemcontroltypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TaskDefinitionPlacementConstraintTypeDef](#taskdefinitionplacementconstrainttypedef)
+  - [TaskDefinitionTypeDef](#taskdefinitiontypedef)
+  - [TaskOverrideTypeDef](#taskoverridetypedef)
+  - [TaskSetTypeDef](#tasksettypedef)
+  - [TaskTypeDef](#tasktypedef)
+  - [TmpfsTypeDef](#tmpfstypedef)
+  - [UlimitTypeDef](#ulimittypedef)
   - [UpdateCapacityProviderResponseTypeDef](#updatecapacityproviderresponsetypedef)
   - [UpdateClusterResponseTypeDef](#updateclusterresponsetypedef)
   - [UpdateClusterSettingsResponseTypeDef](#updateclustersettingsresponsetypedef)
@@ -134,7 +131,24 @@ type annotations stubs module [mypy_boto3_ecs](https://pypi.org/project/mypy-bot
   - [UpdateServicePrimaryTaskSetResponseTypeDef](#updateserviceprimarytasksetresponsetypedef)
   - [UpdateServiceResponseTypeDef](#updateserviceresponsetypedef)
   - [UpdateTaskSetResponseTypeDef](#updatetasksetresponsetypedef)
+  - [VersionInfoTypeDef](#versioninfotypedef)
+  - [VolumeFromTypeDef](#volumefromtypedef)
+  - [VolumeTypeDef](#volumetypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
+
+## AttachmentStateChangeTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import AttachmentStateChangeTypeDef
+```
+
+
+Required fields:
+- `attachmentArn`: `str`
+- `status`: `str`
+
+
+
 
 ## AttachmentTypeDef
 
@@ -166,7 +180,7 @@ Required fields:
 
 Optional fields:
 - `value`: `str`
-- `targetType`: `TargetType`
+- `targetType`: `Literal['container-instance']`
 - `targetId`: `str`
 
 
@@ -179,6 +193,20 @@ from mypy_boto3_ecs.type_defs import AutoScalingGroupProviderTypeDef
 
 Required fields:
 - `autoScalingGroupArn`: `str`
+
+
+
+Optional fields:
+- `managedScaling`: `"ManagedScalingTypeDef"`
+- `managedTerminationProtection`: `ManagedTerminationProtection`
+
+
+## AutoScalingGroupProviderUpdateTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import AutoScalingGroupProviderUpdateTypeDef
+```
+
 
 
 
@@ -263,7 +291,7 @@ from mypy_boto3_ecs.type_defs import ClusterSettingTypeDef
 
 
 Optional fields:
-- `name`: `ClusterSettingName`
+- `name`: `Literal['containerInsights']`
 - `value`: `str`
 
 
@@ -408,6 +436,25 @@ Optional fields:
 - `resourceRequirements`: `List["ResourceRequirementTypeDef"]`
 
 
+## ContainerStateChangeTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ContainerStateChangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `containerName`: `str`
+- `imageDigest`: `str`
+- `runtimeId`: `str`
+- `exitCode`: `int`
+- `networkBindings`: `List["NetworkBindingTypeDef"]`
+- `reason`: `str`
+- `status`: `str`
+
+
 ## ContainerTypeDef
 
 ```python
@@ -435,6 +482,136 @@ Optional fields:
 - `memory`: `str`
 - `memoryReservation`: `str`
 - `gpuIds`: `List[str]`
+
+
+## CreateCapacityProviderResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import CreateCapacityProviderResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `capacityProvider`: `"CapacityProviderTypeDef"`
+
+
+## CreateClusterResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import CreateClusterResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `cluster`: `"ClusterTypeDef"`
+
+
+## CreateServiceResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import CreateServiceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `service`: `"ServiceTypeDef"`
+
+
+## CreateTaskSetResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import CreateTaskSetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskSet`: `"TaskSetTypeDef"`
+
+
+## DeleteAccountSettingResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DeleteAccountSettingResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `setting`: `"SettingTypeDef"`
+
+
+## DeleteAttributesResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DeleteAttributesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `attributes`: `List["AttributeTypeDef"]`
+
+
+## DeleteCapacityProviderResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DeleteCapacityProviderResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `capacityProvider`: `"CapacityProviderTypeDef"`
+
+
+## DeleteClusterResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DeleteClusterResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `cluster`: `"ClusterTypeDef"`
+
+
+## DeleteServiceResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DeleteServiceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `service`: `"ServiceTypeDef"`
+
+
+## DeleteTaskSetResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DeleteTaskSetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskSet`: `"TaskSetTypeDef"`
 
 
 ## DeploymentCircuitBreakerTypeDef
@@ -506,6 +683,131 @@ Optional fields:
 - `rolloutStateReason`: `str`
 
 
+## DeregisterContainerInstanceResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DeregisterContainerInstanceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `containerInstance`: `"ContainerInstanceTypeDef"`
+
+
+## DeregisterTaskDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DeregisterTaskDefinitionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskDefinition`: `"TaskDefinitionTypeDef"`
+
+
+## DescribeCapacityProvidersResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DescribeCapacityProvidersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `capacityProviders`: `List["CapacityProviderTypeDef"]`
+- `failures`: `List["FailureTypeDef"]`
+- `nextToken`: `str`
+
+
+## DescribeClustersResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DescribeClustersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `clusters`: `List["ClusterTypeDef"]`
+- `failures`: `List["FailureTypeDef"]`
+
+
+## DescribeContainerInstancesResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DescribeContainerInstancesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `containerInstances`: `List["ContainerInstanceTypeDef"]`
+- `failures`: `List["FailureTypeDef"]`
+
+
+## DescribeServicesResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DescribeServicesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `services`: `List["ServiceTypeDef"]`
+- `failures`: `List["FailureTypeDef"]`
+
+
+## DescribeTaskDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DescribeTaskDefinitionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskDefinition`: `"TaskDefinitionTypeDef"`
+- `tags`: `List["TagTypeDef"]`
+
+
+## DescribeTaskSetsResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DescribeTaskSetsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskSets`: `List["TaskSetTypeDef"]`
+- `failures`: `List["FailureTypeDef"]`
+
+
+## DescribeTasksResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DescribeTasksResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tasks`: `List["TaskTypeDef"]`
+- `failures`: `List["FailureTypeDef"]`
+
+
 ## DeviceTypeDef
 
 ```python
@@ -521,6 +823,20 @@ Required fields:
 Optional fields:
 - `containerPath`: `str`
 - `permissions`: `List[DeviceCgroupPermission]`
+
+
+## DiscoverPollEndpointResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import DiscoverPollEndpointResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `endpoint`: `str`
+- `telemetryEndpoint`: `str`
 
 
 ## DockerVolumeConfigurationTypeDef
@@ -582,7 +898,7 @@ from mypy_boto3_ecs.type_defs import EnvironmentFileTypeDef
 
 Required fields:
 - `value`: `str`
-- `type`: `EnvironmentFileType`
+- `type`: `Literal['s3']`
 
 
 
@@ -630,6 +946,24 @@ Optional fields:
 - `s3BucketName`: `str`
 - `s3EncryptionEnabled`: `bool`
 - `s3KeyPrefix`: `str`
+
+
+## ExecuteCommandResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ExecuteCommandResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `clusterArn`: `str`
+- `containerArn`: `str`
+- `containerName`: `str`
+- `interactive`: `bool`
+- `session`: `"SessionTypeDef"`
+- `taskArn`: `str`
 
 
 ## FSxWindowsFileServerAuthorizationConfigTypeDef
@@ -813,6 +1147,131 @@ Optional fields:
 - `swappiness`: `int`
 
 
+## ListAccountSettingsResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ListAccountSettingsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `settings`: `List["SettingTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListAttributesResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ListAttributesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `attributes`: `List["AttributeTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListClustersResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ListClustersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `clusterArns`: `List[str]`
+- `nextToken`: `str`
+
+
+## ListContainerInstancesResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ListContainerInstancesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `containerInstanceArns`: `List[str]`
+- `nextToken`: `str`
+
+
+## ListServicesResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ListServicesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `serviceArns`: `List[str]`
+- `nextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `List["TagTypeDef"]`
+
+
+## ListTaskDefinitionFamiliesResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ListTaskDefinitionFamiliesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `families`: `List[str]`
+- `nextToken`: `str`
+
+
+## ListTaskDefinitionsResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ListTaskDefinitionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskDefinitionArns`: `List[str]`
+- `nextToken`: `str`
+
+
+## ListTasksResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ListTasksResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskArns`: `List[str]`
+- `nextToken`: `str`
+
+
 ## LoadBalancerTypeDef
 
 ```python
@@ -846,6 +1305,24 @@ Optional fields:
 - `secretOptions`: `List["SecretTypeDef"]`
 
 
+## ManagedAgentStateChangeTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import ManagedAgentStateChangeTypeDef
+```
+
+
+Required fields:
+- `containerName`: `str`
+- `managedAgentName`: `Literal['ExecuteCommandAgent']`
+- `status`: `str`
+
+
+
+Optional fields:
+- `reason`: `str`
+
+
 ## ManagedAgentTypeDef
 
 ```python
@@ -857,7 +1334,7 @@ from mypy_boto3_ecs.type_defs import ManagedAgentTypeDef
 
 Optional fields:
 - `lastStartedAt`: `datetime`
-- `name`: `ManagedAgentName`
+- `name`: `Literal['ExecuteCommandAgent']`
 - `reason`: `str`
 - `lastStatus`: `str`
 
@@ -938,6 +1415,21 @@ Optional fields:
 - `ipv6Address`: `str`
 
 
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
 ## PlacementConstraintTypeDef
 
 ```python
@@ -964,6 +1456,20 @@ from mypy_boto3_ecs.type_defs import PlacementStrategyTypeDef
 Optional fields:
 - `type`: `PlacementStrategyType`
 - `field`: `str`
+
+
+## PlatformDeviceTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import PlatformDeviceTypeDef
+```
+
+
+Required fields:
+- `id`: `str`
+- `type`: `Literal['GPU']`
+
+
 
 
 ## PortMappingTypeDef
@@ -994,8 +1500,87 @@ Required fields:
 
 
 Optional fields:
-- `type`: `ProxyConfigurationType`
+- `type`: `Literal['APPMESH']`
 - `properties`: `List["KeyValuePairTypeDef"]`
+
+
+## PutAccountSettingDefaultResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import PutAccountSettingDefaultResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `setting`: `"SettingTypeDef"`
+
+
+## PutAccountSettingResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import PutAccountSettingResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `setting`: `"SettingTypeDef"`
+
+
+## PutAttributesResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import PutAttributesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `attributes`: `List["AttributeTypeDef"]`
+
+
+## PutClusterCapacityProvidersResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import PutClusterCapacityProvidersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `cluster`: `"ClusterTypeDef"`
+
+
+## RegisterContainerInstanceResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import RegisterContainerInstanceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `containerInstance`: `"ContainerInstanceTypeDef"`
+
+
+## RegisterTaskDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import RegisterTaskDefinitionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskDefinition`: `"TaskDefinitionTypeDef"`
+- `tags`: `List["TagTypeDef"]`
 
 
 ## RepositoryCredentialsTypeDef
@@ -1043,6 +1628,20 @@ Optional fields:
 - `stringSetValue`: `List[str]`
 
 
+## RunTaskResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import RunTaskResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tasks`: `List["TaskTypeDef"]`
+- `failures`: `List["FailureTypeDef"]`
+
+
 ## ScaleTypeDef
 
 ```python
@@ -1054,7 +1653,7 @@ from mypy_boto3_ecs.type_defs import ScaleTypeDef
 
 Optional fields:
 - `value`: `float`
-- `unit`: `ScaleUnit`
+- `unit`: `Literal['PERCENT']`
 
 
 ## SecretTypeDef
@@ -1174,6 +1773,72 @@ Optional fields:
 - `principalArn`: `str`
 
 
+## StartTaskResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import StartTaskResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tasks`: `List["TaskTypeDef"]`
+- `failures`: `List["FailureTypeDef"]`
+
+
+## StopTaskResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import StopTaskResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `task`: `"TaskTypeDef"`
+
+
+## SubmitAttachmentStateChangesResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import SubmitAttachmentStateChangesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `acknowledgment`: `str`
+
+
+## SubmitContainerStateChangeResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import SubmitContainerStateChangeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `acknowledgment`: `str`
+
+
+## SubmitTaskStateChangeResponseTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import SubmitTaskStateChangeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `acknowledgment`: `str`
+
+
 ## SystemControlTypeDef
 
 ```python
@@ -1212,7 +1877,7 @@ from mypy_boto3_ecs.type_defs import TaskDefinitionPlacementConstraintTypeDef
 
 
 Optional fields:
-- `type`: `TaskDefinitionPlacementConstraintType`
+- `type`: `Literal['memberOf']`
 - `expression`: `str`
 
 
@@ -1384,717 +2049,6 @@ Required fields:
 
 
 
-## VersionInfoTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import VersionInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `agentVersion`: `str`
-- `agentHash`: `str`
-- `dockerVersion`: `str`
-
-
-## VolumeFromTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import VolumeFromTypeDef
-```
-
-
-
-
-Optional fields:
-- `sourceContainer`: `str`
-- `readOnly`: `bool`
-
-
-## VolumeTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import VolumeTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `host`: `"HostVolumePropertiesTypeDef"`
-- `dockerVolumeConfiguration`: `"DockerVolumeConfigurationTypeDef"`
-- `efsVolumeConfiguration`: `"EFSVolumeConfigurationTypeDef"`
-- `fsxWindowsFileServerVolumeConfiguration`: `"FSxWindowsFileServerVolumeConfigurationTypeDef"`
-
-
-## AttachmentStateChangeTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import AttachmentStateChangeTypeDef
-```
-
-
-Required fields:
-- `attachmentArn`: `str`
-- `status`: `str`
-
-
-
-
-## AutoScalingGroupProviderUpdateTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import AutoScalingGroupProviderUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `managedScaling`: `"ManagedScalingTypeDef"`
-- `managedTerminationProtection`: `ManagedTerminationProtection`
-
-
-## ContainerStateChangeTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ContainerStateChangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `containerName`: `str`
-- `imageDigest`: `str`
-- `runtimeId`: `str`
-- `exitCode`: `int`
-- `networkBindings`: `List["NetworkBindingTypeDef"]`
-- `reason`: `str`
-- `status`: `str`
-
-
-## CreateCapacityProviderResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import CreateCapacityProviderResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `capacityProvider`: `"CapacityProviderTypeDef"`
-
-
-## CreateClusterResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import CreateClusterResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `cluster`: `"ClusterTypeDef"`
-
-
-## CreateServiceResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import CreateServiceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `service`: `"ServiceTypeDef"`
-
-
-## CreateTaskSetResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import CreateTaskSetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskSet`: `"TaskSetTypeDef"`
-
-
-## DeleteAccountSettingResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DeleteAccountSettingResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `setting`: `"SettingTypeDef"`
-
-
-## DeleteAttributesResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DeleteAttributesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `attributes`: `List["AttributeTypeDef"]`
-
-
-## DeleteCapacityProviderResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DeleteCapacityProviderResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `capacityProvider`: `"CapacityProviderTypeDef"`
-
-
-## DeleteClusterResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DeleteClusterResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `cluster`: `"ClusterTypeDef"`
-
-
-## DeleteServiceResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DeleteServiceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `service`: `"ServiceTypeDef"`
-
-
-## DeleteTaskSetResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DeleteTaskSetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskSet`: `"TaskSetTypeDef"`
-
-
-## DeregisterContainerInstanceResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DeregisterContainerInstanceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `containerInstance`: `"ContainerInstanceTypeDef"`
-
-
-## DeregisterTaskDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DeregisterTaskDefinitionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskDefinition`: `"TaskDefinitionTypeDef"`
-
-
-## DescribeCapacityProvidersResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DescribeCapacityProvidersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `capacityProviders`: `List["CapacityProviderTypeDef"]`
-- `failures`: `List["FailureTypeDef"]`
-- `nextToken`: `str`
-
-
-## DescribeClustersResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DescribeClustersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `clusters`: `List["ClusterTypeDef"]`
-- `failures`: `List["FailureTypeDef"]`
-
-
-## DescribeContainerInstancesResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DescribeContainerInstancesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `containerInstances`: `List["ContainerInstanceTypeDef"]`
-- `failures`: `List["FailureTypeDef"]`
-
-
-## DescribeServicesResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DescribeServicesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `services`: `List["ServiceTypeDef"]`
-- `failures`: `List["FailureTypeDef"]`
-
-
-## DescribeTaskDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DescribeTaskDefinitionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskDefinition`: `"TaskDefinitionTypeDef"`
-- `tags`: `List["TagTypeDef"]`
-
-
-## DescribeTaskSetsResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DescribeTaskSetsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskSets`: `List["TaskSetTypeDef"]`
-- `failures`: `List["FailureTypeDef"]`
-
-
-## DescribeTasksResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DescribeTasksResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tasks`: `List["TaskTypeDef"]`
-- `failures`: `List["FailureTypeDef"]`
-
-
-## DiscoverPollEndpointResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import DiscoverPollEndpointResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `endpoint`: `str`
-- `telemetryEndpoint`: `str`
-
-
-## ExecuteCommandResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ExecuteCommandResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `clusterArn`: `str`
-- `containerArn`: `str`
-- `containerName`: `str`
-- `interactive`: `bool`
-- `session`: `"SessionTypeDef"`
-- `taskArn`: `str`
-
-
-## ListAccountSettingsResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ListAccountSettingsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `settings`: `List["SettingTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListAttributesResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ListAttributesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `attributes`: `List["AttributeTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListClustersResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ListClustersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `clusterArns`: `List[str]`
-- `nextToken`: `str`
-
-
-## ListContainerInstancesResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ListContainerInstancesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `containerInstanceArns`: `List[str]`
-- `nextToken`: `str`
-
-
-## ListServicesResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ListServicesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `serviceArns`: `List[str]`
-- `nextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `List["TagTypeDef"]`
-
-
-## ListTaskDefinitionFamiliesResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ListTaskDefinitionFamiliesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `families`: `List[str]`
-- `nextToken`: `str`
-
-
-## ListTaskDefinitionsResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ListTaskDefinitionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskDefinitionArns`: `List[str]`
-- `nextToken`: `str`
-
-
-## ListTasksResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ListTasksResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskArns`: `List[str]`
-- `nextToken`: `str`
-
-
-## ManagedAgentStateChangeTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import ManagedAgentStateChangeTypeDef
-```
-
-
-Required fields:
-- `containerName`: `str`
-- `managedAgentName`: `ManagedAgentName`
-- `status`: `str`
-
-
-
-Optional fields:
-- `reason`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## PlatformDeviceTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import PlatformDeviceTypeDef
-```
-
-
-Required fields:
-- `id`: `str`
-- `type`: `PlatformDeviceType`
-
-
-
-
-## PutAccountSettingDefaultResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import PutAccountSettingDefaultResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `setting`: `"SettingTypeDef"`
-
-
-## PutAccountSettingResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import PutAccountSettingResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `setting`: `"SettingTypeDef"`
-
-
-## PutAttributesResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import PutAttributesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `attributes`: `List["AttributeTypeDef"]`
-
-
-## PutClusterCapacityProvidersResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import PutClusterCapacityProvidersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `cluster`: `"ClusterTypeDef"`
-
-
-## RegisterContainerInstanceResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import RegisterContainerInstanceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `containerInstance`: `"ContainerInstanceTypeDef"`
-
-
-## RegisterTaskDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import RegisterTaskDefinitionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskDefinition`: `"TaskDefinitionTypeDef"`
-- `tags`: `List["TagTypeDef"]`
-
-
-## RunTaskResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import RunTaskResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tasks`: `List["TaskTypeDef"]`
-- `failures`: `List["FailureTypeDef"]`
-
-
-## StartTaskResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import StartTaskResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tasks`: `List["TaskTypeDef"]`
-- `failures`: `List["FailureTypeDef"]`
-
-
-## StopTaskResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import StopTaskResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `task`: `"TaskTypeDef"`
-
-
-## SubmitAttachmentStateChangesResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import SubmitAttachmentStateChangesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `acknowledgment`: `str`
-
-
-## SubmitContainerStateChangeResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import SubmitContainerStateChangeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `acknowledgment`: `str`
-
-
-## SubmitTaskStateChangeResponseTypeDef
-
-```python
-from mypy_boto3_ecs.type_defs import SubmitTaskStateChangeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `acknowledgment`: `str`
-
-
 ## UpdateCapacityProviderResponseTypeDef
 
 ```python
@@ -2198,6 +2152,52 @@ from mypy_boto3_ecs.type_defs import UpdateTaskSetResponseTypeDef
 
 Optional fields:
 - `taskSet`: `"TaskSetTypeDef"`
+
+
+## VersionInfoTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import VersionInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `agentVersion`: `str`
+- `agentHash`: `str`
+- `dockerVersion`: `str`
+
+
+## VolumeFromTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import VolumeFromTypeDef
+```
+
+
+
+
+Optional fields:
+- `sourceContainer`: `str`
+- `readOnly`: `bool`
+
+
+## VolumeTypeDef
+
+```python
+from mypy_boto3_ecs.type_defs import VolumeTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `host`: `"HostVolumePropertiesTypeDef"`
+- `dockerVolumeConfiguration`: `"DockerVolumeConfigurationTypeDef"`
+- `efsVolumeConfiguration`: `"EFSVolumeConfigurationTypeDef"`
+- `fsxWindowsFileServerVolumeConfiguration`: `"FSxWindowsFileServerVolumeConfigurationTypeDef"`
 
 
 ## WaiterConfigTypeDef

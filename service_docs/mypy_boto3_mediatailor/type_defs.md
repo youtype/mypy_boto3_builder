@@ -13,28 +13,14 @@ type annotations stubs module [mypy_boto3_mediatailor](https://pypi.org/project/
   - [BumperTypeDef](#bumpertypedef)
   - [CdnConfigurationTypeDef](#cdnconfigurationtypedef)
   - [ChannelTypeDef](#channeltypedef)
-  - [DashConfigurationTypeDef](#dashconfigurationtypedef)
-  - [DashPlaylistSettingsTypeDef](#dashplaylistsettingstypedef)
-  - [DefaultSegmentDeliveryConfigurationTypeDef](#defaultsegmentdeliveryconfigurationtypedef)
-  - [HlsConfigurationTypeDef](#hlsconfigurationtypedef)
-  - [HlsPlaylistSettingsTypeDef](#hlsplaylistsettingstypedef)
-  - [HttpConfigurationTypeDef](#httpconfigurationtypedef)
-  - [HttpPackageConfigurationTypeDef](#httppackageconfigurationtypedef)
-  - [LivePreRollConfigurationTypeDef](#liveprerollconfigurationtypedef)
-  - [ManifestProcessingRulesTypeDef](#manifestprocessingrulestypedef)
-  - [PlaybackConfigurationTypeDef](#playbackconfigurationtypedef)
-  - [ResponseOutputItemTypeDef](#responseoutputitemtypedef)
-  - [ScheduleEntryTypeDef](#scheduleentrytypedef)
-  - [SlateSourceTypeDef](#slatesourcetypedef)
-  - [SourceLocationTypeDef](#sourcelocationtypedef)
-  - [SpliceInsertMessageTypeDef](#spliceinsertmessagetypedef)
-  - [TransitionTypeDef](#transitiontypedef)
-  - [VodSourceTypeDef](#vodsourcetypedef)
   - [CreateChannelResponseTypeDef](#createchannelresponsetypedef)
   - [CreateProgramResponseTypeDef](#createprogramresponsetypedef)
   - [CreateSourceLocationResponseTypeDef](#createsourcelocationresponsetypedef)
   - [CreateVodSourceResponseTypeDef](#createvodsourceresponsetypedef)
   - [DashConfigurationForPutTypeDef](#dashconfigurationforputtypedef)
+  - [DashConfigurationTypeDef](#dashconfigurationtypedef)
+  - [DashPlaylistSettingsTypeDef](#dashplaylistsettingstypedef)
+  - [DefaultSegmentDeliveryConfigurationTypeDef](#defaultsegmentdeliveryconfigurationtypedef)
   - [DescribeChannelResponseTypeDef](#describechannelresponsetypedef)
   - [DescribeProgramResponseTypeDef](#describeprogramresponsetypedef)
   - [DescribeSourceLocationResponseTypeDef](#describesourcelocationresponsetypedef)
@@ -42,18 +28,32 @@ type annotations stubs module [mypy_boto3_mediatailor](https://pypi.org/project/
   - [GetChannelPolicyResponseTypeDef](#getchannelpolicyresponsetypedef)
   - [GetChannelScheduleResponseTypeDef](#getchannelscheduleresponsetypedef)
   - [GetPlaybackConfigurationResponseTypeDef](#getplaybackconfigurationresponsetypedef)
+  - [HlsConfigurationTypeDef](#hlsconfigurationtypedef)
+  - [HlsPlaylistSettingsTypeDef](#hlsplaylistsettingstypedef)
+  - [HttpConfigurationTypeDef](#httpconfigurationtypedef)
+  - [HttpPackageConfigurationTypeDef](#httppackageconfigurationtypedef)
   - [ListChannelsResponseTypeDef](#listchannelsresponsetypedef)
   - [ListPlaybackConfigurationsResponseTypeDef](#listplaybackconfigurationsresponsetypedef)
   - [ListSourceLocationsResponseTypeDef](#listsourcelocationsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListVodSourcesResponseTypeDef](#listvodsourcesresponsetypedef)
+  - [LivePreRollConfigurationTypeDef](#liveprerollconfigurationtypedef)
+  - [ManifestProcessingRulesTypeDef](#manifestprocessingrulestypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PlaybackConfigurationTypeDef](#playbackconfigurationtypedef)
   - [PutPlaybackConfigurationResponseTypeDef](#putplaybackconfigurationresponsetypedef)
   - [RequestOutputItemTypeDef](#requestoutputitemtypedef)
+  - [ResponseOutputItemTypeDef](#responseoutputitemtypedef)
   - [ScheduleConfigurationTypeDef](#scheduleconfigurationtypedef)
+  - [ScheduleEntryTypeDef](#scheduleentrytypedef)
+  - [SlateSourceTypeDef](#slatesourcetypedef)
+  - [SourceLocationTypeDef](#sourcelocationtypedef)
+  - [SpliceInsertMessageTypeDef](#spliceinsertmessagetypedef)
+  - [TransitionTypeDef](#transitiontypedef)
   - [UpdateChannelResponseTypeDef](#updatechannelresponsetypedef)
   - [UpdateSourceLocationResponseTypeDef](#updatesourcelocationresponsetypedef)
   - [UpdateVodSourceResponseTypeDef](#updatevodsourceresponsetypedef)
+  - [VodSourceTypeDef](#vodsourcetypedef)
 
 ## AccessConfigurationTypeDef
 
@@ -65,7 +65,7 @@ from mypy_boto3_mediatailor.type_defs import AccessConfigurationTypeDef
 
 
 Optional fields:
-- `AccessType`: `AccessType`
+- `AccessType`: `Literal['S3_SIGV4']`
 
 
 ## AdBreakTypeDef
@@ -78,7 +78,7 @@ from mypy_boto3_mediatailor.type_defs import AdBreakTypeDef
 
 
 Optional fields:
-- `MessageType`: `MessageType`
+- `MessageType`: `Literal['SPLICE_INSERT']`
 - `OffsetMillis`: `int`
 - `Slate`: `"SlateSourceTypeDef"`
 - `SpliceInsertMessage`: `"SpliceInsertMessageTypeDef"`
@@ -152,291 +152,6 @@ Required fields:
 - `ChannelState`: `str`
 - `Outputs`: `List["ResponseOutputItemTypeDef"]`
 - `PlaybackMode`: `str`
-
-
-
-Optional fields:
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `Tags`: `Dict[str, str]`
-
-
-## DashConfigurationTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import DashConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ManifestEndpointPrefix`: `str`
-- `MpdLocation`: `str`
-- `OriginManifestType`: `OriginManifestType`
-
-
-## DashPlaylistSettingsTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import DashPlaylistSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ManifestWindowSeconds`: `int`
-- `MinBufferTimeSeconds`: `int`
-- `MinUpdatePeriodSeconds`: `int`
-- `SuggestedPresentationDelaySeconds`: `int`
-
-
-## DefaultSegmentDeliveryConfigurationTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import DefaultSegmentDeliveryConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `BaseUrl`: `str`
-
-
-## HlsConfigurationTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import HlsConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ManifestEndpointPrefix`: `str`
-
-
-## HlsPlaylistSettingsTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import HlsPlaylistSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ManifestWindowSeconds`: `int`
-
-
-## HttpConfigurationTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import HttpConfigurationTypeDef
-```
-
-
-Required fields:
-- `BaseUrl`: `str`
-
-
-
-
-## HttpPackageConfigurationTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import HttpPackageConfigurationTypeDef
-```
-
-
-Required fields:
-- `Path`: `str`
-- `SourceGroup`: `str`
-- `Type`: `TypeType`
-
-
-
-
-## LivePreRollConfigurationTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import LivePreRollConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AdDecisionServerUrl`: `str`
-- `MaxDurationSeconds`: `int`
-
-
-## ManifestProcessingRulesTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import ManifestProcessingRulesTypeDef
-```
-
-
-
-
-Optional fields:
-- `AdMarkerPassthrough`: `"AdMarkerPassthroughTypeDef"`
-
-
-## PlaybackConfigurationTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import PlaybackConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AdDecisionServerUrl`: `str`
-- `AvailSuppression`: `"AvailSuppressionTypeDef"`
-- `Bumper`: `"BumperTypeDef"`
-- `CdnConfiguration`: `"CdnConfigurationTypeDef"`
-- `ConfigurationAliases`: `Dict[str, Dict[str, str]]`
-- `DashConfiguration`: `"DashConfigurationTypeDef"`
-- `HlsConfiguration`: `"HlsConfigurationTypeDef"`
-- `LivePreRollConfiguration`: `"LivePreRollConfigurationTypeDef"`
-- `ManifestProcessingRules`: `"ManifestProcessingRulesTypeDef"`
-- `Name`: `str`
-- `PersonalizationThresholdSeconds`: `int`
-- `PlaybackConfigurationArn`: `str`
-- `PlaybackEndpointPrefix`: `str`
-- `SessionInitializationEndpointPrefix`: `str`
-- `SlateAdUrl`: `str`
-- `Tags`: `Dict[str, str]`
-- `TranscodeProfileName`: `str`
-- `VideoContentSourceUrl`: `str`
-
-
-## ResponseOutputItemTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import ResponseOutputItemTypeDef
-```
-
-
-Required fields:
-- `ManifestName`: `str`
-- `PlaybackUrl`: `str`
-- `SourceGroup`: `str`
-
-
-
-Optional fields:
-- `DashPlaylistSettings`: `"DashPlaylistSettingsTypeDef"`
-- `HlsPlaylistSettings`: `"HlsPlaylistSettingsTypeDef"`
-
-
-## ScheduleEntryTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import ScheduleEntryTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-- `ChannelName`: `str`
-- `ProgramName`: `str`
-- `SourceLocationName`: `str`
-- `VodSourceName`: `str`
-
-
-
-Optional fields:
-- `ApproximateDurationSeconds`: `int`
-- `ApproximateStartTime`: `datetime`
-
-
-## SlateSourceTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import SlateSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceLocationName`: `str`
-- `VodSourceName`: `str`
-
-
-## SourceLocationTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import SourceLocationTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-- `HttpConfiguration`: `"HttpConfigurationTypeDef"`
-- `SourceLocationName`: `str`
-
-
-
-Optional fields:
-- `AccessConfiguration`: `"AccessConfigurationTypeDef"`
-- `CreationTime`: `datetime`
-- `DefaultSegmentDeliveryConfiguration`: `"DefaultSegmentDeliveryConfigurationTypeDef"`
-- `LastModifiedTime`: `datetime`
-- `Tags`: `Dict[str, str]`
-
-
-## SpliceInsertMessageTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import SpliceInsertMessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailNum`: `int`
-- `AvailsExpected`: `int`
-- `SpliceEventId`: `int`
-- `UniqueProgramId`: `int`
-
-
-## TransitionTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import TransitionTypeDef
-```
-
-
-Required fields:
-- `RelativePosition`: `RelativePosition`
-- `Type`: `str`
-
-
-
-Optional fields:
-- `RelativeProgram`: `str`
-
-
-## VodSourceTypeDef
-
-```python
-from mypy_boto3_mediatailor.type_defs import VodSourceTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-- `HttpPackageConfigurations`: `List["HttpPackageConfigurationTypeDef"]`
-- `SourceLocationName`: `str`
-- `VodSourceName`: `str`
 
 
 
@@ -536,6 +251,50 @@ from mypy_boto3_mediatailor.type_defs import DashConfigurationForPutTypeDef
 Optional fields:
 - `MpdLocation`: `str`
 - `OriginManifestType`: `OriginManifestType`
+
+
+## DashConfigurationTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import DashConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ManifestEndpointPrefix`: `str`
+- `MpdLocation`: `str`
+- `OriginManifestType`: `OriginManifestType`
+
+
+## DashPlaylistSettingsTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import DashPlaylistSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ManifestWindowSeconds`: `int`
+- `MinBufferTimeSeconds`: `int`
+- `MinUpdatePeriodSeconds`: `int`
+- `SuggestedPresentationDelaySeconds`: `int`
+
+
+## DefaultSegmentDeliveryConfigurationTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import DefaultSegmentDeliveryConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `BaseUrl`: `str`
 
 
 ## DescribeChannelResponseTypeDef
@@ -673,6 +432,60 @@ Optional fields:
 - `VideoContentSourceUrl`: `str`
 
 
+## HlsConfigurationTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import HlsConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ManifestEndpointPrefix`: `str`
+
+
+## HlsPlaylistSettingsTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import HlsPlaylistSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ManifestWindowSeconds`: `int`
+
+
+## HttpConfigurationTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import HttpConfigurationTypeDef
+```
+
+
+Required fields:
+- `BaseUrl`: `str`
+
+
+
+
+## HttpPackageConfigurationTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import HttpPackageConfigurationTypeDef
+```
+
+
+Required fields:
+- `Path`: `str`
+- `SourceGroup`: `str`
+- `Type`: `TypeType`
+
+
+
+
 ## ListChannelsResponseTypeDef
 
 ```python
@@ -742,6 +555,33 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## LivePreRollConfigurationTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import LivePreRollConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AdDecisionServerUrl`: `str`
+- `MaxDurationSeconds`: `int`
+
+
+## ManifestProcessingRulesTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import ManifestProcessingRulesTypeDef
+```
+
+
+
+
+Optional fields:
+- `AdMarkerPassthrough`: `"AdMarkerPassthroughTypeDef"`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -755,6 +595,36 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PlaybackConfigurationTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import PlaybackConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AdDecisionServerUrl`: `str`
+- `AvailSuppression`: `"AvailSuppressionTypeDef"`
+- `Bumper`: `"BumperTypeDef"`
+- `CdnConfiguration`: `"CdnConfigurationTypeDef"`
+- `ConfigurationAliases`: `Dict[str, Dict[str, str]]`
+- `DashConfiguration`: `"DashConfigurationTypeDef"`
+- `HlsConfiguration`: `"HlsConfigurationTypeDef"`
+- `LivePreRollConfiguration`: `"LivePreRollConfigurationTypeDef"`
+- `ManifestProcessingRules`: `"ManifestProcessingRulesTypeDef"`
+- `Name`: `str`
+- `PersonalizationThresholdSeconds`: `int`
+- `PlaybackConfigurationArn`: `str`
+- `PlaybackEndpointPrefix`: `str`
+- `SessionInitializationEndpointPrefix`: `str`
+- `SlateAdUrl`: `str`
+- `Tags`: `Dict[str, str]`
+- `TranscodeProfileName`: `str`
+- `VideoContentSourceUrl`: `str`
 
 
 ## PutPlaybackConfigurationResponseTypeDef
@@ -805,6 +675,25 @@ Optional fields:
 - `HlsPlaylistSettings`: `"HlsPlaylistSettingsTypeDef"`
 
 
+## ResponseOutputItemTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import ResponseOutputItemTypeDef
+```
+
+
+Required fields:
+- `ManifestName`: `str`
+- `PlaybackUrl`: `str`
+- `SourceGroup`: `str`
+
+
+
+Optional fields:
+- `DashPlaylistSettings`: `"DashPlaylistSettingsTypeDef"`
+- `HlsPlaylistSettings`: `"HlsPlaylistSettingsTypeDef"`
+
+
 ## ScheduleConfigurationTypeDef
 
 ```python
@@ -816,6 +705,96 @@ Required fields:
 - `Transition`: `"TransitionTypeDef"`
 
 
+
+
+## ScheduleEntryTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import ScheduleEntryTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+- `ChannelName`: `str`
+- `ProgramName`: `str`
+- `SourceLocationName`: `str`
+- `VodSourceName`: `str`
+
+
+
+Optional fields:
+- `ApproximateDurationSeconds`: `int`
+- `ApproximateStartTime`: `datetime`
+
+
+## SlateSourceTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import SlateSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceLocationName`: `str`
+- `VodSourceName`: `str`
+
+
+## SourceLocationTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import SourceLocationTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+- `HttpConfiguration`: `"HttpConfigurationTypeDef"`
+- `SourceLocationName`: `str`
+
+
+
+Optional fields:
+- `AccessConfiguration`: `"AccessConfigurationTypeDef"`
+- `CreationTime`: `datetime`
+- `DefaultSegmentDeliveryConfiguration`: `"DefaultSegmentDeliveryConfigurationTypeDef"`
+- `LastModifiedTime`: `datetime`
+- `Tags`: `Dict[str, str]`
+
+
+## SpliceInsertMessageTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import SpliceInsertMessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailNum`: `int`
+- `AvailsExpected`: `int`
+- `SpliceEventId`: `int`
+- `UniqueProgramId`: `int`
+
+
+## TransitionTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import TransitionTypeDef
+```
+
+
+Required fields:
+- `RelativePosition`: `RelativePosition`
+- `Type`: `str`
+
+
+
+Optional fields:
+- `RelativeProgram`: `str`
 
 
 ## UpdateChannelResponseTypeDef
@@ -875,4 +854,25 @@ Optional fields:
 - `SourceLocationName`: `str`
 - `Tags`: `Dict[str, str]`
 - `VodSourceName`: `str`
+
+
+## VodSourceTypeDef
+
+```python
+from mypy_boto3_mediatailor.type_defs import VodSourceTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+- `HttpPackageConfigurations`: `List["HttpPackageConfigurationTypeDef"]`
+- `SourceLocationName`: `str`
+- `VodSourceName`: `str`
+
+
+
+Optional fields:
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `Tags`: `Dict[str, str]`
 

@@ -8,13 +8,13 @@ type annotations stubs module [mypy_boto3_ebs](https://pypi.org/project/mypy-bot
 - [Structures for boto3 EBS module](#structures-for-boto3-ebs-module)
   - [BlockTypeDef](#blocktypedef)
   - [ChangedBlockTypeDef](#changedblocktypedef)
-  - [TagTypeDef](#tagtypedef)
   - [CompleteSnapshotResponseTypeDef](#completesnapshotresponsetypedef)
   - [GetSnapshotBlockResponseTypeDef](#getsnapshotblockresponsetypedef)
   - [ListChangedBlocksResponseTypeDef](#listchangedblocksresponsetypedef)
   - [ListSnapshotBlocksResponseTypeDef](#listsnapshotblocksresponsetypedef)
   - [PutSnapshotBlockResponseTypeDef](#putsnapshotblockresponsetypedef)
   - [StartSnapshotResponseTypeDef](#startsnapshotresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
 
 ## BlockTypeDef
 
@@ -45,20 +45,6 @@ Optional fields:
 - `SecondBlockToken`: `str`
 
 
-## TagTypeDef
-
-```python
-from mypy_boto3_ebs.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
 ## CompleteSnapshotResponseTypeDef
 
 ```python
@@ -85,7 +71,7 @@ Optional fields:
 - `DataLength`: `int`
 - `BlockData`: `StreamingBody`
 - `Checksum`: `str`
-- `ChecksumAlgorithm`: `ChecksumAlgorithm`
+- `ChecksumAlgorithm`: `Literal['SHA256']`
 
 
 ## ListChangedBlocksResponseTypeDef
@@ -133,7 +119,7 @@ from mypy_boto3_ebs.type_defs import PutSnapshotBlockResponseTypeDef
 
 Optional fields:
 - `Checksum`: `str`
-- `ChecksumAlgorithm`: `ChecksumAlgorithm`
+- `ChecksumAlgorithm`: `Literal['SHA256']`
 
 
 ## StartSnapshotResponseTypeDef
@@ -156,4 +142,18 @@ Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 - `ParentSnapshotId`: `str`
 - `KmsKeyArn`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_ebs.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
 

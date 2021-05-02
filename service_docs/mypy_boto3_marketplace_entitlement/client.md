@@ -96,16 +96,12 @@ def get_entitlements(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("marketplace-entitlement").get_paginator` method.
+Type annotations for `boto3.client("marketplace-entitlement").get_paginator` method with overloads.
 
-[Paginator.GetEntitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements)
+- `client.get_paginator("get_entitlements")` -> [GetEntitlementsPaginator](./paginators.md#getentitlementspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: GetEntitlementsPaginatorName
-) -> GetEntitlementsPaginator:
-    pass
-```
+

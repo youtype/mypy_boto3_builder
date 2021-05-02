@@ -6,12 +6,10 @@ Auto-generated documentation for [CodeStarNotifications](https://boto3.amazonaws
 type annotations stubs module [mypy_boto3_codestar_notifications](https://pypi.org/project/mypy-boto3-codestar-notifications/).
 
 - [Structures for boto3 CodeStarNotifications module](#structures-for-boto3-codestarnotifications-module)
-  - [EventTypeSummaryTypeDef](#eventtypesummarytypedef)
-  - [NotificationRuleSummaryTypeDef](#notificationrulesummarytypedef)
-  - [TargetSummaryTypeDef](#targetsummarytypedef)
   - [CreateNotificationRuleResultTypeDef](#createnotificationruleresulttypedef)
   - [DeleteNotificationRuleResultTypeDef](#deletenotificationruleresulttypedef)
   - [DescribeNotificationRuleResultTypeDef](#describenotificationruleresulttypedef)
+  - [EventTypeSummaryTypeDef](#eventtypesummarytypedef)
   - [ListEventTypesFilterTypeDef](#listeventtypesfiltertypedef)
   - [ListEventTypesResultTypeDef](#listeventtypesresulttypedef)
   - [ListNotificationRulesFilterTypeDef](#listnotificationrulesfiltertypedef)
@@ -19,56 +17,13 @@ type annotations stubs module [mypy_boto3_codestar_notifications](https://pypi.o
   - [ListTagsForResourceResultTypeDef](#listtagsforresourceresulttypedef)
   - [ListTargetsFilterTypeDef](#listtargetsfiltertypedef)
   - [ListTargetsResultTypeDef](#listtargetsresulttypedef)
+  - [NotificationRuleSummaryTypeDef](#notificationrulesummarytypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [SubscribeResultTypeDef](#subscriberesulttypedef)
   - [TagResourceResultTypeDef](#tagresourceresulttypedef)
+  - [TargetSummaryTypeDef](#targetsummarytypedef)
   - [TargetTypeDef](#targettypedef)
   - [UnsubscribeResultTypeDef](#unsubscriberesulttypedef)
-
-## EventTypeSummaryTypeDef
-
-```python
-from mypy_boto3_codestar_notifications.type_defs import EventTypeSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventTypeId`: `str`
-- `ServiceName`: `str`
-- `EventTypeName`: `str`
-- `ResourceType`: `str`
-
-
-## NotificationRuleSummaryTypeDef
-
-```python
-from mypy_boto3_codestar_notifications.type_defs import NotificationRuleSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-
-
-## TargetSummaryTypeDef
-
-```python
-from mypy_boto3_codestar_notifications.type_defs import TargetSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `TargetAddress`: `str`
-- `TargetType`: `str`
-- `TargetStatus`: `TargetStatus`
-
 
 ## CreateNotificationRuleResultTypeDef
 
@@ -119,6 +74,22 @@ Optional fields:
 - `CreatedTimestamp`: `datetime`
 - `LastModifiedTimestamp`: `datetime`
 - `Tags`: `Dict[str, str]`
+
+
+## EventTypeSummaryTypeDef
+
+```python
+from mypy_boto3_codestar_notifications.type_defs import EventTypeSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventTypeId`: `str`
+- `ServiceName`: `str`
+- `EventTypeName`: `str`
+- `ResourceType`: `str`
 
 
 ## ListEventTypesFilterTypeDef
@@ -218,6 +189,20 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## NotificationRuleSummaryTypeDef
+
+```python
+from mypy_boto3_codestar_notifications.type_defs import NotificationRuleSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -257,6 +242,21 @@ from mypy_boto3_codestar_notifications.type_defs import TagResourceResultTypeDef
 
 Optional fields:
 - `Tags`: `Dict[str, str]`
+
+
+## TargetSummaryTypeDef
+
+```python
+from mypy_boto3_codestar_notifications.type_defs import TargetSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `TargetAddress`: `str`
+- `TargetType`: `str`
+- `TargetStatus`: `TargetStatus`
 
 
 ## TargetTypeDef

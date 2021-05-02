@@ -92,7 +92,7 @@ class ListPackageVersionsPaginator(Boto3Paginator):
         domainOwner: str = None,
         namespace: str = None,
         status: PackageVersionStatus = None,
-        sortBy: PackageVersionSortType = None,
+        sortBy: Literal['PUBLISHED_TIME'] = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPackageVersionsResultTypeDef]:
         pass

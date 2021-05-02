@@ -6,22 +6,6 @@ Auto-generated documentation for [MediaConnect](https://boto3.amazonaws.com/v1/d
 type annotations stubs module [mypy_boto3_mediaconnect](https://pypi.org/project/mypy-boto3-mediaconnect/).
 
 - [Structures for boto3 MediaConnect module](#structures-for-boto3-mediaconnect-module)
-  - [EncryptionTypeDef](#encryptiontypedef)
-  - [EntitlementTypeDef](#entitlementtypedef)
-  - [FailoverConfigTypeDef](#failoverconfigtypedef)
-  - [FlowTypeDef](#flowtypedef)
-  - [ListedEntitlementTypeDef](#listedentitlementtypedef)
-  - [ListedFlowTypeDef](#listedflowtypedef)
-  - [MessagesTypeDef](#messagestypedef)
-  - [OfferingTypeDef](#offeringtypedef)
-  - [OutputTypeDef](#outputtypedef)
-  - [ReservationTypeDef](#reservationtypedef)
-  - [ResourceSpecificationTypeDef](#resourcespecificationtypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [SourceTypeDef](#sourcetypedef)
-  - [TransportTypeDef](#transporttypedef)
-  - [VpcInterfaceAttachmentTypeDef](#vpcinterfaceattachmenttypedef)
-  - [VpcInterfaceTypeDef](#vpcinterfacetypedef)
   - [AddFlowOutputsResponseTypeDef](#addflowoutputsresponsetypedef)
   - [AddFlowSourcesResponseTypeDef](#addflowsourcesresponsetypedef)
   - [AddFlowVpcInterfacesResponseTypeDef](#addflowvpcinterfacesresponsetypedef)
@@ -31,6 +15,10 @@ type annotations stubs module [mypy_boto3_mediaconnect](https://pypi.org/project
   - [DescribeFlowResponseTypeDef](#describeflowresponsetypedef)
   - [DescribeOfferingResponseTypeDef](#describeofferingresponsetypedef)
   - [DescribeReservationResponseTypeDef](#describereservationresponsetypedef)
+  - [EncryptionTypeDef](#encryptiontypedef)
+  - [EntitlementTypeDef](#entitlementtypedef)
+  - [FailoverConfigTypeDef](#failoverconfigtypedef)
+  - [FlowTypeDef](#flowtypedef)
   - [GrantEntitlementRequestTypeDef](#grantentitlementrequesttypedef)
   - [GrantFlowEntitlementsResponseTypeDef](#grantflowentitlementsresponsetypedef)
   - [ListEntitlementsResponseTypeDef](#listentitlementsresponsetypedef)
@@ -38,337 +26,35 @@ type annotations stubs module [mypy_boto3_mediaconnect](https://pypi.org/project
   - [ListOfferingsResponseTypeDef](#listofferingsresponsetypedef)
   - [ListReservationsResponseTypeDef](#listreservationsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [ListedEntitlementTypeDef](#listedentitlementtypedef)
+  - [ListedFlowTypeDef](#listedflowtypedef)
+  - [MessagesTypeDef](#messagestypedef)
+  - [OfferingTypeDef](#offeringtypedef)
+  - [OutputTypeDef](#outputtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PurchaseOfferingResponseTypeDef](#purchaseofferingresponsetypedef)
   - [RemoveFlowOutputResponseTypeDef](#removeflowoutputresponsetypedef)
   - [RemoveFlowSourceResponseTypeDef](#removeflowsourceresponsetypedef)
   - [RemoveFlowVpcInterfaceResponseTypeDef](#removeflowvpcinterfaceresponsetypedef)
+  - [ReservationTypeDef](#reservationtypedef)
+  - [ResourceSpecificationTypeDef](#resourcespecificationtypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [RevokeFlowEntitlementResponseTypeDef](#revokeflowentitlementresponsetypedef)
   - [SetSourceRequestTypeDef](#setsourcerequesttypedef)
+  - [SourceTypeDef](#sourcetypedef)
   - [StartFlowResponseTypeDef](#startflowresponsetypedef)
   - [StopFlowResponseTypeDef](#stopflowresponsetypedef)
+  - [TransportTypeDef](#transporttypedef)
   - [UpdateEncryptionTypeDef](#updateencryptiontypedef)
   - [UpdateFailoverConfigTypeDef](#updatefailoverconfigtypedef)
   - [UpdateFlowEntitlementResponseTypeDef](#updateflowentitlementresponsetypedef)
   - [UpdateFlowOutputResponseTypeDef](#updateflowoutputresponsetypedef)
   - [UpdateFlowResponseTypeDef](#updateflowresponsetypedef)
   - [UpdateFlowSourceResponseTypeDef](#updateflowsourceresponsetypedef)
+  - [VpcInterfaceAttachmentTypeDef](#vpcinterfaceattachmenttypedef)
   - [VpcInterfaceRequestTypeDef](#vpcinterfacerequesttypedef)
+  - [VpcInterfaceTypeDef](#vpcinterfacetypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
-
-## EncryptionTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import EncryptionTypeDef
-```
-
-
-Required fields:
-- `RoleArn`: `str`
-
-
-
-Optional fields:
-- `Algorithm`: `Algorithm`
-- `ConstantInitializationVector`: `str`
-- `DeviceId`: `str`
-- `KeyType`: `KeyType`
-- `Region`: `str`
-- `ResourceId`: `str`
-- `SecretArn`: `str`
-- `Url`: `str`
-
-
-## EntitlementTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import EntitlementTypeDef
-```
-
-
-Required fields:
-- `EntitlementArn`: `str`
-- `Name`: `str`
-- `Subscribers`: `List[str]`
-
-
-
-Optional fields:
-- `DataTransferSubscriberFeePercent`: `int`
-- `Description`: `str`
-- `Encryption`: `"EncryptionTypeDef"`
-- `EntitlementStatus`: `EntitlementStatus`
-
-
-## FailoverConfigTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import FailoverConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `RecoveryWindow`: `int`
-- `State`: `State`
-
-
-## FlowTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import FlowTypeDef
-```
-
-
-Required fields:
-- `AvailabilityZone`: `str`
-- `Entitlements`: `List["EntitlementTypeDef"]`
-- `FlowArn`: `str`
-- `Name`: `str`
-- `Outputs`: `List["OutputTypeDef"]`
-- `Source`: `"SourceTypeDef"`
-- `Status`: `Status`
-
-
-
-Optional fields:
-- `Description`: `str`
-- `EgressIp`: `str`
-- `SourceFailoverConfig`: `"FailoverConfigTypeDef"`
-- `Sources`: `List["SourceTypeDef"]`
-- `VpcInterfaces`: `List["VpcInterfaceTypeDef"]`
-
-
-## ListedEntitlementTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import ListedEntitlementTypeDef
-```
-
-
-Required fields:
-- `EntitlementArn`: `str`
-- `EntitlementName`: `str`
-
-
-
-Optional fields:
-- `DataTransferSubscriberFeePercent`: `int`
-
-
-## ListedFlowTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import ListedFlowTypeDef
-```
-
-
-Required fields:
-- `AvailabilityZone`: `str`
-- `Description`: `str`
-- `FlowArn`: `str`
-- `Name`: `str`
-- `SourceType`: `SourceType`
-- `Status`: `Status`
-
-
-
-
-## MessagesTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import MessagesTypeDef
-```
-
-
-Required fields:
-- `Errors`: `List[str]`
-
-
-
-
-## OfferingTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import OfferingTypeDef
-```
-
-
-Required fields:
-- `CurrencyCode`: `str`
-- `Duration`: `int`
-- `DurationUnits`: `DurationUnits`
-- `OfferingArn`: `str`
-- `OfferingDescription`: `str`
-- `PricePerUnit`: `str`
-- `PriceUnits`: `PriceUnits`
-- `ResourceSpecification`: `"ResourceSpecificationTypeDef"`
-
-
-
-
-## OutputTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import OutputTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `OutputArn`: `str`
-
-
-
-Optional fields:
-- `DataTransferSubscriberFeePercent`: `int`
-- `Description`: `str`
-- `Destination`: `str`
-- `Encryption`: `"EncryptionTypeDef"`
-- `EntitlementArn`: `str`
-- `ListenerAddress`: `str`
-- `MediaLiveInputArn`: `str`
-- `Port`: `int`
-- `Transport`: `"TransportTypeDef"`
-- `VpcInterfaceAttachment`: `"VpcInterfaceAttachmentTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ReservationTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import ReservationTypeDef
-```
-
-
-Required fields:
-- `CurrencyCode`: `str`
-- `Duration`: `int`
-- `DurationUnits`: `DurationUnits`
-- `End`: `str`
-- `OfferingArn`: `str`
-- `OfferingDescription`: `str`
-- `PricePerUnit`: `str`
-- `PriceUnits`: `PriceUnits`
-- `ReservationArn`: `str`
-- `ReservationName`: `str`
-- `ReservationState`: `ReservationState`
-- `ResourceSpecification`: `"ResourceSpecificationTypeDef"`
-- `Start`: `str`
-
-
-
-
-## ResourceSpecificationTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import ResourceSpecificationTypeDef
-```
-
-
-Required fields:
-- `ResourceType`: `ResourceType`
-
-
-
-Optional fields:
-- `ReservedBitrate`: `int`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_mediaconnect.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## SourceTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import SourceTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `SourceArn`: `str`
-
-
-
-Optional fields:
-- `DataTransferSubscriberFeePercent`: `int`
-- `Decryption`: `"EncryptionTypeDef"`
-- `Description`: `str`
-- `EntitlementArn`: `str`
-- `IngestIp`: `str`
-- `IngestPort`: `int`
-- `Transport`: `"TransportTypeDef"`
-- `VpcInterfaceName`: `str`
-- `WhitelistCidr`: `str`
-
-
-## TransportTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import TransportTypeDef
-```
-
-
-Required fields:
-- `Protocol`: `ProtocolType`
-
-
-
-Optional fields:
-- `CidrAllowList`: `List[str]`
-- `MaxBitrate`: `int`
-- `MaxLatency`: `int`
-- `MinLatency`: `int`
-- `RemoteId`: `str`
-- `SmoothingLatency`: `int`
-- `StreamId`: `str`
-
-
-## VpcInterfaceAttachmentTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import VpcInterfaceAttachmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `VpcInterfaceName`: `str`
-
-
-## VpcInterfaceTypeDef
-
-```python
-from mypy_boto3_mediaconnect.type_defs import VpcInterfaceTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `NetworkInterfaceIds`: `List[str]`
-- `RoleArn`: `str`
-- `SecurityGroupIds`: `List[str]`
-- `SubnetId`: `str`
-
-
-
 
 ## AddFlowOutputsResponseTypeDef
 
@@ -506,6 +192,90 @@ Optional fields:
 - `Reservation`: `"ReservationTypeDef"`
 
 
+## EncryptionTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import EncryptionTypeDef
+```
+
+
+Required fields:
+- `RoleArn`: `str`
+
+
+
+Optional fields:
+- `Algorithm`: `Algorithm`
+- `ConstantInitializationVector`: `str`
+- `DeviceId`: `str`
+- `KeyType`: `KeyType`
+- `Region`: `str`
+- `ResourceId`: `str`
+- `SecretArn`: `str`
+- `Url`: `str`
+
+
+## EntitlementTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import EntitlementTypeDef
+```
+
+
+Required fields:
+- `EntitlementArn`: `str`
+- `Name`: `str`
+- `Subscribers`: `List[str]`
+
+
+
+Optional fields:
+- `DataTransferSubscriberFeePercent`: `int`
+- `Description`: `str`
+- `Encryption`: `"EncryptionTypeDef"`
+- `EntitlementStatus`: `EntitlementStatus`
+
+
+## FailoverConfigTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import FailoverConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `RecoveryWindow`: `int`
+- `State`: `State`
+
+
+## FlowTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import FlowTypeDef
+```
+
+
+Required fields:
+- `AvailabilityZone`: `str`
+- `Entitlements`: `List["EntitlementTypeDef"]`
+- `FlowArn`: `str`
+- `Name`: `str`
+- `Outputs`: `List["OutputTypeDef"]`
+- `Source`: `"SourceTypeDef"`
+- `Status`: `Status`
+
+
+
+Optional fields:
+- `Description`: `str`
+- `EgressIp`: `str`
+- `SourceFailoverConfig`: `"FailoverConfigTypeDef"`
+- `Sources`: `List["SourceTypeDef"]`
+- `VpcInterfaces`: `List["VpcInterfaceTypeDef"]`
+
+
 ## GrantEntitlementRequestTypeDef
 
 ```python
@@ -609,6 +379,101 @@ Optional fields:
 - `Tags`: `Dict[str, str]`
 
 
+## ListedEntitlementTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import ListedEntitlementTypeDef
+```
+
+
+Required fields:
+- `EntitlementArn`: `str`
+- `EntitlementName`: `str`
+
+
+
+Optional fields:
+- `DataTransferSubscriberFeePercent`: `int`
+
+
+## ListedFlowTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import ListedFlowTypeDef
+```
+
+
+Required fields:
+- `AvailabilityZone`: `str`
+- `Description`: `str`
+- `FlowArn`: `str`
+- `Name`: `str`
+- `SourceType`: `SourceType`
+- `Status`: `Status`
+
+
+
+
+## MessagesTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import MessagesTypeDef
+```
+
+
+Required fields:
+- `Errors`: `List[str]`
+
+
+
+
+## OfferingTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import OfferingTypeDef
+```
+
+
+Required fields:
+- `CurrencyCode`: `str`
+- `Duration`: `int`
+- `DurationUnits`: `Literal['MONTHS']`
+- `OfferingArn`: `str`
+- `OfferingDescription`: `str`
+- `PricePerUnit`: `str`
+- `PriceUnits`: `Literal['HOURLY']`
+- `ResourceSpecification`: `"ResourceSpecificationTypeDef"`
+
+
+
+
+## OutputTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import OutputTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `OutputArn`: `str`
+
+
+
+Optional fields:
+- `DataTransferSubscriberFeePercent`: `int`
+- `Description`: `str`
+- `Destination`: `str`
+- `Encryption`: `"EncryptionTypeDef"`
+- `EntitlementArn`: `str`
+- `ListenerAddress`: `str`
+- `MediaLiveInputArn`: `str`
+- `Port`: `int`
+- `Transport`: `"TransportTypeDef"`
+- `VpcInterfaceAttachment`: `"VpcInterfaceAttachmentTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -680,6 +545,64 @@ Optional fields:
 - `VpcInterfaceName`: `str`
 
 
+## ReservationTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import ReservationTypeDef
+```
+
+
+Required fields:
+- `CurrencyCode`: `str`
+- `Duration`: `int`
+- `DurationUnits`: `Literal['MONTHS']`
+- `End`: `str`
+- `OfferingArn`: `str`
+- `OfferingDescription`: `str`
+- `PricePerUnit`: `str`
+- `PriceUnits`: `Literal['HOURLY']`
+- `ReservationArn`: `str`
+- `ReservationName`: `str`
+- `ReservationState`: `ReservationState`
+- `ResourceSpecification`: `"ResourceSpecificationTypeDef"`
+- `Start`: `str`
+
+
+
+
+## ResourceSpecificationTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import ResourceSpecificationTypeDef
+```
+
+
+Required fields:
+- `ResourceType`: `Literal['Mbps_Outbound_Bandwidth']`
+
+
+
+Optional fields:
+- `ReservedBitrate`: `int`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_mediaconnect.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
 ## RevokeFlowEntitlementResponseTypeDef
 
 ```python
@@ -718,6 +641,31 @@ Optional fields:
 - `WhitelistCidr`: `str`
 
 
+## SourceTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import SourceTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `SourceArn`: `str`
+
+
+
+Optional fields:
+- `DataTransferSubscriberFeePercent`: `int`
+- `Decryption`: `"EncryptionTypeDef"`
+- `Description`: `str`
+- `EntitlementArn`: `str`
+- `IngestIp`: `str`
+- `IngestPort`: `int`
+- `Transport`: `"TransportTypeDef"`
+- `VpcInterfaceName`: `str`
+- `WhitelistCidr`: `str`
+
+
 ## StartFlowResponseTypeDef
 
 ```python
@@ -744,6 +692,28 @@ from mypy_boto3_mediaconnect.type_defs import StopFlowResponseTypeDef
 Optional fields:
 - `FlowArn`: `str`
 - `Status`: `Status`
+
+
+## TransportTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import TransportTypeDef
+```
+
+
+Required fields:
+- `Protocol`: `ProtocolType`
+
+
+
+Optional fields:
+- `CidrAllowList`: `List[str]`
+- `MaxBitrate`: `int`
+- `MaxLatency`: `int`
+- `MinLatency`: `int`
+- `RemoteId`: `str`
+- `SmoothingLatency`: `int`
+- `StreamId`: `str`
 
 
 ## UpdateEncryptionTypeDef
@@ -836,6 +806,19 @@ Optional fields:
 - `Source`: `"SourceTypeDef"`
 
 
+## VpcInterfaceAttachmentTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import VpcInterfaceAttachmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `VpcInterfaceName`: `str`
+
+
 ## VpcInterfaceRequestTypeDef
 
 ```python
@@ -845,6 +828,23 @@ from mypy_boto3_mediaconnect.type_defs import VpcInterfaceRequestTypeDef
 
 Required fields:
 - `Name`: `str`
+- `RoleArn`: `str`
+- `SecurityGroupIds`: `List[str]`
+- `SubnetId`: `str`
+
+
+
+
+## VpcInterfaceTypeDef
+
+```python
+from mypy_boto3_mediaconnect.type_defs import VpcInterfaceTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `NetworkInterfaceIds`: `List[str]`
 - `RoleArn`: `str`
 - `SecurityGroupIds`: `List[str]`
 - `SubnetId`: `str`

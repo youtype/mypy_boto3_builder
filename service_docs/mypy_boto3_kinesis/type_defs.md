@@ -9,7 +9,14 @@ type annotations stubs module [mypy_boto3_kinesis](https://pypi.org/project/mypy
   - [ChildShardTypeDef](#childshardtypedef)
   - [ConsumerDescriptionTypeDef](#consumerdescriptiontypedef)
   - [ConsumerTypeDef](#consumertypedef)
+  - [DescribeLimitsOutputTypeDef](#describelimitsoutputtypedef)
+  - [DescribeStreamConsumerOutputTypeDef](#describestreamconsumeroutputtypedef)
+  - [DescribeStreamOutputTypeDef](#describestreamoutputtypedef)
+  - [DescribeStreamSummaryOutputTypeDef](#describestreamsummaryoutputtypedef)
   - [EnhancedMetricsTypeDef](#enhancedmetricstypedef)
+  - [EnhancedMonitoringOutputTypeDef](#enhancedmonitoringoutputtypedef)
+  - [GetRecordsOutputTypeDef](#getrecordsoutputtypedef)
+  - [GetShardIteratorOutputTypeDef](#getsharditeratoroutputtypedef)
   - [HashKeyRangeTypeDef](#hashkeyrangetypedef)
   - [InternalFailureExceptionTypeDef](#internalfailureexceptiontypedef)
   - [KMSAccessDeniedExceptionTypeDef](#kmsaccessdeniedexceptiontypedef)
@@ -18,25 +25,6 @@ type annotations stubs module [mypy_boto3_kinesis](https://pypi.org/project/mypy
   - [KMSNotFoundExceptionTypeDef](#kmsnotfoundexceptiontypedef)
   - [KMSOptInRequiredTypeDef](#kmsoptinrequiredtypedef)
   - [KMSThrottlingExceptionTypeDef](#kmsthrottlingexceptiontypedef)
-  - [PutRecordsResultEntryTypeDef](#putrecordsresultentrytypedef)
-  - [RecordTypeDef](#recordtypedef)
-  - [ResourceInUseExceptionTypeDef](#resourceinuseexceptiontypedef)
-  - [ResourceNotFoundExceptionTypeDef](#resourcenotfoundexceptiontypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [SequenceNumberRangeTypeDef](#sequencenumberrangetypedef)
-  - [ShardTypeDef](#shardtypedef)
-  - [StreamDescriptionSummaryTypeDef](#streamdescriptionsummarytypedef)
-  - [StreamDescriptionTypeDef](#streamdescriptiontypedef)
-  - [SubscribeToShardEventStreamTypeDef](#subscribetoshardeventstreamtypedef)
-  - [SubscribeToShardEventTypeDef](#subscribetoshardeventtypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [DescribeLimitsOutputTypeDef](#describelimitsoutputtypedef)
-  - [DescribeStreamConsumerOutputTypeDef](#describestreamconsumeroutputtypedef)
-  - [DescribeStreamOutputTypeDef](#describestreamoutputtypedef)
-  - [DescribeStreamSummaryOutputTypeDef](#describestreamsummaryoutputtypedef)
-  - [EnhancedMonitoringOutputTypeDef](#enhancedmonitoringoutputtypedef)
-  - [GetRecordsOutputTypeDef](#getrecordsoutputtypedef)
-  - [GetShardIteratorOutputTypeDef](#getsharditeratoroutputtypedef)
   - [ListShardsOutputTypeDef](#listshardsoutputtypedef)
   - [ListStreamConsumersOutputTypeDef](#liststreamconsumersoutputtypedef)
   - [ListStreamsOutputTypeDef](#liststreamsoutputtypedef)
@@ -45,10 +33,22 @@ type annotations stubs module [mypy_boto3_kinesis](https://pypi.org/project/mypy
   - [PutRecordOutputTypeDef](#putrecordoutputtypedef)
   - [PutRecordsOutputTypeDef](#putrecordsoutputtypedef)
   - [PutRecordsRequestEntryTypeDef](#putrecordsrequestentrytypedef)
+  - [PutRecordsResultEntryTypeDef](#putrecordsresultentrytypedef)
+  - [RecordTypeDef](#recordtypedef)
   - [RegisterStreamConsumerOutputTypeDef](#registerstreamconsumeroutputtypedef)
+  - [ResourceInUseExceptionTypeDef](#resourceinuseexceptiontypedef)
+  - [ResourceNotFoundExceptionTypeDef](#resourcenotfoundexceptiontypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [SequenceNumberRangeTypeDef](#sequencenumberrangetypedef)
   - [ShardFilterTypeDef](#shardfiltertypedef)
+  - [ShardTypeDef](#shardtypedef)
   - [StartingPositionTypeDef](#startingpositiontypedef)
+  - [StreamDescriptionSummaryTypeDef](#streamdescriptionsummarytypedef)
+  - [StreamDescriptionTypeDef](#streamdescriptiontypedef)
+  - [SubscribeToShardEventStreamTypeDef](#subscribetoshardeventstreamtypedef)
+  - [SubscribeToShardEventTypeDef](#subscribetoshardeventtypedef)
   - [SubscribeToShardOutputTypeDef](#subscribetoshardoutputtypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateShardCountOutputTypeDef](#updateshardcountoutputtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
@@ -100,6 +100,71 @@ Required fields:
 
 
 
+## DescribeLimitsOutputTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import DescribeLimitsOutputTypeDef
+```
+
+
+Required fields:
+- `ShardLimit`: `int`
+- `OpenShardCount`: `int`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStreamConsumerOutputTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import DescribeStreamConsumerOutputTypeDef
+```
+
+
+Required fields:
+- `ConsumerDescription`: `"ConsumerDescriptionTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStreamOutputTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import DescribeStreamOutputTypeDef
+```
+
+
+Required fields:
+- `StreamDescription`: `"StreamDescriptionTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStreamSummaryOutputTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import DescribeStreamSummaryOutputTypeDef
+```
+
+
+Required fields:
+- `StreamDescriptionSummary`: `"StreamDescriptionSummaryTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## EnhancedMetricsTypeDef
 
 ```python
@@ -111,6 +176,55 @@ from mypy_boto3_kinesis.type_defs import EnhancedMetricsTypeDef
 
 Optional fields:
 - `ShardLevelMetrics`: `List[MetricsName]`
+
+
+## EnhancedMonitoringOutputTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import EnhancedMonitoringOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StreamName`: `str`
+- `CurrentShardLevelMetrics`: `List[MetricsName]`
+- `DesiredShardLevelMetrics`: `List[MetricsName]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetRecordsOutputTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import GetRecordsOutputTypeDef
+```
+
+
+Required fields:
+- `Records`: `List["RecordTypeDef"]`
+
+
+
+Optional fields:
+- `NextShardIterator`: `str`
+- `MillisBehindLatest`: `int`
+- `ChildShards`: `List["ChildShardTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetShardIteratorOutputTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import GetShardIteratorOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ShardIterator`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## HashKeyRangeTypeDef
@@ -216,339 +330,6 @@ from mypy_boto3_kinesis.type_defs import KMSThrottlingExceptionTypeDef
 
 Optional fields:
 - `message`: `str`
-
-
-## PutRecordsResultEntryTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import PutRecordsResultEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `SequenceNumber`: `str`
-- `ShardId`: `str`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## RecordTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import RecordTypeDef
-```
-
-
-Required fields:
-- `SequenceNumber`: `str`
-- `Data`: `Union[bytes, IO[bytes]]`
-- `PartitionKey`: `str`
-
-
-
-Optional fields:
-- `ApproximateArrivalTimestamp`: `datetime`
-- `EncryptionType`: `EncryptionType`
-
-
-## ResourceInUseExceptionTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import ResourceInUseExceptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `message`: `str`
-
-
-## ResourceNotFoundExceptionTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import ResourceNotFoundExceptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `message`: `str`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_kinesis.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## SequenceNumberRangeTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import SequenceNumberRangeTypeDef
-```
-
-
-Required fields:
-- `StartingSequenceNumber`: `str`
-
-
-
-Optional fields:
-- `EndingSequenceNumber`: `str`
-
-
-## ShardTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import ShardTypeDef
-```
-
-
-Required fields:
-- `ShardId`: `str`
-- `HashKeyRange`: `"HashKeyRangeTypeDef"`
-- `SequenceNumberRange`: `"SequenceNumberRangeTypeDef"`
-
-
-
-Optional fields:
-- `ParentShardId`: `str`
-- `AdjacentParentShardId`: `str`
-
-
-## StreamDescriptionSummaryTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import StreamDescriptionSummaryTypeDef
-```
-
-
-Required fields:
-- `StreamName`: `str`
-- `StreamARN`: `str`
-- `StreamStatus`: `StreamStatus`
-- `RetentionPeriodHours`: `int`
-- `StreamCreationTimestamp`: `datetime`
-- `EnhancedMonitoring`: `List["EnhancedMetricsTypeDef"]`
-- `OpenShardCount`: `int`
-
-
-
-Optional fields:
-- `EncryptionType`: `EncryptionType`
-- `KeyId`: `str`
-- `ConsumerCount`: `int`
-
-
-## StreamDescriptionTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import StreamDescriptionTypeDef
-```
-
-
-Required fields:
-- `StreamName`: `str`
-- `StreamARN`: `str`
-- `StreamStatus`: `StreamStatus`
-- `Shards`: `List["ShardTypeDef"]`
-- `HasMoreShards`: `bool`
-- `RetentionPeriodHours`: `int`
-- `StreamCreationTimestamp`: `datetime`
-- `EnhancedMonitoring`: `List["EnhancedMetricsTypeDef"]`
-
-
-
-Optional fields:
-- `EncryptionType`: `EncryptionType`
-- `KeyId`: `str`
-
-
-## SubscribeToShardEventStreamTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import SubscribeToShardEventStreamTypeDef
-```
-
-
-Required fields:
-- `SubscribeToShardEvent`: `"SubscribeToShardEventTypeDef"`
-
-
-
-Optional fields:
-- `ResourceNotFoundException`: `"ResourceNotFoundExceptionTypeDef"`
-- `ResourceInUseException`: `"ResourceInUseExceptionTypeDef"`
-- `KMSDisabledException`: `"KMSDisabledExceptionTypeDef"`
-- `KMSInvalidStateException`: `"KMSInvalidStateExceptionTypeDef"`
-- `KMSAccessDeniedException`: `"KMSAccessDeniedExceptionTypeDef"`
-- `KMSNotFoundException`: `"KMSNotFoundExceptionTypeDef"`
-- `KMSOptInRequired`: `"KMSOptInRequiredTypeDef"`
-- `KMSThrottlingException`: `"KMSThrottlingExceptionTypeDef"`
-- `InternalFailureException`: `"InternalFailureExceptionTypeDef"`
-
-
-## SubscribeToShardEventTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import SubscribeToShardEventTypeDef
-```
-
-
-Required fields:
-- `Records`: `List["RecordTypeDef"]`
-- `ContinuationSequenceNumber`: `str`
-- `MillisBehindLatest`: `int`
-
-
-
-Optional fields:
-- `ChildShards`: `List["ChildShardTypeDef"]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## DescribeLimitsOutputTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import DescribeLimitsOutputTypeDef
-```
-
-
-Required fields:
-- `ShardLimit`: `int`
-- `OpenShardCount`: `int`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStreamConsumerOutputTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import DescribeStreamConsumerOutputTypeDef
-```
-
-
-Required fields:
-- `ConsumerDescription`: `"ConsumerDescriptionTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStreamOutputTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import DescribeStreamOutputTypeDef
-```
-
-
-Required fields:
-- `StreamDescription`: `"StreamDescriptionTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStreamSummaryOutputTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import DescribeStreamSummaryOutputTypeDef
-```
-
-
-Required fields:
-- `StreamDescriptionSummary`: `"StreamDescriptionSummaryTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## EnhancedMonitoringOutputTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import EnhancedMonitoringOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StreamName`: `str`
-- `CurrentShardLevelMetrics`: `List[MetricsName]`
-- `DesiredShardLevelMetrics`: `List[MetricsName]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetRecordsOutputTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import GetRecordsOutputTypeDef
-```
-
-
-Required fields:
-- `Records`: `List["RecordTypeDef"]`
-
-
-
-Optional fields:
-- `NextShardIterator`: `str`
-- `MillisBehindLatest`: `int`
-- `ChildShards`: `List["ChildShardTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetShardIteratorOutputTypeDef
-
-```python
-from mypy_boto3_kinesis.type_defs import GetShardIteratorOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `ShardIterator`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## ListShardsOutputTypeDef
@@ -683,6 +464,41 @@ Optional fields:
 - `ExplicitHashKey`: `str`
 
 
+## PutRecordsResultEntryTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import PutRecordsResultEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `SequenceNumber`: `str`
+- `ShardId`: `str`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+
+
+## RecordTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import RecordTypeDef
+```
+
+
+Required fields:
+- `SequenceNumber`: `str`
+- `Data`: `Union[bytes, IO[bytes]]`
+- `PartitionKey`: `str`
+
+
+
+Optional fields:
+- `ApproximateArrivalTimestamp`: `datetime`
+- `EncryptionType`: `EncryptionType`
+
+
 ## RegisterStreamConsumerOutputTypeDef
 
 ```python
@@ -697,6 +513,65 @@ Required fields:
 
 Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ResourceInUseExceptionTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import ResourceInUseExceptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `message`: `str`
+
+
+## ResourceNotFoundExceptionTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import ResourceNotFoundExceptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `message`: `str`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_kinesis.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## SequenceNumberRangeTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import SequenceNumberRangeTypeDef
+```
+
+
+Required fields:
+- `StartingSequenceNumber`: `str`
+
+
+
+Optional fields:
+- `EndingSequenceNumber`: `str`
 
 
 ## ShardFilterTypeDef
@@ -716,6 +591,25 @@ Optional fields:
 - `Timestamp`: `datetime`
 
 
+## ShardTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import ShardTypeDef
+```
+
+
+Required fields:
+- `ShardId`: `str`
+- `HashKeyRange`: `"HashKeyRangeTypeDef"`
+- `SequenceNumberRange`: `"SequenceNumberRangeTypeDef"`
+
+
+
+Optional fields:
+- `ParentShardId`: `str`
+- `AdjacentParentShardId`: `str`
+
+
 ## StartingPositionTypeDef
 
 ```python
@@ -733,6 +627,96 @@ Optional fields:
 - `Timestamp`: `datetime`
 
 
+## StreamDescriptionSummaryTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import StreamDescriptionSummaryTypeDef
+```
+
+
+Required fields:
+- `StreamName`: `str`
+- `StreamARN`: `str`
+- `StreamStatus`: `StreamStatus`
+- `RetentionPeriodHours`: `int`
+- `StreamCreationTimestamp`: `datetime`
+- `EnhancedMonitoring`: `List["EnhancedMetricsTypeDef"]`
+- `OpenShardCount`: `int`
+
+
+
+Optional fields:
+- `EncryptionType`: `EncryptionType`
+- `KeyId`: `str`
+- `ConsumerCount`: `int`
+
+
+## StreamDescriptionTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import StreamDescriptionTypeDef
+```
+
+
+Required fields:
+- `StreamName`: `str`
+- `StreamARN`: `str`
+- `StreamStatus`: `StreamStatus`
+- `Shards`: `List["ShardTypeDef"]`
+- `HasMoreShards`: `bool`
+- `RetentionPeriodHours`: `int`
+- `StreamCreationTimestamp`: `datetime`
+- `EnhancedMonitoring`: `List["EnhancedMetricsTypeDef"]`
+
+
+
+Optional fields:
+- `EncryptionType`: `EncryptionType`
+- `KeyId`: `str`
+
+
+## SubscribeToShardEventStreamTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import SubscribeToShardEventStreamTypeDef
+```
+
+
+Required fields:
+- `SubscribeToShardEvent`: `"SubscribeToShardEventTypeDef"`
+
+
+
+Optional fields:
+- `ResourceNotFoundException`: `"ResourceNotFoundExceptionTypeDef"`
+- `ResourceInUseException`: `"ResourceInUseExceptionTypeDef"`
+- `KMSDisabledException`: `"KMSDisabledExceptionTypeDef"`
+- `KMSInvalidStateException`: `"KMSInvalidStateExceptionTypeDef"`
+- `KMSAccessDeniedException`: `"KMSAccessDeniedExceptionTypeDef"`
+- `KMSNotFoundException`: `"KMSNotFoundExceptionTypeDef"`
+- `KMSOptInRequired`: `"KMSOptInRequiredTypeDef"`
+- `KMSThrottlingException`: `"KMSThrottlingExceptionTypeDef"`
+- `InternalFailureException`: `"InternalFailureExceptionTypeDef"`
+
+
+## SubscribeToShardEventTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import SubscribeToShardEventTypeDef
+```
+
+
+Required fields:
+- `Records`: `List["RecordTypeDef"]`
+- `ContinuationSequenceNumber`: `str`
+- `MillisBehindLatest`: `int`
+
+
+
+Optional fields:
+- `ChildShards`: `List["ChildShardTypeDef"]`
+
+
 ## SubscribeToShardOutputTypeDef
 
 ```python
@@ -747,6 +731,22 @@ Required fields:
 
 Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_kinesis.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+
+
+
+Optional fields:
+- `Value`: `str`
 
 
 ## UpdateShardCountOutputTypeDef

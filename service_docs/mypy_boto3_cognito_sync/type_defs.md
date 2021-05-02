@@ -6,13 +6,9 @@ Auto-generated documentation for [CognitoSync](https://boto3.amazonaws.com/v1/do
 type annotations stubs module [mypy_boto3_cognito_sync](https://pypi.org/project/mypy-boto3-cognito-sync/).
 
 - [Structures for boto3 CognitoSync module](#structures-for-boto3-cognitosync-module)
+  - [BulkPublishResponseTypeDef](#bulkpublishresponsetypedef)
   - [CognitoStreamsTypeDef](#cognitostreamstypedef)
   - [DatasetTypeDef](#datasettypedef)
-  - [IdentityPoolUsageTypeDef](#identitypoolusagetypedef)
-  - [IdentityUsageTypeDef](#identityusagetypedef)
-  - [PushSyncTypeDef](#pushsynctypedef)
-  - [RecordTypeDef](#recordtypedef)
-  - [BulkPublishResponseTypeDef](#bulkpublishresponsetypedef)
   - [DeleteDatasetResponseTypeDef](#deletedatasetresponsetypedef)
   - [DescribeDatasetResponseTypeDef](#describedatasetresponsetypedef)
   - [DescribeIdentityPoolUsageResponseTypeDef](#describeidentitypoolusageresponsetypedef)
@@ -20,13 +16,30 @@ type annotations stubs module [mypy_boto3_cognito_sync](https://pypi.org/project
   - [GetBulkPublishDetailsResponseTypeDef](#getbulkpublishdetailsresponsetypedef)
   - [GetCognitoEventsResponseTypeDef](#getcognitoeventsresponsetypedef)
   - [GetIdentityPoolConfigurationResponseTypeDef](#getidentitypoolconfigurationresponsetypedef)
+  - [IdentityPoolUsageTypeDef](#identitypoolusagetypedef)
+  - [IdentityUsageTypeDef](#identityusagetypedef)
   - [ListDatasetsResponseTypeDef](#listdatasetsresponsetypedef)
   - [ListIdentityPoolUsageResponseTypeDef](#listidentitypoolusageresponsetypedef)
   - [ListRecordsResponseTypeDef](#listrecordsresponsetypedef)
+  - [PushSyncTypeDef](#pushsynctypedef)
   - [RecordPatchTypeDef](#recordpatchtypedef)
+  - [RecordTypeDef](#recordtypedef)
   - [RegisterDeviceResponseTypeDef](#registerdeviceresponsetypedef)
   - [SetIdentityPoolConfigurationResponseTypeDef](#setidentitypoolconfigurationresponsetypedef)
   - [UpdateRecordsResponseTypeDef](#updaterecordsresponsetypedef)
+
+## BulkPublishResponseTypeDef
+
+```python
+from mypy_boto3_cognito_sync.type_defs import BulkPublishResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `IdentityPoolId`: `str`
+
 
 ## CognitoStreamsTypeDef
 
@@ -60,84 +73,6 @@ Optional fields:
 - `LastModifiedBy`: `str`
 - `DataStorage`: `int`
 - `NumRecords`: `int`
-
-
-## IdentityPoolUsageTypeDef
-
-```python
-from mypy_boto3_cognito_sync.type_defs import IdentityPoolUsageTypeDef
-```
-
-
-
-
-Optional fields:
-- `IdentityPoolId`: `str`
-- `SyncSessionsCount`: `int`
-- `DataStorage`: `int`
-- `LastModifiedDate`: `datetime`
-
-
-## IdentityUsageTypeDef
-
-```python
-from mypy_boto3_cognito_sync.type_defs import IdentityUsageTypeDef
-```
-
-
-
-
-Optional fields:
-- `IdentityId`: `str`
-- `IdentityPoolId`: `str`
-- `LastModifiedDate`: `datetime`
-- `DatasetCount`: `int`
-- `DataStorage`: `int`
-
-
-## PushSyncTypeDef
-
-```python
-from mypy_boto3_cognito_sync.type_defs import PushSyncTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationArns`: `List[str]`
-- `RoleArn`: `str`
-
-
-## RecordTypeDef
-
-```python
-from mypy_boto3_cognito_sync.type_defs import RecordTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-- `SyncCount`: `int`
-- `LastModifiedDate`: `datetime`
-- `LastModifiedBy`: `str`
-- `DeviceLastModifiedDate`: `datetime`
-
-
-## BulkPublishResponseTypeDef
-
-```python
-from mypy_boto3_cognito_sync.type_defs import BulkPublishResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `IdentityPoolId`: `str`
 
 
 ## DeleteDatasetResponseTypeDef
@@ -237,6 +172,39 @@ Optional fields:
 - `CognitoStreams`: `"CognitoStreamsTypeDef"`
 
 
+## IdentityPoolUsageTypeDef
+
+```python
+from mypy_boto3_cognito_sync.type_defs import IdentityPoolUsageTypeDef
+```
+
+
+
+
+Optional fields:
+- `IdentityPoolId`: `str`
+- `SyncSessionsCount`: `int`
+- `DataStorage`: `int`
+- `LastModifiedDate`: `datetime`
+
+
+## IdentityUsageTypeDef
+
+```python
+from mypy_boto3_cognito_sync.type_defs import IdentityUsageTypeDef
+```
+
+
+
+
+Optional fields:
+- `IdentityId`: `str`
+- `IdentityPoolId`: `str`
+- `LastModifiedDate`: `datetime`
+- `DatasetCount`: `int`
+- `DataStorage`: `int`
+
+
 ## ListDatasetsResponseTypeDef
 
 ```python
@@ -289,6 +257,20 @@ Optional fields:
 - `SyncSessionToken`: `str`
 
 
+## PushSyncTypeDef
+
+```python
+from mypy_boto3_cognito_sync.type_defs import PushSyncTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationArns`: `List[str]`
+- `RoleArn`: `str`
+
+
 ## RecordPatchTypeDef
 
 ```python
@@ -305,6 +287,24 @@ Required fields:
 
 Optional fields:
 - `Value`: `str`
+- `DeviceLastModifiedDate`: `datetime`
+
+
+## RecordTypeDef
+
+```python
+from mypy_boto3_cognito_sync.type_defs import RecordTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+- `SyncCount`: `int`
+- `LastModifiedDate`: `datetime`
+- `LastModifiedBy`: `str`
 - `DeviceLastModifiedDate`: `datetime`
 
 

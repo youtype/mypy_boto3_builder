@@ -112,17 +112,17 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_braket.type_defs import DeviceSummaryTypeDef, ...
+from mypy_boto3_braket.type_defs import CancelQuantumTaskResponseTypeDef, ...
 ```
 
-- [DeviceSummaryTypeDef](./type_defs.md#devicesummarytypedef)
-- [QuantumTaskSummaryTypeDef](./type_defs.md#quantumtasksummarytypedef)
 - [CancelQuantumTaskResponseTypeDef](./type_defs.md#cancelquantumtaskresponsetypedef)
 - [CreateQuantumTaskResponseTypeDef](./type_defs.md#createquantumtaskresponsetypedef)
+- [DeviceSummaryTypeDef](./type_defs.md#devicesummarytypedef)
 - [GetDeviceResponseTypeDef](./type_defs.md#getdeviceresponsetypedef)
 - [GetQuantumTaskResponseTypeDef](./type_defs.md#getquantumtaskresponsetypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [QuantumTaskSummaryTypeDef](./type_defs.md#quantumtasksummarytypedef)
 - [SearchDevicesFilterTypeDef](./type_defs.md#searchdevicesfiltertypedef)
 - [SearchDevicesResponseTypeDef](./type_defs.md#searchdevicesresponsetypedef)
 - [SearchQuantumTasksFilterTypeDef](./type_defs.md#searchquantumtasksfiltertypedef)

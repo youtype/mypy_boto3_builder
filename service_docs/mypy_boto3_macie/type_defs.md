@@ -6,19 +6,32 @@ Auto-generated documentation for [Macie](https://boto3.amazonaws.com/v1/document
 type annotations stubs module [mypy_boto3_macie](https://pypi.org/project/mypy-boto3-macie/).
 
 - [Structures for boto3 Macie module](#structures-for-boto3-macie-module)
+  - [AssociateS3ResourcesResultTypeDef](#associates3resourcesresulttypedef)
   - [ClassificationTypeTypeDef](#classificationtypetypedef)
   - [ClassificationTypeUpdateTypeDef](#classificationtypeupdatetypedef)
-  - [FailedS3ResourceTypeDef](#faileds3resourcetypedef)
-  - [MemberAccountTypeDef](#memberaccounttypedef)
-  - [S3ResourceClassificationTypeDef](#s3resourceclassificationtypedef)
-  - [S3ResourceTypeDef](#s3resourcetypedef)
-  - [AssociateS3ResourcesResultTypeDef](#associates3resourcesresulttypedef)
   - [DisassociateS3ResourcesResultTypeDef](#disassociates3resourcesresulttypedef)
+  - [FailedS3ResourceTypeDef](#faileds3resourcetypedef)
   - [ListMemberAccountsResultTypeDef](#listmemberaccountsresulttypedef)
   - [ListS3ResourcesResultTypeDef](#lists3resourcesresulttypedef)
+  - [MemberAccountTypeDef](#memberaccounttypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [S3ResourceClassificationTypeDef](#s3resourceclassificationtypedef)
   - [S3ResourceClassificationUpdateTypeDef](#s3resourceclassificationupdatetypedef)
+  - [S3ResourceTypeDef](#s3resourcetypedef)
   - [UpdateS3ResourcesResultTypeDef](#updates3resourcesresulttypedef)
+
+## AssociateS3ResourcesResultTypeDef
+
+```python
+from mypy_boto3_macie.type_defs import AssociateS3ResourcesResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `failedS3Resources`: `List["FailedS3ResourceTypeDef"]`
+
 
 ## ClassificationTypeTypeDef
 
@@ -29,7 +42,7 @@ from mypy_boto3_macie.type_defs import ClassificationTypeTypeDef
 
 Required fields:
 - `oneTime`: `S3OneTimeClassificationType`
-- `continuous`: `S3ContinuousClassificationType`
+- `continuous`: `Literal['FULL']`
 
 
 
@@ -45,7 +58,20 @@ from mypy_boto3_macie.type_defs import ClassificationTypeUpdateTypeDef
 
 Optional fields:
 - `oneTime`: `S3OneTimeClassificationType`
-- `continuous`: `S3ContinuousClassificationType`
+- `continuous`: `Literal['FULL']`
+
+
+## DisassociateS3ResourcesResultTypeDef
+
+```python
+from mypy_boto3_macie.type_defs import DisassociateS3ResourcesResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `failedS3Resources`: `List["FailedS3ResourceTypeDef"]`
 
 
 ## FailedS3ResourceTypeDef
@@ -61,78 +87,6 @@ Optional fields:
 - `failedItem`: `"S3ResourceTypeDef"`
 - `errorCode`: `str`
 - `errorMessage`: `str`
-
-
-## MemberAccountTypeDef
-
-```python
-from mypy_boto3_macie.type_defs import MemberAccountTypeDef
-```
-
-
-
-
-Optional fields:
-- `accountId`: `str`
-
-
-## S3ResourceClassificationTypeDef
-
-```python
-from mypy_boto3_macie.type_defs import S3ResourceClassificationTypeDef
-```
-
-
-Required fields:
-- `bucketName`: `str`
-- `classificationType`: `"ClassificationTypeTypeDef"`
-
-
-
-Optional fields:
-- `prefix`: `str`
-
-
-## S3ResourceTypeDef
-
-```python
-from mypy_boto3_macie.type_defs import S3ResourceTypeDef
-```
-
-
-Required fields:
-- `bucketName`: `str`
-
-
-
-Optional fields:
-- `prefix`: `str`
-
-
-## AssociateS3ResourcesResultTypeDef
-
-```python
-from mypy_boto3_macie.type_defs import AssociateS3ResourcesResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `failedS3Resources`: `List["FailedS3ResourceTypeDef"]`
-
-
-## DisassociateS3ResourcesResultTypeDef
-
-```python
-from mypy_boto3_macie.type_defs import DisassociateS3ResourcesResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `failedS3Resources`: `List["FailedS3ResourceTypeDef"]`
 
 
 ## ListMemberAccountsResultTypeDef
@@ -163,6 +117,19 @@ Optional fields:
 - `nextToken`: `str`
 
 
+## MemberAccountTypeDef
+
+```python
+from mypy_boto3_macie.type_defs import MemberAccountTypeDef
+```
+
+
+
+
+Optional fields:
+- `accountId`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -178,6 +145,23 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## S3ResourceClassificationTypeDef
+
+```python
+from mypy_boto3_macie.type_defs import S3ResourceClassificationTypeDef
+```
+
+
+Required fields:
+- `bucketName`: `str`
+- `classificationType`: `"ClassificationTypeTypeDef"`
+
+
+
+Optional fields:
+- `prefix`: `str`
+
+
 ## S3ResourceClassificationUpdateTypeDef
 
 ```python
@@ -188,6 +172,22 @@ from mypy_boto3_macie.type_defs import S3ResourceClassificationUpdateTypeDef
 Required fields:
 - `bucketName`: `str`
 - `classificationTypeUpdate`: `"ClassificationTypeUpdateTypeDef"`
+
+
+
+Optional fields:
+- `prefix`: `str`
+
+
+## S3ResourceTypeDef
+
+```python
+from mypy_boto3_macie.type_defs import S3ResourceTypeDef
+```
+
+
+Required fields:
+- `bucketName`: `str`
 
 
 

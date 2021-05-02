@@ -30,10 +30,16 @@ type annotations stubs module [mypy_boto3_medialive](https://pypi.org/project/my
   - [AvailBlankingTypeDef](#availblankingtypedef)
   - [AvailConfigurationTypeDef](#availconfigurationtypedef)
   - [AvailSettingsTypeDef](#availsettingstypedef)
+  - [BatchDeleteResponseTypeDef](#batchdeleteresponsetypedef)
   - [BatchFailedResultModelTypeDef](#batchfailedresultmodeltypedef)
+  - [BatchScheduleActionCreateRequestTypeDef](#batchscheduleactioncreaterequesttypedef)
   - [BatchScheduleActionCreateResultTypeDef](#batchscheduleactioncreateresulttypedef)
+  - [BatchScheduleActionDeleteRequestTypeDef](#batchscheduleactiondeleterequesttypedef)
   - [BatchScheduleActionDeleteResultTypeDef](#batchscheduleactiondeleteresulttypedef)
+  - [BatchStartResponseTypeDef](#batchstartresponsetypedef)
+  - [BatchStopResponseTypeDef](#batchstopresponsetypedef)
   - [BatchSuccessfulResultModelTypeDef](#batchsuccessfulresultmodeltypedef)
+  - [BatchUpdateScheduleResponseTypeDef](#batchupdatescheduleresponsetypedef)
   - [BlackoutSlateTypeDef](#blackoutslatetypedef)
   - [BurnInDestinationSettingsTypeDef](#burnindestinationsettingstypedef)
   - [CaptionDescriptionTypeDef](#captiondescriptiontypedef)
@@ -46,6 +52,26 @@ type annotations stubs module [mypy_boto3_medialive](https://pypi.org/project/my
   - [ChannelEgressEndpointTypeDef](#channelegressendpointtypedef)
   - [ChannelSummaryTypeDef](#channelsummarytypedef)
   - [ChannelTypeDef](#channeltypedef)
+  - [CreateChannelResponseTypeDef](#createchannelresponsetypedef)
+  - [CreateInputResponseTypeDef](#createinputresponsetypedef)
+  - [CreateInputSecurityGroupResponseTypeDef](#createinputsecuritygroupresponsetypedef)
+  - [CreateMultiplexProgramResponseTypeDef](#createmultiplexprogramresponsetypedef)
+  - [CreateMultiplexResponseTypeDef](#createmultiplexresponsetypedef)
+  - [CreatePartnerInputResponseTypeDef](#createpartnerinputresponsetypedef)
+  - [DeleteChannelResponseTypeDef](#deletechannelresponsetypedef)
+  - [DeleteMultiplexProgramResponseTypeDef](#deletemultiplexprogramresponsetypedef)
+  - [DeleteMultiplexResponseTypeDef](#deletemultiplexresponsetypedef)
+  - [DeleteReservationResponseTypeDef](#deletereservationresponsetypedef)
+  - [DescribeChannelResponseTypeDef](#describechannelresponsetypedef)
+  - [DescribeInputDeviceResponseTypeDef](#describeinputdeviceresponsetypedef)
+  - [DescribeInputDeviceThumbnailResponseTypeDef](#describeinputdevicethumbnailresponsetypedef)
+  - [DescribeInputResponseTypeDef](#describeinputresponsetypedef)
+  - [DescribeInputSecurityGroupResponseTypeDef](#describeinputsecuritygroupresponsetypedef)
+  - [DescribeMultiplexProgramResponseTypeDef](#describemultiplexprogramresponsetypedef)
+  - [DescribeMultiplexResponseTypeDef](#describemultiplexresponsetypedef)
+  - [DescribeOfferingResponseTypeDef](#describeofferingresponsetypedef)
+  - [DescribeReservationResponseTypeDef](#describereservationresponsetypedef)
+  - [DescribeScheduleResponseTypeDef](#describescheduleresponsetypedef)
   - [DvbNitSettingsTypeDef](#dvbnitsettingstypedef)
   - [DvbSdtSettingsTypeDef](#dvbsdtsettingstypedef)
   - [DvbSubDestinationSettingsTypeDef](#dvbsubdestinationsettingstypedef)
@@ -90,10 +116,13 @@ type annotations stubs module [mypy_boto3_medialive](https://pypi.org/project/my
   - [InputAttachmentTypeDef](#inputattachmenttypedef)
   - [InputChannelLevelTypeDef](#inputchannelleveltypedef)
   - [InputClippingSettingsTypeDef](#inputclippingsettingstypedef)
+  - [InputDestinationRequestTypeDef](#inputdestinationrequesttypedef)
   - [InputDestinationTypeDef](#inputdestinationtypedef)
   - [InputDestinationVpcTypeDef](#inputdestinationvpctypedef)
+  - [InputDeviceConfigurableSettingsTypeDef](#inputdeviceconfigurablesettingstypedef)
   - [InputDeviceHdSettingsTypeDef](#inputdevicehdsettingstypedef)
   - [InputDeviceNetworkSettingsTypeDef](#inputdevicenetworksettingstypedef)
+  - [InputDeviceRequestTypeDef](#inputdevicerequesttypedef)
   - [InputDeviceSettingsTypeDef](#inputdevicesettingstypedef)
   - [InputDeviceSummaryTypeDef](#inputdevicesummarytypedef)
   - [InputDeviceUhdSettingsTypeDef](#inputdeviceuhdsettingstypedef)
@@ -103,14 +132,28 @@ type annotations stubs module [mypy_boto3_medialive](https://pypi.org/project/my
   - [InputPrepareScheduleActionSettingsTypeDef](#inputpreparescheduleactionsettingstypedef)
   - [InputSecurityGroupTypeDef](#inputsecuritygrouptypedef)
   - [InputSettingsTypeDef](#inputsettingstypedef)
+  - [InputSourceRequestTypeDef](#inputsourcerequesttypedef)
   - [InputSourceTypeDef](#inputsourcetypedef)
   - [InputSpecificationTypeDef](#inputspecificationtypedef)
   - [InputSwitchScheduleActionSettingsTypeDef](#inputswitchscheduleactionsettingstypedef)
   - [InputTypeDef](#inputtypedef)
+  - [InputVpcRequestTypeDef](#inputvpcrequesttypedef)
+  - [InputWhitelistRuleCidrTypeDef](#inputwhitelistrulecidrtypedef)
   - [InputWhitelistRuleTypeDef](#inputwhitelistruletypedef)
   - [KeyProviderSettingsTypeDef](#keyprovidersettingstypedef)
+  - [ListChannelsResponseTypeDef](#listchannelsresponsetypedef)
+  - [ListInputDeviceTransfersResponseTypeDef](#listinputdevicetransfersresponsetypedef)
+  - [ListInputDevicesResponseTypeDef](#listinputdevicesresponsetypedef)
+  - [ListInputSecurityGroupsResponseTypeDef](#listinputsecuritygroupsresponsetypedef)
+  - [ListInputsResponseTypeDef](#listinputsresponsetypedef)
+  - [ListMultiplexProgramsResponseTypeDef](#listmultiplexprogramsresponsetypedef)
+  - [ListMultiplexesResponseTypeDef](#listmultiplexesresponsetypedef)
+  - [ListOfferingsResponseTypeDef](#listofferingsresponsetypedef)
+  - [ListReservationsResponseTypeDef](#listreservationsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [M2tsSettingsTypeDef](#m2tssettingstypedef)
   - [M3u8SettingsTypeDef](#m3u8settingstypedef)
+  - [MediaConnectFlowRequestTypeDef](#mediaconnectflowrequesttypedef)
   - [MediaConnectFlowTypeDef](#mediaconnectflowtypedef)
   - [MediaPackageGroupSettingsTypeDef](#mediapackagegroupsettingstypedef)
   - [MediaPackageOutputDestinationSettingsTypeDef](#mediapackageoutputdestinationsettingstypedef)
@@ -148,9 +191,11 @@ type annotations stubs module [mypy_boto3_medialive](https://pypi.org/project/my
   - [OutputLocationRefTypeDef](#outputlocationreftypedef)
   - [OutputSettingsTypeDef](#outputsettingstypedef)
   - [OutputTypeDef](#outputtypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PauseStateScheduleActionSettingsTypeDef](#pausestatescheduleactionsettingstypedef)
   - [PipelineDetailTypeDef](#pipelinedetailtypedef)
   - [PipelinePauseStateSettingsTypeDef](#pipelinepausestatesettingstypedef)
+  - [PurchaseOfferingResponseTypeDef](#purchaseofferingresponsetypedef)
   - [RemixSettingsTypeDef](#remixsettingstypedef)
   - [ReservationResourceSpecificationTypeDef](#reservationresourcespecificationtypedef)
   - [ReservationTypeDef](#reservationtypedef)
@@ -172,10 +217,14 @@ type annotations stubs module [mypy_boto3_medialive](https://pypi.org/project/my
   - [Scte35TimeSignalAposTypeDef](#scte35timesignalapostypedef)
   - [Scte35TimeSignalScheduleActionSettingsTypeDef](#scte35timesignalscheduleactionsettingstypedef)
   - [StandardHlsSettingsTypeDef](#standardhlssettingstypedef)
+  - [StartChannelResponseTypeDef](#startchannelresponsetypedef)
+  - [StartMultiplexResponseTypeDef](#startmultiplexresponsetypedef)
   - [StartTimecodeTypeDef](#starttimecodetypedef)
   - [StaticImageActivateScheduleActionSettingsTypeDef](#staticimageactivatescheduleactionsettingstypedef)
   - [StaticImageDeactivateScheduleActionSettingsTypeDef](#staticimagedeactivatescheduleactionsettingstypedef)
   - [StaticKeySettingsTypeDef](#statickeysettingstypedef)
+  - [StopChannelResponseTypeDef](#stopchannelresponsetypedef)
+  - [StopMultiplexResponseTypeDef](#stopmultiplexresponsetypedef)
   - [StopTimecodeTypeDef](#stoptimecodetypedef)
   - [TeletextSourceSettingsTypeDef](#teletextsourcesettingstypedef)
   - [TemporalFilterSettingsTypeDef](#temporalfiltersettingstypedef)
@@ -185,6 +234,14 @@ type annotations stubs module [mypy_boto3_medialive](https://pypi.org/project/my
   - [UdpContainerSettingsTypeDef](#udpcontainersettingstypedef)
   - [UdpGroupSettingsTypeDef](#udpgroupsettingstypedef)
   - [UdpOutputSettingsTypeDef](#udpoutputsettingstypedef)
+  - [UpdateChannelClassResponseTypeDef](#updatechannelclassresponsetypedef)
+  - [UpdateChannelResponseTypeDef](#updatechannelresponsetypedef)
+  - [UpdateInputDeviceResponseTypeDef](#updateinputdeviceresponsetypedef)
+  - [UpdateInputResponseTypeDef](#updateinputresponsetypedef)
+  - [UpdateInputSecurityGroupResponseTypeDef](#updateinputsecuritygroupresponsetypedef)
+  - [UpdateMultiplexProgramResponseTypeDef](#updatemultiplexprogramresponsetypedef)
+  - [UpdateMultiplexResponseTypeDef](#updatemultiplexresponsetypedef)
+  - [UpdateReservationResponseTypeDef](#updatereservationresponsetypedef)
   - [VideoBlackFailoverSettingsTypeDef](#videoblackfailoversettingstypedef)
   - [VideoCodecSettingsTypeDef](#videocodecsettingstypedef)
   - [VideoDescriptionTypeDef](#videodescriptiontypedef)
@@ -194,66 +251,9 @@ type annotations stubs module [mypy_boto3_medialive](https://pypi.org/project/my
   - [VideoSelectorSettingsTypeDef](#videoselectorsettingstypedef)
   - [VideoSelectorTypeDef](#videoselectortypedef)
   - [VpcOutputSettingsDescriptionTypeDef](#vpcoutputsettingsdescriptiontypedef)
-  - [WavSettingsTypeDef](#wavsettingstypedef)
-  - [BatchDeleteResponseTypeDef](#batchdeleteresponsetypedef)
-  - [BatchScheduleActionCreateRequestTypeDef](#batchscheduleactioncreaterequesttypedef)
-  - [BatchScheduleActionDeleteRequestTypeDef](#batchscheduleactiondeleterequesttypedef)
-  - [BatchStartResponseTypeDef](#batchstartresponsetypedef)
-  - [BatchStopResponseTypeDef](#batchstopresponsetypedef)
-  - [BatchUpdateScheduleResponseTypeDef](#batchupdatescheduleresponsetypedef)
-  - [CreateChannelResponseTypeDef](#createchannelresponsetypedef)
-  - [CreateInputResponseTypeDef](#createinputresponsetypedef)
-  - [CreateInputSecurityGroupResponseTypeDef](#createinputsecuritygroupresponsetypedef)
-  - [CreateMultiplexProgramResponseTypeDef](#createmultiplexprogramresponsetypedef)
-  - [CreateMultiplexResponseTypeDef](#createmultiplexresponsetypedef)
-  - [CreatePartnerInputResponseTypeDef](#createpartnerinputresponsetypedef)
-  - [DeleteChannelResponseTypeDef](#deletechannelresponsetypedef)
-  - [DeleteMultiplexProgramResponseTypeDef](#deletemultiplexprogramresponsetypedef)
-  - [DeleteMultiplexResponseTypeDef](#deletemultiplexresponsetypedef)
-  - [DeleteReservationResponseTypeDef](#deletereservationresponsetypedef)
-  - [DescribeChannelResponseTypeDef](#describechannelresponsetypedef)
-  - [DescribeInputDeviceResponseTypeDef](#describeinputdeviceresponsetypedef)
-  - [DescribeInputDeviceThumbnailResponseTypeDef](#describeinputdevicethumbnailresponsetypedef)
-  - [DescribeInputResponseTypeDef](#describeinputresponsetypedef)
-  - [DescribeInputSecurityGroupResponseTypeDef](#describeinputsecuritygroupresponsetypedef)
-  - [DescribeMultiplexProgramResponseTypeDef](#describemultiplexprogramresponsetypedef)
-  - [DescribeMultiplexResponseTypeDef](#describemultiplexresponsetypedef)
-  - [DescribeOfferingResponseTypeDef](#describeofferingresponsetypedef)
-  - [DescribeReservationResponseTypeDef](#describereservationresponsetypedef)
-  - [DescribeScheduleResponseTypeDef](#describescheduleresponsetypedef)
-  - [InputDestinationRequestTypeDef](#inputdestinationrequesttypedef)
-  - [InputDeviceConfigurableSettingsTypeDef](#inputdeviceconfigurablesettingstypedef)
-  - [InputDeviceRequestTypeDef](#inputdevicerequesttypedef)
-  - [InputSourceRequestTypeDef](#inputsourcerequesttypedef)
-  - [InputVpcRequestTypeDef](#inputvpcrequesttypedef)
-  - [InputWhitelistRuleCidrTypeDef](#inputwhitelistrulecidrtypedef)
-  - [ListChannelsResponseTypeDef](#listchannelsresponsetypedef)
-  - [ListInputDeviceTransfersResponseTypeDef](#listinputdevicetransfersresponsetypedef)
-  - [ListInputDevicesResponseTypeDef](#listinputdevicesresponsetypedef)
-  - [ListInputSecurityGroupsResponseTypeDef](#listinputsecuritygroupsresponsetypedef)
-  - [ListInputsResponseTypeDef](#listinputsresponsetypedef)
-  - [ListMultiplexProgramsResponseTypeDef](#listmultiplexprogramsresponsetypedef)
-  - [ListMultiplexesResponseTypeDef](#listmultiplexesresponsetypedef)
-  - [ListOfferingsResponseTypeDef](#listofferingsresponsetypedef)
-  - [ListReservationsResponseTypeDef](#listreservationsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [MediaConnectFlowRequestTypeDef](#mediaconnectflowrequesttypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [PurchaseOfferingResponseTypeDef](#purchaseofferingresponsetypedef)
-  - [StartChannelResponseTypeDef](#startchannelresponsetypedef)
-  - [StartMultiplexResponseTypeDef](#startmultiplexresponsetypedef)
-  - [StopChannelResponseTypeDef](#stopchannelresponsetypedef)
-  - [StopMultiplexResponseTypeDef](#stopmultiplexresponsetypedef)
-  - [UpdateChannelClassResponseTypeDef](#updatechannelclassresponsetypedef)
-  - [UpdateChannelResponseTypeDef](#updatechannelresponsetypedef)
-  - [UpdateInputDeviceResponseTypeDef](#updateinputdeviceresponsetypedef)
-  - [UpdateInputResponseTypeDef](#updateinputresponsetypedef)
-  - [UpdateInputSecurityGroupResponseTypeDef](#updateinputsecuritygroupresponsetypedef)
-  - [UpdateMultiplexProgramResponseTypeDef](#updatemultiplexprogramresponsetypedef)
-  - [UpdateMultiplexResponseTypeDef](#updatemultiplexresponsetypedef)
-  - [UpdateReservationResponseTypeDef](#updatereservationresponsetypedef)
   - [VpcOutputSettingsTypeDef](#vpcoutputsettingstypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
+  - [WavSettingsTypeDef](#wavsettingstypedef)
 
 ## AacSettingsTypeDef
 
@@ -465,7 +465,7 @@ from mypy_boto3_medialive.type_defs import AudioNormalizationSettingsTypeDef
 
 Optional fields:
 - `Algorithm`: `AudioNormalizationAlgorithm`
-- `AlgorithmControl`: `AudioNormalizationAlgorithmControl`
+- `AlgorithmControl`: `Literal['CORRECT_AUDIO']`
 - `TargetLkfs`: `float`
 
 
@@ -630,6 +630,20 @@ Optional fields:
 - `Scte35TimeSignalApos`: `"Scte35TimeSignalAposTypeDef"`
 
 
+## BatchDeleteResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import BatchDeleteResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Failed`: `List["BatchFailedResultModelTypeDef"]`
+- `Successful`: `List["BatchSuccessfulResultModelTypeDef"]`
+
+
 ## BatchFailedResultModelTypeDef
 
 ```python
@@ -646,6 +660,19 @@ Optional fields:
 - `Message`: `str`
 
 
+## BatchScheduleActionCreateRequestTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import BatchScheduleActionCreateRequestTypeDef
+```
+
+
+Required fields:
+- `ScheduleActions`: `List["ScheduleActionTypeDef"]`
+
+
+
+
 ## BatchScheduleActionCreateResultTypeDef
 
 ```python
@@ -655,6 +682,19 @@ from mypy_boto3_medialive.type_defs import BatchScheduleActionCreateResultTypeDe
 
 Required fields:
 - `ScheduleActions`: `List["ScheduleActionTypeDef"]`
+
+
+
+
+## BatchScheduleActionDeleteRequestTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import BatchScheduleActionDeleteRequestTypeDef
+```
+
+
+Required fields:
+- `ActionNames`: `List[str]`
 
 
 
@@ -672,6 +712,34 @@ Required fields:
 
 
 
+## BatchStartResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import BatchStartResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Failed`: `List["BatchFailedResultModelTypeDef"]`
+- `Successful`: `List["BatchSuccessfulResultModelTypeDef"]`
+
+
+## BatchStopResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import BatchStopResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Failed`: `List["BatchFailedResultModelTypeDef"]`
+- `Successful`: `List["BatchSuccessfulResultModelTypeDef"]`
+
+
 ## BatchSuccessfulResultModelTypeDef
 
 ```python
@@ -685,6 +753,20 @@ Optional fields:
 - `Arn`: `str`
 - `Id`: `str`
 - `State`: `str`
+
+
+## BatchUpdateScheduleResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import BatchUpdateScheduleResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Creates`: `"BatchScheduleActionCreateResultTypeDef"`
+- `Deletes`: `"BatchScheduleActionDeleteResultTypeDef"`
 
 
 ## BlackoutSlateTypeDef
@@ -924,6 +1006,404 @@ Optional fields:
 - `State`: `ChannelState`
 - `Tags`: `Dict[str, str]`
 - `Vpc`: `"VpcOutputSettingsDescriptionTypeDef"`
+
+
+## CreateChannelResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import CreateChannelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Channel`: `"ChannelTypeDef"`
+
+
+## CreateInputResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import CreateInputResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Input`: `"InputTypeDef"`
+
+
+## CreateInputSecurityGroupResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import CreateInputSecurityGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SecurityGroup`: `"InputSecurityGroupTypeDef"`
+
+
+## CreateMultiplexProgramResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import CreateMultiplexProgramResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `MultiplexProgram`: `"MultiplexProgramTypeDef"`
+
+
+## CreateMultiplexResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import CreateMultiplexResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Multiplex`: `"MultiplexTypeDef"`
+
+
+## CreatePartnerInputResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import CreatePartnerInputResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Input`: `"InputTypeDef"`
+
+
+## DeleteChannelResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DeleteChannelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CdiInputSpecification`: `"CdiInputSpecificationTypeDef"`
+- `ChannelClass`: `ChannelClass`
+- `Destinations`: `List["OutputDestinationTypeDef"]`
+- `EgressEndpoints`: `List["ChannelEgressEndpointTypeDef"]`
+- `EncoderSettings`: `"EncoderSettingsTypeDef"`
+- `Id`: `str`
+- `InputAttachments`: `List["InputAttachmentTypeDef"]`
+- `InputSpecification`: `"InputSpecificationTypeDef"`
+- `LogLevel`: `LogLevel`
+- `Name`: `str`
+- `PipelineDetails`: `List["PipelineDetailTypeDef"]`
+- `PipelinesRunningCount`: `int`
+- `RoleArn`: `str`
+- `State`: `ChannelState`
+- `Tags`: `Dict[str, str]`
+- `Vpc`: `"VpcOutputSettingsDescriptionTypeDef"`
+
+
+## DeleteMultiplexProgramResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DeleteMultiplexProgramResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ChannelId`: `str`
+- `MultiplexProgramSettings`: `"MultiplexProgramSettingsTypeDef"`
+- `PacketIdentifiersMap`: `"MultiplexProgramPacketIdentifiersMapTypeDef"`
+- `PipelineDetails`: `List["MultiplexProgramPipelineDetailTypeDef"]`
+- `ProgramName`: `str`
+
+
+## DeleteMultiplexResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DeleteMultiplexResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `AvailabilityZones`: `List[str]`
+- `Destinations`: `List["MultiplexOutputDestinationTypeDef"]`
+- `Id`: `str`
+- `MultiplexSettings`: `"MultiplexSettingsTypeDef"`
+- `Name`: `str`
+- `PipelinesRunningCount`: `int`
+- `ProgramCount`: `int`
+- `State`: `MultiplexState`
+- `Tags`: `Dict[str, str]`
+
+
+## DeleteReservationResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DeleteReservationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Count`: `int`
+- `CurrencyCode`: `str`
+- `Duration`: `int`
+- `DurationUnits`: `Literal['MONTHS']`
+- `End`: `str`
+- `FixedPrice`: `float`
+- `Name`: `str`
+- `OfferingDescription`: `str`
+- `OfferingId`: `str`
+- `OfferingType`: `Literal['NO_UPFRONT']`
+- `Region`: `str`
+- `ReservationId`: `str`
+- `ResourceSpecification`: `"ReservationResourceSpecificationTypeDef"`
+- `Start`: `str`
+- `State`: `ReservationState`
+- `Tags`: `Dict[str, str]`
+- `UsagePrice`: `float`
+
+
+## DescribeChannelResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DescribeChannelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CdiInputSpecification`: `"CdiInputSpecificationTypeDef"`
+- `ChannelClass`: `ChannelClass`
+- `Destinations`: `List["OutputDestinationTypeDef"]`
+- `EgressEndpoints`: `List["ChannelEgressEndpointTypeDef"]`
+- `EncoderSettings`: `"EncoderSettingsTypeDef"`
+- `Id`: `str`
+- `InputAttachments`: `List["InputAttachmentTypeDef"]`
+- `InputSpecification`: `"InputSpecificationTypeDef"`
+- `LogLevel`: `LogLevel`
+- `Name`: `str`
+- `PipelineDetails`: `List["PipelineDetailTypeDef"]`
+- `PipelinesRunningCount`: `int`
+- `RoleArn`: `str`
+- `State`: `ChannelState`
+- `Tags`: `Dict[str, str]`
+- `Vpc`: `"VpcOutputSettingsDescriptionTypeDef"`
+
+
+## DescribeInputDeviceResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DescribeInputDeviceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `ConnectionState`: `InputDeviceConnectionState`
+- `DeviceSettingsSyncState`: `DeviceSettingsSyncState`
+- `DeviceUpdateStatus`: `DeviceUpdateStatus`
+- `HdDeviceSettings`: `"InputDeviceHdSettingsTypeDef"`
+- `Id`: `str`
+- `MacAddress`: `str`
+- `Name`: `str`
+- `NetworkSettings`: `"InputDeviceNetworkSettingsTypeDef"`
+- `SerialNumber`: `str`
+- `Type`: `Literal['HD']`
+- `UhdDeviceSettings`: `"InputDeviceUhdSettingsTypeDef"`
+
+
+## DescribeInputDeviceThumbnailResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DescribeInputDeviceThumbnailResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Body`: `StreamingBody`
+- `ContentType`: `Literal['image/jpeg']`
+- `ContentLength`: `int`
+- `ETag`: `str`
+- `LastModified`: `datetime`
+
+
+## DescribeInputResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DescribeInputResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `AttachedChannels`: `List[str]`
+- `Destinations`: `List["InputDestinationTypeDef"]`
+- `Id`: `str`
+- `InputClass`: `InputClass`
+- `InputDevices`: `List["InputDeviceSettingsTypeDef"]`
+- `InputPartnerIds`: `List[str]`
+- `InputSourceType`: `InputSourceType`
+- `MediaConnectFlows`: `List["MediaConnectFlowTypeDef"]`
+- `Name`: `str`
+- `RoleArn`: `str`
+- `SecurityGroups`: `List[str]`
+- `Sources`: `List["InputSourceTypeDef"]`
+- `State`: `InputState`
+- `Tags`: `Dict[str, str]`
+- `Type`: `InputType`
+
+
+## DescribeInputSecurityGroupResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DescribeInputSecurityGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Id`: `str`
+- `Inputs`: `List[str]`
+- `State`: `InputSecurityGroupState`
+- `Tags`: `Dict[str, str]`
+- `WhitelistRules`: `List["InputWhitelistRuleTypeDef"]`
+
+
+## DescribeMultiplexProgramResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DescribeMultiplexProgramResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ChannelId`: `str`
+- `MultiplexProgramSettings`: `"MultiplexProgramSettingsTypeDef"`
+- `PacketIdentifiersMap`: `"MultiplexProgramPacketIdentifiersMapTypeDef"`
+- `PipelineDetails`: `List["MultiplexProgramPipelineDetailTypeDef"]`
+- `ProgramName`: `str`
+
+
+## DescribeMultiplexResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DescribeMultiplexResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `AvailabilityZones`: `List[str]`
+- `Destinations`: `List["MultiplexOutputDestinationTypeDef"]`
+- `Id`: `str`
+- `MultiplexSettings`: `"MultiplexSettingsTypeDef"`
+- `Name`: `str`
+- `PipelinesRunningCount`: `int`
+- `ProgramCount`: `int`
+- `State`: `MultiplexState`
+- `Tags`: `Dict[str, str]`
+
+
+## DescribeOfferingResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DescribeOfferingResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CurrencyCode`: `str`
+- `Duration`: `int`
+- `DurationUnits`: `Literal['MONTHS']`
+- `FixedPrice`: `float`
+- `OfferingDescription`: `str`
+- `OfferingId`: `str`
+- `OfferingType`: `Literal['NO_UPFRONT']`
+- `Region`: `str`
+- `ResourceSpecification`: `"ReservationResourceSpecificationTypeDef"`
+- `UsagePrice`: `float`
+
+
+## DescribeReservationResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DescribeReservationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Count`: `int`
+- `CurrencyCode`: `str`
+- `Duration`: `int`
+- `DurationUnits`: `Literal['MONTHS']`
+- `End`: `str`
+- `FixedPrice`: `float`
+- `Name`: `str`
+- `OfferingDescription`: `str`
+- `OfferingId`: `str`
+- `OfferingType`: `Literal['NO_UPFRONT']`
+- `Region`: `str`
+- `ReservationId`: `str`
+- `ResourceSpecification`: `"ReservationResourceSpecificationTypeDef"`
+- `Start`: `str`
+- `State`: `ReservationState`
+- `Tags`: `Dict[str, str]`
+- `UsagePrice`: `float`
+
+
+## DescribeScheduleResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import DescribeScheduleResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `ScheduleActions`: `List["ScheduleActionTypeDef"]`
 
 
 ## DvbNitSettingsTypeDef
@@ -1605,7 +2085,7 @@ from mypy_boto3_medialive.type_defs import HlsMediaStoreSettingsTypeDef
 Optional fields:
 - `ConnectionRetryInterval`: `int`
 - `FilecacheDuration`: `int`
-- `MediaStoreStorageClass`: `HlsMediaStoreStorageClass`
+- `MediaStoreStorageClass`: `Literal['TEMPORAL']`
 - `NumRetries`: `int`
 - `RestartDelay`: `int`
 
@@ -1734,6 +2214,19 @@ Optional fields:
 - `StopTimecode`: `"StopTimecodeTypeDef"`
 
 
+## InputDestinationRequestTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import InputDestinationRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `StreamName`: `str`
+
+
 ## InputDestinationTypeDef
 
 ```python
@@ -1762,6 +2255,20 @@ from mypy_boto3_medialive.type_defs import InputDestinationVpcTypeDef
 Optional fields:
 - `AvailabilityZone`: `str`
 - `NetworkInterfaceId`: `str`
+
+
+## InputDeviceConfigurableSettingsTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import InputDeviceConfigurableSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConfiguredInput`: `InputDeviceConfiguredInput`
+- `MaxBitrate`: `int`
 
 
 ## InputDeviceHdSettingsTypeDef
@@ -1801,6 +2308,19 @@ Optional fields:
 - `SubnetMask`: `str`
 
 
+## InputDeviceRequestTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import InputDeviceRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+
+
 ## InputDeviceSettingsTypeDef
 
 ```python
@@ -1834,7 +2354,7 @@ Optional fields:
 - `Name`: `str`
 - `NetworkSettings`: `"InputDeviceNetworkSettingsTypeDef"`
 - `SerialNumber`: `str`
-- `Type`: `InputDeviceType`
+- `Type`: `Literal['HD']`
 - `UhdDeviceSettings`: `"InputDeviceUhdSettingsTypeDef"`
 
 
@@ -1960,6 +2480,21 @@ Optional fields:
 - `VideoSelector`: `"VideoSelectorTypeDef"`
 
 
+## InputSourceRequestTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import InputSourceRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `PasswordParam`: `str`
+- `Url`: `str`
+- `Username`: `str`
+
+
 ## InputSourceTypeDef
 
 ```python
@@ -2035,6 +2570,35 @@ Optional fields:
 - `Type`: `InputType`
 
 
+## InputVpcRequestTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import InputVpcRequestTypeDef
+```
+
+
+Required fields:
+- `SubnetIds`: `List[str]`
+
+
+
+Optional fields:
+- `SecurityGroupIds`: `List[str]`
+
+
+## InputWhitelistRuleCidrTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import InputWhitelistRuleCidrTypeDef
+```
+
+
+
+
+Optional fields:
+- `Cidr`: `str`
+
+
 ## InputWhitelistRuleTypeDef
 
 ```python
@@ -2059,6 +2623,145 @@ from mypy_boto3_medialive.type_defs import KeyProviderSettingsTypeDef
 
 Optional fields:
 - `StaticKeySettings`: `"StaticKeySettingsTypeDef"`
+
+
+## ListChannelsResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import ListChannelsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Channels`: `List["ChannelSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListInputDeviceTransfersResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import ListInputDeviceTransfersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `InputDeviceTransfers`: `List["TransferringInputDeviceSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListInputDevicesResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import ListInputDevicesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `InputDevices`: `List["InputDeviceSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListInputSecurityGroupsResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import ListInputSecurityGroupsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `InputSecurityGroups`: `List["InputSecurityGroupTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListInputsResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import ListInputsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Inputs`: `List["InputTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListMultiplexProgramsResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import ListMultiplexProgramsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `MultiplexPrograms`: `List["MultiplexProgramSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListMultiplexesResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import ListMultiplexesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Multiplexes`: `List["MultiplexSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListOfferingsResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import ListOfferingsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `Offerings`: `List["OfferingTypeDef"]`
+
+
+## ListReservationsResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import ListReservationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `Reservations`: `List["ReservationTypeDef"]`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
 
 
 ## M2tsSettingsTypeDef
@@ -2147,6 +2850,19 @@ Optional fields:
 - `TimedMetadataPid`: `str`
 - `TransportStreamId`: `int`
 - `VideoPid`: `str`
+
+
+## MediaConnectFlowRequestTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import MediaConnectFlowRequestTypeDef
+```
+
+
+
+
+Optional fields:
+- `FlowArn`: `str`
 
 
 ## MediaConnectFlowTypeDef
@@ -2637,11 +3353,11 @@ Optional fields:
 - `Arn`: `str`
 - `CurrencyCode`: `str`
 - `Duration`: `int`
-- `DurationUnits`: `OfferingDurationUnits`
+- `DurationUnits`: `Literal['MONTHS']`
 - `FixedPrice`: `float`
 - `OfferingDescription`: `str`
 - `OfferingId`: `str`
-- `OfferingType`: `OfferingType`
+- `OfferingType`: `Literal['NO_UPFRONT']`
 - `Region`: `str`
 - `ResourceSpecification`: `"ReservationResourceSpecificationTypeDef"`
 - `UsagePrice`: `float`
@@ -2769,6 +3485,21 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
 ## PauseStateScheduleActionSettingsTypeDef
 
 ```python
@@ -2810,6 +3541,19 @@ Required fields:
 - `PipelineId`: `PipelineId`
 
 
+
+
+## PurchaseOfferingResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import PurchaseOfferingResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Reservation`: `"ReservationTypeDef"`
 
 
 ## RemixSettingsTypeDef
@@ -2863,13 +3607,13 @@ Optional fields:
 - `Count`: `int`
 - `CurrencyCode`: `str`
 - `Duration`: `int`
-- `DurationUnits`: `OfferingDurationUnits`
+- `DurationUnits`: `Literal['MONTHS']`
 - `End`: `str`
 - `FixedPrice`: `float`
 - `Name`: `str`
 - `OfferingDescription`: `str`
 - `OfferingId`: `str`
-- `OfferingType`: `OfferingType`
+- `OfferingType`: `Literal['NO_UPFRONT']`
 - `Region`: `str`
 - `ReservationId`: `str`
 - `ResourceSpecification`: `"ReservationResourceSpecificationTypeDef"`
@@ -2906,7 +3650,7 @@ from mypy_boto3_medialive.type_defs import RtmpGroupSettingsTypeDef
 
 
 Optional fields:
-- `AdMarkers`: `List[RtmpAdMarkers]`
+- `AdMarkers`: `List[Literal['ON_CUE_POINT_SCTE35']]`
 - `AuthenticationScheme`: `AuthenticationScheme`
 - `CacheFullBehavior`: `RtmpCacheFullBehavior`
 - `CacheLength`: `int`
@@ -3169,6 +3913,57 @@ Optional fields:
 - `AudioRenditionSets`: `str`
 
 
+## StartChannelResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import StartChannelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CdiInputSpecification`: `"CdiInputSpecificationTypeDef"`
+- `ChannelClass`: `ChannelClass`
+- `Destinations`: `List["OutputDestinationTypeDef"]`
+- `EgressEndpoints`: `List["ChannelEgressEndpointTypeDef"]`
+- `EncoderSettings`: `"EncoderSettingsTypeDef"`
+- `Id`: `str`
+- `InputAttachments`: `List["InputAttachmentTypeDef"]`
+- `InputSpecification`: `"InputSpecificationTypeDef"`
+- `LogLevel`: `LogLevel`
+- `Name`: `str`
+- `PipelineDetails`: `List["PipelineDetailTypeDef"]`
+- `PipelinesRunningCount`: `int`
+- `RoleArn`: `str`
+- `State`: `ChannelState`
+- `Tags`: `Dict[str, str]`
+- `Vpc`: `"VpcOutputSettingsDescriptionTypeDef"`
+
+
+## StartMultiplexResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import StartMultiplexResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `AvailabilityZones`: `List[str]`
+- `Destinations`: `List["MultiplexOutputDestinationTypeDef"]`
+- `Id`: `str`
+- `MultiplexSettings`: `"MultiplexSettingsTypeDef"`
+- `Name`: `str`
+- `PipelinesRunningCount`: `int`
+- `ProgramCount`: `int`
+- `State`: `MultiplexState`
+- `Tags`: `Dict[str, str]`
+
+
 ## StartTimecodeTypeDef
 
 ```python
@@ -3234,6 +4029,57 @@ Required fields:
 
 Optional fields:
 - `KeyProviderServer`: `"InputLocationTypeDef"`
+
+
+## StopChannelResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import StopChannelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CdiInputSpecification`: `"CdiInputSpecificationTypeDef"`
+- `ChannelClass`: `ChannelClass`
+- `Destinations`: `List["OutputDestinationTypeDef"]`
+- `EgressEndpoints`: `List["ChannelEgressEndpointTypeDef"]`
+- `EncoderSettings`: `"EncoderSettingsTypeDef"`
+- `Id`: `str`
+- `InputAttachments`: `List["InputAttachmentTypeDef"]`
+- `InputSpecification`: `"InputSpecificationTypeDef"`
+- `LogLevel`: `LogLevel`
+- `Name`: `str`
+- `PipelineDetails`: `List["PipelineDetailTypeDef"]`
+- `PipelinesRunningCount`: `int`
+- `RoleArn`: `str`
+- `State`: `ChannelState`
+- `Tags`: `Dict[str, str]`
+- `Vpc`: `"VpcOutputSettingsDescriptionTypeDef"`
+
+
+## StopMultiplexResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import StopMultiplexResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `AvailabilityZones`: `List[str]`
+- `Destinations`: `List["MultiplexOutputDestinationTypeDef"]`
+- `Id`: `str`
+- `MultiplexSettings`: `"MultiplexSettingsTypeDef"`
+- `Name`: `str`
+- `PipelinesRunningCount`: `int`
+- `ProgramCount`: `int`
+- `State`: `MultiplexState`
+- `Tags`: `Dict[str, str]`
 
 
 ## StopTimecodeTypeDef
@@ -3367,6 +4213,121 @@ Required fields:
 Optional fields:
 - `BufferMsec`: `int`
 - `FecOutputSettings`: `"FecOutputSettingsTypeDef"`
+
+
+## UpdateChannelClassResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import UpdateChannelClassResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Channel`: `"ChannelTypeDef"`
+
+
+## UpdateChannelResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import UpdateChannelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Channel`: `"ChannelTypeDef"`
+
+
+## UpdateInputDeviceResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import UpdateInputDeviceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `ConnectionState`: `InputDeviceConnectionState`
+- `DeviceSettingsSyncState`: `DeviceSettingsSyncState`
+- `DeviceUpdateStatus`: `DeviceUpdateStatus`
+- `HdDeviceSettings`: `"InputDeviceHdSettingsTypeDef"`
+- `Id`: `str`
+- `MacAddress`: `str`
+- `Name`: `str`
+- `NetworkSettings`: `"InputDeviceNetworkSettingsTypeDef"`
+- `SerialNumber`: `str`
+- `Type`: `Literal['HD']`
+- `UhdDeviceSettings`: `"InputDeviceUhdSettingsTypeDef"`
+
+
+## UpdateInputResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import UpdateInputResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Input`: `"InputTypeDef"`
+
+
+## UpdateInputSecurityGroupResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import UpdateInputSecurityGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SecurityGroup`: `"InputSecurityGroupTypeDef"`
+
+
+## UpdateMultiplexProgramResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import UpdateMultiplexProgramResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `MultiplexProgram`: `"MultiplexProgramTypeDef"`
+
+
+## UpdateMultiplexResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import UpdateMultiplexResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Multiplex`: `"MultiplexTypeDef"`
+
+
+## UpdateReservationResponseTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import UpdateReservationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Reservation`: `"ReservationTypeDef"`
 
 
 ## VideoBlackFailoverSettingsTypeDef
@@ -3505,982 +4466,6 @@ Optional fields:
 - `SubnetIds`: `List[str]`
 
 
-## WavSettingsTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import WavSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `BitDepth`: `float`
-- `CodingMode`: `WavCodingMode`
-- `SampleRate`: `float`
-
-
-## BatchDeleteResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import BatchDeleteResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Failed`: `List["BatchFailedResultModelTypeDef"]`
-- `Successful`: `List["BatchSuccessfulResultModelTypeDef"]`
-
-
-## BatchScheduleActionCreateRequestTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import BatchScheduleActionCreateRequestTypeDef
-```
-
-
-Required fields:
-- `ScheduleActions`: `List["ScheduleActionTypeDef"]`
-
-
-
-
-## BatchScheduleActionDeleteRequestTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import BatchScheduleActionDeleteRequestTypeDef
-```
-
-
-Required fields:
-- `ActionNames`: `List[str]`
-
-
-
-
-## BatchStartResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import BatchStartResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Failed`: `List["BatchFailedResultModelTypeDef"]`
-- `Successful`: `List["BatchSuccessfulResultModelTypeDef"]`
-
-
-## BatchStopResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import BatchStopResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Failed`: `List["BatchFailedResultModelTypeDef"]`
-- `Successful`: `List["BatchSuccessfulResultModelTypeDef"]`
-
-
-## BatchUpdateScheduleResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import BatchUpdateScheduleResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Creates`: `"BatchScheduleActionCreateResultTypeDef"`
-- `Deletes`: `"BatchScheduleActionDeleteResultTypeDef"`
-
-
-## CreateChannelResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import CreateChannelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Channel`: `"ChannelTypeDef"`
-
-
-## CreateInputResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import CreateInputResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Input`: `"InputTypeDef"`
-
-
-## CreateInputSecurityGroupResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import CreateInputSecurityGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SecurityGroup`: `"InputSecurityGroupTypeDef"`
-
-
-## CreateMultiplexProgramResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import CreateMultiplexProgramResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `MultiplexProgram`: `"MultiplexProgramTypeDef"`
-
-
-## CreateMultiplexResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import CreateMultiplexResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Multiplex`: `"MultiplexTypeDef"`
-
-
-## CreatePartnerInputResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import CreatePartnerInputResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Input`: `"InputTypeDef"`
-
-
-## DeleteChannelResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DeleteChannelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CdiInputSpecification`: `"CdiInputSpecificationTypeDef"`
-- `ChannelClass`: `ChannelClass`
-- `Destinations`: `List["OutputDestinationTypeDef"]`
-- `EgressEndpoints`: `List["ChannelEgressEndpointTypeDef"]`
-- `EncoderSettings`: `"EncoderSettingsTypeDef"`
-- `Id`: `str`
-- `InputAttachments`: `List["InputAttachmentTypeDef"]`
-- `InputSpecification`: `"InputSpecificationTypeDef"`
-- `LogLevel`: `LogLevel`
-- `Name`: `str`
-- `PipelineDetails`: `List["PipelineDetailTypeDef"]`
-- `PipelinesRunningCount`: `int`
-- `RoleArn`: `str`
-- `State`: `ChannelState`
-- `Tags`: `Dict[str, str]`
-- `Vpc`: `"VpcOutputSettingsDescriptionTypeDef"`
-
-
-## DeleteMultiplexProgramResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DeleteMultiplexProgramResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ChannelId`: `str`
-- `MultiplexProgramSettings`: `"MultiplexProgramSettingsTypeDef"`
-- `PacketIdentifiersMap`: `"MultiplexProgramPacketIdentifiersMapTypeDef"`
-- `PipelineDetails`: `List["MultiplexProgramPipelineDetailTypeDef"]`
-- `ProgramName`: `str`
-
-
-## DeleteMultiplexResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DeleteMultiplexResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `AvailabilityZones`: `List[str]`
-- `Destinations`: `List["MultiplexOutputDestinationTypeDef"]`
-- `Id`: `str`
-- `MultiplexSettings`: `"MultiplexSettingsTypeDef"`
-- `Name`: `str`
-- `PipelinesRunningCount`: `int`
-- `ProgramCount`: `int`
-- `State`: `MultiplexState`
-- `Tags`: `Dict[str, str]`
-
-
-## DeleteReservationResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DeleteReservationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Count`: `int`
-- `CurrencyCode`: `str`
-- `Duration`: `int`
-- `DurationUnits`: `OfferingDurationUnits`
-- `End`: `str`
-- `FixedPrice`: `float`
-- `Name`: `str`
-- `OfferingDescription`: `str`
-- `OfferingId`: `str`
-- `OfferingType`: `OfferingType`
-- `Region`: `str`
-- `ReservationId`: `str`
-- `ResourceSpecification`: `"ReservationResourceSpecificationTypeDef"`
-- `Start`: `str`
-- `State`: `ReservationState`
-- `Tags`: `Dict[str, str]`
-- `UsagePrice`: `float`
-
-
-## DescribeChannelResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DescribeChannelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CdiInputSpecification`: `"CdiInputSpecificationTypeDef"`
-- `ChannelClass`: `ChannelClass`
-- `Destinations`: `List["OutputDestinationTypeDef"]`
-- `EgressEndpoints`: `List["ChannelEgressEndpointTypeDef"]`
-- `EncoderSettings`: `"EncoderSettingsTypeDef"`
-- `Id`: `str`
-- `InputAttachments`: `List["InputAttachmentTypeDef"]`
-- `InputSpecification`: `"InputSpecificationTypeDef"`
-- `LogLevel`: `LogLevel`
-- `Name`: `str`
-- `PipelineDetails`: `List["PipelineDetailTypeDef"]`
-- `PipelinesRunningCount`: `int`
-- `RoleArn`: `str`
-- `State`: `ChannelState`
-- `Tags`: `Dict[str, str]`
-- `Vpc`: `"VpcOutputSettingsDescriptionTypeDef"`
-
-
-## DescribeInputDeviceResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DescribeInputDeviceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `ConnectionState`: `InputDeviceConnectionState`
-- `DeviceSettingsSyncState`: `DeviceSettingsSyncState`
-- `DeviceUpdateStatus`: `DeviceUpdateStatus`
-- `HdDeviceSettings`: `"InputDeviceHdSettingsTypeDef"`
-- `Id`: `str`
-- `MacAddress`: `str`
-- `Name`: `str`
-- `NetworkSettings`: `"InputDeviceNetworkSettingsTypeDef"`
-- `SerialNumber`: `str`
-- `Type`: `InputDeviceType`
-- `UhdDeviceSettings`: `"InputDeviceUhdSettingsTypeDef"`
-
-
-## DescribeInputDeviceThumbnailResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DescribeInputDeviceThumbnailResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Body`: `StreamingBody`
-- `ContentType`: `ContentType`
-- `ContentLength`: `int`
-- `ETag`: `str`
-- `LastModified`: `datetime`
-
-
-## DescribeInputResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DescribeInputResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `AttachedChannels`: `List[str]`
-- `Destinations`: `List["InputDestinationTypeDef"]`
-- `Id`: `str`
-- `InputClass`: `InputClass`
-- `InputDevices`: `List["InputDeviceSettingsTypeDef"]`
-- `InputPartnerIds`: `List[str]`
-- `InputSourceType`: `InputSourceType`
-- `MediaConnectFlows`: `List["MediaConnectFlowTypeDef"]`
-- `Name`: `str`
-- `RoleArn`: `str`
-- `SecurityGroups`: `List[str]`
-- `Sources`: `List["InputSourceTypeDef"]`
-- `State`: `InputState`
-- `Tags`: `Dict[str, str]`
-- `Type`: `InputType`
-
-
-## DescribeInputSecurityGroupResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DescribeInputSecurityGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Id`: `str`
-- `Inputs`: `List[str]`
-- `State`: `InputSecurityGroupState`
-- `Tags`: `Dict[str, str]`
-- `WhitelistRules`: `List["InputWhitelistRuleTypeDef"]`
-
-
-## DescribeMultiplexProgramResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DescribeMultiplexProgramResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ChannelId`: `str`
-- `MultiplexProgramSettings`: `"MultiplexProgramSettingsTypeDef"`
-- `PacketIdentifiersMap`: `"MultiplexProgramPacketIdentifiersMapTypeDef"`
-- `PipelineDetails`: `List["MultiplexProgramPipelineDetailTypeDef"]`
-- `ProgramName`: `str`
-
-
-## DescribeMultiplexResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DescribeMultiplexResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `AvailabilityZones`: `List[str]`
-- `Destinations`: `List["MultiplexOutputDestinationTypeDef"]`
-- `Id`: `str`
-- `MultiplexSettings`: `"MultiplexSettingsTypeDef"`
-- `Name`: `str`
-- `PipelinesRunningCount`: `int`
-- `ProgramCount`: `int`
-- `State`: `MultiplexState`
-- `Tags`: `Dict[str, str]`
-
-
-## DescribeOfferingResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DescribeOfferingResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CurrencyCode`: `str`
-- `Duration`: `int`
-- `DurationUnits`: `OfferingDurationUnits`
-- `FixedPrice`: `float`
-- `OfferingDescription`: `str`
-- `OfferingId`: `str`
-- `OfferingType`: `OfferingType`
-- `Region`: `str`
-- `ResourceSpecification`: `"ReservationResourceSpecificationTypeDef"`
-- `UsagePrice`: `float`
-
-
-## DescribeReservationResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DescribeReservationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Count`: `int`
-- `CurrencyCode`: `str`
-- `Duration`: `int`
-- `DurationUnits`: `OfferingDurationUnits`
-- `End`: `str`
-- `FixedPrice`: `float`
-- `Name`: `str`
-- `OfferingDescription`: `str`
-- `OfferingId`: `str`
-- `OfferingType`: `OfferingType`
-- `Region`: `str`
-- `ReservationId`: `str`
-- `ResourceSpecification`: `"ReservationResourceSpecificationTypeDef"`
-- `Start`: `str`
-- `State`: `ReservationState`
-- `Tags`: `Dict[str, str]`
-- `UsagePrice`: `float`
-
-
-## DescribeScheduleResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import DescribeScheduleResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `ScheduleActions`: `List["ScheduleActionTypeDef"]`
-
-
-## InputDestinationRequestTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import InputDestinationRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `StreamName`: `str`
-
-
-## InputDeviceConfigurableSettingsTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import InputDeviceConfigurableSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConfiguredInput`: `InputDeviceConfiguredInput`
-- `MaxBitrate`: `int`
-
-
-## InputDeviceRequestTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import InputDeviceRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-
-
-## InputSourceRequestTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import InputSourceRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `PasswordParam`: `str`
-- `Url`: `str`
-- `Username`: `str`
-
-
-## InputVpcRequestTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import InputVpcRequestTypeDef
-```
-
-
-Required fields:
-- `SubnetIds`: `List[str]`
-
-
-
-Optional fields:
-- `SecurityGroupIds`: `List[str]`
-
-
-## InputWhitelistRuleCidrTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import InputWhitelistRuleCidrTypeDef
-```
-
-
-
-
-Optional fields:
-- `Cidr`: `str`
-
-
-## ListChannelsResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import ListChannelsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Channels`: `List["ChannelSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListInputDeviceTransfersResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import ListInputDeviceTransfersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `InputDeviceTransfers`: `List["TransferringInputDeviceSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListInputDevicesResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import ListInputDevicesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `InputDevices`: `List["InputDeviceSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListInputSecurityGroupsResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import ListInputSecurityGroupsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `InputSecurityGroups`: `List["InputSecurityGroupTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListInputsResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import ListInputsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Inputs`: `List["InputTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListMultiplexProgramsResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import ListMultiplexProgramsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `MultiplexPrograms`: `List["MultiplexProgramSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListMultiplexesResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import ListMultiplexesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Multiplexes`: `List["MultiplexSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListOfferingsResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import ListOfferingsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `Offerings`: `List["OfferingTypeDef"]`
-
-
-## ListReservationsResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import ListReservationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `Reservations`: `List["ReservationTypeDef"]`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## MediaConnectFlowRequestTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import MediaConnectFlowRequestTypeDef
-```
-
-
-
-
-Optional fields:
-- `FlowArn`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## PurchaseOfferingResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import PurchaseOfferingResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Reservation`: `"ReservationTypeDef"`
-
-
-## StartChannelResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import StartChannelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CdiInputSpecification`: `"CdiInputSpecificationTypeDef"`
-- `ChannelClass`: `ChannelClass`
-- `Destinations`: `List["OutputDestinationTypeDef"]`
-- `EgressEndpoints`: `List["ChannelEgressEndpointTypeDef"]`
-- `EncoderSettings`: `"EncoderSettingsTypeDef"`
-- `Id`: `str`
-- `InputAttachments`: `List["InputAttachmentTypeDef"]`
-- `InputSpecification`: `"InputSpecificationTypeDef"`
-- `LogLevel`: `LogLevel`
-- `Name`: `str`
-- `PipelineDetails`: `List["PipelineDetailTypeDef"]`
-- `PipelinesRunningCount`: `int`
-- `RoleArn`: `str`
-- `State`: `ChannelState`
-- `Tags`: `Dict[str, str]`
-- `Vpc`: `"VpcOutputSettingsDescriptionTypeDef"`
-
-
-## StartMultiplexResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import StartMultiplexResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `AvailabilityZones`: `List[str]`
-- `Destinations`: `List["MultiplexOutputDestinationTypeDef"]`
-- `Id`: `str`
-- `MultiplexSettings`: `"MultiplexSettingsTypeDef"`
-- `Name`: `str`
-- `PipelinesRunningCount`: `int`
-- `ProgramCount`: `int`
-- `State`: `MultiplexState`
-- `Tags`: `Dict[str, str]`
-
-
-## StopChannelResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import StopChannelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CdiInputSpecification`: `"CdiInputSpecificationTypeDef"`
-- `ChannelClass`: `ChannelClass`
-- `Destinations`: `List["OutputDestinationTypeDef"]`
-- `EgressEndpoints`: `List["ChannelEgressEndpointTypeDef"]`
-- `EncoderSettings`: `"EncoderSettingsTypeDef"`
-- `Id`: `str`
-- `InputAttachments`: `List["InputAttachmentTypeDef"]`
-- `InputSpecification`: `"InputSpecificationTypeDef"`
-- `LogLevel`: `LogLevel`
-- `Name`: `str`
-- `PipelineDetails`: `List["PipelineDetailTypeDef"]`
-- `PipelinesRunningCount`: `int`
-- `RoleArn`: `str`
-- `State`: `ChannelState`
-- `Tags`: `Dict[str, str]`
-- `Vpc`: `"VpcOutputSettingsDescriptionTypeDef"`
-
-
-## StopMultiplexResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import StopMultiplexResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `AvailabilityZones`: `List[str]`
-- `Destinations`: `List["MultiplexOutputDestinationTypeDef"]`
-- `Id`: `str`
-- `MultiplexSettings`: `"MultiplexSettingsTypeDef"`
-- `Name`: `str`
-- `PipelinesRunningCount`: `int`
-- `ProgramCount`: `int`
-- `State`: `MultiplexState`
-- `Tags`: `Dict[str, str]`
-
-
-## UpdateChannelClassResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import UpdateChannelClassResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Channel`: `"ChannelTypeDef"`
-
-
-## UpdateChannelResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import UpdateChannelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Channel`: `"ChannelTypeDef"`
-
-
-## UpdateInputDeviceResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import UpdateInputDeviceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `ConnectionState`: `InputDeviceConnectionState`
-- `DeviceSettingsSyncState`: `DeviceSettingsSyncState`
-- `DeviceUpdateStatus`: `DeviceUpdateStatus`
-- `HdDeviceSettings`: `"InputDeviceHdSettingsTypeDef"`
-- `Id`: `str`
-- `MacAddress`: `str`
-- `Name`: `str`
-- `NetworkSettings`: `"InputDeviceNetworkSettingsTypeDef"`
-- `SerialNumber`: `str`
-- `Type`: `InputDeviceType`
-- `UhdDeviceSettings`: `"InputDeviceUhdSettingsTypeDef"`
-
-
-## UpdateInputResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import UpdateInputResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Input`: `"InputTypeDef"`
-
-
-## UpdateInputSecurityGroupResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import UpdateInputSecurityGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SecurityGroup`: `"InputSecurityGroupTypeDef"`
-
-
-## UpdateMultiplexProgramResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import UpdateMultiplexProgramResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `MultiplexProgram`: `"MultiplexProgramTypeDef"`
-
-
-## UpdateMultiplexResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import UpdateMultiplexResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Multiplex`: `"MultiplexTypeDef"`
-
-
-## UpdateReservationResponseTypeDef
-
-```python
-from mypy_boto3_medialive.type_defs import UpdateReservationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Reservation`: `"ReservationTypeDef"`
-
-
 ## VpcOutputSettingsTypeDef
 
 ```python
@@ -4510,4 +4495,19 @@ from mypy_boto3_medialive.type_defs import WaiterConfigTypeDef
 Optional fields:
 - `Delay`: `int`
 - `MaxAttempts`: `int`
+
+
+## WavSettingsTypeDef
+
+```python
+from mypy_boto3_medialive.type_defs import WavSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `BitDepth`: `float`
+- `CodingMode`: `WavCodingMode`
+- `SampleRate`: `float`
 

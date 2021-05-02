@@ -103,10 +103,10 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_cur.type_defs import ReportDefinitionTypeDef, ...
+from mypy_boto3_cur.type_defs import DeleteReportDefinitionResponseTypeDef, ...
 ```
 
-- [ReportDefinitionTypeDef](./type_defs.md#reportdefinitiontypedef)
 - [DeleteReportDefinitionResponseTypeDef](./type_defs.md#deletereportdefinitionresponsetypedef)
 - [DescribeReportDefinitionsResponseTypeDef](./type_defs.md#describereportdefinitionsresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ReportDefinitionTypeDef](./type_defs.md#reportdefinitiontypedef)

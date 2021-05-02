@@ -6,11 +6,6 @@ Auto-generated documentation for [WorkLink](https://boto3.amazonaws.com/v1/docum
 type annotations stubs module [mypy_boto3_worklink](https://pypi.org/project/mypy-boto3-worklink/).
 
 - [Structures for boto3 WorkLink module](#structures-for-boto3-worklink-module)
-  - [DeviceSummaryTypeDef](#devicesummarytypedef)
-  - [DomainSummaryTypeDef](#domainsummarytypedef)
-  - [FleetSummaryTypeDef](#fleetsummarytypedef)
-  - [WebsiteAuthorizationProviderSummaryTypeDef](#websiteauthorizationprovidersummarytypedef)
-  - [WebsiteCaSummaryTypeDef](#websitecasummarytypedef)
   - [AssociateWebsiteAuthorizationProviderResponseTypeDef](#associatewebsiteauthorizationproviderresponsetypedef)
   - [AssociateWebsiteCertificateAuthorityResponseTypeDef](#associatewebsitecertificateauthorityresponsetypedef)
   - [CreateFleetResponseTypeDef](#createfleetresponsetypedef)
@@ -22,97 +17,17 @@ type annotations stubs module [mypy_boto3_worklink](https://pypi.org/project/myp
   - [DescribeFleetMetadataResponseTypeDef](#describefleetmetadataresponsetypedef)
   - [DescribeIdentityProviderConfigurationResponseTypeDef](#describeidentityproviderconfigurationresponsetypedef)
   - [DescribeWebsiteCertificateAuthorityResponseTypeDef](#describewebsitecertificateauthorityresponsetypedef)
+  - [DeviceSummaryTypeDef](#devicesummarytypedef)
+  - [DomainSummaryTypeDef](#domainsummarytypedef)
+  - [FleetSummaryTypeDef](#fleetsummarytypedef)
   - [ListDevicesResponseTypeDef](#listdevicesresponsetypedef)
   - [ListDomainsResponseTypeDef](#listdomainsresponsetypedef)
   - [ListFleetsResponseTypeDef](#listfleetsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListWebsiteAuthorizationProvidersResponseTypeDef](#listwebsiteauthorizationprovidersresponsetypedef)
   - [ListWebsiteCertificateAuthoritiesResponseTypeDef](#listwebsitecertificateauthoritiesresponsetypedef)
-
-## DeviceSummaryTypeDef
-
-```python
-from mypy_boto3_worklink.type_defs import DeviceSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeviceId`: `str`
-- `DeviceStatus`: `DeviceStatus`
-
-
-## DomainSummaryTypeDef
-
-```python
-from mypy_boto3_worklink.type_defs import DomainSummaryTypeDef
-```
-
-
-Required fields:
-- `DomainName`: `str`
-- `CreatedTime`: `datetime`
-- `DomainStatus`: `DomainStatus`
-
-
-
-Optional fields:
-- `DisplayName`: `str`
-
-
-## FleetSummaryTypeDef
-
-```python
-from mypy_boto3_worklink.type_defs import FleetSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `FleetArn`: `str`
-- `CreatedTime`: `datetime`
-- `LastUpdatedTime`: `datetime`
-- `FleetName`: `str`
-- `DisplayName`: `str`
-- `CompanyCode`: `str`
-- `FleetStatus`: `FleetStatus`
-- `Tags`: `Dict[str, str]`
-
-
-## WebsiteAuthorizationProviderSummaryTypeDef
-
-```python
-from mypy_boto3_worklink.type_defs import WebsiteAuthorizationProviderSummaryTypeDef
-```
-
-
-Required fields:
-- `AuthorizationProviderType`: `AuthorizationProviderType`
-
-
-
-Optional fields:
-- `AuthorizationProviderId`: `str`
-- `DomainName`: `str`
-- `CreatedTime`: `datetime`
-
-
-## WebsiteCaSummaryTypeDef
-
-```python
-from mypy_boto3_worklink.type_defs import WebsiteCaSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `WebsiteCaId`: `str`
-- `CreatedTime`: `datetime`
-- `DisplayName`: `str`
-
+  - [WebsiteAuthorizationProviderSummaryTypeDef](#websiteauthorizationprovidersummarytypedef)
+  - [WebsiteCaSummaryTypeDef](#websitecasummarytypedef)
 
 ## AssociateWebsiteAuthorizationProviderResponseTypeDef
 
@@ -262,7 +177,7 @@ from mypy_boto3_worklink.type_defs import DescribeIdentityProviderConfigurationR
 
 
 Optional fields:
-- `IdentityProviderType`: `IdentityProviderType`
+- `IdentityProviderType`: `Literal['SAML']`
 - `ServiceProviderSamlMetadata`: `str`
 - `IdentityProviderSamlMetadata`: `str`
 
@@ -280,6 +195,58 @@ Optional fields:
 - `Certificate`: `str`
 - `CreatedTime`: `datetime`
 - `DisplayName`: `str`
+
+
+## DeviceSummaryTypeDef
+
+```python
+from mypy_boto3_worklink.type_defs import DeviceSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeviceId`: `str`
+- `DeviceStatus`: `DeviceStatus`
+
+
+## DomainSummaryTypeDef
+
+```python
+from mypy_boto3_worklink.type_defs import DomainSummaryTypeDef
+```
+
+
+Required fields:
+- `DomainName`: `str`
+- `CreatedTime`: `datetime`
+- `DomainStatus`: `DomainStatus`
+
+
+
+Optional fields:
+- `DisplayName`: `str`
+
+
+## FleetSummaryTypeDef
+
+```python
+from mypy_boto3_worklink.type_defs import FleetSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `FleetArn`: `str`
+- `CreatedTime`: `datetime`
+- `LastUpdatedTime`: `datetime`
+- `FleetName`: `str`
+- `DisplayName`: `str`
+- `CompanyCode`: `str`
+- `FleetStatus`: `FleetStatus`
+- `Tags`: `Dict[str, str]`
 
 
 ## ListDevicesResponseTypeDef
@@ -363,4 +330,37 @@ from mypy_boto3_worklink.type_defs import ListWebsiteCertificateAuthoritiesRespo
 Optional fields:
 - `WebsiteCertificateAuthorities`: `List["WebsiteCaSummaryTypeDef"]`
 - `NextToken`: `str`
+
+
+## WebsiteAuthorizationProviderSummaryTypeDef
+
+```python
+from mypy_boto3_worklink.type_defs import WebsiteAuthorizationProviderSummaryTypeDef
+```
+
+
+Required fields:
+- `AuthorizationProviderType`: `Literal['SAML']`
+
+
+
+Optional fields:
+- `AuthorizationProviderId`: `str`
+- `DomainName`: `str`
+- `CreatedTime`: `datetime`
+
+
+## WebsiteCaSummaryTypeDef
+
+```python
+from mypy_boto3_worklink.type_defs import WebsiteCaSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `WebsiteCaId`: `str`
+- `CreatedTime`: `datetime`
+- `DisplayName`: `str`
 

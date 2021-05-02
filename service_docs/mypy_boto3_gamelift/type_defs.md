@@ -11,54 +11,6 @@ type annotations stubs module [mypy_boto3_gamelift](https://pypi.org/project/myp
   - [AwsCredentialsTypeDef](#awscredentialstypedef)
   - [BuildTypeDef](#buildtypedef)
   - [CertificateConfigurationTypeDef](#certificateconfigurationtypedef)
-  - [EC2InstanceCountsTypeDef](#ec2instancecountstypedef)
-  - [EC2InstanceLimitTypeDef](#ec2instancelimittypedef)
-  - [EventTypeDef](#eventtypedef)
-  - [FilterConfigurationTypeDef](#filterconfigurationtypedef)
-  - [FleetAttributesTypeDef](#fleetattributestypedef)
-  - [FleetCapacityTypeDef](#fleetcapacitytypedef)
-  - [FleetUtilizationTypeDef](#fleetutilizationtypedef)
-  - [GamePropertyTypeDef](#gamepropertytypedef)
-  - [GameServerGroupTypeDef](#gameservergrouptypedef)
-  - [GameServerInstanceTypeDef](#gameserverinstancetypedef)
-  - [GameServerTypeDef](#gameservertypedef)
-  - [GameSessionConnectionInfoTypeDef](#gamesessionconnectioninfotypedef)
-  - [GameSessionDetailTypeDef](#gamesessiondetailtypedef)
-  - [GameSessionPlacementTypeDef](#gamesessionplacementtypedef)
-  - [GameSessionQueueDestinationTypeDef](#gamesessionqueuedestinationtypedef)
-  - [GameSessionQueueTypeDef](#gamesessionqueuetypedef)
-  - [GameSessionTypeDef](#gamesessiontypedef)
-  - [InstanceAccessTypeDef](#instanceaccesstypedef)
-  - [InstanceCredentialsTypeDef](#instancecredentialstypedef)
-  - [InstanceDefinitionTypeDef](#instancedefinitiontypedef)
-  - [InstanceTypeDef](#instancetypedef)
-  - [IpPermissionTypeDef](#ippermissiontypedef)
-  - [LocationAttributesTypeDef](#locationattributestypedef)
-  - [LocationStateTypeDef](#locationstatetypedef)
-  - [MatchedPlayerSessionTypeDef](#matchedplayersessiontypedef)
-  - [MatchmakingConfigurationTypeDef](#matchmakingconfigurationtypedef)
-  - [MatchmakingRuleSetTypeDef](#matchmakingrulesettypedef)
-  - [MatchmakingTicketTypeDef](#matchmakingtickettypedef)
-  - [PlacedPlayerSessionTypeDef](#placedplayersessiontypedef)
-  - [PlayerLatencyPolicyTypeDef](#playerlatencypolicytypedef)
-  - [PlayerLatencyTypeDef](#playerlatencytypedef)
-  - [PlayerSessionTypeDef](#playersessiontypedef)
-  - [PlayerTypeDef](#playertypedef)
-  - [PriorityConfigurationTypeDef](#priorityconfigurationtypedef)
-  - [ResourceCreationLimitPolicyTypeDef](#resourcecreationlimitpolicytypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [RoutingStrategyTypeDef](#routingstrategytypedef)
-  - [RuntimeConfigurationTypeDef](#runtimeconfigurationtypedef)
-  - [S3LocationTypeDef](#s3locationtypedef)
-  - [ScalingPolicyTypeDef](#scalingpolicytypedef)
-  - [ScriptTypeDef](#scripttypedef)
-  - [ServerProcessTypeDef](#serverprocesstypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TargetConfigurationTypeDef](#targetconfigurationtypedef)
-  - [TargetTrackingConfigurationTypeDef](#targettrackingconfigurationtypedef)
-  - [VpcPeeringAuthorizationTypeDef](#vpcpeeringauthorizationtypedef)
-  - [VpcPeeringConnectionStatusTypeDef](#vpcpeeringconnectionstatustypedef)
-  - [VpcPeeringConnectionTypeDef](#vpcpeeringconnectiontypedef)
   - [ClaimGameServerOutputTypeDef](#claimgameserveroutputtypedef)
   - [CreateAliasOutputTypeDef](#createaliasoutputtypedef)
   - [CreateBuildOutputTypeDef](#createbuildoutputtypedef)
@@ -104,9 +56,31 @@ type annotations stubs module [mypy_boto3_gamelift](https://pypi.org/project/myp
   - [DescribeVpcPeeringAuthorizationsOutputTypeDef](#describevpcpeeringauthorizationsoutputtypedef)
   - [DescribeVpcPeeringConnectionsOutputTypeDef](#describevpcpeeringconnectionsoutputtypedef)
   - [DesiredPlayerSessionTypeDef](#desiredplayersessiontypedef)
+  - [EC2InstanceCountsTypeDef](#ec2instancecountstypedef)
+  - [EC2InstanceLimitTypeDef](#ec2instancelimittypedef)
+  - [EventTypeDef](#eventtypedef)
+  - [FilterConfigurationTypeDef](#filterconfigurationtypedef)
+  - [FleetAttributesTypeDef](#fleetattributestypedef)
+  - [FleetCapacityTypeDef](#fleetcapacitytypedef)
+  - [FleetUtilizationTypeDef](#fleetutilizationtypedef)
+  - [GamePropertyTypeDef](#gamepropertytypedef)
   - [GameServerGroupAutoScalingPolicyTypeDef](#gameservergroupautoscalingpolicytypedef)
+  - [GameServerGroupTypeDef](#gameservergrouptypedef)
+  - [GameServerInstanceTypeDef](#gameserverinstancetypedef)
+  - [GameServerTypeDef](#gameservertypedef)
+  - [GameSessionConnectionInfoTypeDef](#gamesessionconnectioninfotypedef)
+  - [GameSessionDetailTypeDef](#gamesessiondetailtypedef)
+  - [GameSessionPlacementTypeDef](#gamesessionplacementtypedef)
+  - [GameSessionQueueDestinationTypeDef](#gamesessionqueuedestinationtypedef)
+  - [GameSessionQueueTypeDef](#gamesessionqueuetypedef)
+  - [GameSessionTypeDef](#gamesessiontypedef)
   - [GetGameSessionLogUrlOutputTypeDef](#getgamesessionlogurloutputtypedef)
   - [GetInstanceAccessOutputTypeDef](#getinstanceaccessoutputtypedef)
+  - [InstanceAccessTypeDef](#instanceaccesstypedef)
+  - [InstanceCredentialsTypeDef](#instancecredentialstypedef)
+  - [InstanceDefinitionTypeDef](#instancedefinitiontypedef)
+  - [InstanceTypeDef](#instancetypedef)
+  - [IpPermissionTypeDef](#ippermissiontypedef)
   - [LaunchTemplateSpecificationTypeDef](#launchtemplatespecificationtypedef)
   - [ListAliasesOutputTypeDef](#listaliasesoutputtypedef)
   - [ListBuildsOutputTypeDef](#listbuildsoutputtypedef)
@@ -115,14 +89,34 @@ type annotations stubs module [mypy_boto3_gamelift](https://pypi.org/project/myp
   - [ListGameServersOutputTypeDef](#listgameserversoutputtypedef)
   - [ListScriptsOutputTypeDef](#listscriptsoutputtypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [LocationAttributesTypeDef](#locationattributestypedef)
   - [LocationConfigurationTypeDef](#locationconfigurationtypedef)
+  - [LocationStateTypeDef](#locationstatetypedef)
+  - [MatchedPlayerSessionTypeDef](#matchedplayersessiontypedef)
+  - [MatchmakingConfigurationTypeDef](#matchmakingconfigurationtypedef)
+  - [MatchmakingRuleSetTypeDef](#matchmakingrulesettypedef)
+  - [MatchmakingTicketTypeDef](#matchmakingtickettypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PlacedPlayerSessionTypeDef](#placedplayersessiontypedef)
+  - [PlayerLatencyPolicyTypeDef](#playerlatencypolicytypedef)
+  - [PlayerLatencyTypeDef](#playerlatencytypedef)
+  - [PlayerSessionTypeDef](#playersessiontypedef)
+  - [PlayerTypeDef](#playertypedef)
+  - [PriorityConfigurationTypeDef](#priorityconfigurationtypedef)
   - [PutScalingPolicyOutputTypeDef](#putscalingpolicyoutputtypedef)
   - [RegisterGameServerOutputTypeDef](#registergameserveroutputtypedef)
   - [RequestUploadCredentialsOutputTypeDef](#requestuploadcredentialsoutputtypedef)
   - [ResolveAliasOutputTypeDef](#resolvealiasoutputtypedef)
+  - [ResourceCreationLimitPolicyTypeDef](#resourcecreationlimitpolicytypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [ResumeGameServerGroupOutputTypeDef](#resumegameservergroupoutputtypedef)
+  - [RoutingStrategyTypeDef](#routingstrategytypedef)
+  - [RuntimeConfigurationTypeDef](#runtimeconfigurationtypedef)
+  - [S3LocationTypeDef](#s3locationtypedef)
+  - [ScalingPolicyTypeDef](#scalingpolicytypedef)
+  - [ScriptTypeDef](#scripttypedef)
   - [SearchGameSessionsOutputTypeDef](#searchgamesessionsoutputtypedef)
+  - [ServerProcessTypeDef](#serverprocesstypedef)
   - [StartFleetActionsOutputTypeDef](#startfleetactionsoutputtypedef)
   - [StartGameSessionPlacementOutputTypeDef](#startgamesessionplacementoutputtypedef)
   - [StartMatchBackfillOutputTypeDef](#startmatchbackfilloutputtypedef)
@@ -130,6 +124,9 @@ type annotations stubs module [mypy_boto3_gamelift](https://pypi.org/project/myp
   - [StopFleetActionsOutputTypeDef](#stopfleetactionsoutputtypedef)
   - [StopGameSessionPlacementOutputTypeDef](#stopgamesessionplacementoutputtypedef)
   - [SuspendGameServerGroupOutputTypeDef](#suspendgameservergroupoutputtypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TargetConfigurationTypeDef](#targetconfigurationtypedef)
+  - [TargetTrackingConfigurationTypeDef](#targettrackingconfigurationtypedef)
   - [UpdateAliasOutputTypeDef](#updatealiasoutputtypedef)
   - [UpdateBuildOutputTypeDef](#updatebuildoutputtypedef)
   - [UpdateFleetAttributesOutputTypeDef](#updatefleetattributesoutputtypedef)
@@ -143,6 +140,9 @@ type annotations stubs module [mypy_boto3_gamelift](https://pypi.org/project/myp
   - [UpdateRuntimeConfigurationOutputTypeDef](#updateruntimeconfigurationoutputtypedef)
   - [UpdateScriptOutputTypeDef](#updatescriptoutputtypedef)
   - [ValidateMatchmakingRuleSetOutputTypeDef](#validatematchmakingrulesetoutputtypedef)
+  - [VpcPeeringAuthorizationTypeDef](#vpcpeeringauthorizationtypedef)
+  - [VpcPeeringConnectionStatusTypeDef](#vpcpeeringconnectionstatustypedef)
+  - [VpcPeeringConnectionTypeDef](#vpcpeeringconnectiontypedef)
 
 ## AliasTypeDef
 
@@ -225,870 +225,6 @@ Required fields:
 - `CertificateType`: `CertificateType`
 
 
-
-
-## EC2InstanceCountsTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import EC2InstanceCountsTypeDef
-```
-
-
-
-
-Optional fields:
-- `DESIRED`: `int`
-- `MINIMUM`: `int`
-- `MAXIMUM`: `int`
-- `PENDING`: `int`
-- `ACTIVE`: `int`
-- `IDLE`: `int`
-- `TERMINATING`: `int`
-
-
-## EC2InstanceLimitTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import EC2InstanceLimitTypeDef
-```
-
-
-
-
-Optional fields:
-- `EC2InstanceType`: `EC2InstanceType`
-- `CurrentInstances`: `int`
-- `InstanceLimit`: `int`
-- `Location`: `str`
-
-
-## EventTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import EventTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventId`: `str`
-- `ResourceId`: `str`
-- `EventCode`: `EventCode`
-- `Message`: `str`
-- `EventTime`: `datetime`
-- `PreSignedLogUrl`: `str`
-
-
-## FilterConfigurationTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import FilterConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllowedLocations`: `List[str]`
-
-
-## FleetAttributesTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import FleetAttributesTypeDef
-```
-
-
-
-
-Optional fields:
-- `FleetId`: `str`
-- `FleetArn`: `str`
-- `FleetType`: `FleetType`
-- `InstanceType`: `EC2InstanceType`
-- `Description`: `str`
-- `Name`: `str`
-- `CreationTime`: `datetime`
-- `TerminationTime`: `datetime`
-- `Status`: `FleetStatus`
-- `BuildId`: `str`
-- `BuildArn`: `str`
-- `ScriptId`: `str`
-- `ScriptArn`: `str`
-- `ServerLaunchPath`: `str`
-- `ServerLaunchParameters`: `str`
-- `LogPaths`: `List[str]`
-- `NewGameSessionProtectionPolicy`: `ProtectionPolicy`
-- `OperatingSystem`: `OperatingSystem`
-- `ResourceCreationLimitPolicy`: `"ResourceCreationLimitPolicyTypeDef"`
-- `MetricGroups`: `List[str]`
-- `StoppedActions`: `List[FleetAction]`
-- `InstanceRoleArn`: `str`
-- `CertificateConfiguration`: `"CertificateConfigurationTypeDef"`
-
-
-## FleetCapacityTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import FleetCapacityTypeDef
-```
-
-
-
-
-Optional fields:
-- `FleetId`: `str`
-- `FleetArn`: `str`
-- `InstanceType`: `EC2InstanceType`
-- `InstanceCounts`: `"EC2InstanceCountsTypeDef"`
-- `Location`: `str`
-
-
-## FleetUtilizationTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import FleetUtilizationTypeDef
-```
-
-
-
-
-Optional fields:
-- `FleetId`: `str`
-- `FleetArn`: `str`
-- `ActiveServerProcessCount`: `int`
-- `ActiveGameSessionCount`: `int`
-- `CurrentPlayerSessionCount`: `int`
-- `MaximumPlayerSessionCount`: `int`
-- `Location`: `str`
-
-
-## GamePropertyTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import GamePropertyTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## GameServerGroupTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import GameServerGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `GameServerGroupName`: `str`
-- `GameServerGroupArn`: `str`
-- `RoleArn`: `str`
-- `InstanceDefinitions`: `List["InstanceDefinitionTypeDef"]`
-- `BalancingStrategy`: `BalancingStrategy`
-- `GameServerProtectionPolicy`: `GameServerProtectionPolicy`
-- `AutoScalingGroupArn`: `str`
-- `Status`: `GameServerGroupStatus`
-- `StatusReason`: `str`
-- `SuspendedActions`: `List[GameServerGroupAction]`
-- `CreationTime`: `datetime`
-- `LastUpdatedTime`: `datetime`
-
-
-## GameServerInstanceTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import GameServerInstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `GameServerGroupName`: `str`
-- `GameServerGroupArn`: `str`
-- `InstanceId`: `str`
-- `InstanceStatus`: `GameServerInstanceStatus`
-
-
-## GameServerTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import GameServerTypeDef
-```
-
-
-
-
-Optional fields:
-- `GameServerGroupName`: `str`
-- `GameServerGroupArn`: `str`
-- `GameServerId`: `str`
-- `InstanceId`: `str`
-- `ConnectionInfo`: `str`
-- `GameServerData`: `str`
-- `ClaimStatus`: `GameServerClaimStatus`
-- `UtilizationStatus`: `GameServerUtilizationStatus`
-- `RegistrationTime`: `datetime`
-- `LastClaimTime`: `datetime`
-- `LastHealthCheckTime`: `datetime`
-
-
-## GameSessionConnectionInfoTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import GameSessionConnectionInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `GameSessionArn`: `str`
-- `IpAddress`: `str`
-- `DnsName`: `str`
-- `Port`: `int`
-- `MatchedPlayerSessions`: `List["MatchedPlayerSessionTypeDef"]`
-
-
-## GameSessionDetailTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import GameSessionDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `GameSession`: `"GameSessionTypeDef"`
-- `ProtectionPolicy`: `ProtectionPolicy`
-
-
-## GameSessionPlacementTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import GameSessionPlacementTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlacementId`: `str`
-- `GameSessionQueueName`: `str`
-- `Status`: `GameSessionPlacementState`
-- `GameProperties`: `List["GamePropertyTypeDef"]`
-- `MaximumPlayerSessionCount`: `int`
-- `GameSessionName`: `str`
-- `GameSessionId`: `str`
-- `GameSessionArn`: `str`
-- `GameSessionRegion`: `str`
-- `PlayerLatencies`: `List["PlayerLatencyTypeDef"]`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-- `IpAddress`: `str`
-- `DnsName`: `str`
-- `Port`: `int`
-- `PlacedPlayerSessions`: `List["PlacedPlayerSessionTypeDef"]`
-- `GameSessionData`: `str`
-- `MatchmakerData`: `str`
-
-
-## GameSessionQueueDestinationTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import GameSessionQueueDestinationTypeDef
-```
-
-
-
-
-Optional fields:
-- `DestinationArn`: `str`
-
-
-## GameSessionQueueTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import GameSessionQueueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `GameSessionQueueArn`: `str`
-- `TimeoutInSeconds`: `int`
-- `PlayerLatencyPolicies`: `List["PlayerLatencyPolicyTypeDef"]`
-- `Destinations`: `List["GameSessionQueueDestinationTypeDef"]`
-- `FilterConfiguration`: `"FilterConfigurationTypeDef"`
-- `PriorityConfiguration`: `"PriorityConfigurationTypeDef"`
-- `CustomEventData`: `str`
-- `NotificationTarget`: `str`
-
-
-## GameSessionTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import GameSessionTypeDef
-```
-
-
-
-
-Optional fields:
-- `GameSessionId`: `str`
-- `Name`: `str`
-- `FleetId`: `str`
-- `FleetArn`: `str`
-- `CreationTime`: `datetime`
-- `TerminationTime`: `datetime`
-- `CurrentPlayerSessionCount`: `int`
-- `MaximumPlayerSessionCount`: `int`
-- `Status`: `GameSessionStatus`
-- `StatusReason`: `GameSessionStatusReason`
-- `GameProperties`: `List["GamePropertyTypeDef"]`
-- `IpAddress`: `str`
-- `DnsName`: `str`
-- `Port`: `int`
-- `PlayerSessionCreationPolicy`: `PlayerSessionCreationPolicy`
-- `CreatorId`: `str`
-- `GameSessionData`: `str`
-- `MatchmakerData`: `str`
-- `Location`: `str`
-
-
-## InstanceAccessTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import InstanceAccessTypeDef
-```
-
-
-
-
-Optional fields:
-- `FleetId`: `str`
-- `InstanceId`: `str`
-- `IpAddress`: `str`
-- `OperatingSystem`: `OperatingSystem`
-- `Credentials`: `"InstanceCredentialsTypeDef"`
-
-
-## InstanceCredentialsTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import InstanceCredentialsTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserName`: `str`
-- `Secret`: `str`
-
-
-## InstanceDefinitionTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import InstanceDefinitionTypeDef
-```
-
-
-Required fields:
-- `InstanceType`: `GameServerGroupInstanceType`
-
-
-
-Optional fields:
-- `WeightedCapacity`: `str`
-
-
-## InstanceTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import InstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `FleetId`: `str`
-- `FleetArn`: `str`
-- `InstanceId`: `str`
-- `IpAddress`: `str`
-- `DnsName`: `str`
-- `OperatingSystem`: `OperatingSystem`
-- `Type`: `EC2InstanceType`
-- `Status`: `InstanceStatus`
-- `CreationTime`: `datetime`
-- `Location`: `str`
-
-
-## IpPermissionTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import IpPermissionTypeDef
-```
-
-
-Required fields:
-- `FromPort`: `int`
-- `ToPort`: `int`
-- `IpRange`: `str`
-- `Protocol`: `IpProtocol`
-
-
-
-
-## LocationAttributesTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import LocationAttributesTypeDef
-```
-
-
-
-
-Optional fields:
-- `LocationState`: `"LocationStateTypeDef"`
-- `StoppedActions`: `List[FleetAction]`
-- `UpdateStatus`: `LocationUpdateStatus`
-
-
-## LocationStateTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import LocationStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `Location`: `str`
-- `Status`: `FleetStatus`
-
-
-## MatchedPlayerSessionTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import MatchedPlayerSessionTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlayerId`: `str`
-- `PlayerSessionId`: `str`
-
-
-## MatchmakingConfigurationTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import MatchmakingConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `ConfigurationArn`: `str`
-- `Description`: `str`
-- `GameSessionQueueArns`: `List[str]`
-- `RequestTimeoutSeconds`: `int`
-- `AcceptanceTimeoutSeconds`: `int`
-- `AcceptanceRequired`: `bool`
-- `RuleSetName`: `str`
-- `RuleSetArn`: `str`
-- `NotificationTarget`: `str`
-- `AdditionalPlayerCount`: `int`
-- `CustomEventData`: `str`
-- `CreationTime`: `datetime`
-- `GameProperties`: `List["GamePropertyTypeDef"]`
-- `GameSessionData`: `str`
-- `BackfillMode`: `BackfillMode`
-- `FlexMatchMode`: `FlexMatchMode`
-
-
-## MatchmakingRuleSetTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import MatchmakingRuleSetTypeDef
-```
-
-
-Required fields:
-- `RuleSetBody`: `str`
-
-
-
-Optional fields:
-- `RuleSetName`: `str`
-- `RuleSetArn`: `str`
-- `CreationTime`: `datetime`
-
-
-## MatchmakingTicketTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import MatchmakingTicketTypeDef
-```
-
-
-
-
-Optional fields:
-- `TicketId`: `str`
-- `ConfigurationName`: `str`
-- `ConfigurationArn`: `str`
-- `Status`: `MatchmakingConfigurationStatus`
-- `StatusReason`: `str`
-- `StatusMessage`: `str`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-- `Players`: `List["PlayerTypeDef"]`
-- `GameSessionConnectionInfo`: `"GameSessionConnectionInfoTypeDef"`
-- `EstimatedWaitTime`: `int`
-
-
-## PlacedPlayerSessionTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import PlacedPlayerSessionTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlayerId`: `str`
-- `PlayerSessionId`: `str`
-
-
-## PlayerLatencyPolicyTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import PlayerLatencyPolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaximumIndividualPlayerLatencyMilliseconds`: `int`
-- `PolicyDurationSeconds`: `int`
-
-
-## PlayerLatencyTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import PlayerLatencyTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlayerId`: `str`
-- `RegionIdentifier`: `str`
-- `LatencyInMilliseconds`: `float`
-
-
-## PlayerSessionTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import PlayerSessionTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlayerSessionId`: `str`
-- `PlayerId`: `str`
-- `GameSessionId`: `str`
-- `FleetId`: `str`
-- `FleetArn`: `str`
-- `CreationTime`: `datetime`
-- `TerminationTime`: `datetime`
-- `Status`: `PlayerSessionStatus`
-- `IpAddress`: `str`
-- `DnsName`: `str`
-- `Port`: `int`
-- `PlayerData`: `str`
-
-
-## PlayerTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import PlayerTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlayerId`: `str`
-- `PlayerAttributes`: `Dict[str, "AttributeValueTypeDef"]`
-- `Team`: `str`
-- `LatencyInMs`: `Dict[str, int]`
-
-
-## PriorityConfigurationTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import PriorityConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `PriorityOrder`: `List[PriorityType]`
-- `LocationOrder`: `List[str]`
-
-
-## ResourceCreationLimitPolicyTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import ResourceCreationLimitPolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `NewGameSessionsPerCreator`: `int`
-- `PolicyPeriodInMinutes`: `int`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_gamelift.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## RoutingStrategyTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import RoutingStrategyTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `RoutingStrategyType`
-- `FleetId`: `str`
-- `Message`: `str`
-
-
-## RuntimeConfigurationTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import RuntimeConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServerProcesses`: `List["ServerProcessTypeDef"]`
-- `MaxConcurrentGameSessionActivations`: `int`
-- `GameSessionActivationTimeoutSeconds`: `int`
-
-
-## S3LocationTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import S3LocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Bucket`: `str`
-- `Key`: `str`
-- `RoleArn`: `str`
-- `ObjectVersion`: `str`
-
-
-## ScalingPolicyTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import ScalingPolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `FleetId`: `str`
-- `FleetArn`: `str`
-- `Name`: `str`
-- `Status`: `ScalingStatusType`
-- `ScalingAdjustment`: `int`
-- `ScalingAdjustmentType`: `ScalingAdjustmentType`
-- `ComparisonOperator`: `ComparisonOperatorType`
-- `Threshold`: `float`
-- `EvaluationPeriods`: `int`
-- `MetricName`: `MetricName`
-- `PolicyType`: `PolicyType`
-- `TargetConfiguration`: `"TargetConfigurationTypeDef"`
-- `UpdateStatus`: `LocationUpdateStatus`
-- `Location`: `str`
-
-
-## ScriptTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import ScriptTypeDef
-```
-
-
-
-
-Optional fields:
-- `ScriptId`: `str`
-- `ScriptArn`: `str`
-- `Name`: `str`
-- `Version`: `str`
-- `SizeOnDisk`: `int`
-- `CreationTime`: `datetime`
-- `StorageLocation`: `"S3LocationTypeDef"`
-
-
-## ServerProcessTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import ServerProcessTypeDef
-```
-
-
-Required fields:
-- `LaunchPath`: `str`
-- `ConcurrentExecutions`: `int`
-
-
-
-Optional fields:
-- `Parameters`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TargetConfigurationTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import TargetConfigurationTypeDef
-```
-
-
-Required fields:
-- `TargetValue`: `float`
-
-
-
-
-## TargetTrackingConfigurationTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import TargetTrackingConfigurationTypeDef
-```
-
-
-Required fields:
-- `TargetValue`: `float`
-
-
-
-
-## VpcPeeringAuthorizationTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import VpcPeeringAuthorizationTypeDef
-```
-
-
-
-
-Optional fields:
-- `GameLiftAwsAccountId`: `str`
-- `PeerVpcAwsAccountId`: `str`
-- `PeerVpcId`: `str`
-- `CreationTime`: `datetime`
-- `ExpirationTime`: `datetime`
-
-
-## VpcPeeringConnectionStatusTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import VpcPeeringConnectionStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-
-
-## VpcPeeringConnectionTypeDef
-
-```python
-from mypy_boto3_gamelift.type_defs import VpcPeeringConnectionTypeDef
-```
-
-
-
-
-Optional fields:
-- `FleetId`: `str`
-- `FleetArn`: `str`
-- `IpV4CidrBlock`: `str`
-- `VpcPeeringConnectionId`: `str`
-- `Status`: `"VpcPeeringConnectionStatusTypeDef"`
-- `PeerVpcId`: `str`
-- `GameLiftVpcId`: `str`
 
 
 ## ClaimGameServerOutputTypeDef
@@ -1469,7 +605,7 @@ Optional fields:
 - `FleetId`: `str`
 - `FleetArn`: `str`
 - `InboundPermissions`: `List["IpPermissionTypeDef"]`
-- `UpdateStatus`: `LocationUpdateStatus`
+- `UpdateStatus`: `Literal['PENDING_UPDATE']`
 - `Location`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
 
@@ -1752,6 +888,157 @@ Optional fields:
 - `PlayerData`: `str`
 
 
+## EC2InstanceCountsTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import EC2InstanceCountsTypeDef
+```
+
+
+
+
+Optional fields:
+- `DESIRED`: `int`
+- `MINIMUM`: `int`
+- `MAXIMUM`: `int`
+- `PENDING`: `int`
+- `ACTIVE`: `int`
+- `IDLE`: `int`
+- `TERMINATING`: `int`
+
+
+## EC2InstanceLimitTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import EC2InstanceLimitTypeDef
+```
+
+
+
+
+Optional fields:
+- `EC2InstanceType`: `EC2InstanceType`
+- `CurrentInstances`: `int`
+- `InstanceLimit`: `int`
+- `Location`: `str`
+
+
+## EventTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import EventTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventId`: `str`
+- `ResourceId`: `str`
+- `EventCode`: `EventCode`
+- `Message`: `str`
+- `EventTime`: `datetime`
+- `PreSignedLogUrl`: `str`
+
+
+## FilterConfigurationTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import FilterConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllowedLocations`: `List[str]`
+
+
+## FleetAttributesTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import FleetAttributesTypeDef
+```
+
+
+
+
+Optional fields:
+- `FleetId`: `str`
+- `FleetArn`: `str`
+- `FleetType`: `FleetType`
+- `InstanceType`: `EC2InstanceType`
+- `Description`: `str`
+- `Name`: `str`
+- `CreationTime`: `datetime`
+- `TerminationTime`: `datetime`
+- `Status`: `FleetStatus`
+- `BuildId`: `str`
+- `BuildArn`: `str`
+- `ScriptId`: `str`
+- `ScriptArn`: `str`
+- `ServerLaunchPath`: `str`
+- `ServerLaunchParameters`: `str`
+- `LogPaths`: `List[str]`
+- `NewGameSessionProtectionPolicy`: `ProtectionPolicy`
+- `OperatingSystem`: `OperatingSystem`
+- `ResourceCreationLimitPolicy`: `"ResourceCreationLimitPolicyTypeDef"`
+- `MetricGroups`: `List[str]`
+- `StoppedActions`: `List[Literal['AUTO_SCALING']]`
+- `InstanceRoleArn`: `str`
+- `CertificateConfiguration`: `"CertificateConfigurationTypeDef"`
+
+
+## FleetCapacityTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import FleetCapacityTypeDef
+```
+
+
+
+
+Optional fields:
+- `FleetId`: `str`
+- `FleetArn`: `str`
+- `InstanceType`: `EC2InstanceType`
+- `InstanceCounts`: `"EC2InstanceCountsTypeDef"`
+- `Location`: `str`
+
+
+## FleetUtilizationTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import FleetUtilizationTypeDef
+```
+
+
+
+
+Optional fields:
+- `FleetId`: `str`
+- `FleetArn`: `str`
+- `ActiveServerProcessCount`: `int`
+- `ActiveGameSessionCount`: `int`
+- `CurrentPlayerSessionCount`: `int`
+- `MaximumPlayerSessionCount`: `int`
+- `Location`: `str`
+
+
+## GamePropertyTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import GamePropertyTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
 ## GameServerGroupAutoScalingPolicyTypeDef
 
 ```python
@@ -1766,6 +1053,195 @@ Required fields:
 
 Optional fields:
 - `EstimatedInstanceWarmup`: `int`
+
+
+## GameServerGroupTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import GameServerGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `GameServerGroupName`: `str`
+- `GameServerGroupArn`: `str`
+- `RoleArn`: `str`
+- `InstanceDefinitions`: `List["InstanceDefinitionTypeDef"]`
+- `BalancingStrategy`: `BalancingStrategy`
+- `GameServerProtectionPolicy`: `GameServerProtectionPolicy`
+- `AutoScalingGroupArn`: `str`
+- `Status`: `GameServerGroupStatus`
+- `StatusReason`: `str`
+- `SuspendedActions`: `List[Literal['REPLACE_INSTANCE_TYPES']]`
+- `CreationTime`: `datetime`
+- `LastUpdatedTime`: `datetime`
+
+
+## GameServerInstanceTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import GameServerInstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `GameServerGroupName`: `str`
+- `GameServerGroupArn`: `str`
+- `InstanceId`: `str`
+- `InstanceStatus`: `GameServerInstanceStatus`
+
+
+## GameServerTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import GameServerTypeDef
+```
+
+
+
+
+Optional fields:
+- `GameServerGroupName`: `str`
+- `GameServerGroupArn`: `str`
+- `GameServerId`: `str`
+- `InstanceId`: `str`
+- `ConnectionInfo`: `str`
+- `GameServerData`: `str`
+- `ClaimStatus`: `Literal['CLAIMED']`
+- `UtilizationStatus`: `GameServerUtilizationStatus`
+- `RegistrationTime`: `datetime`
+- `LastClaimTime`: `datetime`
+- `LastHealthCheckTime`: `datetime`
+
+
+## GameSessionConnectionInfoTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import GameSessionConnectionInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `GameSessionArn`: `str`
+- `IpAddress`: `str`
+- `DnsName`: `str`
+- `Port`: `int`
+- `MatchedPlayerSessions`: `List["MatchedPlayerSessionTypeDef"]`
+
+
+## GameSessionDetailTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import GameSessionDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `GameSession`: `"GameSessionTypeDef"`
+- `ProtectionPolicy`: `ProtectionPolicy`
+
+
+## GameSessionPlacementTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import GameSessionPlacementTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlacementId`: `str`
+- `GameSessionQueueName`: `str`
+- `Status`: `GameSessionPlacementState`
+- `GameProperties`: `List["GamePropertyTypeDef"]`
+- `MaximumPlayerSessionCount`: `int`
+- `GameSessionName`: `str`
+- `GameSessionId`: `str`
+- `GameSessionArn`: `str`
+- `GameSessionRegion`: `str`
+- `PlayerLatencies`: `List["PlayerLatencyTypeDef"]`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+- `IpAddress`: `str`
+- `DnsName`: `str`
+- `Port`: `int`
+- `PlacedPlayerSessions`: `List["PlacedPlayerSessionTypeDef"]`
+- `GameSessionData`: `str`
+- `MatchmakerData`: `str`
+
+
+## GameSessionQueueDestinationTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import GameSessionQueueDestinationTypeDef
+```
+
+
+
+
+Optional fields:
+- `DestinationArn`: `str`
+
+
+## GameSessionQueueTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import GameSessionQueueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `GameSessionQueueArn`: `str`
+- `TimeoutInSeconds`: `int`
+- `PlayerLatencyPolicies`: `List["PlayerLatencyPolicyTypeDef"]`
+- `Destinations`: `List["GameSessionQueueDestinationTypeDef"]`
+- `FilterConfiguration`: `"FilterConfigurationTypeDef"`
+- `PriorityConfiguration`: `"PriorityConfigurationTypeDef"`
+- `CustomEventData`: `str`
+- `NotificationTarget`: `str`
+
+
+## GameSessionTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import GameSessionTypeDef
+```
+
+
+
+
+Optional fields:
+- `GameSessionId`: `str`
+- `Name`: `str`
+- `FleetId`: `str`
+- `FleetArn`: `str`
+- `CreationTime`: `datetime`
+- `TerminationTime`: `datetime`
+- `CurrentPlayerSessionCount`: `int`
+- `MaximumPlayerSessionCount`: `int`
+- `Status`: `GameSessionStatus`
+- `StatusReason`: `Literal['INTERRUPTED']`
+- `GameProperties`: `List["GamePropertyTypeDef"]`
+- `IpAddress`: `str`
+- `DnsName`: `str`
+- `Port`: `int`
+- `PlayerSessionCreationPolicy`: `PlayerSessionCreationPolicy`
+- `CreatorId`: `str`
+- `GameSessionData`: `str`
+- `MatchmakerData`: `str`
+- `Location`: `str`
 
 
 ## GetGameSessionLogUrlOutputTypeDef
@@ -1794,6 +1270,91 @@ from mypy_boto3_gamelift.type_defs import GetInstanceAccessOutputTypeDef
 Optional fields:
 - `InstanceAccess`: `"InstanceAccessTypeDef"`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## InstanceAccessTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import InstanceAccessTypeDef
+```
+
+
+
+
+Optional fields:
+- `FleetId`: `str`
+- `InstanceId`: `str`
+- `IpAddress`: `str`
+- `OperatingSystem`: `OperatingSystem`
+- `Credentials`: `"InstanceCredentialsTypeDef"`
+
+
+## InstanceCredentialsTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import InstanceCredentialsTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserName`: `str`
+- `Secret`: `str`
+
+
+## InstanceDefinitionTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import InstanceDefinitionTypeDef
+```
+
+
+Required fields:
+- `InstanceType`: `GameServerGroupInstanceType`
+
+
+
+Optional fields:
+- `WeightedCapacity`: `str`
+
+
+## InstanceTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import InstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `FleetId`: `str`
+- `FleetArn`: `str`
+- `InstanceId`: `str`
+- `IpAddress`: `str`
+- `DnsName`: `str`
+- `OperatingSystem`: `OperatingSystem`
+- `Type`: `EC2InstanceType`
+- `Status`: `InstanceStatus`
+- `CreationTime`: `datetime`
+- `Location`: `str`
+
+
+## IpPermissionTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import IpPermissionTypeDef
+```
+
+
+Required fields:
+- `FromPort`: `int`
+- `ToPort`: `int`
+- `IpRange`: `str`
+- `Protocol`: `IpProtocol`
+
+
 
 
 ## LaunchTemplateSpecificationTypeDef
@@ -1914,6 +1475,21 @@ Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 
 
+## LocationAttributesTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import LocationAttributesTypeDef
+```
+
+
+
+
+Optional fields:
+- `LocationState`: `"LocationStateTypeDef"`
+- `StoppedActions`: `List[Literal['AUTO_SCALING']]`
+- `UpdateStatus`: `Literal['PENDING_UPDATE']`
+
+
 ## LocationConfigurationTypeDef
 
 ```python
@@ -1925,6 +1501,104 @@ from mypy_boto3_gamelift.type_defs import LocationConfigurationTypeDef
 
 Optional fields:
 - `Location`: `str`
+
+
+## LocationStateTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import LocationStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `Location`: `str`
+- `Status`: `FleetStatus`
+
+
+## MatchedPlayerSessionTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import MatchedPlayerSessionTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlayerId`: `str`
+- `PlayerSessionId`: `str`
+
+
+## MatchmakingConfigurationTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import MatchmakingConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `ConfigurationArn`: `str`
+- `Description`: `str`
+- `GameSessionQueueArns`: `List[str]`
+- `RequestTimeoutSeconds`: `int`
+- `AcceptanceTimeoutSeconds`: `int`
+- `AcceptanceRequired`: `bool`
+- `RuleSetName`: `str`
+- `RuleSetArn`: `str`
+- `NotificationTarget`: `str`
+- `AdditionalPlayerCount`: `int`
+- `CustomEventData`: `str`
+- `CreationTime`: `datetime`
+- `GameProperties`: `List["GamePropertyTypeDef"]`
+- `GameSessionData`: `str`
+- `BackfillMode`: `BackfillMode`
+- `FlexMatchMode`: `FlexMatchMode`
+
+
+## MatchmakingRuleSetTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import MatchmakingRuleSetTypeDef
+```
+
+
+Required fields:
+- `RuleSetBody`: `str`
+
+
+
+Optional fields:
+- `RuleSetName`: `str`
+- `RuleSetArn`: `str`
+- `CreationTime`: `datetime`
+
+
+## MatchmakingTicketTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import MatchmakingTicketTypeDef
+```
+
+
+
+
+Optional fields:
+- `TicketId`: `str`
+- `ConfigurationName`: `str`
+- `ConfigurationArn`: `str`
+- `Status`: `MatchmakingConfigurationStatus`
+- `StatusReason`: `str`
+- `StatusMessage`: `str`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+- `Players`: `List["PlayerTypeDef"]`
+- `GameSessionConnectionInfo`: `"GameSessionConnectionInfoTypeDef"`
+- `EstimatedWaitTime`: `int`
 
 
 ## PaginatorConfigTypeDef
@@ -1940,6 +1614,103 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PlacedPlayerSessionTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import PlacedPlayerSessionTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlayerId`: `str`
+- `PlayerSessionId`: `str`
+
+
+## PlayerLatencyPolicyTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import PlayerLatencyPolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaximumIndividualPlayerLatencyMilliseconds`: `int`
+- `PolicyDurationSeconds`: `int`
+
+
+## PlayerLatencyTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import PlayerLatencyTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlayerId`: `str`
+- `RegionIdentifier`: `str`
+- `LatencyInMilliseconds`: `float`
+
+
+## PlayerSessionTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import PlayerSessionTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlayerSessionId`: `str`
+- `PlayerId`: `str`
+- `GameSessionId`: `str`
+- `FleetId`: `str`
+- `FleetArn`: `str`
+- `CreationTime`: `datetime`
+- `TerminationTime`: `datetime`
+- `Status`: `PlayerSessionStatus`
+- `IpAddress`: `str`
+- `DnsName`: `str`
+- `Port`: `int`
+- `PlayerData`: `str`
+
+
+## PlayerTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import PlayerTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlayerId`: `str`
+- `PlayerAttributes`: `Dict[str, "AttributeValueTypeDef"]`
+- `Team`: `str`
+- `LatencyInMs`: `Dict[str, int]`
+
+
+## PriorityConfigurationTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import PriorityConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `PriorityOrder`: `List[PriorityType]`
+- `LocationOrder`: `List[str]`
 
 
 ## PutScalingPolicyOutputTypeDef
@@ -2000,6 +1771,37 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## ResourceCreationLimitPolicyTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import ResourceCreationLimitPolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `NewGameSessionsPerCreator`: `int`
+- `PolicyPeriodInMinutes`: `int`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_gamelift.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
 ## ResumeGameServerGroupOutputTypeDef
 
 ```python
@@ -2012,6 +1814,97 @@ from mypy_boto3_gamelift.type_defs import ResumeGameServerGroupOutputTypeDef
 Optional fields:
 - `GameServerGroup`: `"GameServerGroupTypeDef"`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## RoutingStrategyTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import RoutingStrategyTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `RoutingStrategyType`
+- `FleetId`: `str`
+- `Message`: `str`
+
+
+## RuntimeConfigurationTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import RuntimeConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServerProcesses`: `List["ServerProcessTypeDef"]`
+- `MaxConcurrentGameSessionActivations`: `int`
+- `GameSessionActivationTimeoutSeconds`: `int`
+
+
+## S3LocationTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import S3LocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Bucket`: `str`
+- `Key`: `str`
+- `RoleArn`: `str`
+- `ObjectVersion`: `str`
+
+
+## ScalingPolicyTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import ScalingPolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `FleetId`: `str`
+- `FleetArn`: `str`
+- `Name`: `str`
+- `Status`: `ScalingStatusType`
+- `ScalingAdjustment`: `int`
+- `ScalingAdjustmentType`: `ScalingAdjustmentType`
+- `ComparisonOperator`: `ComparisonOperatorType`
+- `Threshold`: `float`
+- `EvaluationPeriods`: `int`
+- `MetricName`: `MetricName`
+- `PolicyType`: `PolicyType`
+- `TargetConfiguration`: `"TargetConfigurationTypeDef"`
+- `UpdateStatus`: `Literal['PENDING_UPDATE']`
+- `Location`: `str`
+
+
+## ScriptTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import ScriptTypeDef
+```
+
+
+
+
+Optional fields:
+- `ScriptId`: `str`
+- `ScriptArn`: `str`
+- `Name`: `str`
+- `Version`: `str`
+- `SizeOnDisk`: `int`
+- `CreationTime`: `datetime`
+- `StorageLocation`: `"S3LocationTypeDef"`
 
 
 ## SearchGameSessionsOutputTypeDef
@@ -2027,6 +1920,23 @@ Optional fields:
 - `GameSessions`: `List["GameSessionTypeDef"]`
 - `NextToken`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ServerProcessTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import ServerProcessTypeDef
+```
+
+
+Required fields:
+- `LaunchPath`: `str`
+- `ConcurrentExecutions`: `int`
+
+
+
+Optional fields:
+- `Parameters`: `str`
 
 
 ## StartFleetActionsOutputTypeDef
@@ -2127,6 +2037,46 @@ from mypy_boto3_gamelift.type_defs import SuspendGameServerGroupOutputTypeDef
 Optional fields:
 - `GameServerGroup`: `"GameServerGroupTypeDef"`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TargetConfigurationTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import TargetConfigurationTypeDef
+```
+
+
+Required fields:
+- `TargetValue`: `float`
+
+
+
+
+## TargetTrackingConfigurationTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import TargetTrackingConfigurationTypeDef
+```
+
+
+Required fields:
+- `TargetValue`: `float`
+
+
 
 
 ## UpdateAliasOutputTypeDef
@@ -2311,4 +2261,54 @@ from mypy_boto3_gamelift.type_defs import ValidateMatchmakingRuleSetOutputTypeDe
 Optional fields:
 - `Valid`: `bool`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## VpcPeeringAuthorizationTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import VpcPeeringAuthorizationTypeDef
+```
+
+
+
+
+Optional fields:
+- `GameLiftAwsAccountId`: `str`
+- `PeerVpcAwsAccountId`: `str`
+- `PeerVpcId`: `str`
+- `CreationTime`: `datetime`
+- `ExpirationTime`: `datetime`
+
+
+## VpcPeeringConnectionStatusTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import VpcPeeringConnectionStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
+
+
+## VpcPeeringConnectionTypeDef
+
+```python
+from mypy_boto3_gamelift.type_defs import VpcPeeringConnectionTypeDef
+```
+
+
+
+
+Optional fields:
+- `FleetId`: `str`
+- `FleetArn`: `str`
+- `IpV4CidrBlock`: `str`
+- `VpcPeeringConnectionId`: `str`
+- `Status`: `"VpcPeeringConnectionStatusTypeDef"`
+- `PeerVpcId`: `str`
+- `GameLiftVpcId`: `str`
 

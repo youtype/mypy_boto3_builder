@@ -16,7 +16,6 @@ type annotations stubs module [mypy_boto3_sso](https://pypi.org/project/mypy-bot
     - [list_accounts](#list_accounts)
     - [logout](#logout)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## SSOClient
 
@@ -147,32 +146,13 @@ def logout(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("sso").get_paginator` method.
-
-[Paginator.ListAccountRoles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso.html#SSO.Paginator.ListAccountRoles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccountRolesPaginatorName
-) -> ListAccountRolesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("sso").get_paginator` method.
+Type annotations for `boto3.client("sso").get_paginator` method with overloads.
 
-[Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sso.html#SSO.Paginator.ListAccounts)
+- `client.get_paginator("list_account_roles")` -> [ListAccountRolesPaginator](./paginators.md#listaccountrolespaginator)
+- `client.get_paginator("list_accounts")` -> [ListAccountsPaginator](./paginators.md#listaccountspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccountsPaginatorName
-) -> ListAccountsPaginator:
-    pass
-```
+

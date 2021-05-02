@@ -6,6 +6,8 @@ Auto-generated documentation for [Greengrass](https://boto3.amazonaws.com/v1/doc
 type annotations stubs module [mypy_boto3_greengrass](https://pypi.org/project/mypy-boto3-greengrass/).
 
 - [Structures for boto3 Greengrass module](#structures-for-boto3-greengrass-module)
+  - [AssociateRoleToGroupResponseTypeDef](#associateroletogroupresponsetypedef)
+  - [AssociateServiceRoleToAccountResponseTypeDef](#associateserviceroletoaccountresponsetypedef)
   - [BulkDeploymentMetricsTypeDef](#bulkdeploymentmetricstypedef)
   - [BulkDeploymentResultTypeDef](#bulkdeploymentresulttypedef)
   - [BulkDeploymentTypeDef](#bulkdeploymenttypedef)
@@ -14,42 +16,6 @@ type annotations stubs module [mypy_boto3_greengrass](https://pypi.org/project/m
   - [ConnectorTypeDef](#connectortypedef)
   - [CoreDefinitionVersionTypeDef](#coredefinitionversiontypedef)
   - [CoreTypeDef](#coretypedef)
-  - [DefinitionInformationTypeDef](#definitioninformationtypedef)
-  - [DeploymentTypeDef](#deploymenttypedef)
-  - [DeviceDefinitionVersionTypeDef](#devicedefinitionversiontypedef)
-  - [DeviceTypeDef](#devicetypedef)
-  - [ErrorDetailTypeDef](#errordetailtypedef)
-  - [FunctionConfigurationEnvironmentTypeDef](#functionconfigurationenvironmenttypedef)
-  - [FunctionConfigurationTypeDef](#functionconfigurationtypedef)
-  - [FunctionDefaultConfigTypeDef](#functiondefaultconfigtypedef)
-  - [FunctionDefaultExecutionConfigTypeDef](#functiondefaultexecutionconfigtypedef)
-  - [FunctionDefinitionVersionTypeDef](#functiondefinitionversiontypedef)
-  - [FunctionExecutionConfigTypeDef](#functionexecutionconfigtypedef)
-  - [FunctionRunAsConfigTypeDef](#functionrunasconfigtypedef)
-  - [FunctionTypeDef](#functiontypedef)
-  - [GroupCertificateAuthorityPropertiesTypeDef](#groupcertificateauthoritypropertiestypedef)
-  - [GroupInformationTypeDef](#groupinformationtypedef)
-  - [GroupOwnerSettingTypeDef](#groupownersettingtypedef)
-  - [GroupVersionTypeDef](#groupversiontypedef)
-  - [LocalDeviceResourceDataTypeDef](#localdeviceresourcedatatypedef)
-  - [LocalVolumeResourceDataTypeDef](#localvolumeresourcedatatypedef)
-  - [LoggerDefinitionVersionTypeDef](#loggerdefinitionversiontypedef)
-  - [LoggerTypeDef](#loggertypedef)
-  - [ResourceAccessPolicyTypeDef](#resourceaccesspolicytypedef)
-  - [ResourceDataContainerTypeDef](#resourcedatacontainertypedef)
-  - [ResourceDefinitionVersionTypeDef](#resourcedefinitionversiontypedef)
-  - [ResourceDownloadOwnerSettingTypeDef](#resourcedownloadownersettingtypedef)
-  - [ResourceTypeDef](#resourcetypedef)
-  - [RuntimeConfigurationTypeDef](#runtimeconfigurationtypedef)
-  - [S3MachineLearningModelResourceDataTypeDef](#s3machinelearningmodelresourcedatatypedef)
-  - [SageMakerMachineLearningModelResourceDataTypeDef](#sagemakermachinelearningmodelresourcedatatypedef)
-  - [SecretsManagerSecretResourceDataTypeDef](#secretsmanagersecretresourcedatatypedef)
-  - [SubscriptionDefinitionVersionTypeDef](#subscriptiondefinitionversiontypedef)
-  - [SubscriptionTypeDef](#subscriptiontypedef)
-  - [TelemetryConfigurationTypeDef](#telemetryconfigurationtypedef)
-  - [VersionInformationTypeDef](#versioninformationtypedef)
-  - [AssociateRoleToGroupResponseTypeDef](#associateroletogroupresponsetypedef)
-  - [AssociateServiceRoleToAccountResponseTypeDef](#associateserviceroletoaccountresponsetypedef)
   - [CreateConnectorDefinitionResponseTypeDef](#createconnectordefinitionresponsetypedef)
   - [CreateConnectorDefinitionVersionResponseTypeDef](#createconnectordefinitionversionresponsetypedef)
   - [CreateCoreDefinitionResponseTypeDef](#createcoredefinitionresponsetypedef)
@@ -69,8 +35,21 @@ type annotations stubs module [mypy_boto3_greengrass](https://pypi.org/project/m
   - [CreateSoftwareUpdateJobResponseTypeDef](#createsoftwareupdatejobresponsetypedef)
   - [CreateSubscriptionDefinitionResponseTypeDef](#createsubscriptiondefinitionresponsetypedef)
   - [CreateSubscriptionDefinitionVersionResponseTypeDef](#createsubscriptiondefinitionversionresponsetypedef)
+  - [DefinitionInformationTypeDef](#definitioninformationtypedef)
+  - [DeploymentTypeDef](#deploymenttypedef)
+  - [DeviceDefinitionVersionTypeDef](#devicedefinitionversiontypedef)
+  - [DeviceTypeDef](#devicetypedef)
   - [DisassociateRoleFromGroupResponseTypeDef](#disassociaterolefromgroupresponsetypedef)
   - [DisassociateServiceRoleFromAccountResponseTypeDef](#disassociateservicerolefromaccountresponsetypedef)
+  - [ErrorDetailTypeDef](#errordetailtypedef)
+  - [FunctionConfigurationEnvironmentTypeDef](#functionconfigurationenvironmenttypedef)
+  - [FunctionConfigurationTypeDef](#functionconfigurationtypedef)
+  - [FunctionDefaultConfigTypeDef](#functiondefaultconfigtypedef)
+  - [FunctionDefaultExecutionConfigTypeDef](#functiondefaultexecutionconfigtypedef)
+  - [FunctionDefinitionVersionTypeDef](#functiondefinitionversiontypedef)
+  - [FunctionExecutionConfigTypeDef](#functionexecutionconfigtypedef)
+  - [FunctionRunAsConfigTypeDef](#functionrunasconfigtypedef)
+  - [FunctionTypeDef](#functiontypedef)
   - [GetAssociatedRoleResponseTypeDef](#getassociatedroleresponsetypedef)
   - [GetBulkDeploymentStatusResponseTypeDef](#getbulkdeploymentstatusresponsetypedef)
   - [GetConnectivityInfoResponseTypeDef](#getconnectivityinforesponsetypedef)
@@ -95,6 +74,10 @@ type annotations stubs module [mypy_boto3_greengrass](https://pypi.org/project/m
   - [GetSubscriptionDefinitionResponseTypeDef](#getsubscriptiondefinitionresponsetypedef)
   - [GetSubscriptionDefinitionVersionResponseTypeDef](#getsubscriptiondefinitionversionresponsetypedef)
   - [GetThingRuntimeConfigurationResponseTypeDef](#getthingruntimeconfigurationresponsetypedef)
+  - [GroupCertificateAuthorityPropertiesTypeDef](#groupcertificateauthoritypropertiestypedef)
+  - [GroupInformationTypeDef](#groupinformationtypedef)
+  - [GroupOwnerSettingTypeDef](#groupownersettingtypedef)
+  - [GroupVersionTypeDef](#groupversiontypedef)
   - [ListBulkDeploymentDetailedReportsResponseTypeDef](#listbulkdeploymentdetailedreportsresponsetypedef)
   - [ListBulkDeploymentsResponseTypeDef](#listbulkdeploymentsresponsetypedef)
   - [ListConnectorDefinitionVersionsResponseTypeDef](#listconnectordefinitionversionsresponsetypedef)
@@ -116,12 +99,55 @@ type annotations stubs module [mypy_boto3_greengrass](https://pypi.org/project/m
   - [ListSubscriptionDefinitionVersionsResponseTypeDef](#listsubscriptiondefinitionversionsresponsetypedef)
   - [ListSubscriptionDefinitionsResponseTypeDef](#listsubscriptiondefinitionsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [LocalDeviceResourceDataTypeDef](#localdeviceresourcedatatypedef)
+  - [LocalVolumeResourceDataTypeDef](#localvolumeresourcedatatypedef)
+  - [LoggerDefinitionVersionTypeDef](#loggerdefinitionversiontypedef)
+  - [LoggerTypeDef](#loggertypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ResetDeploymentsResponseTypeDef](#resetdeploymentsresponsetypedef)
+  - [ResourceAccessPolicyTypeDef](#resourceaccesspolicytypedef)
+  - [ResourceDataContainerTypeDef](#resourcedatacontainertypedef)
+  - [ResourceDefinitionVersionTypeDef](#resourcedefinitionversiontypedef)
+  - [ResourceDownloadOwnerSettingTypeDef](#resourcedownloadownersettingtypedef)
+  - [ResourceTypeDef](#resourcetypedef)
+  - [RuntimeConfigurationTypeDef](#runtimeconfigurationtypedef)
+  - [S3MachineLearningModelResourceDataTypeDef](#s3machinelearningmodelresourcedatatypedef)
+  - [SageMakerMachineLearningModelResourceDataTypeDef](#sagemakermachinelearningmodelresourcedatatypedef)
+  - [SecretsManagerSecretResourceDataTypeDef](#secretsmanagersecretresourcedatatypedef)
   - [StartBulkDeploymentResponseTypeDef](#startbulkdeploymentresponsetypedef)
+  - [SubscriptionDefinitionVersionTypeDef](#subscriptiondefinitionversiontypedef)
+  - [SubscriptionTypeDef](#subscriptiontypedef)
+  - [TelemetryConfigurationTypeDef](#telemetryconfigurationtypedef)
   - [TelemetryConfigurationUpdateTypeDef](#telemetryconfigurationupdatetypedef)
   - [UpdateConnectivityInfoResponseTypeDef](#updateconnectivityinforesponsetypedef)
   - [UpdateGroupCertificateConfigurationResponseTypeDef](#updategroupcertificateconfigurationresponsetypedef)
+  - [VersionInformationTypeDef](#versioninformationtypedef)
+
+## AssociateRoleToGroupResponseTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import AssociateRoleToGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociatedAt`: `str`
+
+
+## AssociateServiceRoleToAccountResponseTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import AssociateServiceRoleToAccountResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociatedAt`: `str`
+
 
 ## BulkDeploymentMetricsTypeDef
 
@@ -248,555 +274,6 @@ Required fields:
 
 Optional fields:
 - `SyncShadow`: `bool`
-
-
-## DefinitionInformationTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import DefinitionInformationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CreationTimestamp`: `str`
-- `Id`: `str`
-- `LastUpdatedTimestamp`: `str`
-- `LatestVersion`: `str`
-- `LatestVersionArn`: `str`
-- `Name`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## DeploymentTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import DeploymentTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreatedAt`: `str`
-- `DeploymentArn`: `str`
-- `DeploymentId`: `str`
-- `DeploymentType`: `DeploymentType`
-- `GroupArn`: `str`
-
-
-## DeviceDefinitionVersionTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import DeviceDefinitionVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Devices`: `List["DeviceTypeDef"]`
-
-
-## DeviceTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import DeviceTypeDef
-```
-
-
-Required fields:
-- `CertificateArn`: `str`
-- `Id`: `str`
-- `ThingArn`: `str`
-
-
-
-Optional fields:
-- `SyncShadow`: `bool`
-
-
-## ErrorDetailTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import ErrorDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `DetailedErrorCode`: `str`
-- `DetailedErrorMessage`: `str`
-
-
-## FunctionConfigurationEnvironmentTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import FunctionConfigurationEnvironmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `AccessSysfs`: `bool`
-- `Execution`: `"FunctionExecutionConfigTypeDef"`
-- `ResourceAccessPolicies`: `List["ResourceAccessPolicyTypeDef"]`
-- `Variables`: `Dict[str, str]`
-
-
-## FunctionConfigurationTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import FunctionConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `EncodingType`: `EncodingType`
-- `Environment`: `"FunctionConfigurationEnvironmentTypeDef"`
-- `ExecArgs`: `str`
-- `Executable`: `str`
-- `MemorySize`: `int`
-- `Pinned`: `bool`
-- `Timeout`: `int`
-
-
-## FunctionDefaultConfigTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import FunctionDefaultConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Execution`: `"FunctionDefaultExecutionConfigTypeDef"`
-
-
-## FunctionDefaultExecutionConfigTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import FunctionDefaultExecutionConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `IsolationMode`: `FunctionIsolationMode`
-- `RunAs`: `"FunctionRunAsConfigTypeDef"`
-
-
-## FunctionDefinitionVersionTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import FunctionDefinitionVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `DefaultConfig`: `"FunctionDefaultConfigTypeDef"`
-- `Functions`: `List["FunctionTypeDef"]`
-
-
-## FunctionExecutionConfigTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import FunctionExecutionConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `IsolationMode`: `FunctionIsolationMode`
-- `RunAs`: `"FunctionRunAsConfigTypeDef"`
-
-
-## FunctionRunAsConfigTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import FunctionRunAsConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Gid`: `int`
-- `Uid`: `int`
-
-
-## FunctionTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import FunctionTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-
-
-
-Optional fields:
-- `FunctionArn`: `str`
-- `FunctionConfiguration`: `"FunctionConfigurationTypeDef"`
-
-
-## GroupCertificateAuthorityPropertiesTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import GroupCertificateAuthorityPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupCertificateAuthorityArn`: `str`
-- `GroupCertificateAuthorityId`: `str`
-
-
-## GroupInformationTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import GroupInformationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CreationTimestamp`: `str`
-- `Id`: `str`
-- `LastUpdatedTimestamp`: `str`
-- `LatestVersion`: `str`
-- `LatestVersionArn`: `str`
-- `Name`: `str`
-
-
-## GroupOwnerSettingTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import GroupOwnerSettingTypeDef
-```
-
-
-
-
-Optional fields:
-- `AutoAddGroupOwner`: `bool`
-- `GroupOwner`: `str`
-
-
-## GroupVersionTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import GroupVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConnectorDefinitionVersionArn`: `str`
-- `CoreDefinitionVersionArn`: `str`
-- `DeviceDefinitionVersionArn`: `str`
-- `FunctionDefinitionVersionArn`: `str`
-- `LoggerDefinitionVersionArn`: `str`
-- `ResourceDefinitionVersionArn`: `str`
-- `SubscriptionDefinitionVersionArn`: `str`
-
-
-## LocalDeviceResourceDataTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import LocalDeviceResourceDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupOwnerSetting`: `"GroupOwnerSettingTypeDef"`
-- `SourcePath`: `str`
-
-
-## LocalVolumeResourceDataTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import LocalVolumeResourceDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `DestinationPath`: `str`
-- `GroupOwnerSetting`: `"GroupOwnerSettingTypeDef"`
-- `SourcePath`: `str`
-
-
-## LoggerDefinitionVersionTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import LoggerDefinitionVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Loggers`: `List["LoggerTypeDef"]`
-
-
-## LoggerTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import LoggerTypeDef
-```
-
-
-Required fields:
-- `Component`: `LoggerComponent`
-- `Id`: `str`
-- `Level`: `LoggerLevel`
-- `Type`: `LoggerType`
-
-
-
-Optional fields:
-- `Space`: `int`
-
-
-## ResourceAccessPolicyTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import ResourceAccessPolicyTypeDef
-```
-
-
-Required fields:
-- `ResourceId`: `str`
-
-
-
-Optional fields:
-- `Permission`: `Permission`
-
-
-## ResourceDataContainerTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import ResourceDataContainerTypeDef
-```
-
-
-
-
-Optional fields:
-- `LocalDeviceResourceData`: `"LocalDeviceResourceDataTypeDef"`
-- `LocalVolumeResourceData`: `"LocalVolumeResourceDataTypeDef"`
-- `S3MachineLearningModelResourceData`: `"S3MachineLearningModelResourceDataTypeDef"`
-- `SageMakerMachineLearningModelResourceData`: `"SageMakerMachineLearningModelResourceDataTypeDef"`
-- `SecretsManagerSecretResourceData`: `"SecretsManagerSecretResourceDataTypeDef"`
-
-
-## ResourceDefinitionVersionTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import ResourceDefinitionVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Resources`: `List["ResourceTypeDef"]`
-
-
-## ResourceDownloadOwnerSettingTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import ResourceDownloadOwnerSettingTypeDef
-```
-
-
-Required fields:
-- `GroupOwner`: `str`
-- `GroupPermission`: `Permission`
-
-
-
-
-## ResourceTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import ResourceTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `Name`: `str`
-- `ResourceDataContainer`: `"ResourceDataContainerTypeDef"`
-
-
-
-
-## RuntimeConfigurationTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import RuntimeConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TelemetryConfiguration`: `"TelemetryConfigurationTypeDef"`
-
-
-## S3MachineLearningModelResourceDataTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import S3MachineLearningModelResourceDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `DestinationPath`: `str`
-- `OwnerSetting`: `"ResourceDownloadOwnerSettingTypeDef"`
-- `S3Uri`: `str`
-
-
-## SageMakerMachineLearningModelResourceDataTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import SageMakerMachineLearningModelResourceDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `DestinationPath`: `str`
-- `OwnerSetting`: `"ResourceDownloadOwnerSettingTypeDef"`
-- `SageMakerJobArn`: `str`
-
-
-## SecretsManagerSecretResourceDataTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import SecretsManagerSecretResourceDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `ARN`: `str`
-- `AdditionalStagingLabelsToDownload`: `List[str]`
-
-
-## SubscriptionDefinitionVersionTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import SubscriptionDefinitionVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Subscriptions`: `List["SubscriptionTypeDef"]`
-
-
-## SubscriptionTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import SubscriptionTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `Source`: `str`
-- `Subject`: `str`
-- `Target`: `str`
-
-
-
-
-## TelemetryConfigurationTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import TelemetryConfigurationTypeDef
-```
-
-
-Required fields:
-- `Telemetry`: `Telemetry`
-
-
-
-Optional fields:
-- `ConfigurationSyncStatus`: `ConfigurationSyncStatus`
-
-
-## VersionInformationTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import VersionInformationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CreationTimestamp`: `str`
-- `Id`: `str`
-- `Version`: `str`
-
-
-## AssociateRoleToGroupResponseTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import AssociateRoleToGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociatedAt`: `str`
-
-
-## AssociateServiceRoleToAccountResponseTypeDef
-
-```python
-from mypy_boto3_greengrass.type_defs import AssociateServiceRoleToAccountResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociatedAt`: `str`
 
 
 ## CreateConnectorDefinitionResponseTypeDef
@@ -1121,6 +598,74 @@ Optional fields:
 - `Version`: `str`
 
 
+## DefinitionInformationTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import DefinitionInformationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CreationTimestamp`: `str`
+- `Id`: `str`
+- `LastUpdatedTimestamp`: `str`
+- `LatestVersion`: `str`
+- `LatestVersionArn`: `str`
+- `Name`: `str`
+- `Tags`: `Dict[str, str]`
+
+
+## DeploymentTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import DeploymentTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreatedAt`: `str`
+- `DeploymentArn`: `str`
+- `DeploymentId`: `str`
+- `DeploymentType`: `DeploymentType`
+- `GroupArn`: `str`
+
+
+## DeviceDefinitionVersionTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import DeviceDefinitionVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Devices`: `List["DeviceTypeDef"]`
+
+
+## DeviceTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import DeviceTypeDef
+```
+
+
+Required fields:
+- `CertificateArn`: `str`
+- `Id`: `str`
+- `ThingArn`: `str`
+
+
+
+Optional fields:
+- `SyncShadow`: `bool`
+
+
 ## DisassociateRoleFromGroupResponseTypeDef
 
 ```python
@@ -1145,6 +690,141 @@ from mypy_boto3_greengrass.type_defs import DisassociateServiceRoleFromAccountRe
 
 Optional fields:
 - `DisassociatedAt`: `str`
+
+
+## ErrorDetailTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import ErrorDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `DetailedErrorCode`: `str`
+- `DetailedErrorMessage`: `str`
+
+
+## FunctionConfigurationEnvironmentTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import FunctionConfigurationEnvironmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `AccessSysfs`: `bool`
+- `Execution`: `"FunctionExecutionConfigTypeDef"`
+- `ResourceAccessPolicies`: `List["ResourceAccessPolicyTypeDef"]`
+- `Variables`: `Dict[str, str]`
+
+
+## FunctionConfigurationTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import FunctionConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `EncodingType`: `EncodingType`
+- `Environment`: `"FunctionConfigurationEnvironmentTypeDef"`
+- `ExecArgs`: `str`
+- `Executable`: `str`
+- `MemorySize`: `int`
+- `Pinned`: `bool`
+- `Timeout`: `int`
+
+
+## FunctionDefaultConfigTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import FunctionDefaultConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Execution`: `"FunctionDefaultExecutionConfigTypeDef"`
+
+
+## FunctionDefaultExecutionConfigTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import FunctionDefaultExecutionConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `IsolationMode`: `FunctionIsolationMode`
+- `RunAs`: `"FunctionRunAsConfigTypeDef"`
+
+
+## FunctionDefinitionVersionTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import FunctionDefinitionVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `DefaultConfig`: `"FunctionDefaultConfigTypeDef"`
+- `Functions`: `List["FunctionTypeDef"]`
+
+
+## FunctionExecutionConfigTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import FunctionExecutionConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `IsolationMode`: `FunctionIsolationMode`
+- `RunAs`: `"FunctionRunAsConfigTypeDef"`
+
+
+## FunctionRunAsConfigTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import FunctionRunAsConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Gid`: `int`
+- `Uid`: `int`
+
+
+## FunctionTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import FunctionTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+
+
+
+Optional fields:
+- `FunctionArn`: `str`
+- `FunctionConfiguration`: `"FunctionConfigurationTypeDef"`
 
 
 ## GetAssociatedRoleResponseTypeDef
@@ -1568,6 +1248,72 @@ Optional fields:
 - `RuntimeConfiguration`: `"RuntimeConfigurationTypeDef"`
 
 
+## GroupCertificateAuthorityPropertiesTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import GroupCertificateAuthorityPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupCertificateAuthorityArn`: `str`
+- `GroupCertificateAuthorityId`: `str`
+
+
+## GroupInformationTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import GroupInformationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CreationTimestamp`: `str`
+- `Id`: `str`
+- `LastUpdatedTimestamp`: `str`
+- `LatestVersion`: `str`
+- `LatestVersionArn`: `str`
+- `Name`: `str`
+
+
+## GroupOwnerSettingTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import GroupOwnerSettingTypeDef
+```
+
+
+
+
+Optional fields:
+- `AutoAddGroupOwner`: `bool`
+- `GroupOwner`: `str`
+
+
+## GroupVersionTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import GroupVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConnectorDefinitionVersionArn`: `str`
+- `CoreDefinitionVersionArn`: `str`
+- `DeviceDefinitionVersionArn`: `str`
+- `FunctionDefinitionVersionArn`: `str`
+- `LoggerDefinitionVersionArn`: `str`
+- `ResourceDefinitionVersionArn`: `str`
+- `SubscriptionDefinitionVersionArn`: `str`
+
+
 ## ListBulkDeploymentDetailedReportsResponseTypeDef
 
 ```python
@@ -1860,6 +1606,67 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
+## LocalDeviceResourceDataTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import LocalDeviceResourceDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupOwnerSetting`: `"GroupOwnerSettingTypeDef"`
+- `SourcePath`: `str`
+
+
+## LocalVolumeResourceDataTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import LocalVolumeResourceDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `DestinationPath`: `str`
+- `GroupOwnerSetting`: `"GroupOwnerSettingTypeDef"`
+- `SourcePath`: `str`
+
+
+## LoggerDefinitionVersionTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import LoggerDefinitionVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Loggers`: `List["LoggerTypeDef"]`
+
+
+## LoggerTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import LoggerTypeDef
+```
+
+
+Required fields:
+- `Component`: `LoggerComponent`
+- `Id`: `str`
+- `Level`: `LoggerLevel`
+- `Type`: `LoggerType`
+
+
+
+Optional fields:
+- `Space`: `int`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -1889,6 +1696,138 @@ Optional fields:
 - `DeploymentId`: `str`
 
 
+## ResourceAccessPolicyTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import ResourceAccessPolicyTypeDef
+```
+
+
+Required fields:
+- `ResourceId`: `str`
+
+
+
+Optional fields:
+- `Permission`: `Permission`
+
+
+## ResourceDataContainerTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import ResourceDataContainerTypeDef
+```
+
+
+
+
+Optional fields:
+- `LocalDeviceResourceData`: `"LocalDeviceResourceDataTypeDef"`
+- `LocalVolumeResourceData`: `"LocalVolumeResourceDataTypeDef"`
+- `S3MachineLearningModelResourceData`: `"S3MachineLearningModelResourceDataTypeDef"`
+- `SageMakerMachineLearningModelResourceData`: `"SageMakerMachineLearningModelResourceDataTypeDef"`
+- `SecretsManagerSecretResourceData`: `"SecretsManagerSecretResourceDataTypeDef"`
+
+
+## ResourceDefinitionVersionTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import ResourceDefinitionVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Resources`: `List["ResourceTypeDef"]`
+
+
+## ResourceDownloadOwnerSettingTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import ResourceDownloadOwnerSettingTypeDef
+```
+
+
+Required fields:
+- `GroupOwner`: `str`
+- `GroupPermission`: `Permission`
+
+
+
+
+## ResourceTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import ResourceTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `Name`: `str`
+- `ResourceDataContainer`: `"ResourceDataContainerTypeDef"`
+
+
+
+
+## RuntimeConfigurationTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import RuntimeConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TelemetryConfiguration`: `"TelemetryConfigurationTypeDef"`
+
+
+## S3MachineLearningModelResourceDataTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import S3MachineLearningModelResourceDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `DestinationPath`: `str`
+- `OwnerSetting`: `"ResourceDownloadOwnerSettingTypeDef"`
+- `S3Uri`: `str`
+
+
+## SageMakerMachineLearningModelResourceDataTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import SageMakerMachineLearningModelResourceDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `DestinationPath`: `str`
+- `OwnerSetting`: `"ResourceDownloadOwnerSettingTypeDef"`
+- `SageMakerJobArn`: `str`
+
+
+## SecretsManagerSecretResourceDataTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import SecretsManagerSecretResourceDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `ARN`: `str`
+- `AdditionalStagingLabelsToDownload`: `List[str]`
+
+
 ## StartBulkDeploymentResponseTypeDef
 
 ```python
@@ -1901,6 +1840,51 @@ from mypy_boto3_greengrass.type_defs import StartBulkDeploymentResponseTypeDef
 Optional fields:
 - `BulkDeploymentArn`: `str`
 - `BulkDeploymentId`: `str`
+
+
+## SubscriptionDefinitionVersionTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import SubscriptionDefinitionVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Subscriptions`: `List["SubscriptionTypeDef"]`
+
+
+## SubscriptionTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import SubscriptionTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `Source`: `str`
+- `Subject`: `str`
+- `Target`: `str`
+
+
+
+
+## TelemetryConfigurationTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import TelemetryConfigurationTypeDef
+```
+
+
+Required fields:
+- `Telemetry`: `Telemetry`
+
+
+
+Optional fields:
+- `ConfigurationSyncStatus`: `ConfigurationSyncStatus`
 
 
 ## TelemetryConfigurationUpdateTypeDef
@@ -1943,4 +1927,20 @@ Optional fields:
 - `CertificateAuthorityExpiryInMilliseconds`: `str`
 - `CertificateExpiryInMilliseconds`: `str`
 - `GroupId`: `str`
+
+
+## VersionInformationTypeDef
+
+```python
+from mypy_boto3_greengrass.type_defs import VersionInformationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CreationTimestamp`: `str`
+- `Id`: `str`
+- `Version`: `str`
 

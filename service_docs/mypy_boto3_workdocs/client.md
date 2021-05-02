@@ -53,14 +53,6 @@ type annotations stubs module [mypy_boto3_workdocs](https://pypi.org/project/myp
     - [update_folder](#update_folder)
     - [update_user](#update_user)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
 
 ## WorkDocsClient
 
@@ -261,8 +253,8 @@ def create_notification_subscription(
     self,
     OrganizationId: str,
     Endpoint: str,
-    Protocol: SubscriptionProtocolType,
-    SubscriptionType: SubscriptionType
+    Protocol: Literal['HTTPS'],
+    SubscriptionType: Literal['ALL']
 ) -> CreateNotificationSubscriptionResponseTypeDef:
     pass
 ```
@@ -731,7 +723,7 @@ def get_resources(
     self,
     AuthenticationToken: str = None,
     UserId: str = None,
-    CollectionType: ResourceCollectionType = None,
+    CollectionType: Literal['SHARED_WITH_ME'] = None,
     Limit: int = None,
     Marker: str = None
 ) -> GetResourcesResponseTypeDef:
@@ -821,7 +813,7 @@ def update_document_version(
     DocumentId: str,
     VersionId: str,
     AuthenticationToken: str = None,
-    VersionStatus: DocumentVersionStatus = None
+    VersionStatus: Literal['ACTIVE'] = None
 ) -> None:
     pass
 ```
@@ -866,137 +858,20 @@ def update_user(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("workdocs").get_paginator` method.
-
-[Paginator.DescribeActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workdocs.html#WorkDocs.Paginator.DescribeActivities)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeActivitiesPaginatorName
-) -> DescribeActivitiesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("workdocs").get_paginator` method.
+Type annotations for `boto3.client("workdocs").get_paginator` method with overloads.
 
-[Paginator.DescribeComments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workdocs.html#WorkDocs.Paginator.DescribeComments)
+- `client.get_paginator("describe_activities")` -> [DescribeActivitiesPaginator](./paginators.md#describeactivitiespaginator)
+- `client.get_paginator("describe_comments")` -> [DescribeCommentsPaginator](./paginators.md#describecommentspaginator)
+- `client.get_paginator("describe_document_versions")` -> [DescribeDocumentVersionsPaginator](./paginators.md#describedocumentversionspaginator)
+- `client.get_paginator("describe_folder_contents")` -> [DescribeFolderContentsPaginator](./paginators.md#describefoldercontentspaginator)
+- `client.get_paginator("describe_groups")` -> [DescribeGroupsPaginator](./paginators.md#describegroupspaginator)
+- `client.get_paginator("describe_notification_subscriptions")` -> [DescribeNotificationSubscriptionsPaginator](./paginators.md#describenotificationsubscriptionspaginator)
+- `client.get_paginator("describe_resource_permissions")` -> [DescribeResourcePermissionsPaginator](./paginators.md#describeresourcepermissionspaginator)
+- `client.get_paginator("describe_root_folders")` -> [DescribeRootFoldersPaginator](./paginators.md#describerootfolderspaginator)
+- `client.get_paginator("describe_users")` -> [DescribeUsersPaginator](./paginators.md#describeuserspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeCommentsPaginatorName
-) -> DescribeCommentsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("workdocs").get_paginator` method.
-
-[Paginator.DescribeDocumentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workdocs.html#WorkDocs.Paginator.DescribeDocumentVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDocumentVersionsPaginatorName
-) -> DescribeDocumentVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workdocs").get_paginator` method.
-
-[Paginator.DescribeFolderContents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workdocs.html#WorkDocs.Paginator.DescribeFolderContents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFolderContentsPaginatorName
-) -> DescribeFolderContentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workdocs").get_paginator` method.
-
-[Paginator.DescribeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workdocs.html#WorkDocs.Paginator.DescribeGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeGroupsPaginatorName
-) -> DescribeGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workdocs").get_paginator` method.
-
-[Paginator.DescribeNotificationSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workdocs.html#WorkDocs.Paginator.DescribeNotificationSubscriptions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeNotificationSubscriptionsPaginatorName
-) -> DescribeNotificationSubscriptionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workdocs").get_paginator` method.
-
-[Paginator.DescribeResourcePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workdocs.html#WorkDocs.Paginator.DescribeResourcePermissions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeResourcePermissionsPaginatorName
-) -> DescribeResourcePermissionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workdocs").get_paginator` method.
-
-[Paginator.DescribeRootFolders documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workdocs.html#WorkDocs.Paginator.DescribeRootFolders)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeRootFoldersPaginatorName
-) -> DescribeRootFoldersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workdocs").get_paginator` method.
-
-[Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workdocs.html#WorkDocs.Paginator.DescribeUsers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeUsersPaginatorName
-) -> DescribeUsersPaginator:
-    pass
-```

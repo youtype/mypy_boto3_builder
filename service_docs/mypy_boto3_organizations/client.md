@@ -63,21 +63,6 @@ type annotations stubs module [mypy_boto3_organizations](https://pypi.org/projec
     - [update_organizational_unit](#update_organizational_unit)
     - [update_policy](#update_policy)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
 
 ## OrganizationsClient
 
@@ -956,242 +941,27 @@ def update_policy(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListAWSServiceAccessForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListAWSServiceAccessForOrganization)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAWSServiceAccessForOrganizationPaginatorName
-) -> ListAWSServiceAccessForOrganizationPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("organizations").get_paginator` method.
+Type annotations for `boto3.client("organizations").get_paginator` method with overloads.
 
-[Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListAccounts)
+- `client.get_paginator("list_aws_service_access_for_organization")` -> [ListAWSServiceAccessForOrganizationPaginator](./paginators.md#listawsserviceaccessfororganizationpaginator)
+- `client.get_paginator("list_accounts")` -> [ListAccountsPaginator](./paginators.md#listaccountspaginator)
+- `client.get_paginator("list_accounts_for_parent")` -> [ListAccountsForParentPaginator](./paginators.md#listaccountsforparentpaginator)
+- `client.get_paginator("list_children")` -> [ListChildrenPaginator](./paginators.md#listchildrenpaginator)
+- `client.get_paginator("list_create_account_status")` -> [ListCreateAccountStatusPaginator](./paginators.md#listcreateaccountstatuspaginator)
+- `client.get_paginator("list_delegated_administrators")` -> [ListDelegatedAdministratorsPaginator](./paginators.md#listdelegatedadministratorspaginator)
+- `client.get_paginator("list_delegated_services_for_account")` -> [ListDelegatedServicesForAccountPaginator](./paginators.md#listdelegatedservicesforaccountpaginator)
+- `client.get_paginator("list_handshakes_for_account")` -> [ListHandshakesForAccountPaginator](./paginators.md#listhandshakesforaccountpaginator)
+- `client.get_paginator("list_handshakes_for_organization")` -> [ListHandshakesForOrganizationPaginator](./paginators.md#listhandshakesfororganizationpaginator)
+- `client.get_paginator("list_organizational_units_for_parent")` -> [ListOrganizationalUnitsForParentPaginator](./paginators.md#listorganizationalunitsforparentpaginator)
+- `client.get_paginator("list_parents")` -> [ListParentsPaginator](./paginators.md#listparentspaginator)
+- `client.get_paginator("list_policies")` -> [ListPoliciesPaginator](./paginators.md#listpoliciespaginator)
+- `client.get_paginator("list_policies_for_target")` -> [ListPoliciesForTargetPaginator](./paginators.md#listpoliciesfortargetpaginator)
+- `client.get_paginator("list_roots")` -> [ListRootsPaginator](./paginators.md#listrootspaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
+- `client.get_paginator("list_targets_for_policy")` -> [ListTargetsForPolicyPaginator](./paginators.md#listtargetsforpolicypaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccountsPaginatorName
-) -> ListAccountsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListAccountsForParent documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListAccountsForParent)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccountsForParentPaginatorName
-) -> ListAccountsForParentPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListChildren documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListChildren)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListChildrenPaginatorName
-) -> ListChildrenPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListCreateAccountStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListCreateAccountStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCreateAccountStatusPaginatorName
-) -> ListCreateAccountStatusPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListDelegatedAdministrators documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListDelegatedAdministrators)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDelegatedAdministratorsPaginatorName
-) -> ListDelegatedAdministratorsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListDelegatedServicesForAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListDelegatedServicesForAccount)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDelegatedServicesForAccountPaginatorName
-) -> ListDelegatedServicesForAccountPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListHandshakesForAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForAccount)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListHandshakesForAccountPaginatorName
-) -> ListHandshakesForAccountPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListHandshakesForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForOrganization)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListHandshakesForOrganizationPaginatorName
-) -> ListHandshakesForOrganizationPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListOrganizationalUnitsForParent documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListOrganizationalUnitsForParent)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOrganizationalUnitsForParentPaginatorName
-) -> ListOrganizationalUnitsForParentPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListParents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListParents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListParentsPaginatorName
-) -> ListParentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPoliciesPaginatorName
-) -> ListPoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListPoliciesForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListPoliciesForTarget)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPoliciesForTargetPaginatorName
-) -> ListPoliciesForTargetPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListRoots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListRoots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRootsPaginatorName
-) -> ListRootsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("organizations").get_paginator` method.
-
-[Paginator.ListTargetsForPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/organizations.html#Organizations.Paginator.ListTargetsForPolicy)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTargetsForPolicyPaginatorName
-) -> ListTargetsForPolicyPaginator:
-    pass
-```

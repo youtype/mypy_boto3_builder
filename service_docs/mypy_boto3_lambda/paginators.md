@@ -134,7 +134,7 @@ class ListFunctionsPaginator(Boto3Paginator):
     def paginate(
         self,
         MasterRegion: str = None,
-        FunctionVersion: FunctionVersion = None,
+        FunctionVersion: Literal['ALL'] = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFunctionsResponseTypeDef]:
         pass

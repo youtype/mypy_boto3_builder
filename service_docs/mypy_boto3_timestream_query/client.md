@@ -129,16 +129,12 @@ def query(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("timestream-query").get_paginator` method.
+Type annotations for `boto3.client("timestream-query").get_paginator` method with overloads.
 
-[Paginator.Query documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/timestream-query.html#TimestreamQuery.Paginator.Query)
+- `client.get_paginator("query")` -> [QueryPaginator](./paginators.md#querypaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: QueryPaginatorName
-) -> QueryPaginator:
-    pass
-```
+

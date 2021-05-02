@@ -7,21 +7,8 @@ type annotations stubs module [mypy_boto3_comprehendmedical](https://pypi.org/pr
 
 - [Structures for boto3 ComprehendMedical module](#structures-for-boto3-comprehendmedical-module)
   - [AttributeTypeDef](#attributetypedef)
-  - [ComprehendMedicalAsyncJobPropertiesTypeDef](#comprehendmedicalasyncjobpropertiestypedef)
-  - [EntityTypeDef](#entitytypedef)
-  - [ICD10CMAttributeTypeDef](#icd10cmattributetypedef)
-  - [ICD10CMConceptTypeDef](#icd10cmconcepttypedef)
-  - [ICD10CMEntityTypeDef](#icd10cmentitytypedef)
-  - [ICD10CMTraitTypeDef](#icd10cmtraittypedef)
-  - [InputDataConfigTypeDef](#inputdataconfigtypedef)
-  - [OutputDataConfigTypeDef](#outputdataconfigtypedef)
-  - [RxNormAttributeTypeDef](#rxnormattributetypedef)
-  - [RxNormConceptTypeDef](#rxnormconcepttypedef)
-  - [RxNormEntityTypeDef](#rxnormentitytypedef)
-  - [RxNormTraitTypeDef](#rxnormtraittypedef)
-  - [TraitTypeDef](#traittypedef)
-  - [UnmappedAttributeTypeDef](#unmappedattributetypedef)
   - [ComprehendMedicalAsyncJobFilterTypeDef](#comprehendmedicalasyncjobfiltertypedef)
+  - [ComprehendMedicalAsyncJobPropertiesTypeDef](#comprehendmedicalasyncjobpropertiestypedef)
   - [DescribeEntitiesDetectionV2JobResponseTypeDef](#describeentitiesdetectionv2jobresponsetypedef)
   - [DescribeICD10CMInferenceJobResponseTypeDef](#describeicd10cminferencejobresponsetypedef)
   - [DescribePHIDetectionJobResponseTypeDef](#describephidetectionjobresponsetypedef)
@@ -29,12 +16,23 @@ type annotations stubs module [mypy_boto3_comprehendmedical](https://pypi.org/pr
   - [DetectEntitiesResponseTypeDef](#detectentitiesresponsetypedef)
   - [DetectEntitiesV2ResponseTypeDef](#detectentitiesv2responsetypedef)
   - [DetectPHIResponseTypeDef](#detectphiresponsetypedef)
+  - [EntityTypeDef](#entitytypedef)
+  - [ICD10CMAttributeTypeDef](#icd10cmattributetypedef)
+  - [ICD10CMConceptTypeDef](#icd10cmconcepttypedef)
+  - [ICD10CMEntityTypeDef](#icd10cmentitytypedef)
+  - [ICD10CMTraitTypeDef](#icd10cmtraittypedef)
   - [InferICD10CMResponseTypeDef](#infericd10cmresponsetypedef)
   - [InferRxNormResponseTypeDef](#inferrxnormresponsetypedef)
+  - [InputDataConfigTypeDef](#inputdataconfigtypedef)
   - [ListEntitiesDetectionV2JobsResponseTypeDef](#listentitiesdetectionv2jobsresponsetypedef)
   - [ListICD10CMInferenceJobsResponseTypeDef](#listicd10cminferencejobsresponsetypedef)
   - [ListPHIDetectionJobsResponseTypeDef](#listphidetectionjobsresponsetypedef)
   - [ListRxNormInferenceJobsResponseTypeDef](#listrxnorminferencejobsresponsetypedef)
+  - [OutputDataConfigTypeDef](#outputdataconfigtypedef)
+  - [RxNormAttributeTypeDef](#rxnormattributetypedef)
+  - [RxNormConceptTypeDef](#rxnormconcepttypedef)
+  - [RxNormEntityTypeDef](#rxnormentitytypedef)
+  - [RxNormTraitTypeDef](#rxnormtraittypedef)
   - [StartEntitiesDetectionV2JobResponseTypeDef](#startentitiesdetectionv2jobresponsetypedef)
   - [StartICD10CMInferenceJobResponseTypeDef](#starticd10cminferencejobresponsetypedef)
   - [StartPHIDetectionJobResponseTypeDef](#startphidetectionjobresponsetypedef)
@@ -43,6 +41,8 @@ type annotations stubs module [mypy_boto3_comprehendmedical](https://pypi.org/pr
   - [StopICD10CMInferenceJobResponseTypeDef](#stopicd10cminferencejobresponsetypedef)
   - [StopPHIDetectionJobResponseTypeDef](#stopphidetectionjobresponsetypedef)
   - [StopRxNormInferenceJobResponseTypeDef](#stoprxnorminferencejobresponsetypedef)
+  - [TraitTypeDef](#traittypedef)
+  - [UnmappedAttributeTypeDef](#unmappedattributetypedef)
 
 ## AttributeTypeDef
 
@@ -66,6 +66,22 @@ Optional fields:
 - `Traits`: `List["TraitTypeDef"]`
 
 
+## ComprehendMedicalAsyncJobFilterTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import ComprehendMedicalAsyncJobFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobName`: `str`
+- `JobStatus`: `JobStatus`
+- `SubmitTimeBefore`: `datetime`
+- `SubmitTimeAfter`: `datetime`
+
+
 ## ComprehendMedicalAsyncJobPropertiesTypeDef
 
 ```python
@@ -85,252 +101,11 @@ Optional fields:
 - `ExpirationTime`: `datetime`
 - `InputDataConfig`: `"InputDataConfigTypeDef"`
 - `OutputDataConfig`: `"OutputDataConfigTypeDef"`
-- `LanguageCode`: `LanguageCode`
+- `LanguageCode`: `Literal['en']`
 - `DataAccessRoleArn`: `str`
 - `ManifestFilePath`: `str`
 - `KMSKey`: `str`
 - `ModelVersion`: `str`
-
-
-## EntityTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import EntityTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `int`
-- `BeginOffset`: `int`
-- `EndOffset`: `int`
-- `Score`: `float`
-- `Text`: `str`
-- `Category`: `EntityType`
-- `Type`: `EntitySubType`
-- `Traits`: `List["TraitTypeDef"]`
-- `Attributes`: `List["AttributeTypeDef"]`
-
-
-## ICD10CMAttributeTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import ICD10CMAttributeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `ICD10CMAttributeType`
-- `Score`: `float`
-- `RelationshipScore`: `float`
-- `Id`: `int`
-- `BeginOffset`: `int`
-- `EndOffset`: `int`
-- `Text`: `str`
-- `Traits`: `List["ICD10CMTraitTypeDef"]`
-- `Category`: `ICD10CMEntityType`
-- `RelationshipType`: `ICD10CMRelationshipType`
-
-
-## ICD10CMConceptTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import ICD10CMConceptTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `Code`: `str`
-- `Score`: `float`
-
-
-## ICD10CMEntityTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import ICD10CMEntityTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `int`
-- `Text`: `str`
-- `Category`: `ICD10CMEntityCategory`
-- `Type`: `ICD10CMEntityType`
-- `Score`: `float`
-- `BeginOffset`: `int`
-- `EndOffset`: `int`
-- `Attributes`: `List["ICD10CMAttributeTypeDef"]`
-- `Traits`: `List["ICD10CMTraitTypeDef"]`
-- `ICD10CMConcepts`: `List["ICD10CMConceptTypeDef"]`
-
-
-## ICD10CMTraitTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import ICD10CMTraitTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `ICD10CMTraitName`
-- `Score`: `float`
-
-
-## InputDataConfigTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import InputDataConfigTypeDef
-```
-
-
-Required fields:
-- `S3Bucket`: `str`
-
-
-
-Optional fields:
-- `S3Key`: `str`
-
-
-## OutputDataConfigTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import OutputDataConfigTypeDef
-```
-
-
-Required fields:
-- `S3Bucket`: `str`
-
-
-
-Optional fields:
-- `S3Key`: `str`
-
-
-## RxNormAttributeTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import RxNormAttributeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `RxNormAttributeType`
-- `Score`: `float`
-- `RelationshipScore`: `float`
-- `Id`: `int`
-- `BeginOffset`: `int`
-- `EndOffset`: `int`
-- `Text`: `str`
-- `Traits`: `List["RxNormTraitTypeDef"]`
-
-
-## RxNormConceptTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import RxNormConceptTypeDef
-```
-
-
-
-
-Optional fields:
-- `Description`: `str`
-- `Code`: `str`
-- `Score`: `float`
-
-
-## RxNormEntityTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import RxNormEntityTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `int`
-- `Text`: `str`
-- `Category`: `RxNormEntityCategory`
-- `Type`: `RxNormEntityType`
-- `Score`: `float`
-- `BeginOffset`: `int`
-- `EndOffset`: `int`
-- `Attributes`: `List["RxNormAttributeTypeDef"]`
-- `Traits`: `List["RxNormTraitTypeDef"]`
-- `RxNormConcepts`: `List["RxNormConceptTypeDef"]`
-
-
-## RxNormTraitTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import RxNormTraitTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `RxNormTraitName`
-- `Score`: `float`
-
-
-## TraitTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import TraitTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `AttributeName`
-- `Score`: `float`
-
-
-## UnmappedAttributeTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import UnmappedAttributeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `EntityType`
-- `Attribute`: `"AttributeTypeDef"`
-
-
-## ComprehendMedicalAsyncJobFilterTypeDef
-
-```python
-from mypy_boto3_comprehendmedical.type_defs import ComprehendMedicalAsyncJobFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobName`: `str`
-- `JobStatus`: `JobStatus`
-- `SubmitTimeBefore`: `datetime`
-- `SubmitTimeAfter`: `datetime`
 
 
 ## DescribeEntitiesDetectionV2JobResponseTypeDef
@@ -438,6 +213,100 @@ Optional fields:
 - `PaginationToken`: `str`
 
 
+## EntityTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import EntityTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `int`
+- `BeginOffset`: `int`
+- `EndOffset`: `int`
+- `Score`: `float`
+- `Text`: `str`
+- `Category`: `EntityType`
+- `Type`: `EntitySubType`
+- `Traits`: `List["TraitTypeDef"]`
+- `Attributes`: `List["AttributeTypeDef"]`
+
+
+## ICD10CMAttributeTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import ICD10CMAttributeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `ICD10CMAttributeType`
+- `Score`: `float`
+- `RelationshipScore`: `float`
+- `Id`: `int`
+- `BeginOffset`: `int`
+- `EndOffset`: `int`
+- `Text`: `str`
+- `Traits`: `List["ICD10CMTraitTypeDef"]`
+- `Category`: `ICD10CMEntityType`
+- `RelationshipType`: `ICD10CMRelationshipType`
+
+
+## ICD10CMConceptTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import ICD10CMConceptTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `Code`: `str`
+- `Score`: `float`
+
+
+## ICD10CMEntityTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import ICD10CMEntityTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `int`
+- `Text`: `str`
+- `Category`: `Literal['MEDICAL_CONDITION']`
+- `Type`: `ICD10CMEntityType`
+- `Score`: `float`
+- `BeginOffset`: `int`
+- `EndOffset`: `int`
+- `Attributes`: `List["ICD10CMAttributeTypeDef"]`
+- `Traits`: `List["ICD10CMTraitTypeDef"]`
+- `ICD10CMConcepts`: `List["ICD10CMConceptTypeDef"]`
+
+
+## ICD10CMTraitTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import ICD10CMTraitTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `ICD10CMTraitName`
+- `Score`: `float`
+
+
 ## InferICD10CMResponseTypeDef
 
 ```python
@@ -470,6 +339,22 @@ Required fields:
 Optional fields:
 - `PaginationToken`: `str`
 - `ModelVersion`: `str`
+
+
+## InputDataConfigTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import InputDataConfigTypeDef
+```
+
+
+Required fields:
+- `S3Bucket`: `str`
+
+
+
+Optional fields:
+- `S3Key`: `str`
 
 
 ## ListEntitiesDetectionV2JobsResponseTypeDef
@@ -526,6 +411,93 @@ from mypy_boto3_comprehendmedical.type_defs import ListRxNormInferenceJobsRespon
 Optional fields:
 - `ComprehendMedicalAsyncJobPropertiesList`: `List["ComprehendMedicalAsyncJobPropertiesTypeDef"]`
 - `NextToken`: `str`
+
+
+## OutputDataConfigTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import OutputDataConfigTypeDef
+```
+
+
+Required fields:
+- `S3Bucket`: `str`
+
+
+
+Optional fields:
+- `S3Key`: `str`
+
+
+## RxNormAttributeTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import RxNormAttributeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `RxNormAttributeType`
+- `Score`: `float`
+- `RelationshipScore`: `float`
+- `Id`: `int`
+- `BeginOffset`: `int`
+- `EndOffset`: `int`
+- `Text`: `str`
+- `Traits`: `List["RxNormTraitTypeDef"]`
+
+
+## RxNormConceptTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import RxNormConceptTypeDef
+```
+
+
+
+
+Optional fields:
+- `Description`: `str`
+- `Code`: `str`
+- `Score`: `float`
+
+
+## RxNormEntityTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import RxNormEntityTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `int`
+- `Text`: `str`
+- `Category`: `Literal['MEDICATION']`
+- `Type`: `RxNormEntityType`
+- `Score`: `float`
+- `BeginOffset`: `int`
+- `EndOffset`: `int`
+- `Attributes`: `List["RxNormAttributeTypeDef"]`
+- `Traits`: `List["RxNormTraitTypeDef"]`
+- `RxNormConcepts`: `List["RxNormConceptTypeDef"]`
+
+
+## RxNormTraitTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import RxNormTraitTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `Literal['NEGATION']`
+- `Score`: `float`
 
 
 ## StartEntitiesDetectionV2JobResponseTypeDef
@@ -630,4 +602,32 @@ from mypy_boto3_comprehendmedical.type_defs import StopRxNormInferenceJobRespons
 
 Optional fields:
 - `JobId`: `str`
+
+
+## TraitTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import TraitTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `AttributeName`
+- `Score`: `float`
+
+
+## UnmappedAttributeTypeDef
+
+```python
+from mypy_boto3_comprehendmedical.type_defs import UnmappedAttributeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `EntityType`
+- `Attribute`: `"AttributeTypeDef"`
 

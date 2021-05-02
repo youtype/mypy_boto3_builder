@@ -64,17 +64,7 @@ type annotations stubs module [mypy_boto3_ecs](https://pypi.org/project/mypy-bot
     - [update_service_primary_task_set](#update_service_primary_task_set)
     - [update_task_set](#update_task_set)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
 
 ## ECSClient
 
@@ -372,7 +362,7 @@ Type annotations for `boto3.client("ecs").describe_capacity_providers` method.
 def describe_capacity_providers(
     self,
     capacityProviders: List[str] = None,
-    include: List[CapacityProviderField] = None,
+    include: List[Literal['TAGS']] = None,
     maxResults: int = None,
     nextToken: str = None
 ) -> DescribeCapacityProvidersResponseTypeDef:
@@ -405,7 +395,7 @@ def describe_container_instances(
     self,
     containerInstances: List[str],
     cluster: str = None,
-    include: List[ContainerInstanceField] = None
+    include: List[Literal['TAGS']] = None
 ) -> DescribeContainerInstancesResponseTypeDef:
     pass
 ```
@@ -421,7 +411,7 @@ def describe_services(
     self,
     services: List[str],
     cluster: str = None,
-    include: List[ServiceField] = None
+    include: List[Literal['TAGS']] = None
 ) -> DescribeServicesResponseTypeDef:
     pass
 ```
@@ -436,7 +426,7 @@ Type annotations for `boto3.client("ecs").describe_task_definition` method.
 def describe_task_definition(
     self,
     taskDefinition: str,
-    include: List[TaskDefinitionField] = None
+    include: List[Literal['TAGS']] = None
 ) -> DescribeTaskDefinitionResponseTypeDef:
     pass
 ```
@@ -453,7 +443,7 @@ def describe_task_sets(
     cluster: str,
     service: str,
     taskSets: List[str] = None,
-    include: List[TaskSetField] = None
+    include: List[Literal['TAGS']] = None
 ) -> DescribeTaskSetsResponseTypeDef:
     pass
 ```
@@ -469,7 +459,7 @@ def describe_tasks(
     self,
     tasks: List[str],
     cluster: str = None,
-    include: List[TaskField] = None
+    include: List[Literal['TAGS']] = None
 ) -> DescribeTasksResponseTypeDef:
     pass
 ```
@@ -552,7 +542,7 @@ Type annotations for `boto3.client("ecs").list_attributes` method.
 ```python
 def list_attributes(
     self,
-    targetType: TargetType,
+    targetType: Literal['container-instance'],
     cluster: str = None,
     attributeName: str = None,
     attributeValue: str = None,
@@ -1093,182 +1083,29 @@ def update_task_set(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("ecs").get_paginator` method.
-
-[Paginator.ListAccountSettings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Paginator.ListAccountSettings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAccountSettingsPaginatorName
-) -> ListAccountSettingsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("ecs").get_paginator` method.
+Type annotations for `boto3.client("ecs").get_paginator` method with overloads.
 
-[Paginator.ListAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Paginator.ListAttributes)
+- `client.get_paginator("list_account_settings")` -> [ListAccountSettingsPaginator](./paginators.md#listaccountsettingspaginator)
+- `client.get_paginator("list_attributes")` -> [ListAttributesPaginator](./paginators.md#listattributespaginator)
+- `client.get_paginator("list_clusters")` -> [ListClustersPaginator](./paginators.md#listclusterspaginator)
+- `client.get_paginator("list_container_instances")` -> [ListContainerInstancesPaginator](./paginators.md#listcontainerinstancespaginator)
+- `client.get_paginator("list_services")` -> [ListServicesPaginator](./paginators.md#listservicespaginator)
+- `client.get_paginator("list_task_definition_families")` -> [ListTaskDefinitionFamiliesPaginator](./paginators.md#listtaskdefinitionfamiliespaginator)
+- `client.get_paginator("list_task_definitions")` -> [ListTaskDefinitionsPaginator](./paginators.md#listtaskdefinitionspaginator)
+- `client.get_paginator("list_tasks")` -> [ListTasksPaginator](./paginators.md#listtaskspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAttributesPaginatorName
-) -> ListAttributesPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("ecs").get_paginator` method.
-
-[Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Paginator.ListClusters)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListClustersPaginatorName
-) -> ListClustersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ecs").get_paginator` method.
-
-[Paginator.ListContainerInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Paginator.ListContainerInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListContainerInstancesPaginatorName
-) -> ListContainerInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ecs").get_paginator` method.
-
-[Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Paginator.ListServices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListServicesPaginatorName
-) -> ListServicesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ecs").get_paginator` method.
-
-[Paginator.ListTaskDefinitionFamilies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitionFamilies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTaskDefinitionFamiliesPaginatorName
-) -> ListTaskDefinitionFamiliesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ecs").get_paginator` method.
-
-[Paginator.ListTaskDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTaskDefinitionsPaginatorName
-) -> ListTaskDefinitionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ecs").get_paginator` method.
-
-[Paginator.ListTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Paginator.ListTasks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTasksPaginatorName
-) -> ListTasksPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("ecs").get_waiter` method.
+Type annotations for `boto3.client("ecs").get_waiter` method with overloads.
 
-[Waiter.ServicesInactive documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Waiter.ServicesInactive)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ServicesInactiveWaiterName
-) -> ServicesInactiveWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ecs").get_waiter` method.
-
-[Waiter.ServicesStable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Waiter.ServicesStable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ServicesStableWaiterName
-) -> ServicesStableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ecs").get_waiter` method.
-
-[Waiter.TasksRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Waiter.TasksRunning)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: TasksRunningWaiterName
-) -> TasksRunningWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ecs").get_waiter` method.
-
-[Waiter.TasksStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecs.html#ECS.Waiter.TasksStopped)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: TasksStoppedWaiterName
-) -> TasksStoppedWaiter:
-    pass
-```
+- `client.get_waiter("services_inactive")` -> [ServicesInactiveWaiter](./waiters.md#servicesinactivewaiter)
+- `client.get_waiter("services_stable")` -> [ServicesStableWaiter](./waiters.md#servicesstablewaiter)
+- `client.get_waiter("tasks_running")` -> [TasksRunningWaiter](./waiters.md#tasksrunningwaiter)
+- `client.get_waiter("tasks_stopped")` -> [TasksStoppedWaiter](./waiters.md#tasksstoppedwaiter)

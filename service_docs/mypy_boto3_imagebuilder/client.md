@@ -171,7 +171,7 @@ Type annotations for `boto3.client("imagebuilder").create_container_recipe` meth
 ```python
 def create_container_recipe(
     self,
-    containerType: ContainerType,
+    containerType: Literal['DOCKER'],
     name: str,
     semanticVersion: str,
     components: List["ComponentConfigurationTypeDef"],
@@ -584,7 +584,7 @@ def import_component(
     name: str,
     semanticVersion: str,
     type: ComponentType,
-    format: ComponentFormat,
+    format: Literal['SHELL'],
     platform: Platform,
     clientToken: str,
     description: str = None,
@@ -966,3 +966,6 @@ def update_infrastructure_configuration(
 ) -> UpdateInfrastructureConfigurationResponseTypeDef:
     pass
 ```
+
+
+

@@ -116,22 +116,15 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_emr_containers.type_defs import CloudWatchMonitoringConfigurationTypeDef, ...
+from mypy_boto3_emr_containers.type_defs import CancelJobRunResponseTypeDef, ...
 ```
 
+- [CancelJobRunResponseTypeDef](./type_defs.md#canceljobrunresponsetypedef)
 - [CloudWatchMonitoringConfigurationTypeDef](./type_defs.md#cloudwatchmonitoringconfigurationtypedef)
 - [ConfigurationOverridesTypeDef](./type_defs.md#configurationoverridestypedef)
+- [ConfigurationTypeDef](./type_defs.md#configurationtypedef)
 - [ContainerInfoTypeDef](./type_defs.md#containerinfotypedef)
 - [ContainerProviderTypeDef](./type_defs.md#containerprovidertypedef)
-- [EksInfoTypeDef](./type_defs.md#eksinfotypedef)
-- [EndpointTypeDef](./type_defs.md#endpointtypedef)
-- [JobDriverTypeDef](./type_defs.md#jobdrivertypedef)
-- [JobRunTypeDef](./type_defs.md#jobruntypedef)
-- [MonitoringConfigurationTypeDef](./type_defs.md#monitoringconfigurationtypedef)
-- [S3MonitoringConfigurationTypeDef](./type_defs.md#s3monitoringconfigurationtypedef)
-- [SparkSubmitJobDriverTypeDef](./type_defs.md#sparksubmitjobdrivertypedef)
-- [VirtualClusterTypeDef](./type_defs.md#virtualclustertypedef)
-- [CancelJobRunResponseTypeDef](./type_defs.md#canceljobrunresponsetypedef)
 - [CreateManagedEndpointResponseTypeDef](./type_defs.md#createmanagedendpointresponsetypedef)
 - [CreateVirtualClusterResponseTypeDef](./type_defs.md#createvirtualclusterresponsetypedef)
 - [DeleteManagedEndpointResponseTypeDef](./type_defs.md#deletemanagedendpointresponsetypedef)
@@ -139,10 +132,17 @@ from mypy_boto3_emr_containers.type_defs import CloudWatchMonitoringConfiguratio
 - [DescribeJobRunResponseTypeDef](./type_defs.md#describejobrunresponsetypedef)
 - [DescribeManagedEndpointResponseTypeDef](./type_defs.md#describemanagedendpointresponsetypedef)
 - [DescribeVirtualClusterResponseTypeDef](./type_defs.md#describevirtualclusterresponsetypedef)
-- [ConfigurationTypeDef](./type_defs.md#configurationtypedef)
+- [EksInfoTypeDef](./type_defs.md#eksinfotypedef)
+- [EndpointTypeDef](./type_defs.md#endpointtypedef)
+- [JobDriverTypeDef](./type_defs.md#jobdrivertypedef)
+- [JobRunTypeDef](./type_defs.md#jobruntypedef)
 - [ListJobRunsResponseTypeDef](./type_defs.md#listjobrunsresponsetypedef)
 - [ListManagedEndpointsResponseTypeDef](./type_defs.md#listmanagedendpointsresponsetypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
 - [ListVirtualClustersResponseTypeDef](./type_defs.md#listvirtualclustersresponsetypedef)
+- [MonitoringConfigurationTypeDef](./type_defs.md#monitoringconfigurationtypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [S3MonitoringConfigurationTypeDef](./type_defs.md#s3monitoringconfigurationtypedef)
+- [SparkSubmitJobDriverTypeDef](./type_defs.md#sparksubmitjobdrivertypedef)
 - [StartJobRunResponseTypeDef](./type_defs.md#startjobrunresponsetypedef)
+- [VirtualClusterTypeDef](./type_defs.md#virtualclustertypedef)

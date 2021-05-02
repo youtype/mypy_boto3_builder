@@ -7,10 +7,26 @@ type annotations stubs module [mypy_boto3_managedblockchain](https://pypi.org/pr
 
 - [Structures for boto3 ManagedBlockchain module](#structures-for-boto3-managedblockchain-module)
   - [ApprovalThresholdPolicyTypeDef](#approvalthresholdpolicytypedef)
+  - [CreateMemberOutputTypeDef](#creatememberoutputtypedef)
+  - [CreateNetworkOutputTypeDef](#createnetworkoutputtypedef)
+  - [CreateNodeOutputTypeDef](#createnodeoutputtypedef)
+  - [CreateProposalOutputTypeDef](#createproposaloutputtypedef)
+  - [GetMemberOutputTypeDef](#getmemberoutputtypedef)
+  - [GetNetworkOutputTypeDef](#getnetworkoutputtypedef)
+  - [GetNodeOutputTypeDef](#getnodeoutputtypedef)
+  - [GetProposalOutputTypeDef](#getproposaloutputtypedef)
   - [InvitationTypeDef](#invitationtypedef)
   - [InviteActionTypeDef](#inviteactiontypedef)
+  - [ListInvitationsOutputTypeDef](#listinvitationsoutputtypedef)
+  - [ListMembersOutputTypeDef](#listmembersoutputtypedef)
+  - [ListNetworksOutputTypeDef](#listnetworksoutputtypedef)
+  - [ListNodesOutputTypeDef](#listnodesoutputtypedef)
+  - [ListProposalVotesOutputTypeDef](#listproposalvotesoutputtypedef)
+  - [ListProposalsOutputTypeDef](#listproposalsoutputtypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [LogConfigurationTypeDef](#logconfigurationtypedef)
   - [LogConfigurationsTypeDef](#logconfigurationstypedef)
+  - [MemberConfigurationTypeDef](#memberconfigurationtypedef)
   - [MemberFabricAttributesTypeDef](#memberfabricattributestypedef)
   - [MemberFabricConfigurationTypeDef](#memberfabricconfigurationtypedef)
   - [MemberFabricLogPublishingConfigurationTypeDef](#memberfabriclogpublishingconfigurationtypedef)
@@ -23,8 +39,10 @@ type annotations stubs module [mypy_boto3_managedblockchain](https://pypi.org/pr
   - [NetworkFabricAttributesTypeDef](#networkfabricattributestypedef)
   - [NetworkFabricConfigurationTypeDef](#networkfabricconfigurationtypedef)
   - [NetworkFrameworkAttributesTypeDef](#networkframeworkattributestypedef)
+  - [NetworkFrameworkConfigurationTypeDef](#networkframeworkconfigurationtypedef)
   - [NetworkSummaryTypeDef](#networksummarytypedef)
   - [NetworkTypeDef](#networktypedef)
+  - [NodeConfigurationTypeDef](#nodeconfigurationtypedef)
   - [NodeEthereumAttributesTypeDef](#nodeethereumattributestypedef)
   - [NodeFabricAttributesTypeDef](#nodefabricattributestypedef)
   - [NodeFabricLogPublishingConfigurationTypeDef](#nodefabriclogpublishingconfigurationtypedef)
@@ -39,24 +57,6 @@ type annotations stubs module [mypy_boto3_managedblockchain](https://pypi.org/pr
   - [ResponseMetadata](#responsemetadata)
   - [VoteSummaryTypeDef](#votesummarytypedef)
   - [VotingPolicyTypeDef](#votingpolicytypedef)
-  - [CreateMemberOutputTypeDef](#creatememberoutputtypedef)
-  - [CreateNetworkOutputTypeDef](#createnetworkoutputtypedef)
-  - [CreateNodeOutputTypeDef](#createnodeoutputtypedef)
-  - [CreateProposalOutputTypeDef](#createproposaloutputtypedef)
-  - [GetMemberOutputTypeDef](#getmemberoutputtypedef)
-  - [GetNetworkOutputTypeDef](#getnetworkoutputtypedef)
-  - [GetNodeOutputTypeDef](#getnodeoutputtypedef)
-  - [GetProposalOutputTypeDef](#getproposaloutputtypedef)
-  - [ListInvitationsOutputTypeDef](#listinvitationsoutputtypedef)
-  - [ListMembersOutputTypeDef](#listmembersoutputtypedef)
-  - [ListNetworksOutputTypeDef](#listnetworksoutputtypedef)
-  - [ListNodesOutputTypeDef](#listnodesoutputtypedef)
-  - [ListProposalVotesOutputTypeDef](#listproposalvotesoutputtypedef)
-  - [ListProposalsOutputTypeDef](#listproposalsoutputtypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [MemberConfigurationTypeDef](#memberconfigurationtypedef)
-  - [NetworkFrameworkConfigurationTypeDef](#networkframeworkconfigurationtypedef)
-  - [NodeConfigurationTypeDef](#nodeconfigurationtypedef)
 
 ## ApprovalThresholdPolicyTypeDef
 
@@ -71,6 +71,119 @@ Optional fields:
 - `ThresholdPercentage`: `int`
 - `ProposalDurationInHours`: `int`
 - `ThresholdComparator`: `ThresholdComparator`
+
+
+## CreateMemberOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import CreateMemberOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `MemberId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateNetworkOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import CreateNetworkOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NetworkId`: `str`
+- `MemberId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateNodeOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import CreateNodeOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NodeId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateProposalOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import CreateProposalOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProposalId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetMemberOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import GetMemberOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Member`: `"MemberTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetNetworkOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import GetNetworkOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Network`: `"NetworkTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetNodeOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import GetNodeOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Node`: `"NodeTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetProposalOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import GetProposalOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Proposal`: `"ProposalTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## InvitationTypeDef
@@ -104,6 +217,109 @@ Required fields:
 
 
 
+## ListInvitationsOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import ListInvitationsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Invitations`: `List["InvitationTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListMembersOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import ListMembersOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Members`: `List["MemberSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListNetworksOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import ListNetworksOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Networks`: `List["NetworkSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListNodesOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import ListNodesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Nodes`: `List["NodeSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListProposalVotesOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import ListProposalVotesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProposalVotes`: `List["VoteSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListProposalsOutputTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import ListProposalsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Proposals`: `List["ProposalSummaryTypeDef"]`
+- `NextToken`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
+
+
 ## LogConfigurationTypeDef
 
 ```python
@@ -128,6 +344,25 @@ from mypy_boto3_managedblockchain.type_defs import LogConfigurationsTypeDef
 
 Optional fields:
 - `Cloudwatch`: `"LogConfigurationTypeDef"`
+
+
+## MemberConfigurationTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import MemberConfigurationTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `FrameworkConfiguration`: `"MemberFrameworkConfigurationTypeDef"`
+
+
+
+Optional fields:
+- `Description`: `str`
+- `LogPublishingConfiguration`: `"MemberLogPublishingConfigurationTypeDef"`
+- `Tags`: `Dict[str, str]`
 
 
 ## MemberFabricAttributesTypeDef
@@ -305,6 +540,19 @@ Optional fields:
 - `Ethereum`: `"NetworkEthereumAttributesTypeDef"`
 
 
+## NetworkFrameworkConfigurationTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import NetworkFrameworkConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Fabric`: `"NetworkFabricConfigurationTypeDef"`
+
+
 ## NetworkSummaryTypeDef
 
 ```python
@@ -347,6 +595,24 @@ Optional fields:
 - `CreationDate`: `datetime`
 - `Tags`: `Dict[str, str]`
 - `Arn`: `str`
+
+
+## NodeConfigurationTypeDef
+
+```python
+from mypy_boto3_managedblockchain.type_defs import NodeConfigurationTypeDef
+```
+
+
+Required fields:
+- `InstanceType`: `str`
+
+
+
+Optional fields:
+- `AvailabilityZone`: `str`
+- `LogPublishingConfiguration`: `"NodeLogPublishingConfigurationTypeDef"`
+- `StateDB`: `StateDBType`
 
 
 ## NodeEthereumAttributesTypeDef
@@ -576,270 +842,4 @@ from mypy_boto3_managedblockchain.type_defs import VotingPolicyTypeDef
 
 Optional fields:
 - `ApprovalThresholdPolicy`: `"ApprovalThresholdPolicyTypeDef"`
-
-
-## CreateMemberOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import CreateMemberOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `MemberId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateNetworkOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import CreateNetworkOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NetworkId`: `str`
-- `MemberId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateNodeOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import CreateNodeOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NodeId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateProposalOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import CreateProposalOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProposalId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetMemberOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import GetMemberOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Member`: `"MemberTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetNetworkOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import GetNetworkOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Network`: `"NetworkTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetNodeOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import GetNodeOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Node`: `"NodeTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetProposalOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import GetProposalOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Proposal`: `"ProposalTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListInvitationsOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import ListInvitationsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Invitations`: `List["InvitationTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListMembersOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import ListMembersOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Members`: `List["MemberSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListNetworksOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import ListNetworksOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Networks`: `List["NetworkSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListNodesOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import ListNodesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Nodes`: `List["NodeSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListProposalVotesOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import ListProposalVotesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProposalVotes`: `List["VoteSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListProposalsOutputTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import ListProposalsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Proposals`: `List["ProposalSummaryTypeDef"]`
-- `NextToken`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## MemberConfigurationTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import MemberConfigurationTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `FrameworkConfiguration`: `"MemberFrameworkConfigurationTypeDef"`
-
-
-
-Optional fields:
-- `Description`: `str`
-- `LogPublishingConfiguration`: `"MemberLogPublishingConfigurationTypeDef"`
-- `Tags`: `Dict[str, str]`
-
-
-## NetworkFrameworkConfigurationTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import NetworkFrameworkConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Fabric`: `"NetworkFabricConfigurationTypeDef"`
-
-
-## NodeConfigurationTypeDef
-
-```python
-from mypy_boto3_managedblockchain.type_defs import NodeConfigurationTypeDef
-```
-
-
-Required fields:
-- `InstanceType`: `str`
-
-
-
-Optional fields:
-- `AvailabilityZone`: `str`
-- `LogPublishingConfiguration`: `"NodeLogPublishingConfigurationTypeDef"`
-- `StateDB`: `StateDBType`
 

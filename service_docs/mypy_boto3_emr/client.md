@@ -59,18 +59,7 @@ type annotations stubs module [mypy_boto3_emr](https://pypi.org/project/mypy-bot
     - [update_studio](#update_studio)
     - [update_studio_session_mapping](#update_studio_session_mapping)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
 
 ## EMRClient
 
@@ -897,197 +886,30 @@ def update_studio_session_mapping(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("emr").get_paginator` method.
-
-[Paginator.ListBootstrapActions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Paginator.ListBootstrapActions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBootstrapActionsPaginatorName
-) -> ListBootstrapActionsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("emr").get_paginator` method.
+Type annotations for `boto3.client("emr").get_paginator` method with overloads.
 
-[Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Paginator.ListClusters)
+- `client.get_paginator("list_bootstrap_actions")` -> [ListBootstrapActionsPaginator](./paginators.md#listbootstrapactionspaginator)
+- `client.get_paginator("list_clusters")` -> [ListClustersPaginator](./paginators.md#listclusterspaginator)
+- `client.get_paginator("list_instance_fleets")` -> [ListInstanceFleetsPaginator](./paginators.md#listinstancefleetspaginator)
+- `client.get_paginator("list_instance_groups")` -> [ListInstanceGroupsPaginator](./paginators.md#listinstancegroupspaginator)
+- `client.get_paginator("list_instances")` -> [ListInstancesPaginator](./paginators.md#listinstancespaginator)
+- `client.get_paginator("list_notebook_executions")` -> [ListNotebookExecutionsPaginator](./paginators.md#listnotebookexecutionspaginator)
+- `client.get_paginator("list_security_configurations")` -> [ListSecurityConfigurationsPaginator](./paginators.md#listsecurityconfigurationspaginator)
+- `client.get_paginator("list_steps")` -> [ListStepsPaginator](./paginators.md#liststepspaginator)
+- `client.get_paginator("list_studio_session_mappings")` -> [ListStudioSessionMappingsPaginator](./paginators.md#liststudiosessionmappingspaginator)
+- `client.get_paginator("list_studios")` -> [ListStudiosPaginator](./paginators.md#liststudiospaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListClustersPaginatorName
-) -> ListClustersPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("emr").get_paginator` method.
-
-[Paginator.ListInstanceFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Paginator.ListInstanceFleets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInstanceFleetsPaginatorName
-) -> ListInstanceFleetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("emr").get_paginator` method.
-
-[Paginator.ListInstanceGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Paginator.ListInstanceGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInstanceGroupsPaginatorName
-) -> ListInstanceGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("emr").get_paginator` method.
-
-[Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Paginator.ListInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInstancesPaginatorName
-) -> ListInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("emr").get_paginator` method.
-
-[Paginator.ListNotebookExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Paginator.ListNotebookExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListNotebookExecutionsPaginatorName
-) -> ListNotebookExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("emr").get_paginator` method.
-
-[Paginator.ListSecurityConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Paginator.ListSecurityConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSecurityConfigurationsPaginatorName
-) -> ListSecurityConfigurationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("emr").get_paginator` method.
-
-[Paginator.ListSteps documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Paginator.ListSteps)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStepsPaginatorName
-) -> ListStepsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("emr").get_paginator` method.
-
-[Paginator.ListStudioSessionMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Paginator.ListStudioSessionMappings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStudioSessionMappingsPaginatorName
-) -> ListStudioSessionMappingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("emr").get_paginator` method.
-
-[Paginator.ListStudios documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Paginator.ListStudios)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStudiosPaginatorName
-) -> ListStudiosPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("emr").get_waiter` method.
+Type annotations for `boto3.client("emr").get_waiter` method with overloads.
 
-[Waiter.ClusterRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Waiter.ClusterRunning)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ClusterRunningWaiterName
-) -> ClusterRunningWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("emr").get_waiter` method.
-
-[Waiter.ClusterTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Waiter.ClusterTerminated)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ClusterTerminatedWaiterName
-) -> ClusterTerminatedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("emr").get_waiter` method.
-
-[Waiter.StepComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/emr.html#EMR.Waiter.StepComplete)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: StepCompleteWaiterName
-) -> StepCompleteWaiter:
-    pass
-```
+- `client.get_waiter("cluster_running")` -> [ClusterRunningWaiter](./waiters.md#clusterrunningwaiter)
+- `client.get_waiter("cluster_terminated")` -> [ClusterTerminatedWaiter](./waiters.md#clusterterminatedwaiter)
+- `client.get_waiter("step_complete")` -> [StepCompleteWaiter](./waiters.md#stepcompletewaiter)

@@ -118,19 +118,19 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_cloud9.type_defs import EnvironmentLifecycleTypeDef, ...
+from mypy_boto3_cloud9.type_defs import CreateEnvironmentEC2ResultTypeDef, ...
 ```
 
-- [EnvironmentLifecycleTypeDef](./type_defs.md#environmentlifecycletypedef)
-- [EnvironmentMemberTypeDef](./type_defs.md#environmentmembertypedef)
-- [EnvironmentTypeDef](./type_defs.md#environmenttypedef)
-- [TagTypeDef](./type_defs.md#tagtypedef)
 - [CreateEnvironmentEC2ResultTypeDef](./type_defs.md#createenvironmentec2resulttypedef)
 - [CreateEnvironmentMembershipResultTypeDef](./type_defs.md#createenvironmentmembershipresulttypedef)
 - [DescribeEnvironmentMembershipsResultTypeDef](./type_defs.md#describeenvironmentmembershipsresulttypedef)
 - [DescribeEnvironmentStatusResultTypeDef](./type_defs.md#describeenvironmentstatusresulttypedef)
 - [DescribeEnvironmentsResultTypeDef](./type_defs.md#describeenvironmentsresulttypedef)
+- [EnvironmentLifecycleTypeDef](./type_defs.md#environmentlifecycletypedef)
+- [EnvironmentMemberTypeDef](./type_defs.md#environmentmembertypedef)
+- [EnvironmentTypeDef](./type_defs.md#environmenttypedef)
 - [ListEnvironmentsResultTypeDef](./type_defs.md#listenvironmentsresulttypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [TagTypeDef](./type_defs.md#tagtypedef)
 - [UpdateEnvironmentMembershipResultTypeDef](./type_defs.md#updateenvironmentmembershipresulttypedef)

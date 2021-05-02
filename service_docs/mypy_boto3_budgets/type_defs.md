@@ -15,15 +15,8 @@ type annotations stubs module [mypy_boto3_budgets](https://pypi.org/project/mypy
   - [BudgetedAndActualAmountsTypeDef](#budgetedandactualamountstypedef)
   - [CalculatedSpendTypeDef](#calculatedspendtypedef)
   - [CostTypesTypeDef](#costtypestypedef)
-  - [DefinitionTypeDef](#definitiontypedef)
-  - [IamActionDefinitionTypeDef](#iamactiondefinitiontypedef)
-  - [NotificationTypeDef](#notificationtypedef)
-  - [ScpActionDefinitionTypeDef](#scpactiondefinitiontypedef)
-  - [SpendTypeDef](#spendtypedef)
-  - [SsmActionDefinitionTypeDef](#ssmactiondefinitiontypedef)
-  - [SubscriberTypeDef](#subscribertypedef)
-  - [TimePeriodTypeDef](#timeperiodtypedef)
   - [CreateBudgetActionResponseTypeDef](#createbudgetactionresponsetypedef)
+  - [DefinitionTypeDef](#definitiontypedef)
   - [DeleteBudgetActionResponseTypeDef](#deletebudgetactionresponsetypedef)
   - [DescribeBudgetActionHistoriesResponseTypeDef](#describebudgetactionhistoriesresponsetypedef)
   - [DescribeBudgetActionResponseTypeDef](#describebudgetactionresponsetypedef)
@@ -35,8 +28,15 @@ type annotations stubs module [mypy_boto3_budgets](https://pypi.org/project/mypy
   - [DescribeNotificationsForBudgetResponseTypeDef](#describenotificationsforbudgetresponsetypedef)
   - [DescribeSubscribersForNotificationResponseTypeDef](#describesubscribersfornotificationresponsetypedef)
   - [ExecuteBudgetActionResponseTypeDef](#executebudgetactionresponsetypedef)
+  - [IamActionDefinitionTypeDef](#iamactiondefinitiontypedef)
+  - [NotificationTypeDef](#notificationtypedef)
   - [NotificationWithSubscribersTypeDef](#notificationwithsubscriberstypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ScpActionDefinitionTypeDef](#scpactiondefinitiontypedef)
+  - [SpendTypeDef](#spendtypedef)
+  - [SsmActionDefinitionTypeDef](#ssmactiondefinitiontypedef)
+  - [SubscriberTypeDef](#subscribertypedef)
+  - [TimePeriodTypeDef](#timeperiodtypedef)
   - [UpdateBudgetActionResponseTypeDef](#updatebudgetactionresponsetypedef)
 
 ## ActionHistoryDetailsTypeDef
@@ -201,129 +201,6 @@ Optional fields:
 - `UseAmortized`: `bool`
 
 
-## DefinitionTypeDef
-
-```python
-from mypy_boto3_budgets.type_defs import DefinitionTypeDef
-```
-
-
-
-
-Optional fields:
-- `IamActionDefinition`: `"IamActionDefinitionTypeDef"`
-- `ScpActionDefinition`: `"ScpActionDefinitionTypeDef"`
-- `SsmActionDefinition`: `"SsmActionDefinitionTypeDef"`
-
-
-## IamActionDefinitionTypeDef
-
-```python
-from mypy_boto3_budgets.type_defs import IamActionDefinitionTypeDef
-```
-
-
-Required fields:
-- `PolicyArn`: `str`
-
-
-
-Optional fields:
-- `Roles`: `List[str]`
-- `Groups`: `List[str]`
-- `Users`: `List[str]`
-
-
-## NotificationTypeDef
-
-```python
-from mypy_boto3_budgets.type_defs import NotificationTypeDef
-```
-
-
-Required fields:
-- `NotificationType`: `NotificationType`
-- `ComparisonOperator`: `ComparisonOperator`
-- `Threshold`: `float`
-
-
-
-Optional fields:
-- `ThresholdType`: `ThresholdType`
-- `NotificationState`: `NotificationState`
-
-
-## ScpActionDefinitionTypeDef
-
-```python
-from mypy_boto3_budgets.type_defs import ScpActionDefinitionTypeDef
-```
-
-
-Required fields:
-- `PolicyId`: `str`
-- `TargetIds`: `List[str]`
-
-
-
-
-## SpendTypeDef
-
-```python
-from mypy_boto3_budgets.type_defs import SpendTypeDef
-```
-
-
-Required fields:
-- `Amount`: `str`
-- `Unit`: `str`
-
-
-
-
-## SsmActionDefinitionTypeDef
-
-```python
-from mypy_boto3_budgets.type_defs import SsmActionDefinitionTypeDef
-```
-
-
-Required fields:
-- `ActionSubType`: `ActionSubType`
-- `Region`: `str`
-- `InstanceIds`: `List[str]`
-
-
-
-
-## SubscriberTypeDef
-
-```python
-from mypy_boto3_budgets.type_defs import SubscriberTypeDef
-```
-
-
-Required fields:
-- `SubscriptionType`: `SubscriptionType`
-- `Address`: `str`
-
-
-
-
-## TimePeriodTypeDef
-
-```python
-from mypy_boto3_budgets.type_defs import TimePeriodTypeDef
-```
-
-
-
-
-Optional fields:
-- `Start`: `datetime`
-- `End`: `datetime`
-
-
 ## CreateBudgetActionResponseTypeDef
 
 ```python
@@ -337,6 +214,21 @@ Required fields:
 - `ActionId`: `str`
 
 
+
+
+## DefinitionTypeDef
+
+```python
+from mypy_boto3_budgets.type_defs import DefinitionTypeDef
+```
+
+
+
+
+Optional fields:
+- `IamActionDefinition`: `"IamActionDefinitionTypeDef"`
+- `ScpActionDefinition`: `"ScpActionDefinitionTypeDef"`
+- `SsmActionDefinition`: `"SsmActionDefinitionTypeDef"`
 
 
 ## DeleteBudgetActionResponseTypeDef
@@ -502,6 +394,43 @@ Required fields:
 
 
 
+## IamActionDefinitionTypeDef
+
+```python
+from mypy_boto3_budgets.type_defs import IamActionDefinitionTypeDef
+```
+
+
+Required fields:
+- `PolicyArn`: `str`
+
+
+
+Optional fields:
+- `Roles`: `List[str]`
+- `Groups`: `List[str]`
+- `Users`: `List[str]`
+
+
+## NotificationTypeDef
+
+```python
+from mypy_boto3_budgets.type_defs import NotificationTypeDef
+```
+
+
+Required fields:
+- `NotificationType`: `NotificationType`
+- `ComparisonOperator`: `ComparisonOperator`
+- `Threshold`: `float`
+
+
+
+Optional fields:
+- `ThresholdType`: `ThresholdType`
+- `NotificationState`: `NotificationState`
+
+
 ## NotificationWithSubscribersTypeDef
 
 ```python
@@ -529,6 +458,77 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ScpActionDefinitionTypeDef
+
+```python
+from mypy_boto3_budgets.type_defs import ScpActionDefinitionTypeDef
+```
+
+
+Required fields:
+- `PolicyId`: `str`
+- `TargetIds`: `List[str]`
+
+
+
+
+## SpendTypeDef
+
+```python
+from mypy_boto3_budgets.type_defs import SpendTypeDef
+```
+
+
+Required fields:
+- `Amount`: `str`
+- `Unit`: `str`
+
+
+
+
+## SsmActionDefinitionTypeDef
+
+```python
+from mypy_boto3_budgets.type_defs import SsmActionDefinitionTypeDef
+```
+
+
+Required fields:
+- `ActionSubType`: `ActionSubType`
+- `Region`: `str`
+- `InstanceIds`: `List[str]`
+
+
+
+
+## SubscriberTypeDef
+
+```python
+from mypy_boto3_budgets.type_defs import SubscriberTypeDef
+```
+
+
+Required fields:
+- `SubscriptionType`: `SubscriptionType`
+- `Address`: `str`
+
+
+
+
+## TimePeriodTypeDef
+
+```python
+from mypy_boto3_budgets.type_defs import TimePeriodTypeDef
+```
+
+
+
+
+Optional fields:
+- `Start`: `datetime`
+- `End`: `datetime`
 
 
 ## UpdateBudgetActionResponseTypeDef

@@ -46,12 +46,7 @@ type annotations stubs module [mypy_boto3_ecr](https://pypi.org/project/mypy-bot
     - [untag_resource](#untag_resource)
     - [upload_layer_part](#upload_layer_part)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
 
 ## ECRClient
 
@@ -687,107 +682,24 @@ def upload_layer_part(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("ecr").get_paginator` method.
-
-[Paginator.DescribeImageScanFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecr.html#ECR.Paginator.DescribeImageScanFindings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeImageScanFindingsPaginatorName
-) -> DescribeImageScanFindingsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("ecr").get_paginator` method.
+Type annotations for `boto3.client("ecr").get_paginator` method with overloads.
 
-[Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecr.html#ECR.Paginator.DescribeImages)
+- `client.get_paginator("describe_image_scan_findings")` -> [DescribeImageScanFindingsPaginator](./paginators.md#describeimagescanfindingspaginator)
+- `client.get_paginator("describe_images")` -> [DescribeImagesPaginator](./paginators.md#describeimagespaginator)
+- `client.get_paginator("describe_repositories")` -> [DescribeRepositoriesPaginator](./paginators.md#describerepositoriespaginator)
+- `client.get_paginator("get_lifecycle_policy_preview")` -> [GetLifecyclePolicyPreviewPaginator](./paginators.md#getlifecyclepolicypreviewpaginator)
+- `client.get_paginator("list_images")` -> [ListImagesPaginator](./paginators.md#listimagespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeImagesPaginatorName
-) -> DescribeImagesPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("ecr").get_paginator` method.
-
-[Paginator.DescribeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecr.html#ECR.Paginator.DescribeRepositories)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeRepositoriesPaginatorName
-) -> DescribeRepositoriesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ecr").get_paginator` method.
-
-[Paginator.GetLifecyclePolicyPreview documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecr.html#ECR.Paginator.GetLifecyclePolicyPreview)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetLifecyclePolicyPreviewPaginatorName
-) -> GetLifecyclePolicyPreviewPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ecr").get_paginator` method.
-
-[Paginator.ListImages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecr.html#ECR.Paginator.ListImages)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListImagesPaginatorName
-) -> ListImagesPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("ecr").get_waiter` method.
+Type annotations for `boto3.client("ecr").get_waiter` method with overloads.
 
-[Waiter.ImageScanComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecr.html#ECR.Waiter.ImageScanComplete)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ImageScanCompleteWaiterName
-) -> ImageScanCompleteWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("ecr").get_waiter` method.
-
-[Waiter.LifecyclePolicyPreviewComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: LifecyclePolicyPreviewCompleteWaiterName
-) -> LifecyclePolicyPreviewCompleteWaiter:
-    pass
-```
+- `client.get_waiter("image_scan_complete")` -> [ImageScanCompleteWaiter](./waiters.md#imagescancompletewaiter)
+- `client.get_waiter("lifecycle_policy_preview_complete")` -> [LifecyclePolicyPreviewCompleteWaiter](./waiters.md#lifecyclepolicypreviewcompletewaiter)

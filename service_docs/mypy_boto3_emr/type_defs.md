@@ -6,6 +6,9 @@ Auto-generated documentation for [EMR](https://boto3.amazonaws.com/v1/documentat
 type annotations stubs module [mypy_boto3_emr](https://pypi.org/project/mypy-boto3-emr/).
 
 - [Structures for boto3 EMR module](#structures-for-boto3-emr-module)
+  - [AddInstanceFleetOutputTypeDef](#addinstancefleetoutputtypedef)
+  - [AddInstanceGroupsOutputTypeDef](#addinstancegroupsoutputtypedef)
+  - [AddJobFlowStepsOutputTypeDef](#addjobflowstepsoutputtypedef)
   - [ApplicationTypeDef](#applicationtypedef)
   - [AutoScalingPolicyDescriptionTypeDef](#autoscalingpolicydescriptiontypedef)
   - [AutoScalingPolicyStateChangeReasonTypeDef](#autoscalingpolicystatechangereasontypedef)
@@ -16,6 +19,7 @@ type annotations stubs module [mypy_boto3_emr](https://pypi.org/project/mypy-bot
   - [BootstrapActionConfigTypeDef](#bootstrapactionconfigtypedef)
   - [BootstrapActionDetailTypeDef](#bootstrapactiondetailtypedef)
   - [CancelStepsInfoTypeDef](#cancelstepsinfotypedef)
+  - [CancelStepsOutputTypeDef](#cancelstepsoutputtypedef)
   - [CloudWatchAlarmDefinitionTypeDef](#cloudwatchalarmdefinitiontypedef)
   - [ClusterStateChangeReasonTypeDef](#clusterstatechangereasontypedef)
   - [ClusterStatusTypeDef](#clusterstatustypedef)
@@ -24,6 +28,15 @@ type annotations stubs module [mypy_boto3_emr](https://pypi.org/project/mypy-bot
   - [ClusterTypeDef](#clustertypedef)
   - [CommandTypeDef](#commandtypedef)
   - [ComputeLimitsTypeDef](#computelimitstypedef)
+  - [ConfigurationTypeDef](#configurationtypedef)
+  - [CreateSecurityConfigurationOutputTypeDef](#createsecurityconfigurationoutputtypedef)
+  - [CreateStudioOutputTypeDef](#createstudiooutputtypedef)
+  - [DescribeClusterOutputTypeDef](#describeclusteroutputtypedef)
+  - [DescribeJobFlowsOutputTypeDef](#describejobflowsoutputtypedef)
+  - [DescribeNotebookExecutionOutputTypeDef](#describenotebookexecutionoutputtypedef)
+  - [DescribeSecurityConfigurationOutputTypeDef](#describesecurityconfigurationoutputtypedef)
+  - [DescribeStepOutputTypeDef](#describestepoutputtypedef)
+  - [DescribeStudioOutputTypeDef](#describestudiooutputtypedef)
   - [EbsBlockDeviceConfigTypeDef](#ebsblockdeviceconfigtypedef)
   - [EbsBlockDeviceTypeDef](#ebsblockdevicetypedef)
   - [EbsConfigurationTypeDef](#ebsconfigurationtypedef)
@@ -31,9 +44,13 @@ type annotations stubs module [mypy_boto3_emr](https://pypi.org/project/mypy-bot
   - [Ec2InstanceAttributesTypeDef](#ec2instanceattributestypedef)
   - [ExecutionEngineConfigTypeDef](#executionengineconfigtypedef)
   - [FailureDetailsTypeDef](#failuredetailstypedef)
+  - [GetBlockPublicAccessConfigurationOutputTypeDef](#getblockpublicaccessconfigurationoutputtypedef)
+  - [GetManagedScalingPolicyOutputTypeDef](#getmanagedscalingpolicyoutputtypedef)
+  - [GetStudioSessionMappingOutputTypeDef](#getstudiosessionmappingoutputtypedef)
   - [HadoopJarStepConfigTypeDef](#hadoopjarstepconfigtypedef)
   - [HadoopStepConfigTypeDef](#hadoopstepconfigtypedef)
   - [InstanceFleetConfigTypeDef](#instancefleetconfigtypedef)
+  - [InstanceFleetModifyConfigTypeDef](#instancefleetmodifyconfigtypedef)
   - [InstanceFleetProvisioningSpecificationsTypeDef](#instancefleetprovisioningspecificationstypedef)
   - [InstanceFleetStateChangeReasonTypeDef](#instancefleetstatechangereasontypedef)
   - [InstanceFleetStatusTypeDef](#instancefleetstatustypedef)
@@ -41,6 +58,7 @@ type annotations stubs module [mypy_boto3_emr](https://pypi.org/project/mypy-bot
   - [InstanceFleetTypeDef](#instancefleettypedef)
   - [InstanceGroupConfigTypeDef](#instancegroupconfigtypedef)
   - [InstanceGroupDetailTypeDef](#instancegroupdetailtypedef)
+  - [InstanceGroupModifyConfigTypeDef](#instancegroupmodifyconfigtypedef)
   - [InstanceGroupStateChangeReasonTypeDef](#instancegroupstatechangereasontypedef)
   - [InstanceGroupStatusTypeDef](#instancegroupstatustypedef)
   - [InstanceGroupTimelineTypeDef](#instancegrouptimelinetypedef)
@@ -54,19 +72,34 @@ type annotations stubs module [mypy_boto3_emr](https://pypi.org/project/mypy-bot
   - [InstanceTypeSpecificationTypeDef](#instancetypespecificationtypedef)
   - [JobFlowDetailTypeDef](#jobflowdetailtypedef)
   - [JobFlowExecutionStatusDetailTypeDef](#jobflowexecutionstatusdetailtypedef)
+  - [JobFlowInstancesConfigTypeDef](#jobflowinstancesconfigtypedef)
   - [JobFlowInstancesDetailTypeDef](#jobflowinstancesdetailtypedef)
   - [KerberosAttributesTypeDef](#kerberosattributestypedef)
   - [KeyValueTypeDef](#keyvaluetypedef)
+  - [ListBootstrapActionsOutputTypeDef](#listbootstrapactionsoutputtypedef)
+  - [ListClustersOutputTypeDef](#listclustersoutputtypedef)
+  - [ListInstanceFleetsOutputTypeDef](#listinstancefleetsoutputtypedef)
+  - [ListInstanceGroupsOutputTypeDef](#listinstancegroupsoutputtypedef)
+  - [ListInstancesOutputTypeDef](#listinstancesoutputtypedef)
+  - [ListNotebookExecutionsOutputTypeDef](#listnotebookexecutionsoutputtypedef)
+  - [ListSecurityConfigurationsOutputTypeDef](#listsecurityconfigurationsoutputtypedef)
+  - [ListStepsOutputTypeDef](#liststepsoutputtypedef)
+  - [ListStudioSessionMappingsOutputTypeDef](#liststudiosessionmappingsoutputtypedef)
+  - [ListStudiosOutputTypeDef](#liststudiosoutputtypedef)
   - [ManagedScalingPolicyTypeDef](#managedscalingpolicytypedef)
   - [MetricDimensionTypeDef](#metricdimensiontypedef)
+  - [ModifyClusterOutputTypeDef](#modifyclusteroutputtypedef)
   - [NotebookExecutionSummaryTypeDef](#notebookexecutionsummarytypedef)
   - [NotebookExecutionTypeDef](#notebookexecutiontypedef)
   - [OnDemandCapacityReservationOptionsTypeDef](#ondemandcapacityreservationoptionstypedef)
   - [OnDemandProvisioningSpecificationTypeDef](#ondemandprovisioningspecificationtypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PlacementGroupConfigTypeDef](#placementgroupconfigtypedef)
   - [PlacementTypeTypeDef](#placementtypetypedef)
   - [PortRangeTypeDef](#portrangetypedef)
+  - [PutAutoScalingPolicyOutputTypeDef](#putautoscalingpolicyoutputtypedef)
   - [ResponseMetadata](#responsemetadata)
+  - [RunJobFlowOutputTypeDef](#runjobflowoutputtypedef)
   - [ScalingActionTypeDef](#scalingactiontypedef)
   - [ScalingConstraintsTypeDef](#scalingconstraintstypedef)
   - [ScalingRuleTypeDef](#scalingruletypedef)
@@ -78,6 +111,7 @@ type annotations stubs module [mypy_boto3_emr](https://pypi.org/project/mypy-bot
   - [ShrinkPolicyTypeDef](#shrinkpolicytypedef)
   - [SimpleScalingPolicyConfigurationTypeDef](#simplescalingpolicyconfigurationtypedef)
   - [SpotProvisioningSpecificationTypeDef](#spotprovisioningspecificationtypedef)
+  - [StartNotebookExecutionOutputTypeDef](#startnotebookexecutionoutputtypedef)
   - [StepConfigTypeDef](#stepconfigtypedef)
   - [StepDetailTypeDef](#stepdetailtypedef)
   - [StepExecutionStatusDetailTypeDef](#stepexecutionstatusdetailtypedef)
@@ -88,44 +122,56 @@ type annotations stubs module [mypy_boto3_emr](https://pypi.org/project/mypy-bot
   - [StepTypeDef](#steptypedef)
   - [StudioSummaryTypeDef](#studiosummarytypedef)
   - [StudioTypeDef](#studiotypedef)
+  - [SupportedProductConfigTypeDef](#supportedproductconfigtypedef)
   - [TagTypeDef](#tagtypedef)
   - [VolumeSpecificationTypeDef](#volumespecificationtypedef)
-  - [AddInstanceFleetOutputTypeDef](#addinstancefleetoutputtypedef)
-  - [AddInstanceGroupsOutputTypeDef](#addinstancegroupsoutputtypedef)
-  - [AddJobFlowStepsOutputTypeDef](#addjobflowstepsoutputtypedef)
-  - [CancelStepsOutputTypeDef](#cancelstepsoutputtypedef)
-  - [CreateSecurityConfigurationOutputTypeDef](#createsecurityconfigurationoutputtypedef)
-  - [CreateStudioOutputTypeDef](#createstudiooutputtypedef)
-  - [DescribeClusterOutputTypeDef](#describeclusteroutputtypedef)
-  - [DescribeJobFlowsOutputTypeDef](#describejobflowsoutputtypedef)
-  - [DescribeNotebookExecutionOutputTypeDef](#describenotebookexecutionoutputtypedef)
-  - [DescribeSecurityConfigurationOutputTypeDef](#describesecurityconfigurationoutputtypedef)
-  - [DescribeStepOutputTypeDef](#describestepoutputtypedef)
-  - [DescribeStudioOutputTypeDef](#describestudiooutputtypedef)
-  - [ConfigurationTypeDef](#configurationtypedef)
-  - [GetBlockPublicAccessConfigurationOutputTypeDef](#getblockpublicaccessconfigurationoutputtypedef)
-  - [GetManagedScalingPolicyOutputTypeDef](#getmanagedscalingpolicyoutputtypedef)
-  - [GetStudioSessionMappingOutputTypeDef](#getstudiosessionmappingoutputtypedef)
-  - [InstanceFleetModifyConfigTypeDef](#instancefleetmodifyconfigtypedef)
-  - [InstanceGroupModifyConfigTypeDef](#instancegroupmodifyconfigtypedef)
-  - [JobFlowInstancesConfigTypeDef](#jobflowinstancesconfigtypedef)
-  - [ListBootstrapActionsOutputTypeDef](#listbootstrapactionsoutputtypedef)
-  - [ListClustersOutputTypeDef](#listclustersoutputtypedef)
-  - [ListInstanceFleetsOutputTypeDef](#listinstancefleetsoutputtypedef)
-  - [ListInstanceGroupsOutputTypeDef](#listinstancegroupsoutputtypedef)
-  - [ListInstancesOutputTypeDef](#listinstancesoutputtypedef)
-  - [ListNotebookExecutionsOutputTypeDef](#listnotebookexecutionsoutputtypedef)
-  - [ListSecurityConfigurationsOutputTypeDef](#listsecurityconfigurationsoutputtypedef)
-  - [ListStepsOutputTypeDef](#liststepsoutputtypedef)
-  - [ListStudioSessionMappingsOutputTypeDef](#liststudiosessionmappingsoutputtypedef)
-  - [ListStudiosOutputTypeDef](#liststudiosoutputtypedef)
-  - [ModifyClusterOutputTypeDef](#modifyclusteroutputtypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [PutAutoScalingPolicyOutputTypeDef](#putautoscalingpolicyoutputtypedef)
-  - [RunJobFlowOutputTypeDef](#runjobflowoutputtypedef)
-  - [StartNotebookExecutionOutputTypeDef](#startnotebookexecutionoutputtypedef)
-  - [SupportedProductConfigTypeDef](#supportedproductconfigtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
+
+## AddInstanceFleetOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import AddInstanceFleetOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClusterId`: `str`
+- `InstanceFleetId`: `str`
+- `ClusterArn`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## AddInstanceGroupsOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import AddInstanceGroupsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobFlowId`: `str`
+- `InstanceGroupIds`: `List[str]`
+- `ClusterArn`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## AddJobFlowStepsOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import AddJobFlowStepsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StepIds`: `List[str]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
 
 ## ApplicationTypeDef
 
@@ -270,6 +316,20 @@ Optional fields:
 - `StepId`: `str`
 - `Status`: `CancelStepsRequestStatus`
 - `Reason`: `str`
+
+
+## CancelStepsOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import CancelStepsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `CancelStepsInfoList`: `List["CancelStepsInfoTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## CloudWatchAlarmDefinitionTypeDef
@@ -433,6 +493,139 @@ Optional fields:
 - `MaximumCoreCapacityUnits`: `int`
 
 
+## ConfigurationTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Classification`: `str`
+- `Configurations`: `List[Dict[str, Any]]`
+- `Properties`: `Dict[str, str]`
+
+
+## CreateSecurityConfigurationOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import CreateSecurityConfigurationOutputTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `CreationDateTime`: `datetime`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateStudioOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import CreateStudioOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StudioId`: `str`
+- `Url`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeClusterOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import DescribeClusterOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Cluster`: `"ClusterTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeJobFlowsOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import DescribeJobFlowsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobFlows`: `List["JobFlowDetailTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeNotebookExecutionOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import DescribeNotebookExecutionOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NotebookExecution`: `"NotebookExecutionTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeSecurityConfigurationOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import DescribeSecurityConfigurationOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `SecurityConfiguration`: `str`
+- `CreationDateTime`: `datetime`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStepOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import DescribeStepOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Step`: `"StepTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeStudioOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import DescribeStudioOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Studio`: `"StudioTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## EbsBlockDeviceConfigTypeDef
 
 ```python
@@ -527,7 +720,7 @@ Required fields:
 
 
 Optional fields:
-- `Type`: `ExecutionEngineType`
+- `Type`: `Literal['EMR']`
 - `MasterInstanceSecurityGroupId`: `str`
 
 
@@ -544,6 +737,51 @@ Optional fields:
 - `Reason`: `str`
 - `Message`: `str`
 - `LogFile`: `str`
+
+
+## GetBlockPublicAccessConfigurationOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import GetBlockPublicAccessConfigurationOutputTypeDef
+```
+
+
+Required fields:
+- `BlockPublicAccessConfiguration`: `"BlockPublicAccessConfigurationTypeDef"`
+- `BlockPublicAccessConfigurationMetadata`: `"BlockPublicAccessConfigurationMetadataTypeDef"`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetManagedScalingPolicyOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import GetManagedScalingPolicyOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ManagedScalingPolicy`: `"ManagedScalingPolicyTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## GetStudioSessionMappingOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import GetStudioSessionMappingOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `SessionMapping`: `"SessionMappingDetailTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## HadoopJarStepConfigTypeDef
@@ -598,6 +836,23 @@ Optional fields:
 - `TargetSpotCapacity`: `int`
 - `InstanceTypeConfigs`: `List["InstanceTypeConfigTypeDef"]`
 - `LaunchSpecifications`: `"InstanceFleetProvisioningSpecificationsTypeDef"`
+
+
+## InstanceFleetModifyConfigTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import InstanceFleetModifyConfigTypeDef
+```
+
+
+Required fields:
+- `InstanceFleetId`: `str`
+
+
+
+Optional fields:
+- `TargetOnDemandCapacity`: `int`
+- `TargetSpotCapacity`: `int`
 
 
 ## InstanceFleetProvisioningSpecificationsTypeDef
@@ -729,6 +984,25 @@ Optional fields:
 - `StartDateTime`: `datetime`
 - `ReadyDateTime`: `datetime`
 - `EndDateTime`: `datetime`
+
+
+## InstanceGroupModifyConfigTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import InstanceGroupModifyConfigTypeDef
+```
+
+
+Required fields:
+- `InstanceGroupId`: `str`
+
+
+
+Optional fields:
+- `InstanceCount`: `int`
+- `EC2InstanceIdsToTerminate`: `List[str]`
+- `ShrinkPolicy`: `"ShrinkPolicyTypeDef"`
+- `Configurations`: `List[Dict[str, Any]]`
 
 
 ## InstanceGroupStateChangeReasonTypeDef
@@ -975,6 +1249,35 @@ Optional fields:
 - `LastStateChangeReason`: `str`
 
 
+## JobFlowInstancesConfigTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import JobFlowInstancesConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MasterInstanceType`: `str`
+- `SlaveInstanceType`: `str`
+- `InstanceCount`: `int`
+- `InstanceGroups`: `List["InstanceGroupConfigTypeDef"]`
+- `InstanceFleets`: `List["InstanceFleetConfigTypeDef"]`
+- `Ec2KeyName`: `str`
+- `Placement`: `"PlacementTypeTypeDef"`
+- `KeepJobFlowAliveWhenNoSteps`: `bool`
+- `TerminationProtected`: `bool`
+- `HadoopVersion`: `str`
+- `Ec2SubnetId`: `str`
+- `Ec2SubnetIds`: `List[str]`
+- `EmrManagedMasterSecurityGroup`: `str`
+- `EmrManagedSlaveSecurityGroup`: `str`
+- `ServiceAccessSecurityGroup`: `str`
+- `AdditionalMasterSecurityGroups`: `List[str]`
+- `AdditionalSlaveSecurityGroups`: `List[str]`
+
+
 ## JobFlowInstancesDetailTypeDef
 
 ```python
@@ -1035,6 +1338,156 @@ Optional fields:
 - `Value`: `str`
 
 
+## ListBootstrapActionsOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ListBootstrapActionsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `BootstrapActions`: `List["CommandTypeDef"]`
+- `Marker`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListClustersOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ListClustersOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Clusters`: `List["ClusterSummaryTypeDef"]`
+- `Marker`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListInstanceFleetsOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ListInstanceFleetsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceFleets`: `List["InstanceFleetTypeDef"]`
+- `Marker`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListInstanceGroupsOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ListInstanceGroupsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceGroups`: `List["InstanceGroupTypeDef"]`
+- `Marker`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListInstancesOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ListInstancesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Instances`: `List["InstanceTypeDef"]`
+- `Marker`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListNotebookExecutionsOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ListNotebookExecutionsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NotebookExecutions`: `List["NotebookExecutionSummaryTypeDef"]`
+- `Marker`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListSecurityConfigurationsOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ListSecurityConfigurationsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `SecurityConfigurations`: `List["SecurityConfigurationSummaryTypeDef"]`
+- `Marker`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListStepsOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ListStepsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Steps`: `List["StepSummaryTypeDef"]`
+- `Marker`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListStudioSessionMappingsOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ListStudioSessionMappingsOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `SessionMappings`: `List["SessionMappingSummaryTypeDef"]`
+- `Marker`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ListStudiosOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ListStudiosOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Studios`: `List["StudioSummaryTypeDef"]`
+- `Marker`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## ManagedScalingPolicyTypeDef
 
 ```python
@@ -1060,6 +1513,20 @@ from mypy_boto3_emr.type_defs import MetricDimensionTypeDef
 Optional fields:
 - `Key`: `str`
 - `Value`: `str`
+
+
+## ModifyClusterOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import ModifyClusterOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `StepConcurrencyLevel`: `int`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## NotebookExecutionSummaryTypeDef
@@ -1115,7 +1582,7 @@ from mypy_boto3_emr.type_defs import OnDemandCapacityReservationOptionsTypeDef
 
 
 Optional fields:
-- `UsageStrategy`: `OnDemandCapacityReservationUsageStrategy`
+- `UsageStrategy`: `Literal['use-capacity-reservations-first']`
 - `CapacityReservationPreference`: `OnDemandCapacityReservationPreference`
 - `CapacityReservationResourceGroupArn`: `str`
 
@@ -1128,12 +1595,27 @@ from mypy_boto3_emr.type_defs import OnDemandProvisioningSpecificationTypeDef
 
 
 Required fields:
-- `AllocationStrategy`: `OnDemandProvisioningAllocationStrategy`
+- `AllocationStrategy`: `Literal['lowest-price']`
 
 
 
 Optional fields:
 - `CapacityReservationOptions`: `"OnDemandCapacityReservationOptionsTypeDef"`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## PlacementGroupConfigTypeDef
@@ -1182,6 +1664,23 @@ Optional fields:
 - `MaxRange`: `int`
 
 
+## PutAutoScalingPolicyOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import PutAutoScalingPolicyOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClusterId`: `str`
+- `InstanceGroupId`: `str`
+- `AutoScalingPolicy`: `"AutoScalingPolicyDescriptionTypeDef"`
+- `ClusterArn`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## ResponseMetadata
 
 ```python
@@ -1197,6 +1696,21 @@ Required fields:
 - `RetryAttempts`: `int`
 
 
+
+
+## RunJobFlowOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import RunJobFlowOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobFlowId`: `str`
+- `ClusterArn`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## ScalingActionTypeDef
@@ -1373,7 +1887,21 @@ Required fields:
 
 Optional fields:
 - `BlockDurationMinutes`: `int`
-- `AllocationStrategy`: `SpotProvisioningAllocationStrategy`
+- `AllocationStrategy`: `Literal['capacity-optimized']`
+
+
+## StartNotebookExecutionOutputTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import StartNotebookExecutionOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NotebookExecutionId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## StepConfigTypeDef
@@ -1436,7 +1964,7 @@ from mypy_boto3_emr.type_defs import StepStateChangeReasonTypeDef
 
 
 Optional fields:
-- `Code`: `StepStateChangeReasonCode`
+- `Code`: `Literal['NONE']`
 - `Message`: `str`
 
 
@@ -1550,6 +2078,20 @@ Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 
 
+## SupportedProductConfigTypeDef
+
+```python
+from mypy_boto3_emr.type_defs import SupportedProductConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Args`: `List[str]`
+
+
 ## TagTypeDef
 
 ```python
@@ -1579,548 +2121,6 @@ Required fields:
 
 Optional fields:
 - `Iops`: `int`
-
-
-## AddInstanceFleetOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import AddInstanceFleetOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClusterId`: `str`
-- `InstanceFleetId`: `str`
-- `ClusterArn`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## AddInstanceGroupsOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import AddInstanceGroupsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobFlowId`: `str`
-- `InstanceGroupIds`: `List[str]`
-- `ClusterArn`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## AddJobFlowStepsOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import AddJobFlowStepsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StepIds`: `List[str]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CancelStepsOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import CancelStepsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `CancelStepsInfoList`: `List["CancelStepsInfoTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateSecurityConfigurationOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import CreateSecurityConfigurationOutputTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `CreationDateTime`: `datetime`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateStudioOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import CreateStudioOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StudioId`: `str`
-- `Url`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeClusterOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import DescribeClusterOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Cluster`: `"ClusterTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeJobFlowsOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import DescribeJobFlowsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobFlows`: `List["JobFlowDetailTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeNotebookExecutionOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import DescribeNotebookExecutionOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NotebookExecution`: `"NotebookExecutionTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeSecurityConfigurationOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import DescribeSecurityConfigurationOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `SecurityConfiguration`: `str`
-- `CreationDateTime`: `datetime`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStepOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import DescribeStepOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Step`: `"StepTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeStudioOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import DescribeStudioOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Studio`: `"StudioTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ConfigurationTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Classification`: `str`
-- `Configurations`: `List[Dict[str, Any]]`
-- `Properties`: `Dict[str, str]`
-
-
-## GetBlockPublicAccessConfigurationOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import GetBlockPublicAccessConfigurationOutputTypeDef
-```
-
-
-Required fields:
-- `BlockPublicAccessConfiguration`: `"BlockPublicAccessConfigurationTypeDef"`
-- `BlockPublicAccessConfigurationMetadata`: `"BlockPublicAccessConfigurationMetadataTypeDef"`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetManagedScalingPolicyOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import GetManagedScalingPolicyOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `ManagedScalingPolicy`: `"ManagedScalingPolicyTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetStudioSessionMappingOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import GetStudioSessionMappingOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `SessionMapping`: `"SessionMappingDetailTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## InstanceFleetModifyConfigTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import InstanceFleetModifyConfigTypeDef
-```
-
-
-Required fields:
-- `InstanceFleetId`: `str`
-
-
-
-Optional fields:
-- `TargetOnDemandCapacity`: `int`
-- `TargetSpotCapacity`: `int`
-
-
-## InstanceGroupModifyConfigTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import InstanceGroupModifyConfigTypeDef
-```
-
-
-Required fields:
-- `InstanceGroupId`: `str`
-
-
-
-Optional fields:
-- `InstanceCount`: `int`
-- `EC2InstanceIdsToTerminate`: `List[str]`
-- `ShrinkPolicy`: `"ShrinkPolicyTypeDef"`
-- `Configurations`: `List[Dict[str, Any]]`
-
-
-## JobFlowInstancesConfigTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import JobFlowInstancesConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MasterInstanceType`: `str`
-- `SlaveInstanceType`: `str`
-- `InstanceCount`: `int`
-- `InstanceGroups`: `List["InstanceGroupConfigTypeDef"]`
-- `InstanceFleets`: `List["InstanceFleetConfigTypeDef"]`
-- `Ec2KeyName`: `str`
-- `Placement`: `"PlacementTypeTypeDef"`
-- `KeepJobFlowAliveWhenNoSteps`: `bool`
-- `TerminationProtected`: `bool`
-- `HadoopVersion`: `str`
-- `Ec2SubnetId`: `str`
-- `Ec2SubnetIds`: `List[str]`
-- `EmrManagedMasterSecurityGroup`: `str`
-- `EmrManagedSlaveSecurityGroup`: `str`
-- `ServiceAccessSecurityGroup`: `str`
-- `AdditionalMasterSecurityGroups`: `List[str]`
-- `AdditionalSlaveSecurityGroups`: `List[str]`
-
-
-## ListBootstrapActionsOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ListBootstrapActionsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `BootstrapActions`: `List["CommandTypeDef"]`
-- `Marker`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListClustersOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ListClustersOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Clusters`: `List["ClusterSummaryTypeDef"]`
-- `Marker`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListInstanceFleetsOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ListInstanceFleetsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceFleets`: `List["InstanceFleetTypeDef"]`
-- `Marker`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListInstanceGroupsOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ListInstanceGroupsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceGroups`: `List["InstanceGroupTypeDef"]`
-- `Marker`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListInstancesOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ListInstancesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Instances`: `List["InstanceTypeDef"]`
-- `Marker`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListNotebookExecutionsOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ListNotebookExecutionsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NotebookExecutions`: `List["NotebookExecutionSummaryTypeDef"]`
-- `Marker`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListSecurityConfigurationsOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ListSecurityConfigurationsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `SecurityConfigurations`: `List["SecurityConfigurationSummaryTypeDef"]`
-- `Marker`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListStepsOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ListStepsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Steps`: `List["StepSummaryTypeDef"]`
-- `Marker`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListStudioSessionMappingsOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ListStudioSessionMappingsOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `SessionMappings`: `List["SessionMappingSummaryTypeDef"]`
-- `Marker`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ListStudiosOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ListStudiosOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Studios`: `List["StudioSummaryTypeDef"]`
-- `Marker`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ModifyClusterOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import ModifyClusterOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `StepConcurrencyLevel`: `int`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## PutAutoScalingPolicyOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import PutAutoScalingPolicyOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClusterId`: `str`
-- `InstanceGroupId`: `str`
-- `AutoScalingPolicy`: `"AutoScalingPolicyDescriptionTypeDef"`
-- `ClusterArn`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## RunJobFlowOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import RunJobFlowOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobFlowId`: `str`
-- `ClusterArn`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## StartNotebookExecutionOutputTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import StartNotebookExecutionOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NotebookExecutionId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## SupportedProductConfigTypeDef
-
-```python
-from mypy_boto3_emr.type_defs import SupportedProductConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Args`: `List[str]`
 
 
 ## WaiterConfigTypeDef

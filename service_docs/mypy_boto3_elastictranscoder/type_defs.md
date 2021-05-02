@@ -13,6 +13,11 @@ type annotations stubs module [mypy_boto3_elastictranscoder](https://pypi.org/pr
   - [CaptionSourceTypeDef](#captionsourcetypedef)
   - [CaptionsTypeDef](#captionstypedef)
   - [ClipTypeDef](#cliptypedef)
+  - [CreateJobOutputTypeDef](#createjoboutputtypedef)
+  - [CreateJobPlaylistTypeDef](#createjobplaylisttypedef)
+  - [CreateJobResponseTypeDef](#createjobresponsetypedef)
+  - [CreatePipelineResponseTypeDef](#createpipelineresponsetypedef)
+  - [CreatePresetResponseTypeDef](#createpresetresponsetypedef)
   - [DetectedPropertiesTypeDef](#detectedpropertiestypedef)
   - [EncryptionTypeDef](#encryptiontypedef)
   - [HlsContentProtectionTypeDef](#hlscontentprotectiontypedef)
@@ -22,7 +27,12 @@ type annotations stubs module [mypy_boto3_elastictranscoder](https://pypi.org/pr
   - [JobOutputTypeDef](#joboutputtypedef)
   - [JobTypeDef](#jobtypedef)
   - [JobWatermarkTypeDef](#jobwatermarktypedef)
+  - [ListJobsByPipelineResponseTypeDef](#listjobsbypipelineresponsetypedef)
+  - [ListJobsByStatusResponseTypeDef](#listjobsbystatusresponsetypedef)
+  - [ListPipelinesResponseTypeDef](#listpipelinesresponsetypedef)
+  - [ListPresetsResponseTypeDef](#listpresetsresponsetypedef)
   - [NotificationsTypeDef](#notificationstypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PermissionTypeDef](#permissiontypedef)
   - [PipelineOutputConfigTypeDef](#pipelineoutputconfigtypedef)
   - [PipelineTypeDef](#pipelinetypedef)
@@ -30,30 +40,20 @@ type annotations stubs module [mypy_boto3_elastictranscoder](https://pypi.org/pr
   - [PlaylistTypeDef](#playlisttypedef)
   - [PresetTypeDef](#presettypedef)
   - [PresetWatermarkTypeDef](#presetwatermarktypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [ThumbnailsTypeDef](#thumbnailstypedef)
-  - [TimeSpanTypeDef](#timespantypedef)
-  - [TimingTypeDef](#timingtypedef)
-  - [VideoParametersTypeDef](#videoparameterstypedef)
-  - [WarningTypeDef](#warningtypedef)
-  - [CreateJobOutputTypeDef](#createjoboutputtypedef)
-  - [CreateJobPlaylistTypeDef](#createjobplaylisttypedef)
-  - [CreateJobResponseTypeDef](#createjobresponsetypedef)
-  - [CreatePipelineResponseTypeDef](#createpipelineresponsetypedef)
-  - [CreatePresetResponseTypeDef](#createpresetresponsetypedef)
-  - [ListJobsByPipelineResponseTypeDef](#listjobsbypipelineresponsetypedef)
-  - [ListJobsByStatusResponseTypeDef](#listjobsbystatusresponsetypedef)
-  - [ListPipelinesResponseTypeDef](#listpipelinesresponsetypedef)
-  - [ListPresetsResponseTypeDef](#listpresetsresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ReadJobResponseTypeDef](#readjobresponsetypedef)
   - [ReadPipelineResponseTypeDef](#readpipelineresponsetypedef)
   - [ReadPresetResponseTypeDef](#readpresetresponsetypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [TestRoleResponseTypeDef](#testroleresponsetypedef)
+  - [ThumbnailsTypeDef](#thumbnailstypedef)
+  - [TimeSpanTypeDef](#timespantypedef)
+  - [TimingTypeDef](#timingtypedef)
   - [UpdatePipelineNotificationsResponseTypeDef](#updatepipelinenotificationsresponsetypedef)
   - [UpdatePipelineResponseTypeDef](#updatepipelineresponsetypedef)
   - [UpdatePipelineStatusResponseTypeDef](#updatepipelinestatusresponsetypedef)
+  - [VideoParametersTypeDef](#videoparameterstypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
+  - [WarningTypeDef](#warningtypedef)
 
 ## ArtworkTypeDef
 
@@ -166,6 +166,88 @@ from mypy_boto3_elastictranscoder.type_defs import ClipTypeDef
 
 Optional fields:
 - `TimeSpan`: `"TimeSpanTypeDef"`
+
+
+## CreateJobOutputTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import CreateJobOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `ThumbnailPattern`: `str`
+- `ThumbnailEncryption`: `"EncryptionTypeDef"`
+- `Rotate`: `str`
+- `PresetId`: `str`
+- `SegmentDuration`: `str`
+- `Watermarks`: `List["JobWatermarkTypeDef"]`
+- `AlbumArt`: `"JobAlbumArtTypeDef"`
+- `Composition`: `List["ClipTypeDef"]`
+- `Captions`: `"CaptionsTypeDef"`
+- `Encryption`: `"EncryptionTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateJobPlaylistTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import CreateJobPlaylistTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Format`: `str`
+- `OutputKeys`: `List[str]`
+- `HlsContentProtection`: `"HlsContentProtectionTypeDef"`
+- `PlayReadyDrm`: `"PlayReadyDrmTypeDef"`
+
+
+## CreateJobResponseTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import CreateJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Job`: `"JobTypeDef"`
+
+
+## CreatePipelineResponseTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import CreatePipelineResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Pipeline`: `"PipelineTypeDef"`
+- `Warnings`: `List["WarningTypeDef"]`
+
+
+## CreatePresetResponseTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import CreatePresetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Preset`: `"PresetTypeDef"`
+- `Warning`: `str`
 
 
 ## DetectedPropertiesTypeDef
@@ -342,6 +424,62 @@ Optional fields:
 - `Encryption`: `"EncryptionTypeDef"`
 
 
+## ListJobsByPipelineResponseTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import ListJobsByPipelineResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Jobs`: `List["JobTypeDef"]`
+- `NextPageToken`: `str`
+
+
+## ListJobsByStatusResponseTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import ListJobsByStatusResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Jobs`: `List["JobTypeDef"]`
+- `NextPageToken`: `str`
+
+
+## ListPipelinesResponseTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import ListPipelinesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Pipelines`: `List["PipelineTypeDef"]`
+- `NextPageToken`: `str`
+
+
+## ListPresetsResponseTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import ListPresetsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Presets`: `List["PresetTypeDef"]`
+- `NextPageToken`: `str`
+
+
 ## NotificationsTypeDef
 
 ```python
@@ -356,6 +494,21 @@ Optional fields:
 - `Completed`: `str`
 - `Warning`: `str`
 - `Error`: `str`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## PermissionTypeDef
@@ -491,6 +644,46 @@ Optional fields:
 - `Target`: `str`
 
 
+## ReadJobResponseTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import ReadJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Job`: `"JobTypeDef"`
+
+
+## ReadPipelineResponseTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import ReadPipelineResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Pipeline`: `"PipelineTypeDef"`
+- `Warnings`: `List["WarningTypeDef"]`
+
+
+## ReadPresetResponseTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import ReadPresetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Preset`: `"PresetTypeDef"`
+
+
 ## ResponseMetadata
 
 ```python
@@ -506,6 +699,20 @@ Required fields:
 - `RetryAttempts`: `int`
 
 
+
+
+## TestRoleResponseTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import TestRoleResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Success`: `str`
+- `Messages`: `List[str]`
 
 
 ## ThumbnailsTypeDef
@@ -557,254 +764,6 @@ Optional fields:
 - `FinishTimeMillis`: `int`
 
 
-## VideoParametersTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import VideoParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `Codec`: `str`
-- `CodecOptions`: `Dict[str, str]`
-- `KeyframesMaxDist`: `str`
-- `FixedGOP`: `str`
-- `BitRate`: `str`
-- `FrameRate`: `str`
-- `MaxFrameRate`: `str`
-- `Resolution`: `str`
-- `AspectRatio`: `str`
-- `MaxWidth`: `str`
-- `MaxHeight`: `str`
-- `DisplayAspectRatio`: `str`
-- `SizingPolicy`: `str`
-- `PaddingPolicy`: `str`
-- `Watermarks`: `List["PresetWatermarkTypeDef"]`
-
-
-## WarningTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import WarningTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Message`: `str`
-
-
-## CreateJobOutputTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import CreateJobOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `ThumbnailPattern`: `str`
-- `ThumbnailEncryption`: `"EncryptionTypeDef"`
-- `Rotate`: `str`
-- `PresetId`: `str`
-- `SegmentDuration`: `str`
-- `Watermarks`: `List["JobWatermarkTypeDef"]`
-- `AlbumArt`: `"JobAlbumArtTypeDef"`
-- `Composition`: `List["ClipTypeDef"]`
-- `Captions`: `"CaptionsTypeDef"`
-- `Encryption`: `"EncryptionTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateJobPlaylistTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import CreateJobPlaylistTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Format`: `str`
-- `OutputKeys`: `List[str]`
-- `HlsContentProtection`: `"HlsContentProtectionTypeDef"`
-- `PlayReadyDrm`: `"PlayReadyDrmTypeDef"`
-
-
-## CreateJobResponseTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import CreateJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Job`: `"JobTypeDef"`
-
-
-## CreatePipelineResponseTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import CreatePipelineResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Pipeline`: `"PipelineTypeDef"`
-- `Warnings`: `List["WarningTypeDef"]`
-
-
-## CreatePresetResponseTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import CreatePresetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Preset`: `"PresetTypeDef"`
-- `Warning`: `str`
-
-
-## ListJobsByPipelineResponseTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import ListJobsByPipelineResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Jobs`: `List["JobTypeDef"]`
-- `NextPageToken`: `str`
-
-
-## ListJobsByStatusResponseTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import ListJobsByStatusResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Jobs`: `List["JobTypeDef"]`
-- `NextPageToken`: `str`
-
-
-## ListPipelinesResponseTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import ListPipelinesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Pipelines`: `List["PipelineTypeDef"]`
-- `NextPageToken`: `str`
-
-
-## ListPresetsResponseTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import ListPresetsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Presets`: `List["PresetTypeDef"]`
-- `NextPageToken`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## ReadJobResponseTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import ReadJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Job`: `"JobTypeDef"`
-
-
-## ReadPipelineResponseTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import ReadPipelineResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Pipeline`: `"PipelineTypeDef"`
-- `Warnings`: `List["WarningTypeDef"]`
-
-
-## ReadPresetResponseTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import ReadPresetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Preset`: `"PresetTypeDef"`
-
-
-## TestRoleResponseTypeDef
-
-```python
-from mypy_boto3_elastictranscoder.type_defs import TestRoleResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Success`: `str`
-- `Messages`: `List[str]`
-
-
 ## UpdatePipelineNotificationsResponseTypeDef
 
 ```python
@@ -845,6 +804,33 @@ Optional fields:
 - `Pipeline`: `"PipelineTypeDef"`
 
 
+## VideoParametersTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import VideoParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `Codec`: `str`
+- `CodecOptions`: `Dict[str, str]`
+- `KeyframesMaxDist`: `str`
+- `FixedGOP`: `str`
+- `BitRate`: `str`
+- `FrameRate`: `str`
+- `MaxFrameRate`: `str`
+- `Resolution`: `str`
+- `AspectRatio`: `str`
+- `MaxWidth`: `str`
+- `MaxHeight`: `str`
+- `DisplayAspectRatio`: `str`
+- `SizingPolicy`: `str`
+- `PaddingPolicy`: `str`
+- `Watermarks`: `List["PresetWatermarkTypeDef"]`
+
+
 ## WaiterConfigTypeDef
 
 ```python
@@ -857,4 +843,18 @@ from mypy_boto3_elastictranscoder.type_defs import WaiterConfigTypeDef
 Optional fields:
 - `Delay`: `int`
 - `MaxAttempts`: `int`
+
+
+## WarningTypeDef
+
+```python
+from mypy_boto3_elastictranscoder.type_defs import WarningTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Message`: `str`
 

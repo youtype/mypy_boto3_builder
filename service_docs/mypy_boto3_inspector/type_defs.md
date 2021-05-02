@@ -6,38 +6,20 @@ Auto-generated documentation for [Inspector](https://boto3.amazonaws.com/v1/docu
 type annotations stubs module [mypy_boto3_inspector](https://pypi.org/project/mypy-boto3-inspector/).
 
 - [Structures for boto3 Inspector module](#structures-for-boto3-inspector-module)
+  - [AddAttributesToFindingsResponseTypeDef](#addattributestofindingsresponsetypedef)
+  - [AgentFilterTypeDef](#agentfiltertypedef)
   - [AgentPreviewTypeDef](#agentpreviewtypedef)
   - [AssessmentRunAgentTypeDef](#assessmentrunagenttypedef)
+  - [AssessmentRunFilterTypeDef](#assessmentrunfiltertypedef)
   - [AssessmentRunNotificationTypeDef](#assessmentrunnotificationtypedef)
   - [AssessmentRunStateChangeTypeDef](#assessmentrunstatechangetypedef)
   - [AssessmentRunTypeDef](#assessmentruntypedef)
+  - [AssessmentTargetFilterTypeDef](#assessmenttargetfiltertypedef)
   - [AssessmentTargetTypeDef](#assessmenttargettypedef)
+  - [AssessmentTemplateFilterTypeDef](#assessmenttemplatefiltertypedef)
   - [AssessmentTemplateTypeDef](#assessmenttemplatetypedef)
   - [AssetAttributesTypeDef](#assetattributestypedef)
   - [AttributeTypeDef](#attributetypedef)
-  - [DurationRangeTypeDef](#durationrangetypedef)
-  - [EventSubscriptionTypeDef](#eventsubscriptiontypedef)
-  - [ExclusionPreviewTypeDef](#exclusionpreviewtypedef)
-  - [ExclusionTypeDef](#exclusiontypedef)
-  - [FailedItemDetailsTypeDef](#faileditemdetailstypedef)
-  - [FindingTypeDef](#findingtypedef)
-  - [InspectorServiceAttributesTypeDef](#inspectorserviceattributestypedef)
-  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
-  - [PrivateIpTypeDef](#privateiptypedef)
-  - [ResourceGroupTagTypeDef](#resourcegrouptagtypedef)
-  - [ResourceGroupTypeDef](#resourcegrouptypedef)
-  - [RulesPackageTypeDef](#rulespackagetypedef)
-  - [ScopeTypeDef](#scopetypedef)
-  - [SecurityGroupTypeDef](#securitygrouptypedef)
-  - [SubscriptionTypeDef](#subscriptiontypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TelemetryMetadataTypeDef](#telemetrymetadatatypedef)
-  - [TimestampRangeTypeDef](#timestamprangetypedef)
-  - [AddAttributesToFindingsResponseTypeDef](#addattributestofindingsresponsetypedef)
-  - [AgentFilterTypeDef](#agentfiltertypedef)
-  - [AssessmentRunFilterTypeDef](#assessmentrunfiltertypedef)
-  - [AssessmentTargetFilterTypeDef](#assessmenttargetfiltertypedef)
-  - [AssessmentTemplateFilterTypeDef](#assessmenttemplatefiltertypedef)
   - [CreateAssessmentTargetResponseTypeDef](#createassessmenttargetresponsetypedef)
   - [CreateAssessmentTemplateResponseTypeDef](#createassessmenttemplateresponsetypedef)
   - [CreateExclusionsPreviewResponseTypeDef](#createexclusionspreviewresponsetypedef)
@@ -50,10 +32,17 @@ type annotations stubs module [mypy_boto3_inspector](https://pypi.org/project/my
   - [DescribeFindingsResponseTypeDef](#describefindingsresponsetypedef)
   - [DescribeResourceGroupsResponseTypeDef](#describeresourcegroupsresponsetypedef)
   - [DescribeRulesPackagesResponseTypeDef](#describerulespackagesresponsetypedef)
+  - [DurationRangeTypeDef](#durationrangetypedef)
+  - [EventSubscriptionTypeDef](#eventsubscriptiontypedef)
+  - [ExclusionPreviewTypeDef](#exclusionpreviewtypedef)
+  - [ExclusionTypeDef](#exclusiontypedef)
+  - [FailedItemDetailsTypeDef](#faileditemdetailstypedef)
   - [FindingFilterTypeDef](#findingfiltertypedef)
+  - [FindingTypeDef](#findingtypedef)
   - [GetAssessmentReportResponseTypeDef](#getassessmentreportresponsetypedef)
   - [GetExclusionsPreviewResponseTypeDef](#getexclusionspreviewresponsetypedef)
   - [GetTelemetryMetadataResponseTypeDef](#gettelemetrymetadataresponsetypedef)
+  - [InspectorServiceAttributesTypeDef](#inspectorserviceattributestypedef)
   - [ListAssessmentRunAgentsResponseTypeDef](#listassessmentrunagentsresponsetypedef)
   - [ListAssessmentRunsResponseTypeDef](#listassessmentrunsresponsetypedef)
   - [ListAssessmentTargetsResponseTypeDef](#listassessmenttargetsresponsetypedef)
@@ -63,10 +52,48 @@ type annotations stubs module [mypy_boto3_inspector](https://pypi.org/project/my
   - [ListFindingsResponseTypeDef](#listfindingsresponsetypedef)
   - [ListRulesPackagesResponseTypeDef](#listrulespackagesresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PreviewAgentsResponseTypeDef](#previewagentsresponsetypedef)
+  - [PrivateIpTypeDef](#privateiptypedef)
   - [RemoveAttributesFromFindingsResponseTypeDef](#removeattributesfromfindingsresponsetypedef)
+  - [ResourceGroupTagTypeDef](#resourcegrouptagtypedef)
+  - [ResourceGroupTypeDef](#resourcegrouptypedef)
+  - [RulesPackageTypeDef](#rulespackagetypedef)
+  - [ScopeTypeDef](#scopetypedef)
+  - [SecurityGroupTypeDef](#securitygrouptypedef)
   - [StartAssessmentRunResponseTypeDef](#startassessmentrunresponsetypedef)
+  - [SubscriptionTypeDef](#subscriptiontypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TelemetryMetadataTypeDef](#telemetrymetadatatypedef)
+  - [TimestampRangeTypeDef](#timestamprangetypedef)
+
+## AddAttributesToFindingsResponseTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import AddAttributesToFindingsResponseTypeDef
+```
+
+
+Required fields:
+- `failedItems`: `Dict[str, "FailedItemDetailsTypeDef"]`
+
+
+
+
+## AgentFilterTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import AgentFilterTypeDef
+```
+
+
+Required fields:
+- `agentHealths`: `List[AgentHealth]`
+- `agentHealthCodes`: `List[AgentHealthCode]`
+
+
+
 
 ## AgentPreviewTypeDef
 
@@ -109,6 +136,25 @@ Required fields:
 Optional fields:
 - `agentHealthDetails`: `str`
 - `autoScalingGroup`: `str`
+
+
+## AssessmentRunFilterTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import AssessmentRunFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `namePattern`: `str`
+- `states`: `List[AssessmentRunState]`
+- `durationRange`: `"DurationRangeTypeDef"`
+- `rulesPackageArns`: `List[str]`
+- `startTimeRange`: `"TimestampRangeTypeDef"`
+- `completionTimeRange`: `"TimestampRangeTypeDef"`
+- `stateChangeTimeRange`: `"TimestampRangeTypeDef"`
 
 
 ## AssessmentRunNotificationTypeDef
@@ -174,6 +220,19 @@ Optional fields:
 - `completedAt`: `datetime`
 
 
+## AssessmentTargetFilterTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import AssessmentTargetFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `assessmentTargetNamePattern`: `str`
+
+
 ## AssessmentTargetTypeDef
 
 ```python
@@ -191,6 +250,21 @@ Required fields:
 
 Optional fields:
 - `resourceGroupArn`: `str`
+
+
+## AssessmentTemplateFilterTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import AssessmentTemplateFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `namePattern`: `str`
+- `durationRange`: `"DurationRangeTypeDef"`
+- `rulesPackageArns`: `List[str]`
 
 
 ## AssessmentTemplateTypeDef
@@ -252,386 +326,6 @@ Required fields:
 
 Optional fields:
 - `value`: `str`
-
-
-## DurationRangeTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import DurationRangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `minSeconds`: `int`
-- `maxSeconds`: `int`
-
-
-## EventSubscriptionTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import EventSubscriptionTypeDef
-```
-
-
-Required fields:
-- `event`: `InspectorEvent`
-- `subscribedAt`: `datetime`
-
-
-
-
-## ExclusionPreviewTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import ExclusionPreviewTypeDef
-```
-
-
-Required fields:
-- `title`: `str`
-- `description`: `str`
-- `recommendation`: `str`
-- `scopes`: `List["ScopeTypeDef"]`
-
-
-
-Optional fields:
-- `attributes`: `List["AttributeTypeDef"]`
-
-
-## ExclusionTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import ExclusionTypeDef
-```
-
-
-Required fields:
-- `arn`: `str`
-- `title`: `str`
-- `description`: `str`
-- `recommendation`: `str`
-- `scopes`: `List["ScopeTypeDef"]`
-
-
-
-Optional fields:
-- `attributes`: `List["AttributeTypeDef"]`
-
-
-## FailedItemDetailsTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import FailedItemDetailsTypeDef
-```
-
-
-Required fields:
-- `failureCode`: `FailedItemErrorCode`
-- `retryable`: `bool`
-
-
-
-
-## FindingTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import FindingTypeDef
-```
-
-
-Required fields:
-- `arn`: `str`
-- `attributes`: `List["AttributeTypeDef"]`
-- `userAttributes`: `List["AttributeTypeDef"]`
-- `createdAt`: `datetime`
-- `updatedAt`: `datetime`
-
-
-
-Optional fields:
-- `schemaVersion`: `int`
-- `service`: `str`
-- `serviceAttributes`: `"InspectorServiceAttributesTypeDef"`
-- `assetType`: `AssetType`
-- `assetAttributes`: `"AssetAttributesTypeDef"`
-- `id`: `str`
-- `title`: `str`
-- `description`: `str`
-- `recommendation`: `str`
-- `severity`: `Severity`
-- `numericSeverity`: `float`
-- `confidence`: `int`
-- `indicatorOfCompromise`: `bool`
-
-
-## InspectorServiceAttributesTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import InspectorServiceAttributesTypeDef
-```
-
-
-Required fields:
-- `schemaVersion`: `int`
-
-
-
-Optional fields:
-- `assessmentRunArn`: `str`
-- `rulesPackageArn`: `str`
-
-
-## NetworkInterfaceTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import NetworkInterfaceTypeDef
-```
-
-
-
-
-Optional fields:
-- `networkInterfaceId`: `str`
-- `subnetId`: `str`
-- `vpcId`: `str`
-- `privateDnsName`: `str`
-- `privateIpAddress`: `str`
-- `privateIpAddresses`: `List["PrivateIpTypeDef"]`
-- `publicDnsName`: `str`
-- `publicIp`: `str`
-- `ipv6Addresses`: `List[str]`
-- `securityGroups`: `List["SecurityGroupTypeDef"]`
-
-
-## PrivateIpTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import PrivateIpTypeDef
-```
-
-
-
-
-Optional fields:
-- `privateDnsName`: `str`
-- `privateIpAddress`: `str`
-
-
-## ResourceGroupTagTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import ResourceGroupTagTypeDef
-```
-
-
-Required fields:
-- `key`: `str`
-
-
-
-Optional fields:
-- `value`: `str`
-
-
-## ResourceGroupTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import ResourceGroupTypeDef
-```
-
-
-Required fields:
-- `arn`: `str`
-- `tags`: `List["ResourceGroupTagTypeDef"]`
-- `createdAt`: `datetime`
-
-
-
-
-## RulesPackageTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import RulesPackageTypeDef
-```
-
-
-Required fields:
-- `arn`: `str`
-- `name`: `str`
-- `version`: `str`
-- `provider`: `str`
-
-
-
-Optional fields:
-- `description`: `str`
-
-
-## ScopeTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import ScopeTypeDef
-```
-
-
-
-
-Optional fields:
-- `key`: `ScopeType`
-- `value`: `str`
-
-
-## SecurityGroupTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import SecurityGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `groupName`: `str`
-- `groupId`: `str`
-
-
-## SubscriptionTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import SubscriptionTypeDef
-```
-
-
-Required fields:
-- `resourceArn`: `str`
-- `topicArn`: `str`
-- `eventSubscriptions`: `List["EventSubscriptionTypeDef"]`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `key`: `str`
-
-
-
-Optional fields:
-- `value`: `str`
-
-
-## TelemetryMetadataTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import TelemetryMetadataTypeDef
-```
-
-
-Required fields:
-- `messageType`: `str`
-- `count`: `int`
-
-
-
-Optional fields:
-- `dataSize`: `int`
-
-
-## TimestampRangeTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import TimestampRangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `beginDate`: `datetime`
-- `endDate`: `datetime`
-
-
-## AddAttributesToFindingsResponseTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import AddAttributesToFindingsResponseTypeDef
-```
-
-
-Required fields:
-- `failedItems`: `Dict[str, "FailedItemDetailsTypeDef"]`
-
-
-
-
-## AgentFilterTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import AgentFilterTypeDef
-```
-
-
-Required fields:
-- `agentHealths`: `List[AgentHealth]`
-- `agentHealthCodes`: `List[AgentHealthCode]`
-
-
-
-
-## AssessmentRunFilterTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import AssessmentRunFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `namePattern`: `str`
-- `states`: `List[AssessmentRunState]`
-- `durationRange`: `"DurationRangeTypeDef"`
-- `rulesPackageArns`: `List[str]`
-- `startTimeRange`: `"TimestampRangeTypeDef"`
-- `completionTimeRange`: `"TimestampRangeTypeDef"`
-- `stateChangeTimeRange`: `"TimestampRangeTypeDef"`
-
-
-## AssessmentTargetFilterTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import AssessmentTargetFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `assessmentTargetNamePattern`: `str`
-
-
-## AssessmentTemplateFilterTypeDef
-
-```python
-from mypy_boto3_inspector.type_defs import AssessmentTemplateFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `namePattern`: `str`
-- `durationRange`: `"DurationRangeTypeDef"`
-- `rulesPackageArns`: `List[str]`
 
 
 ## CreateAssessmentTargetResponseTypeDef
@@ -799,6 +493,87 @@ Required fields:
 
 
 
+## DurationRangeTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import DurationRangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `minSeconds`: `int`
+- `maxSeconds`: `int`
+
+
+## EventSubscriptionTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import EventSubscriptionTypeDef
+```
+
+
+Required fields:
+- `event`: `InspectorEvent`
+- `subscribedAt`: `datetime`
+
+
+
+
+## ExclusionPreviewTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import ExclusionPreviewTypeDef
+```
+
+
+Required fields:
+- `title`: `str`
+- `description`: `str`
+- `recommendation`: `str`
+- `scopes`: `List["ScopeTypeDef"]`
+
+
+
+Optional fields:
+- `attributes`: `List["AttributeTypeDef"]`
+
+
+## ExclusionTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import ExclusionTypeDef
+```
+
+
+Required fields:
+- `arn`: `str`
+- `title`: `str`
+- `description`: `str`
+- `recommendation`: `str`
+- `scopes`: `List["ScopeTypeDef"]`
+
+
+
+Optional fields:
+- `attributes`: `List["AttributeTypeDef"]`
+
+
+## FailedItemDetailsTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import FailedItemDetailsTypeDef
+```
+
+
+Required fields:
+- `failureCode`: `FailedItemErrorCode`
+- `retryable`: `bool`
+
+
+
+
 ## FindingFilterTypeDef
 
 ```python
@@ -817,6 +592,38 @@ Optional fields:
 - `attributes`: `List["AttributeTypeDef"]`
 - `userAttributes`: `List["AttributeTypeDef"]`
 - `creationTimeRange`: `"TimestampRangeTypeDef"`
+
+
+## FindingTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import FindingTypeDef
+```
+
+
+Required fields:
+- `arn`: `str`
+- `attributes`: `List["AttributeTypeDef"]`
+- `userAttributes`: `List["AttributeTypeDef"]`
+- `createdAt`: `datetime`
+- `updatedAt`: `datetime`
+
+
+
+Optional fields:
+- `schemaVersion`: `int`
+- `service`: `str`
+- `serviceAttributes`: `"InspectorServiceAttributesTypeDef"`
+- `assetType`: `Literal['ec2-instance']`
+- `assetAttributes`: `"AssetAttributesTypeDef"`
+- `id`: `str`
+- `title`: `str`
+- `description`: `str`
+- `recommendation`: `str`
+- `severity`: `Severity`
+- `numericSeverity`: `float`
+- `confidence`: `int`
+- `indicatorOfCompromise`: `bool`
 
 
 ## GetAssessmentReportResponseTypeDef
@@ -863,6 +670,23 @@ Required fields:
 - `telemetryMetadata`: `List["TelemetryMetadataTypeDef"]`
 
 
+
+
+## InspectorServiceAttributesTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import InspectorServiceAttributesTypeDef
+```
+
+
+Required fields:
+- `schemaVersion`: `int`
+
+
+
+Optional fields:
+- `assessmentRunArn`: `str`
+- `rulesPackageArn`: `str`
 
 
 ## ListAssessmentRunAgentsResponseTypeDef
@@ -1006,6 +830,28 @@ Required fields:
 
 
 
+## NetworkInterfaceTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import NetworkInterfaceTypeDef
+```
+
+
+
+
+Optional fields:
+- `networkInterfaceId`: `str`
+- `subnetId`: `str`
+- `vpcId`: `str`
+- `privateDnsName`: `str`
+- `privateIpAddress`: `str`
+- `privateIpAddresses`: `List["PrivateIpTypeDef"]`
+- `publicDnsName`: `str`
+- `publicIp`: `str`
+- `ipv6Addresses`: `List[str]`
+- `securityGroups`: `List["SecurityGroupTypeDef"]`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -1037,6 +883,20 @@ Optional fields:
 - `nextToken`: `str`
 
 
+## PrivateIpTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import PrivateIpTypeDef
+```
+
+
+
+
+Optional fields:
+- `privateDnsName`: `str`
+- `privateIpAddress`: `str`
+
+
 ## RemoveAttributesFromFindingsResponseTypeDef
 
 ```python
@@ -1050,6 +910,84 @@ Required fields:
 
 
 
+## ResourceGroupTagTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import ResourceGroupTagTypeDef
+```
+
+
+Required fields:
+- `key`: `str`
+
+
+
+Optional fields:
+- `value`: `str`
+
+
+## ResourceGroupTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import ResourceGroupTypeDef
+```
+
+
+Required fields:
+- `arn`: `str`
+- `tags`: `List["ResourceGroupTagTypeDef"]`
+- `createdAt`: `datetime`
+
+
+
+
+## RulesPackageTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import RulesPackageTypeDef
+```
+
+
+Required fields:
+- `arn`: `str`
+- `name`: `str`
+- `version`: `str`
+- `provider`: `str`
+
+
+
+Optional fields:
+- `description`: `str`
+
+
+## ScopeTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import ScopeTypeDef
+```
+
+
+
+
+Optional fields:
+- `key`: `ScopeType`
+- `value`: `str`
+
+
+## SecurityGroupTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import SecurityGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `groupName`: `str`
+- `groupId`: `str`
+
+
 ## StartAssessmentRunResponseTypeDef
 
 ```python
@@ -1061,4 +999,66 @@ Required fields:
 - `assessmentRunArn`: `str`
 
 
+
+
+## SubscriptionTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import SubscriptionTypeDef
+```
+
+
+Required fields:
+- `resourceArn`: `str`
+- `topicArn`: `str`
+- `eventSubscriptions`: `List["EventSubscriptionTypeDef"]`
+
+
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `key`: `str`
+
+
+
+Optional fields:
+- `value`: `str`
+
+
+## TelemetryMetadataTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import TelemetryMetadataTypeDef
+```
+
+
+Required fields:
+- `messageType`: `str`
+- `count`: `int`
+
+
+
+Optional fields:
+- `dataSize`: `int`
+
+
+## TimestampRangeTypeDef
+
+```python
+from mypy_boto3_inspector.type_defs import TimestampRangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `beginDate`: `datetime`
+- `endDate`: `datetime`
 

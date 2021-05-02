@@ -7,42 +7,12 @@ type annotations stubs module [mypy_boto3_elbv2](https://pypi.org/project/mypy-b
 
 - [Structures for boto3 ElasticLoadBalancingv2 module](#structures-for-boto3-elasticloadbalancingv2-module)
   - [ActionTypeDef](#actiontypedef)
+  - [AddListenerCertificatesOutputTypeDef](#addlistenercertificatesoutputtypedef)
   - [AuthenticateCognitoActionConfigTypeDef](#authenticatecognitoactionconfigtypedef)
   - [AuthenticateOidcActionConfigTypeDef](#authenticateoidcactionconfigtypedef)
   - [AvailabilityZoneTypeDef](#availabilityzonetypedef)
   - [CertificateTypeDef](#certificatetypedef)
   - [CipherTypeDef](#ciphertypedef)
-  - [FixedResponseActionConfigTypeDef](#fixedresponseactionconfigtypedef)
-  - [ForwardActionConfigTypeDef](#forwardactionconfigtypedef)
-  - [HostHeaderConditionConfigTypeDef](#hostheaderconditionconfigtypedef)
-  - [HttpHeaderConditionConfigTypeDef](#httpheaderconditionconfigtypedef)
-  - [HttpRequestMethodConditionConfigTypeDef](#httprequestmethodconditionconfigtypedef)
-  - [LimitTypeDef](#limittypedef)
-  - [ListenerTypeDef](#listenertypedef)
-  - [LoadBalancerAddressTypeDef](#loadbalanceraddresstypedef)
-  - [LoadBalancerAttributeTypeDef](#loadbalancerattributetypedef)
-  - [LoadBalancerStateTypeDef](#loadbalancerstatetypedef)
-  - [LoadBalancerTypeDef](#loadbalancertypedef)
-  - [MatcherTypeDef](#matchertypedef)
-  - [PathPatternConditionConfigTypeDef](#pathpatternconditionconfigtypedef)
-  - [QueryStringConditionConfigTypeDef](#querystringconditionconfigtypedef)
-  - [QueryStringKeyValuePairTypeDef](#querystringkeyvaluepairtypedef)
-  - [RedirectActionConfigTypeDef](#redirectactionconfigtypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [RuleConditionTypeDef](#ruleconditiontypedef)
-  - [RuleTypeDef](#ruletypedef)
-  - [SourceIpConditionConfigTypeDef](#sourceipconditionconfigtypedef)
-  - [SslPolicyTypeDef](#sslpolicytypedef)
-  - [TagDescriptionTypeDef](#tagdescriptiontypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TargetDescriptionTypeDef](#targetdescriptiontypedef)
-  - [TargetGroupAttributeTypeDef](#targetgroupattributetypedef)
-  - [TargetGroupStickinessConfigTypeDef](#targetgroupstickinessconfigtypedef)
-  - [TargetGroupTupleTypeDef](#targetgrouptupletypedef)
-  - [TargetGroupTypeDef](#targetgrouptypedef)
-  - [TargetHealthDescriptionTypeDef](#targethealthdescriptiontypedef)
-  - [TargetHealthTypeDef](#targethealthtypedef)
-  - [AddListenerCertificatesOutputTypeDef](#addlistenercertificatesoutputtypedef)
   - [CreateListenerOutputTypeDef](#createlisteneroutputtypedef)
   - [CreateLoadBalancerOutputTypeDef](#createloadbalanceroutputtypedef)
   - [CreateRuleOutputTypeDef](#createruleoutputtypedef)
@@ -58,18 +28,48 @@ type annotations stubs module [mypy_boto3_elbv2](https://pypi.org/project/mypy-b
   - [DescribeTargetGroupAttributesOutputTypeDef](#describetargetgroupattributesoutputtypedef)
   - [DescribeTargetGroupsOutputTypeDef](#describetargetgroupsoutputtypedef)
   - [DescribeTargetHealthOutputTypeDef](#describetargethealthoutputtypedef)
+  - [FixedResponseActionConfigTypeDef](#fixedresponseactionconfigtypedef)
+  - [ForwardActionConfigTypeDef](#forwardactionconfigtypedef)
+  - [HostHeaderConditionConfigTypeDef](#hostheaderconditionconfigtypedef)
+  - [HttpHeaderConditionConfigTypeDef](#httpheaderconditionconfigtypedef)
+  - [HttpRequestMethodConditionConfigTypeDef](#httprequestmethodconditionconfigtypedef)
+  - [LimitTypeDef](#limittypedef)
+  - [ListenerTypeDef](#listenertypedef)
+  - [LoadBalancerAddressTypeDef](#loadbalanceraddresstypedef)
+  - [LoadBalancerAttributeTypeDef](#loadbalancerattributetypedef)
+  - [LoadBalancerStateTypeDef](#loadbalancerstatetypedef)
+  - [LoadBalancerTypeDef](#loadbalancertypedef)
+  - [MatcherTypeDef](#matchertypedef)
   - [ModifyListenerOutputTypeDef](#modifylisteneroutputtypedef)
   - [ModifyLoadBalancerAttributesOutputTypeDef](#modifyloadbalancerattributesoutputtypedef)
   - [ModifyRuleOutputTypeDef](#modifyruleoutputtypedef)
   - [ModifyTargetGroupAttributesOutputTypeDef](#modifytargetgroupattributesoutputtypedef)
   - [ModifyTargetGroupOutputTypeDef](#modifytargetgroupoutputtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PathPatternConditionConfigTypeDef](#pathpatternconditionconfigtypedef)
+  - [QueryStringConditionConfigTypeDef](#querystringconditionconfigtypedef)
+  - [QueryStringKeyValuePairTypeDef](#querystringkeyvaluepairtypedef)
+  - [RedirectActionConfigTypeDef](#redirectactionconfigtypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [RuleConditionTypeDef](#ruleconditiontypedef)
   - [RulePriorityPairTypeDef](#ruleprioritypairtypedef)
+  - [RuleTypeDef](#ruletypedef)
   - [SetIpAddressTypeOutputTypeDef](#setipaddresstypeoutputtypedef)
   - [SetRulePrioritiesOutputTypeDef](#setruleprioritiesoutputtypedef)
   - [SetSecurityGroupsOutputTypeDef](#setsecuritygroupsoutputtypedef)
   - [SetSubnetsOutputTypeDef](#setsubnetsoutputtypedef)
+  - [SourceIpConditionConfigTypeDef](#sourceipconditionconfigtypedef)
+  - [SslPolicyTypeDef](#sslpolicytypedef)
   - [SubnetMappingTypeDef](#subnetmappingtypedef)
+  - [TagDescriptionTypeDef](#tagdescriptiontypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TargetDescriptionTypeDef](#targetdescriptiontypedef)
+  - [TargetGroupAttributeTypeDef](#targetgroupattributetypedef)
+  - [TargetGroupStickinessConfigTypeDef](#targetgroupstickinessconfigtypedef)
+  - [TargetGroupTupleTypeDef](#targetgrouptupletypedef)
+  - [TargetGroupTypeDef](#targetgrouptypedef)
+  - [TargetHealthDescriptionTypeDef](#targethealthdescriptiontypedef)
+  - [TargetHealthTypeDef](#targethealthtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
 ## ActionTypeDef
@@ -92,6 +92,20 @@ Optional fields:
 - `RedirectConfig`: `"RedirectActionConfigTypeDef"`
 - `FixedResponseConfig`: `"FixedResponseActionConfigTypeDef"`
 - `ForwardConfig`: `"ForwardActionConfigTypeDef"`
+
+
+## AddListenerCertificatesOutputTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import AddListenerCertificatesOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Certificates`: `List["CertificateTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## AuthenticateCognitoActionConfigTypeDef
@@ -184,498 +198,6 @@ from mypy_boto3_elbv2.type_defs import CipherTypeDef
 Optional fields:
 - `Name`: `str`
 - `Priority`: `int`
-
-
-## FixedResponseActionConfigTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import FixedResponseActionConfigTypeDef
-```
-
-
-Required fields:
-- `StatusCode`: `str`
-
-
-
-Optional fields:
-- `MessageBody`: `str`
-- `ContentType`: `str`
-
-
-## ForwardActionConfigTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import ForwardActionConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `TargetGroups`: `List["TargetGroupTupleTypeDef"]`
-- `TargetGroupStickinessConfig`: `"TargetGroupStickinessConfigTypeDef"`
-
-
-## HostHeaderConditionConfigTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import HostHeaderConditionConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Values`: `List[str]`
-
-
-## HttpHeaderConditionConfigTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import HttpHeaderConditionConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `HttpHeaderName`: `str`
-- `Values`: `List[str]`
-
-
-## HttpRequestMethodConditionConfigTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import HttpRequestMethodConditionConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Values`: `List[str]`
-
-
-## LimitTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import LimitTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Max`: `str`
-
-
-## ListenerTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import ListenerTypeDef
-```
-
-
-
-
-Optional fields:
-- `ListenerArn`: `str`
-- `LoadBalancerArn`: `str`
-- `Port`: `int`
-- `Protocol`: `ProtocolEnum`
-- `Certificates`: `List["CertificateTypeDef"]`
-- `SslPolicy`: `str`
-- `DefaultActions`: `List["ActionTypeDef"]`
-- `AlpnPolicy`: `List[str]`
-
-
-## LoadBalancerAddressTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import LoadBalancerAddressTypeDef
-```
-
-
-
-
-Optional fields:
-- `IpAddress`: `str`
-- `AllocationId`: `str`
-- `PrivateIPv4Address`: `str`
-- `IPv6Address`: `str`
-
-
-## LoadBalancerAttributeTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import LoadBalancerAttributeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## LoadBalancerStateTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import LoadBalancerStateTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `LoadBalancerStateEnum`
-- `Reason`: `str`
-
-
-## LoadBalancerTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import LoadBalancerTypeDef
-```
-
-
-
-
-Optional fields:
-- `LoadBalancerArn`: `str`
-- `DNSName`: `str`
-- `CanonicalHostedZoneId`: `str`
-- `CreatedTime`: `datetime`
-- `LoadBalancerName`: `str`
-- `Scheme`: `LoadBalancerSchemeEnum`
-- `VpcId`: `str`
-- `State`: `"LoadBalancerStateTypeDef"`
-- `Type`: `LoadBalancerTypeEnum`
-- `AvailabilityZones`: `List["AvailabilityZoneTypeDef"]`
-- `SecurityGroups`: `List[str]`
-- `IpAddressType`: `IpAddressType`
-- `CustomerOwnedIpv4Pool`: `str`
-
-
-## MatcherTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import MatcherTypeDef
-```
-
-
-
-
-Optional fields:
-- `HttpCode`: `str`
-- `GrpcCode`: `str`
-
-
-## PathPatternConditionConfigTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import PathPatternConditionConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Values`: `List[str]`
-
-
-## QueryStringConditionConfigTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import QueryStringConditionConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Values`: `List["QueryStringKeyValuePairTypeDef"]`
-
-
-## QueryStringKeyValuePairTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import QueryStringKeyValuePairTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## RedirectActionConfigTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import RedirectActionConfigTypeDef
-```
-
-
-Required fields:
-- `StatusCode`: `RedirectActionStatusCodeEnum`
-
-
-
-Optional fields:
-- `Protocol`: `str`
-- `Port`: `str`
-- `Host`: `str`
-- `Path`: `str`
-- `Query`: `str`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_elbv2.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## RuleConditionTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import RuleConditionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Field`: `str`
-- `Values`: `List[str]`
-- `HostHeaderConfig`: `"HostHeaderConditionConfigTypeDef"`
-- `PathPatternConfig`: `"PathPatternConditionConfigTypeDef"`
-- `HttpHeaderConfig`: `"HttpHeaderConditionConfigTypeDef"`
-- `QueryStringConfig`: `"QueryStringConditionConfigTypeDef"`
-- `HttpRequestMethodConfig`: `"HttpRequestMethodConditionConfigTypeDef"`
-- `SourceIpConfig`: `"SourceIpConditionConfigTypeDef"`
-
-
-## RuleTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import RuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `RuleArn`: `str`
-- `Priority`: `str`
-- `Conditions`: `List["RuleConditionTypeDef"]`
-- `Actions`: `List["ActionTypeDef"]`
-- `IsDefault`: `bool`
-
-
-## SourceIpConditionConfigTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import SourceIpConditionConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Values`: `List[str]`
-
-
-## SslPolicyTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import SslPolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `SslProtocols`: `List[str]`
-- `Ciphers`: `List["CipherTypeDef"]`
-- `Name`: `str`
-
-
-## TagDescriptionTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import TagDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceArn`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## TargetDescriptionTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import TargetDescriptionTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-
-
-
-Optional fields:
-- `Port`: `int`
-- `AvailabilityZone`: `str`
-
-
-## TargetGroupAttributeTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import TargetGroupAttributeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## TargetGroupStickinessConfigTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import TargetGroupStickinessConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-- `DurationSeconds`: `int`
-
-
-## TargetGroupTupleTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import TargetGroupTupleTypeDef
-```
-
-
-
-
-Optional fields:
-- `TargetGroupArn`: `str`
-- `Weight`: `int`
-
-
-## TargetGroupTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import TargetGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `TargetGroupArn`: `str`
-- `TargetGroupName`: `str`
-- `Protocol`: `ProtocolEnum`
-- `Port`: `int`
-- `VpcId`: `str`
-- `HealthCheckProtocol`: `ProtocolEnum`
-- `HealthCheckPort`: `str`
-- `HealthCheckEnabled`: `bool`
-- `HealthCheckIntervalSeconds`: `int`
-- `HealthCheckTimeoutSeconds`: `int`
-- `HealthyThresholdCount`: `int`
-- `UnhealthyThresholdCount`: `int`
-- `HealthCheckPath`: `str`
-- `Matcher`: `"MatcherTypeDef"`
-- `LoadBalancerArns`: `List[str]`
-- `TargetType`: `TargetTypeEnum`
-- `ProtocolVersion`: `str`
-
-
-## TargetHealthDescriptionTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import TargetHealthDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Target`: `"TargetDescriptionTypeDef"`
-- `HealthCheckPort`: `str`
-- `TargetHealth`: `"TargetHealthTypeDef"`
-
-
-## TargetHealthTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import TargetHealthTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `TargetHealthStateEnum`
-- `Reason`: `TargetHealthReasonEnum`
-- `Description`: `str`
-
-
-## AddListenerCertificatesOutputTypeDef
-
-```python
-from mypy_boto3_elbv2.type_defs import AddListenerCertificatesOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Certificates`: `List["CertificateTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## CreateListenerOutputTypeDef
@@ -895,6 +417,194 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## FixedResponseActionConfigTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import FixedResponseActionConfigTypeDef
+```
+
+
+Required fields:
+- `StatusCode`: `str`
+
+
+
+Optional fields:
+- `MessageBody`: `str`
+- `ContentType`: `str`
+
+
+## ForwardActionConfigTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import ForwardActionConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `TargetGroups`: `List["TargetGroupTupleTypeDef"]`
+- `TargetGroupStickinessConfig`: `"TargetGroupStickinessConfigTypeDef"`
+
+
+## HostHeaderConditionConfigTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import HostHeaderConditionConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Values`: `List[str]`
+
+
+## HttpHeaderConditionConfigTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import HttpHeaderConditionConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `HttpHeaderName`: `str`
+- `Values`: `List[str]`
+
+
+## HttpRequestMethodConditionConfigTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import HttpRequestMethodConditionConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Values`: `List[str]`
+
+
+## LimitTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import LimitTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Max`: `str`
+
+
+## ListenerTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import ListenerTypeDef
+```
+
+
+
+
+Optional fields:
+- `ListenerArn`: `str`
+- `LoadBalancerArn`: `str`
+- `Port`: `int`
+- `Protocol`: `ProtocolEnum`
+- `Certificates`: `List["CertificateTypeDef"]`
+- `SslPolicy`: `str`
+- `DefaultActions`: `List["ActionTypeDef"]`
+- `AlpnPolicy`: `List[str]`
+
+
+## LoadBalancerAddressTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import LoadBalancerAddressTypeDef
+```
+
+
+
+
+Optional fields:
+- `IpAddress`: `str`
+- `AllocationId`: `str`
+- `PrivateIPv4Address`: `str`
+- `IPv6Address`: `str`
+
+
+## LoadBalancerAttributeTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import LoadBalancerAttributeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+## LoadBalancerStateTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import LoadBalancerStateTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `LoadBalancerStateEnum`
+- `Reason`: `str`
+
+
+## LoadBalancerTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import LoadBalancerTypeDef
+```
+
+
+
+
+Optional fields:
+- `LoadBalancerArn`: `str`
+- `DNSName`: `str`
+- `CanonicalHostedZoneId`: `str`
+- `CreatedTime`: `datetime`
+- `LoadBalancerName`: `str`
+- `Scheme`: `LoadBalancerSchemeEnum`
+- `VpcId`: `str`
+- `State`: `"LoadBalancerStateTypeDef"`
+- `Type`: `LoadBalancerTypeEnum`
+- `AvailabilityZones`: `List["AvailabilityZoneTypeDef"]`
+- `SecurityGroups`: `List[str]`
+- `IpAddressType`: `IpAddressType`
+- `CustomerOwnedIpv4Pool`: `str`
+
+
+## MatcherTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import MatcherTypeDef
+```
+
+
+
+
+Optional fields:
+- `HttpCode`: `str`
+- `GrpcCode`: `str`
+
+
 ## ModifyListenerOutputTypeDef
 
 ```python
@@ -980,6 +690,103 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PathPatternConditionConfigTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import PathPatternConditionConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Values`: `List[str]`
+
+
+## QueryStringConditionConfigTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import QueryStringConditionConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Values`: `List["QueryStringKeyValuePairTypeDef"]`
+
+
+## QueryStringKeyValuePairTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import QueryStringKeyValuePairTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+## RedirectActionConfigTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import RedirectActionConfigTypeDef
+```
+
+
+Required fields:
+- `StatusCode`: `RedirectActionStatusCodeEnum`
+
+
+
+Optional fields:
+- `Protocol`: `str`
+- `Port`: `str`
+- `Host`: `str`
+- `Path`: `str`
+- `Query`: `str`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_elbv2.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## RuleConditionTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import RuleConditionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Field`: `str`
+- `Values`: `List[str]`
+- `HostHeaderConfig`: `"HostHeaderConditionConfigTypeDef"`
+- `PathPatternConfig`: `"PathPatternConditionConfigTypeDef"`
+- `HttpHeaderConfig`: `"HttpHeaderConditionConfigTypeDef"`
+- `QueryStringConfig`: `"QueryStringConditionConfigTypeDef"`
+- `HttpRequestMethodConfig`: `"HttpRequestMethodConditionConfigTypeDef"`
+- `SourceIpConfig`: `"SourceIpConditionConfigTypeDef"`
+
+
 ## RulePriorityPairTypeDef
 
 ```python
@@ -992,6 +799,23 @@ from mypy_boto3_elbv2.type_defs import RulePriorityPairTypeDef
 Optional fields:
 - `RuleArn`: `str`
 - `Priority`: `int`
+
+
+## RuleTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import RuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `RuleArn`: `str`
+- `Priority`: `str`
+- `Conditions`: `List["RuleConditionTypeDef"]`
+- `Actions`: `List["ActionTypeDef"]`
+- `IsDefault`: `bool`
 
 
 ## SetIpAddressTypeOutputTypeDef
@@ -1051,6 +875,34 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## SourceIpConditionConfigTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import SourceIpConditionConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Values`: `List[str]`
+
+
+## SslPolicyTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import SslPolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `SslProtocols`: `List[str]`
+- `Ciphers`: `List["CipherTypeDef"]`
+- `Name`: `str`
+
+
 ## SubnetMappingTypeDef
 
 ```python
@@ -1065,6 +917,154 @@ Optional fields:
 - `AllocationId`: `str`
 - `PrivateIPv4Address`: `str`
 - `IPv6Address`: `str`
+
+
+## TagDescriptionTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import TagDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceArn`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
+## TargetDescriptionTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import TargetDescriptionTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+
+
+
+Optional fields:
+- `Port`: `int`
+- `AvailabilityZone`: `str`
+
+
+## TargetGroupAttributeTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import TargetGroupAttributeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+## TargetGroupStickinessConfigTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import TargetGroupStickinessConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Enabled`: `bool`
+- `DurationSeconds`: `int`
+
+
+## TargetGroupTupleTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import TargetGroupTupleTypeDef
+```
+
+
+
+
+Optional fields:
+- `TargetGroupArn`: `str`
+- `Weight`: `int`
+
+
+## TargetGroupTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import TargetGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `TargetGroupArn`: `str`
+- `TargetGroupName`: `str`
+- `Protocol`: `ProtocolEnum`
+- `Port`: `int`
+- `VpcId`: `str`
+- `HealthCheckProtocol`: `ProtocolEnum`
+- `HealthCheckPort`: `str`
+- `HealthCheckEnabled`: `bool`
+- `HealthCheckIntervalSeconds`: `int`
+- `HealthCheckTimeoutSeconds`: `int`
+- `HealthyThresholdCount`: `int`
+- `UnhealthyThresholdCount`: `int`
+- `HealthCheckPath`: `str`
+- `Matcher`: `"MatcherTypeDef"`
+- `LoadBalancerArns`: `List[str]`
+- `TargetType`: `TargetTypeEnum`
+- `ProtocolVersion`: `str`
+
+
+## TargetHealthDescriptionTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import TargetHealthDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Target`: `"TargetDescriptionTypeDef"`
+- `HealthCheckPort`: `str`
+- `TargetHealth`: `"TargetHealthTypeDef"`
+
+
+## TargetHealthTypeDef
+
+```python
+from mypy_boto3_elbv2.type_defs import TargetHealthTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `TargetHealthStateEnum`
+- `Reason`: `TargetHealthReasonEnum`
+- `Description`: `str`
 
 
 ## WaiterConfigTypeDef

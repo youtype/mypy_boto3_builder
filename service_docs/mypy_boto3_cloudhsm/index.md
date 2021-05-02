@@ -119,10 +119,9 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_cloudhsm.type_defs import TagTypeDef, ...
+from mypy_boto3_cloudhsm.type_defs import AddTagsToResourceResponseTypeDef, ...
 ```
 
-- [TagTypeDef](./type_defs.md#tagtypedef)
 - [AddTagsToResourceResponseTypeDef](./type_defs.md#addtagstoresourceresponsetypedef)
 - [CreateHapgResponseTypeDef](./type_defs.md#createhapgresponsetypedef)
 - [CreateHsmResponseTypeDef](./type_defs.md#createhsmresponsetypedef)
@@ -144,3 +143,4 @@ from mypy_boto3_cloudhsm.type_defs import TagTypeDef, ...
 - [ModifyLunaClientResponseTypeDef](./type_defs.md#modifylunaclientresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
 - [RemoveTagsFromResourceResponseTypeDef](./type_defs.md#removetagsfromresourceresponsetypedef)
+- [TagTypeDef](./type_defs.md#tagtypedef)

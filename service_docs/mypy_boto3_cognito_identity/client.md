@@ -481,16 +481,12 @@ def update_identity_pool(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("cognito-identity").get_paginator` method.
+Type annotations for `boto3.client("cognito-identity").get_paginator` method with overloads.
 
-[Paginator.ListIdentityPools documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools)
+- `client.get_paginator("list_identity_pools")` -> [ListIdentityPoolsPaginator](./paginators.md#listidentitypoolspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListIdentityPoolsPaginatorName
-) -> ListIdentityPoolsPaginator:
-    pass
-```
+

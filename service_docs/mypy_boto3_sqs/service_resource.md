@@ -483,7 +483,7 @@ def send_message(
     MessageBody: str,
     DelaySeconds: int = None,
     MessageAttributes: Dict[str, "MessageAttributeValueTypeDef"] = None,
-    MessageSystemAttributes: Dict[MessageSystemAttributeNameForSends, "MessageSystemAttributeValueTypeDef"] = None,
+    MessageSystemAttributes: Dict[Literal['AWSTraceHeader'], "MessageSystemAttributeValueTypeDef"] = None,
     MessageDeduplicationId: str = None,
     MessageGroupId: str = None
 ) -> SendMessageResultTypeDef:

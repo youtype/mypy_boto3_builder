@@ -52,10 +52,6 @@ type annotations stubs module [mypy_boto3_es](https://pypi.org/project/mypy-boto
     - [update_package](#update_package)
     - [upgrade_elasticsearch_domain](#upgrade_elasticsearch_domain)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
 
 ## ElasticsearchServiceClient
 
@@ -226,7 +222,7 @@ Type annotations for `boto3.client("es").create_package` method.
 def create_package(
     self,
     PackageName: str,
-    PackageType: PackageType,
+    PackageType: Literal['TXT-DICTIONARY'],
     PackageSource: PackageSourceTypeDef,
     PackageDescription: str = None
 ) -> CreatePackageResponseTypeDef:
@@ -758,77 +754,16 @@ def upgrade_elasticsearch_domain(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("es").get_paginator` method.
-
-[Paginator.DescribeReservedElasticsearchInstanceOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstanceOfferings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReservedElasticsearchInstanceOfferingsPaginatorName
-) -> DescribeReservedElasticsearchInstanceOfferingsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("es").get_paginator` method.
+Type annotations for `boto3.client("es").get_paginator` method with overloads.
 
-[Paginator.DescribeReservedElasticsearchInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstances)
+- `client.get_paginator("describe_reserved_elasticsearch_instance_offerings")` -> [DescribeReservedElasticsearchInstanceOfferingsPaginator](./paginators.md#describereservedelasticsearchinstanceofferingspaginator)
+- `client.get_paginator("describe_reserved_elasticsearch_instances")` -> [DescribeReservedElasticsearchInstancesPaginator](./paginators.md#describereservedelasticsearchinstancespaginator)
+- `client.get_paginator("get_upgrade_history")` -> [GetUpgradeHistoryPaginator](./paginators.md#getupgradehistorypaginator)
+- `client.get_paginator("list_elasticsearch_instance_types")` -> [ListElasticsearchInstanceTypesPaginator](./paginators.md#listelasticsearchinstancetypespaginator)
+- `client.get_paginator("list_elasticsearch_versions")` -> [ListElasticsearchVersionsPaginator](./paginators.md#listelasticsearchversionspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReservedElasticsearchInstancesPaginatorName
-) -> DescribeReservedElasticsearchInstancesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("es").get_paginator` method.
-
-[Paginator.GetUpgradeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/es.html#ElasticsearchService.Paginator.GetUpgradeHistory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetUpgradeHistoryPaginatorName
-) -> GetUpgradeHistoryPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("es").get_paginator` method.
-
-[Paginator.ListElasticsearchInstanceTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchInstanceTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListElasticsearchInstanceTypesPaginatorName
-) -> ListElasticsearchInstanceTypesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("es").get_paginator` method.
-
-[Paginator.ListElasticsearchVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListElasticsearchVersionsPaginatorName
-) -> ListElasticsearchVersionsPaginator:
-    pass
-```

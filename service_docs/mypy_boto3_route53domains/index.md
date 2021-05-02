@@ -134,24 +134,21 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_route53domains.type_defs import BillingRecordTypeDef, ...
+from mypy_boto3_route53domains.type_defs import AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef, ...
 ```
 
-- [BillingRecordTypeDef](./type_defs.md#billingrecordtypedef)
-- [ContactDetailTypeDef](./type_defs.md#contactdetailtypedef)
-- [DomainSuggestionTypeDef](./type_defs.md#domainsuggestiontypedef)
-- [DomainSummaryTypeDef](./type_defs.md#domainsummarytypedef)
-- [DomainTransferabilityTypeDef](./type_defs.md#domaintransferabilitytypedef)
-- [ExtraParamTypeDef](./type_defs.md#extraparamtypedef)
-- [NameserverTypeDef](./type_defs.md#nameservertypedef)
-- [OperationSummaryTypeDef](./type_defs.md#operationsummarytypedef)
-- [TagTypeDef](./type_defs.md#tagtypedef)
 - [AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef](./type_defs.md#acceptdomaintransferfromanotherawsaccountresponsetypedef)
+- [BillingRecordTypeDef](./type_defs.md#billingrecordtypedef)
 - [CancelDomainTransferToAnotherAwsAccountResponseTypeDef](./type_defs.md#canceldomaintransfertoanotherawsaccountresponsetypedef)
 - [CheckDomainAvailabilityResponseTypeDef](./type_defs.md#checkdomainavailabilityresponsetypedef)
 - [CheckDomainTransferabilityResponseTypeDef](./type_defs.md#checkdomaintransferabilityresponsetypedef)
+- [ContactDetailTypeDef](./type_defs.md#contactdetailtypedef)
 - [DisableDomainTransferLockResponseTypeDef](./type_defs.md#disabledomaintransferlockresponsetypedef)
+- [DomainSuggestionTypeDef](./type_defs.md#domainsuggestiontypedef)
+- [DomainSummaryTypeDef](./type_defs.md#domainsummarytypedef)
+- [DomainTransferabilityTypeDef](./type_defs.md#domaintransferabilitytypedef)
 - [EnableDomainTransferLockResponseTypeDef](./type_defs.md#enabledomaintransferlockresponsetypedef)
+- [ExtraParamTypeDef](./type_defs.md#extraparamtypedef)
 - [GetContactReachabilityStatusResponseTypeDef](./type_defs.md#getcontactreachabilitystatusresponsetypedef)
 - [GetDomainDetailResponseTypeDef](./type_defs.md#getdomaindetailresponsetypedef)
 - [GetDomainSuggestionsResponseTypeDef](./type_defs.md#getdomainsuggestionsresponsetypedef)
@@ -159,12 +156,15 @@ from mypy_boto3_route53domains.type_defs import BillingRecordTypeDef, ...
 - [ListDomainsResponseTypeDef](./type_defs.md#listdomainsresponsetypedef)
 - [ListOperationsResponseTypeDef](./type_defs.md#listoperationsresponsetypedef)
 - [ListTagsForDomainResponseTypeDef](./type_defs.md#listtagsfordomainresponsetypedef)
+- [NameserverTypeDef](./type_defs.md#nameservertypedef)
+- [OperationSummaryTypeDef](./type_defs.md#operationsummarytypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
 - [RegisterDomainResponseTypeDef](./type_defs.md#registerdomainresponsetypedef)
 - [RejectDomainTransferFromAnotherAwsAccountResponseTypeDef](./type_defs.md#rejectdomaintransferfromanotherawsaccountresponsetypedef)
 - [RenewDomainResponseTypeDef](./type_defs.md#renewdomainresponsetypedef)
 - [ResendContactReachabilityEmailResponseTypeDef](./type_defs.md#resendcontactreachabilityemailresponsetypedef)
 - [RetrieveDomainAuthCodeResponseTypeDef](./type_defs.md#retrievedomainauthcoderesponsetypedef)
+- [TagTypeDef](./type_defs.md#tagtypedef)
 - [TransferDomainResponseTypeDef](./type_defs.md#transferdomainresponsetypedef)
 - [TransferDomainToAnotherAwsAccountResponseTypeDef](./type_defs.md#transferdomaintoanotherawsaccountresponsetypedef)
 - [UpdateDomainContactPrivacyResponseTypeDef](./type_defs.md#updatedomaincontactprivacyresponsetypedef)

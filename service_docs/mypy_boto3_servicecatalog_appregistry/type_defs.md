@@ -8,11 +8,10 @@ type annotations stubs module [mypy_boto3_servicecatalog_appregistry](https://py
 - [Structures for boto3 AppRegistry module](#structures-for-boto3-appregistry-module)
   - [ApplicationSummaryTypeDef](#applicationsummarytypedef)
   - [ApplicationTypeDef](#applicationtypedef)
-  - [AttributeGroupSummaryTypeDef](#attributegroupsummarytypedef)
-  - [AttributeGroupTypeDef](#attributegrouptypedef)
-  - [ResourceInfoTypeDef](#resourceinfotypedef)
   - [AssociateAttributeGroupResponseTypeDef](#associateattributegroupresponsetypedef)
   - [AssociateResourceResponseTypeDef](#associateresourceresponsetypedef)
+  - [AttributeGroupSummaryTypeDef](#attributegroupsummarytypedef)
+  - [AttributeGroupTypeDef](#attributegrouptypedef)
   - [CreateApplicationResponseTypeDef](#createapplicationresponsetypedef)
   - [CreateAttributeGroupResponseTypeDef](#createattributegroupresponsetypedef)
   - [DeleteApplicationResponseTypeDef](#deleteapplicationresponsetypedef)
@@ -27,6 +26,7 @@ type annotations stubs module [mypy_boto3_servicecatalog_appregistry](https://py
   - [ListAttributeGroupsResponseTypeDef](#listattributegroupsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ResourceInfoTypeDef](#resourceinfotypedef)
   - [SyncResourceResponseTypeDef](#syncresourceresponsetypedef)
   - [UpdateApplicationResponseTypeDef](#updateapplicationresponsetypedef)
   - [UpdateAttributeGroupResponseTypeDef](#updateattributegroupresponsetypedef)
@@ -68,6 +68,34 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
+## AssociateAttributeGroupResponseTypeDef
+
+```python
+from mypy_boto3_servicecatalog_appregistry.type_defs import AssociateAttributeGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `applicationArn`: `str`
+- `attributeGroupArn`: `str`
+
+
+## AssociateResourceResponseTypeDef
+
+```python
+from mypy_boto3_servicecatalog_appregistry.type_defs import AssociateResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `applicationArn`: `str`
+- `resourceArn`: `str`
+
+
 ## AttributeGroupSummaryTypeDef
 
 ```python
@@ -103,48 +131,6 @@ Optional fields:
 - `creationTime`: `datetime`
 - `lastUpdateTime`: `datetime`
 - `tags`: `Dict[str, str]`
-
-
-## ResourceInfoTypeDef
-
-```python
-from mypy_boto3_servicecatalog_appregistry.type_defs import ResourceInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-
-
-## AssociateAttributeGroupResponseTypeDef
-
-```python
-from mypy_boto3_servicecatalog_appregistry.type_defs import AssociateAttributeGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `applicationArn`: `str`
-- `attributeGroupArn`: `str`
-
-
-## AssociateResourceResponseTypeDef
-
-```python
-from mypy_boto3_servicecatalog_appregistry.type_defs import AssociateResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `applicationArn`: `str`
-- `resourceArn`: `str`
 
 
 ## CreateApplicationResponseTypeDef
@@ -349,6 +335,20 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ResourceInfoTypeDef
+
+```python
+from mypy_boto3_servicecatalog_appregistry.type_defs import ResourceInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
 
 
 ## SyncResourceResponseTypeDef

@@ -37,10 +37,6 @@ type annotations stubs module [mypy_boto3_mediaconvert](https://pypi.org/project
     - [update_preset](#update_preset)
     - [update_queue](#update_queue)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
 
 ## MediaConvertClient
 
@@ -523,77 +519,16 @@ def update_queue(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("mediaconvert").get_paginator` method.
-
-[Paginator.DescribeEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconvert.html#MediaConvert.Paginator.DescribeEndpoints)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEndpointsPaginatorName
-) -> DescribeEndpointsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("mediaconvert").get_paginator` method.
+Type annotations for `boto3.client("mediaconvert").get_paginator` method with overloads.
 
-[Paginator.ListJobTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobTemplates)
+- `client.get_paginator("describe_endpoints")` -> [DescribeEndpointsPaginator](./paginators.md#describeendpointspaginator)
+- `client.get_paginator("list_job_templates")` -> [ListJobTemplatesPaginator](./paginators.md#listjobtemplatespaginator)
+- `client.get_paginator("list_jobs")` -> [ListJobsPaginator](./paginators.md#listjobspaginator)
+- `client.get_paginator("list_presets")` -> [ListPresetsPaginator](./paginators.md#listpresetspaginator)
+- `client.get_paginator("list_queues")` -> [ListQueuesPaginator](./paginators.md#listqueuespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobTemplatesPaginatorName
-) -> ListJobTemplatesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("mediaconvert").get_paginator` method.
-
-[Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobsPaginatorName
-) -> ListJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mediaconvert").get_paginator` method.
-
-[Paginator.ListPresets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconvert.html#MediaConvert.Paginator.ListPresets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPresetsPaginatorName
-) -> ListPresetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mediaconvert").get_paginator` method.
-
-[Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconvert.html#MediaConvert.Paginator.ListQueues)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListQueuesPaginatorName
-) -> ListQueuesPaginator:
-    pass
-```

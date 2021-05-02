@@ -8,10 +8,16 @@ type annotations stubs module [mypy_boto3_kinesisanalytics](https://pypi.org/pro
 - [Structures for boto3 KinesisAnalytics module](#structures-for-boto3-kinesisanalytics-module)
   - [ApplicationDetailTypeDef](#applicationdetailtypedef)
   - [ApplicationSummaryTypeDef](#applicationsummarytypedef)
+  - [ApplicationUpdateTypeDef](#applicationupdatetypedef)
   - [CSVMappingParametersTypeDef](#csvmappingparameterstypedef)
   - [CloudWatchLoggingOptionDescriptionTypeDef](#cloudwatchloggingoptiondescriptiontypedef)
+  - [CloudWatchLoggingOptionTypeDef](#cloudwatchloggingoptiontypedef)
   - [CloudWatchLoggingOptionUpdateTypeDef](#cloudwatchloggingoptionupdatetypedef)
+  - [CreateApplicationResponseTypeDef](#createapplicationresponsetypedef)
+  - [DescribeApplicationResponseTypeDef](#describeapplicationresponsetypedef)
   - [DestinationSchemaTypeDef](#destinationschematypedef)
+  - [DiscoverInputSchemaResponseTypeDef](#discoverinputschemaresponsetypedef)
+  - [InputConfigurationTypeDef](#inputconfigurationtypedef)
   - [InputDescriptionTypeDef](#inputdescriptiontypedef)
   - [InputLambdaProcessorDescriptionTypeDef](#inputlambdaprocessordescriptiontypedef)
   - [InputLambdaProcessorTypeDef](#inputlambdaprocessortypedef)
@@ -23,6 +29,7 @@ type annotations stubs module [mypy_boto3_kinesisanalytics](https://pypi.org/pro
   - [InputProcessingConfigurationUpdateTypeDef](#inputprocessingconfigurationupdatetypedef)
   - [InputSchemaUpdateTypeDef](#inputschemaupdatetypedef)
   - [InputStartingPositionConfigurationTypeDef](#inputstartingpositionconfigurationtypedef)
+  - [InputTypeDef](#inputtypedef)
   - [InputUpdateTypeDef](#inputupdatetypedef)
   - [JSONMappingParametersTypeDef](#jsonmappingparameterstypedef)
   - [KinesisFirehoseInputDescriptionTypeDef](#kinesisfirehoseinputdescriptiontypedef)
@@ -40,31 +47,24 @@ type annotations stubs module [mypy_boto3_kinesisanalytics](https://pypi.org/pro
   - [LambdaOutputDescriptionTypeDef](#lambdaoutputdescriptiontypedef)
   - [LambdaOutputTypeDef](#lambdaoutputtypedef)
   - [LambdaOutputUpdateTypeDef](#lambdaoutputupdatetypedef)
+  - [ListApplicationsResponseTypeDef](#listapplicationsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [MappingParametersTypeDef](#mappingparameterstypedef)
   - [OutputDescriptionTypeDef](#outputdescriptiontypedef)
+  - [OutputTypeDef](#outputtypedef)
   - [OutputUpdateTypeDef](#outputupdatetypedef)
   - [RecordColumnTypeDef](#recordcolumntypedef)
   - [RecordFormatTypeDef](#recordformattypedef)
   - [ReferenceDataSourceDescriptionTypeDef](#referencedatasourcedescriptiontypedef)
+  - [ReferenceDataSourceTypeDef](#referencedatasourcetypedef)
   - [ReferenceDataSourceUpdateTypeDef](#referencedatasourceupdatetypedef)
   - [ResponseMetadata](#responsemetadata)
+  - [S3ConfigurationTypeDef](#s3configurationtypedef)
   - [S3ReferenceDataSourceDescriptionTypeDef](#s3referencedatasourcedescriptiontypedef)
   - [S3ReferenceDataSourceTypeDef](#s3referencedatasourcetypedef)
   - [S3ReferenceDataSourceUpdateTypeDef](#s3referencedatasourceupdatetypedef)
   - [SourceSchemaTypeDef](#sourceschematypedef)
   - [TagTypeDef](#tagtypedef)
-  - [ApplicationUpdateTypeDef](#applicationupdatetypedef)
-  - [CloudWatchLoggingOptionTypeDef](#cloudwatchloggingoptiontypedef)
-  - [CreateApplicationResponseTypeDef](#createapplicationresponsetypedef)
-  - [DescribeApplicationResponseTypeDef](#describeapplicationresponsetypedef)
-  - [DiscoverInputSchemaResponseTypeDef](#discoverinputschemaresponsetypedef)
-  - [InputConfigurationTypeDef](#inputconfigurationtypedef)
-  - [InputTypeDef](#inputtypedef)
-  - [ListApplicationsResponseTypeDef](#listapplicationsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [OutputTypeDef](#outputtypedef)
-  - [ReferenceDataSourceTypeDef](#referencedatasourcetypedef)
-  - [S3ConfigurationTypeDef](#s3configurationtypedef)
 
 ## ApplicationDetailTypeDef
 
@@ -107,6 +107,23 @@ Required fields:
 
 
 
+## ApplicationUpdateTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import ApplicationUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `InputUpdates`: `List["InputUpdateTypeDef"]`
+- `ApplicationCodeUpdate`: `str`
+- `OutputUpdates`: `List["OutputUpdateTypeDef"]`
+- `ReferenceDataSourceUpdates`: `List["ReferenceDataSourceUpdateTypeDef"]`
+- `CloudWatchLoggingOptionUpdates`: `List["CloudWatchLoggingOptionUpdateTypeDef"]`
+
+
 ## CSVMappingParametersTypeDef
 
 ```python
@@ -138,6 +155,20 @@ Optional fields:
 - `CloudWatchLoggingOptionId`: `str`
 
 
+## CloudWatchLoggingOptionTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import CloudWatchLoggingOptionTypeDef
+```
+
+
+Required fields:
+- `LogStreamARN`: `str`
+- `RoleARN`: `str`
+
+
+
+
 ## CloudWatchLoggingOptionUpdateTypeDef
 
 ```python
@@ -155,6 +186,32 @@ Optional fields:
 - `RoleARNUpdate`: `str`
 
 
+## CreateApplicationResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import CreateApplicationResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationSummary`: `"ApplicationSummaryTypeDef"`
+
+
+
+
+## DescribeApplicationResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import DescribeApplicationResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationDetail`: `"ApplicationDetailTypeDef"`
+
+
+
+
 ## DestinationSchemaTypeDef
 
 ```python
@@ -164,6 +221,36 @@ from mypy_boto3_kinesisanalytics.type_defs import DestinationSchemaTypeDef
 
 Required fields:
 - `RecordFormatType`: `RecordFormatType`
+
+
+
+
+## DiscoverInputSchemaResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import DiscoverInputSchemaResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `InputSchema`: `"SourceSchemaTypeDef"`
+- `ParsedInputRecords`: `List[List[str]]`
+- `ProcessedInputRecords`: `List[str]`
+- `RawInputRecords`: `List[str]`
+
+
+## InputConfigurationTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import InputConfigurationTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `InputStartingPositionConfiguration`: `"InputStartingPositionConfigurationTypeDef"`
 
 
 
@@ -322,6 +409,26 @@ from mypy_boto3_kinesisanalytics.type_defs import InputStartingPositionConfigura
 
 Optional fields:
 - `InputStartingPosition`: `InputStartingPosition`
+
+
+## InputTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import InputTypeDef
+```
+
+
+Required fields:
+- `NamePrefix`: `str`
+- `InputSchema`: `"SourceSchemaTypeDef"`
+
+
+
+Optional fields:
+- `InputProcessingConfiguration`: `"InputProcessingConfigurationTypeDef"`
+- `KinesisStreamsInput`: `"KinesisStreamsInputTypeDef"`
+- `KinesisFirehoseInput`: `"KinesisFirehoseInputTypeDef"`
+- `InputParallelism`: `"InputParallelismTypeDef"`
 
 
 ## InputUpdateTypeDef
@@ -577,6 +684,33 @@ Optional fields:
 - `RoleARNUpdate`: `str`
 
 
+## ListApplicationsResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import ListApplicationsResponseTypeDef
+```
+
+
+Required fields:
+- `ApplicationSummaries`: `List["ApplicationSummaryTypeDef"]`
+- `HasMoreApplications`: `bool`
+
+
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## MappingParametersTypeDef
 
 ```python
@@ -607,6 +741,26 @@ Optional fields:
 - `KinesisFirehoseOutputDescription`: `"KinesisFirehoseOutputDescriptionTypeDef"`
 - `LambdaOutputDescription`: `"LambdaOutputDescriptionTypeDef"`
 - `DestinationSchema`: `"DestinationSchemaTypeDef"`
+
+
+## OutputTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import OutputTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `DestinationSchema`: `"DestinationSchemaTypeDef"`
+
+
+
+Optional fields:
+- `KinesisStreamsOutput`: `"KinesisStreamsOutputTypeDef"`
+- `KinesisFirehoseOutput`: `"KinesisFirehoseOutputTypeDef"`
+- `LambdaOutput`: `"LambdaOutputTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## OutputUpdateTypeDef
@@ -680,6 +834,23 @@ Optional fields:
 - `ReferenceSchema`: `"SourceSchemaTypeDef"`
 
 
+## ReferenceDataSourceTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import ReferenceDataSourceTypeDef
+```
+
+
+Required fields:
+- `TableName`: `str`
+- `ReferenceSchema`: `"SourceSchemaTypeDef"`
+
+
+
+Optional fields:
+- `S3ReferenceDataSource`: `"S3ReferenceDataSourceTypeDef"`
+
+
 ## ReferenceDataSourceUpdateTypeDef
 
 ```python
@@ -711,6 +882,21 @@ Required fields:
 - `HTTPStatusCode`: `int`
 - `HTTPHeaders`: `Dict[str, Any]`
 - `RetryAttempts`: `int`
+
+
+
+
+## S3ConfigurationTypeDef
+
+```python
+from mypy_boto3_kinesisanalytics.type_defs import S3ConfigurationTypeDef
+```
+
+
+Required fields:
+- `RoleARN`: `str`
+- `BucketARN`: `str`
+- `FileKey`: `str`
 
 
 
@@ -791,190 +977,4 @@ Required fields:
 
 Optional fields:
 - `Value`: `str`
-
-
-## ApplicationUpdateTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import ApplicationUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `InputUpdates`: `List["InputUpdateTypeDef"]`
-- `ApplicationCodeUpdate`: `str`
-- `OutputUpdates`: `List["OutputUpdateTypeDef"]`
-- `ReferenceDataSourceUpdates`: `List["ReferenceDataSourceUpdateTypeDef"]`
-- `CloudWatchLoggingOptionUpdates`: `List["CloudWatchLoggingOptionUpdateTypeDef"]`
-
-
-## CloudWatchLoggingOptionTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import CloudWatchLoggingOptionTypeDef
-```
-
-
-Required fields:
-- `LogStreamARN`: `str`
-- `RoleARN`: `str`
-
-
-
-
-## CreateApplicationResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import CreateApplicationResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationSummary`: `"ApplicationSummaryTypeDef"`
-
-
-
-
-## DescribeApplicationResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import DescribeApplicationResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationDetail`: `"ApplicationDetailTypeDef"`
-
-
-
-
-## DiscoverInputSchemaResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import DiscoverInputSchemaResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `InputSchema`: `"SourceSchemaTypeDef"`
-- `ParsedInputRecords`: `List[List[str]]`
-- `ProcessedInputRecords`: `List[str]`
-- `RawInputRecords`: `List[str]`
-
-
-## InputConfigurationTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import InputConfigurationTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `InputStartingPositionConfiguration`: `"InputStartingPositionConfigurationTypeDef"`
-
-
-
-
-## InputTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import InputTypeDef
-```
-
-
-Required fields:
-- `NamePrefix`: `str`
-- `InputSchema`: `"SourceSchemaTypeDef"`
-
-
-
-Optional fields:
-- `InputProcessingConfiguration`: `"InputProcessingConfigurationTypeDef"`
-- `KinesisStreamsInput`: `"KinesisStreamsInputTypeDef"`
-- `KinesisFirehoseInput`: `"KinesisFirehoseInputTypeDef"`
-- `InputParallelism`: `"InputParallelismTypeDef"`
-
-
-## ListApplicationsResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import ListApplicationsResponseTypeDef
-```
-
-
-Required fields:
-- `ApplicationSummaries`: `List["ApplicationSummaryTypeDef"]`
-- `HasMoreApplications`: `bool`
-
-
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `List["TagTypeDef"]`
-
-
-## OutputTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import OutputTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `DestinationSchema`: `"DestinationSchemaTypeDef"`
-
-
-
-Optional fields:
-- `KinesisStreamsOutput`: `"KinesisStreamsOutputTypeDef"`
-- `KinesisFirehoseOutput`: `"KinesisFirehoseOutputTypeDef"`
-- `LambdaOutput`: `"LambdaOutputTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ReferenceDataSourceTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import ReferenceDataSourceTypeDef
-```
-
-
-Required fields:
-- `TableName`: `str`
-- `ReferenceSchema`: `"SourceSchemaTypeDef"`
-
-
-
-Optional fields:
-- `S3ReferenceDataSource`: `"S3ReferenceDataSourceTypeDef"`
-
-
-## S3ConfigurationTypeDef
-
-```python
-from mypy_boto3_kinesisanalytics.type_defs import S3ConfigurationTypeDef
-```
-
-
-Required fields:
-- `RoleARN`: `str`
-- `BucketARN`: `str`
-- `FileKey`: `str`
-
-
 

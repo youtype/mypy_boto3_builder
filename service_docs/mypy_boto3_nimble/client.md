@@ -57,14 +57,6 @@ type annotations stubs module [mypy_boto3_nimble](https://pypi.org/project/mypy-
     - [update_studio](#update_studio)
     - [update_studio_component](#update_studio_component)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
 
 ## NimbleStudioClient
 
@@ -824,7 +816,7 @@ Type annotations for `boto3.client("nimble").update_launch_profile_member` metho
 def update_launch_profile_member(
     self,
     launchProfileId: str,
-    persona: LaunchProfilePersona,
+    persona: Literal['USER'],
     principalId: str,
     studioId: str,
     clientToken: str = None
@@ -892,137 +884,20 @@ def update_studio_component(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("nimble").get_paginator` method.
-
-[Paginator.ListEulaAcceptances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/nimble.html#NimbleStudio.Paginator.ListEulaAcceptances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEulaAcceptancesPaginatorName
-) -> ListEulaAcceptancesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("nimble").get_paginator` method.
+Type annotations for `boto3.client("nimble").get_paginator` method with overloads.
 
-[Paginator.ListEulas documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/nimble.html#NimbleStudio.Paginator.ListEulas)
+- `client.get_paginator("list_eula_acceptances")` -> [ListEulaAcceptancesPaginator](./paginators.md#listeulaacceptancespaginator)
+- `client.get_paginator("list_eulas")` -> [ListEulasPaginator](./paginators.md#listeulaspaginator)
+- `client.get_paginator("list_launch_profile_members")` -> [ListLaunchProfileMembersPaginator](./paginators.md#listlaunchprofilememberspaginator)
+- `client.get_paginator("list_launch_profiles")` -> [ListLaunchProfilesPaginator](./paginators.md#listlaunchprofilespaginator)
+- `client.get_paginator("list_streaming_images")` -> [ListStreamingImagesPaginator](./paginators.md#liststreamingimagespaginator)
+- `client.get_paginator("list_streaming_sessions")` -> [ListStreamingSessionsPaginator](./paginators.md#liststreamingsessionspaginator)
+- `client.get_paginator("list_studio_components")` -> [ListStudioComponentsPaginator](./paginators.md#liststudiocomponentspaginator)
+- `client.get_paginator("list_studio_members")` -> [ListStudioMembersPaginator](./paginators.md#liststudiomemberspaginator)
+- `client.get_paginator("list_studios")` -> [ListStudiosPaginator](./paginators.md#liststudiospaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEulasPaginatorName
-) -> ListEulasPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("nimble").get_paginator` method.
-
-[Paginator.ListLaunchProfileMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/nimble.html#NimbleStudio.Paginator.ListLaunchProfileMembers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLaunchProfileMembersPaginatorName
-) -> ListLaunchProfileMembersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("nimble").get_paginator` method.
-
-[Paginator.ListLaunchProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/nimble.html#NimbleStudio.Paginator.ListLaunchProfiles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLaunchProfilesPaginatorName
-) -> ListLaunchProfilesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("nimble").get_paginator` method.
-
-[Paginator.ListStreamingImages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/nimble.html#NimbleStudio.Paginator.ListStreamingImages)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStreamingImagesPaginatorName
-) -> ListStreamingImagesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("nimble").get_paginator` method.
-
-[Paginator.ListStreamingSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/nimble.html#NimbleStudio.Paginator.ListStreamingSessions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStreamingSessionsPaginatorName
-) -> ListStreamingSessionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("nimble").get_paginator` method.
-
-[Paginator.ListStudioComponents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/nimble.html#NimbleStudio.Paginator.ListStudioComponents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStudioComponentsPaginatorName
-) -> ListStudioComponentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("nimble").get_paginator` method.
-
-[Paginator.ListStudioMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/nimble.html#NimbleStudio.Paginator.ListStudioMembers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStudioMembersPaginatorName
-) -> ListStudioMembersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("nimble").get_paginator` method.
-
-[Paginator.ListStudios documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/nimble.html#NimbleStudio.Paginator.ListStudios)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStudiosPaginatorName
-) -> ListStudiosPaginator:
-    pass
-```

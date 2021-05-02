@@ -8,15 +8,15 @@ type annotations stubs module [mypy_boto3_elastic_inference](https://pypi.org/pr
 - [Structures for boto3 ElasticInference module](#structures-for-boto3-elasticinference-module)
   - [AcceleratorTypeOfferingTypeDef](#acceleratortypeofferingtypedef)
   - [AcceleratorTypeTypeDef](#acceleratortypetypedef)
-  - [ElasticInferenceAcceleratorHealthTypeDef](#elasticinferenceacceleratorhealthtypedef)
-  - [ElasticInferenceAcceleratorTypeDef](#elasticinferenceacceleratortypedef)
-  - [KeyValuePairTypeDef](#keyvaluepairtypedef)
-  - [MemoryInfoTypeDef](#memoryinfotypedef)
   - [DescribeAcceleratorOfferingsResponseTypeDef](#describeacceleratorofferingsresponsetypedef)
   - [DescribeAcceleratorTypesResponseTypeDef](#describeacceleratortypesresponsetypedef)
   - [DescribeAcceleratorsResponseTypeDef](#describeacceleratorsresponsetypedef)
+  - [ElasticInferenceAcceleratorHealthTypeDef](#elasticinferenceacceleratorhealthtypedef)
+  - [ElasticInferenceAcceleratorTypeDef](#elasticinferenceacceleratortypedef)
   - [FilterTypeDef](#filtertypedef)
+  - [KeyValuePairTypeDef](#keyvaluepairtypedef)
   - [ListTagsForResourceResultTypeDef](#listtagsforresourceresulttypedef)
+  - [MemoryInfoTypeDef](#memoryinfotypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
 
 ## AcceleratorTypeOfferingTypeDef
@@ -47,63 +47,6 @@ Optional fields:
 - `acceleratorTypeName`: `str`
 - `memoryInfo`: `"MemoryInfoTypeDef"`
 - `throughputInfo`: `List["KeyValuePairTypeDef"]`
-
-
-## ElasticInferenceAcceleratorHealthTypeDef
-
-```python
-from mypy_boto3_elastic_inference.type_defs import ElasticInferenceAcceleratorHealthTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `str`
-
-
-## ElasticInferenceAcceleratorTypeDef
-
-```python
-from mypy_boto3_elastic_inference.type_defs import ElasticInferenceAcceleratorTypeDef
-```
-
-
-
-
-Optional fields:
-- `acceleratorHealth`: `"ElasticInferenceAcceleratorHealthTypeDef"`
-- `acceleratorType`: `str`
-- `acceleratorId`: `str`
-- `availabilityZone`: `str`
-- `attachedResource`: `str`
-
-
-## KeyValuePairTypeDef
-
-```python
-from mypy_boto3_elastic_inference.type_defs import KeyValuePairTypeDef
-```
-
-
-
-
-Optional fields:
-- `key`: `str`
-- `value`: `int`
-
-
-## MemoryInfoTypeDef
-
-```python
-from mypy_boto3_elastic_inference.type_defs import MemoryInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `sizeInMiB`: `int`
 
 
 ## DescribeAcceleratorOfferingsResponseTypeDef
@@ -146,6 +89,36 @@ Optional fields:
 - `nextToken`: `str`
 
 
+## ElasticInferenceAcceleratorHealthTypeDef
+
+```python
+from mypy_boto3_elastic_inference.type_defs import ElasticInferenceAcceleratorHealthTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `str`
+
+
+## ElasticInferenceAcceleratorTypeDef
+
+```python
+from mypy_boto3_elastic_inference.type_defs import ElasticInferenceAcceleratorTypeDef
+```
+
+
+
+
+Optional fields:
+- `acceleratorHealth`: `"ElasticInferenceAcceleratorHealthTypeDef"`
+- `acceleratorType`: `str`
+- `acceleratorId`: `str`
+- `availabilityZone`: `str`
+- `attachedResource`: `str`
+
+
 ## FilterTypeDef
 
 ```python
@@ -160,6 +133,20 @@ Optional fields:
 - `values`: `List[str]`
 
 
+## KeyValuePairTypeDef
+
+```python
+from mypy_boto3_elastic_inference.type_defs import KeyValuePairTypeDef
+```
+
+
+
+
+Optional fields:
+- `key`: `str`
+- `value`: `int`
+
+
 ## ListTagsForResourceResultTypeDef
 
 ```python
@@ -171,6 +158,19 @@ from mypy_boto3_elastic_inference.type_defs import ListTagsForResourceResultType
 
 Optional fields:
 - `tags`: `Dict[str, str]`
+
+
+## MemoryInfoTypeDef
+
+```python
+from mypy_boto3_elastic_inference.type_defs import MemoryInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `sizeInMiB`: `int`
 
 
 ## PaginatorConfigTypeDef

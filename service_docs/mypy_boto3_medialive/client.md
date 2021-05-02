@@ -68,26 +68,7 @@ type annotations stubs module [mypy_boto3_medialive](https://pypi.org/project/my
     - [update_multiplex_program](#update_multiplex_program)
     - [update_reservation](#update_reservation)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
-    - [get_waiter](#get_waiter-4)
-    - [get_waiter](#get_waiter-5)
-    - [get_waiter](#get_waiter-6)
-    - [get_waiter](#get_waiter-7)
-    - [get_waiter](#get_waiter-8)
-    - [get_waiter](#get_waiter-9)
-    - [get_waiter](#get_waiter-10)
 
 ## MediaLiveClient
 
@@ -531,7 +512,7 @@ Type annotations for `boto3.client("medialive").describe_input_device_thumbnail`
 def describe_input_device_thumbnail(
     self,
     InputDeviceId: str,
-    Accept: AcceptHeader
+    Accept: Literal['image/jpeg']
 ) -> DescribeInputDeviceThumbnailResponseTypeDef:
     pass
 ```
@@ -1054,317 +1035,38 @@ def update_reservation(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("medialive").get_paginator` method.
-
-[Paginator.DescribeSchedule documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Paginator.DescribeSchedule)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSchedulePaginatorName
-) -> DescribeSchedulePaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("medialive").get_paginator` method.
+Type annotations for `boto3.client("medialive").get_paginator` method with overloads.
 
-[Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Paginator.ListChannels)
+- `client.get_paginator("describe_schedule")` -> [DescribeSchedulePaginator](./paginators.md#describeschedulepaginator)
+- `client.get_paginator("list_channels")` -> [ListChannelsPaginator](./paginators.md#listchannelspaginator)
+- `client.get_paginator("list_input_device_transfers")` -> [ListInputDeviceTransfersPaginator](./paginators.md#listinputdevicetransferspaginator)
+- `client.get_paginator("list_input_devices")` -> [ListInputDevicesPaginator](./paginators.md#listinputdevicespaginator)
+- `client.get_paginator("list_input_security_groups")` -> [ListInputSecurityGroupsPaginator](./paginators.md#listinputsecuritygroupspaginator)
+- `client.get_paginator("list_inputs")` -> [ListInputsPaginator](./paginators.md#listinputspaginator)
+- `client.get_paginator("list_multiplex_programs")` -> [ListMultiplexProgramsPaginator](./paginators.md#listmultiplexprogramspaginator)
+- `client.get_paginator("list_multiplexes")` -> [ListMultiplexesPaginator](./paginators.md#listmultiplexespaginator)
+- `client.get_paginator("list_offerings")` -> [ListOfferingsPaginator](./paginators.md#listofferingspaginator)
+- `client.get_paginator("list_reservations")` -> [ListReservationsPaginator](./paginators.md#listreservationspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListChannelsPaginatorName
-) -> ListChannelsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("medialive").get_paginator` method.
-
-[Paginator.ListInputDeviceTransfers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Paginator.ListInputDeviceTransfers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInputDeviceTransfersPaginatorName
-) -> ListInputDeviceTransfersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("medialive").get_paginator` method.
-
-[Paginator.ListInputDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Paginator.ListInputDevices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInputDevicesPaginatorName
-) -> ListInputDevicesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("medialive").get_paginator` method.
-
-[Paginator.ListInputSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Paginator.ListInputSecurityGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInputSecurityGroupsPaginatorName
-) -> ListInputSecurityGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("medialive").get_paginator` method.
-
-[Paginator.ListInputs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Paginator.ListInputs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInputsPaginatorName
-) -> ListInputsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("medialive").get_paginator` method.
-
-[Paginator.ListMultiplexPrograms documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexPrograms)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMultiplexProgramsPaginatorName
-) -> ListMultiplexProgramsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("medialive").get_paginator` method.
-
-[Paginator.ListMultiplexes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Paginator.ListMultiplexes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMultiplexesPaginatorName
-) -> ListMultiplexesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("medialive").get_paginator` method.
-
-[Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Paginator.ListOfferings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOfferingsPaginatorName
-) -> ListOfferingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("medialive").get_paginator` method.
-
-[Paginator.ListReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Paginator.ListReservations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListReservationsPaginatorName
-) -> ListReservationsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("medialive").get_waiter` method.
+Type annotations for `boto3.client("medialive").get_waiter` method with overloads.
 
-[Waiter.ChannelCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Waiter.ChannelCreated)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ChannelCreatedWaiterName
-) -> ChannelCreatedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("medialive").get_waiter` method.
-
-[Waiter.ChannelDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Waiter.ChannelDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ChannelDeletedWaiterName
-) -> ChannelDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("medialive").get_waiter` method.
-
-[Waiter.ChannelRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Waiter.ChannelRunning)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ChannelRunningWaiterName
-) -> ChannelRunningWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("medialive").get_waiter` method.
-
-[Waiter.ChannelStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Waiter.ChannelStopped)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ChannelStoppedWaiterName
-) -> ChannelStoppedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("medialive").get_waiter` method.
-
-[Waiter.InputAttached documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Waiter.InputAttached)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InputAttachedWaiterName
-) -> InputAttachedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("medialive").get_waiter` method.
-
-[Waiter.InputDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Waiter.InputDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InputDeletedWaiterName
-) -> InputDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("medialive").get_waiter` method.
-
-[Waiter.InputDetached documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Waiter.InputDetached)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InputDetachedWaiterName
-) -> InputDetachedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("medialive").get_waiter` method.
-
-[Waiter.MultiplexCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Waiter.MultiplexCreated)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: MultiplexCreatedWaiterName
-) -> MultiplexCreatedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("medialive").get_waiter` method.
-
-[Waiter.MultiplexDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Waiter.MultiplexDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: MultiplexDeletedWaiterName
-) -> MultiplexDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("medialive").get_waiter` method.
-
-[Waiter.MultiplexRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Waiter.MultiplexRunning)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: MultiplexRunningWaiterName
-) -> MultiplexRunningWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("medialive").get_waiter` method.
-
-[Waiter.MultiplexStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/medialive.html#MediaLive.Waiter.MultiplexStopped)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: MultiplexStoppedWaiterName
-) -> MultiplexStoppedWaiter:
-    pass
-```
+- `client.get_waiter("channel_created")` -> [ChannelCreatedWaiter](./waiters.md#channelcreatedwaiter)
+- `client.get_waiter("channel_deleted")` -> [ChannelDeletedWaiter](./waiters.md#channeldeletedwaiter)
+- `client.get_waiter("channel_running")` -> [ChannelRunningWaiter](./waiters.md#channelrunningwaiter)
+- `client.get_waiter("channel_stopped")` -> [ChannelStoppedWaiter](./waiters.md#channelstoppedwaiter)
+- `client.get_waiter("input_attached")` -> [InputAttachedWaiter](./waiters.md#inputattachedwaiter)
+- `client.get_waiter("input_deleted")` -> [InputDeletedWaiter](./waiters.md#inputdeletedwaiter)
+- `client.get_waiter("input_detached")` -> [InputDetachedWaiter](./waiters.md#inputdetachedwaiter)
+- `client.get_waiter("multiplex_created")` -> [MultiplexCreatedWaiter](./waiters.md#multiplexcreatedwaiter)
+- `client.get_waiter("multiplex_deleted")` -> [MultiplexDeletedWaiter](./waiters.md#multiplexdeletedwaiter)
+- `client.get_waiter("multiplex_running")` -> [MultiplexRunningWaiter](./waiters.md#multiplexrunningwaiter)
+- `client.get_waiter("multiplex_stopped")` -> [MultiplexStoppedWaiter](./waiters.md#multiplexstoppedwaiter)

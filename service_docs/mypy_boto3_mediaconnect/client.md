@@ -39,12 +39,7 @@ type annotations stubs module [mypy_boto3_mediaconnect](https://pypi.org/project
     - [update_flow_output](#update_flow_output)
     - [update_flow_source](#update_flow_source)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
 
 ## MediaConnectClient
 
@@ -549,107 +544,24 @@ def update_flow_source(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("mediaconnect").get_paginator` method.
-
-[Paginator.ListEntitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEntitlementsPaginatorName
-) -> ListEntitlementsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("mediaconnect").get_paginator` method.
+Type annotations for `boto3.client("mediaconnect").get_paginator` method with overloads.
 
-[Paginator.ListFlows documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows)
+- `client.get_paginator("list_entitlements")` -> [ListEntitlementsPaginator](./paginators.md#listentitlementspaginator)
+- `client.get_paginator("list_flows")` -> [ListFlowsPaginator](./paginators.md#listflowspaginator)
+- `client.get_paginator("list_offerings")` -> [ListOfferingsPaginator](./paginators.md#listofferingspaginator)
+- `client.get_paginator("list_reservations")` -> [ListReservationsPaginator](./paginators.md#listreservationspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFlowsPaginatorName
-) -> ListFlowsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("mediaconnect").get_paginator` method.
-
-[Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOfferingsPaginatorName
-) -> ListOfferingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mediaconnect").get_paginator` method.
-
-[Paginator.ListReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListReservationsPaginatorName
-) -> ListReservationsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("mediaconnect").get_waiter` method.
+Type annotations for `boto3.client("mediaconnect").get_waiter` method with overloads.
 
-[Waiter.FlowActive documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowActive)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: FlowActiveWaiterName
-) -> FlowActiveWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("mediaconnect").get_waiter` method.
-
-[Waiter.FlowDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowDeleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: FlowDeletedWaiterName
-) -> FlowDeletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("mediaconnect").get_waiter` method.
-
-[Waiter.FlowStandby documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediaconnect.html#MediaConnect.Waiter.FlowStandby)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: FlowStandbyWaiterName
-) -> FlowStandbyWaiter:
-    pass
-```
+- `client.get_waiter("flow_active")` -> [FlowActiveWaiter](./waiters.md#flowactivewaiter)
+- `client.get_waiter("flow_deleted")` -> [FlowDeletedWaiter](./waiters.md#flowdeletedwaiter)
+- `client.get_waiter("flow_standby")` -> [FlowStandbyWaiter](./waiters.md#flowstandbywaiter)

@@ -80,9 +80,9 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_kinesis_video_media.type_defs import ResponseMetadata, ...
+from mypy_boto3_kinesis_video_media.type_defs import GetMediaOutputTypeDef, ...
 ```
 
-- [ResponseMetadata](./type_defs.md#responsemetadata)
 - [GetMediaOutputTypeDef](./type_defs.md#getmediaoutputtypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)
 - [StartSelectorTypeDef](./type_defs.md#startselectortypedef)

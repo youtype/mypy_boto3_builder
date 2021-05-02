@@ -109,7 +109,7 @@ Type annotations for `boto3.client("worklink").associate_website_authorization_p
 def associate_website_authorization_provider(
     self,
     FleetArn: str,
-    AuthorizationProviderType: AuthorizationProviderType,
+    AuthorizationProviderType: Literal['SAML'],
     DomainName: str = None
 ) -> AssociateWebsiteAuthorizationProviderResponseTypeDef:
     pass
@@ -610,8 +610,11 @@ Type annotations for `boto3.client("worklink").update_identity_provider_configur
 def update_identity_provider_configuration(
     self,
     FleetArn: str,
-    IdentityProviderType: IdentityProviderType,
+    IdentityProviderType: Literal['SAML'],
     IdentityProviderSamlMetadata: str = None
 ) -> Dict[str, Any]:
     pass
 ```
+
+
+

@@ -8,26 +8,10 @@ type annotations stubs module [mypy_boto3_globalaccelerator](https://pypi.org/pr
 - [Structures for boto3 GlobalAccelerator module](#structures-for-boto3-globalaccelerator-module)
   - [AcceleratorAttributesTypeDef](#acceleratorattributestypedef)
   - [AcceleratorTypeDef](#acceleratortypedef)
-  - [ByoipCidrEventTypeDef](#byoipcidreventtypedef)
-  - [ByoipCidrTypeDef](#byoipcidrtypedef)
-  - [CustomRoutingAcceleratorAttributesTypeDef](#customroutingacceleratorattributestypedef)
-  - [CustomRoutingAcceleratorTypeDef](#customroutingacceleratortypedef)
-  - [CustomRoutingDestinationDescriptionTypeDef](#customroutingdestinationdescriptiontypedef)
-  - [CustomRoutingEndpointDescriptionTypeDef](#customroutingendpointdescriptiontypedef)
-  - [CustomRoutingEndpointGroupTypeDef](#customroutingendpointgrouptypedef)
-  - [CustomRoutingListenerTypeDef](#customroutinglistenertypedef)
-  - [DestinationPortMappingTypeDef](#destinationportmappingtypedef)
-  - [EndpointDescriptionTypeDef](#endpointdescriptiontypedef)
-  - [EndpointGroupTypeDef](#endpointgrouptypedef)
-  - [IpSetTypeDef](#ipsettypedef)
-  - [ListenerTypeDef](#listenertypedef)
-  - [PortMappingTypeDef](#portmappingtypedef)
-  - [PortOverrideTypeDef](#portoverridetypedef)
-  - [PortRangeTypeDef](#portrangetypedef)
-  - [SocketAddressTypeDef](#socketaddresstypedef)
-  - [TagTypeDef](#tagtypedef)
   - [AddCustomRoutingEndpointsResponseTypeDef](#addcustomroutingendpointsresponsetypedef)
   - [AdvertiseByoipCidrResponseTypeDef](#advertisebyoipcidrresponsetypedef)
+  - [ByoipCidrEventTypeDef](#byoipcidreventtypedef)
+  - [ByoipCidrTypeDef](#byoipcidrtypedef)
   - [CidrAuthorizationContextTypeDef](#cidrauthorizationcontexttypedef)
   - [CreateAcceleratorResponseTypeDef](#createacceleratorresponsetypedef)
   - [CreateCustomRoutingAcceleratorResponseTypeDef](#createcustomroutingacceleratorresponsetypedef)
@@ -35,8 +19,14 @@ type annotations stubs module [mypy_boto3_globalaccelerator](https://pypi.org/pr
   - [CreateCustomRoutingListenerResponseTypeDef](#createcustomroutinglistenerresponsetypedef)
   - [CreateEndpointGroupResponseTypeDef](#createendpointgroupresponsetypedef)
   - [CreateListenerResponseTypeDef](#createlistenerresponsetypedef)
+  - [CustomRoutingAcceleratorAttributesTypeDef](#customroutingacceleratorattributestypedef)
+  - [CustomRoutingAcceleratorTypeDef](#customroutingacceleratortypedef)
   - [CustomRoutingDestinationConfigurationTypeDef](#customroutingdestinationconfigurationtypedef)
+  - [CustomRoutingDestinationDescriptionTypeDef](#customroutingdestinationdescriptiontypedef)
   - [CustomRoutingEndpointConfigurationTypeDef](#customroutingendpointconfigurationtypedef)
+  - [CustomRoutingEndpointDescriptionTypeDef](#customroutingendpointdescriptiontypedef)
+  - [CustomRoutingEndpointGroupTypeDef](#customroutingendpointgrouptypedef)
+  - [CustomRoutingListenerTypeDef](#customroutinglistenertypedef)
   - [DeprovisionByoipCidrResponseTypeDef](#deprovisionbyoipcidrresponsetypedef)
   - [DescribeAcceleratorAttributesResponseTypeDef](#describeacceleratorattributesresponsetypedef)
   - [DescribeAcceleratorResponseTypeDef](#describeacceleratorresponsetypedef)
@@ -46,7 +36,11 @@ type annotations stubs module [mypy_boto3_globalaccelerator](https://pypi.org/pr
   - [DescribeCustomRoutingListenerResponseTypeDef](#describecustomroutinglistenerresponsetypedef)
   - [DescribeEndpointGroupResponseTypeDef](#describeendpointgroupresponsetypedef)
   - [DescribeListenerResponseTypeDef](#describelistenerresponsetypedef)
+  - [DestinationPortMappingTypeDef](#destinationportmappingtypedef)
   - [EndpointConfigurationTypeDef](#endpointconfigurationtypedef)
+  - [EndpointDescriptionTypeDef](#endpointdescriptiontypedef)
+  - [EndpointGroupTypeDef](#endpointgrouptypedef)
+  - [IpSetTypeDef](#ipsettypedef)
   - [ListAcceleratorsResponseTypeDef](#listacceleratorsresponsetypedef)
   - [ListByoipCidrsResponseTypeDef](#listbyoipcidrsresponsetypedef)
   - [ListCustomRoutingAcceleratorsResponseTypeDef](#listcustomroutingacceleratorsresponsetypedef)
@@ -57,8 +51,14 @@ type annotations stubs module [mypy_boto3_globalaccelerator](https://pypi.org/pr
   - [ListEndpointGroupsResponseTypeDef](#listendpointgroupsresponsetypedef)
   - [ListListenersResponseTypeDef](#listlistenersresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [ListenerTypeDef](#listenertypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PortMappingTypeDef](#portmappingtypedef)
+  - [PortOverrideTypeDef](#portoverridetypedef)
+  - [PortRangeTypeDef](#portrangetypedef)
   - [ProvisionByoipCidrResponseTypeDef](#provisionbyoipcidrresponsetypedef)
+  - [SocketAddressTypeDef](#socketaddresstypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateAcceleratorAttributesResponseTypeDef](#updateacceleratorattributesresponsetypedef)
   - [UpdateAcceleratorResponseTypeDef](#updateacceleratorresponsetypedef)
   - [UpdateCustomRoutingAcceleratorAttributesResponseTypeDef](#updatecustomroutingacceleratorattributesresponsetypedef)
@@ -95,13 +95,40 @@ from mypy_boto3_globalaccelerator.type_defs import AcceleratorTypeDef
 Optional fields:
 - `AcceleratorArn`: `str`
 - `Name`: `str`
-- `IpAddressType`: `IpAddressType`
+- `IpAddressType`: `Literal['IPV4']`
 - `Enabled`: `bool`
 - `IpSets`: `List["IpSetTypeDef"]`
 - `DnsName`: `str`
 - `Status`: `AcceleratorStatus`
 - `CreatedTime`: `datetime`
 - `LastModifiedTime`: `datetime`
+
+
+## AddCustomRoutingEndpointsResponseTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import AddCustomRoutingEndpointsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `EndpointDescriptions`: `List["CustomRoutingEndpointDescriptionTypeDef"]`
+- `EndpointGroupArn`: `str`
+
+
+## AdvertiseByoipCidrResponseTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import AdvertiseByoipCidrResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ByoipCidr`: `"ByoipCidrTypeDef"`
 
 
 ## ByoipCidrEventTypeDef
@@ -131,290 +158,6 @@ Optional fields:
 - `Cidr`: `str`
 - `State`: `ByoipCidrState`
 - `Events`: `List["ByoipCidrEventTypeDef"]`
-
-
-## CustomRoutingAcceleratorAttributesTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import CustomRoutingAcceleratorAttributesTypeDef
-```
-
-
-
-
-Optional fields:
-- `FlowLogsEnabled`: `bool`
-- `FlowLogsS3Bucket`: `str`
-- `FlowLogsS3Prefix`: `str`
-
-
-## CustomRoutingAcceleratorTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import CustomRoutingAcceleratorTypeDef
-```
-
-
-
-
-Optional fields:
-- `AcceleratorArn`: `str`
-- `Name`: `str`
-- `IpAddressType`: `IpAddressType`
-- `Enabled`: `bool`
-- `IpSets`: `List["IpSetTypeDef"]`
-- `DnsName`: `str`
-- `Status`: `CustomRoutingAcceleratorStatus`
-- `CreatedTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-
-
-## CustomRoutingDestinationDescriptionTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import CustomRoutingDestinationDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `FromPort`: `int`
-- `ToPort`: `int`
-- `Protocols`: `List[ProtocolType]`
-
-
-## CustomRoutingEndpointDescriptionTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import CustomRoutingEndpointDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `EndpointId`: `str`
-
-
-## CustomRoutingEndpointGroupTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import CustomRoutingEndpointGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `EndpointGroupArn`: `str`
-- `EndpointGroupRegion`: `str`
-- `DestinationDescriptions`: `List["CustomRoutingDestinationDescriptionTypeDef"]`
-- `EndpointDescriptions`: `List["CustomRoutingEndpointDescriptionTypeDef"]`
-
-
-## CustomRoutingListenerTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import CustomRoutingListenerTypeDef
-```
-
-
-
-
-Optional fields:
-- `ListenerArn`: `str`
-- `PortRanges`: `List["PortRangeTypeDef"]`
-
-
-## DestinationPortMappingTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import DestinationPortMappingTypeDef
-```
-
-
-
-
-Optional fields:
-- `AcceleratorArn`: `str`
-- `AcceleratorSocketAddresses`: `List["SocketAddressTypeDef"]`
-- `EndpointGroupArn`: `str`
-- `EndpointId`: `str`
-- `EndpointGroupRegion`: `str`
-- `DestinationSocketAddress`: `"SocketAddressTypeDef"`
-- `IpAddressType`: `IpAddressType`
-- `DestinationTrafficState`: `CustomRoutingDestinationTrafficState`
-
-
-## EndpointDescriptionTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import EndpointDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `EndpointId`: `str`
-- `Weight`: `int`
-- `HealthState`: `HealthState`
-- `HealthReason`: `str`
-- `ClientIPPreservationEnabled`: `bool`
-
-
-## EndpointGroupTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import EndpointGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `EndpointGroupArn`: `str`
-- `EndpointGroupRegion`: `str`
-- `EndpointDescriptions`: `List["EndpointDescriptionTypeDef"]`
-- `TrafficDialPercentage`: `float`
-- `HealthCheckPort`: `int`
-- `HealthCheckProtocol`: `HealthCheckProtocol`
-- `HealthCheckPath`: `str`
-- `HealthCheckIntervalSeconds`: `int`
-- `ThresholdCount`: `int`
-- `PortOverrides`: `List["PortOverrideTypeDef"]`
-
-
-## IpSetTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import IpSetTypeDef
-```
-
-
-
-
-Optional fields:
-- `IpFamily`: `str`
-- `IpAddresses`: `List[str]`
-
-
-## ListenerTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import ListenerTypeDef
-```
-
-
-
-
-Optional fields:
-- `ListenerArn`: `str`
-- `PortRanges`: `List["PortRangeTypeDef"]`
-- `Protocol`: `ProtocolType`
-- `ClientAffinity`: `ClientAffinity`
-
-
-## PortMappingTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import PortMappingTypeDef
-```
-
-
-
-
-Optional fields:
-- `AcceleratorPort`: `int`
-- `EndpointGroupArn`: `str`
-- `EndpointId`: `str`
-- `DestinationSocketAddress`: `"SocketAddressTypeDef"`
-- `Protocols`: `List[CustomRoutingProtocol]`
-- `DestinationTrafficState`: `CustomRoutingDestinationTrafficState`
-
-
-## PortOverrideTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import PortOverrideTypeDef
-```
-
-
-
-
-Optional fields:
-- `ListenerPort`: `int`
-- `EndpointPort`: `int`
-
-
-## PortRangeTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import PortRangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `FromPort`: `int`
-- `ToPort`: `int`
-
-
-## SocketAddressTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import SocketAddressTypeDef
-```
-
-
-
-
-Optional fields:
-- `IpAddress`: `str`
-- `Port`: `int`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## AddCustomRoutingEndpointsResponseTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import AddCustomRoutingEndpointsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `EndpointDescriptions`: `List["CustomRoutingEndpointDescriptionTypeDef"]`
-- `EndpointGroupArn`: `str`
-
-
-## AdvertiseByoipCidrResponseTypeDef
-
-```python
-from mypy_boto3_globalaccelerator.type_defs import AdvertiseByoipCidrResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ByoipCidr`: `"ByoipCidrTypeDef"`
 
 
 ## CidrAuthorizationContextTypeDef
@@ -509,6 +252,42 @@ Optional fields:
 - `Listener`: `"ListenerTypeDef"`
 
 
+## CustomRoutingAcceleratorAttributesTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import CustomRoutingAcceleratorAttributesTypeDef
+```
+
+
+
+
+Optional fields:
+- `FlowLogsEnabled`: `bool`
+- `FlowLogsS3Bucket`: `str`
+- `FlowLogsS3Prefix`: `str`
+
+
+## CustomRoutingAcceleratorTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import CustomRoutingAcceleratorTypeDef
+```
+
+
+
+
+Optional fields:
+- `AcceleratorArn`: `str`
+- `Name`: `str`
+- `IpAddressType`: `Literal['IPV4']`
+- `Enabled`: `bool`
+- `IpSets`: `List["IpSetTypeDef"]`
+- `DnsName`: `str`
+- `Status`: `CustomRoutingAcceleratorStatus`
+- `CreatedTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+
+
 ## CustomRoutingDestinationConfigurationTypeDef
 
 ```python
@@ -524,6 +303,21 @@ Required fields:
 
 
 
+## CustomRoutingDestinationDescriptionTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import CustomRoutingDestinationDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `FromPort`: `int`
+- `ToPort`: `int`
+- `Protocols`: `List[ProtocolType]`
+
+
 ## CustomRoutingEndpointConfigurationTypeDef
 
 ```python
@@ -535,6 +329,49 @@ from mypy_boto3_globalaccelerator.type_defs import CustomRoutingEndpointConfigur
 
 Optional fields:
 - `EndpointId`: `str`
+
+
+## CustomRoutingEndpointDescriptionTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import CustomRoutingEndpointDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `EndpointId`: `str`
+
+
+## CustomRoutingEndpointGroupTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import CustomRoutingEndpointGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `EndpointGroupArn`: `str`
+- `EndpointGroupRegion`: `str`
+- `DestinationDescriptions`: `List["CustomRoutingDestinationDescriptionTypeDef"]`
+- `EndpointDescriptions`: `List["CustomRoutingEndpointDescriptionTypeDef"]`
+
+
+## CustomRoutingListenerTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import CustomRoutingListenerTypeDef
+```
+
+
+
+
+Optional fields:
+- `ListenerArn`: `str`
+- `PortRanges`: `List["PortRangeTypeDef"]`
 
 
 ## DeprovisionByoipCidrResponseTypeDef
@@ -654,6 +491,26 @@ Optional fields:
 - `Listener`: `"ListenerTypeDef"`
 
 
+## DestinationPortMappingTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import DestinationPortMappingTypeDef
+```
+
+
+
+
+Optional fields:
+- `AcceleratorArn`: `str`
+- `AcceleratorSocketAddresses`: `List["SocketAddressTypeDef"]`
+- `EndpointGroupArn`: `str`
+- `EndpointId`: `str`
+- `EndpointGroupRegion`: `str`
+- `DestinationSocketAddress`: `"SocketAddressTypeDef"`
+- `IpAddressType`: `Literal['IPV4']`
+- `DestinationTrafficState`: `CustomRoutingDestinationTrafficState`
+
+
 ## EndpointConfigurationTypeDef
 
 ```python
@@ -667,6 +524,59 @@ Optional fields:
 - `EndpointId`: `str`
 - `Weight`: `int`
 - `ClientIPPreservationEnabled`: `bool`
+
+
+## EndpointDescriptionTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import EndpointDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `EndpointId`: `str`
+- `Weight`: `int`
+- `HealthState`: `HealthState`
+- `HealthReason`: `str`
+- `ClientIPPreservationEnabled`: `bool`
+
+
+## EndpointGroupTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import EndpointGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `EndpointGroupArn`: `str`
+- `EndpointGroupRegion`: `str`
+- `EndpointDescriptions`: `List["EndpointDescriptionTypeDef"]`
+- `TrafficDialPercentage`: `float`
+- `HealthCheckPort`: `int`
+- `HealthCheckProtocol`: `HealthCheckProtocol`
+- `HealthCheckPath`: `str`
+- `HealthCheckIntervalSeconds`: `int`
+- `ThresholdCount`: `int`
+- `PortOverrides`: `List["PortOverrideTypeDef"]`
+
+
+## IpSetTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import IpSetTypeDef
+```
+
+
+
+
+Optional fields:
+- `IpFamily`: `str`
+- `IpAddresses`: `List[str]`
 
 
 ## ListAcceleratorsResponseTypeDef
@@ -808,6 +718,22 @@ Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 
 
+## ListenerTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import ListenerTypeDef
+```
+
+
+
+
+Optional fields:
+- `ListenerArn`: `str`
+- `PortRanges`: `List["PortRangeTypeDef"]`
+- `Protocol`: `ProtocolType`
+- `ClientAffinity`: `ClientAffinity`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -823,6 +749,52 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PortMappingTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import PortMappingTypeDef
+```
+
+
+
+
+Optional fields:
+- `AcceleratorPort`: `int`
+- `EndpointGroupArn`: `str`
+- `EndpointId`: `str`
+- `DestinationSocketAddress`: `"SocketAddressTypeDef"`
+- `Protocols`: `List[CustomRoutingProtocol]`
+- `DestinationTrafficState`: `CustomRoutingDestinationTrafficState`
+
+
+## PortOverrideTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import PortOverrideTypeDef
+```
+
+
+
+
+Optional fields:
+- `ListenerPort`: `int`
+- `EndpointPort`: `int`
+
+
+## PortRangeTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import PortRangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `FromPort`: `int`
+- `ToPort`: `int`
+
+
 ## ProvisionByoipCidrResponseTypeDef
 
 ```python
@@ -834,6 +806,34 @@ from mypy_boto3_globalaccelerator.type_defs import ProvisionByoipCidrResponseTyp
 
 Optional fields:
 - `ByoipCidr`: `"ByoipCidrTypeDef"`
+
+
+## SocketAddressTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import SocketAddressTypeDef
+```
+
+
+
+
+Optional fields:
+- `IpAddress`: `str`
+- `Port`: `int`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_globalaccelerator.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## UpdateAcceleratorAttributesResponseTypeDef

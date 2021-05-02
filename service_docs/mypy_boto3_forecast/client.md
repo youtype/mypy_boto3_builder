@@ -47,12 +47,6 @@ type annotations stubs module [mypy_boto3_forecast](https://pypi.org/project/myp
     - [untag_resource](#untag_resource)
     - [update_dataset_group](#update_dataset_group)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
 
 ## ForecastServiceClient
 
@@ -664,107 +658,18 @@ def update_dataset_group(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("forecast").get_paginator` method.
-
-[Paginator.ListDatasetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/forecast.html#ForecastService.Paginator.ListDatasetGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatasetGroupsPaginatorName
-) -> ListDatasetGroupsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("forecast").get_paginator` method.
+Type annotations for `boto3.client("forecast").get_paginator` method with overloads.
 
-[Paginator.ListDatasetImportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/forecast.html#ForecastService.Paginator.ListDatasetImportJobs)
+- `client.get_paginator("list_dataset_groups")` -> [ListDatasetGroupsPaginator](./paginators.md#listdatasetgroupspaginator)
+- `client.get_paginator("list_dataset_import_jobs")` -> [ListDatasetImportJobsPaginator](./paginators.md#listdatasetimportjobspaginator)
+- `client.get_paginator("list_datasets")` -> [ListDatasetsPaginator](./paginators.md#listdatasetspaginator)
+- `client.get_paginator("list_forecast_export_jobs")` -> [ListForecastExportJobsPaginator](./paginators.md#listforecastexportjobspaginator)
+- `client.get_paginator("list_forecasts")` -> [ListForecastsPaginator](./paginators.md#listforecastspaginator)
+- `client.get_paginator("list_predictor_backtest_export_jobs")` -> [ListPredictorBacktestExportJobsPaginator](./paginators.md#listpredictorbacktestexportjobspaginator)
+- `client.get_paginator("list_predictors")` -> [ListPredictorsPaginator](./paginators.md#listpredictorspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatasetImportJobsPaginatorName
-) -> ListDatasetImportJobsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("forecast").get_paginator` method.
-
-[Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/forecast.html#ForecastService.Paginator.ListDatasets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatasetsPaginatorName
-) -> ListDatasetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("forecast").get_paginator` method.
-
-[Paginator.ListForecastExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/forecast.html#ForecastService.Paginator.ListForecastExportJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListForecastExportJobsPaginatorName
-) -> ListForecastExportJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("forecast").get_paginator` method.
-
-[Paginator.ListForecasts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/forecast.html#ForecastService.Paginator.ListForecasts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListForecastsPaginatorName
-) -> ListForecastsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("forecast").get_paginator` method.
-
-[Paginator.ListPredictorBacktestExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/forecast.html#ForecastService.Paginator.ListPredictorBacktestExportJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPredictorBacktestExportJobsPaginatorName
-) -> ListPredictorBacktestExportJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("forecast").get_paginator` method.
-
-[Paginator.ListPredictors documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/forecast.html#ForecastService.Paginator.ListPredictors)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPredictorsPaginatorName
-) -> ListPredictorsPaginator:
-    pass
-```

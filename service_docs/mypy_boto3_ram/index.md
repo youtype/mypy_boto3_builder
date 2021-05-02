@@ -150,18 +150,9 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_ram.type_defs import PrincipalTypeDef, ...
+from mypy_boto3_ram.type_defs import AcceptResourceShareInvitationResponseTypeDef, ...
 ```
 
-- [PrincipalTypeDef](./type_defs.md#principaltypedef)
-- [ResourceShareAssociationTypeDef](./type_defs.md#resourceshareassociationtypedef)
-- [ResourceShareInvitationTypeDef](./type_defs.md#resourceshareinvitationtypedef)
-- [ResourceSharePermissionDetailTypeDef](./type_defs.md#resourcesharepermissiondetailtypedef)
-- [ResourceSharePermissionSummaryTypeDef](./type_defs.md#resourcesharepermissionsummarytypedef)
-- [ResourceShareTypeDef](./type_defs.md#resourcesharetypedef)
-- [ResourceTypeDef](./type_defs.md#resourcetypedef)
-- [ServiceNameAndResourceTypeTypeDef](./type_defs.md#servicenameandresourcetypetypedef)
-- [TagTypeDef](./type_defs.md#tagtypedef)
 - [AcceptResourceShareInvitationResponseTypeDef](./type_defs.md#acceptresourceshareinvitationresponsetypedef)
 - [AssociateResourceSharePermissionResponseTypeDef](./type_defs.md#associateresourcesharepermissionresponsetypedef)
 - [AssociateResourceShareResponseTypeDef](./type_defs.md#associateresourceshareresponsetypedef)
@@ -182,7 +173,16 @@ from mypy_boto3_ram.type_defs import PrincipalTypeDef, ...
 - [ListResourceTypesResponseTypeDef](./type_defs.md#listresourcetypesresponsetypedef)
 - [ListResourcesResponseTypeDef](./type_defs.md#listresourcesresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [PrincipalTypeDef](./type_defs.md#principaltypedef)
 - [PromoteResourceShareCreatedFromPolicyResponseTypeDef](./type_defs.md#promoteresourcesharecreatedfrompolicyresponsetypedef)
 - [RejectResourceShareInvitationResponseTypeDef](./type_defs.md#rejectresourceshareinvitationresponsetypedef)
+- [ResourceShareAssociationTypeDef](./type_defs.md#resourceshareassociationtypedef)
+- [ResourceShareInvitationTypeDef](./type_defs.md#resourceshareinvitationtypedef)
+- [ResourceSharePermissionDetailTypeDef](./type_defs.md#resourcesharepermissiondetailtypedef)
+- [ResourceSharePermissionSummaryTypeDef](./type_defs.md#resourcesharepermissionsummarytypedef)
+- [ResourceShareTypeDef](./type_defs.md#resourcesharetypedef)
+- [ResourceTypeDef](./type_defs.md#resourcetypedef)
+- [ServiceNameAndResourceTypeTypeDef](./type_defs.md#servicenameandresourcetypetypedef)
 - [TagFilterTypeDef](./type_defs.md#tagfiltertypedef)
+- [TagTypeDef](./type_defs.md#tagtypedef)
 - [UpdateResourceShareResponseTypeDef](./type_defs.md#updateresourceshareresponsetypedef)

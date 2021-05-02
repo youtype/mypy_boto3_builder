@@ -22,7 +22,6 @@ type annotations stubs module [mypy_boto3_sdb](https://pypi.org/project/mypy-bot
     - [put_attributes](#put_attributes)
     - [select](#select)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## SimpleDBClient
 
@@ -257,32 +256,13 @@ def select(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("sdb").get_paginator` method.
-
-[Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb.html#SimpleDB.Paginator.ListDomains)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDomainsPaginatorName
-) -> ListDomainsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("sdb").get_paginator` method.
+Type annotations for `boto3.client("sdb").get_paginator` method with overloads.
 
-[Paginator.Select documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/sdb.html#SimpleDB.Paginator.Select)
+- `client.get_paginator("list_domains")` -> [ListDomainsPaginator](./paginators.md#listdomainspaginator)
+- `client.get_paginator("select")` -> [SelectPaginator](./paginators.md#selectpaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SelectPaginatorName
-) -> SelectPaginator:
-    pass
-```
+

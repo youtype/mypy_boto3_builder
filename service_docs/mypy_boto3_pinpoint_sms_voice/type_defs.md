@@ -8,14 +8,14 @@ type annotations stubs module [mypy_boto3_pinpoint_sms_voice](https://pypi.org/p
 - [Structures for boto3 PinpointSMSVoice module](#structures-for-boto3-pinpointsmsvoice-module)
   - [CallInstructionsMessageTypeTypeDef](#callinstructionsmessagetypetypedef)
   - [CloudWatchLogsDestinationTypeDef](#cloudwatchlogsdestinationtypedef)
+  - [EventDestinationDefinitionTypeDef](#eventdestinationdefinitiontypedef)
   - [EventDestinationTypeDef](#eventdestinationtypedef)
+  - [GetConfigurationSetEventDestinationsResponseTypeDef](#getconfigurationseteventdestinationsresponsetypedef)
   - [KinesisFirehoseDestinationTypeDef](#kinesisfirehosedestinationtypedef)
   - [PlainTextMessageTypeTypeDef](#plaintextmessagetypetypedef)
   - [SSMLMessageTypeTypeDef](#ssmlmessagetypetypedef)
-  - [SnsDestinationTypeDef](#snsdestinationtypedef)
-  - [EventDestinationDefinitionTypeDef](#eventdestinationdefinitiontypedef)
-  - [GetConfigurationSetEventDestinationsResponseTypeDef](#getconfigurationseteventdestinationsresponsetypedef)
   - [SendVoiceMessageResponseTypeDef](#sendvoicemessageresponsetypedef)
+  - [SnsDestinationTypeDef](#snsdestinationtypedef)
   - [VoiceMessageContentTypeDef](#voicemessagecontenttypedef)
 
 ## CallInstructionsMessageTypeTypeDef
@@ -45,6 +45,23 @@ Optional fields:
 - `LogGroupArn`: `str`
 
 
+## EventDestinationDefinitionTypeDef
+
+```python
+from mypy_boto3_pinpoint_sms_voice.type_defs import EventDestinationDefinitionTypeDef
+```
+
+
+
+
+Optional fields:
+- `CloudWatchLogsDestination`: `"CloudWatchLogsDestinationTypeDef"`
+- `Enabled`: `bool`
+- `KinesisFirehoseDestination`: `"KinesisFirehoseDestinationTypeDef"`
+- `MatchingEventTypes`: `List[EventType]`
+- `SnsDestination`: `"SnsDestinationTypeDef"`
+
+
 ## EventDestinationTypeDef
 
 ```python
@@ -61,6 +78,19 @@ Optional fields:
 - `MatchingEventTypes`: `List[EventType]`
 - `Name`: `str`
 - `SnsDestination`: `"SnsDestinationTypeDef"`
+
+
+## GetConfigurationSetEventDestinationsResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint_sms_voice.type_defs import GetConfigurationSetEventDestinationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventDestinations`: `List["EventDestinationTypeDef"]`
 
 
 ## KinesisFirehoseDestinationTypeDef
@@ -107,49 +137,6 @@ Optional fields:
 - `VoiceId`: `str`
 
 
-## SnsDestinationTypeDef
-
-```python
-from mypy_boto3_pinpoint_sms_voice.type_defs import SnsDestinationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TopicArn`: `str`
-
-
-## EventDestinationDefinitionTypeDef
-
-```python
-from mypy_boto3_pinpoint_sms_voice.type_defs import EventDestinationDefinitionTypeDef
-```
-
-
-
-
-Optional fields:
-- `CloudWatchLogsDestination`: `"CloudWatchLogsDestinationTypeDef"`
-- `Enabled`: `bool`
-- `KinesisFirehoseDestination`: `"KinesisFirehoseDestinationTypeDef"`
-- `MatchingEventTypes`: `List[EventType]`
-- `SnsDestination`: `"SnsDestinationTypeDef"`
-
-
-## GetConfigurationSetEventDestinationsResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint_sms_voice.type_defs import GetConfigurationSetEventDestinationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventDestinations`: `List["EventDestinationTypeDef"]`
-
-
 ## SendVoiceMessageResponseTypeDef
 
 ```python
@@ -161,6 +148,19 @@ from mypy_boto3_pinpoint_sms_voice.type_defs import SendVoiceMessageResponseType
 
 Optional fields:
 - `MessageId`: `str`
+
+
+## SnsDestinationTypeDef
+
+```python
+from mypy_boto3_pinpoint_sms_voice.type_defs import SnsDestinationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TopicArn`: `str`
 
 
 ## VoiceMessageContentTypeDef

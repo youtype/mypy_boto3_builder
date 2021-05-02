@@ -6,45 +6,25 @@ Auto-generated documentation for [LicenseManager](https://boto3.amazonaws.com/v1
 type annotations stubs module [mypy_boto3_license_manager](https://pypi.org/project/mypy-boto3-license-manager/).
 
 - [Structures for boto3 LicenseManager module](#structures-for-boto3-licensemanager-module)
+  - [AcceptGrantResponseTypeDef](#acceptgrantresponsetypedef)
   - [AutomatedDiscoveryInformationTypeDef](#automateddiscoveryinformationtypedef)
   - [BorrowConfigurationTypeDef](#borrowconfigurationtypedef)
-  - [ConsumedLicenseSummaryTypeDef](#consumedlicensesummarytypedef)
-  - [ConsumptionConfigurationTypeDef](#consumptionconfigurationtypedef)
-  - [DatetimeRangeTypeDef](#datetimerangetypedef)
-  - [EntitlementDataTypeDef](#entitlementdatatypedef)
-  - [EntitlementTypeDef](#entitlementtypedef)
-  - [EntitlementUsageTypeDef](#entitlementusagetypedef)
-  - [GrantTypeDef](#granttypedef)
-  - [GrantedLicenseTypeDef](#grantedlicensetypedef)
-  - [IssuerDetailsTypeDef](#issuerdetailstypedef)
-  - [LicenseConfigurationAssociationTypeDef](#licenseconfigurationassociationtypedef)
-  - [LicenseConfigurationTypeDef](#licenseconfigurationtypedef)
-  - [LicenseConfigurationUsageTypeDef](#licenseconfigurationusagetypedef)
-  - [LicenseOperationFailureTypeDef](#licenseoperationfailuretypedef)
-  - [LicenseSpecificationTypeDef](#licensespecificationtypedef)
-  - [LicenseTypeDef](#licensetypedef)
-  - [LicenseUsageTypeDef](#licenseusagetypedef)
-  - [ManagedResourceSummaryTypeDef](#managedresourcesummarytypedef)
-  - [MetadataTypeDef](#metadatatypedef)
-  - [OrganizationConfigurationTypeDef](#organizationconfigurationtypedef)
-  - [ProductInformationFilterTypeDef](#productinformationfiltertypedef)
-  - [ProductInformationTypeDef](#productinformationtypedef)
-  - [ProvisionalConfigurationTypeDef](#provisionalconfigurationtypedef)
-  - [ReceivedMetadataTypeDef](#receivedmetadatatypedef)
-  - [ResourceInventoryTypeDef](#resourceinventorytypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TokenDataTypeDef](#tokendatatypedef)
-  - [AcceptGrantResponseTypeDef](#acceptgrantresponsetypedef)
   - [CheckoutBorrowLicenseResponseTypeDef](#checkoutborrowlicenseresponsetypedef)
   - [CheckoutLicenseResponseTypeDef](#checkoutlicenseresponsetypedef)
+  - [ConsumedLicenseSummaryTypeDef](#consumedlicensesummarytypedef)
+  - [ConsumptionConfigurationTypeDef](#consumptionconfigurationtypedef)
   - [CreateGrantResponseTypeDef](#creategrantresponsetypedef)
   - [CreateGrantVersionResponseTypeDef](#creategrantversionresponsetypedef)
   - [CreateLicenseConfigurationResponseTypeDef](#createlicenseconfigurationresponsetypedef)
   - [CreateLicenseResponseTypeDef](#createlicenseresponsetypedef)
   - [CreateLicenseVersionResponseTypeDef](#createlicenseversionresponsetypedef)
   - [CreateTokenResponseTypeDef](#createtokenresponsetypedef)
+  - [DatetimeRangeTypeDef](#datetimerangetypedef)
   - [DeleteGrantResponseTypeDef](#deletegrantresponsetypedef)
   - [DeleteLicenseResponseTypeDef](#deletelicenseresponsetypedef)
+  - [EntitlementDataTypeDef](#entitlementdatatypedef)
+  - [EntitlementTypeDef](#entitlementtypedef)
+  - [EntitlementUsageTypeDef](#entitlementusagetypedef)
   - [ExtendLicenseConsumptionResponseTypeDef](#extendlicenseconsumptionresponsetypedef)
   - [FilterTypeDef](#filtertypedef)
   - [GetAccessTokenResponseTypeDef](#getaccesstokenresponsetypedef)
@@ -53,8 +33,18 @@ type annotations stubs module [mypy_boto3_license_manager](https://pypi.org/proj
   - [GetLicenseResponseTypeDef](#getlicenseresponsetypedef)
   - [GetLicenseUsageResponseTypeDef](#getlicenseusageresponsetypedef)
   - [GetServiceSettingsResponseTypeDef](#getservicesettingsresponsetypedef)
+  - [GrantTypeDef](#granttypedef)
+  - [GrantedLicenseTypeDef](#grantedlicensetypedef)
   - [InventoryFilterTypeDef](#inventoryfiltertypedef)
+  - [IssuerDetailsTypeDef](#issuerdetailstypedef)
   - [IssuerTypeDef](#issuertypedef)
+  - [LicenseConfigurationAssociationTypeDef](#licenseconfigurationassociationtypedef)
+  - [LicenseConfigurationTypeDef](#licenseconfigurationtypedef)
+  - [LicenseConfigurationUsageTypeDef](#licenseconfigurationusagetypedef)
+  - [LicenseOperationFailureTypeDef](#licenseoperationfailuretypedef)
+  - [LicenseSpecificationTypeDef](#licensespecificationtypedef)
+  - [LicenseTypeDef](#licensetypedef)
+  - [LicenseUsageTypeDef](#licenseusagetypedef)
   - [ListAssociationsForLicenseConfigurationResponseTypeDef](#listassociationsforlicenseconfigurationresponsetypedef)
   - [ListDistributedGrantsResponseTypeDef](#listdistributedgrantsresponsetypedef)
   - [ListFailuresForLicenseConfigurationOperationsResponseTypeDef](#listfailuresforlicenseconfigurationoperationsresponsetypedef)
@@ -68,8 +58,33 @@ type annotations stubs module [mypy_boto3_license_manager](https://pypi.org/proj
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListTokensResponseTypeDef](#listtokensresponsetypedef)
   - [ListUsageForLicenseConfigurationResponseTypeDef](#listusageforlicenseconfigurationresponsetypedef)
+  - [ManagedResourceSummaryTypeDef](#managedresourcesummarytypedef)
+  - [MetadataTypeDef](#metadatatypedef)
+  - [OrganizationConfigurationTypeDef](#organizationconfigurationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ProductInformationFilterTypeDef](#productinformationfiltertypedef)
+  - [ProductInformationTypeDef](#productinformationtypedef)
+  - [ProvisionalConfigurationTypeDef](#provisionalconfigurationtypedef)
+  - [ReceivedMetadataTypeDef](#receivedmetadatatypedef)
   - [RejectGrantResponseTypeDef](#rejectgrantresponsetypedef)
+  - [ResourceInventoryTypeDef](#resourceinventorytypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TokenDataTypeDef](#tokendatatypedef)
+
+## AcceptGrantResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import AcceptGrantResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `GrantArn`: `str`
+- `Status`: `GrantStatus`
+- `Version`: `str`
+
 
 ## AutomatedDiscoveryInformationTypeDef
 
@@ -96,6 +111,45 @@ Required fields:
 - `MaxTimeToLiveInMinutes`: `int`
 
 
+
+
+## CheckoutBorrowLicenseResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import CheckoutBorrowLicenseResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `LicenseArn`: `str`
+- `LicenseConsumptionToken`: `str`
+- `EntitlementsAllowed`: `List["EntitlementDataTypeDef"]`
+- `NodeId`: `str`
+- `SignedToken`: `str`
+- `IssuedAt`: `str`
+- `Expiration`: `str`
+- `CheckoutMetadata`: `List["MetadataTypeDef"]`
+
+
+## CheckoutLicenseResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import CheckoutLicenseResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CheckoutType`: `Literal['PROVISIONAL']`
+- `LicenseConsumptionToken`: `str`
+- `EntitlementsAllowed`: `List["EntitlementDataTypeDef"]`
+- `SignedToken`: `str`
+- `NodeId`: `str`
+- `IssuedAt`: `str`
+- `Expiration`: `str`
 
 
 ## ConsumedLicenseSummaryTypeDef
@@ -127,6 +181,94 @@ Optional fields:
 - `BorrowConfiguration`: `"BorrowConfigurationTypeDef"`
 
 
+## CreateGrantResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import CreateGrantResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `GrantArn`: `str`
+- `Status`: `GrantStatus`
+- `Version`: `str`
+
+
+## CreateGrantVersionResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import CreateGrantVersionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `GrantArn`: `str`
+- `Status`: `GrantStatus`
+- `Version`: `str`
+
+
+## CreateLicenseConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import CreateLicenseConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `LicenseConfigurationArn`: `str`
+
+
+## CreateLicenseResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import CreateLicenseResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `LicenseArn`: `str`
+- `Status`: `LicenseStatus`
+- `Version`: `str`
+
+
+## CreateLicenseVersionResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import CreateLicenseVersionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `LicenseArn`: `str`
+- `Version`: `str`
+- `Status`: `LicenseStatus`
+
+
+## CreateTokenResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import CreateTokenResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TokenId`: `str`
+- `TokenType`: `Literal['REFRESH_TOKEN']`
+- `Token`: `str`
+
+
 ## DatetimeRangeTypeDef
 
 ```python
@@ -141,6 +283,35 @@ Required fields:
 
 Optional fields:
 - `End`: `str`
+
+
+## DeleteGrantResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import DeleteGrantResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `GrantArn`: `str`
+- `Status`: `GrantStatus`
+- `Version`: `str`
+
+
+## DeleteLicenseResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import DeleteLicenseResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `LicenseDeletionStatus`
+- `DeletionDate`: `str`
 
 
 ## EntitlementDataTypeDef
@@ -198,6 +369,132 @@ Optional fields:
 - `MaxCount`: `str`
 
 
+## ExtendLicenseConsumptionResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import ExtendLicenseConsumptionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `LicenseConsumptionToken`: `str`
+- `Expiration`: `str`
+
+
+## FilterTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import FilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Values`: `List[str]`
+
+
+## GetAccessTokenResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import GetAccessTokenResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AccessToken`: `str`
+
+
+## GetGrantResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import GetGrantResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Grant`: `"GrantTypeDef"`
+
+
+## GetLicenseConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import GetLicenseConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `LicenseConfigurationId`: `str`
+- `LicenseConfigurationArn`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `LicenseCountingType`: `LicenseCountingType`
+- `LicenseRules`: `List[str]`
+- `LicenseCount`: `int`
+- `LicenseCountHardLimit`: `bool`
+- `ConsumedLicenses`: `int`
+- `Status`: `str`
+- `OwnerAccountId`: `str`
+- `ConsumedLicenseSummaryList`: `List["ConsumedLicenseSummaryTypeDef"]`
+- `ManagedResourceSummaryList`: `List["ManagedResourceSummaryTypeDef"]`
+- `Tags`: `List["TagTypeDef"]`
+- `ProductInformationList`: `List["ProductInformationTypeDef"]`
+- `AutomatedDiscoveryInformation`: `"AutomatedDiscoveryInformationTypeDef"`
+- `DisassociateWhenNotFound`: `bool`
+
+
+## GetLicenseResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import GetLicenseResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `License`: `"LicenseTypeDef"`
+
+
+## GetLicenseUsageResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import GetLicenseUsageResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `LicenseUsage`: `"LicenseUsageTypeDef"`
+
+
+## GetServiceSettingsResponseTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import GetServiceSettingsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3BucketArn`: `str`
+- `SnsTopicArn`: `str`
+- `OrganizationConfiguration`: `"OrganizationConfigurationTypeDef"`
+- `EnableCrossAccountsDiscovery`: `bool`
+- `LicenseManagerResourceShareArn`: `str`
+
+
 ## GrantTypeDef
 
 ```python
@@ -249,6 +546,23 @@ Optional fields:
 - `ReceivedMetadata`: `"ReceivedMetadataTypeDef"`
 
 
+## InventoryFilterTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import InventoryFilterTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Condition`: `InventoryFilterCondition`
+
+
+
+Optional fields:
+- `Value`: `str`
+
+
 ## IssuerDetailsTypeDef
 
 ```python
@@ -262,6 +576,22 @@ Optional fields:
 - `Name`: `str`
 - `SignKey`: `str`
 - `KeyFingerprint`: `str`
+
+
+## IssuerTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import IssuerTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+
+
+
+Optional fields:
+- `SignKey`: `str`
 
 
 ## LicenseConfigurationAssociationTypeDef
@@ -400,486 +730,6 @@ from mypy_boto3_license_manager.type_defs import LicenseUsageTypeDef
 
 Optional fields:
 - `EntitlementUsages`: `List["EntitlementUsageTypeDef"]`
-
-
-## ManagedResourceSummaryTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import ManagedResourceSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceType`: `ResourceType`
-- `AssociationCount`: `int`
-
-
-## MetadataTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import MetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Value`: `str`
-
-
-## OrganizationConfigurationTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import OrganizationConfigurationTypeDef
-```
-
-
-Required fields:
-- `EnableIntegration`: `bool`
-
-
-
-
-## ProductInformationFilterTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import ProductInformationFilterTypeDef
-```
-
-
-Required fields:
-- `ProductInformationFilterName`: `str`
-- `ProductInformationFilterComparator`: `str`
-
-
-
-Optional fields:
-- `ProductInformationFilterValue`: `List[str]`
-
-
-## ProductInformationTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import ProductInformationTypeDef
-```
-
-
-Required fields:
-- `ResourceType`: `str`
-- `ProductInformationFilterList`: `List["ProductInformationFilterTypeDef"]`
-
-
-
-
-## ProvisionalConfigurationTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import ProvisionalConfigurationTypeDef
-```
-
-
-Required fields:
-- `MaxTimeToLiveInMinutes`: `int`
-
-
-
-
-## ReceivedMetadataTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import ReceivedMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReceivedStatus`: `ReceivedStatus`
-- `AllowedOperations`: `List[AllowedOperation]`
-
-
-## ResourceInventoryTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import ResourceInventoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceId`: `str`
-- `ResourceType`: `ResourceType`
-- `ResourceArn`: `str`
-- `Platform`: `str`
-- `PlatformVersion`: `str`
-- `ResourceOwningAccountId`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## TokenDataTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import TokenDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `TokenId`: `str`
-- `TokenType`: `str`
-- `LicenseArn`: `str`
-- `ExpirationTime`: `str`
-- `TokenProperties`: `List[str]`
-- `RoleArns`: `List[str]`
-- `Status`: `str`
-
-
-## AcceptGrantResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import AcceptGrantResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `GrantArn`: `str`
-- `Status`: `GrantStatus`
-- `Version`: `str`
-
-
-## CheckoutBorrowLicenseResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import CheckoutBorrowLicenseResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `LicenseArn`: `str`
-- `LicenseConsumptionToken`: `str`
-- `EntitlementsAllowed`: `List["EntitlementDataTypeDef"]`
-- `NodeId`: `str`
-- `SignedToken`: `str`
-- `IssuedAt`: `str`
-- `Expiration`: `str`
-- `CheckoutMetadata`: `List["MetadataTypeDef"]`
-
-
-## CheckoutLicenseResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import CheckoutLicenseResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CheckoutType`: `CheckoutType`
-- `LicenseConsumptionToken`: `str`
-- `EntitlementsAllowed`: `List["EntitlementDataTypeDef"]`
-- `SignedToken`: `str`
-- `NodeId`: `str`
-- `IssuedAt`: `str`
-- `Expiration`: `str`
-
-
-## CreateGrantResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import CreateGrantResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `GrantArn`: `str`
-- `Status`: `GrantStatus`
-- `Version`: `str`
-
-
-## CreateGrantVersionResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import CreateGrantVersionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `GrantArn`: `str`
-- `Status`: `GrantStatus`
-- `Version`: `str`
-
-
-## CreateLicenseConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import CreateLicenseConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `LicenseConfigurationArn`: `str`
-
-
-## CreateLicenseResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import CreateLicenseResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `LicenseArn`: `str`
-- `Status`: `LicenseStatus`
-- `Version`: `str`
-
-
-## CreateLicenseVersionResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import CreateLicenseVersionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `LicenseArn`: `str`
-- `Version`: `str`
-- `Status`: `LicenseStatus`
-
-
-## CreateTokenResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import CreateTokenResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TokenId`: `str`
-- `TokenType`: `TokenType`
-- `Token`: `str`
-
-
-## DeleteGrantResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import DeleteGrantResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `GrantArn`: `str`
-- `Status`: `GrantStatus`
-- `Version`: `str`
-
-
-## DeleteLicenseResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import DeleteLicenseResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `LicenseDeletionStatus`
-- `DeletionDate`: `str`
-
-
-## ExtendLicenseConsumptionResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import ExtendLicenseConsumptionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `LicenseConsumptionToken`: `str`
-- `Expiration`: `str`
-
-
-## FilterTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import FilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Values`: `List[str]`
-
-
-## GetAccessTokenResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import GetAccessTokenResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AccessToken`: `str`
-
-
-## GetGrantResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import GetGrantResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Grant`: `"GrantTypeDef"`
-
-
-## GetLicenseConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import GetLicenseConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `LicenseConfigurationId`: `str`
-- `LicenseConfigurationArn`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `LicenseCountingType`: `LicenseCountingType`
-- `LicenseRules`: `List[str]`
-- `LicenseCount`: `int`
-- `LicenseCountHardLimit`: `bool`
-- `ConsumedLicenses`: `int`
-- `Status`: `str`
-- `OwnerAccountId`: `str`
-- `ConsumedLicenseSummaryList`: `List["ConsumedLicenseSummaryTypeDef"]`
-- `ManagedResourceSummaryList`: `List["ManagedResourceSummaryTypeDef"]`
-- `Tags`: `List["TagTypeDef"]`
-- `ProductInformationList`: `List["ProductInformationTypeDef"]`
-- `AutomatedDiscoveryInformation`: `"AutomatedDiscoveryInformationTypeDef"`
-- `DisassociateWhenNotFound`: `bool`
-
-
-## GetLicenseResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import GetLicenseResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `License`: `"LicenseTypeDef"`
-
-
-## GetLicenseUsageResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import GetLicenseUsageResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `LicenseUsage`: `"LicenseUsageTypeDef"`
-
-
-## GetServiceSettingsResponseTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import GetServiceSettingsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3BucketArn`: `str`
-- `SnsTopicArn`: `str`
-- `OrganizationConfiguration`: `"OrganizationConfigurationTypeDef"`
-- `EnableCrossAccountsDiscovery`: `bool`
-- `LicenseManagerResourceShareArn`: `str`
-
-
-## InventoryFilterTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import InventoryFilterTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Condition`: `InventoryFilterCondition`
-
-
-
-Optional fields:
-- `Value`: `str`
-
-
-## IssuerTypeDef
-
-```python
-from mypy_boto3_license_manager.type_defs import IssuerTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-
-
-
-Optional fields:
-- `SignKey`: `str`
 
 
 ## ListAssociationsForLicenseConfigurationResponseTypeDef
@@ -1063,6 +913,47 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## ManagedResourceSummaryTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import ManagedResourceSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceType`: `ResourceType`
+- `AssociationCount`: `int`
+
+
+## MetadataTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import MetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Value`: `str`
+
+
+## OrganizationConfigurationTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import OrganizationConfigurationTypeDef
+```
+
+
+Required fields:
+- `EnableIntegration`: `bool`
+
+
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -1078,6 +969,64 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ProductInformationFilterTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import ProductInformationFilterTypeDef
+```
+
+
+Required fields:
+- `ProductInformationFilterName`: `str`
+- `ProductInformationFilterComparator`: `str`
+
+
+
+Optional fields:
+- `ProductInformationFilterValue`: `List[str]`
+
+
+## ProductInformationTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import ProductInformationTypeDef
+```
+
+
+Required fields:
+- `ResourceType`: `str`
+- `ProductInformationFilterList`: `List["ProductInformationFilterTypeDef"]`
+
+
+
+
+## ProvisionalConfigurationTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import ProvisionalConfigurationTypeDef
+```
+
+
+Required fields:
+- `MaxTimeToLiveInMinutes`: `int`
+
+
+
+
+## ReceivedMetadataTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import ReceivedMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReceivedStatus`: `ReceivedStatus`
+- `AllowedOperations`: `List[AllowedOperation]`
+
+
 ## RejectGrantResponseTypeDef
 
 ```python
@@ -1091,4 +1040,55 @@ Optional fields:
 - `GrantArn`: `str`
 - `Status`: `GrantStatus`
 - `Version`: `str`
+
+
+## ResourceInventoryTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import ResourceInventoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceId`: `str`
+- `ResourceType`: `ResourceType`
+- `ResourceArn`: `str`
+- `Platform`: `str`
+- `PlatformVersion`: `str`
+- `ResourceOwningAccountId`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+## TokenDataTypeDef
+
+```python
+from mypy_boto3_license_manager.type_defs import TokenDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `TokenId`: `str`
+- `TokenType`: `str`
+- `LicenseArn`: `str`
+- `ExpirationTime`: `str`
+- `TokenProperties`: `List[str]`
+- `RoleArns`: `List[str]`
+- `Status`: `str`
 

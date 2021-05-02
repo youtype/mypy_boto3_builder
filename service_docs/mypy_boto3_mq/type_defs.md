@@ -15,17 +15,6 @@ type annotations stubs module [mypy_boto3_mq](https://pypi.org/project/mypy-boto
   - [ConfigurationRevisionTypeDef](#configurationrevisiontypedef)
   - [ConfigurationTypeDef](#configurationtypedef)
   - [ConfigurationsTypeDef](#configurationstypedef)
-  - [EncryptionOptionsTypeDef](#encryptionoptionstypedef)
-  - [EngineVersionTypeDef](#engineversiontypedef)
-  - [LdapServerMetadataOutputTypeDef](#ldapservermetadataoutputtypedef)
-  - [LogsSummaryTypeDef](#logssummarytypedef)
-  - [LogsTypeDef](#logstypedef)
-  - [PendingLogsTypeDef](#pendinglogstypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [SanitizationWarningTypeDef](#sanitizationwarningtypedef)
-  - [UserPendingChangesTypeDef](#userpendingchangestypedef)
-  - [UserSummaryTypeDef](#usersummarytypedef)
-  - [WeeklyStartTimeTypeDef](#weeklystarttimetypedef)
   - [CreateBrokerResponseTypeDef](#createbrokerresponsetypedef)
   - [CreateConfigurationResponseTypeDef](#createconfigurationresponsetypedef)
   - [DeleteBrokerResponseTypeDef](#deletebrokerresponsetypedef)
@@ -35,16 +24,27 @@ type annotations stubs module [mypy_boto3_mq](https://pypi.org/project/mypy-boto
   - [DescribeConfigurationResponseTypeDef](#describeconfigurationresponsetypedef)
   - [DescribeConfigurationRevisionResponseTypeDef](#describeconfigurationrevisionresponsetypedef)
   - [DescribeUserResponseTypeDef](#describeuserresponsetypedef)
+  - [EncryptionOptionsTypeDef](#encryptionoptionstypedef)
+  - [EngineVersionTypeDef](#engineversiontypedef)
   - [LdapServerMetadataInputTypeDef](#ldapservermetadatainputtypedef)
+  - [LdapServerMetadataOutputTypeDef](#ldapservermetadataoutputtypedef)
   - [ListBrokersResponseTypeDef](#listbrokersresponsetypedef)
   - [ListConfigurationRevisionsResponseTypeDef](#listconfigurationrevisionsresponsetypedef)
   - [ListConfigurationsResponseTypeDef](#listconfigurationsresponsetypedef)
   - [ListTagsResponseTypeDef](#listtagsresponsetypedef)
   - [ListUsersResponseTypeDef](#listusersresponsetypedef)
+  - [LogsSummaryTypeDef](#logssummarytypedef)
+  - [LogsTypeDef](#logstypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PendingLogsTypeDef](#pendinglogstypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [SanitizationWarningTypeDef](#sanitizationwarningtypedef)
   - [UpdateBrokerResponseTypeDef](#updatebrokerresponsetypedef)
   - [UpdateConfigurationResponseTypeDef](#updateconfigurationresponsetypedef)
+  - [UserPendingChangesTypeDef](#userpendingchangestypedef)
+  - [UserSummaryTypeDef](#usersummarytypedef)
   - [UserTypeDef](#usertypedef)
+  - [WeeklyStartTimeTypeDef](#weeklystarttimetypedef)
 
 ## AvailabilityZoneTypeDef
 
@@ -190,179 +190,6 @@ Optional fields:
 - `Current`: `"ConfigurationIdTypeDef"`
 - `History`: `List["ConfigurationIdTypeDef"]`
 - `Pending`: `"ConfigurationIdTypeDef"`
-
-
-## EncryptionOptionsTypeDef
-
-```python
-from mypy_boto3_mq.type_defs import EncryptionOptionsTypeDef
-```
-
-
-Required fields:
-- `UseAwsOwnedKey`: `bool`
-
-
-
-Optional fields:
-- `KmsKeyId`: `str`
-
-
-## EngineVersionTypeDef
-
-```python
-from mypy_boto3_mq.type_defs import EngineVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## LdapServerMetadataOutputTypeDef
-
-```python
-from mypy_boto3_mq.type_defs import LdapServerMetadataOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Hosts`: `List[str]`
-- `RoleBase`: `str`
-- `RoleName`: `str`
-- `RoleSearchMatching`: `str`
-- `RoleSearchSubtree`: `bool`
-- `ServiceAccountUsername`: `str`
-- `UserBase`: `str`
-- `UserRoleName`: `str`
-- `UserSearchMatching`: `str`
-- `UserSearchSubtree`: `bool`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## LogsSummaryTypeDef
-
-```python
-from mypy_boto3_mq.type_defs import LogsSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Audit`: `bool`
-- `AuditLogGroup`: `str`
-- `General`: `bool`
-- `GeneralLogGroup`: `str`
-- `Pending`: `"PendingLogsTypeDef"`
-
-
-## LogsTypeDef
-
-```python
-from mypy_boto3_mq.type_defs import LogsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Audit`: `bool`
-- `General`: `bool`
-
-
-## PendingLogsTypeDef
-
-```python
-from mypy_boto3_mq.type_defs import PendingLogsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Audit`: `bool`
-- `General`: `bool`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_mq.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## SanitizationWarningTypeDef
-
-```python
-from mypy_boto3_mq.type_defs import SanitizationWarningTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttributeName`: `str`
-- `ElementName`: `str`
-- `Reason`: `SanitizationWarningReason`
-
-
-## UserPendingChangesTypeDef
-
-```python
-from mypy_boto3_mq.type_defs import UserPendingChangesTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConsoleAccess`: `bool`
-- `Groups`: `List[str]`
-- `PendingChange`: `ChangeType`
-
-
-## UserSummaryTypeDef
-
-```python
-from mypy_boto3_mq.type_defs import UserSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `PendingChange`: `ChangeType`
-- `Username`: `str`
-
-
-## WeeklyStartTimeTypeDef
-
-```python
-from mypy_boto3_mq.type_defs import WeeklyStartTimeTypeDef
-```
-
-
-
-
-Optional fields:
-- `DayOfWeek`: `DayOfWeek`
-- `TimeOfDay`: `str`
-- `TimeZone`: `str`
 
 
 ## CreateBrokerResponseTypeDef
@@ -535,6 +362,35 @@ Optional fields:
 - `Username`: `str`
 
 
+## EncryptionOptionsTypeDef
+
+```python
+from mypy_boto3_mq.type_defs import EncryptionOptionsTypeDef
+```
+
+
+Required fields:
+- `UseAwsOwnedKey`: `bool`
+
+
+
+Optional fields:
+- `KmsKeyId`: `str`
+
+
+## EngineVersionTypeDef
+
+```python
+from mypy_boto3_mq.type_defs import EngineVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
 ## LdapServerMetadataInputTypeDef
 
 ```python
@@ -556,6 +412,29 @@ Optional fields:
 - `UserRoleName`: `str`
 - `UserSearchMatching`: `str`
 - `UserSearchSubtree`: `bool`
+
+
+## LdapServerMetadataOutputTypeDef
+
+```python
+from mypy_boto3_mq.type_defs import LdapServerMetadataOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Hosts`: `List[str]`
+- `RoleBase`: `str`
+- `RoleName`: `str`
+- `RoleSearchMatching`: `str`
+- `RoleSearchSubtree`: `bool`
+- `ServiceAccountUsername`: `str`
+- `UserBase`: `str`
+- `UserRoleName`: `str`
+- `UserSearchMatching`: `str`
+- `UserSearchSubtree`: `bool`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## ListBrokersResponseTypeDef
@@ -632,6 +511,37 @@ Optional fields:
 - `Users`: `List["UserSummaryTypeDef"]`
 
 
+## LogsSummaryTypeDef
+
+```python
+from mypy_boto3_mq.type_defs import LogsSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Audit`: `bool`
+- `AuditLogGroup`: `str`
+- `General`: `bool`
+- `GeneralLogGroup`: `str`
+- `Pending`: `"PendingLogsTypeDef"`
+
+
+## LogsTypeDef
+
+```python
+from mypy_boto3_mq.type_defs import LogsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Audit`: `bool`
+- `General`: `bool`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -645,6 +555,52 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PendingLogsTypeDef
+
+```python
+from mypy_boto3_mq.type_defs import PendingLogsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Audit`: `bool`
+- `General`: `bool`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_mq.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## SanitizationWarningTypeDef
+
+```python
+from mypy_boto3_mq.type_defs import SanitizationWarningTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttributeName`: `str`
+- `ElementName`: `str`
+- `Reason`: `SanitizationWarningReason`
 
 
 ## UpdateBrokerResponseTypeDef
@@ -686,6 +642,35 @@ Optional fields:
 - `Warnings`: `List["SanitizationWarningTypeDef"]`
 
 
+## UserPendingChangesTypeDef
+
+```python
+from mypy_boto3_mq.type_defs import UserPendingChangesTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConsoleAccess`: `bool`
+- `Groups`: `List[str]`
+- `PendingChange`: `ChangeType`
+
+
+## UserSummaryTypeDef
+
+```python
+from mypy_boto3_mq.type_defs import UserSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `PendingChange`: `ChangeType`
+- `Username`: `str`
+
+
 ## UserTypeDef
 
 ```python
@@ -700,4 +685,19 @@ Optional fields:
 - `Groups`: `List[str]`
 - `Password`: `str`
 - `Username`: `str`
+
+
+## WeeklyStartTimeTypeDef
+
+```python
+from mypy_boto3_mq.type_defs import WeeklyStartTimeTypeDef
+```
+
+
+
+
+Optional fields:
+- `DayOfWeek`: `DayOfWeek`
+- `TimeOfDay`: `str`
+- `TimeZone`: `str`
 

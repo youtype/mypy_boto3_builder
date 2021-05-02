@@ -6,37 +6,17 @@ Auto-generated documentation for [Athena](https://boto3.amazonaws.com/v1/documen
 type annotations stubs module [mypy_boto3_athena](https://pypi.org/project/mypy-boto3-athena/).
 
 - [Structures for boto3 Athena module](#structures-for-boto3-athena-module)
+  - [BatchGetNamedQueryOutputTypeDef](#batchgetnamedqueryoutputtypedef)
+  - [BatchGetQueryExecutionOutputTypeDef](#batchgetqueryexecutionoutputtypedef)
   - [ColumnInfoTypeDef](#columninfotypedef)
   - [ColumnTypeDef](#columntypedef)
+  - [CreateNamedQueryOutputTypeDef](#createnamedqueryoutputtypedef)
   - [DataCatalogSummaryTypeDef](#datacatalogsummarytypedef)
   - [DataCatalogTypeDef](#datacatalogtypedef)
   - [DatabaseTypeDef](#databasetypedef)
   - [DatumTypeDef](#datumtypedef)
   - [EncryptionConfigurationTypeDef](#encryptionconfigurationtypedef)
   - [EngineVersionTypeDef](#engineversiontypedef)
-  - [NamedQueryTypeDef](#namedquerytypedef)
-  - [PreparedStatementSummaryTypeDef](#preparedstatementsummarytypedef)
-  - [PreparedStatementTypeDef](#preparedstatementtypedef)
-  - [QueryExecutionContextTypeDef](#queryexecutioncontexttypedef)
-  - [QueryExecutionStatisticsTypeDef](#queryexecutionstatisticstypedef)
-  - [QueryExecutionStatusTypeDef](#queryexecutionstatustypedef)
-  - [QueryExecutionTypeDef](#queryexecutiontypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [ResultConfigurationTypeDef](#resultconfigurationtypedef)
-  - [ResultConfigurationUpdatesTypeDef](#resultconfigurationupdatestypedef)
-  - [ResultSetMetadataTypeDef](#resultsetmetadatatypedef)
-  - [ResultSetTypeDef](#resultsettypedef)
-  - [RowTypeDef](#rowtypedef)
-  - [TableMetadataTypeDef](#tablemetadatatypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [UnprocessedNamedQueryIdTypeDef](#unprocessednamedqueryidtypedef)
-  - [UnprocessedQueryExecutionIdTypeDef](#unprocessedqueryexecutionidtypedef)
-  - [WorkGroupConfigurationTypeDef](#workgroupconfigurationtypedef)
-  - [WorkGroupSummaryTypeDef](#workgroupsummarytypedef)
-  - [WorkGroupTypeDef](#workgrouptypedef)
-  - [BatchGetNamedQueryOutputTypeDef](#batchgetnamedqueryoutputtypedef)
-  - [BatchGetQueryExecutionOutputTypeDef](#batchgetqueryexecutionoutputtypedef)
-  - [CreateNamedQueryOutputTypeDef](#createnamedqueryoutputtypedef)
   - [GetDataCatalogOutputTypeDef](#getdatacatalogoutputtypedef)
   - [GetDatabaseOutputTypeDef](#getdatabaseoutputtypedef)
   - [GetNamedQueryOutputTypeDef](#getnamedqueryoutputtypedef)
@@ -54,9 +34,59 @@ type annotations stubs module [mypy_boto3_athena](https://pypi.org/project/mypy-
   - [ListTableMetadataOutputTypeDef](#listtablemetadataoutputtypedef)
   - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
   - [ListWorkGroupsOutputTypeDef](#listworkgroupsoutputtypedef)
+  - [NamedQueryTypeDef](#namedquerytypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PreparedStatementSummaryTypeDef](#preparedstatementsummarytypedef)
+  - [PreparedStatementTypeDef](#preparedstatementtypedef)
+  - [QueryExecutionContextTypeDef](#queryexecutioncontexttypedef)
+  - [QueryExecutionStatisticsTypeDef](#queryexecutionstatisticstypedef)
+  - [QueryExecutionStatusTypeDef](#queryexecutionstatustypedef)
+  - [QueryExecutionTypeDef](#queryexecutiontypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [ResultConfigurationTypeDef](#resultconfigurationtypedef)
+  - [ResultConfigurationUpdatesTypeDef](#resultconfigurationupdatestypedef)
+  - [ResultSetMetadataTypeDef](#resultsetmetadatatypedef)
+  - [ResultSetTypeDef](#resultsettypedef)
+  - [RowTypeDef](#rowtypedef)
   - [StartQueryExecutionOutputTypeDef](#startqueryexecutionoutputtypedef)
+  - [TableMetadataTypeDef](#tablemetadatatypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [UnprocessedNamedQueryIdTypeDef](#unprocessednamedqueryidtypedef)
+  - [UnprocessedQueryExecutionIdTypeDef](#unprocessedqueryexecutionidtypedef)
+  - [WorkGroupConfigurationTypeDef](#workgroupconfigurationtypedef)
   - [WorkGroupConfigurationUpdatesTypeDef](#workgroupconfigurationupdatestypedef)
+  - [WorkGroupSummaryTypeDef](#workgroupsummarytypedef)
+  - [WorkGroupTypeDef](#workgrouptypedef)
+
+## BatchGetNamedQueryOutputTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import BatchGetNamedQueryOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NamedQueries`: `List["NamedQueryTypeDef"]`
+- `UnprocessedNamedQueryIds`: `List["UnprocessedNamedQueryIdTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchGetQueryExecutionOutputTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import BatchGetQueryExecutionOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `QueryExecutions`: `List["QueryExecutionTypeDef"]`
+- `UnprocessedQueryExecutionIds`: `List["UnprocessedQueryExecutionIdTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
 
 ## ColumnInfoTypeDef
 
@@ -97,6 +127,20 @@ Required fields:
 Optional fields:
 - `Type`: `str`
 - `Comment`: `str`
+
+
+## CreateNamedQueryOutputTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import CreateNamedQueryOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `NamedQueryId`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## DataCatalogSummaryTypeDef
@@ -189,377 +233,6 @@ from mypy_boto3_athena.type_defs import EngineVersionTypeDef
 Optional fields:
 - `SelectedEngineVersion`: `str`
 - `EffectiveEngineVersion`: `str`
-
-
-## NamedQueryTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import NamedQueryTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Database`: `str`
-- `QueryString`: `str`
-
-
-
-Optional fields:
-- `Description`: `str`
-- `NamedQueryId`: `str`
-- `WorkGroup`: `str`
-
-
-## PreparedStatementSummaryTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import PreparedStatementSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `StatementName`: `str`
-- `LastModifiedTime`: `datetime`
-
-
-## PreparedStatementTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import PreparedStatementTypeDef
-```
-
-
-
-
-Optional fields:
-- `StatementName`: `str`
-- `QueryStatement`: `str`
-- `WorkGroupName`: `str`
-- `Description`: `str`
-- `LastModifiedTime`: `datetime`
-
-
-## QueryExecutionContextTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import QueryExecutionContextTypeDef
-```
-
-
-
-
-Optional fields:
-- `Database`: `str`
-- `Catalog`: `str`
-
-
-## QueryExecutionStatisticsTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import QueryExecutionStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `EngineExecutionTimeInMillis`: `int`
-- `DataScannedInBytes`: `int`
-- `DataManifestLocation`: `str`
-- `TotalExecutionTimeInMillis`: `int`
-- `QueryQueueTimeInMillis`: `int`
-- `QueryPlanningTimeInMillis`: `int`
-- `ServiceProcessingTimeInMillis`: `int`
-
-
-## QueryExecutionStatusTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import QueryExecutionStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `State`: `QueryExecutionState`
-- `StateChangeReason`: `str`
-- `SubmissionDateTime`: `datetime`
-- `CompletionDateTime`: `datetime`
-
-
-## QueryExecutionTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import QueryExecutionTypeDef
-```
-
-
-
-
-Optional fields:
-- `QueryExecutionId`: `str`
-- `Query`: `str`
-- `StatementType`: `StatementType`
-- `ResultConfiguration`: `"ResultConfigurationTypeDef"`
-- `QueryExecutionContext`: `"QueryExecutionContextTypeDef"`
-- `Status`: `"QueryExecutionStatusTypeDef"`
-- `Statistics`: `"QueryExecutionStatisticsTypeDef"`
-- `WorkGroup`: `str`
-- `EngineVersion`: `"EngineVersionTypeDef"`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_athena.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## ResultConfigurationTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import ResultConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `OutputLocation`: `str`
-- `EncryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
-
-
-## ResultConfigurationUpdatesTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import ResultConfigurationUpdatesTypeDef
-```
-
-
-
-
-Optional fields:
-- `OutputLocation`: `str`
-- `RemoveOutputLocation`: `bool`
-- `EncryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
-- `RemoveEncryptionConfiguration`: `bool`
-
-
-## ResultSetMetadataTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import ResultSetMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `ColumnInfo`: `List["ColumnInfoTypeDef"]`
-
-
-## ResultSetTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import ResultSetTypeDef
-```
-
-
-
-
-Optional fields:
-- `Rows`: `List["RowTypeDef"]`
-- `ResultSetMetadata`: `"ResultSetMetadataTypeDef"`
-
-
-## RowTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import RowTypeDef
-```
-
-
-
-
-Optional fields:
-- `Data`: `List["DatumTypeDef"]`
-
-
-## TableMetadataTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import TableMetadataTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-
-
-
-Optional fields:
-- `CreateTime`: `datetime`
-- `LastAccessTime`: `datetime`
-- `TableType`: `str`
-- `Columns`: `List["ColumnTypeDef"]`
-- `PartitionKeys`: `List["ColumnTypeDef"]`
-- `Parameters`: `Dict[str, str]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## UnprocessedNamedQueryIdTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import UnprocessedNamedQueryIdTypeDef
-```
-
-
-
-
-Optional fields:
-- `NamedQueryId`: `str`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## UnprocessedQueryExecutionIdTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import UnprocessedQueryExecutionIdTypeDef
-```
-
-
-
-
-Optional fields:
-- `QueryExecutionId`: `str`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## WorkGroupConfigurationTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import WorkGroupConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResultConfiguration`: `"ResultConfigurationTypeDef"`
-- `EnforceWorkGroupConfiguration`: `bool`
-- `PublishCloudWatchMetricsEnabled`: `bool`
-- `BytesScannedCutoffPerQuery`: `int`
-- `RequesterPaysEnabled`: `bool`
-- `EngineVersion`: `"EngineVersionTypeDef"`
-
-
-## WorkGroupSummaryTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import WorkGroupSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `State`: `WorkGroupState`
-- `Description`: `str`
-- `CreationTime`: `datetime`
-- `EngineVersion`: `"EngineVersionTypeDef"`
-
-
-## WorkGroupTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import WorkGroupTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-
-
-
-Optional fields:
-- `State`: `WorkGroupState`
-- `Configuration`: `"WorkGroupConfigurationTypeDef"`
-- `Description`: `str`
-- `CreationTime`: `datetime`
-
-
-## BatchGetNamedQueryOutputTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import BatchGetNamedQueryOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NamedQueries`: `List["NamedQueryTypeDef"]`
-- `UnprocessedNamedQueryIds`: `List["UnprocessedNamedQueryIdTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchGetQueryExecutionOutputTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import BatchGetQueryExecutionOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `QueryExecutions`: `List["QueryExecutionTypeDef"]`
-- `UnprocessedQueryExecutionIds`: `List["UnprocessedQueryExecutionIdTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateNamedQueryOutputTypeDef
-
-```python
-from mypy_boto3_athena.type_defs import CreateNamedQueryOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `NamedQueryId`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## GetDataCatalogOutputTypeDef
@@ -811,6 +484,26 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## NamedQueryTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import NamedQueryTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Database`: `str`
+- `QueryString`: `str`
+
+
+
+Optional fields:
+- `Description`: `str`
+- `NamedQueryId`: `str`
+- `WorkGroup`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -826,6 +519,194 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PreparedStatementSummaryTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import PreparedStatementSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `StatementName`: `str`
+- `LastModifiedTime`: `datetime`
+
+
+## PreparedStatementTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import PreparedStatementTypeDef
+```
+
+
+
+
+Optional fields:
+- `StatementName`: `str`
+- `QueryStatement`: `str`
+- `WorkGroupName`: `str`
+- `Description`: `str`
+- `LastModifiedTime`: `datetime`
+
+
+## QueryExecutionContextTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import QueryExecutionContextTypeDef
+```
+
+
+
+
+Optional fields:
+- `Database`: `str`
+- `Catalog`: `str`
+
+
+## QueryExecutionStatisticsTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import QueryExecutionStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `EngineExecutionTimeInMillis`: `int`
+- `DataScannedInBytes`: `int`
+- `DataManifestLocation`: `str`
+- `TotalExecutionTimeInMillis`: `int`
+- `QueryQueueTimeInMillis`: `int`
+- `QueryPlanningTimeInMillis`: `int`
+- `ServiceProcessingTimeInMillis`: `int`
+
+
+## QueryExecutionStatusTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import QueryExecutionStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `State`: `QueryExecutionState`
+- `StateChangeReason`: `str`
+- `SubmissionDateTime`: `datetime`
+- `CompletionDateTime`: `datetime`
+
+
+## QueryExecutionTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import QueryExecutionTypeDef
+```
+
+
+
+
+Optional fields:
+- `QueryExecutionId`: `str`
+- `Query`: `str`
+- `StatementType`: `StatementType`
+- `ResultConfiguration`: `"ResultConfigurationTypeDef"`
+- `QueryExecutionContext`: `"QueryExecutionContextTypeDef"`
+- `Status`: `"QueryExecutionStatusTypeDef"`
+- `Statistics`: `"QueryExecutionStatisticsTypeDef"`
+- `WorkGroup`: `str`
+- `EngineVersion`: `"EngineVersionTypeDef"`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_athena.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## ResultConfigurationTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import ResultConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `OutputLocation`: `str`
+- `EncryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
+
+
+## ResultConfigurationUpdatesTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import ResultConfigurationUpdatesTypeDef
+```
+
+
+
+
+Optional fields:
+- `OutputLocation`: `str`
+- `RemoveOutputLocation`: `bool`
+- `EncryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
+- `RemoveEncryptionConfiguration`: `bool`
+
+
+## ResultSetMetadataTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import ResultSetMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `ColumnInfo`: `List["ColumnInfoTypeDef"]`
+
+
+## ResultSetTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import ResultSetTypeDef
+```
+
+
+
+
+Optional fields:
+- `Rows`: `List["RowTypeDef"]`
+- `ResultSetMetadata`: `"ResultSetMetadataTypeDef"`
+
+
+## RowTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import RowTypeDef
+```
+
+
+
+
+Optional fields:
+- `Data`: `List["DatumTypeDef"]`
+
+
 ## StartQueryExecutionOutputTypeDef
 
 ```python
@@ -838,6 +719,89 @@ from mypy_boto3_athena.type_defs import StartQueryExecutionOutputTypeDef
 Optional fields:
 - `QueryExecutionId`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## TableMetadataTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import TableMetadataTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+
+
+
+Optional fields:
+- `CreateTime`: `datetime`
+- `LastAccessTime`: `datetime`
+- `TableType`: `str`
+- `Columns`: `List["ColumnTypeDef"]`
+- `PartitionKeys`: `List["ColumnTypeDef"]`
+- `Parameters`: `Dict[str, str]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+## UnprocessedNamedQueryIdTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import UnprocessedNamedQueryIdTypeDef
+```
+
+
+
+
+Optional fields:
+- `NamedQueryId`: `str`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+
+
+## UnprocessedQueryExecutionIdTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import UnprocessedQueryExecutionIdTypeDef
+```
+
+
+
+
+Optional fields:
+- `QueryExecutionId`: `str`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+
+
+## WorkGroupConfigurationTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import WorkGroupConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResultConfiguration`: `"ResultConfigurationTypeDef"`
+- `EnforceWorkGroupConfiguration`: `bool`
+- `PublishCloudWatchMetricsEnabled`: `bool`
+- `BytesScannedCutoffPerQuery`: `int`
+- `RequesterPaysEnabled`: `bool`
+- `EngineVersion`: `"EngineVersionTypeDef"`
 
 
 ## WorkGroupConfigurationUpdatesTypeDef
@@ -857,4 +821,40 @@ Optional fields:
 - `RemoveBytesScannedCutoffPerQuery`: `bool`
 - `RequesterPaysEnabled`: `bool`
 - `EngineVersion`: `"EngineVersionTypeDef"`
+
+
+## WorkGroupSummaryTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import WorkGroupSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `State`: `WorkGroupState`
+- `Description`: `str`
+- `CreationTime`: `datetime`
+- `EngineVersion`: `"EngineVersionTypeDef"`
+
+
+## WorkGroupTypeDef
+
+```python
+from mypy_boto3_athena.type_defs import WorkGroupTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+
+
+
+Optional fields:
+- `State`: `WorkGroupState`
+- `Configuration`: `"WorkGroupConfigurationTypeDef"`
+- `Description`: `str`
+- `CreationTime`: `datetime`
 

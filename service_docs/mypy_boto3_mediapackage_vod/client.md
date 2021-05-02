@@ -29,8 +29,6 @@ type annotations stubs module [mypy_boto3_mediapackage_vod](https://pypi.org/pro
     - [untag_resource](#untag_resource)
     - [update_packaging_group](#update_packaging_group)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## MediaPackageVodClient
 
@@ -361,47 +359,14 @@ def update_packaging_group(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("mediapackage-vod").get_paginator` method.
-
-[Paginator.ListAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListAssets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAssetsPaginatorName
-) -> ListAssetsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("mediapackage-vod").get_paginator` method.
+Type annotations for `boto3.client("mediapackage-vod").get_paginator` method with overloads.
 
-[Paginator.ListPackagingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingConfigurations)
+- `client.get_paginator("list_assets")` -> [ListAssetsPaginator](./paginators.md#listassetspaginator)
+- `client.get_paginator("list_packaging_configurations")` -> [ListPackagingConfigurationsPaginator](./paginators.md#listpackagingconfigurationspaginator)
+- `client.get_paginator("list_packaging_groups")` -> [ListPackagingGroupsPaginator](./paginators.md#listpackaginggroupspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPackagingConfigurationsPaginatorName
-) -> ListPackagingConfigurationsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("mediapackage-vod").get_paginator` method.
-
-[Paginator.ListPackagingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPackagingGroupsPaginatorName
-) -> ListPackagingGroupsPaginator:
-    pass
-```

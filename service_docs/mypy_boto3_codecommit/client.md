@@ -89,12 +89,6 @@ type annotations stubs module [mypy_boto3_codecommit](https://pypi.org/project/m
     - [update_repository_description](#update_repository_description)
     - [update_repository_name](#update_repository_name)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
 
 ## CodeCommitClient
 
@@ -1629,107 +1623,18 @@ def update_repository_name(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("codecommit").get_paginator` method.
-
-[Paginator.DescribePullRequestEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codecommit.html#CodeCommit.Paginator.DescribePullRequestEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribePullRequestEventsPaginatorName
-) -> DescribePullRequestEventsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("codecommit").get_paginator` method.
+Type annotations for `boto3.client("codecommit").get_paginator` method with overloads.
 
-[Paginator.GetCommentsForComparedCommit documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForComparedCommit)
+- `client.get_paginator("describe_pull_request_events")` -> [DescribePullRequestEventsPaginator](./paginators.md#describepullrequesteventspaginator)
+- `client.get_paginator("get_comments_for_compared_commit")` -> [GetCommentsForComparedCommitPaginator](./paginators.md#getcommentsforcomparedcommitpaginator)
+- `client.get_paginator("get_comments_for_pull_request")` -> [GetCommentsForPullRequestPaginator](./paginators.md#getcommentsforpullrequestpaginator)
+- `client.get_paginator("get_differences")` -> [GetDifferencesPaginator](./paginators.md#getdifferencespaginator)
+- `client.get_paginator("list_branches")` -> [ListBranchesPaginator](./paginators.md#listbranchespaginator)
+- `client.get_paginator("list_pull_requests")` -> [ListPullRequestsPaginator](./paginators.md#listpullrequestspaginator)
+- `client.get_paginator("list_repositories")` -> [ListRepositoriesPaginator](./paginators.md#listrepositoriespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetCommentsForComparedCommitPaginatorName
-) -> GetCommentsForComparedCommitPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("codecommit").get_paginator` method.
-
-[Paginator.GetCommentsForPullRequest documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForPullRequest)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetCommentsForPullRequestPaginatorName
-) -> GetCommentsForPullRequestPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codecommit").get_paginator` method.
-
-[Paginator.GetDifferences documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codecommit.html#CodeCommit.Paginator.GetDifferences)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDifferencesPaginatorName
-) -> GetDifferencesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codecommit").get_paginator` method.
-
-[Paginator.ListBranches documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codecommit.html#CodeCommit.Paginator.ListBranches)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBranchesPaginatorName
-) -> ListBranchesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codecommit").get_paginator` method.
-
-[Paginator.ListPullRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codecommit.html#CodeCommit.Paginator.ListPullRequests)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPullRequestsPaginatorName
-) -> ListPullRequestsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codecommit").get_paginator` method.
-
-[Paginator.ListRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codecommit.html#CodeCommit.Paginator.ListRepositories)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRepositoriesPaginatorName
-) -> ListRepositoriesPaginator:
-    pass
-```

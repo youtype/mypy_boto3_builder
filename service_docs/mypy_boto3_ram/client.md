@@ -36,11 +36,6 @@ type annotations stubs module [mypy_boto3_ram](https://pypi.org/project/mypy-bot
     - [untag_resource](#untag_resource)
     - [update_resource_share](#update_resource_share)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
 
 ## RAMClient
 
@@ -523,92 +518,17 @@ def update_resource_share(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("ram").get_paginator` method.
-
-[Paginator.GetResourcePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram.html#RAM.Paginator.GetResourcePolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetResourcePoliciesPaginatorName
-) -> GetResourcePoliciesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("ram").get_paginator` method.
+Type annotations for `boto3.client("ram").get_paginator` method with overloads.
 
-[Paginator.GetResourceShareAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram.html#RAM.Paginator.GetResourceShareAssociations)
+- `client.get_paginator("get_resource_policies")` -> [GetResourcePoliciesPaginator](./paginators.md#getresourcepoliciespaginator)
+- `client.get_paginator("get_resource_share_associations")` -> [GetResourceShareAssociationsPaginator](./paginators.md#getresourceshareassociationspaginator)
+- `client.get_paginator("get_resource_share_invitations")` -> [GetResourceShareInvitationsPaginator](./paginators.md#getresourceshareinvitationspaginator)
+- `client.get_paginator("get_resource_shares")` -> [GetResourceSharesPaginator](./paginators.md#getresourcesharespaginator)
+- `client.get_paginator("list_principals")` -> [ListPrincipalsPaginator](./paginators.md#listprincipalspaginator)
+- `client.get_paginator("list_resources")` -> [ListResourcesPaginator](./paginators.md#listresourcespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetResourceShareAssociationsPaginatorName
-) -> GetResourceShareAssociationsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("ram").get_paginator` method.
-
-[Paginator.GetResourceShareInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram.html#RAM.Paginator.GetResourceShareInvitations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetResourceShareInvitationsPaginatorName
-) -> GetResourceShareInvitationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ram").get_paginator` method.
-
-[Paginator.GetResourceShares documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram.html#RAM.Paginator.GetResourceShares)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetResourceSharesPaginatorName
-) -> GetResourceSharesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ram").get_paginator` method.
-
-[Paginator.ListPrincipals documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram.html#RAM.Paginator.ListPrincipals)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPrincipalsPaginatorName
-) -> ListPrincipalsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ram").get_paginator` method.
-
-[Paginator.ListResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ram.html#RAM.Paginator.ListResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourcesPaginatorName
-) -> ListResourcesPaginator:
-    pass
-```

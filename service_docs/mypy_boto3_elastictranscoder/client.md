@@ -29,9 +29,6 @@ type annotations stubs module [mypy_boto3_elastictranscoder](https://pypi.org/pr
     - [update_pipeline_notifications](#update_pipeline_notifications)
     - [update_pipeline_status](#update_pipeline_status)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
     - [get_waiter](#get_waiter)
 
 ## ElasticTranscoderClient
@@ -378,76 +375,22 @@ def update_pipeline_status(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("elastictranscoder").get_paginator` method.
-
-[Paginator.ListJobsByPipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByPipeline)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobsByPipelinePaginatorName
-) -> ListJobsByPipelinePaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("elastictranscoder").get_paginator` method.
+Type annotations for `boto3.client("elastictranscoder").get_paginator` method with overloads.
 
-[Paginator.ListJobsByStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByStatus)
+- `client.get_paginator("list_jobs_by_pipeline")` -> [ListJobsByPipelinePaginator](./paginators.md#listjobsbypipelinepaginator)
+- `client.get_paginator("list_jobs_by_status")` -> [ListJobsByStatusPaginator](./paginators.md#listjobsbystatuspaginator)
+- `client.get_paginator("list_pipelines")` -> [ListPipelinesPaginator](./paginators.md#listpipelinespaginator)
+- `client.get_paginator("list_presets")` -> [ListPresetsPaginator](./paginators.md#listpresetspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListJobsByStatusPaginatorName
-) -> ListJobsByStatusPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("elastictranscoder").get_paginator` method.
-
-[Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPipelines)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPipelinesPaginatorName
-) -> ListPipelinesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("elastictranscoder").get_paginator` method.
-
-[Paginator.ListPresets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPresets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPresetsPaginatorName
-) -> ListPresetsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("elastictranscoder").get_waiter` method.
+Type annotations for `boto3.client("elastictranscoder").get_waiter` method with overloads.
 
-[Waiter.JobComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete)
-
-```python
-def get_waiter(
-    self,
-    waiter_name: JobCompleteWaiterName
-) -> JobCompleteWaiter:
-    pass
-```
+- `client.get_waiter("job_complete")` -> [JobCompleteWaiter](./waiters.md#jobcompletewaiter)

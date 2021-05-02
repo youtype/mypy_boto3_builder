@@ -82,11 +82,11 @@ from mypy_boto3_pi.type_defs import DataPointTypeDef, ...
 ```
 
 - [DataPointTypeDef](./type_defs.md#datapointtypedef)
+- [DescribeDimensionKeysResponseTypeDef](./type_defs.md#describedimensionkeysresponsetypedef)
 - [DimensionGroupTypeDef](./type_defs.md#dimensiongrouptypedef)
 - [DimensionKeyDescriptionTypeDef](./type_defs.md#dimensionkeydescriptiontypedef)
+- [GetResourceMetricsResponseTypeDef](./type_defs.md#getresourcemetricsresponsetypedef)
 - [MetricKeyDataPointsTypeDef](./type_defs.md#metrickeydatapointstypedef)
+- [MetricQueryTypeDef](./type_defs.md#metricquerytypedef)
 - [ResponsePartitionKeyTypeDef](./type_defs.md#responsepartitionkeytypedef)
 - [ResponseResourceMetricKeyTypeDef](./type_defs.md#responseresourcemetrickeytypedef)
-- [DescribeDimensionKeysResponseTypeDef](./type_defs.md#describedimensionkeysresponsetypedef)
-- [GetResourceMetricsResponseTypeDef](./type_defs.md#getresourcemetricsresponsetypedef)
-- [MetricQueryTypeDef](./type_defs.md#metricquerytypedef)

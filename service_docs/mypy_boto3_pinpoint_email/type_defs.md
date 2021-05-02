@@ -11,38 +11,20 @@ type annotations stubs module [mypy_boto3_pinpoint_email](https://pypi.org/proje
   - [CloudWatchDestinationTypeDef](#cloudwatchdestinationtypedef)
   - [CloudWatchDimensionConfigurationTypeDef](#cloudwatchdimensionconfigurationtypedef)
   - [ContentTypeDef](#contenttypedef)
+  - [CreateDeliverabilityTestReportResponseTypeDef](#createdeliverabilitytestreportresponsetypedef)
+  - [CreateEmailIdentityResponseTypeDef](#createemailidentityresponsetypedef)
   - [DailyVolumeTypeDef](#dailyvolumetypedef)
   - [DedicatedIpTypeDef](#dedicatediptypedef)
   - [DeliverabilityTestReportTypeDef](#deliverabilitytestreporttypedef)
   - [DeliveryOptionsTypeDef](#deliveryoptionstypedef)
+  - [DestinationTypeDef](#destinationtypedef)
   - [DkimAttributesTypeDef](#dkimattributestypedef)
   - [DomainDeliverabilityCampaignTypeDef](#domaindeliverabilitycampaigntypedef)
   - [DomainDeliverabilityTrackingOptionTypeDef](#domaindeliverabilitytrackingoptiontypedef)
   - [DomainIspPlacementTypeDef](#domainispplacementtypedef)
-  - [EventDestinationTypeDef](#eventdestinationtypedef)
-  - [IdentityInfoTypeDef](#identityinfotypedef)
-  - [InboxPlacementTrackingOptionTypeDef](#inboxplacementtrackingoptiontypedef)
-  - [IspPlacementTypeDef](#ispplacementtypedef)
-  - [KinesisFirehoseDestinationTypeDef](#kinesisfirehosedestinationtypedef)
-  - [MailFromAttributesTypeDef](#mailfromattributestypedef)
-  - [MessageTypeDef](#messagetypedef)
-  - [OverallVolumeTypeDef](#overallvolumetypedef)
-  - [PinpointDestinationTypeDef](#pinpointdestinationtypedef)
-  - [PlacementStatisticsTypeDef](#placementstatisticstypedef)
-  - [RawMessageTypeDef](#rawmessagetypedef)
-  - [ReputationOptionsTypeDef](#reputationoptionstypedef)
-  - [SendQuotaTypeDef](#sendquotatypedef)
-  - [SendingOptionsTypeDef](#sendingoptionstypedef)
-  - [SnsDestinationTypeDef](#snsdestinationtypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TemplateTypeDef](#templatetypedef)
-  - [TrackingOptionsTypeDef](#trackingoptionstypedef)
-  - [VolumeStatisticsTypeDef](#volumestatisticstypedef)
-  - [CreateDeliverabilityTestReportResponseTypeDef](#createdeliverabilitytestreportresponsetypedef)
-  - [CreateEmailIdentityResponseTypeDef](#createemailidentityresponsetypedef)
-  - [DestinationTypeDef](#destinationtypedef)
   - [EmailContentTypeDef](#emailcontenttypedef)
   - [EventDestinationDefinitionTypeDef](#eventdestinationdefinitiontypedef)
+  - [EventDestinationTypeDef](#eventdestinationtypedef)
   - [GetAccountResponseTypeDef](#getaccountresponsetypedef)
   - [GetBlacklistReportsResponseTypeDef](#getblacklistreportsresponsetypedef)
   - [GetConfigurationSetEventDestinationsResponseTypeDef](#getconfigurationseteventdestinationsresponsetypedef)
@@ -54,15 +36,33 @@ type annotations stubs module [mypy_boto3_pinpoint_email](https://pypi.org/proje
   - [GetDomainDeliverabilityCampaignResponseTypeDef](#getdomaindeliverabilitycampaignresponsetypedef)
   - [GetDomainStatisticsReportResponseTypeDef](#getdomainstatisticsreportresponsetypedef)
   - [GetEmailIdentityResponseTypeDef](#getemailidentityresponsetypedef)
+  - [IdentityInfoTypeDef](#identityinfotypedef)
+  - [InboxPlacementTrackingOptionTypeDef](#inboxplacementtrackingoptiontypedef)
+  - [IspPlacementTypeDef](#ispplacementtypedef)
+  - [KinesisFirehoseDestinationTypeDef](#kinesisfirehosedestinationtypedef)
   - [ListConfigurationSetsResponseTypeDef](#listconfigurationsetsresponsetypedef)
   - [ListDedicatedIpPoolsResponseTypeDef](#listdedicatedippoolsresponsetypedef)
   - [ListDeliverabilityTestReportsResponseTypeDef](#listdeliverabilitytestreportsresponsetypedef)
   - [ListDomainDeliverabilityCampaignsResponseTypeDef](#listdomaindeliverabilitycampaignsresponsetypedef)
   - [ListEmailIdentitiesResponseTypeDef](#listemailidentitiesresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [MailFromAttributesTypeDef](#mailfromattributestypedef)
   - [MessageTagTypeDef](#messagetagtypedef)
+  - [MessageTypeDef](#messagetypedef)
+  - [OverallVolumeTypeDef](#overallvolumetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PinpointDestinationTypeDef](#pinpointdestinationtypedef)
+  - [PlacementStatisticsTypeDef](#placementstatisticstypedef)
+  - [RawMessageTypeDef](#rawmessagetypedef)
+  - [ReputationOptionsTypeDef](#reputationoptionstypedef)
   - [SendEmailResponseTypeDef](#sendemailresponsetypedef)
+  - [SendQuotaTypeDef](#sendquotatypedef)
+  - [SendingOptionsTypeDef](#sendingoptionstypedef)
+  - [SnsDestinationTypeDef](#snsdestinationtypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TemplateTypeDef](#templatetypedef)
+  - [TrackingOptionsTypeDef](#trackingoptionstypedef)
+  - [VolumeStatisticsTypeDef](#volumestatisticstypedef)
 
 ## BlacklistEntryTypeDef
 
@@ -137,6 +137,35 @@ Optional fields:
 - `Charset`: `str`
 
 
+## CreateDeliverabilityTestReportResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import CreateDeliverabilityTestReportResponseTypeDef
+```
+
+
+Required fields:
+- `ReportId`: `str`
+- `DeliverabilityTestStatus`: `DeliverabilityTestStatus`
+
+
+
+
+## CreateEmailIdentityResponseTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import CreateEmailIdentityResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `IdentityType`: `IdentityType`
+- `VerifiedForSendingStatus`: `bool`
+- `DkimAttributes`: `"DkimAttributesTypeDef"`
+
+
 ## DailyVolumeTypeDef
 
 ```python
@@ -200,6 +229,21 @@ from mypy_boto3_pinpoint_email.type_defs import DeliveryOptionsTypeDef
 Optional fields:
 - `TlsPolicy`: `TlsPolicy`
 - `SendingPoolName`: `str`
+
+
+## DestinationTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import DestinationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ToAddresses`: `List[str]`
+- `CcAddresses`: `List[str]`
+- `BccAddresses`: `List[str]`
 
 
 ## DkimAttributesTypeDef
@@ -275,327 +319,6 @@ Optional fields:
 - `SpamPercentage`: `float`
 
 
-## EventDestinationTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import EventDestinationTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `MatchingEventTypes`: `List[EventType]`
-
-
-
-Optional fields:
-- `Enabled`: `bool`
-- `KinesisFirehoseDestination`: `"KinesisFirehoseDestinationTypeDef"`
-- `CloudWatchDestination`: `"CloudWatchDestinationTypeDef"`
-- `SnsDestination`: `"SnsDestinationTypeDef"`
-- `PinpointDestination`: `"PinpointDestinationTypeDef"`
-
-
-## IdentityInfoTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import IdentityInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `IdentityType`: `IdentityType`
-- `IdentityName`: `str`
-- `SendingEnabled`: `bool`
-
-
-## InboxPlacementTrackingOptionTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import InboxPlacementTrackingOptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Global`: `bool`
-- `TrackedIsps`: `List[str]`
-
-
-## IspPlacementTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import IspPlacementTypeDef
-```
-
-
-
-
-Optional fields:
-- `IspName`: `str`
-- `PlacementStatistics`: `"PlacementStatisticsTypeDef"`
-
-
-## KinesisFirehoseDestinationTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import KinesisFirehoseDestinationTypeDef
-```
-
-
-Required fields:
-- `IamRoleArn`: `str`
-- `DeliveryStreamArn`: `str`
-
-
-
-
-## MailFromAttributesTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import MailFromAttributesTypeDef
-```
-
-
-Required fields:
-- `MailFromDomain`: `str`
-- `MailFromDomainStatus`: `MailFromDomainStatus`
-- `BehaviorOnMxFailure`: `BehaviorOnMxFailure`
-
-
-
-
-## MessageTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import MessageTypeDef
-```
-
-
-Required fields:
-- `Subject`: `"ContentTypeDef"`
-- `Body`: `"BodyTypeDef"`
-
-
-
-
-## OverallVolumeTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import OverallVolumeTypeDef
-```
-
-
-
-
-Optional fields:
-- `VolumeStatistics`: `"VolumeStatisticsTypeDef"`
-- `ReadRatePercent`: `float`
-- `DomainIspPlacements`: `List["DomainIspPlacementTypeDef"]`
-
-
-## PinpointDestinationTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import PinpointDestinationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApplicationArn`: `str`
-
-
-## PlacementStatisticsTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import PlacementStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `InboxPercentage`: `float`
-- `SpamPercentage`: `float`
-- `MissingPercentage`: `float`
-- `SpfPercentage`: `float`
-- `DkimPercentage`: `float`
-
-
-## RawMessageTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import RawMessageTypeDef
-```
-
-
-Required fields:
-- `Data`: `Union[bytes, IO[bytes]]`
-
-
-
-
-## ReputationOptionsTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import ReputationOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReputationMetricsEnabled`: `bool`
-- `LastFreshStart`: `datetime`
-
-
-## SendQuotaTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import SendQuotaTypeDef
-```
-
-
-
-
-Optional fields:
-- `Max24HourSend`: `float`
-- `MaxSendRate`: `float`
-- `SentLast24Hours`: `float`
-
-
-## SendingOptionsTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import SendingOptionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `SendingEnabled`: `bool`
-
-
-## SnsDestinationTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import SnsDestinationTypeDef
-```
-
-
-Required fields:
-- `TopicArn`: `str`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TemplateTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import TemplateTypeDef
-```
-
-
-
-
-Optional fields:
-- `TemplateArn`: `str`
-- `TemplateData`: `str`
-
-
-## TrackingOptionsTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import TrackingOptionsTypeDef
-```
-
-
-Required fields:
-- `CustomRedirectDomain`: `str`
-
-
-
-
-## VolumeStatisticsTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import VolumeStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `InboxRawCount`: `int`
-- `SpamRawCount`: `int`
-- `ProjectedInbox`: `int`
-- `ProjectedSpam`: `int`
-
-
-## CreateDeliverabilityTestReportResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import CreateDeliverabilityTestReportResponseTypeDef
-```
-
-
-Required fields:
-- `ReportId`: `str`
-- `DeliverabilityTestStatus`: `DeliverabilityTestStatus`
-
-
-
-
-## CreateEmailIdentityResponseTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import CreateEmailIdentityResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `IdentityType`: `IdentityType`
-- `VerifiedForSendingStatus`: `bool`
-- `DkimAttributes`: `"DkimAttributesTypeDef"`
-
-
-## DestinationTypeDef
-
-```python
-from mypy_boto3_pinpoint_email.type_defs import DestinationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ToAddresses`: `List[str]`
-- `CcAddresses`: `List[str]`
-- `BccAddresses`: `List[str]`
-
-
 ## EmailContentTypeDef
 
 ```python
@@ -623,6 +346,27 @@ from mypy_boto3_pinpoint_email.type_defs import EventDestinationDefinitionTypeDe
 Optional fields:
 - `Enabled`: `bool`
 - `MatchingEventTypes`: `List[EventType]`
+- `KinesisFirehoseDestination`: `"KinesisFirehoseDestinationTypeDef"`
+- `CloudWatchDestination`: `"CloudWatchDestinationTypeDef"`
+- `SnsDestination`: `"SnsDestinationTypeDef"`
+- `PinpointDestination`: `"PinpointDestinationTypeDef"`
+
+
+## EventDestinationTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import EventDestinationTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `MatchingEventTypes`: `List[EventType]`
+
+
+
+Optional fields:
+- `Enabled`: `bool`
 - `KinesisFirehoseDestination`: `"KinesisFirehoseDestinationTypeDef"`
 - `CloudWatchDestination`: `"CloudWatchDestinationTypeDef"`
 - `SnsDestination`: `"SnsDestinationTypeDef"`
@@ -800,6 +544,63 @@ Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 
 
+## IdentityInfoTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import IdentityInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `IdentityType`: `IdentityType`
+- `IdentityName`: `str`
+- `SendingEnabled`: `bool`
+
+
+## InboxPlacementTrackingOptionTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import InboxPlacementTrackingOptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Global`: `bool`
+- `TrackedIsps`: `List[str]`
+
+
+## IspPlacementTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import IspPlacementTypeDef
+```
+
+
+
+
+Optional fields:
+- `IspName`: `str`
+- `PlacementStatistics`: `"PlacementStatisticsTypeDef"`
+
+
+## KinesisFirehoseDestinationTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import KinesisFirehoseDestinationTypeDef
+```
+
+
+Required fields:
+- `IamRoleArn`: `str`
+- `DeliveryStreamArn`: `str`
+
+
+
+
 ## ListConfigurationSetsResponseTypeDef
 
 ```python
@@ -887,6 +688,21 @@ Required fields:
 
 
 
+## MailFromAttributesTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import MailFromAttributesTypeDef
+```
+
+
+Required fields:
+- `MailFromDomain`: `str`
+- `MailFromDomainStatus`: `MailFromDomainStatus`
+- `BehaviorOnMxFailure`: `BehaviorOnMxFailure`
+
+
+
+
 ## MessageTagTypeDef
 
 ```python
@@ -899,6 +715,35 @@ Required fields:
 - `Value`: `str`
 
 
+
+
+## MessageTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import MessageTypeDef
+```
+
+
+Required fields:
+- `Subject`: `"ContentTypeDef"`
+- `Body`: `"BodyTypeDef"`
+
+
+
+
+## OverallVolumeTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import OverallVolumeTypeDef
+```
+
+
+
+
+Optional fields:
+- `VolumeStatistics`: `"VolumeStatisticsTypeDef"`
+- `ReadRatePercent`: `float`
+- `DomainIspPlacements`: `List["DomainIspPlacementTypeDef"]`
 
 
 ## PaginatorConfigTypeDef
@@ -916,6 +761,63 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PinpointDestinationTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import PinpointDestinationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApplicationArn`: `str`
+
+
+## PlacementStatisticsTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import PlacementStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `InboxPercentage`: `float`
+- `SpamPercentage`: `float`
+- `MissingPercentage`: `float`
+- `SpfPercentage`: `float`
+- `DkimPercentage`: `float`
+
+
+## RawMessageTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import RawMessageTypeDef
+```
+
+
+Required fields:
+- `Data`: `Union[bytes, IO[bytes]]`
+
+
+
+
+## ReputationOptionsTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import ReputationOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReputationMetricsEnabled`: `bool`
+- `LastFreshStart`: `datetime`
+
+
 ## SendEmailResponseTypeDef
 
 ```python
@@ -927,4 +829,102 @@ from mypy_boto3_pinpoint_email.type_defs import SendEmailResponseTypeDef
 
 Optional fields:
 - `MessageId`: `str`
+
+
+## SendQuotaTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import SendQuotaTypeDef
+```
+
+
+
+
+Optional fields:
+- `Max24HourSend`: `float`
+- `MaxSendRate`: `float`
+- `SentLast24Hours`: `float`
+
+
+## SendingOptionsTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import SendingOptionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `SendingEnabled`: `bool`
+
+
+## SnsDestinationTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import SnsDestinationTypeDef
+```
+
+
+Required fields:
+- `TopicArn`: `str`
+
+
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TemplateTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import TemplateTypeDef
+```
+
+
+
+
+Optional fields:
+- `TemplateArn`: `str`
+- `TemplateData`: `str`
+
+
+## TrackingOptionsTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import TrackingOptionsTypeDef
+```
+
+
+Required fields:
+- `CustomRedirectDomain`: `str`
+
+
+
+
+## VolumeStatisticsTypeDef
+
+```python
+from mypy_boto3_pinpoint_email.type_defs import VolumeStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `InboxRawCount`: `int`
+- `SpamRawCount`: `int`
+- `ProjectedInbox`: `int`
+- `ProjectedSpam`: `int`
 

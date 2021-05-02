@@ -12,6 +12,8 @@ type annotations stubs module [mypy_boto3_events](https://pypi.org/project/mypy-
   - [BatchArrayPropertiesTypeDef](#batcharraypropertiestypedef)
   - [BatchParametersTypeDef](#batchparameterstypedef)
   - [BatchRetryStrategyTypeDef](#batchretrystrategytypedef)
+  - [CancelReplayResponseTypeDef](#cancelreplayresponsetypedef)
+  - [ConditionTypeDef](#conditiontypedef)
   - [ConnectionApiKeyAuthResponseParametersTypeDef](#connectionapikeyauthresponseparameterstypedef)
   - [ConnectionAuthResponseParametersTypeDef](#connectionauthresponseparameterstypedef)
   - [ConnectionBasicAuthResponseParametersTypeDef](#connectionbasicauthresponseparameterstypedef)
@@ -22,48 +24,17 @@ type annotations stubs module [mypy_boto3_events](https://pypi.org/project/mypy-
   - [ConnectionOAuthResponseParametersTypeDef](#connectionoauthresponseparameterstypedef)
   - [ConnectionQueryStringParameterTypeDef](#connectionquerystringparametertypedef)
   - [ConnectionTypeDef](#connectiontypedef)
+  - [CreateApiDestinationResponseTypeDef](#createapidestinationresponsetypedef)
+  - [CreateArchiveResponseTypeDef](#createarchiveresponsetypedef)
   - [CreateConnectionApiKeyAuthRequestParametersTypeDef](#createconnectionapikeyauthrequestparameterstypedef)
+  - [CreateConnectionAuthRequestParametersTypeDef](#createconnectionauthrequestparameterstypedef)
   - [CreateConnectionBasicAuthRequestParametersTypeDef](#createconnectionbasicauthrequestparameterstypedef)
   - [CreateConnectionOAuthClientRequestParametersTypeDef](#createconnectionoauthclientrequestparameterstypedef)
   - [CreateConnectionOAuthRequestParametersTypeDef](#createconnectionoauthrequestparameterstypedef)
-  - [DeadLetterConfigTypeDef](#deadletterconfigtypedef)
-  - [EcsParametersTypeDef](#ecsparameterstypedef)
-  - [EventBusTypeDef](#eventbustypedef)
-  - [EventSourceTypeDef](#eventsourcetypedef)
-  - [HttpParametersTypeDef](#httpparameterstypedef)
-  - [InputTransformerTypeDef](#inputtransformertypedef)
-  - [KinesisParametersTypeDef](#kinesisparameterstypedef)
-  - [NetworkConfigurationTypeDef](#networkconfigurationtypedef)
-  - [PartnerEventSourceAccountTypeDef](#partnereventsourceaccounttypedef)
-  - [PartnerEventSourceTypeDef](#partnereventsourcetypedef)
-  - [PutEventsResultEntryTypeDef](#puteventsresultentrytypedef)
-  - [PutPartnerEventsResultEntryTypeDef](#putpartnereventsresultentrytypedef)
-  - [PutTargetsResultEntryTypeDef](#puttargetsresultentrytypedef)
-  - [RedshiftDataParametersTypeDef](#redshiftdataparameterstypedef)
-  - [RemoveTargetsResultEntryTypeDef](#removetargetsresultentrytypedef)
-  - [ReplayDestinationTypeDef](#replaydestinationtypedef)
-  - [ReplayTypeDef](#replaytypedef)
-  - [RetryPolicyTypeDef](#retrypolicytypedef)
-  - [RuleTypeDef](#ruletypedef)
-  - [RunCommandParametersTypeDef](#runcommandparameterstypedef)
-  - [RunCommandTargetTypeDef](#runcommandtargettypedef)
-  - [SageMakerPipelineParameterTypeDef](#sagemakerpipelineparametertypedef)
-  - [SageMakerPipelineParametersTypeDef](#sagemakerpipelineparameterstypedef)
-  - [SqsParametersTypeDef](#sqsparameterstypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TargetTypeDef](#targettypedef)
-  - [UpdateConnectionApiKeyAuthRequestParametersTypeDef](#updateconnectionapikeyauthrequestparameterstypedef)
-  - [UpdateConnectionBasicAuthRequestParametersTypeDef](#updateconnectionbasicauthrequestparameterstypedef)
-  - [UpdateConnectionOAuthClientRequestParametersTypeDef](#updateconnectionoauthclientrequestparameterstypedef)
-  - [UpdateConnectionOAuthRequestParametersTypeDef](#updateconnectionoauthrequestparameterstypedef)
-  - [CancelReplayResponseTypeDef](#cancelreplayresponsetypedef)
-  - [ConditionTypeDef](#conditiontypedef)
-  - [CreateApiDestinationResponseTypeDef](#createapidestinationresponsetypedef)
-  - [CreateArchiveResponseTypeDef](#createarchiveresponsetypedef)
-  - [CreateConnectionAuthRequestParametersTypeDef](#createconnectionauthrequestparameterstypedef)
   - [CreateConnectionResponseTypeDef](#createconnectionresponsetypedef)
   - [CreateEventBusResponseTypeDef](#createeventbusresponsetypedef)
   - [CreatePartnerEventSourceResponseTypeDef](#createpartnereventsourceresponsetypedef)
+  - [DeadLetterConfigTypeDef](#deadletterconfigtypedef)
   - [DeauthorizeConnectionResponseTypeDef](#deauthorizeconnectionresponsetypedef)
   - [DeleteConnectionResponseTypeDef](#deleteconnectionresponsetypedef)
   - [DescribeApiDestinationResponseTypeDef](#describeapidestinationresponsetypedef)
@@ -74,6 +45,12 @@ type annotations stubs module [mypy_boto3_events](https://pypi.org/project/mypy-
   - [DescribePartnerEventSourceResponseTypeDef](#describepartnereventsourceresponsetypedef)
   - [DescribeReplayResponseTypeDef](#describereplayresponsetypedef)
   - [DescribeRuleResponseTypeDef](#describeruleresponsetypedef)
+  - [EcsParametersTypeDef](#ecsparameterstypedef)
+  - [EventBusTypeDef](#eventbustypedef)
+  - [EventSourceTypeDef](#eventsourcetypedef)
+  - [HttpParametersTypeDef](#httpparameterstypedef)
+  - [InputTransformerTypeDef](#inputtransformertypedef)
+  - [KinesisParametersTypeDef](#kinesisparameterstypedef)
   - [ListApiDestinationsResponseTypeDef](#listapidestinationsresponsetypedef)
   - [ListArchivesResponseTypeDef](#listarchivesresponsetypedef)
   - [ListConnectionsResponseTypeDef](#listconnectionsresponsetypedef)
@@ -86,19 +63,42 @@ type annotations stubs module [mypy_boto3_events](https://pypi.org/project/mypy-
   - [ListRulesResponseTypeDef](#listrulesresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListTargetsByRuleResponseTypeDef](#listtargetsbyruleresponsetypedef)
+  - [NetworkConfigurationTypeDef](#networkconfigurationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PartnerEventSourceAccountTypeDef](#partnereventsourceaccounttypedef)
+  - [PartnerEventSourceTypeDef](#partnereventsourcetypedef)
   - [PutEventsRequestEntryTypeDef](#puteventsrequestentrytypedef)
   - [PutEventsResponseTypeDef](#puteventsresponsetypedef)
+  - [PutEventsResultEntryTypeDef](#puteventsresultentrytypedef)
   - [PutPartnerEventsRequestEntryTypeDef](#putpartnereventsrequestentrytypedef)
   - [PutPartnerEventsResponseTypeDef](#putpartnereventsresponsetypedef)
+  - [PutPartnerEventsResultEntryTypeDef](#putpartnereventsresultentrytypedef)
   - [PutRuleResponseTypeDef](#putruleresponsetypedef)
   - [PutTargetsResponseTypeDef](#puttargetsresponsetypedef)
+  - [PutTargetsResultEntryTypeDef](#puttargetsresultentrytypedef)
+  - [RedshiftDataParametersTypeDef](#redshiftdataparameterstypedef)
   - [RemoveTargetsResponseTypeDef](#removetargetsresponsetypedef)
+  - [RemoveTargetsResultEntryTypeDef](#removetargetsresultentrytypedef)
+  - [ReplayDestinationTypeDef](#replaydestinationtypedef)
+  - [ReplayTypeDef](#replaytypedef)
+  - [RetryPolicyTypeDef](#retrypolicytypedef)
+  - [RuleTypeDef](#ruletypedef)
+  - [RunCommandParametersTypeDef](#runcommandparameterstypedef)
+  - [RunCommandTargetTypeDef](#runcommandtargettypedef)
+  - [SageMakerPipelineParameterTypeDef](#sagemakerpipelineparametertypedef)
+  - [SageMakerPipelineParametersTypeDef](#sagemakerpipelineparameterstypedef)
+  - [SqsParametersTypeDef](#sqsparameterstypedef)
   - [StartReplayResponseTypeDef](#startreplayresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TargetTypeDef](#targettypedef)
   - [TestEventPatternResponseTypeDef](#testeventpatternresponsetypedef)
   - [UpdateApiDestinationResponseTypeDef](#updateapidestinationresponsetypedef)
   - [UpdateArchiveResponseTypeDef](#updatearchiveresponsetypedef)
+  - [UpdateConnectionApiKeyAuthRequestParametersTypeDef](#updateconnectionapikeyauthrequestparameterstypedef)
   - [UpdateConnectionAuthRequestParametersTypeDef](#updateconnectionauthrequestparameterstypedef)
+  - [UpdateConnectionBasicAuthRequestParametersTypeDef](#updateconnectionbasicauthrequestparameterstypedef)
+  - [UpdateConnectionOAuthClientRequestParametersTypeDef](#updateconnectionoauthclientrequestparameterstypedef)
+  - [UpdateConnectionOAuthRequestParametersTypeDef](#updateconnectionoauthrequestparameterstypedef)
   - [UpdateConnectionResponseTypeDef](#updateconnectionresponsetypedef)
 
 ## ApiDestinationTypeDef
@@ -201,6 +201,36 @@ from mypy_boto3_events.type_defs import BatchRetryStrategyTypeDef
 
 Optional fields:
 - `Attempts`: `int`
+
+
+## CancelReplayResponseTypeDef
+
+```python
+from mypy_boto3_events.type_defs import CancelReplayResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplayArn`: `str`
+- `State`: `ReplayState`
+- `StateReason`: `str`
+
+
+## ConditionTypeDef
+
+```python
+from mypy_boto3_events.type_defs import ConditionTypeDef
+```
+
+
+Required fields:
+- `Type`: `str`
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## ConnectionApiKeyAuthResponseParametersTypeDef
@@ -354,6 +384,38 @@ Optional fields:
 - `LastAuthorizedTime`: `datetime`
 
 
+## CreateApiDestinationResponseTypeDef
+
+```python
+from mypy_boto3_events.type_defs import CreateApiDestinationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApiDestinationArn`: `str`
+- `ApiDestinationState`: `ApiDestinationState`
+- `CreationTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+
+
+## CreateArchiveResponseTypeDef
+
+```python
+from mypy_boto3_events.type_defs import CreateArchiveResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ArchiveArn`: `str`
+- `State`: `ArchiveState`
+- `StateReason`: `str`
+- `CreationTime`: `datetime`
+
+
 ## CreateConnectionApiKeyAuthRequestParametersTypeDef
 
 ```python
@@ -366,6 +428,22 @@ Required fields:
 - `ApiKeyValue`: `str`
 
 
+
+
+## CreateConnectionAuthRequestParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import CreateConnectionAuthRequestParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `BasicAuthParameters`: `"CreateConnectionBasicAuthRequestParametersTypeDef"`
+- `OAuthParameters`: `"CreateConnectionOAuthRequestParametersTypeDef"`
+- `ApiKeyAuthParameters`: `"CreateConnectionApiKeyAuthRequestParametersTypeDef"`
+- `InvocationHttpParameters`: `"ConnectionHttpParametersTypeDef"`
 
 
 ## CreateConnectionBasicAuthRequestParametersTypeDef
@@ -414,558 +492,6 @@ Optional fields:
 - `OAuthHttpParameters`: `"ConnectionHttpParametersTypeDef"`
 
 
-## DeadLetterConfigTypeDef
-
-```python
-from mypy_boto3_events.type_defs import DeadLetterConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-
-
-## EcsParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import EcsParametersTypeDef
-```
-
-
-Required fields:
-- `TaskDefinitionArn`: `str`
-
-
-
-Optional fields:
-- `TaskCount`: `int`
-- `LaunchType`: `LaunchType`
-- `NetworkConfiguration`: `"NetworkConfigurationTypeDef"`
-- `PlatformVersion`: `str`
-- `Group`: `str`
-
-
-## EventBusTypeDef
-
-```python
-from mypy_boto3_events.type_defs import EventBusTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Arn`: `str`
-- `Policy`: `str`
-
-
-## EventSourceTypeDef
-
-```python
-from mypy_boto3_events.type_defs import EventSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CreatedBy`: `str`
-- `CreationTime`: `datetime`
-- `ExpirationTime`: `datetime`
-- `Name`: `str`
-- `State`: `EventSourceState`
-
-
-## HttpParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import HttpParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `PathParameterValues`: `List[str]`
-- `HeaderParameters`: `Dict[str, str]`
-- `QueryStringParameters`: `Dict[str, str]`
-
-
-## InputTransformerTypeDef
-
-```python
-from mypy_boto3_events.type_defs import InputTransformerTypeDef
-```
-
-
-Required fields:
-- `InputTemplate`: `str`
-
-
-
-Optional fields:
-- `InputPathsMap`: `Dict[str, str]`
-
-
-## KinesisParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import KinesisParametersTypeDef
-```
-
-
-Required fields:
-- `PartitionKeyPath`: `str`
-
-
-
-
-## NetworkConfigurationTypeDef
-
-```python
-from mypy_boto3_events.type_defs import NetworkConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `awsvpcConfiguration`: `"AwsVpcConfigurationTypeDef"`
-
-
-## PartnerEventSourceAccountTypeDef
-
-```python
-from mypy_boto3_events.type_defs import PartnerEventSourceAccountTypeDef
-```
-
-
-
-
-Optional fields:
-- `Account`: `str`
-- `CreationTime`: `datetime`
-- `ExpirationTime`: `datetime`
-- `State`: `EventSourceState`
-
-
-## PartnerEventSourceTypeDef
-
-```python
-from mypy_boto3_events.type_defs import PartnerEventSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-
-
-## PutEventsResultEntryTypeDef
-
-```python
-from mypy_boto3_events.type_defs import PutEventsResultEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventId`: `str`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## PutPartnerEventsResultEntryTypeDef
-
-```python
-from mypy_boto3_events.type_defs import PutPartnerEventsResultEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `EventId`: `str`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## PutTargetsResultEntryTypeDef
-
-```python
-from mypy_boto3_events.type_defs import PutTargetsResultEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `TargetId`: `str`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## RedshiftDataParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import RedshiftDataParametersTypeDef
-```
-
-
-Required fields:
-- `Database`: `str`
-- `Sql`: `str`
-
-
-
-Optional fields:
-- `SecretManagerArn`: `str`
-- `DbUser`: `str`
-- `StatementName`: `str`
-- `WithEvent`: `bool`
-
-
-## RemoveTargetsResultEntryTypeDef
-
-```python
-from mypy_boto3_events.type_defs import RemoveTargetsResultEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `TargetId`: `str`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## ReplayDestinationTypeDef
-
-```python
-from mypy_boto3_events.type_defs import ReplayDestinationTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-
-
-
-Optional fields:
-- `FilterArns`: `List[str]`
-
-
-## ReplayTypeDef
-
-```python
-from mypy_boto3_events.type_defs import ReplayTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplayName`: `str`
-- `EventSourceArn`: `str`
-- `State`: `ReplayState`
-- `StateReason`: `str`
-- `EventStartTime`: `datetime`
-- `EventEndTime`: `datetime`
-- `EventLastReplayedTime`: `datetime`
-- `ReplayStartTime`: `datetime`
-- `ReplayEndTime`: `datetime`
-
-
-## RetryPolicyTypeDef
-
-```python
-from mypy_boto3_events.type_defs import RetryPolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaximumRetryAttempts`: `int`
-- `MaximumEventAgeInSeconds`: `int`
-
-
-## RuleTypeDef
-
-```python
-from mypy_boto3_events.type_defs import RuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Arn`: `str`
-- `EventPattern`: `str`
-- `State`: `RuleState`
-- `Description`: `str`
-- `ScheduleExpression`: `str`
-- `RoleArn`: `str`
-- `ManagedBy`: `str`
-- `EventBusName`: `str`
-
-
-## RunCommandParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import RunCommandParametersTypeDef
-```
-
-
-Required fields:
-- `RunCommandTargets`: `List["RunCommandTargetTypeDef"]`
-
-
-
-
-## RunCommandTargetTypeDef
-
-```python
-from mypy_boto3_events.type_defs import RunCommandTargetTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Values`: `List[str]`
-
-
-
-
-## SageMakerPipelineParameterTypeDef
-
-```python
-from mypy_boto3_events.type_defs import SageMakerPipelineParameterTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Value`: `str`
-
-
-
-
-## SageMakerPipelineParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import SageMakerPipelineParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `PipelineParameterList`: `List["SageMakerPipelineParameterTypeDef"]`
-
-
-## SqsParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import SqsParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `MessageGroupId`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_events.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TargetTypeDef
-
-```python
-from mypy_boto3_events.type_defs import TargetTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `Arn`: `str`
-
-
-
-Optional fields:
-- `RoleArn`: `str`
-- `Input`: `str`
-- `InputPath`: `str`
-- `InputTransformer`: `"InputTransformerTypeDef"`
-- `KinesisParameters`: `"KinesisParametersTypeDef"`
-- `RunCommandParameters`: `"RunCommandParametersTypeDef"`
-- `EcsParameters`: `"EcsParametersTypeDef"`
-- `BatchParameters`: `"BatchParametersTypeDef"`
-- `SqsParameters`: `"SqsParametersTypeDef"`
-- `HttpParameters`: `"HttpParametersTypeDef"`
-- `RedshiftDataParameters`: `"RedshiftDataParametersTypeDef"`
-- `SageMakerPipelineParameters`: `"SageMakerPipelineParametersTypeDef"`
-- `DeadLetterConfig`: `"DeadLetterConfigTypeDef"`
-- `RetryPolicy`: `"RetryPolicyTypeDef"`
-
-
-## UpdateConnectionApiKeyAuthRequestParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import UpdateConnectionApiKeyAuthRequestParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApiKeyName`: `str`
-- `ApiKeyValue`: `str`
-
-
-## UpdateConnectionBasicAuthRequestParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import UpdateConnectionBasicAuthRequestParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `Username`: `str`
-- `Password`: `str`
-
-
-## UpdateConnectionOAuthClientRequestParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import UpdateConnectionOAuthClientRequestParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientID`: `str`
-- `ClientSecret`: `str`
-
-
-## UpdateConnectionOAuthRequestParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import UpdateConnectionOAuthRequestParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClientParameters`: `"UpdateConnectionOAuthClientRequestParametersTypeDef"`
-- `AuthorizationEndpoint`: `str`
-- `HttpMethod`: `ConnectionOAuthHttpMethod`
-- `OAuthHttpParameters`: `"ConnectionHttpParametersTypeDef"`
-
-
-## CancelReplayResponseTypeDef
-
-```python
-from mypy_boto3_events.type_defs import CancelReplayResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReplayArn`: `str`
-- `State`: `ReplayState`
-- `StateReason`: `str`
-
-
-## ConditionTypeDef
-
-```python
-from mypy_boto3_events.type_defs import ConditionTypeDef
-```
-
-
-Required fields:
-- `Type`: `str`
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## CreateApiDestinationResponseTypeDef
-
-```python
-from mypy_boto3_events.type_defs import CreateApiDestinationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApiDestinationArn`: `str`
-- `ApiDestinationState`: `ApiDestinationState`
-- `CreationTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-
-
-## CreateArchiveResponseTypeDef
-
-```python
-from mypy_boto3_events.type_defs import CreateArchiveResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ArchiveArn`: `str`
-- `State`: `ArchiveState`
-- `StateReason`: `str`
-- `CreationTime`: `datetime`
-
-
-## CreateConnectionAuthRequestParametersTypeDef
-
-```python
-from mypy_boto3_events.type_defs import CreateConnectionAuthRequestParametersTypeDef
-```
-
-
-
-
-Optional fields:
-- `BasicAuthParameters`: `"CreateConnectionBasicAuthRequestParametersTypeDef"`
-- `OAuthParameters`: `"CreateConnectionOAuthRequestParametersTypeDef"`
-- `ApiKeyAuthParameters`: `"CreateConnectionApiKeyAuthRequestParametersTypeDef"`
-- `InvocationHttpParameters`: `"ConnectionHttpParametersTypeDef"`
-
-
 ## CreateConnectionResponseTypeDef
 
 ```python
@@ -1006,6 +532,19 @@ from mypy_boto3_events.type_defs import CreatePartnerEventSourceResponseTypeDef
 
 Optional fields:
 - `EventSourceArn`: `str`
+
+
+## DeadLetterConfigTypeDef
+
+```python
+from mypy_boto3_events.type_defs import DeadLetterConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
 
 
 ## DeauthorizeConnectionResponseTypeDef
@@ -1203,6 +742,103 @@ Optional fields:
 - `CreatedBy`: `str`
 
 
+## EcsParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import EcsParametersTypeDef
+```
+
+
+Required fields:
+- `TaskDefinitionArn`: `str`
+
+
+
+Optional fields:
+- `TaskCount`: `int`
+- `LaunchType`: `LaunchType`
+- `NetworkConfiguration`: `"NetworkConfigurationTypeDef"`
+- `PlatformVersion`: `str`
+- `Group`: `str`
+
+
+## EventBusTypeDef
+
+```python
+from mypy_boto3_events.type_defs import EventBusTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Arn`: `str`
+- `Policy`: `str`
+
+
+## EventSourceTypeDef
+
+```python
+from mypy_boto3_events.type_defs import EventSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CreatedBy`: `str`
+- `CreationTime`: `datetime`
+- `ExpirationTime`: `datetime`
+- `Name`: `str`
+- `State`: `EventSourceState`
+
+
+## HttpParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import HttpParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `PathParameterValues`: `List[str]`
+- `HeaderParameters`: `Dict[str, str]`
+- `QueryStringParameters`: `Dict[str, str]`
+
+
+## InputTransformerTypeDef
+
+```python
+from mypy_boto3_events.type_defs import InputTransformerTypeDef
+```
+
+
+Required fields:
+- `InputTemplate`: `str`
+
+
+
+Optional fields:
+- `InputPathsMap`: `Dict[str, str]`
+
+
+## KinesisParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import KinesisParametersTypeDef
+```
+
+
+Required fields:
+- `PartitionKeyPath`: `str`
+
+
+
+
 ## ListApiDestinationsResponseTypeDef
 
 ```python
@@ -1370,6 +1006,19 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## NetworkConfigurationTypeDef
+
+```python
+from mypy_boto3_events.type_defs import NetworkConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `awsvpcConfiguration`: `"AwsVpcConfigurationTypeDef"`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -1383,6 +1032,36 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PartnerEventSourceAccountTypeDef
+
+```python
+from mypy_boto3_events.type_defs import PartnerEventSourceAccountTypeDef
+```
+
+
+
+
+Optional fields:
+- `Account`: `str`
+- `CreationTime`: `datetime`
+- `ExpirationTime`: `datetime`
+- `State`: `EventSourceState`
+
+
+## PartnerEventSourceTypeDef
+
+```python
+from mypy_boto3_events.type_defs import PartnerEventSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
 
 
 ## PutEventsRequestEntryTypeDef
@@ -1418,6 +1097,21 @@ Optional fields:
 - `Entries`: `List["PutEventsResultEntryTypeDef"]`
 
 
+## PutEventsResultEntryTypeDef
+
+```python
+from mypy_boto3_events.type_defs import PutEventsResultEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventId`: `str`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+
+
 ## PutPartnerEventsRequestEntryTypeDef
 
 ```python
@@ -1449,6 +1143,21 @@ Optional fields:
 - `Entries`: `List["PutPartnerEventsResultEntryTypeDef"]`
 
 
+## PutPartnerEventsResultEntryTypeDef
+
+```python
+from mypy_boto3_events.type_defs import PutPartnerEventsResultEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `EventId`: `str`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+
+
 ## PutRuleResponseTypeDef
 
 ```python
@@ -1476,6 +1185,41 @@ Optional fields:
 - `FailedEntries`: `List["PutTargetsResultEntryTypeDef"]`
 
 
+## PutTargetsResultEntryTypeDef
+
+```python
+from mypy_boto3_events.type_defs import PutTargetsResultEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `TargetId`: `str`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+
+
+## RedshiftDataParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import RedshiftDataParametersTypeDef
+```
+
+
+Required fields:
+- `Database`: `str`
+- `Sql`: `str`
+
+
+
+Optional fields:
+- `SecretManagerArn`: `str`
+- `DbUser`: `str`
+- `StatementName`: `str`
+- `WithEvent`: `bool`
+
+
 ## RemoveTargetsResponseTypeDef
 
 ```python
@@ -1488,6 +1232,160 @@ from mypy_boto3_events.type_defs import RemoveTargetsResponseTypeDef
 Optional fields:
 - `FailedEntryCount`: `int`
 - `FailedEntries`: `List["RemoveTargetsResultEntryTypeDef"]`
+
+
+## RemoveTargetsResultEntryTypeDef
+
+```python
+from mypy_boto3_events.type_defs import RemoveTargetsResultEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `TargetId`: `str`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
+
+
+## ReplayDestinationTypeDef
+
+```python
+from mypy_boto3_events.type_defs import ReplayDestinationTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+
+
+
+Optional fields:
+- `FilterArns`: `List[str]`
+
+
+## ReplayTypeDef
+
+```python
+from mypy_boto3_events.type_defs import ReplayTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReplayName`: `str`
+- `EventSourceArn`: `str`
+- `State`: `ReplayState`
+- `StateReason`: `str`
+- `EventStartTime`: `datetime`
+- `EventEndTime`: `datetime`
+- `EventLastReplayedTime`: `datetime`
+- `ReplayStartTime`: `datetime`
+- `ReplayEndTime`: `datetime`
+
+
+## RetryPolicyTypeDef
+
+```python
+from mypy_boto3_events.type_defs import RetryPolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaximumRetryAttempts`: `int`
+- `MaximumEventAgeInSeconds`: `int`
+
+
+## RuleTypeDef
+
+```python
+from mypy_boto3_events.type_defs import RuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Arn`: `str`
+- `EventPattern`: `str`
+- `State`: `RuleState`
+- `Description`: `str`
+- `ScheduleExpression`: `str`
+- `RoleArn`: `str`
+- `ManagedBy`: `str`
+- `EventBusName`: `str`
+
+
+## RunCommandParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import RunCommandParametersTypeDef
+```
+
+
+Required fields:
+- `RunCommandTargets`: `List["RunCommandTargetTypeDef"]`
+
+
+
+
+## RunCommandTargetTypeDef
+
+```python
+from mypy_boto3_events.type_defs import RunCommandTargetTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Values`: `List[str]`
+
+
+
+
+## SageMakerPipelineParameterTypeDef
+
+```python
+from mypy_boto3_events.type_defs import SageMakerPipelineParameterTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Value`: `str`
+
+
+
+
+## SageMakerPipelineParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import SageMakerPipelineParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `PipelineParameterList`: `List["SageMakerPipelineParameterTypeDef"]`
+
+
+## SqsParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import SqsParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `MessageGroupId`: `str`
 
 
 ## StartReplayResponseTypeDef
@@ -1504,6 +1402,50 @@ Optional fields:
 - `State`: `ReplayState`
 - `StateReason`: `str`
 - `ReplayStartTime`: `datetime`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_events.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TargetTypeDef
+
+```python
+from mypy_boto3_events.type_defs import TargetTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `Arn`: `str`
+
+
+
+Optional fields:
+- `RoleArn`: `str`
+- `Input`: `str`
+- `InputPath`: `str`
+- `InputTransformer`: `"InputTransformerTypeDef"`
+- `KinesisParameters`: `"KinesisParametersTypeDef"`
+- `RunCommandParameters`: `"RunCommandParametersTypeDef"`
+- `EcsParameters`: `"EcsParametersTypeDef"`
+- `BatchParameters`: `"BatchParametersTypeDef"`
+- `SqsParameters`: `"SqsParametersTypeDef"`
+- `HttpParameters`: `"HttpParametersTypeDef"`
+- `RedshiftDataParameters`: `"RedshiftDataParametersTypeDef"`
+- `SageMakerPipelineParameters`: `"SageMakerPipelineParametersTypeDef"`
+- `DeadLetterConfig`: `"DeadLetterConfigTypeDef"`
+- `RetryPolicy`: `"RetryPolicyTypeDef"`
 
 
 ## TestEventPatternResponseTypeDef
@@ -1551,6 +1493,20 @@ Optional fields:
 - `CreationTime`: `datetime`
 
 
+## UpdateConnectionApiKeyAuthRequestParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import UpdateConnectionApiKeyAuthRequestParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApiKeyName`: `str`
+- `ApiKeyValue`: `str`
+
+
 ## UpdateConnectionAuthRequestParametersTypeDef
 
 ```python
@@ -1565,6 +1521,50 @@ Optional fields:
 - `OAuthParameters`: `"UpdateConnectionOAuthRequestParametersTypeDef"`
 - `ApiKeyAuthParameters`: `"UpdateConnectionApiKeyAuthRequestParametersTypeDef"`
 - `InvocationHttpParameters`: `"ConnectionHttpParametersTypeDef"`
+
+
+## UpdateConnectionBasicAuthRequestParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import UpdateConnectionBasicAuthRequestParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `Username`: `str`
+- `Password`: `str`
+
+
+## UpdateConnectionOAuthClientRequestParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import UpdateConnectionOAuthClientRequestParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientID`: `str`
+- `ClientSecret`: `str`
+
+
+## UpdateConnectionOAuthRequestParametersTypeDef
+
+```python
+from mypy_boto3_events.type_defs import UpdateConnectionOAuthRequestParametersTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClientParameters`: `"UpdateConnectionOAuthClientRequestParametersTypeDef"`
+- `AuthorizationEndpoint`: `str`
+- `HttpMethod`: `ConnectionOAuthHttpMethod`
+- `OAuthHttpParameters`: `"ConnectionHttpParametersTypeDef"`
 
 
 ## UpdateConnectionResponseTypeDef

@@ -6,33 +6,13 @@ Auto-generated documentation for [DirectoryService](https://boto3.amazonaws.com/
 type annotations stubs module [mypy_boto3_ds](https://pypi.org/project/mypy-boto3-ds/).
 
 - [Structures for boto3 DirectoryService module](#structures-for-boto3-directoryservice-module)
+  - [AcceptSharedDirectoryResultTypeDef](#acceptshareddirectoryresulttypedef)
   - [AttributeTypeDef](#attributetypedef)
   - [CertificateInfoTypeDef](#certificateinfotypedef)
   - [CertificateTypeDef](#certificatetypedef)
   - [ClientCertAuthSettingsTypeDef](#clientcertauthsettingstypedef)
   - [ComputerTypeDef](#computertypedef)
   - [ConditionalForwarderTypeDef](#conditionalforwardertypedef)
-  - [DirectoryConnectSettingsDescriptionTypeDef](#directoryconnectsettingsdescriptiontypedef)
-  - [DirectoryDescriptionTypeDef](#directorydescriptiontypedef)
-  - [DirectoryLimitsTypeDef](#directorylimitstypedef)
-  - [DirectoryVpcSettingsDescriptionTypeDef](#directoryvpcsettingsdescriptiontypedef)
-  - [DirectoryVpcSettingsTypeDef](#directoryvpcsettingstypedef)
-  - [DomainControllerTypeDef](#domaincontrollertypedef)
-  - [EventTopicTypeDef](#eventtopictypedef)
-  - [IpRouteInfoTypeDef](#iprouteinfotypedef)
-  - [LDAPSSettingInfoTypeDef](#ldapssettinginfotypedef)
-  - [LogSubscriptionTypeDef](#logsubscriptiontypedef)
-  - [OwnerDirectoryDescriptionTypeDef](#ownerdirectorydescriptiontypedef)
-  - [RadiusSettingsTypeDef](#radiussettingstypedef)
-  - [RegionDescriptionTypeDef](#regiondescriptiontypedef)
-  - [RegionsInfoTypeDef](#regionsinfotypedef)
-  - [SchemaExtensionInfoTypeDef](#schemaextensioninfotypedef)
-  - [SharedDirectoryTypeDef](#shareddirectorytypedef)
-  - [SnapshotLimitsTypeDef](#snapshotlimitstypedef)
-  - [SnapshotTypeDef](#snapshottypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TrustTypeDef](#trusttypedef)
-  - [AcceptSharedDirectoryResultTypeDef](#acceptshareddirectoryresulttypedef)
   - [ConnectDirectoryResultTypeDef](#connectdirectoryresulttypedef)
   - [CreateAliasResultTypeDef](#createaliasresulttypedef)
   - [CreateComputerResultTypeDef](#createcomputerresulttypedef)
@@ -53,25 +33,58 @@ type annotations stubs module [mypy_boto3_ds](https://pypi.org/project/mypy-boto
   - [DescribeSharedDirectoriesResultTypeDef](#describeshareddirectoriesresulttypedef)
   - [DescribeSnapshotsResultTypeDef](#describesnapshotsresulttypedef)
   - [DescribeTrustsResultTypeDef](#describetrustsresulttypedef)
+  - [DirectoryConnectSettingsDescriptionTypeDef](#directoryconnectsettingsdescriptiontypedef)
   - [DirectoryConnectSettingsTypeDef](#directoryconnectsettingstypedef)
+  - [DirectoryDescriptionTypeDef](#directorydescriptiontypedef)
+  - [DirectoryLimitsTypeDef](#directorylimitstypedef)
+  - [DirectoryVpcSettingsDescriptionTypeDef](#directoryvpcsettingsdescriptiontypedef)
+  - [DirectoryVpcSettingsTypeDef](#directoryvpcsettingstypedef)
+  - [DomainControllerTypeDef](#domaincontrollertypedef)
+  - [EventTopicTypeDef](#eventtopictypedef)
   - [GetDirectoryLimitsResultTypeDef](#getdirectorylimitsresulttypedef)
   - [GetSnapshotLimitsResultTypeDef](#getsnapshotlimitsresulttypedef)
+  - [IpRouteInfoTypeDef](#iprouteinfotypedef)
   - [IpRouteTypeDef](#iproutetypedef)
+  - [LDAPSSettingInfoTypeDef](#ldapssettinginfotypedef)
   - [ListCertificatesResultTypeDef](#listcertificatesresulttypedef)
   - [ListIpRoutesResultTypeDef](#listiproutesresulttypedef)
   - [ListLogSubscriptionsResultTypeDef](#listlogsubscriptionsresulttypedef)
   - [ListSchemaExtensionsResultTypeDef](#listschemaextensionsresulttypedef)
   - [ListTagsForResourceResultTypeDef](#listtagsforresourceresulttypedef)
+  - [LogSubscriptionTypeDef](#logsubscriptiontypedef)
+  - [OwnerDirectoryDescriptionTypeDef](#ownerdirectorydescriptiontypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [RadiusSettingsTypeDef](#radiussettingstypedef)
+  - [RegionDescriptionTypeDef](#regiondescriptiontypedef)
+  - [RegionsInfoTypeDef](#regionsinfotypedef)
   - [RegisterCertificateResultTypeDef](#registercertificateresulttypedef)
   - [RejectSharedDirectoryResultTypeDef](#rejectshareddirectoryresulttypedef)
+  - [SchemaExtensionInfoTypeDef](#schemaextensioninfotypedef)
   - [ShareDirectoryResultTypeDef](#sharedirectoryresulttypedef)
   - [ShareTargetTypeDef](#sharetargettypedef)
+  - [SharedDirectoryTypeDef](#shareddirectorytypedef)
+  - [SnapshotLimitsTypeDef](#snapshotlimitstypedef)
+  - [SnapshotTypeDef](#snapshottypedef)
   - [StartSchemaExtensionResultTypeDef](#startschemaextensionresulttypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TrustTypeDef](#trusttypedef)
   - [UnshareDirectoryResultTypeDef](#unsharedirectoryresulttypedef)
   - [UnshareTargetTypeDef](#unsharetargettypedef)
   - [UpdateTrustResultTypeDef](#updatetrustresulttypedef)
   - [VerifyTrustResultTypeDef](#verifytrustresulttypedef)
+
+## AcceptSharedDirectoryResultTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import AcceptSharedDirectoryResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `SharedDirectory`: `"SharedDirectoryTypeDef"`
+
 
 ## AttributeTypeDef
 
@@ -164,396 +177,7 @@ from mypy_boto3_ds.type_defs import ConditionalForwarderTypeDef
 Optional fields:
 - `RemoteDomainName`: `str`
 - `DnsIpAddrs`: `List[str]`
-- `ReplicationScope`: `ReplicationScope`
-
-
-## DirectoryConnectSettingsDescriptionTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import DirectoryConnectSettingsDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `VpcId`: `str`
-- `SubnetIds`: `List[str]`
-- `CustomerUserName`: `str`
-- `SecurityGroupId`: `str`
-- `AvailabilityZones`: `List[str]`
-- `ConnectIps`: `List[str]`
-
-
-## DirectoryDescriptionTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import DirectoryDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-- `Name`: `str`
-- `ShortName`: `str`
-- `Size`: `DirectorySize`
-- `Edition`: `DirectoryEdition`
-- `Alias`: `str`
-- `AccessUrl`: `str`
-- `Description`: `str`
-- `DnsIpAddrs`: `List[str]`
-- `Stage`: `DirectoryStage`
-- `ShareStatus`: `ShareStatus`
-- `ShareMethod`: `ShareMethod`
-- `ShareNotes`: `str`
-- `LaunchTime`: `datetime`
-- `StageLastUpdatedDateTime`: `datetime`
-- `Type`: `DirectoryType`
-- `VpcSettings`: `"DirectoryVpcSettingsDescriptionTypeDef"`
-- `ConnectSettings`: `"DirectoryConnectSettingsDescriptionTypeDef"`
-- `RadiusSettings`: `"RadiusSettingsTypeDef"`
-- `RadiusStatus`: `RadiusStatus`
-- `StageReason`: `str`
-- `SsoEnabled`: `bool`
-- `DesiredNumberOfDomainControllers`: `int`
-- `OwnerDirectoryDescription`: `"OwnerDirectoryDescriptionTypeDef"`
-- `RegionsInfo`: `"RegionsInfoTypeDef"`
-
-
-## DirectoryLimitsTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import DirectoryLimitsTypeDef
-```
-
-
-
-
-Optional fields:
-- `CloudOnlyDirectoriesLimit`: `int`
-- `CloudOnlyDirectoriesCurrentCount`: `int`
-- `CloudOnlyDirectoriesLimitReached`: `bool`
-- `CloudOnlyMicrosoftADLimit`: `int`
-- `CloudOnlyMicrosoftADCurrentCount`: `int`
-- `CloudOnlyMicrosoftADLimitReached`: `bool`
-- `ConnectedDirectoriesLimit`: `int`
-- `ConnectedDirectoriesCurrentCount`: `int`
-- `ConnectedDirectoriesLimitReached`: `bool`
-
-
-## DirectoryVpcSettingsDescriptionTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import DirectoryVpcSettingsDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `VpcId`: `str`
-- `SubnetIds`: `List[str]`
-- `SecurityGroupId`: `str`
-- `AvailabilityZones`: `List[str]`
-
-
-## DirectoryVpcSettingsTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import DirectoryVpcSettingsTypeDef
-```
-
-
-Required fields:
-- `VpcId`: `str`
-- `SubnetIds`: `List[str]`
-
-
-
-
-## DomainControllerTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import DomainControllerTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-- `DomainControllerId`: `str`
-- `DnsIpAddr`: `str`
-- `VpcId`: `str`
-- `SubnetId`: `str`
-- `AvailabilityZone`: `str`
-- `Status`: `DomainControllerStatus`
-- `StatusReason`: `str`
-- `LaunchTime`: `datetime`
-- `StatusLastUpdatedDateTime`: `datetime`
-
-
-## EventTopicTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import EventTopicTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-- `TopicName`: `str`
-- `TopicArn`: `str`
-- `CreatedDateTime`: `datetime`
-- `Status`: `TopicStatus`
-
-
-## IpRouteInfoTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import IpRouteInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-- `CidrIp`: `str`
-- `IpRouteStatusMsg`: `IpRouteStatusMsg`
-- `AddedDateTime`: `datetime`
-- `IpRouteStatusReason`: `str`
-- `Description`: `str`
-
-
-## LDAPSSettingInfoTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import LDAPSSettingInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `LDAPSStatus`: `LDAPSStatus`
-- `LDAPSStatusReason`: `str`
-- `LastUpdatedDateTime`: `datetime`
-
-
-## LogSubscriptionTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import LogSubscriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-- `LogGroupName`: `str`
-- `SubscriptionCreatedDateTime`: `datetime`
-
-
-## OwnerDirectoryDescriptionTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import OwnerDirectoryDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-- `AccountId`: `str`
-- `DnsIpAddrs`: `List[str]`
-- `VpcSettings`: `"DirectoryVpcSettingsDescriptionTypeDef"`
-- `RadiusSettings`: `"RadiusSettingsTypeDef"`
-- `RadiusStatus`: `RadiusStatus`
-
-
-## RadiusSettingsTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import RadiusSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `RadiusServers`: `List[str]`
-- `RadiusPort`: `int`
-- `RadiusTimeout`: `int`
-- `RadiusRetries`: `int`
-- `SharedSecret`: `str`
-- `AuthenticationProtocol`: `RadiusAuthenticationProtocol`
-- `DisplayLabel`: `str`
-- `UseSameUsername`: `bool`
-
-
-## RegionDescriptionTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import RegionDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-- `RegionName`: `str`
-- `RegionType`: `RegionType`
-- `Status`: `DirectoryStage`
-- `VpcSettings`: `"DirectoryVpcSettingsTypeDef"`
-- `DesiredNumberOfDomainControllers`: `int`
-- `LaunchTime`: `datetime`
-- `StatusLastUpdatedDateTime`: `datetime`
-- `LastUpdatedDateTime`: `datetime`
-
-
-## RegionsInfoTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import RegionsInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `PrimaryRegion`: `str`
-- `AdditionalRegions`: `List[str]`
-
-
-## SchemaExtensionInfoTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import SchemaExtensionInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-- `SchemaExtensionId`: `str`
-- `Description`: `str`
-- `SchemaExtensionStatus`: `SchemaExtensionStatus`
-- `SchemaExtensionStatusReason`: `str`
-- `StartDateTime`: `datetime`
-- `EndDateTime`: `datetime`
-
-
-## SharedDirectoryTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import SharedDirectoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `OwnerAccountId`: `str`
-- `OwnerDirectoryId`: `str`
-- `ShareMethod`: `ShareMethod`
-- `SharedAccountId`: `str`
-- `SharedDirectoryId`: `str`
-- `ShareStatus`: `ShareStatus`
-- `ShareNotes`: `str`
-- `CreatedDateTime`: `datetime`
-- `LastUpdatedDateTime`: `datetime`
-
-
-## SnapshotLimitsTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import SnapshotLimitsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ManualSnapshotsLimit`: `int`
-- `ManualSnapshotsCurrentCount`: `int`
-- `ManualSnapshotsLimitReached`: `bool`
-
-
-## SnapshotTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import SnapshotTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-- `SnapshotId`: `str`
-- `Type`: `SnapshotType`
-- `Name`: `str`
-- `Status`: `SnapshotStatus`
-- `StartTime`: `datetime`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TrustTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import TrustTypeDef
-```
-
-
-
-
-Optional fields:
-- `DirectoryId`: `str`
-- `TrustId`: `str`
-- `RemoteDomainName`: `str`
-- `TrustType`: `TrustType`
-- `TrustDirection`: `TrustDirection`
-- `TrustState`: `TrustState`
-- `CreatedDateTime`: `datetime`
-- `LastUpdatedDateTime`: `datetime`
-- `StateLastUpdatedDateTime`: `datetime`
-- `TrustStateReason`: `str`
-- `SelectiveAuth`: `SelectiveAuth`
-
-
-## AcceptSharedDirectoryResultTypeDef
-
-```python
-from mypy_boto3_ds.type_defs import AcceptSharedDirectoryResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `SharedDirectory`: `"SharedDirectoryTypeDef"`
+- `ReplicationScope`: `Literal['Domain']`
 
 
 ## ConnectDirectoryResultTypeDef
@@ -824,6 +448,24 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## DirectoryConnectSettingsDescriptionTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import DirectoryConnectSettingsDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `VpcId`: `str`
+- `SubnetIds`: `List[str]`
+- `CustomerUserName`: `str`
+- `SecurityGroupId`: `str`
+- `AvailabilityZones`: `List[str]`
+- `ConnectIps`: `List[str]`
+
+
 ## DirectoryConnectSettingsTypeDef
 
 ```python
@@ -838,6 +480,133 @@ Required fields:
 - `CustomerUserName`: `str`
 
 
+
+
+## DirectoryDescriptionTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import DirectoryDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+- `Name`: `str`
+- `ShortName`: `str`
+- `Size`: `DirectorySize`
+- `Edition`: `DirectoryEdition`
+- `Alias`: `str`
+- `AccessUrl`: `str`
+- `Description`: `str`
+- `DnsIpAddrs`: `List[str]`
+- `Stage`: `DirectoryStage`
+- `ShareStatus`: `ShareStatus`
+- `ShareMethod`: `ShareMethod`
+- `ShareNotes`: `str`
+- `LaunchTime`: `datetime`
+- `StageLastUpdatedDateTime`: `datetime`
+- `Type`: `DirectoryType`
+- `VpcSettings`: `"DirectoryVpcSettingsDescriptionTypeDef"`
+- `ConnectSettings`: `"DirectoryConnectSettingsDescriptionTypeDef"`
+- `RadiusSettings`: `"RadiusSettingsTypeDef"`
+- `RadiusStatus`: `RadiusStatus`
+- `StageReason`: `str`
+- `SsoEnabled`: `bool`
+- `DesiredNumberOfDomainControllers`: `int`
+- `OwnerDirectoryDescription`: `"OwnerDirectoryDescriptionTypeDef"`
+- `RegionsInfo`: `"RegionsInfoTypeDef"`
+
+
+## DirectoryLimitsTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import DirectoryLimitsTypeDef
+```
+
+
+
+
+Optional fields:
+- `CloudOnlyDirectoriesLimit`: `int`
+- `CloudOnlyDirectoriesCurrentCount`: `int`
+- `CloudOnlyDirectoriesLimitReached`: `bool`
+- `CloudOnlyMicrosoftADLimit`: `int`
+- `CloudOnlyMicrosoftADCurrentCount`: `int`
+- `CloudOnlyMicrosoftADLimitReached`: `bool`
+- `ConnectedDirectoriesLimit`: `int`
+- `ConnectedDirectoriesCurrentCount`: `int`
+- `ConnectedDirectoriesLimitReached`: `bool`
+
+
+## DirectoryVpcSettingsDescriptionTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import DirectoryVpcSettingsDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `VpcId`: `str`
+- `SubnetIds`: `List[str]`
+- `SecurityGroupId`: `str`
+- `AvailabilityZones`: `List[str]`
+
+
+## DirectoryVpcSettingsTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import DirectoryVpcSettingsTypeDef
+```
+
+
+Required fields:
+- `VpcId`: `str`
+- `SubnetIds`: `List[str]`
+
+
+
+
+## DomainControllerTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import DomainControllerTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+- `DomainControllerId`: `str`
+- `DnsIpAddr`: `str`
+- `VpcId`: `str`
+- `SubnetId`: `str`
+- `AvailabilityZone`: `str`
+- `Status`: `DomainControllerStatus`
+- `StatusReason`: `str`
+- `LaunchTime`: `datetime`
+- `StatusLastUpdatedDateTime`: `datetime`
+
+
+## EventTopicTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import EventTopicTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+- `TopicName`: `str`
+- `TopicArn`: `str`
+- `CreatedDateTime`: `datetime`
+- `Status`: `TopicStatus`
 
 
 ## GetDirectoryLimitsResultTypeDef
@@ -866,6 +635,24 @@ Optional fields:
 - `SnapshotLimits`: `"SnapshotLimitsTypeDef"`
 
 
+## IpRouteInfoTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import IpRouteInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+- `CidrIp`: `str`
+- `IpRouteStatusMsg`: `IpRouteStatusMsg`
+- `AddedDateTime`: `datetime`
+- `IpRouteStatusReason`: `str`
+- `Description`: `str`
+
+
 ## IpRouteTypeDef
 
 ```python
@@ -878,6 +665,21 @@ from mypy_boto3_ds.type_defs import IpRouteTypeDef
 Optional fields:
 - `CidrIp`: `str`
 - `Description`: `str`
+
+
+## LDAPSSettingInfoTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import LDAPSSettingInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `LDAPSStatus`: `LDAPSStatus`
+- `LDAPSStatusReason`: `str`
+- `LastUpdatedDateTime`: `datetime`
 
 
 ## ListCertificatesResultTypeDef
@@ -950,6 +752,39 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## LogSubscriptionTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import LogSubscriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+- `LogGroupName`: `str`
+- `SubscriptionCreatedDateTime`: `datetime`
+
+
+## OwnerDirectoryDescriptionTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import OwnerDirectoryDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+- `AccountId`: `str`
+- `DnsIpAddrs`: `List[str]`
+- `VpcSettings`: `"DirectoryVpcSettingsDescriptionTypeDef"`
+- `RadiusSettings`: `"RadiusSettingsTypeDef"`
+- `RadiusStatus`: `RadiusStatus`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -963,6 +798,61 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## RadiusSettingsTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import RadiusSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `RadiusServers`: `List[str]`
+- `RadiusPort`: `int`
+- `RadiusTimeout`: `int`
+- `RadiusRetries`: `int`
+- `SharedSecret`: `str`
+- `AuthenticationProtocol`: `RadiusAuthenticationProtocol`
+- `DisplayLabel`: `str`
+- `UseSameUsername`: `bool`
+
+
+## RegionDescriptionTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import RegionDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+- `RegionName`: `str`
+- `RegionType`: `RegionType`
+- `Status`: `DirectoryStage`
+- `VpcSettings`: `"DirectoryVpcSettingsTypeDef"`
+- `DesiredNumberOfDomainControllers`: `int`
+- `LaunchTime`: `datetime`
+- `StatusLastUpdatedDateTime`: `datetime`
+- `LastUpdatedDateTime`: `datetime`
+
+
+## RegionsInfoTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import RegionsInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `PrimaryRegion`: `str`
+- `AdditionalRegions`: `List[str]`
 
 
 ## RegisterCertificateResultTypeDef
@@ -991,6 +881,25 @@ Optional fields:
 - `SharedDirectoryId`: `str`
 
 
+## SchemaExtensionInfoTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import SchemaExtensionInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+- `SchemaExtensionId`: `str`
+- `Description`: `str`
+- `SchemaExtensionStatus`: `SchemaExtensionStatus`
+- `SchemaExtensionStatusReason`: `str`
+- `StartDateTime`: `datetime`
+- `EndDateTime`: `datetime`
+
+
 ## ShareDirectoryResultTypeDef
 
 ```python
@@ -1013,9 +922,63 @@ from mypy_boto3_ds.type_defs import ShareTargetTypeDef
 
 Required fields:
 - `Id`: `str`
-- `Type`: `TargetType`
+- `Type`: `Literal['ACCOUNT']`
 
 
+
+
+## SharedDirectoryTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import SharedDirectoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `OwnerAccountId`: `str`
+- `OwnerDirectoryId`: `str`
+- `ShareMethod`: `ShareMethod`
+- `SharedAccountId`: `str`
+- `SharedDirectoryId`: `str`
+- `ShareStatus`: `ShareStatus`
+- `ShareNotes`: `str`
+- `CreatedDateTime`: `datetime`
+- `LastUpdatedDateTime`: `datetime`
+
+
+## SnapshotLimitsTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import SnapshotLimitsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ManualSnapshotsLimit`: `int`
+- `ManualSnapshotsCurrentCount`: `int`
+- `ManualSnapshotsLimitReached`: `bool`
+
+
+## SnapshotTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import SnapshotTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+- `SnapshotId`: `str`
+- `Type`: `SnapshotType`
+- `Name`: `str`
+- `Status`: `SnapshotStatus`
+- `StartTime`: `datetime`
 
 
 ## StartSchemaExtensionResultTypeDef
@@ -1029,6 +992,43 @@ from mypy_boto3_ds.type_defs import StartSchemaExtensionResultTypeDef
 
 Optional fields:
 - `SchemaExtensionId`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TrustTypeDef
+
+```python
+from mypy_boto3_ds.type_defs import TrustTypeDef
+```
+
+
+
+
+Optional fields:
+- `DirectoryId`: `str`
+- `TrustId`: `str`
+- `RemoteDomainName`: `str`
+- `TrustType`: `TrustType`
+- `TrustDirection`: `TrustDirection`
+- `TrustState`: `TrustState`
+- `CreatedDateTime`: `datetime`
+- `LastUpdatedDateTime`: `datetime`
+- `StateLastUpdatedDateTime`: `datetime`
+- `TrustStateReason`: `str`
+- `SelectiveAuth`: `SelectiveAuth`
 
 
 ## UnshareDirectoryResultTypeDef
@@ -1053,7 +1053,7 @@ from mypy_boto3_ds.type_defs import UnshareTargetTypeDef
 
 Required fields:
 - `Id`: `str`
-- `Type`: `TargetType`
+- `Type`: `Literal['ACCOUNT']`
 
 
 

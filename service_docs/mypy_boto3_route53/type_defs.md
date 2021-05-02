@@ -7,41 +7,15 @@ type annotations stubs module [mypy_boto3_route53](https://pypi.org/project/mypy
 
 - [Structures for boto3 Route53 module](#structures-for-boto3-route53-module)
   - [AccountLimitTypeDef](#accountlimittypedef)
+  - [ActivateKeySigningKeyResponseTypeDef](#activatekeysigningkeyresponsetypedef)
   - [AlarmIdentifierTypeDef](#alarmidentifiertypedef)
   - [AliasTargetTypeDef](#aliastargettypedef)
-  - [ChangeInfoTypeDef](#changeinfotypedef)
-  - [ChangeTypeDef](#changetypedef)
-  - [CloudWatchAlarmConfigurationTypeDef](#cloudwatchalarmconfigurationtypedef)
-  - [DNSSECStatusTypeDef](#dnssecstatustypedef)
-  - [DelegationSetTypeDef](#delegationsettypedef)
-  - [DimensionTypeDef](#dimensiontypedef)
-  - [GeoLocationDetailsTypeDef](#geolocationdetailstypedef)
-  - [GeoLocationTypeDef](#geolocationtypedef)
-  - [HealthCheckConfigTypeDef](#healthcheckconfigtypedef)
-  - [HealthCheckObservationTypeDef](#healthcheckobservationtypedef)
-  - [HealthCheckTypeDef](#healthchecktypedef)
-  - [HostedZoneConfigTypeDef](#hostedzoneconfigtypedef)
-  - [HostedZoneLimitTypeDef](#hostedzonelimittypedef)
-  - [HostedZoneOwnerTypeDef](#hostedzoneownertypedef)
-  - [HostedZoneSummaryTypeDef](#hostedzonesummarytypedef)
-  - [HostedZoneTypeDef](#hostedzonetypedef)
-  - [KeySigningKeyTypeDef](#keysigningkeytypedef)
-  - [LinkedServiceTypeDef](#linkedservicetypedef)
-  - [QueryLoggingConfigTypeDef](#queryloggingconfigtypedef)
-  - [ResourceRecordSetTypeDef](#resourcerecordsettypedef)
-  - [ResourceRecordTypeDef](#resourcerecordtypedef)
-  - [ResourceTagSetTypeDef](#resourcetagsettypedef)
-  - [ReusableDelegationSetLimitTypeDef](#reusabledelegationsetlimittypedef)
-  - [StatusReportTypeDef](#statusreporttypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TrafficPolicyInstanceTypeDef](#trafficpolicyinstancetypedef)
-  - [TrafficPolicySummaryTypeDef](#trafficpolicysummarytypedef)
-  - [TrafficPolicyTypeDef](#trafficpolicytypedef)
-  - [VPCTypeDef](#vpctypedef)
-  - [ActivateKeySigningKeyResponseTypeDef](#activatekeysigningkeyresponsetypedef)
   - [AssociateVPCWithHostedZoneResponseTypeDef](#associatevpcwithhostedzoneresponsetypedef)
   - [ChangeBatchTypeDef](#changebatchtypedef)
+  - [ChangeInfoTypeDef](#changeinfotypedef)
   - [ChangeResourceRecordSetsResponseTypeDef](#changeresourcerecordsetsresponsetypedef)
+  - [ChangeTypeDef](#changetypedef)
+  - [CloudWatchAlarmConfigurationTypeDef](#cloudwatchalarmconfigurationtypedef)
   - [CreateHealthCheckResponseTypeDef](#createhealthcheckresponsetypedef)
   - [CreateHostedZoneResponseTypeDef](#createhostedzoneresponsetypedef)
   - [CreateKeySigningKeyResponseTypeDef](#createkeysigningkeyresponsetypedef)
@@ -51,12 +25,17 @@ type annotations stubs module [mypy_boto3_route53](https://pypi.org/project/mypy
   - [CreateTrafficPolicyResponseTypeDef](#createtrafficpolicyresponsetypedef)
   - [CreateTrafficPolicyVersionResponseTypeDef](#createtrafficpolicyversionresponsetypedef)
   - [CreateVPCAssociationAuthorizationResponseTypeDef](#createvpcassociationauthorizationresponsetypedef)
+  - [DNSSECStatusTypeDef](#dnssecstatustypedef)
   - [DeactivateKeySigningKeyResponseTypeDef](#deactivatekeysigningkeyresponsetypedef)
+  - [DelegationSetTypeDef](#delegationsettypedef)
   - [DeleteHostedZoneResponseTypeDef](#deletehostedzoneresponsetypedef)
   - [DeleteKeySigningKeyResponseTypeDef](#deletekeysigningkeyresponsetypedef)
+  - [DimensionTypeDef](#dimensiontypedef)
   - [DisableHostedZoneDNSSECResponseTypeDef](#disablehostedzonednssecresponsetypedef)
   - [DisassociateVPCFromHostedZoneResponseTypeDef](#disassociatevpcfromhostedzoneresponsetypedef)
   - [EnableHostedZoneDNSSECResponseTypeDef](#enablehostedzonednssecresponsetypedef)
+  - [GeoLocationDetailsTypeDef](#geolocationdetailstypedef)
+  - [GeoLocationTypeDef](#geolocationtypedef)
   - [GetAccountLimitResponseTypeDef](#getaccountlimitresponsetypedef)
   - [GetChangeResponseTypeDef](#getchangeresponsetypedef)
   - [GetCheckerIpRangesResponseTypeDef](#getcheckeriprangesresponsetypedef)
@@ -75,6 +54,16 @@ type annotations stubs module [mypy_boto3_route53](https://pypi.org/project/mypy
   - [GetTrafficPolicyInstanceCountResponseTypeDef](#gettrafficpolicyinstancecountresponsetypedef)
   - [GetTrafficPolicyInstanceResponseTypeDef](#gettrafficpolicyinstanceresponsetypedef)
   - [GetTrafficPolicyResponseTypeDef](#gettrafficpolicyresponsetypedef)
+  - [HealthCheckConfigTypeDef](#healthcheckconfigtypedef)
+  - [HealthCheckObservationTypeDef](#healthcheckobservationtypedef)
+  - [HealthCheckTypeDef](#healthchecktypedef)
+  - [HostedZoneConfigTypeDef](#hostedzoneconfigtypedef)
+  - [HostedZoneLimitTypeDef](#hostedzonelimittypedef)
+  - [HostedZoneOwnerTypeDef](#hostedzoneownertypedef)
+  - [HostedZoneSummaryTypeDef](#hostedzonesummarytypedef)
+  - [HostedZoneTypeDef](#hostedzonetypedef)
+  - [KeySigningKeyTypeDef](#keysigningkeytypedef)
+  - [LinkedServiceTypeDef](#linkedservicetypedef)
   - [ListGeoLocationsResponseTypeDef](#listgeolocationsresponsetypedef)
   - [ListHealthChecksResponseTypeDef](#listhealthchecksresponsetypedef)
   - [ListHostedZonesByNameResponseTypeDef](#listhostedzonesbynameresponsetypedef)
@@ -92,11 +81,22 @@ type annotations stubs module [mypy_boto3_route53](https://pypi.org/project/mypy
   - [ListTrafficPolicyVersionsResponseTypeDef](#listtrafficpolicyversionsresponsetypedef)
   - [ListVPCAssociationAuthorizationsResponseTypeDef](#listvpcassociationauthorizationsresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [QueryLoggingConfigTypeDef](#queryloggingconfigtypedef)
+  - [ResourceRecordSetTypeDef](#resourcerecordsettypedef)
+  - [ResourceRecordTypeDef](#resourcerecordtypedef)
+  - [ResourceTagSetTypeDef](#resourcetagsettypedef)
+  - [ReusableDelegationSetLimitTypeDef](#reusabledelegationsetlimittypedef)
+  - [StatusReportTypeDef](#statusreporttypedef)
+  - [TagTypeDef](#tagtypedef)
   - [TestDNSAnswerResponseTypeDef](#testdnsanswerresponsetypedef)
+  - [TrafficPolicyInstanceTypeDef](#trafficpolicyinstancetypedef)
+  - [TrafficPolicySummaryTypeDef](#trafficpolicysummarytypedef)
+  - [TrafficPolicyTypeDef](#trafficpolicytypedef)
   - [UpdateHealthCheckResponseTypeDef](#updatehealthcheckresponsetypedef)
   - [UpdateHostedZoneCommentResponseTypeDef](#updatehostedzonecommentresponsetypedef)
   - [UpdateTrafficPolicyCommentResponseTypeDef](#updatetrafficpolicycommentresponsetypedef)
   - [UpdateTrafficPolicyInstanceResponseTypeDef](#updatetrafficpolicyinstanceresponsetypedef)
+  - [VPCTypeDef](#vpctypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
 ## AccountLimitTypeDef
@@ -109,6 +109,19 @@ from mypy_boto3_route53.type_defs import AccountLimitTypeDef
 Required fields:
 - `Type`: `AccountLimitType`
 - `Value`: `int`
+
+
+
+
+## ActivateKeySigningKeyResponseTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import ActivateKeySigningKeyResponseTypeDef
+```
+
+
+Required fields:
+- `ChangeInfo`: `"ChangeInfoTypeDef"`
 
 
 
@@ -142,6 +155,35 @@ Required fields:
 
 
 
+## AssociateVPCWithHostedZoneResponseTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import AssociateVPCWithHostedZoneResponseTypeDef
+```
+
+
+Required fields:
+- `ChangeInfo`: `"ChangeInfoTypeDef"`
+
+
+
+
+## ChangeBatchTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import ChangeBatchTypeDef
+```
+
+
+Required fields:
+- `Changes`: `List["ChangeTypeDef"]`
+
+
+
+Optional fields:
+- `Comment`: `str`
+
+
 ## ChangeInfoTypeDef
 
 ```python
@@ -158,6 +200,19 @@ Required fields:
 
 Optional fields:
 - `Comment`: `str`
+
+
+## ChangeResourceRecordSetsResponseTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import ChangeResourceRecordSetsResponseTypeDef
+```
+
+
+Required fields:
+- `ChangeInfo`: `"ChangeInfoTypeDef"`
+
+
 
 
 ## ChangeTypeDef
@@ -194,508 +249,6 @@ Required fields:
 
 Optional fields:
 - `Dimensions`: `List["DimensionTypeDef"]`
-
-
-## DNSSECStatusTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import DNSSECStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServeSignature`: `str`
-- `StatusMessage`: `str`
-
-
-## DelegationSetTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import DelegationSetTypeDef
-```
-
-
-Required fields:
-- `NameServers`: `List[str]`
-
-
-
-Optional fields:
-- `Id`: `str`
-- `CallerReference`: `str`
-
-
-## DimensionTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import DimensionTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Value`: `str`
-
-
-
-
-## GeoLocationDetailsTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import GeoLocationDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ContinentCode`: `str`
-- `ContinentName`: `str`
-- `CountryCode`: `str`
-- `CountryName`: `str`
-- `SubdivisionCode`: `str`
-- `SubdivisionName`: `str`
-
-
-## GeoLocationTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import GeoLocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ContinentCode`: `str`
-- `CountryCode`: `str`
-- `SubdivisionCode`: `str`
-
-
-## HealthCheckConfigTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import HealthCheckConfigTypeDef
-```
-
-
-Required fields:
-- `Type`: `HealthCheckType`
-
-
-
-Optional fields:
-- `IPAddress`: `str`
-- `Port`: `int`
-- `ResourcePath`: `str`
-- `FullyQualifiedDomainName`: `str`
-- `SearchString`: `str`
-- `RequestInterval`: `int`
-- `FailureThreshold`: `int`
-- `MeasureLatency`: `bool`
-- `Inverted`: `bool`
-- `Disabled`: `bool`
-- `HealthThreshold`: `int`
-- `ChildHealthChecks`: `List[str]`
-- `EnableSNI`: `bool`
-- `Regions`: `List[HealthCheckRegion]`
-- `AlarmIdentifier`: `"AlarmIdentifierTypeDef"`
-- `InsufficientDataHealthStatus`: `InsufficientDataHealthStatus`
-
-
-## HealthCheckObservationTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import HealthCheckObservationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Region`: `HealthCheckRegion`
-- `IPAddress`: `str`
-- `StatusReport`: `"StatusReportTypeDef"`
-
-
-## HealthCheckTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import HealthCheckTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `CallerReference`: `str`
-- `HealthCheckConfig`: `"HealthCheckConfigTypeDef"`
-- `HealthCheckVersion`: `int`
-
-
-
-Optional fields:
-- `LinkedService`: `"LinkedServiceTypeDef"`
-- `CloudWatchAlarmConfiguration`: `"CloudWatchAlarmConfigurationTypeDef"`
-
-
-## HostedZoneConfigTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import HostedZoneConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `Comment`: `str`
-- `PrivateZone`: `bool`
-
-
-## HostedZoneLimitTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import HostedZoneLimitTypeDef
-```
-
-
-Required fields:
-- `Type`: `HostedZoneLimitType`
-- `Value`: `int`
-
-
-
-
-## HostedZoneOwnerTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import HostedZoneOwnerTypeDef
-```
-
-
-
-
-Optional fields:
-- `OwningAccount`: `str`
-- `OwningService`: `str`
-
-
-## HostedZoneSummaryTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import HostedZoneSummaryTypeDef
-```
-
-
-Required fields:
-- `HostedZoneId`: `str`
-- `Name`: `str`
-- `Owner`: `"HostedZoneOwnerTypeDef"`
-
-
-
-
-## HostedZoneTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import HostedZoneTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `Name`: `str`
-- `CallerReference`: `str`
-
-
-
-Optional fields:
-- `Config`: `"HostedZoneConfigTypeDef"`
-- `ResourceRecordSetCount`: `int`
-- `LinkedService`: `"LinkedServiceTypeDef"`
-
-
-## KeySigningKeyTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import KeySigningKeyTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `KmsArn`: `str`
-- `Flag`: `int`
-- `SigningAlgorithmMnemonic`: `str`
-- `SigningAlgorithmType`: `int`
-- `DigestAlgorithmMnemonic`: `str`
-- `DigestAlgorithmType`: `int`
-- `KeyTag`: `int`
-- `DigestValue`: `str`
-- `PublicKey`: `str`
-- `DSRecord`: `str`
-- `DNSKEYRecord`: `str`
-- `Status`: `str`
-- `StatusMessage`: `str`
-- `CreatedDate`: `datetime`
-- `LastModifiedDate`: `datetime`
-
-
-## LinkedServiceTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import LinkedServiceTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServicePrincipal`: `str`
-- `Description`: `str`
-
-
-## QueryLoggingConfigTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import QueryLoggingConfigTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `HostedZoneId`: `str`
-- `CloudWatchLogsLogGroupArn`: `str`
-
-
-
-
-## ResourceRecordSetTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import ResourceRecordSetTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Type`: `RRType`
-
-
-
-Optional fields:
-- `SetIdentifier`: `str`
-- `Weight`: `int`
-- `Region`: `ResourceRecordSetRegion`
-- `GeoLocation`: `"GeoLocationTypeDef"`
-- `Failover`: `ResourceRecordSetFailover`
-- `MultiValueAnswer`: `bool`
-- `TTL`: `int`
-- `ResourceRecords`: `List["ResourceRecordTypeDef"]`
-- `AliasTarget`: `"AliasTargetTypeDef"`
-- `HealthCheckId`: `str`
-- `TrafficPolicyInstanceId`: `str`
-
-
-## ResourceRecordTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import ResourceRecordTypeDef
-```
-
-
-Required fields:
-- `Value`: `str`
-
-
-
-
-## ResourceTagSetTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import ResourceTagSetTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceType`: `TagResourceType`
-- `ResourceId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ReusableDelegationSetLimitTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import ReusableDelegationSetLimitTypeDef
-```
-
-
-Required fields:
-- `Type`: `ReusableDelegationSetLimitType`
-- `Value`: `int`
-
-
-
-
-## StatusReportTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import StatusReportTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `str`
-- `CheckedTime`: `datetime`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## TrafficPolicyInstanceTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import TrafficPolicyInstanceTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `HostedZoneId`: `str`
-- `Name`: `str`
-- `TTL`: `int`
-- `State`: `str`
-- `Message`: `str`
-- `TrafficPolicyId`: `str`
-- `TrafficPolicyVersion`: `int`
-- `TrafficPolicyType`: `RRType`
-
-
-
-
-## TrafficPolicySummaryTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import TrafficPolicySummaryTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `Name`: `str`
-- `Type`: `RRType`
-- `LatestVersion`: `int`
-- `TrafficPolicyCount`: `int`
-
-
-
-
-## TrafficPolicyTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import TrafficPolicyTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `Version`: `int`
-- `Name`: `str`
-- `Type`: `RRType`
-- `Document`: `str`
-
-
-
-Optional fields:
-- `Comment`: `str`
-
-
-## VPCTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import VPCTypeDef
-```
-
-
-
-
-Optional fields:
-- `VPCRegion`: `VPCRegion`
-- `VPCId`: `str`
-
-
-## ActivateKeySigningKeyResponseTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import ActivateKeySigningKeyResponseTypeDef
-```
-
-
-Required fields:
-- `ChangeInfo`: `"ChangeInfoTypeDef"`
-
-
-
-
-## AssociateVPCWithHostedZoneResponseTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import AssociateVPCWithHostedZoneResponseTypeDef
-```
-
-
-Required fields:
-- `ChangeInfo`: `"ChangeInfoTypeDef"`
-
-
-
-
-## ChangeBatchTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import ChangeBatchTypeDef
-```
-
-
-Required fields:
-- `Changes`: `List["ChangeTypeDef"]`
-
-
-
-Optional fields:
-- `Comment`: `str`
-
-
-## ChangeResourceRecordSetsResponseTypeDef
-
-```python
-from mypy_boto3_route53.type_defs import ChangeResourceRecordSetsResponseTypeDef
-```
-
-
-Required fields:
-- `ChangeInfo`: `"ChangeInfoTypeDef"`
-
-
 
 
 ## CreateHealthCheckResponseTypeDef
@@ -830,6 +383,20 @@ Required fields:
 
 
 
+## DNSSECStatusTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import DNSSECStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServeSignature`: `str`
+- `StatusMessage`: `str`
+
+
 ## DeactivateKeySigningKeyResponseTypeDef
 
 ```python
@@ -841,6 +408,23 @@ Required fields:
 - `ChangeInfo`: `"ChangeInfoTypeDef"`
 
 
+
+
+## DelegationSetTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import DelegationSetTypeDef
+```
+
+
+Required fields:
+- `NameServers`: `List[str]`
+
+
+
+Optional fields:
+- `Id`: `str`
+- `CallerReference`: `str`
 
 
 ## DeleteHostedZoneResponseTypeDef
@@ -865,6 +449,20 @@ from mypy_boto3_route53.type_defs import DeleteKeySigningKeyResponseTypeDef
 
 Required fields:
 - `ChangeInfo`: `"ChangeInfoTypeDef"`
+
+
+
+
+## DimensionTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import DimensionTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Value`: `str`
 
 
 
@@ -906,6 +504,39 @@ Required fields:
 - `ChangeInfo`: `"ChangeInfoTypeDef"`
 
 
+
+
+## GeoLocationDetailsTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import GeoLocationDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ContinentCode`: `str`
+- `ContinentName`: `str`
+- `CountryCode`: `str`
+- `CountryName`: `str`
+- `SubdivisionCode`: `str`
+- `SubdivisionName`: `str`
+
+
+## GeoLocationTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import GeoLocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ContinentCode`: `str`
+- `CountryCode`: `str`
+- `SubdivisionCode`: `str`
 
 
 ## GetAccountLimitResponseTypeDef
@@ -1148,6 +779,191 @@ Required fields:
 - `TrafficPolicy`: `"TrafficPolicyTypeDef"`
 
 
+
+
+## HealthCheckConfigTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import HealthCheckConfigTypeDef
+```
+
+
+Required fields:
+- `Type`: `HealthCheckType`
+
+
+
+Optional fields:
+- `IPAddress`: `str`
+- `Port`: `int`
+- `ResourcePath`: `str`
+- `FullyQualifiedDomainName`: `str`
+- `SearchString`: `str`
+- `RequestInterval`: `int`
+- `FailureThreshold`: `int`
+- `MeasureLatency`: `bool`
+- `Inverted`: `bool`
+- `Disabled`: `bool`
+- `HealthThreshold`: `int`
+- `ChildHealthChecks`: `List[str]`
+- `EnableSNI`: `bool`
+- `Regions`: `List[HealthCheckRegion]`
+- `AlarmIdentifier`: `"AlarmIdentifierTypeDef"`
+- `InsufficientDataHealthStatus`: `InsufficientDataHealthStatus`
+
+
+## HealthCheckObservationTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import HealthCheckObservationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Region`: `HealthCheckRegion`
+- `IPAddress`: `str`
+- `StatusReport`: `"StatusReportTypeDef"`
+
+
+## HealthCheckTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import HealthCheckTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `CallerReference`: `str`
+- `HealthCheckConfig`: `"HealthCheckConfigTypeDef"`
+- `HealthCheckVersion`: `int`
+
+
+
+Optional fields:
+- `LinkedService`: `"LinkedServiceTypeDef"`
+- `CloudWatchAlarmConfiguration`: `"CloudWatchAlarmConfigurationTypeDef"`
+
+
+## HostedZoneConfigTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import HostedZoneConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `Comment`: `str`
+- `PrivateZone`: `bool`
+
+
+## HostedZoneLimitTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import HostedZoneLimitTypeDef
+```
+
+
+Required fields:
+- `Type`: `HostedZoneLimitType`
+- `Value`: `int`
+
+
+
+
+## HostedZoneOwnerTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import HostedZoneOwnerTypeDef
+```
+
+
+
+
+Optional fields:
+- `OwningAccount`: `str`
+- `OwningService`: `str`
+
+
+## HostedZoneSummaryTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import HostedZoneSummaryTypeDef
+```
+
+
+Required fields:
+- `HostedZoneId`: `str`
+- `Name`: `str`
+- `Owner`: `"HostedZoneOwnerTypeDef"`
+
+
+
+
+## HostedZoneTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import HostedZoneTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `Name`: `str`
+- `CallerReference`: `str`
+
+
+
+Optional fields:
+- `Config`: `"HostedZoneConfigTypeDef"`
+- `ResourceRecordSetCount`: `int`
+- `LinkedService`: `"LinkedServiceTypeDef"`
+
+
+## KeySigningKeyTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import KeySigningKeyTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `KmsArn`: `str`
+- `Flag`: `int`
+- `SigningAlgorithmMnemonic`: `str`
+- `SigningAlgorithmType`: `int`
+- `DigestAlgorithmMnemonic`: `str`
+- `DigestAlgorithmType`: `int`
+- `KeyTag`: `int`
+- `DigestValue`: `str`
+- `PublicKey`: `str`
+- `DSRecord`: `str`
+- `DNSKEYRecord`: `str`
+- `Status`: `str`
+- `StatusMessage`: `str`
+- `CreatedDate`: `datetime`
+- `LastModifiedDate`: `datetime`
+
+
+## LinkedServiceTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import LinkedServiceTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServicePrincipal`: `str`
+- `Description`: `str`
 
 
 ## ListGeoLocationsResponseTypeDef
@@ -1450,6 +1266,118 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## QueryLoggingConfigTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import QueryLoggingConfigTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `HostedZoneId`: `str`
+- `CloudWatchLogsLogGroupArn`: `str`
+
+
+
+
+## ResourceRecordSetTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import ResourceRecordSetTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Type`: `RRType`
+
+
+
+Optional fields:
+- `SetIdentifier`: `str`
+- `Weight`: `int`
+- `Region`: `ResourceRecordSetRegion`
+- `GeoLocation`: `"GeoLocationTypeDef"`
+- `Failover`: `ResourceRecordSetFailover`
+- `MultiValueAnswer`: `bool`
+- `TTL`: `int`
+- `ResourceRecords`: `List["ResourceRecordTypeDef"]`
+- `AliasTarget`: `"AliasTargetTypeDef"`
+- `HealthCheckId`: `str`
+- `TrafficPolicyInstanceId`: `str`
+
+
+## ResourceRecordTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import ResourceRecordTypeDef
+```
+
+
+Required fields:
+- `Value`: `str`
+
+
+
+
+## ResourceTagSetTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import ResourceTagSetTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceType`: `TagResourceType`
+- `ResourceId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## ReusableDelegationSetLimitTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import ReusableDelegationSetLimitTypeDef
+```
+
+
+Required fields:
+- `Type`: `Literal['MAX_ZONES_BY_REUSABLE_DELEGATION_SET']`
+- `Value`: `int`
+
+
+
+
+## StatusReportTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import StatusReportTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `str`
+- `CheckedTime`: `datetime`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 ## TestDNSAnswerResponseTypeDef
 
 ```python
@@ -1466,6 +1394,64 @@ Required fields:
 - `Protocol`: `str`
 
 
+
+
+## TrafficPolicyInstanceTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import TrafficPolicyInstanceTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `HostedZoneId`: `str`
+- `Name`: `str`
+- `TTL`: `int`
+- `State`: `str`
+- `Message`: `str`
+- `TrafficPolicyId`: `str`
+- `TrafficPolicyVersion`: `int`
+- `TrafficPolicyType`: `RRType`
+
+
+
+
+## TrafficPolicySummaryTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import TrafficPolicySummaryTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `Name`: `str`
+- `Type`: `RRType`
+- `LatestVersion`: `int`
+- `TrafficPolicyCount`: `int`
+
+
+
+
+## TrafficPolicyTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import TrafficPolicyTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `Version`: `int`
+- `Name`: `str`
+- `Type`: `RRType`
+- `Document`: `str`
+
+
+
+Optional fields:
+- `Comment`: `str`
 
 
 ## UpdateHealthCheckResponseTypeDef
@@ -1518,6 +1504,20 @@ Required fields:
 - `TrafficPolicyInstance`: `"TrafficPolicyInstanceTypeDef"`
 
 
+
+
+## VPCTypeDef
+
+```python
+from mypy_boto3_route53.type_defs import VPCTypeDef
+```
+
+
+
+
+Optional fields:
+- `VPCRegion`: `VPCRegion`
+- `VPCId`: `str`
 
 
 ## WaiterConfigTypeDef

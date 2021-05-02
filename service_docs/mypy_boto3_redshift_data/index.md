@@ -113,21 +113,21 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_redshift_data.type_defs import ColumnMetadataTypeDef, ...
+from mypy_boto3_redshift_data.type_defs import CancelStatementResponseTypeDef, ...
 ```
 
-- [ColumnMetadataTypeDef](./type_defs.md#columnmetadatatypedef)
-- [FieldTypeDef](./type_defs.md#fieldtypedef)
-- [ResponseMetadata](./type_defs.md#responsemetadata)
-- [StatementDataTypeDef](./type_defs.md#statementdatatypedef)
-- [TableMemberTypeDef](./type_defs.md#tablemembertypedef)
 - [CancelStatementResponseTypeDef](./type_defs.md#cancelstatementresponsetypedef)
+- [ColumnMetadataTypeDef](./type_defs.md#columnmetadatatypedef)
 - [DescribeStatementResponseTypeDef](./type_defs.md#describestatementresponsetypedef)
 - [DescribeTableResponseTypeDef](./type_defs.md#describetableresponsetypedef)
 - [ExecuteStatementOutputTypeDef](./type_defs.md#executestatementoutputtypedef)
+- [FieldTypeDef](./type_defs.md#fieldtypedef)
 - [GetStatementResultResponseTypeDef](./type_defs.md#getstatementresultresponsetypedef)
 - [ListDatabasesResponseTypeDef](./type_defs.md#listdatabasesresponsetypedef)
 - [ListSchemasResponseTypeDef](./type_defs.md#listschemasresponsetypedef)
 - [ListStatementsResponseTypeDef](./type_defs.md#liststatementsresponsetypedef)
 - [ListTablesResponseTypeDef](./type_defs.md#listtablesresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)
+- [StatementDataTypeDef](./type_defs.md#statementdatatypedef)
+- [TableMemberTypeDef](./type_defs.md#tablemembertypedef)

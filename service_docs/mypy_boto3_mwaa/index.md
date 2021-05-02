@@ -108,27 +108,27 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_mwaa.type_defs import DimensionTypeDef, ...
+from mypy_boto3_mwaa.type_defs import CreateCliTokenResponseTypeDef, ...
 ```
 
-- [DimensionTypeDef](./type_defs.md#dimensiontypedef)
-- [EnvironmentTypeDef](./type_defs.md#environmenttypedef)
-- [LastUpdateTypeDef](./type_defs.md#lastupdatetypedef)
-- [LoggingConfigurationTypeDef](./type_defs.md#loggingconfigurationtypedef)
-- [ModuleLoggingConfigurationInputTypeDef](./type_defs.md#moduleloggingconfigurationinputtypedef)
-- [ModuleLoggingConfigurationTypeDef](./type_defs.md#moduleloggingconfigurationtypedef)
-- [NetworkConfigurationTypeDef](./type_defs.md#networkconfigurationtypedef)
-- [ResponseMetadata](./type_defs.md#responsemetadata)
-- [StatisticSetTypeDef](./type_defs.md#statisticsettypedef)
-- [UpdateErrorTypeDef](./type_defs.md#updateerrortypedef)
 - [CreateCliTokenResponseTypeDef](./type_defs.md#createclitokenresponsetypedef)
 - [CreateEnvironmentOutputTypeDef](./type_defs.md#createenvironmentoutputtypedef)
 - [CreateWebLoginTokenResponseTypeDef](./type_defs.md#createweblogintokenresponsetypedef)
+- [DimensionTypeDef](./type_defs.md#dimensiontypedef)
+- [EnvironmentTypeDef](./type_defs.md#environmenttypedef)
 - [GetEnvironmentOutputTypeDef](./type_defs.md#getenvironmentoutputtypedef)
+- [LastUpdateTypeDef](./type_defs.md#lastupdatetypedef)
 - [ListEnvironmentsOutputTypeDef](./type_defs.md#listenvironmentsoutputtypedef)
 - [ListTagsForResourceOutputTypeDef](./type_defs.md#listtagsforresourceoutputtypedef)
 - [LoggingConfigurationInputTypeDef](./type_defs.md#loggingconfigurationinputtypedef)
+- [LoggingConfigurationTypeDef](./type_defs.md#loggingconfigurationtypedef)
 - [MetricDatumTypeDef](./type_defs.md#metricdatumtypedef)
+- [ModuleLoggingConfigurationInputTypeDef](./type_defs.md#moduleloggingconfigurationinputtypedef)
+- [ModuleLoggingConfigurationTypeDef](./type_defs.md#moduleloggingconfigurationtypedef)
+- [NetworkConfigurationTypeDef](./type_defs.md#networkconfigurationtypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)
+- [StatisticSetTypeDef](./type_defs.md#statisticsettypedef)
 - [UpdateEnvironmentOutputTypeDef](./type_defs.md#updateenvironmentoutputtypedef)
+- [UpdateErrorTypeDef](./type_defs.md#updateerrortypedef)
 - [UpdateNetworkConfigurationInputTypeDef](./type_defs.md#updatenetworkconfigurationinputtypedef)

@@ -8,8 +8,14 @@ type annotations stubs module [mypy_boto3_application_autoscaling](https://pypi.
 - [Structures for boto3 ApplicationAutoScaling module](#structures-for-boto3-applicationautoscaling-module)
   - [AlarmTypeDef](#alarmtypedef)
   - [CustomizedMetricSpecificationTypeDef](#customizedmetricspecificationtypedef)
+  - [DescribeScalableTargetsResponseTypeDef](#describescalabletargetsresponsetypedef)
+  - [DescribeScalingActivitiesResponseTypeDef](#describescalingactivitiesresponsetypedef)
+  - [DescribeScalingPoliciesResponseTypeDef](#describescalingpoliciesresponsetypedef)
+  - [DescribeScheduledActionsResponseTypeDef](#describescheduledactionsresponsetypedef)
   - [MetricDimensionTypeDef](#metricdimensiontypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PredefinedMetricSpecificationTypeDef](#predefinedmetricspecificationtypedef)
+  - [PutScalingPolicyResponseTypeDef](#putscalingpolicyresponsetypedef)
   - [ScalableTargetActionTypeDef](#scalabletargetactiontypedef)
   - [ScalableTargetTypeDef](#scalabletargettypedef)
   - [ScalingActivityTypeDef](#scalingactivitytypedef)
@@ -19,12 +25,6 @@ type annotations stubs module [mypy_boto3_application_autoscaling](https://pypi.
   - [StepScalingPolicyConfigurationTypeDef](#stepscalingpolicyconfigurationtypedef)
   - [SuspendedStateTypeDef](#suspendedstatetypedef)
   - [TargetTrackingScalingPolicyConfigurationTypeDef](#targettrackingscalingpolicyconfigurationtypedef)
-  - [DescribeScalableTargetsResponseTypeDef](#describescalabletargetsresponsetypedef)
-  - [DescribeScalingActivitiesResponseTypeDef](#describescalingactivitiesresponsetypedef)
-  - [DescribeScalingPoliciesResponseTypeDef](#describescalingpoliciesresponsetypedef)
-  - [DescribeScheduledActionsResponseTypeDef](#describescheduledactionsresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [PutScalingPolicyResponseTypeDef](#putscalingpolicyresponsetypedef)
 
 ## AlarmTypeDef
 
@@ -59,6 +59,62 @@ Optional fields:
 - `Unit`: `str`
 
 
+## DescribeScalableTargetsResponseTypeDef
+
+```python
+from mypy_boto3_application_autoscaling.type_defs import DescribeScalableTargetsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ScalableTargets`: `List["ScalableTargetTypeDef"]`
+- `NextToken`: `str`
+
+
+## DescribeScalingActivitiesResponseTypeDef
+
+```python
+from mypy_boto3_application_autoscaling.type_defs import DescribeScalingActivitiesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ScalingActivities`: `List["ScalingActivityTypeDef"]`
+- `NextToken`: `str`
+
+
+## DescribeScalingPoliciesResponseTypeDef
+
+```python
+from mypy_boto3_application_autoscaling.type_defs import DescribeScalingPoliciesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ScalingPolicies`: `List["ScalingPolicyTypeDef"]`
+- `NextToken`: `str`
+
+
+## DescribeScheduledActionsResponseTypeDef
+
+```python
+from mypy_boto3_application_autoscaling.type_defs import DescribeScheduledActionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ScheduledActions`: `List["ScheduledActionTypeDef"]`
+- `NextToken`: `str`
+
+
 ## MetricDimensionTypeDef
 
 ```python
@@ -71,6 +127,21 @@ Required fields:
 - `Value`: `str`
 
 
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_application_autoscaling.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## PredefinedMetricSpecificationTypeDef
@@ -87,6 +158,22 @@ Required fields:
 
 Optional fields:
 - `ResourceLabel`: `str`
+
+
+## PutScalingPolicyResponseTypeDef
+
+```python
+from mypy_boto3_application_autoscaling.type_defs import PutScalingPolicyResponseTypeDef
+```
+
+
+Required fields:
+- `PolicyARN`: `str`
+
+
+
+Optional fields:
+- `Alarms`: `List["AlarmTypeDef"]`
 
 
 ## ScalableTargetActionTypeDef
@@ -266,91 +353,4 @@ Optional fields:
 - `ScaleOutCooldown`: `int`
 - `ScaleInCooldown`: `int`
 - `DisableScaleIn`: `bool`
-
-
-## DescribeScalableTargetsResponseTypeDef
-
-```python
-from mypy_boto3_application_autoscaling.type_defs import DescribeScalableTargetsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ScalableTargets`: `List["ScalableTargetTypeDef"]`
-- `NextToken`: `str`
-
-
-## DescribeScalingActivitiesResponseTypeDef
-
-```python
-from mypy_boto3_application_autoscaling.type_defs import DescribeScalingActivitiesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ScalingActivities`: `List["ScalingActivityTypeDef"]`
-- `NextToken`: `str`
-
-
-## DescribeScalingPoliciesResponseTypeDef
-
-```python
-from mypy_boto3_application_autoscaling.type_defs import DescribeScalingPoliciesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ScalingPolicies`: `List["ScalingPolicyTypeDef"]`
-- `NextToken`: `str`
-
-
-## DescribeScheduledActionsResponseTypeDef
-
-```python
-from mypy_boto3_application_autoscaling.type_defs import DescribeScheduledActionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ScheduledActions`: `List["ScheduledActionTypeDef"]`
-- `NextToken`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_application_autoscaling.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## PutScalingPolicyResponseTypeDef
-
-```python
-from mypy_boto3_application_autoscaling.type_defs import PutScalingPolicyResponseTypeDef
-```
-
-
-Required fields:
-- `PolicyARN`: `str`
-
-
-
-Optional fields:
-- `Alarms`: `List["AlarmTypeDef"]`
 

@@ -6,28 +6,21 @@ Auto-generated documentation for [IoTThingsGraph](https://boto3.amazonaws.com/v1
 type annotations stubs module [mypy_boto3_iotthingsgraph](https://pypi.org/project/mypy-boto3-iotthingsgraph/).
 
 - [Structures for boto3 IoTThingsGraph module](#structures-for-boto3-iotthingsgraph-module)
-  - [DefinitionDocumentTypeDef](#definitiondocumenttypedef)
-  - [DependencyRevisionTypeDef](#dependencyrevisiontypedef)
-  - [EntityDescriptionTypeDef](#entitydescriptiontypedef)
-  - [FlowExecutionMessageTypeDef](#flowexecutionmessagetypedef)
-  - [FlowExecutionSummaryTypeDef](#flowexecutionsummarytypedef)
-  - [FlowTemplateDescriptionTypeDef](#flowtemplatedescriptiontypedef)
-  - [FlowTemplateSummaryTypeDef](#flowtemplatesummarytypedef)
-  - [MetricsConfigurationTypeDef](#metricsconfigurationtypedef)
-  - [SystemInstanceDescriptionTypeDef](#systeminstancedescriptiontypedef)
-  - [SystemInstanceSummaryTypeDef](#systeminstancesummarytypedef)
-  - [SystemTemplateDescriptionTypeDef](#systemtemplatedescriptiontypedef)
-  - [SystemTemplateSummaryTypeDef](#systemtemplatesummarytypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [ThingTypeDef](#thingtypedef)
   - [CreateFlowTemplateResponseTypeDef](#createflowtemplateresponsetypedef)
   - [CreateSystemInstanceResponseTypeDef](#createsysteminstanceresponsetypedef)
   - [CreateSystemTemplateResponseTypeDef](#createsystemtemplateresponsetypedef)
+  - [DefinitionDocumentTypeDef](#definitiondocumenttypedef)
   - [DeleteNamespaceResponseTypeDef](#deletenamespaceresponsetypedef)
+  - [DependencyRevisionTypeDef](#dependencyrevisiontypedef)
   - [DeploySystemInstanceResponseTypeDef](#deploysysteminstanceresponsetypedef)
   - [DescribeNamespaceResponseTypeDef](#describenamespaceresponsetypedef)
+  - [EntityDescriptionTypeDef](#entitydescriptiontypedef)
   - [EntityFilterTypeDef](#entityfiltertypedef)
+  - [FlowExecutionMessageTypeDef](#flowexecutionmessagetypedef)
+  - [FlowExecutionSummaryTypeDef](#flowexecutionsummarytypedef)
+  - [FlowTemplateDescriptionTypeDef](#flowtemplatedescriptiontypedef)
   - [FlowTemplateFilterTypeDef](#flowtemplatefiltertypedef)
+  - [FlowTemplateSummaryTypeDef](#flowtemplatesummarytypedef)
   - [GetEntitiesResponseTypeDef](#getentitiesresponsetypedef)
   - [GetFlowTemplateResponseTypeDef](#getflowtemplateresponsetypedef)
   - [GetFlowTemplateRevisionsResponseTypeDef](#getflowtemplaterevisionsresponsetypedef)
@@ -38,6 +31,7 @@ type annotations stubs module [mypy_boto3_iotthingsgraph](https://pypi.org/proje
   - [GetUploadStatusResponseTypeDef](#getuploadstatusresponsetypedef)
   - [ListFlowExecutionMessagesResponseTypeDef](#listflowexecutionmessagesresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [MetricsConfigurationTypeDef](#metricsconfigurationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [SearchEntitiesResponseTypeDef](#searchentitiesresponsetypedef)
   - [SearchFlowExecutionsResponseTypeDef](#searchflowexecutionsresponsetypedef)
@@ -45,12 +39,57 @@ type annotations stubs module [mypy_boto3_iotthingsgraph](https://pypi.org/proje
   - [SearchSystemInstancesResponseTypeDef](#searchsysteminstancesresponsetypedef)
   - [SearchSystemTemplatesResponseTypeDef](#searchsystemtemplatesresponsetypedef)
   - [SearchThingsResponseTypeDef](#searchthingsresponsetypedef)
+  - [SystemInstanceDescriptionTypeDef](#systeminstancedescriptiontypedef)
   - [SystemInstanceFilterTypeDef](#systeminstancefiltertypedef)
+  - [SystemInstanceSummaryTypeDef](#systeminstancesummarytypedef)
+  - [SystemTemplateDescriptionTypeDef](#systemtemplatedescriptiontypedef)
   - [SystemTemplateFilterTypeDef](#systemtemplatefiltertypedef)
+  - [SystemTemplateSummaryTypeDef](#systemtemplatesummarytypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [ThingTypeDef](#thingtypedef)
   - [UndeploySystemInstanceResponseTypeDef](#undeploysysteminstanceresponsetypedef)
   - [UpdateFlowTemplateResponseTypeDef](#updateflowtemplateresponsetypedef)
   - [UpdateSystemTemplateResponseTypeDef](#updatesystemtemplateresponsetypedef)
   - [UploadEntityDefinitionsResponseTypeDef](#uploadentitydefinitionsresponsetypedef)
+
+## CreateFlowTemplateResponseTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import CreateFlowTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `summary`: `"FlowTemplateSummaryTypeDef"`
+
+
+## CreateSystemInstanceResponseTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import CreateSystemInstanceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `summary`: `"SystemInstanceSummaryTypeDef"`
+
+
+## CreateSystemTemplateResponseTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import CreateSystemTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `summary`: `"SystemTemplateSummaryTypeDef"`
+
 
 ## DefinitionDocumentTypeDef
 
@@ -60,10 +99,24 @@ from mypy_boto3_iotthingsgraph.type_defs import DefinitionDocumentTypeDef
 
 
 Required fields:
-- `language`: `DefinitionLanguage`
+- `language`: `Literal['GRAPHQL']`
 - `text`: `str`
 
 
+
+
+## DeleteNamespaceResponseTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import DeleteNamespaceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `namespaceArn`: `str`
+- `namespaceName`: `str`
 
 
 ## DependencyRevisionTypeDef
@@ -78,6 +131,39 @@ from mypy_boto3_iotthingsgraph.type_defs import DependencyRevisionTypeDef
 Optional fields:
 - `id`: `str`
 - `revisionNumber`: `int`
+
+
+## DeploySystemInstanceResponseTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import DeploySystemInstanceResponseTypeDef
+```
+
+
+Required fields:
+- `summary`: `"SystemInstanceSummaryTypeDef"`
+
+
+
+Optional fields:
+- `greengrassDeploymentId`: `str`
+
+
+## DescribeNamespaceResponseTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import DescribeNamespaceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `namespaceArn`: `str`
+- `namespaceName`: `str`
+- `trackingNamespaceName`: `str`
+- `trackingNamespaceVersion`: `int`
+- `namespaceVersion`: `int`
 
 
 ## EntityDescriptionTypeDef
@@ -95,6 +181,20 @@ Optional fields:
 - `type`: `EntityType`
 - `createdAt`: `datetime`
 - `definition`: `"DefinitionDocumentTypeDef"`
+
+
+## EntityFilterTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import EntityFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `EntityFilterName`
+- `value`: `List[str]`
 
 
 ## FlowExecutionMessageTypeDef
@@ -146,6 +246,20 @@ Optional fields:
 - `validatedNamespaceVersion`: `int`
 
 
+## FlowTemplateFilterTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import FlowTemplateFilterTypeDef
+```
+
+
+Required fields:
+- `name`: `Literal['DEVICE_MODEL_ID']`
+- `value`: `List[str]`
+
+
+
+
 ## FlowTemplateSummaryTypeDef
 
 ```python
@@ -160,233 +274,6 @@ Optional fields:
 - `arn`: `str`
 - `revisionNumber`: `int`
 - `createdAt`: `datetime`
-
-
-## MetricsConfigurationTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import MetricsConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `cloudMetricEnabled`: `bool`
-- `metricRuleRoleArn`: `str`
-
-
-## SystemInstanceDescriptionTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import SystemInstanceDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `summary`: `"SystemInstanceSummaryTypeDef"`
-- `definition`: `"DefinitionDocumentTypeDef"`
-- `s3BucketName`: `str`
-- `metricsConfiguration`: `"MetricsConfigurationTypeDef"`
-- `validatedNamespaceVersion`: `int`
-- `validatedDependencyRevisions`: `List["DependencyRevisionTypeDef"]`
-- `flowActionsRoleArn`: `str`
-
-
-## SystemInstanceSummaryTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import SystemInstanceSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `arn`: `str`
-- `status`: `SystemInstanceDeploymentStatus`
-- `target`: `DeploymentTarget`
-- `greengrassGroupName`: `str`
-- `createdAt`: `datetime`
-- `updatedAt`: `datetime`
-- `greengrassGroupId`: `str`
-- `greengrassGroupVersionId`: `str`
-
-
-## SystemTemplateDescriptionTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import SystemTemplateDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `summary`: `"SystemTemplateSummaryTypeDef"`
-- `definition`: `"DefinitionDocumentTypeDef"`
-- `validatedNamespaceVersion`: `int`
-
-
-## SystemTemplateSummaryTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import SystemTemplateSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `arn`: `str`
-- `revisionNumber`: `int`
-- `createdAt`: `datetime`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `key`: `str`
-- `value`: `str`
-
-
-
-
-## ThingTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import ThingTypeDef
-```
-
-
-
-
-Optional fields:
-- `thingArn`: `str`
-- `thingName`: `str`
-
-
-## CreateFlowTemplateResponseTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import CreateFlowTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `summary`: `"FlowTemplateSummaryTypeDef"`
-
-
-## CreateSystemInstanceResponseTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import CreateSystemInstanceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `summary`: `"SystemInstanceSummaryTypeDef"`
-
-
-## CreateSystemTemplateResponseTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import CreateSystemTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `summary`: `"SystemTemplateSummaryTypeDef"`
-
-
-## DeleteNamespaceResponseTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import DeleteNamespaceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `namespaceArn`: `str`
-- `namespaceName`: `str`
-
-
-## DeploySystemInstanceResponseTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import DeploySystemInstanceResponseTypeDef
-```
-
-
-Required fields:
-- `summary`: `"SystemInstanceSummaryTypeDef"`
-
-
-
-Optional fields:
-- `greengrassDeploymentId`: `str`
-
-
-## DescribeNamespaceResponseTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import DescribeNamespaceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `namespaceArn`: `str`
-- `namespaceName`: `str`
-- `trackingNamespaceName`: `str`
-- `trackingNamespaceVersion`: `int`
-- `namespaceVersion`: `int`
-
-
-## EntityFilterTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import EntityFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `EntityFilterName`
-- `value`: `List[str]`
-
-
-## FlowTemplateFilterTypeDef
-
-```python
-from mypy_boto3_iotthingsgraph.type_defs import FlowTemplateFilterTypeDef
-```
-
-
-Required fields:
-- `name`: `FlowTemplateFilterName`
-- `value`: `List[str]`
-
-
 
 
 ## GetEntitiesResponseTypeDef
@@ -442,7 +329,7 @@ Optional fields:
 - `namespaceArn`: `str`
 - `namespaceName`: `str`
 - `status`: `NamespaceDeletionStatus`
-- `errorCode`: `NamespaceDeletionStatusErrorCodes`
+- `errorCode`: `Literal['VALIDATION_FAILED']`
 - `errorMessage`: `str`
 
 
@@ -533,6 +420,20 @@ from mypy_boto3_iotthingsgraph.type_defs import ListTagsForResourceResponseTypeD
 Optional fields:
 - `tags`: `List["TagTypeDef"]`
 - `nextToken`: `str`
+
+
+## MetricsConfigurationTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import MetricsConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `cloudMetricEnabled`: `bool`
+- `metricRuleRoleArn`: `str`
 
 
 ## PaginatorConfigTypeDef
@@ -634,6 +535,25 @@ Optional fields:
 - `nextToken`: `str`
 
 
+## SystemInstanceDescriptionTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import SystemInstanceDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `summary`: `"SystemInstanceSummaryTypeDef"`
+- `definition`: `"DefinitionDocumentTypeDef"`
+- `s3BucketName`: `str`
+- `metricsConfiguration`: `"MetricsConfigurationTypeDef"`
+- `validatedNamespaceVersion`: `int`
+- `validatedDependencyRevisions`: `List["DependencyRevisionTypeDef"]`
+- `flowActionsRoleArn`: `str`
+
+
 ## SystemInstanceFilterTypeDef
 
 ```python
@@ -648,6 +568,42 @@ Optional fields:
 - `value`: `List[str]`
 
 
+## SystemInstanceSummaryTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import SystemInstanceSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `arn`: `str`
+- `status`: `SystemInstanceDeploymentStatus`
+- `target`: `DeploymentTarget`
+- `greengrassGroupName`: `str`
+- `createdAt`: `datetime`
+- `updatedAt`: `datetime`
+- `greengrassGroupId`: `str`
+- `greengrassGroupVersionId`: `str`
+
+
+## SystemTemplateDescriptionTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import SystemTemplateDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `summary`: `"SystemTemplateSummaryTypeDef"`
+- `definition`: `"DefinitionDocumentTypeDef"`
+- `validatedNamespaceVersion`: `int`
+
+
 ## SystemTemplateFilterTypeDef
 
 ```python
@@ -656,10 +612,54 @@ from mypy_boto3_iotthingsgraph.type_defs import SystemTemplateFilterTypeDef
 
 
 Required fields:
-- `name`: `SystemTemplateFilterName`
+- `name`: `Literal['FLOW_TEMPLATE_ID']`
 - `value`: `List[str]`
 
 
+
+
+## SystemTemplateSummaryTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import SystemTemplateSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `arn`: `str`
+- `revisionNumber`: `int`
+- `createdAt`: `datetime`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `key`: `str`
+- `value`: `str`
+
+
+
+
+## ThingTypeDef
+
+```python
+from mypy_boto3_iotthingsgraph.type_defs import ThingTypeDef
+```
+
+
+
+
+Optional fields:
+- `thingArn`: `str`
+- `thingName`: `str`
 
 
 ## UndeploySystemInstanceResponseTypeDef

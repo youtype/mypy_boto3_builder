@@ -6,21 +6,50 @@ Auto-generated documentation for [Connect](https://boto3.amazonaws.com/v1/docume
 type annotations stubs module [mypy_boto3_connect](https://pypi.org/project/mypy-boto3-connect/).
 
 - [Structures for boto3 Connect module](#structures-for-boto3-connect-module)
+  - [AssociateInstanceStorageConfigResponseTypeDef](#associateinstancestorageconfigresponsetypedef)
+  - [AssociateSecurityKeyResponseTypeDef](#associatesecuritykeyresponsetypedef)
   - [AttributeTypeDef](#attributetypedef)
+  - [ChatMessageTypeDef](#chatmessagetypedef)
   - [ContactFlowSummaryTypeDef](#contactflowsummarytypedef)
   - [ContactFlowTypeDef](#contactflowtypedef)
+  - [CreateContactFlowResponseTypeDef](#createcontactflowresponsetypedef)
+  - [CreateInstanceResponseTypeDef](#createinstanceresponsetypedef)
+  - [CreateIntegrationAssociationResponseTypeDef](#createintegrationassociationresponsetypedef)
+  - [CreateQueueResponseTypeDef](#createqueueresponsetypedef)
+  - [CreateQuickConnectResponseTypeDef](#createquickconnectresponsetypedef)
+  - [CreateRoutingProfileResponseTypeDef](#createroutingprofileresponsetypedef)
+  - [CreateUseCaseResponseTypeDef](#createusecaseresponsetypedef)
+  - [CreateUserHierarchyGroupResponseTypeDef](#createuserhierarchygroupresponsetypedef)
+  - [CreateUserResponseTypeDef](#createuserresponsetypedef)
   - [CredentialsTypeDef](#credentialstypedef)
   - [CurrentMetricDataTypeDef](#currentmetricdatatypedef)
   - [CurrentMetricResultTypeDef](#currentmetricresulttypedef)
   - [CurrentMetricTypeDef](#currentmetrictypedef)
+  - [DescribeContactFlowResponseTypeDef](#describecontactflowresponsetypedef)
+  - [DescribeHoursOfOperationResponseTypeDef](#describehoursofoperationresponsetypedef)
+  - [DescribeInstanceAttributeResponseTypeDef](#describeinstanceattributeresponsetypedef)
+  - [DescribeInstanceResponseTypeDef](#describeinstanceresponsetypedef)
+  - [DescribeInstanceStorageConfigResponseTypeDef](#describeinstancestorageconfigresponsetypedef)
+  - [DescribeQueueResponseTypeDef](#describequeueresponsetypedef)
+  - [DescribeQuickConnectResponseTypeDef](#describequickconnectresponsetypedef)
+  - [DescribeRoutingProfileResponseTypeDef](#describeroutingprofileresponsetypedef)
+  - [DescribeUserHierarchyGroupResponseTypeDef](#describeuserhierarchygroupresponsetypedef)
+  - [DescribeUserHierarchyStructureResponseTypeDef](#describeuserhierarchystructureresponsetypedef)
+  - [DescribeUserResponseTypeDef](#describeuserresponsetypedef)
   - [DimensionsTypeDef](#dimensionstypedef)
   - [EncryptionConfigTypeDef](#encryptionconfigtypedef)
+  - [FiltersTypeDef](#filterstypedef)
+  - [GetContactAttributesResponseTypeDef](#getcontactattributesresponsetypedef)
+  - [GetCurrentMetricDataResponseTypeDef](#getcurrentmetricdataresponsetypedef)
+  - [GetFederationTokenResponseTypeDef](#getfederationtokenresponsetypedef)
+  - [GetMetricDataResponseTypeDef](#getmetricdataresponsetypedef)
   - [HierarchyGroupSummaryTypeDef](#hierarchygroupsummarytypedef)
   - [HierarchyGroupTypeDef](#hierarchygrouptypedef)
   - [HierarchyLevelTypeDef](#hierarchyleveltypedef)
   - [HierarchyLevelUpdateTypeDef](#hierarchylevelupdatetypedef)
   - [HierarchyPathTypeDef](#hierarchypathtypedef)
   - [HierarchyStructureTypeDef](#hierarchystructuretypedef)
+  - [HierarchyStructureUpdateTypeDef](#hierarchystructureupdatetypedef)
   - [HistoricalMetricDataTypeDef](#historicalmetricdatatypedef)
   - [HistoricalMetricResultTypeDef](#historicalmetricresulttypedef)
   - [HistoricalMetricTypeDef](#historicalmetrictypedef)
@@ -37,61 +66,6 @@ type annotations stubs module [mypy_boto3_connect](https://pypi.org/project/mypy
   - [KinesisStreamConfigTypeDef](#kinesisstreamconfigtypedef)
   - [KinesisVideoStreamConfigTypeDef](#kinesisvideostreamconfigtypedef)
   - [LexBotTypeDef](#lexbottypedef)
-  - [MediaConcurrencyTypeDef](#mediaconcurrencytypedef)
-  - [OutboundCallerConfigTypeDef](#outboundcallerconfigtypedef)
-  - [PhoneNumberQuickConnectConfigTypeDef](#phonenumberquickconnectconfigtypedef)
-  - [PhoneNumberSummaryTypeDef](#phonenumbersummarytypedef)
-  - [PromptSummaryTypeDef](#promptsummarytypedef)
-  - [QueueQuickConnectConfigTypeDef](#queuequickconnectconfigtypedef)
-  - [QueueReferenceTypeDef](#queuereferencetypedef)
-  - [QueueSummaryTypeDef](#queuesummarytypedef)
-  - [QueueTypeDef](#queuetypedef)
-  - [QuickConnectConfigTypeDef](#quickconnectconfigtypedef)
-  - [QuickConnectSummaryTypeDef](#quickconnectsummarytypedef)
-  - [QuickConnectTypeDef](#quickconnecttypedef)
-  - [RoutingProfileQueueConfigSummaryTypeDef](#routingprofilequeueconfigsummarytypedef)
-  - [RoutingProfileQueueReferenceTypeDef](#routingprofilequeuereferencetypedef)
-  - [RoutingProfileSummaryTypeDef](#routingprofilesummarytypedef)
-  - [RoutingProfileTypeDef](#routingprofiletypedef)
-  - [S3ConfigTypeDef](#s3configtypedef)
-  - [SecurityKeyTypeDef](#securitykeytypedef)
-  - [SecurityProfileSummaryTypeDef](#securityprofilesummarytypedef)
-  - [ThresholdTypeDef](#thresholdtypedef)
-  - [UseCaseTypeDef](#usecasetypedef)
-  - [UserIdentityInfoTypeDef](#useridentityinfotypedef)
-  - [UserPhoneConfigTypeDef](#userphoneconfigtypedef)
-  - [UserQuickConnectConfigTypeDef](#userquickconnectconfigtypedef)
-  - [UserSummaryTypeDef](#usersummarytypedef)
-  - [UserTypeDef](#usertypedef)
-  - [AssociateInstanceStorageConfigResponseTypeDef](#associateinstancestorageconfigresponsetypedef)
-  - [AssociateSecurityKeyResponseTypeDef](#associatesecuritykeyresponsetypedef)
-  - [ChatMessageTypeDef](#chatmessagetypedef)
-  - [CreateContactFlowResponseTypeDef](#createcontactflowresponsetypedef)
-  - [CreateInstanceResponseTypeDef](#createinstanceresponsetypedef)
-  - [CreateIntegrationAssociationResponseTypeDef](#createintegrationassociationresponsetypedef)
-  - [CreateQueueResponseTypeDef](#createqueueresponsetypedef)
-  - [CreateQuickConnectResponseTypeDef](#createquickconnectresponsetypedef)
-  - [CreateRoutingProfileResponseTypeDef](#createroutingprofileresponsetypedef)
-  - [CreateUseCaseResponseTypeDef](#createusecaseresponsetypedef)
-  - [CreateUserHierarchyGroupResponseTypeDef](#createuserhierarchygroupresponsetypedef)
-  - [CreateUserResponseTypeDef](#createuserresponsetypedef)
-  - [DescribeContactFlowResponseTypeDef](#describecontactflowresponsetypedef)
-  - [DescribeHoursOfOperationResponseTypeDef](#describehoursofoperationresponsetypedef)
-  - [DescribeInstanceAttributeResponseTypeDef](#describeinstanceattributeresponsetypedef)
-  - [DescribeInstanceResponseTypeDef](#describeinstanceresponsetypedef)
-  - [DescribeInstanceStorageConfigResponseTypeDef](#describeinstancestorageconfigresponsetypedef)
-  - [DescribeQueueResponseTypeDef](#describequeueresponsetypedef)
-  - [DescribeQuickConnectResponseTypeDef](#describequickconnectresponsetypedef)
-  - [DescribeRoutingProfileResponseTypeDef](#describeroutingprofileresponsetypedef)
-  - [DescribeUserHierarchyGroupResponseTypeDef](#describeuserhierarchygroupresponsetypedef)
-  - [DescribeUserHierarchyStructureResponseTypeDef](#describeuserhierarchystructureresponsetypedef)
-  - [DescribeUserResponseTypeDef](#describeuserresponsetypedef)
-  - [FiltersTypeDef](#filterstypedef)
-  - [GetContactAttributesResponseTypeDef](#getcontactattributesresponsetypedef)
-  - [GetCurrentMetricDataResponseTypeDef](#getcurrentmetricdataresponsetypedef)
-  - [GetFederationTokenResponseTypeDef](#getfederationtokenresponsetypedef)
-  - [GetMetricDataResponseTypeDef](#getmetricdataresponsetypedef)
-  - [HierarchyStructureUpdateTypeDef](#hierarchystructureupdatetypedef)
   - [ListApprovedOriginsResponseTypeDef](#listapprovedoriginsresponsetypedef)
   - [ListContactFlowsResponseTypeDef](#listcontactflowsresponsetypedef)
   - [ListHoursOfOperationsResponseTypeDef](#listhoursofoperationsresponsetypedef)
@@ -114,14 +88,66 @@ type annotations stubs module [mypy_boto3_connect](https://pypi.org/project/mypy
   - [ListUseCasesResponseTypeDef](#listusecasesresponsetypedef)
   - [ListUserHierarchyGroupsResponseTypeDef](#listuserhierarchygroupsresponsetypedef)
   - [ListUsersResponseTypeDef](#listusersresponsetypedef)
+  - [MediaConcurrencyTypeDef](#mediaconcurrencytypedef)
+  - [OutboundCallerConfigTypeDef](#outboundcallerconfigtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ParticipantDetailsTypeDef](#participantdetailstypedef)
+  - [PhoneNumberQuickConnectConfigTypeDef](#phonenumberquickconnectconfigtypedef)
+  - [PhoneNumberSummaryTypeDef](#phonenumbersummarytypedef)
+  - [PromptSummaryTypeDef](#promptsummarytypedef)
+  - [QueueQuickConnectConfigTypeDef](#queuequickconnectconfigtypedef)
+  - [QueueReferenceTypeDef](#queuereferencetypedef)
+  - [QueueSummaryTypeDef](#queuesummarytypedef)
+  - [QueueTypeDef](#queuetypedef)
+  - [QuickConnectConfigTypeDef](#quickconnectconfigtypedef)
+  - [QuickConnectSummaryTypeDef](#quickconnectsummarytypedef)
+  - [QuickConnectTypeDef](#quickconnecttypedef)
   - [ReferenceTypeDef](#referencetypedef)
+  - [RoutingProfileQueueConfigSummaryTypeDef](#routingprofilequeueconfigsummarytypedef)
   - [RoutingProfileQueueConfigTypeDef](#routingprofilequeueconfigtypedef)
+  - [RoutingProfileQueueReferenceTypeDef](#routingprofilequeuereferencetypedef)
+  - [RoutingProfileSummaryTypeDef](#routingprofilesummarytypedef)
+  - [RoutingProfileTypeDef](#routingprofiletypedef)
+  - [S3ConfigTypeDef](#s3configtypedef)
+  - [SecurityKeyTypeDef](#securitykeytypedef)
+  - [SecurityProfileSummaryTypeDef](#securityprofilesummarytypedef)
   - [StartChatContactResponseTypeDef](#startchatcontactresponsetypedef)
   - [StartOutboundVoiceContactResponseTypeDef](#startoutboundvoicecontactresponsetypedef)
   - [StartTaskContactResponseTypeDef](#starttaskcontactresponsetypedef)
+  - [ThresholdTypeDef](#thresholdtypedef)
+  - [UseCaseTypeDef](#usecasetypedef)
+  - [UserIdentityInfoTypeDef](#useridentityinfotypedef)
+  - [UserPhoneConfigTypeDef](#userphoneconfigtypedef)
+  - [UserQuickConnectConfigTypeDef](#userquickconnectconfigtypedef)
+  - [UserSummaryTypeDef](#usersummarytypedef)
+  - [UserTypeDef](#usertypedef)
   - [VoiceRecordingConfigurationTypeDef](#voicerecordingconfigurationtypedef)
+
+## AssociateInstanceStorageConfigResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import AssociateInstanceStorageConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociationId`: `str`
+
+
+## AssociateSecurityKeyResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import AssociateSecurityKeyResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociationId`: `str`
+
 
 ## AttributeTypeDef
 
@@ -135,6 +161,20 @@ from mypy_boto3_connect.type_defs import AttributeTypeDef
 Optional fields:
 - `AttributeType`: `InstanceAttributeType`
 - `Value`: `str`
+
+
+## ChatMessageTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import ChatMessageTypeDef
+```
+
+
+Required fields:
+- `ContentType`: `str`
+- `Content`: `str`
+
+
 
 
 ## ContactFlowSummaryTypeDef
@@ -170,6 +210,132 @@ Optional fields:
 - `Description`: `str`
 - `Content`: `str`
 - `Tags`: `Dict[str, str]`
+
+
+## CreateContactFlowResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import CreateContactFlowResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ContactFlowId`: `str`
+- `ContactFlowArn`: `str`
+
+
+## CreateInstanceResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import CreateInstanceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+
+
+## CreateIntegrationAssociationResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import CreateIntegrationAssociationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `IntegrationAssociationId`: `str`
+- `IntegrationAssociationArn`: `str`
+
+
+## CreateQueueResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import CreateQueueResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `QueueArn`: `str`
+- `QueueId`: `str`
+
+
+## CreateQuickConnectResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import CreateQuickConnectResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `QuickConnectARN`: `str`
+- `QuickConnectId`: `str`
+
+
+## CreateRoutingProfileResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import CreateRoutingProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RoutingProfileArn`: `str`
+- `RoutingProfileId`: `str`
+
+
+## CreateUseCaseResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import CreateUseCaseResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UseCaseId`: `str`
+- `UseCaseArn`: `str`
+
+
+## CreateUserHierarchyGroupResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import CreateUserHierarchyGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `HierarchyGroupId`: `str`
+- `HierarchyGroupArn`: `str`
+
+
+## CreateUserResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import CreateUserResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserId`: `str`
+- `UserArn`: `str`
 
 
 ## CredentialsTypeDef
@@ -230,6 +396,149 @@ Optional fields:
 - `Unit`: `Unit`
 
 
+## DescribeContactFlowResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import DescribeContactFlowResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ContactFlow`: `"ContactFlowTypeDef"`
+
+
+## DescribeHoursOfOperationResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import DescribeHoursOfOperationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `HoursOfOperation`: `"HoursOfOperationTypeDef"`
+
+
+## DescribeInstanceAttributeResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import DescribeInstanceAttributeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Attribute`: `"AttributeTypeDef"`
+
+
+## DescribeInstanceResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import DescribeInstanceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Instance`: `"InstanceTypeDef"`
+
+
+## DescribeInstanceStorageConfigResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import DescribeInstanceStorageConfigResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `StorageConfig`: `"InstanceStorageConfigTypeDef"`
+
+
+## DescribeQueueResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import DescribeQueueResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Queue`: `"QueueTypeDef"`
+
+
+## DescribeQuickConnectResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import DescribeQuickConnectResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `QuickConnect`: `"QuickConnectTypeDef"`
+
+
+## DescribeRoutingProfileResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import DescribeRoutingProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RoutingProfile`: `"RoutingProfileTypeDef"`
+
+
+## DescribeUserHierarchyGroupResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import DescribeUserHierarchyGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `HierarchyGroup`: `"HierarchyGroupTypeDef"`
+
+
+## DescribeUserHierarchyStructureResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import DescribeUserHierarchyStructureResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `HierarchyStructure`: `"HierarchyStructureTypeDef"`
+
+
+## DescribeUserResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import DescribeUserResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `User`: `"UserTypeDef"`
+
+
 ## DimensionsTypeDef
 
 ```python
@@ -252,10 +561,79 @@ from mypy_boto3_connect.type_defs import EncryptionConfigTypeDef
 
 
 Required fields:
-- `EncryptionType`: `EncryptionType`
+- `EncryptionType`: `Literal['KMS']`
 - `KeyId`: `str`
 
 
+
+
+## FiltersTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import FiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `Queues`: `List[str]`
+- `Channels`: `List[Channel]`
+
+
+## GetContactAttributesResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import GetContactAttributesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Attributes`: `Dict[str, str]`
+
+
+## GetCurrentMetricDataResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import GetCurrentMetricDataResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `MetricResults`: `List["CurrentMetricResultTypeDef"]`
+- `DataSnapshotTime`: `datetime`
+
+
+## GetFederationTokenResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import GetFederationTokenResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Credentials`: `"CredentialsTypeDef"`
+
+
+## GetMetricDataResponseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import GetMetricDataResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `MetricResults`: `List["HistoricalMetricResultTypeDef"]`
 
 
 ## HierarchyGroupSummaryTypeDef
@@ -350,6 +728,23 @@ Optional fields:
 - `LevelThree`: `"HierarchyLevelTypeDef"`
 - `LevelFour`: `"HierarchyLevelTypeDef"`
 - `LevelFive`: `"HierarchyLevelTypeDef"`
+
+
+## HierarchyStructureUpdateTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import HierarchyStructureUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `LevelOne`: `"HierarchyLevelUpdateTypeDef"`
+- `LevelTwo`: `"HierarchyLevelUpdateTypeDef"`
+- `LevelThree`: `"HierarchyLevelUpdateTypeDef"`
+- `LevelFour`: `"HierarchyLevelUpdateTypeDef"`
+- `LevelFive`: `"HierarchyLevelUpdateTypeDef"`
 
 
 ## HistoricalMetricDataTypeDef
@@ -548,7 +943,7 @@ Optional fields:
 - `IntegrationAssociationId`: `str`
 - `IntegrationAssociationArn`: `str`
 - `InstanceId`: `str`
-- `IntegrationType`: `IntegrationType`
+- `IntegrationType`: `Literal['EVENT']`
 - `IntegrationArn`: `str`
 - `SourceApplicationUrl`: `str`
 - `SourceApplicationName`: `str`
@@ -608,819 +1003,6 @@ from mypy_boto3_connect.type_defs import LexBotTypeDef
 Optional fields:
 - `Name`: `str`
 - `LexRegion`: `str`
-
-
-## MediaConcurrencyTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import MediaConcurrencyTypeDef
-```
-
-
-Required fields:
-- `Channel`: `Channel`
-- `Concurrency`: `int`
-
-
-
-
-## OutboundCallerConfigTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import OutboundCallerConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `OutboundCallerIdName`: `str`
-- `OutboundCallerIdNumberId`: `str`
-- `OutboundFlowId`: `str`
-
-
-## PhoneNumberQuickConnectConfigTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import PhoneNumberQuickConnectConfigTypeDef
-```
-
-
-Required fields:
-- `PhoneNumber`: `str`
-
-
-
-
-## PhoneNumberSummaryTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import PhoneNumberSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `PhoneNumber`: `str`
-- `PhoneNumberType`: `PhoneNumberType`
-- `PhoneNumberCountryCode`: `PhoneNumberCountryCode`
-
-
-## PromptSummaryTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import PromptSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-
-
-## QueueQuickConnectConfigTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import QueueQuickConnectConfigTypeDef
-```
-
-
-Required fields:
-- `QueueId`: `str`
-- `ContactFlowId`: `str`
-
-
-
-
-## QueueReferenceTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import QueueReferenceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-
-
-## QueueSummaryTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import QueueSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `QueueType`: `QueueType`
-
-
-## QueueTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import QueueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `QueueArn`: `str`
-- `QueueId`: `str`
-- `Description`: `str`
-- `OutboundCallerConfig`: `"OutboundCallerConfigTypeDef"`
-- `HoursOfOperationId`: `str`
-- `MaxContacts`: `int`
-- `Status`: `QueueStatus`
-- `Tags`: `Dict[str, str]`
-
-
-## QuickConnectConfigTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import QuickConnectConfigTypeDef
-```
-
-
-Required fields:
-- `QuickConnectType`: `QuickConnectType`
-
-
-
-Optional fields:
-- `UserConfig`: `"UserQuickConnectConfigTypeDef"`
-- `QueueConfig`: `"QueueQuickConnectConfigTypeDef"`
-- `PhoneConfig`: `"PhoneNumberQuickConnectConfigTypeDef"`
-
-
-## QuickConnectSummaryTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import QuickConnectSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `QuickConnectType`: `QuickConnectType`
-
-
-## QuickConnectTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import QuickConnectTypeDef
-```
-
-
-
-
-Optional fields:
-- `QuickConnectARN`: `str`
-- `QuickConnectId`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `QuickConnectConfig`: `"QuickConnectConfigTypeDef"`
-- `Tags`: `Dict[str, str]`
-
-
-## RoutingProfileQueueConfigSummaryTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import RoutingProfileQueueConfigSummaryTypeDef
-```
-
-
-Required fields:
-- `QueueId`: `str`
-- `QueueArn`: `str`
-- `QueueName`: `str`
-- `Priority`: `int`
-- `Delay`: `int`
-- `Channel`: `Channel`
-
-
-
-
-## RoutingProfileQueueReferenceTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import RoutingProfileQueueReferenceTypeDef
-```
-
-
-Required fields:
-- `QueueId`: `str`
-- `Channel`: `Channel`
-
-
-
-
-## RoutingProfileSummaryTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import RoutingProfileSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-
-
-## RoutingProfileTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import RoutingProfileTypeDef
-```
-
-
-
-
-Optional fields:
-- `InstanceId`: `str`
-- `Name`: `str`
-- `RoutingProfileArn`: `str`
-- `RoutingProfileId`: `str`
-- `Description`: `str`
-- `MediaConcurrencies`: `List["MediaConcurrencyTypeDef"]`
-- `DefaultOutboundQueueId`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## S3ConfigTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import S3ConfigTypeDef
-```
-
-
-Required fields:
-- `BucketName`: `str`
-- `BucketPrefix`: `str`
-
-
-
-Optional fields:
-- `EncryptionConfig`: `"EncryptionConfigTypeDef"`
-
-
-## SecurityKeyTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import SecurityKeyTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociationId`: `str`
-- `Key`: `str`
-- `CreationTime`: `datetime`
-
-
-## SecurityProfileSummaryTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import SecurityProfileSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-
-
-## ThresholdTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import ThresholdTypeDef
-```
-
-
-
-
-Optional fields:
-- `Comparison`: `Comparison`
-- `ThresholdValue`: `float`
-
-
-## UseCaseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import UseCaseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UseCaseId`: `str`
-- `UseCaseArn`: `str`
-- `UseCaseType`: `UseCaseType`
-
-
-## UserIdentityInfoTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import UserIdentityInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `FirstName`: `str`
-- `LastName`: `str`
-- `Email`: `str`
-
-
-## UserPhoneConfigTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import UserPhoneConfigTypeDef
-```
-
-
-Required fields:
-- `PhoneType`: `PhoneType`
-
-
-
-Optional fields:
-- `AutoAccept`: `bool`
-- `AfterContactWorkTimeLimit`: `int`
-- `DeskPhoneNumber`: `str`
-
-
-## UserQuickConnectConfigTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import UserQuickConnectConfigTypeDef
-```
-
-
-Required fields:
-- `UserId`: `str`
-- `ContactFlowId`: `str`
-
-
-
-
-## UserSummaryTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import UserSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Username`: `str`
-
-
-## UserTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import UserTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Username`: `str`
-- `IdentityInfo`: `"UserIdentityInfoTypeDef"`
-- `PhoneConfig`: `"UserPhoneConfigTypeDef"`
-- `DirectoryUserId`: `str`
-- `SecurityProfileIds`: `List[str]`
-- `RoutingProfileId`: `str`
-- `HierarchyGroupId`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## AssociateInstanceStorageConfigResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import AssociateInstanceStorageConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociationId`: `str`
-
-
-## AssociateSecurityKeyResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import AssociateSecurityKeyResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AssociationId`: `str`
-
-
-## ChatMessageTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import ChatMessageTypeDef
-```
-
-
-Required fields:
-- `ContentType`: `str`
-- `Content`: `str`
-
-
-
-
-## CreateContactFlowResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import CreateContactFlowResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ContactFlowId`: `str`
-- `ContactFlowArn`: `str`
-
-
-## CreateInstanceResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import CreateInstanceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-
-
-## CreateIntegrationAssociationResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import CreateIntegrationAssociationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `IntegrationAssociationId`: `str`
-- `IntegrationAssociationArn`: `str`
-
-
-## CreateQueueResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import CreateQueueResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `QueueArn`: `str`
-- `QueueId`: `str`
-
-
-## CreateQuickConnectResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import CreateQuickConnectResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `QuickConnectARN`: `str`
-- `QuickConnectId`: `str`
-
-
-## CreateRoutingProfileResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import CreateRoutingProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RoutingProfileArn`: `str`
-- `RoutingProfileId`: `str`
-
-
-## CreateUseCaseResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import CreateUseCaseResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UseCaseId`: `str`
-- `UseCaseArn`: `str`
-
-
-## CreateUserHierarchyGroupResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import CreateUserHierarchyGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `HierarchyGroupId`: `str`
-- `HierarchyGroupArn`: `str`
-
-
-## CreateUserResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import CreateUserResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserId`: `str`
-- `UserArn`: `str`
-
-
-## DescribeContactFlowResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import DescribeContactFlowResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ContactFlow`: `"ContactFlowTypeDef"`
-
-
-## DescribeHoursOfOperationResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import DescribeHoursOfOperationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `HoursOfOperation`: `"HoursOfOperationTypeDef"`
-
-
-## DescribeInstanceAttributeResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import DescribeInstanceAttributeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Attribute`: `"AttributeTypeDef"`
-
-
-## DescribeInstanceResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import DescribeInstanceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Instance`: `"InstanceTypeDef"`
-
-
-## DescribeInstanceStorageConfigResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import DescribeInstanceStorageConfigResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `StorageConfig`: `"InstanceStorageConfigTypeDef"`
-
-
-## DescribeQueueResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import DescribeQueueResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Queue`: `"QueueTypeDef"`
-
-
-## DescribeQuickConnectResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import DescribeQuickConnectResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `QuickConnect`: `"QuickConnectTypeDef"`
-
-
-## DescribeRoutingProfileResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import DescribeRoutingProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RoutingProfile`: `"RoutingProfileTypeDef"`
-
-
-## DescribeUserHierarchyGroupResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import DescribeUserHierarchyGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `HierarchyGroup`: `"HierarchyGroupTypeDef"`
-
-
-## DescribeUserHierarchyStructureResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import DescribeUserHierarchyStructureResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `HierarchyStructure`: `"HierarchyStructureTypeDef"`
-
-
-## DescribeUserResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import DescribeUserResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `User`: `"UserTypeDef"`
-
-
-## FiltersTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import FiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `Queues`: `List[str]`
-- `Channels`: `List[Channel]`
-
-
-## GetContactAttributesResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import GetContactAttributesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Attributes`: `Dict[str, str]`
-
-
-## GetCurrentMetricDataResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import GetCurrentMetricDataResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `MetricResults`: `List["CurrentMetricResultTypeDef"]`
-- `DataSnapshotTime`: `datetime`
-
-
-## GetFederationTokenResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import GetFederationTokenResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Credentials`: `"CredentialsTypeDef"`
-
-
-## GetMetricDataResponseTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import GetMetricDataResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `MetricResults`: `List["HistoricalMetricResultTypeDef"]`
-
-
-## HierarchyStructureUpdateTypeDef
-
-```python
-from mypy_boto3_connect.type_defs import HierarchyStructureUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `LevelOne`: `"HierarchyLevelUpdateTypeDef"`
-- `LevelTwo`: `"HierarchyLevelUpdateTypeDef"`
-- `LevelThree`: `"HierarchyLevelUpdateTypeDef"`
-- `LevelFour`: `"HierarchyLevelUpdateTypeDef"`
-- `LevelFive`: `"HierarchyLevelUpdateTypeDef"`
 
 
 ## ListApprovedOriginsResponseTypeDef
@@ -1730,6 +1312,35 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## MediaConcurrencyTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import MediaConcurrencyTypeDef
+```
+
+
+Required fields:
+- `Channel`: `Channel`
+- `Concurrency`: `int`
+
+
+
+
+## OutboundCallerConfigTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import OutboundCallerConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `OutboundCallerIdName`: `str`
+- `OutboundCallerIdNumberId`: `str`
+- `OutboundFlowId`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -1758,6 +1369,168 @@ Required fields:
 
 
 
+## PhoneNumberQuickConnectConfigTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import PhoneNumberQuickConnectConfigTypeDef
+```
+
+
+Required fields:
+- `PhoneNumber`: `str`
+
+
+
+
+## PhoneNumberSummaryTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import PhoneNumberSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `PhoneNumber`: `str`
+- `PhoneNumberType`: `PhoneNumberType`
+- `PhoneNumberCountryCode`: `PhoneNumberCountryCode`
+
+
+## PromptSummaryTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import PromptSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+
+
+## QueueQuickConnectConfigTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import QueueQuickConnectConfigTypeDef
+```
+
+
+Required fields:
+- `QueueId`: `str`
+- `ContactFlowId`: `str`
+
+
+
+
+## QueueReferenceTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import QueueReferenceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+
+
+## QueueSummaryTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import QueueSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `QueueType`: `QueueType`
+
+
+## QueueTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import QueueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `QueueArn`: `str`
+- `QueueId`: `str`
+- `Description`: `str`
+- `OutboundCallerConfig`: `"OutboundCallerConfigTypeDef"`
+- `HoursOfOperationId`: `str`
+- `MaxContacts`: `int`
+- `Status`: `QueueStatus`
+- `Tags`: `Dict[str, str]`
+
+
+## QuickConnectConfigTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import QuickConnectConfigTypeDef
+```
+
+
+Required fields:
+- `QuickConnectType`: `QuickConnectType`
+
+
+
+Optional fields:
+- `UserConfig`: `"UserQuickConnectConfigTypeDef"`
+- `QueueConfig`: `"QueueQuickConnectConfigTypeDef"`
+- `PhoneConfig`: `"PhoneNumberQuickConnectConfigTypeDef"`
+
+
+## QuickConnectSummaryTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import QuickConnectSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `QuickConnectType`: `QuickConnectType`
+
+
+## QuickConnectTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import QuickConnectTypeDef
+```
+
+
+
+
+Optional fields:
+- `QuickConnectARN`: `str`
+- `QuickConnectId`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `QuickConnectConfig`: `"QuickConnectConfigTypeDef"`
+- `Tags`: `Dict[str, str]`
+
+
 ## ReferenceTypeDef
 
 ```python
@@ -1767,7 +1540,25 @@ from mypy_boto3_connect.type_defs import ReferenceTypeDef
 
 Required fields:
 - `Value`: `str`
-- `Type`: `ReferenceType`
+- `Type`: `Literal['URL']`
+
+
+
+
+## RoutingProfileQueueConfigSummaryTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import RoutingProfileQueueConfigSummaryTypeDef
+```
+
+
+Required fields:
+- `QueueId`: `str`
+- `QueueArn`: `str`
+- `QueueName`: `str`
+- `Priority`: `int`
+- `Delay`: `int`
+- `Channel`: `Channel`
 
 
 
@@ -1785,6 +1576,102 @@ Required fields:
 - `Delay`: `int`
 
 
+
+
+## RoutingProfileQueueReferenceTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import RoutingProfileQueueReferenceTypeDef
+```
+
+
+Required fields:
+- `QueueId`: `str`
+- `Channel`: `Channel`
+
+
+
+
+## RoutingProfileSummaryTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import RoutingProfileSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+
+
+## RoutingProfileTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import RoutingProfileTypeDef
+```
+
+
+
+
+Optional fields:
+- `InstanceId`: `str`
+- `Name`: `str`
+- `RoutingProfileArn`: `str`
+- `RoutingProfileId`: `str`
+- `Description`: `str`
+- `MediaConcurrencies`: `List["MediaConcurrencyTypeDef"]`
+- `DefaultOutboundQueueId`: `str`
+- `Tags`: `Dict[str, str]`
+
+
+## S3ConfigTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import S3ConfigTypeDef
+```
+
+
+Required fields:
+- `BucketName`: `str`
+- `BucketPrefix`: `str`
+
+
+
+Optional fields:
+- `EncryptionConfig`: `"EncryptionConfigTypeDef"`
+
+
+## SecurityKeyTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import SecurityKeyTypeDef
+```
+
+
+
+
+Optional fields:
+- `AssociationId`: `str`
+- `Key`: `str`
+- `CreationTime`: `datetime`
+
+
+## SecurityProfileSummaryTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import SecurityProfileSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
 
 
 ## StartChatContactResponseTypeDef
@@ -1826,6 +1713,119 @@ from mypy_boto3_connect.type_defs import StartTaskContactResponseTypeDef
 
 Optional fields:
 - `ContactId`: `str`
+
+
+## ThresholdTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import ThresholdTypeDef
+```
+
+
+
+
+Optional fields:
+- `Comparison`: `Literal['LT']`
+- `ThresholdValue`: `float`
+
+
+## UseCaseTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import UseCaseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UseCaseId`: `str`
+- `UseCaseArn`: `str`
+- `UseCaseType`: `Literal['RULES_EVALUATION']`
+
+
+## UserIdentityInfoTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import UserIdentityInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `FirstName`: `str`
+- `LastName`: `str`
+- `Email`: `str`
+
+
+## UserPhoneConfigTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import UserPhoneConfigTypeDef
+```
+
+
+Required fields:
+- `PhoneType`: `PhoneType`
+
+
+
+Optional fields:
+- `AutoAccept`: `bool`
+- `AfterContactWorkTimeLimit`: `int`
+- `DeskPhoneNumber`: `str`
+
+
+## UserQuickConnectConfigTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import UserQuickConnectConfigTypeDef
+```
+
+
+Required fields:
+- `UserId`: `str`
+- `ContactFlowId`: `str`
+
+
+
+
+## UserSummaryTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import UserSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Username`: `str`
+
+
+## UserTypeDef
+
+```python
+from mypy_boto3_connect.type_defs import UserTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Username`: `str`
+- `IdentityInfo`: `"UserIdentityInfoTypeDef"`
+- `PhoneConfig`: `"UserPhoneConfigTypeDef"`
+- `DirectoryUserId`: `str`
+- `SecurityProfileIds`: `List[str]`
+- `RoutingProfileId`: `str`
+- `HierarchyGroupId`: `str`
+- `Tags`: `Dict[str, str]`
 
 
 ## VoiceRecordingConfigurationTypeDef

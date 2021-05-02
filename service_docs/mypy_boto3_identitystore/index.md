@@ -68,13 +68,13 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_identitystore.type_defs import GroupTypeDef, ...
+from mypy_boto3_identitystore.type_defs import DescribeGroupResponseTypeDef, ...
 ```
 
-- [GroupTypeDef](./type_defs.md#grouptypedef)
-- [UserTypeDef](./type_defs.md#usertypedef)
 - [DescribeGroupResponseTypeDef](./type_defs.md#describegroupresponsetypedef)
 - [DescribeUserResponseTypeDef](./type_defs.md#describeuserresponsetypedef)
 - [FilterTypeDef](./type_defs.md#filtertypedef)
+- [GroupTypeDef](./type_defs.md#grouptypedef)
 - [ListGroupsResponseTypeDef](./type_defs.md#listgroupsresponsetypedef)
 - [ListUsersResponseTypeDef](./type_defs.md#listusersresponsetypedef)
+- [UserTypeDef](./type_defs.md#usertypedef)

@@ -31,7 +31,6 @@ type annotations stubs module [mypy_boto3_kinesisvideo](https://pypi.org/project
     - [update_signaling_channel](#update_signaling_channel)
     - [update_stream](#update_stream)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## KinesisVideoClient
 
@@ -101,7 +100,7 @@ Type annotations for `boto3.client("kinesisvideo").create_signaling_channel` met
 def create_signaling_channel(
     self,
     ChannelName: str,
-    ChannelType: ChannelType = None,
+    ChannelType: Literal['SINGLE_MASTER'] = None,
     SingleMasterConfiguration: "SingleMasterConfigurationTypeDef" = None,
     Tags: List[TagTypeDef] = None
 ) -> CreateSignalingChannelOutputTypeDef:
@@ -412,32 +411,13 @@ def update_stream(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("kinesisvideo").get_paginator` method.
-
-[Paginator.ListSignalingChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSignalingChannelsPaginatorName
-) -> ListSignalingChannelsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("kinesisvideo").get_paginator` method.
+Type annotations for `boto3.client("kinesisvideo").get_paginator` method with overloads.
 
-[Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams)
+- `client.get_paginator("list_signaling_channels")` -> [ListSignalingChannelsPaginator](./paginators.md#listsignalingchannelspaginator)
+- `client.get_paginator("list_streams")` -> [ListStreamsPaginator](./paginators.md#liststreamspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStreamsPaginatorName
-) -> ListStreamsPaginator:
-    pass
-```
+

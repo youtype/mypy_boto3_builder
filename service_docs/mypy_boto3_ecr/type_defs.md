@@ -8,26 +8,6 @@ type annotations stubs module [mypy_boto3_ecr](https://pypi.org/project/mypy-bot
 - [Structures for boto3 ECR module](#structures-for-boto3-ecr-module)
   - [AttributeTypeDef](#attributetypedef)
   - [AuthorizationDataTypeDef](#authorizationdatatypedef)
-  - [EncryptionConfigurationTypeDef](#encryptionconfigurationtypedef)
-  - [ImageDetailTypeDef](#imagedetailtypedef)
-  - [ImageFailureTypeDef](#imagefailuretypedef)
-  - [ImageIdentifierTypeDef](#imageidentifiertypedef)
-  - [ImageScanFindingTypeDef](#imagescanfindingtypedef)
-  - [ImageScanFindingsSummaryTypeDef](#imagescanfindingssummarytypedef)
-  - [ImageScanFindingsTypeDef](#imagescanfindingstypedef)
-  - [ImageScanStatusTypeDef](#imagescanstatustypedef)
-  - [ImageScanningConfigurationTypeDef](#imagescanningconfigurationtypedef)
-  - [ImageTypeDef](#imagetypedef)
-  - [LayerFailureTypeDef](#layerfailuretypedef)
-  - [LayerTypeDef](#layertypedef)
-  - [LifecyclePolicyPreviewResultTypeDef](#lifecyclepolicypreviewresulttypedef)
-  - [LifecyclePolicyPreviewSummaryTypeDef](#lifecyclepolicypreviewsummarytypedef)
-  - [LifecyclePolicyRuleActionTypeDef](#lifecyclepolicyruleactiontypedef)
-  - [ReplicationConfigurationTypeDef](#replicationconfigurationtypedef)
-  - [ReplicationDestinationTypeDef](#replicationdestinationtypedef)
-  - [ReplicationRuleTypeDef](#replicationruletypedef)
-  - [RepositoryTypeDef](#repositorytypedef)
-  - [TagTypeDef](#tagtypedef)
   - [BatchCheckLayerAvailabilityResponseTypeDef](#batchchecklayeravailabilityresponsetypedef)
   - [BatchDeleteImageResponseTypeDef](#batchdeleteimageresponsetypedef)
   - [BatchGetImageResponseTypeDef](#batchgetimageresponsetypedef)
@@ -42,14 +22,29 @@ type annotations stubs module [mypy_boto3_ecr](https://pypi.org/project/mypy-bot
   - [DescribeImagesResponseTypeDef](#describeimagesresponsetypedef)
   - [DescribeRegistryResponseTypeDef](#describeregistryresponsetypedef)
   - [DescribeRepositoriesResponseTypeDef](#describerepositoriesresponsetypedef)
+  - [EncryptionConfigurationTypeDef](#encryptionconfigurationtypedef)
   - [GetAuthorizationTokenResponseTypeDef](#getauthorizationtokenresponsetypedef)
   - [GetDownloadUrlForLayerResponseTypeDef](#getdownloadurlforlayerresponsetypedef)
   - [GetLifecyclePolicyPreviewResponseTypeDef](#getlifecyclepolicypreviewresponsetypedef)
   - [GetLifecyclePolicyResponseTypeDef](#getlifecyclepolicyresponsetypedef)
   - [GetRegistryPolicyResponseTypeDef](#getregistrypolicyresponsetypedef)
   - [GetRepositoryPolicyResponseTypeDef](#getrepositorypolicyresponsetypedef)
+  - [ImageDetailTypeDef](#imagedetailtypedef)
+  - [ImageFailureTypeDef](#imagefailuretypedef)
+  - [ImageIdentifierTypeDef](#imageidentifiertypedef)
+  - [ImageScanFindingTypeDef](#imagescanfindingtypedef)
+  - [ImageScanFindingsSummaryTypeDef](#imagescanfindingssummarytypedef)
+  - [ImageScanFindingsTypeDef](#imagescanfindingstypedef)
+  - [ImageScanStatusTypeDef](#imagescanstatustypedef)
+  - [ImageScanningConfigurationTypeDef](#imagescanningconfigurationtypedef)
+  - [ImageTypeDef](#imagetypedef)
   - [InitiateLayerUploadResponseTypeDef](#initiatelayeruploadresponsetypedef)
+  - [LayerFailureTypeDef](#layerfailuretypedef)
+  - [LayerTypeDef](#layertypedef)
   - [LifecyclePolicyPreviewFilterTypeDef](#lifecyclepolicypreviewfiltertypedef)
+  - [LifecyclePolicyPreviewResultTypeDef](#lifecyclepolicypreviewresulttypedef)
+  - [LifecyclePolicyPreviewSummaryTypeDef](#lifecyclepolicypreviewsummarytypedef)
+  - [LifecyclePolicyRuleActionTypeDef](#lifecyclepolicyruleactiontypedef)
   - [ListImagesFilterTypeDef](#listimagesfiltertypedef)
   - [ListImagesResponseTypeDef](#listimagesresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
@@ -60,9 +55,14 @@ type annotations stubs module [mypy_boto3_ecr](https://pypi.org/project/mypy-bot
   - [PutLifecyclePolicyResponseTypeDef](#putlifecyclepolicyresponsetypedef)
   - [PutRegistryPolicyResponseTypeDef](#putregistrypolicyresponsetypedef)
   - [PutReplicationConfigurationResponseTypeDef](#putreplicationconfigurationresponsetypedef)
+  - [ReplicationConfigurationTypeDef](#replicationconfigurationtypedef)
+  - [ReplicationDestinationTypeDef](#replicationdestinationtypedef)
+  - [ReplicationRuleTypeDef](#replicationruletypedef)
+  - [RepositoryTypeDef](#repositorytypedef)
   - [SetRepositoryPolicyResponseTypeDef](#setrepositorypolicyresponsetypedef)
   - [StartImageScanResponseTypeDef](#startimagescanresponsetypedef)
   - [StartLifecyclePolicyPreviewResponseTypeDef](#startlifecyclepolicypreviewresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UploadLayerPartResponseTypeDef](#uploadlayerpartresponsetypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
@@ -95,313 +95,6 @@ Optional fields:
 - `authorizationToken`: `str`
 - `expiresAt`: `datetime`
 - `proxyEndpoint`: `str`
-
-
-## EncryptionConfigurationTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import EncryptionConfigurationTypeDef
-```
-
-
-Required fields:
-- `encryptionType`: `EncryptionType`
-
-
-
-Optional fields:
-- `kmsKey`: `str`
-
-
-## ImageDetailTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ImageDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `registryId`: `str`
-- `repositoryName`: `str`
-- `imageDigest`: `str`
-- `imageTags`: `List[str]`
-- `imageSizeInBytes`: `int`
-- `imagePushedAt`: `datetime`
-- `imageScanStatus`: `"ImageScanStatusTypeDef"`
-- `imageScanFindingsSummary`: `"ImageScanFindingsSummaryTypeDef"`
-- `imageManifestMediaType`: `str`
-- `artifactMediaType`: `str`
-
-
-## ImageFailureTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ImageFailureTypeDef
-```
-
-
-
-
-Optional fields:
-- `imageId`: `"ImageIdentifierTypeDef"`
-- `failureCode`: `ImageFailureCode`
-- `failureReason`: `str`
-
-
-## ImageIdentifierTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ImageIdentifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `imageDigest`: `str`
-- `imageTag`: `str`
-
-
-## ImageScanFindingTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ImageScanFindingTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `description`: `str`
-- `uri`: `str`
-- `severity`: `FindingSeverity`
-- `attributes`: `List["AttributeTypeDef"]`
-
-
-## ImageScanFindingsSummaryTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ImageScanFindingsSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `imageScanCompletedAt`: `datetime`
-- `vulnerabilitySourceUpdatedAt`: `datetime`
-- `findingSeverityCounts`: `Dict[FindingSeverity, int]`
-
-
-## ImageScanFindingsTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ImageScanFindingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `imageScanCompletedAt`: `datetime`
-- `vulnerabilitySourceUpdatedAt`: `datetime`
-- `findings`: `List["ImageScanFindingTypeDef"]`
-- `findingSeverityCounts`: `Dict[FindingSeverity, int]`
-
-
-## ImageScanStatusTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ImageScanStatusTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `ScanStatus`
-- `description`: `str`
-
-
-## ImageScanningConfigurationTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ImageScanningConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `scanOnPush`: `bool`
-
-
-## ImageTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ImageTypeDef
-```
-
-
-
-
-Optional fields:
-- `registryId`: `str`
-- `repositoryName`: `str`
-- `imageId`: `"ImageIdentifierTypeDef"`
-- `imageManifest`: `str`
-- `imageManifestMediaType`: `str`
-
-
-## LayerFailureTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import LayerFailureTypeDef
-```
-
-
-
-
-Optional fields:
-- `layerDigest`: `str`
-- `failureCode`: `LayerFailureCode`
-- `failureReason`: `str`
-
-
-## LayerTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import LayerTypeDef
-```
-
-
-
-
-Optional fields:
-- `layerDigest`: `str`
-- `layerAvailability`: `LayerAvailability`
-- `layerSize`: `int`
-- `mediaType`: `str`
-
-
-## LifecyclePolicyPreviewResultTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import LifecyclePolicyPreviewResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `imageTags`: `List[str]`
-- `imageDigest`: `str`
-- `imagePushedAt`: `datetime`
-- `action`: `"LifecyclePolicyRuleActionTypeDef"`
-- `appliedRulePriority`: `int`
-
-
-## LifecyclePolicyPreviewSummaryTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import LifecyclePolicyPreviewSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `expiringImageTotalCount`: `int`
-
-
-## LifecyclePolicyRuleActionTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import LifecyclePolicyRuleActionTypeDef
-```
-
-
-
-
-Optional fields:
-- `type`: `ImageActionType`
-
-
-## ReplicationConfigurationTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ReplicationConfigurationTypeDef
-```
-
-
-Required fields:
-- `rules`: `List["ReplicationRuleTypeDef"]`
-
-
-
-
-## ReplicationDestinationTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ReplicationDestinationTypeDef
-```
-
-
-Required fields:
-- `region`: `str`
-- `registryId`: `str`
-
-
-
-
-## ReplicationRuleTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import ReplicationRuleTypeDef
-```
-
-
-Required fields:
-- `destinations`: `List["ReplicationDestinationTypeDef"]`
-
-
-
-
-## RepositoryTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import RepositoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `repositoryArn`: `str`
-- `registryId`: `str`
-- `repositoryName`: `str`
-- `repositoryUri`: `str`
-- `createdAt`: `datetime`
-- `imageTagMutability`: `ImageTagMutability`
-- `imageScanningConfiguration`: `"ImageScanningConfigurationTypeDef"`
-- `encryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_ecr.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
 
 
 ## BatchCheckLayerAvailabilityResponseTypeDef
@@ -606,6 +299,22 @@ Optional fields:
 - `nextToken`: `str`
 
 
+## EncryptionConfigurationTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import EncryptionConfigurationTypeDef
+```
+
+
+Required fields:
+- `encryptionType`: `EncryptionType`
+
+
+
+Optional fields:
+- `kmsKey`: `str`
+
+
 ## GetAuthorizationTokenResponseTypeDef
 
 ```python
@@ -697,6 +406,149 @@ Optional fields:
 - `policyText`: `str`
 
 
+## ImageDetailTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ImageDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `registryId`: `str`
+- `repositoryName`: `str`
+- `imageDigest`: `str`
+- `imageTags`: `List[str]`
+- `imageSizeInBytes`: `int`
+- `imagePushedAt`: `datetime`
+- `imageScanStatus`: `"ImageScanStatusTypeDef"`
+- `imageScanFindingsSummary`: `"ImageScanFindingsSummaryTypeDef"`
+- `imageManifestMediaType`: `str`
+- `artifactMediaType`: `str`
+
+
+## ImageFailureTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ImageFailureTypeDef
+```
+
+
+
+
+Optional fields:
+- `imageId`: `"ImageIdentifierTypeDef"`
+- `failureCode`: `ImageFailureCode`
+- `failureReason`: `str`
+
+
+## ImageIdentifierTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ImageIdentifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `imageDigest`: `str`
+- `imageTag`: `str`
+
+
+## ImageScanFindingTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ImageScanFindingTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `description`: `str`
+- `uri`: `str`
+- `severity`: `FindingSeverity`
+- `attributes`: `List["AttributeTypeDef"]`
+
+
+## ImageScanFindingsSummaryTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ImageScanFindingsSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `imageScanCompletedAt`: `datetime`
+- `vulnerabilitySourceUpdatedAt`: `datetime`
+- `findingSeverityCounts`: `Dict[FindingSeverity, int]`
+
+
+## ImageScanFindingsTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ImageScanFindingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `imageScanCompletedAt`: `datetime`
+- `vulnerabilitySourceUpdatedAt`: `datetime`
+- `findings`: `List["ImageScanFindingTypeDef"]`
+- `findingSeverityCounts`: `Dict[FindingSeverity, int]`
+
+
+## ImageScanStatusTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ImageScanStatusTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `ScanStatus`
+- `description`: `str`
+
+
+## ImageScanningConfigurationTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ImageScanningConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `scanOnPush`: `bool`
+
+
+## ImageTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ImageTypeDef
+```
+
+
+
+
+Optional fields:
+- `registryId`: `str`
+- `repositoryName`: `str`
+- `imageId`: `"ImageIdentifierTypeDef"`
+- `imageManifest`: `str`
+- `imageManifestMediaType`: `str`
+
+
 ## InitiateLayerUploadResponseTypeDef
 
 ```python
@@ -711,6 +563,37 @@ Optional fields:
 - `partSize`: `int`
 
 
+## LayerFailureTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import LayerFailureTypeDef
+```
+
+
+
+
+Optional fields:
+- `layerDigest`: `str`
+- `failureCode`: `LayerFailureCode`
+- `failureReason`: `str`
+
+
+## LayerTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import LayerTypeDef
+```
+
+
+
+
+Optional fields:
+- `layerDigest`: `str`
+- `layerAvailability`: `LayerAvailability`
+- `layerSize`: `int`
+- `mediaType`: `str`
+
+
 ## LifecyclePolicyPreviewFilterTypeDef
 
 ```python
@@ -722,6 +605,49 @@ from mypy_boto3_ecr.type_defs import LifecyclePolicyPreviewFilterTypeDef
 
 Optional fields:
 - `tagStatus`: `TagStatus`
+
+
+## LifecyclePolicyPreviewResultTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import LifecyclePolicyPreviewResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `imageTags`: `List[str]`
+- `imageDigest`: `str`
+- `imagePushedAt`: `datetime`
+- `action`: `"LifecyclePolicyRuleActionTypeDef"`
+- `appliedRulePriority`: `int`
+
+
+## LifecyclePolicyPreviewSummaryTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import LifecyclePolicyPreviewSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `expiringImageTotalCount`: `int`
+
+
+## LifecyclePolicyRuleActionTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import LifecyclePolicyRuleActionTypeDef
+```
+
+
+
+
+Optional fields:
+- `type`: `Literal['EXPIRE']`
 
 
 ## ListImagesFilterTypeDef
@@ -864,6 +790,66 @@ Optional fields:
 - `replicationConfiguration`: `"ReplicationConfigurationTypeDef"`
 
 
+## ReplicationConfigurationTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ReplicationConfigurationTypeDef
+```
+
+
+Required fields:
+- `rules`: `List["ReplicationRuleTypeDef"]`
+
+
+
+
+## ReplicationDestinationTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ReplicationDestinationTypeDef
+```
+
+
+Required fields:
+- `region`: `str`
+- `registryId`: `str`
+
+
+
+
+## ReplicationRuleTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import ReplicationRuleTypeDef
+```
+
+
+Required fields:
+- `destinations`: `List["ReplicationDestinationTypeDef"]`
+
+
+
+
+## RepositoryTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import RepositoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `repositoryArn`: `str`
+- `registryId`: `str`
+- `repositoryName`: `str`
+- `repositoryUri`: `str`
+- `createdAt`: `datetime`
+- `imageTagMutability`: `ImageTagMutability`
+- `imageScanningConfiguration`: `"ImageScanningConfigurationTypeDef"`
+- `encryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
+
+
 ## SetRepositoryPolicyResponseTypeDef
 
 ```python
@@ -909,6 +895,20 @@ Optional fields:
 - `repositoryName`: `str`
 - `lifecyclePolicyText`: `str`
 - `status`: `LifecyclePolicyPreviewStatus`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_ecr.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
 
 
 ## UploadLayerPartResponseTypeDef

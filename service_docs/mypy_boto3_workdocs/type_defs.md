@@ -6,28 +6,11 @@ Auto-generated documentation for [WorkDocs](https://boto3.amazonaws.com/v1/docum
 type annotations stubs module [mypy_boto3_workdocs](https://pypi.org/project/mypy-boto3-workdocs/).
 
 - [Structures for boto3 WorkDocs module](#structures-for-boto3-workdocs-module)
+  - [ActivateUserResponseTypeDef](#activateuserresponsetypedef)
   - [ActivityTypeDef](#activitytypedef)
+  - [AddResourcePermissionsResponseTypeDef](#addresourcepermissionsresponsetypedef)
   - [CommentMetadataTypeDef](#commentmetadatatypedef)
   - [CommentTypeDef](#commenttypedef)
-  - [DocumentMetadataTypeDef](#documentmetadatatypedef)
-  - [DocumentVersionMetadataTypeDef](#documentversionmetadatatypedef)
-  - [FolderMetadataTypeDef](#foldermetadatatypedef)
-  - [GroupMetadataTypeDef](#groupmetadatatypedef)
-  - [ParticipantsTypeDef](#participantstypedef)
-  - [PermissionInfoTypeDef](#permissioninfotypedef)
-  - [PrincipalTypeDef](#principaltypedef)
-  - [ResourceMetadataTypeDef](#resourcemetadatatypedef)
-  - [ResourcePathComponentTypeDef](#resourcepathcomponenttypedef)
-  - [ResourcePathTypeDef](#resourcepathtypedef)
-  - [ShareResultTypeDef](#shareresulttypedef)
-  - [StorageRuleTypeTypeDef](#storageruletypetypedef)
-  - [SubscriptionTypeDef](#subscriptiontypedef)
-  - [UploadMetadataTypeDef](#uploadmetadatatypedef)
-  - [UserMetadataTypeDef](#usermetadatatypedef)
-  - [UserStorageMetadataTypeDef](#userstoragemetadatatypedef)
-  - [UserTypeDef](#usertypedef)
-  - [ActivateUserResponseTypeDef](#activateuserresponsetypedef)
-  - [AddResourcePermissionsResponseTypeDef](#addresourcepermissionsresponsetypedef)
   - [CreateCommentResponseTypeDef](#createcommentresponsetypedef)
   - [CreateFolderResponseTypeDef](#createfolderresponsetypedef)
   - [CreateNotificationSubscriptionResponseTypeDef](#createnotificationsubscriptionresponsetypedef)
@@ -41,6 +24,9 @@ type annotations stubs module [mypy_boto3_workdocs](https://pypi.org/project/myp
   - [DescribeResourcePermissionsResponseTypeDef](#describeresourcepermissionsresponsetypedef)
   - [DescribeRootFoldersResponseTypeDef](#describerootfoldersresponsetypedef)
   - [DescribeUsersResponseTypeDef](#describeusersresponsetypedef)
+  - [DocumentMetadataTypeDef](#documentmetadatatypedef)
+  - [DocumentVersionMetadataTypeDef](#documentversionmetadatatypedef)
+  - [FolderMetadataTypeDef](#foldermetadatatypedef)
   - [GetCurrentUserResponseTypeDef](#getcurrentuserresponsetypedef)
   - [GetDocumentPathResponseTypeDef](#getdocumentpathresponsetypedef)
   - [GetDocumentResponseTypeDef](#getdocumentresponsetypedef)
@@ -48,11 +34,38 @@ type annotations stubs module [mypy_boto3_workdocs](https://pypi.org/project/myp
   - [GetFolderPathResponseTypeDef](#getfolderpathresponsetypedef)
   - [GetFolderResponseTypeDef](#getfolderresponsetypedef)
   - [GetResourcesResponseTypeDef](#getresourcesresponsetypedef)
+  - [GroupMetadataTypeDef](#groupmetadatatypedef)
   - [InitiateDocumentVersionUploadResponseTypeDef](#initiatedocumentversionuploadresponsetypedef)
   - [NotificationOptionsTypeDef](#notificationoptionstypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ParticipantsTypeDef](#participantstypedef)
+  - [PermissionInfoTypeDef](#permissioninfotypedef)
+  - [PrincipalTypeDef](#principaltypedef)
+  - [ResourceMetadataTypeDef](#resourcemetadatatypedef)
+  - [ResourcePathComponentTypeDef](#resourcepathcomponenttypedef)
+  - [ResourcePathTypeDef](#resourcepathtypedef)
   - [SharePrincipalTypeDef](#shareprincipaltypedef)
+  - [ShareResultTypeDef](#shareresulttypedef)
+  - [StorageRuleTypeTypeDef](#storageruletypetypedef)
+  - [SubscriptionTypeDef](#subscriptiontypedef)
   - [UpdateUserResponseTypeDef](#updateuserresponsetypedef)
+  - [UploadMetadataTypeDef](#uploadmetadatatypedef)
+  - [UserMetadataTypeDef](#usermetadatatypedef)
+  - [UserStorageMetadataTypeDef](#userstoragemetadatatypedef)
+  - [UserTypeDef](#usertypedef)
+
+## ActivateUserResponseTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import ActivateUserResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `User`: `"UserTypeDef"`
+
 
 ## ActivityTypeDef
 
@@ -73,6 +86,19 @@ Optional fields:
 - `ResourceMetadata`: `"ResourceMetadataTypeDef"`
 - `OriginalParent`: `"ResourceMetadataTypeDef"`
 - `CommentMetadata`: `"CommentMetadataTypeDef"`
+
+
+## AddResourcePermissionsResponseTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import AddResourcePermissionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ShareResults`: `List["ShareResultTypeDef"]`
 
 
 ## CommentMetadataTypeDef
@@ -113,322 +139,6 @@ Optional fields:
 - `Status`: `CommentStatusType`
 - `Visibility`: `CommentVisibilityType`
 - `RecipientId`: `str`
-
-
-## DocumentMetadataTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import DocumentMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `CreatorId`: `str`
-- `ParentFolderId`: `str`
-- `CreatedTimestamp`: `datetime`
-- `ModifiedTimestamp`: `datetime`
-- `LatestVersionMetadata`: `"DocumentVersionMetadataTypeDef"`
-- `ResourceState`: `ResourceStateType`
-- `Labels`: `List[str]`
-
-
-## DocumentVersionMetadataTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import DocumentVersionMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Name`: `str`
-- `ContentType`: `str`
-- `Size`: `int`
-- `Signature`: `str`
-- `Status`: `DocumentStatusType`
-- `CreatedTimestamp`: `datetime`
-- `ModifiedTimestamp`: `datetime`
-- `ContentCreatedTimestamp`: `datetime`
-- `ContentModifiedTimestamp`: `datetime`
-- `CreatorId`: `str`
-- `Thumbnail`: `Dict[DocumentThumbnailType, str]`
-- `Source`: `Dict[DocumentSourceType, str]`
-
-
-## FolderMetadataTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import FolderMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Name`: `str`
-- `CreatorId`: `str`
-- `ParentFolderId`: `str`
-- `CreatedTimestamp`: `datetime`
-- `ModifiedTimestamp`: `datetime`
-- `ResourceState`: `ResourceStateType`
-- `Signature`: `str`
-- `Labels`: `List[str]`
-- `Size`: `int`
-- `LatestVersionSize`: `int`
-
-
-## GroupMetadataTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import GroupMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Name`: `str`
-
-
-## ParticipantsTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import ParticipantsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Users`: `List["UserMetadataTypeDef"]`
-- `Groups`: `List["GroupMetadataTypeDef"]`
-
-
-## PermissionInfoTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import PermissionInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Role`: `RoleType`
-- `Type`: `RolePermissionType`
-
-
-## PrincipalTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import PrincipalTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Type`: `PrincipalType`
-- `Roles`: `List["PermissionInfoTypeDef"]`
-
-
-## ResourceMetadataTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import ResourceMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `ResourceType`
-- `Name`: `str`
-- `OriginalName`: `str`
-- `Id`: `str`
-- `VersionId`: `str`
-- `Owner`: `"UserMetadataTypeDef"`
-- `ParentId`: `str`
-
-
-## ResourcePathComponentTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import ResourcePathComponentTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Name`: `str`
-
-
-## ResourcePathTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import ResourcePathTypeDef
-```
-
-
-
-
-Optional fields:
-- `Components`: `List["ResourcePathComponentTypeDef"]`
-
-
-## ShareResultTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import ShareResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `PrincipalId`: `str`
-- `InviteePrincipalId`: `str`
-- `Role`: `RoleType`
-- `Status`: `ShareStatusType`
-- `ShareId`: `str`
-- `StatusMessage`: `str`
-
-
-## StorageRuleTypeTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import StorageRuleTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `StorageAllocatedInBytes`: `int`
-- `StorageType`: `StorageType`
-
-
-## SubscriptionTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import SubscriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `SubscriptionId`: `str`
-- `EndPoint`: `str`
-- `Protocol`: `SubscriptionProtocolType`
-
-
-## UploadMetadataTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import UploadMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `UploadUrl`: `str`
-- `SignedHeaders`: `Dict[str, str]`
-
-
-## UserMetadataTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import UserMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Username`: `str`
-- `GivenName`: `str`
-- `Surname`: `str`
-- `EmailAddress`: `str`
-
-
-## UserStorageMetadataTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import UserStorageMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `StorageUtilizedInBytes`: `int`
-- `StorageRule`: `"StorageRuleTypeTypeDef"`
-
-
-## UserTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import UserTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Username`: `str`
-- `EmailAddress`: `str`
-- `GivenName`: `str`
-- `Surname`: `str`
-- `OrganizationId`: `str`
-- `RootFolderId`: `str`
-- `RecycleBinFolderId`: `str`
-- `Status`: `UserStatusType`
-- `Type`: `UserType`
-- `CreatedTimestamp`: `datetime`
-- `ModifiedTimestamp`: `datetime`
-- `TimeZoneId`: `str`
-- `Locale`: `LocaleType`
-- `Storage`: `"UserStorageMetadataTypeDef"`
-
-
-## ActivateUserResponseTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import ActivateUserResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `User`: `"UserTypeDef"`
-
-
-## AddResourcePermissionsResponseTypeDef
-
-```python
-from mypy_boto3_workdocs.type_defs import AddResourcePermissionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ShareResults`: `List["ShareResultTypeDef"]`
 
 
 ## CreateCommentResponseTypeDef
@@ -611,6 +321,74 @@ Optional fields:
 - `Marker`: `str`
 
 
+## DocumentMetadataTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import DocumentMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `CreatorId`: `str`
+- `ParentFolderId`: `str`
+- `CreatedTimestamp`: `datetime`
+- `ModifiedTimestamp`: `datetime`
+- `LatestVersionMetadata`: `"DocumentVersionMetadataTypeDef"`
+- `ResourceState`: `ResourceStateType`
+- `Labels`: `List[str]`
+
+
+## DocumentVersionMetadataTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import DocumentVersionMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Name`: `str`
+- `ContentType`: `str`
+- `Size`: `int`
+- `Signature`: `str`
+- `Status`: `DocumentStatusType`
+- `CreatedTimestamp`: `datetime`
+- `ModifiedTimestamp`: `datetime`
+- `ContentCreatedTimestamp`: `datetime`
+- `ContentModifiedTimestamp`: `datetime`
+- `CreatorId`: `str`
+- `Thumbnail`: `Dict[DocumentThumbnailType, str]`
+- `Source`: `Dict[DocumentSourceType, str]`
+
+
+## FolderMetadataTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import FolderMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Name`: `str`
+- `CreatorId`: `str`
+- `ParentFolderId`: `str`
+- `CreatedTimestamp`: `datetime`
+- `ModifiedTimestamp`: `datetime`
+- `ResourceState`: `ResourceStateType`
+- `Signature`: `str`
+- `Labels`: `List[str]`
+- `Size`: `int`
+- `LatestVersionSize`: `int`
+
+
 ## GetCurrentUserResponseTypeDef
 
 ```python
@@ -707,6 +485,20 @@ Optional fields:
 - `Marker`: `str`
 
 
+## GroupMetadataTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import GroupMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Name`: `str`
+
+
 ## InitiateDocumentVersionUploadResponseTypeDef
 
 ```python
@@ -750,6 +542,95 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ParticipantsTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import ParticipantsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Users`: `List["UserMetadataTypeDef"]`
+- `Groups`: `List["GroupMetadataTypeDef"]`
+
+
+## PermissionInfoTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import PermissionInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Role`: `RoleType`
+- `Type`: `RolePermissionType`
+
+
+## PrincipalTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import PrincipalTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Type`: `PrincipalType`
+- `Roles`: `List["PermissionInfoTypeDef"]`
+
+
+## ResourceMetadataTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import ResourceMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `ResourceType`
+- `Name`: `str`
+- `OriginalName`: `str`
+- `Id`: `str`
+- `VersionId`: `str`
+- `Owner`: `"UserMetadataTypeDef"`
+- `ParentId`: `str`
+
+
+## ResourcePathComponentTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import ResourcePathComponentTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Name`: `str`
+
+
+## ResourcePathTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import ResourcePathTypeDef
+```
+
+
+
+
+Optional fields:
+- `Components`: `List["ResourcePathComponentTypeDef"]`
+
+
 ## SharePrincipalTypeDef
 
 ```python
@@ -765,6 +646,53 @@ Required fields:
 
 
 
+## ShareResultTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import ShareResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `PrincipalId`: `str`
+- `InviteePrincipalId`: `str`
+- `Role`: `RoleType`
+- `Status`: `ShareStatusType`
+- `ShareId`: `str`
+- `StatusMessage`: `str`
+
+
+## StorageRuleTypeTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import StorageRuleTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `StorageAllocatedInBytes`: `int`
+- `StorageType`: `StorageType`
+
+
+## SubscriptionTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import SubscriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `SubscriptionId`: `str`
+- `EndPoint`: `str`
+- `Protocol`: `Literal['HTTPS']`
+
+
 ## UpdateUserResponseTypeDef
 
 ```python
@@ -776,4 +704,76 @@ from mypy_boto3_workdocs.type_defs import UpdateUserResponseTypeDef
 
 Optional fields:
 - `User`: `"UserTypeDef"`
+
+
+## UploadMetadataTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import UploadMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `UploadUrl`: `str`
+- `SignedHeaders`: `Dict[str, str]`
+
+
+## UserMetadataTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import UserMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Username`: `str`
+- `GivenName`: `str`
+- `Surname`: `str`
+- `EmailAddress`: `str`
+
+
+## UserStorageMetadataTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import UserStorageMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `StorageUtilizedInBytes`: `int`
+- `StorageRule`: `"StorageRuleTypeTypeDef"`
+
+
+## UserTypeDef
+
+```python
+from mypy_boto3_workdocs.type_defs import UserTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Username`: `str`
+- `EmailAddress`: `str`
+- `GivenName`: `str`
+- `Surname`: `str`
+- `OrganizationId`: `str`
+- `RootFolderId`: `str`
+- `RecycleBinFolderId`: `str`
+- `Status`: `UserStatusType`
+- `Type`: `UserType`
+- `CreatedTimestamp`: `datetime`
+- `ModifiedTimestamp`: `datetime`
+- `TimeZoneId`: `str`
+- `Locale`: `LocaleType`
+- `Storage`: `"UserStorageMetadataTypeDef"`
 

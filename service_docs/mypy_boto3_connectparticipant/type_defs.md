@@ -8,16 +8,16 @@ type annotations stubs module [mypy_boto3_connectparticipant](https://pypi.org/p
 - [Structures for boto3 ConnectParticipant module](#structures-for-boto3-connectparticipant-module)
   - [AttachmentItemTypeDef](#attachmentitemtypedef)
   - [ConnectionCredentialsTypeDef](#connectioncredentialstypedef)
-  - [ItemTypeDef](#itemtypedef)
-  - [UploadMetadataTypeDef](#uploadmetadatatypedef)
-  - [WebsocketTypeDef](#websockettypedef)
   - [CreateParticipantConnectionResponseTypeDef](#createparticipantconnectionresponsetypedef)
   - [GetAttachmentResponseTypeDef](#getattachmentresponsetypedef)
   - [GetTranscriptResponseTypeDef](#gettranscriptresponsetypedef)
+  - [ItemTypeDef](#itemtypedef)
   - [SendEventResponseTypeDef](#sendeventresponsetypedef)
   - [SendMessageResponseTypeDef](#sendmessageresponsetypedef)
   - [StartAttachmentUploadResponseTypeDef](#startattachmentuploadresponsetypedef)
   - [StartPositionTypeDef](#startpositiontypedef)
+  - [UploadMetadataTypeDef](#uploadmetadatatypedef)
+  - [WebsocketTypeDef](#websockettypedef)
 
 ## AttachmentItemTypeDef
 
@@ -47,56 +47,6 @@ from mypy_boto3_connectparticipant.type_defs import ConnectionCredentialsTypeDef
 Optional fields:
 - `ConnectionToken`: `str`
 - `Expiry`: `str`
-
-
-## ItemTypeDef
-
-```python
-from mypy_boto3_connectparticipant.type_defs import ItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `AbsoluteTime`: `str`
-- `Content`: `str`
-- `ContentType`: `str`
-- `Id`: `str`
-- `Type`: `ChatItemType`
-- `ParticipantId`: `str`
-- `DisplayName`: `str`
-- `ParticipantRole`: `ParticipantRole`
-- `Attachments`: `List["AttachmentItemTypeDef"]`
-
-
-## UploadMetadataTypeDef
-
-```python
-from mypy_boto3_connectparticipant.type_defs import UploadMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Url`: `str`
-- `UrlExpiry`: `str`
-- `HeadersToInclude`: `Dict[str, str]`
-
-
-## WebsocketTypeDef
-
-```python
-from mypy_boto3_connectparticipant.type_defs import WebsocketTypeDef
-```
-
-
-
-
-Optional fields:
-- `Url`: `str`
-- `ConnectionExpiry`: `str`
 
 
 ## CreateParticipantConnectionResponseTypeDef
@@ -140,6 +90,27 @@ Optional fields:
 - `InitialContactId`: `str`
 - `Transcript`: `List["ItemTypeDef"]`
 - `NextToken`: `str`
+
+
+## ItemTypeDef
+
+```python
+from mypy_boto3_connectparticipant.type_defs import ItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `AbsoluteTime`: `str`
+- `Content`: `str`
+- `ContentType`: `str`
+- `Id`: `str`
+- `Type`: `ChatItemType`
+- `ParticipantId`: `str`
+- `DisplayName`: `str`
+- `ParticipantRole`: `ParticipantRole`
+- `Attachments`: `List["AttachmentItemTypeDef"]`
 
 
 ## SendEventResponseTypeDef
@@ -197,4 +168,33 @@ Optional fields:
 - `Id`: `str`
 - `AbsoluteTime`: `str`
 - `MostRecent`: `int`
+
+
+## UploadMetadataTypeDef
+
+```python
+from mypy_boto3_connectparticipant.type_defs import UploadMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Url`: `str`
+- `UrlExpiry`: `str`
+- `HeadersToInclude`: `Dict[str, str]`
+
+
+## WebsocketTypeDef
+
+```python
+from mypy_boto3_connectparticipant.type_defs import WebsocketTypeDef
+```
+
+
+
+
+Optional fields:
+- `Url`: `str`
+- `ConnectionExpiry`: `str`
 

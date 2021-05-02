@@ -6,15 +6,6 @@ Auto-generated documentation for [RAM](https://boto3.amazonaws.com/v1/documentat
 type annotations stubs module [mypy_boto3_ram](https://pypi.org/project/mypy-boto3-ram/).
 
 - [Structures for boto3 RAM module](#structures-for-boto3-ram-module)
-  - [PrincipalTypeDef](#principaltypedef)
-  - [ResourceShareAssociationTypeDef](#resourceshareassociationtypedef)
-  - [ResourceShareInvitationTypeDef](#resourceshareinvitationtypedef)
-  - [ResourceSharePermissionDetailTypeDef](#resourcesharepermissiondetailtypedef)
-  - [ResourceSharePermissionSummaryTypeDef](#resourcesharepermissionsummarytypedef)
-  - [ResourceShareTypeDef](#resourcesharetypedef)
-  - [ResourceTypeDef](#resourcetypedef)
-  - [ServiceNameAndResourceTypeTypeDef](#servicenameandresourcetypetypedef)
-  - [TagTypeDef](#tagtypedef)
   - [AcceptResourceShareInvitationResponseTypeDef](#acceptresourceshareinvitationresponsetypedef)
   - [AssociateResourceSharePermissionResponseTypeDef](#associateresourcesharepermissionresponsetypedef)
   - [AssociateResourceShareResponseTypeDef](#associateresourceshareresponsetypedef)
@@ -35,178 +26,19 @@ type annotations stubs module [mypy_boto3_ram](https://pypi.org/project/mypy-bot
   - [ListResourceTypesResponseTypeDef](#listresourcetypesresponsetypedef)
   - [ListResourcesResponseTypeDef](#listresourcesresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PrincipalTypeDef](#principaltypedef)
   - [PromoteResourceShareCreatedFromPolicyResponseTypeDef](#promoteresourcesharecreatedfrompolicyresponsetypedef)
   - [RejectResourceShareInvitationResponseTypeDef](#rejectresourceshareinvitationresponsetypedef)
+  - [ResourceShareAssociationTypeDef](#resourceshareassociationtypedef)
+  - [ResourceShareInvitationTypeDef](#resourceshareinvitationtypedef)
+  - [ResourceSharePermissionDetailTypeDef](#resourcesharepermissiondetailtypedef)
+  - [ResourceSharePermissionSummaryTypeDef](#resourcesharepermissionsummarytypedef)
+  - [ResourceShareTypeDef](#resourcesharetypedef)
+  - [ResourceTypeDef](#resourcetypedef)
+  - [ServiceNameAndResourceTypeTypeDef](#servicenameandresourcetypetypedef)
   - [TagFilterTypeDef](#tagfiltertypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateResourceShareResponseTypeDef](#updateresourceshareresponsetypedef)
-
-## PrincipalTypeDef
-
-```python
-from mypy_boto3_ram.type_defs import PrincipalTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `resourceShareArn`: `str`
-- `creationTime`: `datetime`
-- `lastUpdatedTime`: `datetime`
-- `external`: `bool`
-
-
-## ResourceShareAssociationTypeDef
-
-```python
-from mypy_boto3_ram.type_defs import ResourceShareAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceShareArn`: `str`
-- `resourceShareName`: `str`
-- `associatedEntity`: `str`
-- `associationType`: `ResourceShareAssociationType`
-- `status`: `ResourceShareAssociationStatus`
-- `statusMessage`: `str`
-- `creationTime`: `datetime`
-- `lastUpdatedTime`: `datetime`
-- `external`: `bool`
-
-
-## ResourceShareInvitationTypeDef
-
-```python
-from mypy_boto3_ram.type_defs import ResourceShareInvitationTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceShareInvitationArn`: `str`
-- `resourceShareName`: `str`
-- `resourceShareArn`: `str`
-- `senderAccountId`: `str`
-- `receiverAccountId`: `str`
-- `invitationTimestamp`: `datetime`
-- `status`: `ResourceShareInvitationStatus`
-- `resourceShareAssociations`: `List["ResourceShareAssociationTypeDef"]`
-
-
-## ResourceSharePermissionDetailTypeDef
-
-```python
-from mypy_boto3_ram.type_defs import ResourceSharePermissionDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `version`: `str`
-- `defaultVersion`: `bool`
-- `name`: `str`
-- `resourceType`: `str`
-- `permission`: `str`
-- `creationTime`: `datetime`
-- `lastUpdatedTime`: `datetime`
-
-
-## ResourceSharePermissionSummaryTypeDef
-
-```python
-from mypy_boto3_ram.type_defs import ResourceSharePermissionSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `version`: `str`
-- `defaultVersion`: `bool`
-- `name`: `str`
-- `resourceType`: `str`
-- `status`: `str`
-- `creationTime`: `datetime`
-- `lastUpdatedTime`: `datetime`
-
-
-## ResourceShareTypeDef
-
-```python
-from mypy_boto3_ram.type_defs import ResourceShareTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceShareArn`: `str`
-- `name`: `str`
-- `owningAccountId`: `str`
-- `allowExternalPrincipals`: `bool`
-- `status`: `ResourceShareStatus`
-- `statusMessage`: `str`
-- `tags`: `List["TagTypeDef"]`
-- `creationTime`: `datetime`
-- `lastUpdatedTime`: `datetime`
-- `featureSet`: `ResourceShareFeatureSet`
-
-
-## ResourceTypeDef
-
-```python
-from mypy_boto3_ram.type_defs import ResourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `type`: `str`
-- `resourceShareArn`: `str`
-- `resourceGroupArn`: `str`
-- `status`: `ResourceStatus`
-- `statusMessage`: `str`
-- `creationTime`: `datetime`
-- `lastUpdatedTime`: `datetime`
-
-
-## ServiceNameAndResourceTypeTypeDef
-
-```python
-from mypy_boto3_ram.type_defs import ServiceNameAndResourceTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceType`: `str`
-- `serviceName`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_ram.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `key`: `str`
-- `value`: `str`
-
 
 ## AcceptResourceShareInvitationResponseTypeDef
 
@@ -487,6 +319,23 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PrincipalTypeDef
+
+```python
+from mypy_boto3_ram.type_defs import PrincipalTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `resourceShareArn`: `str`
+- `creationTime`: `datetime`
+- `lastUpdatedTime`: `datetime`
+- `external`: `bool`
+
+
 ## PromoteResourceShareCreatedFromPolicyResponseTypeDef
 
 ```python
@@ -514,6 +363,143 @@ Optional fields:
 - `clientToken`: `str`
 
 
+## ResourceShareAssociationTypeDef
+
+```python
+from mypy_boto3_ram.type_defs import ResourceShareAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceShareArn`: `str`
+- `resourceShareName`: `str`
+- `associatedEntity`: `str`
+- `associationType`: `ResourceShareAssociationType`
+- `status`: `ResourceShareAssociationStatus`
+- `statusMessage`: `str`
+- `creationTime`: `datetime`
+- `lastUpdatedTime`: `datetime`
+- `external`: `bool`
+
+
+## ResourceShareInvitationTypeDef
+
+```python
+from mypy_boto3_ram.type_defs import ResourceShareInvitationTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceShareInvitationArn`: `str`
+- `resourceShareName`: `str`
+- `resourceShareArn`: `str`
+- `senderAccountId`: `str`
+- `receiverAccountId`: `str`
+- `invitationTimestamp`: `datetime`
+- `status`: `ResourceShareInvitationStatus`
+- `resourceShareAssociations`: `List["ResourceShareAssociationTypeDef"]`
+
+
+## ResourceSharePermissionDetailTypeDef
+
+```python
+from mypy_boto3_ram.type_defs import ResourceSharePermissionDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `version`: `str`
+- `defaultVersion`: `bool`
+- `name`: `str`
+- `resourceType`: `str`
+- `permission`: `str`
+- `creationTime`: `datetime`
+- `lastUpdatedTime`: `datetime`
+
+
+## ResourceSharePermissionSummaryTypeDef
+
+```python
+from mypy_boto3_ram.type_defs import ResourceSharePermissionSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `version`: `str`
+- `defaultVersion`: `bool`
+- `name`: `str`
+- `resourceType`: `str`
+- `status`: `str`
+- `creationTime`: `datetime`
+- `lastUpdatedTime`: `datetime`
+
+
+## ResourceShareTypeDef
+
+```python
+from mypy_boto3_ram.type_defs import ResourceShareTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceShareArn`: `str`
+- `name`: `str`
+- `owningAccountId`: `str`
+- `allowExternalPrincipals`: `bool`
+- `status`: `ResourceShareStatus`
+- `statusMessage`: `str`
+- `tags`: `List["TagTypeDef"]`
+- `creationTime`: `datetime`
+- `lastUpdatedTime`: `datetime`
+- `featureSet`: `ResourceShareFeatureSet`
+
+
+## ResourceTypeDef
+
+```python
+from mypy_boto3_ram.type_defs import ResourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `type`: `str`
+- `resourceShareArn`: `str`
+- `resourceGroupArn`: `str`
+- `status`: `ResourceStatus`
+- `statusMessage`: `str`
+- `creationTime`: `datetime`
+- `lastUpdatedTime`: `datetime`
+
+
+## ServiceNameAndResourceTypeTypeDef
+
+```python
+from mypy_boto3_ram.type_defs import ServiceNameAndResourceTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceType`: `str`
+- `serviceName`: `str`
+
+
 ## TagFilterTypeDef
 
 ```python
@@ -526,6 +512,20 @@ from mypy_boto3_ram.type_defs import TagFilterTypeDef
 Optional fields:
 - `tagKey`: `str`
 - `tagValues`: `List[str]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_ram.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `key`: `str`
+- `value`: `str`
 
 
 ## UpdateResourceShareResponseTypeDef

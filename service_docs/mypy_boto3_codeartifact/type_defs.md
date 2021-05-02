@@ -7,21 +7,6 @@ type annotations stubs module [mypy_boto3_codeartifact](https://pypi.org/project
 
 - [Structures for boto3 CodeArtifact module](#structures-for-boto3-codeartifact-module)
   - [AssetSummaryTypeDef](#assetsummarytypedef)
-  - [DomainDescriptionTypeDef](#domaindescriptiontypedef)
-  - [DomainSummaryTypeDef](#domainsummarytypedef)
-  - [LicenseInfoTypeDef](#licenseinfotypedef)
-  - [PackageDependencyTypeDef](#packagedependencytypedef)
-  - [PackageSummaryTypeDef](#packagesummarytypedef)
-  - [PackageVersionDescriptionTypeDef](#packageversiondescriptiontypedef)
-  - [PackageVersionErrorTypeDef](#packageversionerrortypedef)
-  - [PackageVersionSummaryTypeDef](#packageversionsummarytypedef)
-  - [RepositoryDescriptionTypeDef](#repositorydescriptiontypedef)
-  - [RepositoryExternalConnectionInfoTypeDef](#repositoryexternalconnectioninfotypedef)
-  - [RepositorySummaryTypeDef](#repositorysummarytypedef)
-  - [ResourcePolicyTypeDef](#resourcepolicytypedef)
-  - [SuccessfulPackageVersionInfoTypeDef](#successfulpackageversioninfotypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [UpstreamRepositoryInfoTypeDef](#upstreamrepositoryinfotypedef)
   - [AssociateExternalConnectionResultTypeDef](#associateexternalconnectionresulttypedef)
   - [CopyPackageVersionsResultTypeDef](#copypackageversionsresulttypedef)
   - [CreateDomainResultTypeDef](#createdomainresulttypedef)
@@ -36,12 +21,15 @@ type annotations stubs module [mypy_boto3_codeartifact](https://pypi.org/project
   - [DescribeRepositoryResultTypeDef](#describerepositoryresulttypedef)
   - [DisassociateExternalConnectionResultTypeDef](#disassociateexternalconnectionresulttypedef)
   - [DisposePackageVersionsResultTypeDef](#disposepackageversionsresulttypedef)
+  - [DomainDescriptionTypeDef](#domaindescriptiontypedef)
+  - [DomainSummaryTypeDef](#domainsummarytypedef)
   - [GetAuthorizationTokenResultTypeDef](#getauthorizationtokenresulttypedef)
   - [GetDomainPermissionsPolicyResultTypeDef](#getdomainpermissionspolicyresulttypedef)
   - [GetPackageVersionAssetResultTypeDef](#getpackageversionassetresulttypedef)
   - [GetPackageVersionReadmeResultTypeDef](#getpackageversionreadmeresulttypedef)
   - [GetRepositoryEndpointResultTypeDef](#getrepositoryendpointresulttypedef)
   - [GetRepositoryPermissionsPolicyResultTypeDef](#getrepositorypermissionspolicyresulttypedef)
+  - [LicenseInfoTypeDef](#licenseinfotypedef)
   - [ListDomainsResultTypeDef](#listdomainsresulttypedef)
   - [ListPackageVersionAssetsResultTypeDef](#listpackageversionassetsresulttypedef)
   - [ListPackageVersionDependenciesResultTypeDef](#listpackageversiondependenciesresulttypedef)
@@ -50,11 +38,23 @@ type annotations stubs module [mypy_boto3_codeartifact](https://pypi.org/project
   - [ListRepositoriesInDomainResultTypeDef](#listrepositoriesindomainresulttypedef)
   - [ListRepositoriesResultTypeDef](#listrepositoriesresulttypedef)
   - [ListTagsForResourceResultTypeDef](#listtagsforresourceresulttypedef)
+  - [PackageDependencyTypeDef](#packagedependencytypedef)
+  - [PackageSummaryTypeDef](#packagesummarytypedef)
+  - [PackageVersionDescriptionTypeDef](#packageversiondescriptiontypedef)
+  - [PackageVersionErrorTypeDef](#packageversionerrortypedef)
+  - [PackageVersionSummaryTypeDef](#packageversionsummarytypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PutDomainPermissionsPolicyResultTypeDef](#putdomainpermissionspolicyresulttypedef)
   - [PutRepositoryPermissionsPolicyResultTypeDef](#putrepositorypermissionspolicyresulttypedef)
+  - [RepositoryDescriptionTypeDef](#repositorydescriptiontypedef)
+  - [RepositoryExternalConnectionInfoTypeDef](#repositoryexternalconnectioninfotypedef)
+  - [RepositorySummaryTypeDef](#repositorysummarytypedef)
+  - [ResourcePolicyTypeDef](#resourcepolicytypedef)
+  - [SuccessfulPackageVersionInfoTypeDef](#successfulpackageversioninfotypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdatePackageVersionsStatusResultTypeDef](#updatepackageversionsstatusresulttypedef)
   - [UpdateRepositoryResultTypeDef](#updaterepositoryresulttypedef)
+  - [UpstreamRepositoryInfoTypeDef](#upstreamrepositoryinfotypedef)
   - [UpstreamRepositoryTypeDef](#upstreamrepositorytypedef)
 
 ## AssetSummaryTypeDef
@@ -72,254 +72,6 @@ Required fields:
 Optional fields:
 - `size`: `int`
 - `hashes`: `Dict[HashAlgorithm, str]`
-
-
-## DomainDescriptionTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import DomainDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `owner`: `str`
-- `arn`: `str`
-- `status`: `DomainStatus`
-- `createdTime`: `datetime`
-- `encryptionKey`: `str`
-- `repositoryCount`: `int`
-- `assetSizeBytes`: `int`
-- `s3BucketArn`: `str`
-
-
-## DomainSummaryTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import DomainSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `owner`: `str`
-- `arn`: `str`
-- `status`: `DomainStatus`
-- `createdTime`: `datetime`
-- `encryptionKey`: `str`
-
-
-## LicenseInfoTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import LicenseInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `url`: `str`
-
-
-## PackageDependencyTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import PackageDependencyTypeDef
-```
-
-
-
-
-Optional fields:
-- `namespace`: `str`
-- `package`: `str`
-- `dependencyType`: `str`
-- `versionRequirement`: `str`
-
-
-## PackageSummaryTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import PackageSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `format`: `PackageFormat`
-- `namespace`: `str`
-- `package`: `str`
-
-
-## PackageVersionDescriptionTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import PackageVersionDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `format`: `PackageFormat`
-- `namespace`: `str`
-- `packageName`: `str`
-- `displayName`: `str`
-- `version`: `str`
-- `summary`: `str`
-- `homePage`: `str`
-- `sourceCodeRepository`: `str`
-- `publishedTime`: `datetime`
-- `licenses`: `List["LicenseInfoTypeDef"]`
-- `revision`: `str`
-- `status`: `PackageVersionStatus`
-
-
-## PackageVersionErrorTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import PackageVersionErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `errorCode`: `PackageVersionErrorCode`
-- `errorMessage`: `str`
-
-
-## PackageVersionSummaryTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import PackageVersionSummaryTypeDef
-```
-
-
-Required fields:
-- `version`: `str`
-- `status`: `PackageVersionStatus`
-
-
-
-Optional fields:
-- `revision`: `str`
-
-
-## RepositoryDescriptionTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import RepositoryDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `administratorAccount`: `str`
-- `domainName`: `str`
-- `domainOwner`: `str`
-- `arn`: `str`
-- `description`: `str`
-- `upstreams`: `List["UpstreamRepositoryInfoTypeDef"]`
-- `externalConnections`: `List["RepositoryExternalConnectionInfoTypeDef"]`
-
-
-## RepositoryExternalConnectionInfoTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import RepositoryExternalConnectionInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `externalConnectionName`: `str`
-- `packageFormat`: `PackageFormat`
-- `status`: `ExternalConnectionStatus`
-
-
-## RepositorySummaryTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import RepositorySummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `administratorAccount`: `str`
-- `domainName`: `str`
-- `domainOwner`: `str`
-- `arn`: `str`
-- `description`: `str`
-
-
-## ResourcePolicyTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import ResourcePolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `resourceArn`: `str`
-- `revision`: `str`
-- `document`: `str`
-
-
-## SuccessfulPackageVersionInfoTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import SuccessfulPackageVersionInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `revision`: `str`
-- `status`: `PackageVersionStatus`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `key`: `str`
-- `value`: `str`
-
-
-
-
-## UpstreamRepositoryInfoTypeDef
-
-```python
-from mypy_boto3_codeartifact.type_defs import UpstreamRepositoryInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `repositoryName`: `str`
 
 
 ## AssociateExternalConnectionResultTypeDef
@@ -507,6 +259,45 @@ Optional fields:
 - `failedVersions`: `Dict[str, "PackageVersionErrorTypeDef"]`
 
 
+## DomainDescriptionTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import DomainDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `owner`: `str`
+- `arn`: `str`
+- `status`: `DomainStatus`
+- `createdTime`: `datetime`
+- `encryptionKey`: `str`
+- `repositoryCount`: `int`
+- `assetSizeBytes`: `int`
+- `s3BucketArn`: `str`
+
+
+## DomainSummaryTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import DomainSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `owner`: `str`
+- `arn`: `str`
+- `status`: `DomainStatus`
+- `createdTime`: `datetime`
+- `encryptionKey`: `str`
+
+
 ## GetAuthorizationTokenResultTypeDef
 
 ```python
@@ -592,6 +383,20 @@ from mypy_boto3_codeartifact.type_defs import GetRepositoryPermissionsPolicyResu
 
 Optional fields:
 - `policy`: `"ResourcePolicyTypeDef"`
+
+
+## LicenseInfoTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import LicenseInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `url`: `str`
 
 
 ## ListDomainsResultTypeDef
@@ -719,6 +524,92 @@ Optional fields:
 - `tags`: `List["TagTypeDef"]`
 
 
+## PackageDependencyTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import PackageDependencyTypeDef
+```
+
+
+
+
+Optional fields:
+- `namespace`: `str`
+- `package`: `str`
+- `dependencyType`: `str`
+- `versionRequirement`: `str`
+
+
+## PackageSummaryTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import PackageSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `format`: `PackageFormat`
+- `namespace`: `str`
+- `package`: `str`
+
+
+## PackageVersionDescriptionTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import PackageVersionDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `format`: `PackageFormat`
+- `namespace`: `str`
+- `packageName`: `str`
+- `displayName`: `str`
+- `version`: `str`
+- `summary`: `str`
+- `homePage`: `str`
+- `sourceCodeRepository`: `str`
+- `publishedTime`: `datetime`
+- `licenses`: `List["LicenseInfoTypeDef"]`
+- `revision`: `str`
+- `status`: `PackageVersionStatus`
+
+
+## PackageVersionErrorTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import PackageVersionErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `errorCode`: `PackageVersionErrorCode`
+- `errorMessage`: `str`
+
+
+## PackageVersionSummaryTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import PackageVersionSummaryTypeDef
+```
+
+
+Required fields:
+- `version`: `str`
+- `status`: `PackageVersionStatus`
+
+
+
+Optional fields:
+- `revision`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -760,6 +651,102 @@ Optional fields:
 - `policy`: `"ResourcePolicyTypeDef"`
 
 
+## RepositoryDescriptionTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import RepositoryDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `administratorAccount`: `str`
+- `domainName`: `str`
+- `domainOwner`: `str`
+- `arn`: `str`
+- `description`: `str`
+- `upstreams`: `List["UpstreamRepositoryInfoTypeDef"]`
+- `externalConnections`: `List["RepositoryExternalConnectionInfoTypeDef"]`
+
+
+## RepositoryExternalConnectionInfoTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import RepositoryExternalConnectionInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `externalConnectionName`: `str`
+- `packageFormat`: `PackageFormat`
+- `status`: `Literal['Available']`
+
+
+## RepositorySummaryTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import RepositorySummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `administratorAccount`: `str`
+- `domainName`: `str`
+- `domainOwner`: `str`
+- `arn`: `str`
+- `description`: `str`
+
+
+## ResourcePolicyTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import ResourcePolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `resourceArn`: `str`
+- `revision`: `str`
+- `document`: `str`
+
+
+## SuccessfulPackageVersionInfoTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import SuccessfulPackageVersionInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `revision`: `str`
+- `status`: `PackageVersionStatus`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `key`: `str`
+- `value`: `str`
+
+
+
+
 ## UpdatePackageVersionsStatusResultTypeDef
 
 ```python
@@ -785,6 +772,19 @@ from mypy_boto3_codeartifact.type_defs import UpdateRepositoryResultTypeDef
 
 Optional fields:
 - `repository`: `"RepositoryDescriptionTypeDef"`
+
+
+## UpstreamRepositoryInfoTypeDef
+
+```python
+from mypy_boto3_codeartifact.type_defs import UpstreamRepositoryInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `repositoryName`: `str`
 
 
 ## UpstreamRepositoryTypeDef

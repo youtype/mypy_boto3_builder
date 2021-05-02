@@ -34,12 +34,6 @@ type annotations stubs module [mypy_boto3_budgets](https://pypi.org/project/mypy
     - [update_notification](#update_notification)
     - [update_subscriber](#update_subscriber)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
 
 ## BudgetsClient
 
@@ -489,107 +483,18 @@ def update_subscriber(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("budgets").get_paginator` method.
-
-[Paginator.DescribeBudgetActionHistories documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionHistories)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeBudgetActionHistoriesPaginatorName
-) -> DescribeBudgetActionHistoriesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("budgets").get_paginator` method.
+Type annotations for `boto3.client("budgets").get_paginator` method with overloads.
 
-[Paginator.DescribeBudgetActionsForAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForAccount)
+- `client.get_paginator("describe_budget_action_histories")` -> [DescribeBudgetActionHistoriesPaginator](./paginators.md#describebudgetactionhistoriespaginator)
+- `client.get_paginator("describe_budget_actions_for_account")` -> [DescribeBudgetActionsForAccountPaginator](./paginators.md#describebudgetactionsforaccountpaginator)
+- `client.get_paginator("describe_budget_actions_for_budget")` -> [DescribeBudgetActionsForBudgetPaginator](./paginators.md#describebudgetactionsforbudgetpaginator)
+- `client.get_paginator("describe_budget_performance_history")` -> [DescribeBudgetPerformanceHistoryPaginator](./paginators.md#describebudgetperformancehistorypaginator)
+- `client.get_paginator("describe_budgets")` -> [DescribeBudgetsPaginator](./paginators.md#describebudgetspaginator)
+- `client.get_paginator("describe_notifications_for_budget")` -> [DescribeNotificationsForBudgetPaginator](./paginators.md#describenotificationsforbudgetpaginator)
+- `client.get_paginator("describe_subscribers_for_notification")` -> [DescribeSubscribersForNotificationPaginator](./paginators.md#describesubscribersfornotificationpaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeBudgetActionsForAccountPaginatorName
-) -> DescribeBudgetActionsForAccountPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("budgets").get_paginator` method.
-
-[Paginator.DescribeBudgetActionsForBudget documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForBudget)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeBudgetActionsForBudgetPaginatorName
-) -> DescribeBudgetActionsForBudgetPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("budgets").get_paginator` method.
-
-[Paginator.DescribeBudgetPerformanceHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetPerformanceHistory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeBudgetPerformanceHistoryPaginatorName
-) -> DescribeBudgetPerformanceHistoryPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("budgets").get_paginator` method.
-
-[Paginator.DescribeBudgets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/budgets.html#Budgets.Paginator.DescribeBudgets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeBudgetsPaginatorName
-) -> DescribeBudgetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("budgets").get_paginator` method.
-
-[Paginator.DescribeNotificationsForBudget documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/budgets.html#Budgets.Paginator.DescribeNotificationsForBudget)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeNotificationsForBudgetPaginatorName
-) -> DescribeNotificationsForBudgetPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("budgets").get_paginator` method.
-
-[Paginator.DescribeSubscribersForNotification documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/budgets.html#Budgets.Paginator.DescribeSubscribersForNotification)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSubscribersForNotificationPaginatorName
-) -> DescribeSubscribersForNotificationPaginator:
-    pass
-```

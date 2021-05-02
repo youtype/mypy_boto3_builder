@@ -46,10 +46,6 @@ type annotations stubs module [mypy_boto3_iotanalytics](https://pypi.org/project
     - [update_datastore](#update_datastore)
     - [update_pipeline](#update_pipeline)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
 
 ## IoTAnalyticsClient
 
@@ -647,77 +643,16 @@ def update_pipeline(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("iotanalytics").get_paginator` method.
-
-[Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListChannels)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListChannelsPaginatorName
-) -> ListChannelsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("iotanalytics").get_paginator` method.
+Type annotations for `boto3.client("iotanalytics").get_paginator` method with overloads.
 
-[Paginator.ListDatasetContents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasetContents)
+- `client.get_paginator("list_channels")` -> [ListChannelsPaginator](./paginators.md#listchannelspaginator)
+- `client.get_paginator("list_dataset_contents")` -> [ListDatasetContentsPaginator](./paginators.md#listdatasetcontentspaginator)
+- `client.get_paginator("list_datasets")` -> [ListDatasetsPaginator](./paginators.md#listdatasetspaginator)
+- `client.get_paginator("list_datastores")` -> [ListDatastoresPaginator](./paginators.md#listdatastorespaginator)
+- `client.get_paginator("list_pipelines")` -> [ListPipelinesPaginator](./paginators.md#listpipelinespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatasetContentsPaginatorName
-) -> ListDatasetContentsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("iotanalytics").get_paginator` method.
-
-[Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatasetsPaginatorName
-) -> ListDatasetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotanalytics").get_paginator` method.
-
-[Paginator.ListDatastores documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatastores)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDatastoresPaginatorName
-) -> ListDatastoresPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("iotanalytics").get_paginator` method.
-
-[Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListPipelines)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPipelinesPaginatorName
-) -> ListPipelinesPaginator:
-    pass
-```

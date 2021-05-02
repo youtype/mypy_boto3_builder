@@ -8,15 +8,23 @@ type annotations stubs module [mypy_boto3_batch](https://pypi.org/project/mypy-b
 - [Structures for boto3 Batch module](#structures-for-boto3-batch-module)
   - [ArrayPropertiesDetailTypeDef](#arraypropertiesdetailtypedef)
   - [ArrayPropertiesSummaryTypeDef](#arraypropertiessummarytypedef)
+  - [ArrayPropertiesTypeDef](#arraypropertiestypedef)
   - [AttemptContainerDetailTypeDef](#attemptcontainerdetailtypedef)
   - [AttemptDetailTypeDef](#attemptdetailtypedef)
   - [ComputeEnvironmentDetailTypeDef](#computeenvironmentdetailtypedef)
   - [ComputeEnvironmentOrderTypeDef](#computeenvironmentordertypedef)
   - [ComputeResourceTypeDef](#computeresourcetypedef)
+  - [ComputeResourceUpdateTypeDef](#computeresourceupdatetypedef)
   - [ContainerDetailTypeDef](#containerdetailtypedef)
   - [ContainerOverridesTypeDef](#containeroverridestypedef)
   - [ContainerPropertiesTypeDef](#containerpropertiestypedef)
   - [ContainerSummaryTypeDef](#containersummarytypedef)
+  - [CreateComputeEnvironmentResponseTypeDef](#createcomputeenvironmentresponsetypedef)
+  - [CreateJobQueueResponseTypeDef](#createjobqueueresponsetypedef)
+  - [DescribeComputeEnvironmentsResponseTypeDef](#describecomputeenvironmentsresponsetypedef)
+  - [DescribeJobDefinitionsResponseTypeDef](#describejobdefinitionsresponsetypedef)
+  - [DescribeJobQueuesResponseTypeDef](#describejobqueuesresponsetypedef)
+  - [DescribeJobsResponseTypeDef](#describejobsresponsetypedef)
   - [DeviceTypeDef](#devicetypedef)
   - [EFSAuthorizationConfigTypeDef](#efsauthorizationconfigtypedef)
   - [EFSVolumeConfigurationTypeDef](#efsvolumeconfigurationtypedef)
@@ -33,37 +41,29 @@ type annotations stubs module [mypy_boto3_batch](https://pypi.org/project/mypy-b
   - [KeyValuePairTypeDef](#keyvaluepairtypedef)
   - [LaunchTemplateSpecificationTypeDef](#launchtemplatespecificationtypedef)
   - [LinuxParametersTypeDef](#linuxparameterstypedef)
+  - [ListJobsResponseTypeDef](#listjobsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [LogConfigurationTypeDef](#logconfigurationtypedef)
   - [MountPointTypeDef](#mountpointtypedef)
   - [NetworkConfigurationTypeDef](#networkconfigurationtypedef)
   - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
   - [NodeDetailsTypeDef](#nodedetailstypedef)
+  - [NodeOverridesTypeDef](#nodeoverridestypedef)
   - [NodePropertiesSummaryTypeDef](#nodepropertiessummarytypedef)
   - [NodePropertiesTypeDef](#nodepropertiestypedef)
   - [NodePropertyOverrideTypeDef](#nodepropertyoverridetypedef)
   - [NodeRangePropertyTypeDef](#noderangepropertytypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [RegisterJobDefinitionResponseTypeDef](#registerjobdefinitionresponsetypedef)
   - [ResourceRequirementTypeDef](#resourcerequirementtypedef)
   - [RetryStrategyTypeDef](#retrystrategytypedef)
   - [SecretTypeDef](#secrettypedef)
+  - [SubmitJobResponseTypeDef](#submitjobresponsetypedef)
   - [TmpfsTypeDef](#tmpfstypedef)
   - [UlimitTypeDef](#ulimittypedef)
-  - [VolumeTypeDef](#volumetypedef)
-  - [ArrayPropertiesTypeDef](#arraypropertiestypedef)
-  - [ComputeResourceUpdateTypeDef](#computeresourceupdatetypedef)
-  - [CreateComputeEnvironmentResponseTypeDef](#createcomputeenvironmentresponsetypedef)
-  - [CreateJobQueueResponseTypeDef](#createjobqueueresponsetypedef)
-  - [DescribeComputeEnvironmentsResponseTypeDef](#describecomputeenvironmentsresponsetypedef)
-  - [DescribeJobDefinitionsResponseTypeDef](#describejobdefinitionsresponsetypedef)
-  - [DescribeJobQueuesResponseTypeDef](#describejobqueuesresponsetypedef)
-  - [DescribeJobsResponseTypeDef](#describejobsresponsetypedef)
-  - [ListJobsResponseTypeDef](#listjobsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [NodeOverridesTypeDef](#nodeoverridestypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [RegisterJobDefinitionResponseTypeDef](#registerjobdefinitionresponsetypedef)
-  - [SubmitJobResponseTypeDef](#submitjobresponsetypedef)
   - [UpdateComputeEnvironmentResponseTypeDef](#updatecomputeenvironmentresponsetypedef)
   - [UpdateJobQueueResponseTypeDef](#updatejobqueueresponsetypedef)
+  - [VolumeTypeDef](#volumetypedef)
 
 ## ArrayPropertiesDetailTypeDef
 
@@ -92,6 +92,19 @@ from mypy_boto3_batch.type_defs import ArrayPropertiesSummaryTypeDef
 Optional fields:
 - `size`: `int`
 - `index`: `int`
+
+
+## ArrayPropertiesTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import ArrayPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `size`: `int`
 
 
 ## AttemptContainerDetailTypeDef
@@ -197,6 +210,23 @@ Optional fields:
 - `ec2Configuration`: `List["Ec2ConfigurationTypeDef"]`
 
 
+## ComputeResourceUpdateTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import ComputeResourceUpdateTypeDef
+```
+
+
+
+
+Optional fields:
+- `minvCpus`: `int`
+- `maxvCpus`: `int`
+- `desiredvCpus`: `int`
+- `subnets`: `List[str]`
+- `securityGroupIds`: `List[str]`
+
+
 ## ContainerDetailTypeDef
 
 ```python
@@ -297,6 +327,89 @@ from mypy_boto3_batch.type_defs import ContainerSummaryTypeDef
 Optional fields:
 - `exitCode`: `int`
 - `reason`: `str`
+
+
+## CreateComputeEnvironmentResponseTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import CreateComputeEnvironmentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `computeEnvironmentName`: `str`
+- `computeEnvironmentArn`: `str`
+
+
+## CreateJobQueueResponseTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import CreateJobQueueResponseTypeDef
+```
+
+
+Required fields:
+- `jobQueueName`: `str`
+- `jobQueueArn`: `str`
+
+
+
+
+## DescribeComputeEnvironmentsResponseTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import DescribeComputeEnvironmentsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `computeEnvironments`: `List["ComputeEnvironmentDetailTypeDef"]`
+- `nextToken`: `str`
+
+
+## DescribeJobDefinitionsResponseTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import DescribeJobDefinitionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobDefinitions`: `List["JobDefinitionTypeDef"]`
+- `nextToken`: `str`
+
+
+## DescribeJobQueuesResponseTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import DescribeJobQueuesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobQueues`: `List["JobQueueDetailTypeDef"]`
+- `nextToken`: `str`
+
+
+## DescribeJobsResponseTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import DescribeJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobs`: `List["JobDetailTypeDef"]`
 
 
 ## DeviceTypeDef
@@ -593,6 +706,35 @@ Optional fields:
 - `swappiness`: `int`
 
 
+## ListJobsResponseTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import ListJobsResponseTypeDef
+```
+
+
+Required fields:
+- `jobSummaryList`: `List["JobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `Dict[str, str]`
+
+
 ## LogConfigurationTypeDef
 
 ```python
@@ -667,6 +809,20 @@ Optional fields:
 - `isMainNode`: `bool`
 
 
+## NodeOverridesTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import NodeOverridesTypeDef
+```
+
+
+
+
+Optional fields:
+- `numNodes`: `int`
+- `nodePropertyOverrides`: `List["NodePropertyOverrideTypeDef"]`
+
+
 ## NodePropertiesSummaryTypeDef
 
 ```python
@@ -729,6 +885,36 @@ Optional fields:
 - `container`: `"ContainerPropertiesTypeDef"`
 
 
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
+## RegisterJobDefinitionResponseTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import RegisterJobDefinitionResponseTypeDef
+```
+
+
+Required fields:
+- `jobDefinitionName`: `str`
+- `jobDefinitionArn`: `str`
+- `revision`: `int`
+
+
+
+
 ## ResourceRequirementTypeDef
 
 ```python
@@ -771,6 +957,23 @@ Required fields:
 
 
 
+## SubmitJobResponseTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import SubmitJobResponseTypeDef
+```
+
+
+Required fields:
+- `jobName`: `str`
+- `jobId`: `str`
+
+
+
+Optional fields:
+- `jobArn`: `str`
+
+
 ## TmpfsTypeDef
 
 ```python
@@ -803,224 +1006,6 @@ Required fields:
 
 
 
-## VolumeTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import VolumeTypeDef
-```
-
-
-
-
-Optional fields:
-- `host`: `"HostTypeDef"`
-- `name`: `str`
-- `efsVolumeConfiguration`: `"EFSVolumeConfigurationTypeDef"`
-
-
-## ArrayPropertiesTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import ArrayPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `size`: `int`
-
-
-## ComputeResourceUpdateTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import ComputeResourceUpdateTypeDef
-```
-
-
-
-
-Optional fields:
-- `minvCpus`: `int`
-- `maxvCpus`: `int`
-- `desiredvCpus`: `int`
-- `subnets`: `List[str]`
-- `securityGroupIds`: `List[str]`
-
-
-## CreateComputeEnvironmentResponseTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import CreateComputeEnvironmentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `computeEnvironmentName`: `str`
-- `computeEnvironmentArn`: `str`
-
-
-## CreateJobQueueResponseTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import CreateJobQueueResponseTypeDef
-```
-
-
-Required fields:
-- `jobQueueName`: `str`
-- `jobQueueArn`: `str`
-
-
-
-
-## DescribeComputeEnvironmentsResponseTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import DescribeComputeEnvironmentsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `computeEnvironments`: `List["ComputeEnvironmentDetailTypeDef"]`
-- `nextToken`: `str`
-
-
-## DescribeJobDefinitionsResponseTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import DescribeJobDefinitionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobDefinitions`: `List["JobDefinitionTypeDef"]`
-- `nextToken`: `str`
-
-
-## DescribeJobQueuesResponseTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import DescribeJobQueuesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobQueues`: `List["JobQueueDetailTypeDef"]`
-- `nextToken`: `str`
-
-
-## DescribeJobsResponseTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import DescribeJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobs`: `List["JobDetailTypeDef"]`
-
-
-## ListJobsResponseTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import ListJobsResponseTypeDef
-```
-
-
-Required fields:
-- `jobSummaryList`: `List["JobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `Dict[str, str]`
-
-
-## NodeOverridesTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import NodeOverridesTypeDef
-```
-
-
-
-
-Optional fields:
-- `numNodes`: `int`
-- `nodePropertyOverrides`: `List["NodePropertyOverrideTypeDef"]`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## RegisterJobDefinitionResponseTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import RegisterJobDefinitionResponseTypeDef
-```
-
-
-Required fields:
-- `jobDefinitionName`: `str`
-- `jobDefinitionArn`: `str`
-- `revision`: `int`
-
-
-
-
-## SubmitJobResponseTypeDef
-
-```python
-from mypy_boto3_batch.type_defs import SubmitJobResponseTypeDef
-```
-
-
-Required fields:
-- `jobName`: `str`
-- `jobId`: `str`
-
-
-
-Optional fields:
-- `jobArn`: `str`
-
-
 ## UpdateComputeEnvironmentResponseTypeDef
 
 ```python
@@ -1047,4 +1032,19 @@ from mypy_boto3_batch.type_defs import UpdateJobQueueResponseTypeDef
 Optional fields:
 - `jobQueueName`: `str`
 - `jobQueueArn`: `str`
+
+
+## VolumeTypeDef
+
+```python
+from mypy_boto3_batch.type_defs import VolumeTypeDef
+```
+
+
+
+
+Optional fields:
+- `host`: `"HostTypeDef"`
+- `name`: `str`
+- `efsVolumeConfiguration`: `"EFSVolumeConfigurationTypeDef"`
 

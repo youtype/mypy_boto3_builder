@@ -10,21 +10,21 @@ type annotations stubs module [mypy_boto3_lexv2_runtime](https://pypi.org/projec
   - [ActiveContextTypeDef](#activecontexttypedef)
   - [ButtonTypeDef](#buttontypedef)
   - [ConfidenceScoreTypeDef](#confidencescoretypedef)
+  - [DeleteSessionResponseTypeDef](#deletesessionresponsetypedef)
   - [DialogActionTypeDef](#dialogactiontypedef)
+  - [GetSessionResponseTypeDef](#getsessionresponsetypedef)
   - [ImageResponseCardTypeDef](#imageresponsecardtypedef)
   - [IntentTypeDef](#intenttypedef)
   - [InterpretationTypeDef](#interpretationtypedef)
   - [MessageTypeDef](#messagetypedef)
+  - [PutSessionResponseTypeDef](#putsessionresponsetypedef)
+  - [RecognizeTextResponseTypeDef](#recognizetextresponsetypedef)
+  - [RecognizeUtteranceResponseTypeDef](#recognizeutteranceresponsetypedef)
   - [SentimentResponseTypeDef](#sentimentresponsetypedef)
   - [SentimentScoreTypeDef](#sentimentscoretypedef)
   - [SessionStateTypeDef](#sessionstatetypedef)
   - [SlotTypeDef](#slottypedef)
   - [ValueTypeDef](#valuetypedef)
-  - [DeleteSessionResponseTypeDef](#deletesessionresponsetypedef)
-  - [GetSessionResponseTypeDef](#getsessionresponsetypedef)
-  - [PutSessionResponseTypeDef](#putsessionresponsetypedef)
-  - [RecognizeTextResponseTypeDef](#recognizetextresponsetypedef)
-  - [RecognizeUtteranceResponseTypeDef](#recognizeutteranceresponsetypedef)
 
 ## ActiveContextTimeToLiveTypeDef
 
@@ -84,6 +84,22 @@ Optional fields:
 - `score`: `float`
 
 
+## DeleteSessionResponseTypeDef
+
+```python
+from mypy_boto3_lexv2_runtime.type_defs import DeleteSessionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `botId`: `str`
+- `botAliasId`: `str`
+- `localeId`: `str`
+- `sessionId`: `str`
+
+
 ## DialogActionTypeDef
 
 ```python
@@ -98,6 +114,22 @@ Required fields:
 
 Optional fields:
 - `slotToElicit`: `str`
+
+
+## GetSessionResponseTypeDef
+
+```python
+from mypy_boto3_lexv2_runtime.type_defs import GetSessionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `sessionId`: `str`
+- `messages`: `List["MessageTypeDef"]`
+- `interpretations`: `List["InterpretationTypeDef"]`
+- `sessionState`: `"SessionStateTypeDef"`
 
 
 ## ImageResponseCardTypeDef
@@ -164,6 +196,62 @@ Optional fields:
 - `content`: `str`
 - `contentType`: `MessageContentType`
 - `imageResponseCard`: `"ImageResponseCardTypeDef"`
+
+
+## PutSessionResponseTypeDef
+
+```python
+from mypy_boto3_lexv2_runtime.type_defs import PutSessionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `contentType`: `str`
+- `messages`: `str`
+- `sessionState`: `str`
+- `requestAttributes`: `str`
+- `sessionId`: `str`
+- `audioStream`: `StreamingBody`
+
+
+## RecognizeTextResponseTypeDef
+
+```python
+from mypy_boto3_lexv2_runtime.type_defs import RecognizeTextResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `messages`: `List["MessageTypeDef"]`
+- `sessionState`: `"SessionStateTypeDef"`
+- `interpretations`: `List["InterpretationTypeDef"]`
+- `requestAttributes`: `Dict[str, str]`
+- `sessionId`: `str`
+
+
+## RecognizeUtteranceResponseTypeDef
+
+```python
+from mypy_boto3_lexv2_runtime.type_defs import RecognizeUtteranceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `inputMode`: `str`
+- `contentType`: `str`
+- `messages`: `str`
+- `interpretations`: `str`
+- `sessionState`: `str`
+- `requestAttributes`: `str`
+- `sessionId`: `str`
+- `inputTranscript`: `str`
+- `audioStream`: `StreamingBody`
 
 
 ## SentimentResponseTypeDef
@@ -241,92 +329,4 @@ Required fields:
 Optional fields:
 - `originalValue`: `str`
 - `resolvedValues`: `List[str]`
-
-
-## DeleteSessionResponseTypeDef
-
-```python
-from mypy_boto3_lexv2_runtime.type_defs import DeleteSessionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `botId`: `str`
-- `botAliasId`: `str`
-- `localeId`: `str`
-- `sessionId`: `str`
-
-
-## GetSessionResponseTypeDef
-
-```python
-from mypy_boto3_lexv2_runtime.type_defs import GetSessionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `sessionId`: `str`
-- `messages`: `List["MessageTypeDef"]`
-- `interpretations`: `List["InterpretationTypeDef"]`
-- `sessionState`: `"SessionStateTypeDef"`
-
-
-## PutSessionResponseTypeDef
-
-```python
-from mypy_boto3_lexv2_runtime.type_defs import PutSessionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `contentType`: `str`
-- `messages`: `str`
-- `sessionState`: `str`
-- `requestAttributes`: `str`
-- `sessionId`: `str`
-- `audioStream`: `StreamingBody`
-
-
-## RecognizeTextResponseTypeDef
-
-```python
-from mypy_boto3_lexv2_runtime.type_defs import RecognizeTextResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `messages`: `List["MessageTypeDef"]`
-- `sessionState`: `"SessionStateTypeDef"`
-- `interpretations`: `List["InterpretationTypeDef"]`
-- `requestAttributes`: `Dict[str, str]`
-- `sessionId`: `str`
-
-
-## RecognizeUtteranceResponseTypeDef
-
-```python
-from mypy_boto3_lexv2_runtime.type_defs import RecognizeUtteranceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `inputMode`: `str`
-- `contentType`: `str`
-- `messages`: `str`
-- `interpretations`: `str`
-- `sessionState`: `str`
-- `requestAttributes`: `str`
-- `sessionId`: `str`
-- `inputTranscript`: `str`
-- `audioStream`: `StreamingBody`
 

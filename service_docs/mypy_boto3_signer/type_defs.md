@@ -6,9 +6,22 @@ Auto-generated documentation for [Signer](https://boto3.amazonaws.com/v1/documen
 type annotations stubs module [mypy_boto3_signer](https://pypi.org/project/mypy-boto3-signer/).
 
 - [Structures for boto3 Signer module](#structures-for-boto3-signer-module)
+  - [AddProfilePermissionResponseTypeDef](#addprofilepermissionresponsetypedef)
+  - [DescribeSigningJobResponseTypeDef](#describesigningjobresponsetypedef)
+  - [DestinationTypeDef](#destinationtypedef)
   - [EncryptionAlgorithmOptionsTypeDef](#encryptionalgorithmoptionstypedef)
+  - [GetSigningPlatformResponseTypeDef](#getsigningplatformresponsetypedef)
+  - [GetSigningProfileResponseTypeDef](#getsigningprofileresponsetypedef)
   - [HashAlgorithmOptionsTypeDef](#hashalgorithmoptionstypedef)
+  - [ListProfilePermissionsResponseTypeDef](#listprofilepermissionsresponsetypedef)
+  - [ListSigningJobsResponseTypeDef](#listsigningjobsresponsetypedef)
+  - [ListSigningPlatformsResponseTypeDef](#listsigningplatformsresponsetypedef)
+  - [ListSigningProfilesResponseTypeDef](#listsigningprofilesresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PermissionTypeDef](#permissiontypedef)
+  - [PutSigningProfileResponseTypeDef](#putsigningprofileresponsetypedef)
+  - [RemoveProfilePermissionResponseTypeDef](#removeprofilepermissionresponsetypedef)
   - [S3DestinationTypeDef](#s3destinationtypedef)
   - [S3SignedObjectTypeDef](#s3signedobjecttypedef)
   - [S3SourceTypeDef](#s3sourcetypedef)
@@ -25,21 +38,65 @@ type annotations stubs module [mypy_boto3_signer](https://pypi.org/project/mypy-
   - [SigningProfileRevocationRecordTypeDef](#signingprofilerevocationrecordtypedef)
   - [SigningProfileTypeDef](#signingprofiletypedef)
   - [SourceTypeDef](#sourcetypedef)
-  - [AddProfilePermissionResponseTypeDef](#addprofilepermissionresponsetypedef)
-  - [DescribeSigningJobResponseTypeDef](#describesigningjobresponsetypedef)
-  - [DestinationTypeDef](#destinationtypedef)
-  - [GetSigningPlatformResponseTypeDef](#getsigningplatformresponsetypedef)
-  - [GetSigningProfileResponseTypeDef](#getsigningprofileresponsetypedef)
-  - [ListProfilePermissionsResponseTypeDef](#listprofilepermissionsresponsetypedef)
-  - [ListSigningJobsResponseTypeDef](#listsigningjobsresponsetypedef)
-  - [ListSigningPlatformsResponseTypeDef](#listsigningplatformsresponsetypedef)
-  - [ListSigningProfilesResponseTypeDef](#listsigningprofilesresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [PutSigningProfileResponseTypeDef](#putsigningprofileresponsetypedef)
-  - [RemoveProfilePermissionResponseTypeDef](#removeprofilepermissionresponsetypedef)
   - [StartSigningJobResponseTypeDef](#startsigningjobresponsetypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
+
+## AddProfilePermissionResponseTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import AddProfilePermissionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `revisionId`: `str`
+
+
+## DescribeSigningJobResponseTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import DescribeSigningJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobId`: `str`
+- `source`: `"SourceTypeDef"`
+- `signingMaterial`: `"SigningMaterialTypeDef"`
+- `platformId`: `str`
+- `platformDisplayName`: `str`
+- `profileName`: `str`
+- `profileVersion`: `str`
+- `overrides`: `"SigningPlatformOverridesTypeDef"`
+- `signingParameters`: `Dict[str, str]`
+- `createdAt`: `datetime`
+- `completedAt`: `datetime`
+- `signatureExpiresAt`: `datetime`
+- `requestedBy`: `str`
+- `status`: `SigningStatus`
+- `statusReason`: `str`
+- `revocationRecord`: `"SigningJobRevocationRecordTypeDef"`
+- `signedObject`: `"SignedObjectTypeDef"`
+- `jobOwner`: `str`
+- `jobInvoker`: `str`
+
+
+## DestinationTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import DestinationTypeDef
+```
+
+
+
+
+Optional fields:
+- `s3`: `"S3DestinationTypeDef"`
+
 
 ## EncryptionAlgorithmOptionsTypeDef
 
@@ -53,6 +110,53 @@ Required fields:
 - `defaultValue`: `EncryptionAlgorithm`
 
 
+
+
+## GetSigningPlatformResponseTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import GetSigningPlatformResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `platformId`: `str`
+- `displayName`: `str`
+- `partner`: `str`
+- `target`: `str`
+- `category`: `Literal['AWSIoT']`
+- `signingConfiguration`: `"SigningConfigurationTypeDef"`
+- `signingImageFormat`: `"SigningImageFormatTypeDef"`
+- `maxSizeInMB`: `int`
+- `revocationSupported`: `bool`
+
+
+## GetSigningProfileResponseTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import GetSigningProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `profileName`: `str`
+- `profileVersion`: `str`
+- `profileVersionArn`: `str`
+- `revocationRecord`: `"SigningProfileRevocationRecordTypeDef"`
+- `signingMaterial`: `"SigningMaterialTypeDef"`
+- `platformId`: `str`
+- `platformDisplayName`: `str`
+- `signatureValidityPeriod`: `"SignatureValidityPeriodTypeDef"`
+- `overrides`: `"SigningPlatformOverridesTypeDef"`
+- `signingParameters`: `Dict[str, str]`
+- `status`: `SigningProfileStatus`
+- `statusReason`: `str`
+- `arn`: `str`
+- `tags`: `Dict[str, str]`
 
 
 ## HashAlgorithmOptionsTypeDef
@@ -69,6 +173,92 @@ Required fields:
 
 
 
+## ListProfilePermissionsResponseTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import ListProfilePermissionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `revisionId`: `str`
+- `policySizeBytes`: `int`
+- `permissions`: `List["PermissionTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListSigningJobsResponseTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import ListSigningJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobs`: `List["SigningJobTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListSigningPlatformsResponseTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import ListSigningPlatformsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `platforms`: `List["SigningPlatformTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListSigningProfilesResponseTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import ListSigningProfilesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `profiles`: `List["SigningProfileTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `Dict[str, str]`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
 ## PermissionTypeDef
 
 ```python
@@ -83,6 +273,34 @@ Optional fields:
 - `principal`: `str`
 - `statementId`: `str`
 - `profileVersion`: `str`
+
+
+## PutSigningProfileResponseTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import PutSigningProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `profileVersion`: `str`
+- `profileVersionArn`: `str`
+
+
+## RemoveProfilePermissionResponseTypeDef
+
+```python
+from mypy_boto3_signer.type_defs import RemoveProfilePermissionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `revisionId`: `str`
 
 
 ## S3DestinationTypeDef
@@ -279,7 +497,7 @@ Optional fields:
 - `displayName`: `str`
 - `partner`: `str`
 - `target`: `str`
-- `category`: `Category`
+- `category`: `Literal['AWSIoT']`
 - `signingConfiguration`: `"SigningConfigurationTypeDef"`
 - `signingImageFormat`: `"SigningImageFormatTypeDef"`
 - `maxSizeInMB`: `int`
@@ -335,224 +553,6 @@ from mypy_boto3_signer.type_defs import SourceTypeDef
 
 Optional fields:
 - `s3`: `"S3SourceTypeDef"`
-
-
-## AddProfilePermissionResponseTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import AddProfilePermissionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `revisionId`: `str`
-
-
-## DescribeSigningJobResponseTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import DescribeSigningJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobId`: `str`
-- `source`: `"SourceTypeDef"`
-- `signingMaterial`: `"SigningMaterialTypeDef"`
-- `platformId`: `str`
-- `platformDisplayName`: `str`
-- `profileName`: `str`
-- `profileVersion`: `str`
-- `overrides`: `"SigningPlatformOverridesTypeDef"`
-- `signingParameters`: `Dict[str, str]`
-- `createdAt`: `datetime`
-- `completedAt`: `datetime`
-- `signatureExpiresAt`: `datetime`
-- `requestedBy`: `str`
-- `status`: `SigningStatus`
-- `statusReason`: `str`
-- `revocationRecord`: `"SigningJobRevocationRecordTypeDef"`
-- `signedObject`: `"SignedObjectTypeDef"`
-- `jobOwner`: `str`
-- `jobInvoker`: `str`
-
-
-## DestinationTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import DestinationTypeDef
-```
-
-
-
-
-Optional fields:
-- `s3`: `"S3DestinationTypeDef"`
-
-
-## GetSigningPlatformResponseTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import GetSigningPlatformResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `platformId`: `str`
-- `displayName`: `str`
-- `partner`: `str`
-- `target`: `str`
-- `category`: `Category`
-- `signingConfiguration`: `"SigningConfigurationTypeDef"`
-- `signingImageFormat`: `"SigningImageFormatTypeDef"`
-- `maxSizeInMB`: `int`
-- `revocationSupported`: `bool`
-
-
-## GetSigningProfileResponseTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import GetSigningProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `profileName`: `str`
-- `profileVersion`: `str`
-- `profileVersionArn`: `str`
-- `revocationRecord`: `"SigningProfileRevocationRecordTypeDef"`
-- `signingMaterial`: `"SigningMaterialTypeDef"`
-- `platformId`: `str`
-- `platformDisplayName`: `str`
-- `signatureValidityPeriod`: `"SignatureValidityPeriodTypeDef"`
-- `overrides`: `"SigningPlatformOverridesTypeDef"`
-- `signingParameters`: `Dict[str, str]`
-- `status`: `SigningProfileStatus`
-- `statusReason`: `str`
-- `arn`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## ListProfilePermissionsResponseTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import ListProfilePermissionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `revisionId`: `str`
-- `policySizeBytes`: `int`
-- `permissions`: `List["PermissionTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListSigningJobsResponseTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import ListSigningJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobs`: `List["SigningJobTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListSigningPlatformsResponseTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import ListSigningPlatformsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `platforms`: `List["SigningPlatformTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListSigningProfilesResponseTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import ListSigningProfilesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `profiles`: `List["SigningProfileTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `Dict[str, str]`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## PutSigningProfileResponseTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import PutSigningProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `profileVersion`: `str`
-- `profileVersionArn`: `str`
-
-
-## RemoveProfilePermissionResponseTypeDef
-
-```python
-from mypy_boto3_signer.type_defs import RemoveProfilePermissionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `revisionId`: `str`
 
 
 ## StartSigningJobResponseTypeDef

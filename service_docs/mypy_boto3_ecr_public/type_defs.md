@@ -7,20 +7,6 @@ type annotations stubs module [mypy_boto3_ecr_public](https://pypi.org/project/m
 
 - [Structures for boto3 ECRPublic module](#structures-for-boto3-ecrpublic-module)
   - [AuthorizationDataTypeDef](#authorizationdatatypedef)
-  - [ImageDetailTypeDef](#imagedetailtypedef)
-  - [ImageFailureTypeDef](#imagefailuretypedef)
-  - [ImageIdentifierTypeDef](#imageidentifiertypedef)
-  - [ImageTagDetailTypeDef](#imagetagdetailtypedef)
-  - [ImageTypeDef](#imagetypedef)
-  - [LayerFailureTypeDef](#layerfailuretypedef)
-  - [LayerTypeDef](#layertypedef)
-  - [ReferencedImageDetailTypeDef](#referencedimagedetailtypedef)
-  - [RegistryAliasTypeDef](#registryaliastypedef)
-  - [RegistryCatalogDataTypeDef](#registrycatalogdatatypedef)
-  - [RegistryTypeDef](#registrytypedef)
-  - [RepositoryCatalogDataTypeDef](#repositorycatalogdatatypedef)
-  - [RepositoryTypeDef](#repositorytypedef)
-  - [TagTypeDef](#tagtypedef)
   - [BatchCheckLayerAvailabilityResponseTypeDef](#batchchecklayeravailabilityresponsetypedef)
   - [BatchDeleteImageResponseTypeDef](#batchdeleteimageresponsetypedef)
   - [CompleteLayerUploadResponseTypeDef](#completelayeruploadresponsetypedef)
@@ -35,14 +21,28 @@ type annotations stubs module [mypy_boto3_ecr_public](https://pypi.org/project/m
   - [GetRegistryCatalogDataResponseTypeDef](#getregistrycatalogdataresponsetypedef)
   - [GetRepositoryCatalogDataResponseTypeDef](#getrepositorycatalogdataresponsetypedef)
   - [GetRepositoryPolicyResponseTypeDef](#getrepositorypolicyresponsetypedef)
+  - [ImageDetailTypeDef](#imagedetailtypedef)
+  - [ImageFailureTypeDef](#imagefailuretypedef)
+  - [ImageIdentifierTypeDef](#imageidentifiertypedef)
+  - [ImageTagDetailTypeDef](#imagetagdetailtypedef)
+  - [ImageTypeDef](#imagetypedef)
   - [InitiateLayerUploadResponseTypeDef](#initiatelayeruploadresponsetypedef)
+  - [LayerFailureTypeDef](#layerfailuretypedef)
+  - [LayerTypeDef](#layertypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PutImageResponseTypeDef](#putimageresponsetypedef)
   - [PutRegistryCatalogDataResponseTypeDef](#putregistrycatalogdataresponsetypedef)
   - [PutRepositoryCatalogDataResponseTypeDef](#putrepositorycatalogdataresponsetypedef)
+  - [ReferencedImageDetailTypeDef](#referencedimagedetailtypedef)
+  - [RegistryAliasTypeDef](#registryaliastypedef)
+  - [RegistryCatalogDataTypeDef](#registrycatalogdatatypedef)
+  - [RegistryTypeDef](#registrytypedef)
   - [RepositoryCatalogDataInputTypeDef](#repositorycatalogdatainputtypedef)
+  - [RepositoryCatalogDataTypeDef](#repositorycatalogdatatypedef)
+  - [RepositoryTypeDef](#repositorytypedef)
   - [SetRepositoryPolicyResponseTypeDef](#setrepositorypolicyresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UploadLayerPartResponseTypeDef](#uploadlayerpartresponsetypedef)
 
 ## AuthorizationDataTypeDef
@@ -57,231 +57,6 @@ from mypy_boto3_ecr_public.type_defs import AuthorizationDataTypeDef
 Optional fields:
 - `authorizationToken`: `str`
 - `expiresAt`: `datetime`
-
-
-## ImageDetailTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import ImageDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `registryId`: `str`
-- `repositoryName`: `str`
-- `imageDigest`: `str`
-- `imageTags`: `List[str]`
-- `imageSizeInBytes`: `int`
-- `imagePushedAt`: `datetime`
-- `imageManifestMediaType`: `str`
-- `artifactMediaType`: `str`
-
-
-## ImageFailureTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import ImageFailureTypeDef
-```
-
-
-
-
-Optional fields:
-- `imageId`: `"ImageIdentifierTypeDef"`
-- `failureCode`: `ImageFailureCode`
-- `failureReason`: `str`
-
-
-## ImageIdentifierTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import ImageIdentifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `imageDigest`: `str`
-- `imageTag`: `str`
-
-
-## ImageTagDetailTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import ImageTagDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `imageTag`: `str`
-- `createdAt`: `datetime`
-- `imageDetail`: `"ReferencedImageDetailTypeDef"`
-
-
-## ImageTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import ImageTypeDef
-```
-
-
-
-
-Optional fields:
-- `registryId`: `str`
-- `repositoryName`: `str`
-- `imageId`: `"ImageIdentifierTypeDef"`
-- `imageManifest`: `str`
-- `imageManifestMediaType`: `str`
-
-
-## LayerFailureTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import LayerFailureTypeDef
-```
-
-
-
-
-Optional fields:
-- `layerDigest`: `str`
-- `failureCode`: `LayerFailureCode`
-- `failureReason`: `str`
-
-
-## LayerTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import LayerTypeDef
-```
-
-
-
-
-Optional fields:
-- `layerDigest`: `str`
-- `layerAvailability`: `LayerAvailability`
-- `layerSize`: `int`
-- `mediaType`: `str`
-
-
-## ReferencedImageDetailTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import ReferencedImageDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `imageDigest`: `str`
-- `imageSizeInBytes`: `int`
-- `imagePushedAt`: `datetime`
-- `imageManifestMediaType`: `str`
-- `artifactMediaType`: `str`
-
-
-## RegistryAliasTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import RegistryAliasTypeDef
-```
-
-
-Required fields:
-- `name`: `str`
-- `status`: `RegistryAliasStatus`
-- `primaryRegistryAlias`: `bool`
-- `defaultRegistryAlias`: `bool`
-
-
-
-
-## RegistryCatalogDataTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import RegistryCatalogDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `displayName`: `str`
-
-
-## RegistryTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import RegistryTypeDef
-```
-
-
-Required fields:
-- `registryId`: `str`
-- `registryArn`: `str`
-- `registryUri`: `str`
-- `verified`: `bool`
-- `aliases`: `List["RegistryAliasTypeDef"]`
-
-
-
-
-## RepositoryCatalogDataTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import RepositoryCatalogDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `description`: `str`
-- `architectures`: `List[str]`
-- `operatingSystems`: `List[str]`
-- `logoUrl`: `str`
-- `aboutText`: `str`
-- `usageText`: `str`
-- `marketplaceCertified`: `bool`
-
-
-## RepositoryTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import RepositoryTypeDef
-```
-
-
-
-
-Optional fields:
-- `repositoryArn`: `str`
-- `registryId`: `str`
-- `repositoryName`: `str`
-- `repositoryUri`: `str`
-- `createdAt`: `datetime`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_ecr_public.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
 
 
 ## BatchCheckLayerAvailabilityResponseTypeDef
@@ -482,6 +257,87 @@ Optional fields:
 - `policyText`: `str`
 
 
+## ImageDetailTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import ImageDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `registryId`: `str`
+- `repositoryName`: `str`
+- `imageDigest`: `str`
+- `imageTags`: `List[str]`
+- `imageSizeInBytes`: `int`
+- `imagePushedAt`: `datetime`
+- `imageManifestMediaType`: `str`
+- `artifactMediaType`: `str`
+
+
+## ImageFailureTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import ImageFailureTypeDef
+```
+
+
+
+
+Optional fields:
+- `imageId`: `"ImageIdentifierTypeDef"`
+- `failureCode`: `ImageFailureCode`
+- `failureReason`: `str`
+
+
+## ImageIdentifierTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import ImageIdentifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `imageDigest`: `str`
+- `imageTag`: `str`
+
+
+## ImageTagDetailTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import ImageTagDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `imageTag`: `str`
+- `createdAt`: `datetime`
+- `imageDetail`: `"ReferencedImageDetailTypeDef"`
+
+
+## ImageTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import ImageTypeDef
+```
+
+
+
+
+Optional fields:
+- `registryId`: `str`
+- `repositoryName`: `str`
+- `imageId`: `"ImageIdentifierTypeDef"`
+- `imageManifest`: `str`
+- `imageManifestMediaType`: `str`
+
+
 ## InitiateLayerUploadResponseTypeDef
 
 ```python
@@ -494,6 +350,37 @@ from mypy_boto3_ecr_public.type_defs import InitiateLayerUploadResponseTypeDef
 Optional fields:
 - `uploadId`: `str`
 - `partSize`: `int`
+
+
+## LayerFailureTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import LayerFailureTypeDef
+```
+
+
+
+
+Optional fields:
+- `layerDigest`: `str`
+- `failureCode`: `LayerFailureCode`
+- `failureReason`: `str`
+
+
+## LayerTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import LayerTypeDef
+```
+
+
+
+
+Optional fields:
+- `layerDigest`: `str`
+- `layerAvailability`: `LayerAvailability`
+- `layerSize`: `int`
+- `mediaType`: `str`
 
 
 ## ListTagsForResourceResponseTypeDef
@@ -563,6 +450,69 @@ Optional fields:
 - `catalogData`: `"RepositoryCatalogDataTypeDef"`
 
 
+## ReferencedImageDetailTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import ReferencedImageDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `imageDigest`: `str`
+- `imageSizeInBytes`: `int`
+- `imagePushedAt`: `datetime`
+- `imageManifestMediaType`: `str`
+- `artifactMediaType`: `str`
+
+
+## RegistryAliasTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import RegistryAliasTypeDef
+```
+
+
+Required fields:
+- `name`: `str`
+- `status`: `RegistryAliasStatus`
+- `primaryRegistryAlias`: `bool`
+- `defaultRegistryAlias`: `bool`
+
+
+
+
+## RegistryCatalogDataTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import RegistryCatalogDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `displayName`: `str`
+
+
+## RegistryTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import RegistryTypeDef
+```
+
+
+Required fields:
+- `registryId`: `str`
+- `registryArn`: `str`
+- `registryUri`: `str`
+- `verified`: `bool`
+- `aliases`: `List["RegistryAliasTypeDef"]`
+
+
+
+
 ## RepositoryCatalogDataInputTypeDef
 
 ```python
@@ -581,6 +531,42 @@ Optional fields:
 - `usageText`: `str`
 
 
+## RepositoryCatalogDataTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import RepositoryCatalogDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `description`: `str`
+- `architectures`: `List[str]`
+- `operatingSystems`: `List[str]`
+- `logoUrl`: `str`
+- `aboutText`: `str`
+- `usageText`: `str`
+- `marketplaceCertified`: `bool`
+
+
+## RepositoryTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import RepositoryTypeDef
+```
+
+
+
+
+Optional fields:
+- `repositoryArn`: `str`
+- `registryId`: `str`
+- `repositoryName`: `str`
+- `repositoryUri`: `str`
+- `createdAt`: `datetime`
+
+
 ## SetRepositoryPolicyResponseTypeDef
 
 ```python
@@ -594,6 +580,20 @@ Optional fields:
 - `registryId`: `str`
 - `repositoryName`: `str`
 - `policyText`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_ecr_public.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
 
 
 ## UploadLayerPartResponseTypeDef

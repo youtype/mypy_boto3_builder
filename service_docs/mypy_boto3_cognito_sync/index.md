@@ -106,16 +106,12 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_cognito_sync.type_defs import CognitoStreamsTypeDef, ...
+from mypy_boto3_cognito_sync.type_defs import BulkPublishResponseTypeDef, ...
 ```
 
+- [BulkPublishResponseTypeDef](./type_defs.md#bulkpublishresponsetypedef)
 - [CognitoStreamsTypeDef](./type_defs.md#cognitostreamstypedef)
 - [DatasetTypeDef](./type_defs.md#datasettypedef)
-- [IdentityPoolUsageTypeDef](./type_defs.md#identitypoolusagetypedef)
-- [IdentityUsageTypeDef](./type_defs.md#identityusagetypedef)
-- [PushSyncTypeDef](./type_defs.md#pushsynctypedef)
-- [RecordTypeDef](./type_defs.md#recordtypedef)
-- [BulkPublishResponseTypeDef](./type_defs.md#bulkpublishresponsetypedef)
 - [DeleteDatasetResponseTypeDef](./type_defs.md#deletedatasetresponsetypedef)
 - [DescribeDatasetResponseTypeDef](./type_defs.md#describedatasetresponsetypedef)
 - [DescribeIdentityPoolUsageResponseTypeDef](./type_defs.md#describeidentitypoolusageresponsetypedef)
@@ -123,10 +119,14 @@ from mypy_boto3_cognito_sync.type_defs import CognitoStreamsTypeDef, ...
 - [GetBulkPublishDetailsResponseTypeDef](./type_defs.md#getbulkpublishdetailsresponsetypedef)
 - [GetCognitoEventsResponseTypeDef](./type_defs.md#getcognitoeventsresponsetypedef)
 - [GetIdentityPoolConfigurationResponseTypeDef](./type_defs.md#getidentitypoolconfigurationresponsetypedef)
+- [IdentityPoolUsageTypeDef](./type_defs.md#identitypoolusagetypedef)
+- [IdentityUsageTypeDef](./type_defs.md#identityusagetypedef)
 - [ListDatasetsResponseTypeDef](./type_defs.md#listdatasetsresponsetypedef)
 - [ListIdentityPoolUsageResponseTypeDef](./type_defs.md#listidentitypoolusageresponsetypedef)
 - [ListRecordsResponseTypeDef](./type_defs.md#listrecordsresponsetypedef)
+- [PushSyncTypeDef](./type_defs.md#pushsynctypedef)
 - [RecordPatchTypeDef](./type_defs.md#recordpatchtypedef)
+- [RecordTypeDef](./type_defs.md#recordtypedef)
 - [RegisterDeviceResponseTypeDef](./type_defs.md#registerdeviceresponsetypedef)
 - [SetIdentityPoolConfigurationResponseTypeDef](./type_defs.md#setidentitypoolconfigurationresponsetypedef)
 - [UpdateRecordsResponseTypeDef](./type_defs.md#updaterecordsresponsetypedef)

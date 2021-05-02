@@ -6,90 +6,19 @@ Auto-generated documentation for [Cloud9](https://boto3.amazonaws.com/v1/documen
 type annotations stubs module [mypy_boto3_cloud9](https://pypi.org/project/mypy-boto3-cloud9/).
 
 - [Structures for boto3 Cloud9 module](#structures-for-boto3-cloud9-module)
-  - [EnvironmentLifecycleTypeDef](#environmentlifecycletypedef)
-  - [EnvironmentMemberTypeDef](#environmentmembertypedef)
-  - [EnvironmentTypeDef](#environmenttypedef)
-  - [TagTypeDef](#tagtypedef)
   - [CreateEnvironmentEC2ResultTypeDef](#createenvironmentec2resulttypedef)
   - [CreateEnvironmentMembershipResultTypeDef](#createenvironmentmembershipresulttypedef)
   - [DescribeEnvironmentMembershipsResultTypeDef](#describeenvironmentmembershipsresulttypedef)
   - [DescribeEnvironmentStatusResultTypeDef](#describeenvironmentstatusresulttypedef)
   - [DescribeEnvironmentsResultTypeDef](#describeenvironmentsresulttypedef)
+  - [EnvironmentLifecycleTypeDef](#environmentlifecycletypedef)
+  - [EnvironmentMemberTypeDef](#environmentmembertypedef)
+  - [EnvironmentTypeDef](#environmenttypedef)
   - [ListEnvironmentsResultTypeDef](#listenvironmentsresulttypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateEnvironmentMembershipResultTypeDef](#updateenvironmentmembershipresulttypedef)
-
-## EnvironmentLifecycleTypeDef
-
-```python
-from mypy_boto3_cloud9.type_defs import EnvironmentLifecycleTypeDef
-```
-
-
-
-
-Optional fields:
-- `status`: `EnvironmentLifecycleStatus`
-- `reason`: `str`
-- `failureResource`: `str`
-
-
-## EnvironmentMemberTypeDef
-
-```python
-from mypy_boto3_cloud9.type_defs import EnvironmentMemberTypeDef
-```
-
-
-Required fields:
-- `permissions`: `Permissions`
-- `userId`: `str`
-- `userArn`: `str`
-- `environmentId`: `str`
-
-
-
-Optional fields:
-- `lastAccess`: `datetime`
-
-
-## EnvironmentTypeDef
-
-```python
-from mypy_boto3_cloud9.type_defs import EnvironmentTypeDef
-```
-
-
-Required fields:
-- `type`: `EnvironmentType`
-- `arn`: `str`
-- `ownerArn`: `str`
-
-
-
-Optional fields:
-- `id`: `str`
-- `name`: `str`
-- `description`: `str`
-- `connectionType`: `ConnectionType`
-- `lifecycle`: `"EnvironmentLifecycleTypeDef"`
-- `managedCredentialsStatus`: `ManagedCredentialsStatus`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_cloud9.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
 
 ## CreateEnvironmentEC2ResultTypeDef
 
@@ -158,6 +87,63 @@ Optional fields:
 - `environments`: `List["EnvironmentTypeDef"]`
 
 
+## EnvironmentLifecycleTypeDef
+
+```python
+from mypy_boto3_cloud9.type_defs import EnvironmentLifecycleTypeDef
+```
+
+
+
+
+Optional fields:
+- `status`: `EnvironmentLifecycleStatus`
+- `reason`: `str`
+- `failureResource`: `str`
+
+
+## EnvironmentMemberTypeDef
+
+```python
+from mypy_boto3_cloud9.type_defs import EnvironmentMemberTypeDef
+```
+
+
+Required fields:
+- `permissions`: `Permissions`
+- `userId`: `str`
+- `userArn`: `str`
+- `environmentId`: `str`
+
+
+
+Optional fields:
+- `lastAccess`: `datetime`
+
+
+## EnvironmentTypeDef
+
+```python
+from mypy_boto3_cloud9.type_defs import EnvironmentTypeDef
+```
+
+
+Required fields:
+- `type`: `EnvironmentType`
+- `arn`: `str`
+- `ownerArn`: `str`
+
+
+
+Optional fields:
+- `id`: `str`
+- `name`: `str`
+- `description`: `str`
+- `connectionType`: `ConnectionType`
+- `lifecycle`: `"EnvironmentLifecycleTypeDef"`
+- `managedCredentialsStatus`: `ManagedCredentialsStatus`
+
+
 ## ListEnvironmentsResultTypeDef
 
 ```python
@@ -198,6 +184,20 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_cloud9.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## UpdateEnvironmentMembershipResultTypeDef

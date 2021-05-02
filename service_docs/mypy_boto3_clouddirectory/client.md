@@ -78,24 +78,6 @@ type annotations stubs module [mypy_boto3_clouddirectory](https://pypi.org/proje
     - [upgrade_applied_schema](#upgrade_applied_schema)
     - [upgrade_published_schema](#upgrade_published_schema)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
-    - [get_paginator](#get_paginator-17)
-    - [get_paginator](#get_paginator-18)
 
 ## CloudDirectoryClient
 
@@ -1266,287 +1248,30 @@ def upgrade_published_schema(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListAppliedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAppliedSchemaArns)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAppliedSchemaArnsPaginatorName
-) -> ListAppliedSchemaArnsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
+Type annotations for `boto3.client("clouddirectory").get_paginator` method with overloads.
+
+- `client.get_paginator("list_applied_schema_arns")` -> [ListAppliedSchemaArnsPaginator](./paginators.md#listappliedschemaarnspaginator)
+- `client.get_paginator("list_attached_indices")` -> [ListAttachedIndicesPaginator](./paginators.md#listattachedindicespaginator)
+- `client.get_paginator("list_development_schema_arns")` -> [ListDevelopmentSchemaArnsPaginator](./paginators.md#listdevelopmentschemaarnspaginator)
+- `client.get_paginator("list_directories")` -> [ListDirectoriesPaginator](./paginators.md#listdirectoriespaginator)
+- `client.get_paginator("list_facet_attributes")` -> [ListFacetAttributesPaginator](./paginators.md#listfacetattributespaginator)
+- `client.get_paginator("list_facet_names")` -> [ListFacetNamesPaginator](./paginators.md#listfacetnamespaginator)
+- `client.get_paginator("list_incoming_typed_links")` -> [ListIncomingTypedLinksPaginator](./paginators.md#listincomingtypedlinkspaginator)
+- `client.get_paginator("list_index")` -> [ListIndexPaginator](./paginators.md#listindexpaginator)
+- `client.get_paginator("list_managed_schema_arns")` -> [ListManagedSchemaArnsPaginator](./paginators.md#listmanagedschemaarnspaginator)
+- `client.get_paginator("list_object_attributes")` -> [ListObjectAttributesPaginator](./paginators.md#listobjectattributespaginator)
+- `client.get_paginator("list_object_parent_paths")` -> [ListObjectParentPathsPaginator](./paginators.md#listobjectparentpathspaginator)
+- `client.get_paginator("list_object_policies")` -> [ListObjectPoliciesPaginator](./paginators.md#listobjectpoliciespaginator)
+- `client.get_paginator("list_outgoing_typed_links")` -> [ListOutgoingTypedLinksPaginator](./paginators.md#listoutgoingtypedlinkspaginator)
+- `client.get_paginator("list_policy_attachments")` -> [ListPolicyAttachmentsPaginator](./paginators.md#listpolicyattachmentspaginator)
+- `client.get_paginator("list_published_schema_arns")` -> [ListPublishedSchemaArnsPaginator](./paginators.md#listpublishedschemaarnspaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
+- `client.get_paginator("list_typed_link_facet_attributes")` -> [ListTypedLinkFacetAttributesPaginator](./paginators.md#listtypedlinkfacetattributespaginator)
+- `client.get_paginator("list_typed_link_facet_names")` -> [ListTypedLinkFacetNamesPaginator](./paginators.md#listtypedlinkfacetnamespaginator)
+- `client.get_paginator("lookup_policy")` -> [LookupPolicyPaginator](./paginators.md#lookuppolicypaginator)
 
-[Paginator.ListAttachedIndices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAttachedIndices)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAttachedIndicesPaginatorName
-) -> ListAttachedIndicesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListDevelopmentSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDevelopmentSchemaArnsPaginatorName
-) -> ListDevelopmentSchemaArnsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDirectories)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDirectoriesPaginatorName
-) -> ListDirectoriesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetAttributes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFacetAttributesPaginatorName
-) -> ListFacetAttributesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetNames)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFacetNamesPaginatorName
-) -> ListFacetNamesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListIncomingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIncomingTypedLinks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListIncomingTypedLinksPaginatorName
-) -> ListIncomingTypedLinksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListIndex documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIndex)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListIndexPaginatorName
-) -> ListIndexPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListManagedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListManagedSchemaArns)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListManagedSchemaArnsPaginatorName
-) -> ListManagedSchemaArnsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListObjectAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectAttributes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListObjectAttributesPaginatorName
-) -> ListObjectAttributesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListObjectParentPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectParentPaths)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListObjectParentPathsPaginatorName
-) -> ListObjectParentPathsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListObjectPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListObjectPoliciesPaginatorName
-) -> ListObjectPoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListOutgoingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListOutgoingTypedLinks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOutgoingTypedLinksPaginatorName
-) -> ListOutgoingTypedLinksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListPolicyAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPolicyAttachments)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPolicyAttachmentsPaginatorName
-) -> ListPolicyAttachmentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListPublishedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPublishedSchemaArns)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPublishedSchemaArnsPaginatorName
-) -> ListPublishedSchemaArnsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListTypedLinkFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTypedLinkFacetAttributesPaginatorName
-) -> ListTypedLinkFacetAttributesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.ListTypedLinkFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetNames)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTypedLinkFacetNamesPaginatorName
-) -> ListTypedLinkFacetNamesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("clouddirectory").get_paginator` method.
-
-[Paginator.LookupPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/clouddirectory.html#CloudDirectory.Paginator.LookupPolicy)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: LookupPolicyPaginatorName
-) -> LookupPolicyPaginator:
-    pass
-```

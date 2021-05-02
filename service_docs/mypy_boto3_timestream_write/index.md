@@ -100,23 +100,23 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_timestream_write.type_defs import DatabaseTypeDef, ...
+from mypy_boto3_timestream_write.type_defs import CreateDatabaseResponseTypeDef, ...
 ```
 
-- [DatabaseTypeDef](./type_defs.md#databasetypedef)
-- [DimensionTypeDef](./type_defs.md#dimensiontypedef)
-- [EndpointTypeDef](./type_defs.md#endpointtypedef)
-- [RetentionPropertiesTypeDef](./type_defs.md#retentionpropertiestypedef)
-- [TableTypeDef](./type_defs.md#tabletypedef)
-- [TagTypeDef](./type_defs.md#tagtypedef)
 - [CreateDatabaseResponseTypeDef](./type_defs.md#createdatabaseresponsetypedef)
 - [CreateTableResponseTypeDef](./type_defs.md#createtableresponsetypedef)
+- [DatabaseTypeDef](./type_defs.md#databasetypedef)
 - [DescribeDatabaseResponseTypeDef](./type_defs.md#describedatabaseresponsetypedef)
 - [DescribeEndpointsResponseTypeDef](./type_defs.md#describeendpointsresponsetypedef)
 - [DescribeTableResponseTypeDef](./type_defs.md#describetableresponsetypedef)
+- [DimensionTypeDef](./type_defs.md#dimensiontypedef)
+- [EndpointTypeDef](./type_defs.md#endpointtypedef)
 - [ListDatabasesResponseTypeDef](./type_defs.md#listdatabasesresponsetypedef)
 - [ListTablesResponseTypeDef](./type_defs.md#listtablesresponsetypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
 - [RecordTypeDef](./type_defs.md#recordtypedef)
+- [RetentionPropertiesTypeDef](./type_defs.md#retentionpropertiestypedef)
+- [TableTypeDef](./type_defs.md#tabletypedef)
+- [TagTypeDef](./type_defs.md#tagtypedef)
 - [UpdateDatabaseResponseTypeDef](./type_defs.md#updatedatabaseresponsetypedef)
 - [UpdateTableResponseTypeDef](./type_defs.md#updatetableresponsetypedef)

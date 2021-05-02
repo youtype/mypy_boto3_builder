@@ -539,3 +539,6 @@ def update_log_pattern(
 ) -> UpdateLogPatternResponseTypeDef:
     pass
 ```
+
+
+

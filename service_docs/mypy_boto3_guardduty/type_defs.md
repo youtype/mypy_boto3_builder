@@ -8,6 +8,7 @@ type annotations stubs module [mypy_boto3_guardduty](https://pypi.org/project/my
 - [Structures for boto3 GuardDuty module](#structures-for-boto3-guardduty-module)
   - [AccessControlListTypeDef](#accesscontrollisttypedef)
   - [AccessKeyDetailsTypeDef](#accesskeydetailstypedef)
+  - [AccountDetailTypeDef](#accountdetailtypedef)
   - [AccountLevelPermissionsTypeDef](#accountlevelpermissionstypedef)
   - [ActionTypeDef](#actiontypedef)
   - [AdminAccountTypeDef](#adminaccounttypedef)
@@ -19,11 +20,24 @@ type annotations stubs module [mypy_boto3_guardduty](https://pypi.org/project/my
   - [CloudTrailConfigurationResultTypeDef](#cloudtrailconfigurationresulttypedef)
   - [ConditionTypeDef](#conditiontypedef)
   - [CountryTypeDef](#countrytypedef)
+  - [CreateDetectorResponseTypeDef](#createdetectorresponsetypedef)
+  - [CreateFilterResponseTypeDef](#createfilterresponsetypedef)
+  - [CreateIPSetResponseTypeDef](#createipsetresponsetypedef)
+  - [CreateMembersResponseTypeDef](#createmembersresponsetypedef)
+  - [CreatePublishingDestinationResponseTypeDef](#createpublishingdestinationresponsetypedef)
+  - [CreateThreatIntelSetResponseTypeDef](#createthreatintelsetresponsetypedef)
   - [DNSLogsConfigurationResultTypeDef](#dnslogsconfigurationresulttypedef)
   - [DataSourceConfigurationsResultTypeDef](#datasourceconfigurationsresulttypedef)
+  - [DataSourceConfigurationsTypeDef](#datasourceconfigurationstypedef)
+  - [DeclineInvitationsResponseTypeDef](#declineinvitationsresponsetypedef)
   - [DefaultServerSideEncryptionTypeDef](#defaultserversideencryptiontypedef)
+  - [DeleteInvitationsResponseTypeDef](#deleteinvitationsresponsetypedef)
+  - [DeleteMembersResponseTypeDef](#deletemembersresponsetypedef)
+  - [DescribeOrganizationConfigurationResponseTypeDef](#describeorganizationconfigurationresponsetypedef)
+  - [DescribePublishingDestinationResponseTypeDef](#describepublishingdestinationresponsetypedef)
   - [DestinationPropertiesTypeDef](#destinationpropertiestypedef)
   - [DestinationTypeDef](#destinationtypedef)
+  - [DisassociateMembersResponseTypeDef](#disassociatemembersresponsetypedef)
   - [DnsRequestActionTypeDef](#dnsrequestactiontypedef)
   - [DomainDetailsTypeDef](#domaindetailstypedef)
   - [EvidenceTypeDef](#evidencetypedef)
@@ -32,9 +46,31 @@ type annotations stubs module [mypy_boto3_guardduty](https://pypi.org/project/my
   - [FindingTypeDef](#findingtypedef)
   - [FlowLogsConfigurationResultTypeDef](#flowlogsconfigurationresulttypedef)
   - [GeoLocationTypeDef](#geolocationtypedef)
+  - [GetDetectorResponseTypeDef](#getdetectorresponsetypedef)
+  - [GetFilterResponseTypeDef](#getfilterresponsetypedef)
+  - [GetFindingsResponseTypeDef](#getfindingsresponsetypedef)
+  - [GetFindingsStatisticsResponseTypeDef](#getfindingsstatisticsresponsetypedef)
+  - [GetIPSetResponseTypeDef](#getipsetresponsetypedef)
+  - [GetInvitationsCountResponseTypeDef](#getinvitationscountresponsetypedef)
+  - [GetMasterAccountResponseTypeDef](#getmasteraccountresponsetypedef)
+  - [GetMemberDetectorsResponseTypeDef](#getmemberdetectorsresponsetypedef)
+  - [GetMembersResponseTypeDef](#getmembersresponsetypedef)
+  - [GetThreatIntelSetResponseTypeDef](#getthreatintelsetresponsetypedef)
+  - [GetUsageStatisticsResponseTypeDef](#getusagestatisticsresponsetypedef)
   - [IamInstanceProfileTypeDef](#iaminstanceprofiletypedef)
   - [InstanceDetailsTypeDef](#instancedetailstypedef)
   - [InvitationTypeDef](#invitationtypedef)
+  - [InviteMembersResponseTypeDef](#invitemembersresponsetypedef)
+  - [ListDetectorsResponseTypeDef](#listdetectorsresponsetypedef)
+  - [ListFiltersResponseTypeDef](#listfiltersresponsetypedef)
+  - [ListFindingsResponseTypeDef](#listfindingsresponsetypedef)
+  - [ListIPSetsResponseTypeDef](#listipsetsresponsetypedef)
+  - [ListInvitationsResponseTypeDef](#listinvitationsresponsetypedef)
+  - [ListMembersResponseTypeDef](#listmembersresponsetypedef)
+  - [ListOrganizationAdminAccountsResponseTypeDef](#listorganizationadminaccountsresponsetypedef)
+  - [ListPublishingDestinationsResponseTypeDef](#listpublishingdestinationsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [ListThreatIntelSetsResponseTypeDef](#listthreatintelsetsresponsetypedef)
   - [LocalIpDetailsTypeDef](#localipdetailstypedef)
   - [LocalPortDetailsTypeDef](#localportdetailstypedef)
   - [MasterTypeDef](#mastertypedef)
@@ -43,10 +79,12 @@ type annotations stubs module [mypy_boto3_guardduty](https://pypi.org/project/my
   - [NetworkConnectionActionTypeDef](#networkconnectionactiontypedef)
   - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
   - [OrganizationDataSourceConfigurationsResultTypeDef](#organizationdatasourceconfigurationsresulttypedef)
+  - [OrganizationDataSourceConfigurationsTypeDef](#organizationdatasourceconfigurationstypedef)
   - [OrganizationS3LogsConfigurationResultTypeDef](#organizations3logsconfigurationresulttypedef)
   - [OrganizationS3LogsConfigurationTypeDef](#organizations3logsconfigurationtypedef)
   - [OrganizationTypeDef](#organizationtypedef)
   - [OwnerTypeDef](#ownertypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PermissionConfigurationTypeDef](#permissionconfigurationtypedef)
   - [PortProbeActionTypeDef](#portprobeactiontypedef)
   - [PortProbeDetailTypeDef](#portprobedetailtypedef)
@@ -61,58 +99,20 @@ type annotations stubs module [mypy_boto3_guardduty](https://pypi.org/project/my
   - [S3LogsConfigurationTypeDef](#s3logsconfigurationtypedef)
   - [SecurityGroupTypeDef](#securitygrouptypedef)
   - [ServiceTypeDef](#servicetypedef)
+  - [SortCriteriaTypeDef](#sortcriteriatypedef)
+  - [StartMonitoringMembersResponseTypeDef](#startmonitoringmembersresponsetypedef)
+  - [StopMonitoringMembersResponseTypeDef](#stopmonitoringmembersresponsetypedef)
   - [TagTypeDef](#tagtypedef)
   - [ThreatIntelligenceDetailTypeDef](#threatintelligencedetailtypedef)
   - [TotalTypeDef](#totaltypedef)
   - [UnprocessedAccountTypeDef](#unprocessedaccounttypedef)
+  - [UpdateFilterResponseTypeDef](#updatefilterresponsetypedef)
+  - [UpdateMemberDetectorsResponseTypeDef](#updatememberdetectorsresponsetypedef)
   - [UsageAccountResultTypeDef](#usageaccountresulttypedef)
+  - [UsageCriteriaTypeDef](#usagecriteriatypedef)
   - [UsageDataSourceResultTypeDef](#usagedatasourceresulttypedef)
   - [UsageResourceResultTypeDef](#usageresourceresulttypedef)
   - [UsageStatisticsTypeDef](#usagestatisticstypedef)
-  - [AccountDetailTypeDef](#accountdetailtypedef)
-  - [CreateDetectorResponseTypeDef](#createdetectorresponsetypedef)
-  - [CreateFilterResponseTypeDef](#createfilterresponsetypedef)
-  - [CreateIPSetResponseTypeDef](#createipsetresponsetypedef)
-  - [CreateMembersResponseTypeDef](#createmembersresponsetypedef)
-  - [CreatePublishingDestinationResponseTypeDef](#createpublishingdestinationresponsetypedef)
-  - [CreateThreatIntelSetResponseTypeDef](#createthreatintelsetresponsetypedef)
-  - [DataSourceConfigurationsTypeDef](#datasourceconfigurationstypedef)
-  - [DeclineInvitationsResponseTypeDef](#declineinvitationsresponsetypedef)
-  - [DeleteInvitationsResponseTypeDef](#deleteinvitationsresponsetypedef)
-  - [DeleteMembersResponseTypeDef](#deletemembersresponsetypedef)
-  - [DescribeOrganizationConfigurationResponseTypeDef](#describeorganizationconfigurationresponsetypedef)
-  - [DescribePublishingDestinationResponseTypeDef](#describepublishingdestinationresponsetypedef)
-  - [DisassociateMembersResponseTypeDef](#disassociatemembersresponsetypedef)
-  - [GetDetectorResponseTypeDef](#getdetectorresponsetypedef)
-  - [GetFilterResponseTypeDef](#getfilterresponsetypedef)
-  - [GetFindingsResponseTypeDef](#getfindingsresponsetypedef)
-  - [GetFindingsStatisticsResponseTypeDef](#getfindingsstatisticsresponsetypedef)
-  - [GetIPSetResponseTypeDef](#getipsetresponsetypedef)
-  - [GetInvitationsCountResponseTypeDef](#getinvitationscountresponsetypedef)
-  - [GetMasterAccountResponseTypeDef](#getmasteraccountresponsetypedef)
-  - [GetMemberDetectorsResponseTypeDef](#getmemberdetectorsresponsetypedef)
-  - [GetMembersResponseTypeDef](#getmembersresponsetypedef)
-  - [GetThreatIntelSetResponseTypeDef](#getthreatintelsetresponsetypedef)
-  - [GetUsageStatisticsResponseTypeDef](#getusagestatisticsresponsetypedef)
-  - [InviteMembersResponseTypeDef](#invitemembersresponsetypedef)
-  - [ListDetectorsResponseTypeDef](#listdetectorsresponsetypedef)
-  - [ListFiltersResponseTypeDef](#listfiltersresponsetypedef)
-  - [ListFindingsResponseTypeDef](#listfindingsresponsetypedef)
-  - [ListIPSetsResponseTypeDef](#listipsetsresponsetypedef)
-  - [ListInvitationsResponseTypeDef](#listinvitationsresponsetypedef)
-  - [ListMembersResponseTypeDef](#listmembersresponsetypedef)
-  - [ListOrganizationAdminAccountsResponseTypeDef](#listorganizationadminaccountsresponsetypedef)
-  - [ListPublishingDestinationsResponseTypeDef](#listpublishingdestinationsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [ListThreatIntelSetsResponseTypeDef](#listthreatintelsetsresponsetypedef)
-  - [OrganizationDataSourceConfigurationsTypeDef](#organizationdatasourceconfigurationstypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [SortCriteriaTypeDef](#sortcriteriatypedef)
-  - [StartMonitoringMembersResponseTypeDef](#startmonitoringmembersresponsetypedef)
-  - [StopMonitoringMembersResponseTypeDef](#stopmonitoringmembersresponsetypedef)
-  - [UpdateFilterResponseTypeDef](#updatefilterresponsetypedef)
-  - [UpdateMemberDetectorsResponseTypeDef](#updatememberdetectorsresponsetypedef)
-  - [UsageCriteriaTypeDef](#usagecriteriatypedef)
 
 ## AccessControlListTypeDef
 
@@ -142,6 +142,20 @@ Optional fields:
 - `PrincipalId`: `str`
 - `UserName`: `str`
 - `UserType`: `str`
+
+
+## AccountDetailTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import AccountDetailTypeDef
+```
+
+
+Required fields:
+- `AccountId`: `str`
+- `Email`: `str`
+
+
 
 
 ## AccountLevelPermissionsTypeDef
@@ -315,6 +329,84 @@ Optional fields:
 - `CountryName`: `str`
 
 
+## CreateDetectorResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import CreateDetectorResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DetectorId`: `str`
+
+
+## CreateFilterResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import CreateFilterResponseTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+
+
+
+
+## CreateIPSetResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import CreateIPSetResponseTypeDef
+```
+
+
+Required fields:
+- `IpSetId`: `str`
+
+
+
+
+## CreateMembersResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import CreateMembersResponseTypeDef
+```
+
+
+Required fields:
+- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
+
+
+
+
+## CreatePublishingDestinationResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import CreatePublishingDestinationResponseTypeDef
+```
+
+
+Required fields:
+- `DestinationId`: `str`
+
+
+
+
+## CreateThreatIntelSetResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import CreateThreatIntelSetResponseTypeDef
+```
+
+
+Required fields:
+- `ThreatIntelSetId`: `str`
+
+
+
+
 ## DNSLogsConfigurationResultTypeDef
 
 ```python
@@ -344,6 +436,32 @@ Required fields:
 
 
 
+## DataSourceConfigurationsTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import DataSourceConfigurationsTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3Logs`: `"S3LogsConfigurationTypeDef"`
+
+
+## DeclineInvitationsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import DeclineInvitationsResponseTypeDef
+```
+
+
+Required fields:
+- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
+
+
+
+
 ## DefaultServerSideEncryptionTypeDef
 
 ```python
@@ -356,6 +474,66 @@ from mypy_boto3_guardduty.type_defs import DefaultServerSideEncryptionTypeDef
 Optional fields:
 - `EncryptionType`: `str`
 - `KmsMasterKeyArn`: `str`
+
+
+## DeleteInvitationsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import DeleteInvitationsResponseTypeDef
+```
+
+
+Required fields:
+- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
+
+
+
+
+## DeleteMembersResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import DeleteMembersResponseTypeDef
+```
+
+
+Required fields:
+- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
+
+
+
+
+## DescribeOrganizationConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import DescribeOrganizationConfigurationResponseTypeDef
+```
+
+
+Required fields:
+- `AutoEnable`: `bool`
+- `MemberAccountLimitReached`: `bool`
+
+
+
+Optional fields:
+- `DataSources`: `"OrganizationDataSourceConfigurationsResultTypeDef"`
+
+
+## DescribePublishingDestinationResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import DescribePublishingDestinationResponseTypeDef
+```
+
+
+Required fields:
+- `DestinationId`: `str`
+- `DestinationType`: `Literal['S3']`
+- `Status`: `PublishingStatus`
+- `PublishingFailureStartTimestamp`: `int`
+- `DestinationProperties`: `"DestinationPropertiesTypeDef"`
+
+
 
 
 ## DestinationPropertiesTypeDef
@@ -381,8 +559,21 @@ from mypy_boto3_guardduty.type_defs import DestinationTypeDef
 
 Required fields:
 - `DestinationId`: `str`
-- `DestinationType`: `DestinationType`
+- `DestinationType`: `Literal['S3']`
 - `Status`: `PublishingStatus`
+
+
+
+
+## DisassociateMembersResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import DisassociateMembersResponseTypeDef
+```
+
+
+Required fields:
+- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
 
 
 
@@ -508,6 +699,179 @@ Optional fields:
 - `Lon`: `float`
 
 
+## GetDetectorResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import GetDetectorResponseTypeDef
+```
+
+
+Required fields:
+- `ServiceRole`: `str`
+- `Status`: `DetectorStatus`
+
+
+
+Optional fields:
+- `CreatedAt`: `str`
+- `FindingPublishingFrequency`: `FindingPublishingFrequency`
+- `UpdatedAt`: `str`
+- `DataSources`: `"DataSourceConfigurationsResultTypeDef"`
+- `Tags`: `Dict[str, str]`
+
+
+## GetFilterResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import GetFilterResponseTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Action`: `FilterAction`
+- `FindingCriteria`: `"FindingCriteriaTypeDef"`
+
+
+
+Optional fields:
+- `Description`: `str`
+- `Rank`: `int`
+- `Tags`: `Dict[str, str]`
+
+
+## GetFindingsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import GetFindingsResponseTypeDef
+```
+
+
+Required fields:
+- `Findings`: `List["FindingTypeDef"]`
+
+
+
+
+## GetFindingsStatisticsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import GetFindingsStatisticsResponseTypeDef
+```
+
+
+Required fields:
+- `FindingStatistics`: `"FindingStatisticsTypeDef"`
+
+
+
+
+## GetIPSetResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import GetIPSetResponseTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Format`: `IpSetFormat`
+- `Location`: `str`
+- `Status`: `IpSetStatus`
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
+
+
+## GetInvitationsCountResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import GetInvitationsCountResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `InvitationsCount`: `int`
+
+
+## GetMasterAccountResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import GetMasterAccountResponseTypeDef
+```
+
+
+Required fields:
+- `Master`: `"MasterTypeDef"`
+
+
+
+
+## GetMemberDetectorsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import GetMemberDetectorsResponseTypeDef
+```
+
+
+Required fields:
+- `MemberDataSourceConfigurations`: `List["MemberDataSourceConfigurationTypeDef"]`
+- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
+
+
+
+
+## GetMembersResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import GetMembersResponseTypeDef
+```
+
+
+Required fields:
+- `Members`: `List["MemberTypeDef"]`
+- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
+
+
+
+
+## GetThreatIntelSetResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import GetThreatIntelSetResponseTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Format`: `ThreatIntelSetFormat`
+- `Location`: `str`
+- `Status`: `ThreatIntelSetStatus`
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
+
+
+## GetUsageStatisticsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import GetUsageStatisticsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UsageStatistics`: `"UsageStatisticsTypeDef"`
+- `NextToken`: `str`
+
+
 ## IamInstanceProfileTypeDef
 
 ```python
@@ -561,6 +925,170 @@ Optional fields:
 - `InvitationId`: `str`
 - `RelationshipStatus`: `str`
 - `InvitedAt`: `str`
+
+
+## InviteMembersResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import InviteMembersResponseTypeDef
+```
+
+
+Required fields:
+- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
+
+
+
+
+## ListDetectorsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import ListDetectorsResponseTypeDef
+```
+
+
+Required fields:
+- `DetectorIds`: `List[str]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListFiltersResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import ListFiltersResponseTypeDef
+```
+
+
+Required fields:
+- `FilterNames`: `List[str]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListFindingsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import ListFindingsResponseTypeDef
+```
+
+
+Required fields:
+- `FindingIds`: `List[str]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListIPSetsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import ListIPSetsResponseTypeDef
+```
+
+
+Required fields:
+- `IpSetIds`: `List[str]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListInvitationsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import ListInvitationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Invitations`: `List["InvitationTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListMembersResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import ListMembersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Members`: `List["MemberTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListOrganizationAdminAccountsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import ListOrganizationAdminAccountsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AdminAccounts`: `List["AdminAccountTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListPublishingDestinationsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import ListPublishingDestinationsResponseTypeDef
+```
+
+
+Required fields:
+- `Destinations`: `List["DestinationTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
+
+
+## ListThreatIntelSetsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import ListThreatIntelSetsResponseTypeDef
+```
+
+
+Required fields:
+- `ThreatIntelSetIds`: `List[str]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
 
 
 ## LocalIpDetailsTypeDef
@@ -695,6 +1223,19 @@ Required fields:
 
 
 
+## OrganizationDataSourceConfigurationsTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import OrganizationDataSourceConfigurationsTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3Logs`: `"OrganizationS3LogsConfigurationTypeDef"`
+
+
 ## OrganizationS3LogsConfigurationResultTypeDef
 
 ```python
@@ -748,6 +1289,21 @@ from mypy_boto3_guardduty.type_defs import OwnerTypeDef
 
 Optional fields:
 - `Id`: `str`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## PermissionConfigurationTypeDef
@@ -964,6 +1520,46 @@ Optional fields:
 - `UserFeedback`: `str`
 
 
+## SortCriteriaTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import SortCriteriaTypeDef
+```
+
+
+
+
+Optional fields:
+- `AttributeName`: `str`
+- `OrderBy`: `OrderBy`
+
+
+## StartMonitoringMembersResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import StartMonitoringMembersResponseTypeDef
+```
+
+
+Required fields:
+- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
+
+
+
+
+## StopMonitoringMembersResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import StopMonitoringMembersResponseTypeDef
+```
+
+
+Required fields:
+- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
+
+
+
+
 ## TagTypeDef
 
 ```python
@@ -1020,6 +1616,32 @@ Required fields:
 
 
 
+## UpdateFilterResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import UpdateFilterResponseTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+
+
+
+
+## UpdateMemberDetectorsResponseTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import UpdateMemberDetectorsResponseTypeDef
+```
+
+
+Required fields:
+- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
+
+
+
+
 ## UsageAccountResultTypeDef
 
 ```python
@@ -1032,6 +1654,23 @@ from mypy_boto3_guardduty.type_defs import UsageAccountResultTypeDef
 Optional fields:
 - `AccountId`: `str`
 - `Total`: `"TotalTypeDef"`
+
+
+## UsageCriteriaTypeDef
+
+```python
+from mypy_boto3_guardduty.type_defs import UsageCriteriaTypeDef
+```
+
+
+Required fields:
+- `DataSources`: `List[DataSource]`
+
+
+
+Optional fields:
+- `AccountIds`: `List[str]`
+- `Resources`: `List[str]`
 
 
 ## UsageDataSourceResultTypeDef
@@ -1076,643 +1715,4 @@ Optional fields:
 - `SumByDataSource`: `List["UsageDataSourceResultTypeDef"]`
 - `SumByResource`: `List["UsageResourceResultTypeDef"]`
 - `TopResources`: `List["UsageResourceResultTypeDef"]`
-
-
-## AccountDetailTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import AccountDetailTypeDef
-```
-
-
-Required fields:
-- `AccountId`: `str`
-- `Email`: `str`
-
-
-
-
-## CreateDetectorResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import CreateDetectorResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DetectorId`: `str`
-
-
-## CreateFilterResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import CreateFilterResponseTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-
-
-
-
-## CreateIPSetResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import CreateIPSetResponseTypeDef
-```
-
-
-Required fields:
-- `IpSetId`: `str`
-
-
-
-
-## CreateMembersResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import CreateMembersResponseTypeDef
-```
-
-
-Required fields:
-- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
-
-
-
-
-## CreatePublishingDestinationResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import CreatePublishingDestinationResponseTypeDef
-```
-
-
-Required fields:
-- `DestinationId`: `str`
-
-
-
-
-## CreateThreatIntelSetResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import CreateThreatIntelSetResponseTypeDef
-```
-
-
-Required fields:
-- `ThreatIntelSetId`: `str`
-
-
-
-
-## DataSourceConfigurationsTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import DataSourceConfigurationsTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3Logs`: `"S3LogsConfigurationTypeDef"`
-
-
-## DeclineInvitationsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import DeclineInvitationsResponseTypeDef
-```
-
-
-Required fields:
-- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
-
-
-
-
-## DeleteInvitationsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import DeleteInvitationsResponseTypeDef
-```
-
-
-Required fields:
-- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
-
-
-
-
-## DeleteMembersResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import DeleteMembersResponseTypeDef
-```
-
-
-Required fields:
-- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
-
-
-
-
-## DescribeOrganizationConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import DescribeOrganizationConfigurationResponseTypeDef
-```
-
-
-Required fields:
-- `AutoEnable`: `bool`
-- `MemberAccountLimitReached`: `bool`
-
-
-
-Optional fields:
-- `DataSources`: `"OrganizationDataSourceConfigurationsResultTypeDef"`
-
-
-## DescribePublishingDestinationResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import DescribePublishingDestinationResponseTypeDef
-```
-
-
-Required fields:
-- `DestinationId`: `str`
-- `DestinationType`: `DestinationType`
-- `Status`: `PublishingStatus`
-- `PublishingFailureStartTimestamp`: `int`
-- `DestinationProperties`: `"DestinationPropertiesTypeDef"`
-
-
-
-
-## DisassociateMembersResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import DisassociateMembersResponseTypeDef
-```
-
-
-Required fields:
-- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
-
-
-
-
-## GetDetectorResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import GetDetectorResponseTypeDef
-```
-
-
-Required fields:
-- `ServiceRole`: `str`
-- `Status`: `DetectorStatus`
-
-
-
-Optional fields:
-- `CreatedAt`: `str`
-- `FindingPublishingFrequency`: `FindingPublishingFrequency`
-- `UpdatedAt`: `str`
-- `DataSources`: `"DataSourceConfigurationsResultTypeDef"`
-- `Tags`: `Dict[str, str]`
-
-
-## GetFilterResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import GetFilterResponseTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Action`: `FilterAction`
-- `FindingCriteria`: `"FindingCriteriaTypeDef"`
-
-
-
-Optional fields:
-- `Description`: `str`
-- `Rank`: `int`
-- `Tags`: `Dict[str, str]`
-
-
-## GetFindingsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import GetFindingsResponseTypeDef
-```
-
-
-Required fields:
-- `Findings`: `List["FindingTypeDef"]`
-
-
-
-
-## GetFindingsStatisticsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import GetFindingsStatisticsResponseTypeDef
-```
-
-
-Required fields:
-- `FindingStatistics`: `"FindingStatisticsTypeDef"`
-
-
-
-
-## GetIPSetResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import GetIPSetResponseTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Format`: `IpSetFormat`
-- `Location`: `str`
-- `Status`: `IpSetStatus`
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## GetInvitationsCountResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import GetInvitationsCountResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `InvitationsCount`: `int`
-
-
-## GetMasterAccountResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import GetMasterAccountResponseTypeDef
-```
-
-
-Required fields:
-- `Master`: `"MasterTypeDef"`
-
-
-
-
-## GetMemberDetectorsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import GetMemberDetectorsResponseTypeDef
-```
-
-
-Required fields:
-- `MemberDataSourceConfigurations`: `List["MemberDataSourceConfigurationTypeDef"]`
-- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
-
-
-
-
-## GetMembersResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import GetMembersResponseTypeDef
-```
-
-
-Required fields:
-- `Members`: `List["MemberTypeDef"]`
-- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
-
-
-
-
-## GetThreatIntelSetResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import GetThreatIntelSetResponseTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Format`: `ThreatIntelSetFormat`
-- `Location`: `str`
-- `Status`: `ThreatIntelSetStatus`
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## GetUsageStatisticsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import GetUsageStatisticsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UsageStatistics`: `"UsageStatisticsTypeDef"`
-- `NextToken`: `str`
-
-
-## InviteMembersResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import InviteMembersResponseTypeDef
-```
-
-
-Required fields:
-- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
-
-
-
-
-## ListDetectorsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import ListDetectorsResponseTypeDef
-```
-
-
-Required fields:
-- `DetectorIds`: `List[str]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListFiltersResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import ListFiltersResponseTypeDef
-```
-
-
-Required fields:
-- `FilterNames`: `List[str]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListFindingsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import ListFindingsResponseTypeDef
-```
-
-
-Required fields:
-- `FindingIds`: `List[str]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListIPSetsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import ListIPSetsResponseTypeDef
-```
-
-
-Required fields:
-- `IpSetIds`: `List[str]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListInvitationsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import ListInvitationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Invitations`: `List["InvitationTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListMembersResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import ListMembersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Members`: `List["MemberTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListOrganizationAdminAccountsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import ListOrganizationAdminAccountsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AdminAccounts`: `List["AdminAccountTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListPublishingDestinationsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import ListPublishingDestinationsResponseTypeDef
-```
-
-
-Required fields:
-- `Destinations`: `List["DestinationTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## ListThreatIntelSetsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import ListThreatIntelSetsResponseTypeDef
-```
-
-
-Required fields:
-- `ThreatIntelSetIds`: `List[str]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## OrganizationDataSourceConfigurationsTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import OrganizationDataSourceConfigurationsTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3Logs`: `"OrganizationS3LogsConfigurationTypeDef"`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## SortCriteriaTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import SortCriteriaTypeDef
-```
-
-
-
-
-Optional fields:
-- `AttributeName`: `str`
-- `OrderBy`: `OrderBy`
-
-
-## StartMonitoringMembersResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import StartMonitoringMembersResponseTypeDef
-```
-
-
-Required fields:
-- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
-
-
-
-
-## StopMonitoringMembersResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import StopMonitoringMembersResponseTypeDef
-```
-
-
-Required fields:
-- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
-
-
-
-
-## UpdateFilterResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import UpdateFilterResponseTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-
-
-
-
-## UpdateMemberDetectorsResponseTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import UpdateMemberDetectorsResponseTypeDef
-```
-
-
-Required fields:
-- `UnprocessedAccounts`: `List["UnprocessedAccountTypeDef"]`
-
-
-
-
-## UsageCriteriaTypeDef
-
-```python
-from mypy_boto3_guardduty.type_defs import UsageCriteriaTypeDef
-```
-
-
-Required fields:
-- `DataSources`: `List[DataSource]`
-
-
-
-Optional fields:
-- `AccountIds`: `List[str]`
-- `Resources`: `List[str]`
 

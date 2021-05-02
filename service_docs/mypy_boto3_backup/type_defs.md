@@ -8,6 +8,7 @@ type annotations stubs module [mypy_boto3_backup](https://pypi.org/project/mypy-
 - [Structures for boto3 Backup module](#structures-for-boto3-backup-module)
   - [AdvancedBackupSettingTypeDef](#advancedbackupsettingtypedef)
   - [BackupJobTypeDef](#backupjobtypedef)
+  - [BackupPlanInputTypeDef](#backupplaninputtypedef)
   - [BackupPlanTemplatesListMemberTypeDef](#backupplantemplateslistmembertypedef)
   - [BackupPlanTypeDef](#backupplantypedef)
   - [BackupPlansListMemberTypeDef](#backupplanslistmembertypedef)
@@ -20,14 +21,6 @@ type annotations stubs module [mypy_boto3_backup](https://pypi.org/project/mypy-
   - [ConditionTypeDef](#conditiontypedef)
   - [CopyActionTypeDef](#copyactiontypedef)
   - [CopyJobTypeDef](#copyjobtypedef)
-  - [LifecycleTypeDef](#lifecycletypedef)
-  - [ProtectedResourceTypeDef](#protectedresourcetypedef)
-  - [RecoveryPointByBackupVaultTypeDef](#recoverypointbybackupvaulttypedef)
-  - [RecoveryPointByResourceTypeDef](#recoverypointbyresourcetypedef)
-  - [RecoveryPointCreatorTypeDef](#recoverypointcreatortypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [RestoreJobsListMemberTypeDef](#restorejobslistmembertypedef)
-  - [BackupPlanInputTypeDef](#backupplaninputtypedef)
   - [CreateBackupPlanOutputTypeDef](#createbackupplanoutputtypedef)
   - [CreateBackupSelectionOutputTypeDef](#createbackupselectionoutputtypedef)
   - [CreateBackupVaultOutputTypeDef](#createbackupvaultoutputtypedef)
@@ -49,6 +42,7 @@ type annotations stubs module [mypy_boto3_backup](https://pypi.org/project/mypy-
   - [GetBackupVaultNotificationsOutputTypeDef](#getbackupvaultnotificationsoutputtypedef)
   - [GetRecoveryPointRestoreMetadataOutputTypeDef](#getrecoverypointrestoremetadataoutputtypedef)
   - [GetSupportedResourceTypesOutputTypeDef](#getsupportedresourcetypesoutputtypedef)
+  - [LifecycleTypeDef](#lifecycletypedef)
   - [ListBackupJobsOutputTypeDef](#listbackupjobsoutputtypedef)
   - [ListBackupPlanTemplatesOutputTypeDef](#listbackupplantemplatesoutputtypedef)
   - [ListBackupPlanVersionsOutputTypeDef](#listbackupplanversionsoutputtypedef)
@@ -61,6 +55,12 @@ type annotations stubs module [mypy_boto3_backup](https://pypi.org/project/mypy-
   - [ListRecoveryPointsByResourceOutputTypeDef](#listrecoverypointsbyresourceoutputtypedef)
   - [ListRestoreJobsOutputTypeDef](#listrestorejobsoutputtypedef)
   - [ListTagsOutputTypeDef](#listtagsoutputtypedef)
+  - [ProtectedResourceTypeDef](#protectedresourcetypedef)
+  - [RecoveryPointByBackupVaultTypeDef](#recoverypointbybackupvaulttypedef)
+  - [RecoveryPointByResourceTypeDef](#recoverypointbyresourcetypedef)
+  - [RecoveryPointCreatorTypeDef](#recoverypointcreatortypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [RestoreJobsListMemberTypeDef](#restorejobslistmembertypedef)
   - [StartBackupJobOutputTypeDef](#startbackupjoboutputtypedef)
   - [StartCopyJobOutputTypeDef](#startcopyjoboutputtypedef)
   - [StartRestoreJobOutputTypeDef](#startrestorejoboutputtypedef)
@@ -111,6 +111,23 @@ Optional fields:
 - `BytesTransferred`: `int`
 - `BackupOptions`: `Dict[str, str]`
 - `BackupType`: `str`
+
+
+## BackupPlanInputTypeDef
+
+```python
+from mypy_boto3_backup.type_defs import BackupPlanInputTypeDef
+```
+
+
+Required fields:
+- `BackupPlanName`: `str`
+- `Rules`: `List["BackupRuleInputTypeDef"]`
+
+
+
+Optional fields:
+- `AdvancedBackupSettings`: `List["AdvancedBackupSettingTypeDef"]`
 
 
 ## BackupPlanTemplatesListMemberTypeDef
@@ -288,7 +305,7 @@ from mypy_boto3_backup.type_defs import ConditionTypeDef
 
 
 Required fields:
-- `ConditionType`: `ConditionType`
+- `ConditionType`: `Literal['STRINGEQUALS']`
 - `ConditionKey`: `str`
 - `ConditionValue`: `str`
 
@@ -336,157 +353,6 @@ Optional fields:
 - `IamRoleArn`: `str`
 - `CreatedBy`: `"RecoveryPointCreatorTypeDef"`
 - `ResourceType`: `str`
-
-
-## LifecycleTypeDef
-
-```python
-from mypy_boto3_backup.type_defs import LifecycleTypeDef
-```
-
-
-
-
-Optional fields:
-- `MoveToColdStorageAfterDays`: `int`
-- `DeleteAfterDays`: `int`
-
-
-## ProtectedResourceTypeDef
-
-```python
-from mypy_boto3_backup.type_defs import ProtectedResourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceArn`: `str`
-- `ResourceType`: `str`
-- `LastBackupTime`: `datetime`
-
-
-## RecoveryPointByBackupVaultTypeDef
-
-```python
-from mypy_boto3_backup.type_defs import RecoveryPointByBackupVaultTypeDef
-```
-
-
-
-
-Optional fields:
-- `RecoveryPointArn`: `str`
-- `BackupVaultName`: `str`
-- `BackupVaultArn`: `str`
-- `SourceBackupVaultArn`: `str`
-- `ResourceArn`: `str`
-- `ResourceType`: `str`
-- `CreatedBy`: `"RecoveryPointCreatorTypeDef"`
-- `IamRoleArn`: `str`
-- `Status`: `RecoveryPointStatus`
-- `CreationDate`: `datetime`
-- `CompletionDate`: `datetime`
-- `BackupSizeInBytes`: `int`
-- `CalculatedLifecycle`: `"CalculatedLifecycleTypeDef"`
-- `Lifecycle`: `"LifecycleTypeDef"`
-- `EncryptionKeyArn`: `str`
-- `IsEncrypted`: `bool`
-- `LastRestoreTime`: `datetime`
-
-
-## RecoveryPointByResourceTypeDef
-
-```python
-from mypy_boto3_backup.type_defs import RecoveryPointByResourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `RecoveryPointArn`: `str`
-- `CreationDate`: `datetime`
-- `Status`: `RecoveryPointStatus`
-- `EncryptionKeyArn`: `str`
-- `BackupSizeBytes`: `int`
-- `BackupVaultName`: `str`
-
-
-## RecoveryPointCreatorTypeDef
-
-```python
-from mypy_boto3_backup.type_defs import RecoveryPointCreatorTypeDef
-```
-
-
-
-
-Optional fields:
-- `BackupPlanId`: `str`
-- `BackupPlanArn`: `str`
-- `BackupPlanVersion`: `str`
-- `BackupRuleId`: `str`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_backup.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## RestoreJobsListMemberTypeDef
-
-```python
-from mypy_boto3_backup.type_defs import RestoreJobsListMemberTypeDef
-```
-
-
-
-
-Optional fields:
-- `AccountId`: `str`
-- `RestoreJobId`: `str`
-- `RecoveryPointArn`: `str`
-- `CreationDate`: `datetime`
-- `CompletionDate`: `datetime`
-- `Status`: `RestoreJobStatus`
-- `StatusMessage`: `str`
-- `PercentDone`: `str`
-- `BackupSizeInBytes`: `int`
-- `IamRoleArn`: `str`
-- `ExpectedCompletionTimeMinutes`: `int`
-- `CreatedResourceArn`: `str`
-- `ResourceType`: `str`
-
-
-## BackupPlanInputTypeDef
-
-```python
-from mypy_boto3_backup.type_defs import BackupPlanInputTypeDef
-```
-
-
-Required fields:
-- `BackupPlanName`: `str`
-- `Rules`: `List["BackupRuleInputTypeDef"]`
-
-
-
-Optional fields:
-- `AdvancedBackupSettings`: `List["AdvancedBackupSettingTypeDef"]`
 
 
 ## CreateBackupPlanOutputTypeDef
@@ -869,6 +735,20 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## LifecycleTypeDef
+
+```python
+from mypy_boto3_backup.type_defs import LifecycleTypeDef
+```
+
+
+
+
+Optional fields:
+- `MoveToColdStorageAfterDays`: `int`
+- `DeleteAfterDays`: `int`
+
+
 ## ListBackupJobsOutputTypeDef
 
 ```python
@@ -1047,6 +927,126 @@ Optional fields:
 - `NextToken`: `str`
 - `Tags`: `Dict[str, str]`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ProtectedResourceTypeDef
+
+```python
+from mypy_boto3_backup.type_defs import ProtectedResourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceArn`: `str`
+- `ResourceType`: `str`
+- `LastBackupTime`: `datetime`
+
+
+## RecoveryPointByBackupVaultTypeDef
+
+```python
+from mypy_boto3_backup.type_defs import RecoveryPointByBackupVaultTypeDef
+```
+
+
+
+
+Optional fields:
+- `RecoveryPointArn`: `str`
+- `BackupVaultName`: `str`
+- `BackupVaultArn`: `str`
+- `SourceBackupVaultArn`: `str`
+- `ResourceArn`: `str`
+- `ResourceType`: `str`
+- `CreatedBy`: `"RecoveryPointCreatorTypeDef"`
+- `IamRoleArn`: `str`
+- `Status`: `RecoveryPointStatus`
+- `CreationDate`: `datetime`
+- `CompletionDate`: `datetime`
+- `BackupSizeInBytes`: `int`
+- `CalculatedLifecycle`: `"CalculatedLifecycleTypeDef"`
+- `Lifecycle`: `"LifecycleTypeDef"`
+- `EncryptionKeyArn`: `str`
+- `IsEncrypted`: `bool`
+- `LastRestoreTime`: `datetime`
+
+
+## RecoveryPointByResourceTypeDef
+
+```python
+from mypy_boto3_backup.type_defs import RecoveryPointByResourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `RecoveryPointArn`: `str`
+- `CreationDate`: `datetime`
+- `Status`: `RecoveryPointStatus`
+- `EncryptionKeyArn`: `str`
+- `BackupSizeBytes`: `int`
+- `BackupVaultName`: `str`
+
+
+## RecoveryPointCreatorTypeDef
+
+```python
+from mypy_boto3_backup.type_defs import RecoveryPointCreatorTypeDef
+```
+
+
+
+
+Optional fields:
+- `BackupPlanId`: `str`
+- `BackupPlanArn`: `str`
+- `BackupPlanVersion`: `str`
+- `BackupRuleId`: `str`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_backup.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## RestoreJobsListMemberTypeDef
+
+```python
+from mypy_boto3_backup.type_defs import RestoreJobsListMemberTypeDef
+```
+
+
+
+
+Optional fields:
+- `AccountId`: `str`
+- `RestoreJobId`: `str`
+- `RecoveryPointArn`: `str`
+- `CreationDate`: `datetime`
+- `CompletionDate`: `datetime`
+- `Status`: `RestoreJobStatus`
+- `StatusMessage`: `str`
+- `PercentDone`: `str`
+- `BackupSizeInBytes`: `int`
+- `IamRoleArn`: `str`
+- `ExpectedCompletionTimeMinutes`: `int`
+- `CreatedResourceArn`: `str`
+- `ResourceType`: `str`
 
 
 ## StartBackupJobOutputTypeDef

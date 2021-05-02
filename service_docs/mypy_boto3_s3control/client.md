@@ -910,16 +910,12 @@ def update_job_status(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("s3control").get_paginator` method.
+Type annotations for `boto3.client("s3control").get_paginator` method with overloads.
 
-[Paginator.ListAccessPointsForObjectLambda documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3control.html#S3Control.Paginator.ListAccessPointsForObjectLambda)
+- `client.get_paginator("list_access_points_for_object_lambda")` -> [ListAccessPointsForObjectLambdaPaginator](./paginators.md#listaccesspointsforobjectlambdapaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListAccessPointsForObjectLambdaPaginatorName
-) -> ListAccessPointsForObjectLambdaPaginator:
-    pass
-```
+

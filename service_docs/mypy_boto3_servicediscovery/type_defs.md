@@ -6,24 +6,6 @@ Auto-generated documentation for [ServiceDiscovery](https://boto3.amazonaws.com/
 type annotations stubs module [mypy_boto3_servicediscovery](https://pypi.org/project/mypy-boto3-servicediscovery/).
 
 - [Structures for boto3 ServiceDiscovery module](#structures-for-boto3-servicediscovery-module)
-  - [DnsConfigChangeTypeDef](#dnsconfigchangetypedef)
-  - [DnsConfigTypeDef](#dnsconfigtypedef)
-  - [DnsPropertiesTypeDef](#dnspropertiestypedef)
-  - [DnsRecordTypeDef](#dnsrecordtypedef)
-  - [HealthCheckConfigTypeDef](#healthcheckconfigtypedef)
-  - [HealthCheckCustomConfigTypeDef](#healthcheckcustomconfigtypedef)
-  - [HttpInstanceSummaryTypeDef](#httpinstancesummarytypedef)
-  - [HttpPropertiesTypeDef](#httppropertiestypedef)
-  - [InstanceSummaryTypeDef](#instancesummarytypedef)
-  - [InstanceTypeDef](#instancetypedef)
-  - [NamespacePropertiesTypeDef](#namespacepropertiestypedef)
-  - [NamespaceSummaryTypeDef](#namespacesummarytypedef)
-  - [NamespaceTypeDef](#namespacetypedef)
-  - [OperationSummaryTypeDef](#operationsummarytypedef)
-  - [OperationTypeDef](#operationtypedef)
-  - [ServiceSummaryTypeDef](#servicesummarytypedef)
-  - [ServiceTypeDef](#servicetypedef)
-  - [TagTypeDef](#tagtypedef)
   - [CreateHttpNamespaceResponseTypeDef](#createhttpnamespaceresponsetypedef)
   - [CreatePrivateDnsNamespaceResponseTypeDef](#createprivatednsnamespaceresponsetypedef)
   - [CreatePublicDnsNamespaceResponseTypeDef](#createpublicdnsnamespaceresponsetypedef)
@@ -31,23 +13,132 @@ type annotations stubs module [mypy_boto3_servicediscovery](https://pypi.org/pro
   - [DeleteNamespaceResponseTypeDef](#deletenamespaceresponsetypedef)
   - [DeregisterInstanceResponseTypeDef](#deregisterinstanceresponsetypedef)
   - [DiscoverInstancesResponseTypeDef](#discoverinstancesresponsetypedef)
+  - [DnsConfigChangeTypeDef](#dnsconfigchangetypedef)
+  - [DnsConfigTypeDef](#dnsconfigtypedef)
+  - [DnsPropertiesTypeDef](#dnspropertiestypedef)
+  - [DnsRecordTypeDef](#dnsrecordtypedef)
   - [GetInstanceResponseTypeDef](#getinstanceresponsetypedef)
   - [GetInstancesHealthStatusResponseTypeDef](#getinstanceshealthstatusresponsetypedef)
   - [GetNamespaceResponseTypeDef](#getnamespaceresponsetypedef)
   - [GetOperationResponseTypeDef](#getoperationresponsetypedef)
   - [GetServiceResponseTypeDef](#getserviceresponsetypedef)
+  - [HealthCheckConfigTypeDef](#healthcheckconfigtypedef)
+  - [HealthCheckCustomConfigTypeDef](#healthcheckcustomconfigtypedef)
+  - [HttpInstanceSummaryTypeDef](#httpinstancesummarytypedef)
+  - [HttpPropertiesTypeDef](#httppropertiestypedef)
+  - [InstanceSummaryTypeDef](#instancesummarytypedef)
+  - [InstanceTypeDef](#instancetypedef)
   - [ListInstancesResponseTypeDef](#listinstancesresponsetypedef)
   - [ListNamespacesResponseTypeDef](#listnamespacesresponsetypedef)
   - [ListOperationsResponseTypeDef](#listoperationsresponsetypedef)
   - [ListServicesResponseTypeDef](#listservicesresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [NamespaceFilterTypeDef](#namespacefiltertypedef)
+  - [NamespacePropertiesTypeDef](#namespacepropertiestypedef)
+  - [NamespaceSummaryTypeDef](#namespacesummarytypedef)
+  - [NamespaceTypeDef](#namespacetypedef)
   - [OperationFilterTypeDef](#operationfiltertypedef)
+  - [OperationSummaryTypeDef](#operationsummarytypedef)
+  - [OperationTypeDef](#operationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [RegisterInstanceResponseTypeDef](#registerinstanceresponsetypedef)
   - [ServiceChangeTypeDef](#servicechangetypedef)
   - [ServiceFilterTypeDef](#servicefiltertypedef)
+  - [ServiceSummaryTypeDef](#servicesummarytypedef)
+  - [ServiceTypeDef](#servicetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateServiceResponseTypeDef](#updateserviceresponsetypedef)
+
+## CreateHttpNamespaceResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import CreateHttpNamespaceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `OperationId`: `str`
+
+
+## CreatePrivateDnsNamespaceResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import CreatePrivateDnsNamespaceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `OperationId`: `str`
+
+
+## CreatePublicDnsNamespaceResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import CreatePublicDnsNamespaceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `OperationId`: `str`
+
+
+## CreateServiceResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import CreateServiceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Service`: `"ServiceTypeDef"`
+
+
+## DeleteNamespaceResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import DeleteNamespaceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `OperationId`: `str`
+
+
+## DeregisterInstanceResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import DeregisterInstanceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `OperationId`: `str`
+
+
+## DiscoverInstancesResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import DiscoverInstancesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Instances`: `List["HttpInstanceSummaryTypeDef"]`
+
 
 ## DnsConfigChangeTypeDef
 
@@ -104,6 +195,72 @@ Required fields:
 - `TTL`: `int`
 
 
+
+
+## GetInstanceResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import GetInstanceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Instance`: `"InstanceTypeDef"`
+
+
+## GetInstancesHealthStatusResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import GetInstancesHealthStatusResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `Dict[str, HealthStatus]`
+- `NextToken`: `str`
+
+
+## GetNamespaceResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import GetNamespaceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Namespace`: `"NamespaceTypeDef"`
+
+
+## GetOperationResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import GetOperationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Operation`: `"OperationTypeDef"`
+
+
+## GetServiceResponseTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import GetServiceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Service`: `"ServiceTypeDef"`
 
 
 ## HealthCheckConfigTypeDef
@@ -197,312 +354,6 @@ Optional fields:
 - `Attributes`: `Dict[str, str]`
 
 
-## NamespacePropertiesTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import NamespacePropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `DnsProperties`: `"DnsPropertiesTypeDef"`
-- `HttpProperties`: `"HttpPropertiesTypeDef"`
-
-
-## NamespaceSummaryTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import NamespaceSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `Type`: `NamespaceType`
-- `Description`: `str`
-- `ServiceCount`: `int`
-- `Properties`: `"NamespacePropertiesTypeDef"`
-- `CreateDate`: `datetime`
-
-
-## NamespaceTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import NamespaceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `Type`: `NamespaceType`
-- `Description`: `str`
-- `ServiceCount`: `int`
-- `Properties`: `"NamespacePropertiesTypeDef"`
-- `CreateDate`: `datetime`
-- `CreatorRequestId`: `str`
-
-
-## OperationSummaryTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import OperationSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Status`: `OperationStatus`
-
-
-## OperationTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import OperationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Type`: `OperationType`
-- `Status`: `OperationStatus`
-- `ErrorMessage`: `str`
-- `ErrorCode`: `str`
-- `CreateDate`: `datetime`
-- `UpdateDate`: `datetime`
-- `Targets`: `Dict[OperationTargetType, str]`
-
-
-## ServiceSummaryTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import ServiceSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `Type`: `ServiceType`
-- `Description`: `str`
-- `InstanceCount`: `int`
-- `DnsConfig`: `"DnsConfigTypeDef"`
-- `HealthCheckConfig`: `"HealthCheckConfigTypeDef"`
-- `HealthCheckCustomConfig`: `"HealthCheckCustomConfigTypeDef"`
-- `CreateDate`: `datetime`
-
-
-## ServiceTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import ServiceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Arn`: `str`
-- `Name`: `str`
-- `NamespaceId`: `str`
-- `Description`: `str`
-- `InstanceCount`: `int`
-- `DnsConfig`: `"DnsConfigTypeDef"`
-- `Type`: `ServiceType`
-- `HealthCheckConfig`: `"HealthCheckConfigTypeDef"`
-- `HealthCheckCustomConfig`: `"HealthCheckCustomConfigTypeDef"`
-- `CreateDate`: `datetime`
-- `CreatorRequestId`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## CreateHttpNamespaceResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import CreateHttpNamespaceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `OperationId`: `str`
-
-
-## CreatePrivateDnsNamespaceResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import CreatePrivateDnsNamespaceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `OperationId`: `str`
-
-
-## CreatePublicDnsNamespaceResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import CreatePublicDnsNamespaceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `OperationId`: `str`
-
-
-## CreateServiceResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import CreateServiceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Service`: `"ServiceTypeDef"`
-
-
-## DeleteNamespaceResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import DeleteNamespaceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `OperationId`: `str`
-
-
-## DeregisterInstanceResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import DeregisterInstanceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `OperationId`: `str`
-
-
-## DiscoverInstancesResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import DiscoverInstancesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Instances`: `List["HttpInstanceSummaryTypeDef"]`
-
-
-## GetInstanceResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import GetInstanceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Instance`: `"InstanceTypeDef"`
-
-
-## GetInstancesHealthStatusResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import GetInstancesHealthStatusResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `Dict[str, HealthStatus]`
-- `NextToken`: `str`
-
-
-## GetNamespaceResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import GetNamespaceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Namespace`: `"NamespaceTypeDef"`
-
-
-## GetOperationResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import GetOperationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Operation`: `"OperationTypeDef"`
-
-
-## GetServiceResponseTypeDef
-
-```python
-from mypy_boto3_servicediscovery.type_defs import GetServiceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Service`: `"ServiceTypeDef"`
-
-
 ## ListInstancesResponseTypeDef
 
 ```python
@@ -580,13 +431,68 @@ from mypy_boto3_servicediscovery.type_defs import NamespaceFilterTypeDef
 
 
 Required fields:
-- `Name`: `NamespaceFilterName`
+- `Name`: `Literal['TYPE']`
 - `Values`: `List[str]`
 
 
 
 Optional fields:
 - `Condition`: `FilterCondition`
+
+
+## NamespacePropertiesTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import NamespacePropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `DnsProperties`: `"DnsPropertiesTypeDef"`
+- `HttpProperties`: `"HttpPropertiesTypeDef"`
+
+
+## NamespaceSummaryTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import NamespaceSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `Type`: `NamespaceType`
+- `Description`: `str`
+- `ServiceCount`: `int`
+- `Properties`: `"NamespacePropertiesTypeDef"`
+- `CreateDate`: `datetime`
+
+
+## NamespaceTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import NamespaceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `Type`: `NamespaceType`
+- `Description`: `str`
+- `ServiceCount`: `int`
+- `Properties`: `"NamespacePropertiesTypeDef"`
+- `CreateDate`: `datetime`
+- `CreatorRequestId`: `str`
 
 
 ## OperationFilterTypeDef
@@ -604,6 +510,40 @@ Required fields:
 
 Optional fields:
 - `Condition`: `FilterCondition`
+
+
+## OperationSummaryTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import OperationSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Status`: `OperationStatus`
+
+
+## OperationTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import OperationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Type`: `OperationType`
+- `Status`: `OperationStatus`
+- `ErrorMessage`: `str`
+- `ErrorCode`: `str`
+- `CreateDate`: `datetime`
+- `UpdateDate`: `datetime`
+- `Targets`: `Dict[OperationTargetType, str]`
 
 
 ## PaginatorConfigTypeDef
@@ -657,13 +597,73 @@ from mypy_boto3_servicediscovery.type_defs import ServiceFilterTypeDef
 
 
 Required fields:
-- `Name`: `ServiceFilterName`
+- `Name`: `Literal['NAMESPACE_ID']`
 - `Values`: `List[str]`
 
 
 
 Optional fields:
 - `Condition`: `FilterCondition`
+
+
+## ServiceSummaryTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import ServiceSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `Type`: `ServiceType`
+- `Description`: `str`
+- `InstanceCount`: `int`
+- `DnsConfig`: `"DnsConfigTypeDef"`
+- `HealthCheckConfig`: `"HealthCheckConfigTypeDef"`
+- `HealthCheckCustomConfig`: `"HealthCheckCustomConfigTypeDef"`
+- `CreateDate`: `datetime`
+
+
+## ServiceTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import ServiceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Arn`: `str`
+- `Name`: `str`
+- `NamespaceId`: `str`
+- `Description`: `str`
+- `InstanceCount`: `int`
+- `DnsConfig`: `"DnsConfigTypeDef"`
+- `Type`: `ServiceType`
+- `HealthCheckConfig`: `"HealthCheckConfigTypeDef"`
+- `HealthCheckCustomConfig`: `"HealthCheckCustomConfigTypeDef"`
+- `CreateDate`: `datetime`
+- `CreatorRequestId`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_servicediscovery.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## UpdateServiceResponseTypeDef

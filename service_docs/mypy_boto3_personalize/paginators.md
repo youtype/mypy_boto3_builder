@@ -229,7 +229,7 @@ def get_list_recipes_paginator() -> ListRecipesPaginator:
 class ListRecipesPaginator(Boto3Paginator):
     def paginate(
         self,
-        recipeProvider: RecipeProvider = None,
+        recipeProvider: Literal['SERVICE'] = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRecipesResponseTypeDef]:
         pass

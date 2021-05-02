@@ -102,15 +102,15 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_sagemaker_a2i_runtime.type_defs import HumanLoopOutputTypeDef, ...
+from mypy_boto3_sagemaker_a2i_runtime.type_defs import DescribeHumanLoopResponseTypeDef, ...
 ```
 
-- [HumanLoopOutputTypeDef](./type_defs.md#humanloopoutputtypedef)
-- [HumanLoopSummaryTypeDef](./type_defs.md#humanloopsummarytypedef)
-- [ResponseMetadata](./type_defs.md#responsemetadata)
 - [DescribeHumanLoopResponseTypeDef](./type_defs.md#describehumanloopresponsetypedef)
 - [HumanLoopDataAttributesTypeDef](./type_defs.md#humanloopdataattributestypedef)
 - [HumanLoopInputTypeDef](./type_defs.md#humanloopinputtypedef)
+- [HumanLoopOutputTypeDef](./type_defs.md#humanloopoutputtypedef)
+- [HumanLoopSummaryTypeDef](./type_defs.md#humanloopsummarytypedef)
 - [ListHumanLoopsResponseTypeDef](./type_defs.md#listhumanloopsresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)
 - [StartHumanLoopResponseTypeDef](./type_defs.md#starthumanloopresponsetypedef)

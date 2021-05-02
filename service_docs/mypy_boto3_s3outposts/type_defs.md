@@ -6,11 +6,24 @@ Auto-generated documentation for [S3Outposts](https://boto3.amazonaws.com/v1/doc
 type annotations stubs module [mypy_boto3_s3outposts](https://pypi.org/project/mypy-boto3-s3outposts/).
 
 - [Structures for boto3 S3Outposts module](#structures-for-boto3-s3outposts-module)
-  - [EndpointTypeDef](#endpointtypedef)
-  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
   - [CreateEndpointResultTypeDef](#createendpointresulttypedef)
+  - [EndpointTypeDef](#endpointtypedef)
   - [ListEndpointsResultTypeDef](#listendpointsresulttypedef)
+  - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+
+## CreateEndpointResultTypeDef
+
+```python
+from mypy_boto3_s3outposts.type_defs import CreateEndpointResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `EndpointArn`: `str`
+
 
 ## EndpointTypeDef
 
@@ -30,32 +43,6 @@ Optional fields:
 - `NetworkInterfaces`: `List["NetworkInterfaceTypeDef"]`
 
 
-## NetworkInterfaceTypeDef
-
-```python
-from mypy_boto3_s3outposts.type_defs import NetworkInterfaceTypeDef
-```
-
-
-
-
-Optional fields:
-- `NetworkInterfaceId`: `str`
-
-
-## CreateEndpointResultTypeDef
-
-```python
-from mypy_boto3_s3outposts.type_defs import CreateEndpointResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `EndpointArn`: `str`
-
-
 ## ListEndpointsResultTypeDef
 
 ```python
@@ -68,6 +55,19 @@ from mypy_boto3_s3outposts.type_defs import ListEndpointsResultTypeDef
 Optional fields:
 - `Endpoints`: `List["EndpointTypeDef"]`
 - `NextToken`: `str`
+
+
+## NetworkInterfaceTypeDef
+
+```python
+from mypy_boto3_s3outposts.type_defs import NetworkInterfaceTypeDef
+```
+
+
+
+
+Optional fields:
+- `NetworkInterfaceId`: `str`
 
 
 ## PaginatorConfigTypeDef

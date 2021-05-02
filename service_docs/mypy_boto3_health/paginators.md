@@ -107,7 +107,7 @@ def get_describe_event_aggregates_paginator() -> DescribeEventAggregatesPaginato
 class DescribeEventAggregatesPaginator(Boto3Paginator):
     def paginate(
         self,
-        aggregateField: eventAggregateField,
+        aggregateField: Literal['eventTypeCategory'],
         filter: EventFilterTypeDef = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEventAggregatesResponseTypeDef]:

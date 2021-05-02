@@ -6,13 +6,6 @@ Auto-generated documentation for [QLDB](https://boto3.amazonaws.com/v1/documenta
 type annotations stubs module [mypy_boto3_qldb](https://pypi.org/project/mypy-boto3-qldb/).
 
 - [Structures for boto3 QLDB module](#structures-for-boto3-qldb-module)
-  - [JournalKinesisStreamDescriptionTypeDef](#journalkinesisstreamdescriptiontypedef)
-  - [JournalS3ExportDescriptionTypeDef](#journals3exportdescriptiontypedef)
-  - [KinesisConfigurationTypeDef](#kinesisconfigurationtypedef)
-  - [LedgerSummaryTypeDef](#ledgersummarytypedef)
-  - [S3EncryptionConfigurationTypeDef](#s3encryptionconfigurationtypedef)
-  - [S3ExportConfigurationTypeDef](#s3exportconfigurationtypedef)
-  - [ValueHolderTypeDef](#valueholdertypedef)
   - [CancelJournalKinesisStreamResponseTypeDef](#canceljournalkinesisstreamresponsetypedef)
   - [CreateLedgerResponseTypeDef](#createledgerresponsetypedef)
   - [DescribeJournalKinesisStreamResponseTypeDef](#describejournalkinesisstreamresponsetypedef)
@@ -22,133 +15,20 @@ type annotations stubs module [mypy_boto3_qldb](https://pypi.org/project/mypy-bo
   - [GetBlockResponseTypeDef](#getblockresponsetypedef)
   - [GetDigestResponseTypeDef](#getdigestresponsetypedef)
   - [GetRevisionResponseTypeDef](#getrevisionresponsetypedef)
+  - [JournalKinesisStreamDescriptionTypeDef](#journalkinesisstreamdescriptiontypedef)
+  - [JournalS3ExportDescriptionTypeDef](#journals3exportdescriptiontypedef)
+  - [KinesisConfigurationTypeDef](#kinesisconfigurationtypedef)
+  - [LedgerSummaryTypeDef](#ledgersummarytypedef)
   - [ListJournalKinesisStreamsForLedgerResponseTypeDef](#listjournalkinesisstreamsforledgerresponsetypedef)
   - [ListJournalS3ExportsForLedgerResponseTypeDef](#listjournals3exportsforledgerresponsetypedef)
   - [ListJournalS3ExportsResponseTypeDef](#listjournals3exportsresponsetypedef)
   - [ListLedgersResponseTypeDef](#listledgersresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [S3EncryptionConfigurationTypeDef](#s3encryptionconfigurationtypedef)
+  - [S3ExportConfigurationTypeDef](#s3exportconfigurationtypedef)
   - [StreamJournalToKinesisResponseTypeDef](#streamjournaltokinesisresponsetypedef)
   - [UpdateLedgerResponseTypeDef](#updateledgerresponsetypedef)
-
-## JournalKinesisStreamDescriptionTypeDef
-
-```python
-from mypy_boto3_qldb.type_defs import JournalKinesisStreamDescriptionTypeDef
-```
-
-
-Required fields:
-- `LedgerName`: `str`
-- `RoleArn`: `str`
-- `StreamId`: `str`
-- `Status`: `StreamStatus`
-- `KinesisConfiguration`: `"KinesisConfigurationTypeDef"`
-- `StreamName`: `str`
-
-
-
-Optional fields:
-- `CreationTime`: `datetime`
-- `InclusiveStartTime`: `datetime`
-- `ExclusiveEndTime`: `datetime`
-- `Arn`: `str`
-- `ErrorCause`: `ErrorCause`
-
-
-## JournalS3ExportDescriptionTypeDef
-
-```python
-from mypy_boto3_qldb.type_defs import JournalS3ExportDescriptionTypeDef
-```
-
-
-Required fields:
-- `LedgerName`: `str`
-- `ExportId`: `str`
-- `ExportCreationTime`: `datetime`
-- `Status`: `ExportStatus`
-- `InclusiveStartTime`: `datetime`
-- `ExclusiveEndTime`: `datetime`
-- `S3ExportConfiguration`: `"S3ExportConfigurationTypeDef"`
-- `RoleArn`: `str`
-
-
-
-
-## KinesisConfigurationTypeDef
-
-```python
-from mypy_boto3_qldb.type_defs import KinesisConfigurationTypeDef
-```
-
-
-Required fields:
-- `StreamArn`: `str`
-
-
-
-Optional fields:
-- `AggregationEnabled`: `bool`
-
-
-## LedgerSummaryTypeDef
-
-```python
-from mypy_boto3_qldb.type_defs import LedgerSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `State`: `LedgerState`
-- `CreationDateTime`: `datetime`
-
-
-## S3EncryptionConfigurationTypeDef
-
-```python
-from mypy_boto3_qldb.type_defs import S3EncryptionConfigurationTypeDef
-```
-
-
-Required fields:
-- `ObjectEncryptionType`: `S3ObjectEncryptionType`
-
-
-
-Optional fields:
-- `KmsKeyArn`: `str`
-
-
-## S3ExportConfigurationTypeDef
-
-```python
-from mypy_boto3_qldb.type_defs import S3ExportConfigurationTypeDef
-```
-
-
-Required fields:
-- `Bucket`: `str`
-- `Prefix`: `str`
-- `EncryptionConfiguration`: `"S3EncryptionConfigurationTypeDef"`
-
-
-
-
-## ValueHolderTypeDef
-
-```python
-from mypy_boto3_qldb.type_defs import ValueHolderTypeDef
-```
-
-
-
-
-Optional fields:
-- `IonText`: `str`
-
+  - [ValueHolderTypeDef](#valueholdertypedef)
 
 ## CancelJournalKinesisStreamResponseTypeDef
 
@@ -282,6 +162,82 @@ Optional fields:
 - `Proof`: `"ValueHolderTypeDef"`
 
 
+## JournalKinesisStreamDescriptionTypeDef
+
+```python
+from mypy_boto3_qldb.type_defs import JournalKinesisStreamDescriptionTypeDef
+```
+
+
+Required fields:
+- `LedgerName`: `str`
+- `RoleArn`: `str`
+- `StreamId`: `str`
+- `Status`: `StreamStatus`
+- `KinesisConfiguration`: `"KinesisConfigurationTypeDef"`
+- `StreamName`: `str`
+
+
+
+Optional fields:
+- `CreationTime`: `datetime`
+- `InclusiveStartTime`: `datetime`
+- `ExclusiveEndTime`: `datetime`
+- `Arn`: `str`
+- `ErrorCause`: `ErrorCause`
+
+
+## JournalS3ExportDescriptionTypeDef
+
+```python
+from mypy_boto3_qldb.type_defs import JournalS3ExportDescriptionTypeDef
+```
+
+
+Required fields:
+- `LedgerName`: `str`
+- `ExportId`: `str`
+- `ExportCreationTime`: `datetime`
+- `Status`: `ExportStatus`
+- `InclusiveStartTime`: `datetime`
+- `ExclusiveEndTime`: `datetime`
+- `S3ExportConfiguration`: `"S3ExportConfigurationTypeDef"`
+- `RoleArn`: `str`
+
+
+
+
+## KinesisConfigurationTypeDef
+
+```python
+from mypy_boto3_qldb.type_defs import KinesisConfigurationTypeDef
+```
+
+
+Required fields:
+- `StreamArn`: `str`
+
+
+
+Optional fields:
+- `AggregationEnabled`: `bool`
+
+
+## LedgerSummaryTypeDef
+
+```python
+from mypy_boto3_qldb.type_defs import LedgerSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `State`: `LedgerState`
+- `CreationDateTime`: `datetime`
+
+
 ## ListJournalKinesisStreamsForLedgerResponseTypeDef
 
 ```python
@@ -351,6 +307,37 @@ Optional fields:
 - `Tags`: `Dict[str, str]`
 
 
+## S3EncryptionConfigurationTypeDef
+
+```python
+from mypy_boto3_qldb.type_defs import S3EncryptionConfigurationTypeDef
+```
+
+
+Required fields:
+- `ObjectEncryptionType`: `S3ObjectEncryptionType`
+
+
+
+Optional fields:
+- `KmsKeyArn`: `str`
+
+
+## S3ExportConfigurationTypeDef
+
+```python
+from mypy_boto3_qldb.type_defs import S3ExportConfigurationTypeDef
+```
+
+
+Required fields:
+- `Bucket`: `str`
+- `Prefix`: `str`
+- `EncryptionConfiguration`: `"S3EncryptionConfigurationTypeDef"`
+
+
+
+
 ## StreamJournalToKinesisResponseTypeDef
 
 ```python
@@ -379,4 +366,17 @@ Optional fields:
 - `State`: `LedgerState`
 - `CreationDateTime`: `datetime`
 - `DeletionProtection`: `bool`
+
+
+## ValueHolderTypeDef
+
+```python
+from mypy_boto3_qldb.type_defs import ValueHolderTypeDef
+```
+
+
+
+
+Optional fields:
+- `IonText`: `str`
 

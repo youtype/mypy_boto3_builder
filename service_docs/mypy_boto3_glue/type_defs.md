@@ -8,13 +8,30 @@ type annotations stubs module [mypy_boto3_glue](https://pypi.org/project/mypy-bo
 - [Structures for boto3 Glue module](#structures-for-boto3-glue-module)
   - [ActionTypeDef](#actiontypedef)
   - [BackfillErrorTypeDef](#backfillerrortypedef)
+  - [BatchCreatePartitionResponseTypeDef](#batchcreatepartitionresponsetypedef)
+  - [BatchDeleteConnectionResponseTypeDef](#batchdeleteconnectionresponsetypedef)
+  - [BatchDeletePartitionResponseTypeDef](#batchdeletepartitionresponsetypedef)
+  - [BatchDeleteTableResponseTypeDef](#batchdeletetableresponsetypedef)
+  - [BatchDeleteTableVersionResponseTypeDef](#batchdeletetableversionresponsetypedef)
+  - [BatchGetCrawlersResponseTypeDef](#batchgetcrawlersresponsetypedef)
+  - [BatchGetDevEndpointsResponseTypeDef](#batchgetdevendpointsresponsetypedef)
+  - [BatchGetJobsResponseTypeDef](#batchgetjobsresponsetypedef)
+  - [BatchGetPartitionResponseTypeDef](#batchgetpartitionresponsetypedef)
+  - [BatchGetTriggersResponseTypeDef](#batchgettriggersresponsetypedef)
+  - [BatchGetWorkflowsResponseTypeDef](#batchgetworkflowsresponsetypedef)
   - [BatchStopJobRunErrorTypeDef](#batchstopjobrunerrortypedef)
+  - [BatchStopJobRunResponseTypeDef](#batchstopjobrunresponsetypedef)
   - [BatchStopJobRunSuccessfulSubmissionTypeDef](#batchstopjobrunsuccessfulsubmissiontypedef)
   - [BatchUpdatePartitionFailureEntryTypeDef](#batchupdatepartitionfailureentrytypedef)
+  - [BatchUpdatePartitionRequestEntryTypeDef](#batchupdatepartitionrequestentrytypedef)
+  - [BatchUpdatePartitionResponseTypeDef](#batchupdatepartitionresponsetypedef)
   - [BinaryColumnStatisticsDataTypeDef](#binarycolumnstatisticsdatatypedef)
   - [BooleanColumnStatisticsDataTypeDef](#booleancolumnstatisticsdatatypedef)
+  - [CancelMLTaskRunResponseTypeDef](#cancelmltaskrunresponsetypedef)
+  - [CatalogEntryTypeDef](#catalogentrytypedef)
   - [CatalogImportStatusTypeDef](#catalogimportstatustypedef)
   - [CatalogTargetTypeDef](#catalogtargettypedef)
+  - [CheckSchemaVersionValidityResponseTypeDef](#checkschemaversionvalidityresponsetypedef)
   - [ClassifierTypeDef](#classifiertypedef)
   - [CloudWatchEncryptionTypeDef](#cloudwatchencryptiontypedef)
   - [CodeGenEdgeTypeDef](#codegenedgetypedef)
@@ -28,6 +45,7 @@ type annotations stubs module [mypy_boto3_glue](https://pypi.org/project/mypy-bo
   - [ColumnTypeDef](#columntypedef)
   - [ConditionTypeDef](#conditiontypedef)
   - [ConfusionMatrixTypeDef](#confusionmatrixtypedef)
+  - [ConnectionInputTypeDef](#connectioninputtypedef)
   - [ConnectionPasswordEncryptionTypeDef](#connectionpasswordencryptiontypedef)
   - [ConnectionTypeDef](#connectiontypedef)
   - [ConnectionsListTypeDef](#connectionslisttypedef)
@@ -36,14 +54,36 @@ type annotations stubs module [mypy_boto3_glue](https://pypi.org/project/mypy-bo
   - [CrawlerNodeDetailsTypeDef](#crawlernodedetailstypedef)
   - [CrawlerTargetsTypeDef](#crawlertargetstypedef)
   - [CrawlerTypeDef](#crawlertypedef)
+  - [CreateCsvClassifierRequestTypeDef](#createcsvclassifierrequesttypedef)
+  - [CreateDevEndpointResponseTypeDef](#createdevendpointresponsetypedef)
+  - [CreateGrokClassifierRequestTypeDef](#creategrokclassifierrequesttypedef)
+  - [CreateJobResponseTypeDef](#createjobresponsetypedef)
+  - [CreateJsonClassifierRequestTypeDef](#createjsonclassifierrequesttypedef)
+  - [CreateMLTransformResponseTypeDef](#createmltransformresponsetypedef)
+  - [CreateRegistryResponseTypeDef](#createregistryresponsetypedef)
+  - [CreateSchemaResponseTypeDef](#createschemaresponsetypedef)
+  - [CreateScriptResponseTypeDef](#createscriptresponsetypedef)
+  - [CreateSecurityConfigurationResponseTypeDef](#createsecurityconfigurationresponsetypedef)
+  - [CreateTriggerResponseTypeDef](#createtriggerresponsetypedef)
+  - [CreateWorkflowResponseTypeDef](#createworkflowresponsetypedef)
+  - [CreateXMLClassifierRequestTypeDef](#createxmlclassifierrequesttypedef)
   - [CsvClassifierTypeDef](#csvclassifiertypedef)
   - [DataCatalogEncryptionSettingsTypeDef](#datacatalogencryptionsettingstypedef)
   - [DataLakePrincipalTypeDef](#datalakeprincipaltypedef)
   - [DatabaseIdentifierTypeDef](#databaseidentifiertypedef)
+  - [DatabaseInputTypeDef](#databaseinputtypedef)
   - [DatabaseTypeDef](#databasetypedef)
   - [DateColumnStatisticsDataTypeDef](#datecolumnstatisticsdatatypedef)
   - [DecimalColumnStatisticsDataTypeDef](#decimalcolumnstatisticsdatatypedef)
   - [DecimalNumberTypeDef](#decimalnumbertypedef)
+  - [DeleteJobResponseTypeDef](#deletejobresponsetypedef)
+  - [DeleteMLTransformResponseTypeDef](#deletemltransformresponsetypedef)
+  - [DeleteRegistryResponseTypeDef](#deleteregistryresponsetypedef)
+  - [DeleteSchemaResponseTypeDef](#deleteschemaresponsetypedef)
+  - [DeleteSchemaVersionsResponseTypeDef](#deleteschemaversionsresponsetypedef)
+  - [DeleteTriggerResponseTypeDef](#deletetriggerresponsetypedef)
+  - [DeleteWorkflowResponseTypeDef](#deleteworkflowresponsetypedef)
+  - [DevEndpointCustomLibrariesTypeDef](#devendpointcustomlibrariestypedef)
   - [DevEndpointTypeDef](#devendpointtypedef)
   - [DoubleColumnStatisticsDataTypeDef](#doublecolumnstatisticsdatatypedef)
   - [DynamoDBTargetTypeDef](#dynamodbtargettypedef)
@@ -58,116 +98,6 @@ type annotations stubs module [mypy_boto3_glue](https://pypi.org/project/mypy-bo
   - [FindMatchesMetricsTypeDef](#findmatchesmetricstypedef)
   - [FindMatchesParametersTypeDef](#findmatchesparameterstypedef)
   - [FindMatchesTaskRunPropertiesTypeDef](#findmatchestaskrunpropertiestypedef)
-  - [GluePolicyTypeDef](#gluepolicytypedef)
-  - [GlueTableTypeDef](#gluetabletypedef)
-  - [GrokClassifierTypeDef](#grokclassifiertypedef)
-  - [ImportLabelsTaskRunPropertiesTypeDef](#importlabelstaskrunpropertiestypedef)
-  - [JdbcTargetTypeDef](#jdbctargettypedef)
-  - [JobBookmarkEntryTypeDef](#jobbookmarkentrytypedef)
-  - [JobBookmarksEncryptionTypeDef](#jobbookmarksencryptiontypedef)
-  - [JobCommandTypeDef](#jobcommandtypedef)
-  - [JobNodeDetailsTypeDef](#jobnodedetailstypedef)
-  - [JobRunTypeDef](#jobruntypedef)
-  - [JobTypeDef](#jobtypedef)
-  - [JsonClassifierTypeDef](#jsonclassifiertypedef)
-  - [KeySchemaElementTypeDef](#keyschemaelementtypedef)
-  - [LabelingSetGenerationTaskRunPropertiesTypeDef](#labelingsetgenerationtaskrunpropertiestypedef)
-  - [LastCrawlInfoTypeDef](#lastcrawlinfotypedef)
-  - [LineageConfigurationTypeDef](#lineageconfigurationtypedef)
-  - [LongColumnStatisticsDataTypeDef](#longcolumnstatisticsdatatypedef)
-  - [MLTransformTypeDef](#mltransformtypedef)
-  - [MLUserDataEncryptionTypeDef](#mluserdataencryptiontypedef)
-  - [MappingEntryTypeDef](#mappingentrytypedef)
-  - [MetadataInfoTypeDef](#metadatainfotypedef)
-  - [MongoDBTargetTypeDef](#mongodbtargettypedef)
-  - [NodeTypeDef](#nodetypedef)
-  - [NotificationPropertyTypeDef](#notificationpropertytypedef)
-  - [OrderTypeDef](#ordertypedef)
-  - [OtherMetadataValueListItemTypeDef](#othermetadatavaluelistitemtypedef)
-  - [PartitionErrorTypeDef](#partitionerrortypedef)
-  - [PartitionIndexDescriptorTypeDef](#partitionindexdescriptortypedef)
-  - [PartitionInputTypeDef](#partitioninputtypedef)
-  - [PartitionTypeDef](#partitiontypedef)
-  - [PartitionValueListTypeDef](#partitionvaluelisttypedef)
-  - [PhysicalConnectionRequirementsTypeDef](#physicalconnectionrequirementstypedef)
-  - [PredecessorTypeDef](#predecessortypedef)
-  - [PredicateTypeDef](#predicatetypedef)
-  - [PrincipalPermissionsTypeDef](#principalpermissionstypedef)
-  - [RecrawlPolicyTypeDef](#recrawlpolicytypedef)
-  - [RegistryListItemTypeDef](#registrylistitemtypedef)
-  - [ResourceUriTypeDef](#resourceuritypedef)
-  - [S3EncryptionTypeDef](#s3encryptiontypedef)
-  - [S3TargetTypeDef](#s3targettypedef)
-  - [ScheduleTypeDef](#scheduletypedef)
-  - [SchemaChangePolicyTypeDef](#schemachangepolicytypedef)
-  - [SchemaColumnTypeDef](#schemacolumntypedef)
-  - [SchemaIdTypeDef](#schemaidtypedef)
-  - [SchemaListItemTypeDef](#schemalistitemtypedef)
-  - [SchemaReferenceTypeDef](#schemareferencetypedef)
-  - [SchemaVersionErrorItemTypeDef](#schemaversionerroritemtypedef)
-  - [SchemaVersionListItemTypeDef](#schemaversionlistitemtypedef)
-  - [SecurityConfigurationTypeDef](#securityconfigurationtypedef)
-  - [SerDeInfoTypeDef](#serdeinfotypedef)
-  - [SkewedInfoTypeDef](#skewedinfotypedef)
-  - [StorageDescriptorTypeDef](#storagedescriptortypedef)
-  - [StringColumnStatisticsDataTypeDef](#stringcolumnstatisticsdatatypedef)
-  - [TableErrorTypeDef](#tableerrortypedef)
-  - [TableIdentifierTypeDef](#tableidentifiertypedef)
-  - [TableTypeDef](#tabletypedef)
-  - [TableVersionErrorTypeDef](#tableversionerrortypedef)
-  - [TableVersionTypeDef](#tableversiontypedef)
-  - [TaskRunPropertiesTypeDef](#taskrunpropertiestypedef)
-  - [TaskRunTypeDef](#taskruntypedef)
-  - [TransformEncryptionTypeDef](#transformencryptiontypedef)
-  - [TransformParametersTypeDef](#transformparameterstypedef)
-  - [TriggerNodeDetailsTypeDef](#triggernodedetailstypedef)
-  - [TriggerTypeDef](#triggertypedef)
-  - [UserDefinedFunctionTypeDef](#userdefinedfunctiontypedef)
-  - [WorkflowGraphTypeDef](#workflowgraphtypedef)
-  - [WorkflowRunStatisticsTypeDef](#workflowrunstatisticstypedef)
-  - [WorkflowRunTypeDef](#workflowruntypedef)
-  - [WorkflowTypeDef](#workflowtypedef)
-  - [XMLClassifierTypeDef](#xmlclassifiertypedef)
-  - [BatchCreatePartitionResponseTypeDef](#batchcreatepartitionresponsetypedef)
-  - [BatchDeleteConnectionResponseTypeDef](#batchdeleteconnectionresponsetypedef)
-  - [BatchDeletePartitionResponseTypeDef](#batchdeletepartitionresponsetypedef)
-  - [BatchDeleteTableResponseTypeDef](#batchdeletetableresponsetypedef)
-  - [BatchDeleteTableVersionResponseTypeDef](#batchdeletetableversionresponsetypedef)
-  - [BatchGetCrawlersResponseTypeDef](#batchgetcrawlersresponsetypedef)
-  - [BatchGetDevEndpointsResponseTypeDef](#batchgetdevendpointsresponsetypedef)
-  - [BatchGetJobsResponseTypeDef](#batchgetjobsresponsetypedef)
-  - [BatchGetPartitionResponseTypeDef](#batchgetpartitionresponsetypedef)
-  - [BatchGetTriggersResponseTypeDef](#batchgettriggersresponsetypedef)
-  - [BatchGetWorkflowsResponseTypeDef](#batchgetworkflowsresponsetypedef)
-  - [BatchStopJobRunResponseTypeDef](#batchstopjobrunresponsetypedef)
-  - [BatchUpdatePartitionRequestEntryTypeDef](#batchupdatepartitionrequestentrytypedef)
-  - [BatchUpdatePartitionResponseTypeDef](#batchupdatepartitionresponsetypedef)
-  - [CancelMLTaskRunResponseTypeDef](#cancelmltaskrunresponsetypedef)
-  - [CatalogEntryTypeDef](#catalogentrytypedef)
-  - [CheckSchemaVersionValidityResponseTypeDef](#checkschemaversionvalidityresponsetypedef)
-  - [ConnectionInputTypeDef](#connectioninputtypedef)
-  - [CreateCsvClassifierRequestTypeDef](#createcsvclassifierrequesttypedef)
-  - [CreateDevEndpointResponseTypeDef](#createdevendpointresponsetypedef)
-  - [CreateGrokClassifierRequestTypeDef](#creategrokclassifierrequesttypedef)
-  - [CreateJobResponseTypeDef](#createjobresponsetypedef)
-  - [CreateJsonClassifierRequestTypeDef](#createjsonclassifierrequesttypedef)
-  - [CreateMLTransformResponseTypeDef](#createmltransformresponsetypedef)
-  - [CreateRegistryResponseTypeDef](#createregistryresponsetypedef)
-  - [CreateSchemaResponseTypeDef](#createschemaresponsetypedef)
-  - [CreateScriptResponseTypeDef](#createscriptresponsetypedef)
-  - [CreateSecurityConfigurationResponseTypeDef](#createsecurityconfigurationresponsetypedef)
-  - [CreateTriggerResponseTypeDef](#createtriggerresponsetypedef)
-  - [CreateWorkflowResponseTypeDef](#createworkflowresponsetypedef)
-  - [CreateXMLClassifierRequestTypeDef](#createxmlclassifierrequesttypedef)
-  - [DatabaseInputTypeDef](#databaseinputtypedef)
-  - [DeleteJobResponseTypeDef](#deletejobresponsetypedef)
-  - [DeleteMLTransformResponseTypeDef](#deletemltransformresponsetypedef)
-  - [DeleteRegistryResponseTypeDef](#deleteregistryresponsetypedef)
-  - [DeleteSchemaResponseTypeDef](#deleteschemaresponsetypedef)
-  - [DeleteSchemaVersionsResponseTypeDef](#deleteschemaversionsresponsetypedef)
-  - [DeleteTriggerResponseTypeDef](#deletetriggerresponsetypedef)
-  - [DeleteWorkflowResponseTypeDef](#deleteworkflowresponsetypedef)
-  - [DevEndpointCustomLibrariesTypeDef](#devendpointcustomlibrariestypedef)
   - [GetCatalogImportStatusResponseTypeDef](#getcatalogimportstatusresponsetypedef)
   - [GetClassifierResponseTypeDef](#getclassifierresponsetypedef)
   - [GetClassifiersResponseTypeDef](#getclassifiersresponsetypedef)
@@ -221,7 +151,23 @@ type annotations stubs module [mypy_boto3_glue](https://pypi.org/project/mypy-bo
   - [GetWorkflowRunPropertiesResponseTypeDef](#getworkflowrunpropertiesresponsetypedef)
   - [GetWorkflowRunResponseTypeDef](#getworkflowrunresponsetypedef)
   - [GetWorkflowRunsResponseTypeDef](#getworkflowrunsresponsetypedef)
+  - [GluePolicyTypeDef](#gluepolicytypedef)
+  - [GlueTableTypeDef](#gluetabletypedef)
+  - [GrokClassifierTypeDef](#grokclassifiertypedef)
+  - [ImportLabelsTaskRunPropertiesTypeDef](#importlabelstaskrunpropertiestypedef)
+  - [JdbcTargetTypeDef](#jdbctargettypedef)
+  - [JobBookmarkEntryTypeDef](#jobbookmarkentrytypedef)
+  - [JobBookmarksEncryptionTypeDef](#jobbookmarksencryptiontypedef)
+  - [JobCommandTypeDef](#jobcommandtypedef)
+  - [JobNodeDetailsTypeDef](#jobnodedetailstypedef)
+  - [JobRunTypeDef](#jobruntypedef)
+  - [JobTypeDef](#jobtypedef)
   - [JobUpdateTypeDef](#jobupdatetypedef)
+  - [JsonClassifierTypeDef](#jsonclassifiertypedef)
+  - [KeySchemaElementTypeDef](#keyschemaelementtypedef)
+  - [LabelingSetGenerationTaskRunPropertiesTypeDef](#labelingsetgenerationtaskrunpropertiestypedef)
+  - [LastCrawlInfoTypeDef](#lastcrawlinfotypedef)
+  - [LineageConfigurationTypeDef](#lineageconfigurationtypedef)
   - [ListCrawlersResponseTypeDef](#listcrawlersresponsetypedef)
   - [ListDevEndpointsResponseTypeDef](#listdevendpointsresponsetypedef)
   - [ListJobsResponseTypeDef](#listjobsresponsetypedef)
@@ -232,21 +178,56 @@ type annotations stubs module [mypy_boto3_glue](https://pypi.org/project/mypy-bo
   - [ListTriggersResponseTypeDef](#listtriggersresponsetypedef)
   - [ListWorkflowsResponseTypeDef](#listworkflowsresponsetypedef)
   - [LocationTypeDef](#locationtypedef)
+  - [LongColumnStatisticsDataTypeDef](#longcolumnstatisticsdatatypedef)
+  - [MLTransformTypeDef](#mltransformtypedef)
+  - [MLUserDataEncryptionTypeDef](#mluserdataencryptiontypedef)
+  - [MappingEntryTypeDef](#mappingentrytypedef)
+  - [MetadataInfoTypeDef](#metadatainfotypedef)
   - [MetadataKeyValuePairTypeDef](#metadatakeyvaluepairtypedef)
+  - [MongoDBTargetTypeDef](#mongodbtargettypedef)
+  - [NodeTypeDef](#nodetypedef)
+  - [NotificationPropertyTypeDef](#notificationpropertytypedef)
+  - [OrderTypeDef](#ordertypedef)
+  - [OtherMetadataValueListItemTypeDef](#othermetadatavaluelistitemtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PartitionErrorTypeDef](#partitionerrortypedef)
+  - [PartitionIndexDescriptorTypeDef](#partitionindexdescriptortypedef)
   - [PartitionIndexTypeDef](#partitionindextypedef)
+  - [PartitionInputTypeDef](#partitioninputtypedef)
+  - [PartitionTypeDef](#partitiontypedef)
+  - [PartitionValueListTypeDef](#partitionvaluelisttypedef)
+  - [PhysicalConnectionRequirementsTypeDef](#physicalconnectionrequirementstypedef)
+  - [PredecessorTypeDef](#predecessortypedef)
+  - [PredicateTypeDef](#predicatetypedef)
+  - [PrincipalPermissionsTypeDef](#principalpermissionstypedef)
   - [PropertyPredicateTypeDef](#propertypredicatetypedef)
   - [PutResourcePolicyResponseTypeDef](#putresourcepolicyresponsetypedef)
   - [PutSchemaVersionMetadataResponseTypeDef](#putschemaversionmetadataresponsetypedef)
   - [QuerySchemaVersionMetadataResponseTypeDef](#queryschemaversionmetadataresponsetypedef)
+  - [RecrawlPolicyTypeDef](#recrawlpolicytypedef)
   - [RegisterSchemaVersionResponseTypeDef](#registerschemaversionresponsetypedef)
   - [RegistryIdTypeDef](#registryidtypedef)
+  - [RegistryListItemTypeDef](#registrylistitemtypedef)
   - [RemoveSchemaVersionMetadataResponseTypeDef](#removeschemaversionmetadataresponsetypedef)
   - [ResetJobBookmarkResponseTypeDef](#resetjobbookmarkresponsetypedef)
+  - [ResourceUriTypeDef](#resourceuritypedef)
   - [ResumeWorkflowRunResponseTypeDef](#resumeworkflowrunresponsetypedef)
+  - [S3EncryptionTypeDef](#s3encryptiontypedef)
+  - [S3TargetTypeDef](#s3targettypedef)
+  - [ScheduleTypeDef](#scheduletypedef)
+  - [SchemaChangePolicyTypeDef](#schemachangepolicytypedef)
+  - [SchemaColumnTypeDef](#schemacolumntypedef)
+  - [SchemaIdTypeDef](#schemaidtypedef)
+  - [SchemaListItemTypeDef](#schemalistitemtypedef)
+  - [SchemaReferenceTypeDef](#schemareferencetypedef)
+  - [SchemaVersionErrorItemTypeDef](#schemaversionerroritemtypedef)
+  - [SchemaVersionListItemTypeDef](#schemaversionlistitemtypedef)
   - [SchemaVersionNumberTypeDef](#schemaversionnumbertypedef)
   - [SearchTablesResponseTypeDef](#searchtablesresponsetypedef)
+  - [SecurityConfigurationTypeDef](#securityconfigurationtypedef)
   - [SegmentTypeDef](#segmenttypedef)
+  - [SerDeInfoTypeDef](#serdeinfotypedef)
+  - [SkewedInfoTypeDef](#skewedinfotypedef)
   - [SortCriterionTypeDef](#sortcriteriontypedef)
   - [StartExportLabelsTaskRunResponseTypeDef](#startexportlabelstaskrunresponsetypedef)
   - [StartImportLabelsTaskRunResponseTypeDef](#startimportlabelstaskrunresponsetypedef)
@@ -256,11 +237,24 @@ type annotations stubs module [mypy_boto3_glue](https://pypi.org/project/mypy-bo
   - [StartTriggerResponseTypeDef](#starttriggerresponsetypedef)
   - [StartWorkflowRunResponseTypeDef](#startworkflowrunresponsetypedef)
   - [StopTriggerResponseTypeDef](#stoptriggerresponsetypedef)
+  - [StorageDescriptorTypeDef](#storagedescriptortypedef)
+  - [StringColumnStatisticsDataTypeDef](#stringcolumnstatisticsdatatypedef)
+  - [TableErrorTypeDef](#tableerrortypedef)
+  - [TableIdentifierTypeDef](#tableidentifiertypedef)
   - [TableInputTypeDef](#tableinputtypedef)
+  - [TableTypeDef](#tabletypedef)
+  - [TableVersionErrorTypeDef](#tableversionerrortypedef)
+  - [TableVersionTypeDef](#tableversiontypedef)
   - [TaskRunFilterCriteriaTypeDef](#taskrunfiltercriteriatypedef)
+  - [TaskRunPropertiesTypeDef](#taskrunpropertiestypedef)
   - [TaskRunSortCriteriaTypeDef](#taskrunsortcriteriatypedef)
+  - [TaskRunTypeDef](#taskruntypedef)
+  - [TransformEncryptionTypeDef](#transformencryptiontypedef)
   - [TransformFilterCriteriaTypeDef](#transformfiltercriteriatypedef)
+  - [TransformParametersTypeDef](#transformparameterstypedef)
   - [TransformSortCriteriaTypeDef](#transformsortcriteriatypedef)
+  - [TriggerNodeDetailsTypeDef](#triggernodedetailstypedef)
+  - [TriggerTypeDef](#triggertypedef)
   - [TriggerUpdateTypeDef](#triggerupdatetypedef)
   - [UpdateColumnStatisticsForPartitionResponseTypeDef](#updatecolumnstatisticsforpartitionresponsetypedef)
   - [UpdateColumnStatisticsForTableResponseTypeDef](#updatecolumnstatisticsfortableresponsetypedef)
@@ -275,6 +269,12 @@ type annotations stubs module [mypy_boto3_glue](https://pypi.org/project/mypy-bo
   - [UpdateWorkflowResponseTypeDef](#updateworkflowresponsetypedef)
   - [UpdateXMLClassifierRequestTypeDef](#updatexmlclassifierrequesttypedef)
   - [UserDefinedFunctionInputTypeDef](#userdefinedfunctioninputtypedef)
+  - [UserDefinedFunctionTypeDef](#userdefinedfunctiontypedef)
+  - [WorkflowGraphTypeDef](#workflowgraphtypedef)
+  - [WorkflowRunStatisticsTypeDef](#workflowrunstatisticstypedef)
+  - [WorkflowRunTypeDef](#workflowruntypedef)
+  - [WorkflowTypeDef](#workflowtypedef)
+  - [XMLClassifierTypeDef](#xmlclassifiertypedef)
 
 ## ActionTypeDef
 
@@ -308,6 +308,156 @@ Optional fields:
 - `Partitions`: `List["PartitionValueListTypeDef"]`
 
 
+## BatchCreatePartitionResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchCreatePartitionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Errors`: `List["PartitionErrorTypeDef"]`
+
+
+## BatchDeleteConnectionResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchDeleteConnectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Succeeded`: `List[str]`
+- `Errors`: `Dict[str, "ErrorDetailTypeDef"]`
+
+
+## BatchDeletePartitionResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchDeletePartitionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Errors`: `List["PartitionErrorTypeDef"]`
+
+
+## BatchDeleteTableResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchDeleteTableResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Errors`: `List["TableErrorTypeDef"]`
+
+
+## BatchDeleteTableVersionResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchDeleteTableVersionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Errors`: `List["TableVersionErrorTypeDef"]`
+
+
+## BatchGetCrawlersResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchGetCrawlersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Crawlers`: `List["CrawlerTypeDef"]`
+- `CrawlersNotFound`: `List[str]`
+
+
+## BatchGetDevEndpointsResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchGetDevEndpointsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DevEndpoints`: `List["DevEndpointTypeDef"]`
+- `DevEndpointsNotFound`: `List[str]`
+
+
+## BatchGetJobsResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchGetJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Jobs`: `List["JobTypeDef"]`
+- `JobsNotFound`: `List[str]`
+
+
+## BatchGetPartitionResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchGetPartitionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Partitions`: `List["PartitionTypeDef"]`
+- `UnprocessedKeys`: `List["PartitionValueListTypeDef"]`
+
+
+## BatchGetTriggersResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchGetTriggersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Triggers`: `List["TriggerTypeDef"]`
+- `TriggersNotFound`: `List[str]`
+
+
+## BatchGetWorkflowsResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchGetWorkflowsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Workflows`: `List["WorkflowTypeDef"]`
+- `MissingWorkflows`: `List[str]`
+
+
 ## BatchStopJobRunErrorTypeDef
 
 ```python
@@ -321,6 +471,20 @@ Optional fields:
 - `JobName`: `str`
 - `JobRunId`: `str`
 - `ErrorDetail`: `"ErrorDetailTypeDef"`
+
+
+## BatchStopJobRunResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchStopJobRunResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SuccessfulSubmissions`: `List["BatchStopJobRunSuccessfulSubmissionTypeDef"]`
+- `Errors`: `List["BatchStopJobRunErrorTypeDef"]`
 
 
 ## BatchStopJobRunSuccessfulSubmissionTypeDef
@@ -349,6 +513,33 @@ from mypy_boto3_glue.type_defs import BatchUpdatePartitionFailureEntryTypeDef
 Optional fields:
 - `PartitionValueList`: `List[str]`
 - `ErrorDetail`: `"ErrorDetailTypeDef"`
+
+
+## BatchUpdatePartitionRequestEntryTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchUpdatePartitionRequestEntryTypeDef
+```
+
+
+Required fields:
+- `PartitionValueList`: `List[str]`
+- `PartitionInput`: `"PartitionInputTypeDef"`
+
+
+
+
+## BatchUpdatePartitionResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import BatchUpdatePartitionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Errors`: `List["BatchUpdatePartitionFailureEntryTypeDef"]`
 
 
 ## BinaryColumnStatisticsDataTypeDef
@@ -381,6 +572,35 @@ Required fields:
 
 
 
+## CancelMLTaskRunResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CancelMLTaskRunResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransformId`: `str`
+- `TaskRunId`: `str`
+- `Status`: `TaskStatusType`
+
+
+## CatalogEntryTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CatalogEntryTypeDef
+```
+
+
+Required fields:
+- `DatabaseName`: `str`
+- `TableName`: `str`
+
+
+
+
 ## CatalogImportStatusTypeDef
 
 ```python
@@ -408,6 +628,20 @@ Required fields:
 - `Tables`: `List[str]`
 
 
+
+
+## CheckSchemaVersionValidityResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CheckSchemaVersionValidityResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Valid`: `bool`
+- `Error`: `str`
 
 
 ## ClassifierTypeDef
@@ -600,7 +834,7 @@ from mypy_boto3_glue.type_defs import ConditionTypeDef
 
 
 Optional fields:
-- `LogicalOperator`: `LogicalOperator`
+- `LogicalOperator`: `Literal['EQUALS']`
 - `JobName`: `str`
 - `State`: `JobRunState`
 - `CrawlerName`: `str`
@@ -621,6 +855,26 @@ Optional fields:
 - `NumFalsePositives`: `int`
 - `NumTrueNegatives`: `int`
 - `NumFalseNegatives`: `int`
+
+
+## ConnectionInputTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import ConnectionInputTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `ConnectionType`: `ConnectionType`
+- `ConnectionProperties`: `Dict[ConnectionPropertyKey, str]`
+
+
+
+Optional fields:
+- `Description`: `str`
+- `MatchCriteria`: `List[str]`
+- `PhysicalConnectionRequirements`: `"PhysicalConnectionRequirementsTypeDef"`
 
 
 ## ConnectionPasswordEncryptionTypeDef
@@ -772,6 +1026,229 @@ Optional fields:
 - `CrawlerSecurityConfiguration`: `str`
 
 
+## CreateCsvClassifierRequestTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateCsvClassifierRequestTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+
+
+
+Optional fields:
+- `Delimiter`: `str`
+- `QuoteSymbol`: `str`
+- `ContainsHeader`: `CsvHeaderOption`
+- `Header`: `List[str]`
+- `DisableValueTrimming`: `bool`
+- `AllowSingleColumn`: `bool`
+
+
+## CreateDevEndpointResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateDevEndpointResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `EndpointName`: `str`
+- `Status`: `str`
+- `SecurityGroupIds`: `List[str]`
+- `SubnetId`: `str`
+- `RoleArn`: `str`
+- `YarnEndpointAddress`: `str`
+- `ZeppelinRemoteSparkInterpreterPort`: `int`
+- `NumberOfNodes`: `int`
+- `WorkerType`: `WorkerType`
+- `GlueVersion`: `str`
+- `NumberOfWorkers`: `int`
+- `AvailabilityZone`: `str`
+- `VpcId`: `str`
+- `ExtraPythonLibsS3Path`: `str`
+- `ExtraJarsS3Path`: `str`
+- `FailureReason`: `str`
+- `SecurityConfiguration`: `str`
+- `CreatedTimestamp`: `datetime`
+- `Arguments`: `Dict[str, str]`
+
+
+## CreateGrokClassifierRequestTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateGrokClassifierRequestTypeDef
+```
+
+
+Required fields:
+- `Classification`: `str`
+- `Name`: `str`
+- `GrokPattern`: `str`
+
+
+
+Optional fields:
+- `CustomPatterns`: `str`
+
+
+## CreateJobResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
+## CreateJsonClassifierRequestTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateJsonClassifierRequestTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `JsonPath`: `str`
+
+
+
+
+## CreateMLTransformResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateMLTransformResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransformId`: `str`
+
+
+## CreateRegistryResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateRegistryResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RegistryArn`: `str`
+- `RegistryName`: `str`
+- `Description`: `str`
+- `Tags`: `Dict[str, str]`
+
+
+## CreateSchemaResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateSchemaResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RegistryName`: `str`
+- `RegistryArn`: `str`
+- `SchemaName`: `str`
+- `SchemaArn`: `str`
+- `Description`: `str`
+- `DataFormat`: `Literal['AVRO']`
+- `Compatibility`: `Compatibility`
+- `SchemaCheckpoint`: `int`
+- `LatestSchemaVersion`: `int`
+- `NextSchemaVersion`: `int`
+- `SchemaStatus`: `SchemaStatus`
+- `Tags`: `Dict[str, str]`
+- `SchemaVersionId`: `str`
+- `SchemaVersionStatus`: `SchemaVersionStatus`
+
+
+## CreateScriptResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateScriptResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PythonScript`: `str`
+- `ScalaCode`: `str`
+
+
+## CreateSecurityConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateSecurityConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `CreatedTimestamp`: `datetime`
+
+
+## CreateTriggerResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateTriggerResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
+## CreateWorkflowResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateWorkflowResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
+## CreateXMLClassifierRequestTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import CreateXMLClassifierRequestTypeDef
+```
+
+
+Required fields:
+- `Classification`: `str`
+- `Name`: `str`
+
+
+
+Optional fields:
+- `RowTag`: `str`
+
+
 ## CsvClassifierTypeDef
 
 ```python
@@ -835,6 +1312,26 @@ from mypy_boto3_glue.type_defs import DatabaseIdentifierTypeDef
 Optional fields:
 - `CatalogId`: `str`
 - `DatabaseName`: `str`
+
+
+## DatabaseInputTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import DatabaseInputTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+
+
+
+Optional fields:
+- `Description`: `str`
+- `LocationUri`: `str`
+- `Parameters`: `Dict[str, str]`
+- `CreateTableDefaultPermissions`: `List["PrincipalPermissionsTypeDef"]`
+- `TargetDatabase`: `"DatabaseIdentifierTypeDef"`
 
 
 ## DatabaseTypeDef
@@ -907,6 +1404,115 @@ Required fields:
 - `Scale`: `int`
 
 
+
+
+## DeleteJobResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import DeleteJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobName`: `str`
+
+
+## DeleteMLTransformResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import DeleteMLTransformResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransformId`: `str`
+
+
+## DeleteRegistryResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import DeleteRegistryResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `RegistryName`: `str`
+- `RegistryArn`: `str`
+- `Status`: `RegistryStatus`
+
+
+## DeleteSchemaResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import DeleteSchemaResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SchemaArn`: `str`
+- `SchemaName`: `str`
+- `Status`: `SchemaStatus`
+
+
+## DeleteSchemaVersionsResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import DeleteSchemaVersionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `SchemaVersionErrors`: `List["SchemaVersionErrorItemTypeDef"]`
+
+
+## DeleteTriggerResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import DeleteTriggerResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
+## DeleteWorkflowResponseTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import DeleteWorkflowResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+
+
+## DevEndpointCustomLibrariesTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import DevEndpointCustomLibrariesTypeDef
+```
+
+
+
+
+Optional fields:
+- `ExtraPythonLibsS3Path`: `str`
+- `ExtraJarsS3Path`: `str`
 
 
 ## DevEndpointTypeDef
@@ -1060,7 +1666,7 @@ from mypy_boto3_glue.type_defs import EvaluationMetricsTypeDef
 
 
 Required fields:
-- `TransformType`: `TransformType`
+- `TransformType`: `Literal['FIND_MATCHES']`
 
 
 
@@ -1141,1802 +1747,6 @@ Optional fields:
 - `JobId`: `str`
 - `JobName`: `str`
 - `JobRunId`: `str`
-
-
-## GluePolicyTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import GluePolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicyInJson`: `str`
-- `PolicyHash`: `str`
-- `CreateTime`: `datetime`
-- `UpdateTime`: `datetime`
-
-
-## GlueTableTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import GlueTableTypeDef
-```
-
-
-Required fields:
-- `DatabaseName`: `str`
-- `TableName`: `str`
-
-
-
-Optional fields:
-- `CatalogId`: `str`
-- `ConnectionName`: `str`
-
-
-## GrokClassifierTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import GrokClassifierTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Classification`: `str`
-- `GrokPattern`: `str`
-
-
-
-Optional fields:
-- `CreationTime`: `datetime`
-- `LastUpdated`: `datetime`
-- `Version`: `int`
-- `CustomPatterns`: `str`
-
-
-## ImportLabelsTaskRunPropertiesTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import ImportLabelsTaskRunPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `InputS3Path`: `str`
-- `Replace`: `bool`
-
-
-## JdbcTargetTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import JdbcTargetTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConnectionName`: `str`
-- `Path`: `str`
-- `Exclusions`: `List[str]`
-
-
-## JobBookmarkEntryTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import JobBookmarkEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobName`: `str`
-- `Version`: `int`
-- `Run`: `int`
-- `Attempt`: `int`
-- `PreviousRunId`: `str`
-- `RunId`: `str`
-- `JobBookmark`: `str`
-
-
-## JobBookmarksEncryptionTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import JobBookmarksEncryptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobBookmarksEncryptionMode`: `JobBookmarksEncryptionMode`
-- `KmsKeyArn`: `str`
-
-
-## JobCommandTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import JobCommandTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `ScriptLocation`: `str`
-- `PythonVersion`: `str`
-
-
-## JobNodeDetailsTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import JobNodeDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobRuns`: `List["JobRunTypeDef"]`
-
-
-## JobRunTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import JobRunTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Attempt`: `int`
-- `PreviousRunId`: `str`
-- `TriggerName`: `str`
-- `JobName`: `str`
-- `StartedOn`: `datetime`
-- `LastModifiedOn`: `datetime`
-- `CompletedOn`: `datetime`
-- `JobRunState`: `JobRunState`
-- `Arguments`: `Dict[str, str]`
-- `ErrorMessage`: `str`
-- `PredecessorRuns`: `List["PredecessorTypeDef"]`
-- `AllocatedCapacity`: `int`
-- `ExecutionTime`: `int`
-- `Timeout`: `int`
-- `MaxCapacity`: `float`
-- `WorkerType`: `WorkerType`
-- `NumberOfWorkers`: `int`
-- `SecurityConfiguration`: `str`
-- `LogGroupName`: `str`
-- `NotificationProperty`: `"NotificationPropertyTypeDef"`
-- `GlueVersion`: `str`
-
-
-## JobTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import JobTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Description`: `str`
-- `LogUri`: `str`
-- `Role`: `str`
-- `CreatedOn`: `datetime`
-- `LastModifiedOn`: `datetime`
-- `ExecutionProperty`: `"ExecutionPropertyTypeDef"`
-- `Command`: `"JobCommandTypeDef"`
-- `DefaultArguments`: `Dict[str, str]`
-- `NonOverridableArguments`: `Dict[str, str]`
-- `Connections`: `"ConnectionsListTypeDef"`
-- `MaxRetries`: `int`
-- `AllocatedCapacity`: `int`
-- `Timeout`: `int`
-- `MaxCapacity`: `float`
-- `WorkerType`: `WorkerType`
-- `NumberOfWorkers`: `int`
-- `SecurityConfiguration`: `str`
-- `NotificationProperty`: `"NotificationPropertyTypeDef"`
-- `GlueVersion`: `str`
-
-
-## JsonClassifierTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import JsonClassifierTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `JsonPath`: `str`
-
-
-
-Optional fields:
-- `CreationTime`: `datetime`
-- `LastUpdated`: `datetime`
-- `Version`: `int`
-
-
-## KeySchemaElementTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import KeySchemaElementTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Type`: `str`
-
-
-
-
-## LabelingSetGenerationTaskRunPropertiesTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import LabelingSetGenerationTaskRunPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `OutputS3Path`: `str`
-
-
-## LastCrawlInfoTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import LastCrawlInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `LastCrawlStatus`
-- `ErrorMessage`: `str`
-- `LogGroup`: `str`
-- `LogStream`: `str`
-- `MessagePrefix`: `str`
-- `StartTime`: `datetime`
-
-
-## LineageConfigurationTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import LineageConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `CrawlerLineageSettings`: `CrawlerLineageSettings`
-
-
-## LongColumnStatisticsDataTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import LongColumnStatisticsDataTypeDef
-```
-
-
-Required fields:
-- `NumberOfNulls`: `int`
-- `NumberOfDistinctValues`: `int`
-
-
-
-Optional fields:
-- `MinimumValue`: `int`
-- `MaximumValue`: `int`
-
-
-## MLTransformTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import MLTransformTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransformId`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `Status`: `TransformStatusType`
-- `CreatedOn`: `datetime`
-- `LastModifiedOn`: `datetime`
-- `InputRecordTables`: `List["GlueTableTypeDef"]`
-- `Parameters`: `"TransformParametersTypeDef"`
-- `EvaluationMetrics`: `"EvaluationMetricsTypeDef"`
-- `LabelCount`: `int`
-- `Schema`: `List["SchemaColumnTypeDef"]`
-- `Role`: `str`
-- `GlueVersion`: `str`
-- `MaxCapacity`: `float`
-- `WorkerType`: `WorkerType`
-- `NumberOfWorkers`: `int`
-- `Timeout`: `int`
-- `MaxRetries`: `int`
-- `TransformEncryption`: `"TransformEncryptionTypeDef"`
-
-
-## MLUserDataEncryptionTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import MLUserDataEncryptionTypeDef
-```
-
-
-Required fields:
-- `MlUserDataEncryptionMode`: `MLUserDataEncryptionModeString`
-
-
-
-Optional fields:
-- `KmsKeyId`: `str`
-
-
-## MappingEntryTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import MappingEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourceTable`: `str`
-- `SourcePath`: `str`
-- `SourceType`: `str`
-- `TargetTable`: `str`
-- `TargetPath`: `str`
-- `TargetType`: `str`
-
-
-## MetadataInfoTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import MetadataInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `MetadataValue`: `str`
-- `CreatedTime`: `str`
-- `OtherMetadataValueList`: `List["OtherMetadataValueListItemTypeDef"]`
-
-
-## MongoDBTargetTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import MongoDBTargetTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConnectionName`: `str`
-- `Path`: `str`
-- `ScanAll`: `bool`
-
-
-## NodeTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import NodeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `NodeType`
-- `Name`: `str`
-- `UniqueId`: `str`
-- `TriggerDetails`: `"TriggerNodeDetailsTypeDef"`
-- `JobDetails`: `"JobNodeDetailsTypeDef"`
-- `CrawlerDetails`: `"CrawlerNodeDetailsTypeDef"`
-
-
-## NotificationPropertyTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import NotificationPropertyTypeDef
-```
-
-
-
-
-Optional fields:
-- `NotifyDelayAfter`: `int`
-
-
-## OrderTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import OrderTypeDef
-```
-
-
-Required fields:
-- `Column`: `str`
-- `SortOrder`: `int`
-
-
-
-
-## OtherMetadataValueListItemTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import OtherMetadataValueListItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `MetadataValue`: `str`
-- `CreatedTime`: `str`
-
-
-## PartitionErrorTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import PartitionErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `PartitionValues`: `List[str]`
-- `ErrorDetail`: `"ErrorDetailTypeDef"`
-
-
-## PartitionIndexDescriptorTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import PartitionIndexDescriptorTypeDef
-```
-
-
-Required fields:
-- `IndexName`: `str`
-- `Keys`: `List["KeySchemaElementTypeDef"]`
-- `IndexStatus`: `PartitionIndexStatus`
-
-
-
-Optional fields:
-- `BackfillErrors`: `List["BackfillErrorTypeDef"]`
-
-
-## PartitionInputTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import PartitionInputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Values`: `List[str]`
-- `LastAccessTime`: `datetime`
-- `StorageDescriptor`: `"StorageDescriptorTypeDef"`
-- `Parameters`: `Dict[str, str]`
-- `LastAnalyzedTime`: `datetime`
-
-
-## PartitionTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import PartitionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Values`: `List[str]`
-- `DatabaseName`: `str`
-- `TableName`: `str`
-- `CreationTime`: `datetime`
-- `LastAccessTime`: `datetime`
-- `StorageDescriptor`: `"StorageDescriptorTypeDef"`
-- `Parameters`: `Dict[str, str]`
-- `LastAnalyzedTime`: `datetime`
-- `CatalogId`: `str`
-
-
-## PartitionValueListTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import PartitionValueListTypeDef
-```
-
-
-Required fields:
-- `Values`: `List[str]`
-
-
-
-
-## PhysicalConnectionRequirementsTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import PhysicalConnectionRequirementsTypeDef
-```
-
-
-
-
-Optional fields:
-- `SubnetId`: `str`
-- `SecurityGroupIdList`: `List[str]`
-- `AvailabilityZone`: `str`
-
-
-## PredecessorTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import PredecessorTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobName`: `str`
-- `RunId`: `str`
-
-
-## PredicateTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import PredicateTypeDef
-```
-
-
-
-
-Optional fields:
-- `Logical`: `Logical`
-- `Conditions`: `List["ConditionTypeDef"]`
-
-
-## PrincipalPermissionsTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import PrincipalPermissionsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Principal`: `"DataLakePrincipalTypeDef"`
-- `Permissions`: `List[Permission]`
-
-
-## RecrawlPolicyTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import RecrawlPolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `RecrawlBehavior`: `RecrawlBehavior`
-
-
-## RegistryListItemTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import RegistryListItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `RegistryName`: `str`
-- `RegistryArn`: `str`
-- `Description`: `str`
-- `Status`: `RegistryStatus`
-- `CreatedTime`: `str`
-- `UpdatedTime`: `str`
-
-
-## ResourceUriTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import ResourceUriTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceType`: `ResourceType`
-- `Uri`: `str`
-
-
-## S3EncryptionTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import S3EncryptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `S3EncryptionMode`: `S3EncryptionMode`
-- `KmsKeyArn`: `str`
-
-
-## S3TargetTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import S3TargetTypeDef
-```
-
-
-
-
-Optional fields:
-- `Path`: `str`
-- `Exclusions`: `List[str]`
-- `ConnectionName`: `str`
-
-
-## ScheduleTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import ScheduleTypeDef
-```
-
-
-
-
-Optional fields:
-- `ScheduleExpression`: `str`
-- `State`: `ScheduleState`
-
-
-## SchemaChangePolicyTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import SchemaChangePolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `UpdateBehavior`: `UpdateBehavior`
-- `DeleteBehavior`: `DeleteBehavior`
-
-
-## SchemaColumnTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import SchemaColumnTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `DataType`: `str`
-
-
-## SchemaIdTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import SchemaIdTypeDef
-```
-
-
-
-
-Optional fields:
-- `SchemaArn`: `str`
-- `SchemaName`: `str`
-- `RegistryName`: `str`
-
-
-## SchemaListItemTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import SchemaListItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `RegistryName`: `str`
-- `SchemaName`: `str`
-- `SchemaArn`: `str`
-- `Description`: `str`
-- `SchemaStatus`: `SchemaStatus`
-- `CreatedTime`: `str`
-- `UpdatedTime`: `str`
-
-
-## SchemaReferenceTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import SchemaReferenceTypeDef
-```
-
-
-
-
-Optional fields:
-- `SchemaId`: `"SchemaIdTypeDef"`
-- `SchemaVersionId`: `str`
-- `SchemaVersionNumber`: `int`
-
-
-## SchemaVersionErrorItemTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import SchemaVersionErrorItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `VersionNumber`: `int`
-- `ErrorDetails`: `"ErrorDetailsTypeDef"`
-
-
-## SchemaVersionListItemTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import SchemaVersionListItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `SchemaArn`: `str`
-- `SchemaVersionId`: `str`
-- `VersionNumber`: `int`
-- `Status`: `SchemaVersionStatus`
-- `CreatedTime`: `str`
-
-
-## SecurityConfigurationTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import SecurityConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `CreatedTimeStamp`: `datetime`
-- `EncryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
-
-
-## SerDeInfoTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import SerDeInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `SerializationLibrary`: `str`
-- `Parameters`: `Dict[str, str]`
-
-
-## SkewedInfoTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import SkewedInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `SkewedColumnNames`: `List[str]`
-- `SkewedColumnValues`: `List[str]`
-- `SkewedColumnValueLocationMaps`: `Dict[str, str]`
-
-
-## StorageDescriptorTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import StorageDescriptorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Columns`: `List["ColumnTypeDef"]`
-- `Location`: `str`
-- `InputFormat`: `str`
-- `OutputFormat`: `str`
-- `Compressed`: `bool`
-- `NumberOfBuckets`: `int`
-- `SerdeInfo`: `"SerDeInfoTypeDef"`
-- `BucketColumns`: `List[str]`
-- `SortColumns`: `List["OrderTypeDef"]`
-- `Parameters`: `Dict[str, str]`
-- `SkewedInfo`: `"SkewedInfoTypeDef"`
-- `StoredAsSubDirectories`: `bool`
-- `SchemaReference`: `"SchemaReferenceTypeDef"`
-
-
-## StringColumnStatisticsDataTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import StringColumnStatisticsDataTypeDef
-```
-
-
-Required fields:
-- `MaximumLength`: `int`
-- `AverageLength`: `float`
-- `NumberOfNulls`: `int`
-- `NumberOfDistinctValues`: `int`
-
-
-
-
-## TableErrorTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import TableErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `TableName`: `str`
-- `ErrorDetail`: `"ErrorDetailTypeDef"`
-
-
-## TableIdentifierTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import TableIdentifierTypeDef
-```
-
-
-
-
-Optional fields:
-- `CatalogId`: `str`
-- `DatabaseName`: `str`
-- `Name`: `str`
-
-
-## TableTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import TableTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-
-
-
-Optional fields:
-- `DatabaseName`: `str`
-- `Description`: `str`
-- `Owner`: `str`
-- `CreateTime`: `datetime`
-- `UpdateTime`: `datetime`
-- `LastAccessTime`: `datetime`
-- `LastAnalyzedTime`: `datetime`
-- `Retention`: `int`
-- `StorageDescriptor`: `"StorageDescriptorTypeDef"`
-- `PartitionKeys`: `List["ColumnTypeDef"]`
-- `ViewOriginalText`: `str`
-- `ViewExpandedText`: `str`
-- `TableType`: `str`
-- `Parameters`: `Dict[str, str]`
-- `CreatedBy`: `str`
-- `IsRegisteredWithLakeFormation`: `bool`
-- `TargetTable`: `"TableIdentifierTypeDef"`
-- `CatalogId`: `str`
-
-
-## TableVersionErrorTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import TableVersionErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `TableName`: `str`
-- `VersionId`: `str`
-- `ErrorDetail`: `"ErrorDetailTypeDef"`
-
-
-## TableVersionTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import TableVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Table`: `"TableTypeDef"`
-- `VersionId`: `str`
-
-
-## TaskRunPropertiesTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import TaskRunPropertiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `TaskType`: `TaskType`
-- `ImportLabelsTaskRunProperties`: `"ImportLabelsTaskRunPropertiesTypeDef"`
-- `ExportLabelsTaskRunProperties`: `"ExportLabelsTaskRunPropertiesTypeDef"`
-- `LabelingSetGenerationTaskRunProperties`: `"LabelingSetGenerationTaskRunPropertiesTypeDef"`
-- `FindMatchesTaskRunProperties`: `"FindMatchesTaskRunPropertiesTypeDef"`
-
-
-## TaskRunTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import TaskRunTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransformId`: `str`
-- `TaskRunId`: `str`
-- `Status`: `TaskStatusType`
-- `LogGroupName`: `str`
-- `Properties`: `"TaskRunPropertiesTypeDef"`
-- `ErrorString`: `str`
-- `StartedOn`: `datetime`
-- `LastModifiedOn`: `datetime`
-- `CompletedOn`: `datetime`
-- `ExecutionTime`: `int`
-
-
-## TransformEncryptionTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import TransformEncryptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `MlUserDataEncryption`: `"MLUserDataEncryptionTypeDef"`
-- `TaskRunSecurityConfigurationName`: `str`
-
-
-## TransformParametersTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import TransformParametersTypeDef
-```
-
-
-Required fields:
-- `TransformType`: `TransformType`
-
-
-
-Optional fields:
-- `FindMatchesParameters`: `"FindMatchesParametersTypeDef"`
-
-
-## TriggerNodeDetailsTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import TriggerNodeDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Trigger`: `"TriggerTypeDef"`
-
-
-## TriggerTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import TriggerTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `WorkflowName`: `str`
-- `Id`: `str`
-- `Type`: `TriggerType`
-- `State`: `TriggerState`
-- `Description`: `str`
-- `Schedule`: `str`
-- `Actions`: `List["ActionTypeDef"]`
-- `Predicate`: `"PredicateTypeDef"`
-
-
-## UserDefinedFunctionTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import UserDefinedFunctionTypeDef
-```
-
-
-
-
-Optional fields:
-- `FunctionName`: `str`
-- `DatabaseName`: `str`
-- `ClassName`: `str`
-- `OwnerName`: `str`
-- `OwnerType`: `PrincipalType`
-- `CreateTime`: `datetime`
-- `ResourceUris`: `List["ResourceUriTypeDef"]`
-- `CatalogId`: `str`
-
-
-## WorkflowGraphTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import WorkflowGraphTypeDef
-```
-
-
-
-
-Optional fields:
-- `Nodes`: `List["NodeTypeDef"]`
-- `Edges`: `List["EdgeTypeDef"]`
-
-
-## WorkflowRunStatisticsTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import WorkflowRunStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `TotalActions`: `int`
-- `TimeoutActions`: `int`
-- `FailedActions`: `int`
-- `StoppedActions`: `int`
-- `SucceededActions`: `int`
-- `RunningActions`: `int`
-
-
-## WorkflowRunTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import WorkflowRunTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `WorkflowRunId`: `str`
-- `PreviousRunId`: `str`
-- `WorkflowRunProperties`: `Dict[str, str]`
-- `StartedOn`: `datetime`
-- `CompletedOn`: `datetime`
-- `Status`: `WorkflowRunStatus`
-- `ErrorMessage`: `str`
-- `Statistics`: `"WorkflowRunStatisticsTypeDef"`
-- `Graph`: `"WorkflowGraphTypeDef"`
-
-
-## WorkflowTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import WorkflowTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Description`: `str`
-- `DefaultRunProperties`: `Dict[str, str]`
-- `CreatedOn`: `datetime`
-- `LastModifiedOn`: `datetime`
-- `LastRun`: `"WorkflowRunTypeDef"`
-- `Graph`: `"WorkflowGraphTypeDef"`
-- `MaxConcurrentRuns`: `int`
-
-
-## XMLClassifierTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import XMLClassifierTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Classification`: `str`
-
-
-
-Optional fields:
-- `CreationTime`: `datetime`
-- `LastUpdated`: `datetime`
-- `Version`: `int`
-- `RowTag`: `str`
-
-
-## BatchCreatePartitionResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchCreatePartitionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Errors`: `List["PartitionErrorTypeDef"]`
-
-
-## BatchDeleteConnectionResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchDeleteConnectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Succeeded`: `List[str]`
-- `Errors`: `Dict[str, "ErrorDetailTypeDef"]`
-
-
-## BatchDeletePartitionResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchDeletePartitionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Errors`: `List["PartitionErrorTypeDef"]`
-
-
-## BatchDeleteTableResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchDeleteTableResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Errors`: `List["TableErrorTypeDef"]`
-
-
-## BatchDeleteTableVersionResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchDeleteTableVersionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Errors`: `List["TableVersionErrorTypeDef"]`
-
-
-## BatchGetCrawlersResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchGetCrawlersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Crawlers`: `List["CrawlerTypeDef"]`
-- `CrawlersNotFound`: `List[str]`
-
-
-## BatchGetDevEndpointsResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchGetDevEndpointsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DevEndpoints`: `List["DevEndpointTypeDef"]`
-- `DevEndpointsNotFound`: `List[str]`
-
-
-## BatchGetJobsResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchGetJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Jobs`: `List["JobTypeDef"]`
-- `JobsNotFound`: `List[str]`
-
-
-## BatchGetPartitionResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchGetPartitionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Partitions`: `List["PartitionTypeDef"]`
-- `UnprocessedKeys`: `List["PartitionValueListTypeDef"]`
-
-
-## BatchGetTriggersResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchGetTriggersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Triggers`: `List["TriggerTypeDef"]`
-- `TriggersNotFound`: `List[str]`
-
-
-## BatchGetWorkflowsResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchGetWorkflowsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Workflows`: `List["WorkflowTypeDef"]`
-- `MissingWorkflows`: `List[str]`
-
-
-## BatchStopJobRunResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchStopJobRunResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SuccessfulSubmissions`: `List["BatchStopJobRunSuccessfulSubmissionTypeDef"]`
-- `Errors`: `List["BatchStopJobRunErrorTypeDef"]`
-
-
-## BatchUpdatePartitionRequestEntryTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchUpdatePartitionRequestEntryTypeDef
-```
-
-
-Required fields:
-- `PartitionValueList`: `List[str]`
-- `PartitionInput`: `"PartitionInputTypeDef"`
-
-
-
-
-## BatchUpdatePartitionResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import BatchUpdatePartitionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Errors`: `List["BatchUpdatePartitionFailureEntryTypeDef"]`
-
-
-## CancelMLTaskRunResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CancelMLTaskRunResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransformId`: `str`
-- `TaskRunId`: `str`
-- `Status`: `TaskStatusType`
-
-
-## CatalogEntryTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CatalogEntryTypeDef
-```
-
-
-Required fields:
-- `DatabaseName`: `str`
-- `TableName`: `str`
-
-
-
-
-## CheckSchemaVersionValidityResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CheckSchemaVersionValidityResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Valid`: `bool`
-- `Error`: `str`
-
-
-## ConnectionInputTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import ConnectionInputTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `ConnectionType`: `ConnectionType`
-- `ConnectionProperties`: `Dict[ConnectionPropertyKey, str]`
-
-
-
-Optional fields:
-- `Description`: `str`
-- `MatchCriteria`: `List[str]`
-- `PhysicalConnectionRequirements`: `"PhysicalConnectionRequirementsTypeDef"`
-
-
-## CreateCsvClassifierRequestTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateCsvClassifierRequestTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-
-
-
-Optional fields:
-- `Delimiter`: `str`
-- `QuoteSymbol`: `str`
-- `ContainsHeader`: `CsvHeaderOption`
-- `Header`: `List[str]`
-- `DisableValueTrimming`: `bool`
-- `AllowSingleColumn`: `bool`
-
-
-## CreateDevEndpointResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateDevEndpointResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `EndpointName`: `str`
-- `Status`: `str`
-- `SecurityGroupIds`: `List[str]`
-- `SubnetId`: `str`
-- `RoleArn`: `str`
-- `YarnEndpointAddress`: `str`
-- `ZeppelinRemoteSparkInterpreterPort`: `int`
-- `NumberOfNodes`: `int`
-- `WorkerType`: `WorkerType`
-- `GlueVersion`: `str`
-- `NumberOfWorkers`: `int`
-- `AvailabilityZone`: `str`
-- `VpcId`: `str`
-- `ExtraPythonLibsS3Path`: `str`
-- `ExtraJarsS3Path`: `str`
-- `FailureReason`: `str`
-- `SecurityConfiguration`: `str`
-- `CreatedTimestamp`: `datetime`
-- `Arguments`: `Dict[str, str]`
-
-
-## CreateGrokClassifierRequestTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateGrokClassifierRequestTypeDef
-```
-
-
-Required fields:
-- `Classification`: `str`
-- `Name`: `str`
-- `GrokPattern`: `str`
-
-
-
-Optional fields:
-- `CustomPatterns`: `str`
-
-
-## CreateJobResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## CreateJsonClassifierRequestTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateJsonClassifierRequestTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `JsonPath`: `str`
-
-
-
-
-## CreateMLTransformResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateMLTransformResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransformId`: `str`
-
-
-## CreateRegistryResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateRegistryResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RegistryArn`: `str`
-- `RegistryName`: `str`
-- `Description`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## CreateSchemaResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateSchemaResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RegistryName`: `str`
-- `RegistryArn`: `str`
-- `SchemaName`: `str`
-- `SchemaArn`: `str`
-- `Description`: `str`
-- `DataFormat`: `DataFormat`
-- `Compatibility`: `Compatibility`
-- `SchemaCheckpoint`: `int`
-- `LatestSchemaVersion`: `int`
-- `NextSchemaVersion`: `int`
-- `SchemaStatus`: `SchemaStatus`
-- `Tags`: `Dict[str, str]`
-- `SchemaVersionId`: `str`
-- `SchemaVersionStatus`: `SchemaVersionStatus`
-
-
-## CreateScriptResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateScriptResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PythonScript`: `str`
-- `ScalaCode`: `str`
-
-
-## CreateSecurityConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateSecurityConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `CreatedTimestamp`: `datetime`
-
-
-## CreateTriggerResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateTriggerResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## CreateWorkflowResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateWorkflowResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## CreateXMLClassifierRequestTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import CreateXMLClassifierRequestTypeDef
-```
-
-
-Required fields:
-- `Classification`: `str`
-- `Name`: `str`
-
-
-
-Optional fields:
-- `RowTag`: `str`
-
-
-## DatabaseInputTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import DatabaseInputTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-
-
-
-Optional fields:
-- `Description`: `str`
-- `LocationUri`: `str`
-- `Parameters`: `Dict[str, str]`
-- `CreateTableDefaultPermissions`: `List["PrincipalPermissionsTypeDef"]`
-- `TargetDatabase`: `"DatabaseIdentifierTypeDef"`
-
-
-## DeleteJobResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import DeleteJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobName`: `str`
-
-
-## DeleteMLTransformResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import DeleteMLTransformResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransformId`: `str`
-
-
-## DeleteRegistryResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import DeleteRegistryResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `RegistryName`: `str`
-- `RegistryArn`: `str`
-- `Status`: `RegistryStatus`
-
-
-## DeleteSchemaResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import DeleteSchemaResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SchemaArn`: `str`
-- `SchemaName`: `str`
-- `Status`: `SchemaStatus`
-
-
-## DeleteSchemaVersionsResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import DeleteSchemaVersionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `SchemaVersionErrors`: `List["SchemaVersionErrorItemTypeDef"]`
-
-
-## DeleteTriggerResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import DeleteTriggerResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## DeleteWorkflowResponseTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import DeleteWorkflowResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-
-
-## DevEndpointCustomLibrariesTypeDef
-
-```python
-from mypy_boto3_glue.type_defs import DevEndpointCustomLibrariesTypeDef
-```
-
-
-
-
-Optional fields:
-- `ExtraPythonLibsS3Path`: `str`
-- `ExtraJarsS3Path`: `str`
 
 
 ## GetCatalogImportStatusResponseTypeDef
@@ -3450,7 +2260,7 @@ from mypy_boto3_glue.type_defs import GetSchemaByDefinitionResponseTypeDef
 Optional fields:
 - `SchemaVersionId`: `str`
 - `SchemaArn`: `str`
-- `DataFormat`: `DataFormat`
+- `DataFormat`: `Literal['AVRO']`
 - `Status`: `SchemaVersionStatus`
 - `CreatedTime`: `str`
 
@@ -3470,7 +2280,7 @@ Optional fields:
 - `SchemaName`: `str`
 - `SchemaArn`: `str`
 - `Description`: `str`
-- `DataFormat`: `DataFormat`
+- `DataFormat`: `Literal['AVRO']`
 - `Compatibility`: `Compatibility`
 - `SchemaCheckpoint`: `int`
 - `LatestSchemaVersion`: `int`
@@ -3492,7 +2302,7 @@ from mypy_boto3_glue.type_defs import GetSchemaVersionResponseTypeDef
 Optional fields:
 - `SchemaVersionId`: `str`
 - `SchemaDefinition`: `str`
-- `DataFormat`: `DataFormat`
+- `DataFormat`: `Literal['AVRO']`
 - `SchemaArn`: `str`
 - `VersionNumber`: `int`
 - `Status`: `SchemaVersionStatus`
@@ -3713,6 +2523,217 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## GluePolicyTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import GluePolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicyInJson`: `str`
+- `PolicyHash`: `str`
+- `CreateTime`: `datetime`
+- `UpdateTime`: `datetime`
+
+
+## GlueTableTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import GlueTableTypeDef
+```
+
+
+Required fields:
+- `DatabaseName`: `str`
+- `TableName`: `str`
+
+
+
+Optional fields:
+- `CatalogId`: `str`
+- `ConnectionName`: `str`
+
+
+## GrokClassifierTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import GrokClassifierTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Classification`: `str`
+- `GrokPattern`: `str`
+
+
+
+Optional fields:
+- `CreationTime`: `datetime`
+- `LastUpdated`: `datetime`
+- `Version`: `int`
+- `CustomPatterns`: `str`
+
+
+## ImportLabelsTaskRunPropertiesTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import ImportLabelsTaskRunPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `InputS3Path`: `str`
+- `Replace`: `bool`
+
+
+## JdbcTargetTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import JdbcTargetTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConnectionName`: `str`
+- `Path`: `str`
+- `Exclusions`: `List[str]`
+
+
+## JobBookmarkEntryTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import JobBookmarkEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobName`: `str`
+- `Version`: `int`
+- `Run`: `int`
+- `Attempt`: `int`
+- `PreviousRunId`: `str`
+- `RunId`: `str`
+- `JobBookmark`: `str`
+
+
+## JobBookmarksEncryptionTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import JobBookmarksEncryptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobBookmarksEncryptionMode`: `JobBookmarksEncryptionMode`
+- `KmsKeyArn`: `str`
+
+
+## JobCommandTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import JobCommandTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `ScriptLocation`: `str`
+- `PythonVersion`: `str`
+
+
+## JobNodeDetailsTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import JobNodeDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobRuns`: `List["JobRunTypeDef"]`
+
+
+## JobRunTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import JobRunTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Attempt`: `int`
+- `PreviousRunId`: `str`
+- `TriggerName`: `str`
+- `JobName`: `str`
+- `StartedOn`: `datetime`
+- `LastModifiedOn`: `datetime`
+- `CompletedOn`: `datetime`
+- `JobRunState`: `JobRunState`
+- `Arguments`: `Dict[str, str]`
+- `ErrorMessage`: `str`
+- `PredecessorRuns`: `List["PredecessorTypeDef"]`
+- `AllocatedCapacity`: `int`
+- `ExecutionTime`: `int`
+- `Timeout`: `int`
+- `MaxCapacity`: `float`
+- `WorkerType`: `WorkerType`
+- `NumberOfWorkers`: `int`
+- `SecurityConfiguration`: `str`
+- `LogGroupName`: `str`
+- `NotificationProperty`: `"NotificationPropertyTypeDef"`
+- `GlueVersion`: `str`
+
+
+## JobTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import JobTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Description`: `str`
+- `LogUri`: `str`
+- `Role`: `str`
+- `CreatedOn`: `datetime`
+- `LastModifiedOn`: `datetime`
+- `ExecutionProperty`: `"ExecutionPropertyTypeDef"`
+- `Command`: `"JobCommandTypeDef"`
+- `DefaultArguments`: `Dict[str, str]`
+- `NonOverridableArguments`: `Dict[str, str]`
+- `Connections`: `"ConnectionsListTypeDef"`
+- `MaxRetries`: `int`
+- `AllocatedCapacity`: `int`
+- `Timeout`: `int`
+- `MaxCapacity`: `float`
+- `WorkerType`: `WorkerType`
+- `NumberOfWorkers`: `int`
+- `SecurityConfiguration`: `str`
+- `NotificationProperty`: `"NotificationPropertyTypeDef"`
+- `GlueVersion`: `str`
+
+
 ## JobUpdateTypeDef
 
 ```python
@@ -3740,6 +2761,83 @@ Optional fields:
 - `SecurityConfiguration`: `str`
 - `NotificationProperty`: `"NotificationPropertyTypeDef"`
 - `GlueVersion`: `str`
+
+
+## JsonClassifierTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import JsonClassifierTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `JsonPath`: `str`
+
+
+
+Optional fields:
+- `CreationTime`: `datetime`
+- `LastUpdated`: `datetime`
+- `Version`: `int`
+
+
+## KeySchemaElementTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import KeySchemaElementTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Type`: `str`
+
+
+
+
+## LabelingSetGenerationTaskRunPropertiesTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import LabelingSetGenerationTaskRunPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `OutputS3Path`: `str`
+
+
+## LastCrawlInfoTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import LastCrawlInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `LastCrawlStatus`
+- `ErrorMessage`: `str`
+- `LogGroup`: `str`
+- `LogStream`: `str`
+- `MessagePrefix`: `str`
+- `StartTime`: `datetime`
+
+
+## LineageConfigurationTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import LineageConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `CrawlerLineageSettings`: `CrawlerLineageSettings`
 
 
 ## ListCrawlersResponseTypeDef
@@ -3885,6 +2983,104 @@ Optional fields:
 - `DynamoDB`: `List["CodeGenNodeArgTypeDef"]`
 
 
+## LongColumnStatisticsDataTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import LongColumnStatisticsDataTypeDef
+```
+
+
+Required fields:
+- `NumberOfNulls`: `int`
+- `NumberOfDistinctValues`: `int`
+
+
+
+Optional fields:
+- `MinimumValue`: `int`
+- `MaximumValue`: `int`
+
+
+## MLTransformTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import MLTransformTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransformId`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `Status`: `TransformStatusType`
+- `CreatedOn`: `datetime`
+- `LastModifiedOn`: `datetime`
+- `InputRecordTables`: `List["GlueTableTypeDef"]`
+- `Parameters`: `"TransformParametersTypeDef"`
+- `EvaluationMetrics`: `"EvaluationMetricsTypeDef"`
+- `LabelCount`: `int`
+- `Schema`: `List["SchemaColumnTypeDef"]`
+- `Role`: `str`
+- `GlueVersion`: `str`
+- `MaxCapacity`: `float`
+- `WorkerType`: `WorkerType`
+- `NumberOfWorkers`: `int`
+- `Timeout`: `int`
+- `MaxRetries`: `int`
+- `TransformEncryption`: `"TransformEncryptionTypeDef"`
+
+
+## MLUserDataEncryptionTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import MLUserDataEncryptionTypeDef
+```
+
+
+Required fields:
+- `MlUserDataEncryptionMode`: `MLUserDataEncryptionModeString`
+
+
+
+Optional fields:
+- `KmsKeyId`: `str`
+
+
+## MappingEntryTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import MappingEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourceTable`: `str`
+- `SourcePath`: `str`
+- `SourceType`: `str`
+- `TargetTable`: `str`
+- `TargetPath`: `str`
+- `TargetType`: `str`
+
+
+## MetadataInfoTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import MetadataInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `MetadataValue`: `str`
+- `CreatedTime`: `str`
+- `OtherMetadataValueList`: `List["OtherMetadataValueListItemTypeDef"]`
+
+
 ## MetadataKeyValuePairTypeDef
 
 ```python
@@ -3897,6 +3093,80 @@ from mypy_boto3_glue.type_defs import MetadataKeyValuePairTypeDef
 Optional fields:
 - `MetadataKey`: `str`
 - `MetadataValue`: `str`
+
+
+## MongoDBTargetTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import MongoDBTargetTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConnectionName`: `str`
+- `Path`: `str`
+- `ScanAll`: `bool`
+
+
+## NodeTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import NodeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `NodeType`
+- `Name`: `str`
+- `UniqueId`: `str`
+- `TriggerDetails`: `"TriggerNodeDetailsTypeDef"`
+- `JobDetails`: `"JobNodeDetailsTypeDef"`
+- `CrawlerDetails`: `"CrawlerNodeDetailsTypeDef"`
+
+
+## NotificationPropertyTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import NotificationPropertyTypeDef
+```
+
+
+
+
+Optional fields:
+- `NotifyDelayAfter`: `int`
+
+
+## OrderTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import OrderTypeDef
+```
+
+
+Required fields:
+- `Column`: `str`
+- `SortOrder`: `int`
+
+
+
+
+## OtherMetadataValueListItemTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import OtherMetadataValueListItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `MetadataValue`: `str`
+- `CreatedTime`: `str`
 
 
 ## PaginatorConfigTypeDef
@@ -3914,6 +3184,38 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PartitionErrorTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import PartitionErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `PartitionValues`: `List[str]`
+- `ErrorDetail`: `"ErrorDetailTypeDef"`
+
+
+## PartitionIndexDescriptorTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import PartitionIndexDescriptorTypeDef
+```
+
+
+Required fields:
+- `IndexName`: `str`
+- `Keys`: `List["KeySchemaElementTypeDef"]`
+- `IndexStatus`: `PartitionIndexStatus`
+
+
+
+Optional fields:
+- `BackfillErrors`: `List["BackfillErrorTypeDef"]`
+
+
 ## PartitionIndexTypeDef
 
 ```python
@@ -3926,6 +3228,114 @@ Required fields:
 - `IndexName`: `str`
 
 
+
+
+## PartitionInputTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import PartitionInputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Values`: `List[str]`
+- `LastAccessTime`: `datetime`
+- `StorageDescriptor`: `"StorageDescriptorTypeDef"`
+- `Parameters`: `Dict[str, str]`
+- `LastAnalyzedTime`: `datetime`
+
+
+## PartitionTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import PartitionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Values`: `List[str]`
+- `DatabaseName`: `str`
+- `TableName`: `str`
+- `CreationTime`: `datetime`
+- `LastAccessTime`: `datetime`
+- `StorageDescriptor`: `"StorageDescriptorTypeDef"`
+- `Parameters`: `Dict[str, str]`
+- `LastAnalyzedTime`: `datetime`
+- `CatalogId`: `str`
+
+
+## PartitionValueListTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import PartitionValueListTypeDef
+```
+
+
+Required fields:
+- `Values`: `List[str]`
+
+
+
+
+## PhysicalConnectionRequirementsTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import PhysicalConnectionRequirementsTypeDef
+```
+
+
+
+
+Optional fields:
+- `SubnetId`: `str`
+- `SecurityGroupIdList`: `List[str]`
+- `AvailabilityZone`: `str`
+
+
+## PredecessorTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import PredecessorTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobName`: `str`
+- `RunId`: `str`
+
+
+## PredicateTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import PredicateTypeDef
+```
+
+
+
+
+Optional fields:
+- `Logical`: `Logical`
+- `Conditions`: `List["ConditionTypeDef"]`
+
+
+## PrincipalPermissionsTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import PrincipalPermissionsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Principal`: `"DataLakePrincipalTypeDef"`
+- `Permissions`: `List[Permission]`
 
 
 ## PropertyPredicateTypeDef
@@ -3991,6 +3401,19 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## RecrawlPolicyTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import RecrawlPolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `RecrawlBehavior`: `RecrawlBehavior`
+
+
 ## RegisterSchemaVersionResponseTypeDef
 
 ```python
@@ -4018,6 +3441,24 @@ from mypy_boto3_glue.type_defs import RegistryIdTypeDef
 Optional fields:
 - `RegistryName`: `str`
 - `RegistryArn`: `str`
+
+
+## RegistryListItemTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import RegistryListItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `RegistryName`: `str`
+- `RegistryArn`: `str`
+- `Description`: `str`
+- `Status`: `RegistryStatus`
+- `CreatedTime`: `str`
+- `UpdatedTime`: `str`
 
 
 ## RemoveSchemaVersionMetadataResponseTypeDef
@@ -4053,6 +3494,20 @@ Optional fields:
 - `JobBookmarkEntry`: `"JobBookmarkEntryTypeDef"`
 
 
+## ResourceUriTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import ResourceUriTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceType`: `ResourceType`
+- `Uri`: `str`
+
+
 ## ResumeWorkflowRunResponseTypeDef
 
 ```python
@@ -4065,6 +3520,157 @@ from mypy_boto3_glue.type_defs import ResumeWorkflowRunResponseTypeDef
 Optional fields:
 - `RunId`: `str`
 - `NodeIds`: `List[str]`
+
+
+## S3EncryptionTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import S3EncryptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `S3EncryptionMode`: `S3EncryptionMode`
+- `KmsKeyArn`: `str`
+
+
+## S3TargetTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import S3TargetTypeDef
+```
+
+
+
+
+Optional fields:
+- `Path`: `str`
+- `Exclusions`: `List[str]`
+- `ConnectionName`: `str`
+
+
+## ScheduleTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import ScheduleTypeDef
+```
+
+
+
+
+Optional fields:
+- `ScheduleExpression`: `str`
+- `State`: `ScheduleState`
+
+
+## SchemaChangePolicyTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import SchemaChangePolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `UpdateBehavior`: `UpdateBehavior`
+- `DeleteBehavior`: `DeleteBehavior`
+
+
+## SchemaColumnTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import SchemaColumnTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `DataType`: `str`
+
+
+## SchemaIdTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import SchemaIdTypeDef
+```
+
+
+
+
+Optional fields:
+- `SchemaArn`: `str`
+- `SchemaName`: `str`
+- `RegistryName`: `str`
+
+
+## SchemaListItemTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import SchemaListItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `RegistryName`: `str`
+- `SchemaName`: `str`
+- `SchemaArn`: `str`
+- `Description`: `str`
+- `SchemaStatus`: `SchemaStatus`
+- `CreatedTime`: `str`
+- `UpdatedTime`: `str`
+
+
+## SchemaReferenceTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import SchemaReferenceTypeDef
+```
+
+
+
+
+Optional fields:
+- `SchemaId`: `"SchemaIdTypeDef"`
+- `SchemaVersionId`: `str`
+- `SchemaVersionNumber`: `int`
+
+
+## SchemaVersionErrorItemTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import SchemaVersionErrorItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `VersionNumber`: `int`
+- `ErrorDetails`: `"ErrorDetailsTypeDef"`
+
+
+## SchemaVersionListItemTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import SchemaVersionListItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `SchemaArn`: `str`
+- `SchemaVersionId`: `str`
+- `VersionNumber`: `int`
+- `Status`: `SchemaVersionStatus`
+- `CreatedTime`: `str`
 
 
 ## SchemaVersionNumberTypeDef
@@ -4095,6 +3701,21 @@ Optional fields:
 - `TableList`: `List["TableTypeDef"]`
 
 
+## SecurityConfigurationTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import SecurityConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `CreatedTimeStamp`: `datetime`
+- `EncryptionConfiguration`: `"EncryptionConfigurationTypeDef"`
+
+
 ## SegmentTypeDef
 
 ```python
@@ -4107,6 +3728,36 @@ Required fields:
 - `TotalSegments`: `int`
 
 
+
+
+## SerDeInfoTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import SerDeInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `SerializationLibrary`: `str`
+- `Parameters`: `Dict[str, str]`
+
+
+## SkewedInfoTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import SkewedInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `SkewedColumnNames`: `List[str]`
+- `SkewedColumnValues`: `List[str]`
+- `SkewedColumnValueLocationMaps`: `Dict[str, str]`
 
 
 ## SortCriterionTypeDef
@@ -4227,6 +3878,76 @@ Optional fields:
 - `Name`: `str`
 
 
+## StorageDescriptorTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import StorageDescriptorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Columns`: `List["ColumnTypeDef"]`
+- `Location`: `str`
+- `InputFormat`: `str`
+- `OutputFormat`: `str`
+- `Compressed`: `bool`
+- `NumberOfBuckets`: `int`
+- `SerdeInfo`: `"SerDeInfoTypeDef"`
+- `BucketColumns`: `List[str]`
+- `SortColumns`: `List["OrderTypeDef"]`
+- `Parameters`: `Dict[str, str]`
+- `SkewedInfo`: `"SkewedInfoTypeDef"`
+- `StoredAsSubDirectories`: `bool`
+- `SchemaReference`: `"SchemaReferenceTypeDef"`
+
+
+## StringColumnStatisticsDataTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import StringColumnStatisticsDataTypeDef
+```
+
+
+Required fields:
+- `MaximumLength`: `int`
+- `AverageLength`: `float`
+- `NumberOfNulls`: `int`
+- `NumberOfDistinctValues`: `int`
+
+
+
+
+## TableErrorTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import TableErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `TableName`: `str`
+- `ErrorDetail`: `"ErrorDetailTypeDef"`
+
+
+## TableIdentifierTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import TableIdentifierTypeDef
+```
+
+
+
+
+Optional fields:
+- `CatalogId`: `str`
+- `DatabaseName`: `str`
+- `Name`: `str`
+
+
 ## TableInputTypeDef
 
 ```python
@@ -4254,6 +3975,68 @@ Optional fields:
 - `TargetTable`: `"TableIdentifierTypeDef"`
 
 
+## TableTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import TableTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+
+
+
+Optional fields:
+- `DatabaseName`: `str`
+- `Description`: `str`
+- `Owner`: `str`
+- `CreateTime`: `datetime`
+- `UpdateTime`: `datetime`
+- `LastAccessTime`: `datetime`
+- `LastAnalyzedTime`: `datetime`
+- `Retention`: `int`
+- `StorageDescriptor`: `"StorageDescriptorTypeDef"`
+- `PartitionKeys`: `List["ColumnTypeDef"]`
+- `ViewOriginalText`: `str`
+- `ViewExpandedText`: `str`
+- `TableType`: `str`
+- `Parameters`: `Dict[str, str]`
+- `CreatedBy`: `str`
+- `IsRegisteredWithLakeFormation`: `bool`
+- `TargetTable`: `"TableIdentifierTypeDef"`
+- `CatalogId`: `str`
+
+
+## TableVersionErrorTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import TableVersionErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `TableName`: `str`
+- `VersionId`: `str`
+- `ErrorDetail`: `"ErrorDetailTypeDef"`
+
+
+## TableVersionTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import TableVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Table`: `"TableTypeDef"`
+- `VersionId`: `str`
+
+
 ## TaskRunFilterCriteriaTypeDef
 
 ```python
@@ -4270,6 +4053,23 @@ Optional fields:
 - `StartedAfter`: `datetime`
 
 
+## TaskRunPropertiesTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import TaskRunPropertiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `TaskType`: `TaskType`
+- `ImportLabelsTaskRunProperties`: `"ImportLabelsTaskRunPropertiesTypeDef"`
+- `ExportLabelsTaskRunProperties`: `"ExportLabelsTaskRunPropertiesTypeDef"`
+- `LabelingSetGenerationTaskRunProperties`: `"LabelingSetGenerationTaskRunPropertiesTypeDef"`
+- `FindMatchesTaskRunProperties`: `"FindMatchesTaskRunPropertiesTypeDef"`
+
+
 ## TaskRunSortCriteriaTypeDef
 
 ```python
@@ -4284,6 +4084,42 @@ Required fields:
 
 
 
+## TaskRunTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import TaskRunTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransformId`: `str`
+- `TaskRunId`: `str`
+- `Status`: `TaskStatusType`
+- `LogGroupName`: `str`
+- `Properties`: `"TaskRunPropertiesTypeDef"`
+- `ErrorString`: `str`
+- `StartedOn`: `datetime`
+- `LastModifiedOn`: `datetime`
+- `CompletedOn`: `datetime`
+- `ExecutionTime`: `int`
+
+
+## TransformEncryptionTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import TransformEncryptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `MlUserDataEncryption`: `"MLUserDataEncryptionTypeDef"`
+- `TaskRunSecurityConfigurationName`: `str`
+
+
 ## TransformFilterCriteriaTypeDef
 
 ```python
@@ -4295,7 +4131,7 @@ from mypy_boto3_glue.type_defs import TransformFilterCriteriaTypeDef
 
 Optional fields:
 - `Name`: `str`
-- `TransformType`: `TransformType`
+- `TransformType`: `Literal['FIND_MATCHES']`
 - `Status`: `TransformStatusType`
 - `GlueVersion`: `str`
 - `CreatedBefore`: `datetime`
@@ -4303,6 +4139,22 @@ Optional fields:
 - `LastModifiedBefore`: `datetime`
 - `LastModifiedAfter`: `datetime`
 - `Schema`: `List["SchemaColumnTypeDef"]`
+
+
+## TransformParametersTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import TransformParametersTypeDef
+```
+
+
+Required fields:
+- `TransformType`: `Literal['FIND_MATCHES']`
+
+
+
+Optional fields:
+- `FindMatchesParameters`: `"FindMatchesParametersTypeDef"`
 
 
 ## TransformSortCriteriaTypeDef
@@ -4317,6 +4169,40 @@ Required fields:
 - `SortDirection`: `SortDirectionType`
 
 
+
+
+## TriggerNodeDetailsTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import TriggerNodeDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Trigger`: `"TriggerTypeDef"`
+
+
+## TriggerTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import TriggerTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `WorkflowName`: `str`
+- `Id`: `str`
+- `Type`: `TriggerType`
+- `State`: `TriggerState`
+- `Description`: `str`
+- `Schedule`: `str`
+- `Actions`: `List["ActionTypeDef"]`
+- `Predicate`: `"PredicateTypeDef"`
 
 
 ## TriggerUpdateTypeDef
@@ -4530,4 +4416,118 @@ Optional fields:
 - `OwnerName`: `str`
 - `OwnerType`: `PrincipalType`
 - `ResourceUris`: `List["ResourceUriTypeDef"]`
+
+
+## UserDefinedFunctionTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import UserDefinedFunctionTypeDef
+```
+
+
+
+
+Optional fields:
+- `FunctionName`: `str`
+- `DatabaseName`: `str`
+- `ClassName`: `str`
+- `OwnerName`: `str`
+- `OwnerType`: `PrincipalType`
+- `CreateTime`: `datetime`
+- `ResourceUris`: `List["ResourceUriTypeDef"]`
+- `CatalogId`: `str`
+
+
+## WorkflowGraphTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import WorkflowGraphTypeDef
+```
+
+
+
+
+Optional fields:
+- `Nodes`: `List["NodeTypeDef"]`
+- `Edges`: `List["EdgeTypeDef"]`
+
+
+## WorkflowRunStatisticsTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import WorkflowRunStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `TotalActions`: `int`
+- `TimeoutActions`: `int`
+- `FailedActions`: `int`
+- `StoppedActions`: `int`
+- `SucceededActions`: `int`
+- `RunningActions`: `int`
+
+
+## WorkflowRunTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import WorkflowRunTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `WorkflowRunId`: `str`
+- `PreviousRunId`: `str`
+- `WorkflowRunProperties`: `Dict[str, str]`
+- `StartedOn`: `datetime`
+- `CompletedOn`: `datetime`
+- `Status`: `WorkflowRunStatus`
+- `ErrorMessage`: `str`
+- `Statistics`: `"WorkflowRunStatisticsTypeDef"`
+- `Graph`: `"WorkflowGraphTypeDef"`
+
+
+## WorkflowTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import WorkflowTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Description`: `str`
+- `DefaultRunProperties`: `Dict[str, str]`
+- `CreatedOn`: `datetime`
+- `LastModifiedOn`: `datetime`
+- `LastRun`: `"WorkflowRunTypeDef"`
+- `Graph`: `"WorkflowGraphTypeDef"`
+- `MaxConcurrentRuns`: `int`
+
+
+## XMLClassifierTypeDef
+
+```python
+from mypy_boto3_glue.type_defs import XMLClassifierTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Classification`: `str`
+
+
+
+Optional fields:
+- `CreationTime`: `datetime`
+- `LastUpdated`: `datetime`
+- `Version`: `int`
+- `RowTag`: `str`
 

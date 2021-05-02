@@ -43,10 +43,6 @@ type annotations stubs module [mypy_boto3_schemas](https://pypi.org/project/mypy
     - [update_registry](#update_registry)
     - [update_schema](#update_schema)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
     - [get_waiter](#get_waiter)
 
 ## SchemasClient
@@ -608,91 +604,23 @@ def update_schema(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("schemas").get_paginator` method.
-
-[Paginator.ListDiscoverers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas.html#Schemas.Paginator.ListDiscoverers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDiscoverersPaginatorName
-) -> ListDiscoverersPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("schemas").get_paginator` method.
+Type annotations for `boto3.client("schemas").get_paginator` method with overloads.
 
-[Paginator.ListRegistries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas.html#Schemas.Paginator.ListRegistries)
+- `client.get_paginator("list_discoverers")` -> [ListDiscoverersPaginator](./paginators.md#listdiscovererspaginator)
+- `client.get_paginator("list_registries")` -> [ListRegistriesPaginator](./paginators.md#listregistriespaginator)
+- `client.get_paginator("list_schema_versions")` -> [ListSchemaVersionsPaginator](./paginators.md#listschemaversionspaginator)
+- `client.get_paginator("list_schemas")` -> [ListSchemasPaginator](./paginators.md#listschemaspaginator)
+- `client.get_paginator("search_schemas")` -> [SearchSchemasPaginator](./paginators.md#searchschemaspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRegistriesPaginatorName
-) -> ListRegistriesPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("schemas").get_paginator` method.
-
-[Paginator.ListSchemaVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas.html#Schemas.Paginator.ListSchemaVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSchemaVersionsPaginatorName
-) -> ListSchemaVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("schemas").get_paginator` method.
-
-[Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas.html#Schemas.Paginator.ListSchemas)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSchemasPaginatorName
-) -> ListSchemasPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("schemas").get_paginator` method.
-
-[Paginator.SearchSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas.html#Schemas.Paginator.SearchSchemas)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchSchemasPaginatorName
-) -> SearchSchemasPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("schemas").get_waiter` method.
+Type annotations for `boto3.client("schemas").get_waiter` method with overloads.
 
-[Waiter.CodeBindingExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/schemas.html#Schemas.Waiter.CodeBindingExists)
-
-```python
-def get_waiter(
-    self,
-    waiter_name: CodeBindingExistsWaiterName
-) -> CodeBindingExistsWaiter:
-    pass
-```
+- `client.get_waiter("code_binding_exists")` -> [CodeBindingExistsWaiter](./waiters.md#codebindingexistswaiter)

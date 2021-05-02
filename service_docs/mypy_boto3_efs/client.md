@@ -37,8 +37,6 @@ type annotations stubs module [mypy_boto3_efs](https://pypi.org/project/mypy-bot
     - [untag_resource](#untag_resource)
     - [update_file_system](#update_file_system)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## EFSClient
 
@@ -520,47 +518,14 @@ def update_file_system(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("efs").get_paginator` method.
-
-[Paginator.DescribeFileSystems documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/efs.html#EFS.Paginator.DescribeFileSystems)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFileSystemsPaginatorName
-) -> DescribeFileSystemsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("efs").get_paginator` method.
+Type annotations for `boto3.client("efs").get_paginator` method with overloads.
 
-[Paginator.DescribeMountTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/efs.html#EFS.Paginator.DescribeMountTargets)
+- `client.get_paginator("describe_file_systems")` -> [DescribeFileSystemsPaginator](./paginators.md#describefilesystemspaginator)
+- `client.get_paginator("describe_mount_targets")` -> [DescribeMountTargetsPaginator](./paginators.md#describemounttargetspaginator)
+- `client.get_paginator("describe_tags")` -> [DescribeTagsPaginator](./paginators.md#describetagspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMountTargetsPaginatorName
-) -> DescribeMountTargetsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("efs").get_paginator` method.
-
-[Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/efs.html#EFS.Paginator.DescribeTags)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTagsPaginatorName
-) -> DescribeTagsPaginator:
-    pass
-```

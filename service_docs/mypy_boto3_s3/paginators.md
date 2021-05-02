@@ -33,7 +33,7 @@ class ListMultipartUploadsPaginator(Boto3Paginator):
         self,
         Bucket: str,
         Delimiter: str = None,
-        EncodingType: EncodingType = None,
+        EncodingType: Literal['url'] = None,
         Prefix: str = None,
         ExpectedBucketOwner: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None
@@ -61,7 +61,7 @@ class ListObjectVersionsPaginator(Boto3Paginator):
         self,
         Bucket: str,
         Delimiter: str = None,
-        EncodingType: EncodingType = None,
+        EncodingType: Literal['url'] = None,
         Prefix: str = None,
         ExpectedBucketOwner: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None
@@ -89,9 +89,9 @@ class ListObjectsPaginator(Boto3Paginator):
         self,
         Bucket: str,
         Delimiter: str = None,
-        EncodingType: EncodingType = None,
+        EncodingType: Literal['url'] = None,
         Prefix: str = None,
-        RequestPayer: RequestPayer = None,
+        RequestPayer: Literal['requester'] = None,
         ExpectedBucketOwner: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListObjectsOutputTypeDef]:
@@ -118,11 +118,11 @@ class ListObjectsV2Paginator(Boto3Paginator):
         self,
         Bucket: str,
         Delimiter: str = None,
-        EncodingType: EncodingType = None,
+        EncodingType: Literal['url'] = None,
         Prefix: str = None,
         FetchOwner: bool = None,
         StartAfter: str = None,
-        RequestPayer: RequestPayer = None,
+        RequestPayer: Literal['requester'] = None,
         ExpectedBucketOwner: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListObjectsV2OutputTypeDef]:
@@ -150,7 +150,7 @@ class ListPartsPaginator(Boto3Paginator):
         Bucket: str,
         Key: str,
         UploadId: str,
-        RequestPayer: RequestPayer = None,
+        RequestPayer: Literal['requester'] = None,
         ExpectedBucketOwner: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPartsOutputTypeDef]:

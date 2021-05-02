@@ -98,22 +98,6 @@ type annotations stubs module [mypy_boto3_config](https://pypi.org/project/mypy-
     - [tag_resource](#tag_resource)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
 
 ## ConfigServiceClient
 
@@ -1580,257 +1564,28 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.DescribeAggregateComplianceByConfigRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAggregateComplianceByConfigRulesPaginatorName
-) -> DescribeAggregateComplianceByConfigRulesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("config").get_paginator` method.
+Type annotations for `boto3.client("config").get_paginator` method with overloads.
 
-[Paginator.DescribeAggregationAuthorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.DescribeAggregationAuthorizations)
+- `client.get_paginator("describe_aggregate_compliance_by_config_rules")` -> [DescribeAggregateComplianceByConfigRulesPaginator](./paginators.md#describeaggregatecompliancebyconfigrulespaginator)
+- `client.get_paginator("describe_aggregation_authorizations")` -> [DescribeAggregationAuthorizationsPaginator](./paginators.md#describeaggregationauthorizationspaginator)
+- `client.get_paginator("describe_compliance_by_config_rule")` -> [DescribeComplianceByConfigRulePaginator](./paginators.md#describecompliancebyconfigrulepaginator)
+- `client.get_paginator("describe_compliance_by_resource")` -> [DescribeComplianceByResourcePaginator](./paginators.md#describecompliancebyresourcepaginator)
+- `client.get_paginator("describe_config_rule_evaluation_status")` -> [DescribeConfigRuleEvaluationStatusPaginator](./paginators.md#describeconfigruleevaluationstatuspaginator)
+- `client.get_paginator("describe_config_rules")` -> [DescribeConfigRulesPaginator](./paginators.md#describeconfigrulespaginator)
+- `client.get_paginator("describe_configuration_aggregator_sources_status")` -> [DescribeConfigurationAggregatorSourcesStatusPaginator](./paginators.md#describeconfigurationaggregatorsourcesstatuspaginator)
+- `client.get_paginator("describe_configuration_aggregators")` -> [DescribeConfigurationAggregatorsPaginator](./paginators.md#describeconfigurationaggregatorspaginator)
+- `client.get_paginator("describe_pending_aggregation_requests")` -> [DescribePendingAggregationRequestsPaginator](./paginators.md#describependingaggregationrequestspaginator)
+- `client.get_paginator("describe_remediation_execution_status")` -> [DescribeRemediationExecutionStatusPaginator](./paginators.md#describeremediationexecutionstatuspaginator)
+- `client.get_paginator("describe_retention_configurations")` -> [DescribeRetentionConfigurationsPaginator](./paginators.md#describeretentionconfigurationspaginator)
+- `client.get_paginator("get_aggregate_compliance_details_by_config_rule")` -> [GetAggregateComplianceDetailsByConfigRulePaginator](./paginators.md#getaggregatecompliancedetailsbyconfigrulepaginator)
+- `client.get_paginator("get_compliance_details_by_config_rule")` -> [GetComplianceDetailsByConfigRulePaginator](./paginators.md#getcompliancedetailsbyconfigrulepaginator)
+- `client.get_paginator("get_compliance_details_by_resource")` -> [GetComplianceDetailsByResourcePaginator](./paginators.md#getcompliancedetailsbyresourcepaginator)
+- `client.get_paginator("get_resource_config_history")` -> [GetResourceConfigHistoryPaginator](./paginators.md#getresourceconfighistorypaginator)
+- `client.get_paginator("list_aggregate_discovered_resources")` -> [ListAggregateDiscoveredResourcesPaginator](./paginators.md#listaggregatediscoveredresourcespaginator)
+- `client.get_paginator("list_discovered_resources")` -> [ListDiscoveredResourcesPaginator](./paginators.md#listdiscoveredresourcespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAggregationAuthorizationsPaginatorName
-) -> DescribeAggregationAuthorizationsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.DescribeComplianceByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByConfigRule)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeComplianceByConfigRulePaginatorName
-) -> DescribeComplianceByConfigRulePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.DescribeComplianceByResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeComplianceByResourcePaginatorName
-) -> DescribeComplianceByResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.DescribeConfigRuleEvaluationStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeConfigRuleEvaluationStatusPaginatorName
-) -> DescribeConfigRuleEvaluationStatusPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.DescribeConfigRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.DescribeConfigRules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeConfigRulesPaginatorName
-) -> DescribeConfigRulesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.DescribeConfigurationAggregatorSourcesStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeConfigurationAggregatorSourcesStatusPaginatorName
-) -> DescribeConfigurationAggregatorSourcesStatusPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.DescribeConfigurationAggregators documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregators)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeConfigurationAggregatorsPaginatorName
-) -> DescribeConfigurationAggregatorsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.DescribePendingAggregationRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.DescribePendingAggregationRequests)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribePendingAggregationRequestsPaginatorName
-) -> DescribePendingAggregationRequestsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.DescribeRemediationExecutionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.DescribeRemediationExecutionStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeRemediationExecutionStatusPaginatorName
-) -> DescribeRemediationExecutionStatusPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.DescribeRetentionConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.DescribeRetentionConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeRetentionConfigurationsPaginatorName
-) -> DescribeRetentionConfigurationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.GetAggregateComplianceDetailsByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetAggregateComplianceDetailsByConfigRulePaginatorName
-) -> GetAggregateComplianceDetailsByConfigRulePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.GetComplianceDetailsByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetComplianceDetailsByConfigRulePaginatorName
-) -> GetComplianceDetailsByConfigRulePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.GetComplianceDetailsByResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetComplianceDetailsByResourcePaginatorName
-) -> GetComplianceDetailsByResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.GetResourceConfigHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.GetResourceConfigHistory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetResourceConfigHistoryPaginatorName
-) -> GetResourceConfigHistoryPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.ListAggregateDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.ListAggregateDiscoveredResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAggregateDiscoveredResourcesPaginatorName
-) -> ListAggregateDiscoveredResourcesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("config").get_paginator` method.
-
-[Paginator.ListDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/config.html#ConfigService.Paginator.ListDiscoveredResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDiscoveredResourcesPaginatorName
-) -> ListDiscoveredResourcesPaginator:
-    pass
-```

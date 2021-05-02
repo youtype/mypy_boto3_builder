@@ -100,12 +100,12 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_mediastore_data.type_defs import ItemTypeDef, ...
+from mypy_boto3_mediastore_data.type_defs import DescribeObjectResponseTypeDef, ...
 ```
 
-- [ItemTypeDef](./type_defs.md#itemtypedef)
 - [DescribeObjectResponseTypeDef](./type_defs.md#describeobjectresponsetypedef)
 - [GetObjectResponseTypeDef](./type_defs.md#getobjectresponsetypedef)
+- [ItemTypeDef](./type_defs.md#itemtypedef)
 - [ListItemsResponseTypeDef](./type_defs.md#listitemsresponsetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
 - [PutObjectResponseTypeDef](./type_defs.md#putobjectresponsetypedef)

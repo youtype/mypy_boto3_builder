@@ -15,13 +15,21 @@ type annotations stubs module [mypy_boto3_appflow](https://pypi.org/project/mypy
   - [ConnectorMetadataTypeDef](#connectormetadatatypedef)
   - [ConnectorOAuthRequestTypeDef](#connectoroauthrequesttypedef)
   - [ConnectorOperatorTypeDef](#connectoroperatortypedef)
+  - [ConnectorProfileConfigTypeDef](#connectorprofileconfigtypedef)
   - [ConnectorProfileCredentialsTypeDef](#connectorprofilecredentialstypedef)
   - [ConnectorProfilePropertiesTypeDef](#connectorprofilepropertiestypedef)
   - [ConnectorProfileTypeDef](#connectorprofiletypedef)
+  - [CreateConnectorProfileResponseTypeDef](#createconnectorprofileresponsetypedef)
+  - [CreateFlowResponseTypeDef](#createflowresponsetypedef)
   - [CustomerProfilesDestinationPropertiesTypeDef](#customerprofilesdestinationpropertiestypedef)
   - [DatadogConnectorProfileCredentialsTypeDef](#datadogconnectorprofilecredentialstypedef)
   - [DatadogConnectorProfilePropertiesTypeDef](#datadogconnectorprofilepropertiestypedef)
   - [DatadogSourcePropertiesTypeDef](#datadogsourcepropertiestypedef)
+  - [DescribeConnectorEntityResponseTypeDef](#describeconnectorentityresponsetypedef)
+  - [DescribeConnectorProfilesResponseTypeDef](#describeconnectorprofilesresponsetypedef)
+  - [DescribeConnectorsResponseTypeDef](#describeconnectorsresponsetypedef)
+  - [DescribeFlowExecutionRecordsResponseTypeDef](#describeflowexecutionrecordsresponsetypedef)
+  - [DescribeFlowResponseTypeDef](#describeflowresponsetypedef)
   - [DestinationConnectorPropertiesTypeDef](#destinationconnectorpropertiestypedef)
   - [DestinationFieldPropertiesTypeDef](#destinationfieldpropertiestypedef)
   - [DestinationFlowConfigTypeDef](#destinationflowconfigtypedef)
@@ -46,6 +54,9 @@ type annotations stubs module [mypy_boto3_appflow](https://pypi.org/project/mypy
   - [InforNexusConnectorProfileCredentialsTypeDef](#infornexusconnectorprofilecredentialstypedef)
   - [InforNexusConnectorProfilePropertiesTypeDef](#infornexusconnectorprofilepropertiestypedef)
   - [InforNexusSourcePropertiesTypeDef](#infornexussourcepropertiestypedef)
+  - [ListConnectorEntitiesResponseTypeDef](#listconnectorentitiesresponsetypedef)
+  - [ListFlowsResponseTypeDef](#listflowsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [MarketoConnectorProfileCredentialsTypeDef](#marketoconnectorprofilecredentialstypedef)
   - [MarketoConnectorProfilePropertiesTypeDef](#marketoconnectorprofilepropertiestypedef)
   - [MarketoSourcePropertiesTypeDef](#marketosourcepropertiestypedef)
@@ -78,12 +89,16 @@ type annotations stubs module [mypy_boto3_appflow](https://pypi.org/project/mypy
   - [SourceConnectorPropertiesTypeDef](#sourceconnectorpropertiestypedef)
   - [SourceFieldPropertiesTypeDef](#sourcefieldpropertiestypedef)
   - [SourceFlowConfigTypeDef](#sourceflowconfigtypedef)
+  - [StartFlowResponseTypeDef](#startflowresponsetypedef)
+  - [StopFlowResponseTypeDef](#stopflowresponsetypedef)
   - [SupportedFieldTypeDetailsTypeDef](#supportedfieldtypedetailstypedef)
   - [TaskTypeDef](#tasktypedef)
   - [TrendmicroConnectorProfileCredentialsTypeDef](#trendmicroconnectorprofilecredentialstypedef)
   - [TrendmicroSourcePropertiesTypeDef](#trendmicrosourcepropertiestypedef)
   - [TriggerConfigTypeDef](#triggerconfigtypedef)
   - [TriggerPropertiesTypeDef](#triggerpropertiestypedef)
+  - [UpdateConnectorProfileResponseTypeDef](#updateconnectorprofileresponsetypedef)
+  - [UpdateFlowResponseTypeDef](#updateflowresponsetypedef)
   - [UpsolverDestinationPropertiesTypeDef](#upsolverdestinationpropertiestypedef)
   - [UpsolverS3OutputFormatConfigTypeDef](#upsolvers3outputformatconfigtypedef)
   - [VeevaConnectorProfileCredentialsTypeDef](#veevaconnectorprofilecredentialstypedef)
@@ -94,21 +109,6 @@ type annotations stubs module [mypy_boto3_appflow](https://pypi.org/project/mypy
   - [ZendeskDestinationPropertiesTypeDef](#zendeskdestinationpropertiestypedef)
   - [ZendeskMetadataTypeDef](#zendeskmetadatatypedef)
   - [ZendeskSourcePropertiesTypeDef](#zendesksourcepropertiestypedef)
-  - [ConnectorProfileConfigTypeDef](#connectorprofileconfigtypedef)
-  - [CreateConnectorProfileResponseTypeDef](#createconnectorprofileresponsetypedef)
-  - [CreateFlowResponseTypeDef](#createflowresponsetypedef)
-  - [DescribeConnectorEntityResponseTypeDef](#describeconnectorentityresponsetypedef)
-  - [DescribeConnectorProfilesResponseTypeDef](#describeconnectorprofilesresponsetypedef)
-  - [DescribeConnectorsResponseTypeDef](#describeconnectorsresponsetypedef)
-  - [DescribeFlowExecutionRecordsResponseTypeDef](#describeflowexecutionrecordsresponsetypedef)
-  - [DescribeFlowResponseTypeDef](#describeflowresponsetypedef)
-  - [ListConnectorEntitiesResponseTypeDef](#listconnectorentitiesresponsetypedef)
-  - [ListFlowsResponseTypeDef](#listflowsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [StartFlowResponseTypeDef](#startflowresponsetypedef)
-  - [StopFlowResponseTypeDef](#stopflowresponsetypedef)
-  - [UpdateConnectorProfileResponseTypeDef](#updateconnectorprofileresponsetypedef)
-  - [UpdateFlowResponseTypeDef](#updateflowresponsetypedef)
 
 ## AggregationConfigTypeDef
 
@@ -263,7 +263,7 @@ from mypy_boto3_appflow.type_defs import ConnectorOperatorTypeDef
 
 
 Optional fields:
-- `Amplitude`: `AmplitudeConnectorOperator`
+- `Amplitude`: `Literal['BETWEEN']`
 - `Datadog`: `DatadogConnectorOperator`
 - `Dynatrace`: `DynatraceConnectorOperator`
 - `GoogleAnalytics`: `GoogleAnalyticsConnectorOperator`
@@ -277,6 +277,20 @@ Optional fields:
 - `Trendmicro`: `TrendmicroConnectorOperator`
 - `Veeva`: `VeevaConnectorOperator`
 - `Zendesk`: `ZendeskConnectorOperator`
+
+
+## ConnectorProfileConfigTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import ConnectorProfileConfigTypeDef
+```
+
+
+Required fields:
+- `connectorProfileProperties`: `"ConnectorProfilePropertiesTypeDef"`
+- `connectorProfileCredentials`: `"ConnectorProfileCredentialsTypeDef"`
+
+
 
 
 ## ConnectorProfileCredentialsTypeDef
@@ -355,6 +369,33 @@ Optional fields:
 - `lastUpdatedAt`: `datetime`
 
 
+## CreateConnectorProfileResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import CreateConnectorProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `connectorProfileArn`: `str`
+
+
+## CreateFlowResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import CreateFlowResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `flowArn`: `str`
+- `flowStatus`: `FlowStatus`
+
+
 ## CustomerProfilesDestinationPropertiesTypeDef
 
 ```python
@@ -409,6 +450,89 @@ Required fields:
 - `object`: `str`
 
 
+
+
+## DescribeConnectorEntityResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import DescribeConnectorEntityResponseTypeDef
+```
+
+
+Required fields:
+- `connectorEntityFields`: `List["ConnectorEntityFieldTypeDef"]`
+
+
+
+
+## DescribeConnectorProfilesResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import DescribeConnectorProfilesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `connectorProfileDetails`: `List["ConnectorProfileTypeDef"]`
+- `nextToken`: `str`
+
+
+## DescribeConnectorsResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import DescribeConnectorsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `connectorConfigurations`: `Dict[ConnectorType, "ConnectorConfigurationTypeDef"]`
+- `nextToken`: `str`
+
+
+## DescribeFlowExecutionRecordsResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import DescribeFlowExecutionRecordsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `flowExecutions`: `List["ExecutionRecordTypeDef"]`
+- `nextToken`: `str`
+
+
+## DescribeFlowResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import DescribeFlowResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `flowArn`: `str`
+- `description`: `str`
+- `flowName`: `str`
+- `kmsArn`: `str`
+- `flowStatus`: `FlowStatus`
+- `flowStatusMessage`: `str`
+- `sourceFlowConfig`: `"SourceFlowConfigTypeDef"`
+- `destinationFlowConfigList`: `List["DestinationFlowConfigTypeDef"]`
+- `lastRunExecutionDetails`: `"ExecutionDetailsTypeDef"`
+- `triggerConfig`: `"TriggerConfigTypeDef"`
+- `tasks`: `List["TaskTypeDef"]`
+- `createdAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `createdBy`: `str`
+- `lastUpdatedBy`: `str`
+- `tags`: `Dict[str, str]`
 
 
 ## DestinationConnectorPropertiesTypeDef
@@ -785,6 +909,46 @@ Required fields:
 - `object`: `str`
 
 
+
+
+## ListConnectorEntitiesResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import ListConnectorEntitiesResponseTypeDef
+```
+
+
+Required fields:
+- `connectorEntityMap`: `Dict[str, List["ConnectorEntityTypeDef"]]`
+
+
+
+
+## ListFlowsResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import ListFlowsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `flows`: `List["FlowDefinitionTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `Dict[str, str]`
 
 
 ## MarketoConnectorProfileCredentialsTypeDef
@@ -1289,6 +1453,35 @@ Optional fields:
 - `incrementalPullConfig`: `"IncrementalPullConfigTypeDef"`
 
 
+## StartFlowResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import StartFlowResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `flowArn`: `str`
+- `flowStatus`: `FlowStatus`
+- `executionId`: `str`
+
+
+## StopFlowResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import StopFlowResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `flowArn`: `str`
+- `flowStatus`: `FlowStatus`
+
+
 ## SupportedFieldTypeDetailsTypeDef
 
 ```python
@@ -1374,6 +1567,32 @@ from mypy_boto3_appflow.type_defs import TriggerPropertiesTypeDef
 
 Optional fields:
 - `Scheduled`: `"ScheduledTriggerPropertiesTypeDef"`
+
+
+## UpdateConnectorProfileResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import UpdateConnectorProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `connectorProfileArn`: `str`
+
+
+## UpdateFlowResponseTypeDef
+
+```python
+from mypy_boto3_appflow.type_defs import UpdateFlowResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `flowStatus`: `FlowStatus`
 
 
 ## UpsolverDestinationPropertiesTypeDef
@@ -1523,223 +1742,4 @@ Required fields:
 - `object`: `str`
 
 
-
-
-## ConnectorProfileConfigTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import ConnectorProfileConfigTypeDef
-```
-
-
-Required fields:
-- `connectorProfileProperties`: `"ConnectorProfilePropertiesTypeDef"`
-- `connectorProfileCredentials`: `"ConnectorProfileCredentialsTypeDef"`
-
-
-
-
-## CreateConnectorProfileResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import CreateConnectorProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `connectorProfileArn`: `str`
-
-
-## CreateFlowResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import CreateFlowResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `flowArn`: `str`
-- `flowStatus`: `FlowStatus`
-
-
-## DescribeConnectorEntityResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import DescribeConnectorEntityResponseTypeDef
-```
-
-
-Required fields:
-- `connectorEntityFields`: `List["ConnectorEntityFieldTypeDef"]`
-
-
-
-
-## DescribeConnectorProfilesResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import DescribeConnectorProfilesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `connectorProfileDetails`: `List["ConnectorProfileTypeDef"]`
-- `nextToken`: `str`
-
-
-## DescribeConnectorsResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import DescribeConnectorsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `connectorConfigurations`: `Dict[ConnectorType, "ConnectorConfigurationTypeDef"]`
-- `nextToken`: `str`
-
-
-## DescribeFlowExecutionRecordsResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import DescribeFlowExecutionRecordsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `flowExecutions`: `List["ExecutionRecordTypeDef"]`
-- `nextToken`: `str`
-
-
-## DescribeFlowResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import DescribeFlowResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `flowArn`: `str`
-- `description`: `str`
-- `flowName`: `str`
-- `kmsArn`: `str`
-- `flowStatus`: `FlowStatus`
-- `flowStatusMessage`: `str`
-- `sourceFlowConfig`: `"SourceFlowConfigTypeDef"`
-- `destinationFlowConfigList`: `List["DestinationFlowConfigTypeDef"]`
-- `lastRunExecutionDetails`: `"ExecutionDetailsTypeDef"`
-- `triggerConfig`: `"TriggerConfigTypeDef"`
-- `tasks`: `List["TaskTypeDef"]`
-- `createdAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `createdBy`: `str`
-- `lastUpdatedBy`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## ListConnectorEntitiesResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import ListConnectorEntitiesResponseTypeDef
-```
-
-
-Required fields:
-- `connectorEntityMap`: `Dict[str, List["ConnectorEntityTypeDef"]]`
-
-
-
-
-## ListFlowsResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import ListFlowsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `flows`: `List["FlowDefinitionTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `Dict[str, str]`
-
-
-## StartFlowResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import StartFlowResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `flowArn`: `str`
-- `flowStatus`: `FlowStatus`
-- `executionId`: `str`
-
-
-## StopFlowResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import StopFlowResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `flowArn`: `str`
-- `flowStatus`: `FlowStatus`
-
-
-## UpdateConnectorProfileResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import UpdateConnectorProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `connectorProfileArn`: `str`
-
-
-## UpdateFlowResponseTypeDef
-
-```python
-from mypy_boto3_appflow.type_defs import UpdateFlowResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `flowStatus`: `FlowStatus`
 

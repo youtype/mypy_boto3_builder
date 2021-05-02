@@ -59,13 +59,6 @@ type annotations stubs module [mypy_boto3_globalaccelerator](https://pypi.org/pr
     - [update_listener](#update_listener)
     - [withdraw_byoip_cidr](#withdraw_byoip_cidr)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
 
 ## GlobalAcceleratorClient
 
@@ -188,7 +181,7 @@ def create_accelerator(
     self,
     Name: str,
     IdempotencyToken: str,
-    IpAddressType: IpAddressType = None,
+    IpAddressType: Literal['IPV4'] = None,
     IpAddresses: List[str] = None,
     Enabled: bool = None,
     Tags: List["TagTypeDef"] = None
@@ -207,7 +200,7 @@ def create_custom_routing_accelerator(
     self,
     Name: str,
     IdempotencyToken: str,
-    IpAddressType: IpAddressType = None,
+    IpAddressType: Literal['IPV4'] = None,
     IpAddresses: List[str] = None,
     Enabled: bool = None,
     Tags: List["TagTypeDef"] = None
@@ -763,7 +756,7 @@ def update_accelerator(
     self,
     AcceleratorArn: str,
     Name: str = None,
-    IpAddressType: IpAddressType = None,
+    IpAddressType: Literal['IPV4'] = None,
     Enabled: bool = None
 ) -> UpdateAcceleratorResponseTypeDef:
     pass
@@ -797,7 +790,7 @@ def update_custom_routing_accelerator(
     self,
     AcceleratorArn: str,
     Name: str = None,
-    IpAddressType: IpAddressType = None,
+    IpAddressType: Literal['IPV4'] = None,
     Enabled: bool = None
 ) -> UpdateCustomRoutingAcceleratorResponseTypeDef:
     pass
@@ -888,122 +881,19 @@ def withdraw_byoip_cidr(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("globalaccelerator").get_paginator` method.
-
-[Paginator.ListAccelerators documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListAccelerators)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAcceleratorsPaginatorName
-) -> ListAcceleratorsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("globalaccelerator").get_paginator` method.
+Type annotations for `boto3.client("globalaccelerator").get_paginator` method with overloads.
 
-[Paginator.ListByoipCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListByoipCidrs)
+- `client.get_paginator("list_accelerators")` -> [ListAcceleratorsPaginator](./paginators.md#listacceleratorspaginator)
+- `client.get_paginator("list_byoip_cidrs")` -> [ListByoipCidrsPaginator](./paginators.md#listbyoipcidrspaginator)
+- `client.get_paginator("list_custom_routing_accelerators")` -> [ListCustomRoutingAcceleratorsPaginator](./paginators.md#listcustomroutingacceleratorspaginator)
+- `client.get_paginator("list_custom_routing_listeners")` -> [ListCustomRoutingListenersPaginator](./paginators.md#listcustomroutinglistenerspaginator)
+- `client.get_paginator("list_custom_routing_port_mappings")` -> [ListCustomRoutingPortMappingsPaginator](./paginators.md#listcustomroutingportmappingspaginator)
+- `client.get_paginator("list_custom_routing_port_mappings_by_destination")` -> [ListCustomRoutingPortMappingsByDestinationPaginator](./paginators.md#listcustomroutingportmappingsbydestinationpaginator)
+- `client.get_paginator("list_endpoint_groups")` -> [ListEndpointGroupsPaginator](./paginators.md#listendpointgroupspaginator)
+- `client.get_paginator("list_listeners")` -> [ListListenersPaginator](./paginators.md#listlistenerspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListByoipCidrsPaginatorName
-) -> ListByoipCidrsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("globalaccelerator").get_paginator` method.
-
-[Paginator.ListCustomRoutingAccelerators documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingAccelerators)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCustomRoutingAcceleratorsPaginatorName
-) -> ListCustomRoutingAcceleratorsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("globalaccelerator").get_paginator` method.
-
-[Paginator.ListCustomRoutingListeners documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingListeners)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCustomRoutingListenersPaginatorName
-) -> ListCustomRoutingListenersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("globalaccelerator").get_paginator` method.
-
-[Paginator.ListCustomRoutingPortMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappings)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCustomRoutingPortMappingsPaginatorName
-) -> ListCustomRoutingPortMappingsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("globalaccelerator").get_paginator` method.
-
-[Paginator.ListCustomRoutingPortMappingsByDestination documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListCustomRoutingPortMappingsByDestination)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCustomRoutingPortMappingsByDestinationPaginatorName
-) -> ListCustomRoutingPortMappingsByDestinationPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("globalaccelerator").get_paginator` method.
-
-[Paginator.ListEndpointGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListEndpointGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEndpointGroupsPaginatorName
-) -> ListEndpointGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("globalaccelerator").get_paginator` method.
-
-[Paginator.ListListeners documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListListeners)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListListenersPaginatorName
-) -> ListListenersPaginator:
-    pass
-```

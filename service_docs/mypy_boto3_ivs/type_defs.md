@@ -7,23 +7,14 @@ type annotations stubs module [mypy_boto3_ivs](https://pypi.org/project/mypy-bot
 
 - [Structures for boto3 IVS module](#structures-for-boto3-ivs-module)
   - [BatchErrorTypeDef](#batcherrortypedef)
-  - [ChannelSummaryTypeDef](#channelsummarytypedef)
-  - [ChannelTypeDef](#channeltypedef)
-  - [DestinationConfigurationTypeDef](#destinationconfigurationtypedef)
-  - [PlaybackKeyPairSummaryTypeDef](#playbackkeypairsummarytypedef)
-  - [PlaybackKeyPairTypeDef](#playbackkeypairtypedef)
-  - [RecordingConfigurationSummaryTypeDef](#recordingconfigurationsummarytypedef)
-  - [RecordingConfigurationTypeDef](#recordingconfigurationtypedef)
-  - [S3DestinationConfigurationTypeDef](#s3destinationconfigurationtypedef)
-  - [StreamKeySummaryTypeDef](#streamkeysummarytypedef)
-  - [StreamKeyTypeDef](#streamkeytypedef)
-  - [StreamSummaryTypeDef](#streamsummarytypedef)
-  - [StreamTypeDef](#streamtypedef)
   - [BatchGetChannelResponseTypeDef](#batchgetchannelresponsetypedef)
   - [BatchGetStreamKeyResponseTypeDef](#batchgetstreamkeyresponsetypedef)
+  - [ChannelSummaryTypeDef](#channelsummarytypedef)
+  - [ChannelTypeDef](#channeltypedef)
   - [CreateChannelResponseTypeDef](#createchannelresponsetypedef)
   - [CreateRecordingConfigurationResponseTypeDef](#createrecordingconfigurationresponsetypedef)
   - [CreateStreamKeyResponseTypeDef](#createstreamkeyresponsetypedef)
+  - [DestinationConfigurationTypeDef](#destinationconfigurationtypedef)
   - [GetChannelResponseTypeDef](#getchannelresponsetypedef)
   - [GetPlaybackKeyPairResponseTypeDef](#getplaybackkeypairresponsetypedef)
   - [GetRecordingConfigurationResponseTypeDef](#getrecordingconfigurationresponsetypedef)
@@ -37,6 +28,15 @@ type annotations stubs module [mypy_boto3_ivs](https://pypi.org/project/mypy-bot
   - [ListStreamsResponseTypeDef](#liststreamsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PlaybackKeyPairSummaryTypeDef](#playbackkeypairsummarytypedef)
+  - [PlaybackKeyPairTypeDef](#playbackkeypairtypedef)
+  - [RecordingConfigurationSummaryTypeDef](#recordingconfigurationsummarytypedef)
+  - [RecordingConfigurationTypeDef](#recordingconfigurationtypedef)
+  - [S3DestinationConfigurationTypeDef](#s3destinationconfigurationtypedef)
+  - [StreamKeySummaryTypeDef](#streamkeysummarytypedef)
+  - [StreamKeyTypeDef](#streamkeytypedef)
+  - [StreamSummaryTypeDef](#streamsummarytypedef)
+  - [StreamTypeDef](#streamtypedef)
   - [UpdateChannelResponseTypeDef](#updatechannelresponsetypedef)
 
 ## BatchErrorTypeDef
@@ -52,6 +52,34 @@ Optional fields:
 - `arn`: `str`
 - `code`: `str`
 - `message`: `str`
+
+
+## BatchGetChannelResponseTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import BatchGetChannelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `channels`: `List["ChannelTypeDef"]`
+- `errors`: `List["BatchErrorTypeDef"]`
+
+
+## BatchGetStreamKeyResponseTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import BatchGetStreamKeyResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `streamKeys`: `List["StreamKeyTypeDef"]`
+- `errors`: `List["BatchErrorTypeDef"]`
 
 
 ## ChannelSummaryTypeDef
@@ -93,195 +121,6 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
-## DestinationConfigurationTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import DestinationConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `s3`: `"S3DestinationConfigurationTypeDef"`
-
-
-## PlaybackKeyPairSummaryTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import PlaybackKeyPairSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## PlaybackKeyPairTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import PlaybackKeyPairTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `fingerprint`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## RecordingConfigurationSummaryTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import RecordingConfigurationSummaryTypeDef
-```
-
-
-Required fields:
-- `arn`: `str`
-- `destinationConfiguration`: `"DestinationConfigurationTypeDef"`
-- `state`: `RecordingConfigurationState`
-
-
-
-Optional fields:
-- `name`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## RecordingConfigurationTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import RecordingConfigurationTypeDef
-```
-
-
-Required fields:
-- `arn`: `str`
-- `destinationConfiguration`: `"DestinationConfigurationTypeDef"`
-- `state`: `RecordingConfigurationState`
-
-
-
-Optional fields:
-- `name`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## S3DestinationConfigurationTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import S3DestinationConfigurationTypeDef
-```
-
-
-Required fields:
-- `bucketName`: `str`
-
-
-
-
-## StreamKeySummaryTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import StreamKeySummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `channelArn`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## StreamKeyTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import StreamKeyTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `value`: `str`
-- `channelArn`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## StreamSummaryTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import StreamSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `channelArn`: `str`
-- `state`: `StreamState`
-- `health`: `StreamHealth`
-- `viewerCount`: `int`
-- `startTime`: `datetime`
-
-
-## StreamTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import StreamTypeDef
-```
-
-
-
-
-Optional fields:
-- `channelArn`: `str`
-- `playbackUrl`: `str`
-- `startTime`: `datetime`
-- `state`: `StreamState`
-- `health`: `StreamHealth`
-- `viewerCount`: `int`
-
-
-## BatchGetChannelResponseTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import BatchGetChannelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `channels`: `List["ChannelTypeDef"]`
-- `errors`: `List["BatchErrorTypeDef"]`
-
-
-## BatchGetStreamKeyResponseTypeDef
-
-```python
-from mypy_boto3_ivs.type_defs import BatchGetStreamKeyResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `streamKeys`: `List["StreamKeyTypeDef"]`
-- `errors`: `List["BatchErrorTypeDef"]`
-
-
 ## CreateChannelResponseTypeDef
 
 ```python
@@ -320,6 +159,19 @@ from mypy_boto3_ivs.type_defs import CreateStreamKeyResponseTypeDef
 
 Optional fields:
 - `streamKey`: `"StreamKeyTypeDef"`
+
+
+## DestinationConfigurationTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import DestinationConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `s3`: `"S3DestinationConfigurationTypeDef"`
 
 
 ## GetChannelResponseTypeDef
@@ -509,6 +361,154 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PlaybackKeyPairSummaryTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import PlaybackKeyPairSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## PlaybackKeyPairTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import PlaybackKeyPairTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `fingerprint`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## RecordingConfigurationSummaryTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import RecordingConfigurationSummaryTypeDef
+```
+
+
+Required fields:
+- `arn`: `str`
+- `destinationConfiguration`: `"DestinationConfigurationTypeDef"`
+- `state`: `RecordingConfigurationState`
+
+
+
+Optional fields:
+- `name`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## RecordingConfigurationTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import RecordingConfigurationTypeDef
+```
+
+
+Required fields:
+- `arn`: `str`
+- `destinationConfiguration`: `"DestinationConfigurationTypeDef"`
+- `state`: `RecordingConfigurationState`
+
+
+
+Optional fields:
+- `name`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## S3DestinationConfigurationTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import S3DestinationConfigurationTypeDef
+```
+
+
+Required fields:
+- `bucketName`: `str`
+
+
+
+
+## StreamKeySummaryTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import StreamKeySummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `channelArn`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## StreamKeyTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import StreamKeyTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `value`: `str`
+- `channelArn`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## StreamSummaryTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import StreamSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `channelArn`: `str`
+- `state`: `StreamState`
+- `health`: `StreamHealth`
+- `viewerCount`: `int`
+- `startTime`: `datetime`
+
+
+## StreamTypeDef
+
+```python
+from mypy_boto3_ivs.type_defs import StreamTypeDef
+```
+
+
+
+
+Optional fields:
+- `channelArn`: `str`
+- `playbackUrl`: `str`
+- `startTime`: `datetime`
+- `state`: `StreamState`
+- `health`: `StreamHealth`
+- `viewerCount`: `int`
 
 
 ## UpdateChannelResponseTypeDef

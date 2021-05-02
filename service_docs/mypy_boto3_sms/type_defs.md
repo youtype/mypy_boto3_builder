@@ -10,7 +10,23 @@ type annotations stubs module [mypy_boto3_sms](https://pypi.org/project/mypy-bot
   - [AppValidationConfigurationTypeDef](#appvalidationconfigurationtypedef)
   - [AppValidationOutputTypeDef](#appvalidationoutputtypedef)
   - [ConnectorTypeDef](#connectortypedef)
+  - [CreateAppResponseTypeDef](#createappresponsetypedef)
+  - [CreateReplicationJobResponseTypeDef](#createreplicationjobresponsetypedef)
+  - [GenerateChangeSetResponseTypeDef](#generatechangesetresponsetypedef)
+  - [GenerateTemplateResponseTypeDef](#generatetemplateresponsetypedef)
+  - [GetAppLaunchConfigurationResponseTypeDef](#getapplaunchconfigurationresponsetypedef)
+  - [GetAppReplicationConfigurationResponseTypeDef](#getappreplicationconfigurationresponsetypedef)
+  - [GetAppResponseTypeDef](#getappresponsetypedef)
+  - [GetAppValidationConfigurationResponseTypeDef](#getappvalidationconfigurationresponsetypedef)
+  - [GetAppValidationOutputResponseTypeDef](#getappvalidationoutputresponsetypedef)
+  - [GetConnectorsResponseTypeDef](#getconnectorsresponsetypedef)
+  - [GetReplicationJobsResponseTypeDef](#getreplicationjobsresponsetypedef)
+  - [GetReplicationRunsResponseTypeDef](#getreplicationrunsresponsetypedef)
+  - [GetServersResponseTypeDef](#getserversresponsetypedef)
   - [LaunchDetailsTypeDef](#launchdetailstypedef)
+  - [ListAppsResponseTypeDef](#listappsresponsetypedef)
+  - [NotificationContextTypeDef](#notificationcontexttypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ReplicationJobTypeDef](#replicationjobtypedef)
   - [ReplicationRunStageDetailsTypeDef](#replicationrunstagedetailstypedef)
   - [ReplicationRunTypeDef](#replicationruntypedef)
@@ -29,30 +45,14 @@ type annotations stubs module [mypy_boto3_sms](https://pypi.org/project/mypy-bot
   - [ServerValidationConfigurationTypeDef](#servervalidationconfigurationtypedef)
   - [ServerValidationOutputTypeDef](#servervalidationoutputtypedef)
   - [SourceTypeDef](#sourcetypedef)
+  - [StartOnDemandReplicationRunResponseTypeDef](#startondemandreplicationrunresponsetypedef)
   - [TagTypeDef](#tagtypedef)
+  - [UpdateAppResponseTypeDef](#updateappresponsetypedef)
   - [UserDataTypeDef](#userdatatypedef)
   - [UserDataValidationParametersTypeDef](#userdatavalidationparameterstypedef)
   - [ValidationOutputTypeDef](#validationoutputtypedef)
   - [VmServerAddressTypeDef](#vmserveraddresstypedef)
   - [VmServerTypeDef](#vmservertypedef)
-  - [CreateAppResponseTypeDef](#createappresponsetypedef)
-  - [CreateReplicationJobResponseTypeDef](#createreplicationjobresponsetypedef)
-  - [GenerateChangeSetResponseTypeDef](#generatechangesetresponsetypedef)
-  - [GenerateTemplateResponseTypeDef](#generatetemplateresponsetypedef)
-  - [GetAppLaunchConfigurationResponseTypeDef](#getapplaunchconfigurationresponsetypedef)
-  - [GetAppReplicationConfigurationResponseTypeDef](#getappreplicationconfigurationresponsetypedef)
-  - [GetAppResponseTypeDef](#getappresponsetypedef)
-  - [GetAppValidationConfigurationResponseTypeDef](#getappvalidationconfigurationresponsetypedef)
-  - [GetAppValidationOutputResponseTypeDef](#getappvalidationoutputresponsetypedef)
-  - [GetConnectorsResponseTypeDef](#getconnectorsresponsetypedef)
-  - [GetReplicationJobsResponseTypeDef](#getreplicationjobsresponsetypedef)
-  - [GetReplicationRunsResponseTypeDef](#getreplicationrunsresponsetypedef)
-  - [GetServersResponseTypeDef](#getserversresponsetypedef)
-  - [ListAppsResponseTypeDef](#listappsresponsetypedef)
-  - [NotificationContextTypeDef](#notificationcontexttypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [StartOnDemandReplicationRunResponseTypeDef](#startondemandreplicationrunresponsetypedef)
-  - [UpdateAppResponseTypeDef](#updateappresponsetypedef)
 
 ## AppSummaryTypeDef
 
@@ -97,7 +97,7 @@ from mypy_boto3_sms.type_defs import AppValidationConfigurationTypeDef
 Optional fields:
 - `validationId`: `str`
 - `name`: `str`
-- `appValidationStrategy`: `AppValidationStrategy`
+- `appValidationStrategy`: `Literal['SSM']`
 - `ssmValidationParameters`: `"SSMValidationParametersTypeDef"`
 
 
@@ -137,6 +137,190 @@ Optional fields:
 - `associatedOn`: `datetime`
 
 
+## CreateAppResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import CreateAppResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `appSummary`: `"AppSummaryTypeDef"`
+- `serverGroups`: `List["ServerGroupTypeDef"]`
+- `tags`: `List["TagTypeDef"]`
+
+
+## CreateReplicationJobResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import CreateReplicationJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `replicationJobId`: `str`
+
+
+## GenerateChangeSetResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import GenerateChangeSetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `s3Location`: `"S3LocationTypeDef"`
+
+
+## GenerateTemplateResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import GenerateTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `s3Location`: `"S3LocationTypeDef"`
+
+
+## GetAppLaunchConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import GetAppLaunchConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `appId`: `str`
+- `roleName`: `str`
+- `autoLaunch`: `bool`
+- `serverGroupLaunchConfigurations`: `List["ServerGroupLaunchConfigurationTypeDef"]`
+
+
+## GetAppReplicationConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import GetAppReplicationConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `serverGroupReplicationConfigurations`: `List["ServerGroupReplicationConfigurationTypeDef"]`
+
+
+## GetAppResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import GetAppResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `appSummary`: `"AppSummaryTypeDef"`
+- `serverGroups`: `List["ServerGroupTypeDef"]`
+- `tags`: `List["TagTypeDef"]`
+
+
+## GetAppValidationConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import GetAppValidationConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `appValidationConfigurations`: `List["AppValidationConfigurationTypeDef"]`
+- `serverGroupValidationConfigurations`: `List["ServerGroupValidationConfigurationTypeDef"]`
+
+
+## GetAppValidationOutputResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import GetAppValidationOutputResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `validationOutputList`: `List["ValidationOutputTypeDef"]`
+
+
+## GetConnectorsResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import GetConnectorsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `connectorList`: `List["ConnectorTypeDef"]`
+- `nextToken`: `str`
+
+
+## GetReplicationJobsResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import GetReplicationJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `replicationJobList`: `List["ReplicationJobTypeDef"]`
+- `nextToken`: `str`
+
+
+## GetReplicationRunsResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import GetReplicationRunsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `replicationJob`: `"ReplicationJobTypeDef"`
+- `replicationRunList`: `List["ReplicationRunTypeDef"]`
+- `nextToken`: `str`
+
+
+## GetServersResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import GetServersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `lastModifiedOn`: `datetime`
+- `serverCatalogStatus`: `ServerCatalogStatus`
+- `serverList`: `List["ServerTypeDef"]`
+- `nextToken`: `str`
+
+
 ## LaunchDetailsTypeDef
 
 ```python
@@ -152,6 +336,50 @@ Optional fields:
 - `stackId`: `str`
 
 
+## ListAppsResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import ListAppsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `apps`: `List["AppSummaryTypeDef"]`
+- `nextToken`: `str`
+
+
+## NotificationContextTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import NotificationContextTypeDef
+```
+
+
+
+
+Optional fields:
+- `validationId`: `str`
+- `status`: `ValidationStatus`
+- `statusMessage`: `str`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
 ## ReplicationJobTypeDef
 
 ```python
@@ -164,7 +392,7 @@ from mypy_boto3_sms.type_defs import ReplicationJobTypeDef
 Optional fields:
 - `replicationJobId`: `str`
 - `serverId`: `str`
-- `serverType`: `ServerType`
+- `serverType`: `Literal['VIRTUAL_MACHINE']`
 - `vmServer`: `"VmServerTypeDef"`
 - `seedReplicationTime`: `datetime`
 - `frequency`: `int`
@@ -408,7 +636,7 @@ from mypy_boto3_sms.type_defs import ServerTypeDef
 
 Optional fields:
 - `serverId`: `str`
-- `serverType`: `ServerType`
+- `serverType`: `Literal['VIRTUAL_MACHINE']`
 - `vmServer`: `"VmServerTypeDef"`
 - `replicationJobId`: `str`
 - `replicationJobTerminated`: `bool`
@@ -427,7 +655,7 @@ Optional fields:
 - `server`: `"ServerTypeDef"`
 - `validationId`: `str`
 - `name`: `str`
-- `serverValidationStrategy`: `ServerValidationStrategy`
+- `serverValidationStrategy`: `Literal['USERDATA']`
 - `userDataValidationParameters`: `"UserDataValidationParametersTypeDef"`
 
 
@@ -458,6 +686,19 @@ Optional fields:
 - `s3Location`: `"S3LocationTypeDef"`
 
 
+## StartOnDemandReplicationRunResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import StartOnDemandReplicationRunResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `replicationRunId`: `str`
+
+
 ## TagTypeDef
 
 ```python
@@ -470,6 +711,21 @@ from mypy_boto3_sms.type_defs import TagTypeDef
 Optional fields:
 - `key`: `str`
 - `value`: `str`
+
+
+## UpdateAppResponseTypeDef
+
+```python
+from mypy_boto3_sms.type_defs import UpdateAppResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `appSummary`: `"AppSummaryTypeDef"`
+- `serverGroups`: `List["ServerGroupTypeDef"]`
+- `tags`: `List["TagTypeDef"]`
 
 
 ## UserDataTypeDef
@@ -548,260 +804,4 @@ Optional fields:
 - `vmManagerName`: `str`
 - `vmManagerType`: `VmManagerType`
 - `vmPath`: `str`
-
-
-## CreateAppResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import CreateAppResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `appSummary`: `"AppSummaryTypeDef"`
-- `serverGroups`: `List["ServerGroupTypeDef"]`
-- `tags`: `List["TagTypeDef"]`
-
-
-## CreateReplicationJobResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import CreateReplicationJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `replicationJobId`: `str`
-
-
-## GenerateChangeSetResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import GenerateChangeSetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `s3Location`: `"S3LocationTypeDef"`
-
-
-## GenerateTemplateResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import GenerateTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `s3Location`: `"S3LocationTypeDef"`
-
-
-## GetAppLaunchConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import GetAppLaunchConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `appId`: `str`
-- `roleName`: `str`
-- `autoLaunch`: `bool`
-- `serverGroupLaunchConfigurations`: `List["ServerGroupLaunchConfigurationTypeDef"]`
-
-
-## GetAppReplicationConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import GetAppReplicationConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `serverGroupReplicationConfigurations`: `List["ServerGroupReplicationConfigurationTypeDef"]`
-
-
-## GetAppResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import GetAppResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `appSummary`: `"AppSummaryTypeDef"`
-- `serverGroups`: `List["ServerGroupTypeDef"]`
-- `tags`: `List["TagTypeDef"]`
-
-
-## GetAppValidationConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import GetAppValidationConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `appValidationConfigurations`: `List["AppValidationConfigurationTypeDef"]`
-- `serverGroupValidationConfigurations`: `List["ServerGroupValidationConfigurationTypeDef"]`
-
-
-## GetAppValidationOutputResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import GetAppValidationOutputResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `validationOutputList`: `List["ValidationOutputTypeDef"]`
-
-
-## GetConnectorsResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import GetConnectorsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `connectorList`: `List["ConnectorTypeDef"]`
-- `nextToken`: `str`
-
-
-## GetReplicationJobsResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import GetReplicationJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `replicationJobList`: `List["ReplicationJobTypeDef"]`
-- `nextToken`: `str`
-
-
-## GetReplicationRunsResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import GetReplicationRunsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `replicationJob`: `"ReplicationJobTypeDef"`
-- `replicationRunList`: `List["ReplicationRunTypeDef"]`
-- `nextToken`: `str`
-
-
-## GetServersResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import GetServersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `lastModifiedOn`: `datetime`
-- `serverCatalogStatus`: `ServerCatalogStatus`
-- `serverList`: `List["ServerTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListAppsResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import ListAppsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `apps`: `List["AppSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## NotificationContextTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import NotificationContextTypeDef
-```
-
-
-
-
-Optional fields:
-- `validationId`: `str`
-- `status`: `ValidationStatus`
-- `statusMessage`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## StartOnDemandReplicationRunResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import StartOnDemandReplicationRunResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `replicationRunId`: `str`
-
-
-## UpdateAppResponseTypeDef
-
-```python
-from mypy_boto3_sms.type_defs import UpdateAppResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `appSummary`: `"AppSummaryTypeDef"`
-- `serverGroups`: `List["ServerGroupTypeDef"]`
-- `tags`: `List["TagTypeDef"]`
 

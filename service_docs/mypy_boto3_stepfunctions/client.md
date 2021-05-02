@@ -35,9 +35,6 @@ type annotations stubs module [mypy_boto3_stepfunctions](https://pypi.org/projec
     - [untag_resource](#untag_resource)
     - [update_state_machine](#update_state_machine)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## SFNClient
 
@@ -481,62 +478,15 @@ def update_state_machine(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("stepfunctions").get_paginator` method.
-
-[Paginator.GetExecutionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions.html#SFN.Paginator.GetExecutionHistory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetExecutionHistoryPaginatorName
-) -> GetExecutionHistoryPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("stepfunctions").get_paginator` method.
+Type annotations for `boto3.client("stepfunctions").get_paginator` method with overloads.
 
-[Paginator.ListActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions.html#SFN.Paginator.ListActivities)
+- `client.get_paginator("get_execution_history")` -> [GetExecutionHistoryPaginator](./paginators.md#getexecutionhistorypaginator)
+- `client.get_paginator("list_activities")` -> [ListActivitiesPaginator](./paginators.md#listactivitiespaginator)
+- `client.get_paginator("list_executions")` -> [ListExecutionsPaginator](./paginators.md#listexecutionspaginator)
+- `client.get_paginator("list_state_machines")` -> [ListStateMachinesPaginator](./paginators.md#liststatemachinespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListActivitiesPaginatorName
-) -> ListActivitiesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("stepfunctions").get_paginator` method.
-
-[Paginator.ListExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions.html#SFN.Paginator.ListExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListExecutionsPaginatorName
-) -> ListExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("stepfunctions").get_paginator` method.
-
-[Paginator.ListStateMachines documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/stepfunctions.html#SFN.Paginator.ListStateMachines)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStateMachinesPaginatorName
-) -> ListStateMachinesPaginator:
-    pass
-```

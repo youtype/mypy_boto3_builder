@@ -98,24 +98,24 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_savingsplans.type_defs import ParentSavingsPlanOfferingTypeDef, ...
+from mypy_boto3_savingsplans.type_defs import CreateSavingsPlanResponseTypeDef, ...
 ```
 
-- [ParentSavingsPlanOfferingTypeDef](./type_defs.md#parentsavingsplanofferingtypedef)
-- [SavingsPlanOfferingPropertyTypeDef](./type_defs.md#savingsplanofferingpropertytypedef)
-- [SavingsPlanOfferingRatePropertyTypeDef](./type_defs.md#savingsplanofferingratepropertytypedef)
-- [SavingsPlanOfferingRateTypeDef](./type_defs.md#savingsplanofferingratetypedef)
-- [SavingsPlanOfferingTypeDef](./type_defs.md#savingsplanofferingtypedef)
-- [SavingsPlanRatePropertyTypeDef](./type_defs.md#savingsplanratepropertytypedef)
-- [SavingsPlanRateTypeDef](./type_defs.md#savingsplanratetypedef)
-- [SavingsPlanTypeDef](./type_defs.md#savingsplantypedef)
 - [CreateSavingsPlanResponseTypeDef](./type_defs.md#createsavingsplanresponsetypedef)
 - [DescribeSavingsPlanRatesResponseTypeDef](./type_defs.md#describesavingsplanratesresponsetypedef)
 - [DescribeSavingsPlansOfferingRatesResponseTypeDef](./type_defs.md#describesavingsplansofferingratesresponsetypedef)
 - [DescribeSavingsPlansOfferingsResponseTypeDef](./type_defs.md#describesavingsplansofferingsresponsetypedef)
 - [DescribeSavingsPlansResponseTypeDef](./type_defs.md#describesavingsplansresponsetypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
+- [ParentSavingsPlanOfferingTypeDef](./type_defs.md#parentsavingsplanofferingtypedef)
 - [SavingsPlanFilterTypeDef](./type_defs.md#savingsplanfiltertypedef)
 - [SavingsPlanOfferingFilterElementTypeDef](./type_defs.md#savingsplanofferingfilterelementtypedef)
+- [SavingsPlanOfferingPropertyTypeDef](./type_defs.md#savingsplanofferingpropertytypedef)
 - [SavingsPlanOfferingRateFilterElementTypeDef](./type_defs.md#savingsplanofferingratefilterelementtypedef)
+- [SavingsPlanOfferingRatePropertyTypeDef](./type_defs.md#savingsplanofferingratepropertytypedef)
+- [SavingsPlanOfferingRateTypeDef](./type_defs.md#savingsplanofferingratetypedef)
+- [SavingsPlanOfferingTypeDef](./type_defs.md#savingsplanofferingtypedef)
 - [SavingsPlanRateFilterTypeDef](./type_defs.md#savingsplanratefiltertypedef)
+- [SavingsPlanRatePropertyTypeDef](./type_defs.md#savingsplanratepropertytypedef)
+- [SavingsPlanRateTypeDef](./type_defs.md#savingsplanratetypedef)
+- [SavingsPlanTypeDef](./type_defs.md#savingsplantypedef)

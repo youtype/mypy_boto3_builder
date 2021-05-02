@@ -107,7 +107,7 @@ def export_auto_scaling_group_recommendations(
     accountIds: List[str] = None,
     filters: List[FilterTypeDef] = None,
     fieldsToExport: List[ExportableAutoScalingGroupField] = None,
-    fileFormat: FileFormat = None,
+    fileFormat: Literal['Csv'] = None,
     includeMemberAccounts: bool = None
 ) -> ExportAutoScalingGroupRecommendationsResponseTypeDef:
     pass
@@ -126,7 +126,7 @@ def export_ec2_instance_recommendations(
     accountIds: List[str] = None,
     filters: List[FilterTypeDef] = None,
     fieldsToExport: List[ExportableInstanceField] = None,
-    fileFormat: FileFormat = None,
+    fileFormat: Literal['Csv'] = None,
     includeMemberAccounts: bool = None
 ) -> ExportEC2InstanceRecommendationsResponseTypeDef:
     pass
@@ -282,3 +282,6 @@ def update_enrollment_status(
 ) -> UpdateEnrollmentStatusResponseTypeDef:
     pass
 ```
+
+
+

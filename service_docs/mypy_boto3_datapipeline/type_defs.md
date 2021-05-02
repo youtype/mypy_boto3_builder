@@ -6,35 +6,101 @@ Auto-generated documentation for [DataPipeline](https://boto3.amazonaws.com/v1/d
 type annotations stubs module [mypy_boto3_datapipeline](https://pypi.org/project/mypy-boto3-datapipeline/).
 
 - [Structures for boto3 DataPipeline module](#structures-for-boto3-datapipeline-module)
+  - [CreatePipelineOutputTypeDef](#createpipelineoutputtypedef)
+  - [DescribeObjectsOutputTypeDef](#describeobjectsoutputtypedef)
+  - [DescribePipelinesOutputTypeDef](#describepipelinesoutputtypedef)
+  - [EvaluateExpressionOutputTypeDef](#evaluateexpressionoutputtypedef)
   - [FieldTypeDef](#fieldtypedef)
+  - [GetPipelineDefinitionOutputTypeDef](#getpipelinedefinitionoutputtypedef)
+  - [InstanceIdentityTypeDef](#instanceidentitytypedef)
+  - [ListPipelinesOutputTypeDef](#listpipelinesoutputtypedef)
   - [OperatorTypeDef](#operatortypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [ParameterAttributeTypeDef](#parameterattributetypedef)
   - [ParameterObjectTypeDef](#parameterobjecttypedef)
   - [ParameterValueTypeDef](#parametervaluetypedef)
   - [PipelineDescriptionTypeDef](#pipelinedescriptiontypedef)
   - [PipelineIdNameTypeDef](#pipelineidnametypedef)
   - [PipelineObjectTypeDef](#pipelineobjecttypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [SelectorTypeDef](#selectortypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TaskObjectTypeDef](#taskobjecttypedef)
-  - [ValidationErrorTypeDef](#validationerrortypedef)
-  - [ValidationWarningTypeDef](#validationwarningtypedef)
-  - [CreatePipelineOutputTypeDef](#createpipelineoutputtypedef)
-  - [DescribeObjectsOutputTypeDef](#describeobjectsoutputtypedef)
-  - [DescribePipelinesOutputTypeDef](#describepipelinesoutputtypedef)
-  - [EvaluateExpressionOutputTypeDef](#evaluateexpressionoutputtypedef)
-  - [GetPipelineDefinitionOutputTypeDef](#getpipelinedefinitionoutputtypedef)
-  - [InstanceIdentityTypeDef](#instanceidentitytypedef)
-  - [ListPipelinesOutputTypeDef](#listpipelinesoutputtypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PollForTaskOutputTypeDef](#pollfortaskoutputtypedef)
   - [PutPipelineDefinitionOutputTypeDef](#putpipelinedefinitionoutputtypedef)
   - [QueryObjectsOutputTypeDef](#queryobjectsoutputtypedef)
   - [QueryTypeDef](#querytypedef)
   - [ReportTaskProgressOutputTypeDef](#reporttaskprogressoutputtypedef)
   - [ReportTaskRunnerHeartbeatOutputTypeDef](#reporttaskrunnerheartbeatoutputtypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [SelectorTypeDef](#selectortypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TaskObjectTypeDef](#taskobjecttypedef)
   - [ValidatePipelineDefinitionOutputTypeDef](#validatepipelinedefinitionoutputtypedef)
+  - [ValidationErrorTypeDef](#validationerrortypedef)
+  - [ValidationWarningTypeDef](#validationwarningtypedef)
+
+## CreatePipelineOutputTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import CreatePipelineOutputTypeDef
+```
+
+
+Required fields:
+- `pipelineId`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribeObjectsOutputTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import DescribeObjectsOutputTypeDef
+```
+
+
+Required fields:
+- `pipelineObjects`: `List["PipelineObjectTypeDef"]`
+
+
+
+Optional fields:
+- `marker`: `str`
+- `hasMoreResults`: `bool`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## DescribePipelinesOutputTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import DescribePipelinesOutputTypeDef
+```
+
+
+Required fields:
+- `pipelineDescriptionList`: `List["PipelineDescriptionTypeDef"]`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## EvaluateExpressionOutputTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import EvaluateExpressionOutputTypeDef
+```
+
+
+Required fields:
+- `evaluatedExpression`: `str`
+
+
+
+Optional fields:
+- `ResponseMetadata`: `"ResponseMetadata"`
+
 
 ## FieldTypeDef
 
@@ -53,6 +119,54 @@ Optional fields:
 - `refValue`: `str`
 
 
+## GetPipelineDefinitionOutputTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import GetPipelineDefinitionOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `pipelineObjects`: `List["PipelineObjectTypeDef"]`
+- `parameterObjects`: `List["ParameterObjectTypeDef"]`
+- `parameterValues`: `List["ParameterValueTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## InstanceIdentityTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import InstanceIdentityTypeDef
+```
+
+
+
+
+Optional fields:
+- `document`: `str`
+- `signature`: `str`
+
+
+## ListPipelinesOutputTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import ListPipelinesOutputTypeDef
+```
+
+
+Required fields:
+- `pipelineIdList`: `List["PipelineIdNameTypeDef"]`
+
+
+
+Optional fields:
+- `marker`: `str`
+- `hasMoreResults`: `bool`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## OperatorTypeDef
 
 ```python
@@ -65,6 +179,21 @@ from mypy_boto3_datapipeline.type_defs import OperatorTypeDef
 Optional fields:
 - `type`: `OperatorType`
 - `values`: `List[str]`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## ParameterAttributeTypeDef
@@ -155,224 +284,6 @@ Required fields:
 - `fields`: `List["FieldTypeDef"]`
 
 
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_datapipeline.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## SelectorTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import SelectorTypeDef
-```
-
-
-
-
-Optional fields:
-- `fieldName`: `str`
-- `operator`: `"OperatorTypeDef"`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `key`: `str`
-- `value`: `str`
-
-
-
-
-## TaskObjectTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import TaskObjectTypeDef
-```
-
-
-
-
-Optional fields:
-- `taskId`: `str`
-- `pipelineId`: `str`
-- `attemptId`: `str`
-- `objects`: `Dict[str, "PipelineObjectTypeDef"]`
-
-
-## ValidationErrorTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import ValidationErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `errors`: `List[str]`
-
-
-## ValidationWarningTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import ValidationWarningTypeDef
-```
-
-
-
-
-Optional fields:
-- `id`: `str`
-- `warnings`: `List[str]`
-
-
-## CreatePipelineOutputTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import CreatePipelineOutputTypeDef
-```
-
-
-Required fields:
-- `pipelineId`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribeObjectsOutputTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import DescribeObjectsOutputTypeDef
-```
-
-
-Required fields:
-- `pipelineObjects`: `List["PipelineObjectTypeDef"]`
-
-
-
-Optional fields:
-- `marker`: `str`
-- `hasMoreResults`: `bool`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## DescribePipelinesOutputTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import DescribePipelinesOutputTypeDef
-```
-
-
-Required fields:
-- `pipelineDescriptionList`: `List["PipelineDescriptionTypeDef"]`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## EvaluateExpressionOutputTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import EvaluateExpressionOutputTypeDef
-```
-
-
-Required fields:
-- `evaluatedExpression`: `str`
-
-
-
-Optional fields:
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## GetPipelineDefinitionOutputTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import GetPipelineDefinitionOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `pipelineObjects`: `List["PipelineObjectTypeDef"]`
-- `parameterObjects`: `List["ParameterObjectTypeDef"]`
-- `parameterValues`: `List["ParameterValueTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## InstanceIdentityTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import InstanceIdentityTypeDef
-```
-
-
-
-
-Optional fields:
-- `document`: `str`
-- `signature`: `str`
-
-
-## ListPipelinesOutputTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import ListPipelinesOutputTypeDef
-```
-
-
-Required fields:
-- `pipelineIdList`: `List["PipelineIdNameTypeDef"]`
-
-
-
-Optional fields:
-- `marker`: `str`
-- `hasMoreResults`: `bool`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_datapipeline.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
 
 
 ## PollForTaskOutputTypeDef
@@ -468,6 +379,67 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## ResponseMetadata
+
+```python
+from mypy_boto3_datapipeline.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## SelectorTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import SelectorTypeDef
+```
+
+
+
+
+Optional fields:
+- `fieldName`: `str`
+- `operator`: `"OperatorTypeDef"`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `key`: `str`
+- `value`: `str`
+
+
+
+
+## TaskObjectTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import TaskObjectTypeDef
+```
+
+
+
+
+Optional fields:
+- `taskId`: `str`
+- `pipelineId`: `str`
+- `attemptId`: `str`
+- `objects`: `Dict[str, "PipelineObjectTypeDef"]`
+
+
 ## ValidatePipelineDefinitionOutputTypeDef
 
 ```python
@@ -484,4 +456,32 @@ Optional fields:
 - `validationErrors`: `List["ValidationErrorTypeDef"]`
 - `validationWarnings`: `List["ValidationWarningTypeDef"]`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ValidationErrorTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import ValidationErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `errors`: `List[str]`
+
+
+## ValidationWarningTypeDef
+
+```python
+from mypy_boto3_datapipeline.type_defs import ValidationWarningTypeDef
+```
+
+
+
+
+Optional fields:
+- `id`: `str`
+- `warnings`: `List[str]`
 

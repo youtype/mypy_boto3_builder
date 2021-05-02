@@ -6,41 +6,13 @@ Auto-generated documentation for [IdentityStore](https://boto3.amazonaws.com/v1/
 type annotations stubs module [mypy_boto3_identitystore](https://pypi.org/project/mypy-boto3-identitystore/).
 
 - [Structures for boto3 IdentityStore module](#structures-for-boto3-identitystore-module)
-  - [GroupTypeDef](#grouptypedef)
-  - [UserTypeDef](#usertypedef)
   - [DescribeGroupResponseTypeDef](#describegroupresponsetypedef)
   - [DescribeUserResponseTypeDef](#describeuserresponsetypedef)
   - [FilterTypeDef](#filtertypedef)
+  - [GroupTypeDef](#grouptypedef)
   - [ListGroupsResponseTypeDef](#listgroupsresponsetypedef)
   - [ListUsersResponseTypeDef](#listusersresponsetypedef)
-
-## GroupTypeDef
-
-```python
-from mypy_boto3_identitystore.type_defs import GroupTypeDef
-```
-
-
-Required fields:
-- `GroupId`: `str`
-- `DisplayName`: `str`
-
-
-
-
-## UserTypeDef
-
-```python
-from mypy_boto3_identitystore.type_defs import UserTypeDef
-```
-
-
-Required fields:
-- `UserName`: `str`
-- `UserId`: `str`
-
-
-
+  - [UserTypeDef](#usertypedef)
 
 ## DescribeGroupResponseTypeDef
 
@@ -84,6 +56,20 @@ Required fields:
 
 
 
+## GroupTypeDef
+
+```python
+from mypy_boto3_identitystore.type_defs import GroupTypeDef
+```
+
+
+Required fields:
+- `GroupId`: `str`
+- `DisplayName`: `str`
+
+
+
+
 ## ListGroupsResponseTypeDef
 
 ```python
@@ -114,4 +100,18 @@ Required fields:
 
 Optional fields:
 - `NextToken`: `str`
+
+
+## UserTypeDef
+
+```python
+from mypy_boto3_identitystore.type_defs import UserTypeDef
+```
+
+
+Required fields:
+- `UserName`: `str`
+- `UserId`: `str`
+
+
 

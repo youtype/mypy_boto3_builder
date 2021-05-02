@@ -6,6 +6,7 @@ Auto-generated documentation for [DevopsGuru](https://boto3.amazonaws.com/v1/doc
 type annotations stubs module [mypy_boto3_devops_guru](https://pypi.org/project/mypy-boto3-devops-guru/).
 
 - [Structures for boto3 DevopsGuru module](#structures-for-boto3-devopsguru-module)
+  - [AddNotificationChannelResponseTypeDef](#addnotificationchannelresponsetypedef)
   - [AnomalySourceDetailsTypeDef](#anomalysourcedetailstypedef)
   - [AnomalyTimeRangeTypeDef](#anomalytimerangetypedef)
   - [CloudFormationCollectionFilterTypeDef](#cloudformationcollectionfiltertypedef)
@@ -13,20 +14,36 @@ type annotations stubs module [mypy_boto3_devops_guru](https://pypi.org/project/
   - [CloudFormationHealthTypeDef](#cloudformationhealthtypedef)
   - [CloudWatchMetricsDetailTypeDef](#cloudwatchmetricsdetailtypedef)
   - [CloudWatchMetricsDimensionTypeDef](#cloudwatchmetricsdimensiontypedef)
+  - [DescribeAccountHealthResponseTypeDef](#describeaccounthealthresponsetypedef)
+  - [DescribeAccountOverviewResponseTypeDef](#describeaccountoverviewresponsetypedef)
+  - [DescribeAnomalyResponseTypeDef](#describeanomalyresponsetypedef)
+  - [DescribeFeedbackResponseTypeDef](#describefeedbackresponsetypedef)
+  - [DescribeInsightResponseTypeDef](#describeinsightresponsetypedef)
+  - [DescribeResourceCollectionHealthResponseTypeDef](#describeresourcecollectionhealthresponsetypedef)
+  - [DescribeServiceIntegrationResponseTypeDef](#describeserviceintegrationresponsetypedef)
   - [EndTimeRangeTypeDef](#endtimerangetypedef)
   - [EventResourceTypeDef](#eventresourcetypedef)
   - [EventTimeRangeTypeDef](#eventtimerangetypedef)
   - [EventTypeDef](#eventtypedef)
+  - [GetResourceCollectionResponseTypeDef](#getresourcecollectionresponsetypedef)
   - [InsightFeedbackTypeDef](#insightfeedbacktypedef)
   - [InsightHealthTypeDef](#insighthealthtypedef)
   - [InsightTimeRangeTypeDef](#insighttimerangetypedef)
+  - [ListAnomaliesForInsightResponseTypeDef](#listanomaliesforinsightresponsetypedef)
+  - [ListEventsFiltersTypeDef](#listeventsfilterstypedef)
+  - [ListEventsResponseTypeDef](#listeventsresponsetypedef)
   - [ListInsightsAnyStatusFilterTypeDef](#listinsightsanystatusfiltertypedef)
   - [ListInsightsClosedStatusFilterTypeDef](#listinsightsclosedstatusfiltertypedef)
   - [ListInsightsOngoingStatusFilterTypeDef](#listinsightsongoingstatusfiltertypedef)
+  - [ListInsightsResponseTypeDef](#listinsightsresponsetypedef)
+  - [ListInsightsStatusFilterTypeDef](#listinsightsstatusfiltertypedef)
+  - [ListNotificationChannelsResponseTypeDef](#listnotificationchannelsresponsetypedef)
+  - [ListRecommendationsResponseTypeDef](#listrecommendationsresponsetypedef)
   - [NotificationChannelConfigTypeDef](#notificationchannelconfigtypedef)
   - [NotificationChannelTypeDef](#notificationchanneltypedef)
   - [OpsCenterIntegrationConfigTypeDef](#opscenterintegrationconfigtypedef)
   - [OpsCenterIntegrationTypeDef](#opscenterintegrationtypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PredictionTimeRangeTypeDef](#predictiontimerangetypedef)
   - [ProactiveAnomalySummaryTypeDef](#proactiveanomalysummarytypedef)
   - [ProactiveAnomalyTypeDef](#proactiveanomalytypedef)
@@ -45,31 +62,27 @@ type annotations stubs module [mypy_boto3_devops_guru](https://pypi.org/project/
   - [RecommendationTypeDef](#recommendationtypedef)
   - [ResourceCollectionFilterTypeDef](#resourcecollectionfiltertypedef)
   - [ResourceCollectionTypeDef](#resourcecollectiontypedef)
+  - [SearchInsightsFiltersTypeDef](#searchinsightsfilterstypedef)
+  - [SearchInsightsResponseTypeDef](#searchinsightsresponsetypedef)
   - [ServiceIntegrationConfigTypeDef](#serviceintegrationconfigtypedef)
   - [SnsChannelConfigTypeDef](#snschannelconfigtypedef)
   - [StartTimeRangeTypeDef](#starttimerangetypedef)
   - [UpdateCloudFormationCollectionFilterTypeDef](#updatecloudformationcollectionfiltertypedef)
-  - [AddNotificationChannelResponseTypeDef](#addnotificationchannelresponsetypedef)
-  - [DescribeAccountHealthResponseTypeDef](#describeaccounthealthresponsetypedef)
-  - [DescribeAccountOverviewResponseTypeDef](#describeaccountoverviewresponsetypedef)
-  - [DescribeAnomalyResponseTypeDef](#describeanomalyresponsetypedef)
-  - [DescribeFeedbackResponseTypeDef](#describefeedbackresponsetypedef)
-  - [DescribeInsightResponseTypeDef](#describeinsightresponsetypedef)
-  - [DescribeResourceCollectionHealthResponseTypeDef](#describeresourcecollectionhealthresponsetypedef)
-  - [DescribeServiceIntegrationResponseTypeDef](#describeserviceintegrationresponsetypedef)
-  - [GetResourceCollectionResponseTypeDef](#getresourcecollectionresponsetypedef)
-  - [ListAnomaliesForInsightResponseTypeDef](#listanomaliesforinsightresponsetypedef)
-  - [ListEventsFiltersTypeDef](#listeventsfilterstypedef)
-  - [ListEventsResponseTypeDef](#listeventsresponsetypedef)
-  - [ListInsightsResponseTypeDef](#listinsightsresponsetypedef)
-  - [ListInsightsStatusFilterTypeDef](#listinsightsstatusfiltertypedef)
-  - [ListNotificationChannelsResponseTypeDef](#listnotificationchannelsresponsetypedef)
-  - [ListRecommendationsResponseTypeDef](#listrecommendationsresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [SearchInsightsFiltersTypeDef](#searchinsightsfilterstypedef)
-  - [SearchInsightsResponseTypeDef](#searchinsightsresponsetypedef)
   - [UpdateResourceCollectionFilterTypeDef](#updateresourcecollectionfiltertypedef)
   - [UpdateServiceIntegrationConfigTypeDef](#updateserviceintegrationconfigtypedef)
+
+## AddNotificationChannelResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import AddNotificationChannelResponseTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+
+
+
 
 ## AnomalySourceDetailsTypeDef
 
@@ -172,6 +185,107 @@ Optional fields:
 - `Value`: `str`
 
 
+## DescribeAccountHealthResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import DescribeAccountHealthResponseTypeDef
+```
+
+
+Required fields:
+- `OpenReactiveInsights`: `int`
+- `OpenProactiveInsights`: `int`
+- `MetricsAnalyzed`: `int`
+- `ResourceHours`: `int`
+
+
+
+
+## DescribeAccountOverviewResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import DescribeAccountOverviewResponseTypeDef
+```
+
+
+Required fields:
+- `ReactiveInsights`: `int`
+- `ProactiveInsights`: `int`
+- `MeanTimeToRecoverInMilliseconds`: `int`
+
+
+
+
+## DescribeAnomalyResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import DescribeAnomalyResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProactiveAnomaly`: `"ProactiveAnomalyTypeDef"`
+- `ReactiveAnomaly`: `"ReactiveAnomalyTypeDef"`
+
+
+## DescribeFeedbackResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import DescribeFeedbackResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `InsightFeedback`: `"InsightFeedbackTypeDef"`
+
+
+## DescribeInsightResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import DescribeInsightResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProactiveInsight`: `"ProactiveInsightTypeDef"`
+- `ReactiveInsight`: `"ReactiveInsightTypeDef"`
+
+
+## DescribeResourceCollectionHealthResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import DescribeResourceCollectionHealthResponseTypeDef
+```
+
+
+Required fields:
+- `CloudFormation`: `List["CloudFormationHealthTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
+## DescribeServiceIntegrationResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import DescribeServiceIntegrationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceIntegration`: `"ServiceIntegrationConfigTypeDef"`
+
+
 ## EndTimeRangeTypeDef
 
 ```python
@@ -235,6 +349,20 @@ Optional fields:
 - `Resources`: `List["EventResourceTypeDef"]`
 
 
+## GetResourceCollectionResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import GetResourceCollectionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceCollection`: `"ResourceCollectionFilterTypeDef"`
+- `NextToken`: `str`
+
+
 ## InsightFeedbackTypeDef
 
 ```python
@@ -280,6 +408,55 @@ Optional fields:
 - `EndTime`: `datetime`
 
 
+## ListAnomaliesForInsightResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import ListAnomaliesForInsightResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProactiveAnomalies`: `List["ProactiveAnomalySummaryTypeDef"]`
+- `ReactiveAnomalies`: `List["ReactiveAnomalySummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListEventsFiltersTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import ListEventsFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `InsightId`: `str`
+- `EventTimeRange`: `"EventTimeRangeTypeDef"`
+- `EventClass`: `EventClass`
+- `EventSource`: `str`
+- `DataSource`: `EventDataSource`
+- `ResourceCollection`: `"ResourceCollectionTypeDef"`
+
+
+## ListEventsResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import ListEventsResponseTypeDef
+```
+
+
+Required fields:
+- `Events`: `List["EventTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
 ## ListInsightsAnyStatusFilterTypeDef
 
 ```python
@@ -319,6 +496,64 @@ Required fields:
 - `Type`: `InsightType`
 
 
+
+
+## ListInsightsResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import ListInsightsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProactiveInsights`: `List["ProactiveInsightSummaryTypeDef"]`
+- `ReactiveInsights`: `List["ReactiveInsightSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListInsightsStatusFilterTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import ListInsightsStatusFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Ongoing`: `"ListInsightsOngoingStatusFilterTypeDef"`
+- `Closed`: `"ListInsightsClosedStatusFilterTypeDef"`
+- `Any`: `"ListInsightsAnyStatusFilterTypeDef"`
+
+
+## ListNotificationChannelsResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import ListNotificationChannelsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Channels`: `List["NotificationChannelTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListRecommendationsResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import ListRecommendationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Recommendations`: `List["RecommendationTypeDef"]`
+- `NextToken`: `str`
 
 
 ## NotificationChannelConfigTypeDef
@@ -372,6 +607,21 @@ from mypy_boto3_devops_guru.type_defs import OpsCenterIntegrationTypeDef
 
 Optional fields:
 - `OptInStatus`: `OptInStatus`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## PredictionTimeRangeTypeDef
@@ -675,6 +925,36 @@ Optional fields:
 - `CloudFormation`: `"CloudFormationCollectionTypeDef"`
 
 
+## SearchInsightsFiltersTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import SearchInsightsFiltersTypeDef
+```
+
+
+
+
+Optional fields:
+- `Severities`: `List[InsightSeverity]`
+- `Statuses`: `List[InsightStatus]`
+- `ResourceCollection`: `"ResourceCollectionTypeDef"`
+
+
+## SearchInsightsResponseTypeDef
+
+```python
+from mypy_boto3_devops_guru.type_defs import SearchInsightsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProactiveInsights`: `List["ProactiveInsightSummaryTypeDef"]`
+- `ReactiveInsights`: `List["ReactiveInsightSummaryTypeDef"]`
+- `NextToken`: `str`
+
+
 ## ServiceIntegrationConfigTypeDef
 
 ```python
@@ -726,286 +1006,6 @@ from mypy_boto3_devops_guru.type_defs import UpdateCloudFormationCollectionFilte
 
 Optional fields:
 - `StackNames`: `List[str]`
-
-
-## AddNotificationChannelResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import AddNotificationChannelResponseTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-
-
-
-
-## DescribeAccountHealthResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import DescribeAccountHealthResponseTypeDef
-```
-
-
-Required fields:
-- `OpenReactiveInsights`: `int`
-- `OpenProactiveInsights`: `int`
-- `MetricsAnalyzed`: `int`
-- `ResourceHours`: `int`
-
-
-
-
-## DescribeAccountOverviewResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import DescribeAccountOverviewResponseTypeDef
-```
-
-
-Required fields:
-- `ReactiveInsights`: `int`
-- `ProactiveInsights`: `int`
-- `MeanTimeToRecoverInMilliseconds`: `int`
-
-
-
-
-## DescribeAnomalyResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import DescribeAnomalyResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProactiveAnomaly`: `"ProactiveAnomalyTypeDef"`
-- `ReactiveAnomaly`: `"ReactiveAnomalyTypeDef"`
-
-
-## DescribeFeedbackResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import DescribeFeedbackResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `InsightFeedback`: `"InsightFeedbackTypeDef"`
-
-
-## DescribeInsightResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import DescribeInsightResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProactiveInsight`: `"ProactiveInsightTypeDef"`
-- `ReactiveInsight`: `"ReactiveInsightTypeDef"`
-
-
-## DescribeResourceCollectionHealthResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import DescribeResourceCollectionHealthResponseTypeDef
-```
-
-
-Required fields:
-- `CloudFormation`: `List["CloudFormationHealthTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## DescribeServiceIntegrationResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import DescribeServiceIntegrationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceIntegration`: `"ServiceIntegrationConfigTypeDef"`
-
-
-## GetResourceCollectionResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import GetResourceCollectionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceCollection`: `"ResourceCollectionFilterTypeDef"`
-- `NextToken`: `str`
-
-
-## ListAnomaliesForInsightResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import ListAnomaliesForInsightResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProactiveAnomalies`: `List["ProactiveAnomalySummaryTypeDef"]`
-- `ReactiveAnomalies`: `List["ReactiveAnomalySummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListEventsFiltersTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import ListEventsFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `InsightId`: `str`
-- `EventTimeRange`: `"EventTimeRangeTypeDef"`
-- `EventClass`: `EventClass`
-- `EventSource`: `str`
-- `DataSource`: `EventDataSource`
-- `ResourceCollection`: `"ResourceCollectionTypeDef"`
-
-
-## ListEventsResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import ListEventsResponseTypeDef
-```
-
-
-Required fields:
-- `Events`: `List["EventTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
-
-
-## ListInsightsResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import ListInsightsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProactiveInsights`: `List["ProactiveInsightSummaryTypeDef"]`
-- `ReactiveInsights`: `List["ReactiveInsightSummaryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListInsightsStatusFilterTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import ListInsightsStatusFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Ongoing`: `"ListInsightsOngoingStatusFilterTypeDef"`
-- `Closed`: `"ListInsightsClosedStatusFilterTypeDef"`
-- `Any`: `"ListInsightsAnyStatusFilterTypeDef"`
-
-
-## ListNotificationChannelsResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import ListNotificationChannelsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Channels`: `List["NotificationChannelTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListRecommendationsResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import ListRecommendationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Recommendations`: `List["RecommendationTypeDef"]`
-- `NextToken`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## SearchInsightsFiltersTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import SearchInsightsFiltersTypeDef
-```
-
-
-
-
-Optional fields:
-- `Severities`: `List[InsightSeverity]`
-- `Statuses`: `List[InsightStatus]`
-- `ResourceCollection`: `"ResourceCollectionTypeDef"`
-
-
-## SearchInsightsResponseTypeDef
-
-```python
-from mypy_boto3_devops_guru.type_defs import SearchInsightsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProactiveInsights`: `List["ProactiveInsightSummaryTypeDef"]`
-- `ReactiveInsights`: `List["ReactiveInsightSummaryTypeDef"]`
-- `NextToken`: `str`
 
 
 ## UpdateResourceCollectionFilterTypeDef

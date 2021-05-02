@@ -37,9 +37,6 @@ type annotations stubs module [mypy_boto3_mgn](https://pypi.org/project/mypy-bot
     - [update_replication_configuration](#update_replication_configuration)
     - [update_replication_configuration_template](#update_replication_configuration_template)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## mgnClient
 
@@ -518,62 +515,15 @@ def update_replication_configuration_template(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("mgn").get_paginator` method.
-
-[Paginator.DescribeJobLogItems documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mgn.html#mgn.Paginator.DescribeJobLogItems)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeJobLogItemsPaginatorName
-) -> DescribeJobLogItemsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("mgn").get_paginator` method.
+Type annotations for `boto3.client("mgn").get_paginator` method with overloads.
 
-[Paginator.DescribeJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mgn.html#mgn.Paginator.DescribeJobs)
+- `client.get_paginator("describe_job_log_items")` -> [DescribeJobLogItemsPaginator](./paginators.md#describejoblogitemspaginator)
+- `client.get_paginator("describe_jobs")` -> [DescribeJobsPaginator](./paginators.md#describejobspaginator)
+- `client.get_paginator("describe_replication_configuration_templates")` -> [DescribeReplicationConfigurationTemplatesPaginator](./paginators.md#describereplicationconfigurationtemplatespaginator)
+- `client.get_paginator("describe_source_servers")` -> [DescribeSourceServersPaginator](./paginators.md#describesourceserverspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeJobsPaginatorName
-) -> DescribeJobsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("mgn").get_paginator` method.
-
-[Paginator.DescribeReplicationConfigurationTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mgn.html#mgn.Paginator.DescribeReplicationConfigurationTemplates)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeReplicationConfigurationTemplatesPaginatorName
-) -> DescribeReplicationConfigurationTemplatesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("mgn").get_paginator` method.
-
-[Paginator.DescribeSourceServers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/mgn.html#mgn.Paginator.DescribeSourceServers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSourceServersPaginatorName
-) -> DescribeSourceServersPaginator:
-    pass
-```

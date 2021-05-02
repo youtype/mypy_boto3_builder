@@ -86,7 +86,7 @@ class ListVirtualClustersPaginator(Boto3Paginator):
     def paginate(
         self,
         containerProviderId: str = None,
-        containerProviderType: ContainerProviderType = None,
+        containerProviderType: Literal['EKS'] = None,
         createdAfter: datetime = None,
         createdBefore: datetime = None,
         states: List[VirtualClusterState] = None,

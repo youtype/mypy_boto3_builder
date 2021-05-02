@@ -101,16 +101,6 @@ type annotations stubs module [mypy_boto3_storagegateway](https://pypi.org/proje
     - [update_snapshot_schedule](#update_snapshot_schedule)
     - [update_vtl_device_type](#update_vtl_device_type)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
 
 ## StorageGatewayClient
 
@@ -1628,167 +1618,22 @@ def update_vtl_device_type(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("storagegateway").get_paginator` method.
-
-[Paginator.DescribeTapeArchives documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeArchives)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTapeArchivesPaginatorName
-) -> DescribeTapeArchivesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("storagegateway").get_paginator` method.
+Type annotations for `boto3.client("storagegateway").get_paginator` method with overloads.
 
-[Paginator.DescribeTapeRecoveryPoints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeRecoveryPoints)
+- `client.get_paginator("describe_tape_archives")` -> [DescribeTapeArchivesPaginator](./paginators.md#describetapearchivespaginator)
+- `client.get_paginator("describe_tape_recovery_points")` -> [DescribeTapeRecoveryPointsPaginator](./paginators.md#describetaperecoverypointspaginator)
+- `client.get_paginator("describe_tapes")` -> [DescribeTapesPaginator](./paginators.md#describetapespaginator)
+- `client.get_paginator("describe_vtl_devices")` -> [DescribeVTLDevicesPaginator](./paginators.md#describevtldevicespaginator)
+- `client.get_paginator("list_file_shares")` -> [ListFileSharesPaginator](./paginators.md#listfilesharespaginator)
+- `client.get_paginator("list_file_system_associations")` -> [ListFileSystemAssociationsPaginator](./paginators.md#listfilesystemassociationspaginator)
+- `client.get_paginator("list_gateways")` -> [ListGatewaysPaginator](./paginators.md#listgatewayspaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
+- `client.get_paginator("list_tape_pools")` -> [ListTapePoolsPaginator](./paginators.md#listtapepoolspaginator)
+- `client.get_paginator("list_tapes")` -> [ListTapesPaginator](./paginators.md#listtapespaginator)
+- `client.get_paginator("list_volumes")` -> [ListVolumesPaginator](./paginators.md#listvolumespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTapeRecoveryPointsPaginatorName
-) -> DescribeTapeRecoveryPointsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("storagegateway").get_paginator` method.
-
-[Paginator.DescribeTapes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTapesPaginatorName
-) -> DescribeTapesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("storagegateway").get_paginator` method.
-
-[Paginator.DescribeVTLDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeVTLDevices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeVTLDevicesPaginatorName
-) -> DescribeVTLDevicesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("storagegateway").get_paginator` method.
-
-[Paginator.ListFileShares documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Paginator.ListFileShares)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFileSharesPaginatorName
-) -> ListFileSharesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("storagegateway").get_paginator` method.
-
-[Paginator.ListFileSystemAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Paginator.ListFileSystemAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFileSystemAssociationsPaginatorName
-) -> ListFileSystemAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("storagegateway").get_paginator` method.
-
-[Paginator.ListGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Paginator.ListGateways)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGatewaysPaginatorName
-) -> ListGatewaysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("storagegateway").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("storagegateway").get_paginator` method.
-
-[Paginator.ListTapePools documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapePools)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTapePoolsPaginatorName
-) -> ListTapePoolsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("storagegateway").get_paginator` method.
-
-[Paginator.ListTapes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTapesPaginatorName
-) -> ListTapesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("storagegateway").get_paginator` method.
-
-[Paginator.ListVolumes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/storagegateway.html#StorageGateway.Paginator.ListVolumes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListVolumesPaginatorName
-) -> ListVolumesPaginator:
-    pass
-```

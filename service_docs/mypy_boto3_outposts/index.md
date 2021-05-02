@@ -74,16 +74,16 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_outposts.type_defs import InstanceTypeItemTypeDef, ...
+from mypy_boto3_outposts.type_defs import CreateOutpostOutputTypeDef, ...
 ```
 
-- [InstanceTypeItemTypeDef](./type_defs.md#instancetypeitemtypedef)
-- [OutpostTypeDef](./type_defs.md#outposttypedef)
-- [ResponseMetadata](./type_defs.md#responsemetadata)
-- [SiteTypeDef](./type_defs.md#sitetypedef)
 - [CreateOutpostOutputTypeDef](./type_defs.md#createoutpostoutputtypedef)
 - [GetOutpostInstanceTypesOutputTypeDef](./type_defs.md#getoutpostinstancetypesoutputtypedef)
 - [GetOutpostOutputTypeDef](./type_defs.md#getoutpostoutputtypedef)
+- [InstanceTypeItemTypeDef](./type_defs.md#instancetypeitemtypedef)
 - [ListOutpostsOutputTypeDef](./type_defs.md#listoutpostsoutputtypedef)
 - [ListSitesOutputTypeDef](./type_defs.md#listsitesoutputtypedef)
 - [ListTagsForResourceResponseTypeDef](./type_defs.md#listtagsforresourceresponsetypedef)
+- [OutpostTypeDef](./type_defs.md#outposttypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)
+- [SiteTypeDef](./type_defs.md#sitetypedef)

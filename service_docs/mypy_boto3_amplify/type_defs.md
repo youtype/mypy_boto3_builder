@@ -11,27 +11,20 @@ type annotations stubs module [mypy_boto3_amplify](https://pypi.org/project/mypy
   - [AutoBranchCreationConfigTypeDef](#autobranchcreationconfigtypedef)
   - [BackendEnvironmentTypeDef](#backendenvironmenttypedef)
   - [BranchTypeDef](#branchtypedef)
-  - [CustomRuleTypeDef](#customruletypedef)
-  - [DomainAssociationTypeDef](#domainassociationtypedef)
-  - [JobSummaryTypeDef](#jobsummarytypedef)
-  - [JobTypeDef](#jobtypedef)
-  - [ProductionBranchTypeDef](#productionbranchtypedef)
-  - [StepTypeDef](#steptypedef)
-  - [SubDomainSettingTypeDef](#subdomainsettingtypedef)
-  - [SubDomainTypeDef](#subdomaintypedef)
-  - [WebhookTypeDef](#webhooktypedef)
   - [CreateAppResultTypeDef](#createappresulttypedef)
   - [CreateBackendEnvironmentResultTypeDef](#createbackendenvironmentresulttypedef)
   - [CreateBranchResultTypeDef](#createbranchresulttypedef)
   - [CreateDeploymentResultTypeDef](#createdeploymentresulttypedef)
   - [CreateDomainAssociationResultTypeDef](#createdomainassociationresulttypedef)
   - [CreateWebhookResultTypeDef](#createwebhookresulttypedef)
+  - [CustomRuleTypeDef](#customruletypedef)
   - [DeleteAppResultTypeDef](#deleteappresulttypedef)
   - [DeleteBackendEnvironmentResultTypeDef](#deletebackendenvironmentresulttypedef)
   - [DeleteBranchResultTypeDef](#deletebranchresulttypedef)
   - [DeleteDomainAssociationResultTypeDef](#deletedomainassociationresulttypedef)
   - [DeleteJobResultTypeDef](#deletejobresulttypedef)
   - [DeleteWebhookResultTypeDef](#deletewebhookresulttypedef)
+  - [DomainAssociationTypeDef](#domainassociationtypedef)
   - [GenerateAccessLogsResultTypeDef](#generateaccesslogsresulttypedef)
   - [GetAppResultTypeDef](#getappresulttypedef)
   - [GetArtifactUrlResultTypeDef](#getartifacturlresulttypedef)
@@ -40,6 +33,8 @@ type annotations stubs module [mypy_boto3_amplify](https://pypi.org/project/mypy
   - [GetDomainAssociationResultTypeDef](#getdomainassociationresulttypedef)
   - [GetJobResultTypeDef](#getjobresulttypedef)
   - [GetWebhookResultTypeDef](#getwebhookresulttypedef)
+  - [JobSummaryTypeDef](#jobsummarytypedef)
+  - [JobTypeDef](#jobtypedef)
   - [ListAppsResultTypeDef](#listappsresulttypedef)
   - [ListArtifactsResultTypeDef](#listartifactsresulttypedef)
   - [ListBackendEnvironmentsResultTypeDef](#listbackendenvironmentsresulttypedef)
@@ -49,13 +44,18 @@ type annotations stubs module [mypy_boto3_amplify](https://pypi.org/project/mypy
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListWebhooksResultTypeDef](#listwebhooksresulttypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ProductionBranchTypeDef](#productionbranchtypedef)
   - [StartDeploymentResultTypeDef](#startdeploymentresulttypedef)
   - [StartJobResultTypeDef](#startjobresulttypedef)
+  - [StepTypeDef](#steptypedef)
   - [StopJobResultTypeDef](#stopjobresulttypedef)
+  - [SubDomainSettingTypeDef](#subdomainsettingtypedef)
+  - [SubDomainTypeDef](#subdomaintypedef)
   - [UpdateAppResultTypeDef](#updateappresulttypedef)
   - [UpdateBranchResultTypeDef](#updatebranchresulttypedef)
   - [UpdateDomainAssociationResultTypeDef](#updatedomainassociationresulttypedef)
   - [UpdateWebhookResultTypeDef](#updatewebhookresulttypedef)
+  - [WebhookTypeDef](#webhooktypedef)
 
 ## AppTypeDef
 
@@ -70,7 +70,7 @@ Required fields:
 - `name`: `str`
 - `description`: `str`
 - `repository`: `str`
-- `platform`: `Platform`
+- `platform`: `Literal['WEB']`
 - `createTime`: `datetime`
 - `updateTime`: `datetime`
 - `environmentVariables`: `Dict[str, str]`
@@ -191,173 +191,6 @@ Optional fields:
 - `backendEnvironmentArn`: `str`
 
 
-## CustomRuleTypeDef
-
-```python
-from mypy_boto3_amplify.type_defs import CustomRuleTypeDef
-```
-
-
-Required fields:
-- `source`: `str`
-- `target`: `str`
-
-
-
-Optional fields:
-- `status`: `str`
-- `condition`: `str`
-
-
-## DomainAssociationTypeDef
-
-```python
-from mypy_boto3_amplify.type_defs import DomainAssociationTypeDef
-```
-
-
-Required fields:
-- `domainAssociationArn`: `str`
-- `domainName`: `str`
-- `enableAutoSubDomain`: `bool`
-- `domainStatus`: `DomainStatus`
-- `statusReason`: `str`
-- `subDomains`: `List["SubDomainTypeDef"]`
-
-
-
-Optional fields:
-- `autoSubDomainCreationPatterns`: `List[str]`
-- `autoSubDomainIAMRole`: `str`
-- `certificateVerificationDNSRecord`: `str`
-
-
-## JobSummaryTypeDef
-
-```python
-from mypy_boto3_amplify.type_defs import JobSummaryTypeDef
-```
-
-
-Required fields:
-- `jobArn`: `str`
-- `jobId`: `str`
-- `commitId`: `str`
-- `commitMessage`: `str`
-- `commitTime`: `datetime`
-- `startTime`: `datetime`
-- `status`: `JobStatus`
-- `jobType`: `JobType`
-
-
-
-Optional fields:
-- `endTime`: `datetime`
-
-
-## JobTypeDef
-
-```python
-from mypy_boto3_amplify.type_defs import JobTypeDef
-```
-
-
-Required fields:
-- `summary`: `"JobSummaryTypeDef"`
-- `steps`: `List["StepTypeDef"]`
-
-
-
-
-## ProductionBranchTypeDef
-
-```python
-from mypy_boto3_amplify.type_defs import ProductionBranchTypeDef
-```
-
-
-
-
-Optional fields:
-- `lastDeployTime`: `datetime`
-- `status`: `str`
-- `thumbnailUrl`: `str`
-- `branchName`: `str`
-
-
-## StepTypeDef
-
-```python
-from mypy_boto3_amplify.type_defs import StepTypeDef
-```
-
-
-Required fields:
-- `stepName`: `str`
-- `startTime`: `datetime`
-- `status`: `JobStatus`
-- `endTime`: `datetime`
-
-
-
-Optional fields:
-- `logUrl`: `str`
-- `artifactsUrl`: `str`
-- `testArtifactsUrl`: `str`
-- `testConfigUrl`: `str`
-- `screenshots`: `Dict[str, str]`
-- `statusReason`: `str`
-- `context`: `str`
-
-
-## SubDomainSettingTypeDef
-
-```python
-from mypy_boto3_amplify.type_defs import SubDomainSettingTypeDef
-```
-
-
-Required fields:
-- `prefix`: `str`
-- `branchName`: `str`
-
-
-
-
-## SubDomainTypeDef
-
-```python
-from mypy_boto3_amplify.type_defs import SubDomainTypeDef
-```
-
-
-Required fields:
-- `subDomainSetting`: `"SubDomainSettingTypeDef"`
-- `verified`: `bool`
-- `dnsRecord`: `str`
-
-
-
-
-## WebhookTypeDef
-
-```python
-from mypy_boto3_amplify.type_defs import WebhookTypeDef
-```
-
-
-Required fields:
-- `webhookArn`: `str`
-- `webhookId`: `str`
-- `webhookUrl`: `str`
-- `branchName`: `str`
-- `description`: `str`
-- `createTime`: `datetime`
-- `updateTime`: `datetime`
-
-
-
-
 ## CreateAppResultTypeDef
 
 ```python
@@ -440,6 +273,24 @@ Required fields:
 
 
 
+## CustomRuleTypeDef
+
+```python
+from mypy_boto3_amplify.type_defs import CustomRuleTypeDef
+```
+
+
+Required fields:
+- `source`: `str`
+- `target`: `str`
+
+
+
+Optional fields:
+- `status`: `str`
+- `condition`: `str`
+
+
 ## DeleteAppResultTypeDef
 
 ```python
@@ -516,6 +367,29 @@ Required fields:
 - `webhook`: `"WebhookTypeDef"`
 
 
+
+
+## DomainAssociationTypeDef
+
+```python
+from mypy_boto3_amplify.type_defs import DomainAssociationTypeDef
+```
+
+
+Required fields:
+- `domainAssociationArn`: `str`
+- `domainName`: `str`
+- `enableAutoSubDomain`: `bool`
+- `domainStatus`: `DomainStatus`
+- `statusReason`: `str`
+- `subDomains`: `List["SubDomainTypeDef"]`
+
+
+
+Optional fields:
+- `autoSubDomainCreationPatterns`: `List[str]`
+- `autoSubDomainIAMRole`: `str`
+- `certificateVerificationDNSRecord`: `str`
 
 
 ## GenerateAccessLogsResultTypeDef
@@ -619,6 +493,43 @@ from mypy_boto3_amplify.type_defs import GetWebhookResultTypeDef
 
 Required fields:
 - `webhook`: `"WebhookTypeDef"`
+
+
+
+
+## JobSummaryTypeDef
+
+```python
+from mypy_boto3_amplify.type_defs import JobSummaryTypeDef
+```
+
+
+Required fields:
+- `jobArn`: `str`
+- `jobId`: `str`
+- `commitId`: `str`
+- `commitMessage`: `str`
+- `commitTime`: `datetime`
+- `startTime`: `datetime`
+- `status`: `JobStatus`
+- `jobType`: `JobType`
+
+
+
+Optional fields:
+- `endTime`: `datetime`
+
+
+## JobTypeDef
+
+```python
+from mypy_boto3_amplify.type_defs import JobTypeDef
+```
+
+
+Required fields:
+- `summary`: `"JobSummaryTypeDef"`
+- `steps`: `List["StepTypeDef"]`
 
 
 
@@ -763,6 +674,22 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ProductionBranchTypeDef
+
+```python
+from mypy_boto3_amplify.type_defs import ProductionBranchTypeDef
+```
+
+
+
+
+Optional fields:
+- `lastDeployTime`: `datetime`
+- `status`: `str`
+- `thumbnailUrl`: `str`
+- `branchName`: `str`
+
+
 ## StartDeploymentResultTypeDef
 
 ```python
@@ -789,6 +716,31 @@ Required fields:
 
 
 
+## StepTypeDef
+
+```python
+from mypy_boto3_amplify.type_defs import StepTypeDef
+```
+
+
+Required fields:
+- `stepName`: `str`
+- `startTime`: `datetime`
+- `status`: `JobStatus`
+- `endTime`: `datetime`
+
+
+
+Optional fields:
+- `logUrl`: `str`
+- `artifactsUrl`: `str`
+- `testArtifactsUrl`: `str`
+- `testConfigUrl`: `str`
+- `screenshots`: `Dict[str, str]`
+- `statusReason`: `str`
+- `context`: `str`
+
+
 ## StopJobResultTypeDef
 
 ```python
@@ -798,6 +750,35 @@ from mypy_boto3_amplify.type_defs import StopJobResultTypeDef
 
 Required fields:
 - `jobSummary`: `"JobSummaryTypeDef"`
+
+
+
+
+## SubDomainSettingTypeDef
+
+```python
+from mypy_boto3_amplify.type_defs import SubDomainSettingTypeDef
+```
+
+
+Required fields:
+- `prefix`: `str`
+- `branchName`: `str`
+
+
+
+
+## SubDomainTypeDef
+
+```python
+from mypy_boto3_amplify.type_defs import SubDomainTypeDef
+```
+
+
+Required fields:
+- `subDomainSetting`: `"SubDomainSettingTypeDef"`
+- `verified`: `bool`
+- `dnsRecord`: `str`
 
 
 
@@ -850,6 +831,25 @@ from mypy_boto3_amplify.type_defs import UpdateWebhookResultTypeDef
 
 Required fields:
 - `webhook`: `"WebhookTypeDef"`
+
+
+
+
+## WebhookTypeDef
+
+```python
+from mypy_boto3_amplify.type_defs import WebhookTypeDef
+```
+
+
+Required fields:
+- `webhookArn`: `str`
+- `webhookId`: `str`
+- `webhookUrl`: `str`
+- `branchName`: `str`
+- `description`: `str`
+- `createTime`: `datetime`
+- `updateTime`: `datetime`
 
 
 

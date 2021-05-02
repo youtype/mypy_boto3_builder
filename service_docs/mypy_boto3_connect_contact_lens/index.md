@@ -86,7 +86,7 @@ from mypy_boto3_connect_contact_lens.type_defs import CategoriesTypeDef, ...
 - [CategoryDetailsTypeDef](./type_defs.md#categorydetailstypedef)
 - [CharacterOffsetsTypeDef](./type_defs.md#characteroffsetstypedef)
 - [IssueDetectedTypeDef](./type_defs.md#issuedetectedtypedef)
+- [ListRealtimeContactAnalysisSegmentsResponseTypeDef](./type_defs.md#listrealtimecontactanalysissegmentsresponsetypedef)
 - [PointOfInterestTypeDef](./type_defs.md#pointofinteresttypedef)
 - [RealtimeContactAnalysisSegmentTypeDef](./type_defs.md#realtimecontactanalysissegmenttypedef)
 - [TranscriptTypeDef](./type_defs.md#transcripttypedef)
-- [ListRealtimeContactAnalysisSegmentsResponseTypeDef](./type_defs.md#listrealtimecontactanalysissegmentsresponsetypedef)

@@ -6,23 +6,9 @@ Auto-generated documentation for [PersonalizeRuntime](https://boto3.amazonaws.co
 type annotations stubs module [mypy_boto3_personalize_runtime](https://pypi.org/project/mypy-boto3-personalize-runtime/).
 
 - [Structures for boto3 PersonalizeRuntime module](#structures-for-boto3-personalizeruntime-module)
-  - [PredictedItemTypeDef](#predicteditemtypedef)
   - [GetPersonalizedRankingResponseTypeDef](#getpersonalizedrankingresponsetypedef)
   - [GetRecommendationsResponseTypeDef](#getrecommendationsresponsetypedef)
-
-## PredictedItemTypeDef
-
-```python
-from mypy_boto3_personalize_runtime.type_defs import PredictedItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `itemId`: `str`
-- `score`: `float`
-
+  - [PredictedItemTypeDef](#predicteditemtypedef)
 
 ## GetPersonalizedRankingResponseTypeDef
 
@@ -50,4 +36,18 @@ from mypy_boto3_personalize_runtime.type_defs import GetRecommendationsResponseT
 Optional fields:
 - `itemList`: `List["PredictedItemTypeDef"]`
 - `recommendationId`: `str`
+
+
+## PredictedItemTypeDef
+
+```python
+from mypy_boto3_personalize_runtime.type_defs import PredictedItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `itemId`: `str`
+- `score`: `float`
 

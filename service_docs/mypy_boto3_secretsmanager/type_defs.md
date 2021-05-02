@@ -6,12 +6,6 @@ Auto-generated documentation for [SecretsManager](https://boto3.amazonaws.com/v1
 type annotations stubs module [mypy_boto3_secretsmanager](https://pypi.org/project/mypy-boto3-secretsmanager/).
 
 - [Structures for boto3 SecretsManager module](#structures-for-boto3-secretsmanager-module)
-  - [ReplicationStatusTypeTypeDef](#replicationstatustypetypedef)
-  - [RotationRulesTypeTypeDef](#rotationrulestypetypedef)
-  - [SecretListEntryTypeDef](#secretlistentrytypedef)
-  - [SecretVersionsListEntryTypeDef](#secretversionslistentrytypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [ValidationErrorsEntryTypeDef](#validationerrorsentrytypedef)
   - [CancelRotateSecretResponseTypeDef](#cancelrotatesecretresponsetypedef)
   - [CreateSecretResponseTypeDef](#createsecretresponsetypedef)
   - [DeleteResourcePolicyResponseTypeDef](#deleteresourcepolicyresponsetypedef)
@@ -29,114 +23,18 @@ type annotations stubs module [mypy_boto3_secretsmanager](https://pypi.org/proje
   - [RemoveRegionsFromReplicationResponseTypeDef](#removeregionsfromreplicationresponsetypedef)
   - [ReplicaRegionTypeTypeDef](#replicaregiontypetypedef)
   - [ReplicateSecretToRegionsResponseTypeDef](#replicatesecrettoregionsresponsetypedef)
+  - [ReplicationStatusTypeTypeDef](#replicationstatustypetypedef)
   - [RestoreSecretResponseTypeDef](#restoresecretresponsetypedef)
   - [RotateSecretResponseTypeDef](#rotatesecretresponsetypedef)
+  - [RotationRulesTypeTypeDef](#rotationrulestypetypedef)
+  - [SecretListEntryTypeDef](#secretlistentrytypedef)
+  - [SecretVersionsListEntryTypeDef](#secretversionslistentrytypedef)
   - [StopReplicationToReplicaResponseTypeDef](#stopreplicationtoreplicaresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateSecretResponseTypeDef](#updatesecretresponsetypedef)
   - [UpdateSecretVersionStageResponseTypeDef](#updatesecretversionstageresponsetypedef)
   - [ValidateResourcePolicyResponseTypeDef](#validateresourcepolicyresponsetypedef)
-
-## ReplicationStatusTypeTypeDef
-
-```python
-from mypy_boto3_secretsmanager.type_defs import ReplicationStatusTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Region`: `str`
-- `KmsKeyId`: `str`
-- `Status`: `StatusType`
-- `StatusMessage`: `str`
-- `LastAccessedDate`: `datetime`
-
-
-## RotationRulesTypeTypeDef
-
-```python
-from mypy_boto3_secretsmanager.type_defs import RotationRulesTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `AutomaticallyAfterDays`: `int`
-
-
-## SecretListEntryTypeDef
-
-```python
-from mypy_boto3_secretsmanager.type_defs import SecretListEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `ARN`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `KmsKeyId`: `str`
-- `RotationEnabled`: `bool`
-- `RotationLambdaARN`: `str`
-- `RotationRules`: `"RotationRulesTypeTypeDef"`
-- `LastRotatedDate`: `datetime`
-- `LastChangedDate`: `datetime`
-- `LastAccessedDate`: `datetime`
-- `DeletedDate`: `datetime`
-- `Tags`: `List["TagTypeDef"]`
-- `SecretVersionsToStages`: `Dict[str, List[str]]`
-- `OwningService`: `str`
-- `CreatedDate`: `datetime`
-- `PrimaryRegion`: `str`
-
-
-## SecretVersionsListEntryTypeDef
-
-```python
-from mypy_boto3_secretsmanager.type_defs import SecretVersionsListEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `VersionId`: `str`
-- `VersionStages`: `List[str]`
-- `LastAccessedDate`: `datetime`
-- `CreatedDate`: `datetime`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_secretsmanager.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## ValidationErrorsEntryTypeDef
-
-```python
-from mypy_boto3_secretsmanager.type_defs import ValidationErrorsEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `CheckName`: `str`
-- `ErrorMessage`: `str`
-
+  - [ValidationErrorsEntryTypeDef](#validationerrorsentrytypedef)
 
 ## CancelRotateSecretResponseTypeDef
 
@@ -405,6 +303,23 @@ Optional fields:
 - `ReplicationStatus`: `List["ReplicationStatusTypeTypeDef"]`
 
 
+## ReplicationStatusTypeTypeDef
+
+```python
+from mypy_boto3_secretsmanager.type_defs import ReplicationStatusTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Region`: `str`
+- `KmsKeyId`: `str`
+- `Status`: `StatusType`
+- `StatusMessage`: `str`
+- `LastAccessedDate`: `datetime`
+
+
 ## RestoreSecretResponseTypeDef
 
 ```python
@@ -434,6 +349,63 @@ Optional fields:
 - `VersionId`: `str`
 
 
+## RotationRulesTypeTypeDef
+
+```python
+from mypy_boto3_secretsmanager.type_defs import RotationRulesTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `AutomaticallyAfterDays`: `int`
+
+
+## SecretListEntryTypeDef
+
+```python
+from mypy_boto3_secretsmanager.type_defs import SecretListEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `ARN`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `KmsKeyId`: `str`
+- `RotationEnabled`: `bool`
+- `RotationLambdaARN`: `str`
+- `RotationRules`: `"RotationRulesTypeTypeDef"`
+- `LastRotatedDate`: `datetime`
+- `LastChangedDate`: `datetime`
+- `LastAccessedDate`: `datetime`
+- `DeletedDate`: `datetime`
+- `Tags`: `List["TagTypeDef"]`
+- `SecretVersionsToStages`: `Dict[str, List[str]]`
+- `OwningService`: `str`
+- `CreatedDate`: `datetime`
+- `PrimaryRegion`: `str`
+
+
+## SecretVersionsListEntryTypeDef
+
+```python
+from mypy_boto3_secretsmanager.type_defs import SecretVersionsListEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `VersionId`: `str`
+- `VersionStages`: `List[str]`
+- `LastAccessedDate`: `datetime`
+- `CreatedDate`: `datetime`
+
+
 ## StopReplicationToReplicaResponseTypeDef
 
 ```python
@@ -445,6 +417,20 @@ from mypy_boto3_secretsmanager.type_defs import StopReplicationToReplicaResponse
 
 Optional fields:
 - `ARN`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_secretsmanager.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
 
 
 ## UpdateSecretResponseTypeDef
@@ -488,4 +474,18 @@ from mypy_boto3_secretsmanager.type_defs import ValidateResourcePolicyResponseTy
 Optional fields:
 - `PolicyValidationPassed`: `bool`
 - `ValidationErrors`: `List["ValidationErrorsEntryTypeDef"]`
+
+
+## ValidationErrorsEntryTypeDef
+
+```python
+from mypy_boto3_secretsmanager.type_defs import ValidationErrorsEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `CheckName`: `str`
+- `ErrorMessage`: `str`
 

@@ -7,21 +7,6 @@ type annotations stubs module [mypy_boto3_transcribe](https://pypi.org/project/m
 
 - [Structures for boto3 TranscribeService module](#structures-for-boto3-transcribeservice-module)
   - [ContentRedactionTypeDef](#contentredactiontypedef)
-  - [InputDataConfigTypeDef](#inputdataconfigtypedef)
-  - [JobExecutionSettingsTypeDef](#jobexecutionsettingstypedef)
-  - [LanguageModelTypeDef](#languagemodeltypedef)
-  - [MediaTypeDef](#mediatypedef)
-  - [MedicalTranscriptTypeDef](#medicaltranscripttypedef)
-  - [MedicalTranscriptionJobSummaryTypeDef](#medicaltranscriptionjobsummarytypedef)
-  - [MedicalTranscriptionJobTypeDef](#medicaltranscriptionjobtypedef)
-  - [MedicalTranscriptionSettingTypeDef](#medicaltranscriptionsettingtypedef)
-  - [ModelSettingsTypeDef](#modelsettingstypedef)
-  - [SettingsTypeDef](#settingstypedef)
-  - [TranscriptTypeDef](#transcripttypedef)
-  - [TranscriptionJobSummaryTypeDef](#transcriptionjobsummarytypedef)
-  - [TranscriptionJobTypeDef](#transcriptionjobtypedef)
-  - [VocabularyFilterInfoTypeDef](#vocabularyfilterinfotypedef)
-  - [VocabularyInfoTypeDef](#vocabularyinfotypedef)
   - [CreateLanguageModelResponseTypeDef](#createlanguagemodelresponsetypedef)
   - [CreateMedicalVocabularyResponseTypeDef](#createmedicalvocabularyresponsetypedef)
   - [CreateVocabularyFilterResponseTypeDef](#createvocabularyfilterresponsetypedef)
@@ -32,17 +17,32 @@ type annotations stubs module [mypy_boto3_transcribe](https://pypi.org/project/m
   - [GetTranscriptionJobResponseTypeDef](#gettranscriptionjobresponsetypedef)
   - [GetVocabularyFilterResponseTypeDef](#getvocabularyfilterresponsetypedef)
   - [GetVocabularyResponseTypeDef](#getvocabularyresponsetypedef)
+  - [InputDataConfigTypeDef](#inputdataconfigtypedef)
+  - [JobExecutionSettingsTypeDef](#jobexecutionsettingstypedef)
+  - [LanguageModelTypeDef](#languagemodeltypedef)
   - [ListLanguageModelsResponseTypeDef](#listlanguagemodelsresponsetypedef)
   - [ListMedicalTranscriptionJobsResponseTypeDef](#listmedicaltranscriptionjobsresponsetypedef)
   - [ListMedicalVocabulariesResponseTypeDef](#listmedicalvocabulariesresponsetypedef)
   - [ListTranscriptionJobsResponseTypeDef](#listtranscriptionjobsresponsetypedef)
   - [ListVocabulariesResponseTypeDef](#listvocabulariesresponsetypedef)
   - [ListVocabularyFiltersResponseTypeDef](#listvocabularyfiltersresponsetypedef)
+  - [MediaTypeDef](#mediatypedef)
+  - [MedicalTranscriptTypeDef](#medicaltranscripttypedef)
+  - [MedicalTranscriptionJobSummaryTypeDef](#medicaltranscriptionjobsummarytypedef)
+  - [MedicalTranscriptionJobTypeDef](#medicaltranscriptionjobtypedef)
+  - [MedicalTranscriptionSettingTypeDef](#medicaltranscriptionsettingtypedef)
+  - [ModelSettingsTypeDef](#modelsettingstypedef)
+  - [SettingsTypeDef](#settingstypedef)
   - [StartMedicalTranscriptionJobResponseTypeDef](#startmedicaltranscriptionjobresponsetypedef)
   - [StartTranscriptionJobResponseTypeDef](#starttranscriptionjobresponsetypedef)
+  - [TranscriptTypeDef](#transcripttypedef)
+  - [TranscriptionJobSummaryTypeDef](#transcriptionjobsummarytypedef)
+  - [TranscriptionJobTypeDef](#transcriptionjobtypedef)
   - [UpdateMedicalVocabularyResponseTypeDef](#updatemedicalvocabularyresponsetypedef)
   - [UpdateVocabularyFilterResponseTypeDef](#updatevocabularyfilterresponsetypedef)
   - [UpdateVocabularyResponseTypeDef](#updatevocabularyresponsetypedef)
+  - [VocabularyFilterInfoTypeDef](#vocabularyfilterinfotypedef)
+  - [VocabularyInfoTypeDef](#vocabularyinfotypedef)
 
 ## ContentRedactionTypeDef
 
@@ -52,286 +52,10 @@ from mypy_boto3_transcribe.type_defs import ContentRedactionTypeDef
 
 
 Required fields:
-- `RedactionType`: `RedactionType`
+- `RedactionType`: `Literal['PII']`
 - `RedactionOutput`: `RedactionOutput`
 
 
-
-
-## InputDataConfigTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import InputDataConfigTypeDef
-```
-
-
-Required fields:
-- `S3Uri`: `str`
-- `DataAccessRoleArn`: `str`
-
-
-
-Optional fields:
-- `TuningDataS3Uri`: `str`
-
-
-## JobExecutionSettingsTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import JobExecutionSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllowDeferredExecution`: `bool`
-- `DataAccessRoleArn`: `str`
-
-
-## LanguageModelTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import LanguageModelTypeDef
-```
-
-
-
-
-Optional fields:
-- `ModelName`: `str`
-- `CreateTime`: `datetime`
-- `LastModifiedTime`: `datetime`
-- `LanguageCode`: `CLMLanguageCode`
-- `BaseModelName`: `BaseModelName`
-- `ModelStatus`: `ModelStatus`
-- `UpgradeAvailability`: `bool`
-- `FailureReason`: `str`
-- `InputDataConfig`: `"InputDataConfigTypeDef"`
-
-
-## MediaTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import MediaTypeDef
-```
-
-
-
-
-Optional fields:
-- `MediaFileUri`: `str`
-
-
-## MedicalTranscriptTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import MedicalTranscriptTypeDef
-```
-
-
-
-
-Optional fields:
-- `TranscriptFileUri`: `str`
-
-
-## MedicalTranscriptionJobSummaryTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import MedicalTranscriptionJobSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `MedicalTranscriptionJobName`: `str`
-- `CreationTime`: `datetime`
-- `StartTime`: `datetime`
-- `CompletionTime`: `datetime`
-- `LanguageCode`: `LanguageCode`
-- `TranscriptionJobStatus`: `TranscriptionJobStatus`
-- `FailureReason`: `str`
-- `OutputLocationType`: `OutputLocationType`
-- `Specialty`: `Specialty`
-- `Type`: `TypeType`
-
-
-## MedicalTranscriptionJobTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import MedicalTranscriptionJobTypeDef
-```
-
-
-
-
-Optional fields:
-- `MedicalTranscriptionJobName`: `str`
-- `TranscriptionJobStatus`: `TranscriptionJobStatus`
-- `LanguageCode`: `LanguageCode`
-- `MediaSampleRateHertz`: `int`
-- `MediaFormat`: `MediaFormat`
-- `Media`: `"MediaTypeDef"`
-- `Transcript`: `"MedicalTranscriptTypeDef"`
-- `StartTime`: `datetime`
-- `CreationTime`: `datetime`
-- `CompletionTime`: `datetime`
-- `FailureReason`: `str`
-- `Settings`: `"MedicalTranscriptionSettingTypeDef"`
-- `Specialty`: `Specialty`
-- `Type`: `TypeType`
-
-
-## MedicalTranscriptionSettingTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import MedicalTranscriptionSettingTypeDef
-```
-
-
-
-
-Optional fields:
-- `ShowSpeakerLabels`: `bool`
-- `MaxSpeakerLabels`: `int`
-- `ChannelIdentification`: `bool`
-- `ShowAlternatives`: `bool`
-- `MaxAlternatives`: `int`
-- `VocabularyName`: `str`
-
-
-## ModelSettingsTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import ModelSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `LanguageModelName`: `str`
-
-
-## SettingsTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import SettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `VocabularyName`: `str`
-- `ShowSpeakerLabels`: `bool`
-- `MaxSpeakerLabels`: `int`
-- `ChannelIdentification`: `bool`
-- `ShowAlternatives`: `bool`
-- `MaxAlternatives`: `int`
-- `VocabularyFilterName`: `str`
-- `VocabularyFilterMethod`: `VocabularyFilterMethod`
-
-
-## TranscriptTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import TranscriptTypeDef
-```
-
-
-
-
-Optional fields:
-- `TranscriptFileUri`: `str`
-- `RedactedTranscriptFileUri`: `str`
-
-
-## TranscriptionJobSummaryTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import TranscriptionJobSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `TranscriptionJobName`: `str`
-- `CreationTime`: `datetime`
-- `StartTime`: `datetime`
-- `CompletionTime`: `datetime`
-- `LanguageCode`: `LanguageCode`
-- `TranscriptionJobStatus`: `TranscriptionJobStatus`
-- `FailureReason`: `str`
-- `OutputLocationType`: `OutputLocationType`
-- `ContentRedaction`: `"ContentRedactionTypeDef"`
-- `ModelSettings`: `"ModelSettingsTypeDef"`
-- `IdentifyLanguage`: `bool`
-- `IdentifiedLanguageScore`: `float`
-
-
-## TranscriptionJobTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import TranscriptionJobTypeDef
-```
-
-
-
-
-Optional fields:
-- `TranscriptionJobName`: `str`
-- `TranscriptionJobStatus`: `TranscriptionJobStatus`
-- `LanguageCode`: `LanguageCode`
-- `MediaSampleRateHertz`: `int`
-- `MediaFormat`: `MediaFormat`
-- `Media`: `"MediaTypeDef"`
-- `Transcript`: `"TranscriptTypeDef"`
-- `StartTime`: `datetime`
-- `CreationTime`: `datetime`
-- `CompletionTime`: `datetime`
-- `FailureReason`: `str`
-- `Settings`: `"SettingsTypeDef"`
-- `ModelSettings`: `"ModelSettingsTypeDef"`
-- `JobExecutionSettings`: `"JobExecutionSettingsTypeDef"`
-- `ContentRedaction`: `"ContentRedactionTypeDef"`
-- `IdentifyLanguage`: `bool`
-- `LanguageOptions`: `List[LanguageCode]`
-- `IdentifiedLanguageScore`: `float`
-
-
-## VocabularyFilterInfoTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import VocabularyFilterInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `VocabularyFilterName`: `str`
-- `LanguageCode`: `LanguageCode`
-- `LastModifiedTime`: `datetime`
-
-
-## VocabularyInfoTypeDef
-
-```python
-from mypy_boto3_transcribe.type_defs import VocabularyInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `VocabularyName`: `str`
-- `LanguageCode`: `LanguageCode`
-- `LastModifiedTime`: `datetime`
-- `VocabularyState`: `VocabularyState`
 
 
 ## CreateLanguageModelResponseTypeDef
@@ -491,6 +215,58 @@ Optional fields:
 - `DownloadUri`: `str`
 
 
+## InputDataConfigTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import InputDataConfigTypeDef
+```
+
+
+Required fields:
+- `S3Uri`: `str`
+- `DataAccessRoleArn`: `str`
+
+
+
+Optional fields:
+- `TuningDataS3Uri`: `str`
+
+
+## JobExecutionSettingsTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import JobExecutionSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllowDeferredExecution`: `bool`
+- `DataAccessRoleArn`: `str`
+
+
+## LanguageModelTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import LanguageModelTypeDef
+```
+
+
+
+
+Optional fields:
+- `ModelName`: `str`
+- `CreateTime`: `datetime`
+- `LastModifiedTime`: `datetime`
+- `LanguageCode`: `CLMLanguageCode`
+- `BaseModelName`: `BaseModelName`
+- `ModelStatus`: `ModelStatus`
+- `UpgradeAvailability`: `bool`
+- `FailureReason`: `str`
+- `InputDataConfig`: `"InputDataConfigTypeDef"`
+
+
 ## ListLanguageModelsResponseTypeDef
 
 ```python
@@ -579,6 +355,131 @@ Optional fields:
 - `VocabularyFilters`: `List["VocabularyFilterInfoTypeDef"]`
 
 
+## MediaTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import MediaTypeDef
+```
+
+
+
+
+Optional fields:
+- `MediaFileUri`: `str`
+
+
+## MedicalTranscriptTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import MedicalTranscriptTypeDef
+```
+
+
+
+
+Optional fields:
+- `TranscriptFileUri`: `str`
+
+
+## MedicalTranscriptionJobSummaryTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import MedicalTranscriptionJobSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `MedicalTranscriptionJobName`: `str`
+- `CreationTime`: `datetime`
+- `StartTime`: `datetime`
+- `CompletionTime`: `datetime`
+- `LanguageCode`: `LanguageCode`
+- `TranscriptionJobStatus`: `TranscriptionJobStatus`
+- `FailureReason`: `str`
+- `OutputLocationType`: `OutputLocationType`
+- `Specialty`: `Literal['PRIMARYCARE']`
+- `Type`: `TypeType`
+
+
+## MedicalTranscriptionJobTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import MedicalTranscriptionJobTypeDef
+```
+
+
+
+
+Optional fields:
+- `MedicalTranscriptionJobName`: `str`
+- `TranscriptionJobStatus`: `TranscriptionJobStatus`
+- `LanguageCode`: `LanguageCode`
+- `MediaSampleRateHertz`: `int`
+- `MediaFormat`: `MediaFormat`
+- `Media`: `"MediaTypeDef"`
+- `Transcript`: `"MedicalTranscriptTypeDef"`
+- `StartTime`: `datetime`
+- `CreationTime`: `datetime`
+- `CompletionTime`: `datetime`
+- `FailureReason`: `str`
+- `Settings`: `"MedicalTranscriptionSettingTypeDef"`
+- `Specialty`: `Literal['PRIMARYCARE']`
+- `Type`: `TypeType`
+
+
+## MedicalTranscriptionSettingTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import MedicalTranscriptionSettingTypeDef
+```
+
+
+
+
+Optional fields:
+- `ShowSpeakerLabels`: `bool`
+- `MaxSpeakerLabels`: `int`
+- `ChannelIdentification`: `bool`
+- `ShowAlternatives`: `bool`
+- `MaxAlternatives`: `int`
+- `VocabularyName`: `str`
+
+
+## ModelSettingsTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import ModelSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `LanguageModelName`: `str`
+
+
+## SettingsTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import SettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `VocabularyName`: `str`
+- `ShowSpeakerLabels`: `bool`
+- `MaxSpeakerLabels`: `int`
+- `ChannelIdentification`: `bool`
+- `ShowAlternatives`: `bool`
+- `MaxAlternatives`: `int`
+- `VocabularyFilterName`: `str`
+- `VocabularyFilterMethod`: `VocabularyFilterMethod`
+
+
 ## StartMedicalTranscriptionJobResponseTypeDef
 
 ```python
@@ -603,6 +504,74 @@ from mypy_boto3_transcribe.type_defs import StartTranscriptionJobResponseTypeDef
 
 Optional fields:
 - `TranscriptionJob`: `"TranscriptionJobTypeDef"`
+
+
+## TranscriptTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import TranscriptTypeDef
+```
+
+
+
+
+Optional fields:
+- `TranscriptFileUri`: `str`
+- `RedactedTranscriptFileUri`: `str`
+
+
+## TranscriptionJobSummaryTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import TranscriptionJobSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `TranscriptionJobName`: `str`
+- `CreationTime`: `datetime`
+- `StartTime`: `datetime`
+- `CompletionTime`: `datetime`
+- `LanguageCode`: `LanguageCode`
+- `TranscriptionJobStatus`: `TranscriptionJobStatus`
+- `FailureReason`: `str`
+- `OutputLocationType`: `OutputLocationType`
+- `ContentRedaction`: `"ContentRedactionTypeDef"`
+- `ModelSettings`: `"ModelSettingsTypeDef"`
+- `IdentifyLanguage`: `bool`
+- `IdentifiedLanguageScore`: `float`
+
+
+## TranscriptionJobTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import TranscriptionJobTypeDef
+```
+
+
+
+
+Optional fields:
+- `TranscriptionJobName`: `str`
+- `TranscriptionJobStatus`: `TranscriptionJobStatus`
+- `LanguageCode`: `LanguageCode`
+- `MediaSampleRateHertz`: `int`
+- `MediaFormat`: `MediaFormat`
+- `Media`: `"MediaTypeDef"`
+- `Transcript`: `"TranscriptTypeDef"`
+- `StartTime`: `datetime`
+- `CreationTime`: `datetime`
+- `CompletionTime`: `datetime`
+- `FailureReason`: `str`
+- `Settings`: `"SettingsTypeDef"`
+- `ModelSettings`: `"ModelSettingsTypeDef"`
+- `JobExecutionSettings`: `"JobExecutionSettingsTypeDef"`
+- `ContentRedaction`: `"ContentRedactionTypeDef"`
+- `IdentifyLanguage`: `bool`
+- `LanguageOptions`: `List[LanguageCode]`
+- `IdentifiedLanguageScore`: `float`
 
 
 ## UpdateMedicalVocabularyResponseTypeDef
@@ -640,6 +609,37 @@ Optional fields:
 
 ```python
 from mypy_boto3_transcribe.type_defs import UpdateVocabularyResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `VocabularyName`: `str`
+- `LanguageCode`: `LanguageCode`
+- `LastModifiedTime`: `datetime`
+- `VocabularyState`: `VocabularyState`
+
+
+## VocabularyFilterInfoTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import VocabularyFilterInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `VocabularyFilterName`: `str`
+- `LanguageCode`: `LanguageCode`
+- `LastModifiedTime`: `datetime`
+
+
+## VocabularyInfoTypeDef
+
+```python
+from mypy_boto3_transcribe.type_defs import VocabularyInfoTypeDef
 ```
 
 

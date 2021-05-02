@@ -6,14 +6,69 @@ Auto-generated documentation for [MarketplaceMetering](https://boto3.amazonaws.c
 type annotations stubs module [mypy_boto3_meteringmarketplace](https://pypi.org/project/mypy-boto3-meteringmarketplace/).
 
 - [Structures for boto3 MarketplaceMetering module](#structures-for-boto3-marketplacemetering-module)
-  - [TagTypeDef](#tagtypedef)
-  - [UsageAllocationTypeDef](#usageallocationtypedef)
-  - [UsageRecordResultTypeDef](#usagerecordresulttypedef)
-  - [UsageRecordTypeDef](#usagerecordtypedef)
   - [BatchMeterUsageResultTypeDef](#batchmeterusageresulttypedef)
   - [MeterUsageResultTypeDef](#meterusageresulttypedef)
   - [RegisterUsageResultTypeDef](#registerusageresulttypedef)
   - [ResolveCustomerResultTypeDef](#resolvecustomerresulttypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [UsageAllocationTypeDef](#usageallocationtypedef)
+  - [UsageRecordResultTypeDef](#usagerecordresulttypedef)
+  - [UsageRecordTypeDef](#usagerecordtypedef)
+
+## BatchMeterUsageResultTypeDef
+
+```python
+from mypy_boto3_meteringmarketplace.type_defs import BatchMeterUsageResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Results`: `List["UsageRecordResultTypeDef"]`
+- `UnprocessedRecords`: `List["UsageRecordTypeDef"]`
+
+
+## MeterUsageResultTypeDef
+
+```python
+from mypy_boto3_meteringmarketplace.type_defs import MeterUsageResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `MeteringRecordId`: `str`
+
+
+## RegisterUsageResultTypeDef
+
+```python
+from mypy_boto3_meteringmarketplace.type_defs import RegisterUsageResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `PublicKeyRotationTimestamp`: `datetime`
+- `Signature`: `str`
+
+
+## ResolveCustomerResultTypeDef
+
+```python
+from mypy_boto3_meteringmarketplace.type_defs import ResolveCustomerResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `CustomerIdentifier`: `str`
+- `ProductCode`: `str`
+
 
 ## TagTypeDef
 
@@ -77,59 +132,4 @@ Required fields:
 Optional fields:
 - `Quantity`: `int`
 - `UsageAllocations`: `List["UsageAllocationTypeDef"]`
-
-
-## BatchMeterUsageResultTypeDef
-
-```python
-from mypy_boto3_meteringmarketplace.type_defs import BatchMeterUsageResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Results`: `List["UsageRecordResultTypeDef"]`
-- `UnprocessedRecords`: `List["UsageRecordTypeDef"]`
-
-
-## MeterUsageResultTypeDef
-
-```python
-from mypy_boto3_meteringmarketplace.type_defs import MeterUsageResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `MeteringRecordId`: `str`
-
-
-## RegisterUsageResultTypeDef
-
-```python
-from mypy_boto3_meteringmarketplace.type_defs import RegisterUsageResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `PublicKeyRotationTimestamp`: `datetime`
-- `Signature`: `str`
-
-
-## ResolveCustomerResultTypeDef
-
-```python
-from mypy_boto3_meteringmarketplace.type_defs import ResolveCustomerResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `CustomerIdentifier`: `str`
-- `ProductCode`: `str`
 

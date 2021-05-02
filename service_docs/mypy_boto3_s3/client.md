@@ -114,14 +114,7 @@ type annotations stubs module [mypy_boto3_s3](https://pypi.org/project/mypy-boto
     - [upload_part_copy](#upload_part_copy)
     - [write_get_object_response](#write_get_object_response)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
 
 ## S3Client
 
@@ -174,7 +167,7 @@ def abort_multipart_upload(
     Bucket: str,
     Key: str,
     UploadId: str,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> AbortMultipartUploadOutputTypeDef:
     pass
@@ -207,7 +200,7 @@ def complete_multipart_upload(
     Key: str,
     UploadId: str,
     MultipartUpload: CompletedMultipartUploadTypeDef = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> CompleteMultipartUploadOutputTypeDef:
     pass
@@ -275,7 +268,7 @@ def copy_object(
     CopySourceSSECustomerAlgorithm: str = None,
     CopySourceSSECustomerKey: str = None,
     CopySourceSSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     Tagging: str = None,
     ObjectLockMode: ObjectLockMode = None,
     ObjectLockRetainUntilDate: datetime = None,
@@ -340,7 +333,7 @@ def create_multipart_upload(
     SSEKMSKeyId: str = None,
     SSEKMSEncryptionContext: str = None,
     BucketKeyEnabled: bool = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     Tagging: str = None,
     ObjectLockMode: ObjectLockMode = None,
     ObjectLockRetainUntilDate: datetime = None,
@@ -561,7 +554,7 @@ def delete_object(
     Key: str,
     MFA: str = None,
     VersionId: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     BypassGovernanceRetention: bool = None,
     ExpectedBucketOwner: str = None
 ) -> DeleteObjectOutputTypeDef:
@@ -597,7 +590,7 @@ def delete_objects(
     Bucket: str,
     Delete: DeleteTypeDef,
     MFA: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     BypassGovernanceRetention: bool = None,
     ExpectedBucketOwner: str = None
 ) -> DeleteObjectsOutputTypeDef:
@@ -1051,7 +1044,7 @@ def get_object(
     SSECustomerAlgorithm: str = None,
     SSECustomerKey: str = None,
     SSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     PartNumber: int = None,
     ExpectedBucketOwner: str = None
 ) -> GetObjectOutputTypeDef:
@@ -1070,7 +1063,7 @@ def get_object_acl(
     Bucket: str,
     Key: str,
     VersionId: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> GetObjectAclOutputTypeDef:
     pass
@@ -1088,7 +1081,7 @@ def get_object_legal_hold(
     Bucket: str,
     Key: str,
     VersionId: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> GetObjectLegalHoldOutputTypeDef:
     pass
@@ -1121,7 +1114,7 @@ def get_object_retention(
     Bucket: str,
     Key: str,
     VersionId: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> GetObjectRetentionOutputTypeDef:
     pass
@@ -1140,7 +1133,7 @@ def get_object_tagging(
     Key: str,
     VersionId: str = None,
     ExpectedBucketOwner: str = None,
-    RequestPayer: RequestPayer = None
+    RequestPayer: Literal['requester'] = None
 ) -> GetObjectTaggingOutputTypeDef:
     pass
 ```
@@ -1156,7 +1149,7 @@ def get_object_torrent(
     self,
     Bucket: str,
     Key: str,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> GetObjectTorrentOutputTypeDef:
     pass
@@ -1212,7 +1205,7 @@ def head_object(
     SSECustomerAlgorithm: str = None,
     SSECustomerKey: str = None,
     SSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     PartNumber: int = None,
     ExpectedBucketOwner: str = None
 ) -> HeadObjectOutputTypeDef:
@@ -1306,7 +1299,7 @@ def list_multipart_uploads(
     self,
     Bucket: str,
     Delimiter: str = None,
-    EncodingType: EncodingType = None,
+    EncodingType: Literal['url'] = None,
     KeyMarker: str = None,
     MaxUploads: int = None,
     Prefix: str = None,
@@ -1327,7 +1320,7 @@ def list_object_versions(
     self,
     Bucket: str,
     Delimiter: str = None,
-    EncodingType: EncodingType = None,
+    EncodingType: Literal['url'] = None,
     KeyMarker: str = None,
     MaxKeys: int = None,
     Prefix: str = None,
@@ -1348,11 +1341,11 @@ def list_objects(
     self,
     Bucket: str,
     Delimiter: str = None,
-    EncodingType: EncodingType = None,
+    EncodingType: Literal['url'] = None,
     Marker: str = None,
     MaxKeys: int = None,
     Prefix: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> ListObjectsOutputTypeDef:
     pass
@@ -1369,13 +1362,13 @@ def list_objects_v2(
     self,
     Bucket: str,
     Delimiter: str = None,
-    EncodingType: EncodingType = None,
+    EncodingType: Literal['url'] = None,
     MaxKeys: int = None,
     Prefix: str = None,
     ContinuationToken: str = None,
     FetchOwner: bool = None,
     StartAfter: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> ListObjectsV2OutputTypeDef:
     pass
@@ -1395,7 +1388,7 @@ def list_parts(
     UploadId: str,
     MaxParts: int = None,
     PartNumberMarker: int = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> ListPartsOutputTypeDef:
     pass
@@ -1770,7 +1763,7 @@ def put_object(
     SSEKMSKeyId: str = None,
     SSEKMSEncryptionContext: str = None,
     BucketKeyEnabled: bool = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     Tagging: str = None,
     ObjectLockMode: ObjectLockMode = None,
     ObjectLockRetainUntilDate: datetime = None,
@@ -1798,7 +1791,7 @@ def put_object_acl(
     GrantReadACP: str = None,
     GrantWrite: str = None,
     GrantWriteACP: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     VersionId: str = None,
     ExpectedBucketOwner: str = None
 ) -> PutObjectAclOutputTypeDef:
@@ -1817,7 +1810,7 @@ def put_object_legal_hold(
     Bucket: str,
     Key: str,
     LegalHold: "ObjectLockLegalHoldTypeDef" = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     VersionId: str = None,
     ContentMD5: str = None,
     ExpectedBucketOwner: str = None
@@ -1836,7 +1829,7 @@ def put_object_lock_configuration(
     self,
     Bucket: str,
     ObjectLockConfiguration: "ObjectLockConfigurationTypeDef" = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     Token: str = None,
     ContentMD5: str = None,
     ExpectedBucketOwner: str = None
@@ -1856,7 +1849,7 @@ def put_object_retention(
     Bucket: str,
     Key: str,
     Retention: "ObjectLockRetentionTypeDef" = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     VersionId: str = None,
     BypassGovernanceRetention: bool = None,
     ContentMD5: str = None,
@@ -1880,7 +1873,7 @@ def put_object_tagging(
     VersionId: str = None,
     ContentMD5: str = None,
     ExpectedBucketOwner: str = None,
-    RequestPayer: RequestPayer = None
+    RequestPayer: Literal['requester'] = None
 ) -> PutObjectTaggingOutputTypeDef:
     pass
 ```
@@ -1915,7 +1908,7 @@ def restore_object(
     Key: str,
     VersionId: str = None,
     RestoreRequest: RestoreRequestTypeDef = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> RestoreObjectOutputTypeDef:
     pass
@@ -1933,7 +1926,7 @@ def select_object_content(
     Bucket: str,
     Key: str,
     Expression: str,
-    ExpressionType: ExpressionType,
+    ExpressionType: Literal['SQL'],
     InputSerialization: "InputSerializationTypeDef",
     OutputSerialization: "OutputSerializationTypeDef",
     SSECustomerAlgorithm: str = None,
@@ -2003,7 +1996,7 @@ def upload_part(
     SSECustomerAlgorithm: str = None,
     SSECustomerKey: str = None,
     SSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None
 ) -> UploadPartOutputTypeDef:
     pass
@@ -2034,7 +2027,7 @@ def upload_part_copy(
     CopySourceSSECustomerAlgorithm: str = None,
     CopySourceSSECustomerKey: str = None,
     CopySourceSSECustomerKeyMD5: str = None,
-    RequestPayer: RequestPayer = None,
+    RequestPayer: Literal['requester'] = None,
     ExpectedBucketOwner: str = None,
     ExpectedSourceBucketOwner: str = None
 ) -> UploadPartCopyOutputTypeDef:
@@ -2076,7 +2069,7 @@ def write_get_object_response(
     ObjectLockRetainUntilDate: datetime = None,
     PartsCount: int = None,
     ReplicationStatus: ReplicationStatus = None,
-    RequestCharged: RequestCharged = None,
+    RequestCharged: Literal['requester'] = None,
     Restore: str = None,
     ServerSideEncryption: ServerSideEncryption = None,
     SSECustomerAlgorithm: str = None,
@@ -2090,137 +2083,26 @@ def write_get_object_response(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("s3").get_paginator` method.
-
-[Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.ListMultipartUploads)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMultipartUploadsPaginatorName
-) -> ListMultipartUploadsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("s3").get_paginator` method.
+Type annotations for `boto3.client("s3").get_paginator` method with overloads.
 
-[Paginator.ListObjectVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.ListObjectVersions)
+- `client.get_paginator("list_multipart_uploads")` -> [ListMultipartUploadsPaginator](./paginators.md#listmultipartuploadspaginator)
+- `client.get_paginator("list_object_versions")` -> [ListObjectVersionsPaginator](./paginators.md#listobjectversionspaginator)
+- `client.get_paginator("list_objects")` -> [ListObjectsPaginator](./paginators.md#listobjectspaginator)
+- `client.get_paginator("list_objects_v2")` -> [ListObjectsV2Paginator](./paginators.md#listobjectsv2paginator)
+- `client.get_paginator("list_parts")` -> [ListPartsPaginator](./paginators.md#listpartspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListObjectVersionsPaginatorName
-) -> ListObjectVersionsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("s3").get_paginator` method.
-
-[Paginator.ListObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.ListObjects)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListObjectsPaginatorName
-) -> ListObjectsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("s3").get_paginator` method.
-
-[Paginator.ListObjectsV2 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.ListObjectsV2)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListObjectsV2PaginatorName
-) -> ListObjectsV2Paginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("s3").get_paginator` method.
-
-[Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.ListParts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPartsPaginatorName
-) -> ListPartsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("s3").get_waiter` method.
+Type annotations for `boto3.client("s3").get_waiter` method with overloads.
 
-[Waiter.BucketExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.BucketExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: BucketExistsWaiterName
-) -> BucketExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("s3").get_waiter` method.
-
-[Waiter.BucketNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.BucketNotExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: BucketNotExistsWaiterName
-) -> BucketNotExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("s3").get_waiter` method.
-
-[Waiter.ObjectExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.ObjectExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ObjectExistsWaiterName
-) -> ObjectExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("s3").get_waiter` method.
-
-[Waiter.ObjectNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.ObjectNotExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ObjectNotExistsWaiterName
-) -> ObjectNotExistsWaiter:
-    pass
-```
+- `client.get_waiter("bucket_exists")` -> [BucketExistsWaiter](./waiters.md#bucketexistswaiter)
+- `client.get_waiter("bucket_not_exists")` -> [BucketNotExistsWaiter](./waiters.md#bucketnotexistswaiter)
+- `client.get_waiter("object_exists")` -> [ObjectExistsWaiter](./waiters.md#objectexistswaiter)
+- `client.get_waiter("object_not_exists")` -> [ObjectNotExistsWaiter](./waiters.md#objectnotexistswaiter)

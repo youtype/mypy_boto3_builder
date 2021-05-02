@@ -6,119 +6,23 @@ Auto-generated documentation for [TimestreamWrite](https://boto3.amazonaws.com/v
 type annotations stubs module [mypy_boto3_timestream_write](https://pypi.org/project/mypy-boto3-timestream-write/).
 
 - [Structures for boto3 TimestreamWrite module](#structures-for-boto3-timestreamwrite-module)
-  - [DatabaseTypeDef](#databasetypedef)
-  - [DimensionTypeDef](#dimensiontypedef)
-  - [EndpointTypeDef](#endpointtypedef)
-  - [RetentionPropertiesTypeDef](#retentionpropertiestypedef)
-  - [TableTypeDef](#tabletypedef)
-  - [TagTypeDef](#tagtypedef)
   - [CreateDatabaseResponseTypeDef](#createdatabaseresponsetypedef)
   - [CreateTableResponseTypeDef](#createtableresponsetypedef)
+  - [DatabaseTypeDef](#databasetypedef)
   - [DescribeDatabaseResponseTypeDef](#describedatabaseresponsetypedef)
   - [DescribeEndpointsResponseTypeDef](#describeendpointsresponsetypedef)
   - [DescribeTableResponseTypeDef](#describetableresponsetypedef)
+  - [DimensionTypeDef](#dimensiontypedef)
+  - [EndpointTypeDef](#endpointtypedef)
   - [ListDatabasesResponseTypeDef](#listdatabasesresponsetypedef)
   - [ListTablesResponseTypeDef](#listtablesresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [RecordTypeDef](#recordtypedef)
+  - [RetentionPropertiesTypeDef](#retentionpropertiestypedef)
+  - [TableTypeDef](#tabletypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateDatabaseResponseTypeDef](#updatedatabaseresponsetypedef)
   - [UpdateTableResponseTypeDef](#updatetableresponsetypedef)
-
-## DatabaseTypeDef
-
-```python
-from mypy_boto3_timestream_write.type_defs import DatabaseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `DatabaseName`: `str`
-- `TableCount`: `int`
-- `KmsKeyId`: `str`
-- `CreationTime`: `datetime`
-- `LastUpdatedTime`: `datetime`
-
-
-## DimensionTypeDef
-
-```python
-from mypy_boto3_timestream_write.type_defs import DimensionTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Value`: `str`
-
-
-
-Optional fields:
-- `DimensionValueType`: `DimensionValueType`
-
-
-## EndpointTypeDef
-
-```python
-from mypy_boto3_timestream_write.type_defs import EndpointTypeDef
-```
-
-
-Required fields:
-- `Address`: `str`
-- `CachePeriodInMinutes`: `int`
-
-
-
-
-## RetentionPropertiesTypeDef
-
-```python
-from mypy_boto3_timestream_write.type_defs import RetentionPropertiesTypeDef
-```
-
-
-Required fields:
-- `MemoryStoreRetentionPeriodInHours`: `int`
-- `MagneticStoreRetentionPeriodInDays`: `int`
-
-
-
-
-## TableTypeDef
-
-```python
-from mypy_boto3_timestream_write.type_defs import TableTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `TableName`: `str`
-- `DatabaseName`: `str`
-- `TableStatus`: `TableStatus`
-- `RetentionProperties`: `"RetentionPropertiesTypeDef"`
-- `CreationTime`: `datetime`
-- `LastUpdatedTime`: `datetime`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_timestream_write.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
 
 ## CreateDatabaseResponseTypeDef
 
@@ -144,6 +48,24 @@ from mypy_boto3_timestream_write.type_defs import CreateTableResponseTypeDef
 
 Optional fields:
 - `Table`: `"TableTypeDef"`
+
+
+## DatabaseTypeDef
+
+```python
+from mypy_boto3_timestream_write.type_defs import DatabaseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `DatabaseName`: `str`
+- `TableCount`: `int`
+- `KmsKeyId`: `str`
+- `CreationTime`: `datetime`
+- `LastUpdatedTime`: `datetime`
 
 
 ## DescribeDatabaseResponseTypeDef
@@ -183,6 +105,37 @@ from mypy_boto3_timestream_write.type_defs import DescribeTableResponseTypeDef
 
 Optional fields:
 - `Table`: `"TableTypeDef"`
+
+
+## DimensionTypeDef
+
+```python
+from mypy_boto3_timestream_write.type_defs import DimensionTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Value`: `str`
+
+
+
+Optional fields:
+- `DimensionValueType`: `Literal['VARCHAR']`
+
+
+## EndpointTypeDef
+
+```python
+from mypy_boto3_timestream_write.type_defs import EndpointTypeDef
+```
+
+
+Required fields:
+- `Address`: `str`
+- `CachePeriodInMinutes`: `int`
+
+
 
 
 ## ListDatabasesResponseTypeDef
@@ -243,6 +196,53 @@ Optional fields:
 - `Time`: `str`
 - `TimeUnit`: `TimeUnit`
 - `Version`: `int`
+
+
+## RetentionPropertiesTypeDef
+
+```python
+from mypy_boto3_timestream_write.type_defs import RetentionPropertiesTypeDef
+```
+
+
+Required fields:
+- `MemoryStoreRetentionPeriodInHours`: `int`
+- `MagneticStoreRetentionPeriodInDays`: `int`
+
+
+
+
+## TableTypeDef
+
+```python
+from mypy_boto3_timestream_write.type_defs import TableTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `TableName`: `str`
+- `DatabaseName`: `str`
+- `TableStatus`: `TableStatus`
+- `RetentionProperties`: `"RetentionPropertiesTypeDef"`
+- `CreationTime`: `datetime`
+- `LastUpdatedTime`: `datetime`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_timestream_write.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## UpdateDatabaseResponseTypeDef

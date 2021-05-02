@@ -65,13 +65,6 @@ type annotations stubs module [mypy_boto3_workspaces](https://pypi.org/project/m
     - [update_workspace_bundle](#update_workspace_bundle)
     - [update_workspace_image_permission](#update_workspace_image_permission)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
 
 ## WorkSpacesClient
 
@@ -683,7 +676,7 @@ Type annotations for `boto3.client("workspaces").modify_account` method.
 ```python
 def modify_account(
     self,
-    DedicatedTenancySupport: DedicatedTenancySupportEnum = None,
+    DedicatedTenancySupport: Literal['ENABLED'] = None,
     DedicatedTenancyManagementCidrRange: str = None
 ) -> Dict[str, Any]:
     pass
@@ -958,122 +951,19 @@ def update_workspace_image_permission(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("workspaces").get_paginator` method.
-
-[Paginator.DescribeAccountModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeAccountModifications)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAccountModificationsPaginatorName
-) -> DescribeAccountModificationsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("workspaces").get_paginator` method.
+Type annotations for `boto3.client("workspaces").get_paginator` method with overloads.
 
-[Paginator.DescribeIpGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeIpGroups)
+- `client.get_paginator("describe_account_modifications")` -> [DescribeAccountModificationsPaginator](./paginators.md#describeaccountmodificationspaginator)
+- `client.get_paginator("describe_ip_groups")` -> [DescribeIpGroupsPaginator](./paginators.md#describeipgroupspaginator)
+- `client.get_paginator("describe_workspace_bundles")` -> [DescribeWorkspaceBundlesPaginator](./paginators.md#describeworkspacebundlespaginator)
+- `client.get_paginator("describe_workspace_directories")` -> [DescribeWorkspaceDirectoriesPaginator](./paginators.md#describeworkspacedirectoriespaginator)
+- `client.get_paginator("describe_workspace_images")` -> [DescribeWorkspaceImagesPaginator](./paginators.md#describeworkspaceimagespaginator)
+- `client.get_paginator("describe_workspaces")` -> [DescribeWorkspacesPaginator](./paginators.md#describeworkspacespaginator)
+- `client.get_paginator("describe_workspaces_connection_status")` -> [DescribeWorkspacesConnectionStatusPaginator](./paginators.md#describeworkspacesconnectionstatuspaginator)
+- `client.get_paginator("list_available_management_cidr_ranges")` -> [ListAvailableManagementCidrRangesPaginator](./paginators.md#listavailablemanagementcidrrangespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeIpGroupsPaginatorName
-) -> DescribeIpGroupsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("workspaces").get_paginator` method.
-
-[Paginator.DescribeWorkspaceBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceBundles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeWorkspaceBundlesPaginatorName
-) -> DescribeWorkspaceBundlesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workspaces").get_paginator` method.
-
-[Paginator.DescribeWorkspaceDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceDirectories)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeWorkspaceDirectoriesPaginatorName
-) -> DescribeWorkspaceDirectoriesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workspaces").get_paginator` method.
-
-[Paginator.DescribeWorkspaceImages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceImages)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeWorkspaceImagesPaginatorName
-) -> DescribeWorkspaceImagesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workspaces").get_paginator` method.
-
-[Paginator.DescribeWorkspaces documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaces)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeWorkspacesPaginatorName
-) -> DescribeWorkspacesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workspaces").get_paginator` method.
-
-[Paginator.DescribeWorkspacesConnectionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspacesConnectionStatus)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeWorkspacesConnectionStatusPaginatorName
-) -> DescribeWorkspacesConnectionStatusPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("workspaces").get_paginator` method.
-
-[Paginator.ListAvailableManagementCidrRanges documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/workspaces.html#WorkSpaces.Paginator.ListAvailableManagementCidrRanges)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAvailableManagementCidrRangesPaginatorName
-) -> ListAvailableManagementCidrRangesPaginator:
-    pass
-```

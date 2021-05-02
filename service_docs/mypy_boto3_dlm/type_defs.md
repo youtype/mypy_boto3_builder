@@ -7,6 +7,7 @@ type annotations stubs module [mypy_boto3_dlm](https://pypi.org/project/mypy-bot
 
 - [Structures for boto3 DLM module](#structures-for-boto3-dlm-module)
   - [ActionTypeDef](#actiontypedef)
+  - [CreateLifecyclePolicyResponseTypeDef](#createlifecyclepolicyresponsetypedef)
   - [CreateRuleTypeDef](#createruletypedef)
   - [CrossRegionCopyActionTypeDef](#crossregioncopyactiontypedef)
   - [CrossRegionCopyRetainRuleTypeDef](#crossregioncopyretainruletypedef)
@@ -15,18 +16,17 @@ type annotations stubs module [mypy_boto3_dlm](https://pypi.org/project/mypy-bot
   - [EventParametersTypeDef](#eventparameterstypedef)
   - [EventSourceTypeDef](#eventsourcetypedef)
   - [FastRestoreRuleTypeDef](#fastrestoreruletypedef)
+  - [GetLifecyclePoliciesResponseTypeDef](#getlifecyclepoliciesresponsetypedef)
+  - [GetLifecyclePolicyResponseTypeDef](#getlifecyclepolicyresponsetypedef)
   - [LifecyclePolicySummaryTypeDef](#lifecyclepolicysummarytypedef)
   - [LifecyclePolicyTypeDef](#lifecyclepolicytypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ParametersTypeDef](#parameterstypedef)
   - [PolicyDetailsTypeDef](#policydetailstypedef)
   - [RetainRuleTypeDef](#retainruletypedef)
   - [ScheduleTypeDef](#scheduletypedef)
   - [ShareRuleTypeDef](#shareruletypedef)
   - [TagTypeDef](#tagtypedef)
-  - [CreateLifecyclePolicyResponseTypeDef](#createlifecyclepolicyresponsetypedef)
-  - [GetLifecyclePoliciesResponseTypeDef](#getlifecyclepoliciesresponsetypedef)
-  - [GetLifecyclePolicyResponseTypeDef](#getlifecyclepolicyresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
 
 ## ActionTypeDef
 
@@ -42,6 +42,19 @@ Required fields:
 
 
 
+## CreateLifecyclePolicyResponseTypeDef
+
+```python
+from mypy_boto3_dlm.type_defs import CreateLifecyclePolicyResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicyId`: `str`
+
+
 ## CreateRuleTypeDef
 
 ```python
@@ -54,7 +67,7 @@ from mypy_boto3_dlm.type_defs import CreateRuleTypeDef
 Optional fields:
 - `Location`: `LocationValues`
 - `Interval`: `int`
-- `IntervalUnit`: `IntervalUnitValues`
+- `IntervalUnit`: `Literal['HOURS']`
 - `Times`: `List[str]`
 - `CronExpression`: `str`
 
@@ -134,7 +147,7 @@ from mypy_boto3_dlm.type_defs import EventParametersTypeDef
 
 
 Required fields:
-- `EventType`: `EventTypeValues`
+- `EventType`: `Literal['shareSnapshot']`
 - `SnapshotOwner`: `List[str]`
 - `DescriptionRegex`: `str`
 
@@ -149,7 +162,7 @@ from mypy_boto3_dlm.type_defs import EventSourceTypeDef
 
 
 Required fields:
-- `Type`: `EventSourceValues`
+- `Type`: `Literal['MANAGED_CWE']`
 
 
 
@@ -173,6 +186,32 @@ Optional fields:
 - `Count`: `int`
 - `Interval`: `int`
 - `IntervalUnit`: `RetentionIntervalUnitValues`
+
+
+## GetLifecyclePoliciesResponseTypeDef
+
+```python
+from mypy_boto3_dlm.type_defs import GetLifecyclePoliciesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Policies`: `List["LifecyclePolicySummaryTypeDef"]`
+
+
+## GetLifecyclePolicyResponseTypeDef
+
+```python
+from mypy_boto3_dlm.type_defs import GetLifecyclePolicyResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Policy`: `"LifecyclePolicyTypeDef"`
 
 
 ## LifecyclePolicySummaryTypeDef
@@ -212,6 +251,19 @@ Optional fields:
 - `PolicyDetails`: `"PolicyDetailsTypeDef"`
 - `Tags`: `Dict[str, str]`
 - `PolicyArn`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_dlm.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
 
 
 ## ParametersTypeDef
@@ -313,56 +365,4 @@ Required fields:
 - `Value`: `str`
 
 
-
-
-## CreateLifecyclePolicyResponseTypeDef
-
-```python
-from mypy_boto3_dlm.type_defs import CreateLifecyclePolicyResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicyId`: `str`
-
-
-## GetLifecyclePoliciesResponseTypeDef
-
-```python
-from mypy_boto3_dlm.type_defs import GetLifecyclePoliciesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Policies`: `List["LifecyclePolicySummaryTypeDef"]`
-
-
-## GetLifecyclePolicyResponseTypeDef
-
-```python
-from mypy_boto3_dlm.type_defs import GetLifecyclePolicyResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Policy`: `"LifecyclePolicyTypeDef"`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_dlm.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
 

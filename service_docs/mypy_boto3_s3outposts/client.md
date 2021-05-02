@@ -129,16 +129,12 @@ def list_endpoints(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("s3outposts").get_paginator` method.
+Type annotations for `boto3.client("s3outposts").get_paginator` method with overloads.
 
-[Paginator.ListEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
+- `client.get_paginator("list_endpoints")` -> [ListEndpointsPaginator](./paginators.md#listendpointspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListEndpointsPaginatorName
-) -> ListEndpointsPaginator:
-    pass
-```
+

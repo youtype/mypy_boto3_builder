@@ -75,13 +75,13 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_appintegrations.type_defs import EventFilterTypeDef, ...
+from mypy_boto3_appintegrations.type_defs import CreateEventIntegrationResponseTypeDef, ...
 ```
 
+- [CreateEventIntegrationResponseTypeDef](./type_defs.md#createeventintegrationresponsetypedef)
 - [EventFilterTypeDef](./type_defs.md#eventfiltertypedef)
 - [EventIntegrationAssociationTypeDef](./type_defs.md#eventintegrationassociationtypedef)
 - [EventIntegrationTypeDef](./type_defs.md#eventintegrationtypedef)
-- [CreateEventIntegrationResponseTypeDef](./type_defs.md#createeventintegrationresponsetypedef)
 - [GetEventIntegrationResponseTypeDef](./type_defs.md#geteventintegrationresponsetypedef)
 - [ListEventIntegrationAssociationsResponseTypeDef](./type_defs.md#listeventintegrationassociationsresponsetypedef)
 - [ListEventIntegrationsResponseTypeDef](./type_defs.md#listeventintegrationsresponsetypedef)

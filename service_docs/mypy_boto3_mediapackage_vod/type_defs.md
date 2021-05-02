@@ -10,33 +10,33 @@ type annotations stubs module [mypy_boto3_mediapackage_vod](https://pypi.org/pro
   - [AuthorizationTypeDef](#authorizationtypedef)
   - [CmafEncryptionTypeDef](#cmafencryptiontypedef)
   - [CmafPackageTypeDef](#cmafpackagetypedef)
+  - [ConfigureLogsResponseTypeDef](#configurelogsresponsetypedef)
+  - [CreateAssetResponseTypeDef](#createassetresponsetypedef)
+  - [CreatePackagingConfigurationResponseTypeDef](#createpackagingconfigurationresponsetypedef)
+  - [CreatePackagingGroupResponseTypeDef](#createpackaginggroupresponsetypedef)
   - [DashEncryptionTypeDef](#dashencryptiontypedef)
   - [DashManifestTypeDef](#dashmanifesttypedef)
   - [DashPackageTypeDef](#dashpackagetypedef)
+  - [DescribeAssetResponseTypeDef](#describeassetresponsetypedef)
+  - [DescribePackagingConfigurationResponseTypeDef](#describepackagingconfigurationresponsetypedef)
+  - [DescribePackagingGroupResponseTypeDef](#describepackaginggroupresponsetypedef)
   - [EgressAccessLogsTypeDef](#egressaccesslogstypedef)
   - [EgressEndpointTypeDef](#egressendpointtypedef)
   - [HlsEncryptionTypeDef](#hlsencryptiontypedef)
   - [HlsManifestTypeDef](#hlsmanifesttypedef)
   - [HlsPackageTypeDef](#hlspackagetypedef)
+  - [ListAssetsResponseTypeDef](#listassetsresponsetypedef)
+  - [ListPackagingConfigurationsResponseTypeDef](#listpackagingconfigurationsresponsetypedef)
+  - [ListPackagingGroupsResponseTypeDef](#listpackaginggroupsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [MssEncryptionTypeDef](#mssencryptiontypedef)
   - [MssManifestTypeDef](#mssmanifesttypedef)
   - [MssPackageTypeDef](#msspackagetypedef)
   - [PackagingConfigurationTypeDef](#packagingconfigurationtypedef)
   - [PackagingGroupTypeDef](#packaginggrouptypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [SpekeKeyProviderTypeDef](#spekekeyprovidertypedef)
   - [StreamSelectionTypeDef](#streamselectiontypedef)
-  - [ConfigureLogsResponseTypeDef](#configurelogsresponsetypedef)
-  - [CreateAssetResponseTypeDef](#createassetresponsetypedef)
-  - [CreatePackagingConfigurationResponseTypeDef](#createpackagingconfigurationresponsetypedef)
-  - [CreatePackagingGroupResponseTypeDef](#createpackaginggroupresponsetypedef)
-  - [DescribeAssetResponseTypeDef](#describeassetresponsetypedef)
-  - [DescribePackagingConfigurationResponseTypeDef](#describepackagingconfigurationresponsetypedef)
-  - [DescribePackagingGroupResponseTypeDef](#describepackaginggroupresponsetypedef)
-  - [ListAssetsResponseTypeDef](#listassetsresponsetypedef)
-  - [ListPackagingConfigurationsResponseTypeDef](#listpackagingconfigurationsresponsetypedef)
-  - [ListPackagingGroupsResponseTypeDef](#listpackaginggroupsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [UpdatePackagingGroupResponseTypeDef](#updatepackaginggroupresponsetypedef)
 
 ## AssetShallowTypeDef
@@ -104,6 +104,83 @@ Optional fields:
 - `SegmentDurationSeconds`: `int`
 
 
+## ConfigureLogsResponseTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import ConfigureLogsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Authorization`: `"AuthorizationTypeDef"`
+- `DomainName`: `str`
+- `EgressAccessLogs`: `"EgressAccessLogsTypeDef"`
+- `Id`: `str`
+- `Tags`: `Dict[str, str]`
+
+
+## CreateAssetResponseTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import CreateAssetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CreatedAt`: `str`
+- `EgressEndpoints`: `List["EgressEndpointTypeDef"]`
+- `Id`: `str`
+- `PackagingGroupId`: `str`
+- `ResourceId`: `str`
+- `SourceArn`: `str`
+- `SourceRoleArn`: `str`
+- `Tags`: `Dict[str, str]`
+
+
+## CreatePackagingConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import CreatePackagingConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CmafPackage`: `"CmafPackageTypeDef"`
+- `DashPackage`: `"DashPackageTypeDef"`
+- `HlsPackage`: `"HlsPackageTypeDef"`
+- `Id`: `str`
+- `MssPackage`: `"MssPackageTypeDef"`
+- `PackagingGroupId`: `str`
+- `Tags`: `Dict[str, str]`
+
+
+## CreatePackagingGroupResponseTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import CreatePackagingGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Authorization`: `"AuthorizationTypeDef"`
+- `DomainName`: `str`
+- `EgressAccessLogs`: `"EgressAccessLogsTypeDef"`
+- `Id`: `str`
+- `Tags`: `Dict[str, str]`
+
+
 ## DashEncryptionTypeDef
 
 ```python
@@ -149,9 +226,68 @@ Required fields:
 Optional fields:
 - `Encryption`: `"DashEncryptionTypeDef"`
 - `IncludeEncoderConfigurationInSegments`: `bool`
-- `PeriodTriggers`: `List[__PeriodTriggersElement]`
+- `PeriodTriggers`: `List[Literal['ADS']]`
 - `SegmentDurationSeconds`: `int`
 - `SegmentTemplateFormat`: `SegmentTemplateFormat`
+
+
+## DescribeAssetResponseTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import DescribeAssetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CreatedAt`: `str`
+- `EgressEndpoints`: `List["EgressEndpointTypeDef"]`
+- `Id`: `str`
+- `PackagingGroupId`: `str`
+- `ResourceId`: `str`
+- `SourceArn`: `str`
+- `SourceRoleArn`: `str`
+- `Tags`: `Dict[str, str]`
+
+
+## DescribePackagingConfigurationResponseTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import DescribePackagingConfigurationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CmafPackage`: `"CmafPackageTypeDef"`
+- `DashPackage`: `"DashPackageTypeDef"`
+- `HlsPackage`: `"HlsPackageTypeDef"`
+- `Id`: `str`
+- `MssPackage`: `"MssPackageTypeDef"`
+- `PackagingGroupId`: `str`
+- `Tags`: `Dict[str, str]`
+
+
+## DescribePackagingGroupResponseTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import DescribePackagingGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Authorization`: `"AuthorizationTypeDef"`
+- `DomainName`: `str`
+- `EgressAccessLogs`: `"EgressAccessLogsTypeDef"`
+- `Id`: `str`
+- `Tags`: `Dict[str, str]`
 
 
 ## EgressAccessLogsTypeDef
@@ -232,6 +368,61 @@ Optional fields:
 - `Encryption`: `"HlsEncryptionTypeDef"`
 - `SegmentDurationSeconds`: `int`
 - `UseAudioRenditionGroup`: `bool`
+
+
+## ListAssetsResponseTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import ListAssetsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Assets`: `List["AssetShallowTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListPackagingConfigurationsResponseTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import ListPackagingConfigurationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `PackagingConfigurations`: `List["PackagingConfigurationTypeDef"]`
+
+
+## ListPackagingGroupsResponseTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import ListPackagingGroupsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `PackagingGroups`: `List["PackagingGroupTypeDef"]`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Tags`: `Dict[str, str]`
 
 
 ## MssEncryptionTypeDef
@@ -316,6 +507,21 @@ Optional fields:
 - `Tags`: `Dict[str, str]`
 
 
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_mediapackage_vod.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
 ## SpekeKeyProviderTypeDef
 
 ```python
@@ -344,212 +550,6 @@ Optional fields:
 - `MaxVideoBitsPerSecond`: `int`
 - `MinVideoBitsPerSecond`: `int`
 - `StreamOrder`: `StreamOrder`
-
-
-## ConfigureLogsResponseTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import ConfigureLogsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Authorization`: `"AuthorizationTypeDef"`
-- `DomainName`: `str`
-- `EgressAccessLogs`: `"EgressAccessLogsTypeDef"`
-- `Id`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## CreateAssetResponseTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import CreateAssetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CreatedAt`: `str`
-- `EgressEndpoints`: `List["EgressEndpointTypeDef"]`
-- `Id`: `str`
-- `PackagingGroupId`: `str`
-- `ResourceId`: `str`
-- `SourceArn`: `str`
-- `SourceRoleArn`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## CreatePackagingConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import CreatePackagingConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CmafPackage`: `"CmafPackageTypeDef"`
-- `DashPackage`: `"DashPackageTypeDef"`
-- `HlsPackage`: `"HlsPackageTypeDef"`
-- `Id`: `str`
-- `MssPackage`: `"MssPackageTypeDef"`
-- `PackagingGroupId`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## CreatePackagingGroupResponseTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import CreatePackagingGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Authorization`: `"AuthorizationTypeDef"`
-- `DomainName`: `str`
-- `EgressAccessLogs`: `"EgressAccessLogsTypeDef"`
-- `Id`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## DescribeAssetResponseTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import DescribeAssetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CreatedAt`: `str`
-- `EgressEndpoints`: `List["EgressEndpointTypeDef"]`
-- `Id`: `str`
-- `PackagingGroupId`: `str`
-- `ResourceId`: `str`
-- `SourceArn`: `str`
-- `SourceRoleArn`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## DescribePackagingConfigurationResponseTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import DescribePackagingConfigurationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CmafPackage`: `"CmafPackageTypeDef"`
-- `DashPackage`: `"DashPackageTypeDef"`
-- `HlsPackage`: `"HlsPackageTypeDef"`
-- `Id`: `str`
-- `MssPackage`: `"MssPackageTypeDef"`
-- `PackagingGroupId`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## DescribePackagingGroupResponseTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import DescribePackagingGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Authorization`: `"AuthorizationTypeDef"`
-- `DomainName`: `str`
-- `EgressAccessLogs`: `"EgressAccessLogsTypeDef"`
-- `Id`: `str`
-- `Tags`: `Dict[str, str]`
-
-
-## ListAssetsResponseTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import ListAssetsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Assets`: `List["AssetShallowTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListPackagingConfigurationsResponseTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import ListPackagingConfigurationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `PackagingConfigurations`: `List["PackagingConfigurationTypeDef"]`
-
-
-## ListPackagingGroupsResponseTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import ListPackagingGroupsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `PackagingGroups`: `List["PackagingGroupTypeDef"]`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Tags`: `Dict[str, str]`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_mediapackage_vod.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
 
 
 ## UpdatePackagingGroupResponseTypeDef

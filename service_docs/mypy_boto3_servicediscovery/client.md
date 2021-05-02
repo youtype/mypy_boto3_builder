@@ -35,9 +35,6 @@ type annotations stubs module [mypy_boto3_servicediscovery](https://pypi.org/pro
     - [update_instance_custom_health_status](#update_instance_custom_health_status)
     - [update_service](#update_service)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## ServiceDiscoveryClient
 
@@ -167,7 +164,7 @@ def create_service(
     HealthCheckConfig: "HealthCheckConfigTypeDef" = None,
     HealthCheckCustomConfig: "HealthCheckCustomConfigTypeDef" = None,
     Tags: List["TagTypeDef"] = None,
-    Type: ServiceTypeOption = None
+    Type: Literal['HTTP'] = None
 ) -> CreateServiceResponseTypeDef:
     pass
 ```
@@ -481,62 +478,15 @@ def update_service(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("servicediscovery").get_paginator` method.
-
-[Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInstancesPaginatorName
-) -> ListInstancesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("servicediscovery").get_paginator` method.
+Type annotations for `boto3.client("servicediscovery").get_paginator` method with overloads.
 
-[Paginator.ListNamespaces documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListNamespaces)
+- `client.get_paginator("list_instances")` -> [ListInstancesPaginator](./paginators.md#listinstancespaginator)
+- `client.get_paginator("list_namespaces")` -> [ListNamespacesPaginator](./paginators.md#listnamespacespaginator)
+- `client.get_paginator("list_operations")` -> [ListOperationsPaginator](./paginators.md#listoperationspaginator)
+- `client.get_paginator("list_services")` -> [ListServicesPaginator](./paginators.md#listservicespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListNamespacesPaginatorName
-) -> ListNamespacesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("servicediscovery").get_paginator` method.
-
-[Paginator.ListOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListOperations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOperationsPaginatorName
-) -> ListOperationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("servicediscovery").get_paginator` method.
-
-[Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListServices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListServicesPaginatorName
-) -> ListServicesPaginator:
-    pass
-```

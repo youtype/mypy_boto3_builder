@@ -6,55 +6,13 @@ Auto-generated documentation for [ServiceCatalog](https://boto3.amazonaws.com/v1
 type annotations stubs module [mypy_boto3_servicecatalog](https://pypi.org/project/mypy-boto3-servicecatalog/).
 
 - [Structures for boto3 ServiceCatalog module](#structures-for-boto3-servicecatalog-module)
+  - [AccessLevelFilterTypeDef](#accesslevelfiltertypedef)
+  - [BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef](#batchassociateserviceactionwithprovisioningartifactoutputtypedef)
+  - [BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef](#batchdisassociateserviceactionfromprovisioningartifactoutputtypedef)
   - [BudgetDetailTypeDef](#budgetdetailtypedef)
   - [CloudWatchDashboardTypeDef](#cloudwatchdashboardtypedef)
   - [ConstraintDetailTypeDef](#constraintdetailtypedef)
   - [ConstraintSummaryTypeDef](#constraintsummarytypedef)
-  - [ExecutionParameterTypeDef](#executionparametertypedef)
-  - [FailedServiceActionAssociationTypeDef](#failedserviceactionassociationtypedef)
-  - [LaunchPathSummaryTypeDef](#launchpathsummarytypedef)
-  - [LaunchPathTypeDef](#launchpathtypedef)
-  - [OrganizationNodeTypeDef](#organizationnodetypedef)
-  - [ParameterConstraintsTypeDef](#parameterconstraintstypedef)
-  - [PortfolioDetailTypeDef](#portfoliodetailtypedef)
-  - [PortfolioShareDetailTypeDef](#portfoliosharedetailtypedef)
-  - [PrincipalTypeDef](#principaltypedef)
-  - [ProductViewAggregationValueTypeDef](#productviewaggregationvaluetypedef)
-  - [ProductViewDetailTypeDef](#productviewdetailtypedef)
-  - [ProductViewSummaryTypeDef](#productviewsummarytypedef)
-  - [ProvisionedProductAttributeTypeDef](#provisionedproductattributetypedef)
-  - [ProvisionedProductDetailTypeDef](#provisionedproductdetailtypedef)
-  - [ProvisionedProductPlanDetailsTypeDef](#provisionedproductplandetailstypedef)
-  - [ProvisionedProductPlanSummaryTypeDef](#provisionedproductplansummarytypedef)
-  - [ProvisioningArtifactDetailTypeDef](#provisioningartifactdetailtypedef)
-  - [ProvisioningArtifactOutputTypeDef](#provisioningartifactoutputtypedef)
-  - [ProvisioningArtifactParameterTypeDef](#provisioningartifactparametertypedef)
-  - [ProvisioningArtifactPreferencesTypeDef](#provisioningartifactpreferencestypedef)
-  - [ProvisioningArtifactSummaryTypeDef](#provisioningartifactsummarytypedef)
-  - [ProvisioningArtifactTypeDef](#provisioningartifacttypedef)
-  - [ProvisioningArtifactViewTypeDef](#provisioningartifactviewtypedef)
-  - [RecordDetailTypeDef](#recorddetailtypedef)
-  - [RecordErrorTypeDef](#recorderrortypedef)
-  - [RecordOutputTypeDef](#recordoutputtypedef)
-  - [RecordTagTypeDef](#recordtagtypedef)
-  - [ResourceChangeDetailTypeDef](#resourcechangedetailtypedef)
-  - [ResourceChangeTypeDef](#resourcechangetypedef)
-  - [ResourceDetailTypeDef](#resourcedetailtypedef)
-  - [ResourceTargetDefinitionTypeDef](#resourcetargetdefinitiontypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [ServiceActionDetailTypeDef](#serviceactiondetailtypedef)
-  - [ServiceActionSummaryTypeDef](#serviceactionsummarytypedef)
-  - [ShareDetailsTypeDef](#sharedetailstypedef)
-  - [ShareErrorTypeDef](#shareerrortypedef)
-  - [StackInstanceTypeDef](#stackinstancetypedef)
-  - [TagOptionDetailTypeDef](#tagoptiondetailtypedef)
-  - [TagOptionSummaryTypeDef](#tagoptionsummarytypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [UpdateProvisioningParameterTypeDef](#updateprovisioningparametertypedef)
-  - [UsageInstructionTypeDef](#usageinstructiontypedef)
-  - [AccessLevelFilterTypeDef](#accesslevelfiltertypedef)
-  - [BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef](#batchassociateserviceactionwithprovisioningartifactoutputtypedef)
-  - [BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef](#batchdisassociateserviceactionfromprovisioningartifactoutputtypedef)
   - [CopyProductOutputTypeDef](#copyproductoutputtypedef)
   - [CreateConstraintOutputTypeDef](#createconstraintoutputtypedef)
   - [CreatePortfolioOutputTypeDef](#createportfoliooutputtypedef)
@@ -83,9 +41,13 @@ type annotations stubs module [mypy_boto3_servicecatalog](https://pypi.org/proje
   - [DescribeTagOptionOutputTypeDef](#describetagoptionoutputtypedef)
   - [ExecuteProvisionedProductPlanOutputTypeDef](#executeprovisionedproductplanoutputtypedef)
   - [ExecuteProvisionedProductServiceActionOutputTypeDef](#executeprovisionedproductserviceactionoutputtypedef)
+  - [ExecutionParameterTypeDef](#executionparametertypedef)
+  - [FailedServiceActionAssociationTypeDef](#failedserviceactionassociationtypedef)
   - [GetAWSOrganizationsAccessStatusOutputTypeDef](#getawsorganizationsaccessstatusoutputtypedef)
   - [GetProvisionedProductOutputsOutputTypeDef](#getprovisionedproductoutputsoutputtypedef)
   - [ImportAsProvisionedProductOutputTypeDef](#importasprovisionedproductoutputtypedef)
+  - [LaunchPathSummaryTypeDef](#launchpathsummarytypedef)
+  - [LaunchPathTypeDef](#launchpathtypedef)
   - [ListAcceptedPortfolioSharesOutputTypeDef](#listacceptedportfoliosharesoutputtypedef)
   - [ListBudgetsForResourceOutputTypeDef](#listbudgetsforresourceoutputtypedef)
   - [ListConstraintsForPortfolioOutputTypeDef](#listconstraintsforportfoliooutputtypedef)
@@ -106,16 +68,52 @@ type annotations stubs module [mypy_boto3_servicecatalog](https://pypi.org/proje
   - [ListStackInstancesForProvisionedProductOutputTypeDef](#liststackinstancesforprovisionedproductoutputtypedef)
   - [ListTagOptionsFiltersTypeDef](#listtagoptionsfilterstypedef)
   - [ListTagOptionsOutputTypeDef](#listtagoptionsoutputtypedef)
+  - [OrganizationNodeTypeDef](#organizationnodetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ParameterConstraintsTypeDef](#parameterconstraintstypedef)
+  - [PortfolioDetailTypeDef](#portfoliodetailtypedef)
+  - [PortfolioShareDetailTypeDef](#portfoliosharedetailtypedef)
+  - [PrincipalTypeDef](#principaltypedef)
+  - [ProductViewAggregationValueTypeDef](#productviewaggregationvaluetypedef)
+  - [ProductViewDetailTypeDef](#productviewdetailtypedef)
+  - [ProductViewSummaryTypeDef](#productviewsummarytypedef)
   - [ProvisionProductOutputTypeDef](#provisionproductoutputtypedef)
+  - [ProvisionedProductAttributeTypeDef](#provisionedproductattributetypedef)
+  - [ProvisionedProductDetailTypeDef](#provisionedproductdetailtypedef)
+  - [ProvisionedProductPlanDetailsTypeDef](#provisionedproductplandetailstypedef)
+  - [ProvisionedProductPlanSummaryTypeDef](#provisionedproductplansummarytypedef)
+  - [ProvisioningArtifactDetailTypeDef](#provisioningartifactdetailtypedef)
+  - [ProvisioningArtifactOutputTypeDef](#provisioningartifactoutputtypedef)
+  - [ProvisioningArtifactParameterTypeDef](#provisioningartifactparametertypedef)
+  - [ProvisioningArtifactPreferencesTypeDef](#provisioningartifactpreferencestypedef)
   - [ProvisioningArtifactPropertiesTypeDef](#provisioningartifactpropertiestypedef)
+  - [ProvisioningArtifactSummaryTypeDef](#provisioningartifactsummarytypedef)
+  - [ProvisioningArtifactTypeDef](#provisioningartifacttypedef)
+  - [ProvisioningArtifactViewTypeDef](#provisioningartifactviewtypedef)
   - [ProvisioningParameterTypeDef](#provisioningparametertypedef)
   - [ProvisioningPreferencesTypeDef](#provisioningpreferencestypedef)
+  - [RecordDetailTypeDef](#recorddetailtypedef)
+  - [RecordErrorTypeDef](#recorderrortypedef)
+  - [RecordOutputTypeDef](#recordoutputtypedef)
+  - [RecordTagTypeDef](#recordtagtypedef)
+  - [ResourceChangeDetailTypeDef](#resourcechangedetailtypedef)
+  - [ResourceChangeTypeDef](#resourcechangetypedef)
+  - [ResourceDetailTypeDef](#resourcedetailtypedef)
+  - [ResourceTargetDefinitionTypeDef](#resourcetargetdefinitiontypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [ScanProvisionedProductsOutputTypeDef](#scanprovisionedproductsoutputtypedef)
   - [SearchProductsAsAdminOutputTypeDef](#searchproductsasadminoutputtypedef)
   - [SearchProductsOutputTypeDef](#searchproductsoutputtypedef)
   - [SearchProvisionedProductsOutputTypeDef](#searchprovisionedproductsoutputtypedef)
   - [ServiceActionAssociationTypeDef](#serviceactionassociationtypedef)
+  - [ServiceActionDetailTypeDef](#serviceactiondetailtypedef)
+  - [ServiceActionSummaryTypeDef](#serviceactionsummarytypedef)
+  - [ShareDetailsTypeDef](#sharedetailstypedef)
+  - [ShareErrorTypeDef](#shareerrortypedef)
+  - [StackInstanceTypeDef](#stackinstancetypedef)
+  - [TagOptionDetailTypeDef](#tagoptiondetailtypedef)
+  - [TagOptionSummaryTypeDef](#tagoptionsummarytypedef)
+  - [TagTypeDef](#tagtypedef)
   - [TerminateProvisionedProductOutputTypeDef](#terminateprovisionedproductoutputtypedef)
   - [UpdateConstraintOutputTypeDef](#updateconstraintoutputtypedef)
   - [UpdatePortfolioOutputTypeDef](#updateportfoliooutputtypedef)
@@ -124,9 +122,53 @@ type annotations stubs module [mypy_boto3_servicecatalog](https://pypi.org/proje
   - [UpdateProvisionedProductOutputTypeDef](#updateprovisionedproductoutputtypedef)
   - [UpdateProvisionedProductPropertiesOutputTypeDef](#updateprovisionedproductpropertiesoutputtypedef)
   - [UpdateProvisioningArtifactOutputTypeDef](#updateprovisioningartifactoutputtypedef)
+  - [UpdateProvisioningParameterTypeDef](#updateprovisioningparametertypedef)
   - [UpdateProvisioningPreferencesTypeDef](#updateprovisioningpreferencestypedef)
   - [UpdateServiceActionOutputTypeDef](#updateserviceactionoutputtypedef)
   - [UpdateTagOptionOutputTypeDef](#updatetagoptionoutputtypedef)
+  - [UsageInstructionTypeDef](#usageinstructiontypedef)
+
+## AccessLevelFilterTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import AccessLevelFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `AccessLevelFilterKey`
+- `Value`: `str`
+
+
+## BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `FailedServiceActionAssociations`: `List["FailedServiceActionAssociationTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `FailedServiceActionAssociations`: `List["FailedServiceActionAssociationTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
 
 ## BudgetDetailTypeDef
 
@@ -184,761 +226,6 @@ from mypy_boto3_servicecatalog.type_defs import ConstraintSummaryTypeDef
 Optional fields:
 - `Type`: `str`
 - `Description`: `str`
-
-
-## ExecutionParameterTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ExecutionParameterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Type`: `str`
-- `DefaultValues`: `List[str]`
-
-
-## FailedServiceActionAssociationTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import FailedServiceActionAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceActionId`: `str`
-- `ProductId`: `str`
-- `ProvisioningArtifactId`: `str`
-- `ErrorCode`: `ServiceActionAssociationErrorCode`
-- `ErrorMessage`: `str`
-
-
-## LaunchPathSummaryTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import LaunchPathSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `ConstraintSummaries`: `List["ConstraintSummaryTypeDef"]`
-- `Tags`: `List["TagTypeDef"]`
-- `Name`: `str`
-
-
-## LaunchPathTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import LaunchPathTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Name`: `str`
-
-
-## OrganizationNodeTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import OrganizationNodeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `OrganizationNodeType`
-- `Value`: `str`
-
-
-## ParameterConstraintsTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ParameterConstraintsTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllowedValues`: `List[str]`
-- `AllowedPattern`: `str`
-- `ConstraintDescription`: `str`
-- `MaxLength`: `str`
-- `MinLength`: `str`
-- `MaxValue`: `str`
-- `MinValue`: `str`
-
-
-## PortfolioDetailTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import PortfolioDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `ARN`: `str`
-- `DisplayName`: `str`
-- `Description`: `str`
-- `CreatedTime`: `datetime`
-- `ProviderName`: `str`
-
-
-## PortfolioShareDetailTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import PortfolioShareDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `PrincipalId`: `str`
-- `Type`: `DescribePortfolioShareType`
-- `Accepted`: `bool`
-- `ShareTagOptions`: `bool`
-
-
-## PrincipalTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import PrincipalTypeDef
-```
-
-
-
-
-Optional fields:
-- `PrincipalARN`: `str`
-- `PrincipalType`: `PrincipalType`
-
-
-## ProductViewAggregationValueTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProductViewAggregationValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-- `ApproximateCount`: `int`
-
-
-## ProductViewDetailTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProductViewDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProductViewSummary`: `"ProductViewSummaryTypeDef"`
-- `Status`: `Status`
-- `ProductARN`: `str`
-- `CreatedTime`: `datetime`
-
-
-## ProductViewSummaryTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProductViewSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `ProductId`: `str`
-- `Name`: `str`
-- `Owner`: `str`
-- `ShortDescription`: `str`
-- `Type`: `ProductType`
-- `Distributor`: `str`
-- `HasDefaultPath`: `bool`
-- `SupportEmail`: `str`
-- `SupportDescription`: `str`
-- `SupportUrl`: `str`
-
-
-## ProvisionedProductAttributeTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProvisionedProductAttributeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Arn`: `str`
-- `Type`: `str`
-- `Id`: `str`
-- `Status`: `ProvisionedProductStatus`
-- `StatusMessage`: `str`
-- `CreatedTime`: `datetime`
-- `IdempotencyToken`: `str`
-- `LastRecordId`: `str`
-- `LastProvisioningRecordId`: `str`
-- `LastSuccessfulProvisioningRecordId`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `PhysicalId`: `str`
-- `ProductId`: `str`
-- `ProductName`: `str`
-- `ProvisioningArtifactId`: `str`
-- `ProvisioningArtifactName`: `str`
-- `UserArn`: `str`
-- `UserArnSession`: `str`
-
-
-## ProvisionedProductDetailTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProvisionedProductDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Arn`: `str`
-- `Type`: `str`
-- `Id`: `str`
-- `Status`: `ProvisionedProductStatus`
-- `StatusMessage`: `str`
-- `CreatedTime`: `datetime`
-- `IdempotencyToken`: `str`
-- `LastRecordId`: `str`
-- `LastProvisioningRecordId`: `str`
-- `LastSuccessfulProvisioningRecordId`: `str`
-- `ProductId`: `str`
-- `ProvisioningArtifactId`: `str`
-- `LaunchRoleArn`: `str`
-
-
-## ProvisionedProductPlanDetailsTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProvisionedProductPlanDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreatedTime`: `datetime`
-- `PathId`: `str`
-- `ProductId`: `str`
-- `PlanName`: `str`
-- `PlanId`: `str`
-- `ProvisionProductId`: `str`
-- `ProvisionProductName`: `str`
-- `PlanType`: `ProvisionedProductPlanType`
-- `ProvisioningArtifactId`: `str`
-- `Status`: `ProvisionedProductPlanStatus`
-- `UpdatedTime`: `datetime`
-- `NotificationArns`: `List[str]`
-- `ProvisioningParameters`: `List["UpdateProvisioningParameterTypeDef"]`
-- `Tags`: `List["TagTypeDef"]`
-- `StatusMessage`: `str`
-
-
-## ProvisionedProductPlanSummaryTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProvisionedProductPlanSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `PlanName`: `str`
-- `PlanId`: `str`
-- `ProvisionProductId`: `str`
-- `ProvisionProductName`: `str`
-- `PlanType`: `ProvisionedProductPlanType`
-- `ProvisioningArtifactId`: `str`
-
-
-## ProvisioningArtifactDetailTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `Type`: `ProvisioningArtifactType`
-- `CreatedTime`: `datetime`
-- `Active`: `bool`
-- `Guidance`: `ProvisioningArtifactGuidance`
-
-
-## ProvisioningArtifactOutputTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Description`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## ProvisioningArtifactParameterTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactParameterTypeDef
-```
-
-
-
-
-Optional fields:
-- `ParameterKey`: `str`
-- `DefaultValue`: `str`
-- `ParameterType`: `str`
-- `IsNoEcho`: `bool`
-- `Description`: `str`
-- `ParameterConstraints`: `"ParameterConstraintsTypeDef"`
-
-
-## ProvisioningArtifactPreferencesTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactPreferencesTypeDef
-```
-
-
-
-
-Optional fields:
-- `StackSetAccounts`: `List[str]`
-- `StackSetRegions`: `List[str]`
-
-
-## ProvisioningArtifactSummaryTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `CreatedTime`: `datetime`
-- `ProvisioningArtifactMetadata`: `Dict[str, str]`
-
-
-## ProvisioningArtifactTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `CreatedTime`: `datetime`
-- `Guidance`: `ProvisioningArtifactGuidance`
-
-
-## ProvisioningArtifactViewTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactViewTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProductViewSummary`: `"ProductViewSummaryTypeDef"`
-- `ProvisioningArtifact`: `"ProvisioningArtifactTypeDef"`
-
-
-## RecordDetailTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import RecordDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `RecordId`: `str`
-- `ProvisionedProductName`: `str`
-- `Status`: `RecordStatus`
-- `CreatedTime`: `datetime`
-- `UpdatedTime`: `datetime`
-- `ProvisionedProductType`: `str`
-- `RecordType`: `str`
-- `ProvisionedProductId`: `str`
-- `ProductId`: `str`
-- `ProvisioningArtifactId`: `str`
-- `PathId`: `str`
-- `RecordErrors`: `List["RecordErrorTypeDef"]`
-- `RecordTags`: `List["RecordTagTypeDef"]`
-- `LaunchRoleArn`: `str`
-
-
-## RecordErrorTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import RecordErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Description`: `str`
-
-
-## RecordOutputTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import RecordOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `OutputKey`: `str`
-- `OutputValue`: `str`
-- `Description`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## RecordTagTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import RecordTagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## ResourceChangeDetailTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ResourceChangeDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Target`: `"ResourceTargetDefinitionTypeDef"`
-- `Evaluation`: `EvaluationType`
-- `CausingEntity`: `str`
-
-
-## ResourceChangeTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ResourceChangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Action`: `ChangeAction`
-- `LogicalResourceId`: `str`
-- `PhysicalResourceId`: `str`
-- `ResourceType`: `str`
-- `Replacement`: `Replacement`
-- `Scope`: `List[ResourceAttribute]`
-- `Details`: `List["ResourceChangeDetailTypeDef"]`
-
-
-## ResourceDetailTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ResourceDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `ARN`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `CreatedTime`: `datetime`
-
-
-## ResourceTargetDefinitionTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ResourceTargetDefinitionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Attribute`: `ResourceAttribute`
-- `Name`: `str`
-- `RequiresRecreation`: `RequiresRecreation`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## ServiceActionDetailTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ServiceActionDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceActionSummary`: `"ServiceActionSummaryTypeDef"`
-- `Definition`: `Dict[ServiceActionDefinitionKey, str]`
-
-
-## ServiceActionSummaryTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ServiceActionSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `DefinitionType`: `ServiceActionDefinitionType`
-
-
-## ShareDetailsTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ShareDetailsTypeDef
-```
-
-
-
-
-Optional fields:
-- `SuccessfulShares`: `List[str]`
-- `ShareErrors`: `List["ShareErrorTypeDef"]`
-
-
-## ShareErrorTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import ShareErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `Accounts`: `List[str]`
-- `Message`: `str`
-- `Error`: `str`
-
-
-## StackInstanceTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import StackInstanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Account`: `str`
-- `Region`: `str`
-- `StackInstanceStatus`: `StackInstanceStatus`
-
-
-## TagOptionDetailTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import TagOptionDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-- `Active`: `bool`
-- `Id`: `str`
-- `Owner`: `str`
-
-
-## TagOptionSummaryTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import TagOptionSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Values`: `List[str]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## UpdateProvisioningParameterTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import UpdateProvisioningParameterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-- `UsePreviousValue`: `bool`
-
-
-## UsageInstructionTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import UsageInstructionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `str`
-- `Value`: `str`
-
-
-## AccessLevelFilterTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import AccessLevelFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `AccessLevelFilterKey`
-- `Value`: `str`
-
-
-## BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `FailedServiceActionAssociations`: `List["FailedServiceActionAssociationTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef
-
-```python
-from mypy_boto3_servicecatalog.type_defs import BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `FailedServiceActionAssociations`: `List["FailedServiceActionAssociationTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## CopyProductOutputTypeDef
@@ -1376,6 +663,38 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## ExecutionParameterTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ExecutionParameterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Type`: `str`
+- `DefaultValues`: `List[str]`
+
+
+## FailedServiceActionAssociationTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import FailedServiceActionAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceActionId`: `str`
+- `ProductId`: `str`
+- `ProvisioningArtifactId`: `str`
+- `ErrorCode`: `ServiceActionAssociationErrorCode`
+- `ErrorMessage`: `str`
+
+
 ## GetAWSOrganizationsAccessStatusOutputTypeDef
 
 ```python
@@ -1417,6 +736,36 @@ from mypy_boto3_servicecatalog.type_defs import ImportAsProvisionedProductOutput
 Optional fields:
 - `RecordDetail`: `"RecordDetailTypeDef"`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## LaunchPathSummaryTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import LaunchPathSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `ConstraintSummaries`: `List["ConstraintSummaryTypeDef"]`
+- `Tags`: `List["TagTypeDef"]`
+- `Name`: `str`
+
+
+## LaunchPathTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import LaunchPathTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Name`: `str`
 
 
 ## ListAcceptedPortfolioSharesOutputTypeDef
@@ -1718,6 +1067,20 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## OrganizationNodeTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import OrganizationNodeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `OrganizationNodeType`
+- `Value`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -1733,6 +1096,126 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ParameterConstraintsTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ParameterConstraintsTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllowedValues`: `List[str]`
+- `AllowedPattern`: `str`
+- `ConstraintDescription`: `str`
+- `MaxLength`: `str`
+- `MinLength`: `str`
+- `MaxValue`: `str`
+- `MinValue`: `str`
+
+
+## PortfolioDetailTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import PortfolioDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `ARN`: `str`
+- `DisplayName`: `str`
+- `Description`: `str`
+- `CreatedTime`: `datetime`
+- `ProviderName`: `str`
+
+
+## PortfolioShareDetailTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import PortfolioShareDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `PrincipalId`: `str`
+- `Type`: `DescribePortfolioShareType`
+- `Accepted`: `bool`
+- `ShareTagOptions`: `bool`
+
+
+## PrincipalTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import PrincipalTypeDef
+```
+
+
+
+
+Optional fields:
+- `PrincipalARN`: `str`
+- `PrincipalType`: `Literal['IAM']`
+
+
+## ProductViewAggregationValueTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProductViewAggregationValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+- `ApproximateCount`: `int`
+
+
+## ProductViewDetailTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProductViewDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProductViewSummary`: `"ProductViewSummaryTypeDef"`
+- `Status`: `Status`
+- `ProductARN`: `str`
+- `CreatedTime`: `datetime`
+
+
+## ProductViewSummaryTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProductViewSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `ProductId`: `str`
+- `Name`: `str`
+- `Owner`: `str`
+- `ShortDescription`: `str`
+- `Type`: `ProductType`
+- `Distributor`: `str`
+- `HasDefaultPath`: `bool`
+- `SupportEmail`: `str`
+- `SupportDescription`: `str`
+- `SupportUrl`: `str`
+
+
 ## ProvisionProductOutputTypeDef
 
 ```python
@@ -1745,6 +1228,174 @@ from mypy_boto3_servicecatalog.type_defs import ProvisionProductOutputTypeDef
 Optional fields:
 - `RecordDetail`: `"RecordDetailTypeDef"`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ProvisionedProductAttributeTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProvisionedProductAttributeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Arn`: `str`
+- `Type`: `str`
+- `Id`: `str`
+- `Status`: `ProvisionedProductStatus`
+- `StatusMessage`: `str`
+- `CreatedTime`: `datetime`
+- `IdempotencyToken`: `str`
+- `LastRecordId`: `str`
+- `LastProvisioningRecordId`: `str`
+- `LastSuccessfulProvisioningRecordId`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `PhysicalId`: `str`
+- `ProductId`: `str`
+- `ProductName`: `str`
+- `ProvisioningArtifactId`: `str`
+- `ProvisioningArtifactName`: `str`
+- `UserArn`: `str`
+- `UserArnSession`: `str`
+
+
+## ProvisionedProductDetailTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProvisionedProductDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Arn`: `str`
+- `Type`: `str`
+- `Id`: `str`
+- `Status`: `ProvisionedProductStatus`
+- `StatusMessage`: `str`
+- `CreatedTime`: `datetime`
+- `IdempotencyToken`: `str`
+- `LastRecordId`: `str`
+- `LastProvisioningRecordId`: `str`
+- `LastSuccessfulProvisioningRecordId`: `str`
+- `ProductId`: `str`
+- `ProvisioningArtifactId`: `str`
+- `LaunchRoleArn`: `str`
+
+
+## ProvisionedProductPlanDetailsTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProvisionedProductPlanDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreatedTime`: `datetime`
+- `PathId`: `str`
+- `ProductId`: `str`
+- `PlanName`: `str`
+- `PlanId`: `str`
+- `ProvisionProductId`: `str`
+- `ProvisionProductName`: `str`
+- `PlanType`: `Literal['CLOUDFORMATION']`
+- `ProvisioningArtifactId`: `str`
+- `Status`: `ProvisionedProductPlanStatus`
+- `UpdatedTime`: `datetime`
+- `NotificationArns`: `List[str]`
+- `ProvisioningParameters`: `List["UpdateProvisioningParameterTypeDef"]`
+- `Tags`: `List["TagTypeDef"]`
+- `StatusMessage`: `str`
+
+
+## ProvisionedProductPlanSummaryTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProvisionedProductPlanSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `PlanName`: `str`
+- `PlanId`: `str`
+- `ProvisionProductId`: `str`
+- `ProvisionProductName`: `str`
+- `PlanType`: `Literal['CLOUDFORMATION']`
+- `ProvisioningArtifactId`: `str`
+
+
+## ProvisioningArtifactDetailTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `Type`: `ProvisioningArtifactType`
+- `CreatedTime`: `datetime`
+- `Active`: `bool`
+- `Guidance`: `ProvisioningArtifactGuidance`
+
+
+## ProvisioningArtifactOutputTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Description`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## ProvisioningArtifactParameterTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactParameterTypeDef
+```
+
+
+
+
+Optional fields:
+- `ParameterKey`: `str`
+- `DefaultValue`: `str`
+- `ParameterType`: `str`
+- `IsNoEcho`: `bool`
+- `Description`: `str`
+- `ParameterConstraints`: `"ParameterConstraintsTypeDef"`
+
+
+## ProvisioningArtifactPreferencesTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactPreferencesTypeDef
+```
+
+
+
+
+Optional fields:
+- `StackSetAccounts`: `List[str]`
+- `StackSetRegions`: `List[str]`
 
 
 ## ProvisioningArtifactPropertiesTypeDef
@@ -1764,6 +1415,54 @@ Optional fields:
 - `Description`: `str`
 - `Type`: `ProvisioningArtifactType`
 - `DisableTemplateValidation`: `bool`
+
+
+## ProvisioningArtifactSummaryTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `CreatedTime`: `datetime`
+- `ProvisioningArtifactMetadata`: `Dict[str, str]`
+
+
+## ProvisioningArtifactTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `CreatedTime`: `datetime`
+- `Guidance`: `ProvisioningArtifactGuidance`
+
+
+## ProvisioningArtifactViewTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ProvisioningArtifactViewTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProductViewSummary`: `"ProductViewSummaryTypeDef"`
+- `ProvisioningArtifact`: `"ProvisioningArtifactTypeDef"`
 
 
 ## ProvisioningParameterTypeDef
@@ -1796,6 +1495,159 @@ Optional fields:
 - `StackSetFailureTolerancePercentage`: `int`
 - `StackSetMaxConcurrencyCount`: `int`
 - `StackSetMaxConcurrencyPercentage`: `int`
+
+
+## RecordDetailTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import RecordDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `RecordId`: `str`
+- `ProvisionedProductName`: `str`
+- `Status`: `RecordStatus`
+- `CreatedTime`: `datetime`
+- `UpdatedTime`: `datetime`
+- `ProvisionedProductType`: `str`
+- `RecordType`: `str`
+- `ProvisionedProductId`: `str`
+- `ProductId`: `str`
+- `ProvisioningArtifactId`: `str`
+- `PathId`: `str`
+- `RecordErrors`: `List["RecordErrorTypeDef"]`
+- `RecordTags`: `List["RecordTagTypeDef"]`
+- `LaunchRoleArn`: `str`
+
+
+## RecordErrorTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import RecordErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Description`: `str`
+
+
+## RecordOutputTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import RecordOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `OutputKey`: `str`
+- `OutputValue`: `str`
+- `Description`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## RecordTagTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import RecordTagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+## ResourceChangeDetailTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ResourceChangeDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Target`: `"ResourceTargetDefinitionTypeDef"`
+- `Evaluation`: `EvaluationType`
+- `CausingEntity`: `str`
+
+
+## ResourceChangeTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ResourceChangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Action`: `ChangeAction`
+- `LogicalResourceId`: `str`
+- `PhysicalResourceId`: `str`
+- `ResourceType`: `str`
+- `Replacement`: `Replacement`
+- `Scope`: `List[ResourceAttribute]`
+- `Details`: `List["ResourceChangeDetailTypeDef"]`
+
+
+## ResourceDetailTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ResourceDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `ARN`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `CreatedTime`: `datetime`
+
+
+## ResourceTargetDefinitionTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ResourceTargetDefinitionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Attribute`: `ResourceAttribute`
+- `Name`: `str`
+- `RequiresRecreation`: `RequiresRecreation`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
 
 
 ## ScanProvisionedProductsOutputTypeDef
@@ -1871,6 +1723,125 @@ Required fields:
 - `ServiceActionId`: `str`
 - `ProductId`: `str`
 - `ProvisioningArtifactId`: `str`
+
+
+
+
+## ServiceActionDetailTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ServiceActionDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceActionSummary`: `"ServiceActionSummaryTypeDef"`
+- `Definition`: `Dict[ServiceActionDefinitionKey, str]`
+
+
+## ServiceActionSummaryTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ServiceActionSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `DefinitionType`: `Literal['SSM_AUTOMATION']`
+
+
+## ShareDetailsTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ShareDetailsTypeDef
+```
+
+
+
+
+Optional fields:
+- `SuccessfulShares`: `List[str]`
+- `ShareErrors`: `List["ShareErrorTypeDef"]`
+
+
+## ShareErrorTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import ShareErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `Accounts`: `List[str]`
+- `Message`: `str`
+- `Error`: `str`
+
+
+## StackInstanceTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import StackInstanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Account`: `str`
+- `Region`: `str`
+- `StackInstanceStatus`: `StackInstanceStatus`
+
+
+## TagOptionDetailTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import TagOptionDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+- `Active`: `bool`
+- `Id`: `str`
+- `Owner`: `str`
+
+
+## TagOptionSummaryTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import TagOptionSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Values`: `List[str]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
 
 
 
@@ -1997,6 +1968,21 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## UpdateProvisioningParameterTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import UpdateProvisioningParameterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+- `UsePreviousValue`: `bool`
+
+
 ## UpdateProvisioningPreferencesTypeDef
 
 ```python
@@ -2042,4 +2028,18 @@ from mypy_boto3_servicecatalog.type_defs import UpdateTagOptionOutputTypeDef
 Optional fields:
 - `TagOptionDetail`: `"TagOptionDetailTypeDef"`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## UsageInstructionTypeDef
+
+```python
+from mypy_boto3_servicecatalog.type_defs import UsageInstructionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `str`
+- `Value`: `str`
 

@@ -8,39 +8,9 @@ type annotations stubs module [mypy_boto3_iotwireless](https://pypi.org/project/
 - [Structures for boto3 IoTWireless module](#structures-for-boto3-iotwireless-module)
   - [AbpV1_0_xTypeDef](#abpv1_0_xtypedef)
   - [AbpV1_1TypeDef](#abpv1_1typedef)
-  - [CertificateListTypeDef](#certificatelisttypedef)
-  - [DestinationsTypeDef](#destinationstypedef)
-  - [DeviceProfileTypeDef](#deviceprofiletypedef)
-  - [LoRaWANDeviceMetadataTypeDef](#lorawandevicemetadatatypedef)
-  - [LoRaWANDeviceProfileTypeDef](#lorawandeviceprofiletypedef)
-  - [LoRaWANDeviceTypeDef](#lorawandevicetypedef)
-  - [LoRaWANGatewayCurrentVersionTypeDef](#lorawangatewaycurrentversiontypedef)
-  - [LoRaWANGatewayMetadataTypeDef](#lorawangatewaymetadatatypedef)
-  - [LoRaWANGatewayTypeDef](#lorawangatewaytypedef)
-  - [LoRaWANGatewayVersionTypeDef](#lorawangatewayversiontypedef)
-  - [LoRaWANGetServiceProfileInfoTypeDef](#lorawangetserviceprofileinfotypedef)
-  - [LoRaWANListDeviceTypeDef](#lorawanlistdevicetypedef)
-  - [LoRaWANSendDataToDeviceTypeDef](#lorawansenddatatodevicetypedef)
-  - [LoRaWANUpdateGatewayTaskCreateTypeDef](#lorawanupdategatewaytaskcreatetypedef)
-  - [LoRaWANUpdateGatewayTaskEntryTypeDef](#lorawanupdategatewaytaskentrytypedef)
-  - [OtaaV1_0_xTypeDef](#otaav1_0_xtypedef)
-  - [OtaaV1_1TypeDef](#otaav1_1typedef)
-  - [ServiceProfileTypeDef](#serviceprofiletypedef)
-  - [SessionKeysAbpV1_0_xTypeDef](#sessionkeysabpv1_0_xtypedef)
-  - [SessionKeysAbpV1_1TypeDef](#sessionkeysabpv1_1typedef)
-  - [SidewalkAccountInfoTypeDef](#sidewalkaccountinfotypedef)
-  - [SidewalkAccountInfoWithFingerprintTypeDef](#sidewalkaccountinfowithfingerprinttypedef)
-  - [SidewalkDeviceMetadataTypeDef](#sidewalkdevicemetadatatypedef)
-  - [SidewalkDeviceTypeDef](#sidewalkdevicetypedef)
-  - [SidewalkListDeviceTypeDef](#sidewalklistdevicetypedef)
-  - [SidewalkSendDataToDeviceTypeDef](#sidewalksenddatatodevicetypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [UpdateWirelessGatewayTaskCreateTypeDef](#updatewirelessgatewaytaskcreatetypedef)
-  - [UpdateWirelessGatewayTaskEntryTypeDef](#updatewirelessgatewaytaskentrytypedef)
-  - [WirelessDeviceStatisticsTypeDef](#wirelessdevicestatisticstypedef)
-  - [WirelessGatewayStatisticsTypeDef](#wirelessgatewaystatisticstypedef)
   - [AssociateAwsAccountWithPartnerAccountResponseTypeDef](#associateawsaccountwithpartneraccountresponsetypedef)
   - [AssociateWirelessGatewayWithCertificateResponseTypeDef](#associatewirelessgatewaywithcertificateresponsetypedef)
+  - [CertificateListTypeDef](#certificatelisttypedef)
   - [CreateDestinationResponseTypeDef](#createdestinationresponsetypedef)
   - [CreateDeviceProfileResponseTypeDef](#createdeviceprofileresponsetypedef)
   - [CreateServiceProfileResponseTypeDef](#createserviceprofileresponsetypedef)
@@ -48,6 +18,8 @@ type annotations stubs module [mypy_boto3_iotwireless](https://pypi.org/project/
   - [CreateWirelessGatewayResponseTypeDef](#createwirelessgatewayresponsetypedef)
   - [CreateWirelessGatewayTaskDefinitionResponseTypeDef](#createwirelessgatewaytaskdefinitionresponsetypedef)
   - [CreateWirelessGatewayTaskResponseTypeDef](#createwirelessgatewaytaskresponsetypedef)
+  - [DestinationsTypeDef](#destinationstypedef)
+  - [DeviceProfileTypeDef](#deviceprofiletypedef)
   - [GetDestinationResponseTypeDef](#getdestinationresponsetypedef)
   - [GetDeviceProfileResponseTypeDef](#getdeviceprofileresponsetypedef)
   - [GetPartnerAccountResponseTypeDef](#getpartneraccountresponsetypedef)
@@ -69,11 +41,39 @@ type annotations stubs module [mypy_boto3_iotwireless](https://pypi.org/project/
   - [ListWirelessDevicesResponseTypeDef](#listwirelessdevicesresponsetypedef)
   - [ListWirelessGatewayTaskDefinitionsResponseTypeDef](#listwirelessgatewaytaskdefinitionsresponsetypedef)
   - [ListWirelessGatewaysResponseTypeDef](#listwirelessgatewaysresponsetypedef)
+  - [LoRaWANDeviceMetadataTypeDef](#lorawandevicemetadatatypedef)
+  - [LoRaWANDeviceProfileTypeDef](#lorawandeviceprofiletypedef)
+  - [LoRaWANDeviceTypeDef](#lorawandevicetypedef)
+  - [LoRaWANGatewayCurrentVersionTypeDef](#lorawangatewaycurrentversiontypedef)
+  - [LoRaWANGatewayMetadataTypeDef](#lorawangatewaymetadatatypedef)
+  - [LoRaWANGatewayTypeDef](#lorawangatewaytypedef)
+  - [LoRaWANGatewayVersionTypeDef](#lorawangatewayversiontypedef)
+  - [LoRaWANGetServiceProfileInfoTypeDef](#lorawangetserviceprofileinfotypedef)
+  - [LoRaWANListDeviceTypeDef](#lorawanlistdevicetypedef)
+  - [LoRaWANSendDataToDeviceTypeDef](#lorawansenddatatodevicetypedef)
   - [LoRaWANServiceProfileTypeDef](#lorawanserviceprofiletypedef)
   - [LoRaWANUpdateDeviceTypeDef](#lorawanupdatedevicetypedef)
+  - [LoRaWANUpdateGatewayTaskCreateTypeDef](#lorawanupdategatewaytaskcreatetypedef)
+  - [LoRaWANUpdateGatewayTaskEntryTypeDef](#lorawanupdategatewaytaskentrytypedef)
+  - [OtaaV1_0_xTypeDef](#otaav1_0_xtypedef)
+  - [OtaaV1_1TypeDef](#otaav1_1typedef)
   - [SendDataToWirelessDeviceResponseTypeDef](#senddatatowirelessdeviceresponsetypedef)
+  - [ServiceProfileTypeDef](#serviceprofiletypedef)
+  - [SessionKeysAbpV1_0_xTypeDef](#sessionkeysabpv1_0_xtypedef)
+  - [SessionKeysAbpV1_1TypeDef](#sessionkeysabpv1_1typedef)
+  - [SidewalkAccountInfoTypeDef](#sidewalkaccountinfotypedef)
+  - [SidewalkAccountInfoWithFingerprintTypeDef](#sidewalkaccountinfowithfingerprinttypedef)
+  - [SidewalkDeviceMetadataTypeDef](#sidewalkdevicemetadatatypedef)
+  - [SidewalkDeviceTypeDef](#sidewalkdevicetypedef)
+  - [SidewalkListDeviceTypeDef](#sidewalklistdevicetypedef)
+  - [SidewalkSendDataToDeviceTypeDef](#sidewalksenddatatodevicetypedef)
   - [SidewalkUpdateAccountTypeDef](#sidewalkupdateaccounttypedef)
+  - [TagTypeDef](#tagtypedef)
   - [TestWirelessDeviceResponseTypeDef](#testwirelessdeviceresponsetypedef)
+  - [UpdateWirelessGatewayTaskCreateTypeDef](#updatewirelessgatewaytaskcreatetypedef)
+  - [UpdateWirelessGatewayTaskEntryTypeDef](#updatewirelessgatewaytaskentrytypedef)
+  - [WirelessDeviceStatisticsTypeDef](#wirelessdevicestatisticstypedef)
+  - [WirelessGatewayStatisticsTypeDef](#wirelessgatewaystatisticstypedef)
   - [WirelessMetadataTypeDef](#wirelessmetadatatypedef)
 
 ## AbpV1_0_xTypeDef
@@ -104,511 +104,6 @@ Optional fields:
 - `SessionKeys`: `"SessionKeysAbpV1_1TypeDef"`
 
 
-## CertificateListTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import CertificateListTypeDef
-```
-
-
-Required fields:
-- `SigningAlg`: `SigningAlg`
-- `Value`: `str`
-
-
-
-
-## DestinationsTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import DestinationsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-- `ExpressionType`: `ExpressionType`
-- `Expression`: `str`
-- `Description`: `str`
-- `RoleArn`: `str`
-
-
-## DeviceProfileTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import DeviceProfileTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-- `Id`: `str`
-
-
-## LoRaWANDeviceMetadataTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANDeviceMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `DevEui`: `str`
-- `FPort`: `int`
-- `DataRate`: `int`
-- `Frequency`: `int`
-- `Timestamp`: `str`
-- `Gateways`: `List["LoRaWANGatewayMetadataTypeDef"]`
-
-
-## LoRaWANDeviceProfileTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANDeviceProfileTypeDef
-```
-
-
-
-
-Optional fields:
-- `SupportsClassB`: `bool`
-- `ClassBTimeout`: `int`
-- `PingSlotPeriod`: `int`
-- `PingSlotDr`: `int`
-- `PingSlotFreq`: `int`
-- `SupportsClassC`: `bool`
-- `ClassCTimeout`: `int`
-- `MacVersion`: `str`
-- `RegParamsRevision`: `str`
-- `RxDelay1`: `int`
-- `RxDrOffset1`: `int`
-- `RxDataRate2`: `int`
-- `RxFreq2`: `int`
-- `FactoryPresetFreqsList`: `List[int]`
-- `MaxEirp`: `int`
-- `MaxDutyCycle`: `int`
-- `RfRegion`: `str`
-- `SupportsJoin`: `bool`
-- `Supports32BitFCnt`: `bool`
-
-
-## LoRaWANDeviceTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANDeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `DevEui`: `str`
-- `DeviceProfileId`: `str`
-- `ServiceProfileId`: `str`
-- `OtaaV1_1`: `"OtaaV1_1TypeDef"`
-- `OtaaV1_0_x`: `"OtaaV1_0_xTypeDef"`
-- `AbpV1_1`: `"AbpV1_1TypeDef"`
-- `AbpV1_0_x`: `"AbpV1_0_xTypeDef"`
-
-
-## LoRaWANGatewayCurrentVersionTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANGatewayCurrentVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `CurrentVersion`: `"LoRaWANGatewayVersionTypeDef"`
-
-
-## LoRaWANGatewayMetadataTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANGatewayMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `GatewayEui`: `str`
-- `Snr`: `float`
-- `Rssi`: `float`
-
-
-## LoRaWANGatewayTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANGatewayTypeDef
-```
-
-
-
-
-Optional fields:
-- `GatewayEui`: `str`
-- `RfRegion`: `str`
-
-
-## LoRaWANGatewayVersionTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANGatewayVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `PackageVersion`: `str`
-- `Model`: `str`
-- `Station`: `str`
-
-
-## LoRaWANGetServiceProfileInfoTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANGetServiceProfileInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `UlRate`: `int`
-- `UlBucketSize`: `int`
-- `UlRatePolicy`: `str`
-- `DlRate`: `int`
-- `DlBucketSize`: `int`
-- `DlRatePolicy`: `str`
-- `AddGwMetadata`: `bool`
-- `DevStatusReqFreq`: `int`
-- `ReportDevStatusBattery`: `bool`
-- `ReportDevStatusMargin`: `bool`
-- `DrMin`: `int`
-- `DrMax`: `int`
-- `ChannelMask`: `str`
-- `PrAllowed`: `bool`
-- `HrAllowed`: `bool`
-- `RaAllowed`: `bool`
-- `NwkGeoLoc`: `bool`
-- `TargetPer`: `int`
-- `MinGwDiversity`: `int`
-
-
-## LoRaWANListDeviceTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANListDeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `DevEui`: `str`
-
-
-## LoRaWANSendDataToDeviceTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANSendDataToDeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `FPort`: `int`
-
-
-## LoRaWANUpdateGatewayTaskCreateTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANUpdateGatewayTaskCreateTypeDef
-```
-
-
-
-
-Optional fields:
-- `UpdateSignature`: `str`
-- `SigKeyCrc`: `int`
-- `CurrentVersion`: `"LoRaWANGatewayVersionTypeDef"`
-- `UpdateVersion`: `"LoRaWANGatewayVersionTypeDef"`
-
-
-## LoRaWANUpdateGatewayTaskEntryTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import LoRaWANUpdateGatewayTaskEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `CurrentVersion`: `"LoRaWANGatewayVersionTypeDef"`
-- `UpdateVersion`: `"LoRaWANGatewayVersionTypeDef"`
-
-
-## OtaaV1_0_xTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import OtaaV1_0_xTypeDef
-```
-
-
-
-
-Optional fields:
-- `AppKey`: `str`
-- `AppEui`: `str`
-
-
-## OtaaV1_1TypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import OtaaV1_1TypeDef
-```
-
-
-
-
-Optional fields:
-- `AppKey`: `str`
-- `NwkKey`: `str`
-- `JoinEui`: `str`
-
-
-## ServiceProfileTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import ServiceProfileTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-- `Id`: `str`
-
-
-## SessionKeysAbpV1_0_xTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import SessionKeysAbpV1_0_xTypeDef
-```
-
-
-
-
-Optional fields:
-- `NwkSKey`: `str`
-- `AppSKey`: `str`
-
-
-## SessionKeysAbpV1_1TypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import SessionKeysAbpV1_1TypeDef
-```
-
-
-
-
-Optional fields:
-- `FNwkSIntKey`: `str`
-- `SNwkSIntKey`: `str`
-- `NwkSEncKey`: `str`
-- `AppSKey`: `str`
-
-
-## SidewalkAccountInfoTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import SidewalkAccountInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `AmazonId`: `str`
-- `AppServerPrivateKey`: `str`
-
-
-## SidewalkAccountInfoWithFingerprintTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import SidewalkAccountInfoWithFingerprintTypeDef
-```
-
-
-
-
-Optional fields:
-- `AmazonId`: `str`
-- `Fingerprint`: `str`
-- `Arn`: `str`
-
-
-## SidewalkDeviceMetadataTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import SidewalkDeviceMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Rssi`: `int`
-- `BatteryLevel`: `BatteryLevel`
-- `Event`: `Event`
-- `DeviceState`: `DeviceState`
-
-
-## SidewalkDeviceTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import SidewalkDeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `SidewalkId`: `str`
-- `SidewalkManufacturingSn`: `str`
-- `DeviceCertificates`: `List["CertificateListTypeDef"]`
-
-
-## SidewalkListDeviceTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import SidewalkListDeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `AmazonId`: `str`
-- `SidewalkId`: `str`
-- `SidewalkManufacturingSn`: `str`
-- `DeviceCertificates`: `List["CertificateListTypeDef"]`
-
-
-## SidewalkSendDataToDeviceTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import SidewalkSendDataToDeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Seq`: `int`
-- `MessageType`: `MessageType`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## UpdateWirelessGatewayTaskCreateTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import UpdateWirelessGatewayTaskCreateTypeDef
-```
-
-
-
-
-Optional fields:
-- `UpdateDataSource`: `str`
-- `UpdateDataRole`: `str`
-- `LoRaWAN`: `"LoRaWANUpdateGatewayTaskCreateTypeDef"`
-
-
-## UpdateWirelessGatewayTaskEntryTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import UpdateWirelessGatewayTaskEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `LoRaWAN`: `"LoRaWANUpdateGatewayTaskEntryTypeDef"`
-- `Arn`: `str`
-
-
-## WirelessDeviceStatisticsTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import WirelessDeviceStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Id`: `str`
-- `Type`: `WirelessDeviceType`
-- `Name`: `str`
-- `DestinationName`: `str`
-- `LastUplinkReceivedAt`: `str`
-- `LoRaWAN`: `"LoRaWANListDeviceTypeDef"`
-- `Sidewalk`: `"SidewalkListDeviceTypeDef"`
-
-
-## WirelessGatewayStatisticsTypeDef
-
-```python
-from mypy_boto3_iotwireless.type_defs import WirelessGatewayStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Id`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `LoRaWAN`: `"LoRaWANGatewayTypeDef"`
-- `LastUplinkReceivedAt`: `str`
-
-
 ## AssociateAwsAccountWithPartnerAccountResponseTypeDef
 
 ```python
@@ -634,6 +129,20 @@ from mypy_boto3_iotwireless.type_defs import AssociateWirelessGatewayWithCertifi
 
 Optional fields:
 - `IotCertificateId`: `str`
+
+
+## CertificateListTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import CertificateListTypeDef
+```
+
+
+Required fields:
+- `SigningAlg`: `SigningAlg`
+- `Value`: `str`
+
+
 
 
 ## CreateDestinationResponseTypeDef
@@ -732,6 +241,39 @@ from mypy_boto3_iotwireless.type_defs import CreateWirelessGatewayTaskResponseTy
 Optional fields:
 - `WirelessGatewayTaskDefinitionId`: `str`
 - `Status`: `WirelessGatewayTaskStatus`
+
+
+## DestinationsTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import DestinationsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+- `ExpressionType`: `ExpressionType`
+- `Expression`: `str`
+- `Description`: `str`
+- `RoleArn`: `str`
+
+
+## DeviceProfileTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import DeviceProfileTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+- `Id`: `str`
 
 
 ## GetDestinationResponseTypeDef
@@ -1056,6 +598,188 @@ Optional fields:
 - `WirelessGatewayList`: `List["WirelessGatewayStatisticsTypeDef"]`
 
 
+## LoRaWANDeviceMetadataTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANDeviceMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `DevEui`: `str`
+- `FPort`: `int`
+- `DataRate`: `int`
+- `Frequency`: `int`
+- `Timestamp`: `str`
+- `Gateways`: `List["LoRaWANGatewayMetadataTypeDef"]`
+
+
+## LoRaWANDeviceProfileTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANDeviceProfileTypeDef
+```
+
+
+
+
+Optional fields:
+- `SupportsClassB`: `bool`
+- `ClassBTimeout`: `int`
+- `PingSlotPeriod`: `int`
+- `PingSlotDr`: `int`
+- `PingSlotFreq`: `int`
+- `SupportsClassC`: `bool`
+- `ClassCTimeout`: `int`
+- `MacVersion`: `str`
+- `RegParamsRevision`: `str`
+- `RxDelay1`: `int`
+- `RxDrOffset1`: `int`
+- `RxDataRate2`: `int`
+- `RxFreq2`: `int`
+- `FactoryPresetFreqsList`: `List[int]`
+- `MaxEirp`: `int`
+- `MaxDutyCycle`: `int`
+- `RfRegion`: `str`
+- `SupportsJoin`: `bool`
+- `Supports32BitFCnt`: `bool`
+
+
+## LoRaWANDeviceTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANDeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `DevEui`: `str`
+- `DeviceProfileId`: `str`
+- `ServiceProfileId`: `str`
+- `OtaaV1_1`: `"OtaaV1_1TypeDef"`
+- `OtaaV1_0_x`: `"OtaaV1_0_xTypeDef"`
+- `AbpV1_1`: `"AbpV1_1TypeDef"`
+- `AbpV1_0_x`: `"AbpV1_0_xTypeDef"`
+
+
+## LoRaWANGatewayCurrentVersionTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANGatewayCurrentVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `CurrentVersion`: `"LoRaWANGatewayVersionTypeDef"`
+
+
+## LoRaWANGatewayMetadataTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANGatewayMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `GatewayEui`: `str`
+- `Snr`: `float`
+- `Rssi`: `float`
+
+
+## LoRaWANGatewayTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANGatewayTypeDef
+```
+
+
+
+
+Optional fields:
+- `GatewayEui`: `str`
+- `RfRegion`: `str`
+
+
+## LoRaWANGatewayVersionTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANGatewayVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `PackageVersion`: `str`
+- `Model`: `str`
+- `Station`: `str`
+
+
+## LoRaWANGetServiceProfileInfoTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANGetServiceProfileInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `UlRate`: `int`
+- `UlBucketSize`: `int`
+- `UlRatePolicy`: `str`
+- `DlRate`: `int`
+- `DlBucketSize`: `int`
+- `DlRatePolicy`: `str`
+- `AddGwMetadata`: `bool`
+- `DevStatusReqFreq`: `int`
+- `ReportDevStatusBattery`: `bool`
+- `ReportDevStatusMargin`: `bool`
+- `DrMin`: `int`
+- `DrMax`: `int`
+- `ChannelMask`: `str`
+- `PrAllowed`: `bool`
+- `HrAllowed`: `bool`
+- `RaAllowed`: `bool`
+- `NwkGeoLoc`: `bool`
+- `TargetPer`: `int`
+- `MinGwDiversity`: `int`
+
+
+## LoRaWANListDeviceTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANListDeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `DevEui`: `str`
+
+
+## LoRaWANSendDataToDeviceTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANSendDataToDeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `FPort`: `int`
+
+
 ## LoRaWANServiceProfileTypeDef
 
 ```python
@@ -1083,6 +807,65 @@ Optional fields:
 - `ServiceProfileId`: `str`
 
 
+## LoRaWANUpdateGatewayTaskCreateTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANUpdateGatewayTaskCreateTypeDef
+```
+
+
+
+
+Optional fields:
+- `UpdateSignature`: `str`
+- `SigKeyCrc`: `int`
+- `CurrentVersion`: `"LoRaWANGatewayVersionTypeDef"`
+- `UpdateVersion`: `"LoRaWANGatewayVersionTypeDef"`
+
+
+## LoRaWANUpdateGatewayTaskEntryTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import LoRaWANUpdateGatewayTaskEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `CurrentVersion`: `"LoRaWANGatewayVersionTypeDef"`
+- `UpdateVersion`: `"LoRaWANGatewayVersionTypeDef"`
+
+
+## OtaaV1_0_xTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import OtaaV1_0_xTypeDef
+```
+
+
+
+
+Optional fields:
+- `AppKey`: `str`
+- `AppEui`: `str`
+
+
+## OtaaV1_1TypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import OtaaV1_1TypeDef
+```
+
+
+
+
+Optional fields:
+- `AppKey`: `str`
+- `NwkKey`: `str`
+- `JoinEui`: `str`
+
+
 ## SendDataToWirelessDeviceResponseTypeDef
 
 ```python
@@ -1094,6 +877,141 @@ from mypy_boto3_iotwireless.type_defs import SendDataToWirelessDeviceResponseTyp
 
 Optional fields:
 - `MessageId`: `str`
+
+
+## ServiceProfileTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import ServiceProfileTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+- `Id`: `str`
+
+
+## SessionKeysAbpV1_0_xTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import SessionKeysAbpV1_0_xTypeDef
+```
+
+
+
+
+Optional fields:
+- `NwkSKey`: `str`
+- `AppSKey`: `str`
+
+
+## SessionKeysAbpV1_1TypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import SessionKeysAbpV1_1TypeDef
+```
+
+
+
+
+Optional fields:
+- `FNwkSIntKey`: `str`
+- `SNwkSIntKey`: `str`
+- `NwkSEncKey`: `str`
+- `AppSKey`: `str`
+
+
+## SidewalkAccountInfoTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import SidewalkAccountInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `AmazonId`: `str`
+- `AppServerPrivateKey`: `str`
+
+
+## SidewalkAccountInfoWithFingerprintTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import SidewalkAccountInfoWithFingerprintTypeDef
+```
+
+
+
+
+Optional fields:
+- `AmazonId`: `str`
+- `Fingerprint`: `str`
+- `Arn`: `str`
+
+
+## SidewalkDeviceMetadataTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import SidewalkDeviceMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Rssi`: `int`
+- `BatteryLevel`: `BatteryLevel`
+- `Event`: `Event`
+- `DeviceState`: `DeviceState`
+
+
+## SidewalkDeviceTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import SidewalkDeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `SidewalkId`: `str`
+- `SidewalkManufacturingSn`: `str`
+- `DeviceCertificates`: `List["CertificateListTypeDef"]`
+
+
+## SidewalkListDeviceTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import SidewalkListDeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `AmazonId`: `str`
+- `SidewalkId`: `str`
+- `SidewalkManufacturingSn`: `str`
+- `DeviceCertificates`: `List["CertificateListTypeDef"]`
+
+
+## SidewalkSendDataToDeviceTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import SidewalkSendDataToDeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Seq`: `int`
+- `MessageType`: `MessageType`
 
 
 ## SidewalkUpdateAccountTypeDef
@@ -1109,6 +1027,20 @@ Optional fields:
 - `AppServerPrivateKey`: `str`
 
 
+## TagTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
 ## TestWirelessDeviceResponseTypeDef
 
 ```python
@@ -1120,6 +1052,74 @@ from mypy_boto3_iotwireless.type_defs import TestWirelessDeviceResponseTypeDef
 
 Optional fields:
 - `Result`: `str`
+
+
+## UpdateWirelessGatewayTaskCreateTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import UpdateWirelessGatewayTaskCreateTypeDef
+```
+
+
+
+
+Optional fields:
+- `UpdateDataSource`: `str`
+- `UpdateDataRole`: `str`
+- `LoRaWAN`: `"LoRaWANUpdateGatewayTaskCreateTypeDef"`
+
+
+## UpdateWirelessGatewayTaskEntryTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import UpdateWirelessGatewayTaskEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `LoRaWAN`: `"LoRaWANUpdateGatewayTaskEntryTypeDef"`
+- `Arn`: `str`
+
+
+## WirelessDeviceStatisticsTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import WirelessDeviceStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Id`: `str`
+- `Type`: `WirelessDeviceType`
+- `Name`: `str`
+- `DestinationName`: `str`
+- `LastUplinkReceivedAt`: `str`
+- `LoRaWAN`: `"LoRaWANListDeviceTypeDef"`
+- `Sidewalk`: `"SidewalkListDeviceTypeDef"`
+
+
+## WirelessGatewayStatisticsTypeDef
+
+```python
+from mypy_boto3_iotwireless.type_defs import WirelessGatewayStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Id`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `LoRaWAN`: `"LoRaWANGatewayTypeDef"`
+- `LastUplinkReceivedAt`: `str`
 
 
 ## WirelessMetadataTypeDef

@@ -6,63 +6,19 @@ Auto-generated documentation for [STS](https://boto3.amazonaws.com/v1/documentat
 type annotations stubs module [mypy_boto3_sts](https://pypi.org/project/mypy-boto3-sts/).
 
 - [Structures for boto3 STS module](#structures-for-boto3-sts-module)
-  - [AssumedRoleUserTypeDef](#assumedroleusertypedef)
-  - [CredentialsTypeDef](#credentialstypedef)
-  - [FederatedUserTypeDef](#federatedusertypedef)
   - [AssumeRoleResponseTypeDef](#assumeroleresponsetypedef)
   - [AssumeRoleWithSAMLResponseTypeDef](#assumerolewithsamlresponsetypedef)
   - [AssumeRoleWithWebIdentityResponseTypeDef](#assumerolewithwebidentityresponsetypedef)
+  - [AssumedRoleUserTypeDef](#assumedroleusertypedef)
+  - [CredentialsTypeDef](#credentialstypedef)
   - [DecodeAuthorizationMessageResponseTypeDef](#decodeauthorizationmessageresponsetypedef)
+  - [FederatedUserTypeDef](#federatedusertypedef)
   - [GetAccessKeyInfoResponseTypeDef](#getaccesskeyinforesponsetypedef)
   - [GetCallerIdentityResponseTypeDef](#getcalleridentityresponsetypedef)
   - [GetFederationTokenResponseTypeDef](#getfederationtokenresponsetypedef)
   - [GetSessionTokenResponseTypeDef](#getsessiontokenresponsetypedef)
   - [PolicyDescriptorTypeTypeDef](#policydescriptortypetypedef)
   - [TagTypeDef](#tagtypedef)
-
-## AssumedRoleUserTypeDef
-
-```python
-from mypy_boto3_sts.type_defs import AssumedRoleUserTypeDef
-```
-
-
-Required fields:
-- `AssumedRoleId`: `str`
-- `Arn`: `str`
-
-
-
-
-## CredentialsTypeDef
-
-```python
-from mypy_boto3_sts.type_defs import CredentialsTypeDef
-```
-
-
-Required fields:
-- `AccessKeyId`: `str`
-- `SecretAccessKey`: `str`
-- `SessionToken`: `str`
-- `Expiration`: `datetime`
-
-
-
-
-## FederatedUserTypeDef
-
-```python
-from mypy_boto3_sts.type_defs import FederatedUserTypeDef
-```
-
-
-Required fields:
-- `FederatedUserId`: `str`
-- `Arn`: `str`
-
-
-
 
 ## AssumeRoleResponseTypeDef
 
@@ -120,6 +76,36 @@ Optional fields:
 - `SourceIdentity`: `str`
 
 
+## AssumedRoleUserTypeDef
+
+```python
+from mypy_boto3_sts.type_defs import AssumedRoleUserTypeDef
+```
+
+
+Required fields:
+- `AssumedRoleId`: `str`
+- `Arn`: `str`
+
+
+
+
+## CredentialsTypeDef
+
+```python
+from mypy_boto3_sts.type_defs import CredentialsTypeDef
+```
+
+
+Required fields:
+- `AccessKeyId`: `str`
+- `SecretAccessKey`: `str`
+- `SessionToken`: `str`
+- `Expiration`: `datetime`
+
+
+
+
 ## DecodeAuthorizationMessageResponseTypeDef
 
 ```python
@@ -131,6 +117,20 @@ from mypy_boto3_sts.type_defs import DecodeAuthorizationMessageResponseTypeDef
 
 Optional fields:
 - `DecodedMessage`: `str`
+
+
+## FederatedUserTypeDef
+
+```python
+from mypy_boto3_sts.type_defs import FederatedUserTypeDef
+```
+
+
+Required fields:
+- `FederatedUserId`: `str`
+- `Arn`: `str`
+
+
 
 
 ## GetAccessKeyInfoResponseTypeDef

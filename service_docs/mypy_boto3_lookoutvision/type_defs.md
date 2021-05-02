@@ -6,25 +6,13 @@ Auto-generated documentation for [LookoutforVision](https://boto3.amazonaws.com/
 type annotations stubs module [mypy_boto3_lookoutvision](https://pypi.org/project/mypy-boto3-lookoutvision/).
 
 - [Structures for boto3 LookoutforVision module](#structures-for-boto3-lookoutforvision-module)
+  - [CreateDatasetResponseTypeDef](#createdatasetresponsetypedef)
+  - [CreateModelResponseTypeDef](#createmodelresponsetypedef)
+  - [CreateProjectResponseTypeDef](#createprojectresponsetypedef)
   - [DatasetDescriptionTypeDef](#datasetdescriptiontypedef)
   - [DatasetGroundTruthManifestTypeDef](#datasetgroundtruthmanifesttypedef)
   - [DatasetImageStatsTypeDef](#datasetimagestatstypedef)
   - [DatasetMetadataTypeDef](#datasetmetadatatypedef)
-  - [DetectAnomalyResultTypeDef](#detectanomalyresulttypedef)
-  - [ImageSourceTypeDef](#imagesourcetypedef)
-  - [InputS3ObjectTypeDef](#inputs3objecttypedef)
-  - [ModelDescriptionTypeDef](#modeldescriptiontypedef)
-  - [ModelMetadataTypeDef](#modelmetadatatypedef)
-  - [ModelPerformanceTypeDef](#modelperformancetypedef)
-  - [OutputConfigTypeDef](#outputconfigtypedef)
-  - [OutputS3ObjectTypeDef](#outputs3objecttypedef)
-  - [ProjectDescriptionTypeDef](#projectdescriptiontypedef)
-  - [ProjectMetadataTypeDef](#projectmetadatatypedef)
-  - [S3LocationTypeDef](#s3locationtypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [CreateDatasetResponseTypeDef](#createdatasetresponsetypedef)
-  - [CreateModelResponseTypeDef](#createmodelresponsetypedef)
-  - [CreateProjectResponseTypeDef](#createprojectresponsetypedef)
   - [DatasetSourceTypeDef](#datasetsourcetypedef)
   - [DeleteModelResponseTypeDef](#deletemodelresponsetypedef)
   - [DeleteProjectResponseTypeDef](#deleteprojectresponsetypedef)
@@ -32,14 +20,65 @@ type annotations stubs module [mypy_boto3_lookoutvision](https://pypi.org/projec
   - [DescribeModelResponseTypeDef](#describemodelresponsetypedef)
   - [DescribeProjectResponseTypeDef](#describeprojectresponsetypedef)
   - [DetectAnomaliesResponseTypeDef](#detectanomaliesresponsetypedef)
+  - [DetectAnomalyResultTypeDef](#detectanomalyresulttypedef)
+  - [ImageSourceTypeDef](#imagesourcetypedef)
+  - [InputS3ObjectTypeDef](#inputs3objecttypedef)
   - [ListDatasetEntriesResponseTypeDef](#listdatasetentriesresponsetypedef)
   - [ListModelsResponseTypeDef](#listmodelsresponsetypedef)
   - [ListProjectsResponseTypeDef](#listprojectsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [ModelDescriptionTypeDef](#modeldescriptiontypedef)
+  - [ModelMetadataTypeDef](#modelmetadatatypedef)
+  - [ModelPerformanceTypeDef](#modelperformancetypedef)
+  - [OutputConfigTypeDef](#outputconfigtypedef)
+  - [OutputS3ObjectTypeDef](#outputs3objecttypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ProjectDescriptionTypeDef](#projectdescriptiontypedef)
+  - [ProjectMetadataTypeDef](#projectmetadatatypedef)
+  - [S3LocationTypeDef](#s3locationtypedef)
   - [StartModelResponseTypeDef](#startmodelresponsetypedef)
   - [StopModelResponseTypeDef](#stopmodelresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateDatasetEntriesResponseTypeDef](#updatedatasetentriesresponsetypedef)
+
+## CreateDatasetResponseTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import CreateDatasetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatasetMetadata`: `"DatasetMetadataTypeDef"`
+
+
+## CreateModelResponseTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import CreateModelResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ModelMetadata`: `"ModelMetadataTypeDef"`
+
+
+## CreateProjectResponseTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import CreateProjectResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProjectMetadata`: `"ProjectMetadataTypeDef"`
+
 
 ## DatasetDescriptionTypeDef
 
@@ -103,236 +142,6 @@ Optional fields:
 - `CreationTimestamp`: `datetime`
 - `Status`: `DatasetStatus`
 - `StatusMessage`: `str`
-
-
-## DetectAnomalyResultTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import DetectAnomalyResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Source`: `"ImageSourceTypeDef"`
-- `IsAnomalous`: `bool`
-- `Confidence`: `float`
-
-
-## ImageSourceTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import ImageSourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Type`: `str`
-
-
-## InputS3ObjectTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import InputS3ObjectTypeDef
-```
-
-
-Required fields:
-- `Bucket`: `str`
-- `Key`: `str`
-
-
-
-Optional fields:
-- `VersionId`: `str`
-
-
-## ModelDescriptionTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import ModelDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ModelVersion`: `str`
-- `ModelArn`: `str`
-- `CreationTimestamp`: `datetime`
-- `Description`: `str`
-- `Status`: `ModelStatus`
-- `StatusMessage`: `str`
-- `Performance`: `"ModelPerformanceTypeDef"`
-- `OutputConfig`: `"OutputConfigTypeDef"`
-- `EvaluationManifest`: `"OutputS3ObjectTypeDef"`
-- `EvaluationResult`: `"OutputS3ObjectTypeDef"`
-- `EvaluationEndTimestamp`: `datetime`
-- `KmsKeyId`: `str`
-
-
-## ModelMetadataTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import ModelMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `CreationTimestamp`: `datetime`
-- `ModelVersion`: `str`
-- `ModelArn`: `str`
-- `Description`: `str`
-- `Status`: `ModelStatus`
-- `StatusMessage`: `str`
-- `Performance`: `"ModelPerformanceTypeDef"`
-
-
-## ModelPerformanceTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import ModelPerformanceTypeDef
-```
-
-
-
-
-Optional fields:
-- `F1Score`: `float`
-- `Recall`: `float`
-- `Precision`: `float`
-
-
-## OutputConfigTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import OutputConfigTypeDef
-```
-
-
-Required fields:
-- `S3Location`: `"S3LocationTypeDef"`
-
-
-
-
-## OutputS3ObjectTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import OutputS3ObjectTypeDef
-```
-
-
-Required fields:
-- `Bucket`: `str`
-- `Key`: `str`
-
-
-
-
-## ProjectDescriptionTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import ProjectDescriptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProjectArn`: `str`
-- `ProjectName`: `str`
-- `CreationTimestamp`: `datetime`
-- `Datasets`: `List["DatasetMetadataTypeDef"]`
-
-
-## ProjectMetadataTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import ProjectMetadataTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProjectArn`: `str`
-- `ProjectName`: `str`
-- `CreationTimestamp`: `datetime`
-
-
-## S3LocationTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import S3LocationTypeDef
-```
-
-
-Required fields:
-- `Bucket`: `str`
-
-
-
-Optional fields:
-- `Prefix`: `str`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## CreateDatasetResponseTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import CreateDatasetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatasetMetadata`: `"DatasetMetadataTypeDef"`
-
-
-## CreateModelResponseTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import CreateModelResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ModelMetadata`: `"ModelMetadataTypeDef"`
-
-
-## CreateProjectResponseTypeDef
-
-```python
-from mypy_boto3_lookoutvision.type_defs import CreateProjectResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ProjectMetadata`: `"ProjectMetadataTypeDef"`
 
 
 ## DatasetSourceTypeDef
@@ -426,6 +235,51 @@ Optional fields:
 - `DetectAnomalyResult`: `"DetectAnomalyResultTypeDef"`
 
 
+## DetectAnomalyResultTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import DetectAnomalyResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Source`: `"ImageSourceTypeDef"`
+- `IsAnomalous`: `bool`
+- `Confidence`: `float`
+
+
+## ImageSourceTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import ImageSourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Type`: `str`
+
+
+## InputS3ObjectTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import InputS3ObjectTypeDef
+```
+
+
+Required fields:
+- `Bucket`: `str`
+- `Key`: `str`
+
+
+
+Optional fields:
+- `VersionId`: `str`
+
+
 ## ListDatasetEntriesResponseTypeDef
 
 ```python
@@ -481,6 +335,91 @@ Optional fields:
 - `Tags`: `List["TagTypeDef"]`
 
 
+## ModelDescriptionTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import ModelDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ModelVersion`: `str`
+- `ModelArn`: `str`
+- `CreationTimestamp`: `datetime`
+- `Description`: `str`
+- `Status`: `ModelStatus`
+- `StatusMessage`: `str`
+- `Performance`: `"ModelPerformanceTypeDef"`
+- `OutputConfig`: `"OutputConfigTypeDef"`
+- `EvaluationManifest`: `"OutputS3ObjectTypeDef"`
+- `EvaluationResult`: `"OutputS3ObjectTypeDef"`
+- `EvaluationEndTimestamp`: `datetime`
+- `KmsKeyId`: `str`
+
+
+## ModelMetadataTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import ModelMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `CreationTimestamp`: `datetime`
+- `ModelVersion`: `str`
+- `ModelArn`: `str`
+- `Description`: `str`
+- `Status`: `ModelStatus`
+- `StatusMessage`: `str`
+- `Performance`: `"ModelPerformanceTypeDef"`
+
+
+## ModelPerformanceTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import ModelPerformanceTypeDef
+```
+
+
+
+
+Optional fields:
+- `F1Score`: `float`
+- `Recall`: `float`
+- `Precision`: `float`
+
+
+## OutputConfigTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import OutputConfigTypeDef
+```
+
+
+Required fields:
+- `S3Location`: `"S3LocationTypeDef"`
+
+
+
+
+## OutputS3ObjectTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import OutputS3ObjectTypeDef
+```
+
+
+Required fields:
+- `Bucket`: `str`
+- `Key`: `str`
+
+
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -494,6 +433,53 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ProjectDescriptionTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import ProjectDescriptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProjectArn`: `str`
+- `ProjectName`: `str`
+- `CreationTimestamp`: `datetime`
+- `Datasets`: `List["DatasetMetadataTypeDef"]`
+
+
+## ProjectMetadataTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import ProjectMetadataTypeDef
+```
+
+
+
+
+Optional fields:
+- `ProjectArn`: `str`
+- `ProjectName`: `str`
+- `CreationTimestamp`: `datetime`
+
+
+## S3LocationTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import S3LocationTypeDef
+```
+
+
+Required fields:
+- `Bucket`: `str`
+
+
+
+Optional fields:
+- `Prefix`: `str`
 
 
 ## StartModelResponseTypeDef
@@ -520,6 +506,20 @@ from mypy_boto3_lookoutvision.type_defs import StopModelResponseTypeDef
 
 Optional fields:
 - `Status`: `ModelHostingStatus`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_lookoutvision.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## UpdateDatasetEntriesResponseTypeDef

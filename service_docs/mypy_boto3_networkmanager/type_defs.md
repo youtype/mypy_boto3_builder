@@ -7,27 +7,17 @@ type annotations stubs module [mypy_boto3_networkmanager](https://pypi.org/proje
 
 - [Structures for boto3 NetworkManager module](#structures-for-boto3-networkmanager-module)
   - [AWSLocationTypeDef](#awslocationtypedef)
-  - [BandwidthTypeDef](#bandwidthtypedef)
-  - [ConnectionTypeDef](#connectiontypedef)
-  - [CustomerGatewayAssociationTypeDef](#customergatewayassociationtypedef)
-  - [DeviceTypeDef](#devicetypedef)
-  - [GlobalNetworkTypeDef](#globalnetworktypedef)
-  - [LinkAssociationTypeDef](#linkassociationtypedef)
-  - [LinkTypeDef](#linktypedef)
-  - [LocationTypeDef](#locationtypedef)
-  - [SiteTypeDef](#sitetypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TransitGatewayConnectPeerAssociationTypeDef](#transitgatewayconnectpeerassociationtypedef)
-  - [TransitGatewayRegistrationStateReasonTypeDef](#transitgatewayregistrationstatereasontypedef)
-  - [TransitGatewayRegistrationTypeDef](#transitgatewayregistrationtypedef)
   - [AssociateCustomerGatewayResponseTypeDef](#associatecustomergatewayresponsetypedef)
   - [AssociateLinkResponseTypeDef](#associatelinkresponsetypedef)
   - [AssociateTransitGatewayConnectPeerResponseTypeDef](#associatetransitgatewayconnectpeerresponsetypedef)
+  - [BandwidthTypeDef](#bandwidthtypedef)
+  - [ConnectionTypeDef](#connectiontypedef)
   - [CreateConnectionResponseTypeDef](#createconnectionresponsetypedef)
   - [CreateDeviceResponseTypeDef](#createdeviceresponsetypedef)
   - [CreateGlobalNetworkResponseTypeDef](#createglobalnetworkresponsetypedef)
   - [CreateLinkResponseTypeDef](#createlinkresponsetypedef)
   - [CreateSiteResponseTypeDef](#createsiteresponsetypedef)
+  - [CustomerGatewayAssociationTypeDef](#customergatewayassociationtypedef)
   - [DeleteConnectionResponseTypeDef](#deleteconnectionresponsetypedef)
   - [DeleteDeviceResponseTypeDef](#deletedeviceresponsetypedef)
   - [DeleteGlobalNetworkResponseTypeDef](#deleteglobalnetworkresponsetypedef)
@@ -35,6 +25,7 @@ type annotations stubs module [mypy_boto3_networkmanager](https://pypi.org/proje
   - [DeleteSiteResponseTypeDef](#deletesiteresponsetypedef)
   - [DeregisterTransitGatewayResponseTypeDef](#deregistertransitgatewayresponsetypedef)
   - [DescribeGlobalNetworksResponseTypeDef](#describeglobalnetworksresponsetypedef)
+  - [DeviceTypeDef](#devicetypedef)
   - [DisassociateCustomerGatewayResponseTypeDef](#disassociatecustomergatewayresponsetypedef)
   - [DisassociateLinkResponseTypeDef](#disassociatelinkresponsetypedef)
   - [DisassociateTransitGatewayConnectPeerResponseTypeDef](#disassociatetransitgatewayconnectpeerresponsetypedef)
@@ -46,9 +37,18 @@ type annotations stubs module [mypy_boto3_networkmanager](https://pypi.org/proje
   - [GetSitesResponseTypeDef](#getsitesresponsetypedef)
   - [GetTransitGatewayConnectPeerAssociationsResponseTypeDef](#gettransitgatewayconnectpeerassociationsresponsetypedef)
   - [GetTransitGatewayRegistrationsResponseTypeDef](#gettransitgatewayregistrationsresponsetypedef)
+  - [GlobalNetworkTypeDef](#globalnetworktypedef)
+  - [LinkAssociationTypeDef](#linkassociationtypedef)
+  - [LinkTypeDef](#linktypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [LocationTypeDef](#locationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [RegisterTransitGatewayResponseTypeDef](#registertransitgatewayresponsetypedef)
+  - [SiteTypeDef](#sitetypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TransitGatewayConnectPeerAssociationTypeDef](#transitgatewayconnectpeerassociationtypedef)
+  - [TransitGatewayRegistrationStateReasonTypeDef](#transitgatewayregistrationstatereasontypedef)
+  - [TransitGatewayRegistrationTypeDef](#transitgatewayregistrationtypedef)
   - [UpdateConnectionResponseTypeDef](#updateconnectionresponsetypedef)
   - [UpdateDeviceResponseTypeDef](#updatedeviceresponsetypedef)
   - [UpdateGlobalNetworkResponseTypeDef](#updateglobalnetworkresponsetypedef)
@@ -67,238 +67,6 @@ from mypy_boto3_networkmanager.type_defs import AWSLocationTypeDef
 Optional fields:
 - `Zone`: `str`
 - `SubnetArn`: `str`
-
-
-## BandwidthTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import BandwidthTypeDef
-```
-
-
-
-
-Optional fields:
-- `UploadSpeed`: `int`
-- `DownloadSpeed`: `int`
-
-
-## ConnectionTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import ConnectionTypeDef
-```
-
-
-
-
-Optional fields:
-- `ConnectionId`: `str`
-- `ConnectionArn`: `str`
-- `GlobalNetworkId`: `str`
-- `DeviceId`: `str`
-- `ConnectedDeviceId`: `str`
-- `LinkId`: `str`
-- `ConnectedLinkId`: `str`
-- `Description`: `str`
-- `CreatedAt`: `datetime`
-- `State`: `ConnectionState`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## CustomerGatewayAssociationTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import CustomerGatewayAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `CustomerGatewayArn`: `str`
-- `GlobalNetworkId`: `str`
-- `DeviceId`: `str`
-- `LinkId`: `str`
-- `State`: `CustomerGatewayAssociationState`
-
-
-## DeviceTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import DeviceTypeDef
-```
-
-
-
-
-Optional fields:
-- `DeviceId`: `str`
-- `DeviceArn`: `str`
-- `GlobalNetworkId`: `str`
-- `AWSLocation`: `"AWSLocationTypeDef"`
-- `Description`: `str`
-- `Type`: `str`
-- `Vendor`: `str`
-- `Model`: `str`
-- `SerialNumber`: `str`
-- `Location`: `"LocationTypeDef"`
-- `SiteId`: `str`
-- `CreatedAt`: `datetime`
-- `State`: `DeviceState`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## GlobalNetworkTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import GlobalNetworkTypeDef
-```
-
-
-
-
-Optional fields:
-- `GlobalNetworkId`: `str`
-- `GlobalNetworkArn`: `str`
-- `Description`: `str`
-- `CreatedAt`: `datetime`
-- `State`: `GlobalNetworkState`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## LinkAssociationTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import LinkAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `GlobalNetworkId`: `str`
-- `DeviceId`: `str`
-- `LinkId`: `str`
-- `LinkAssociationState`: `LinkAssociationState`
-
-
-## LinkTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import LinkTypeDef
-```
-
-
-
-
-Optional fields:
-- `LinkId`: `str`
-- `LinkArn`: `str`
-- `GlobalNetworkId`: `str`
-- `SiteId`: `str`
-- `Description`: `str`
-- `Type`: `str`
-- `Bandwidth`: `"BandwidthTypeDef"`
-- `Provider`: `str`
-- `CreatedAt`: `datetime`
-- `State`: `LinkState`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## LocationTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import LocationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Address`: `str`
-- `Latitude`: `str`
-- `Longitude`: `str`
-
-
-## SiteTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import SiteTypeDef
-```
-
-
-
-
-Optional fields:
-- `SiteId`: `str`
-- `SiteArn`: `str`
-- `GlobalNetworkId`: `str`
-- `Description`: `str`
-- `Location`: `"LocationTypeDef"`
-- `CreatedAt`: `datetime`
-- `State`: `SiteState`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import TagTypeDef
-```
-
-
-
-
-Optional fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-## TransitGatewayConnectPeerAssociationTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import TransitGatewayConnectPeerAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransitGatewayConnectPeerArn`: `str`
-- `GlobalNetworkId`: `str`
-- `DeviceId`: `str`
-- `LinkId`: `str`
-- `State`: `TransitGatewayConnectPeerAssociationState`
-
-
-## TransitGatewayRegistrationStateReasonTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import TransitGatewayRegistrationStateReasonTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `TransitGatewayRegistrationState`
-- `Message`: `str`
-
-
-## TransitGatewayRegistrationTypeDef
-
-```python
-from mypy_boto3_networkmanager.type_defs import TransitGatewayRegistrationTypeDef
-```
-
-
-
-
-Optional fields:
-- `GlobalNetworkId`: `str`
-- `TransitGatewayArn`: `str`
-- `State`: `"TransitGatewayRegistrationStateReasonTypeDef"`
 
 
 ## AssociateCustomerGatewayResponseTypeDef
@@ -338,6 +106,43 @@ from mypy_boto3_networkmanager.type_defs import AssociateTransitGatewayConnectPe
 
 Optional fields:
 - `TransitGatewayConnectPeerAssociation`: `"TransitGatewayConnectPeerAssociationTypeDef"`
+
+
+## BandwidthTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import BandwidthTypeDef
+```
+
+
+
+
+Optional fields:
+- `UploadSpeed`: `int`
+- `DownloadSpeed`: `int`
+
+
+## ConnectionTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import ConnectionTypeDef
+```
+
+
+
+
+Optional fields:
+- `ConnectionId`: `str`
+- `ConnectionArn`: `str`
+- `GlobalNetworkId`: `str`
+- `DeviceId`: `str`
+- `ConnectedDeviceId`: `str`
+- `LinkId`: `str`
+- `ConnectedLinkId`: `str`
+- `Description`: `str`
+- `CreatedAt`: `datetime`
+- `State`: `ConnectionState`
+- `Tags`: `List["TagTypeDef"]`
 
 
 ## CreateConnectionResponseTypeDef
@@ -403,6 +208,23 @@ from mypy_boto3_networkmanager.type_defs import CreateSiteResponseTypeDef
 
 Optional fields:
 - `Site`: `"SiteTypeDef"`
+
+
+## CustomerGatewayAssociationTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import CustomerGatewayAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `CustomerGatewayArn`: `str`
+- `GlobalNetworkId`: `str`
+- `DeviceId`: `str`
+- `LinkId`: `str`
+- `State`: `CustomerGatewayAssociationState`
 
 
 ## DeleteConnectionResponseTypeDef
@@ -495,6 +317,32 @@ from mypy_boto3_networkmanager.type_defs import DescribeGlobalNetworksResponseTy
 Optional fields:
 - `GlobalNetworks`: `List["GlobalNetworkTypeDef"]`
 - `NextToken`: `str`
+
+
+## DeviceTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import DeviceTypeDef
+```
+
+
+
+
+Optional fields:
+- `DeviceId`: `str`
+- `DeviceArn`: `str`
+- `GlobalNetworkId`: `str`
+- `AWSLocation`: `"AWSLocationTypeDef"`
+- `Description`: `str`
+- `Type`: `str`
+- `Vendor`: `str`
+- `Model`: `str`
+- `SerialNumber`: `str`
+- `Location`: `"LocationTypeDef"`
+- `SiteId`: `str`
+- `CreatedAt`: `datetime`
+- `State`: `DeviceState`
+- `Tags`: `List["TagTypeDef"]`
 
 
 ## DisassociateCustomerGatewayResponseTypeDef
@@ -648,6 +496,63 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## GlobalNetworkTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import GlobalNetworkTypeDef
+```
+
+
+
+
+Optional fields:
+- `GlobalNetworkId`: `str`
+- `GlobalNetworkArn`: `str`
+- `Description`: `str`
+- `CreatedAt`: `datetime`
+- `State`: `GlobalNetworkState`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## LinkAssociationTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import LinkAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `GlobalNetworkId`: `str`
+- `DeviceId`: `str`
+- `LinkId`: `str`
+- `LinkAssociationState`: `LinkAssociationState`
+
+
+## LinkTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import LinkTypeDef
+```
+
+
+
+
+Optional fields:
+- `LinkId`: `str`
+- `LinkArn`: `str`
+- `GlobalNetworkId`: `str`
+- `SiteId`: `str`
+- `Description`: `str`
+- `Type`: `str`
+- `Bandwidth`: `"BandwidthTypeDef"`
+- `Provider`: `str`
+- `CreatedAt`: `datetime`
+- `State`: `LinkState`
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## ListTagsForResourceResponseTypeDef
 
 ```python
@@ -659,6 +564,21 @@ from mypy_boto3_networkmanager.type_defs import ListTagsForResourceResponseTypeD
 
 Optional fields:
 - `TagList`: `List["TagTypeDef"]`
+
+
+## LocationTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import LocationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Address`: `str`
+- `Latitude`: `str`
+- `Longitude`: `str`
 
 
 ## PaginatorConfigTypeDef
@@ -687,6 +607,86 @@ from mypy_boto3_networkmanager.type_defs import RegisterTransitGatewayResponseTy
 
 Optional fields:
 - `TransitGatewayRegistration`: `"TransitGatewayRegistrationTypeDef"`
+
+
+## SiteTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import SiteTypeDef
+```
+
+
+
+
+Optional fields:
+- `SiteId`: `str`
+- `SiteArn`: `str`
+- `GlobalNetworkId`: `str`
+- `Description`: `str`
+- `Location`: `"LocationTypeDef"`
+- `CreatedAt`: `datetime`
+- `State`: `SiteState`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import TagTypeDef
+```
+
+
+
+
+Optional fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+## TransitGatewayConnectPeerAssociationTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import TransitGatewayConnectPeerAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransitGatewayConnectPeerArn`: `str`
+- `GlobalNetworkId`: `str`
+- `DeviceId`: `str`
+- `LinkId`: `str`
+- `State`: `TransitGatewayConnectPeerAssociationState`
+
+
+## TransitGatewayRegistrationStateReasonTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import TransitGatewayRegistrationStateReasonTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `TransitGatewayRegistrationState`
+- `Message`: `str`
+
+
+## TransitGatewayRegistrationTypeDef
+
+```python
+from mypy_boto3_networkmanager.type_defs import TransitGatewayRegistrationTypeDef
+```
+
+
+
+
+Optional fields:
+- `GlobalNetworkId`: `str`
+- `TransitGatewayArn`: `str`
+- `State`: `"TransitGatewayRegistrationStateReasonTypeDef"`
 
 
 ## UpdateConnectionResponseTypeDef

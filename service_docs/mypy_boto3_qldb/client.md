@@ -107,7 +107,7 @@ Type annotations for `boto3.client("qldb").create_ledger` method.
 def create_ledger(
     self,
     Name: str,
-    PermissionsMode: PermissionsMode,
+    PermissionsMode: Literal['ALLOW_ALL'],
     Tags: Dict[str, str] = None,
     DeletionProtection: bool = None
 ) -> CreateLedgerResponseTypeDef:
@@ -394,3 +394,6 @@ def update_ledger(
 ) -> UpdateLedgerResponseTypeDef:
     pass
 ```
+
+
+

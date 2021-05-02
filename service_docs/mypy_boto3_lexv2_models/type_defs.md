@@ -11,28 +11,66 @@ type annotations stubs module [mypy_boto3_lexv2_models](https://pypi.org/project
   - [BotAliasHistoryEventTypeDef](#botaliashistoryeventtypedef)
   - [BotAliasLocaleSettingsTypeDef](#botaliaslocalesettingstypedef)
   - [BotAliasSummaryTypeDef](#botaliassummarytypedef)
+  - [BotFilterTypeDef](#botfiltertypedef)
+  - [BotLocaleFilterTypeDef](#botlocalefiltertypedef)
   - [BotLocaleHistoryEventTypeDef](#botlocalehistoryeventtypedef)
+  - [BotLocaleSortByTypeDef](#botlocalesortbytypedef)
   - [BotLocaleSummaryTypeDef](#botlocalesummarytypedef)
+  - [BotSortByTypeDef](#botsortbytypedef)
   - [BotSummaryTypeDef](#botsummarytypedef)
   - [BotVersionLocaleDetailsTypeDef](#botversionlocaledetailstypedef)
+  - [BotVersionSortByTypeDef](#botversionsortbytypedef)
   - [BotVersionSummaryTypeDef](#botversionsummarytypedef)
+  - [BuildBotLocaleResponseTypeDef](#buildbotlocaleresponsetypedef)
+  - [BuiltInIntentSortByTypeDef](#builtinintentsortbytypedef)
   - [BuiltInIntentSummaryTypeDef](#builtinintentsummarytypedef)
+  - [BuiltInSlotTypeSortByTypeDef](#builtinslottypesortbytypedef)
   - [BuiltInSlotTypeSummaryTypeDef](#builtinslottypesummarytypedef)
   - [ButtonTypeDef](#buttontypedef)
   - [CloudWatchLogGroupLogDestinationTypeDef](#cloudwatchloggrouplogdestinationtypedef)
   - [CodeHookSpecificationTypeDef](#codehookspecificationtypedef)
   - [ConversationLogSettingsTypeDef](#conversationlogsettingstypedef)
+  - [CreateBotAliasResponseTypeDef](#createbotaliasresponsetypedef)
+  - [CreateBotLocaleResponseTypeDef](#createbotlocaleresponsetypedef)
+  - [CreateBotResponseTypeDef](#createbotresponsetypedef)
+  - [CreateBotVersionResponseTypeDef](#createbotversionresponsetypedef)
+  - [CreateIntentResponseTypeDef](#createintentresponsetypedef)
+  - [CreateSlotResponseTypeDef](#createslotresponsetypedef)
+  - [CreateSlotTypeResponseTypeDef](#createslottyperesponsetypedef)
   - [CustomPayloadTypeDef](#custompayloadtypedef)
   - [DataPrivacyTypeDef](#dataprivacytypedef)
+  - [DeleteBotAliasResponseTypeDef](#deletebotaliasresponsetypedef)
+  - [DeleteBotLocaleResponseTypeDef](#deletebotlocaleresponsetypedef)
+  - [DeleteBotResponseTypeDef](#deletebotresponsetypedef)
+  - [DeleteBotVersionResponseTypeDef](#deletebotversionresponsetypedef)
+  - [DescribeBotAliasResponseTypeDef](#describebotaliasresponsetypedef)
+  - [DescribeBotLocaleResponseTypeDef](#describebotlocaleresponsetypedef)
+  - [DescribeBotResponseTypeDef](#describebotresponsetypedef)
+  - [DescribeBotVersionResponseTypeDef](#describebotversionresponsetypedef)
+  - [DescribeIntentResponseTypeDef](#describeintentresponsetypedef)
+  - [DescribeSlotResponseTypeDef](#describeslotresponsetypedef)
+  - [DescribeSlotTypeResponseTypeDef](#describeslottyperesponsetypedef)
   - [DialogCodeHookSettingsTypeDef](#dialogcodehooksettingstypedef)
   - [FulfillmentCodeHookSettingsTypeDef](#fulfillmentcodehooksettingstypedef)
   - [ImageResponseCardTypeDef](#imageresponsecardtypedef)
   - [InputContextTypeDef](#inputcontexttypedef)
   - [IntentClosingSettingTypeDef](#intentclosingsettingtypedef)
   - [IntentConfirmationSettingTypeDef](#intentconfirmationsettingtypedef)
+  - [IntentFilterTypeDef](#intentfiltertypedef)
+  - [IntentSortByTypeDef](#intentsortbytypedef)
   - [IntentSummaryTypeDef](#intentsummarytypedef)
   - [KendraConfigurationTypeDef](#kendraconfigurationtypedef)
   - [LambdaCodeHookTypeDef](#lambdacodehooktypedef)
+  - [ListBotAliasesResponseTypeDef](#listbotaliasesresponsetypedef)
+  - [ListBotLocalesResponseTypeDef](#listbotlocalesresponsetypedef)
+  - [ListBotVersionsResponseTypeDef](#listbotversionsresponsetypedef)
+  - [ListBotsResponseTypeDef](#listbotsresponsetypedef)
+  - [ListBuiltInIntentsResponseTypeDef](#listbuiltinintentsresponsetypedef)
+  - [ListBuiltInSlotTypesResponseTypeDef](#listbuiltinslottypesresponsetypedef)
+  - [ListIntentsResponseTypeDef](#listintentsresponsetypedef)
+  - [ListSlotTypesResponseTypeDef](#listslottypesresponsetypedef)
+  - [ListSlotsResponseTypeDef](#listslotsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [MessageGroupTypeDef](#messagegrouptypedef)
   - [MessageTypeDef](#messagetypedef)
   - [ObfuscationSettingTypeDef](#obfuscationsettingtypedef)
@@ -47,8 +85,12 @@ type annotations stubs module [mypy_boto3_lexv2_models](https://pypi.org/project
   - [SentimentAnalysisSettingsTypeDef](#sentimentanalysissettingstypedef)
   - [SlotDefaultValueSpecificationTypeDef](#slotdefaultvaluespecificationtypedef)
   - [SlotDefaultValueTypeDef](#slotdefaultvaluetypedef)
+  - [SlotFilterTypeDef](#slotfiltertypedef)
   - [SlotPriorityTypeDef](#slotprioritytypedef)
+  - [SlotSortByTypeDef](#slotsortbytypedef)
   - [SlotSummaryTypeDef](#slotsummarytypedef)
+  - [SlotTypeFilterTypeDef](#slottypefiltertypedef)
+  - [SlotTypeSortByTypeDef](#slottypesortbytypedef)
   - [SlotTypeSummaryTypeDef](#slottypesummarytypedef)
   - [SlotTypeValueTypeDef](#slottypevaluetypedef)
   - [SlotValueElicitationSettingTypeDef](#slotvalueelicitationsettingtypedef)
@@ -57,56 +99,14 @@ type annotations stubs module [mypy_boto3_lexv2_models](https://pypi.org/project
   - [StillWaitingResponseSpecificationTypeDef](#stillwaitingresponsespecificationtypedef)
   - [TextLogDestinationTypeDef](#textlogdestinationtypedef)
   - [TextLogSettingTypeDef](#textlogsettingtypedef)
-  - [VoiceSettingsTypeDef](#voicesettingstypedef)
-  - [WaitAndContinueSpecificationTypeDef](#waitandcontinuespecificationtypedef)
-  - [BotFilterTypeDef](#botfiltertypedef)
-  - [BotLocaleFilterTypeDef](#botlocalefiltertypedef)
-  - [BotLocaleSortByTypeDef](#botlocalesortbytypedef)
-  - [BotSortByTypeDef](#botsortbytypedef)
-  - [BotVersionSortByTypeDef](#botversionsortbytypedef)
-  - [BuildBotLocaleResponseTypeDef](#buildbotlocaleresponsetypedef)
-  - [BuiltInIntentSortByTypeDef](#builtinintentsortbytypedef)
-  - [BuiltInSlotTypeSortByTypeDef](#builtinslottypesortbytypedef)
-  - [CreateBotAliasResponseTypeDef](#createbotaliasresponsetypedef)
-  - [CreateBotLocaleResponseTypeDef](#createbotlocaleresponsetypedef)
-  - [CreateBotResponseTypeDef](#createbotresponsetypedef)
-  - [CreateBotVersionResponseTypeDef](#createbotversionresponsetypedef)
-  - [CreateIntentResponseTypeDef](#createintentresponsetypedef)
-  - [CreateSlotResponseTypeDef](#createslotresponsetypedef)
-  - [CreateSlotTypeResponseTypeDef](#createslottyperesponsetypedef)
-  - [DeleteBotAliasResponseTypeDef](#deletebotaliasresponsetypedef)
-  - [DeleteBotLocaleResponseTypeDef](#deletebotlocaleresponsetypedef)
-  - [DeleteBotResponseTypeDef](#deletebotresponsetypedef)
-  - [DeleteBotVersionResponseTypeDef](#deletebotversionresponsetypedef)
-  - [DescribeBotAliasResponseTypeDef](#describebotaliasresponsetypedef)
-  - [DescribeBotLocaleResponseTypeDef](#describebotlocaleresponsetypedef)
-  - [DescribeBotResponseTypeDef](#describebotresponsetypedef)
-  - [DescribeBotVersionResponseTypeDef](#describebotversionresponsetypedef)
-  - [DescribeIntentResponseTypeDef](#describeintentresponsetypedef)
-  - [DescribeSlotResponseTypeDef](#describeslotresponsetypedef)
-  - [DescribeSlotTypeResponseTypeDef](#describeslottyperesponsetypedef)
-  - [IntentFilterTypeDef](#intentfiltertypedef)
-  - [IntentSortByTypeDef](#intentsortbytypedef)
-  - [ListBotAliasesResponseTypeDef](#listbotaliasesresponsetypedef)
-  - [ListBotLocalesResponseTypeDef](#listbotlocalesresponsetypedef)
-  - [ListBotVersionsResponseTypeDef](#listbotversionsresponsetypedef)
-  - [ListBotsResponseTypeDef](#listbotsresponsetypedef)
-  - [ListBuiltInIntentsResponseTypeDef](#listbuiltinintentsresponsetypedef)
-  - [ListBuiltInSlotTypesResponseTypeDef](#listbuiltinslottypesresponsetypedef)
-  - [ListIntentsResponseTypeDef](#listintentsresponsetypedef)
-  - [ListSlotTypesResponseTypeDef](#listslottypesresponsetypedef)
-  - [ListSlotsResponseTypeDef](#listslotsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [SlotFilterTypeDef](#slotfiltertypedef)
-  - [SlotSortByTypeDef](#slotsortbytypedef)
-  - [SlotTypeFilterTypeDef](#slottypefiltertypedef)
-  - [SlotTypeSortByTypeDef](#slottypesortbytypedef)
   - [UpdateBotAliasResponseTypeDef](#updatebotaliasresponsetypedef)
   - [UpdateBotLocaleResponseTypeDef](#updatebotlocaleresponsetypedef)
   - [UpdateBotResponseTypeDef](#updatebotresponsetypedef)
   - [UpdateIntentResponseTypeDef](#updateintentresponsetypedef)
   - [UpdateSlotResponseTypeDef](#updateslotresponsetypedef)
   - [UpdateSlotTypeResponseTypeDef](#updateslottyperesponsetypedef)
+  - [VoiceSettingsTypeDef](#voicesettingstypedef)
+  - [WaitAndContinueSpecificationTypeDef](#waitandcontinuespecificationtypedef)
 
 ## AudioLogDestinationTypeDef
 
@@ -185,6 +185,36 @@ Optional fields:
 - `lastUpdatedDateTime`: `datetime`
 
 
+## BotFilterTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import BotFilterTypeDef
+```
+
+
+Required fields:
+- `name`: `Literal['BotName']`
+- `values`: `List[str]`
+- `operator`: `BotFilterOperator`
+
+
+
+
+## BotLocaleFilterTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import BotLocaleFilterTypeDef
+```
+
+
+Required fields:
+- `name`: `Literal['BotLocaleName']`
+- `values`: `List[str]`
+- `operator`: `BotLocaleFilterOperator`
+
+
+
+
 ## BotLocaleHistoryEventTypeDef
 
 ```python
@@ -195,6 +225,20 @@ from mypy_boto3_lexv2_models.type_defs import BotLocaleHistoryEventTypeDef
 Required fields:
 - `event`: `str`
 - `eventDate`: `datetime`
+
+
+
+
+## BotLocaleSortByTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import BotLocaleSortByTypeDef
+```
+
+
+Required fields:
+- `attribute`: `Literal['BotLocaleName']`
+- `order`: `SortOrder`
 
 
 
@@ -215,6 +259,20 @@ Optional fields:
 - `botLocaleStatus`: `BotLocaleStatus`
 - `lastUpdatedDateTime`: `datetime`
 - `lastBuildSubmittedDateTime`: `datetime`
+
+
+## BotSortByTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import BotSortByTypeDef
+```
+
+
+Required fields:
+- `attribute`: `Literal['BotName']`
+- `order`: `SortOrder`
+
+
 
 
 ## BotSummaryTypeDef
@@ -248,6 +306,20 @@ Required fields:
 
 
 
+## BotVersionSortByTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import BotVersionSortByTypeDef
+```
+
+
+Required fields:
+- `attribute`: `Literal['BotVersion']`
+- `order`: `SortOrder`
+
+
+
+
 ## BotVersionSummaryTypeDef
 
 ```python
@@ -265,6 +337,37 @@ Optional fields:
 - `creationDateTime`: `datetime`
 
 
+## BuildBotLocaleResponseTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import BuildBotLocaleResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `botId`: `str`
+- `botVersion`: `str`
+- `localeId`: `str`
+- `botLocaleStatus`: `BotLocaleStatus`
+- `lastBuildSubmittedDateTime`: `datetime`
+
+
+## BuiltInIntentSortByTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import BuiltInIntentSortByTypeDef
+```
+
+
+Required fields:
+- `attribute`: `Literal['IntentSignature']`
+- `order`: `SortOrder`
+
+
+
+
 ## BuiltInIntentSummaryTypeDef
 
 ```python
@@ -277,6 +380,20 @@ from mypy_boto3_lexv2_models.type_defs import BuiltInIntentSummaryTypeDef
 Optional fields:
 - `intentSignature`: `str`
 - `description`: `str`
+
+
+## BuiltInSlotTypeSortByTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import BuiltInSlotTypeSortByTypeDef
+```
+
+
+Required fields:
+- `attribute`: `Literal['SlotTypeSignature']`
+- `order`: `SortOrder`
+
+
 
 
 ## BuiltInSlotTypeSummaryTypeDef
@@ -346,671 +463,6 @@ from mypy_boto3_lexv2_models.type_defs import ConversationLogSettingsTypeDef
 Optional fields:
 - `textLogSettings`: `List["TextLogSettingTypeDef"]`
 - `audioLogSettings`: `List["AudioLogSettingTypeDef"]`
-
-
-## CustomPayloadTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import CustomPayloadTypeDef
-```
-
-
-Required fields:
-- `value`: `str`
-
-
-
-
-## DataPrivacyTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import DataPrivacyTypeDef
-```
-
-
-Required fields:
-- `childDirected`: `bool`
-
-
-
-
-## DialogCodeHookSettingsTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import DialogCodeHookSettingsTypeDef
-```
-
-
-Required fields:
-- `enabled`: `bool`
-
-
-
-
-## FulfillmentCodeHookSettingsTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import FulfillmentCodeHookSettingsTypeDef
-```
-
-
-Required fields:
-- `enabled`: `bool`
-
-
-
-
-## ImageResponseCardTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import ImageResponseCardTypeDef
-```
-
-
-Required fields:
-- `title`: `str`
-
-
-
-Optional fields:
-- `subtitle`: `str`
-- `imageUrl`: `str`
-- `buttons`: `List["ButtonTypeDef"]`
-
-
-## InputContextTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import InputContextTypeDef
-```
-
-
-Required fields:
-- `name`: `str`
-
-
-
-
-## IntentClosingSettingTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import IntentClosingSettingTypeDef
-```
-
-
-Required fields:
-- `closingResponse`: `"ResponseSpecificationTypeDef"`
-
-
-
-
-## IntentConfirmationSettingTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import IntentConfirmationSettingTypeDef
-```
-
-
-Required fields:
-- `promptSpecification`: `"PromptSpecificationTypeDef"`
-- `declinationResponse`: `"ResponseSpecificationTypeDef"`
-
-
-
-
-## IntentSummaryTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import IntentSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `intentId`: `str`
-- `intentName`: `str`
-- `description`: `str`
-- `parentIntentSignature`: `str`
-- `inputContexts`: `List["InputContextTypeDef"]`
-- `outputContexts`: `List["OutputContextTypeDef"]`
-- `lastUpdatedDateTime`: `datetime`
-
-
-## KendraConfigurationTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import KendraConfigurationTypeDef
-```
-
-
-Required fields:
-- `kendraIndex`: `str`
-
-
-
-Optional fields:
-- `queryFilterStringEnabled`: `bool`
-- `queryFilterString`: `str`
-
-
-## LambdaCodeHookTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import LambdaCodeHookTypeDef
-```
-
-
-Required fields:
-- `lambdaARN`: `str`
-- `codeHookInterfaceVersion`: `str`
-
-
-
-
-## MessageGroupTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import MessageGroupTypeDef
-```
-
-
-Required fields:
-- `message`: `"MessageTypeDef"`
-
-
-
-Optional fields:
-- `variations`: `List["MessageTypeDef"]`
-
-
-## MessageTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import MessageTypeDef
-```
-
-
-
-
-Optional fields:
-- `plainTextMessage`: `"PlainTextMessageTypeDef"`
-- `customPayload`: `"CustomPayloadTypeDef"`
-- `ssmlMessage`: `"SSMLMessageTypeDef"`
-- `imageResponseCard`: `"ImageResponseCardTypeDef"`
-
-
-## ObfuscationSettingTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import ObfuscationSettingTypeDef
-```
-
-
-Required fields:
-- `obfuscationSettingType`: `ObfuscationSettingType`
-
-
-
-
-## OutputContextTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import OutputContextTypeDef
-```
-
-
-Required fields:
-- `name`: `str`
-- `timeToLiveInSeconds`: `int`
-- `turnsToLive`: `int`
-
-
-
-
-## PlainTextMessageTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import PlainTextMessageTypeDef
-```
-
-
-Required fields:
-- `value`: `str`
-
-
-
-
-## PromptSpecificationTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import PromptSpecificationTypeDef
-```
-
-
-Required fields:
-- `messageGroups`: `List["MessageGroupTypeDef"]`
-- `maxRetries`: `int`
-
-
-
-Optional fields:
-- `allowInterrupt`: `bool`
-
-
-## ResponseSpecificationTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import ResponseSpecificationTypeDef
-```
-
-
-Required fields:
-- `messageGroups`: `List["MessageGroupTypeDef"]`
-
-
-
-Optional fields:
-- `allowInterrupt`: `bool`
-
-
-## S3BucketLogDestinationTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import S3BucketLogDestinationTypeDef
-```
-
-
-Required fields:
-- `s3BucketArn`: `str`
-- `logPrefix`: `str`
-
-
-
-Optional fields:
-- `kmsKeyArn`: `str`
-
-
-## SSMLMessageTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SSMLMessageTypeDef
-```
-
-
-Required fields:
-- `value`: `str`
-
-
-
-
-## SampleUtteranceTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SampleUtteranceTypeDef
-```
-
-
-Required fields:
-- `utterance`: `str`
-
-
-
-
-## SampleValueTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SampleValueTypeDef
-```
-
-
-Required fields:
-- `value`: `str`
-
-
-
-
-## SentimentAnalysisSettingsTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SentimentAnalysisSettingsTypeDef
-```
-
-
-Required fields:
-- `detectSentiment`: `bool`
-
-
-
-
-## SlotDefaultValueSpecificationTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SlotDefaultValueSpecificationTypeDef
-```
-
-
-Required fields:
-- `defaultValueList`: `List["SlotDefaultValueTypeDef"]`
-
-
-
-
-## SlotDefaultValueTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SlotDefaultValueTypeDef
-```
-
-
-Required fields:
-- `defaultValue`: `str`
-
-
-
-
-## SlotPriorityTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SlotPriorityTypeDef
-```
-
-
-Required fields:
-- `priority`: `int`
-- `slotId`: `str`
-
-
-
-
-## SlotSummaryTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SlotSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `slotId`: `str`
-- `slotName`: `str`
-- `description`: `str`
-- `slotConstraint`: `SlotConstraint`
-- `slotTypeId`: `str`
-- `valueElicitationPromptSpecification`: `"PromptSpecificationTypeDef"`
-- `lastUpdatedDateTime`: `datetime`
-
-
-## SlotTypeSummaryTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SlotTypeSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `slotTypeId`: `str`
-- `slotTypeName`: `str`
-- `description`: `str`
-- `parentSlotTypeSignature`: `str`
-- `lastUpdatedDateTime`: `datetime`
-
-
-## SlotTypeValueTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SlotTypeValueTypeDef
-```
-
-
-
-
-Optional fields:
-- `sampleValue`: `"SampleValueTypeDef"`
-- `synonyms`: `List["SampleValueTypeDef"]`
-
-
-## SlotValueElicitationSettingTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SlotValueElicitationSettingTypeDef
-```
-
-
-Required fields:
-- `slotConstraint`: `SlotConstraint`
-
-
-
-Optional fields:
-- `defaultValueSpecification`: `"SlotDefaultValueSpecificationTypeDef"`
-- `promptSpecification`: `"PromptSpecificationTypeDef"`
-- `sampleUtterances`: `List["SampleUtteranceTypeDef"]`
-- `waitAndContinueSpecification`: `"WaitAndContinueSpecificationTypeDef"`
-
-
-## SlotValueRegexFilterTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SlotValueRegexFilterTypeDef
-```
-
-
-Required fields:
-- `pattern`: `str`
-
-
-
-
-## SlotValueSelectionSettingTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import SlotValueSelectionSettingTypeDef
-```
-
-
-Required fields:
-- `resolutionStrategy`: `SlotValueResolutionStrategy`
-
-
-
-Optional fields:
-- `regexFilter`: `"SlotValueRegexFilterTypeDef"`
-
-
-## StillWaitingResponseSpecificationTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import StillWaitingResponseSpecificationTypeDef
-```
-
-
-Required fields:
-- `messageGroups`: `List["MessageGroupTypeDef"]`
-- `frequencyInSeconds`: `int`
-- `timeoutInSeconds`: `int`
-
-
-
-Optional fields:
-- `allowInterrupt`: `bool`
-
-
-## TextLogDestinationTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import TextLogDestinationTypeDef
-```
-
-
-Required fields:
-- `cloudWatch`: `"CloudWatchLogGroupLogDestinationTypeDef"`
-
-
-
-
-## TextLogSettingTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import TextLogSettingTypeDef
-```
-
-
-Required fields:
-- `enabled`: `bool`
-- `destination`: `"TextLogDestinationTypeDef"`
-
-
-
-
-## VoiceSettingsTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import VoiceSettingsTypeDef
-```
-
-
-Required fields:
-- `voiceId`: `str`
-
-
-
-
-## WaitAndContinueSpecificationTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import WaitAndContinueSpecificationTypeDef
-```
-
-
-Required fields:
-- `waitingResponse`: `"ResponseSpecificationTypeDef"`
-- `continueResponse`: `"ResponseSpecificationTypeDef"`
-
-
-
-Optional fields:
-- `stillWaitingResponse`: `"StillWaitingResponseSpecificationTypeDef"`
-
-
-## BotFilterTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import BotFilterTypeDef
-```
-
-
-Required fields:
-- `name`: `BotFilterName`
-- `values`: `List[str]`
-- `operator`: `BotFilterOperator`
-
-
-
-
-## BotLocaleFilterTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import BotLocaleFilterTypeDef
-```
-
-
-Required fields:
-- `name`: `BotLocaleFilterName`
-- `values`: `List[str]`
-- `operator`: `BotLocaleFilterOperator`
-
-
-
-
-## BotLocaleSortByTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import BotLocaleSortByTypeDef
-```
-
-
-Required fields:
-- `attribute`: `BotLocaleSortAttribute`
-- `order`: `SortOrder`
-
-
-
-
-## BotSortByTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import BotSortByTypeDef
-```
-
-
-Required fields:
-- `attribute`: `BotSortAttribute`
-- `order`: `SortOrder`
-
-
-
-
-## BotVersionSortByTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import BotVersionSortByTypeDef
-```
-
-
-Required fields:
-- `attribute`: `BotVersionSortAttribute`
-- `order`: `SortOrder`
-
-
-
-
-## BuildBotLocaleResponseTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import BuildBotLocaleResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `botId`: `str`
-- `botVersion`: `str`
-- `localeId`: `str`
-- `botLocaleStatus`: `BotLocaleStatus`
-- `lastBuildSubmittedDateTime`: `datetime`
-
-
-## BuiltInIntentSortByTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import BuiltInIntentSortByTypeDef
-```
-
-
-Required fields:
-- `attribute`: `BuiltInIntentSortAttribute`
-- `order`: `SortOrder`
-
-
-
-
-## BuiltInSlotTypeSortByTypeDef
-
-```python
-from mypy_boto3_lexv2_models.type_defs import BuiltInSlotTypeSortByTypeDef
-```
-
-
-Required fields:
-- `attribute`: `BuiltInSlotTypeSortAttribute`
-- `order`: `SortOrder`
-
-
 
 
 ## CreateBotAliasResponseTypeDef
@@ -1168,6 +620,32 @@ Optional fields:
 - `botVersion`: `str`
 - `localeId`: `str`
 - `creationDateTime`: `datetime`
+
+
+## CustomPayloadTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import CustomPayloadTypeDef
+```
+
+
+Required fields:
+- `value`: `str`
+
+
+
+
+## DataPrivacyTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import DataPrivacyTypeDef
+```
+
+
+Required fields:
+- `childDirected`: `bool`
+
+
 
 
 ## DeleteBotAliasResponseTypeDef
@@ -1401,6 +879,90 @@ Optional fields:
 - `lastUpdatedDateTime`: `datetime`
 
 
+## DialogCodeHookSettingsTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import DialogCodeHookSettingsTypeDef
+```
+
+
+Required fields:
+- `enabled`: `bool`
+
+
+
+
+## FulfillmentCodeHookSettingsTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import FulfillmentCodeHookSettingsTypeDef
+```
+
+
+Required fields:
+- `enabled`: `bool`
+
+
+
+
+## ImageResponseCardTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import ImageResponseCardTypeDef
+```
+
+
+Required fields:
+- `title`: `str`
+
+
+
+Optional fields:
+- `subtitle`: `str`
+- `imageUrl`: `str`
+- `buttons`: `List["ButtonTypeDef"]`
+
+
+## InputContextTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import InputContextTypeDef
+```
+
+
+Required fields:
+- `name`: `str`
+
+
+
+
+## IntentClosingSettingTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import IntentClosingSettingTypeDef
+```
+
+
+Required fields:
+- `closingResponse`: `"ResponseSpecificationTypeDef"`
+
+
+
+
+## IntentConfirmationSettingTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import IntentConfirmationSettingTypeDef
+```
+
+
+Required fields:
+- `promptSpecification`: `"PromptSpecificationTypeDef"`
+- `declinationResponse`: `"ResponseSpecificationTypeDef"`
+
+
+
+
 ## IntentFilterTypeDef
 
 ```python
@@ -1409,7 +971,7 @@ from mypy_boto3_lexv2_models.type_defs import IntentFilterTypeDef
 
 
 Required fields:
-- `name`: `IntentFilterName`
+- `name`: `Literal['IntentName']`
 - `values`: `List[str]`
 - `operator`: `IntentFilterOperator`
 
@@ -1426,6 +988,56 @@ from mypy_boto3_lexv2_models.type_defs import IntentSortByTypeDef
 Required fields:
 - `attribute`: `IntentSortAttribute`
 - `order`: `SortOrder`
+
+
+
+
+## IntentSummaryTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import IntentSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `intentId`: `str`
+- `intentName`: `str`
+- `description`: `str`
+- `parentIntentSignature`: `str`
+- `inputContexts`: `List["InputContextTypeDef"]`
+- `outputContexts`: `List["OutputContextTypeDef"]`
+- `lastUpdatedDateTime`: `datetime`
+
+
+## KendraConfigurationTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import KendraConfigurationTypeDef
+```
+
+
+Required fields:
+- `kendraIndex`: `str`
+
+
+
+Optional fields:
+- `queryFilterStringEnabled`: `bool`
+- `queryFilterString`: `str`
+
+
+## LambdaCodeHookTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import LambdaCodeHookTypeDef
+```
+
+
+Required fields:
+- `lambdaARN`: `str`
+- `codeHookInterfaceVersion`: `str`
 
 
 
@@ -1585,6 +1197,207 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
+## MessageGroupTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import MessageGroupTypeDef
+```
+
+
+Required fields:
+- `message`: `"MessageTypeDef"`
+
+
+
+Optional fields:
+- `variations`: `List["MessageTypeDef"]`
+
+
+## MessageTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import MessageTypeDef
+```
+
+
+
+
+Optional fields:
+- `plainTextMessage`: `"PlainTextMessageTypeDef"`
+- `customPayload`: `"CustomPayloadTypeDef"`
+- `ssmlMessage`: `"SSMLMessageTypeDef"`
+- `imageResponseCard`: `"ImageResponseCardTypeDef"`
+
+
+## ObfuscationSettingTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import ObfuscationSettingTypeDef
+```
+
+
+Required fields:
+- `obfuscationSettingType`: `ObfuscationSettingType`
+
+
+
+
+## OutputContextTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import OutputContextTypeDef
+```
+
+
+Required fields:
+- `name`: `str`
+- `timeToLiveInSeconds`: `int`
+- `turnsToLive`: `int`
+
+
+
+
+## PlainTextMessageTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import PlainTextMessageTypeDef
+```
+
+
+Required fields:
+- `value`: `str`
+
+
+
+
+## PromptSpecificationTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import PromptSpecificationTypeDef
+```
+
+
+Required fields:
+- `messageGroups`: `List["MessageGroupTypeDef"]`
+- `maxRetries`: `int`
+
+
+
+Optional fields:
+- `allowInterrupt`: `bool`
+
+
+## ResponseSpecificationTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import ResponseSpecificationTypeDef
+```
+
+
+Required fields:
+- `messageGroups`: `List["MessageGroupTypeDef"]`
+
+
+
+Optional fields:
+- `allowInterrupt`: `bool`
+
+
+## S3BucketLogDestinationTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import S3BucketLogDestinationTypeDef
+```
+
+
+Required fields:
+- `s3BucketArn`: `str`
+- `logPrefix`: `str`
+
+
+
+Optional fields:
+- `kmsKeyArn`: `str`
+
+
+## SSMLMessageTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SSMLMessageTypeDef
+```
+
+
+Required fields:
+- `value`: `str`
+
+
+
+
+## SampleUtteranceTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SampleUtteranceTypeDef
+```
+
+
+Required fields:
+- `utterance`: `str`
+
+
+
+
+## SampleValueTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SampleValueTypeDef
+```
+
+
+Required fields:
+- `value`: `str`
+
+
+
+
+## SentimentAnalysisSettingsTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SentimentAnalysisSettingsTypeDef
+```
+
+
+Required fields:
+- `detectSentiment`: `bool`
+
+
+
+
+## SlotDefaultValueSpecificationTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SlotDefaultValueSpecificationTypeDef
+```
+
+
+Required fields:
+- `defaultValueList`: `List["SlotDefaultValueTypeDef"]`
+
+
+
+
+## SlotDefaultValueTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SlotDefaultValueTypeDef
+```
+
+
+Required fields:
+- `defaultValue`: `str`
+
+
+
+
 ## SlotFilterTypeDef
 
 ```python
@@ -1593,9 +1406,23 @@ from mypy_boto3_lexv2_models.type_defs import SlotFilterTypeDef
 
 
 Required fields:
-- `name`: `SlotFilterName`
+- `name`: `Literal['SlotName']`
 - `values`: `List[str]`
 - `operator`: `SlotFilterOperator`
+
+
+
+
+## SlotPriorityTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SlotPriorityTypeDef
+```
+
+
+Required fields:
+- `priority`: `int`
+- `slotId`: `str`
 
 
 
@@ -1614,6 +1441,25 @@ Required fields:
 
 
 
+## SlotSummaryTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SlotSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `slotId`: `str`
+- `slotName`: `str`
+- `description`: `str`
+- `slotConstraint`: `SlotConstraint`
+- `slotTypeId`: `str`
+- `valueElicitationPromptSpecification`: `"PromptSpecificationTypeDef"`
+- `lastUpdatedDateTime`: `datetime`
+
+
 ## SlotTypeFilterTypeDef
 
 ```python
@@ -1622,7 +1468,7 @@ from mypy_boto3_lexv2_models.type_defs import SlotTypeFilterTypeDef
 
 
 Required fields:
-- `name`: `SlotTypeFilterName`
+- `name`: `Literal['SlotTypeName']`
 - `values`: `List[str]`
 - `operator`: `SlotTypeFilterOperator`
 
@@ -1639,6 +1485,130 @@ from mypy_boto3_lexv2_models.type_defs import SlotTypeSortByTypeDef
 Required fields:
 - `attribute`: `SlotTypeSortAttribute`
 - `order`: `SortOrder`
+
+
+
+
+## SlotTypeSummaryTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SlotTypeSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `slotTypeId`: `str`
+- `slotTypeName`: `str`
+- `description`: `str`
+- `parentSlotTypeSignature`: `str`
+- `lastUpdatedDateTime`: `datetime`
+
+
+## SlotTypeValueTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SlotTypeValueTypeDef
+```
+
+
+
+
+Optional fields:
+- `sampleValue`: `"SampleValueTypeDef"`
+- `synonyms`: `List["SampleValueTypeDef"]`
+
+
+## SlotValueElicitationSettingTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SlotValueElicitationSettingTypeDef
+```
+
+
+Required fields:
+- `slotConstraint`: `SlotConstraint`
+
+
+
+Optional fields:
+- `defaultValueSpecification`: `"SlotDefaultValueSpecificationTypeDef"`
+- `promptSpecification`: `"PromptSpecificationTypeDef"`
+- `sampleUtterances`: `List["SampleUtteranceTypeDef"]`
+- `waitAndContinueSpecification`: `"WaitAndContinueSpecificationTypeDef"`
+
+
+## SlotValueRegexFilterTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SlotValueRegexFilterTypeDef
+```
+
+
+Required fields:
+- `pattern`: `str`
+
+
+
+
+## SlotValueSelectionSettingTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import SlotValueSelectionSettingTypeDef
+```
+
+
+Required fields:
+- `resolutionStrategy`: `SlotValueResolutionStrategy`
+
+
+
+Optional fields:
+- `regexFilter`: `"SlotValueRegexFilterTypeDef"`
+
+
+## StillWaitingResponseSpecificationTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import StillWaitingResponseSpecificationTypeDef
+```
+
+
+Required fields:
+- `messageGroups`: `List["MessageGroupTypeDef"]`
+- `frequencyInSeconds`: `int`
+- `timeoutInSeconds`: `int`
+
+
+
+Optional fields:
+- `allowInterrupt`: `bool`
+
+
+## TextLogDestinationTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import TextLogDestinationTypeDef
+```
+
+
+Required fields:
+- `cloudWatch`: `"CloudWatchLogGroupLogDestinationTypeDef"`
+
+
+
+
+## TextLogSettingTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import TextLogSettingTypeDef
+```
+
+
+Required fields:
+- `enabled`: `bool`
+- `destination`: `"TextLogDestinationTypeDef"`
 
 
 
@@ -1785,4 +1755,34 @@ Optional fields:
 - `localeId`: `str`
 - `creationDateTime`: `datetime`
 - `lastUpdatedDateTime`: `datetime`
+
+
+## VoiceSettingsTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import VoiceSettingsTypeDef
+```
+
+
+Required fields:
+- `voiceId`: `str`
+
+
+
+
+## WaitAndContinueSpecificationTypeDef
+
+```python
+from mypy_boto3_lexv2_models.type_defs import WaitAndContinueSpecificationTypeDef
+```
+
+
+Required fields:
+- `waitingResponse`: `"ResponseSpecificationTypeDef"`
+- `continueResponse`: `"ResponseSpecificationTypeDef"`
+
+
+
+Optional fields:
+- `stillWaitingResponse`: `"StillWaitingResponseSpecificationTypeDef"`
 

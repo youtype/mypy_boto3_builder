@@ -6,29 +6,42 @@ Auto-generated documentation for [LakeFormation](https://boto3.amazonaws.com/v1/
 type annotations stubs module [mypy_boto3_lakeformation](https://pypi.org/project/mypy-boto3-lakeformation/).
 
 - [Structures for boto3 LakeFormation module](#structures-for-boto3-lakeformation-module)
+  - [BatchGrantPermissionsResponseTypeDef](#batchgrantpermissionsresponsetypedef)
   - [BatchPermissionsFailureEntryTypeDef](#batchpermissionsfailureentrytypedef)
   - [BatchPermissionsRequestEntryTypeDef](#batchpermissionsrequestentrytypedef)
+  - [BatchRevokePermissionsResponseTypeDef](#batchrevokepermissionsresponsetypedef)
   - [ColumnWildcardTypeDef](#columnwildcardtypedef)
   - [DataLakePrincipalTypeDef](#datalakeprincipaltypedef)
   - [DataLakeSettingsTypeDef](#datalakesettingstypedef)
   - [DataLocationResourceTypeDef](#datalocationresourcetypedef)
   - [DatabaseResourceTypeDef](#databaseresourcetypedef)
+  - [DescribeResourceResponseTypeDef](#describeresourceresponsetypedef)
   - [DetailsMapTypeDef](#detailsmaptypedef)
   - [ErrorDetailTypeDef](#errordetailtypedef)
+  - [FilterConditionTypeDef](#filterconditiontypedef)
+  - [GetDataLakeSettingsResponseTypeDef](#getdatalakesettingsresponsetypedef)
+  - [GetEffectivePermissionsForPathResponseTypeDef](#geteffectivepermissionsforpathresponsetypedef)
+  - [ListPermissionsResponseTypeDef](#listpermissionsresponsetypedef)
+  - [ListResourcesResponseTypeDef](#listresourcesresponsetypedef)
   - [PrincipalPermissionsTypeDef](#principalpermissionstypedef)
   - [PrincipalResourcePermissionsTypeDef](#principalresourcepermissionstypedef)
   - [ResourceInfoTypeDef](#resourceinfotypedef)
   - [ResourceTypeDef](#resourcetypedef)
   - [TableResourceTypeDef](#tableresourcetypedef)
   - [TableWithColumnsResourceTypeDef](#tablewithcolumnsresourcetypedef)
-  - [BatchGrantPermissionsResponseTypeDef](#batchgrantpermissionsresponsetypedef)
-  - [BatchRevokePermissionsResponseTypeDef](#batchrevokepermissionsresponsetypedef)
-  - [DescribeResourceResponseTypeDef](#describeresourceresponsetypedef)
-  - [FilterConditionTypeDef](#filterconditiontypedef)
-  - [GetDataLakeSettingsResponseTypeDef](#getdatalakesettingsresponsetypedef)
-  - [GetEffectivePermissionsForPathResponseTypeDef](#geteffectivepermissionsforpathresponsetypedef)
-  - [ListPermissionsResponseTypeDef](#listpermissionsresponsetypedef)
-  - [ListResourcesResponseTypeDef](#listresourcesresponsetypedef)
+
+## BatchGrantPermissionsResponseTypeDef
+
+```python
+from mypy_boto3_lakeformation.type_defs import BatchGrantPermissionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Failures`: `List["BatchPermissionsFailureEntryTypeDef"]`
+
 
 ## BatchPermissionsFailureEntryTypeDef
 
@@ -61,6 +74,19 @@ Optional fields:
 - `Resource`: `"ResourceTypeDef"`
 - `Permissions`: `List[Permission]`
 - `PermissionsWithGrantOption`: `List[Permission]`
+
+
+## BatchRevokePermissionsResponseTypeDef
+
+```python
+from mypy_boto3_lakeformation.type_defs import BatchRevokePermissionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Failures`: `List["BatchPermissionsFailureEntryTypeDef"]`
 
 
 ## ColumnWildcardTypeDef
@@ -137,6 +163,19 @@ Optional fields:
 - `CatalogId`: `str`
 
 
+## DescribeResourceResponseTypeDef
+
+```python
+from mypy_boto3_lakeformation.type_defs import DescribeResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceInfo`: `"ResourceInfoTypeDef"`
+
+
 ## DetailsMapTypeDef
 
 ```python
@@ -162,6 +201,76 @@ from mypy_boto3_lakeformation.type_defs import ErrorDetailTypeDef
 Optional fields:
 - `ErrorCode`: `str`
 - `ErrorMessage`: `str`
+
+
+## FilterConditionTypeDef
+
+```python
+from mypy_boto3_lakeformation.type_defs import FilterConditionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Field`: `FieldNameString`
+- `ComparisonOperator`: `ComparisonOperator`
+- `StringValueList`: `List[str]`
+
+
+## GetDataLakeSettingsResponseTypeDef
+
+```python
+from mypy_boto3_lakeformation.type_defs import GetDataLakeSettingsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `DataLakeSettings`: `"DataLakeSettingsTypeDef"`
+
+
+## GetEffectivePermissionsForPathResponseTypeDef
+
+```python
+from mypy_boto3_lakeformation.type_defs import GetEffectivePermissionsForPathResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Permissions`: `List["PrincipalResourcePermissionsTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListPermissionsResponseTypeDef
+
+```python
+from mypy_boto3_lakeformation.type_defs import ListPermissionsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PrincipalResourcePermissions`: `List["PrincipalResourcePermissionsTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListResourcesResponseTypeDef
+
+```python
+from mypy_boto3_lakeformation.type_defs import ListResourcesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceInfoList`: `List["ResourceInfoTypeDef"]`
+- `NextToken`: `str`
 
 
 ## PrincipalPermissionsTypeDef
@@ -262,113 +371,4 @@ Optional fields:
 - `CatalogId`: `str`
 - `ColumnNames`: `List[str]`
 - `ColumnWildcard`: `"ColumnWildcardTypeDef"`
-
-
-## BatchGrantPermissionsResponseTypeDef
-
-```python
-from mypy_boto3_lakeformation.type_defs import BatchGrantPermissionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Failures`: `List["BatchPermissionsFailureEntryTypeDef"]`
-
-
-## BatchRevokePermissionsResponseTypeDef
-
-```python
-from mypy_boto3_lakeformation.type_defs import BatchRevokePermissionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Failures`: `List["BatchPermissionsFailureEntryTypeDef"]`
-
-
-## DescribeResourceResponseTypeDef
-
-```python
-from mypy_boto3_lakeformation.type_defs import DescribeResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceInfo`: `"ResourceInfoTypeDef"`
-
-
-## FilterConditionTypeDef
-
-```python
-from mypy_boto3_lakeformation.type_defs import FilterConditionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Field`: `FieldNameString`
-- `ComparisonOperator`: `ComparisonOperator`
-- `StringValueList`: `List[str]`
-
-
-## GetDataLakeSettingsResponseTypeDef
-
-```python
-from mypy_boto3_lakeformation.type_defs import GetDataLakeSettingsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `DataLakeSettings`: `"DataLakeSettingsTypeDef"`
-
-
-## GetEffectivePermissionsForPathResponseTypeDef
-
-```python
-from mypy_boto3_lakeformation.type_defs import GetEffectivePermissionsForPathResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Permissions`: `List["PrincipalResourcePermissionsTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListPermissionsResponseTypeDef
-
-```python
-from mypy_boto3_lakeformation.type_defs import ListPermissionsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PrincipalResourcePermissions`: `List["PrincipalResourcePermissionsTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListResourcesResponseTypeDef
-
-```python
-from mypy_boto3_lakeformation.type_defs import ListResourcesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceInfoList`: `List["ResourceInfoTypeDef"]`
-- `NextToken`: `str`
 

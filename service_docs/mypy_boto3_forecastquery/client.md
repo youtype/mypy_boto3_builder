@@ -97,3 +97,6 @@ def query_forecast(
 ) -> QueryForecastResponseTypeDef:
     pass
 ```
+
+
+

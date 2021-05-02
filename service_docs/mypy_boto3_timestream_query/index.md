@@ -98,17 +98,17 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_timestream_query.type_defs import EndpointTypeDef, ...
+from mypy_boto3_timestream_query.type_defs import CancelQueryResponseTypeDef, ...
 ```
 
-- [EndpointTypeDef](./type_defs.md#endpointtypedef)
-- [QueryStatusTypeDef](./type_defs.md#querystatustypedef)
-- [TimeSeriesDataPointTypeDef](./type_defs.md#timeseriesdatapointtypedef)
-- [TypeTypeDef](./type_defs.md#typetypedef)
 - [CancelQueryResponseTypeDef](./type_defs.md#cancelqueryresponsetypedef)
-- [DescribeEndpointsResponseTypeDef](./type_defs.md#describeendpointsresponsetypedef)
-- [DatumTypeDef](./type_defs.md#datumtypedef)
-- [RowTypeDef](./type_defs.md#rowtypedef)
 - [ColumnInfoTypeDef](./type_defs.md#columninfotypedef)
+- [DatumTypeDef](./type_defs.md#datumtypedef)
+- [DescribeEndpointsResponseTypeDef](./type_defs.md#describeendpointsresponsetypedef)
+- [EndpointTypeDef](./type_defs.md#endpointtypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
 - [QueryResponseTypeDef](./type_defs.md#queryresponsetypedef)
+- [QueryStatusTypeDef](./type_defs.md#querystatustypedef)
+- [RowTypeDef](./type_defs.md#rowtypedef)
+- [TimeSeriesDataPointTypeDef](./type_defs.md#timeseriesdatapointtypedef)
+- [TypeTypeDef](./type_defs.md#typetypedef)

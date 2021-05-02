@@ -9,18 +9,18 @@ type annotations stubs module [mypy_boto3_lex_runtime](https://pypi.org/project/
   - [ActiveContextTimeToLiveTypeDef](#activecontexttimetolivetypedef)
   - [ActiveContextTypeDef](#activecontexttypedef)
   - [ButtonTypeDef](#buttontypedef)
+  - [DeleteSessionResponseTypeDef](#deletesessionresponsetypedef)
   - [DialogActionTypeDef](#dialogactiontypedef)
   - [GenericAttachmentTypeDef](#genericattachmenttypedef)
+  - [GetSessionResponseTypeDef](#getsessionresponsetypedef)
   - [IntentConfidenceTypeDef](#intentconfidencetypedef)
   - [IntentSummaryTypeDef](#intentsummarytypedef)
-  - [PredictedIntentTypeDef](#predictedintenttypedef)
-  - [ResponseCardTypeDef](#responsecardtypedef)
-  - [SentimentResponseTypeDef](#sentimentresponsetypedef)
-  - [DeleteSessionResponseTypeDef](#deletesessionresponsetypedef)
-  - [GetSessionResponseTypeDef](#getsessionresponsetypedef)
   - [PostContentResponseTypeDef](#postcontentresponsetypedef)
   - [PostTextResponseTypeDef](#posttextresponsetypedef)
+  - [PredictedIntentTypeDef](#predictedintenttypedef)
   - [PutSessionResponseTypeDef](#putsessionresponsetypedef)
+  - [ResponseCardTypeDef](#responsecardtypedef)
+  - [SentimentResponseTypeDef](#sentimentresponsetypedef)
 
 ## ActiveContextTimeToLiveTypeDef
 
@@ -65,6 +65,22 @@ Required fields:
 
 
 
+## DeleteSessionResponseTypeDef
+
+```python
+from mypy_boto3_lex_runtime.type_defs import DeleteSessionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `botName`: `str`
+- `botAlias`: `str`
+- `userId`: `str`
+- `sessionId`: `str`
+
+
 ## DialogActionTypeDef
 
 ```python
@@ -103,6 +119,23 @@ Optional fields:
 - `buttons`: `List["ButtonTypeDef"]`
 
 
+## GetSessionResponseTypeDef
+
+```python
+from mypy_boto3_lex_runtime.type_defs import GetSessionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `recentIntentSummaryView`: `List["IntentSummaryTypeDef"]`
+- `sessionAttributes`: `Dict[str, str]`
+- `sessionId`: `str`
+- `dialogAction`: `"DialogActionTypeDef"`
+- `activeContexts`: `List["ActiveContextTypeDef"]`
+
+
 ## IntentConfidenceTypeDef
 
 ```python
@@ -135,83 +168,6 @@ Optional fields:
 - `confirmationStatus`: `ConfirmationStatus`
 - `fulfillmentState`: `FulfillmentState`
 - `slotToElicit`: `str`
-
-
-## PredictedIntentTypeDef
-
-```python
-from mypy_boto3_lex_runtime.type_defs import PredictedIntentTypeDef
-```
-
-
-
-
-Optional fields:
-- `intentName`: `str`
-- `nluIntentConfidence`: `"IntentConfidenceTypeDef"`
-- `slots`: `Dict[str, str]`
-
-
-## ResponseCardTypeDef
-
-```python
-from mypy_boto3_lex_runtime.type_defs import ResponseCardTypeDef
-```
-
-
-
-
-Optional fields:
-- `version`: `str`
-- `contentType`: `ContentType`
-- `genericAttachments`: `List["GenericAttachmentTypeDef"]`
-
-
-## SentimentResponseTypeDef
-
-```python
-from mypy_boto3_lex_runtime.type_defs import SentimentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `sentimentLabel`: `str`
-- `sentimentScore`: `str`
-
-
-## DeleteSessionResponseTypeDef
-
-```python
-from mypy_boto3_lex_runtime.type_defs import DeleteSessionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `botName`: `str`
-- `botAlias`: `str`
-- `userId`: `str`
-- `sessionId`: `str`
-
-
-## GetSessionResponseTypeDef
-
-```python
-from mypy_boto3_lex_runtime.type_defs import GetSessionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `recentIntentSummaryView`: `List["IntentSummaryTypeDef"]`
-- `sessionAttributes`: `Dict[str, str]`
-- `sessionId`: `str`
-- `dialogAction`: `"DialogActionTypeDef"`
-- `activeContexts`: `List["ActiveContextTypeDef"]`
 
 
 ## PostContentResponseTypeDef
@@ -270,6 +226,21 @@ Optional fields:
 - `activeContexts`: `List["ActiveContextTypeDef"]`
 
 
+## PredictedIntentTypeDef
+
+```python
+from mypy_boto3_lex_runtime.type_defs import PredictedIntentTypeDef
+```
+
+
+
+
+Optional fields:
+- `intentName`: `str`
+- `nluIntentConfidence`: `"IntentConfidenceTypeDef"`
+- `slots`: `Dict[str, str]`
+
+
 ## PutSessionResponseTypeDef
 
 ```python
@@ -292,4 +263,33 @@ Optional fields:
 - `audioStream`: `StreamingBody`
 - `sessionId`: `str`
 - `activeContexts`: `str`
+
+
+## ResponseCardTypeDef
+
+```python
+from mypy_boto3_lex_runtime.type_defs import ResponseCardTypeDef
+```
+
+
+
+
+Optional fields:
+- `version`: `str`
+- `contentType`: `Literal['application/vnd.amazonaws.card.generic']`
+- `genericAttachments`: `List["GenericAttachmentTypeDef"]`
+
+
+## SentimentResponseTypeDef
+
+```python
+from mypy_boto3_lex_runtime.type_defs import SentimentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `sentimentLabel`: `str`
+- `sentimentScore`: `str`
 

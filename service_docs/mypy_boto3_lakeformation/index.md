@@ -95,29 +95,29 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_lakeformation.type_defs import BatchPermissionsFailureEntryTypeDef, ...
+from mypy_boto3_lakeformation.type_defs import BatchGrantPermissionsResponseTypeDef, ...
 ```
 
+- [BatchGrantPermissionsResponseTypeDef](./type_defs.md#batchgrantpermissionsresponsetypedef)
 - [BatchPermissionsFailureEntryTypeDef](./type_defs.md#batchpermissionsfailureentrytypedef)
 - [BatchPermissionsRequestEntryTypeDef](./type_defs.md#batchpermissionsrequestentrytypedef)
+- [BatchRevokePermissionsResponseTypeDef](./type_defs.md#batchrevokepermissionsresponsetypedef)
 - [ColumnWildcardTypeDef](./type_defs.md#columnwildcardtypedef)
 - [DataLakePrincipalTypeDef](./type_defs.md#datalakeprincipaltypedef)
 - [DataLakeSettingsTypeDef](./type_defs.md#datalakesettingstypedef)
 - [DataLocationResourceTypeDef](./type_defs.md#datalocationresourcetypedef)
 - [DatabaseResourceTypeDef](./type_defs.md#databaseresourcetypedef)
+- [DescribeResourceResponseTypeDef](./type_defs.md#describeresourceresponsetypedef)
 - [DetailsMapTypeDef](./type_defs.md#detailsmaptypedef)
 - [ErrorDetailTypeDef](./type_defs.md#errordetailtypedef)
+- [FilterConditionTypeDef](./type_defs.md#filterconditiontypedef)
+- [GetDataLakeSettingsResponseTypeDef](./type_defs.md#getdatalakesettingsresponsetypedef)
+- [GetEffectivePermissionsForPathResponseTypeDef](./type_defs.md#geteffectivepermissionsforpathresponsetypedef)
+- [ListPermissionsResponseTypeDef](./type_defs.md#listpermissionsresponsetypedef)
+- [ListResourcesResponseTypeDef](./type_defs.md#listresourcesresponsetypedef)
 - [PrincipalPermissionsTypeDef](./type_defs.md#principalpermissionstypedef)
 - [PrincipalResourcePermissionsTypeDef](./type_defs.md#principalresourcepermissionstypedef)
 - [ResourceInfoTypeDef](./type_defs.md#resourceinfotypedef)
 - [ResourceTypeDef](./type_defs.md#resourcetypedef)
 - [TableResourceTypeDef](./type_defs.md#tableresourcetypedef)
 - [TableWithColumnsResourceTypeDef](./type_defs.md#tablewithcolumnsresourcetypedef)
-- [BatchGrantPermissionsResponseTypeDef](./type_defs.md#batchgrantpermissionsresponsetypedef)
-- [BatchRevokePermissionsResponseTypeDef](./type_defs.md#batchrevokepermissionsresponsetypedef)
-- [DescribeResourceResponseTypeDef](./type_defs.md#describeresourceresponsetypedef)
-- [FilterConditionTypeDef](./type_defs.md#filterconditiontypedef)
-- [GetDataLakeSettingsResponseTypeDef](./type_defs.md#getdatalakesettingsresponsetypedef)
-- [GetEffectivePermissionsForPathResponseTypeDef](./type_defs.md#geteffectivepermissionsforpathresponsetypedef)
-- [ListPermissionsResponseTypeDef](./type_defs.md#listpermissionsresponsetypedef)
-- [ListResourcesResponseTypeDef](./type_defs.md#listresourcesresponsetypedef)

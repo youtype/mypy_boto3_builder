@@ -11,23 +11,41 @@ type annotations stubs module [mypy_boto3_groundstation](https://pypi.org/projec
   - [AntennaDownlinkDemodDecodeConfigTypeDef](#antennadownlinkdemoddecodeconfigtypedef)
   - [AntennaUplinkConfigTypeDef](#antennauplinkconfigtypedef)
   - [ConfigDetailsTypeDef](#configdetailstypedef)
+  - [ConfigIdResponseTypeDef](#configidresponsetypedef)
   - [ConfigListItemTypeDef](#configlistitemtypedef)
   - [ConfigTypeDataTypeDef](#configtypedatatypedef)
   - [ContactDataTypeDef](#contactdatatypedef)
+  - [ContactIdResponseTypeDef](#contactidresponsetypedef)
   - [DataflowDetailTypeDef](#dataflowdetailtypedef)
   - [DataflowEndpointConfigTypeDef](#dataflowendpointconfigtypedef)
+  - [DataflowEndpointGroupIdResponseTypeDef](#dataflowendpointgroupidresponsetypedef)
   - [DataflowEndpointListItemTypeDef](#dataflowendpointlistitemtypedef)
   - [DataflowEndpointTypeDef](#dataflowendpointtypedef)
   - [DecodeConfigTypeDef](#decodeconfigtypedef)
   - [DemodulationConfigTypeDef](#demodulationconfigtypedef)
+  - [DescribeContactResponseTypeDef](#describecontactresponsetypedef)
   - [DestinationTypeDef](#destinationtypedef)
   - [EirpTypeDef](#eirptypedef)
   - [ElevationTypeDef](#elevationtypedef)
   - [EndpointDetailsTypeDef](#endpointdetailstypedef)
   - [FrequencyBandwidthTypeDef](#frequencybandwidthtypedef)
   - [FrequencyTypeDef](#frequencytypedef)
+  - [GetConfigResponseTypeDef](#getconfigresponsetypedef)
+  - [GetDataflowEndpointGroupResponseTypeDef](#getdataflowendpointgroupresponsetypedef)
+  - [GetMinuteUsageResponseTypeDef](#getminuteusageresponsetypedef)
+  - [GetMissionProfileResponseTypeDef](#getmissionprofileresponsetypedef)
+  - [GetSatelliteResponseTypeDef](#getsatelliteresponsetypedef)
   - [GroundStationDataTypeDef](#groundstationdatatypedef)
+  - [ListConfigsResponseTypeDef](#listconfigsresponsetypedef)
+  - [ListContactsResponseTypeDef](#listcontactsresponsetypedef)
+  - [ListDataflowEndpointGroupsResponseTypeDef](#listdataflowendpointgroupsresponsetypedef)
+  - [ListGroundStationsResponseTypeDef](#listgroundstationsresponsetypedef)
+  - [ListMissionProfilesResponseTypeDef](#listmissionprofilesresponsetypedef)
+  - [ListSatellitesResponseTypeDef](#listsatellitesresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [MissionProfileIdResponseTypeDef](#missionprofileidresponsetypedef)
   - [MissionProfileListItemTypeDef](#missionprofilelistitemtypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [S3RecordingConfigTypeDef](#s3recordingconfigtypedef)
   - [S3RecordingDetailsTypeDef](#s3recordingdetailstypedef)
   - [SatelliteListItemTypeDef](#satellitelistitemtypedef)
@@ -38,24 +56,6 @@ type annotations stubs module [mypy_boto3_groundstation](https://pypi.org/projec
   - [TrackingConfigTypeDef](#trackingconfigtypedef)
   - [UplinkEchoConfigTypeDef](#uplinkechoconfigtypedef)
   - [UplinkSpectrumConfigTypeDef](#uplinkspectrumconfigtypedef)
-  - [ConfigIdResponseTypeDef](#configidresponsetypedef)
-  - [ContactIdResponseTypeDef](#contactidresponsetypedef)
-  - [DataflowEndpointGroupIdResponseTypeDef](#dataflowendpointgroupidresponsetypedef)
-  - [DescribeContactResponseTypeDef](#describecontactresponsetypedef)
-  - [GetConfigResponseTypeDef](#getconfigresponsetypedef)
-  - [GetDataflowEndpointGroupResponseTypeDef](#getdataflowendpointgroupresponsetypedef)
-  - [GetMinuteUsageResponseTypeDef](#getminuteusageresponsetypedef)
-  - [GetMissionProfileResponseTypeDef](#getmissionprofileresponsetypedef)
-  - [GetSatelliteResponseTypeDef](#getsatelliteresponsetypedef)
-  - [ListConfigsResponseTypeDef](#listconfigsresponsetypedef)
-  - [ListContactsResponseTypeDef](#listcontactsresponsetypedef)
-  - [ListDataflowEndpointGroupsResponseTypeDef](#listdataflowendpointgroupsresponsetypedef)
-  - [ListGroundStationsResponseTypeDef](#listgroundstationsresponsetypedef)
-  - [ListMissionProfilesResponseTypeDef](#listmissionprofilesresponsetypedef)
-  - [ListSatellitesResponseTypeDef](#listsatellitesresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [MissionProfileIdResponseTypeDef](#missionprofileidresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
 
 ## AntennaDemodDecodeDetailsTypeDef
 
@@ -130,6 +130,21 @@ Optional fields:
 - `s3RecordingDetails`: `"S3RecordingDetailsTypeDef"`
 
 
+## ConfigIdResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import ConfigIdResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `configArn`: `str`
+- `configId`: `str`
+- `configType`: `ConfigCapabilityType`
+
+
 ## ConfigListItemTypeDef
 
 ```python
@@ -190,6 +205,19 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
+## ContactIdResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import ContactIdResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `contactId`: `str`
+
+
 ## DataflowDetailTypeDef
 
 ```python
@@ -219,6 +247,19 @@ Required fields:
 
 Optional fields:
 - `dataflowEndpointRegion`: `str`
+
+
+## DataflowEndpointGroupIdResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import DataflowEndpointGroupIdResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `dataflowEndpointGroupId`: `str`
 
 
 ## DataflowEndpointListItemTypeDef
@@ -277,6 +318,32 @@ Required fields:
 
 
 
+## DescribeContactResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import DescribeContactResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `contactId`: `str`
+- `contactStatus`: `ContactStatus`
+- `dataflowList`: `List["DataflowDetailTypeDef"]`
+- `endTime`: `datetime`
+- `errorMessage`: `str`
+- `groundStation`: `str`
+- `maximumElevation`: `"ElevationTypeDef"`
+- `missionProfileArn`: `str`
+- `postPassEndTime`: `datetime`
+- `prePassStartTime`: `datetime`
+- `region`: `str`
+- `satelliteArn`: `str`
+- `startTime`: `datetime`
+- `tags`: `Dict[str, str]`
+
+
 ## DestinationTypeDef
 
 ```python
@@ -301,7 +368,7 @@ from mypy_boto3_groundstation.type_defs import EirpTypeDef
 
 
 Required fields:
-- `units`: `EirpUnits`
+- `units`: `Literal['dBW']`
 - `value`: `float`
 
 
@@ -363,6 +430,97 @@ Required fields:
 
 
 
+## GetConfigResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import GetConfigResponseTypeDef
+```
+
+
+Required fields:
+- `configArn`: `str`
+- `configData`: `"ConfigTypeDataTypeDef"`
+- `configId`: `str`
+- `name`: `str`
+
+
+
+Optional fields:
+- `configType`: `ConfigCapabilityType`
+- `tags`: `Dict[str, str]`
+
+
+## GetDataflowEndpointGroupResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import GetDataflowEndpointGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `dataflowEndpointGroupArn`: `str`
+- `dataflowEndpointGroupId`: `str`
+- `endpointsDetails`: `List["EndpointDetailsTypeDef"]`
+- `tags`: `Dict[str, str]`
+
+
+## GetMinuteUsageResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import GetMinuteUsageResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `estimatedMinutesRemaining`: `int`
+- `isReservedMinutesCustomer`: `bool`
+- `totalReservedMinuteAllocation`: `int`
+- `totalScheduledMinutes`: `int`
+- `upcomingMinutesScheduled`: `int`
+
+
+## GetMissionProfileResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import GetMissionProfileResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `contactPostPassDurationSeconds`: `int`
+- `contactPrePassDurationSeconds`: `int`
+- `dataflowEdges`: `List[List[str]]`
+- `minimumViableContactDurationSeconds`: `int`
+- `missionProfileArn`: `str`
+- `missionProfileId`: `str`
+- `name`: `str`
+- `region`: `str`
+- `tags`: `Dict[str, str]`
+- `trackingConfigArn`: `str`
+
+
+## GetSatelliteResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import GetSatelliteResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `groundStations`: `List[str]`
+- `noradSatelliteID`: `int`
+- `satelliteArn`: `str`
+- `satelliteId`: `str`
+
+
 ## GroundStationDataTypeDef
 
 ```python
@@ -376,6 +534,116 @@ Optional fields:
 - `groundStationId`: `str`
 - `groundStationName`: `str`
 - `region`: `str`
+
+
+## ListConfigsResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import ListConfigsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `configList`: `List["ConfigListItemTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListContactsResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import ListContactsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `contactList`: `List["ContactDataTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListDataflowEndpointGroupsResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import ListDataflowEndpointGroupsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `dataflowEndpointGroupList`: `List["DataflowEndpointListItemTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListGroundStationsResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import ListGroundStationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `groundStationList`: `List["GroundStationDataTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListMissionProfilesResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import ListMissionProfilesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `missionProfileList`: `List["MissionProfileListItemTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListSatellitesResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import ListSatellitesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `nextToken`: `str`
+- `satellites`: `List["SatelliteListItemTypeDef"]`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `Dict[str, str]`
+
+
+## MissionProfileIdResponseTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import MissionProfileIdResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `missionProfileId`: `str`
 
 
 ## MissionProfileListItemTypeDef
@@ -392,6 +660,21 @@ Optional fields:
 - `missionProfileId`: `str`
 - `name`: `str`
 - `region`: `str`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_groundstation.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## S3RecordingConfigTypeDef
@@ -544,287 +827,4 @@ Required fields:
 
 Optional fields:
 - `polarization`: `Polarization`
-
-
-## ConfigIdResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import ConfigIdResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `configArn`: `str`
-- `configId`: `str`
-- `configType`: `ConfigCapabilityType`
-
-
-## ContactIdResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import ContactIdResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `contactId`: `str`
-
-
-## DataflowEndpointGroupIdResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import DataflowEndpointGroupIdResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `dataflowEndpointGroupId`: `str`
-
-
-## DescribeContactResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import DescribeContactResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `contactId`: `str`
-- `contactStatus`: `ContactStatus`
-- `dataflowList`: `List["DataflowDetailTypeDef"]`
-- `endTime`: `datetime`
-- `errorMessage`: `str`
-- `groundStation`: `str`
-- `maximumElevation`: `"ElevationTypeDef"`
-- `missionProfileArn`: `str`
-- `postPassEndTime`: `datetime`
-- `prePassStartTime`: `datetime`
-- `region`: `str`
-- `satelliteArn`: `str`
-- `startTime`: `datetime`
-- `tags`: `Dict[str, str]`
-
-
-## GetConfigResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import GetConfigResponseTypeDef
-```
-
-
-Required fields:
-- `configArn`: `str`
-- `configData`: `"ConfigTypeDataTypeDef"`
-- `configId`: `str`
-- `name`: `str`
-
-
-
-Optional fields:
-- `configType`: `ConfigCapabilityType`
-- `tags`: `Dict[str, str]`
-
-
-## GetDataflowEndpointGroupResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import GetDataflowEndpointGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `dataflowEndpointGroupArn`: `str`
-- `dataflowEndpointGroupId`: `str`
-- `endpointsDetails`: `List["EndpointDetailsTypeDef"]`
-- `tags`: `Dict[str, str]`
-
-
-## GetMinuteUsageResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import GetMinuteUsageResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `estimatedMinutesRemaining`: `int`
-- `isReservedMinutesCustomer`: `bool`
-- `totalReservedMinuteAllocation`: `int`
-- `totalScheduledMinutes`: `int`
-- `upcomingMinutesScheduled`: `int`
-
-
-## GetMissionProfileResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import GetMissionProfileResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `contactPostPassDurationSeconds`: `int`
-- `contactPrePassDurationSeconds`: `int`
-- `dataflowEdges`: `List[List[str]]`
-- `minimumViableContactDurationSeconds`: `int`
-- `missionProfileArn`: `str`
-- `missionProfileId`: `str`
-- `name`: `str`
-- `region`: `str`
-- `tags`: `Dict[str, str]`
-- `trackingConfigArn`: `str`
-
-
-## GetSatelliteResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import GetSatelliteResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `groundStations`: `List[str]`
-- `noradSatelliteID`: `int`
-- `satelliteArn`: `str`
-- `satelliteId`: `str`
-
-
-## ListConfigsResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import ListConfigsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `configList`: `List["ConfigListItemTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListContactsResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import ListContactsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `contactList`: `List["ContactDataTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListDataflowEndpointGroupsResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import ListDataflowEndpointGroupsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `dataflowEndpointGroupList`: `List["DataflowEndpointListItemTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListGroundStationsResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import ListGroundStationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `groundStationList`: `List["GroundStationDataTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListMissionProfilesResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import ListMissionProfilesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `missionProfileList`: `List["MissionProfileListItemTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListSatellitesResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import ListSatellitesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `nextToken`: `str`
-- `satellites`: `List["SatelliteListItemTypeDef"]`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `Dict[str, str]`
-
-
-## MissionProfileIdResponseTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import MissionProfileIdResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `missionProfileId`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_groundstation.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
 

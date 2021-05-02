@@ -76,10 +76,6 @@ type annotations stubs module [mypy_boto3_route53](https://pypi.org/project/mypy
     - [update_traffic_policy_comment](#update_traffic_policy_comment)
     - [update_traffic_policy_instance](#update_traffic_policy_instance)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
     - [get_waiter](#get_waiter)
 
 ## Route53Client
@@ -795,7 +791,7 @@ Type annotations for `boto3.client("route53").get_reusable_delegation_set_limit`
 ```python
 def get_reusable_delegation_set_limit(
     self,
-    Type: ReusableDelegationSetLimitType,
+    Type: Literal['MAX_ZONES_BY_REUSABLE_DELEGATION_SET'],
     DelegationSetId: str
 ) -> GetReusableDelegationSetLimitResponseTypeDef:
     pass
@@ -1200,91 +1196,23 @@ def update_traffic_policy_instance(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("route53").get_paginator` method.
-
-[Paginator.ListHealthChecks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53.html#Route53.Paginator.ListHealthChecks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListHealthChecksPaginatorName
-) -> ListHealthChecksPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("route53").get_paginator` method.
+Type annotations for `boto3.client("route53").get_paginator` method with overloads.
 
-[Paginator.ListHostedZones documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53.html#Route53.Paginator.ListHostedZones)
+- `client.get_paginator("list_health_checks")` -> [ListHealthChecksPaginator](./paginators.md#listhealthcheckspaginator)
+- `client.get_paginator("list_hosted_zones")` -> [ListHostedZonesPaginator](./paginators.md#listhostedzonespaginator)
+- `client.get_paginator("list_query_logging_configs")` -> [ListQueryLoggingConfigsPaginator](./paginators.md#listqueryloggingconfigspaginator)
+- `client.get_paginator("list_resource_record_sets")` -> [ListResourceRecordSetsPaginator](./paginators.md#listresourcerecordsetspaginator)
+- `client.get_paginator("list_vpc_association_authorizations")` -> [ListVPCAssociationAuthorizationsPaginator](./paginators.md#listvpcassociationauthorizationspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListHostedZonesPaginatorName
-) -> ListHostedZonesPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("route53").get_paginator` method.
-
-[Paginator.ListQueryLoggingConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListQueryLoggingConfigsPaginatorName
-) -> ListQueryLoggingConfigsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53").get_paginator` method.
-
-[Paginator.ListResourceRecordSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResourceRecordSetsPaginatorName
-) -> ListResourceRecordSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53").get_paginator` method.
-
-[Paginator.ListVPCAssociationAuthorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListVPCAssociationAuthorizationsPaginatorName
-) -> ListVPCAssociationAuthorizationsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("route53").get_waiter` method.
+Type annotations for `boto3.client("route53").get_waiter` method with overloads.
 
-[Waiter.ResourceRecordSetsChanged documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged)
-
-```python
-def get_waiter(
-    self,
-    waiter_name: ResourceRecordSetsChangedWaiterName
-) -> ResourceRecordSetsChangedWaiter:
-    pass
-```
+- `client.get_waiter("resource_record_sets_changed")` -> [ResourceRecordSetsChangedWaiter](./waiters.md#resourcerecordsetschangedwaiter)

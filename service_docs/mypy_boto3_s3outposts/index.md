@@ -97,11 +97,11 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_s3outposts.type_defs import EndpointTypeDef, ...
+from mypy_boto3_s3outposts.type_defs import CreateEndpointResultTypeDef, ...
 ```
 
-- [EndpointTypeDef](./type_defs.md#endpointtypedef)
-- [NetworkInterfaceTypeDef](./type_defs.md#networkinterfacetypedef)
 - [CreateEndpointResultTypeDef](./type_defs.md#createendpointresulttypedef)
+- [EndpointTypeDef](./type_defs.md#endpointtypedef)
 - [ListEndpointsResultTypeDef](./type_defs.md#listendpointsresulttypedef)
+- [NetworkInterfaceTypeDef](./type_defs.md#networkinterfacetypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)

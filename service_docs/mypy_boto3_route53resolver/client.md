@@ -72,19 +72,6 @@ type annotations stubs module [mypy_boto3_route53resolver](https://pypi.org/proj
     - [update_resolver_endpoint](#update_resolver_endpoint)
     - [update_resolver_rule](#update_resolver_rule)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
 
 ## Route53ResolverClient
 
@@ -246,7 +233,7 @@ def create_firewall_rule(
     Name: str,
     BlockResponse: BlockResponse = None,
     BlockOverrideDomain: str = None,
-    BlockOverrideDnsType: BlockOverrideDnsType = None,
+    BlockOverrideDnsType: Literal['CNAME'] = None,
     BlockOverrideTtl: int = None
 ) -> CreateFirewallRuleResponseTypeDef:
     pass
@@ -677,7 +664,7 @@ Type annotations for `boto3.client("route53resolver").import_firewall_domains` m
 def import_firewall_domains(
     self,
     FirewallDomainListId: str,
-    Operation: FirewallDomainImportOperation,
+    Operation: Literal['REPLACE'],
     DomainFileUrl: str
 ) -> ImportFirewallDomainsResponseTypeDef:
     pass
@@ -1034,7 +1021,7 @@ def update_firewall_rule(
     Action: Action = None,
     BlockResponse: BlockResponse = None,
     BlockOverrideDomain: str = None,
-    BlockOverrideDnsType: BlockOverrideDnsType = None,
+    BlockOverrideDnsType: Literal['CNAME'] = None,
     BlockOverrideTtl: int = None,
     Name: str = None
 ) -> UpdateFirewallRuleResponseTypeDef:
@@ -1103,212 +1090,25 @@ def update_resolver_rule(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListFirewallConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallConfigs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFirewallConfigsPaginatorName
-) -> ListFirewallConfigsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
+Type annotations for `boto3.client("route53resolver").get_paginator` method with overloads.
 
-[Paginator.ListFirewallDomainLists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallDomainLists)
+- `client.get_paginator("list_firewall_configs")` -> [ListFirewallConfigsPaginator](./paginators.md#listfirewallconfigspaginator)
+- `client.get_paginator("list_firewall_domain_lists")` -> [ListFirewallDomainListsPaginator](./paginators.md#listfirewalldomainlistspaginator)
+- `client.get_paginator("list_firewall_domains")` -> [ListFirewallDomainsPaginator](./paginators.md#listfirewalldomainspaginator)
+- `client.get_paginator("list_firewall_rule_group_associations")` -> [ListFirewallRuleGroupAssociationsPaginator](./paginators.md#listfirewallrulegroupassociationspaginator)
+- `client.get_paginator("list_firewall_rule_groups")` -> [ListFirewallRuleGroupsPaginator](./paginators.md#listfirewallrulegroupspaginator)
+- `client.get_paginator("list_firewall_rules")` -> [ListFirewallRulesPaginator](./paginators.md#listfirewallrulespaginator)
+- `client.get_paginator("list_resolver_dnssec_configs")` -> [ListResolverDnssecConfigsPaginator](./paginators.md#listresolverdnssecconfigspaginator)
+- `client.get_paginator("list_resolver_endpoint_ip_addresses")` -> [ListResolverEndpointIpAddressesPaginator](./paginators.md#listresolverendpointipaddressespaginator)
+- `client.get_paginator("list_resolver_endpoints")` -> [ListResolverEndpointsPaginator](./paginators.md#listresolverendpointspaginator)
+- `client.get_paginator("list_resolver_query_log_config_associations")` -> [ListResolverQueryLogConfigAssociationsPaginator](./paginators.md#listresolverquerylogconfigassociationspaginator)
+- `client.get_paginator("list_resolver_query_log_configs")` -> [ListResolverQueryLogConfigsPaginator](./paginators.md#listresolverquerylogconfigspaginator)
+- `client.get_paginator("list_resolver_rule_associations")` -> [ListResolverRuleAssociationsPaginator](./paginators.md#listresolverruleassociationspaginator)
+- `client.get_paginator("list_resolver_rules")` -> [ListResolverRulesPaginator](./paginators.md#listresolverrulespaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFirewallDomainListsPaginatorName
-) -> ListFirewallDomainListsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListFirewallDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallDomains)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFirewallDomainsPaginatorName
-) -> ListFirewallDomainsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListFirewallRuleGroupAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRuleGroupAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFirewallRuleGroupAssociationsPaginatorName
-) -> ListFirewallRuleGroupAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListFirewallRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRuleGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFirewallRuleGroupsPaginatorName
-) -> ListFirewallRuleGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListFirewallRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListFirewallRules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFirewallRulesPaginatorName
-) -> ListFirewallRulesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListResolverDnssecConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverDnssecConfigs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResolverDnssecConfigsPaginatorName
-) -> ListResolverDnssecConfigsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListResolverEndpointIpAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpointIpAddresses)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResolverEndpointIpAddressesPaginatorName
-) -> ListResolverEndpointIpAddressesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListResolverEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpoints)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResolverEndpointsPaginatorName
-) -> ListResolverEndpointsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListResolverQueryLogConfigAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResolverQueryLogConfigAssociationsPaginatorName
-) -> ListResolverQueryLogConfigAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListResolverQueryLogConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResolverQueryLogConfigsPaginatorName
-) -> ListResolverQueryLogConfigsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListResolverRuleAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRuleAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResolverRuleAssociationsPaginatorName
-) -> ListResolverRuleAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListResolverRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListResolverRulesPaginatorName
-) -> ListResolverRulesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("route53resolver").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53resolver.html#Route53Resolver.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```

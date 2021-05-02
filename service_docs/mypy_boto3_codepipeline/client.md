@@ -51,11 +51,6 @@ type annotations stubs module [mypy_boto3_codepipeline](https://pypi.org/project
     - [update_action_type](#update_action_type)
     - [update_pipeline](#update_pipeline)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
 
 ## CodePipelineClient
 
@@ -673,7 +668,7 @@ def retry_stage_execution(
     pipelineName: str,
     stageName: str,
     pipelineExecutionId: str,
-    retryMode: StageRetryMode
+    retryMode: Literal['FAILED_ACTIONS']
 ) -> RetryStageExecutionOutputTypeDef:
     pass
 ```
@@ -768,92 +763,17 @@ def update_pipeline(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("codepipeline").get_paginator` method.
-
-[Paginator.ListActionExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListActionExecutionsPaginatorName
-) -> ListActionExecutionsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("codepipeline").get_paginator` method.
+Type annotations for `boto3.client("codepipeline").get_paginator` method with overloads.
 
-[Paginator.ListActionTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes)
+- `client.get_paginator("list_action_executions")` -> [ListActionExecutionsPaginator](./paginators.md#listactionexecutionspaginator)
+- `client.get_paginator("list_action_types")` -> [ListActionTypesPaginator](./paginators.md#listactiontypespaginator)
+- `client.get_paginator("list_pipeline_executions")` -> [ListPipelineExecutionsPaginator](./paginators.md#listpipelineexecutionspaginator)
+- `client.get_paginator("list_pipelines")` -> [ListPipelinesPaginator](./paginators.md#listpipelinespaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
+- `client.get_paginator("list_webhooks")` -> [ListWebhooksPaginator](./paginators.md#listwebhookspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListActionTypesPaginatorName
-) -> ListActionTypesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("codepipeline").get_paginator` method.
-
-[Paginator.ListPipelineExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPipelineExecutionsPaginatorName
-) -> ListPipelineExecutionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codepipeline").get_paginator` method.
-
-[Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPipelinesPaginatorName
-) -> ListPipelinesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codepipeline").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codepipeline").get_paginator` method.
-
-[Paginator.ListWebhooks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListWebhooksPaginatorName
-) -> ListWebhooksPaginator:
-    pass
-```

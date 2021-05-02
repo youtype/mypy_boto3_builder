@@ -18,7 +18,16 @@ type annotations stubs module [mypy_boto3_chime](https://pypi.org/project/mypy-b
   - [AppInstanceUserMembershipSummaryTypeDef](#appinstanceusermembershipsummarytypedef)
   - [AppInstanceUserSummaryTypeDef](#appinstanceusersummarytypedef)
   - [AppInstanceUserTypeDef](#appinstanceusertypedef)
+  - [AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef](#associatephonenumberswithvoiceconnectorgroupresponsetypedef)
+  - [AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef](#associatephonenumberswithvoiceconnectorresponsetypedef)
   - [AttendeeTypeDef](#attendeetypedef)
+  - [BatchCreateAttendeeResponseTypeDef](#batchcreateattendeeresponsetypedef)
+  - [BatchCreateRoomMembershipResponseTypeDef](#batchcreateroommembershipresponsetypedef)
+  - [BatchDeletePhoneNumberResponseTypeDef](#batchdeletephonenumberresponsetypedef)
+  - [BatchSuspendUserResponseTypeDef](#batchsuspenduserresponsetypedef)
+  - [BatchUnsuspendUserResponseTypeDef](#batchunsuspenduserresponsetypedef)
+  - [BatchUpdatePhoneNumberResponseTypeDef](#batchupdatephonenumberresponsetypedef)
+  - [BatchUpdateUserResponseTypeDef](#batchupdateuserresponsetypedef)
   - [BotTypeDef](#bottypedef)
   - [BusinessCallingSettingsTypeDef](#businesscallingsettingstypedef)
   - [ChannelBanSummaryTypeDef](#channelbansummarytypedef)
@@ -35,67 +44,11 @@ type annotations stubs module [mypy_boto3_chime](https://pypi.org/project/mypy-b
   - [ChannelSummaryTypeDef](#channelsummarytypedef)
   - [ChannelTypeDef](#channeltypedef)
   - [ConversationRetentionSettingsTypeDef](#conversationretentionsettingstypedef)
-  - [CreateAttendeeErrorTypeDef](#createattendeeerrortypedef)
-  - [DNISEmergencyCallingConfigurationTypeDef](#dnisemergencycallingconfigurationtypedef)
-  - [EmergencyCallingConfigurationTypeDef](#emergencycallingconfigurationtypedef)
-  - [EventsConfigurationTypeDef](#eventsconfigurationtypedef)
-  - [GeoMatchParamsTypeDef](#geomatchparamstypedef)
-  - [IdentityTypeDef](#identitytypedef)
-  - [InviteTypeDef](#invitetypedef)
-  - [LoggingConfigurationTypeDef](#loggingconfigurationtypedef)
-  - [MediaPlacementTypeDef](#mediaplacementtypedef)
-  - [MeetingTypeDef](#meetingtypedef)
-  - [MemberErrorTypeDef](#membererrortypedef)
-  - [MemberTypeDef](#membertypedef)
-  - [MessagingSessionEndpointTypeDef](#messagingsessionendpointtypedef)
-  - [OrderedPhoneNumberTypeDef](#orderedphonenumbertypedef)
-  - [OriginationRouteTypeDef](#originationroutetypedef)
-  - [OriginationTypeDef](#originationtypedef)
-  - [ParticipantTypeDef](#participanttypedef)
-  - [PhoneNumberAssociationTypeDef](#phonenumberassociationtypedef)
-  - [PhoneNumberCapabilitiesTypeDef](#phonenumbercapabilitiestypedef)
-  - [PhoneNumberErrorTypeDef](#phonenumbererrortypedef)
-  - [PhoneNumberOrderTypeDef](#phonenumberordertypedef)
-  - [PhoneNumberTypeDef](#phonenumbertypedef)
-  - [ProxySessionTypeDef](#proxysessiontypedef)
-  - [ProxyTypeDef](#proxytypedef)
-  - [RetentionSettingsTypeDef](#retentionsettingstypedef)
-  - [RoomMembershipTypeDef](#roommembershiptypedef)
-  - [RoomRetentionSettingsTypeDef](#roomretentionsettingstypedef)
-  - [RoomTypeDef](#roomtypedef)
-  - [SigninDelegateGroupTypeDef](#signindelegategrouptypedef)
-  - [SipMediaApplicationCallTypeDef](#sipmediaapplicationcalltypedef)
-  - [SipMediaApplicationEndpointTypeDef](#sipmediaapplicationendpointtypedef)
-  - [SipMediaApplicationLoggingConfigurationTypeDef](#sipmediaapplicationloggingconfigurationtypedef)
-  - [SipMediaApplicationTypeDef](#sipmediaapplicationtypedef)
-  - [SipRuleTargetApplicationTypeDef](#sipruletargetapplicationtypedef)
-  - [SipRuleTypeDef](#sipruletypedef)
-  - [StreamingConfigurationTypeDef](#streamingconfigurationtypedef)
-  - [StreamingNotificationTargetTypeDef](#streamingnotificationtargettypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TelephonySettingsTypeDef](#telephonysettingstypedef)
-  - [TerminationHealthTypeDef](#terminationhealthtypedef)
-  - [TerminationTypeDef](#terminationtypedef)
-  - [UserErrorTypeDef](#usererrortypedef)
-  - [UserSettingsTypeDef](#usersettingstypedef)
-  - [UserTypeDef](#usertypedef)
-  - [VoiceConnectorGroupTypeDef](#voiceconnectorgrouptypedef)
-  - [VoiceConnectorItemTypeDef](#voiceconnectoritemtypedef)
-  - [VoiceConnectorSettingsTypeDef](#voiceconnectorsettingstypedef)
-  - [VoiceConnectorTypeDef](#voiceconnectortypedef)
-  - [AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef](#associatephonenumberswithvoiceconnectorgroupresponsetypedef)
-  - [AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef](#associatephonenumberswithvoiceconnectorresponsetypedef)
-  - [BatchCreateAttendeeResponseTypeDef](#batchcreateattendeeresponsetypedef)
-  - [BatchCreateRoomMembershipResponseTypeDef](#batchcreateroommembershipresponsetypedef)
-  - [BatchDeletePhoneNumberResponseTypeDef](#batchdeletephonenumberresponsetypedef)
-  - [BatchSuspendUserResponseTypeDef](#batchsuspenduserresponsetypedef)
-  - [BatchUnsuspendUserResponseTypeDef](#batchunsuspenduserresponsetypedef)
-  - [BatchUpdatePhoneNumberResponseTypeDef](#batchupdatephonenumberresponsetypedef)
-  - [BatchUpdateUserResponseTypeDef](#batchupdateuserresponsetypedef)
   - [CreateAccountResponseTypeDef](#createaccountresponsetypedef)
   - [CreateAppInstanceAdminResponseTypeDef](#createappinstanceadminresponsetypedef)
   - [CreateAppInstanceResponseTypeDef](#createappinstanceresponsetypedef)
   - [CreateAppInstanceUserResponseTypeDef](#createappinstanceuserresponsetypedef)
+  - [CreateAttendeeErrorTypeDef](#createattendeeerrortypedef)
   - [CreateAttendeeRequestItemTypeDef](#createattendeerequestitemtypedef)
   - [CreateAttendeeResponseTypeDef](#createattendeeresponsetypedef)
   - [CreateBotResponseTypeDef](#createbotresponsetypedef)
@@ -117,6 +70,7 @@ type annotations stubs module [mypy_boto3_chime](https://pypi.org/project/mypy-b
   - [CreateVoiceConnectorGroupResponseTypeDef](#createvoiceconnectorgroupresponsetypedef)
   - [CreateVoiceConnectorResponseTypeDef](#createvoiceconnectorresponsetypedef)
   - [CredentialTypeDef](#credentialtypedef)
+  - [DNISEmergencyCallingConfigurationTypeDef](#dnisemergencycallingconfigurationtypedef)
   - [DescribeAppInstanceAdminResponseTypeDef](#describeappinstanceadminresponsetypedef)
   - [DescribeAppInstanceResponseTypeDef](#describeappinstanceresponsetypedef)
   - [DescribeAppInstanceUserResponseTypeDef](#describeappinstanceuserresponsetypedef)
@@ -128,6 +82,9 @@ type annotations stubs module [mypy_boto3_chime](https://pypi.org/project/mypy-b
   - [DescribeChannelResponseTypeDef](#describechannelresponsetypedef)
   - [DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef](#disassociatephonenumbersfromvoiceconnectorgroupresponsetypedef)
   - [DisassociatePhoneNumbersFromVoiceConnectorResponseTypeDef](#disassociatephonenumbersfromvoiceconnectorresponsetypedef)
+  - [EmergencyCallingConfigurationTypeDef](#emergencycallingconfigurationtypedef)
+  - [EventsConfigurationTypeDef](#eventsconfigurationtypedef)
+  - [GeoMatchParamsTypeDef](#geomatchparamstypedef)
   - [GetAccountResponseTypeDef](#getaccountresponsetypedef)
   - [GetAccountSettingsResponseTypeDef](#getaccountsettingsresponsetypedef)
   - [GetAppInstanceRetentionSettingsResponseTypeDef](#getappinstanceretentionsettingsresponsetypedef)
@@ -159,6 +116,8 @@ type annotations stubs module [mypy_boto3_chime](https://pypi.org/project/mypy-b
   - [GetVoiceConnectorStreamingConfigurationResponseTypeDef](#getvoiceconnectorstreamingconfigurationresponsetypedef)
   - [GetVoiceConnectorTerminationHealthResponseTypeDef](#getvoiceconnectorterminationhealthresponsetypedef)
   - [GetVoiceConnectorTerminationResponseTypeDef](#getvoiceconnectorterminationresponsetypedef)
+  - [IdentityTypeDef](#identitytypedef)
+  - [InviteTypeDef](#invitetypedef)
   - [InviteUsersResponseTypeDef](#inviteusersresponsetypedef)
   - [ListAccountsResponseTypeDef](#listaccountsresponsetypedef)
   - [ListAppInstanceAdminsResponseTypeDef](#listappinstanceadminsresponsetypedef)
@@ -188,9 +147,26 @@ type annotations stubs module [mypy_boto3_chime](https://pypi.org/project/mypy-b
   - [ListVoiceConnectorGroupsResponseTypeDef](#listvoiceconnectorgroupsresponsetypedef)
   - [ListVoiceConnectorTerminationCredentialsResponseTypeDef](#listvoiceconnectorterminationcredentialsresponsetypedef)
   - [ListVoiceConnectorsResponseTypeDef](#listvoiceconnectorsresponsetypedef)
+  - [LoggingConfigurationTypeDef](#loggingconfigurationtypedef)
+  - [MediaPlacementTypeDef](#mediaplacementtypedef)
   - [MeetingNotificationConfigurationTypeDef](#meetingnotificationconfigurationtypedef)
+  - [MeetingTypeDef](#meetingtypedef)
+  - [MemberErrorTypeDef](#membererrortypedef)
+  - [MemberTypeDef](#membertypedef)
   - [MembershipItemTypeDef](#membershipitemtypedef)
+  - [MessagingSessionEndpointTypeDef](#messagingsessionendpointtypedef)
+  - [OrderedPhoneNumberTypeDef](#orderedphonenumbertypedef)
+  - [OriginationRouteTypeDef](#originationroutetypedef)
+  - [OriginationTypeDef](#originationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ParticipantTypeDef](#participanttypedef)
+  - [PhoneNumberAssociationTypeDef](#phonenumberassociationtypedef)
+  - [PhoneNumberCapabilitiesTypeDef](#phonenumbercapabilitiestypedef)
+  - [PhoneNumberErrorTypeDef](#phonenumbererrortypedef)
+  - [PhoneNumberOrderTypeDef](#phonenumberordertypedef)
+  - [PhoneNumberTypeDef](#phonenumbertypedef)
+  - [ProxySessionTypeDef](#proxysessiontypedef)
+  - [ProxyTypeDef](#proxytypedef)
   - [PutAppInstanceRetentionSettingsResponseTypeDef](#putappinstanceretentionsettingsresponsetypedef)
   - [PutAppInstanceStreamingConfigurationsResponseTypeDef](#putappinstancestreamingconfigurationsresponsetypedef)
   - [PutEventsConfigurationResponseTypeDef](#puteventsconfigurationresponsetypedef)
@@ -206,8 +182,25 @@ type annotations stubs module [mypy_boto3_chime](https://pypi.org/project/mypy-b
   - [RegenerateSecurityTokenResponseTypeDef](#regeneratesecuritytokenresponsetypedef)
   - [ResetPersonalPINResponseTypeDef](#resetpersonalpinresponsetypedef)
   - [RestorePhoneNumberResponseTypeDef](#restorephonenumberresponsetypedef)
+  - [RetentionSettingsTypeDef](#retentionsettingstypedef)
+  - [RoomMembershipTypeDef](#roommembershiptypedef)
+  - [RoomRetentionSettingsTypeDef](#roomretentionsettingstypedef)
+  - [RoomTypeDef](#roomtypedef)
   - [SearchAvailablePhoneNumbersResponseTypeDef](#searchavailablephonenumbersresponsetypedef)
   - [SendChannelMessageResponseTypeDef](#sendchannelmessageresponsetypedef)
+  - [SigninDelegateGroupTypeDef](#signindelegategrouptypedef)
+  - [SipMediaApplicationCallTypeDef](#sipmediaapplicationcalltypedef)
+  - [SipMediaApplicationEndpointTypeDef](#sipmediaapplicationendpointtypedef)
+  - [SipMediaApplicationLoggingConfigurationTypeDef](#sipmediaapplicationloggingconfigurationtypedef)
+  - [SipMediaApplicationTypeDef](#sipmediaapplicationtypedef)
+  - [SipRuleTargetApplicationTypeDef](#sipruletargetapplicationtypedef)
+  - [SipRuleTypeDef](#sipruletypedef)
+  - [StreamingConfigurationTypeDef](#streamingconfigurationtypedef)
+  - [StreamingNotificationTargetTypeDef](#streamingnotificationtargettypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TelephonySettingsTypeDef](#telephonysettingstypedef)
+  - [TerminationHealthTypeDef](#terminationhealthtypedef)
+  - [TerminationTypeDef](#terminationtypedef)
   - [UpdateAccountResponseTypeDef](#updateaccountresponsetypedef)
   - [UpdateAppInstanceResponseTypeDef](#updateappinstanceresponsetypedef)
   - [UpdateAppInstanceUserResponseTypeDef](#updateappinstanceuserresponsetypedef)
@@ -226,6 +219,13 @@ type annotations stubs module [mypy_boto3_chime](https://pypi.org/project/mypy-b
   - [UpdateUserResponseTypeDef](#updateuserresponsetypedef)
   - [UpdateVoiceConnectorGroupResponseTypeDef](#updatevoiceconnectorgroupresponsetypedef)
   - [UpdateVoiceConnectorResponseTypeDef](#updatevoiceconnectorresponsetypedef)
+  - [UserErrorTypeDef](#usererrortypedef)
+  - [UserSettingsTypeDef](#usersettingstypedef)
+  - [UserTypeDef](#usertypedef)
+  - [VoiceConnectorGroupTypeDef](#voiceconnectorgrouptypedef)
+  - [VoiceConnectorItemTypeDef](#voiceconnectoritemtypedef)
+  - [VoiceConnectorSettingsTypeDef](#voiceconnectorsettingstypedef)
+  - [VoiceConnectorTypeDef](#voiceconnectortypedef)
 
 ## AccountSettingsTypeDef
 
@@ -410,6 +410,32 @@ Optional fields:
 - `LastUpdatedTimestamp`: `datetime`
 
 
+## AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PhoneNumberErrors`: `List["PhoneNumberErrorTypeDef"]`
+
+
+## AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PhoneNumberErrors`: `List["PhoneNumberErrorTypeDef"]`
+
+
 ## AttendeeTypeDef
 
 ```python
@@ -425,6 +451,98 @@ Optional fields:
 - `JoinToken`: `str`
 
 
+## BatchCreateAttendeeResponseTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import BatchCreateAttendeeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Attendees`: `List["AttendeeTypeDef"]`
+- `Errors`: `List["CreateAttendeeErrorTypeDef"]`
+
+
+## BatchCreateRoomMembershipResponseTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import BatchCreateRoomMembershipResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Errors`: `List["MemberErrorTypeDef"]`
+
+
+## BatchDeletePhoneNumberResponseTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import BatchDeletePhoneNumberResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PhoneNumberErrors`: `List["PhoneNumberErrorTypeDef"]`
+
+
+## BatchSuspendUserResponseTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import BatchSuspendUserResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserErrors`: `List["UserErrorTypeDef"]`
+
+
+## BatchUnsuspendUserResponseTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import BatchUnsuspendUserResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserErrors`: `List["UserErrorTypeDef"]`
+
+
+## BatchUpdatePhoneNumberResponseTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import BatchUpdatePhoneNumberResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `PhoneNumberErrors`: `List["PhoneNumberErrorTypeDef"]`
+
+
+## BatchUpdateUserResponseTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import BatchUpdateUserResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserErrors`: `List["UserErrorTypeDef"]`
+
+
 ## BotTypeDef
 
 ```python
@@ -438,7 +556,7 @@ Optional fields:
 - `BotId`: `str`
 - `UserId`: `str`
 - `DisplayName`: `str`
-- `BotType`: `BotType`
+- `BotType`: `Literal['ChatBot']`
 - `Disabled`: `bool`
 - `CreatedTimestamp`: `datetime`
 - `UpdatedTimestamp`: `datetime`
@@ -684,886 +802,6 @@ Optional fields:
 - `RetentionDays`: `int`
 
 
-## CreateAttendeeErrorTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import CreateAttendeeErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `ExternalUserId`: `str`
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## DNISEmergencyCallingConfigurationTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import DNISEmergencyCallingConfigurationTypeDef
-```
-
-
-Required fields:
-- `EmergencyPhoneNumber`: `str`
-- `CallingCountry`: `str`
-
-
-
-Optional fields:
-- `TestPhoneNumber`: `str`
-
-
-## EmergencyCallingConfigurationTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import EmergencyCallingConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `DNIS`: `List["DNISEmergencyCallingConfigurationTypeDef"]`
-
-
-## EventsConfigurationTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import EventsConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `BotId`: `str`
-- `OutboundEventsHTTPSEndpoint`: `str`
-- `LambdaFunctionArn`: `str`
-
-
-## GeoMatchParamsTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import GeoMatchParamsTypeDef
-```
-
-
-Required fields:
-- `Country`: `str`
-- `AreaCode`: `str`
-
-
-
-
-## IdentityTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import IdentityTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `Name`: `str`
-
-
-## InviteTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import InviteTypeDef
-```
-
-
-
-
-Optional fields:
-- `InviteId`: `str`
-- `Status`: `InviteStatus`
-- `EmailAddress`: `str`
-- `EmailStatus`: `EmailStatus`
-
-
-## LoggingConfigurationTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import LoggingConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `EnableSIPLogs`: `bool`
-
-
-## MediaPlacementTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import MediaPlacementTypeDef
-```
-
-
-
-
-Optional fields:
-- `AudioHostUrl`: `str`
-- `AudioFallbackUrl`: `str`
-- `ScreenDataUrl`: `str`
-- `ScreenSharingUrl`: `str`
-- `ScreenViewingUrl`: `str`
-- `SignalingUrl`: `str`
-- `TurnControlUrl`: `str`
-
-
-## MeetingTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import MeetingTypeDef
-```
-
-
-
-
-Optional fields:
-- `MeetingId`: `str`
-- `ExternalMeetingId`: `str`
-- `MediaPlacement`: `"MediaPlacementTypeDef"`
-- `MediaRegion`: `str`
-
-
-## MemberErrorTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import MemberErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `MemberId`: `str`
-- `ErrorCode`: `ErrorCode`
-- `ErrorMessage`: `str`
-
-
-## MemberTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import MemberTypeDef
-```
-
-
-
-
-Optional fields:
-- `MemberId`: `str`
-- `MemberType`: `MemberType`
-- `Email`: `str`
-- `FullName`: `str`
-- `AccountId`: `str`
-
-
-## MessagingSessionEndpointTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import MessagingSessionEndpointTypeDef
-```
-
-
-
-
-Optional fields:
-- `Url`: `str`
-
-
-## OrderedPhoneNumberTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import OrderedPhoneNumberTypeDef
-```
-
-
-
-
-Optional fields:
-- `E164PhoneNumber`: `str`
-- `Status`: `OrderedPhoneNumberStatus`
-
-
-## OriginationRouteTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import OriginationRouteTypeDef
-```
-
-
-
-
-Optional fields:
-- `Host`: `str`
-- `Port`: `int`
-- `Protocol`: `OriginationRouteProtocol`
-- `Priority`: `int`
-- `Weight`: `int`
-
-
-## OriginationTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import OriginationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Routes`: `List["OriginationRouteTypeDef"]`
-- `Disabled`: `bool`
-
-
-## ParticipantTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import ParticipantTypeDef
-```
-
-
-
-
-Optional fields:
-- `PhoneNumber`: `str`
-- `ProxyPhoneNumber`: `str`
-
-
-## PhoneNumberAssociationTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import PhoneNumberAssociationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `str`
-- `Name`: `PhoneNumberAssociationName`
-- `AssociatedTimestamp`: `datetime`
-
-
-## PhoneNumberCapabilitiesTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import PhoneNumberCapabilitiesTypeDef
-```
-
-
-
-
-Optional fields:
-- `InboundCall`: `bool`
-- `OutboundCall`: `bool`
-- `InboundSMS`: `bool`
-- `OutboundSMS`: `bool`
-- `InboundMMS`: `bool`
-- `OutboundMMS`: `bool`
-
-
-## PhoneNumberErrorTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import PhoneNumberErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `PhoneNumberId`: `str`
-- `ErrorCode`: `ErrorCode`
-- `ErrorMessage`: `str`
-
-
-## PhoneNumberOrderTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import PhoneNumberOrderTypeDef
-```
-
-
-
-
-Optional fields:
-- `PhoneNumberOrderId`: `str`
-- `ProductType`: `PhoneNumberProductType`
-- `Status`: `PhoneNumberOrderStatus`
-- `OrderedPhoneNumbers`: `List["OrderedPhoneNumberTypeDef"]`
-- `CreatedTimestamp`: `datetime`
-- `UpdatedTimestamp`: `datetime`
-
-
-## PhoneNumberTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import PhoneNumberTypeDef
-```
-
-
-
-
-Optional fields:
-- `PhoneNumberId`: `str`
-- `E164PhoneNumber`: `str`
-- `Type`: `PhoneNumberType`
-- `ProductType`: `PhoneNumberProductType`
-- `Status`: `PhoneNumberStatus`
-- `Capabilities`: `"PhoneNumberCapabilitiesTypeDef"`
-- `Associations`: `List["PhoneNumberAssociationTypeDef"]`
-- `CallingName`: `str`
-- `CallingNameStatus`: `CallingNameStatus`
-- `CreatedTimestamp`: `datetime`
-- `UpdatedTimestamp`: `datetime`
-- `DeletionTimestamp`: `datetime`
-
-
-## ProxySessionTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import ProxySessionTypeDef
-```
-
-
-
-
-Optional fields:
-- `VoiceConnectorId`: `str`
-- `ProxySessionId`: `str`
-- `Name`: `str`
-- `Status`: `ProxySessionStatus`
-- `ExpiryMinutes`: `int`
-- `Capabilities`: `List[Capability]`
-- `CreatedTimestamp`: `datetime`
-- `UpdatedTimestamp`: `datetime`
-- `EndedTimestamp`: `datetime`
-- `Participants`: `List["ParticipantTypeDef"]`
-- `NumberSelectionBehavior`: `NumberSelectionBehavior`
-- `GeoMatchLevel`: `GeoMatchLevel`
-- `GeoMatchParams`: `"GeoMatchParamsTypeDef"`
-
-
-## ProxyTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import ProxyTypeDef
-```
-
-
-
-
-Optional fields:
-- `DefaultSessionExpiryMinutes`: `int`
-- `Disabled`: `bool`
-- `FallBackPhoneNumber`: `str`
-- `PhoneNumberCountries`: `List[str]`
-
-
-## RetentionSettingsTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import RetentionSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `RoomRetentionSettings`: `"RoomRetentionSettingsTypeDef"`
-- `ConversationRetentionSettings`: `"ConversationRetentionSettingsTypeDef"`
-
-
-## RoomMembershipTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import RoomMembershipTypeDef
-```
-
-
-
-
-Optional fields:
-- `RoomId`: `str`
-- `Member`: `"MemberTypeDef"`
-- `Role`: `RoomMembershipRole`
-- `InvitedBy`: `str`
-- `UpdatedTimestamp`: `datetime`
-
-
-## RoomRetentionSettingsTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import RoomRetentionSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `RetentionDays`: `int`
-
-
-## RoomTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import RoomTypeDef
-```
-
-
-
-
-Optional fields:
-- `RoomId`: `str`
-- `Name`: `str`
-- `AccountId`: `str`
-- `CreatedBy`: `str`
-- `CreatedTimestamp`: `datetime`
-- `UpdatedTimestamp`: `datetime`
-
-
-## SigninDelegateGroupTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import SigninDelegateGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupName`: `str`
-
-
-## SipMediaApplicationCallTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import SipMediaApplicationCallTypeDef
-```
-
-
-
-
-Optional fields:
-- `TransactionId`: `str`
-
-
-## SipMediaApplicationEndpointTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import SipMediaApplicationEndpointTypeDef
-```
-
-
-
-
-Optional fields:
-- `LambdaArn`: `str`
-
-
-## SipMediaApplicationLoggingConfigurationTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import SipMediaApplicationLoggingConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `EnableSipMediaApplicationMessageLogs`: `bool`
-
-
-## SipMediaApplicationTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import SipMediaApplicationTypeDef
-```
-
-
-
-
-Optional fields:
-- `SipMediaApplicationId`: `str`
-- `AwsRegion`: `str`
-- `Name`: `str`
-- `Endpoints`: `List["SipMediaApplicationEndpointTypeDef"]`
-- `CreatedTimestamp`: `datetime`
-- `UpdatedTimestamp`: `datetime`
-
-
-## SipRuleTargetApplicationTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import SipRuleTargetApplicationTypeDef
-```
-
-
-
-
-Optional fields:
-- `SipMediaApplicationId`: `str`
-- `Priority`: `int`
-- `AwsRegion`: `str`
-
-
-## SipRuleTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import SipRuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `SipRuleId`: `str`
-- `Name`: `str`
-- `Disabled`: `bool`
-- `TriggerType`: `SipRuleTriggerType`
-- `TriggerValue`: `str`
-- `TargetApplications`: `List["SipRuleTargetApplicationTypeDef"]`
-- `CreatedTimestamp`: `datetime`
-- `UpdatedTimestamp`: `datetime`
-
-
-## StreamingConfigurationTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import StreamingConfigurationTypeDef
-```
-
-
-Required fields:
-- `DataRetentionInHours`: `int`
-
-
-
-Optional fields:
-- `Disabled`: `bool`
-- `StreamingNotificationTargets`: `List["StreamingNotificationTargetTypeDef"]`
-
-
-## StreamingNotificationTargetTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import StreamingNotificationTargetTypeDef
-```
-
-
-Required fields:
-- `NotificationTarget`: `NotificationTarget`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TelephonySettingsTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import TelephonySettingsTypeDef
-```
-
-
-Required fields:
-- `InboundCalling`: `bool`
-- `OutboundCalling`: `bool`
-- `SMS`: `bool`
-
-
-
-
-## TerminationHealthTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import TerminationHealthTypeDef
-```
-
-
-
-
-Optional fields:
-- `Timestamp`: `datetime`
-- `Source`: `str`
-
-
-## TerminationTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import TerminationTypeDef
-```
-
-
-
-
-Optional fields:
-- `CpsLimit`: `int`
-- `DefaultPhoneNumber`: `str`
-- `CallingRegions`: `List[str]`
-- `CidrAllowedList`: `List[str]`
-- `Disabled`: `bool`
-
-
-## UserErrorTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import UserErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserId`: `str`
-- `ErrorCode`: `ErrorCode`
-- `ErrorMessage`: `str`
-
-
-## UserSettingsTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import UserSettingsTypeDef
-```
-
-
-Required fields:
-- `Telephony`: `"TelephonySettingsTypeDef"`
-
-
-
-
-## UserTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import UserTypeDef
-```
-
-
-Required fields:
-- `UserId`: `str`
-
-
-
-Optional fields:
-- `AccountId`: `str`
-- `PrimaryEmail`: `str`
-- `PrimaryProvisionedNumber`: `str`
-- `DisplayName`: `str`
-- `LicenseType`: `License`
-- `UserType`: `UserType`
-- `UserRegistrationStatus`: `RegistrationStatus`
-- `UserInvitationStatus`: `InviteStatus`
-- `RegisteredOn`: `datetime`
-- `InvitedOn`: `datetime`
-- `AlexaForBusinessMetadata`: `"AlexaForBusinessMetadataTypeDef"`
-- `PersonalPIN`: `str`
-
-
-## VoiceConnectorGroupTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import VoiceConnectorGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `VoiceConnectorGroupId`: `str`
-- `Name`: `str`
-- `VoiceConnectorItems`: `List["VoiceConnectorItemTypeDef"]`
-- `CreatedTimestamp`: `datetime`
-- `UpdatedTimestamp`: `datetime`
-
-
-## VoiceConnectorItemTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import VoiceConnectorItemTypeDef
-```
-
-
-Required fields:
-- `VoiceConnectorId`: `str`
-- `Priority`: `int`
-
-
-
-
-## VoiceConnectorSettingsTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import VoiceConnectorSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `CdrBucket`: `str`
-
-
-## VoiceConnectorTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import VoiceConnectorTypeDef
-```
-
-
-
-
-Optional fields:
-- `VoiceConnectorId`: `str`
-- `AwsRegion`: `VoiceConnectorAwsRegion`
-- `Name`: `str`
-- `OutboundHostName`: `str`
-- `RequireEncryption`: `bool`
-- `CreatedTimestamp`: `datetime`
-- `UpdatedTimestamp`: `datetime`
-
-
-## AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import AssociatePhoneNumbersWithVoiceConnectorGroupResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PhoneNumberErrors`: `List["PhoneNumberErrorTypeDef"]`
-
-
-## AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import AssociatePhoneNumbersWithVoiceConnectorResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PhoneNumberErrors`: `List["PhoneNumberErrorTypeDef"]`
-
-
-## BatchCreateAttendeeResponseTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import BatchCreateAttendeeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Attendees`: `List["AttendeeTypeDef"]`
-- `Errors`: `List["CreateAttendeeErrorTypeDef"]`
-
-
-## BatchCreateRoomMembershipResponseTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import BatchCreateRoomMembershipResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Errors`: `List["MemberErrorTypeDef"]`
-
-
-## BatchDeletePhoneNumberResponseTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import BatchDeletePhoneNumberResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PhoneNumberErrors`: `List["PhoneNumberErrorTypeDef"]`
-
-
-## BatchSuspendUserResponseTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import BatchSuspendUserResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserErrors`: `List["UserErrorTypeDef"]`
-
-
-## BatchUnsuspendUserResponseTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import BatchUnsuspendUserResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserErrors`: `List["UserErrorTypeDef"]`
-
-
-## BatchUpdatePhoneNumberResponseTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import BatchUpdatePhoneNumberResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `PhoneNumberErrors`: `List["PhoneNumberErrorTypeDef"]`
-
-
-## BatchUpdateUserResponseTypeDef
-
-```python
-from mypy_boto3_chime.type_defs import BatchUpdateUserResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserErrors`: `List["UserErrorTypeDef"]`
-
-
 ## CreateAccountResponseTypeDef
 
 ```python
@@ -1615,6 +853,21 @@ from mypy_boto3_chime.type_defs import CreateAppInstanceUserResponseTypeDef
 
 Optional fields:
 - `AppInstanceUserArn`: `str`
+
+
+## CreateAttendeeErrorTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import CreateAttendeeErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `ExternalUserId`: `str`
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
 
 
 ## CreateAttendeeRequestItemTypeDef
@@ -1899,6 +1152,23 @@ Optional fields:
 - `Password`: `str`
 
 
+## DNISEmergencyCallingConfigurationTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import DNISEmergencyCallingConfigurationTypeDef
+```
+
+
+Required fields:
+- `EmergencyPhoneNumber`: `str`
+- `CallingCountry`: `str`
+
+
+
+Optional fields:
+- `TestPhoneNumber`: `str`
+
+
 ## DescribeAppInstanceAdminResponseTypeDef
 
 ```python
@@ -2040,6 +1310,48 @@ from mypy_boto3_chime.type_defs import DisassociatePhoneNumbersFromVoiceConnecto
 
 Optional fields:
 - `PhoneNumberErrors`: `List["PhoneNumberErrorTypeDef"]`
+
+
+## EmergencyCallingConfigurationTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import EmergencyCallingConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `DNIS`: `List["DNISEmergencyCallingConfigurationTypeDef"]`
+
+
+## EventsConfigurationTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import EventsConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `BotId`: `str`
+- `OutboundEventsHTTPSEndpoint`: `str`
+- `LambdaFunctionArn`: `str`
+
+
+## GeoMatchParamsTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import GeoMatchParamsTypeDef
+```
+
+
+Required fields:
+- `Country`: `str`
+- `AreaCode`: `str`
+
+
 
 
 ## GetAccountResponseTypeDef
@@ -2449,6 +1761,36 @@ Optional fields:
 - `Termination`: `"TerminationTypeDef"`
 
 
+## IdentityTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import IdentityTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `Name`: `str`
+
+
+## InviteTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import InviteTypeDef
+```
+
+
+
+
+Optional fields:
+- `InviteId`: `str`
+- `Status`: `InviteStatus`
+- `EmailAddress`: `str`
+- `EmailStatus`: `EmailStatus`
+
+
 ## InviteUsersResponseTypeDef
 
 ```python
@@ -2856,6 +2198,38 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## LoggingConfigurationTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import LoggingConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `EnableSIPLogs`: `bool`
+
+
+## MediaPlacementTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import MediaPlacementTypeDef
+```
+
+
+
+
+Optional fields:
+- `AudioHostUrl`: `str`
+- `AudioFallbackUrl`: `str`
+- `ScreenDataUrl`: `str`
+- `ScreenSharingUrl`: `str`
+- `ScreenViewingUrl`: `str`
+- `SignalingUrl`: `str`
+- `TurnControlUrl`: `str`
+
+
 ## MeetingNotificationConfigurationTypeDef
 
 ```python
@@ -2868,6 +2242,54 @@ from mypy_boto3_chime.type_defs import MeetingNotificationConfigurationTypeDef
 Optional fields:
 - `SnsTopicArn`: `str`
 - `SqsQueueArn`: `str`
+
+
+## MeetingTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import MeetingTypeDef
+```
+
+
+
+
+Optional fields:
+- `MeetingId`: `str`
+- `ExternalMeetingId`: `str`
+- `MediaPlacement`: `"MediaPlacementTypeDef"`
+- `MediaRegion`: `str`
+
+
+## MemberErrorTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import MemberErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `MemberId`: `str`
+- `ErrorCode`: `ErrorCode`
+- `ErrorMessage`: `str`
+
+
+## MemberTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import MemberTypeDef
+```
+
+
+
+
+Optional fields:
+- `MemberId`: `str`
+- `MemberType`: `MemberType`
+- `Email`: `str`
+- `FullName`: `str`
+- `AccountId`: `str`
 
 
 ## MembershipItemTypeDef
@@ -2884,6 +2306,64 @@ Optional fields:
 - `Role`: `RoomMembershipRole`
 
 
+## MessagingSessionEndpointTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import MessagingSessionEndpointTypeDef
+```
+
+
+
+
+Optional fields:
+- `Url`: `str`
+
+
+## OrderedPhoneNumberTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import OrderedPhoneNumberTypeDef
+```
+
+
+
+
+Optional fields:
+- `E164PhoneNumber`: `str`
+- `Status`: `OrderedPhoneNumberStatus`
+
+
+## OriginationRouteTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import OriginationRouteTypeDef
+```
+
+
+
+
+Optional fields:
+- `Host`: `str`
+- `Port`: `int`
+- `Protocol`: `OriginationRouteProtocol`
+- `Priority`: `int`
+- `Weight`: `int`
+
+
+## OriginationTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import OriginationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Routes`: `List["OriginationRouteTypeDef"]`
+- `Disabled`: `bool`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -2897,6 +2377,151 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ParticipantTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import ParticipantTypeDef
+```
+
+
+
+
+Optional fields:
+- `PhoneNumber`: `str`
+- `ProxyPhoneNumber`: `str`
+
+
+## PhoneNumberAssociationTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import PhoneNumberAssociationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `str`
+- `Name`: `PhoneNumberAssociationName`
+- `AssociatedTimestamp`: `datetime`
+
+
+## PhoneNumberCapabilitiesTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import PhoneNumberCapabilitiesTypeDef
+```
+
+
+
+
+Optional fields:
+- `InboundCall`: `bool`
+- `OutboundCall`: `bool`
+- `InboundSMS`: `bool`
+- `OutboundSMS`: `bool`
+- `InboundMMS`: `bool`
+- `OutboundMMS`: `bool`
+
+
+## PhoneNumberErrorTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import PhoneNumberErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `PhoneNumberId`: `str`
+- `ErrorCode`: `ErrorCode`
+- `ErrorMessage`: `str`
+
+
+## PhoneNumberOrderTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import PhoneNumberOrderTypeDef
+```
+
+
+
+
+Optional fields:
+- `PhoneNumberOrderId`: `str`
+- `ProductType`: `PhoneNumberProductType`
+- `Status`: `PhoneNumberOrderStatus`
+- `OrderedPhoneNumbers`: `List["OrderedPhoneNumberTypeDef"]`
+- `CreatedTimestamp`: `datetime`
+- `UpdatedTimestamp`: `datetime`
+
+
+## PhoneNumberTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import PhoneNumberTypeDef
+```
+
+
+
+
+Optional fields:
+- `PhoneNumberId`: `str`
+- `E164PhoneNumber`: `str`
+- `Type`: `PhoneNumberType`
+- `ProductType`: `PhoneNumberProductType`
+- `Status`: `PhoneNumberStatus`
+- `Capabilities`: `"PhoneNumberCapabilitiesTypeDef"`
+- `Associations`: `List["PhoneNumberAssociationTypeDef"]`
+- `CallingName`: `str`
+- `CallingNameStatus`: `CallingNameStatus`
+- `CreatedTimestamp`: `datetime`
+- `UpdatedTimestamp`: `datetime`
+- `DeletionTimestamp`: `datetime`
+
+
+## ProxySessionTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import ProxySessionTypeDef
+```
+
+
+
+
+Optional fields:
+- `VoiceConnectorId`: `str`
+- `ProxySessionId`: `str`
+- `Name`: `str`
+- `Status`: `ProxySessionStatus`
+- `ExpiryMinutes`: `int`
+- `Capabilities`: `List[Capability]`
+- `CreatedTimestamp`: `datetime`
+- `UpdatedTimestamp`: `datetime`
+- `EndedTimestamp`: `datetime`
+- `Participants`: `List["ParticipantTypeDef"]`
+- `NumberSelectionBehavior`: `NumberSelectionBehavior`
+- `GeoMatchLevel`: `GeoMatchLevel`
+- `GeoMatchParams`: `"GeoMatchParamsTypeDef"`
+
+
+## ProxyTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import ProxyTypeDef
+```
+
+
+
+
+Optional fields:
+- `DefaultSessionExpiryMinutes`: `int`
+- `Disabled`: `bool`
+- `FallBackPhoneNumber`: `str`
+- `PhoneNumberCountries`: `List[str]`
 
 
 ## PutAppInstanceRetentionSettingsResponseTypeDef
@@ -3097,6 +2722,68 @@ Optional fields:
 - `PhoneNumber`: `"PhoneNumberTypeDef"`
 
 
+## RetentionSettingsTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import RetentionSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `RoomRetentionSettings`: `"RoomRetentionSettingsTypeDef"`
+- `ConversationRetentionSettings`: `"ConversationRetentionSettingsTypeDef"`
+
+
+## RoomMembershipTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import RoomMembershipTypeDef
+```
+
+
+
+
+Optional fields:
+- `RoomId`: `str`
+- `Member`: `"MemberTypeDef"`
+- `Role`: `RoomMembershipRole`
+- `InvitedBy`: `str`
+- `UpdatedTimestamp`: `datetime`
+
+
+## RoomRetentionSettingsTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import RoomRetentionSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `RetentionDays`: `int`
+
+
+## RoomTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import RoomTypeDef
+```
+
+
+
+
+Optional fields:
+- `RoomId`: `str`
+- `Name`: `str`
+- `AccountId`: `str`
+- `CreatedBy`: `str`
+- `CreatedTimestamp`: `datetime`
+- `UpdatedTimestamp`: `datetime`
+
+
 ## SearchAvailablePhoneNumbersResponseTypeDef
 
 ```python
@@ -3122,6 +2809,201 @@ from mypy_boto3_chime.type_defs import SendChannelMessageResponseTypeDef
 Optional fields:
 - `ChannelArn`: `str`
 - `MessageId`: `str`
+
+
+## SigninDelegateGroupTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import SigninDelegateGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupName`: `str`
+
+
+## SipMediaApplicationCallTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import SipMediaApplicationCallTypeDef
+```
+
+
+
+
+Optional fields:
+- `TransactionId`: `str`
+
+
+## SipMediaApplicationEndpointTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import SipMediaApplicationEndpointTypeDef
+```
+
+
+
+
+Optional fields:
+- `LambdaArn`: `str`
+
+
+## SipMediaApplicationLoggingConfigurationTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import SipMediaApplicationLoggingConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `EnableSipMediaApplicationMessageLogs`: `bool`
+
+
+## SipMediaApplicationTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import SipMediaApplicationTypeDef
+```
+
+
+
+
+Optional fields:
+- `SipMediaApplicationId`: `str`
+- `AwsRegion`: `str`
+- `Name`: `str`
+- `Endpoints`: `List["SipMediaApplicationEndpointTypeDef"]`
+- `CreatedTimestamp`: `datetime`
+- `UpdatedTimestamp`: `datetime`
+
+
+## SipRuleTargetApplicationTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import SipRuleTargetApplicationTypeDef
+```
+
+
+
+
+Optional fields:
+- `SipMediaApplicationId`: `str`
+- `Priority`: `int`
+- `AwsRegion`: `str`
+
+
+## SipRuleTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import SipRuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `SipRuleId`: `str`
+- `Name`: `str`
+- `Disabled`: `bool`
+- `TriggerType`: `SipRuleTriggerType`
+- `TriggerValue`: `str`
+- `TargetApplications`: `List["SipRuleTargetApplicationTypeDef"]`
+- `CreatedTimestamp`: `datetime`
+- `UpdatedTimestamp`: `datetime`
+
+
+## StreamingConfigurationTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import StreamingConfigurationTypeDef
+```
+
+
+Required fields:
+- `DataRetentionInHours`: `int`
+
+
+
+Optional fields:
+- `Disabled`: `bool`
+- `StreamingNotificationTargets`: `List["StreamingNotificationTargetTypeDef"]`
+
+
+## StreamingNotificationTargetTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import StreamingNotificationTargetTypeDef
+```
+
+
+Required fields:
+- `NotificationTarget`: `NotificationTarget`
+
+
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TelephonySettingsTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import TelephonySettingsTypeDef
+```
+
+
+Required fields:
+- `InboundCalling`: `bool`
+- `OutboundCalling`: `bool`
+- `SMS`: `bool`
+
+
+
+
+## TerminationHealthTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import TerminationHealthTypeDef
+```
+
+
+
+
+Optional fields:
+- `Timestamp`: `datetime`
+- `Source`: `str`
+
+
+## TerminationTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import TerminationTypeDef
+```
+
+
+
+
+Optional fields:
+- `CpsLimit`: `int`
+- `DefaultPhoneNumber`: `str`
+- `CallingRegions`: `List[str]`
+- `CidrAllowedList`: `List[str]`
+- `Disabled`: `bool`
 
 
 ## UpdateAccountResponseTypeDef
@@ -3366,4 +3248,122 @@ from mypy_boto3_chime.type_defs import UpdateVoiceConnectorResponseTypeDef
 
 Optional fields:
 - `VoiceConnector`: `"VoiceConnectorTypeDef"`
+
+
+## UserErrorTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import UserErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserId`: `str`
+- `ErrorCode`: `ErrorCode`
+- `ErrorMessage`: `str`
+
+
+## UserSettingsTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import UserSettingsTypeDef
+```
+
+
+Required fields:
+- `Telephony`: `"TelephonySettingsTypeDef"`
+
+
+
+
+## UserTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import UserTypeDef
+```
+
+
+Required fields:
+- `UserId`: `str`
+
+
+
+Optional fields:
+- `AccountId`: `str`
+- `PrimaryEmail`: `str`
+- `PrimaryProvisionedNumber`: `str`
+- `DisplayName`: `str`
+- `LicenseType`: `License`
+- `UserType`: `UserType`
+- `UserRegistrationStatus`: `RegistrationStatus`
+- `UserInvitationStatus`: `InviteStatus`
+- `RegisteredOn`: `datetime`
+- `InvitedOn`: `datetime`
+- `AlexaForBusinessMetadata`: `"AlexaForBusinessMetadataTypeDef"`
+- `PersonalPIN`: `str`
+
+
+## VoiceConnectorGroupTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import VoiceConnectorGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `VoiceConnectorGroupId`: `str`
+- `Name`: `str`
+- `VoiceConnectorItems`: `List["VoiceConnectorItemTypeDef"]`
+- `CreatedTimestamp`: `datetime`
+- `UpdatedTimestamp`: `datetime`
+
+
+## VoiceConnectorItemTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import VoiceConnectorItemTypeDef
+```
+
+
+Required fields:
+- `VoiceConnectorId`: `str`
+- `Priority`: `int`
+
+
+
+
+## VoiceConnectorSettingsTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import VoiceConnectorSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `CdrBucket`: `str`
+
+
+## VoiceConnectorTypeDef
+
+```python
+from mypy_boto3_chime.type_defs import VoiceConnectorTypeDef
+```
+
+
+
+
+Optional fields:
+- `VoiceConnectorId`: `str`
+- `AwsRegion`: `VoiceConnectorAwsRegion`
+- `Name`: `str`
+- `OutboundHostName`: `str`
+- `RequireEncryption`: `bool`
+- `CreatedTimestamp`: `datetime`
+- `UpdatedTimestamp`: `datetime`
 

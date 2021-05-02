@@ -51,15 +51,6 @@ type annotations stubs module [mypy_boto3_lex_models](https://pypi.org/project/m
     - [tag_resource](#tag_resource)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
 
 ## LexModelBuildingServiceClient
 
@@ -770,152 +761,21 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("lex-models").get_paginator` method.
-
-[Paginator.GetBotAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotAliases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetBotAliasesPaginatorName
-) -> GetBotAliasesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("lex-models").get_paginator` method.
+Type annotations for `boto3.client("lex-models").get_paginator` method with overloads.
 
-[Paginator.GetBotChannelAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotChannelAssociations)
+- `client.get_paginator("get_bot_aliases")` -> [GetBotAliasesPaginator](./paginators.md#getbotaliasespaginator)
+- `client.get_paginator("get_bot_channel_associations")` -> [GetBotChannelAssociationsPaginator](./paginators.md#getbotchannelassociationspaginator)
+- `client.get_paginator("get_bot_versions")` -> [GetBotVersionsPaginator](./paginators.md#getbotversionspaginator)
+- `client.get_paginator("get_bots")` -> [GetBotsPaginator](./paginators.md#getbotspaginator)
+- `client.get_paginator("get_builtin_intents")` -> [GetBuiltinIntentsPaginator](./paginators.md#getbuiltinintentspaginator)
+- `client.get_paginator("get_builtin_slot_types")` -> [GetBuiltinSlotTypesPaginator](./paginators.md#getbuiltinslottypespaginator)
+- `client.get_paginator("get_intent_versions")` -> [GetIntentVersionsPaginator](./paginators.md#getintentversionspaginator)
+- `client.get_paginator("get_intents")` -> [GetIntentsPaginator](./paginators.md#getintentspaginator)
+- `client.get_paginator("get_slot_type_versions")` -> [GetSlotTypeVersionsPaginator](./paginators.md#getslottypeversionspaginator)
+- `client.get_paginator("get_slot_types")` -> [GetSlotTypesPaginator](./paginators.md#getslottypespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetBotChannelAssociationsPaginatorName
-) -> GetBotChannelAssociationsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("lex-models").get_paginator` method.
-
-[Paginator.GetBotVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetBotVersionsPaginatorName
-) -> GetBotVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lex-models").get_paginator` method.
-
-[Paginator.GetBots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetBotsPaginatorName
-) -> GetBotsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lex-models").get_paginator` method.
-
-[Paginator.GetBuiltinIntents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinIntents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetBuiltinIntentsPaginatorName
-) -> GetBuiltinIntentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lex-models").get_paginator` method.
-
-[Paginator.GetBuiltinSlotTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinSlotTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetBuiltinSlotTypesPaginatorName
-) -> GetBuiltinSlotTypesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lex-models").get_paginator` method.
-
-[Paginator.GetIntentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntentVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetIntentVersionsPaginatorName
-) -> GetIntentVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lex-models").get_paginator` method.
-
-[Paginator.GetIntents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetIntentsPaginatorName
-) -> GetIntentsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lex-models").get_paginator` method.
-
-[Paginator.GetSlotTypeVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypeVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetSlotTypeVersionsPaginatorName
-) -> GetSlotTypeVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("lex-models").get_paginator` method.
-
-[Paginator.GetSlotTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetSlotTypesPaginatorName
-) -> GetSlotTypesPaginator:
-    pass
-```

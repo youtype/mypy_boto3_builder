@@ -337,30 +337,19 @@ def update_certificate_options(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("acm").get_paginator` method.
+Type annotations for `boto3.client("acm").get_paginator` method with overloads.
 
-[Paginator.ListCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm.html#ACM.Paginator.ListCertificates)
+- `client.get_paginator("list_certificates")` -> [ListCertificatesPaginator](./paginators.md#listcertificatespaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListCertificatesPaginatorName
-) -> ListCertificatesPaginator:
-    pass
-```
+
+
 
 ### get_waiter
 
-Type annotations for `boto3.client("acm").get_waiter` method.
+Type annotations for `boto3.client("acm").get_waiter` method with overloads.
 
-[Waiter.CertificateValidated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm.html#ACM.Waiter.CertificateValidated)
-
-```python
-def get_waiter(
-    self,
-    waiter_name: CertificateValidatedWaiterName
-) -> CertificateValidatedWaiter:
-    pass
-```
+- `client.get_waiter("certificate_validated")` -> [CertificateValidatedWaiter](./waiters.md#certificatevalidatedwaiter)

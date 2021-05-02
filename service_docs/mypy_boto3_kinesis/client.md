@@ -40,11 +40,7 @@ type annotations stubs module [mypy_boto3_kinesis](https://pypi.org/project/mypy
     - [subscribe_to_shard](#subscribe_to_shard)
     - [update_shard_count](#update_shard_count)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
 
 ## KinesisClient
 
@@ -556,97 +552,28 @@ def update_shard_count(
     self,
     StreamName: str,
     TargetShardCount: int,
-    ScalingType: ScalingType
+    ScalingType: Literal['UNIFORM_SCALING']
 ) -> UpdateShardCountOutputTypeDef:
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("kinesis").get_paginator` method.
-
-[Paginator.DescribeStream documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeStreamPaginatorName
-) -> DescribeStreamPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("kinesis").get_paginator` method.
+Type annotations for `boto3.client("kinesis").get_paginator` method with overloads.
 
-[Paginator.ListShards documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html#Kinesis.Paginator.ListShards)
+- `client.get_paginator("describe_stream")` -> [DescribeStreamPaginator](./paginators.md#describestreampaginator)
+- `client.get_paginator("list_shards")` -> [ListShardsPaginator](./paginators.md#listshardspaginator)
+- `client.get_paginator("list_stream_consumers")` -> [ListStreamConsumersPaginator](./paginators.md#liststreamconsumerspaginator)
+- `client.get_paginator("list_streams")` -> [ListStreamsPaginator](./paginators.md#liststreamspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListShardsPaginatorName
-) -> ListShardsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("kinesis").get_paginator` method.
-
-[Paginator.ListStreamConsumers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStreamConsumersPaginatorName
-) -> ListStreamConsumersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("kinesis").get_paginator` method.
-
-[Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html#Kinesis.Paginator.ListStreams)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStreamsPaginatorName
-) -> ListStreamsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("kinesis").get_waiter` method.
+Type annotations for `boto3.client("kinesis").get_waiter` method with overloads.
 
-[Waiter.StreamExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html#Kinesis.Waiter.StreamExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: StreamExistsWaiterName
-) -> StreamExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("kinesis").get_waiter` method.
-
-[Waiter.StreamNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesis.html#Kinesis.Waiter.StreamNotExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: StreamNotExistsWaiterName
-) -> StreamNotExistsWaiter:
-    pass
-```
+- `client.get_waiter("stream_exists")` -> [StreamExistsWaiter](./waiters.md#streamexistswaiter)
+- `client.get_waiter("stream_not_exists")` -> [StreamNotExistsWaiter](./waiters.md#streamnotexistswaiter)

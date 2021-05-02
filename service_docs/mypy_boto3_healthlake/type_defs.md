@@ -6,21 +6,53 @@ Auto-generated documentation for [HealthLake](https://boto3.amazonaws.com/v1/doc
 type annotations stubs module [mypy_boto3_healthlake](https://pypi.org/project/mypy-boto3-healthlake/).
 
 - [Structures for boto3 HealthLake module](#structures-for-boto3-healthlake-module)
-  - [DatastorePropertiesTypeDef](#datastorepropertiestypedef)
-  - [ExportJobPropertiesTypeDef](#exportjobpropertiestypedef)
-  - [ImportJobPropertiesTypeDef](#importjobpropertiestypedef)
-  - [InputDataConfigTypeDef](#inputdataconfigtypedef)
-  - [OutputDataConfigTypeDef](#outputdataconfigtypedef)
-  - [PreloadDataConfigTypeDef](#preloaddataconfigtypedef)
   - [CreateFHIRDatastoreResponseTypeDef](#createfhirdatastoreresponsetypedef)
   - [DatastoreFilterTypeDef](#datastorefiltertypedef)
+  - [DatastorePropertiesTypeDef](#datastorepropertiestypedef)
   - [DeleteFHIRDatastoreResponseTypeDef](#deletefhirdatastoreresponsetypedef)
   - [DescribeFHIRDatastoreResponseTypeDef](#describefhirdatastoreresponsetypedef)
   - [DescribeFHIRExportJobResponseTypeDef](#describefhirexportjobresponsetypedef)
   - [DescribeFHIRImportJobResponseTypeDef](#describefhirimportjobresponsetypedef)
+  - [ExportJobPropertiesTypeDef](#exportjobpropertiestypedef)
+  - [ImportJobPropertiesTypeDef](#importjobpropertiestypedef)
+  - [InputDataConfigTypeDef](#inputdataconfigtypedef)
   - [ListFHIRDatastoresResponseTypeDef](#listfhirdatastoresresponsetypedef)
+  - [OutputDataConfigTypeDef](#outputdataconfigtypedef)
+  - [PreloadDataConfigTypeDef](#preloaddataconfigtypedef)
   - [StartFHIRExportJobResponseTypeDef](#startfhirexportjobresponsetypedef)
   - [StartFHIRImportJobResponseTypeDef](#startfhirimportjobresponsetypedef)
+
+## CreateFHIRDatastoreResponseTypeDef
+
+```python
+from mypy_boto3_healthlake.type_defs import CreateFHIRDatastoreResponseTypeDef
+```
+
+
+Required fields:
+- `DatastoreId`: `str`
+- `DatastoreArn`: `str`
+- `DatastoreStatus`: `DatastoreStatus`
+- `DatastoreEndpoint`: `str`
+
+
+
+
+## DatastoreFilterTypeDef
+
+```python
+from mypy_boto3_healthlake.type_defs import DatastoreFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `DatastoreName`: `str`
+- `DatastoreStatus`: `DatastoreStatus`
+- `CreatedBefore`: `datetime`
+- `CreatedAfter`: `datetime`
+
 
 ## DatastorePropertiesTypeDef
 
@@ -33,7 +65,7 @@ Required fields:
 - `DatastoreId`: `str`
 - `DatastoreArn`: `str`
 - `DatastoreStatus`: `DatastoreStatus`
-- `DatastoreTypeVersion`: `FHIRVersion`
+- `DatastoreTypeVersion`: `Literal['R4']`
 - `DatastoreEndpoint`: `str`
 
 
@@ -42,6 +74,61 @@ Optional fields:
 - `DatastoreName`: `str`
 - `CreatedAt`: `datetime`
 - `PreloadDataConfig`: `"PreloadDataConfigTypeDef"`
+
+
+## DeleteFHIRDatastoreResponseTypeDef
+
+```python
+from mypy_boto3_healthlake.type_defs import DeleteFHIRDatastoreResponseTypeDef
+```
+
+
+Required fields:
+- `DatastoreId`: `str`
+- `DatastoreArn`: `str`
+- `DatastoreStatus`: `DatastoreStatus`
+- `DatastoreEndpoint`: `str`
+
+
+
+
+## DescribeFHIRDatastoreResponseTypeDef
+
+```python
+from mypy_boto3_healthlake.type_defs import DescribeFHIRDatastoreResponseTypeDef
+```
+
+
+Required fields:
+- `DatastoreProperties`: `"DatastorePropertiesTypeDef"`
+
+
+
+
+## DescribeFHIRExportJobResponseTypeDef
+
+```python
+from mypy_boto3_healthlake.type_defs import DescribeFHIRExportJobResponseTypeDef
+```
+
+
+Required fields:
+- `ExportJobProperties`: `"ExportJobPropertiesTypeDef"`
+
+
+
+
+## DescribeFHIRImportJobResponseTypeDef
+
+```python
+from mypy_boto3_healthlake.type_defs import DescribeFHIRImportJobResponseTypeDef
+```
+
+
+Required fields:
+- `ImportJobProperties`: `"ImportJobPropertiesTypeDef"`
+
+
 
 
 ## ExportJobPropertiesTypeDef
@@ -103,6 +190,22 @@ Optional fields:
 - `S3Uri`: `str`
 
 
+## ListFHIRDatastoresResponseTypeDef
+
+```python
+from mypy_boto3_healthlake.type_defs import ListFHIRDatastoresResponseTypeDef
+```
+
+
+Required fields:
+- `DatastorePropertiesList`: `List["DatastorePropertiesTypeDef"]`
+
+
+
+Optional fields:
+- `NextToken`: `str`
+
+
 ## OutputDataConfigTypeDef
 
 ```python
@@ -124,112 +227,9 @@ from mypy_boto3_healthlake.type_defs import PreloadDataConfigTypeDef
 
 
 Required fields:
-- `PreloadDataType`: `PreloadDataType`
+- `PreloadDataType`: `Literal['SYNTHEA']`
 
 
-
-
-## CreateFHIRDatastoreResponseTypeDef
-
-```python
-from mypy_boto3_healthlake.type_defs import CreateFHIRDatastoreResponseTypeDef
-```
-
-
-Required fields:
-- `DatastoreId`: `str`
-- `DatastoreArn`: `str`
-- `DatastoreStatus`: `DatastoreStatus`
-- `DatastoreEndpoint`: `str`
-
-
-
-
-## DatastoreFilterTypeDef
-
-```python
-from mypy_boto3_healthlake.type_defs import DatastoreFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `DatastoreName`: `str`
-- `DatastoreStatus`: `DatastoreStatus`
-- `CreatedBefore`: `datetime`
-- `CreatedAfter`: `datetime`
-
-
-## DeleteFHIRDatastoreResponseTypeDef
-
-```python
-from mypy_boto3_healthlake.type_defs import DeleteFHIRDatastoreResponseTypeDef
-```
-
-
-Required fields:
-- `DatastoreId`: `str`
-- `DatastoreArn`: `str`
-- `DatastoreStatus`: `DatastoreStatus`
-- `DatastoreEndpoint`: `str`
-
-
-
-
-## DescribeFHIRDatastoreResponseTypeDef
-
-```python
-from mypy_boto3_healthlake.type_defs import DescribeFHIRDatastoreResponseTypeDef
-```
-
-
-Required fields:
-- `DatastoreProperties`: `"DatastorePropertiesTypeDef"`
-
-
-
-
-## DescribeFHIRExportJobResponseTypeDef
-
-```python
-from mypy_boto3_healthlake.type_defs import DescribeFHIRExportJobResponseTypeDef
-```
-
-
-Required fields:
-- `ExportJobProperties`: `"ExportJobPropertiesTypeDef"`
-
-
-
-
-## DescribeFHIRImportJobResponseTypeDef
-
-```python
-from mypy_boto3_healthlake.type_defs import DescribeFHIRImportJobResponseTypeDef
-```
-
-
-Required fields:
-- `ImportJobProperties`: `"ImportJobPropertiesTypeDef"`
-
-
-
-
-## ListFHIRDatastoresResponseTypeDef
-
-```python
-from mypy_boto3_healthlake.type_defs import ListFHIRDatastoresResponseTypeDef
-```
-
-
-Required fields:
-- `DatastorePropertiesList`: `List["DatastorePropertiesTypeDef"]`
-
-
-
-Optional fields:
-- `NextToken`: `str`
 
 
 ## StartFHIRExportJobResponseTypeDef

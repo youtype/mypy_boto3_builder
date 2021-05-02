@@ -24,13 +24,14 @@ type annotations stubs module [mypy_boto3_apigatewayv2](https://pypi.org/project
   - [GetRoutesPaginatorName](#getroutespaginatorname)
   - [GetStagesPaginatorName](#getstagespaginatorname)
   - [IntegrationType](#integrationtype)
+  - [JSONYAMLType](#jsonyamltype)
   - [LoggingLevel](#logginglevel)
+  - [OAS30Type](#oas30type)
   - [PassthroughBehavior](#passthroughbehavior)
   - [ProtocolType](#protocoltype)
   - [SecurityPolicy](#securitypolicy)
   - [VpcLinkStatus](#vpclinkstatus)
   - [VpcLinkVersion](#vpclinkversion)
-  - [__string](#__string)
 
 ## AuthorizationType
 
@@ -226,6 +227,17 @@ Values:
 - `HTTP_PROXY`
 - `MOCK`
 
+## JSONYAMLType
+
+```python
+from mypy_boto3_apigatewayv2.literals import JSONYAMLType
+```
+
+Values:
+
+- `JSON`
+- `YAML`
+
 ## LoggingLevel
 
 ```python
@@ -237,6 +249,16 @@ Values:
 - `ERROR`
 - `INFO`
 - `OFF`
+
+## OAS30Type
+
+```python
+from mypy_boto3_apigatewayv2.literals import OAS30Type
+```
+
+Values:
+
+- `OAS30`
 
 ## PassthroughBehavior
 
@@ -295,14 +317,3 @@ from mypy_boto3_apigatewayv2.literals import VpcLinkVersion
 Values:
 
 - `V2`
-
-## __string
-
-```python
-from mypy_boto3_apigatewayv2.literals import __string
-```
-
-Values:
-
-- `JSON`
-- `YAML`

@@ -145,7 +145,7 @@ class ListMetricsPaginator(Boto3Paginator):
         Namespace: str = None,
         MetricName: str = None,
         Dimensions: List[DimensionFilterTypeDef] = None,
-        RecentlyActive: RecentlyActive = None,
+        RecentlyActive: Literal['PT3H'] = None,
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMetricsOutputTypeDef]:
         pass

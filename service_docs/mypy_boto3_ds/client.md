@@ -74,14 +74,6 @@ type annotations stubs module [mypy_boto3_ds](https://pypi.org/project/mypy-boto
     - [update_trust](#update_trust)
     - [verify_trust](#verify_trust)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
 
 ## DirectoryServiceClient
 
@@ -587,7 +579,7 @@ Type annotations for `boto3.client("ds").describe_ldaps_settings` method.
 def describe_ldaps_settings(
     self,
     DirectoryId: str,
-    Type: LDAPSType = None,
+    Type: Literal['Client'] = None,
     NextToken: str = None,
     Limit: int = None
 ) -> DescribeLDAPSSettingsResultTypeDef:
@@ -671,7 +663,7 @@ Type annotations for `boto3.client("ds").disable_client_authentication` method.
 def disable_client_authentication(
     self,
     DirectoryId: str,
-    Type: ClientAuthenticationType
+    Type: Literal['SmartCard']
 ) -> Dict[str, Any]:
     pass
 ```
@@ -686,7 +678,7 @@ Type annotations for `boto3.client("ds").disable_ldaps` method.
 def disable_ldaps(
     self,
     DirectoryId: str,
-    Type: LDAPSType
+    Type: Literal['Client']
 ) -> Dict[str, Any]:
     pass
 ```
@@ -731,7 +723,7 @@ Type annotations for `boto3.client("ds").enable_client_authentication` method.
 def enable_client_authentication(
     self,
     DirectoryId: str,
-    Type: ClientAuthenticationType
+    Type: Literal['SmartCard']
 ) -> Dict[str, Any]:
     pass
 ```
@@ -746,7 +738,7 @@ Type annotations for `boto3.client("ds").enable_ldaps` method.
 def enable_ldaps(
     self,
     DirectoryId: str,
-    Type: LDAPSType
+    Type: Literal['Client']
 ) -> Dict[str, Any]:
     pass
 ```
@@ -1150,137 +1142,20 @@ def verify_trust(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("ds").get_paginator` method.
-
-[Paginator.DescribeDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds.html#DirectoryService.Paginator.DescribeDirectories)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDirectoriesPaginatorName
-) -> DescribeDirectoriesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("ds").get_paginator` method.
+Type annotations for `boto3.client("ds").get_paginator` method with overloads.
 
-[Paginator.DescribeDomainControllers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds.html#DirectoryService.Paginator.DescribeDomainControllers)
+- `client.get_paginator("describe_directories")` -> [DescribeDirectoriesPaginator](./paginators.md#describedirectoriespaginator)
+- `client.get_paginator("describe_domain_controllers")` -> [DescribeDomainControllersPaginator](./paginators.md#describedomaincontrollerspaginator)
+- `client.get_paginator("describe_shared_directories")` -> [DescribeSharedDirectoriesPaginator](./paginators.md#describeshareddirectoriespaginator)
+- `client.get_paginator("describe_snapshots")` -> [DescribeSnapshotsPaginator](./paginators.md#describesnapshotspaginator)
+- `client.get_paginator("describe_trusts")` -> [DescribeTrustsPaginator](./paginators.md#describetrustspaginator)
+- `client.get_paginator("list_ip_routes")` -> [ListIpRoutesPaginator](./paginators.md#listiproutespaginator)
+- `client.get_paginator("list_log_subscriptions")` -> [ListLogSubscriptionsPaginator](./paginators.md#listlogsubscriptionspaginator)
+- `client.get_paginator("list_schema_extensions")` -> [ListSchemaExtensionsPaginator](./paginators.md#listschemaextensionspaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDomainControllersPaginatorName
-) -> DescribeDomainControllersPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("ds").get_paginator` method.
-
-[Paginator.DescribeSharedDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds.html#DirectoryService.Paginator.DescribeSharedDirectories)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSharedDirectoriesPaginatorName
-) -> DescribeSharedDirectoriesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ds").get_paginator` method.
-
-[Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds.html#DirectoryService.Paginator.DescribeSnapshots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeSnapshotsPaginatorName
-) -> DescribeSnapshotsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ds").get_paginator` method.
-
-[Paginator.DescribeTrusts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds.html#DirectoryService.Paginator.DescribeTrusts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeTrustsPaginatorName
-) -> DescribeTrustsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ds").get_paginator` method.
-
-[Paginator.ListIpRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds.html#DirectoryService.Paginator.ListIpRoutes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListIpRoutesPaginatorName
-) -> ListIpRoutesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ds").get_paginator` method.
-
-[Paginator.ListLogSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds.html#DirectoryService.Paginator.ListLogSubscriptions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListLogSubscriptionsPaginatorName
-) -> ListLogSubscriptionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ds").get_paginator` method.
-
-[Paginator.ListSchemaExtensions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds.html#DirectoryService.Paginator.ListSchemaExtensions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSchemaExtensionsPaginatorName
-) -> ListSchemaExtensionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("ds").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ds.html#DirectoryService.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```

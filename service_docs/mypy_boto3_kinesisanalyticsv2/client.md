@@ -40,7 +40,6 @@ type annotations stubs module [mypy_boto3_kinesisanalyticsv2](https://pypi.org/p
     - [update_application](#update_application)
     - [update_application_maintenance_configuration](#update_application_maintenance_configuration)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
 
 ## KinesisAnalyticsV2Client
 
@@ -227,7 +226,7 @@ Type annotations for `boto3.client("kinesisanalyticsv2").create_application_pres
 def create_application_presigned_url(
     self,
     ApplicationName: str,
-    UrlType: UrlType,
+    UrlType: Literal['FLINK_DASHBOARD_URL'],
     SessionExpirationDurationInSeconds: int = None
 ) -> CreateApplicationPresignedUrlResponseTypeDef:
     pass
@@ -563,32 +562,13 @@ def update_application_maintenance_configuration(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("kinesisanalyticsv2").get_paginator` method.
-
-[Paginator.ListApplicationSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplicationSnapshots)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListApplicationSnapshotsPaginatorName
-) -> ListApplicationSnapshotsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("kinesisanalyticsv2").get_paginator` method.
+Type annotations for `boto3.client("kinesisanalyticsv2").get_paginator` method with overloads.
 
-[Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplications)
+- `client.get_paginator("list_application_snapshots")` -> [ListApplicationSnapshotsPaginator](./paginators.md#listapplicationsnapshotspaginator)
+- `client.get_paginator("list_applications")` -> [ListApplicationsPaginator](./paginators.md#listapplicationspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListApplicationsPaginatorName
-) -> ListApplicationsPaginator:
-    pass
-```
+

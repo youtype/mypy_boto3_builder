@@ -7,14 +7,14 @@ type annotations stubs module [mypy_boto3_importexport](https://pypi.org/project
 
 - [Structures for boto3 ImportExport module](#structures-for-boto3-importexport-module)
   - [ArtifactTypeDef](#artifacttypedef)
-  - [JobTypeDef](#jobtypedef)
-  - [ResponseMetadata](#responsemetadata)
   - [CancelJobOutputTypeDef](#canceljoboutputtypedef)
   - [CreateJobOutputTypeDef](#createjoboutputtypedef)
   - [GetShippingLabelOutputTypeDef](#getshippinglabeloutputtypedef)
   - [GetStatusOutputTypeDef](#getstatusoutputtypedef)
+  - [JobTypeDef](#jobtypedef)
   - [ListJobsOutputTypeDef](#listjobsoutputtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ResponseMetadata](#responsemetadata)
   - [UpdateJobOutputTypeDef](#updatejoboutputtypedef)
 
 ## ArtifactTypeDef
@@ -29,39 +29,6 @@ from mypy_boto3_importexport.type_defs import ArtifactTypeDef
 Optional fields:
 - `Description`: `str`
 - `URL`: `str`
-
-
-## JobTypeDef
-
-```python
-from mypy_boto3_importexport.type_defs import JobTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-- `CreationDate`: `datetime`
-- `IsCanceled`: `bool`
-- `JobType`: `JobType`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_importexport.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
 
 
 ## CancelJobOutputTypeDef
@@ -141,6 +108,22 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## JobTypeDef
+
+```python
+from mypy_boto3_importexport.type_defs import JobTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+- `CreationDate`: `datetime`
+- `IsCanceled`: `bool`
+- `JobType`: `JobType`
+
+
 ## ListJobsOutputTypeDef
 
 ```python
@@ -169,6 +152,23 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_importexport.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
 
 
 ## UpdateJobOutputTypeDef

@@ -94,14 +94,14 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_meteringmarketplace.type_defs import TagTypeDef, ...
+from mypy_boto3_meteringmarketplace.type_defs import BatchMeterUsageResultTypeDef, ...
 ```
 
-- [TagTypeDef](./type_defs.md#tagtypedef)
-- [UsageAllocationTypeDef](./type_defs.md#usageallocationtypedef)
-- [UsageRecordResultTypeDef](./type_defs.md#usagerecordresulttypedef)
-- [UsageRecordTypeDef](./type_defs.md#usagerecordtypedef)
 - [BatchMeterUsageResultTypeDef](./type_defs.md#batchmeterusageresulttypedef)
 - [MeterUsageResultTypeDef](./type_defs.md#meterusageresulttypedef)
 - [RegisterUsageResultTypeDef](./type_defs.md#registerusageresulttypedef)
 - [ResolveCustomerResultTypeDef](./type_defs.md#resolvecustomerresulttypedef)
+- [TagTypeDef](./type_defs.md#tagtypedef)
+- [UsageAllocationTypeDef](./type_defs.md#usageallocationtypedef)
+- [UsageRecordResultTypeDef](./type_defs.md#usagerecordresulttypedef)
+- [UsageRecordTypeDef](./type_defs.md#usagerecordtypedef)

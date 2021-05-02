@@ -31,9 +31,6 @@ type annotations stubs module [mypy_boto3_opsworkscm](https://pypi.org/project/m
     - [update_server](#update_server)
     - [update_server_engine_attributes](#update_server_engine_attributes)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
     - [get_waiter](#get_waiter)
 
 ## OpsWorksCMClient
@@ -419,76 +416,22 @@ def update_server_engine_attributes(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("opsworkscm").get_paginator` method.
-
-[Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeBackups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeBackupsPaginatorName
-) -> DescribeBackupsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("opsworkscm").get_paginator` method.
+Type annotations for `boto3.client("opsworkscm").get_paginator` method with overloads.
 
-[Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeEvents)
+- `client.get_paginator("describe_backups")` -> [DescribeBackupsPaginator](./paginators.md#describebackupspaginator)
+- `client.get_paginator("describe_events")` -> [DescribeEventsPaginator](./paginators.md#describeeventspaginator)
+- `client.get_paginator("describe_servers")` -> [DescribeServersPaginator](./paginators.md#describeserverspaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEventsPaginatorName
-) -> DescribeEventsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("opsworkscm").get_paginator` method.
-
-[Paginator.DescribeServers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeServers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeServersPaginatorName
-) -> DescribeServersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("opsworkscm").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm.html#OpsWorksCM.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("opsworkscm").get_waiter` method.
+Type annotations for `boto3.client("opsworkscm").get_waiter` method with overloads.
 
-[Waiter.NodeAssociated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworkscm.html#OpsWorksCM.Waiter.NodeAssociated)
-
-```python
-def get_waiter(
-    self,
-    waiter_name: NodeAssociatedWaiterName
-) -> NodeAssociatedWaiter:
-    pass
-```
+- `client.get_waiter("node_associated")` -> [NodeAssociatedWaiter](./waiters.md#nodeassociatedwaiter)

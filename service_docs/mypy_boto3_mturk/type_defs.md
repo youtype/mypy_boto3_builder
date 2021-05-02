@@ -8,20 +8,6 @@ type annotations stubs module [mypy_boto3_mturk](https://pypi.org/project/mypy-b
 - [Structures for boto3 MTurk module](#structures-for-boto3-mturk-module)
   - [AssignmentTypeDef](#assignmenttypedef)
   - [BonusPaymentTypeDef](#bonuspaymenttypedef)
-  - [HITTypeDef](#hittypedef)
-  - [LocaleTypeDef](#localetypedef)
-  - [NotifyWorkersFailureStatusTypeDef](#notifyworkersfailurestatustypedef)
-  - [ParameterMapEntryTypeDef](#parametermapentrytypedef)
-  - [PolicyParameterTypeDef](#policyparametertypedef)
-  - [QualificationRequestTypeDef](#qualificationrequesttypedef)
-  - [QualificationRequirementTypeDef](#qualificationrequirementtypedef)
-  - [QualificationTypeDef](#qualificationtypedef)
-  - [QualificationTypeTypeDef](#qualificationtypetypedef)
-  - [ReviewActionDetailTypeDef](#reviewactiondetailtypedef)
-  - [ReviewPolicyTypeDef](#reviewpolicytypedef)
-  - [ReviewReportTypeDef](#reviewreporttypedef)
-  - [ReviewResultDetailTypeDef](#reviewresultdetailtypedef)
-  - [WorkerBlockTypeDef](#workerblocktypedef)
   - [CreateHITResponseTypeDef](#createhitresponsetypedef)
   - [CreateHITTypeResponseTypeDef](#createhittyperesponsetypedef)
   - [CreateHITWithHITTypeResponseTypeDef](#createhitwithhittyperesponsetypedef)
@@ -33,6 +19,7 @@ type annotations stubs module [mypy_boto3_mturk](https://pypi.org/project/mypy-b
   - [GetQualificationScoreResponseTypeDef](#getqualificationscoreresponsetypedef)
   - [GetQualificationTypeResponseTypeDef](#getqualificationtyperesponsetypedef)
   - [HITLayoutParameterTypeDef](#hitlayoutparametertypedef)
+  - [HITTypeDef](#hittypedef)
   - [ListAssignmentsForHITResponseTypeDef](#listassignmentsforhitresponsetypedef)
   - [ListBonusPaymentsResponseTypeDef](#listbonuspaymentsresponsetypedef)
   - [ListHITsForQualificationTypeResponseTypeDef](#listhitsforqualificationtyperesponsetypedef)
@@ -43,10 +30,23 @@ type annotations stubs module [mypy_boto3_mturk](https://pypi.org/project/mypy-b
   - [ListReviewableHITsResponseTypeDef](#listreviewablehitsresponsetypedef)
   - [ListWorkerBlocksResponseTypeDef](#listworkerblocksresponsetypedef)
   - [ListWorkersWithQualificationTypeResponseTypeDef](#listworkerswithqualificationtyperesponsetypedef)
+  - [LocaleTypeDef](#localetypedef)
   - [NotificationSpecificationTypeDef](#notificationspecificationtypedef)
+  - [NotifyWorkersFailureStatusTypeDef](#notifyworkersfailurestatustypedef)
   - [NotifyWorkersResponseTypeDef](#notifyworkersresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ParameterMapEntryTypeDef](#parametermapentrytypedef)
+  - [PolicyParameterTypeDef](#policyparametertypedef)
+  - [QualificationRequestTypeDef](#qualificationrequesttypedef)
+  - [QualificationRequirementTypeDef](#qualificationrequirementtypedef)
+  - [QualificationTypeDef](#qualificationtypedef)
+  - [QualificationTypeTypeDef](#qualificationtypetypedef)
+  - [ReviewActionDetailTypeDef](#reviewactiondetailtypedef)
+  - [ReviewPolicyTypeDef](#reviewpolicytypedef)
+  - [ReviewReportTypeDef](#reviewreporttypedef)
+  - [ReviewResultDetailTypeDef](#reviewresultdetailtypedef)
   - [UpdateQualificationTypeResponseTypeDef](#updatequalificationtyperesponsetypedef)
+  - [WorkerBlockTypeDef](#workerblocktypedef)
 
 ## AssignmentTypeDef
 
@@ -89,6 +89,152 @@ Optional fields:
 - `GrantTime`: `datetime`
 
 
+## CreateHITResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import CreateHITResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `HIT`: `"HITTypeDef"`
+
+
+## CreateHITTypeResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import CreateHITTypeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `HITTypeId`: `str`
+
+
+## CreateHITWithHITTypeResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import CreateHITWithHITTypeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `HIT`: `"HITTypeDef"`
+
+
+## CreateQualificationTypeResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import CreateQualificationTypeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `QualificationType`: `"QualificationTypeTypeDef"`
+
+
+## GetAccountBalanceResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import GetAccountBalanceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `AvailableBalance`: `str`
+- `OnHoldBalance`: `str`
+
+
+## GetAssignmentResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import GetAssignmentResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Assignment`: `"AssignmentTypeDef"`
+- `HIT`: `"HITTypeDef"`
+
+
+## GetFileUploadURLResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import GetFileUploadURLResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `FileUploadURL`: `str`
+
+
+## GetHITResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import GetHITResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `HIT`: `"HITTypeDef"`
+
+
+## GetQualificationScoreResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import GetQualificationScoreResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Qualification`: `"QualificationTypeDef"`
+
+
+## GetQualificationTypeResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import GetQualificationTypeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `QualificationType`: `"QualificationTypeTypeDef"`
+
+
+## HITLayoutParameterTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import HITLayoutParameterTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Value`: `str`
+
+
+
+
 ## HITTypeDef
 
 ```python
@@ -122,6 +268,159 @@ Optional fields:
 - `NumberOfAssignmentsCompleted`: `int`
 
 
+## ListAssignmentsForHITResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import ListAssignmentsForHITResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `NumResults`: `int`
+- `Assignments`: `List["AssignmentTypeDef"]`
+
+
+## ListBonusPaymentsResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import ListBonusPaymentsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NumResults`: `int`
+- `NextToken`: `str`
+- `BonusPayments`: `List["BonusPaymentTypeDef"]`
+
+
+## ListHITsForQualificationTypeResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import ListHITsForQualificationTypeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `NumResults`: `int`
+- `HITs`: `List["HITTypeDef"]`
+
+
+## ListHITsResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import ListHITsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `NumResults`: `int`
+- `HITs`: `List["HITTypeDef"]`
+
+
+## ListQualificationRequestsResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import ListQualificationRequestsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NumResults`: `int`
+- `NextToken`: `str`
+- `QualificationRequests`: `List["QualificationRequestTypeDef"]`
+
+
+## ListQualificationTypesResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import ListQualificationTypesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NumResults`: `int`
+- `NextToken`: `str`
+- `QualificationTypes`: `List["QualificationTypeTypeDef"]`
+
+
+## ListReviewPolicyResultsForHITResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import ListReviewPolicyResultsForHITResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `HITId`: `str`
+- `AssignmentReviewPolicy`: `"ReviewPolicyTypeDef"`
+- `HITReviewPolicy`: `"ReviewPolicyTypeDef"`
+- `AssignmentReviewReport`: `"ReviewReportTypeDef"`
+- `HITReviewReport`: `"ReviewReportTypeDef"`
+- `NextToken`: `str`
+
+
+## ListReviewableHITsResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import ListReviewableHITsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `NumResults`: `int`
+- `HITs`: `List["HITTypeDef"]`
+
+
+## ListWorkerBlocksResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import ListWorkerBlocksResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `NumResults`: `int`
+- `WorkerBlocks`: `List["WorkerBlockTypeDef"]`
+
+
+## ListWorkersWithQualificationTypeResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import ListWorkersWithQualificationTypeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NextToken`: `str`
+- `NumResults`: `int`
+- `Qualifications`: `List["QualificationTypeDef"]`
+
+
 ## LocaleTypeDef
 
 ```python
@@ -138,6 +437,22 @@ Optional fields:
 - `Subdivision`: `str`
 
 
+## NotificationSpecificationTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import NotificationSpecificationTypeDef
+```
+
+
+Required fields:
+- `Destination`: `str`
+- `Transport`: `NotificationTransport`
+- `Version`: `str`
+- `EventTypes`: `List[EventType]`
+
+
+
+
 ## NotifyWorkersFailureStatusTypeDef
 
 ```python
@@ -151,6 +466,34 @@ Optional fields:
 - `NotifyWorkersFailureCode`: `NotifyWorkersFailureCode`
 - `NotifyWorkersFailureMessage`: `str`
 - `WorkerId`: `str`
+
+
+## NotifyWorkersResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import NotifyWorkersResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `NotifyWorkersFailureStatuses`: `List["NotifyWorkersFailureStatusTypeDef"]`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## ParameterMapEntryTypeDef
@@ -331,6 +674,19 @@ Optional fields:
 - `Value`: `str`
 
 
+## UpdateQualificationTypeResponseTypeDef
+
+```python
+from mypy_boto3_mturk.type_defs import UpdateQualificationTypeResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `QualificationType`: `"QualificationTypeTypeDef"`
+
+
 ## WorkerBlockTypeDef
 
 ```python
@@ -343,360 +699,4 @@ from mypy_boto3_mturk.type_defs import WorkerBlockTypeDef
 Optional fields:
 - `WorkerId`: `str`
 - `Reason`: `str`
-
-
-## CreateHITResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import CreateHITResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `HIT`: `"HITTypeDef"`
-
-
-## CreateHITTypeResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import CreateHITTypeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `HITTypeId`: `str`
-
-
-## CreateHITWithHITTypeResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import CreateHITWithHITTypeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `HIT`: `"HITTypeDef"`
-
-
-## CreateQualificationTypeResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import CreateQualificationTypeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `QualificationType`: `"QualificationTypeTypeDef"`
-
-
-## GetAccountBalanceResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import GetAccountBalanceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `AvailableBalance`: `str`
-- `OnHoldBalance`: `str`
-
-
-## GetAssignmentResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import GetAssignmentResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Assignment`: `"AssignmentTypeDef"`
-- `HIT`: `"HITTypeDef"`
-
-
-## GetFileUploadURLResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import GetFileUploadURLResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `FileUploadURL`: `str`
-
-
-## GetHITResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import GetHITResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `HIT`: `"HITTypeDef"`
-
-
-## GetQualificationScoreResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import GetQualificationScoreResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Qualification`: `"QualificationTypeDef"`
-
-
-## GetQualificationTypeResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import GetQualificationTypeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `QualificationType`: `"QualificationTypeTypeDef"`
-
-
-## HITLayoutParameterTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import HITLayoutParameterTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Value`: `str`
-
-
-
-
-## ListAssignmentsForHITResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import ListAssignmentsForHITResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `NumResults`: `int`
-- `Assignments`: `List["AssignmentTypeDef"]`
-
-
-## ListBonusPaymentsResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import ListBonusPaymentsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NumResults`: `int`
-- `NextToken`: `str`
-- `BonusPayments`: `List["BonusPaymentTypeDef"]`
-
-
-## ListHITsForQualificationTypeResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import ListHITsForQualificationTypeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `NumResults`: `int`
-- `HITs`: `List["HITTypeDef"]`
-
-
-## ListHITsResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import ListHITsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `NumResults`: `int`
-- `HITs`: `List["HITTypeDef"]`
-
-
-## ListQualificationRequestsResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import ListQualificationRequestsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NumResults`: `int`
-- `NextToken`: `str`
-- `QualificationRequests`: `List["QualificationRequestTypeDef"]`
-
-
-## ListQualificationTypesResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import ListQualificationTypesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NumResults`: `int`
-- `NextToken`: `str`
-- `QualificationTypes`: `List["QualificationTypeTypeDef"]`
-
-
-## ListReviewPolicyResultsForHITResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import ListReviewPolicyResultsForHITResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `HITId`: `str`
-- `AssignmentReviewPolicy`: `"ReviewPolicyTypeDef"`
-- `HITReviewPolicy`: `"ReviewPolicyTypeDef"`
-- `AssignmentReviewReport`: `"ReviewReportTypeDef"`
-- `HITReviewReport`: `"ReviewReportTypeDef"`
-- `NextToken`: `str`
-
-
-## ListReviewableHITsResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import ListReviewableHITsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `NumResults`: `int`
-- `HITs`: `List["HITTypeDef"]`
-
-
-## ListWorkerBlocksResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import ListWorkerBlocksResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `NumResults`: `int`
-- `WorkerBlocks`: `List["WorkerBlockTypeDef"]`
-
-
-## ListWorkersWithQualificationTypeResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import ListWorkersWithQualificationTypeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NextToken`: `str`
-- `NumResults`: `int`
-- `Qualifications`: `List["QualificationTypeDef"]`
-
-
-## NotificationSpecificationTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import NotificationSpecificationTypeDef
-```
-
-
-Required fields:
-- `Destination`: `str`
-- `Transport`: `NotificationTransport`
-- `Version`: `str`
-- `EventTypes`: `List[EventType]`
-
-
-
-
-## NotifyWorkersResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import NotifyWorkersResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `NotifyWorkersFailureStatuses`: `List["NotifyWorkersFailureStatusTypeDef"]`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## UpdateQualificationTypeResponseTypeDef
-
-```python
-from mypy_boto3_mturk.type_defs import UpdateQualificationTypeResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `QualificationType`: `"QualificationTypeTypeDef"`
 

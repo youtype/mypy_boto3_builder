@@ -61,7 +61,7 @@ def get_list_attributes_paginator() -> ListAttributesPaginator:
 class ListAttributesPaginator(Boto3Paginator):
     def paginate(
         self,
-        targetType: TargetType,
+        targetType: Literal['container-instance'],
         cluster: str = None,
         attributeName: str = None,
         attributeValue: str = None,

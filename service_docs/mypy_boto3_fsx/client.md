@@ -30,8 +30,6 @@ type annotations stubs module [mypy_boto3_fsx](https://pypi.org/project/mypy-bot
     - [untag_resource](#untag_resource)
     - [update_file_system](#update_file_system)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## FSxClient
 
@@ -179,7 +177,7 @@ Type annotations for `boto3.client("fsx").create_data_repository_task` method.
 ```python
 def create_data_repository_task(
     self,
-    Type: DataRepositoryTaskType,
+    Type: Literal['EXPORT_TO_REPOSITORY'],
     FileSystemId: str,
     Report: "CompletionReportTypeDef",
     Paths: List[str] = None,
@@ -430,47 +428,14 @@ def update_file_system(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("fsx").get_paginator` method.
-
-[Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx.html#FSx.Paginator.DescribeBackups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeBackupsPaginatorName
-) -> DescribeBackupsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("fsx").get_paginator` method.
+Type annotations for `boto3.client("fsx").get_paginator` method with overloads.
 
-[Paginator.DescribeFileSystems documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems)
+- `client.get_paginator("describe_backups")` -> [DescribeBackupsPaginator](./paginators.md#describebackupspaginator)
+- `client.get_paginator("describe_file_systems")` -> [DescribeFileSystemsPaginator](./paginators.md#describefilesystemspaginator)
+- `client.get_paginator("list_tags_for_resource")` -> [ListTagsForResourcePaginator](./paginators.md#listtagsforresourcepaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFileSystemsPaginatorName
-) -> DescribeFileSystemsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("fsx").get_paginator` method.
-
-[Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/fsx.html#FSx.Paginator.ListTagsForResource)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsForResourcePaginatorName
-) -> ListTagsForResourcePaginator:
-    pass
-```

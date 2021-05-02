@@ -87,11 +87,6 @@ type annotations stubs module [mypy_boto3_opsworks](https://pypi.org/project/myp
     - [update_volume](#update_volume)
     - [get_paginator](#get_paginator)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
-    - [get_waiter](#get_waiter-4)
-    - [get_waiter](#get_waiter-5)
 
 ## OpsWorksClient
 
@@ -214,7 +209,7 @@ def clone_stack(
     Name: str = None,
     Region: str = None,
     VpcId: str = None,
-    Attributes: Dict[StackAttributesKeys, str] = None,
+    Attributes: Dict[Literal['Color'], str] = None,
     DefaultInstanceProfileArn: str = None,
     DefaultOs: str = None,
     HostnameTheme: str = None,
@@ -356,7 +351,7 @@ def create_stack(
     ServiceRoleArn: str,
     DefaultInstanceProfileArn: str,
     VpcId: str = None,
-    Attributes: Dict[StackAttributesKeys, str] = None,
+    Attributes: Dict[Literal['Color'], str] = None,
     DefaultOs: str = None,
     HostnameTheme: str = None,
     DefaultAvailabilityZone: str = None,
@@ -1350,7 +1345,7 @@ def update_stack(
     self,
     StackId: str,
     Name: str = None,
-    Attributes: Dict[StackAttributesKeys, str] = None,
+    Attributes: Dict[Literal['Color'], str] = None,
     ServiceRoleArn: str = None,
     DefaultInstanceProfileArn: str = None,
     DefaultOs: str = None,
@@ -1403,106 +1398,24 @@ def update_volume(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("opsworks").get_paginator` method.
+Type annotations for `boto3.client("opsworks").get_paginator` method with overloads.
 
-[Paginator.DescribeEcsClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters)
+- `client.get_paginator("describe_ecs_clusters")` -> [DescribeEcsClustersPaginator](./paginators.md#describeecsclusterspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: DescribeEcsClustersPaginatorName
-) -> DescribeEcsClustersPaginator:
-    pass
-```
+
+
 
 ### get_waiter
 
-Type annotations for `boto3.client("opsworks").get_waiter` method.
+Type annotations for `boto3.client("opsworks").get_waiter` method with overloads.
 
-[Waiter.AppExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks.html#OpsWorks.Waiter.AppExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: AppExistsWaiterName
-) -> AppExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("opsworks").get_waiter` method.
-
-[Waiter.DeploymentSuccessful documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks.html#OpsWorks.Waiter.DeploymentSuccessful)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: DeploymentSuccessfulWaiterName
-) -> DeploymentSuccessfulWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("opsworks").get_waiter` method.
-
-[Waiter.InstanceOnline documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks.html#OpsWorks.Waiter.InstanceOnline)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InstanceOnlineWaiterName
-) -> InstanceOnlineWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("opsworks").get_waiter` method.
-
-[Waiter.InstanceRegistered documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks.html#OpsWorks.Waiter.InstanceRegistered)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InstanceRegisteredWaiterName
-) -> InstanceRegisteredWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("opsworks").get_waiter` method.
-
-[Waiter.InstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks.html#OpsWorks.Waiter.InstanceStopped)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InstanceStoppedWaiterName
-) -> InstanceStoppedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("opsworks").get_waiter` method.
-
-[Waiter.InstanceTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/opsworks.html#OpsWorks.Waiter.InstanceTerminated)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InstanceTerminatedWaiterName
-) -> InstanceTerminatedWaiter:
-    pass
-```
+- `client.get_waiter("app_exists")` -> [AppExistsWaiter](./waiters.md#appexistswaiter)
+- `client.get_waiter("deployment_successful")` -> [DeploymentSuccessfulWaiter](./waiters.md#deploymentsuccessfulwaiter)
+- `client.get_waiter("instance_online")` -> [InstanceOnlineWaiter](./waiters.md#instanceonlinewaiter)
+- `client.get_waiter("instance_registered")` -> [InstanceRegisteredWaiter](./waiters.md#instanceregisteredwaiter)
+- `client.get_waiter("instance_stopped")` -> [InstanceStoppedWaiter](./waiters.md#instancestoppedwaiter)
+- `client.get_waiter("instance_terminated")` -> [InstanceTerminatedWaiter](./waiters.md#instanceterminatedwaiter)

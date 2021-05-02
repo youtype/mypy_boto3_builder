@@ -95,12 +95,7 @@ type annotations stubs module [mypy_boto3_cloudfront](https://pypi.org/project/m
     - [update_realtime_log_config](#update_realtime_log_config)
     - [update_streaming_distribution](#update_streaming_distribution)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
 
 ## CloudFrontClient
 
@@ -1527,107 +1522,24 @@ def update_streaming_distribution(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("cloudfront").get_paginator` method.
-
-[Paginator.ListCloudFrontOriginAccessIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCloudFrontOriginAccessIdentitiesPaginatorName
-) -> ListCloudFrontOriginAccessIdentitiesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("cloudfront").get_paginator` method.
+Type annotations for `boto3.client("cloudfront").get_paginator` method with overloads.
 
-[Paginator.ListDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions)
+- `client.get_paginator("list_cloud_front_origin_access_identities")` -> [ListCloudFrontOriginAccessIdentitiesPaginator](./paginators.md#listcloudfrontoriginaccessidentitiespaginator)
+- `client.get_paginator("list_distributions")` -> [ListDistributionsPaginator](./paginators.md#listdistributionspaginator)
+- `client.get_paginator("list_invalidations")` -> [ListInvalidationsPaginator](./paginators.md#listinvalidationspaginator)
+- `client.get_paginator("list_streaming_distributions")` -> [ListStreamingDistributionsPaginator](./paginators.md#liststreamingdistributionspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDistributionsPaginatorName
-) -> ListDistributionsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("cloudfront").get_paginator` method.
-
-[Paginator.ListInvalidations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListInvalidationsPaginatorName
-) -> ListInvalidationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudfront").get_paginator` method.
-
-[Paginator.ListStreamingDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStreamingDistributionsPaginatorName
-) -> ListStreamingDistributionsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("cloudfront").get_waiter` method.
+Type annotations for `boto3.client("cloudfront").get_waiter` method with overloads.
 
-[Waiter.DistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: DistributionDeployedWaiterName
-) -> DistributionDeployedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("cloudfront").get_waiter` method.
-
-[Waiter.InvalidationCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: InvalidationCompletedWaiterName
-) -> InvalidationCompletedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("cloudfront").get_waiter` method.
-
-[Waiter.StreamingDistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: StreamingDistributionDeployedWaiterName
-) -> StreamingDistributionDeployedWaiter:
-    pass
-```
+- `client.get_waiter("distribution_deployed")` -> [DistributionDeployedWaiter](./waiters.md#distributiondeployedwaiter)
+- `client.get_waiter("invalidation_completed")` -> [InvalidationCompletedWaiter](./waiters.md#invalidationcompletedwaiter)
+- `client.get_waiter("streaming_distribution_deployed")` -> [StreamingDistributionDeployedWaiter](./waiters.md#streamingdistributiondeployedwaiter)

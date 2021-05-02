@@ -12,9 +12,13 @@ type annotations stubs module [mypy_boto3_swf](https://pypi.org/project/mypy-bot
   - [ActivityTaskFailedEventAttributesTypeDef](#activitytaskfailedeventattributestypedef)
   - [ActivityTaskScheduledEventAttributesTypeDef](#activitytaskscheduledeventattributestypedef)
   - [ActivityTaskStartedEventAttributesTypeDef](#activitytaskstartedeventattributestypedef)
+  - [ActivityTaskStatusTypeDef](#activitytaskstatustypedef)
   - [ActivityTaskTimedOutEventAttributesTypeDef](#activitytasktimedouteventattributestypedef)
+  - [ActivityTaskTypeDef](#activitytasktypedef)
   - [ActivityTypeConfigurationTypeDef](#activitytypeconfigurationtypedef)
+  - [ActivityTypeDetailTypeDef](#activitytypedetailtypedef)
   - [ActivityTypeInfoTypeDef](#activitytypeinfotypedef)
+  - [ActivityTypeInfosTypeDef](#activitytypeinfostypedef)
   - [ActivityTypeTypeDef](#activitytypetypedef)
   - [CancelTimerDecisionAttributesTypeDef](#canceltimerdecisionattributestypedef)
   - [CancelTimerFailedEventAttributesTypeDef](#canceltimerfailedeventattributestypedef)
@@ -26,6 +30,7 @@ type annotations stubs module [mypy_boto3_swf](https://pypi.org/project/mypy-bot
   - [ChildWorkflowExecutionStartedEventAttributesTypeDef](#childworkflowexecutionstartedeventattributestypedef)
   - [ChildWorkflowExecutionTerminatedEventAttributesTypeDef](#childworkflowexecutionterminatedeventattributestypedef)
   - [ChildWorkflowExecutionTimedOutEventAttributesTypeDef](#childworkflowexecutiontimedouteventattributestypedef)
+  - [CloseStatusFilterTypeDef](#closestatusfiltertypedef)
   - [CompleteWorkflowExecutionDecisionAttributesTypeDef](#completeworkflowexecutiondecisionattributestypedef)
   - [CompleteWorkflowExecutionFailedEventAttributesTypeDef](#completeworkflowexecutionfailedeventattributestypedef)
   - [ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef](#continueasnewworkflowexecutiondecisionattributestypedef)
@@ -34,19 +39,28 @@ type annotations stubs module [mypy_boto3_swf](https://pypi.org/project/mypy-bot
   - [DecisionTaskScheduledEventAttributesTypeDef](#decisiontaskscheduledeventattributestypedef)
   - [DecisionTaskStartedEventAttributesTypeDef](#decisiontaskstartedeventattributestypedef)
   - [DecisionTaskTimedOutEventAttributesTypeDef](#decisiontasktimedouteventattributestypedef)
+  - [DecisionTaskTypeDef](#decisiontasktypedef)
+  - [DecisionTypeDef](#decisiontypedef)
   - [DomainConfigurationTypeDef](#domainconfigurationtypedef)
+  - [DomainDetailTypeDef](#domaindetailtypedef)
   - [DomainInfoTypeDef](#domaininfotypedef)
+  - [DomainInfosTypeDef](#domaininfostypedef)
+  - [ExecutionTimeFilterTypeDef](#executiontimefiltertypedef)
   - [ExternalWorkflowExecutionCancelRequestedEventAttributesTypeDef](#externalworkflowexecutioncancelrequestedeventattributestypedef)
   - [ExternalWorkflowExecutionSignaledEventAttributesTypeDef](#externalworkflowexecutionsignaledeventattributestypedef)
   - [FailWorkflowExecutionDecisionAttributesTypeDef](#failworkflowexecutiondecisionattributestypedef)
   - [FailWorkflowExecutionFailedEventAttributesTypeDef](#failworkflowexecutionfailedeventattributestypedef)
   - [HistoryEventTypeDef](#historyeventtypedef)
+  - [HistoryTypeDef](#historytypedef)
   - [LambdaFunctionCompletedEventAttributesTypeDef](#lambdafunctioncompletedeventattributestypedef)
   - [LambdaFunctionFailedEventAttributesTypeDef](#lambdafunctionfailedeventattributestypedef)
   - [LambdaFunctionScheduledEventAttributesTypeDef](#lambdafunctionscheduledeventattributestypedef)
   - [LambdaFunctionStartedEventAttributesTypeDef](#lambdafunctionstartedeventattributestypedef)
   - [LambdaFunctionTimedOutEventAttributesTypeDef](#lambdafunctiontimedouteventattributestypedef)
+  - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
   - [MarkerRecordedEventAttributesTypeDef](#markerrecordedeventattributestypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PendingTaskCountTypeDef](#pendingtaskcounttypedef)
   - [RecordMarkerDecisionAttributesTypeDef](#recordmarkerdecisionattributestypedef)
   - [RecordMarkerFailedEventAttributesTypeDef](#recordmarkerfailedeventattributestypedef)
   - [RequestCancelActivityTaskDecisionAttributesTypeDef](#requestcancelactivitytaskdecisionattributestypedef)
@@ -56,6 +70,7 @@ type annotations stubs module [mypy_boto3_swf](https://pypi.org/project/mypy-bot
   - [RequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef](#requestcancelexternalworkflowexecutioninitiatedeventattributestypedef)
   - [ResourceTagTypeDef](#resourcetagtypedef)
   - [ResponseMetadata](#responsemetadata)
+  - [RunTypeDef](#runtypedef)
   - [ScheduleActivityTaskDecisionAttributesTypeDef](#scheduleactivitytaskdecisionattributestypedef)
   - [ScheduleActivityTaskFailedEventAttributesTypeDef](#scheduleactivitytaskfailedeventattributestypedef)
   - [ScheduleLambdaFunctionDecisionAttributesTypeDef](#schedulelambdafunctiondecisionattributestypedef)
@@ -69,6 +84,7 @@ type annotations stubs module [mypy_boto3_swf](https://pypi.org/project/mypy-bot
   - [StartLambdaFunctionFailedEventAttributesTypeDef](#startlambdafunctionfailedeventattributestypedef)
   - [StartTimerDecisionAttributesTypeDef](#starttimerdecisionattributestypedef)
   - [StartTimerFailedEventAttributesTypeDef](#starttimerfailedeventattributestypedef)
+  - [TagFilterTypeDef](#tagfiltertypedef)
   - [TaskListTypeDef](#tasklisttypedef)
   - [TimerCanceledEventAttributesTypeDef](#timercanceledeventattributestypedef)
   - [TimerFiredEventAttributesTypeDef](#timerfiredeventattributestypedef)
@@ -78,8 +94,12 @@ type annotations stubs module [mypy_boto3_swf](https://pypi.org/project/mypy-bot
   - [WorkflowExecutionCompletedEventAttributesTypeDef](#workflowexecutioncompletedeventattributestypedef)
   - [WorkflowExecutionConfigurationTypeDef](#workflowexecutionconfigurationtypedef)
   - [WorkflowExecutionContinuedAsNewEventAttributesTypeDef](#workflowexecutioncontinuedasneweventattributestypedef)
+  - [WorkflowExecutionCountTypeDef](#workflowexecutioncounttypedef)
+  - [WorkflowExecutionDetailTypeDef](#workflowexecutiondetailtypedef)
   - [WorkflowExecutionFailedEventAttributesTypeDef](#workflowexecutionfailedeventattributestypedef)
+  - [WorkflowExecutionFilterTypeDef](#workflowexecutionfiltertypedef)
   - [WorkflowExecutionInfoTypeDef](#workflowexecutioninfotypedef)
+  - [WorkflowExecutionInfosTypeDef](#workflowexecutioninfostypedef)
   - [WorkflowExecutionOpenCountsTypeDef](#workflowexecutionopencountstypedef)
   - [WorkflowExecutionSignaledEventAttributesTypeDef](#workflowexecutionsignaledeventattributestypedef)
   - [WorkflowExecutionStartedEventAttributesTypeDef](#workflowexecutionstartedeventattributestypedef)
@@ -87,31 +107,11 @@ type annotations stubs module [mypy_boto3_swf](https://pypi.org/project/mypy-bot
   - [WorkflowExecutionTimedOutEventAttributesTypeDef](#workflowexecutiontimedouteventattributestypedef)
   - [WorkflowExecutionTypeDef](#workflowexecutiontypedef)
   - [WorkflowTypeConfigurationTypeDef](#workflowtypeconfigurationtypedef)
-  - [WorkflowTypeInfoTypeDef](#workflowtypeinfotypedef)
-  - [WorkflowTypeTypeDef](#workflowtypetypedef)
-  - [ActivityTaskStatusTypeDef](#activitytaskstatustypedef)
-  - [ActivityTaskTypeDef](#activitytasktypedef)
-  - [ActivityTypeDetailTypeDef](#activitytypedetailtypedef)
-  - [ActivityTypeInfosTypeDef](#activitytypeinfostypedef)
-  - [CloseStatusFilterTypeDef](#closestatusfiltertypedef)
-  - [DecisionTaskTypeDef](#decisiontasktypedef)
-  - [DecisionTypeDef](#decisiontypedef)
-  - [DomainDetailTypeDef](#domaindetailtypedef)
-  - [DomainInfosTypeDef](#domaininfostypedef)
-  - [ExecutionTimeFilterTypeDef](#executiontimefiltertypedef)
-  - [HistoryTypeDef](#historytypedef)
-  - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [PendingTaskCountTypeDef](#pendingtaskcounttypedef)
-  - [RunTypeDef](#runtypedef)
-  - [TagFilterTypeDef](#tagfiltertypedef)
-  - [WorkflowExecutionCountTypeDef](#workflowexecutioncounttypedef)
-  - [WorkflowExecutionDetailTypeDef](#workflowexecutiondetailtypedef)
-  - [WorkflowExecutionFilterTypeDef](#workflowexecutionfiltertypedef)
-  - [WorkflowExecutionInfosTypeDef](#workflowexecutioninfostypedef)
   - [WorkflowTypeDetailTypeDef](#workflowtypedetailtypedef)
   - [WorkflowTypeFilterTypeDef](#workflowtypefiltertypedef)
+  - [WorkflowTypeInfoTypeDef](#workflowtypeinfotypedef)
   - [WorkflowTypeInfosTypeDef](#workflowtypeinfostypedef)
+  - [WorkflowTypeTypeDef](#workflowtypetypedef)
 
 ## ActivityTaskCancelRequestedEventAttributesTypeDef
 
@@ -221,6 +221,19 @@ Optional fields:
 - `identity`: `str`
 
 
+## ActivityTaskStatusTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import ActivityTaskStatusTypeDef
+```
+
+
+Required fields:
+- `cancelRequested`: `bool`
+
+
+
+
 ## ActivityTaskTimedOutEventAttributesTypeDef
 
 ```python
@@ -237,6 +250,26 @@ Required fields:
 
 Optional fields:
 - `details`: `str`
+
+
+## ActivityTaskTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import ActivityTaskTypeDef
+```
+
+
+Required fields:
+- `taskToken`: `str`
+- `activityId`: `str`
+- `startedEventId`: `int`
+- `workflowExecution`: `"WorkflowExecutionTypeDef"`
+- `activityType`: `"ActivityTypeTypeDef"`
+
+
+
+Optional fields:
+- `input`: `str`
 
 
 ## ActivityTypeConfigurationTypeDef
@@ -257,6 +290,20 @@ Optional fields:
 - `defaultTaskScheduleToCloseTimeout`: `str`
 
 
+## ActivityTypeDetailTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import ActivityTypeDetailTypeDef
+```
+
+
+Required fields:
+- `typeInfo`: `"ActivityTypeInfoTypeDef"`
+- `configuration`: `"ActivityTypeConfigurationTypeDef"`
+
+
+
+
 ## ActivityTypeInfoTypeDef
 
 ```python
@@ -274,6 +321,22 @@ Required fields:
 Optional fields:
 - `description`: `str`
 - `deprecationDate`: `datetime`
+
+
+## ActivityTypeInfosTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import ActivityTypeInfosTypeDef
+```
+
+
+Required fields:
+- `typeInfos`: `List["ActivityTypeInfoTypeDef"]`
+
+
+
+Optional fields:
+- `nextPageToken`: `str`
 
 
 ## ActivityTypeTypeDef
@@ -444,9 +507,22 @@ from mypy_boto3_swf.type_defs import ChildWorkflowExecutionTimedOutEventAttribut
 Required fields:
 - `workflowExecution`: `"WorkflowExecutionTypeDef"`
 - `workflowType`: `"WorkflowTypeTypeDef"`
-- `timeoutType`: `WorkflowExecutionTimeoutType`
+- `timeoutType`: `Literal['START_TO_CLOSE']`
 - `initiatedEventId`: `int`
 - `startedEventId`: `int`
+
+
+
+
+## CloseStatusFilterTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import CloseStatusFilterTypeDef
+```
+
+
+Required fields:
+- `status`: `CloseStatus`
 
 
 
@@ -571,11 +647,60 @@ from mypy_boto3_swf.type_defs import DecisionTaskTimedOutEventAttributesTypeDef
 
 
 Required fields:
-- `timeoutType`: `DecisionTaskTimeoutType`
+- `timeoutType`: `Literal['START_TO_CLOSE']`
 - `scheduledEventId`: `int`
 - `startedEventId`: `int`
 
 
+
+
+## DecisionTaskTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import DecisionTaskTypeDef
+```
+
+
+Required fields:
+- `taskToken`: `str`
+- `startedEventId`: `int`
+- `workflowExecution`: `"WorkflowExecutionTypeDef"`
+- `workflowType`: `"WorkflowTypeTypeDef"`
+- `events`: `List["HistoryEventTypeDef"]`
+
+
+
+Optional fields:
+- `nextPageToken`: `str`
+- `previousStartedEventId`: `int`
+
+
+## DecisionTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import DecisionTypeDef
+```
+
+
+Required fields:
+- `decisionType`: `DecisionType`
+
+
+
+Optional fields:
+- `scheduleActivityTaskDecisionAttributes`: `"ScheduleActivityTaskDecisionAttributesTypeDef"`
+- `requestCancelActivityTaskDecisionAttributes`: `"RequestCancelActivityTaskDecisionAttributesTypeDef"`
+- `completeWorkflowExecutionDecisionAttributes`: `"CompleteWorkflowExecutionDecisionAttributesTypeDef"`
+- `failWorkflowExecutionDecisionAttributes`: `"FailWorkflowExecutionDecisionAttributesTypeDef"`
+- `cancelWorkflowExecutionDecisionAttributes`: `"CancelWorkflowExecutionDecisionAttributesTypeDef"`
+- `continueAsNewWorkflowExecutionDecisionAttributes`: `"ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef"`
+- `recordMarkerDecisionAttributes`: `"RecordMarkerDecisionAttributesTypeDef"`
+- `startTimerDecisionAttributes`: `"StartTimerDecisionAttributesTypeDef"`
+- `cancelTimerDecisionAttributes`: `"CancelTimerDecisionAttributesTypeDef"`
+- `signalExternalWorkflowExecutionDecisionAttributes`: `"SignalExternalWorkflowExecutionDecisionAttributesTypeDef"`
+- `requestCancelExternalWorkflowExecutionDecisionAttributes`: `"RequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef"`
+- `startChildWorkflowExecutionDecisionAttributes`: `"StartChildWorkflowExecutionDecisionAttributesTypeDef"`
+- `scheduleLambdaFunctionDecisionAttributes`: `"ScheduleLambdaFunctionDecisionAttributesTypeDef"`
 
 
 ## DomainConfigurationTypeDef
@@ -587,6 +712,20 @@ from mypy_boto3_swf.type_defs import DomainConfigurationTypeDef
 
 Required fields:
 - `workflowExecutionRetentionPeriodInDays`: `str`
+
+
+
+
+## DomainDetailTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import DomainDetailTypeDef
+```
+
+
+Required fields:
+- `domainInfo`: `"DomainInfoTypeDef"`
+- `configuration`: `"DomainConfigurationTypeDef"`
 
 
 
@@ -607,6 +746,38 @@ Required fields:
 Optional fields:
 - `description`: `str`
 - `arn`: `str`
+
+
+## DomainInfosTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import DomainInfosTypeDef
+```
+
+
+Required fields:
+- `domainInfos`: `List["DomainInfoTypeDef"]`
+
+
+
+Optional fields:
+- `nextPageToken`: `str`
+
+
+## ExecutionTimeFilterTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import ExecutionTimeFilterTypeDef
+```
+
+
+Required fields:
+- `oldestDate`: `datetime`
+
+
+
+Optional fields:
+- `latestDate`: `datetime`
 
 
 ## ExternalWorkflowExecutionCancelRequestedEventAttributesTypeDef
@@ -736,6 +907,22 @@ Optional fields:
 - `startLambdaFunctionFailedEventAttributes`: `"StartLambdaFunctionFailedEventAttributesTypeDef"`
 
 
+## HistoryTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import HistoryTypeDef
+```
+
+
+Required fields:
+- `events`: `List["HistoryEventTypeDef"]`
+
+
+
+Optional fields:
+- `nextPageToken`: `str`
+
+
 ## LambdaFunctionCompletedEventAttributesTypeDef
 
 ```python
@@ -818,7 +1005,21 @@ Required fields:
 
 
 Optional fields:
-- `timeoutType`: `LambdaFunctionTimeoutType`
+- `timeoutType`: `Literal['START_TO_CLOSE']`
+
+
+## ListTagsForResourceOutputTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import ListTagsForResourceOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `List["ResourceTagTypeDef"]`
+- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## MarkerRecordedEventAttributesTypeDef
@@ -836,6 +1037,37 @@ Required fields:
 
 Optional fields:
 - `details`: `str`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
+
+
+## PendingTaskCountTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import PendingTaskCountTypeDef
+```
+
+
+Required fields:
+- `count`: `int`
+
+
+
+Optional fields:
+- `truncated`: `bool`
 
 
 ## RecordMarkerDecisionAttributesTypeDef
@@ -863,7 +1095,7 @@ from mypy_boto3_swf.type_defs import RecordMarkerFailedEventAttributesTypeDef
 
 Required fields:
 - `markerName`: `str`
-- `cause`: `RecordMarkerFailedCause`
+- `cause`: `Literal['OPERATION_NOT_PERMITTED']`
 - `decisionTaskCompletedEventId`: `int`
 
 
@@ -983,6 +1215,19 @@ Required fields:
 - `RetryAttempts`: `int`
 
 
+
+
+## RunTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import RunTypeDef
+```
+
+
+
+
+Optional fields:
+- `runId`: `str`
 
 
 ## ScheduleActivityTaskDecisionAttributesTypeDef
@@ -1201,7 +1446,7 @@ from mypy_boto3_swf.type_defs import StartLambdaFunctionFailedEventAttributesTyp
 
 Optional fields:
 - `scheduledEventId`: `int`
-- `cause`: `StartLambdaFunctionFailedCause`
+- `cause`: `Literal['ASSUME_ROLE_FAILED']`
 - `message`: `str`
 
 
@@ -1233,6 +1478,19 @@ Required fields:
 - `timerId`: `str`
 - `cause`: `StartTimerFailedCause`
 - `decisionTaskCompletedEventId`: `int`
+
+
+
+
+## TagFilterTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import TagFilterTypeDef
+```
+
+
+Required fields:
+- `tag`: `str`
 
 
 
@@ -1309,7 +1567,7 @@ from mypy_boto3_swf.type_defs import WorkflowExecutionCancelRequestedEventAttrib
 Optional fields:
 - `externalWorkflowExecution`: `"WorkflowExecutionTypeDef"`
 - `externalInitiatedEventId`: `int`
-- `cause`: `WorkflowExecutionCancelRequestedCause`
+- `cause`: `Literal['CHILD_POLICY_APPLIED']`
 
 
 ## WorkflowExecutionCanceledEventAttributesTypeDef
@@ -1389,6 +1647,41 @@ Optional fields:
 - `lambdaRole`: `str`
 
 
+## WorkflowExecutionCountTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import WorkflowExecutionCountTypeDef
+```
+
+
+Required fields:
+- `count`: `int`
+
+
+
+Optional fields:
+- `truncated`: `bool`
+
+
+## WorkflowExecutionDetailTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import WorkflowExecutionDetailTypeDef
+```
+
+
+Required fields:
+- `executionInfo`: `"WorkflowExecutionInfoTypeDef"`
+- `executionConfiguration`: `"WorkflowExecutionConfigurationTypeDef"`
+- `openCounts`: `"WorkflowExecutionOpenCountsTypeDef"`
+
+
+
+Optional fields:
+- `latestActivityTaskTimestamp`: `datetime`
+- `latestExecutionContext`: `str`
+
+
 ## WorkflowExecutionFailedEventAttributesTypeDef
 
 ```python
@@ -1404,6 +1697,19 @@ Required fields:
 Optional fields:
 - `reason`: `str`
 - `details`: `str`
+
+
+## WorkflowExecutionFilterTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import WorkflowExecutionFilterTypeDef
+```
+
+
+Required fields:
+- `workflowId`: `str`
+
+
 
 
 ## WorkflowExecutionInfoTypeDef
@@ -1427,6 +1733,22 @@ Optional fields:
 - `parent`: `"WorkflowExecutionTypeDef"`
 - `tagList`: `List[str]`
 - `cancelRequested`: `bool`
+
+
+## WorkflowExecutionInfosTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import WorkflowExecutionInfosTypeDef
+```
+
+
+Required fields:
+- `executionInfos`: `List["WorkflowExecutionInfoTypeDef"]`
+
+
+
+Optional fields:
+- `nextPageToken`: `str`
 
 
 ## WorkflowExecutionOpenCountsTypeDef
@@ -1518,7 +1840,7 @@ from mypy_boto3_swf.type_defs import WorkflowExecutionTimedOutEventAttributesTyp
 
 
 Required fields:
-- `timeoutType`: `WorkflowExecutionTimeoutType`
+- `timeoutType`: `Literal['START_TO_CLOSE']`
 - `childPolicy`: `ChildPolicy`
 
 
@@ -1556,361 +1878,6 @@ Optional fields:
 - `defaultLambdaRole`: `str`
 
 
-## WorkflowTypeInfoTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import WorkflowTypeInfoTypeDef
-```
-
-
-Required fields:
-- `workflowType`: `"WorkflowTypeTypeDef"`
-- `status`: `RegistrationStatus`
-- `creationDate`: `datetime`
-
-
-
-Optional fields:
-- `description`: `str`
-- `deprecationDate`: `datetime`
-
-
-## WorkflowTypeTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import WorkflowTypeTypeDef
-```
-
-
-Required fields:
-- `name`: `str`
-- `version`: `str`
-
-
-
-
-## ActivityTaskStatusTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import ActivityTaskStatusTypeDef
-```
-
-
-Required fields:
-- `cancelRequested`: `bool`
-
-
-
-
-## ActivityTaskTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import ActivityTaskTypeDef
-```
-
-
-Required fields:
-- `taskToken`: `str`
-- `activityId`: `str`
-- `startedEventId`: `int`
-- `workflowExecution`: `"WorkflowExecutionTypeDef"`
-- `activityType`: `"ActivityTypeTypeDef"`
-
-
-
-Optional fields:
-- `input`: `str`
-
-
-## ActivityTypeDetailTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import ActivityTypeDetailTypeDef
-```
-
-
-Required fields:
-- `typeInfo`: `"ActivityTypeInfoTypeDef"`
-- `configuration`: `"ActivityTypeConfigurationTypeDef"`
-
-
-
-
-## ActivityTypeInfosTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import ActivityTypeInfosTypeDef
-```
-
-
-Required fields:
-- `typeInfos`: `List["ActivityTypeInfoTypeDef"]`
-
-
-
-Optional fields:
-- `nextPageToken`: `str`
-
-
-## CloseStatusFilterTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import CloseStatusFilterTypeDef
-```
-
-
-Required fields:
-- `status`: `CloseStatus`
-
-
-
-
-## DecisionTaskTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import DecisionTaskTypeDef
-```
-
-
-Required fields:
-- `taskToken`: `str`
-- `startedEventId`: `int`
-- `workflowExecution`: `"WorkflowExecutionTypeDef"`
-- `workflowType`: `"WorkflowTypeTypeDef"`
-- `events`: `List["HistoryEventTypeDef"]`
-
-
-
-Optional fields:
-- `nextPageToken`: `str`
-- `previousStartedEventId`: `int`
-
-
-## DecisionTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import DecisionTypeDef
-```
-
-
-Required fields:
-- `decisionType`: `DecisionType`
-
-
-
-Optional fields:
-- `scheduleActivityTaskDecisionAttributes`: `"ScheduleActivityTaskDecisionAttributesTypeDef"`
-- `requestCancelActivityTaskDecisionAttributes`: `"RequestCancelActivityTaskDecisionAttributesTypeDef"`
-- `completeWorkflowExecutionDecisionAttributes`: `"CompleteWorkflowExecutionDecisionAttributesTypeDef"`
-- `failWorkflowExecutionDecisionAttributes`: `"FailWorkflowExecutionDecisionAttributesTypeDef"`
-- `cancelWorkflowExecutionDecisionAttributes`: `"CancelWorkflowExecutionDecisionAttributesTypeDef"`
-- `continueAsNewWorkflowExecutionDecisionAttributes`: `"ContinueAsNewWorkflowExecutionDecisionAttributesTypeDef"`
-- `recordMarkerDecisionAttributes`: `"RecordMarkerDecisionAttributesTypeDef"`
-- `startTimerDecisionAttributes`: `"StartTimerDecisionAttributesTypeDef"`
-- `cancelTimerDecisionAttributes`: `"CancelTimerDecisionAttributesTypeDef"`
-- `signalExternalWorkflowExecutionDecisionAttributes`: `"SignalExternalWorkflowExecutionDecisionAttributesTypeDef"`
-- `requestCancelExternalWorkflowExecutionDecisionAttributes`: `"RequestCancelExternalWorkflowExecutionDecisionAttributesTypeDef"`
-- `startChildWorkflowExecutionDecisionAttributes`: `"StartChildWorkflowExecutionDecisionAttributesTypeDef"`
-- `scheduleLambdaFunctionDecisionAttributes`: `"ScheduleLambdaFunctionDecisionAttributesTypeDef"`
-
-
-## DomainDetailTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import DomainDetailTypeDef
-```
-
-
-Required fields:
-- `domainInfo`: `"DomainInfoTypeDef"`
-- `configuration`: `"DomainConfigurationTypeDef"`
-
-
-
-
-## DomainInfosTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import DomainInfosTypeDef
-```
-
-
-Required fields:
-- `domainInfos`: `List["DomainInfoTypeDef"]`
-
-
-
-Optional fields:
-- `nextPageToken`: `str`
-
-
-## ExecutionTimeFilterTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import ExecutionTimeFilterTypeDef
-```
-
-
-Required fields:
-- `oldestDate`: `datetime`
-
-
-
-Optional fields:
-- `latestDate`: `datetime`
-
-
-## HistoryTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import HistoryTypeDef
-```
-
-
-Required fields:
-- `events`: `List["HistoryEventTypeDef"]`
-
-
-
-Optional fields:
-- `nextPageToken`: `str`
-
-
-## ListTagsForResourceOutputTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import ListTagsForResourceOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `List["ResourceTagTypeDef"]`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## PendingTaskCountTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import PendingTaskCountTypeDef
-```
-
-
-Required fields:
-- `count`: `int`
-
-
-
-Optional fields:
-- `truncated`: `bool`
-
-
-## RunTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import RunTypeDef
-```
-
-
-
-
-Optional fields:
-- `runId`: `str`
-
-
-## TagFilterTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import TagFilterTypeDef
-```
-
-
-Required fields:
-- `tag`: `str`
-
-
-
-
-## WorkflowExecutionCountTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import WorkflowExecutionCountTypeDef
-```
-
-
-Required fields:
-- `count`: `int`
-
-
-
-Optional fields:
-- `truncated`: `bool`
-
-
-## WorkflowExecutionDetailTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import WorkflowExecutionDetailTypeDef
-```
-
-
-Required fields:
-- `executionInfo`: `"WorkflowExecutionInfoTypeDef"`
-- `executionConfiguration`: `"WorkflowExecutionConfigurationTypeDef"`
-- `openCounts`: `"WorkflowExecutionOpenCountsTypeDef"`
-
-
-
-Optional fields:
-- `latestActivityTaskTimestamp`: `datetime`
-- `latestExecutionContext`: `str`
-
-
-## WorkflowExecutionFilterTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import WorkflowExecutionFilterTypeDef
-```
-
-
-Required fields:
-- `workflowId`: `str`
-
-
-
-
-## WorkflowExecutionInfosTypeDef
-
-```python
-from mypy_boto3_swf.type_defs import WorkflowExecutionInfosTypeDef
-```
-
-
-Required fields:
-- `executionInfos`: `List["WorkflowExecutionInfoTypeDef"]`
-
-
-
-Optional fields:
-- `nextPageToken`: `str`
-
-
 ## WorkflowTypeDetailTypeDef
 
 ```python
@@ -1941,6 +1908,25 @@ Optional fields:
 - `version`: `str`
 
 
+## WorkflowTypeInfoTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import WorkflowTypeInfoTypeDef
+```
+
+
+Required fields:
+- `workflowType`: `"WorkflowTypeTypeDef"`
+- `status`: `RegistrationStatus`
+- `creationDate`: `datetime`
+
+
+
+Optional fields:
+- `description`: `str`
+- `deprecationDate`: `datetime`
+
+
 ## WorkflowTypeInfosTypeDef
 
 ```python
@@ -1955,4 +1941,18 @@ Required fields:
 
 Optional fields:
 - `nextPageToken`: `str`
+
+
+## WorkflowTypeTypeDef
+
+```python
+from mypy_boto3_swf.type_defs import WorkflowTypeTypeDef
+```
+
+
+Required fields:
+- `name`: `str`
+- `version`: `str`
+
+
 

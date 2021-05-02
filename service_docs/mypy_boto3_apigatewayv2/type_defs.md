@@ -11,21 +11,6 @@ type annotations stubs module [mypy_boto3_apigatewayv2](https://pypi.org/project
   - [ApiTypeDef](#apitypedef)
   - [AuthorizerTypeDef](#authorizertypedef)
   - [CorsTypeDef](#corstypedef)
-  - [DeploymentTypeDef](#deploymenttypedef)
-  - [DomainNameConfigurationTypeDef](#domainnameconfigurationtypedef)
-  - [DomainNameTypeDef](#domainnametypedef)
-  - [IntegrationResponseTypeDef](#integrationresponsetypedef)
-  - [IntegrationTypeDef](#integrationtypedef)
-  - [JWTConfigurationTypeDef](#jwtconfigurationtypedef)
-  - [ModelTypeDef](#modeltypedef)
-  - [MutualTlsAuthenticationTypeDef](#mutualtlsauthenticationtypedef)
-  - [ParameterConstraintsTypeDef](#parameterconstraintstypedef)
-  - [RouteResponseTypeDef](#routeresponsetypedef)
-  - [RouteSettingsTypeDef](#routesettingstypedef)
-  - [RouteTypeDef](#routetypedef)
-  - [StageTypeDef](#stagetypedef)
-  - [TlsConfigTypeDef](#tlsconfigtypedef)
-  - [VpcLinkTypeDef](#vpclinktypedef)
   - [CreateApiMappingResponseTypeDef](#createapimappingresponsetypedef)
   - [CreateApiResponseTypeDef](#createapiresponsetypedef)
   - [CreateAuthorizerResponseTypeDef](#createauthorizerresponsetypedef)
@@ -38,6 +23,9 @@ type annotations stubs module [mypy_boto3_apigatewayv2](https://pypi.org/project
   - [CreateRouteResultTypeDef](#createrouteresulttypedef)
   - [CreateStageResponseTypeDef](#createstageresponsetypedef)
   - [CreateVpcLinkResponseTypeDef](#createvpclinkresponsetypedef)
+  - [DeploymentTypeDef](#deploymenttypedef)
+  - [DomainNameConfigurationTypeDef](#domainnameconfigurationtypedef)
+  - [DomainNameTypeDef](#domainnametypedef)
   - [ExportApiResponseTypeDef](#exportapiresponsetypedef)
   - [GetApiMappingResponseTypeDef](#getapimappingresponsetypedef)
   - [GetApiMappingsResponseTypeDef](#getapimappingsresponsetypedef)
@@ -66,10 +54,21 @@ type annotations stubs module [mypy_boto3_apigatewayv2](https://pypi.org/project
   - [GetVpcLinkResponseTypeDef](#getvpclinkresponsetypedef)
   - [GetVpcLinksResponseTypeDef](#getvpclinksresponsetypedef)
   - [ImportApiResponseTypeDef](#importapiresponsetypedef)
+  - [IntegrationResponseTypeDef](#integrationresponsetypedef)
+  - [IntegrationTypeDef](#integrationtypedef)
+  - [JWTConfigurationTypeDef](#jwtconfigurationtypedef)
+  - [ModelTypeDef](#modeltypedef)
   - [MutualTlsAuthenticationInputTypeDef](#mutualtlsauthenticationinputtypedef)
+  - [MutualTlsAuthenticationTypeDef](#mutualtlsauthenticationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ParameterConstraintsTypeDef](#parameterconstraintstypedef)
   - [ReimportApiResponseTypeDef](#reimportapiresponsetypedef)
+  - [RouteResponseTypeDef](#routeresponsetypedef)
+  - [RouteSettingsTypeDef](#routesettingstypedef)
+  - [RouteTypeDef](#routetypedef)
+  - [StageTypeDef](#stagetypedef)
   - [TlsConfigInputTypeDef](#tlsconfiginputtypedef)
+  - [TlsConfigTypeDef](#tlsconfigtypedef)
   - [UpdateApiMappingResponseTypeDef](#updateapimappingresponsetypedef)
   - [UpdateApiResponseTypeDef](#updateapiresponsetypedef)
   - [UpdateAuthorizerResponseTypeDef](#updateauthorizerresponsetypedef)
@@ -82,6 +81,7 @@ type annotations stubs module [mypy_boto3_apigatewayv2](https://pypi.org/project
   - [UpdateRouteResultTypeDef](#updaterouteresulttypedef)
   - [UpdateStageResponseTypeDef](#updatestageresponsetypedef)
   - [UpdateVpcLinkResponseTypeDef](#updatevpclinkresponsetypedef)
+  - [VpcLinkTypeDef](#vpclinktypedef)
 
 ## AccessLogSettingsTypeDef
 
@@ -186,304 +186,6 @@ Optional fields:
 - `AllowOrigins`: `List[str]`
 - `ExposeHeaders`: `List[str]`
 - `MaxAge`: `int`
-
-
-## DeploymentTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import DeploymentTypeDef
-```
-
-
-
-
-Optional fields:
-- `AutoDeployed`: `bool`
-- `CreatedDate`: `datetime`
-- `DeploymentId`: `str`
-- `DeploymentStatus`: `DeploymentStatus`
-- `DeploymentStatusMessage`: `str`
-- `Description`: `str`
-
-
-## DomainNameConfigurationTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import DomainNameConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApiGatewayDomainName`: `str`
-- `CertificateArn`: `str`
-- `CertificateName`: `str`
-- `CertificateUploadDate`: `datetime`
-- `DomainNameStatus`: `DomainNameStatus`
-- `DomainNameStatusMessage`: `str`
-- `EndpointType`: `EndpointType`
-- `HostedZoneId`: `str`
-- `SecurityPolicy`: `SecurityPolicy`
-
-
-## DomainNameTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import DomainNameTypeDef
-```
-
-
-Required fields:
-- `DomainName`: `str`
-
-
-
-Optional fields:
-- `ApiMappingSelectionExpression`: `str`
-- `DomainNameConfigurations`: `List["DomainNameConfigurationTypeDef"]`
-- `MutualTlsAuthentication`: `"MutualTlsAuthenticationTypeDef"`
-- `Tags`: `Dict[str, str]`
-
-
-## IntegrationResponseTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import IntegrationResponseTypeDef
-```
-
-
-Required fields:
-- `IntegrationResponseKey`: `str`
-
-
-
-Optional fields:
-- `ContentHandlingStrategy`: `ContentHandlingStrategy`
-- `IntegrationResponseId`: `str`
-- `ResponseParameters`: `Dict[str, str]`
-- `ResponseTemplates`: `Dict[str, str]`
-- `TemplateSelectionExpression`: `str`
-
-
-## IntegrationTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import IntegrationTypeDef
-```
-
-
-
-
-Optional fields:
-- `ApiGatewayManaged`: `bool`
-- `ConnectionId`: `str`
-- `ConnectionType`: `ConnectionType`
-- `ContentHandlingStrategy`: `ContentHandlingStrategy`
-- `CredentialsArn`: `str`
-- `Description`: `str`
-- `IntegrationId`: `str`
-- `IntegrationMethod`: `str`
-- `IntegrationResponseSelectionExpression`: `str`
-- `IntegrationSubtype`: `str`
-- `IntegrationType`: `IntegrationType`
-- `IntegrationUri`: `str`
-- `PassthroughBehavior`: `PassthroughBehavior`
-- `PayloadFormatVersion`: `str`
-- `RequestParameters`: `Dict[str, str]`
-- `RequestTemplates`: `Dict[str, str]`
-- `ResponseParameters`: `Dict[str, Dict[str, str]]`
-- `TemplateSelectionExpression`: `str`
-- `TimeoutInMillis`: `int`
-- `TlsConfig`: `"TlsConfigTypeDef"`
-
-
-## JWTConfigurationTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import JWTConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Audience`: `List[str]`
-- `Issuer`: `str`
-
-
-## ModelTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import ModelTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-
-
-
-Optional fields:
-- `ContentType`: `str`
-- `Description`: `str`
-- `ModelId`: `str`
-- `Schema`: `str`
-
-
-## MutualTlsAuthenticationTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import MutualTlsAuthenticationTypeDef
-```
-
-
-
-
-Optional fields:
-- `TruststoreUri`: `str`
-- `TruststoreVersion`: `str`
-- `TruststoreWarnings`: `List[str]`
-
-
-## ParameterConstraintsTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import ParameterConstraintsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Required`: `bool`
-
-
-## RouteResponseTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import RouteResponseTypeDef
-```
-
-
-Required fields:
-- `RouteResponseKey`: `str`
-
-
-
-Optional fields:
-- `ModelSelectionExpression`: `str`
-- `ResponseModels`: `Dict[str, str]`
-- `ResponseParameters`: `Dict[str, "ParameterConstraintsTypeDef"]`
-- `RouteResponseId`: `str`
-
-
-## RouteSettingsTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import RouteSettingsTypeDef
-```
-
-
-
-
-Optional fields:
-- `DataTraceEnabled`: `bool`
-- `DetailedMetricsEnabled`: `bool`
-- `LoggingLevel`: `LoggingLevel`
-- `ThrottlingBurstLimit`: `int`
-- `ThrottlingRateLimit`: `float`
-
-
-## RouteTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import RouteTypeDef
-```
-
-
-Required fields:
-- `RouteKey`: `str`
-
-
-
-Optional fields:
-- `ApiGatewayManaged`: `bool`
-- `ApiKeyRequired`: `bool`
-- `AuthorizationScopes`: `List[str]`
-- `AuthorizationType`: `AuthorizationType`
-- `AuthorizerId`: `str`
-- `ModelSelectionExpression`: `str`
-- `OperationName`: `str`
-- `RequestModels`: `Dict[str, str]`
-- `RequestParameters`: `Dict[str, "ParameterConstraintsTypeDef"]`
-- `RouteId`: `str`
-- `RouteResponseSelectionExpression`: `str`
-- `Target`: `str`
-
-
-## StageTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import StageTypeDef
-```
-
-
-Required fields:
-- `StageName`: `str`
-
-
-
-Optional fields:
-- `AccessLogSettings`: `"AccessLogSettingsTypeDef"`
-- `ApiGatewayManaged`: `bool`
-- `AutoDeploy`: `bool`
-- `ClientCertificateId`: `str`
-- `CreatedDate`: `datetime`
-- `DefaultRouteSettings`: `"RouteSettingsTypeDef"`
-- `DeploymentId`: `str`
-- `Description`: `str`
-- `LastDeploymentStatusMessage`: `str`
-- `LastUpdatedDate`: `datetime`
-- `RouteSettings`: `Dict[str, "RouteSettingsTypeDef"]`
-- `StageVariables`: `Dict[str, str]`
-- `Tags`: `Dict[str, str]`
-
-
-## TlsConfigTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import TlsConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServerNameToVerify`: `str`
-
-
-## VpcLinkTypeDef
-
-```python
-from mypy_boto3_apigatewayv2.type_defs import VpcLinkTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `SecurityGroupIds`: `List[str]`
-- `SubnetIds`: `List[str]`
-- `VpcLinkId`: `str`
-
-
-
-Optional fields:
-- `CreatedDate`: `datetime`
-- `Tags`: `Dict[str, str]`
-- `VpcLinkStatus`: `VpcLinkStatus`
-- `VpcLinkStatusMessage`: `str`
-- `VpcLinkVersion`: `VpcLinkVersion`
 
 
 ## CreateApiMappingResponseTypeDef
@@ -741,7 +443,65 @@ Optional fields:
 - `VpcLinkId`: `str`
 - `VpcLinkStatus`: `VpcLinkStatus`
 - `VpcLinkStatusMessage`: `str`
-- `VpcLinkVersion`: `VpcLinkVersion`
+- `VpcLinkVersion`: `Literal['V2']`
+
+
+## DeploymentTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import DeploymentTypeDef
+```
+
+
+
+
+Optional fields:
+- `AutoDeployed`: `bool`
+- `CreatedDate`: `datetime`
+- `DeploymentId`: `str`
+- `DeploymentStatus`: `DeploymentStatus`
+- `DeploymentStatusMessage`: `str`
+- `Description`: `str`
+
+
+## DomainNameConfigurationTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import DomainNameConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApiGatewayDomainName`: `str`
+- `CertificateArn`: `str`
+- `CertificateName`: `str`
+- `CertificateUploadDate`: `datetime`
+- `DomainNameStatus`: `DomainNameStatus`
+- `DomainNameStatusMessage`: `str`
+- `EndpointType`: `EndpointType`
+- `HostedZoneId`: `str`
+- `SecurityPolicy`: `SecurityPolicy`
+
+
+## DomainNameTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import DomainNameTypeDef
+```
+
+
+Required fields:
+- `DomainName`: `str`
+
+
+
+Optional fields:
+- `ApiMappingSelectionExpression`: `str`
+- `DomainNameConfigurations`: `List["DomainNameConfigurationTypeDef"]`
+- `MutualTlsAuthentication`: `"MutualTlsAuthenticationTypeDef"`
+- `Tags`: `Dict[str, str]`
 
 
 ## ExportApiResponseTypeDef
@@ -1192,7 +952,7 @@ Optional fields:
 - `VpcLinkId`: `str`
 - `VpcLinkStatus`: `VpcLinkStatus`
 - `VpcLinkStatusMessage`: `str`
-- `VpcLinkVersion`: `VpcLinkVersion`
+- `VpcLinkVersion`: `Literal['V2']`
 
 
 ## GetVpcLinksResponseTypeDef
@@ -1237,6 +997,91 @@ Optional fields:
 - `Warnings`: `List[str]`
 
 
+## IntegrationResponseTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import IntegrationResponseTypeDef
+```
+
+
+Required fields:
+- `IntegrationResponseKey`: `str`
+
+
+
+Optional fields:
+- `ContentHandlingStrategy`: `ContentHandlingStrategy`
+- `IntegrationResponseId`: `str`
+- `ResponseParameters`: `Dict[str, str]`
+- `ResponseTemplates`: `Dict[str, str]`
+- `TemplateSelectionExpression`: `str`
+
+
+## IntegrationTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import IntegrationTypeDef
+```
+
+
+
+
+Optional fields:
+- `ApiGatewayManaged`: `bool`
+- `ConnectionId`: `str`
+- `ConnectionType`: `ConnectionType`
+- `ContentHandlingStrategy`: `ContentHandlingStrategy`
+- `CredentialsArn`: `str`
+- `Description`: `str`
+- `IntegrationId`: `str`
+- `IntegrationMethod`: `str`
+- `IntegrationResponseSelectionExpression`: `str`
+- `IntegrationSubtype`: `str`
+- `IntegrationType`: `IntegrationType`
+- `IntegrationUri`: `str`
+- `PassthroughBehavior`: `PassthroughBehavior`
+- `PayloadFormatVersion`: `str`
+- `RequestParameters`: `Dict[str, str]`
+- `RequestTemplates`: `Dict[str, str]`
+- `ResponseParameters`: `Dict[str, Dict[str, str]]`
+- `TemplateSelectionExpression`: `str`
+- `TimeoutInMillis`: `int`
+- `TlsConfig`: `"TlsConfigTypeDef"`
+
+
+## JWTConfigurationTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import JWTConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Audience`: `List[str]`
+- `Issuer`: `str`
+
+
+## ModelTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import ModelTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+
+
+
+Optional fields:
+- `ContentType`: `str`
+- `Description`: `str`
+- `ModelId`: `str`
+- `Schema`: `str`
+
+
 ## MutualTlsAuthenticationInputTypeDef
 
 ```python
@@ -1249,6 +1094,21 @@ from mypy_boto3_apigatewayv2.type_defs import MutualTlsAuthenticationInputTypeDe
 Optional fields:
 - `TruststoreUri`: `str`
 - `TruststoreVersion`: `str`
+
+
+## MutualTlsAuthenticationTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import MutualTlsAuthenticationTypeDef
+```
+
+
+
+
+Optional fields:
+- `TruststoreUri`: `str`
+- `TruststoreVersion`: `str`
+- `TruststoreWarnings`: `List[str]`
 
 
 ## PaginatorConfigTypeDef
@@ -1264,6 +1124,19 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ParameterConstraintsTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import ParameterConstraintsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Required`: `bool`
 
 
 ## ReimportApiResponseTypeDef
@@ -1294,10 +1167,114 @@ Optional fields:
 - `Warnings`: `List[str]`
 
 
+## RouteResponseTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import RouteResponseTypeDef
+```
+
+
+Required fields:
+- `RouteResponseKey`: `str`
+
+
+
+Optional fields:
+- `ModelSelectionExpression`: `str`
+- `ResponseModels`: `Dict[str, str]`
+- `ResponseParameters`: `Dict[str, "ParameterConstraintsTypeDef"]`
+- `RouteResponseId`: `str`
+
+
+## RouteSettingsTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import RouteSettingsTypeDef
+```
+
+
+
+
+Optional fields:
+- `DataTraceEnabled`: `bool`
+- `DetailedMetricsEnabled`: `bool`
+- `LoggingLevel`: `LoggingLevel`
+- `ThrottlingBurstLimit`: `int`
+- `ThrottlingRateLimit`: `float`
+
+
+## RouteTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import RouteTypeDef
+```
+
+
+Required fields:
+- `RouteKey`: `str`
+
+
+
+Optional fields:
+- `ApiGatewayManaged`: `bool`
+- `ApiKeyRequired`: `bool`
+- `AuthorizationScopes`: `List[str]`
+- `AuthorizationType`: `AuthorizationType`
+- `AuthorizerId`: `str`
+- `ModelSelectionExpression`: `str`
+- `OperationName`: `str`
+- `RequestModels`: `Dict[str, str]`
+- `RequestParameters`: `Dict[str, "ParameterConstraintsTypeDef"]`
+- `RouteId`: `str`
+- `RouteResponseSelectionExpression`: `str`
+- `Target`: `str`
+
+
+## StageTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import StageTypeDef
+```
+
+
+Required fields:
+- `StageName`: `str`
+
+
+
+Optional fields:
+- `AccessLogSettings`: `"AccessLogSettingsTypeDef"`
+- `ApiGatewayManaged`: `bool`
+- `AutoDeploy`: `bool`
+- `ClientCertificateId`: `str`
+- `CreatedDate`: `datetime`
+- `DefaultRouteSettings`: `"RouteSettingsTypeDef"`
+- `DeploymentId`: `str`
+- `Description`: `str`
+- `LastDeploymentStatusMessage`: `str`
+- `LastUpdatedDate`: `datetime`
+- `RouteSettings`: `Dict[str, "RouteSettingsTypeDef"]`
+- `StageVariables`: `Dict[str, str]`
+- `Tags`: `Dict[str, str]`
+
+
 ## TlsConfigInputTypeDef
 
 ```python
 from mypy_boto3_apigatewayv2.type_defs import TlsConfigInputTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServerNameToVerify`: `str`
+
+
+## TlsConfigTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import TlsConfigTypeDef
 ```
 
 
@@ -1562,5 +1539,28 @@ Optional fields:
 - `VpcLinkId`: `str`
 - `VpcLinkStatus`: `VpcLinkStatus`
 - `VpcLinkStatusMessage`: `str`
-- `VpcLinkVersion`: `VpcLinkVersion`
+- `VpcLinkVersion`: `Literal['V2']`
+
+
+## VpcLinkTypeDef
+
+```python
+from mypy_boto3_apigatewayv2.type_defs import VpcLinkTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `SecurityGroupIds`: `List[str]`
+- `SubnetIds`: `List[str]`
+- `VpcLinkId`: `str`
+
+
+
+Optional fields:
+- `CreatedDate`: `datetime`
+- `Tags`: `Dict[str, str]`
+- `VpcLinkStatus`: `VpcLinkStatus`
+- `VpcLinkStatusMessage`: `str`
+- `VpcLinkVersion`: `Literal['V2']`
 

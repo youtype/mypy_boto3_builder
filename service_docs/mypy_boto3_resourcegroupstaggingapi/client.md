@@ -20,9 +20,6 @@ type annotations stubs module [mypy_boto3_resourcegroupstaggingapi](https://pypi
     - [tag_resources](#tag_resources)
     - [untag_resources](#untag_resources)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
 
 ## ResourceGroupsTaggingAPIClient
 
@@ -219,62 +216,15 @@ def untag_resources(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("resourcegroupstaggingapi").get_paginator` method.
-
-[Paginator.GetComplianceSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetComplianceSummary)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetComplianceSummaryPaginatorName
-) -> GetComplianceSummaryPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("resourcegroupstaggingapi").get_paginator` method.
+Type annotations for `boto3.client("resourcegroupstaggingapi").get_paginator` method with overloads.
 
-[Paginator.GetResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetResources)
+- `client.get_paginator("get_compliance_summary")` -> [GetComplianceSummaryPaginator](./paginators.md#getcompliancesummarypaginator)
+- `client.get_paginator("get_resources")` -> [GetResourcesPaginator](./paginators.md#getresourcespaginator)
+- `client.get_paginator("get_tag_keys")` -> [GetTagKeysPaginator](./paginators.md#gettagkeyspaginator)
+- `client.get_paginator("get_tag_values")` -> [GetTagValuesPaginator](./paginators.md#gettagvaluespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetResourcesPaginatorName
-) -> GetResourcesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("resourcegroupstaggingapi").get_paginator` method.
-
-[Paginator.GetTagKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetTagKeys)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTagKeysPaginatorName
-) -> GetTagKeysPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("resourcegroupstaggingapi").get_paginator` method.
-
-[Paginator.GetTagValues documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetTagValues)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTagValuesPaginatorName
-) -> GetTagValuesPaginator:
-    pass
-```

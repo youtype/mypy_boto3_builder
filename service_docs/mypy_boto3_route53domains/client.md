@@ -40,8 +40,6 @@ type annotations stubs module [mypy_boto3_route53domains](https://pypi.org/proje
     - [update_tags_for_domain](#update_tags_for_domain)
     - [view_billing](#view_billing)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## Route53DomainsClient
 
@@ -547,47 +545,14 @@ def view_billing(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("route53domains").get_paginator` method.
-
-[Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDomainsPaginatorName
-) -> ListDomainsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("route53domains").get_paginator` method.
+Type annotations for `boto3.client("route53domains").get_paginator` method with overloads.
 
-[Paginator.ListOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations)
+- `client.get_paginator("list_domains")` -> [ListDomainsPaginator](./paginators.md#listdomainspaginator)
+- `client.get_paginator("list_operations")` -> [ListOperationsPaginator](./paginators.md#listoperationspaginator)
+- `client.get_paginator("view_billing")` -> [ViewBillingPaginator](./paginators.md#viewbillingpaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListOperationsPaginatorName
-) -> ListOperationsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("route53domains").get_paginator` method.
-
-[Paginator.ViewBilling documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ViewBillingPaginatorName
-) -> ViewBillingPaginator:
-    pass
-```

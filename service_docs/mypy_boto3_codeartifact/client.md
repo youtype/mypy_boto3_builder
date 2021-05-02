@@ -46,11 +46,6 @@ type annotations stubs module [mypy_boto3_codeartifact](https://pypi.org/project
     - [update_package_versions_status](#update_package_versions_status)
     - [update_repository](#update_repository)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
 
 ## CodeArtifactClient
 
@@ -552,7 +547,7 @@ def list_package_versions(
     domainOwner: str = None,
     namespace: str = None,
     status: PackageVersionStatus = None,
-    sortBy: PackageVersionSortType = None,
+    sortBy: Literal['PUBLISHED_TIME'] = None,
     maxResults: int = None,
     nextToken: str = None
 ) -> ListPackageVersionsResultTypeDef:
@@ -735,92 +730,17 @@ def update_repository(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("codeartifact").get_paginator` method.
-
-[Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDomainsPaginatorName
-) -> ListDomainsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("codeartifact").get_paginator` method.
+Type annotations for `boto3.client("codeartifact").get_paginator` method with overloads.
 
-[Paginator.ListPackageVersionAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets)
+- `client.get_paginator("list_domains")` -> [ListDomainsPaginator](./paginators.md#listdomainspaginator)
+- `client.get_paginator("list_package_version_assets")` -> [ListPackageVersionAssetsPaginator](./paginators.md#listpackageversionassetspaginator)
+- `client.get_paginator("list_package_versions")` -> [ListPackageVersionsPaginator](./paginators.md#listpackageversionspaginator)
+- `client.get_paginator("list_packages")` -> [ListPackagesPaginator](./paginators.md#listpackagespaginator)
+- `client.get_paginator("list_repositories")` -> [ListRepositoriesPaginator](./paginators.md#listrepositoriespaginator)
+- `client.get_paginator("list_repositories_in_domain")` -> [ListRepositoriesInDomainPaginator](./paginators.md#listrepositoriesindomainpaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPackageVersionAssetsPaginatorName
-) -> ListPackageVersionAssetsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("codeartifact").get_paginator` method.
-
-[Paginator.ListPackageVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPackageVersionsPaginatorName
-) -> ListPackageVersionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codeartifact").get_paginator` method.
-
-[Paginator.ListPackages documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPackagesPaginatorName
-) -> ListPackagesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codeartifact").get_paginator` method.
-
-[Paginator.ListRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRepositoriesPaginatorName
-) -> ListRepositoriesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("codeartifact").get_paginator` method.
-
-[Paginator.ListRepositoriesInDomain documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListRepositoriesInDomainPaginatorName
-) -> ListRepositoriesInDomainPaginator:
-    pass
-```

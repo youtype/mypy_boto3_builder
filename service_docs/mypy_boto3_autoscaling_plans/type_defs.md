@@ -7,10 +7,15 @@ type annotations stubs module [mypy_boto3_autoscaling_plans](https://pypi.org/pr
 
 - [Structures for boto3 AutoScalingPlans module](#structures-for-boto3-autoscalingplans-module)
   - [ApplicationSourceTypeDef](#applicationsourcetypedef)
+  - [CreateScalingPlanResponseTypeDef](#createscalingplanresponsetypedef)
   - [CustomizedLoadMetricSpecificationTypeDef](#customizedloadmetricspecificationtypedef)
   - [CustomizedScalingMetricSpecificationTypeDef](#customizedscalingmetricspecificationtypedef)
   - [DatapointTypeDef](#datapointtypedef)
+  - [DescribeScalingPlanResourcesResponseTypeDef](#describescalingplanresourcesresponsetypedef)
+  - [DescribeScalingPlansResponseTypeDef](#describescalingplansresponsetypedef)
+  - [GetScalingPlanResourceForecastDataResponseTypeDef](#getscalingplanresourceforecastdataresponsetypedef)
   - [MetricDimensionTypeDef](#metricdimensiontypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PredefinedLoadMetricSpecificationTypeDef](#predefinedloadmetricspecificationtypedef)
   - [PredefinedScalingMetricSpecificationTypeDef](#predefinedscalingmetricspecificationtypedef)
   - [ScalingInstructionTypeDef](#scalinginstructiontypedef)
@@ -19,11 +24,6 @@ type annotations stubs module [mypy_boto3_autoscaling_plans](https://pypi.org/pr
   - [ScalingPolicyTypeDef](#scalingpolicytypedef)
   - [TagFilterTypeDef](#tagfiltertypedef)
   - [TargetTrackingConfigurationTypeDef](#targettrackingconfigurationtypedef)
-  - [CreateScalingPlanResponseTypeDef](#createscalingplanresponsetypedef)
-  - [DescribeScalingPlanResourcesResponseTypeDef](#describescalingplanresourcesresponsetypedef)
-  - [DescribeScalingPlansResponseTypeDef](#describescalingplansresponsetypedef)
-  - [GetScalingPlanResourceForecastDataResponseTypeDef](#getscalingplanresourceforecastdataresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
 
 ## ApplicationSourceTypeDef
 
@@ -37,6 +37,19 @@ from mypy_boto3_autoscaling_plans.type_defs import ApplicationSourceTypeDef
 Optional fields:
 - `CloudFormationStackARN`: `str`
 - `TagFilters`: `List["TagFilterTypeDef"]`
+
+
+## CreateScalingPlanResponseTypeDef
+
+```python
+from mypy_boto3_autoscaling_plans.type_defs import CreateScalingPlanResponseTypeDef
+```
+
+
+Required fields:
+- `ScalingPlanVersion`: `int`
+
+
 
 
 ## CustomizedLoadMetricSpecificationTypeDef
@@ -91,6 +104,47 @@ Optional fields:
 - `Value`: `float`
 
 
+## DescribeScalingPlanResourcesResponseTypeDef
+
+```python
+from mypy_boto3_autoscaling_plans.type_defs import DescribeScalingPlanResourcesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ScalingPlanResources`: `List["ScalingPlanResourceTypeDef"]`
+- `NextToken`: `str`
+
+
+## DescribeScalingPlansResponseTypeDef
+
+```python
+from mypy_boto3_autoscaling_plans.type_defs import DescribeScalingPlansResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `ScalingPlans`: `List["ScalingPlanTypeDef"]`
+- `NextToken`: `str`
+
+
+## GetScalingPlanResourceForecastDataResponseTypeDef
+
+```python
+from mypy_boto3_autoscaling_plans.type_defs import GetScalingPlanResourceForecastDataResponseTypeDef
+```
+
+
+Required fields:
+- `Datapoints`: `List["DatapointTypeDef"]`
+
+
+
+
 ## MetricDimensionTypeDef
 
 ```python
@@ -103,6 +157,21 @@ Required fields:
 - `Value`: `str`
 
 
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_autoscaling_plans.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## PredefinedLoadMetricSpecificationTypeDef
@@ -218,7 +287,7 @@ from mypy_boto3_autoscaling_plans.type_defs import ScalingPolicyTypeDef
 
 Required fields:
 - `PolicyName`: `str`
-- `PolicyType`: `PolicyType`
+- `PolicyType`: `Literal['TargetTrackingScaling']`
 
 
 
@@ -259,73 +328,4 @@ Optional fields:
 - `ScaleOutCooldown`: `int`
 - `ScaleInCooldown`: `int`
 - `EstimatedInstanceWarmup`: `int`
-
-
-## CreateScalingPlanResponseTypeDef
-
-```python
-from mypy_boto3_autoscaling_plans.type_defs import CreateScalingPlanResponseTypeDef
-```
-
-
-Required fields:
-- `ScalingPlanVersion`: `int`
-
-
-
-
-## DescribeScalingPlanResourcesResponseTypeDef
-
-```python
-from mypy_boto3_autoscaling_plans.type_defs import DescribeScalingPlanResourcesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ScalingPlanResources`: `List["ScalingPlanResourceTypeDef"]`
-- `NextToken`: `str`
-
-
-## DescribeScalingPlansResponseTypeDef
-
-```python
-from mypy_boto3_autoscaling_plans.type_defs import DescribeScalingPlansResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `ScalingPlans`: `List["ScalingPlanTypeDef"]`
-- `NextToken`: `str`
-
-
-## GetScalingPlanResourceForecastDataResponseTypeDef
-
-```python
-from mypy_boto3_autoscaling_plans.type_defs import GetScalingPlanResourceForecastDataResponseTypeDef
-```
-
-
-Required fields:
-- `Datapoints`: `List["DatapointTypeDef"]`
-
-
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_autoscaling_plans.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
 

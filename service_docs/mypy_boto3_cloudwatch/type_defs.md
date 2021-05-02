@@ -13,24 +13,6 @@ type annotations stubs module [mypy_boto3_cloudwatch](https://pypi.org/project/m
   - [DashboardEntryTypeDef](#dashboardentrytypedef)
   - [DashboardValidationMessageTypeDef](#dashboardvalidationmessagetypedef)
   - [DatapointTypeDef](#datapointtypedef)
-  - [DimensionTypeDef](#dimensiontypedef)
-  - [InsightRuleContributorDatapointTypeDef](#insightrulecontributordatapointtypedef)
-  - [InsightRuleContributorTypeDef](#insightrulecontributortypedef)
-  - [InsightRuleMetricDatapointTypeDef](#insightrulemetricdatapointtypedef)
-  - [InsightRuleTypeDef](#insightruletypedef)
-  - [MessageDataTypeDef](#messagedatatypedef)
-  - [MetricAlarmTypeDef](#metricalarmtypedef)
-  - [MetricDataQueryTypeDef](#metricdataquerytypedef)
-  - [MetricDataResultTypeDef](#metricdataresulttypedef)
-  - [MetricStatTypeDef](#metricstattypedef)
-  - [MetricStreamEntryTypeDef](#metricstreamentrytypedef)
-  - [MetricStreamFilterTypeDef](#metricstreamfiltertypedef)
-  - [MetricTypeDef](#metrictypedef)
-  - [PartialFailureTypeDef](#partialfailuretypedef)
-  - [RangeTypeDef](#rangetypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [StatisticSetTypeDef](#statisticsettypedef)
-  - [TagTypeDef](#tagtypedef)
   - [DeleteInsightRulesOutputTypeDef](#deleteinsightrulesoutputtypedef)
   - [DescribeAlarmHistoryOutputTypeDef](#describealarmhistoryoutputtypedef)
   - [DescribeAlarmsForMetricOutputTypeDef](#describealarmsformetricoutputtypedef)
@@ -38,6 +20,7 @@ type annotations stubs module [mypy_boto3_cloudwatch](https://pypi.org/project/m
   - [DescribeAnomalyDetectorsOutputTypeDef](#describeanomalydetectorsoutputtypedef)
   - [DescribeInsightRulesOutputTypeDef](#describeinsightrulesoutputtypedef)
   - [DimensionFilterTypeDef](#dimensionfiltertypedef)
+  - [DimensionTypeDef](#dimensiontypedef)
   - [DisableInsightRulesOutputTypeDef](#disableinsightrulesoutputtypedef)
   - [EnableInsightRulesOutputTypeDef](#enableinsightrulesoutputtypedef)
   - [GetDashboardOutputTypeDef](#getdashboardoutputtypedef)
@@ -46,15 +29,32 @@ type annotations stubs module [mypy_boto3_cloudwatch](https://pypi.org/project/m
   - [GetMetricStatisticsOutputTypeDef](#getmetricstatisticsoutputtypedef)
   - [GetMetricStreamOutputTypeDef](#getmetricstreamoutputtypedef)
   - [GetMetricWidgetImageOutputTypeDef](#getmetricwidgetimageoutputtypedef)
+  - [InsightRuleContributorDatapointTypeDef](#insightrulecontributordatapointtypedef)
+  - [InsightRuleContributorTypeDef](#insightrulecontributortypedef)
+  - [InsightRuleMetricDatapointTypeDef](#insightrulemetricdatapointtypedef)
+  - [InsightRuleTypeDef](#insightruletypedef)
   - [LabelOptionsTypeDef](#labeloptionstypedef)
   - [ListDashboardsOutputTypeDef](#listdashboardsoutputtypedef)
   - [ListMetricStreamsOutputTypeDef](#listmetricstreamsoutputtypedef)
   - [ListMetricsOutputTypeDef](#listmetricsoutputtypedef)
   - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
+  - [MessageDataTypeDef](#messagedatatypedef)
+  - [MetricAlarmTypeDef](#metricalarmtypedef)
+  - [MetricDataQueryTypeDef](#metricdataquerytypedef)
+  - [MetricDataResultTypeDef](#metricdataresulttypedef)
   - [MetricDatumTypeDef](#metricdatumtypedef)
+  - [MetricStatTypeDef](#metricstattypedef)
+  - [MetricStreamEntryTypeDef](#metricstreamentrytypedef)
+  - [MetricStreamFilterTypeDef](#metricstreamfiltertypedef)
+  - [MetricTypeDef](#metrictypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PartialFailureTypeDef](#partialfailuretypedef)
   - [PutDashboardOutputTypeDef](#putdashboardoutputtypedef)
   - [PutMetricStreamOutputTypeDef](#putmetricstreamoutputtypedef)
+  - [RangeTypeDef](#rangetypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [StatisticSetTypeDef](#statisticsettypedef)
+  - [TagTypeDef](#tagtypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
 ## AlarmHistoryItemTypeDef
@@ -182,320 +182,6 @@ Optional fields:
 - `ExtendedStatistics`: `Dict[str, float]`
 
 
-## DimensionTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import DimensionTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `Value`: `str`
-
-
-
-
-## InsightRuleContributorDatapointTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import InsightRuleContributorDatapointTypeDef
-```
-
-
-Required fields:
-- `Timestamp`: `datetime`
-- `ApproximateValue`: `float`
-
-
-
-
-## InsightRuleContributorTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import InsightRuleContributorTypeDef
-```
-
-
-Required fields:
-- `Keys`: `List[str]`
-- `ApproximateAggregateValue`: `float`
-- `Datapoints`: `List["InsightRuleContributorDatapointTypeDef"]`
-
-
-
-
-## InsightRuleMetricDatapointTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import InsightRuleMetricDatapointTypeDef
-```
-
-
-Required fields:
-- `Timestamp`: `datetime`
-
-
-
-Optional fields:
-- `UniqueContributors`: `float`
-- `MaxContributorValue`: `float`
-- `SampleCount`: `float`
-- `Average`: `float`
-- `Sum`: `float`
-- `Minimum`: `float`
-- `Maximum`: `float`
-
-
-## InsightRuleTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import InsightRuleTypeDef
-```
-
-
-Required fields:
-- `Name`: `str`
-- `State`: `str`
-- `Schema`: `str`
-- `Definition`: `str`
-
-
-
-
-## MessageDataTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import MessageDataTypeDef
-```
-
-
-
-
-Optional fields:
-- `Code`: `str`
-- `Value`: `str`
-
-
-## MetricAlarmTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import MetricAlarmTypeDef
-```
-
-
-
-
-Optional fields:
-- `AlarmName`: `str`
-- `AlarmArn`: `str`
-- `AlarmDescription`: `str`
-- `AlarmConfigurationUpdatedTimestamp`: `datetime`
-- `ActionsEnabled`: `bool`
-- `OKActions`: `List[str]`
-- `AlarmActions`: `List[str]`
-- `InsufficientDataActions`: `List[str]`
-- `StateValue`: `StateValue`
-- `StateReason`: `str`
-- `StateReasonData`: `str`
-- `StateUpdatedTimestamp`: `datetime`
-- `MetricName`: `str`
-- `Namespace`: `str`
-- `Statistic`: `Statistic`
-- `ExtendedStatistic`: `str`
-- `Dimensions`: `List["DimensionTypeDef"]`
-- `Period`: `int`
-- `Unit`: `StandardUnit`
-- `EvaluationPeriods`: `int`
-- `DatapointsToAlarm`: `int`
-- `Threshold`: `float`
-- `ComparisonOperator`: `ComparisonOperator`
-- `TreatMissingData`: `str`
-- `EvaluateLowSampleCountPercentile`: `str`
-- `Metrics`: `List["MetricDataQueryTypeDef"]`
-- `ThresholdMetricId`: `str`
-
-
-## MetricDataQueryTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import MetricDataQueryTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-
-
-
-Optional fields:
-- `MetricStat`: `"MetricStatTypeDef"`
-- `Expression`: `str`
-- `Label`: `str`
-- `ReturnData`: `bool`
-- `Period`: `int`
-
-
-## MetricDataResultTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import MetricDataResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Label`: `str`
-- `Timestamps`: `List[datetime]`
-- `Values`: `List[float]`
-- `StatusCode`: `StatusCode`
-- `Messages`: `List["MessageDataTypeDef"]`
-
-
-## MetricStatTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import MetricStatTypeDef
-```
-
-
-Required fields:
-- `Metric`: `"MetricTypeDef"`
-- `Period`: `int`
-- `Stat`: `str`
-
-
-
-Optional fields:
-- `Unit`: `StandardUnit`
-
-
-## MetricStreamEntryTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import MetricStreamEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `CreationDate`: `datetime`
-- `LastUpdateDate`: `datetime`
-- `Name`: `str`
-- `FirehoseArn`: `str`
-- `State`: `str`
-- `OutputFormat`: `MetricStreamOutputFormat`
-
-
-## MetricStreamFilterTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import MetricStreamFilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `Namespace`: `str`
-
-
-## MetricTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import MetricTypeDef
-```
-
-
-
-
-Optional fields:
-- `Namespace`: `str`
-- `MetricName`: `str`
-- `Dimensions`: `List["DimensionTypeDef"]`
-
-
-## PartialFailureTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import PartialFailureTypeDef
-```
-
-
-
-
-Optional fields:
-- `FailureResource`: `str`
-- `ExceptionType`: `str`
-- `FailureCode`: `str`
-- `FailureDescription`: `str`
-
-
-## RangeTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import RangeTypeDef
-```
-
-
-Required fields:
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-
-
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_cloudwatch.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## StatisticSetTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import StatisticSetTypeDef
-```
-
-
-Required fields:
-- `SampleCount`: `float`
-- `Sum`: `float`
-- `Minimum`: `float`
-- `Maximum`: `float`
-
-
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_cloudwatch.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
 ## DeleteInsightRulesOutputTypeDef
 
 ```python
@@ -599,6 +285,20 @@ Required fields:
 
 Optional fields:
 - `Value`: `str`
+
+
+## DimensionTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import DimensionTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `Value`: `str`
+
+
 
 
 ## DisableInsightRulesOutputTypeDef
@@ -732,6 +432,73 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## InsightRuleContributorDatapointTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import InsightRuleContributorDatapointTypeDef
+```
+
+
+Required fields:
+- `Timestamp`: `datetime`
+- `ApproximateValue`: `float`
+
+
+
+
+## InsightRuleContributorTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import InsightRuleContributorTypeDef
+```
+
+
+Required fields:
+- `Keys`: `List[str]`
+- `ApproximateAggregateValue`: `float`
+- `Datapoints`: `List["InsightRuleContributorDatapointTypeDef"]`
+
+
+
+
+## InsightRuleMetricDatapointTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import InsightRuleMetricDatapointTypeDef
+```
+
+
+Required fields:
+- `Timestamp`: `datetime`
+
+
+
+Optional fields:
+- `UniqueContributors`: `float`
+- `MaxContributorValue`: `float`
+- `SampleCount`: `float`
+- `Average`: `float`
+- `Sum`: `float`
+- `Minimum`: `float`
+- `Maximum`: `float`
+
+
+## InsightRuleTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import InsightRuleTypeDef
+```
+
+
+Required fields:
+- `Name`: `str`
+- `State`: `str`
+- `Schema`: `str`
+- `Definition`: `str`
+
+
+
+
 ## LabelOptionsTypeDef
 
 ```python
@@ -804,6 +571,97 @@ Optional fields:
 - `ResponseMetadata`: `"ResponseMetadata"`
 
 
+## MessageDataTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import MessageDataTypeDef
+```
+
+
+
+
+Optional fields:
+- `Code`: `str`
+- `Value`: `str`
+
+
+## MetricAlarmTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import MetricAlarmTypeDef
+```
+
+
+
+
+Optional fields:
+- `AlarmName`: `str`
+- `AlarmArn`: `str`
+- `AlarmDescription`: `str`
+- `AlarmConfigurationUpdatedTimestamp`: `datetime`
+- `ActionsEnabled`: `bool`
+- `OKActions`: `List[str]`
+- `AlarmActions`: `List[str]`
+- `InsufficientDataActions`: `List[str]`
+- `StateValue`: `StateValue`
+- `StateReason`: `str`
+- `StateReasonData`: `str`
+- `StateUpdatedTimestamp`: `datetime`
+- `MetricName`: `str`
+- `Namespace`: `str`
+- `Statistic`: `Statistic`
+- `ExtendedStatistic`: `str`
+- `Dimensions`: `List["DimensionTypeDef"]`
+- `Period`: `int`
+- `Unit`: `StandardUnit`
+- `EvaluationPeriods`: `int`
+- `DatapointsToAlarm`: `int`
+- `Threshold`: `float`
+- `ComparisonOperator`: `ComparisonOperator`
+- `TreatMissingData`: `str`
+- `EvaluateLowSampleCountPercentile`: `str`
+- `Metrics`: `List["MetricDataQueryTypeDef"]`
+- `ThresholdMetricId`: `str`
+
+
+## MetricDataQueryTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import MetricDataQueryTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+
+
+
+Optional fields:
+- `MetricStat`: `"MetricStatTypeDef"`
+- `Expression`: `str`
+- `Label`: `str`
+- `ReturnData`: `bool`
+- `Period`: `int`
+
+
+## MetricDataResultTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import MetricDataResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Label`: `str`
+- `Timestamps`: `List[datetime]`
+- `Values`: `List[float]`
+- `StatusCode`: `StatusCode`
+- `Messages`: `List["MessageDataTypeDef"]`
+
+
 ## MetricDatumTypeDef
 
 ```python
@@ -827,6 +685,71 @@ Optional fields:
 - `StorageResolution`: `int`
 
 
+## MetricStatTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import MetricStatTypeDef
+```
+
+
+Required fields:
+- `Metric`: `"MetricTypeDef"`
+- `Period`: `int`
+- `Stat`: `str`
+
+
+
+Optional fields:
+- `Unit`: `StandardUnit`
+
+
+## MetricStreamEntryTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import MetricStreamEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `CreationDate`: `datetime`
+- `LastUpdateDate`: `datetime`
+- `Name`: `str`
+- `FirehoseArn`: `str`
+- `State`: `str`
+- `OutputFormat`: `MetricStreamOutputFormat`
+
+
+## MetricStreamFilterTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import MetricStreamFilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `Namespace`: `str`
+
+
+## MetricTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import MetricTypeDef
+```
+
+
+
+
+Optional fields:
+- `Namespace`: `str`
+- `MetricName`: `str`
+- `Dimensions`: `List["DimensionTypeDef"]`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -840,6 +763,22 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## PartialFailureTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import PartialFailureTypeDef
+```
+
+
+
+
+Optional fields:
+- `FailureResource`: `str`
+- `ExceptionType`: `str`
+- `FailureCode`: `str`
+- `FailureDescription`: `str`
 
 
 ## PutDashboardOutputTypeDef
@@ -868,6 +807,67 @@ from mypy_boto3_cloudwatch.type_defs import PutMetricStreamOutputTypeDef
 Optional fields:
 - `Arn`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## RangeTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import RangeTypeDef
+```
+
+
+Required fields:
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+
+
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_cloudwatch.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## StatisticSetTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import StatisticSetTypeDef
+```
+
+
+Required fields:
+- `SampleCount`: `float`
+- `Sum`: `float`
+- `Minimum`: `float`
+- `Maximum`: `float`
+
+
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_cloudwatch.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## WaiterConfigTypeDef

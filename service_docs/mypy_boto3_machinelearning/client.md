@@ -40,13 +40,7 @@ type annotations stubs module [mypy_boto3_machinelearning](https://pypi.org/proj
     - [update_evaluation](#update_evaluation)
     - [update_ml_model](#update_ml_model)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
 
 ## MachineLearningClient
 
@@ -588,122 +582,25 @@ def update_ml_model(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("machinelearning").get_paginator` method.
-
-[Paginator.DescribeBatchPredictions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeBatchPredictions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeBatchPredictionsPaginatorName
-) -> DescribeBatchPredictionsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("machinelearning").get_paginator` method.
+Type annotations for `boto3.client("machinelearning").get_paginator` method with overloads.
 
-[Paginator.DescribeDataSources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeDataSources)
+- `client.get_paginator("describe_batch_predictions")` -> [DescribeBatchPredictionsPaginator](./paginators.md#describebatchpredictionspaginator)
+- `client.get_paginator("describe_data_sources")` -> [DescribeDataSourcesPaginator](./paginators.md#describedatasourcespaginator)
+- `client.get_paginator("describe_evaluations")` -> [DescribeEvaluationsPaginator](./paginators.md#describeevaluationspaginator)
+- `client.get_paginator("describe_ml_models")` -> [DescribeMLModelsPaginator](./paginators.md#describemlmodelspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeDataSourcesPaginatorName
-) -> DescribeDataSourcesPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("machinelearning").get_paginator` method.
-
-[Paginator.DescribeEvaluations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeEvaluations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeEvaluationsPaginatorName
-) -> DescribeEvaluationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("machinelearning").get_paginator` method.
-
-[Paginator.DescribeMLModels documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeMLModels)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMLModelsPaginatorName
-) -> DescribeMLModelsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("machinelearning").get_waiter` method.
+Type annotations for `boto3.client("machinelearning").get_waiter` method with overloads.
 
-[Waiter.BatchPredictionAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning.html#MachineLearning.Waiter.BatchPredictionAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: BatchPredictionAvailableWaiterName
-) -> BatchPredictionAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("machinelearning").get_waiter` method.
-
-[Waiter.DataSourceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning.html#MachineLearning.Waiter.DataSourceAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: DataSourceAvailableWaiterName
-) -> DataSourceAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("machinelearning").get_waiter` method.
-
-[Waiter.EvaluationAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning.html#MachineLearning.Waiter.EvaluationAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: EvaluationAvailableWaiterName
-) -> EvaluationAvailableWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("machinelearning").get_waiter` method.
-
-[Waiter.MLModelAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/machinelearning.html#MachineLearning.Waiter.MLModelAvailable)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: MLModelAvailableWaiterName
-) -> MLModelAvailableWaiter:
-    pass
-```
+- `client.get_waiter("batch_prediction_available")` -> [BatchPredictionAvailableWaiter](./waiters.md#batchpredictionavailablewaiter)
+- `client.get_waiter("data_source_available")` -> [DataSourceAvailableWaiter](./waiters.md#datasourceavailablewaiter)
+- `client.get_waiter("evaluation_available")` -> [EvaluationAvailableWaiter](./waiters.md#evaluationavailablewaiter)
+- `client.get_waiter("ml_model_available")` -> [MLModelAvailableWaiter](./waiters.md#mlmodelavailablewaiter)

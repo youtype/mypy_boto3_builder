@@ -7,19 +7,19 @@ type annotations stubs module [mypy_boto3_resourcegroupstaggingapi](https://pypi
 
 - [Structures for boto3 ResourceGroupsTaggingAPI module](#structures-for-boto3-resourcegroupstaggingapi-module)
   - [ComplianceDetailsTypeDef](#compliancedetailstypedef)
-  - [FailureInfoTypeDef](#failureinfotypedef)
-  - [ResourceTagMappingTypeDef](#resourcetagmappingtypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [SummaryTypeDef](#summarytypedef)
-  - [TagTypeDef](#tagtypedef)
   - [DescribeReportCreationOutputTypeDef](#describereportcreationoutputtypedef)
+  - [FailureInfoTypeDef](#failureinfotypedef)
   - [GetComplianceSummaryOutputTypeDef](#getcompliancesummaryoutputtypedef)
   - [GetResourcesOutputTypeDef](#getresourcesoutputtypedef)
   - [GetTagKeysOutputTypeDef](#gettagkeysoutputtypedef)
   - [GetTagValuesOutputTypeDef](#gettagvaluesoutputtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ResourceTagMappingTypeDef](#resourcetagmappingtypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [SummaryTypeDef](#summarytypedef)
   - [TagFilterTypeDef](#tagfiltertypedef)
   - [TagResourcesOutputTypeDef](#tagresourcesoutputtypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UntagResourcesOutputTypeDef](#untagresourcesoutputtypedef)
 
 ## ComplianceDetailsTypeDef
@@ -37,85 +37,6 @@ Optional fields:
 - `ComplianceStatus`: `bool`
 
 
-## FailureInfoTypeDef
-
-```python
-from mypy_boto3_resourcegroupstaggingapi.type_defs import FailureInfoTypeDef
-```
-
-
-
-
-Optional fields:
-- `StatusCode`: `int`
-- `ErrorCode`: `ErrorCode`
-- `ErrorMessage`: `str`
-
-
-## ResourceTagMappingTypeDef
-
-```python
-from mypy_boto3_resourcegroupstaggingapi.type_defs import ResourceTagMappingTypeDef
-```
-
-
-
-
-Optional fields:
-- `ResourceARN`: `str`
-- `Tags`: `List["TagTypeDef"]`
-- `ComplianceDetails`: `"ComplianceDetailsTypeDef"`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_resourcegroupstaggingapi.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## SummaryTypeDef
-
-```python
-from mypy_boto3_resourcegroupstaggingapi.type_defs import SummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `LastUpdated`: `str`
-- `TargetId`: `str`
-- `TargetIdType`: `TargetIdType`
-- `Region`: `str`
-- `ResourceType`: `str`
-- `NonCompliantResources`: `int`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_resourcegroupstaggingapi.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
 ## DescribeReportCreationOutputTypeDef
 
 ```python
@@ -130,6 +51,21 @@ Optional fields:
 - `S3Location`: `str`
 - `ErrorMessage`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## FailureInfoTypeDef
+
+```python
+from mypy_boto3_resourcegroupstaggingapi.type_defs import FailureInfoTypeDef
+```
+
+
+
+
+Optional fields:
+- `StatusCode`: `int`
+- `ErrorCode`: `ErrorCode`
+- `ErrorMessage`: `str`
 
 
 ## GetComplianceSummaryOutputTypeDef
@@ -207,6 +143,56 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ResourceTagMappingTypeDef
+
+```python
+from mypy_boto3_resourcegroupstaggingapi.type_defs import ResourceTagMappingTypeDef
+```
+
+
+
+
+Optional fields:
+- `ResourceARN`: `str`
+- `Tags`: `List["TagTypeDef"]`
+- `ComplianceDetails`: `"ComplianceDetailsTypeDef"`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_resourcegroupstaggingapi.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## SummaryTypeDef
+
+```python
+from mypy_boto3_resourcegroupstaggingapi.type_defs import SummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `LastUpdated`: `str`
+- `TargetId`: `str`
+- `TargetIdType`: `TargetIdType`
+- `Region`: `str`
+- `ResourceType`: `str`
+- `NonCompliantResources`: `int`
+
+
 ## TagFilterTypeDef
 
 ```python
@@ -233,6 +219,20 @@ from mypy_boto3_resourcegroupstaggingapi.type_defs import TagResourcesOutputType
 Optional fields:
 - `FailedResourcesMap`: `Dict[str, "FailureInfoTypeDef"]`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_resourcegroupstaggingapi.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## UntagResourcesOutputTypeDef

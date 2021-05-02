@@ -11,6 +11,10 @@ type annotations stubs module [mypy_boto3_xray](https://pypi.org/project/mypy-bo
   - [AnomalousServiceTypeDef](#anomalousservicetypedef)
   - [AvailabilityZoneDetailTypeDef](#availabilityzonedetailtypedef)
   - [BackendConnectionErrorsTypeDef](#backendconnectionerrorstypedef)
+  - [BatchGetTracesResultTypeDef](#batchgettracesresulttypedef)
+  - [CreateGroupResultTypeDef](#creategroupresulttypedef)
+  - [CreateSamplingRuleResultTypeDef](#createsamplingruleresulttypedef)
+  - [DeleteSamplingRuleResultTypeDef](#deletesamplingruleresulttypedef)
   - [EdgeStatisticsTypeDef](#edgestatisticstypedef)
   - [EdgeTypeDef](#edgetypedef)
   - [EncryptionConfigTypeDef](#encryptionconfigtypedef)
@@ -23,43 +27,6 @@ type annotations stubs module [mypy_boto3_xray](https://pypi.org/project/mypy-bo
   - [FaultRootCauseTypeDef](#faultrootcausetypedef)
   - [FaultStatisticsTypeDef](#faultstatisticstypedef)
   - [ForecastStatisticsTypeDef](#forecaststatisticstypedef)
-  - [GroupSummaryTypeDef](#groupsummarytypedef)
-  - [GroupTypeDef](#grouptypedef)
-  - [HistogramEntryTypeDef](#histogramentrytypedef)
-  - [HttpTypeDef](#httptypedef)
-  - [InsightEventTypeDef](#insighteventtypedef)
-  - [InsightImpactGraphEdgeTypeDef](#insightimpactgraphedgetypedef)
-  - [InsightImpactGraphServiceTypeDef](#insightimpactgraphservicetypedef)
-  - [InsightSummaryTypeDef](#insightsummarytypedef)
-  - [InsightTypeDef](#insighttypedef)
-  - [InsightsConfigurationTypeDef](#insightsconfigurationtypedef)
-  - [InstanceIdDetailTypeDef](#instanceiddetailtypedef)
-  - [RequestImpactStatisticsTypeDef](#requestimpactstatisticstypedef)
-  - [ResourceARNDetailTypeDef](#resourcearndetailtypedef)
-  - [ResponseTimeRootCauseEntityTypeDef](#responsetimerootcauseentitytypedef)
-  - [ResponseTimeRootCauseServiceTypeDef](#responsetimerootcauseservicetypedef)
-  - [ResponseTimeRootCauseTypeDef](#responsetimerootcausetypedef)
-  - [RootCauseExceptionTypeDef](#rootcauseexceptiontypedef)
-  - [SamplingRuleRecordTypeDef](#samplingrulerecordtypedef)
-  - [SamplingRuleTypeDef](#samplingruletypedef)
-  - [SamplingStatisticSummaryTypeDef](#samplingstatisticsummarytypedef)
-  - [SamplingTargetDocumentTypeDef](#samplingtargetdocumenttypedef)
-  - [SegmentTypeDef](#segmenttypedef)
-  - [ServiceIdTypeDef](#serviceidtypedef)
-  - [ServiceStatisticsTypeDef](#servicestatisticstypedef)
-  - [ServiceTypeDef](#servicetypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TimeSeriesServiceStatisticsTypeDef](#timeseriesservicestatisticstypedef)
-  - [TraceSummaryTypeDef](#tracesummarytypedef)
-  - [TraceTypeDef](#tracetypedef)
-  - [TraceUserTypeDef](#traceusertypedef)
-  - [UnprocessedStatisticsTypeDef](#unprocessedstatisticstypedef)
-  - [UnprocessedTraceSegmentTypeDef](#unprocessedtracesegmenttypedef)
-  - [ValueWithServiceIdsTypeDef](#valuewithserviceidstypedef)
-  - [BatchGetTracesResultTypeDef](#batchgettracesresulttypedef)
-  - [CreateGroupResultTypeDef](#creategroupresulttypedef)
-  - [CreateSamplingRuleResultTypeDef](#createsamplingruleresulttypedef)
-  - [DeleteSamplingRuleResultTypeDef](#deletesamplingruleresulttypedef)
   - [GetEncryptionConfigResultTypeDef](#getencryptionconfigresulttypedef)
   - [GetGroupResultTypeDef](#getgroupresulttypedef)
   - [GetGroupsResultTypeDef](#getgroupsresulttypedef)
@@ -74,16 +41,49 @@ type annotations stubs module [mypy_boto3_xray](https://pypi.org/project/mypy-bo
   - [GetTimeSeriesServiceStatisticsResultTypeDef](#gettimeseriesservicestatisticsresulttypedef)
   - [GetTraceGraphResultTypeDef](#gettracegraphresulttypedef)
   - [GetTraceSummariesResultTypeDef](#gettracesummariesresulttypedef)
+  - [GroupSummaryTypeDef](#groupsummarytypedef)
+  - [GroupTypeDef](#grouptypedef)
+  - [HistogramEntryTypeDef](#histogramentrytypedef)
+  - [HttpTypeDef](#httptypedef)
+  - [InsightEventTypeDef](#insighteventtypedef)
+  - [InsightImpactGraphEdgeTypeDef](#insightimpactgraphedgetypedef)
+  - [InsightImpactGraphServiceTypeDef](#insightimpactgraphservicetypedef)
+  - [InsightSummaryTypeDef](#insightsummarytypedef)
+  - [InsightTypeDef](#insighttypedef)
+  - [InsightsConfigurationTypeDef](#insightsconfigurationtypedef)
+  - [InstanceIdDetailTypeDef](#instanceiddetailtypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PutEncryptionConfigResultTypeDef](#putencryptionconfigresulttypedef)
   - [PutTraceSegmentsResultTypeDef](#puttracesegmentsresulttypedef)
+  - [RequestImpactStatisticsTypeDef](#requestimpactstatisticstypedef)
+  - [ResourceARNDetailTypeDef](#resourcearndetailtypedef)
+  - [ResponseTimeRootCauseEntityTypeDef](#responsetimerootcauseentitytypedef)
+  - [ResponseTimeRootCauseServiceTypeDef](#responsetimerootcauseservicetypedef)
+  - [ResponseTimeRootCauseTypeDef](#responsetimerootcausetypedef)
+  - [RootCauseExceptionTypeDef](#rootcauseexceptiontypedef)
+  - [SamplingRuleRecordTypeDef](#samplingrulerecordtypedef)
+  - [SamplingRuleTypeDef](#samplingruletypedef)
   - [SamplingRuleUpdateTypeDef](#samplingruleupdatetypedef)
+  - [SamplingStatisticSummaryTypeDef](#samplingstatisticsummarytypedef)
   - [SamplingStatisticsDocumentTypeDef](#samplingstatisticsdocumenttypedef)
   - [SamplingStrategyTypeDef](#samplingstrategytypedef)
+  - [SamplingTargetDocumentTypeDef](#samplingtargetdocumenttypedef)
+  - [SegmentTypeDef](#segmenttypedef)
+  - [ServiceIdTypeDef](#serviceidtypedef)
+  - [ServiceStatisticsTypeDef](#servicestatisticstypedef)
+  - [ServiceTypeDef](#servicetypedef)
+  - [TagTypeDef](#tagtypedef)
   - [TelemetryRecordTypeDef](#telemetryrecordtypedef)
+  - [TimeSeriesServiceStatisticsTypeDef](#timeseriesservicestatisticstypedef)
+  - [TraceSummaryTypeDef](#tracesummarytypedef)
+  - [TraceTypeDef](#tracetypedef)
+  - [TraceUserTypeDef](#traceusertypedef)
+  - [UnprocessedStatisticsTypeDef](#unprocessedstatisticstypedef)
+  - [UnprocessedTraceSegmentTypeDef](#unprocessedtracesegmenttypedef)
   - [UpdateGroupResultTypeDef](#updategroupresulttypedef)
   - [UpdateSamplingRuleResultTypeDef](#updatesamplingruleresulttypedef)
+  - [ValueWithServiceIdsTypeDef](#valuewithserviceidstypedef)
 
 ## AliasTypeDef
 
@@ -157,6 +157,60 @@ Optional fields:
 - `HTTPCode5XXCount`: `int`
 - `UnknownHostCount`: `int`
 - `OtherCount`: `int`
+
+
+## BatchGetTracesResultTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import BatchGetTracesResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Traces`: `List["TraceTypeDef"]`
+- `UnprocessedTraceIds`: `List[str]`
+- `NextToken`: `str`
+
+
+## CreateGroupResultTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import CreateGroupResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Group`: `"GroupTypeDef"`
+
+
+## CreateSamplingRuleResultTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import CreateSamplingRuleResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `SamplingRuleRecord`: `"SamplingRuleRecordTypeDef"`
+
+
+## DeleteSamplingRuleResultTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import DeleteSamplingRuleResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `SamplingRuleRecord`: `"SamplingRuleRecordTypeDef"`
 
 
 ## EdgeStatisticsTypeDef
@@ -344,621 +398,6 @@ from mypy_boto3_xray.type_defs import ForecastStatisticsTypeDef
 Optional fields:
 - `FaultCountHigh`: `int`
 - `FaultCountLow`: `int`
-
-
-## GroupSummaryTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import GroupSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupName`: `str`
-- `GroupARN`: `str`
-- `FilterExpression`: `str`
-- `InsightsConfiguration`: `"InsightsConfigurationTypeDef"`
-
-
-## GroupTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import GroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupName`: `str`
-- `GroupARN`: `str`
-- `FilterExpression`: `str`
-- `InsightsConfiguration`: `"InsightsConfigurationTypeDef"`
-
-
-## HistogramEntryTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import HistogramEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Value`: `float`
-- `Count`: `int`
-
-
-## HttpTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import HttpTypeDef
-```
-
-
-
-
-Optional fields:
-- `HttpURL`: `str`
-- `HttpStatus`: `int`
-- `HttpMethod`: `str`
-- `UserAgent`: `str`
-- `ClientIp`: `str`
-
-
-## InsightEventTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import InsightEventTypeDef
-```
-
-
-
-
-Optional fields:
-- `Summary`: `str`
-- `EventTime`: `datetime`
-- `ClientRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
-- `RootCauseServiceRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
-- `TopAnomalousServices`: `List["AnomalousServiceTypeDef"]`
-
-
-## InsightImpactGraphEdgeTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import InsightImpactGraphEdgeTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReferenceId`: `int`
-
-
-## InsightImpactGraphServiceTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import InsightImpactGraphServiceTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReferenceId`: `int`
-- `Type`: `str`
-- `Name`: `str`
-- `Names`: `List[str]`
-- `AccountId`: `str`
-- `Edges`: `List["InsightImpactGraphEdgeTypeDef"]`
-
-
-## InsightSummaryTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import InsightSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `InsightId`: `str`
-- `GroupARN`: `str`
-- `GroupName`: `str`
-- `RootCauseServiceId`: `"ServiceIdTypeDef"`
-- `Categories`: `List[InsightCategory]`
-- `State`: `InsightState`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-- `Summary`: `str`
-- `ClientRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
-- `RootCauseServiceRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
-- `TopAnomalousServices`: `List["AnomalousServiceTypeDef"]`
-- `LastUpdateTime`: `datetime`
-
-
-## InsightTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import InsightTypeDef
-```
-
-
-
-
-Optional fields:
-- `InsightId`: `str`
-- `GroupARN`: `str`
-- `GroupName`: `str`
-- `RootCauseServiceId`: `"ServiceIdTypeDef"`
-- `Categories`: `List[InsightCategory]`
-- `State`: `InsightState`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-- `Summary`: `str`
-- `ClientRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
-- `RootCauseServiceRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
-- `TopAnomalousServices`: `List["AnomalousServiceTypeDef"]`
-
-
-## InsightsConfigurationTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import InsightsConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `InsightsEnabled`: `bool`
-- `NotificationsEnabled`: `bool`
-
-
-## InstanceIdDetailTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import InstanceIdDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-
-
-## RequestImpactStatisticsTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import RequestImpactStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `FaultCount`: `int`
-- `OkCount`: `int`
-- `TotalCount`: `int`
-
-
-## ResourceARNDetailTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import ResourceARNDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `ARN`: `str`
-
-
-## ResponseTimeRootCauseEntityTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import ResponseTimeRootCauseEntityTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Coverage`: `float`
-- `Remote`: `bool`
-
-
-## ResponseTimeRootCauseServiceTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import ResponseTimeRootCauseServiceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Names`: `List[str]`
-- `Type`: `str`
-- `AccountId`: `str`
-- `EntityPath`: `List["ResponseTimeRootCauseEntityTypeDef"]`
-- `Inferred`: `bool`
-
-
-## ResponseTimeRootCauseTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import ResponseTimeRootCauseTypeDef
-```
-
-
-
-
-Optional fields:
-- `Services`: `List["ResponseTimeRootCauseServiceTypeDef"]`
-- `ClientImpacting`: `bool`
-
-
-## RootCauseExceptionTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import RootCauseExceptionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Message`: `str`
-
-
-## SamplingRuleRecordTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import SamplingRuleRecordTypeDef
-```
-
-
-
-
-Optional fields:
-- `SamplingRule`: `"SamplingRuleTypeDef"`
-- `CreatedAt`: `datetime`
-- `ModifiedAt`: `datetime`
-
-
-## SamplingRuleTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import SamplingRuleTypeDef
-```
-
-
-Required fields:
-- `ResourceARN`: `str`
-- `Priority`: `int`
-- `FixedRate`: `float`
-- `ReservoirSize`: `int`
-- `ServiceName`: `str`
-- `ServiceType`: `str`
-- `Host`: `str`
-- `HTTPMethod`: `str`
-- `URLPath`: `str`
-- `Version`: `int`
-
-
-
-Optional fields:
-- `RuleName`: `str`
-- `RuleARN`: `str`
-- `Attributes`: `Dict[str, str]`
-
-
-## SamplingStatisticSummaryTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import SamplingStatisticSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `RuleName`: `str`
-- `Timestamp`: `datetime`
-- `RequestCount`: `int`
-- `BorrowCount`: `int`
-- `SampledCount`: `int`
-
-
-## SamplingTargetDocumentTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import SamplingTargetDocumentTypeDef
-```
-
-
-
-
-Optional fields:
-- `RuleName`: `str`
-- `FixedRate`: `float`
-- `ReservoirQuota`: `int`
-- `ReservoirQuotaTTL`: `datetime`
-- `Interval`: `int`
-
-
-## SegmentTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import SegmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Document`: `str`
-
-
-## ServiceIdTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import ServiceIdTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Names`: `List[str]`
-- `AccountId`: `str`
-- `Type`: `str`
-
-
-## ServiceStatisticsTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import ServiceStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `OkCount`: `int`
-- `ErrorStatistics`: `"ErrorStatisticsTypeDef"`
-- `FaultStatistics`: `"FaultStatisticsTypeDef"`
-- `TotalCount`: `int`
-- `TotalResponseTime`: `float`
-
-
-## ServiceTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import ServiceTypeDef
-```
-
-
-
-
-Optional fields:
-- `ReferenceId`: `int`
-- `Name`: `str`
-- `Names`: `List[str]`
-- `Root`: `bool`
-- `AccountId`: `str`
-- `Type`: `str`
-- `State`: `str`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-- `Edges`: `List["EdgeTypeDef"]`
-- `SummaryStatistics`: `"ServiceStatisticsTypeDef"`
-- `DurationHistogram`: `List["HistogramEntryTypeDef"]`
-- `ResponseTimeHistogram`: `List["HistogramEntryTypeDef"]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TimeSeriesServiceStatisticsTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import TimeSeriesServiceStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `Timestamp`: `datetime`
-- `EdgeSummaryStatistics`: `"EdgeStatisticsTypeDef"`
-- `ServiceSummaryStatistics`: `"ServiceStatisticsTypeDef"`
-- `ServiceForecastStatistics`: `"ForecastStatisticsTypeDef"`
-- `ResponseTimeHistogram`: `List["HistogramEntryTypeDef"]`
-
-
-## TraceSummaryTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import TraceSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Duration`: `float`
-- `ResponseTime`: `float`
-- `HasFault`: `bool`
-- `HasError`: `bool`
-- `HasThrottle`: `bool`
-- `IsPartial`: `bool`
-- `Http`: `"HttpTypeDef"`
-- `Annotations`: `Dict[str, List["ValueWithServiceIdsTypeDef"]]`
-- `Users`: `List["TraceUserTypeDef"]`
-- `ServiceIds`: `List["ServiceIdTypeDef"]`
-- `ResourceARNs`: `List["ResourceARNDetailTypeDef"]`
-- `InstanceIds`: `List["InstanceIdDetailTypeDef"]`
-- `AvailabilityZones`: `List["AvailabilityZoneDetailTypeDef"]`
-- `EntryPoint`: `"ServiceIdTypeDef"`
-- `FaultRootCauses`: `List["FaultRootCauseTypeDef"]`
-- `ErrorRootCauses`: `List["ErrorRootCauseTypeDef"]`
-- `ResponseTimeRootCauses`: `List["ResponseTimeRootCauseTypeDef"]`
-- `Revision`: `int`
-- `MatchedEventTime`: `datetime`
-
-
-## TraceTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import TraceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Duration`: `float`
-- `LimitExceeded`: `bool`
-- `Segments`: `List["SegmentTypeDef"]`
-
-
-## TraceUserTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import TraceUserTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserName`: `str`
-- `ServiceIds`: `List["ServiceIdTypeDef"]`
-
-
-## UnprocessedStatisticsTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import UnprocessedStatisticsTypeDef
-```
-
-
-
-
-Optional fields:
-- `RuleName`: `str`
-- `ErrorCode`: `str`
-- `Message`: `str`
-
-
-## UnprocessedTraceSegmentTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import UnprocessedTraceSegmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `ErrorCode`: `str`
-- `Message`: `str`
-
-
-## ValueWithServiceIdsTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import ValueWithServiceIdsTypeDef
-```
-
-
-
-
-Optional fields:
-- `AnnotationValue`: `"AnnotationValueTypeDef"`
-- `ServiceIds`: `List["ServiceIdTypeDef"]`
-
-
-## BatchGetTracesResultTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import BatchGetTracesResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Traces`: `List["TraceTypeDef"]`
-- `UnprocessedTraceIds`: `List[str]`
-- `NextToken`: `str`
-
-
-## CreateGroupResultTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import CreateGroupResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Group`: `"GroupTypeDef"`
-
-
-## CreateSamplingRuleResultTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import CreateSamplingRuleResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `SamplingRuleRecord`: `"SamplingRuleRecordTypeDef"`
-
-
-## DeleteSamplingRuleResultTypeDef
-
-```python
-from mypy_boto3_xray.type_defs import DeleteSamplingRuleResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `SamplingRuleRecord`: `"SamplingRuleRecordTypeDef"`
 
 
 ## GetEncryptionConfigResultTypeDef
@@ -1166,6 +605,193 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## GroupSummaryTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import GroupSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupName`: `str`
+- `GroupARN`: `str`
+- `FilterExpression`: `str`
+- `InsightsConfiguration`: `"InsightsConfigurationTypeDef"`
+
+
+## GroupTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import GroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupName`: `str`
+- `GroupARN`: `str`
+- `FilterExpression`: `str`
+- `InsightsConfiguration`: `"InsightsConfigurationTypeDef"`
+
+
+## HistogramEntryTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import HistogramEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Value`: `float`
+- `Count`: `int`
+
+
+## HttpTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import HttpTypeDef
+```
+
+
+
+
+Optional fields:
+- `HttpURL`: `str`
+- `HttpStatus`: `int`
+- `HttpMethod`: `str`
+- `UserAgent`: `str`
+- `ClientIp`: `str`
+
+
+## InsightEventTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import InsightEventTypeDef
+```
+
+
+
+
+Optional fields:
+- `Summary`: `str`
+- `EventTime`: `datetime`
+- `ClientRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
+- `RootCauseServiceRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
+- `TopAnomalousServices`: `List["AnomalousServiceTypeDef"]`
+
+
+## InsightImpactGraphEdgeTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import InsightImpactGraphEdgeTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReferenceId`: `int`
+
+
+## InsightImpactGraphServiceTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import InsightImpactGraphServiceTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReferenceId`: `int`
+- `Type`: `str`
+- `Name`: `str`
+- `Names`: `List[str]`
+- `AccountId`: `str`
+- `Edges`: `List["InsightImpactGraphEdgeTypeDef"]`
+
+
+## InsightSummaryTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import InsightSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `InsightId`: `str`
+- `GroupARN`: `str`
+- `GroupName`: `str`
+- `RootCauseServiceId`: `"ServiceIdTypeDef"`
+- `Categories`: `List[Literal['FAULT']]`
+- `State`: `InsightState`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+- `Summary`: `str`
+- `ClientRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
+- `RootCauseServiceRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
+- `TopAnomalousServices`: `List["AnomalousServiceTypeDef"]`
+- `LastUpdateTime`: `datetime`
+
+
+## InsightTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import InsightTypeDef
+```
+
+
+
+
+Optional fields:
+- `InsightId`: `str`
+- `GroupARN`: `str`
+- `GroupName`: `str`
+- `RootCauseServiceId`: `"ServiceIdTypeDef"`
+- `Categories`: `List[Literal['FAULT']]`
+- `State`: `InsightState`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+- `Summary`: `str`
+- `ClientRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
+- `RootCauseServiceRequestImpactStatistics`: `"RequestImpactStatisticsTypeDef"`
+- `TopAnomalousServices`: `List["AnomalousServiceTypeDef"]`
+
+
+## InsightsConfigurationTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import InsightsConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `InsightsEnabled`: `bool`
+- `NotificationsEnabled`: `bool`
+
+
+## InstanceIdDetailTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import InstanceIdDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+
+
 ## ListTagsForResourceResponseTypeDef
 
 ```python
@@ -1221,6 +847,137 @@ Optional fields:
 - `UnprocessedTraceSegments`: `List["UnprocessedTraceSegmentTypeDef"]`
 
 
+## RequestImpactStatisticsTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import RequestImpactStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `FaultCount`: `int`
+- `OkCount`: `int`
+- `TotalCount`: `int`
+
+
+## ResourceARNDetailTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import ResourceARNDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `ARN`: `str`
+
+
+## ResponseTimeRootCauseEntityTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import ResponseTimeRootCauseEntityTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Coverage`: `float`
+- `Remote`: `bool`
+
+
+## ResponseTimeRootCauseServiceTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import ResponseTimeRootCauseServiceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Names`: `List[str]`
+- `Type`: `str`
+- `AccountId`: `str`
+- `EntityPath`: `List["ResponseTimeRootCauseEntityTypeDef"]`
+- `Inferred`: `bool`
+
+
+## ResponseTimeRootCauseTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import ResponseTimeRootCauseTypeDef
+```
+
+
+
+
+Optional fields:
+- `Services`: `List["ResponseTimeRootCauseServiceTypeDef"]`
+- `ClientImpacting`: `bool`
+
+
+## RootCauseExceptionTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import RootCauseExceptionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Message`: `str`
+
+
+## SamplingRuleRecordTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import SamplingRuleRecordTypeDef
+```
+
+
+
+
+Optional fields:
+- `SamplingRule`: `"SamplingRuleTypeDef"`
+- `CreatedAt`: `datetime`
+- `ModifiedAt`: `datetime`
+
+
+## SamplingRuleTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import SamplingRuleTypeDef
+```
+
+
+Required fields:
+- `ResourceARN`: `str`
+- `Priority`: `int`
+- `FixedRate`: `float`
+- `ReservoirSize`: `int`
+- `ServiceName`: `str`
+- `ServiceType`: `str`
+- `Host`: `str`
+- `HTTPMethod`: `str`
+- `URLPath`: `str`
+- `Version`: `int`
+
+
+
+Optional fields:
+- `RuleName`: `str`
+- `RuleARN`: `str`
+- `Attributes`: `Dict[str, str]`
+
+
 ## SamplingRuleUpdateTypeDef
 
 ```python
@@ -1243,6 +1000,23 @@ Optional fields:
 - `HTTPMethod`: `str`
 - `URLPath`: `str`
 - `Attributes`: `Dict[str, str]`
+
+
+## SamplingStatisticSummaryTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import SamplingStatisticSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `RuleName`: `str`
+- `Timestamp`: `datetime`
+- `RequestCount`: `int`
+- `BorrowCount`: `int`
+- `SampledCount`: `int`
 
 
 ## SamplingStatisticsDocumentTypeDef
@@ -1279,6 +1053,109 @@ Optional fields:
 - `Value`: `float`
 
 
+## SamplingTargetDocumentTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import SamplingTargetDocumentTypeDef
+```
+
+
+
+
+Optional fields:
+- `RuleName`: `str`
+- `FixedRate`: `float`
+- `ReservoirQuota`: `int`
+- `ReservoirQuotaTTL`: `datetime`
+- `Interval`: `int`
+
+
+## SegmentTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import SegmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Document`: `str`
+
+
+## ServiceIdTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import ServiceIdTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Names`: `List[str]`
+- `AccountId`: `str`
+- `Type`: `str`
+
+
+## ServiceStatisticsTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import ServiceStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `OkCount`: `int`
+- `ErrorStatistics`: `"ErrorStatisticsTypeDef"`
+- `FaultStatistics`: `"FaultStatisticsTypeDef"`
+- `TotalCount`: `int`
+- `TotalResponseTime`: `float`
+
+
+## ServiceTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import ServiceTypeDef
+```
+
+
+
+
+Optional fields:
+- `ReferenceId`: `int`
+- `Name`: `str`
+- `Names`: `List[str]`
+- `Root`: `bool`
+- `AccountId`: `str`
+- `Type`: `str`
+- `State`: `str`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+- `Edges`: `List["EdgeTypeDef"]`
+- `SummaryStatistics`: `"ServiceStatisticsTypeDef"`
+- `DurationHistogram`: `List["HistogramEntryTypeDef"]`
+- `ResponseTimeHistogram`: `List["HistogramEntryTypeDef"]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
 ## TelemetryRecordTypeDef
 
 ```python
@@ -1297,6 +1174,115 @@ Optional fields:
 - `SegmentsSpilloverCount`: `int`
 - `SegmentsRejectedCount`: `int`
 - `BackendConnectionErrors`: `"BackendConnectionErrorsTypeDef"`
+
+
+## TimeSeriesServiceStatisticsTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import TimeSeriesServiceStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `Timestamp`: `datetime`
+- `EdgeSummaryStatistics`: `"EdgeStatisticsTypeDef"`
+- `ServiceSummaryStatistics`: `"ServiceStatisticsTypeDef"`
+- `ServiceForecastStatistics`: `"ForecastStatisticsTypeDef"`
+- `ResponseTimeHistogram`: `List["HistogramEntryTypeDef"]`
+
+
+## TraceSummaryTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import TraceSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Duration`: `float`
+- `ResponseTime`: `float`
+- `HasFault`: `bool`
+- `HasError`: `bool`
+- `HasThrottle`: `bool`
+- `IsPartial`: `bool`
+- `Http`: `"HttpTypeDef"`
+- `Annotations`: `Dict[str, List["ValueWithServiceIdsTypeDef"]]`
+- `Users`: `List["TraceUserTypeDef"]`
+- `ServiceIds`: `List["ServiceIdTypeDef"]`
+- `ResourceARNs`: `List["ResourceARNDetailTypeDef"]`
+- `InstanceIds`: `List["InstanceIdDetailTypeDef"]`
+- `AvailabilityZones`: `List["AvailabilityZoneDetailTypeDef"]`
+- `EntryPoint`: `"ServiceIdTypeDef"`
+- `FaultRootCauses`: `List["FaultRootCauseTypeDef"]`
+- `ErrorRootCauses`: `List["ErrorRootCauseTypeDef"]`
+- `ResponseTimeRootCauses`: `List["ResponseTimeRootCauseTypeDef"]`
+- `Revision`: `int`
+- `MatchedEventTime`: `datetime`
+
+
+## TraceTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import TraceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Duration`: `float`
+- `LimitExceeded`: `bool`
+- `Segments`: `List["SegmentTypeDef"]`
+
+
+## TraceUserTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import TraceUserTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserName`: `str`
+- `ServiceIds`: `List["ServiceIdTypeDef"]`
+
+
+## UnprocessedStatisticsTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import UnprocessedStatisticsTypeDef
+```
+
+
+
+
+Optional fields:
+- `RuleName`: `str`
+- `ErrorCode`: `str`
+- `Message`: `str`
+
+
+## UnprocessedTraceSegmentTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import UnprocessedTraceSegmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `ErrorCode`: `str`
+- `Message`: `str`
 
 
 ## UpdateGroupResultTypeDef
@@ -1323,4 +1309,18 @@ from mypy_boto3_xray.type_defs import UpdateSamplingRuleResultTypeDef
 
 Optional fields:
 - `SamplingRuleRecord`: `"SamplingRuleRecordTypeDef"`
+
+
+## ValueWithServiceIdsTypeDef
+
+```python
+from mypy_boto3_xray.type_defs import ValueWithServiceIdsTypeDef
+```
+
+
+
+
+Optional fields:
+- `AnnotationValue`: `"AnnotationValueTypeDef"`
+- `ServiceIds`: `List["ServiceIdTypeDef"]`
 

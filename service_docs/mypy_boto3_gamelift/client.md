@@ -107,25 +107,6 @@ type annotations stubs module [mypy_boto3_gamelift](https://pypi.org/project/myp
     - [update_script](#update_script)
     - [validate_matchmaking_rule_set](#validate_matchmaking_rule_set)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
-    - [get_paginator](#get_paginator-13)
-    - [get_paginator](#get_paginator-14)
-    - [get_paginator](#get_paginator-15)
-    - [get_paginator](#get_paginator-16)
-    - [get_paginator](#get_paginator-17)
-    - [get_paginator](#get_paginator-18)
-    - [get_paginator](#get_paginator-19)
 
 ## GameLiftClient
 
@@ -1364,7 +1345,7 @@ Type annotations for `boto3.client("gamelift").resume_game_server_group` method.
 def resume_game_server_group(
     self,
     GameServerGroupName: str,
-    ResumeActions: List[GameServerGroupAction]
+    ResumeActions: List[Literal['REPLACE_INSTANCE_TYPES']]
 ) -> ResumeGameServerGroupOutputTypeDef:
     pass
 ```
@@ -1399,7 +1380,7 @@ Type annotations for `boto3.client("gamelift").start_fleet_actions` method.
 def start_fleet_actions(
     self,
     FleetId: str,
-    Actions: List[FleetAction],
+    Actions: List[Literal['AUTO_SCALING']],
     Location: str = None
 ) -> StartFleetActionsOutputTypeDef:
     pass
@@ -1469,7 +1450,7 @@ Type annotations for `boto3.client("gamelift").stop_fleet_actions` method.
 def stop_fleet_actions(
     self,
     FleetId: str,
-    Actions: List[FleetAction],
+    Actions: List[Literal['AUTO_SCALING']],
     Location: str = None
 ) -> StopFleetActionsOutputTypeDef:
     pass
@@ -1513,7 +1494,7 @@ Type annotations for `boto3.client("gamelift").suspend_game_server_group` method
 def suspend_game_server_group(
     self,
     GameServerGroupName: str,
-    SuspendActions: List[GameServerGroupAction]
+    SuspendActions: List[Literal['REPLACE_INSTANCE_TYPES']]
 ) -> SuspendGameServerGroupOutputTypeDef:
     pass
 ```
@@ -1647,7 +1628,7 @@ def update_game_server(
     GameServerId: str,
     GameServerData: str = None,
     UtilizationStatus: GameServerUtilizationStatus = None,
-    HealthCheck: GameServerHealthCheck = None
+    HealthCheck: Literal['HEALTHY'] = None
 ) -> UpdateGameServerOutputTypeDef:
     pass
 ```
@@ -1783,302 +1764,31 @@ def validate_matchmaking_rule_set(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribeFleetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetAttributes)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFleetAttributesPaginatorName
-) -> DescribeFleetAttributesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("gamelift").get_paginator` method.
+Type annotations for `boto3.client("gamelift").get_paginator` method with overloads.
+
+- `client.get_paginator("describe_fleet_attributes")` -> [DescribeFleetAttributesPaginator](./paginators.md#describefleetattributespaginator)
+- `client.get_paginator("describe_fleet_capacity")` -> [DescribeFleetCapacityPaginator](./paginators.md#describefleetcapacitypaginator)
+- `client.get_paginator("describe_fleet_events")` -> [DescribeFleetEventsPaginator](./paginators.md#describefleeteventspaginator)
+- `client.get_paginator("describe_fleet_utilization")` -> [DescribeFleetUtilizationPaginator](./paginators.md#describefleetutilizationpaginator)
+- `client.get_paginator("describe_game_server_instances")` -> [DescribeGameServerInstancesPaginator](./paginators.md#describegameserverinstancespaginator)
+- `client.get_paginator("describe_game_session_details")` -> [DescribeGameSessionDetailsPaginator](./paginators.md#describegamesessiondetailspaginator)
+- `client.get_paginator("describe_game_session_queues")` -> [DescribeGameSessionQueuesPaginator](./paginators.md#describegamesessionqueuespaginator)
+- `client.get_paginator("describe_game_sessions")` -> [DescribeGameSessionsPaginator](./paginators.md#describegamesessionspaginator)
+- `client.get_paginator("describe_instances")` -> [DescribeInstancesPaginator](./paginators.md#describeinstancespaginator)
+- `client.get_paginator("describe_matchmaking_configurations")` -> [DescribeMatchmakingConfigurationsPaginator](./paginators.md#describematchmakingconfigurationspaginator)
+- `client.get_paginator("describe_matchmaking_rule_sets")` -> [DescribeMatchmakingRuleSetsPaginator](./paginators.md#describematchmakingrulesetspaginator)
+- `client.get_paginator("describe_player_sessions")` -> [DescribePlayerSessionsPaginator](./paginators.md#describeplayersessionspaginator)
+- `client.get_paginator("describe_scaling_policies")` -> [DescribeScalingPoliciesPaginator](./paginators.md#describescalingpoliciespaginator)
+- `client.get_paginator("list_aliases")` -> [ListAliasesPaginator](./paginators.md#listaliasespaginator)
+- `client.get_paginator("list_builds")` -> [ListBuildsPaginator](./paginators.md#listbuildspaginator)
+- `client.get_paginator("list_fleets")` -> [ListFleetsPaginator](./paginators.md#listfleetspaginator)
+- `client.get_paginator("list_game_server_groups")` -> [ListGameServerGroupsPaginator](./paginators.md#listgameservergroupspaginator)
+- `client.get_paginator("list_game_servers")` -> [ListGameServersPaginator](./paginators.md#listgameserverspaginator)
+- `client.get_paginator("list_scripts")` -> [ListScriptsPaginator](./paginators.md#listscriptspaginator)
+- `client.get_paginator("search_game_sessions")` -> [SearchGameSessionsPaginator](./paginators.md#searchgamesessionspaginator)
 
-[Paginator.DescribeFleetCapacity documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetCapacity)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFleetCapacityPaginatorName
-) -> DescribeFleetCapacityPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribeFleetEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFleetEventsPaginatorName
-) -> DescribeFleetEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribeFleetUtilization documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetUtilization)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeFleetUtilizationPaginatorName
-) -> DescribeFleetUtilizationPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribeGameServerInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeGameServerInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeGameServerInstancesPaginatorName
-) -> DescribeGameServerInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribeGameSessionDetails documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionDetails)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeGameSessionDetailsPaginatorName
-) -> DescribeGameSessionDetailsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribeGameSessionQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionQueues)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeGameSessionQueuesPaginatorName
-) -> DescribeGameSessionQueuesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribeGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeGameSessionsPaginatorName
-) -> DescribeGameSessionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeInstancesPaginatorName
-) -> DescribeInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribeMatchmakingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingConfigurations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMatchmakingConfigurationsPaginatorName
-) -> DescribeMatchmakingConfigurationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribeMatchmakingRuleSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingRuleSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeMatchmakingRuleSetsPaginatorName
-) -> DescribeMatchmakingRuleSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribePlayerSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribePlayerSessions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribePlayerSessionsPaginatorName
-) -> DescribePlayerSessionsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.DescribeScalingPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.DescribeScalingPolicies)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeScalingPoliciesPaginatorName
-) -> DescribeScalingPoliciesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.ListAliases)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListAliasesPaginatorName
-) -> ListAliasesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.ListBuilds documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.ListBuilds)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListBuildsPaginatorName
-) -> ListBuildsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.ListFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.ListFleets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListFleetsPaginatorName
-) -> ListFleetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.ListGameServerGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.ListGameServerGroups)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGameServerGroupsPaginatorName
-) -> ListGameServerGroupsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.ListGameServers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.ListGameServers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListGameServersPaginatorName
-) -> ListGameServersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.ListScripts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.ListScripts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListScriptsPaginatorName
-) -> ListScriptsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("gamelift").get_paginator` method.
-
-[Paginator.SearchGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/gamelift.html#GameLift.Paginator.SearchGameSessions)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: SearchGameSessionsPaginatorName
-) -> SearchGameSessionsPaginator:
-    pass
-```

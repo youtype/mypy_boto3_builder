@@ -8,23 +8,12 @@ type annotations stubs module [mypy_boto3_workmail](https://pypi.org/project/myp
 - [Structures for boto3 WorkMail module](#structures-for-boto3-workmail-module)
   - [AccessControlRuleTypeDef](#accesscontrolruletypedef)
   - [BookingOptionsTypeDef](#bookingoptionstypedef)
-  - [DelegateTypeDef](#delegatetypedef)
-  - [FolderConfigurationTypeDef](#folderconfigurationtypedef)
-  - [GroupTypeDef](#grouptypedef)
-  - [MailboxExportJobTypeDef](#mailboxexportjobtypedef)
-  - [MemberTypeDef](#membertypedef)
-  - [MobileDeviceAccessMatchedRuleTypeDef](#mobiledeviceaccessmatchedruletypedef)
-  - [MobileDeviceAccessRuleTypeDef](#mobiledeviceaccessruletypedef)
-  - [OrganizationSummaryTypeDef](#organizationsummarytypedef)
-  - [PermissionTypeDef](#permissiontypedef)
-  - [ResourceTypeDef](#resourcetypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [UserTypeDef](#usertypedef)
   - [CreateGroupResponseTypeDef](#creategroupresponsetypedef)
   - [CreateMobileDeviceAccessRuleResponseTypeDef](#createmobiledeviceaccessruleresponsetypedef)
   - [CreateOrganizationResponseTypeDef](#createorganizationresponsetypedef)
   - [CreateResourceResponseTypeDef](#createresourceresponsetypedef)
   - [CreateUserResponseTypeDef](#createuserresponsetypedef)
+  - [DelegateTypeDef](#delegatetypedef)
   - [DeleteOrganizationResponseTypeDef](#deleteorganizationresponsetypedef)
   - [DescribeGroupResponseTypeDef](#describegroupresponsetypedef)
   - [DescribeMailboxExportJobResponseTypeDef](#describemailboxexportjobresponsetypedef)
@@ -32,10 +21,12 @@ type annotations stubs module [mypy_boto3_workmail](https://pypi.org/project/myp
   - [DescribeResourceResponseTypeDef](#describeresourceresponsetypedef)
   - [DescribeUserResponseTypeDef](#describeuserresponsetypedef)
   - [DomainTypeDef](#domaintypedef)
+  - [FolderConfigurationTypeDef](#folderconfigurationtypedef)
   - [GetAccessControlEffectResponseTypeDef](#getaccesscontroleffectresponsetypedef)
   - [GetDefaultRetentionPolicyResponseTypeDef](#getdefaultretentionpolicyresponsetypedef)
   - [GetMailboxDetailsResponseTypeDef](#getmailboxdetailsresponsetypedef)
   - [GetMobileDeviceAccessEffectResponseTypeDef](#getmobiledeviceaccesseffectresponsetypedef)
+  - [GroupTypeDef](#grouptypedef)
   - [ListAccessControlRulesResponseTypeDef](#listaccesscontrolrulesresponsetypedef)
   - [ListAliasesResponseTypeDef](#listaliasesresponsetypedef)
   - [ListGroupMembersResponseTypeDef](#listgroupmembersresponsetypedef)
@@ -48,8 +39,17 @@ type annotations stubs module [mypy_boto3_workmail](https://pypi.org/project/myp
   - [ListResourcesResponseTypeDef](#listresourcesresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [ListUsersResponseTypeDef](#listusersresponsetypedef)
+  - [MailboxExportJobTypeDef](#mailboxexportjobtypedef)
+  - [MemberTypeDef](#membertypedef)
+  - [MobileDeviceAccessMatchedRuleTypeDef](#mobiledeviceaccessmatchedruletypedef)
+  - [MobileDeviceAccessRuleTypeDef](#mobiledeviceaccessruletypedef)
+  - [OrganizationSummaryTypeDef](#organizationsummarytypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PermissionTypeDef](#permissiontypedef)
+  - [ResourceTypeDef](#resourcetypedef)
   - [StartMailboxExportJobResponseTypeDef](#startmailboxexportjobresponsetypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [UserTypeDef](#usertypedef)
 
 ## AccessControlRuleTypeDef
 
@@ -87,219 +87,6 @@ Optional fields:
 - `AutoAcceptRequests`: `bool`
 - `AutoDeclineRecurringRequests`: `bool`
 - `AutoDeclineConflictingRequests`: `bool`
-
-
-## DelegateTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import DelegateTypeDef
-```
-
-
-Required fields:
-- `Id`: `str`
-- `Type`: `MemberType`
-
-
-
-
-## FolderConfigurationTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import FolderConfigurationTypeDef
-```
-
-
-Required fields:
-- `Name`: `FolderName`
-- `Action`: `RetentionAction`
-
-
-
-Optional fields:
-- `Period`: `int`
-
-
-## GroupTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import GroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Email`: `str`
-- `Name`: `str`
-- `State`: `EntityState`
-- `EnabledDate`: `datetime`
-- `DisabledDate`: `datetime`
-
-
-## MailboxExportJobTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import MailboxExportJobTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-- `EntityId`: `str`
-- `Description`: `str`
-- `S3BucketName`: `str`
-- `S3Path`: `str`
-- `EstimatedProgress`: `int`
-- `State`: `MailboxExportJobState`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-
-
-## MemberTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import MemberTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Name`: `str`
-- `Type`: `MemberType`
-- `State`: `EntityState`
-- `EnabledDate`: `datetime`
-- `DisabledDate`: `datetime`
-
-
-## MobileDeviceAccessMatchedRuleTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import MobileDeviceAccessMatchedRuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `MobileDeviceAccessRuleId`: `str`
-- `Name`: `str`
-
-
-## MobileDeviceAccessRuleTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import MobileDeviceAccessRuleTypeDef
-```
-
-
-
-
-Optional fields:
-- `MobileDeviceAccessRuleId`: `str`
-- `Name`: `str`
-- `Description`: `str`
-- `Effect`: `MobileDeviceAccessRuleEffect`
-- `DeviceTypes`: `List[str]`
-- `NotDeviceTypes`: `List[str]`
-- `DeviceModels`: `List[str]`
-- `NotDeviceModels`: `List[str]`
-- `DeviceOperatingSystems`: `List[str]`
-- `NotDeviceOperatingSystems`: `List[str]`
-- `DeviceUserAgents`: `List[str]`
-- `NotDeviceUserAgents`: `List[str]`
-- `DateCreated`: `datetime`
-- `DateModified`: `datetime`
-
-
-## OrganizationSummaryTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import OrganizationSummaryTypeDef
-```
-
-
-
-
-Optional fields:
-- `OrganizationId`: `str`
-- `Alias`: `str`
-- `DefaultMailDomain`: `str`
-- `ErrorMessage`: `str`
-- `State`: `str`
-
-
-## PermissionTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import PermissionTypeDef
-```
-
-
-Required fields:
-- `GranteeId`: `str`
-- `GranteeType`: `MemberType`
-- `PermissionValues`: `List[PermissionType]`
-
-
-
-
-## ResourceTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import ResourceTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Email`: `str`
-- `Name`: `str`
-- `Type`: `ResourceType`
-- `State`: `EntityState`
-- `EnabledDate`: `datetime`
-- `DisabledDate`: `datetime`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## UserTypeDef
-
-```python
-from mypy_boto3_workmail.type_defs import UserTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Email`: `str`
-- `Name`: `str`
-- `DisplayName`: `str`
-- `State`: `EntityState`
-- `UserRole`: `UserRole`
-- `EnabledDate`: `datetime`
-- `DisabledDate`: `datetime`
 
 
 ## CreateGroupResponseTypeDef
@@ -365,6 +152,20 @@ from mypy_boto3_workmail.type_defs import CreateUserResponseTypeDef
 
 Optional fields:
 - `UserId`: `str`
+
+
+## DelegateTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import DelegateTypeDef
+```
+
+
+Required fields:
+- `Id`: `str`
+- `Type`: `MemberType`
+
+
 
 
 ## DeleteOrganizationResponseTypeDef
@@ -498,6 +299,23 @@ Optional fields:
 - `HostedZoneId`: `str`
 
 
+## FolderConfigurationTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import FolderConfigurationTypeDef
+```
+
+
+Required fields:
+- `Name`: `FolderName`
+- `Action`: `RetentionAction`
+
+
+
+Optional fields:
+- `Period`: `int`
+
+
 ## GetAccessControlEffectResponseTypeDef
 
 ```python
@@ -554,6 +372,24 @@ from mypy_boto3_workmail.type_defs import GetMobileDeviceAccessEffectResponseTyp
 Optional fields:
 - `Effect`: `MobileDeviceAccessRuleEffect`
 - `MatchedRules`: `List["MobileDeviceAccessMatchedRuleTypeDef"]`
+
+
+## GroupTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import GroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Email`: `str`
+- `Name`: `str`
+- `State`: `EntityState`
+- `EnabledDate`: `datetime`
+- `DisabledDate`: `datetime`
 
 
 ## ListAccessControlRulesResponseTypeDef
@@ -721,6 +557,102 @@ Optional fields:
 - `NextToken`: `str`
 
 
+## MailboxExportJobTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import MailboxExportJobTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+- `EntityId`: `str`
+- `Description`: `str`
+- `S3BucketName`: `str`
+- `S3Path`: `str`
+- `EstimatedProgress`: `int`
+- `State`: `MailboxExportJobState`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+
+
+## MemberTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import MemberTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Name`: `str`
+- `Type`: `MemberType`
+- `State`: `EntityState`
+- `EnabledDate`: `datetime`
+- `DisabledDate`: `datetime`
+
+
+## MobileDeviceAccessMatchedRuleTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import MobileDeviceAccessMatchedRuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `MobileDeviceAccessRuleId`: `str`
+- `Name`: `str`
+
+
+## MobileDeviceAccessRuleTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import MobileDeviceAccessRuleTypeDef
+```
+
+
+
+
+Optional fields:
+- `MobileDeviceAccessRuleId`: `str`
+- `Name`: `str`
+- `Description`: `str`
+- `Effect`: `MobileDeviceAccessRuleEffect`
+- `DeviceTypes`: `List[str]`
+- `NotDeviceTypes`: `List[str]`
+- `DeviceModels`: `List[str]`
+- `NotDeviceModels`: `List[str]`
+- `DeviceOperatingSystems`: `List[str]`
+- `NotDeviceOperatingSystems`: `List[str]`
+- `DeviceUserAgents`: `List[str]`
+- `NotDeviceUserAgents`: `List[str]`
+- `DateCreated`: `datetime`
+- `DateModified`: `datetime`
+
+
+## OrganizationSummaryTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import OrganizationSummaryTypeDef
+```
+
+
+
+
+Optional fields:
+- `OrganizationId`: `str`
+- `Alias`: `str`
+- `DefaultMailDomain`: `str`
+- `ErrorMessage`: `str`
+- `State`: `str`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -736,6 +668,40 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PermissionTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import PermissionTypeDef
+```
+
+
+Required fields:
+- `GranteeId`: `str`
+- `GranteeType`: `MemberType`
+- `PermissionValues`: `List[PermissionType]`
+
+
+
+
+## ResourceTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import ResourceTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Email`: `str`
+- `Name`: `str`
+- `Type`: `ResourceType`
+- `State`: `EntityState`
+- `EnabledDate`: `datetime`
+- `DisabledDate`: `datetime`
+
+
 ## StartMailboxExportJobResponseTypeDef
 
 ```python
@@ -747,4 +713,38 @@ from mypy_boto3_workmail.type_defs import StartMailboxExportJobResponseTypeDef
 
 Optional fields:
 - `JobId`: `str`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## UserTypeDef
+
+```python
+from mypy_boto3_workmail.type_defs import UserTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Email`: `str`
+- `Name`: `str`
+- `DisplayName`: `str`
+- `State`: `EntityState`
+- `UserRole`: `UserRole`
+- `EnabledDate`: `datetime`
+- `DisabledDate`: `datetime`
 

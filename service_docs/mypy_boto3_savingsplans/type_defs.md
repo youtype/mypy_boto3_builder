@@ -6,177 +6,24 @@ Auto-generated documentation for [SavingsPlans](https://boto3.amazonaws.com/v1/d
 type annotations stubs module [mypy_boto3_savingsplans](https://pypi.org/project/mypy-boto3-savingsplans/).
 
 - [Structures for boto3 SavingsPlans module](#structures-for-boto3-savingsplans-module)
-  - [ParentSavingsPlanOfferingTypeDef](#parentsavingsplanofferingtypedef)
-  - [SavingsPlanOfferingPropertyTypeDef](#savingsplanofferingpropertytypedef)
-  - [SavingsPlanOfferingRatePropertyTypeDef](#savingsplanofferingratepropertytypedef)
-  - [SavingsPlanOfferingRateTypeDef](#savingsplanofferingratetypedef)
-  - [SavingsPlanOfferingTypeDef](#savingsplanofferingtypedef)
-  - [SavingsPlanRatePropertyTypeDef](#savingsplanratepropertytypedef)
-  - [SavingsPlanRateTypeDef](#savingsplanratetypedef)
-  - [SavingsPlanTypeDef](#savingsplantypedef)
   - [CreateSavingsPlanResponseTypeDef](#createsavingsplanresponsetypedef)
   - [DescribeSavingsPlanRatesResponseTypeDef](#describesavingsplanratesresponsetypedef)
   - [DescribeSavingsPlansOfferingRatesResponseTypeDef](#describesavingsplansofferingratesresponsetypedef)
   - [DescribeSavingsPlansOfferingsResponseTypeDef](#describesavingsplansofferingsresponsetypedef)
   - [DescribeSavingsPlansResponseTypeDef](#describesavingsplansresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [ParentSavingsPlanOfferingTypeDef](#parentsavingsplanofferingtypedef)
   - [SavingsPlanFilterTypeDef](#savingsplanfiltertypedef)
   - [SavingsPlanOfferingFilterElementTypeDef](#savingsplanofferingfilterelementtypedef)
+  - [SavingsPlanOfferingPropertyTypeDef](#savingsplanofferingpropertytypedef)
   - [SavingsPlanOfferingRateFilterElementTypeDef](#savingsplanofferingratefilterelementtypedef)
+  - [SavingsPlanOfferingRatePropertyTypeDef](#savingsplanofferingratepropertytypedef)
+  - [SavingsPlanOfferingRateTypeDef](#savingsplanofferingratetypedef)
+  - [SavingsPlanOfferingTypeDef](#savingsplanofferingtypedef)
   - [SavingsPlanRateFilterTypeDef](#savingsplanratefiltertypedef)
-
-## ParentSavingsPlanOfferingTypeDef
-
-```python
-from mypy_boto3_savingsplans.type_defs import ParentSavingsPlanOfferingTypeDef
-```
-
-
-
-
-Optional fields:
-- `offeringId`: `str`
-- `paymentOption`: `SavingsPlanPaymentOption`
-- `planType`: `SavingsPlanType`
-- `durationSeconds`: `int`
-- `currency`: `CurrencyCode`
-- `planDescription`: `str`
-
-
-## SavingsPlanOfferingPropertyTypeDef
-
-```python
-from mypy_boto3_savingsplans.type_defs import SavingsPlanOfferingPropertyTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `SavingsPlanOfferingPropertyKey`
-- `value`: `str`
-
-
-## SavingsPlanOfferingRatePropertyTypeDef
-
-```python
-from mypy_boto3_savingsplans.type_defs import SavingsPlanOfferingRatePropertyTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `value`: `str`
-
-
-## SavingsPlanOfferingRateTypeDef
-
-```python
-from mypy_boto3_savingsplans.type_defs import SavingsPlanOfferingRateTypeDef
-```
-
-
-
-
-Optional fields:
-- `savingsPlanOffering`: `"ParentSavingsPlanOfferingTypeDef"`
-- `rate`: `str`
-- `unit`: `SavingsPlanRateUnit`
-- `productType`: `SavingsPlanProductType`
-- `serviceCode`: `SavingsPlanRateServiceCode`
-- `usageType`: `str`
-- `operation`: `str`
-- `properties`: `List["SavingsPlanOfferingRatePropertyTypeDef"]`
-
-
-## SavingsPlanOfferingTypeDef
-
-```python
-from mypy_boto3_savingsplans.type_defs import SavingsPlanOfferingTypeDef
-```
-
-
-
-
-Optional fields:
-- `offeringId`: `str`
-- `productTypes`: `List[SavingsPlanProductType]`
-- `planType`: `SavingsPlanType`
-- `description`: `str`
-- `paymentOption`: `SavingsPlanPaymentOption`
-- `durationSeconds`: `int`
-- `currency`: `CurrencyCode`
-- `serviceCode`: `str`
-- `usageType`: `str`
-- `operation`: `str`
-- `properties`: `List["SavingsPlanOfferingPropertyTypeDef"]`
-
-
-## SavingsPlanRatePropertyTypeDef
-
-```python
-from mypy_boto3_savingsplans.type_defs import SavingsPlanRatePropertyTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `SavingsPlanRatePropertyKey`
-- `value`: `str`
-
-
-## SavingsPlanRateTypeDef
-
-```python
-from mypy_boto3_savingsplans.type_defs import SavingsPlanRateTypeDef
-```
-
-
-
-
-Optional fields:
-- `rate`: `str`
-- `currency`: `CurrencyCode`
-- `unit`: `SavingsPlanRateUnit`
-- `productType`: `SavingsPlanProductType`
-- `serviceCode`: `SavingsPlanRateServiceCode`
-- `usageType`: `str`
-- `operation`: `str`
-- `properties`: `List["SavingsPlanRatePropertyTypeDef"]`
-
-
-## SavingsPlanTypeDef
-
-```python
-from mypy_boto3_savingsplans.type_defs import SavingsPlanTypeDef
-```
-
-
-
-
-Optional fields:
-- `offeringId`: `str`
-- `savingsPlanId`: `str`
-- `savingsPlanArn`: `str`
-- `description`: `str`
-- `start`: `str`
-- `end`: `str`
-- `state`: `SavingsPlanState`
-- `region`: `str`
-- `ec2InstanceFamily`: `str`
-- `savingsPlanType`: `SavingsPlanType`
-- `paymentOption`: `SavingsPlanPaymentOption`
-- `productTypes`: `List[SavingsPlanProductType]`
-- `currency`: `CurrencyCode`
-- `commitment`: `str`
-- `upfrontPaymentAmount`: `str`
-- `recurringPaymentAmount`: `str`
-- `termDurationInSeconds`: `int`
-- `tags`: `Dict[str, str]`
-
+  - [SavingsPlanRatePropertyTypeDef](#savingsplanratepropertytypedef)
+  - [SavingsPlanRateTypeDef](#savingsplanratetypedef)
+  - [SavingsPlanTypeDef](#savingsplantypedef)
 
 ## CreateSavingsPlanResponseTypeDef
 
@@ -261,6 +108,24 @@ Optional fields:
 - `tags`: `Dict[str, str]`
 
 
+## ParentSavingsPlanOfferingTypeDef
+
+```python
+from mypy_boto3_savingsplans.type_defs import ParentSavingsPlanOfferingTypeDef
+```
+
+
+
+
+Optional fields:
+- `offeringId`: `str`
+- `paymentOption`: `SavingsPlanPaymentOption`
+- `planType`: `SavingsPlanType`
+- `durationSeconds`: `int`
+- `currency`: `CurrencyCode`
+- `planDescription`: `str`
+
+
 ## SavingsPlanFilterTypeDef
 
 ```python
@@ -289,6 +154,20 @@ Optional fields:
 - `values`: `List[str]`
 
 
+## SavingsPlanOfferingPropertyTypeDef
+
+```python
+from mypy_boto3_savingsplans.type_defs import SavingsPlanOfferingPropertyTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `SavingsPlanOfferingPropertyKey`
+- `value`: `str`
+
+
 ## SavingsPlanOfferingRateFilterElementTypeDef
 
 ```python
@@ -303,6 +182,63 @@ Optional fields:
 - `values`: `List[str]`
 
 
+## SavingsPlanOfferingRatePropertyTypeDef
+
+```python
+from mypy_boto3_savingsplans.type_defs import SavingsPlanOfferingRatePropertyTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `value`: `str`
+
+
+## SavingsPlanOfferingRateTypeDef
+
+```python
+from mypy_boto3_savingsplans.type_defs import SavingsPlanOfferingRateTypeDef
+```
+
+
+
+
+Optional fields:
+- `savingsPlanOffering`: `"ParentSavingsPlanOfferingTypeDef"`
+- `rate`: `str`
+- `unit`: `SavingsPlanRateUnit`
+- `productType`: `SavingsPlanProductType`
+- `serviceCode`: `SavingsPlanRateServiceCode`
+- `usageType`: `str`
+- `operation`: `str`
+- `properties`: `List["SavingsPlanOfferingRatePropertyTypeDef"]`
+
+
+## SavingsPlanOfferingTypeDef
+
+```python
+from mypy_boto3_savingsplans.type_defs import SavingsPlanOfferingTypeDef
+```
+
+
+
+
+Optional fields:
+- `offeringId`: `str`
+- `productTypes`: `List[SavingsPlanProductType]`
+- `planType`: `SavingsPlanType`
+- `description`: `str`
+- `paymentOption`: `SavingsPlanPaymentOption`
+- `durationSeconds`: `int`
+- `currency`: `CurrencyCode`
+- `serviceCode`: `str`
+- `usageType`: `str`
+- `operation`: `str`
+- `properties`: `List["SavingsPlanOfferingPropertyTypeDef"]`
+
+
 ## SavingsPlanRateFilterTypeDef
 
 ```python
@@ -315,4 +251,68 @@ from mypy_boto3_savingsplans.type_defs import SavingsPlanRateFilterTypeDef
 Optional fields:
 - `name`: `SavingsPlanRateFilterName`
 - `values`: `List[str]`
+
+
+## SavingsPlanRatePropertyTypeDef
+
+```python
+from mypy_boto3_savingsplans.type_defs import SavingsPlanRatePropertyTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `SavingsPlanRatePropertyKey`
+- `value`: `str`
+
+
+## SavingsPlanRateTypeDef
+
+```python
+from mypy_boto3_savingsplans.type_defs import SavingsPlanRateTypeDef
+```
+
+
+
+
+Optional fields:
+- `rate`: `str`
+- `currency`: `CurrencyCode`
+- `unit`: `SavingsPlanRateUnit`
+- `productType`: `SavingsPlanProductType`
+- `serviceCode`: `SavingsPlanRateServiceCode`
+- `usageType`: `str`
+- `operation`: `str`
+- `properties`: `List["SavingsPlanRatePropertyTypeDef"]`
+
+
+## SavingsPlanTypeDef
+
+```python
+from mypy_boto3_savingsplans.type_defs import SavingsPlanTypeDef
+```
+
+
+
+
+Optional fields:
+- `offeringId`: `str`
+- `savingsPlanId`: `str`
+- `savingsPlanArn`: `str`
+- `description`: `str`
+- `start`: `str`
+- `end`: `str`
+- `state`: `SavingsPlanState`
+- `region`: `str`
+- `ec2InstanceFamily`: `str`
+- `savingsPlanType`: `SavingsPlanType`
+- `paymentOption`: `SavingsPlanPaymentOption`
+- `productTypes`: `List[SavingsPlanProductType]`
+- `currency`: `CurrencyCode`
+- `commitment`: `str`
+- `upfrontPaymentAmount`: `str`
+- `recurringPaymentAmount`: `str`
+- `termDurationInSeconds`: `int`
+- `tags`: `Dict[str, str]`
 

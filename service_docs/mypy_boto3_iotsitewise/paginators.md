@@ -186,7 +186,7 @@ class ListAssetRelationshipsPaginator(Boto3Paginator):
     def paginate(
         self,
         assetId: str,
-        traversalType: TraversalType,
+        traversalType: Literal['PATH_TO_ROOT'],
         PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssetRelationshipsResponseTypeDef]:
         pass

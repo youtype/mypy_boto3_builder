@@ -465,16 +465,12 @@ def validate_resource_policy(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("secretsmanager").get_paginator` method.
+Type annotations for `boto3.client("secretsmanager").get_paginator` method with overloads.
 
-[Paginator.ListSecrets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager.html#SecretsManager.Paginator.ListSecrets)
+- `client.get_paginator("list_secrets")` -> [ListSecretsPaginator](./paginators.md#listsecretspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListSecretsPaginatorName
-) -> ListSecretsPaginator:
-    pass
-```
+

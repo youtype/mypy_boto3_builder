@@ -211,16 +211,12 @@ def update_application(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("iotfleethub").get_paginator` method.
+Type annotations for `boto3.client("iotfleethub").get_paginator` method with overloads.
 
-[Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/iotfleethub.html#IoTFleetHub.Paginator.ListApplications)
+- `client.get_paginator("list_applications")` -> [ListApplicationsPaginator](./paginators.md#listapplicationspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListApplicationsPaginatorName
-) -> ListApplicationsPaginator:
-    pass
-```
+

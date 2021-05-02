@@ -6,26 +6,67 @@ Auto-generated documentation for [RoboMaker](https://boto3.amazonaws.com/v1/docu
 type annotations stubs module [mypy_boto3_robomaker](https://pypi.org/project/mypy-boto3-robomaker/).
 
 - [Structures for boto3 RoboMaker module](#structures-for-boto3-robomaker-module)
+  - [BatchDeleteWorldsResponseTypeDef](#batchdeleteworldsresponsetypedef)
+  - [BatchDescribeSimulationJobResponseTypeDef](#batchdescribesimulationjobresponsetypedef)
   - [BatchPolicyTypeDef](#batchpolicytypedef)
   - [ComputeResponseTypeDef](#computeresponsetypedef)
   - [ComputeTypeDef](#computetypedef)
+  - [CreateDeploymentJobResponseTypeDef](#createdeploymentjobresponsetypedef)
+  - [CreateFleetResponseTypeDef](#createfleetresponsetypedef)
+  - [CreateRobotApplicationResponseTypeDef](#createrobotapplicationresponsetypedef)
+  - [CreateRobotApplicationVersionResponseTypeDef](#createrobotapplicationversionresponsetypedef)
+  - [CreateRobotResponseTypeDef](#createrobotresponsetypedef)
+  - [CreateSimulationApplicationResponseTypeDef](#createsimulationapplicationresponsetypedef)
+  - [CreateSimulationApplicationVersionResponseTypeDef](#createsimulationapplicationversionresponsetypedef)
+  - [CreateSimulationJobResponseTypeDef](#createsimulationjobresponsetypedef)
+  - [CreateWorldExportJobResponseTypeDef](#createworldexportjobresponsetypedef)
+  - [CreateWorldGenerationJobResponseTypeDef](#createworldgenerationjobresponsetypedef)
+  - [CreateWorldTemplateResponseTypeDef](#createworldtemplateresponsetypedef)
   - [DataSourceConfigTypeDef](#datasourceconfigtypedef)
   - [DataSourceTypeDef](#datasourcetypedef)
   - [DeploymentApplicationConfigTypeDef](#deploymentapplicationconfigtypedef)
   - [DeploymentConfigTypeDef](#deploymentconfigtypedef)
   - [DeploymentJobTypeDef](#deploymentjobtypedef)
   - [DeploymentLaunchConfigTypeDef](#deploymentlaunchconfigtypedef)
+  - [DeregisterRobotResponseTypeDef](#deregisterrobotresponsetypedef)
+  - [DescribeDeploymentJobResponseTypeDef](#describedeploymentjobresponsetypedef)
+  - [DescribeFleetResponseTypeDef](#describefleetresponsetypedef)
+  - [DescribeRobotApplicationResponseTypeDef](#describerobotapplicationresponsetypedef)
+  - [DescribeRobotResponseTypeDef](#describerobotresponsetypedef)
+  - [DescribeSimulationApplicationResponseTypeDef](#describesimulationapplicationresponsetypedef)
+  - [DescribeSimulationJobBatchResponseTypeDef](#describesimulationjobbatchresponsetypedef)
+  - [DescribeSimulationJobResponseTypeDef](#describesimulationjobresponsetypedef)
+  - [DescribeWorldExportJobResponseTypeDef](#describeworldexportjobresponsetypedef)
+  - [DescribeWorldGenerationJobResponseTypeDef](#describeworldgenerationjobresponsetypedef)
+  - [DescribeWorldResponseTypeDef](#describeworldresponsetypedef)
+  - [DescribeWorldTemplateResponseTypeDef](#describeworldtemplateresponsetypedef)
   - [FailedCreateSimulationJobRequestTypeDef](#failedcreatesimulationjobrequesttypedef)
   - [FailureSummaryTypeDef](#failuresummarytypedef)
+  - [FilterTypeDef](#filtertypedef)
   - [FinishedWorldsSummaryTypeDef](#finishedworldssummarytypedef)
   - [FleetTypeDef](#fleettypedef)
+  - [GetWorldTemplateBodyResponseTypeDef](#getworldtemplatebodyresponsetypedef)
   - [LaunchConfigTypeDef](#launchconfigtypedef)
+  - [ListDeploymentJobsResponseTypeDef](#listdeploymentjobsresponsetypedef)
+  - [ListFleetsResponseTypeDef](#listfleetsresponsetypedef)
+  - [ListRobotApplicationsResponseTypeDef](#listrobotapplicationsresponsetypedef)
+  - [ListRobotsResponseTypeDef](#listrobotsresponsetypedef)
+  - [ListSimulationApplicationsResponseTypeDef](#listsimulationapplicationsresponsetypedef)
+  - [ListSimulationJobBatchesResponseTypeDef](#listsimulationjobbatchesresponsetypedef)
+  - [ListSimulationJobsResponseTypeDef](#listsimulationjobsresponsetypedef)
+  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [ListWorldExportJobsResponseTypeDef](#listworldexportjobsresponsetypedef)
+  - [ListWorldGenerationJobsResponseTypeDef](#listworldgenerationjobsresponsetypedef)
+  - [ListWorldTemplatesResponseTypeDef](#listworldtemplatesresponsetypedef)
+  - [ListWorldsResponseTypeDef](#listworldsresponsetypedef)
   - [LoggingConfigTypeDef](#loggingconfigtypedef)
   - [NetworkInterfaceTypeDef](#networkinterfacetypedef)
   - [OutputLocationTypeDef](#outputlocationtypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PortForwardingConfigTypeDef](#portforwardingconfigtypedef)
   - [PortMappingTypeDef](#portmappingtypedef)
   - [ProgressDetailTypeDef](#progressdetailtypedef)
+  - [RegisterRobotResponseTypeDef](#registerrobotresponsetypedef)
   - [RenderingEngineTypeDef](#renderingenginetypedef)
   - [ResponseMetadata](#responsemetadata)
   - [RobotApplicationConfigTypeDef](#robotapplicationconfigtypedef)
@@ -42,9 +83,16 @@ type annotations stubs module [mypy_boto3_robomaker](https://pypi.org/project/my
   - [SimulationJobSummaryTypeDef](#simulationjobsummarytypedef)
   - [SimulationJobTypeDef](#simulationjobtypedef)
   - [SimulationSoftwareSuiteTypeDef](#simulationsoftwaresuitetypedef)
+  - [SourceConfigTypeDef](#sourceconfigtypedef)
   - [SourceTypeDef](#sourcetypedef)
+  - [StartSimulationJobBatchResponseTypeDef](#startsimulationjobbatchresponsetypedef)
+  - [SyncDeploymentJobResponseTypeDef](#syncdeploymentjobresponsetypedef)
+  - [TemplateLocationTypeDef](#templatelocationtypedef)
   - [TemplateSummaryTypeDef](#templatesummarytypedef)
   - [ToolTypeDef](#tooltypedef)
+  - [UpdateRobotApplicationResponseTypeDef](#updaterobotapplicationresponsetypedef)
+  - [UpdateSimulationApplicationResponseTypeDef](#updatesimulationapplicationresponsetypedef)
+  - [UpdateWorldTemplateResponseTypeDef](#updateworldtemplateresponsetypedef)
   - [UploadConfigurationTypeDef](#uploadconfigurationtypedef)
   - [VPCConfigResponseTypeDef](#vpcconfigresponsetypedef)
   - [VPCConfigTypeDef](#vpcconfigtypedef)
@@ -54,54 +102,33 @@ type annotations stubs module [mypy_boto3_robomaker](https://pypi.org/project/my
   - [WorldFailureTypeDef](#worldfailuretypedef)
   - [WorldGenerationJobSummaryTypeDef](#worldgenerationjobsummarytypedef)
   - [WorldSummaryTypeDef](#worldsummarytypedef)
-  - [BatchDeleteWorldsResponseTypeDef](#batchdeleteworldsresponsetypedef)
-  - [BatchDescribeSimulationJobResponseTypeDef](#batchdescribesimulationjobresponsetypedef)
-  - [CreateDeploymentJobResponseTypeDef](#createdeploymentjobresponsetypedef)
-  - [CreateFleetResponseTypeDef](#createfleetresponsetypedef)
-  - [CreateRobotApplicationResponseTypeDef](#createrobotapplicationresponsetypedef)
-  - [CreateRobotApplicationVersionResponseTypeDef](#createrobotapplicationversionresponsetypedef)
-  - [CreateRobotResponseTypeDef](#createrobotresponsetypedef)
-  - [CreateSimulationApplicationResponseTypeDef](#createsimulationapplicationresponsetypedef)
-  - [CreateSimulationApplicationVersionResponseTypeDef](#createsimulationapplicationversionresponsetypedef)
-  - [CreateSimulationJobResponseTypeDef](#createsimulationjobresponsetypedef)
-  - [CreateWorldExportJobResponseTypeDef](#createworldexportjobresponsetypedef)
-  - [CreateWorldGenerationJobResponseTypeDef](#createworldgenerationjobresponsetypedef)
-  - [CreateWorldTemplateResponseTypeDef](#createworldtemplateresponsetypedef)
-  - [DeregisterRobotResponseTypeDef](#deregisterrobotresponsetypedef)
-  - [DescribeDeploymentJobResponseTypeDef](#describedeploymentjobresponsetypedef)
-  - [DescribeFleetResponseTypeDef](#describefleetresponsetypedef)
-  - [DescribeRobotApplicationResponseTypeDef](#describerobotapplicationresponsetypedef)
-  - [DescribeRobotResponseTypeDef](#describerobotresponsetypedef)
-  - [DescribeSimulationApplicationResponseTypeDef](#describesimulationapplicationresponsetypedef)
-  - [DescribeSimulationJobBatchResponseTypeDef](#describesimulationjobbatchresponsetypedef)
-  - [DescribeSimulationJobResponseTypeDef](#describesimulationjobresponsetypedef)
-  - [DescribeWorldExportJobResponseTypeDef](#describeworldexportjobresponsetypedef)
-  - [DescribeWorldGenerationJobResponseTypeDef](#describeworldgenerationjobresponsetypedef)
-  - [DescribeWorldResponseTypeDef](#describeworldresponsetypedef)
-  - [DescribeWorldTemplateResponseTypeDef](#describeworldtemplateresponsetypedef)
-  - [FilterTypeDef](#filtertypedef)
-  - [GetWorldTemplateBodyResponseTypeDef](#getworldtemplatebodyresponsetypedef)
-  - [ListDeploymentJobsResponseTypeDef](#listdeploymentjobsresponsetypedef)
-  - [ListFleetsResponseTypeDef](#listfleetsresponsetypedef)
-  - [ListRobotApplicationsResponseTypeDef](#listrobotapplicationsresponsetypedef)
-  - [ListRobotsResponseTypeDef](#listrobotsresponsetypedef)
-  - [ListSimulationApplicationsResponseTypeDef](#listsimulationapplicationsresponsetypedef)
-  - [ListSimulationJobBatchesResponseTypeDef](#listsimulationjobbatchesresponsetypedef)
-  - [ListSimulationJobsResponseTypeDef](#listsimulationjobsresponsetypedef)
-  - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
-  - [ListWorldExportJobsResponseTypeDef](#listworldexportjobsresponsetypedef)
-  - [ListWorldGenerationJobsResponseTypeDef](#listworldgenerationjobsresponsetypedef)
-  - [ListWorldTemplatesResponseTypeDef](#listworldtemplatesresponsetypedef)
-  - [ListWorldsResponseTypeDef](#listworldsresponsetypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-  - [RegisterRobotResponseTypeDef](#registerrobotresponsetypedef)
-  - [SourceConfigTypeDef](#sourceconfigtypedef)
-  - [StartSimulationJobBatchResponseTypeDef](#startsimulationjobbatchresponsetypedef)
-  - [SyncDeploymentJobResponseTypeDef](#syncdeploymentjobresponsetypedef)
-  - [TemplateLocationTypeDef](#templatelocationtypedef)
-  - [UpdateRobotApplicationResponseTypeDef](#updaterobotapplicationresponsetypedef)
-  - [UpdateSimulationApplicationResponseTypeDef](#updatesimulationapplicationresponsetypedef)
-  - [UpdateWorldTemplateResponseTypeDef](#updateworldtemplateresponsetypedef)
+
+## BatchDeleteWorldsResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import BatchDeleteWorldsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `unprocessedWorlds`: `List[str]`
+
+
+## BatchDescribeSimulationJobResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import BatchDescribeSimulationJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `jobs`: `List["SimulationJobTypeDef"]`
+- `unprocessedJobs`: `List[str]`
+
 
 ## BatchPolicyTypeDef
 
@@ -141,6 +168,231 @@ from mypy_boto3_robomaker.type_defs import ComputeTypeDef
 
 Optional fields:
 - `simulationUnitLimit`: `int`
+
+
+## CreateDeploymentJobResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import CreateDeploymentJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `fleet`: `str`
+- `status`: `DeploymentStatus`
+- `deploymentApplicationConfigs`: `List["DeploymentApplicationConfigTypeDef"]`
+- `failureReason`: `str`
+- `failureCode`: `DeploymentJobErrorCode`
+- `createdAt`: `datetime`
+- `deploymentConfig`: `"DeploymentConfigTypeDef"`
+- `tags`: `Dict[str, str]`
+
+
+## CreateFleetResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import CreateFleetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `createdAt`: `datetime`
+- `tags`: `Dict[str, str]`
+
+
+## CreateRobotApplicationResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import CreateRobotApplicationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `version`: `str`
+- `sources`: `List["SourceTypeDef"]`
+- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
+- `lastUpdatedAt`: `datetime`
+- `revisionId`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## CreateRobotApplicationVersionResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import CreateRobotApplicationVersionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `version`: `str`
+- `sources`: `List["SourceTypeDef"]`
+- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
+- `lastUpdatedAt`: `datetime`
+- `revisionId`: `str`
+
+
+## CreateRobotResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import CreateRobotResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `createdAt`: `datetime`
+- `greengrassGroupId`: `str`
+- `architecture`: `Architecture`
+- `tags`: `Dict[str, str]`
+
+
+## CreateSimulationApplicationResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import CreateSimulationApplicationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `version`: `str`
+- `sources`: `List["SourceTypeDef"]`
+- `simulationSoftwareSuite`: `"SimulationSoftwareSuiteTypeDef"`
+- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
+- `renderingEngine`: `"RenderingEngineTypeDef"`
+- `lastUpdatedAt`: `datetime`
+- `revisionId`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## CreateSimulationApplicationVersionResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import CreateSimulationApplicationVersionResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `version`: `str`
+- `sources`: `List["SourceTypeDef"]`
+- `simulationSoftwareSuite`: `"SimulationSoftwareSuiteTypeDef"`
+- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
+- `renderingEngine`: `"RenderingEngineTypeDef"`
+- `lastUpdatedAt`: `datetime`
+- `revisionId`: `str`
+
+
+## CreateSimulationJobResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import CreateSimulationJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `status`: `SimulationJobStatus`
+- `lastStartedAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `failureBehavior`: `FailureBehavior`
+- `failureCode`: `SimulationJobErrorCode`
+- `clientRequestToken`: `str`
+- `outputLocation`: `"OutputLocationTypeDef"`
+- `loggingConfig`: `"LoggingConfigTypeDef"`
+- `maxJobDurationInSeconds`: `int`
+- `simulationTimeMillis`: `int`
+- `iamRole`: `str`
+- `robotApplications`: `List["RobotApplicationConfigTypeDef"]`
+- `simulationApplications`: `List["SimulationApplicationConfigTypeDef"]`
+- `dataSources`: `List["DataSourceTypeDef"]`
+- `tags`: `Dict[str, str]`
+- `vpcConfig`: `"VPCConfigResponseTypeDef"`
+- `compute`: `"ComputeResponseTypeDef"`
+
+
+## CreateWorldExportJobResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import CreateWorldExportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `status`: `WorldExportJobStatus`
+- `createdAt`: `datetime`
+- `failureCode`: `WorldExportJobErrorCode`
+- `clientRequestToken`: `str`
+- `outputLocation`: `"OutputLocationTypeDef"`
+- `iamRole`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## CreateWorldGenerationJobResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import CreateWorldGenerationJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `status`: `WorldGenerationJobStatus`
+- `createdAt`: `datetime`
+- `failureCode`: `WorldGenerationJobErrorCode`
+- `clientRequestToken`: `str`
+- `template`: `str`
+- `worldCount`: `"WorldCountTypeDef"`
+- `tags`: `Dict[str, str]`
+- `worldTags`: `Dict[str, str]`
+
+
+## CreateWorldTemplateResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import CreateWorldTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `clientRequestToken`: `str`
+- `createdAt`: `datetime`
+- `name`: `str`
+- `tags`: `Dict[str, str]`
 
 
 ## DataSourceConfigTypeDef
@@ -243,6 +495,263 @@ Optional fields:
 - `environmentVariables`: `Dict[str, str]`
 
 
+## DeregisterRobotResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DeregisterRobotResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `fleet`: `str`
+- `robot`: `str`
+
+
+## DescribeDeploymentJobResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DescribeDeploymentJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `fleet`: `str`
+- `status`: `DeploymentStatus`
+- `deploymentConfig`: `"DeploymentConfigTypeDef"`
+- `deploymentApplicationConfigs`: `List["DeploymentApplicationConfigTypeDef"]`
+- `failureReason`: `str`
+- `failureCode`: `DeploymentJobErrorCode`
+- `createdAt`: `datetime`
+- `robotDeploymentSummary`: `List["RobotDeploymentTypeDef"]`
+- `tags`: `Dict[str, str]`
+
+
+## DescribeFleetResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DescribeFleetResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `arn`: `str`
+- `robots`: `List["RobotTypeDef"]`
+- `createdAt`: `datetime`
+- `lastDeploymentStatus`: `DeploymentStatus`
+- `lastDeploymentJob`: `str`
+- `lastDeploymentTime`: `datetime`
+- `tags`: `Dict[str, str]`
+
+
+## DescribeRobotApplicationResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DescribeRobotApplicationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `version`: `str`
+- `sources`: `List["SourceTypeDef"]`
+- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
+- `revisionId`: `str`
+- `lastUpdatedAt`: `datetime`
+- `tags`: `Dict[str, str]`
+
+
+## DescribeRobotResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DescribeRobotResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `fleetArn`: `str`
+- `status`: `RobotStatus`
+- `greengrassGroupId`: `str`
+- `createdAt`: `datetime`
+- `architecture`: `Architecture`
+- `lastDeploymentJob`: `str`
+- `lastDeploymentTime`: `datetime`
+- `tags`: `Dict[str, str]`
+
+
+## DescribeSimulationApplicationResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DescribeSimulationApplicationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `version`: `str`
+- `sources`: `List["SourceTypeDef"]`
+- `simulationSoftwareSuite`: `"SimulationSoftwareSuiteTypeDef"`
+- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
+- `renderingEngine`: `"RenderingEngineTypeDef"`
+- `revisionId`: `str`
+- `lastUpdatedAt`: `datetime`
+- `tags`: `Dict[str, str]`
+
+
+## DescribeSimulationJobBatchResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DescribeSimulationJobBatchResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `status`: `SimulationJobBatchStatus`
+- `lastUpdatedAt`: `datetime`
+- `createdAt`: `datetime`
+- `clientRequestToken`: `str`
+- `batchPolicy`: `"BatchPolicyTypeDef"`
+- `failureCode`: `Literal['InternalServiceError']`
+- `failureReason`: `str`
+- `failedRequests`: `List["FailedCreateSimulationJobRequestTypeDef"]`
+- `pendingRequests`: `List["SimulationJobRequestTypeDef"]`
+- `createdRequests`: `List["SimulationJobSummaryTypeDef"]`
+- `tags`: `Dict[str, str]`
+
+
+## DescribeSimulationJobResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DescribeSimulationJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `status`: `SimulationJobStatus`
+- `lastStartedAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `failureBehavior`: `FailureBehavior`
+- `failureCode`: `SimulationJobErrorCode`
+- `failureReason`: `str`
+- `clientRequestToken`: `str`
+- `outputLocation`: `"OutputLocationTypeDef"`
+- `loggingConfig`: `"LoggingConfigTypeDef"`
+- `maxJobDurationInSeconds`: `int`
+- `simulationTimeMillis`: `int`
+- `iamRole`: `str`
+- `robotApplications`: `List["RobotApplicationConfigTypeDef"]`
+- `simulationApplications`: `List["SimulationApplicationConfigTypeDef"]`
+- `dataSources`: `List["DataSourceTypeDef"]`
+- `tags`: `Dict[str, str]`
+- `vpcConfig`: `"VPCConfigResponseTypeDef"`
+- `networkInterface`: `"NetworkInterfaceTypeDef"`
+- `compute`: `"ComputeResponseTypeDef"`
+
+
+## DescribeWorldExportJobResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DescribeWorldExportJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `status`: `WorldExportJobStatus`
+- `createdAt`: `datetime`
+- `failureCode`: `WorldExportJobErrorCode`
+- `failureReason`: `str`
+- `clientRequestToken`: `str`
+- `worlds`: `List[str]`
+- `outputLocation`: `"OutputLocationTypeDef"`
+- `iamRole`: `str`
+- `tags`: `Dict[str, str]`
+
+
+## DescribeWorldGenerationJobResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DescribeWorldGenerationJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `status`: `WorldGenerationJobStatus`
+- `createdAt`: `datetime`
+- `failureCode`: `WorldGenerationJobErrorCode`
+- `failureReason`: `str`
+- `clientRequestToken`: `str`
+- `template`: `str`
+- `worldCount`: `"WorldCountTypeDef"`
+- `finishedWorldsSummary`: `"FinishedWorldsSummaryTypeDef"`
+- `tags`: `Dict[str, str]`
+- `worldTags`: `Dict[str, str]`
+
+
+## DescribeWorldResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DescribeWorldResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `generationJob`: `str`
+- `template`: `str`
+- `createdAt`: `datetime`
+- `tags`: `Dict[str, str]`
+
+
+## DescribeWorldTemplateResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import DescribeWorldTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `clientRequestToken`: `str`
+- `name`: `str`
+- `createdAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
+- `tags`: `Dict[str, str]`
+
+
 ## FailedCreateSimulationJobRequestTypeDef
 
 ```python
@@ -271,6 +780,20 @@ from mypy_boto3_robomaker.type_defs import FailureSummaryTypeDef
 Optional fields:
 - `totalFailureCount`: `int`
 - `failures`: `List["WorldFailureTypeDef"]`
+
+
+## FilterTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import FilterTypeDef
+```
+
+
+
+
+Optional fields:
+- `name`: `str`
+- `values`: `List[str]`
 
 
 ## FinishedWorldsSummaryTypeDef
@@ -306,6 +829,19 @@ Optional fields:
 - `lastDeploymentTime`: `datetime`
 
 
+## GetWorldTemplateBodyResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import GetWorldTemplateBodyResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `templateBody`: `str`
+
+
 ## LaunchConfigTypeDef
 
 ```python
@@ -323,6 +859,179 @@ Optional fields:
 - `environmentVariables`: `Dict[str, str]`
 - `portForwardingConfig`: `"PortForwardingConfigTypeDef"`
 - `streamUI`: `bool`
+
+
+## ListDeploymentJobsResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListDeploymentJobsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `deploymentJobs`: `List["DeploymentJobTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListFleetsResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListFleetsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `fleetDetails`: `List["FleetTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListRobotApplicationsResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListRobotApplicationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `robotApplicationSummaries`: `List["RobotApplicationSummaryTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListRobotsResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListRobotsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `robots`: `List["RobotTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListSimulationApplicationsResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListSimulationApplicationsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `simulationApplicationSummaries`: `List["SimulationApplicationSummaryTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListSimulationJobBatchesResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListSimulationJobBatchesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `simulationJobBatchSummaries`: `List["SimulationJobBatchSummaryTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListSimulationJobsResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListSimulationJobsResponseTypeDef
+```
+
+
+Required fields:
+- `simulationJobSummaries`: `List["SimulationJobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `Dict[str, str]`
+
+
+## ListWorldExportJobsResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListWorldExportJobsResponseTypeDef
+```
+
+
+Required fields:
+- `worldExportJobSummaries`: `List["WorldExportJobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+
+
+## ListWorldGenerationJobsResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListWorldGenerationJobsResponseTypeDef
+```
+
+
+Required fields:
+- `worldGenerationJobSummaries`: `List["WorldGenerationJobSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+
+
+## ListWorldTemplatesResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListWorldTemplatesResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `templateSummaries`: `List["TemplateSummaryTypeDef"]`
+- `nextToken`: `str`
+
+
+## ListWorldsResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import ListWorldsResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `worldSummaries`: `List["WorldSummaryTypeDef"]`
+- `nextToken`: `str`
 
 
 ## LoggingConfigTypeDef
@@ -365,6 +1074,21 @@ from mypy_boto3_robomaker.type_defs import OutputLocationTypeDef
 Optional fields:
 - `s3Bucket`: `str`
 - `s3Prefix`: `str`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## PortForwardingConfigTypeDef
@@ -413,6 +1137,20 @@ Optional fields:
 - `targetResource`: `str`
 
 
+## RegisterRobotResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import RegisterRobotResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `fleet`: `str`
+- `robot`: `str`
+
+
 ## RenderingEngineTypeDef
 
 ```python
@@ -423,7 +1161,7 @@ from mypy_boto3_robomaker.type_defs import RenderingEngineTypeDef
 
 
 Optional fields:
-- `name`: `RenderingEngineType`
+- `name`: `Literal['OGRE']`
 - `version`: `str`
 
 
@@ -719,6 +1457,21 @@ Optional fields:
 - `version`: `str`
 
 
+## SourceConfigTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import SourceConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `s3Bucket`: `str`
+- `s3Key`: `str`
+- `architecture`: `Architecture`
+
+
 ## SourceTypeDef
 
 ```python
@@ -733,6 +1486,63 @@ Optional fields:
 - `s3Key`: `str`
 - `etag`: `str`
 - `architecture`: `Architecture`
+
+
+## StartSimulationJobBatchResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import StartSimulationJobBatchResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `status`: `SimulationJobBatchStatus`
+- `createdAt`: `datetime`
+- `clientRequestToken`: `str`
+- `batchPolicy`: `"BatchPolicyTypeDef"`
+- `failureCode`: `Literal['InternalServiceError']`
+- `failureReason`: `str`
+- `failedRequests`: `List["FailedCreateSimulationJobRequestTypeDef"]`
+- `pendingRequests`: `List["SimulationJobRequestTypeDef"]`
+- `createdRequests`: `List["SimulationJobSummaryTypeDef"]`
+- `tags`: `Dict[str, str]`
+
+
+## SyncDeploymentJobResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import SyncDeploymentJobResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `fleet`: `str`
+- `status`: `DeploymentStatus`
+- `deploymentConfig`: `"DeploymentConfigTypeDef"`
+- `deploymentApplicationConfigs`: `List["DeploymentApplicationConfigTypeDef"]`
+- `failureReason`: `str`
+- `failureCode`: `DeploymentJobErrorCode`
+- `createdAt`: `datetime`
+
+
+## TemplateLocationTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import TemplateLocationTypeDef
+```
+
+
+Required fields:
+- `s3Bucket`: `str`
+- `s3Key`: `str`
+
+
 
 
 ## TemplateSummaryTypeDef
@@ -768,6 +1578,62 @@ Optional fields:
 - `streamUI`: `bool`
 - `streamOutputToCloudWatch`: `bool`
 - `exitBehavior`: `ExitBehavior`
+
+
+## UpdateRobotApplicationResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import UpdateRobotApplicationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `version`: `str`
+- `sources`: `List["SourceTypeDef"]`
+- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
+- `lastUpdatedAt`: `datetime`
+- `revisionId`: `str`
+
+
+## UpdateSimulationApplicationResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import UpdateSimulationApplicationResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `version`: `str`
+- `sources`: `List["SourceTypeDef"]`
+- `simulationSoftwareSuite`: `"SimulationSoftwareSuiteTypeDef"`
+- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
+- `renderingEngine`: `"RenderingEngineTypeDef"`
+- `lastUpdatedAt`: `datetime`
+- `revisionId`: `str`
+
+
+## UpdateWorldTemplateResponseTypeDef
+
+```python
+from mypy_boto3_robomaker.type_defs import UpdateWorldTemplateResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `arn`: `str`
+- `name`: `str`
+- `createdAt`: `datetime`
+- `lastUpdatedAt`: `datetime`
 
 
 ## UploadConfigurationTypeDef
@@ -909,870 +1775,4 @@ Optional fields:
 - `createdAt`: `datetime`
 - `generationJob`: `str`
 - `template`: `str`
-
-
-## BatchDeleteWorldsResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import BatchDeleteWorldsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `unprocessedWorlds`: `List[str]`
-
-
-## BatchDescribeSimulationJobResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import BatchDescribeSimulationJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `jobs`: `List["SimulationJobTypeDef"]`
-- `unprocessedJobs`: `List[str]`
-
-
-## CreateDeploymentJobResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import CreateDeploymentJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `fleet`: `str`
-- `status`: `DeploymentStatus`
-- `deploymentApplicationConfigs`: `List["DeploymentApplicationConfigTypeDef"]`
-- `failureReason`: `str`
-- `failureCode`: `DeploymentJobErrorCode`
-- `createdAt`: `datetime`
-- `deploymentConfig`: `"DeploymentConfigTypeDef"`
-- `tags`: `Dict[str, str]`
-
-
-## CreateFleetResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import CreateFleetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `createdAt`: `datetime`
-- `tags`: `Dict[str, str]`
-
-
-## CreateRobotApplicationResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import CreateRobotApplicationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `version`: `str`
-- `sources`: `List["SourceTypeDef"]`
-- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
-- `lastUpdatedAt`: `datetime`
-- `revisionId`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## CreateRobotApplicationVersionResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import CreateRobotApplicationVersionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `version`: `str`
-- `sources`: `List["SourceTypeDef"]`
-- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
-- `lastUpdatedAt`: `datetime`
-- `revisionId`: `str`
-
-
-## CreateRobotResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import CreateRobotResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `createdAt`: `datetime`
-- `greengrassGroupId`: `str`
-- `architecture`: `Architecture`
-- `tags`: `Dict[str, str]`
-
-
-## CreateSimulationApplicationResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import CreateSimulationApplicationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `version`: `str`
-- `sources`: `List["SourceTypeDef"]`
-- `simulationSoftwareSuite`: `"SimulationSoftwareSuiteTypeDef"`
-- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
-- `renderingEngine`: `"RenderingEngineTypeDef"`
-- `lastUpdatedAt`: `datetime`
-- `revisionId`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## CreateSimulationApplicationVersionResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import CreateSimulationApplicationVersionResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `version`: `str`
-- `sources`: `List["SourceTypeDef"]`
-- `simulationSoftwareSuite`: `"SimulationSoftwareSuiteTypeDef"`
-- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
-- `renderingEngine`: `"RenderingEngineTypeDef"`
-- `lastUpdatedAt`: `datetime`
-- `revisionId`: `str`
-
-
-## CreateSimulationJobResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import CreateSimulationJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `status`: `SimulationJobStatus`
-- `lastStartedAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `failureBehavior`: `FailureBehavior`
-- `failureCode`: `SimulationJobErrorCode`
-- `clientRequestToken`: `str`
-- `outputLocation`: `"OutputLocationTypeDef"`
-- `loggingConfig`: `"LoggingConfigTypeDef"`
-- `maxJobDurationInSeconds`: `int`
-- `simulationTimeMillis`: `int`
-- `iamRole`: `str`
-- `robotApplications`: `List["RobotApplicationConfigTypeDef"]`
-- `simulationApplications`: `List["SimulationApplicationConfigTypeDef"]`
-- `dataSources`: `List["DataSourceTypeDef"]`
-- `tags`: `Dict[str, str]`
-- `vpcConfig`: `"VPCConfigResponseTypeDef"`
-- `compute`: `"ComputeResponseTypeDef"`
-
-
-## CreateWorldExportJobResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import CreateWorldExportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `status`: `WorldExportJobStatus`
-- `createdAt`: `datetime`
-- `failureCode`: `WorldExportJobErrorCode`
-- `clientRequestToken`: `str`
-- `outputLocation`: `"OutputLocationTypeDef"`
-- `iamRole`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## CreateWorldGenerationJobResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import CreateWorldGenerationJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `status`: `WorldGenerationJobStatus`
-- `createdAt`: `datetime`
-- `failureCode`: `WorldGenerationJobErrorCode`
-- `clientRequestToken`: `str`
-- `template`: `str`
-- `worldCount`: `"WorldCountTypeDef"`
-- `tags`: `Dict[str, str]`
-- `worldTags`: `Dict[str, str]`
-
-
-## CreateWorldTemplateResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import CreateWorldTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `clientRequestToken`: `str`
-- `createdAt`: `datetime`
-- `name`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## DeregisterRobotResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DeregisterRobotResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `fleet`: `str`
-- `robot`: `str`
-
-
-## DescribeDeploymentJobResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DescribeDeploymentJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `fleet`: `str`
-- `status`: `DeploymentStatus`
-- `deploymentConfig`: `"DeploymentConfigTypeDef"`
-- `deploymentApplicationConfigs`: `List["DeploymentApplicationConfigTypeDef"]`
-- `failureReason`: `str`
-- `failureCode`: `DeploymentJobErrorCode`
-- `createdAt`: `datetime`
-- `robotDeploymentSummary`: `List["RobotDeploymentTypeDef"]`
-- `tags`: `Dict[str, str]`
-
-
-## DescribeFleetResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DescribeFleetResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `arn`: `str`
-- `robots`: `List["RobotTypeDef"]`
-- `createdAt`: `datetime`
-- `lastDeploymentStatus`: `DeploymentStatus`
-- `lastDeploymentJob`: `str`
-- `lastDeploymentTime`: `datetime`
-- `tags`: `Dict[str, str]`
-
-
-## DescribeRobotApplicationResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DescribeRobotApplicationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `version`: `str`
-- `sources`: `List["SourceTypeDef"]`
-- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
-- `revisionId`: `str`
-- `lastUpdatedAt`: `datetime`
-- `tags`: `Dict[str, str]`
-
-
-## DescribeRobotResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DescribeRobotResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `fleetArn`: `str`
-- `status`: `RobotStatus`
-- `greengrassGroupId`: `str`
-- `createdAt`: `datetime`
-- `architecture`: `Architecture`
-- `lastDeploymentJob`: `str`
-- `lastDeploymentTime`: `datetime`
-- `tags`: `Dict[str, str]`
-
-
-## DescribeSimulationApplicationResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DescribeSimulationApplicationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `version`: `str`
-- `sources`: `List["SourceTypeDef"]`
-- `simulationSoftwareSuite`: `"SimulationSoftwareSuiteTypeDef"`
-- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
-- `renderingEngine`: `"RenderingEngineTypeDef"`
-- `revisionId`: `str`
-- `lastUpdatedAt`: `datetime`
-- `tags`: `Dict[str, str]`
-
-
-## DescribeSimulationJobBatchResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DescribeSimulationJobBatchResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `status`: `SimulationJobBatchStatus`
-- `lastUpdatedAt`: `datetime`
-- `createdAt`: `datetime`
-- `clientRequestToken`: `str`
-- `batchPolicy`: `"BatchPolicyTypeDef"`
-- `failureCode`: `SimulationJobBatchErrorCode`
-- `failureReason`: `str`
-- `failedRequests`: `List["FailedCreateSimulationJobRequestTypeDef"]`
-- `pendingRequests`: `List["SimulationJobRequestTypeDef"]`
-- `createdRequests`: `List["SimulationJobSummaryTypeDef"]`
-- `tags`: `Dict[str, str]`
-
-
-## DescribeSimulationJobResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DescribeSimulationJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `status`: `SimulationJobStatus`
-- `lastStartedAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `failureBehavior`: `FailureBehavior`
-- `failureCode`: `SimulationJobErrorCode`
-- `failureReason`: `str`
-- `clientRequestToken`: `str`
-- `outputLocation`: `"OutputLocationTypeDef"`
-- `loggingConfig`: `"LoggingConfigTypeDef"`
-- `maxJobDurationInSeconds`: `int`
-- `simulationTimeMillis`: `int`
-- `iamRole`: `str`
-- `robotApplications`: `List["RobotApplicationConfigTypeDef"]`
-- `simulationApplications`: `List["SimulationApplicationConfigTypeDef"]`
-- `dataSources`: `List["DataSourceTypeDef"]`
-- `tags`: `Dict[str, str]`
-- `vpcConfig`: `"VPCConfigResponseTypeDef"`
-- `networkInterface`: `"NetworkInterfaceTypeDef"`
-- `compute`: `"ComputeResponseTypeDef"`
-
-
-## DescribeWorldExportJobResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DescribeWorldExportJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `status`: `WorldExportJobStatus`
-- `createdAt`: `datetime`
-- `failureCode`: `WorldExportJobErrorCode`
-- `failureReason`: `str`
-- `clientRequestToken`: `str`
-- `worlds`: `List[str]`
-- `outputLocation`: `"OutputLocationTypeDef"`
-- `iamRole`: `str`
-- `tags`: `Dict[str, str]`
-
-
-## DescribeWorldGenerationJobResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DescribeWorldGenerationJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `status`: `WorldGenerationJobStatus`
-- `createdAt`: `datetime`
-- `failureCode`: `WorldGenerationJobErrorCode`
-- `failureReason`: `str`
-- `clientRequestToken`: `str`
-- `template`: `str`
-- `worldCount`: `"WorldCountTypeDef"`
-- `finishedWorldsSummary`: `"FinishedWorldsSummaryTypeDef"`
-- `tags`: `Dict[str, str]`
-- `worldTags`: `Dict[str, str]`
-
-
-## DescribeWorldResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DescribeWorldResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `generationJob`: `str`
-- `template`: `str`
-- `createdAt`: `datetime`
-- `tags`: `Dict[str, str]`
-
-
-## DescribeWorldTemplateResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import DescribeWorldTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `clientRequestToken`: `str`
-- `name`: `str`
-- `createdAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
-- `tags`: `Dict[str, str]`
-
-
-## FilterTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import FilterTypeDef
-```
-
-
-
-
-Optional fields:
-- `name`: `str`
-- `values`: `List[str]`
-
-
-## GetWorldTemplateBodyResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import GetWorldTemplateBodyResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `templateBody`: `str`
-
-
-## ListDeploymentJobsResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListDeploymentJobsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `deploymentJobs`: `List["DeploymentJobTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListFleetsResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListFleetsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `fleetDetails`: `List["FleetTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListRobotApplicationsResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListRobotApplicationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `robotApplicationSummaries`: `List["RobotApplicationSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListRobotsResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListRobotsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `robots`: `List["RobotTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListSimulationApplicationsResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListSimulationApplicationsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `simulationApplicationSummaries`: `List["SimulationApplicationSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListSimulationJobBatchesResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListSimulationJobBatchesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `simulationJobBatchSummaries`: `List["SimulationJobBatchSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListSimulationJobsResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListSimulationJobsResponseTypeDef
-```
-
-
-Required fields:
-- `simulationJobSummaries`: `List["SimulationJobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `Dict[str, str]`
-
-
-## ListWorldExportJobsResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListWorldExportJobsResponseTypeDef
-```
-
-
-Required fields:
-- `worldExportJobSummaries`: `List["WorldExportJobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-
-
-## ListWorldGenerationJobsResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListWorldGenerationJobsResponseTypeDef
-```
-
-
-Required fields:
-- `worldGenerationJobSummaries`: `List["WorldGenerationJobSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-
-
-## ListWorldTemplatesResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListWorldTemplatesResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `templateSummaries`: `List["TemplateSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## ListWorldsResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import ListWorldsResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `worldSummaries`: `List["WorldSummaryTypeDef"]`
-- `nextToken`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
-
-
-## RegisterRobotResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import RegisterRobotResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `fleet`: `str`
-- `robot`: `str`
-
-
-## SourceConfigTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import SourceConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `s3Bucket`: `str`
-- `s3Key`: `str`
-- `architecture`: `Architecture`
-
-
-## StartSimulationJobBatchResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import StartSimulationJobBatchResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `status`: `SimulationJobBatchStatus`
-- `createdAt`: `datetime`
-- `clientRequestToken`: `str`
-- `batchPolicy`: `"BatchPolicyTypeDef"`
-- `failureCode`: `SimulationJobBatchErrorCode`
-- `failureReason`: `str`
-- `failedRequests`: `List["FailedCreateSimulationJobRequestTypeDef"]`
-- `pendingRequests`: `List["SimulationJobRequestTypeDef"]`
-- `createdRequests`: `List["SimulationJobSummaryTypeDef"]`
-- `tags`: `Dict[str, str]`
-
-
-## SyncDeploymentJobResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import SyncDeploymentJobResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `fleet`: `str`
-- `status`: `DeploymentStatus`
-- `deploymentConfig`: `"DeploymentConfigTypeDef"`
-- `deploymentApplicationConfigs`: `List["DeploymentApplicationConfigTypeDef"]`
-- `failureReason`: `str`
-- `failureCode`: `DeploymentJobErrorCode`
-- `createdAt`: `datetime`
-
-
-## TemplateLocationTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import TemplateLocationTypeDef
-```
-
-
-Required fields:
-- `s3Bucket`: `str`
-- `s3Key`: `str`
-
-
-
-
-## UpdateRobotApplicationResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import UpdateRobotApplicationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `version`: `str`
-- `sources`: `List["SourceTypeDef"]`
-- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
-- `lastUpdatedAt`: `datetime`
-- `revisionId`: `str`
-
-
-## UpdateSimulationApplicationResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import UpdateSimulationApplicationResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `version`: `str`
-- `sources`: `List["SourceTypeDef"]`
-- `simulationSoftwareSuite`: `"SimulationSoftwareSuiteTypeDef"`
-- `robotSoftwareSuite`: `"RobotSoftwareSuiteTypeDef"`
-- `renderingEngine`: `"RenderingEngineTypeDef"`
-- `lastUpdatedAt`: `datetime`
-- `revisionId`: `str`
-
-
-## UpdateWorldTemplateResponseTypeDef
-
-```python
-from mypy_boto3_robomaker.type_defs import UpdateWorldTemplateResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `arn`: `str`
-- `name`: `str`
-- `createdAt`: `datetime`
-- `lastUpdatedAt`: `datetime`
 

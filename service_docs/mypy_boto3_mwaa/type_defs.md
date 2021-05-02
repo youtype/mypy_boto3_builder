@@ -6,27 +6,69 @@ Auto-generated documentation for [MWAA](https://boto3.amazonaws.com/v1/documenta
 type annotations stubs module [mypy_boto3_mwaa](https://pypi.org/project/mypy-boto3-mwaa/).
 
 - [Structures for boto3 MWAA module](#structures-for-boto3-mwaa-module)
-  - [DimensionTypeDef](#dimensiontypedef)
-  - [EnvironmentTypeDef](#environmenttypedef)
-  - [LastUpdateTypeDef](#lastupdatetypedef)
-  - [LoggingConfigurationTypeDef](#loggingconfigurationtypedef)
-  - [ModuleLoggingConfigurationInputTypeDef](#moduleloggingconfigurationinputtypedef)
-  - [ModuleLoggingConfigurationTypeDef](#moduleloggingconfigurationtypedef)
-  - [NetworkConfigurationTypeDef](#networkconfigurationtypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [StatisticSetTypeDef](#statisticsettypedef)
-  - [UpdateErrorTypeDef](#updateerrortypedef)
   - [CreateCliTokenResponseTypeDef](#createclitokenresponsetypedef)
   - [CreateEnvironmentOutputTypeDef](#createenvironmentoutputtypedef)
   - [CreateWebLoginTokenResponseTypeDef](#createweblogintokenresponsetypedef)
+  - [DimensionTypeDef](#dimensiontypedef)
+  - [EnvironmentTypeDef](#environmenttypedef)
   - [GetEnvironmentOutputTypeDef](#getenvironmentoutputtypedef)
+  - [LastUpdateTypeDef](#lastupdatetypedef)
   - [ListEnvironmentsOutputTypeDef](#listenvironmentsoutputtypedef)
   - [ListTagsForResourceOutputTypeDef](#listtagsforresourceoutputtypedef)
   - [LoggingConfigurationInputTypeDef](#loggingconfigurationinputtypedef)
+  - [LoggingConfigurationTypeDef](#loggingconfigurationtypedef)
   - [MetricDatumTypeDef](#metricdatumtypedef)
+  - [ModuleLoggingConfigurationInputTypeDef](#moduleloggingconfigurationinputtypedef)
+  - [ModuleLoggingConfigurationTypeDef](#moduleloggingconfigurationtypedef)
+  - [NetworkConfigurationTypeDef](#networkconfigurationtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [ResponseMetadata](#responsemetadata)
+  - [StatisticSetTypeDef](#statisticsettypedef)
   - [UpdateEnvironmentOutputTypeDef](#updateenvironmentoutputtypedef)
+  - [UpdateErrorTypeDef](#updateerrortypedef)
   - [UpdateNetworkConfigurationInputTypeDef](#updatenetworkconfigurationinputtypedef)
+
+## CreateCliTokenResponseTypeDef
+
+```python
+from mypy_boto3_mwaa.type_defs import CreateCliTokenResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `CliToken`: `str`
+- `WebServerHostname`: `str`
+
+
+## CreateEnvironmentOutputTypeDef
+
+```python
+from mypy_boto3_mwaa.type_defs import CreateEnvironmentOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## CreateWebLoginTokenResponseTypeDef
+
+```python
+from mypy_boto3_mwaa.type_defs import CreateWebLoginTokenResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `WebServerHostname`: `str`
+- `WebToken`: `str`
+
 
 ## DimensionTypeDef
 
@@ -79,6 +121,20 @@ Optional fields:
 - `WeeklyMaintenanceWindowStart`: `str`
 
 
+## GetEnvironmentOutputTypeDef
+
+```python
+from mypy_boto3_mwaa.type_defs import GetEnvironmentOutputTypeDef
+```
+
+
+
+
+Optional fields:
+- `Environment`: `"EnvironmentTypeDef"`
+- `ResponseMetadata`: `"ResponseMetadata"`
+
+
 ## LastUpdateTypeDef
 
 ```python
@@ -92,169 +148,6 @@ Optional fields:
 - `CreatedAt`: `datetime`
 - `Error`: `"UpdateErrorTypeDef"`
 - `Status`: `UpdateStatus`
-
-
-## LoggingConfigurationTypeDef
-
-```python
-from mypy_boto3_mwaa.type_defs import LoggingConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `DagProcessingLogs`: `"ModuleLoggingConfigurationTypeDef"`
-- `SchedulerLogs`: `"ModuleLoggingConfigurationTypeDef"`
-- `TaskLogs`: `"ModuleLoggingConfigurationTypeDef"`
-- `WebserverLogs`: `"ModuleLoggingConfigurationTypeDef"`
-- `WorkerLogs`: `"ModuleLoggingConfigurationTypeDef"`
-
-
-## ModuleLoggingConfigurationInputTypeDef
-
-```python
-from mypy_boto3_mwaa.type_defs import ModuleLoggingConfigurationInputTypeDef
-```
-
-
-Required fields:
-- `Enabled`: `bool`
-- `LogLevel`: `LoggingLevel`
-
-
-
-
-## ModuleLoggingConfigurationTypeDef
-
-```python
-from mypy_boto3_mwaa.type_defs import ModuleLoggingConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `CloudWatchLogGroupArn`: `str`
-- `Enabled`: `bool`
-- `LogLevel`: `LoggingLevel`
-
-
-## NetworkConfigurationTypeDef
-
-```python
-from mypy_boto3_mwaa.type_defs import NetworkConfigurationTypeDef
-```
-
-
-
-
-Optional fields:
-- `SecurityGroupIds`: `List[str]`
-- `SubnetIds`: `List[str]`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_mwaa.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## StatisticSetTypeDef
-
-```python
-from mypy_boto3_mwaa.type_defs import StatisticSetTypeDef
-```
-
-
-
-
-Optional fields:
-- `Maximum`: `float`
-- `Minimum`: `float`
-- `SampleCount`: `int`
-- `Sum`: `float`
-
-
-## UpdateErrorTypeDef
-
-```python
-from mypy_boto3_mwaa.type_defs import UpdateErrorTypeDef
-```
-
-
-
-
-Optional fields:
-- `ErrorCode`: `str`
-- `ErrorMessage`: `str`
-
-
-## CreateCliTokenResponseTypeDef
-
-```python
-from mypy_boto3_mwaa.type_defs import CreateCliTokenResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `CliToken`: `str`
-- `WebServerHostname`: `str`
-
-
-## CreateEnvironmentOutputTypeDef
-
-```python
-from mypy_boto3_mwaa.type_defs import CreateEnvironmentOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `ResponseMetadata`: `"ResponseMetadata"`
-
-
-## CreateWebLoginTokenResponseTypeDef
-
-```python
-from mypy_boto3_mwaa.type_defs import CreateWebLoginTokenResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `WebServerHostname`: `str`
-- `WebToken`: `str`
-
-
-## GetEnvironmentOutputTypeDef
-
-```python
-from mypy_boto3_mwaa.type_defs import GetEnvironmentOutputTypeDef
-```
-
-
-
-
-Optional fields:
-- `Environment`: `"EnvironmentTypeDef"`
-- `ResponseMetadata`: `"ResponseMetadata"`
 
 
 ## ListEnvironmentsOutputTypeDef
@@ -305,6 +198,23 @@ Optional fields:
 - `WorkerLogs`: `"ModuleLoggingConfigurationInputTypeDef"`
 
 
+## LoggingConfigurationTypeDef
+
+```python
+from mypy_boto3_mwaa.type_defs import LoggingConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `DagProcessingLogs`: `"ModuleLoggingConfigurationTypeDef"`
+- `SchedulerLogs`: `"ModuleLoggingConfigurationTypeDef"`
+- `TaskLogs`: `"ModuleLoggingConfigurationTypeDef"`
+- `WebserverLogs`: `"ModuleLoggingConfigurationTypeDef"`
+- `WorkerLogs`: `"ModuleLoggingConfigurationTypeDef"`
+
+
 ## MetricDatumTypeDef
 
 ```python
@@ -325,6 +235,49 @@ Optional fields:
 - `Value`: `float`
 
 
+## ModuleLoggingConfigurationInputTypeDef
+
+```python
+from mypy_boto3_mwaa.type_defs import ModuleLoggingConfigurationInputTypeDef
+```
+
+
+Required fields:
+- `Enabled`: `bool`
+- `LogLevel`: `LoggingLevel`
+
+
+
+
+## ModuleLoggingConfigurationTypeDef
+
+```python
+from mypy_boto3_mwaa.type_defs import ModuleLoggingConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `CloudWatchLogGroupArn`: `str`
+- `Enabled`: `bool`
+- `LogLevel`: `LoggingLevel`
+
+
+## NetworkConfigurationTypeDef
+
+```python
+from mypy_boto3_mwaa.type_defs import NetworkConfigurationTypeDef
+```
+
+
+
+
+Optional fields:
+- `SecurityGroupIds`: `List[str]`
+- `SubnetIds`: `List[str]`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -340,6 +293,39 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## ResponseMetadata
+
+```python
+from mypy_boto3_mwaa.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## StatisticSetTypeDef
+
+```python
+from mypy_boto3_mwaa.type_defs import StatisticSetTypeDef
+```
+
+
+
+
+Optional fields:
+- `Maximum`: `float`
+- `Minimum`: `float`
+- `SampleCount`: `int`
+- `Sum`: `float`
+
+
 ## UpdateEnvironmentOutputTypeDef
 
 ```python
@@ -352,6 +338,20 @@ from mypy_boto3_mwaa.type_defs import UpdateEnvironmentOutputTypeDef
 Optional fields:
 - `Arn`: `str`
 - `ResponseMetadata`: `"ResponseMetadata"`
+
+
+## UpdateErrorTypeDef
+
+```python
+from mypy_boto3_mwaa.type_defs import UpdateErrorTypeDef
+```
+
+
+
+
+Optional fields:
+- `ErrorCode`: `str`
+- `ErrorMessage`: `str`
 
 
 ## UpdateNetworkConfigurationInputTypeDef

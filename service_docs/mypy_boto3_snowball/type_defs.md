@@ -10,10 +10,23 @@ type annotations stubs module [mypy_boto3_snowball](https://pypi.org/project/myp
   - [ClusterListEntryTypeDef](#clusterlistentrytypedef)
   - [ClusterMetadataTypeDef](#clustermetadatatypedef)
   - [CompatibleImageTypeDef](#compatibleimagetypedef)
+  - [CreateAddressResultTypeDef](#createaddressresulttypedef)
+  - [CreateClusterResultTypeDef](#createclusterresulttypedef)
+  - [CreateJobResultTypeDef](#createjobresulttypedef)
+  - [CreateReturnShippingLabelResultTypeDef](#createreturnshippinglabelresulttypedef)
   - [DataTransferTypeDef](#datatransfertypedef)
+  - [DescribeAddressResultTypeDef](#describeaddressresulttypedef)
+  - [DescribeAddressesResultTypeDef](#describeaddressesresulttypedef)
+  - [DescribeClusterResultTypeDef](#describeclusterresulttypedef)
+  - [DescribeJobResultTypeDef](#describejobresulttypedef)
+  - [DescribeReturnShippingLabelResultTypeDef](#describereturnshippinglabelresulttypedef)
   - [DeviceConfigurationTypeDef](#deviceconfigurationtypedef)
   - [Ec2AmiResourceTypeDef](#ec2amiresourcetypedef)
   - [EventTriggerDefinitionTypeDef](#eventtriggerdefinitiontypedef)
+  - [GetJobManifestResultTypeDef](#getjobmanifestresulttypedef)
+  - [GetJobUnlockCodeResultTypeDef](#getjobunlockcoderesulttypedef)
+  - [GetSnowballUsageResultTypeDef](#getsnowballusageresulttypedef)
+  - [GetSoftwareUpdatesResultTypeDef](#getsoftwareupdatesresulttypedef)
   - [INDTaxDocumentsTypeDef](#indtaxdocumentstypedef)
   - [JobListEntryTypeDef](#joblistentrytypedef)
   - [JobLogsTypeDef](#joblogstypedef)
@@ -21,31 +34,18 @@ type annotations stubs module [mypy_boto3_snowball](https://pypi.org/project/myp
   - [JobResourceTypeDef](#jobresourcetypedef)
   - [KeyRangeTypeDef](#keyrangetypedef)
   - [LambdaResourceTypeDef](#lambdaresourcetypedef)
+  - [ListClusterJobsResultTypeDef](#listclusterjobsresulttypedef)
+  - [ListClustersResultTypeDef](#listclustersresulttypedef)
+  - [ListCompatibleImagesResultTypeDef](#listcompatibleimagesresulttypedef)
+  - [ListJobsResultTypeDef](#listjobsresulttypedef)
   - [NotificationTypeDef](#notificationtypedef)
+  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [S3ResourceTypeDef](#s3resourcetypedef)
   - [ShipmentTypeDef](#shipmenttypedef)
   - [ShippingDetailsTypeDef](#shippingdetailstypedef)
   - [SnowconeDeviceConfigurationTypeDef](#snowconedeviceconfigurationtypedef)
   - [TaxDocumentsTypeDef](#taxdocumentstypedef)
   - [WirelessConnectionTypeDef](#wirelessconnectiontypedef)
-  - [CreateAddressResultTypeDef](#createaddressresulttypedef)
-  - [CreateClusterResultTypeDef](#createclusterresulttypedef)
-  - [CreateJobResultTypeDef](#createjobresulttypedef)
-  - [CreateReturnShippingLabelResultTypeDef](#createreturnshippinglabelresulttypedef)
-  - [DescribeAddressResultTypeDef](#describeaddressresulttypedef)
-  - [DescribeAddressesResultTypeDef](#describeaddressesresulttypedef)
-  - [DescribeClusterResultTypeDef](#describeclusterresulttypedef)
-  - [DescribeJobResultTypeDef](#describejobresulttypedef)
-  - [DescribeReturnShippingLabelResultTypeDef](#describereturnshippinglabelresulttypedef)
-  - [GetJobManifestResultTypeDef](#getjobmanifestresulttypedef)
-  - [GetJobUnlockCodeResultTypeDef](#getjobunlockcoderesulttypedef)
-  - [GetSnowballUsageResultTypeDef](#getsnowballusageresulttypedef)
-  - [GetSoftwareUpdatesResultTypeDef](#getsoftwareupdatesresulttypedef)
-  - [ListClusterJobsResultTypeDef](#listclusterjobsresulttypedef)
-  - [ListClustersResultTypeDef](#listclustersresulttypedef)
-  - [ListCompatibleImagesResultTypeDef](#listcompatibleimagesresulttypedef)
-  - [ListJobsResultTypeDef](#listjobsresulttypedef)
-  - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
 
 ## AddressTypeDef
 
@@ -129,6 +129,58 @@ Optional fields:
 - `Name`: `str`
 
 
+## CreateAddressResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import CreateAddressResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `AddressId`: `str`
+
+
+## CreateClusterResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import CreateClusterResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClusterId`: `str`
+
+
+## CreateJobResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import CreateJobResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobId`: `str`
+
+
+## CreateReturnShippingLabelResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import CreateReturnShippingLabelResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `ShippingLabelStatus`
+
+
 ## DataTransferTypeDef
 
 ```python
@@ -143,6 +195,74 @@ Optional fields:
 - `ObjectsTransferred`: `int`
 - `TotalBytes`: `int`
 - `TotalObjects`: `int`
+
+
+## DescribeAddressResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import DescribeAddressResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Address`: `"AddressTypeDef"`
+
+
+## DescribeAddressesResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import DescribeAddressesResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Addresses`: `List["AddressTypeDef"]`
+- `NextToken`: `str`
+
+
+## DescribeClusterResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import DescribeClusterResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClusterMetadata`: `"ClusterMetadataTypeDef"`
+
+
+## DescribeJobResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import DescribeJobResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobMetadata`: `"JobMetadataTypeDef"`
+- `SubJobMetadata`: `List["JobMetadataTypeDef"]`
+
+
+## DescribeReturnShippingLabelResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import DescribeReturnShippingLabelResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `Status`: `ShippingLabelStatus`
+- `ExpirationDate`: `datetime`
 
 
 ## DeviceConfigurationTypeDef
@@ -185,6 +305,59 @@ from mypy_boto3_snowball.type_defs import EventTriggerDefinitionTypeDef
 
 Optional fields:
 - `EventResourceARN`: `str`
+
+
+## GetJobManifestResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import GetJobManifestResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ManifestURI`: `str`
+
+
+## GetJobUnlockCodeResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import GetJobUnlockCodeResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `UnlockCode`: `str`
+
+
+## GetSnowballUsageResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import GetSnowballUsageResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `SnowballLimit`: `int`
+- `SnowballsInUse`: `int`
+
+
+## GetSoftwareUpdatesResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import GetSoftwareUpdatesResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `UpdatesURI`: `str`
 
 
 ## INDTaxDocumentsTypeDef
@@ -308,6 +481,62 @@ Optional fields:
 - `EventTriggers`: `List["EventTriggerDefinitionTypeDef"]`
 
 
+## ListClusterJobsResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import ListClusterJobsResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobListEntries`: `List["JobListEntryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListClustersResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import ListClustersResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `ClusterListEntries`: `List["ClusterListEntryTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListCompatibleImagesResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import ListCompatibleImagesResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `CompatibleImages`: `List["CompatibleImageTypeDef"]`
+- `NextToken`: `str`
+
+
+## ListJobsResultTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import ListJobsResultTypeDef
+```
+
+
+
+
+Optional fields:
+- `JobListEntries`: `List["JobListEntryTypeDef"]`
+- `NextToken`: `str`
+
+
 ## NotificationTypeDef
 
 ```python
@@ -321,6 +550,21 @@ Optional fields:
 - `SnsTopicARN`: `str`
 - `JobStatesToNotify`: `List[JobState]`
 - `NotifyAll`: `bool`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_snowball.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## S3ResourceTypeDef
@@ -403,248 +647,4 @@ from mypy_boto3_snowball.type_defs import WirelessConnectionTypeDef
 
 Optional fields:
 - `IsWifiEnabled`: `bool`
-
-
-## CreateAddressResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import CreateAddressResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `AddressId`: `str`
-
-
-## CreateClusterResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import CreateClusterResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClusterId`: `str`
-
-
-## CreateJobResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import CreateJobResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobId`: `str`
-
-
-## CreateReturnShippingLabelResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import CreateReturnShippingLabelResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `ShippingLabelStatus`
-
-
-## DescribeAddressResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import DescribeAddressResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Address`: `"AddressTypeDef"`
-
-
-## DescribeAddressesResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import DescribeAddressesResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Addresses`: `List["AddressTypeDef"]`
-- `NextToken`: `str`
-
-
-## DescribeClusterResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import DescribeClusterResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClusterMetadata`: `"ClusterMetadataTypeDef"`
-
-
-## DescribeJobResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import DescribeJobResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobMetadata`: `"JobMetadataTypeDef"`
-- `SubJobMetadata`: `List["JobMetadataTypeDef"]`
-
-
-## DescribeReturnShippingLabelResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import DescribeReturnShippingLabelResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `Status`: `ShippingLabelStatus`
-- `ExpirationDate`: `datetime`
-
-
-## GetJobManifestResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import GetJobManifestResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ManifestURI`: `str`
-
-
-## GetJobUnlockCodeResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import GetJobUnlockCodeResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `UnlockCode`: `str`
-
-
-## GetSnowballUsageResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import GetSnowballUsageResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `SnowballLimit`: `int`
-- `SnowballsInUse`: `int`
-
-
-## GetSoftwareUpdatesResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import GetSoftwareUpdatesResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `UpdatesURI`: `str`
-
-
-## ListClusterJobsResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import ListClusterJobsResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobListEntries`: `List["JobListEntryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListClustersResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import ListClustersResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `ClusterListEntries`: `List["ClusterListEntryTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListCompatibleImagesResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import ListCompatibleImagesResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `CompatibleImages`: `List["CompatibleImageTypeDef"]`
-- `NextToken`: `str`
-
-
-## ListJobsResultTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import ListJobsResultTypeDef
-```
-
-
-
-
-Optional fields:
-- `JobListEntries`: `List["JobListEntryTypeDef"]`
-- `NextToken`: `str`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_snowball.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
 

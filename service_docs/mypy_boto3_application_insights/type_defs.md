@@ -9,11 +9,6 @@ type annotations stubs module [mypy_boto3_application_insights](https://pypi.org
   - [ApplicationComponentTypeDef](#applicationcomponenttypedef)
   - [ApplicationInfoTypeDef](#applicationinfotypedef)
   - [ConfigurationEventTypeDef](#configurationeventtypedef)
-  - [LogPatternTypeDef](#logpatterntypedef)
-  - [ObservationTypeDef](#observationtypedef)
-  - [ProblemTypeDef](#problemtypedef)
-  - [RelatedObservationsTypeDef](#relatedobservationstypedef)
-  - [TagTypeDef](#tagtypedef)
   - [CreateApplicationResponseTypeDef](#createapplicationresponsetypedef)
   - [CreateLogPatternResponseTypeDef](#createlogpatternresponsetypedef)
   - [DescribeApplicationResponseTypeDef](#describeapplicationresponsetypedef)
@@ -31,6 +26,11 @@ type annotations stubs module [mypy_boto3_application_insights](https://pypi.org
   - [ListLogPatternsResponseTypeDef](#listlogpatternsresponsetypedef)
   - [ListProblemsResponseTypeDef](#listproblemsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
+  - [LogPatternTypeDef](#logpatterntypedef)
+  - [ObservationTypeDef](#observationtypedef)
+  - [ProblemTypeDef](#problemtypedef)
+  - [RelatedObservationsTypeDef](#relatedobservationstypedef)
+  - [TagTypeDef](#tagtypedef)
   - [UpdateApplicationResponseTypeDef](#updateapplicationresponsetypedef)
   - [UpdateLogPatternResponseTypeDef](#updatelogpatternresponsetypedef)
 
@@ -87,128 +87,6 @@ Optional fields:
 - `EventTime`: `datetime`
 - `EventDetail`: `str`
 - `EventResourceName`: `str`
-
-
-## LogPatternTypeDef
-
-```python
-from mypy_boto3_application_insights.type_defs import LogPatternTypeDef
-```
-
-
-
-
-Optional fields:
-- `PatternSetName`: `str`
-- `PatternName`: `str`
-- `Pattern`: `str`
-- `Rank`: `int`
-
-
-## ObservationTypeDef
-
-```python
-from mypy_boto3_application_insights.type_defs import ObservationTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-- `SourceType`: `str`
-- `SourceARN`: `str`
-- `LogGroup`: `str`
-- `LineTime`: `datetime`
-- `LogText`: `str`
-- `LogFilter`: `LogFilter`
-- `MetricNamespace`: `str`
-- `MetricName`: `str`
-- `Unit`: `str`
-- `Value`: `float`
-- `CloudWatchEventId`: `str`
-- `CloudWatchEventSource`: `CloudWatchEventSource`
-- `CloudWatchEventDetailType`: `str`
-- `HealthEventArn`: `str`
-- `HealthService`: `str`
-- `HealthEventTypeCode`: `str`
-- `HealthEventTypeCategory`: `str`
-- `HealthEventDescription`: `str`
-- `CodeDeployDeploymentId`: `str`
-- `CodeDeployDeploymentGroup`: `str`
-- `CodeDeployState`: `str`
-- `CodeDeployApplication`: `str`
-- `CodeDeployInstanceGroupId`: `str`
-- `Ec2State`: `str`
-- `RdsEventCategories`: `str`
-- `RdsEventMessage`: `str`
-- `S3EventName`: `str`
-- `StatesExecutionArn`: `str`
-- `StatesArn`: `str`
-- `StatesStatus`: `str`
-- `StatesInput`: `str`
-- `EbsEvent`: `str`
-- `EbsResult`: `str`
-- `EbsCause`: `str`
-- `EbsRequestId`: `str`
-- `XRayFaultPercent`: `int`
-- `XRayThrottlePercent`: `int`
-- `XRayErrorPercent`: `int`
-- `XRayRequestCount`: `int`
-- `XRayRequestAverageLatency`: `int`
-- `XRayNodeName`: `str`
-- `XRayNodeType`: `str`
-
-
-## ProblemTypeDef
-
-```python
-from mypy_boto3_application_insights.type_defs import ProblemTypeDef
-```
-
-
-
-
-Optional fields:
-- `Id`: `str`
-- `Title`: `str`
-- `Insights`: `str`
-- `Status`: `Status`
-- `AffectedResource`: `str`
-- `StartTime`: `datetime`
-- `EndTime`: `datetime`
-- `SeverityLevel`: `SeverityLevel`
-- `ResourceGroupName`: `str`
-- `Feedback`: `Dict[FeedbackKey, FeedbackValue]`
-
-
-## RelatedObservationsTypeDef
-
-```python
-from mypy_boto3_application_insights.type_defs import RelatedObservationsTypeDef
-```
-
-
-
-
-Optional fields:
-- `ObservationList`: `List["ObservationTypeDef"]`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_application_insights.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
 
 
 ## CreateApplicationResponseTypeDef
@@ -443,6 +321,128 @@ from mypy_boto3_application_insights.type_defs import ListTagsForResourceRespons
 
 Optional fields:
 - `Tags`: `List["TagTypeDef"]`
+
+
+## LogPatternTypeDef
+
+```python
+from mypy_boto3_application_insights.type_defs import LogPatternTypeDef
+```
+
+
+
+
+Optional fields:
+- `PatternSetName`: `str`
+- `PatternName`: `str`
+- `Pattern`: `str`
+- `Rank`: `int`
+
+
+## ObservationTypeDef
+
+```python
+from mypy_boto3_application_insights.type_defs import ObservationTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+- `SourceType`: `str`
+- `SourceARN`: `str`
+- `LogGroup`: `str`
+- `LineTime`: `datetime`
+- `LogText`: `str`
+- `LogFilter`: `LogFilter`
+- `MetricNamespace`: `str`
+- `MetricName`: `str`
+- `Unit`: `str`
+- `Value`: `float`
+- `CloudWatchEventId`: `str`
+- `CloudWatchEventSource`: `CloudWatchEventSource`
+- `CloudWatchEventDetailType`: `str`
+- `HealthEventArn`: `str`
+- `HealthService`: `str`
+- `HealthEventTypeCode`: `str`
+- `HealthEventTypeCategory`: `str`
+- `HealthEventDescription`: `str`
+- `CodeDeployDeploymentId`: `str`
+- `CodeDeployDeploymentGroup`: `str`
+- `CodeDeployState`: `str`
+- `CodeDeployApplication`: `str`
+- `CodeDeployInstanceGroupId`: `str`
+- `Ec2State`: `str`
+- `RdsEventCategories`: `str`
+- `RdsEventMessage`: `str`
+- `S3EventName`: `str`
+- `StatesExecutionArn`: `str`
+- `StatesArn`: `str`
+- `StatesStatus`: `str`
+- `StatesInput`: `str`
+- `EbsEvent`: `str`
+- `EbsResult`: `str`
+- `EbsCause`: `str`
+- `EbsRequestId`: `str`
+- `XRayFaultPercent`: `int`
+- `XRayThrottlePercent`: `int`
+- `XRayErrorPercent`: `int`
+- `XRayRequestCount`: `int`
+- `XRayRequestAverageLatency`: `int`
+- `XRayNodeName`: `str`
+- `XRayNodeType`: `str`
+
+
+## ProblemTypeDef
+
+```python
+from mypy_boto3_application_insights.type_defs import ProblemTypeDef
+```
+
+
+
+
+Optional fields:
+- `Id`: `str`
+- `Title`: `str`
+- `Insights`: `str`
+- `Status`: `Status`
+- `AffectedResource`: `str`
+- `StartTime`: `datetime`
+- `EndTime`: `datetime`
+- `SeverityLevel`: `SeverityLevel`
+- `ResourceGroupName`: `str`
+- `Feedback`: `Dict[Literal['INSIGHTS_FEEDBACK'], FeedbackValue]`
+
+
+## RelatedObservationsTypeDef
+
+```python
+from mypy_boto3_application_insights.type_defs import RelatedObservationsTypeDef
+```
+
+
+
+
+Optional fields:
+- `ObservationList`: `List["ObservationTypeDef"]`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_application_insights.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
 
 
 ## UpdateApplicationResponseTypeDef

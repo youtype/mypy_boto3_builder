@@ -73,13 +73,6 @@ type annotations stubs module [mypy_boto3_comprehend](https://pypi.org/project/m
     - [untag_resource](#untag_resource)
     - [update_endpoint](#update_endpoint)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
 
 ## ComprehendClient
 
@@ -1128,122 +1121,19 @@ def update_endpoint(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("comprehend").get_paginator` method.
-
-[Paginator.ListDocumentClassificationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDocumentClassificationJobsPaginatorName
-) -> ListDocumentClassificationJobsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("comprehend").get_paginator` method.
+Type annotations for `boto3.client("comprehend").get_paginator` method with overloads.
 
-[Paginator.ListDocumentClassifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers)
+- `client.get_paginator("list_document_classification_jobs")` -> [ListDocumentClassificationJobsPaginator](./paginators.md#listdocumentclassificationjobspaginator)
+- `client.get_paginator("list_document_classifiers")` -> [ListDocumentClassifiersPaginator](./paginators.md#listdocumentclassifierspaginator)
+- `client.get_paginator("list_dominant_language_detection_jobs")` -> [ListDominantLanguageDetectionJobsPaginator](./paginators.md#listdominantlanguagedetectionjobspaginator)
+- `client.get_paginator("list_entities_detection_jobs")` -> [ListEntitiesDetectionJobsPaginator](./paginators.md#listentitiesdetectionjobspaginator)
+- `client.get_paginator("list_entity_recognizers")` -> [ListEntityRecognizersPaginator](./paginators.md#listentityrecognizerspaginator)
+- `client.get_paginator("list_key_phrases_detection_jobs")` -> [ListKeyPhrasesDetectionJobsPaginator](./paginators.md#listkeyphrasesdetectionjobspaginator)
+- `client.get_paginator("list_sentiment_detection_jobs")` -> [ListSentimentDetectionJobsPaginator](./paginators.md#listsentimentdetectionjobspaginator)
+- `client.get_paginator("list_topics_detection_jobs")` -> [ListTopicsDetectionJobsPaginator](./paginators.md#listtopicsdetectionjobspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDocumentClassifiersPaginatorName
-) -> ListDocumentClassifiersPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("comprehend").get_paginator` method.
-
-[Paginator.ListDominantLanguageDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDominantLanguageDetectionJobsPaginatorName
-) -> ListDominantLanguageDetectionJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("comprehend").get_paginator` method.
-
-[Paginator.ListEntitiesDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEntitiesDetectionJobsPaginatorName
-) -> ListEntitiesDetectionJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("comprehend").get_paginator` method.
-
-[Paginator.ListEntityRecognizers documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListEntityRecognizersPaginatorName
-) -> ListEntityRecognizersPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("comprehend").get_paginator` method.
-
-[Paginator.ListKeyPhrasesDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListKeyPhrasesDetectionJobsPaginatorName
-) -> ListKeyPhrasesDetectionJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("comprehend").get_paginator` method.
-
-[Paginator.ListSentimentDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSentimentDetectionJobsPaginatorName
-) -> ListSentimentDetectionJobsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("comprehend").get_paginator` method.
-
-[Paginator.ListTopicsDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTopicsDetectionJobsPaginatorName
-) -> ListTopicsDetectionJobsPaginator:
-    pass
-```

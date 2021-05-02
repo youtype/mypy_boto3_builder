@@ -47,14 +47,6 @@ type annotations stubs module [mypy_boto3_networkmanager](https://pypi.org/proje
     - [update_link](#update_link)
     - [update_site](#update_site)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
 
 ## NetworkManagerClient
 
@@ -714,137 +706,20 @@ def update_site(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("networkmanager").get_paginator` method.
-
-[Paginator.DescribeGlobalNetworks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeGlobalNetworksPaginatorName
-) -> DescribeGlobalNetworksPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("networkmanager").get_paginator` method.
+Type annotations for `boto3.client("networkmanager").get_paginator` method with overloads.
 
-[Paginator.GetConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnections)
+- `client.get_paginator("describe_global_networks")` -> [DescribeGlobalNetworksPaginator](./paginators.md#describeglobalnetworkspaginator)
+- `client.get_paginator("get_connections")` -> [GetConnectionsPaginator](./paginators.md#getconnectionspaginator)
+- `client.get_paginator("get_customer_gateway_associations")` -> [GetCustomerGatewayAssociationsPaginator](./paginators.md#getcustomergatewayassociationspaginator)
+- `client.get_paginator("get_devices")` -> [GetDevicesPaginator](./paginators.md#getdevicespaginator)
+- `client.get_paginator("get_link_associations")` -> [GetLinkAssociationsPaginator](./paginators.md#getlinkassociationspaginator)
+- `client.get_paginator("get_links")` -> [GetLinksPaginator](./paginators.md#getlinkspaginator)
+- `client.get_paginator("get_sites")` -> [GetSitesPaginator](./paginators.md#getsitespaginator)
+- `client.get_paginator("get_transit_gateway_connect_peer_associations")` -> [GetTransitGatewayConnectPeerAssociationsPaginator](./paginators.md#gettransitgatewayconnectpeerassociationspaginator)
+- `client.get_paginator("get_transit_gateway_registrations")` -> [GetTransitGatewayRegistrationsPaginator](./paginators.md#gettransitgatewayregistrationspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetConnectionsPaginatorName
-) -> GetConnectionsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("networkmanager").get_paginator` method.
-
-[Paginator.GetCustomerGatewayAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetCustomerGatewayAssociationsPaginatorName
-) -> GetCustomerGatewayAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("networkmanager").get_paginator` method.
-
-[Paginator.GetDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetDevicesPaginatorName
-) -> GetDevicesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("networkmanager").get_paginator` method.
-
-[Paginator.GetLinkAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetLinkAssociationsPaginatorName
-) -> GetLinkAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("networkmanager").get_paginator` method.
-
-[Paginator.GetLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetLinksPaginatorName
-) -> GetLinksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("networkmanager").get_paginator` method.
-
-[Paginator.GetSites documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetSitesPaginatorName
-) -> GetSitesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("networkmanager").get_paginator` method.
-
-[Paginator.GetTransitGatewayConnectPeerAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayConnectPeerAssociations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTransitGatewayConnectPeerAssociationsPaginatorName
-) -> GetTransitGatewayConnectPeerAssociationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("networkmanager").get_paginator` method.
-
-[Paginator.GetTransitGatewayRegistrations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTransitGatewayRegistrationsPaginatorName
-) -> GetTransitGatewayRegistrationsPaginator:
-    pass
-```

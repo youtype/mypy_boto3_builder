@@ -35,11 +35,7 @@ type annotations stubs module [mypy_boto3_acm_pca](https://pypi.org/project/mypy
     - [untag_certificate_authority](#untag_certificate_authority)
     - [update_certificate_authority](#update_certificate_authority)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
 
 ## ACMPCAClient
 
@@ -480,92 +476,23 @@ def update_certificate_authority(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("acm-pca").get_paginator` method.
-
-[Paginator.ListCertificateAuthorities documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm-pca.html#ACMPCA.Paginator.ListCertificateAuthorities)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListCertificateAuthoritiesPaginatorName
-) -> ListCertificateAuthoritiesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("acm-pca").get_paginator` method.
+Type annotations for `boto3.client("acm-pca").get_paginator` method with overloads.
 
-[Paginator.ListPermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm-pca.html#ACMPCA.Paginator.ListPermissions)
+- `client.get_paginator("list_certificate_authorities")` -> [ListCertificateAuthoritiesPaginator](./paginators.md#listcertificateauthoritiespaginator)
+- `client.get_paginator("list_permissions")` -> [ListPermissionsPaginator](./paginators.md#listpermissionspaginator)
+- `client.get_paginator("list_tags")` -> [ListTagsPaginator](./paginators.md#listtagspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListPermissionsPaginatorName
-) -> ListPermissionsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("acm-pca").get_paginator` method.
-
-[Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm-pca.html#ACMPCA.Paginator.ListTags)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListTagsPaginatorName
-) -> ListTagsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("acm-pca").get_waiter` method.
+Type annotations for `boto3.client("acm-pca").get_waiter` method with overloads.
 
-[Waiter.AuditReportCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm-pca.html#ACMPCA.Waiter.AuditReportCreated)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: AuditReportCreatedWaiterName
-) -> AuditReportCreatedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("acm-pca").get_waiter` method.
-
-[Waiter.CertificateAuthorityCSRCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateAuthorityCSRCreated)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: CertificateAuthorityCSRCreatedWaiterName
-) -> CertificateAuthorityCSRCreatedWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("acm-pca").get_waiter` method.
-
-[Waiter.CertificateIssued documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateIssued)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: CertificateIssuedWaiterName
-) -> CertificateIssuedWaiter:
-    pass
-```
+- `client.get_waiter("audit_report_created")` -> [AuditReportCreatedWaiter](./waiters.md#auditreportcreatedwaiter)
+- `client.get_waiter("certificate_authority_csr_created")` -> [CertificateAuthorityCSRCreatedWaiter](./waiters.md#certificateauthoritycsrcreatedwaiter)
+- `client.get_waiter("certificate_issued")` -> [CertificateIssuedWaiter](./waiters.md#certificateissuedwaiter)

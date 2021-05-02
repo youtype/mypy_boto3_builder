@@ -48,12 +48,7 @@ type annotations stubs module [mypy_boto3_cloudwatch](https://pypi.org/project/m
     - [tag_resource](#tag_resource)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
 
 ## CloudWatchClient
 
@@ -503,7 +498,7 @@ def list_metrics(
     MetricName: str = None,
     Dimensions: List[DimensionFilterTypeDef] = None,
     NextToken: str = None,
-    RecentlyActive: RecentlyActive = None
+    RecentlyActive: Literal['PT3H'] = None
 ) -> ListMetricsOutputTypeDef:
     pass
 ```
@@ -738,107 +733,24 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("cloudwatch").get_paginator` method.
-
-[Paginator.DescribeAlarmHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAlarmHistoryPaginatorName
-) -> DescribeAlarmHistoryPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("cloudwatch").get_paginator` method.
+Type annotations for `boto3.client("cloudwatch").get_paginator` method with overloads.
 
-[Paginator.DescribeAlarms documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms)
+- `client.get_paginator("describe_alarm_history")` -> [DescribeAlarmHistoryPaginator](./paginators.md#describealarmhistorypaginator)
+- `client.get_paginator("describe_alarms")` -> [DescribeAlarmsPaginator](./paginators.md#describealarmspaginator)
+- `client.get_paginator("get_metric_data")` -> [GetMetricDataPaginator](./paginators.md#getmetricdatapaginator)
+- `client.get_paginator("list_dashboards")` -> [ListDashboardsPaginator](./paginators.md#listdashboardspaginator)
+- `client.get_paginator("list_metrics")` -> [ListMetricsPaginator](./paginators.md#listmetricspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAlarmsPaginatorName
-) -> DescribeAlarmsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("cloudwatch").get_paginator` method.
-
-[Paginator.GetMetricData documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetMetricDataPaginatorName
-) -> GetMetricDataPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudwatch").get_paginator` method.
-
-[Paginator.ListDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListDashboardsPaginatorName
-) -> ListDashboardsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudwatch").get_paginator` method.
-
-[Paginator.ListMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListMetricsPaginatorName
-) -> ListMetricsPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("cloudwatch").get_waiter` method.
+Type annotations for `boto3.client("cloudwatch").get_waiter` method with overloads.
 
-[Waiter.AlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: AlarmExistsWaiterName
-) -> AlarmExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("cloudwatch").get_waiter` method.
-
-[Waiter.CompositeAlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: CompositeAlarmExistsWaiterName
-) -> CompositeAlarmExistsWaiter:
-    pass
-```
+- `client.get_waiter("alarm_exists")` -> [AlarmExistsWaiter](./waiters.md#alarmexistswaiter)
+- `client.get_waiter("composite_alarm_exists")` -> [CompositeAlarmExistsWaiter](./waiters.md#compositealarmexistswaiter)

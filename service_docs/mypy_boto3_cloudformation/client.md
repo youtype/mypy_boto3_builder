@@ -67,26 +67,7 @@ type annotations stubs module [mypy_boto3_cloudformation](https://pypi.org/proje
     - [update_termination_protection](#update_termination_protection)
     - [validate_template](#validate_template)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
-    - [get_paginator](#get_paginator-8)
-    - [get_paginator](#get_paginator-9)
-    - [get_paginator](#get_paginator-10)
-    - [get_paginator](#get_paginator-11)
-    - [get_paginator](#get_paginator-12)
     - [get_waiter](#get_waiter)
-    - [get_waiter](#get_waiter-1)
-    - [get_waiter](#get_waiter-2)
-    - [get_waiter](#get_waiter-3)
-    - [get_waiter](#get_waiter-4)
-    - [get_waiter](#get_waiter-5)
-    - [get_waiter](#get_waiter-6)
-    - [get_waiter](#get_waiter-7)
 
 ## CloudFormationClient
 
@@ -1141,317 +1122,38 @@ def validate_template(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeAccountLimits)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeAccountLimitsPaginatorName
-) -> DescribeAccountLimitsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
+Type annotations for `boto3.client("cloudformation").get_paginator` method with overloads.
 
-[Paginator.DescribeChangeSet documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeChangeSet)
+- `client.get_paginator("describe_account_limits")` -> [DescribeAccountLimitsPaginator](./paginators.md#describeaccountlimitspaginator)
+- `client.get_paginator("describe_change_set")` -> [DescribeChangeSetPaginator](./paginators.md#describechangesetpaginator)
+- `client.get_paginator("describe_stack_events")` -> [DescribeStackEventsPaginator](./paginators.md#describestackeventspaginator)
+- `client.get_paginator("describe_stacks")` -> [DescribeStacksPaginator](./paginators.md#describestackspaginator)
+- `client.get_paginator("list_change_sets")` -> [ListChangeSetsPaginator](./paginators.md#listchangesetspaginator)
+- `client.get_paginator("list_exports")` -> [ListExportsPaginator](./paginators.md#listexportspaginator)
+- `client.get_paginator("list_imports")` -> [ListImportsPaginator](./paginators.md#listimportspaginator)
+- `client.get_paginator("list_stack_instances")` -> [ListStackInstancesPaginator](./paginators.md#liststackinstancespaginator)
+- `client.get_paginator("list_stack_resources")` -> [ListStackResourcesPaginator](./paginators.md#liststackresourcespaginator)
+- `client.get_paginator("list_stack_set_operation_results")` -> [ListStackSetOperationResultsPaginator](./paginators.md#liststacksetoperationresultspaginator)
+- `client.get_paginator("list_stack_set_operations")` -> [ListStackSetOperationsPaginator](./paginators.md#liststacksetoperationspaginator)
+- `client.get_paginator("list_stack_sets")` -> [ListStackSetsPaginator](./paginators.md#liststacksetspaginator)
+- `client.get_paginator("list_stacks")` -> [ListStacksPaginator](./paginators.md#liststackspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeChangeSetPaginatorName
-) -> DescribeChangeSetPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.DescribeStackEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStackEvents)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeStackEventsPaginatorName
-) -> DescribeStackEventsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.DescribeStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStacks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeStacksPaginatorName
-) -> DescribeStacksPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.ListChangeSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.ListChangeSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListChangeSetsPaginatorName
-) -> ListChangeSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.ListExports documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.ListExports)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListExportsPaginatorName
-) -> ListExportsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.ListImports documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.ListImports)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListImportsPaginatorName
-) -> ListImportsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.ListStackInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackInstances)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStackInstancesPaginatorName
-) -> ListStackInstancesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.ListStackResources documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackResources)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStackResourcesPaginatorName
-) -> ListStackResourcesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.ListStackSetOperationResults documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperationResults)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStackSetOperationResultsPaginatorName
-) -> ListStackSetOperationResultsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.ListStackSetOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperations)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStackSetOperationsPaginatorName
-) -> ListStackSetOperationsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.ListStackSets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSets)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStackSetsPaginatorName
-) -> ListStackSetsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("cloudformation").get_paginator` method.
-
-[Paginator.ListStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Paginator.ListStacks)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListStacksPaginatorName
-) -> ListStacksPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("cloudformation").get_waiter` method.
+Type annotations for `boto3.client("cloudformation").get_waiter` method with overloads.
 
-[Waiter.ChangeSetCreateComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Waiter.ChangeSetCreateComplete)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: ChangeSetCreateCompleteWaiterName
-) -> ChangeSetCreateCompleteWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("cloudformation").get_waiter` method.
-
-[Waiter.StackCreateComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Waiter.StackCreateComplete)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: StackCreateCompleteWaiterName
-) -> StackCreateCompleteWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("cloudformation").get_waiter` method.
-
-[Waiter.StackDeleteComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Waiter.StackDeleteComplete)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: StackDeleteCompleteWaiterName
-) -> StackDeleteCompleteWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("cloudformation").get_waiter` method.
-
-[Waiter.StackExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Waiter.StackExists)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: StackExistsWaiterName
-) -> StackExistsWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("cloudformation").get_waiter` method.
-
-[Waiter.StackImportComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Waiter.StackImportComplete)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: StackImportCompleteWaiterName
-) -> StackImportCompleteWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("cloudformation").get_waiter` method.
-
-[Waiter.StackRollbackComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Waiter.StackRollbackComplete)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: StackRollbackCompleteWaiterName
-) -> StackRollbackCompleteWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("cloudformation").get_waiter` method.
-
-[Waiter.StackUpdateComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Waiter.StackUpdateComplete)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: StackUpdateCompleteWaiterName
-) -> StackUpdateCompleteWaiter:
-    pass
-```
-
-### get_waiter
-
-Type annotations for `boto3.client("cloudformation").get_waiter` method.
-
-[Waiter.TypeRegistrationComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cloudformation.html#CloudFormation.Waiter.TypeRegistrationComplete)
-
-```python
-@overload
-def get_waiter(
-    self,
-    waiter_name: TypeRegistrationCompleteWaiterName
-) -> TypeRegistrationCompleteWaiter:
-    pass
-```
+- `client.get_waiter("change_set_create_complete")` -> [ChangeSetCreateCompleteWaiter](./waiters.md#changesetcreatecompletewaiter)
+- `client.get_waiter("stack_create_complete")` -> [StackCreateCompleteWaiter](./waiters.md#stackcreatecompletewaiter)
+- `client.get_waiter("stack_delete_complete")` -> [StackDeleteCompleteWaiter](./waiters.md#stackdeletecompletewaiter)
+- `client.get_waiter("stack_exists")` -> [StackExistsWaiter](./waiters.md#stackexistswaiter)
+- `client.get_waiter("stack_import_complete")` -> [StackImportCompleteWaiter](./waiters.md#stackimportcompletewaiter)
+- `client.get_waiter("stack_rollback_complete")` -> [StackRollbackCompleteWaiter](./waiters.md#stackrollbackcompletewaiter)
+- `client.get_waiter("stack_update_complete")` -> [StackUpdateCompleteWaiter](./waiters.md#stackupdatecompletewaiter)
+- `client.get_waiter("type_registration_complete")` -> [TypeRegistrationCompleteWaiter](./waiters.md#typeregistrationcompletewaiter)

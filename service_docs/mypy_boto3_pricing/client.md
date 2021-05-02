@@ -15,8 +15,6 @@ type annotations stubs module [mypy_boto3_pricing](https://pypi.org/project/mypy
     - [get_attribute_values](#get_attribute_values)
     - [get_products](#get_products)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
 
 ## PricingClient
 
@@ -137,47 +135,14 @@ def get_products(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("pricing").get_paginator` method.
-
-[Paginator.DescribeServices documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pricing.html#Pricing.Paginator.DescribeServices)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: DescribeServicesPaginatorName
-) -> DescribeServicesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("pricing").get_paginator` method.
+Type annotations for `boto3.client("pricing").get_paginator` method with overloads.
 
-[Paginator.GetAttributeValues documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues)
+- `client.get_paginator("describe_services")` -> [DescribeServicesPaginator](./paginators.md#describeservicespaginator)
+- `client.get_paginator("get_attribute_values")` -> [GetAttributeValuesPaginator](./paginators.md#getattributevaluespaginator)
+- `client.get_paginator("get_products")` -> [GetProductsPaginator](./paginators.md#getproductspaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetAttributeValuesPaginatorName
-) -> GetAttributeValuesPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("pricing").get_paginator` method.
-
-[Paginator.GetProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/pricing.html#Pricing.Paginator.GetProducts)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetProductsPaginatorName
-) -> GetProductsPaginator:
-    pass
-```

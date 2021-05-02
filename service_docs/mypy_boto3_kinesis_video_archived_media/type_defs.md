@@ -6,112 +6,22 @@ Auto-generated documentation for [KinesisVideoArchivedMedia](https://boto3.amazo
 type annotations stubs module [mypy_boto3_kinesis_video_archived_media](https://pypi.org/project/mypy-boto3-kinesis-video-archived-media/).
 
 - [Structures for boto3 KinesisVideoArchivedMedia module](#structures-for-boto3-kinesisvideoarchivedmedia-module)
-  - [ClipTimestampRangeTypeDef](#cliptimestamprangetypedef)
-  - [DASHTimestampRangeTypeDef](#dashtimestamprangetypedef)
-  - [FragmentTypeDef](#fragmenttypedef)
-  - [HLSTimestampRangeTypeDef](#hlstimestamprangetypedef)
-  - [ResponseMetadata](#responsemetadata)
-  - [TimestampRangeTypeDef](#timestamprangetypedef)
   - [ClipFragmentSelectorTypeDef](#clipfragmentselectortypedef)
+  - [ClipTimestampRangeTypeDef](#cliptimestamprangetypedef)
   - [DASHFragmentSelectorTypeDef](#dashfragmentselectortypedef)
+  - [DASHTimestampRangeTypeDef](#dashtimestamprangetypedef)
   - [FragmentSelectorTypeDef](#fragmentselectortypedef)
+  - [FragmentTypeDef](#fragmenttypedef)
   - [GetClipOutputTypeDef](#getclipoutputtypedef)
   - [GetDASHStreamingSessionURLOutputTypeDef](#getdashstreamingsessionurloutputtypedef)
   - [GetHLSStreamingSessionURLOutputTypeDef](#gethlsstreamingsessionurloutputtypedef)
   - [GetMediaForFragmentListOutputTypeDef](#getmediaforfragmentlistoutputtypedef)
   - [HLSFragmentSelectorTypeDef](#hlsfragmentselectortypedef)
+  - [HLSTimestampRangeTypeDef](#hlstimestamprangetypedef)
   - [ListFragmentsOutputTypeDef](#listfragmentsoutputtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
-
-## ClipTimestampRangeTypeDef
-
-```python
-from mypy_boto3_kinesis_video_archived_media.type_defs import ClipTimestampRangeTypeDef
-```
-
-
-Required fields:
-- `StartTimestamp`: `datetime`
-- `EndTimestamp`: `datetime`
-
-
-
-
-## DASHTimestampRangeTypeDef
-
-```python
-from mypy_boto3_kinesis_video_archived_media.type_defs import DASHTimestampRangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `StartTimestamp`: `datetime`
-- `EndTimestamp`: `datetime`
-
-
-## FragmentTypeDef
-
-```python
-from mypy_boto3_kinesis_video_archived_media.type_defs import FragmentTypeDef
-```
-
-
-
-
-Optional fields:
-- `FragmentNumber`: `str`
-- `FragmentSizeInBytes`: `int`
-- `ProducerTimestamp`: `datetime`
-- `ServerTimestamp`: `datetime`
-- `FragmentLengthInMilliseconds`: `int`
-
-
-## HLSTimestampRangeTypeDef
-
-```python
-from mypy_boto3_kinesis_video_archived_media.type_defs import HLSTimestampRangeTypeDef
-```
-
-
-
-
-Optional fields:
-- `StartTimestamp`: `datetime`
-- `EndTimestamp`: `datetime`
-
-
-## ResponseMetadata
-
-```python
-from mypy_boto3_kinesis_video_archived_media.type_defs import ResponseMetadata
-```
-
-
-Required fields:
-- `RequestId`: `str`
-- `HostId`: `str`
-- `HTTPStatusCode`: `int`
-- `HTTPHeaders`: `Dict[str, Any]`
-- `RetryAttempts`: `int`
-
-
-
-
-## TimestampRangeTypeDef
-
-```python
-from mypy_boto3_kinesis_video_archived_media.type_defs import TimestampRangeTypeDef
-```
-
-
-Required fields:
-- `StartTimestamp`: `datetime`
-- `EndTimestamp`: `datetime`
-
-
-
+  - [ResponseMetadata](#responsemetadata)
+  - [TimestampRangeTypeDef](#timestamprangetypedef)
 
 ## ClipFragmentSelectorTypeDef
 
@@ -123,6 +33,20 @@ from mypy_boto3_kinesis_video_archived_media.type_defs import ClipFragmentSelect
 Required fields:
 - `FragmentSelectorType`: `ClipFragmentSelectorType`
 - `TimestampRange`: `"ClipTimestampRangeTypeDef"`
+
+
+
+
+## ClipTimestampRangeTypeDef
+
+```python
+from mypy_boto3_kinesis_video_archived_media.type_defs import ClipTimestampRangeTypeDef
+```
+
+
+Required fields:
+- `StartTimestamp`: `datetime`
+- `EndTimestamp`: `datetime`
 
 
 
@@ -141,6 +65,20 @@ Optional fields:
 - `TimestampRange`: `"DASHTimestampRangeTypeDef"`
 
 
+## DASHTimestampRangeTypeDef
+
+```python
+from mypy_boto3_kinesis_video_archived_media.type_defs import DASHTimestampRangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `StartTimestamp`: `datetime`
+- `EndTimestamp`: `datetime`
+
+
 ## FragmentSelectorTypeDef
 
 ```python
@@ -153,6 +91,23 @@ Required fields:
 - `TimestampRange`: `"TimestampRangeTypeDef"`
 
 
+
+
+## FragmentTypeDef
+
+```python
+from mypy_boto3_kinesis_video_archived_media.type_defs import FragmentTypeDef
+```
+
+
+
+
+Optional fields:
+- `FragmentNumber`: `str`
+- `FragmentSizeInBytes`: `int`
+- `ProducerTimestamp`: `datetime`
+- `ServerTimestamp`: `datetime`
+- `FragmentLengthInMilliseconds`: `int`
 
 
 ## GetClipOutputTypeDef
@@ -227,6 +182,20 @@ Optional fields:
 - `TimestampRange`: `"HLSTimestampRangeTypeDef"`
 
 
+## HLSTimestampRangeTypeDef
+
+```python
+from mypy_boto3_kinesis_video_archived_media.type_defs import HLSTimestampRangeTypeDef
+```
+
+
+
+
+Optional fields:
+- `StartTimestamp`: `datetime`
+- `EndTimestamp`: `datetime`
+
+
 ## ListFragmentsOutputTypeDef
 
 ```python
@@ -255,4 +224,35 @@ Optional fields:
 - `MaxItems`: `int`
 - `PageSize`: `int`
 - `StartingToken`: `str`
+
+
+## ResponseMetadata
+
+```python
+from mypy_boto3_kinesis_video_archived_media.type_defs import ResponseMetadata
+```
+
+
+Required fields:
+- `RequestId`: `str`
+- `HostId`: `str`
+- `HTTPStatusCode`: `int`
+- `HTTPHeaders`: `Dict[str, Any]`
+- `RetryAttempts`: `int`
+
+
+
+
+## TimestampRangeTypeDef
+
+```python
+from mypy_boto3_kinesis_video_archived_media.type_defs import TimestampRangeTypeDef
+```
+
+
+Required fields:
+- `StartTimestamp`: `datetime`
+- `EndTimestamp`: `datetime`
+
+
 

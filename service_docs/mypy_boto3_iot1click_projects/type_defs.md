@@ -6,19 +6,45 @@ Auto-generated documentation for [IoT1ClickProjects](https://boto3.amazonaws.com
 type annotations stubs module [mypy_boto3_iot1click_projects](https://pypi.org/project/mypy-boto3-iot1click-projects/).
 
 - [Structures for boto3 IoT1ClickProjects module](#structures-for-boto3-iot1clickprojects-module)
-  - [DeviceTemplateTypeDef](#devicetemplatetypedef)
-  - [PlacementDescriptionTypeDef](#placementdescriptiontypedef)
-  - [PlacementSummaryTypeDef](#placementsummarytypedef)
-  - [PlacementTemplateTypeDef](#placementtemplatetypedef)
-  - [ProjectDescriptionTypeDef](#projectdescriptiontypedef)
-  - [ProjectSummaryTypeDef](#projectsummarytypedef)
   - [DescribePlacementResponseTypeDef](#describeplacementresponsetypedef)
   - [DescribeProjectResponseTypeDef](#describeprojectresponsetypedef)
+  - [DeviceTemplateTypeDef](#devicetemplatetypedef)
   - [GetDevicesInPlacementResponseTypeDef](#getdevicesinplacementresponsetypedef)
   - [ListPlacementsResponseTypeDef](#listplacementsresponsetypedef)
   - [ListProjectsResponseTypeDef](#listprojectsresponsetypedef)
   - [ListTagsForResourceResponseTypeDef](#listtagsforresourceresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PlacementDescriptionTypeDef](#placementdescriptiontypedef)
+  - [PlacementSummaryTypeDef](#placementsummarytypedef)
+  - [PlacementTemplateTypeDef](#placementtemplatetypedef)
+  - [ProjectDescriptionTypeDef](#projectdescriptiontypedef)
+  - [ProjectSummaryTypeDef](#projectsummarytypedef)
+
+## DescribePlacementResponseTypeDef
+
+```python
+from mypy_boto3_iot1click_projects.type_defs import DescribePlacementResponseTypeDef
+```
+
+
+Required fields:
+- `placement`: `"PlacementDescriptionTypeDef"`
+
+
+
+
+## DescribeProjectResponseTypeDef
+
+```python
+from mypy_boto3_iot1click_projects.type_defs import DescribeProjectResponseTypeDef
+```
+
+
+Required fields:
+- `project`: `"ProjectDescriptionTypeDef"`
+
+
+
 
 ## DeviceTemplateTypeDef
 
@@ -32,6 +58,79 @@ from mypy_boto3_iot1click_projects.type_defs import DeviceTemplateTypeDef
 Optional fields:
 - `deviceType`: `str`
 - `callbackOverrides`: `Dict[str, str]`
+
+
+## GetDevicesInPlacementResponseTypeDef
+
+```python
+from mypy_boto3_iot1click_projects.type_defs import GetDevicesInPlacementResponseTypeDef
+```
+
+
+Required fields:
+- `devices`: `Dict[str, str]`
+
+
+
+
+## ListPlacementsResponseTypeDef
+
+```python
+from mypy_boto3_iot1click_projects.type_defs import ListPlacementsResponseTypeDef
+```
+
+
+Required fields:
+- `placements`: `List["PlacementSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+
+
+## ListProjectsResponseTypeDef
+
+```python
+from mypy_boto3_iot1click_projects.type_defs import ListProjectsResponseTypeDef
+```
+
+
+Required fields:
+- `projects`: `List["ProjectSummaryTypeDef"]`
+
+
+
+Optional fields:
+- `nextToken`: `str`
+
+
+## ListTagsForResourceResponseTypeDef
+
+```python
+from mypy_boto3_iot1click_projects.type_defs import ListTagsForResourceResponseTypeDef
+```
+
+
+
+
+Optional fields:
+- `tags`: `Dict[str, str]`
+
+
+## PaginatorConfigTypeDef
+
+```python
+from mypy_boto3_iot1click_projects.type_defs import PaginatorConfigTypeDef
+```
+
+
+
+
+Optional fields:
+- `MaxItems`: `int`
+- `PageSize`: `int`
+- `StartingToken`: `str`
 
 
 ## PlacementDescriptionTypeDef
@@ -119,103 +218,4 @@ Required fields:
 Optional fields:
 - `arn`: `str`
 - `tags`: `Dict[str, str]`
-
-
-## DescribePlacementResponseTypeDef
-
-```python
-from mypy_boto3_iot1click_projects.type_defs import DescribePlacementResponseTypeDef
-```
-
-
-Required fields:
-- `placement`: `"PlacementDescriptionTypeDef"`
-
-
-
-
-## DescribeProjectResponseTypeDef
-
-```python
-from mypy_boto3_iot1click_projects.type_defs import DescribeProjectResponseTypeDef
-```
-
-
-Required fields:
-- `project`: `"ProjectDescriptionTypeDef"`
-
-
-
-
-## GetDevicesInPlacementResponseTypeDef
-
-```python
-from mypy_boto3_iot1click_projects.type_defs import GetDevicesInPlacementResponseTypeDef
-```
-
-
-Required fields:
-- `devices`: `Dict[str, str]`
-
-
-
-
-## ListPlacementsResponseTypeDef
-
-```python
-from mypy_boto3_iot1click_projects.type_defs import ListPlacementsResponseTypeDef
-```
-
-
-Required fields:
-- `placements`: `List["PlacementSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-
-
-## ListProjectsResponseTypeDef
-
-```python
-from mypy_boto3_iot1click_projects.type_defs import ListProjectsResponseTypeDef
-```
-
-
-Required fields:
-- `projects`: `List["ProjectSummaryTypeDef"]`
-
-
-
-Optional fields:
-- `nextToken`: `str`
-
-
-## ListTagsForResourceResponseTypeDef
-
-```python
-from mypy_boto3_iot1click_projects.type_defs import ListTagsForResourceResponseTypeDef
-```
-
-
-
-
-Optional fields:
-- `tags`: `Dict[str, str]`
-
-
-## PaginatorConfigTypeDef
-
-```python
-from mypy_boto3_iot1click_projects.type_defs import PaginatorConfigTypeDef
-```
-
-
-
-
-Optional fields:
-- `MaxItems`: `int`
-- `PageSize`: `int`
-- `StartingToken`: `str`
 

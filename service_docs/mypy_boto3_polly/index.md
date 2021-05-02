@@ -130,20 +130,20 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_polly.type_defs import LexiconAttributesTypeDef, ...
+from mypy_boto3_polly.type_defs import DescribeVoicesOutputTypeDef, ...
 ```
 
-- [LexiconAttributesTypeDef](./type_defs.md#lexiconattributestypedef)
-- [LexiconDescriptionTypeDef](./type_defs.md#lexicondescriptiontypedef)
-- [LexiconTypeDef](./type_defs.md#lexicontypedef)
-- [ResponseMetadata](./type_defs.md#responsemetadata)
-- [SynthesisTaskTypeDef](./type_defs.md#synthesistasktypedef)
-- [VoiceTypeDef](./type_defs.md#voicetypedef)
 - [DescribeVoicesOutputTypeDef](./type_defs.md#describevoicesoutputtypedef)
 - [GetLexiconOutputTypeDef](./type_defs.md#getlexiconoutputtypedef)
 - [GetSpeechSynthesisTaskOutputTypeDef](./type_defs.md#getspeechsynthesistaskoutputtypedef)
+- [LexiconAttributesTypeDef](./type_defs.md#lexiconattributestypedef)
+- [LexiconDescriptionTypeDef](./type_defs.md#lexicondescriptiontypedef)
+- [LexiconTypeDef](./type_defs.md#lexicontypedef)
 - [ListLexiconsOutputTypeDef](./type_defs.md#listlexiconsoutputtypedef)
 - [ListSpeechSynthesisTasksOutputTypeDef](./type_defs.md#listspeechsynthesistasksoutputtypedef)
 - [PaginatorConfigTypeDef](./type_defs.md#paginatorconfigtypedef)
+- [ResponseMetadata](./type_defs.md#responsemetadata)
 - [StartSpeechSynthesisTaskOutputTypeDef](./type_defs.md#startspeechsynthesistaskoutputtypedef)
+- [SynthesisTaskTypeDef](./type_defs.md#synthesistasktypedef)
 - [SynthesizeSpeechOutputTypeDef](./type_defs.md#synthesizespeechoutputtypedef)
+- [VoiceTypeDef](./type_defs.md#voicetypedef)

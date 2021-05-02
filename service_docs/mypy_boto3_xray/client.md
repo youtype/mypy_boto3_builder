@@ -39,13 +39,6 @@ type annotations stubs module [mypy_boto3_xray](https://pypi.org/project/mypy-bo
     - [update_group](#update_group)
     - [update_sampling_rule](#update_sampling_rule)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
-    - [get_paginator](#get_paginator-3)
-    - [get_paginator](#get_paginator-4)
-    - [get_paginator](#get_paginator-5)
-    - [get_paginator](#get_paginator-6)
-    - [get_paginator](#get_paginator-7)
 
 ## XRayClient
 
@@ -538,122 +531,19 @@ def update_sampling_rule(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("xray").get_paginator` method.
-
-[Paginator.BatchGetTraces documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/xray.html#XRay.Paginator.BatchGetTraces)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: BatchGetTracesPaginatorName
-) -> BatchGetTracesPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("xray").get_paginator` method.
+Type annotations for `boto3.client("xray").get_paginator` method with overloads.
 
-[Paginator.GetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/xray.html#XRay.Paginator.GetGroups)
+- `client.get_paginator("batch_get_traces")` -> [BatchGetTracesPaginator](./paginators.md#batchgettracespaginator)
+- `client.get_paginator("get_groups")` -> [GetGroupsPaginator](./paginators.md#getgroupspaginator)
+- `client.get_paginator("get_sampling_rules")` -> [GetSamplingRulesPaginator](./paginators.md#getsamplingrulespaginator)
+- `client.get_paginator("get_sampling_statistic_summaries")` -> [GetSamplingStatisticSummariesPaginator](./paginators.md#getsamplingstatisticsummariespaginator)
+- `client.get_paginator("get_service_graph")` -> [GetServiceGraphPaginator](./paginators.md#getservicegraphpaginator)
+- `client.get_paginator("get_time_series_service_statistics")` -> [GetTimeSeriesServiceStatisticsPaginator](./paginators.md#gettimeseriesservicestatisticspaginator)
+- `client.get_paginator("get_trace_graph")` -> [GetTraceGraphPaginator](./paginators.md#gettracegraphpaginator)
+- `client.get_paginator("get_trace_summaries")` -> [GetTraceSummariesPaginator](./paginators.md#gettracesummariespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetGroupsPaginatorName
-) -> GetGroupsPaginator:
-    pass
-```
 
-### get_paginator
-
-Type annotations for `boto3.client("xray").get_paginator` method.
-
-[Paginator.GetSamplingRules documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/xray.html#XRay.Paginator.GetSamplingRules)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetSamplingRulesPaginatorName
-) -> GetSamplingRulesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("xray").get_paginator` method.
-
-[Paginator.GetSamplingStatisticSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetSamplingStatisticSummariesPaginatorName
-) -> GetSamplingStatisticSummariesPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("xray").get_paginator` method.
-
-[Paginator.GetServiceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/xray.html#XRay.Paginator.GetServiceGraph)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetServiceGraphPaginatorName
-) -> GetServiceGraphPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("xray").get_paginator` method.
-
-[Paginator.GetTimeSeriesServiceStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTimeSeriesServiceStatisticsPaginatorName
-) -> GetTimeSeriesServiceStatisticsPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("xray").get_paginator` method.
-
-[Paginator.GetTraceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/xray.html#XRay.Paginator.GetTraceGraph)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTraceGraphPaginatorName
-) -> GetTraceGraphPaginator:
-    pass
-```
-
-### get_paginator
-
-Type annotations for `boto3.client("xray").get_paginator` method.
-
-[Paginator.GetTraceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/xray.html#XRay.Paginator.GetTraceSummaries)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: GetTraceSummariesPaginatorName
-) -> GetTraceSummariesPaginator:
-    pass
-```

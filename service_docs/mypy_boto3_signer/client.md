@@ -29,8 +29,6 @@ type annotations stubs module [mypy_boto3_signer](https://pypi.org/project/mypy-
     - [tag_resource](#tag_resource)
     - [untag_resource](#untag_resource)
     - [get_paginator](#get_paginator)
-    - [get_paginator](#get_paginator-1)
-    - [get_paginator](#get_paginator-2)
     - [get_waiter](#get_waiter)
 
 ## SignerClient
@@ -385,61 +383,21 @@ def untag_resource(
     pass
 ```
 
-### get_paginator
 
-Type annotations for `boto3.client("signer").get_paginator` method.
-
-[Paginator.ListSigningJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer.html#Signer.Paginator.ListSigningJobs)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSigningJobsPaginatorName
-) -> ListSigningJobsPaginator:
-    pass
-```
 
 ### get_paginator
 
-Type annotations for `boto3.client("signer").get_paginator` method.
+Type annotations for `boto3.client("signer").get_paginator` method with overloads.
 
-[Paginator.ListSigningPlatforms documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer.html#Signer.Paginator.ListSigningPlatforms)
+- `client.get_paginator("list_signing_jobs")` -> [ListSigningJobsPaginator](./paginators.md#listsigningjobspaginator)
+- `client.get_paginator("list_signing_platforms")` -> [ListSigningPlatformsPaginator](./paginators.md#listsigningplatformspaginator)
+- `client.get_paginator("list_signing_profiles")` -> [ListSigningProfilesPaginator](./paginators.md#listsigningprofilespaginator)
 
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSigningPlatformsPaginatorName
-) -> ListSigningPlatformsPaginator:
-    pass
-```
 
-### get_paginator
 
-Type annotations for `boto3.client("signer").get_paginator` method.
-
-[Paginator.ListSigningProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer.html#Signer.Paginator.ListSigningProfiles)
-
-```python
-@overload
-def get_paginator(
-    self,
-    operation_name: ListSigningProfilesPaginatorName
-) -> ListSigningProfilesPaginator:
-    pass
-```
 
 ### get_waiter
 
-Type annotations for `boto3.client("signer").get_waiter` method.
+Type annotations for `boto3.client("signer").get_waiter` method with overloads.
 
-[Waiter.SuccessfulSigningJob documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/signer.html#Signer.Waiter.SuccessfulSigningJob)
-
-```python
-def get_waiter(
-    self,
-    waiter_name: SuccessfulSigningJobWaiterName
-) -> SuccessfulSigningJobWaiter:
-    pass
-```
+- `client.get_waiter("successful_signing_job")` -> [SuccessfulSigningJobWaiter](./waiters.md#successfulsigningjobwaiter)

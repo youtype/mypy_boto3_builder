@@ -6,30 +6,12 @@ Auto-generated documentation for [MediaStoreData](https://boto3.amazonaws.com/v1
 type annotations stubs module [mypy_boto3_mediastore_data](https://pypi.org/project/mypy-boto3-mediastore-data/).
 
 - [Structures for boto3 MediaStoreData module](#structures-for-boto3-mediastoredata-module)
-  - [ItemTypeDef](#itemtypedef)
   - [DescribeObjectResponseTypeDef](#describeobjectresponsetypedef)
   - [GetObjectResponseTypeDef](#getobjectresponsetypedef)
+  - [ItemTypeDef](#itemtypedef)
   - [ListItemsResponseTypeDef](#listitemsresponsetypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
   - [PutObjectResponseTypeDef](#putobjectresponsetypedef)
-
-## ItemTypeDef
-
-```python
-from mypy_boto3_mediastore_data.type_defs import ItemTypeDef
-```
-
-
-
-
-Optional fields:
-- `Name`: `str`
-- `Type`: `ItemType`
-- `ETag`: `str`
-- `LastModified`: `datetime`
-- `ContentType`: `str`
-- `ContentLength`: `int`
-
 
 ## DescribeObjectResponseTypeDef
 
@@ -68,6 +50,24 @@ Optional fields:
 - `ContentType`: `str`
 - `ETag`: `str`
 - `LastModified`: `datetime`
+
+
+## ItemTypeDef
+
+```python
+from mypy_boto3_mediastore_data.type_defs import ItemTypeDef
+```
+
+
+
+
+Optional fields:
+- `Name`: `str`
+- `Type`: `ItemType`
+- `ETag`: `str`
+- `LastModified`: `datetime`
+- `ContentType`: `str`
+- `ContentLength`: `int`
 
 
 ## ListItemsResponseTypeDef
@@ -111,5 +111,5 @@ from mypy_boto3_mediastore_data.type_defs import PutObjectResponseTypeDef
 Optional fields:
 - `ContentSHA256`: `str`
 - `ETag`: `str`
-- `StorageClass`: `StorageClass`
+- `StorageClass`: `Literal['TEMPORAL']`
 

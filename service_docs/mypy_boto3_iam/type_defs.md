@@ -12,50 +12,6 @@ type annotations stubs module [mypy_boto3_iam](https://pypi.org/project/mypy-bot
   - [AccessKeyTypeDef](#accesskeytypedef)
   - [AttachedPermissionsBoundaryTypeDef](#attachedpermissionsboundarytypedef)
   - [AttachedPolicyTypeDef](#attachedpolicytypedef)
-  - [DeletionTaskFailureReasonTypeTypeDef](#deletiontaskfailurereasontypetypedef)
-  - [EntityDetailsTypeDef](#entitydetailstypedef)
-  - [EntityInfoTypeDef](#entityinfotypedef)
-  - [ErrorDetailsTypeDef](#errordetailstypedef)
-  - [EvaluationResultTypeDef](#evaluationresulttypedef)
-  - [GroupDetailTypeDef](#groupdetailtypedef)
-  - [GroupTypeDef](#grouptypedef)
-  - [InstanceProfileTypeDef](#instanceprofiletypedef)
-  - [ListPoliciesGrantingServiceAccessEntryTypeDef](#listpoliciesgrantingserviceaccessentrytypedef)
-  - [LoginProfileTypeDef](#loginprofiletypedef)
-  - [MFADeviceTypeDef](#mfadevicetypedef)
-  - [ManagedPolicyDetailTypeDef](#managedpolicydetailtypedef)
-  - [OpenIDConnectProviderListEntryTypeDef](#openidconnectproviderlistentrytypedef)
-  - [OrganizationsDecisionDetailTypeDef](#organizationsdecisiondetailtypedef)
-  - [PasswordPolicyTypeDef](#passwordpolicytypedef)
-  - [PermissionsBoundaryDecisionDetailTypeDef](#permissionsboundarydecisiondetailtypedef)
-  - [PolicyDetailTypeDef](#policydetailtypedef)
-  - [PolicyGrantingServiceAccessTypeDef](#policygrantingserviceaccesstypedef)
-  - [PolicyGroupTypeDef](#policygrouptypedef)
-  - [PolicyRoleTypeDef](#policyroletypedef)
-  - [PolicyTypeDef](#policytypedef)
-  - [PolicyUserTypeDef](#policyusertypedef)
-  - [PolicyVersionTypeDef](#policyversiontypedef)
-  - [PositionTypeDef](#positiontypedef)
-  - [ResourceSpecificResultTypeDef](#resourcespecificresulttypedef)
-  - [RoleDetailTypeDef](#roledetailtypedef)
-  - [RoleLastUsedTypeDef](#rolelastusedtypedef)
-  - [RoleTypeDef](#roletypedef)
-  - [RoleUsageTypeTypeDef](#roleusagetypetypedef)
-  - [SAMLProviderListEntryTypeDef](#samlproviderlistentrytypedef)
-  - [SSHPublicKeyMetadataTypeDef](#sshpublickeymetadatatypedef)
-  - [SSHPublicKeyTypeDef](#sshpublickeytypedef)
-  - [ServerCertificateMetadataTypeDef](#servercertificatemetadatatypedef)
-  - [ServerCertificateTypeDef](#servercertificatetypedef)
-  - [ServiceLastAccessedTypeDef](#servicelastaccessedtypedef)
-  - [ServiceSpecificCredentialMetadataTypeDef](#servicespecificcredentialmetadatatypedef)
-  - [ServiceSpecificCredentialTypeDef](#servicespecificcredentialtypedef)
-  - [SigningCertificateTypeDef](#signingcertificatetypedef)
-  - [StatementTypeDef](#statementtypedef)
-  - [TagTypeDef](#tagtypedef)
-  - [TrackedActionLastAccessedTypeDef](#trackedactionlastaccessedtypedef)
-  - [UserDetailTypeDef](#userdetailtypedef)
-  - [UserTypeDef](#usertypedef)
-  - [VirtualMFADeviceTypeDef](#virtualmfadevicetypedef)
   - [ContextEntryTypeDef](#contextentrytypedef)
   - [CreateAccessKeyResponseTypeDef](#createaccesskeyresponsetypedef)
   - [CreateGroupResponseTypeDef](#creategroupresponsetypedef)
@@ -71,6 +27,11 @@ type annotations stubs module [mypy_boto3_iam](https://pypi.org/project/mypy-bot
   - [CreateUserResponseTypeDef](#createuserresponsetypedef)
   - [CreateVirtualMFADeviceResponseTypeDef](#createvirtualmfadeviceresponsetypedef)
   - [DeleteServiceLinkedRoleResponseTypeDef](#deleteservicelinkedroleresponsetypedef)
+  - [DeletionTaskFailureReasonTypeTypeDef](#deletiontaskfailurereasontypetypedef)
+  - [EntityDetailsTypeDef](#entitydetailstypedef)
+  - [EntityInfoTypeDef](#entityinfotypedef)
+  - [ErrorDetailsTypeDef](#errordetailstypedef)
+  - [EvaluationResultTypeDef](#evaluationresulttypedef)
   - [GenerateCredentialReportResponseTypeDef](#generatecredentialreportresponsetypedef)
   - [GenerateOrganizationsAccessReportResponseTypeDef](#generateorganizationsaccessreportresponsetypedef)
   - [GenerateServiceLastAccessedDetailsResponseTypeDef](#generateservicelastaccesseddetailsresponsetypedef)
@@ -98,6 +59,9 @@ type annotations stubs module [mypy_boto3_iam](https://pypi.org/project/mypy-bot
   - [GetServiceLinkedRoleDeletionStatusResponseTypeDef](#getservicelinkedroledeletionstatusresponsetypedef)
   - [GetUserPolicyResponseTypeDef](#getuserpolicyresponsetypedef)
   - [GetUserResponseTypeDef](#getuserresponsetypedef)
+  - [GroupDetailTypeDef](#groupdetailtypedef)
+  - [GroupTypeDef](#grouptypedef)
+  - [InstanceProfileTypeDef](#instanceprofiletypedef)
   - [ListAccessKeysResponseTypeDef](#listaccesskeysresponsetypedef)
   - [ListAccountAliasesResponseTypeDef](#listaccountaliasesresponsetypedef)
   - [ListAttachedGroupPoliciesResponseTypeDef](#listattachedgrouppoliciesresponsetypedef)
@@ -114,6 +78,7 @@ type annotations stubs module [mypy_boto3_iam](https://pypi.org/project/mypy-bot
   - [ListMFADevicesResponseTypeDef](#listmfadevicesresponsetypedef)
   - [ListOpenIDConnectProviderTagsResponseTypeDef](#listopenidconnectprovidertagsresponsetypedef)
   - [ListOpenIDConnectProvidersResponseTypeDef](#listopenidconnectprovidersresponsetypedef)
+  - [ListPoliciesGrantingServiceAccessEntryTypeDef](#listpoliciesgrantingserviceaccessentrytypedef)
   - [ListPoliciesGrantingServiceAccessResponseTypeDef](#listpoliciesgrantingserviceaccessresponsetypedef)
   - [ListPoliciesResponseTypeDef](#listpoliciesresponsetypedef)
   - [ListPolicyTagsResponseTypeDef](#listpolicytagsresponsetypedef)
@@ -132,14 +97,49 @@ type annotations stubs module [mypy_boto3_iam](https://pypi.org/project/mypy-bot
   - [ListUserTagsResponseTypeDef](#listusertagsresponsetypedef)
   - [ListUsersResponseTypeDef](#listusersresponsetypedef)
   - [ListVirtualMFADevicesResponseTypeDef](#listvirtualmfadevicesresponsetypedef)
+  - [LoginProfileTypeDef](#loginprofiletypedef)
+  - [MFADeviceTypeDef](#mfadevicetypedef)
+  - [ManagedPolicyDetailTypeDef](#managedpolicydetailtypedef)
+  - [OpenIDConnectProviderListEntryTypeDef](#openidconnectproviderlistentrytypedef)
+  - [OrganizationsDecisionDetailTypeDef](#organizationsdecisiondetailtypedef)
   - [PaginatorConfigTypeDef](#paginatorconfigtypedef)
+  - [PasswordPolicyTypeDef](#passwordpolicytypedef)
+  - [PermissionsBoundaryDecisionDetailTypeDef](#permissionsboundarydecisiondetailtypedef)
+  - [PolicyDetailTypeDef](#policydetailtypedef)
+  - [PolicyGrantingServiceAccessTypeDef](#policygrantingserviceaccesstypedef)
+  - [PolicyGroupTypeDef](#policygrouptypedef)
+  - [PolicyRoleTypeDef](#policyroletypedef)
+  - [PolicyTypeDef](#policytypedef)
+  - [PolicyUserTypeDef](#policyusertypedef)
+  - [PolicyVersionTypeDef](#policyversiontypedef)
+  - [PositionTypeDef](#positiontypedef)
   - [ResetServiceSpecificCredentialResponseTypeDef](#resetservicespecificcredentialresponsetypedef)
+  - [ResourceSpecificResultTypeDef](#resourcespecificresulttypedef)
+  - [RoleDetailTypeDef](#roledetailtypedef)
+  - [RoleLastUsedTypeDef](#rolelastusedtypedef)
+  - [RoleTypeDef](#roletypedef)
+  - [RoleUsageTypeTypeDef](#roleusagetypetypedef)
+  - [SAMLProviderListEntryTypeDef](#samlproviderlistentrytypedef)
+  - [SSHPublicKeyMetadataTypeDef](#sshpublickeymetadatatypedef)
+  - [SSHPublicKeyTypeDef](#sshpublickeytypedef)
+  - [ServerCertificateMetadataTypeDef](#servercertificatemetadatatypedef)
+  - [ServerCertificateTypeDef](#servercertificatetypedef)
+  - [ServiceLastAccessedTypeDef](#servicelastaccessedtypedef)
+  - [ServiceSpecificCredentialMetadataTypeDef](#servicespecificcredentialmetadatatypedef)
+  - [ServiceSpecificCredentialTypeDef](#servicespecificcredentialtypedef)
+  - [SigningCertificateTypeDef](#signingcertificatetypedef)
   - [SimulatePolicyResponseTypeDef](#simulatepolicyresponsetypedef)
+  - [StatementTypeDef](#statementtypedef)
+  - [TagTypeDef](#tagtypedef)
+  - [TrackedActionLastAccessedTypeDef](#trackedactionlastaccessedtypedef)
   - [UpdateRoleDescriptionResponseTypeDef](#updateroledescriptionresponsetypedef)
   - [UpdateSAMLProviderResponseTypeDef](#updatesamlproviderresponsetypedef)
   - [UploadSSHPublicKeyResponseTypeDef](#uploadsshpublickeyresponsetypedef)
   - [UploadServerCertificateResponseTypeDef](#uploadservercertificateresponsetypedef)
   - [UploadSigningCertificateResponseTypeDef](#uploadsigningcertificateresponsetypedef)
+  - [UserDetailTypeDef](#userdetailtypedef)
+  - [UserTypeDef](#usertypedef)
+  - [VirtualMFADeviceTypeDef](#virtualmfadevicetypedef)
   - [WaiterConfigTypeDef](#waiterconfigtypedef)
 
 ## AccessDetailTypeDef
@@ -222,7 +222,7 @@ from mypy_boto3_iam.type_defs import AttachedPermissionsBoundaryTypeDef
 
 
 Optional fields:
-- `PermissionsBoundaryType`: `PermissionsBoundaryAttachmentType`
+- `PermissionsBoundaryType`: `Literal['PermissionsBoundaryPolicy']`
 - `PermissionsBoundaryArn`: `str`
 
 
@@ -238,782 +238,6 @@ from mypy_boto3_iam.type_defs import AttachedPolicyTypeDef
 Optional fields:
 - `PolicyName`: `str`
 - `PolicyArn`: `str`
-
-
-## DeletionTaskFailureReasonTypeTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import DeletionTaskFailureReasonTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Reason`: `str`
-- `RoleUsageList`: `List["RoleUsageTypeTypeDef"]`
-
-
-## EntityDetailsTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import EntityDetailsTypeDef
-```
-
-
-Required fields:
-- `EntityInfo`: `"EntityInfoTypeDef"`
-
-
-
-Optional fields:
-- `LastAuthenticated`: `datetime`
-
-
-## EntityInfoTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import EntityInfoTypeDef
-```
-
-
-Required fields:
-- `Arn`: `str`
-- `Name`: `str`
-- `Type`: `policyOwnerEntityType`
-- `Id`: `str`
-
-
-
-Optional fields:
-- `Path`: `str`
-
-
-## ErrorDetailsTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import ErrorDetailsTypeDef
-```
-
-
-Required fields:
-- `Message`: `str`
-- `Code`: `str`
-
-
-
-
-## EvaluationResultTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import EvaluationResultTypeDef
-```
-
-
-Required fields:
-- `EvalActionName`: `str`
-- `EvalDecision`: `PolicyEvaluationDecisionType`
-
-
-
-Optional fields:
-- `EvalResourceName`: `str`
-- `MatchedStatements`: `List["StatementTypeDef"]`
-- `MissingContextValues`: `List[str]`
-- `OrganizationsDecisionDetail`: `"OrganizationsDecisionDetailTypeDef"`
-- `PermissionsBoundaryDecisionDetail`: `"PermissionsBoundaryDecisionDetailTypeDef"`
-- `EvalDecisionDetails`: `Dict[str, PolicyEvaluationDecisionType]`
-- `ResourceSpecificResults`: `List["ResourceSpecificResultTypeDef"]`
-
-
-## GroupDetailTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import GroupDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Path`: `str`
-- `GroupName`: `str`
-- `GroupId`: `str`
-- `Arn`: `str`
-- `CreateDate`: `datetime`
-- `GroupPolicyList`: `List["PolicyDetailTypeDef"]`
-- `AttachedManagedPolicies`: `List["AttachedPolicyTypeDef"]`
-
-
-## GroupTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import GroupTypeDef
-```
-
-
-Required fields:
-- `Path`: `str`
-- `GroupName`: `str`
-- `GroupId`: `str`
-- `Arn`: `str`
-- `CreateDate`: `datetime`
-
-
-
-
-## InstanceProfileTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import InstanceProfileTypeDef
-```
-
-
-Required fields:
-- `Path`: `str`
-- `InstanceProfileName`: `str`
-- `InstanceProfileId`: `str`
-- `Arn`: `str`
-- `CreateDate`: `datetime`
-- `Roles`: `List["RoleTypeDef"]`
-
-
-
-Optional fields:
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ListPoliciesGrantingServiceAccessEntryTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import ListPoliciesGrantingServiceAccessEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `ServiceNamespace`: `str`
-- `Policies`: `List["PolicyGrantingServiceAccessTypeDef"]`
-
-
-## LoginProfileTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import LoginProfileTypeDef
-```
-
-
-Required fields:
-- `UserName`: `str`
-- `CreateDate`: `datetime`
-
-
-
-Optional fields:
-- `PasswordResetRequired`: `bool`
-
-
-## MFADeviceTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import MFADeviceTypeDef
-```
-
-
-Required fields:
-- `UserName`: `str`
-- `SerialNumber`: `str`
-- `EnableDate`: `datetime`
-
-
-
-
-## ManagedPolicyDetailTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import ManagedPolicyDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicyName`: `str`
-- `PolicyId`: `str`
-- `Arn`: `str`
-- `Path`: `str`
-- `DefaultVersionId`: `str`
-- `AttachmentCount`: `int`
-- `PermissionsBoundaryUsageCount`: `int`
-- `IsAttachable`: `bool`
-- `Description`: `str`
-- `CreateDate`: `datetime`
-- `UpdateDate`: `datetime`
-- `PolicyVersionList`: `List["PolicyVersionTypeDef"]`
-
-
-## OpenIDConnectProviderListEntryTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import OpenIDConnectProviderListEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-
-
-## OrganizationsDecisionDetailTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import OrganizationsDecisionDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllowedByOrganizations`: `bool`
-
-
-## PasswordPolicyTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import PasswordPolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `MinimumPasswordLength`: `int`
-- `RequireSymbols`: `bool`
-- `RequireNumbers`: `bool`
-- `RequireUppercaseCharacters`: `bool`
-- `RequireLowercaseCharacters`: `bool`
-- `AllowUsersToChangePassword`: `bool`
-- `ExpirePasswords`: `bool`
-- `MaxPasswordAge`: `int`
-- `PasswordReusePrevention`: `int`
-- `HardExpiry`: `bool`
-
-
-## PermissionsBoundaryDecisionDetailTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import PermissionsBoundaryDecisionDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `AllowedByPermissionsBoundary`: `bool`
-
-
-## PolicyDetailTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import PolicyDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicyName`: `str`
-- `PolicyDocument`: `str`
-
-
-## PolicyGrantingServiceAccessTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import PolicyGrantingServiceAccessTypeDef
-```
-
-
-Required fields:
-- `PolicyName`: `str`
-- `PolicyType`: `policyType`
-
-
-
-Optional fields:
-- `PolicyArn`: `str`
-- `EntityType`: `policyOwnerEntityType`
-- `EntityName`: `str`
-
-
-## PolicyGroupTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import PolicyGroupTypeDef
-```
-
-
-
-
-Optional fields:
-- `GroupName`: `str`
-- `GroupId`: `str`
-
-
-## PolicyRoleTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import PolicyRoleTypeDef
-```
-
-
-
-
-Optional fields:
-- `RoleName`: `str`
-- `RoleId`: `str`
-
-
-## PolicyTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import PolicyTypeDef
-```
-
-
-
-
-Optional fields:
-- `PolicyName`: `str`
-- `PolicyId`: `str`
-- `Arn`: `str`
-- `Path`: `str`
-- `DefaultVersionId`: `str`
-- `AttachmentCount`: `int`
-- `PermissionsBoundaryUsageCount`: `int`
-- `IsAttachable`: `bool`
-- `Description`: `str`
-- `CreateDate`: `datetime`
-- `UpdateDate`: `datetime`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## PolicyUserTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import PolicyUserTypeDef
-```
-
-
-
-
-Optional fields:
-- `UserName`: `str`
-- `UserId`: `str`
-
-
-## PolicyVersionTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import PolicyVersionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Document`: `str`
-- `VersionId`: `str`
-- `IsDefaultVersion`: `bool`
-- `CreateDate`: `datetime`
-
-
-## PositionTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import PositionTypeDef
-```
-
-
-
-
-Optional fields:
-- `Line`: `int`
-- `Column`: `int`
-
-
-## ResourceSpecificResultTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import ResourceSpecificResultTypeDef
-```
-
-
-Required fields:
-- `EvalResourceName`: `str`
-- `EvalResourceDecision`: `PolicyEvaluationDecisionType`
-
-
-
-Optional fields:
-- `MatchedStatements`: `List["StatementTypeDef"]`
-- `MissingContextValues`: `List[str]`
-- `EvalDecisionDetails`: `Dict[str, PolicyEvaluationDecisionType]`
-- `PermissionsBoundaryDecisionDetail`: `"PermissionsBoundaryDecisionDetailTypeDef"`
-
-
-## RoleDetailTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import RoleDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Path`: `str`
-- `RoleName`: `str`
-- `RoleId`: `str`
-- `Arn`: `str`
-- `CreateDate`: `datetime`
-- `AssumeRolePolicyDocument`: `str`
-- `InstanceProfileList`: `List["InstanceProfileTypeDef"]`
-- `RolePolicyList`: `List["PolicyDetailTypeDef"]`
-- `AttachedManagedPolicies`: `List["AttachedPolicyTypeDef"]`
-- `PermissionsBoundary`: `"AttachedPermissionsBoundaryTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-- `RoleLastUsed`: `"RoleLastUsedTypeDef"`
-
-
-## RoleLastUsedTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import RoleLastUsedTypeDef
-```
-
-
-
-
-Optional fields:
-- `LastUsedDate`: `datetime`
-- `Region`: `str`
-
-
-## RoleTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import RoleTypeDef
-```
-
-
-Required fields:
-- `Path`: `str`
-- `RoleName`: `str`
-- `RoleId`: `str`
-- `Arn`: `str`
-- `CreateDate`: `datetime`
-
-
-
-Optional fields:
-- `AssumeRolePolicyDocument`: `str`
-- `Description`: `str`
-- `MaxSessionDuration`: `int`
-- `PermissionsBoundary`: `"AttachedPermissionsBoundaryTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-- `RoleLastUsed`: `"RoleLastUsedTypeDef"`
-
-
-## RoleUsageTypeTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import RoleUsageTypeTypeDef
-```
-
-
-
-
-Optional fields:
-- `Region`: `str`
-- `Resources`: `List[str]`
-
-
-## SAMLProviderListEntryTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import SAMLProviderListEntryTypeDef
-```
-
-
-
-
-Optional fields:
-- `Arn`: `str`
-- `ValidUntil`: `datetime`
-- `CreateDate`: `datetime`
-
-
-## SSHPublicKeyMetadataTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import SSHPublicKeyMetadataTypeDef
-```
-
-
-Required fields:
-- `UserName`: `str`
-- `SSHPublicKeyId`: `str`
-- `Status`: `statusType`
-- `UploadDate`: `datetime`
-
-
-
-
-## SSHPublicKeyTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import SSHPublicKeyTypeDef
-```
-
-
-Required fields:
-- `UserName`: `str`
-- `SSHPublicKeyId`: `str`
-- `Fingerprint`: `str`
-- `SSHPublicKeyBody`: `str`
-- `Status`: `statusType`
-
-
-
-Optional fields:
-- `UploadDate`: `datetime`
-
-
-## ServerCertificateMetadataTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import ServerCertificateMetadataTypeDef
-```
-
-
-Required fields:
-- `Path`: `str`
-- `ServerCertificateName`: `str`
-- `ServerCertificateId`: `str`
-- `Arn`: `str`
-
-
-
-Optional fields:
-- `UploadDate`: `datetime`
-- `Expiration`: `datetime`
-
-
-## ServerCertificateTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import ServerCertificateTypeDef
-```
-
-
-Required fields:
-- `ServerCertificateMetadata`: `"ServerCertificateMetadataTypeDef"`
-- `CertificateBody`: `str`
-
-
-
-Optional fields:
-- `CertificateChain`: `str`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## ServiceLastAccessedTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import ServiceLastAccessedTypeDef
-```
-
-
-Required fields:
-- `ServiceName`: `str`
-- `ServiceNamespace`: `str`
-
-
-
-Optional fields:
-- `LastAuthenticated`: `datetime`
-- `LastAuthenticatedEntity`: `str`
-- `LastAuthenticatedRegion`: `str`
-- `TotalAuthenticatedEntities`: `int`
-- `TrackedActionsLastAccessed`: `List["TrackedActionLastAccessedTypeDef"]`
-
-
-## ServiceSpecificCredentialMetadataTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import ServiceSpecificCredentialMetadataTypeDef
-```
-
-
-Required fields:
-- `UserName`: `str`
-- `Status`: `statusType`
-- `ServiceUserName`: `str`
-- `CreateDate`: `datetime`
-- `ServiceSpecificCredentialId`: `str`
-- `ServiceName`: `str`
-
-
-
-
-## ServiceSpecificCredentialTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import ServiceSpecificCredentialTypeDef
-```
-
-
-Required fields:
-- `CreateDate`: `datetime`
-- `ServiceName`: `str`
-- `ServiceUserName`: `str`
-- `ServicePassword`: `str`
-- `ServiceSpecificCredentialId`: `str`
-- `UserName`: `str`
-- `Status`: `statusType`
-
-
-
-
-## SigningCertificateTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import SigningCertificateTypeDef
-```
-
-
-Required fields:
-- `UserName`: `str`
-- `CertificateId`: `str`
-- `CertificateBody`: `str`
-- `Status`: `statusType`
-
-
-
-Optional fields:
-- `UploadDate`: `datetime`
-
-
-## StatementTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import StatementTypeDef
-```
-
-
-
-
-Optional fields:
-- `SourcePolicyId`: `str`
-- `SourcePolicyType`: `PolicySourceType`
-- `StartPosition`: `"PositionTypeDef"`
-- `EndPosition`: `"PositionTypeDef"`
-
-
-## TagTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import TagTypeDef
-```
-
-
-Required fields:
-- `Key`: `str`
-- `Value`: `str`
-
-
-
-
-## TrackedActionLastAccessedTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import TrackedActionLastAccessedTypeDef
-```
-
-
-
-
-Optional fields:
-- `ActionName`: `str`
-- `LastAccessedEntity`: `str`
-- `LastAccessedTime`: `datetime`
-- `LastAccessedRegion`: `str`
-
-
-## UserDetailTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import UserDetailTypeDef
-```
-
-
-
-
-Optional fields:
-- `Path`: `str`
-- `UserName`: `str`
-- `UserId`: `str`
-- `Arn`: `str`
-- `CreateDate`: `datetime`
-- `UserPolicyList`: `List["PolicyDetailTypeDef"]`
-- `GroupList`: `List[str]`
-- `AttachedManagedPolicies`: `List["AttachedPolicyTypeDef"]`
-- `PermissionsBoundary`: `"AttachedPermissionsBoundaryTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## UserTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import UserTypeDef
-```
-
-
-Required fields:
-- `Path`: `str`
-- `UserName`: `str`
-- `UserId`: `str`
-- `Arn`: `str`
-- `CreateDate`: `datetime`
-
-
-
-Optional fields:
-- `PasswordLastUsed`: `datetime`
-- `PermissionsBoundary`: `"AttachedPermissionsBoundaryTypeDef"`
-- `Tags`: `List["TagTypeDef"]`
-
-
-## VirtualMFADeviceTypeDef
-
-```python
-from mypy_boto3_iam.type_defs import VirtualMFADeviceTypeDef
-```
-
-
-Required fields:
-- `SerialNumber`: `str`
-
-
-
-Optional fields:
-- `Base32StringSeed`: `Union[bytes, IO[bytes]]`
-- `QRCodePNG`: `Union[bytes, IO[bytes]]`
-- `User`: `"UserTypeDef"`
-- `EnableDate`: `datetime`
-- `Tags`: `List["TagTypeDef"]`
 
 
 ## ContextEntryTypeDef
@@ -1215,6 +439,92 @@ Required fields:
 
 
 
+## DeletionTaskFailureReasonTypeTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import DeletionTaskFailureReasonTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Reason`: `str`
+- `RoleUsageList`: `List["RoleUsageTypeTypeDef"]`
+
+
+## EntityDetailsTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import EntityDetailsTypeDef
+```
+
+
+Required fields:
+- `EntityInfo`: `"EntityInfoTypeDef"`
+
+
+
+Optional fields:
+- `LastAuthenticated`: `datetime`
+
+
+## EntityInfoTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import EntityInfoTypeDef
+```
+
+
+Required fields:
+- `Arn`: `str`
+- `Name`: `str`
+- `Type`: `policyOwnerEntityType`
+- `Id`: `str`
+
+
+
+Optional fields:
+- `Path`: `str`
+
+
+## ErrorDetailsTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import ErrorDetailsTypeDef
+```
+
+
+Required fields:
+- `Message`: `str`
+- `Code`: `str`
+
+
+
+
+## EvaluationResultTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import EvaluationResultTypeDef
+```
+
+
+Required fields:
+- `EvalActionName`: `str`
+- `EvalDecision`: `PolicyEvaluationDecisionType`
+
+
+
+Optional fields:
+- `EvalResourceName`: `str`
+- `MatchedStatements`: `List["StatementTypeDef"]`
+- `MissingContextValues`: `List[str]`
+- `OrganizationsDecisionDetail`: `"OrganizationsDecisionDetailTypeDef"`
+- `PermissionsBoundaryDecisionDetail`: `"PermissionsBoundaryDecisionDetailTypeDef"`
+- `EvalDecisionDetails`: `Dict[str, PolicyEvaluationDecisionType]`
+- `ResourceSpecificResults`: `List["ResourceSpecificResultTypeDef"]`
+
+
 ## GenerateCredentialReportResponseTypeDef
 
 ```python
@@ -1337,7 +647,7 @@ from mypy_boto3_iam.type_defs import GetCredentialReportResponseTypeDef
 
 Optional fields:
 - `Content`: `Union[bytes, IO[bytes]]`
-- `ReportFormat`: `ReportFormatType`
+- `ReportFormat`: `Literal['text/csv']`
 - `GeneratedTime`: `datetime`
 
 
@@ -1623,6 +933,63 @@ Required fields:
 
 
 
+## GroupDetailTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import GroupDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Path`: `str`
+- `GroupName`: `str`
+- `GroupId`: `str`
+- `Arn`: `str`
+- `CreateDate`: `datetime`
+- `GroupPolicyList`: `List["PolicyDetailTypeDef"]`
+- `AttachedManagedPolicies`: `List["AttachedPolicyTypeDef"]`
+
+
+## GroupTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import GroupTypeDef
+```
+
+
+Required fields:
+- `Path`: `str`
+- `GroupName`: `str`
+- `GroupId`: `str`
+- `Arn`: `str`
+- `CreateDate`: `datetime`
+
+
+
+
+## InstanceProfileTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import InstanceProfileTypeDef
+```
+
+
+Required fields:
+- `Path`: `str`
+- `InstanceProfileName`: `str`
+- `InstanceProfileId`: `str`
+- `Arn`: `str`
+- `CreateDate`: `datetime`
+- `Roles`: `List["RoleTypeDef"]`
+
+
+
+Optional fields:
+- `Tags`: `List["TagTypeDef"]`
+
+
 ## ListAccessKeysResponseTypeDef
 
 ```python
@@ -1883,6 +1250,20 @@ from mypy_boto3_iam.type_defs import ListOpenIDConnectProvidersResponseTypeDef
 
 Optional fields:
 - `OpenIDConnectProviderList`: `List["OpenIDConnectProviderListEntryTypeDef"]`
+
+
+## ListPoliciesGrantingServiceAccessEntryTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import ListPoliciesGrantingServiceAccessEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `ServiceNamespace`: `str`
+- `Policies`: `List["PolicyGrantingServiceAccessTypeDef"]`
 
 
 ## ListPoliciesGrantingServiceAccessResponseTypeDef
@@ -2177,6 +1558,88 @@ Optional fields:
 - `Marker`: `str`
 
 
+## LoginProfileTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import LoginProfileTypeDef
+```
+
+
+Required fields:
+- `UserName`: `str`
+- `CreateDate`: `datetime`
+
+
+
+Optional fields:
+- `PasswordResetRequired`: `bool`
+
+
+## MFADeviceTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import MFADeviceTypeDef
+```
+
+
+Required fields:
+- `UserName`: `str`
+- `SerialNumber`: `str`
+- `EnableDate`: `datetime`
+
+
+
+
+## ManagedPolicyDetailTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import ManagedPolicyDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicyName`: `str`
+- `PolicyId`: `str`
+- `Arn`: `str`
+- `Path`: `str`
+- `DefaultVersionId`: `str`
+- `AttachmentCount`: `int`
+- `PermissionsBoundaryUsageCount`: `int`
+- `IsAttachable`: `bool`
+- `Description`: `str`
+- `CreateDate`: `datetime`
+- `UpdateDate`: `datetime`
+- `PolicyVersionList`: `List["PolicyVersionTypeDef"]`
+
+
+## OpenIDConnectProviderListEntryTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import OpenIDConnectProviderListEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+
+
+## OrganizationsDecisionDetailTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import OrganizationsDecisionDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllowedByOrganizations`: `bool`
+
+
 ## PaginatorConfigTypeDef
 
 ```python
@@ -2192,6 +1655,170 @@ Optional fields:
 - `StartingToken`: `str`
 
 
+## PasswordPolicyTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import PasswordPolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `MinimumPasswordLength`: `int`
+- `RequireSymbols`: `bool`
+- `RequireNumbers`: `bool`
+- `RequireUppercaseCharacters`: `bool`
+- `RequireLowercaseCharacters`: `bool`
+- `AllowUsersToChangePassword`: `bool`
+- `ExpirePasswords`: `bool`
+- `MaxPasswordAge`: `int`
+- `PasswordReusePrevention`: `int`
+- `HardExpiry`: `bool`
+
+
+## PermissionsBoundaryDecisionDetailTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import PermissionsBoundaryDecisionDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `AllowedByPermissionsBoundary`: `bool`
+
+
+## PolicyDetailTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import PolicyDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicyName`: `str`
+- `PolicyDocument`: `str`
+
+
+## PolicyGrantingServiceAccessTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import PolicyGrantingServiceAccessTypeDef
+```
+
+
+Required fields:
+- `PolicyName`: `str`
+- `PolicyType`: `policyType`
+
+
+
+Optional fields:
+- `PolicyArn`: `str`
+- `EntityType`: `policyOwnerEntityType`
+- `EntityName`: `str`
+
+
+## PolicyGroupTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import PolicyGroupTypeDef
+```
+
+
+
+
+Optional fields:
+- `GroupName`: `str`
+- `GroupId`: `str`
+
+
+## PolicyRoleTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import PolicyRoleTypeDef
+```
+
+
+
+
+Optional fields:
+- `RoleName`: `str`
+- `RoleId`: `str`
+
+
+## PolicyTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import PolicyTypeDef
+```
+
+
+
+
+Optional fields:
+- `PolicyName`: `str`
+- `PolicyId`: `str`
+- `Arn`: `str`
+- `Path`: `str`
+- `DefaultVersionId`: `str`
+- `AttachmentCount`: `int`
+- `PermissionsBoundaryUsageCount`: `int`
+- `IsAttachable`: `bool`
+- `Description`: `str`
+- `CreateDate`: `datetime`
+- `UpdateDate`: `datetime`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## PolicyUserTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import PolicyUserTypeDef
+```
+
+
+
+
+Optional fields:
+- `UserName`: `str`
+- `UserId`: `str`
+
+
+## PolicyVersionTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import PolicyVersionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Document`: `str`
+- `VersionId`: `str`
+- `IsDefaultVersion`: `bool`
+- `CreateDate`: `datetime`
+
+
+## PositionTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import PositionTypeDef
+```
+
+
+
+
+Optional fields:
+- `Line`: `int`
+- `Column`: `int`
+
+
 ## ResetServiceSpecificCredentialResponseTypeDef
 
 ```python
@@ -2203,6 +1830,269 @@ from mypy_boto3_iam.type_defs import ResetServiceSpecificCredentialResponseTypeD
 
 Optional fields:
 - `ServiceSpecificCredential`: `"ServiceSpecificCredentialTypeDef"`
+
+
+## ResourceSpecificResultTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import ResourceSpecificResultTypeDef
+```
+
+
+Required fields:
+- `EvalResourceName`: `str`
+- `EvalResourceDecision`: `PolicyEvaluationDecisionType`
+
+
+
+Optional fields:
+- `MatchedStatements`: `List["StatementTypeDef"]`
+- `MissingContextValues`: `List[str]`
+- `EvalDecisionDetails`: `Dict[str, PolicyEvaluationDecisionType]`
+- `PermissionsBoundaryDecisionDetail`: `"PermissionsBoundaryDecisionDetailTypeDef"`
+
+
+## RoleDetailTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import RoleDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Path`: `str`
+- `RoleName`: `str`
+- `RoleId`: `str`
+- `Arn`: `str`
+- `CreateDate`: `datetime`
+- `AssumeRolePolicyDocument`: `str`
+- `InstanceProfileList`: `List["InstanceProfileTypeDef"]`
+- `RolePolicyList`: `List["PolicyDetailTypeDef"]`
+- `AttachedManagedPolicies`: `List["AttachedPolicyTypeDef"]`
+- `PermissionsBoundary`: `"AttachedPermissionsBoundaryTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+- `RoleLastUsed`: `"RoleLastUsedTypeDef"`
+
+
+## RoleLastUsedTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import RoleLastUsedTypeDef
+```
+
+
+
+
+Optional fields:
+- `LastUsedDate`: `datetime`
+- `Region`: `str`
+
+
+## RoleTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import RoleTypeDef
+```
+
+
+Required fields:
+- `Path`: `str`
+- `RoleName`: `str`
+- `RoleId`: `str`
+- `Arn`: `str`
+- `CreateDate`: `datetime`
+
+
+
+Optional fields:
+- `AssumeRolePolicyDocument`: `str`
+- `Description`: `str`
+- `MaxSessionDuration`: `int`
+- `PermissionsBoundary`: `"AttachedPermissionsBoundaryTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+- `RoleLastUsed`: `"RoleLastUsedTypeDef"`
+
+
+## RoleUsageTypeTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import RoleUsageTypeTypeDef
+```
+
+
+
+
+Optional fields:
+- `Region`: `str`
+- `Resources`: `List[str]`
+
+
+## SAMLProviderListEntryTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import SAMLProviderListEntryTypeDef
+```
+
+
+
+
+Optional fields:
+- `Arn`: `str`
+- `ValidUntil`: `datetime`
+- `CreateDate`: `datetime`
+
+
+## SSHPublicKeyMetadataTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import SSHPublicKeyMetadataTypeDef
+```
+
+
+Required fields:
+- `UserName`: `str`
+- `SSHPublicKeyId`: `str`
+- `Status`: `statusType`
+- `UploadDate`: `datetime`
+
+
+
+
+## SSHPublicKeyTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import SSHPublicKeyTypeDef
+```
+
+
+Required fields:
+- `UserName`: `str`
+- `SSHPublicKeyId`: `str`
+- `Fingerprint`: `str`
+- `SSHPublicKeyBody`: `str`
+- `Status`: `statusType`
+
+
+
+Optional fields:
+- `UploadDate`: `datetime`
+
+
+## ServerCertificateMetadataTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import ServerCertificateMetadataTypeDef
+```
+
+
+Required fields:
+- `Path`: `str`
+- `ServerCertificateName`: `str`
+- `ServerCertificateId`: `str`
+- `Arn`: `str`
+
+
+
+Optional fields:
+- `UploadDate`: `datetime`
+- `Expiration`: `datetime`
+
+
+## ServerCertificateTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import ServerCertificateTypeDef
+```
+
+
+Required fields:
+- `ServerCertificateMetadata`: `"ServerCertificateMetadataTypeDef"`
+- `CertificateBody`: `str`
+
+
+
+Optional fields:
+- `CertificateChain`: `str`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## ServiceLastAccessedTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import ServiceLastAccessedTypeDef
+```
+
+
+Required fields:
+- `ServiceName`: `str`
+- `ServiceNamespace`: `str`
+
+
+
+Optional fields:
+- `LastAuthenticated`: `datetime`
+- `LastAuthenticatedEntity`: `str`
+- `LastAuthenticatedRegion`: `str`
+- `TotalAuthenticatedEntities`: `int`
+- `TrackedActionsLastAccessed`: `List["TrackedActionLastAccessedTypeDef"]`
+
+
+## ServiceSpecificCredentialMetadataTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import ServiceSpecificCredentialMetadataTypeDef
+```
+
+
+Required fields:
+- `UserName`: `str`
+- `Status`: `statusType`
+- `ServiceUserName`: `str`
+- `CreateDate`: `datetime`
+- `ServiceSpecificCredentialId`: `str`
+- `ServiceName`: `str`
+
+
+
+
+## ServiceSpecificCredentialTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import ServiceSpecificCredentialTypeDef
+```
+
+
+Required fields:
+- `CreateDate`: `datetime`
+- `ServiceName`: `str`
+- `ServiceUserName`: `str`
+- `ServicePassword`: `str`
+- `ServiceSpecificCredentialId`: `str`
+- `UserName`: `str`
+- `Status`: `statusType`
+
+
+
+
+## SigningCertificateTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import SigningCertificateTypeDef
+```
+
+
+Required fields:
+- `UserName`: `str`
+- `CertificateId`: `str`
+- `CertificateBody`: `str`
+- `Status`: `statusType`
+
+
+
+Optional fields:
+- `UploadDate`: `datetime`
 
 
 ## SimulatePolicyResponseTypeDef
@@ -2218,6 +2108,52 @@ Optional fields:
 - `EvaluationResults`: `List["EvaluationResultTypeDef"]`
 - `IsTruncated`: `bool`
 - `Marker`: `str`
+
+
+## StatementTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import StatementTypeDef
+```
+
+
+
+
+Optional fields:
+- `SourcePolicyId`: `str`
+- `SourcePolicyType`: `PolicySourceType`
+- `StartPosition`: `"PositionTypeDef"`
+- `EndPosition`: `"PositionTypeDef"`
+
+
+## TagTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import TagTypeDef
+```
+
+
+Required fields:
+- `Key`: `str`
+- `Value`: `str`
+
+
+
+
+## TrackedActionLastAccessedTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import TrackedActionLastAccessedTypeDef
+```
+
+
+
+
+Optional fields:
+- `ActionName`: `str`
+- `LastAccessedEntity`: `str`
+- `LastAccessedTime`: `datetime`
+- `LastAccessedRegion`: `str`
 
 
 ## UpdateRoleDescriptionResponseTypeDef
@@ -2284,6 +2220,70 @@ Required fields:
 - `Certificate`: `"SigningCertificateTypeDef"`
 
 
+
+
+## UserDetailTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import UserDetailTypeDef
+```
+
+
+
+
+Optional fields:
+- `Path`: `str`
+- `UserName`: `str`
+- `UserId`: `str`
+- `Arn`: `str`
+- `CreateDate`: `datetime`
+- `UserPolicyList`: `List["PolicyDetailTypeDef"]`
+- `GroupList`: `List[str]`
+- `AttachedManagedPolicies`: `List["AttachedPolicyTypeDef"]`
+- `PermissionsBoundary`: `"AttachedPermissionsBoundaryTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## UserTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import UserTypeDef
+```
+
+
+Required fields:
+- `Path`: `str`
+- `UserName`: `str`
+- `UserId`: `str`
+- `Arn`: `str`
+- `CreateDate`: `datetime`
+
+
+
+Optional fields:
+- `PasswordLastUsed`: `datetime`
+- `PermissionsBoundary`: `"AttachedPermissionsBoundaryTypeDef"`
+- `Tags`: `List["TagTypeDef"]`
+
+
+## VirtualMFADeviceTypeDef
+
+```python
+from mypy_boto3_iam.type_defs import VirtualMFADeviceTypeDef
+```
+
+
+Required fields:
+- `SerialNumber`: `str`
+
+
+
+Optional fields:
+- `Base32StringSeed`: `Union[bytes, IO[bytes]]`
+- `QRCodePNG`: `Union[bytes, IO[bytes]]`
+- `User`: `"UserTypeDef"`
+- `EnableDate`: `datetime`
+- `Tags`: `List["TagTypeDef"]`
 
 
 ## WaiterConfigTypeDef

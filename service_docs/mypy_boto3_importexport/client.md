@@ -208,16 +208,12 @@ def update_job(
     pass
 ```
 
+
+
 ### get_paginator
 
-Type annotations for `boto3.client("importexport").get_paginator` method.
+Type annotations for `boto3.client("importexport").get_paginator` method with overloads.
 
-[Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/importexport.html#ImportExport.Paginator.ListJobs)
+- `client.get_paginator("list_jobs")` -> [ListJobsPaginator](./paginators.md#listjobspaginator)
 
-```python
-def get_paginator(
-    self,
-    operation_name: ListJobsPaginatorName
-) -> ListJobsPaginator:
-    pass
-```
+

@@ -86,24 +86,24 @@ Type annotations for [typed dictionaries](./type_defs.md) used in methods and sc
 Can be used directly:
 
 ```python
-from mypy_boto3_rds_data.type_defs import ColumnMetadataTypeDef, ...
+from mypy_boto3_rds_data.type_defs import ArrayValueTypeDef, ...
 ```
 
+- [ArrayValueTypeDef](./type_defs.md#arrayvaluetypedef)
+- [BatchExecuteStatementResponseTypeDef](./type_defs.md#batchexecutestatementresponsetypedef)
+- [BeginTransactionResponseTypeDef](./type_defs.md#begintransactionresponsetypedef)
 - [ColumnMetadataTypeDef](./type_defs.md#columnmetadatatypedef)
+- [CommitTransactionResponseTypeDef](./type_defs.md#committransactionresponsetypedef)
+- [ExecuteSqlResponseTypeDef](./type_defs.md#executesqlresponsetypedef)
+- [ExecuteStatementResponseTypeDef](./type_defs.md#executestatementresponsetypedef)
 - [FieldTypeDef](./type_defs.md#fieldtypedef)
 - [RecordTypeDef](./type_defs.md#recordtypedef)
 - [ResultFrameTypeDef](./type_defs.md#resultframetypedef)
 - [ResultSetMetadataTypeDef](./type_defs.md#resultsetmetadatatypedef)
-- [SqlStatementResultTypeDef](./type_defs.md#sqlstatementresulttypedef)
-- [StructValueTypeDef](./type_defs.md#structvaluetypedef)
-- [UpdateResultTypeDef](./type_defs.md#updateresulttypedef)
-- [BatchExecuteStatementResponseTypeDef](./type_defs.md#batchexecutestatementresponsetypedef)
-- [BeginTransactionResponseTypeDef](./type_defs.md#begintransactionresponsetypedef)
-- [CommitTransactionResponseTypeDef](./type_defs.md#committransactionresponsetypedef)
-- [ValueTypeDef](./type_defs.md#valuetypedef)
-- [ArrayValueTypeDef](./type_defs.md#arrayvaluetypedef)
-- [ExecuteSqlResponseTypeDef](./type_defs.md#executesqlresponsetypedef)
-- [ExecuteStatementResponseTypeDef](./type_defs.md#executestatementresponsetypedef)
 - [ResultSetOptionsTypeDef](./type_defs.md#resultsetoptionstypedef)
 - [RollbackTransactionResponseTypeDef](./type_defs.md#rollbacktransactionresponsetypedef)
 - [SqlParameterTypeDef](./type_defs.md#sqlparametertypedef)
+- [SqlStatementResultTypeDef](./type_defs.md#sqlstatementresulttypedef)
+- [StructValueTypeDef](./type_defs.md#structvaluetypedef)
+- [UpdateResultTypeDef](./type_defs.md#updateresulttypedef)
+- [ValueTypeDef](./type_defs.md#valuetypedef)

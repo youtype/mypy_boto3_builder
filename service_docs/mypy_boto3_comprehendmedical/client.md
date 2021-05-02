@@ -305,7 +305,7 @@ def start_entities_detection_v2_job(
     InputDataConfig: "InputDataConfigTypeDef",
     OutputDataConfig: "OutputDataConfigTypeDef",
     DataAccessRoleArn: str,
-    LanguageCode: LanguageCode,
+    LanguageCode: Literal['en'],
     JobName: str = None,
     ClientRequestToken: str = None,
     KMSKey: str = None
@@ -325,7 +325,7 @@ def start_icd10_cm_inference_job(
     InputDataConfig: "InputDataConfigTypeDef",
     OutputDataConfig: "OutputDataConfigTypeDef",
     DataAccessRoleArn: str,
-    LanguageCode: LanguageCode,
+    LanguageCode: Literal['en'],
     JobName: str = None,
     ClientRequestToken: str = None,
     KMSKey: str = None
@@ -345,7 +345,7 @@ def start_phi_detection_job(
     InputDataConfig: "InputDataConfigTypeDef",
     OutputDataConfig: "OutputDataConfigTypeDef",
     DataAccessRoleArn: str,
-    LanguageCode: LanguageCode,
+    LanguageCode: Literal['en'],
     JobName: str = None,
     ClientRequestToken: str = None,
     KMSKey: str = None
@@ -365,7 +365,7 @@ def start_rx_norm_inference_job(
     InputDataConfig: "InputDataConfigTypeDef",
     OutputDataConfig: "OutputDataConfigTypeDef",
     DataAccessRoleArn: str,
-    LanguageCode: LanguageCode,
+    LanguageCode: Literal['en'],
     JobName: str = None,
     ClientRequestToken: str = None,
     KMSKey: str = None
@@ -428,3 +428,6 @@ def stop_rx_norm_inference_job(
 ) -> StopRxNormInferenceJobResponseTypeDef:
     pass
 ```
+
+
+
