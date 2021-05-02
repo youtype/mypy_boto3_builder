@@ -1,7 +1,7 @@
 class {{ class.name }}{% if class.bases %}({% for base in class.bases %}{{ base.render() }}{{ ", " if not loop.last else "" -}}{% endfor %}){% endif %}:
 {% filter indent(4, True) -%}
     {{ "pass" if not class.attributes and not class.methods and not class.docstring else "" -}}
-    {% if class.docstring -%}
+    {% if class.docstring and render_docstrings -%}
         {{ '"""\n' -}}
         {{ class.docstring -}}
         {{ '\n' -}}

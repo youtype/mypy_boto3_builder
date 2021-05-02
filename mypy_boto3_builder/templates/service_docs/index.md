@@ -38,37 +38,13 @@ from {{ package.service_name.module_name }}.client import {{ package.client.name
 {% if package.service_resource %}
 ## {{ package.service_resource.name }}
 
-Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}")`.
+Type annotations for  `boto3.resource("{{ package.service_name.boto3_name }}")` as [{{ package.service_resource.name }}](./service_resource.md)
 
 Can be used directly:
 
 ```python
 from {{ package.service_name.module_name }}.service_resource import {{ package.service_resource.name }}
 ```
-
-{% if package.service_resource.methods %}
-### Methods
-{% for method_name in package.service_resource.method_names -%}
-- {{ package.service_resource.name }}.{{ method_name }}{{ '\n' -}}
-{% endfor %}
-{% endif %}
-
-{% if package.service_resource.sub_resources %}
-
-### Resources
-
-Type annotations for additional resources from `boto3.resource("{{ package.service_name.boto3_name }}").*`.
-
-Can be used directly:
-
-```python
-from {{ package.service_name.module_name }}.service_resource import {{ package.service_resource.sub_resources[0].name }}, ...
-```
-
-{% for sub_resource in package.service_resource.sub_resources -%}
-- {{ sub_resource.name }}{{ '\n' -}}
-{% endfor %}
-{% endif %}
 
 {% if package.service_resource.collections %}
 ### Collections
@@ -82,16 +58,32 @@ from {{ package.service_name.module_name }}.service_resource import {{ package.s
 ```
 
 {% for collection in package.service_resource.collections -%}
-- {{ collection.name }}{{ '\n' -}}
+- [{{ collection.name }}](./service_resource.md#{{ get_anchor_link(package.service_resource.name) }}.{{ get_anchor_link(collection.attribute_name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
 {% endif %}
 
+{% if package.service_resource.sub_resources %}
+### Resources
+
+Type annotations for additional resources from `boto3.resource("{{ package.service_name.boto3_name }}").*`.
+
+Can be used directly:
+
+```python
+from {{ package.service_name.module_name }}.service_resource import {{ package.service_resource.sub_resources[0].name }}, ...
+```
+
+{% for sub_resource in package.service_resource.sub_resources -%}
+- [{{ sub_resource.name }}](./service_resource.md#{{ get_anchor_link(sub_resource.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
 {% if package.paginators %}
 ## Paginators
 
-Type annotations for paginators from `boto3.client("{{ package.service_name.boto3_name }}").get_paginator("...")`.
+Type annotations for [paginators](./paginators.md) from `boto3.client("{{ package.service_name.boto3_name }}").get_paginator("...")`.
 
 Can be used directly:
 
@@ -100,14 +92,14 @@ from {{ package.service_name.module_name }}.paginators import {{ package.paginat
 ```
 
 {% for paginator in package.paginators -%}
-- {{ paginator.name }}{{ '\n' -}}
+- [{{ paginator.name }}](./paginators.md#{{ get_anchor_link(paginator.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
 {% if package.waiters %}
 ## Waiters
 
-Type annotations for waiters from `boto3.client("{{ package.service_name.boto3_name }}").get_waiter("...")`.
+Type annotations for [waiters](./waiters.md) from `boto3.client("{{ package.service_name.boto3_name }}").get_waiter("...")`.
 
 Can be used directly:
 
@@ -116,7 +108,7 @@ from {{ package.service_name.module_name }}.waiters import {{ package.waiters[0]
 ```
 
 {% for waiter in package.waiters -%}
-- {{ waiter.name }}{{ '\n' -}}
+- [{{ waiter.name }}](./waiters.md#{{ get_anchor_link(waiter.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
@@ -140,7 +132,7 @@ from {{ package.service_name.module_name }}.literals import {{ package.literals[
 ## Structures
 
 
-Type annotations for [typed dictionaries](./structures.md) used in methods and schema.
+Type annotations for [typed dictionaries](./type_defs.md) used in methods and schema.
 
 Can be used directly:
 
@@ -149,6 +141,6 @@ from {{ package.service_name.module_name }}.type_defs import {{ package.typed_di
 ```
 
 {% for typed_dict in package.typed_dicts -%}
-- [{{ typed_dict.name }}](./structures.md#{{ get_anchor_link(typed_dict.name) }}){{ '\n' -}}
+- [{{ typed_dict.name }}](./type_defs.md#{{ get_anchor_link(typed_dict.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}

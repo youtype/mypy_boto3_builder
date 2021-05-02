@@ -12,10 +12,10 @@
 {% endfilter -%}
 {{ ') -> ' -}}{{ function.return_type.render() -}}{{ ':\n' -}}
 {% filter indent(4, True) -%}
-    {% if not function.docstring and not function.body -%}
+    {% if (not render_docstrings or not function.docstring) and not function.body -%}
         {{ 'pass' -}}
     {% endif -%}
-    {% if function.docstring -%}
+    {% if function.docstring and render_docstrings -%}
         {{ '"""\n' -}}
         {{ function.docstring -}}
         {{ '\n' -}}

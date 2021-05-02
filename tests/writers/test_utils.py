@@ -3,7 +3,13 @@ from unittest.mock import MagicMock, patch
 import pytest
 from black import NothingChanged
 
-from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template, sort_imports
+from mypy_boto3_builder.writers.utils import (
+    blackify,
+    get_anchor_link,
+    insert_md_toc,
+    render_jinja2_template,
+    sort_imports,
+)
 
 
 class TestUtils:
@@ -56,3 +62,14 @@ class TestUtils:
         TEMPLATES_PATH_MOCK.__truediv__().exists.return_value = False
         with pytest.raises(ValueError):
             render_jinja2_template(template_path_mock, "package", "service_name")
+
+    def test_get_anchor_link(self) -> None:
+        assert get_anchor_link("test") == "test"
+        assert get_anchor_link("n.ew_t est") == "new-t-est"
+
+    def test_insert_md_toc(self) -> None:
+        assert (
+            insert_md_toc("# a\ntest\n## b\n## c\ntest2")
+            == "# a\ntest\n- [a](#a)\n  - [b](#b)\n  - [c](#c)\n\n## b\n## c\ntest2"
+        )
+        assert insert_md_toc("# a\n") == "# a\n- [a](#a)\n"

@@ -7,7 +7,12 @@ from typing import List, Tuple
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template, sort_imports
+from mypy_boto3_builder.writers.utils import (
+    blackify,
+    insert_md_toc,
+    render_jinja2_template,
+    sort_imports,
+)
 
 
 def write_service_package(
@@ -142,11 +147,18 @@ def write_service_docs(package: ServicePackage, output_path: Path) -> List[Path]
     docs_path.mkdir(exist_ok=True)
     templates_path = Path("service_docs")
     file_paths = [
-        (docs_path / "README.md", templates_path / "README.md"),
+        (docs_path / "index.md", templates_path / "index.md"),
         (docs_path / "literals.md", templates_path / "literals.md"),
-        (docs_path / "structures.md", templates_path / "structures.md"),
+        (docs_path / "type_defs.md", templates_path / "type_defs.md"),
         (docs_path / "client.md", templates_path / "client.md"),
+        (docs_path / "waiters.md", templates_path / "waiters.md"),
+        (docs_path / "paginators.md", templates_path / "paginators.md"),
     ]
+
+    if package.service_resource:
+        file_paths.append(
+            (docs_path / "service_resource.md", templates_path / "service_resource.md")
+        )
 
     for file_path, template_path in file_paths:
         content = render_jinja2_template(
@@ -154,6 +166,7 @@ def write_service_docs(package: ServicePackage, output_path: Path) -> List[Path]
             package=package,
             service_name=package.service_name,
         )
+        content = insert_md_toc(content)
         if not file_path.exists() or file_path.read_text() != content:
             modified_paths.append(file_path)
             file_path.write_text(content)

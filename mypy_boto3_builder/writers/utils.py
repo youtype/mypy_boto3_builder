@@ -1,10 +1,12 @@
 """
 Jinja2 renderer and black formatter.
 """
+import tempfile
 from pathlib import Path
 from typing import Iterable, Optional
 
 import black
+import md_toc
 from black import InvalidInput, NothingChanged
 from isort.api import Config, sort_code_string
 
@@ -98,4 +100,27 @@ def get_anchor_link(text: str) -> str:
     """
     Convert header to markdown anchor link.
     """
-    return text.strip().replace(" ", "-").replace(".", "").lower()
+    return text.strip().replace(" ", "-").replace("_", "-").replace(".", "").lower()
+
+
+def insert_md_toc(text: str) -> str:
+    with tempfile.NamedTemporaryFile("w+") as f:
+        f.write(text)
+        f.flush()
+        toc_lines = md_toc.build_toc(f.name).splitlines()
+
+    lines = text.splitlines()
+    result = []
+    inserted = False
+    for line in lines:
+        if not inserted and line.startswith("## "):
+            result.extend(toc_lines)
+            result.append("")
+            inserted = True
+        result.append(line)
+
+    if not inserted:
+        result.extend(toc_lines)
+        result.append("")
+
+    return "\n".join(result)

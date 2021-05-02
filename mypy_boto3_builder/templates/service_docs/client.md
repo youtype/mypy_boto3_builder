@@ -1,16 +1,11 @@
 # {{ package.client.name }} for boto3 {{ package.service_name.class_name }} module
 
-[Back to {{ package.service_name.class_name }} type annotations](./README.md)
+[Back to {{ package.service_name.class_name }} type annotations](./index.md)
 
 Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.doc_link}})
 type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).
 
-- [{{ package.client.name }} for boto3 {{ package.service_name.class_name }} module](#{{ get_anchor_link(package.client.name) }}-for-boto3-{{ get_anchor_link(package.service_name.class_name) }}-module)
-  - [Exceptions](#exceptions)
-  - [Methods](#methods)
-{% for method_name in package.client.method_names -%}
-{{ '    ' -}}- [{{ method_name }}](#{{ get_anchor_link(method_name) }}){{ '\n' -}}
-{% endfor %}
+## {{ package.client.name }}
 
 Type annotations for `boto3.client("{{ package.service_name.boto3_name }}")`
 
@@ -46,12 +41,14 @@ Exceptions:
 {% for method in package.client.methods %}
 ### {{ method.name }}
 
-Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").{{ method.name }}`.
+Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
 
 {{ method.docstring }}
 
 ```python
-{% include "common/method.py.jinja2" with context -%}
+{% with render_docstrings=False -%}
+{% include "common/method.py.jinja2" with context -%}{{ '\n' -}}
+{% endwith -%}
 ```
 {% else %}
 {{ package.client.name }} has no public methods.

@@ -1,14 +1,9 @@
 # Structures for boto3 {{ package.service_name.class_name }} module
 
-[Back to {{ package.service_name.class_name }} type annotations](./README.md)
+[Back to {{ package.service_name.class_name }} type annotations](./index.md)
 
 Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.doc_link}})
 type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).
-
-- [Structures for boto3 {{ package.service_name.class_name }} module](#structures-for-boto3-{{ get_anchor_link(package.service_name.class_name) }}-module)
-{% for typed_dict in package.typed_dicts -%}
-{{ '  ' -}}- [{{ typed_dict.name }}](#{{ get_anchor_link(typed_dict.name) }}){{ '\n' -}}
-{% endfor %}
 
 {% for typed_dict in package.typed_dicts -%}
 ## {{ typed_dict.name }}
