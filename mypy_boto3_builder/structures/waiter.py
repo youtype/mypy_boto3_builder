@@ -25,15 +25,25 @@ class Waiter(ClassRecord):
         name: str,
         waiter_name: str,
         service_name: ServiceName,
-        docstring: str = "",
     ):
         super().__init__(
             name=name,
-            docstring=docstring,
             bases=[TypeClass(Boto3Waiter, alias="Boto3Waiter")],
         )
         self.waiter_name = waiter_name
         self.service_name = service_name
+
+    @property
+    def boto3_doc_link(self) -> str:
+        return self.service_name.get_boto3_doc_link("Waiter", self.waiter_name)
+
+    @property
+    def docstring(self) -> str:
+        return (
+            f"[boto3 Waiter.{self.waiter_name} documentation]({self.boto3_doc_link})"
+            "[Type annotations documentation]"
+            f"({self.service_name.get_doc_link('waiters', self.name)})"
+        )
 
     def get_client_method(self) -> Method:
         return Method(

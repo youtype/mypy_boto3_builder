@@ -2,6 +2,8 @@
 Parser that produces `structures.ServiceModule`.
 """
 
+from typing import List
+
 from boto3.session import Session
 from botocore import xform_name
 
@@ -41,15 +43,12 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
         service_resource=service_resource,
     )
 
-    for waiter_name in client.boto3_client.waiter_names:
+    waiter_names: List[str] = client.boto3_client.waiter_names  # type: ignore
+    for waiter_name in waiter_names:
         logger.debug(f"Parsing Waiter {waiter_name}")
         waiter = client.boto3_client.get_waiter(waiter_name)
         waiter_record = Waiter(
             name=f"{waiter.name}Waiter",
-            docstring=(
-                f"[Waiter.{waiter.name} documentation]"
-                f"({service_name.doc_link}.Waiter.{waiter.name})"
-            ),
             waiter_name=waiter_name,
             service_name=service_name,
         )
@@ -57,7 +56,9 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
         wait_method = shape_parser.get_wait_method(waiter.name)
         wait_method.docstring = (
             f"[{waiter.name}.wait documentation]"
-            f"({service_name.doc_link}.Waiter.{waiter.name}.wait)"
+            f"({service_name.doc_link}.Waiter.{waiter.name}.wait)\n"
+            "[Type annotations documentation]"
+            f"({service_name.get_doc_link('waiters', waiter.name)})"
         )
         waiter_record.methods.append(wait_method)
         result.waiters.append(waiter_record)
@@ -68,18 +69,17 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
         paginator = client.boto3_client.get_paginator(operation_name)
         paginator_record = Paginator(
             name=f"{paginator_name}Paginator",
+            paginator_name=paginator_name,
             operation_name=operation_name,
             service_name=service_name,
-            docstring=(
-                f"[Paginator.{paginator_name} documentation]"
-                f"({service_name.doc_link}.Paginator.{paginator_name})"
-            ),
         )
 
         paginate_method = shape_parser.get_paginate_method(paginator_name)
         paginate_method.docstring = (
             f"[{paginator_name}.paginate documentation]"
-            f"({service_name.doc_link}.Paginator.{paginator_name}.paginate)"
+            f"({service_name.doc_link}.Paginator.{paginator_name}.paginate)\n"
+            "[Type annotations documentation]"
+            f"({service_name.get_doc_link('paginators', paginator_name)})"
         )
         paginator_record.methods.append(paginate_method)
         result.paginators.append(paginator_record)

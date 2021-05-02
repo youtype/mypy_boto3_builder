@@ -6,7 +6,10 @@ from mypy_boto3_builder.structures.paginator import Paginator
 class TestPaginator:
     def test_init(self) -> None:
         paginator = Paginator(
-            name="name", operation_name="my_operation_name", service_name="service_name"
+            name="name",
+            operation_name="my_operation_name",
+            service_name="service_name",
+            paginator_name="paginator_name",
         )
         assert paginator.name == "name"
         assert paginator.operation_name == "my_operation_name"
@@ -14,7 +17,10 @@ class TestPaginator:
 
     def test_get_client_method(self) -> None:
         paginator = Paginator(
-            name="name", operation_name="my_operation_name", service_name=MagicMock()
+            name="name",
+            operation_name="my_operation_name",
+            service_name=MagicMock(),
+            paginator_name="paginator_name",
         )
         result = paginator.get_client_method()
         assert result.name == "get_paginator"

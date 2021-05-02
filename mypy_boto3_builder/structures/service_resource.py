@@ -27,11 +27,9 @@ class ServiceResource(ClassRecord):
         name: str,
         service_name: ServiceName,
         boto3_service_resource: Boto3ServiceResource,
-        docstring: str = "",
     ):
         super().__init__(
             name=name,
-            docstring=docstring,
             bases=[
                 ExternalImport(
                     source=ImportString("boto3", "resources", "base"),
@@ -47,6 +45,18 @@ class ServiceResource(ClassRecord):
 
     def __hash__(self) -> int:
         return hash(self.service_name)
+
+    @property
+    def boto3_doc_link(self) -> str:
+        return self.service_name.get_boto3_doc_link("ServiceResource")
+
+    @property
+    def docstring(self) -> str:
+        return (
+            f"[boto3 {self.service_name.class_name}.ServiceResource documentation]({self.boto3_doc_link})"
+            "[Type annotations documentation]"
+            f"({self.service_name.get_doc_link('service_resource')})"
+        )
 
     def get_types(self) -> Set[FakeAnnotation]:
         types = super().get_types()

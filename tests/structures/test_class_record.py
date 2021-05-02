@@ -29,7 +29,6 @@ class TestClassRecord:
             ],
             attributes=[Attribute("attr", Type.Any, Type.none)],
             bases=[Type.Any],
-            docstring="my doc",
             use_alias=True,
         )
 

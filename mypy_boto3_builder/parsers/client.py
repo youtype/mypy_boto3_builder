@@ -42,9 +42,6 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
         name=f"{service_name.class_name}Client",
         service_name=service_name,
         boto3_client=client,
-        docstring=(
-            f"[{service_name.class_name}.Client documentation]" f"({service_name.doc_link}.Client)"
-        ),
     )
 
     shape_method_map = shape_parser.get_client_method_map()
@@ -54,8 +51,10 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
         else:
             method = parse_method("Client", method_name, public_method, service_name)
         method.docstring = (
-            f"[Client.{method_name} documentation]"
-            f"({service_name.doc_link}.Client.{method_name})"
+            f"[boto3 Client.{method_name} documentation]"
+            f"({service_name.doc_link}.Client.{method_name})\n"
+            "[Type annotations documentation]"
+            f"({service_name.get_doc_link('client', method_name)})"
         )
         result.methods.append(method)
 

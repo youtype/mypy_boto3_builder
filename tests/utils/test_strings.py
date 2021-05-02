@@ -1,4 +1,8 @@
-from mypy_boto3_builder.utils.strings import get_class_prefix, get_line_with_indented
+from mypy_boto3_builder.utils.strings import (
+    get_anchor_link,
+    get_class_prefix,
+    get_line_with_indented,
+)
 
 
 class TestStrings:
@@ -14,3 +18,7 @@ class TestStrings:
         assert get_line_with_indented("") == ""
         assert get_line_with_indented("a\n\nb\n c\nd", True) == "a\n\nb\n c"
         assert get_line_with_indented(" a\n\n b\n   c\n  d\ne", True) == " a\n\n b\n   c\n   d"
+
+    def test_get_anchor_link(self) -> None:
+        assert get_anchor_link("test") == "test"
+        assert get_anchor_link("n.ew_t est") == "new-t-est"

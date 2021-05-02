@@ -96,13 +96,6 @@ def render_jinja2_template(
     return template.render(package=package, service_name=service_name)
 
 
-def get_anchor_link(text: str) -> str:
-    """
-    Convert header to markdown anchor link.
-    """
-    return text.strip().replace(" ", "-").replace("_", "-").replace(".", "").lower()
-
-
 def insert_md_toc(text: str) -> str:
     with tempfile.NamedTemporaryFile("w+") as f:
         f.write(text)

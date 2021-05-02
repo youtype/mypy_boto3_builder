@@ -45,10 +45,6 @@ def parse_service_resource(
         name=f"{service_name.class_name}ServiceResource",
         service_name=service_name,
         boto3_service_resource=service_resource,
-        docstring=(
-            f"[{service_name.class_name}.ServiceResource documentation]"
-            f"({service_name.doc_link}.ServiceResource)"
-        ),
     )
 
     public_methods = get_public_methods(service_resource)
@@ -59,8 +55,10 @@ def parse_service_resource(
         else:
             method = parse_method("ServiceResource", method_name, public_method, service_name)
         method.docstring = (
-            f"[ServiceResource.{method_name} documentation]"
-            f"({service_name.doc_link}.ServiceResource.{method_name})"
+            f"[boto3 ServiceResource.{method_name} documentation]"
+            f"({service_name.doc_link}.ServiceResource.{method_name})\n"
+            "[Type annotations documentation]"
+            f"({service_name.get_doc_link('service_resource', result.name, method_name)})"
         )
         result.methods.append(method)
 

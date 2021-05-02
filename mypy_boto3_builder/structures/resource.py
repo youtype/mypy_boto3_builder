@@ -4,6 +4,7 @@ Boto3 ServiceResource sub-Resource.
 from typing import List, Set
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -15,10 +16,9 @@ class Resource(ClassRecord):
     Boto3 ServiceResource sub-Resource.
     """
 
-    def __init__(self, name: str, docstring: str = ""):
+    def __init__(self, name: str, service_name: ServiceName):
         super().__init__(
             name=name,
-            docstring=docstring,
             bases=[
                 ExternalImport(
                     source=ImportString("boto3", "resources", "base"),
@@ -28,7 +28,20 @@ class Resource(ClassRecord):
             ],
             use_alias=True,
         )
+        self.service_name = service_name
         self.collections: List[Collection] = []
+
+    @property
+    def boto3_doc_link(self) -> str:
+        return self.service_name.get_boto3_doc_link("ServiceResource", self.name)
+
+    @property
+    def docstring(self) -> str:
+        return (
+            f"[boto3 {self.service_name.class_name}.{self.name} documentation]({self.boto3_doc_link})"
+            "[Type annotations documentation]"
+            f"({self.service_name.get_doc_link('service_resource', self.name)})"
+        )
 
     def get_types(self) -> Set[FakeAnnotation]:
         types = super().get_types()

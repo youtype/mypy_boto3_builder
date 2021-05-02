@@ -22,10 +22,8 @@ class Client(ClassRecord):
 
     _alias_name: str = "Client"
 
-    def __init__(
-        self, name: str, service_name: ServiceName, boto3_client: BaseClient, docstring: str = ""
-    ):
-        super().__init__(name=name, docstring=docstring)
+    def __init__(self, name: str, service_name: ServiceName, boto3_client: BaseClient):
+        super().__init__(name=name)
         self.service_name = service_name
         self.boto3_client = boto3_client
         self.exceptions_class = ClassRecord(name="Exceptions")
@@ -54,6 +52,18 @@ class Client(ClassRecord):
 
     def __hash__(self) -> int:
         return hash(self.service_name)
+
+    @property
+    def boto3_doc_link(self) -> str:
+        return self.service_name.get_boto3_doc_link("Client")
+
+    @property
+    def docstring(self) -> str:
+        return (
+            f"[boto3 {self.service_name.class_name}.Client documentation]({self.boto3_doc_link})\n"
+            "[Type annotations documentation]"
+            f"({self.service_name.get_doc_link('client')})"
+        )
 
     def get_all_names(self) -> List[str]:
         return [self.name]

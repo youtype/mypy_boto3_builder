@@ -25,15 +25,21 @@ class ClassRecord:
         methods: Iterable[Method] = tuple(),
         attributes: Iterable[Attribute] = tuple(),
         bases: Iterable[FakeAnnotation] = tuple(),
-        docstring: str = "",
         use_alias: bool = False,
     ):
         self.name = name
         self.methods = list(methods)
         self.attributes = list(attributes)
         self.bases = list(bases)
-        self.docstring = docstring
         self.use_alias = use_alias
+
+    @property
+    def boto3_doc_link(self) -> str:
+        return ""
+
+    @property
+    def docstring(self) -> str:
+        return ""
 
     @property
     def alias_name(self) -> str:

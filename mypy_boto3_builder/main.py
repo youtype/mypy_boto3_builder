@@ -12,6 +12,7 @@ from mypy_boto3_builder.constants import BOTO3_STUBS_NAME, DUMMY_REGION, MODULE_
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from mypy_boto3_builder.utils.strings import get_anchor_link
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
@@ -19,7 +20,6 @@ from mypy_boto3_builder.writers.processors import (
     process_service,
     process_service_docs,
 )
-from mypy_boto3_builder.writers.utils import get_anchor_link
 
 
 def main() -> None:

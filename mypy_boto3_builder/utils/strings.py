@@ -75,3 +75,10 @@ def get_line_with_indented(input_string: str, multi_first_line: bool = False) ->
         result.pop()
 
     return "\n".join(result)
+
+
+def get_anchor_link(text: str) -> str:
+    """
+    Convert header to markdown anchor link.
+    """
+    return text.strip().replace(" ", "-").replace("_", "-").replace(".", "").lower()

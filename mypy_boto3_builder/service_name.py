@@ -1,9 +1,10 @@
 """
 Description for boto3 service.
 """
-from typing import Tuple
+from typing import Literal, Tuple
 
 from mypy_boto3_builder.constants import MODULE_NAME, PYPI_NAME
+from mypy_boto3_builder.utils.strings import get_anchor_link
 
 __all__ = (
     "ServiceName",
@@ -98,8 +99,33 @@ class ServiceName:
         )
 
     @property
+    def local_doc_link(self):
+        return f"https://github.com/vemel/boto3_stubs_docs/blob/master/{self.module_name}/"
+
+    def get_boto3_doc_link(self, *parts: str):
+        return ".".join([self.doc_link, *parts])
+
+    @property
     def auto_doc_link(self) -> str:
-        return f"https://github.com/vemel/mypy_boto3_builder/services_docs/{self.module_name}/README.md"
+        return f"{self.local_doc_link}/README.md"
+
+    def get_doc_link(
+        self,
+        file: Literal[
+            "client",
+            "service_resource",
+            "waiters",
+            "paginators",
+            "type_defs",
+            "literals",
+        ],
+        *parts: str,
+    ) -> str:
+        link = f"{self.local_doc_link}/{file}.md"
+        if not parts:
+            return link
+        anchor = "".join([get_anchor_link(part) for part in parts])
+        return f"{link}#{anchor}"
 
 
 class ServiceNameCatalog:

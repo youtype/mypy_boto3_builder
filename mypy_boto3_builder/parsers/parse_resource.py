@@ -36,7 +36,7 @@ def parse_resource(
     """
     result = Resource(
         name=name,
-        docstring=(f"[{name} documentation]" f"({service_name.doc_link}.ServiceResource.{name})"),
+        service_name=service_name,
     )
     shape_method_map = shape_parser.get_resource_method_map(name)
     public_methods = get_resource_public_methods(resource.__class__)
@@ -47,7 +47,9 @@ def parse_resource(
             method = parse_method(name, method_name, public_method, service_name)
         method.docstring = (
             f"[{name}.{method_name} documentation]"
-            f"({service_name.doc_link}.{name}.{method_name})"
+            f"({service_name.doc_link}.{name}.{method_name})\n"
+            "[Type annotations documentation]"
+            f"({service_name.get_doc_link('service_resource', name, method_name)})"
         )
         result.methods.append(method)
 

@@ -1,6 +1,8 @@
 """
 Fake parser that produces `structures.ServiceModule` for master module and stubs.
 """
+from typing import List
+
 from boto3.session import Session
 from botocore import xform_name
 
@@ -50,7 +52,8 @@ def parse_fake_service_package(session: Session, service_name: ServiceName) -> S
             boto3_service_resource=boto3_resource,
         )
 
-    for waiter_name in boto3_client.waiter_names:
+    waiter_names: List[str] = boto3_client.waiter_names  # type: ignore
+    for waiter_name in waiter_names:
         real_class_name = get_class_prefix(waiter_name)
         waiter_class_name = f"{real_class_name}Waiter"
         result.waiters.append(
@@ -68,6 +71,7 @@ def parse_fake_service_package(session: Session, service_name: ServiceName) -> S
                 f"{paginator_name}Paginator",
                 operation_name=operation_name,
                 service_name=service_name,
+                paginator_name=paginator_name,
             )
         )
 

@@ -23,17 +23,29 @@ class Paginator(ClassRecord):
     def __init__(
         self,
         name: str,
+        paginator_name: str,
         operation_name: str,
         service_name: ServiceName,
-        docstring: str = "",
     ):
         super().__init__(
             name=name,
-            docstring=docstring,
             bases=[TypeClass(Boto3Paginator, alias="Boto3Paginator")],
         )
         self.operation_name = operation_name
+        self.paginator_name = paginator_name
         self.service_name = service_name
+
+    @property
+    def boto3_doc_link(self) -> str:
+        return self.service_name.get_boto3_doc_link("Paginator", self.paginator_name)
+
+    @property
+    def docstring(self) -> str:
+        return (
+            f"[boto3 Paginator.{self.paginator_name} documentation]({self.boto3_doc_link})"
+            "[Type annotations documentation]"
+            f"({self.service_name.get_doc_link('paginators', self.name)})"
+        )
 
     def get_client_method(self) -> Method:
         return Method(
