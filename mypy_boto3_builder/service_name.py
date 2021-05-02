@@ -16,6 +16,7 @@ class ServiceName:
     Description for boto3 service.
     """
 
+    LATEST = "latest"
     ESSENTIAL = (
         "ec2",
         "rds",
@@ -29,7 +30,7 @@ class ServiceName:
     def __init__(self, name: str, class_name: str) -> None:
         self.name = name
         self.class_name = class_name
-        self.boto3_version = "latest"
+        self.boto3_version = self.LATEST
 
     def __hash__(self) -> int:
         return hash(self.name)

@@ -8,7 +8,12 @@ from typing import List, Tuple
 
 from mypy_boto3_builder.constants import BOTO3_STUBS_STATIC_PATH
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
-from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template, sort_imports
+from mypy_boto3_builder.writers.utils import (
+    blackify,
+    insert_md_toc,
+    render_jinja2_template,
+    sort_imports,
+)
 
 
 def write_boto3_stubs_package(
@@ -74,5 +79,26 @@ def write_boto3_stubs_package(
 
         shutil.copy(static_path, file_path)
         modified_paths.append(file_path)
+
+    return modified_paths
+
+
+def write_boto3_stubs_docs(package: Boto3StubsPackage, output_path: Path) -> List[Path]:
+    modified_paths = []
+    docs_path = output_path
+    docs_path.mkdir(exist_ok=True)
+    templates_path = Path("boto3_stubs_docs")
+    file_paths = [
+        (docs_path / "index.md", templates_path / "index.md"),
+    ]
+    for file_path, template_path in file_paths:
+        content = render_jinja2_template(
+            template_path,
+            package=package,
+        )
+        content = insert_md_toc(content)
+        if not file_path.exists() or file_path.read_text() != content:
+            modified_paths.append(file_path)
+            file_path.write_text(content)
 
     return modified_paths

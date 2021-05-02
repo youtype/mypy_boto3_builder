@@ -15,7 +15,10 @@ from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.nice_path import NicePath
-from mypy_boto3_builder.writers.boto3_stubs_package import write_boto3_stubs_package
+from mypy_boto3_builder.writers.boto3_stubs_package import (
+    write_boto3_stubs_docs,
+    write_boto3_stubs_package,
+)
 from mypy_boto3_builder.writers.master_package import write_master_package
 from mypy_boto3_builder.writers.service_package import write_service_docs, write_service_package
 
@@ -40,16 +43,16 @@ def process_boto3_stubs(
     """
     logger = get_logger()
     logger.debug("Parsing boto3 stubs")
-    boto3_stub_package = parse_boto3_stubs_package(session=session, service_names=service_names)
+    boto3_stubs_package = parse_boto3_stubs_package(session=session, service_names=service_names)
     logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
 
     modified_paths = write_boto3_stubs_package(
-        boto3_stub_package, output_path, generate_setup=generate_setup
+        boto3_stubs_package, output_path, generate_setup=generate_setup
     )
     for modified_path in modified_paths:
         logger.debug(f"Updated {NicePath(modified_path)}")
 
-    return boto3_stub_package
+    return boto3_stubs_package
 
 
 def process_master(
@@ -142,3 +145,31 @@ def process_service_docs(
         logger.debug(f"Updated {NicePath(modified_path)}")
 
     return service_module
+
+
+def process_boto3_stubs_docs(
+    session: Session,
+    output_path: Path,
+    service_names: List[ServiceName],
+) -> Boto3StubsPackage:
+    """
+    Parse and write master package docs.
+
+    Arguments:
+        session -- boto3 session.
+        output_path -- Package output path.
+        service_names -- List of known service names.
+
+    Return:
+        Parsed Boto3StubsPackage.
+    """
+    logger = get_logger()
+    logger.debug("Parsing boto3 stubs")
+    boto3_stubs_package = parse_boto3_stubs_package(session=session, service_names=service_names)
+    logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
+
+    modified_paths = write_boto3_stubs_docs(boto3_stubs_package, output_path=output_path)
+    for modified_path in modified_paths:
+        logger.debug(f"Updated {NicePath(modified_path)}")
+
+    return boto3_stubs_package

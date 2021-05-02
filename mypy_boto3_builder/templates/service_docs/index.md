@@ -1,4 +1,6 @@
-# Type annotaitons for boto3 {{ package.service_name.class_name }} module
+# Type annotations for boto3 {{ package.service_name.class_name }} module
+
+> [Index](../index.md) > {{ package.service_name.class_name }}
 
 Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.doc_link}})
 type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).
@@ -62,8 +64,6 @@ from {{ package.service_name.module_name }}.service_resource import {{ package.s
 {% endfor %}
 {% endif %}
 
-{% endif %}
-
 {% if package.service_resource.sub_resources %}
 ### Resources
 
@@ -78,6 +78,7 @@ from {{ package.service_name.module_name }}.service_resource import {{ package.s
 {% for sub_resource in package.service_resource.sub_resources -%}
 - [{{ sub_resource.name }}](./service_resource.md#{{ get_anchor_link(sub_resource.name) }}){{ '\n' -}}
 {% endfor %}
+{% endif %}
 {% endif %}
 
 {% if package.paginators %}

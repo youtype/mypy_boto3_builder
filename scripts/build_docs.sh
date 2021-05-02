@@ -4,4 +4,4 @@ set -e
 ROOT_PATH=$(dirname $(dirname $0))
 cd ${ROOT_PATH}
 
-python -m mypy_boto3_builder service_docs --docs --skip-master $@
+python -m mypy_boto3_builder service_docs --docs $@

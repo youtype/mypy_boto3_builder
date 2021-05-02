@@ -148,12 +148,20 @@ def write_service_docs(package: ServicePackage, output_path: Path) -> List[Path]
     templates_path = Path("service_docs")
     file_paths = [
         (docs_path / "index.md", templates_path / "index.md"),
-        (docs_path / "literals.md", templates_path / "literals.md"),
-        (docs_path / "type_defs.md", templates_path / "type_defs.md"),
         (docs_path / "client.md", templates_path / "client.md"),
-        (docs_path / "waiters.md", templates_path / "waiters.md"),
-        (docs_path / "paginators.md", templates_path / "paginators.md"),
     ]
+
+    if package.literals:
+        file_paths.append((docs_path / "literals.md", templates_path / "literals.md"))
+
+    if package.typed_dicts:
+        file_paths.append((docs_path / "type_defs.md", templates_path / "type_defs.md"))
+
+    if package.waiters:
+        file_paths.append((docs_path / "waiters.md", templates_path / "waiters.md"))
+
+    if package.paginators:
+        file_paths.append((docs_path / "paginators.md", templates_path / "paginators.md"))
 
     if package.service_resource:
         file_paths.append(

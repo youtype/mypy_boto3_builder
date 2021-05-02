@@ -1,6 +1,6 @@
 # {{ package.client.name }} for boto3 {{ package.service_name.class_name }} module
 
-[Back to {{ package.service_name.class_name }} type annotations](./index.md)
+> [Index](../index.md) > [{{ package.service_name.class_name }}](./index.md) > {{ package.client.name }}
 
 Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.doc_link}})
 type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).

@@ -1,6 +1,6 @@
 # {{ package.service_resource.name }} for boto3 {{ package.service_name.class_name }} module
 
-[Back to {{ package.service_name.class_name }} type annotations](./index.md)
+> [Index](../index.md) > [{{ package.service_name.class_name }}](./index.md) > {{ package.service_resource.name }}
 
 Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.doc_link}})
 type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).
@@ -15,12 +15,32 @@ Can be used directly:
 from {{ package.service_name.module_name }}.service_resource import {{ package.service_resource.name }}
 ```
 
+
+{% if package.service_resource.methods %}
+## Methods
+{% for method in package.service_resource.methods %}
+### {{ package.service_resource.name }}.{{ method.name }}
+
+Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
+
+{{ method.docstring }}
+
+Definition:
+
+```python
+{% with render_docstrings=False -%}
+{% include "common/method.py.jinja2" with context -%}{{ '\n' -}}
+{% endwith -%}
+```
+{% endfor %}
+{% endif %}
+
 {% if package.service_resource.collections %}
 ## Collections
 {% for collection in package.service_resource.collections %}
 ### {{ package.service_resource.name }}.{{ collection.attribute_name }}
 
-Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ collection.attribute_name }}`.
+Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ collection.attribute_name }}` collection.
 
 Can be used directly:
 

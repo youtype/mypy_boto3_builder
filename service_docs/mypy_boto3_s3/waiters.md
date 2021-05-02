@@ -1,8 +1,8 @@
 # Waiters for boto3 S3 module
 
-[Back to S3 type annotations](./index.md)
+> [Index](../index.md) > [S3](./index.md) > Waiters
 
-Auto-generated documentation for [S3](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3)
+Auto-generated documentation for [S3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3)
 type annotations stubs module [mypy_boto3_s3](https://pypi.org/project/mypy-boto3-s3/).
 
 - [Waiters for boto3 S3 module](#waiters-for-boto3-s3-module)
@@ -24,7 +24,7 @@ def get_bucket_exists_waiter() -> BucketExistsWaiter:
     return boto3.client("s3").get_waiter("bucket_exists")
 ```
 
-[Waiter.BucketExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Waiter.BucketExists)
+[Waiter.BucketExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.BucketExists)
 
 ```python
 class BucketExistsWaiter(Boto3Waiter):
@@ -49,7 +49,7 @@ def get_bucket_not_exists_waiter() -> BucketNotExistsWaiter:
     return boto3.client("s3").get_waiter("bucket_not_exists")
 ```
 
-[Waiter.BucketNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Waiter.BucketNotExists)
+[Waiter.BucketNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.BucketNotExists)
 
 ```python
 class BucketNotExistsWaiter(Boto3Waiter):
@@ -74,7 +74,7 @@ def get_object_exists_waiter() -> ObjectExistsWaiter:
     return boto3.client("s3").get_waiter("object_exists")
 ```
 
-[Waiter.ObjectExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Waiter.ObjectExists)
+[Waiter.ObjectExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.ObjectExists)
 
 ```python
 class ObjectExistsWaiter(Boto3Waiter):
@@ -111,7 +111,7 @@ def get_object_not_exists_waiter() -> ObjectNotExistsWaiter:
     return boto3.client("s3").get_waiter("object_not_exists")
 ```
 
-[Waiter.ObjectNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Waiter.ObjectNotExists)
+[Waiter.ObjectNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.ObjectNotExists)
 
 ```python
 class ObjectNotExistsWaiter(Boto3Waiter):

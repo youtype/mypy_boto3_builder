@@ -1,8 +1,8 @@
 # S3Client for boto3 S3 module
 
-[Back to S3 type annotations](./index.md)
+> [Index](../index.md) > [S3](./index.md) > S3Client
 
-Auto-generated documentation for [S3](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3)
+Auto-generated documentation for [S3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3)
 type annotations stubs module [mypy_boto3_s3](https://pypi.org/project/mypy-boto3-s3/).
 
 - [S3Client for boto3 S3 module](#s3client-for-boto3-s3-module)
@@ -166,7 +166,7 @@ Exceptions:
 
 Type annotations for `boto3.client("s3").abort_multipart_upload` method.
 
-[Client.abort_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.abort_multipart_upload)
+[Client.abort_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.abort_multipart_upload)
 
 ```python
 def abort_multipart_upload(
@@ -184,7 +184,7 @@ def abort_multipart_upload(
 
 Type annotations for `boto3.client("s3").can_paginate` method.
 
-[Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.can_paginate)
+[Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.can_paginate)
 
 ```python
 def can_paginate(
@@ -198,7 +198,7 @@ def can_paginate(
 
 Type annotations for `boto3.client("s3").complete_multipart_upload` method.
 
-[Client.complete_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.complete_multipart_upload)
+[Client.complete_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.complete_multipart_upload)
 
 ```python
 def complete_multipart_upload(
@@ -217,7 +217,7 @@ def complete_multipart_upload(
 
 Type annotations for `boto3.client("s3").copy` method.
 
-[Client.copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.copy)
+[Client.copy documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.copy)
 
 ```python
 def copy(
@@ -237,7 +237,7 @@ def copy(
 
 Type annotations for `boto3.client("s3").copy_object` method.
 
-[Client.copy_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.copy_object)
+[Client.copy_object documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.copy_object)
 
 ```python
 def copy_object(
@@ -290,7 +290,7 @@ def copy_object(
 
 Type annotations for `boto3.client("s3").create_bucket` method.
 
-[Client.create_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.create_bucket)
+[Client.create_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.create_bucket)
 
 ```python
 def create_bucket(
@@ -312,7 +312,7 @@ def create_bucket(
 
 Type annotations for `boto3.client("s3").create_multipart_upload` method.
 
-[Client.create_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.create_multipart_upload)
+[Client.create_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.create_multipart_upload)
 
 ```python
 def create_multipart_upload(
@@ -354,7 +354,7 @@ def create_multipart_upload(
 
 Type annotations for `boto3.client("s3").delete_bucket` method.
 
-[Client.delete_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket)
+[Client.delete_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket)
 
 ```python
 def delete_bucket(
@@ -369,7 +369,7 @@ def delete_bucket(
 
 Type annotations for `boto3.client("s3").delete_bucket_analytics_configuration` method.
 
-[Client.delete_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_analytics_configuration)
+[Client.delete_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_analytics_configuration)
 
 ```python
 def delete_bucket_analytics_configuration(
@@ -385,7 +385,7 @@ def delete_bucket_analytics_configuration(
 
 Type annotations for `boto3.client("s3").delete_bucket_cors` method.
 
-[Client.delete_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_cors)
+[Client.delete_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_cors)
 
 ```python
 def delete_bucket_cors(
@@ -400,7 +400,7 @@ def delete_bucket_cors(
 
 Type annotations for `boto3.client("s3").delete_bucket_encryption` method.
 
-[Client.delete_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_encryption)
+[Client.delete_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_encryption)
 
 ```python
 def delete_bucket_encryption(
@@ -415,7 +415,7 @@ def delete_bucket_encryption(
 
 Type annotations for `boto3.client("s3").delete_bucket_intelligent_tiering_configuration` method.
 
-[Client.delete_bucket_intelligent_tiering_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_intelligent_tiering_configuration)
+[Client.delete_bucket_intelligent_tiering_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_intelligent_tiering_configuration)
 
 ```python
 def delete_bucket_intelligent_tiering_configuration(
@@ -430,7 +430,7 @@ def delete_bucket_intelligent_tiering_configuration(
 
 Type annotations for `boto3.client("s3").delete_bucket_inventory_configuration` method.
 
-[Client.delete_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_inventory_configuration)
+[Client.delete_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_inventory_configuration)
 
 ```python
 def delete_bucket_inventory_configuration(
@@ -446,7 +446,7 @@ def delete_bucket_inventory_configuration(
 
 Type annotations for `boto3.client("s3").delete_bucket_lifecycle` method.
 
-[Client.delete_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_lifecycle)
+[Client.delete_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_lifecycle)
 
 ```python
 def delete_bucket_lifecycle(
@@ -461,7 +461,7 @@ def delete_bucket_lifecycle(
 
 Type annotations for `boto3.client("s3").delete_bucket_metrics_configuration` method.
 
-[Client.delete_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_metrics_configuration)
+[Client.delete_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_metrics_configuration)
 
 ```python
 def delete_bucket_metrics_configuration(
@@ -477,7 +477,7 @@ def delete_bucket_metrics_configuration(
 
 Type annotations for `boto3.client("s3").delete_bucket_ownership_controls` method.
 
-[Client.delete_bucket_ownership_controls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_ownership_controls)
+[Client.delete_bucket_ownership_controls documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_ownership_controls)
 
 ```python
 def delete_bucket_ownership_controls(
@@ -492,7 +492,7 @@ def delete_bucket_ownership_controls(
 
 Type annotations for `boto3.client("s3").delete_bucket_policy` method.
 
-[Client.delete_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_policy)
+[Client.delete_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_policy)
 
 ```python
 def delete_bucket_policy(
@@ -507,7 +507,7 @@ def delete_bucket_policy(
 
 Type annotations for `boto3.client("s3").delete_bucket_replication` method.
 
-[Client.delete_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_replication)
+[Client.delete_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_replication)
 
 ```python
 def delete_bucket_replication(
@@ -522,7 +522,7 @@ def delete_bucket_replication(
 
 Type annotations for `boto3.client("s3").delete_bucket_tagging` method.
 
-[Client.delete_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_tagging)
+[Client.delete_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_tagging)
 
 ```python
 def delete_bucket_tagging(
@@ -537,7 +537,7 @@ def delete_bucket_tagging(
 
 Type annotations for `boto3.client("s3").delete_bucket_website` method.
 
-[Client.delete_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_bucket_website)
+[Client.delete_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_bucket_website)
 
 ```python
 def delete_bucket_website(
@@ -552,7 +552,7 @@ def delete_bucket_website(
 
 Type annotations for `boto3.client("s3").delete_object` method.
 
-[Client.delete_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_object)
+[Client.delete_object documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_object)
 
 ```python
 def delete_object(
@@ -572,7 +572,7 @@ def delete_object(
 
 Type annotations for `boto3.client("s3").delete_object_tagging` method.
 
-[Client.delete_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_object_tagging)
+[Client.delete_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_object_tagging)
 
 ```python
 def delete_object_tagging(
@@ -589,7 +589,7 @@ def delete_object_tagging(
 
 Type annotations for `boto3.client("s3").delete_objects` method.
 
-[Client.delete_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_objects)
+[Client.delete_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_objects)
 
 ```python
 def delete_objects(
@@ -608,7 +608,7 @@ def delete_objects(
 
 Type annotations for `boto3.client("s3").delete_public_access_block` method.
 
-[Client.delete_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.delete_public_access_block)
+[Client.delete_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.delete_public_access_block)
 
 ```python
 def delete_public_access_block(
@@ -623,7 +623,7 @@ def delete_public_access_block(
 
 Type annotations for `boto3.client("s3").download_file` method.
 
-[Client.download_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.download_file)
+[Client.download_file documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.download_file)
 
 ```python
 def download_file(
@@ -642,7 +642,7 @@ def download_file(
 
 Type annotations for `boto3.client("s3").download_fileobj` method.
 
-[Client.download_fileobj documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.download_fileobj)
+[Client.download_fileobj documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.download_fileobj)
 
 ```python
 def download_fileobj(
@@ -661,7 +661,7 @@ def download_fileobj(
 
 Type annotations for `boto3.client("s3").generate_presigned_post` method.
 
-[Client.generate_presigned_post documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.generate_presigned_post)
+[Client.generate_presigned_post documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.generate_presigned_post)
 
 ```python
 def generate_presigned_post(
@@ -679,7 +679,7 @@ def generate_presigned_post(
 
 Type annotations for `boto3.client("s3").generate_presigned_url` method.
 
-[Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.generate_presigned_url)
+[Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.generate_presigned_url)
 
 ```python
 def generate_presigned_url(
@@ -696,7 +696,7 @@ def generate_presigned_url(
 
 Type annotations for `boto3.client("s3").get_bucket_accelerate_configuration` method.
 
-[Client.get_bucket_accelerate_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_accelerate_configuration)
+[Client.get_bucket_accelerate_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_accelerate_configuration)
 
 ```python
 def get_bucket_accelerate_configuration(
@@ -711,7 +711,7 @@ def get_bucket_accelerate_configuration(
 
 Type annotations for `boto3.client("s3").get_bucket_acl` method.
 
-[Client.get_bucket_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_acl)
+[Client.get_bucket_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_acl)
 
 ```python
 def get_bucket_acl(
@@ -726,7 +726,7 @@ def get_bucket_acl(
 
 Type annotations for `boto3.client("s3").get_bucket_analytics_configuration` method.
 
-[Client.get_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_analytics_configuration)
+[Client.get_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_analytics_configuration)
 
 ```python
 def get_bucket_analytics_configuration(
@@ -742,7 +742,7 @@ def get_bucket_analytics_configuration(
 
 Type annotations for `boto3.client("s3").get_bucket_cors` method.
 
-[Client.get_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_cors)
+[Client.get_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_cors)
 
 ```python
 def get_bucket_cors(
@@ -757,7 +757,7 @@ def get_bucket_cors(
 
 Type annotations for `boto3.client("s3").get_bucket_encryption` method.
 
-[Client.get_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_encryption)
+[Client.get_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_encryption)
 
 ```python
 def get_bucket_encryption(
@@ -772,7 +772,7 @@ def get_bucket_encryption(
 
 Type annotations for `boto3.client("s3").get_bucket_intelligent_tiering_configuration` method.
 
-[Client.get_bucket_intelligent_tiering_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_intelligent_tiering_configuration)
+[Client.get_bucket_intelligent_tiering_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_intelligent_tiering_configuration)
 
 ```python
 def get_bucket_intelligent_tiering_configuration(
@@ -787,7 +787,7 @@ def get_bucket_intelligent_tiering_configuration(
 
 Type annotations for `boto3.client("s3").get_bucket_inventory_configuration` method.
 
-[Client.get_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_inventory_configuration)
+[Client.get_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_inventory_configuration)
 
 ```python
 def get_bucket_inventory_configuration(
@@ -803,7 +803,7 @@ def get_bucket_inventory_configuration(
 
 Type annotations for `boto3.client("s3").get_bucket_lifecycle` method.
 
-[Client.get_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_lifecycle)
+[Client.get_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_lifecycle)
 
 ```python
 def get_bucket_lifecycle(
@@ -818,7 +818,7 @@ def get_bucket_lifecycle(
 
 Type annotations for `boto3.client("s3").get_bucket_lifecycle_configuration` method.
 
-[Client.get_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_lifecycle_configuration)
+[Client.get_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_lifecycle_configuration)
 
 ```python
 def get_bucket_lifecycle_configuration(
@@ -833,7 +833,7 @@ def get_bucket_lifecycle_configuration(
 
 Type annotations for `boto3.client("s3").get_bucket_location` method.
 
-[Client.get_bucket_location documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_location)
+[Client.get_bucket_location documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_location)
 
 ```python
 def get_bucket_location(
@@ -848,7 +848,7 @@ def get_bucket_location(
 
 Type annotations for `boto3.client("s3").get_bucket_logging` method.
 
-[Client.get_bucket_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_logging)
+[Client.get_bucket_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_logging)
 
 ```python
 def get_bucket_logging(
@@ -863,7 +863,7 @@ def get_bucket_logging(
 
 Type annotations for `boto3.client("s3").get_bucket_metrics_configuration` method.
 
-[Client.get_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_metrics_configuration)
+[Client.get_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_metrics_configuration)
 
 ```python
 def get_bucket_metrics_configuration(
@@ -879,7 +879,7 @@ def get_bucket_metrics_configuration(
 
 Type annotations for `boto3.client("s3").get_bucket_notification` method.
 
-[Client.get_bucket_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_notification)
+[Client.get_bucket_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_notification)
 
 ```python
 def get_bucket_notification(
@@ -894,7 +894,7 @@ def get_bucket_notification(
 
 Type annotations for `boto3.client("s3").get_bucket_notification_configuration` method.
 
-[Client.get_bucket_notification_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_notification_configuration)
+[Client.get_bucket_notification_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_notification_configuration)
 
 ```python
 def get_bucket_notification_configuration(
@@ -909,7 +909,7 @@ def get_bucket_notification_configuration(
 
 Type annotations for `boto3.client("s3").get_bucket_ownership_controls` method.
 
-[Client.get_bucket_ownership_controls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_ownership_controls)
+[Client.get_bucket_ownership_controls documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_ownership_controls)
 
 ```python
 def get_bucket_ownership_controls(
@@ -924,7 +924,7 @@ def get_bucket_ownership_controls(
 
 Type annotations for `boto3.client("s3").get_bucket_policy` method.
 
-[Client.get_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_policy)
+[Client.get_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_policy)
 
 ```python
 def get_bucket_policy(
@@ -939,7 +939,7 @@ def get_bucket_policy(
 
 Type annotations for `boto3.client("s3").get_bucket_policy_status` method.
 
-[Client.get_bucket_policy_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_policy_status)
+[Client.get_bucket_policy_status documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_policy_status)
 
 ```python
 def get_bucket_policy_status(
@@ -954,7 +954,7 @@ def get_bucket_policy_status(
 
 Type annotations for `boto3.client("s3").get_bucket_replication` method.
 
-[Client.get_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_replication)
+[Client.get_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_replication)
 
 ```python
 def get_bucket_replication(
@@ -969,7 +969,7 @@ def get_bucket_replication(
 
 Type annotations for `boto3.client("s3").get_bucket_request_payment` method.
 
-[Client.get_bucket_request_payment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_request_payment)
+[Client.get_bucket_request_payment documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_request_payment)
 
 ```python
 def get_bucket_request_payment(
@@ -984,7 +984,7 @@ def get_bucket_request_payment(
 
 Type annotations for `boto3.client("s3").get_bucket_tagging` method.
 
-[Client.get_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_tagging)
+[Client.get_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_tagging)
 
 ```python
 def get_bucket_tagging(
@@ -999,7 +999,7 @@ def get_bucket_tagging(
 
 Type annotations for `boto3.client("s3").get_bucket_versioning` method.
 
-[Client.get_bucket_versioning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_versioning)
+[Client.get_bucket_versioning documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_versioning)
 
 ```python
 def get_bucket_versioning(
@@ -1014,7 +1014,7 @@ def get_bucket_versioning(
 
 Type annotations for `boto3.client("s3").get_bucket_website` method.
 
-[Client.get_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_bucket_website)
+[Client.get_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_bucket_website)
 
 ```python
 def get_bucket_website(
@@ -1029,7 +1029,7 @@ def get_bucket_website(
 
 Type annotations for `boto3.client("s3").get_object` method.
 
-[Client.get_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_object)
+[Client.get_object documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_object)
 
 ```python
 def get_object(
@@ -1062,7 +1062,7 @@ def get_object(
 
 Type annotations for `boto3.client("s3").get_object_acl` method.
 
-[Client.get_object_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_object_acl)
+[Client.get_object_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_object_acl)
 
 ```python
 def get_object_acl(
@@ -1080,7 +1080,7 @@ def get_object_acl(
 
 Type annotations for `boto3.client("s3").get_object_legal_hold` method.
 
-[Client.get_object_legal_hold documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_object_legal_hold)
+[Client.get_object_legal_hold documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_object_legal_hold)
 
 ```python
 def get_object_legal_hold(
@@ -1098,7 +1098,7 @@ def get_object_legal_hold(
 
 Type annotations for `boto3.client("s3").get_object_lock_configuration` method.
 
-[Client.get_object_lock_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_object_lock_configuration)
+[Client.get_object_lock_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_object_lock_configuration)
 
 ```python
 def get_object_lock_configuration(
@@ -1113,7 +1113,7 @@ def get_object_lock_configuration(
 
 Type annotations for `boto3.client("s3").get_object_retention` method.
 
-[Client.get_object_retention documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_object_retention)
+[Client.get_object_retention documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_object_retention)
 
 ```python
 def get_object_retention(
@@ -1131,7 +1131,7 @@ def get_object_retention(
 
 Type annotations for `boto3.client("s3").get_object_tagging` method.
 
-[Client.get_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_object_tagging)
+[Client.get_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_object_tagging)
 
 ```python
 def get_object_tagging(
@@ -1149,7 +1149,7 @@ def get_object_tagging(
 
 Type annotations for `boto3.client("s3").get_object_torrent` method.
 
-[Client.get_object_torrent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_object_torrent)
+[Client.get_object_torrent documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_object_torrent)
 
 ```python
 def get_object_torrent(
@@ -1166,7 +1166,7 @@ def get_object_torrent(
 
 Type annotations for `boto3.client("s3").get_public_access_block` method.
 
-[Client.get_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.get_public_access_block)
+[Client.get_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.get_public_access_block)
 
 ```python
 def get_public_access_block(
@@ -1181,7 +1181,7 @@ def get_public_access_block(
 
 Type annotations for `boto3.client("s3").head_bucket` method.
 
-[Client.head_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.head_bucket)
+[Client.head_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.head_bucket)
 
 ```python
 def head_bucket(
@@ -1196,7 +1196,7 @@ def head_bucket(
 
 Type annotations for `boto3.client("s3").head_object` method.
 
-[Client.head_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.head_object)
+[Client.head_object documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.head_object)
 
 ```python
 def head_object(
@@ -1223,7 +1223,7 @@ def head_object(
 
 Type annotations for `boto3.client("s3").list_bucket_analytics_configurations` method.
 
-[Client.list_bucket_analytics_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.list_bucket_analytics_configurations)
+[Client.list_bucket_analytics_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_bucket_analytics_configurations)
 
 ```python
 def list_bucket_analytics_configurations(
@@ -1239,7 +1239,7 @@ def list_bucket_analytics_configurations(
 
 Type annotations for `boto3.client("s3").list_bucket_intelligent_tiering_configurations` method.
 
-[Client.list_bucket_intelligent_tiering_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.list_bucket_intelligent_tiering_configurations)
+[Client.list_bucket_intelligent_tiering_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_bucket_intelligent_tiering_configurations)
 
 ```python
 def list_bucket_intelligent_tiering_configurations(
@@ -1254,7 +1254,7 @@ def list_bucket_intelligent_tiering_configurations(
 
 Type annotations for `boto3.client("s3").list_bucket_inventory_configurations` method.
 
-[Client.list_bucket_inventory_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.list_bucket_inventory_configurations)
+[Client.list_bucket_inventory_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_bucket_inventory_configurations)
 
 ```python
 def list_bucket_inventory_configurations(
@@ -1270,7 +1270,7 @@ def list_bucket_inventory_configurations(
 
 Type annotations for `boto3.client("s3").list_bucket_metrics_configurations` method.
 
-[Client.list_bucket_metrics_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.list_bucket_metrics_configurations)
+[Client.list_bucket_metrics_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_bucket_metrics_configurations)
 
 ```python
 def list_bucket_metrics_configurations(
@@ -1286,7 +1286,7 @@ def list_bucket_metrics_configurations(
 
 Type annotations for `boto3.client("s3").list_buckets` method.
 
-[Client.list_buckets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.list_buckets)
+[Client.list_buckets documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_buckets)
 
 ```python
 def list_buckets(
@@ -1299,7 +1299,7 @@ def list_buckets(
 
 Type annotations for `boto3.client("s3").list_multipart_uploads` method.
 
-[Client.list_multipart_uploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.list_multipart_uploads)
+[Client.list_multipart_uploads documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_multipart_uploads)
 
 ```python
 def list_multipart_uploads(
@@ -1320,7 +1320,7 @@ def list_multipart_uploads(
 
 Type annotations for `boto3.client("s3").list_object_versions` method.
 
-[Client.list_object_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.list_object_versions)
+[Client.list_object_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_object_versions)
 
 ```python
 def list_object_versions(
@@ -1341,7 +1341,7 @@ def list_object_versions(
 
 Type annotations for `boto3.client("s3").list_objects` method.
 
-[Client.list_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.list_objects)
+[Client.list_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_objects)
 
 ```python
 def list_objects(
@@ -1362,7 +1362,7 @@ def list_objects(
 
 Type annotations for `boto3.client("s3").list_objects_v2` method.
 
-[Client.list_objects_v2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.list_objects_v2)
+[Client.list_objects_v2 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_objects_v2)
 
 ```python
 def list_objects_v2(
@@ -1385,7 +1385,7 @@ def list_objects_v2(
 
 Type annotations for `boto3.client("s3").list_parts` method.
 
-[Client.list_parts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.list_parts)
+[Client.list_parts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.list_parts)
 
 ```python
 def list_parts(
@@ -1405,7 +1405,7 @@ def list_parts(
 
 Type annotations for `boto3.client("s3").put_bucket_accelerate_configuration` method.
 
-[Client.put_bucket_accelerate_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_accelerate_configuration)
+[Client.put_bucket_accelerate_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_accelerate_configuration)
 
 ```python
 def put_bucket_accelerate_configuration(
@@ -1421,7 +1421,7 @@ def put_bucket_accelerate_configuration(
 
 Type annotations for `boto3.client("s3").put_bucket_acl` method.
 
-[Client.put_bucket_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_acl)
+[Client.put_bucket_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_acl)
 
 ```python
 def put_bucket_acl(
@@ -1443,7 +1443,7 @@ def put_bucket_acl(
 
 Type annotations for `boto3.client("s3").put_bucket_analytics_configuration` method.
 
-[Client.put_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_analytics_configuration)
+[Client.put_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_analytics_configuration)
 
 ```python
 def put_bucket_analytics_configuration(
@@ -1460,7 +1460,7 @@ def put_bucket_analytics_configuration(
 
 Type annotations for `boto3.client("s3").put_bucket_cors` method.
 
-[Client.put_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_cors)
+[Client.put_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_cors)
 
 ```python
 def put_bucket_cors(
@@ -1476,7 +1476,7 @@ def put_bucket_cors(
 
 Type annotations for `boto3.client("s3").put_bucket_encryption` method.
 
-[Client.put_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_encryption)
+[Client.put_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_encryption)
 
 ```python
 def put_bucket_encryption(
@@ -1493,7 +1493,7 @@ def put_bucket_encryption(
 
 Type annotations for `boto3.client("s3").put_bucket_intelligent_tiering_configuration` method.
 
-[Client.put_bucket_intelligent_tiering_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_intelligent_tiering_configuration)
+[Client.put_bucket_intelligent_tiering_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_intelligent_tiering_configuration)
 
 ```python
 def put_bucket_intelligent_tiering_configuration(
@@ -1509,7 +1509,7 @@ def put_bucket_intelligent_tiering_configuration(
 
 Type annotations for `boto3.client("s3").put_bucket_inventory_configuration` method.
 
-[Client.put_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_inventory_configuration)
+[Client.put_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_inventory_configuration)
 
 ```python
 def put_bucket_inventory_configuration(
@@ -1526,7 +1526,7 @@ def put_bucket_inventory_configuration(
 
 Type annotations for `boto3.client("s3").put_bucket_lifecycle` method.
 
-[Client.put_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_lifecycle)
+[Client.put_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_lifecycle)
 
 ```python
 def put_bucket_lifecycle(
@@ -1542,7 +1542,7 @@ def put_bucket_lifecycle(
 
 Type annotations for `boto3.client("s3").put_bucket_lifecycle_configuration` method.
 
-[Client.put_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_lifecycle_configuration)
+[Client.put_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_lifecycle_configuration)
 
 ```python
 def put_bucket_lifecycle_configuration(
@@ -1558,7 +1558,7 @@ def put_bucket_lifecycle_configuration(
 
 Type annotations for `boto3.client("s3").put_bucket_logging` method.
 
-[Client.put_bucket_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_logging)
+[Client.put_bucket_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_logging)
 
 ```python
 def put_bucket_logging(
@@ -1574,7 +1574,7 @@ def put_bucket_logging(
 
 Type annotations for `boto3.client("s3").put_bucket_metrics_configuration` method.
 
-[Client.put_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_metrics_configuration)
+[Client.put_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_metrics_configuration)
 
 ```python
 def put_bucket_metrics_configuration(
@@ -1591,7 +1591,7 @@ def put_bucket_metrics_configuration(
 
 Type annotations for `boto3.client("s3").put_bucket_notification` method.
 
-[Client.put_bucket_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_notification)
+[Client.put_bucket_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_notification)
 
 ```python
 def put_bucket_notification(
@@ -1607,7 +1607,7 @@ def put_bucket_notification(
 
 Type annotations for `boto3.client("s3").put_bucket_notification_configuration` method.
 
-[Client.put_bucket_notification_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_notification_configuration)
+[Client.put_bucket_notification_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_notification_configuration)
 
 ```python
 def put_bucket_notification_configuration(
@@ -1623,7 +1623,7 @@ def put_bucket_notification_configuration(
 
 Type annotations for `boto3.client("s3").put_bucket_ownership_controls` method.
 
-[Client.put_bucket_ownership_controls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_ownership_controls)
+[Client.put_bucket_ownership_controls documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_ownership_controls)
 
 ```python
 def put_bucket_ownership_controls(
@@ -1640,7 +1640,7 @@ def put_bucket_ownership_controls(
 
 Type annotations for `boto3.client("s3").put_bucket_policy` method.
 
-[Client.put_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_policy)
+[Client.put_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_policy)
 
 ```python
 def put_bucket_policy(
@@ -1657,7 +1657,7 @@ def put_bucket_policy(
 
 Type annotations for `boto3.client("s3").put_bucket_replication` method.
 
-[Client.put_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_replication)
+[Client.put_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_replication)
 
 ```python
 def put_bucket_replication(
@@ -1674,7 +1674,7 @@ def put_bucket_replication(
 
 Type annotations for `boto3.client("s3").put_bucket_request_payment` method.
 
-[Client.put_bucket_request_payment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_request_payment)
+[Client.put_bucket_request_payment documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_request_payment)
 
 ```python
 def put_bucket_request_payment(
@@ -1690,7 +1690,7 @@ def put_bucket_request_payment(
 
 Type annotations for `boto3.client("s3").put_bucket_tagging` method.
 
-[Client.put_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_tagging)
+[Client.put_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_tagging)
 
 ```python
 def put_bucket_tagging(
@@ -1706,7 +1706,7 @@ def put_bucket_tagging(
 
 Type annotations for `boto3.client("s3").put_bucket_versioning` method.
 
-[Client.put_bucket_versioning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_versioning)
+[Client.put_bucket_versioning documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_versioning)
 
 ```python
 def put_bucket_versioning(
@@ -1723,7 +1723,7 @@ def put_bucket_versioning(
 
 Type annotations for `boto3.client("s3").put_bucket_website` method.
 
-[Client.put_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_bucket_website)
+[Client.put_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_bucket_website)
 
 ```python
 def put_bucket_website(
@@ -1739,7 +1739,7 @@ def put_bucket_website(
 
 Type annotations for `boto3.client("s3").put_object` method.
 
-[Client.put_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_object)
+[Client.put_object documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_object)
 
 ```python
 def put_object(
@@ -1784,7 +1784,7 @@ def put_object(
 
 Type annotations for `boto3.client("s3").put_object_acl` method.
 
-[Client.put_object_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_object_acl)
+[Client.put_object_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_object_acl)
 
 ```python
 def put_object_acl(
@@ -1809,7 +1809,7 @@ def put_object_acl(
 
 Type annotations for `boto3.client("s3").put_object_legal_hold` method.
 
-[Client.put_object_legal_hold documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_object_legal_hold)
+[Client.put_object_legal_hold documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_object_legal_hold)
 
 ```python
 def put_object_legal_hold(
@@ -1829,7 +1829,7 @@ def put_object_legal_hold(
 
 Type annotations for `boto3.client("s3").put_object_lock_configuration` method.
 
-[Client.put_object_lock_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_object_lock_configuration)
+[Client.put_object_lock_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_object_lock_configuration)
 
 ```python
 def put_object_lock_configuration(
@@ -1848,7 +1848,7 @@ def put_object_lock_configuration(
 
 Type annotations for `boto3.client("s3").put_object_retention` method.
 
-[Client.put_object_retention documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_object_retention)
+[Client.put_object_retention documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_object_retention)
 
 ```python
 def put_object_retention(
@@ -1869,7 +1869,7 @@ def put_object_retention(
 
 Type annotations for `boto3.client("s3").put_object_tagging` method.
 
-[Client.put_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_object_tagging)
+[Client.put_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_object_tagging)
 
 ```python
 def put_object_tagging(
@@ -1889,7 +1889,7 @@ def put_object_tagging(
 
 Type annotations for `boto3.client("s3").put_public_access_block` method.
 
-[Client.put_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.put_public_access_block)
+[Client.put_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_public_access_block)
 
 ```python
 def put_public_access_block(
@@ -1906,7 +1906,7 @@ def put_public_access_block(
 
 Type annotations for `boto3.client("s3").restore_object` method.
 
-[Client.restore_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.restore_object)
+[Client.restore_object documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.restore_object)
 
 ```python
 def restore_object(
@@ -1925,7 +1925,7 @@ def restore_object(
 
 Type annotations for `boto3.client("s3").select_object_content` method.
 
-[Client.select_object_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.select_object_content)
+[Client.select_object_content documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.select_object_content)
 
 ```python
 def select_object_content(
@@ -1950,7 +1950,7 @@ def select_object_content(
 
 Type annotations for `boto3.client("s3").upload_file` method.
 
-[Client.upload_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.upload_file)
+[Client.upload_file documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.upload_file)
 
 ```python
 def upload_file(
@@ -1969,7 +1969,7 @@ def upload_file(
 
 Type annotations for `boto3.client("s3").upload_fileobj` method.
 
-[Client.upload_fileobj documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.upload_fileobj)
+[Client.upload_fileobj documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.upload_fileobj)
 
 ```python
 def upload_fileobj(
@@ -1988,7 +1988,7 @@ def upload_fileobj(
 
 Type annotations for `boto3.client("s3").upload_part` method.
 
-[Client.upload_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.upload_part)
+[Client.upload_part documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.upload_part)
 
 ```python
 def upload_part(
@@ -2013,7 +2013,7 @@ def upload_part(
 
 Type annotations for `boto3.client("s3").upload_part_copy` method.
 
-[Client.upload_part_copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.upload_part_copy)
+[Client.upload_part_copy documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.upload_part_copy)
 
 ```python
 def upload_part_copy(
@@ -2045,7 +2045,7 @@ def upload_part_copy(
 
 Type annotations for `boto3.client("s3").write_get_object_response` method.
 
-[Client.write_get_object_response documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Client.write_get_object_response)
+[Client.write_get_object_response documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.write_get_object_response)
 
 ```python
 def write_get_object_response(
@@ -2094,7 +2094,7 @@ def write_get_object_response(
 
 Type annotations for `boto3.client("s3").get_paginator` method.
 
-[Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Paginator.ListMultipartUploads)
+[Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.ListMultipartUploads)
 
 ```python
 @overload
@@ -2109,7 +2109,7 @@ def get_paginator(
 
 Type annotations for `boto3.client("s3").get_paginator` method.
 
-[Paginator.ListObjectVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Paginator.ListObjectVersions)
+[Paginator.ListObjectVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.ListObjectVersions)
 
 ```python
 @overload
@@ -2124,7 +2124,7 @@ def get_paginator(
 
 Type annotations for `boto3.client("s3").get_paginator` method.
 
-[Paginator.ListObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Paginator.ListObjects)
+[Paginator.ListObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.ListObjects)
 
 ```python
 @overload
@@ -2139,7 +2139,7 @@ def get_paginator(
 
 Type annotations for `boto3.client("s3").get_paginator` method.
 
-[Paginator.ListObjectsV2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Paginator.ListObjectsV2)
+[Paginator.ListObjectsV2 documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.ListObjectsV2)
 
 ```python
 @overload
@@ -2154,7 +2154,7 @@ def get_paginator(
 
 Type annotations for `boto3.client("s3").get_paginator` method.
 
-[Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Paginator.ListParts)
+[Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.ListParts)
 
 ```python
 @overload
@@ -2169,7 +2169,7 @@ def get_paginator(
 
 Type annotations for `boto3.client("s3").get_waiter` method.
 
-[Waiter.BucketExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Waiter.BucketExists)
+[Waiter.BucketExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.BucketExists)
 
 ```python
 @overload
@@ -2184,7 +2184,7 @@ def get_waiter(
 
 Type annotations for `boto3.client("s3").get_waiter` method.
 
-[Waiter.BucketNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Waiter.BucketNotExists)
+[Waiter.BucketNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.BucketNotExists)
 
 ```python
 @overload
@@ -2199,7 +2199,7 @@ def get_waiter(
 
 Type annotations for `boto3.client("s3").get_waiter` method.
 
-[Waiter.ObjectExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Waiter.ObjectExists)
+[Waiter.ObjectExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.ObjectExists)
 
 ```python
 @overload
@@ -2214,7 +2214,7 @@ def get_waiter(
 
 Type annotations for `boto3.client("s3").get_waiter` method.
 
-[Waiter.ObjectNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3.Waiter.ObjectNotExists)
+[Waiter.ObjectNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Waiter.ObjectNotExists)
 
 ```python
 @overload

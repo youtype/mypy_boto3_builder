@@ -1,8 +1,8 @@
 # Literals for boto3 S3 module
 
-[Back to S3 type annotations](./index.md)
+> [Index](../index.md) > [S3](./index.md) > Literals
 
-Auto-generated documentation for [S3](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3)
+Auto-generated documentation for [S3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3)
 type annotations stubs module [mypy_boto3_s3](https://pypi.org/project/mypy-boto3-s3/).
 
 - [Literals for boto3 S3 module](#literals-for-boto3-s3-module)

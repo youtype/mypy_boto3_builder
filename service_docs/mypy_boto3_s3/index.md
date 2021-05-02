@@ -1,13 +1,15 @@
-# Type annotaitons for boto3 S3 module
+# Type annotations for boto3 S3 module
 
-Auto-generated documentation for [S3](https://boto3.amazonaws.com/v1/documentation/api/1.17.62/reference/services/s3.html#S3)
+> [Index](../index.md) > S3
+
+Auto-generated documentation for [S3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3)
 type annotations stubs module [mypy_boto3_s3](https://pypi.org/project/mypy-boto3-s3/).
 
 ```bash
 pip install mypy-boto3-s3
 ```
 
-- [Type annotaitons for boto3 S3 module](#type-annotaitons-for-boto3-s3-module)
+- [Type annotations for boto3 S3 module](#type-annotations-for-boto3-s3-module)
   - [S3Client](#s3client)
     - [Methods](#methods)
     - [Exceptions](#exceptions)
@@ -185,8 +187,6 @@ from mypy_boto3_s3.service_resource import ServiceResourceBucketsCollection, ...
 
 
 
-
-
 ### Resources
 
 Type annotations for additional resources from `boto3.resource("s3").*`.
@@ -215,6 +215,7 @@ from mypy_boto3_s3.service_resource import Bucket, ...
 - [ObjectAcl](./service_resource.md#objectacl)
 - [ObjectSummary](./service_resource.md#objectsummary)
 - [ObjectVersion](./service_resource.md#objectversion)
+
 
 
 
