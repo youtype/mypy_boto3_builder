@@ -25,7 +25,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-pip = "^20.3"
+pip = "*"
 black = "^21.4b2"
 boto3 = "*"
 isort = "^5.6.4"
