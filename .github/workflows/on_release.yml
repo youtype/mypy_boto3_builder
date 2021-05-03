@@ -25,6 +25,7 @@ jobs:
         id: version
         uses: actions/github-script@v4
         with:
+          result-encoding: string
           script: |
             if (context.payload.inputs && context.payload.inputs.version) {
               return context.payload.inputs.version
