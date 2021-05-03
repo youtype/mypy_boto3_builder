@@ -31,6 +31,7 @@ boto3 = "*"
 isort = "^5.6.4"
 jinja2= "^2.10.3"
 pyparsing = "^2.4.7"
+md_toc = "*"
 
 [tool.poetry.dev-dependencies]
 codecov = "2.1.11"
