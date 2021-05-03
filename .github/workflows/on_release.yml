@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "GitHub ref ${GITHUB_REF}"
           VERSION=`echo "${GITHUB_REF}" | cut -f 3 -d "/"`
-          LAST_PACKAGE_VERSION=`python -m boto3-stubs --version`
+          LAST_PACKAGE_VERSION=`python -m boto3-stubs --version || echo "0.0.0.0"`
           PACKAGE_VERSION=`echo "${LAST_PACKAGE_VERSION}" | awk 'BEGIN{FS=OFS="."}{$4=$4+1; print $0;}'`
           BOTO3_VERSION=`echo "${PACKAGE_VERSION}" | awk 'BEGIN{FS=OFS="."}{print$1, $2, $3;}'`
           BOTOCORE_VERSION=`echo "${BOTO3_VERSION}" | awk 'BEGIN{FS=OFS="."}{print$1, $2 + 3, $3;}'`

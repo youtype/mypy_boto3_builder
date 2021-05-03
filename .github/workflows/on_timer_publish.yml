@@ -25,7 +25,8 @@ jobs:
         id: vars
         run: |
           BOTO3_VERSION=$(python -c 'import boto3; print(boto3.__version__)')
-          LAST_BUILD_BOTO3_VERSION=`python -m boto3-stubs --version | awk 'BEGIN{FS=OFS="."}{print$1, $2, $3;}'`
+          LAST_PACKAGE_VERSION=`python -m boto3-stubs --version || echo "0.0.0.0"`
+          LAST_BUILD_BOTO3_VERSION=`echo $LAST_PACKAGE_VERSION | awk 'BEGIN{FS=OFS="."}{print$1, $2, $3;}'`
           BUILD_VERSION="${BOTO3_VERSION}.0"
           SKIP="false"
           if [[ "${BOTO3_VERSION}" == "${LAST_BUILD_BOTO3_VERSION}" ]]; then
