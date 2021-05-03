@@ -46,7 +46,7 @@ def docstring() -> str:
 
 ### Resource().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/resource.py#L46)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/resource.py#L47)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:

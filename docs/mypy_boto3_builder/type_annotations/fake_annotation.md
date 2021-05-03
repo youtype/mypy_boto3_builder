@@ -14,6 +14,7 @@ Parent class for all type annotation wrappers.
         - [FakeAnnotation().is_dict](#fakeannotationis_dict)
         - [FakeAnnotation().is_list](#fakeannotationis_list)
         - [FakeAnnotation().is_literal](#fakeannotationis_literal)
+        - [FakeAnnotation().is_typed_dict](#fakeannotationis_typed_dict)
         - [FakeAnnotation().render](#fakeannotationrender)
 
 ## FakeAnnotation
@@ -38,7 +39,7 @@ Add new child to `TypeSubscript` or `TypeTypedDict` annotation.
 
 ### FakeAnnotation().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/fake_annotation.py#L86)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/fake_annotation.py#L92)
 
 ```python
 @abstractmethod
@@ -94,7 +95,7 @@ Whether type annotation is `Dict` or `TypedDict`.
 
 ### FakeAnnotation().is_list
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/fake_annotation.py#L74)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/fake_annotation.py#L80)
 
 ```python
 def is_list() -> bool:
@@ -104,13 +105,23 @@ Whether type annotation is `List`.
 
 ### FakeAnnotation().is_literal
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/fake_annotation.py#L80)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/fake_annotation.py#L86)
 
 ```python
 def is_literal() -> bool:
 ```
 
 Whether type annotation is `Literal`.
+
+### FakeAnnotation().is_typed_dict
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/fake_annotation.py#L74)
+
+```python
+def is_typed_dict() -> bool:
+```
+
+Whether type annotation is `TypedDict`.
 
 ### FakeAnnotation().render
 

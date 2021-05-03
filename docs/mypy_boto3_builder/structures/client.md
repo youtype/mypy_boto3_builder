@@ -51,7 +51,7 @@ def docstring() -> str:
 
 ### Client().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L68)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L69)
 
 ```python
 def get_all_names() -> List[str]:
@@ -59,7 +59,7 @@ def get_all_names() -> List[str]:
 
 ### Client().own_methods
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L71)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L72)
 
 ```python
 @property
