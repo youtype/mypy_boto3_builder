@@ -55,13 +55,13 @@ class TypeTypedDict(FakeAnnotation):
         children: Iterable[TypedDictAttribute] = (),
         docstring: str = "",
         stringify: bool = False,
-        replace_with_dict: bool = False,
+        replace_with_dict: Iterable[str] = tuple(),
     ) -> None:
         self.name = name
         self.children = list(children)
         self.docstring = docstring
         self.stringify = stringify
-        self.replace_with_dict = replace_with_dict
+        self.replace_with_dict = set(replace_with_dict)
 
     def get_sort_key(self) -> str:
         return self.name
@@ -80,7 +80,7 @@ class TypeTypedDict(FakeAnnotation):
         Returns:
             A string with a valid type annotation.
         """
-        if self.replace_with_dict:
+        if parent_name in self.replace_with_dict:
             return Type.DictStrAny.render()
 
         if self.stringify:
@@ -212,40 +212,34 @@ class TypeTypedDict(FakeAnnotation):
 
         return result
 
-    def get_children_literals(self) -> Set[TypeLiteral]:
+    def get_children_literals(
+        self, processed: Iterable["TypeTypedDict"] = tuple()
+    ) -> Set[TypeLiteral]:
         result: Set[TypeLiteral] = set()
+        if self in processed:
+            return result
         children_types = self.get_children_types()
         for type_annotation in children_types:
             if isinstance(type_annotation, TypeLiteral):
                 result.add(type_annotation)
             if isinstance(type_annotation, TypeTypedDict):
-                result.update(type_annotation.get_children_literals())
+                result.update(type_annotation.get_children_literals((self, *processed)))
         return result
 
-    def replace_self_references(self) -> List[str]:
+    def replace_self_references(self) -> None:
         """
         Replace self refenrences with `Dict[str, Any]` to avoid circular dependencies.
-
-        Returns:
-            A list of replaced children names.
         """
-        result: List[str] = []
         for child in self.get_children_typed_dicts():
-            if child.replace_with_dict:
-                continue
             if child is self:
-                child.replace_with_dict = True
-                result.append(child.name)
+                child.replace_with_dict.add(self.name)
                 continue
             for sub_child in child.get_children_typed_dicts():
                 if sub_child.replace_with_dict:
                     continue
                 if sub_child is self:
-                    sub_child.replace_with_dict = True
-                    result.append(sub_child.name)
+                    sub_child.replace_with_dict.add(child.name)
                     continue
-
-        return result
 
     @property
     def requires_safe_render(self) -> bool:

@@ -108,6 +108,8 @@ def process_service(
     logger = get_logger()
     logger.debug(f"Parsing {service_name.boto3_name}")
     service_module = parse_service_package(session, service_name)
+    for typed_dict in service_module.typed_dicts:
+        typed_dict.replace_self_references()
     logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
 
     modified_paths = write_service_package(

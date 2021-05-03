@@ -79,7 +79,6 @@ class ServicePackage(Package):
 
         while discovered:
             child = discovered.pop()
-            child.replace_self_references()
             sub_typed_dicts = child.get_children_typed_dicts()
             for child_typed_dict in sorted(sub_typed_dicts):
                 child_typed_dict.stringify = True
