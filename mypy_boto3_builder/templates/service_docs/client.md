@@ -18,7 +18,7 @@ def get_{{ package.service_name.boto3_name }}_client() -> {{ package.client.name
     return boto3.client("{{ package.service_name.boto3_name }}")
 ```
 
-[Open boto3 documentation]({{ package.client.boto3_doc_link }})
+[Show boto3 documentation]({{ package.client.boto3_doc_link }})
 
 ## Exceptions
 
@@ -48,7 +48,7 @@ Exceptions:
 
 Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
 
-[Open boto3 documentation]({{ package.service_name.get_boto3_doc_link("Client", method.name) }}]
+[Show boto3 documentation]({{ package.service_name.get_boto3_doc_link("Client", method.name) }}]
 
 ```python
 {% with render_docstrings=False -%}

@@ -53,8 +53,9 @@ class ServiceResource(ClassRecord):
     @property
     def docstring(self) -> str:
         return (
-            f"[boto3 {self.service_name.class_name}.ServiceResource documentation]({self.boto3_doc_link})"
-            "[Type annotations documentation]"
+            "[Show boto3 documentation]"
+            f"({self.boto3_doc_link})"
+            "[Show boto3-stubs documentation]"
             f"({self.service_name.get_doc_link('service_resource')})"
         )
 

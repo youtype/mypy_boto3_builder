@@ -51,9 +51,9 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
         else:
             method = parse_method("Client", method_name, public_method, service_name)
         method.docstring = (
-            f"[boto3 Client.{method_name} documentation]"
-            f"({service_name.get_boto3_doc_link('Client', method_name)}\n"
-            "[Type annotations documentation]"
+            f"[Show boto3 documentation]"
+            f"({service_name.get_boto3_doc_link('Client', method_name)})\n"
+            "[Show boto3-stubs documentation]"
             f"({service_name.get_doc_link('client', method_name)})"
         )
         result.methods.append(method)

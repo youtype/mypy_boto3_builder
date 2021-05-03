@@ -55,9 +55,9 @@ def parse_service_resource(
         else:
             method = parse_method("ServiceResource", method_name, public_method, service_name)
         method.docstring = (
-            f"[boto3 ServiceResource.{method_name} documentation]"
-            f"({service_name.get_boto3_doc_link('ServiceResource', method_name)}\n"
-            "[Type annotations documentation]"
+            "[Show boto3 documentation]"
+            f"({service_name.get_boto3_doc_link('ServiceResource', method_name)})\n"
+            "[Show boto3-stubs documentation]"
             f"({service_name.get_doc_link('service_resource', result.name, method_name)})"
         )
         result.methods.append(method)

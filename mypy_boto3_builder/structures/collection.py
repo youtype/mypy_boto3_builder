@@ -50,8 +50,9 @@ class Collection(ClassRecord):
             self.attribute_name,
         )
         return (
-            f"[boto3 {self.parent_name}.{self.name} documentation]({self.boto3_doc_link})\n"
-            "[Type annotations documentation]"
+            "[Show boto3 documentation]"
+            f"({self.boto3_doc_link})\n"
+            "[Show boto3-stubs documentation]"
             f"({doc_link})"
         )
 

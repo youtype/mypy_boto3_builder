@@ -18,7 +18,7 @@ def get_{{ package.service_name.boto3_name }}_resource() -> {{ package.service_r
     return boto3.resource("{{ package.service_name.boto3_name }}")
 ```
 
-[Open boto3 documentation]({{ package.service_resource.boto3_doc_link }})
+[Show boto3 documentation]({{ package.service_resource.boto3_doc_link }})
 
 {% if package.service_resource.methods %}
 ## Methods
@@ -27,7 +27,7 @@ def get_{{ package.service_name.boto3_name }}_resource() -> {{ package.service_r
 
 Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
 
-[Open boto3 documentation]({{ package.service_name.get_boto3_doc_link(package.service_resource.name, method.name) }}]
+[Show boto3 documentation]({{ package.service_name.get_boto3_doc_link(package.service_resource.name, method.name) }}]
 
 Definition:
 
@@ -57,7 +57,7 @@ def get_collection() -> {{ collection.name }}:
     )
 ```
 
-[Open boto3 documentation]({{ collection.boto3_doc_link }})
+[Show boto3 documentation]({{ collection.boto3_doc_link }})
 
 Definition:
 
@@ -83,7 +83,7 @@ def get_resource() -> {{ resource.name }}:
     return boto3.resource("{{ package.service_name.boto3_name }}").{{ resource.name }}(...)
 ```
 
-[Open boto3 documentation]({{ resource.boto3_doc_link }})
+[Show boto3 documentation]({{ resource.boto3_doc_link }})
 
 {% if resource.attributes %}
 ### {{ resource.name }} attributes
@@ -103,7 +103,7 @@ def get_resource() -> {{ resource.name }}:
 
 Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
 
-[Open boto3 documentation]({{ package.service_name.get_boto3_doc_link(resource.name, method.name) }}]
+[Show boto3 documentation]({{ package.service_name.get_boto3_doc_link(resource.name, method.name) }}]
 
 ```python
 {% with render_docstrings=False -%}
@@ -131,7 +131,7 @@ def get_collection() -> {{ collection.name }}:
     return resource.{{ collection.attribute_name }}
 ```
 
-[Open boto3 documentation]({{ collection.boto3_doc_link }})
+[Show boto3 documentation]({{ collection.boto3_doc_link }})
 
 ```python
 {% with class=collection, render_docstrings=False -%}
