@@ -48,7 +48,7 @@ Exceptions:
 
 Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
 
-[Open boto3 documentation]({{ package.get_boto3_doc_link("Client", method.name) }}]
+[Open boto3 documentation]({{ package.service_name.get_boto3_doc_link("Client", method.name) }}]
 
 ```python
 {% with render_docstrings=False -%}

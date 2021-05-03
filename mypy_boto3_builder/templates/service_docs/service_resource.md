@@ -27,7 +27,7 @@ def get_{{ package.service_name.boto3_name }}_resource() -> {{ package.service_r
 
 Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
 
-[Open boto3 documentation]({{ package.get_boto3_doc_link(package.service_resource.name, method.name) }}]
+[Open boto3 documentation]({{ package.service_name.get_boto3_doc_link(package.service_resource.name, method.name) }}]
 
 Definition:
 
@@ -103,7 +103,7 @@ def get_resource() -> {{ resource.name }}:
 
 Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
 
-[Open boto3 documentation]({{ package.get_boto3_doc_link(resource.name, method.name) }}]
+[Open boto3 documentation]({{ package.service_name.get_boto3_doc_link(resource.name, method.name) }}]
 
 ```python
 {% with render_docstrings=False -%}
