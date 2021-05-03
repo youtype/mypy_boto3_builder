@@ -2,6 +2,7 @@ from mypy_boto3_builder.utils.strings import (
     get_anchor_link,
     get_class_prefix,
     get_line_with_indented,
+    is_reserved,
 )
 
 
@@ -22,3 +23,9 @@ class TestStrings:
     def test_get_anchor_link(self) -> None:
         assert get_anchor_link("test") == "test"
         assert get_anchor_link("n.ew_t est") == "new-t-est"
+
+    def test_is_reserved(self) -> None:
+        assert is_reserved("lambda")
+        assert is_reserved("List")
+        assert is_reserved("dict")
+        assert not is_reserved("myname")

@@ -1,0 +1,54 @@
+{% if typed_dict.has_both() -%}
+    {{ '_Required' -}}
+    {{ typed_dict.name -}}
+    {{ ' = TypedDict("' -}}
+    {{ '_Required' -}}
+    {{ typed_dict.name -}}
+    {{ '", {' -}}
+    {% for child in typed_dict.get_required() -%}
+        {{ '"' -}}
+        {{ child.name -}}
+        {{ '": ' -}}
+        {{ child.type_annotation.render(typed_dict.name) -}}
+        {{ ", " if not loop.last else "" -}}
+    {% endfor -%}
+    {{ "})\n" -}}
+    {{ '_Optional' -}}
+    {{ typed_dict.name -}}
+    {{ ' = TypedDict("' -}}
+    {{ '_Optional' -}}
+    {{ typed_dict.name -}}
+    {{ '", {' -}}
+    {% for child in typed_dict.get_optional() -%}
+        {{ '"' -}}
+        {{ child.name -}}
+        {{ '": ' -}}
+        {{ child.type_annotation.render(typed_dict.name) -}}
+        {{ ", " if not loop.last else "" -}}
+    {% endfor -%}
+    {{ "}, total=False)\n" -}}
+
+    {{ 'class ' -}}
+    {{ typed_dict.name -}}
+    {{ '(' -}}
+    {{ '_Required' -}}{{ typed_dict.name -}}
+    {{ ', _Optional' -}}{{ typed_dict.name -}}
+    {{ '):\n    pass\n' -}}
+{% else -%}
+    {{ typed_dict.name -}}
+    {{ ' = TypedDict("' -}}
+    {{ typed_dict.name -}}
+    {{ '", {' -}}
+    {% for child in typed_dict.children -%}
+        {{ '"' -}}
+        {{ child.name -}}
+        {{ '": ' -}}
+        {{ child.type_annotation.render(typed_dict.name) -}}
+        {{ ", " if not loop.last else "" -}}
+    {% endfor -%}
+    {{ "}" -}}
+    {% if typed_dict.has_optional() -%}
+        {{ ", total=False" -}}
+    {% endif -%}
+    {{ ")\n" -}}
+{% endif -%}

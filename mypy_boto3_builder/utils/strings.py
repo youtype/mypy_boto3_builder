@@ -1,7 +1,18 @@
 """
 Multiple string utils collection.
 """
+import builtins
+import keyword
+import typing
 from typing import List
+
+RESERVED_NAMES = set(
+    (
+        *dir(typing),
+        *dir(builtins),
+        *keyword.kwlist,
+    )
+)
 
 
 def get_class_prefix(func_name: str) -> str:
@@ -82,3 +93,10 @@ def get_anchor_link(text: str) -> str:
     Convert header to markdown anchor link.
     """
     return text.strip().replace(" ", "-").replace("_", "-").replace(".", "").lower()
+
+
+def is_reserved(word: str) -> bool:
+    """
+    Check whether varialbe name conflicts with Python reserved names.
+    """
+    return word in RESERVED_NAMES

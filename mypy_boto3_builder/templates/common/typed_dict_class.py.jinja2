@@ -1,0 +1,35 @@
+{% if typed_dict.has_both() -%}
+    {{ 'class ' -}}
+    {{ '_Required' -}}{{ typed_dict.name -}}
+    {{ ':\n' -}}
+    {% for child in typed_dict.get_required() -%}
+        {{ '    ' -}}
+        {{ child.name -}}
+        {{ ' = ' -}}
+        {{ child.type_annotation.render(typed_dict.name) -}}
+        {{ "\n" if not loop.last else "\n\n" -}}
+    {% endfor -%}
+
+    {{ 'class ' -}}
+    {{ typed_dict.name -}}
+    {{ '(' -}}{{ '_Required' -}}{{ typed_dict.name -}}{{ ', total=False):\n' -}}
+    {% for child in typed_dict.get_optional() -%}
+        {{ '    ' -}}
+        {{ child.name -}}
+        {{ ' = ' -}}
+        {{ child.type_annotation.render(typed_dict.name) -}}
+        {{ "\n" if not loop.last else "\n\n" -}}
+    {% endfor -%}
+{% else -%}
+    {{ 'class ' -}}
+    {{ typed_dict.name -}}
+    {{ '(total=False)' if typed_dict.has_optional() else "" -}}
+    {{ ':\n' -}}
+    {% for child in typed_dict.children -%}
+        {{ '    ' -}}
+        {{ child.name -}}
+        {{ ' = ' -}}
+        {{ child.type_annotation.render(typed_dict.name) -}}
+        {{ "\n" if not loop.last else "\n\n" -}}
+    {% endfor -%}
+{% endif -%}

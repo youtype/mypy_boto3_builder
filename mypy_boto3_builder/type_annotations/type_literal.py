@@ -1,9 +1,6 @@
 """
 Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`
 """
-import builtins
-import keyword
-import typing
 from typing import Any, Iterable
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -11,6 +8,7 @@ from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.utils.strings import is_reserved
 
 
 class TypeLiteral(FakeAnnotation):
@@ -22,14 +20,6 @@ class TypeLiteral(FakeAnnotation):
         children -- Literal values.
         inline -- Render literal inline.
     """
-
-    RESERVED_NAMES = set(
-        (
-            *dir(typing),
-            *dir(builtins),
-            *keyword.kwlist,
-        )
-    )
 
     def __init__(self, name: str, children: Iterable[Any]) -> None:
         self.children = set(children)
@@ -50,7 +40,7 @@ class TypeLiteral(FakeAnnotation):
         # FIXME: hack for APIGWv2
         if name == "__string":
             return "".join(sorted(self.children)) + "Type"
-        if name in self.RESERVED_NAMES:
+        if is_reserved(name):
             return f"{name}Type"
         return name
 

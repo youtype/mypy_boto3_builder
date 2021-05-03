@@ -13,6 +13,7 @@ from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
+from mypy_boto3_builder.utils.strings import is_reserved
 
 
 class ServicePackage(Package):
@@ -252,7 +253,7 @@ class ServicePackage(Package):
             *(i.name for i in self.paginators),
             *(self.service_resource.get_all_names() if self.service_resource else []),
         ):
-            if name in TypeLiteral.RESERVED_NAMES:
+            if is_reserved(name):
                 raise ValueError(f"{name} is a reserved keyword")
             if name in names:
                 raise ValueError(f"Duplicate name {name}")
