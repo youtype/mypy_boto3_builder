@@ -33,7 +33,7 @@ jobs:
       - name: Extract variables from env
         id: vars
         run: |
-          VERSION=${{ toJSON(steps.version.outputs.result }}
+          VERSION=${{ toJSON(steps.version.outputs.result) }}
           echo "Version ${VERSION}"
           LAST_PACKAGE_VERSION=`python -m boto3-stubs --version || echo "0.0.0.0"`
           PACKAGE_VERSION=`echo "${LAST_PACKAGE_VERSION}" | awk 'BEGIN{FS=OFS="."}{$4=$4+1; print $0;}'`
