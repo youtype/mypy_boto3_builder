@@ -317,10 +317,12 @@ class ShapeParser:
                 attr_name in required,
             )
         if shape.name.endswith("Output"):
+            for attribute in typed_dict.children:
+                attribute.required = True
             typed_dict.add_attribute(
                 "ResponseMetadata",
                 self.response_metadata_typed_dict,
-                False,
+                True,
             )
         return typed_dict
 
