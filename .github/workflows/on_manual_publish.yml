@@ -1,4 +1,4 @@
-name: Check boto3 version and publish on new
+name: Manual build for boto3
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
         description: Target boto3 version
 
 jobs:
-  timer-check:
+  manual-publish:
     env:
       PIP_NO_CACHE_DIR: false
       PIP_USER: 1
