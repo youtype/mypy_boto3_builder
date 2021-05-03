@@ -103,6 +103,10 @@ class ServicePackage(Package):
             types.update(waiter.get_types())
         for paginator in self.paginators:
             types.update(paginator.get_types())
+        for typed_dict in self.typed_dicts:
+            types.update(typed_dict.get_types())
+        for literal in self.literals:
+            types.update(literal.get_types())
         return types
 
     def get_init_import_records(self) -> List[ImportRecord]:
