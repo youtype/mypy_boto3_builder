@@ -107,7 +107,7 @@ class TypeTypedDict(FakeAnnotation):
             A set of type annotations.
         """
         if self.replace_with_dict:
-            return Type.DictStrAny.get_types()
+            return {self, *Type.DictStrAny.get_types()}
 
         return {self}
 
