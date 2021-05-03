@@ -6,6 +6,7 @@ on:
       - pyproject.toml
       - setup.cfg
       - CHANGELOG.md
+  workflow_dispatch: {}
 
 jobs:
   unit-tests:

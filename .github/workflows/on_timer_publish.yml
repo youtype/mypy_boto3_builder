@@ -3,6 +3,7 @@ name: Check boto3 version and publish on new
 on:
   schedule:
     - cron: "0 0/2 * * *"
+  workflow_dispatch: {}
 
 jobs:
   timer-check:
