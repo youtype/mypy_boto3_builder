@@ -1,9 +1,11 @@
 name: Check boto3 version and publish on new
 
 on:
-  schedule:
-    - cron: "0 0/2 * * *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      boto3_version:
+        required: true
+        description: Target boto3 version
 
 jobs:
   timer-check:
@@ -20,48 +22,44 @@ jobs:
       - name: Install dependencies
         run: |
           rm -rf mypy_boto3_builder
-          python -m pip install -U boto3 boto3-stubs
+          BOTO3_VERSION=${{ github.event.inputs.boto3_version }}
+          BOTOCORE_VERSION=$(echo "${BOTO3_VERSION}" | awk 'BEGIN{FS=OFS="."}{print$1, $2 + 3, $3;}')
+          python -m pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
       - name: Extract versions from pip
         id: vars
         run: |
           BOTO3_VERSION=$(python -c 'import boto3; print(boto3.__version__)')
           LAST_PACKAGE_VERSION=$(curl https://pypi.org/pypi/boto3-stubs/json | jq -r '.releases|keys[]' | grep -F "${BOTO3_VERSION}." | sort -k 4,4 -t '.' | tail -1)
-          BUILD_VERSION="${BOTO3_VERSION}.0"
-          SKIP="false"
-          if [[ "${LAST_PACKAGE_VERSION}" != "" ]]; then
-            echo No new versions found, skipping the rest
-            SKIP="true"
+          if [[ "${LAST_PACKAGE_VERSION}" == "" ]]; then
+            PACKAGE_VERSION="${BOTO3_VERSION}.0"
+            echo No builds found, preparing initial ${PACKAGE_VERSION}
+          else
+            PACKAGE_VERSION=`echo "${LAST_PACKAGE_VERSION}" | awk 'BEGIN{FS=OFS="."}{$4=$4+1; print $0;}'`
+            echo Version ${LAST_PACKAGE_VERSION} found, increasing to ${PACKAGE_VERSION}
           fi
 
           echo Boto3 version: ${BOTO3_VERSION}
-          echo Build version: ${BUILD_VERSION}
-          echo Skip: ${SKIP}
+          echo Package version: ${PACKAGE_VERSION}
 
-          echo "##[set-output name=skip;]$(echo ${SKIP})"
-          echo "##[set-output name=build_version;]$(echo ${BUILD_VERSION})"
+          echo "##[set-output name=build_version;]$(echo ${PACKAGE_VERSION})"
           echo "##[set-output name=boto3_version;]$(echo ${BOTO3_VERSION})"
       - name: Install builder
-        if: steps.vars.outputs.skip == 'false'
         run: |
           python -m pip install mypy_boto3_builder
           python -m pip install mypy
       - name: Integration tests
-        if: steps.vars.outputs.skip == 'false'
         run: |
           scripts/integration.sh
       - name: Build packages
-        if: steps.vars.outputs.skip == 'false'
         env:
           BUILD_VERSION: ${{ steps.vars.outputs.build_version }}
         run: |
           rm -rf mypy_boto3_output/*
           scripts/build.sh --panic -b $BUILD_VERSION
       - name: Install dependencies for publishing
-        if: steps.vars.outputs.skip == 'false'
         run: |
           python -m pip install setuptools wheel twine
       - name: Publish to PyPI
-        if: steps.vars.outputs.skip == 'false'
         env:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
