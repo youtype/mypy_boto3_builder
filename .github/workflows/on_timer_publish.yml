@@ -42,6 +42,7 @@ jobs:
       - name: Install builder
         if: steps.vars.outputs.skip == 'false'
         run: |
+          rm -rf mypy_boto3_builder
           python -m pip install mypy_boto3_builder
           python -m pip install mypy
       - name: Integration tests
