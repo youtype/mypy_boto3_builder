@@ -92,22 +92,30 @@ class ServiceName:
         return self.name in self.ESSENTIAL
 
     @property
-    def doc_link(self) -> str:
+    def boto3_doc_link(self) -> str:
+        """
+        Link to boto3 docs.
+        """
         return (
             "https://boto3.amazonaws.com/v1/documentation/api/"
             f"{self.boto3_version}/reference/services/{self.boto3_name}.html#{self.class_name}"
         )
 
     @property
-    def local_doc_link(self):
-        return f"https://github.com/vemel/boto3_stubs_docs/blob/master/{self.module_name}/"
+    def local_doc_link(self) -> str:
+        """
+        Link to local docs.
+        """
+        return f"https://vemel.github.io/boto3_stubs_docs/{self.module_name}/"
 
-    def get_boto3_doc_link(self, *parts: str):
-        return ".".join([self.doc_link, *parts])
+    def get_boto3_doc_link(self, *parts: str) -> str:
+        """
+        Get link to boto3 docs with anchor.
 
-    @property
-    def auto_doc_link(self) -> str:
-        return f"{self.local_doc_link}/README.md"
+        Arguments:
+            parts -- Anchor parts
+        """
+        return ".".join([self.boto3_doc_link, *parts])
 
     def get_doc_link(
         self,
@@ -121,7 +129,14 @@ class ServiceName:
         ],
         *parts: str,
     ) -> str:
-        link = f"{self.local_doc_link}/{file}.md"
+        """
+        Get link to local docs with anchor.
+
+        Arguments:
+            file -- HTML file name
+            parts -- Anchor parts
+        """
+        link = f"{self.local_doc_link}{file}.html"
         if not parts:
             return link
         anchor = "".join([get_anchor_link(part) for part in parts])

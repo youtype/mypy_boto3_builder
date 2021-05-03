@@ -6,6 +6,8 @@ Boto3 client Waiter.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Waiter
     - [Waiter](#waiter)
+        - [Waiter().boto3_doc_link](#waiterboto3_doc_link)
+        - [Waiter().docstring](#waiterdocstring)
         - [Waiter().get_client_method](#waiterget_client_method)
 
 ## Waiter
@@ -14,12 +16,7 @@ Boto3 client Waiter.
 
 ```python
 class Waiter(ClassRecord):
-    def __init__(
-        name: str,
-        waiter_name: str,
-        service_name: ServiceName,
-        docstring: str = '',
-    ):
+    def __init__(name: str, waiter_name: str, service_name: ServiceName):
 ```
 
 Boto3 client Waiter.
@@ -29,9 +26,27 @@ Boto3 client Waiter.
 - [ClassRecord](class_record.md#classrecord)
 - [ServiceName](../service_name.md#servicename)
 
+### Waiter().boto3_doc_link
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L36)
+
+```python
+@property
+def boto3_doc_link() -> str:
+```
+
+### Waiter().docstring
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L40)
+
+```python
+@property
+def docstring() -> str:
+```
+
 ### Waiter().get_client_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L38)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L48)
 
 ```python
 def get_client_method() -> Method:

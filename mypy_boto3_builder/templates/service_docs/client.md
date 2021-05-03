@@ -2,7 +2,7 @@
 
 > [Index](../README.md) > [{{ package.service_name.class_name }}](./README.md) > {{ package.client.name }}
 
-Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.doc_link}})
+Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.boto3_doc_link }})
 type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).
 
 ## {{ package.client.name }}
@@ -13,7 +13,12 @@ Can be used directly:
 
 ```python
 from {{ package.service_name.module_name }}.client import {{ package.client.name }}
+
+def get_{{ package.service_name.boto3_name }}_client() -> {{ package.client.name }}:
+    return boto3.client("{{ package.service_name.boto3_name }}")
 ```
+
+[Open boto3 documentation]({{ package.client.boto3_doc_link }})
 
 ## Exceptions
 
@@ -43,7 +48,7 @@ Exceptions:
 
 Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
 
-{{ method.docstring }}
+[Open boto3 documentation]({{ package.get_boto3_doc_link("Client", method.name) }}]
 
 ```python
 {% with render_docstrings=False -%}

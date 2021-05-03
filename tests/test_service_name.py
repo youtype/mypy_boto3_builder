@@ -15,7 +15,7 @@ class TestServiceName:
         assert service_name.pypi_name == "mypy-boto3-my-service"
         assert service_name.extras_name == "my-service"
         assert (
-            service_name.doc_link
+            service_name.boto3_doc_link
             == "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/my-service.html#MyService"
         )
 

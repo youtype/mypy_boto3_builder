@@ -2,7 +2,6 @@ _.is_standalone  # unused method (mypy_boto3_builder/import_helpers/import_recor
 _.import_name  # unused property (mypy_boto3_builder/service_name.py:52)
 _.pypi_link  # unused property (mypy_boto3_builder/service_name.py:76)
 _.extras_name  # unused property (mypy_boto3_builder/service_name.py:83)
-_.auto_doc_link  # unused property (mypy_boto3_builder/service_name.py:100)
 _.essential_service_names  # unused property (mypy_boto3_builder/structures/boto3_stubs_package.py:37)
 _.get_init_required_import_records  # unused method (mypy_boto3_builder/structures/boto3_stubs_package.py:45)
 _.get_session_required_import_records  # unused method (mypy_boto3_builder/structures/boto3_stubs_package.py:67)

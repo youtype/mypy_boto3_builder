@@ -56,7 +56,7 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
         wait_method = shape_parser.get_wait_method(waiter.name)
         wait_method.docstring = (
             f"[{waiter.name}.wait documentation]"
-            f"({service_name.doc_link}.Waiter.{waiter.name}.wait)\n"
+            f"({service_name.get_boto3_doc_link('Waiter', waiter.name, 'wait')}\n"
             "[Type annotations documentation]"
             f"({service_name.get_doc_link('waiters', waiter.name)})"
         )
@@ -77,7 +77,7 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
         paginate_method = shape_parser.get_paginate_method(paginator_name)
         paginate_method.docstring = (
             f"[{paginator_name}.paginate documentation]"
-            f"({service_name.doc_link}.Paginator.{paginator_name}.paginate)\n"
+            f"({service_name.get_boto3_doc_link('Paginator', paginator_name, 'paginate')}\n"
             "[Type annotations documentation]"
             f"({service_name.get_doc_link('paginators', paginator_name)})"
         )

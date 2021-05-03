@@ -45,9 +45,10 @@ def parse_resource(
             method = shape_method_map[method_name]
         else:
             method = parse_method(name, method_name, public_method, service_name)
+
         method.docstring = (
             f"[{name}.{method_name} documentation]"
-            f"({service_name.doc_link}.{name}.{method_name})\n"
+            f"({service_name.get_boto3_doc_link(name, method_name)}\n"
             "[Type annotations documentation]"
             f"({service_name.get_doc_link('service_resource', name, method_name)})"
         )

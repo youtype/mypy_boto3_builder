@@ -2,7 +2,7 @@
 
 > [Index](../README.md) > [{{ package.service_name.class_name }}](./README.md) > Structures
 
-Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.doc_link}})
+Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.boto3_doc_link }})
 type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).
 
 {% for typed_dict in package.typed_dicts -%}

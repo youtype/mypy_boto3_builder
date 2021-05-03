@@ -6,7 +6,6 @@ Jinja2 renderer and black formatter.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Writers](index.md#writers) / Utils
     - [blackify](#blackify)
-    - [get_anchor_link](#get_anchor_link)
     - [insert_md_toc](#insert_md_toc)
     - [render_jinja2_template](#render_jinja2_template)
     - [sort_imports](#sort_imports)
@@ -36,19 +35,9 @@ Formatted python code.
 
 - `ValueError` - If `content` is not a valid Python code.
 
-## get_anchor_link
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L99)
-
-```python
-def get_anchor_link(text: str) -> str:
-```
-
-Convert header to markdown anchor link.
-
 ## insert_md_toc
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L106)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L99)
 
 ```python
 def insert_md_toc(text: str) -> str:

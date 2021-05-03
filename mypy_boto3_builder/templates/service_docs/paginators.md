@@ -2,7 +2,7 @@
 
 > [Index](../README.md) > [{{ package.service_name.class_name }}](./README.md) > Paginators
 
-Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.doc_link}})
+Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.boto3_doc_link }})
 type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).
 
 {% for paginator in package.paginators -%}
@@ -13,13 +13,13 @@ Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").get_
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.paginators import {{ paginator.name }}
+from {{ package.service_name.module_name }}.paginator import {{ paginator.name }}
 
 def get_{{ paginator.operation_name }}_paginator() -> {{ paginator.name }}:
     return boto3.client("{{ package.service_name.boto3_name }}").get_paginator("{{ paginator.operation_name }}")
 ```
 
-{{ paginator.docstring }}
+[Open boto3 documentation]({{ paginator.boto3_doc_link }})
 
 ```python
 {% with class=paginator, render_docstrings=False -%}
