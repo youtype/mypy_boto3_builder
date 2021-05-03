@@ -17,29 +17,30 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.9"
-      - name: Install dependencies
+      - name: Install latest boto3
         run: |
           rm -rf mypy_boto3_builder
-          python -m pip install -U boto3 boto3-stubs
+          python -m pip install -U boto3 botocore
       - name: Extract versions from pip
         id: vars
         run: |
           BOTO3_VERSION=$(python -c 'import boto3; print(boto3.__version__)')
+          BOTOCORE_VERSION=$(python -c 'import botocore; print(botocore.__version__)')
           LAST_PACKAGE_VERSION=$(curl https://pypi.org/pypi/boto3-stubs/json | jq -r '.releases|keys[]' | grep -F "${BOTO3_VERSION}." | sort -k 4,4 -t '.' | tail -1)
           BUILD_VERSION="${BOTO3_VERSION}.0"
           SKIP="false"
-          if [[ "${LAST_PACKAGE_VERSION}" != "" ]]; then
-            echo No new versions found, skipping the rest
+          if [ ! -z ${LAST_PACKAGE_VERSION} ]; then
+            echo Build ${LAST_PACKAGE_VERSION} found, skipping the rest
             SKIP="true"
           fi
 
           echo Boto3 version: ${BOTO3_VERSION}
+          echo Botocore version: ${BOTOCORE_VERSION}
           echo Build version: ${BUILD_VERSION}
           echo Skip: ${SKIP}
 
           echo "##[set-output name=skip;]$(echo ${SKIP})"
           echo "##[set-output name=build_version;]$(echo ${BUILD_VERSION})"
-          echo "##[set-output name=boto3_version;]$(echo ${BOTO3_VERSION})"
       - name: Install builder
         if: steps.vars.outputs.skip == 'false'
         run: |
