@@ -8,6 +8,7 @@ from typing import Any, Iterable
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
@@ -77,7 +78,12 @@ class TypeLiteral(FakeAnnotation):
         Get import record required for using type annotation.
         """
         if self.inline:
-            return ImportRecord.empty()
+            return ImportRecord(
+                ImportString("typing"),
+                "Literal",
+                min_version=(3, 8),
+                fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
+            )
 
         return InternalImportRecord(ServiceModuleName.literals, name=self.name)
 
