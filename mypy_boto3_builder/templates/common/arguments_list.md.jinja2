@@ -1,0 +1,5 @@
+{% for argument in arguments -%}
+{% with type_annotation=argument.type_annotation -%}
+- `{{ argument.name }}`: {% include "common/type_annotation.md.jinja2" with context -%}{{ ' *(required)*' if argument.required else '' -}}{{ '\n' -}}
+{% endwith -%}
+{% endfor -%}

@@ -89,7 +89,7 @@ def write_boto3_stubs_docs(package: Boto3StubsPackage, output_path: Path) -> Lis
     docs_path.mkdir(exist_ok=True)
     templates_path = Path("boto3_stubs_docs")
     file_paths = [
-        (docs_path / "README.md", templates_path / "README.md"),
+        (docs_path / "README.md", templates_path / "README.md.jinja2"),
     ]
     for file_path, template_path in file_paths:
         content = render_jinja2_template(

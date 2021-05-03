@@ -1,0 +1,7 @@
+{% if type_annotation.is_typed_dict() -%}
+    [{{ type_annotation.name }}]({{ package.service_name.get_doc_link("type_defs", type_annotation.name) }}{{ ')' -}}
+{% elif type_annotation.is_literal() and not type_annotation.inline -%}
+    [{{ type_annotation.name }}]({{ package.service_name.get_doc_link("literals", type_annotation.name) }}{{ ')' -}}
+{% else -%}
+    `{{ type_annotation.render() }}{{ '`' -}}
+{% endif -%}

@@ -128,6 +128,12 @@ class TypeTypedDict(FakeAnnotation):
         """
         return True
 
+    def is_typed_dict(self) -> bool:
+        """
+        Always True as it is a TypedDict.
+        """
+        return True
+
     def render_class(self) -> str:
         """
         Render class-based definition for debugging.

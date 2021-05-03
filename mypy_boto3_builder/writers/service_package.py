@@ -147,25 +147,25 @@ def write_service_docs(package: ServicePackage, output_path: Path) -> List[Path]
     docs_path.mkdir(exist_ok=True)
     templates_path = Path("service_docs")
     file_paths = [
-        (docs_path / "README.md", templates_path / "README.md"),
-        (docs_path / "client.md", templates_path / "client.md"),
+        (docs_path / "README.md", templates_path / "README.md.jinja2"),
+        (docs_path / "client.md", templates_path / "client.md.jinja2"),
     ]
 
     if package.literals:
-        file_paths.append((docs_path / "literals.md", templates_path / "literals.md"))
+        file_paths.append((docs_path / "literals.md", templates_path / "literals.md.jinja2"))
 
     if package.typed_dicts:
-        file_paths.append((docs_path / "type_defs.md", templates_path / "type_defs.md"))
+        file_paths.append((docs_path / "type_defs.md", templates_path / "type_defs.md.jinja2"))
 
     if package.waiters:
-        file_paths.append((docs_path / "waiters.md", templates_path / "waiters.md"))
+        file_paths.append((docs_path / "waiters.md", templates_path / "waiters.md.jinja2"))
 
     if package.paginators:
-        file_paths.append((docs_path / "paginators.md", templates_path / "paginators.md"))
+        file_paths.append((docs_path / "paginators.md", templates_path / "paginators.md.jinja2"))
 
     if package.service_resource:
         file_paths.append(
-            (docs_path / "service_resource.md", templates_path / "service_resource.md")
+            (docs_path / "service_resource.md", templates_path / "service_resource.md.jinja2")
         )
 
     for file_path, template_path in file_paths:

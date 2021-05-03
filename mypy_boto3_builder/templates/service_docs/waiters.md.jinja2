@@ -21,11 +21,9 @@ def get_{{ waiter.waiter_name }}_waiter() -> {{ waiter.name }}:
 
 [Show boto3 documentation]({{ waiter.boto3_doc_link }})
 
-```python
-{% with class=waiter, render_docstrings=False -%}
-{% include "common/class.py.jinja2" with context -%}{{ '\n' -}}
-{% endwith -%}
-```
-{% else %}
-{{ package.client.name }} has no waiters.
+Arguments for `{{ waiter.name }}.wait` method:
+
+{% with arguments=waiter.methods[0].arguments[1:] -%}
+{% include "common/arguments_list.md.jinja2" with context -%}
+{% endwith %}
 {% endfor %}
