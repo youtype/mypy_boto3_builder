@@ -130,7 +130,7 @@ from {{ package.service_name.module_name }}.literals import {{ package.literals[
 {% endif %}
 
 {% if package.typed_dicts %}
-## Structures
+## Typed dictionaries
 
 
 Type annotations for [typed dictionaries](./type_defs.md) used in methods and schema.

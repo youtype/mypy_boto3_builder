@@ -1,4 +1,4 @@
-# Structures for boto3 {{ package.service_name.class_name }} module
+# Typed dictionaries for boto3 {{ package.service_name.class_name }} module
 
 > [Index](../README.md) > [{{ package.service_name.class_name }}](./README.md) > Structures
 
