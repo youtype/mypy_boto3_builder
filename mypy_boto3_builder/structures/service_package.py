@@ -42,7 +42,7 @@ class ServicePackage(Package):
 
     def extract_literals(self) -> List[TypeLiteral]:
         found: Dict[str, TypeLiteral] = {}
-        for type_annotation in sorted(self.get_types()):
+        for type_annotation in sorted([*self.get_types(), *self.typed_dicts]):
             current: List[TypeLiteral] = []
             if isinstance(type_annotation, TypeTypedDict):
                 current.extend(type_annotation.get_children_literals())
@@ -103,10 +103,6 @@ class ServicePackage(Package):
             types.update(waiter.get_types())
         for paginator in self.paginators:
             types.update(paginator.get_types())
-        for typed_dict in self.typed_dicts:
-            types.update(typed_dict.get_types())
-        for literal in self.literals:
-            types.update(literal.get_types())
         return types
 
     def get_init_import_records(self) -> List[ImportRecord]:
