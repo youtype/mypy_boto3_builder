@@ -19,6 +19,7 @@ jobs:
           python-version: "3.9"
       - name: Install dependencies
         run: |
+          rm -rf mypy_boto3_builder
           python -m pip install -U boto3 boto3-stubs
       - name: Extract versions from pip
         id: vars
@@ -43,7 +44,6 @@ jobs:
       - name: Install builder
         if: steps.vars.outputs.skip == 'false'
         run: |
-          rm -rf mypy_boto3_builder
           python -m pip install mypy_boto3_builder
           python -m pip install mypy
       - name: Integration tests
