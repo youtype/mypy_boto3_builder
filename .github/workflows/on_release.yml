@@ -38,7 +38,7 @@ jobs:
       - name: Bump version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VERSION: ${{ steps.vars.outputs.version }}
+          VERSION: ${{ steps.version.outputs.result }}
         run: |
           scripts/bump_version.sh
       - name: Dockerize
