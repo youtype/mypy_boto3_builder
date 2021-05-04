@@ -66,6 +66,8 @@ def write_boto3_stubs_package(
                 third_party=["boto3", "botocore", *[i.module_name for i in package.service_names]],
             )
             content = blackify(content, file_path)
+        if file_path.suffix == ".md":
+            content = insert_md_toc(content)
         if not file_path.exists() or file_path.read_text() != content:
             modified_paths.append(file_path)
             file_path.write_text(content)

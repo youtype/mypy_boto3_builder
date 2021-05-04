@@ -6,7 +6,12 @@ from pathlib import Path
 from typing import List, Tuple
 
 from mypy_boto3_builder.structures.master_package import MasterPackage
-from mypy_boto3_builder.writers.utils import blackify, render_jinja2_template, sort_imports
+from mypy_boto3_builder.writers.utils import (
+    blackify,
+    insert_md_toc,
+    render_jinja2_template,
+    sort_imports,
+)
 
 
 def write_master_package(
@@ -70,6 +75,8 @@ def write_master_package(
         if file_path.suffix in [".py", ".pyi"]:
             content = sort_imports(content, "mypy_boto3", extension=file_path.suffix[1:])
             content = blackify(content, file_path)
+        if file_path.suffix == ".md":
+            content = insert_md_toc(content)
 
         if not file_path.exists() or file_path.read_text() != content:
             modified_paths.append(file_path)

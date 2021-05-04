@@ -133,6 +133,8 @@ def write_service_package(
         if file_path.suffix in [".py", ".pyi"]:
             content = sort_imports(content, package.service_name.module_name, extension="pyi")
             content = blackify(content, file_path)
+        if file_path.suffix == ".md":
+            content = insert_md_toc(content)
 
         if not file_path.exists() or file_path.read_text() != content:
             modified_paths.append(file_path)
