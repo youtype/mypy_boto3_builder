@@ -243,6 +243,8 @@ class ServiceNameCatalog:
         ServiceName("emr", "EMR"),
         ServiceName("es", "ElasticsearchService"),
         ServiceName("events", "EventBridge"),
+        ServiceName("finspace", "finspace"),
+        ServiceName("finspace-data", "FinSpaceData"),
         ServiceName("firehose", "Firehose"),
         ServiceName("fis", "FIS"),
         ServiceName("fms", "FMS"),
