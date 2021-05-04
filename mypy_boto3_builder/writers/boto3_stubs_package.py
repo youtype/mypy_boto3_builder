@@ -10,6 +10,7 @@ from mypy_boto3_builder.constants import BOTO3_STUBS_STATIC_PATH
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.writers.utils import (
     blackify,
+    format_md,
     insert_md_toc,
     render_jinja2_template,
     sort_imports,
@@ -68,6 +69,7 @@ def write_boto3_stubs_package(
             content = blackify(content, file_path)
         if file_path.suffix == ".md":
             content = insert_md_toc(content)
+            content = format_md(content)
         if not file_path.exists() or file_path.read_text() != content:
             modified_paths.append(file_path)
             file_path.write_text(content)
@@ -99,6 +101,7 @@ def write_boto3_stubs_docs(package: Boto3StubsPackage, output_path: Path) -> Lis
             package=package,
         )
         content = insert_md_toc(content)
+        content = format_md(content)
         if not file_path.exists() or file_path.read_text() != content:
             modified_paths.append(file_path)
             file_path.write_text(content)

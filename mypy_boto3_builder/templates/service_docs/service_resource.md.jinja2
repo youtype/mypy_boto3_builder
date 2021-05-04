@@ -18,26 +18,13 @@ def get_{{ package.service_name.boto3_name }}_resource() -> {{ package.service_r
     return boto3.resource("{{ package.service_name.boto3_name }}")
 ```
 
-[Show boto3 documentation]({{ package.service_resource.boto3_doc_link }})
+Boto3 documentation: [{{ package.service_name.class_name }}.ServiceResource]({{ package.service_resource.boto3_doc_link }})
 
 {% if package.service_resource.attributes %}
 ## Attributes
 
 {% for attribute in package.service_resource.attributes %}
 - `{{ attribute.name }}`: {% with type_annotation=attribute.type_annotation -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith %}
-{% endfor %}
-{% endif %}
-
-{% if package.service_resource.methods %}
-## Methods
-{% for method in package.service_resource.methods %}
-### {{ package.service_resource.name }}.{{ method.name }} method
-
-Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
-
-[Show boto3 documentation]({{ package.service_name.get_boto3_doc_link(package.service_resource.name, method.name) }}]
-
-{% include "common/method.md.jinja2" with context -%}
 {% endfor %}
 {% endif %}
 
@@ -59,7 +46,20 @@ def get_collection() -> {{ collection.name }}:
 
 Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(collection.object_class_name) }}) resource.
 
-[Show boto3 documentation]({{ collection.boto3_doc_link }})
+Boto3 documentation: [{{ package.service_name.class_name }}.{{ collection.parent_name }}.{{collection.attribute_name}}]({{ collection.boto3_doc_link }})
+{% endfor %}
+{% endif %}
+
+{% if package.service_resource.methods %}
+## Methods
+{% for method in package.service_resource.methods %}
+### {{ package.service_resource.name }}.{{ method.name }} method
+
+Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
+
+Boto3 documentation: [{{ package.service_name.class_name }}.ServiceResource.{{method.name}}]({{ package.service_name.get_boto3_doc_link('ServiceResource', method.name) }})
+
+{% include "common/method.md.jinja2" with context -%}
 {% endfor %}
 {% endif %}
 
@@ -77,27 +77,13 @@ def get_resource() -> {{ resource.name }}:
     return boto3.resource("{{ package.service_name.boto3_name }}").{{ resource.name }}(...)
 ```
 
-[Show boto3 documentation]({{ resource.boto3_doc_link }})
+Boto3 documentation: [{{ package.service_name.class_name }}.{{resource.name}}]({{ resource.boto3_doc_link }})
 
 {% if resource.attributes %}
 ### {{ resource.name }} attributes
 
 {% for attribute in resource.attributes %}
 - `{{ attribute.name }}`: {% with type_annotation=attribute.type_annotation -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}
-{% endfor %}
-{% endif %}
-
-{% if resource.methods %}
-### {{ resource.name }} methods
-
-{% for method in resource.methods %}
-#### {{ resource.name }}.{{ method.name }} method
-
-Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
-
-[Show boto3 documentation]({{ package.service_name.get_boto3_doc_link(resource.name, method.name) }}]
-
-{% include "common/method.md.jinja2" with context -%}
 {% endfor %}
 {% endif %}
 
@@ -121,7 +107,21 @@ def get_collection() -> {{ collection.name }}:
 
 Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(collection.object_class_name) }}) resource.
 
-[Show boto3 documentation]({{ collection.boto3_doc_link }})
+Boto3 documentation: [{{ package.service_name.class_name }}.{{ collection.parent_name }}.{{ collection.name }}]({{ collection.boto3_doc_link }})
+{% endfor %}
+{% endif %}
+
+{% if resource.methods %}
+### {{ resource.name }} methods
+
+{% for method in resource.methods %}
+#### {{ resource.name }}.{{ method.name }} method
+
+Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
+
+Boto3 documentation: [{{ package.service_name.class_name }}.{{ resource.name }}.{{ method.name }}]({{ package.service_name.get_boto3_doc_link(resource.name, method.name) }})
+
+{% include "common/method.md.jinja2" with context -%}
 {% endfor %}
 {% endif %}
 

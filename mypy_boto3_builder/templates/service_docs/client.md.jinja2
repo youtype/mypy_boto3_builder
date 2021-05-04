@@ -18,7 +18,7 @@ def get_{{ package.service_name.boto3_name }}_client() -> {{ package.client.name
     return boto3.client("{{ package.service_name.boto3_name }}")
 ```
 
-[Show boto3 documentation]({{ package.client.boto3_doc_link }})
+Boto3 documentation: [{{ package.service_name.class_name }}.Client]({{ package.client.boto3_doc_link }})
 
 ## Exceptions
 
@@ -48,7 +48,7 @@ Exceptions:
 
 Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
 
-[Show boto3 documentation]({{ package.service_name.get_boto3_doc_link("Client", method.name) }}]
+Boto3 documentation: [{{ package.service_name.class_name }}.Client.{{ method.name }}]({{ package.service_name.get_boto3_doc_link("Client", method.name) }})
 
 {% include "common/method.md.jinja2" with context -%}
 

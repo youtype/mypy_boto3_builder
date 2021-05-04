@@ -19,7 +19,7 @@ def get_{{ paginator.operation_name }}_paginator() -> {{ paginator.name }}:
     return boto3.client("{{ package.service_name.boto3_name }}").get_paginator("{{ paginator.operation_name }}")
 ```
 
-[Show boto3 documentation]({{ paginator.boto3_doc_link }})
+Boto3 documentation: [{{ package.service_name.class_name }}.Paginator.{{ paginator.paginator_name }}]({{ paginator.boto3_doc_link }})
 
 Arguments for `{{ paginator.name }}.paginate` method:
 

@@ -7,6 +7,7 @@ from typing import Iterable, Optional
 
 import black
 import md_toc
+import mdformat
 from black import InvalidInput, NothingChanged
 from isort.api import Config, sort_code_string
 
@@ -117,3 +118,15 @@ def insert_md_toc(text: str) -> str:
         result.append("")
 
     return "\n".join(result)
+
+
+def format_md(text: str) -> str:
+    """
+    Format MarkDown with mdformat.
+    """
+    return mdformat.text(
+        text,
+        options={
+            "wrap": 79,
+        },
+    )

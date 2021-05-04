@@ -42,7 +42,7 @@ class Collection(ClassRecord):
 
     @property
     def boto3_doc_link(self) -> str:
-        return self.service_name.get_boto3_doc_link(self.parent_name, self.name)
+        return self.service_name.get_boto3_doc_link(self.parent_name, self.attribute_name)
 
     @property
     def docstring(self) -> str:

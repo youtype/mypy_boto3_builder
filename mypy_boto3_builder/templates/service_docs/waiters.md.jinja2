@@ -19,7 +19,7 @@ def get_{{ waiter.waiter_name }}_waiter() -> {{ waiter.name }}:
     return boto3.client("{{ package.service_name.boto3_name }}").get_waiter("{{ waiter.waiter_name }}")
 ```
 
-[Show boto3 documentation]({{ waiter.boto3_doc_link }})
+Boto3 documentation: [{{ package.service_name.class_name }}.Waiter.{{ waiter.waiter_name }}]({{ waiter.boto3_doc_link }})
 
 Arguments for `{{ waiter.name }}.wait` method:
 
