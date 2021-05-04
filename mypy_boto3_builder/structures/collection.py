@@ -22,6 +22,7 @@ class Collection(ClassRecord):
         parent_name: str,
         service_name: ServiceName,
         type_annotation: FakeAnnotation,
+        object_class_name: str,
     ):
         super().__init__(
             name=name,
@@ -37,6 +38,7 @@ class Collection(ClassRecord):
         self.attribute_name = attribute_name
         self.parent_name = parent_name
         self.type_annotation = type_annotation
+        self.object_class_name = object_class_name
 
     @property
     def boto3_doc_link(self) -> str:
@@ -46,8 +48,7 @@ class Collection(ClassRecord):
     def docstring(self) -> str:
         doc_link = self.service_name.get_doc_link(
             "service_resource",
-            f"{self.service_name.class_name}ServiceResource",
-            self.attribute_name,
+            self.name,
         )
         return (
             "[Show boto3 documentation]"

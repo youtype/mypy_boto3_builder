@@ -15,14 +15,18 @@ from {{ package.service_name.module_name }}.type_defs import {{ typed_dict.name 
 {% if typed_dict.get_required() %}
 Required fields:
 {% for field in typed_dict.get_required() -%}
-- `{{ field.name }}`: `{{ field.type_annotation.render() }}`{{ '\n' -}}
+{% with type_annotation=field.type_annotation -%}
+- `{{ field.name }}`: {% include "common/type_annotation.md.jinja2" with context -%}{{ '\n' -}}
+{% endwith -%}
 {% endfor -%}
 {% endif %}
 
 {% if typed_dict.get_optional() %}
 Optional fields:
 {% for field in typed_dict.get_optional() -%}
-- `{{ field.name }}`: `{{ field.type_annotation.render() }}`{{ '\n' -}}
+{% with type_annotation=field.type_annotation -%}
+- `{{ field.name }}`: {% include "common/type_annotation.md.jinja2" with context -%}{{ '\n' -}}
+{% endwith -%}
 {% endfor -%}
 {% endif %}
 

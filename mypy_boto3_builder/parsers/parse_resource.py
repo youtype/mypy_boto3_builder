@@ -50,7 +50,7 @@ def parse_resource(
             "[Show boto3 documentation]"
             f"({service_name.get_boto3_doc_link(name, method_name)})\n"
             "[Show boto3-stubs documentation]"
-            f"({service_name.get_doc_link('service_resource', name, method_name)})"
+            f"({service_name.get_doc_link('service_resource', name, method_name, ' method')})"
         )
         result.methods.append(method)
 

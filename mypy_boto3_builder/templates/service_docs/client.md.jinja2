@@ -50,11 +50,8 @@ Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").{{ m
 
 [Show boto3 documentation]({{ package.service_name.get_boto3_doc_link("Client", method.name) }}]
 
-```python
-{% with render_docstrings=False -%}
-{% include "common/method.py.jinja2" with context -%}{{ '\n' -}}
-{% endwith -%}
-```
+{% include "common/method.md.jinja2" with context -%}
+
 {% else %}
 {{ package.client.name }} has no public methods.
 {% endfor %}

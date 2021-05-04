@@ -21,11 +21,14 @@ def get_{{ paginator.operation_name }}_paginator() -> {{ paginator.name }}:
 
 [Show boto3 documentation]({{ paginator.boto3_doc_link }})
 
-```python
-{% with class=paginator, render_docstrings=False -%}
-{% include "common/class.py.jinja2" with context -%}{{ '\n' -}}
-{% endwith -%}
-```
-{% else %}
-{{ package.client.name }} has no paginators.
+Arguments for `{{ paginator.name }}.paginate` method:
+
+{% with arguments=paginator.methods[0].arguments[1:] -%}
+{% include "common/arguments_list.md.jinja2" with context -%}
+{% endwith %}
+
+`{{ paginator.name }}.paginate`  returns {% with type_annotation=paginator.methods[0].return_type -%}
+{% include "common/type_annotation.md.jinja2" with context -%}
+{% endwith -%}.
+
 {% endfor %}

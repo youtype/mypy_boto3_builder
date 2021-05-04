@@ -1,0 +1,10 @@
+{% if method.call_arguments %}
+Arguments:
+{% with arguments=method.arguments[1:] -%}
+{% include "common/arguments_list.md.jinja2" with context -%}
+{% endwith %}
+{% endif %}
+
+{% if not method.returns_none %}
+Returns {% with type_annotation=method.return_type -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}.
+{% endif %}

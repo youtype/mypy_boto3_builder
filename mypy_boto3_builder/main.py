@@ -65,6 +65,7 @@ def main() -> None:
         builder_version=args.builder_version,
         get_anchor_link=get_anchor_link,
         render_docstrings=True,
+        hasattr=hasattr,
     )
 
     logger.info(f"Bulding version {build_version}")

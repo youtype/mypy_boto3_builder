@@ -20,29 +20,31 @@ def get_{{ package.service_name.boto3_name }}_resource() -> {{ package.service_r
 
 [Show boto3 documentation]({{ package.service_resource.boto3_doc_link }})
 
+{% if package.service_resource.attributes %}
+## Attributes
+
+{% for attribute in package.service_resource.attributes %}
+- `{{ attribute.name }}`: {% with type_annotation=attribute.type_annotation -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith %}
+{% endfor %}
+{% endif %}
+
 {% if package.service_resource.methods %}
 ## Methods
 {% for method in package.service_resource.methods %}
-### {{ package.service_resource.name }}.{{ method.name }}
+### {{ package.service_resource.name }}.{{ method.name }} method
 
 Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
 
 [Show boto3 documentation]({{ package.service_name.get_boto3_doc_link(package.service_resource.name, method.name) }}]
 
-Definition:
-
-```python
-{% with render_docstrings=False -%}
-{% include "common/method.py.jinja2" with context -%}{{ '\n' -}}
-{% endwith -%}
-```
+{% include "common/method.md.jinja2" with context -%}
 {% endfor %}
 {% endif %}
 
 {% if package.service_resource.collections %}
 ## Collections
 {% for collection in package.service_resource.collections %}
-### {{ package.service_resource.name }}.{{ collection.attribute_name }}
+### {{ collection.name }}
 
 Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ collection.attribute_name }}` collection.
 
@@ -52,20 +54,12 @@ Can be used directly:
 from {{ package.service_name.module_name }}.service_resource import {{ collection.name }},
 
 def get_collection() -> {{ collection.name }}:
-    return boto3.resource("{{ package.service_name.boto3_name }}").{{ collection.attribute_name }}(
-        ...
-    )
+    return boto3.resource("{{ package.service_name.boto3_name }}").{{ collection.attribute_name }}
 ```
+
+Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(collection.object_class_name) }}) resource.
 
 [Show boto3 documentation]({{ collection.boto3_doc_link }})
-
-Definition:
-
-```python
-{% with class=collection, render_docstrings=False -%}
-{% include "common/class.py.jinja2" with context -%}{{ '\n' -}}
-{% endwith -%}
-```
 {% endfor %}
 {% endif %}
 
@@ -89,9 +83,7 @@ def get_resource() -> {{ resource.name }}:
 ### {{ resource.name }} attributes
 
 {% for attribute in resource.attributes %}
-- `{{ attribute.name }}`: `{{ attribute.type_annotation.render() }}`
-{% else %}
-{{ resource.name }} has no attributes.
+- `{{ attribute.name }}`: {% with type_annotation=attribute.type_annotation -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}
 {% endfor %}
 {% endif %}
 
@@ -99,17 +91,13 @@ def get_resource() -> {{ resource.name }}:
 ### {{ resource.name }} methods
 
 {% for method in resource.methods %}
-#### {{ resource.name }}.{{ method.name }}
+#### {{ resource.name }}.{{ method.name }} method
 
 Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
 
 [Show boto3 documentation]({{ package.service_name.get_boto3_doc_link(resource.name, method.name) }}]
 
-```python
-{% with render_docstrings=False -%}
-{% include "common/method.py.jinja2" with context -%}{{ '\n' -}}
-{% endwith -%}
-```
+{% include "common/method.md.jinja2" with context -%}
 {% endfor %}
 {% endif %}
 
@@ -131,13 +119,9 @@ def get_collection() -> {{ collection.name }}:
     return resource.{{ collection.attribute_name }}
 ```
 
-[Show boto3 documentation]({{ collection.boto3_doc_link }})
+Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(collection.object_class_name) }}) resource.
 
-```python
-{% with class=collection, render_docstrings=False -%}
-{% include "common/class.py.jinja2" with context -%}{{ '\n' -}}
-{% endwith -%}
-```
+[Show boto3 documentation]({{ collection.boto3_doc_link }})
 {% endfor %}
 {% endif %}
 

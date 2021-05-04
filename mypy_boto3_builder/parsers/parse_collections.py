@@ -42,6 +42,7 @@ def parse_collections(
             attribute_name=collection.name,
             service_name=service_name,
             type_annotation=InternalImport(collection.name),
+            object_class_name=object_class_name,
         )
         self_type = InternalImport(collection_record.name, stringify=True)
 

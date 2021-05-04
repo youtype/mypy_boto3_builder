@@ -22,6 +22,7 @@ class Collection(ClassRecord):
         parent_name: str,
         service_name: ServiceName,
         type_annotation: FakeAnnotation,
+        object_class_name: str,
     ):
 ```
 
@@ -35,7 +36,7 @@ Boto3 ServiceResource or Resource collection.
 
 ### Collection().boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L41)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L43)
 
 ```python
 @property
@@ -44,7 +45,7 @@ def boto3_doc_link() -> str:
 
 ### Collection().docstring
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L45)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L47)
 
 ```python
 @property
@@ -53,7 +54,7 @@ def docstring() -> str:
 
 ### Collection().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L59)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L60)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:

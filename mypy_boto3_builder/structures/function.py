@@ -1,11 +1,12 @@
 """
 Module-level function.
 """
-from typing import Iterable, List, Set
+from typing import Iterable, Set
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.type import Type
 
 
 class Function:
@@ -16,7 +17,7 @@ class Function:
     def __init__(
         self,
         name: str,
-        arguments: List[Argument],
+        arguments: Iterable[Argument],
         return_type: FakeAnnotation,
         docstring: str = "",
         decorators: Iterable[FakeAnnotation] = tuple(),
@@ -24,7 +25,7 @@ class Function:
         type_ignore: bool = False,
     ):
         self.name = name
-        self.arguments = arguments
+        self.arguments = list(arguments)
         self.return_type = return_type
         self.docstring = docstring
         self.decorators = list(decorators)
@@ -53,3 +54,10 @@ class Function:
             result.add(import_record)
 
         return result
+
+    @property
+    def returns_none(self) -> bool:
+        """
+        Whether return type is None
+        """
+        return self.return_type == Type.none

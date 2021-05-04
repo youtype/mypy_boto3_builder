@@ -545,8 +545,7 @@ class ShapeParser:
         Returns:
             Filter Method record.
         """
-        arguments: List[Argument] = [Argument("self", None)]
-        result = Method("filter", arguments, self_type)
+        result = Method("filter", [Argument("self", None)], self_type)
         if not collection.request:
             return result
 
@@ -562,7 +561,7 @@ class ShapeParser:
             ):
                 if argument.required:
                     continue
-                arguments.append(argument)
+                result.arguments.append(argument)
 
         return result
 
