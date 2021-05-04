@@ -42,6 +42,7 @@ jobs:
           VERSION: ${{ steps.version.outputs.result }}
         run: |
           scripts/bump_version.sh
+          poetry install -n
       - name: Dockerize
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
