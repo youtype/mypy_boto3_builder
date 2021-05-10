@@ -26,7 +26,7 @@ jobs:
             const { getBoto3Version, getStubsVersions, getNextPostVersion, getBotocoreVersion } = require('./.github/workflows/helpers.js')
             core.setOutput('version', '')
 
-            const boto3Version = context.payload.inputs ? context.payload.inputs.boto3_version : await getBoto3Version()
+            const boto3Version = (context.payload.inputs && context.payload.inputs.boto3_version) ? context.payload.inputs.boto3_version : await getBoto3Version()
             const force = context.payload.inputs ? context.payload.inputs.force : false
 
             const botocoreVersion = getBotocoreVersion(boto3Version)
