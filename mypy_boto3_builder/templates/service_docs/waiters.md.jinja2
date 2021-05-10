@@ -1,25 +1,25 @@
-# Waiters for boto3 {{ package.service_name.class_name }} module
+# Waiters for boto3 {{ service_name.class_name }} module
 
-> [Index](../README.md) > [{{ package.service_name.class_name }}](./README.md) > Waiters
+> [Index](..) > [{{ service_name.class_name }}](.) > Waiters
 
-Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.boto3_doc_link }})
-type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).
+Auto-generated documentation for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }})
+type annotations stubs module [{{ service_name.module_name }}]({{ service_name.pypi_link }}).
 
 {% for waiter in package.waiters -%}
 ## {{ waiter.name }}
 
-Type annotations for `boto3.client("{{ package.service_name.boto3_name }}").get_waiter("{{ waiter.waiter_name }}")`.
+Type annotations for `boto3.client("{{ service_name.boto3_name }}").get_waiter("{{ waiter.waiter_name }}")`.
 
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.waiter import {{ waiter.name }}
+from {{ service_name.module_name }}.waiter import {{ waiter.name }}
 
 def get_{{ waiter.waiter_name }}_waiter() -> {{ waiter.name }}:
-    return boto3.client("{{ package.service_name.boto3_name }}").get_waiter("{{ waiter.waiter_name }}")
+    return boto3.client("{{ service_name.boto3_name }}").get_waiter("{{ waiter.waiter_name }}")
 ```
 
-Boto3 documentation: [{{ package.service_name.class_name }}.Waiter.{{ waiter.waiter_name }}]({{ waiter.boto3_doc_link }})
+Boto3 documentation: [{{ service_name.class_name }}.Waiter.{{ waiter.waiter_name }}]({{ waiter.boto3_doc_link }})
 
 Arguments for `{{ waiter.name }}.wait` method:
 

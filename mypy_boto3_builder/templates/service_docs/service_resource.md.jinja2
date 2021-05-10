@@ -1,24 +1,24 @@
-# {{ package.service_resource.name }} for boto3 {{ package.service_name.class_name }} module
+# {{ package.service_resource.name }} for boto3 {{ service_name.class_name }} module
 
-> [Index](../README.md) > [{{ package.service_name.class_name }}](./README.md) > {{ package.service_resource.name }}
+> [Index](..) > [{{ service_name.class_name }}](.) > {{ package.service_resource.name }}
 
-Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.boto3_doc_link }})
-type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).
+Auto-generated documentation for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }})
+type annotations stubs module [{{ service_name.module_name }}]({{ service_name.pypi_link }}).
 
 ## {{ package.service_resource.name }}
 
-Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}")`, included resources and collections.
+Type annotations for `boto3.resource("{{ service_name.boto3_name }}")`, included resources and collections.
 
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.service_resource import {{ package.service_resource.name }}
+from {{ service_name.module_name }}.service_resource import {{ package.service_resource.name }}
 
-def get_{{ package.service_name.boto3_name }}_resource() -> {{ package.service_resource.name }}:
-    return boto3.resource("{{ package.service_name.boto3_name }}")
+def get_{{ service_name.boto3_name }}_resource() -> {{ package.service_resource.name }}:
+    return boto3.resource("{{ service_name.boto3_name }}")
 ```
 
-Boto3 documentation: [{{ package.service_name.class_name }}.ServiceResource]({{ package.service_resource.boto3_doc_link }})
+Boto3 documentation: [{{ service_name.class_name }}.ServiceResource]({{ package.service_resource.boto3_doc_link }})
 
 {% if package.service_resource.attributes %}
 ## Attributes
@@ -33,20 +33,20 @@ Boto3 documentation: [{{ package.service_name.class_name }}.ServiceResource]({{ 
 {% for collection in package.service_resource.collections %}
 ### {{ collection.name }}
 
-Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ collection.attribute_name }}` collection.
+Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ collection.attribute_name }}` collection.
 
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.service_resource import {{ collection.name }},
+from {{ service_name.module_name }}.service_resource import {{ collection.name }},
 
 def get_collection() -> {{ collection.name }}:
-    return boto3.resource("{{ package.service_name.boto3_name }}").{{ collection.attribute_name }}
+    return boto3.resource("{{ service_name.boto3_name }}").{{ collection.attribute_name }}
 ```
 
 Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(collection.object_class_name) }}) resource.
 
-Boto3 documentation: [{{ package.service_name.class_name }}.{{ collection.parent_name }}.{{collection.attribute_name}}]({{ collection.boto3_doc_link }})
+Boto3 documentation: [{{ service_name.class_name }}.{{ collection.parent_name }}.{{collection.attribute_name}}]({{ collection.boto3_doc_link }})
 {% endfor %}
 {% endif %}
 
@@ -55,9 +55,9 @@ Boto3 documentation: [{{ package.service_name.class_name }}.{{ collection.parent
 {% for method in package.service_resource.methods %}
 ### {{ package.service_resource.name }}.{{ method.name }} method
 
-Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
+Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
 
-Boto3 documentation: [{{ package.service_name.class_name }}.ServiceResource.{{method.name}}]({{ package.service_name.get_boto3_doc_link('ServiceResource', method.name) }})
+Boto3 documentation: [{{ service_name.class_name }}.ServiceResource.{{method.name}}]({{ service_name.get_boto3_doc_link('ServiceResource', method.name) }})
 
 {% include "common/method.md.jinja2" with context -%}
 {% endfor %}
@@ -66,18 +66,18 @@ Boto3 documentation: [{{ package.service_name.class_name }}.ServiceResource.{{me
 {% for resource in package.service_resource.sub_resources %}
 ## {{ resource.name }}
 
-Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ resource.name }}` class.
+Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ resource.name }}` class.
 
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.service_resource import {{ resource.name }}
+from {{ service_name.module_name }}.service_resource import {{ resource.name }}
 
 def get_resource() -> {{ resource.name }}:
-    return boto3.resource("{{ package.service_name.boto3_name }}").{{ resource.name }}(...)
+    return boto3.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...)
 ```
 
-Boto3 documentation: [{{ package.service_name.class_name }}.{{resource.name}}]({{ resource.boto3_doc_link }})
+Boto3 documentation: [{{ service_name.class_name }}.{{resource.name}}]({{ resource.boto3_doc_link }})
 
 {% if resource.attributes %}
 ### {{ resource.name }} attributes
@@ -93,21 +93,21 @@ Boto3 documentation: [{{ package.service_name.class_name }}.{{resource.name}}]({
 {% for collection in resource.collections %}
 #### {{ resource.name }}.{{ collection.attribute_name }}
 
-Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ resource.name }}(...).{{ collection.attribute_name }}` collection.
+Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...).{{ collection.attribute_name }}` collection.
 
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.service_resource import {{ collection.name }},
+from {{ service_name.module_name }}.service_resource import {{ collection.name }},
 
 def get_collection() -> {{ collection.name }}:
-    resource = boto3.resource("{{ package.service_name.boto3_name }}").{{ resource.name }}(...)
+    resource = boto3.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...)
     return resource.{{ collection.attribute_name }}
 ```
 
 Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(collection.object_class_name) }}) resource.
 
-Boto3 documentation: [{{ package.service_name.class_name }}.{{ collection.parent_name }}.{{ collection.name }}]({{ collection.boto3_doc_link }})
+Boto3 documentation: [{{ service_name.class_name }}.{{ collection.parent_name }}.{{ collection.name }}]({{ collection.boto3_doc_link }})
 {% endfor %}
 {% endif %}
 
@@ -117,9 +117,9 @@ Boto3 documentation: [{{ package.service_name.class_name }}.{{ collection.parent
 {% for method in resource.methods %}
 #### {{ resource.name }}.{{ method.name }} method
 
-Type annotations for `boto3.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
+Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
 
-Boto3 documentation: [{{ package.service_name.class_name }}.{{ resource.name }}.{{ method.name }}]({{ package.service_name.get_boto3_doc_link(resource.name, method.name) }})
+Boto3 documentation: [{{ service_name.class_name }}.{{ resource.name }}.{{ method.name }}]({{ service_name.get_boto3_doc_link(resource.name, method.name) }})
 
 {% include "common/method.md.jinja2" with context -%}
 {% endfor %}

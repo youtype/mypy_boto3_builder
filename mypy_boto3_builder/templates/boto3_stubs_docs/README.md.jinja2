@@ -14,5 +14,5 @@ python -m pip install 'boto3-stubs[s3,ec2]'
 
 ## Services type annotations
 {% for service_name in package.service_names %}
-- [{{ service_name.pypi_name }}](./{{ service_name.module_name }}/README.md) for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }}) service
+- [{{ service_name.pypi_name }}](./{{ service_name.module_name }}) for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }}) service
 {% endfor %}
