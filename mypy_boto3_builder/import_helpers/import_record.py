@@ -19,7 +19,6 @@ class ImportRecord:
         fallback -- Fallback ImportRecord.
     """
 
-    type_defs_import_string = ImportString(TYPE_DEFS_NAME)
     builtins_import_string = ImportString("builtins")
     third_party_import_strings = (
         ImportString("boto3"),

@@ -9,6 +9,7 @@ Wrapper for Python import strings.
         - [ImportString.empty](#importstringempty)
         - [ImportString.from_str](#importstringfrom_str)
         - [ImportString().master_name](#importstringmaster_name)
+        - [ImportString.parent](#importstringparent)
         - [ImportString().render](#importstringrender)
         - [ImportString().startswith](#importstringstartswith)
 
@@ -63,7 +64,7 @@ def from_str(import_string: str) -> 'ImportString':
 
 ### ImportString().master_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L107)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L114)
 
 ```python
 @property
@@ -72,9 +73,18 @@ def master_name() -> str:
 
 Get first import string part or `builtins`.
 
+### ImportString.parent
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L47)
+
+```python
+@classmethod
+def parent() -> 'ImportString':
+```
+
 ### ImportString().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L98)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L105)
 
 ```python
 def render() -> str:
@@ -88,7 +98,7 @@ Ready to use import string.
 
 ### ImportString().startswith
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L66)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L73)
 
 ```python
 def startswith(other: 'ImportString') -> bool:
