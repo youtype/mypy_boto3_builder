@@ -50,7 +50,8 @@ async function getBoto3Version() {
 }
 
 async function getStubsVersions(boto3Version) {
-    const versions = await getReleaseVersions('boto3-stubs').filter(v => v === boto3Version || v.startsWith(`${boto3Version}.`))
+    const allVersions = await getReleaseVersions('boto3-stubs')
+    const versions = allVersions.filter(v => v === boto3Version || v.startsWith(`${boto3Version}.`))
     return sortVersions(versions)
 }
 
