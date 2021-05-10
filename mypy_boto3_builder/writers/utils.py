@@ -1,6 +1,7 @@
 """
 Jinja2 renderer and black formatter.
 """
+import re
 import tempfile
 from pathlib import Path
 from typing import Iterable, Optional
@@ -98,10 +99,16 @@ def render_jinja2_template(
 
 
 def insert_md_toc(text: str) -> str:
+    headers = {}
+    header_re = re.compile(r'\s*\- \[(.+)\]\(#(.+)\)')
     with tempfile.NamedTemporaryFile("w+") as f:
         f.write(text)
         f.flush()
         toc_lines = md_toc.build_toc(f.name).splitlines()
+        for toc_line in toc_lines:
+            match = header_re.match(toc_line)
+            if match:
+                headers[match.groups()[0]] = match.groups()[1]
 
     lines = text.splitlines()
     result = []
@@ -111,6 +118,13 @@ def insert_md_toc(text: str) -> str:
             result.extend(toc_lines)
             result.append("")
             inserted = True
+
+        header = line.lstrip('#').strip()
+        if header and header in headers:
+            anchor = headers[header]
+            result.append(f'{line}<a id="{anchor}"></a>')
+            continue
+
         result.append(line)
 
     if not inserted:
