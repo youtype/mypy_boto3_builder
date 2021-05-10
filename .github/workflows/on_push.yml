@@ -31,9 +31,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.PYTHONUSERBASE }}
-          key: ${{ steps.python.outputs.python-version }}-full-${{ env.CACHE_KEY }}-${{ hashFiles('**/poetry.lock') }}
+          key: ${{ steps.python.outputs.python-version }}-full-${{ secrets.CACHE_KEY }}-${{ hashFiles('**/poetry.lock') }}
           restore-keys: |
-            ${{ steps.python.outputs.python-version }}-full-${{ env.CACHE_KEY }}-
+            ${{ steps.python.outputs.python-version }}-full-${{ secrets.CACHE_KEY }}-
       - name: Install dependencies
         run: |
           python -m pip install -U poetry pip wheel
@@ -71,9 +71,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.PYTHONUSERBASE }}
-          key: ${{ steps.python.outputs.python-version }}-full-${{ env.CACHE_KEY }}-${{ hashFiles('**/poetry.lock') }}
+          key: ${{ steps.python.outputs.python-version }}-full-${{ secrets.CACHE_KEY }}-${{ hashFiles('**/poetry.lock') }}
           restore-keys: |
-            ${{ steps.python.outputs.python-version }}-full-${{ env.CACHE_KEY }}-
+            ${{ steps.python.outputs.python-version }}-full-${{ secrets.CACHE_KEY }}-
       - name: Install dependencies
         run: |
           python -m pip install -U poetry pip wheel
