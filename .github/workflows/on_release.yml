@@ -44,12 +44,13 @@ jobs:
       - name: Commit changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.version.outputs.result }}
         run: |
           git config --global user.email "volshebnyi@gmail.com"
           git config --global user.name ${GITHUB_ACTOR}
           git add pyproject.toml
           git add setup.cfg
-          git commit -m "Release ${BOTO3_VERSION}"
+          git commit -m "Release ${VERSION}"
           git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git --tags
           git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:master
       - name: Publish to PyPI
