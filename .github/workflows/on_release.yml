@@ -52,7 +52,7 @@ jobs:
           git config --global user.name ${GITHUB_ACTOR}
           git add pyproject.toml
           git add setup.cfg
-          git commit -m "Update docs to ${BOTO3_VERSION}"
+          git commit -m "Release ${BOTO3_VERSION}"
           git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git --tags
           git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:master
       - name: Publish to PyPI
