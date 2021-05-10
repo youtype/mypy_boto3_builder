@@ -10,7 +10,7 @@
         {{ child.name -}}
         {{ '": ' -}}
         {{ child.type_annotation.render(typed_dict.name) -}}
-        {{ ", " if not loop.last else "" -}}
+        {{ ", " -}}
     {% endfor -%}
     {{ "})\n" -}}
     {{ '_Optional' -}}
@@ -24,7 +24,7 @@
         {{ child.name -}}
         {{ '": ' -}}
         {{ child.type_annotation.render(typed_dict.name) -}}
-        {{ ", " if not loop.last else "" -}}
+        {{ ", " -}}
     {% endfor -%}
     {{ "}, total=False)\n" -}}
 
@@ -44,7 +44,7 @@
         {{ child.name -}}
         {{ '": ' -}}
         {{ child.type_annotation.render(typed_dict.name) -}}
-        {{ ", " if not loop.last else "" -}}
+        {{ ", " -}}
     {% endfor -%}
     {{ "}" -}}
     {% if typed_dict.has_optional() -%}

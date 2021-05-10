@@ -9,7 +9,6 @@ from mypy_boto3_builder.import_helpers.internal_import_record import InternalImp
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.utils.strings import is_reserved
 
 
 class TypedDictAttribute:
@@ -246,4 +245,5 @@ class TypeTypedDict(FakeAnnotation):
         """
         Whether TypedDict has reserved words and has to be rendered safely.
         """
-        return any(is_reserved(child.name) for child in self.children)
+        return True
+        # return any(is_reserved(child.name) for child in self.children)
