@@ -92,7 +92,7 @@ def get_anchor_link(text: str) -> str:
     """
     Convert header to markdown anchor link.
     """
-    return text.strip().replace(" ", "-").replace("_", "-").replace(".", "").lower()
+    return text.strip().replace(" ", "-").replace(".", "").lower()
 
 
 def is_reserved(word: str) -> bool:

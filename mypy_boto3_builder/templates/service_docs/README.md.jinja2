@@ -19,10 +19,6 @@ Can be used directly:
 from {{ package.service_name.module_name }}.client import {{ package.client.name }}
 ```
 
-{% if package.client.exceptions_class.attributes %}
-{{ package.client.name }} [exceptions]({{ service_name.get_doc_link('client', 'exceptions') }})
-{% endif %}
-
 {% if package.client.methods %}
 ### Methods
 {% for method_name in package.client.method_names -%}
@@ -32,8 +28,13 @@ from {{ package.service_name.module_name }}.client import {{ package.client.name
 
 {% if package.client.exceptions_class.attributes %}
 ### Exceptions
+
+{% if package.client.exceptions_class.attributes %}
+{{ package.client.name }} [exceptions]({{ service_name.get_doc_link('client', 'exceptions') }})
+{% endif %}
+
 {% for attribute in package.client.exceptions_class.attributes -%}
-- [{{ attribute.name }}]({{ service_name.get_doc_link('client', attribute.name) }}){{ '\n' -}}
+- {{ attribute.name }}{{ '\n' -}}
 {% endfor %}
 {% endif %}
 

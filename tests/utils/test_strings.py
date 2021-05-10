@@ -22,7 +22,7 @@ class TestStrings:
 
     def test_get_anchor_link(self) -> None:
         assert get_anchor_link("test") == "test"
-        assert get_anchor_link("n.ew_t est") == "new-t-est"
+        assert get_anchor_link("n.ew_t est") == "new_t-est"
 
     def test_is_reserved(self) -> None:
         assert is_reserved("lambda")
