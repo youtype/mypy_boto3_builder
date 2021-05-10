@@ -22,11 +22,11 @@ class TestTypeLiteral:
         assert TypeLiteral("test", ["a"]).render() == "Literal['a']"
 
     def test_get_import_record(self) -> None:
-        assert self.result.get_import_record().render() == "from literals import test"
+        assert self.result.get_import_record().render() == "from .literals import test"
 
     def test_add_child(self) -> None:
         with pytest.raises(ValueError):
-            self.result.add_child("c")
+            self.result.add_child(TypeLiteral("test", ("a", "b")))
 
     def test_is_type(self) -> None:
         assert self.result.is_literal()

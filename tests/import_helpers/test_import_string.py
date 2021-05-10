@@ -11,6 +11,8 @@ class TestImportString:
 
     def test_empty(self) -> None:
         assert ImportString.empty() == ""
+        assert ImportString.empty().render() == ""
+        assert ImportString.parent().render() == ""
 
     def test_operations(self) -> None:
         assert ImportString("my") + ImportString("test") == "my.test"

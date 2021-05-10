@@ -120,7 +120,7 @@ class ImportRecord:
         """
         Whether import is from `type_defs` module.
         """
-        return self.source.startswith(self.type_defs_import_string)
+        return self.source.parts[-1] == TYPE_DEFS_NAME
 
     def is_third_party(self) -> bool:
         """
@@ -147,7 +147,7 @@ class ImportRecord:
 
         return False
 
-    def get_external(self, _module_name: str) -> "ImportRecord":
+    def get_external(self, module_name: str) -> "ImportRecord":
         """
         Get itself.
 

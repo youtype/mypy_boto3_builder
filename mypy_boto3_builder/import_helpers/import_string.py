@@ -31,7 +31,7 @@ class ImportString:
         all_parts = [master_name, *parts]
         for part in all_parts:
             if not part or "." in part:
-                raise ValueError(f"Invalid ImportString parts: {parts}")
+                raise ValueError(f"Invalid ImportString parts: {parts} - {part}")
             self.parts.append(part)
 
     @classmethod
@@ -42,6 +42,12 @@ class ImportString:
     def empty(cls) -> "ImportString":
         result = cls("fake")
         result.parts.clear()
+        return result
+
+    @classmethod
+    def parent(cls) -> "ImportString":
+        result = cls.empty()
+        result.parts.append("")
         return result
 
     def __bool__(self) -> bool:
@@ -60,8 +66,9 @@ class ImportString:
         return str(self) > str(other)
 
     def __add__(self, other: "ImportString") -> "ImportString":
-        parts = self.parts + other.parts
-        return ImportString(*parts)
+        result = ImportString.empty()
+        result.parts = self.parts + other.parts
+        return result
 
     def startswith(self, other: "ImportString") -> bool:
         """

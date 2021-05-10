@@ -17,7 +17,9 @@ class InternalImportRecord(ImportRecord):
     """
 
     def __init__(self, service_module_name: ServiceModuleName, name: str = "", alias: str = ""):
-        super().__init__(ImportString(service_module_name.name), name=name, alias=alias)
+        self._local_source = ImportString(service_module_name.name)
+        source = ImportString.parent() + self._local_source
+        super().__init__(source, name=name, alias=alias)
 
     def get_external(self, module_name: str) -> ImportRecord:
         """
@@ -29,7 +31,8 @@ class InternalImportRecord(ImportRecord):
         Returns:
             A new non-internal ImportRecord.
         """
-        source = ImportString(module_name) + self.source
+        return self
+        source = ImportString(module_name) + self._local_source
         return ImportRecord(
             source=source,
             name=self.name,

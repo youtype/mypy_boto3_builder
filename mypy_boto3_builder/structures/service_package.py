@@ -108,37 +108,28 @@ class ServicePackage(Package):
         import_records: Set[ImportRecord] = set()
         import_records.add(
             ImportRecord(
-                ImportString(self.service_name.module_name, ServiceModuleName.client.name),
+                ImportString.parent() + ImportString(ServiceModuleName.client.name),
                 self.client.name,
             )
         )
         if self.service_resource:
             import_records.add(
                 ImportRecord(
-                    ImportString(
-                        self.service_name.module_name,
-                        ServiceModuleName.service_resource.name,
-                    ),
+                    ImportString.parent() + ImportString(ServiceModuleName.service_resource.name),
                     self.service_resource.name,
                 )
             )
         for waiter in self.waiters:
             import_records.add(
                 ImportRecord(
-                    ImportString(
-                        self.service_name.module_name,
-                        ServiceModuleName.waiter.name,
-                    ),
+                    ImportString.parent() + ImportString(ServiceModuleName.waiter.name),
                     waiter.name,
                 )
             )
         for paginator in self.paginators:
             import_records.add(
                 ImportRecord(
-                    ImportString(
-                        self.service_name.module_name,
-                        ServiceModuleName.paginator.name,
-                    ),
+                    ImportString.parent() + ImportString(ServiceModuleName.paginator.name),
                     paginator.name,
                 )
             )

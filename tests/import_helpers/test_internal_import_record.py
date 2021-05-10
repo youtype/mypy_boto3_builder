@@ -9,7 +9,7 @@ class TestImportRecord:
         service_name_mock = MagicMock()
         service_name_mock.name = "service_name"
         result = InternalImportRecord(service_name_mock, "name", "alias")
-        assert result.source == ImportString("service_name")
+        assert result.source.render() == ".service_name"
         assert result.name == "name"
         assert result.alias == "alias"
 
@@ -18,13 +18,5 @@ class TestImportRecord:
     def test_get_external(self, ImportRecordMock: MagicMock, ImportStringMock: MagicMock) -> None:
         service_name_mock = MagicMock()
         service_name_mock.name = "service_name"
-        ImportRecordMock.return_value = "ImportRecord"
-        ImportStringMock().__add__.return_value = "module_name.service_name"
-        assert (
-            InternalImportRecord(service_name_mock, "name", "alias").get_external("module_name")
-            == "ImportRecord"
-        )
-        ImportStringMock.assert_called_with("module_name")
-        ImportRecordMock.assert_called_with(
-            source="module_name.service_name", name="name", alias="alias"
-        )
+        result = InternalImportRecord(service_name_mock, "name", "alias")
+        assert result.get_external("module_name") is result

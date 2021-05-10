@@ -71,7 +71,7 @@ class TestImportRecord:
 
     def test_is_type_defs(self) -> None:
         assert ImportRecord(ImportString("type_defs")).is_type_defs()
-        assert ImportRecord(ImportString("type_defs", "test")).is_type_defs()
+        assert ImportRecord(ImportString("service", "type_defs")).is_type_defs()
         assert not ImportRecord(ImportString("builtins")).is_type_defs()
         assert not ImportRecord(ImportString("other")).is_type_defs()
         assert not ImportRecord(ImportString("boto3")).is_builtins()
