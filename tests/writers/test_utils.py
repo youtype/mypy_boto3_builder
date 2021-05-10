@@ -5,6 +5,7 @@ from black import NothingChanged
 
 from mypy_boto3_builder.writers.utils import (
     blackify,
+    fix_pypi_headers,
     insert_md_toc,
     render_jinja2_template,
     sort_imports,
@@ -65,6 +66,13 @@ class TestUtils:
     def test_insert_md_toc(self) -> None:
         assert (
             insert_md_toc("# a\ntest\n## b\n## c\ntest2")
-            == '# a<a id="a"></a>\ntest\n- [a](#a)\n  - [b](#b)\n  - [c](#c)\n\n## b<a id="b"></a>\n## c<a id="c"></a>\ntest2'
+            == "# a\ntest\n- [a](#a)\n  - [b](#b)\n  - [c](#c)\n\n## b\n## c\ntest2"
         )
-        assert insert_md_toc("# a\n") == '# a<a id="a"></a>\n- [a](#a)\n'
+        assert insert_md_toc("# a\n") == "# a\n- [a](#a)\n"
+
+    def test_fix_pypi_headers(self) -> None:
+        assert (
+            fix_pypi_headers("# a\ntest\n## b\n## c\ntest2")
+            == '# a<a id="a"></a>\ntest\n## b<a id="b"></a>\n## c<a id="c"></a>\ntest2'
+        )
+        assert fix_pypi_headers("# a\n") == '# a<a id="a"></a>'

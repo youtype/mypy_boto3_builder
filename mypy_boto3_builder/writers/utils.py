@@ -99,8 +99,11 @@ def render_jinja2_template(
 
 
 def insert_md_toc(text: str) -> str:
+    """
+    Insert Table of Contents before the first second-level header.
+    """
     headers = {}
-    header_re = re.compile(r'\s*\- \[(.+)\]\(#(.+)\)')
+    header_re = re.compile(r"\s*\- \[(.+)\]\(#(.+)\)")
     with tempfile.NamedTemporaryFile("w+") as f:
         f.write(text)
         f.flush()
@@ -118,12 +121,6 @@ def insert_md_toc(text: str) -> str:
             result.extend(toc_lines)
             result.append("")
             inserted = True
-
-        header = line.lstrip('#').strip()
-        if header and header in headers:
-            anchor = headers[header]
-            result.append(f'{line}<a id="{anchor}"></a>')
-            continue
 
         result.append(line)
 
@@ -144,3 +141,32 @@ def format_md(text: str) -> str:
             "wrap": 79,
         },
     )
+
+
+def fix_pypi_headers(text: str) -> str:
+    """
+    Fix headers for PyPi links to work.
+    """
+    headers = {}
+    header_re = re.compile(r"\s*\- \[(.+)\]\(#(.+)\)")
+    with tempfile.NamedTemporaryFile("w+") as f:
+        f.write(text)
+        f.flush()
+        toc_lines = md_toc.build_toc(f.name).splitlines()
+        for toc_line in toc_lines:
+            match = header_re.match(toc_line)
+            if match:
+                headers[match.groups()[0]] = match.groups()[1]
+
+    lines = text.splitlines()
+    result = []
+    for line in lines:
+        header = line.lstrip("#").strip()
+        if header and header in headers:
+            anchor = headers[header]
+            result.append(f'{line}<a id="{anchor}"></a>')
+            continue
+
+        result.append(line)
+
+    return "\n".join(result)

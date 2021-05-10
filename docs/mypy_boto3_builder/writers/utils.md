@@ -6,6 +6,7 @@ Jinja2 renderer and black formatter.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Writers](index.md#writers) / Utils
     - [blackify](#blackify)
+    - [fix_pypi_headers](#fix_pypi_headers)
     - [format_md](#format_md)
     - [insert_md_toc](#insert_md_toc)
     - [render_jinja2_template](#render_jinja2_template)
@@ -13,7 +14,7 @@ Jinja2 renderer and black formatter.
 
 ## blackify
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L20)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L21)
 
 ```python
 def blackify(content: str, file_path: Path) -> str:
@@ -36,9 +37,19 @@ Formatted python code.
 
 - `ValueError` - If `content` is not a valid Python code.
 
+## fix_pypi_headers
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L146)
+
+```python
+def fix_pypi_headers(text: str) -> str:
+```
+
+Fix headers for PyPi links to work.
+
 ## format_md
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L123)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L134)
 
 ```python
 def format_md(text: str) -> str:
@@ -48,15 +59,17 @@ Format MarkDown with mdformat.
 
 ## insert_md_toc
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L100)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L101)
 
 ```python
 def insert_md_toc(text: str) -> str:
 ```
 
+Insert Table of Contents before the first second-level header.
+
 ## render_jinja2_template
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L76)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L77)
 
 ```python
 def render_jinja2_template(
@@ -80,7 +93,7 @@ A rendered template.
 
 ## sort_imports
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L51)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L52)
 
 ```python
 def sort_imports(
