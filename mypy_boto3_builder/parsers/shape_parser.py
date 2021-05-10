@@ -114,7 +114,7 @@ class ShapeParser:
 
         self.logger = get_logger()
         self.response_metadata_typed_dict = TypeTypedDict(
-            "ResponseMetadata",
+            "ResponseMetadataTypeDef",
             [
                 TypedDictAttribute("RequestId", Type.str, True),
                 TypedDictAttribute("HostId", Type.str, True),
