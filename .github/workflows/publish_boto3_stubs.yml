@@ -1,0 +1,95 @@
+name: Publish boto3 stubs
+
+on:
+  schedule:
+    - cron: "0 0/2 * * *"
+  workflow_dispatch:
+    inputs:
+      boto3_version:
+        description: Target boto3 version
+      force:
+        description: Publish new post-release if exists
+
+jobs:
+  publish-boto3-stubs:
+    env:
+      PIP_NO_CACHE_DIR: false
+      PIP_USER: 1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Extract versions
+        id: vars
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const { getBoto3Version, getStubsVersions, getNextPostVersion, getBotocoreVersion } = require('./.github/workflows/helpers.js')
+            core.setOutput('version', '')
+
+            const boto3Version = context.payload.inputs ? context.payload.inputs.boto3_version : await getBoto3Version()
+            const force = context.payload.inputs ? context.payload.inputs.force : false
+
+            const botocoreVersion = getBotocoreVersion(boto3Version)
+            core.info(`Boto3 version ${boto3Version}`)
+            core.setOutput('boto3-version', boto3Version)
+            core.setOutput('botocore-version', botocoreVersion)
+
+            const versions = await getStubsVersions(boto3Version)
+            core.info(`Built versions ${versions}`)
+
+            if (versions.length && !force) {
+              core.info('Builts found, skipping')
+              return
+            }
+            if (!versions.length) {
+              core.info(`No builds found, building initial ${boto3Version}`)
+              core.setOutput('version', boto3Version)
+              return
+            }
+
+            const lastBuildVersion = versions.pop()
+            core.info(`Last build version ${lastBuildVersion}`)
+
+            const buildVersion = getNextPostVersion(lastBuildVersion)
+            core.info(`Build version ${buildVersion}`)
+            core.setOutput('version', buildVersion)
+      - name: Set up Python
+        if: steps.vars.outputs.version
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install boto3
+        if: steps.vars.outputs.version
+        env:
+          BOTO3_VERSION: ${{ steps.vars.outputs.boto3-version }}
+          BOTOCORE_VERSION: ${{ steps.vars.outputs.botocore-version }}
+        run: |
+          python -m pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
+      - name: Install builder
+        if: steps.vars.outputs.version
+        run: |
+          rm -rf mypy_boto3_builder
+          python -m pip install mypy_boto3_builder
+          python -m pip install mypy
+      - name: Integration tests
+        if: steps.vars.outputs.version
+        run: |
+          scripts/integration.sh
+      - name: Build packages
+        if: steps.vars.outputs.version
+        env:
+          VERSION: ${{ steps.vars.outputs.version }}
+        run: |
+          rm -rf mypy_boto3_output/*
+          scripts/build.sh -b $VERSION
+      - name: Install dependencies for publishing
+        if: steps.vars.outputs.version
+        run: |
+          python -m pip install setuptools wheel twine
+      - name: Publish to PyPI
+        if: steps.vars.outputs.version
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          scripts/release.sh
