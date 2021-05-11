@@ -10,7 +10,7 @@ def create_request_parameters(
     parent: ServiceResource,
     request_model: Request,
     params: Optional[Dict[str, Any]] = ...,
-    index: Optional[int] = None,
+    index: Optional[int] = ...,
 ) -> Dict[str, Any]: ...
 def build_param_structure(
     params: Dict[str, Any], target: str, value: Any, index: Optional[int] = ...

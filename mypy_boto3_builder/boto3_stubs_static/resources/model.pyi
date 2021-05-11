@@ -2,7 +2,6 @@ import logging
 import sys
 from typing import Any, Dict, List, Optional, Tuple, Union
 
-from botocore import xform_name
 from botocore.model import Shape
 
 if sys.version_info >= (3, 8):
@@ -51,9 +50,9 @@ class Parameter:
         self,
         target: str,
         source: str,
-        name: str = None,
-        path: str = None,
-        value: Union[str, int, float, bool, None] = None,
+        name: Optional[str] = ...,
+        path: Optional[str] = ...,
+        value: Union[str, int, float, bool, None] = ...,
         **kwargs: Any,
     ) -> None:
         self.target: str

@@ -17,7 +17,7 @@ class BatchWriter:
         self,
         table_name: str,
         client: BaseClient,
-        flush_amount: int = 25,
+        flush_amount: int = ...,
         overwrite_by_pkeys: Optional[List[str]] = ...,
     ) -> None: ...
     def put_item(self, Item: Dict[str, Any]) -> None: ...
