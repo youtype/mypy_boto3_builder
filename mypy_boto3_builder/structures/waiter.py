@@ -56,7 +56,7 @@ class Waiter(ClassRecord):
                 Argument("waiter_name", TypeLiteral(f"{self.name}Name", [self.waiter_name])),
             ],
             return_type=ExternalImport(
-                source=ImportString(self.service_name.module_name, ServiceModuleName.waiter.value),
+                source=ImportString.parent() + ImportString(ServiceModuleName.paginator.value),
                 name=self.name,
             ),
         )
