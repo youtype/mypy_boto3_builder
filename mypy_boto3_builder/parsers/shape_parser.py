@@ -1,7 +1,7 @@
 """
 Parser for botocore shape files.
 """
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Mapping, Optional
 
 from boto3.resources.model import Collection
 from boto3.session import Session
@@ -92,19 +92,19 @@ class ShapeParser:
         self.service_name = service_name
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
         self._typed_dict_map: Dict[str, TypeTypedDict] = {}
-        self._waiters_shape: Optional[Shape] = None
+        self._waiters_shape: Optional[Mapping[str, Any]] = None
         try:
             self._waiters_shape = loader.load_service_model(service_name.boto3_name, "waiters-2")
         except UnknownServiceError:
             pass
-        self._paginators_shape: Optional[Shape] = None
+        self._paginators_shape: Optional[Mapping[str, Any]] = None
         try:
             self._paginators_shape = loader.load_service_model(
                 service_name.boto3_name, "paginators-1"
             )
         except UnknownServiceError:
             pass
-        self._resources_shape: Optional[Shape] = None
+        self._resources_shape: Optional[Mapping[str, Any]] = None
         try:
             self._resources_shape = loader.load_service_model(
                 service_name.boto3_name, "resources-1"
@@ -282,7 +282,7 @@ class ShapeParser:
         if not shape.enum:
             return Type.str
 
-        return TypeLiteral(shape.name, [option for option in shape.enum])
+        return TypeLiteral(f"{shape.name}Type", [option for option in shape.enum])
 
     def _parse_shape_map(self, shape: MapShape) -> FakeAnnotation:
         type_subscript = TypeSubscript(Type.Dict)

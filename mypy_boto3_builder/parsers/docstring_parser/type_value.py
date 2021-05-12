@@ -172,7 +172,7 @@ class TypeValue:
         items = [TypeValue(self.service_name, self.prefix, i) for i in self.literal_items]
         if all(i.is_literal_item() for i in items):
             item_constants = [self._parse_constant(i.value or "") for i in items]
-            return TypeLiteral(self.prefix, item_constants)
+            return TypeLiteral(f"{self.prefix}Type", item_constants)
 
         item_types = [i.get_type() for i in items]
 
