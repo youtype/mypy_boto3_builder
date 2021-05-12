@@ -1,0 +1,32 @@
+[
+    {
+        "severity": "error",
+        "message": "Argument of type \"list[int]\" cannot be assigned to parameter \"StepIds\" of type \"List[str]\" in function \"cancel_steps\"\n\u00a0\u00a0TypeVar \"_T@list\" is invariant\n\u00a0\u00a0\u00a0\u00a0\"int\" is incompatible with \"str\"",
+        "range": {
+            "start": {
+                "line": 7,
+                "character": 38
+            },
+            "end": {
+                "line": 7,
+                "character": 43
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Could not access item in TypedDict\n\u00a0\u00a0\"steps\" is not a defined key in \"ListStepsOutputTypeDef\"",
+        "range": {
+            "start": {
+                "line": 13,
+                "character": 20
+            },
+            "end": {
+                "line": 13,
+                "character": 33
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    }
+]

@@ -67,6 +67,8 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
+      - name: Set up Node
+        uses: actions/setup-node@v2
       - name: Cache packages
         uses: actions/cache@v2
         with:
@@ -79,6 +81,7 @@ jobs:
           python -m pip install -U poetry pip wheel
           poetry config virtualenvs.create false
           poetry install -n
+          npm install -g pyright
       - name: Integration tests
         run: |
-          scripts/integration.sh
+          python scripts/integration.py

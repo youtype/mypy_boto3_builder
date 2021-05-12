@@ -1,0 +1,182 @@
+[
+    {
+        "severity": "error",
+        "message": "No parameter named \"mfa\"",
+        "range": {
+            "start": {
+                "line": 17,
+                "character": 26
+            },
+            "end": {
+                "line": 17,
+                "character": 29
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "No parameter named \"key\"",
+        "range": {
+            "start": {
+                "line": 20,
+                "character": 42
+            },
+            "end": {
+                "line": 20,
+                "character": 45
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Argument missing for parameter \"Key\"",
+        "range": {
+            "start": {
+                "line": 20,
+                "character": 4
+            },
+            "end": {
+                "line": 20,
+                "character": 55
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"dict[str, str]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceTypeDef\" in function \"copy\"\n\u00a0\u00a0\"key\" is an undefined field in type \"CopySourceTypeDef\"",
+        "range": {
+            "start": {
+                "line": 23,
+                "character": 16
+            },
+            "end": {
+                "line": 23,
+                "character": 53
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "No parameter named \"all\"",
+        "range": {
+            "start": {
+                "line": 28,
+                "character": 30
+            },
+            "end": {
+                "line": 28,
+                "character": 33
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester'] | None\" in function \"abort\"\n\u00a0\u00a0Type \"Literal['none']\" cannot be assigned to type \"Literal['requester'] | None\"\n\u00a0\u00a0\u00a0\u00a0Cannot assign to \"None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['none']\" cannot be assigned to type \"Literal['requester']\"",
+        "range": {
+            "start": {
+                "line": 35,
+                "character": 48
+            },
+            "end": {
+                "line": 35,
+                "character": 54
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "No parameter named \"wrong_arg\"",
+        "range": {
+            "start": {
+                "line": 37,
+                "character": 22
+            },
+            "end": {
+                "line": 37,
+                "character": 31
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Argument missing for parameter \"Key\"",
+        "range": {
+            "start": {
+                "line": 52,
+                "character": 4
+            },
+            "end": {
+                "line": 52,
+                "character": 38
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Could not access item in TypedDict\n\u00a0\u00a0\"expiration\" is not a defined key in \"GetObjectOutputTypeDef\"",
+        "range": {
+            "start": {
+                "line": 55,
+                "character": 18
+            },
+            "end": {
+                "line": 55,
+                "character": 77
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"dict[str, list[dict[str, list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0Type \"list[dict[str, list[str]]]\" is not assignable to field \"CORSRules\"",
+        "range": {
+            "start": {
+                "line": 60,
+                "character": 8
+            },
+            "end": {
+                "line": 60,
+                "character": 85
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" cannot be assigned to type \"str\"",
+        "range": {
+            "start": {
+                "line": 65,
+                "character": 47
+            },
+            "end": {
+                "line": 65,
+                "character": 51
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Cannot access member \"operations_name\" for type \"BotocoreClientError\"\n\u00a0\u00a0Member \"operations_name\" is unknown",
+        "range": {
+            "start": {
+                "line": 67,
+                "character": 16
+            },
+            "end": {
+                "line": 67,
+                "character": 31
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    }
+]

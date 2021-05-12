@@ -11,4 +11,5 @@ for f in $PACKAGES; do
     echo "Checking $DIRNAME"
     flake8 $DIRNAME
     mypy $DIRNAME
+    pyright $DIRNAME || true
 done

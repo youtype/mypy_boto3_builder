@@ -70,11 +70,6 @@ jobs:
         run: |
           rm -rf mypy_boto3_builder
           python -m pip install mypy_boto3_builder
-          python -m pip install mypy
-      - name: Integration tests
-        if: steps.vars.outputs.version
-        run: |
-          scripts/integration.sh
       - name: Build packages
         if: steps.vars.outputs.version
         env:

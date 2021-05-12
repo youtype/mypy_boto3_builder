@@ -1,0 +1,47 @@
+[
+    {
+        "severity": "error",
+        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"UserName\" of type \"str\" in function \"add_user_to_group\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
+        "range": {
+            "start": {
+                "line": 7,
+                "character": 38
+            },
+            "end": {
+                "line": 7,
+                "character": 41
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "No parameter named \"ClusterId\"",
+        "range": {
+            "start": {
+                "line": 10,
+                "character": 42
+            },
+            "end": {
+                "line": 10,
+                "character": 51
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Expected 1 positional argument",
+        "range": {
+            "start": {
+                "line": 20,
+                "character": 30
+            },
+            "end": {
+                "line": 20,
+                "character": 33
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    }
+]
