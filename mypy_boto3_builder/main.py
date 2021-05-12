@@ -50,7 +50,8 @@ def main() -> None:
                 logger.info(f"Service {service_name.name} is not provided by boto3, skipping.")
                 continue
 
-            service_name.boto3_version = boto3_version
+            if not args.generate_docs:
+                service_name.boto3_version = boto3_version
             service_names.append(service_name)
     else:
         service_names = master_service_names
@@ -132,7 +133,6 @@ def generate_docs(args: Namespace, service_names: List[ServiceName], session: Se
     if not args.skip_services:
         total_str = f"{len(service_names)}"
         for index, service_name in enumerate(service_names):
-            service_name.boto3_version = service_name.LATEST
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
             logger.info(f"[{current_str}/{total_str}] Generating {service_name.module_name} module")
             process_service_docs(
