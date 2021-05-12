@@ -38,7 +38,7 @@ class TypeLiteral(FakeAnnotation):
 
     def _find_name(self, name: str) -> str:
         # FIXME: hack for APIGWv2
-        if name == "__string":
+        if name == "__stringType":
             return "".join(sorted(self.children)) + "Type"
         if is_reserved(name):
             return f"{name}Type"
