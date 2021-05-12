@@ -10,6 +10,6 @@ for f in $PACKAGES; do
     DIRNAME="$(dirname "$f")"
     echo "Checking $DIRNAME"
     flake8 $DIRNAME
-    mypy $DIRNAME
-    pyright $DIRNAME || true
+    # mypy $DIRNAME
+    pyright $DIRNAME/type_defs.py
 done

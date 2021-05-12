@@ -73,25 +73,33 @@ def install_service(service_name: str) -> None:
     )
 
 
-def compare(data: str, snapshot_path: Path) -> None:
+def compare(data: str, snapshot_path: Path, update: bool) -> None:
+    data = data.strip()
+    logger = logging.getLogger(LOGGER_NAME)
     if not snapshot_path.exists():
         snapshot_path.write_text(data)
+        logger.info(f"Created {snapshot_path}")
+        return
 
-    old_data = snapshot_path.read_text()
+    old_data = snapshot_path.read_text().strip()
     if old_data == data:
+        logger.info(f"Matched {snapshot_path}")
+        return
+
+    if update:
+        snapshot_path.write_text(data)
+        logger.info(f"Updated {snapshot_path}")
         return
 
     diff = difflib.unified_diff(
         old_data.strip().splitlines(), data.strip().splitlines(), lineterm=""
     )
-    logger = logging.getLogger(LOGGER_NAME)
     for line in diff:
         logger.warning(line)
     raise SnapshotMismatchError(f"Snapshot {snapshot_path} is different")
 
 
 def run_pyright(path: Path, update: bool) -> None:
-    logger = logging.getLogger(LOGGER_NAME)
     try:
         output = subprocess.check_output(
             ["pyright", path.as_posix(), "--outputjson"],
@@ -107,14 +115,10 @@ def run_pyright(path: Path, update: bool) -> None:
 
     new_data = json.dumps(data, indent=4)
     snapshot_path = PYRIGHT_SNAPSHOTS_PATH / f"{path.name}.json"
-    if update:
-        logger.info(f"Updated {snapshot_path}")
-        snapshot_path.write_text(new_data)
-    compare(new_data, snapshot_path)
+    compare(new_data, snapshot_path, update)
 
 
 def run_mypy(path: Path, update: bool) -> None:
-    logger = logging.getLogger(LOGGER_NAME)
     try:
         output = subprocess.check_output(
             ["python", "-m", "mypy", path.as_posix()],
@@ -124,12 +128,14 @@ def run_mypy(path: Path, update: bool) -> None:
     except subprocess.CalledProcessError as e:
         output = e.output
 
-    new_data = output
+    new_data_lines = []
+    for line in output.splitlines():
+        if line.endswith("defined here"):
+            continue
+        new_data_lines.append(line)
+    new_data = "\n".join(new_data_lines)
     snapshot_path = MYPY_SNAPSHOTS_PATH / f"{path.name}.out"
-    if update:
-        logger.info(f"Updated {snapshot_path}")
-        snapshot_path.write_text(new_data)
-    compare(new_data, snapshot_path)
+    compare(new_data, snapshot_path, update)
 
 
 def main() -> None:
