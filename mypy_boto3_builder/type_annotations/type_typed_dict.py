@@ -96,20 +96,6 @@ class TypeTypedDict(FakeAnnotation):
         """
         return InternalImportRecord(ServiceModuleName.type_defs, name=self.name)
 
-    def get_types(self) -> Set[FakeAnnotation]:
-        """
-        Get set with itself.
-
-        To get child types, `get_children_types` has to be used.
-
-        Returns:
-            A set of type annotations.
-        """
-        if self.replace_with_dict:
-            return {self, *Type.DictStrAny.get_types()}
-
-        return {self}
-
     def add_attribute(self, name: str, type_annotation: FakeAnnotation, required: bool) -> None:
         """
         Add new attribute to a dictionary.

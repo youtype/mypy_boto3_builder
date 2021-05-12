@@ -210,8 +210,21 @@ class ServicePackage(Package):
                 fallback=ImportRecord(ImportString("typing_extensions"), "TypedDict"),
             )
         )
-        for types_dict in self.typed_dicts:
-            for type_annotation in types_dict.get_children_types():
+        for typed_dict in self.typed_dicts:
+            if typed_dict.replace_with_dict:
+                import_records.add(
+                    ImportRecord(
+                        ImportString("typing"),
+                        "Dict",
+                    )
+                )
+                import_records.add(
+                    ImportRecord(
+                        ImportString("typing"),
+                        "Any",
+                    )
+                )
+            for type_annotation in typed_dict.get_children_types():
                 import_record = type_annotation.get_import_record()
                 if not import_record or import_record.is_builtins():
                     continue

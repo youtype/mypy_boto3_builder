@@ -85,7 +85,7 @@ def get_init_import_records() -> List[ImportRecord]:
 
 ### ServicePackage().get_literals_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L224)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L237)
 
 ```python
 def get_literals_required_import_records() -> List[ImportRecord]:
@@ -133,7 +133,7 @@ def get_waiter_required_import_records() -> List[ImportRecord]:
 
 ### ServicePackage().validate
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L237)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L250)
 
 ```python
 def validate() -> None:
