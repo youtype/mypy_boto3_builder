@@ -11,5 +11,9 @@ for f in $PACKAGES; do
     echo "Checking $DIRNAME"
     flake8 $DIRNAME
     # mypy $DIRNAME
-    pyright $DIRNAME/type_defs.py
+    [ -f $DIRNAME/waiters.py ] && pyright $DIRNAME/waiter.py
+    [ -f $DIRNAME/paginator.py ] && pyright $DIRNAME/paginator.py
+    [ -f $DIRNAME/service_resource.py ] && pyright $DIRNAME/service_resource.py
+    [ -f $DIRNAME/literals.py ] && pyright $DIRNAME/literals.py
+    [ -f $DIRNAME/type_defs.py ] && pyright $DIRNAME/type_defs.py
 done
