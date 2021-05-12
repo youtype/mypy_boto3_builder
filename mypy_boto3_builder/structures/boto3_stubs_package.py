@@ -79,6 +79,7 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
                 ImportRecord(ImportString("botocore", "loaders"), "Loader"),
                 ImportRecord(ImportString("botocore", "model"), "ServiceModel"),
+                ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
                 ImportRecord(ImportString("botocore", "client"), "Config"),
                 ImportRecord(ImportString("botocore", "exceptions"), "DataNotFoundError"),
                 ImportRecord(ImportString("botocore", "exceptions"), "UnknownServiceError"),

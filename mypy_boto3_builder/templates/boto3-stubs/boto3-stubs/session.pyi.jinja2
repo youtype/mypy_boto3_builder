@@ -12,7 +12,7 @@ class Session:
         botocore_session: Session = None,
         profile_name: str = None,
     ):
-        self._session: ServiceModel
+        self._session: BotocoreSession
         self.resource_factory: ResourceFactory
         self._loader: Loader
 
