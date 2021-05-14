@@ -106,6 +106,36 @@
     },
     {
         "severity": "error",
+        "message": "No parameter named \"bucket\"",
+        "range": {
+            "start": {
+                "line": 46,
+                "character": 30
+            },
+            "end": {
+                "line": 46,
+                "character": 36
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Argument missing for parameter \"Bucket\"",
+        "range": {
+            "start": {
+                "line": 46,
+                "character": 4
+            },
+            "end": {
+                "line": 46,
+                "character": 46
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
         "message": "Argument missing for parameter \"Key\"",
         "range": {
             "start": {
