@@ -22,6 +22,30 @@ from mypy_boto3_builder.writers.processors import (
 )
 
 
+def get_available_service_names(session: Session) -> List[ServiceName]:
+    """
+    Get a list of boto3 supported service names.
+
+    Arguments:
+        session -- Boto3 session
+
+    Returns:
+        A list of supported services.
+    """
+    logger = get_logger()
+    available_services = session.get_available_services()
+    result = []
+    for available_service in available_services:
+        try:
+            service_name = ServiceNameCatalog.find(available_service)
+        except ValueError:
+            logger.info(f"Service {available_service} is not fully supported.")
+            continue
+
+        result.append(service_name)
+    return result
+
+
 def main() -> None:
     """
     Main entrypoint for builder.
@@ -30,31 +54,20 @@ def main() -> None:
     logger = get_logger(level=args.log_level)
     session = Session(region_name=DUMMY_REGION)
     args.output_path.mkdir(exist_ok=True)
+    available_service_names = get_available_service_names(session)
+    available_service_names_set = {i.name for i in available_service_names}
     service_names: List[ServiceName] = []
-    master_service_names: List[ServiceName] = []
-    available_services = session.get_available_services()
 
-    for available_service in available_services:
-        try:
-            service_name = ServiceNameCatalog.find(available_service)
-        except ValueError:
-            logger.info(f"Service {available_service} is not fully supported.")
+    for service_name in args.service_names or available_service_names:
+        if service_name.name not in available_service_names_set:
+            logger.info(f"Service {service_name.name} is not provided by boto3, skipping.")
             continue
 
-        service_name.boto3_version = boto3_version
-        master_service_names.append(service_name)
+        service_names.append(service_name)
 
-    if args.service_names:
-        for service_name in args.service_names:
-            if service_name.name not in available_services:
-                logger.info(f"Service {service_name.name} is not provided by boto3, skipping.")
-                continue
-
-            if not args.generate_docs:
-                service_name.boto3_version = boto3_version
-            service_names.append(service_name)
-    else:
-        service_names = master_service_names
+    if not args.generate_docs:
+        for service_name in service_names:
+            service_name.boto3_version = boto3_version
 
     build_version = args.build_version or boto3_version
     JinjaManager.update_globals(
