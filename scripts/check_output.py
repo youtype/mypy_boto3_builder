@@ -15,6 +15,7 @@ IGNORE_ERRORS = (
     'Expected type arguments for generic class "ResourceCollection"',
     'Type "None" cannot be assigned to type',
     '"__next__" is not present',
+    'Import "boto3.s3.transfer" could not be resolved',
 )
 
 
