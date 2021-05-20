@@ -4,7 +4,7 @@ Description for boto3 service.
 from typing import Literal, Tuple
 
 from mypy_boto3_builder.constants import MODULE_NAME, PYPI_NAME
-from mypy_boto3_builder.utils.strings import get_anchor_link
+from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
 
 __all__ = (
     "ServiceName",
@@ -55,10 +55,11 @@ class ServiceName:
         """
         Safe mudule import name.
         """
-        if self.name == "lambda":
-            return "lambda_"
+        name = self.name.replace("-", "_")
+        if is_reserved(name):
+            return f"{name}_"
 
-        return self.name.replace("-", "_")
+        return name
 
     @property
     def module_name(self) -> str:
@@ -218,7 +219,7 @@ class ServiceNameCatalog:
         ServiceName("dax", "DAX"),
         ServiceName("detective", "Detective"),
         ServiceName("devicefarm", "DeviceFarm"),
-        ServiceName("devops-guru", "DevopsGuru"),
+        ServiceName("devops-guru", "DevOpsGuru"),
         ServiceName("directconnect", "DirectConnect"),
         ServiceName("discovery", "ApplicationDiscoveryService"),
         ServiceName("dlm", "DLM"),
@@ -267,7 +268,7 @@ class ServiceNameCatalog:
         ServiceName("honeycode", "Honeycode"),
         ServiceName("iam", "IAM"),
         ServiceName("identitystore", "IdentityStore"),
-        ServiceName("imagebuilder", "Imagebuilder"),
+        ServiceName("imagebuilder", "imagebuilder"),
         ServiceName("importexport", "ImportExport"),
         ServiceName("inspector", "Inspector"),
         ServiceName("iot-data", "IoTDataPlane"),
@@ -286,7 +287,7 @@ class ServiceNameCatalog:
         ServiceName("iotwireless", "IoTWireless"),
         ServiceName("ivs", "IVS"),
         ServiceName("kafka", "Kafka"),
-        ServiceName("kendra", "Kendra"),
+        ServiceName("kendra", "kendra"),
         ServiceName("kinesis-video-archived-media", "KinesisVideoArchivedMedia"),
         ServiceName("kinesis-video-media", "KinesisVideoMedia"),
         ServiceName("kinesis-video-signaling", "KinesisVideoSignalingChannels"),
@@ -368,7 +369,7 @@ class ServiceNameCatalog:
         ServiceName("s3outposts", "S3Outposts"),
         ServiceName("sagemaker-a2i-runtime", "AugmentedAIRuntime"),
         ServiceName("sagemaker-edge", "SagemakerEdgeManager"),
-        ServiceName("sagemaker-featurestore-runtime", "SagemakerFeatureStoreRuntime"),
+        ServiceName("sagemaker-featurestore-runtime", "SageMakerFeatureStoreRuntime"),
         ServiceName("sagemaker-runtime", "SageMakerRuntime"),
         ServiceName("sagemaker", "SageMaker"),
         ServiceName("savingsplans", "SavingsPlans"),
@@ -384,8 +385,8 @@ class ServiceNameCatalog:
         ServiceName("ses", "SES"),
         ServiceName("sesv2", "SESV2"),
         ServiceName("shield", "Shield"),
-        ServiceName("signer", "Signer"),
-        ServiceName("sms-voice", "SMSVoice"),
+        ServiceName("signer", "signer"),
+        ServiceName("sms-voice", "PinpointSMSVoice"),
         ServiceName("sms", "SMS"),
         ServiceName("snowball", "Snowball"),
         ServiceName("sns", "SNS"),
