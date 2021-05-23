@@ -16,6 +16,7 @@ IGNORE_ERRORS = (
     'Type "None" cannot be assigned to type',
     '"__next__" is not present',
     'Import "boto3.s3.transfer" could not be resolved',
+    "is partially unknown",
 )
 
 
