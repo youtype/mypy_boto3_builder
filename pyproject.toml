@@ -26,13 +26,13 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.8"
 pip = "*"
-black = "*"
+black = "^21.4b2"
 boto3 = "*"
 isort = "^5.6.4"
 jinja2= "^3.0.1"
-pyparsing = "^2.4.7"
+pyparsing = "*"
 md_toc = "*"
-mdformat = "^0.7.5"
+mdformat = "*"
 
 [tool.poetry.dev-dependencies]
 codecov = "2.1.11"
