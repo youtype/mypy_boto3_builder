@@ -9,7 +9,7 @@ class Session:
         aws_secret_access_key: str = None,
         aws_session_token: str = None,
         region_name: str = None,
-        botocore_session: Session = None,
+        botocore_session: BotocoreSession = None,
         profile_name: str = None,
     ):
         self._session: BotocoreSession
