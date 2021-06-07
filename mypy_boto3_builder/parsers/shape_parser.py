@@ -213,6 +213,8 @@ class ShapeParser:
             result.append(argument)
 
         result.sort(key=lambda x: not x.required)
+        if result:
+            result.insert(0, Argument.kwonly())
         return result
 
     def _parse_return_type(

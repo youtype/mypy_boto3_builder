@@ -1,10 +1,12 @@
 """
 Method or function argument.
 """
-from typing import Optional, Set
+from typing import Optional, Set, Type, TypeVar
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
+
+_R = TypeVar("_R", bound="Argument")
 
 
 class Argument:
@@ -29,6 +31,10 @@ class Argument:
         self.type_annotation = type_annotation
         self.default = default
         self.prefix = prefix
+
+    @classmethod
+    def kwonly(cls: Type[_R]) -> _R:
+        return cls("*", None)
 
     def get_types(self) -> Set[FakeAnnotation]:
         types: Set[FakeAnnotation] = set()
