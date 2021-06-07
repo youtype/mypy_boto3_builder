@@ -33,8 +33,11 @@ class Argument:
         self.prefix = prefix
 
     @classmethod
-    def kwonly(cls: Type[_R]) -> _R:
+    def kwflag(cls: Type[_R]) -> _R:
         return cls("*", None)
+
+    def is_kwflag(self) -> bool:
+        return self.name == "*"
 
     def get_types(self) -> Set[FakeAnnotation]:
         types: Set[FakeAnnotation] = set()

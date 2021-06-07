@@ -214,7 +214,7 @@ class ShapeParser:
 
         result.sort(key=lambda x: not x.required)
         if result:
-            result.insert(0, Argument.kwonly())
+            result.insert(0, Argument.kwflag())
         return result
 
     def _parse_return_type(
@@ -519,14 +519,20 @@ class ShapeParser:
                 if i["source"] == "identifier"
             )
             if operation_shape.input_shape is not None:
-                for argument in self._parse_arguments(
+                parsed_arguments = self._parse_arguments(
                     resource_name,
                     method_name,
                     operation_name,
                     operation_shape.input_shape,
-                ):
-                    if argument.name not in skip_argument_names:
-                        arguments.append(argument)
+                )
+                allowed_arguments = [
+                    a
+                    for a in parsed_arguments
+                    if a.name not in skip_argument_names and not a.is_kwflag()
+                ]
+                if allowed_arguments:
+                    arguments.append(Argument.kwflag())
+                    arguments.extend(allowed_arguments)
             if operation_shape.output_shape is not None and return_type is Type.none:
                 operation_return_type = self._parse_shape(operation_shape.output_shape)
                 return_type = operation_return_type

@@ -7,7 +7,8 @@ Method or function argument.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Argument
     - [Argument](#argument)
         - [Argument().get_types](#argumentget_types)
-        - [Argument.kwonly](#argumentkwonly)
+        - [Argument().is_kwflag](#argumentis_kwflag)
+        - [Argument.kwflag](#argumentkwflag)
         - [Argument().required](#argumentrequired)
 
 ## Argument
@@ -35,24 +36,32 @@ Method or function argument.
 
 ### Argument().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L39)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L42)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
 ```
 
-### Argument.kwonly
+### Argument().is_kwflag
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L39)
+
+```python
+def is_kwflag() -> bool:
+```
+
+### Argument.kwflag
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L35)
 
 ```python
 @classmethod
-def kwonly() -> _R:
+def kwflag() -> _R:
 ```
 
 ### Argument().required
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L48)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L51)
 
 ```python
 @property
