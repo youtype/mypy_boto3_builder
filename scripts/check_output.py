@@ -4,6 +4,7 @@ import difflib
 import json
 import logging
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
@@ -37,7 +38,7 @@ def setup_logging(level: int = 0) -> logging.Logger:
     """
     logger = logging.getLogger(LOGGER_NAME)
     stream_handler = logging.StreamHandler()
-    formatter = logging.Formatter("%(message)s", datefmt="%H:%M:%S")
+    formatter = logging.Formatter("%(levelname)s %(message)s", datefmt="%H:%M:%S")
     stream_handler.setFormatter(formatter)
     stream_handler.setLevel(level)
     logger.addHandler(stream_handler)
@@ -78,6 +79,20 @@ def compare(data: str, snapshot_path: Path, update: bool) -> None:
     raise SnapshotMismatchError(f"Snapshot {snapshot_path} is different")
 
 
+def run_flake8(path: Path) -> None:
+    with tempfile.NamedTemporaryFile("w+b") as f:
+        try:
+            subprocess.check_call(
+                ["python", "-m", "flake8", path.as_posix()],
+                stderr=f,
+                stdout=f,
+            )
+        except subprocess.CalledProcessError:
+            temp_path = Path(f.name)
+            output = temp_path.read_text()
+            raise SnapshotMismatchError(output)
+
+
 def run_pyright(path: Path) -> None:
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
@@ -87,8 +102,8 @@ def run_pyright(path: Path) -> None:
                 stdout=f,
             )
             return
-        except subprocess.CalledProcessError as e:
-            output = e.output
+        except subprocess.CalledProcessError:
+            pass
 
         temp_path = Path(f.name)
         output = temp_path.read_text()
@@ -121,6 +136,7 @@ def main() -> None:
     setup_logging(logging.INFO)
     logger = logging.getLogger(LOGGER_NAME)
     folder: Path
+    has_errors = False
     for folder in sorted(args.path.iterdir()):
         if not folder.name.endswith("_package"):
             continue
@@ -130,10 +146,19 @@ def main() -> None:
             if args.services:
                 if not any(s in package.name for s in args.services):
                     continue
-            # logger.info(f"Running mypy for {package.name} ...")
-            # run_mypy(package)
-            logger.info(f"Running pyright for {package.name} ...")
-            run_pyright(package)
+            try:
+                # logger.info(f"Running mypy for {package.name} ...")
+                # run_mypy(package)
+                logger.info(f"Running flake8 for {package.name} ...")
+                run_flake8(package)
+                logger.info(f"Running pyright for {package.name} ...")
+                run_pyright(package)
+            except SnapshotMismatchError as e:
+                logger.error(e)
+                has_errors = True
+
+    if has_errors:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
