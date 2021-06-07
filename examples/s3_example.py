@@ -26,10 +26,10 @@ def s3_resource_example() -> None:
     buckets = resource.buckets.all()
 
     objects = bucket.objects.filter(Prefix="prefix")
-    for page in objects.pages(all=True):
+    for page in objects.pages():
         for obj in page:
             obj.bucket_name
-            obj.copy_from(123)
+            obj.copy_from(CopySource=123)
 
     for bucket in buckets:
         for multipart_upload in bucket.multipart_uploads:
@@ -57,8 +57,10 @@ def s3_client_example() -> None:
 
     # (mypy) error: Extra key 'Allowedorigins' for TypedDict "CORSRuleTypeDef"
     client.put_bucket_cors(
-        "Bucket",
-        {"CORSRules": [{"AllowedMethods": ["get"], "Allowedorigins": ["localhost"]}]},
+        Bucket="Bucket",
+        CORSConfiguration={
+            "CORSRules": [{"AllowedMethods": ["get"], "Allowedorigins": ["localhost"]}]
+        },
     )
 
     # (mypy) error: Argument "Key" to "get_object" of "Client" has incompatible type "None"; expected "str"

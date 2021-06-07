@@ -5,7 +5,7 @@ import boto3
 
 def iam_client_example() -> None:
     client = boto3.client("iam")
-    client.add_user_to_group("group", 123)
+    client.add_user_to_group(GroupName="group", UserName=123)
 
     list_steps_paginator = client.get_paginator("get_account_authorization_details")
     pages = list_steps_paginator.paginate(ClusterId="cluster_id")

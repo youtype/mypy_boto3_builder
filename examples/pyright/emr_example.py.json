@@ -5,11 +5,11 @@
         "range": {
             "start": {
                 "line": 7,
-                "character": 38
+                "character": 56
             },
             "end": {
                 "line": 7,
-                "character": 43
+                "character": 61
             }
         },
         "rule": "reportGeneralTypeIssues"

@@ -61,22 +61,22 @@
     },
     {
         "severity": "error",
-        "message": "No parameter named \"all\"",
+        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"CopySource\" of type \"str\" in function \"copy_from\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
         "range": {
             "start": {
-                "line": 28,
-                "character": 30
+                "line": 31,
+                "character": 37
             },
             "end": {
-                "line": 28,
-                "character": 33
+                "line": 31,
+                "character": 40
             }
         },
         "rule": "reportGeneralTypeIssues"
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester'] | None\" in function \"abort\"\n\u00a0\u00a0Type \"Literal['none']\" cannot be assigned to type \"Literal['requester'] | None\"\n\u00a0\u00a0\u00a0\u00a0Cannot assign to \"None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['none']\" cannot be assigned to type \"Literal['requester']\"",
+        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester'] | None\" in function \"abort\"\n\u00a0\u00a0Type \"Literal['none']\" cannot be assigned to type \"Literal['requester'] | None\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['none']\" cannot be assigned to type \"Literal['requester']\"",
         "range": {
             "start": {
                 "line": 35,
@@ -170,11 +170,11 @@
         "range": {
             "start": {
                 "line": 60,
-                "character": 8
+                "character": 26
             },
             "end": {
-                "line": 60,
-                "character": 85
+                "line": 62,
+                "character": 9
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -184,11 +184,11 @@
         "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" cannot be assigned to type \"str\"",
         "range": {
             "start": {
-                "line": 65,
+                "line": 67,
                 "character": 47
             },
             "end": {
-                "line": 65,
+                "line": 67,
                 "character": 51
             }
         },
@@ -199,11 +199,11 @@
         "message": "Cannot access member \"operations_name\" for type \"BotocoreClientError\"\n\u00a0\u00a0Member \"operations_name\" is unknown",
         "range": {
             "start": {
-                "line": 67,
+                "line": 69,
                 "character": 16
             },
             "end": {
-                "line": 67,
+                "line": 69,
                 "character": 31
             }
         },

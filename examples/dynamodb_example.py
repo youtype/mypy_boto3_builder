@@ -30,7 +30,7 @@ def dynamodb_client_example() -> None:
         print(e)
 
     key_exp = Key("partition_key").eq("pk") & Key("time").between(888888, 999999)
-    my_table.query("my_table", FilterExpression=key_exp)
+    my_table.query(IndexName="my_table", FilterExpression=key_exp)
 
 
 def main() -> None:

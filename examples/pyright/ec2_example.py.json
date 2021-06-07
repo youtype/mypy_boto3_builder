@@ -16,22 +16,22 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['incorrect']\" cannot be assigned to parameter \"DryRun\" of type \"bool | None\" in function \"delete\"\n\u00a0\u00a0Type \"Literal['incorrect']\" cannot be assigned to type \"bool | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['incorrect']\" is incompatible with \"bool\"\n\u00a0\u00a0\u00a0\u00a0Cannot assign to \"None\"",
+        "message": "Argument of type \"Literal['incorrect']\" cannot be assigned to parameter \"DryRun\" of type \"bool | None\" in function \"delete\"\n\u00a0\u00a0Type \"Literal['incorrect']\" cannot be assigned to type \"bool | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['incorrect']\" is incompatible with \"bool\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"",
         "range": {
             "start": {
                 "line": 20,
-                "character": 33
+                "character": 40
             },
             "end": {
                 "line": 20,
-                "character": 44
+                "character": 51
             }
         },
         "rule": "reportGeneralTypeIssues"
     },
     {
         "severity": "error",
-        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"List[TagTypeDef] | None\" in function \"create_tags\"\n\u00a0\u00a0Type \"list[dict[str, int]]\" cannot be assigned to type \"List[TagTypeDef] | None\"\n\u00a0\u00a0\u00a0\u00a0Cannot assign to \"None\"\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0TypeVar \"_T@list\" is invariant\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\"dict[str, int]\" is incompatible with \"TagTypeDef\"",
+        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"List[TagTypeDef] | None\" in function \"create_tags\"\n\u00a0\u00a0Type \"list[dict[str, int]]\" cannot be assigned to type \"List[TagTypeDef] | None\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0TypeVar \"_T@list\" is invariant\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\"dict[str, int]\" is incompatible with \"TagTypeDef\"",
         "range": {
             "start": {
                 "line": 31,

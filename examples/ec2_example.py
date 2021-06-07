@@ -18,7 +18,7 @@ def ec2_resource_example() -> None:
 
     vpc = resource.Vpc("foo")
     vpc_peer = vpc.request_vpc_peering_connection(PeerVpcId="bar")
-    vpc_peer.accepter_vpc.delete("incorrect")
+    vpc_peer.accepter_vpc.delete(DryRun="incorrect")
 
     image = resource.Image(id="test")
     image.create_tags(Tags=[])

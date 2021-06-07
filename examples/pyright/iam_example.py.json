@@ -5,11 +5,11 @@
         "range": {
             "start": {
                 "line": 7,
-                "character": 38
+                "character": 57
             },
             "end": {
                 "line": 7,
-                "character": 41
+                "character": 60
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -31,15 +31,15 @@
     },
     {
         "severity": "error",
-        "message": "Expected 1 positional argument",
+        "message": "Expected 0 positional arguments",
         "range": {
             "start": {
                 "line": 20,
-                "character": 30
+                "character": 19
             },
             "end": {
                 "line": 20,
-                "character": 33
+                "character": 28
             }
         },
         "rule": "reportGeneralTypeIssues"

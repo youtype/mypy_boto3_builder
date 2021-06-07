@@ -31,7 +31,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"TableName\" of type \"str | None\" in function \"list_backups\"\n\u00a0\u00a0Type \"Literal[123]\" cannot be assigned to type \"str | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"\n\u00a0\u00a0\u00a0\u00a0Cannot assign to \"None\"",
+        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"TableName\" of type \"str | None\" in function \"list_backups\"\n\u00a0\u00a0Type \"Literal[123]\" cannot be assigned to type \"str | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"",
         "range": {
             "start": {
                 "line": 27,

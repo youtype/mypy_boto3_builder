@@ -5,7 +5,7 @@ import boto3
 
 def emr_client_example() -> None:
     client = boto3.client("emr")
-    client.cancel_steps("cluster_id", [123])
+    client.cancel_steps(ClusterId="cluster_id", StepIds=[123])
 
     list_steps_paginator = client.get_paginator("list_steps")
     pages = list_steps_paginator.paginate(ClusterId="cluster_id")
