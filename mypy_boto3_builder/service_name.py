@@ -118,6 +118,31 @@ class ServiceName:
         """
         return ".".join([self.boto3_doc_link, *parts])
 
+    def get_md_doc_link(
+        self,
+        file: Literal[
+            "client",
+            "service_resource",
+            "waiters",
+            "paginators",
+            "type_defs",
+            "literals",
+        ],
+        *parts: str,
+    ) -> str:
+        """
+        Get link to MD docs with anchor.
+
+        Arguments:
+            file -- HTML file name
+            parts -- Anchor parts
+        """
+        link = f"{self.local_doc_link}/{file}.html"
+        if not parts:
+            return link
+        anchor = "".join([get_anchor_link(part) for part in parts])
+        return f"{link}#{anchor}"
+
     def get_doc_link(
         self,
         file: Literal[
@@ -137,7 +162,7 @@ class ServiceName:
             file -- HTML file name
             parts -- Anchor parts
         """
-        link = f"./{file}.md"
+        link = f"{self.local_doc_link}/{file}.html"
         if not parts:
             return link
         anchor = "".join([get_anchor_link(part) for part in parts])

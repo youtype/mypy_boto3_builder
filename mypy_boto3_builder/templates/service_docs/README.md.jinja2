@@ -11,7 +11,7 @@ pip install {{ package.service_name.pypi_name }}
 
 ## {{ package.client.name }}
 
-Type annotations for  `boto3.client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_doc_link('client') }})
+Type annotations for  `boto3.client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
 
 Can be used directly:
 
@@ -22,7 +22,7 @@ from {{ package.service_name.module_name }}.client import {{ package.client.name
 {% if package.client.methods %}
 ### Methods
 {% for method_name in package.client.method_names -%}
-- [{{ method_name }}]({{ service_name.get_doc_link('client', method_name) }}){{ '\n' -}}
+- [{{ method_name }}]({{ service_name.get_md_doc_link('client', method_name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
@@ -30,7 +30,7 @@ from {{ package.service_name.module_name }}.client import {{ package.client.name
 ### Exceptions
 
 {% if package.client.exceptions_class.attributes %}
-{{ package.client.name }} [exceptions]({{ service_name.get_doc_link('client', 'exceptions') }})
+{{ package.client.name }} [exceptions]({{ service_name.get_md_doc_link('client', 'exceptions') }})
 {% endif %}
 
 {% for attribute in package.client.exceptions_class.attributes -%}
@@ -42,7 +42,7 @@ from {{ package.service_name.module_name }}.client import {{ package.client.name
 ## {{ package.service_resource.name }}
 
 Type annotations for  `boto3.resource("{{ package.service_name.boto3_name }}")` as
-[{{ package.service_resource.name }}]({{ service_name.get_doc_link('service_resource', package.service_resource.name) }})
+[{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name) }})
 
 Can be used directly:
 
@@ -62,7 +62,7 @@ from {{ package.service_name.module_name }}.service_resource import {{ package.s
 ```
 
 {% for collection in package.service_resource.collections -%}
-- [{{ collection.name }}]({{ service_name.get_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }}){{ '\n' -}}
+- [{{ collection.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
@@ -78,7 +78,7 @@ from {{ package.service_name.module_name }}.service_resource import {{ package.s
 ```
 
 {% for sub_resource in package.service_resource.sub_resources -%}
-- [{{ sub_resource.name }}]({{ service_name.get_doc_link('service_resource', sub_resource.name) }}){{ '\n' -}}
+- [{{ sub_resource.name }}]({{ service_name.get_md_doc_link('service_resource', sub_resource.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 {% endif %}
@@ -86,7 +86,7 @@ from {{ package.service_name.module_name }}.service_resource import {{ package.s
 {% if package.paginators %}
 ## Paginators
 
-Type annotations for [paginators]({{ service_name.get_doc_link('paginators') }}) from `boto3.client("{{ package.service_name.boto3_name }}").get_paginator("...")`.
+Type annotations for [paginators]({{ service_name.get_md_doc_link('paginators') }}) from `boto3.client("{{ package.service_name.boto3_name }}").get_paginator("...")`.
 
 Can be used directly:
 
@@ -95,14 +95,14 @@ from {{ package.service_name.module_name }}.paginators import {{ package.paginat
 ```
 
 {% for paginator in package.paginators -%}
-- [{{ paginator.name }}]({{ service_name.get_doc_link('paginators', paginator.name) }}){{ '\n' -}}
+- [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
 {% if package.waiters %}
 ## Waiters
 
-Type annotations for [waiters]({{ service_name.get_doc_link('waiters') }}) from `boto3.client("{{ package.service_name.boto3_name }}").get_waiter("...")`.
+Type annotations for [waiters]({{ service_name.get_md_doc_link('waiters') }}) from `boto3.client("{{ package.service_name.boto3_name }}").get_waiter("...")`.
 
 Can be used directly:
 
@@ -111,14 +111,14 @@ from {{ package.service_name.module_name }}.waiters import {{ package.waiters[0]
 ```
 
 {% for waiter in package.waiters -%}
-- [{{ waiter.name }}]({{ service_name.get_doc_link('waiters', waiter.name) }}){{ '\n' -}}
+- [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
 {% if package.literals %}
 ## Literals
 
-Type annotations for [literals]({{ service_name.get_doc_link('literals') }}) used in methods and schema.
+Type annotations for [literals]({{ service_name.get_md_doc_link('literals') }}) used in methods and schema.
 
 Can be used directly:
 
@@ -127,7 +127,7 @@ from {{ package.service_name.module_name }}.literals import {{ package.literals[
 ```
 
 {% for literal in package.literals -%}
-- [{{ literal.name }}]({{ service_name.get_doc_link('literals', literal.name) }}){{ '\n' -}}
+- [{{ literal.name }}]({{ service_name.get_md_doc_link('literals', literal.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
@@ -135,7 +135,7 @@ from {{ package.service_name.module_name }}.literals import {{ package.literals[
 ## Typed dictionaries
 
 
-Type annotations for [typed dictionaries]({{ service_name.get_doc_link('type_defs') }}) used in methods and schema.
+Type annotations for [typed dictionaries]({{ service_name.get_md_doc_link('type_defs') }}) used in methods and schema.
 
 Can be used directly:
 
@@ -144,6 +144,6 @@ from {{ service_name.module_name }}.type_defs import {{ package.typed_dicts[0].n
 ```
 
 {% for typed_dict in package.typed_dicts -%}
-- [{{ typed_dict.name }}]({{ service_name.get_doc_link('type_defs', typed_dict.name) }}){{ '\n' -}}
+- [{{ typed_dict.name }}]({{ service_name.get_md_doc_link('type_defs', typed_dict.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}

@@ -11,6 +11,7 @@ Description for boto3 service.
         - [ServiceName().extras_name](#servicenameextras_name)
         - [ServiceName().get_boto3_doc_link](#servicenameget_boto3_doc_link)
         - [ServiceName().get_doc_link](#servicenameget_doc_link)
+        - [ServiceName().get_md_doc_link](#servicenameget_md_doc_link)
         - [ServiceName().import_name](#servicenameimport_name)
         - [ServiceName().is_essential](#servicenameis_essential)
         - [ServiceName().local_doc_link](#servicenamelocal_doc_link)
@@ -82,7 +83,7 @@ Get link to boto3 docs with anchor.
 
 ### ServiceName().get_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L121)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L146)
 
 ```python
 def get_doc_link(
@@ -99,6 +100,31 @@ def get_doc_link(
 ```
 
 Get link to local docs with anchor.
+
+#### Arguments
+
+- `file` - HTML file name
+- `parts` - Anchor parts
+
+### ServiceName().get_md_doc_link
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L121)
+
+```python
+def get_md_doc_link(
+    file: Literal[(
+        'client',
+        'service_resource',
+        'waiters',
+        'paginators',
+        'type_defs',
+        'literals',
+    )],
+    *parts: str,
+) -> str:
+```
+
+Get link to MD docs with anchor.
 
 #### Arguments
 
@@ -179,7 +205,7 @@ def underscore_name() -> str:
 
 ## ServiceNameCatalog
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L147)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L172)
 
 ```python
 class ServiceNameCatalog():
@@ -189,7 +215,7 @@ Finder for boto3 services by name.
 
 ### ServiceNameCatalog.create
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L458)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L483)
 
 ```python
 @staticmethod
@@ -204,7 +230,7 @@ Create ServiceName for unknown service.
 
 ### ServiceNameCatalog.find
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L439)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L464)
 
 ```python
 @classmethod
