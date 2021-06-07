@@ -1,5 +1,7 @@
 {% for argument in arguments -%}
+{% if not argument.is_kwflag() -%}
 {% with type_annotation=argument.type_annotation -%}
-- `{{ argument.name }}`{% if argument.type_annotation %}: {% include "common/type_annotation.md.jinja2" with context -%}{% endif %}{{ ' *(required)*' if argument.required else '' -}}{{ '\n' -}}
+- `{{ argument.name }}`{% if type_annotation %}: {% include "common/type_annotation.md.jinja2" with context -%}{% endif %}{{ ' *(required)*' if argument.required else '' -}}{{ '\n' -}}
 {% endwith -%}
+{% endif -%}
 {% endfor -%}
