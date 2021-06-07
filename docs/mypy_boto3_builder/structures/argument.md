@@ -7,11 +7,12 @@ Method or function argument.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Argument
     - [Argument](#argument)
         - [Argument().get_types](#argumentget_types)
+        - [Argument.kwonly](#argumentkwonly)
         - [Argument().required](#argumentrequired)
 
 ## Argument
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L10)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L12)
 
 ```python
 class Argument():
@@ -34,15 +35,24 @@ Method or function argument.
 
 ### Argument().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L33)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L39)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
 ```
 
+### Argument.kwonly
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L35)
+
+```python
+@classmethod
+def kwonly() -> _R:
+```
+
 ### Argument().required
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L42)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L48)
 
 ```python
 @property

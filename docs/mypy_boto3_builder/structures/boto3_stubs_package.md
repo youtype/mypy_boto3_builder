@@ -7,6 +7,7 @@ Structure for boto3-stubs module.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Boto3StubsPackage
     - [Boto3StubsPackage](#boto3stubspackage)
         - [Boto3StubsPackage().essential_service_names](#boto3stubspackageessential_service_names)
+        - [Boto3StubsPackage().get_all_names](#boto3stubspackageget_all_names)
         - [Boto3StubsPackage().get_init_required_import_records](#boto3stubspackageget_init_required_import_records)
         - [Boto3StubsPackage().get_session_required_import_records](#boto3stubspackageget_session_required_import_records)
 
@@ -40,6 +41,14 @@ Structure for boto3-stubs module.
 ```python
 @property
 def essential_service_names() -> List[ServiceName]:
+```
+
+### Boto3StubsPackage().get_all_names
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L97)
+
+```python
+def get_all_names() -> List[str]:
 ```
 
 ### Boto3StubsPackage().get_init_required_import_records

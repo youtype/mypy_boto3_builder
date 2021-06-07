@@ -93,3 +93,16 @@ class Boto3StubsPackage(Package):
         )
         import_records.update(self.session_class.get_required_import_records())
         return list(sorted(import_records))
+
+    def get_all_names(self) -> List[str]:
+        result = [
+            "session",
+            "Session",
+            "DEFAULT_SESSION",
+            "setup_default_session",
+            "set_stream_logger",
+            "NullHandler",
+            "client",
+            "resource",
+        ]
+        return list(sorted(result))
