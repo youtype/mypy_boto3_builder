@@ -76,7 +76,7 @@ class TestShapeParser:
         assert result.name == "paginate"
         assert len(result.arguments) == 5
         assert result.arguments[0].name == "self"
-        assert result.arguments[1].name == "*"
+        assert result.arguments[1].is_kwflag()
         assert result.arguments[2].name == "required_arg"
         assert result.arguments[3].name == "optional_arg"
         assert result.arguments[4].name == "PaginationConfig"
@@ -113,8 +113,7 @@ class TestShapeParser:
         )
         assert result.name == "filter"
         assert len(result.decorators) == 0
-        assert len(result.arguments) == 4
+        assert len(result.arguments) == 3
         assert result.arguments[0].name == "self"
-        assert result.arguments[1].is_kwflag()
-        assert result.arguments[2].name == "optional_arg"
-        assert result.arguments[3].name == "InputToken"
+        assert result.arguments[1].name == "optional_arg"
+        assert result.arguments[2].name == "InputToken"

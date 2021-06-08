@@ -1,7 +1,7 @@
 """
 Parser for botocore shape files.
 """
-from typing import Any, Dict, Iterable, List, Mapping, Optional
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence
 
 from boto3.resources.model import Collection
 from boto3.session import Session
@@ -235,6 +235,13 @@ class ShapeParser:
 
         return Type.none
 
+    @staticmethod
+    def _get_kw_flags(arguments: Sequence[Argument]) -> List[Argument]:
+        if len(arguments) > 2:
+            return [Argument.kwflag()]
+
+        return []
+
     def get_client_method_map(self) -> Dict[str, Method]:
         """
         Get client methods from shape.
@@ -272,8 +279,7 @@ class ShapeParser:
                     operation_name,
                     operation_model.input_shape,
                 )
-                if len(shape_arguments) > 1:
-                    arguments.append(Argument.kwflag())
+                arguments.extend(self._get_kw_flags(shape_arguments))
                 arguments.extend(shape_arguments)
 
             return_type = self._parse_return_type(
@@ -400,11 +406,9 @@ class ShapeParser:
                 operation_shape.input_shape,
                 exclude_names=skip_argument_names,
             )
-            if len(shape_arguments) > 1:
-                arguments.append(Argument.kwflag())
+            shape_arguments.append(Argument("PaginationConfig", paginator_config_type, Type.none))
+            arguments.extend(self._get_kw_flags(shape_arguments))
             arguments.extend(shape_arguments)
-
-        arguments.append(Argument("PaginationConfig", paginator_config_type, Type.none))
 
         return_type: FakeAnnotation = Type.none
         if operation_shape.output_shape is not None:
@@ -438,11 +442,9 @@ class ShapeParser:
             shape_arguments = self._parse_arguments(
                 "Waiter", "wait", operation_name, operation_shape.input_shape
             )
-            if len(shape_arguments) > 1:
-                arguments.append(Argument.kwflag())
+            shape_arguments.append(Argument("WaiterConfig", waiter_config_type, Type.none))
+            arguments.extend(self._get_kw_flags(shape_arguments))
             arguments.extend(shape_arguments)
-
-        arguments.append(Argument("WaiterConfig", waiter_config_type, Type.none))
 
         return Method(name="wait", arguments=arguments, return_type=Type.none)
 
@@ -538,8 +540,7 @@ class ShapeParser:
                     operation_shape.input_shape,
                     exclude_names=skip_argument_names,
                 )
-                if len(shape_arguments) > 1:
-                    arguments.append(Argument.kwflag())
+                arguments.extend(self._get_kw_flags(shape_arguments))
                 arguments.extend(shape_arguments)
             if operation_shape.output_shape is not None and return_type is Type.none:
                 operation_return_type = self._parse_shape(operation_shape.output_shape)
@@ -576,8 +577,7 @@ class ShapeParser:
                 operation_model.input_shape,
                 optional_only=True,
             )
-            if len(shape_arguments) > 1:
-                result.arguments.append(Argument.kwflag())
+            result.arguments.extend(self._get_kw_flags(shape_arguments))
             result.arguments.extend(shape_arguments)
 
         return result
@@ -609,8 +609,7 @@ class ShapeParser:
                         operation_model.input_shape,
                         optional_only=True,
                     )
-                    if len(shape_arguments) > 1:
-                        method.arguments.append(Argument.kwflag())
+                    method.arguments.extend(self._get_kw_flags(shape_arguments))
                     method.arguments.extend(shape_arguments)
                 if operation_model.output_shape is not None:
                     return_type = self._parse_shape(operation_model.output_shape)
