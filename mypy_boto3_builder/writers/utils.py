@@ -1,13 +1,10 @@
 """
 Jinja2 renderer and black formatter.
 """
-import re
-import tempfile
 from pathlib import Path
 from typing import Iterable, Optional
 
 import black
-import md_toc
 import mdformat
 from black import InvalidInput, NothingChanged
 from isort.api import Config, sort_code_string
@@ -16,6 +13,7 @@ from mypy_boto3_builder.constants import LINE_LENGTH, TEMPLATES_PATH
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
+from mypy_boto3_builder.utils.markdown import TableOfContents
 
 
 def blackify(content: str, file_path: Path) -> str:
@@ -102,17 +100,8 @@ def insert_md_toc(text: str) -> str:
     """
     Insert Table of Contents before the first second-level header.
     """
-    headers = {}
-    header_re = re.compile(r"\s*\- \[(.+)\]\(#(.+)\)")
-    with tempfile.NamedTemporaryFile("w+") as f:
-        f.write(text)
-        f.flush()
-        toc_lines = md_toc.build_toc(f.name).splitlines()
-        for toc_line in toc_lines:
-            match = header_re.match(toc_line)
-            if match:
-                headers[match.groups()[0]] = match.groups()[1]
-
+    toc = TableOfContents.parse(text)
+    toc_lines = toc.render().splitlines()
     lines = text.splitlines()
     result = []
     inserted = False
@@ -141,32 +130,3 @@ def format_md(text: str) -> str:
             "wrap": 79,
         },
     )
-
-
-def fix_pypi_headers(text: str) -> str:
-    """
-    Fix headers for PyPi links to work.
-    """
-    headers = {}
-    header_re = re.compile(r"\s*\- \[(.+)\]\(#(.+)\)")
-    with tempfile.NamedTemporaryFile("w+") as f:
-        f.write(text)
-        f.flush()
-        toc_lines = md_toc.build_toc(f.name).splitlines()
-        for toc_line in toc_lines:
-            match = header_re.match(toc_line)
-            if match:
-                headers[match.groups()[0]] = match.groups()[1]
-
-    lines = text.splitlines()
-    result = []
-    for line in lines:
-        header = line.lstrip("#").strip()
-        if header and header in headers:
-            anchor = headers[header]
-            result.append(f'{line}<a id="{anchor}"></a>')
-            continue
-
-        result.append(line)
-
-    return "\n".join(result)

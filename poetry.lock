@@ -10,7 +10,7 @@ python-versions = "*"
 name = "atomicwrites"
 version = "1.4.0"
 description = "Atomic file writes."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -65,20 +65,20 @@ webencodings = "*"
 
 [[package]]
 name = "boto3"
-version = "1.17.88"
+version = "1.17.89"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
 [package.dependencies]
-botocore = ">=1.20.88,<1.21.0"
+botocore = ">=1.20.89,<1.21.0"
 jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.4.0,<0.5.0"
 
 [[package]]
 name = "botocore"
-version = "1.20.88"
+version = "1.20.89"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -96,7 +96,7 @@ crt = ["awscrt (==0.11.15)"]
 name = "certifi"
 version = "2021.5.30"
 description = "Python package for providing Mozilla's CA Bundle."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -115,7 +115,7 @@ pycparser = "*"
 name = "chardet"
 version = "4.0.0"
 description = "Universal encoding detector for Python 2 and 3"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -202,18 +202,6 @@ pycodestyle = ">=2.7.0,<2.8.0"
 pyflakes = ">=2.3.0,<2.4.0"
 
 [[package]]
-name = "fpyutils"
-version = "2.0.0"
-description = "A collection of useful non-standard Python functions which aim to be simple to use, highly readable but not efficient."
-category = "main"
-optional = false
-python-versions = ">=3"
-
-[package.dependencies]
-atomicwrites = ">=1.4,<1.5"
-requests = ">=2.25,<2.26"
-
-[[package]]
 name = "handsdown"
 version = "0.3.9"
 description = "Python docstring-based documentation generator for lazy perfectionists."
@@ -228,7 +216,7 @@ typed-ast = "*"
 name = "idna"
 version = "2.10"
 description = "Internationalized Domain Names in Applications (IDNA)"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -353,17 +341,6 @@ description = "McCabe checker, plugin for flake8"
 category = "dev"
 optional = false
 python-versions = "*"
-
-[[package]]
-name = "md-toc"
-version = "8.0.0"
-description = "A utility that is able to generate a table of contents for a markdown file."
-category = "main"
-optional = false
-python-versions = ">=3.5, <4"
-
-[package.dependencies]
-fpyutils = ">=2.0,<2.1"
 
 [[package]]
 name = "mdformat"
@@ -575,7 +552,7 @@ python-versions = "*"
 name = "requests"
 version = "2.25.1"
 description = "Python HTTP for Humans."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -748,7 +725,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "c543bb8726a49b63a4417c5d2317ea2cff1ddfba12ccc6b297b757cd9a8eadfe"
+content-hash = "9b75338621f4c10764f194ce2ee21afbc83954cfe30dbad9a98cd32cc7d23825"
 
 [metadata.files]
 appdirs = [
@@ -772,12 +749,12 @@ bleach = [
     {file = "bleach-3.3.0.tar.gz", hash = "sha256:98b3170739e5e83dd9dc19633f074727ad848cbedb6026708c8ac2d3b697a433"},
 ]
 boto3 = [
-    {file = "boto3-1.17.88-py2.py3-none-any.whl", hash = "sha256:13afcc5e2fcc5e4f9eab1ee46a769cf738a259dcd45f71ee79255f18973e4584"},
-    {file = "boto3-1.17.88.tar.gz", hash = "sha256:a715ca6c4457d56ea3e3efde9bdc8be41c29b2f2a904fbd12befdb9cb5e289e4"},
+    {file = "boto3-1.17.89-py2.py3-none-any.whl", hash = "sha256:1f02cd513b130f9cd86c99836de6a0a5f78ea55110bdbc9011d9d78ff0fd3204"},
+    {file = "boto3-1.17.89.tar.gz", hash = "sha256:06d8dca85a0bb66b7bf2721745895d44691c78dbe7eb3b146702aff85e34af34"},
 ]
 botocore = [
-    {file = "botocore-1.20.88-py2.py3-none-any.whl", hash = "sha256:be3cb73fab60a2349e2932bd0cbbe7e7736e3a2cd8c05b539d362ff3e406be76"},
-    {file = "botocore-1.20.88.tar.gz", hash = "sha256:bc989edab52d4788aadd8d1aff925f5c6a7cbc68900bfdb8e379965aeac17317"},
+    {file = "botocore-1.20.89-py2.py3-none-any.whl", hash = "sha256:e112f9a45db1c5a42f787e4b228a35da6e823bcba70f43f43005b4fb58066446"},
+    {file = "botocore-1.20.89.tar.gz", hash = "sha256:ce0fa8bc260ad187824052805d224cee239d953bb4bfb1e52cf35ad79481b316"},
 ]
 certifi = [
     {file = "certifi-2021.5.30-py2.py3-none-any.whl", hash = "sha256:50b1e4f8446b06f41be7dd6338db18e0990601dce795c2b1686458aa7e8fa7d8"},
@@ -915,10 +892,6 @@ flake8 = [
     {file = "flake8-3.9.2-py2.py3-none-any.whl", hash = "sha256:bf8fd333346d844f616e8d47905ef3a3384edae6b4e9beb0c5101e25e3110907"},
     {file = "flake8-3.9.2.tar.gz", hash = "sha256:07528381786f2a6237b061f6e96610a4167b226cb926e2aa2b6b1d78057c576b"},
 ]
-fpyutils = [
-    {file = "fpyutils-2.0.0-py3-none-any.whl", hash = "sha256:89a63dc7526bc0d365eb50494b293f31bf7849111de5013a07c48de504d563a9"},
-    {file = "fpyutils-2.0.0.tar.gz", hash = "sha256:18a8ad741a4c1520911c53f6851c5eb2329a8e9ae26cd9522fdef5a9cd2f67ab"},
-]
 handsdown = [
     {file = "handsdown-0.3.9-py3-none-any.whl", hash = "sha256:af59daf571a68b4c93cc3e94fca88805e10773280612b71eab0cc99a08150e56"},
     {file = "handsdown-0.3.9.tar.gz", hash = "sha256:08690de7b514a2886c2ce63d99ea30724fe56e23feaecce008fc634fdcf091c1"},
@@ -998,10 +971,6 @@ markupsafe = [
 mccabe = [
     {file = "mccabe-0.6.1-py2.py3-none-any.whl", hash = "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42"},
     {file = "mccabe-0.6.1.tar.gz", hash = "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"},
-]
-md-toc = [
-    {file = "md_toc-8.0.0-py3-none-any.whl", hash = "sha256:1866d15656cd2863de5a813f4c939a5bd79f4637be3b3641a3d79d8b2c4875de"},
-    {file = "md_toc-8.0.0.tar.gz", hash = "sha256:2a1fcfabd6411052013a85caa2e6d9dab544df3ccc2e6d1f9934a24fe784274a"},
 ]
 mdformat = [
     {file = "mdformat-0.7.6-py3-none-any.whl", hash = "sha256:e58e015d876967f1265808e24caaae2ff2da0ddd1d0c1063c0efc581db3fc9ff"},

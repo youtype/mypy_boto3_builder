@@ -6,9 +6,9 @@ from pathlib import Path
 from typing import List, Tuple
 
 from mypy_boto3_builder.structures.master_package import MasterPackage
+from mypy_boto3_builder.utils.markdown import fix_pypi_headers
 from mypy_boto3_builder.writers.utils import (
     blackify,
-    fix_pypi_headers,
     format_md,
     insert_md_toc,
     render_jinja2_template,

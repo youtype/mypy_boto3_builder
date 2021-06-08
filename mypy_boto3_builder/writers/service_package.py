@@ -7,9 +7,9 @@ from typing import List, Tuple
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.utils.markdown import fix_pypi_headers
 from mypy_boto3_builder.writers.utils import (
     blackify,
-    fix_pypi_headers,
     format_md,
     insert_md_toc,
     render_jinja2_template,

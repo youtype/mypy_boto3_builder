@@ -8,9 +8,9 @@ from typing import List, Tuple
 
 from mypy_boto3_builder.constants import BOTO3_STUBS_STATIC_PATH
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
+from mypy_boto3_builder.utils.markdown import fix_pypi_headers
 from mypy_boto3_builder.writers.utils import (
     blackify,
-    fix_pypi_headers,
     format_md,
     insert_md_toc,
     render_jinja2_template,

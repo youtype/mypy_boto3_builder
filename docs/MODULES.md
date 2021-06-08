@@ -76,6 +76,7 @@ Full list of [mypy-boto3-builder](README.md#mypy_boto3_builder) project modules.
         - [Syntax Type Map](mypy_boto3_builder/type_maps/syntax_type_map.md#syntax-type-map)
         - [Typed Dicts](mypy_boto3_builder/type_maps/typed_dicts.md#typed-dicts)
     - [Utils](mypy_boto3_builder/utils/index.md#utils)
+        - [Markdown](mypy_boto3_builder/utils/markdown.md#markdown)
         - [NicePath](mypy_boto3_builder/utils/nice_path.md#nicepath)
         - [Strings](mypy_boto3_builder/utils/strings.md#strings)
     - [Writers](mypy_boto3_builder/writers/index.md#writers)
