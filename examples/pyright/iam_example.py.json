@@ -31,15 +31,15 @@
     },
     {
         "severity": "error",
-        "message": "Expected 0 positional arguments",
+        "message": "Expected 1 positional argument",
         "range": {
             "start": {
                 "line": 20,
-                "character": 19
+                "character": 30
             },
             "end": {
                 "line": 20,
-                "character": 28
+                "character": 33
             }
         },
         "rule": "reportGeneralTypeIssues"
