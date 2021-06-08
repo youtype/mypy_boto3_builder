@@ -1,7 +1,7 @@
 """
 Parser for botocore shape files.
 """
-from typing import Any, Dict, List, Mapping, Optional
+from typing import Any, Dict, Iterable, List, Mapping, Optional
 
 from boto3.resources.model import Collection
 from boto3.session import Session
@@ -190,10 +190,14 @@ class ShapeParser:
         method_name: str,
         operation_name: str,
         shape: StructureShape,
+        exclude_names: Iterable[str] = tuple(),
+        optional_only: bool = False,
     ) -> List[Argument]:
         result: List[Argument] = []
         required = shape.required_members
         for argument_name, argument_shape in shape.members.items():
+            if argument_name in exclude_names:
+                continue
             argument_alias = self._get_argument_alias(operation_name, argument_name)
             if argument_alias == "None":
                 continue
@@ -210,11 +214,11 @@ class ShapeParser:
             argument = Argument(argument_alias, argument_type)
             if argument_name not in required:
                 argument.default = Type.none
+            if optional_only and argument.required:
+                continue
             result.append(argument)
 
         result.sort(key=lambda x: not x.required)
-        if result:
-            result.insert(0, Argument.kwflag())
         return result
 
     def _parse_return_type(
@@ -262,14 +266,15 @@ class ShapeParser:
             method_name = xform_name(operation_name)
 
             if operation_model.input_shape is not None:
-                arguments.extend(
-                    self._parse_arguments(
-                        "Client",
-                        method_name,
-                        operation_name,
-                        operation_model.input_shape,
-                    )
+                shape_arguments = self._parse_arguments(
+                    "Client",
+                    method_name,
+                    operation_name,
+                    operation_model.input_shape,
                 )
+                if len(shape_arguments) > 1:
+                    arguments.append(Argument.kwflag())
+                arguments.extend(shape_arguments)
 
             return_type = self._parse_return_type(
                 "Client", method_name, operation_model.output_shape
@@ -388,12 +393,16 @@ class ShapeParser:
         arguments: List[Argument] = [Argument("self", None)]
 
         if operation_shape.input_shape is not None:
-            for argument in self._parse_arguments(
-                "Paginator", "paginate", operation_name, operation_shape.input_shape
-            ):
-                if argument.name in skip_argument_names:
-                    continue
-                arguments.append(argument)
+            shape_arguments = self._parse_arguments(
+                "Paginator",
+                "paginate",
+                operation_name,
+                operation_shape.input_shape,
+                exclude_names=skip_argument_names,
+            )
+            if len(shape_arguments) > 1:
+                arguments.append(Argument.kwflag())
+            arguments.extend(shape_arguments)
 
         arguments.append(Argument("PaginationConfig", paginator_config_type, Type.none))
 
@@ -426,9 +435,12 @@ class ShapeParser:
         arguments: List[Argument] = [Argument("self", None)]
 
         if operation_shape.input_shape is not None:
-            arguments.extend(
-                self._parse_arguments("Waiter", "wait", operation_name, operation_shape.input_shape)
+            shape_arguments = self._parse_arguments(
+                "Waiter", "wait", operation_name, operation_shape.input_shape
             )
+            if len(shape_arguments) > 1:
+                arguments.append(Argument.kwflag())
+            arguments.extend(shape_arguments)
 
         arguments.append(Argument("WaiterConfig", waiter_config_type, Type.none))
 
@@ -519,20 +531,16 @@ class ShapeParser:
                 if i["source"] == "identifier"
             )
             if operation_shape.input_shape is not None:
-                parsed_arguments = self._parse_arguments(
+                shape_arguments = self._parse_arguments(
                     resource_name,
                     method_name,
                     operation_name,
                     operation_shape.input_shape,
+                    exclude_names=skip_argument_names,
                 )
-                allowed_arguments = [
-                    a
-                    for a in parsed_arguments
-                    if a.name not in skip_argument_names and not a.is_kwflag()
-                ]
-                if allowed_arguments:
+                if len(shape_arguments) > 1:
                     arguments.append(Argument.kwflag())
-                    arguments.extend(allowed_arguments)
+                arguments.extend(shape_arguments)
             if operation_shape.output_shape is not None and return_type is Type.none:
                 operation_return_type = self._parse_shape(operation_shape.output_shape)
                 return_type = operation_return_type
@@ -561,15 +569,16 @@ class ShapeParser:
         operation_model = self._get_operation(operation_name)
 
         if operation_model.input_shape is not None:
-            for argument in self._parse_arguments(
+            shape_arguments = self._parse_arguments(
                 name,
                 result.name,
                 operation_name,
                 operation_model.input_shape,
-            ):
-                if argument.required:
-                    continue
-                result.arguments.append(argument)
+                optional_only=True,
+            )
+            if len(shape_arguments) > 1:
+                result.arguments.append(Argument.kwflag())
+            result.arguments.extend(shape_arguments)
 
         return result
 
@@ -593,15 +602,16 @@ class ShapeParser:
                 operation_name = batch_action.request.operation
                 operation_model = self._get_operation(operation_name)
                 if operation_model.input_shape is not None:
-                    for argument in self._parse_arguments(
+                    shape_arguments = self._parse_arguments(
                         name,
                         batch_action.name,
                         operation_name,
                         operation_model.input_shape,
-                    ):
-                        if argument.required:
-                            continue
-                        method.arguments.append(argument)
+                        optional_only=True,
+                    )
+                    if len(shape_arguments) > 1:
+                        method.arguments.append(Argument.kwflag())
+                    method.arguments.extend(shape_arguments)
                 if operation_model.output_shape is not None:
                     return_type = self._parse_shape(operation_model.output_shape)
                     method.return_type = return_type
