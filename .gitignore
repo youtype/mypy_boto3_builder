@@ -108,3 +108,4 @@ ENV/
 
 mypy_boto3_output
 typings
+test.py

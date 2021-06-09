@@ -1,33 +1,125 @@
-from typing import Any, Dict
+import sys
+from typing import Any, Dict, Iterable
 
 import requests
 import urllib3
 
+if sys.version_info >= (3, 8):
+    from typing import TypedDict
+else:
+    from typing_extensions import TypedDict
+
 class BotoCoreError(Exception):
     fmt: str
-    def __init__(self, **kwargs: Any) -> None: ...
+    def __init__(self, **kwargs: Any) -> None:
+        self.kwargs: Dict[str, Any]
 
-class DataNotFoundError(BotoCoreError): ...
-class UnknownServiceError(DataNotFoundError): ...
-class ApiVersionNotFoundError(BotoCoreError): ...
+class DataNotFoundErrorKwargs(TypedDict):
+    data_path: str
+
+class DataNotFoundError(BotoCoreError):
+    def __init__(self, *, data_path: str = ..., **kwargs: Any) -> None:
+        self.kwargs: DataNotFoundErrorKwargs
+
+class UnknownServiceErrorKwargs(TypedDict):
+    service_name: str
+    known_service_names: Iterable[str]
+
+class UnknownServiceError(DataNotFoundError):
+    def __init__(
+        self, *, service_name: str = ..., known_service_names: Iterable[str] = ..., **kwargs: Any
+    ) -> None:
+        self.kwargs: UnknownServiceErrorKwargs
+
+class ApiVersionNotFoundErrorKwargs(TypedDict):
+    service_name: str
+    api_version: str
+
+class ApiVersionNotFoundError(BotoCoreError):
+    def __init__(self, *, data_path: str = ..., api_version: str = ..., **kwargs: Any) -> None:
+        self.kwargs: UnknownServiceErrorKwargs
+
+class HTTPClientErrorKwargs(TypedDict):
+    error: Exception
 
 class HTTPClientError(BotoCoreError):
-    def __init__(self, request: Any = ..., response: Any = ..., **kwargs: Any) -> None: ...
+    def __init__(self, request: Any = ..., response: Any = ..., **kwargs: Any) -> None:
+        self.kwargs: HTTPClientErrorKwargs
 
-class ConnectionError(BotoCoreError): ...
-class InvalidIMDSEndpointError(BotoCoreError): ...
-class EndpointConnectionError(ConnectionError): ...
-class SSLError(ConnectionError, requests.exceptions.SSLError): ...
-class ConnectionClosedError(HTTPClientError): ...
+class ConnectionErrorKwargs(TypedDict):
+    error: Exception
+
+class ConnectionError(BotoCoreError):
+    def __init__(self, *, error: Exception = ..., **kwargs: Any) -> None:
+        self.kwargs: ConnectionErrorKwargs
+
+class InvalidIMDSEndpointErrorKwargs(TypedDict):
+    endpoint: str
+
+class InvalidIMDSEndpointError(BotoCoreError):
+    def __init__(self, *, endpoint: str = ..., **kwargs: Any) -> None:
+        self.kwargs: InvalidIMDSEndpointErrorKwargs
+
+class EndpointURLErrorKwargs(TypedDict):
+    endpoint_url: str
+
+class EndpointConnectionError(ConnectionError):
+    def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
+        self.kwargs: EndpointURLErrorKwargs
+
+class SSLErrorKwargs(TypedDict):
+    endpoint_url: str
+    error: Exception
+
+class SSLError(ConnectionError, requests.exceptions.SSLError):
+    def __init__(self, *, endpoint_url: str = ..., error: Exception = ..., **kwargs: Any) -> None:
+        self.kwargs: SSLErrorKwargs
+
+class ConnectionClosedError(HTTPClientError):
+    def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
+        self.kwargs: EndpointURLErrorKwargs
+
 class ReadTimeoutError(
     HTTPClientError, requests.exceptions.ReadTimeout, urllib3.exceptions.ReadTimeoutError
-): ...
-class ConnectTimeoutError(ConnectionError, requests.exceptions.ConnectTimeout): ...
-class ProxyConnectionError(ConnectionError, requests.exceptions.ProxyError): ...
+):
+    def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
+        self.kwargs: EndpointURLErrorKwargs
+
+class ConnectTimeoutError(ConnectionError, requests.exceptions.ConnectTimeout):
+    def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
+        self.kwargs: EndpointURLErrorKwargs
+
+class ProxyConnectionErrorKwargs(TypedDict):
+    proxy_url: str
+
+class ProxyConnectionError(ConnectionError, requests.exceptions.ProxyError):
+    def __init__(self, *, proxy_url: str = ..., **kwargs: Any) -> None:
+        self.kwargs: ProxyConnectionErrorKwargs
+
 class NoCredentialsError(BotoCoreError): ...
-class PartialCredentialsError(BotoCoreError): ...
-class CredentialRetrievalError(BotoCoreError): ...
-class UnknownSignatureVersionError(BotoCoreError): ...
+
+class PartialCredentialsErrorKwargs(TypedDict):
+    provider: str
+    cred_var: str
+
+class PartialCredentialsError(BotoCoreError):
+    def __init__(self, *, provider: str = ..., cred_var: str = ..., **kwargs: Any) -> None:
+        self.kwargs: PartialCredentialsErrorKwargs
+
+class CredentialRetrievalErrorKwargs(TypedDict):
+    provider: str
+
+class CredentialRetrievalError(BotoCoreError):
+    def __init__(self, *, provider: str = ..., **kwargs: Any) -> None:
+        self.kwargs: CredentialRetrievalErrorKwargs
+
+class UnknownSignatureVersionErrorKwargs(TypedDict):
+    signature_version: str
+
+class UnknownSignatureVersionError(BotoCoreError):
+    def __init__(self, *, signature_version: str = ..., **kwargs: Any) -> None:
+        self.kwargs: UnknownSignatureVersionErrorKwargs
+
 class ServiceNotInRegionError(BotoCoreError): ...
 class BaseEndpointResolverError(BotoCoreError): ...
 class NoRegionError(BaseEndpointResolverError): ...
