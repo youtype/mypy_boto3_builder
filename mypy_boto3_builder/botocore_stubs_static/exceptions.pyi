@@ -1,5 +1,5 @@
 import sys
-from typing import IO, Any, Dict, Iterable
+from typing import IO, Any, Dict, Iterable, Mapping
 
 import requests
 import urllib3
@@ -27,7 +27,7 @@ class ClientErrorResponseTypeDef(TypedDict, total=False):
 class BotoCoreError(Exception):
     fmt: str
     def __init__(self, **kwargs: Any) -> None:
-        self.kwargs: Dict[str, Any]
+        self.kwargs: Mapping[str, Any]
 
 class DataNotFoundErrorKwargs(TypedDict):
     data_path: str
@@ -36,7 +36,7 @@ class DataNotFoundError(BotoCoreError):
     def __init__(self, *, data_path: str = ..., **kwargs: Any) -> None:
         self.kwargs: DataNotFoundErrorKwargs
 
-class UnknownServiceErrorKwargs(TypedDict):
+class UnknownServiceErrorKwargs(DataNotFoundErrorKwargs):
     service_name: str
     known_service_names: Iterable[str]
 
@@ -75,7 +75,7 @@ class InvalidIMDSEndpointError(BotoCoreError):
     def __init__(self, *, endpoint: str = ..., **kwargs: Any) -> None:
         self.kwargs: InvalidIMDSEndpointErrorKwargs
 
-class EndpointURLErrorKwargs(TypedDict):
+class EndpointURLErrorKwargs(ConnectionErrorKwargs):
     endpoint_url: str
 
 class EndpointConnectionError(ConnectionError):
@@ -104,7 +104,7 @@ class ConnectTimeoutError(ConnectionError, requests.exceptions.ConnectTimeout):
     def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
         self.kwargs: EndpointURLErrorKwargs
 
-class ProxyConnectionErrorKwargs(TypedDict):
+class ProxyConnectionErrorKwargs(ConnectionErrorKwargs):
     proxy_url: str
 
 class ProxyConnectionError(ConnectionError, requests.exceptions.ProxyError):
@@ -209,9 +209,7 @@ class ParamValidationError(BotoCoreError):
     def __init__(self, *, report: str = ..., **kwargs: Any) -> None:
         self.kwargs: ParamValidationErrorKwargs
 
-class UnknownKeyErrorKwargs(TypedDict):
-    value: Any
-    param: str
+class UnknownKeyErrorKwargs(ValidationErrorKwargs):
     choices: Iterable[Any]
 
 class UnknownKeyError(ValidationError):
@@ -220,9 +218,7 @@ class UnknownKeyError(ValidationError):
     ) -> None:
         self.kwargs: UnknownKeyErrorKwargs
 
-class RangeErrorKwargs(TypedDict):
-    value: Any
-    param: str
+class RangeErrorKwargs(ValidationErrorKwargs):
     min_value: Any
     max_value: Any
 
@@ -238,7 +234,7 @@ class RangeError(ValidationError):
     ) -> None:
         self.kwargs: RangeErrorKwargs
 
-class UnknownParameterErrorKwargs(TypedDict):
+class UnknownParameterErrorKwargs(ValidationErrorKwargs):
     name: str
     operation: str
     choices: Iterable[str]
@@ -249,14 +245,14 @@ class UnknownParameterError(ValidationError):
     ) -> None:
         self.kwargs: UnknownParameterErrorKwargs
 
-class InvalidRegionErrorKwargs(TypedDict):
+class InvalidRegionErrorKwargs(ValidationErrorKwargs):
     region_name: str
 
 class InvalidRegionError(ValidationError, ValueError):
     def __init__(self, *, region_name: str = ..., **kwargs: Any) -> None:
         self.kwargs: InvalidRegionErrorKwargs
 
-class AliasConflictParameterErrorKwargs(TypedDict):
+class AliasConflictParameterErrorKwargs(ValidationErrorKwargs):
     original: str
     alias: str
     operation: str
@@ -442,7 +438,7 @@ class InvalidRetryConfigurationError(BotoCoreError):
     def __init__(self, *, retry_config_option: str = ..., **kwargs: Any) -> None:
         self.kwargs: InvalidRetryConfigurationErrorKwargs
 
-class InvalidMaxRetryAttemptsErrorKwargs(TypedDict):
+class InvalidMaxRetryAttemptsErrorKwargs(InvalidRetryConfigurationErrorKwargs):
     provided_max_attempts: int
     min_value: int
 
@@ -452,7 +448,7 @@ class InvalidMaxRetryAttemptsError(InvalidRetryConfigurationError):
     ) -> None:
         self.kwargs: InvalidMaxRetryAttemptsErrorKwargs
 
-class InvalidRetryModeErrorKwargs(TypedDict):
+class InvalidRetryModeErrorKwargs(InvalidRetryConfigurationErrorKwargs):
     provided_retry_mode: str
 
 class InvalidRetryModeError(InvalidRetryConfigurationError):
@@ -490,7 +486,7 @@ class InvalidConfigError(BotoCoreError):
     def __init__(self, *, error_msg: str = ..., **kwargs: Any) -> None:
         self.kwargs: InvalidConfigErrorKwargs
 
-class InfiniteLoopConfigErrorKwargs(TypedDict):
+class InfiniteLoopConfigErrorKwargs(InvalidConfigErrorKwargs):
     source_profile: str
     visited_profiles: Iterable[str]
 
