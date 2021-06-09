@@ -34,3 +34,11 @@ python setup.py build sdist bdist_wheel 1>/dev/null 2>/dev/null
 twine upload --non-interactive dist/* > /dev/null || true
 rm -rf build *.egg-info dist/* > /dev/null
 cd -
+
+echo Publishing botocore-stubs package
+cd ${OUTPUT_PATH}/botocore_stubs_package
+rm -rf build *.egg-info dist/* > /dev/null
+python setup.py build sdist bdist_wheel 1>/dev/null 2>/dev/null
+twine upload --non-interactive dist/* > /dev/null || true
+rm -rf build *.egg-info dist/* > /dev/null
+cd -

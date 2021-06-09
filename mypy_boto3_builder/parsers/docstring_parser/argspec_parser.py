@@ -2,7 +2,7 @@
 Converter of function argspec to `Argument` list.
 """
 import inspect
-from types import FunctionType
+from types import MethodType
 from typing import List, Optional
 
 from mypy_boto3_builder.service_name import ServiceName
@@ -24,7 +24,7 @@ class ArgSpecParser:
         self.service_name = service_name
 
     @staticmethod
-    def _get_arguments_from_argspec(func: FunctionType) -> List[Argument]:
+    def _get_arguments_from_argspec(func: MethodType) -> List[Argument]:
         arguments: List[Argument] = []
         argspec = inspect.getfullargspec(func)
         for argument_name in argspec.args:
@@ -54,9 +54,7 @@ class ArgSpecParser:
             arguments.append(Argument(argspec.varkw, Type.Any, prefix="**"))
         return arguments
 
-    def get_arguments(
-        self, class_name: str, method_name: str, func: FunctionType
-    ) -> List[Argument]:
+    def get_arguments(self, class_name: str, method_name: str, func: MethodType) -> List[Argument]:
         arguments = self._get_arguments_from_argspec(func)
 
         for argument in arguments:

@@ -94,7 +94,7 @@ class ResourceModel:
         resource_defs: Dict[str, Dict[str, Any]],
     ) -> None:
         self.name: str
-        self.shape: Optional[Shape]
+        self.shape: Optional[str]
     def load_rename_map(self, shape: Optional[Shape] = ...) -> None: ...
     def get_attributes(self, shape: Shape) -> Dict[str, Tuple[str, Any]]: ...
     @property

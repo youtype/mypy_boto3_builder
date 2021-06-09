@@ -18,8 +18,14 @@ TEMPLATES_PATH = Path(__file__).parent / "templates"
 # Static *.pyi files for boto3-stubs
 BOTO3_STUBS_STATIC_PATH = Path(__file__).parent / "boto3_stubs_static"
 
+# Static *.pyi files for botocore-stubs
+BOTOCORE_STUBS_STATIC_PATH = Path(__file__).parent / "botocore_stubs_static"
+
 # Boto3 stubs module name
 BOTO3_STUBS_NAME = "boto3-stubs"
+
+# Botocore stubs module name
+BOTOCORE_STUBS_NAME = "botocore-stubs"
 
 # Max line length for boto3 docs
 LINE_LENGTH = 100

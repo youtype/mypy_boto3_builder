@@ -6,9 +6,16 @@ from typing import List
 
 from boto3 import __version__ as boto3_version
 from boto3.session import Session
+from botocore import __version__ as botocore_version
 
 from mypy_boto3_builder.cli_parser import Namespace, parse_args
-from mypy_boto3_builder.constants import BOTO3_STUBS_NAME, DUMMY_REGION, MODULE_NAME, PYPI_NAME
+from mypy_boto3_builder.constants import (
+    BOTO3_STUBS_NAME,
+    BOTOCORE_STUBS_NAME,
+    DUMMY_REGION,
+    MODULE_NAME,
+    PYPI_NAME,
+)
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
@@ -16,6 +23,7 @@ from mypy_boto3_builder.utils.strings import get_anchor_link
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
+    process_botocore_stubs,
     process_master,
     process_service,
     process_service_docs,
@@ -70,12 +78,18 @@ def main() -> None:
             service_name.boto3_version = boto3_version
 
     build_version = args.build_version or boto3_version
+    botocore_build_version = botocore_version
+    if args.build_version and ".post" in args.build_version:
+        post_release = args.build_version.split(".post")[-1]
+        botocore_build_version = f"{botocore_version}.post{post_release}"
     JinjaManager.update_globals(
         master_pypi_name=PYPI_NAME,
         master_module_name=MODULE_NAME,
         boto3_stubs_name=BOTO3_STUBS_NAME,
         boto3_version=boto3_version,
+        botocore_version=botocore_version,
         build_version=build_version,
+        botocore_build_version=botocore_build_version,
         builder_version=args.builder_version,
         get_anchor_link=get_anchor_link,
         render_docstrings=True,
@@ -129,6 +143,12 @@ def generate_stubs(args: Namespace, service_names: List[ServiceName], session: S
             session,
             args.output_path,
             service_names,
+            generate_setup=not args.installed,
+        )
+
+        logger.info(f"Generating {BOTOCORE_STUBS_NAME} module")
+        process_botocore_stubs(
+            args.output_path,
             generate_setup=not args.installed,
         )
 

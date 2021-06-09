@@ -19,6 +19,7 @@ from mypy_boto3_builder.writers.boto3_stubs_package import (
     write_boto3_stubs_docs,
     write_boto3_stubs_package,
 )
+from mypy_boto3_builder.writers.botocore_stubs_package import write_botocore_stubs_package
 from mypy_boto3_builder.writers.master_package import write_master_package
 from mypy_boto3_builder.writers.service_package import write_service_docs, write_service_package
 
@@ -53,6 +54,25 @@ def process_boto3_stubs(
         logger.debug(f"Updated {NicePath(modified_path)}")
 
     return boto3_stubs_package
+
+
+def process_botocore_stubs(
+    output_path: Path,
+    generate_setup: bool,
+) -> None:
+    """
+    Parse and write stubs package `botocore_stubs`.
+
+    Arguments:
+        output_path -- Package output path.
+        generate_setup -- Whether to generate install or installed package.
+    """
+    logger = get_logger()
+    logger.debug(f"Writing botocore stubs to {NicePath(output_path)}")
+
+    modified_paths = write_botocore_stubs_package(output_path, generate_setup=generate_setup)
+    for modified_path in modified_paths:
+        logger.debug(f"Updated {NicePath(modified_path)}")
 
 
 def process_master(

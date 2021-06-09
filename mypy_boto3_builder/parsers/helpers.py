@@ -3,7 +3,7 @@ Helpers for parsing methods and attributes.
 """
 import inspect
 import textwrap
-from types import FunctionType
+from types import MethodType
 from typing import Any, Dict, List
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
@@ -20,7 +20,7 @@ from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
 from mypy_boto3_builder.utils.strings import get_class_prefix
 
 
-def get_public_methods(inspect_class: Any) -> Dict[str, FunctionType]:
+def get_public_methods(inspect_class: Any) -> Dict[str, MethodType]:
     """
     Extract public methods from any class.
 
@@ -31,7 +31,7 @@ def get_public_methods(inspect_class: Any) -> Dict[str, FunctionType]:
         A dictionary of method name and method.
     """
     class_members = inspect.getmembers(inspect_class)
-    methods: Dict[str, FunctionType] = {}
+    methods: Dict[str, MethodType] = {}
     for name, member in class_members:
         if not inspect.ismethod(member):
             continue
@@ -76,7 +76,7 @@ def parse_attributes(
 
 
 def parse_method(
-    parent_name: str, name: str, method: FunctionType, service_name: ServiceName
+    parent_name: str, name: str, method: MethodType, service_name: ServiceName
 ) -> Method:
     """
     Parse method to a structure.

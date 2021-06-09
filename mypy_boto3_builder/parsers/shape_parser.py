@@ -130,7 +130,7 @@ class ShapeParser:
     def _get_operation_names(self) -> List[str]:
         return list(self.service_model.operation_names)
 
-    def _get_paginator(self, name: str) -> Shape:
+    def _get_paginator(self, name: str) -> Dict[str, Any]:
         if not self._paginators_shape:
             raise ShapeParserError(f"Unknown paginator: {name}")
         try:
@@ -138,12 +138,12 @@ class ShapeParser:
         except KeyError as e:
             raise ShapeParserError(f"Unknown paginator: {name}") from e
 
-    def _get_service_resource(self) -> Shape:
+    def _get_service_resource(self) -> Dict[str, Any]:
         if not self._resources_shape:
             raise ShapeParserError("Resource shape not found")
         return self._resources_shape["service"]
 
-    def _get_resource_shape(self, name: str) -> Shape:
+    def _get_resource_shape(self, name: str) -> Dict[str, Any]:
         if not self._resources_shape:
             raise ShapeParserError("Resource shape not found")
         try:

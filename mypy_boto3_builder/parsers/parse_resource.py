@@ -2,7 +2,7 @@
 Parser for Boto3 ServiceResource sub-resource, produces `structures.Resource`
 """
 import inspect
-from types import FunctionType
+from types import MethodType
 from typing import Dict, Type
 
 from boto3.docs.utils import is_resource_action
@@ -73,7 +73,7 @@ def parse_resource(
 
 def get_resource_public_methods(
     resource_class: Type[Boto3ServiceResource],
-) -> Dict[str, FunctionType]:
+) -> Dict[str, MethodType]:
     """
     Extract public methods from boto3 sub resource.
 
@@ -84,7 +84,7 @@ def get_resource_public_methods(
         A dictionary of method name and method.
     """
     class_members = inspect.getmembers(resource_class)
-    methods: Dict[str, FunctionType] = {}
+    methods: Dict[str, MethodType] = {}
     for name, member in class_members:
         if name.startswith("_"):
             continue
