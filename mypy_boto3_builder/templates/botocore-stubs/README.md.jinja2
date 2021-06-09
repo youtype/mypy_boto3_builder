@@ -1,4 +1,4 @@
-# boto3-stubs
+# botocore-stubs
 
 [![PyPI - botocore-stubs](https://img.shields.io/pypi/v/botocore-stubs.svg?color=blue)](https://pypi.org/project/botocore-stubs)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/botocore-stubs.svg?color=blue)](https://pypi.org/project/botocore-stubs)
@@ -28,11 +28,15 @@ See how it helps to find and fix potential bugs:
 
 ### Basic
 
-Install `boto3-stubs`, to add type annotations for `boto3` package.
+Install `botocore-stubs` to add type annotations for `botocore` package.
+Install `boto3-stubs` to add type annotations for `boto3` package.
 
 ```bash
-# install type annotations just for boto3
-python -m pip install boto3-stubs
+# install type annotations only for botocore
+python -m pip install botocore-stubs
+
+# install type annotations only for boto3 and botocore
+python -m pip install botocore-stubs boto3-stubs
 
 # install `boto3` type annotations
 # for ec2, s3, rds, lambda, sqs, dynamo and cloudformation
@@ -47,7 +51,7 @@ python -m pip install 'boto3-stubs[acm,apigateway]'
 
 ```bash
 # uninstall boto3-stubs
-python -m pip uninstall -y boto3-stubs
+python -m pip uninstall -y boto3-stubs botocore-stubs
 
 # uninstall submodules
 python -m pip freeze | grep mypy-boto3 | xargs python -m pip uninstall -y
@@ -130,52 +134,6 @@ No explicit type annotations required, write your `boto3` code as usual.
 Type checking should work for installed `boto3` services.
 No explicit type annotations required, write your `boto3` code as usual.
 
-### Explicit type annotations
-
-To speed up type checking and auto-complete, you can set types explicitly.
-
-```python
-import boto3
-from boto3.session import Session
-
-import mypy_boto3_ec2.client import EC2Client
-import mypy_boto3_ec2.service_resource import EC2ServiceResource
-import mypy_boto3_ec2.waiter import BundleTaskCompleteWaiter
-import mypy_boto3_ec2.paginator import DescribeVolumesPaginator
-
-session = Session(region_name="us-west-1")
-
-ec2_client: EC2Client = boto3.client("ec2", region_name="us-west-1")
-ec2_resource: EC2ServiceResource = session.resource("ec2")
-
-bundle_task_complete_waiter: BundleTaskCompleteWaiter = ec2_client.get_waiter("bundle_task_complete")
-describe_volumes_paginator: DescribeVolumesPaginator = ec2_client.get_paginator("describe_volumes")
-```
-
-### Pylint compatibility
-
-It is totally safe to use `TYPE_CHECKING` flag in order to avoid `boto3-stubs`
-dependency in production.
-However, there is an issue in `pylint` that it complains about undefined
-variables. To fix it, set all types to `object` in non-`TYPE_CHECKING` mode.
-
-```python
-import boto3
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from mypy_boto3_ec2 import EC2Client, EC2ServiceResource
-    from mypy_boto3_ec2.waiters import BundleTaskCompleteWaiter
-    from mypy_boto3_ec2.paginators import DescribeVolumesPaginator
-else:
-    EC2Client = object
-    EC2ServiceResource = object
-    BundleTaskCompleteWaiter = object
-    DescribeVolumesPaginator = object
-
-...
-```
-
 ## How it works
 
 Fully automated [mypy-boto3-builder](https://github.com/vemel/mypy_boto3_builder) carefully generates
@@ -202,6 +160,7 @@ a drop-in type annotations for you and makes sure that:
 - `Waiter` type annotations for each service
 - `Paginator` type annotations for each service
 - Generated `TypeDefs` for each service
+- Generated `Literals` for each service
 - Auto discovery of types for `boto3.client` and `boto3.session` calls
 - Auto discovery of types for `session.client` and `session.session` calls
 - Auto discovery of types for `client.get_waiter` and `client.get_paginator` calls

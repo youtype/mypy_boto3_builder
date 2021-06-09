@@ -28,10 +28,10 @@ See how it helps to find and fix potential bugs:
 
 ### Basic
 
-Install `boto3-stubs`, to add type annotations for `boto3` package.
+Install `boto3-stubs` to add type annotations for `boto3` package.
 
 ```bash
-# install type annotations just for boto3
+# install type annotations only for boto3 and botocore
 python -m pip install boto3-stubs
 
 # install `boto3` type annotations
@@ -47,7 +47,7 @@ python -m pip install 'boto3-stubs[acm,apigateway]'
 
 ```bash
 # uninstall boto3-stubs
-python -m pip uninstall -y boto3-stubs
+python -m pip uninstall -y boto3-stubs botocore-stubs
 
 # uninstall submodules
 python -m pip freeze | grep mypy-boto3 | xargs python -m pip uninstall -y
@@ -202,6 +202,7 @@ a drop-in type annotations for you and makes sure that:
 - `Waiter` type annotations for each service
 - `Paginator` type annotations for each service
 - Generated `TypeDefs` for each service
+- Generated `Literals` for each service
 - Auto discovery of types for `boto3.client` and `boto3.session` calls
 - Auto discovery of types for `session.client` and `session.session` calls
 - Auto discovery of types for `client.get_waiter` and `client.get_paginator` calls
