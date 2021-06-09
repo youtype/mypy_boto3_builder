@@ -40,7 +40,7 @@ jobs:
           python -m pip install -U poetry pip wheel
           poetry config virtualenvs.create false
           poetry install -n
-          python -m pip install boto3-stubs botocore-stubs
+          python -m pip install -U boto3-stubs botocore-stubs
       - name: Send coverage report
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
