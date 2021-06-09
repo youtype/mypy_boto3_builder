@@ -23,7 +23,7 @@ class Client(ClassRecord):
     _alias_name: str = "Client"
 
     def __init__(self, name: str, service_name: ServiceName, boto3_client: BaseClient):
-        super().__init__(name=name, bases=[TypeClass(BaseClient)])
+        super().__init__(name=name)
         self.service_name = service_name
         self.boto3_client = boto3_client
         self.exceptions_class = ClassRecord(name="Exceptions")
