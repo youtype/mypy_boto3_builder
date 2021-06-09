@@ -109,14 +109,14 @@ def get_sub_resources(
     """
     result: List[Boto3ServiceResource] = []
     session_session = session._session
-    loader = session_session.get_component("data_loader")  # type: ignore
+    loader = session_session.get_component("data_loader")
     assert resource.meta.service_name == service_name.boto3_name
     json_resource_model = loader.load_service_model(service_name.boto3_name, "resources-1")
     service_model = resource.meta.client.meta.service_model
     assert service_model.service_name == service_name.boto3_name
     service_waiter_model: Optional[WaiterModel]
     try:
-        service_waiter_model = session_session.get_waiter_model(service_name.boto3_name)  # type: ignore
+        service_waiter_model = session_session.get_waiter_model(service_name.boto3_name)
     except UnknownServiceError:
         service_waiter_model = None
     for name in json_resource_model["resources"]:
@@ -128,7 +128,7 @@ def get_sub_resources(
                 service_name=service_name.boto3_name,
                 resource_json_definitions=json_resource_model["resources"],
                 service_model=service_model,
-                service_waiter_model=service_waiter_model,  # type: ignore
+                service_waiter_model=service_waiter_model,
             ),
         )
         identifiers = resource_class.meta.resource_model.identifiers  # type: ignore

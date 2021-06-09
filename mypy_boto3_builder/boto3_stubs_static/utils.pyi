@@ -1,4 +1,4 @@
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 from botocore.model import ServiceModel
 from botocore.session import Session
@@ -9,7 +9,7 @@ class ServiceContext:
         self,
         service_name: str,
         service_model: ServiceModel,
-        service_waiter_model: WaiterModel,
+        service_waiter_model: Optional[WaiterModel],
         resource_json_definitions: Dict[str, Any],
     ) -> None: ...
 

@@ -52,7 +52,7 @@ def parse_fake_service_package(session: Session, service_name: ServiceName) -> S
             boto3_service_resource=boto3_resource,
         )
 
-    waiter_names: List[str] = boto3_client.waiter_names  # type: ignore
+    waiter_names: List[str] = boto3_client.waiter_names
     for waiter_name in waiter_names:
         real_class_name = get_class_prefix(waiter_name)
         waiter_class_name = f"{real_class_name}Waiter"
