@@ -39,6 +39,7 @@ jobs:
           python -m pip install -U poetry pip wheel
           poetry config virtualenvs.create false
           poetry install -n
+          python -m pip install boto3-stubs botocore-stubs
       - name: Lint
         run: |
           python -m flake8 mypy_boto3_builder
@@ -83,6 +84,7 @@ jobs:
           python -m pip install -U poetry pip wheel
           poetry config virtualenvs.create false
           poetry install -n
+          python -m pip install boto3-stubs botocore-stubs
           sudo npm install -g pyright
       - name: Integration tests
         run: |
