@@ -7,6 +7,7 @@ from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from boto3.session import Session
 from boto3.utils import ServiceContext
 from botocore.exceptions import UnknownServiceError
+from botocore.waiter import WaiterModel
 
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.boto3_utils import get_boto3_client, get_boto3_resource
@@ -113,6 +114,7 @@ def get_sub_resources(
     json_resource_model = loader.load_service_model(service_name.boto3_name, "resources-1")
     service_model = resource.meta.client.meta.service_model
     assert service_model.service_name == service_name.boto3_name
+    service_waiter_model: Optional[WaiterModel]
     try:
         service_waiter_model = session_session.get_waiter_model(service_name.boto3_name)  # type: ignore
     except UnknownServiceError:

@@ -26,7 +26,7 @@ class ResourceCollection(Generic[_ServiceResourceType]):
     def page_size(self: _ResourceCollectionType, count: int) -> _ResourceCollectionType: ...
 
 class CollectionManager(Generic[_ServiceResourceType]):
-    _collection_cls = ResourceCollection[_ServiceResourceType]
+    _collection_cls = ResourceCollection[Any]
     def __init__(
         self,
         collection_model: Collection,

@@ -66,7 +66,7 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
     for paginator_name in shape_parser.get_paginator_names():
         logger.debug(f"Parsing Paginator {paginator_name}")
         operation_name = xform_name(paginator_name)
-        paginator = client.boto3_client.get_paginator(operation_name)
+        # boto3_paginator = client.boto3_client.get_paginator(operation_name)
         paginator_record = Paginator(
             name=f"{paginator_name}Paginator",
             paginator_name=paginator_name,
@@ -100,8 +100,8 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
             method.decorators.clear()
             result.client.methods.append(method)
         else:
-            for waiter in result.waiters:
-                method = waiter.get_client_method()
+            for package_waiter in result.waiters:
+                method = package_waiter.get_client_method()
                 result.client.methods.append(method)
 
     result.typed_dicts = result.extract_typed_dicts()

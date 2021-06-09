@@ -81,6 +81,7 @@ Full list of [mypy-boto3-builder](README.md#mypy_boto3_builder) project modules.
         - [Strings](mypy_boto3_builder/utils/strings.md#strings)
     - [Writers](mypy_boto3_builder/writers/index.md#writers)
         - [Boto3 Stubs Package](mypy_boto3_builder/writers/boto3_stubs_package.md#boto3-stubs-package)
+        - [Botocore Stubs Package](mypy_boto3_builder/writers/botocore_stubs_package.md#botocore-stubs-package)
         - [Master Package](mypy_boto3_builder/writers/master_package.md#master-package)
         - [Processors](mypy_boto3_builder/writers/processors.md#processors)
         - [Service Package](mypy_boto3_builder/writers/service_package.md#service-package)

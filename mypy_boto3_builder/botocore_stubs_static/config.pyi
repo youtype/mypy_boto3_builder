@@ -3,16 +3,10 @@ from typing import Dict, Tuple, Union
 from botocore.compat import OrderedDict as OrderedDict
 from botocore.endpoint import DEFAULT_TIMEOUT as DEFAULT_TIMEOUT
 from botocore.endpoint import MAX_POOL_CONNECTIONS as MAX_POOL_CONNECTIONS
-from botocore.exceptions import (
-    InvalidMaxRetryAttemptsError as InvalidMaxRetryAttemptsError,
-)
-from botocore.exceptions import (
-    InvalidRetryConfigurationError as InvalidRetryConfigurationError,
-)
+from botocore.exceptions import InvalidMaxRetryAttemptsError as InvalidMaxRetryAttemptsError
+from botocore.exceptions import InvalidRetryConfigurationError as InvalidRetryConfigurationError
 from botocore.exceptions import InvalidRetryModeError as InvalidRetryModeError
-from botocore.exceptions import (
-    InvalidS3AddressingStyleError as InvalidS3AddressingStyleError,
-)
+from botocore.exceptions import InvalidS3AddressingStyleError as InvalidS3AddressingStyleError
 from typing_extensions import Literal, TypedDict
 
 class _RetryDict(TypedDict, total=False):

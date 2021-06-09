@@ -32,13 +32,13 @@ Converter of function argspec to `Argument` list.
 def get_arguments(
     class_name: str,
     method_name: str,
-    func: FunctionType,
+    func: MethodType,
 ) -> List[Argument]:
 ```
 
 ### ArgSpecParser().get_return_type
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L74)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L72)
 
 ```python
 def get_return_type(
