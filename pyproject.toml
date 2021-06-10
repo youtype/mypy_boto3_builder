@@ -36,12 +36,15 @@ mdformat = "*"
 [tool.poetry.dev-dependencies]
 codecov = "2.1.11"
 handsdown = "0.3.9"
-mypy = "0.812"
+mypy = "0.901"
 flake8 = "3.9.2"
 pytest-cov = "2.12.1"
 pytest = "6.2.4"
 vulture = "2.1"
 twine = "3.4.1"
+types-requests = "*"
+types-pkg-resources = "*"
+types-six = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
