@@ -1,14 +1,14 @@
 examples/s3_example.py:18: error: Unexpected keyword argument "mfa" for "delete" of "BucketObjectsCollection"
 examples/s3_example.py:21: error: Unexpected keyword argument "key" for "upload_file" of "Bucket"
-examples/s3_example.py:24: error: Extra key 'key' for TypedDict "CopySourceTypeDef"
+examples/s3_example.py:24: error: Extra key "key" for TypedDict "CopySourceTypeDef"
 examples/s3_example.py:32: error: Argument "CopySource" to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str"
 examples/s3_example.py:36: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Optional[Literal['requester']]"
 examples/s3_example.py:38: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"
 examples/s3_example.py:47: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?
 examples/s3_example.py:53: error: Missing named argument "Key" for "get_object" of "S3Client"
-examples/s3_example.py:56: error: TypedDict "GetObjectOutputTypeDef" has no key 'expiration'
+examples/s3_example.py:56: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"
 examples/s3_example.py:56: note: Did you mean "Expiration"?
-examples/s3_example.py:62: error: Extra key 'Allowedorigins' for TypedDict "CORSRuleTypeDef"
+examples/s3_example.py:62: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"
 examples/s3_example.py:68: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
 examples/s3_example.py:70: error: "BotocoreClientError" has no attribute "operations_name"; maybe "operation_name"?
 Found 12 errors in 1 file (checked 1 source file)
