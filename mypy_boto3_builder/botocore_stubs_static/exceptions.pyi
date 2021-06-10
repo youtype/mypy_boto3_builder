@@ -21,7 +21,7 @@ class ResponseMetadataTypeDef(TypedDict):
     RetryAttempts: int
 
 class ClientErrorResponseTypeDef(TypedDict, total=False):
-    error: ClientErrorResponseError
+    Error: ClientErrorResponseError
     ResponseMetadata: ResponseMetadataTypeDef
 
 class BotoCoreError(Exception):
