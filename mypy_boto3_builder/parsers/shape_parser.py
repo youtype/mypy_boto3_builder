@@ -238,7 +238,7 @@ class ShapeParser:
 
     @staticmethod
     def _get_kw_flags(arguments: Sequence[Argument]) -> List[Argument]:
-        if len(arguments) > 2:
+        if len(arguments):
             return [Argument.kwflag()]
 
         return []
