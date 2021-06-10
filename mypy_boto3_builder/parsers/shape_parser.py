@@ -33,6 +33,7 @@ from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
+from mypy_boto3_builder.type_maps.literal_type_map import get_literal_type_stub
 from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
 from mypy_boto3_builder.type_maps.shape_type_map import get_shape_type_stub
 from mypy_boto3_builder.type_maps.typed_dicts import paginator_config_type, waiter_config_type
@@ -290,10 +291,14 @@ class ShapeParser:
             result[method.name] = method
         return result
 
-    @staticmethod
-    def _parse_shape_string(shape: StringShape) -> FakeAnnotation:
+    def _parse_shape_string(self, shape: StringShape) -> FakeAnnotation:
         if not shape.enum:
             return Type.str
+
+        literal_name = f"{shape.name}Type"
+        literal_type_stub = get_literal_type_stub(self.service_name, literal_name)
+        if literal_type_stub:
+            return literal_type_stub
 
         return TypeLiteral(f"{shape.name}Type", [option for option in shape.enum])
 

@@ -70,6 +70,7 @@ Full list of [mypy-boto3-builder](README.md#mypy_boto3_builder) project modules.
         - [TypeTypedDict](mypy_boto3_builder/type_annotations/type_typed_dict.md#typetypeddict)
     - [Type Maps](mypy_boto3_builder/type_maps/index.md#type-maps)
         - [Docstring Type Map](mypy_boto3_builder/type_maps/docstring_type_map.md#docstring-type-map)
+        - [Literal Type Map](mypy_boto3_builder/type_maps/literal_type_map.md#literal-type-map)
         - [Method Argument Map](mypy_boto3_builder/type_maps/method_argument_map.md#method-argument-map)
         - [Method Type Map](mypy_boto3_builder/type_maps/method_type_map.md#method-type-map)
         - [Shape Type Map](mypy_boto3_builder/type_maps/shape_type_map.md#shape-type-map)
