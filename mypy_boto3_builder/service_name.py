@@ -374,6 +374,7 @@ class ServiceNameCatalog:
         ServiceName("pinpoint", "Pinpoint"),
         ServiceName("polly", "Polly"),
         ServiceName("pricing", "Pricing"),
+        ServiceName("proton", "Proton"),
         ServiceName("qldb-session", "QLDBSession"),
         ServiceName("qldb", "QLDB"),
         ServiceName("quicksight", "QuickSight"),

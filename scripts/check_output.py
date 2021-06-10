@@ -18,6 +18,8 @@ IGNORE_ERRORS = (
     '"__next__" is not present',
     'Import "boto3.s3.transfer" could not be resolved',
     "is partially unknown",
+    'Method "paginate" overrides class "Paginator" in an incompatible manner',
+    'Method "wait" overrides class "Waiter" in an incompatible manner',
 )
 
 
