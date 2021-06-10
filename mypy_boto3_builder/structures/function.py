@@ -61,3 +61,9 @@ class Function:
         Whether return type is None
         """
         return self.return_type == Type.none
+
+    def is_kw_only(self) -> bool:
+        """
+        Whether method arguments can be passed only as kwargs.
+        """
+        return any(arg.is_kwflag() for arg in self.arguments)

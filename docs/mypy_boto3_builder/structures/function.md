@@ -9,6 +9,7 @@ Module-level function.
         - [Function().body](#functionbody)
         - [Function().get_required_import_records](#functionget_required_import_records)
         - [Function().get_types](#functionget_types)
+        - [Function().is_kw_only](#functionis_kw_only)
         - [Function().returns_none](#functionreturns_none)
 
 ## Function
@@ -58,6 +59,16 @@ def get_required_import_records() -> Set[ImportRecord]:
 ```python
 def get_types() -> Set[FakeAnnotation]:
 ```
+
+### Function().is_kw_only
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L65)
+
+```python
+def is_kw_only() -> bool:
+```
+
+Whether method arguments can be passed only as kwargs.
 
 ### Function().returns_none
 

@@ -1,5 +1,5 @@
 {% if method.call_arguments %}
-Arguments:
+{% if method.is_kw_only() %}Keyword-only arguments:{% else %}Arguments:{% endif %}
 {% with arguments=method.arguments[1:] -%}
 {% include "common/arguments_list.md.jinja2" with context -%}
 {% endwith %}
