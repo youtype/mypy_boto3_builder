@@ -18,7 +18,7 @@ def iam_client_example() -> None:
 def iam_resource_example() -> None:
     resource = boto3.resource("iam")
     group = resource.Group("my")
-    group.add_user("my_user", 123)
+    group.add_user(UserName="my_user", Other=123)
 
 
 def main() -> None:
