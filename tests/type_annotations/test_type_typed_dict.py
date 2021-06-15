@@ -36,6 +36,7 @@ class TestTypeTypedDict:
         assert self.result.name == "MyDict"
         assert len(self.result.children) == 2
         assert self.result.docstring == "documentation"
+        assert self.result.requires_safe_render
 
     def test_get_attribute(self) -> None:
         assert self.result.get_attribute("required") == self.result.children[0]
@@ -133,3 +134,12 @@ class TestTypeTypedDict:
 
     def test_get_children_types(self) -> None:
         assert self.result.get_children_types() == {Type.str, Type.bool}
+
+    def test_get_children_typed_dicts(self) -> None:
+        assert len(self.result.get_children_typed_dicts()) == 0
+
+    def test_get_children_literals(self) -> None:
+        assert len(self.result.get_children_literals()) == 0
+
+    def test_replace_self_references(self) -> None:
+        self.result.replace_self_references()

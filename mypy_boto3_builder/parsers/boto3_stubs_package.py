@@ -103,8 +103,7 @@ def parse_boto3_stubs_package(
     if len(service_resource_packages) > 1:
         resource_function_decorators.append(Type.overload)
     for service_package in service_resource_packages:
-        if not service_package.service_resource:
-            continue
+        assert service_package.service_resource
         service_argument = Argument(
             "service_name",
             TypeLiteral(
