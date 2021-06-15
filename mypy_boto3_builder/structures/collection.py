@@ -42,10 +42,16 @@ class Collection(ClassRecord):
 
     @property
     def boto3_doc_link(self) -> str:
+        """
+        Link to boto3 docs.
+        """
         return self.service_name.get_boto3_doc_link(self.parent_name, self.attribute_name)
 
     @property
     def docstring(self) -> str:
+        """
+        Class docstring.
+        """
         doc_link = self.service_name.get_doc_link(
             "service_resource",
             self.name,
@@ -58,6 +64,9 @@ class Collection(ClassRecord):
         )
 
     def get_types(self) -> Set[FakeAnnotation]:
+        """
+        Extract type annotations.
+        """
         types = super().get_types()
         types.update(self.type_annotation.get_types())
         return types

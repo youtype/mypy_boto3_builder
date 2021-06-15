@@ -50,6 +50,18 @@ def blackify(content: str, file_path: Path) -> str:
 def sort_imports(
     content: str, module_name: str, extension: str = "py", third_party: Iterable[str] = ()
 ) -> str:
+    """
+    Sort imports with `isort`.
+
+    Arguments:
+        content -- File content.
+        module_name -- Current module name.
+        extension -- py or pyi
+        third_party -- List of module names to be marked as third-party.
+
+    Returns:
+        New file content.
+    """
     known_third_party = list(third_party) or [
         "boto3",
         "botocore",

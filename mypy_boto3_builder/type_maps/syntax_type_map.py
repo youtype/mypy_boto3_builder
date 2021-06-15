@@ -1,5 +1,5 @@
 """
-String to type annotation map that find type annotation in botocore syntax
+String to type annotation map that find type annotation in botocore syntax.
 """
 from typing import Dict
 

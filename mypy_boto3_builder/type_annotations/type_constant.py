@@ -31,6 +31,9 @@ class TypeConstant(FakeAnnotation):
         return repr(self.value)
 
     def get_import_record(self) -> ImportRecord:
+        """
+        Get empty import record, because constants do not require imports.
+        """
         return ImportRecord.empty()
 
     def copy(self) -> "TypeConstant":

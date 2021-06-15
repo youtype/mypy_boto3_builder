@@ -23,8 +23,7 @@ class ExternalImport(FakeAnnotation):
     ) -> None:
 ```
 
-Wrapper for type annotations imported from 3rd party libraries, like
-`boto3.service.Service`.
+Wrapper for type annotations imported from 3rd party libraries, like `boto3.service.Service`.
 
 #### Arguments
 
@@ -39,7 +38,7 @@ Wrapper for type annotations imported from 3rd party libraries, like
 
 ### ExternalImport().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/external_import.py#L46)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/external_import.py#L45)
 
 ```python
 def copy() -> 'ExternalImport':
@@ -49,7 +48,7 @@ Create a copy of type annotation wrapper.
 
 ### ExternalImport().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/external_import.py#L40)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/external_import.py#L39)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -63,7 +62,7 @@ Get import record required for using type annotation.
 
 ### ExternalImport().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/external_import.py#L31)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/external_import.py#L30)
 
 ```python
 def render(parent_name: str = '') -> str:

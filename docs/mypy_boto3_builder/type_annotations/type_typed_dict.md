@@ -100,7 +100,7 @@ Create a copy of type annotation wrapper.
 def get_attribute(name: str) -> TypedDictAttribute:
 ```
 
-FInd attribute by `name`.
+Find attribute by `name`.
 
 #### Arguments
 

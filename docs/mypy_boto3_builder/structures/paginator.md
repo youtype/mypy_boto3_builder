@@ -40,18 +40,22 @@ Boto3 client Paginator.
 def boto3_doc_link() -> str:
 ```
 
+Link to boto3 docs.
+
 ### Paginator().docstring
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L42)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L45)
 
 ```python
 @property
 def docstring() -> str:
 ```
 
+Class docstring.
+
 ### Paginator().get_client_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L51)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L57)
 
 ```python
 def get_client_method() -> Method:

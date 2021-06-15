@@ -10,7 +10,7 @@ Service package writer.
 
 ## write_service_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/service_package.py#L150)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/service_package.py#L158)
 
 ```python
 def write_service_docs(
@@ -18,6 +18,13 @@ def write_service_docs(
     output_path: Path,
 ) -> List[Path]:
 ```
+
+Create service docs files.
+
+#### Arguments
+
+- `package` - Service package.
+- `output_path` - Path to output folder.
 
 #### See also
 
@@ -34,6 +41,14 @@ def write_service_package(
     generate_setup: bool,
 ) -> List[Path]:
 ```
+
+Create stubs files for service.
+
+#### Arguments
+
+- `package` - Service package.
+- `output_path` - Path to output folder.
+- `generate_setup` - Generate ready-to-install or to-use package.
 
 #### See also
 

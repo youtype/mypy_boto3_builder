@@ -19,6 +19,14 @@ from mypy_boto3_builder.writers.utils import (
 def write_master_package(
     package: MasterPackage, output_path: Path, generate_setup: bool
 ) -> List[Path]:
+    """
+    Create mypy-boto3 stubs.
+
+    Arguments:
+        package -- Master package.
+        output_path -- Path to output folder.
+        generate_setup -- Generate ready-to-install or to-use package.
+    """
     setup_path = output_path / "master_package"
     if not generate_setup:
         setup_path = output_path

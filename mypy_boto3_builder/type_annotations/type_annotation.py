@@ -113,18 +113,30 @@ class TypeAnnotation(FakeAnnotation):
         return self.get_import_name()
 
     def get_import_name(self) -> str:
+        """
+        Create a safe name for imported annotation.
+        """
         for type_class, type_name in self.type_name_map:
             if self.wrapped_type is type_class:
                 return type_name
         raise ValueError(f"Unknown type {self.wrapped_type}")
 
     def get_import_record(self) -> ImportRecord:
+        """
+        Create a safe Import Record for annotation.
+        """
         return ImportRecord(source=ImportString("typing"), name=self.get_import_name())
 
     def is_dict(self) -> bool:
+        """
+        Whether annotation is a plain Dict.
+        """
         return self.wrapped_type is Dict
 
     def is_list(self) -> bool:
+        """
+        Whether annotation is a plain List.
+        """
         return self.wrapped_type is List
 
     def copy(self) -> "TypeAnnotation":

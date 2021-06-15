@@ -34,7 +34,7 @@ Wrapper for simple type annotation like `str` or `Dict`.
 
 ### TypeAnnotation().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L130)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L142)
 
 ```python
 def copy() -> 'TypeAnnotation':
@@ -50,13 +50,17 @@ Create a copy of type annotation wrapper.
 def get_import_name() -> str:
 ```
 
+Create a safe name for imported annotation.
+
 ### TypeAnnotation().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L121)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L124)
 
 ```python
 def get_import_record() -> ImportRecord:
 ```
+
+Create a safe Import Record for annotation.
 
 #### See also
 
@@ -64,19 +68,23 @@ def get_import_record() -> ImportRecord:
 
 ### TypeAnnotation().is_dict
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L124)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L130)
 
 ```python
 def is_dict() -> bool:
 ```
 
+Whether annotation is a plain Dict.
+
 ### TypeAnnotation().is_list
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L127)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L136)
 
 ```python
 def is_list() -> bool:
 ```
+
+Whether annotation is a plain List.
 
 ### TypeAnnotation().render
 

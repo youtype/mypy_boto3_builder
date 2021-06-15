@@ -1,3 +1,6 @@
+"""
+Parsed Service package.
+"""
 from typing import Dict, Iterable, List, Optional, Set
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -17,6 +20,10 @@ from mypy_boto3_builder.utils.strings import is_reserved
 
 
 class ServicePackage(Package):
+    """
+    Parsed Service package.
+    """
+
     def __init__(
         self,
         name: str,
@@ -41,6 +48,9 @@ class ServicePackage(Package):
         self.helper_functions = list(helper_functions)
 
     def extract_literals(self) -> List[TypeLiteral]:
+        """
+        Extract literals from children.
+        """
         found: Dict[str, TypeLiteral] = {}
         for type_annotation in sorted([*self.get_types(), *self.typed_dicts]):
             current: List[TypeLiteral] = []
@@ -63,6 +73,11 @@ class ServicePackage(Package):
         return list(sorted(found.values()))
 
     def extract_typed_dicts(self) -> List[TypeTypedDict]:
+        """
+        Extract typed dicts from children.
+
+        Attempts to resolve circular typed dicts.
+        """
         added_names: List[str] = []
         result: List[TypeTypedDict] = []
         discovered: List[TypeTypedDict] = []
@@ -94,6 +109,9 @@ class ServicePackage(Package):
         return result
 
     def get_types(self) -> Set[FakeAnnotation]:
+        """
+        Extract type annotations from Client, ServiceResource, waiters and paginators.
+        """
         types: Set[FakeAnnotation] = set()
         types.update(self.client.get_types())
         if self.service_resource:
@@ -105,6 +123,9 @@ class ServicePackage(Package):
         return types
 
     def get_init_import_records(self) -> List[ImportRecord]:
+        """
+        Get import records for `__init__.py[i]`.
+        """
         import_records: Set[ImportRecord] = set()
         import_records.add(
             ImportRecord(
@@ -137,6 +158,9 @@ class ServicePackage(Package):
         return list(sorted(import_records))
 
     def get_init_all_names(self) -> List[str]:
+        """
+        Get `__all__` statement names for `__init__.py[i]`.
+        """
         names = {self.client.name, self.client.alias_name}
         if self.service_resource:
             names.add(self.service_resource.name)
@@ -151,6 +175,9 @@ class ServicePackage(Package):
         return result
 
     def get_client_required_import_records(self) -> List[ImportRecord]:
+        """
+        Get import records for `client.py[i]`.
+        """
         import_records: Set[ImportRecord] = set()
         for import_record in self.client.get_required_import_records():
             import_records.add(import_record.get_external(self.service_name.module_name))
@@ -164,6 +191,9 @@ class ServicePackage(Package):
         return list(sorted(import_records))
 
     def get_service_resource_required_import_records(self) -> List[ImportRecord]:
+        """
+        Get import records for `service_resource.py[i]`.
+        """
         if self.service_resource is None:
             return []
 
@@ -177,6 +207,9 @@ class ServicePackage(Package):
         return list(sorted(import_records))
 
     def get_paginator_required_import_records(self) -> List[ImportRecord]:
+        """
+        Get import records for `paginator.py[i]`.
+        """
         import_records: Set[ImportRecord] = set()
         for paginator in self.paginators:
             for import_record in paginator.get_required_import_records():
@@ -187,6 +220,9 @@ class ServicePackage(Package):
         return list(sorted(import_records))
 
     def get_waiter_required_import_records(self) -> List[ImportRecord]:
+        """
+        Get import records for `waiter.py[i]`.
+        """
         import_records: Set[ImportRecord] = set()
         for waiter in self.waiters:
             for import_record in waiter.get_required_import_records():
@@ -197,6 +233,9 @@ class ServicePackage(Package):
         return list(sorted(import_records))
 
     def get_type_defs_required_import_records(self) -> List[ImportRecord]:
+        """
+        Get import records for `type_defs.py[i]`.
+        """
         if not self.typed_dicts:
             return []
 
@@ -235,6 +274,9 @@ class ServicePackage(Package):
         return list(sorted(import_records))
 
     def get_literals_required_import_records(self) -> List[ImportRecord]:
+        """
+        Get import records for `literals.py[i]`.
+        """
         import_records: Set[ImportRecord] = set()
         import_records.add(ImportRecord(ImportString("sys")))
         import_records.add(
@@ -248,6 +290,12 @@ class ServicePackage(Package):
         return list(sorted(import_records))
 
     def validate(self) -> None:
+        """
+        Validate parsed module.
+
+        Finds duplicated names.
+        Finds conflicts with reserved Python words.
+        """
         names = set()
         for name in (
             *(i.name for i in self.typed_dicts),

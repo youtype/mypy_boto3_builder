@@ -47,24 +47,45 @@ class TypeValue:
         self.value: Optional[str] = value.get("value")
 
     def is_dict(self) -> bool:
+        """
+        Whether value is Dict.
+        """
         return self.dict_items is not None
 
     def is_list(self) -> bool:
+        """
+        Whether value is List.
+        """
         return self.list_items is not None
 
     def is_literal(self) -> bool:
+        """
+        Whether value is Literal.
+        """
         return bool(self.literal_items)
 
     def is_set(self) -> bool:
+        """
+        Whether value is Set.
+        """
         return bool(self.set_items)
 
     def is_union(self) -> bool:
+        """
+        Whether value is Union.
+        """
         return bool(self.union_items)
 
     def is_func_call(self) -> bool:
+        """
+        Whether value is Callable.
+        """
         return bool(self.func_call)
 
     def is_plain(self) -> bool:
+        """
+        Whether value is not None.
+        """
         return self.value is not None
 
     def _get_type_dict(self) -> FakeAnnotation:
@@ -161,6 +182,9 @@ class TypeValue:
         return Type.Any
 
     def is_literal_item(self) -> bool:
+        """
+        Whether value is Literal item.
+        """
         if self.value is None:
             return False
         return self.value.startswith("'")
@@ -192,6 +216,9 @@ class TypeValue:
         raise ValueError(f"Invalid constant: {value}")
 
     def get_type(self) -> FakeAnnotation:
+        """
+        Get value type.
+        """
         if self.is_list():
             return self._get_type_list()
         if self.is_dict():

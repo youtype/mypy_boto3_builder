@@ -32,7 +32,7 @@ Parse and write stubs package `boto3_stubs`.
 - `session` - boto3 session.
 - `output_path` - Package output path.
 - `service_names` - List of known service names.
-- `generate_setup` - Whether to generate install or installed package.
+- `generate_setup` - Generate ready-to-install or to-use package.
 
 #### Returns
 
@@ -83,7 +83,7 @@ Parse and write stubs package `botocore_stubs`.
 #### Arguments
 
 - `output_path` - Package output path.
-- `generate_setup` - Whether to generate install or installed package.
+- `generate_setup` - Generate ready-to-install or to-use package.
 
 ## process_master
 
@@ -105,7 +105,7 @@ Parse and write master package `mypy_boto3`.
 - `session` - boto3 session.
 - `output_path` - Package output path.
 - `service_names` - List of known service names.
-- `generate_setup` - Whether to generate install or installed package.
+- `generate_setup` - Generate ready-to-install or to-use package.
 
 #### Returns
 
@@ -135,7 +135,7 @@ Parse and write service package `mypy_boto3_*`.
 - `session` - boto3 session.
 - `service_name` - Target service name.
 - `output_path` - Package output path.
-- `generate_setup` - Whether to generate install or installed package.
+- `generate_setup` - Generate ready-to-install or to-use package.
 
 #### Returns
 

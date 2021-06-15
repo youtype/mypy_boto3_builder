@@ -151,7 +151,7 @@ Safe mudule import name.
 def is_essential() -> bool:
 ```
 
-Whether service is included to `boto3-stubs[essential]`
+Whether service is included to `boto3-stubs[essential]`.
 
 ### ServiceName().local_doc_link
 

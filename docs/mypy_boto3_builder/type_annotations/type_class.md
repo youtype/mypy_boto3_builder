@@ -33,7 +33,7 @@ Wrapper for classes like `Paginator`.
 
 ### TypeClass().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L51)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L57)
 
 ```python
 def copy() -> 'TypeClass':
@@ -49,13 +49,17 @@ Create a copy of type annotation wrapper.
 def get_import_name() -> str:
 ```
 
+Get name for import string.
+
 ### TypeClass().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L39)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L42)
 
 ```python
 def get_import_record() -> ImportRecord:
 ```
+
+Create an impoort record to insert where TypeClass is used.
 
 #### See also
 

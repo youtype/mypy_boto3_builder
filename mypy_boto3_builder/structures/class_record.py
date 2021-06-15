@@ -35,14 +35,23 @@ class ClassRecord:
 
     @property
     def boto3_doc_link(self) -> str:
+        """
+        Link to boto3 docs.
+        """
         return ""
 
     @property
     def docstring(self) -> str:
+        """
+        Class docstring.
+        """
         return ""
 
     @property
     def alias_name(self) -> str:
+        """
+        Class alias name for safe import.
+        """
         if self._alias_name:
             return self._alias_name
         if not self.use_alias:
@@ -50,9 +59,15 @@ class ClassRecord:
         return InternalImport.get_alias(self.name)
 
     def render_alias(self) -> str:
+        """
+        Render alias expression.
+        """
         return f"{self.alias_name} = {self.name}"
 
     def get_types(self) -> Set[FakeAnnotation]:
+        """
+        Extract type annotations for methods, attributes and bases.
+        """
         types: Set[FakeAnnotation] = set()
         for method in self.methods:
             types.update(method.get_types())
@@ -63,6 +78,9 @@ class ClassRecord:
         return types
 
     def get_required_import_records(self) -> Set[ImportRecord]:
+        """
+        Extract import records from required type annotations.
+        """
         result: Set[ImportRecord] = set()
         for type_annotation in self.get_types():
             import_record = type_annotation.get_import_record()
@@ -73,6 +91,9 @@ class ClassRecord:
         return result
 
     def get_internal_imports(self) -> List[InternalImport]:
+        """
+        Get internal imports from methods.
+        """
         result: List[InternalImport] = []
         for method in self.methods:
             for type_annotation in method.get_types():
@@ -85,7 +106,7 @@ class ClassRecord:
     @property
     def variable_name(self) -> str:
         """
-        Get a proper variable name for an instance of this class.
+        Variable name for an instance of this class.
         """
         return xform_name(self.name)
 

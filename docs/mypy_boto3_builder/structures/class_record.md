@@ -35,12 +35,14 @@ Base class for all structures that can be rendered to a class.
 
 ### ClassRecord().alias_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L44)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L50)
 
 ```python
 @property
 def alias_name() -> str:
 ```
+
+Class alias name for safe import.
 
 ### ClassRecord().boto3_doc_link
 
@@ -51,42 +53,52 @@ def alias_name() -> str:
 def boto3_doc_link() -> str:
 ```
 
+Link to boto3 docs.
+
 ### ClassRecord().docstring
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L40)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L43)
 
 ```python
 @property
 def docstring() -> str:
 ```
 
+Class docstring.
+
 ### ClassRecord().get_internal_imports
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L75)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L93)
 
 ```python
 def get_internal_imports() -> List[InternalImport]:
 ```
 
+Get internal imports from methods.
+
 ### ClassRecord().get_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L65)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L80)
 
 ```python
 def get_required_import_records() -> Set[ImportRecord]:
 ```
 
+Extract import records from required type annotations.
+
 ### ClassRecord().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L55)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L67)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
 ```
 
+Extract type annotations for methods, attributes and bases.
+
 ### ClassRecord().method_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L92)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L113)
 
 ```python
 @property
@@ -97,19 +109,21 @@ Unique method names.
 
 ### ClassRecord().render_alias
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L52)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L61)
 
 ```python
 def render_alias() -> str:
 ```
 
+Render alias expression.
+
 ### ClassRecord().variable_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L85)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L106)
 
 ```python
 @property
 def variable_name() -> str:
 ```
 
-Get a proper variable name for an instance of this class.
+Variable name for an instance of this class.

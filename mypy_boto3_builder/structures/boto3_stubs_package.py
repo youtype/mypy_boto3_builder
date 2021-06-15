@@ -36,6 +36,9 @@ class Boto3StubsPackage(Package):
 
     @property
     def essential_service_names(self) -> List[ServiceName]:
+        """
+        Service names marked as essential.
+        """
         result: List[ServiceName] = []
         for service_name in self.service_names:
             if service_name.is_essential():
@@ -43,6 +46,9 @@ class Boto3StubsPackage(Package):
         return result
 
     def get_init_required_import_records(self) -> List[ImportRecord]:
+        """
+        Get import records for `__init__.py[i]`.
+        """
         import_records: Set[ImportRecord] = set(
             [
                 ImportRecord(ImportString("logging")),
@@ -65,6 +71,9 @@ class Boto3StubsPackage(Package):
         return list(sorted(import_records))
 
     def get_session_required_import_records(self) -> List[ImportRecord]:
+        """
+        Get import reciords for `session.py[i]`.
+        """
         import_records: Set[ImportRecord] = set(
             [
                 ImportRecord(ImportString("sys")),
@@ -95,6 +104,9 @@ class Boto3StubsPackage(Package):
         return list(sorted(import_records))
 
     def get_all_names(self) -> List[str]:
+        """
+        Get names for `__all__` directive.
+        """
         result = [
             "session",
             "Session",

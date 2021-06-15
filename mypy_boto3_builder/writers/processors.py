@@ -37,7 +37,7 @@ def process_boto3_stubs(
         session -- boto3 session.
         output_path -- Package output path.
         service_names -- List of known service names.
-        generate_setup -- Whether to generate install or installed package.
+        generate_setup -- Generate ready-to-install or to-use package.
 
     Return:
         Parsed Boto3StubsPackage.
@@ -65,7 +65,7 @@ def process_botocore_stubs(
 
     Arguments:
         output_path -- Package output path.
-        generate_setup -- Whether to generate install or installed package.
+        generate_setup -- Generate ready-to-install or to-use package.
     """
     logger = get_logger()
     logger.debug(f"Writing botocore stubs to {NicePath(output_path)}")
@@ -88,7 +88,7 @@ def process_master(
         session -- boto3 session.
         output_path -- Package output path.
         service_names -- List of known service names.
-        generate_setup -- Whether to generate install or installed package.
+        generate_setup -- Generate ready-to-install or to-use package.
 
     Return:
         Parsed MasterPackage.
@@ -120,7 +120,7 @@ def process_service(
         session -- boto3 session.
         service_name -- Target service name.
         output_path -- Package output path.
-        generate_setup -- Whether to generate install or installed package.
+        generate_setup -- Generate ready-to-install or to-use package.
 
     Return:
         Parsed ServicePackage.

@@ -44,9 +44,15 @@ class ImportRecord:
 
     @classmethod
     def empty(cls) -> "ImportRecord":
+        """
+        Whether import record is an empty string.
+        """
         return cls(ImportString.empty())
 
     def render(self) -> str:
+        """
+        Get rendered string.
+        """
         if self.name and self.alias:
             return f"from {self.source} import {self.name} as {self.alias}"
         if self.name:

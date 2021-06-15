@@ -46,12 +46,14 @@ import_string.render()
 
 ### ImportString.empty
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L41)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L44)
 
 ```python
 @classmethod
 def empty() -> 'ImportString':
 ```
+
+Create an empty ImportString.
 
 ### ImportString.from_str
 
@@ -62,9 +64,11 @@ def empty() -> 'ImportString':
 def from_str(import_string: str) -> 'ImportString':
 ```
 
+Create from string.
+
 ### ImportString().master_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L114)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L123)
 
 ```python
 @property
@@ -75,16 +79,18 @@ Get first import string part or `builtins`.
 
 ### ImportString.parent
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L47)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L53)
 
 ```python
 @classmethod
 def parent() -> 'ImportString':
 ```
 
+Get parent ImportString.
+
 ### ImportString().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L105)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L114)
 
 ```python
 def render() -> str:
@@ -98,7 +104,7 @@ Ready to use import string.
 
 ### ImportString().startswith
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L73)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L82)
 
 ```python
 def startswith(other: 'ImportString') -> bool:

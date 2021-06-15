@@ -35,10 +35,16 @@ class Waiter(ClassRecord):
 
     @property
     def boto3_doc_link(self) -> str:
+        """
+        Link to waiter boto3 docs.
+        """
         return self.service_name.get_boto3_doc_link("Waiter", self.waiter_name)
 
     @property
     def docstring(self) -> str:
+        """
+        Class docstring.
+        """
         return (
             "[Show boto3 documentation]"
             f"({self.boto3_doc_link})"
@@ -47,6 +53,9 @@ class Waiter(ClassRecord):
         )
 
     def get_client_method(self) -> Method:
+        """
+        Get `get_waiter` method for `Client`.
+        """
         return Method(
             name="get_waiter",
             decorators=[Type.overload],

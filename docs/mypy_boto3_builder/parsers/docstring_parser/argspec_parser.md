@@ -36,9 +36,11 @@ def get_arguments(
 ) -> List[Argument]:
 ```
 
+Get arguments from `class_name.method_name` method `func`.
+
 ### ArgSpecParser().get_return_type
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L72)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L75)
 
 ```python
 def get_return_type(
@@ -46,3 +48,5 @@ def get_return_type(
     method_name: str,
 ) -> Optional[FakeAnnotation]:
 ```
+
+Get `class_name.method_name` return type annotation.

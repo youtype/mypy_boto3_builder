@@ -35,22 +35,28 @@ Boto3 client Waiter.
 def boto3_doc_link() -> str:
 ```
 
+Link to waiter boto3 docs.
+
 ### Waiter().docstring
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L40)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L43)
 
 ```python
 @property
 def docstring() -> str:
 ```
 
+Class docstring.
+
 ### Waiter().get_client_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L49)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L55)
 
 ```python
 def get_client_method() -> Method:
 ```
+
+Get `get_waiter` method for `Client`.
 
 #### See also
 

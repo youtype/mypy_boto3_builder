@@ -20,6 +20,14 @@ from mypy_boto3_builder.writers.utils import (
 def write_service_package(
     package: ServicePackage, output_path: Path, generate_setup: bool
 ) -> List[Path]:
+    """
+    Create stubs files for service.
+
+    Arguments:
+        package -- Service package.
+        output_path -- Path to output folder.
+        generate_setup -- Generate ready-to-install or to-use package.
+    """
     setup_path = output_path / f"{package.service_name.module_name}_package"
     if not generate_setup:
         setup_path = output_path
@@ -148,6 +156,13 @@ def write_service_package(
 
 
 def write_service_docs(package: ServicePackage, output_path: Path) -> List[Path]:
+    """
+    Create service docs files.
+
+    Arguments:
+        package -- Service package.
+        output_path -- Path to output folder.
+    """
     modified_paths = []
     docs_path = output_path / f"{package.service_name.module_name}"
     docs_path.mkdir(exist_ok=True)

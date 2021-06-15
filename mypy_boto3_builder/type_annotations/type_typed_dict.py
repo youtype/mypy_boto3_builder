@@ -70,7 +70,7 @@ class TypeTypedDict(FakeAnnotation):
 
     def get_attribute(self, name: str) -> TypedDictAttribute:
         """
-        FInd attribute by `name`.
+        Find attribute by `name`.
 
         Arguments:
             name -- Attribute name.

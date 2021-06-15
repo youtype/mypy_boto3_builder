@@ -67,7 +67,7 @@ class Function:
     @property
     def returns_none(self) -> bool:
         """
-        Whether return type is None
+        Whether return type is None.
         """
         return self.return_type == Type.none
 

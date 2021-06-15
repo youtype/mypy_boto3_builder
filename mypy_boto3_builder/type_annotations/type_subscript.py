@@ -48,18 +48,30 @@ class TypeSubscript(FakeAnnotation):
         return self.parent.get_import_record()
 
     def get_types(self) -> Set[FakeAnnotation]:
+        """
+        Extract type annotations from children.
+        """
         result = self.parent.get_types()
         for child in self.children:
             result.update(child.get_types())
         return result
 
     def add_child(self, child: FakeAnnotation) -> None:
+        """
+        Add new child to Substcript.
+        """
         self.children.append(child)
 
     def is_dict(self) -> bool:
+        """
+        Whether subscript parent is Dict.
+        """
         return self.parent.is_dict()
 
     def is_list(self) -> bool:
+        """
+        Whether subscript parent is List.
+        """
         return self.parent.is_list()
 
     def copy(self) -> "TypeSubscript":

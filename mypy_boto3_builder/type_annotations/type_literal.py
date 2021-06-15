@@ -1,5 +1,5 @@
 """
-Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`
+Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`.
 """
 from typing import Any, Iterable
 
@@ -13,7 +13,7 @@ from mypy_boto3_builder.utils.strings import is_reserved
 
 class TypeLiteral(FakeAnnotation):
     """
-    Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`
+    Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`.
 
     Arguments:
         name -- Literal name for non-inline.
@@ -30,10 +30,18 @@ class TypeLiteral(FakeAnnotation):
             raise ValueError("Literal should have children")
 
     def get_sort_key(self) -> str:
+        """
+        Sort literals by name.
+        """
         return self.name
 
     @property
     def inline(self) -> bool:
+        """
+        Whether Litereal should be rendered inline.
+
+        1-value literals are rendered inline.
+        """
         return len(self.children) == 1
 
     def _find_name(self, name: str) -> str:
@@ -90,10 +98,13 @@ class TypeLiteral(FakeAnnotation):
         return True
 
     def add_child(self, child: FakeAnnotation) -> None:
+        """
+        Disabled method to avoid confusion.
+        """
         raise ValueError("Use add_literal_child function.")
 
     def is_same(self, other: "TypeLiteral") -> bool:
         """
-        Check if literals have the same children
+        Check if literals have the same children.
         """
         return self.children == other.children

@@ -85,4 +85,4 @@ Whether method arguments can be passed only as kwargs.
 def returns_none() -> bool:
 ```
 
-Whether return type is None
+Whether return type is None.

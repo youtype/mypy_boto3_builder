@@ -18,6 +18,13 @@ from mypy_boto3_builder.writers.utils import (
 
 
 def write_botocore_stubs_package(output_path: Path, generate_setup: bool) -> List[Path]:
+    """
+    Generate botocore-stubs stub files.
+
+    Arguments:
+        output_path -- Path to output folder.
+        generate_setup -- Generate ready-to-install or to-use package.
+    """
     setup_path = output_path / "botocore_stubs_package"
     if not generate_setup:
         setup_path = output_path

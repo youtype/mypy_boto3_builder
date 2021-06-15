@@ -34,9 +34,15 @@ class TypeClass(FakeAnnotation):
         return self.get_import_name()
 
     def get_import_name(self) -> str:
+        """
+        Get name for import string.
+        """
         return self.value.__name__
 
     def get_import_record(self) -> ImportRecord:
+        """
+        Create an impoort record to insert where TypeClass is used.
+        """
         module = inspect.getmodule(self.value)
         if module is None:
             raise ValueError(f"Unknown module for {self.value}")

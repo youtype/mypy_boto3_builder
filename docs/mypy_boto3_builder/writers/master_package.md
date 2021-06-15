@@ -19,6 +19,14 @@ def write_master_package(
 ) -> List[Path]:
 ```
 
+Create mypy-boto3 stubs.
+
+#### Arguments
+
+- `package` - Master package.
+- `output_path` - Path to output folder.
+- `generate_setup` - Generate ready-to-install or to-use package.
+
 #### See also
 
 - [MasterPackage](../structures/master_package.md#masterpackage)

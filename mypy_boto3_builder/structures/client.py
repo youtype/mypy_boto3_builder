@@ -51,6 +51,9 @@ class Client(ClassRecord):
         )
 
     def __hash__(self) -> int:
+        """
+        Calculate hash from client service name.
+        """
         return hash(self.service_name)
 
     @property

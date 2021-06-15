@@ -17,7 +17,9 @@ from pyparsing import (
 
 
 class TypeDocGrammar:
-    """
+    r"""
+    Grammar to parse boto3 docs syntax.
+
     EOL ::= ["\r"] "\n"
     SOL ::= LINE_START
     line ::= [^EOL]+ EOL
@@ -108,11 +110,17 @@ class TypeDocGrammar:
     def fail_action(
         cls, _input_string: str, _chr_index: int, _source: str, error: BaseException
     ) -> None:
+        """
+        Check for input end.
+        """
         if "found end of text" not in str(error):
             raise error
 
     @classmethod
     def reset(cls) -> None:
+        """
+        Reset call stack and packrat.
+        """
         cls.disable_packrat()
         cls.indented_block.setFailAction(cls.fail_action)
         cls.indent_stack.clear()
@@ -120,8 +128,14 @@ class TypeDocGrammar:
 
     @staticmethod
     def enable_packrat() -> None:
+        """
+        Enable packrat boost.
+        """
         ParserElement.enablePackrat(cache_size_limit=128)
 
     @staticmethod
     def disable_packrat() -> None:
+        """
+        Disable packrat boost.
+        """
         ParserElement.enablePackrat(cache_size_limit=None)

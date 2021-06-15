@@ -36,16 +36,25 @@ class ImportString:
 
     @classmethod
     def from_str(cls, import_string: str) -> "ImportString":
+        """
+        Create from string.
+        """
         return cls(*import_string.split("."))
 
     @classmethod
     def empty(cls) -> "ImportString":
+        """
+        Create an empty ImportString.
+        """
         result = cls("fake")
         result.parts.clear()
         return result
 
     @classmethod
     def parent(cls) -> "ImportString":
+        """
+        Get parent ImportString.
+        """
         result = cls.empty()
         result.parts.append("")
         return result

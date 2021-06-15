@@ -8,8 +8,7 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
 class ExternalImport(FakeAnnotation):
     """
-    Wrapper for type annotations imported from 3rd party libraries, like
-    `boto3.service.Service`.
+    Wrapper for type annotations imported from 3rd party libraries, like `boto3.service.Service`.
 
     Arguments:
         source -- Module import string.

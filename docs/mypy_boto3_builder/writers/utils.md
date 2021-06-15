@@ -38,7 +38,7 @@ Formatted python code.
 
 ## format_md
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L123)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L135)
 
 ```python
 def format_md(text: str) -> str:
@@ -48,7 +48,7 @@ Format MarkDown with mdformat.
 
 ## insert_md_toc
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L99)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L111)
 
 ```python
 def insert_md_toc(text: str) -> str:
@@ -58,7 +58,7 @@ Insert Table of Contents before the first second-level header.
 
 ## render_jinja2_template
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L75)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L87)
 
 ```python
 def render_jinja2_template(
@@ -92,3 +92,16 @@ def sort_imports(
     third_party: Iterable[str] = (),
 ) -> str:
 ```
+
+Sort imports with `isort`.
+
+#### Arguments
+
+- `content` - File content.
+- `module_name` - Current module name.
+- `extension` - py or pyi
+- `third_party` - List of module names to be marked as third-party.
+
+#### Returns
+
+New file content.

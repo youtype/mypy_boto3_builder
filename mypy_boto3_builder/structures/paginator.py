@@ -37,10 +37,16 @@ class Paginator(ClassRecord):
 
     @property
     def boto3_doc_link(self) -> str:
+        """
+        Link to boto3 docs.
+        """
         return self.service_name.get_boto3_doc_link("Paginator", self.paginator_name)
 
     @property
     def docstring(self) -> str:
+        """
+        Class docstring.
+        """
         return (
             "[Show boto3 documentation]"
             f"({self.boto3_doc_link})"

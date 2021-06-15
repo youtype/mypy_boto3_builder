@@ -17,3 +17,10 @@ def write_botocore_stubs_package(
     generate_setup: bool,
 ) -> List[Path]:
 ```
+
+Generate botocore-stubs stub files.
+
+#### Arguments
+
+- `output_path` - Path to output folder.
+- `generate_setup` - Generate ready-to-install or to-use package.

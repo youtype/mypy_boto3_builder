@@ -43,19 +43,25 @@ Boto3 ServiceResource or Resource collection.
 def boto3_doc_link() -> str:
 ```
 
+Link to boto3 docs.
+
 ### Collection().docstring
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L47)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L50)
 
 ```python
 @property
 def docstring() -> str:
 ```
 
+Class docstring.
+
 ### Collection().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L60)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L66)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
 ```
+
+Extract type annotations.

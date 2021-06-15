@@ -55,6 +55,9 @@ class ArgSpecParser:
         return arguments
 
     def get_arguments(self, class_name: str, method_name: str, func: MethodType) -> List[Argument]:
+        """
+        Get arguments from `class_name.method_name` method `func`.
+        """
         arguments = self._get_arguments_from_argspec(func)
 
         for argument in arguments:
@@ -70,6 +73,9 @@ class ArgSpecParser:
         return arguments
 
     def get_return_type(self, class_name: str, method_name: str) -> Optional[FakeAnnotation]:
+        """
+        Get `class_name.method_name` return type annotation.
+        """
         type_stub = get_method_type_stub(self.service_name, class_name, method_name, "return")
         if type_stub:
             return type_stub

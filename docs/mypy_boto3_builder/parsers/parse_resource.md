@@ -2,7 +2,7 @@
 
 > Auto-generated documentation for [mypy_boto3_builder.parsers.parse_resource](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/parse_resource.py) module.
 
-Parser for Boto3 ServiceResource sub-resource, produces `structures.Resource`
+Parser for Boto3 ServiceResource sub-resource, produces `structures.Resource`.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Parsers](index.md#parsers) / Parse Resource
     - [get_resource_public_methods](#get_resource_public_methods)

@@ -18,6 +18,8 @@ from pyparsing import (
 
 class SyntaxGrammar:
     """
+    Grammar to parse boto3 request/response syntax.
+
     ellipsis = "..."
     name_value ::= alphanums + "_-."
     string_value ::= alphas{0,2} "'"  [^']+  "'"
@@ -129,12 +131,21 @@ class SyntaxGrammar:
 
     @classmethod
     def reset(cls) -> None:
+        """
+        Reset packrat boost.
+        """
         cls.disable_packrat()
 
     @staticmethod
     def enable_packrat() -> None:
+        """
+        Enable packrat boost.
+        """
         ParserElement.enablePackrat(cache_size_limit=128)
 
     @staticmethod
     def disable_packrat() -> None:
+        """
+        Disable packrat boost.
+        """
         ParserElement.enablePackrat(cache_size_limit=None)
