@@ -1,4 +1,4 @@
-from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional
+from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Type
 
 from botocore.config import Config
 from botocore.exceptions import BotoCoreError
@@ -8,7 +8,7 @@ from botocore.exceptions import ConnectionError as ConnectionError
 from botocore.exceptions import EndpointConnectionError as EndpointConnectionError
 from botocore.exceptions import ReadTimeoutError as ReadTimeoutError
 
-EXCEPTION_MAP: Dict[str, List[BotoCoreError]]
+EXCEPTION_MAP: Dict[str, List[Type[BotoCoreError]]]
 
 def delay_exponential(base: float, growth_factor: float, attempts: int) -> float: ...
 def create_exponential_delay_function(
@@ -38,7 +38,7 @@ class MaxAttemptsDecorator(BaseChecker):
         self,
         checker: BaseChecker,
         max_attempts: int,
-        retryable_exceptions: Optional[Iterable[Exception]] = ...,
+        retryable_exceptions: Optional[Iterable[Type[Exception]]] = ...,
     ) -> None: ...
 
 class HTTPStatusCodeChecker(BaseChecker):
