@@ -9,34 +9,34 @@ if sys.version_info >= (3, 8):
 else:
     from typing_extensions import TypedDict
 
-class ClientErrorResponseError(TypedDict, total=False):
+class _ClientErrorResponseError(TypedDict, total=False):
     Code: str
     Message: str
 
-class ResponseMetadataTypeDef(TypedDict):
+class _ResponseMetadataTypeDef(TypedDict):
     RequestId: str
     HostId: str
     HTTPStatusCode: int
     HTTPHeaders: Dict[str, Any]
     RetryAttempts: int
 
-class ClientErrorResponseTypeDef(TypedDict, total=False):
-    Error: ClientErrorResponseError
-    ResponseMetadata: ResponseMetadataTypeDef
+class _ClientErrorResponseTypeDef(TypedDict, total=False):
+    Error: _ClientErrorResponseError
+    ResponseMetadata: _ResponseMetadataTypeDef
 
 class BotoCoreError(Exception):
     fmt: str
     def __init__(self, **kwargs: Any) -> None:
         self.kwargs: Mapping[str, Any]
 
-class DataNotFoundErrorKwargs(TypedDict):
+class _DataNotFoundErrorKwargs(TypedDict):
     data_path: str
 
 class DataNotFoundError(BotoCoreError):
     def __init__(self, *, data_path: str = ..., **kwargs: Any) -> None:
-        self.kwargs: DataNotFoundErrorKwargs
+        self.kwargs: _DataNotFoundErrorKwargs
 
-class UnknownServiceErrorKwargs(DataNotFoundErrorKwargs):
+class _UnknownServiceErrorKwargs(_DataNotFoundErrorKwargs):
     service_name: str
     known_service_names: Iterable[str]
 
@@ -44,154 +44,154 @@ class UnknownServiceError(DataNotFoundError):
     def __init__(
         self, *, service_name: str = ..., known_service_names: Iterable[str] = ..., **kwargs: Any
     ) -> None:
-        self.kwargs: UnknownServiceErrorKwargs
+        self.kwargs: _UnknownServiceErrorKwargs
 
-class ApiVersionNotFoundErrorKwargs(TypedDict):
+class _ApiVersionNotFoundErrorKwargs(TypedDict):
     service_name: str
     api_version: str
 
 class ApiVersionNotFoundError(BotoCoreError):
     def __init__(self, *, data_path: str = ..., api_version: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnknownServiceErrorKwargs
+        self.kwargs: _ApiVersionNotFoundErrorKwargs
 
-class HTTPClientErrorKwargs(TypedDict):
+class _HTTPClientErrorKwargs(TypedDict):
     error: Exception
 
 class HTTPClientError(BotoCoreError):
     def __init__(self, request: Any = ..., response: Any = ..., **kwargs: Any) -> None:
-        self.kwargs: HTTPClientErrorKwargs
+        self.kwargs: _HTTPClientErrorKwargs
 
-class ConnectionErrorKwargs(TypedDict):
+class _ConnectionErrorKwargs(TypedDict):
     error: Exception
 
 class ConnectionError(BotoCoreError):
     def __init__(self, *, error: Exception = ..., **kwargs: Any) -> None:
-        self.kwargs: ConnectionErrorKwargs
+        self.kwargs: _ConnectionErrorKwargs
 
-class InvalidIMDSEndpointErrorKwargs(TypedDict):
+class _InvalidIMDSEndpointErrorKwargs(TypedDict):
     endpoint: str
 
 class InvalidIMDSEndpointError(BotoCoreError):
     def __init__(self, *, endpoint: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidIMDSEndpointErrorKwargs
+        self.kwargs: _InvalidIMDSEndpointErrorKwargs
 
-class EndpointURLErrorKwargs(ConnectionErrorKwargs):
+class _EndpointURLErrorKwargs(_ConnectionErrorKwargs):
     endpoint_url: str
 
 class EndpointConnectionError(ConnectionError):
     def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
-        self.kwargs: EndpointURLErrorKwargs
+        self.kwargs: _EndpointURLErrorKwargs
 
-class SSLErrorKwargs(TypedDict):
+class _SSLErrorKwargs(TypedDict):
     endpoint_url: str
     error: Exception
 
 class SSLError(ConnectionError, requests.exceptions.SSLError):
     def __init__(self, *, endpoint_url: str = ..., error: Exception = ..., **kwargs: Any) -> None:
-        self.kwargs: SSLErrorKwargs
+        self.kwargs: _SSLErrorKwargs
 
 class ConnectionClosedError(HTTPClientError):
     def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
-        self.kwargs: EndpointURLErrorKwargs
+        self.kwargs: _EndpointURLErrorKwargs
 
 class ReadTimeoutError(
     HTTPClientError, requests.exceptions.ReadTimeout, urllib3.exceptions.ReadTimeoutError
 ):
     def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
-        self.kwargs: EndpointURLErrorKwargs
+        self.kwargs: _EndpointURLErrorKwargs
 
 class ConnectTimeoutError(ConnectionError, requests.exceptions.ConnectTimeout):
     def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
-        self.kwargs: EndpointURLErrorKwargs
+        self.kwargs: _EndpointURLErrorKwargs
 
-class ProxyConnectionErrorKwargs(ConnectionErrorKwargs):
+class _ProxyConnectionErrorKwargs(_ConnectionErrorKwargs):
     proxy_url: str
 
 class ProxyConnectionError(ConnectionError, requests.exceptions.ProxyError):
     def __init__(self, *, proxy_url: str = ..., **kwargs: Any) -> None:
-        self.kwargs: ProxyConnectionErrorKwargs
+        self.kwargs: _ProxyConnectionErrorKwargs
 
 class NoCredentialsError(BotoCoreError): ...
 
-class PartialCredentialsErrorKwargs(TypedDict):
+class _PartialCredentialsErrorKwargs(TypedDict):
     provider: str
     cred_var: str
 
 class PartialCredentialsError(BotoCoreError):
     def __init__(self, *, provider: str = ..., cred_var: str = ..., **kwargs: Any) -> None:
-        self.kwargs: PartialCredentialsErrorKwargs
+        self.kwargs: _PartialCredentialsErrorKwargs
 
-class CredentialRetrievalErrorKwargs(TypedDict):
+class _CredentialRetrievalErrorKwargs(TypedDict):
     provider: str
 
 class CredentialRetrievalError(BotoCoreError):
     def __init__(self, *, provider: str = ..., **kwargs: Any) -> None:
-        self.kwargs: CredentialRetrievalErrorKwargs
+        self.kwargs: _CredentialRetrievalErrorKwargs
 
-class UnknownSignatureVersionErrorKwargs(TypedDict):
+class _UnknownSignatureVersionErrorKwargs(TypedDict):
     signature_version: str
 
 class UnknownSignatureVersionError(BotoCoreError):
     def __init__(self, *, signature_version: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnknownSignatureVersionErrorKwargs
+        self.kwargs: _UnknownSignatureVersionErrorKwargs
 
-class ServiceNotInRegionErrorKwargs(TypedDict):
+class _ServiceNotInRegionErrorKwargs(TypedDict):
     service_name: str
     region_name: str
 
 class ServiceNotInRegionError(BotoCoreError):
     def __init__(self, *, service_name: str = ..., region_name: str = ..., **kwargs: Any) -> None:
-        self.kwargs: ServiceNotInRegionErrorKwargs
+        self.kwargs: _ServiceNotInRegionErrorKwargs
 
 class BaseEndpointResolverError(BotoCoreError): ...
 class NoRegionError(BaseEndpointResolverError): ...
 
-class UnknownEndpointErrorKwargs(TypedDict):
+class _UnknownEndpointErrorKwargs(TypedDict):
     service_name: str
     region_name: str
 
 class UnknownEndpointError(BaseEndpointResolverError, ValueError):
     def __init__(self, *, service_name: str = ..., region_name: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnknownEndpointErrorKwargs
+        self.kwargs: _UnknownEndpointErrorKwargs
 
-class UnknownFIPSEndpointErrorKwargs(TypedDict):
+class _UnknownFIPSEndpointErrorKwargs(TypedDict):
     service_name: str
     region_name: str
 
 class UnknownFIPSEndpointError(BaseEndpointResolverError):
     def __init__(self, *, service_name: str = ..., region_name: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnknownFIPSEndpointErrorKwargs
+        self.kwargs: _UnknownFIPSEndpointErrorKwargs
 
-class ProfileNotFoundKwargs(TypedDict):
+class _ProfileNotFoundKwargs(TypedDict):
     profile: str
 
 class ProfileNotFound(BotoCoreError):
     def __init__(self, *, profile: str = ..., **kwargs: Any) -> None:
-        self.kwargs: ProfileNotFoundKwargs
+        self.kwargs: _ProfileNotFoundKwargs
 
-class ConfigParseErrorKwargs(TypedDict):
+class _ConfigParseErrorKwargs(TypedDict):
     path: str
 
 class ConfigParseError(BotoCoreError):
     def __init__(self, *, path: str = ..., **kwargs: Any) -> None:
-        self.kwargs: ConfigParseErrorKwargs
+        self.kwargs: _ConfigParseErrorKwargs
 
-class ConfigNotFoundKwargs(TypedDict):
+class _ConfigNotFoundKwargs(TypedDict):
     path: str
 
 class ConfigNotFound(BotoCoreError):
     def __init__(self, *, path: str = ..., **kwargs: Any) -> None:
-        self.kwargs: ConfigNotFoundKwargs
+        self.kwargs: _ConfigNotFoundKwargs
 
-class MissingParametersErrorKwargs(TypedDict):
+class _MissingParametersErrorKwargs(TypedDict):
     object: Any
     missing: Iterable[str]
 
 class MissingParametersError(BotoCoreError):
     def __init__(self, *, object: Any = ..., missing: Iterable[str] = ..., **kwargs: Any) -> None:
-        self.kwargs: MissingParametersErrorKwargs
+        self.kwargs: _MissingParametersErrorKwargs
 
-class ValidationErrorKwargs(TypedDict):
+class _ValidationErrorKwargs(TypedDict):
     value: Any
     param: str
     type_name: str
@@ -200,25 +200,25 @@ class ValidationError(BotoCoreError):
     def __init__(
         self, *, value: Any = ..., param: str = ..., type_name: str = ..., **kwargs: Any
     ) -> None:
-        self.kwargs: ValidationErrorKwargs
+        self.kwargs: _ValidationErrorKwargs
 
-class ParamValidationErrorKwargs(TypedDict):
+class _ParamValidationErrorKwargs(TypedDict):
     report: str
 
 class ParamValidationError(BotoCoreError):
     def __init__(self, *, report: str = ..., **kwargs: Any) -> None:
-        self.kwargs: ParamValidationErrorKwargs
+        self.kwargs: _ParamValidationErrorKwargs
 
-class UnknownKeyErrorKwargs(ValidationErrorKwargs):
+class _UnknownKeyErrorKwargs(_ValidationErrorKwargs):
     choices: Iterable[Any]
 
 class UnknownKeyError(ValidationError):
     def __init__(
         self, *, value: Any = ..., param: str = ..., choices: Iterable[Any] = ..., **kwargs: Any
     ) -> None:
-        self.kwargs: UnknownKeyErrorKwargs
+        self.kwargs: _UnknownKeyErrorKwargs
 
-class RangeErrorKwargs(ValidationErrorKwargs):
+class _RangeErrorKwargs(_ValidationErrorKwargs):
     min_value: Any
     max_value: Any
 
@@ -232,9 +232,9 @@ class RangeError(ValidationError):
         max_value: Any = ...,
         **kwargs: Any,
     ) -> None:
-        self.kwargs: RangeErrorKwargs
+        self.kwargs: _RangeErrorKwargs
 
-class UnknownParameterErrorKwargs(ValidationErrorKwargs):
+class _UnknownParameterErrorKwargs(_ValidationErrorKwargs):
     name: str
     operation: str
     choices: Iterable[str]
@@ -243,16 +243,16 @@ class UnknownParameterError(ValidationError):
     def __init__(
         self, *, name: str = ..., operation: str = ..., choices: Iterable[str] = ..., **kwargs: Any
     ) -> None:
-        self.kwargs: UnknownParameterErrorKwargs
+        self.kwargs: _UnknownParameterErrorKwargs
 
-class InvalidRegionErrorKwargs(ValidationErrorKwargs):
+class _InvalidRegionErrorKwargs(_ValidationErrorKwargs):
     region_name: str
 
 class InvalidRegionError(ValidationError, ValueError):
     def __init__(self, *, region_name: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidRegionErrorKwargs
+        self.kwargs: _InvalidRegionErrorKwargs
 
-class AliasConflictParameterErrorKwargs(ValidationErrorKwargs):
+class _AliasConflictParameterErrorKwargs(_ValidationErrorKwargs):
     original: str
     alias: str
     operation: str
@@ -261,30 +261,30 @@ class AliasConflictParameterError(ValidationError):
     def __init__(
         self, *, original: str = ..., alias: str = ..., operation: str = ..., **kwargs: Any
     ) -> None:
-        self.kwargs: AliasConflictParameterErrorKwargs
+        self.kwargs: _AliasConflictParameterErrorKwargs
 
-class UnknownServiceStyleKwargs(TypedDict):
+class _UnknownServiceStyleKwargs(TypedDict):
     service_style: str
 
 class UnknownServiceStyle(BotoCoreError):
     def __init__(self, *, service_style: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnknownServiceStyleKwargs
+        self.kwargs: _UnknownServiceStyleKwargs
 
-class PaginationErrorKwargs(TypedDict):
+class _PaginationErrorKwargs(TypedDict):
     message: str
 
 class PaginationError(BotoCoreError):
     def __init__(self, *, message: str = ..., **kwargs: Any) -> None:
-        self.kwargs: PaginationErrorKwargs
+        self.kwargs: _PaginationErrorKwargs
 
-class OperationNotPageableErrorKwargs(TypedDict):
+class _OperationNotPageableErrorKwargs(TypedDict):
     operation_name: str
 
 class OperationNotPageableError(BotoCoreError):
     def __init__(self, *, operation_name: str = ..., **kwargs: Any) -> None:
-        self.kwargs: OperationNotPageableErrorKwargs
+        self.kwargs: _OperationNotPageableErrorKwargs
 
-class ChecksumErrorKwargs(TypedDict):
+class _ChecksumErrorKwargs(TypedDict):
     checksum_type: str
     expected_checksum: str
     actual_checksum: str
@@ -298,20 +298,20 @@ class ChecksumError(BotoCoreError):
         actual_checksum: str = ...,
         **kwargs: Any,
     ) -> None:
-        self.kwargs: ChecksumErrorKwargs
+        self.kwargs: _ChecksumErrorKwargs
 
-class UnseekableStreamErrorKwargs(TypedDict):
+class _UnseekableStreamErrorKwargs(TypedDict):
     stream_object: IO[Any]
 
 class UnseekableStreamError(BotoCoreError):
     def __init__(self, *, stream_object: IO[Any] = ..., **kwargs: Any) -> None:
-        self.kwargs: UnseekableStreamErrorKwargs
+        self.kwargs: _UnseekableStreamErrorKwargs
 
 class WaiterError(BotoCoreError):
-    def __init__(self, name: str, reason: str, last_response: ClientErrorResponseTypeDef) -> None:
-        self.last_response: ClientErrorResponseTypeDef
+    def __init__(self, name: str, reason: str, last_response: _ClientErrorResponseTypeDef) -> None:
+        self.last_response: _ClientErrorResponseTypeDef
 
-class IncompleteReadErrorKwargs(TypedDict):
+class _IncompleteReadErrorKwargs(TypedDict):
     actual_bytes: int
     expected_bytes: int
 
@@ -319,126 +319,126 @@ class IncompleteReadError(BotoCoreError):
     def __init__(
         self, *, actual_bytes: int = ..., expected_bytes: int = ..., **kwargs: Any
     ) -> None:
-        self.kwargs: IncompleteReadErrorKwargs
+        self.kwargs: _IncompleteReadErrorKwargs
 
-class InvalidExpressionErrorKwargs(TypedDict):
+class _InvalidExpressionErrorKwargs(TypedDict):
     expression: str
 
 class InvalidExpressionError(BotoCoreError):
     def __init__(self, *, expression: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidExpressionErrorKwargs
+        self.kwargs: _InvalidExpressionErrorKwargs
 
-class UnknownCredentialErrorKwargs(TypedDict):
+class _UnknownCredentialErrorKwargs(TypedDict):
     name: str
 
 class UnknownCredentialError(BotoCoreError):
     def __init__(self, *, name: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnknownCredentialErrorKwargs
+        self.kwargs: _UnknownCredentialErrorKwargs
 
-class WaiterConfigErrorKwargs(TypedDict):
+class _WaiterConfigErrorKwargs(TypedDict):
     error_msg: str
 
 class WaiterConfigError(BotoCoreError):
     def __init__(self, *, error_msg: str = ..., **kwargs: Any) -> None:
-        self.kwargs: WaiterConfigErrorKwargs
+        self.kwargs: _WaiterConfigErrorKwargs
 
-class UnknownClientMethodErrorKwargs(TypedDict):
+class _UnknownClientMethodErrorKwargs(TypedDict):
     method_name: str
 
 class UnknownClientMethodError(BotoCoreError):
     def __init__(self, *, method_name: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnknownClientMethodErrorKwargs
+        self.kwargs: _UnknownClientMethodErrorKwargs
 
-class UnsupportedSignatureVersionErrorKwargs(TypedDict):
+class _UnsupportedSignatureVersionErrorKwargs(TypedDict):
     signature_version: str
 
 class UnsupportedSignatureVersionError(BotoCoreError):
     def __init__(self, *, signature_version: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnsupportedSignatureVersionErrorKwargs
+        self.kwargs: _UnsupportedSignatureVersionErrorKwargs
 
 class ClientError(Exception):
     MSG_TEMPLATE: str
-    def __init__(self, error_response: ClientErrorResponseTypeDef, operation_name: str) -> None:
-        self.response: ClientErrorResponseTypeDef
+    def __init__(self, error_response: _ClientErrorResponseTypeDef, operation_name: str) -> None:
+        self.response: _ClientErrorResponseTypeDef
         self.operation_name: str
 
 class EventStreamError(ClientError): ...
 class UnsupportedTLSVersionWarning(Warning): ...
 class ImminentRemovalWarning(Warning): ...
 
-class InvalidDNSNameErrorKwargs(TypedDict):
+class _InvalidDNSNameErrorKwargs(TypedDict):
     bucket_name: str
 
 class InvalidDNSNameError(BotoCoreError):
     def __init__(self, *, bucket_name: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidDNSNameErrorKwargs
+        self.kwargs: _InvalidDNSNameErrorKwargs
 
-class InvalidS3AddressingStyleErrorKwargs(TypedDict):
+class _InvalidS3AddressingStyleErrorKwargs(TypedDict):
     s3_addressing_style: str
 
 class InvalidS3AddressingStyleError(BotoCoreError):
     def __init__(self, *, s3_addressing_style: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidS3AddressingStyleErrorKwargs
+        self.kwargs: _InvalidS3AddressingStyleErrorKwargs
 
-class UnsupportedS3ArnErrorKwargs(TypedDict):
+class _UnsupportedS3ArnErrorKwargs(TypedDict):
     arn: str
 
 class UnsupportedS3ArnError(BotoCoreError):
     def __init__(self, *, arn: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnsupportedS3ArnErrorKwargs
+        self.kwargs: _UnsupportedS3ArnErrorKwargs
 
-class UnsupportedS3ControlArnErrorKwargs(TypedDict):
+class _UnsupportedS3ControlArnErrorKwargs(TypedDict):
     arn: str
     msg: str
 
 class UnsupportedS3ControlArnError(BotoCoreError):
     def __init__(self, *, arn: str = ..., msg: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnsupportedS3ControlArnErrorKwargs
+        self.kwargs: _UnsupportedS3ControlArnErrorKwargs
 
-class InvalidHostLabelErrorKwargs(TypedDict):
+class _InvalidHostLabelErrorKwargs(TypedDict):
     label: str
 
 class InvalidHostLabelError(BotoCoreError):
     def __init__(self, *, label: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidHostLabelErrorKwargs
+        self.kwargs: _InvalidHostLabelErrorKwargs
 
-class UnsupportedOutpostResourceErrorKwargs(TypedDict):
+class _UnsupportedOutpostResourceErrorKwargs(TypedDict):
     resource_name: str
 
 class UnsupportedOutpostResourceError(BotoCoreError):
     def __init__(self, *, resource_name: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnsupportedOutpostResourceErrorKwargs
+        self.kwargs: _UnsupportedOutpostResourceErrorKwargs
 
-class UnsupportedS3ErrorKwargs(TypedDict):
+class _UnsupportedS3ErrorKwargs(TypedDict):
     msg: str
 
 class UnsupportedS3ConfigurationError(BotoCoreError):
     def __init__(self, *, msg: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnsupportedS3ErrorKwargs
+        self.kwargs: _UnsupportedS3ErrorKwargs
 
 class UnsupportedS3AccesspointConfigurationError(BotoCoreError):
     def __init__(self, *, msg: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnsupportedS3ErrorKwargs
+        self.kwargs: _UnsupportedS3ErrorKwargs
 
-class InvalidEndpointDiscoveryConfigurationErrorKwargs(TypedDict):
+class _InvalidEndpointDiscoveryConfigurationErrorKwargs(TypedDict):
     config_value: str
 
 class InvalidEndpointDiscoveryConfigurationError(BotoCoreError):
     def __init__(self, *, config_value: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidEndpointDiscoveryConfigurationErrorKwargs
+        self.kwargs: _InvalidEndpointDiscoveryConfigurationErrorKwargs
 
 class UnsupportedS3ControlConfigurationError(BotoCoreError):
     def __init__(self, *, msg: str = ..., **kwargs: Any) -> None:
-        self.kwargs: UnsupportedS3ErrorKwargs
+        self.kwargs: _UnsupportedS3ErrorKwargs
 
-class InvalidRetryConfigurationErrorKwargs(TypedDict):
+class _InvalidRetryConfigurationErrorKwargs(TypedDict):
     retry_config_option: str
 
 class InvalidRetryConfigurationError(BotoCoreError):
     def __init__(self, *, retry_config_option: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidRetryConfigurationErrorKwargs
+        self.kwargs: _InvalidRetryConfigurationErrorKwargs
 
-class InvalidMaxRetryAttemptsErrorKwargs(InvalidRetryConfigurationErrorKwargs):
+class _InvalidMaxRetryAttemptsErrorKwargs(_InvalidRetryConfigurationErrorKwargs):
     provided_max_attempts: int
     min_value: int
 
@@ -446,47 +446,47 @@ class InvalidMaxRetryAttemptsError(InvalidRetryConfigurationError):
     def __init__(
         self, *, provided_max_attempts: int = ..., min_value: int = ..., **kwargs: Any
     ) -> None:
-        self.kwargs: InvalidMaxRetryAttemptsErrorKwargs
+        self.kwargs: _InvalidMaxRetryAttemptsErrorKwargs
 
-class InvalidRetryModeErrorKwargs(InvalidRetryConfigurationErrorKwargs):
+class _InvalidRetryModeErrorKwargs(_InvalidMaxRetryAttemptsErrorKwargs):
     provided_retry_mode: str
 
 class InvalidRetryModeError(InvalidRetryConfigurationError):
     def __init__(self, *, provided_retry_mode: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidRetryModeErrorKwargs
+        self.kwargs: _InvalidRetryModeErrorKwargs
 
-class InvalidS3UsEast1RegionalEndpointConfigErrorKwargs(TypedDict):
+class _InvalidS3UsEast1RegionalEndpointConfigErrorKwargs(TypedDict):
     s3_us_east_1_regional_endpoint_config: str
 
 class InvalidS3UsEast1RegionalEndpointConfigError(BotoCoreError):
     def __init__(self, *, s3_us_east_1_regional_endpoint_config: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidS3UsEast1RegionalEndpointConfigErrorKwargs
+        self.kwargs: _InvalidS3UsEast1RegionalEndpointConfigErrorKwargs
 
-class InvalidSTSRegionalEndpointsConfigErrorKwargs(TypedDict):
+class _InvalidSTSRegionalEndpointsConfigErrorKwargs(TypedDict):
     sts_regional_endpoints_config: str
 
 class InvalidSTSRegionalEndpointsConfigError(BotoCoreError):
     def __init__(self, *, sts_regional_endpoints_config: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidSTSRegionalEndpointsConfigErrorKwargs
+        self.kwargs: _InvalidSTSRegionalEndpointsConfigErrorKwargs
 
-class StubResponseErrorKwargs(TypedDict):
+class _StubResponseErrorKwargs(TypedDict):
     operation_name: str
 
 class StubResponseError(BotoCoreError):
     def __init__(self, *, operation_name: str = ..., **kwargs: Any) -> None:
-        self.kwargs: StubResponseErrorKwargs
+        self.kwargs: _StubResponseErrorKwargs
 
 class StubAssertionError(StubResponseError, AssertionError): ...
 class UnStubbedResponseError(StubResponseError): ...
 
-class InvalidConfigErrorKwargs(TypedDict):
+class _InvalidConfigErrorKwargs(TypedDict):
     error_msg: str
 
 class InvalidConfigError(BotoCoreError):
     def __init__(self, *, error_msg: str = ..., **kwargs: Any) -> None:
-        self.kwargs: InvalidConfigErrorKwargs
+        self.kwargs: _InvalidConfigErrorKwargs
 
-class InfiniteLoopConfigErrorKwargs(InvalidConfigErrorKwargs):
+class _InfiniteLoopConfigErrorKwargs(_InvalidConfigErrorKwargs):
     source_profile: str
     visited_profiles: Iterable[str]
 
@@ -494,35 +494,35 @@ class InfiniteLoopConfigError(InvalidConfigError):
     def __init__(
         self, *, source_profile: str = ..., visited_profiles: Iterable[str] = ..., **kwargs: Any
     ) -> None:
-        self.kwargs: InfiniteLoopConfigErrorKwargs
+        self.kwargs: _InfiniteLoopConfigErrorKwargs
 
 class RefreshWithMFAUnsupportedError(BotoCoreError): ...
 class MD5UnavailableError(BotoCoreError): ...
 
-class MetadataRetrievalErrorKwargs(TypedDict):
+class _MetadataRetrievalErrorKwargs(TypedDict):
     error_msg: str
 
 class MetadataRetrievalError(BotoCoreError):
     def __init__(self, *, error_msg: str = ..., **kwargs: Any) -> None:
-        self.kwargs: MetadataRetrievalErrorKwargs
+        self.kwargs: _MetadataRetrievalErrorKwargs
 
 class UndefinedModelAttributeError(Exception): ...
 
-class MissingServiceIdErrorKwargs(TypedDict):
+class _MissingServiceIdErrorKwargs(TypedDict):
     service_name: str
 
 class MissingServiceIdError(UndefinedModelAttributeError):
     def __init__(self, *, service_name: str = ..., **kwargs: Any) -> None:
-        self.kwargs: MissingServiceIdErrorKwargs
+        self.kwargs: _MissingServiceIdErrorKwargs
 
 class SSOError(BotoCoreError): ...
 
-class SSOTokenLoadErrorKwargs(TypedDict):
+class _SSOTokenLoadErrorKwargs(TypedDict):
     error_msg: str
 
 class SSOTokenLoadError(SSOError):
     def __init__(self, *, error_msg: str = ..., **kwargs: Any) -> None:
-        self.kwargs: SSOTokenLoadErrorKwargs
+        self.kwargs: _SSOTokenLoadErrorKwargs
 
 class UnauthorizedSSOTokenError(SSOError): ...
 class CapacityNotAvailableError(BotoCoreError): ...
