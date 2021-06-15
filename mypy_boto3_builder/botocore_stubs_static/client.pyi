@@ -20,12 +20,16 @@ from botocore.exceptions import (
 from botocore.exceptions import OperationNotPageableError as OperationNotPageableError
 from botocore.exceptions import UnknownSignatureVersionError as UnknownSignatureVersionError
 from botocore.history import get_global_history_recorder as get_global_history_recorder
+from botocore.hooks import BaseEventHooks
 from botocore.hooks import first_non_none_response as first_non_none_response
 from botocore.loaders import Loader
 from botocore.model import ServiceModel as ServiceModel
 from botocore.paginate import Paginator as Paginator
+from botocore.regions import BaseEndpointResolver
 from botocore.retries import adaptive as adaptive
 from botocore.retries import standard as standard
+from botocore.serialize import Serializer
+from botocore.signers import RequestSigner
 from botocore.utils import CachedProperty as CachedProperty
 from botocore.utils import S3ArnParamHandler as S3ArnParamHandler
 from botocore.utils import S3ControlArnParamHandler as S3ControlArnParamHandler
@@ -39,9 +43,9 @@ class ClientCreator:
     def __init__(
         self,
         loader: Loader,
-        endpoint_resolver: Any,
+        endpoint_resolver: BaseEndpointResolver,
         user_agent: str,
-        event_emitter: Any,
+        event_emitter: BaseEventHooks,
         retry_handler_factory: Any,
         retry_config_translator: Any,
         response_parser_factory: Optional[Any] = ...,
@@ -64,42 +68,42 @@ class ClientCreator:
 
 class ClientEndpointBridge:
     DEFAULT_ENDPOINT: str = ...
-    service_signing_name: str = ...
-    endpoint_resolver: Any = ...
-    scoped_config: Any = ...
-    client_config: Any = ...
-    default_endpoint: Any = ...
     def __init__(
         self,
-        endpoint_resolver: Any,
+        endpoint_resolver: BaseEndpointResolver,
         scoped_config: Optional[Any] = ...,
         client_config: Optional[Any] = ...,
         default_endpoint: Optional[str] = ...,
-        service_signing_name: Optional[Any] = ...,
-    ) -> None: ...
+        service_signing_name: Optional[str] = ...,
+    ) -> None:
+        self.service_signing_name: str
+        self.endpoint_resolver: BaseEndpointResolver
+        self.scoped_config: Any
+        self.client_config: Any
+        self.default_endpoint: str
     def resolve(
         self,
-        service_name: Any,
+        service_name: str,
         region_name: Optional[str] = ...,
         endpoint_url: Optional[str] = ...,
         is_secure: bool = ...,
     ) -> None: ...
 
 class BaseClient:
-    meta: ClientMeta
     def __init__(
         self,
-        serializer: Any,
+        serializer: Serializer,
         endpoint: str,
         response_parser: Any,
-        event_emitter: Any,
-        request_signer: Any,
-        service_model: Any,
-        loader: Any,
+        event_emitter: BaseEventHooks,
+        request_signer: RequestSigner,
+        service_model: ServiceModel,
+        loader: Loader,
         client_config: Config,
-        partition: Any,
+        partition: str,
         exceptions_factory: Any,
-    ) -> None: ...
+    ) -> None:
+        self.meta: ClientMeta
     def __getattr__(self, item: str) -> Any: ...
     def get_paginator(self, operation_name: str) -> Paginator: ...
     def can_paginate(self, operation_name: str) -> bool: ...
@@ -110,16 +114,16 @@ class BaseClient:
     def exceptions(self) -> Any: ...
 
 class ClientMeta:
-    events: Any = ...
     def __init__(
         self,
-        events: Any,
+        events: BaseEventHooks,
         client_config: Config,
         endpoint_url: str,
-        service_model: Any,
+        service_model: ServiceModel,
         method_to_api_mapping: Dict[str, str],
-        partition: Any,
-    ) -> None: ...
+        partition: str,
+    ) -> None:
+        self.events: BaseEventHooks
     @property
     def service_model(self) -> ServiceModel: ...
     @property
