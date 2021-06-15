@@ -40,7 +40,9 @@ from mypy_boto3_builder.type_maps.typed_dicts import paginator_config_type, wait
 
 
 class ShapeParserError(Exception):
-    pass
+    """
+    Main error for ShapeParser.
+    """
 
 
 class ShapeParser:

@@ -24,6 +24,13 @@ class MasterPackage(Package):
 
 Structure for mypy-boto3 package.
 
+#### Arguments
+
+- `name` - Module name.
+- `pypi_name` - Module PyPI name.
+- `service_names` - List of included service names.
+- `service_packages` - List of included service packages.
+
 #### See also
 
 - [MODULE_NAME](../constants.md#module_name)
@@ -32,9 +39,11 @@ Structure for mypy-boto3 package.
 
 ### MasterPackage().essential_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/master_package.py#L28)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/master_package.py#L34)
 
 ```python
 @property
 def essential_service_names() -> List[ServiceName]:
 ```
+
+List of services maked as essential.

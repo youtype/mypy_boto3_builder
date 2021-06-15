@@ -19,6 +19,8 @@ dataclass
 class Namespace():
 ```
 
+CLI arguments namespace.
+
 ## get_absolute_path
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L15)
@@ -61,7 +63,7 @@ Convert boto3 service name to ServiceName.
 
 ## parse_args
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L59)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L63)
 
 ```python
 def parse_args(args: Sequence[str]) -> Namespace:

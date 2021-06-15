@@ -24,9 +24,15 @@ class Header:
 
     @property
     def anchor(self) -> str:
+        """
+        Anchor link for title.
+        """
         return get_anchor_link(self.title)
 
     def render(self) -> str:
+        """
+        Render menu item to string.
+        """
         indent = "  " * (self.level - 1)
         return f"{indent}- [{self.title}](#{self.anchor})"
 
@@ -66,6 +72,9 @@ class TableOfContents:
         return cls(headers)
 
     def render(self, max_level: int = 3) -> str:
+        """
+        Render ToC to string.
+        """
         result = []
         for header in self.headers:
             if header.level > max_level:

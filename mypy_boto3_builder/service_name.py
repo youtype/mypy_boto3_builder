@@ -41,6 +41,9 @@ class ServiceName:
 
     @property
     def underscore_name(self) -> str:
+        """
+        Python-friendly service name.
+        """
         return self.name.replace("-", "_")
 
     @property
@@ -90,6 +93,9 @@ class ServiceName:
         return self.name
 
     def is_essential(self) -> bool:
+        """
+        Whether service is included to `boto3-stubs[essential]`
+        """
         return self.name in self.ESSENTIAL
 
     @property
@@ -118,8 +124,8 @@ class ServiceName:
         """
         return ".".join([self.boto3_doc_link, *parts])
 
+    @staticmethod
     def get_md_doc_link(
-        self,
         file: Literal[
             "client",
             "service_resource",
@@ -478,8 +484,8 @@ class ServiceNameCatalog:
         """
         try:
             return cls.ITEM_MAP[name]
-        except KeyError as e:
-            raise ValueError(f"Unknown service {name}") from e
+        except KeyError as exc:
+            raise ValueError(f"Unknown service {name}") from exc
 
     @staticmethod
     def create(name: str) -> ServiceName:

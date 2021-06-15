@@ -12,6 +12,12 @@ from mypy_boto3_builder.structures.service_package import ServicePackage
 class MasterPackage(Package):
     """
     Structure for mypy-boto3 package.
+
+    Arguments:
+        name -- Module name.
+        pypi_name -- Module PyPI name.
+        service_names -- List of included service names.
+        service_packages -- List of included service packages.
     """
 
     def __init__(
@@ -27,6 +33,9 @@ class MasterPackage(Package):
 
     @property
     def essential_service_names(self) -> List[ServiceName]:
+        """
+        List of services maked as essential.
+        """
         result: List[ServiceName] = []
         for service_name in self.service_names:
             if service_name.is_essential():

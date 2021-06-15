@@ -45,6 +45,10 @@ def get_service_name(name: str) -> ServiceName:
 
 @dataclass
 class Namespace:
+    """
+    CLI arguments namespace.
+    """
+
     log_level: int
     output_path: Path
     service_names: List[ServiceName]

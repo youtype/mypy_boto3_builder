@@ -21,7 +21,7 @@ class Client(ClassRecord):
         name: str,
         service_name: ServiceName,
         boto3_client: BaseClient,
-    ):
+    ) -> None:
 ```
 
 Boto3 Client.
@@ -40,28 +40,36 @@ Boto3 Client.
 def boto3_doc_link() -> str:
 ```
 
+List to boto3 docs page.
+
 ### Client().docstring
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L60)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L63)
 
 ```python
 @property
 def docstring() -> str:
 ```
 
+Class docstring.
+
 ### Client().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L69)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L75)
 
 ```python
 def get_all_names() -> List[str]:
 ```
 
+Get a list of names for `__all__` statement.
+
 ### Client().own_methods
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L72)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L81)
 
 ```python
 @property
 def own_methods() -> Iterator[Method]:
 ```
+
+Get a list of auto-generated methods.

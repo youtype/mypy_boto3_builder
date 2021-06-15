@@ -49,6 +49,9 @@ class Paginator(ClassRecord):
         )
 
     def get_client_method(self) -> Method:
+        """
+        Get `get_paginator` method for `Client`.
+        """
         return Method(
             name="get_paginator",
             decorators=[Type.overload],

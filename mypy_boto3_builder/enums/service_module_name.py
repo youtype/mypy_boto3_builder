@@ -1,3 +1,6 @@
+"""
+Enum for service modules.
+"""
 import enum
 
 

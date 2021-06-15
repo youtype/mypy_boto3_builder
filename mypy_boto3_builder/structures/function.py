@@ -34,9 +34,15 @@ class Function:
 
     @property
     def body(self) -> str:
+        """
+        Function body as a string.
+        """
         return "\n".join(self.body_lines)
 
     def get_types(self) -> Set[FakeAnnotation]:
+        """
+        Extract required type annotations.
+        """
         types = self.return_type.get_types()
         for argument in self.arguments:
             types.update(argument.get_types())
@@ -46,6 +52,9 @@ class Function:
         return types
 
     def get_required_import_records(self) -> Set[ImportRecord]:
+        """
+        Extract required import records.
+        """
         result: Set[ImportRecord] = set()
         for type_annotation in self.get_types():
             import_record = type_annotation.get_import_record()

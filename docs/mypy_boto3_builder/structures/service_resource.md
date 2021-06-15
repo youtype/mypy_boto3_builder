@@ -59,17 +59,21 @@ def docstring() -> str:
 def get_all_names() -> List[str]:
 ```
 
+Get names for `__all__` statement.
+
 ### ServiceResource().get_collections
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L79)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L82)
 
 ```python
 def get_collections() -> List[Collection]:
 ```
 
+Get a list of Service Resource collections.
+
 ### ServiceResource().get_sub_resources
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L92)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L98)
 
 ```python
 def get_sub_resources() -> List[Resource]:

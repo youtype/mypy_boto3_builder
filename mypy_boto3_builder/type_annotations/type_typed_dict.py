@@ -63,9 +63,21 @@ class TypeTypedDict(FakeAnnotation):
         self.replace_with_dict = set(replace_with_dict)
 
     def get_sort_key(self) -> str:
+        """
+        Sort Typed Dicts by name.
+        """
         return self.name
 
     def get_attribute(self, name: str) -> TypedDictAttribute:
+        """
+        FInd attribute by `name`.
+
+        Arguments:
+            name -- Attribute name.
+
+        Returns:
+            Found attribute.
+        """
         for child in self.children:
             if child.name == name:
                 return child
@@ -151,6 +163,9 @@ class TypeTypedDict(FakeAnnotation):
         return self.has_required() and self.has_optional()
 
     def get_required(self) -> List[TypedDictAttribute]:
+        """
+        Get a list of required attributes.
+        """
         result: List[TypedDictAttribute] = []
         for child in self.children:
             if child.required:
@@ -158,6 +173,9 @@ class TypeTypedDict(FakeAnnotation):
         return result
 
     def get_optional(self) -> List[TypedDictAttribute]:
+        """
+        Get a list of optional attributes.
+        """
         result: List[TypedDictAttribute] = []
         for child in self.children:
             if not child.required:
@@ -177,17 +195,26 @@ class TypeTypedDict(FakeAnnotation):
         )
 
     def is_same(self, other: "TypeTypedDict") -> bool:
+        """
+        Check whether typed dict attributes are the same as `other`.
+        """
         children = [i.render() for i in self.children]
         other_children = [i.render() for i in other.children]
         return other_children == children
 
     def get_children_types(self) -> Set[FakeAnnotation]:
+        """
+        Extract required type annotatyions from attributes.
+        """
         result: Set[FakeAnnotation] = set()
         for child in self.children:
             result.update(child.type_annotation.get_types())
         return result
 
     def get_children_typed_dicts(self) -> Set["TypeTypedDict"]:
+        """
+        Extract required TypeTypedDict list from attributes.
+        """
         result: Set[TypeTypedDict] = set()
         children_types = self.get_children_types()
         for type_annotation in children_types:
@@ -200,6 +227,9 @@ class TypeTypedDict(FakeAnnotation):
     def get_children_literals(
         self, processed: Iterable["TypeTypedDict"] = tuple()
     ) -> Set[TypeLiteral]:
+        """
+        Extract required TypeLiteral list from attributes.
+        """
         result: Set[TypeLiteral] = set()
         if self in processed:
             return result

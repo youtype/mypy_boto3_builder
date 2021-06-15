@@ -10,7 +10,7 @@ boto3-stubs package writer.
 
 ## write_boto3_stubs_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/boto3_stubs_package.py#L92)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/boto3_stubs_package.py#L95)
 
 ```python
 def write_boto3_stubs_docs(
@@ -18,6 +18,8 @@ def write_boto3_stubs_docs(
     output_path: Path,
 ) -> List[Path]:
 ```
+
+Generate docs for boto3-stubs package.
 
 #### See also
 
@@ -34,6 +36,8 @@ def write_boto3_stubs_package(
     generate_setup: bool,
 ) -> List[Path]:
 ```
+
+Generate stubs for boto3-stubs package.
 
 #### See also
 

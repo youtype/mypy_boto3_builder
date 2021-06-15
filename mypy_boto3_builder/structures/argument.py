@@ -34,12 +34,21 @@ class Argument:
 
     @classmethod
     def kwflag(cls: Type[_R]) -> _R:
+        """
+        Create `*` keywords separator.
+        """
         return cls("*", None)
 
     def is_kwflag(self) -> bool:
+        """
+        Whether argument is a `*` keywords separator.
+        """
         return self.name == "*"
 
     def get_types(self) -> Set[FakeAnnotation]:
+        """
+        Extract required type annotations.
+        """
         types: Set[FakeAnnotation] = set()
         if self.type_annotation is not None:
             types.update(self.type_annotation.get_types())
@@ -50,4 +59,7 @@ class Argument:
 
     @property
     def required(self) -> bool:
+        """
+        Whether argument does not have a default value and is required.
+        """
         return self.default is None

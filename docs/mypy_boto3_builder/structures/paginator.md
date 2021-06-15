@@ -57,6 +57,8 @@ def docstring() -> str:
 def get_client_method() -> Method:
 ```
 
+Get `get_paginator` method for `Client`.
+
 #### See also
 
 - [Method](method.md#method)

@@ -21,6 +21,9 @@ from mypy_boto3_builder.writers.utils import (
 def write_boto3_stubs_package(
     package: Boto3StubsPackage, output_path: Path, generate_setup: bool
 ) -> List[Path]:
+    """
+    Generate stubs for boto3-stubs package.
+    """
     setup_path = output_path / "boto3_stubs_package"
     if not generate_setup:
         setup_path = output_path
@@ -90,6 +93,9 @@ def write_boto3_stubs_package(
 
 
 def write_boto3_stubs_docs(package: Boto3StubsPackage, output_path: Path) -> List[Path]:
+    """
+    Generate docs for boto3-stubs package.
+    """
     modified_paths = []
     docs_path = output_path
     docs_path.mkdir(exist_ok=True)

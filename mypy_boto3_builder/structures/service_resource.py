@@ -69,6 +69,9 @@ class ServiceResource(ClassRecord):
         return types
 
     def get_all_names(self) -> List[str]:
+        """
+        Get names for `__all__` statement.
+        """
         result = [self.name]
         for resource in self.sub_resources:
             result.append(resource.name)
@@ -77,6 +80,9 @@ class ServiceResource(ClassRecord):
         return result
 
     def get_collections(self) -> List[Collection]:
+        """
+        Get a list of Service Resource collections.
+        """
         collection_names = [i.name for i in self.collections]
         result: List[Collection] = []
         result.extend(self.collections)
