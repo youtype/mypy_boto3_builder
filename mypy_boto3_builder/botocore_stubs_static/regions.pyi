@@ -24,7 +24,7 @@ class EndpointResolver(BaseEndpointResolver):
         partition_name: str = ...,
         allow_non_regional: bool = ...,
     ) -> List[str]: ...
-    def construct_endpoint(
+    def construct_endpoint(  # type: ignore
         self,
         service_name: str,
         region_name: Optional[str] = ...,
