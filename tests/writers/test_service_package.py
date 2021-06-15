@@ -2,7 +2,7 @@ import tempfile
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-from mypy_boto3_builder.writers.service_package import write_service_package
+from mypy_boto3_builder.writers.service_package import write_service_docs, write_service_package
 
 
 class TestServicePackage:
@@ -35,3 +35,12 @@ class TestServicePackage:
             )
             assert len(blackify_mock.mock_calls) == 17
             assert len(sort_imports_mock.mock_calls) == 17
+
+    def test_write_service_docs(self) -> None:
+        package_mock = MagicMock()
+        package_mock.name = "package"
+        package_mock.service_name.module_name = "module"
+
+        with tempfile.TemporaryDirectory() as output_dir:
+            output_path = Path(output_dir)
+            write_service_docs(package_mock, output_path)

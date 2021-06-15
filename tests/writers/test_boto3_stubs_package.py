@@ -2,7 +2,10 @@ import tempfile
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-from mypy_boto3_builder.writers.boto3_stubs_package import write_boto3_stubs_package
+from mypy_boto3_builder.writers.boto3_stubs_package import (
+    write_boto3_stubs_docs,
+    write_boto3_stubs_package,
+)
 
 
 class TestBoto3StubsPackage:
@@ -34,3 +37,12 @@ class TestBoto3StubsPackage:
             )
             assert len(blackify_mock.mock_calls) == 6
             assert len(sort_imports_mock.mock_calls) == 6
+
+    def test_write_boto3_stubs_docs(self) -> None:
+        package_mock = MagicMock()
+        package_mock.name = "package"
+        package_mock.service_name.module_name = "module"
+
+        with tempfile.TemporaryDirectory() as output_dir:
+            output_path = Path(output_dir)
+            write_boto3_stubs_docs(package_mock, output_path)

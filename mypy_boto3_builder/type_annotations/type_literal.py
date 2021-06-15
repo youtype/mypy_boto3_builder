@@ -24,8 +24,6 @@ class TypeLiteral(FakeAnnotation):
     def __init__(self, name: str, children: Iterable[Any]) -> None:
         self.children = set(children)
         self.name = self._find_name(name)
-        if not name:
-            raise ValueError("Literal should have name")
         if not children:
             raise ValueError("Literal should have children")
 
@@ -47,7 +45,8 @@ class TypeLiteral(FakeAnnotation):
     def _find_name(self, name: str) -> str:
         # FIXME: hack for APIGWv2
         if name == "__stringType":
-            return "".join(sorted(self.children)) + "Type"
+            children_name = "".join(sorted(f"{i[0].upper()}{i[1:]}" for i in self.children))
+            return f"{children_name}Type"
         if is_reserved(name):
             return f"{name}Type"
         return name
