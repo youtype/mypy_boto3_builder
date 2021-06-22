@@ -45,7 +45,7 @@ class Resource(ClassRecord):
         """
         return (
             "[Show boto3 documentation]"
-            f"({self.boto3_doc_link})"
+            f"({self.boto3_doc_link})\n"
             "[Show boto3-stubs documentation]"
             f"({self.service_name.get_doc_link('service_resource', self.name)})"
         )

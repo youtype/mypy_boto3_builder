@@ -1,7 +1,13 @@
+"""
+Main CLI entrypoint.
+"""
 import sys
 
 
 def print_info() -> None:
+    """
+    Print package info to stdout.
+    """
     print(
         "Type annotations for botocore {{ botocore_version }}\n"
         "Version:         {{ botocore_build_version }}\n"
@@ -12,10 +18,16 @@ def print_info() -> None:
 
 
 def print_version() -> None:
+    """
+    Print package version to stdout.
+    """
     print("{{ botocore_build_version }}")
 
 
 def main() -> None:
+    """
+    Main CLI entrypoint.
+    """
     if "--version" in sys.argv:
         return print_version()
     print_info()
