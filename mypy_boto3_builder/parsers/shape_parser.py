@@ -316,7 +316,7 @@ class ShapeParser:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
-    def _parse_shape_structure(self, shape: StructureShape) -> FakeAnnotation:
+    def _parse_shape_structure(self, shape: StructureShape, output: bool = False) -> FakeAnnotation:
         if not shape.members.items():
             return Type.DictStrAny
 
@@ -336,7 +336,7 @@ class ShapeParser:
                 self._parse_shape(attr_shape),
                 attr_name in required,
             )
-        if shape.name.endswith("Output"):
+        if output:
             for attribute in typed_dict.children:
                 attribute.required = True
             typed_dict.add_attribute(
@@ -354,7 +354,9 @@ class ShapeParser:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
-    def _parse_shape(self, shape: Shape, check_streaming: bool = True) -> FakeAnnotation:
+    def _parse_shape(
+        self, shape: Shape, check_streaming: bool = True, output: bool = False
+    ) -> FakeAnnotation:
         if check_streaming and "streaming" in shape.serialization:
             if shape.serialization["streaming"]:
                 return TypeClass(StreamingBody)
@@ -370,7 +372,7 @@ class ShapeParser:
             return self._parse_shape_map(shape)
 
         if isinstance(shape, StructureShape):
-            return self._parse_shape_structure(shape)
+            return self._parse_shape_structure(shape, output=output)
 
         if isinstance(shape, ListShape):
             return self._parse_shape_list(shape)
@@ -550,7 +552,7 @@ class ShapeParser:
                 arguments.extend(self._get_kw_flags(shape_arguments))
                 arguments.extend(shape_arguments)
             if operation_shape.output_shape is not None and return_type is Type.none:
-                operation_return_type = self._parse_shape(operation_shape.output_shape)
+                operation_return_type = self._parse_shape(operation_shape.output_shape, output=True)
                 return_type = operation_return_type
 
         return Method(name=method_name, arguments=arguments, return_type=return_type)
@@ -619,7 +621,7 @@ class ShapeParser:
                     method.arguments.extend(self._get_kw_flags(shape_arguments))
                     method.arguments.extend(shape_arguments)
                 if operation_model.output_shape is not None:
-                    return_type = self._parse_shape(operation_model.output_shape)
+                    return_type = self._parse_shape(operation_model.output_shape, output=True)
                     method.return_type = return_type
 
         return result
