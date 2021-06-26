@@ -36,7 +36,7 @@ mdformat = "*"
 [tool.poetry.dev-dependencies]
 codecov = "2.1.11"
 handsdown = "0.3.9"
-mypy = "0.902"
+mypy = "0.910"
 flake8 = "3.9.2"
 flake8-docstrings = "1.6.0"
 pytest-cov = "2.12.1"
