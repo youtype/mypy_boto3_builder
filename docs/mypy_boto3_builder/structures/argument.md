@@ -9,6 +9,7 @@ Method or function argument.
         - [Argument().get_types](#argumentget_types)
         - [Argument().is_kwflag](#argumentis_kwflag)
         - [Argument.kwflag](#argumentkwflag)
+        - [Argument().render](#argumentrender)
         - [Argument().required](#argumentrequired)
 
 ## Argument
@@ -36,7 +37,7 @@ Method or function argument.
 
 ### Argument().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L48)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L57)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
@@ -46,7 +47,7 @@ Extract required type annotations.
 
 ### Argument().is_kwflag
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L42)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L51)
 
 ```python
 def is_kwflag() -> bool:
@@ -56,7 +57,7 @@ Whether argument is a `*` keywords separator.
 
 ### Argument.kwflag
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L35)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L44)
 
 ```python
 @classmethod
@@ -65,9 +66,19 @@ def kwflag() -> _R:
 
 Create `*` keywords separator.
 
+### Argument().render
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L35)
+
+```python
+def render() -> str:
+```
+
+Render argument to a string.
+
 ### Argument().required
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L60)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L69)
 
 ```python
 @property
