@@ -22,10 +22,10 @@ class ExternalImport(FakeAnnotation):
         name: str = "",
         alias: str = "",
     ) -> None:
-        self.source = source
-        self.name = name
-        self.alias = alias
-        self.import_record = ImportRecord(source=source, name=name, alias=alias)
+        self.source: ImportString = source
+        self.name: str = name
+        self.alias: str = alias
+        self.import_record: ImportRecord = ImportRecord(source=source, name=name, alias=alias)
 
     def render(self, parent_name: str = "") -> str:
         """

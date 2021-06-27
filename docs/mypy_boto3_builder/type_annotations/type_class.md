@@ -13,11 +13,11 @@ Wrapper for classes like `Paginator`.
 
 ## TypeClass
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L11)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L12)
 
 ```python
 class TypeClass(FakeAnnotation):
-    def __init__(value: type, alias: str = '') -> None:
+    def __init__(value: Any, alias: str = '') -> None:
 ```
 
 Wrapper for classes like `Paginator`.
@@ -33,7 +33,7 @@ Wrapper for classes like `Paginator`.
 
 ### TypeClass().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L57)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L58)
 
 ```python
 def copy() -> 'TypeClass':
@@ -43,7 +43,7 @@ Create a copy of type annotation wrapper.
 
 ### TypeClass().get_import_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L36)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L37)
 
 ```python
 def get_import_name() -> str:
@@ -53,7 +53,7 @@ Get name for import string.
 
 ### TypeClass().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L42)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L43)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -67,7 +67,7 @@ Create an impoort record to insert where TypeClass is used.
 
 ### TypeClass().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L24)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L25)
 
 ```python
 def render(parent_name: str = '') -> str:

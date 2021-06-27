@@ -2,7 +2,7 @@
 Utils for markdown rendering.
 """
 
-from typing import Iterable, Type, TypeVar
+from typing import Iterable, List, Type, TypeVar
 
 from mypy_boto3_builder.utils.strings import get_anchor_link
 
@@ -19,8 +19,8 @@ class Header:
     """
 
     def __init__(self, title: str, level: int) -> None:
-        self.title = title
-        self.level = level
+        self.title: str = title
+        self.level: int = level
 
     @property
     def anchor(self) -> str:
@@ -46,7 +46,7 @@ class TableOfContents:
     """
 
     def __init__(self, headers: Iterable[Header]) -> None:
-        self.headers = list(headers)
+        self.headers: List[Header] = list(headers)
 
     @classmethod
     def parse(cls: Type[_TableOfContents], text: str) -> _TableOfContents:

@@ -55,7 +55,7 @@ class ShapeParser:
     """
 
     # Type map for shape types.
-    SHAPE_TYPE_MAP = {
+    SHAPE_TYPE_MAP: Mapping[str, FakeAnnotation] = {
         "integer": Type.int,
         "long": Type.int,
         "boolean": Type.bool,

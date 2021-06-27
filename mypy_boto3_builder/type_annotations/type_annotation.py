@@ -11,6 +11,7 @@ from typing import (
     List,
     Optional,
     Set,
+    Tuple,
     Type,
     Union,
     overload,
@@ -29,7 +30,7 @@ class TypeAnnotation(FakeAnnotation):
         wrapped_type -- Original type annotation.
     """
 
-    supported_types = (
+    supported_types: Tuple[Any, ...] = (
         Union,
         Any,
         Dict,
@@ -44,7 +45,7 @@ class TypeAnnotation(FakeAnnotation):
         Type,
     )
 
-    type_name_map = (
+    type_name_map: Tuple[Tuple[Any, str], ...] = (
         (
             Union,
             "Union",
@@ -101,7 +102,7 @@ class TypeAnnotation(FakeAnnotation):
         if wrapped_type not in self.supported_types:
             raise ValueError(f"Cannot wrap {wrapped_type}")
 
-        self.wrapped_type = wrapped_type
+        self.wrapped_type: Any = wrapped_type
 
     def render(self, parent_name: str = "") -> str:
         """

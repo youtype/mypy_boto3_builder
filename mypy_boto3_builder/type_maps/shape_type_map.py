@@ -9,7 +9,8 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
-DynamoDBValue = TypeSubscript(
+# FIXME: a hack to avoid cicular TypedDict in dynamodb package
+DynamoDBValue: TypeSubscript = TypeSubscript(
     Type.Union,
     [
         Type.bytes,
@@ -29,7 +30,8 @@ DynamoDBValue = TypeSubscript(
     ],
 )
 
-InvocationResponseTypeDef = TypeTypedDict(
+# FIXME: a hack to avoid cicular TypedDict in lambda package
+InvocationResponseTypeDef: TypeTypedDict = TypeTypedDict(
     "InvocationResponseTypeDef",
     [
         TypedDictAttribute("StatusCode", Type.int, False),

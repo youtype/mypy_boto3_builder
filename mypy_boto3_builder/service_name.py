@@ -1,7 +1,7 @@
 """
 Description for boto3 service.
 """
-from typing import Literal, Tuple
+from typing import Literal, Mapping, Tuple
 
 from mypy_boto3_builder.constants import MODULE_NAME, PYPI_NAME
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
@@ -452,7 +452,7 @@ class ServiceNameCatalog:
         ServiceName("workspaces", "WorkSpaces"),
         ServiceName("xray", "XRay"),
     )
-    ITEM_MAP = {i.name: i for i in ITEMS}
+    ITEM_MAP: Mapping[str, ServiceName] = {i.name: i for i in ITEMS}
 
     ec2 = ITEM_MAP["ec2"]
     iam = ITEM_MAP["iam"]

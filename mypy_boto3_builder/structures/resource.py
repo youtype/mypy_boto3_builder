@@ -28,7 +28,7 @@ class Resource(ClassRecord):
             ],
             use_alias=True,
         )
-        self.service_name = service_name
+        self.service_name: ServiceName = service_name
         self.collections: List[Collection] = []
 
     @property

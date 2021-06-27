@@ -32,10 +32,6 @@ Parser for botocore shape files.
 - `session` - Boto3 session.
 - `service_name` - ServiceName.
 
-#### Attributes
-
-- `SHAPE_TYPE_MAP` - Type map for shape types.: `{'integer': Type.int, 'long': Type.int, 'boolea...`
-
 #### See also
 
 - [ServiceName](../service_name.md#servicename)

@@ -4,7 +4,7 @@ Collection of TypedDicts added by boto3.
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
-s3_copy_source_type = TypeTypedDict(
+s3_copy_source_type: TypeTypedDict = TypeTypedDict(
     "CopySourceTypeDef",
     [
         TypedDictAttribute("Bucket", Type.str, True),
@@ -14,7 +14,7 @@ s3_copy_source_type = TypeTypedDict(
 )
 
 
-ec2_tag_type = TypeTypedDict(
+ec2_tag_type: TypeTypedDict = TypeTypedDict(
     "TagTypeDef",
     [
         TypedDictAttribute("Key", Type.str, True),
@@ -22,7 +22,7 @@ ec2_tag_type = TypeTypedDict(
     ],
 )
 
-waiter_config_type = TypeTypedDict(
+waiter_config_type: TypeTypedDict = TypeTypedDict(
     "WaiterConfigTypeDef",
     [
         TypedDictAttribute("Delay", Type.int, False),
@@ -30,7 +30,7 @@ waiter_config_type = TypeTypedDict(
     ],
 )
 
-paginator_config_type = TypeTypedDict(
+paginator_config_type: TypeTypedDict = TypeTypedDict(
     "PaginatorConfigTypeDef",
     [
         TypedDictAttribute("MaxItems", Type.int, False),

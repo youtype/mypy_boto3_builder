@@ -23,9 +23,9 @@ class Attribute:
         type_annotation: FakeAnnotation,
         value: Optional[TypeConstant] = None,
     ):
-        self.name = name
-        self.type_annotation = type_annotation
-        self.value = value
+        self.name: str = name
+        self.type_annotation: FakeAnnotation = type_annotation
+        self.value: Optional[TypeConstant] = value
 
     def get_types(self) -> Set[FakeAnnotation]:
         """

@@ -16,7 +16,7 @@ class TypeConstant(FakeAnnotation):
     """
 
     def __init__(self, value: Any) -> None:
-        self.value = value
+        self.value: Any = value
 
     def render(self, parent_name: str = "") -> str:
         """

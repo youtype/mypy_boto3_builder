@@ -27,10 +27,10 @@ class Argument:
         default: Optional[TypeConstant] = None,
         prefix: str = "",
     ):
-        self.name = name
-        self.type_annotation = type_annotation
-        self.default = default
-        self.prefix = prefix
+        self.name: str = name
+        self.type_annotation: Optional[FakeAnnotation] = type_annotation
+        self.default: Optional[TypeConstant] = default
+        self.prefix: str = prefix
 
     def render(self) -> str:
         """

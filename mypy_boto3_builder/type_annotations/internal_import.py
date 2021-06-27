@@ -29,11 +29,11 @@ class InternalImport(FakeAnnotation):
         stringify: bool = True,
         use_alias: bool = False,
     ) -> None:
-        self.name = name
-        self.service_name = service_name
-        self.module_name = module_name
-        self.stringify = stringify
-        self.use_alias = use_alias
+        self.name: str = name
+        self.service_name: Optional[ServiceName] = service_name
+        self.module_name: ServiceModuleName = module_name
+        self.stringify: bool = stringify
+        self.use_alias: bool = use_alias
 
     @staticmethod
     def get_alias(name: str) -> str:

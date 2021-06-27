@@ -8,7 +8,7 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 # FIXME: https://github.com/boto/botocore/issues/1807
-ResourceStatusType = TypeLiteral(
+ResourceStatusType: TypeLiteral = TypeLiteral(
     "ResourceStatusType",
     [
         "CREATE_COMPLETE",
