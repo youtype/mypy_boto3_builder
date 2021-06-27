@@ -68,6 +68,11 @@ class TypeTypedDict(FakeAnnotation):
         """
         return self.name
 
+    def __hash__(self) -> int:
+        children = "".join(i.name for i in self.children)
+        hash_str = f"{self.name} {children}"
+        return hash(hash_str)
+
     def get_attribute(self, name: str) -> TypedDictAttribute:
         """
         Find attribute by `name`.

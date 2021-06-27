@@ -345,6 +345,7 @@ class ShapeParser:
                 attr_name in required,
             )
         if output:
+            typed_dict.name = self._get_typed_dict_name(shape, postfix="Response")
             for attribute in typed_dict.children:
                 attribute.required = True
             typed_dict.add_attribute(
@@ -567,7 +568,7 @@ class ShapeParser:
         method = Method(name=method_name, arguments=arguments, return_type=return_type)
         if operation_shape and operation_shape.input_shape is not None:
             method.request_type_annotation = method.get_request_type_annotation(
-                self._get_typed_dict_name(operation_shape.input_shape, resource_name)
+                self._get_typed_dict_name(operation_shape.input_shape, postfix=resource_name)
             )
         return method
 

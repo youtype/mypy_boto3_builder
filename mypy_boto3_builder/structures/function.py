@@ -32,7 +32,7 @@ class Function:
         self.decorators = list(decorators)
         self.body_lines = body_lines
         self.type_ignore = type_ignore
-        self.request_type_annotation: Optional[FakeAnnotation] = None
+        self.request_type_annotation: Optional[TypeTypedDict] = None
 
     def get_request_type_annotation(self, name: str) -> Optional[TypeTypedDict]:
         """

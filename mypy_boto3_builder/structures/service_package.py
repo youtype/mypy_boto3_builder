@@ -72,24 +72,42 @@ class ServicePackage(Package):
 
         return list(sorted(found.values()))
 
+    def _get_typed_dicts(self) -> Set[TypeTypedDict]:
+        result: Set[TypeTypedDict] = set()
+        for type_annotation in self.get_types():
+            if not isinstance(type_annotation, TypeTypedDict):
+                continue
+            result.add(type_annotation)
+
+        for method in self.client.methods:
+            if method.request_type_annotation:
+                result.add(method.request_type_annotation)
+        if self.service_resource:
+            for method in self.service_resource.methods:
+                if method.request_type_annotation:
+                    result.add(method.request_type_annotation)
+            for resource in self.service_resource.sub_resources:
+                for method in resource.methods:
+                    if method.request_type_annotation:
+                        result.add(method.request_type_annotation)
+        return result
+
     def extract_typed_dicts(self) -> List[TypeTypedDict]:
         """
         Extract typed dicts from children.
 
         Attempts to resolve circular typed dicts.
         """
-        added_names: List[str] = []
+        added_hashes: List[int] = []
         result: List[TypeTypedDict] = []
         discovered: List[TypeTypedDict] = []
-        for type_annotation in sorted(self.get_types()):
-            if not isinstance(type_annotation, TypeTypedDict):
-                continue
-
-            if type_annotation.name in added_names:
+        typed_dicts = self._get_typed_dicts()
+        for type_annotation in sorted(typed_dicts):
+            if hash(type_annotation) in added_hashes:
                 continue
 
             result.append(type_annotation)
-            added_names.append(type_annotation.name)
+            added_hashes.append(hash(type_annotation))
             discovered.append(type_annotation)
 
         while discovered:
@@ -98,11 +116,11 @@ class ServicePackage(Package):
             for child_typed_dict in sorted(sub_typed_dicts):
                 child_typed_dict.stringify = True
 
-                if child_typed_dict.name in added_names:
+                if hash(child_typed_dict) in added_hashes:
                     continue
 
                 result.append(child_typed_dict)
-                added_names.append(child_typed_dict.name)
+                added_hashes.append(hash(child_typed_dict))
                 discovered.append(child_typed_dict)
 
         result.sort()
@@ -116,21 +134,11 @@ class ServicePackage(Package):
         types.update(self.client.get_types())
         if self.service_resource:
             types.update(self.service_resource.get_types())
-            for method in self.service_resource.methods:
-                if method.request_type_annotation:
-                    types.add(method.request_type_annotation)
-            for resource in self.service_resource.sub_resources:
-                for method in resource.methods:
-                    if method.request_type_annotation:
-                        types.add(method.request_type_annotation)
         for waiter in self.waiters:
             types.update(waiter.get_types())
         for paginator in self.paginators:
             types.update(paginator.get_types())
 
-        for method in self.client.methods:
-            if method.request_type_annotation:
-                types.add(method.request_type_annotation)
         return types
 
     def get_init_import_records(self) -> List[ImportRecord]:
