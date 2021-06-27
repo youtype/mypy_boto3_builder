@@ -32,6 +32,15 @@ class Argument:
         self.default = default
         self.prefix = prefix
 
+    def render(self) -> str:
+        """
+        Render argument to a string.
+        """
+        if not self.type_annotation:
+            return f"{self.name} = {self.default}"
+
+        return f"{self.name}: {self.type_annotation.render()} = {self.default}"
+
     @classmethod
     def kwflag(cls: Type[_R]) -> _R:
         """

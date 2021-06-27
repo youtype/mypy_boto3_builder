@@ -3,6 +3,7 @@ import boto3
 from boto3.session import Session
 from mypy_boto3_s3.client import S3Client
 from mypy_boto3_s3.service_resource import Bucket, S3ServiceResource
+from mypy_boto3_s3.type_defs import BucketUploadFileRequestTypeDef
 
 
 def s3_resource_example() -> None:
@@ -19,6 +20,8 @@ def s3_resource_example() -> None:
 
     # (mypy) error: Unexpected keyword argument "key" for "upload_file" of "Bucket"
     bucket.upload_file(Filename="my.txt", key="my-txt")
+    data: BucketUploadFileRequestTypeDef = {"Filename": "my.txt", "key": "my-txt"}
+    bucket.upload_file(**data)
 
     # (mypy) error: Extra key 'key' for TypedDict "S3CopySource"
     bucket.copy({"Bucket": "bucket", "key": "my-txt"}, "new-my-txt")

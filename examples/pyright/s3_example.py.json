@@ -4,11 +4,11 @@
         "message": "No parameter named \"mfa\"",
         "range": {
             "start": {
-                "line": 17,
+                "line": 18,
                 "character": 26
             },
             "end": {
-                "line": 17,
+                "line": 18,
                 "character": 29
             }
         },
@@ -19,11 +19,11 @@
         "message": "No parameter named \"key\"",
         "range": {
             "start": {
-                "line": 20,
+                "line": 21,
                 "character": 42
             },
             "end": {
-                "line": 20,
+                "line": 21,
                 "character": 45
             }
         },
@@ -34,11 +34,11 @@
         "message": "Argument missing for parameter \"Key\"",
         "range": {
             "start": {
-                "line": 20,
+                "line": 21,
                 "character": 4
             },
             "end": {
-                "line": 20,
+                "line": 21,
                 "character": 55
             }
         },
@@ -46,14 +46,29 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"dict[str, str]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceTypeDef\" in function \"copy\"\n\u00a0\u00a0\"key\" is an undefined field in type \"CopySourceTypeDef\"",
+        "message": "Expression of type \"dict[str, str]\" cannot be assigned to declared type \"BucketUploadFileRequestTypeDef\"\n\u00a0\u00a0\"key\" is an undefined field in type \"BucketUploadFileRequestTypeDef\"",
         "range": {
             "start": {
-                "line": 23,
+                "line": 22,
+                "character": 43
+            },
+            "end": {
+                "line": 22,
+                "character": 82
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Expected 0 positional arguments",
+        "range": {
+            "start": {
+                "line": 26,
                 "character": 16
             },
             "end": {
-                "line": 23,
+                "line": 26,
                 "character": 53
             }
         },
@@ -64,11 +79,11 @@
         "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"CopySource\" of type \"str\" in function \"copy_from\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
         "range": {
             "start": {
-                "line": 31,
+                "line": 34,
                 "character": 37
             },
             "end": {
-                "line": 31,
+                "line": 34,
                 "character": 40
             }
         },
@@ -79,11 +94,11 @@
         "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester'] | None\" in function \"abort\"\n\u00a0\u00a0Type \"Literal['none']\" cannot be assigned to type \"Literal['requester'] | None\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['none']\" cannot be assigned to type \"Literal['requester']\"",
         "range": {
             "start": {
-                "line": 35,
+                "line": 38,
                 "character": 48
             },
             "end": {
-                "line": 35,
+                "line": 38,
                 "character": 54
             }
         },
@@ -94,11 +109,11 @@
         "message": "No parameter named \"wrong_arg\"",
         "range": {
             "start": {
-                "line": 37,
+                "line": 40,
                 "character": 22
             },
             "end": {
-                "line": 37,
+                "line": 40,
                 "character": 31
             }
         },
@@ -109,11 +124,11 @@
         "message": "No parameter named \"bucket\"",
         "range": {
             "start": {
-                "line": 46,
+                "line": 49,
                 "character": 30
             },
             "end": {
-                "line": 46,
+                "line": 49,
                 "character": 36
             }
         },
@@ -124,11 +139,11 @@
         "message": "Argument missing for parameter \"Bucket\"",
         "range": {
             "start": {
-                "line": 46,
+                "line": 49,
                 "character": 4
             },
             "end": {
-                "line": 46,
+                "line": 49,
                 "character": 46
             }
         },
@@ -139,11 +154,11 @@
         "message": "Argument missing for parameter \"Key\"",
         "range": {
             "start": {
-                "line": 52,
+                "line": 55,
                 "character": 4
             },
             "end": {
-                "line": 52,
+                "line": 55,
                 "character": 38
             }
         },
@@ -151,14 +166,14 @@
     },
     {
         "severity": "error",
-        "message": "Could not access item in TypedDict\n\u00a0\u00a0\"expiration\" is not a defined key in \"GetObjectOutputTypeDef\"",
+        "message": "Could not access item in TypedDict\n\u00a0\u00a0\"expiration\" is not a defined key in \"GetObjectOutputResponseTypeDef\"",
         "range": {
             "start": {
-                "line": 55,
+                "line": 58,
                 "character": 18
             },
             "end": {
-                "line": 55,
+                "line": 58,
                 "character": 77
             }
         },
@@ -169,11 +184,11 @@
         "message": "Argument of type \"dict[str, list[dict[str, list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0Type \"list[dict[str, list[str]]]\" is not assignable to field \"CORSRules\"",
         "range": {
             "start": {
-                "line": 60,
+                "line": 63,
                 "character": 26
             },
             "end": {
-                "line": 62,
+                "line": 65,
                 "character": 9
             }
         },
@@ -184,11 +199,11 @@
         "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" cannot be assigned to type \"str\"",
         "range": {
             "start": {
-                "line": 67,
+                "line": 70,
                 "character": 47
             },
             "end": {
-                "line": 67,
+                "line": 70,
                 "character": 51
             }
         },
@@ -199,11 +214,11 @@
         "message": "Cannot access member \"operations_name\" for type \"BotocoreClientError\"\n\u00a0\u00a0Member \"operations_name\" is unknown",
         "range": {
             "start": {
-                "line": 69,
+                "line": 72,
                 "character": 16
             },
             "end": {
-                "line": 69,
+                "line": 72,
                 "character": 31
             }
         },

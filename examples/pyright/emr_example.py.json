@@ -16,7 +16,7 @@
     },
     {
         "severity": "error",
-        "message": "Could not access item in TypedDict\n\u00a0\u00a0\"steps\" is not a defined key in \"ListStepsOutputTypeDef\"",
+        "message": "Could not access item in TypedDict\n\u00a0\u00a0\"steps\" is not a defined key in \"ListStepsOutputResponseTypeDef\"",
         "range": {
             "start": {
                 "line": 13,

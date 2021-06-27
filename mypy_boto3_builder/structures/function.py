@@ -39,13 +39,8 @@ class Function:
         Get TypedDict based on function arguments.
         """
         result = TypeTypedDict(name)
-        kw_flag_found = False
         for argument in self.arguments:
             if argument.is_kwflag():
-                kw_flag_found = True
-                continue
-
-            if not kw_flag_found:
                 continue
 
             if not argument.type_annotation:

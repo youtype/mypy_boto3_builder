@@ -12,6 +12,7 @@ from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.docstring_parser.argspec_parser import ArgSpecParser
 from mypy_boto3_builder.parsers.docstring_parser.docstring_parser import DocstringParser
 from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_maps.docstring_type_map import get_type_from_docstring
@@ -102,10 +103,18 @@ def parse_method(
         docstring_parser = DocstringParser(service_name, parent_name, name, arguments)
         arguments = docstring_parser.get_arguments(docstring)
 
+    # do not add kwonly flag to resource generators
+    if len(arguments) > 1 and not name[0].isupper():
+        arguments.insert(1, Argument.kwflag())
+
     return_type = arg_spec_parser.get_return_type(parent_name, name)
     if return_type is None:
         return_type = DocstringParser(service_name, parent_name, name, []).get_return_type(
             docstring
         )
 
-    return Method(name=name, arguments=arguments, return_type=return_type)
+    result = Method(name=name, arguments=arguments, return_type=return_type)
+    result.request_type_annotation = result.get_request_type_annotation(
+        f"{parent_name}{get_class_prefix(name)}RequestTypeDef"
+    )
+    return result

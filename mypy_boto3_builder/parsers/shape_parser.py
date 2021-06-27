@@ -239,8 +239,8 @@ class ShapeParser:
         return Type.none
 
     @staticmethod
-    def _get_kw_flags(arguments: Sequence[Argument]) -> List[Argument]:
-        if len(arguments):
+    def _get_kw_flags(method_name: str, arguments: Sequence[Argument]) -> List[Argument]:
+        if len(arguments) and not method_name[0].isupper():
             return [Argument.kwflag()]
 
         return []
@@ -282,7 +282,7 @@ class ShapeParser:
                     operation_name,
                     operation_model.input_shape,
                 )
-                arguments.extend(self._get_kw_flags(shape_arguments))
+                arguments.extend(self._get_kw_flags(method_name, shape_arguments))
                 arguments.extend(shape_arguments)
 
             return_type = self._parse_return_type(
@@ -425,7 +425,7 @@ class ShapeParser:
                 exclude_names=skip_argument_names,
             )
             shape_arguments.append(Argument("PaginationConfig", paginator_config_type, Type.none))
-            arguments.extend(self._get_kw_flags(shape_arguments))
+            arguments.extend(self._get_kw_flags("paginate", shape_arguments))
             arguments.extend(shape_arguments)
 
         return_type: FakeAnnotation = Type.none
@@ -461,7 +461,7 @@ class ShapeParser:
                 "Waiter", "wait", operation_name, operation_shape.input_shape
             )
             shape_arguments.append(Argument("WaiterConfig", waiter_config_type, Type.none))
-            arguments.extend(self._get_kw_flags(shape_arguments))
+            arguments.extend(self._get_kw_flags("wait", shape_arguments))
             arguments.extend(shape_arguments)
 
         return Method(name="wait", arguments=arguments, return_type=Type.none)
@@ -559,7 +559,7 @@ class ShapeParser:
                     operation_shape.input_shape,
                     exclude_names=skip_argument_names,
                 )
-                arguments.extend(self._get_kw_flags(shape_arguments))
+                arguments.extend(self._get_kw_flags(method_name, shape_arguments))
                 arguments.extend(shape_arguments)
             if operation_shape.output_shape is not None and return_type is Type.none:
                 operation_return_type = self._parse_shape(operation_shape.output_shape, output=True)
@@ -601,7 +601,7 @@ class ShapeParser:
                 operation_model.input_shape,
                 optional_only=True,
             )
-            result.arguments.extend(self._get_kw_flags(shape_arguments))
+            result.arguments.extend(self._get_kw_flags(result.name, shape_arguments))
             result.arguments.extend(shape_arguments)
 
         return result
@@ -633,7 +633,7 @@ class ShapeParser:
                         operation_model.input_shape,
                         optional_only=True,
                     )
-                    method.arguments.extend(self._get_kw_flags(shape_arguments))
+                    method.arguments.extend(self._get_kw_flags(batch_action.name, shape_arguments))
                     method.arguments.extend(shape_arguments)
                 if operation_model.output_shape is not None:
                     return_type = self._parse_shape(operation_model.output_shape, output=True)
