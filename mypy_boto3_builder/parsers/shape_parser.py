@@ -234,7 +234,7 @@ class ShapeParser:
             return argument_type_stub
 
         if shape:
-            return self._parse_shape(shape)
+            return self._parse_shape(shape, output=True)
 
         return Type.none
 
