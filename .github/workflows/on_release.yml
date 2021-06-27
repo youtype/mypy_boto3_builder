@@ -39,7 +39,6 @@ jobs:
         run: |
           echo "Bumping version to ${VERSION}"
           poetry version ${VERSION}
-          sed -i -E "s/^version = .+/version = ${VERSION}/" setup.cfg
           poetry install -n
       - name: Commit changes
         env:

@@ -12,4 +12,4 @@ if [[ "$BOTOCORE_VERSION" != "" ]]; then
     pip install --user botocore==${BOTOCORE_VERSION}
 fi
 
-mypy_boto3_builder . $@
+python -m mypy_boto3_builder . $@

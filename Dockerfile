@@ -9,7 +9,6 @@ ADD ./mypy_boto3_builder ./mypy_boto3_builder
 ADD ./LICENSE ./LICENSE
 ADD ./pyproject.toml ./pyproject.toml
 ADD ./setup.cfg ./setup.cfg
-ADD ./setup.py ./setup.py
 ADD ./README.md ./README.md
 ADD ./scripts/docker.sh ./scripts/docker.sh
 

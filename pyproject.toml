@@ -22,6 +22,48 @@ version = "4.19.0"
 description = "Builder for boto3-stubs"
 authors = ["Vlad Emelianov <vlad.emelianov.nz@gmail.com>"]
 license = "MIT"
+readme = "README.md"
+homepage = "https://vemel.github.io/mypy_boto3_builder/"
+repository = "https://github.com/vemel/mypy_boto3_builder"
+documentation = "https://vemel.github.io/mypy_boto3_builder/"
+keywords = ["boto3", "type-annotations", "pyright", "mypy", "boto3-stubs"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Typing :: Typed",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+packages = [
+    { include = "mypy_boto3_builder" },
+]
+include = [
+    "mypy_boto3_builder/py.typed",
+    "mypy_boto3_builder/templates/*/*.jinja2",
+    "mypy_boto3_builder/templates/*/*/*.jinja2",
+    "mypy_boto3_builder/templates/*/*/*/*.jinja2",
+    "mypy_boto3_builder/boto3_stubs_static/*.pyi",
+    "mypy_boto3_builder/boto3_stubs_static/*/*.pyi",
+    "mypy_boto3_builder/boto3_stubs_static/*/*.py",
+]
+
+[tool.poetry.scripts]
+mypy_boto3_builder = 'mypy_boto3_builder.main:main'
+
+[tool.poetry.urls]
+"Documentation" = "https://mypy-boto3-builder.readthedocs.io/en/latest/"
+"Source" = "https://github.com/vemel/mypy_boto3_builder"
+"Bug Tracker" = "https://github.com/vemel/mypy_boto3_builder/issues"
 
 [tool.poetry.dependencies]
 python = "^3.8"
