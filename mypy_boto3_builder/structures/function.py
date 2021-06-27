@@ -1,12 +1,13 @@
 """
 Module-level function.
 """
-from typing import Iterable, Set
+from typing import Iterable, Optional, Set
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 
 
 class Function:
@@ -31,6 +32,33 @@ class Function:
         self.decorators = list(decorators)
         self.body_lines = body_lines
         self.type_ignore = type_ignore
+        self.request_type_annotation: Optional[FakeAnnotation] = None
+
+    def get_request_type_annotation(self, name: str) -> Optional[TypeTypedDict]:
+        """
+        Get TypedDict based on function arguments.
+        """
+        result = TypeTypedDict(name)
+        kw_flag_found = False
+        for argument in self.arguments:
+            if argument.is_kwflag():
+                kw_flag_found = True
+                continue
+
+            if not kw_flag_found:
+                continue
+
+            if not argument.type_annotation:
+                continue
+            result.add_attribute(
+                argument.name,
+                argument.type_annotation,
+                required=argument.required,
+            )
+
+        if not result.children:
+            return None
+        return result
 
     @property
     def body(self) -> str:

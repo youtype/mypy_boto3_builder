@@ -116,10 +116,21 @@ class ServicePackage(Package):
         types.update(self.client.get_types())
         if self.service_resource:
             types.update(self.service_resource.get_types())
+            for method in self.service_resource.methods:
+                if method.request_type_annotation:
+                    types.add(method.request_type_annotation)
+            for resource in self.service_resource.sub_resources:
+                for method in resource.methods:
+                    if method.request_type_annotation:
+                        types.add(method.request_type_annotation)
         for waiter in self.waiters:
             types.update(waiter.get_types())
         for paginator in self.paginators:
             types.update(paginator.get_types())
+
+        for method in self.client.methods:
+            if method.request_type_annotation:
+                types.add(method.request_type_annotation)
         return types
 
     def get_init_import_records(self) -> List[ImportRecord]:

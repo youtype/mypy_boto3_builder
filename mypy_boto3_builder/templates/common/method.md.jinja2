@@ -1,4 +1,7 @@
 {% if method.call_arguments %}
+{% if method.request_type_annotation %}
+Arguments mapping described in {% with type_annotation=method.request_type_annotation %}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}.
+{% endif %}
 {% if method.is_kw_only() %}Keyword-only arguments:{% else %}Arguments:{% endif %}
 {% with arguments=method.arguments[1:] -%}
 {% include "common/arguments_list.md.jinja2" with context -%}

@@ -290,8 +290,16 @@ class ShapeParser:
             )
 
             method = Method(name=method_name, arguments=arguments, return_type=return_type)
+            if operation_model.input_shape:
+                method.request_type_annotation = method.get_request_type_annotation(
+                    self._get_typed_dict_name(operation_model.input_shape)
+                )
             result[method.name] = method
         return result
+
+    @staticmethod
+    def _get_typed_dict_name(shape: Shape, postfix: str = "") -> str:
+        return f"{shape.name}{postfix}TypeDef"
 
     def _parse_shape_string(self, shape: StringShape) -> FakeAnnotation:
         if not shape.enum:
@@ -321,7 +329,7 @@ class ShapeParser:
             return Type.DictStrAny
 
         required = shape.required_members
-        typed_dict_name = f"{shape.name}TypeDef"
+        typed_dict_name = self._get_typed_dict_name(shape)
         shape_type_stub = get_shape_type_stub(self.service_name, typed_dict_name)
         if shape_type_stub:
             return shape_type_stub
@@ -533,6 +541,7 @@ class ShapeParser:
             if path.endswith("[]"):
                 return_type = TypeSubscript(Type.List, [return_type])
 
+        operation_shape = None
         if "request" in action_shape:
             operation_name = action_shape["request"]["operation"]
             operation_shape = self._get_operation(operation_name)
@@ -555,7 +564,12 @@ class ShapeParser:
                 operation_return_type = self._parse_shape(operation_shape.output_shape, output=True)
                 return_type = operation_return_type
 
-        return Method(name=method_name, arguments=arguments, return_type=return_type)
+        method = Method(name=method_name, arguments=arguments, return_type=return_type)
+        if operation_shape and operation_shape.input_shape is not None:
+            method.request_type_annotation = method.get_request_type_annotation(
+                self._get_typed_dict_name(operation_shape.input_shape, resource_name)
+            )
+        return method
 
     def get_collection_filter_method(
         self, name: str, collection: Collection, self_type: FakeAnnotation
