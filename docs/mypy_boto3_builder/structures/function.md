@@ -12,6 +12,7 @@ Module-level function.
         - [Function().get_types](#functionget_types)
         - [Function().is_kw_only](#functionis_kw_only)
         - [Function().returns_none](#functionreturns_none)
+        - [Function().short_docstring](#functionshort_docstring)
 
 ## Function
 
@@ -38,7 +39,7 @@ Module-level function.
 
 ### Function().body
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L58)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L68)
 
 ```python
 @property
@@ -49,7 +50,7 @@ Function body as a string.
 
 ### Function().get_request_type_annotation
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L37)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L47)
 
 ```python
 def get_request_type_annotation(name: str) -> Optional[TypeTypedDict]:
@@ -59,7 +60,7 @@ Get TypedDict based on function arguments.
 
 ### Function().get_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L77)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L87)
 
 ```python
 def get_required_import_records() -> Set[ImportRecord]:
@@ -69,7 +70,7 @@ Extract required import records.
 
 ### Function().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L65)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L75)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
@@ -79,7 +80,7 @@ Extract required type annotations.
 
 ### Function().is_kw_only
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L97)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L107)
 
 ```python
 def is_kw_only() -> bool:
@@ -89,7 +90,7 @@ Whether method arguments can be passed only as kwargs.
 
 ### Function().returns_none
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L90)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L100)
 
 ```python
 @property
@@ -97,3 +98,14 @@ def returns_none() -> bool:
 ```
 
 Whether return type is None.
+
+### Function().short_docstring
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L37)
+
+```python
+@property
+def short_docstring() -> str:
+```
+
+Docstring without documentation links.

@@ -20,12 +20,15 @@ class TestFunction:
             decorators=[Type.Any],
             return_type=Type.none,
             body_lines=["line1", "line2"],
+            docstring="docstring\n\nlong",
         )
 
     def test_init(self) -> None:
         assert self.function.name == "name"
         assert len(self.function.arguments) == 3
         assert self.function.body == "line1\nline2"
+        assert self.function.docstring == "docstring\n\nlong"
+        assert self.function.short_docstring == "docstring"
 
     def test_get_types(self) -> None:
         assert self.function.get_types() == {

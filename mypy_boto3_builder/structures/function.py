@@ -34,6 +34,16 @@ class Function:
         self.type_ignore = type_ignore
         self.request_type_annotation: Optional[TypeTypedDict] = None
 
+    @property
+    def short_docstring(self) -> str:
+        """
+        Docstring without documentation links.
+        """
+        if not self.docstring:
+            return self.docstring
+
+        return self.docstring.split("\n\n")[0]
+
     def get_request_type_annotation(self, name: str) -> Optional[TypeTypedDict]:
         """
         Get TypedDict based on function arguments.

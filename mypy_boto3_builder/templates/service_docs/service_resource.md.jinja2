@@ -55,6 +55,8 @@ Boto3 documentation: [{{ service_name.class_name }}.{{ collection.parent_name }}
 {% for method in package.service_resource.methods %}
 ### {{ package.service_resource.name }}.{{ method.name }} method
 
+{{ method.short_docstring }}
+
 Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
 
 Boto3 documentation: [{{ service_name.class_name }}.ServiceResource.{{method.name}}]({{ service_name.get_boto3_doc_link('ServiceResource', method.name) }})
@@ -116,6 +118,8 @@ Boto3 documentation: [{{ service_name.class_name }}.{{ collection.parent_name }}
 
 {% for method in resource.methods %}
 #### {{ resource.name }}.{{ method.name }} method
+
+{{ method.short_docstring }}
 
 Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
 
