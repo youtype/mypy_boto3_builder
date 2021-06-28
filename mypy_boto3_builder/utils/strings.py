@@ -108,9 +108,10 @@ def get_short_docstring(doc: str) -> str:
     """
     Create a short docstring from boto3 documentation.
 
-    Trimps docstring to 200 chars.
+    Trims docstring to 300 chars.
     Removes double and trible backticks.
     Ensures that backticks are closed.
+    Wraps docstring to 80 chars.
     """
     doc = str(doc)
     if len(doc) > MAX_DOCSTRING_LENGTH:
