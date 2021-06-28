@@ -18,7 +18,7 @@ src_paths = []
 
 [tool.poetry]
 name = "mypy-boto3-builder"
-version = "4.19.0"
+version = "4.20.0"
 description = "Builder for boto3-stubs"
 authors = ["Vlad Emelianov <vlad.emelianov.nz@gmail.com>"]
 license = "MIT"
