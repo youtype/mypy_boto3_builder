@@ -42,7 +42,7 @@ class Type:
     Decimal = TypeClass(Decimal)
     Type = TypeAnnotation(TypingType)
     Iterator = TypeAnnotation(Iterator)
-    datetime = TypeSubscript(Union, [TypeClass(datetime), str])
+    datetime = TypeClass(datetime)
 
     ListAny = TypeSubscript(List, [Any])
     DictStrAny = TypeSubscript(Dict, [str, Any])

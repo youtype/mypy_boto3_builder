@@ -19,12 +19,10 @@ from botocore.model import (
 from botocore.response import StreamingBody
 from botocore.session import Session as BotocoreSession
 
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
-from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport
 from mypy_boto3_builder.type_annotations.type import Type
@@ -61,8 +59,17 @@ class ShapeParser:
         "boolean": Type.bool,
         "double": Type.float,
         "float": Type.float,
-        "timestamp": ExternalImport(ImportString("datetime"), "datetime"),
+        "timestamp": TypeSubscript(Type.Union, [Type.datetime, Type.str]),
         "blob": TypeSubscript(Type.Union, [Type.bytes, Type.IOBytes, TypeClass(StreamingBody)]),
+        "blob_streaming": TypeSubscript(
+            Type.Union, [Type.bytes, Type.IOBytes, TypeClass(StreamingBody)]
+        ),
+    }
+
+    OUTPUT_SHAPE_TYPE_MAP: Mapping[str, FakeAnnotation] = {
+        "timestamp": Type.datetime,
+        "blob": Type.bytes,
+        "blob_streaming": TypeClass(StreamingBody),
     }
 
     # Alias map fixes added by botocore for documentation build.
@@ -213,7 +220,7 @@ class ShapeParser:
             if argument_type_stub is not None:
                 argument_type = argument_type_stub
             else:
-                argument_type = self._parse_shape(argument_shape, check_streaming=False)
+                argument_type = self._parse_shape(argument_shape)
             argument = Argument(argument_alias, argument_type)
             if argument_name not in required:
                 argument.default = Type.none
@@ -312,19 +319,24 @@ class ShapeParser:
 
         return TypeLiteral(f"{shape.name}Type", [option for option in shape.enum])
 
-    def _parse_shape_map(self, shape: MapShape) -> FakeAnnotation:
+    def _parse_shape_map(self, shape: MapShape, output_child: bool = False) -> FakeAnnotation:
         type_subscript = TypeSubscript(Type.Dict)
         if shape.key:
-            type_subscript.add_child(self._parse_shape(shape.key))
+            type_subscript.add_child(self._parse_shape(shape.key, output_child=output_child))
         else:
             type_subscript.add_child(Type.str)
         if shape.value:
-            type_subscript.add_child(self._parse_shape(shape.value))
+            type_subscript.add_child(self._parse_shape(shape.value, output_child=output_child))
         else:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
-    def _parse_shape_structure(self, shape: StructureShape, output: bool = False) -> FakeAnnotation:
+    def _parse_shape_structure(
+        self,
+        shape: StructureShape,
+        output: bool = False,
+        output_child: bool = False,
+    ) -> FakeAnnotation:
         if not shape.members.items():
             return Type.DictStrAny
 
@@ -341,7 +353,7 @@ class ShapeParser:
         for attr_name, attr_shape in shape.members.items():
             typed_dict.add_attribute(
                 attr_name,
-                self._parse_shape(attr_shape),
+                self._parse_shape(attr_shape, output_child=output or output_child),
                 attr_name in required,
             )
         if output:
@@ -355,36 +367,43 @@ class ShapeParser:
             )
         return typed_dict
 
-    def _parse_shape_list(self, shape: ListShape) -> FakeAnnotation:
+    def _parse_shape_list(self, shape: ListShape, output_child: bool = False) -> FakeAnnotation:
         type_subscript = TypeSubscript(Type.List)
         if shape.member:
-            type_subscript.add_child(self._parse_shape(shape.member))
+            type_subscript.add_child(self._parse_shape(shape.member, output_child=output_child))
         else:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
     def _parse_shape(
-        self, shape: Shape, check_streaming: bool = True, output: bool = False
+        self,
+        shape: Shape,
+        output: bool = False,
+        output_child: bool = False,
     ) -> FakeAnnotation:
-        if check_streaming and "streaming" in shape.serialization:
-            if shape.serialization["streaming"]:
-                return TypeClass(StreamingBody)
-            return Type.bytes
+        is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
 
-        if shape.type_name in self.SHAPE_TYPE_MAP:
-            return self.SHAPE_TYPE_MAP[shape.type_name]
+        type_name = shape.type_name + ("_streaming" if is_streaming else "")
+        if output or output_child:
+            if type_name in self.OUTPUT_SHAPE_TYPE_MAP:
+                return self.OUTPUT_SHAPE_TYPE_MAP[type_name]
+
+        if type_name in self.SHAPE_TYPE_MAP:
+            return self.SHAPE_TYPE_MAP[type_name]
 
         if isinstance(shape, StringShape):
             return self._parse_shape_string(shape)
 
         if isinstance(shape, MapShape):
-            return self._parse_shape_map(shape)
+            return self._parse_shape_map(shape, output_child=output or output_child)
 
         if isinstance(shape, StructureShape):
-            return self._parse_shape_structure(shape, output=output)
+            return self._parse_shape_structure(
+                shape, output=output, output_child=output or output_child
+            )
 
         if isinstance(shape, ListShape):
-            return self._parse_shape_list(shape)
+            return self._parse_shape_list(shape, output_child=output or output_child)
 
         if self._resources_shape and shape.type_name in self._resources_shape["resources"]:
             return AliasInternalImport(shape.type_name)
