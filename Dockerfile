@@ -1,6 +1,9 @@
-FROM python:3.9.5-alpine3.12
+FROM python:3.9.5-alpine3.13
 
-RUN apk add --no-cache gcc libc-dev
+RUN apk add --no-cache --virtual .build-deps \
+    gcc libc-dev \
+    && python -m pip install --no-cache-dir regex \
+    && apk del --no-cache .build-deps
 
 RUN mkdir -p /builder/scripts
 WORKDIR /builder
@@ -12,7 +15,7 @@ ADD ./setup.cfg ./setup.cfg
 ADD ./README.md ./README.md
 ADD ./scripts/docker.sh ./scripts/docker.sh
 
-RUN pip install .
+RUN python -m pip install --no-cache-dir .
 
 RUN adduser \
     --disabled-password \
