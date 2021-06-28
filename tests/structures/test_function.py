@@ -30,6 +30,10 @@ class TestFunction:
         assert self.function.docstring == "docstring\n\nlong"
         assert self.function.short_docstring == "docstring"
 
+        self.function.docstring = "[text](link)"
+        assert self.function.docstring == "[text](link)"
+        assert self.function.short_docstring == ""
+
     def test_get_types(self) -> None:
         assert self.function.get_types() == {
             Type.Any,

@@ -39,7 +39,7 @@ Module-level function.
 
 ### Function().body
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L68)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L71)
 
 ```python
 @property
@@ -50,7 +50,7 @@ Function body as a string.
 
 ### Function().get_request_type_annotation
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L47)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L50)
 
 ```python
 def get_request_type_annotation(name: str) -> Optional[TypeTypedDict]:
@@ -60,7 +60,7 @@ Get TypedDict based on function arguments.
 
 ### Function().get_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L87)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L90)
 
 ```python
 def get_required_import_records() -> Set[ImportRecord]:
@@ -70,7 +70,7 @@ Extract required import records.
 
 ### Function().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L75)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L78)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
@@ -80,7 +80,7 @@ Extract required type annotations.
 
 ### Function().is_kw_only
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L107)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L110)
 
 ```python
 def is_kw_only() -> bool:
@@ -90,7 +90,7 @@ Whether method arguments can be passed only as kwargs.
 
 ### Function().returns_none
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L100)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L103)
 
 ```python
 @property

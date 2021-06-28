@@ -42,7 +42,10 @@ class Function:
         if not self.docstring:
             return self.docstring
 
-        return self.docstring.split("\n\n")[0]
+        short_docstring = self.docstring.strip().split("\n\n")[0]
+        if short_docstring.startswith("["):
+            return ""
+        return short_docstring
 
     def get_request_type_annotation(self, name: str) -> Optional[TypeTypedDict]:
         """
