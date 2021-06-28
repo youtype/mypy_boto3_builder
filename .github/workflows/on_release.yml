@@ -39,6 +39,7 @@ jobs:
         run: |
           echo "Bumping version to ${VERSION}"
           poetry version ${VERSION}
+          rm -rf *.egg-info || true
           poetry install -n
       - name: Commit changes
         env:
