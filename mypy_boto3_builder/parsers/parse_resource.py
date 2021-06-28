@@ -47,7 +47,7 @@ def parse_resource(
         else:
             method = parse_method(name, method_name, public_method, service_name)
 
-        docstring = get_short_docstring(public_method.__doc__ or "")
+        docstring = get_short_docstring(inspect.getdoc(public_method) or "")
         method.docstring = "".join(
             (
                 f"{docstring}\n\n" if docstring else "",

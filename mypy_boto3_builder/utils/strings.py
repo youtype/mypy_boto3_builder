@@ -3,6 +3,7 @@ Multiple string utils collection.
 """
 import builtins
 import keyword
+import textwrap
 import typing
 from typing import List
 
@@ -13,7 +14,7 @@ RESERVED_NAMES = set(
         *keyword.kwlist,
     )
 )
-MAX_DOCSTRING_LENGTH: int = 500
+MAX_DOCSTRING_LENGTH: int = 300
 
 
 def get_class_prefix(func_name: str) -> str:
@@ -106,6 +107,10 @@ def is_reserved(word: str) -> bool:
 def get_short_docstring(doc: str) -> str:
     """
     Create a short docstring from boto3 documentation.
+
+    Trimps docstring to 200 chars.
+    Removes double and trible backticks.
+    Ensures that backticks are closed.
     """
     doc = str(doc)
     if len(doc) > MAX_DOCSTRING_LENGTH:
@@ -132,4 +137,4 @@ def get_short_docstring(doc: str) -> str:
     if result_str and not result_str.endswith("."):
         result_str = f"{result_str}."
 
-    return result_str
+    return "\n".join(textwrap.wrap(result_str, width=80))

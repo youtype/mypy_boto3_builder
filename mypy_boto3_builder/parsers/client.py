@@ -1,6 +1,8 @@
 """
 Boto3 client parser, produces `structures.Client`.
 """
+import inspect
+
 from boto3.session import Session
 from botocore.client import ClientMeta
 from botocore.errorfactory import ClientExceptionsFactory
@@ -51,7 +53,7 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
             method = shape_method_map[method_name]
         else:
             method = parse_method("Client", method_name, public_method, service_name)
-        docstring = get_short_docstring(public_method.__doc__ or "")
+        docstring = get_short_docstring(inspect.getdoc(public_method) or "")
         method.docstring = "".join(
             (
                 f"{docstring}\n\n" if docstring else "",

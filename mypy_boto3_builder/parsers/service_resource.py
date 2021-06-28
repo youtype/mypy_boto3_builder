@@ -1,6 +1,7 @@
 """
 Parser for Boto3 ServiceResource, produces `structires.ServiceResource`.
 """
+import inspect
 from typing import List, Optional
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
@@ -56,7 +57,7 @@ def parse_service_resource(
             method = shape_method_map[method_name]
         else:
             method = parse_method("ServiceResource", method_name, public_method, service_name)
-        docstring = get_short_docstring(public_method.__doc__ or "")
+        docstring = get_short_docstring(inspect.getdoc(public_method) or "")
         method.docstring = "".join(
             (
                 f"{docstring}\n\n" if docstring else "",
