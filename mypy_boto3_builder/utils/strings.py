@@ -13,6 +13,7 @@ RESERVED_NAMES = set(
         *keyword.kwlist,
     )
 )
+MAX_DOCSTRING_LENGTH: int = 500
 
 
 def get_class_prefix(func_name: str) -> str:
@@ -100,3 +101,35 @@ def is_reserved(word: str) -> bool:
     Check whether varialbe name conflicts with Python reserved names.
     """
     return word in RESERVED_NAMES
+
+
+def get_short_docstring(doc: str) -> str:
+    """
+    Create a short docstring from boto3 documentation.
+    """
+    doc = str(doc)
+    if len(doc) > MAX_DOCSTRING_LENGTH:
+        doc = f"{doc[:MAX_DOCSTRING_LENGTH - 3]}..."
+    result = []
+    if not doc:
+        return ""
+    for line in doc.splitlines():
+        line = line.strip().rstrip("::")
+        if line.startswith(":"):
+            break
+        if not line:
+            continue
+        if ". " in line:
+            result.append(line.split(". ")[0])
+            break
+        result.append(line)
+        if line.endswith("."):
+            break
+
+    result_str = " ".join(result).replace("```", "`").replace("``", "`").strip()
+    if result_str.count("`") % 2:
+        result_str = f"{result_str}`"
+    if result_str and not result_str.endswith("."):
+        result_str = f"{result_str}."
+
+    return result_str

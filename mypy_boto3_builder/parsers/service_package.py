@@ -56,9 +56,9 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
         wait_method = shape_parser.get_wait_method(waiter.name)
         wait_method.docstring = (
             "[Show boto3 documentation]"
-            f"({service_name.get_boto3_doc_link('Waiter', waiter_record.name)})\n"
+            f"({service_name.get_boto3_doc_link('Waiter', waiter.name, 'wait')})\n"
             "[Show boto3-stubs documentation]"
-            f"({service_name.get_doc_link('waiters', waiter.name)})"
+            f"({service_name.get_doc_link('waiters', waiter_record.name)})"
         )
         waiter_record.methods.append(wait_method)
         result.waiters.append(waiter_record)

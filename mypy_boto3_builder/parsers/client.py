@@ -16,6 +16,7 @@ from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.utils.strings import get_short_docstring
 
 
 def parse_client(session: Session, service_name: ServiceName, shape_parser: ShapeParser) -> Client:
@@ -50,11 +51,15 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
             method = shape_method_map[method_name]
         else:
             method = parse_method("Client", method_name, public_method, service_name)
-        method.docstring = (
-            f"[Show boto3 documentation]"
-            f"({service_name.get_boto3_doc_link('Client', method_name)})\n"
-            "[Show boto3-stubs documentation]"
-            f"({service_name.get_doc_link('client', method_name)})"
+        docstring = get_short_docstring(public_method.__doc__ or "")
+        method.docstring = "".join(
+            (
+                f"{docstring}\n\n" if docstring else "",
+                "[Show boto3 documentation]",
+                f"({service_name.get_boto3_doc_link('Client', method_name)})\n",
+                "[Show boto3-stubs documentation]",
+                f"({service_name.get_doc_link('client', method_name)})",
+            )
         )
         result.methods.append(method)
 

@@ -38,7 +38,7 @@ class Waiter(ClassRecord):
         """
         Link to waiter boto3 docs.
         """
-        return self.service_name.get_boto3_doc_link("Waiter", self.waiter_name)
+        return self.service_name.get_boto3_doc_link("Waiter", self.name.replace("Waiter", ""))
 
     @property
     def docstring(self) -> str:

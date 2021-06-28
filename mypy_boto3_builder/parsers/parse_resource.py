@@ -17,6 +17,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.resource import Resource
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.utils.strings import get_short_docstring
 
 
 def parse_resource(
@@ -46,11 +47,15 @@ def parse_resource(
         else:
             method = parse_method(name, method_name, public_method, service_name)
 
-        method.docstring = (
-            "[Show boto3 documentation]"
-            f"({service_name.get_boto3_doc_link(name, method_name)})\n"
-            "[Show boto3-stubs documentation]"
-            f"({service_name.get_doc_link('service_resource', name, f'{method_name} method')})"
+        docstring = get_short_docstring(public_method.__doc__ or "")
+        method.docstring = "".join(
+            (
+                f"{docstring}\n\n" if docstring else "",
+                "[Show boto3 documentation]",
+                f"({service_name.get_boto3_doc_link(name, method_name)})\n",
+                "[Show boto3-stubs documentation]",
+                f"({service_name.get_doc_link('service_resource', name, f'{method_name} method')})",
+            )
         )
         result.methods.append(method)
 
