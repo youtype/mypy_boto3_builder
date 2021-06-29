@@ -299,7 +299,7 @@ class ShapeParser:
             method = Method(name=method_name, arguments=arguments, return_type=return_type)
             if operation_model.input_shape:
                 method.request_type_annotation = method.get_request_type_annotation(
-                    self._get_typed_dict_name(operation_model.input_shape)
+                    self._get_typed_dict_name(operation_model.input_shape, postfix="Request")
                 )
             result[method.name] = method
         return result
@@ -345,11 +345,25 @@ class ShapeParser:
         shape_type_stub = get_shape_type_stub(self.service_name, typed_dict_name)
         if shape_type_stub:
             return shape_type_stub
-
-        if typed_dict_name in self._typed_dict_map:
-            return self._typed_dict_map[typed_dict_name]
         typed_dict = TypeTypedDict(typed_dict_name)
-        self._typed_dict_map[typed_dict_name] = typed_dict
+
+        if typed_dict.name in self._typed_dict_map:
+            old_typed_dict = self._typed_dict_map[typed_dict.name]
+            child_names = {i.name for i in old_typed_dict.children}
+            if output and "ResponseMetadata" in child_names:
+                return self._typed_dict_map[typed_dict.name]
+            if not output and "ResponseMetadata" not in child_names:
+                return self._typed_dict_map[typed_dict.name]
+
+            if output:
+                typed_dict.name = self._get_typed_dict_name(shape, postfix="ResponseMetadata")
+                self.logger.debug(f"Marking {typed_dict.name} as ResponseMetadataTypeDef")
+            else:
+                old_typed_dict.name = self._get_typed_dict_name(shape, postfix="ResponseMetadata")
+                self._typed_dict_map[old_typed_dict.name] = old_typed_dict
+                self.logger.debug(f"Marking {old_typed_dict.name} as ResponseMetadataTypeDef")
+
+        self._typed_dict_map[typed_dict.name] = typed_dict
         for attr_name, attr_shape in shape.members.items():
             typed_dict.add_attribute(
                 attr_name,
@@ -357,15 +371,19 @@ class ShapeParser:
                 attr_name in required,
             )
         if output:
-            typed_dict.name = self._get_typed_dict_name(shape, postfix="Response")
-            for attribute in typed_dict.children:
-                attribute.required = True
+            self._make_output_typed_dict(typed_dict)
+        return typed_dict
+
+    def _make_output_typed_dict(self, typed_dict: TypeTypedDict) -> None:
+        for attribute in typed_dict.children:
+            attribute.required = True
+        child_names = {i.name for i in typed_dict.children}
+        if "ResponseMetadata" not in child_names:
             typed_dict.add_attribute(
                 "ResponseMetadata",
                 self.response_metadata_typed_dict,
                 True,
             )
-        return typed_dict
 
     def _parse_shape_list(self, shape: ListShape, output_child: bool = False) -> FakeAnnotation:
         type_subscript = TypeSubscript(Type.List)
