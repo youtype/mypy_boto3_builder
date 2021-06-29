@@ -12,7 +12,7 @@
 [![Coverage](https://img.shields.io/codecov/c/github/vemel/mypy_boto3_builder)](https://codecov.io/gh/vemel/mypy_boto3_builder)
 [![PyPI - Downloads](https://img.shields.io/pypi/dw/boto3-stubs?color=blue)](https://pypistats.org/packages/boto3-stubs)
 
-![boto3.typed](https://github.com/vemel/mypy_boto3_builder/blob/master/logo.png)
+![boto3.typed](https://raw.githubusercontent.com/vemel/mypy_boto3_builder/master/logo.png)
 
 Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with
 [VSCode](https://code.visualstudio.com/),
@@ -25,7 +25,7 @@ and other tools.
 
 See how it helps to find and fix potential bugs:
 
-![boto3-stubs demo](https://github.com/vemel/mypy_boto3_builder/blob/master/demo.gif)
+![boto3-stubs demo](https://raw.githubusercontent.com/vemel/mypy_boto3_builder/master/demo.gif)
 
 Do you want more? Check the [documentation](https://vemel.github.io/boto3_stubs_docs/) and use `boto3` like a pro!
 
