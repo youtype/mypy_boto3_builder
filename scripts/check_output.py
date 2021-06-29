@@ -90,7 +90,7 @@ def run_flake8(path: Path) -> None:
                     "-m",
                     "flake8",
                     "--ignore",
-                    "E203,W503,E501,D200,D107,D401,D105,D205,D400,D101,D102",
+                    "E203,W503,E501,D200,D107,D401,D105,D205,D400,D101,D102,D403",
                     path.as_posix(),
                 ],
                 stderr=f,
