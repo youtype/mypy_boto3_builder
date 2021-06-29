@@ -326,8 +326,10 @@ class ServicePackage(Package):
             if is_reserved(name):
                 raise ValueError(f"{name} is a reserved keyword")
             if name in names:
-                for i in self.typed_dicts:
-                    if i.name == name:
-                        self.logger.warning(i, [c.render() for c in i.children])
+                for typed_dict in self.typed_dicts:
+                    if typed_dict.name == name:
+                        self.logger.warning(
+                            f"{typed_dict}: {[c.render() for c in typed_dict.children]}"
+                        )
                 raise ValueError(f"Duplicate name {name}")
             names.add(name)

@@ -8,7 +8,7 @@ examples/s3_example.py:39: error: Argument "RequestPayer" to "abort" of "Multipa
 examples/s3_example.py:41: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"
 examples/s3_example.py:50: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?
 examples/s3_example.py:56: error: Missing named argument "Key" for "get_object" of "S3Client"
-examples/s3_example.py:59: error: TypedDict "GetObjectOutputResponseTypeDef" has no key "expiration"
+examples/s3_example.py:59: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"
 examples/s3_example.py:59: note: Did you mean "Expiration"?
 examples/s3_example.py:65: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"
 examples/s3_example.py:71: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
