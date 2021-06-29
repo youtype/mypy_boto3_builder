@@ -1,4 +1,4 @@
-from typing import Dict, Tuple, Union
+from typing import Dict, Tuple, TypeVar, Union
 
 from botocore.compat import OrderedDict as OrderedDict
 from botocore.endpoint import DEFAULT_TIMEOUT as DEFAULT_TIMEOUT
@@ -20,6 +20,8 @@ class _S3Dict(TypedDict, total=False):
     addressing_style: Literal["auto", "virtual", "path"]
     us_east_1_regional_endpoint: Literal["regional", "legacy"]
 
+_Config = TypeVar("_Config", bound="Config")
+
 class Config:
     OPTION_DEFAULTS: OrderedDict[str, None]
     def __init__(
@@ -38,4 +40,4 @@ class Config:
         client_cert: Union[str, Tuple[str, str]] = ...,
         inject_host_prefix: bool = ...,
     ) -> None: ...
-    def merge(self, other_config: Config) -> Config: ...
+    def merge(self: _Config, other_config: _Config) -> _Config: ...

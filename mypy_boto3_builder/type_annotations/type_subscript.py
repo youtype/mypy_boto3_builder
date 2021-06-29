@@ -5,7 +5,6 @@ from typing import Iterable, List, Set
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 
 
 class TypeSubscript(FakeAnnotation):
@@ -19,10 +18,10 @@ class TypeSubscript(FakeAnnotation):
 
     def __init__(
         self,
-        parent: TypeAnnotation,
+        parent: FakeAnnotation,
         children: Iterable[FakeAnnotation] = (),
     ) -> None:
-        self.parent: TypeAnnotation = parent
+        self.parent: FakeAnnotation = parent
         self.children: List[FakeAnnotation] = list(children)
 
     def __hash__(self) -> int:

@@ -7,7 +7,6 @@ from boto3.session import Session
 from botocore.client import ClientMeta
 from botocore.errorfactory import ClientExceptionsFactory
 
-from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.parsers.boto3_utils import get_boto3_client
 from mypy_boto3_builder.parsers.helpers import get_public_methods, parse_method
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
@@ -48,6 +47,7 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
     )
 
     shape_method_map = shape_parser.get_client_method_map()
+    result.methods.append(result.get_exceptions_property())
     for method_name, public_method in public_methods.items():
         if method_name in shape_method_map:
             method = shape_method_map[method_name]
@@ -83,15 +83,5 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
         )
 
     result.attributes.append(Attribute("meta", TypeClass(ClientMeta)))
-    result.attributes.append(
-        Attribute(
-            "exceptions",
-            InternalImport(
-                name=result.exceptions_class.name,
-                module_name=ServiceModuleName.client,
-                service_name=service_name,
-                stringify=False,
-            ),
-        ),
-    )
+
     return result
