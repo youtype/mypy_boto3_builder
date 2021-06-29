@@ -29,7 +29,7 @@ class TestBoto3StubsPackage:
         with tempfile.TemporaryDirectory() as output_dir:
             output_path = Path(output_dir)
             result = write_boto3_stubs_package(package_mock, output_path, True)
-            assert len(result) == 29
+            assert len(result) == 31
             assert result[0].name == "setup.py"
             render_jinja2_template_mock.assert_called_with(
                 Path("boto3-stubs/boto3-stubs/version.py.jinja2"),

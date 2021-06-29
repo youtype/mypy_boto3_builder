@@ -43,7 +43,7 @@ class TestServicePackage:
         assert len(self.service_package.get_init_all_names()) == 4
 
     def test_get_client_required_import_records(self) -> None:
-        assert self.service_package.get_client_required_import_records() == []
+        assert len(self.service_package.get_client_required_import_records()) == 1
 
     def test_get_service_resource_required_import_records(self) -> None:
         assert len(self.service_package.get_service_resource_required_import_records()) == 1

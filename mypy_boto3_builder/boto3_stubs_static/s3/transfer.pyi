@@ -11,7 +11,9 @@ KB: int
 MB: int
 
 def create_transfer_manager(
-    client: BaseClient, config: Config, osutil: Optional[OSUtils] = ...
+    client: BaseClient,
+    config: Config,
+    osutil: Optional[OSUtils] = ...,  # type: ignore
 ) -> TransferManager: ...
 
 class TransferConfig(S3TransferConfig):
@@ -35,8 +37,8 @@ class S3Transfer:
         self,
         client: Optional[BaseClient] = ...,
         config: Optional[Config] = ...,
-        osutil: Optional[OSUtils] = None,
-        manager: Optional[TransferManager] = None,
+        osutil: Optional[OSUtils] = None,  # type: ignore
+        manager: Optional[TransferManager] = None,  # type: ignore
     ) -> None: ...
     def upload_file(
         self,
