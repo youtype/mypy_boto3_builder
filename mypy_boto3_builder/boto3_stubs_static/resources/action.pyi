@@ -23,7 +23,7 @@ class ServiceAction:
 
 class BatchAction(ServiceAction):
     def __call__(  # type: ignore
-        self, parent: ResourceCollection[Any], *args: Any, **kwargs: Any
+        self, parent: ResourceCollection, *args: Any, **kwargs: Any
     ) -> List[Dict[str, Any]]: ...
 
 class WaiterAction:

@@ -623,7 +623,11 @@ class ShapeParser:
         Returns:
             Filter Method record.
         """
-        result = Method("filter", [Argument("self", None)], self_type)
+        result = Method(
+            name="filter",
+            arguments=[Argument("self", None)],
+            return_type=self_type,
+        )
         if not collection.request:
             return result
 
@@ -657,7 +661,11 @@ class ShapeParser:
         """
         result = []
         for batch_action in collection.batch_actions:
-            method = Method(batch_action.name, [Argument("self", None)], Type.none)
+            method = Method(
+                name=batch_action.name,
+                arguments=[Argument("self", None)],
+                return_type=Type.none,
+            )
             result.append(method)
             if batch_action.request:
                 operation_name = batch_action.request.operation

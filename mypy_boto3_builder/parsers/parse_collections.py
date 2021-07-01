@@ -46,9 +46,24 @@ def parse_collections(
         )
         self_type = InternalImport(collection_record.name, stringify=True)
 
-        collection_record.methods.append(Method("all", [Argument("self", None)], self_type))
+        collection_record.methods.append(
+            Method(
+                name="all",
+                arguments=[Argument("self", None)],
+                return_type=self_type,
+                docstring=(
+                    "Get all items from the collection, optionally"
+                    " with a custom page size and item count limit."
+                ),
+            )
+        )
         filter_method = shape_parser.get_collection_filter_method(
             collection_record.name, collection, self_type
+        )
+        filter_method.docstring = (
+            "Get items from the collection, passing keyword arguments along"
+            " as parameters to the underlying service operation, which are"
+            " typically used to filter the results."
         )
         filter_method.type_ignore = True
         collection_record.methods.append(filter_method)
@@ -56,12 +71,14 @@ def parse_collections(
             collection_record.name, collection
         )
         for batch_method in batch_methods:
+            batch_method.docstring = "Batch method."
             collection_record.methods.append(batch_method)
         collection_record.methods.append(
             Method(
                 "limit",
                 [Argument("self", None), Argument("count", Type.int)],
                 self_type,
+                docstring=f"Return at most this many {object_class_name}s.",
             )
         )
         collection_record.methods.append(
@@ -69,6 +86,7 @@ def parse_collections(
                 "page_size",
                 [Argument("self", None), Argument("count", Type.int)],
                 self_type,
+                docstring=f"Fetch at most this many {object_class_name}s per service request.",
             )
         )
         collection_record.methods.append(
@@ -79,6 +97,7 @@ def parse_collections(
                     Type.Iterator,
                     [TypeSubscript(Type.List, [InternalImport(name=object_class_name)])],
                 ),
+                docstring=f"A generator which yields pages of {object_class_name}s.",
             )
         )
         collection_record.methods.append(
@@ -86,6 +105,7 @@ def parse_collections(
                 "__iter__",
                 [Argument("self", None)],
                 TypeSubscript(Type.Iterator, [InternalImport(name=object_class_name)]),
+                docstring=f"A generator which yields {object_class_name}s.",
             )
         )
 
