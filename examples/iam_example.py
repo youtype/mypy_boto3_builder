@@ -24,7 +24,3 @@ def iam_resource_example() -> None:
 def main() -> None:
     iam_client_example()
     iam_resource_example()
-
-
-if __name__ == "__main__":
-    main()

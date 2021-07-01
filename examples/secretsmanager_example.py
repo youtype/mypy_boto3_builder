@@ -11,7 +11,3 @@ def secretsmanager_client_example() -> None:
 
 def main() -> None:
     secretsmanager_client_example()
-
-
-if __name__ == "__main__":
-    main()

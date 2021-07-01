@@ -79,7 +79,3 @@ def s3_client_example() -> None:
 def main() -> None:
     s3_resource_example()
     s3_client_example()
-
-
-if __name__ == "__main__":
-    main()

@@ -17,7 +17,3 @@ def emr_client_example() -> None:
 
 def main() -> None:
     emr_client_example()
-
-
-if __name__ == "__main__":
-    main()

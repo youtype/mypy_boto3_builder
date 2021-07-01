@@ -138,6 +138,10 @@ def run_mypy(path: Path, update: bool) -> None:
     compare(new_data, snapshot_path, update)
 
 
+def run_call(path: Path) -> None:
+    subprocess.check_call(["python", path.as_posix()])
+
+
 def main() -> None:
     args = parse_args()
     setup_logging(logging.INFO)
@@ -155,6 +159,8 @@ def main() -> None:
             logger.info(f"Installing {service_name}...")
             install_service(service_name)
         try:
+            logger.info(f"Running{file} ...")
+            run_call(file)
             logger.info(f"Running mypy for {file} ...")
             run_mypy(file, args.update)
             logger.info(f"Running pyright for {file} ...")

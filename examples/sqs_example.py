@@ -14,7 +14,3 @@ def sqs_resource_example() -> None:
 
 def main() -> None:
     sqs_resource_example()
-
-
-if __name__ == "__main__":
-    main()

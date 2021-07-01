@@ -36,7 +36,3 @@ def ec2_client_example() -> None:
 def main() -> None:
     ec2_resource_example()
     ec2_client_example()
-
-
-if __name__ == "__main__":
-    main()
