@@ -25,4 +25,4 @@ class TestPaginator:
         assert collection.docstring
 
     def test_get_types(self) -> None:
-        assert len(self.collection.get_types()) == 3
+        assert len(self.collection.get_types()) == 2
