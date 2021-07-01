@@ -1,9 +1,8 @@
 """
 Parent class for all package structures.
 """
-import logging
 
-from mypy_boto3_builder.constants import LOGGER_NAME
+from mypy_boto3_builder.logger import get_logger
 
 
 class Package:
@@ -14,4 +13,4 @@ class Package:
     def __init__(self, name: str, pypi_name: str):
         self.name = name
         self.pypi_name = pypi_name
-        self.logger = logging.getLogger(LOGGER_NAME)
+        self.logger = get_logger()
