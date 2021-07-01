@@ -3,14 +3,11 @@ Boto3 ServiceResource or Resource collection.
 """
 from typing import Set
 
-from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 class Collection(ClassRecord):
@@ -31,18 +28,9 @@ class Collection(ClassRecord):
             name=name,
             use_alias=True,
             bases=[
-                TypeSubscript(
-                    ExternalImport(
-                        source=ImportString("boto3", "resources", "collection"),
-                        name="ResourceCollection",
-                    ),
-                    [
-                        InternalImport(
-                            object_class_name,
-                            service_name=service_name,
-                            module_name=ServiceModuleName.service_resource,
-                        ),
-                    ],
+                ExternalImport(
+                    source=ImportString("boto3", "resources", "collection"),
+                    name="ResourceCollection",
                 )
             ],
         )

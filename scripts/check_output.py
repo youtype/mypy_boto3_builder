@@ -13,7 +13,7 @@ LOGGER_NAME = "check_output"
 IGNORE_ERRORS = (
     '"get_paginator" is marked as overload, but no implementation is provided',
     '"get_waiter" is marked as overload, but no implementation is provided',
-    # 'Expected type arguments for generic class "ResourceCollection"',
+    'Expected type arguments for generic class "ResourceCollection"',
     'Type "None" cannot be assigned to type',
     '"__next__" is not present',
     # 'Import "boto3.s3.transfer" could not be resolved',
