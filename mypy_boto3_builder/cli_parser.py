@@ -9,8 +9,6 @@ from typing import List, Sequence
 
 import pkg_resources
 
-from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
-
 
 def get_absolute_path(path: str) -> Path:
     """
@@ -25,24 +23,6 @@ def get_absolute_path(path: str) -> Path:
     return Path(path).absolute()
 
 
-def get_service_name(name: str) -> ServiceName:
-    """
-    Convert boto3 service name to ServiceName.
-
-    Arguments:
-        name -- Service name.
-
-    Raises:
-        argparse.ArgumentTypeError -- If service not found.
-    """
-    try:
-        return ServiceNameCatalog.find(name)
-    except ValueError:
-        pass
-
-    return ServiceNameCatalog.create(name)
-
-
 @dataclass
 class Namespace:
     """
@@ -51,13 +31,14 @@ class Namespace:
 
     log_level: int
     output_path: Path
-    service_names: List[ServiceName]
+    service_names: List[str]
     build_version: str
     installed: bool
     skip_master: bool
     skip_services: bool
     builder_version: str
     generate_docs: bool
+    list_services: bool
 
 
 def parse_args(args: Sequence[str]) -> Namespace:
@@ -104,13 +85,17 @@ def parse_args(args: Sequence[str]) -> Namespace:
         nargs="*",
         metavar="SERVICE_NAME",
         help="List of AWS services, by default all services are used",
-        type=get_service_name,
         default=[],
     )
     parser.add_argument(
         "--installed",
         action="store_true",
         help="Generate already installed packages for typings folder.",
+    )
+    parser.add_argument(
+        "--list-services",
+        action="store_true",
+        help="List supported boto3 service names.",
     )
     result = parser.parse_args(args)
     result.builder_version = version
@@ -124,4 +109,5 @@ def parse_args(args: Sequence[str]) -> Namespace:
         installed=result.installed,
         builder_version=result.builder_version,
         generate_docs=result.docs,
+        list_services=result.list_services,
     )
