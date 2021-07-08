@@ -13,7 +13,7 @@ from mypy_boto3_builder.writers.utils import (
 
 class TestUtils:
     @patch("mypy_boto3_builder.writers.utils.black")
-    def test_blackify(self, black_mock):
+    def test_blackify(self, black_mock: MagicMock):
         file_path_mock = MagicMock()
         file_path_mock.suffix = ".txt"
         result = blackify("my content", file_path_mock)
@@ -37,10 +37,11 @@ class TestUtils:
         assert blackify("my content", file_path_mock) == "my content"
 
     @patch("mypy_boto3_builder.writers.utils.sort_code_string")
-    def test_sort_imports(self, sort_code_string_mock):
+    def test_sort_imports(self, sort_code_string_mock: MagicMock):
         sort_code_string_mock.return_value = "output"
         assert sort_imports("test", "mymodule") == "output"
         sort_code_string_mock.assert_called()
+        assert sort_imports("test", "boto3") == "output"
 
     @patch("mypy_boto3_builder.writers.utils.TEMPLATES_PATH")
     @patch("mypy_boto3_builder.writers.utils.JinjaManager")
@@ -48,19 +49,21 @@ class TestUtils:
         self, JinjaManagerMock: MagicMock, TEMPLATES_PATH_MOCK: MagicMock
     ) -> None:
         template_path_mock = MagicMock()
-        result = render_jinja2_template(template_path_mock, "package", "service_name")
+        package_mock = MagicMock()
+        service_name_mock = MagicMock()
+        result = render_jinja2_template(template_path_mock, package_mock, service_name_mock)
         JinjaManagerMock.get_environment.assert_called_with()
         JinjaManagerMock.get_environment().get_template.assert_called_with(
             template_path_mock.as_posix()
         )
         JinjaManagerMock.get_environment().get_template().render.assert_called_with(
-            package="package", service_name="service_name"
+            package=package_mock, service_name=service_name_mock
         )
         assert result == JinjaManagerMock.get_environment().get_template().render()
 
         TEMPLATES_PATH_MOCK.__truediv__().exists.return_value = False
         with pytest.raises(ValueError):
-            render_jinja2_template(template_path_mock, "package", "service_name")
+            render_jinja2_template(template_path_mock, package_mock, service_name_mock)
 
     def test_insert_md_toc(self) -> None:
         assert (

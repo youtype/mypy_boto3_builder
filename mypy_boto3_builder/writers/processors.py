@@ -145,10 +145,7 @@ def process_service_docs(
     service_module = parse_service_package(session, service_name)
     logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
 
-    modified_paths = write_service_docs(service_module, output_path=output_path)
-    for modified_path in modified_paths:
-        logger.debug(f"Updated {NicePath(modified_path)}")
-
+    write_service_docs(service_module, output_path=output_path)
     return service_module
 
 
@@ -170,7 +167,7 @@ def process_boto3_stubs_docs(
     """
     logger = get_logger()
     logger.debug("Parsing boto3 stubs")
-    boto3_stubs_package = parse_boto3_stubs_package(session=session, service_names=service_names)
+    boto3_stubs_package = parse_boto3_stubs_package(session, service_names)
     logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
 
     write_boto3_stubs_docs(boto3_stubs_package, output_path=output_path)

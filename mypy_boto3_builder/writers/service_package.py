@@ -29,10 +29,11 @@ def write_service_package(package: ServicePackage, output_path: Path, generate_s
     """
     logger = get_logger()
     setup_path = output_path / f"{package.service_name.module_name}_package"
-    if not generate_setup:
-        setup_path = output_path
+    if generate_setup:
+        package_path = setup_path / package.name
+    else:
+        package_path = output_path / package.name
 
-    package_path = setup_path / package.name
     package_path.mkdir(exist_ok=True, parents=True)
 
     templates_path = Path("service")
@@ -147,12 +148,12 @@ def write_service_package(package: ServicePackage, output_path: Path, generate_s
             logger.debug(f"Updated {NicePath(file_path)}")
 
     valid_paths = dict(file_paths).keys()
-    for unknown_path in NicePath(package_path).walk(valid_paths):
+    for unknown_path in NicePath(setup_path if generate_setup else package_path).walk(valid_paths):
         unknown_path.unlink()
         logger.debug(f"Deleted {NicePath(unknown_path)}")
 
 
-def write_service_docs(package: ServicePackage, output_path: Path) -> List[Path]:
+def write_service_docs(package: ServicePackage, output_path: Path) -> None:
     """
     Create service docs files.
 
@@ -160,7 +161,7 @@ def write_service_docs(package: ServicePackage, output_path: Path) -> List[Path]
         package -- Service package.
         output_path -- Path to output folder.
     """
-    modified_paths = []
+    logger = get_logger()
     docs_path = output_path / f"{package.service_name.module_name}"
     docs_path.mkdir(exist_ok=True)
     templates_path = Path("service_docs")
@@ -195,7 +196,10 @@ def write_service_docs(package: ServicePackage, output_path: Path) -> List[Path]
         content = insert_md_toc(content)
         content = format_md(content)
         if not file_path.exists() or file_path.read_text() != content:
-            modified_paths.append(file_path)
             file_path.write_text(content)
+            logger.debug(f"Updated {NicePath(file_path)}")
 
-    return modified_paths
+    valid_paths = dict(file_paths).keys()
+    for unknown_path in NicePath(docs_path).walk(valid_paths):
+        unknown_path.unlink()
+        logger.debug(f"Deleted {NicePath(unknown_path)}")

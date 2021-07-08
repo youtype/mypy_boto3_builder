@@ -33,7 +33,9 @@ class TestStrings:
         assert not is_reserved("myname")
 
     def test_get_short_docstring(self) -> None:
+        assert get_short_docstring("") == ""
         assert get_short_docstring("\n") == ""
+        assert get_short_docstring("`asd\n:type") == "`asd`."
         assert (
             get_short_docstring(
                 """

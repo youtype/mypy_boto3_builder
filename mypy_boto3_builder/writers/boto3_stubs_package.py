@@ -1,8 +1,6 @@
 """
 boto3-stubs package writer.
 """
-import filecmp
-import shutil
 from pathlib import Path
 from typing import List, Tuple
 
@@ -28,12 +26,10 @@ def write_boto3_stubs_package(
     """
     logger = get_logger()
     setup_path = output_path / "boto3_stubs_package"
-    if not generate_setup:
-        setup_path = output_path
-
-    package_path = setup_path / package.name
-    if not generate_setup:
-        package_path = setup_path / "boto3"
+    if generate_setup:
+        package_path = setup_path / package.name
+    else:
+        package_path = output_path / "boto3"
 
     package_path.mkdir(exist_ok=True, parents=True)
 
@@ -82,14 +78,13 @@ def write_boto3_stubs_package(
         relative_output_path = static_path.relative_to(BOTO3_STUBS_STATIC_PATH)
         file_path = package_path / relative_output_path
         file_path.parent.mkdir(exist_ok=True)
-        if file_path.exists() and filecmp.cmp(static_path.as_posix(), file_path.as_posix()):
-            continue
-
-        shutil.copy(static_path, file_path)
-        logger.debug(f"Updated {NicePath(file_path)}")
+        content = static_path.read_text()
+        if not file_path.exists() or file_path.read_text() != content:
+            file_path.write_text(content)
+            logger.debug(f"Updated {NicePath(file_path)}")
 
     valid_paths = (*dict(file_paths).keys(), *static_paths)
-    for unknown_path in NicePath(package_path).walk(valid_paths):
+    for unknown_path in NicePath(setup_path if generate_setup else package_path).walk(valid_paths):
         unknown_path.unlink()
         logger.debug(f"Deleted {NicePath(unknown_path)}")
 
@@ -99,7 +94,6 @@ def write_boto3_stubs_docs(package: Boto3StubsPackage, output_path: Path) -> Non
     Generate docs for boto3-stubs package.
     """
     logger = get_logger()
-    modified_paths = []
     docs_path = output_path
     docs_path.mkdir(exist_ok=True)
     templates_path = Path("boto3_stubs_docs")
@@ -114,8 +108,8 @@ def write_boto3_stubs_docs(package: Boto3StubsPackage, output_path: Path) -> Non
         content = insert_md_toc(content)
         content = format_md(content)
         if not file_path.exists() or file_path.read_text() != content:
-            modified_paths.append(file_path)
             file_path.write_text(content)
+            logger.debug(f"Updated {NicePath(file_path)}")
 
     valid_paths = dict(file_paths).keys()
     for unknown_path in NicePath(docs_path).walk(valid_paths):

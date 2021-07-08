@@ -31,3 +31,14 @@ class TestBoto3StubsPackage:
             )
             assert len(blackify_mock.mock_calls) == 3
             assert len(sort_imports_mock.mock_calls) == 3
+            blackify_mock.reset_mock()
+            sort_imports_mock.reset_mock()
+
+        with tempfile.TemporaryDirectory() as output_dir:
+            output_path = Path(output_dir)
+            write_botocore_stubs_package(output_path, False)
+            render_jinja2_template_mock.assert_called_with(
+                Path("botocore-stubs/botocore-stubs/version.py.jinja2")
+            )
+            assert len(blackify_mock.mock_calls) == 2
+            assert len(sort_imports_mock.mock_calls) == 2

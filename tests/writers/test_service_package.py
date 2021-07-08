@@ -33,6 +33,21 @@ class TestServicePackage:
             )
             assert len(blackify_mock.mock_calls) == 17
             assert len(sort_imports_mock.mock_calls) == 17
+            blackify_mock.reset_mock()
+            sort_imports_mock.reset_mock()
+
+        with tempfile.TemporaryDirectory() as output_dir:
+            output_path = Path(output_dir)
+            (output_path / "package").mkdir(parents=True, exist_ok=True)
+            (output_path / "package" / "unknown.txt").touch()
+            write_service_package(package_mock, output_path, False)
+            render_jinja2_template_mock.assert_called_with(
+                Path("service/service/type_defs.pyi.jinja2"),
+                package=package_mock,
+                service_name=package_mock.service_name,
+            )
+            assert len(blackify_mock.mock_calls) == 16
+            assert len(sort_imports_mock.mock_calls) == 16
 
     def test_write_service_docs(self) -> None:
         package_mock = MagicMock()
@@ -41,4 +56,6 @@ class TestServicePackage:
 
         with tempfile.TemporaryDirectory() as output_dir:
             output_path = Path(output_dir)
+            (output_path / "module").mkdir(parents=True, exist_ok=True)
+            (output_path / "module" / "unknown.txt").touch()
             write_service_docs(package_mock, output_path)

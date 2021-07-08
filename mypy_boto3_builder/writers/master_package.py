@@ -28,10 +28,10 @@ def write_master_package(package: MasterPackage, output_path: Path, generate_set
     """
     logger = get_logger()
     setup_path = output_path / "master_package"
-    if not generate_setup:
-        setup_path = output_path
-
-    package_path = setup_path / package.name
+    if generate_setup:
+        package_path = setup_path / package.name
+    else:
+        package_path = output_path / package.name
 
     package_path.mkdir(exist_ok=True, parents=True)
 
@@ -90,6 +90,6 @@ def write_master_package(package: MasterPackage, output_path: Path, generate_set
             logger.debug(f"Updated {NicePath(file_path)}")
 
     valid_paths = dict(file_paths).keys()
-    for unknown_path in NicePath(package_path).walk(valid_paths):
+    for unknown_path in NicePath(setup_path if generate_setup else package_path).walk(valid_paths):
         unknown_path.unlink()
         logger.debug(f"Deleted {NicePath(unknown_path)}")

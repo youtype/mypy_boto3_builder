@@ -1,8 +1,6 @@
 """
 botocore-stubs package writer.
 """
-import filecmp
-import shutil
 from pathlib import Path
 from typing import List, Tuple
 
@@ -29,18 +27,12 @@ def write_botocore_stubs_package(output_path: Path, generate_setup: bool) -> Non
     """
     logger = get_logger()
     setup_path = output_path / "botocore_stubs_package"
-    if not generate_setup:
-        setup_path = output_path
+    if generate_setup:
+        package_path = setup_path / BOTOCORE_STUBS_NAME
+    else:
+        package_path = output_path / "botocore"
 
-    package_path = setup_path / BOTOCORE_STUBS_NAME
-    if not generate_setup:
-        package_path = setup_path / "botocore"
-
-    if setup_path.exists():
-        shutil.rmtree(setup_path)
-
-    setup_path.mkdir(exist_ok=True)
-    package_path.mkdir(exist_ok=True)
+    package_path.mkdir(exist_ok=True, parents=True)
 
     templates_path = Path("botocore-stubs")
     module_templates_path = templates_path / "botocore-stubs"
@@ -83,13 +75,12 @@ def write_botocore_stubs_package(output_path: Path, generate_setup: bool) -> Non
         relative_output_path = static_path.relative_to(BOTOCORE_STUBS_STATIC_PATH)
         file_path = package_path / relative_output_path
         file_path.parent.mkdir(exist_ok=True)
-        if file_path.exists() and filecmp.cmp(static_path.as_posix(), file_path.as_posix()):
-            continue
-
-        shutil.copy(static_path, file_path)
-        logger.debug(f"Updated {NicePath(file_path)}")
+        content = static_path.read_text()
+        if not file_path.exists() or file_path.read_text() != content:
+            file_path.write_text(content)
+            logger.debug(f"Updated {NicePath(file_path)}")
 
     valid_paths = (*dict(file_paths).keys(), *static_paths)
-    for unknown_path in NicePath(package_path).walk(valid_paths):
+    for unknown_path in NicePath(setup_path if generate_setup else package_path).walk(valid_paths):
         unknown_path.unlink()
         logger.debug(f"Deleted {NicePath(unknown_path)}")
