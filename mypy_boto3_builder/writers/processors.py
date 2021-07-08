@@ -47,12 +47,7 @@ def process_boto3_stubs(
     boto3_stubs_package = parse_boto3_stubs_package(session=session, service_names=service_names)
     logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
 
-    modified_paths = write_boto3_stubs_package(
-        boto3_stubs_package, output_path, generate_setup=generate_setup
-    )
-    for modified_path in modified_paths:
-        logger.debug(f"Updated {NicePath(modified_path)}")
-
+    write_boto3_stubs_package(boto3_stubs_package, output_path, generate_setup=generate_setup)
     return boto3_stubs_package
 
 
@@ -70,9 +65,7 @@ def process_botocore_stubs(
     logger = get_logger()
     logger.debug(f"Writing botocore stubs to {NicePath(output_path)}")
 
-    modified_paths = write_botocore_stubs_package(output_path, generate_setup=generate_setup)
-    for modified_path in modified_paths:
-        logger.debug(f"Updated {NicePath(modified_path)}")
+    write_botocore_stubs_package(output_path, generate_setup=generate_setup)
 
 
 def process_master(
@@ -98,12 +91,7 @@ def process_master(
     master_package = parse_master_package(session, service_names)
     logger.debug(f"Writing master to {NicePath(output_path)}")
 
-    modified_paths = write_master_package(
-        master_package, output_path=output_path, generate_setup=generate_setup
-    )
-    for modified_path in modified_paths:
-        logger.debug(f"Updated {NicePath(modified_path)}")
-
+    write_master_package(master_package, output_path=output_path, generate_setup=generate_setup)
     return master_package
 
 
@@ -132,12 +120,7 @@ def process_service(
         typed_dict.replace_self_references()
     logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
 
-    modified_paths = write_service_package(
-        service_module, output_path=output_path, generate_setup=generate_setup
-    )
-    for modified_path in modified_paths:
-        logger.debug(f"Updated {NicePath(modified_path)}")
-
+    write_service_package(service_module, output_path=output_path, generate_setup=generate_setup)
     return service_module
 
 
@@ -190,8 +173,5 @@ def process_boto3_stubs_docs(
     boto3_stubs_package = parse_boto3_stubs_package(session=session, service_names=service_names)
     logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
 
-    modified_paths = write_boto3_stubs_docs(boto3_stubs_package, output_path=output_path)
-    for modified_path in modified_paths:
-        logger.debug(f"Updated {NicePath(modified_path)}")
-
+    write_boto3_stubs_docs(boto3_stubs_package, output_path=output_path)
     return boto3_stubs_package

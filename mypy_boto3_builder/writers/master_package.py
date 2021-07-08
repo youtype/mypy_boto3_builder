@@ -1,12 +1,13 @@
 """
 Master package writer.
 """
-import shutil
 from pathlib import Path
 from typing import List, Tuple
 
+from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.utils.markdown import fix_pypi_headers
+from mypy_boto3_builder.utils.nice_path import NicePath
 from mypy_boto3_builder.writers.utils import (
     blackify,
     format_md,
@@ -16,9 +17,7 @@ from mypy_boto3_builder.writers.utils import (
 )
 
 
-def write_master_package(
-    package: MasterPackage, output_path: Path, generate_setup: bool
-) -> List[Path]:
+def write_master_package(package: MasterPackage, output_path: Path, generate_setup: bool) -> None:
     """
     Create mypy-boto3 stubs.
 
@@ -27,18 +26,14 @@ def write_master_package(
         output_path -- Path to output folder.
         generate_setup -- Generate ready-to-install or to-use package.
     """
+    logger = get_logger()
     setup_path = output_path / "master_package"
     if not generate_setup:
         setup_path = output_path
 
-    modified_paths: List[Path] = []
     package_path = setup_path / package.name
 
-    if setup_path.exists():
-        shutil.rmtree(setup_path)
-
-    setup_path.mkdir(exist_ok=True)
-    package_path.mkdir(exist_ok=True)
+    package_path.mkdir(exist_ok=True, parents=True)
 
     templates_path = Path("master")
     module_templates_path = templates_path / "master"
@@ -91,7 +86,10 @@ def write_master_package(
             content = format_md(content)
 
         if not file_path.exists() or file_path.read_text() != content:
-            modified_paths.append(file_path)
             file_path.write_text(content)
+            logger.debug(f"Updated {NicePath(file_path)}")
 
-    return modified_paths
+    valid_paths = dict(file_paths).keys()
+    for unknown_path in NicePath(package_path).walk(valid_paths):
+        unknown_path.unlink()
+        logger.debug(f"Deleted {NicePath(unknown_path)}")

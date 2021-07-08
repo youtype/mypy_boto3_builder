@@ -25,9 +25,7 @@ class TestMasterPackage:
 
         with tempfile.TemporaryDirectory() as output_dir:
             output_path = Path(output_dir)
-            result = write_master_package(package_mock, output_path, True)
-            assert len(result) == 14
-            assert result[0].name == "setup.py"
+            write_master_package(package_mock, output_path, True)
             render_jinja2_template_mock.assert_called_with(
                 Path("master/master/submodules.py.jinja2"),
                 package=package_mock,

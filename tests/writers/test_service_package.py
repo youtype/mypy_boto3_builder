@@ -25,9 +25,7 @@ class TestServicePackage:
 
         with tempfile.TemporaryDirectory() as output_dir:
             output_path = Path(output_dir)
-            result = write_service_package(package_mock, output_path, True)
-            assert len(result) == 19
-            assert result[0].name == "setup.py"
+            write_service_package(package_mock, output_path, True)
             render_jinja2_template_mock.assert_called_with(
                 Path("service/service/type_defs.pyi.jinja2"),
                 package=package_mock,
