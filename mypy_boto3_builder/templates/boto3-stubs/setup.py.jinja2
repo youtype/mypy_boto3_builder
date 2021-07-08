@@ -32,7 +32,7 @@ setup(
         "Programming Language :: Python :: Implementation :: CPython",
         "Typing :: Typed",
     ],
-    keywords='boto3 type-annotations boto3-stubs mypy mypy-stubs typeshed autocomplete auto-generated',
+    keywords='boto3 type-annotations boto3-stubs mypy typeshed autocomplete',
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     package_data={"{{ package.name }}": ["py.typed", "*.pyi", "*/*.pyi"]},
@@ -49,16 +49,16 @@ setup(
     extras_require={
         "all": [
             {% for service_name in package.service_names -%}
-            "{{ service_name.pypi_name }}=={{ build_version }}",
+            "{{ service_name.pypi_name }}>={{ min_build_version }}",
             {% endfor -%}
         ],
         "essential": [
             {% for service_name in package.essential_service_names -%}
-            "{{ service_name.pypi_name }}=={{ build_version }}",
+            "{{ service_name.pypi_name }}>={{ min_build_version }}",
             {% endfor -%}
         ],
         {% for service_name in package.service_names -%}
-        "{{ service_name.extras_name }}": ["{{ service_name.pypi_name }}=={{ build_version }}"],
+        "{{ service_name.extras_name }}": ["{{ service_name.pypi_name }}>={{ min_build_version }}"],
         {% endfor -%}
     },
     zip_safe=False,

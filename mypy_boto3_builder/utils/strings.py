@@ -157,3 +157,18 @@ def get_botocore_class_name(metadata: Dict[str, str]) -> str:
     if class_name.startswith("Amazon"):
         class_name = class_name[6:]
     return class_name
+
+
+def get_min_build_version(version: str) -> str:
+    """
+    Get min version 5 micro releases lower that `version`.
+
+    Minimum micro is 0.
+    """
+    major = minor = micro = "0"
+    if version.count(".") > 2:
+        major, minor, micro, _ = version.split(".", 3)
+    else:
+        major, minor, micro = version.split(".", 2)
+    new_micro = max(int(micro) - 5, 0)
+    return f"{major}.{minor}.{new_micro}"

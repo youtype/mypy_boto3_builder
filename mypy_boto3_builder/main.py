@@ -19,7 +19,11 @@ from mypy_boto3_builder.constants import (
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
-from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name
+from mypy_boto3_builder.utils.strings import (
+    get_anchor_link,
+    get_botocore_class_name,
+    get_min_build_version,
+)
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
@@ -83,6 +87,7 @@ def main() -> None:
         service_names.append(service_name)
 
     build_version = args.build_version or boto3_version
+    min_build_version = get_min_build_version(build_version)
     botocore_build_version = botocore_version
     if args.build_version and ".post" in args.build_version:
         post_release = args.build_version.split(".post")[-1]
@@ -94,6 +99,7 @@ def main() -> None:
         boto3_version=boto3_version,
         botocore_version=botocore_version,
         build_version=build_version,
+        min_build_version=min_build_version,
         botocore_build_version=botocore_build_version,
         builder_version=args.builder_version,
         get_anchor_link=get_anchor_link,
