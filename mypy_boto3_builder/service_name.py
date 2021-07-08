@@ -229,14 +229,6 @@ class ServiceNameCatalog:
         except KeyError as exc:
             raise ValueError(f"Unknown service {name}") from exc
 
-    @staticmethod
-    def create(name: str) -> ServiceName:
-        """
-        Create ServiceName for unknown service.
-        """
-        class_name = "".join([i.capitalize() for i in name.split("-")])
-        return ServiceName(name, class_name)
-
     @classmethod
     def add(cls, name: str, class_name: str) -> ServiceName:
         """

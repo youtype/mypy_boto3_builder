@@ -9,14 +9,14 @@ Master package writer.
 
 ## write_master_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/master_package.py#L19)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/master_package.py#L20)
 
 ```python
 def write_master_package(
     package: MasterPackage,
     output_path: Path,
     generate_setup: bool,
-) -> List[Path]:
+) -> None:
 ```
 
 Create mypy-boto3 stubs.
