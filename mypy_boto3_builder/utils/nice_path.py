@@ -34,9 +34,12 @@ class NicePath(type(Path())):  # type: ignore
         Yields:
             Existing Path.
         """
+        exclude_strs = {NicePath(i).as_posix() for i in exclude}
         for path in self.glob("**/*"):
             if not path.is_file():
                 continue
 
-            if path not in exclude:
-                yield path
+            if path.as_posix() in exclude_strs:
+                continue
+
+            yield path

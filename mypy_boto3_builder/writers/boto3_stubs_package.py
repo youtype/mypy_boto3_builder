@@ -73,10 +73,11 @@ def write_boto3_stubs_package(
             file_path.write_text(content)
             logger.debug(f"Updated {NicePath(file_path)}")
 
-    static_paths = BOTO3_STUBS_STATIC_PATH.glob("**/*.pyi")
-    for static_path in static_paths:
+    static_paths = []
+    for static_path in BOTO3_STUBS_STATIC_PATH.glob("**/*.pyi"):
         relative_output_path = static_path.relative_to(BOTO3_STUBS_STATIC_PATH)
         file_path = package_path / relative_output_path
+        static_paths.append(file_path)
         file_path.parent.mkdir(exist_ok=True)
         content = static_path.read_text()
         if not file_path.exists() or file_path.read_text() != content:
