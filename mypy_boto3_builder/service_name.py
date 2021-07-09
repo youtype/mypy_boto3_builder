@@ -1,7 +1,7 @@
 """
 Description for boto3 service.
 """
-from typing import Literal, Mapping, Tuple
+from typing import Dict, Literal
 
 from mypy_boto3_builder.constants import MODULE_NAME, PYPI_NAME
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
@@ -180,293 +180,35 @@ class ServiceNameCatalog:
     Finder for boto3 services by name.
     """
 
-    ITEMS: Tuple[ServiceName, ...] = (
-        ServiceName("accessanalyzer", "AccessAnalyzer"),
-        ServiceName("acm-pca", "ACMPCA"),
-        ServiceName("acm", "ACM"),
-        ServiceName("alexaforbusiness", "AlexaForBusiness"),
-        ServiceName("amp", "PrometheusService"),
-        ServiceName("amplify", "Amplify"),
-        ServiceName("amplifybackend", "AmplifyBackend"),
-        ServiceName("apigateway", "APIGateway"),
-        ServiceName("apigatewaymanagementapi", "ApiGatewayManagementApi"),
-        ServiceName("apigatewayv2", "ApiGatewayV2"),
-        ServiceName("appconfig", "AppConfig"),
-        ServiceName("appflow", "Appflow"),
-        ServiceName("appintegrations", "AppIntegrationsService"),
-        ServiceName("application-autoscaling", "ApplicationAutoScaling"),
-        ServiceName("application-insights", "ApplicationInsights"),
-        ServiceName("applicationcostprofiler", "ApplicationCostProfiler"),
-        ServiceName("appmesh", "AppMesh"),
-        ServiceName("apprunner", "AppRunner"),
-        ServiceName("appstream", "AppStream"),
-        ServiceName("appsync", "AppSync"),
-        ServiceName("athena", "Athena"),
-        ServiceName("auditmanager", "AuditManager"),
-        ServiceName("autoscaling-plans", "AutoScalingPlans"),
-        ServiceName("autoscaling", "AutoScaling"),
-        ServiceName("backup", "Backup"),
-        ServiceName("batch", "Batch"),
-        ServiceName("braket", "Braket"),
-        ServiceName("budgets", "Budgets"),
-        ServiceName("ce", "CostExplorer"),
-        ServiceName("chime", "Chime"),
-        ServiceName("cloud9", "Cloud9"),
-        ServiceName("clouddirectory", "CloudDirectory"),
-        ServiceName("cloudformation", "CloudFormation"),
-        ServiceName("cloudfront", "CloudFront"),
-        ServiceName("cloudhsm", "CloudHSM"),
-        ServiceName("cloudhsmv2", "CloudHSMV2"),
-        ServiceName("cloudsearch", "CloudSearch"),
-        ServiceName("cloudsearchdomain", "CloudSearchDomain"),
-        ServiceName("cloudtrail", "CloudTrail"),
-        ServiceName("cloudwatch", "CloudWatch"),
-        ServiceName("codeartifact", "CodeArtifact"),
-        ServiceName("codebuild", "CodeBuild"),
-        ServiceName("codecommit", "CodeCommit"),
-        ServiceName("codedeploy", "CodeDeploy"),
-        ServiceName("codeguru-reviewer", "CodeGuruReviewer"),
-        ServiceName("codeguruprofiler", "CodeGuruProfiler"),
-        ServiceName("codepipeline", "CodePipeline"),
-        ServiceName("codestar-connections", "CodeStarconnections"),
-        ServiceName("codestar-notifications", "CodeStarNotifications"),
-        ServiceName("codestar", "CodeStar"),
-        ServiceName("cognito-identity", "CognitoIdentity"),
-        ServiceName("cognito-idp", "CognitoIdentityProvider"),
-        ServiceName("cognito-sync", "CognitoSync"),
-        ServiceName("comprehend", "Comprehend"),
-        ServiceName("comprehendmedical", "ComprehendMedical"),
-        ServiceName("compute-optimizer", "ComputeOptimizer"),
-        ServiceName("config", "ConfigService"),
-        ServiceName("connect-contact-lens", "ConnectContactLens"),
-        ServiceName("connect", "Connect"),
-        ServiceName("connectparticipant", "ConnectParticipant"),
-        ServiceName("cur", "CostandUsageReportService"),
-        ServiceName("customer-profiles", "CustomerProfiles"),
-        ServiceName("databrew", "GlueDataBrew"),
-        ServiceName("dataexchange", "DataExchange"),
-        ServiceName("datapipeline", "DataPipeline"),
-        ServiceName("datasync", "DataSync"),
-        ServiceName("dax", "DAX"),
-        ServiceName("detective", "Detective"),
-        ServiceName("devicefarm", "DeviceFarm"),
-        ServiceName("devops-guru", "DevOpsGuru"),
-        ServiceName("directconnect", "DirectConnect"),
-        ServiceName("discovery", "ApplicationDiscoveryService"),
-        ServiceName("dlm", "DLM"),
-        ServiceName("dms", "DatabaseMigrationService"),
-        ServiceName("docdb", "DocDB"),
-        ServiceName("ds", "DirectoryService"),
-        ServiceName("dynamodb", "DynamoDB"),
-        ServiceName("dynamodbstreams", "DynamoDBStreams"),
-        ServiceName("ebs", "EBS"),
-        ServiceName("ec2-instance-connect", "EC2InstanceConnect"),
-        ServiceName("ec2", "EC2"),
-        ServiceName("ecr-public", "ECRPublic"),
-        ServiceName("ecr", "ECR"),
-        ServiceName("ecs", "ECS"),
-        ServiceName("efs", "EFS"),
-        ServiceName("eks", "EKS"),
-        ServiceName("elastic-inference", "ElasticInference"),
-        ServiceName("elasticache", "ElastiCache"),
-        ServiceName("elasticbeanstalk", "ElasticBeanstalk"),
-        ServiceName("elastictranscoder", "ElasticTranscoder"),
-        ServiceName("elb", "ElasticLoadBalancing"),
-        ServiceName("elbv2", "ElasticLoadBalancingv2"),
-        ServiceName("emr-containers", "EMRContainers"),
-        ServiceName("emr", "EMR"),
-        ServiceName("es", "ElasticsearchService"),
-        ServiceName("events", "EventBridge"),
-        ServiceName("finspace-data", "FinSpaceData"),
-        ServiceName("finspace", "finspace"),
-        ServiceName("firehose", "Firehose"),
-        ServiceName("fis", "FIS"),
-        ServiceName("fms", "FMS"),
-        ServiceName("forecast", "ForecastService"),
-        ServiceName("forecastquery", "ForecastQueryService"),
-        ServiceName("frauddetector", "FraudDetector"),
-        ServiceName("fsx", "FSx"),
-        ServiceName("gamelift", "GameLift"),
-        ServiceName("glacier", "Glacier"),
-        ServiceName("globalaccelerator", "GlobalAccelerator"),
-        ServiceName("glue", "Glue"),
-        ServiceName("greengrass", "Greengrass"),
-        ServiceName("greengrassv2", "GreengrassV2"),
-        ServiceName("groundstation", "GroundStation"),
-        ServiceName("guardduty", "GuardDuty"),
-        ServiceName("health", "Health"),
-        ServiceName("healthlake", "HealthLake"),
-        ServiceName("honeycode", "Honeycode"),
-        ServiceName("iam", "IAM"),
-        ServiceName("identitystore", "IdentityStore"),
-        ServiceName("imagebuilder", "imagebuilder"),
-        ServiceName("importexport", "ImportExport"),
-        ServiceName("inspector", "Inspector"),
-        ServiceName("iot-data", "IoTDataPlane"),
-        ServiceName("iot-jobs-data", "IoTJobsDataPlane"),
-        ServiceName("iot", "IoT"),
-        ServiceName("iot1click-devices", "IoT1ClickDevicesService"),
-        ServiceName("iot1click-projects", "IoT1ClickProjects"),
-        ServiceName("iotanalytics", "IoTAnalytics"),
-        ServiceName("iotdeviceadvisor", "IoTDeviceAdvisor"),
-        ServiceName("iotevents-data", "IoTEventsData"),
-        ServiceName("iotevents", "IoTEvents"),
-        ServiceName("iotfleethub", "IoTFleetHub"),
-        ServiceName("iotsecuretunneling", "IoTSecureTunneling"),
-        ServiceName("iotsitewise", "IoTSiteWise"),
-        ServiceName("iotthingsgraph", "IoTThingsGraph"),
-        ServiceName("iotwireless", "IoTWireless"),
-        ServiceName("ivs", "IVS"),
-        ServiceName("kafka", "Kafka"),
-        ServiceName("kendra", "kendra"),
-        ServiceName("kinesis-video-archived-media", "KinesisVideoArchivedMedia"),
-        ServiceName("kinesis-video-media", "KinesisVideoMedia"),
-        ServiceName("kinesis-video-signaling", "KinesisVideoSignalingChannels"),
-        ServiceName("kinesis", "Kinesis"),
-        ServiceName("kinesisanalytics", "KinesisAnalytics"),
-        ServiceName("kinesisanalyticsv2", "KinesisAnalyticsV2"),
-        ServiceName("kinesisvideo", "KinesisVideo"),
-        ServiceName("kms", "KMS"),
-        ServiceName("lakeformation", "LakeFormation"),
-        ServiceName("lambda", "Lambda"),
-        ServiceName("lex-models", "LexModelBuildingService"),
-        ServiceName("lex-runtime", "LexRuntimeService"),
-        ServiceName("lexv2-models", "LexModelsV2"),
-        ServiceName("lexv2-runtime", "LexRuntimeV2"),
-        ServiceName("license-manager", "LicenseManager"),
-        ServiceName("lightsail", "Lightsail"),
-        ServiceName("location", "LocationService"),
-        ServiceName("logs", "CloudWatchLogs"),
-        ServiceName("lookoutequipment", "LookoutEquipment"),
-        ServiceName("lookoutmetrics", "LookoutMetrics"),
-        ServiceName("lookoutvision", "LookoutforVision"),
-        ServiceName("machinelearning", "MachineLearning"),
-        ServiceName("macie", "Macie"),
-        ServiceName("macie2", "Macie2"),
-        ServiceName("managedblockchain", "ManagedBlockchain"),
-        ServiceName("marketplace-catalog", "MarketplaceCatalog"),
-        ServiceName("marketplace-entitlement", "MarketplaceEntitlementService"),
-        ServiceName("marketplacecommerceanalytics", "MarketplaceCommerceAnalytics"),
-        ServiceName("mediaconnect", "MediaConnect"),
-        ServiceName("mediaconvert", "MediaConvert"),
-        ServiceName("medialive", "MediaLive"),
-        ServiceName("mediapackage-vod", "MediaPackageVod"),
-        ServiceName("mediapackage", "MediaPackage"),
-        ServiceName("mediastore-data", "MediaStoreData"),
-        ServiceName("mediastore", "MediaStore"),
-        ServiceName("mediatailor", "MediaTailor"),
-        ServiceName("meteringmarketplace", "MarketplaceMetering"),
-        ServiceName("mgh", "MigrationHub"),
-        ServiceName("mgn", "mgn"),
-        ServiceName("migrationhub-config", "MigrationHubConfig"),
-        ServiceName("mobile", "Mobile"),
-        ServiceName("mq", "MQ"),
-        ServiceName("mturk", "MTurk"),
-        ServiceName("mwaa", "MWAA"),
-        ServiceName("neptune", "Neptune"),
-        ServiceName("network-firewall", "NetworkFirewall"),
-        ServiceName("networkmanager", "NetworkManager"),
-        ServiceName("nimble", "NimbleStudio"),
-        ServiceName("opsworks", "OpsWorks"),
-        ServiceName("opsworkscm", "OpsWorksCM"),
-        ServiceName("organizations", "Organizations"),
-        ServiceName("outposts", "Outposts"),
-        ServiceName("personalize-events", "PersonalizeEvents"),
-        ServiceName("personalize-runtime", "PersonalizeRuntime"),
-        ServiceName("personalize", "Personalize"),
-        ServiceName("pi", "PI"),
-        ServiceName("pinpoint-email", "PinpointEmail"),
-        ServiceName("pinpoint-sms-voice", "PinpointSMSVoice"),
-        ServiceName("pinpoint", "Pinpoint"),
-        ServiceName("polly", "Polly"),
-        ServiceName("pricing", "Pricing"),
-        ServiceName("proton", "Proton"),
-        ServiceName("qldb-session", "QLDBSession"),
-        ServiceName("qldb", "QLDB"),
-        ServiceName("quicksight", "QuickSight"),
-        ServiceName("ram", "RAM"),
-        ServiceName("rds-data", "RDSDataService"),
-        ServiceName("rds", "RDS"),
-        ServiceName("redshift-data", "RedshiftDataAPIService"),
-        ServiceName("redshift", "Redshift"),
-        ServiceName("rekognition", "Rekognition"),
-        ServiceName("resource-groups", "ResourceGroups"),
-        ServiceName("resourcegroupstaggingapi", "ResourceGroupsTaggingAPI"),
-        ServiceName("robomaker", "RoboMaker"),
-        ServiceName("route53", "Route53"),
-        ServiceName("route53domains", "Route53Domains"),
-        ServiceName("route53resolver", "Route53Resolver"),
-        ServiceName("s3", "S3"),
-        ServiceName("s3control", "S3Control"),
-        ServiceName("s3outposts", "S3Outposts"),
-        ServiceName("sagemaker-a2i-runtime", "AugmentedAIRuntime"),
-        ServiceName("sagemaker-edge", "SagemakerEdgeManager"),
-        ServiceName("sagemaker-featurestore-runtime", "SageMakerFeatureStoreRuntime"),
-        ServiceName("sagemaker-runtime", "SageMakerRuntime"),
-        ServiceName("sagemaker", "SageMaker"),
-        ServiceName("savingsplans", "SavingsPlans"),
-        ServiceName("schemas", "Schemas"),
-        ServiceName("sdb", "SimpleDB"),
-        ServiceName("secretsmanager", "SecretsManager"),
-        ServiceName("securityhub", "SecurityHub"),
-        ServiceName("serverlessrepo", "ServerlessApplicationRepository"),
-        ServiceName("service-quotas", "ServiceQuotas"),
-        ServiceName("servicecatalog-appregistry", "AppRegistry"),
-        ServiceName("servicecatalog", "ServiceCatalog"),
-        ServiceName("servicediscovery", "ServiceDiscovery"),
-        ServiceName("ses", "SES"),
-        ServiceName("sesv2", "SESV2"),
-        ServiceName("shield", "Shield"),
-        ServiceName("signer", "signer"),
-        ServiceName("sms-voice", "PinpointSMSVoice"),
-        ServiceName("sms", "SMS"),
-        ServiceName("snowball", "Snowball"),
-        ServiceName("sns", "SNS"),
-        ServiceName("sqs", "SQS"),
-        ServiceName("ssm-contacts", "SSMContacts"),
-        ServiceName("ssm-incidents", "SSMIncidents"),
-        ServiceName("ssm", "SSM"),
-        ServiceName("sso-admin", "SSOAdmin"),
-        ServiceName("sso-oidc", "SSOOIDC"),
-        ServiceName("sso", "SSO"),
-        ServiceName("stepfunctions", "SFN"),
-        ServiceName("storagegateway", "StorageGateway"),
-        ServiceName("sts", "STS"),
-        ServiceName("support", "Support"),
-        ServiceName("swf", "SWF"),
-        ServiceName("synthetics", "Synthetics"),
-        ServiceName("textract", "Textract"),
-        ServiceName("timestream-query", "TimestreamQuery"),
-        ServiceName("timestream-write", "TimestreamWrite"),
-        ServiceName("transcribe", "TranscribeService"),
-        ServiceName("transfer", "Transfer"),
-        ServiceName("translate", "Translate"),
-        ServiceName("waf-regional", "WAFRegional"),
-        ServiceName("waf", "WAF"),
-        ServiceName("wafv2", "WAFV2"),
-        ServiceName("wellarchitected", "WellArchitected"),
-        ServiceName("workdocs", "WorkDocs"),
-        ServiceName("worklink", "WorkLink"),
-        ServiceName("workmail", "WorkMail"),
-        ServiceName("workmailmessageflow", "WorkMailMessageFlow"),
-        ServiceName("workspaces", "WorkSpaces"),
-        ServiceName("xray", "XRay"),
-    )
-    ITEM_MAP: Mapping[str, ServiceName] = {i.name: i for i in ITEMS}
+    ec2 = ServiceName("ec2", "EC2")
+    iam = ServiceName("iam", "IAM")
+    s3 = ServiceName("s3", "S3")
+    cloudwatch = ServiceName("cloudwatch", "CloudWatch")
+    opsworks = ServiceName("opsworks", "OpsWorks")
+    sns = ServiceName("sns", "SNS")
+    glacier = ServiceName("glacier", "Glacier")
+    dynamodb = ServiceName("dynamodb", "DynamoDB")
+    sqs = ServiceName("sqs", "SQS")
+    cloudformation = ServiceName("cloudformation", "CloudFormation")
+    cloudsearchdomain = ServiceName("cloudsearchdomain", "CloudSearchDomain")
+    logs = ServiceName("logs", "CloudWatchLogs")
+    lambda_ = ServiceName("lambda", "Lambda")
 
-    ec2 = ITEM_MAP["ec2"]
-    iam = ITEM_MAP["iam"]
-    s3 = ITEM_MAP["s3"]
-    cloudwatch = ITEM_MAP["cloudwatch"]
-    opsworks = ITEM_MAP["opsworks"]
-    sns = ITEM_MAP["sns"]
-    glacier = ITEM_MAP["glacier"]
-    dynamodb = ITEM_MAP["dynamodb"]
-    sqs = ITEM_MAP["sqs"]
-    cloudformation = ITEM_MAP["cloudformation"]
-    cloudsearchdomain = ITEM_MAP["cloudsearchdomain"]
-    logs = ITEM_MAP["logs"]
-    lambda_ = ITEM_MAP["lambda"]
+    ITEMS: Dict[str, ServiceName] = {
+        ec2.name: ec2,
+        iam.name: iam,
+        s3.name: s3,
+        cloudwatch.name: cloudwatch,
+        opsworks.name: opsworks,
+        sns.name: sns,
+        glacier.name: glacier,
+        dynamodb.name: dynamodb,
+        sqs.name: sqs,
+        cloudformation.name: cloudformation,
+        cloudsearchdomain.name: cloudsearchdomain,
+        logs.name: logs,
+        lambda_.name: lambda_,
+    }
 
     @classmethod
     def find(cls, name: str) -> ServiceName:
@@ -483,14 +225,23 @@ class ServiceNameCatalog:
             ValueError -- If ServiceName not found.
         """
         try:
-            return cls.ITEM_MAP[name]
+            return cls.ITEMS[name]
         except KeyError as exc:
             raise ValueError(f"Unknown service {name}") from exc
 
-    @staticmethod
-    def create(name: str) -> ServiceName:
+    @classmethod
+    def add(cls, name: str, class_name: str) -> ServiceName:
         """
-        Create ServiceName for unknown service.
+        Add new ServiceName to catalog or modify existing one.
+
+        Returns:
+            New ServiceName or modified if it exists.
         """
-        class_name = "".join([i.capitalize() for i in name.split("-")])
-        return ServiceName(name, class_name)
+        if name in cls.ITEMS:
+            service_name = cls.ITEMS[name]
+            service_name.class_name = class_name
+            return service_name
+
+        service_name = ServiceName(name, class_name)
+        cls.ITEMS[name] = service_name
+        return service_name

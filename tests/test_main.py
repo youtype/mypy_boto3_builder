@@ -12,7 +12,7 @@ class TestMain:
     def test_get_available_service_names(self) -> None:
         session_mock = MagicMock()
         session_mock.get_available_services.return_value = ["s3", "ec2", "unsupported"]
-        assert len(get_available_service_names(session_mock)) == 2
+        assert len(get_available_service_names(session_mock)) == 3
 
     @patch("mypy_boto3_builder.main.generate_stubs")
     @patch("mypy_boto3_builder.main.generate_docs")
@@ -30,16 +30,17 @@ class TestMain:
             namespace = Namespace(
                 log_level=0,
                 output_path=Path(output_dir),
-                service_names=[ServiceName("s3", "S3")],
+                service_names=["s3"],
                 build_version="1.2.3.post4",
                 installed=False,
                 skip_master=False,
                 skip_services=False,
                 builder_version="1.2.3",
                 generate_docs=False,
+                list_services=False,
             )
             session_mock = MagicMock()
-            generate_docs(namespace, service_names=namespace.service_names, session=session_mock)
+            generate_docs(namespace, service_names=[ServiceName("s3", "S3")], session=session_mock)
             process_boto3_stubs_docs_mock.assert_called()
             process_service_docs_mock.assert_called()
 
@@ -58,16 +59,17 @@ class TestMain:
             namespace = Namespace(
                 log_level=0,
                 output_path=Path(output_dir),
-                service_names=[ServiceName("s3", "S3")],
+                service_names=["s3"],
                 build_version="1.2.3.post4",
                 installed=False,
                 skip_master=False,
                 skip_services=False,
                 builder_version="1.2.3",
                 generate_docs=False,
+                list_services=False,
             )
             session_mock = MagicMock()
-            generate_stubs(namespace, service_names=namespace.service_names, session=session_mock)
+            generate_stubs(namespace, service_names=[ServiceName("s3", "S3")], session=session_mock)
             process_botocore_stubs_mock.assert_called()
             process_boto3_stubs_mock.assert_called()
             process_master_mock.assert_called()

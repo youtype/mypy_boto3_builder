@@ -5,7 +5,7 @@ import builtins
 import keyword
 import textwrap
 import typing
-from typing import List
+from typing import Dict, List
 
 RESERVED_NAMES = set(
     (
@@ -139,3 +139,36 @@ def get_short_docstring(doc: str) -> str:
         result_str = f"{result_str}."
 
     return "\n".join(textwrap.wrap(result_str, width=80))
+
+
+def get_botocore_class_name(metadata: Dict[str, str]) -> str:
+    """
+    Get Botocore class name from Service metadata.
+    """
+    class_name = metadata["serviceId"]
+    if "serviceFullName" in metadata:
+        class_name = metadata["serviceFullName"]
+    if "serviceAbbreviation" in metadata:
+        class_name = metadata["serviceAbbreviation"]
+
+    class_name = class_name.replace(" ", "").replace("-", "").replace("/", "")
+    if class_name.startswith("AWS"):
+        class_name = class_name[3:]
+    if class_name.startswith("Amazon"):
+        class_name = class_name[6:]
+    return class_name
+
+
+def get_min_build_version(version: str) -> str:
+    """
+    Get min version 5 micro releases lower that `version`.
+
+    Minimum micro is 0.
+    """
+    major = minor = micro = "0"
+    if version.count(".") > 2:
+        major, minor, micro, _ = version.split(".", 3)
+    else:
+        major, minor, micro = version.split(".", 2)
+    new_micro = max(int(micro) - 5, 0)
+    return f"{major}.{minor}.{new_micro}"

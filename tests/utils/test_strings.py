@@ -2,6 +2,7 @@ from mypy_boto3_builder.utils.strings import (
     get_anchor_link,
     get_class_prefix,
     get_line_with_indented,
+    get_min_build_version,
     get_short_docstring,
     is_reserved,
 )
@@ -32,7 +33,9 @@ class TestStrings:
         assert not is_reserved("myname")
 
     def test_get_short_docstring(self) -> None:
+        assert get_short_docstring("") == ""
         assert get_short_docstring("\n") == ""
+        assert get_short_docstring("`asd\n:type") == "`asd`."
         assert (
             get_short_docstring(
                 """
@@ -51,3 +54,9 @@ class TestStrings:
             )
             == "This action aborts a multipart upload."
         )
+
+    def test_get_min_build_version(self):
+        assert get_min_build_version("1.22.36") == "1.22.31"
+        assert get_min_build_version("1.22.48.post13") == "1.22.43"
+        assert get_min_build_version("1.13.3") == "1.13.0"
+        assert get_min_build_version("1.13.2.post56") == "1.13.0"

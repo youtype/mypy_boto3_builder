@@ -6,8 +6,10 @@ Multiple string utils collection.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Utils](index.md#utils) / Strings
     - [get_anchor_link](#get_anchor_link)
+    - [get_botocore_class_name](#get_botocore_class_name)
     - [get_class_prefix](#get_class_prefix)
     - [get_line_with_indented](#get_line_with_indented)
+    - [get_min_build_version](#get_min_build_version)
     - [get_short_docstring](#get_short_docstring)
     - [is_reserved](#is_reserved)
 
@@ -20,6 +22,16 @@ def get_anchor_link(text: str) -> str:
 ```
 
 Convert header to markdown anchor link.
+
+## get_botocore_class_name
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L144)
+
+```python
+def get_botocore_class_name(metadata: Dict[(str, str)]) -> str:
+```
+
+Get Botocore class name from Service metadata.
 
 ## get_class_prefix
 
@@ -61,6 +73,18 @@ Fixes invalid unindent.
 #### Returns
 
 A string with first line and following indented lines.
+
+## get_min_build_version
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L162)
+
+```python
+def get_min_build_version(version: str) -> str:
+```
+
+Get min version 5 micro releases lower that `version`.
+
+Minimum micro is 0.
 
 ## get_short_docstring
 

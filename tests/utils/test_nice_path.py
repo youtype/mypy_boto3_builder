@@ -1,3 +1,4 @@
+import tempfile
 from pathlib import Path
 from unittest.mock import patch
 
@@ -14,3 +15,14 @@ class TestNicePath:
             assert str(NicePath("/absolute")) == "/absolute"
             assert str(NicePath("/")) == "/"
             assert str(NicePath(".")) == "."
+
+    def test_walk(self) -> None:
+        with tempfile.TemporaryDirectory() as output_dir:
+            output_path = NicePath(output_dir)
+            (output_path / "one.txt").touch()
+            (output_path / "two.txt").touch()
+            result = list(output_path.walk())
+            assert len(result) == 2
+            result = list(output_path.walk([output_path / "one.txt"]))
+            assert len(result) == 1
+            assert result[0] == output_path / "two.txt"

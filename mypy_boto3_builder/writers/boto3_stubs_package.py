@@ -1,14 +1,14 @@
 """
 boto3-stubs package writer.
 """
-import filecmp
-import shutil
 from pathlib import Path
 from typing import List, Tuple
 
 from mypy_boto3_builder.constants import BOTO3_STUBS_STATIC_PATH
+from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.utils.markdown import fix_pypi_headers
+from mypy_boto3_builder.utils.nice_path import NicePath
 from mypy_boto3_builder.writers.utils import (
     blackify,
     format_md,
@@ -20,24 +20,18 @@ from mypy_boto3_builder.writers.utils import (
 
 def write_boto3_stubs_package(
     package: Boto3StubsPackage, output_path: Path, generate_setup: bool
-) -> List[Path]:
+) -> None:
     """
     Generate stubs for boto3-stubs package.
     """
+    logger = get_logger()
     setup_path = output_path / "boto3_stubs_package"
-    if not generate_setup:
-        setup_path = output_path
+    if generate_setup:
+        package_path = setup_path / package.name
+    else:
+        package_path = output_path / "boto3"
 
-    modified_paths: List[Path] = []
-    package_path = setup_path / package.name
-    if not generate_setup:
-        package_path = setup_path / "boto3"
-
-    if setup_path.exists():
-        shutil.rmtree(setup_path)
-
-    setup_path.mkdir(exist_ok=True)
-    package_path.mkdir(exist_ok=True)
+    package_path.mkdir(exist_ok=True, parents=True)
 
     templates_path = Path("boto3-stubs")
     module_templates_path = templates_path / "boto3-stubs"
@@ -76,27 +70,31 @@ def write_boto3_stubs_package(
             content = fix_pypi_headers(content)
             content = format_md(content)
         if not file_path.exists() or file_path.read_text() != content:
-            modified_paths.append(file_path)
             file_path.write_text(content)
+            logger.debug(f"Updated {NicePath(file_path)}")
 
+    static_paths = []
     for static_path in BOTO3_STUBS_STATIC_PATH.glob("**/*.pyi"):
         relative_output_path = static_path.relative_to(BOTO3_STUBS_STATIC_PATH)
         file_path = package_path / relative_output_path
+        static_paths.append(file_path)
         file_path.parent.mkdir(exist_ok=True)
-        if file_path.exists() and filecmp.cmp(static_path.as_posix(), file_path.as_posix()):
-            continue
+        content = static_path.read_text()
+        if not file_path.exists() or file_path.read_text() != content:
+            file_path.write_text(content)
+            logger.debug(f"Updated {NicePath(file_path)}")
 
-        shutil.copy(static_path, file_path)
-        modified_paths.append(file_path)
+    valid_paths = (*dict(file_paths).keys(), *static_paths)
+    for unknown_path in NicePath(setup_path if generate_setup else package_path).walk(valid_paths):
+        unknown_path.unlink()
+        logger.debug(f"Deleted {NicePath(unknown_path)}")
 
-    return modified_paths
 
-
-def write_boto3_stubs_docs(package: Boto3StubsPackage, output_path: Path) -> List[Path]:
+def write_boto3_stubs_docs(package: Boto3StubsPackage, output_path: Path) -> None:
     """
     Generate docs for boto3-stubs package.
     """
-    modified_paths = []
+    logger = get_logger()
     docs_path = output_path
     docs_path.mkdir(exist_ok=True)
     templates_path = Path("boto3_stubs_docs")
@@ -111,7 +109,10 @@ def write_boto3_stubs_docs(package: Boto3StubsPackage, output_path: Path) -> Lis
         content = insert_md_toc(content)
         content = format_md(content)
         if not file_path.exists() or file_path.read_text() != content:
-            modified_paths.append(file_path)
             file_path.write_text(content)
+            logger.debug(f"Updated {NicePath(file_path)}")
 
-    return modified_paths
+    valid_paths = dict(file_paths).keys()
+    for unknown_path in NicePath(docs_path).walk(valid_paths):
+        unknown_path.unlink()
+        logger.debug(f"Deleted {NicePath(unknown_path)}")

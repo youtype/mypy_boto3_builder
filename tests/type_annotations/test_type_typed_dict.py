@@ -48,6 +48,10 @@ class TestTypeTypedDict:
         assert self.result.render() == "MyDict"
         assert self.result.render("OtherDict") == "MyDict"
         assert self.result.render("MyDict") == '"MyDict"'
+        self.result.stringify = True
+        assert self.result.render() == '"MyDict"'
+        self.result.replace_with_dict.add(self.result.name)
+        assert self.result.render("MyDict") == "Dict[str, Any]"
 
     def test_get_import_record(self) -> None:
         assert self.result.get_import_record().render() == "from .type_defs import MyDict"
@@ -61,6 +65,9 @@ class TestTypeTypedDict:
 
     def test_is_dict(self) -> None:
         assert self.result.is_dict()
+
+    def test_is_typed_dict(self) -> None:
+        assert self.result.is_typed_dict()
 
     def test_render_class(self) -> None:
         assert self.result.render_class() == "class MyDict:\n    required: bool\n    optional: str"
@@ -140,6 +147,7 @@ class TestTypeTypedDict:
 
     def test_get_children_literals(self) -> None:
         assert len(self.result.get_children_literals()) == 0
+        assert len(self.result.get_children_literals([self.result])) == 0
 
     def test_replace_self_references(self) -> None:
         self.result.replace_self_references()

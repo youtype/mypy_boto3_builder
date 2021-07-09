@@ -76,7 +76,7 @@ jobs:
           VERSION: ${{ steps.vars.outputs.version }}
         run: |
           rm -rf mypy_boto3_output/*
-          scripts/build.sh -b $VERSION
+          python -m mypy_boto3_builder mypy_boto3_output -b $VERSION
       - name: Install dependencies for publishing
         if: steps.vars.outputs.version
         run: |
@@ -87,4 +87,4 @@ jobs:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          scripts/release.sh
+          ./scripts/release.sh

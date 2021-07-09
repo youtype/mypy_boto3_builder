@@ -28,15 +28,25 @@ class TestBoto3StubsPackage:
 
         with tempfile.TemporaryDirectory() as output_dir:
             output_path = Path(output_dir)
-            result = write_boto3_stubs_package(package_mock, output_path, True)
-            assert len(result) == 31
-            assert result[0].name == "setup.py"
+            write_boto3_stubs_package(package_mock, output_path, True)
             render_jinja2_template_mock.assert_called_with(
                 Path("boto3-stubs/boto3-stubs/version.py.jinja2"),
                 package=package_mock,
             )
             assert len(blackify_mock.mock_calls) == 6
             assert len(sort_imports_mock.mock_calls) == 6
+            blackify_mock.reset_mock()
+            sort_imports_mock.reset_mock()
+
+        with tempfile.TemporaryDirectory() as output_dir:
+            output_path = Path(output_dir)
+            write_boto3_stubs_package(package_mock, output_path, False)
+            render_jinja2_template_mock.assert_called_with(
+                Path("boto3-stubs/boto3-stubs/version.py.jinja2"),
+                package=package_mock,
+            )
+            assert len(blackify_mock.mock_calls) == 5
+            assert len(sort_imports_mock.mock_calls) == 5
 
     def test_write_boto3_stubs_docs(self) -> None:
         package_mock = MagicMock()
@@ -45,4 +55,6 @@ class TestBoto3StubsPackage:
 
         with tempfile.TemporaryDirectory() as output_dir:
             output_path = Path(output_dir)
+            (output_path / "module").mkdir(parents=True, exist_ok=True)
+            (output_path / "module" / "unknown.txt").touch()
             write_boto3_stubs_docs(package_mock, output_path)

@@ -15,7 +15,7 @@ botocore-stubs package writer.
 def write_botocore_stubs_package(
     output_path: Path,
     generate_setup: bool,
-) -> List[Path]:
+) -> None:
 ```
 
 Generate botocore-stubs stub files.
