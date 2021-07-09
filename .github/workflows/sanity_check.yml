@@ -9,7 +9,7 @@ on:
         description: Target boto3 version
 
 jobs:
-  publish-boto3-stubs:
+  sanity-check:
     env:
       PIP_NO_CACHE_DIR: false
       PIP_USER: 1
