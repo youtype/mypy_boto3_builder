@@ -6,6 +6,9 @@ import keyword
 import textwrap
 import typing
 from typing import Dict, List
+from unittest.mock import MagicMock
+
+from botocore.utils import get_service_module_name
 
 RESERVED_NAMES = set(
     (
@@ -145,18 +148,10 @@ def get_botocore_class_name(metadata: Dict[str, str]) -> str:
     """
     Get Botocore class name from Service metadata.
     """
-    class_name = metadata["serviceId"]
-    if "serviceFullName" in metadata:
-        class_name = metadata["serviceFullName"]
-    if "serviceAbbreviation" in metadata:
-        class_name = metadata["serviceAbbreviation"]
-
-    class_name = class_name.replace(" ", "").replace("-", "").replace("/", "")
-    if class_name.startswith("AWS"):
-        class_name = class_name[3:]
-    if class_name.startswith("Amazon"):
-        class_name = class_name[6:]
-    return class_name
+    service_model = MagicMock()
+    service_model.service_name = metadata.get("serviceId", "")
+    service_model.metadata = metadata
+    return get_service_module_name(service_model)
 
 
 def get_min_build_version(version: str) -> str:

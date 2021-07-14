@@ -12,6 +12,9 @@ class TestMain:
     def test_get_available_service_names(self) -> None:
         session_mock = MagicMock()
         session_mock.get_available_services.return_value = ["s3", "ec2", "unsupported"]
+        session_mock._session.get_service_data.return_value = {
+            "metadata": {"serviceAbbreviation": "Amazon S3", "serviceId": "s3"}
+        }
         assert len(get_available_service_names(session_mock)) == 3
 
     @patch("mypy_boto3_builder.main.generate_stubs")
