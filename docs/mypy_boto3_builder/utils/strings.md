@@ -15,7 +15,7 @@ Multiple string utils collection.
 
 ## get_anchor_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L93)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L96)
 
 ```python
 def get_anchor_link(text: str) -> str:
@@ -25,7 +25,7 @@ Convert header to markdown anchor link.
 
 ## get_botocore_class_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L144)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L147)
 
 ```python
 def get_botocore_class_name(metadata: Dict[(str, str)]) -> str:
@@ -35,7 +35,7 @@ Get Botocore class name from Service metadata.
 
 ## get_class_prefix
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L20)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L23)
 
 ```python
 def get_class_prefix(func_name: str) -> str:
@@ -53,7 +53,7 @@ String with a class prefix.
 
 ## get_line_with_indented
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L34)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L37)
 
 ```python
 def get_line_with_indented(
@@ -76,7 +76,7 @@ A string with first line and following indented lines.
 
 ## get_min_build_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L162)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L157)
 
 ```python
 def get_min_build_version(version: str) -> str:
@@ -88,7 +88,7 @@ Minimum micro is 0.
 
 ## get_short_docstring
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L107)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L110)
 
 ```python
 def get_short_docstring(doc: str) -> str:
@@ -103,7 +103,7 @@ Wraps docstring to 80 chars.
 
 ## is_reserved
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L100)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L103)
 
 ```python
 def is_reserved(word: str) -> bool:
