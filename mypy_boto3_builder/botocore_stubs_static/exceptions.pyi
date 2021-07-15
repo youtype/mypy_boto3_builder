@@ -2,7 +2,7 @@ import sys
 from typing import IO, Any, Dict, Iterable, Mapping
 
 import requests
-import urllib3
+import urllib3  # type: ignore
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -99,6 +99,8 @@ class ReadTimeoutError(
 ):
     def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
         self.kwargs: _EndpointURLErrorKwargs
+        self.request: Any
+        self.response: Any
 
 class ConnectTimeoutError(ConnectionError, requests.exceptions.ConnectTimeout):
     def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
@@ -512,6 +514,7 @@ class _MissingServiceIdErrorKwargs(TypedDict):
     service_name: str
 
 class MissingServiceIdError(UndefinedModelAttributeError):
+    fmt: str
     def __init__(self, *, service_name: str = ..., **kwargs: Any) -> None:
         self.kwargs: _MissingServiceIdErrorKwargs
 

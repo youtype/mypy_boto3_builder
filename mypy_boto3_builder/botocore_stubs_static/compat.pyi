@@ -4,7 +4,7 @@ from collections import OrderedDict as OrderedDict
 from email.utils import formatdate as formatdate
 from http.client import HTTPResponse as HTTPResponse
 from itertools import zip_longest as zip_longest
-from typing import Any, Optional
+from typing import Any, Iterable, Mapping, Optional, Tuple, TypeVar
 from urllib.parse import parse_qs as parse_qs
 from urllib.parse import parse_qsl as parse_qsl
 from urllib.parse import quote as quote
@@ -20,7 +20,13 @@ from xml.etree import ElementTree as ETree
 from botocore.exceptions import MD5UnavailableError as MD5UnavailableError
 from six.moves import http_client
 
-class HTTPHeaders(http_client.HTTPMessage): ...
+_R = TypeVar("_R")
+
+class HTTPHeaders(http_client.HTTPMessage):
+    @classmethod
+    def from_dict(cls: _R, d: Mapping[str, Any]) -> _R: ...
+    @classmethod
+    def from_pairs(cls: _R, pairs: Iterable[Tuple[str, Any]]) -> _R: ...
 
 file_type: Any
 zip = zip
