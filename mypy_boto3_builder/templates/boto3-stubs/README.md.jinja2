@@ -138,10 +138,10 @@ To speed up type checking and auto-complete, you can set types explicitly.
 import boto3
 from boto3.session import Session
 
-import mypy_boto3_ec2.client import EC2Client
-import mypy_boto3_ec2.service_resource import EC2ServiceResource
-import mypy_boto3_ec2.waiter import BundleTaskCompleteWaiter
-import mypy_boto3_ec2.paginator import DescribeVolumesPaginator
+from mypy_boto3_ec2.client import EC2Client
+from mypy_boto3_ec2.service_resource import EC2ServiceResource
+from mypy_boto3_ec2.waiter import BundleTaskCompleteWaiter
+from mypy_boto3_ec2.paginator import DescribeVolumesPaginator
 
 session = Session(region_name="us-west-1")
 
