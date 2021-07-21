@@ -155,5 +155,7 @@ Full changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_bu
   [Chris Hollinworth](https://github.com/chrishollinworth),
   [Yoan Blanc](https://github.com/greut),
   [Kostya Leschenko](https://github.com/kleschenko),
-  and [pyto86](https://github.com/pyto86pri)
+  [pyto86](https://github.com/pyto86pri),
+  [Ashton Honnecke](https://github.com/ahonnecke),
+  and [Mike Carey](https://github.com/mike-carey)
   for their contributions
