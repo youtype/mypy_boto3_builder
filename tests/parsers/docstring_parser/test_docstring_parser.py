@@ -85,6 +85,14 @@ class TestDocstringParser:
         input_string = """
         :type name: string
         :param name: The Bucket's name identifier. This **must** be set.
+
+        **Request Syntax**::
+        ::
+
+            response = client.abort_multipart_upload(
+                name='string'
+            )
+
         """
         service_name_mock = MagicMock()
         docstring_parser = DocstringParser(service_name_mock, "ClassName", "method_name", [])
@@ -92,3 +100,16 @@ class TestDocstringParser:
         assert len(result) == 1
         assert result[0].name == "name"
         assert result[0].type_annotation == Type.str
+
+        input_string = """
+        :type name string
+        :param name The Bucket's name identifier. This **must** be set.
+
+        **Request Syntax**::
+        ::
+
+            response = client.abort_multipart_upload(
+                name='string'
+
+        """
+        assert docstring_parser.get_arguments(input_string)
