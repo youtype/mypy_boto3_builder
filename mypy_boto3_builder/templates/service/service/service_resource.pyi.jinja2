@@ -55,6 +55,10 @@ __all__ = (
 
 {{ "\n\n" if package.service_resource.sub_resources else "" -}}
 
+{% with class=package.service_resource.resource_meta_class -%}
+    {% include "common/class.py.jinja2" with context -%}
+{% endwith -%}
+
 {% with class=package.service_resource -%}
     {% include "common/class.py.jinja2" with context -%}
 {% endwith -%}

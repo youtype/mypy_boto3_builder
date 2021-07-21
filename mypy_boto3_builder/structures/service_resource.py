@@ -17,7 +17,6 @@ from mypy_boto3_builder.structures.resource import Resource
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 class ServiceResource(ClassRecord):
@@ -33,6 +32,7 @@ class ServiceResource(ClassRecord):
         service_name: ServiceName,
         boto3_service_resource: Boto3ServiceResource,
     ):
+        self.resource_meta_class = self._get_resource_meta_class(service_name)
         super().__init__(
             name=name,
             bases=[
@@ -45,14 +45,11 @@ class ServiceResource(ClassRecord):
             attributes=[
                 Attribute(
                     "meta",
-                    TypeSubscript(
-                        ExternalImport(
-                            source=ImportString("boto3", "resources", "base"),
-                            name="ResourceMeta",
-                        ),
-                        [self._get_client_import(service_name)],
+                    InternalImport(
+                        self.resource_meta_class.name,
+                        service_name,
+                        ServiceModuleName.service_resource,
                     ),
-                    type_ignore=True,
                 )
             ],
         )
@@ -70,6 +67,18 @@ class ServiceResource(ClassRecord):
         Get class name for ServiceName.
         """
         return f"{service_name.class_name}ServiceResource"
+
+    def _get_resource_meta_class(self, service_name: ServiceName) -> ClassRecord:
+        return ClassRecord(
+            name=f"{service_name.class_name}ResourceMeta",
+            bases=[
+                ExternalImport(
+                    source=ImportString("boto3", "resources", "base"),
+                    name="ResourceMeta",
+                )
+            ],
+            attributes=[Attribute("client", self._get_client_import(service_name))],
+        )
 
     def _get_client_import(self, service_name: ServiceName) -> ExternalImport:
         client_import = ExternalImport(
@@ -105,6 +114,7 @@ class ServiceResource(ClassRecord):
         Extract type annotations for collections and sub-resources.
         """
         types = super().get_types()
+        types.update(self.resource_meta_class.get_types())
         for collection in self.collections:
             types.update(collection.get_types())
         for sub_resource in self.sub_resources:
