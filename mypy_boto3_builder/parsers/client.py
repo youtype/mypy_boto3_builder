@@ -41,7 +41,7 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
         del public_methods["get_waiter"]
 
     result = Client(
-        name=f"{service_name.class_name}Client",
+        name=Client.get_class_name(service_name),
         service_name=service_name,
         boto3_client=client,
     )

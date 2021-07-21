@@ -45,7 +45,7 @@ def parse_service_resource(
     logger = get_logger()
     logger.debug("Parsing ServiceResource")
     result = ServiceResource(
-        name=f"{service_name.class_name}ServiceResource",
+        name=ServiceResource.get_class_name(service_name),
         service_name=service_name,
         boto3_service_resource=service_resource,
     )

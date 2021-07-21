@@ -22,6 +22,7 @@ def ec2_resource_example() -> None:
 
     image = resource.Image(id="test")
     image.create_tags(Tags=[])
+    resource.meta.client.create_tags(Tags=[{"Key": 123}], Resources=[])
 
 
 def ec2_client_example() -> None:

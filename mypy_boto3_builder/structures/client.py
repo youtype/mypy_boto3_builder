@@ -59,6 +59,13 @@ class Client(ClassRecord):
         """
         return hash(self.service_name)
 
+    @staticmethod
+    def get_class_name(service_name: ServiceName) -> str:
+        """
+        Get class name for ServiceName.
+        """
+        return f"{service_name.class_name}Client"
+
     @property
     def boto3_doc_link(self) -> str:
         """

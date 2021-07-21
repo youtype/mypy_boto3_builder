@@ -39,7 +39,7 @@ def parse_fake_service_package(session: Session, service_name: ServiceName) -> S
         pypi_name=service_name.pypi_name,
         service_name=service_name,
         client=Client(
-            name=f"{service_name.class_name}Client",
+            name=Client.get_class_name(service_name),
             service_name=service_name,
             boto3_client=boto3_client,
         ),
@@ -47,7 +47,7 @@ def parse_fake_service_package(session: Session, service_name: ServiceName) -> S
 
     if boto3_resource is not None:
         result.service_resource = ServiceResource(
-            name=f"{service_name.class_name}ServiceResource",
+            name=ServiceResource.get_class_name(service_name),
             service_name=service_name,
             boto3_service_resource=boto3_resource,
         )
