@@ -111,8 +111,3 @@ def write_boto3_stubs_docs(package: Boto3StubsPackage, output_path: Path) -> Non
         if not file_path.exists() or file_path.read_text() != content:
             file_path.write_text(content)
             logger.debug(f"Updated {NicePath(file_path)}")
-
-    valid_paths = dict(file_paths).keys()
-    for unknown_path in NicePath(docs_path).walk(valid_paths):
-        unknown_path.unlink()
-        logger.debug(f"Deleted {NicePath(unknown_path)}")
