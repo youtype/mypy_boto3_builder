@@ -1,0 +1,21 @@
+from mypy_boto3_builder.structures.attribute import Attribute
+from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
+
+
+class TestAttribute:
+    def test_init(self) -> None:
+        assert Attribute("attr", Type.DictStrAny)
+        assert Attribute("attr", Type.DictStrAny, TypeConstant("abc"))
+        assert Attribute("attr", Type.DictStrAny, TypeConstant("abc"), True)
+
+    def test_render(self) -> None:
+        assert Attribute("attr", Type.DictStrAny).render() == "attr: Dict[str, Any]"
+        assert (
+            Attribute("attr", Type.DictStrAny, TypeConstant("abc")).render()
+            == "attr: Dict[str, Any]"
+        )
+        assert (
+            Attribute("attr", Type.DictStrAny, TypeConstant("abc"), True).render()
+            == "attr: Dict[str, Any]  # type: ignore"
+        )

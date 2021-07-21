@@ -15,6 +15,7 @@ class Attribute:
         name -- Attribute name.
         type -- Attribute type annotation.
         value -- Attribute value.
+        type_ignore -- Add type: ignore comment.
     """
 
     def __init__(
@@ -22,10 +23,12 @@ class Attribute:
         name: str,
         type_annotation: FakeAnnotation,
         value: Optional[TypeConstant] = None,
+        type_ignore: bool = False,
     ):
         self.name: str = name
         self.type_annotation: FakeAnnotation = type_annotation
         self.value: Optional[TypeConstant] = value
+        self.type_ignore = type_ignore
 
     def get_types(self) -> Set[FakeAnnotation]:
         """
@@ -35,3 +38,12 @@ class Attribute:
             A set of type annotations.
         """
         return self.type_annotation.get_types()
+
+    def render(self) -> str:
+        """
+        Render to a string.
+        """
+        line = f"{self.name}: {self.type_annotation.render()}"
+        if self.type_ignore:
+            return f"{line}  # type: ignore"
+        return line

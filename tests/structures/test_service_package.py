@@ -46,7 +46,7 @@ class TestServicePackage:
         assert len(self.service_package.get_client_required_import_records()) == 1
 
     def test_get_service_resource_required_import_records(self) -> None:
-        assert len(self.service_package.get_service_resource_required_import_records()) == 2
+        assert len(self.service_package.get_service_resource_required_import_records()) == 3
 
     def test_get_paginator_required_import_records(self) -> None:
         assert len(self.service_package.get_paginator_required_import_records()) == 1

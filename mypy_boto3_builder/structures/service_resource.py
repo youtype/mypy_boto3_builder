@@ -9,6 +9,7 @@ from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.collection import Collection
@@ -34,7 +35,26 @@ class ServiceResource(ClassRecord):
     ):
         super().__init__(
             name=name,
-            bases=self._get_bases(service_name),
+            bases=[
+                ExternalImport(
+                    source=ImportString("boto3", "resources", "base"),
+                    name="ServiceResource",
+                    alias="Boto3ServiceResource",
+                )
+            ],
+            attributes=[
+                Attribute(
+                    "meta",
+                    TypeSubscript(
+                        ExternalImport(
+                            source=ImportString("boto3", "resources", "base"),
+                            name="ResourceMeta",
+                        ),
+                        [self._get_client_import(service_name)],
+                    ),
+                    type_ignore=True,
+                )
+            ],
         )
         self.service_name = service_name
         self.boto3_service_resource = boto3_service_resource
@@ -51,27 +71,15 @@ class ServiceResource(ClassRecord):
         """
         return f"{service_name.class_name}ServiceResource"
 
-    def _get_bases(self, service_name: ServiceName):
+    def _get_client_import(self, service_name: ServiceName) -> ExternalImport:
         client_import = ExternalImport(
-            source=ImportString(
-                service_name.module_name, ServiceModuleName.client.value
-            ),
+            source=ImportString(service_name.module_name, ServiceModuleName.client.value),
             name=Client.get_class_name(service_name),
         )
-        client_import.import_record = InternalImportRecord(ServiceModuleName.client, client_import.name)
-
-        return [
-            TypeSubscript(
-                ExternalImport(
-                    source=ImportString("boto3", "resources", "base"),
-                    name="ServiceResource",
-                    alias="Boto3ServiceResource",
-                ),
-                [
-                    client_import
-                ]
-            )
-        ]
+        client_import.import_record = InternalImportRecord(
+            ServiceModuleName.client, client_import.name
+        )
+        return client_import
 
     @property
     def boto3_doc_link(self) -> str:

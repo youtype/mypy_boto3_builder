@@ -7,6 +7,7 @@ Class or module attribute.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Attribute
     - [Attribute](#attribute)
         - [Attribute().get_types](#attributeget_types)
+        - [Attribute().render](#attributerender)
 
 ## Attribute
 
@@ -18,6 +19,7 @@ class Attribute():
         name: str,
         type_annotation: FakeAnnotation,
         value: Optional[TypeConstant] = None,
+        type_ignore: bool = False,
     ):
 ```
 
@@ -28,6 +30,7 @@ Class or module attribute.
 - `name` - Attribute name.
 - `type` - Attribute type annotation.
 - `value` - Attribute value.
+- `type_ignore` - Add type: ignore comment.
 
 #### See also
 
@@ -35,7 +38,7 @@ Class or module attribute.
 
 ### Attribute().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L30)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L33)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
@@ -46,3 +49,13 @@ Return all type annotations used.
 #### Returns
 
 A set of type annotations.
+
+### Attribute().render
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L42)
+
+```python
+def render() -> str:
+```
+
+Render to a string.

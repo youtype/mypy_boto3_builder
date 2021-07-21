@@ -9,13 +9,14 @@ Boto3 ServiceResource.
         - [ServiceResource().boto3_doc_link](#serviceresourceboto3_doc_link)
         - [ServiceResource().docstring](#serviceresourcedocstring)
         - [ServiceResource().get_all_names](#serviceresourceget_all_names)
+        - [ServiceResource.get_class_name](#serviceresourceget_class_name)
         - [ServiceResource().get_collections](#serviceresourceget_collections)
         - [ServiceResource().get_sub_resources](#serviceresourceget_sub_resources)
         - [ServiceResource().get_types](#serviceresourceget_types)
 
 ## ServiceResource
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L18)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L23)
 
 ```python
 class ServiceResource(ClassRecord):
@@ -35,7 +36,7 @@ Boto3 ServiceResource.
 
 ### ServiceResource().boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L49)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L84)
 
 ```python
 @property
@@ -46,7 +47,7 @@ Link to boto3 docs.
 
 ### ServiceResource().docstring
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L56)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L91)
 
 ```python
 @property
@@ -57,7 +58,7 @@ Class docstring.
 
 ### ServiceResource().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L80)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L115)
 
 ```python
 def get_all_names() -> List[str]:
@@ -65,9 +66,24 @@ def get_all_names() -> List[str]:
 
 Get names for `__all__` statement.
 
+### ServiceResource.get_class_name
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L67)
+
+```python
+@staticmethod
+def get_class_name(service_name: ServiceName) -> str:
+```
+
+Get class name for ServiceName.
+
+#### See also
+
+- [ServiceName](../service_name.md#servicename)
+
 ### ServiceResource().get_collections
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L91)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L126)
 
 ```python
 def get_collections() -> List[Collection]:
@@ -77,7 +93,7 @@ Get a list of Service Resource collections.
 
 ### ServiceResource().get_sub_resources
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L107)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L142)
 
 ```python
 def get_sub_resources() -> List[Resource]:
@@ -91,7 +107,7 @@ A list of sub resources.
 
 ### ServiceResource().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L68)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_resource.py#L103)
 
 ```python
 def get_types() -> Set[FakeAnnotation]:
