@@ -2,16 +2,16 @@
 
 > Auto-generated documentation index.
 
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/vemel/mypy_boto3_builder)
+
 [![PyPI - mypy-boto3-builder](https://img.shields.io/pypi/v/mypy-boto3-builder.svg?color=blue&label=mypy-boto3-builder)](https://pypi.org/project/mypy-boto3-builder)
 [![PyPI - boto3-stubs](https://img.shields.io/pypi/v/boto3-stubs.svg?color=blue&label=boto3-stubs)](https://pypi.org/project/boto3-stubs)
 [![PyPI - boto3](https://img.shields.io/pypi/v/boto3.svg?color=blue&label=boto3)](https://pypi.org/project/boto3)
 
+[![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=boto3-stubs%20docs)](https://vemel.github.io/boto3_stubs_docs/)
 [![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=Builder%20docs)](https://mypy-boto3-builder.readthedocs.io/)
-[![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=boto3-stubs%20docs)](https://pypi.org/project/boto3-stubs/)
-[![Docs](https://img.shields.io/pypi/wheel/boto3-stubs.svg?color=blue)](https://vemel.github.io/boto3_stubs_docs/)
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boto3-stubs.svg?color=blue)](https://pypi.org/project/boto3-stubs)
-[![Coverage](https://img.shields.io/codecov/c/github/vemel/mypy_boto3_builder)](https://codecov.io/gh/vemel/mypy_boto3_builder)
 [![PyPI - Downloads](https://img.shields.io/pypi/dw/boto3-stubs?color=blue)](https://pypistats.org/packages/boto3-stubs)
 
 ![boto3.typed](https://raw.githubusercontent.com/vemel/mypy_boto3_builder/master/logo.png)
@@ -38,8 +38,6 @@ Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.
   - [How to build type annotations](#how-to-build-type-annotations)
     - [Locally](#locally)
     - [With Docker image](#with-docker-image)
-  - [Known issues](#known-issues)
-    - [PyCharm consumes too much CPU](#pycharm-consumes-too-much-cpu)
   - [Versioning](#versioning)
   - [Latest changes](#latest-changes)
   - [Thank you](#thank-you)
@@ -50,11 +48,17 @@ Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.
 Check [boto3-stubs](https://pypi.org/project/boto3-stubs/) project for installation
 and usage instructions.
 
-If you use up-to-date `boto3` version, just install corresponding `boto3-stubs` and start
-using code auto-complete and `mypy` validation. You can find instructions on
-[boto3-stubs](https://pypi.org/project/boto3-stubs/) page.
+In short, just install `boto3-stubs`:
 
-This page is only for building type annotations manually. For example, if you want to
+```bash
+python -m pip install 'boto3-stubs[all]'
+
+# do not forget to install mypy or pyright
+```
+
+And you should already have auto-complete and type checking in your IDE! You can stop reading now.
+
+THe rest of this document is about building `boto3-stubs` manually. For example, if you want to
 use the latest features for an older `boto3` version.
 
 ## How to build type annotations
@@ -76,9 +80,9 @@ python -m mypy_boto3_builder mypy_boto3_output -s ec2 s3
 
 # Install custom `boto3-stubs` packages
 cd mypy_boto3_output
-pip install mypy_boto3_ec2_package
-pip install mypy_boto3_s3_package
-pip install boto3_stubs_package
+python -m pip install -e ./mypy_boto3_ec2_package
+python -m pip install -e ./mypy_boto3_s3_package
+python -m pip install -e ./boto3_stubs_package
 ```
 
 ### With Docker image
@@ -107,35 +111,6 @@ docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/ou
 ```
 
 - Install packages from `output` directory as described above
-
-## Known issues
-
-### PyCharm consumes too much CPU
-
-PyCharm does not handle `Literal` overloads properly, so the only way to reduce CPU usage is to generate
-overloads only for services you use
-
-```bash
-# got to your project folder, activate venv
-
-# install boto3-stubs as usual with services you need
-pip install 'boto3-stubs[s3,ec2]'
-
-# install mypy_boto3_builder
-pip install mypy_boto3_builder
-
-# generate boto3 stubs only with services in use, s3 and ec2 in this case
-# stubs should be generated in <project_root>/typings/boto3
-python -m mypy_boto3_builder --installed --skip-services typings -d -s s3 ec2
-```
-
-Add `<project_root>/typings` folder to your [Interpreter Paths](https://www.jetbrains.com/help/pycharm/stubs.html#reuse-stubs)
-
-Autocomplete should work now and do not stress your CPU. Still, try to avoid generation
-for 6 or more services, as it is still stressful for PyCharm. In this case, generate `boto3-stubs`
-for a couple of services and use explicit type annotations for the rest.
-
-Since stubs are stored in your project root, you do not need to re-generate them after update.
 
 ## Versioning
 
