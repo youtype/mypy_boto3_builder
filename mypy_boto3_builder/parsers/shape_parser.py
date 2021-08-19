@@ -19,10 +19,12 @@ from botocore.model import (
 from botocore.response import StreamingBody
 from botocore.session import Session as BotocoreSession
 
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport
 from mypy_boto3_builder.type_annotations.type import Type
@@ -467,12 +469,11 @@ class ShapeParser:
 
         return_type: FakeAnnotation = Type.none
         if operation_shape.output_shape is not None:
-            return_type = TypeSubscript(
-                Type.Iterator,
-                [
-                    self._parse_return_type("Paginator", "paginate", operation_shape.output_shape),
-                ],
-            )
+            # FIXME: Allow subscription in PageIterator
+            # return_item = self._parse_return_type(
+            #     "Paginator", "paginate", operation_shape.output_shape
+            # )
+            return_type = ExternalImport(ImportString("botocore", "paginate"), "PageIterator")
 
         return Method("paginate", arguments, return_type)
 
