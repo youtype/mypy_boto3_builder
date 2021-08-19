@@ -469,11 +469,13 @@ class ShapeParser:
 
         return_type: FakeAnnotation = Type.none
         if operation_shape.output_shape is not None:
-            # FIXME: Allow subscription in PageIterator
-            # return_item = self._parse_return_type(
-            #     "Paginator", "paginate", operation_shape.output_shape
-            # )
-            return_type = ExternalImport(ImportString("botocore", "paginate"), "PageIterator")
+            page_iterator_import = ExternalImport(
+                ImportString("botocore", "paginate"), "PageIterator"
+            )
+            return_item = self._parse_return_type(
+                "Paginator", "paginate", operation_shape.output_shape
+            )
+            return_type = TypeSubscript(page_iterator_import, [return_item])
 
         return Method("paginate", arguments, return_type)
 

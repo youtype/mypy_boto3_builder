@@ -1,9 +1,11 @@
-from typing import Any
+from typing import Any, Generic, Iterator, TypeVar
 
 from botocore.compat import zip as zip
 from botocore.exceptions import PaginationError as PaginationError
 from botocore.utils import merge_dicts as merge_dicts
 from botocore.utils import set_value_from_jmespath as set_value_from_jmespath
+
+_ItemTypeDef = TypeVar("_ItemTypeDef")
 
 class TokenEncoder:
     def encode(self, token: Any) -> Any: ...
@@ -15,7 +17,7 @@ class PaginatorModel:
     def __init__(self, paginator_config: Any) -> None: ...
     def get_paginator(self, operation_name: Any) -> Any: ...
 
-class PageIterator:
+class PageIterator(Generic[_ItemTypeDef]):
     def __init__(
         self,
         method: Any,
@@ -25,9 +27,9 @@ class PageIterator:
         result_keys: Any,
         non_aggregate_keys: Any,
         limit_key: Any,
-        max_items: Any,
+        max_items: int,
         starting_token: Any,
-        page_size: Any,
+        page_size: int,
         op_kwargs: Any,
     ) -> None: ...
     @property
@@ -38,7 +40,7 @@ class PageIterator:
     def resume_token(self, value: Any) -> None: ...
     @property
     def non_aggregate_part(self) -> Any: ...
-    def __iter__(self) -> Any: ...
+    def __iter__(self) -> Iterator[_ItemTypeDef]: ...
     def search(self, expression: Any) -> None: ...
     def result_key_iters(self) -> Any: ...
     def build_full_result(self) -> Any: ...
