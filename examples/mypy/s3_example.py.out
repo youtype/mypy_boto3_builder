@@ -1,16 +1,19 @@
+examples/s3_example.py:15: error: Too many positional arguments for "BucketLifecycle" of "S3ServiceResource"
+examples/s3_example.py:18: error: Too many positional arguments for "Bucket" of "S3ServiceResource"
 examples/s3_example.py:19: error: Unexpected keyword argument "mfa" for "delete" of "BucketObjectsCollection"
 examples/s3_example.py:22: error: Unexpected keyword argument "key" for "upload_file" of "Bucket"
 examples/s3_example.py:23: error: Extra key "key" for TypedDict "BucketUploadFileRequestTypeDef"
-examples/s3_example.py:27: error: Too many positional arguments for "copy" of "Bucket"
 examples/s3_example.py:27: error: Extra key "key" for TypedDict "CopySourceTypeDef"
 examples/s3_example.py:35: error: Argument "CopySource" to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str"
 examples/s3_example.py:39: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Optional[Literal['requester']]"
+examples/s3_example.py:40: error: Too many positional arguments for "Part" of "MultipartUpload"
 examples/s3_example.py:41: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"
-examples/s3_example.py:50: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?
-examples/s3_example.py:56: error: Missing named argument "Key" for "get_object" of "S3Client"
-examples/s3_example.py:59: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"
-examples/s3_example.py:59: note: Did you mean "Expiration"?
-examples/s3_example.py:65: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"
-examples/s3_example.py:71: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
-examples/s3_example.py:73: error: "BotocoreClientError" has no attribute "operations_name"; maybe "operation_name"?
-Found 14 errors in 1 file (checked 1 source file)
+examples/s3_example.py:50: error: Argument 3 to "download_fileobj" of "S3Client" has incompatible type "bytes"; expected "IO[Any]"
+examples/s3_example.py:53: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?
+examples/s3_example.py:59: error: Missing named argument "Key" for "get_object" of "S3Client"
+examples/s3_example.py:62: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"
+examples/s3_example.py:62: note: Did you mean "Expiration"?
+examples/s3_example.py:68: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"
+examples/s3_example.py:74: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
+examples/s3_example.py:76: error: "BotocoreClientError" has no attribute "operations_name"; maybe "operation_name"?
+Found 17 errors in 1 file (checked 1 source file)

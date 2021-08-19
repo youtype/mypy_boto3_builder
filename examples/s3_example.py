@@ -46,6 +46,9 @@ def s3_client_example() -> None:
 
     bucket_exists_waiter = client.get_waiter("bucket_exists")
 
+    #  check that injected methods are not kw-only
+    client.download_fileobj("bucket", "key", b"asd")
+
     # (mypy) error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"
     bucket_exists_waiter.wait(bucket="bucket")
 

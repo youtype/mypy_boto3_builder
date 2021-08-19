@@ -103,8 +103,7 @@ def parse_method(
         docstring_parser = DocstringParser(service_name, parent_name, name, arguments)
         arguments = docstring_parser.get_arguments(docstring)
 
-    # do not add kwonly flag to resource generators
-    if len(arguments) > 1 and not name[0].isupper():
+    if len(arguments) > 1 and inspect.getargspec(method).keywords:
         arguments.insert(1, Argument.kwflag())
 
     return_type = arg_spec_parser.get_return_type(parent_name, name)
