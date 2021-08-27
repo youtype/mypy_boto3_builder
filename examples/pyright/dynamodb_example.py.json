@@ -1,15 +1,30 @@
 [
     {
         "severity": "error",
-        "message": "Expected 0 positional arguments",
+        "message": "Argument of type \"Literal['123']\" cannot be assigned to parameter \"Key\" of type \"Dict[str, Any]\" in function \"delete_item\"\n\u00a0\u00a0\"Literal['123']\" is incompatible with \"Dict[str, Any]\"",
         "range": {
             "start": {
-                "line": 12,
-                "character": 30
+                "line": 15,
+                "character": 33
             },
             "end": {
-                "line": 12,
-                "character": 40
+                "line": 15,
+                "character": 38
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Argument of type \"dict[str, str | int | Decimal | ValueError]\" cannot be assigned to parameter \"Item\" of type \"Dict[str, bytes | bytearray | str | int | Decimal | bool | Set[int] | Set[Decimal] | Set[str] | Set[bytes] | Set[bytearray] | List[Any] | Dict[str, Any] | None]\" in function \"put_item\"",
+        "range": {
+            "start": {
+                "line": 18,
+                "character": 13
+            },
+            "end": {
+                "line": 23,
+                "character": 9
             }
         },
         "rule": "reportGeneralTypeIssues"

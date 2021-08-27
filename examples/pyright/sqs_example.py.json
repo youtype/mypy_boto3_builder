@@ -1,15 +1,15 @@
 [
     {
         "severity": "error",
-        "message": "Expected 0 positional arguments",
+        "message": "No parameter named \"test\"",
         "range": {
             "start": {
-                "line": 8,
-                "character": 27
+                "line": 11,
+                "character": 23
             },
             "end": {
-                "line": 8,
-                "character": 37
+                "line": 11,
+                "character": 27
             }
         },
         "rule": "reportGeneralTypeIssues"
