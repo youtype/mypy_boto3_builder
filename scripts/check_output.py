@@ -17,7 +17,7 @@ from pathlib import Path
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 LOGGER_NAME = "check_output"
-IGNORE_PYLINT_ERRORS = (
+IGNORE_PYRIGHT_ERRORS = (
     '"get_paginator" is marked as overload, but no implementation is provided',
     '"get_waiter" is marked as overload, but no implementation is provided',
     # 'Expected type arguments for generic class "ResourceCollection"',
@@ -117,12 +117,17 @@ def run_pyright(path: Path) -> None:
         errors = []
         for error in data:
             message = error.get("message", "")
-            if any(imsg in message for imsg in IGNORE_PYLINT_ERRORS):
+            if any(imsg in message for imsg in IGNORE_PYRIGHT_ERRORS):
                 continue
             errors.append(error)
 
         if errors:
-            raise SnapshotMismatchError("\n".join(errors))
+            messages = []
+            for error in errors:
+                messages.append(
+                    f'{error["file"]}:{error["range"]["start"]["line"]} {error.get("message", "")}'
+                )
+            raise SnapshotMismatchError("\n".join(messages))
 
 
 def run_mypy(path: Path) -> None:
