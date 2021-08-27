@@ -472,13 +472,10 @@ class ShapeParser:
             page_iterator_import = ExternalImport(
                 ImportString("botocore", "paginate"), "PageIterator"
             )
-            return_type = page_iterator_import
-
-            # FIXME: PageIterator is not subscriptable
-            # return_item = self._parse_return_type(
-            #     "Paginator", "paginate", operation_shape.output_shape
-            # )
-            # return_type = TypeSubscript(page_iterator_import, [return_item])
+            return_item = self._parse_return_type(
+                "Paginator", "paginate", operation_shape.output_shape
+            )
+            return_type = TypeSubscript(page_iterator_import, [return_item])
 
         return Method("paginate", arguments, return_type)
 
