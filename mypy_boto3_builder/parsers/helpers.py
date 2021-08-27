@@ -103,7 +103,8 @@ def parse_method(
         docstring_parser = DocstringParser(service_name, parent_name, name, arguments)
         arguments = docstring_parser.get_arguments(docstring)
 
-    if len(arguments) > 1 and inspect.getargspec(method).keywords:
+    fullargspec = inspect.getfullargspec(method)
+    if len(arguments) > 1 and fullargspec.kwonlyargs:
         arguments.insert(1, Argument.kwflag())
 
     return_type = arg_spec_parser.get_return_type(parent_name, name)

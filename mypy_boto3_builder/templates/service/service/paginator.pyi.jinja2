@@ -38,6 +38,17 @@ __all__ = (
 {% endfor -%}
 )
 
+
+_ItemTypeDef = TypeVar("_ItemTypeDef")
+
+
+class _PageIterator(Generic[_ItemTypeDef], PageIterator):
+    def __iter__(self) -> Iterator[_ItemTypeDef]:
+        """
+        Proxy method to specify iterator item type.
+        """
+
+
 {{ "\n\n" -}}
 
 {% for paginator in package.paginators -%}

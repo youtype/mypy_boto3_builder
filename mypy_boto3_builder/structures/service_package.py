@@ -229,7 +229,12 @@ class ServicePackage(Package):
         """
         Get import records for `paginator.py[i]`.
         """
-        import_records: Set[ImportRecord] = set()
+        import_records: Set[ImportRecord] = {
+            ImportRecord(ImportString("typing"), "TypeVar"),
+            ImportRecord(ImportString("typing"), "Generic"),
+            ImportRecord(ImportString("typing"), "Iterator"),
+            ImportRecord(ImportString("botocore", "paginate"), "PageIterator"),
+        }
         for paginator in self.paginators:
             for import_record in paginator.get_required_import_records():
                 import_records.add(import_record.get_external(self.service_name.module_name))
