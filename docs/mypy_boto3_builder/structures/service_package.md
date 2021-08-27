@@ -101,7 +101,7 @@ Get import records for `__init__.py[i]`.
 
 ### ServicePackage().get_literals_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L295)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L300)
 
 ```python
 def get_literals_required_import_records() -> List[ImportRecord]:
@@ -131,7 +131,7 @@ Get import records for `service_resource.py[i]`.
 
 ### ServicePackage().get_type_defs_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L254)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L259)
 
 ```python
 def get_type_defs_required_import_records() -> List[ImportRecord]:
@@ -151,7 +151,7 @@ Extract type annotations from Client, ServiceResource, waiters and paginators.
 
 ### ServicePackage().get_waiter_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L241)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L246)
 
 ```python
 def get_waiter_required_import_records() -> List[ImportRecord]:
@@ -161,7 +161,7 @@ Get import records for `waiter.py[i]`.
 
 ### ServicePackage().validate
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L311)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L316)
 
 ```python
 def validate() -> None:
