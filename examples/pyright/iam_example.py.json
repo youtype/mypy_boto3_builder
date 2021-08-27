@@ -31,15 +31,15 @@
     },
     {
         "severity": "error",
-        "message": "No parameter named \"Other\"",
+        "message": "Expected 0 positional arguments",
         "range": {
             "start": {
-                "line": 20,
-                "character": 39
+                "line": 19,
+                "character": 27
             },
             "end": {
-                "line": 20,
-                "character": 44
+                "line": 19,
+                "character": 31
             }
         },
         "rule": "reportGeneralTypeIssues"
