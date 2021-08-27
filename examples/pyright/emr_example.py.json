@@ -16,14 +16,29 @@
     },
     {
         "severity": "error",
+        "message": "Expected 0 positional arguments",
+        "range": {
+            "start": {
+                "line": 11,
+                "character": 28
+            },
+            "end": {
+                "line": 11,
+                "character": 34
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
         "message": "Could not access item in TypedDict\n\u00a0\u00a0\"steps\" is not a defined key in \"ListStepsOutputTypeDef\"",
         "range": {
             "start": {
-                "line": 13,
+                "line": 14,
                 "character": 20
             },
             "end": {
-                "line": 13,
+                "line": 14,
                 "character": 33
             }
         },

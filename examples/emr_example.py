@@ -9,6 +9,7 @@ def emr_client_example() -> None:
 
     list_steps_paginator = client.get_paginator("list_steps")
     pages = list_steps_paginator.paginate(ClusterId="cluster_id")
+    pages.build_full_result("test")
     for page in pages:
         print(page["Marker"])
         for step in page["steps"]:
