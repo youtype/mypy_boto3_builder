@@ -31,7 +31,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"List[TagTypeDef] | None\" in function \"create_tags\"\n\u00a0\u00a0Type \"list[dict[str, int]]\" cannot be assigned to type \"List[TagTypeDef] | None\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0TypeVar \"_T@list\" is invariant\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\"dict[str, int]\" is incompatible with \"TagTypeDef\"",
+        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"List[TagTypeDef] | None\" in function \"create_tags\"\n\u00a0\u00a0Type \"list[dict[str, int]]\" cannot be assigned to type \"List[TagTypeDef] | None\"\n\u00a0\u00a0\u00a0\u00a0TypeVar \"_T@list\" is invariant\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\"dict[str, int]\" is incompatible with \"TagTypeDef\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"",
         "range": {
             "start": {
                 "line": 24,
@@ -46,7 +46,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"List[TagTypeDef] | None\" in function \"create_tags\"\n\u00a0\u00a0Type \"list[dict[str, int]]\" cannot be assigned to type \"List[TagTypeDef] | None\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0TypeVar \"_T@list\" is invariant\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\"dict[str, int]\" is incompatible with \"TagTypeDef\"",
+        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"List[TagTypeDef] | None\" in function \"create_tags\"\n\u00a0\u00a0Type \"list[dict[str, int]]\" cannot be assigned to type \"List[TagTypeDef] | None\"\n\u00a0\u00a0\u00a0\u00a0TypeVar \"_T@list\" is invariant\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\"dict[str, int]\" is incompatible with \"TagTypeDef\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"",
         "range": {
             "start": {
                 "line": 32,
