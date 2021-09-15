@@ -14,7 +14,7 @@ Parser that produces `structures.Boto3StubsPackage`.
 ```python
 def parse_boto3_stubs_package(
     session: Session,
-    service_names: List[ServiceName],
+    service_names: Iterable[ServiceName],
 ) -> Boto3StubsPackage:
 ```
 

@@ -12,12 +12,13 @@ Main entrypoint for builder.
 
 ## generate_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L169)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L176)
 
 ```python
 def generate_docs(
     args: Namespace,
-    service_names: List[ServiceName],
+    service_names: Sequence[ServiceName],
+    available_service_names: Iterable[ServiceName],
     session: Session,
 ) -> None:
 ```
@@ -28,6 +29,7 @@ Generate service and master docs.
 
 - `args` - Config namespace
 - `service_names` - Enabled service names
+- `available_service_names` - All service names
 - `session` - Botocore session
 
 #### See also
@@ -41,7 +43,8 @@ Generate service and master docs.
 ```python
 def generate_stubs(
     args: Namespace,
-    service_names: List[ServiceName],
+    service_names: Sequence[ServiceName],
+    available_service_names: Iterable[ServiceName],
     session: Session,
 ) -> None:
 ```
@@ -52,6 +55,7 @@ Generate service and master stubs.
 
 - `args` - Config namespace
 - `service_names` - Enabled service names
+- `available_service_names` - All service names
 - `session` - Botocore session
 
 #### See also

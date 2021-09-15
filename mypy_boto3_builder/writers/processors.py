@@ -107,10 +107,11 @@ def process_service(
     Parse and write service package `mypy_boto3_*`.
 
     Arguments:
-        session -- boto3 session.
-        service_name -- Target service name.
-        output_path -- Package output path.
-        generate_setup -- Generate ready-to-install or to-use package.
+        session -- boto3 session
+        service_name -- Target service name
+        output_path -- Package output path
+        generate_setup -- Generate ready-to-install or to-use package
+        service_names -- List of known service names
 
     Return:
         Parsed ServicePackage.
@@ -139,9 +140,10 @@ def process_service_docs(
     Parse and write service package docs.
 
     Arguments:
-        session -- boto3 session.
-        service_name -- Target service name.
-        output_path -- Package output path.
+        session -- boto3 session
+        service_name -- Target service name
+        output_path -- Package output path
+        service_names -- List of known service names
 
     Return:
         Parsed ServicePackage.
@@ -167,9 +169,9 @@ def process_boto3_stubs_docs(
     Parse and write master package docs.
 
     Arguments:
-        session -- boto3 session.
-        output_path -- Package output path.
-        service_names -- List of known service names.
+        session -- boto3 session
+        output_path -- Package output path
+        service_names -- List of known service names
 
     Return:
         Parsed Boto3StubsPackage.

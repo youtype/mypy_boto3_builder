@@ -129,6 +129,7 @@ def generate_stubs(
     Arguments:
         args -- Config namespace
         service_names -- Enabled service names
+        available_service_names -- All service names
         session -- Botocore session
     """
     logger = get_logger()
@@ -184,6 +185,7 @@ def generate_docs(
     Arguments:
         args -- Config namespace
         service_names -- Enabled service names
+        available_service_names -- All service names
         session -- Botocore session
     """
     logger = get_logger()

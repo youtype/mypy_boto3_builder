@@ -14,13 +14,13 @@ Processors for parsing and writing modules.
 
 ## process_boto3_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L27)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L28)
 
 ```python
 def process_boto3_stubs(
     session: Session,
     output_path: Path,
-    service_names: List[ServiceName],
+    service_names: Iterable[ServiceName],
     generate_setup: bool,
 ) -> Boto3StubsPackage:
 ```
@@ -44,13 +44,13 @@ Parsed Boto3StubsPackage.
 
 ## process_boto3_stubs_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L152)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L163)
 
 ```python
 def process_boto3_stubs_docs(
     session: Session,
     output_path: Path,
-    service_names: List[ServiceName],
+    service_names: Iterable[ServiceName],
 ) -> Boto3StubsPackage:
 ```
 
@@ -58,9 +58,9 @@ Parse and write master package docs.
 
 #### Arguments
 
-- `session` - boto3 session.
-- `output_path` - Package output path.
-- `service_names` - List of known service names.
+- `session` - boto3 session
+- `output_path` - Package output path
+- `service_names` - List of known service names
 
 #### Returns
 
@@ -72,7 +72,7 @@ Parsed Boto3StubsPackage.
 
 ## process_botocore_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L54)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L55)
 
 ```python
 def process_botocore_stubs(output_path: Path, generate_setup: bool) -> None:
@@ -87,13 +87,13 @@ Parse and write stubs package `botocore_stubs`.
 
 ## process_master
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L71)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L72)
 
 ```python
 def process_master(
     session: Session,
     output_path: Path,
-    service_names: List[ServiceName],
+    service_names: Iterable[ServiceName],
     generate_setup: bool,
 ) -> MasterPackage:
 ```
@@ -117,7 +117,7 @@ Parsed MasterPackage.
 
 ## process_service
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L98)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L99)
 
 ```python
 def process_service(
@@ -125,6 +125,7 @@ def process_service(
     service_name: ServiceName,
     output_path: Path,
     generate_setup: bool,
+    service_names: Iterable[ServiceName],
 ) -> ServicePackage:
 ```
 
@@ -132,10 +133,11 @@ Parse and write service package `mypy_boto3_*`.
 
 #### Arguments
 
-- `session` - boto3 session.
-- `service_name` - Target service name.
-- `output_path` - Package output path.
-- `generate_setup` - Generate ready-to-install or to-use package.
+- `session` - boto3 session
+- `service_name` - Target service name
+- `output_path` - Package output path
+- `generate_setup` - Generate ready-to-install or to-use package
+- `service_names` - List of known service names
 
 #### Returns
 
@@ -148,13 +150,14 @@ Parsed ServicePackage.
 
 ## process_service_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L127)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L133)
 
 ```python
 def process_service_docs(
     session: Session,
     service_name: ServiceName,
     output_path: Path,
+    service_names: Iterable[ServiceName],
 ) -> ServicePackage:
 ```
 
@@ -162,9 +165,10 @@ Parse and write service package docs.
 
 #### Arguments
 
-- `session` - boto3 session.
-- `service_name` - Target service name.
-- `output_path` - Package output path.
+- `session` - boto3 session
+- `service_name` - Target service name
+- `output_path` - Package output path
+- `service_names` - List of known service names
 
 #### Returns
 

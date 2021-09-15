@@ -14,7 +14,7 @@ Parser that produces `structures.MasterPackage`.
 ```python
 def parse_master_package(
     session: Session,
-    service_names: List[ServiceName],
+    service_names: Iterable[ServiceName],
 ) -> MasterPackage:
 ```
 
