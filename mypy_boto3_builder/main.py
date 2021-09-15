@@ -2,7 +2,7 @@
 Main entrypoint for builder.
 """
 import sys
-from typing import List
+from typing import Iterable, List, Sequence
 
 from boto3 import __version__ as boto3_version
 from boto3.session import Session
@@ -110,14 +110,19 @@ def main() -> None:
     logger.info(f"Bulding version {build_version}")
 
     if args.generate_docs:
-        generate_docs(args, service_names, session)
+        generate_docs(args, service_names, available_service_names, session)
     else:
-        generate_stubs(args, service_names, session)
+        generate_stubs(args, service_names, available_service_names, session)
 
     logger.info("Completed")
 
 
-def generate_stubs(args: Namespace, service_names: List[ServiceName], session: Session) -> None:
+def generate_stubs(
+    args: Namespace,
+    service_names: Sequence[ServiceName],
+    available_service_names: Iterable[ServiceName],
+    session: Session,
+) -> None:
     """
     Generate service and master stubs.
 
@@ -138,6 +143,7 @@ def generate_stubs(args: Namespace, service_names: List[ServiceName], session: S
                 output_path=args.output_path,
                 service_name=service_name,
                 generate_setup=not args.installed,
+                service_names=available_service_names,
             )
             service_name.boto3_version = ServiceName.LATEST
 
@@ -147,7 +153,7 @@ def generate_stubs(args: Namespace, service_names: List[ServiceName], session: S
             process_master(
                 session,
                 args.output_path,
-                service_names,
+                available_service_names,
                 generate_setup=not args.installed,
             )
 
@@ -155,7 +161,7 @@ def generate_stubs(args: Namespace, service_names: List[ServiceName], session: S
         process_boto3_stubs(
             session,
             args.output_path,
-            service_names,
+            available_service_names,
             generate_setup=not args.installed,
         )
 
@@ -166,7 +172,12 @@ def generate_stubs(args: Namespace, service_names: List[ServiceName], session: S
         )
 
 
-def generate_docs(args: Namespace, service_names: List[ServiceName], session: Session) -> None:
+def generate_docs(
+    args: Namespace,
+    service_names: Sequence[ServiceName],
+    available_service_names: Iterable[ServiceName],
+    session: Session,
+) -> None:
     """
     Generate service and master docs.
 
@@ -185,6 +196,7 @@ def generate_docs(args: Namespace, service_names: List[ServiceName], session: Se
                 session=session,
                 output_path=args.output_path,
                 service_name=service_name,
+                service_names=available_service_names,
             )
 
     if not args.skip_master:

@@ -1,7 +1,7 @@
 """
 Parser that produces `structures.MasterPackage`.
 """
-from typing import List
+from typing import Iterable
 
 from boto3.session import Session
 
@@ -10,7 +10,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.master_package import MasterPackage
 
 
-def parse_master_package(session: Session, service_names: List[ServiceName]) -> MasterPackage:
+def parse_master_package(session: Session, service_names: Iterable[ServiceName]) -> MasterPackage:
     """
     Parse data for master package.
 

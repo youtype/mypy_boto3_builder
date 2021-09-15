@@ -43,7 +43,12 @@ class TestMain:
                 list_services=False,
             )
             session_mock = MagicMock()
-            generate_docs(namespace, service_names=[ServiceName("s3", "S3")], session=session_mock)
+            generate_docs(
+                namespace,
+                service_names=[ServiceName("s3", "S3")],
+                available_service_names=[ServiceName("s3", "S3")],
+                session=session_mock,
+            )
             process_boto3_stubs_docs_mock.assert_called()
             process_service_docs_mock.assert_called()
 
@@ -72,7 +77,12 @@ class TestMain:
                 list_services=False,
             )
             session_mock = MagicMock()
-            generate_stubs(namespace, service_names=[ServiceName("s3", "S3")], session=session_mock)
+            generate_stubs(
+                namespace,
+                service_names=[ServiceName("s3", "S3")],
+                available_service_names=[ServiceName("s3", "S3")],
+                session=session_mock,
+            )
             process_botocore_stubs_mock.assert_called()
             process_boto3_stubs_mock.assert_called()
             process_master_mock.assert_called()

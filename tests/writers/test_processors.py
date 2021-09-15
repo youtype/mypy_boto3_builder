@@ -1,6 +1,7 @@
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
@@ -62,7 +63,13 @@ class TestProcessors:
         session_mock = MagicMock()
         service_name_mock = MagicMock()
         parse_service_package_mock().typed_dicts = [MagicMock()]
-        result = process_service(session_mock, service_name_mock, Path("my_path"), True)
+        result = process_service(
+            session_mock,
+            service_name_mock,
+            Path("my_path"),
+            True,
+            [ServiceName("ec2", "EC2")],
+        )
         write_service_package_mock.assert_called_with(
             result,
             output_path=Path("my_path"),
@@ -80,7 +87,12 @@ class TestProcessors:
     ) -> None:
         session_mock = MagicMock()
         service_name_mock = MagicMock()
-        result = process_service_docs(session_mock, service_name_mock, Path("my_path"))
+        result = process_service_docs(
+            session_mock,
+            service_name_mock,
+            Path("my_path"),
+            [ServiceName("ec2", "EC2")],
+        )
         write_service_docs_mock.assert_called_with(
             result,
             output_path=Path("my_path"),
