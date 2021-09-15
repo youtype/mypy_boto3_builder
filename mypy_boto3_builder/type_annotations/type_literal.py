@@ -47,6 +47,8 @@ class TypeLiteral(FakeAnnotation):
         if name == "__stringType":
             children_name = "".join(sorted(f"{i[0].upper()}{i[1:]}" for i in self.children))
             return f"{children_name}Type"
+
+        name = name.lstrip("_")
         if is_reserved(name):
             return f"{name}Type"
         return name

@@ -11,6 +11,8 @@ class TestTypeLiteral:
         assert self.result.children == {"a", "b"}
         assert hash(self.result)
         assert TypeLiteral("Type", ["a"]).name == "TypeType"
+        assert TypeLiteral("_Type", ["a"]).name == "TypeType"
+        assert TypeLiteral("__Type", ["a"]).name == "TypeType"
         assert TypeLiteral("__stringType", ["a", "b"]).name == "ABType"
         assert TypeLiteral("Protocol", ["a"]).name == "ProtocolType"
         assert TypeLiteral("Other", ["a"]).name == "Other"
