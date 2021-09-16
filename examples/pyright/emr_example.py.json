@@ -1,7 +1,7 @@
 [
     {
         "severity": "error",
-        "message": "Argument of type \"list[int]\" cannot be assigned to parameter \"StepIds\" of type \"List[str]\" in function \"cancel_steps\"\n\u00a0\u00a0TypeVar \"_T@list\" is invariant\n\u00a0\u00a0\u00a0\u00a0\"int\" is incompatible with \"str\"",
+        "message": "Argument of type \"list[int]\" cannot be assigned to parameter \"StepIds\" of type \"Sequence[str]\" in function \"cancel_steps\"\n\u00a0\u00a0TypeVar \"_T_co@Sequence\" is covariant\n\u00a0\u00a0\u00a0\u00a0\"int\" is incompatible with \"str\"",
         "range": {
             "start": {
                 "line": 7,
