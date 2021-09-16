@@ -34,7 +34,7 @@ DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
     "long": Type.int,
     "a file-like object": TypeSubscript(Type.IO, [Type.Any]),
     "seekable file-like object": TypeSubscript(Type.IO, [Type.Any]),
-    "list": TypeSubscript(Type.List, [Type.Any]),
+    "list": Type.ListAny,
     "L{botocore.paginate.Paginator}": ExternalImport(
         source=ImportString("botocore", "paginate"), name="Paginator"
     ),

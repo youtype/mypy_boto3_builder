@@ -1,11 +1,13 @@
 """
 Boto3 Client.
 """
-from typing import Iterator, List
+from typing import Iterator, List, Set
 
 from botocore.client import BaseClient
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
+from mypy_boto3_builder.import_helpers.import_record import ImportRecord
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.attribute import Attribute
@@ -14,7 +16,6 @@ from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 class Client(ClassRecord):
@@ -41,7 +42,7 @@ class Client(ClassRecord):
                     name="__init__",
                     arguments=[
                         Argument("self", None),
-                        Argument("error_response", TypeSubscript(Type.Dict, [Type.str, Type.Any])),
+                        Argument("error_response", Type.MappingStrAny),
                         Argument("operation_name", Type.str),
                     ],
                     return_type=Type.none,
@@ -118,3 +119,11 @@ class Client(ClassRecord):
             ),
             docstring=f"{self.name} exceptions.",
         )
+
+    def get_required_import_records(self) -> Set[ImportRecord]:
+        """
+        Extract import records from required type annotations.
+        """
+        result = super().get_required_import_records()
+        result.add(ImportRecord(ImportString("typing"), "Dict"))
+        return result

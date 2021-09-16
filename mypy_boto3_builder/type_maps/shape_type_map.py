@@ -24,8 +24,8 @@ DynamoDBValue: TypeSubscript = TypeSubscript(
         TypeSubscript(Type.Set, [Type.str]),
         TypeSubscript(Type.Set, [Type.bytes]),
         TypeSubscript(Type.Set, [Type.bytearray]),
-        Type.ListAny,
-        Type.DictStrAny,
+        Type.SequenceAny,
+        Type.MappingStrAny,
         Type.none,
     ],
 )

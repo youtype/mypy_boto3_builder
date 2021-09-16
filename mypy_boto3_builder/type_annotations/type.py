@@ -3,7 +3,19 @@ Predefined FakeAnnotation instances.
 """
 from datetime import datetime
 from decimal import Decimal
-from typing import IO, Any, Callable, Dict, Generator, Iterator, List, Optional, Set
+from typing import (
+    IO,
+    Any,
+    Callable,
+    Dict,
+    Generator,
+    Iterator,
+    List,
+    Mapping,
+    Optional,
+    Sequence,
+    Set,
+)
 from typing import Type as TypingType
 from typing import Union, overload
 
@@ -22,7 +34,9 @@ class Type:
     Union = TypeAnnotation(Union)
     Any = TypeAnnotation(Any)
     Dict = TypeAnnotation(Dict)
+    Mapping = TypeAnnotation(Mapping)
     List = TypeAnnotation(List)
+    Sequence = TypeAnnotation(Sequence)
     Optional = TypeAnnotation(Optional)  # type: ignore
     Callable = TypeAnnotation(Callable)
     IO = TypeAnnotation(IO)
@@ -45,6 +59,8 @@ class Type:
     datetime = TypeClass(datetime)
 
     ListAny = TypeSubscript(List, [Any])
+    SequenceAny = TypeSubscript(Sequence, [Any])
+    MappingStrAny = TypeSubscript(Mapping, [str, Any])
     DictStrAny = TypeSubscript(Dict, [str, Any])
     IOBytes = TypeSubscript(IO, [bytes])
     RemoveArgument = RemoveArgument()

@@ -9,7 +9,9 @@ from typing import (
     Generator,
     Iterator,
     List,
+    Mapping,
     Optional,
+    Sequence,
     Set,
     Tuple,
     Type,
@@ -34,7 +36,9 @@ class TypeAnnotation(FakeAnnotation):
         Union,
         Any,
         Dict,
+        Mapping,
         List,
+        Sequence,
         Set,
         Optional,  # type: ignore
         Callable,
@@ -59,8 +63,16 @@ class TypeAnnotation(FakeAnnotation):
             "Dict",
         ),
         (
+            Mapping,
+            "Mapping",
+        ),
+        (
             List,
             "List",
+        ),
+        (
+            Sequence,
+            "Sequence",
         ),
         (
             Set,

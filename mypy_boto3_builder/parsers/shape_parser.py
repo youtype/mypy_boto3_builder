@@ -270,7 +270,7 @@ class ShapeParser:
                 [
                     Argument("self", None),
                     Argument("ClientMethod", Type.str),
-                    Argument("Params", Type.DictStrAny, Type.none),
+                    Argument("Params", Type.MappingStrAny, Type.none),
                     Argument("ExpiresIn", Type.int, TypeConstant(3600)),
                     Argument("HttpMethod", Type.str, Type.none),
                 ],
@@ -320,7 +320,7 @@ class ShapeParser:
         return TypeLiteral(f"{shape.name}Type", [option for option in shape.enum])
 
     def _parse_shape_map(self, shape: MapShape, output_child: bool = False) -> FakeAnnotation:
-        type_subscript = TypeSubscript(Type.Dict)
+        type_subscript = TypeSubscript(Type.Dict) if output_child else TypeSubscript(Type.Mapping)
         if shape.key:
             type_subscript.add_child(self._parse_shape(shape.key, output_child=output_child))
         else:
@@ -338,7 +338,7 @@ class ShapeParser:
         output_child: bool = False,
     ) -> FakeAnnotation:
         if not shape.members.items():
-            return Type.DictStrAny
+            return Type.DictStrAny if output_child else Type.MappingStrAny
 
         required = shape.required_members
         typed_dict_name = self._get_typed_dict_name(shape)
@@ -386,7 +386,7 @@ class ShapeParser:
             )
 
     def _parse_shape_list(self, shape: ListShape, output_child: bool = False) -> FakeAnnotation:
-        type_subscript = TypeSubscript(Type.List)
+        type_subscript = TypeSubscript(Type.List) if output_child else TypeSubscript(Type.Sequence)
         if shape.member:
             type_subscript.add_child(self._parse_shape(shape.member, output_child=output_child))
         else:
@@ -513,7 +513,7 @@ class ShapeParser:
             "get_available_subresources": Method(
                 "get_available_subresources",
                 [Argument("self", None)],
-                TypeSubscript(Type.List, [Type.str]),
+                TypeSubscript(Type.Sequence, [Type.str]),
             ),
         }
         service_resource_shape = self._get_service_resource()
@@ -538,7 +538,7 @@ class ShapeParser:
             "get_available_subresources": Method(
                 "get_available_subresources",
                 [Argument("self", None)],
-                TypeSubscript(Type.List, [Type.str]),
+                TypeSubscript(Type.Sequence, [Type.str]),
             ),
             "load": Method("load", [Argument("self", None)], Type.none),
             "reload": Method("reload", [Argument("self", None)], Type.none),

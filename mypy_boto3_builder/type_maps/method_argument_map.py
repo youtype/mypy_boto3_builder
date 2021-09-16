@@ -22,7 +22,7 @@ METHOD_MAP: ServiceTypeMap = {
         "Instance": {
             "delete_tags": [
                 Argument("self", None),
-                Argument("Tags", TypeSubscript(Type.List, [ec2_tag_type]), Type.none),
+                Argument("Tags", TypeSubscript(Type.Sequence, [ec2_tag_type]), Type.none),
                 Argument("DryRun", Type.bool, Type.none),
             ]
         },

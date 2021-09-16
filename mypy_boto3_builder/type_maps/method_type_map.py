@@ -25,7 +25,7 @@ ServiceTypeMap = Dict[ServiceName, ClassTypeMap]
 _create_tags_stub = {
     "create_tags": {
         "Resources": Type.RemoveArgument,
-        "Tags": TypeSubscript(Type.Optional, [TypeSubscript(Type.List, [ec2_tag_type])]),
+        "Tags": TypeSubscript(Type.Optional, [TypeSubscript(Type.Sequence, [ec2_tag_type])]),
         "DryRun": Type.bool,
     },
 }
@@ -35,13 +35,17 @@ TYPE_MAP: ServiceTypeMap = {
     ServiceNameCatalog.ec2: {
         "Client": {
             "create_tags": {
-                "Resources": TypeSubscript(Type.List, [Type.Any]),
-                "Tags": TypeSubscript(Type.Optional, [TypeSubscript(Type.List, [ec2_tag_type])]),
+                "Resources": Type.SequenceAny,
+                "Tags": TypeSubscript(
+                    Type.Optional, [TypeSubscript(Type.Sequence, [ec2_tag_type])]
+                ),
                 "DryRun": Type.bool,
             },
             "delete_tags": {
-                "Resources": TypeSubscript(Type.List, [Type.Any]),
-                "Tags": TypeSubscript(Type.Optional, [TypeSubscript(Type.List, [ec2_tag_type])]),
+                "Resources": Type.SequenceAny,
+                "Tags": TypeSubscript(
+                    Type.Optional, [TypeSubscript(Type.Sequence, [ec2_tag_type])]
+                ),
                 "DryRun": Type.bool,
             },
         },
@@ -52,7 +56,9 @@ TYPE_MAP: ServiceTypeMap = {
             **_create_tags_stub,
             "delete_tags": {
                 "Resources": Type.RemoveArgument,
-                "Tags": TypeSubscript(Type.Optional, [TypeSubscript(Type.List, [ec2_tag_type])]),
+                "Tags": TypeSubscript(
+                    Type.Optional, [TypeSubscript(Type.Sequence, [ec2_tag_type])]
+                ),
                 "DryRun": Type.bool,
             },
         },

@@ -119,7 +119,7 @@ class TypeValue:
 
     def _get_type_list(self) -> TypeSubscript:
         if not self.list_items:
-            return TypeSubscript(Type.List, [Type.Any])
+            return Type.ListAny
 
         result = TypeSubscript(Type.List)
         for item_index, item in enumerate(self.list_items):
