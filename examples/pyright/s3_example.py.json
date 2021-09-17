@@ -169,11 +169,11 @@
         "message": "Argument missing for parameter \"Key\"",
         "range": {
             "start": {
-                "line": 58,
+                "line": 59,
                 "character": 4
             },
             "end": {
-                "line": 58,
+                "line": 59,
                 "character": 38
             }
         },
@@ -184,11 +184,11 @@
         "message": "Could not access item in TypedDict\n\u00a0\u00a0\"expiration\" is not a defined key in \"GetObjectOutputTypeDef\"",
         "range": {
             "start": {
-                "line": 61,
+                "line": 62,
                 "character": 18
             },
             "end": {
-                "line": 61,
+                "line": 62,
                 "character": 77
             }
         },
@@ -196,14 +196,14 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"dict[str, list[dict[str, list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0Type \"list[dict[str, list[str]]]\" is not assignable to field \"CORSRules\"",
+        "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0Type \"list[dict[str, tuple[Literal['get']] | list[str]]]\" is not assignable to field \"CORSRules\"",
         "range": {
             "start": {
-                "line": 66,
+                "line": 67,
                 "character": 26
             },
             "end": {
-                "line": 68,
+                "line": 69,
                 "character": 9
             }
         },
@@ -214,11 +214,11 @@
         "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" cannot be assigned to type \"str\"",
         "range": {
             "start": {
-                "line": 73,
+                "line": 74,
                 "character": 47
             },
             "end": {
-                "line": 73,
+                "line": 74,
                 "character": 51
             }
         },
@@ -229,11 +229,11 @@
         "message": "Cannot access member \"operations_name\" for type \"BotocoreClientError\"\n\u00a0\u00a0Member \"operations_name\" is unknown",
         "range": {
             "start": {
-                "line": 75,
+                "line": 76,
                 "character": 16
             },
             "end": {
-                "line": 75,
+                "line": 76,
                 "character": 31
             }
         },

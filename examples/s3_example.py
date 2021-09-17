@@ -53,7 +53,8 @@ def s3_client_example() -> None:
     bucket_exists_waiter.wait(bucket="bucket")
 
     # IDE autocomplete suggests function name and arguments here
-    client.create_bucket(Bucket="bucket")
+    response = client.create_bucket(Bucket="bucket")
+    response["ResponseMetadata"]["HTTPHeaders"].clear()
 
     # (mypy) error: Missing positional argument "Key" in call to "get_object" of "Client"
     client.get_object(Bucket="bucket")
@@ -65,7 +66,7 @@ def s3_client_example() -> None:
     client.put_bucket_cors(
         Bucket="Bucket",
         CORSConfiguration={
-            "CORSRules": [{"AllowedMethods": ["get"], "Allowedorigins": ["localhost"]}]
+            "CORSRules": [{"AllowedMethods": ("get",), "Allowedorigins": ["localhost"]}]
         },
     )
 
