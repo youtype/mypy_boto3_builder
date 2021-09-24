@@ -6,6 +6,7 @@ Parsed Service package.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / ServicePackage
     - [ServicePackage](#servicepackage)
+        - [ServicePackage().extend_literals](#servicepackageextend_literals)
         - [ServicePackage().extract_literals](#servicepackageextract_literals)
         - [ServicePackage().extract_typed_dicts](#servicepackageextract_typed_dicts)
         - [ServicePackage().get_client_required_import_records](#servicepackageget_client_required_import_records)
@@ -46,6 +47,16 @@ Parsed Service package.
 - [Client](client.md#client)
 - [Package](package.md#package)
 - [ServiceName](../service_name.md#servicename)
+
+### ServicePackage().extend_literals
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L342)
+
+```python
+def extend_literals(service_names: Iterable[ServiceName]) -> None:
+```
+
+Add `ServiceName`, `PaginatorName` and `WaiterName` literals.
 
 ### ServicePackage().extract_literals
 

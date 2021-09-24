@@ -14,7 +14,6 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.utils.nice_path import NicePath
 from mypy_boto3_builder.writers.boto3_stubs_package import (
     write_boto3_stubs_docs,
@@ -119,9 +118,8 @@ def process_service(
     logger = get_logger()
     logger.debug(f"Parsing {service_name.boto3_name}")
     service_module = parse_service_package(session, service_name)
-    service_module.literals.append(
-        TypeLiteral("ServiceName", [i.boto3_name for i in service_names])
-    )
+    service_module.extend_literals(service_names)
+
     for typed_dict in service_module.typed_dicts:
         typed_dict.replace_self_references()
     logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
@@ -151,9 +149,8 @@ def process_service_docs(
     logger = get_logger()
     logger.debug(f"Parsing {service_name.boto3_name}")
     service_module = parse_service_package(session, service_name)
-    service_module.literals.append(
-        TypeLiteral("ServiceName", [i.boto3_name for i in service_names])
-    )
+    service_module.extend_literals(service_names)
+
     logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
 
     write_service_docs(service_module, output_path=output_path)

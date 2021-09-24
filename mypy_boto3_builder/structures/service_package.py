@@ -338,3 +338,17 @@ class ServicePackage(Package):
                         )
                 raise ValueError(f"Duplicate name {name}")
             names.add(name)
+
+    def extend_literals(self, service_names: Iterable[ServiceName]) -> None:
+        """
+        Add `ServiceName`, `PaginatorName` and `WaiterName` literals.
+        """
+        self.literals.append(TypeLiteral("ServiceName", [i.boto3_name for i in service_names]))
+
+        paginator_names = [paginator.operation_name for paginator in self.paginators]
+        if paginator_names:
+            self.literals.append(TypeLiteral("PaginatorName", paginator_names))
+
+        waiter_names = [waiter.waiter_name for waiter in self.waiters]
+        if waiter_names:
+            self.literals.append(TypeLiteral("WaiterName", waiter_names))
