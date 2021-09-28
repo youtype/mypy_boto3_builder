@@ -58,11 +58,48 @@ function getBotocoreVersion(version) {
     return version.replace(/\.\d+/, `.${minor}`)
 }
 
+async function extractVersions({ core, context }) {
+    core.setOutput('version', '')
+
+    const boto3Version = (
+        (context.payload.inputs && context.payload.inputs.boto3_version) ?
+            context.payload.inputs.boto3_version :
+            await getBoto3Version()
+    )
+    const force = context.payload.inputs ? context.payload.inputs.force : false
+
+    const botocoreVersion = getBotocoreVersion(boto3Version)
+    core.info(`Boto3 version ${boto3Version}`)
+    core.setOutput('boto3-version', boto3Version)
+    core.setOutput('botocore-version', botocoreVersion)
+
+    const versions = await getStubsVersions(boto3Version)
+    core.info(`Built versions ${versions}`)
+
+    if (versions.length && !force) {
+        core.info('Builts found, skipping')
+        return
+    }
+    if (!versions.length) {
+        core.info(`No builds found, building initial ${boto3Version}`)
+        core.setOutput('version', boto3Version)
+        return
+    }
+
+    const lastBuildVersion = versions.pop()
+    core.info(`Last build version ${lastBuildVersion}`)
+
+    const buildVersion = getNextPostVersion(lastBuildVersion)
+    core.info(`Build version ${buildVersion}`)
+    core.setOutput('version', buildVersion)
+}
+
 module.exports = {
     sortVersions,
     getNextPostVersion,
     getReleaseVersions,
     getBoto3Version,
     getStubsVersions,
-    getBotocoreVersion
+    getBotocoreVersion,
+    extractVersions
 }

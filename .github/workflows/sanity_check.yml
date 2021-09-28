@@ -7,6 +7,7 @@ on:
     inputs:
       boto3_version:
         description: Target boto3 version
+        required: false
 
 jobs:
   sanity-check:
@@ -37,7 +38,7 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
       - name: Install boto3
         env:
           BOTO3_VERSION: ${{ steps.vars.outputs.boto3-version }}
