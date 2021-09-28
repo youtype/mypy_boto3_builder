@@ -16,6 +16,10 @@ jobs:
   check-boto3-version:
     name: Check boto3 version
     runs-on: ubuntu-latest
+    outputs:
+      boto3-version: ${{ steps.vars.outputs.boto3-version }}
+      botocore-version: ${{ steps.vars.outputs.botocore-version }}
+      version: ${{ steps.vars.outputs.version }}
     steps:
       - uses: actions/checkout@v2
       - name: Extract versions
@@ -28,15 +32,14 @@ jobs:
   publish-boto3-stubs:
     name: Publish boto3-stubs
     runs-on: ubuntu-latest
-    needs:
-      - check-boto3-version
-    if: needs.check-boto3-version.steps.vars.outputs.version
+    needs: check-boto3-version
+    if: needs.check-boto3-version.outputs.version
     env:
       PIP_NO_CACHE_DIR: false
       PIP_USER: 1
-      BOTO3_VERSION: ${{ needs.check-boto3-version.steps.vars.outputs.boto3-version }}
-      BOTOCORE_VERSION: ${{ needs.check-boto3-version.steps.vars.outputs.botocore-version }}
-      VERSION: ${{ needs.check-boto3-version.steps.vars.outputs.version }}
+      BOTO3_VERSION: ${{ needs.check-boto3-version.outputs.boto3-version }}
+      BOTOCORE_VERSION: ${{ needs.check-boto3-version.outputs.botocore-version }}
+      VERSION: ${{ needs.check-boto3-version.outputs.version }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
