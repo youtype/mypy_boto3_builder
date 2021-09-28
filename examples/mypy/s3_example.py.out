@@ -3,7 +3,7 @@ examples/s3_example.py:22: error: Unexpected keyword argument "key" for "upload_
 examples/s3_example.py:23: error: Extra key "key" for TypedDict "BucketUploadFileRequestTypeDef"
 examples/s3_example.py:27: error: Extra key "key" for TypedDict "CopySourceTypeDef"
 examples/s3_example.py:35: error: Argument "CopySource" to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str"
-examples/s3_example.py:39: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Optional[Literal['requester']]"
+examples/s3_example.py:39: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Literal['requester']"
 examples/s3_example.py:41: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"
 examples/s3_example.py:50: error: Argument 3 to "download_fileobj" of "S3Client" has incompatible type "bytes"; expected "IO[Any]"
 examples/s3_example.py:53: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?

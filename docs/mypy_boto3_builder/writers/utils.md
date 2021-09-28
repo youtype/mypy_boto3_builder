@@ -13,7 +13,7 @@ Jinja2 renderer and black formatter.
 
 ## blackify
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L19)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L21)
 
 ```python
 def blackify(content: str, file_path: Path) -> str:
@@ -38,7 +38,7 @@ Formatted python code.
 
 ## format_md
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L135)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L137)
 
 ```python
 def format_md(text: str) -> str:
@@ -48,7 +48,7 @@ Format MarkDown with mdformat.
 
 ## insert_md_toc
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L111)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L113)
 
 ```python
 def insert_md_toc(text: str) -> str:
@@ -58,7 +58,7 @@ Insert Table of Contents before the first second-level header.
 
 ## render_jinja2_template
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L87)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L89)
 
 ```python
 def render_jinja2_template(
@@ -82,7 +82,7 @@ A rendered template.
 
 ## sort_imports
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L50)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/utils.py#L52)
 
 ```python
 def sort_imports(

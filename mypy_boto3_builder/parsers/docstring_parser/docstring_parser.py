@@ -55,7 +55,7 @@ class DocstringParser:
         if name in self.arguments_map:
             return self.arguments_map[name]
 
-        self.arguments_map[name] = Argument(name, Type.Any, Type.none)
+        self.arguments_map[name] = Argument(name, Type.Any, Type.Ellipsis)
         return self.arguments_map[name]
 
     def _parse_request_syntax(self, input_string: str) -> None:

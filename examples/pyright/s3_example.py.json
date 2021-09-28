@@ -91,7 +91,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester'] | None\" in function \"abort\"\n\u00a0\u00a0Type \"Literal['none']\" cannot be assigned to type \"Literal['requester'] | None\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['none']\" cannot be assigned to type \"Literal['requester']\"",
+        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester']\" in function \"abort\"\n\u00a0\u00a0\"Literal['none']\" cannot be assigned to type \"Literal['requester']\"",
         "range": {
             "start": {
                 "line": 38,

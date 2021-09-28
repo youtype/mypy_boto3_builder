@@ -39,15 +39,19 @@ def parse_boto3_stubs_package(
         result.service_packages.append(parse_fake_service_package(session, service_name))
 
     init_arguments = [
-        Argument("region_name", TypeSubscript(Type.Optional, [Type.str]), Type.none),
-        Argument("api_version", TypeSubscript(Type.Optional, [Type.str]), Type.none),
-        Argument("use_ssl", TypeSubscript(Type.Optional, [Type.bool]), Type.none),
-        Argument("verify", TypeSubscript(Type.Union, [Type.bool, Type.str, Type.none]), Type.none),
-        Argument("endpoint_url", TypeSubscript(Type.Optional, [Type.str]), Type.none),
-        Argument("aws_access_key_id", TypeSubscript(Type.Optional, [Type.str]), Type.none),
-        Argument("aws_secret_access_key", TypeSubscript(Type.Optional, [Type.str]), Type.none),
-        Argument("aws_session_token", TypeSubscript(Type.Optional, [Type.str]), Type.none),
-        Argument("config", TypeSubscript(Type.Optional, [TypeClass(Config)]), Type.none),
+        Argument("region_name", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
+        Argument("api_version", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
+        Argument("use_ssl", TypeSubscript(Type.Optional, [Type.bool]), Type.Ellipsis),
+        Argument(
+            "verify",
+            TypeSubscript(Type.Union, [Type.bool, Type.str, Type.none]),
+            Type.Ellipsis,
+        ),
+        Argument("endpoint_url", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
+        Argument("aws_access_key_id", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
+        Argument("aws_secret_access_key", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
+        Argument("aws_session_token", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
+        Argument("config", TypeSubscript(Type.Optional, [TypeClass(Config)]), Type.Ellipsis),
     ]
 
     client_function_decorators = []
