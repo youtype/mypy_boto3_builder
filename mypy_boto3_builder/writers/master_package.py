@@ -2,7 +2,6 @@
 Master package writer.
 """
 from pathlib import Path
-from typing import List, Tuple
 
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.structures.master_package import MasterPackage
@@ -37,7 +36,7 @@ def write_master_package(package: MasterPackage, output_path: Path, generate_set
 
     templates_path = Path("master")
     module_templates_path = templates_path / "master"
-    file_paths: List[Tuple[Path, Path]] = []
+    file_paths: list[tuple[Path, Path]] = []
     if generate_setup:
         file_paths.extend(
             [

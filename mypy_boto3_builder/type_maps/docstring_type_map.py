@@ -2,7 +2,6 @@
 String to type annotation map that find type annotation by argument name and type.
 """
 from datetime import datetime
-from typing import Dict
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceNameCatalog
@@ -13,7 +12,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
-DOCSTRING_TYPE_MAP: Dict[str, FakeAnnotation] = {
+DOCSTRING_TYPE_MAP: dict[str, FakeAnnotation] = {
     "bytes": Type.bytes,
     "blob": Type.bytes,
     "boolean": Type.bool,

@@ -1,7 +1,7 @@
 """
 Helper for Python import strings.
 """
-from typing import Any, Optional, Tuple
+from __future__ import annotations
 
 from mypy_boto3_builder.constants import MODULE_NAME, TYPE_DEFS_NAME
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -30,8 +30,8 @@ class ImportRecord:
         source: ImportString,
         name: str = "",
         alias: str = "",
-        min_version: Tuple[int, ...] = (3, 8),
-        fallback: Optional["ImportRecord"] = None,
+        min_version: tuple[int, ...] = (3, 8),
+        fallback: ImportRecord | None = None,
     ) -> None:
         self.source = source
         self.name = name
@@ -43,7 +43,7 @@ class ImportRecord:
         return bool(self.source)
 
     @classmethod
-    def empty(cls) -> "ImportRecord":
+    def empty(cls) -> ImportRecord:
         """
         Whether import record is an empty string.
         """
@@ -70,19 +70,19 @@ class ImportRecord:
     def __hash__(self) -> int:
         return hash(str(self))
 
-    def __eq__(self, other: Any) -> bool:
+    def __eq__(self, other: object) -> bool:
         if not isinstance(other, ImportRecord):
             raise ValueError(f"Cannot compare ImportString with {other}")
 
         return str(self) == str(other)
 
-    def __ne__(self, other: Any) -> bool:
+    def __ne__(self, other: object) -> bool:
         if not isinstance(other, ImportRecord):
             raise ValueError(f"Cannot compare ImportString with {other}")
 
         return not self == other
 
-    def __gt__(self, other: "ImportRecord") -> bool:
+    def __gt__(self, other: ImportRecord) -> bool:
         if self.fallback is not None and other.fallback is None:
             return True
 

@@ -1,7 +1,7 @@
 """
 Wrapper for Python import strings.
 """
-from typing import Any, List
+from __future__ import annotations
 
 
 class ImportString:
@@ -27,7 +27,7 @@ class ImportString:
     """
 
     def __init__(self, master_name: str, *parts: str) -> None:
-        self.parts: List[str] = []
+        self.parts: list[str] = []
         all_parts = [master_name, *parts]
         for part in all_parts:
             if not part or "." in part:
@@ -42,7 +42,7 @@ class ImportString:
         return cls(*import_string.split("."))
 
     @classmethod
-    def empty(cls) -> "ImportString":
+    def empty(cls) -> ImportString:
         """
         Create an empty ImportString.
         """
@@ -51,7 +51,7 @@ class ImportString:
         return result
 
     @classmethod
-    def parent(cls) -> "ImportString":
+    def parent(cls) -> ImportString:
         """
         Get parent ImportString.
         """
@@ -68,18 +68,18 @@ class ImportString:
     def __hash__(self) -> int:
         return hash(str(self))
 
-    def __eq__(self, other: Any) -> bool:
+    def __eq__(self, other: object) -> bool:
         return str(self) == str(other)
 
-    def __gt__(self, other: Any) -> bool:
+    def __gt__(self, other: object) -> bool:
         return str(self) > str(other)
 
-    def __add__(self, other: "ImportString") -> "ImportString":
+    def __add__(self, other: ImportString) -> "ImportString":
         result = ImportString.empty()
         result.parts = self.parts + other.parts
         return result
 
-    def startswith(self, other: "ImportString") -> bool:
+    def startswith(self, other: ImportString) -> bool:
         """
         Check if import string starts with `other`.
 

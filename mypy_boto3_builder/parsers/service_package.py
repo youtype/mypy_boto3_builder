@@ -2,8 +2,6 @@
 Parser that produces `structures.ServiceModule`.
 """
 
-from typing import List
-
 from boto3.session import Session
 from botocore import xform_name
 
@@ -43,7 +41,7 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
         service_resource=service_resource,
     )
 
-    waiter_names: List[str] = client.boto3_client.waiter_names
+    waiter_names: list[str] = client.boto3_client.waiter_names
     for waiter_name in waiter_names:
         logger.debug(f"Parsing Waiter {waiter_name}")
         waiter = client.boto3_client.get_waiter(waiter_name)

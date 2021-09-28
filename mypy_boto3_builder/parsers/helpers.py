@@ -4,7 +4,6 @@ Helpers for parsing methods and attributes.
 import inspect
 import textwrap
 from types import MethodType
-from typing import Any, Dict, List
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
@@ -21,7 +20,7 @@ from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
 from mypy_boto3_builder.utils.strings import get_class_prefix
 
 
-def get_public_methods(inspect_class: Any) -> Dict[str, MethodType]:
+def get_public_methods(inspect_class: object) -> dict[str, MethodType]:
     """
     Extract public methods from any class.
 
@@ -32,7 +31,7 @@ def get_public_methods(inspect_class: Any) -> Dict[str, MethodType]:
         A dictionary of method name and method.
     """
     class_members = inspect.getmembers(inspect_class)
-    methods: Dict[str, MethodType] = {}
+    methods: dict[str, MethodType] = {}
     for name, member in class_members:
         if not inspect.ismethod(member):
             continue
@@ -47,7 +46,7 @@ def get_public_methods(inspect_class: Any) -> Dict[str, MethodType]:
 
 def parse_attributes(
     service_name: ServiceName, resource_name: str, resource: Boto3ServiceResource
-) -> List[Attribute]:
+) -> list[Attribute]:
     """
     Extract attributes from boto3 resource.
 
@@ -57,7 +56,7 @@ def parse_attributes(
     Returns:
         A list of Attribute structures.
     """
-    result: List[Attribute] = []
+    result: list[Attribute] = []
     if not resource.meta.client:
         return result
     if not resource.meta.resource_model:

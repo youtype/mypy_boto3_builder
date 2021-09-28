@@ -1,8 +1,6 @@
 """
 String to type annotation map that find type annotation by method and argument name.
 """
-from typing import Dict, List, Optional
-
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.type_annotations.type import Type
@@ -12,9 +10,9 @@ from mypy_boto3_builder.type_maps.typed_dicts import ec2_tag_type
 __all__ = ("get_method_arguments_stub",)
 
 
-MethodTypeMap = Dict[str, List[Argument]]
-ClassTypeMap = Dict[str, MethodTypeMap]
-ServiceTypeMap = Dict[ServiceName, ClassTypeMap]
+MethodTypeMap = dict[str, list[Argument]]
+ClassTypeMap = dict[str, MethodTypeMap]
+ServiceTypeMap = dict[ServiceName, ClassTypeMap]
 
 
 METHOD_MAP: ServiceTypeMap = {
@@ -32,7 +30,7 @@ METHOD_MAP: ServiceTypeMap = {
 
 def get_method_arguments_stub(
     service_name: ServiceName, class_name: str, method_name: str
-) -> Optional[List[Argument]]:
+) -> list[Argument] | None:
     """
     Get arguments list for method stub.
 

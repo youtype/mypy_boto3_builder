@@ -722,6 +722,14 @@ optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
 [[package]]
+name = "pip"
+version = "21.2.4"
+description = "The PyPA recommended tool for installing Python packages."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "pkginfo"
 version = "1.7.1"
 description = "Query metadatdata from sdists / bdists / installed packages."
@@ -1119,7 +1127,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "7b3972d18d0c49c4897583111f1437a3de1b3fd57a23747e4ee07140959434a7"
+content-hash = "39ed7e3da5ee23db62680c866e0ae6c463cb0b312bede8e44f549730baabcb6e"
 
 [metadata.files]
 atomicwrites = [
@@ -1422,6 +1430,10 @@ packaging = [
 pathspec = [
     {file = "pathspec-0.9.0-py2.py3-none-any.whl", hash = "sha256:7d15c4ddb0b5c802d161efc417ec1a2558ea2653c2e8ad9c19098201dc1c993a"},
     {file = "pathspec-0.9.0.tar.gz", hash = "sha256:e564499435a2673d586f6b2130bb5b95f04a3ba06f81b8f895b651a3c76aabb1"},
+]
+pip = [
+    {file = "pip-21.2.4-py3-none-any.whl", hash = "sha256:fa9ebb85d3fd607617c0c44aca302b1b45d87f9c2a1649b46c26167ca4296323"},
+    {file = "pip-21.2.4.tar.gz", hash = "sha256:0eb8a1516c3d138ae8689c0c1a60fde7143310832f9dc77e11d8a4bc62de193b"},
 ]
 pkginfo = [
     {file = "pkginfo-1.7.1-py2.py3-none-any.whl", hash = "sha256:37ecd857b47e5f55949c41ed061eb51a0bee97a87c969219d144c0e023982779"},

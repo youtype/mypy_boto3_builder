@@ -2,7 +2,6 @@
 Wrapper for classes like `Paginator`.
 """
 import inspect
-from typing import Any
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -18,8 +17,8 @@ class TypeClass(FakeAnnotation):
         alias -- Local name.
     """
 
-    def __init__(self, value: Any, alias: str = "") -> None:
-        self.value: Any = value
+    def __init__(self, value: type, alias: str = "") -> None:
+        self.value: type = value
         self.alias: str = alias
 
     def render(self, parent_name: str = "") -> str:

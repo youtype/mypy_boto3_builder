@@ -1,7 +1,7 @@
 """
 Boto3 Client.
 """
-from typing import Iterator, List, Set
+from collections.abc import Iterator
 
 from botocore.client import BaseClient
 
@@ -86,7 +86,7 @@ class Client(ClassRecord):
             f"({self.service_name.get_doc_link('client')})"
         )
 
-    def get_all_names(self) -> List[str]:
+    def get_all_names(self) -> list[str]:
         """
         Get a list of names for `__all__` statement.
         """
@@ -120,7 +120,7 @@ class Client(ClassRecord):
             docstring=f"{self.name} exceptions.",
         )
 
-    def get_required_import_records(self) -> Set[ImportRecord]:
+    def get_required_import_records(self) -> set[ImportRecord]:
         """
         Extract import records from required type annotations.
         """

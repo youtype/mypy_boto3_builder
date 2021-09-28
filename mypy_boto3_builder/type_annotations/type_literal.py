@@ -1,7 +1,7 @@
 """
 Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`.
 """
-from typing import Any, Iterable, Set
+from collections.abc import Iterable
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -21,8 +21,8 @@ class TypeLiteral(FakeAnnotation):
         inline -- Render literal inline.
     """
 
-    def __init__(self, name: str, children: Iterable[Any]) -> None:
-        self.children: Set[Any] = set(children)
+    def __init__(self, name: str, children: Iterable[str]) -> None:
+        self.children: set[str] = set(children)
         self.name: str = self._find_name(name)
         if not children:
             raise ValueError("Literal should have children")

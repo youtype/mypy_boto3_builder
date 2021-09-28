@@ -1,8 +1,6 @@
 """
 String to type annotation map that find type annotation by method and argument name.
 """
-from typing import Dict, Optional
-
 from boto3.dynamodb.conditions import ConditionBase
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -17,10 +15,10 @@ from mypy_boto3_builder.type_maps.typed_dicts import ec2_tag_type, s3_copy_sourc
 __all__ = ("get_method_type_stub",)
 
 
-ArgumentTypeMap = Dict[str, FakeAnnotation]
-MethodTypeMap = Dict[str, ArgumentTypeMap]
-ClassTypeMap = Dict[str, MethodTypeMap]
-ServiceTypeMap = Dict[ServiceName, ClassTypeMap]
+ArgumentTypeMap = dict[str, FakeAnnotation]
+MethodTypeMap = dict[str, ArgumentTypeMap]
+ClassTypeMap = dict[str, MethodTypeMap]
+ServiceTypeMap = dict[ServiceName, ClassTypeMap]
 
 _create_tags_stub = {
     "create_tags": {
@@ -107,7 +105,7 @@ def _get_from_method_map(
     method_name: str,
     argument_name: str,
     method_type_map: MethodTypeMap,
-) -> Optional[FakeAnnotation]:
+) -> FakeAnnotation | None:
     if method_name in method_type_map:
         operation_type_map = method_type_map[method_name]
         if argument_name in operation_type_map:
@@ -121,7 +119,7 @@ def _get_from_class_map(
     method_name: str,
     argument_name: str,
     class_type_map: ClassTypeMap,
-) -> Optional[FakeAnnotation]:
+) -> FakeAnnotation | None:
     if class_name in class_type_map:
         result = _get_from_method_map(method_name, argument_name, class_type_map[class_name])
         if result:
@@ -139,7 +137,7 @@ def _get_from_service_map(
     method_name: str,
     argument_name: str,
     service_type_map: ServiceTypeMap,
-) -> Optional[FakeAnnotation]:
+) -> FakeAnnotation | None:
     if service_name not in service_type_map:
         return None
 
@@ -153,7 +151,7 @@ def _get_from_service_map(
 
 def get_method_type_stub(
     service_name: ServiceName, class_name: str, method_name: str, argument_name: str
-) -> Optional[FakeAnnotation]:
+) -> FakeAnnotation | None:
     """
     Get stub type for method argument.
 

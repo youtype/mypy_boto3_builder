@@ -1,8 +1,6 @@
 """
 Boto3 ServiceResource sub-Resource.
 """
-from typing import List, Set
-
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
@@ -29,7 +27,7 @@ class Resource(ClassRecord):
             use_alias=True,
         )
         self.service_name: ServiceName = service_name
-        self.collections: List[Collection] = []
+        self.collections: list[Collection] = []
 
     @property
     def boto3_doc_link(self) -> str:
@@ -50,7 +48,7 @@ class Resource(ClassRecord):
             f"({self.service_name.get_doc_link('service_resource', self.name)})"
         )
 
-    def get_types(self) -> Set[FakeAnnotation]:
+    def get_types(self) -> set[FakeAnnotation]:
         """
         Extract type annotations from collections.
         """

@@ -3,9 +3,9 @@ CLI parser.
 """
 import argparse
 import logging
+from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Sequence
 
 import pkg_resources
 
@@ -31,7 +31,7 @@ class Namespace:
 
     log_level: int
     output_path: Path
-    service_names: List[str]
+    service_names: list[str]
     build_version: str
     installed: bool
     skip_master: bool

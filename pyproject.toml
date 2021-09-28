@@ -66,7 +66,7 @@ mypy_boto3_builder = 'mypy_boto3_builder.main:main'
 "Bug Tracker" = "https://github.com/vemel/mypy_boto3_builder/issues"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.10"
 pip = "*"
 boto3 = "*"
 black = "^21.9b0"

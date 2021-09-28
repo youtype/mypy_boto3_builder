@@ -2,7 +2,6 @@
 Service package writer.
 """
 from pathlib import Path
-from typing import List, Tuple
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.logger import get_logger
@@ -38,7 +37,7 @@ def write_service_package(package: ServicePackage, output_path: Path, generate_s
 
     templates_path = Path("service")
     module_templates_path = templates_path / "service"
-    file_paths: List[Tuple[Path, Path]] = []
+    file_paths: list[tuple[Path, Path]] = []
     if generate_setup:
         file_paths.extend(
             [

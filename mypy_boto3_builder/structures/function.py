@@ -1,7 +1,7 @@
 """
 Module-level function.
 """
-from typing import Iterable, Optional, Set
+from collections.abc import Iterable
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.argument import Argument
@@ -32,7 +32,7 @@ class Function:
         self.decorators = list(decorators)
         self.body_lines = body_lines
         self.type_ignore = type_ignore
-        self.request_type_annotation: Optional[TypeTypedDict] = None
+        self.request_type_annotation: TypeTypedDict | None = None
 
     @property
     def short_docstring(self) -> str:
@@ -47,7 +47,7 @@ class Function:
             return ""
         return short_docstring
 
-    def get_request_type_annotation(self, name: str) -> Optional[TypeTypedDict]:
+    def get_request_type_annotation(self, name: str) -> TypeTypedDict | None:
         """
         Get TypedDict based on function arguments.
         """
@@ -75,7 +75,7 @@ class Function:
         """
         return "\n".join(self.body_lines)
 
-    def get_types(self) -> Set[FakeAnnotation]:
+    def get_types(self) -> set[FakeAnnotation]:
         """
         Extract required type annotations.
         """
@@ -87,11 +87,11 @@ class Function:
 
         return types
 
-    def get_required_import_records(self) -> Set[ImportRecord]:
+    def get_required_import_records(self) -> set[ImportRecord]:
         """
         Extract required import records.
         """
-        result: Set[ImportRecord] = set()
+        result: set[ImportRecord] = set()
         for type_annotation in self.get_types():
             import_record = type_annotation.get_import_record()
             if not import_record or import_record.is_builtins():

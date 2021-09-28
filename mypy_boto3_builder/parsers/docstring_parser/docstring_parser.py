@@ -3,7 +3,7 @@ Botocore docstring parser.
 """
 import re
 import textwrap
-from typing import Any, Dict, List, Optional, Pattern
+from re import Pattern
 
 from pyparsing import ParseException
 
@@ -42,14 +42,14 @@ class DocstringParser:
         service_name: ServiceName,
         class_name: str,
         method_name: str,
-        arguments: List[Argument],
+        arguments: list[Argument],
     ) -> None:
         self.prefix = f"{get_class_prefix(class_name)}{get_class_prefix(method_name)}"
         self.service_name = service_name
         self.class_name = class_name
         self.method_name = method_name
         self.logger = get_logger()
-        self.arguments_map: Dict[str, Argument] = {a.name: a for a in arguments if not a.prefix}
+        self.arguments_map: dict[str, Argument] = {a.name: a for a in arguments if not a.prefix}
 
     def _find_argument_or_append(self, name: str) -> Argument:
         if name in self.arguments_map:
@@ -99,7 +99,7 @@ class DocstringParser:
                 self.logger.debug(e)
                 continue
 
-            match_dict: Dict[str, str] = match.asDict()  # type: ignore
+            match_dict: dict[str, str] = match.asDict()  # type: ignore
             argument_name = match_dict["name"]
             type_str = match_dict["type_name"]
             argument = self._find_argument_or_append(argument_name)
@@ -184,7 +184,7 @@ class DocstringParser:
                 continue
             self._fix_keys(child, line)
 
-    def get_arguments(self, input_string: str) -> List[Argument]:
+    def get_arguments(self, input_string: str) -> list[Argument]:
         """
         Get list of function arguments with type annottions.
 
@@ -204,7 +204,7 @@ class DocstringParser:
         arguments.sort(key=lambda x: x.prefix is not None)
         return arguments
 
-    def _parse_returns(self, input_string: str) -> Optional[FakeAnnotation]:
+    def _parse_returns(self, input_string: str) -> FakeAnnotation | None:
         if ":return: " not in input_string and ":returns: " not in input_string:
             return None
         TypeDocGrammar.reset()
@@ -230,7 +230,7 @@ class DocstringParser:
 
         return None
 
-    def _parse_rtype(self, input_string: str) -> Optional[FakeAnnotation]:
+    def _parse_rtype(self, input_string: str) -> FakeAnnotation | None:
         if ":rtype: " not in input_string:
             return None
 
@@ -242,11 +242,11 @@ class DocstringParser:
             self.logger.warning(f"Cannot parse rtype for {self.prefix}: {e}")
             return None
 
-        match_dict: Dict[str, str] = match.asDict()  # type: ignore
+        match_dict: dict[str, str] = match.asDict()  # type: ignore
         type_name = match_dict["type_name"]
         return get_type_from_docstring(type_name)
 
-    def _parse_response_syntax(self, input_string: str) -> Optional[FakeAnnotation]:
+    def _parse_response_syntax(self, input_string: str) -> FakeAnnotation | None:
         if "**Response Syntax**" not in input_string:
             return None
 
@@ -264,11 +264,11 @@ class DocstringParser:
             self.logger.debug(e)
             return None
 
-        match_dict: Dict[str, Dict[str, Any]] = match.asDict()  # type: ignore
+        match_dict: dict[str, dict[str, object]] = match.asDict()  # type: ignore
         value = match_dict["value"]
         return TypeValue(self.service_name, f"{self.prefix}Response", value).get_type()
 
-    def _parse_response_structure(self, input_string: str) -> Optional[TypeDocLine]:
+    def _parse_response_structure(self, input_string: str) -> TypeDocLine | None:
         if "**Response Structure**" not in input_string:
             return None
 

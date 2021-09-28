@@ -1,7 +1,8 @@
 """
 Parser for botocore shape files.
 """
-from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence
+from collections.abc import Iterable, Mapping, Sequence
+from typing import Any
 
 from boto3.resources.model import Collection
 from boto3.session import Session
@@ -75,7 +76,7 @@ class ShapeParser:
     # Alias map fixes added by botocore for documentation build.
     # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L773
     # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L1055
-    ARGUMENT_ALIASES: Dict[str, Dict[str, Dict[str, str]]] = {
+    ARGUMENT_ALIASES: dict[str, dict[str, dict[str, str]]] = {
         ServiceNameCatalog.cloudsearchdomain.boto3_name: {"Search": {"return": "returnFields"}},
         ServiceNameCatalog.logs.boto3_name: {"CreateExportTask": {"from": "fromTime"}},
         ServiceNameCatalog.ec2.boto3_name: {"*": {"Filter": "Filters"}},
@@ -101,20 +102,20 @@ class ShapeParser:
         service_data = botocore_session.get_service_data(service_name.boto3_name)
         self.service_name = service_name
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
-        self._typed_dict_map: Dict[str, TypeTypedDict] = {}
-        self._waiters_shape: Optional[Mapping[str, Any]] = None
+        self._typed_dict_map: dict[str, TypeTypedDict] = {}
+        self._waiters_shape: Mapping[str, Any] | None = None
         try:
             self._waiters_shape = loader.load_service_model(service_name.boto3_name, "waiters-2")
         except UnknownServiceError:
             pass
-        self._paginators_shape: Optional[Mapping[str, Any]] = None
+        self._paginators_shape: Mapping[str, Any] | None = None
         try:
             self._paginators_shape = loader.load_service_model(
                 service_name.boto3_name, "paginators-1"
             )
         except UnknownServiceError:
             pass
-        self._resources_shape: Optional[Mapping[str, Any]] = None
+        self._resources_shape: Mapping[str, Any] | None = None
         try:
             self._resources_shape = loader.load_service_model(
                 service_name.boto3_name, "resources-1"
@@ -137,10 +138,10 @@ class ShapeParser:
     def _get_operation(self, name: str) -> OperationModel:
         return self.service_model.operation_model(name)
 
-    def _get_operation_names(self) -> List[str]:
+    def _get_operation_names(self) -> list[str]:
         return list(self.service_model.operation_names)
 
-    def _get_paginator(self, name: str) -> Dict[str, Any]:
+    def _get_paginator(self, name: str) -> dict[str, Any]:
         if not self._paginators_shape:
             raise ShapeParserError(f"Unknown paginator: {name}")
         try:
@@ -148,12 +149,12 @@ class ShapeParser:
         except KeyError as e:
             raise ShapeParserError(f"Unknown paginator: {name}") from e
 
-    def _get_service_resource(self) -> Dict[str, Any]:
+    def _get_service_resource(self) -> dict[str, Any]:
         if not self._resources_shape:
             raise ShapeParserError("Resource shape not found")
         return self._resources_shape["service"]
 
-    def _get_resource_shape(self, name: str) -> Dict[str, Any]:
+    def _get_resource_shape(self, name: str) -> dict[str, Any]:
         if not self._resources_shape:
             raise ShapeParserError("Resource shape not found")
         try:
@@ -161,14 +162,14 @@ class ShapeParser:
         except KeyError as e:
             raise ShapeParserError(f"Unknown resource: {name}") from e
 
-    def get_paginator_names(self) -> List[str]:
+    def get_paginator_names(self) -> list[str]:
         """
         Get available paginator names.
 
         Returns:
             A list of paginator names.
         """
-        result: List[str] = []
+        result: list[str] = []
         if self._paginators_shape:
             for name in self._paginators_shape.get("pagination", []):
                 result.append(name)
@@ -180,7 +181,7 @@ class ShapeParser:
         if not service_map:
             return argument_name
 
-        operation_map: Dict[str, str] = {}
+        operation_map: dict[str, str] = {}
         if "*" in service_map:
             operation_map = service_map["*"]
         if operation_name in service_map:
@@ -202,8 +203,8 @@ class ShapeParser:
         shape: StructureShape,
         exclude_names: Iterable[str] = tuple(),
         optional_only: bool = False,
-    ) -> List[Argument]:
-        result: List[Argument] = []
+    ) -> list[Argument]:
+        result: list[Argument] = []
         required = shape.required_members
         for argument_name, argument_shape in shape.members.items():
             if argument_name in exclude_names:
@@ -232,7 +233,7 @@ class ShapeParser:
         return result
 
     def _parse_return_type(
-        self, class_name: str, method_name: str, shape: Optional[Shape]
+        self, class_name: str, method_name: str, shape: Shape | None
     ) -> FakeAnnotation:
         argument_type_stub = get_method_type_stub(
             self.service_name, class_name, method_name, "return"
@@ -246,20 +247,20 @@ class ShapeParser:
         return Type.none
 
     @staticmethod
-    def _get_kw_flags(method_name: str, arguments: Sequence[Argument]) -> List[Argument]:
+    def _get_kw_flags(method_name: str, arguments: Sequence[Argument]) -> list[Argument]:
         if len(arguments) and not method_name[0].isupper():
             return [Argument.kwflag()]
 
         return []
 
-    def get_client_method_map(self) -> Dict[str, Method]:
+    def get_client_method_map(self) -> dict[str, Method]:
         """
         Get client methods from shape.
 
         Returns:
             A map of method name to Method.
         """
-        result: Dict[str, Method] = {
+        result: dict[str, Method] = {
             "can_paginate": Method(
                 "can_paginate",
                 [Argument("self", None), Argument("operation_name", Type.str)],
@@ -279,7 +280,7 @@ class ShapeParser:
         }
         for operation_name in self._get_operation_names():
             operation_model = self._get_operation(operation_name)
-            arguments: List[Argument] = [Argument("self", None)]
+            arguments: list[Argument] = [Argument("self", None)]
             method_name = xform_name(operation_name)
 
             if operation_model.input_shape is not None:
@@ -442,7 +443,7 @@ class ShapeParser:
         operation_name = paginator_name
         paginator_shape = self._get_paginator(paginator_name)
         operation_shape = self._get_operation(operation_name)
-        skip_argument_names: List[str] = []
+        skip_argument_names: list[str] = []
         input_token = paginator_shape["input_token"]
         if isinstance(input_token, list):
             skip_argument_names.extend(input_token)
@@ -451,7 +452,7 @@ class ShapeParser:
         if "limit_key" in paginator_shape:
             skip_argument_names.append(paginator_shape["limit_key"])
 
-        arguments: List[Argument] = [Argument("self", None)]
+        arguments: list[Argument] = [Argument("self", None)]
 
         if operation_shape.input_shape is not None:
             shape_arguments = self._parse_arguments(
@@ -490,7 +491,7 @@ class ShapeParser:
         operation_name = self._waiters_shape["waiters"][waiter_name]["operation"]
         operation_shape = self._get_operation(operation_name)
 
-        arguments: List[Argument] = [Argument("self", None)]
+        arguments: list[Argument] = [Argument("self", None)]
 
         if operation_shape.input_shape is not None:
             shape_arguments = self._parse_arguments(
@@ -502,14 +503,14 @@ class ShapeParser:
 
         return Method(name="wait", arguments=arguments, return_type=Type.none)
 
-    def get_service_resource_method_map(self) -> Dict[str, Method]:
+    def get_service_resource_method_map(self) -> dict[str, Method]:
         """
         Get methods for ServiceResource.
 
         Returns:
             A map of method name to Method.
         """
-        result: Dict[str, Method] = {
+        result: dict[str, Method] = {
             "get_available_subresources": Method(
                 "get_available_subresources",
                 [Argument("self", None)],
@@ -523,7 +524,7 @@ class ShapeParser:
 
         return result
 
-    def get_resource_method_map(self, resource_name: str) -> Dict[str, Method]:
+    def get_resource_method_map(self, resource_name: str) -> dict[str, Method]:
         """
         Get methods for Resource.
 
@@ -534,7 +535,7 @@ class ShapeParser:
             A map of method name to Method.
         """
         resource_shape = self._get_resource_shape(resource_name)
-        result: Dict[str, Method] = {
+        result: dict[str, Method] = {
             "get_available_subresources": Method(
                 "get_available_subresources",
                 [Argument("self", None)],
@@ -565,11 +566,11 @@ class ShapeParser:
         return target.split("[")[0]
 
     def _get_resource_method(
-        self, resource_name: str, action_name: str, action_shape: Dict[str, Any]
+        self, resource_name: str, action_name: str, action_shape: dict[str, Any]
     ) -> Method:
         return_type: FakeAnnotation = Type.none
         method_name = xform_name(action_name)
-        arguments: List[Argument] = [Argument("self", None)]
+        arguments: list[Argument] = [Argument("self", None)]
         if "resource" in action_shape:
             return_type = self._parse_return_type(
                 resource_name, method_name, Shape("resource", action_shape["resource"])
@@ -582,11 +583,11 @@ class ShapeParser:
         if "request" in action_shape:
             operation_name = action_shape["request"]["operation"]
             operation_shape = self._get_operation(operation_name)
-            skip_argument_names = set(
+            skip_argument_names = {
                 self._get_arg_from_target(i["target"])
                 for i in action_shape["request"].get("params", {})
                 if i["source"] == "identifier"
-            )
+            }
             if operation_shape.input_shape is not None:
                 shape_arguments = self._parse_arguments(
                     resource_name,
@@ -646,7 +647,7 @@ class ShapeParser:
 
         return result
 
-    def get_collection_batch_methods(self, name: str, collection: Collection) -> List[Method]:
+    def get_collection_batch_methods(self, name: str, collection: Collection) -> list[Method]:
         """
         Get batch operations for Resource collection.
 

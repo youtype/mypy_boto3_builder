@@ -2,7 +2,6 @@
 Parent class for all type annotation wrappers.
 """
 from abc import ABC, abstractmethod
-from typing import Any, Set
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 
@@ -15,13 +14,13 @@ class FakeAnnotation(ABC):
     def __hash__(self) -> int:
         return hash(self.render())
 
-    def __eq__(self, other: Any) -> bool:
+    def __eq__(self, other: object) -> bool:
         if not isinstance(other, FakeAnnotation):
             raise ValueError(f"Cannot compare FakeAnnotation with {other}")
 
         return self.get_sort_key() == other.get_sort_key()
 
-    def __ne__(self, other: Any) -> bool:
+    def __ne__(self, other: object) -> bool:
         if not isinstance(other, FakeAnnotation):
             raise ValueError(f"Cannot compare FakeAnnotation with {other}")
 
@@ -54,7 +53,7 @@ class FakeAnnotation(ABC):
         Get import record required for using type annotation.
         """
 
-    def get_types(self) -> Set["FakeAnnotation"]:
+    def get_types(self) -> set["FakeAnnotation"]:
         """
         Get all used type annotations recursively including self.
         """

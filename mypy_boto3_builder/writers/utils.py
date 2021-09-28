@@ -1,13 +1,15 @@
 """
 Jinja2 renderer and black formatter.
 """
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable, Optional
 
 import black
 import mdformat
-from black import InvalidInput, NothingChanged
-from isort.api import Config, sort_code_string
+from black.parsing import InvalidInput
+from black.report import NothingChanged
+from isort.api import sort_code_string
+from isort.settings import Config
 
 from mypy_boto3_builder.constants import LINE_LENGTH, TEMPLATES_PATH
 from mypy_boto3_builder.jinja_manager import JinjaManager
@@ -86,8 +88,8 @@ def sort_imports(
 
 def render_jinja2_template(
     template_path: Path,
-    package: Optional[Package] = None,
-    service_name: Optional[ServiceName] = None,
+    package: Package | None = None,
+    service_name: ServiceName | None = None,
 ) -> str:
     """
     Render Jinja2 template to a string.

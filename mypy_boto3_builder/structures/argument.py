@@ -1,7 +1,7 @@
 """
 Method or function argument.
 """
-from typing import Optional, Set, Type, TypeVar
+from typing import Type, TypeVar
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
@@ -23,13 +23,13 @@ class Argument:
     def __init__(
         self,
         name: str,
-        type_annotation: Optional[FakeAnnotation],
-        default: Optional[TypeConstant] = None,
+        type_annotation: FakeAnnotation | None,
+        default: TypeConstant | None = None,
         prefix: str = "",
     ):
         self.name: str = name
-        self.type_annotation: Optional[FakeAnnotation] = type_annotation
-        self.default: Optional[TypeConstant] = default
+        self.type_annotation: FakeAnnotation | None = type_annotation
+        self.default: TypeConstant | None = default
         self.prefix: str = prefix
 
     def render(self) -> str:
@@ -54,11 +54,11 @@ class Argument:
         """
         return self.name == "*"
 
-    def get_types(self) -> Set[FakeAnnotation]:
+    def get_types(self) -> set[FakeAnnotation]:
         """
         Extract required type annotations.
         """
-        types: Set[FakeAnnotation] = set()
+        types: set[FakeAnnotation] = set()
         if self.type_annotation is not None:
             types.update(self.type_annotation.get_types())
         if self.default is not None:

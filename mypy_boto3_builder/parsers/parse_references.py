@@ -1,15 +1,13 @@
 """
 Parser for Boto3 ServiceResource identifiers, produces `structures.Attribute`.
 """
-from typing import List
-
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 
-def parse_references(resource: Boto3ServiceResource) -> List[Attribute]:
+def parse_references(resource: Boto3ServiceResource) -> list[Attribute]:
     """
     Extract references from boto3 resource.
 
@@ -19,7 +17,7 @@ def parse_references(resource: Boto3ServiceResource) -> List[Attribute]:
     Returns:
         A list of Attribute structures.
     """
-    result: List[Attribute] = []
+    result: list[Attribute] = []
     references = resource.meta.resource_model.references
     for reference in references:
         if not reference.resource:

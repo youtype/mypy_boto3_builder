@@ -1,8 +1,6 @@
 """
 Wrapper for simple type annotations from this module.
 """
-from typing import Optional
-
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.service_name import ServiceName
@@ -24,13 +22,13 @@ class InternalImport(FakeAnnotation):
     def __init__(
         self,
         name: str,
-        service_name: Optional[ServiceName] = None,
+        service_name: ServiceName | None = None,
         module_name: ServiceModuleName = ServiceModuleName.service_resource,
         stringify: bool = True,
         use_alias: bool = False,
     ) -> None:
         self.name: str = name
-        self.service_name: Optional[ServiceName] = service_name
+        self.service_name: ServiceName | None = service_name
         self.module_name: ServiceModuleName = module_name
         self.stringify: bool = stringify
         self.use_alias: bool = use_alias
@@ -92,7 +90,7 @@ class AliasInternalImport(InternalImport):
         service_name -- Service that import belongs to.
     """
 
-    def __init__(self, name: str, service_name: Optional[ServiceName] = None) -> None:
+    def __init__(self, name: str, service_name: ServiceName | None = None) -> None:
         super().__init__(
             name=name,
             service_name=service_name,

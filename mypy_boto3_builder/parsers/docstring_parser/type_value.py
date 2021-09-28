@@ -1,7 +1,7 @@
 """
 Structure for parsed as dict request or response syntax values.
 """
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
@@ -22,29 +22,29 @@ class TypeValue:
     Structure for parsed as dict request or response syntax values.
     """
 
-    def __init__(self, service_name: ServiceName, prefix: str, value: Dict[str, Any]) -> None:
+    def __init__(self, service_name: ServiceName, prefix: str, value: dict[str, Any]) -> None:
         self.service_name = service_name
         self.logger = get_logger()
         self.prefix = prefix
-        self.raw: Dict[str, Any] = value
-        self.dict_items: Optional[List[Dict[str, Any]]] = value.get("dict_items")
+        self.raw: dict[str, Any] = value
+        self.dict_items: list[dict[str, Any]] | None = value.get("dict_items")
         if value.get("empty_dict"):
             self.dict_items = []
-        self.set_items: Optional[List[Any]] = value.get("set_items")
-        self.list_items: Optional[List[Any]] = value.get("list_items")
+        self.set_items: list[Any] | None = value.get("set_items")
+        self.list_items: list[Any] | None = value.get("list_items")
         if value.get("empty_list"):
             self.list_items = []
-        self.func_call: Optional[Dict[str, Any]] = value.get("func_call")
-        self.union_items: List[Any] = []
+        self.func_call: dict[str, Any] | None = value.get("func_call")
+        self.union_items: list[Any] = []
         if value.get("union_first_item"):
             self.union_items.append(value["union_first_item"])
             self.union_items.extend(value["union_rest_items"])
-        self.literal_items: List[Any] = []
+        self.literal_items: list[Any] = []
         if value.get("literal_first_item"):
             self.literal_items.append(value["literal_first_item"])
             self.literal_items.extend(value["literal_rest_items"])
 
-        self.value: Optional[str] = value.get("value")
+        self.value: str | None = value.get("value")
 
     def is_dict(self) -> bool:
         """

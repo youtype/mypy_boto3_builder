@@ -2,7 +2,6 @@
 boto3-stubs package writer.
 """
 from pathlib import Path
-from typing import List, Tuple
 
 from mypy_boto3_builder.constants import BOTO3_STUBS_STATIC_PATH
 from mypy_boto3_builder.logger import get_logger
@@ -35,7 +34,7 @@ def write_boto3_stubs_package(
 
     templates_path = Path("boto3-stubs")
     module_templates_path = templates_path / "boto3-stubs"
-    file_paths: List[Tuple[Path, Path]] = []
+    file_paths: list[tuple[Path, Path]] = []
     if generate_setup:
         file_paths.extend(
             [

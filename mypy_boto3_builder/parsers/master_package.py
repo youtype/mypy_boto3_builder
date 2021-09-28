@@ -1,7 +1,7 @@
 """
 Parser that produces `structures.MasterPackage`.
 """
-from typing import Iterable
+from collections.abc import Iterable
 
 from boto3.session import Session
 

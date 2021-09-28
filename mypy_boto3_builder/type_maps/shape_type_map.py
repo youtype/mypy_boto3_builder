@@ -1,8 +1,6 @@
 """
 String to type annotation map to replace overriden botocore shapes.
 """
-from typing import Dict, Optional
-
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
@@ -42,7 +40,7 @@ InvocationResponseTypeDef: TypeTypedDict = TypeTypedDict(
     ],
 )
 
-SHAPE_TYPE_MAP: Dict[ServiceName, Dict[str, FakeAnnotation]] = {
+SHAPE_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {
     ServiceNameCatalog.lambda_: {
         "InvocationResponseTypeDef": InvocationResponseTypeDef,
     },
@@ -103,9 +101,7 @@ SHAPE_TYPE_MAP: Dict[ServiceName, Dict[str, FakeAnnotation]] = {
 }
 
 
-def get_shape_type_stub(
-    service_name: ServiceName, typed_dict_name: str
-) -> Optional[FakeAnnotation]:
+def get_shape_type_stub(service_name: ServiceName, typed_dict_name: str) -> FakeAnnotation | None:
     """
     Get stub type for botocore shape.
 

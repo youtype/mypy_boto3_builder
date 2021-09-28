@@ -3,7 +3,6 @@ Converter of function argspec to `Argument` list.
 """
 import inspect
 from types import MethodType
-from typing import List, Optional
 
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
@@ -24,13 +23,13 @@ class ArgSpecParser:
         self.service_name = service_name
 
     @staticmethod
-    def _get_arguments_from_argspec(func: MethodType) -> List[Argument]:
-        arguments: List[Argument] = []
+    def _get_arguments_from_argspec(func: MethodType) -> list[Argument]:
+        arguments: list[Argument] = []
         argspec = inspect.getfullargspec(func)
         for argument_name in argspec.args:
             if argument_name == "factory_self":
                 argument_name = "self"
-            type_annotation: Optional[TypeAnnotation] = Type.Any
+            type_annotation: TypeAnnotation | None = Type.Any
             if not arguments and argument_name in ("self", "cls"):
                 type_annotation = None
             arguments.append(Argument(argument_name, type_annotation))
@@ -54,7 +53,7 @@ class ArgSpecParser:
             arguments.append(Argument(argspec.varkw, Type.Any, prefix="**"))
         return arguments
 
-    def get_arguments(self, class_name: str, method_name: str, func: MethodType) -> List[Argument]:
+    def get_arguments(self, class_name: str, method_name: str, func: MethodType) -> list[Argument]:
         """
         Get arguments from `class_name.method_name` method `func`.
         """
@@ -72,7 +71,7 @@ class ArgSpecParser:
 
         return arguments
 
-    def get_return_type(self, class_name: str, method_name: str) -> Optional[FakeAnnotation]:
+    def get_return_type(self, class_name: str, method_name: str) -> FakeAnnotation | None:
         """
         Get `class_name.method_name` return type annotation.
         """

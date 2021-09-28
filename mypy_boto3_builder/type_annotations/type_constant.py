@@ -1,8 +1,6 @@
 """
 Wrapper for constant like `False` or `"test"`.
 """
-from typing import Any
-
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
@@ -15,8 +13,8 @@ class TypeConstant(FakeAnnotation):
         value -- Constant value.
     """
 
-    def __init__(self, value: Any) -> None:
-        self.value: Any = value
+    def __init__(self, value: object) -> None:
+        self.value: object = value
 
     def render(self, parent_name: str = "") -> str:
         """

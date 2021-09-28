@@ -1,8 +1,6 @@
 """
 String to type annotation map to replace overriden botocore literals.
 """
-from typing import Dict, Optional
-
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
@@ -38,14 +36,14 @@ ResourceStatusType: TypeLiteral = TypeLiteral(
     ],
 )
 
-LITERAL_TYPE_MAP: Dict[ServiceName, Dict[str, FakeAnnotation]] = {
+LITERAL_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {
     ServiceNameCatalog.cloudformation: {
         "ResourceStatusType": ResourceStatusType,
     },
 }
 
 
-def get_literal_type_stub(service_name: ServiceName, literal_name: str) -> Optional[FakeAnnotation]:
+def get_literal_type_stub(service_name: ServiceName, literal_name: str) -> FakeAnnotation | None:
     """
     Get stub type for botocore literal.
 

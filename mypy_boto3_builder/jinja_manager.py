@@ -1,8 +1,6 @@
 """
 Jinja2 `Environment` manager.
 """
-from typing import Any
-
 import jinja2
 
 from mypy_boto3_builder.constants import TEMPLATES_PATH
@@ -21,7 +19,7 @@ class JinjaManager:
     )
 
     @classmethod
-    def update_globals(cls, **kwargs: Any) -> None:
+    def update_globals(cls, **kwargs: object) -> None:
         """
         Update global variables in `jinja2.Environment`.
 

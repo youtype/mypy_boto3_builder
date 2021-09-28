@@ -1,8 +1,8 @@
 """
 Processors for parsing and writing modules.
 """
+from collections.abc import Iterable
 from pathlib import Path
-from typing import Iterable
 
 from boto3.session import Session
 

@@ -26,7 +26,7 @@ jobs:
         id: python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: 3.10
       - name: Cache packages
         uses: actions/cache@v2
         with:
@@ -67,11 +67,11 @@ jobs:
         id: python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: 3.10
       - name: Set up Node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
       - name: Cache packages
         uses: actions/cache@v2
         with:

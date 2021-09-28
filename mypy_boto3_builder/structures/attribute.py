@@ -1,8 +1,6 @@
 """
 Class or module attribute.
 """
-from typing import Optional, Set
-
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
@@ -22,15 +20,15 @@ class Attribute:
         self,
         name: str,
         type_annotation: FakeAnnotation,
-        value: Optional[TypeConstant] = None,
+        value: TypeConstant | None = None,
         type_ignore: bool = False,
     ):
         self.name: str = name
         self.type_annotation: FakeAnnotation = type_annotation
-        self.value: Optional[TypeConstant] = value
+        self.value: TypeConstant | None = value
         self.type_ignore = type_ignore
 
-    def get_types(self) -> Set[FakeAnnotation]:
+    def get_types(self) -> set[FakeAnnotation]:
         """
         Return all type annotations used.
 

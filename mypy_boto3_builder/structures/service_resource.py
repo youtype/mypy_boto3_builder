@@ -1,8 +1,6 @@
 """
 Boto3 ServiceResource.
 """
-from typing import List, Set, Tuple
-
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -55,8 +53,8 @@ class ServiceResource(ClassRecord):
         )
         self.service_name = service_name
         self.boto3_service_resource = boto3_service_resource
-        self.collections: List[Collection] = []
-        self.sub_resources: List[Resource] = []
+        self.collections: list[Collection] = []
+        self.sub_resources: list[Resource] = []
 
     def __hash__(self) -> int:
         return hash(self.service_name)
@@ -109,7 +107,7 @@ class ServiceResource(ClassRecord):
             f"({self.service_name.get_doc_link('service_resource')})"
         )
 
-    def get_types(self) -> Set[FakeAnnotation]:
+    def get_types(self) -> set[FakeAnnotation]:
         """
         Extract type annotations for collections and sub-resources.
         """
@@ -122,7 +120,7 @@ class ServiceResource(ClassRecord):
 
         return types
 
-    def get_all_names(self) -> List[str]:
+    def get_all_names(self) -> list[str]:
         """
         Get names for `__all__` statement.
         """
@@ -133,12 +131,12 @@ class ServiceResource(ClassRecord):
             result.append(collection.name)
         return result
 
-    def get_collections(self) -> List[Collection]:
+    def get_collections(self) -> list[Collection]:
         """
         Get a list of Service Resource collections.
         """
         collection_names = [i.name for i in self.collections]
-        result: List[Collection] = []
+        result: list[Collection] = []
         result.extend(self.collections)
         for resource in self.sub_resources:
             for collection in resource.collections:
@@ -149,18 +147,18 @@ class ServiceResource(ClassRecord):
 
         return result
 
-    def get_sub_resources(self) -> List[Resource]:
+    def get_sub_resources(self) -> list[Resource]:
         """
         Get sub-resource in safe order.
 
         Returns:
             A list of sub resources.
         """
-        result: List[Resource] = []
-        all_names: Set[str] = {i.name for i in self.sub_resources}
-        added_names: Set[str] = set()
+        result: list[Resource] = []
+        all_names: set[str] = {i.name for i in self.sub_resources}
+        added_names: set[str] = set()
         sub_resources = list(self.sub_resources)
-        sub_resources_list: List[Tuple[Resource, List[InternalImport]]] = []
+        sub_resources_list: list[tuple[Resource, list[InternalImport]]] = []
         for sub_resource in sub_resources:
             internal_imports = sub_resource.get_internal_imports()
             sub_resources_list.append((sub_resource, internal_imports))

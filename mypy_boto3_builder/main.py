@@ -2,7 +2,7 @@
 Main entrypoint for builder.
 """
 import sys
-from typing import Iterable, List, Sequence
+from collections.abc import Iterable, Sequence
 
 from boto3 import __version__ as boto3_version
 from boto3.session import Session
@@ -34,7 +34,7 @@ from mypy_boto3_builder.writers.processors import (
 )
 
 
-def get_available_service_names(session: Session) -> List[ServiceName]:
+def get_available_service_names(session: Session) -> list[ServiceName]:
     """
     Get a list of boto3 supported service names.
 
@@ -66,7 +66,7 @@ def main() -> None:
     args.output_path.mkdir(exist_ok=True)
     available_service_names = get_available_service_names(session)
     available_service_names_set = {i.name for i in available_service_names}
-    service_names: List[ServiceName] = []
+    service_names: list[ServiceName] = []
 
     logger.info(f"{len(available_service_names_set)} supported boto3 services discovered")
     if args.list_services:

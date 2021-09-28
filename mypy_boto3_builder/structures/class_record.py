@@ -1,7 +1,7 @@
 """
 Base class for all structures that can be rendered to a class.
 """
-from typing import Iterable, List, Set
+from collections.abc import Iterable
 
 from botocore import xform_name
 
@@ -64,11 +64,11 @@ class ClassRecord:
         """
         return f"{self.alias_name} = {self.name}"
 
-    def get_types(self) -> Set[FakeAnnotation]:
+    def get_types(self) -> set[FakeAnnotation]:
         """
         Extract type annotations for methods, attributes and bases.
         """
-        types: Set[FakeAnnotation] = set()
+        types: set[FakeAnnotation] = set()
         for method in self.methods:
             types.update(method.get_types())
         for attribute in self.attributes:
@@ -77,11 +77,11 @@ class ClassRecord:
             types.update(base.get_types())
         return types
 
-    def get_required_import_records(self) -> Set[ImportRecord]:
+    def get_required_import_records(self) -> set[ImportRecord]:
         """
         Extract import records from required type annotations.
         """
-        result: Set[ImportRecord] = set()
+        result: set[ImportRecord] = set()
         for type_annotation in self.get_types():
             import_record = type_annotation.get_import_record()
             if not import_record or import_record.is_builtins():
@@ -90,11 +90,11 @@ class ClassRecord:
 
         return result
 
-    def get_internal_imports(self) -> List[InternalImport]:
+    def get_internal_imports(self) -> list[InternalImport]:
         """
         Get internal imports from methods.
         """
-        result: List[InternalImport] = []
+        result: list[InternalImport] = []
         for method in self.methods:
             for type_annotation in method.get_types():
                 if not isinstance(type_annotation, InternalImport):
@@ -111,7 +111,7 @@ class ClassRecord:
         return xform_name(self.name)
 
     @property
-    def method_names(self) -> List[str]:
+    def method_names(self) -> list[str]:
         """
         Unique method names.
         """

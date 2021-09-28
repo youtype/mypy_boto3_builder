@@ -5,7 +5,6 @@ import builtins
 import keyword
 import textwrap
 import typing
-from typing import Dict, List
 from unittest.mock import MagicMock
 
 from botocore.utils import get_service_module_name
@@ -46,8 +45,8 @@ def get_line_with_indented(input_string: str, multi_first_line: bool = False) ->
     Returns:
         A string with first line and following indented lines.
     """
-    result: List[str] = []
-    indent_stack: List[int] = []
+    result: list[str] = []
+    indent_stack: list[int] = []
     for line in input_string.splitlines():
         line_indent = len(line) - len(line.lstrip())
         if not indent_stack:
@@ -144,7 +143,7 @@ def get_short_docstring(doc: str) -> str:
     return "\n".join(textwrap.wrap(result_str, width=80))
 
 
-def get_botocore_class_name(metadata: Dict[str, str]) -> str:
+def get_botocore_class_name(metadata: dict[str, str]) -> str:
     """
     Get Botocore class name from Service metadata.
     """

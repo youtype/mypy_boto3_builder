@@ -1,8 +1,6 @@
 """
 Class method.
 """
-from typing import List
-
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.function import Function
 
@@ -13,7 +11,7 @@ class Method(Function):
     """
 
     @property
-    def call_arguments(self) -> List[Argument]:
+    def call_arguments(self) -> list[Argument]:
         """
         Arguments that are used in method call.
         """

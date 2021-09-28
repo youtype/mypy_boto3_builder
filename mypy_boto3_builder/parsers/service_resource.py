@@ -2,7 +2,6 @@
 Parser for Boto3 ServiceResource, produces `structires.ServiceResource`.
 """
 import inspect
-from typing import List, Optional
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from boto3.session import Session
@@ -27,7 +26,7 @@ from mypy_boto3_builder.utils.strings import get_short_docstring
 
 def parse_service_resource(
     session: Session, service_name: ServiceName, shape_parser: ShapeParser
-) -> Optional[ServiceResource]:
+) -> ServiceResource | None:
     """
     Parse boto3 ServiceResource data.
 
@@ -101,7 +100,7 @@ def parse_service_resource(
 
 def get_sub_resources(
     session: Session, service_name: ServiceName, resource: Boto3ServiceResource
-) -> List[Boto3ServiceResource]:
+) -> list[Boto3ServiceResource]:
     """
     Initialize ServiceResource sub-resources with fake data.
 
@@ -113,14 +112,14 @@ def get_sub_resources(
     Returns:
         A list of initialized `Boto3ServiceResource`.
     """
-    result: List[Boto3ServiceResource] = []
+    result: list[Boto3ServiceResource] = []
     session_session = session._session
     loader = session_session.get_component("data_loader")
     assert resource.meta.service_name == service_name.boto3_name
     json_resource_model = loader.load_service_model(service_name.boto3_name, "resources-1")
     service_model = resource.meta.client.meta.service_model
     assert service_model.service_name == service_name.boto3_name
-    service_waiter_model: Optional[WaiterModel]
+    service_waiter_model: WaiterModel | None
     try:
         service_waiter_model = session_session.get_waiter_model(service_name.boto3_name)
     except UnknownServiceError:
