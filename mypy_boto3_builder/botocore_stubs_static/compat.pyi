@@ -29,7 +29,6 @@ class HTTPHeaders(http_client.HTTPMessage):
     def from_pairs(cls: _R, pairs: Iterable[Tuple[str, Any]]) -> _R: ...
 
 file_type: Any
-zip = zip
 unquote_str = unquote_plus
 
 def set_socket_timeout(http_response: Any, timeout: Any) -> None: ...

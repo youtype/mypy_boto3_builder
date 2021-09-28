@@ -6,8 +6,10 @@ from typing import Iterable, Optional
 
 import black
 import mdformat
-from black import InvalidInput, NothingChanged
-from isort.api import Config, sort_code_string
+from black.parsing import InvalidInput
+from black.report import NothingChanged
+from isort.api import sort_code_string
+from isort.settings import Config
 
 from mypy_boto3_builder.constants import LINE_LENGTH, TEMPLATES_PATH
 from mypy_boto3_builder.jinja_manager import JinjaManager
