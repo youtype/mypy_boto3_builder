@@ -19,6 +19,7 @@ from typing import (
 from typing import Type as TypingType
 from typing import Union, overload
 
+from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.remove_argument import RemoveArgument
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
@@ -41,8 +42,6 @@ class Type:
     Callable = TypeAnnotation(Callable)
     IO = TypeAnnotation(IO)
     overload = TypeAnnotation(overload)
-    classmethod = TypeClass(classmethod)
-    staticmethod = TypeClass(staticmethod)
     none = TypeConstant(None)
     str = TypeClass(str)
     Set = TypeAnnotation(Set)
@@ -64,3 +63,18 @@ class Type:
     DictStrAny = TypeSubscript(Dict, [str, Any])
     IOBytes = TypeSubscript(IO, [bytes])
     RemoveArgument = RemoveArgument()
+
+    @classmethod
+    def get_optional(cls, wrapped: FakeAnnotation) -> FakeAnnotation:
+        """
+        Get Optional type annotation.
+        """
+        if (
+            isinstance(wrapped, TypeSubscript)
+            and isinstance(wrapped.parent, TypeAnnotation)
+            and wrapped.parent.wrapped_type is Union
+        ):
+            result = wrapped.copy()
+            result.add_child(cls.none)
+            return result
+        return TypeSubscript(cls.Optional, [wrapped])

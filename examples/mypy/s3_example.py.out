@@ -6,11 +6,12 @@ examples/s3_example.py:35: error: Argument "CopySource" to "copy_from" of "Objec
 examples/s3_example.py:39: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Literal['requester']"
 examples/s3_example.py:41: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"
 examples/s3_example.py:50: error: Argument 3 to "download_fileobj" of "S3Client" has incompatible type "bytes"; expected "IO[Any]"
-examples/s3_example.py:53: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?
-examples/s3_example.py:60: error: Missing named argument "Key" for "get_object" of "S3Client"
-examples/s3_example.py:63: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"
-examples/s3_example.py:63: note: Did you mean "Expiration"?
-examples/s3_example.py:69: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"
-examples/s3_example.py:75: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
-examples/s3_example.py:77: error: "BotocoreClientError" has no attribute "operations_name"; maybe "operation_name"?
-Found 14 errors in 1 file (checked 1 source file)
+examples/s3_example.py:51: error: Argument "IfModifiedSince" to "get_object" of "S3Client" has incompatible type "None"; expected "Union[datetime, str]"
+examples/s3_example.py:54: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?
+examples/s3_example.py:61: error: Missing named argument "Key" for "get_object" of "S3Client"
+examples/s3_example.py:64: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"
+examples/s3_example.py:64: note: Did you mean "Expiration"?
+examples/s3_example.py:70: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"
+examples/s3_example.py:76: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
+examples/s3_example.py:78: error: "BotocoreClientError" has no attribute "operations_name"; maybe "operation_name"?
+Found 15 errors in 1 file (checked 1 source file)

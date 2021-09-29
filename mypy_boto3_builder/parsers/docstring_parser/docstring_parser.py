@@ -143,6 +143,10 @@ class DocstringParser:
 
             self._fix_keys(argument.type_annotation, argument_line)
 
+            # FIXME: https://github.com/boto/boto3/issues/2813
+            # if not argument.required:
+            #     argument.type_annotation = Type.get_optional(argument.type_annotation)
+
     def _fix_keys(self, type_annotation: FakeAnnotation, argument_line: TypeDocLine) -> None:
         if not argument_line.indented:
             return

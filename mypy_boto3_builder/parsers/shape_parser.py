@@ -226,6 +226,11 @@ class ShapeParser:
                 argument.default = Type.Ellipsis
             if optional_only and argument.required:
                 continue
+
+            # FIXME: https://github.com/boto/boto3/issues/2813
+            # if not argument.required and argument.type_annotation:
+            #     argument.type_annotation = Type.get_optional(argument.type_annotation)
+
             result.append(argument)
 
         result.sort(key=lambda x: not x.required)
