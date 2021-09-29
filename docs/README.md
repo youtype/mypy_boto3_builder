@@ -38,6 +38,8 @@ Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.
   - [How to build type annotations](#how-to-build-type-annotations)
     - [Locally](#locally)
     - [With Docker image](#with-docker-image)
+  - [Development](#development)
+    - [Moving to Python 3.10](#moving-to-python-310)
   - [Versioning](#versioning)
   - [Latest changes](#latest-changes)
   - [Thank you](#thank-you)
@@ -111,6 +113,19 @@ docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/ou
 ```
 
 - Install packages from `output` directory as described above
+
+## Development
+
+- Use Python 3.9+
+- Install [poetry](https://python-poetry.org/): `pip install poetry`
+- Install dependencies: `poetry install`
+- Use scripts for repo to check if everything works: `./scripts/build.sh`
+- Run manual pre-commit: `./scripts/before_commit.sh`
+
+### Moving to Python 3.10
+
+This project will be moved to `py310` as soon as possible. You might need `poetry`
+pre-release to make it work `pip install poetry==1.2.0a2`.
 
 ## Versioning
 
