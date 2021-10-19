@@ -12,6 +12,7 @@ from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.function import Function
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
 class Boto3StubsPackage(Package):
@@ -57,12 +58,7 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("importlib", "util")),
                 ImportRecord(ImportString("boto3", "session")),
                 ImportRecord(ImportString("boto3", "session"), "Session"),
-                ImportRecord(
-                    ImportString("typing"),
-                    "Literal",
-                    min_version=(3, 8),
-                    fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
-                ),
+                TypeLiteral.get_typing_import_record(),
             ]
         )
         for init_function in self.init_functions:
@@ -92,12 +88,7 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("botocore", "client"), "Config"),
                 ImportRecord(ImportString("botocore", "exceptions"), "DataNotFoundError"),
                 ImportRecord(ImportString("botocore", "exceptions"), "UnknownServiceError"),
-                ImportRecord(
-                    ImportString("typing"),
-                    "Literal",
-                    min_version=(3, 8),
-                    fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
-                ),
+                TypeLiteral.get_typing_import_record(),
             ]
         )
         import_records.update(self.session_class.get_required_import_records())

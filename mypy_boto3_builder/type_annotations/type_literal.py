@@ -72,17 +72,26 @@ class TypeLiteral(FakeAnnotation):
         """
         return ", ".join([repr(child) for child in sorted(self.children)])
 
+    @staticmethod
+    def get_typing_import_record() -> ImportRecord:
+        """
+        Get import record required for using Literal.
+
+        Fallback to typing_extensions for py38-.
+        """
+        return ImportRecord(
+            ImportString("typing"),
+            "Literal",
+            min_version=(3, 9),
+            fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
+        )
+
     def get_import_record(self) -> ImportRecord:
         """
         Get import record required for using type annotation.
         """
         if self.inline:
-            return ImportRecord(
-                ImportString("typing"),
-                "Literal",
-                min_version=(3, 8),
-                fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
-            )
+            return self.get_typing_import_record()
 
         return InternalImportRecord(ServiceModuleName.literals, name=self.name)
 
