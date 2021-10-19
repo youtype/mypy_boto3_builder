@@ -2,7 +2,7 @@ FROM python:3.9.7-alpine3.14
 
 RUN apk add --no-cache --virtual .build-deps \
     gcc libc-dev \
-    && python -m pip install --no-cache-dir regex==2021.9.24 \
+    && python -m pip install --no-cache-dir regex==2021.10.8 \
     && apk del --no-cache .build-deps
 
 RUN mkdir -p /builder/scripts
