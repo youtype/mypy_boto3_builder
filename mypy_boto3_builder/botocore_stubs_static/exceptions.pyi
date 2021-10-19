@@ -4,7 +4,7 @@ from typing import IO, Any, Dict, Iterable, Mapping
 import requests
 import urllib3  # type: ignore
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 9):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict

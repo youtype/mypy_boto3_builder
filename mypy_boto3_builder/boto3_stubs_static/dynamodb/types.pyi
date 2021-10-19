@@ -2,7 +2,7 @@ import sys
 from decimal import Context
 from typing import Any, Dict, Tuple
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 9):
     from typing import Literal
 else:
     from typing_extensions import Literal

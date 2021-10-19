@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 
 from botocore.model import Shape
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 9):
     from typing import Literal, TypedDict
 else:
     from typing_extensions import Literal, TypedDict
