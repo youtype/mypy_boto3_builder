@@ -18,7 +18,7 @@ src_paths = []
 
 [tool.poetry]
 name = "mypy-boto3-builder"
-version = "5.4.0"
+version = "5.5.0"
 description = "Builder for boto3-stubs"
 authors = ["Vlad Emelianov <vlad.emelianov.nz@gmail.com>"]
 license = "MIT"
@@ -69,7 +69,7 @@ mypy_boto3_builder = 'mypy_boto3_builder.main:main'
 python = "^3.10"
 pip = "*"
 boto3 = "*"
-black = "^21.9b0"
+black = {version = "^21.9b0", allow-prereleases = true}
 isort = "^5.9.3"
 jinja2= "^3.0.1"
 pyparsing = "^2.4.7"
@@ -79,9 +79,9 @@ mdformat = "^0.7.9"
 codecov = "2.1.12"
 handsdown = "0.3.9"
 mypy = "0.910"
-flake8 = "3.9.2"
+flake8 = "4.0.1"
 flake8-docstrings = "1.6.0"
-pytest-cov = "2.12.1"
+pytest-cov = "3.0.0"
 pytest = "6.2.5"
 vulture = "2.1"
 twine = "3.4.2"

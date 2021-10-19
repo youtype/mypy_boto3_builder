@@ -1,3 +1,4 @@
+import sys
 from typing import Any, Mapping, Optional, Type
 
 from botocore.awsrequest import AWSResponse as AWSResponse
@@ -7,7 +8,11 @@ from botocore.exceptions import StubAssertionError as StubAssertionError
 from botocore.exceptions import StubResponseError as StubResponseError
 from botocore.exceptions import UnStubbedResponseError as UnStubbedResponseError
 from botocore.validate import validate_parameters as validate_parameters
-from typing_extensions import Literal
+
+if sys.version_info >= (3, 9):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 
 class _ANY:
     def __eq__(self, other: object) -> Literal[True]: ...

@@ -12,6 +12,7 @@ from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.function import Function
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
 class Boto3StubsPackage(Package):
@@ -49,20 +50,17 @@ class Boto3StubsPackage(Package):
         """
         Get import records for `__init__.py[i]`.
         """
-        import_records: set[ImportRecord] = {
-            ImportRecord(ImportString("logging")),
-            ImportRecord(ImportString("typing"), "Any"),
-            ImportRecord(ImportString("sys")),
-            ImportRecord(ImportString("importlib", "util")),
-            ImportRecord(ImportString("boto3", "session")),
-            ImportRecord(ImportString("boto3", "session"), "Session"),
-            ImportRecord(
-                ImportString("typing"),
-                "Literal",
-                min_version=(3, 8),
-                fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
-            ),
-        }
+        import_records: set[ImportRecord] = set(
+            [
+                ImportRecord(ImportString("logging")),
+                ImportRecord(ImportString("typing"), "Any"),
+                ImportRecord(ImportString("sys")),
+                ImportRecord(ImportString("importlib", "util")),
+                ImportRecord(ImportString("boto3", "session")),
+                ImportRecord(ImportString("boto3", "session"), "Session"),
+                TypeLiteral.get_typing_import_record(),
+            ]
+        )
         for init_function in self.init_functions:
             import_records.update(init_function.get_required_import_records())
 
@@ -72,30 +70,27 @@ class Boto3StubsPackage(Package):
         """
         Get import reciords for `session.py[i]`.
         """
-        import_records: set[ImportRecord] = {
-            ImportRecord(ImportString("sys")),
-            ImportRecord(ImportString("typing"), "Any"),
-            ImportRecord(ImportString("typing"), "List"),
-            ImportRecord(ImportString("boto3")),
-            ImportRecord(ImportString("boto3", "utils")),
-            ImportRecord(ImportString("boto3", "resources", "factory"), "ResourceFactory"),
-            ImportRecord(ImportString("boto3", "exceptions"), "ResourceNotExistsError"),
-            ImportRecord(ImportString("boto3", "exceptions"), "UnknownAPIVersionError"),
-            ImportRecord(ImportString("botocore", "session")),
-            ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
-            ImportRecord(ImportString("botocore", "loaders"), "Loader"),
-            ImportRecord(ImportString("botocore", "model"), "ServiceModel"),
-            ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
-            ImportRecord(ImportString("botocore", "client"), "Config"),
-            ImportRecord(ImportString("botocore", "exceptions"), "DataNotFoundError"),
-            ImportRecord(ImportString("botocore", "exceptions"), "UnknownServiceError"),
-            ImportRecord(
-                ImportString("typing"),
-                "Literal",
-                min_version=(3, 8),
-                fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
-            ),
-        }
+        import_records: set[ImportRecord] = set(
+            [
+                ImportRecord(ImportString("sys")),
+                ImportRecord(ImportString("typing"), "Any"),
+                ImportRecord(ImportString("typing"), "List"),
+                ImportRecord(ImportString("boto3")),
+                ImportRecord(ImportString("boto3", "utils")),
+                ImportRecord(ImportString("boto3", "resources", "factory"), "ResourceFactory"),
+                ImportRecord(ImportString("boto3", "exceptions"), "ResourceNotExistsError"),
+                ImportRecord(ImportString("boto3", "exceptions"), "UnknownAPIVersionError"),
+                ImportRecord(ImportString("botocore", "session")),
+                ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
+                ImportRecord(ImportString("botocore", "loaders"), "Loader"),
+                ImportRecord(ImportString("botocore", "model"), "ServiceModel"),
+                ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
+                ImportRecord(ImportString("botocore", "client"), "Config"),
+                ImportRecord(ImportString("botocore", "exceptions"), "DataNotFoundError"),
+                ImportRecord(ImportString("botocore", "exceptions"), "UnknownServiceError"),
+                TypeLiteral.get_typing_import_record(),
+            ]
+        )
         import_records.update(self.session_class.get_required_import_records())
         return list(sorted(import_records))
 

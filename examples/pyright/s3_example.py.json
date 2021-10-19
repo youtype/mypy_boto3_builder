@@ -91,7 +91,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester'] | None\" in function \"abort\"\n\u00a0\u00a0Type \"Literal['none']\" cannot be assigned to type \"Literal['requester'] | None\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['none']\" cannot be assigned to type \"Literal['requester']\"",
+        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester']\" in function \"abort\"\n\u00a0\u00a0\"Literal['none']\" cannot be assigned to type \"Literal['requester']\"",
         "range": {
             "start": {
                 "line": 38,
@@ -136,14 +136,29 @@
     },
     {
         "severity": "error",
+        "message": "Argument of type \"None\" cannot be assigned to parameter \"IfModifiedSince\" of type \"datetime | str\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" cannot be assigned to type \"datetime | str\"\n\u00a0\u00a0\u00a0\u00a0Type \"None\" cannot be assigned to type \"datetime\"\n\u00a0\u00a0\u00a0\u00a0Type \"None\" cannot be assigned to type \"str\"",
+        "range": {
+            "start": {
+                "line": 50,
+                "character": 66
+            },
+            "end": {
+                "line": 50,
+                "character": 70
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
         "message": "No parameter named \"bucket\"",
         "range": {
             "start": {
-                "line": 52,
+                "line": 53,
                 "character": 30
             },
             "end": {
-                "line": 52,
+                "line": 53,
                 "character": 36
             }
         },
@@ -154,11 +169,11 @@
         "message": "Argument missing for parameter \"Bucket\"",
         "range": {
             "start": {
-                "line": 52,
+                "line": 53,
                 "character": 4
             },
             "end": {
-                "line": 52,
+                "line": 53,
                 "character": 46
             }
         },
@@ -169,11 +184,11 @@
         "message": "Argument missing for parameter \"Key\"",
         "range": {
             "start": {
-                "line": 59,
+                "line": 60,
                 "character": 4
             },
             "end": {
-                "line": 59,
+                "line": 60,
                 "character": 38
             }
         },
@@ -184,11 +199,11 @@
         "message": "Could not access item in TypedDict\n\u00a0\u00a0\"expiration\" is not a defined key in \"GetObjectOutputTypeDef\"",
         "range": {
             "start": {
-                "line": 62,
+                "line": 63,
                 "character": 18
             },
             "end": {
-                "line": 62,
+                "line": 63,
                 "character": 77
             }
         },
@@ -199,11 +214,11 @@
         "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0Type \"list[dict[str, tuple[Literal['get']] | list[str]]]\" is not assignable to field \"CORSRules\"",
         "range": {
             "start": {
-                "line": 67,
+                "line": 68,
                 "character": 26
             },
             "end": {
-                "line": 69,
+                "line": 70,
                 "character": 9
             }
         },
@@ -214,11 +229,11 @@
         "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" cannot be assigned to type \"str\"",
         "range": {
             "start": {
-                "line": 74,
+                "line": 75,
                 "character": 47
             },
             "end": {
-                "line": 74,
+                "line": 75,
                 "character": 51
             }
         },
@@ -229,11 +244,11 @@
         "message": "Cannot access member \"operations_name\" for type \"BotocoreClientError\"\n\u00a0\u00a0Member \"operations_name\" is unknown",
         "range": {
             "start": {
-                "line": 76,
+                "line": 77,
                 "character": 16
             },
             "end": {
-                "line": 76,
+                "line": 77,
                 "character": 31
             }
         },

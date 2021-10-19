@@ -265,14 +265,7 @@ class ServicePackage(Package):
 
         import_records: set[ImportRecord] = set()
         import_records.add(ImportRecord(ImportString("sys")))
-        import_records.add(
-            ImportRecord(
-                ImportString("typing"),
-                "TypedDict",
-                min_version=(3, 8),
-                fallback=ImportRecord(ImportString("typing_extensions"), "TypedDict"),
-            )
-        )
+        import_records.add(TypeTypedDict.get_typing_import_record())
         for typed_dict in self.typed_dicts:
             if typed_dict.replace_with_dict:
                 import_records.add(
@@ -303,14 +296,7 @@ class ServicePackage(Package):
         """
         import_records: set[ImportRecord] = set()
         import_records.add(ImportRecord(ImportString("sys")))
-        import_records.add(
-            ImportRecord(
-                ImportString("typing"),
-                "Literal",
-                min_version=(3, 8),
-                fallback=ImportRecord(ImportString("typing_extensions"), "Literal"),
-            )
-        )
+        import_records.add(TypeLiteral.get_typing_import_record())
         return list(sorted(import_records))
 
     def validate(self) -> None:

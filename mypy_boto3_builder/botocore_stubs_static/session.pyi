@@ -1,3 +1,4 @@
+import sys
 from typing import IO, Any, Dict, Iterator, List, Optional, Tuple, Union
 
 from botocore import UNSIGNED as UNSIGNED
@@ -34,7 +35,11 @@ from botocore.parsers import ResponseParserFactory as ResponseParserFactory
 from botocore.regions import EndpointResolver as EndpointResolver
 from botocore.utils import EVENT_ALIASES as EVENT_ALIASES
 from botocore.utils import validate_region_name as validate_region_name
-from typing_extensions import Protocol
+
+if sys.version_info >= (3, 9):
+    from typing import Protocol
+else:
+    from typing_extensions import Protocol
 
 _EnvDict = Dict[str, Tuple[Any, Any, Any, Any]]
 

@@ -50,7 +50,7 @@ Parsed Service package.
 
 ### ServicePackage().extend_literals
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L342)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L328)
 
 ```python
 def extend_literals(service_names: Iterable[ServiceName]) -> None:
@@ -112,7 +112,7 @@ Get import records for `__init__.py[i]`.
 
 ### ServicePackage().get_literals_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L300)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L293)
 
 ```python
 def get_literals_required_import_records() -> List[ImportRecord]:
@@ -172,7 +172,7 @@ Get import records for `waiter.py[i]`.
 
 ### ServicePackage().validate
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L316)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L302)
 
 ```python
 def validate() -> None:

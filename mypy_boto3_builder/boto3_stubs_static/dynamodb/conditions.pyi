@@ -1,7 +1,7 @@
 import sys
 from typing import Any, List, NamedTuple, Pattern
 
-if sys.version_info >= (3, 8):
+if sys.version_info >= (3, 9):
     from typing import Literal, TypedDict
 else:
     from typing_extensions import Literal, TypedDict

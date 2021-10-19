@@ -1,3 +1,4 @@
+import sys
 from typing import Dict, Tuple, TypeVar, Union
 
 from botocore.compat import OrderedDict as OrderedDict
@@ -7,7 +8,11 @@ from botocore.exceptions import InvalidMaxRetryAttemptsError as InvalidMaxRetryA
 from botocore.exceptions import InvalidRetryConfigurationError as InvalidRetryConfigurationError
 from botocore.exceptions import InvalidRetryModeError as InvalidRetryModeError
 from botocore.exceptions import InvalidS3AddressingStyleError as InvalidS3AddressingStyleError
-from typing_extensions import Literal, TypedDict
+
+if sys.version_info >= (3, 9):
+    from typing import Literal, TypedDict
+else:
+    from typing_extensions import Literal, TypedDict
 
 class _RetryDict(TypedDict, total=False):
     total_max_attempts: int

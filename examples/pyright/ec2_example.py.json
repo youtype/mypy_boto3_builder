@@ -16,7 +16,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['incorrect']\" cannot be assigned to parameter \"DryRun\" of type \"bool | None\" in function \"delete\"\n\u00a0\u00a0Type \"Literal['incorrect']\" cannot be assigned to type \"bool | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['incorrect']\" is incompatible with \"bool\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"",
+        "message": "Argument of type \"Literal['incorrect']\" cannot be assigned to parameter \"DryRun\" of type \"bool\" in function \"delete\"\n\u00a0\u00a0\"Literal['incorrect']\" is incompatible with \"bool\"",
         "range": {
             "start": {
                 "line": 20,

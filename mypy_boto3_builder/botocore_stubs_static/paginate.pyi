@@ -1,6 +1,5 @@
-from typing import Any, Iterator, TypeVar
+from typing import Any, Iterator
 
-from botocore.compat import zip as zip
 from botocore.exceptions import PaginationError as PaginationError
 from botocore.utils import merge_dicts as merge_dicts
 from botocore.utils import set_value_from_jmespath as set_value_from_jmespath

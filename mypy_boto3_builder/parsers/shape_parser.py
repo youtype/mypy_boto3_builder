@@ -69,7 +69,9 @@ class ShapeParser:
 
     OUTPUT_SHAPE_TYPE_MAP: Mapping[str, FakeAnnotation] = {
         "timestamp": Type.datetime,
-        "blob": Type.bytes,
+        # FIXME: looks like output blobs are always streaming
+        # "blob": Type.bytes,
+        "blob": TypeClass(StreamingBody),
         "blob_streaming": TypeClass(StreamingBody),
     }
 
@@ -224,9 +226,14 @@ class ShapeParser:
                 argument_type = self._parse_shape(argument_shape)
             argument = Argument(argument_alias, argument_type)
             if argument_name not in required:
-                argument.default = Type.none
+                argument.default = Type.Ellipsis
             if optional_only and argument.required:
                 continue
+
+            # FIXME: https://github.com/boto/boto3/issues/2813
+            # if not argument.required and argument.type_annotation:
+            #     argument.type_annotation = Type.get_optional(argument.type_annotation)
+
             result.append(argument)
 
         result.sort(key=lambda x: not x.required)
@@ -271,9 +278,9 @@ class ShapeParser:
                 [
                     Argument("self", None),
                     Argument("ClientMethod", Type.str),
-                    Argument("Params", Type.MappingStrAny, Type.none),
+                    Argument("Params", Type.MappingStrAny, Type.Ellipsis),
                     Argument("ExpiresIn", Type.int, TypeConstant(3600)),
-                    Argument("HttpMethod", Type.str, Type.none),
+                    Argument("HttpMethod", Type.str, Type.Ellipsis),
                 ],
                 Type.str,
             ),
@@ -462,7 +469,9 @@ class ShapeParser:
                 operation_shape.input_shape,
                 exclude_names=skip_argument_names,
             )
-            shape_arguments.append(Argument("PaginationConfig", paginator_config_type, Type.none))
+            shape_arguments.append(
+                Argument("PaginationConfig", paginator_config_type, Type.Ellipsis)
+            )
             arguments.extend(self._get_kw_flags("paginate", shape_arguments))
             arguments.extend(shape_arguments)
 
@@ -497,7 +506,7 @@ class ShapeParser:
             shape_arguments = self._parse_arguments(
                 "Waiter", "wait", operation_name, operation_shape.input_shape
             )
-            shape_arguments.append(Argument("WaiterConfig", waiter_config_type, Type.none))
+            shape_arguments.append(Argument("WaiterConfig", waiter_config_type, Type.Ellipsis))
             arguments.extend(self._get_kw_flags("wait", shape_arguments))
             arguments.extend(shape_arguments)
 
