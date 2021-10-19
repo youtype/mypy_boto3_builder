@@ -69,7 +69,7 @@ mypy_boto3_builder = 'mypy_boto3_builder.main:main'
 python = "^3.8"
 pip = "*"
 boto3 = "*"
-black = "^21.9b0"
+black = {version = "^21.9b0", allow-prereleases = true}
 isort = "^5.9.3"
 jinja2= "^3.0.1"
 pyparsing = "^2.4.7"
