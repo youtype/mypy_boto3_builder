@@ -68,7 +68,9 @@ class ShapeParser:
 
     OUTPUT_SHAPE_TYPE_MAP: Mapping[str, FakeAnnotation] = {
         "timestamp": Type.datetime,
-        "blob": Type.bytes,
+        # FIXME: looks like output blobs are always streaming
+        # "blob": Type.bytes,
+        "blob": TypeClass(StreamingBody),
         "blob_streaming": TypeClass(StreamingBody),
     }
 
