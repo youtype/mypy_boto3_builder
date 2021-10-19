@@ -9,13 +9,13 @@ String to type annotation map to replace overriden botocore literals.
 
 ## get_literal_type_stub
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_maps/literal_type_map.py#L48)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_maps/literal_type_map.py#L46)
 
 ```python
 def get_literal_type_stub(
     service_name: ServiceName,
     literal_name: str,
-) -> Optional[FakeAnnotation]:
+) -> FakeAnnotation | None:
 ```
 
 Get stub type for botocore literal.

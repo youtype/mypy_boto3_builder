@@ -11,10 +11,10 @@ Helpers for parsing methods and attributes.
 
 ## get_public_methods
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L24)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L23)
 
 ```python
-def get_public_methods(inspect_class: Any) -> Dict[(str, MethodType)]:
+def get_public_methods(inspect_class: object) -> dict[(str, MethodType)]:
 ```
 
 Extract public methods from any class.
@@ -29,14 +29,14 @@ A dictionary of method name and method.
 
 ## parse_attributes
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L48)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L47)
 
 ```python
 def parse_attributes(
     service_name: ServiceName,
     resource_name: str,
     resource: Boto3ServiceResource,
-) -> List[Attribute]:
+) -> list[Attribute]:
 ```
 
 Extract attributes from boto3 resource.
@@ -55,7 +55,7 @@ A list of Attribute structures.
 
 ## parse_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L79)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L78)
 
 ```python
 def parse_method(

@@ -20,8 +20,8 @@ Method or function argument.
 class Argument():
     def __init__(
         name: str,
-        type_annotation: Optional[FakeAnnotation],
-        default: Optional[TypeConstant] = None,
+        type_annotation: FakeAnnotation | None,
+        default: TypeConstant | None = None,
         prefix: str = '',
     ):
 ```
@@ -40,7 +40,7 @@ Method or function argument.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L57)
 
 ```python
-def get_types() -> Set[FakeAnnotation]:
+def get_types() -> set[FakeAnnotation]:
 ```
 
 Extract required type annotations.

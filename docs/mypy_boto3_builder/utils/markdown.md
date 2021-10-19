@@ -15,7 +15,7 @@ Utils for markdown rendering.
 
 ## Header
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L11)
 
 ```python
 class Header():
@@ -31,7 +31,7 @@ Markdown header.
 
 ### Header().anchor
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L25)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L24)
 
 ```python
 @property
@@ -42,7 +42,7 @@ Anchor link for title.
 
 ### Header().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L32)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L31)
 
 ```python
 def render() -> str:
@@ -52,7 +52,7 @@ Render menu item to string.
 
 ## TableOfContents
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L40)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L39)
 
 ```python
 class TableOfContents():
@@ -67,11 +67,11 @@ MarkDown Table of Contents.
 
 ### TableOfContents.parse
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L51)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L50)
 
 ```python
 @classmethod
-def parse(text: str) -> _TableOfContents:
+def parse(text: str) -> TableOfContents:
 ```
 
 Parse table of Contents for MarkDown text.
@@ -82,7 +82,7 @@ Parse table of Contents for MarkDown text.
 
 ### TableOfContents().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L74)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L73)
 
 ```python
 def render(max_level: int = 3) -> str:
@@ -92,7 +92,7 @@ Render ToC to string.
 
 ## fix_pypi_headers
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L86)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/markdown.py#L85)
 
 ```python
 def fix_pypi_headers(text: str) -> str:

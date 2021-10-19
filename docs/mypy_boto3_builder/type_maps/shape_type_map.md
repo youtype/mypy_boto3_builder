@@ -9,13 +9,13 @@ String to type annotation map to replace overriden botocore shapes.
 
 ## get_shape_type_stub
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_maps/shape_type_map.py#L106)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_maps/shape_type_map.py#L104)
 
 ```python
 def get_shape_type_stub(
     service_name: ServiceName,
     typed_dict_name: str,
-) -> Optional[FakeAnnotation]:
+) -> FakeAnnotation | None:
 ```
 
 Get stub type for botocore shape.

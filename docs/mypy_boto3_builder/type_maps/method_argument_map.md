@@ -9,14 +9,14 @@ String to type annotation map that find type annotation by method and argument n
 
 ## get_method_arguments_stub
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_maps/method_argument_map.py#L33)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_maps/method_argument_map.py#L31)
 
 ```python
 def get_method_arguments_stub(
     service_name: ServiceName,
     class_name: str,
     method_name: str,
-) -> Optional[List[Argument]]:
+) -> list[Argument] | None:
 ```
 
 Get arguments list for method stub.

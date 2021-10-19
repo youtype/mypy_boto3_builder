@@ -53,7 +53,7 @@ Function body as a string.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L50)
 
 ```python
-def get_request_type_annotation(name: str) -> Optional[TypeTypedDict]:
+def get_request_type_annotation(name: str) -> TypeTypedDict | None:
 ```
 
 Get TypedDict based on function arguments.
@@ -63,7 +63,7 @@ Get TypedDict based on function arguments.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L90)
 
 ```python
-def get_required_import_records() -> Set[ImportRecord]:
+def get_required_import_records() -> set[ImportRecord]:
 ```
 
 Extract required import records.
@@ -73,7 +73,7 @@ Extract required import records.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L78)
 
 ```python
-def get_types() -> Set[FakeAnnotation]:
+def get_types() -> set[FakeAnnotation]:
 ```
 
 Extract required type annotations.

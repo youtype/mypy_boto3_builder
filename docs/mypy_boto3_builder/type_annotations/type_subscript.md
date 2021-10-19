@@ -80,7 +80,7 @@ Get import record required for using type annotation.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_subscript.py#L49)
 
 ```python
-def get_types() -> Set[FakeAnnotation]:
+def get_types() -> set[FakeAnnotation]:
 ```
 
 Extract type annotations from children.

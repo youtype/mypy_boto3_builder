@@ -122,7 +122,7 @@ Found attribute.
 ```python
 def get_children_literals(
     processed: Iterable['TypeTypedDict'] = tuple(),
-) -> Set[TypeLiteral]:
+) -> set[TypeLiteral]:
 ```
 
 Extract required TypeLiteral list from attributes.
@@ -132,7 +132,7 @@ Extract required TypeLiteral list from attributes.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L234)
 
 ```python
-def get_children_typed_dicts() -> Set['TypeTypedDict']:
+def get_children_typed_dicts() -> set['TypeTypedDict']:
 ```
 
 Extract required TypeTypedDict list from attributes.
@@ -142,7 +142,7 @@ Extract required TypeTypedDict list from attributes.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L225)
 
 ```python
-def get_children_types() -> Set[FakeAnnotation]:
+def get_children_types() -> set[FakeAnnotation]:
 ```
 
 Extract required type annotatyions from attributes.
@@ -166,7 +166,7 @@ Get import record required for using type annotation.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L195)
 
 ```python
-def get_optional() -> List[TypedDictAttribute]:
+def get_optional() -> list[TypedDictAttribute]:
 ```
 
 Get a list of optional attributes.
@@ -176,7 +176,7 @@ Get a list of optional attributes.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_typed_dict.py#L185)
 
 ```python
-def get_required() -> List[TypedDictAttribute]:
+def get_required() -> list[TypedDictAttribute]:
 ```
 
 Get a list of required attributes.

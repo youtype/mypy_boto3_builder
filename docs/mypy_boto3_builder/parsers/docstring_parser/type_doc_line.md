@@ -12,7 +12,7 @@ Structure for parsed as dict `:type:` or `:rtype:` nested lines.
 
 ## TypeDocLine
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L7)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L9)
 
 ```python
 class TypeDocLine():
@@ -21,7 +21,7 @@ class TypeDocLine():
         type_name: str = '',
         line: Iterable[str] = tuple(),
         description: str = '',
-        indented: Iterable[Any] = tuple(),
+        indented: Iterable[Mapping[(str, object)]] = tuple(),
     ) -> None:
 ```
 
@@ -37,11 +37,11 @@ Structure for parsed as dict `:type:` or `:rtype:` nested lines.
 
 ### TypeDocLine().indented
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L33)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L35)
 
 ```python
 @property
-def indented() -> List['TypeDocLine']:
+def indented() -> list[TypeDocLine]:
 ```
 
 Get indented lines list.
@@ -52,7 +52,7 @@ A list of [TypeDocLine](#typedocline).
 
 ### TypeDocLine().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L53)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L55)
 
 ```python
 def render() -> str:
@@ -66,7 +66,7 @@ A string as close as possible to original.
 
 ### TypeDocLine().required
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L46)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L48)
 
 ```python
 @property

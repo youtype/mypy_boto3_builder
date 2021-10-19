@@ -19,7 +19,7 @@ class DocstringParser():
         service_name: ServiceName,
         class_name: str,
         method_name: str,
-        arguments: List[Argument],
+        arguments: list[Argument],
     ) -> None:
 ```
 
@@ -41,7 +41,7 @@ Botocore docstring parser.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py#L191)
 
 ```python
-def get_arguments(input_string: str) -> List[Argument]:
+def get_arguments(input_string: str) -> list[Argument]:
 ```
 
 Get list of function arguments with type annottions.

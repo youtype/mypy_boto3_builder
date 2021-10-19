@@ -50,7 +50,7 @@ import_string.render()
 
 ```python
 @classmethod
-def empty() -> 'ImportString':
+def empty() -> ImportString:
 ```
 
 Create an empty ImportString.
@@ -83,7 +83,7 @@ Get first import string part or `builtins`.
 
 ```python
 @classmethod
-def parent() -> 'ImportString':
+def parent() -> ImportString:
 ```
 
 Get parent ImportString.
@@ -107,7 +107,7 @@ Ready to use import string.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L82)
 
 ```python
-def startswith(other: 'ImportString') -> bool:
+def startswith(other: ImportString) -> bool:
 ```
 
 Check if import string starts with `other`.

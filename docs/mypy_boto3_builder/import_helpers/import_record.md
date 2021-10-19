@@ -26,8 +26,8 @@ class ImportRecord():
         source: ImportString,
         name: str = '',
         alias: str = '',
-        min_version: Tuple[(int, ...)] = (3, 8),
-        fallback: Optional['ImportRecord'] = None,
+        min_version: tuple[(int, ...)] = (3, 8),
+        fallback: ImportRecord | None = None,
     ) -> None:
 ```
 
@@ -51,7 +51,7 @@ Helper for Python import strings.
 
 ```python
 @classmethod
-def empty() -> 'ImportRecord':
+def empty() -> ImportRecord:
 ```
 
 Whether import record is an empty string.

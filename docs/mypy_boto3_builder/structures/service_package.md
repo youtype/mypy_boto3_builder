@@ -31,7 +31,7 @@ class ServicePackage(Package):
         pypi_name: str,
         service_name: ServiceName,
         client: Client,
-        service_resource: Optional[ServiceResource] = None,
+        service_resource: ServiceResource | None = None,
         waiters: Iterable[Waiter] = tuple(),
         paginators: Iterable[Paginator] = tuple(),
         typed_dicts: Iterable[TypeTypedDict] = tuple(),
@@ -63,7 +63,7 @@ Add `ServiceName`, `PaginatorName` and `WaiterName` literals.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L50)
 
 ```python
-def extract_literals() -> List[TypeLiteral]:
+def extract_literals() -> list[TypeLiteral]:
 ```
 
 Extract literals from children.
@@ -73,7 +73,7 @@ Extract literals from children.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L95)
 
 ```python
-def extract_typed_dicts() -> List[TypeTypedDict]:
+def extract_typed_dicts() -> list[TypeTypedDict]:
 ```
 
 Extract typed dicts from children.
@@ -85,7 +85,7 @@ Attempts to resolve circular typed dicts.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L196)
 
 ```python
-def get_client_required_import_records() -> List[ImportRecord]:
+def get_client_required_import_records() -> list[ImportRecord]:
 ```
 
 Get import records for `client.py[i]`.
@@ -95,7 +95,7 @@ Get import records for `client.py[i]`.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L179)
 
 ```python
-def get_init_all_names() -> List[str]:
+def get_init_all_names() -> list[str]:
 ```
 
 Get `__all__` statement names for `__init__.py[i]`.
@@ -105,7 +105,7 @@ Get `__all__` statement names for `__init__.py[i]`.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L144)
 
 ```python
-def get_init_import_records() -> List[ImportRecord]:
+def get_init_import_records() -> list[ImportRecord]:
 ```
 
 Get import records for `__init__.py[i]`.
@@ -115,7 +115,7 @@ Get import records for `__init__.py[i]`.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L293)
 
 ```python
-def get_literals_required_import_records() -> List[ImportRecord]:
+def get_literals_required_import_records() -> list[ImportRecord]:
 ```
 
 Get import records for `literals.py[i]`.
@@ -125,7 +125,7 @@ Get import records for `literals.py[i]`.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L228)
 
 ```python
-def get_paginator_required_import_records() -> List[ImportRecord]:
+def get_paginator_required_import_records() -> list[ImportRecord]:
 ```
 
 Get import records for `paginator.py[i]`.
@@ -135,7 +135,7 @@ Get import records for `paginator.py[i]`.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L212)
 
 ```python
-def get_service_resource_required_import_records() -> List[ImportRecord]:
+def get_service_resource_required_import_records() -> list[ImportRecord]:
 ```
 
 Get import records for `service_resource.py[i]`.
@@ -145,7 +145,7 @@ Get import records for `service_resource.py[i]`.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L259)
 
 ```python
-def get_type_defs_required_import_records() -> List[ImportRecord]:
+def get_type_defs_required_import_records() -> list[ImportRecord]:
 ```
 
 Get import records for `type_defs.py[i]`.
@@ -155,7 +155,7 @@ Get import records for `type_defs.py[i]`.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L129)
 
 ```python
-def get_types() -> Set[FakeAnnotation]:
+def get_types() -> set[FakeAnnotation]:
 ```
 
 Extract type annotations from Client, ServiceResource, waiters and paginators.
@@ -165,7 +165,7 @@ Extract type annotations from Client, ServiceResource, waiters and paginators.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L246)
 
 ```python
-def get_waiter_required_import_records() -> List[ImportRecord]:
+def get_waiter_required_import_records() -> list[ImportRecord]:
 ```
 
 Get import records for `waiter.py[i]`.

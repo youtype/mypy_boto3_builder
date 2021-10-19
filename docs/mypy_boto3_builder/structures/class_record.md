@@ -71,7 +71,7 @@ Class docstring.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L93)
 
 ```python
-def get_internal_imports() -> List[InternalImport]:
+def get_internal_imports() -> list[InternalImport]:
 ```
 
 Get internal imports from methods.
@@ -81,7 +81,7 @@ Get internal imports from methods.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L80)
 
 ```python
-def get_required_import_records() -> Set[ImportRecord]:
+def get_required_import_records() -> set[ImportRecord]:
 ```
 
 Extract import records from required type annotations.
@@ -91,7 +91,7 @@ Extract import records from required type annotations.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/class_record.py#L67)
 
 ```python
-def get_types() -> Set[FakeAnnotation]:
+def get_types() -> set[FakeAnnotation]:
 ```
 
 Extract type annotations for methods, attributes and bases.
@@ -102,7 +102,7 @@ Extract type annotations for methods, attributes and bases.
 
 ```python
 @property
-def method_names() -> List[str]:
+def method_names() -> list[str]:
 ```
 
 Unique method names.

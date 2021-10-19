@@ -10,7 +10,7 @@ Getters for boto3 client and resource from session.
 
 ## get_boto3_client
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/boto3_utils.py#L14)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/boto3_utils.py#L12)
 
 ```python
 def get_boto3_client(
@@ -36,13 +36,13 @@ Boto3 client.
 
 ## get_boto3_resource
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/boto3_utils.py#L28)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/boto3_utils.py#L26)
 
 ```python
 def get_boto3_resource(
     session: Session,
     service_name: ServiceName,
-) -> Optional[Boto3ServiceResource]:
+) -> Boto3ServiceResource | None:
 ```
 
 Get boto3 resource from `session`.

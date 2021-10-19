@@ -67,7 +67,7 @@ Generate service and master stubs.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L37)
 
 ```python
-def get_available_service_names(session: Session) -> List[ServiceName]:
+def get_available_service_names(session: Session) -> list[ServiceName]:
 ```
 
 Get a list of boto3 supported service names.

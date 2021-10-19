@@ -43,7 +43,7 @@ Structure for mypy-boto3 package.
 
 ```python
 @property
-def essential_service_names() -> List[ServiceName]:
+def essential_service_names() -> list[ServiceName]:
 ```
 
 List of services maked as essential.

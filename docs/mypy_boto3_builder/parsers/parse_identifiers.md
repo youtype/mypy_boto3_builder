@@ -9,10 +9,10 @@ Parser for Boto3 ServiceResource identifiers, produces `structures.Attribute`.
 
 ## parse_identifiers
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/parse_identifiers.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/parse_identifiers.py#L10)
 
 ```python
-def parse_identifiers(resource: Boto3ServiceResource) -> List[Attribute]:
+def parse_identifiers(resource: Boto3ServiceResource) -> list[Attribute]:
 ```
 
 Extract identifiers from boto3 resource.

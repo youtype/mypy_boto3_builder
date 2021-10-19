@@ -23,7 +23,7 @@ Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a
 
 ```python
 class TypeLiteral(FakeAnnotation):
-    def __init__(name: str, children: Iterable[Any]) -> None:
+    def __init__(name: str, children: Iterable[str]) -> None:
 ```
 
 Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`.

@@ -25,7 +25,7 @@ class TypeValue():
     def __init__(
         service_name: ServiceName,
         prefix: str,
-        value: Dict[(str, Any)],
+        value: dict[(str, Any)],
     ) -> None:
 ```
 

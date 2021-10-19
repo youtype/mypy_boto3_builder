@@ -9,7 +9,7 @@ Boto3 ServiceResource collections parser, produces `structures.Collection`.
 
 ## parse_collections
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/parse_collections.py#L19)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/parse_collections.py#L17)
 
 ```python
 def parse_collections(
@@ -17,7 +17,7 @@ def parse_collections(
     resource: Boto3ServiceResource,
     service_name: ServiceName,
     shape_parser: ShapeParser,
-) -> List[Collection]:
+) -> list[Collection]:
 ```
 
 Extract collections from boto3 resource.

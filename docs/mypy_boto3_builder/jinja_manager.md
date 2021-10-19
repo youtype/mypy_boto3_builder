@@ -11,7 +11,7 @@ Jinja2 `Environment` manager.
 
 ## JinjaManager
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L13)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L11)
 
 ```python
 class JinjaManager():
@@ -21,7 +21,7 @@ Jinja2 `Environment` manager.
 
 ### JinjaManager.get_environment
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L33)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L31)
 
 ```python
 @classmethod
@@ -32,11 +32,11 @@ Get `jinja2.Environment`.
 
 ### JinjaManager.update_globals
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L23)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L21)
 
 ```python
 @classmethod
-def update_globals(**kwargs: Any) -> None:
+def update_globals(**kwargs: object) -> None:
 ```
 
 Update global variables in `jinja2.Environment`.

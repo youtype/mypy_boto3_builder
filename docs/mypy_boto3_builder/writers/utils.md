@@ -63,8 +63,8 @@ Insert Table of Contents before the first second-level header.
 ```python
 def render_jinja2_template(
     template_path: Path,
-    package: Optional[Package] = None,
-    service_name: Optional[ServiceName] = None,
+    package: Package | None = None,
+    service_name: ServiceName | None = None,
 ) -> str:
 ```
 

@@ -9,7 +9,7 @@ Master package writer.
 
 ## write_master_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/master_package.py#L20)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/master_package.py#L19)
 
 ```python
 def write_master_package(

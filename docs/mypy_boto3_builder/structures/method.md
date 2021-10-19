@@ -10,7 +10,7 @@ Class method.
 
 ## Method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/method.py#L10)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/method.py#L8)
 
 ```python
 class Method(Function):
@@ -24,11 +24,11 @@ Class method.
 
 ### Method().call_arguments
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/method.py#L15)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/method.py#L13)
 
 ```python
 @property
-def call_arguments() -> List[Argument]:
+def call_arguments() -> list[Argument]:
 ```
 
 Arguments that are used in method call.

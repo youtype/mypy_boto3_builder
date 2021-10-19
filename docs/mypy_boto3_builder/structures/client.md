@@ -72,7 +72,7 @@ Class docstring.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L89)
 
 ```python
-def get_all_names() -> List[str]:
+def get_all_names() -> list[str]:
 ```
 
 Get a list of names for `__all__` statement.
@@ -111,7 +111,7 @@ Generate Client exceptions property.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L123)
 
 ```python
-def get_required_import_records() -> Set[ImportRecord]:
+def get_required_import_records() -> set[ImportRecord]:
 ```
 
 Extract import records from required type annotations.
