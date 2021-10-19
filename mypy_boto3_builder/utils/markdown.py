@@ -55,7 +55,7 @@ class TableOfContents:
         Arguments:
             text -- MarkDown text.
         """
-        headers = []
+        headers: list[Header] = []
         in_codeblock = False
         for line in text.splitlines():
             if line.startswith("```"):
@@ -74,7 +74,7 @@ class TableOfContents:
         """
         Render ToC to string.
         """
-        result = []
+        result: list[str] = []
         for header in self.headers:
             if header.level > max_level:
                 continue
@@ -89,7 +89,7 @@ def fix_pypi_headers(text: str) -> str:
     Arguments:
         text -- MarkDown text.
     """
-    result = []
+    result: list[str] = []
     in_codeblock = False
     for line in text.splitlines():
         if line.startswith("```"):

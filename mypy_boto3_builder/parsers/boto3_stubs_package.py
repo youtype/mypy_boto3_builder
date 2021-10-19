@@ -16,6 +16,7 @@ from mypy_boto3_builder.structures.function import Function
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
@@ -54,7 +55,7 @@ def parse_boto3_stubs_package(
         Argument("config", TypeSubscript(Type.Optional, [TypeClass(Config)]), Type.Ellipsis),
     ]
 
-    client_function_decorators = []
+    client_function_decorators: list[TypeAnnotation] = []
     if len(result.service_packages) > 1:
         client_function_decorators.append(Type.overload)
     for service_package in result.service_packages:
@@ -103,7 +104,7 @@ def parse_boto3_stubs_package(
         )
 
     service_resource_packages = [i for i in result.service_packages if i.service_resource]
-    resource_function_decorators = []
+    resource_function_decorators: list[TypeAnnotation] = []
     if len(service_resource_packages) > 1:
         resource_function_decorators.append(Type.overload)
     for service_package in service_resource_packages:

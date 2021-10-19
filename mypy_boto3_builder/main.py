@@ -46,7 +46,7 @@ def get_available_service_names(session: Session) -> list[ServiceName]:
     """
     available_services = session.get_available_services()
     botocore_session = session._session  # type: ignore
-    result = []
+    result: list[ServiceName] = []
     for name in available_services:
         service_data = botocore_session.get_service_data(name)
         metadata = service_data["metadata"]

@@ -72,7 +72,7 @@ def write_boto3_stubs_package(
             file_path.write_text(content)
             logger.debug(f"Updated {NicePath(file_path)}")
 
-    static_paths = []
+    static_paths: list[Path] = []
     for static_path in BOTO3_STUBS_STATIC_PATH.glob("**/*.pyi"):
         relative_output_path = static_path.relative_to(BOTO3_STUBS_STATIC_PATH)
         file_path = package_path / relative_output_path

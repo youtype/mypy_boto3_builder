@@ -117,7 +117,7 @@ def insert_md_toc(text: str) -> str:
     toc = TableOfContents.parse(text)
     toc_lines = toc.render().splitlines()
     lines = text.splitlines()
-    result = []
+    result: list[str] = []
     inserted = False
     for line in lines:
         if not inserted and line.startswith("## "):
