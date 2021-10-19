@@ -1,5 +1,4 @@
 from base64 import encodebytes as encodebytes
-from collections import MutableMapping as MutableMapping
 from collections import OrderedDict as OrderedDict
 from email.utils import formatdate as formatdate
 from http.client import HTTPResponse as HTTPResponse
@@ -19,6 +18,11 @@ from xml.etree import ElementTree as ETree
 
 from botocore.exceptions import MD5UnavailableError as MD5UnavailableError
 from six.moves import http_client
+
+try:
+    from collections.abc import MutableMapping
+except ImportError:
+    from collections import MutableMapping
 
 _R = TypeVar("_R")
 
