@@ -22,7 +22,7 @@ from six.moves import http_client
 try:
     from collections.abc import MutableMapping
 except ImportError:
-    from collections import MutableMapping
+    from collections import MutableMapping  # type: ignore
 
 _R = TypeVar("_R")
 
