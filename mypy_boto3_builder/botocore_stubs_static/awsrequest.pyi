@@ -2,13 +2,17 @@ from typing import Any, Optional
 
 from botocore.compat import HTTPHeaders as HTTPHeaders
 from botocore.compat import HTTPResponse as HTTPResponse
-from botocore.compat import MutableMapping as MutableMapping
 from botocore.compat import urlencode as urlencode
 from botocore.compat import urlsplit as urlsplit
 from botocore.compat import urlunsplit as urlunsplit
 from botocore.exceptions import UnseekableStreamError as UnseekableStreamError
 from requests.packages.urllib3.connection import HTTPConnection, VerifiedHTTPSConnection
 from requests.packages.urllib3.connectionpool import HTTPConnectionPool, HTTPSConnectionPool
+
+try:
+    from collections.abc import MutableMapping
+except ImportError:
+    from collections import MutableMapping  # type: ignore
 
 class AWSHTTPResponse(HTTPResponse):
     def __init__(self, *args: Any, **kwargs: Any) -> None: ...

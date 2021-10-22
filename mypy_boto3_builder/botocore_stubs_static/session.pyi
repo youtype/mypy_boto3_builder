@@ -10,7 +10,6 @@ from botocore import translate as translate
 from botocore import utils as utils
 from botocore import waiter as waiter
 from botocore.client import BaseClient, Config
-from botocore.compat import MutableMapping as MutableMapping
 from botocore.configprovider import (
     BOTOCORE_DEFAUT_SESSION_VARIABLES as BOTOCORE_DEFAUT_SESSION_VARIABLES,
 )
@@ -35,6 +34,11 @@ from botocore.parsers import ResponseParserFactory as ResponseParserFactory
 from botocore.regions import EndpointResolver as EndpointResolver
 from botocore.utils import EVENT_ALIASES as EVENT_ALIASES
 from botocore.utils import validate_region_name as validate_region_name
+
+try:
+    from collections.abc import MutableMapping
+except ImportError:
+    from collections import MutableMapping  # type: ignore
 
 if sys.version_info >= (3, 9):
     from typing import Protocol
