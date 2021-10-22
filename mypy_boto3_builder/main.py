@@ -63,6 +63,8 @@ def main() -> None:
     args = parse_args(sys.argv[1:])
     logger = get_logger(level=args.log_level)
     session = Session(region_name=DUMMY_REGION)
+    session._session.set_credentials("access_key", "secret_key", "token")  # type: ignore
+
     args.output_path.mkdir(exist_ok=True)
     available_service_names = get_available_service_names(session)
     available_service_names_set = {i.name for i in available_service_names}
