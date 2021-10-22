@@ -424,7 +424,7 @@ class ShapeParser:
         if not is_streaming:
             is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
             if output or output_child:
-                is_streaming = self.proxy_operation_model._get_streaming_body(shape) is not None
+                is_streaming = self.proxy_operation_model._get_streaming_body(shape) is not None  # type: ignore
 
         type_name = shape.type_name + ("_streaming" if is_streaming else "")
         if output or output_child:
