@@ -69,9 +69,7 @@ class ShapeParser:
 
     OUTPUT_SHAPE_TYPE_MAP: Mapping[str, FakeAnnotation] = {
         "timestamp": Type.datetime,
-        # FIXME: looks like output blobs are always streaming
-        # "blob": Type.bytes,
-        "blob": TypeClass(StreamingBody),
+        "blob": Type.bytes,
         "blob_streaming": TypeClass(StreamingBody),
     }
 
@@ -136,6 +134,7 @@ class ShapeParser:
                 TypedDictAttribute("RetryAttempts", Type.int, True),
             ],
         )
+        self.proxy_operation_model = OperationModel({}, self.service_model)
 
     def _get_operation(self, name: str) -> OperationModel:
         return self.service_model.operation_model(name)
@@ -327,14 +326,23 @@ class ShapeParser:
 
         return TypeLiteral(f"{shape.name}Type", [option for option in shape.enum])
 
-    def _parse_shape_map(self, shape: MapShape, output_child: bool = False) -> FakeAnnotation:
+    def _parse_shape_map(
+        self,
+        shape: MapShape,
+        output_child: bool = False,
+        is_streaming: bool = False,
+    ) -> FakeAnnotation:
         type_subscript = TypeSubscript(Type.Dict) if output_child else TypeSubscript(Type.Mapping)
         if shape.key:
-            type_subscript.add_child(self._parse_shape(shape.key, output_child=output_child))
+            type_subscript.add_child(
+                self._parse_shape(shape.key, output_child=output_child, is_streaming=is_streaming)
+            )
         else:
             type_subscript.add_child(Type.str)
         if shape.value:
-            type_subscript.add_child(self._parse_shape(shape.value, output_child=output_child))
+            type_subscript.add_child(
+                self._parse_shape(shape.value, output_child=output_child, is_streaming=is_streaming)
+            )
         else:
             type_subscript.add_child(Type.Any)
         return type_subscript
@@ -344,6 +352,7 @@ class ShapeParser:
         shape: StructureShape,
         output: bool = False,
         output_child: bool = False,
+        is_streaming: bool = False,
     ) -> FakeAnnotation:
         if not shape.members.items():
             return Type.DictStrAny if output_child else Type.MappingStrAny
@@ -375,7 +384,11 @@ class ShapeParser:
         for attr_name, attr_shape in shape.members.items():
             typed_dict.add_attribute(
                 attr_name,
-                self._parse_shape(attr_shape, output_child=output or output_child),
+                self._parse_shape(
+                    attr_shape,
+                    output_child=output or output_child,
+                    is_streaming=is_streaming,
+                ),
                 attr_name in required,
             )
         if output:
@@ -406,8 +419,12 @@ class ShapeParser:
         shape: Shape,
         output: bool = False,
         output_child: bool = False,
+        is_streaming: bool = False,
     ) -> FakeAnnotation:
-        is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
+        if not is_streaming:
+            is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
+            if output or output_child:
+                is_streaming = self.proxy_operation_model._get_streaming_body(shape) is not None
 
         type_name = shape.type_name + ("_streaming" if is_streaming else "")
         if output or output_child:
@@ -421,11 +438,18 @@ class ShapeParser:
             return self._parse_shape_string(shape)
 
         if isinstance(shape, MapShape):
-            return self._parse_shape_map(shape, output_child=output or output_child)
+            return self._parse_shape_map(
+                shape,
+                output_child=output or output_child,
+                is_streaming=is_streaming,
+            )
 
         if isinstance(shape, StructureShape):
             return self._parse_shape_structure(
-                shape, output=output, output_child=output or output_child
+                shape,
+                output=output,
+                output_child=output or output_child,
+                is_streaming=is_streaming,
             )
 
         if isinstance(shape, ListShape):
