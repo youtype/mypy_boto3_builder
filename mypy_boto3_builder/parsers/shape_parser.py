@@ -426,7 +426,10 @@ class ShapeParser:
             if output or output_child:
                 is_streaming = self.proxy_operation_model._get_streaming_body(shape) is not None  # type: ignore
 
-        type_name = shape.type_name + ("_streaming" if is_streaming else "")
+        type_name = shape.type_name
+        if is_streaming and type_name == "blob":
+            type_name = "blob_streaming"
+
         if output or output_child:
             if type_name in self.OUTPUT_SHAPE_TYPE_MAP:
                 return self.OUTPUT_SHAPE_TYPE_MAP[type_name]
@@ -458,7 +461,7 @@ class ShapeParser:
         if self._resources_shape and shape.type_name in self._resources_shape["resources"]:
             return AliasInternalImport(shape.type_name)
 
-        self.logger.warning(f"Unknown shape: {shape}")
+        self.logger.warning(f"Unknown shape: {shape} {type_name}")
         return Type.Any
 
     def get_paginate_method(self, paginator_name: str) -> Method:
