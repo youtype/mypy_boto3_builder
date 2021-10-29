@@ -72,7 +72,7 @@ boto3 = "*"
 black = {version = "^21.9b0", allow-prereleases = true}
 isort = "^5.9.3"
 jinja2= "^3.0.1"
-pyparsing = "^2.4.7"
+pyparsing = "^3.0.3"
 mdformat = "^0.7.9"
 
 [tool.poetry.dev-dependencies]
