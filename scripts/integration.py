@@ -1,9 +1,13 @@
 #!/usr/bin/env python
+"""
+Integration tests.
+"""
 import argparse
 import difflib
 import json
 import logging
 import subprocess
+import sys
 from pathlib import Path
 
 from mypy_boto3_builder.utils.nice_path import NicePath
@@ -17,7 +21,9 @@ LOGGER_NAME = "int"
 
 
 class SnapshotMismatchError(Exception):
-    pass
+    """
+    Exception for e2e failures.
+    """
 
 
 def setup_logging(level: int = 0) -> logging.Logger:
@@ -42,6 +48,9 @@ def setup_logging(level: int = 0) -> logging.Logger:
 
 
 def parse_args() -> argparse.Namespace:
+    """
+    CLI parser.
+    """
     parser = argparse.ArgumentParser(__file__)
     parser.add_argument("-f", "--fast", action="store_true")
     parser.add_argument("-u", "--update", action="store_true")
@@ -50,6 +59,9 @@ def parse_args() -> argparse.Namespace:
 
 
 def install_master() -> None:
+    """
+    Build and install `boto3-stubs`.
+    """
     subprocess.check_call(
         [(SCRIPTS_PATH / "build.sh").as_posix(), "--skip-services"],
         stdout=subprocess.DEVNULL,
@@ -63,6 +75,9 @@ def install_master() -> None:
 
 
 def install_service(service_name: str) -> None:
+    """
+    Build and install `mypy-boto3-*` subpackage.
+    """
     subprocess.check_call(
         [(SCRIPTS_PATH / "build.sh").as_posix(), "-s", service_name, "--skip-master"],
         stdout=subprocess.DEVNULL,
@@ -76,6 +91,9 @@ def install_service(service_name: str) -> None:
 
 
 def compare(data: str, snapshot_path: Path, update: bool) -> None:
+    """
+    Compare tool output with a snapshot.
+    """
     data = data.strip()
     logger = logging.getLogger(LOGGER_NAME)
     if not snapshot_path.exists():
@@ -102,6 +120,9 @@ def compare(data: str, snapshot_path: Path, update: bool) -> None:
 
 
 def run_pyright(path: Path, update: bool) -> None:
+    """
+    Run `pyright` and compare output.
+    """
     try:
         output = subprocess.check_output(
             ["pyright", path.as_posix(), "--outputjson"],
@@ -121,9 +142,12 @@ def run_pyright(path: Path, update: bool) -> None:
 
 
 def run_mypy(path: Path, update: bool) -> None:
+    """
+    Run `mypy` and compare output.
+    """
     try:
         output = subprocess.check_output(
-            ["python", "-m", "mypy", path.as_posix()],
+            [sys.executable, "-m", "mypy", path.as_posix()],
             stderr=subprocess.STDOUT,
             encoding="utf8",
         )
@@ -141,10 +165,16 @@ def run_mypy(path: Path, update: bool) -> None:
 
 
 def run_call(path: Path) -> None:
-    subprocess.check_call(["python", path.as_posix()])
+    """
+    Run submodule for sanity.
+    """
+    subprocess.check_call([sys.executable, path.as_posix()])
 
 
 def main() -> None:
+    """
+    Main CLI entrypoint.
+    """
     args = parse_args()
     setup_logging(logging.INFO)
     logger = logging.getLogger(LOGGER_NAME)

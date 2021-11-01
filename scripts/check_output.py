@@ -5,7 +5,7 @@ Checker of generated packages.
 - [x] import generated package
 - [x] flake8
 - [x] pyright
-- [ ] mypy
+- [x] mypy
 """
 import argparse
 import json
@@ -79,7 +79,7 @@ def run_flake8(path: Path) -> None:
         try:
             subprocess.check_call(
                 [
-                    "python",
+                    sys.executable,
                     "-m",
                     "flake8",
                     "--ignore",
@@ -102,7 +102,7 @@ def run_pyright(path: Path) -> None:
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
             subprocess.check_call(
-                ["pyright", path.as_posix(), "--outputjson"],
+                ["npx", "pyright", path.as_posix(), "--outputjson"],
                 stderr=subprocess.DEVNULL,
                 stdout=f,
             )
@@ -136,7 +136,7 @@ def run_mypy(path: Path) -> None:
     """
     try:
         output = subprocess.check_output(
-            ["python", "-m", "mypy", path.as_posix()],
+            [sys.executable, "-m", "mypy", path.as_posix()],
             stderr=subprocess.STDOUT,
             encoding="utf8",
         )
@@ -159,7 +159,7 @@ def run_call(path: Path) -> None:
     Check output by importing it.
     """
     try:
-        subprocess.check_call(["python", path.as_posix()], stdout=subprocess.DEVNULL)
+        subprocess.check_call([sys.executable, path.as_posix()], stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
         raise SnapshotMismatchError(f"Path {path} cannot be imported: {e}") from None
 
