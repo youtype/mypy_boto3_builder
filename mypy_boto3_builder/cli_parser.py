@@ -84,8 +84,12 @@ def parse_args(args: Sequence[str]) -> Namespace:
         dest="service_names",
         nargs="*",
         metavar="SERVICE_NAME",
-        help="List of AWS services, by default all services are used",
-        default=[],
+        help=(
+            "List of AWS services, by default all services are used."
+            " Use `updated` to build only services updated in the release."
+            " Use `all` to build all services."
+        ),
+        default=["all"],
     )
     parser.add_argument(
         "--installed",

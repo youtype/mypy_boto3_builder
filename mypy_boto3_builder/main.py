@@ -19,6 +19,7 @@ from mypy_boto3_builder.constants import (
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from mypy_boto3_builder.utils.boto3_changelog import Boto3Changelog
 from mypy_boto3_builder.utils.strings import (
     get_anchor_link,
     get_botocore_class_name,
@@ -32,6 +33,43 @@ from mypy_boto3_builder.writers.processors import (
     process_service,
     process_service_docs,
 )
+
+
+def get_selected_service_names(
+    selected: Iterable[str],
+    available: Iterable[ServiceName],
+) -> list[ServiceName]:
+    """
+    Get a list of selected service names.
+
+    Supports `updated` to select only services updated in currect `boto3` release.
+    Supports `all` to select all available service names.
+
+    Arguments:
+        selected -- Selected service names as strings.
+        available -- All ServiceNames available in current boto3 release.
+
+    Returns:
+        A list of selected ServiceNames.
+    """
+    logger = get_logger()
+    available_map = {i.name: i for i in available}
+    result: list[ServiceName] = []
+    if "all" in selected:
+        return list(available)
+    if "updated" in selected:
+        selected = [i for i in selected if i != "updated"]
+        for updated_service_name in Boto3Changelog().get_updated_service_names(boto3_version):
+            if updated_service_name in available_map:
+                selected.append(updated_service_name)
+
+    for service_name_str in selected:
+        if service_name_str not in available_map:
+            logger.info(f"Service {service_name_str} is not provided by boto3, skipping")
+            continue
+        result.append(available_map[service_name_str])
+
+    return result
 
 
 def get_available_service_names(session: Session) -> list[ServiceName]:
@@ -67,10 +105,8 @@ def main() -> None:
 
     args.output_path.mkdir(exist_ok=True)
     available_service_names = get_available_service_names(session)
-    available_service_names_set = {i.name for i in available_service_names}
-    service_names: list[ServiceName] = []
 
-    logger.info(f"{len(available_service_names_set)} supported boto3 services discovered")
+    logger.info(f"{len(available_service_names)} supported boto3 services discovered")
     if args.list_services:
         for service_name in available_service_names:
             print(
@@ -78,15 +114,7 @@ def main() -> None:
             )
         return
 
-    selected_service_names = args.service_names or [i.name for i in available_service_names]
-
-    for service_name_str in selected_service_names:
-        if service_name_str not in available_service_names_set:
-            logger.info(f"Service {service_name_str} is not provided by boto3, skipping")
-            continue
-
-        service_name = ServiceNameCatalog.find(service_name_str)
-        service_names.append(service_name)
+    service_names = get_selected_service_names(args.service_names, available_service_names)
 
     build_version = args.build_version or boto3_version
     min_build_version = get_min_build_version(build_version)
