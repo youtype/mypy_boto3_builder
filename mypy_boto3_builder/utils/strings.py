@@ -8,6 +8,7 @@ import typing
 from unittest.mock import MagicMock
 
 from botocore.utils import get_service_module_name
+from newversion import Version
 
 RESERVED_NAMES = set(
     (
@@ -155,14 +156,6 @@ def get_botocore_class_name(metadata: dict[str, str]) -> str:
 
 def get_min_build_version(version: str) -> str:
     """
-    Get min version 5 micro releases lower that `version`.
-
-    Minimum micro is 0.
+    Get min version build version by setting micro to 0.
     """
-    major = minor = micro = "0"
-    if version.count(".") > 2:
-        major, minor, micro, _ = version.split(".", 3)
-    else:
-        major, minor, micro = version.split(".", 2)
-    new_micro = max(int(micro) - 5, 0)
-    return f"{major}.{minor}.{new_micro}"
+    return Version(version).replace(micro=0).get_stable().dumps()

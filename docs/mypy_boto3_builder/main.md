@@ -8,11 +8,12 @@ Main entrypoint for builder.
     - [generate_docs](#generate_docs)
     - [generate_stubs](#generate_stubs)
     - [get_available_service_names](#get_available_service_names)
+    - [get_selected_service_names](#get_selected_service_names)
     - [main](#main)
 
 ## generate_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L178)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L206)
 
 ```python
 def generate_docs(
@@ -38,7 +39,7 @@ Generate service and master docs.
 
 ## generate_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L122)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L150)
 
 ```python
 def generate_stubs(
@@ -64,7 +65,7 @@ Generate service and master stubs.
 
 ## get_available_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L37)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L75)
 
 ```python
 def get_available_service_names(session: Session) -> list[ServiceName]:
@@ -80,9 +81,34 @@ Get a list of boto3 supported service names.
 
 A list of supported services.
 
+## get_selected_service_names
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L38)
+
+```python
+def get_selected_service_names(
+    selected: Iterable[str],
+    available: Iterable[ServiceName],
+) -> list[ServiceName]:
+```
+
+Get a list of selected service names.
+
+Supports `updated` to select only services updated in currect `boto3` release.
+Supports `all` to select all available service names.
+
+#### Arguments
+
+- `selected` - Selected service names as strings.
+- `available` - All ServiceNames available in current boto3 release.
+
+#### Returns
+
+A list of selected ServiceNames.
+
 ## main
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L59)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L97)
 
 ```python
 def main() -> None:

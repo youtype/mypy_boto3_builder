@@ -529,7 +529,7 @@ pydocstyle = ">=2.1"
 
 [[package]]
 name = "handsdown"
-version = "0.4.1"
+version = "0.4.2"
 description = "Python docstring-based documentation generator for lazy perfectionists."
 category = "dev"
 optional = false
@@ -709,10 +709,21 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "newversion"
+version = "1.8.2"
+description = "PEP 440 version manager"
+category = "main"
+optional = false
+python-versions = ">=3.6.10,<4.0.0"
+
+[package.dependencies]
+packaging = ">=20.0"
+
+[[package]]
 name = "packaging"
 version = "21.0"
 description = "Core utilities for Python packages"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -1126,7 +1137,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "cae4edee8a5b9d3dd225358ca60affee412ac6949433fd1c59ea077ec8f7368f"
+content-hash = "c4b14c7eb922cfd5c18cbeebf2b77adecb11139fc2f4edf4ab33015b439d1f44"
 
 [metadata.files]
 atomicwrites = [
@@ -1320,8 +1331,8 @@ flake8-docstrings = [
     {file = "flake8_docstrings-1.6.0-py2.py3-none-any.whl", hash = "sha256:99cac583d6c7e32dd28bbfbef120a7c0d1b6dde4adb5a9fd441c4227a6534bde"},
 ]
 handsdown = [
-    {file = "handsdown-0.4.1-py3-none-any.whl", hash = "sha256:23b559e1a619d878e0f98fcb2287a396cd616a408e654f6a285406882234d568"},
-    {file = "handsdown-0.4.1.tar.gz", hash = "sha256:827fd347bd859613663af3c0df4c311708b48285962a27a7cd2bd8cf7a561438"},
+    {file = "handsdown-0.4.2-py3-none-any.whl", hash = "sha256:3a8f6335fd38ede82ad18d8cde3a8d20bcf1f86bca0dee7a0ceca83fcaf2a39f"},
+    {file = "handsdown-0.4.2.tar.gz", hash = "sha256:c19327684cd6abdce27fea75f0ad074e6cbdd197ddb7479f32320c227a6b2d24"},
 ]
 idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},
@@ -1431,6 +1442,10 @@ mypy = [
 mypy-extensions = [
     {file = "mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"},
     {file = "mypy_extensions-0.4.3.tar.gz", hash = "sha256:2d82818f5bb3e369420cb3c4060a7970edba416647068eb4c5343488a6c604a8"},
+]
+newversion = [
+    {file = "newversion-1.8.2-py3-none-any.whl", hash = "sha256:5462776b8f02f77b246b17c15f6a4919390ea6dae2d4c778086086ebd7a54224"},
+    {file = "newversion-1.8.2.tar.gz", hash = "sha256:7cc493c901717c184cc67281d29c7d9842ef90ddb055590db8bff3aa39910a82"},
 ]
 packaging = [
     {file = "packaging-21.0-py3-none-any.whl", hash = "sha256:c86254f9220d55e31cc94d69bade760f0847da8000def4dfe1c6b872fd14ff14"},
