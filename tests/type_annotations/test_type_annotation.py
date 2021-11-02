@@ -10,7 +10,7 @@ class TestTypeAnnotation:
         self.dict = TypeAnnotation("Dict")
 
     def test_init(self) -> None:
-        assert self.dict.wrapped_type == "Dict"
+        assert self.dict.get_import_name() == "Dict"
         assert hash(self.dict)
 
         with pytest.raises(ValueError):
@@ -26,4 +26,4 @@ class TestTypeAnnotation:
         assert self.dict.get_import_record().render() == "from typing import Dict"
 
     def test_copy(self) -> None:
-        assert self.dict.copy().wrapped_type == "Dict"
+        assert self.dict.copy().get_import_name() == "Dict"
