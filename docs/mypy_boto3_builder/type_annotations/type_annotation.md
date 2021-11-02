@@ -2,7 +2,7 @@
 
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.type_annotation](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py) module.
 
-Wrapper for simple type annotation like `str` or `Dict`.
+Wrapper for `typing` type annotation.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](index.md#type-annotations) / TypeAnnotation
     - [TypeAnnotation](#typeannotation)
@@ -11,22 +11,23 @@ Wrapper for simple type annotation like `str` or `Dict`.
         - [TypeAnnotation().get_import_record](#typeannotationget_import_record)
         - [TypeAnnotation().is_dict](#typeannotationis_dict)
         - [TypeAnnotation().is_list](#typeannotationis_list)
+        - [TypeAnnotation().is_union](#typeannotationis_union)
         - [TypeAnnotation().render](#typeannotationrender)
 
 ## TypeAnnotation
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L27)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L13)
 
 ```python
 class TypeAnnotation(FakeAnnotation):
-    def __init__(wrapped_type: Any) -> None:
+    def __init__(wrapped_type: str) -> None:
 ```
 
-Wrapper for simple type annotation like `str` or `Dict`.
+Wrapper for `typing` type annotation.
 
 #### Arguments
 
-- `wrapped_type` - Original type annotation.
+- `wrapped_type` - Original type annotation as a string.
 
 #### See also
 
@@ -34,17 +35,17 @@ Wrapper for simple type annotation like `str` or `Dict`.
 
 ### TypeAnnotation().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L155)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L82)
 
 ```python
-def copy() -> 'TypeAnnotation':
+def copy() -> _R:
 ```
 
 Create a copy of type annotation wrapper.
 
 ### TypeAnnotation().get_import_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L128)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L52)
 
 ```python
 def get_import_name() -> str:
@@ -54,7 +55,7 @@ Create a safe name for imported annotation.
 
 ### TypeAnnotation().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L137)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L58)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -68,7 +69,7 @@ Create a safe Import Record for annotation.
 
 ### TypeAnnotation().is_dict
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L143)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L64)
 
 ```python
 def is_dict() -> bool:
@@ -78,7 +79,7 @@ Whether annotation is a plain Dict.
 
 ### TypeAnnotation().is_list
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L149)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L70)
 
 ```python
 def is_list() -> bool:
@@ -86,9 +87,19 @@ def is_list() -> bool:
 
 Whether annotation is a plain List.
 
+### TypeAnnotation().is_union
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L76)
+
+```python
+def is_union() -> bool:
+```
+
+Whether annotation is a Union.
+
 ### TypeAnnotation().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L119)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_annotation.py#L43)
 
 ```python
 def render(parent_name: str = '') -> str:

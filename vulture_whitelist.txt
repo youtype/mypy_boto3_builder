@@ -25,7 +25,7 @@ _.get_waiter_required_import_records  # unused method (mypy_boto3_builder/struct
 _.get_type_defs_required_import_records  # unused method (mypy_boto3_builder/structures/service_package.py:259)
 _.get_literals_required_import_records  # unused method (mypy_boto3_builder/structures/service_package.py:293)
 _.is_typed_dict  # unused method (mypy_boto3_builder/type_annotations/fake_annotation.py:73)
-_.get_optional  # unused method (mypy_boto3_builder/type_annotations/type.py:67)
+_.get_optional  # unused method (mypy_boto3_builder/type_annotations/type.py:51)
 _.render_children  # unused method (mypy_boto3_builder/type_annotations/type_literal.py:69)
 _.is_typed_dict  # unused method (mypy_boto3_builder/type_annotations/type_typed_dict.py:148)
 _.render_class  # unused method (mypy_boto3_builder/type_annotations/type_typed_dict.py:154)

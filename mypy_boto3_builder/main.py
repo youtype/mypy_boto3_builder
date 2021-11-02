@@ -84,7 +84,7 @@ def get_available_service_names(session: Session) -> list[ServiceName]:
         A list of supported services.
     """
     available_services = session.get_available_services()
-    botocore_session = session._session  # type: ignore
+    botocore_session = session._session
     result: list[ServiceName] = []
     for name in available_services:
         service_data = botocore_session.get_service_data(name)
@@ -102,7 +102,9 @@ def main() -> None:
     args = parse_args(sys.argv[1:])
     logger = get_logger(level=args.log_level)
     session = Session(region_name=DUMMY_REGION)
-    session._session.set_credentials("access_key", "secret_key", "token")  # type: ignore
+
+    botocore_session = session._session
+    botocore_session.set_credentials("access_key", "secret_key", "token")
 
     args.output_path.mkdir(exist_ok=True)
     available_service_names = get_available_service_names(session)

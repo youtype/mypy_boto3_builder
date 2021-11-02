@@ -1,120 +1,44 @@
 """
-Wrapper for simple type annotation like `str` or `Dict`.
+Wrapper for `typing` type annotation.
 """
-from typing import (
-    IO,
-    Any,
-    Callable,
-    Dict,
-    Generator,
-    Iterator,
-    List,
-    Mapping,
-    Optional,
-    Sequence,
-    Set,
-    Tuple,
-    Type,
-    Union,
-    overload,
-)
+from typing import TypeVar
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
+_R = TypeVar("_R", bound="TypeAnnotation")
+
 
 class TypeAnnotation(FakeAnnotation):
     """
-    Wrapper for simple type annotation like `str` or `Dict`.
+    Wrapper for `typing` type annotation.
 
     Arguments:
-        wrapped_type -- Original type annotation.
+        wrapped_type -- Original type annotation as a string.
     """
 
-    supported_types: Tuple[Any, ...] = (
-        Union,  # type:ignore
-        Any,
-        Dict,
-        Mapping,
-        List,
-        Sequence,
-        Set,
-        Optional,  # type: ignore
-        Callable,
-        Generator,
-        Iterator,
-        IO,
-        overload,
-        Type,
-    )
+    supported_types: set[str] = {
+        "Union",  # typing.Union
+        "Any",  # typing.Any
+        "Dict",  # typing.Dict
+        "Mapping",  # typing.Mapping
+        "List",  # typing.List
+        "Sequence",  # typing.Sequence
+        "Set",  # typing.Set
+        "Optional",  # typing.Optional
+        "Callable",  # typing.Callable
+        "Iterator",  # typing.Iterator
+        "IO",  # typing.IO
+        "overload",  # typing.overload
+        "Type",  # typing.Type
+    }
 
-    type_name_map: Tuple[Tuple[Any, str], ...] = (
-        (
-            Union,  # type:ignore
-            "Union",
-        ),
-        (
-            Any,
-            "Any",
-        ),
-        (
-            Dict,
-            "Dict",
-        ),
-        (
-            Mapping,
-            "Mapping",
-        ),
-        (
-            List,
-            "List",
-        ),
-        (
-            Sequence,
-            "Sequence",
-        ),
-        (
-            Set,
-            "Set",
-        ),
-        (
-            Optional,  # type: ignore
-            "Optional",
-        ),
-        (
-            Callable,
-            "Callable",
-        ),
-        (
-            Generator,
-            "Generator",
-        ),
-        (
-            Iterator,
-            "Iterator",
-        ),
-        (
-            IO,
-            "IO",
-        ),
-        (
-            overload,
-            "overload",
-        ),
-        (
-            Type,
-            "Type",
-        ),
-    )
-
-    def __init__(self, wrapped_type: Any) -> None:
-        if isinstance(wrapped_type, FakeAnnotation):
-            raise ValueError(f"Cannot wrap FakeAnnotation: {wrapped_type}")
+    def __init__(self, wrapped_type: str) -> None:
         if wrapped_type not in self.supported_types:
             raise ValueError(f"Cannot wrap {wrapped_type}")
 
-        self.wrapped_type: Any = wrapped_type
+        self.wrapped_type: str = wrapped_type
 
     def render(self, parent_name: str = "") -> str:
         """
@@ -129,10 +53,7 @@ class TypeAnnotation(FakeAnnotation):
         """
         Create a safe name for imported annotation.
         """
-        for type_class, type_name in self.type_name_map:
-            if self.wrapped_type is type_class:
-                return type_name
-        raise ValueError(f"Unknown type {self.wrapped_type}")
+        return self.wrapped_type
 
     def get_import_record(self) -> ImportRecord:
         """
@@ -144,16 +65,22 @@ class TypeAnnotation(FakeAnnotation):
         """
         Whether annotation is a plain Dict.
         """
-        return self.wrapped_type is Dict
+        return self.wrapped_type == "Dict"
 
     def is_list(self) -> bool:
         """
         Whether annotation is a plain List.
         """
-        return self.wrapped_type is List
+        return self.wrapped_type == "List"
 
-    def copy(self) -> "TypeAnnotation":
+    def is_union(self) -> bool:
+        """
+        Whether annotation is a Union.
+        """
+        return self.wrapped_type == "Union"
+
+    def copy(self: _R) -> _R:
         """
         Create a copy of type annotation wrapper.
         """
-        return TypeAnnotation(self.wrapped_type)
+        return self.__class__(self.wrapped_type)
