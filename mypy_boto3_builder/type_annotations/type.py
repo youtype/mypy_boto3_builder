@@ -45,6 +45,7 @@ class Type:
     SequenceAny = TypeSubscript(Sequence, [Any])
     MappingStrAny = TypeSubscript(Mapping, [str, Any])
     DictStrAny = TypeSubscript(Dict, [str, Any])
+    DictStrStr = TypeSubscript(Dict, [str, str])
     IOBytes = TypeSubscript(IO, [bytes])
     RemoveArgument = RemoveArgument()
 

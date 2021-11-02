@@ -130,7 +130,7 @@ class ShapeParser:
                 TypedDictAttribute("RequestId", Type.str, True),
                 TypedDictAttribute("HostId", Type.str, True),
                 TypedDictAttribute("HTTPStatusCode", Type.int, True),
-                TypedDictAttribute("HTTPHeaders", Type.DictStrAny, True),
+                TypedDictAttribute("HTTPHeaders", Type.DictStrStr, True),
                 TypedDictAttribute("RetryAttempts", Type.int, True),
             ],
         )
