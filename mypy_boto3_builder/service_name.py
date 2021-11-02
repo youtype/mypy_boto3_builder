@@ -17,6 +17,8 @@ class ServiceName:
     Description for boto3 service.
     """
 
+    ALL = "all"
+    UPDATED = "updated"
     LATEST = "latest"
     ESSENTIAL = (
         "ec2",

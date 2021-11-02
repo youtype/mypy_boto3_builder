@@ -55,15 +55,16 @@ def get_selected_service_names(
     logger = get_logger()
     available_map = {i.name: i for i in available}
     result: list[ServiceName] = []
-    if "all" in selected:
+    selected_service_names = list(selected)
+    if ServiceName.ALL in selected_service_names:
         return list(available)
-    if "updated" in selected:
-        selected = [i for i in selected if i != "updated"]
+    if ServiceName.UPDATED in selected_service_names:
+        selected_service_names.remove(ServiceName.UPDATED)
         for updated_service_name in Boto3Changelog().get_updated_service_names(boto3_version):
             if updated_service_name in available_map:
-                selected.append(updated_service_name)
+                selected_service_names.append(updated_service_name)
 
-    for service_name_str in selected:
+    for service_name_str in selected_service_names:
         if service_name_str not in available_map:
             logger.info(f"Service {service_name_str} is not provided by boto3, skipping")
             continue
