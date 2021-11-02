@@ -38,7 +38,7 @@ class TypeAnnotation(FakeAnnotation):
         if wrapped_type not in self.supported_types:
             raise ValueError(f"Cannot wrap {wrapped_type}")
 
-        self.wrapped_type: str = wrapped_type
+        self._wrapped_type: str = wrapped_type
 
     def render(self, parent_name: str = "") -> str:
         """
@@ -53,7 +53,7 @@ class TypeAnnotation(FakeAnnotation):
         """
         Create a safe name for imported annotation.
         """
-        return self.wrapped_type
+        return self._wrapped_type
 
     def get_import_record(self) -> ImportRecord:
         """
@@ -65,22 +65,22 @@ class TypeAnnotation(FakeAnnotation):
         """
         Whether annotation is a plain Dict.
         """
-        return self.wrapped_type == "Dict"
+        return self._wrapped_type == "Dict"
 
     def is_list(self) -> bool:
         """
         Whether annotation is a plain List.
         """
-        return self.wrapped_type == "List"
+        return self._wrapped_type == "List"
 
     def is_union(self) -> bool:
         """
         Whether annotation is a Union.
         """
-        return self.wrapped_type == "Union"
+        return self._wrapped_type == "Union"
 
     def copy(self: _R) -> _R:
         """
         Create a copy of type annotation wrapper.
         """
-        return self.__class__(self.wrapped_type)
+        return self.__class__(self._wrapped_type)
