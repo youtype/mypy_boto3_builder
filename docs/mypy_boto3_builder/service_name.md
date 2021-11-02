@@ -21,7 +21,6 @@ Description for boto3 service.
         - [ServiceName().underscore_name](#servicenameunderscore_name)
     - [ServiceNameCatalog](#servicenamecatalog)
         - [ServiceNameCatalog.add](#servicenamecatalogadd)
-        - [ServiceNameCatalog.find](#servicenamecatalogfind)
 
 ## ServiceName
 
@@ -36,7 +35,7 @@ Description for boto3 service.
 
 ### ServiceName().boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L101)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L103)
 
 ```python
 @property
@@ -47,7 +46,7 @@ Link to boto3 docs.
 
 ### ServiceName().boto3_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L49)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L51)
 
 ```python
 @property
@@ -58,7 +57,7 @@ Boto3 package name.
 
 ### ServiceName().extras_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L88)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L90)
 
 ```python
 @property
@@ -69,7 +68,7 @@ Extras name for subpackage installation.
 
 ### ServiceName().get_boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L118)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L120)
 
 ```python
 def get_boto3_doc_link(*parts: str) -> str:
@@ -83,7 +82,7 @@ Get link to boto3 docs with anchor.
 
 ### ServiceName().get_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L152)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L154)
 
 ```python
 def get_doc_link(
@@ -108,7 +107,7 @@ Get link to local docs with anchor.
 
 ### ServiceName.get_md_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L127)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L129)
 
 ```python
 @staticmethod
@@ -134,7 +133,7 @@ Get link to MD docs with anchor.
 
 ### ServiceName().import_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L56)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L58)
 
 ```python
 @property
@@ -145,7 +144,7 @@ Safe mudule import name.
 
 ### ServiceName().is_essential
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L95)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L97)
 
 ```python
 def is_essential() -> bool:
@@ -155,7 +154,7 @@ Whether service is included to `boto3-stubs[essential]`.
 
 ### ServiceName().local_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L111)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L113)
 
 ```python
 @property
@@ -166,7 +165,7 @@ Link to local docs.
 
 ### ServiceName().module_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L67)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L69)
 
 ```python
 @property
@@ -177,7 +176,7 @@ Package name for given service.
 
 ### ServiceName().pypi_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L81)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L83)
 
 ```python
 @property
@@ -188,7 +187,7 @@ Link to package on PyPI.
 
 ### ServiceName().pypi_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L74)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L76)
 
 ```python
 @property
@@ -199,7 +198,7 @@ Name of package on PyPI.
 
 ### ServiceName().underscore_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L42)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L44)
 
 ```python
 @property
@@ -210,7 +209,7 @@ Python-friendly service name.
 
 ## ServiceNameCatalog
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L178)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L180)
 
 ```python
 class ServiceNameCatalog():
@@ -220,7 +219,7 @@ Finder for boto3 services by name.
 
 ### ServiceNameCatalog.add
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L232)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L215)
 
 ```python
 @classmethod
@@ -232,33 +231,6 @@ Add new ServiceName to catalog or modify existing one.
 #### Returns
 
 New ServiceName or modified if it exists.
-
-#### See also
-
-- [ServiceName](#servicename)
-
-### ServiceNameCatalog.find
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L213)
-
-```python
-@classmethod
-def find(name: str) -> ServiceName:
-```
-
-Get [ServiceName](#servicename) by import name.
-
-#### Arguments
-
-- `name` - Service import name.
-
-#### Returns
-
-ServiceName.
-
-#### Raises
-
-- `ValueError` - If ServiceName not found.
 
 #### See also
 
