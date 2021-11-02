@@ -29,8 +29,6 @@ class TestServiceName:
 
 
 class TestServiceNameCatalog:
-    def test_find(self) -> None:
-        assert ServiceNameCatalog.find("ec2").name == "ec2"
-
-        with pytest.raises(ValueError):
-            ServiceNameCatalog.find("unknown")
+    def test_add(self) -> None:
+        assert ServiceNameCatalog.add("test", "Test").name == "test"
+        assert ServiceNameCatalog.add("test", "Test").name == "test"

@@ -32,7 +32,7 @@ class Type:
     Predefined FakeAnnotation instances.
     """
 
-    Union = TypeAnnotation(Union)
+    Union = TypeAnnotation(Union)  # type:ignore
     Any = TypeAnnotation(Any)
     Dict = TypeAnnotation(Dict)
     Mapping = TypeAnnotation(Mapping)
@@ -72,7 +72,7 @@ class Type:
         if (
             isinstance(wrapped, TypeSubscript)
             and isinstance(wrapped.parent, TypeAnnotation)
-            and wrapped.parent.wrapped_type is Union
+            and wrapped.parent.wrapped_type is Union  # type:ignore
         ):
             result = wrapped.copy()
             result.add_child(cls.none)

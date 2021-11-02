@@ -33,7 +33,7 @@ class TypeAnnotation(FakeAnnotation):
     """
 
     supported_types: Tuple[Any, ...] = (
-        Union,
+        Union,  # type:ignore
         Any,
         Dict,
         Mapping,
@@ -51,7 +51,7 @@ class TypeAnnotation(FakeAnnotation):
 
     type_name_map: Tuple[Tuple[Any, str], ...] = (
         (
-            Union,
+            Union,  # type:ignore
             "Union",
         ),
         (

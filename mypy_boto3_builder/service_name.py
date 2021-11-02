@@ -213,25 +213,6 @@ class ServiceNameCatalog:
     }
 
     @classmethod
-    def find(cls, name: str) -> ServiceName:
-        """
-        Get `ServiceName` by import name.
-
-        Arguments:
-            name -- Service import name.
-
-        Returns:
-            ServiceName.
-
-        Raises:
-            ValueError -- If ServiceName not found.
-        """
-        try:
-            return cls.ITEMS[name]
-        except KeyError as exc:
-            raise ValueError(f"Unknown service {name}") from exc
-
-    @classmethod
     def add(cls, name: str, class_name: str) -> ServiceName:
         """
         Add new ServiceName to catalog or modify existing one.
