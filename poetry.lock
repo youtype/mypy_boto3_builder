@@ -62,14 +62,14 @@ webencodings = "*"
 
 [[package]]
 name = "boto3"
-version = "1.19.9"
+version = "1.19.10"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.6"
 
 [package.dependencies]
-botocore = ">=1.22.9,<1.23.0"
+botocore = ">=1.22.10,<1.23.0"
 jmespath = ">=0.7.1,<1.0.0"
 s3transfer = ">=0.5.0,<0.6.0"
 
@@ -378,7 +378,7 @@ xray = ["mypy-boto3-xray (>=1.19.4)"]
 
 [[package]]
 name = "botocore"
-version = "1.22.9"
+version = "1.22.10"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -404,7 +404,7 @@ python-versions = ">=3.6"
 name = "certifi"
 version = "2021.10.8"
 description = "Python package for providing Mozilla's CA Bundle."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -423,7 +423,7 @@ pycparser = "*"
 name = "charset-normalizer"
 version = "2.0.7"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5.0"
 
@@ -542,7 +542,7 @@ typed-ast = "*"
 name = "idna"
 version = "3.3"
 description = "Internationalized Domain Names in Applications (IDNA)"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.5"
 
@@ -921,7 +921,7 @@ python-versions = "*"
 name = "requests"
 version = "2.26.0"
 description = "Python HTTP for Humans."
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
@@ -1137,7 +1137,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "792290b800ea2d77820579bba9561338d12e894463a7e89b85c8dfbec14be345"
+content-hash = "f27b8ebf23d957621ba2b67f92106545374e9e04c606035bdcb6d2d64094dcb4"
 
 [metadata.files]
 atomicwrites = [
@@ -1157,16 +1157,16 @@ bleach = [
     {file = "bleach-4.1.0.tar.gz", hash = "sha256:0900d8b37eba61a802ee40ac0061f8c2b5dee29c1927dd1d233e075ebf5a71da"},
 ]
 boto3 = [
-    {file = "boto3-1.19.9-py3-none-any.whl", hash = "sha256:efa4aea4d30e93f8913a5731ab4de7b6d2020ee77cdde7e61bfae56670da1a14"},
-    {file = "boto3-1.19.9.tar.gz", hash = "sha256:2fe4edec0e02705059e6baac52e29f97fae6086bf8b817e6ca0e49b48c0fbbf2"},
+    {file = "boto3-1.19.10-py3-none-any.whl", hash = "sha256:57ee38d02772f44a52d2d836cee61d039d405f6eaefc68f92ae0d80e0260c097"},
+    {file = "boto3-1.19.10.tar.gz", hash = "sha256:79c982c5930f989292ca849b0caaa1ffeb9eb9d27c32992c3b2f6736b3b14ad2"},
 ]
 boto3-stubs = [
     {file = "boto3-stubs-1.19.9.tar.gz", hash = "sha256:d2c6c218265b7e94149c4bef2ccfe05666a7867290921cd58cf3f5d55977f72f"},
     {file = "boto3_stubs-1.19.9-py3-none-any.whl", hash = "sha256:ab7841d89e0cf1fc087c1489837b978646d00709e5a0db8c2a36b001a35a2d5f"},
 ]
 botocore = [
-    {file = "botocore-1.22.9-py3-none-any.whl", hash = "sha256:612d26b58f790d267cc7714e82262104b681db799655b6dd6b64fcd9caf08bef"},
-    {file = "botocore-1.22.9.tar.gz", hash = "sha256:7b59367bace96595e9feeed9765c7178278c55531b2b9e07b7618911e9f0a00b"},
+    {file = "botocore-1.22.10-py3-none-any.whl", hash = "sha256:543cd69e9b248be942d181a097a4715312939ec998602a7b4b07e9fda36d30e9"},
+    {file = "botocore-1.22.10.tar.gz", hash = "sha256:dffa1e7e7e3a8da73bbdead3aeff7d52fd5a159a1a93b2896ac67b2aa79a461c"},
 ]
 botocore-stubs = [
     {file = "botocore-stubs-1.22.9.tar.gz", hash = "sha256:70586499fd75facdb0f006c19b2ba5d1458e51340517ec340c1063e11010982f"},
