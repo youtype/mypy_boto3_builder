@@ -1033,7 +1033,7 @@ telegram = ["requests"]
 
 [[package]]
 name = "twine"
-version = "3.4.2"
+version = "3.5.0"
 description = "Collection of utilities for publishing packages on PyPI"
 category = "dev"
 optional = false
@@ -1607,8 +1607,8 @@ tqdm = [
     {file = "tqdm-4.62.3.tar.gz", hash = "sha256:d359de7217506c9851b7869f3708d8ee53ed70a1b8edbba4dbcb47442592920d"},
 ]
 twine = [
-    {file = "twine-3.4.2-py3-none-any.whl", hash = "sha256:087328e9bb405e7ce18527a2dca4042a84c7918658f951110b38bc135acab218"},
-    {file = "twine-3.4.2.tar.gz", hash = "sha256:4caec0f1ed78dc4c9b83ad537e453d03ce485725f2aea57f1bb3fdde78dae936"},
+    {file = "twine-3.5.0-py3-none-any.whl", hash = "sha256:3725b79a6f1cfe84a134544ae1894706e60719ab28547cb6c6de781b9f72706d"},
+    {file = "twine-3.5.0.tar.gz", hash = "sha256:218c42324121d4417cbcbbda59c623b8acc4becfce3daa545e6b6dd48bd21385"},
 ]
 typed-ast = [
     {file = "typed_ast-1.4.3-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:2068531575a125b87a41802130fa7e29f26c09a2833fea68d9a40cf33902eba6"},

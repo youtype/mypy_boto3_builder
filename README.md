@@ -38,6 +38,8 @@ Do you want more? Check the [documentation](https://vemel.github.io/boto3_stubs_
   - [Versioning](#versioning)
   - [Latest changes](#latest-changes)
   - [Thank you](#thank-you)
+    - [Toolset](#toolset)
+    - [Contributors](#contributors)
 
 ## Using boto3-stubs
 
@@ -127,19 +129,23 @@ Full changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_bu
 
 ## Thank you
 
-- [Allie Fitter](https://github.com/alliefitter) for
-  [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/),
-  this package is based on top of his work
+### Toolset
+
 - [black](https://github.com/psf/black) developers for an awesome formatting tool
 - [Timothy Edmund Crosley](https://github.com/timothycrosley) for
   [isort](https://github.com/PyCQA/isort) and how flexible it is
 - [mypy](https://github.com/python/mypy) developers for doing all dirty work for us
 - [pyright](https://github.com/microsoft/pyright) team for the new era of typed Python
-- [jbpratt](https://github.com/jbpratt),
-  [Chris Hollinworth](https://github.com/chrishollinworth),
-  [Yoan Blanc](https://github.com/greut),
-  [Kostya Leschenko](https://github.com/kleschenko),
-  [pyto86](https://github.com/pyto86pri),
-  [Ashton Honnecke](https://github.com/ahonnecke),
-  and [Mike Carey](https://github.com/mike-carey)
-  for their contributions
+
+### Contributors
+
+- [Allie Fitter](https://github.com/alliefitter), author of original
+  [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/)
+- [jbpratt](https://github.com/jbpratt)
+- [Chris Hollinworth](https://github.com/chrishollinworth)
+- [Yoan Blanc](https://github.com/greut)
+- [Kostya Leschenko](https://github.com/kleschenko)
+- [pyto86](https://github.com/pyto86pri)
+- [Ashton Honnecke](https://github.com/ahonnecke)
+- [Mike Carey](https://github.com/mike-carey)
+- [Ole-Martin Bratteng](https://github.com/omBratteng)
