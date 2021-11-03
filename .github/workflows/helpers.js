@@ -66,7 +66,7 @@ async function extractVersions({ core, context }) {
             context.payload.inputs.boto3_version :
             await getBoto3Version()
     )
-    const force = context.payload.inputs ? context.payload.inputs.force : false
+    const force = context.payload.inputs ? context.payload.inputs.force !== "false" : false
 
     const botocoreVersion = getBotocoreVersion(boto3Version)
     core.info(`Boto3 version ${boto3Version}`)

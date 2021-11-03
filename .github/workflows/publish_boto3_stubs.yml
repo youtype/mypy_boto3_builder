@@ -11,6 +11,11 @@ on:
       force:
         description: Publish new post-release if exists
         required: false
+        default: "false"
+      build_all:
+        description: Build all packages instead of updated only
+        required: false
+        default: "false"
 
 jobs:
   check-boto3-version:
@@ -40,6 +45,7 @@ jobs:
       BOTO3_VERSION: ${{ needs.check-boto3-version.outputs.boto3-version }}
       BOTOCORE_VERSION: ${{ needs.check-boto3-version.outputs.botocore-version }}
       VERSION: ${{ needs.check-boto3-version.outputs.version }}
+      BUILD_ALL: ${{ context.payload.inputs.build_all }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
@@ -49,10 +55,21 @@ jobs:
       - name: Install boto3
         run: |
           python -m pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
+          python -m pip install newversion
       - name: Install builder
         run: |
           rm -rf mypy_boto3_builder
-          python -m pip install mypy_boto3_builder
+          if [[ "${BOTO3_VERSION}" == *\.0 ]]; then
+            echo "Minor boto3 release ${BOTO3_VERSION}, building all packages"
+            BUILD_ALL="true"
+          fi
+          if [[ "${BUILD_ALL}" != "false" ]]; then
+            echo "Building all packages"
+            python -m pip install mypy_boto3_builder -s all
+          else
+            echo "Building updated packages"
+            python -m pip install mypy_boto3_builder -s updated
+          fi
       - name: Build packages
         run: |
           rm -rf mypy_boto3_output/*
