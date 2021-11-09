@@ -127,7 +127,7 @@ async function extractDownloadLinks({ core }) {
     core.info(`Boto3 download URL: ${boto3URL}`)
     core.setOutput('boto3-url', boto3URL)
 
-    const botocoreURL = await getDownloadURL('boto3', process.env.BOTOCORE_VERSION)
+    const botocoreURL = await getDownloadURL('botocore', process.env.BOTOCORE_VERSION)
     core.info(`Botocore download URL: ${botocoreURL}`)
     core.setOutput('botocore-url', botocoreURL)
 }
