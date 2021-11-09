@@ -123,11 +123,11 @@ async function extractVersions({ core, context }) {
 }
 
 async function extractDownloadLinks({ core }) {
-    const boto3URL = await getDownloadLink('boto3', process.env.BOTO3_VERSION)
+    const boto3URL = await getDownloadURL('boto3', process.env.BOTO3_VERSION)
     core.info(`Boto3 download URL: ${boto3URL}`)
     core.setOutput('boto3-url', boto3URL)
 
-    const botocoreURL = await getDownloadLink('boto3', process.env.BOTOCORE_VERSION)
+    const botocoreURL = await getDownloadURL('boto3', process.env.BOTOCORE_VERSION)
     core.info(`Botocore download URL: ${botocoreURL}`)
     core.setOutput('botocore-url', botocoreURL)
 }
@@ -141,5 +141,4 @@ module.exports = {
     getBotocoreVersion,
     extractVersions,
     extractDownloadLinks,
-    getDownloadLink
 }
