@@ -103,9 +103,13 @@ async function extractVersions({ core, context }) {
     }
 
     const botocoreVersion = getBotocoreVersion(boto3Version)
-    core.info(`Boto3 version ${boto3Version}`)
+    core.info(`Boto3 version = ${boto3Version}`)
     core.setOutput('boto3-version', boto3Version)
+
+    core.info(`Botocore version = ${botocoreVersion}`)
     core.setOutput('botocore-version', botocoreVersion)
+
+    core.info(`Build all packages = ${buildAll}`)
     core.setOutput('build-all', buildAll)
 
     const versions = await getStubsVersions(boto3Version)
@@ -115,6 +119,7 @@ async function extractVersions({ core, context }) {
         core.info('Builts found, skipping')
         return
     }
+
     if (!versions.length) {
         core.info(`No builds found, building initial ${boto3Version}`)
         core.setOutput('version', boto3Version)
@@ -125,7 +130,7 @@ async function extractVersions({ core, context }) {
     core.info(`Last build version ${lastBuildVersion}`)
 
     const buildVersion = getNextPostVersion(lastBuildVersion)
-    core.info(`Build version ${buildVersion}`)
+    core.info(`Build version = ${buildVersion}`)
     core.setOutput('version', buildVersion)
 }
 
