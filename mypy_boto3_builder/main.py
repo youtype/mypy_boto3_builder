@@ -166,6 +166,8 @@ def generate_stubs(
         session -- Botocore session
     """
     logger = get_logger()
+    master_service_names = service_names if args.partial_overload else available_service_names
+
     if not args.skip_services:
         total_str = f"{len(service_names)}"
         for index, service_name in enumerate(service_names):
@@ -177,7 +179,7 @@ def generate_stubs(
                 output_path=args.output_path,
                 service_name=service_name,
                 generate_setup=not args.installed,
-                service_names=available_service_names,
+                service_names=master_service_names,
             )
             service_name.boto3_version = ServiceName.LATEST
 
@@ -187,7 +189,7 @@ def generate_stubs(
             process_master(
                 session,
                 args.output_path,
-                available_service_names,
+                master_service_names,
                 generate_setup=not args.installed,
             )
 
@@ -195,7 +197,7 @@ def generate_stubs(
         process_boto3_stubs(
             session,
             args.output_path,
-            available_service_names,
+            master_service_names,
             generate_setup=not args.installed,
         )
 

@@ -8,6 +8,34 @@ function sortVersions(versions) {
     )
 }
 
+async function getDownloadURL(packageName, version) {
+    const options = {
+        hostname: 'pypi.org',
+        port: 443,
+        path: `/pypi/${packageName}/json`,
+        method: 'GET'
+    }
+
+    return new Promise((resolve, reject) => {
+        const req = https.request(options, res => {
+            if (res.statusCode < 200 || res.statusCode >= 300) {
+                return reject(new Error(`Status Code: ${res.statusCode}`));
+            }
+            const data = [];
+            res.on("data", chunk => data.push(chunk));
+            res.on("end", () => {
+                const response = JSON.parse(Buffer.concat(data).toString())
+                const versionsData = response.releases[version]
+
+                const versionData = versionsData.find(x => x.packagetype === 'bdist_wheel') || versionsData[0]
+                resolve(versionData.url)
+            })
+        });
+        req.on("error", reject)
+        req.end();
+    });
+}
+
 async function getReleaseVersions(packageName) {
     const options = {
         hostname: 'pypi.org',
@@ -94,6 +122,16 @@ async function extractVersions({ core, context }) {
     core.setOutput('version', buildVersion)
 }
 
+async function extractDownloadLinks({ core }) {
+    const boto3URL = await getDownloadURL('boto3', process.env.BOTO3_VERSION)
+    core.info(`Boto3 download URL: ${boto3URL}`)
+    core.setOutput('boto3-url', boto3URL)
+
+    const botocoreURL = await getDownloadURL('botocore', process.env.BOTOCORE_VERSION)
+    core.info(`Botocore download URL: ${botocoreURL}`)
+    core.setOutput('botocore-url', botocoreURL)
+}
+
 module.exports = {
     sortVersions,
     getNextPostVersion,
@@ -101,5 +139,6 @@ module.exports = {
     getBoto3Version,
     getStubsVersions,
     getBotocoreVersion,
-    extractVersions
+    extractVersions,
+    extractDownloadLinks,
 }
