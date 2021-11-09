@@ -39,6 +39,7 @@ class Namespace:
     builder_version: str
     generate_docs: bool
     list_services: bool
+    partial_overload: bool
 
 
 def parse_args(args: Sequence[str]) -> Namespace:
@@ -92,6 +93,11 @@ def parse_args(args: Sequence[str]) -> Namespace:
         default=["all"],
     )
     parser.add_argument(
+        "--partial-overload",
+        action="store_true",
+        help="Build boto3-stubs client/service overload only for selected services",
+    )
+    parser.add_argument(
         "--installed",
         action="store_true",
         help="Generate already installed packages for typings folder.",
@@ -114,4 +120,5 @@ def parse_args(args: Sequence[str]) -> Namespace:
         builder_version=result.builder_version,
         generate_docs=result.docs,
         list_services=result.list_services,
+        partial_overload=result.partial_overload,
     )
