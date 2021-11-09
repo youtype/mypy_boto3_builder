@@ -116,7 +116,7 @@ async function extractVersions({ core, context }) {
     core.info(`Built versions ${versions}`)
 
     if (versions.length && !force) {
-        core.info('Builts found, skipping')
+        core.info('Builds found, skipping')
         return
     }
 
