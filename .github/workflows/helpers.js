@@ -94,12 +94,19 @@ async function extractVersions({ core, context }) {
             context.payload.inputs.boto3_version :
             await getBoto3Version()
     )
-    const force = context.payload.inputs ? context.payload.inputs.force !== "false" : false
+    const force = context.payload.inputs ? context.payload.inputs.force !== 'false' : false
+
+    let buildAll = (context.payload.inputs && context.payload.inputs.build_all !== 'false') ? 'true' : 'false'
+    if (boto3Version.endsWith('.0')) {
+        core.info(`Boto3 version is not a micro release ${boto3Version}, building all packages`)
+        buildAll = 'true'
+    }
 
     const botocoreVersion = getBotocoreVersion(boto3Version)
     core.info(`Boto3 version ${boto3Version}`)
     core.setOutput('boto3-version', boto3Version)
     core.setOutput('botocore-version', botocoreVersion)
+    core.setOutput('build-all', buildAll)
 
     const versions = await getStubsVersions(boto3Version)
     core.info(`Built versions ${versions}`)
