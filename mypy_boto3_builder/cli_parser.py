@@ -40,6 +40,7 @@ class Namespace:
     generate_docs: bool
     list_services: bool
     partial_overload: bool
+    skip_published: bool
 
 
 def parse_args(args: Sequence[str]) -> Namespace:
@@ -59,7 +60,7 @@ def parse_args(args: Sequence[str]) -> Namespace:
     parser.add_argument(
         "-b",
         "--build-version",
-        help="Set custom output version, otherwise boto3 version is used.",
+        help="Set custom output version, otherwise smart versioning is used.",
     )
     parser.add_argument("-V", "--version", action="version", version=version)
     parser.add_argument(
@@ -69,6 +70,9 @@ def parse_args(args: Sequence[str]) -> Namespace:
     )
     parser.add_argument(
         "--skip-services", action="store_true", help="Whether to skip service modules"
+    )
+    parser.add_argument(
+        "--skip-published", action="store_true", help="Skip packages that are already on PyPI"
     )
     parser.add_argument("--docs", action="store_true", help="Generate docs for modules")
     parser.add_argument(
@@ -121,4 +125,5 @@ def parse_args(args: Sequence[str]) -> Namespace:
         generate_docs=result.docs,
         list_services=result.list_services,
         partial_overload=result.partial_overload,
+        skip_published=result.skip_published,
     )

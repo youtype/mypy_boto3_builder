@@ -9,4 +9,5 @@ Collection of simple utils functions.
         - [Boto3Changelog](boto3_changelog.md#boto3changelog)
         - [Markdown](markdown.md#markdown)
         - [NicePath](nice_path.md#nicepath)
+        - [PyPIManager](pypi_manager.md#pypimanager)
         - [Strings](strings.md#strings)

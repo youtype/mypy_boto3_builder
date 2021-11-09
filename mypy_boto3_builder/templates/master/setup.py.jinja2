@@ -8,7 +8,7 @@ LONG_DESCRIPTION = open(dirname(abspath(__file__)) + "/README.md", "r").read()
 
 setup(
     name="{{ package.pypi_name }}",
-    version="{{ build_version }}",
+    version="{{ package.version }}",
     packages=[
         "{{ package.name }}",
     ],

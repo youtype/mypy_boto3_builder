@@ -76,6 +76,7 @@ class TestMain:
                 generate_docs=False,
                 list_services=False,
                 partial_overload=False,
+                skip_published=False,
             )
             session_mock = MagicMock()
             generate_docs(
@@ -87,6 +88,7 @@ class TestMain:
             process_boto3_stubs_docs_mock.assert_called()
             process_service_docs_mock.assert_called()
 
+    @patch("mypy_boto3_builder.main.PyPIManager")
     @patch("mypy_boto3_builder.main.process_service")
     @patch("mypy_boto3_builder.main.process_master")
     @patch("mypy_boto3_builder.main.process_boto3_stubs")
@@ -97,6 +99,7 @@ class TestMain:
         process_boto3_stubs_mock: MagicMock,
         process_master_mock: MagicMock,
         process_service_mock: MagicMock,
+        PyPIManagerMock: MagicMock,
     ) -> None:
         with tempfile.TemporaryDirectory() as output_dir:
             namespace = Namespace(
@@ -111,6 +114,7 @@ class TestMain:
                 generate_docs=False,
                 list_services=False,
                 partial_overload=False,
+                skip_published=False,
             )
             session_mock = MagicMock()
             generate_stubs(

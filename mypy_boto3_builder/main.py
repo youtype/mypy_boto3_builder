@@ -7,6 +7,7 @@ from collections.abc import Iterable, Sequence
 from boto3 import __version__ as boto3_version
 from boto3.session import Session
 from botocore import __version__ as botocore_version
+from newversion.version import Version
 
 from mypy_boto3_builder.cli_parser import Namespace, parse_args
 from mypy_boto3_builder.constants import (
@@ -20,6 +21,7 @@ from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.boto3_changelog import Boto3Changelog
+from mypy_boto3_builder.utils.pypi_manager import PyPIManager
 from mypy_boto3_builder.utils.strings import (
     get_anchor_link,
     get_botocore_class_name,
@@ -120,7 +122,6 @@ def main() -> None:
     service_names = get_selected_service_names(args.service_names, available_service_names)
 
     build_version = args.build_version or boto3_version
-    min_build_version = get_min_build_version(build_version)
     botocore_build_version = botocore_version
     if args.build_version and ".post" in args.build_version:
         post_release = args.build_version.split(".post")[-1]
@@ -132,7 +133,7 @@ def main() -> None:
         boto3_version=boto3_version,
         botocore_version=botocore_version,
         build_version=build_version,
-        min_build_version=min_build_version,
+        min_build_version=get_min_build_version(build_version),
         botocore_build_version=botocore_build_version,
         builder_version=args.builder_version,
         get_anchor_link=get_anchor_link,
@@ -145,7 +146,12 @@ def main() -> None:
     if args.generate_docs:
         generate_docs(args, service_names, available_service_names, session)
     else:
-        generate_stubs(args, service_names, available_service_names, session)
+        generate_stubs(
+            args=args,
+            service_names=service_names,
+            available_service_names=available_service_names,
+            session=session,
+        )
 
     logger.info("Completed")
 
@@ -164,6 +170,7 @@ def generate_stubs(
         service_names -- Enabled service names
         available_service_names -- All service names
         session -- Botocore session
+        build_version -- Package build version
     """
     logger = get_logger()
     master_service_names = service_names if args.partial_overload else available_service_names
@@ -172,40 +179,124 @@ def generate_stubs(
         total_str = f"{len(service_names)}"
         for index, service_name in enumerate(service_names):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
-            logger.info(f"[{current_str}/{total_str}] Generating {service_name.module_name} module")
             service_name.boto3_version = boto3_version
+
+            pypi_manager = PyPIManager(service_name.pypi_name)
+            package_version = args.build_version or boto3_version
+            if args.skip_published and pypi_manager.has_version(package_version):
+                logger.info(
+                    f"[{current_str}/{total_str}]"
+                    f" Skipping {service_name.module_name} {package_version}, already on PyPI"
+                )
+                continue
+            if pypi_manager.has_version(package_version):
+                package_version = pypi_manager.get_next_version(package_version)
+
+            logger.info(
+                f"[{current_str}/{total_str}]"
+                f" Generating {service_name.module_name} {package_version}"
+            )
             process_service(
                 session=session,
                 output_path=args.output_path,
                 service_name=service_name,
                 generate_setup=not args.installed,
                 service_names=master_service_names,
+                version=package_version,
             )
             service_name.boto3_version = ServiceName.LATEST
 
     if not args.skip_master:
         if not args.installed:
-            logger.info(f"Generating {MODULE_NAME} module")
-            process_master(
-                session,
-                args.output_path,
-                master_service_names,
-                generate_setup=not args.installed,
-            )
+            generate_master(args, session, master_service_names)
 
-        logger.info(f"Generating {BOTO3_STUBS_NAME} module")
-        process_boto3_stubs(
-            session,
-            args.output_path,
-            master_service_names,
-            generate_setup=not args.installed,
-        )
+        generate_boto3_stubs(args, session, master_service_names)
+        generate_botocore_stubs(args)
 
-        logger.info(f"Generating {BOTOCORE_STUBS_NAME} module")
-        process_botocore_stubs(
-            args.output_path,
-            generate_setup=not args.installed,
-        )
+
+def generate_master(
+    args: Namespace,
+    session: Session,
+    service_names: Iterable[ServiceName],
+) -> None:
+    """
+    Generate `mypy-boto3` package.
+    """
+    logger = get_logger()
+    pypi_manager = PyPIManager(PYPI_NAME)
+    package_version = args.build_version or boto3_version
+    if args.skip_published and pypi_manager.has_version(package_version):
+        logger.info(f"Skipping {PYPI_NAME} {package_version}, already on PyPI")
+        return
+
+    if pypi_manager.has_version(package_version):
+        package_version = pypi_manager.get_next_version(package_version)
+
+    logger.info(f"Generating {PYPI_NAME} {package_version}")
+    process_master(
+        session,
+        args.output_path,
+        service_names=service_names,
+        generate_setup=not args.installed,
+        version=package_version,
+    )
+
+
+def generate_boto3_stubs(
+    args: Namespace,
+    session: Session,
+    service_names: Iterable[ServiceName],
+) -> None:
+    """
+    Generate `boto3-stubs` package.
+    """
+    logger = get_logger()
+    pypi_manager = PyPIManager(BOTO3_STUBS_NAME)
+    package_version = args.build_version or boto3_version
+    if args.skip_published and pypi_manager.has_version(package_version):
+        logger.info(f"Skipping {BOTO3_STUBS_NAME} {package_version}, already on PyPI")
+        return
+
+    if pypi_manager.has_version(package_version):
+        package_version = pypi_manager.get_next_version(package_version)
+
+    logger.info(f"Generating {BOTO3_STUBS_NAME} {package_version}")
+    process_boto3_stubs(
+        session,
+        args.output_path,
+        service_names,
+        generate_setup=not args.installed,
+        version=package_version,
+    )
+
+
+def generate_botocore_stubs(args: Namespace) -> None:
+    """
+    Generate `botocore-stubs` package.
+    """
+    logger = get_logger()
+    pypi_manager = PyPIManager(BOTOCORE_STUBS_NAME)
+    package_version = botocore_version
+    if args.build_version and Version(args.build_version).is_postrelease:
+        post = Version(args.build_version).post or 0
+        package_version = Version(botocore_version).bump_postrelease(post).dumps()
+
+    if args.skip_published and pypi_manager.has_version(package_version):
+        logger.info(f"Skipping {BOTOCORE_STUBS_NAME} {package_version}, already on PyPI")
+        return
+
+    if pypi_manager.has_version(package_version):
+        package_version = pypi_manager.get_next_version(package_version)
+
+    JinjaManager.update_globals(
+        botocore_build_version=package_version,
+    )
+
+    logger.info(f"Generating {BOTOCORE_STUBS_NAME} {package_version}")
+    process_botocore_stubs(
+        args.output_path,
+        generate_setup=not args.installed,
+    )
 
 
 def generate_docs(

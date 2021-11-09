@@ -80,6 +80,7 @@ Full list of [mypy-boto3-builder](README.md#mypy_boto3_builder) project modules.
         - [Boto3Changelog](mypy_boto3_builder/utils/boto3_changelog.md#boto3changelog)
         - [Markdown](mypy_boto3_builder/utils/markdown.md#markdown)
         - [NicePath](mypy_boto3_builder/utils/nice_path.md#nicepath)
+        - [PyPIManager](mypy_boto3_builder/utils/pypi_manager.md#pypimanager)
         - [Strings](mypy_boto3_builder/utils/strings.md#strings)
     - [Writers](mypy_boto3_builder/writers/index.md#writers)
         - [Boto3 Stubs Package](mypy_boto3_builder/writers/boto3_stubs_package.md#boto3-stubs-package)

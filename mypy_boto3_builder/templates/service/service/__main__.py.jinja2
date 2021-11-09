@@ -10,7 +10,7 @@ def print_info() -> None:
     """
     print(
         "Type annotations for boto3.{{ service_name.class_name }} {{ boto3_version }}\n"
-        "Version:         {{ build_version }}\n"
+        "Version:         {{ package.version }}\n"
         "Builder version: {{ builder_version }}\n"
         "Docs:            https://pypi.org/project/{{ service_name.pypi_name }}/\n"
         "Boto3 docs:      {{ service_name.boto3_doc_link }}\n"
@@ -23,7 +23,7 @@ def print_version() -> None:
     """
     Print package version to stdout.
     """
-    print("{{ build_version }}")
+    print("{{ package.version }}")
 
 
 def main() -> None:

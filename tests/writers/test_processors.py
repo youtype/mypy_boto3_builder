@@ -23,7 +23,13 @@ class TestProcessors:
         session_mock = MagicMock()
         service_name_mock = MagicMock()
         write_boto3_stubs_package_mock.return_value = [Path("modified_path")]
-        result = process_boto3_stubs(session_mock, Path("my_path"), [service_name_mock], True)
+        result = process_boto3_stubs(
+            session_mock,
+            Path("my_path"),
+            [service_name_mock],
+            True,
+            version="1.2.3",
+        )
         write_boto3_stubs_package_mock.assert_called_with(
             result,
             Path("my_path"),
@@ -44,7 +50,13 @@ class TestProcessors:
         write_master_package_mock.return_value = [Path("modified_path")]
         session_mock = MagicMock()
         service_name_mock = MagicMock()
-        result = process_master(session_mock, Path("my_path"), [service_name_mock], True)
+        result = process_master(
+            session_mock,
+            Path("my_path"),
+            [service_name_mock],
+            True,
+            version="1.2.3",
+        )
         write_master_package_mock.assert_called_with(
             result,
             output_path=Path("my_path"),
@@ -69,6 +81,7 @@ class TestProcessors:
             Path("my_path"),
             True,
             [ServiceName("ec2", "EC2")],
+            version="1.2.3",
         )
         write_service_package_mock.assert_called_with(
             result,

@@ -22,6 +22,7 @@ def process_boto3_stubs(
     output_path: Path,
     service_names: Iterable[ServiceName],
     generate_setup: bool,
+    version: str,
 ) -> Boto3StubsPackage:
 ```
 
@@ -29,10 +30,11 @@ Parse and write stubs package `boto3_stubs`.
 
 #### Arguments
 
-- `session` - boto3 session.
-- `output_path` - Package output path.
-- `service_names` - List of known service names.
-- `generate_setup` - Generate ready-to-install or to-use package.
+- `session` - boto3 session
+- `output_path` - Package output path
+- `service_names` - List of known service names
+- `generate_setup` - Generate ready-to-install or to-use package
+- `version` - Package version
 
 #### Returns
 
@@ -44,7 +46,7 @@ Parsed Boto3StubsPackage.
 
 ## process_boto3_stubs_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L160)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L170)
 
 ```python
 def process_boto3_stubs_docs(
@@ -72,7 +74,7 @@ Parsed Boto3StubsPackage.
 
 ## process_botocore_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L54)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L57)
 
 ```python
 def process_botocore_stubs(output_path: Path, generate_setup: bool) -> None:
@@ -82,12 +84,13 @@ Parse and write stubs package `botocore_stubs`.
 
 #### Arguments
 
-- `output_path` - Package output path.
-- `generate_setup` - Generate ready-to-install or to-use package.
+- `output_path` - Package output path
+- `generate_setup` - Generate ready-to-install or to-use package
+- `version` - Package version
 
 ## process_master
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L71)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L75)
 
 ```python
 def process_master(
@@ -95,6 +98,7 @@ def process_master(
     output_path: Path,
     service_names: Iterable[ServiceName],
     generate_setup: bool,
+    version: str,
 ) -> MasterPackage:
 ```
 
@@ -102,10 +106,11 @@ Parse and write master package `mypy_boto3`.
 
 #### Arguments
 
-- `session` - boto3 session.
-- `output_path` - Package output path.
-- `service_names` - List of known service names.
-- `generate_setup` - Generate ready-to-install or to-use package.
+- `session` - boto3 session
+- `output_path` - Package output path
+- `service_names` - List of known service names
+- `generate_setup` - Generate ready-to-install or to-use package
+- `version` - Package version
 
 #### Returns
 
@@ -117,7 +122,7 @@ Parsed MasterPackage.
 
 ## process_service
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L98)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L105)
 
 ```python
 def process_service(
@@ -126,6 +131,7 @@ def process_service(
     output_path: Path,
     generate_setup: bool,
     service_names: Iterable[ServiceName],
+    version: str,
 ) -> ServicePackage:
 ```
 
@@ -138,6 +144,7 @@ Parse and write service package `mypy_boto3_*`.
 - `output_path` - Package output path
 - `generate_setup` - Generate ready-to-install or to-use package
 - `service_names` - List of known service names
+- `version` - Package version
 
 #### Returns
 
@@ -150,7 +157,7 @@ Parsed ServicePackage.
 
 ## process_service_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L131)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L141)
 
 ```python
 def process_service_docs(

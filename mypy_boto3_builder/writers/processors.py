@@ -29,15 +29,17 @@ def process_boto3_stubs(
     output_path: Path,
     service_names: Iterable[ServiceName],
     generate_setup: bool,
+    version: str,
 ) -> Boto3StubsPackage:
     """
     Parse and write stubs package `boto3_stubs`.
 
     Arguments:
-        session -- boto3 session.
-        output_path -- Package output path.
-        service_names -- List of known service names.
-        generate_setup -- Generate ready-to-install or to-use package.
+        session -- boto3 session
+        output_path -- Package output path
+        service_names -- List of known service names
+        generate_setup -- Generate ready-to-install or to-use package
+        version -- Package version
 
     Return:
         Parsed Boto3StubsPackage.
@@ -45,6 +47,7 @@ def process_boto3_stubs(
     logger = get_logger()
     logger.debug("Parsing boto3 stubs")
     boto3_stubs_package = parse_boto3_stubs_package(session=session, service_names=service_names)
+    boto3_stubs_package.version = version
     logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
 
     write_boto3_stubs_package(boto3_stubs_package, output_path, generate_setup=generate_setup)
@@ -59,8 +62,9 @@ def process_botocore_stubs(
     Parse and write stubs package `botocore_stubs`.
 
     Arguments:
-        output_path -- Package output path.
-        generate_setup -- Generate ready-to-install or to-use package.
+        output_path -- Package output path
+        generate_setup -- Generate ready-to-install or to-use package
+        version -- Package version
     """
     logger = get_logger()
     logger.debug(f"Writing botocore stubs to {NicePath(output_path)}")
@@ -73,15 +77,17 @@ def process_master(
     output_path: Path,
     service_names: Iterable[ServiceName],
     generate_setup: bool,
+    version: str,
 ) -> MasterPackage:
     """
     Parse and write master package `mypy_boto3`.
 
     Arguments:
-        session -- boto3 session.
-        output_path -- Package output path.
-        service_names -- List of known service names.
-        generate_setup -- Generate ready-to-install or to-use package.
+        session -- boto3 session
+        output_path -- Package output path
+        service_names -- List of known service names
+        generate_setup -- Generate ready-to-install or to-use package
+        version -- Package version
 
     Return:
         Parsed MasterPackage.
@@ -89,6 +95,7 @@ def process_master(
     logger = get_logger()
     logger.debug("Parsing master")
     master_package = parse_master_package(session, service_names)
+    master_package.version = version
     logger.debug(f"Writing master to {NicePath(output_path)}")
 
     write_master_package(master_package, output_path=output_path, generate_setup=generate_setup)
@@ -101,6 +108,7 @@ def process_service(
     output_path: Path,
     generate_setup: bool,
     service_names: Iterable[ServiceName],
+    version: str,
 ) -> ServicePackage:
     """
     Parse and write service package `mypy_boto3_*`.
@@ -111,6 +119,7 @@ def process_service(
         output_path -- Package output path
         generate_setup -- Generate ready-to-install or to-use package
         service_names -- List of known service names
+        version -- Package version
 
     Return:
         Parsed ServicePackage.
@@ -118,6 +127,7 @@ def process_service(
     logger = get_logger()
     logger.debug(f"Parsing {service_name.boto3_name}")
     service_module = parse_service_package(session, service_name)
+    service_module.version = version
     service_module.extend_literals(service_names)
 
     for typed_dict in service_module.typed_dicts:
