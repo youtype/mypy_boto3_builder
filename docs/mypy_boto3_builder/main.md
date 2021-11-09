@@ -13,7 +13,7 @@ Main entrypoint for builder.
 
 ## generate_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L209)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L211)
 
 ```python
 def generate_docs(

@@ -75,6 +75,7 @@ class TestMain:
                 builder_version="1.2.3",
                 generate_docs=False,
                 list_services=False,
+                partial_overload=False,
             )
             session_mock = MagicMock()
             generate_docs(
@@ -109,6 +110,7 @@ class TestMain:
                 builder_version="1.2.3",
                 generate_docs=False,
                 list_services=False,
+                partial_overload=False,
             )
             session_mock = MagicMock()
             generate_stubs(
