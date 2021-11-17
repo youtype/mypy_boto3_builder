@@ -27,7 +27,12 @@ See how it helps to find and fix potential bugs:
 
 ## How to install
 
-### Basic
+### VSCode extension
+
+Add [AWS Boto3](https://marketplace.visualstudio.com/items?itemName=Boto3typed.boto3-ide)
+extension to your VSCode and run `AWS boto3: Quick Start` command.
+
+### From PyPI with pip
 
 Install `botocore-stubs` to add type annotations for `botocore` package.
 Install `boto3-stubs` to add type annotations for `boto3` package.
