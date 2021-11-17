@@ -51,7 +51,10 @@ Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.
 Check [boto3-stubs](https://pypi.org/project/boto3-stubs/) project for installation
 and usage instructions.
 
-In short, just install `boto3-stubs`:
+If you use VSCode, add [AWS Boto3](https://marketplace.visualstudio.com/items?itemName=Boto3typed.boto3-ide)
+extension to your VSCode and run `AWS boto3: Quick Start` command.
+
+If not,, just install `boto3-stubs` with `pip`:
 
 ```bash
 python -m pip install 'boto3-stubs[all]'
