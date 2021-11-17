@@ -49,7 +49,7 @@ and usage instructions.
 If you use VSCode, add [AWS Boto3](https://marketplace.visualstudio.com/items?itemName=Boto3typed.boto3-ide)
 extension to your VSCode and run `AWS boto3: Quick Start` command.
 
-If not,, just install `boto3-stubs` with `pip`:
+If not, just install `boto3-stubs` with `pip`:
 
 ```bash
 python -m pip install 'boto3-stubs[all]'
