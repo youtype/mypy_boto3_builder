@@ -27,6 +27,7 @@ IGNORE_PYRIGHT_ERRORS = (
     # "is partially unknown",
     'Method "paginate" overrides class "Paginator" in an incompatible manner',
     'Method "wait" overrides class "Waiter" in an incompatible manner',
+    "must return value",
 )
 IGNORE_MYPY_ERRORS = (
     'Signature of "paginate" incompatible with supertype "Paginator"',
