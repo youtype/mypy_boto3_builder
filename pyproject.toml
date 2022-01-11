@@ -80,7 +80,7 @@ requests = "^2.26.0"
 [tool.poetry.dev-dependencies]
 codecov = "*"
 handsdown = "*"
-mypy = "0.910"
+mypy = "0.931"
 flake8 = "*"
 flake8-docstrings = "*"
 pytest-cov = "*"
