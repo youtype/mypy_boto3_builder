@@ -3,6 +3,7 @@ from typing import IO, Any, Dict, Iterable, Mapping
 
 import requests
 import urllib3  # type: ignore
+from urllib3.exceptions import ReadTimeoutError as _ReadTimeoutError  # type: ignore
 
 if sys.version_info >= (3, 9):
     from typing import TypedDict
@@ -94,9 +95,7 @@ class ConnectionClosedError(HTTPClientError):
     def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
         self.kwargs: _EndpointURLErrorKwargs
 
-class ReadTimeoutError(
-    HTTPClientError, requests.exceptions.ReadTimeout, urllib3.exceptions.ReadTimeoutError
-):
+class ReadTimeoutError(HTTPClientError, requests.exceptions.ReadTimeout, _ReadTimeoutError):
     def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
         self.kwargs: _EndpointURLErrorKwargs
         self.request: Any
