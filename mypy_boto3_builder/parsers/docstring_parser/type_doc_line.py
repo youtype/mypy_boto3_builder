@@ -42,7 +42,7 @@ class TypeDocLine:
         """
         result: list[TypeDocLine] = []
         for line in self._indented:
-            result.append(TypeDocLine(**line))
+            result.append(TypeDocLine(**line))  # type: ignore
         return result
 
     @property
