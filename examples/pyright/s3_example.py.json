@@ -121,7 +121,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal[b'asd']\" cannot be assigned to parameter \"Fileobj\" of type \"IO[Any]\" in function \"download_fileobj\"\n\u00a0\u00a0\"Literal[b'asd']\" is incompatible with \"IO[Any]\"",
+        "message": "Argument of type \"Literal[b'asd']\" cannot be assigned to parameter \"Fileobj\" of type \"IO[Any] | StreamingBody\" in function \"download_fileobj\"\n\u00a0\u00a0Type \"Literal[b'asd']\" cannot be assigned to type \"IO[Any] | StreamingBody\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b'asd']\" is incompatible with \"IO[Any]\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b'asd']\" is incompatible with \"StreamingBody\"",
         "range": {
             "start": {
                 "line": 49,
