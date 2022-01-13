@@ -3,6 +3,8 @@ String to type annotation map that find type annotation by argument name and typ
 """
 from datetime import datetime
 
+from botocore.response import StreamingBody
+
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -31,7 +33,9 @@ DOCSTRING_TYPE_MAP: dict[str, FakeAnnotation] = {
     "int": Type.int,
     "integer": Type.int,
     "long": Type.int,
-    "a file-like object": TypeSubscript(Type.IO, [Type.Any]),
+    "a file-like object": TypeSubscript(
+        Type.Union, [TypeSubscript(Type.IO, [Type.Any]), TypeClass(StreamingBody)]
+    ),
     "seekable file-like object": TypeSubscript(Type.IO, [Type.Any]),
     "list": Type.ListAny,
     "L{botocore.paginate.Paginator}": ExternalImport(
