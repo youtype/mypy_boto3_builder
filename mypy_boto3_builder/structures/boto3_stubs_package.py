@@ -75,6 +75,7 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("sys")),
                 ImportRecord(ImportString("typing"), "Any"),
                 ImportRecord(ImportString("typing"), "List"),
+                ImportRecord(ImportString("typing"), "Optional"),
                 ImportRecord(ImportString("boto3")),
                 ImportRecord(ImportString("boto3", "utils")),
                 ImportRecord(ImportString("boto3", "resources", "factory"), "ResourceFactory"),
