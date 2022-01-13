@@ -32,6 +32,7 @@ IGNORE_PYRIGHT_ERRORS = (
 IGNORE_MYPY_ERRORS = (
     'Signature of "paginate" incompatible with supertype "Paginator"',
     'Signature of "wait" incompatible with supertype "Waiter"',
+    "note:",
 )
 
 
