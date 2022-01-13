@@ -47,7 +47,7 @@ Service names marked as essential.
 
 ### Boto3StubsPackage().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L97)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L98)
 
 ```python
 def get_all_names() -> list[str]:
