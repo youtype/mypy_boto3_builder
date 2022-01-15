@@ -71,14 +71,14 @@ python -m pip freeze | grep mypy-boto3 | xargs python -m pip uninstall -y
 - Install [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 - Install [Pylance extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
 - Set `Pylance` as your Python Language Server
-- Install `boto-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
+- Install `boto3-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
 
 Both type checking and auto-complete should work for installed `boto3` services.
 No explicit type annotations required, write your `boto3` code as usual.
 
 ### PyCharm
 
-- Install `boto-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
+- Install `boto3-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
 - Install `mypy_boto3_builder`: `pip install mypy_boto3_builder`
 - Generate stubs in `<project_root>/typings` directory for services you use
 
@@ -92,7 +92,7 @@ Since stubs are stored in your project root, you do not need to re-generate them
 
 ### Emacs
 
-- Install `boto-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
+- Install `boto3-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
 - Install
   [use-package](https://github.com/jwiegley/use-package),
   [lsp](https://github.com/emacs-lsp/lsp-mode/),
@@ -115,7 +115,7 @@ Since stubs are stored in your project root, you do not need to re-generate them
 
 ### Sublime Text
 
-- Install `boto-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
+- Install `boto3-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
 - Install [LSP-pyright](https://github.com/sublimelsp/LSP-pyright) package
 - Make sure emacs uses the environment where you have installed `boto3-stubs`
 
@@ -126,7 +126,7 @@ Not tested, but as long as your IDE supports `mypy` or `pyright`, everything sho
 ### mypy
 
 - Install `mypy`: `python -m pip install mypy`
-- Install `boto-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
+- Install `boto3-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
 - Run `mypy` as usual
 
 Type checking should work for installed `boto3` services.
@@ -135,7 +135,7 @@ No explicit type annotations required, write your `boto3` code as usual.
 ### pyright
 
 - Install `pyright`: `yarn global add pyright`
-- Install `boto-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
+- Install `boto3-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
 - Optionally, you can install `boto3-stubs` to `typings` folder.
 
 Type checking should work for installed `boto3` services.
