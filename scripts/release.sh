@@ -5,8 +5,10 @@ ROOT_PATH=$(dirname $(dirname $0))
 OUTPUT_PATH=${ROOT_PATH}/mypy_boto3_output
 PACKAGES=${OUTPUT_PATH}/mypy_boto3_$1_package
 if [[ "$1" == "" ]]; then
-    PACKAGES=${OUTPUT_PATH}/mypy_boto3_*
+    PACKAGES=`find ${OUTPUT_PATH} -name 'mypy_boto3_*_package'`
 fi
+
+echo "Packages: " $PACKAGES
 
 for package in $PACKAGES
 do
