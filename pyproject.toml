@@ -90,6 +90,7 @@ twine = "*"
 types-requests = "*"
 types-pkg-resources = "*"
 types-six = "*"
+types-urllib3 = "*"
 boto3-stubs = "*"
 botocore-stubs = "*"
 
