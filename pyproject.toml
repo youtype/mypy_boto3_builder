@@ -121,7 +121,7 @@ exclude = [
     "tests",
     "typestubs",
 ]
-reportMissingImports = true
+reportMissingImports = "error"
 reportMissingTypeStubs = false
 reportMissingTypeArgument = "error"
 reportIncompatibleMethodOverride = "error"
