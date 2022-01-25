@@ -152,3 +152,4 @@ Full changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_bu
 - [Ashton Honnecke](https://github.com/ahonnecke)
 - [Mike Carey](https://github.com/mike-carey)
 - [Ole-Martin Bratteng](https://github.com/omBratteng)
+- [Nikhil Benesch](https://github.com/benesch)
