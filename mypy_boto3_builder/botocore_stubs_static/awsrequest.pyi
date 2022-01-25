@@ -6,8 +6,8 @@ from botocore.compat import urlencode as urlencode
 from botocore.compat import urlsplit as urlsplit
 from botocore.compat import urlunsplit as urlunsplit
 from botocore.exceptions import UnseekableStreamError as UnseekableStreamError
-from requests.packages.urllib3.connection import HTTPConnection, VerifiedHTTPSConnection
-from requests.packages.urllib3.connectionpool import HTTPConnectionPool, HTTPSConnectionPool
+from urllib3.connection import HTTPConnection, VerifiedHTTPSConnection
+from urllib3.connectionpool import HTTPConnectionPool, HTTPSConnectionPool
 
 try:
     from collections.abc import MutableMapping

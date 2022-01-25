@@ -10,7 +10,7 @@ from botocore.exceptions import InvalidProxiesConfigError as InvalidProxiesConfi
 from botocore.exceptions import ProxyConnectionError as ProxyConnectionError
 from botocore.exceptions import ReadTimeoutError as ReadTimeoutError
 from botocore.exceptions import SSLError as SSLError
-from requests.packages.urllib3 import ProxyManager as ProxyManager
+from urllib3 import ProxyManager as ProxyManager
 
 DEFAULT_TIMEOUT: int
 MAX_POOL_CONNECTIONS: int
