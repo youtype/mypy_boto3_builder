@@ -126,6 +126,8 @@ def get_short_docstring(doc: str) -> str:
         line = line.strip().rstrip("::")
         if line.startswith(":"):
             break
+        if line.startswith("**Request syntax**"):
+            break
         if not line:
             continue
         if ". " in line:

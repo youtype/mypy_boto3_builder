@@ -36,6 +36,7 @@ class TestStrings:
         assert get_short_docstring("") == ""
         assert get_short_docstring("\n") == ""
         assert get_short_docstring("`asd\n:type") == "`asd`."
+        assert get_short_docstring("`asd\n **Request syntax**::\ntest") == "`asd`."
         assert (
             get_short_docstring(
                 """
