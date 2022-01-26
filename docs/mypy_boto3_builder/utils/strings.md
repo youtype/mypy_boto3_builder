@@ -25,7 +25,7 @@ Convert header to markdown anchor link.
 
 ## get_botocore_class_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L147)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L149)
 
 ```python
 def get_botocore_class_name(metadata: dict[(str, str)]) -> str:
@@ -76,7 +76,7 @@ A string with first line and following indented lines.
 
 ## get_min_build_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L157)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/strings.py#L159)
 
 ```python
 def get_min_build_version(version: str) -> str:
