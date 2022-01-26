@@ -147,7 +147,9 @@ def get_short_docstring(doc: str) -> str:
         result_str = f"{result_str}."
 
     if "<https:" in result_str:
-        result_str = re.sub(r"`([^`]+) <https://(\S+)>`", r"[\g<1>](https://\g<2>)", result_str)
+        result_str = re.sub(
+            r"`([^`]+) <https://(\S+)>`(\_)?", r"[\g<1>](https://\g<2>)", result_str
+        )
 
     return "\n".join(textwrap.wrap(result_str, width=80, break_long_words=False))
 
