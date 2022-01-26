@@ -3,6 +3,7 @@ Multiple string utils collection.
 """
 import builtins
 import keyword
+import re
 import textwrap
 import typing
 from unittest.mock import MagicMock
@@ -112,8 +113,10 @@ def get_short_docstring(doc: str) -> str:
     Create a short docstring from boto3 documentation.
 
     Trims docstring to 300 chars.
-    Removes double and trible backticks.
+    Removes double and triple backticks.
+    Stops on `**Request syntax**` and `::`.
     Ensures that backticks are closed.
+    Replaces `Text <link>` with [Text](link).
     Wraps docstring to 80 chars.
     """
     doc = str(doc)
@@ -126,7 +129,7 @@ def get_short_docstring(doc: str) -> str:
         line = line.strip().rstrip("::")
         if line.startswith(":"):
             break
-        if line.startswith("**Request syntax**"):
+        if line.lower().startswith("**request syntax**"):
             break
         if not line:
             continue
@@ -143,7 +146,10 @@ def get_short_docstring(doc: str) -> str:
     if result_str and not result_str.endswith("."):
         result_str = f"{result_str}."
 
-    return "\n".join(textwrap.wrap(result_str, width=80))
+    if "<https:" in result_str:
+        result_str = re.sub(r"`([^`]+) <https://(\S+)>`", r"[\g<1>](https://\g<2>)", result_str)
+
+    return "\n".join(textwrap.wrap(result_str, width=80, break_long_words=False))
 
 
 def get_botocore_class_name(metadata: dict[str, str]) -> str:
