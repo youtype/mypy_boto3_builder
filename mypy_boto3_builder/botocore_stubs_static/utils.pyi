@@ -1,16 +1,5 @@
 import datetime
-from typing import (
-    TYPE_CHECKING,
-    Any,
-    Callable,
-    Dict,
-    Iterable,
-    List,
-    Mapping,
-    Optional,
-    Pattern,
-    Tuple,
-)
+from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Pattern, Tuple
 
 from botocore.compat import HAS_CRT as HAS_CRT
 from botocore.compat import MD5_AVAILABLE as MD5_AVAILABLE
@@ -46,10 +35,12 @@ from botocore.exceptions import (
     UnsupportedS3ControlConfigurationError as UnsupportedS3ControlConfigurationError,
 )
 from botocore.model import ServiceModel, Shape
+from botocore.session import Session
 
 DEFAULT_METADATA_SERVICE_TIMEOUT: int
 METADATA_BASE_URL: str
 METADATA_BASE_URL_IPv6: str
+METADATA_ENDPOINT_MODES: Tuple[str, ...]
 SAFE_CHARS: str
 LABEL_RE: Pattern[str]
 RETRYABLE_HTTP_ERRORS: Tuple[Any, ...]
@@ -66,7 +57,7 @@ IPV6_ADDRZ_RE: Pattern[str]
 UNSAFE_URL_CHARS: frozenset[Any]
 
 def ensure_boolean(val: Any) -> bool: ...
-def resolve_imds_endpoint_mode(session: Any) -> str: ...
+def resolve_imds_endpoint_mode(session: Session) -> str: ...
 def is_json_value_header(shape: Shape) -> bool: ...
 def has_header(header_name: Optional[str], headers: Mapping[str, Any]) -> bool: ...
 def get_service_module_name(service_model: ServiceModel) -> str: ...
@@ -100,6 +91,15 @@ class IMDSFetcher:
 class InstanceMetadataFetcher(IMDSFetcher):
     def retrieve_iam_role_credentials(self) -> Any: ...
 
+class IMDSRegionProvider:
+    def __init__(
+        self,
+        session: Session,
+        environ: Any = ...,
+        fetcher: Optional[IMDSFetcher] = ...,
+    ) -> None: ...
+    def provide(self) -> Any: ...
+
 def merge_dicts(dict1: Dict[str, Any], dict2: Dict[str, Any], append_lists: bool = ...) -> None: ...
 def lowercase_dict(original: Dict[str, Any]) -> Dict[str, Any]: ...
 def parse_key_val_file(filename: str, _open: Callable[..., Any] = ...) -> Dict[str, str]: ...
@@ -115,9 +115,6 @@ def calculate_tree_hash(body: str) -> str: ...
 class CachedProperty:
     def __init__(self, fget: Callable[..., Any]) -> None: ...
     def __get__(self, obj: Any, cls: Any) -> Any: ...
-
-if TYPE_CHECKING:
-    CachedProperty = property  # type: ignore
 
 class ArgumentGenerator:
     def __init__(self, use_member_names: bool = ...) -> None: ...
