@@ -1,5 +1,16 @@
 import datetime
-from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Pattern, Tuple
+from typing import (
+    TYPE_CHECKING,
+    Any,
+    Callable,
+    Dict,
+    Iterable,
+    List,
+    Mapping,
+    Optional,
+    Pattern,
+    Tuple,
+)
 
 from botocore.compat import HAS_CRT as HAS_CRT
 from botocore.compat import MD5_AVAILABLE as MD5_AVAILABLE
@@ -104,6 +115,9 @@ def calculate_tree_hash(body: str) -> str: ...
 class CachedProperty:
     def __init__(self, fget: Callable[..., Any]) -> None: ...
     def __get__(self, obj: Any, cls: Any) -> Any: ...
+
+if TYPE_CHECKING:
+    CachedProperty = property  # type: ignore
 
 class ArgumentGenerator:
     def __init__(self, use_member_names: bool = ...) -> None: ...
