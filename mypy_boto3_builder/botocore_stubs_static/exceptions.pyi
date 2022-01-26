@@ -108,11 +108,15 @@ class SSLError(ConnectionError, requests.exceptions.SSLError):
         self.kwargs: _SSLErrorKwargs
 
 class ConnectionClosedError(HTTPClientError):
-    def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
+    def __init__(
+        self, request: Any = ..., response: Any = ..., *, endpoint_url: str = ..., **kwargs: Any
+    ) -> None:
         self.kwargs: _EndpointURLErrorKwargs
 
 class ReadTimeoutError(HTTPClientError, requests.exceptions.ReadTimeout, _ReadTimeoutError):
-    def __init__(self, *, endpoint_url: str = ..., **kwargs: Any) -> None:
+    def __init__(
+        self, request: Any = ..., response: Any = ..., *, endpoint_url: str = ..., **kwargs: Any
+    ) -> None:
         self.kwargs: _EndpointURLErrorKwargs
         self.request: Any
         self.response: Any
@@ -132,7 +136,9 @@ class _ResponseStreamingErrorKwargs(TypedDict):
     error: Any
 
 class ResponseStreamingError(HTTPClientError):
-    def __init__(self, *, error: Any = ..., **kwargs: Any) -> None:
+    def __init__(
+        self, request: Any = ..., response: Any = ..., *, error: Any = ..., **kwargs: Any
+    ) -> None:
         self.kwargs: _ResponseStreamingErrorKwargs
 
 class NoCredentialsError(BotoCoreError): ...

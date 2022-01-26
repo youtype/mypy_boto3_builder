@@ -3,6 +3,7 @@ from typing import Any, Optional
 from botocore.compat import ensure_bytes as ensure_bytes
 from botocore.compat import ensure_unicode as ensure_unicode
 from botocore.compat import urlparse as urlparse
+from botocore.retryhandler import EXCEPTION_MAP as RETRYABLE_EXCEPTIONS
 
 class Monitor:
     def __init__(self, adapter: Any, publisher: Any) -> None: ...

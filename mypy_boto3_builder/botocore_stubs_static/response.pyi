@@ -2,6 +2,7 @@ import logging
 from typing import IO, Any, Iterator, Optional, Tuple
 
 import requests
+from botocore import ScalarTypes as ScalarTypes
 from botocore.model import OperationModel
 
 logger: logging.Logger

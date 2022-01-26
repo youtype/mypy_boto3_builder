@@ -1,4 +1,4 @@
-from typing import Any, Dict, Mapping
+from typing import Any, Dict, Mapping, Type
 
 from botocore import validate as validate
 from botocore.compat import formatdate as formatdate
@@ -16,7 +16,7 @@ def create_serializer(protocol_name: str, include_validation: bool = ...) -> Any
 
 class Serializer:
     DEFAULT_METHOD: str = ...
-    MAP_TYPE: Mapping[str, Any] = ...
+    MAP_TYPE: Type[Dict[str, Any]] = ...
     DEFAULT_ENCODING: str = ...
     def serialize_to_request(
         self, parameters: Mapping[str, Any], operation_model: OperationModel

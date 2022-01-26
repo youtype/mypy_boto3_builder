@@ -10,6 +10,7 @@ from botocore import translate as translate
 from botocore import utils as utils
 from botocore import waiter as waiter
 from botocore.client import BaseClient, Config
+from botocore.compat import HAS_CRT as HAS_CRT
 from botocore.configprovider import (
     BOTOCORE_DEFAUT_SESSION_VARIABLES as BOTOCORE_DEFAUT_SESSION_VARIABLES,
 )
@@ -135,6 +136,7 @@ class Session:
         config: Optional[Config] = ...,
     ) -> BaseClient: ...
     def get_available_partitions(self) -> List[str]: ...
+    def get_partition_for_region(self, region_name: str) -> str: ...
     def get_available_regions(
         self,
         service_name: str,

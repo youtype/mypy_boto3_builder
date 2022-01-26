@@ -17,7 +17,10 @@ class Shape:
     METADATA_ATTRS: List[str]
     MAP_TYPE: Type[Dict[str, Any]]
     def __init__(
-        self, shape_name: str, shape_model: Dict[str, Any], shape_resolver: "ShapeResolver" = ...
+        self,
+        shape_name: str,
+        shape_model: Dict[str, Any],
+        shape_resolver: Optional["ShapeResolver"] = ...,
     ) -> None:
         self.name: str
         self.type_name: str
@@ -38,6 +41,8 @@ class StructureShape(Shape):
     def error_code(self) -> str: ...
     @property
     def is_document_type(self) -> bool: ...
+    @property
+    def is_tagged_union(self) -> bool: ...
 
 class ListShape(Shape):
     @property
