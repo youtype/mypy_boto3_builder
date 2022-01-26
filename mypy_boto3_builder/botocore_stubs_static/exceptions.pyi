@@ -47,6 +47,14 @@ class UnknownServiceError(DataNotFoundError):
     ) -> None:
         self.kwargs: _UnknownServiceErrorKwargs
 
+class _UnknownRegionErrorKwargs(TypedDict):
+    service_name: str
+    error_msg: str
+
+class UnknownRegionError(BotoCoreError):
+    def __init__(self, *, region_name: str = ..., error_msg: str = ..., **kwargs: Any) -> None:
+        self.kwargs: _UnknownServiceErrorKwargs
+
 class _ApiVersionNotFoundErrorKwargs(TypedDict):
     service_name: str
     api_version: str
@@ -75,6 +83,14 @@ class _InvalidIMDSEndpointErrorKwargs(TypedDict):
 class InvalidIMDSEndpointError(BotoCoreError):
     def __init__(self, *, endpoint: str = ..., **kwargs: Any) -> None:
         self.kwargs: _InvalidIMDSEndpointErrorKwargs
+
+class _InvalidIMDSEndpointModeErrorKwargs(TypedDict):
+    mode: str
+    valid_modes: Iterable[str]
+
+class InvalidIMDSEndpointModeError(BotoCoreError):
+    def __init__(self, *, mode: str = ..., valid_modes: Iterable[str], **kwargs: Any) -> None:
+        self.kwargs: _InvalidIMDSEndpointModeErrorKwargs
 
 class _EndpointURLErrorKwargs(_ConnectionErrorKwargs):
     endpoint_url: str
@@ -112,6 +128,13 @@ class ProxyConnectionError(ConnectionError, requests.exceptions.ProxyError):
     def __init__(self, *, proxy_url: str = ..., **kwargs: Any) -> None:
         self.kwargs: _ProxyConnectionErrorKwargs
 
+class _ResponseStreamingErrorKwargs(TypedDict):
+    error: Any
+
+class ResponseStreamingError(HTTPClientError):
+    def __init__(self, *, error: Any = ..., **kwargs: Any) -> None:
+        self.kwargs: _ResponseStreamingErrorKwargs
+
 class NoCredentialsError(BotoCoreError): ...
 
 class _PartialCredentialsErrorKwargs(TypedDict):
@@ -146,6 +169,13 @@ class ServiceNotInRegionError(BotoCoreError):
 
 class BaseEndpointResolverError(BotoCoreError): ...
 class NoRegionError(BaseEndpointResolverError): ...
+
+class _EndpointVariantErrorKwargs(TypedDict):
+    tags: Iterable[str]
+
+class EndpointVariantError(BaseEndpointResolverError):
+    def __init__(self, *, tags: Iterable[str] = ..., **kwargs: Any) -> None:
+        self.kwargs: _EndpointVariantErrorKwargs
 
 class _UnknownEndpointErrorKwargs(TypedDict):
     service_name: str
@@ -500,6 +530,13 @@ class InfiniteLoopConfigError(InvalidConfigError):
 class RefreshWithMFAUnsupportedError(BotoCoreError): ...
 class MD5UnavailableError(BotoCoreError): ...
 
+class _MissingDependencyExceptionKwargs(TypedDict):
+    msg: str
+
+class MissingDependencyException(BotoCoreError):
+    def __init__(self, *, msg: str = ..., **kwargs: Any) -> None:
+        self.kwargs: _MissingDependencyExceptionKwargs
+
 class _MetadataRetrievalErrorKwargs(TypedDict):
     error_msg: str
 
@@ -529,3 +566,11 @@ class SSOTokenLoadError(SSOError):
 class UnauthorizedSSOTokenError(SSOError): ...
 class CapacityNotAvailableError(BotoCoreError): ...
 class InvalidProxiesConfigError(BotoCoreError): ...
+
+class _InvalidDefaultsModeKwargs(TypedDict):
+    mode: str
+    valid_modes: Iterable[str]
+
+class InvalidDefaultsMode(BotoCoreError):
+    def __init__(self, *, mode: str = ..., valid_modes: Iterable[str] = ..., **kwargs: Any) -> None:
+        self.kwargs: _InvalidDefaultsModeKwargs
