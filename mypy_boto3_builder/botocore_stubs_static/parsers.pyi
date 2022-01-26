@@ -1,4 +1,4 @@
-from typing import Any, Callable, Dict, Mapping, Optional
+from typing import Any, Callable, Dict, Mapping, Optional, Type
 
 from botocore.compat import ETree as ETree
 from botocore.compat import XMLParseError as XMLParseError
@@ -23,7 +23,7 @@ class ResponseParserError(Exception): ...
 
 class ResponseParser:
     DEFAULT_ENCODING: str = ...
-    EVENT_STREAM_PARSER_CLS: ResponseParser = ...
+    EVENT_STREAM_PARSER_CLS: Type[ResponseParser] = ...
     def __init__(
         self,
         timestamp_parser: Optional[Callable[[str], Any]] = ...,

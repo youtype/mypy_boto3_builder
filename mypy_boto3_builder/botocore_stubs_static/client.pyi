@@ -75,12 +75,14 @@ class ClientEndpointBridge:
         client_config: Optional[Any] = ...,
         default_endpoint: Optional[str] = ...,
         service_signing_name: Optional[str] = ...,
+        config_store: Any = ...,
     ) -> None:
         self.service_signing_name: str
         self.endpoint_resolver: BaseEndpointResolver
         self.scoped_config: Any
         self.client_config: Any
         self.default_endpoint: str
+        self.config_store: Any
     def resolve(
         self,
         service_name: str,

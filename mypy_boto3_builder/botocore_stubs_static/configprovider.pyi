@@ -1,10 +1,10 @@
-from typing import Any, Optional
+from typing import Any, Dict, Optional, Tuple
 
 from botocore import utils as utils
 
-BOTOCORE_DEFAUT_SESSION_VARIABLES: Any
-DEFAULT_S3_CONFIG_VARS: Any
-DEFAULT_PROXIES_CONFIG_VARS: Any
+BOTOCORE_DEFAUT_SESSION_VARIABLES: Dict[str, Tuple[Any, ...]]
+DEFAULT_S3_CONFIG_VARS: Dict[str, Tuple[Any, ...]]
+DEFAULT_PROXIES_CONFIG_VARS: Dict[str, Tuple[Any, ...]]
 
 def create_botocore_default_config_mapping(session: Any) -> Any: ...
 

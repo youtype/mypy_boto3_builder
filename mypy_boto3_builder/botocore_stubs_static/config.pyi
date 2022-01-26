@@ -29,6 +29,7 @@ _Config = TypeVar("_Config", bound="Config")
 
 class Config:
     OPTION_DEFAULTS: OrderedDict[str, None]
+    NON_LEGACY_OPTION_DEFAULTS: Dict[str, None]
     def __init__(
         self,
         region_name: str = ...,
