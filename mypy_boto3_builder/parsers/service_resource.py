@@ -69,9 +69,14 @@ def parse_service_resource(
         result.methods.append(method)
 
     logger.debug("Parsing ServiceResource attributes")
-    result.attributes.extend(parse_attributes(service_name, "ServiceResource", service_resource))
-    result.attributes.extend(parse_identifiers(service_resource))
-    result.attributes.extend(parse_references(service_resource))
+    attributes = parse_attributes(service_name, "ServiceResource", service_resource, shape_parser)
+    result.attributes.extend(attributes)
+
+    identifiers = parse_identifiers(service_resource)
+    result.attributes.extend(identifiers)
+
+    references = parse_references(service_resource)
+    result.attributes.extend(references)
 
     logger.debug("Parsing ServiceResource collections")
     collections = parse_collections("ServiceResource", service_resource, service_name, shape_parser)

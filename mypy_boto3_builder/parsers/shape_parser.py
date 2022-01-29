@@ -222,7 +222,7 @@ class ShapeParser:
             if argument_type_stub is not None:
                 argument_type = argument_type_stub
             else:
-                argument_type = self._parse_shape(argument_shape)
+                argument_type = self.parse_shape(argument_shape)
             argument = Argument(argument_alias, argument_type)
             if argument_name not in required:
                 argument.default = Type.Ellipsis
@@ -248,7 +248,7 @@ class ShapeParser:
             return argument_type_stub
 
         if shape:
-            return self._parse_shape(shape, output=True)
+            return self.parse_shape(shape, output=True)
 
         return Type.none
 
@@ -335,13 +335,13 @@ class ShapeParser:
         type_subscript = TypeSubscript(Type.Dict) if output_child else TypeSubscript(Type.Mapping)
         if shape.key:
             type_subscript.add_child(
-                self._parse_shape(shape.key, output_child=output_child, is_streaming=is_streaming)
+                self.parse_shape(shape.key, output_child=output_child, is_streaming=is_streaming)
             )
         else:
             type_subscript.add_child(Type.str)
         if shape.value:
             type_subscript.add_child(
-                self._parse_shape(shape.value, output_child=output_child, is_streaming=is_streaming)
+                self.parse_shape(shape.value, output_child=output_child, is_streaming=is_streaming)
             )
         else:
             type_subscript.add_child(Type.Any)
@@ -384,7 +384,7 @@ class ShapeParser:
         for attr_name, attr_shape in shape.members.items():
             typed_dict.add_attribute(
                 attr_name,
-                self._parse_shape(
+                self.parse_shape(
                     attr_shape,
                     output_child=output or output_child,
                     is_streaming=is_streaming,
@@ -409,18 +409,30 @@ class ShapeParser:
     def _parse_shape_list(self, shape: ListShape, output_child: bool = False) -> FakeAnnotation:
         type_subscript = TypeSubscript(Type.List) if output_child else TypeSubscript(Type.Sequence)
         if shape.member:
-            type_subscript.add_child(self._parse_shape(shape.member, output_child=output_child))
+            type_subscript.add_child(self.parse_shape(shape.member, output_child=output_child))
         else:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
-    def _parse_shape(
+    def parse_shape(
         self,
         shape: Shape,
         output: bool = False,
         output_child: bool = False,
         is_streaming: bool = False,
     ) -> FakeAnnotation:
+        """
+        Parse any botocore shape to TypeAnnotation.
+
+        Arguments:
+            shape -- Botocore shape.
+            output -- Whether shape should use strict output types.
+            output_child -- Whether shape parent is marked as output.
+            is_streaming -- Whether shape should be streaming.
+
+        Returns:
+            TypeAnnotation or similar class.
+        """
         if not is_streaming:
             is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
             if output or output_child:
@@ -635,7 +647,7 @@ class ShapeParser:
                 arguments.extend(self._get_kw_flags(method_name, shape_arguments))
                 arguments.extend(shape_arguments)
             if operation_shape.output_shape is not None and return_type is Type.none:
-                operation_return_type = self._parse_shape(operation_shape.output_shape, output=True)
+                operation_return_type = self.parse_shape(operation_shape.output_shape, output=True)
                 return_type = operation_return_type
 
         method = Method(name=method_name, arguments=arguments, return_type=return_type)
@@ -717,7 +729,7 @@ class ShapeParser:
                     method.arguments.extend(self._get_kw_flags(batch_action.name, shape_arguments))
                     method.arguments.extend(shape_arguments)
                 if operation_model.output_shape is not None:
-                    return_type = self._parse_shape(operation_model.output_shape, output=True)
+                    return_type = self.parse_shape(operation_model.output_shape, output=True)
                     method.return_type = return_type
 
         return result

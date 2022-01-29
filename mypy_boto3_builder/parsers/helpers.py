@@ -10,11 +10,11 @@ from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.docstring_parser.argspec_parser import ArgSpecParser
 from mypy_boto3_builder.parsers.docstring_parser.docstring_parser import DocstringParser
+from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.method import Method
-from mypy_boto3_builder.type_maps.docstring_type_map import get_type_from_docstring
 from mypy_boto3_builder.type_maps.method_argument_map import get_method_arguments_stub
 from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
 from mypy_boto3_builder.utils.strings import get_class_prefix
@@ -45,7 +45,10 @@ def get_public_methods(inspect_class: object) -> dict[str, MethodType]:
 
 
 def parse_attributes(
-    service_name: ServiceName, resource_name: str, resource: Boto3ServiceResource
+    service_name: ServiceName,
+    resource_name: str,
+    resource: Boto3ServiceResource,
+    shape_parser: ShapeParser,
 ) -> list[Attribute]:
     """
     Extract attributes from boto3 resource.
@@ -67,10 +70,11 @@ def parse_attributes(
         shape = service_model.shape_for(resource.meta.resource_model.shape)
         attributes = resource.meta.resource_model.get_attributes(shape)
         for name, attribute in attributes.items():
-            argument_type = get_method_type_stub(service_name, resource_name, "_attributes", name)
-            if argument_type is None:
-                argument_type = get_type_from_docstring(attribute[1].type_name)
-            result.append(Attribute(name, argument_type))
+            attribute_type = get_method_type_stub(service_name, resource_name, "_attributes", name)
+            if attribute_type is None:
+                attribute_shape = attribute[1]
+                attribute_type = shape_parser.parse_shape(attribute_shape, output=True)
+            result.append(Attribute(name, attribute_type))
 
     return result
 
