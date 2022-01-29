@@ -36,6 +36,7 @@ def parse_attributes(
     service_name: ServiceName,
     resource_name: str,
     resource: Boto3ServiceResource,
+    shape_parser: ShapeParser,
 ) -> list[Attribute]:
 ```
 
@@ -52,10 +53,11 @@ A list of Attribute structures.
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
+- [ShapeParser](shape_parser.md#shapeparser)
 
 ## parse_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L78)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L82)
 
 ```python
 def parse_method(
