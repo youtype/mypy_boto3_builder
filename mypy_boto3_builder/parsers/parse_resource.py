@@ -7,7 +7,8 @@ from types import MethodType
 from boto3.docs.utils import is_resource_action
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
-from mypy_boto3_builder.parsers.helpers import parse_attributes, parse_method
+from mypy_boto3_builder.parsers.helpers import parse_method
+from mypy_boto3_builder.parsers.parse_attributes import parse_attributes
 from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.parse_identifiers import parse_identifiers
 from mypy_boto3_builder.parsers.parse_references import parse_references

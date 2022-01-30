@@ -32,6 +32,7 @@ Full list of [mypy-boto3-builder](README.md#mypy_boto3_builder) project modules.
         - [Fake Service Package](mypy_boto3_builder/parsers/fake_service_package.md#fake-service-package)
         - [Helpers](mypy_boto3_builder/parsers/helpers.md#helpers)
         - [Master Package](mypy_boto3_builder/parsers/master_package.md#master-package)
+        - [Parse Attributes](mypy_boto3_builder/parsers/parse_attributes.md#parse-attributes)
         - [Parse Collections](mypy_boto3_builder/parsers/parse_collections.md#parse-collections)
         - [Parse Identifiers](mypy_boto3_builder/parsers/parse_identifiers.md#parse-identifiers)
         - [Parse References](mypy_boto3_builder/parsers/parse_references.md#parse-references)

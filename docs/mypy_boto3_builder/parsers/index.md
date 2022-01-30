@@ -13,6 +13,7 @@ Parsers for boto3 clients and resources.
         - [Fake Service Package](fake_service_package.md#fake-service-package)
         - [Helpers](helpers.md#helpers)
         - [Master Package](master_package.md#master-package)
+        - [Parse Attributes](parse_attributes.md#parse-attributes)
         - [Parse Collections](parse_collections.md#parse-collections)
         - [Parse Identifiers](parse_identifiers.md#parse-identifiers)
         - [Parse References](parse_references.md#parse-references)
