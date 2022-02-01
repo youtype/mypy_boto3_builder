@@ -1,6 +1,6 @@
 # ServiceModuleName
 
-> Auto-generated documentation for [mypy_boto3_builder.enums.service_module_name](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/enums/service_module_name.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.enums.service_module_name](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py) module.
 
 Enum for service modules.
 
@@ -12,7 +12,7 @@ Enum for service modules.
 
 ## ServiceModuleName
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/enums/service_module_name.py#L7)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L7)
 
 ```python
 class ServiceModuleName(enum.Enum):
@@ -22,7 +22,7 @@ Enum for service modules.
 
 ### ServiceModuleName().file_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/enums/service_module_name.py#L26)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L26)
 
 ```python
 @property
@@ -33,7 +33,7 @@ Module file name.
 
 ### ServiceModuleName().stub_file_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/enums/service_module_name.py#L19)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L19)
 
 ```python
 @property
@@ -44,7 +44,7 @@ Module file name.
 
 ### ServiceModuleName().template_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/enums/service_module_name.py#L33)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L33)
 
 ```python
 @property

@@ -1,6 +1,6 @@
 # TypeDocLine
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.type_doc_line](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.type_doc_line](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py) module.
 
 Structure for parsed as dict `:type:` or `:rtype:` nested lines.
 
@@ -12,7 +12,7 @@ Structure for parsed as dict `:type:` or `:rtype:` nested lines.
 
 ## TypeDocLine
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L9)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L9)
 
 ```python
 class TypeDocLine():
@@ -37,7 +37,7 @@ Structure for parsed as dict `:type:` or `:rtype:` nested lines.
 
 ### TypeDocLine().indented
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L35)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L35)
 
 ```python
 @property
@@ -52,7 +52,7 @@ A list of [TypeDocLine](#typedocline).
 
 ### TypeDocLine().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L55)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L55)
 
 ```python
 def render() -> str:
@@ -66,7 +66,7 @@ A string as close as possible to original.
 
 ### TypeDocLine().required
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L48)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L48)
 
 ```python
 @property

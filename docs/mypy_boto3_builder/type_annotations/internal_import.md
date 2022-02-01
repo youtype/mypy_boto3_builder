@@ -1,6 +1,6 @@
 # InternalImport
 
-> Auto-generated documentation for [mypy_boto3_builder.type_annotations.internal_import](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.type_annotations.internal_import](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py) module.
 
 Wrapper for simple type annotations from this module.
 
@@ -14,7 +14,7 @@ Wrapper for simple type annotations from this module.
 
 ## AliasInternalImport
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L84)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L84)
 
 ```python
 class AliasInternalImport(InternalImport):
@@ -34,7 +34,7 @@ Internal import for safe local usages.
 
 ## InternalImport
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L10)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L10)
 
 ```python
 class InternalImport(FakeAnnotation):
@@ -64,7 +64,7 @@ Wrapper for simple type annotations from this module.
 
 ### InternalImport().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L71)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L71)
 
 ```python
 def copy() -> 'InternalImport':
@@ -74,7 +74,7 @@ Create a copy of type annotation wrapper.
 
 ### InternalImport.get_alias
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L36)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L36)
 
 ```python
 @staticmethod
@@ -93,7 +93,7 @@ Name prefixed with underscore.
 
 ### InternalImport().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L65)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L65)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -107,7 +107,7 @@ Get import record required for using type annotation.
 
 ### InternalImport().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/internal_import.py#L49)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L49)
 
 ```python
 def render(parent_name: str = '') -> str:

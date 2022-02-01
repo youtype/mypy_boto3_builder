@@ -1,6 +1,6 @@
 # ArgSpecParser
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.argspec_parser](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.argspec_parser](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py) module.
 
 Converter of function argspec to `Argument` list.
 
@@ -11,7 +11,7 @@ Converter of function argspec to `Argument` list.
 
 ## ArgSpecParser
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L16)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L16)
 
 ```python
 class ArgSpecParser():
@@ -26,7 +26,7 @@ Converter of function argspec to `Argument` list.
 
 ### ArgSpecParser().get_arguments
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L56)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L56)
 
 ```python
 def get_arguments(
@@ -40,7 +40,7 @@ Get arguments from `class_name.method_name` method `func`.
 
 ### ArgSpecParser().get_return_type
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L74)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L74)
 
 ```python
 def get_return_type(

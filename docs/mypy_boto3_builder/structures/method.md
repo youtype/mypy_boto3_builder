@@ -1,6 +1,6 @@
 # Method
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.method](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/method.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.method](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py) module.
 
 Class method.
 
@@ -10,7 +10,7 @@ Class method.
 
 ## Method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/method.py#L8)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py#L8)
 
 ```python
 class Method(Function):
@@ -24,7 +24,7 @@ Class method.
 
 ### Method().call_arguments
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/method.py#L13)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py#L13)
 
 ```python
 @property

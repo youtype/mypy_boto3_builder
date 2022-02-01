@@ -1,6 +1,6 @@
 # Resource
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.resource](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/resource.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.resource](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py) module.
 
 Boto3 ServiceResource sub-Resource.
 
@@ -12,7 +12,7 @@ Boto3 ServiceResource sub-Resource.
 
 ## Resource
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/resource.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L12)
 
 ```python
 class Resource(ClassRecord):
@@ -28,7 +28,7 @@ Boto3 ServiceResource sub-Resource.
 
 ### Resource().boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/resource.py#L32)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L32)
 
 ```python
 @property
@@ -39,7 +39,7 @@ Link to boto3 docs.
 
 ### Resource().docstring
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/resource.py#L39)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L39)
 
 ```python
 @property
@@ -50,7 +50,7 @@ Class docstring.
 
 ### Resource().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/resource.py#L51)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L51)
 
 ```python
 def get_types() -> set[FakeAnnotation]:

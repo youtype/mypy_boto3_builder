@@ -1,6 +1,6 @@
 # Main
 
-> Auto-generated documentation for [mypy_boto3_builder.main](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.main](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py) module.
 
 Main entrypoint for builder.
 
@@ -16,7 +16,7 @@ Main entrypoint for builder.
 
 ## generate_boto3_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L245)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L245)
 
 ```python
 def generate_boto3_stubs(
@@ -34,7 +34,7 @@ Generate `boto3-stubs` package.
 
 ## generate_botocore_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L273)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L273)
 
 ```python
 def generate_botocore_stubs(args: Namespace) -> None:
@@ -48,7 +48,7 @@ Generate `botocore-stubs` package.
 
 ## generate_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L302)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L302)
 
 ```python
 def generate_docs(
@@ -74,7 +74,7 @@ Generate service and master docs.
 
 ## generate_master
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L217)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L217)
 
 ```python
 def generate_master(
@@ -92,7 +92,7 @@ Generate `mypy-boto3` package.
 
 ## generate_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L159)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L159)
 
 ```python
 def generate_stubs(
@@ -119,7 +119,7 @@ Generate service and master stubs.
 
 ## get_available_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L78)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L78)
 
 ```python
 def get_available_service_names(session: Session) -> list[ServiceName]:
@@ -137,7 +137,7 @@ A list of supported services.
 
 ## get_selected_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L40)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L40)
 
 ```python
 def get_selected_service_names(
@@ -162,7 +162,7 @@ A list of selected ServiceNames.
 
 ## main
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L100)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L100)
 
 ```python
 def main() -> None:

@@ -1,6 +1,6 @@
 # Service Package
 
-> Auto-generated documentation for [mypy_boto3_builder.writers.service_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/service_package.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.writers.service_package](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/service_package.py) module.
 
 Service package writer.
 
@@ -10,7 +10,7 @@ Service package writer.
 
 ## write_service_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/service_package.py#L155)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/service_package.py#L155)
 
 ```python
 def write_service_docs(package: ServicePackage, output_path: Path) -> None:
@@ -29,7 +29,7 @@ Create service docs files.
 
 ## write_service_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/service_package.py#L20)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/service_package.py#L20)
 
 ```python
 def write_service_package(

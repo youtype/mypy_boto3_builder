@@ -1,6 +1,6 @@
 # TypeDocGrammar
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.type_doc_grammar](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.type_doc_grammar](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py) module.
 
 Pyparsing grammar for argument type doc lines.
 
@@ -13,7 +13,7 @@ Pyparsing grammar for argument type doc lines.
 
 ## TypeDocGrammar
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L19)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L19)
 
 ```python
 class TypeDocGrammar():
@@ -38,7 +38,7 @@ any_line ::= typed_dict_key_line | type_line | line
 
 ### TypeDocGrammar.disable_packrat
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L136)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L136)
 
 ```python
 @staticmethod
@@ -49,7 +49,7 @@ Disable packrat boost.
 
 ### TypeDocGrammar.enable_packrat
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L129)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L129)
 
 ```python
 @staticmethod
@@ -60,7 +60,7 @@ Enable packrat boost.
 
 ### TypeDocGrammar.fail_action
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L109)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L109)
 
 ```python
 @classmethod
@@ -76,7 +76,7 @@ Check for input end.
 
 ### TypeDocGrammar.reset
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L119)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.py#L119)
 
 ```python
 @classmethod

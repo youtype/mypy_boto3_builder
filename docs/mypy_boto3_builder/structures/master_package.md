@@ -1,6 +1,6 @@
 # MasterPackage
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.master_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/master_package.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.master_package](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py) module.
 
 Structure for boto3-stubs module.
 
@@ -10,7 +10,7 @@ Structure for boto3-stubs module.
 
 ## MasterPackage
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/master_package.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L12)
 
 ```python
 class MasterPackage(Package):
@@ -39,7 +39,7 @@ Structure for mypy-boto3 package.
 
 ### MasterPackage().essential_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/master_package.py#L34)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L34)
 
 ```python
 @property

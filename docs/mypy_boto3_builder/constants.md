@@ -1,6 +1,6 @@
 # Constants
 
-> Auto-generated documentation for [mypy_boto3_builder.constants](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.constants](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py) module.
 
 Constants and paths.
 

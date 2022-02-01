@@ -1,6 +1,6 @@
 # Processors
 
-> Auto-generated documentation for [mypy_boto3_builder.writers.processors](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.writers.processors](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py) module.
 
 Processors for parsing and writing modules.
 
@@ -14,7 +14,7 @@ Processors for parsing and writing modules.
 
 ## process_boto3_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L27)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L27)
 
 ```python
 def process_boto3_stubs(
@@ -46,7 +46,7 @@ Parsed Boto3StubsPackage.
 
 ## process_boto3_stubs_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L170)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L170)
 
 ```python
 def process_boto3_stubs_docs(
@@ -74,7 +74,7 @@ Parsed Boto3StubsPackage.
 
 ## process_botocore_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L57)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L57)
 
 ```python
 def process_botocore_stubs(output_path: Path, generate_setup: bool) -> None:
@@ -90,7 +90,7 @@ Parse and write stubs package `botocore_stubs`.
 
 ## process_master
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L75)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L75)
 
 ```python
 def process_master(
@@ -122,7 +122,7 @@ Parsed MasterPackage.
 
 ## process_service
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L105)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L105)
 
 ```python
 def process_service(
@@ -157,7 +157,7 @@ Parsed ServicePackage.
 
 ## process_service_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L141)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L141)
 
 ```python
 def process_service_docs(

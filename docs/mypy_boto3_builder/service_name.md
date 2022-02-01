@@ -1,6 +1,6 @@
 # ServiceName
 
-> Auto-generated documentation for [mypy_boto3_builder.service_name](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.service_name](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py) module.
 
 Description for boto3 service.
 
@@ -25,7 +25,7 @@ Description for boto3 service.
 
 ## ServiceName
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L15)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L15)
 
 ```python
 class ServiceName():
@@ -36,7 +36,7 @@ Description for boto3 service.
 
 ### ServiceName().boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L118)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L118)
 
 ```python
 @property
@@ -47,7 +47,7 @@ Link to boto3 docs.
 
 ### ServiceName().boto3_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L60)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L60)
 
 ```python
 @property
@@ -58,7 +58,7 @@ Boto3 package name.
 
 ### ServiceName().extras_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L99)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L99)
 
 ```python
 @property
@@ -69,7 +69,7 @@ Extras name for subpackage installation.
 
 ### ServiceName().get_boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L135)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L135)
 
 ```python
 def get_boto3_doc_link(*parts: str) -> str:
@@ -83,7 +83,7 @@ Get link to boto3 docs with anchor.
 
 ### ServiceName().get_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L169)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L169)
 
 ```python
 def get_doc_link(
@@ -108,7 +108,7 @@ Get link to local docs with anchor.
 
 ### ServiceName.get_md_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L144)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L144)
 
 ```python
 @staticmethod
@@ -134,7 +134,7 @@ Get link to MD docs with anchor.
 
 ### ServiceName().import_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L67)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L67)
 
 ```python
 @property
@@ -145,7 +145,7 @@ Safe mudule import name.
 
 ### ServiceName().is_conda_forge_available
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L112)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L112)
 
 ```python
 def is_conda_forge_available() -> bool:
@@ -155,7 +155,7 @@ Whether service is available for `conda-forge`.
 
 ### ServiceName().is_essential
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L106)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L106)
 
 ```python
 def is_essential() -> bool:
@@ -165,7 +165,7 @@ Whether service is included to `boto3-stubs[essential]`.
 
 ### ServiceName().local_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L128)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L128)
 
 ```python
 @property
@@ -176,7 +176,7 @@ Link to local docs.
 
 ### ServiceName().module_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L78)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L78)
 
 ```python
 @property
@@ -187,7 +187,7 @@ Package name for given service.
 
 ### ServiceName().pypi_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L92)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L92)
 
 ```python
 @property
@@ -198,7 +198,7 @@ Link to package on PyPI.
 
 ### ServiceName().pypi_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L85)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L85)
 
 ```python
 @property
@@ -209,7 +209,7 @@ Name of package on PyPI.
 
 ### ServiceName().underscore_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L53)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L53)
 
 ```python
 @property
@@ -220,7 +220,7 @@ Python-friendly service name.
 
 ## ServiceNameCatalog
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L195)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L195)
 
 ```python
 class ServiceNameCatalog():
@@ -230,7 +230,7 @@ Finder for boto3 services by name.
 
 ### ServiceNameCatalog.add
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/service_name.py#L230)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L230)
 
 ```python
 @classmethod

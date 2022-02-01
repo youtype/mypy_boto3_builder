@@ -1,6 +1,6 @@
 # Master Package
 
-> Auto-generated documentation for [mypy_boto3_builder.writers.master_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/master_package.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.writers.master_package](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/master_package.py) module.
 
 Master package writer.
 
@@ -9,7 +9,7 @@ Master package writer.
 
 ## write_master_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/master_package.py#L19)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/master_package.py#L19)
 
 ```python
 def write_master_package(

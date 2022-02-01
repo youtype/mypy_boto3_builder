@@ -1,6 +1,6 @@
 # Type
 
-> Auto-generated documentation for [mypy_boto3_builder.type_annotations.type](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.type_annotations.type](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py) module.
 
 Predefined FakeAnnotation instances.
 
@@ -10,7 +10,7 @@ Predefined FakeAnnotation instances.
 
 ## Type
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type.py#L15)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L15)
 
 ```python
 class Type():
@@ -20,7 +20,7 @@ Predefined FakeAnnotation instances.
 
 ### Type.get_optional
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type.py#L52)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L52)
 
 ```python
 @classmethod

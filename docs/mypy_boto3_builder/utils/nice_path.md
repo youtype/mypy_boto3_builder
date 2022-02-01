@@ -1,6 +1,6 @@
 # NicePath
 
-> Auto-generated documentation for [mypy_boto3_builder.utils.nice_path](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/nice_path.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.utils.nice_path](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/nice_path.py) module.
 
 Path that represents it as relative to workdir.
 
@@ -10,7 +10,7 @@ Path that represents it as relative to workdir.
 
 ## NicePath
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/nice_path.py#L8)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/nice_path.py#L8)
 
 ```python
 class NicePath(type(Path())):
@@ -20,7 +20,7 @@ Path that represents it as relative to workdir.
 
 ### NicePath().walk
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/nice_path.py#L30)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/nice_path.py#L30)
 
 ```python
 def walk(exclude: Iterable[Path] = tuple()) -> Iterator[Path]:

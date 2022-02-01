@@ -1,6 +1,6 @@
 # Botocore Stubs Package
 
-> Auto-generated documentation for [mypy_boto3_builder.writers.botocore_stubs_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/botocore_stubs_package.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.writers.botocore_stubs_package](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/botocore_stubs_package.py) module.
 
 botocore-stubs package writer.
 
@@ -9,7 +9,7 @@ botocore-stubs package writer.
 
 ## write_botocore_stubs_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/botocore_stubs_package.py#L19)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/botocore_stubs_package.py#L19)
 
 ```python
 def write_botocore_stubs_package(

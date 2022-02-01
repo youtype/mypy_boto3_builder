@@ -1,6 +1,6 @@
 # Docstring Parser
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/__init__.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/__init__.py) module.
 
 Botocore docstring parser.
 

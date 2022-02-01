@@ -1,6 +1,6 @@
 # Client
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.client](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/client.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.client](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/client.py) module.
 
 Boto3 client parser, produces `structures.Client`.
 
@@ -9,7 +9,7 @@ Boto3 client parser, produces `structures.Client`.
 
 ## parse_client
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/client.py#L23)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/client.py#L23)
 
 ```python
 def parse_client(

@@ -1,6 +1,6 @@
 # ImportString
 
-> Auto-generated documentation for [mypy_boto3_builder.import_helpers.import_string](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.import_helpers.import_string](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py) module.
 
 Wrapper for Python import strings.
 
@@ -15,7 +15,7 @@ Wrapper for Python import strings.
 
 ## ImportString
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L7)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L7)
 
 ```python
 class ImportString():
@@ -46,7 +46,7 @@ import_string.render()
 
 ### ImportString.empty
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L44)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L44)
 
 ```python
 @classmethod
@@ -57,7 +57,7 @@ Create an empty ImportString.
 
 ### ImportString.from_str
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L37)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L37)
 
 ```python
 @classmethod
@@ -68,7 +68,7 @@ Create from string.
 
 ### ImportString().master_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L123)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L123)
 
 ```python
 @property
@@ -79,7 +79,7 @@ Get first import string part or `builtins`.
 
 ### ImportString.parent
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L53)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L53)
 
 ```python
 @classmethod
@@ -90,7 +90,7 @@ Get parent ImportString.
 
 ### ImportString().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L114)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L114)
 
 ```python
 def render() -> str:
@@ -104,7 +104,7 @@ Ready to use import string.
 
 ### ImportString().startswith
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/import_string.py#L82)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L82)
 
 ```python
 def startswith(other: ImportString) -> bool:

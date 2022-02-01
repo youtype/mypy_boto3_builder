@@ -1,6 +1,6 @@
 # Type Annotations
 
-> Auto-generated documentation for [mypy_boto3_builder.type_annotations](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/__init__.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.type_annotations](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/__init__.py) module.
 
 Collection of type annotation wrappers that handle imports and can be rendered back to a valid Python code.
 

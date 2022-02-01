@@ -1,6 +1,6 @@
 # Parse Identifiers
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.parse_identifiers](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/parse_identifiers.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.parse_identifiers](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_identifiers.py) module.
 
 Parser for Boto3 ServiceResource identifiers, produces `structures.Attribute`.
 
@@ -9,7 +9,7 @@ Parser for Boto3 ServiceResource identifiers, produces `structures.Attribute`.
 
 ## parse_identifiers
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/parse_identifiers.py#L10)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_identifiers.py#L10)
 
 ```python
 def parse_identifiers(resource: Boto3ServiceResource) -> list[Attribute]:

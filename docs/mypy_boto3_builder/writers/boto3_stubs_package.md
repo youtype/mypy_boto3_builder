@@ -1,6 +1,6 @@
 # Boto3 Stubs Package
 
-> Auto-generated documentation for [mypy_boto3_builder.writers.boto3_stubs_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/boto3_stubs_package.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.writers.boto3_stubs_package](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/boto3_stubs_package.py) module.
 
 boto3-stubs package writer.
 
@@ -10,7 +10,7 @@ boto3-stubs package writer.
 
 ## write_boto3_stubs_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/boto3_stubs_package.py#L92)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/boto3_stubs_package.py#L92)
 
 ```python
 def write_boto3_stubs_docs(
@@ -27,7 +27,7 @@ Generate docs for boto3-stubs package.
 
 ## write_boto3_stubs_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/boto3_stubs_package.py#L20)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/boto3_stubs_package.py#L20)
 
 ```python
 def write_boto3_stubs_package(

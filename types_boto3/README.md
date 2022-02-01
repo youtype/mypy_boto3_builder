@@ -5,7 +5,7 @@
 [![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue)](https://mypy-boto3-builder.readthedocs.io/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/botocore-stubs?color=blue)](https://pypistats.org/packages/botocore-stubs)
 
-![boto3.typed](https://github.com/vemel/mypy_boto3_builder/raw/master/logo.png)
+![boto3.typed](https://github.com/vemel/mypy_boto3_builder/raw/main/logo.png)
 
 Proxy package for [boto3-stubs](https://pypi.org/project/boto3-stubs/).
 Install submodules for `boto3` services type annotations.
@@ -23,7 +23,7 @@ and other tools.
 
 See how it helps to find and fix potential bugs:
 
-![boto3-stubs demo](https://github.com/vemel/mypy_boto3_builder/raw/master/demo.gif)
+![boto3-stubs demo](https://github.com/vemel/mypy_boto3_builder/raw/main/demo.gif)
 
 ## How to install
 
@@ -51,6 +51,27 @@ python -m pip install 'boto3-stubs[essential]'
 
 # or install annotations for services you use
 python -m pip install 'boto3-stubs[acm,apigateway]'
+```
+
+### From conda-forge
+
+Installing `boto3-stubs` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+
+```bash
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+```
+
+Once the `conda-forge` channel has been enabled, `boto3-stubs` and `boto3-stubs-essential` can be installed with:
+
+```bash
+conda install boto3-stubs boto3-stubs-essential
+```
+
+It is possible to list all of the versions of `boto3-stubs` available on your platform with:
+
+```bash
+conda search boto3-stubs --channel conda-forge
 ```
 
 ## How to uninstall

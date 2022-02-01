@@ -1,6 +1,6 @@
 # Paginator
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.paginator](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.paginator](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py) module.
 
 Boto3 client Paginator.
 
@@ -12,7 +12,7 @@ Boto3 client Paginator.
 
 ## Paginator
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L18)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L18)
 
 ```python
 class Paginator(ClassRecord):
@@ -33,7 +33,7 @@ Boto3 client Paginator.
 
 ### Paginator().boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L38)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L38)
 
 ```python
 @property
@@ -44,7 +44,7 @@ Link to boto3 docs.
 
 ### Paginator().docstring
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L45)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L45)
 
 ```python
 @property
@@ -55,7 +55,7 @@ Class docstring.
 
 ### Paginator().get_client_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/paginator.py#L57)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L57)
 
 ```python
 def get_client_method() -> Method:
