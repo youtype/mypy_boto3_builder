@@ -29,6 +29,15 @@ class ServiceName:
         "cloudformation",
         "dynamodb",
     )
+    CONDA_FORGE_AVAILABLE = (
+        "ec2",
+        "rds",
+        "s3",
+        "lambda",
+        "sqs",
+        "cloudformation",
+        "dynamodb",
+    )
 
     def __init__(self, name: str, class_name: str) -> None:
         self.name = name
@@ -99,6 +108,12 @@ class ServiceName:
         Whether service is included to `boto3-stubs[essential]`.
         """
         return self.name in self.ESSENTIAL
+
+    def is_conda_forge_available(self) -> bool:
+        """
+        Whether service is available for `conda-forge`.
+        """
+        return self.name in self.CONDA_FORGE_AVAILABLE
 
     @property
     def boto3_doc_link(self) -> str:

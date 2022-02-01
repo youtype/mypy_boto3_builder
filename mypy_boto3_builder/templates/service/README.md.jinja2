@@ -44,6 +44,29 @@ Install `boto3-stubs` for `{{ service_name.class_name }}` service.
 python -m pip install boto3-stubs[{{service_name.extras_name}}]
 ```
 
+{% if service_name.is_conda_forge_available() %}
+### From conda-forge
+
+Installing `{{ service_name.pypi_name }}` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+
+```bash
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+```
+
+Once the `conda-forge` channel has been enabled, `{{ service_name.pypi_name }}` can be installed with:
+
+```bash
+conda install {{ service_name.pypi_name }}
+```
+
+It is possible to list all of the versions of `{{ service_name.pypi_name }}` available on your platform with:
+
+```bash
+conda search {{ service_name.pypi_name }} --channel conda-forge
+```
+{% endif %}
+
 ## Usage
 
 ### VSCode
