@@ -50,6 +50,27 @@ python -m pip install 'boto3-stubs[essential]'
 python -m pip install 'boto3-stubs[acm,apigateway]'
 ```
 
+### From conda-forge
+
+Installing `boto3-stubs` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+
+```bash
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+```
+
+Once the `conda-forge` channel has been enabled, `boto3-stubs` and `boto3-stubs-essential` can be installed with:
+
+```bash
+conda install boto3-stubs boto3-stubs-essential
+```
+
+It is possible to list all of the versions of `boto3-stubs` available on your platform with:
+
+```bash
+conda search boto3-stubs --channel conda-forge
+```
+
 ## How to uninstall
 
 ```bash
