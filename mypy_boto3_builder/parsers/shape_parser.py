@@ -729,7 +729,8 @@ class ShapeParser:
                     method.arguments.extend(self._get_kw_flags(batch_action.name, shape_arguments))
                     method.arguments.extend(shape_arguments)
                 if operation_model.output_shape is not None:
-                    return_type = self.parse_shape(operation_model.output_shape, output=True)
+                    item_return_type = self.parse_shape(operation_model.output_shape, output=True)
+                    return_type = TypeSubscript(Type.List, [item_return_type])
                     method.return_type = return_type
 
         return result
