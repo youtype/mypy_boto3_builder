@@ -5,7 +5,7 @@ ROOT_PATH=$(dirname $(dirname $0))
 
 EXAMPLES=${ROOT_PATH}/examples/*_example.py
 
-${ROOT_PATH}/scripts/build.sh --panic --skip-services
+${ROOT_PATH}/scripts/build.sh --panic --product boto3
 ${ROOT_PATH}/scripts/install.sh master
 
 for EXAMPLE in $EXAMPLES

@@ -63,7 +63,7 @@ def install_master() -> None:
     Build and install `boto3-stubs`.
     """
     subprocess.check_call(
-        [(SCRIPTS_PATH / "build.sh").as_posix(), "--skip-services"],
+        [(SCRIPTS_PATH / "build.sh").as_posix(), "--product", "boto3"],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
@@ -79,7 +79,7 @@ def install_service(service_name: str) -> None:
     Build and install `mypy-boto3-*` subpackage.
     """
     subprocess.check_call(
-        [(SCRIPTS_PATH / "build.sh").as_posix(), "-s", service_name, "--skip-master"],
+        [(SCRIPTS_PATH / "build.sh").as_posix(), "-s", service_name, "--product", "boto3-services"],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )

@@ -6,6 +6,7 @@ import logging
 from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
+from typing import List, Literal
 
 import pkg_resources
 
@@ -36,10 +37,17 @@ class Namespace:
     service_names: list[str]
     build_version: str
     installed: bool
-    skip_master: bool
-    skip_services: bool
+    products: List[
+        Literal[
+            "boto3",
+            "boto3-services",
+            "boto3-docs",
+            "aiobotocore",
+            "aiobotocore-services",
+            "aiobotocore-docs",
+        ]
+    ]
     builder_version: str
-    generate_docs: bool
     list_services: bool
     partial_overload: bool
     skip_published: bool
@@ -66,17 +74,23 @@ def parse_args(args: Sequence[str]) -> Namespace:
     )
     parser.add_argument("-V", "--version", action="version", version=version)
     parser.add_argument(
-        "--skip-master",
-        action="store_true",
-        help="Whether to skip master and stubs modules",
-    )
-    parser.add_argument(
-        "--skip-services", action="store_true", help="Whether to skip service modules"
+        "--product",
+        dest="products",
+        choices=[
+            "boto3",
+            "boto3-services",
+            "boto3-docs",
+            "aiobotocore",
+            "aiobotocore-services",
+            "aiobotocore-docs",
+        ],
+        nargs="+",
+        default=["boto3", "boto3-services"],
+        help="Select package to create annotations for",
     )
     parser.add_argument(
         "--skip-published", action="store_true", help="Skip packages that are already on PyPI"
     )
-    parser.add_argument("--docs", action="store_true", help="Generate docs for modules")
     parser.add_argument(
         "--panic",
         action="store_true",
@@ -119,12 +133,10 @@ def parse_args(args: Sequence[str]) -> Namespace:
         log_level=logging.DEBUG if result.debug else logging.INFO,
         output_path=result.output_path,
         service_names=result.service_names,
-        skip_master=result.skip_master,
-        skip_services=result.skip_services,
+        products=result.products,
         build_version=result.build_version,
         installed=result.installed,
         builder_version=result.builder_version,
-        generate_docs=result.docs,
         list_services=result.list_services,
         partial_overload=result.partial_overload,
         skip_published=result.skip_published,
