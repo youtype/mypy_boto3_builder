@@ -65,6 +65,7 @@ def sort_imports(
         New file content.
     """
     known_third_party = list(third_party) or [
+        "aiobotocore",
         "boto3",
         "botocore",
         "typing_extensions",
