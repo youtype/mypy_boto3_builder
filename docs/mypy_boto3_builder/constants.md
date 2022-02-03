@@ -18,3 +18,6 @@ Constants and paths.
 - `BOTOCORE_STUBS_NAME` - Botocore stubs module name: `'botocore-stubs'`
 - `LINE_LENGTH` - Max line length for boto3 docs: `100`
 - `TYPE_DEFS_NAME` - type defs module name: `'type_defs'`
+- `LOGGER_NAME` - Main logger name: `'mypy_boto3_builder'`
+- `PROG_NAME` - builder CLI entrypoint name: `'mypy_boto3_builder'`
+- `PACKAGE_NAME` - builder package name: `'mypy-boto3-builder'`
