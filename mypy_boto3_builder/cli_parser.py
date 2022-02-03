@@ -9,6 +9,8 @@ from pathlib import Path
 
 import pkg_resources
 
+from mypy_boto3_builder.constants import PACKAGE_NAME, PROG_NAME
+
 
 def get_absolute_path(path: str) -> Path:
     """
@@ -51,11 +53,11 @@ def parse_args(args: Sequence[str]) -> Namespace:
         Argument parser.
     """
     try:
-        version = pkg_resources.get_distribution("mypy-boto3-builder").version
+        version = pkg_resources.get_distribution(PACKAGE_NAME).version
     except pkg_resources.DistributionNotFound:
         version = "0.0.0"
 
-    parser = argparse.ArgumentParser("mypy_boto3_builder", description="Builder for mypy-boto3.")
+    parser = argparse.ArgumentParser(PROG_NAME, description="Builder for mypy-boto3.")
     parser.add_argument("-d", "--debug", action="store_true", help="Show debug messages")
     parser.add_argument(
         "-b",

@@ -33,4 +33,11 @@ LINE_LENGTH = 100
 # type defs module name
 TYPE_DEFS_NAME = "type_defs"
 
+# Main logger name
 LOGGER_NAME = "mypy_boto3_builder"
+
+# builder CLI entrypoint name
+PROG_NAME = "mypy_boto3_builder"
+
+# builder package name
+PACKAGE_NAME = "mypy-boto3-builder"
