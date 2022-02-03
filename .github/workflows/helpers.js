@@ -115,6 +115,14 @@ async function extractVersions({ core, context }) {
     const versions = await getStubsVersions(boto3Version)
     core.info(`Built versions ${versions}`)
 
+    if (context.payload.inputs && context.payload.inputs.stubs_version) {
+        const buildVersion = context.payload.inputs.stubs_version
+        core.info(`Forced boto3-stubs version: ${buildVersion}`)
+        core.info(`Build version = ${buildVersion}`)
+        core.setOutput('version', buildVersion)
+        return
+    }
+
     if (versions.length && !force) {
         core.info('Builds found, skipping')
         return

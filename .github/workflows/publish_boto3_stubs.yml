@@ -16,6 +16,10 @@ on:
         description: Build all packages instead of updated only
         required: false
         default: "false"
+      stubs_version:
+        description: Specify version explicitly instead of finding it automatically
+        required: false
+        default: ""
 
 jobs:
   check-boto3-version:
