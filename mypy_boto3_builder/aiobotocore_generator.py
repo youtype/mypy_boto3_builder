@@ -6,26 +6,23 @@ from pathlib import Path
 
 from boto3 import __version__ as boto3_version
 from boto3.session import Session
-from botocore import __version__ as botocore_version
 
-from mypy_boto3_builder.constants import BOTO3_STUBS_NAME, BOTOCORE_STUBS_NAME, PYPI_NAME
+from mypy_boto3_builder.constants import AIOBOTOCORE_STUBS_NAME
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
-from mypy_boto3_builder.writers.processors import (
-    process_boto3_stubs,
-    process_boto3_stubs_docs,
-    process_botocore_stubs,
-    process_master,
-    process_service,
-    process_service_docs,
+from mypy_boto3_builder.writers.aiobotocore_processors import (
+    process_aiobotocore_service,
+    process_aiobotocore_service_docs,
+    process_aiobotocore_stubs,
+    process_aiobotocore_stubs_docs,
 )
 
 
-class AIOBotocoreGenerator:
+class AioBotocoreGenerator:
     """
-    AIOBotocore stubs/docs generator.
+    AioBotocore stubs/docs generator.
 
     Arguments:
         service_names -- Enabled service names
@@ -74,70 +71,28 @@ class AIOBotocoreGenerator:
 
         return pypi_manager.get_next_version(version)
 
-    def _generate_master(self) -> None:
+    def generate_stubs(self) -> None:
         """
-        Generate `mypy-boto3` package.
+        Generate `aiobotocore-stubs` package.
         """
-        version = self._get_package_version(PYPI_NAME, self.version)
+        version = self._get_package_version(AIOBOTOCORE_STUBS_NAME, self.version)
         if not version:
-            self.logger.info(f"Skipping {PYPI_NAME} {self.version}, already on PyPI")
+            self.logger.info(f"Skipping {AIOBOTOCORE_STUBS_NAME} {self.version}, already on PyPI")
             return
 
-        self.logger.info(f"Generating {PYPI_NAME} {version}")
-        process_master(
-            self.session,
-            self.output_path,
-            service_names=self.service_names,
-            generate_setup=self.generate_setup,
-            version=version,
+        JinjaManager.update_globals(
+            aiobotocore_version="2.1.0",
+            aiobotocore_build_version=version,
         )
 
-    def _generate_boto3_stubs(self) -> None:
-        """
-        Generate `boto3-stubs` package.
-        """
-        version = self._get_package_version(PYPI_NAME, self.version)
-        if not version:
-            self.logger.info(f"Skipping {BOTO3_STUBS_NAME} {self.version}, already on PyPI")
-            return
-
-        self.logger.info(f"Generating {BOTO3_STUBS_NAME} {version}")
-        process_boto3_stubs(
+        self.logger.info(f"Generating {AIOBOTOCORE_STUBS_NAME} {version}")
+        process_aiobotocore_stubs(
             self.session,
             self.output_path,
             self.service_names,
             generate_setup=self.generate_setup,
             version=version,
         )
-
-    def _generate_botocore_stubs(self) -> None:
-        """
-        Generate `botocore-stubs` package.
-        """
-        version = self._get_package_version(BOTOCORE_STUBS_NAME, botocore_version)
-        if not version:
-            self.logger.info(f"Skipping {BOTOCORE_STUBS_NAME} {botocore_version}, already on PyPI")
-            return
-
-        JinjaManager.update_globals(
-            botocore_build_version=version,
-        )
-
-        self.logger.info(f"Generating {BOTOCORE_STUBS_NAME} {version}")
-        process_botocore_stubs(
-            self.output_path,
-            generate_setup=self.generate_setup,
-        )
-
-    def generate_stubs(self) -> None:
-        """
-        Generate main stubs.
-        """
-        if not self.generate_setup:
-            self._generate_master()
-
-        self._generate_boto3_stubs()
-        self._generate_botocore_stubs()
 
     def generate_service_stubs(self) -> None:
         """
@@ -159,7 +114,7 @@ class AIOBotocoreGenerator:
             self.logger.info(
                 f"[{current_str}/{total_str}]" f" Generating {service_name.module_name} {version}"
             )
-            process_service(
+            process_aiobotocore_service(
                 session=self.session,
                 output_path=self.output_path,
                 service_name=service_name,
@@ -173,6 +128,10 @@ class AIOBotocoreGenerator:
         """
         Generate service and master docs.
         """
+        JinjaManager.update_globals(
+            aiobotocore_version="2.1.0",
+        )
+
         logger = get_logger()
         total_str = f"{len(self.service_names)}"
         for index, service_name in enumerate(self.service_names):
@@ -180,15 +139,15 @@ class AIOBotocoreGenerator:
             logger.info(
                 f"[{current_str}/{total_str}] Generating {service_name.module_name} module docs"
             )
-            process_service_docs(
+            process_aiobotocore_service_docs(
                 session=self.session,
                 output_path=self.output_path,
                 service_name=service_name,
                 service_names=self.available_service_names,
             )
 
-        logger.info(f"Generating {BOTO3_STUBS_NAME} module docs")
-        process_boto3_stubs_docs(
+        logger.info(f"Generating {AIOBOTOCORE_STUBS_NAME} module docs")
+        process_aiobotocore_stubs_docs(
             self.session,
             self.output_path,
             self.service_names,

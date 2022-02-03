@@ -1,0 +1,42 @@
+"""
+Type annotations for {{ package.service_name.boto3_name }} service client.
+
+[Open documentation]({{ package.service_name.get_doc_link("client") }})
+
+Usage::
+
+    ```python
+    import boto3
+    from {{ package.service_name.module_name }} import {{ package.client.name }}
+
+    client: {{ package.client.name }} = boto3.client("{{ package.service_name.boto3_name }}")
+    ```
+"""
+{% for import_record in package.get_client_required_import_records() -%}
+    {% include "common/import_record_fallback.py.jinja2" with context %}
+{% endfor -%}
+
+{{ "\n\n" -}}
+
+__all__ = (
+{% for name in package.client.get_all_names() -%}
+    {{ '"' -}}
+    {{ name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)
+
+{% with class=package.client.client_error_class -%}
+    {% include "common/class.py.jinja2" with context -%}
+{% endwith -%}
+
+{% with class=package.client.exceptions_class -%}
+    {% include "common/class.py.jinja2" with context -%}
+{% endwith -%}
+
+{{ "\n\n" -}}
+
+{% with class=package.client -%}
+    {% include "common/class.py.jinja2" with context -%}
+{% endwith -%}

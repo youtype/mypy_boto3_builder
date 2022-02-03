@@ -3,7 +3,12 @@ Description for boto3 service.
 """
 from typing import Literal
 
-from mypy_boto3_builder.constants import MODULE_NAME, PYPI_NAME
+from mypy_boto3_builder.constants import (
+    AIOBOTOCORE_MODULE_NAME,
+    AIOBOTOCORE_PYPI_NAME,
+    MODULE_NAME,
+    PYPI_NAME,
+)
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
 
 __all__ = (
@@ -78,16 +83,30 @@ class ServiceName:
     @property
     def module_name(self) -> str:
         """
-        Package name for given service.
+        Package name for given service for boto3.
         """
         return f"{MODULE_NAME}_{self.underscore_name}"
 
     @property
+    def aiobotocore_module_name(self) -> str:
+        """
+        Package name for given service for aiobotocore.
+        """
+        return f"{AIOBOTOCORE_MODULE_NAME}_{self.underscore_name}"
+
+    @property
     def pypi_name(self) -> str:
         """
-        Name of package on PyPI.
+        Name of boto3 package on PyPI.
         """
         return f"{PYPI_NAME}-{self.name}"
+
+    @property
+    def aiobotocore_pypi_name(self) -> str:
+        """
+        Name of aiobotocore package on PyPI.
+        """
+        return f"{AIOBOTOCORE_PYPI_NAME}-{self.name}"
 
     @property
     def pypi_link(self) -> str:

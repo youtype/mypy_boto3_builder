@@ -8,6 +8,7 @@ from boto3 import __version__ as boto3_version
 from boto3.session import Session
 from botocore import __version__ as botocore_version
 
+from mypy_boto3_builder.aiobotocore_generator import AioBotocoreGenerator
 from mypy_boto3_builder.boto3_generator import Boto3Generator
 from mypy_boto3_builder.cli_parser import parse_args
 from mypy_boto3_builder.constants import BOTO3_STUBS_NAME, DUMMY_REGION, MODULE_NAME, PYPI_NAME
@@ -135,12 +136,25 @@ def main() -> None:
         bump_on_published=True,
         version=args.build_version or boto3_version,
     )
+    aiobotocore_generator = AioBotocoreGenerator(
+        service_names=service_names,
+        available_service_names=available_service_names,
+        master_service_names=service_names if args.partial_overload else available_service_names,
+        session=session,
+        output_path=args.output_path,
+        generate_setup=not args.installed,
+        skip_published=args.skip_published,
+        bump_on_published=True,
+        version=args.build_version or boto3_version,
+    )
     if "boto3" in args.products:
         boto3_generator.generate_stubs()
     if "boto3-services" in args.products:
         boto3_generator.generate_service_stubs()
     if "boto3-docs" in args.products:
         boto3_generator.generate_docs()
+    if "aiobotocore" in args.products:
+        aiobotocore_generator.generate_stubs()
 
     logger.info("Completed")
 

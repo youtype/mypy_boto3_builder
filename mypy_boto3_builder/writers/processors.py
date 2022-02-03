@@ -1,5 +1,5 @@
 """
-Processors for parsing and writing modules.
+Processors for parsing and writing `boto3` modules.
 """
 from collections.abc import Iterable
 from pathlib import Path

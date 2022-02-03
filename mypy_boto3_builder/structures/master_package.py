@@ -22,13 +22,10 @@ class MasterPackage(Package):
 
     def __init__(
         self,
-        name: str = MODULE_NAME,
-        pypi_name: str = PYPI_NAME,
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
     ):
-        super().__init__(name=name, pypi_name=pypi_name)
-        self.service_names = list(service_names)
+        super().__init__(name=MODULE_NAME, pypi_name=PYPI_NAME, service_names=service_names)
         self.service_packages = list(service_packages)
 
     @property

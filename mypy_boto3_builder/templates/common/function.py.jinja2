@@ -1,7 +1,7 @@
 {% for decorator in function.decorators -%}
 {{ '@' -}}{{ decorator -}}{{ '\n' -}}
 {% endfor -%}
-{% if function.is_async -%}{{ 'async ' -}}{% endif -%}}{{ 'def ' -}}{{ function.name -}}{{ '(' -}}
+{% if function.is_async -%}{{ 'async ' -}}{% endif -%}{{ 'def ' -}}{{ function.name -}}{{ '(' -}}
 {% if function.type_ignore -%}{{ '  # type: ignore' -}}{% endif -%}
 {{ '\n' -}}
 {% filter indent(4, True) -%}

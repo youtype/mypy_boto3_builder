@@ -27,7 +27,7 @@ class NicePath(type(Path())):  # type: ignore
 
         return str(path)
 
-    def walk(self, exclude: Iterable[Path] = tuple()) -> Iterator[Path]:
+    def walk(self, exclude: Iterable[Path] = tuple(), glob_pattern: str = "**/*") -> Iterator[Path]:
         """
         Walk files except for `exclude`.
 
@@ -35,7 +35,7 @@ class NicePath(type(Path())):  # type: ignore
             Existing Path.
         """
         exclude_strs = {NicePath(i).as_posix() for i in exclude}
-        for path in self.glob("**/*"):
+        for path in self.glob(glob_pattern):
             if not path.is_file():
                 continue
 

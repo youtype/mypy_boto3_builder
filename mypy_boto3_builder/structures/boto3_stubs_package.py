@@ -22,14 +22,12 @@ class Boto3StubsPackage(Package):
 
     def __init__(
         self,
-        name: str = BOTO3_STUBS_NAME,
-        pypi_name: str = BOTO3_STUBS_NAME,
         session_class: ClassRecord | None = None,
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
         init_functions: Iterable[Function] = tuple(),
     ):
-        super().__init__(name=name, pypi_name=pypi_name)
+        super().__init__(name=BOTO3_STUBS_NAME, pypi_name=BOTO3_STUBS_NAME)
         self.session_class = session_class or ClassRecord("Session")
         self.service_names = list(service_names)
         self.service_packages = list(service_packages)

@@ -43,6 +43,8 @@ def blackify(content: str, file_path: Path) -> str:
     except NothingChanged:
         pass
     except (IndentationError, InvalidInput) as e:
+        if not file_path.parent.exists():
+            file_path.parent.mkdir(exist_ok=True, parents=True)
         file_path.write_text(content)
         raise ValueError(f"Cannot parse {file_path}: {e}") from e
 
