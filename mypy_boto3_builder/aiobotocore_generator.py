@@ -31,7 +31,7 @@ class AioBotocoreGenerator:
         output_path -- Path to write generated files
         generate_setup -- Whether to create package or installed module
         skip_published -- Whether to skip packages that are already published
-        bump_on_published -- Whether to create a new postrelease if version is already published
+        disable_smart_version -- Whether to create a new postrelease if version is already published
         version -- Package build version
     """
 
@@ -44,7 +44,7 @@ class AioBotocoreGenerator:
         output_path: Path,
         generate_setup: bool,
         skip_published: bool,
-        bump_on_published: bool,
+        disable_smart_version: bool,
         version: str,
     ):
         self.session = session
@@ -55,7 +55,7 @@ class AioBotocoreGenerator:
         self.logger = get_logger()
         self.generate_setup = generate_setup
         self.skip_published = skip_published
-        self.bump_on_published = bump_on_published
+        self.disable_smart_version = disable_smart_version
         self.version = version
 
     def _get_package_version(self, pypi_name: str, version: str) -> str | None:
@@ -65,7 +65,7 @@ class AioBotocoreGenerator:
 
         if self.skip_published:
             return None
-        if not self.bump_on_published:
+        if self.disable_smart_version:
             return version
 
         return pypi_manager.get_next_version(version)

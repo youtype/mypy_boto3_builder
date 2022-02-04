@@ -58,10 +58,10 @@ class TestProcessors:
         assert result == parse_master_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.parse_service_package")
-    @patch("mypy_boto3_builder.writers.processors.write_service_package")
+    @patch("mypy_boto3_builder.writers.processors.PackageWriter")
     def test_process_service(
         self,
-        write_service_package_mock: MagicMock,
+        PackageWriterMock: MagicMock,
         parse_service_package_mock: MagicMock,
     ) -> None:
         session_mock = MagicMock()
@@ -75,19 +75,15 @@ class TestProcessors:
             [ServiceName("ec2", "EC2")],
             version="1.2.3",
         )
-        write_service_package_mock.assert_called_with(
-            result,
-            output_path=Path("my_path"),
-            generate_setup=True,
-        )
+        PackageWriterMock().write_service_package.assert_called()
         parse_service_package_mock.assert_called_with(session_mock, service_name_mock)
         assert result == parse_service_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.parse_service_package")
-    @patch("mypy_boto3_builder.writers.processors.write_service_docs")
+    @patch("mypy_boto3_builder.writers.processors.PackageWriter")
     def test_process_service_docs(
         self,
-        write_service_docs_mock: MagicMock,
+        PackageWriterMock: MagicMock,
         parse_service_package_mock: MagicMock,
     ) -> None:
         session_mock = MagicMock()
@@ -98,10 +94,7 @@ class TestProcessors:
             Path("my_path"),
             [ServiceName("ec2", "EC2")],
         )
-        write_service_docs_mock.assert_called_with(
-            result,
-            output_path=Path("my_path"),
-        )
+        PackageWriterMock().write_service_docs.assert_called()
         parse_service_package_mock.assert_called_with(session_mock, service_name_mock)
         assert result == parse_service_package_mock()
 

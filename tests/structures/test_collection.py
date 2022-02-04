@@ -22,7 +22,6 @@ class TestPaginator:
         assert collection.name == "name"
         assert collection.bases
         assert collection.boto3_doc_link
-        assert collection.docstring
 
     def test_get_types(self) -> None:
         assert len(self.collection.get_types()) == 2

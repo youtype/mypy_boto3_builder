@@ -132,7 +132,7 @@ def main() -> None:
         output_path=args.output_path,
         generate_setup=not args.installed,
         skip_published=args.skip_published,
-        bump_on_published=True,
+        disable_smart_version=args.disable_smart_version,
         version=args.build_version or boto3_version,
     )
     aiobotocore_generator = AioBotocoreGenerator(
@@ -143,7 +143,7 @@ def main() -> None:
         output_path=args.output_path,
         generate_setup=not args.installed,
         skip_published=args.skip_published,
-        bump_on_published=True,
+        disable_smart_version=args.disable_smart_version,
         version=args.build_version or boto3_version,
     )
     if "boto3" in args.products:

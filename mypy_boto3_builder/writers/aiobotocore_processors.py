@@ -13,6 +13,7 @@ from mypy_boto3_builder.parsers.service_package import parse_service_package
 from mypy_boto3_builder.parsers.service_package_postprocessor import ServicePackagePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.aiobotocore_stubs_package import AioBotocoreStubsPackage
+from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.nice_path import NicePath
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 from mypy_boto3_builder.writers.utils import get_aiobotocore_version
@@ -64,7 +65,7 @@ def process_aiobotocore_service(
     generate_setup: bool,
     service_names: Iterable[ServiceName],
     version: str,
-):
+) -> ServicePackage:
     """
     Parse and write service package `types_aiobotocore_*`.
 
@@ -109,7 +110,7 @@ def process_aiobotocore_stubs_docs(
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
-):
+) -> AioBotocoreStubsPackage:
     """
     Parse and write master package docs.
 
@@ -145,7 +146,7 @@ def process_aiobotocore_service_docs(
     service_name: ServiceName,
     output_path: Path,
     service_names: Iterable[ServiceName],
-):
+) -> ServicePackage:
     """
     Parse and write service package docs.
 

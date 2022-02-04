@@ -51,6 +51,7 @@ class Namespace:
     list_services: bool
     partial_overload: bool
     skip_published: bool
+    disable_smart_version: bool
 
 
 def parse_args(args: Sequence[str]) -> Namespace:
@@ -90,6 +91,11 @@ def parse_args(args: Sequence[str]) -> Namespace:
     )
     parser.add_argument(
         "--skip-published", action="store_true", help="Skip packages that are already on PyPI"
+    )
+    parser.add_argument(
+        "--no-smart-version",
+        action="store_true",
+        help="Disable version bump if package is already published",
     )
     parser.add_argument(
         "--panic",
@@ -140,4 +146,5 @@ def parse_args(args: Sequence[str]) -> Namespace:
         list_services=result.list_services,
         partial_overload=result.partial_overload,
         skip_published=result.skip_published,
+        disable_smart_version=result.no_smart_version,
     )

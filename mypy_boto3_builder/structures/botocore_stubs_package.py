@@ -12,7 +12,7 @@ class BotocoreStubsPackage(Package):
     Structure for botocore-stubs package.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__(name=BOTOCORE_STUBS_NAME, pypi_name=BOTOCORE_STUBS_NAME)
         self.library_name = "botocore"
         self.library_version = botocore_version
