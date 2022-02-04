@@ -57,7 +57,7 @@ class PackageWriter:
             relative_output_path = static_path.relative_to(static_files_path)
             file_path = package_path / relative_output_path
             result.append(file_path)
-            file_path.parent.mkdir(exist_ok=True)
+            file_path.parent.mkdir(exist_ok=True, parents=True)
             content = static_path.read_text()
             if not file_path.exists() or file_path.read_text() != content:
                 file_path.write_text(content)
@@ -131,7 +131,7 @@ class PackageWriter:
                 content = fix_pypi_headers(content)
                 content = format_md(content)
             if not file_path.parent.exists():
-                file_path.parent.mkdir(parents=True, exist_ok=True)
+                file_path.parent.mkdir(exist_ok=True, parents=True)
             if not file_path.exists() or file_path.read_text() != content:
                 file_path.write_text(content)
                 self.logger.debug(f"Rendered {NicePath(file_path)}")
@@ -309,7 +309,7 @@ class PackageWriter:
             output_path -- Path to output folder.
         """
         docs_path = self.output_path / f"{package.name}"
-        docs_path.mkdir(exist_ok=True)
+        docs_path.mkdir(exist_ok=True, parents=True)
         templates_path = Path("service_docs")
         file_paths = [
             (docs_path / "README.md", templates_path / "README.md.jinja2"),

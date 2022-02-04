@@ -94,7 +94,7 @@ def main() -> None:
     botocore_session = session._session
     botocore_session.set_credentials("access_key", "secret_key", "token")
 
-    args.output_path.mkdir(exist_ok=True)
+    args.output_path.mkdir(exist_ok=True, parents=True)
     available_service_names = get_available_service_names(session)
 
     logger.info(f"{len(available_service_names)} supported boto3 services discovered")
