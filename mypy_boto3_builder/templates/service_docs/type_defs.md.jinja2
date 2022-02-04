@@ -1,15 +1,15 @@
-# Typed dictionaries for boto3 {{ service_name.class_name }} module
+# Typed dictionaries for {{ package.library_name }} {{ service_name.class_name }} module
 
 > [Index](..) > [{{ service_name.class_name }}](.) > Typed dictionaries
 
 Auto-generated documentation for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }})
-type annotations stubs module [{{ service_name.module_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
+type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
 
 {% for typed_dict in package.typed_dicts -%}
 ## {{ typed_dict.name }}
 
 ```python
-from {{ service_name.module_name }}.type_defs import {{ typed_dict.name }}
+from {{ package.name }}.type_defs import {{ typed_dict.name }}
 ```
 
 {% if typed_dict.get_required() %}

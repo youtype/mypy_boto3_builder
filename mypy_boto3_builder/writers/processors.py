@@ -23,7 +23,6 @@ from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.nice_path import NicePath
 from mypy_boto3_builder.writers.package_writer import PackageWriter
-from mypy_boto3_builder.writers.service_package import write_service_docs
 
 
 def process_boto3_stubs(
@@ -192,9 +191,16 @@ def process_service_docs(
     postprocessor = ServicePackagePostprocessor(service_package)
     postprocessor.generate_docstrings()
 
+    for typed_dict in service_package.typed_dicts:
+        typed_dict.replace_self_references()
+
     logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
 
-    write_service_docs(service_package, output_path=output_path)
+    package_writer = PackageWriter(output_path=output_path)
+    package_writer.write_service_docs(
+        service_package,
+        templates_path=TEMPLATES_PATH / "service_docs",
+    )
     return service_package
 
 
@@ -222,7 +228,7 @@ def process_boto3_stubs_docs(
     package_writer = PackageWriter(output_path=output_path)
     package_writer.write_docs(
         boto3_stubs_package,
-        templates_path=TEMPLATES_PATH / "boto3_stubs_docs",
+        templates_path=TEMPLATES_PATH / "stubs_docs",
     )
 
     return boto3_stubs_package

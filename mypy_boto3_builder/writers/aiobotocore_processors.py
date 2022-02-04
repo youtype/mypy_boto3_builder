@@ -86,7 +86,6 @@ def process_aiobotocore_service(
     service_package.pypi_name = service_name.aiobotocore_pypi_name
     service_package.version = version
     service_package.library_name = "aiobotocore"
-    # FIXME: get real version
     service_package.library_version = get_aiobotocore_version()
     service_package.extend_literals(service_names)
 
@@ -122,6 +121,23 @@ def process_aiobotocore_stubs_docs(
     Return:
         Parsed AioBotocoreStubsPackage.
     """
+    logger = get_logger()
+    logger.debug("Parsing aiobotocore stubs")
+    aiobotocore_stubs_package = parse_aiobotocore_stubs_package(
+        session=session, service_names=service_names
+    )
+    aiobotocore_stubs_package.library_name = "aiobotocore"
+    aiobotocore_stubs_package.library_version = get_aiobotocore_version()
+
+    logger.debug(f"Writing aiobotocore stubs to {NicePath(output_path)}")
+
+    package_writer = PackageWriter(output_path=output_path)
+    package_writer.write_docs(
+        aiobotocore_stubs_package,
+        templates_path=TEMPLATES_PATH / "stubs_docs",
+    )
+
+    return aiobotocore_stubs_package
 
 
 def process_aiobotocore_service_docs(
@@ -142,4 +158,27 @@ def process_aiobotocore_service_docs(
     Return:
         Parsed ServicePackage.
     """
-    pass
+    logger = get_logger()
+    logger.debug(f"Parsing {service_name.boto3_name}")
+    service_package = parse_service_package(session, service_name)
+    service_package.name = service_name.aiobotocore_module_name
+    service_package.pypi_name = service_name.aiobotocore_pypi_name
+    service_package.library_name = "aiobotocore"
+    service_package.library_version = get_aiobotocore_version()
+    service_package.extend_literals(service_names)
+
+    postprocessor = ServicePackagePostprocessor(service_package)
+    postprocessor.generate_docstrings()
+    postprocessor.make_async()
+
+    for typed_dict in service_package.typed_dicts:
+        typed_dict.replace_self_references()
+
+    logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
+
+    package_writer = PackageWriter(output_path=output_path)
+    package_writer.write_service_docs(
+        service_package,
+        templates_path=TEMPLATES_PATH / "service_docs",
+    )
+    return service_package

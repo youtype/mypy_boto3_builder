@@ -88,9 +88,9 @@ class Package:
         Get PyPI package name for a service package.
         """
         return {
-            "boto3": f"https://pypi.org/project/{service_name.pypi_name}/",
-            "botocore": f"https://pypi.org/project/{service_name.pypi_name}/",
-            "aiobotocore": f"https://pypi.org/project/{service_name.aiobotocore_pypi_name}/",
+            "boto3": service_name.pypi_name,
+            "botocore": service_name.pypi_name,
+            "aiobotocore": service_name.aiobotocore_pypi_name,
         }[self.library_name]
 
     def get_service_pypi_link(self, service_name: ServiceName) -> str:

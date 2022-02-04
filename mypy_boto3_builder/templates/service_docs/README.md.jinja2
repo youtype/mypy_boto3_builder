@@ -1,12 +1,16 @@
-# Type annotations for boto3 {{ package.service_name.class_name }} module
+# Type annotations for {{ package.library_name }} {{ package.service_name.class_name }} module
 
 > [Index](..) > {{ package.service_name.class_name }}
 
 Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.boto3_doc_link }})
-type annotations stubs module [{{ package.name }}]({{ package.get_service_pypi_link(package.service_name) }}).
+type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
 
 ```bash
-pip install {{ package.service_name.pypi_name }}
+# install with {{ package.docs_package_name }}
+pip install '{{ package.docs_package_name }}[{{ package.service_name.extras_name }}]'
+
+# install as a standalone
+pip install {{ package.pypi_name }}
 ```
 
 ## {{ package.client.name }}

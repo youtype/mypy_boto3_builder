@@ -38,10 +38,10 @@ Click `Modify` and select `boto3 common` and `{{ service_name.class_name }}`.
 
 ### From PyPI with pip
 
-Install `boto3-stubs` for `{{ service_name.class_name }}` service.
+Install `{{ package.docs_package_name }}` for `{{ service_name.class_name }}` service.
 
 ```bash
-python -m pip install boto3-stubs[{{service_name.extras_name}}]
+python -m pip install {{ package.docs_package_name }}[{{service_name.extras_name}}]
 ```
 
 {% if service_name.is_conda_forge_available() %}
@@ -74,18 +74,18 @@ conda search {{ service_name.pypi_name }} --channel conda-forge
 - Install [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 - Install [Pylance extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
 - Set `Pylance` as your Python Language Server
-- Install `boto3-stubs[{{service_name.extras_name}}]` in your environment: `python -m pip install 'boto3-stubs[{{service_name.extras_name}}]'`
+- Install `{{ package.docs_package_name }}[{{service_name.extras_name}}]` in your environment: `python -m pip install '{{ package.docs_package_name }}[{{service_name.extras_name}}]'`
 
 Both type checking and auto-complete should work for `{{ service_name.class_name }}` service.
 No explicit type annotations required, write your `boto3` code as usual.
 
 ### PyCharm
 
-- Install `boto3-stubs[{{service_name.extras_name}}]` in your environment: `python -m pip install 'boto3-stubs[{{service_name.extras_name}}]'`
+- Install `{{ package.docs_package_name }}[{{service_name.extras_name}}]` in your environment: `python -m pip install '{{ package.docs_package_name }}[{{service_name.extras_name}}]'`
 
 Both type checking and auto-complete should work for `{{ service_name.class_name }}` service.
-No explicit type annotations required, write your `boto3` code as usual.
-Auto-complete can be slow on big projects or if you have a lot of installed `boto3-stubs` submodules.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
+Auto-complete can be slow on big projects or if you have a lot of installed `{{ package.docs_package_name }}` submodules.
 
 ### Other IDEs
 
@@ -94,39 +94,35 @@ Not tested, but as long as your IDE supports `mypy` or `pyright`, everything sho
 ### mypy
 
 - Install `mypy`: `python -m pip install mypy`
-- Install `boto3-stubs[{{service_name.extras_name}}]` in your environment: `python -m pip install 'boto3-stubs[{{service_name.extras_name}}]'`
+- Install `{{ package.docs_package_name }}[{{service_name.extras_name}}]` in your environment: `python -m pip install '{{ package.docs_package_name }}[{{service_name.extras_name}}]'`
 - Run `mypy` as usual
 
 Type checking should work for `{{ service_name.class_name }}` service.
-No explicit type annotations required, write your `boto3` code as usual.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
 
 ### pyright
 
 - Install `pyright`: `yarn global add pyright`
-- Install `boto3-stubs[{{service_name.extras_name}}]` in your environment: `python -m pip install 'boto3-stubs[{{service_name.extras_name}}]'`
+- Install `{{ package.docs_package_name }}[{{service_name.extras_name}}]` in your environment: `python -m pip install '{{ package.docs_package_name }}[{{service_name.extras_name}}]'`
 - Optionally, you can install `boto3-stubs` to `typings` folder.
 
 Type checking should work for `{{ service_name.class_name }}` service.
-No explicit type annotations required, write your `boto3` code as usual.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
 
 ## Explicit type annotations
 
 ### Client annotations
 
-`{{ package.client.name }}` provides annotations for `boto3.client("{{ service_name.boto3_name }}")`.
+`{{ package.client.name }}` provides annotations for `{{ package.library_name }}.{{ package.client_method_name }}("{{ service_name.boto3_name }}")`.
 
 ```python
-import boto3
+from {{ package.library_name }}.session import Session
 
 from {{ package.name }} import {{ package.client.name }}
 
-client: {{ package.client.name }} = boto3.client("{{ service_name.boto3_name }}")
+client: {{ package.client.name }} = Session().{{ package.client_method_name }}("{{ service_name.boto3_name }}")
 
 # now client usage is checked by mypy and IDE should provide code auto-complete
-
-# works for session as well
-session = boto3.session.Session(region="us-west-1")
-session_client: {{ package.client.name }} = session.client("{{ service_name.boto3_name }}")
 ```
 
 {% if package.paginators -%}
@@ -135,12 +131,14 @@ session_client: {{ package.client.name }} = session.client("{{ service_name.boto
 `{{ package.name }}.paginator` module contains type annotations for all paginators.
 
 ```python
+from {{ package.library_name }}.session import Session
+
 from {{ package.name }} import {{ package.client.name }}
 from {{ package.name }}.paginator import (
 {% for paginator in package.paginators %}    {{ paginator.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 
-client: {{ package.client.name }} = boto3.client("{{ service_name.boto3_name }}")
+client: {{ package.client.name }} = Session().{{ package.client_method_name }}("{{ service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Type should be correctly discovered by mypy and IDEs
@@ -164,8 +162,7 @@ from {{ package.name }}.waiter import (
 {% for waiter in package.waiters %}    {{ waiter.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 
-session = Session()
-client: {{ package.client.name }} = session.client("{{ service_name.boto3_name }}")
+client: {{ package.client.name }} = Session().{{ package.client_method_name }}("{{ service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Type should be correctly discovered by mypy and IDEs
@@ -183,10 +180,10 @@ client: {{ package.client.name }} = session.client("{{ service_name.boto3_name }
 
 ```python
 from {{ package.library_name }}.session import Session
+
 from {{ package.name }} import {{ package.service_resource.name }}
 
-session = Session()
-resource: {{ package.service_resource.name }} = session.resource("{{ service_name.boto3_name }}")
+resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
 
 # now resource usage is checked by mypy and IDE should provide code auto-complete
 ```
@@ -198,13 +195,13 @@ resource: {{ package.service_resource.name }} = session.resource("{{ service_nam
 
 ```python
 from {{ package.library_name }}.session import Session
+
 from {{ package.name }} import {{ package.service_resource.name }}
 from {{ package.name }}.service_resource import (
 {% for sub_resource in package.service_resource.sub_resources %}    {{ sub_resource.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 
-session = Session()
-resource: {{ package.service_resource.name }} = session.resource("{{ service_name.boto3_name }}")
+resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Type should be correctly discovered by mypy and IDEs
@@ -228,8 +225,7 @@ from {{ package.name }}.service_resource import (
 {% for collection in package.service_resource.collections %}    {{ collection.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 
-session = Session()
-resource: {{ package.service_resource.name }} = session.resource("{{ service_name.boto3_name }}")
+resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Type should be correctly discovered by mypy and IDEs

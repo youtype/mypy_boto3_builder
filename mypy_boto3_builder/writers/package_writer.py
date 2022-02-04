@@ -299,3 +299,42 @@ class PackageWriter:
             else self._get_service_package_path(package)
         )
         self._cleanup(valid_paths, output_path)
+
+    def write_service_docs(self, package: ServicePackage, templates_path: Path) -> None:
+        """
+        Create service docs files.
+
+        Arguments:
+            package -- Service package.
+            output_path -- Path to output folder.
+        """
+        docs_path = self.output_path / f"{package.name}"
+        docs_path.mkdir(exist_ok=True)
+        templates_path = Path("service_docs")
+        file_paths = [
+            (docs_path / "README.md", templates_path / "README.md.jinja2"),
+            (docs_path / "client.md", templates_path / "client.md.jinja2"),
+        ]
+
+        if package.literals:
+            file_paths.append((docs_path / "literals.md", templates_path / "literals.md.jinja2"))
+
+        if package.typed_dicts:
+            file_paths.append((docs_path / "type_defs.md", templates_path / "type_defs.md.jinja2"))
+
+        if package.waiters:
+            file_paths.append((docs_path / "waiters.md", templates_path / "waiters.md.jinja2"))
+
+        if package.paginators:
+            file_paths.append(
+                (docs_path / "paginators.md", templates_path / "paginators.md.jinja2")
+            )
+
+        if package.service_resource:
+            file_paths.append(
+                (docs_path / "service_resource.md", templates_path / "service_resource.md.jinja2")
+            )
+
+        self._render_templates(package, file_paths, service_name=package.service_name)
+        valid_paths = list(dict(file_paths).keys())
+        self._cleanup(valid_paths, docs_path)
