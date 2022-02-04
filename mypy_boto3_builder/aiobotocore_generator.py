@@ -80,11 +80,6 @@ class AioBotocoreGenerator:
             self.logger.info(f"Skipping {AIOBOTOCORE_STUBS_NAME} {self.version}, already on PyPI")
             return
 
-        JinjaManager.update_globals(
-            aiobotocore_version="2.1.0",
-            aiobotocore_build_version=version,
-        )
-
         self.logger.info(f"Generating {AIOBOTOCORE_STUBS_NAME} {version}")
         process_aiobotocore_stubs(
             self.session,

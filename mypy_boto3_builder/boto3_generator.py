@@ -9,7 +9,6 @@ from boto3.session import Session
 from botocore import __version__ as botocore_version
 
 from mypy_boto3_builder.constants import BOTO3_STUBS_NAME, BOTOCORE_STUBS_NAME, PYPI_NAME
-from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
@@ -119,14 +118,11 @@ class Boto3Generator:
             self.logger.info(f"Skipping {BOTOCORE_STUBS_NAME} {botocore_version}, already on PyPI")
             return
 
-        JinjaManager.update_globals(
-            botocore_build_version=version,
-        )
-
         self.logger.info(f"Generating {BOTOCORE_STUBS_NAME} {version}")
         process_botocore_stubs(
             self.output_path,
             generate_setup=self.generate_setup,
+            version=version,
         )
 
     def generate_stubs(self) -> None:
@@ -175,6 +171,14 @@ class Boto3Generator:
         """
         logger = get_logger()
         total_str = f"{len(self.service_names)}"
+
+        logger.info(f"Generating {BOTO3_STUBS_NAME} module docs")
+        process_boto3_stubs_docs(
+            self.session,
+            self.output_path,
+            self.service_names,
+        )
+
         for index, service_name in enumerate(self.service_names):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
             logger.info(
@@ -186,10 +190,3 @@ class Boto3Generator:
                 service_name=service_name,
                 service_names=self.available_service_names,
             )
-
-        logger.info(f"Generating {BOTO3_STUBS_NAME} module docs")
-        process_boto3_stubs_docs(
-            self.session,
-            self.output_path,
-            self.service_names,
-        )

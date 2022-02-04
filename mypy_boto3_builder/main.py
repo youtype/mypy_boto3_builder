@@ -116,7 +116,6 @@ def main() -> None:
         botocore_version=botocore_version,
         build_version=boto3_version,
         min_build_version=get_min_build_version(boto3_version),
-        botocore_build_version=botocore_version,
         builder_version=args.builder_version,
         get_anchor_link=get_anchor_link,
         render_docstrings=True,

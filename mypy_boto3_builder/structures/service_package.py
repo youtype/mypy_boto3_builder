@@ -3,6 +3,8 @@ Parsed Service package.
 """
 from collections.abc import Iterable
 
+from boto3 import __version__ as boto3_version
+
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -46,6 +48,8 @@ class ServicePackage(Package):
         self.typed_dicts = list(typed_dicts)
         self.literals = list(literals)
         self.helper_functions = list(helper_functions)
+        self.library_name = "boto3"
+        self.library_version = boto3_version
 
     def extract_literals(self) -> list[TypeLiteral]:
         """

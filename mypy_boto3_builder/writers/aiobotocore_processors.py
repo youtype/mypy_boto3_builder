@@ -12,7 +12,7 @@ from mypy_boto3_builder.parsers.aiobotocore_stubs_package import parse_aiobotoco
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.aiobotocore_stubs_package import AioBotocoreStubsPackage
 from mypy_boto3_builder.utils.nice_path import NicePath
-from mypy_boto3_builder.writers.stubs_package import write_stubs_package
+from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
 def process_aiobotocore_stubs(
@@ -43,10 +43,9 @@ def process_aiobotocore_stubs(
     aiobotocore_stubs_package.version = version
     logger.debug(f"Writing aiobotocore stubs to {NicePath(output_path)}")
 
-    write_stubs_package(
+    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
+    package_writer.write_package(
         aiobotocore_stubs_package,
-        output_path,
-        generate_setup=generate_setup,
         templates_path=TEMPLATES_PATH / "aiobotocore-stubs",
         static_files_path=AIOBOTOCORE_STUBS_STATIC_PATH,
     )

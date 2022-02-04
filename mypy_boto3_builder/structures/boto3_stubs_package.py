@@ -4,6 +4,8 @@ Structure for boto3-stubs module.
 
 from collections.abc import Iterable
 
+from boto3 import __version__ as boto3_version
+
 from mypy_boto3_builder.constants import BOTO3_STUBS_NAME
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -32,6 +34,8 @@ class Boto3StubsPackage(Package):
         self.service_names = list(service_names)
         self.service_packages = list(service_packages)
         self.init_functions = list(init_functions)
+        self.library_name = "boto3"
+        self.library_version = boto3_version
 
     @property
     def essential_service_names(self) -> list[ServiceName]:

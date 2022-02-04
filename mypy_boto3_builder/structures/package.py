@@ -20,7 +20,9 @@ class Package:
     ) -> None:
         self.name = name
         self.pypi_name = pypi_name
+        self.library_name = name
         self.version = "0.0.0"
+        self.library_version = "0.0.0"
         self.service_names: list[ServiceName] = list(service_names)
         self.logger = get_logger()
 
@@ -32,12 +34,5 @@ class Package:
         underscore_package_name = self.name.replace("-", "_")
         return f"{underscore_package_name}_package"
 
-    @property
-    def non_stubs_name(self) -> str:
-        """
-        Original package name for stubs package.
-        """
-        if self.name.endswith("-stubs"):
-            return self.name.rsplit("-", 1)[0]
-
-        return self.name
+    def __str__(self) -> str:
+        return f"{self.name} {self.version} ({self.library_name} {self.library_version})"

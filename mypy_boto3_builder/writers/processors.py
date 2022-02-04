@@ -6,21 +6,22 @@ from pathlib import Path
 
 from boto3.session import Session
 
+from mypy_boto3_builder.constants import (
+    BOTO3_STUBS_STATIC_PATH,
+    BOTOCORE_STUBS_STATIC_PATH,
+    TEMPLATES_PATH,
+)
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.boto3_stubs_package import parse_boto3_stubs_package
 from mypy_boto3_builder.parsers.master_package import parse_master_package
 from mypy_boto3_builder.parsers.service_package import parse_service_package
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
+from mypy_boto3_builder.structures.botocore_stubs_package import BotocoreStubsPackage
 from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.nice_path import NicePath
-from mypy_boto3_builder.writers.boto3_stubs_package import (
-    write_boto3_stubs_docs,
-    write_boto3_stubs_package,
-)
-from mypy_boto3_builder.writers.botocore_stubs_package import write_botocore_stubs_package
-from mypy_boto3_builder.writers.master_package import write_master_package
+from mypy_boto3_builder.writers.package_writer import PackageWriter
 from mypy_boto3_builder.writers.service_package import write_service_docs, write_service_package
 
 
@@ -50,13 +51,20 @@ def process_boto3_stubs(
     boto3_stubs_package.version = version
     logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
 
-    write_boto3_stubs_package(boto3_stubs_package, output_path, generate_setup=generate_setup)
+    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
+    package_writer.write_package(
+        boto3_stubs_package,
+        templates_path=TEMPLATES_PATH / "boto3-stubs",
+        static_files_path=BOTO3_STUBS_STATIC_PATH,
+    )
+
     return boto3_stubs_package
 
 
 def process_botocore_stubs(
     output_path: Path,
     generate_setup: bool,
+    version: str,
 ) -> None:
     """
     Parse and write stubs package `botocore_stubs`.
@@ -69,7 +77,14 @@ def process_botocore_stubs(
     logger = get_logger()
     logger.debug(f"Writing botocore stubs to {NicePath(output_path)}")
 
-    write_botocore_stubs_package(output_path, generate_setup=generate_setup)
+    botocore_stubs_package = BotocoreStubsPackage()
+    botocore_stubs_package.version = version
+    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
+    package_writer.write_package(
+        botocore_stubs_package,
+        templates_path=TEMPLATES_PATH / "botocore-stubs",
+        static_files_path=BOTOCORE_STUBS_STATIC_PATH,
+    )
 
 
 def process_master(
@@ -98,7 +113,12 @@ def process_master(
     master_package.version = version
     logger.debug(f"Writing master to {NicePath(output_path)}")
 
-    write_master_package(master_package, output_path=output_path, generate_setup=generate_setup)
+    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
+    package_writer.write_package(
+        master_package,
+        templates_path=TEMPLATES_PATH / "master",
+    )
+
     return master_package
 
 
@@ -188,5 +208,10 @@ def process_boto3_stubs_docs(
     boto3_stubs_package = parse_boto3_stubs_package(session, service_names)
     logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
 
-    write_boto3_stubs_docs(boto3_stubs_package, output_path=output_path)
+    package_writer = PackageWriter(output_path=output_path)
+    package_writer.write_docs(
+        boto3_stubs_package,
+        templates_path=TEMPLATES_PATH / "boto3_stubs_docs",
+    )
+
     return boto3_stubs_package

@@ -6,8 +6,6 @@ from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
 class TestMasterPackage:
     def test_init(self) -> None:
-        package = MasterPackage(
-            "test+package", "test-package", [ServiceNameCatalog.ec2, ServiceNameCatalog.logs], []
-        )
+        package = MasterPackage([ServiceNameCatalog.ec2, ServiceNameCatalog.logs], [])
         assert package
         assert package.essential_service_names == [ServiceNameCatalog.ec2]
