@@ -75,6 +75,17 @@ async function getBoto3Version() {
     return sortVersions(versions).pop()
 }
 
+async function getAioBotocoreVersion() {
+    const versions = await getReleaseVersions('aiobotocore')
+    return sortVersions(versions).pop()
+}
+
+async function getTypesAioBotocoreVersions(aiobotocoreVersion) {
+    const allVersions = await getReleaseVersions('types-aiobotocore')
+    const versions = allVersions.filter(v => v === aiobotocoreVersion || v.startsWith(`${aiobotocoreVersion}.`))
+    return sortVersions(versions)
+}
+
 async function getStubsVersions(boto3Version) {
     const allVersions = await getReleaseVersions('boto3-stubs')
     const versions = allVersions.filter(v => v === boto3Version || v.startsWith(`${boto3Version}.`))
@@ -88,6 +99,7 @@ function getBotocoreVersion(version) {
 
 async function extractVersions({ core, context }) {
     core.setOutput('version', '')
+    core.setOutput('no_smart_version', '')
 
     const boto3Version = (
         (context.payload.inputs && context.payload.inputs.boto3_version) ?
@@ -120,6 +132,7 @@ async function extractVersions({ core, context }) {
         core.info(`Forced boto3-stubs version: ${buildVersion}`)
         core.info(`Build version = ${buildVersion}`)
         core.setOutput('version', buildVersion)
+        core.setOutput('no_smart_version', '--no-smart-version')
         return
     }
 
@@ -150,6 +163,64 @@ async function extractDownloadLinks({ core }) {
     const botocoreURL = await getDownloadURL('botocore', process.env.BOTOCORE_VERSION)
     core.info(`Botocore download URL: ${botocoreURL}`)
     core.setOutput('botocore-url', botocoreURL)
+}
+
+
+async function extractAioBotocoreVersions({ core, context }) {
+    core.setOutput('version', '')
+    core.setOutput('no_smart_version', '')
+
+    const aiobotocoreVersion = (
+        (context.payload.inputs && context.payload.inputs.aiobotocore_version) ?
+            context.payload.inputs.aiobotocore_version :
+            await getAioBotocoreVersion()
+    )
+    const force = context.payload.inputs ? context.payload.inputs.force !== 'false' : false
+
+    let buildAll = (context.payload.inputs && context.payload.inputs.build_all !== 'false') ? 'true' : 'false'
+    if (aiobotocoreVersion.endsWith('.0')) {
+        core.info(`Aiobotocore version is not a micro release ${aiobotocoreVersion}, building all packages`)
+        buildAll = 'true'
+    }
+
+    core.info(`Build all packages = ${buildAll}`)
+    core.setOutput('build-all', buildAll)
+
+    const versions = await getTypesAioBotocoreVersions(boto3Version)
+    core.info(`Built versions ${versions}`)
+
+    if (context.payload.inputs && context.payload.inputs.stubs_version) {
+        const buildVersion = context.payload.inputs.stubs_version
+        core.info(`Forced types-aiobotocore version: ${buildVersion}`)
+        core.info(`Build version = ${buildVersion}`)
+        core.setOutput('version', buildVersion)
+        core.setOutput('no_smart_version', '--no-smart-version')
+        return
+    }
+
+    if (versions.length && !force) {
+        core.info('Builds found, skipping')
+        return
+    }
+
+    if (!versions.length) {
+        core.info(`No builds found, building initial ${boto3Version}`)
+        core.setOutput('version', boto3Version)
+        return
+    }
+
+    const lastBuildVersion = versions.pop()
+    core.info(`Last build version ${lastBuildVersion}`)
+
+    const buildVersion = getNextPostVersion(lastBuildVersion)
+    core.info(`Build version = ${buildVersion}`)
+    core.setOutput('version', buildVersion)
+}
+
+async function extractAioBotocoreDownloadLinks({ core }) {
+    const aiobotocoreURL = await getDownloadURL('aiobotocore', process.env.AIOBOTOCORE_VERSION)
+    core.info(`aiobotocore download URL: ${aiobotocoreURL}`)
+    core.setOutput('aiobotocore-url', aiobotocoreURL)
 }
 
 module.exports = {
