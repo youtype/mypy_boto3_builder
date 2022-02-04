@@ -363,8 +363,14 @@ class ServicePackage(Package):
             file -- HTML file name
             parts -- Anchor parts
         """
-        link = f"{self.get_local_doc_link(self.service_name)}{file}.html"
+        link = f"{self.get_local_doc_link()}{file}.html"
         if not parts:
             return link
         anchor = "".join([get_anchor_link(part) for part in parts])
         return f"{link}#{anchor}"
+
+    def get_local_doc_link(self, service_name: ServiceName | None = None) -> str:
+        """
+        Get link to local docs.
+        """
+        return super().get_local_doc_link(self.service_name)

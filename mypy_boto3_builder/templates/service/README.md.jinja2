@@ -118,7 +118,7 @@ No explicit type annotations required, write your `boto3` code as usual.
 ```python
 import boto3
 
-from {{ service_name.module_name }} import {{ package.client.name }}
+from {{ package.name }} import {{ package.client.name }}
 
 client: {{ package.client.name }} = boto3.client("{{ service_name.boto3_name }}")
 
@@ -132,11 +132,11 @@ session_client: {{ package.client.name }} = session.client("{{ service_name.boto
 {% if package.paginators -%}
 ### Paginators annotations
 
-`{{ service_name.module_name }}.paginator` module contains type annotations for all paginators.
+`{{ package.name }}.paginator` module contains type annotations for all paginators.
 
 ```python
-from {{ service_name.module_name }} import {{ package.client.name }}
-from {{ service_name.module_name }}.paginator import (
+from {{ package.name }} import {{ package.client.name }}
+from {{ package.name }}.paginator import (
 {% for paginator in package.paginators %}    {{ paginator.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 
@@ -154,15 +154,18 @@ client: {{ package.client.name }} = boto3.client("{{ service_name.boto3_name }}"
 {% if package.waiters -%}
 ### Waiters annotations
 
-`{{ service_name.module_name }}.waiter` module contains type annotations for all waiters.
+`{{ package.name }}.waiter` module contains type annotations for all waiters.
 
 ```python
-from {{ service_name.module_name }} import {{ package.client.name }}
-from {{ service_name.module_name }}.waiter import (
+from {{ package.library_name }}.session import Session
+
+from {{ package.name }} import {{ package.client.name }}
+from {{ package.name }}.waiter import (
 {% for waiter in package.waiters %}    {{ waiter.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 
-client: {{ package.client.name }} = boto3.client("{{ service_name.boto3_name }}")
+session = Session()
+client: {{ package.client.name }} = session.client("{{ service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Type should be correctly discovered by mypy and IDEs
@@ -176,32 +179,32 @@ client: {{ package.client.name }} = boto3.client("{{ service_name.boto3_name }}"
 {% if package.service_resource -%}
 ### Service Resource annotations
 
-`{{ package.service_resource.name }}` provides annotations for `boto3.resource("{{ service_name.boto3_name }}")`.
+`{{ package.service_resource.name }}` provides annotations for `{{ package.library_name }}.resource("{{ service_name.boto3_name }}")`.
 
 ```python
-from {{ service_name.module_name }} import {{ package.service_resource.name }}
+from {{ package.library_name }}.session import Session
+from {{ package.name }} import {{ package.service_resource.name }}
 
-resource: {{ package.service_resource.name }} = boto3.resource("{{ service_name.boto3_name }}")
+session = Session()
+resource: {{ package.service_resource.name }} = session.resource("{{ service_name.boto3_name }}")
 
 # now resource usage is checked by mypy and IDE should provide code auto-complete
-
-# works for session as well
-session = boto3.session.Session(region="us-west-1")
-session_resource: {{ package.service_resource.name }} = session.resource("{{ service_name.boto3_name }}")
 ```
 
 {% if package.service_resource.sub_resources %}
 ### Other resources annotations
 
-`{{ service_name.module_name }}.service_resource` module contains type annotations for all resources.
+`{{ package.name }}.service_resource` module contains type annotations for all resources.
 
 ```python
-from {{ service_name.module_name }} import {{ package.service_resource.name }}
-from {{ service_name.module_name }}.service_resource import (
+from {{ package.library_name }}.session import Session
+from {{ package.name }} import {{ package.service_resource.name }}
+from {{ package.name }}.service_resource import (
 {% for sub_resource in package.service_resource.sub_resources %}    {{ sub_resource.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 
-resource: {{ package.service_resource.name }} = boto3.resource("{{ service_name.boto3_name }}")
+session = Session()
+resource: {{ package.service_resource.name }} = session.resource("{{ service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Type should be correctly discovered by mypy and IDEs
@@ -214,16 +217,19 @@ my_{{ sub_resource.variable_name }}: {{ sub_resource.name }} = resource.{{ sub_r
 {% if package.service_resource.collections %}
 ### Collections annotations
 
-`{{ service_name.module_name }}.service_resource` module contains type annotations
+`{{ package.name }}.service_resource` module contains type annotations
 for all `{{ package.service_resource.name }}` collections.
 
 ```python
-from {{ service_name.module_name }} import {{ package.service_resource.name }}
-from {{ service_name.module_name }}.service_resource import (
+from {{ package.library_name }}.session import Session
+
+from {{ package.name }} import {{ package.service_resource.name }}
+from {{ package.name }}.service_resource import (
 {% for collection in package.service_resource.collections %}    {{ collection.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 
-resource: {{ package.service_resource.name }} = boto3.resource("{{ service_name.boto3_name }}")
+session = Session()
+resource: {{ package.service_resource.name }} = session.resource("{{ service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Type should be correctly discovered by mypy and IDEs
@@ -237,11 +243,11 @@ resource: {{ package.service_resource.name }} = boto3.resource("{{ service_name.
 {% if package.literals %}
 ### Literals
 
-`{{ service_name.module_name }}.literals` module contains literals extracted from shapes
+`{{ package.name }}.literals` module contains literals extracted from shapes
 that can be used in user code for type checking.
 
 ```python
-from {{ service_name.module_name }}.literals import (
+from {{ package.name }}.literals import (
 {% for literal in package.literals %}    {{ literal.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 
@@ -253,11 +259,11 @@ def check_value(value: {{ package.literals[0].name }}) -> bool:
 {% if package.typed_dicts %}
 ### Typed dictionaries
 
-`{{ service_name.module_name }}.type_defs` module contains structures and shapes assembled
+`{{ package.name }}.type_defs` module contains structures and shapes assembled
 to typed dictionaries for additional type checking.
 
 ```python
-from {{ service_name.module_name }}.type_defs import (
+from {{ package.name }}.type_defs import (
 {% for typed_dict in package.typed_dicts %}    {{ typed_dict.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 

@@ -154,6 +154,10 @@ def main() -> None:
         boto3_generator.generate_docs()
     if "aiobotocore" in args.products:
         aiobotocore_generator.generate_stubs()
+    if "aiobotocore-services" in args.products:
+        aiobotocore_generator.generate_service_stubs()
+    if "aiobotocore-docs" in args.products:
+        aiobotocore_generator.generate_docs()
 
     logger.info("Completed")
 

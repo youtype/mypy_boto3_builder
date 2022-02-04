@@ -9,6 +9,8 @@ from boto3.session import Session
 from mypy_boto3_builder.constants import AIOBOTOCORE_STUBS_STATIC_PATH, TEMPLATES_PATH
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.aiobotocore_stubs_package import parse_aiobotocore_stubs_package
+from mypy_boto3_builder.parsers.service_package import parse_service_package
+from mypy_boto3_builder.parsers.service_package_postprocessor import ServicePackagePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.aiobotocore_stubs_package import AioBotocoreStubsPackage
 from mypy_boto3_builder.utils.nice_path import NicePath
@@ -61,7 +63,7 @@ def process_aiobotocore_service(
     version: str,
 ):
     """
-    Parse and write service package `mypy_aiobotocore_*`.
+    Parse and write service package `types_aiobotocore_*`.
 
     Arguments:
         session -- boto3 session
@@ -74,7 +76,31 @@ def process_aiobotocore_service(
     Return:
         Parsed ServicePackage.
     """
-    pass
+    logger = get_logger()
+    logger.debug(f"Parsing {service_name.boto3_name}")
+    service_package = parse_service_package(session, service_name)
+    service_package.name = service_name.aiobotocore_module_name
+    service_package.pypi_name = service_name.aiobotocore_pypi_name
+    service_package.version = version
+    service_package.library_name = "aiobotocore"
+    # FIXME: get real version
+    service_package.library_version = "2.1.0"
+    service_package.extend_literals(service_names)
+
+    postprocessor = ServicePackagePostprocessor(service_package)
+    postprocessor.generate_docstrings()
+    postprocessor.make_async()
+
+    for typed_dict in service_package.typed_dicts:
+        typed_dict.replace_self_references()
+    logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
+
+    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
+    package_writer.write_service_package(
+        service_package,
+        templates_path=TEMPLATES_PATH / "service",
+    )
+    return service_package
 
 
 def process_aiobotocore_stubs_docs(

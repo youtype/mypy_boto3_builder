@@ -4,8 +4,11 @@ Writer for package static and template files.
 from pathlib import Path
 from typing import Sequence
 
+from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
+from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.markdown import fix_pypi_headers
 from mypy_boto3_builder.utils.nice_path import NicePath
 from mypy_boto3_builder.writers.utils import (
@@ -36,6 +39,12 @@ class PackageWriter:
             return self.output_path / package.directory_name / package.name
 
         return self.output_path / package.library_name
+
+    def _get_service_package_path(self, package: ServicePackage) -> Path:
+        if self.generate_setup:
+            return self.output_path / package.directory_name / package.name
+
+        return self.output_path / package.name
 
     def _get_setup_path(self, package: Package) -> Path:
         return self.output_path / package.directory_name
@@ -88,9 +97,18 @@ class PackageWriter:
             result.append((output_file_path, template_path.relative_to(templates_path.parent)))
         return result
 
-    def _render_templates(self, package: Package, file_paths: list[tuple[Path, Path]]) -> None:
+    def _render_templates(
+        self,
+        package: Package,
+        file_paths: list[tuple[Path, Path]],
+        service_name: ServiceName | None = None,
+    ) -> None:
         for file_path, template_path in file_paths:
-            content = render_jinja2_template(template_path, package=package)
+            content = render_jinja2_template(
+                template_path,
+                package=package,
+                service_name=service_name,
+            )
             if file_path.suffix in [".py", ".pyi"]:
                 content = sort_imports(
                     content,
@@ -100,7 +118,11 @@ class PackageWriter:
                         "boto3",
                         "botocore",
                         "aiobotocore",
-                        *[i.module_name for i in package.service_names],
+                        *(
+                            [i.module_name for i in package.service_names]
+                            if not service_name
+                            else [service_name.module_name]
+                        ),
                     ],
                 )
                 content = blackify(content, file_path)
@@ -168,3 +190,112 @@ class PackageWriter:
             if not file_path.exists() or file_path.read_text() != content:
                 file_path.write_text(content)
                 self.logger.debug(f"Updated {NicePath(file_path)}")
+
+    def _get_service_package_template_paths(
+        self, package: ServicePackage, templates_path: Path
+    ) -> list[tuple[Path, Path]]:
+        module_templates_path = (templates_path / "service").relative_to(templates_path.parent)
+        package_path = self._get_service_package_path(package)
+        file_paths: list[tuple[Path, Path]] = [
+            (package_path / "version.py", module_templates_path / "version.py.jinja2"),
+            (package_path / "__init__.pyi", module_templates_path / "__init__.pyi.jinja2"),
+            (package_path / "__init__.py", module_templates_path / "__init__.pyi.jinja2"),
+            (package_path / "__main__.py", module_templates_path / "__main__.py.jinja2"),
+            (package_path / "py.typed", module_templates_path / "py.typed.jinja2"),
+            (
+                package_path / ServiceModuleName.client.stub_file_name,
+                module_templates_path / ServiceModuleName.client.template_name,
+            ),
+            (
+                package_path / ServiceModuleName.client.file_name,
+                module_templates_path / ServiceModuleName.client.template_name,
+            ),
+        ]
+        file_paths.extend([])
+        if package.service_resource:
+            file_paths.extend(
+                (
+                    (
+                        package_path / ServiceModuleName.service_resource.stub_file_name,
+                        module_templates_path / ServiceModuleName.service_resource.template_name,
+                    ),
+                    (
+                        package_path / ServiceModuleName.service_resource.file_name,
+                        module_templates_path / ServiceModuleName.service_resource.template_name,
+                    ),
+                )
+            )
+        if package.paginators:
+            file_paths.extend(
+                (
+                    (
+                        package_path / ServiceModuleName.paginator.stub_file_name,
+                        module_templates_path / ServiceModuleName.paginator.template_name,
+                    ),
+                    (
+                        package_path / ServiceModuleName.paginator.file_name,
+                        module_templates_path / ServiceModuleName.paginator.template_name,
+                    ),
+                )
+            )
+        if package.waiters:
+            file_paths.extend(
+                (
+                    (
+                        package_path / ServiceModuleName.waiter.stub_file_name,
+                        module_templates_path / ServiceModuleName.waiter.template_name,
+                    ),
+                    (
+                        package_path / ServiceModuleName.waiter.file_name,
+                        module_templates_path / ServiceModuleName.waiter.template_name,
+                    ),
+                )
+            )
+        if package.literals:
+            file_paths.extend(
+                (
+                    (
+                        package_path / ServiceModuleName.literals.stub_file_name,
+                        module_templates_path / ServiceModuleName.literals.template_name,
+                    ),
+                    (
+                        package_path / ServiceModuleName.literals.file_name,
+                        module_templates_path / ServiceModuleName.literals.template_name,
+                    ),
+                )
+            )
+        if package.typed_dicts:
+            file_paths.extend(
+                (
+                    (
+                        package_path / ServiceModuleName.type_defs.stub_file_name,
+                        module_templates_path / ServiceModuleName.type_defs.template_name,
+                    ),
+                    (
+                        package_path / ServiceModuleName.type_defs.file_name,
+                        module_templates_path / ServiceModuleName.type_defs.template_name,
+                    ),
+                )
+            )
+        return file_paths
+
+    def write_service_package(self, package: ServicePackage, templates_path: Path) -> None:
+        """
+        Create stubs files for service.
+
+        Arguments:
+            package -- Service package.
+        """
+        file_paths: list[tuple[Path, Path]] = [
+            *self._get_setup_template_paths(package, templates_path),
+            *self._get_service_package_template_paths(package, templates_path),
+        ]
+        self._render_templates(package, file_paths, service_name=package.service_name)
+
+        valid_paths = list(dict(file_paths).keys())
+        output_path = (
+            self._get_setup_path(package)
+            if self.generate_setup
+            else self._get_service_package_path(package)
+        )
+        self._cleanup(valid_paths, output_path)

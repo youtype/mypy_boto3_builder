@@ -1,7 +1,9 @@
 """
 Postprocessor for all classes and methods.
 """
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 
 
 class ServicePackagePostprocessor:
@@ -26,6 +28,42 @@ class ServicePackagePostprocessor:
         self._generate_docstrings_service_resource()
         self._generate_docstrings_collections()
         self._generate_docstrings_sub_resources()
+
+    def make_async(self) -> None:
+        """
+        Convert all methods to asynchronous.
+        """
+        methods = [
+            *[m for m in self.package.client.methods if m.name not in ["exceptions"]],
+            *[m for p in self.package.paginators for m in p.methods],
+            *[m for w in self.package.waiters for m in w.methods],
+        ]
+        if self.package.service_resource:
+            methods.extend(
+                [
+                    *[m for m in self.package.service_resource.methods],
+                    *[m for c in self.package.service_resource.collections for m in c.methods],
+                    *[m for s in self.package.service_resource.sub_resources for m in s.methods],
+                    *[
+                        m
+                        for s in self.package.service_resource.sub_resources
+                        for c in s.collections
+                        for m in c.methods
+                    ],
+                ]
+            )
+        for method in methods:
+            method.is_async = True
+
+        self.package.client.bases = [
+            ExternalImport(ImportString("aiobotocore", "client"), "AioBaseClient")
+        ]
+        for paginator in self.package.paginators:
+            paginator.bases = [
+                ExternalImport(ImportString("aiobotocore", "paginate"), "AioPaginator")
+            ]
+        for waiter in self.package.waiters:
+            waiter.bases = [ExternalImport(ImportString("aiobotocore", "waiter"), "AIOWaiter")]
 
     def _generate_docstrings_client(self) -> None:
         boto3_doc_link = self.package.client.boto3_doc_link

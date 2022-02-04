@@ -8,7 +8,6 @@ from boto3 import __version__ as boto3_version
 from boto3.session import Session
 
 from mypy_boto3_builder.constants import AIOBOTOCORE_STUBS_NAME
-from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
@@ -102,12 +101,13 @@ class AioBotocoreGenerator:
             if not version:
                 self.logger.info(
                     f"[{current_str}/{total_str}]"
-                    f" Skipping {service_name.module_name} {self.version}, already on PyPI"
+                    f" Skipping {service_name.aiobotocore_module_name} {self.version}, already on PyPI"
                 )
                 continue
 
             self.logger.info(
-                f"[{current_str}/{total_str}]" f" Generating {service_name.module_name} {version}"
+                f"[{current_str}/{total_str}]"
+                f" Generating {service_name.aiobotocore_module_name} {version}"
             )
             process_aiobotocore_service(
                 session=self.session,
@@ -123,10 +123,6 @@ class AioBotocoreGenerator:
         """
         Generate service and master docs.
         """
-        JinjaManager.update_globals(
-            aiobotocore_version="2.1.0",
-        )
-
         logger = get_logger()
         total_str = f"{len(self.service_names)}"
         for index, service_name in enumerate(self.service_names):

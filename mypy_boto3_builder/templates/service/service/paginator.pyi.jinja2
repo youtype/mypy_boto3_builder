@@ -6,16 +6,17 @@ Type annotations for {{ package.service_name.boto3_name }} service client pagina
 Usage::
 
     ```python
-    import boto3
+    from {{ package.library_name }}.session import Session
 
-    from {{ package.service_name.module_name }} import {{ package.client.name }}
-    from {{ package.service_name.module_name }}.paginator import (
+    from {{ package.name }}.client import {{ package.client.name }}
+    from {{ package.name }}.paginator import (
 {% for paginator in package.paginators -%}
         {{ '        ' -}}{{ paginator.name -}},
 {% endfor -%}
     {{ '    ' -}})
 
-    client: {{ package.client.name }} = boto3.client("{{ package.service_name.boto3_name }}")
+    session = Session()
+    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
 
 {% for paginator in package.paginators -%}
     {{ "    " -}}

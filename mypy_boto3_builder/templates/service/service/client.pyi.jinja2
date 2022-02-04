@@ -6,10 +6,11 @@ Type annotations for {{ package.service_name.boto3_name }} service client.
 Usage::
 
     ```python
-    import boto3
-    from {{ package.service_name.module_name }} import {{ package.client.name }}
+    from {{ package.library_name }}.session import Session
+    from {{ package.name }} import {{ package.client.name }}
 
-    client: {{ package.client.name }} = boto3.client("{{ package.service_name.boto3_name }}")
+    session = Session()
+    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
     ```
 """
 {% for import_record in package.get_client_required_import_records() -%}

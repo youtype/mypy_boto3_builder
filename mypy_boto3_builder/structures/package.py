@@ -59,5 +59,16 @@ class Package:
         }
         url = urls[self.library_name]
         if service_name:
-            url = f"{url}{service_name.module_name}/"
+            url = f"{url}{self.get_module_name(service_name)}/"
         return url
+
+    def get_module_name(self, service_name: ServiceName) -> str:
+        """
+        Get service module name.
+        """
+        return {
+            "": service_name.module_name,
+            "boto3": service_name.module_name,
+            "botocore": service_name.module_name,
+            "aiobotocore": service_name.aiobotocore_module_name,
+        }[self.library_name]

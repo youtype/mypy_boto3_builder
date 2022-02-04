@@ -6,12 +6,13 @@ Type annotations for {{ package.service_name.boto3_name }} service ServiceResour
 Usage::
 
     ```python
-    import boto3
+    from {{ package.library_name }}.session import Session
 
-    from {{ package.service_name.module_name }} import {{ package.service_resource.name }}
-    import {{ package.service_name.module_name }}.service_resource as {{ package.service_name.name }}_resources
+    from {{ package.name }}.service_resource import {{ package.service_resource.name }}
+    import {{ package.name }}.service_resource as {{ package.service_name.name }}_resources
 
-    resource: {{ package.service_resource.name }} = boto3.resource("{{ package.service_name.boto3_name }}")
+    session = Session()
+    resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
 
 {% if package.service_resource.sub_resources -%}
 {% for sub_resource in package.service_resource.sub_resources -%}

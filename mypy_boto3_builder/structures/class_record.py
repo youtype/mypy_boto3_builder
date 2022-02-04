@@ -30,7 +30,7 @@ class ClassRecord:
         self.name = name
         self.methods = list(methods)
         self.attributes = list(attributes)
-        self.bases = list(bases)
+        self.bases: list[FakeAnnotation] = list(bases)
         self.use_alias = use_alias
         self.docstring = ""
 
