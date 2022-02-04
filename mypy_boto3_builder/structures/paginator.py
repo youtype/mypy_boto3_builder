@@ -42,18 +42,6 @@ class Paginator(ClassRecord):
         """
         return self.service_name.get_boto3_doc_link("Paginator", self.paginator_name)
 
-    @property
-    def docstring(self) -> str:
-        """
-        Class docstring.
-        """
-        return (
-            "[Show boto3 documentation]"
-            f"({self.boto3_doc_link})\n"
-            "[Show boto3-stubs documentation]"
-            f"({self.service_name.get_doc_link('paginators', self.name)})"
-        )
-
     def get_client_method(self) -> Method:
         """
         Get `get_paginator` method for `Client`.

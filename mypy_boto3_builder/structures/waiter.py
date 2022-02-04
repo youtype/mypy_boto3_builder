@@ -40,18 +40,6 @@ class Waiter(ClassRecord):
         """
         return self.service_name.get_boto3_doc_link("Waiter", self.name.replace("Waiter", ""))
 
-    @property
-    def docstring(self) -> str:
-        """
-        Class docstring.
-        """
-        return (
-            "[Show boto3 documentation]"
-            f"({self.boto3_doc_link})\n"
-            "[Show boto3-stubs documentation]"
-            f"({self.service_name.get_doc_link('waiters', self.name)})"
-        )
-
     def get_client_method(self) -> Method:
         """
         Get `get_waiter` method for `Client`.

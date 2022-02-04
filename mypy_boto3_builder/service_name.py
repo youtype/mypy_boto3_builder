@@ -144,13 +144,6 @@ class ServiceName:
             f"{self.boto3_version}/reference/services/{self.boto3_name}.html#{self.class_name}"
         )
 
-    @property
-    def local_doc_link(self) -> str:
-        """
-        Link to local docs.
-        """
-        return f"https://vemel.github.io/boto3_stubs_docs/{self.module_name}/"
-
     def get_boto3_doc_link(self, *parts: str) -> str:
         """
         Get link to boto3 docs with anchor.
@@ -180,31 +173,6 @@ class ServiceName:
             parts -- Anchor parts
         """
         link = f"./{file}.md"
-        if not parts:
-            return link
-        anchor = "".join([get_anchor_link(part) for part in parts])
-        return f"{link}#{anchor}"
-
-    def get_doc_link(
-        self,
-        file: Literal[
-            "client",
-            "service_resource",
-            "waiters",
-            "paginators",
-            "type_defs",
-            "literals",
-        ],
-        *parts: str,
-    ) -> str:
-        """
-        Get link to local docs with anchor.
-
-        Arguments:
-            file -- HTML file name
-            parts -- Anchor parts
-        """
-        link = f"{self.local_doc_link}{file}.html"
         if not parts:
             return link
         anchor = "".join([get_anchor_link(part) for part in parts])

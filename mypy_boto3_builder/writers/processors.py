@@ -15,6 +15,7 @@ from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.boto3_stubs_package import parse_boto3_stubs_package
 from mypy_boto3_builder.parsers.master_package import parse_master_package
 from mypy_boto3_builder.parsers.service_package import parse_service_package
+from mypy_boto3_builder.parsers.service_package_postprocessor import ServicePackagePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.structures.botocore_stubs_package import BotocoreStubsPackage
@@ -146,16 +147,19 @@ def process_service(
     """
     logger = get_logger()
     logger.debug(f"Parsing {service_name.boto3_name}")
-    service_module = parse_service_package(session, service_name)
-    service_module.version = version
-    service_module.extend_literals(service_names)
+    service_package = parse_service_package(session, service_name)
+    service_package.version = version
+    service_package.extend_literals(service_names)
 
-    for typed_dict in service_module.typed_dicts:
+    postprocessor = ServicePackagePostprocessor(service_package)
+    postprocessor.generate_docstrings()
+
+    for typed_dict in service_package.typed_dicts:
         typed_dict.replace_self_references()
     logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
 
-    write_service_package(service_module, output_path=output_path, generate_setup=generate_setup)
-    return service_module
+    write_service_package(service_package, output_path=output_path, generate_setup=generate_setup)
+    return service_package
 
 
 def process_service_docs(

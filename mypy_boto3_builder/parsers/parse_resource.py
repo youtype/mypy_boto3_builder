@@ -48,15 +48,7 @@ def parse_resource(
             method = parse_method(name, method_name, public_method, service_name)
 
         docstring = get_short_docstring(inspect.getdoc(public_method) or "")
-        method.docstring = "".join(
-            (
-                f"{docstring}\n\n" if docstring else "",
-                "[Show boto3 documentation]",
-                f"({service_name.get_boto3_doc_link(name, method_name)})\n",
-                "[Show boto3-stubs documentation]",
-                f"({service_name.get_doc_link('service_resource', name, f'{method_name} method')})",
-            )
-        )
+        method.docstring = docstring
         result.methods.append(method)
 
     attributes = parse_attributes(service_name, name, resource, shape_parser)

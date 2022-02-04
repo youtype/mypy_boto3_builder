@@ -2,6 +2,7 @@
 Parsed Service package.
 """
 from collections.abc import Iterable
+from typing import Literal
 
 from boto3 import __version__ as boto3_version
 
@@ -18,7 +19,7 @@ from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
-from mypy_boto3_builder.utils.strings import is_reserved
+from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
 
 
 class ServicePackage(Package):
@@ -342,3 +343,28 @@ class ServicePackage(Package):
         waiter_names = [waiter.waiter_name for waiter in self.waiters]
         if waiter_names:
             self.literals.append(TypeLiteral("WaiterName", waiter_names))
+
+    def get_doc_link(
+        self,
+        file: Literal[
+            "client",
+            "service_resource",
+            "waiters",
+            "paginators",
+            "type_defs",
+            "literals",
+        ],
+        *parts: str,
+    ) -> str:
+        """
+        Get link to local docs with anchor.
+
+        Arguments:
+            file -- HTML file name
+            parts -- Anchor parts
+        """
+        link = f"{self.get_local_doc_link(self.service_name)}{file}.html"
+        if not parts:
+            return link
+        anchor = "".join([get_anchor_link(part) for part in parts])
+        return f"{link}#{anchor}"

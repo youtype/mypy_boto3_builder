@@ -45,22 +45,6 @@ class Collection(ClassRecord):
         """
         return self.service_name.get_boto3_doc_link(self.parent_name, self.attribute_name)
 
-    @property
-    def docstring(self) -> str:
-        """
-        Class docstring.
-        """
-        doc_link = self.service_name.get_doc_link(
-            "service_resource",
-            self.name,
-        )
-        return (
-            "[Show boto3 documentation]"
-            f"({self.boto3_doc_link})\n"
-            "[Show boto3-stubs documentation]"
-            f"({doc_link})"
-        )
-
     def get_types(self) -> set[FakeAnnotation]:
         """
         Extract type annotations.
