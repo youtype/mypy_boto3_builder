@@ -6,6 +6,7 @@ Parsers for boto3 clients and resources.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / Parsers
     - Modules
+        - [Aiobotocore Stubs Package](aiobotocore_stubs_package.md#aiobotocore-stubs-package)
         - [Boto3 Stubs Package](boto3_stubs_package.md#boto3-stubs-package)
         - [Boto3 Utils](boto3_utils.md#boto3-utils)
         - [Client](client.md#client)
@@ -19,5 +20,6 @@ Parsers for boto3 clients and resources.
         - [Parse References](parse_references.md#parse-references)
         - [Parse Resource](parse_resource.md#parse-resource)
         - [Service Package](service_package.md#service-package)
+        - [ServicePackagePostprocessor](service_package_postprocessor.md#servicepackagepostprocessor)
         - [Service Resource](service_resource.md#service-resource)
         - [ShapeParser](shape_parser.md#shapeparser)

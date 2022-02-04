@@ -7,7 +7,6 @@ Boto3 client Paginator.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Paginator
     - [Paginator](#paginator)
         - [Paginator().boto3_doc_link](#paginatorboto3_doc_link)
-        - [Paginator().docstring](#paginatordocstring)
         - [Paginator().get_client_method](#paginatorget_client_method)
 
 ## Paginator
@@ -42,20 +41,9 @@ def boto3_doc_link() -> str:
 
 Link to boto3 docs.
 
-### Paginator().docstring
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L45)
-
-```python
-@property
-def docstring() -> str:
-```
-
-Class docstring.
-
 ### Paginator().get_client_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L57)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L45)
 
 ```python
 def get_client_method() -> Method:

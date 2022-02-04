@@ -12,7 +12,7 @@ Boto3 stubs/docs generator.
 
 ## Boto3Generator
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/boto3_generator.py#L26)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/boto3_generator.py#L25)
 
 ```python
 class Boto3Generator():
@@ -24,7 +24,7 @@ class Boto3Generator():
         output_path: Path,
         generate_setup: bool,
         skip_published: bool,
-        bump_on_published: bool,
+        disable_smart_version: bool,
         version: str,
     ):
 ```
@@ -40,12 +40,12 @@ Boto3 stubs/docs generator.
 - `output_path` - Path to write generated files
 - `generate_setup` - Whether to create package or installed module
 - `skip_published` - Whether to skip packages that are already published
-- `bump_on_published` - Whether to create a new postrelease if version is already published
+- `disable_smart_version` - Whether to create a new postrelease if version is already published
 - `version` - Package build version
 
 ### Boto3Generator().generate_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/boto3_generator.py#L172)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/boto3_generator.py#L168)
 
 ```python
 def generate_docs() -> None:
@@ -55,7 +55,7 @@ Generate service and master docs.
 
 ### Boto3Generator().generate_service_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/boto3_generator.py#L142)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/boto3_generator.py#L138)
 
 ```python
 def generate_service_stubs() -> None:
@@ -65,7 +65,7 @@ Generate service stubs.
 
 ### Boto3Generator().generate_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/boto3_generator.py#L132)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/boto3_generator.py#L128)
 
 ```python
 def generate_stubs() -> None:

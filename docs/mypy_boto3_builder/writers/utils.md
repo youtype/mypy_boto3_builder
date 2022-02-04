@@ -7,6 +7,7 @@ Jinja2 renderer and black formatter.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Writers](index.md#writers) / Utils
     - [blackify](#blackify)
     - [format_md](#format_md)
+    - [get_aiobotocore_version](#get_aiobotocore_version)
     - [insert_md_toc](#insert_md_toc)
     - [render_jinja2_template](#render_jinja2_template)
     - [sort_imports](#sort_imports)
@@ -38,7 +39,7 @@ Formatted python code.
 
 ## format_md
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L137)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L140)
 
 ```python
 def format_md(text: str) -> str:
@@ -46,9 +47,19 @@ def format_md(text: str) -> str:
 
 Format MarkDown with mdformat.
 
+## get_aiobotocore_version
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L152)
+
+```python
+def get_aiobotocore_version() -> str:
+```
+
+Get aiobotocore package version.
+
 ## insert_md_toc
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L113)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L116)
 
 ```python
 def insert_md_toc(text: str) -> str:
@@ -58,7 +69,7 @@ Insert Table of Contents before the first second-level header.
 
 ## render_jinja2_template
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L89)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L92)
 
 ```python
 def render_jinja2_template(
@@ -82,7 +93,7 @@ A rendered template.
 
 ## sort_imports
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L52)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L54)
 
 ```python
 def sort_imports(
