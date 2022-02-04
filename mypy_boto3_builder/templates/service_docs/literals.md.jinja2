@@ -3,13 +3,13 @@
 > [Index](..) > [{{ service_name.class_name }}](.) > Literals
 
 Auto-generated documentation for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }})
-type annotations stubs module [{{ service_name.module_name }}]({{ service_name.pypi_link }}).
+type annotations stubs module [{{ package.name }}]({{ package.get_service_pypi_link(package.service_name) }}).
 
 {% for literal in package.literals -%}
 ## {{ literal.name }}
 
 ```python
-from {{ service_name.module_name }}.literals import {{ literal.name }}
+from {{ package.name }}.literals import {{ literal.name }}
 ```
 
 Values:

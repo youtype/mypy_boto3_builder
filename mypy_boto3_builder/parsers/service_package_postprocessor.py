@@ -34,7 +34,11 @@ class ServicePackagePostprocessor:
         Convert all methods to asynchronous.
         """
         methods = [
-            *[m for m in self.package.client.methods if m.name not in ["exceptions"]],
+            *[
+                m
+                for m in self.package.client.methods
+                if m.name not in ["exceptions", "get_waiter", "get_paginator"]
+            ],
             *[m for p in self.package.paginators for m in p.methods],
             *[m for w in self.package.waiters for m in w.methods],
         ]

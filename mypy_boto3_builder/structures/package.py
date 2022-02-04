@@ -2,6 +2,7 @@
 Parent class for all package structures.
 """
 from collections.abc import Iterable
+from typing import Literal
 
 from mypy_boto3_builder.constants import AIOBOTOCORE_PYPI_NAME, BOTO3_STUBS_NAME
 from mypy_boto3_builder.logger import get_logger
@@ -21,7 +22,7 @@ class Package:
     ) -> None:
         self.name = name
         self.pypi_name = pypi_name
-        self.library_name = "boto3"
+        self.library_name: Literal["boto3", "botocore", "aiobotocore"] = "boto3"
         self.version = "0.0.0"
         self.library_version = "0.0.0"
         self.service_names: list[ServiceName] = list(service_names)
@@ -52,7 +53,6 @@ class Package:
         Get link to local docs.
         """
         urls = {
-            "": "https://vemel.github.io/boto3_stubs_docs/",
             "boto3": "https://vemel.github.io/boto3_stubs_docs/",
             "botocore": "https://vemel.github.io/boto3_stubs_docs/",
             "aiobotocore": "https://vemel.github.io/types_aiobotocore_docs/",
@@ -67,8 +67,34 @@ class Package:
         Get service module name.
         """
         return {
-            "": service_name.module_name,
             "boto3": service_name.module_name,
             "botocore": service_name.module_name,
             "aiobotocore": service_name.aiobotocore_module_name,
         }[self.library_name]
+
+    @property
+    def client_method_name(self) -> str:
+        """
+        Get service client create name.
+        """
+        return {
+            "boto3": "client",
+            "botocore": "client",
+            "aiobotocore": "create_client",
+        }[self.library_name]
+
+    def get_service_pypi_name(self, service_name: ServiceName) -> str:
+        """
+        Get PyPI package name for a service package.
+        """
+        return {
+            "boto3": f"https://pypi.org/project/{service_name.pypi_name}/",
+            "botocore": f"https://pypi.org/project/{service_name.pypi_name}/",
+            "aiobotocore": f"https://pypi.org/project/{service_name.aiobotocore_pypi_name}/",
+        }[self.library_name]
+
+    def get_service_pypi_link(self, service_name: ServiceName) -> str:
+        """
+        Get link to PyPI.
+        """
+        return f"https://pypi.org/project/{self.get_service_pypi_name(service_name)}/"

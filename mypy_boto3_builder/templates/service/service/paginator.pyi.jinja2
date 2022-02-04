@@ -16,7 +16,7 @@ Usage::
     {{ '    ' -}})
 
     session = Session()
-    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+    client: {{ package.client.name }} = session.{{ package.client_method_name }}("{{ package.service_name.boto3_name }}")
 
 {% for paginator in package.paginators -%}
     {{ "    " -}}

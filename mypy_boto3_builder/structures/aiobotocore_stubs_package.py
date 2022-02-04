@@ -33,7 +33,6 @@ class AioBotocoreStubsPackage(Package):
         self.service_packages = list(service_packages)
         self.init_functions = list(init_functions)
         self.library_name = "aiobotocore"
-        # FIXME: get real version
         self.library_version = "2.1.0"
 
     @property

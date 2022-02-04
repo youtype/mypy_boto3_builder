@@ -97,7 +97,7 @@ class AioBotocoreGenerator:
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
             service_name.boto3_version = boto3_version
 
-            version = self._get_package_version(service_name.pypi_name, self.version)
+            version = self._get_package_version(service_name.aiobotocore_pypi_name, self.version)
             if not version:
                 self.logger.info(
                     f"[{current_str}/{total_str}]"

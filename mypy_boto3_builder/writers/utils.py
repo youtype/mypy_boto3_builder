@@ -147,3 +147,14 @@ def format_md(text: str) -> str:
             "wrap": 79,
         },
     )
+
+
+def get_aiobotocore_version() -> str:
+    """
+    Get aiobotocore package version.
+    """
+    try:
+        from aiobotocore import __version__
+    except (ModuleNotFoundError, ImportError):
+        return "2.1.0"
+    return __version__

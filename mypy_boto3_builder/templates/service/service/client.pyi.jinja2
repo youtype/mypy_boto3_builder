@@ -7,10 +7,10 @@ Usage::
 
     ```python
     from {{ package.library_name }}.session import Session
-    from {{ package.name }} import {{ package.client.name }}
+    from {{ package.name }}.client import {{ package.client.name }}
 
     session = Session()
-    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+    client: {{ package.client.name }} = session.{{ package.client_method_name }}("{{ package.service_name.boto3_name }}")
     ```
 """
 {% for import_record in package.get_client_required_import_records() -%}

@@ -3,7 +3,7 @@
 > [Index](..) > {{ package.service_name.class_name }}
 
 Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.boto3_doc_link }})
-type annotations stubs module [{{ package.service_name.module_name }}]({{ package.service_name.pypi_link }}).
+type annotations stubs module [{{ package.name }}]({{ package.get_service_pypi_link(package.service_name) }}).
 
 ```bash
 pip install {{ package.service_name.pypi_name }}
@@ -11,12 +11,12 @@ pip install {{ package.service_name.pypi_name }}
 
 ## {{ package.client.name }}
 
-Type annotations for  `boto3.client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+Type annotations for  `{{ package.library_name }}.{{ package.client_method_name }}("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
 
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.client import {{ package.client.name }}
+from {{ package.name }}.client import {{ package.client.name }}
 ```
 
 {% if package.client.methods %}
@@ -41,24 +41,24 @@ from {{ package.service_name.module_name }}.client import {{ package.client.name
 {% if package.service_resource %}
 ## {{ package.service_resource.name }}
 
-Type annotations for  `boto3.resource("{{ package.service_name.boto3_name }}")` as
+Type annotations for `{{ package.library_name }}.resource("{{ package.service_name.boto3_name }}")` as
 [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name) }})
 
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.service_resource import {{ package.service_resource.name }}
+from {{ package.name }}.service_resource import {{ package.service_resource.name }}
 ```
 
 {% if package.service_resource.collections %}
 ### Collections
 
-Type annotations for collections from `boto3.resource("{{ package.service_name.boto3_name }}").*`.
+Type annotations for collections from `{{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").*`.
 
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.service_resource import {{ package.service_resource.collections[0].name }}, ...
+from {{ package.name }}.service_resource import {{ package.service_resource.collections[0].name }}, ...
 ```
 
 {% for collection in package.service_resource.collections -%}
@@ -69,12 +69,12 @@ from {{ package.service_name.module_name }}.service_resource import {{ package.s
 {% if package.service_resource.sub_resources %}
 ### Resources
 
-Type annotations for additional resources from `boto3.resource("{{ package.service_name.boto3_name }}").*`.
+Type annotations for additional resources from `{{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").*`.
 
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.service_resource import {{ package.service_resource.sub_resources[0].name }}, ...
+from {{ package.name }}.service_resource import {{ package.service_resource.sub_resources[0].name }}, ...
 ```
 
 {% for sub_resource in package.service_resource.sub_resources -%}
@@ -91,7 +91,7 @@ Type annotations for [paginators]({{ service_name.get_md_doc_link('paginators') 
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.paginators import {{ package.paginators[0].name }}, ...
+from {{ package.name }}.paginators import {{ package.paginators[0].name }}, ...
 ```
 
 {% for paginator in package.paginators -%}
@@ -107,7 +107,7 @@ Type annotations for [waiters]({{ service_name.get_md_doc_link('waiters') }}) fr
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.waiters import {{ package.waiters[0].name }}, ...
+from {{ package.name }}.waiters import {{ package.waiters[0].name }}, ...
 ```
 
 {% for waiter in package.waiters -%}
@@ -123,7 +123,7 @@ Type annotations for [literals]({{ service_name.get_md_doc_link('literals') }}) 
 Can be used directly:
 
 ```python
-from {{ package.service_name.module_name }}.literals import {{ package.literals[0].name }}, ...
+from {{ package.name }}.literals import {{ package.literals[0].name }}, ...
 ```
 
 {% for literal in package.literals -%}

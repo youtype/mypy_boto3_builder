@@ -8,7 +8,7 @@ Usage::
     ```python
     from {{ package.library_name }}.session import Session
 
-    from {{ package.name }} import {{ package.client.name }}
+    from {{ package.name }}.client import {{ package.client.name }}
     from {{ package.name }}.waiter import (
 {% for waiter in package.waiters -%}
         {{ "        " -}}{{ waiter.name -}},
@@ -16,7 +16,7 @@ Usage::
     {{ '    ' -}})
 
     session = Session()
-    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+    client: {{ package.client.name }} = session.{{ package.client_method_name }}("{{ package.service_name.boto3_name }}")
 
 {% for waiter in package.waiters -%}
     {{ "    " -}}

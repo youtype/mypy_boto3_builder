@@ -204,11 +204,11 @@ class ServicePackage(Package):
         """
         import_records: set[ImportRecord] = set()
         for import_record in self.client.get_required_import_records():
-            import_records.add(import_record.get_external(self.service_name.module_name))
+            import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
             if import_record.fallback:
                 import_records.add(ImportRecord(ImportString("sys")))
         for import_record in self.client.exceptions_class.get_required_import_records():
-            import_records.add(import_record.get_external(self.service_name.module_name))
+            import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
             if import_record.fallback:
                 import_records.add(ImportRecord(ImportString("sys")))
 
@@ -224,7 +224,7 @@ class ServicePackage(Package):
         import_records: set[ImportRecord] = set()
         class_import_records = self.service_resource.get_required_import_records()
         for import_record in class_import_records:
-            import_records.add(import_record.get_external(self.service_name.module_name))
+            import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
             if import_record.fallback:
                 import_records.add(ImportRecord(ImportString("sys")))
 
@@ -242,7 +242,9 @@ class ServicePackage(Package):
         }
         for paginator in self.paginators:
             for import_record in paginator.get_required_import_records():
-                import_records.add(import_record.get_external(self.service_name.module_name))
+                import_records.add(
+                    import_record.get_external(self.get_module_name(self.service_name))
+                )
                 if import_record.fallback:
                     import_records.add(ImportRecord(ImportString("sys")))
 
@@ -255,7 +257,9 @@ class ServicePackage(Package):
         import_records: set[ImportRecord] = set()
         for waiter in self.waiters:
             for import_record in waiter.get_required_import_records():
-                import_records.add(import_record.get_external(self.service_name.module_name))
+                import_records.add(
+                    import_record.get_external(self.get_module_name(self.service_name))
+                )
                 if import_record.fallback:
                     import_records.add(ImportRecord(ImportString("sys")))
 
@@ -291,7 +295,9 @@ class ServicePackage(Package):
                     continue
                 if import_record.is_type_defs():
                     continue
-                import_records.add(import_record.get_external(self.service_name.module_name))
+                import_records.add(
+                    import_record.get_external(self.get_module_name(self.service_name))
+                )
 
         return list(sorted(import_records))
 

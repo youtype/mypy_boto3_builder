@@ -15,6 +15,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.aiobotocore_stubs_package import AioBotocoreStubsPackage
 from mypy_boto3_builder.utils.nice_path import NicePath
 from mypy_boto3_builder.writers.package_writer import PackageWriter
+from mypy_boto3_builder.writers.utils import get_aiobotocore_version
 
 
 def process_aiobotocore_stubs(
@@ -43,6 +44,8 @@ def process_aiobotocore_stubs(
         session=session, service_names=service_names
     )
     aiobotocore_stubs_package.version = version
+    aiobotocore_stubs_package.library_name = "aiobotocore"
+    aiobotocore_stubs_package.library_version = get_aiobotocore_version()
     logger.debug(f"Writing aiobotocore stubs to {NicePath(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
@@ -84,7 +87,7 @@ def process_aiobotocore_service(
     service_package.version = version
     service_package.library_name = "aiobotocore"
     # FIXME: get real version
-    service_package.library_version = "2.1.0"
+    service_package.library_version = get_aiobotocore_version()
     service_package.extend_literals(service_names)
 
     postprocessor = ServicePackagePostprocessor(service_package)

@@ -3,16 +3,16 @@
 > [Index](..) > [{{ service_name.class_name }}](.) > {{ package.service_resource.name }}
 
 Auto-generated documentation for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }})
-type annotations stubs module [{{ service_name.module_name }}]({{ service_name.pypi_link }}).
+type annotations stubs module [{{ package.name }}]({{ package.get_service_pypi_link(package.service_name) }}).
 
 ## {{ package.service_resource.name }}
 
-Type annotations for `boto3.resource("{{ service_name.boto3_name }}")`, included resources and collections.
+Type annotations for `{{ package.library_name }}.resource("{{ service_name.boto3_name }}")`, included resources and collections.
 
 Can be used directly:
 
 ```python
-from {{ service_name.module_name }}.service_resource import {{ package.service_resource.name }}
+from {{ package.name  }}.service_resource import {{ package.service_resource.name }}
 
 def get_{{ service_name.boto3_name }}_resource() -> {{ package.service_resource.name }}:
     return boto3.resource("{{ service_name.boto3_name }}")
@@ -38,7 +38,7 @@ Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ collect
 Can be used directly:
 
 ```python
-from {{ service_name.module_name }}.service_resource import {{ collection.name }},
+from {{ package.name }}.service_resource import {{ collection.name }},
 
 def get_collection() -> {{ collection.name }}:
     return boto3.resource("{{ service_name.boto3_name }}").{{ collection.attribute_name }}
@@ -57,7 +57,7 @@ Boto3 documentation: [{{ service_name.class_name }}.{{ collection.parent_name }}
 
 {{ method.short_docstring }}
 
-Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
+Type annotations for `{{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
 
 Boto3 documentation: [{{ service_name.class_name }}.ServiceResource.{{method.name}}]({{ service_name.get_boto3_doc_link('ServiceResource', method.name) }})
 
@@ -68,12 +68,12 @@ Boto3 documentation: [{{ service_name.class_name }}.ServiceResource.{{method.nam
 {% for resource in package.service_resource.sub_resources %}
 ## {{ resource.name }}
 
-Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ resource.name }}` class.
+Type annotations for `{{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ resource.name }}` class.
 
 Can be used directly:
 
 ```python
-from {{ service_name.module_name }}.service_resource import {{ resource.name }}
+from {{ package.name }}.service_resource import {{ resource.name }}
 
 def get_resource() -> {{ resource.name }}:
     return boto3.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...)
@@ -95,12 +95,12 @@ Boto3 documentation: [{{ service_name.class_name }}.{{resource.name}}]({{ resour
 {% for collection in resource.collections %}
 #### {{ resource.name }}.{{ collection.attribute_name }}
 
-Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...).{{ collection.attribute_name }}` collection.
+Type annotations for `{{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...).{{ collection.attribute_name }}` collection.
 
 Can be used directly:
 
 ```python
-from {{ service_name.module_name }}.service_resource import {{ collection.name }},
+from {{ package.name }}.service_resource import {{ collection.name }},
 
 def get_collection() -> {{ collection.name }}:
     resource = boto3.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...)
@@ -121,7 +121,7 @@ Boto3 documentation: [{{ service_name.class_name }}.{{ collection.parent_name }}
 
 {{ method.short_docstring }}
 
-Type annotations for `boto3.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
+Type annotations for `{{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
 
 Boto3 documentation: [{{ service_name.class_name }}.{{ resource.name }}.{{ method.name }}]({{ service_name.get_boto3_doc_link(resource.name, method.name) }})
 
