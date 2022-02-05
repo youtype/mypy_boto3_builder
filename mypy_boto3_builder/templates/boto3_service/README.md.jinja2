@@ -113,14 +113,14 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 
 ### Client annotations
 
-`{{ package.client.name }}` provides annotations for `{{ package.library_name }}.{{ package.client_method_name }}("{{ service_name.boto3_name }}")`.
+`{{ package.client.name }}` provides annotations for `{{ package.library_name }}.client("{{ service_name.boto3_name }}")`.
 
 ```python
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }} import {{ package.client.name }}
 
-client: {{ package.client.name }} = Session().{{ package.client_method_name }}("{{ service_name.boto3_name }}")
+client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
 
 # now client usage is checked by mypy and IDE should provide code auto-complete
 ```
@@ -138,7 +138,7 @@ from {{ package.name }}.paginator import (
 {% for paginator in package.paginators %}    {{ paginator.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 
-client: {{ package.client.name }} = Session().{{ package.client_method_name }}("{{ service_name.boto3_name }}")
+client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Type should be correctly discovered by mypy and IDEs
@@ -162,7 +162,7 @@ from {{ package.name }}.waiter import (
 {% for waiter in package.waiters %}    {{ waiter.name }},{{ '' if loop.last else '\n' }}{% endfor %}
 )
 
-client: {{ package.client.name }} = Session().{{ package.client_method_name }}("{{ service_name.boto3_name }}")
+client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Type should be correctly discovered by mypy and IDEs

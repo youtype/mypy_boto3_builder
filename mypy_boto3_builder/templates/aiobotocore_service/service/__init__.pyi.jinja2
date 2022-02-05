@@ -4,31 +4,30 @@ Main interface for {{ package.service_name.boto3_name }} service.
 Usage::
 
     ```python
-    from {{ package.library_name }}.session import Session
+    from {{ package.library_name }}.session import get_session
     from {{ package.name }} import (
 {% for name in package.get_init_all_names() -%}
         {{ '        ' -}}{{ name -}},
 {% endfor -%}
     {{ '    ' -}})
 
-    session = Session()
-    session: {{ package.client.name }} = session.{{ package.client_method_name }}("{{ package.service_name.boto3_name }}")
-{% if package.service_resource -%}
-    {{ "\n    " -}}
-    resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
-{% endif -%}
+    session = get_session()
+    with async session.create_client("{{ package.service_name.boto3_name }}") as client:
+        client: {{ package.client.name }}
+        ...
+
 {% if package.waiters -%}
 {{ "\n" -}}
 {% for waiter in package.waiters -%}
-    {{ "    " -}}
-    {{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+        {{ "    " -}}
+        {{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
 {% endfor -%}
 {% endif -%}
 {% if package.paginators -%}
 {{ "\n" -}}
 {% for paginator in package.paginators -%}
-    {{ "    " -}}
-    {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+        {{ "    " -}}
+        {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
 {% endfor -%}
 {% endif -%}
     {{ '    ' -}}```
@@ -41,9 +40,6 @@ Usage::
 
 {% if package.client %}
 {{ package.client.alias_name }} = {{ package.client.name }}
-{% endif %}
-{% if package.service_resource %}
-{{ package.service_resource.alias_name }} = {{ package.service_resource.name }}
 {% endif %}
 
 __all__ = (

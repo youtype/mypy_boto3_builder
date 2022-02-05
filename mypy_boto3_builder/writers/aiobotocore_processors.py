@@ -101,7 +101,7 @@ def process_aiobotocore_service(
     package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
     package_writer.write_service_package(
         service_package,
-        templates_path=TEMPLATES_PATH / "service",
+        templates_path=TEMPLATES_PATH / "aiobotocore_service",
     )
     return service_package
 

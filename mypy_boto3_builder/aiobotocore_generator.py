@@ -128,7 +128,7 @@ class AioBotocoreGenerator:
         for index, service_name in enumerate(self.service_names):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
             logger.info(
-                f"[{current_str}/{total_str}] Generating {service_name.module_name} module docs"
+                f"[{current_str}/{total_str}] Generating {service_name.aiobotocore_module_name} module docs"
             )
             process_aiobotocore_service_docs(
                 session=self.session,
