@@ -1,4 +1,4 @@
-from typing import Any, List, Optional
+from typing import Any, List, Optional, Union
 
 from aiobotocore.client import AioBaseClient as AioBaseClient
 from aiobotocore.client import AioClientCreator as AioClientCreator
@@ -11,6 +11,7 @@ from aiobotocore.parsers import AioResponseParserFactory as AioResponseParserFac
 from aiobotocore.signers import add_generate_db_auth_token as add_generate_db_auth_token
 from aiobotocore.signers import add_generate_presigned_post as add_generate_presigned_post
 from aiobotocore.signers import add_generate_presigned_url as add_generate_presigned_url
+from botocore.client import Config
 from botocore.model import ServiceModel
 from botocore.session import Session
 
@@ -34,7 +35,19 @@ class AioSession(Session):
         unique_id: Optional[Any] = ...,
         unique_id_uses_count: bool = ...,
     ) -> None: ...
-    def create_client(self, *args: Any, **kwargs: Any) -> AioBaseClient: ...
+    def create_client(
+        self,
+        service_name: str,
+        region_name: Optional[str] = None,
+        use_ssl: Optional[bool] = ...,
+        endpoint_url: Optional[str] = ...,
+        verify: Union[str, bool, None] = ...,
+        aws_access_key_id: Optional[str] = ...,
+        aws_secret_access_key: Optional[str] = ...,
+        aws_session_token: Optional[str] = ...,
+        api_version: Optional[str] = ...,
+        config: Optional[Config] = ...,
+    ) -> AioBaseClient: ...
     async def get_credentials(self) -> AioCredentials: ...
     def set_credentials(
         self, access_key: str, secret_key: str, token: Optional[Any] = ...
