@@ -6,7 +6,6 @@ Parent class for all package structures.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Package
     - [Package](#package)
-        - [Package().client_method_name](#packageclient_method_name)
         - [Package().directory_name](#packagedirectory_name)
         - [Package().docs_package_name](#packagedocs_package_name)
         - [Package().get_local_doc_link](#packageget_local_doc_link)
@@ -28,17 +27,6 @@ class Package():
 ```
 
 Parent class for all package structures.
-
-### Package().client_method_name
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L75)
-
-```python
-@property
-def client_method_name() -> str:
-```
-
-Get service client create name.
 
 ### Package().directory_name
 
@@ -88,7 +76,7 @@ Get service module name.
 
 ### Package().get_service_pypi_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L96)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L85)
 
 ```python
 def get_service_pypi_link(service_name: ServiceName) -> str:
@@ -102,7 +90,7 @@ Get link to PyPI.
 
 ### Package().get_service_pypi_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L86)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L75)
 
 ```python
 def get_service_pypi_name(service_name: ServiceName) -> str:

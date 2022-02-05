@@ -39,7 +39,7 @@ Formatted python code.
 
 ## format_md
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L140)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L146)
 
 ```python
 def format_md(text: str) -> str:
@@ -49,7 +49,7 @@ Format MarkDown with mdformat.
 
 ## get_aiobotocore_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L152)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L158)
 
 ```python
 def get_aiobotocore_version() -> str:
@@ -59,7 +59,7 @@ Get aiobotocore package version.
 
 ## insert_md_toc
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L116)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L122)
 
 ```python
 def insert_md_toc(text: str) -> str:

@@ -29,7 +29,7 @@ Writer for package static and template files.
 
 ### PackageWriter().write_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L171)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L169)
 
 ```python
 def write_docs(package: Package, templates_path: Path) -> None:
@@ -43,7 +43,7 @@ Generate docs for a package.
 
 ### PackageWriter().write_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L144)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L142)
 
 ```python
 def write_package(
@@ -67,7 +67,7 @@ Generate files for a package.
 
 ### PackageWriter().write_service_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L303)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L299)
 
 ```python
 def write_service_docs(package: ServicePackage, templates_path: Path) -> None:
@@ -86,7 +86,7 @@ Create service docs files.
 
 ### PackageWriter().write_service_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L282)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L278)
 
 ```python
 def write_service_package(
