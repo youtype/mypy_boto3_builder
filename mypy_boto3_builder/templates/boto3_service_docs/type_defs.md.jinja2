@@ -1,0 +1,33 @@
+# Typed dictionaries for {{ package.library_name }} {{ service_name.class_name }} module
+
+> [Index](..) > [{{ service_name.class_name }}](.) > Typed dictionaries
+
+Auto-generated documentation for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }})
+type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
+
+{% for typed_dict in package.typed_dicts -%}
+## {{ typed_dict.name }}
+
+```python
+from {{ package.name }}.type_defs import {{ typed_dict.name }}
+```
+
+{% if typed_dict.get_required() %}
+Required fields:
+{% for field in typed_dict.get_required() -%}
+{% with type_annotation=field.type_annotation -%}
+- `{{ field.name }}`: {% include "common/type_annotation.md.jinja2" with context -%}{{ '\n' -}}
+{% endwith -%}
+{% endfor -%}
+{% endif %}
+
+{% if typed_dict.get_optional() %}
+Optional fields:
+{% for field in typed_dict.get_optional() -%}
+{% with type_annotation=field.type_annotation -%}
+- `{{ field.name }}`: {% include "common/type_annotation.md.jinja2" with context -%}{{ '\n' -}}
+{% endwith -%}
+{% endfor -%}
+{% endif %}
+
+{% endfor %}

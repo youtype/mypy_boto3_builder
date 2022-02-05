@@ -180,6 +180,6 @@ def process_aiobotocore_service_docs(
     package_writer = PackageWriter(output_path=output_path)
     package_writer.write_service_docs(
         service_package,
-        templates_path=TEMPLATES_PATH / "service_docs",
+        templates_path=TEMPLATES_PATH / "aiobotocore_service_docs",
     )
     return service_package

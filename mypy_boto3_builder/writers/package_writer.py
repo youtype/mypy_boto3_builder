@@ -73,10 +73,9 @@ class PackageWriter:
         result: list[tuple[Path, Path]] = []
         setup_path = self._get_setup_path(package)
         for template_path in NicePath(templates_path).walk(glob_pattern="*.jinja2"):
-            relative_template_path = template_path.relative_to(templates_path)
-            file_name = relative_template_path.name.rsplit(".", 1)[0]
+            file_name = template_path.name.rsplit(".", 1)[0]
             output_file_path = setup_path / file_name
-            result.append((output_file_path, template_path.relative_to(templates_path.parent)))
+            result.append((output_file_path, template_path))
         return result
 
     def _get_package_template_paths(
@@ -89,12 +88,11 @@ class PackageWriter:
         package_path = self._get_package_path(package)
         package_template_path = templates_path / package.name
         for template_path in NicePath(package_template_path).walk(glob_pattern="**/*.jinja2"):
-            relative_template_path = template_path.relative_to(templates_path)
-            file_name = relative_template_path.name.rsplit(".", 1)[0]
+            file_name = template_path.name.rsplit(".", 1)[0]
             output_file_path = (
                 package_path / template_path.relative_to(package_template_path).parent / file_name
             )
-            result.append((output_file_path, template_path.relative_to(templates_path.parent)))
+            result.append((output_file_path, template_path))
         return result
 
     def _render_templates(
@@ -176,9 +174,7 @@ class PackageWriter:
         file_paths = []
         for template_path in templates_path.glob("**/*.jinja2"):
             file_name = template_path.name.rsplit(".", 1)[0]
-            file_paths.append(
-                (self.output_path / file_name, template_path.relative_to(templates_path.parent))
-            )
+            file_paths.append((self.output_path / file_name, template_path))
 
         for file_path, template_path in file_paths:
             content = render_jinja2_template(
@@ -194,7 +190,7 @@ class PackageWriter:
     def _get_service_package_template_paths(
         self, package: ServicePackage, templates_path: Path
     ) -> list[tuple[Path, Path]]:
-        module_templates_path = (templates_path / "service").relative_to(templates_path.parent)
+        module_templates_path = templates_path / "service"
         package_path = self._get_service_package_path(package)
         file_paths: list[tuple[Path, Path]] = [
             (package_path / "version.py", module_templates_path / "version.py.jinja2"),
@@ -310,7 +306,6 @@ class PackageWriter:
         """
         docs_path = self.output_path / f"{package.name}"
         docs_path.mkdir(exist_ok=True, parents=True)
-        templates_path = Path("service_docs")
         file_paths = [
             (docs_path / "README.md", templates_path / "README.md.jinja2"),
             (docs_path / "client.md", templates_path / "client.md.jinja2"),

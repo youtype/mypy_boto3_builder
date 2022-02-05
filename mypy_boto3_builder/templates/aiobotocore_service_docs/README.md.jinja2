@@ -15,7 +15,7 @@ pip install {{ package.pypi_name }}
 
 ## {{ package.client.name }}
 
-Type annotations for  `{{ package.library_name }}.{{ package.client_method_name }}("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+Type annotations for  `session.create_client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
 
 Can be used directly:
 
@@ -45,7 +45,7 @@ from {{ package.name }}.client import {{ package.client.name }}
 {% if package.service_resource %}
 ## {{ package.service_resource.name }}
 
-Type annotations for `{{ package.library_name }}.resource("{{ package.service_name.boto3_name }}")` as
+Type annotations for `session.resource("{{ package.service_name.boto3_name }}")` as
 [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name) }})
 
 Can be used directly:
@@ -73,7 +73,7 @@ from {{ package.name }}.service_resource import {{ package.service_resource.coll
 {% if package.service_resource.sub_resources %}
 ### Resources
 
-Type annotations for additional resources from `{{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").*`.
+Type annotations for additional resources from `session.resource("{{ package.service_name.boto3_name }}").*`.
 
 Can be used directly:
 
@@ -95,7 +95,7 @@ Type annotations for [paginators]({{ service_name.get_md_doc_link('paginators') 
 Can be used directly:
 
 ```python
-from {{ package.name }}.paginators import {{ package.paginators[0].name }}, ...
+from {{ package.name }}.paginator import {{ package.paginators[0].name }}, ...
 ```
 
 {% for paginator in package.paginators -%}
@@ -111,7 +111,7 @@ Type annotations for [waiters]({{ service_name.get_md_doc_link('waiters') }}) fr
 Can be used directly:
 
 ```python
-from {{ package.name }}.waiters import {{ package.waiters[0].name }}, ...
+from {{ package.name }}.waiter import {{ package.waiters[0].name }}, ...
 ```
 
 {% for waiter in package.waiters -%}

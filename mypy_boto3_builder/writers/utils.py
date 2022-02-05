@@ -105,11 +105,17 @@ def render_jinja2_template(
     Returns:
         A rendered template.
     """
-    template_full_path = TEMPLATES_PATH / template_path
-    if not template_full_path.exists():
-        raise ValueError(f"Template {template_path} not found")
+    if template_path.is_absolute():
+        template_full_path = template_path
+    else:
+        template_full_path = TEMPLATES_PATH / template_path
 
-    template = JinjaManager.get_environment().get_template(template_path.as_posix())
+    if not template_full_path.exists():
+        raise ValueError(f"Template {template_full_path} not found")
+
+    template = JinjaManager.get_environment().get_template(
+        template_full_path.relative_to(TEMPLATES_PATH).as_posix()
+    )
     return template.render(package=package, service_name=service_name)
 
 

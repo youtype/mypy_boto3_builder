@@ -125,6 +125,14 @@ class AioBotocoreGenerator:
         """
         logger = get_logger()
         total_str = f"{len(self.service_names)}"
+
+        logger.info(f"Generating {AIOBOTOCORE_STUBS_NAME} module docs")
+        process_aiobotocore_stubs_docs(
+            self.session,
+            self.output_path,
+            self.service_names,
+        )
+
         for index, service_name in enumerate(self.service_names):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
             logger.info(
@@ -136,10 +144,3 @@ class AioBotocoreGenerator:
                 service_name=service_name,
                 service_names=self.available_service_names,
             )
-
-        logger.info(f"Generating {AIOBOTOCORE_STUBS_NAME} module docs")
-        process_aiobotocore_stubs_docs(
-            self.session,
-            self.output_path,
-            self.service_names,
-        )

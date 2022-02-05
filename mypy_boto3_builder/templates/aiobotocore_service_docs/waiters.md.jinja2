@@ -1,0 +1,31 @@
+# Waiters for {{ package.library_name }} {{ service_name.class_name }} module
+
+> [Index](..) > [{{ service_name.class_name }}](.) > Waiters
+
+Auto-generated documentation for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }})
+type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
+
+{% for waiter in package.waiters -%}
+## {{ waiter.name }}
+
+Type annotations for `session.create_client("{{ service_name.boto3_name }}").get_waiter("{{ waiter.waiter_name }}")`.
+
+Can be used directly:
+
+```python
+from {{ package.library_name }}.session import Session
+
+from {{ package.name }}.waiter import {{ waiter.name }}
+
+def get_{{ waiter.waiter_name }}_waiter() -> {{ waiter.name }}:
+    return Session().client("{{ service_name.boto3_name }}").get_waiter("{{ waiter.waiter_name }}")
+```
+
+Boto3 documentation: [{{ service_name.class_name }}.Waiter.{{ waiter.waiter_name }}]({{ waiter.boto3_doc_link }})
+
+Arguments for `{{ waiter.name }}.wait` method:
+
+{% with arguments=waiter.methods[0].arguments[1:] -%}
+{% include "common/arguments_list.md.jinja2" with context -%}
+{% endwith %}
+{% endfor %}

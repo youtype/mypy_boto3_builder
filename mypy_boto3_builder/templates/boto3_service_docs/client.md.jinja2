@@ -7,7 +7,7 @@ type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_p
 
 ## {{ package.client.name }}
 
-Type annotations for `{{ package.library_name }}.{{ package.client_method_name }}("{{ service_name.boto3_name }}")`
+Type annotations for `{{ package.library_name }}.client("{{ service_name.boto3_name }}")`
 
 Can be used directly:
 
@@ -49,7 +49,7 @@ Exceptions:
 
 {{ method.short_docstring }}
 
-Type annotations for `{{ package.library_name }}.{{ package.client_method_name }}("{{ service_name.boto3_name }}").{{ method.name }}` method.
+Type annotations for `{{ package.library_name }}.client("{{ service_name.boto3_name }}").{{ method.name }}` method.
 
 Boto3 documentation: [{{ service_name.class_name }}.Client.{{ method.name }}]({{ service_name.get_boto3_doc_link("Client", method.name) }})
 
@@ -62,7 +62,7 @@ Boto3 documentation: [{{ service_name.class_name }}.Client.{{ method.name }}]({{
 {% if package.paginators %}
 ### get_paginator
 
-Type annotations for `{{ package.library_name }}.{{ package.client_method_name }}("{{ service_name.boto3_name }}").get_paginator` method with overloads.
+Type annotations for `{{ package.library_name }}.client("{{ service_name.boto3_name }}").get_paginator` method with overloads.
 
 {% for paginator in package.paginators -%}
 - `client.get_paginator("{{ paginator.operation_name }}")` -> [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
@@ -72,7 +72,7 @@ Type annotations for `{{ package.library_name }}.{{ package.client_method_name }
 {% if package.waiters %}
 ### get_waiter
 
-Type annotations for `{{ package.library_name }}.{{ package.client_method_name }}("{{ service_name.boto3_name }}").get_waiter` method with overloads.
+Type annotations for `{{ package.library_name }}.client("{{ service_name.boto3_name }}").get_waiter` method with overloads.
 
 {% for waiter in package.waiters -%}
 - `client.get_waiter("{{ waiter.waiter_name }}")` -> [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}

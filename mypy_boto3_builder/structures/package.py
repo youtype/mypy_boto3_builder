@@ -72,17 +72,6 @@ class Package:
             "aiobotocore": service_name.aiobotocore_module_name,
         }[self.library_name]
 
-    @property
-    def client_method_name(self) -> str:
-        """
-        Get service client create name.
-        """
-        return {
-            "boto3": "client",
-            "botocore": "client",
-            "aiobotocore": "create_client",
-        }[self.library_name]
-
     def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
         Get PyPI package name for a service package.
