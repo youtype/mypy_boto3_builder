@@ -232,4 +232,7 @@ module.exports = {
     getBotocoreVersion,
     extractVersions,
     extractDownloadLinks,
+    getAioBotocoreVersion,
+    getTypesAioBotocoreVersions,
+    extractAioBotocoreDownloadLinks,
 }
