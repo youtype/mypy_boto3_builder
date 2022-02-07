@@ -39,6 +39,10 @@ python -m pip install types-aiobotocore
 # Consumes ~7 MB of space
 python -m pip install 'types-aiobotocore[essential]'
 
+# Lite version does not provide session.create_client overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'types-aiobotocore-lite[essential]'
+
 # or install annotations for services you use
 python -m pip install 'types-aiobotocore[acm,apigateway]'
 ```
