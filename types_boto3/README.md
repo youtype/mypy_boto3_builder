@@ -102,17 +102,14 @@ No explicit type annotations required, write your `boto3` code as usual.
 
 ### PyCharm
 
-- Install `boto3-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
-- Install `mypy_boto3_builder`: `pip install mypy_boto3_builder`
-- Generate stubs in `<project_root>/typings` directory for services you use
+- Install `boto3-stubs-lite` with services you use in your environment:
 
 ```bash
-python -m mypy_boto3_builder --product boto3 --installed typings -d -s s3 ec2
+python -m pip install 'boto3-stubs-lite[s3,ec2]'
 ```
 
-- Add `<project_root>/typings` folder to your [Interpreter Paths](https://www.jetbrains.com/help/pycharm/stubs.html#reuse-stubs)
-
-Since stubs are stored in your project root, you do not need to re-generate them after update.
+Both type checking and auto-complete should work for installed services.
+Explicit type annotations **are required**. Use `boto3-stubs` package instead for implicit type discovery.
 
 ### Emacs
 

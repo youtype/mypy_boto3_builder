@@ -71,17 +71,10 @@ No explicit type annotations required, write your `aiobotocore` code as usual.
 
 ### PyCharm
 
-- Install `types-aiobotocore` with services you use in your environment: `python -m pip install 'types-aiobotocore[s3,ec2]'`
-- Install `mypy_boto3_builder`: `pip install mypy_boto3_builder`
-- Generate stubs in `<project_root>/typings` directory for services you use
+Install `types-aiobotocore-lite` with services you use in your environment: `python -m pip install 'types-aiobotocore-lite[s3,ec2]'`
 
-```bash
-python -m mypy_boto3_builder --product aiobotocore --installed typings -d -s s3 ec2
-```
-
-- Add `<project_root>/typings` folder to your [Interpreter Paths](https://www.jetbrains.com/help/pycharm/stubs.html#reuse-stubs)
-
-Since stubs are stored in your project root, you do not need to re-generate them after update.
+Both type checking and auto-complete should work for installed `aiobotocore` services.
+Explicit type annotations **are required**. Use `types-aiobotocore` package instead for implicit type discovery.
 
 ### Emacs
 

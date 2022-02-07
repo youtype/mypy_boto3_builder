@@ -89,11 +89,14 @@ No explicit type annotations required, write your `boto3` code as usual.
 
 ### PyCharm
 
-- Install `{{ package.docs_package_name }}[{{service_name.extras_name}}]` in your environment: `python -m pip install '{{ package.docs_package_name }}[{{service_name.extras_name}}]'`
+- Install `boto3-stubs-lite[{{service_name.extras_name}}]` in your environment:
+
+```bash
+python -m pip install 'boto3-stubs-lite[{{service_name.extras_name}}]'
+```
 
 Both type checking and auto-complete should work for `{{ service_name.class_name }}` service.
-No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
-Auto-complete can be slow on big projects or if you have a lot of installed `{{ package.docs_package_name }}` submodules.
+Explicit type annotations **are required**. Use `boto3-stubs` package instead for implicit type discovery.
 
 ### Other IDEs
 
