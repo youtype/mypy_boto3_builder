@@ -161,8 +161,11 @@ def main() -> None:
     service_paths = [p for p in paths if p.name not in MASTER_PACKAGES]
 
     if not args.skip_build:
-        for index, path in enumerate(paths):
-            logger.info(f"[{index + 1:03d}/{len(paths)}] Building {path.name}")
+        for path in master_paths:
+            logger.info(f"Building {path.name}")
+            build(path)
+        for index, path in enumerate(service_paths):
+            logger.info(f"[{index + 1:03d}/{len(service_paths)}] Building {path.name}")
             build(path)
 
     with Pool(args.threads) as pool:
