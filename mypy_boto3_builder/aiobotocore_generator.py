@@ -7,7 +7,7 @@ from pathlib import Path
 from boto3 import __version__ as boto3_version
 from boto3.session import Session
 
-from mypy_boto3_builder.constants import AIOBOTOCORE_STUBS_NAME
+from mypy_boto3_builder.constants import AIOBOTOCORE_PYPI_NAME
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
@@ -74,12 +74,12 @@ class AioBotocoreGenerator:
         """
         Generate `aiobotocore-stubs` package.
         """
-        version = self._get_package_version(AIOBOTOCORE_STUBS_NAME, self.version)
+        version = self._get_package_version(AIOBOTOCORE_PYPI_NAME, self.version)
         if not version:
-            self.logger.info(f"Skipping {AIOBOTOCORE_STUBS_NAME} {self.version}, already on PyPI")
+            self.logger.info(f"Skipping {AIOBOTOCORE_PYPI_NAME} {self.version}, already on PyPI")
             return
 
-        self.logger.info(f"Generating {AIOBOTOCORE_STUBS_NAME} {version}")
+        self.logger.info(f"Generating {AIOBOTOCORE_PYPI_NAME} {version}")
         process_aiobotocore_stubs(
             self.session,
             self.output_path,
@@ -126,7 +126,7 @@ class AioBotocoreGenerator:
         logger = get_logger()
         total_str = f"{len(self.service_names)}"
 
-        logger.info(f"Generating {AIOBOTOCORE_STUBS_NAME} module docs")
+        logger.info(f"Generating {AIOBOTOCORE_PYPI_NAME} module docs")
         process_aiobotocore_stubs_docs(
             self.session,
             self.output_path,

@@ -12,7 +12,7 @@ Usage::
     import {{ package.name }}.service_resource as {{ package.service_name.name }}_resources
 
     session = get_session()
-    with async session.resource("{{ package.service_name.boto3_name }}") as resource:
+    async with session.resource("{{ package.service_name.boto3_name }}") as resource:
         resource: {{ package.service_resource.name }}
 
 {% if package.service_resource.sub_resources -%}

@@ -16,7 +16,7 @@ from {{ package.library_name }}.session import get_session
 from {{ package.name }}.client import {{ package.client.name }}
 
 session = get_session()
-with async session.create_client("{{ service_name.boto3_name }}") as client:
+async with session.create_client("{{ service_name.boto3_name }}") as client:
     client: {{ package.client.name }}
 ```
 

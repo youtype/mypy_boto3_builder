@@ -2,8 +2,12 @@
 Postprocessor for all classes and methods.
 """
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.structures.argument import Argument
+from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.type_annotations.type import Type
 
 
 class ServicePackagePostprocessor:
@@ -37,7 +41,7 @@ class ServicePackagePostprocessor:
             *[
                 m
                 for m in self.package.client.methods
-                if m.name not in ["exceptions", "get_waiter", "get_paginator"]
+                if m.name not in ["exceptions", "get_waiter", "get_paginator", "can_paginate"]
             ],
             *[m for p in self.package.paginators for m in p.methods],
             *[m for w in self.package.waiters for m in w.methods],
@@ -68,6 +72,36 @@ class ServicePackagePostprocessor:
             ]
         for waiter in self.package.waiters:
             waiter.bases = [ExternalImport(ImportString("aiobotocore", "waiter"), "AIOWaiter")]
+
+    def add_contextmanager_methods(self) -> None:
+        """
+        Add contextmanager methods.
+        """
+        self.package.client.methods.append(
+            Method(
+                "__aenter__",
+                [
+                    Argument("self", None),
+                ],
+                return_type=InternalImport(self.package.client.name),
+                is_async=True,
+                docstring=self.package.client.docstring,
+            )
+        )
+        self.package.client.methods.append(
+            Method(
+                "__aexit__",
+                [
+                    Argument("self", None),
+                    Argument("exc_type", Type.Any),
+                    Argument("exc_val", Type.Any),
+                    Argument("exc_tb", Type.Any),
+                ],
+                return_type=Type.Any,
+                is_async=True,
+                docstring=self.package.client.docstring,
+            )
+        )
 
     def _generate_docstrings_client(self) -> None:
         boto3_doc_link = self.package.client.boto3_doc_link

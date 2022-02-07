@@ -83,7 +83,7 @@ def parse_aiobotocore_stubs_package(
                     name=service_package.client.name,
                 ),
                 body_lines=["..."],
-                is_async=True,
+                is_async=False,
             )
         )
 

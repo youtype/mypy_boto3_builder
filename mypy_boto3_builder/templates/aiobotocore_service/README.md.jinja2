@@ -121,7 +121,7 @@ from {{ package.library_name }}.session import get_session
 from {{ package.name }} import {{ package.client.name }}
 
 session = get_session()
-with async session.create_client("{{ service_name.boto3_name }}") as client:
+async with session.create_client("{{ service_name.boto3_name }}") as client:
     client: {{ package.client.name }}
     # now client usage is checked by mypy and IDE should provide code auto-complete
 ```
@@ -140,7 +140,7 @@ from {{ package.name }}.paginator import (
 )
 
 session = get_session()
-with async session.create_client("{{ service_name.boto3_name }}") as client:
+async with session.create_client("{{ service_name.boto3_name }}") as client:
     client: {{ package.client.name }}
 
     # Explicit type annotations are optional here
@@ -166,7 +166,7 @@ from {{ package.name }}.waiter import (
 )
 
 session = get_session()
-with async session.create_client("{{ service_name.boto3_name }}") as client:
+async with session.create_client("{{ service_name.boto3_name }}") as client:
     client: {{ package.client.name }}
 
     # Explicit type annotations are optional here
@@ -189,7 +189,7 @@ from {{ package.library_name }}.session import get_session
 from {{ package.name }} import {{ package.service_resource.name }}
 
 session = get_session()
-with async session.resource("{{ service_name.boto3_name }}") as resource:
+async with session.resource("{{ service_name.boto3_name }}") as resource:
     resource: {{ package.service_resource.name }}
     # now resource usage is checked by mypy and IDE should provide code auto-complete
 ```
@@ -208,7 +208,7 @@ from {{ package.name }}.service_resource import (
 )
 
 session = get_session()
-with async session.resource("{{ service_name.boto3_name }}") as resource:
+async with session.resource("{{ service_name.boto3_name }}") as resource:
     resource: {{ package.service_resource.name }}
 
 # Explicit type annotations are optional here
@@ -234,7 +234,7 @@ from {{ package.name }}.service_resource import (
 )
 
 session = get_session()
-with async session.resource("{{ service_name.boto3_name }}") as resource:
+async with session.resource("{{ service_name.boto3_name }}") as resource:
     resource: {{ package.service_resource.name }}
 
 # Explicit type annotations are optional here

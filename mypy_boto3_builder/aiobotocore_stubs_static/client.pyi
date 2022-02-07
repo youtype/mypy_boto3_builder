@@ -1,4 +1,4 @@
-from typing import Any, Optional, Union
+from typing import Any, Optional, TypeVar, Union
 
 from aiobotocore.paginate import AioPaginator
 from aiobotocore.waiter import AIOWaiter
@@ -7,6 +7,8 @@ from botocore.config import Config
 from botocore.history import HistoryRecorder
 
 history_recorder: HistoryRecorder
+
+_R = TypeVar("_R")
 
 class AioClientCreator(ClientCreator):
     async def create_client(
@@ -25,3 +27,6 @@ class AioClientCreator(ClientCreator):
 class AioBaseClient(BaseClient):
     def get_paginator(self, operation_name: str) -> AioPaginator: ...
     def get_waiter(self, waiter_name: str) -> AIOWaiter: ...
+    async def __aenter__(self: _R) -> _R: ...
+    async def __aexit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> Any: ...
+    async def close(self) -> Any: ...

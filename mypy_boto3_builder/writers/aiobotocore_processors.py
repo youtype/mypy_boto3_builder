@@ -15,8 +15,8 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.aiobotocore_stubs_package import AioBotocoreStubsPackage
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.nice_path import NicePath
+from mypy_boto3_builder.utils.strings import get_aiobotocore_version
 from mypy_boto3_builder.writers.package_writer import PackageWriter
-from mypy_boto3_builder.writers.utils import get_aiobotocore_version
 
 
 def process_aiobotocore_stubs(
@@ -93,6 +93,7 @@ def process_aiobotocore_service(
     postprocessor = ServicePackagePostprocessor(service_package)
     postprocessor.generate_docstrings()
     postprocessor.make_async()
+    postprocessor.add_contextmanager_methods()
 
     for typed_dict in service_package.typed_dicts:
         typed_dict.replace_self_references()
@@ -171,6 +172,7 @@ def process_aiobotocore_service_docs(
     postprocessor = ServicePackagePostprocessor(service_package)
     postprocessor.generate_docstrings()
     postprocessor.make_async()
+    postprocessor.add_contextmanager_client_methods()
 
     for typed_dict in service_package.typed_dicts:
         typed_dict.replace_self_references()
