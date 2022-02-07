@@ -85,7 +85,8 @@ jobs:
           rm -rf mypy_boto3_output/*
 
           echo "Building updated packages"
-          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product boto3 boto3-services ${NO_SMART_VERSION} -s updated
+          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product boto3 ${NO_SMART_VERSION} -s all
+          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product boto3-services ${NO_SMART_VERSION} -s updated
       - name: Build all packages
         if: needs.check-boto3-version.outputs.build-all == 'true'
         run: |
