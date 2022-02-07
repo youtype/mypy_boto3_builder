@@ -97,4 +97,4 @@ jobs:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          ./scripts/release_aiobotocore.sh
+          python ./scripts/release.py
