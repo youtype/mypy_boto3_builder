@@ -11,7 +11,7 @@ Main entrypoint for builder.
 
 ## get_available_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L64)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L65)
 
 ```python
 def get_available_service_names(session: Session) -> list[ServiceName]:
@@ -29,7 +29,7 @@ A list of supported services.
 
 ## get_selected_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L26)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L27)
 
 ```python
 def get_selected_service_names(
@@ -54,7 +54,7 @@ A list of selected ServiceNames.
 
 ## main
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L86)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L87)
 
 ```python
 def main() -> None:

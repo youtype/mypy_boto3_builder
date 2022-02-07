@@ -1,6 +1,5 @@
 from typing import Any, Dict, Optional, Type
 
-from aiobotocore._endpoint_helpers import ClientResponseProxy as ClientResponseProxy
 from aiobotocore.httpsession import AIOHTTPSession as AIOHTTPSession
 from aiobotocore.response import StreamingBody as StreamingBody
 from botocore.endpoint import Endpoint, EndpointCreator

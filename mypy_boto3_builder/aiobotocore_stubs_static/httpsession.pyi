@@ -1,7 +1,6 @@
 from typing import Any, Dict, Optional
 
 from aiobotocore import DEPRECATED_1_4_0_APIS as DEPRECATED_1_4_0_APIS
-from aiobotocore._endpoint_helpers import ClientResponseProxy as ClientResponseProxy
 from requests.models import Request, Response
 
 class AIOHTTPSession:

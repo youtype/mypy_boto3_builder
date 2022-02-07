@@ -172,7 +172,7 @@ def process_aiobotocore_service_docs(
     postprocessor = ServicePackagePostprocessor(service_package)
     postprocessor.generate_docstrings()
     postprocessor.make_async()
-    postprocessor.add_contextmanager_client_methods()
+    postprocessor.add_contextmanager_methods()
 
     for typed_dict in service_package.typed_dicts:
         typed_dict.replace_self_references()

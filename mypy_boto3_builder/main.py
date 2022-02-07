@@ -132,7 +132,7 @@ def main() -> None:
         generate_setup=not args.installed,
         skip_published=args.skip_published,
         disable_smart_version=args.disable_smart_version,
-        version=args.build_version or aiobotocore_version,
+        version=args.build_version or boto3_version,
     )
     aiobotocore_generator = AioBotocoreGenerator(
         service_names=service_names,
@@ -143,7 +143,7 @@ def main() -> None:
         generate_setup=not args.installed,
         skip_published=args.skip_published,
         disable_smart_version=args.disable_smart_version,
-        version=args.build_version or boto3_version,
+        version=args.build_version or aiobotocore_version,
     )
     if "boto3" in args.products:
         boto3_generator.generate_stubs()

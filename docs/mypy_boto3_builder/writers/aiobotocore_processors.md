@@ -47,7 +47,7 @@ Parsed ServicePackage.
 
 ## process_aiobotocore_service_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L144)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L145)
 
 ```python
 def process_aiobotocore_service_docs(
@@ -110,7 +110,7 @@ Parsed AioBotocoreStubsPackage.
 
 ## process_aiobotocore_stubs_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L109)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L110)
 
 ```python
 def process_aiobotocore_stubs_docs(
