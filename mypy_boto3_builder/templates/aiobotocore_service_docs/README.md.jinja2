@@ -9,7 +9,11 @@ type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_p
 # install with {{ package.docs_package_name }}
 pip install '{{ package.docs_package_name }}[{{ package.service_name.extras_name }}]'
 
-# install as a standalone
+# Lite version does not provide session.create_client overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'types-aiobotocore-lite[{{ package.service_name.extras_name }}]'
+
+# standalone installation
 pip install {{ package.pypi_name }}
 ```
 

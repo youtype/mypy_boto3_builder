@@ -23,6 +23,10 @@ See how it helps to find and fix potential bugs:
 ```bash
 # Install type annotations for boto3 services you use
 python -m pip install 'boto3-stubs[s3,ec2]'
+
+# Lite version does not provide session.client/resource overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'boto3-stubs-lite[s3,ec2]'
 ```
 
 ## Usage

@@ -181,7 +181,7 @@ def process_aiobotocore_stubs_docs(
     package_writer = PackageWriter(output_path=output_path)
     package_writer.write_docs(
         aiobotocore_stubs_package,
-        templates_path=TEMPLATES_PATH / "stubs_docs",
+        templates_path=TEMPLATES_PATH / "aiobotocore_stubs_docs",
     )
 
     return aiobotocore_stubs_package

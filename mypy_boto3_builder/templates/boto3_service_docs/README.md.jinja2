@@ -6,10 +6,14 @@ Auto-generated documentation for [{{ package.service_name.class_name }}]({{ pack
 type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
 
 ```bash
-# install with {{ package.docs_package_name }}
-pip install '{{ package.docs_package_name }}[{{ package.service_name.extras_name }}]'
+# install with boto3 type annotations
+python -m pip install 'boto3-stubs[{{ package.service_name.extras_name }}]'
 
-# install as a standalone
+# Lite version does not provide session.client/resource overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'boto3-stubs-lite[{{ package.service_name.extras_name }}]'
+
+# standalone installation
 pip install {{ package.pypi_name }}
 ```
 

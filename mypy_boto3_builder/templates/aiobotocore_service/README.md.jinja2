@@ -41,7 +41,15 @@ Click `Modify` and select `boto3 common` and `{{ service_name.class_name }}`.
 Install `{{ package.docs_package_name }}` for `{{ service_name.class_name }}` service.
 
 ```bash
-python -m pip install {{ package.docs_package_name }}[{{service_name.extras_name}}]
+# install with aiobotocore type annotations
+python -m pip install 'types-aiobotocore[{{ package.service_name.extras_name }}]'
+
+# Lite version does not provide session.create_client overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'types-aiobotocore-lite[{{ package.service_name.extras_name }}]'
+
+# standalone installation
+python -m pip install {{ package.pypi_name }}
 ```
 
 {% if service_name.is_conda_forge_available() %}

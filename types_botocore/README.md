@@ -49,6 +49,10 @@ python -m pip install botocore-stubs boto3-stubs
 # Consumes ~7 MB of space
 python -m pip install 'boto3-stubs[essential]'
 
+# Lite version does not provide session.client/resource overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'boto3-stubs-lite[essential]'
+
 # or install annotations for services you use
 python -m pip install 'boto3-stubs[acm,apigateway]'
 ```

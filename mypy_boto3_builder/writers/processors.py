@@ -270,7 +270,7 @@ def process_boto3_stubs_docs(
     package_writer = PackageWriter(output_path=output_path)
     package_writer.write_docs(
         boto3_stubs_package,
-        templates_path=TEMPLATES_PATH / "stubs_docs",
+        templates_path=TEMPLATES_PATH / "boto3_stubs_docs",
     )
 
     return boto3_stubs_package
