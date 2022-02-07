@@ -17,7 +17,7 @@ MASTER_PACKAGES = [
     "botocore_stubs_package",
     "types_aiobotocore_package",
     "types_aiobotocore_lite_package",
-    "master_package",
+    "mypy_boto3_package",
     "boto3_stubs_package",
     "boto3_stubs_lite_package",
 ]
