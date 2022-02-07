@@ -42,7 +42,7 @@ class Package:
         """
         Directory name to store generated package.
         """
-        underscore_package_name = self.name.replace("-", "_")
+        underscore_package_name = self.pypi_name.replace("-", "_")
         return f"{underscore_package_name}_package"
 
     def __str__(self) -> str:

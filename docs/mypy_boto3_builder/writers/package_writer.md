@@ -29,7 +29,7 @@ Writer for package static and template files.
 
 ### PackageWriter().write_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L169)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L172)
 
 ```python
 def write_docs(package: Package, templates_path: Path) -> None:
@@ -50,6 +50,7 @@ def write_package(
     package: Package,
     templates_path: Path | None = None,
     static_files_path: Path | None = None,
+    exclude_template_names: Sequence[str] = tuple(),
 ) -> None:
 ```
 
@@ -60,6 +61,7 @@ Generate files for a package.
 - `package` - Package to render
 - `templates_path` - Path to Jinja templates for package
 - `static_files_path` - Path to static files for package
+- `exclude_template_names` - Do not render templates with these names
 
 #### See also
 
@@ -67,7 +69,7 @@ Generate files for a package.
 
 ### PackageWriter().write_service_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L299)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L302)
 
 ```python
 def write_service_docs(package: ServicePackage, templates_path: Path) -> None:
@@ -86,7 +88,7 @@ Create service docs files.
 
 ### PackageWriter().write_service_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L278)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L281)
 
 ```python
 def write_service_package(

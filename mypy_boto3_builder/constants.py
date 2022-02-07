@@ -12,6 +12,12 @@ AIOBOTOCORE_MODULE_NAME = "types_aiobotocore"
 # PyPI module name
 PYPI_NAME = "mypy-boto3"
 
+# boto3-stubs lite PyPI module name
+BOTO3_STUBS_LITE_PYPI_NAME = "boto3-stubs-lite"
+
+# types-aiobotocore lite PyPI module name
+AIOBOTOCORE_STUBS_LITE_PYPI_NAME = "types-aiobotocore-lite"
+
 # aiobotocore PyPI module name
 AIOBOTOCORE_PYPI_NAME = "types-aiobotocore"
 

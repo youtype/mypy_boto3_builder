@@ -11,6 +11,8 @@ Constants and paths.
 - `MODULE_NAME` - Master module name: `'mypy_boto3'`
 - `AIOBOTOCORE_MODULE_NAME` - aiobotocore module name: `'types_aiobotocore'`
 - `PYPI_NAME` - PyPI module name: `'mypy-boto3'`
+- `BOTO3_STUBS_LITE_PYPI_NAME` - boto3-stubs lite PyPI module name: `'boto3-stubs-lite'`
+- `AIOBOTOCORE_STUBS_LITE_PYPI_NAME` - types-aiobotocore lite PyPI module name: `'types-aiobotocore-lite'`
 - `AIOBOTOCORE_PYPI_NAME` - aiobotocore PyPI module name: `'types-aiobotocore'`
 - `DUMMY_REGION` - Random region to initialize services: `'us-west-2'`
 - `TEMPLATES_PATH` - Jinja2 templates for boto3-stubs: `Path(__file__).parent / 'templates'`

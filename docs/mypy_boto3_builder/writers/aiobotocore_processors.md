@@ -9,10 +9,11 @@ Processors for parsing and writing `aiobotocore` modules.
     - [process_aiobotocore_service_docs](#process_aiobotocore_service_docs)
     - [process_aiobotocore_stubs](#process_aiobotocore_stubs)
     - [process_aiobotocore_stubs_docs](#process_aiobotocore_stubs_docs)
+    - [process_aiobotocore_stubs_lite](#process_aiobotocore_stubs_lite)
 
 ## process_aiobotocore_service
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L61)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L106)
 
 ```python
 def process_aiobotocore_service(
@@ -47,7 +48,7 @@ Parsed ServicePackage.
 
 ## process_aiobotocore_service_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L145)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L190)
 
 ```python
 def process_aiobotocore_service_docs(
@@ -78,7 +79,7 @@ Parsed ServicePackage.
 
 ## process_aiobotocore_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L22)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L26)
 
 ```python
 def process_aiobotocore_stubs(
@@ -110,7 +111,7 @@ Parsed AioBotocoreStubsPackage.
 
 ## process_aiobotocore_stubs_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L110)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L155)
 
 ```python
 def process_aiobotocore_stubs_docs(
@@ -127,6 +128,38 @@ Parse and write master package docs.
 - `session` - boto3 session
 - `output_path` - Package output path
 - `service_names` - List of known service names
+
+#### Returns
+
+Parsed AioBotocoreStubsPackage.
+
+#### See also
+
+- [AioBotocoreStubsPackage](../structures/aiobotocore_stubs_package.md#aiobotocorestubspackage)
+
+## process_aiobotocore_stubs_lite
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L65)
+
+```python
+def process_aiobotocore_stubs_lite(
+    session: Session,
+    output_path: Path,
+    service_names: Iterable[ServiceName],
+    generate_setup: bool,
+    version: str,
+) -> AioBotocoreStubsPackage:
+```
+
+Parse and write stubs package `aiobotocore-stubs-lite`.
+
+#### Arguments
+
+- `session` - boto3 session
+- `output_path` - Package output path
+- `service_names` - List of known service names
+- `generate_setup` - Generate ready-to-install or to-use package
+- `version` - Package version
 
 #### Returns
 

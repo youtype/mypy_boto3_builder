@@ -58,7 +58,7 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("typing"), "Any"),
                 ImportRecord(ImportString("sys")),
                 ImportRecord(ImportString("importlib", "util")),
-                ImportRecord(ImportString("boto3", "session")),
+                ImportRecord(ImportString("boto3", "session"), alias="session"),
                 ImportRecord(ImportString("boto3", "session"), "Session"),
                 TypeLiteral.get_typing_import_record(),
             ]
@@ -81,16 +81,30 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("boto3")),
                 ImportRecord(ImportString("boto3", "utils")),
                 ImportRecord(ImportString("boto3", "resources", "factory"), "ResourceFactory"),
-                ImportRecord(ImportString("boto3", "exceptions"), "ResourceNotExistsError"),
-                ImportRecord(ImportString("boto3", "exceptions"), "UnknownAPIVersionError"),
+                ImportRecord(
+                    ImportString("boto3", "exceptions"),
+                    "ResourceNotExistsError",
+                    "ResourceNotExistsError",
+                ),
+                ImportRecord(
+                    ImportString("boto3", "exceptions"),
+                    "UnknownAPIVersionError",
+                    "UnknownAPIVersionError",
+                ),
                 ImportRecord(ImportString("botocore", "session")),
                 ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
                 ImportRecord(ImportString("botocore", "loaders"), "Loader"),
-                ImportRecord(ImportString("botocore", "model"), "ServiceModel"),
+                ImportRecord(ImportString("botocore", "model"), "ServiceModel", "ServiceModel"),
                 ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
                 ImportRecord(ImportString("botocore", "client"), "Config"),
-                ImportRecord(ImportString("botocore", "exceptions"), "DataNotFoundError"),
-                ImportRecord(ImportString("botocore", "exceptions"), "UnknownServiceError"),
+                ImportRecord(
+                    ImportString("botocore", "exceptions"), "DataNotFoundError", "DataNotFoundError"
+                ),
+                ImportRecord(
+                    ImportString("botocore", "exceptions"),
+                    "UnknownServiceError",
+                    "UnknownServiceError",
+                ),
                 TypeLiteral.get_typing_import_record(),
             ]
         )

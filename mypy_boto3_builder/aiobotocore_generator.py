@@ -7,7 +7,7 @@ from pathlib import Path
 from boto3 import __version__ as boto3_version
 from boto3.session import Session
 
-from mypy_boto3_builder.constants import AIOBOTOCORE_PYPI_NAME
+from mypy_boto3_builder.constants import AIOBOTOCORE_PYPI_NAME, AIOBOTOCORE_STUBS_LITE_PYPI_NAME
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
@@ -16,6 +16,7 @@ from mypy_boto3_builder.writers.aiobotocore_processors import (
     process_aiobotocore_service_docs,
     process_aiobotocore_stubs,
     process_aiobotocore_stubs_docs,
+    process_aiobotocore_stubs_lite,
 )
 
 
@@ -74,6 +75,10 @@ class AioBotocoreGenerator:
         """
         Generate `aiobotocore-stubs` package.
         """
+        self._generate_stubs()
+        self._generate_stubs_lite()
+
+    def _generate_stubs(self) -> None:
         version = self._get_package_version(AIOBOTOCORE_PYPI_NAME, self.version)
         if not version:
             self.logger.info(f"Skipping {AIOBOTOCORE_PYPI_NAME} {self.version}, already on PyPI")
@@ -81,6 +86,23 @@ class AioBotocoreGenerator:
 
         self.logger.info(f"Generating {AIOBOTOCORE_PYPI_NAME} {version}")
         process_aiobotocore_stubs(
+            self.session,
+            self.output_path,
+            self.service_names,
+            generate_setup=self.generate_setup,
+            version=version,
+        )
+
+    def _generate_stubs_lite(self) -> None:
+        version = self._get_package_version(AIOBOTOCORE_STUBS_LITE_PYPI_NAME, self.version)
+        if not version:
+            self.logger.info(
+                f"Skipping {AIOBOTOCORE_STUBS_LITE_PYPI_NAME} {self.version}, already on PyPI"
+            )
+            return
+
+        self.logger.info(f"Generating {AIOBOTOCORE_STUBS_LITE_PYPI_NAME} {version}")
+        process_aiobotocore_stubs_lite(
             self.session,
             self.output_path,
             self.service_names,

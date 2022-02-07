@@ -144,6 +144,7 @@ class PackageWriter:
         package: Package,
         templates_path: Path | None = None,
         static_files_path: Path | None = None,
+        exclude_template_names: Sequence[str] = tuple(),
     ) -> None:
         """
         Generate files for a package.
@@ -152,6 +153,7 @@ class PackageWriter:
             package -- Package to render
             templates_path -- Path to Jinja templates for package
             static_files_path -- Path to static files for package
+            exclude_template_names -- Do not render templates with these names
         """
         package_path = self._get_package_path(package)
 
@@ -160,6 +162,7 @@ class PackageWriter:
             *self._get_setup_template_paths(package, templates_path),
             *self._get_package_template_paths(package, templates_path),
         ]
+        file_paths = [i for i in file_paths if i[1].name not in exclude_template_names]
         self._render_templates(package, file_paths)
 
         valid_paths = (*dict(file_paths).keys(), *static_paths)

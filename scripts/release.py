@@ -15,9 +15,11 @@ from typing import Iterator
 
 MASTER_PACKAGES = [
     "aiobotocore_stubs_package",
+    "aiobotocore_stubs_lite_package",
     "master_package",
     "botocore_stubs_package",
     "boto3_stubs_package",
+    "boto3_stubs_lite_package",
 ]
 LOGGER_NAME = "release"
 MAX_RETRIES = 5

@@ -11,7 +11,7 @@ class Session:
         region_name: Optional[str] = None,
         botocore_session: Optional[BotocoreSession] = None,
         profile_name: Optional[str] = None,
-    ):
+    ) -> None:
         self._session: BotocoreSession
         self.resource_factory: ResourceFactory
         self._loader: Loader

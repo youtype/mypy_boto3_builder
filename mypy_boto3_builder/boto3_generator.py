@@ -8,13 +8,19 @@ from boto3 import __version__ as boto3_version
 from boto3.session import Session
 from botocore import __version__ as botocore_version
 
-from mypy_boto3_builder.constants import BOTO3_STUBS_NAME, BOTOCORE_STUBS_NAME, PYPI_NAME
+from mypy_boto3_builder.constants import (
+    BOTO3_STUBS_LITE_PYPI_NAME,
+    BOTO3_STUBS_NAME,
+    BOTOCORE_STUBS_NAME,
+    PYPI_NAME,
+)
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
+    process_boto3_stubs_lite,
     process_botocore_stubs,
     process_master,
     process_service,
@@ -92,16 +98,30 @@ class Boto3Generator:
         )
 
     def _generate_boto3_stubs(self) -> None:
-        """
-        Generate `boto3-stubs` package.
-        """
-        version = self._get_package_version(PYPI_NAME, self.version)
+        version = self._get_package_version(BOTO3_STUBS_NAME, self.version)
         if not version:
             self.logger.info(f"Skipping {BOTO3_STUBS_NAME} {self.version}, already on PyPI")
             return
 
         self.logger.info(f"Generating {BOTO3_STUBS_NAME} {version}")
         process_boto3_stubs(
+            self.session,
+            self.output_path,
+            self.service_names,
+            generate_setup=self.generate_setup,
+            version=version,
+        )
+
+    def _generate_boto3_stubs_lite(self) -> None:
+        version = self._get_package_version(BOTO3_STUBS_LITE_PYPI_NAME, self.version)
+        if not version:
+            self.logger.info(
+                f"Skipping {BOTO3_STUBS_LITE_PYPI_NAME} {self.version}, already on PyPI"
+            )
+            return
+
+        self.logger.info(f"Generating {BOTO3_STUBS_LITE_PYPI_NAME} {version}")
+        process_boto3_stubs_lite(
             self.session,
             self.output_path,
             self.service_names,
@@ -129,10 +149,11 @@ class Boto3Generator:
         """
         Generate main stubs.
         """
-        if not self.generate_setup:
+        if self.generate_setup:
             self._generate_master()
 
         self._generate_boto3_stubs()
+        self._generate_boto3_stubs_lite()
         self._generate_botocore_stubs()
 
     def generate_service_stubs(self) -> None:

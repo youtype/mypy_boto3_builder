@@ -7,6 +7,7 @@ from pathlib import Path
 from boto3.session import Session
 
 from mypy_boto3_builder.constants import (
+    BOTO3_STUBS_LITE_PYPI_NAME,
     BOTO3_STUBS_STATIC_PATH,
     BOTOCORE_STUBS_STATIC_PATH,
     TEMPLATES_PATH,
@@ -56,6 +57,47 @@ def process_boto3_stubs(
         boto3_stubs_package,
         templates_path=TEMPLATES_PATH / "boto3-stubs",
         static_files_path=BOTO3_STUBS_STATIC_PATH,
+    )
+
+    return boto3_stubs_package
+
+
+def process_boto3_stubs_lite(
+    session: Session,
+    output_path: Path,
+    service_names: Iterable[ServiceName],
+    generate_setup: bool,
+    version: str,
+) -> Boto3StubsPackage:
+    """
+    Parse and write stubs package `boto3-stubs-lite`.
+
+    Arguments:
+        session -- boto3 session
+        output_path -- Package output path
+        service_names -- List of known service names
+        generate_setup -- Generate ready-to-install or to-use package
+        version -- Package version
+
+    Return:
+        Parsed Boto3StubsPackage.
+    """
+    logger = get_logger()
+    logger.debug("Parsing {BOTO3_STUBS_LITE_PYPI_NAME}")
+    boto3_stubs_package = parse_boto3_stubs_package(session=session, service_names=service_names)
+    boto3_stubs_package.pypi_name = BOTO3_STUBS_LITE_PYPI_NAME
+    boto3_stubs_package.version = version
+    logger.debug(f"Writing {BOTO3_STUBS_LITE_PYPI_NAME} to {NicePath(output_path)}")
+
+    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
+    package_writer.write_package(
+        boto3_stubs_package,
+        templates_path=TEMPLATES_PATH / "boto3-stubs",
+        static_files_path=BOTO3_STUBS_STATIC_PATH,
+        exclude_template_names=[
+            "session.pyi.jinja2",
+            "__init__.pyi.jinja2",
+        ],
     )
 
     return boto3_stubs_package
