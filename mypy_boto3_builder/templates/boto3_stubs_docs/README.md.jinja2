@@ -17,7 +17,7 @@ python -m pip install 'boto3-stubs-lite[s3,ec2]'
 
 ## Packages
 - `boto3-stubs` - [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) type annotations with `session.client/resource` overloads
-- `boto3-stubs` - [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) type annotations without `session.client/resource` overloads
+- `boto3-stubs-lite` - [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) type annotations without `session.client/resource` overloads
 - `botocore-stubs` - [botocore](https://github.com/boto/botocore) type annotations
 {% for service_name in package.service_names %}
 - [{{ package.get_service_pypi_name(service_name) }}](./{{ package.get_module_name(service_name) }}) for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }}) service
