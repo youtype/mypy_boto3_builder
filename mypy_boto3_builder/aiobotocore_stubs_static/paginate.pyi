@@ -1,5 +1,5 @@
 from collections.abc import Generator
-from typing import Any
+from typing import Any, Type
 
 from botocore.paginate import PageIterator, Paginator
 
@@ -12,7 +12,7 @@ class AioPageIterator(PageIterator):
     async def search(self, expression: str) -> Generator[Any, None, None]: ...
 
 class AioPaginator(Paginator):
-    PAGE_ITERATOR_CLS: Any
+    PAGE_ITERATOR_CLS: Type[AioPageIterator]
 
 class ResultKeyIterator:
     result_key: str
