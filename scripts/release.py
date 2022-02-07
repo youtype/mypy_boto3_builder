@@ -13,7 +13,7 @@ from multiprocessing import Pool
 from pathlib import Path
 from typing import Iterator
 
-LAST_PACKAGES = [
+MASTER_PACKAGES = [
     "aiobotocore_stubs_package",
     "master_package",
     "botocore_stubs_package",
@@ -107,6 +107,9 @@ def cleanup(path: Path) -> None:
 
 
 def build(path: Path) -> None:
+    """
+    Build package.
+    """
     cleanup(path)
     with chdir(path):
         check_call(["python", "setup.py", "build", "sdist", "bdist_wheel"])
@@ -125,6 +128,7 @@ def publish(path: Path) -> None:
                 ["twine", "upload", "--non-interactive", f"{path.as_posix()}/dist/*"],
                 print_error=False,
             )
+            return
         except subprocess.CalledProcessError as e:
             if "File already exists" in e.output.decode():
                 logger.info(f"Already published {path.name}")
@@ -149,10 +153,10 @@ def main() -> None:
     paths = [i for i in args.path.absolute().iterdir() if i.is_dir()]
     paths.sort(key=lambda x: x.name)
 
-    master_paths = [p for p in paths if p in LAST_PACKAGES]
-    master_paths.sort(key=lambda x: LAST_PACKAGES.index(x.name))
+    master_paths = [p for p in paths if p.name in MASTER_PACKAGES]
+    master_paths.sort(key=lambda x: MASTER_PACKAGES.index(x.name))
 
-    service_paths = [p for p in paths if p not in LAST_PACKAGES]
+    service_paths = [p for p in paths if p.name not in MASTER_PACKAGES]
 
     if not args.skip_build:
         for index, path in enumerate(paths):
