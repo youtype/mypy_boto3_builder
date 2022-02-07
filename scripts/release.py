@@ -59,6 +59,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("-t", "--threads", type=int, default=10)
     parser.add_argument("-r", "--retries", type=int, default=5)
+    parser.add_argument("-f", "--filter", nargs="+", default=[])
     parser.add_argument("--skip-build", action="store_true")
     return parser.parse_args()
 
@@ -154,6 +155,8 @@ def main() -> None:
     logger = logging.getLogger(LOGGER_NAME)
     paths = [i for i in args.path.absolute().iterdir() if i.is_dir()]
     paths.sort(key=lambda x: x.name)
+    if args.filter:
+        paths = [p for p in paths if p.name in args.filter]
 
     master_paths = [p for p in paths if p.name in MASTER_PACKAGES]
     master_paths.sort(key=lambda x: MASTER_PACKAGES.index(x.name))
