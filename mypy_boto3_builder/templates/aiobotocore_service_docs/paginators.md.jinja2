@@ -1,0 +1,38 @@
+# Paginators for {{ package.library_name }} {{ service_name.class_name }} module
+
+> [Index](..) > [{{ service_name.class_name }}](.) > Paginators
+
+Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.boto3_doc_link }})
+type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
+
+{% for paginator in package.paginators -%}
+## {{ paginator.name }}
+
+Type annotations for `session.create_client("{{ service_name.boto3_name }}").get_paginator("{{ paginator.operation_name }}")`.
+
+Can be used directly:
+
+```python
+from {{ package.library_name }}.session import get_session
+
+from {{ package.name }}.paginator import {{ paginator.name }}
+
+session = get_session()
+async with session.create_client("{{ service_name.boto3_name }}") as client:
+    client: {{ package.client.name }}
+    paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+```
+
+Boto3 documentation: [{{ service_name.class_name }}.Paginator.{{ paginator.paginator_name }}]({{ paginator.boto3_doc_link }})
+
+Arguments for `{{ paginator.name }}.paginate` method:
+
+{% with arguments=paginator.methods[0].arguments[1:] -%}
+{% include "common/arguments_list.md.jinja2" with context -%}
+{% endwith %}
+
+`{{ paginator.name }}.paginate`  returns {% with type_annotation=paginator.methods[0].return_type -%}
+{% include "common/type_annotation.md.jinja2" with context -%}
+{% endwith -%}.
+
+{% endfor %}

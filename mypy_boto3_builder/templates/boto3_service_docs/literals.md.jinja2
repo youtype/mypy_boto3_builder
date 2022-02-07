@@ -1,0 +1,21 @@
+# Literals for {{ package.library_name }} {{ service_name.class_name }} module
+
+> [Index](..) > [{{ service_name.class_name }}](.) > Literals
+
+Auto-generated documentation for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }})
+type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
+
+{% for literal in package.literals -%}
+## {{ literal.name }}
+
+```python
+from {{ package.name }}.literals import {{ literal.name }}
+```
+
+Values:
+
+{% for child in literal.children|sort -%}
+- `{{ child }}`{{ '\n' -}}
+{% endfor -%}
+{{ '\n' -}}
+{% endfor %}

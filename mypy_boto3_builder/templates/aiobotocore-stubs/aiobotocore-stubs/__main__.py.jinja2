@@ -1,0 +1,37 @@
+"""
+Main CLI entrypoint.
+"""
+import sys
+
+
+def print_info() -> None:
+    """
+    Print package info to stdout.
+    """
+    print(
+        "Type annotations for aiobotocore {{ package.library_version }}\n"
+        "Version:         {{ package.version }}\n"
+        "Builder version: {{ builder_version }}\n"
+        "Docs:            https://pypi.org/project/{{ package.pypi_name }}/\n"
+        "Changelog:       https://github.com/vemel/mypy_boto3_builder/releases"
+    )
+
+
+def print_version() -> None:
+    """
+    Print package version to stdout.
+    """
+    print("{{ package.version }}")
+
+
+def main() -> None:
+    """
+    Main CLI entrypoint.
+    """
+    if "--version" in sys.argv:
+        return print_version()
+    print_info()
+
+
+if __name__ == "__main__":
+    main()

@@ -8,7 +8,6 @@ Base class for all structures that can be rendered to a class.
     - [ClassRecord](#classrecord)
         - [ClassRecord().alias_name](#classrecordalias_name)
         - [ClassRecord().boto3_doc_link](#classrecordboto3_doc_link)
-        - [ClassRecord().docstring](#classrecorddocstring)
         - [ClassRecord().get_internal_imports](#classrecordget_internal_imports)
         - [ClassRecord().get_required_import_records](#classrecordget_required_import_records)
         - [ClassRecord().get_types](#classrecordget_types)
@@ -35,7 +34,7 @@ Base class for all structures that can be rendered to a class.
 
 ### ClassRecord().alias_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L50)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L44)
 
 ```python
 @property
@@ -46,7 +45,7 @@ Class alias name for safe import.
 
 ### ClassRecord().boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L36)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L37)
 
 ```python
 @property
@@ -55,20 +54,9 @@ def boto3_doc_link() -> str:
 
 Link to boto3 docs.
 
-### ClassRecord().docstring
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L43)
-
-```python
-@property
-def docstring() -> str:
-```
-
-Class docstring.
-
 ### ClassRecord().get_internal_imports
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L93)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L87)
 
 ```python
 def get_internal_imports() -> list[InternalImport]:
@@ -78,7 +66,7 @@ Get internal imports from methods.
 
 ### ClassRecord().get_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L80)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L74)
 
 ```python
 def get_required_import_records() -> set[ImportRecord]:
@@ -88,7 +76,7 @@ Extract import records from required type annotations.
 
 ### ClassRecord().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L67)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L61)
 
 ```python
 def get_types() -> set[FakeAnnotation]:
@@ -98,7 +86,7 @@ Extract type annotations for methods, attributes and bases.
 
 ### ClassRecord().method_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L113)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L107)
 
 ```python
 @property
@@ -109,7 +97,7 @@ Unique method names.
 
 ### ClassRecord().render_alias
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L61)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L55)
 
 ```python
 def render_alias() -> str:
@@ -119,7 +107,7 @@ Render alias expression.
 
 ### ClassRecord().variable_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L106)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L100)
 
 ```python
 @property

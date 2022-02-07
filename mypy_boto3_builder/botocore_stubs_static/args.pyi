@@ -1,8 +1,12 @@
-from typing import Any
+from typing import Any, Optional, Union
 
 from botocore.config import Config as Config
+from botocore.configprovider import ConfigValueStore
 from botocore.endpoint import EndpointCreator as EndpointCreator
+from botocore.hooks import BaseEventHooks
 from botocore.loaders import Loader
+from botocore.model import ServiceModel
+from botocore.parsers import ResponseParserFactory
 from botocore.signers import RequestSigner as RequestSigner
 
 VALID_REGIONAL_ENDPOINTS_CONFIG: Any
@@ -11,33 +15,33 @@ LEGACY_GLOBAL_STS_REGIONS: Any
 class ClientArgsCreator:
     def __init__(
         self,
-        event_emitter: Any,
+        event_emitter: BaseEventHooks,
         user_agent: Any,
-        response_parser_factory: Any,
+        response_parser_factory: ResponseParserFactory,
         loader: Loader,
         exceptions_factory: Any,
-        config_store: Any,
+        config_store: ConfigValueStore,
     ) -> None: ...
     def get_client_args(
         self,
-        service_model: Any,
-        region_name: Any,
-        is_secure: Any,
-        endpoint_url: Any,
-        verify: Any,
-        credentials: Any,
-        scoped_config: Any,
-        client_config: Any,
-        endpoint_bridge: Any,
+        service_model: str,
+        region_name: str,
+        is_secure: bool,
+        endpoint_url: Optional[str],
+        verify: Optional[Union[str, bool]],
+        credentials: Optional[Any],
+        scoped_config: Optional[Any],
+        client_config: Optional[Config],
+        endpoint_bridge: Optional[Any],
     ) -> Any: ...
     def compute_client_args(
         self,
-        service_model: Any,
-        client_config: Any,
-        endpoint_bridge: Any,
-        region_name: Any,
-        endpoint_url: Any,
-        is_secure: Any,
-        scoped_config: Any,
+        service_model: ServiceModel,
+        client_config: Optional[Config],
+        endpoint_bridge: Optional[Any],
+        region_name: str,
+        endpoint_url: str,
+        is_secure: bool,
+        scoped_config: Optional[Any],
     ) -> Any: ...
-    def compute_s3_config(self, client_config: Any) -> Any: ...
+    def compute_s3_config(self, client_config: Optional[Config]) -> Any: ...

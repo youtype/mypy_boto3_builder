@@ -30,20 +30,14 @@ class ClassRecord:
         self.name = name
         self.methods = list(methods)
         self.attributes = list(attributes)
-        self.bases = list(bases)
+        self.bases: list[FakeAnnotation] = list(bases)
         self.use_alias = use_alias
+        self.docstring = ""
 
     @property
     def boto3_doc_link(self) -> str:
         """
         Link to boto3 docs.
-        """
-        return ""
-
-    @property
-    def docstring(self) -> str:
-        """
-        Class docstring.
         """
         return ""
 

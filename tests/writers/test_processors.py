@@ -14,15 +14,15 @@ from mypy_boto3_builder.writers.processors import (
 
 class TestProcessors:
     @patch("mypy_boto3_builder.writers.processors.parse_boto3_stubs_package")
-    @patch("mypy_boto3_builder.writers.processors.write_boto3_stubs_package")
+    @patch("mypy_boto3_builder.writers.processors.PackageWriter")
     def test_process_boto3_stubs(
         self,
-        write_boto3_stubs_package_mock: MagicMock,
+        PackageWriterMock: MagicMock,
         parse_boto3_stubs_package_mock: MagicMock,
     ) -> None:
         session_mock = MagicMock()
         service_name_mock = MagicMock()
-        write_boto3_stubs_package_mock.return_value = [Path("modified_path")]
+        PackageWriterMock().write_package.return_value = [Path("modified_path")]
         result = process_boto3_stubs(
             session_mock,
             Path("my_path"),
@@ -30,24 +30,20 @@ class TestProcessors:
             True,
             version="1.2.3",
         )
-        write_boto3_stubs_package_mock.assert_called_with(
-            result,
-            Path("my_path"),
-            generate_setup=True,
-        )
+        PackageWriterMock().write_package.assert_called()
         parse_boto3_stubs_package_mock.assert_called_with(
             session=session_mock, service_names=[service_name_mock]
         )
         assert result == parse_boto3_stubs_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.parse_master_package")
-    @patch("mypy_boto3_builder.writers.processors.write_master_package")
+    @patch("mypy_boto3_builder.writers.processors.PackageWriter")
     def test_process_master(
         self,
-        write_master_package_mock: MagicMock,
+        PackageWriterMock: MagicMock,
         parse_master_package_mock: MagicMock,
     ) -> None:
-        write_master_package_mock.return_value = [Path("modified_path")]
+        PackageWriterMock().write_package.return_value = [Path("modified_path")]
         session_mock = MagicMock()
         service_name_mock = MagicMock()
         result = process_master(
@@ -57,19 +53,15 @@ class TestProcessors:
             True,
             version="1.2.3",
         )
-        write_master_package_mock.assert_called_with(
-            result,
-            output_path=Path("my_path"),
-            generate_setup=True,
-        )
+        PackageWriterMock().write_package.assert_called()
         parse_master_package_mock.assert_called_with(session_mock, [service_name_mock])
         assert result == parse_master_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.parse_service_package")
-    @patch("mypy_boto3_builder.writers.processors.write_service_package")
+    @patch("mypy_boto3_builder.writers.processors.PackageWriter")
     def test_process_service(
         self,
-        write_service_package_mock: MagicMock,
+        PackageWriterMock: MagicMock,
         parse_service_package_mock: MagicMock,
     ) -> None:
         session_mock = MagicMock()
@@ -83,19 +75,15 @@ class TestProcessors:
             [ServiceName("ec2", "EC2")],
             version="1.2.3",
         )
-        write_service_package_mock.assert_called_with(
-            result,
-            output_path=Path("my_path"),
-            generate_setup=True,
-        )
+        PackageWriterMock().write_service_package.assert_called()
         parse_service_package_mock.assert_called_with(session_mock, service_name_mock)
         assert result == parse_service_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.parse_service_package")
-    @patch("mypy_boto3_builder.writers.processors.write_service_docs")
+    @patch("mypy_boto3_builder.writers.processors.PackageWriter")
     def test_process_service_docs(
         self,
-        write_service_docs_mock: MagicMock,
+        PackageWriterMock: MagicMock,
         parse_service_package_mock: MagicMock,
     ) -> None:
         session_mock = MagicMock()
@@ -106,31 +94,25 @@ class TestProcessors:
             Path("my_path"),
             [ServiceName("ec2", "EC2")],
         )
-        write_service_docs_mock.assert_called_with(
-            result,
-            output_path=Path("my_path"),
-        )
+        PackageWriterMock().write_service_docs.assert_called()
         parse_service_package_mock.assert_called_with(session_mock, service_name_mock)
         assert result == parse_service_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.parse_boto3_stubs_package")
-    @patch("mypy_boto3_builder.writers.processors.write_boto3_stubs_docs")
+    @patch("mypy_boto3_builder.writers.processors.PackageWriter")
     def test_process_boto3_stubs_docs(
         self,
-        write_boto3_stubs_docs_mock: MagicMock,
+        PackageWriterMock: MagicMock,
         parse_boto3_stubs_package_mock: MagicMock,
     ) -> None:
         session_mock = MagicMock()
         service_name_mock = MagicMock()
         result = process_boto3_stubs_docs(session_mock, Path("my_path"), [service_name_mock])
-        write_boto3_stubs_docs_mock.assert_called_with(
-            result,
-            output_path=Path("my_path"),
-        )
+        PackageWriterMock().write_docs.assert_called()
         parse_boto3_stubs_package_mock.assert_called_with(session_mock, [service_name_mock])
         assert result == parse_boto3_stubs_package_mock()
 
-    @patch("mypy_boto3_builder.writers.processors.write_botocore_stubs_package")
-    def test_process_botocore_stubs(self, write_botocore_stubs_package: MagicMock) -> None:
-        process_botocore_stubs(Path("my_path"), False)
-        write_botocore_stubs_package.assert_called_with(Path("my_path"), generate_setup=False)
+    @patch("mypy_boto3_builder.writers.processors.PackageWriter")
+    def test_process_botocore_stubs(self, PackageWriterMock: MagicMock) -> None:
+        process_botocore_stubs(Path("my_path"), False, "1.2.3")
+        PackageWriterMock().write_package.assert_called()

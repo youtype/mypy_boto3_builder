@@ -1,0 +1,68 @@
+"""
+Type annotations for {{ package.service_name.boto3_name }} service ServiceResource
+
+[Open documentation]({{ package.get_doc_link("service_resource") }})
+
+Usage::
+
+    ```python
+    from {{ package.library_name }}.session import Session
+
+    from {{ package.name }}.service_resource import {{ package.service_resource.name }}
+    import {{ package.name }}.service_resource as {{ package.service_name.name }}_resources
+
+    session = Session()
+    resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
+
+{% if package.service_resource.sub_resources -%}
+{% for sub_resource in package.service_resource.sub_resources -%}
+    {{ "    " -}}my_{{ sub_resource.variable_name }}: {{ package.service_name.name }}_resources.{{ sub_resource.name }} = resource.{{ sub_resource.name }}(...){{ "\n" -}}
+{% endfor -%}
+{% endif -%}
+    ```
+"""
+{% for import_record in package.get_service_resource_required_import_records() -%}
+    {% include "common/import_record_fallback.py.jinja2" with context %}
+{% endfor -%}
+
+{{ "\n\n" -}}
+
+__all__ = (
+{% for name in package.service_resource.get_all_names() -%}
+    {{ '"' -}}
+    {{ name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)
+
+{% for collection in package.service_resource.get_collections() -%}
+    {% with class=collection -%}
+        {% include "common/class.py.jinja2" with context -%}
+    {% endwith -%}
+    {{ "\n\n\n" if not loop.last else "\n" -}}
+{% endfor -%}
+
+{{ "\n\n" -}}
+
+{% for sub_resource in package.service_resource.get_sub_resources() -%}
+    {% with class=sub_resource -%}
+        {% include "common/class.py.jinja2" with context -%}
+    {% endwith -%}
+    {{ "\n\n" -}}
+    {{ sub_resource.render_alias() }}
+    {{ "\n\n\n" if not loop.last else "\n" -}}
+{% endfor -%}
+
+{{ "\n\n" if package.service_resource.sub_resources else "" -}}
+
+{% with class=package.service_resource.resource_meta_class -%}
+    {% include "common/class.py.jinja2" with context -%}
+{% endwith -%}
+
+{% with class=package.service_resource -%}
+    {% include "common/class.py.jinja2" with context -%}
+{% endwith -%}
+
+{{ "\n\n" -}}
+

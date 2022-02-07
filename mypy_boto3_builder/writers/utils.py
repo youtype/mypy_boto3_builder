@@ -43,6 +43,8 @@ def blackify(content: str, file_path: Path) -> str:
     except NothingChanged:
         pass
     except (IndentationError, InvalidInput) as e:
+        if not file_path.parent.exists():
+            file_path.parent.mkdir(exist_ok=True, parents=True)
         file_path.write_text(content)
         raise ValueError(f"Cannot parse {file_path}: {e}") from e
 
@@ -65,6 +67,7 @@ def sort_imports(
         New file content.
     """
     known_third_party = list(third_party) or [
+        "aiobotocore",
         "boto3",
         "botocore",
         "typing_extensions",
@@ -102,11 +105,17 @@ def render_jinja2_template(
     Returns:
         A rendered template.
     """
-    template_full_path = TEMPLATES_PATH / template_path
-    if not template_full_path.exists():
-        raise ValueError(f"Template {template_path} not found")
+    if template_path.is_absolute():
+        template_full_path = template_path
+    else:
+        template_full_path = TEMPLATES_PATH / template_path
 
-    template = JinjaManager.get_environment().get_template(template_path.as_posix())
+    if not template_full_path.exists():
+        raise ValueError(f"Template {template_full_path} not found")
+
+    template = JinjaManager.get_environment().get_template(
+        template_full_path.relative_to(TEMPLATES_PATH).as_posix()
+    )
     return template.render(package=package, service_name=service_name)
 
 
@@ -144,3 +153,14 @@ def format_md(text: str) -> str:
             "wrap": 79,
         },
     )
+
+
+def get_aiobotocore_version() -> str:
+    """
+    Get aiobotocore package version.
+    """
+    try:
+        from aiobotocore import __version__
+    except (ModuleNotFoundError, ImportError):
+        return "2.1.0"
+    return __version__

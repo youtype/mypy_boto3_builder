@@ -2,6 +2,9 @@
 Parsed Service package.
 """
 from collections.abc import Iterable
+from typing import Literal
+
+from boto3 import __version__ as boto3_version
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -16,7 +19,7 @@ from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
-from mypy_boto3_builder.utils.strings import is_reserved
+from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
 
 
 class ServicePackage(Package):
@@ -46,6 +49,8 @@ class ServicePackage(Package):
         self.typed_dicts = list(typed_dicts)
         self.literals = list(literals)
         self.helper_functions = list(helper_functions)
+        self.library_name = "boto3"
+        self.library_version = boto3_version
 
     def extract_literals(self) -> list[TypeLiteral]:
         """
@@ -199,11 +204,11 @@ class ServicePackage(Package):
         """
         import_records: set[ImportRecord] = set()
         for import_record in self.client.get_required_import_records():
-            import_records.add(import_record.get_external(self.service_name.module_name))
+            import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
             if import_record.fallback:
                 import_records.add(ImportRecord(ImportString("sys")))
         for import_record in self.client.exceptions_class.get_required_import_records():
-            import_records.add(import_record.get_external(self.service_name.module_name))
+            import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
             if import_record.fallback:
                 import_records.add(ImportRecord(ImportString("sys")))
 
@@ -219,7 +224,7 @@ class ServicePackage(Package):
         import_records: set[ImportRecord] = set()
         class_import_records = self.service_resource.get_required_import_records()
         for import_record in class_import_records:
-            import_records.add(import_record.get_external(self.service_name.module_name))
+            import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
             if import_record.fallback:
                 import_records.add(ImportRecord(ImportString("sys")))
 
@@ -237,7 +242,9 @@ class ServicePackage(Package):
         }
         for paginator in self.paginators:
             for import_record in paginator.get_required_import_records():
-                import_records.add(import_record.get_external(self.service_name.module_name))
+                import_records.add(
+                    import_record.get_external(self.get_module_name(self.service_name))
+                )
                 if import_record.fallback:
                     import_records.add(ImportRecord(ImportString("sys")))
 
@@ -250,7 +257,9 @@ class ServicePackage(Package):
         import_records: set[ImportRecord] = set()
         for waiter in self.waiters:
             for import_record in waiter.get_required_import_records():
-                import_records.add(import_record.get_external(self.service_name.module_name))
+                import_records.add(
+                    import_record.get_external(self.get_module_name(self.service_name))
+                )
                 if import_record.fallback:
                     import_records.add(ImportRecord(ImportString("sys")))
 
@@ -286,7 +295,9 @@ class ServicePackage(Package):
                     continue
                 if import_record.is_type_defs():
                     continue
-                import_records.add(import_record.get_external(self.service_name.module_name))
+                import_records.add(
+                    import_record.get_external(self.get_module_name(self.service_name))
+                )
 
         return list(sorted(import_records))
 
@@ -338,3 +349,34 @@ class ServicePackage(Package):
         waiter_names = [waiter.waiter_name for waiter in self.waiters]
         if waiter_names:
             self.literals.append(TypeLiteral("WaiterName", waiter_names))
+
+    def get_doc_link(
+        self,
+        file: Literal[
+            "client",
+            "service_resource",
+            "waiters",
+            "paginators",
+            "type_defs",
+            "literals",
+        ],
+        *parts: str,
+    ) -> str:
+        """
+        Get link to local docs with anchor.
+
+        Arguments:
+            file -- HTML file name
+            parts -- Anchor parts
+        """
+        link = f"{self.get_local_doc_link()}{file}.html"
+        if not parts:
+            return link
+        anchor = "".join([get_anchor_link(part) for part in parts])
+        return f"{link}#{anchor}"
+
+    def get_local_doc_link(self, service_name: ServiceName | None = None) -> str:
+        """
+        Get link to local docs.
+        """
+        return super().get_local_doc_link(self.service_name)

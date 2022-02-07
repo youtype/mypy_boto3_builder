@@ -1,0 +1,157 @@
+# Type annotations for {{ package.library_name }} {{ package.service_name.class_name }} module
+
+> [Index](..) > {{ package.service_name.class_name }}
+
+Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.boto3_doc_link }})
+type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
+
+```bash
+# install with {{ package.docs_package_name }}
+pip install '{{ package.docs_package_name }}[{{ package.service_name.extras_name }}]'
+
+# Lite version does not provide session.create_client overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'types-aiobotocore-lite[{{ package.service_name.extras_name }}]'
+
+# standalone installation
+pip install {{ package.pypi_name }}
+```
+
+## {{ package.client.name }}
+
+Type annotations for  `session.create_client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+
+Can be used directly:
+
+```python
+from {{ package.name }}.client import {{ package.client.name }}
+```
+
+{% if package.client.methods %}
+### Methods
+{% for method_name in package.client.method_names -%}
+- [{{ method_name }}]({{ service_name.get_md_doc_link('client', method_name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.client.exceptions_class.attributes %}
+### Exceptions
+
+{% if package.client.exceptions_class.attributes %}
+{{ package.client.name }} [exceptions]({{ service_name.get_md_doc_link('client', 'exceptions') }})
+{% endif %}
+
+{% for attribute in package.client.exceptions_class.attributes -%}
+- {{ attribute.name }}{{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.service_resource %}
+## {{ package.service_resource.name }}
+
+Type annotations for `session.resource("{{ package.service_name.boto3_name }}")` as
+[{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name) }})
+
+Can be used directly:
+
+```python
+from {{ package.name }}.service_resource import {{ package.service_resource.name }}
+```
+
+{% if package.service_resource.collections %}
+### Collections
+
+Type annotations for collections from `{{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").*`.
+
+Can be used directly:
+
+```python
+from {{ package.name }}.service_resource import {{ package.service_resource.collections[0].name }}, ...
+```
+
+{% for collection in package.service_resource.collections -%}
+- [{{ collection.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.service_resource.sub_resources %}
+### Resources
+
+Type annotations for additional resources from `session.resource("{{ package.service_name.boto3_name }}").*`.
+
+Can be used directly:
+
+```python
+from {{ package.name }}.service_resource import {{ package.service_resource.sub_resources[0].name }}, ...
+```
+
+{% for sub_resource in package.service_resource.sub_resources -%}
+- [{{ sub_resource.name }}]({{ service_name.get_md_doc_link('service_resource', sub_resource.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+{% endif %}
+
+{% if package.paginators %}
+## Paginators
+
+Type annotations for [paginators]({{ service_name.get_md_doc_link('paginators') }}) from `boto3.client("{{ package.service_name.boto3_name }}").get_paginator("...")`.
+
+Can be used directly:
+
+```python
+from {{ package.name }}.paginator import {{ package.paginators[0].name }}, ...
+```
+
+{% for paginator in package.paginators -%}
+- [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.waiters %}
+## Waiters
+
+Type annotations for [waiters]({{ service_name.get_md_doc_link('waiters') }}) from `boto3.client("{{ package.service_name.boto3_name }}").get_waiter("...")`.
+
+Can be used directly:
+
+```python
+from {{ package.name }}.waiter import {{ package.waiters[0].name }}, ...
+```
+
+{% for waiter in package.waiters -%}
+- [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.literals %}
+## Literals
+
+Type annotations for [literals]({{ service_name.get_md_doc_link('literals') }}) used in methods and schema.
+
+Can be used directly:
+
+```python
+from {{ package.name }}.literals import {{ package.literals[0].name }}, ...
+```
+
+{% for literal in package.literals -%}
+- [{{ literal.name }}]({{ service_name.get_md_doc_link('literals', literal.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.typed_dicts %}
+## Typed dictionaries
+
+
+Type annotations for [typed dictionaries]({{ service_name.get_md_doc_link('type_defs') }}) used in methods and schema.
+
+Can be used directly:
+
+```python
+from {{ service_name.module_name }}.type_defs import {{ package.typed_dicts[0].name }}, ...
+```
+
+{% for typed_dict in package.typed_dicts -%}
+- [{{ typed_dict.name }}]({{ service_name.get_md_doc_link('type_defs', typed_dict.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}

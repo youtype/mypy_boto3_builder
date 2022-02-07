@@ -4,6 +4,8 @@ Structure for boto3-stubs module.
 
 from collections.abc import Iterable
 
+from boto3 import __version__ as boto3_version
+
 from mypy_boto3_builder.constants import BOTO3_STUBS_NAME
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -22,18 +24,18 @@ class Boto3StubsPackage(Package):
 
     def __init__(
         self,
-        name: str = BOTO3_STUBS_NAME,
-        pypi_name: str = BOTO3_STUBS_NAME,
         session_class: ClassRecord | None = None,
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
         init_functions: Iterable[Function] = tuple(),
     ):
-        super().__init__(name=name, pypi_name=pypi_name)
+        super().__init__(name=BOTO3_STUBS_NAME, pypi_name=BOTO3_STUBS_NAME)
         self.session_class = session_class or ClassRecord("Session")
         self.service_names = list(service_names)
         self.service_packages = list(service_packages)
         self.init_functions = list(init_functions)
+        self.library_name = "boto3"
+        self.library_version = boto3_version
 
     @property
     def essential_service_names(self) -> list[ServiceName]:
@@ -56,7 +58,7 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("typing"), "Any"),
                 ImportRecord(ImportString("sys")),
                 ImportRecord(ImportString("importlib", "util")),
-                ImportRecord(ImportString("boto3", "session")),
+                ImportRecord(ImportString("boto3", "session"), alias="session"),
                 ImportRecord(ImportString("boto3", "session"), "Session"),
                 TypeLiteral.get_typing_import_record(),
             ]
@@ -79,16 +81,30 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("boto3")),
                 ImportRecord(ImportString("boto3", "utils")),
                 ImportRecord(ImportString("boto3", "resources", "factory"), "ResourceFactory"),
-                ImportRecord(ImportString("boto3", "exceptions"), "ResourceNotExistsError"),
-                ImportRecord(ImportString("boto3", "exceptions"), "UnknownAPIVersionError"),
+                ImportRecord(
+                    ImportString("boto3", "exceptions"),
+                    "ResourceNotExistsError",
+                    "ResourceNotExistsError",
+                ),
+                ImportRecord(
+                    ImportString("boto3", "exceptions"),
+                    "UnknownAPIVersionError",
+                    "UnknownAPIVersionError",
+                ),
                 ImportRecord(ImportString("botocore", "session")),
                 ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
                 ImportRecord(ImportString("botocore", "loaders"), "Loader"),
-                ImportRecord(ImportString("botocore", "model"), "ServiceModel"),
+                ImportRecord(ImportString("botocore", "model"), "ServiceModel", "ServiceModel"),
                 ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
                 ImportRecord(ImportString("botocore", "client"), "Config"),
-                ImportRecord(ImportString("botocore", "exceptions"), "DataNotFoundError"),
-                ImportRecord(ImportString("botocore", "exceptions"), "UnknownServiceError"),
+                ImportRecord(
+                    ImportString("botocore", "exceptions"), "DataNotFoundError", "DataNotFoundError"
+                ),
+                ImportRecord(
+                    ImportString("botocore", "exceptions"),
+                    "UnknownServiceError",
+                    "UnknownServiceError",
+                ),
                 TypeLiteral.get_typing_import_record(),
             ]
         )

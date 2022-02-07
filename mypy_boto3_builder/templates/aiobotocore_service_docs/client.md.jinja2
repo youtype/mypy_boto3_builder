@@ -1,0 +1,81 @@
+# {{ package.client.name }} for {{ package.library_name }} {{ service_name.class_name }} module
+
+> [Index](..) > [{{ service_name.class_name }}](.) > {{ package.client.name }}
+
+Auto-generated documentation for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }})
+type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
+
+## {{ package.client.name }}
+
+Type annotations for `session.create_client("{{ service_name.boto3_name }}")`
+
+Can be used directly:
+
+```python
+from {{ package.library_name }}.session import get_session
+from {{ package.name }}.client import {{ package.client.name }}
+
+session = get_session()
+async with session.create_client("{{ service_name.boto3_name }}") as client:
+    client: {{ package.client.name }}
+```
+
+Boto3 documentation: [{{ service_name.class_name }}.Client]({{ package.client.boto3_doc_link }})
+
+## Exceptions
+
+{% if package.client.exceptions_class.attributes %}
+`boto3` client exceptions are generated in runtime. This class can be used for static analysis directly:
+
+```python
+from {{ package.name }}.client import {{ package.client.exceptions_class.name }}
+
+def handle_error(exc: {{ package.client.exceptions_class.name }}.{{ package.client.exceptions_class.attributes[0].name }}) -> None:
+    ...
+```
+{% else %}
+{{ package.client.name }} has no exceptions.
+{% endif %}
+
+Exceptions:
+
+{% for attribute in package.client.exceptions_class.attributes -%}
+- `{{ package.client.exceptions_class.name }}.{{ attribute.name }}`{{ '\n' -}}
+{% endfor %}
+
+## Methods
+
+{% for method in package.client.own_methods %}
+### {{ method.name }}
+
+{{ method.short_docstring }}
+
+Type annotations for `session.create_client("{{ service_name.boto3_name }}").{{ method.name }}` method.
+
+Boto3 documentation: [{{ service_name.class_name }}.Client.{{ method.name }}]({{ service_name.get_boto3_doc_link("Client", method.name) }})
+
+{% include "common/method.md.jinja2" with context -%}
+
+{% else %}
+{{ package.client.name }} has no public methods.
+{% endfor %}
+
+{% if package.paginators %}
+### get_paginator
+
+Type annotations for `session.create_client("{{ service_name.boto3_name }}").get_paginator` method with overloads.
+
+{% for paginator in package.paginators -%}
+- `client.get_paginator("{{ paginator.operation_name }}")` -> [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.waiters %}
+### get_waiter
+
+Type annotations for `session.create_client("{{ service_name.boto3_name }}").get_waiter` method with overloads.
+
+{% for waiter in package.waiters -%}
+- `client.get_waiter("{{ waiter.waiter_name }}")` -> [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}

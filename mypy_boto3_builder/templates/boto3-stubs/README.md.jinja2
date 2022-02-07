@@ -8,7 +8,7 @@
 ![boto3.typed](https://github.com/vemel/mypy_boto3_builder/raw/main/logo.png)
 
 Type annotations for
-[boto3 {{ boto3_version }}](https://boto3.amazonaws.com/v1/documentation/api/{{ boto3_version }}/index.html)
+[boto3 {{ package.library_version }}](https://boto3.amazonaws.com/v1/documentation/api/{{ package.library_version }}/index.html)
 compatible with
 [VSCode](https://code.visualstudio.com/),
 [PyCharm](https://www.jetbrains.com/pycharm/),
@@ -48,6 +48,10 @@ python -m pip install 'boto3-stubs[essential]'
 
 # or install annotations for services you use
 python -m pip install 'boto3-stubs[acm,apigateway]'
+
+# Lite version does not provide session.client/resource overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'boto3-stubs-lite[essential]'
 ```
 
 ### From conda-forge
@@ -100,7 +104,7 @@ No explicit type annotations required, write your `boto3` code as usual.
 - Generate stubs in `<project_root>/typings` directory for services you use
 
 ```bash
-python -m mypy_boto3_builder --installed --skip-services typings -d -s s3 ec2
+python -m mypy_boto3_builder --product boto3 --installed typings -d -s s3 ec2
 ```
 
 - Add `<project_root>/typings` folder to your [Interpreter Paths](https://www.jetbrains.com/help/pycharm/stubs.html#reuse-stubs)
@@ -273,7 +277,7 @@ Builder changelog can be found in [Releases](https://github.com/vemel/mypy_boto3
         {{ "[" -}}
         {{ service_name.class_name -}}
         {{ "](" -}}
-        {{ service_name.local_doc_link -}}
+        {{ package.get_local_doc_link(service_name) -}}
         {{ ")" -}}
     {% endfor -%}
     {{ " services" if package.essential_service_names|length > 1 else " service" -}}
@@ -287,7 +291,7 @@ Builder changelog can be found in [Releases](https://github.com/vemel/mypy_boto3
     {{ "]` - Type annotations for [" -}}
     {{ service_name.class_name -}}
     {{ "](" -}}
-    {{ service_name.local_doc_link -}}
+    {{ package.get_local_doc_link(service_name) -}}
     {{ ") service." -}}
     {{ "" if loop.last else "\n" -}}
 {% endfor -%}

@@ -1,0 +1,52 @@
+"""
+Main interface for {{ package.service_name.boto3_name }} service.
+
+Usage::
+
+    ```python
+    from {{ package.library_name }}.session import get_session
+    from {{ package.name }} import (
+{% for name in package.get_init_all_names() -%}
+        {{ '        ' -}}{{ name -}},
+{% endfor -%}
+    {{ '    ' -}})
+
+    session = get_session()
+    async with session.create_client("{{ package.service_name.boto3_name }}") as client:
+        client: {{ package.client.name }}
+        ...
+
+{% if package.waiters -%}
+{{ "\n" -}}
+{% for waiter in package.waiters -%}
+        {{ "    " -}}
+        {{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+{% endfor -%}
+{% endif -%}
+{% if package.paginators -%}
+{{ "\n" -}}
+{% for paginator in package.paginators -%}
+        {{ "    " -}}
+        {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+{% endfor -%}
+{% endif -%}
+    {{ '    ' -}}```
+"""
+{% for import_record in package.get_init_import_records() -%}
+    {% include "common/import_record_fallback.py.jinja2" with context %}
+{% endfor -%}
+
+{{ "\n\n" -}}
+
+{% if package.client %}
+{{ package.client.alias_name }} = {{ package.client.name }}
+{% endif %}
+
+__all__ = (
+{% for name in package.get_init_all_names() -%}
+    {{ '"' -}}
+    {{ name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)

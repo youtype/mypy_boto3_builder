@@ -31,6 +31,7 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
     shape_parser = ShapeParser(session, service_name)
     logger.debug("Parsing Client")
     client = parse_client(session, service_name, shape_parser)
+
     service_resource = parse_service_resource(session, service_name, shape_parser)
 
     result = ServicePackage(
@@ -52,12 +53,6 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
         )
 
         wait_method = shape_parser.get_wait_method(waiter.name)
-        wait_method.docstring = (
-            "[Show boto3 documentation]"
-            f"({service_name.get_boto3_doc_link('Waiter', waiter.name, 'wait')})\n"
-            "[Show boto3-stubs documentation]"
-            f"({service_name.get_doc_link('waiters', waiter_record.name)})"
-        )
         waiter_record.methods.append(wait_method)
         result.waiters.append(waiter_record)
 
@@ -73,12 +68,6 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
         )
 
         paginate_method = shape_parser.get_paginate_method(paginator_name)
-        paginate_method.docstring = (
-            "[Show boto3 documentation]"
-            f"({service_name.get_boto3_doc_link('Paginator', paginator_name, 'paginate')})\n"
-            "[Show boto3-stubs documentation]"
-            f"({service_name.get_doc_link('paginators', paginator_record.name)})"
-        )
         paginator_record.methods.append(paginate_method)
         result.paginators.append(paginator_record)
 

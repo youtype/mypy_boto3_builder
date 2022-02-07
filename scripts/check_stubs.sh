@@ -4,7 +4,7 @@ set -e
 ROOT_PATH=$(dirname $(dirname $0))
 cd ${ROOT_PATH}
 
-scripts/build.sh --skip-service > /dev/null
+scripts/build.sh --product boto3 > /dev/null
 scripts/install.sh master > /dev/null
 
 

@@ -39,7 +39,7 @@ def setup_logging(level: int = 0) -> logging.Logger:
     """
     logger = logging.getLogger(LOGGER_NAME)
     stream_handler = logging.StreamHandler()
-    formatter = logging.Formatter("%(message)s", datefmt="%H:%M:%S")
+    formatter = logging.Formatter("%(levelname)s %(message)s", datefmt="%H:%M:%S")
     stream_handler.setFormatter(formatter)
     stream_handler.setLevel(level)
     logger.addHandler(stream_handler)
@@ -58,36 +58,35 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def check_call(cmd: list[str]) -> None:
+    """
+    Check command exit code and output on error.
+    """
+    try:
+        subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+    except subprocess.CalledProcessError as e:
+        logger = logging.getLogger(LOGGER_NAME)
+        for line in e.output.decode().splitlines():
+            logger.error(line)
+        raise
+
+
 def install_master() -> None:
     """
     Build and install `boto3-stubs`.
     """
-    subprocess.check_call(
-        [(SCRIPTS_PATH / "build.sh").as_posix(), "--skip-services"],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
-    subprocess.check_call(
-        [(SCRIPTS_PATH / "install.sh").as_posix(), "master"],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
+    check_call([(SCRIPTS_PATH / "build.sh").as_posix(), "--product", "boto3"])
+    check_call([(SCRIPTS_PATH / "install.sh").as_posix(), "master"])
 
 
 def install_service(service_name: str) -> None:
     """
     Build and install `mypy-boto3-*` subpackage.
     """
-    subprocess.check_call(
-        [(SCRIPTS_PATH / "build.sh").as_posix(), "-s", service_name, "--skip-master"],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
+    check_call(
+        [(SCRIPTS_PATH / "build.sh").as_posix(), "-s", service_name, "--product", "boto3-services"]
     )
-    subprocess.check_call(
-        [(SCRIPTS_PATH / "install.sh").as_posix(), service_name],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
+    check_call([(SCRIPTS_PATH / "install.sh").as_posix(), service_name])
 
 
 def compare(data: str, snapshot_path: Path, update: bool) -> None:

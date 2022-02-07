@@ -6,9 +6,11 @@ Structures produced by parsers.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / Structures
     - Modules
+        - [AioBotocoreStubsPackage](aiobotocore_stubs_package.md#aiobotocorestubspackage)
         - [Argument](argument.md#argument)
         - [Attribute](attribute.md#attribute)
         - [Boto3StubsPackage](boto3_stubs_package.md#boto3stubspackage)
+        - [BotocoreStubsPackage](botocore_stubs_package.md#botocorestubspackage)
         - [ClassRecord](class_record.md#classrecord)
         - [Client](client.md#client)
         - [Collection](collection.md#collection)

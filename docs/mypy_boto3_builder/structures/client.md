@@ -8,7 +8,6 @@ Boto3 Client.
     - [Client](#client)
         - [Client().\_\_hash\_\_](#client__hash__)
         - [Client().boto3_doc_link](#clientboto3_doc_link)
-        - [Client().docstring](#clientdocstring)
         - [Client().get_all_names](#clientget_all_names)
         - [Client.get_class_name](#clientget_class_name)
         - [Client().get_exceptions_property](#clientget_exceptions_property)
@@ -56,20 +55,9 @@ def boto3_doc_link() -> str:
 
 List to boto3 docs page.
 
-### Client().docstring
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L77)
-
-```python
-@property
-def docstring() -> str:
-```
-
-Class docstring.
-
 ### Client().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L89)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L77)
 
 ```python
 def get_all_names() -> list[str]:
@@ -94,7 +82,7 @@ Get class name for ServiceName.
 
 ### Client().get_exceptions_property
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L104)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L92)
 
 ```python
 def get_exceptions_property() -> Method:
@@ -108,7 +96,7 @@ Generate Client exceptions property.
 
 ### Client().get_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L123)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L111)
 
 ```python
 def get_required_import_records() -> set[ImportRecord]:
@@ -118,7 +106,7 @@ Extract import records from required type annotations.
 
 ### Client().own_methods
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L95)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L83)
 
 ```python
 @property

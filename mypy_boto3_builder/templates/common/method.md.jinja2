@@ -1,3 +1,7 @@
+{% if method.is_async %}
+Asynchronous method. Use `await {{ method.name }}(...)` for a synchronous call.
+{% endif %}
+
 {% if method.call_arguments %}
 {% if method.request_type_annotation %}
 Arguments mapping described in {% with type_annotation=method.request_type_annotation %}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}.
@@ -9,5 +13,5 @@ Arguments mapping described in {% with type_annotation=method.request_type_annot
 {% endif %}
 
 {% if not method.returns_none %}
-Returns {% with type_annotation=method.return_type -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}.
+Returns{% if method.is_async %} a `Coroutine` for{%endif%} {% with type_annotation=method.return_type -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}.
 {% endif %}

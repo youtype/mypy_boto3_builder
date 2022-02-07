@@ -24,6 +24,7 @@ class Function:
         decorators: Iterable[FakeAnnotation] = tuple(),
         body_lines: Iterable[str] = tuple(),
         type_ignore: bool = False,
+        is_async: bool = False,
     ):
         self.name = name
         self.arguments = list(arguments)
@@ -33,6 +34,7 @@ class Function:
         self.body_lines = body_lines
         self.type_ignore = type_ignore
         self.request_type_annotation: TypeTypedDict | None = None
+        self.is_async = is_async
 
     @property
     def short_docstring(self) -> str:

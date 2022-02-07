@@ -1,0 +1,50 @@
+"""
+Type annotations for {{ package.service_name.boto3_name }} service client waiters.
+
+[Open documentation]({{ package.get_doc_link("waiters") }})
+
+Usage::
+
+    ```python
+    from {{ package.library_name }}.session import get_session
+
+    from {{ package.name }}.client import {{ package.client.name }}
+    from {{ package.name }}.waiter import (
+{% for waiter in package.waiters -%}
+        {{ "        " -}}{{ waiter.name -}},
+{% endfor -%}
+    {{ '    ' -}})
+
+    session = get_session()
+    async with session.create_client("{{ package.service_name.boto3_name }}") as client:
+        client: {{ package.client.name }}
+
+{% for waiter in package.waiters -%}
+    {{ "        " -}}
+    {{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+{% endfor -%}
+    {{ '    ' -}}```
+"""
+{% for import_record in package.get_waiter_required_import_records() -%}
+    {% include "common/import_record_fallback.py.jinja2" with context %}
+{% endfor -%}
+
+{{ "\n\n" -}}
+
+__all__ = (
+{% for waiter in package.waiters -%}
+    {{ '"' -}}
+    {{ waiter.name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)
+
+{{ "\n\n" -}}
+
+{% for waiter in package.waiters -%}
+    {% with class=waiter -%}
+        {% include "common/class.py.jinja2" with context -%}
+    {% endwith -%}
+    {{ "\n\n\n" if not loop.last else "\n" -}}
+{% endfor -%}

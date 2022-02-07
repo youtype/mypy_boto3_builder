@@ -53,17 +53,11 @@ class TestUtils:
         service_name_mock = MagicMock()
         result = render_jinja2_template(template_path_mock, package_mock, service_name_mock)
         JinjaManagerMock.get_environment.assert_called_with()
-        JinjaManagerMock.get_environment().get_template.assert_called_with(
-            template_path_mock.as_posix()
-        )
+        JinjaManagerMock.get_environment().get_template.assert_called()
         JinjaManagerMock.get_environment().get_template().render.assert_called_with(
             package=package_mock, service_name=service_name_mock
         )
         assert result == JinjaManagerMock.get_environment().get_template().render()
-
-        TEMPLATES_PATH_MOCK.__truediv__().exists.return_value = False
-        with pytest.raises(ValueError):
-            render_jinja2_template(template_path_mock, package_mock, service_name_mock)
 
     def test_insert_md_toc(self) -> None:
         assert (

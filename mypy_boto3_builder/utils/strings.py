@@ -169,3 +169,14 @@ def get_min_build_version(version: str) -> str:
     Get min version build version by setting micro to 0.
     """
     return Version(version).replace(micro=0).get_stable().dumps()
+
+
+def get_aiobotocore_version() -> str:
+    """
+    Get aiobotocore package version.
+    """
+    try:
+        from aiobotocore import __version__
+    except (ModuleNotFoundError, ImportError):
+        return "2.1.0"
+    return __version__

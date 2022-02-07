@@ -10,13 +10,11 @@ Structure for boto3-stubs module.
 
 ## MasterPackage
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L14)
 
 ```python
 class MasterPackage(Package):
     def __init__(
-        name: str = MODULE_NAME,
-        pypi_name: str = PYPI_NAME,
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
     ):
@@ -33,13 +31,11 @@ Structure for mypy-boto3 package.
 
 #### See also
 
-- [MODULE_NAME](../constants.md#module_name)
-- [PYPI_NAME](../constants.md#pypi_name)
 - [Package](package.md#package)
 
 ### MasterPackage().essential_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L34)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L35)
 
 ```python
 @property

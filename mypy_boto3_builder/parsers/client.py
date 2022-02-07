@@ -54,15 +54,7 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
         else:
             method = parse_method("Client", method_name, public_method, service_name)
         docstring = get_short_docstring(inspect.getdoc(public_method) or "")
-        method.docstring = "".join(
-            (
-                f"{docstring}\n\n" if docstring else "",
-                "[Show boto3 documentation]",
-                f"({service_name.get_boto3_doc_link('Client', method_name)})\n",
-                "[Show boto3-stubs documentation]",
-                f"({service_name.get_doc_link('client', method_name)})",
-            )
-        )
+        method.docstring = docstring
         result.methods.append(method)
 
     service_model = client.meta.service_model

@@ -54,6 +54,14 @@ If not, just install `boto3-stubs` with `pip`:
 ```bash
 python -m pip install 'boto3-stubs[all]'
 
+# Lite version does not provide session.client/resource overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'boto3-stubs-lite[all]'
+
+# If you use aiobotocore, use asynchronous version
+python -m pip install 'types-aiobotocore[all]'
+python -m pip install 'types-aiobotocore-lite[all]'
+
 # do not forget to install mypy or pyright
 ```
 

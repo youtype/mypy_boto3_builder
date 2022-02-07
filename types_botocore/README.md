@@ -49,6 +49,10 @@ python -m pip install botocore-stubs boto3-stubs
 # Consumes ~7 MB of space
 python -m pip install 'boto3-stubs[essential]'
 
+# Lite version does not provide session.client/resource overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'boto3-stubs-lite[essential]'
+
 # or install annotations for services you use
 python -m pip install 'boto3-stubs[acm,apigateway]'
 ```
@@ -103,7 +107,7 @@ No explicit type annotations required, write your `boto3` code as usual.
 - Generate stubs in `<project_root>/typings` directory for services you use
 
 ```bash
-python -m mypy_boto3_builder --installed --skip-services typings -d -s s3 ec2
+python -m mypy_boto3_builder --product boto3 --installed typings -d -s s3 ec2
 ```
 
 - Add `<project_root>/typings` folder to your [Interpreter Paths](https://www.jetbrains.com/help/pycharm/stubs.html#reuse-stubs)

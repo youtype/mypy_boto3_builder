@@ -7,7 +7,6 @@ Boto3 ServiceResource or Resource collection.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Collection
     - [Collection](#collection)
         - [Collection().boto3_doc_link](#collectionboto3_doc_link)
-        - [Collection().docstring](#collectiondocstring)
         - [Collection().get_types](#collectionget_types)
 
 ## Collection
@@ -45,20 +44,9 @@ def boto3_doc_link() -> str:
 
 Link to boto3 docs.
 
-### Collection().docstring
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L48)
-
-```python
-@property
-def docstring() -> str:
-```
-
-Class docstring.
-
 ### Collection().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L64)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L48)
 
 ```python
 def get_types() -> set[FakeAnnotation]:

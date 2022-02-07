@@ -3,7 +3,12 @@ Description for boto3 service.
 """
 from typing import Literal
 
-from mypy_boto3_builder.constants import MODULE_NAME, PYPI_NAME
+from mypy_boto3_builder.constants import (
+    AIOBOTOCORE_MODULE_NAME,
+    AIOBOTOCORE_PYPI_NAME,
+    MODULE_NAME,
+    PYPI_NAME,
+)
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
 
 __all__ = (
@@ -78,23 +83,30 @@ class ServiceName:
     @property
     def module_name(self) -> str:
         """
-        Package name for given service.
+        Package name for given service for boto3.
         """
         return f"{MODULE_NAME}_{self.underscore_name}"
 
     @property
+    def aiobotocore_module_name(self) -> str:
+        """
+        Package name for given service for aiobotocore.
+        """
+        return f"{AIOBOTOCORE_MODULE_NAME}_{self.underscore_name}"
+
+    @property
     def pypi_name(self) -> str:
         """
-        Name of package on PyPI.
+        Name of boto3 package on PyPI.
         """
         return f"{PYPI_NAME}-{self.name}"
 
     @property
-    def pypi_link(self) -> str:
+    def aiobotocore_pypi_name(self) -> str:
         """
-        Link to package on PyPI.
+        Name of aiobotocore package on PyPI.
         """
-        return f"https://pypi.org/project/{self.pypi_name}/"
+        return f"{AIOBOTOCORE_PYPI_NAME}-{self.name}"
 
     @property
     def extras_name(self) -> str:
@@ -122,15 +134,8 @@ class ServiceName:
         """
         return (
             "https://boto3.amazonaws.com/v1/documentation/api/"
-            f"{self.boto3_version}/reference/services/{self.boto3_name}.html#{self.class_name}"
+            f"latest/reference/services/{self.boto3_name}.html#{self.class_name}"
         )
-
-    @property
-    def local_doc_link(self) -> str:
-        """
-        Link to local docs.
-        """
-        return f"https://vemel.github.io/boto3_stubs_docs/{self.module_name}/"
 
     def get_boto3_doc_link(self, *parts: str) -> str:
         """
@@ -161,31 +166,6 @@ class ServiceName:
             parts -- Anchor parts
         """
         link = f"./{file}.md"
-        if not parts:
-            return link
-        anchor = "".join([get_anchor_link(part) for part in parts])
-        return f"{link}#{anchor}"
-
-    def get_doc_link(
-        self,
-        file: Literal[
-            "client",
-            "service_resource",
-            "waiters",
-            "paginators",
-            "type_defs",
-            "literals",
-        ],
-        *parts: str,
-    ) -> str:
-        """
-        Get link to local docs with anchor.
-
-        Arguments:
-            file -- HTML file name
-            parts -- Anchor parts
-        """
-        link = f"{self.local_doc_link}{file}.html"
         if not parts:
             return link
         anchor = "".join([get_anchor_link(part) for part in parts])

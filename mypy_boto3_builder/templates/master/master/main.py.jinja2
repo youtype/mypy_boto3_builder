@@ -324,7 +324,7 @@ def build_package_stubs(submodule: Submodule, logger: logging.Logger) -> None:
 
     if not submodule_path.exists():
         logger.debug("Creating directory %s", submodule_path)
-        submodule_path.mkdir(exist_ok=True)
+        submodule_path.mkdir(exist_ok=True, parents=True)
 
     write_text(
         submodule_path / '__init__.py',

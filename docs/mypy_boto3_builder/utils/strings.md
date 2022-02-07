@@ -5,6 +5,7 @@
 Multiple string utils collection.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Utils](index.md#utils) / Strings
+    - [get_aiobotocore_version](#get_aiobotocore_version)
     - [get_anchor_link](#get_anchor_link)
     - [get_botocore_class_name](#get_botocore_class_name)
     - [get_class_prefix](#get_class_prefix)
@@ -12,6 +13,16 @@ Multiple string utils collection.
     - [get_min_build_version](#get_min_build_version)
     - [get_short_docstring](#get_short_docstring)
     - [is_reserved](#is_reserved)
+
+## get_aiobotocore_version
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L174)
+
+```python
+def get_aiobotocore_version() -> str:
+```
+
+Get aiobotocore package version.
 
 ## get_anchor_link
 
