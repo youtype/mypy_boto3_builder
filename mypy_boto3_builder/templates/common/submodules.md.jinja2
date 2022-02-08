@@ -1,0 +1,35 @@
+## Submodules
+{{ "- `" -}}
+{{ package.docs_package_name -}}
+{{ "[all]` - Type annotations for all " -}} {{ package.service_names|length -}} {{ " services" -}}
+{{ ".\n" -}}
+{% if package.essential_service_names -%}
+    {{ "- `" -}}
+    {{ package.docs_package_name -}}
+    {{ "[essential]` - Type annotations for " -}}
+    {% for service_name in package.essential_service_names -%}
+        {% if not loop.first -%}
+            {{ " and " if loop.last else ", " -}}
+        {% endif -%}
+        {{ "[" -}}
+        {{ service_name.class_name -}}
+        {{ "](" -}}
+        {{ package.get_local_doc_link(service_name) -}}
+        {{ ")" -}}
+    {% endfor -%}
+    {{ " services" if package.essential_service_names|length > 1 else " service" -}}
+    {{ ".\n" -}}
+{% endif -%}
+{% for service_name in package.service_names -%}
+    {{ "- `" -}}
+    {{ package.docs_package_name -}}
+    {{ "[" -}}
+    {{ service_name.extras_name -}}
+    {{ "]` - Type annotations for [" -}}
+    {{ service_name.class_name -}}
+    {{ "](" -}}
+    {{ package.get_local_doc_link(service_name) -}}
+    {{ ") service." -}}
+    {{ "" if loop.last else "\n" -}}
+{% endfor -%}
+{{ '\n' -}}

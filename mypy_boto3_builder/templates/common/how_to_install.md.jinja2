@@ -1,0 +1,57 @@
+## How to install
+
+### VSCode extension
+
+Add [AWS Boto3](https://marketplace.visualstudio.com/items?itemName=Boto3typed.boto3-ide)
+extension to your VSCode and run `AWS boto3: Quick Start` command.
+
+Click `Auto-discover services` and select services you use in the current project.
+
+### From PyPI with pip
+
+Install `{{ package.docs_package_name }}` to add type annotations for `{{ package.library_name }}` package.
+
+```bash
+# install type annotations only for {{ package.library_name }}
+python -m pip install {{ package.docs_package_name }}
+
+# install {{ package.library_name }} type annotations
+# for ec2, s3, rds, lambda, sqs, dynamo and cloudformation
+python -m pip install '{{ package.docs_package_name }}[essential]'
+
+# or install annotations for services you use
+python -m pip install '{{ package.docs_package_name }}[acm,apigateway]'
+
+# Lite version does not provide session.client/resource overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install '{{ package.docs_lite_package_name }}[essential]'
+```
+
+### From conda-forge
+
+Add `conda-forge` to your channels with:
+
+```bash
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+```
+
+Once the `conda-forge` channel has been enabled, `{{ package.docs_package_name }}`
+and `{{ package.docs_package_name }}-essential` can be installed with:
+
+```bash
+conda install {{ package.docs_package_name }} {{ package.docs_package_name }}-essential
+```
+
+It is possible to list all of the versions of `{{ package.docs_package_name }}` available on your platform with:
+
+```bash
+conda search {{ package.docs_package_name }} --channel conda-forge
+```
+
+## How to uninstall
+
+```bash
+# uninstall {{ package.docs_package_name }}
+python -m pip uninstall -y {{ package.docs_package_name }} botocore-stubs
+```

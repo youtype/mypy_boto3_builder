@@ -1,0 +1,102 @@
+## Usage
+
+### VSCode
+
+- Install [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+- Install [Pylance extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
+- Set `Pylance` as your Python Language Server
+- Install `{{ package.docs_package_name }}[{{extras_name}}]` in your environment:
+
+```bash
+python -m pip install '{{ package.docs_package_name }}[{{extras_name}}]'
+```
+
+Both type checking and auto-complete should now work.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
+
+### PyCharm
+
+Install `{{ package.docs_lite_package_name }}[{{extras_name}}]` in your environment:
+
+```bash
+python -m pip install '{{ package.docs_lite_package_name }}[{{extras_name}}]'`
+```
+
+Both type checking and auto-complete should now work.
+Explicit type annotations **are required**.
+Use `{{ package.docs_package_name }}` package instead for implicit type discovery.
+
+
+### Emacs
+
+- Install `{{ package.docs_package_name }}` with services you use in your environment:
+
+```bash
+python -m pip install '{{ package.docs_package_name }}[{{extras_name}}]'
+```
+
+- Install
+  [use-package](https://github.com/jwiegley/use-package),
+  [lsp](https://github.com/emacs-lsp/lsp-mode/),
+  [company](https://github.com/company-mode/company-mode) and
+  [flycheck](https://github.com/flycheck/flycheck) packages
+- Install [lsp-pyright](https://github.com/emacs-lsp/lsp-pyright) package
+
+```elisp
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp)))  ; or lsp-deferred
+  :init (when (executable-find "python3")
+          (setq lsp-pyright-python-executable-cmd "python3"))
+  )
+```
+
+- Make sure emacs uses the environment where you have installed `{{ package.docs_package_name }}`
+
+Type checking should now work.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
+
+### Sublime Text
+
+- Install `{{ package.docs_package_name }}[{{extras_name}}]` with services you use in your environment:
+
+```bash
+python -m pip install '{{ package.docs_package_name }}[{{extras_name}}]'
+```
+
+- Install [LSP-pyright](https://github.com/sublimelsp/LSP-pyright) package
+
+Type checking should now work.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
+
+### Other IDEs
+
+Not tested, but as long as your IDE supports `mypy` or `pyright`, everything should work.
+
+### mypy
+
+- Install `mypy`: `python -m pip install mypy`
+- Install `{{ package.docs_package_name }}[{{extras_name}}]` in your environment: 
+
+```bash
+python -m pip install '{{ package.docs_package_name }}[{{extras_name}}]'`
+```
+
+Type checking should now work.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
+
+### pyright
+
+- Install `pyright`: `npm i -g pyright`
+- Install `{{ package.docs_package_name }}[{{ extras_name }}]` in your environment: 
+
+```bash
+python -m pip install '{{ package.docs_package_name }}[{{ extras_name }}]'
+```
+
+Optionally, you can install `{{ package.docs_package_name }}` to `typings` folder.
+
+Type checking should now work.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.

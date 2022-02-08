@@ -1,0 +1,57 @@
+## How it works
+
+Fully automated [mypy-boto3-builder](https://github.com/vemel/mypy_boto3_builder) carefully generates
+type annotations for each service, patiently waiting for `{{ package.library_name }}` updates. It delivers
+a drop-in type annotations for you and makes sure that:
+
+- All available `{{ package.library_name }}` services are covered.
+- Each public class and method of every `{{ package.library_name }}` service gets valid type annotations
+  extracted from the documentation (blame `botocore` docs if types are incorrect).
+- Type annotations include up-to-date documentation.
+- Link to documentation is provided for every method.
+- Code is processed by [black](https://github.com/psf/black)
+  and [isort](https://github.com/PyCQA/isort) for readability.
+
+## What's new
+
+### Implemented features
+
+- Fully type annotated `boto3`, `botocore` and `aiobotocore` libraries
+- `mypy`, `pyright`, `VSCode`, `PyCharm`, `Sublime Text` and `Emacs` compatibility
+- `Client`, `ServiceResource`, `Resource`, `Waiter` `Paginator` type annotations for each service
+- Generated `TypeDefs` for each service
+- Generated `Literals` for each service
+- Auto discovery of types for `boto3.client` and `boto3.session` calls
+- Auto discovery of types for `session.client` and `session.session` calls
+- Auto discovery of types for `client.get_waiter` and `client.get_paginator` calls
+- Auto discovery of types for `ServiceResource` and `Resource` collections
+- Auto discovery of types for `aiobotocore.Session.create_client` calls
+
+### Latest changes
+
+Builder changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_builder/releases).
+
+## Versioning
+
+`{{ package.pypi_name }}` version is the same as related `{{ package.library_name }}` version and follows
+[PEP 440](https://www.python.org/dev/peps/pep-0440/) format.
+
+## Thank you
+
+- [Allie Fitter](https://github.com/alliefitter) for
+  [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/),
+  this package is based on top of his work
+- [black](https://github.com/psf/black) developers for an awesome formatting tool
+- [Timothy Edmund Crosley](https://github.com/timothycrosley) for
+  [isort](https://github.com/PyCQA/isort) and how flexible it is
+- [mypy](https://github.com/python/mypy) developers for doing all dirty work for us
+- [pyright](https://github.com/microsoft/pyright) team for the new era of typed Python
+
+## Documentation
+
+All services type annotations can be found in [{{ package.library_name }} docs]({{ package.get_local_doc_link() }})
+
+## Support and contributing
+
+This package is auto-generated. Please reports any bugs or request new features in
+[mypy-boto3-builder](https://github.com/vemel/mypy_boto3_builder/issues/) repository.

@@ -4,7 +4,12 @@ Parent class for all package structures.
 from collections.abc import Iterable
 from typing import Literal
 
-from mypy_boto3_builder.constants import AIOBOTOCORE_PYPI_NAME, BOTO3_STUBS_NAME
+from mypy_boto3_builder.constants import (
+    AIOBOTOCORE_PYPI_NAME,
+    AIOBOTOCORE_STUBS_LITE_PYPI_NAME,
+    BOTO3_STUBS_LITE_PYPI_NAME,
+    BOTO3_STUBS_NAME,
+)
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
 
@@ -36,6 +41,15 @@ class Package:
         if self.library_name == "aiobotocore":
             return AIOBOTOCORE_PYPI_NAME
         return BOTO3_STUBS_NAME
+
+    @property
+    def docs_lite_package_name(self) -> str:
+        """
+        Docs lite library name.
+        """
+        if self.library_name == "aiobotocore":
+            return AIOBOTOCORE_STUBS_LITE_PYPI_NAME
+        return BOTO3_STUBS_LITE_PYPI_NAME
 
     @property
     def directory_name(self) -> str:

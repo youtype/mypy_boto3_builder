@@ -5,17 +5,7 @@
 Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.boto3_doc_link }})
 type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
 
-```bash
-# install with {{ package.docs_package_name }}
-pip install '{{ package.docs_package_name }}[{{ package.service_name.extras_name }}]'
-
-# Lite version does not provide session.create_client overloads
-# it is more RAM-friendly, but requires explicit type annotations
-python -m pip install 'types-aiobotocore-lite[{{ package.service_name.extras_name }}]'
-
-# standalone installation
-pip install {{ package.pypi_name }}
-```
+{% include "common/how_to_install_service.md.jinja2" with context %}
 
 ## {{ package.client.name }}
 
