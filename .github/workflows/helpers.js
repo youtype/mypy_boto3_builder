@@ -19,21 +19,24 @@ async function getDownloadURL(packageName, version) {
     return new Promise((resolve, reject) => {
         const req = https.request(options, res => {
             if (res.statusCode < 200 || res.statusCode >= 300) {
-                return reject(new Error(`Status Code: ${res.statusCode}`));
+                return reject(new Error(`Status Code: ${res.statusCode}`))
             }
-            const data = [];
-            res.on("data", chunk => data.push(chunk));
+            const data = []
+            res.on("data", chunk => data.push(chunk))
             res.on("end", () => {
                 const response = JSON.parse(Buffer.concat(data).toString())
                 const versionsData = response.releases[version]
+                if (!versionsData) {
+                    return reject(new Error(`No download URLs found for ${packageName} ${version}`))
+                }
 
                 const versionData = versionsData.find(x => x.packagetype === 'bdist_wheel') || versionsData[0]
                 resolve(versionData.url)
             })
-        });
+        })
         req.on("error", reject)
-        req.end();
-    });
+        req.end()
+    })
 }
 
 async function getReleaseVersions(packageName) {
@@ -47,18 +50,18 @@ async function getReleaseVersions(packageName) {
     return new Promise((resolve, reject) => {
         const req = https.request(options, res => {
             if (res.statusCode < 200 || res.statusCode >= 300) {
-                return reject(new Error(`Status Code: ${res.statusCode}`));
+                return reject(new Error(`Status Code: ${res.statusCode}`))
             }
-            const data = [];
-            res.on("data", chunk => data.push(chunk));
+            const data = []
+            res.on("data", chunk => data.push(chunk))
             res.on("end", () => {
                 const response = JSON.parse(Buffer.concat(data).toString())
                 resolve(Object.keys(response.releases))
             })
-        });
+        })
         req.on("error", reject)
-        req.end();
-    });
+        req.end()
+    })
 }
 
 function getNextPostVersion(version) {
