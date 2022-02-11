@@ -10,7 +10,7 @@ fi
 
 if [[ "$1" == "master" ]]; then
     echo Installing types-aiobotocore package
-    cd ${OUTPUT_PATH}/aiobotocore_stubs_package
+    cd ${OUTPUT_PATH}/types_aiobotocore_package
     python -m pip install .
     cd -
 

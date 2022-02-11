@@ -12,7 +12,7 @@ Postprocessor for all classes and methods.
 
 ## ServicePackagePostprocessor
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L13)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L14)
 
 ```python
 class ServicePackagePostprocessor():
@@ -31,7 +31,7 @@ Postprocessor for all classes and methods.
 
 ### ServicePackagePostprocessor().add_contextmanager_methods
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L76)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L95)
 
 ```python
 def add_contextmanager_methods() -> None:
@@ -41,7 +41,7 @@ Add contextmanager methods.
 
 ### ServicePackagePostprocessor().generate_docstrings
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L25)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L26)
 
 ```python
 def generate_docstrings() -> None:
@@ -51,7 +51,7 @@ Generate all docstrings.
 
 ### ServicePackagePostprocessor().make_async
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L36)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L37)
 
 ```python
 def make_async() -> None:

@@ -18,7 +18,8 @@ class TypeAnnotation(FakeAnnotation):
         wrapped_type -- Original type annotation as a string.
     """
 
-    supported_types: set[str] = {
+    # Set of supported type annotations
+    SUPPORTED_TYPES: set[str] = {
         "Union",  # typing.Union
         "Any",  # typing.Any
         "Dict",  # typing.Dict
@@ -32,10 +33,16 @@ class TypeAnnotation(FakeAnnotation):
         "IO",  # typing.IO
         "overload",  # typing.overload
         "Type",  # typing.Type
+        "AsyncIterable",  # typing.AsyncIterable / typing_extensions.AsyncIterable
+    }
+
+    # Set of fallback type annotations
+    FALLBACK: set[str] = {
+        "AsyncIterable",
     }
 
     def __init__(self, wrapped_type: str) -> None:
-        if wrapped_type not in self.supported_types:
+        if wrapped_type not in self.SUPPORTED_TYPES:
             raise ValueError(f"Cannot wrap {wrapped_type}")
 
         self._wrapped_type: str = wrapped_type
@@ -59,6 +66,14 @@ class TypeAnnotation(FakeAnnotation):
         """
         Create a safe Import Record for annotation.
         """
+        if self.has_fallback():
+            return ImportRecord(
+                source=ImportString("typing"),
+                name=self.get_import_name(),
+                fallback=ImportRecord(
+                    source=ImportString("typing_extensions"), name=self.get_import_name()
+                ),
+            )
         return ImportRecord(source=ImportString("typing"), name=self.get_import_name())
 
     def is_dict(self) -> bool:
@@ -84,3 +99,9 @@ class TypeAnnotation(FakeAnnotation):
         Create a copy of type annotation wrapper.
         """
         return self.__class__(self._wrapped_type)
+
+    def has_fallback(self) -> bool:
+        """
+        Whether type should be imported from `typing_extensions` as a py37 fallback.
+        """
+        return self.get_import_name() in self.FALLBACK

@@ -110,3 +110,13 @@ class ClassRecord:
         Unique method names.
         """
         return list(sorted(set(i.name for i in self.methods)))
+
+    def get_method(self, name: str) -> Method:
+        """
+        Get method by name.
+        """
+        for method in self.methods:
+            if method.name == name:
+                return method
+
+        raise ValueError(f"Method {name} not found")

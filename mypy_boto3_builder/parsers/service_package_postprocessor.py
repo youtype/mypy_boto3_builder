@@ -8,6 +8,7 @@ from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 class ServicePackagePostprocessor:
@@ -37,41 +38,59 @@ class ServicePackagePostprocessor:
         """
         Convert all methods to asynchronous.
         """
-        methods = [
-            *[
-                m
-                for m in self.package.client.methods
-                if m.name not in ["exceptions", "get_waiter", "get_paginator", "can_paginate"]
-            ],
-            *[m for p in self.package.paginators for m in p.methods],
-            *[m for w in self.package.waiters for m in w.methods],
-        ]
-        if self.package.service_resource:
-            methods.extend(
-                [
-                    *[m for m in self.package.service_resource.methods],
-                    *[m for c in self.package.service_resource.collections for m in c.methods],
-                    *[m for s in self.package.service_resource.sub_resources for m in s.methods],
-                    *[
-                        m
-                        for s in self.package.service_resource.sub_resources
-                        for c in s.collections
-                        for m in c.methods
-                    ],
-                ]
-            )
-        for method in methods:
-            method.is_async = True
+        self._make_async_client()
+        self._make_async_paginators()
+        self._make_async_waiters()
+        self._make_async_service_resource()
+        self._make_async_collections()
+        self._make_async_sub_resources()
 
+    def _make_async_client(self) -> None:
         self.package.client.bases = [
             ExternalImport(ImportString("aiobotocore", "client"), "AioBaseClient")
         ]
+        for method in self.package.client.methods:
+            if method.name in ["exceptions", "get_waiter", "get_paginator", "can_paginate"]:
+                continue
+            method.is_async = True
+
+    def _make_async_collections(self) -> None:
+        if not self.package.service_resource:
+            return
+        for collection in self.package.service_resource.collections:
+            for method in collection.methods:
+                method.is_async = True
+
+    def _make_async_paginators(self) -> None:
         for paginator in self.package.paginators:
             paginator.bases = [
                 ExternalImport(ImportString("aiobotocore", "paginate"), "AioPaginator")
             ]
+            paginate_method = paginator.get_method("paginate")
+            assert isinstance(paginate_method.return_type, TypeSubscript)
+            paginate_method.return_type.parent = Type.AsyncIterable
+
+    def _make_async_waiters(self) -> None:
         for waiter in self.package.waiters:
             waiter.bases = [ExternalImport(ImportString("aiobotocore", "waiter"), "AIOWaiter")]
+            for method in waiter.methods:
+                method.is_async = True
+
+    def _make_async_service_resource(self) -> None:
+        if not self.package.service_resource:
+            return
+        for method in self.package.service_resource.methods:
+            method.is_async = True
+
+    def _make_async_sub_resources(self) -> None:
+        if not self.package.service_resource:
+            return
+        for sub_resource in self.package.service_resource.sub_resources:
+            for method in sub_resource.methods:
+                method.is_async = True
+            for collection in sub_resource.collections:
+                for method in collection.methods:
+                    method.is_async = True
 
     def add_contextmanager_methods(self) -> None:
         """
