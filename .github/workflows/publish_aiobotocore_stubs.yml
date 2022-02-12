@@ -76,7 +76,7 @@ jobs:
           rm -rf mypy_boto3_builder
           python -m pip install mypy_boto3_builder
       - name: Build updated packages only
-        if: needs.check-boto3-version.outputs.build-all == 'false'
+        if: needs.check-aiobotocore-version.outputs.build-all == 'false'
         run: |
           rm -rf mypy_boto3_output/*
 
@@ -84,7 +84,7 @@ jobs:
           python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product aiobotocore ${NO_SMART_VERSION} -s all
           python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product aiobotocore-services ${NO_SMART_VERSION} -s updated
       - name: Build all packages
-        if: needs.check-boto3-version.outputs.build-all == 'true'
+        if: needs.check-aiobotocore-version.outputs.build-all == 'true'
         run: |
           rm -rf mypy_boto3_output/*
 
