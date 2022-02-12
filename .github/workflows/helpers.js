@@ -235,6 +235,7 @@ module.exports = {
     getBotocoreVersion,
     extractVersions,
     extractDownloadLinks,
+    extractAioBotocoreVersions,
     getAioBotocoreVersion,
     getTypesAioBotocoreVersions,
     extractAioBotocoreDownloadLinks,
