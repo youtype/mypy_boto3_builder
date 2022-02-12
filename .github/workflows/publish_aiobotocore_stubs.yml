@@ -67,7 +67,7 @@ jobs:
           mkdir installtemp
           cd installtemp
           wget ${{ steps.links.outputs.aiobotocore-url }}
-          pip install aiobotocore*.whl
+          pip install aiobotocore*
           cd ..
           rm -rf installtemp
           python -m pip install newversion
