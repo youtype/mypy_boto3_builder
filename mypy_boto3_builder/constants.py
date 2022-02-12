@@ -1,6 +1,7 @@
 """
 Constants and paths.
 """
+from enum import Enum
 from pathlib import Path
 
 # Master module name
@@ -59,3 +60,19 @@ PROG_NAME = "mypy_boto3_builder"
 
 # builder package name
 PACKAGE_NAME = "mypy-boto3-builder"
+
+
+class Product(Enum):
+    """
+    Product choice for CLI.
+    """
+
+    boto3 = "boto3"
+    boto3_services = "boto3-services"
+    boto3_docs = "boto3-docs"
+    aiobotocore = "aiobotocore"
+    aiobotocore_services = "aiobotocore-services"
+    aiobotocore_docs = "aiobotocore-docs"
+
+    def __str__(self) -> str:
+        return self.name

@@ -6,11 +6,11 @@ import logging
 from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Literal
+from typing import List
 
 import pkg_resources
 
-from mypy_boto3_builder.constants import PACKAGE_NAME, PROG_NAME
+from mypy_boto3_builder.constants import PACKAGE_NAME, PROG_NAME, Product
 
 
 def get_absolute_path(path: str) -> Path:
@@ -37,16 +37,7 @@ class Namespace:
     service_names: list[str]
     build_version: str
     installed: bool
-    products: List[
-        Literal[
-            "boto3",
-            "boto3-services",
-            "boto3-docs",
-            "aiobotocore",
-            "aiobotocore-services",
-            "aiobotocore-docs",
-        ]
-    ]
+    products: List[Product]
     builder_version: str
     list_services: bool
     partial_overload: bool
@@ -77,16 +68,10 @@ def parse_args(args: Sequence[str]) -> Namespace:
     parser.add_argument(
         "--product",
         dest="products",
-        choices=[
-            "boto3",
-            "boto3-services",
-            "boto3-docs",
-            "aiobotocore",
-            "aiobotocore-services",
-            "aiobotocore-docs",
-        ],
+        type=Product,
+        choices=list(Product),
         nargs="+",
-        default=["boto3", "boto3-services"],
+        default=[Product.boto3, Product.boto3_services],
         help="Select package to create annotations for",
     )
     parser.add_argument(

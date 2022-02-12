@@ -11,7 +11,13 @@ from botocore import __version__ as botocore_version
 from mypy_boto3_builder.aiobotocore_generator import AioBotocoreGenerator
 from mypy_boto3_builder.boto3_generator import Boto3Generator
 from mypy_boto3_builder.cli_parser import parse_args
-from mypy_boto3_builder.constants import BOTO3_STUBS_NAME, DUMMY_REGION, MODULE_NAME, PYPI_NAME
+from mypy_boto3_builder.constants import (
+    BOTO3_STUBS_NAME,
+    DUMMY_REGION,
+    MODULE_NAME,
+    PYPI_NAME,
+    Product,
+)
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
@@ -145,18 +151,17 @@ def main() -> None:
         disable_smart_version=args.disable_smart_version,
         version=args.build_version or aiobotocore_version,
     )
-    if "boto3" in args.products:
-        boto3_generator.generate_stubs()
-    if "boto3-services" in args.products:
-        boto3_generator.generate_service_stubs()
-    if "boto3-docs" in args.products:
-        boto3_generator.generate_docs()
-    if "aiobotocore" in args.products:
-        aiobotocore_generator.generate_stubs()
-    if "aiobotocore-services" in args.products:
-        aiobotocore_generator.generate_service_stubs()
-    if "aiobotocore-docs" in args.products:
-        aiobotocore_generator.generate_docs()
+    generators_map = {
+        Product.boto3: boto3_generator.generate_stubs,
+        Product.boto3_services: boto3_generator.generate_service_stubs,
+        Product.boto3_docs: boto3_generator.generate_docs,
+        Product.aiobotocore: aiobotocore_generator.generate_stubs,
+        Product.aiobotocore_services: aiobotocore_generator.generate_service_stubs,
+        Product.aiobotocore_docs: aiobotocore_generator.generate_docs,
+    }
+    generators = [generators_map[p] for p in args.products]
+    for generator in generators:
+        generator()
 
     logger.info("Completed")
 

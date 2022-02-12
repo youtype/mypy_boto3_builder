@@ -83,7 +83,7 @@ def process_boto3_stubs_lite(
         Parsed Boto3StubsPackage.
     """
     logger = get_logger()
-    logger.debug("Parsing {BOTO3_STUBS_LITE_PYPI_NAME}")
+    logger.debug(f"Parsing {BOTO3_STUBS_LITE_PYPI_NAME}")
     boto3_stubs_package = parse_boto3_stubs_package(session=session, service_names=service_names)
     boto3_stubs_package.pypi_name = BOTO3_STUBS_LITE_PYPI_NAME
     boto3_stubs_package.version = version

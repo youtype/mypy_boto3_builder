@@ -40,7 +40,7 @@ Absolute path.
 
 ## parse_args
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L57)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L48)
 
 ```python
 def parse_args(args: Sequence[str]) -> Namespace:

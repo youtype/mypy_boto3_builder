@@ -5,6 +5,7 @@
 Constants and paths.
 
 - [mypy-boto3-builder](../README.md#mypy_boto3_builder) / [Modules](../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](index.md#mypy-boto3-builder) / Constants
+    - [Product](#product)
 
 #### Attributes
 
@@ -27,3 +28,13 @@ Constants and paths.
 - `LOGGER_NAME` - Main logger name: `'mypy_boto3_builder'`
 - `PROG_NAME` - builder CLI entrypoint name: `'mypy_boto3_builder'`
 - `PACKAGE_NAME` - builder package name: `'mypy-boto3-builder'`
+
+## Product
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L65)
+
+```python
+class Product(Enum):
+```
+
+Product choice for CLI.
