@@ -6,6 +6,7 @@ Jinja2 `Environment` manager.
 
 - [mypy-boto3-builder](../README.md#mypy_boto3_builder) / [Modules](../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](index.md#mypy-boto3-builder) / JinjaManager
     - [JinjaManager](#jinjamanager)
+        - [JinjaManager.escape_md](#jinjamanagerescape_md)
         - [JinjaManager.get_environment](#jinjamanagerget_environment)
         - [JinjaManager.update_globals](#jinjamanagerupdate_globals)
 
@@ -19,9 +20,20 @@ class JinjaManager():
 
 Jinja2 `Environment` manager.
 
-### JinjaManager.get_environment
+### JinjaManager.escape_md
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L31)
+
+```python
+@staticmethod
+def escape_md(value: str) -> str:
+```
+
+Escape underscore characters.
+
+### JinjaManager.get_environment
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L38)
 
 ```python
 @classmethod

@@ -46,7 +46,7 @@ from {{ package.name }} import {{ package.client.name }}
 
 client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
 
-# now client usage is checked by mypy and IDE should provide code auto-complete
+# now client usage is checked by mypy and IDE should provide code completion
 ```
 
 {% if package.paginators -%}
@@ -109,7 +109,7 @@ from {{ package.name }} import {{ package.service_resource.name }}
 
 resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
 
-# now resource usage is checked by mypy and IDE should provide code auto-complete
+# now resource usage is checked by mypy and IDE should provide code completion
 ```
 
 {% if package.service_resource.sub_resources %}

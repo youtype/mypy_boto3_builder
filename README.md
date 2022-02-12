@@ -65,7 +65,7 @@ python -m pip install 'types-aiobotocore-lite[all]'
 # do not forget to install mypy or pyright
 ```
 
-And you should already have auto-complete and type checking in your IDE! You can stop reading now.
+And you should already have code completion and type checking in your IDE! You can stop reading now.
 
 THe rest of this document is about building `boto3-stubs` manually. For example, if you want to
 use the latest features for an older `boto3` version.

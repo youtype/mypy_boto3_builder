@@ -11,7 +11,7 @@
 python -m pip install '{{ package.docs_package_name }}[{{extras_name}}]'
 ```
 
-Both type checking and auto-complete should now work.
+Both type checking and code completion should now work.
 No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
 
 ### PyCharm
@@ -22,7 +22,7 @@ Install `{{ package.docs_lite_package_name }}[{{extras_name}}]` in your environm
 python -m pip install '{{ package.docs_lite_package_name }}[{{extras_name}}]'`
 ```
 
-Both type checking and auto-complete should now work.
+Both type checking and code completion should now work.
 Explicit type annotations **are required**.
 Use `{{ package.docs_package_name }}` package instead for implicit type discovery.
 

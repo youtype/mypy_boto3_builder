@@ -48,7 +48,7 @@ from {{ package.name }} import {{ package.client.name }}
 session = get_session()
 async with session.create_client("{{ service_name.boto3_name }}") as client:
     client: {{ package.client.name }}
-    # now client usage is checked by mypy and IDE should provide code auto-complete
+    # now client usage is checked by mypy and IDE should provide code completion
 ```
 
 {% if package.paginators -%}
@@ -116,7 +116,7 @@ from {{ package.name }} import {{ package.service_resource.name }}
 session = get_session()
 async with session.resource("{{ service_name.boto3_name }}") as resource:
     resource: {{ package.service_resource.name }}
-    # now resource usage is checked by mypy and IDE should provide code auto-complete
+    # now resource usage is checked by mypy and IDE should provide code completion
 ```
 
 {% if package.service_resource.sub_resources %}

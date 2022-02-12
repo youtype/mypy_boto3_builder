@@ -97,7 +97,7 @@ python -m pip freeze | grep mypy-boto3 | xargs python -m pip uninstall -y
 - Set `Pylance` as your Python Language Server
 - Install `boto3-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
 
-Both type checking and auto-complete should work for installed `boto3` services.
+Both type checking and code completion should work for installed `boto3` services.
 No explicit type annotations required, write your `boto3` code as usual.
 
 ### PyCharm
@@ -108,7 +108,7 @@ No explicit type annotations required, write your `boto3` code as usual.
 python -m pip install 'boto3-stubs-lite[s3,ec2]'
 ```
 
-Both type checking and auto-complete should work for installed services.
+Both type checking and code completion should work for installed services.
 Explicit type annotations **are required**. Use `boto3-stubs` package instead for implicit type discovery.
 
 ### Emacs
