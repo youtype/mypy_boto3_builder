@@ -62,6 +62,10 @@ jobs:
           script: |
             const { extractAioBotocoreDownloadLinks } = require('./.github/workflows/helpers.js')
             await extractAioBotocoreDownloadLinks({ core })
+      - name: Install builder
+        run: |
+          rm -rf mypy_boto3_builder
+          python -m pip install mypy_boto3_builder
       - name: Install aiobotocore
         run: |
           mkdir installtemp
@@ -70,11 +74,6 @@ jobs:
           pip install aiobotocore*
           cd ..
           rm -rf installtemp
-          python -m pip install newversion
-      - name: Install builder
-        run: |
-          rm -rf mypy_boto3_builder
-          python -m pip install mypy_boto3_builder
       - name: Build updated packages only
         if: needs.check-aiobotocore-version.outputs.build-all == 'false'
         run: |
