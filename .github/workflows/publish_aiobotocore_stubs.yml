@@ -1,4 +1,4 @@
-name: Update aiobotocore-stubs
+name: Update types-aiobotocore
 
 on:
   # schedule:
