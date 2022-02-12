@@ -53,7 +53,7 @@ Boto3 documentation: [{{ service_name.class_name }}.{{ collection.parent_name }}
 {% if package.service_resource.methods %}
 ## Methods
 {% for method in package.service_resource.methods %}
-### {{ package.service_resource.name }}.{{ method.name }} method
+### {{ package.service_resource.name }}.{{ method.name|escape_md }} method
 
 {{ method.short_docstring }}
 
@@ -117,7 +117,7 @@ Boto3 documentation: [{{ service_name.class_name }}.{{ collection.parent_name }}
 ### {{ resource.name }} methods
 
 {% for method in resource.methods %}
-#### {{ resource.name }}.{{ method.name }} method
+#### {{ resource.name }}.{{ method.name|escape_md }} method
 
 {{ method.short_docstring }}
 

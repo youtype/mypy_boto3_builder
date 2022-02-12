@@ -45,13 +45,13 @@ Exceptions:
 ## Methods
 
 {% for method in package.client.own_methods %}
-### {{ method.name }}
+### {{ method.name|escape_md }}
 
 {{ method.short_docstring }}
 
 Type annotations for `{{ package.library_name }}.client("{{ service_name.boto3_name }}").{{ method.name }}` method.
 
-Boto3 documentation: [{{ service_name.class_name }}.Client.{{ method.name }}]({{ service_name.get_boto3_doc_link("Client", method.name) }})
+Boto3 documentation: [{{ service_name.class_name }}.Client.{{ method.name|escape_md }}]({{ service_name.get_boto3_doc_link("Client", method.name) }})
 
 {% include "common/method.md.jinja2" with context -%}
 

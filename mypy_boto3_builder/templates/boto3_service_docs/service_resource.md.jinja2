@@ -53,7 +53,7 @@ Boto3 documentation: [{{ service_name.class_name }}.{{ collection.parent_name }}
 {% if package.service_resource.methods %}
 ## Methods
 {% for method in package.service_resource.methods %}
-### {{ package.service_resource.name }}.{{ method.name }} method
+### {{ package.service_resource.name }}.{{ method.name|escape_md }} method
 
 {{ method.short_docstring }}
 
@@ -117,13 +117,13 @@ Boto3 documentation: [{{ service_name.class_name }}.{{ collection.parent_name }}
 ### {{ resource.name }} methods
 
 {% for method in resource.methods %}
-#### {{ resource.name }}.{{ method.name }} method
+#### {{ resource.name }}.{{ method.name|escape_md }} method
 
 {{ method.short_docstring }}
 
 Type annotations for `{{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
 
-Boto3 documentation: [{{ service_name.class_name }}.{{ resource.name }}.{{ method.name }}]({{ service_name.get_boto3_doc_link(resource.name, method.name) }})
+Boto3 documentation: [{{ service_name.class_name }}.{{ resource.name }}.{{ method.name|escape_md }}]({{ service_name.get_boto3_doc_link(resource.name, method.name) }})
 
 {% include "common/method.md.jinja2" with context -%}
 {% endfor %}

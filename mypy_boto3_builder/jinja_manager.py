@@ -28,9 +28,17 @@ class JinjaManager:
         """
         cls._environment.globals.update(kwargs)
 
+    @staticmethod
+    def escape_md(value: str) -> str:
+        """
+        Escape underscore characters.
+        """
+        return value.replace("_", r"\_")
+
     @classmethod
     def get_environment(cls) -> jinja2.Environment:
         """
         Get `jinja2.Environment`.
         """
+        cls._environment.filters["escape_md"] = cls.escape_md
         return cls._environment
