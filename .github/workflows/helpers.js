@@ -182,7 +182,7 @@ async function extractAioBotocoreVersions({ core, context }) {
             await getAioBotocoreVersion()
     )
 
-    core.info(`Aiobotocore version = ${boto3Version}`)
+    core.info(`Aiobotocore version = ${aiobotocoreVersion}`)
     core.setOutput('aiobotocore-version', aiobotocoreVersion)
 
     const force = context.payload.inputs ? context.payload.inputs.force !== 'false' : false
