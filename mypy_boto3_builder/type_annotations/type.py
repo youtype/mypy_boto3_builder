@@ -39,7 +39,7 @@ class Type:
     Decimal = TypeClass(Decimal)
     Type = TypeAnnotation("Type")
     Iterator = TypeAnnotation("Iterator")
-    AsyncIterable = TypeAnnotation("AsyncIterable")
+    AsyncIterator = TypeAnnotation("AsyncIterator")
     datetime = TypeClass(datetime)
 
     ListAny = TypeSubscript(List, [Any])

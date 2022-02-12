@@ -68,7 +68,7 @@ class ServicePackagePostprocessor:
             ]
             paginate_method = paginator.get_method("paginate")
             assert isinstance(paginate_method.return_type, TypeSubscript)
-            paginate_method.return_type.parent = Type.AsyncIterable
+            paginate_method.return_type.parent = Type.AsyncIterator
 
     def _make_async_waiters(self) -> None:
         for waiter in self.package.waiters:

@@ -33,12 +33,12 @@ class TypeAnnotation(FakeAnnotation):
         "IO",  # typing.IO
         "overload",  # typing.overload
         "Type",  # typing.Type
-        "AsyncIterable",  # typing.AsyncIterable / typing_extensions.AsyncIterable
+        "AsyncIterator",  # typing.AsyncIterator / typing_extensions.AsyncIterator
     }
 
     # Set of fallback type annotations
     FALLBACK: set[str] = {
-        "AsyncIterable",
+        "AsyncIterator",
     }
 
     def __init__(self, wrapped_type: str) -> None:
