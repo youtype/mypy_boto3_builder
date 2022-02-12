@@ -189,7 +189,7 @@ async function extractAioBotocoreVersions({ core, context }) {
     core.info(`Build all packages = ${buildAll}`)
     core.setOutput('build-all', buildAll)
 
-    const versions = await getTypesAioBotocoreVersions(boto3Version)
+    const versions = await getTypesAioBotocoreVersions(aiobotocoreVersion)
     core.info(`Built versions ${versions}`)
 
     if (context.payload.inputs && context.payload.inputs.stubs_version) {
@@ -207,8 +207,8 @@ async function extractAioBotocoreVersions({ core, context }) {
     }
 
     if (!versions.length) {
-        core.info(`No builds found, building initial ${boto3Version}`)
-        core.setOutput('version', boto3Version)
+        core.info(`No builds found, building initial ${aiobotocoreVersion}`)
+        core.setOutput('version', aiobotocoreVersion)
         return
     }
 
