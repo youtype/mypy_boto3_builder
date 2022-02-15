@@ -2,16 +2,12 @@
 Parent class for all package structures.
 """
 from collections.abc import Iterable
-from typing import Literal
+from typing import Type
 
-from mypy_boto3_builder.constants import (
-    AIOBOTOCORE_PYPI_NAME,
-    AIOBOTOCORE_STUBS_LITE_PYPI_NAME,
-    BOTO3_STUBS_LITE_PYPI_NAME,
-    BOTO3_STUBS_NAME,
-)
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.utils.version import get_min_build_version
 
 
 class Package:
@@ -21,15 +17,15 @@ class Package:
 
     def __init__(
         self,
-        name: str,
-        pypi_name: str,
+        data: Type[BasePackageData],
         service_names: Iterable[ServiceName] = tuple(),
     ) -> None:
-        self.name = name
-        self.pypi_name = pypi_name
-        self.library_name: Literal["boto3", "botocore", "aiobotocore"] = "boto3"
+        self.data = data
+        self.name = data.NAME
+        self.pypi_name = data.PYPI_NAME
+        self.library_name = data.LIBRARY_NAME
+        self.library_version = data.get_library_version()
         self.version = "0.0.0"
-        self.library_version = "0.0.0"
         self.service_names: list[ServiceName] = list(service_names)
         self.logger = get_logger()
 
@@ -38,18 +34,7 @@ class Package:
         """
         Docs library name.
         """
-        if self.library_name == "aiobotocore":
-            return AIOBOTOCORE_PYPI_NAME
-        return BOTO3_STUBS_NAME
-
-    @property
-    def docs_lite_package_name(self) -> str:
-        """
-        Docs lite library name.
-        """
-        if self.library_name == "aiobotocore":
-            return AIOBOTOCORE_STUBS_LITE_PYPI_NAME
-        return BOTO3_STUBS_LITE_PYPI_NAME
+        return self.data.PYPI_NAME
 
     @property
     def directory_name(self) -> str:
@@ -80,24 +65,23 @@ class Package:
         """
         Get service module name.
         """
-        return {
-            "boto3": service_name.module_name,
-            "botocore": service_name.module_name,
-            "aiobotocore": service_name.aiobotocore_module_name,
-        }[self.library_name]
+        return self.data.get_service_package_name(service_name)
 
     def get_service_pypi_name(self, service_name: ServiceName) -> str:
         """
         Get PyPI package name for a service package.
         """
-        return {
-            "boto3": service_name.pypi_name,
-            "botocore": service_name.pypi_name,
-            "aiobotocore": service_name.aiobotocore_pypi_name,
-        }[self.library_name]
+        return self.data.get_service_pypi_name(service_name)
 
     def get_service_pypi_link(self, service_name: ServiceName) -> str:
         """
         Get link to PyPI.
         """
-        return f"https://pypi.org/project/{self.get_service_pypi_name(service_name)}/"
+        return self.data.get_service_pypi_link(service_name)
+
+    @property
+    def min_library_version(self) -> str:
+        """
+        Minimum required library version.
+        """
+        return get_min_build_version(self.library_version)

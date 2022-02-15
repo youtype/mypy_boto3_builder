@@ -17,7 +17,7 @@ python -m pip install '{{ package.docs_package_name }}[{{ package.service_name.e
 
 # Lite version does not provide session.client/resource overloads
 # it is more RAM-friendly, but requires explicit type annotations
-python -m pip install '{{ package.docs_lite_package_name }}[{{ package.service_name.extras_name }}]'
+python -m pip install '{{ package.data.PYPI_LITE_NAME }}[{{ package.service_name.extras_name }}]'
 
 # standalone installation
 python -m pip install {{ package.pypi_name }}

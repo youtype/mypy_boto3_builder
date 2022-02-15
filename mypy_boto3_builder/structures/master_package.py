@@ -3,9 +3,7 @@ Structure for boto3-stubs module.
 """
 from collections.abc import Iterable
 
-from boto3 import __version__ as boto3_version
-
-from mypy_boto3_builder.constants import MODULE_NAME, PYPI_NAME
+from mypy_boto3_builder.package_data import MypyBoto3PackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
@@ -27,10 +25,8 @@ class MasterPackage(Package):
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
     ):
-        super().__init__(name=MODULE_NAME, pypi_name=PYPI_NAME, service_names=service_names)
+        super().__init__(MypyBoto3PackageData, service_names)
         self.service_packages = list(service_packages)
-        self.library_name = "boto3"
-        self.library_version = boto3_version
 
     @property
     def essential_service_names(self) -> list[ServiceName]:

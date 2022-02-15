@@ -3,10 +3,11 @@ Structure for aiobotocore-stubs module.
 """
 
 from collections.abc import Iterable
+from typing import Type
 
-from mypy_boto3_builder.constants import AIOBOTOCORE_PYPI_NAME, AIOBOTOCORE_STUBS_NAME
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.function import Function
@@ -22,12 +23,13 @@ class AioBotocoreStubsPackage(Package):
 
     def __init__(
         self,
+        data: Type[BasePackageData],
         session_class: ClassRecord | None = None,
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
         init_functions: Iterable[Function] = tuple(),
     ):
-        super().__init__(name=AIOBOTOCORE_STUBS_NAME, pypi_name=AIOBOTOCORE_PYPI_NAME)
+        super().__init__(data)
         self.session_class = session_class or ClassRecord("Session")
         self.service_names = list(service_names)
         self.service_packages = list(service_packages)

@@ -1,5 +1,6 @@
 import pytest
 
+from mypy_boto3_builder.package_data import Boto3StubsPackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.paginator import Paginator
@@ -15,8 +16,7 @@ class TestServicePackage:
     def service_package(self) -> ServicePackage:
         service_name = ServiceName("service", "Service")
         return ServicePackage(
-            name="test",
-            pypi_name="test",
+            Boto3StubsPackageData,
             service_name=service_name,
             client=Client("Client", service_name, "base"),
             service_resource=ServiceResource("ServiceResource", service_name, "base"),

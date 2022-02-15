@@ -16,10 +16,10 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 
 ### PyCharm
 
-Install `{{ package.docs_lite_package_name }}[{{extras_name}}]` in your environment:
+Install `{{ package.data.PYPI_LITE_NAME }}[{{extras_name}}]` in your environment:
 
 ```bash
-python -m pip install '{{ package.docs_lite_package_name }}[{{extras_name}}]'`
+python -m pip install '{{ package.data.PYPI_LITE_NAME }}[{{extras_name}}]'`
 ```
 
 Both type checking and code completion should now work.

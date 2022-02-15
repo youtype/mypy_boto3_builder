@@ -21,7 +21,7 @@ class ServicePackagePostprocessor:
 
     def __init__(self, package: ServicePackage) -> None:
         self.package = package
-        self.docs_package_name = self.package.docs_package_name
+        self.docs_package_name = self.package.data.PYPI_NAME
 
     def generate_docstrings(self) -> None:
         """

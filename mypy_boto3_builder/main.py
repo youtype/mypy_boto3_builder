@@ -4,30 +4,18 @@ Main entrypoint for builder.
 import sys
 from collections.abc import Iterable
 
-from boto3 import __version__ as boto3_version
 from boto3.session import Session
-from botocore import __version__ as botocore_version
 
 from mypy_boto3_builder.aiobotocore_generator import AioBotocoreGenerator
 from mypy_boto3_builder.boto3_generator import Boto3Generator
 from mypy_boto3_builder.cli_parser import parse_args
-from mypy_boto3_builder.constants import (
-    BOTO3_STUBS_NAME,
-    DUMMY_REGION,
-    MODULE_NAME,
-    PYPI_NAME,
-    Product,
-)
+from mypy_boto3_builder.constants import DUMMY_REGION, Product
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.boto3_changelog import Boto3Changelog
-from mypy_boto3_builder.utils.strings import (
-    get_aiobotocore_version,
-    get_anchor_link,
-    get_botocore_class_name,
-    get_min_build_version,
-)
+from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name
+from mypy_boto3_builder.utils.version import get_aiobotocore_version, get_boto3_version
 
 
 def get_selected_service_names(
@@ -51,6 +39,7 @@ def get_selected_service_names(
     available_map = {i.name: i for i in available}
     result: list[ServiceName] = []
     selected_service_names = list(selected)
+    boto3_version = get_boto3_version()
     if ServiceName.ALL in selected_service_names:
         return list(available)
     if ServiceName.UPDATED in selected_service_names:
@@ -114,15 +103,7 @@ def main() -> None:
 
     service_names = get_selected_service_names(args.service_names, available_service_names)
 
-    aiobotocore_version = get_aiobotocore_version()
     JinjaManager.update_globals(
-        master_pypi_name=PYPI_NAME,
-        master_module_name=MODULE_NAME,
-        boto3_stubs_name=BOTO3_STUBS_NAME,
-        boto3_version=boto3_version,
-        botocore_version=botocore_version,
-        build_version=boto3_version,
-        min_build_version=get_min_build_version(boto3_version),
         builder_version=args.builder_version,
         get_anchor_link=get_anchor_link,
         render_docstrings=True,
@@ -138,7 +119,7 @@ def main() -> None:
         generate_setup=not args.installed,
         skip_published=args.skip_published,
         disable_smart_version=args.disable_smart_version,
-        version=args.build_version or boto3_version,
+        version=args.build_version or get_boto3_version(),
     )
     aiobotocore_generator = AioBotocoreGenerator(
         service_names=service_names,
@@ -149,7 +130,7 @@ def main() -> None:
         generate_setup=not args.installed,
         skip_published=args.skip_published,
         disable_smart_version=args.disable_smart_version,
-        version=args.build_version or aiobotocore_version,
+        version=args.build_version or get_aiobotocore_version(),
     )
     generators_map = {
         Product.boto3: boto3_generator.generate_stubs,
