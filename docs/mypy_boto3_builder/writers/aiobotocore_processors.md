@@ -13,7 +13,7 @@ Processors for parsing and writing `aiobotocore` modules.
 
 ## process_aiobotocore_service
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L106)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L98)
 
 ```python
 def process_aiobotocore_service(
@@ -48,7 +48,7 @@ Parsed ServicePackage.
 
 ## process_aiobotocore_service_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L190)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L175)
 
 ```python
 def process_aiobotocore_service_docs(
@@ -79,7 +79,7 @@ Parsed ServicePackage.
 
 ## process_aiobotocore_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L26)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L25)
 
 ```python
 def process_aiobotocore_stubs(
@@ -111,7 +111,7 @@ Parsed AioBotocoreStubsPackage.
 
 ## process_aiobotocore_stubs_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L155)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L143)
 
 ```python
 def process_aiobotocore_stubs_docs(
@@ -139,7 +139,7 @@ Parsed AioBotocoreStubsPackage.
 
 ## process_aiobotocore_stubs_lite
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L65)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L61)
 
 ```python
 def process_aiobotocore_stubs_lite(

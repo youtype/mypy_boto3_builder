@@ -49,11 +49,7 @@ def process_boto3_stubs(
     logger = get_logger()
     package_data = Boto3StubsPackageData
     logger.debug(f"Parsing {Boto3StubsPackageData.PYPI_NAME}")
-    boto3_stubs_package = parse_boto3_stubs_package(
-        session=session,
-        service_names=service_names,
-        package_data=package_data,
-    )
+    boto3_stubs_package = parse_boto3_stubs_package(session, service_names, package_data)
     boto3_stubs_package.version = version
     logger.debug(f"Writing {Boto3StubsPackageData.PYPI_NAME} to {NicePath(output_path)}")
 

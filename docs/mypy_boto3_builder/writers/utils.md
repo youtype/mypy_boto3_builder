@@ -7,7 +7,6 @@ Jinja2 renderer and black formatter.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Writers](index.md#writers) / Utils
     - [blackify](#blackify)
     - [format_md](#format_md)
-    - [get_aiobotocore_version](#get_aiobotocore_version)
     - [insert_md_toc](#insert_md_toc)
     - [render_jinja2_template](#render_jinja2_template)
     - [sort_imports](#sort_imports)
@@ -46,16 +45,6 @@ def format_md(text: str) -> str:
 ```
 
 Format MarkDown with mdformat.
-
-## get_aiobotocore_version
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L158)
-
-```python
-def get_aiobotocore_version() -> str:
-```
-
-Get aiobotocore package version.
 
 ## insert_md_toc
 

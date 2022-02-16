@@ -11,3 +11,4 @@ Collection of simple utils functions.
         - [NicePath](nice_path.md#nicepath)
         - [PyPIManager](pypi_manager.md#pypimanager)
         - [Strings](strings.md#strings)
+        - [Version](version.md#version)

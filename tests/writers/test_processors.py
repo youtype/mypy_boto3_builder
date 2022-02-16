@@ -1,6 +1,7 @@
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
+from mypy_boto3_builder.package_data import Boto3StubsPackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
@@ -32,7 +33,7 @@ class TestProcessors:
         )
         PackageWriterMock().write_package.assert_called()
         parse_boto3_stubs_package_mock.assert_called_with(
-            session=session_mock, service_names=[service_name_mock]
+            session_mock, [service_name_mock], Boto3StubsPackageData
         )
         assert result == parse_boto3_stubs_package_mock()
 
@@ -76,7 +77,9 @@ class TestProcessors:
             version="1.2.3",
         )
         PackageWriterMock().write_service_package.assert_called()
-        parse_service_package_mock.assert_called_with(session_mock, service_name_mock)
+        parse_service_package_mock.assert_called_with(
+            session_mock, service_name_mock, Boto3StubsPackageData
+        )
         assert result == parse_service_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.parse_service_package")
@@ -95,7 +98,9 @@ class TestProcessors:
             [ServiceName("ec2", "EC2")],
         )
         PackageWriterMock().write_service_docs.assert_called()
-        parse_service_package_mock.assert_called_with(session_mock, service_name_mock)
+        parse_service_package_mock.assert_called_with(
+            session_mock, service_name_mock, Boto3StubsPackageData
+        )
         assert result == parse_service_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.parse_boto3_stubs_package")
@@ -109,7 +114,9 @@ class TestProcessors:
         service_name_mock = MagicMock()
         result = process_boto3_stubs_docs(session_mock, Path("my_path"), [service_name_mock])
         PackageWriterMock().write_docs.assert_called()
-        parse_boto3_stubs_package_mock.assert_called_with(session_mock, [service_name_mock])
+        parse_boto3_stubs_package_mock.assert_called_with(
+            session_mock, [service_name_mock], Boto3StubsPackageData
+        )
         assert result == parse_boto3_stubs_package_mock()
 
     @patch("mypy_boto3_builder.writers.processors.PackageWriter")

@@ -9,7 +9,7 @@ Parser that produces `structures.MasterPackage`.
 
 ## parse_master_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/master_package.py#L13)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/master_package.py#L14)
 
 ```python
 def parse_master_package(

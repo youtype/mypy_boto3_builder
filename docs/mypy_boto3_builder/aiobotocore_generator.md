@@ -12,7 +12,7 @@ AIOBotocore stubs/docs generator.
 
 ## AioBotocoreGenerator
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L23)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L25)
 
 ```python
 class AioBotocoreGenerator():
@@ -45,7 +45,7 @@ AioBotocore stubs/docs generator.
 
 ### AioBotocoreGenerator().generate_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L144)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L143)
 
 ```python
 def generate_docs() -> None:
@@ -55,7 +55,7 @@ Generate service and master docs.
 
 ### AioBotocoreGenerator().generate_service_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L113)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L115)
 
 ```python
 def generate_service_stubs() -> None:
@@ -65,7 +65,7 @@ Generate service stubs.
 
 ### AioBotocoreGenerator().generate_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L74)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L76)
 
 ```python
 def generate_stubs() -> None:
