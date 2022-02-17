@@ -138,7 +138,7 @@ Type annotations for [typed dictionaries]({{ service_name.get_md_doc_link('type_
 Can be used directly:
 
 ```python
-from {{ service_name.module_name }}.type_defs import {{ package.typed_dicts[0].name }}, ...
+from {{ package.name }}.type_defs import {{ package.typed_dicts[0].name }}, ...
 ```
 
 {% for typed_dict in package.typed_dicts -%}
