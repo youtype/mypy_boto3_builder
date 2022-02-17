@@ -5,13 +5,17 @@ target-version = [
     'py36',
     'py37',
     'py38',
+    'py39',
+    'py310',
 ]
 
 [tool.isort]
 profile = "black"
 line_length = 100
 known_third_party = [
-    "aiobotocore"
+    "botocore",
+    "boto3",
+    "aiobotocore",
 ]
 known_first_party = [
     "mypy_boto3_builder",
