@@ -1,0 +1,165 @@
+# {{ package.name }} usage examples
+
+## Client
+
+### Implicit type annotations
+
+Can be used with `{{ package.data.PYPI_NAME }}[{{ package.service_name.extras_name }}]` package installed.
+
+Write your `{{ package.service_name.class_name }}` code as usual,
+type checking and code completion should work out of the box.
+
+{% set method = package.client.methods[1] if len(package.client.methods) > 1 else None -%}
+{% set paginator = package.paginators[0] if package.paginators else None -%}
+{% set waiter = package.waiters[0] if package.waiters else None -%}
+```python
+import boto3
+
+
+session = boto3.Session()
+
+# client has type {{ package.client.name }}
+# and provides type checking and code completion
+client = session.client("{{ package.service_name.boto3_name }}")
+{% if method -%}
+{{ '\n' -}}
+# result has type {{ method.return_type.render() }}
+# and provides type checking and code completion
+# IDE should show a hint with argument names and types
+result = client.{{ method.name }}()
+{% endif -%}
+
+{% if paginator -%}
+{{ '\n' -}}
+# paginator has type {{ paginator.name }} and provides type checking
+# and code completion for paginate method
+paginator = client.get_paginator("{{ paginator.operation_name }}")
+for item in paginator.paginate(...):
+    # item has type {{ paginator.methods[0].return_type.children[0].render() }}
+    print(item)
+{% endif -%}
+
+{% if waiter -%}
+{{ '\n' -}}
+# waiter has type {{ waiter.name }} and provides type checking
+# and code completion for wait method
+waiter = client.get_waiter("{{ waiter.waiter_name }}")
+waiter.wait()
+{% endif -%}
+```
+
+### Explicit type annotations
+
+With `{{ package.data.PYPI_LITE_NAME }}[{{ package.service_name.extras_name }}]`
+or a standalone `{{ package.name }}` package, you have to explicitly specify `client: {{ package.client.name }}` type annotation.
+
+All other type annotations are optional, as types should be discovered automatically.
+However, these type annotations can be helpful in your functions and methods.
+
+```python
+import boto3
+
+from {{ package.name }}.client import {{ package.client.name }}
+{% if paginator %}from {{ package.name }}.paginator import {{ paginator.name }}{% endif %}
+{% if waiter %}from {{ package.name }}.waiter import {{ waiter.name }}{% endif %}
+{% if paginator %}from {{ package.name }}.literals import PaginatorName{% endif %}
+{% if waiter %}from {{ package.name }}.literals import WaiterName{% endif %}
+{% if method %}from {{ package.name }}.type_defs import {{ method.return_type.render() }}{% endif %}
+{% if paginator %}from {{ package.name }}.type_defs import {{ paginator.methods[0].return_type.children[0].render() }}{% endif %}
+
+
+session = boto3.Session()
+
+client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+{% if method -%}
+{{ '\n' -}}
+result: {{ method.return_type.render() }} = client.{{ method.name }}()
+{% endif -%}
+
+{% if paginator -%}
+{{ '\n' -}}
+paginator_name: PaginatorName = "{{ paginator.operation_name }}"
+paginator: {{ paginator.name }} = client.get_paginator(paginator_name)
+for item in paginator.paginate(...):
+    item: {{ paginator.methods[0].return_type.children[0].render() }}
+    print(item)
+{% endif -%}
+
+{% if waiter -%}
+{{ '\n' -}}
+waiter_name: WaiterName = "{{ waiter.waiter_name }}"
+waiter: {{ waiter.name }} = client.get_waiter(waiter_name)
+waiter.wait()
+{% endif -%}
+```
+
+{% if package.service_resource %}
+## Service Resource
+
+### Implicit type annotations
+
+Can be used with `{{ package.data.PYPI_NAME }}[{{ package.service_name.extras_name }}]` package installed.
+
+{% set method = package.service_resource.methods[0] if package.service_resource.methods else None -%}
+{% set collection = package.service_resource.collections[0] if package.service_resource.collections else None -%}
+```python
+import boto3
+
+
+session = boto3.Session()
+
+# resource has type {{ package.service_resource.name }}
+# and provides type checking and code completion
+resource = session.resource("{{ package.service_name.boto3_name }}")
+{% if method -%}
+{{ '\n' -}}
+# result has type {{ method.name }}
+# and provides type checking and code completion
+result = resource.{{ method.name }}()
+{% endif -%}
+
+{% if collection -%}
+{{ '\n' -}}
+# collection has type {{ collection.name }} and provides type checking
+# and code completion for all collection methods
+collection = resource.{{ collection.attribute_name }}
+for item in collection:
+    # item has type {{ collection.object_class_name }}
+    print(item)
+{% endif -%}
+```
+
+### Explicit type annotations
+
+With `{{ package.data.PYPI_LITE_NAME }}[{{ package.service_name.extras_name }}]`
+or a standalone `{{ package.name }}` package, you have to explicitly specify
+`resource: {{ package.service_resource.name }}` type annotation.
+
+All other type annotations are optional, as types should be discovered automatically.
+However, these type annotations can be helpful in your functions and methods.
+
+```python
+import boto3
+
+from {{ package.name }}.service_resource import {{ package.service_resource.name }}
+{% if method %}from {{ package.name }}.service_resource import {{ method.name }}{% endif %}
+{% if collection %}from {{ package.name }}.service_resource import {{ collection.name }}, {{ collection.object_class_name }}{% endif %}
+
+session = boto3.Session()
+
+resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
+{% if method -%}
+{{ '\n' -}}
+result: {{ method.name }} = resource.{{ method.name }}()
+{% endif -%}
+
+{% if collection -%}
+{{ '\n' -}}
+collection: {{ collection.name }} = resource.{{ collection.attribute_name }}
+for item in collection:
+    item: {{ collection.object_class_name }}
+    print(item)
+{% endif -%}
+```
+
+{% endif %}

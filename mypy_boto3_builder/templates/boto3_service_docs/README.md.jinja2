@@ -7,6 +7,10 @@ type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_p
 
 {% include "common/how_to_install_service.md.jinja2" with context %}
 
+## Usage
+
+Code samples can be found [here](./usage.md).
+
 ## {{ package.client.name }}
 
 Type annotations for  `{{ package.library_name }}.client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})

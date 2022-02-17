@@ -108,6 +108,7 @@ def main() -> None:
         get_anchor_link=get_anchor_link,
         render_docstrings=True,
         hasattr=hasattr,
+        len=len,
     )
 
     boto3_generator = Boto3Generator(

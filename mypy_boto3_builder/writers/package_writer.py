@@ -315,6 +315,7 @@ class PackageWriter:
         file_paths = [
             (docs_path / "README.md", templates_path / "README.md.jinja2"),
             (docs_path / "client.md", templates_path / "client.md.jinja2"),
+            (docs_path / "usage.md", templates_path / "usage.md.jinja2"),
         ]
 
         if package.literals:
