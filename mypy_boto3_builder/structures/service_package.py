@@ -2,13 +2,12 @@
 Parsed Service package.
 """
 from collections.abc import Iterable
-from typing import Literal
-
-from boto3 import __version__ as boto3_version
+from typing import Literal, Type
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.function import Function
@@ -29,8 +28,7 @@ class ServicePackage(Package):
 
     def __init__(
         self,
-        name: str,
-        pypi_name: str,
+        data: Type[BasePackageData],
         service_name: ServiceName,
         client: Client,
         service_resource: ServiceResource | None = None,
@@ -40,7 +38,9 @@ class ServicePackage(Package):
         literals: Iterable[TypeLiteral] = tuple(),
         helper_functions: Iterable[Function] = tuple(),
     ):
-        super().__init__(name=name, pypi_name=pypi_name)
+        super().__init__(data)
+        self.name = data.get_service_package_name(service_name)
+        self.pypi_name = data.get_service_pypi_name(service_name)
         self.service_name = service_name
         self.client = client
         self.service_resource = service_resource
@@ -49,8 +49,6 @@ class ServicePackage(Package):
         self.typed_dicts = list(typed_dicts)
         self.literals = list(literals)
         self.helper_functions = list(helper_functions)
-        self.library_name = "boto3"
-        self.library_version = boto3_version
 
     def extract_literals(self) -> list[TypeLiteral]:
         """

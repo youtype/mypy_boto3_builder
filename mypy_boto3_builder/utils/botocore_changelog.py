@@ -7,12 +7,12 @@ from functools import cache
 import requests
 
 
-class Boto3Changelog:
+class BotocoreChangelog:
     """
     Parser for boto3 changelog.
     """
 
-    URL = "https://raw.githubusercontent.com/boto/boto3/develop/CHANGELOG.rst"
+    URL = "https://raw.githubusercontent.com/boto/botocore/develop/CHANGELOG.rst"
 
     @cache
     def _get_changelog(self) -> str:

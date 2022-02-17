@@ -1,11 +1,11 @@
 ## Submodules
 {{ "- `" -}}
-{{ package.docs_package_name -}}
+{{ package.data.PYPI_NAME -}}
 {{ "[all]` - Type annotations for all " -}} {{ package.service_names|length -}} {{ " services" -}}
 {{ ".\n" -}}
 {% if package.essential_service_names -%}
     {{ "- `" -}}
-    {{ package.docs_package_name -}}
+    {{ package.data.PYPI_NAME -}}
     {{ "[essential]` - Type annotations for " -}}
     {% for service_name in package.essential_service_names -%}
         {% if not loop.first -%}
@@ -22,7 +22,7 @@
 {% endif -%}
 {% for service_name in package.service_names -%}
     {{ "- `" -}}
-    {{ package.docs_package_name -}}
+    {{ package.data.PYPI_NAME -}}
     {{ "[" -}}
     {{ service_name.extras_name -}}
     {{ "]` - Type annotations for [" -}}

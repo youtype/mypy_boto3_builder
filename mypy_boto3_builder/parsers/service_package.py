@@ -2,10 +2,13 @@
 Parser that produces `structures.ServiceModule`.
 """
 
+from typing import Type
+
 from boto3.session import Session
 from botocore import xform_name
 
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.client import parse_client
 from mypy_boto3_builder.parsers.service_resource import parse_service_resource
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
@@ -15,13 +18,16 @@ from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.waiter import Waiter
 
 
-def parse_service_package(session: Session, service_name: ServiceName) -> ServicePackage:
+def parse_service_package(
+    session: Session, service_name: ServiceName, package_data: Type[BasePackageData]
+) -> ServicePackage:
     """
     Extract all data from boto3 service package.
 
     Arguments:
         session -- boto3 session.
         service_name -- Target service name.
+        package_data -- Package data.
 
     Returns:
         ServiceModule structure.
@@ -35,8 +41,7 @@ def parse_service_package(session: Session, service_name: ServiceName) -> Servic
     service_resource = parse_service_resource(session, service_name, shape_parser)
 
     result = ServicePackage(
-        name=service_name.module_name,
-        pypi_name=service_name.pypi_name,
+        data=package_data,
         service_name=service_name,
         client=client,
         service_resource=service_resource,

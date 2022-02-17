@@ -80,7 +80,7 @@ class ServiceResource(ClassRecord):
 
     def _get_client_import(self, service_name: ServiceName) -> ExternalImport:
         client_import = ExternalImport(
-            source=ImportString(service_name.module_name, ServiceModuleName.client.value),
+            source=ImportString.parent() + ImportString(ServiceModuleName.client.value),
             name=Client.get_class_name(service_name),
         )
         client_import.import_record = InternalImportRecord(

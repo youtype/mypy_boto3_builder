@@ -7,12 +7,12 @@ from pathlib import Path
 from boto3.session import Session
 
 from mypy_boto3_builder.constants import (
-    BOTO3_STUBS_LITE_PYPI_NAME,
     BOTO3_STUBS_STATIC_PATH,
     BOTOCORE_STUBS_STATIC_PATH,
     TEMPLATES_PATH,
 )
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.package_data import Boto3StubsLitePackageData, Boto3StubsPackageData
 from mypy_boto3_builder.parsers.boto3_stubs_package import parse_boto3_stubs_package
 from mypy_boto3_builder.parsers.master_package import parse_master_package
 from mypy_boto3_builder.parsers.service_package import parse_service_package
@@ -47,10 +47,11 @@ def process_boto3_stubs(
         Parsed Boto3StubsPackage.
     """
     logger = get_logger()
-    logger.debug("Parsing boto3 stubs")
-    boto3_stubs_package = parse_boto3_stubs_package(session=session, service_names=service_names)
+    package_data = Boto3StubsPackageData
+    logger.debug(f"Parsing {Boto3StubsPackageData.PYPI_NAME}")
+    boto3_stubs_package = parse_boto3_stubs_package(session, service_names, package_data)
     boto3_stubs_package.version = version
-    logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
+    logger.debug(f"Writing {Boto3StubsPackageData.PYPI_NAME} to {NicePath(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
     package_writer.write_package(
@@ -83,11 +84,15 @@ def process_boto3_stubs_lite(
         Parsed Boto3StubsPackage.
     """
     logger = get_logger()
-    logger.debug(f"Parsing {BOTO3_STUBS_LITE_PYPI_NAME}")
-    boto3_stubs_package = parse_boto3_stubs_package(session=session, service_names=service_names)
-    boto3_stubs_package.pypi_name = BOTO3_STUBS_LITE_PYPI_NAME
+    package_data = Boto3StubsLitePackageData
+    logger.debug(f"Parsing {package_data.PYPI_NAME}")
+    boto3_stubs_package = parse_boto3_stubs_package(
+        session=session,
+        service_names=service_names,
+        package_data=package_data,
+    )
     boto3_stubs_package.version = version
-    logger.debug(f"Writing {BOTO3_STUBS_LITE_PYPI_NAME} to {NicePath(output_path)}")
+    logger.debug(f"Writing {package_data.PYPI_NAME} to {NicePath(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
     package_writer.write_package(
@@ -188,7 +193,7 @@ def process_service(
     """
     logger = get_logger()
     logger.debug(f"Parsing {service_name.boto3_name}")
-    service_package = parse_service_package(session, service_name)
+    service_package = parse_service_package(session, service_name, Boto3StubsPackageData)
     service_package.version = version
     service_package.extend_literals(service_names)
 
@@ -227,7 +232,7 @@ def process_service_docs(
     """
     logger = get_logger()
     logger.debug(f"Parsing {service_name.boto3_name}")
-    service_package = parse_service_package(session, service_name)
+    service_package = parse_service_package(session, service_name, Boto3StubsPackageData)
     service_package.extend_literals(service_names)
 
     postprocessor = ServicePackagePostprocessor(service_package)
@@ -263,9 +268,10 @@ def process_boto3_stubs_docs(
         Parsed Boto3StubsPackage.
     """
     logger = get_logger()
-    logger.debug("Parsing boto3 stubs")
-    boto3_stubs_package = parse_boto3_stubs_package(session, service_names)
-    logger.debug(f"Writing boto3 stubs to {NicePath(output_path)}")
+    package_data = Boto3StubsPackageData
+    logger.debug(f"Parsing {package_data.PYPI_NAME}")
+    boto3_stubs_package = parse_boto3_stubs_package(session, service_names, package_data)
+    logger.debug(f"Writing {package_data.PYPI_NAME} to {NicePath(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path)
     package_writer.write_docs(

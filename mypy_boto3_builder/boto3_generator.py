@@ -4,19 +4,18 @@ Boto3 stubs/docs generator.
 from collections.abc import Iterable, Sequence
 from pathlib import Path
 
-from boto3 import __version__ as boto3_version
 from boto3.session import Session
-from botocore import __version__ as botocore_version
 
-from mypy_boto3_builder.constants import (
-    BOTO3_STUBS_LITE_PYPI_NAME,
-    BOTO3_STUBS_NAME,
-    BOTOCORE_STUBS_NAME,
-    PYPI_NAME,
-)
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.package_data import (
+    Boto3StubsLitePackageData,
+    Boto3StubsPackageData,
+    BotocoreStubsPackageData,
+    MypyBoto3PackageData,
+)
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
+from mypy_boto3_builder.utils.version import get_boto3_version
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
@@ -65,7 +64,7 @@ class Boto3Generator:
         self.generate_setup = generate_setup
         self.skip_published = skip_published
         self.disable_smart_version = disable_smart_version
-        self.version = version
+        self.version = version or get_boto3_version()
 
     def _get_package_version(self, pypi_name: str, version: str) -> str | None:
         pypi_manager = PyPIManager(pypi_name)
@@ -83,12 +82,13 @@ class Boto3Generator:
         """
         Generate `mypy-boto3` package.
         """
-        version = self._get_package_version(PYPI_NAME, self.version)
+        package_data = MypyBoto3PackageData
+        version = self._get_package_version(package_data.PYPI_NAME, self.version)
         if not version:
-            self.logger.info(f"Skipping {PYPI_NAME} {self.version}, already on PyPI")
+            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
-        self.logger.info(f"Generating {PYPI_NAME} {version}")
+        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         process_master(
             self.session,
             self.output_path,
@@ -98,12 +98,13 @@ class Boto3Generator:
         )
 
     def _generate_boto3_stubs(self) -> None:
-        version = self._get_package_version(BOTO3_STUBS_NAME, self.version)
+        package_data = Boto3StubsPackageData
+        version = self._get_package_version(package_data.PYPI_NAME, self.version)
         if not version:
-            self.logger.info(f"Skipping {BOTO3_STUBS_NAME} {self.version}, already on PyPI")
+            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
-        self.logger.info(f"Generating {BOTO3_STUBS_NAME} {version}")
+        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         process_boto3_stubs(
             self.session,
             self.output_path,
@@ -113,14 +114,13 @@ class Boto3Generator:
         )
 
     def _generate_boto3_stubs_lite(self) -> None:
-        version = self._get_package_version(BOTO3_STUBS_LITE_PYPI_NAME, self.version)
+        package_data = Boto3StubsLitePackageData
+        version = self._get_package_version(package_data.PYPI_NAME, self.version)
         if not version:
-            self.logger.info(
-                f"Skipping {BOTO3_STUBS_LITE_PYPI_NAME} {self.version}, already on PyPI"
-            )
+            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
-        self.logger.info(f"Generating {BOTO3_STUBS_LITE_PYPI_NAME} {version}")
+        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         process_boto3_stubs_lite(
             self.session,
             self.output_path,
@@ -133,12 +133,17 @@ class Boto3Generator:
         """
         Generate `botocore-stubs` package.
         """
-        version = self._get_package_version(BOTOCORE_STUBS_NAME, botocore_version)
+        package_data = BotocoreStubsPackageData
+        version = self._get_package_version(
+            package_data.PYPI_NAME, package_data.get_library_version()
+        )
         if not version:
-            self.logger.info(f"Skipping {BOTOCORE_STUBS_NAME} {botocore_version}, already on PyPI")
+            self.logger.info(
+                f"Skipping {package_data.PYPI_NAME} {package_data.get_library_version()}, already on PyPI"
+            )
             return
 
-        self.logger.info(f"Generating {BOTOCORE_STUBS_NAME} {version}")
+        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
         process_botocore_stubs(
             self.output_path,
             generate_setup=self.generate_setup,
@@ -163,19 +168,18 @@ class Boto3Generator:
         total_str = f"{len(self.service_names)}"
         for index, service_name in enumerate(self.service_names):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
-            service_name.boto3_version = boto3_version
 
-            version = self._get_package_version(service_name.pypi_name, self.version)
+            pypi_name = Boto3StubsPackageData.get_service_pypi_name(service_name)
+            package_name = Boto3StubsPackageData.get_service_package_name(service_name)
+            version = self._get_package_version(pypi_name, self.version)
             if not version:
                 self.logger.info(
                     f"[{current_str}/{total_str}]"
-                    f" Skipping {service_name.module_name} {self.version}, already on PyPI"
+                    f" Skipping {package_name} {self.version}, already on PyPI"
                 )
                 continue
 
-            self.logger.info(
-                f"[{current_str}/{total_str}]" f" Generating {service_name.module_name} {version}"
-            )
+            self.logger.info(f"[{current_str}/{total_str}]" f" Generating {package_name} {version}")
             process_service(
                 session=self.session,
                 output_path=self.output_path,
@@ -184,7 +188,6 @@ class Boto3Generator:
                 service_names=self.master_service_names,
                 version=version,
             )
-            service_name.boto3_version = ServiceName.LATEST
 
     def generate_docs(self) -> None:
         """
@@ -193,7 +196,7 @@ class Boto3Generator:
         logger = get_logger()
         total_str = f"{len(self.service_names)}"
 
-        logger.info(f"Generating {BOTO3_STUBS_NAME} module docs")
+        logger.info(f"Generating {Boto3StubsPackageData.NAME} module docs")
         process_boto3_stubs_docs(
             self.session,
             self.output_path,
@@ -202,9 +205,8 @@ class Boto3Generator:
 
         for index, service_name in enumerate(self.service_names):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
-            logger.info(
-                f"[{current_str}/{total_str}] Generating {service_name.module_name} module docs"
-            )
+            package_name = Boto3StubsPackageData.get_service_package_name(service_name)
+            logger.info(f"[{current_str}/{total_str}] Generating {package_name} module docs")
             process_service_docs(
                 session=self.session,
                 output_path=self.output_path,

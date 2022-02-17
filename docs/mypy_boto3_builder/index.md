@@ -16,6 +16,7 @@ Builder for `mypy_boto3`.
         - [JinjaManager](jinja_manager.md#jinjamanager)
         - [Logger](logger.md#logger)
         - [Main](main.md#main)
+        - [Package Data](package_data.md#package-data)
         - [Parsers](parsers/index.md#parsers)
         - [ServiceName](service_name.md#servicename)
         - [Structures](structures/index.md#structures)

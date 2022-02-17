@@ -9,15 +9,17 @@ Click `Modify` and select `boto3 common` and `{{ service_name.class_name }}`.
 
 ### From PyPI with pip
 
-Install `{{ package.docs_package_name }}` for `{{ service_name.class_name }}` service.
+Install `{{ package.data.PYPI_NAME }}` for `{{ service_name.class_name }}` service.
 
 ```bash
 # install with {{ package.library_name }} type annotations
-python -m pip install '{{ package.docs_package_name }}[{{ package.service_name.extras_name }}]'
+python -m pip install '{{ package.data.PYPI_NAME }}[{{ package.service_name.extras_name }}]'
 
+{% if package.data.PYPI_LITE_NAME %}
 # Lite version does not provide session.client/resource overloads
 # it is more RAM-friendly, but requires explicit type annotations
-python -m pip install '{{ package.docs_lite_package_name }}[{{ package.service_name.extras_name }}]'
+python -m pip install '{{ package.data.PYPI_LITE_NAME }}[{{ package.service_name.extras_name }}]'
+{% endif %}
 
 # standalone installation
 python -m pip install {{ package.pypi_name }}

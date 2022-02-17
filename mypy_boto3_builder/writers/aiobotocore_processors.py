@@ -6,12 +6,12 @@ from pathlib import Path
 
 from boto3.session import Session
 
-from mypy_boto3_builder.constants import (
-    AIOBOTOCORE_STUBS_LITE_PYPI_NAME,
-    AIOBOTOCORE_STUBS_STATIC_PATH,
-    TEMPLATES_PATH,
-)
+from mypy_boto3_builder.constants import AIOBOTOCORE_STUBS_STATIC_PATH, TEMPLATES_PATH
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.package_data import (
+    TypesAioBotocoreLitePackageData,
+    TypesAioBotocorePackageData,
+)
 from mypy_boto3_builder.parsers.aiobotocore_stubs_package import parse_aiobotocore_stubs_package
 from mypy_boto3_builder.parsers.service_package import parse_service_package
 from mypy_boto3_builder.parsers.service_package_postprocessor import ServicePackagePostprocessor
@@ -19,7 +19,6 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.aiobotocore_stubs_package import AioBotocoreStubsPackage
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.nice_path import NicePath
-from mypy_boto3_builder.utils.strings import get_aiobotocore_version
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
@@ -44,14 +43,11 @@ def process_aiobotocore_stubs(
         Parsed AioBotocoreStubsPackage.
     """
     logger = get_logger()
-    logger.debug("Parsing aiobotocore stubs")
     aiobotocore_stubs_package = parse_aiobotocore_stubs_package(
-        session=session, service_names=service_names
+        session, service_names, TypesAioBotocorePackageData
     )
     aiobotocore_stubs_package.version = version
-    aiobotocore_stubs_package.library_name = "aiobotocore"
-    aiobotocore_stubs_package.library_version = get_aiobotocore_version()
-    logger.debug(f"Writing aiobotocore stubs to {NicePath(output_path)}")
+    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {NicePath(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
     package_writer.write_package(
@@ -83,15 +79,11 @@ def process_aiobotocore_stubs_lite(
         Parsed AioBotocoreStubsPackage.
     """
     logger = get_logger()
-    logger.debug(f"Parsing {AIOBOTOCORE_STUBS_LITE_PYPI_NAME}")
     aiobotocore_stubs_package = parse_aiobotocore_stubs_package(
-        session=session, service_names=service_names
+        session, service_names, TypesAioBotocoreLitePackageData
     )
-    aiobotocore_stubs_package.pypi_name = AIOBOTOCORE_STUBS_LITE_PYPI_NAME
     aiobotocore_stubs_package.version = version
-    aiobotocore_stubs_package.library_name = "aiobotocore"
-    aiobotocore_stubs_package.library_version = get_aiobotocore_version()
-    logger.debug(f"Writing {AIOBOTOCORE_STUBS_LITE_PYPI_NAME} to {NicePath(output_path)}")
+    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {NicePath(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
     package_writer.write_package(
@@ -127,12 +119,8 @@ def process_aiobotocore_service(
     """
     logger = get_logger()
     logger.debug(f"Parsing {service_name.boto3_name}")
-    service_package = parse_service_package(session, service_name)
-    service_package.name = service_name.aiobotocore_module_name
-    service_package.pypi_name = service_name.aiobotocore_pypi_name
+    service_package = parse_service_package(session, service_name, TypesAioBotocorePackageData)
     service_package.version = version
-    service_package.library_name = "aiobotocore"
-    service_package.library_version = get_aiobotocore_version()
     service_package.extend_literals(service_names)
 
     postprocessor = ServicePackagePostprocessor(service_package)
@@ -169,14 +157,11 @@ def process_aiobotocore_stubs_docs(
         Parsed AioBotocoreStubsPackage.
     """
     logger = get_logger()
-    logger.debug("Parsing aiobotocore stubs")
     aiobotocore_stubs_package = parse_aiobotocore_stubs_package(
-        session=session, service_names=service_names
+        session, service_names, TypesAioBotocorePackageData
     )
-    aiobotocore_stubs_package.library_name = "aiobotocore"
-    aiobotocore_stubs_package.library_version = get_aiobotocore_version()
 
-    logger.debug(f"Writing aiobotocore stubs to {NicePath(output_path)}")
+    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {NicePath(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path)
     package_writer.write_docs(
@@ -207,11 +192,7 @@ def process_aiobotocore_service_docs(
     """
     logger = get_logger()
     logger.debug(f"Parsing {service_name.boto3_name}")
-    service_package = parse_service_package(session, service_name)
-    service_package.name = service_name.aiobotocore_module_name
-    service_package.pypi_name = service_name.aiobotocore_pypi_name
-    service_package.library_name = "aiobotocore"
-    service_package.library_version = get_aiobotocore_version()
+    service_package = parse_service_package(session, service_name, TypesAioBotocorePackageData)
     service_package.extend_literals(service_names)
 
     postprocessor = ServicePackagePostprocessor(service_package)

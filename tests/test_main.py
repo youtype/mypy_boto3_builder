@@ -3,10 +3,9 @@ import tempfile
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-from mypy_boto3_builder.cli_parser import Namespace
 from mypy_boto3_builder.main import get_available_service_names, get_selected_service_names, main
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.utils.boto3_changelog import Boto3Changelog
+from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 
 
 class TestMain:
@@ -24,7 +23,7 @@ class TestMain:
             )
         ] == ["ec2", "other"]
         assert get_selected_service_names(["s3", "ec2"], []) == []
-        with patch.object(Boto3Changelog, "get_updated_service_names", lambda x, y: ["ecs"]):
+        with patch.object(BotocoreChangelog, "get_updated_service_names", lambda x, y: ["ecs"]):
             assert [
                 i.name
                 for i in get_selected_service_names(

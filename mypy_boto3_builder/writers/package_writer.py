@@ -117,9 +117,12 @@ class PackageWriter:
                         "botocore",
                         "aiobotocore",
                         *(
-                            [i.module_name for i in package.service_names]
+                            [
+                                package.data.get_service_package_name(i)
+                                for i in package.service_names
+                            ]
                             if not service_name
-                            else [service_name.module_name]
+                            else [package.data.get_service_package_name(service_name)]
                         ),
                     ],
                 )

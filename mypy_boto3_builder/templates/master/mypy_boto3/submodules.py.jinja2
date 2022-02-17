@@ -33,11 +33,11 @@ class Submodule:
 SUBMODULES: List[Submodule] = [
     {% for service_package in package.service_packages -%}
     Submodule(
-        module_name="{{ service_package.service_name.module_name }}",
+        module_name="{{ package.data.get_service_package_name(service_package.service_name) }}",
         import_name="{{ service_package.service_name.import_name }}",
         boto3_name="{{ service_package.service_name.boto3_name }}",
         class_name="{{ service_package.service_name.class_name }}",
-        pypi_name="{{ service_package.service_name.pypi_name }}",
+        pypi_name="{{ package.data.get_service_pypi_name(service_package.service_name) }}",
         has_resource={{ "True" if service_package.service_resource else "False" }},
         has_waiter={{ "True" if service_package.waiters else "False" }},
         has_paginator={{ "True" if service_package.paginators else "False" }},

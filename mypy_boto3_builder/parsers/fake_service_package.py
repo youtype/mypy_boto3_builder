@@ -1,9 +1,12 @@
 """
 Fake parser that produces `structures.ServiceModule` for master module and stubs.
 """
+from typing import Type
+
 from boto3.session import Session
 from botocore import xform_name
 
+from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.boto3_utils import get_boto3_client, get_boto3_resource
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName
@@ -15,7 +18,9 @@ from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.utils.strings import get_class_prefix
 
 
-def parse_fake_service_package(session: Session, service_name: ServiceName) -> ServicePackage:
+def parse_fake_service_package(
+    session: Session, service_name: ServiceName, package_data: Type[BasePackageData]
+) -> ServicePackage:
     """
     Create fake boto3 service module structure.
 
@@ -24,6 +29,7 @@ def parse_fake_service_package(session: Session, service_name: ServiceName) -> S
     Arguments:
         session -- boto3 session.
         service_name -- Target service name.
+        package_data -- Package data.
 
     Returns:
         ServiceModule structure.
@@ -33,8 +39,7 @@ def parse_fake_service_package(session: Session, service_name: ServiceName) -> S
     boto3_resource = get_boto3_resource(session, service_name)
 
     result = ServicePackage(
-        name=service_name.module_name,
-        pypi_name=service_name.pypi_name,
+        data=package_data,
         service_name=service_name,
         client=Client(
             name=Client.get_class_name(service_name),

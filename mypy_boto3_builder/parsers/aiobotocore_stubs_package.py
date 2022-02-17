@@ -2,12 +2,14 @@
 Parser that produces `structures.AioBotocoreStubsPackage`.
 """
 from collections.abc import Iterable
+from typing import Type as _Type
 
 from boto3.session import Session
 from botocore.config import Config
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.package_data import BasePackageData, TypesAioBotocorePackageData
 from mypy_boto3_builder.parsers.fake_service_package import parse_fake_service_package
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.aiobotocore_stubs_package import AioBotocoreStubsPackage
@@ -22,7 +24,7 @@ from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 def parse_aiobotocore_stubs_package(
-    session: Session, service_names: Iterable[ServiceName]
+    session: Session, service_names: Iterable[ServiceName], package_data: _Type[BasePackageData]
 ) -> AioBotocoreStubsPackage:
     """
     Parse data for boto3_stubs package.
@@ -34,9 +36,11 @@ def parse_aiobotocore_stubs_package(
     Returns:
         AioBotocoreStubsPackage structure.
     """
-    result = AioBotocoreStubsPackage(service_names=service_names)
+    result = AioBotocoreStubsPackage(package_data, service_names=service_names)
     for service_name in result.service_names:
-        result.service_packages.append(parse_fake_service_package(session, service_name))
+        result.service_packages.append(
+            parse_fake_service_package(session, service_name, package_data)
+        )
 
     init_arguments = [
         Argument("region_name", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
@@ -77,7 +81,9 @@ def parse_aiobotocore_stubs_package(
                 ],
                 return_type=ExternalImport(
                     source=ImportString(
-                        service_package.service_name.aiobotocore_module_name,
+                        TypesAioBotocorePackageData.get_service_package_name(
+                            service_package.service_name
+                        ),
                         ServiceModuleName.client.value,
                     ),
                     name=service_package.client.name,

@@ -1,4 +1,4 @@
 try:
-    from {{ master_module_name }}.boto3_init_gen import *
+    from {{ package.name }}.boto3_init_gen import *
 except ImportError:
     pass

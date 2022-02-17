@@ -9,7 +9,6 @@ import typing
 from unittest.mock import MagicMock
 
 from botocore.utils import get_service_module_name
-from newversion import Version
 
 RESERVED_NAMES = set(
     (
@@ -162,21 +161,3 @@ def get_botocore_class_name(metadata: dict[str, str]) -> str:
     service_model.service_name = metadata.get("serviceId", "")
     service_model.metadata = metadata
     return get_service_module_name(service_model)
-
-
-def get_min_build_version(version: str) -> str:
-    """
-    Get min version build version by setting micro to 0.
-    """
-    return Version(version).replace(micro=0).get_stable().dumps()
-
-
-def get_aiobotocore_version() -> str:
-    """
-    Get aiobotocore package version.
-    """
-    try:
-        from aiobotocore import __version__
-    except (ModuleNotFoundError, ImportError):
-        return "2.1.0"
-    return __version__

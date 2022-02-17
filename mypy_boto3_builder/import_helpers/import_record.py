@@ -3,8 +3,9 @@ Helper for Python import strings.
 """
 from __future__ import annotations
 
-from mypy_boto3_builder.constants import MODULE_NAME, TYPE_DEFS_NAME
+from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.package_data import Boto3StubsPackageData, TypesAioBotocorePackageData
 
 
 class ImportRecord:
@@ -125,7 +126,7 @@ class ImportRecord:
         """
         Whether import is from `type_defs` module.
         """
-        return self.source.parts[-1] == TYPE_DEFS_NAME
+        return self.source.parts[-1] == ServiceModuleName.type_defs.value
 
     def is_third_party(self) -> bool:
         """
@@ -144,7 +145,10 @@ class ImportRecord:
         if not self.source:
             return False
 
-        if self.source.master_name.startswith(MODULE_NAME):
+        if self.source.master_name.startswith(Boto3StubsPackageData.SERVICE_PREFIX):
+            return True
+
+        if self.source.master_name.startswith(TypesAioBotocorePackageData.SERVICE_PREFIX):
             return True
 
         if self.is_type_defs():

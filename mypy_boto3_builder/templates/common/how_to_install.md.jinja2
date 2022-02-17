@@ -9,22 +9,24 @@ Click `Auto-discover services` and select services you use in the current projec
 
 ### From PyPI with pip
 
-Install `{{ package.docs_package_name }}` to add type annotations for `{{ package.library_name }}` package.
+Install `{{ package.data.PYPI_NAME }}` to add type annotations for `{{ package.library_name }}` package.
 
 ```bash
 # install type annotations only for {{ package.library_name }}
-python -m pip install {{ package.docs_package_name }}
+python -m pip install {{ package.data.PYPI_NAME }}
 
 # install {{ package.library_name }} type annotations
 # for ec2, s3, rds, lambda, sqs, dynamo and cloudformation
-python -m pip install '{{ package.docs_package_name }}[essential]'
+python -m pip install '{{ package.data.PYPI_NAME }}[essential]'
 
 # or install annotations for services you use
-python -m pip install '{{ package.docs_package_name }}[acm,apigateway]'
+python -m pip install '{{ package.data.PYPI_NAME }}[acm,apigateway]'
 
+{% if package.data.PYPI_LITE_NAME %}
 # Lite version does not provide session.client/resource overloads
 # it is more RAM-friendly, but requires explicit type annotations
-python -m pip install '{{ package.docs_lite_package_name }}[essential]'
+python -m pip install '{{ package.data.PYPI_LITE_NAME }}[essential]'
+{% endif %}
 ```
 
 ### From conda-forge
@@ -36,22 +38,22 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `{{ package.docs_package_name }}`
-and `{{ package.docs_package_name }}-essential` can be installed with:
+Once the `conda-forge` channel has been enabled, `{{ package.data.PYPI_NAME }}`
+and `{{ package.data.PYPI_NAME }}-essential` can be installed with:
 
 ```bash
-conda install {{ package.docs_package_name }} {{ package.docs_package_name }}-essential
+conda install {{ package.data.PYPI_NAME }} {{ package.data.PYPI_NAME }}-essential
 ```
 
-It is possible to list all of the versions of `{{ package.docs_package_name }}` available on your platform with:
+It is possible to list all of the versions of `{{ package.data.PYPI_NAME }}` available on your platform with:
 
 ```bash
-conda search {{ package.docs_package_name }} --channel conda-forge
+conda search {{ package.data.PYPI_NAME }} --channel conda-forge
 ```
 
 ## How to uninstall
 
 ```bash
-# uninstall {{ package.docs_package_name }}
-python -m pip uninstall -y {{ package.docs_package_name }} botocore-stubs
+# uninstall {{ package.data.PYPI_NAME }}
+python -m pip uninstall -y {{ package.data.PYPI_NAME }}
 ```

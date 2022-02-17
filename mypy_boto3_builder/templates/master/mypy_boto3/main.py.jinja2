@@ -5,16 +5,16 @@ import importlib
 import shutil
 from typing import List, Set
 
-from {{ master_module_name }}.version import __version__ as version
-from {{ master_module_name }}.submodules import (
+from {{ package.name }}.version import __version__ as version
+from {{ package.name }}.submodules import (
     SUBMODULES,
     Submodule,
 )
 
 ROOT_PATH = pathlib.Path(__file__).absolute().parent
 CACHE_PATH = ROOT_PATH / 'cache.txt'
-BOTO3_STUBS_NAME = "{{ boto3_stubs_name }}"
-MODULE_NAME = "{{ master_module_name }}"
+BOTO3_STUBS_NAME = "boto3-stubs"
+MODULE_NAME = "{{ package.name }}"
 
 FUNCTION_TEMPLATE = """{overload}def {name}(
     service_name: {service_name_type},
@@ -63,7 +63,7 @@ def get_parser() -> argparse.ArgumentParser:
 
 
 def get_logger(level: int) -> logging.Logger:
-    logger = logging.getLogger("{{ master_module_name }}")
+    logger = logging.getLogger("{{ package.name }}")
     if not logger.handlers:
         formatter = logging.Formatter("%(name)s: %(levelname)-8s %(message)s")
         stream_handler = logging.StreamHandler()
@@ -212,7 +212,7 @@ def build_package_methods(logger: logging.Logger) -> None:
             )
         )
         imports.append(
-            "from {{ master_module_name }}.{} import {}Client".format(
+            "from {{ package.name }}.{} import {}Client".format(
                 submodule.import_name, submodule.class_name,
             )
         )
@@ -234,7 +234,7 @@ def build_package_methods(logger: logging.Logger) -> None:
                 )
             )
             imports.append(
-                "from {{ master_module_name }}.{} import {}ServiceResource".format(
+                "from {{ package.name }}.{} import {}ServiceResource".format(
                     submodule.import_name, submodule.class_name,
                 )
             )
@@ -336,34 +336,34 @@ def build_package_stubs(submodule: Submodule, logger: logging.Logger) -> None:
         _get_proxy_contents("{}.client".format(submodule.module_name)),
         logger,
     )
-    logger.info('Generated {{ master_module_name }}.%s.client module' % submodule.import_name)
+    logger.info('Generated {{ package.name }}.%s.client module' % submodule.import_name)
     write_text(
         submodule_path / 'type_defs.py',
         _get_proxy_contents("{}.type_defs".format(submodule.module_name)),
         logger,
     )
-    logger.info('Generated {{ master_module_name }}.%s.type_defs module' % submodule.import_name)
+    logger.info('Generated {{ package.name }}.%s.type_defs module' % submodule.import_name)
     if submodule.has_resource:
         write_text(
             submodule_path / 'service_resource.py',
             _get_proxy_contents("{}.service_resource".format(submodule.module_name)),
             logger,
         )
-        logger.info('Generated {{ master_module_name }}.%s.service_resource module' % submodule.import_name)
+        logger.info('Generated {{ package.name }}.%s.service_resource module' % submodule.import_name)
     if submodule.has_waiter:
         write_text(
             submodule_path / 'waiter.py',
             _get_proxy_contents("{}.waiter".format(submodule.module_name)),
             logger,
         )
-        logger.info('Generated {{ master_module_name }}.%s.waiter module' % submodule.import_name)
+        logger.info('Generated {{ package.name }}.%s.waiter module' % submodule.import_name)
     if submodule.has_paginator:
         write_text(
             submodule_path / 'paginator.py',
             _get_proxy_contents("{}.paginator".format(submodule.module_name)),
             logger,
         )
-        logger.info('Generated {{ master_module_name }}.%s.paginator module' % submodule.import_name)
+        logger.info('Generated {{ package.name }}.%s.paginator module' % submodule.import_name)
 
 
 def log_install_info(logger: logging.Logger) -> None:
