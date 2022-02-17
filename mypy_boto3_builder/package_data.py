@@ -21,6 +21,7 @@ class BasePackageData:
     LIBRARY_NAME: str = "boto3"
     SERVICE_PREFIX: str = "mypy_boto3"
     SERVICE_PYPI_PREFIX: str = "mypy-boto3"
+    LOCAL_DOC_LINK: str = "https://vemel.github.io/boto3_stubs_docs/"
 
     @classmethod
     def get_service_package_name(cls, service_name: ServiceName) -> str:
@@ -79,6 +80,7 @@ class TypesAioBotocorePackageData(BasePackageData):
     LIBRARY_NAME = "aiobotocore"
     SERVICE_PREFIX = "types_aiobotocore"
     SERVICE_PYPI_PREFIX = "types-aiobotocore"
+    LOCAL_DOC_LINK = "https://vemel.github.io/types_aiobotocore_docs/"
 
     @staticmethod
     def get_library_version() -> str:
@@ -106,6 +108,7 @@ class Boto3StubsPackageData(BasePackageData):
     PYPI_NAME = "boto3-stubs"
     PYPI_LITE_NAME = "boto3-stubs-lite"
     LIBRARY_NAME = "boto3"
+    LOCAL_DOC_LINK = "https://vemel.github.io/boto3_stubs_docs/"
 
 
 class Boto3StubsLitePackageData(Boto3StubsPackageData):

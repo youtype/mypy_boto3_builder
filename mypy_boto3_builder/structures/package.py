@@ -44,12 +44,7 @@ class Package:
         """
         Get link to local docs.
         """
-        urls = {
-            "boto3": "https://vemel.github.io/boto3_stubs_docs/",
-            "botocore": "https://vemel.github.io/boto3_stubs_docs/",
-            "aiobotocore": "https://vemel.github.io/types_aiobotocore_docs/",
-        }
-        url = urls[self.library_name]
+        url = self.data.LOCAL_DOC_LINK
         if service_name:
             url = f"{url}{self.get_module_name(service_name)}/"
         return url
