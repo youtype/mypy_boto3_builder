@@ -13,9 +13,9 @@ from mypy_boto3_builder.constants import DUMMY_REGION, Product
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
-from mypy_boto3_builder.utils.boto3_changelog import Boto3Changelog
+from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name
-from mypy_boto3_builder.utils.version import get_boto3_version
+from mypy_boto3_builder.utils.version import get_botocore_version
 
 
 def get_selected_service_names(
@@ -39,18 +39,18 @@ def get_selected_service_names(
     available_map = {i.name: i for i in available}
     result: list[ServiceName] = []
     selected_service_names = list(selected)
-    boto3_version = get_boto3_version()
+    botocore_version = get_botocore_version()
     if ServiceName.ALL in selected_service_names:
         return list(available)
     if ServiceName.UPDATED in selected_service_names:
         selected_service_names.remove(ServiceName.UPDATED)
-        for updated_service_name in Boto3Changelog().get_updated_service_names(boto3_version):
+        for updated_service_name in BotocoreChangelog().get_updated_service_names(botocore_version):
             if updated_service_name in available_map:
                 selected_service_names.append(updated_service_name)
 
     for service_name_str in selected_service_names:
         if service_name_str not in available_map:
-            logger.info(f"Service {service_name_str} is not provided by boto3, skipping")
+            logger.info(f"Service {service_name_str} is not provided by botocore, skipping")
             continue
         result.append(available_map[service_name_str])
 
