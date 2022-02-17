@@ -15,6 +15,7 @@ from mypy_boto3_builder.package_data import (
 )
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
+from mypy_boto3_builder.utils.version import get_boto3_version
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
@@ -63,7 +64,7 @@ class Boto3Generator:
         self.generate_setup = generate_setup
         self.skip_published = skip_published
         self.disable_smart_version = disable_smart_version
-        self.version = version
+        self.version = version or get_boto3_version()
 
     def _get_package_version(self, pypi_name: str, version: str) -> str | None:
         pypi_manager = PyPIManager(pypi_name)

@@ -13,6 +13,7 @@ from mypy_boto3_builder.package_data import (
 )
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
+from mypy_boto3_builder.utils.version import get_aiobotocore_version
 from mypy_boto3_builder.writers.aiobotocore_processors import (
     process_aiobotocore_service,
     process_aiobotocore_service_docs,
@@ -59,7 +60,7 @@ class AioBotocoreGenerator:
         self.generate_setup = generate_setup
         self.skip_published = skip_published
         self.disable_smart_version = disable_smart_version
-        self.version = version
+        self.version = version or get_aiobotocore_version()
 
     def _get_package_version(self, pypi_name: str, version: str) -> str | None:
         pypi_manager = PyPIManager(pypi_name)

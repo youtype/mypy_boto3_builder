@@ -15,7 +15,7 @@ from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.boto3_changelog import Boto3Changelog
 from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name
-from mypy_boto3_builder.utils.version import get_aiobotocore_version, get_boto3_version
+from mypy_boto3_builder.utils.version import get_boto3_version
 
 
 def get_selected_service_names(
@@ -119,7 +119,7 @@ def main() -> None:
         generate_setup=not args.installed,
         skip_published=args.skip_published,
         disable_smart_version=args.disable_smart_version,
-        version=args.build_version or get_boto3_version(),
+        version=args.build_version,
     )
     aiobotocore_generator = AioBotocoreGenerator(
         service_names=service_names,
@@ -130,7 +130,7 @@ def main() -> None:
         generate_setup=not args.installed,
         skip_published=args.skip_published,
         disable_smart_version=args.disable_smart_version,
-        version=args.build_version or get_aiobotocore_version(),
+        version=args.build_version,
     )
     generators_map = {
         Product.boto3: boto3_generator.generate_stubs,
