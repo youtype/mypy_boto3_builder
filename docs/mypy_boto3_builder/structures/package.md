@@ -7,7 +7,6 @@ Parent class for all package structures.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Package
     - [Package](#package)
         - [Package().directory_name](#packagedirectory_name)
-        - [Package().docs_package_name](#packagedocs_package_name)
         - [Package().get_local_doc_link](#packageget_local_doc_link)
         - [Package().get_module_name](#packageget_module_name)
         - [Package().get_service_pypi_link](#packageget_service_pypi_link)
@@ -30,7 +29,7 @@ Parent class for all package structures.
 
 ### Package().directory_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L39)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L32)
 
 ```python
 @property
@@ -39,20 +38,9 @@ def directory_name() -> str:
 
 Directory name to store generated package.
 
-### Package().docs_package_name
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L32)
-
-```python
-@property
-def docs_package_name() -> str:
-```
-
-Docs library name.
-
 ### Package().get_local_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L50)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L43)
 
 ```python
 def get_local_doc_link(service_name: ServiceName | None = None) -> str:
@@ -62,7 +50,7 @@ Get link to local docs.
 
 ### Package().get_module_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L64)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L57)
 
 ```python
 def get_module_name(service_name: ServiceName) -> str:
@@ -76,7 +64,7 @@ Get service module name.
 
 ### Package().get_service_pypi_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L76)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L69)
 
 ```python
 def get_service_pypi_link(service_name: ServiceName) -> str:
@@ -90,7 +78,7 @@ Get link to PyPI.
 
 ### Package().get_service_pypi_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L70)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L63)
 
 ```python
 def get_service_pypi_name(service_name: ServiceName) -> str:
@@ -104,7 +92,7 @@ Get PyPI package name for a service package.
 
 ### Package().min_library_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L82)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L75)
 
 ```python
 @property

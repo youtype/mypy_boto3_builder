@@ -87,7 +87,7 @@ Get service package PyPI name.
 
 ## Boto3StubsLitePackageData
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L109)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L111)
 
 ```python
 class Boto3StubsLitePackageData(Boto3StubsPackageData):
@@ -101,7 +101,7 @@ boto3-stubs-lite package data.
 
 ## Boto3StubsPackageData
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L99)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L100)
 
 ```python
 class Boto3StubsPackageData(BasePackageData):
@@ -140,7 +140,7 @@ Get underlying library version.
 
 ## MypyBoto3PackageData
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L117)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L120)
 
 ```python
 class MypyBoto3PackageData(BasePackageData):

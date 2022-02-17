@@ -17,7 +17,7 @@ class BasePackageData:
 
     NAME: str = "boto3-stubs"
     PYPI_NAME: str = "boto3-stubs"
-    PYPI_LITE_NAME: str = "boto3-stubs-lite"
+    PYPI_LITE_NAME: str = ""
     LIBRARY_NAME: str = "boto3"
     SERVICE_PREFIX: str = "mypy_boto3"
     SERVICE_PYPI_PREFIX: str = "mypy-boto3"
@@ -94,6 +94,7 @@ class TypesAioBotocoreLitePackageData(TypesAioBotocorePackageData):
     """
 
     PYPI_NAME = "types-aiobotocore-lite"
+    PYPI_LITE_NAME = ""
 
 
 class Boto3StubsPackageData(BasePackageData):
@@ -103,6 +104,7 @@ class Boto3StubsPackageData(BasePackageData):
 
     NAME = "boto3-stubs"
     PYPI_NAME = "boto3-stubs"
+    PYPI_LITE_NAME = "boto3-stubs-lite"
     LIBRARY_NAME = "boto3"
 
 
@@ -112,6 +114,7 @@ class Boto3StubsLitePackageData(Boto3StubsPackageData):
     """
 
     PYPI_NAME = "boto3-stubs-lite"
+    PYPI_LITE_NAME = ""
 
 
 class MypyBoto3PackageData(BasePackageData):

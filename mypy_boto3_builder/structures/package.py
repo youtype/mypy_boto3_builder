@@ -30,13 +30,6 @@ class Package:
         self.logger = get_logger()
 
     @property
-    def docs_package_name(self) -> str:
-        """
-        Docs library name.
-        """
-        return self.data.PYPI_NAME
-
-    @property
     def directory_name(self) -> str:
         """
         Directory name to store generated package.

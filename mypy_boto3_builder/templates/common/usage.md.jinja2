@@ -5,10 +5,10 @@
 - Install [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 - Install [Pylance extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
 - Set `Pylance` as your Python Language Server
-- Install `{{ package.docs_package_name }}[{{extras_name}}]` in your environment:
+- Install `{{ package.data.PYPI_NAME }}[{{extras_name}}]` in your environment:
 
 ```bash
-python -m pip install '{{ package.docs_package_name }}[{{extras_name}}]'
+python -m pip install '{{ package.data.PYPI_NAME }}[{{extras_name}}]'
 ```
 
 Both type checking and code completion should now work.
@@ -16,23 +16,25 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 
 ### PyCharm
 
-Install `{{ package.data.PYPI_LITE_NAME }}[{{extras_name}}]` in your environment:
+Install `{{ package.data.PYPI_LITE_NAME or package.data.PYPI_NAME }}[{{extras_name}}]` in your environment:
 
 ```bash
-python -m pip install '{{ package.data.PYPI_LITE_NAME }}[{{extras_name}}]'`
+python -m pip install '{{ package.data.PYPI_LITE_NAME or package.data.PYPI_NAME }}[{{extras_name}}]'`
 ```
 
 Both type checking and code completion should now work.
 Explicit type annotations **are required**.
-Use `{{ package.docs_package_name }}` package instead for implicit type discovery.
 
+{% if package.data.PYPI_LITE_NAME %}
+Use `{{ package.data.PYPI_NAME }}` package instead for implicit type discovery.
+{% endif %}
 
 ### Emacs
 
-- Install `{{ package.docs_package_name }}` with services you use in your environment:
+- Install `{{ package.data.PYPI_NAME }}` with services you use in your environment:
 
 ```bash
-python -m pip install '{{ package.docs_package_name }}[{{extras_name}}]'
+python -m pip install '{{ package.data.PYPI_NAME }}[{{extras_name}}]'
 ```
 
 - Install
@@ -53,17 +55,17 @@ python -m pip install '{{ package.docs_package_name }}[{{extras_name}}]'
   )
 ```
 
-- Make sure emacs uses the environment where you have installed `{{ package.docs_package_name }}`
+- Make sure emacs uses the environment where you have installed `{{ package.data.PYPI_NAME }}`
 
 Type checking should now work.
 No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
 
 ### Sublime Text
 
-- Install `{{ package.docs_package_name }}[{{extras_name}}]` with services you use in your environment:
+- Install `{{ package.data.PYPI_NAME }}[{{extras_name}}]` with services you use in your environment:
 
 ```bash
-python -m pip install '{{ package.docs_package_name }}[{{extras_name}}]'
+python -m pip install '{{ package.data.PYPI_NAME }}[{{extras_name}}]'
 ```
 
 - Install [LSP-pyright](https://github.com/sublimelsp/LSP-pyright) package
@@ -78,10 +80,10 @@ Not tested, but as long as your IDE supports `mypy` or `pyright`, everything sho
 ### mypy
 
 - Install `mypy`: `python -m pip install mypy`
-- Install `{{ package.docs_package_name }}[{{extras_name}}]` in your environment: 
+- Install `{{ package.data.PYPI_NAME }}[{{extras_name}}]` in your environment: 
 
 ```bash
-python -m pip install '{{ package.docs_package_name }}[{{extras_name}}]'`
+python -m pip install '{{ package.data.PYPI_NAME }}[{{extras_name}}]'`
 ```
 
 Type checking should now work.
@@ -90,13 +92,13 @@ No explicit type annotations required, write your `{{ package.library_name }}` c
 ### pyright
 
 - Install `pyright`: `npm i -g pyright`
-- Install `{{ package.docs_package_name }}[{{ extras_name }}]` in your environment: 
+- Install `{{ package.data.PYPI_NAME }}[{{ extras_name }}]` in your environment: 
 
 ```bash
-python -m pip install '{{ package.docs_package_name }}[{{ extras_name }}]'
+python -m pip install '{{ package.data.PYPI_NAME }}[{{ extras_name }}]'
 ```
 
-Optionally, you can install `{{ package.docs_package_name }}` to `typings` folder.
+Optionally, you can install `{{ package.data.PYPI_NAME }}` to `typings` folder.
 
 Type checking should now work.
 No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
