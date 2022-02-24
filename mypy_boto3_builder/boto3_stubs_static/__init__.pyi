@@ -20,18 +20,18 @@ __all__ = (
 __author__: str
 __version__: str
 
-DEFAULT_SESSION: Optional[Session] = None
+DEFAULT_SESSION: Optional[Session]
 
 def setup_default_session(
-    aws_access_key_id: str = None,
-    aws_secret_access_key: str = None,
-    aws_session_token: str = None,
-    region_name: str = None,
-    botocore_session: str = None,
-    profile_name: str = None,
+    aws_access_key_id: Optional[str] = ...,
+    aws_secret_access_key: Optional[str] = ...,
+    aws_session_token: Optional[str] = ...,
+    region_name: Optional[str] = ...,
+    botocore_session: Optional[str] = ...,
+    profile_name: Optional[str] = ...,
 ) -> Session: ...
 def set_stream_logger(
-    name: str = "boto3", level: int = logging.DEBUG, format_string: Optional[str] = None
+    name: str = ..., level: int = ..., format_string: Optional[str] = ...
 ) -> None: ...
 def _get_default_session() -> Session: ...
 
