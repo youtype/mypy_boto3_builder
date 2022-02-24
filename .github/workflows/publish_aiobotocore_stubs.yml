@@ -90,3 +90,8 @@ jobs:
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
           python ./scripts/release.py
+      - name: Store types-aiobotocore artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: types-aiobotocore
+          path: mypy_boto3_output/types_aiobotocore_package/dist/*.whl

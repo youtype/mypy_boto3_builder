@@ -104,3 +104,8 @@ jobs:
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
           python ./scripts/release.py
+      - name: Store boto3-stubs artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: boto3-stubs
+          path: mypy_boto3_output/boto3_stubs_package/dist/*.whl
