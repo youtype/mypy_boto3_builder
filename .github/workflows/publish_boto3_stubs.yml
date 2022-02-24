@@ -3,7 +3,7 @@ concurrency: update_boto3_stubs
 
 on:
   schedule:
-    - cron: "0 0/2 * * *"
+    - cron: "*/15 * * * *"
   workflow_dispatch:
     inputs:
       boto3_version:
