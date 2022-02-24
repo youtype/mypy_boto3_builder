@@ -1,4 +1,5 @@
 name: Update types-aiobotocore
+concurrency: update_types_aiobotocore
 
 on:
   # schedule:
@@ -74,16 +75,7 @@ jobs:
           pip install aiobotocore*
           cd ..
           rm -rf installtemp
-      - name: Build updated packages only
-        if: needs.check-aiobotocore-version.outputs.build-all == 'false'
-        run: |
-          rm -rf mypy_boto3_output/*
-
-          echo "Building updated packages"
-          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product aiobotocore ${NO_SMART_VERSION} -s all
-          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product aiobotocore-services ${NO_SMART_VERSION} -s updated
       - name: Build all packages
-        if: needs.check-aiobotocore-version.outputs.build-all == 'true'
         run: |
           rm -rf mypy_boto3_output/*
 
