@@ -2,7 +2,7 @@
 Parsed Service package.
 """
 from collections.abc import Iterable
-from typing import Literal, Type
+from typing import Literal
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -28,7 +28,7 @@ class ServicePackage(Package):
 
     def __init__(
         self,
-        data: Type[BasePackageData],
+        data: type[BasePackageData],
         service_name: ServiceName,
         client: Client,
         service_resource: ServiceResource | None = None,

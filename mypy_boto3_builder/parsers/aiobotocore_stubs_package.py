@@ -2,7 +2,6 @@
 Parser that produces `structures.AioBotocoreStubsPackage`.
 """
 from collections.abc import Iterable
-from typing import Type as _Type
 
 from boto3.session import Session
 from botocore.config import Config
@@ -24,7 +23,7 @@ from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 def parse_aiobotocore_stubs_package(
-    session: Session, service_names: Iterable[ServiceName], package_data: _Type[BasePackageData]
+    session: Session, service_names: Iterable[ServiceName], package_data: type[BasePackageData]
 ) -> AioBotocoreStubsPackage:
     """
     Parse data for boto3_stubs package.

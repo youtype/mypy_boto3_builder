@@ -12,12 +12,12 @@ Structure for aiobotocore-stubs module.
 
 ## AioBotocoreStubsPackage
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L19)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L18)
 
 ```python
 class AioBotocoreStubsPackage(Package):
     def __init__(
-        data: Type[BasePackageData],
+        data: type[BasePackageData],
         session_class: ClassRecord | None = None,
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
@@ -33,7 +33,7 @@ Structure for boto3-stubs module.
 
 ### AioBotocoreStubsPackage().essential_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L40)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L39)
 
 ```python
 @property
@@ -44,7 +44,7 @@ Service names marked as essential.
 
 ### AioBotocoreStubsPackage().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L117)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L116)
 
 ```python
 def get_all_names() -> list[str]:
@@ -54,7 +54,7 @@ Get names for `__all__` directive.
 
 ### AioBotocoreStubsPackage().get_session_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L51)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L50)
 
 ```python
 def get_session_required_import_records() -> list[ImportRecord]:

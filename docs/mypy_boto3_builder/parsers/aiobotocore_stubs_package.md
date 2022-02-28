@@ -9,13 +9,13 @@ Parser that produces `structures.AioBotocoreStubsPackage`.
 
 ## parse_aiobotocore_stubs_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/aiobotocore_stubs_package.py#L26)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/aiobotocore_stubs_package.py#L25)
 
 ```python
 def parse_aiobotocore_stubs_package(
     session: Session,
     service_names: Iterable[ServiceName],
-    package_data: _Type[BasePackageData],
+    package_data: type[BasePackageData],
 ) -> AioBotocoreStubsPackage:
 ```
 

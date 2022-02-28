@@ -1,7 +1,7 @@
 """
 Method or function argument.
 """
-from typing import Type, TypeVar
+from typing import TypeVar
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
@@ -42,7 +42,7 @@ class Argument:
         return f"{self.name}: {self.type_annotation.render()} = {self.default}"
 
     @classmethod
-    def kwflag(cls: Type[_R]) -> _R:
+    def kwflag(cls: type[_R]) -> _R:
         """
         Create `*` keywords separator.
         """
