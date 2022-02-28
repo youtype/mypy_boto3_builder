@@ -1,6 +1,7 @@
 from base64 import encodebytes as encodebytes
 from collections import OrderedDict as OrderedDict
 from email.utils import formatdate as formatdate
+from http.client import HTTPMessage
 from http.client import HTTPResponse as HTTPResponse
 from itertools import zip_longest as zip_longest
 from typing import Any, Dict, Iterable, Mapping, Optional, Tuple, Type, TypeVar
@@ -17,7 +18,6 @@ from urllib.parse import urlunsplit as urlunsplit
 from xml.etree import ElementTree as ETree
 
 from botocore.exceptions import MD5UnavailableError as MD5UnavailableError
-from six.moves import http_client
 
 try:
     from collections.abc import MutableMapping
@@ -26,7 +26,7 @@ except ImportError:
 
 _R = TypeVar("_R")
 
-class HTTPHeaders(http_client.HTTPMessage):
+class HTTPHeaders(HTTPMessage):
     @classmethod
     def from_dict(cls: Type[_R], d: Mapping[str, Any]) -> _R: ...
     @classmethod

@@ -32,6 +32,7 @@ jobs:
         with:
           node-version: "14"
       - name: Cache packages
+        id: cache
         uses: actions/cache@v2
         with:
           path: ${{ env.PYTHONUSERBASE }}
@@ -39,6 +40,7 @@ jobs:
           restore-keys: |
             ${{ steps.python.outputs.python-version }}-full-${{ secrets.CACHE_KEY }}-
       - name: Install dependencies
+        if: steps.cache.cache-hit != 'true'
         run: |
           python -m pip install -U poetry pip wheel aiobotocore
           poetry config virtualenvs.create false
