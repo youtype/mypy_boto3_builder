@@ -1,4 +1,7 @@
 name: Code style and test
+concurrency:
+  group: on_push
+  cancel-in-progress: true
 
 on:
   push:
