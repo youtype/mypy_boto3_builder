@@ -233,6 +233,17 @@ async function extractAioBotocoreDownloadLinks({ core }) {
     core.setOutput('aiobotocore-url', aiobotocoreURL)
 }
 
+async function extractVersionsFromInput({ core, context }) {
+    const inputBoto3Version = context.payload.inputs && context.payload.inputs.boto3_version
+    const boto3Version = inputBoto3Version ? inputBoto3Version : await getBoto3Version()
+    const botocoreVersion = getBotocoreVersion(boto3Version)
+    core.info(`Boto3 version ${boto3Version}`)
+    core.info(`Botocore version ${botocoreVersion}`)
+    core.setOutput('version', boto3Version)
+    core.setOutput('boto3-version', boto3Version)
+    core.setOutput('botocore-version', botocoreVersion)
+}
+
 module.exports = {
     getDownloadURL,
     sortVersions,
@@ -247,4 +258,5 @@ module.exports = {
     getAioBotocoreVersion,
     getTypesAioBotocoreVersions,
     extractAioBotocoreDownloadLinks,
+    extractVersionsFromInput,
 }

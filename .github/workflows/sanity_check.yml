@@ -19,18 +19,11 @@ jobs:
       - uses: actions/checkout@v2
       - name: Extract versions
         id: vars
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         with:
           script: |
-            const { getBoto3Version, getBotocoreVersion } = require('./.github/workflows/helpers.js')
-
-            const boto3Version = (context.payload.inputs && context.payload.inputs.boto3_version) ? context.payload.inputs.boto3_version : await getBoto3Version()
-            const botocoreVersion = getBotocoreVersion(boto3Version)
-            core.info(`Boto3 version ${boto3Version}`)
-            core.info(`Botocore version ${botocoreVersion}`)
-            core.setOutput('version', boto3Version)
-            core.setOutput('boto3-version', boto3Version)
-            core.setOutput('botocore-version', botocoreVersion)
+            const { extractVersionsFromInput } = require('./.github/workflows/helpers.js')
+            await extractVersionsFromInput({ core, context })
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
