@@ -580,3 +580,17 @@ class _InvalidDefaultsModeKwargs(TypedDict):
 class InvalidDefaultsMode(BotoCoreError):
     def __init__(self, *, mode: str = ..., valid_modes: Iterable[str] = ..., **kwargs: Any) -> None:
         self.kwargs: _InvalidDefaultsModeKwargs
+
+class _AwsChunkedWrapperErrorKwargs(TypedDict):
+    error_msg: str
+
+class AwsChunkedWrapperError(BotoCoreError):
+    def __init__(self, *, error_msg: str = ..., **kwargs: Any) -> None:
+        self.kwargs: _AwsChunkedWrapperErrorKwargs
+
+class _FlexibleChecksumErrorKwargs(TypedDict):
+    error_msg: str
+
+class FlexibleChecksumError(BotoCoreError):
+    def __init__(self, *, error_msg: str = ..., **kwargs: Any) -> None:
+        self.kwargs: _FlexibleChecksumErrorKwargs

@@ -3,7 +3,6 @@ from typing import Any, Dict, Mapping, Type
 from botocore import validate as validate
 from botocore.compat import formatdate as formatdate
 from botocore.model import OperationModel
-from botocore.utils import conditionally_calculate_md5 as conditionally_calculate_md5
 from botocore.utils import is_json_value_header as is_json_value_header
 from botocore.utils import parse_to_aware_datetime as parse_to_aware_datetime
 from botocore.utils import percent_encode as percent_encode
