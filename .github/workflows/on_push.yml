@@ -93,7 +93,7 @@ jobs:
           restore-keys: |
             ${{ steps.python.outputs.python-version }}-full-${{ secrets.CACHE_KEY }}-
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           python -m pip install -U poetry pip wheel aiobotocore
           poetry config virtualenvs.create false
