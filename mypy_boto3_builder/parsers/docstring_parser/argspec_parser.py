@@ -36,7 +36,10 @@ class ArgSpecParser:
         if argspec.defaults:
             for index, default_value in enumerate(argspec.defaults):
                 argument_index = len(arguments) - len(argspec.defaults) + index
-                arguments[argument_index].default = TypeConstant(default_value)
+                default_typed_value = TypeConstant(default_value)
+                if default_typed_value.is_none():
+                    default_typed_value = Type.Ellipsis
+                arguments[argument_index].default = default_typed_value
 
         if argspec.varargs:
             arguments.append(Argument(argspec.varargs, Type.Any, prefix="*"))

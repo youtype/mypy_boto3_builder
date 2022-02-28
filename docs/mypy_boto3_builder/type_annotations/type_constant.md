@@ -8,6 +8,7 @@ Wrapper for constant like `False` or `"test"`.
     - [TypeConstant](#typeconstant)
         - [TypeConstant().copy](#typeconstantcopy)
         - [TypeConstant().get_import_record](#typeconstantget_import_record)
+        - [TypeConstant().is_none](#typeconstantis_none)
         - [TypeConstant().render](#typeconstantrender)
 
 ## TypeConstant
@@ -52,6 +53,16 @@ Get empty import record, because constants do not require imports.
 #### See also
 
 - [ImportRecord](../import_helpers/import_record.md#importrecord)
+
+### TypeConstant().is_none
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L43)
+
+```python
+def is_none() -> bool:
+```
+
+Whether value is None.
 
 ### TypeConstant().render
 

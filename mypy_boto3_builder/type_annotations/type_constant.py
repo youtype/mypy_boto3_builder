@@ -39,3 +39,9 @@ class TypeConstant(FakeAnnotation):
         Create a copy of type annotation wrapper.
         """
         return TypeConstant(self.value)
+
+    def is_none(self) -> bool:
+        """
+        Whether value is None.
+        """
+        return self.value is None
