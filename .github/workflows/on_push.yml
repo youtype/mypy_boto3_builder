@@ -44,6 +44,8 @@ jobs:
         run: |
           python -m flake8 mypy_boto3_builder
           python -m mypy mypy_boto3_builder
+          python -m black --check mypy_boto3_builder tests
+          python -m isort -c mypy_boto3_builder tests
       - name: Test
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
