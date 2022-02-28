@@ -102,6 +102,9 @@ jobs:
       - name: Install Node.js dependencies
         run: |
           npm install -g pyright
+      - name: Install builder
+        run: |
+          python -m pip install .
       - name: Integration tests
         run: |
           python scripts/integration.py
