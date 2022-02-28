@@ -10,10 +10,10 @@ from botocore.credentials import Credentials, ReadOnlyCredentials
 CredentialsUnion = Union[Credentials, ReadOnlyCredentials]
 
 EMPTY_SHA256_HASH: str
-PAYLOAD_BUFFER: Any
+PAYLOAD_BUFFER: int
 ISO8601: str
 SIGV4_TIMESTAMP: str
-SIGNED_HEADERS_BLACKLIST: Any
+SIGNED_HEADERS_BLACKLIST: List[str]
 UNSIGNED_PAYLOAD: str
 
 class BaseSigner:
@@ -29,7 +29,7 @@ class SigV2Auth(BaseSigner):
 class SigV3Auth(BaseSigner):
     def __init__(self, credentials: CredentialsUnion) -> None:
         self.credentials: CredentialsUnion
-    def add_auth(self, request: Any) -> None: ...
+    def add_auth(self, request: AWSRequest) -> None: ...
 
 class SigV4Auth(BaseSigner):
     REQUIRES_REGION: bool = ...

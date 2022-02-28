@@ -1,4 +1,4 @@
-from typing import Any, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 
 from botocore.config import Config as Config
 from botocore.configprovider import ConfigValueStore
@@ -9,8 +9,8 @@ from botocore.model import ServiceModel
 from botocore.parsers import ResponseParserFactory
 from botocore.signers import RequestSigner as RequestSigner
 
-VALID_REGIONAL_ENDPOINTS_CONFIG: Any
-LEGACY_GLOBAL_STS_REGIONS: Any
+VALID_REGIONAL_ENDPOINTS_CONFIG: List[str]
+LEGACY_GLOBAL_STS_REGIONS: List[str]
 
 class ClientArgsCreator:
     def __init__(
@@ -44,4 +44,4 @@ class ClientArgsCreator:
         is_secure: bool,
         scoped_config: Optional[Any],
     ) -> Any: ...
-    def compute_s3_config(self, client_config: Optional[Config]) -> Any: ...
+    def compute_s3_config(self, client_config: Optional[Config]) -> Dict[str, Any]: ...
