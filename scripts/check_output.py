@@ -179,7 +179,11 @@ def main() -> None:
         if not folder.name.endswith("_package"):
             continue
         for package in folder.iterdir():
-            if not package.is_dir() or not package.name.startswith("mypy_boto3_"):
+            if not package.is_dir():
+                continue
+            if package.name.endswith(".egg-info"):
+                continue
+            if not package.name.startswith("mypy_boto3_"):
                 continue
             if args.services:
                 if not any(s in package.name for s in args.services):
