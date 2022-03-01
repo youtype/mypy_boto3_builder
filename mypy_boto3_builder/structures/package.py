@@ -2,7 +2,6 @@
 Parent class for all package structures.
 """
 from collections.abc import Iterable
-from typing import Type
 
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
@@ -17,7 +16,7 @@ class Package:
 
     def __init__(
         self,
-        data: Type[BasePackageData],
+        data: type[BasePackageData],
         service_names: Iterable[ServiceName] = tuple(),
     ) -> None:
         self.data = data

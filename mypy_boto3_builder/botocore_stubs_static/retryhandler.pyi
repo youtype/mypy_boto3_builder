@@ -40,6 +40,14 @@ class MaxAttemptsDecorator(BaseChecker):
         max_attempts: int,
         retryable_exceptions: Optional[Iterable[Type[Exception]]] = ...,
     ) -> None: ...
+    # FIXME: Signature of "__call__" incompatible with supertype "BaseChecker"
+    def __call__(  # type: ignore
+        self,
+        attempt_number: int,
+        response: Mapping[str, Any],
+        caught_exception: Exception,
+        retries_context: Any,
+    ) -> bool: ...
 
 class HTTPStatusCodeChecker(BaseChecker):
     def __init__(self, status_code: int) -> None: ...

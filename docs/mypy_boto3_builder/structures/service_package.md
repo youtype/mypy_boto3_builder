@@ -29,7 +29,7 @@ Parsed Service package.
 ```python
 class ServicePackage(Package):
     def __init__(
-        data: Type[BasePackageData],
+        data: type[BasePackageData],
         service_name: ServiceName,
         client: Client,
         service_resource: ServiceResource | None = None,

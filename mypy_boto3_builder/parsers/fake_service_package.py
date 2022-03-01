@@ -1,8 +1,6 @@
 """
 Fake parser that produces `structures.ServiceModule` for master module and stubs.
 """
-from typing import Type
-
 from boto3.session import Session
 from botocore import xform_name
 
@@ -19,7 +17,7 @@ from mypy_boto3_builder.utils.strings import get_class_prefix
 
 
 def parse_fake_service_package(
-    session: Session, service_name: ServiceName, package_data: Type[BasePackageData]
+    session: Session, service_name: ServiceName, package_data: type[BasePackageData]
 ) -> ServicePackage:
     """
     Create fake boto3 service module structure.

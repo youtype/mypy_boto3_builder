@@ -3,7 +3,6 @@ Structure for boto3-stubs module.
 """
 
 from collections.abc import Iterable
-from typing import Type
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -23,7 +22,7 @@ class Boto3StubsPackage(Package):
 
     def __init__(
         self,
-        data: Type[BasePackageData],
+        data: type[BasePackageData],
         session_class: ClassRecord | None = None,
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
