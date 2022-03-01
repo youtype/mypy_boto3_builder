@@ -131,7 +131,7 @@ class AioBotocoreGenerator:
                 )
                 continue
 
-            self.logger.info(f"[{current_str}/{total_str}]" f" Generating {package_name} {version}")
+            self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} {version}")
             process_aiobotocore_service(
                 session=self.session,
                 output_path=self.output_path,

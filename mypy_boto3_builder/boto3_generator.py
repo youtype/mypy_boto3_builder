@@ -139,7 +139,8 @@ class Boto3Generator:
         )
         if not version:
             self.logger.info(
-                f"Skipping {package_data.PYPI_NAME} {package_data.get_library_version()}, already on PyPI"
+                f"Skipping {package_data.PYPI_NAME} {package_data.get_library_version()}, already"
+                " on PyPI"
             )
             return
 
@@ -179,7 +180,7 @@ class Boto3Generator:
                 )
                 continue
 
-            self.logger.info(f"[{current_str}/{total_str}]" f" Generating {package_name} {version}")
+            self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} {version}")
             process_service(
                 session=self.session,
                 output_path=self.output_path,

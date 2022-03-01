@@ -8,6 +8,7 @@ target-version = [
     'py39',
     'py310',
 ]
+preview = true
 
 [tool.isort]
 profile = "black"
