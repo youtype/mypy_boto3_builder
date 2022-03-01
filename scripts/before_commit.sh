@@ -10,7 +10,7 @@ npx pyright mypy_boto3_builder
 flake8 mypy_boto3_builder
 pytest
 black mypy_boto3_builder tests
-isort -c mypy_boto3_builder tests
+isort mypy_boto3_builder tests
 mypy mypy_boto3_builder
 # pytest --cov-report html --cov mypy_boto3_builder
 
