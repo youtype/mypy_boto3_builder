@@ -346,7 +346,9 @@ class ServicePackage(Package):
         - `WaiterName`
         """
         self.literals.append(
-            TypeLiteral(f"{self.service_name.class_name}ServiceName", self.service_name.boto3_name)
+            TypeLiteral(
+                f"{self.service_name.class_name}ServiceName", [self.service_name.boto3_name]
+            )
         )
         self.literals.append(TypeLiteral("ServiceName", [i.boto3_name for i in service_names]))
         self.literals.append(
