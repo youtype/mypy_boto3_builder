@@ -22,6 +22,8 @@ class _ResponseMetadataTypeDef(TypedDict):
     RetryAttempts: int
 
 class _ClientErrorResponseTypeDef(TypedDict, total=False):
+    Status: str
+    StatusReason: str
     Error: _ClientErrorResponseError
     ResponseMetadata: _ResponseMetadataTypeDef
 
