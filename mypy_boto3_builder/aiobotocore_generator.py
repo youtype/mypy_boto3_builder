@@ -92,7 +92,7 @@ class AioBotocoreGenerator:
         process_aiobotocore_stubs(
             self.session,
             self.output_path,
-            self.service_names,
+            self.master_service_names,
             generate_setup=self.generate_setup,
             version=version,
         )
@@ -108,7 +108,7 @@ class AioBotocoreGenerator:
         process_aiobotocore_stubs_lite(
             self.session,
             self.output_path,
-            self.service_names,
+            self.master_service_names,
             generate_setup=self.generate_setup,
             version=version,
         )

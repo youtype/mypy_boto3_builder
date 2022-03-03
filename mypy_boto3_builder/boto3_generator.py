@@ -92,7 +92,7 @@ class Boto3Generator:
         process_master(
             self.session,
             self.output_path,
-            service_names=self.service_names,
+            service_names=self.master_service_names,
             generate_setup=self.generate_setup,
             version=version,
         )
@@ -108,7 +108,7 @@ class Boto3Generator:
         process_boto3_stubs(
             self.session,
             self.output_path,
-            self.service_names,
+            self.master_service_names,
             generate_setup=self.generate_setup,
             version=version,
         )
@@ -124,7 +124,7 @@ class Boto3Generator:
         process_boto3_stubs_lite(
             self.session,
             self.output_path,
-            self.service_names,
+            self.master_service_names,
             generate_setup=self.generate_setup,
             version=version,
         )
