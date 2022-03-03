@@ -337,9 +337,24 @@ class ServicePackage(Package):
 
     def extend_literals(self, service_names: Iterable[ServiceName]) -> None:
         """
-        Add `ServiceName`, `PaginatorName` and `WaiterName` literals.
+        Add extra literals.
+
+        - `<Class>ServiceName`
+        - `ServiceName`
+        - `ResourceServiceName`
+        - `PaginatorName`
+        - `WaiterName`
         """
+        self.literals.append(
+            TypeLiteral(f"{self.service_name.class_name}ServiceName", self.service_name.boto3_name)
+        )
         self.literals.append(TypeLiteral("ServiceName", [i.boto3_name for i in service_names]))
+        self.literals.append(
+            TypeLiteral(
+                "ResourceServiceName",
+                [i.boto3_name for i in service_names if i.has_service_resource],
+            )
+        )
 
         paginator_names = [paginator.operation_name for paginator in self.paginators]
         if paginator_names:

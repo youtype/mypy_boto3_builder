@@ -12,6 +12,7 @@ from mypy_boto3_builder.cli_parser import parse_args
 from mypy_boto3_builder.constants import DUMMY_REGION, Product
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.parsers.boto3_utils import get_boto3_resource
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name
@@ -102,6 +103,11 @@ def main() -> None:
         return
 
     service_names = get_selected_service_names(args.service_names, available_service_names)
+
+    for service_name in available_service_names:
+        service_name.has_service_resource = bool(get_boto3_resource(session, service_name))
+    for service_name in service_names:
+        service_name.has_service_resource = bool(get_boto3_resource(session, service_name))
 
     JinjaManager.update_globals(
         builder_version=args.builder_version,

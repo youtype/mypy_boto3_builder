@@ -42,6 +42,7 @@ class ServiceName:
         self.name = name
         self.class_name = class_name
         self.boto3_version = self.LATEST
+        self.has_service_resource = False
 
     def __hash__(self) -> int:
         return hash(self.name)
