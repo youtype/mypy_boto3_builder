@@ -5,6 +5,7 @@ import boto3.session as session
 from boto3.session import Session
 from botocore.client import BaseClient
 from botocore.config import Config
+from boto3.resources.base import ServiceResource
 
 __all__ = (
     "DEFAULT_SESSION",
@@ -61,4 +62,4 @@ def resource(
     aws_secret_access_key: Optional[str] = ...,
     aws_session_token: Optional[str] = ...,
     config: Optional[Config] = ...,
-) -> Any: ...
+) -> ServiceResource: ...
