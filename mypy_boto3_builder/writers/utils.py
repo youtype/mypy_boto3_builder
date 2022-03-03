@@ -37,7 +37,7 @@ def blackify(content: str, file_path: Path) -> str:
     if file_path.suffix not in (".py", ".pyi"):
         return content
 
-    file_mode = black.FileMode(is_pyi=file_path.suffix == ".pyi", line_length=LINE_LENGTH)
+    file_mode = black.Mode(is_pyi=file_path.suffix == ".pyi", line_length=LINE_LENGTH, preview=True)
     try:
         content = black.format_file_contents(content, fast=True, mode=file_mode)
     except NothingChanged:

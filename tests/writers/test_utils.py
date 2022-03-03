@@ -22,12 +22,12 @@ class TestUtils:
         file_path_mock.suffix = ".py"
         result = blackify("my content", file_path_mock)
         assert result == black_mock.format_file_contents()
-        black_mock.FileMode.assert_called_with(is_pyi=False, line_length=100)
+        black_mock.Mode.assert_called_with(is_pyi=False, line_length=100, preview=True)
 
         file_path_mock.suffix = ".pyi"
         result = blackify("my content", file_path_mock)
         assert result == black_mock.format_file_contents()
-        black_mock.FileMode.assert_called_with(is_pyi=True, line_length=100)
+        black_mock.Mode.assert_called_with(is_pyi=True, line_length=100, preview=True)
 
         black_mock.format_file_contents.side_effect = IndentationError()
         with pytest.raises(ValueError):
