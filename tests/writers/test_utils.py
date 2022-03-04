@@ -12,8 +12,9 @@ from mypy_boto3_builder.writers.utils import (
 
 
 class TestUtils:
-    @patch("mypy_boto3_builder.writers.utils.black")
-    def test_blackify(self, black_mock: MagicMock):
+    @patch("mypy_boto3_builder.writers.utils.format_file_contents")
+    @patch("mypy_boto3_builder.writers.utils.Mode")
+    def test_blackify(self, ModeMock: MagicMock, format_file_contents_mock: MagicMock):
         file_path_mock = MagicMock()
         file_path_mock.suffix = ".txt"
         result = blackify("my content", file_path_mock)
@@ -21,19 +22,19 @@ class TestUtils:
 
         file_path_mock.suffix = ".py"
         result = blackify("my content", file_path_mock)
-        assert result == black_mock.format_file_contents()
-        black_mock.Mode.assert_called_with(is_pyi=False, line_length=100, preview=True)
+        assert result == format_file_contents_mock()
+        ModeMock.assert_called_with(is_pyi=False, line_length=100, preview=True)
 
         file_path_mock.suffix = ".pyi"
         result = blackify("my content", file_path_mock)
-        assert result == black_mock.format_file_contents()
-        black_mock.Mode.assert_called_with(is_pyi=True, line_length=100, preview=True)
+        assert result == format_file_contents_mock()
+        ModeMock.assert_called_with(is_pyi=True, line_length=100, preview=True)
 
-        black_mock.format_file_contents.side_effect = IndentationError()
+        format_file_contents_mock.side_effect = IndentationError()
         with pytest.raises(ValueError):
             blackify("my content", file_path_mock)
 
-        black_mock.format_file_contents.side_effect = NothingChanged()
+        format_file_contents_mock.side_effect = NothingChanged()
         assert blackify("my content", file_path_mock) == "my content"
 
     @patch("mypy_boto3_builder.writers.utils.sort_code_string")

@@ -4,8 +4,9 @@ Jinja2 renderer and black formatter.
 from collections.abc import Iterable
 from pathlib import Path
 
-import black
 import mdformat
+from black import format_file_contents
+from black.mode import Mode
 from black.parsing import InvalidInput
 from black.report import NothingChanged
 from isort.api import sort_code_string
@@ -37,9 +38,9 @@ def blackify(content: str, file_path: Path) -> str:
     if file_path.suffix not in (".py", ".pyi"):
         return content
 
-    file_mode = black.Mode(is_pyi=file_path.suffix == ".pyi", line_length=LINE_LENGTH, preview=True)
+    file_mode = Mode(is_pyi=file_path.suffix == ".pyi", line_length=LINE_LENGTH, preview=True)
     try:
-        content = black.format_file_contents(content, fast=True, mode=file_mode)
+        content = format_file_contents(content, fast=True, mode=file_mode)
     except NothingChanged:
         pass
     except (IndentationError, InvalidInput) as e:
