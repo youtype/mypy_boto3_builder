@@ -9,6 +9,7 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
+from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.typed_dicts import ec2_tag_type, s3_copy_source_type
 
@@ -25,6 +26,16 @@ _create_tags_stub = {
         "Resources": Type.RemoveArgument,
         "Tags": TypeSubscript(Type.Optional, [TypeSubscript(Type.Sequence, [ec2_tag_type])]),
         "DryRun": Type.bool,
+    },
+}
+
+DEFAULT_VALUE_MAP: ServiceTypeMap = {
+    ServiceNameCatalog.glacier: {
+        "Client": {
+            "*": {
+                "accountId": TypeConstant("-"),
+            }
+        }
     },
 }
 
@@ -106,6 +117,11 @@ def _get_from_method_map(
     argument_name: str,
     method_type_map: MethodTypeMap,
 ) -> FakeAnnotation | None:
+    if "*" in method_type_map:
+        operation_type_map = method_type_map["*"]
+        if argument_name in operation_type_map:
+            return operation_type_map[argument_name]
+
     if method_name in method_type_map:
         operation_type_map = method_type_map[method_name]
         if argument_name in operation_type_map:
@@ -165,3 +181,28 @@ def get_method_type_stub(
         Type annotation or None.
     """
     return _get_from_service_map(service_name, class_name, method_name, argument_name, TYPE_MAP)
+
+
+def get_default_value_stub(
+    service_name: ServiceName, class_name: str, method_name: str, argument_name: str
+) -> TypeConstant | None:
+    """
+    Get default value stub for method argument.
+
+    Arguments:
+        service_name -- Service name.
+        class_name -- Parent class name.
+        method_name -- Method name.
+        argument_name -- Argument name.
+
+    Returns:
+        TypeConstant or None.
+    """
+    result = _get_from_service_map(
+        service_name, class_name, method_name, argument_name, DEFAULT_VALUE_MAP
+    )
+    if result is None:
+        return None
+    if not isinstance(result, TypeConstant):
+        return None
+    return result

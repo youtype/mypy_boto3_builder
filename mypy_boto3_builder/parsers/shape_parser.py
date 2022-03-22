@@ -33,7 +33,10 @@ from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 from mypy_boto3_builder.type_maps.literal_type_map import get_literal_type_stub
-from mypy_boto3_builder.type_maps.method_type_map import get_method_type_stub
+from mypy_boto3_builder.type_maps.method_type_map import (
+    get_default_value_stub,
+    get_method_type_stub,
+)
 from mypy_boto3_builder.type_maps.shape_type_map import get_shape_type_stub
 from mypy_boto3_builder.type_maps.typed_dicts import paginator_config_type, waiter_config_type
 
@@ -226,6 +229,11 @@ class ShapeParser:
             argument = Argument(argument_alias, argument_type)
             if argument_name not in required:
                 argument.default = Type.Ellipsis
+            default_value_stub = get_default_value_stub(
+                self.service_name, class_name, method_name, argument_name
+            )
+            if default_value_stub is not None:
+                argument.default = default_value_stub
             if optional_only and argument.required:
                 continue
 
@@ -609,9 +617,37 @@ class ShapeParser:
 
     @staticmethod
     def _get_arg_from_target(target: str) -> str:
-        if "[" not in target:
-            return target
-        return target.split("[")[0]
+        if "[" in target:
+            target = target.split("[")[0]
+        if "." in target:
+            target = target.split(".")[0]
+        return target
+
+    def _get_skip_argument_names(self, action_shape: dict[str, Any]) -> set[str]:
+        result = set()
+        params = action_shape["request"].get("params", {})
+        for param in params:
+            target = param["target"]
+            source = param["source"]
+            if source == "identifier":
+                result.add(self._get_arg_from_target(target))
+                continue
+            if source == "string" and "." in target:
+                result.add(self._get_arg_from_target(target))
+                continue
+
+        return result
+
+    def _enrich_arguments_defaults(
+        self, arguments: list[Argument], action_shape: dict[str, Any]
+    ) -> None:
+        params = action_shape["request"].get("params", {})
+        arguments_map = {a.name: a for a in arguments}
+        for param in params:
+            target = param["target"]
+            source = param["source"]
+            if source == "string" and target in arguments_map:
+                arguments_map[target].default = TypeConstant(param["value"])
 
     def _get_resource_method(
         self, resource_name: str, action_name: str, action_shape: dict[str, Any]
@@ -631,11 +667,7 @@ class ShapeParser:
         if "request" in action_shape:
             operation_name = action_shape["request"]["operation"]
             operation_shape = self._get_operation(operation_name)
-            skip_argument_names = {
-                self._get_arg_from_target(i["target"])
-                for i in action_shape["request"].get("params", {})
-                if i["source"] == "identifier"
-            }
+            skip_argument_names = self._get_skip_argument_names(action_shape)
             if operation_shape.input_shape is not None:
                 shape_arguments = self._parse_arguments(
                     resource_name,
@@ -646,6 +678,10 @@ class ShapeParser:
                 )
                 arguments.extend(self._get_kw_flags(method_name, shape_arguments))
                 arguments.extend(shape_arguments)
+
+            self._enrich_arguments_defaults(arguments, action_shape)
+            arguments.sort(key=lambda x: not x.required)
+
             if operation_shape.output_shape is not None and return_type is Type.none:
                 operation_return_type = self.parse_shape(operation_shape.output_shape, output=True)
                 return_type = operation_return_type
@@ -653,7 +689,9 @@ class ShapeParser:
         method = Method(name=method_name, arguments=arguments, return_type=return_type)
         if operation_shape and operation_shape.input_shape is not None:
             method.request_type_annotation = method.get_request_type_annotation(
-                self._get_typed_dict_name(operation_shape.input_shape, postfix=resource_name)
+                self._get_typed_dict_name(
+                    operation_shape.input_shape, postfix=f"{resource_name}{action_name}"
+                )
             )
         return method
 
