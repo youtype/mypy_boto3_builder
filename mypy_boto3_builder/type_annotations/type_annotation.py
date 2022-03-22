@@ -34,11 +34,13 @@ class TypeAnnotation(FakeAnnotation):
         "overload",  # typing.overload
         "Type",  # typing.Type
         "AsyncIterator",  # typing.AsyncIterator / typing_extensions.AsyncIterator
+        "NotRequired",  # typing.NotRequired / typing_extensions.NotRequired
     }
 
     # Set of fallback type annotations
-    FALLBACK: set[str] = {
-        "AsyncIterator",
+    FALLBACK: dict[str, tuple[int, ...] | None] = {
+        "AsyncIterator": (3, 8),
+        "NotRequired": None,
     }
 
     def __init__(self, wrapped_type: str) -> None:
@@ -66,15 +68,22 @@ class TypeAnnotation(FakeAnnotation):
         """
         Create a safe Import Record for annotation.
         """
-        if self.has_fallback():
+        if not self.has_fallback():
+            return ImportRecord(source=ImportString("typing"), name=self.get_import_name())
+        fallback_min_version = self.FALLBACK[self.get_import_name()]
+        if not fallback_min_version:
             return ImportRecord(
-                source=ImportString("typing"),
-                name=self.get_import_name(),
-                fallback=ImportRecord(
-                    source=ImportString("typing_extensions"), name=self.get_import_name()
-                ),
+                source=ImportString("typing_extensions"), name=self.get_import_name()
             )
-        return ImportRecord(source=ImportString("typing"), name=self.get_import_name())
+
+        return ImportRecord(
+            source=ImportString("typing"),
+            name=self.get_import_name(),
+            fallback=ImportRecord(
+                source=ImportString("typing_extensions"), name=self.get_import_name()
+            ),
+            min_version=fallback_min_version,
+        )
 
     def is_dict(self) -> bool:
         """

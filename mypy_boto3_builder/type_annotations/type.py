@@ -49,6 +49,7 @@ class Type:
     DictStrStr = TypeSubscript(Dict, [str, str])
     IOBytes = TypeSubscript(IO, [bytes])
     RemoveArgument = RemoveArgument()
+    NotRequired = TypeAnnotation("NotRequired")
 
     @classmethod
     def get_optional(cls, wrapped: FakeAnnotation) -> FakeAnnotation:

@@ -1,6 +1,7 @@
 import pytest
 
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
 
@@ -12,11 +13,10 @@ class TestTypedDictAttribute:
 
     def test_init(self) -> None:
         assert self.result.name == "test"
-        assert self.result.type_annotation.render() == "Dict[str, Any]"
-        assert self.result.required
+        assert self.result.is_required()
 
     def test_render(self) -> None:
-        assert self.result.render() == "test: Dict[str, Any]"
+        assert self.result.render() == '"test": Dict[str, Any]'
 
 
 class TestTypeTypedDict:
@@ -68,9 +68,6 @@ class TestTypeTypedDict:
 
     def test_is_typed_dict(self) -> None:
         assert self.result.is_typed_dict()
-
-    def test_render_class(self) -> None:
-        assert self.result.render_class() == "class MyDict:\n    required: bool\n    optional: str"
 
     def test_has_optional(self) -> None:
         assert self.result.has_optional()
@@ -140,7 +137,11 @@ class TestTypeTypedDict:
         )
 
     def test_get_children_types(self) -> None:
-        assert self.result.get_children_types() == {Type.str, Type.bool}
+        assert self.result.get_children_types() == {
+            Type.str,
+            Type.NotRequired,
+            Type.bool,
+        }
 
     def test_get_children_typed_dicts(self) -> None:
         assert len(self.result.get_children_typed_dicts()) == 0

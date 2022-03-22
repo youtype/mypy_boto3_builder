@@ -1,7 +1,7 @@
 """
 Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 """
-from collections.abc import Iterable
+from collections.abc import Iterable, Iterator
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -10,6 +10,7 @@ from mypy_boto3_builder.import_helpers.internal_import_record import InternalImp
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 class TypedDictAttribute:
@@ -22,19 +23,40 @@ class TypedDictAttribute:
         required -- Whether the attribute has to be set.
     """
 
-    def __init__(self, name: str, type_annotation: FakeAnnotation, required: bool):
+    def __init__(self, name: str, type_annotation: FakeAnnotation, required: bool) -> None:
         self.name = name
-        self.type_annotation = type_annotation
         self.required = required
+        self.type_annotation = type_annotation
 
-    def render(self) -> str:
+    def get_type_annotation(self) -> FakeAnnotation:
+        """
+        Get wrapped for non-required type annotation or raw type annotation.
+        """
+        if self.is_required():
+            return self.type_annotation
+
+        return TypeSubscript(Type.NotRequired, [self.type_annotation])
+
+    def render(self, parent_name: str = "") -> str:
         """
         Render attribute to use in class-based TypedDict definition.
 
         Returns:
             A string with argument definition.
         """
-        return f"{self.name}: {self.type_annotation.render()}"
+        return f'"{self.name}": {self.get_type_annotation().render(parent_name)}'
+
+    def get_types(self) -> set[FakeAnnotation]:
+        """
+        Get type_annotaion types with `NotRequired` if needed.
+        """
+        return self.get_type_annotation().get_types()
+
+    def is_required(self) -> bool:
+        """
+        Whether argument is required.
+        """
+        return self.required
 
 
 class TypeTypedDict(FakeAnnotation):
@@ -151,19 +173,12 @@ class TypeTypedDict(FakeAnnotation):
         """
         return True
 
-    def render_class(self) -> str:
-        """
-        Render class-based definition for debugging.
-        """
-        children = "\n".join([f"    {i.render()}" for i in self.children])
-        return f"class {self.name}:\n{children}"
-
     def has_optional(self) -> bool:
         """
         Whether TypedDict has optional keys.
         """
         for child in self.children:
-            if not child.required:
+            if not child.is_required():
                 return True
         return False
 
@@ -172,7 +187,7 @@ class TypeTypedDict(FakeAnnotation):
         Whether TypedDict has required keys.
         """
         for child in self.children:
-            if child.required:
+            if child.is_required():
                 return True
         return False
 
@@ -188,7 +203,7 @@ class TypeTypedDict(FakeAnnotation):
         """
         result: list[TypedDictAttribute] = []
         for child in self.children:
-            if child.required:
+            if child.is_required():
                 result.append(child)
         return result
 
@@ -198,7 +213,7 @@ class TypeTypedDict(FakeAnnotation):
         """
         result: list[TypedDictAttribute] = []
         for child in self.children:
-            if not child.required:
+            if not child.is_required():
                 result.append(child)
         return result
 
@@ -228,7 +243,7 @@ class TypeTypedDict(FakeAnnotation):
         """
         result: set[FakeAnnotation] = set()
         for child in self.children:
-            result.update(child.type_annotation.get_types())
+            result.update(child.get_types())
         return result
 
     def get_children_typed_dicts(self) -> set["TypeTypedDict"]:
@@ -283,3 +298,12 @@ class TypeTypedDict(FakeAnnotation):
         """
         return True
         # return any(is_reserved(child.name) for child in self.children)
+
+    def iterate_children(self) -> Iterator[TypedDictAttribute]:
+        """
+        Iterate over children from required to optional.
+        """
+        for child in self.get_required():
+            yield child
+        for child in self.get_optional():
+            yield child
