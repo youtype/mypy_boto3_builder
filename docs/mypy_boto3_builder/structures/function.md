@@ -36,6 +36,7 @@ Module-level function.
 
 #### See also
 
+- [Argument](argument.md#argument)
 - [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
 
 ### Function().body
@@ -69,6 +70,10 @@ def get_required_import_records() -> set[ImportRecord]:
 
 Extract required import records.
 
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
+
 ### Function().get_types
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L80)
@@ -78,6 +83,10 @@ def get_types() -> set[FakeAnnotation]:
 ```
 
 Extract required type annotations.
+
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
 
 ### Function().is_kw_only
 

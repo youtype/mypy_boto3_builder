@@ -15,7 +15,7 @@ Parser for Boto3 ServiceResource sub-resource, produces `structures.Resource`.
 ```python
 def get_resource_public_methods(
     resource_class: type[Boto3ServiceResource],
-) -> dict[(str, MethodType)]:
+) -> dict[str, MethodType]:
 ```
 
 Extract public methods from boto3 sub resource.

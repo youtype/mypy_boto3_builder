@@ -21,7 +21,7 @@ class TypeDocLine():
         type_name: str = '',
         line: Iterable[str] = tuple(),
         description: str = '',
-        indented: Iterable[Mapping[(str, object)]] = tuple(),
+        indented: Iterable[Mapping[str, object]] = tuple(),
     ) -> None:
 ```
 

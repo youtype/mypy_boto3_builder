@@ -24,3 +24,7 @@ Extract identifiers from boto3 resource.
 #### Returns
 
 A list of Attribute structures.
+
+#### See also
+
+- [Attribute](../structures/attribute.md#attribute)

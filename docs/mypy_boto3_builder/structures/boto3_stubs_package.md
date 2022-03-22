@@ -30,7 +30,11 @@ Structure for boto3-stubs module.
 
 #### See also
 
+- [BasePackageData](../package_data.md#basepackagedata)
+- [Function](function.md#function)
 - [Package](package.md#package)
+- [ServiceName](../service_name.md#servicename)
+- [ServicePackage](service_package.md#servicepackage)
 
 ### Boto3StubsPackage().essential_service_names
 
@@ -42,6 +46,10 @@ def essential_service_names() -> list[ServiceName]:
 ```
 
 Service names marked as essential.
+
+#### See also
+
+- [ServiceName](../service_name.md#servicename)
 
 ### Boto3StubsPackage().get_all_names
 
@@ -63,6 +71,10 @@ def get_init_required_import_records() -> list[ImportRecord]:
 
 Get import records for `__init__.py[i]`.
 
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
+
 ### Boto3StubsPackage().get_session_required_import_records
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L68)
@@ -72,3 +84,7 @@ def get_session_required_import_records() -> list[ImportRecord]:
 ```
 
 Get import reciords for `session.py[i]`.
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)

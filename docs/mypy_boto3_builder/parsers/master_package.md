@@ -32,3 +32,4 @@ MasterPackage structure.
 #### See also
 
 - [MasterPackage](../structures/master_package.md#masterpackage)
+- [ServiceName](../service_name.md#servicename)

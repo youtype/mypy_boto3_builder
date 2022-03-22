@@ -37,7 +37,7 @@ Method or function argument.
 
 ### Argument().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L57)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L60)
 
 ```python
 def get_types() -> set[FakeAnnotation]:
@@ -45,9 +45,13 @@ def get_types() -> set[FakeAnnotation]:
 
 Extract required type annotations.
 
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
+
 ### Argument().is_kwflag
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L51)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L54)
 
 ```python
 def is_kwflag() -> bool:
@@ -57,7 +61,7 @@ Whether argument is a `*` keywords separator.
 
 ### Argument.kwflag
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L44)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L47)
 
 ```python
 @classmethod
@@ -78,7 +82,7 @@ Render argument to a string.
 
 ### Argument().required
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L69)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L72)
 
 ```python
 @property

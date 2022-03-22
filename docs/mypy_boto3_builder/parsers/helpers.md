@@ -13,7 +13,7 @@ Helpers for parsing methods and attributes.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/helpers.py#L18)
 
 ```python
-def get_public_methods(inspect_class: object) -> dict[(str, MethodType)]:
+def get_public_methods(inspect_class: object) -> dict[str, MethodType]:
 ```
 
 Extract public methods from any class.

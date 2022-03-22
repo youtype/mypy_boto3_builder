@@ -27,6 +27,10 @@ Get a list of boto3 supported service names.
 
 A list of supported services.
 
+#### See also
+
+- [ServiceName](service_name.md#servicename)
+
 ## get_selected_service_names
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L22)
@@ -51,6 +55,10 @@ Supports `all` to select all available service names.
 #### Returns
 
 A list of selected ServiceNames.
+
+#### See also
+
+- [ServiceName](service_name.md#servicename)
 
 ## main
 

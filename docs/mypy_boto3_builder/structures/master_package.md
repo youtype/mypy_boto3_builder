@@ -32,6 +32,8 @@ Structure for mypy-boto3 package.
 #### See also
 
 - [Package](package.md#package)
+- [ServiceName](../service_name.md#servicename)
+- [ServicePackage](service_package.md#servicepackage)
 
 ### MasterPackage().essential_service_names
 
@@ -43,3 +45,7 @@ def essential_service_names() -> list[ServiceName]:
 ```
 
 List of services maked as essential.
+
+#### See also
+
+- [ServiceName](../service_name.md#servicename)

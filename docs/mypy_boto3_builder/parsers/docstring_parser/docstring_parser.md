@@ -34,6 +34,7 @@ Botocore docstring parser.
 
 #### See also
 
+- [Argument](../../structures/argument.md#argument)
 - [ServiceName](../../service_name.md#servicename)
 
 ### DocstringParser().get_arguments
@@ -53,6 +54,10 @@ Get list of function arguments with type annottions.
 #### Returns
 
 A list of `Argument` structures.
+
+#### See also
+
+- [Argument](../../structures/argument.md#argument)
 
 ### DocstringParser().get_return_type
 

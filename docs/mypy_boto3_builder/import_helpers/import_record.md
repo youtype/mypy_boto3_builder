@@ -26,7 +26,7 @@ class ImportRecord():
         source: ImportString,
         name: str = '',
         alias: str = '',
-        min_version: tuple[(int, ...)] = (3, 8),
+        min_version: tuple[int, ...] = (3, 8),
         fallback: _R | None = None,
     ) -> None:
 ```

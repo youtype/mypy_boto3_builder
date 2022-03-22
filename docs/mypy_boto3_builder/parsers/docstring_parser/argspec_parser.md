@@ -38,6 +38,10 @@ def get_arguments(
 
 Get arguments from `class_name.method_name` method `func`.
 
+#### See also
+
+- [Argument](../../structures/argument.md#argument)
+
 ### ArgSpecParser().get_return_type
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/argspec_parser.py#L77)

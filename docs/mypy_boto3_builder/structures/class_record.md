@@ -33,6 +33,12 @@ class ClassRecord():
 
 Base class for all structures that can be rendered to a class.
 
+#### See also
+
+- [Attribute](attribute.md#attribute)
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
+- [Method](method.md#method)
+
 ### ClassRecord().alias_name
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L44)
@@ -65,6 +71,10 @@ def get_internal_imports() -> list[InternalImport]:
 
 Get internal imports from methods.
 
+#### See also
+
+- [InternalImport](../type_annotations/internal_import.md#internalimport)
+
 ### ClassRecord().get_method
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L114)
@@ -89,6 +99,10 @@ def get_required_import_records() -> set[ImportRecord]:
 
 Extract import records from required type annotations.
 
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
+
 ### ClassRecord().get_types
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L61)
@@ -98,6 +112,10 @@ def get_types() -> set[FakeAnnotation]:
 ```
 
 Extract type annotations for methods, attributes and bases.
+
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
 
 ### ClassRecord().method_names
 

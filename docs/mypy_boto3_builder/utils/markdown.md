@@ -65,6 +65,10 @@ MarkDown Table of Contents.
 
 - `headers` - List of headers
 
+#### See also
+
+- [Header](#header)
+
 ### TableOfContents.parse
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L51)

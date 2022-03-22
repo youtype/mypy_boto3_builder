@@ -29,7 +29,11 @@ Structure for boto3-stubs module.
 
 #### See also
 
+- [BasePackageData](../package_data.md#basepackagedata)
+- [Function](function.md#function)
 - [Package](package.md#package)
+- [ServiceName](../service_name.md#servicename)
+- [ServicePackage](service_package.md#servicepackage)
 
 ### AioBotocoreStubsPackage().essential_service_names
 
@@ -41,6 +45,10 @@ def essential_service_names() -> list[ServiceName]:
 ```
 
 Service names marked as essential.
+
+#### See also
+
+- [ServiceName](../service_name.md#servicename)
 
 ### AioBotocoreStubsPackage().get_all_names
 
@@ -61,3 +69,7 @@ def get_session_required_import_records() -> list[ImportRecord]:
 ```
 
 Get import reciords for `session.py[i]`.
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)

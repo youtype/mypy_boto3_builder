@@ -58,6 +58,7 @@ Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 #### See also
 
 - [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [TypedDictAttribute](#typeddictattribute)
 
 ### TypeTypedDict().add_attribute
 
@@ -127,6 +128,10 @@ def get_children_literals(
 
 Extract required TypeLiteral list from attributes.
 
+#### See also
+
+- [TypeLiteral](type_literal.md#typeliteral)
+
 ### TypeTypedDict().get_children_typed_dicts
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L234)
@@ -146,6 +151,10 @@ def get_children_types() -> set[FakeAnnotation]:
 ```
 
 Extract required type annotatyions from attributes.
+
+#### See also
+
+- [FakeAnnotation](fake_annotation.md#fakeannotation)
 
 ### TypeTypedDict().get_import_record
 
@@ -171,6 +180,10 @@ def get_optional() -> list[TypedDictAttribute]:
 
 Get a list of optional attributes.
 
+#### See also
+
+- [TypedDictAttribute](#typeddictattribute)
+
 ### TypeTypedDict().get_required
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L185)
@@ -180,6 +193,10 @@ def get_required() -> list[TypedDictAttribute]:
 ```
 
 Get a list of required attributes.
+
+#### See also
+
+- [TypedDictAttribute](#typeddictattribute)
 
 ### TypeTypedDict().get_sort_key
 

@@ -27,7 +27,7 @@ Convert header to markdown anchor link.
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L156)
 
 ```python
-def get_botocore_class_name(metadata: dict[(str, str)]) -> str:
+def get_botocore_class_name(metadata: dict[str, str]) -> str:
 ```
 
 Get Botocore class name from Service metadata.

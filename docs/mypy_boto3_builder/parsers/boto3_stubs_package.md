@@ -32,4 +32,6 @@ Boto3StubsPackage structure.
 
 #### See also
 
+- [BasePackageData](../package_data.md#basepackagedata)
 - [Boto3StubsPackage](../structures/boto3_stubs_package.md#boto3stubspackage)
+- [ServiceName](../service_name.md#servicename)

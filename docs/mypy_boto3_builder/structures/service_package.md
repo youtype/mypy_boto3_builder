@@ -45,9 +45,15 @@ Parsed Service package.
 
 #### See also
 
+- [BasePackageData](../package_data.md#basepackagedata)
 - [Client](client.md#client)
+- [Function](function.md#function)
 - [Package](package.md#package)
+- [Paginator](paginator.md#paginator)
 - [ServiceName](../service_name.md#servicename)
+- [TypeLiteral](../type_annotations/type_literal.md#typeliteral)
+- [TypeTypedDict](../type_annotations/type_typed_dict.md#typetypeddict)
+- [Waiter](waiter.md#waiter)
 
 ### ServicePackage().extend_literals
 
@@ -65,6 +71,10 @@ Add extra literals.
 - `PaginatorName`
 - `WaiterName`
 
+#### See also
+
+- [ServiceName](../service_name.md#servicename)
+
 ### ServicePackage().extract_literals
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L53)
@@ -74,6 +84,10 @@ def extract_literals() -> list[TypeLiteral]:
 ```
 
 Extract literals from children.
+
+#### See also
+
+- [TypeLiteral](../type_annotations/type_literal.md#typeliteral)
 
 ### ServicePackage().extract_typed_dicts
 
@@ -87,6 +101,10 @@ Extract typed dicts from children.
 
 Attempts to resolve circular typed dicts.
 
+#### See also
+
+- [TypeTypedDict](../type_annotations/type_typed_dict.md#typetypeddict)
+
 ### ServicePackage().get_client_required_import_records
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L200)
@@ -97,20 +115,24 @@ def get_client_required_import_records() -> list[ImportRecord]:
 
 Get import records for `client.py[i]`.
 
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
+
 ### ServicePackage().get_doc_link
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L369)
 
 ```python
 def get_doc_link(
-    file: Literal[(
+    file: Literal[
         'client',
         'service_resource',
         'waiters',
         'paginators',
         'type_defs',
         'literals',
-    )],
+    ],
     *parts: str,
 ) -> str:
 ```
@@ -142,6 +164,10 @@ def get_init_import_records() -> list[ImportRecord]:
 
 Get import records for `__init__.py[i]`.
 
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
+
 ### ServicePackage().get_literals_required_import_records
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L303)
@@ -151,6 +177,10 @@ def get_literals_required_import_records() -> list[ImportRecord]:
 ```
 
 Get import records for `literals.py[i]`.
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
 
 ### ServicePackage().get_local_doc_link
 
@@ -172,6 +202,10 @@ def get_paginator_required_import_records() -> list[ImportRecord]:
 
 Get import records for `paginator.py[i]`.
 
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
+
 ### ServicePackage().get_service_resource_required_import_records
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L216)
@@ -181,6 +215,10 @@ def get_service_resource_required_import_records() -> list[ImportRecord]:
 ```
 
 Get import records for `service_resource.py[i]`.
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
 
 ### ServicePackage().get_type_defs_required_import_records
 
@@ -192,6 +230,10 @@ def get_type_defs_required_import_records() -> list[ImportRecord]:
 
 Get import records for `type_defs.py[i]`.
 
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
+
 ### ServicePackage().get_types
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L133)
@@ -202,6 +244,10 @@ def get_types() -> set[FakeAnnotation]:
 
 Extract type annotations from Client, ServiceResource, waiters and paginators.
 
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
+
 ### ServicePackage().get_waiter_required_import_records
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L252)
@@ -211,6 +257,10 @@ def get_waiter_required_import_records() -> list[ImportRecord]:
 ```
 
 Get import records for `waiter.py[i]`.
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
 
 ### ServicePackage().validate
 

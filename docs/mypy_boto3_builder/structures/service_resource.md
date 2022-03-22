@@ -79,6 +79,10 @@ def get_collections() -> list[Collection]:
 
 Get a list of Service Resource collections.
 
+#### See also
+
+- [Collection](collection.md#collection)
+
 ### ServiceResource().get_sub_resources
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L138)
@@ -93,6 +97,10 @@ Get sub-resource in safe order.
 
 A list of sub resources.
 
+#### See also
+
+- [Resource](resource.md#resource)
+
 ### ServiceResource().get_types
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L98)
@@ -102,3 +110,7 @@ def get_types() -> set[FakeAnnotation]:
 ```
 
 Extract type annotations for collections and sub-resources.
+
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)

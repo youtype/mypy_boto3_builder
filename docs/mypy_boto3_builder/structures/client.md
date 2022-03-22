@@ -104,6 +104,10 @@ def get_required_import_records() -> set[ImportRecord]:
 
 Extract import records from required type annotations.
 
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
+
 ### Client().own_methods
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L83)
@@ -114,3 +118,7 @@ def own_methods() -> Iterator[Method]:
 ```
 
 Get a list of auto-generated methods.
+
+#### See also
+
+- [Method](method.md#method)

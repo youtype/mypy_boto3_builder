@@ -9,7 +9,7 @@ String to type annotation map that find type annotation by method and argument n
 
 ## get_method_type_stub
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/method_type_map.py#L152)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/method_type_map.py#L168)
 
 ```python
 def get_method_type_stub(

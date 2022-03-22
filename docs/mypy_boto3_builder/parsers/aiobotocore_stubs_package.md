@@ -33,3 +33,5 @@ AioBotocoreStubsPackage structure.
 #### See also
 
 - [AioBotocoreStubsPackage](../structures/aiobotocore_stubs_package.md#aiobotocorestubspackage)
+- [BasePackageData](../package_data.md#basepackagedata)
+- [ServiceName](../service_name.md#servicename)

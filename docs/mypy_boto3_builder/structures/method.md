@@ -32,3 +32,7 @@ def call_arguments() -> list[Argument]:
 ```
 
 Arguments that are used in method call.
+
+#### See also
+
+- [Argument](argument.md#argument)

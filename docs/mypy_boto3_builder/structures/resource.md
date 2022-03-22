@@ -45,3 +45,7 @@ def get_types() -> set[FakeAnnotation]:
 ```
 
 Extract type annotations from collections.
+
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)

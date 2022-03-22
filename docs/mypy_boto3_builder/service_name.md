@@ -83,14 +83,14 @@ Get link to boto3 docs with anchor.
 ```python
 @staticmethod
 def get_md_doc_link(
-    file: Literal[(
+    file: Literal[
         'client',
         'service_resource',
         'waiters',
         'paginators',
         'type_defs',
         'literals',
-    )],
+    ],
     *parts: str,
 ) -> str:
 ```

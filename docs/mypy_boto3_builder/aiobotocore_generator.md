@@ -43,6 +43,10 @@ AioBotocore stubs/docs generator.
 - `disable_smart_version` - Whether to create a new postrelease if version is already published
 - `version` - Package build version
 
+#### See also
+
+- [ServiceName](service_name.md#servicename)
+
 ### AioBotocoreGenerator().generate_docs
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L144)

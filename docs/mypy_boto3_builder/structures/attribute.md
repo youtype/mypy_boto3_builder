@@ -50,6 +50,10 @@ Return all type annotations used.
 
 A set of type annotations.
 
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
+
 ### Attribute().render
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L40)

@@ -27,6 +27,11 @@ class Package():
 
 Parent class for all package structures.
 
+#### See also
+
+- [BasePackageData](../package_data.md#basepackagedata)
+- [ServiceName](../service_name.md#servicename)
+
 ### Package().directory_name
 
 [[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L31)

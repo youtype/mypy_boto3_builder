@@ -19,7 +19,7 @@ Parser for botocore shape files.
 
 ## ShapeParser
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L47)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L50)
 
 ```python
 class ShapeParser():
@@ -39,10 +39,10 @@ Parser for botocore shape files.
 
 ### ShapeParser().get_client_method_map
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L262)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L270)
 
 ```python
-def get_client_method_map() -> dict[(str, Method)]:
+def get_client_method_map() -> dict[str, Method]:
 ```
 
 Get client methods from shape.
@@ -51,9 +51,13 @@ Get client methods from shape.
 
 A map of method name to Method.
 
+#### See also
+
+- [Method](../structures/method.md#method)
+
 ### ShapeParser().get_collection_batch_methods
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L698)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L736)
 
 ```python
 def get_collection_batch_methods(
@@ -74,9 +78,13 @@ Get batch operations for Resource collection.
 
 List of Method records.
 
+#### See also
+
+- [Method](../structures/method.md#method)
+
 ### ShapeParser().get_collection_filter_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L660)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L698)
 
 ```python
 def get_collection_filter_method(
@@ -105,7 +113,7 @@ Filter Method record.
 
 ### ShapeParser().get_paginate_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L479)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L487)
 
 ```python
 def get_paginate_method(paginator_name: str) -> Method:
@@ -127,7 +135,7 @@ Method.
 
 ### ShapeParser().get_paginator_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L166)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L169)
 
 ```python
 def get_paginator_names() -> list[str]:
@@ -141,10 +149,10 @@ A list of paginator names.
 
 ### ShapeParser().get_resource_method_map
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L575)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L583)
 
 ```python
-def get_resource_method_map(resource_name: str) -> dict[(str, Method)]:
+def get_resource_method_map(resource_name: str) -> dict[str, Method]:
 ```
 
 Get methods for Resource.
@@ -157,12 +165,16 @@ Get methods for Resource.
 
 A map of method name to Method.
 
+#### See also
+
+- [Method](../structures/method.md#method)
+
 ### ShapeParser().get_service_resource_method_map
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L554)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L562)
 
 ```python
-def get_service_resource_method_map() -> dict[(str, Method)]:
+def get_service_resource_method_map() -> dict[str, Method]:
 ```
 
 Get methods for ServiceResource.
@@ -171,9 +183,13 @@ Get methods for ServiceResource.
 
 A map of method name to Method.
 
+#### See also
+
+- [Method](../structures/method.md#method)
+
 ### ShapeParser().get_wait_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L527)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L535)
 
 ```python
 def get_wait_method(waiter_name: str) -> Method:
@@ -195,7 +211,7 @@ Method.
 
 ### ShapeParser().parse_shape
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L417)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L425)
 
 ```python
 def parse_shape(
@@ -225,7 +241,7 @@ TypeAnnotation or similar class.
 
 ## ShapeParserError
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L41)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L44)
 
 ```python
 class ShapeParserError(Exception):
