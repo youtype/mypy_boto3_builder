@@ -1,6 +1,6 @@
 # Writers
 
-> Auto-generated documentation for [mypy_boto3_builder.writers](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/__init__.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.writers](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/__init__.py) module.
 
 Renderers of parsed info produced by parsers.
 

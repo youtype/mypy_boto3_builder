@@ -1,6 +1,6 @@
 # DocstringParser
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.docstring_parser](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.docstring_parser](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py) module.
 
 Botocore docstring parser.
 
@@ -11,7 +11,7 @@ Botocore docstring parser.
 
 ## DocstringParser
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py#L26)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py#L26)
 
 ```python
 class DocstringParser():
@@ -39,7 +39,7 @@ Botocore docstring parser.
 
 ### DocstringParser().get_arguments
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py#L191)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py#L191)
 
 ```python
 def get_arguments(input_string: str) -> list[Argument]:
@@ -61,7 +61,7 @@ A list of `Argument` structures.
 
 ### DocstringParser().get_return_type
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py#L298)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/docstring_parser.py#L298)
 
 ```python
 def get_return_type(input_string: str) -> FakeAnnotation:

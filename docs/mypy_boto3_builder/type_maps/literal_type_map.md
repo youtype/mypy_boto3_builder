@@ -1,6 +1,6 @@
 # Literal Type Map
 
-> Auto-generated documentation for [mypy_boto3_builder.type_maps.literal_type_map](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/literal_type_map.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.type_maps.literal_type_map](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_maps/literal_type_map.py) module.
 
 String to type annotation map to replace overriden botocore literals.
 
@@ -9,7 +9,7 @@ String to type annotation map to replace overriden botocore literals.
 
 ## get_literal_type_stub
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/literal_type_map.py#L46)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_maps/literal_type_map.py#L46)
 
 ```python
 def get_literal_type_stub(

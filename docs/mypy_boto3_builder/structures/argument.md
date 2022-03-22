@@ -1,6 +1,6 @@
 # Argument
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.argument](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.argument](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py) module.
 
 Method or function argument.
 
@@ -14,7 +14,7 @@ Method or function argument.
 
 ## Argument
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L12)
 
 ```python
 class Argument():
@@ -37,7 +37,7 @@ Method or function argument.
 
 ### Argument().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L60)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L60)
 
 ```python
 def get_types() -> set[FakeAnnotation]:
@@ -51,7 +51,7 @@ Extract required type annotations.
 
 ### Argument().is_kwflag
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L54)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L54)
 
 ```python
 def is_kwflag() -> bool:
@@ -61,7 +61,7 @@ Whether argument is a `*` keywords separator.
 
 ### Argument.kwflag
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L47)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L47)
 
 ```python
 @classmethod
@@ -72,7 +72,7 @@ Create `*` keywords separator.
 
 ### Argument().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L35)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L35)
 
 ```python
 def render() -> str:
@@ -82,7 +82,7 @@ Render argument to a string.
 
 ### Argument().required
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L72)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/argument.py#L72)
 
 ```python
 @property

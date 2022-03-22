@@ -1,6 +1,6 @@
 # Parse Attributes
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.parse_attributes](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_attributes.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.parse_attributes](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/parse_attributes.py) module.
 
 Parser for Boto3 ServiceResource attributes, produces `structures.Attribute`.
 
@@ -9,7 +9,7 @@ Parser for Boto3 ServiceResource attributes, produces `structures.Attribute`.
 
 ## parse_attributes
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_attributes.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/parse_attributes.py#L12)
 
 ```python
 def parse_attributes(

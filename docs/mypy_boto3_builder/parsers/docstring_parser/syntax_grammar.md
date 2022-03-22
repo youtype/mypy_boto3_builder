@@ -1,6 +1,6 @@
 # SyntaxGrammar
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.syntax_grammar](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.syntax_grammar](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py) module.
 
 Pyparsing grammar for request and response syntax.
 
@@ -12,7 +12,7 @@ Pyparsing grammar for request and response syntax.
 
 ## SyntaxGrammar
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L19)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L19)
 
 ```python
 class SyntaxGrammar():
@@ -44,7 +44,7 @@ response_syntax ::= "**Response Syntax**" "::" (list_value | dict_value)
 
 ### SyntaxGrammar.disable_packrat
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L146)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L146)
 
 ```python
 @staticmethod
@@ -55,7 +55,7 @@ Disable packrat boost.
 
 ### SyntaxGrammar.enable_packrat
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L139)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L139)
 
 ```python
 @staticmethod
@@ -66,7 +66,7 @@ Enable packrat boost.
 
 ### SyntaxGrammar.reset
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L132)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L132)
 
 ```python
 @classmethod

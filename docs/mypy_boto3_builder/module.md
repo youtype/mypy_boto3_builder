@@ -1,6 +1,6 @@
 # Module
 
-> Auto-generated documentation for [mypy_boto3_builder.__main__](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/__main__.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.__main__](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/__main__.py) module.
 
 Main entrypoint for module.
 

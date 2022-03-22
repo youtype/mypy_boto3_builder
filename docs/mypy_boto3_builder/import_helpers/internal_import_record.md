@@ -1,6 +1,6 @@
 # InternalImportRecord
 
-> Auto-generated documentation for [mypy_boto3_builder.import_helpers.internal_import_record](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.import_helpers.internal_import_record](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/internal_import_record.py) module.
 
 Helper for Python import strings with not set master module name.
 
@@ -10,7 +10,7 @@ Helper for Python import strings with not set master module name.
 
 ## InternalImportRecord
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L9)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/internal_import_record.py#L9)
 
 ```python
 class InternalImportRecord(ImportRecord):
@@ -36,7 +36,7 @@ Helper for Python import strings with not set master module name.
 
 ### InternalImportRecord().get_external
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L24)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/import_helpers/internal_import_record.py#L24)
 
 ```python
 def get_external(module_name: str) -> ImportRecord:

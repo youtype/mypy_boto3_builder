@@ -1,6 +1,6 @@
 # BotocoreChangelog
 
-> Auto-generated documentation for [mypy_boto3_builder.utils.botocore_changelog](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/botocore_changelog.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.utils.botocore_changelog](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/botocore_changelog.py) module.
 
 Parser for boto3 changelog.
 
@@ -10,7 +10,7 @@ Parser for boto3 changelog.
 
 ## BotocoreChangelog
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/botocore_changelog.py#L10)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/botocore_changelog.py#L10)
 
 ```python
 class BotocoreChangelog():
@@ -20,7 +20,7 @@ Parser for boto3 changelog.
 
 ### BotocoreChangelog().get_updated_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/botocore_changelog.py#L36)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/botocore_changelog.py#L36)
 
 ```python
 def get_updated_service_names(version: str) -> list[str]:

@@ -1,6 +1,6 @@
 # AioBotocoreGenerator
 
-> Auto-generated documentation for [mypy_boto3_builder.aiobotocore_generator](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.aiobotocore_generator](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/aiobotocore_generator.py) module.
 
 AIOBotocore stubs/docs generator.
 
@@ -12,7 +12,7 @@ AIOBotocore stubs/docs generator.
 
 ## AioBotocoreGenerator
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L26)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/aiobotocore_generator.py#L26)
 
 ```python
 class AioBotocoreGenerator():
@@ -49,7 +49,7 @@ AioBotocore stubs/docs generator.
 
 ### AioBotocoreGenerator().generate_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L144)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/aiobotocore_generator.py#L144)
 
 ```python
 def generate_docs() -> None:
@@ -59,7 +59,7 @@ Generate service and master docs.
 
 ### AioBotocoreGenerator().generate_service_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L116)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/aiobotocore_generator.py#L116)
 
 ```python
 def generate_service_stubs() -> None:
@@ -69,7 +69,7 @@ Generate service stubs.
 
 ### AioBotocoreGenerator().generate_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/aiobotocore_generator.py#L77)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/aiobotocore_generator.py#L77)
 
 ```python
 def generate_stubs() -> None:

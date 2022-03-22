@@ -1,6 +1,6 @@
 # Logger
 
-> Auto-generated documentation for [mypy_boto3_builder.logger](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/logger.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.logger](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/logger.py) module.
 
 Logging utils.
 
@@ -9,7 +9,7 @@ Logging utils.
 
 ## get_logger
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/logger.py#L11)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/logger.py#L11)
 
 ```python
 def get_logger(level: int = 0) -> logging.Logger:

@@ -1,6 +1,6 @@
 # TypeConstant
 
-> Auto-generated documentation for [mypy_boto3_builder.type_annotations.type_constant](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.type_annotations.type_constant](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_constant.py) module.
 
 Wrapper for constant like `False` or `"test"`.
 
@@ -13,7 +13,7 @@ Wrapper for constant like `False` or `"test"`.
 
 ## TypeConstant
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L8)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_constant.py#L8)
 
 ```python
 class TypeConstant(FakeAnnotation):
@@ -32,7 +32,7 @@ Wrapper for constant like `False` or `"test"`.
 
 ### TypeConstant().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L37)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_constant.py#L37)
 
 ```python
 def copy() -> 'TypeConstant':
@@ -42,7 +42,7 @@ Create a copy of type annotation wrapper.
 
 ### TypeConstant().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L31)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_constant.py#L31)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -56,7 +56,7 @@ Get empty import record, because constants do not require imports.
 
 ### TypeConstant().is_none
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L43)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_constant.py#L43)
 
 ```python
 def is_none() -> bool:
@@ -66,7 +66,7 @@ Whether value is None.
 
 ### TypeConstant().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L19)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_constant.py#L19)
 
 ```python
 def render(parent_name: str = '') -> str:

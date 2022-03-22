@@ -1,6 +1,6 @@
 # JinjaManager
 
-> Auto-generated documentation for [mypy_boto3_builder.jinja_manager](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.jinja_manager](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py) module.
 
 Jinja2 `Environment` manager.
 
@@ -12,7 +12,7 @@ Jinja2 `Environment` manager.
 
 ## JinjaManager
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L11)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L11)
 
 ```python
 class JinjaManager():
@@ -22,7 +22,7 @@ Jinja2 `Environment` manager.
 
 ### JinjaManager.escape_md
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L31)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L31)
 
 ```python
 @staticmethod
@@ -33,7 +33,7 @@ Escape underscore characters.
 
 ### JinjaManager.get_environment
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L38)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L38)
 
 ```python
 @classmethod
@@ -44,7 +44,7 @@ Get `jinja2.Environment`.
 
 ### JinjaManager.update_globals
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L21)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/jinja_manager.py#L21)
 
 ```python
 @classmethod

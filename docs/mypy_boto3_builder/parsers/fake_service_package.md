@@ -1,6 +1,6 @@
 # Fake Service Package
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.fake_service_package](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/fake_service_package.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.fake_service_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/fake_service_package.py) module.
 
 Fake parser that produces `structures.ServiceModule` for master module and stubs.
 
@@ -9,7 +9,7 @@ Fake parser that produces `structures.ServiceModule` for master module and stubs
 
 ## parse_fake_service_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/fake_service_package.py#L19)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/fake_service_package.py#L19)
 
 ```python
 def parse_fake_service_package(

@@ -1,6 +1,6 @@
 # PyPIManager
 
-> Auto-generated documentation for [mypy_boto3_builder.utils.pypi_manager](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.utils.pypi_manager](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/pypi_manager.py) module.
 
 Version manager for PyPI packages.
 
@@ -11,7 +11,7 @@ Version manager for PyPI packages.
 
 ## PyPIManager
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L11)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/pypi_manager.py#L11)
 
 ```python
 class PyPIManager():
@@ -26,7 +26,7 @@ Version manager for PyPI packages.
 
 ### PyPIManager().get_next_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L34)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/pypi_manager.py#L34)
 
 ```python
 def get_next_version(version: str) -> str:
@@ -40,7 +40,7 @@ Get not existing version or closest not existing post-release.
 
 ### PyPIManager().has_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L25)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/pypi_manager.py#L25)
 
 ```python
 def has_version(version: str) -> bool:

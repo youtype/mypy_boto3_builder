@@ -1,6 +1,6 @@
 # BotocoreStubsPackage
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.botocore_stubs_package](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/botocore_stubs_package.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.botocore_stubs_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/botocore_stubs_package.py) module.
 
 Structure for botocore-stubs package.
 
@@ -9,7 +9,7 @@ Structure for botocore-stubs package.
 
 ## BotocoreStubsPackage
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/botocore_stubs_package.py#L8)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/botocore_stubs_package.py#L8)
 
 ```python
 class BotocoreStubsPackage(Package):

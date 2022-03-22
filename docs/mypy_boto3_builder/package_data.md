@@ -1,6 +1,6 @@
 # Package Data
 
-> Auto-generated documentation for [mypy_boto3_builder.package_data](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.package_data](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py) module.
 
 PyPI package data constants.
 
@@ -21,7 +21,7 @@ PyPI package data constants.
 
 ## BasePackageData
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L13)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L13)
 
 ```python
 class BasePackageData():
@@ -31,7 +31,7 @@ Generic package data.
 
 ### BasePackageData.get_library_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L40)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L40)
 
 ```python
 @staticmethod
@@ -42,7 +42,7 @@ Get underlying library version.
 
 ### BasePackageData.get_service_package_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L26)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L26)
 
 ```python
 @classmethod
@@ -57,7 +57,7 @@ Get service package name.
 
 ### BasePackageData.get_service_pypi_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L47)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L47)
 
 ```python
 @classmethod
@@ -72,7 +72,7 @@ Get link to PyPI.
 
 ### BasePackageData.get_service_pypi_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L33)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L33)
 
 ```python
 @classmethod
@@ -87,7 +87,7 @@ Get service package PyPI name.
 
 ## Boto3StubsLitePackageData
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L114)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L114)
 
 ```python
 class Boto3StubsLitePackageData(Boto3StubsPackageData):
@@ -101,7 +101,7 @@ boto3-stubs-lite package data.
 
 ## Boto3StubsPackageData
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L102)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L102)
 
 ```python
 class Boto3StubsPackageData(BasePackageData):
@@ -115,7 +115,7 @@ boto3-stubs package data.
 
 ## BotocoreStubsPackageData
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L55)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L55)
 
 ```python
 class BotocoreStubsPackageData(BasePackageData):
@@ -129,7 +129,7 @@ botocore-stubs package data.
 
 ### BotocoreStubsPackageData.get_library_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L64)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L64)
 
 ```python
 @staticmethod
@@ -140,7 +140,7 @@ Get underlying library version.
 
 ## MypyBoto3PackageData
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L123)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L123)
 
 ```python
 class MypyBoto3PackageData(BasePackageData):
@@ -154,7 +154,7 @@ mypy-boto3 package data.
 
 ## TypesAioBotocoreLitePackageData
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L93)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L93)
 
 ```python
 class TypesAioBotocoreLitePackageData(TypesAioBotocorePackageData):
@@ -168,7 +168,7 @@ types-aiobotocore-lite package data.
 
 ## TypesAioBotocorePackageData
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L72)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L72)
 
 ```python
 class TypesAioBotocorePackageData(BasePackageData):
@@ -182,7 +182,7 @@ aiobotocore-stubs package data.
 
 ### TypesAioBotocorePackageData.get_library_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L85)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/package_data.py#L85)
 
 ```python
 @staticmethod
