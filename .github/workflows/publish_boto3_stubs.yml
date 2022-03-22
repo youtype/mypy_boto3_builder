@@ -10,7 +10,7 @@ on:
         description: Target boto3 version
         required: false
       force:
-        description: Publish new post-release if exists
+        description: Continue if version is already published
         required: false
         default: "false"
       build_all:
@@ -21,6 +21,10 @@ on:
         description: Specify version explicitly instead of finding it automatically
         required: false
         default: ""
+      smart_version:
+        description: Publish a new post-release of a package if exists
+        required: false
+        default: "true"
 
 jobs:
   check-boto3-version:

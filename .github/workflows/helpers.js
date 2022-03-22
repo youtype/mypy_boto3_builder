@@ -105,7 +105,6 @@ function getBotocoreVersion(version) {
 
 async function extractVersions({ core, context }) {
     core.setOutput('version', '')
-    core.setOutput('no_smart_version', '')
 
     const boto3Version = (
         (context.payload.inputs && context.payload.inputs.boto3_version) ?
@@ -119,6 +118,10 @@ async function extractVersions({ core, context }) {
         core.info(`Boto3 version is not a micro release ${boto3Version}, building all packages`)
         buildAll = 'true'
     }
+
+    const smartVersion = context.payload.inputs ? context.payload.inputs.smart_version !== 'false' : true
+    core.info(`Smart version = ${smartVersion}`)
+    core.setOutput('no_smart_version', smartVersion ? '' : '--no-smart-version')
 
     const botocoreVersion = getBotocoreVersion(boto3Version)
     core.info(`Boto3 version = ${boto3Version}`)
@@ -138,7 +141,6 @@ async function extractVersions({ core, context }) {
         core.info(`Forced boto3-stubs version: ${buildVersion}`)
         core.info(`Build version = ${buildVersion}`)
         core.setOutput('version', buildVersion)
-        core.setOutput('no_smart_version', '--no-smart-version')
         return
     }
 
@@ -174,7 +176,6 @@ async function extractDownloadLinks({ core }) {
 
 async function extractAioBotocoreVersions({ core, context }) {
     core.setOutput('version', '')
-    core.setOutput('no_smart_version', '')
 
     const aiobotocoreVersion = (
         (context.payload.inputs && context.payload.inputs.aiobotocore_version) ?
@@ -193,6 +194,10 @@ async function extractAioBotocoreVersions({ core, context }) {
         buildAll = 'true'
     }
 
+    const smartVersion = context.payload.inputs ? context.payload.inputs.smart_version !== 'false' : true
+    core.info(`Smart version = ${smartVersion}`)
+    core.setOutput('no_smart_version', smartVersion ? '' : '--no-smart-version')
+
     core.info(`Build all packages = ${buildAll}`)
     core.setOutput('build-all', buildAll)
 
@@ -204,7 +209,6 @@ async function extractAioBotocoreVersions({ core, context }) {
         core.info(`Forced types-aiobotocore version: ${buildVersion}`)
         core.info(`Build version = ${buildVersion}`)
         core.setOutput('version', buildVersion)
-        core.setOutput('no_smart_version', '--no-smart-version')
         return
     }
 
