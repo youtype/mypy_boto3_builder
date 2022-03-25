@@ -5,13 +5,44 @@
 Main entrypoint for builder.
 
 - [mypy-boto3-builder](../README.md#mypy_boto3_builder) / [Modules](../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](index.md#mypy-boto3-builder) / Main
+    - [generate_product](#generate_product)
     - [get_available_service_names](#get_available_service_names)
     - [get_selected_service_names](#get_selected_service_names)
     - [main](#main)
 
+## generate_product
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L86)
+
+```python
+def generate_product(
+    product: Product,
+    args: Namespace,
+    session: Session,
+    service_names: Sequence[ServiceName],
+    master_service_names: Sequence[ServiceName],
+) -> None:
+```
+
+Generate a selected product.
+
+#### Arguments
+
+- `product` - Product to generate
+- `args` - CLI namespace
+- `session` - Boto3 session
+- `service_names` - Selected service names
+- `master_service_names` - Service names included in master
+
+#### See also
+
+- [Namespace](cli_parser.md#namespace)
+- [Product](constants.md#product)
+- [ServiceName](service_name.md#servicename)
+
 ## get_available_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L61)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L64)
 
 ```python
 def get_available_service_names(session: Session) -> list[ServiceName]:
@@ -33,7 +64,7 @@ A list of supported services.
 
 ## get_selected_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L22)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L24)
 
 ```python
 def get_selected_service_names(
@@ -62,7 +93,7 @@ A list of selected ServiceNames.
 
 ## main
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L83)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L120)
 
 ```python
 def main() -> None:

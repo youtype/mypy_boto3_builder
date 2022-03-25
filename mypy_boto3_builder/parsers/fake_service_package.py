@@ -5,7 +5,7 @@ from boto3.session import Session
 from botocore import xform_name
 
 from mypy_boto3_builder.package_data import BasePackageData
-from mypy_boto3_builder.parsers.boto3_utils import get_boto3_client, get_boto3_resource
+from mypy_boto3_builder.utils.boto3_utils import get_boto3_client, get_boto3_resource
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.client import Client

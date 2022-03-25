@@ -7,11 +7,10 @@ Builder for `mypy_boto3`.
 - [mypy-boto3-builder](../README.md#mypy_boto3_builder) / [Modules](../MODULES.md#mypy-boto3-builder-modules) / Mypy Boto3 Builder
     - Modules
         - [Module](module.md#module)
-        - [AioBotocoreGenerator](aiobotocore_generator.md#aiobotocoregenerator)
-        - [Boto3Generator](boto3_generator.md#boto3generator)
         - [Cli Parser](cli_parser.md#cli-parser)
         - [Constants](constants.md#constants)
         - [Enums](enums/index.md#enums)
+        - [Generators](generators/index.md#generators)
         - [Import Helpers](import_helpers/index.md#import-helpers)
         - [JinjaManager](jinja_manager.md#jinjamanager)
         - [Logger](logger.md#logger)

@@ -1,6 +1,4 @@
 import sys
-import tempfile
-from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 from mypy_boto3_builder.main import get_available_service_names, get_selected_service_names, main
@@ -48,5 +46,4 @@ class TestMain:
     @patch.object(sys, "argv", ["-o", "/tmp", "-b", "1.2.3.post4"])
     def test_main(self, Boto3GeneratorMock: MagicMock) -> None:
         main()
-        Boto3GeneratorMock().generate_stubs.assert_called()
-        Boto3GeneratorMock().generate_service_stubs.assert_called()
+        Boto3GeneratorMock().generate_product.assert_called()

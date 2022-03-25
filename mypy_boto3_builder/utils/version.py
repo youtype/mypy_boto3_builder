@@ -5,6 +5,19 @@ Version-related utils.
 from boto3 import __version__ as boto3_version
 from botocore import __version__ as botocore_version
 from newversion import Version
+import pkg_resources
+from mypy_boto3_builder.constants import PACKAGE_NAME
+
+
+def get_builder_version() -> str:
+    """
+    Get program version.
+    """
+    try:
+        return pkg_resources.get_distribution(PACKAGE_NAME).version
+    except pkg_resources.DistributionNotFound:
+        pass
+    return "0.0.0"
 
 
 def get_min_build_version(version: str) -> str:

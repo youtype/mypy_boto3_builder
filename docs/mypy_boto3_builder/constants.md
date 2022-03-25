@@ -6,6 +6,10 @@ Constants and paths.
 
 - [mypy-boto3-builder](../README.md#mypy_boto3_builder) / [Modules](../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](index.md#mypy-boto3-builder) / Constants
     - [Product](#product)
+        - [Product().get_library](#productget_library)
+        - [Product().get_type](#productget_type)
+    - [ProductLibrary](#productlibrary)
+    - [ProductType](#producttype)
 
 #### Attributes
 
@@ -21,10 +25,58 @@ Constants and paths.
 
 ## Product
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py#L36)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py#L55)
 
 ```python
 class Product(Enum):
 ```
 
 Product choice for CLI.
+
+### Product().get_library
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py#L70)
+
+```python
+def get_library() -> ProductLibrary:
+```
+
+Get library name.
+
+#### See also
+
+- [ProductLibrary](#productlibrary)
+
+### Product().get_type
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py#L79)
+
+```python
+def get_type() -> ProductType:
+```
+
+Get product type.
+
+#### See also
+
+- [ProductType](#producttype)
+
+## ProductLibrary
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py#L36)
+
+```python
+class ProductLibrary(Enum):
+```
+
+Product library for Generator.
+
+## ProductType
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py#L45)
+
+```python
+class ProductType(Enum):
+```
+
+Product type for Generator.

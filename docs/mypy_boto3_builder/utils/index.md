@@ -6,6 +6,7 @@ Collection of simple utils functions.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / Utils
     - Modules
+        - [Boto3 Utils](boto3_utils.md#boto3-utils)
         - [BotocoreChangelog](botocore_changelog.md#botocorechangelog)
         - [Markdown](markdown.md#markdown)
         - [NicePath](nice_path.md#nicepath)

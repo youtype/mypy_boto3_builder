@@ -33,6 +33,25 @@ PROG_NAME = "mypy_boto3_builder"
 PACKAGE_NAME = "mypy-boto3-builder"
 
 
+class ProductLibrary(Enum):
+    """
+    Product library for Generator.
+    """
+
+    boto3 = "boto3"
+    aiobotocore = "aiobotocore"
+
+
+class ProductType(Enum):
+    """
+    Product type for Generator.
+    """
+
+    stubs = "stubs"
+    service_stubs = "service_stubs"
+    docs = "docs"
+
+
 class Product(Enum):
     """
     Product choice for CLI.
@@ -47,3 +66,24 @@ class Product(Enum):
 
     def __str__(self) -> str:
         return self.name
+
+    def get_library(self) -> ProductLibrary:
+        """
+        Get library name.
+        """
+        for library in ProductLibrary:
+            if self.value.startswith(library.value):
+                return library
+        raise ValueError(f"No library found for {self.value}")
+
+    def get_type(self) -> ProductType:
+        """
+        Get product type.
+        """
+        if "-" not in self.value:
+            return ProductType.stubs
+        if self.value.endswith("-services"):
+            return ProductType.service_stubs
+        if self.value.endswith("-docs"):
+            return ProductType.docs
+        raise ValueError(f"No type found for {self.value}")

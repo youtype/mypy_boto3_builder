@@ -7,7 +7,7 @@ from boto3.session import Session
 from botocore.client import ClientMeta
 from botocore.errorfactory import ClientExceptionsFactory
 
-from mypy_boto3_builder.parsers.boto3_utils import get_boto3_client
+from mypy_boto3_builder.utils.boto3_utils import get_boto3_client
 from mypy_boto3_builder.parsers.helpers import get_public_methods, parse_method
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName

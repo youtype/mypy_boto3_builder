@@ -8,7 +8,6 @@ Parsers for boto3 clients and resources.
     - Modules
         - [Aiobotocore Stubs Package](aiobotocore_stubs_package.md#aiobotocore-stubs-package)
         - [Boto3 Stubs Package](boto3_stubs_package.md#boto3-stubs-package)
-        - [Boto3 Utils](boto3_utils.md#boto3-utils)
         - [Client](client.md#client)
         - [Docstring Parser](docstring_parser/index.md#docstring-parser)
         - [Fake Service Package](fake_service_package.md#fake-service-package)

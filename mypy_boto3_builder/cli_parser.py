@@ -8,9 +8,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import List
 
-import pkg_resources
-
-from mypy_boto3_builder.constants import PACKAGE_NAME, PROG_NAME, Product
+from mypy_boto3_builder.constants import PROG_NAME, Product
+from mypy_boto3_builder.utils.version import get_builder_version
+from mypy_boto3_builder.service_name import ServiceName
 
 
 def get_absolute_path(path: str) -> Path:
@@ -38,7 +38,6 @@ class Namespace:
     build_version: str
     installed: bool
     products: List[Product]
-    builder_version: str
     list_services: bool
     partial_overload: bool
     skip_published: bool
@@ -52,12 +51,11 @@ def parse_args(args: Sequence[str]) -> Namespace:
     Returns:
         Argument parser.
     """
-    try:
-        version = pkg_resources.get_distribution(PACKAGE_NAME).version
-    except pkg_resources.DistributionNotFound:
-        version = "0.0.0"
+    version = get_builder_version()
 
-    parser = argparse.ArgumentParser(PROG_NAME, description="Builder for mypy-boto3.")
+    parser = argparse.ArgumentParser(
+        PROG_NAME, description="Builder for boto3-stubs and types-aiobotocore."
+    )
     parser.add_argument("-d", "--debug", action="store_true", help="Show debug messages")
     parser.add_argument(
         "-b",
@@ -95,13 +93,13 @@ def parse_args(args: Sequence[str]) -> Namespace:
         "--services",
         dest="service_names",
         nargs="*",
-        metavar="SERVICE_NAME",
+        metavar="NAME",
         help=(
             "List of AWS services, by default all services are used."
             " Use `updated` to build only services updated in the release."
             " Use `all` to build all services."
         ),
-        default=["all"],
+        default=[ServiceName.ALL],
     )
     parser.add_argument(
         "--partial-overload",
@@ -119,7 +117,7 @@ def parse_args(args: Sequence[str]) -> Namespace:
         help="List supported boto3 service names.",
     )
     result = parser.parse_args(args)
-    result.builder_version = version
+
     return Namespace(
         log_level=logging.DEBUG if result.debug else logging.INFO,
         output_path=result.output_path,
@@ -127,7 +125,6 @@ def parse_args(args: Sequence[str]) -> Namespace:
         products=result.products,
         build_version=result.build_version,
         installed=result.installed,
-        builder_version=result.builder_version,
         list_services=result.list_services,
         partial_overload=result.partial_overload,
         skip_published=result.skip_published,
