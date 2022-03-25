@@ -3,7 +3,7 @@ Main entrypoint for builder.
 """
 import sys
 from collections.abc import Iterable
-from typing import Sequence, Type
+from typing import Sequence
 
 from boto3.session import Session
 
@@ -100,7 +100,7 @@ def generate_product(
         service_names -- Selected service names
         master_service_names -- Service names included in master
     """
-    generator_cls: Type[BaseGenerator] = {
+    generator_cls = {
         ProductLibrary.boto3: Boto3Generator,
         ProductLibrary.aiobotocore: AioBotocoreGenerator,
     }[product.get_library()]
