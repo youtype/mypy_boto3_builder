@@ -1,6 +1,7 @@
 """
 Boto3 stubs/docs generator.
 """
+from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
     Boto3StubsLitePackageData,
     Boto3StubsPackageData,
@@ -17,7 +18,6 @@ from mypy_boto3_builder.writers.processors import (
     process_service,
     process_service_docs,
 )
-from mypy_boto3_builder.generators.base_generator import BaseGenerator
 
 
 class Boto3Generator(BaseGenerator):

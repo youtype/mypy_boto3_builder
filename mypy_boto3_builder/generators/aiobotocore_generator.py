@@ -1,6 +1,7 @@
 """
 AIOBotocore stubs/docs generator.
 """
+from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
     TypesAioBotocoreLitePackageData,
     TypesAioBotocorePackageData,
@@ -13,7 +14,6 @@ from mypy_boto3_builder.writers.aiobotocore_processors import (
     process_aiobotocore_stubs_docs,
     process_aiobotocore_stubs_lite,
 )
-from mypy_boto3_builder.generators.base_generator import BaseGenerator
 
 
 class AioBotocoreGenerator(BaseGenerator):

@@ -13,7 +13,7 @@ Version-related utils.
 
 ## get_aiobotocore_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/version.py#L44)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/version.py#L45)
 
 ```python
 def get_aiobotocore_version() -> str:
@@ -23,7 +23,7 @@ Get aiobotocore package version.
 
 ## get_boto3_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/version.py#L37)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/version.py#L38)
 
 ```python
 def get_boto3_version() -> str:
@@ -33,7 +33,7 @@ Get boto3 package version.
 
 ## get_botocore_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/version.py#L30)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/version.py#L31)
 
 ```python
 def get_botocore_version() -> str:
@@ -43,7 +43,7 @@ Get botocore package version.
 
 ## get_builder_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/version.py#L12)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/version.py#L13)
 
 ```python
 def get_builder_version() -> str:
@@ -53,7 +53,7 @@ Get program version.
 
 ## get_min_build_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/version.py#L23)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/utils/version.py#L24)
 
 ```python
 def get_min_build_version(version: str) -> str:

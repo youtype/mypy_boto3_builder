@@ -7,18 +7,17 @@ from typing import Sequence
 
 from boto3.session import Session
 
+from mypy_boto3_builder.cli_parser import Namespace, parse_args
+from mypy_boto3_builder.constants import DUMMY_REGION, Product, ProductLibrary
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
-from mypy_boto3_builder.cli_parser import Namespace, parse_args
-from mypy_boto3_builder.constants import DUMMY_REGION, Product, ProductLibrary
 from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
 from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name
-from mypy_boto3_builder.utils.version import get_botocore_version
-from mypy_boto3_builder.utils.version import get_builder_version
+from mypy_boto3_builder.utils.version import get_botocore_version, get_builder_version
 
 
 def get_selected_service_names(

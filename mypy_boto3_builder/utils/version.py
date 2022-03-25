@@ -2,10 +2,11 @@
 Version-related utils.
 """
 
+import pkg_resources
 from boto3 import __version__ as boto3_version
 from botocore import __version__ as botocore_version
 from newversion import Version
-import pkg_resources
+
 from mypy_boto3_builder.constants import PACKAGE_NAME
 
 

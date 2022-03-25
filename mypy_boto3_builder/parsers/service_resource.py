@@ -10,7 +10,6 @@ from botocore.exceptions import UnknownServiceError
 from botocore.waiter import WaiterModel
 
 from mypy_boto3_builder.logger import get_logger
-from mypy_boto3_builder.utils.boto3_utils import get_boto3_client, get_boto3_resource
 from mypy_boto3_builder.parsers.helpers import get_public_methods, parse_method
 from mypy_boto3_builder.parsers.parse_attributes import parse_attributes
 from mypy_boto3_builder.parsers.parse_collections import parse_collections
@@ -22,6 +21,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.service_resource import ServiceResource
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.utils.boto3_utils import get_boto3_client, get_boto3_resource
 from mypy_boto3_builder.utils.strings import get_short_docstring
 
 

@@ -9,8 +9,8 @@ from pathlib import Path
 from typing import List
 
 from mypy_boto3_builder.constants import PROG_NAME, Product
-from mypy_boto3_builder.utils.version import get_builder_version
 from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.utils.version import get_builder_version
 
 
 def get_absolute_path(path: str) -> Path:

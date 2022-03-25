@@ -6,12 +6,12 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from boto3.session import Session
-from mypy_boto3_builder.constants import ProductType
 
+from mypy_boto3_builder.constants import ProductType
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.utils.pypi_manager import PyPIManager
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource
+from mypy_boto3_builder.utils.pypi_manager import PyPIManager
 
 
 class BaseGenerator(ABC):
