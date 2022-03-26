@@ -64,6 +64,4 @@ def get_region_name_literal(
         children.update(session.get_available_regions(service_name.boto3_name))
     if not children:
         return None
-    result = TypeLiteral("_RegionName", children)
-    result.name = "_RegionName"
-    return result
+    return TypeLiteral("RegionName", children)

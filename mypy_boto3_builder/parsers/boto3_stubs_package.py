@@ -153,6 +153,7 @@ def parse_boto3_stubs_package(
 
     region_name_literal = get_region_name_literal(session, service_names)
     if region_name_literal:
+        region_name_literal.name = "_RegionName"
         result.literals.append(region_name_literal)
 
     return result

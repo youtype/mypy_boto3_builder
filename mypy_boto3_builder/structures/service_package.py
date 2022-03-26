@@ -4,8 +4,6 @@ Parsed Service package.
 from collections.abc import Iterable
 from typing import Literal
 
-from boto3.session import Session
-
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -20,7 +18,6 @@ from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
-from mypy_boto3_builder.utils.boto3_utils import get_region_name_literal
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
 
 
@@ -337,41 +334,6 @@ class ServicePackage(Package):
                         )
                 raise ValueError(f"Duplicate name {name}")
             names.add(name)
-
-    def extend_literals(self, session: Session, service_names: Iterable[ServiceName]) -> None:
-        """
-        Add extra literals.
-
-        - `<Class>ServiceName`
-        - `ServiceName`
-        - `ResourceServiceName`
-        - `PaginatorName`
-        - `WaiterName`
-        """
-        self.literals.append(
-            TypeLiteral(
-                f"{self.service_name.class_name}ServiceName", [self.service_name.boto3_name]
-            )
-        )
-        self.literals.append(TypeLiteral("ServiceName", [i.boto3_name for i in service_names]))
-        self.literals.append(
-            TypeLiteral(
-                "ResourceServiceName",
-                [i.boto3_name for i in service_names if i.has_service_resource],
-            )
-        )
-
-        paginator_names = [paginator.operation_name for paginator in self.paginators]
-        if paginator_names:
-            self.literals.append(TypeLiteral("PaginatorName", paginator_names))
-
-        waiter_names = [waiter.waiter_name for waiter in self.waiters]
-        if waiter_names:
-            self.literals.append(TypeLiteral("WaiterName", waiter_names))
-
-        region_name_literal = get_region_name_literal(session, [self.service_name])
-        if region_name_literal:
-            self.literals.append(region_name_literal)
 
     def get_doc_link(
         self,

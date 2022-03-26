@@ -6,7 +6,6 @@ Parsed Service package.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / ServicePackage
     - [ServicePackage](#servicepackage)
-        - [ServicePackage().extend_literals](#servicepackageextend_literals)
         - [ServicePackage().extract_literals](#servicepackageextract_literals)
         - [ServicePackage().extract_typed_dicts](#servicepackageextract_typed_dicts)
         - [ServicePackage().get_client_required_import_records](#servicepackageget_client_required_import_records)
@@ -24,7 +23,7 @@ Parsed Service package.
 
 ## ServicePackage
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L27)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L24)
 
 ```python
 class ServicePackage(Package):
@@ -55,32 +54,9 @@ Parsed Service package.
 - [TypeTypedDict](../type_annotations/type_typed_dict.md#typetypeddict)
 - [Waiter](waiter.md#waiter)
 
-### ServicePackage().extend_literals
-
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L341)
-
-```python
-def extend_literals(
-    session: Session,
-    service_names: Iterable[ServiceName],
-) -> None:
-```
-
-Add extra literals.
-
-- `<Class>ServiceName`
-- `ServiceName`
-- `ResourceServiceName`
-- `PaginatorName`
-- `WaiterName`
-
-#### See also
-
-- [ServiceName](../service_name.md#servicename)
-
 ### ServicePackage().extract_literals
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L56)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L53)
 
 ```python
 def extract_literals() -> list[TypeLiteral]:
@@ -94,7 +70,7 @@ Extract literals from children.
 
 ### ServicePackage().extract_typed_dicts
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L102)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L99)
 
 ```python
 def extract_typed_dicts() -> list[TypeTypedDict]:
@@ -110,7 +86,7 @@ Attempts to resolve circular typed dicts.
 
 ### ServicePackage().get_client_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L203)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L200)
 
 ```python
 def get_client_required_import_records() -> list[ImportRecord]:
@@ -124,7 +100,7 @@ Get import records for `client.py[i]`.
 
 ### ServicePackage().get_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L376)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L338)
 
 ```python
 def get_doc_link(
@@ -149,7 +125,7 @@ Get link to local docs with anchor.
 
 ### ServicePackage().get_init_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L186)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L183)
 
 ```python
 def get_init_all_names() -> list[str]:
@@ -159,7 +135,7 @@ Get `__all__` statement names for `__init__.py[i]`.
 
 ### ServicePackage().get_init_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L151)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L148)
 
 ```python
 def get_init_import_records() -> list[ImportRecord]:
@@ -173,7 +149,7 @@ Get import records for `__init__.py[i]`.
 
 ### ServicePackage().get_literals_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L306)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L303)
 
 ```python
 def get_literals_required_import_records() -> list[ImportRecord]:
@@ -187,7 +163,7 @@ Get import records for `literals.py[i]`.
 
 ### ServicePackage().get_local_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L401)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L363)
 
 ```python
 def get_local_doc_link(service_name: ServiceName | None = None) -> str:
@@ -197,7 +173,7 @@ Get link to local docs.
 
 ### ServicePackage().get_paginator_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L235)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L232)
 
 ```python
 def get_paginator_required_import_records() -> list[ImportRecord]:
@@ -211,7 +187,7 @@ Get import records for `paginator.py[i]`.
 
 ### ServicePackage().get_service_resource_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L219)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L216)
 
 ```python
 def get_service_resource_required_import_records() -> list[ImportRecord]:
@@ -225,7 +201,7 @@ Get import records for `service_resource.py[i]`.
 
 ### ServicePackage().get_type_defs_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L270)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L267)
 
 ```python
 def get_type_defs_required_import_records() -> list[ImportRecord]:
@@ -239,7 +215,7 @@ Get import records for `type_defs.py[i]`.
 
 ### ServicePackage().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L136)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L133)
 
 ```python
 def get_types() -> set[FakeAnnotation]:
@@ -253,7 +229,7 @@ Extract type annotations from Client, ServiceResource, waiters and paginators.
 
 ### ServicePackage().get_waiter_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L255)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L252)
 
 ```python
 def get_waiter_required_import_records() -> list[ImportRecord]:
@@ -267,7 +243,7 @@ Get import records for `waiter.py[i]`.
 
 ### ServicePackage().validate
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L315)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/service_package.py#L312)
 
 ```python
 def validate() -> None:
