@@ -2,6 +2,8 @@
 
 > [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > Examples
 
+{% include "common/header_note.md.jinja2" with context %}
+
 ## Client
 
 ### Implicit type annotations
@@ -12,43 +14,62 @@ Write your `{{ package.service_name.class_name }}` code as usual,
 type checking and code completion should work out of the box.
 
 {% set method = package.client.methods[1] if len(package.client.methods) > 1 else None -%}
+{% if method %}
+=== "Client"
+
+    ```python title="Client usage example"
+    from {{ package.library_name }}.session import Session
+
+
+    session = Session()
+
+    client = session.client("{{ package.service_name.boto3_name }}")  # (1)
+    result = client.{{ method.name }}()  # (2)
+    ```
+
+    1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+    2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+{% endif %}
+
 {% set paginator = package.paginators[0] if package.paginators else None -%}
+{% if paginator %}
+=== "Paginators"
+
+    ```python title="Paginator usage example"
+    from {{ package.library_name }}.session import Session
+
+
+    session = Session()
+    client = session.client("{{ package.service_name.boto3_name }}")  # (1)
+
+    paginator = client.get_paginator("{{ paginator.operation_name }}")  # (2)
+    for item in paginator.paginate(...):
+        print(item)  # (3)
+    ```
+
+    1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+    2. paginator: [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }})
+    3. item: {% with type_annotation=paginator.methods[0].return_type.children[0] %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+{% endif %}
+
 {% set waiter = package.waiters[0] if package.waiters else None -%}
-```python
-import boto3
+{% if waiter %}
+=== "Waiters"
+
+    ```python title="Waiter usage example"
+    from {{ package.library_name }}.session import Session
 
 
-session = boto3.Session()
+    session = Session()
+    client = session.client("{{ package.service_name.boto3_name }}")  # (1)
 
-# client has type {{ package.client.name }}
-# and provides type checking and code completion
-client = session.client("{{ package.service_name.boto3_name }}")
-{% if method -%}
-{{ '\n' -}}
-# result has type {{ method.return_type.render() }}
-# and provides type checking and code completion
-# IDE should show a hint with argument names and types
-result = client.{{ method.name }}()
-{% endif -%}
+    waiter = client.get_waiter("{{ waiter.waiter_name }}")  # (2)
+    waiter.wait()
+    ```
 
-{% if paginator -%}
-{{ '\n' -}}
-# paginator has type {{ paginator.name }} and provides type checking
-# and code completion for paginate method
-paginator = client.get_paginator("{{ paginator.operation_name }}")
-for item in paginator.paginate(...):
-    # item has type {{ paginator.methods[0].return_type.children[0].render() }}
-    print(item)
-{% endif -%}
-
-{% if waiter -%}
-{{ '\n' -}}
-# waiter has type {{ waiter.name }} and provides type checking
-# and code completion for wait method
-waiter = client.get_waiter("{{ waiter.waiter_name }}")
-waiter.wait()
-{% endif -%}
-```
+    1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+    2. waiter: [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }})
+{% endif %}
 
 ### Explicit type annotations
 
@@ -58,42 +79,63 @@ or a standalone `{{ package.name }}` package, you have to explicitly specify `cl
 All other type annotations are optional, as types should be discovered automatically.
 However, these type annotations can be helpful in your functions and methods.
 
-```python
-import boto3
+{% if method %}
+=== "Client"
 
-from {{ package.name }}.client import {{ package.client.name }}
-{% if paginator %}from {{ package.name }}.paginator import {{ paginator.name }}{% endif %}
-{% if waiter %}from {{ package.name }}.waiter import {{ waiter.name }}{% endif %}
-{% if paginator %}from {{ package.name }}.literals import PaginatorName{% endif %}
-{% if waiter %}from {{ package.name }}.literals import WaiterName{% endif %}
-{% if method %}from {{ package.name }}.type_defs import {{ method.return_type.render() }}{% endif %}
-{% if paginator %}from {{ package.name }}.type_defs import {{ paginator.methods[0].return_type.children[0].render() }}{% endif %}
+    ```python title="Client usage example"
+    from {{ package.library_name }}.session import Session
+
+    from {{ package.name }}.client import {{ package.client.name }}
+    from {{ package.name }}.type_defs import {{ method.return_type.name }}
+    from {{ package.name }}.type_defs import {{ method.request_type_annotation.name }}
 
 
-session = boto3.Session()
+    session = Session()
 
-client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
-{% if method -%}
-{{ '\n' -}}
-result: {{ method.return_type.render() }} = client.{{ method.name }}()
-{% endif -%}
+    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
 
-{% if paginator -%}
-{{ '\n' -}}
-paginator_name: PaginatorName = "{{ paginator.operation_name }}"
-paginator: {{ paginator.name }} = client.get_paginator(paginator_name)
-for item in paginator.paginate(...):
-    item: {{ paginator.methods[0].return_type.children[0].render() }}
-    print(item)
-{% endif -%}
+    kwargs: {{ method.request_type_annotation.name }} = {...}
+    result: {{ method.return_type.name }} = client.{{ method.name }}(**kwargs)
+    ```
+{% endif %}
 
-{% if waiter -%}
-{{ '\n' -}}
-waiter_name: WaiterName = "{{ waiter.waiter_name }}"
-waiter: {{ waiter.name }} = client.get_waiter(waiter_name)
-waiter.wait()
-{% endif -%}
-```
+{% if paginator %}
+=== "Paginators"
+
+    ```python title="Paginator usage example"
+    from {{ package.library_name }}.session import Session
+
+    from {{ package.name }}.client import {{ package.client.name }}
+    from {{ package.name }}.paginator import {{ paginator.name }}
+    from {{ package.name }}.type_defs import {{ paginator.methods[0].return_type.children[0].name }}
+
+
+    session = Session()
+    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+
+    paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+    for item in paginator.paginate(...):
+        item: {{ paginator.methods[0].return_type.children[0].name }}
+        print(item)
+    ```
+{% endif %}
+
+{% if waiter %}
+=== "Waiters"
+
+    ```python title="Waiter usage example"
+    from {{ package.library_name }}.session import Session
+
+    from {{ package.name }}.client import {{ package.client.name }}
+    from {{ package.name }}.waiter import {{ waiter.name }}
+
+    session = Session()
+    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+
+    waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+    waiter.wait()
+    ```
+{% endif %}
 
 {% if package.service_resource %}
 ## Service Resource
@@ -104,32 +146,44 @@ Can be used with `{{ package.data.PYPI_NAME }}[{{ package.service_name.extras_na
 
 {% set method = package.service_resource.methods[0] if package.service_resource.methods else None -%}
 {% set collection = package.service_resource.collections[0] if package.service_resource.collections else None -%}
-```python
-import boto3
 
 
-session = boto3.Session()
+{% if method %}
+=== "ServiceResource"
 
-# resource has type {{ package.service_resource.name }}
-# and provides type checking and code completion
-resource = session.resource("{{ package.service_name.boto3_name }}")
-{% if method -%}
-{{ '\n' -}}
-# result has type {{ method.name }}
-# and provides type checking and code completion
-result = resource.{{ method.name }}()
-{% endif -%}
+    ```python title="ServiceResource usage example"
+    from {{ package.library_name }}.session import Session
 
-{% if collection -%}
-{{ '\n' -}}
-# collection has type {{ collection.name }} and provides type checking
-# and code completion for all collection methods
-collection = resource.{{ collection.attribute_name }}
-for item in collection:
-    # item has type {{ collection.object_class_name }}
-    print(item)
-{% endif -%}
-```
+
+    session = Session()
+
+    resource = session.resource("{{ package.service_name.boto3_name }}")  # (1)
+    result = resource.{{ method.name }}()  # (2)
+    ```
+
+    1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
+    2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+{% endif %}
+
+{% if collection %}
+=== "Collections"
+
+    ```python title="Collection usage example"
+    from {{ package.library_name }}.session import Session
+
+
+    session = Session()
+    resource = session.resource("{{ package.service_name.boto3_name }}")  # (1)
+
+    collection = resource.{{ collection.attribute_name }}  # (2)
+    for item in collection:
+        print(item)  # (3)
+    ```
+
+    1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
+    2. collection: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }})
+    3. item: {{ collection.object_class_name }}
+{% endif %}
 
 ### Explicit type annotations
 
@@ -140,28 +194,43 @@ or a standalone `{{ package.name }}` package, you have to explicitly specify
 All other type annotations are optional, as types should be discovered automatically.
 However, these type annotations can be helpful in your functions and methods.
 
-```python
-import boto3
 
-from {{ package.name }}.service_resource import {{ package.service_resource.name }}
-{% if method %}from {{ package.name }}.service_resource import {{ method.name }}{% endif %}
-{% if collection %}from {{ package.name }}.service_resource import {{ collection.name }}, {{ collection.object_class_name }}{% endif %}
+{% if method %}
+=== "ServiceResource"
 
-session = boto3.Session()
+    ```python title="ServiceResource usage example"
+    from {{ package.library_name }}.session import Session
 
-resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
-{% if method -%}
-{{ '\n' -}}
-result: {{ method.name }} = resource.{{ method.name }}()
-{% endif -%}
+    from {{ package.name }}.service_resource import {{ package.service_resource.name }}
+    from {{ package.name }}.service_resource import {{ method.name }}
 
-{% if collection -%}
-{{ '\n' -}}
-collection: {{ collection.name }} = resource.{{ collection.attribute_name }}
-for item in collection:
-    item: {{ collection.object_class_name }}
-    print(item)
-{% endif -%}
-```
 
+    session = Session()
+
+    resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
+    result: {{ method.name }} = resource.{{ method.name }}()
+    ```
+{% endif %}
+
+{% if collection %}
+=== "Collections"
+
+    ```python title="Collection usage example"
+    from {{ package.library_name }}.session import Session
+
+    from {{ package.name }}.service_resource import {{ package.service_resource.name }}
+    from {{ package.name }}.service_resource import {{ collection.name }}
+    from {{ package.name }}.service_resource import {{ collection.object_class_name }}
+
+
+    session = Session()
+
+    resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
+    
+    collection: {{ collection.name }} = resource.{{ collection.attribute_name }}
+    for item in collection:
+        item: {{ collection.object_class_name }}
+        print(item)
+    ```
+{% endif %}
 {% endif %}

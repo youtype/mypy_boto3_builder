@@ -1,4 +1,3 @@
-{{ 'See ' -}}
 {% for type_annotation in type_annotation.get_local_types() -%}
 {% if type_annotation.is_typed_dict() -%}
     [:material-code-braces: {{ type_annotation.name }}]({{ package.service_name.get_md_doc_link("type_defs", type_annotation.name) }}{{ ')' -}}

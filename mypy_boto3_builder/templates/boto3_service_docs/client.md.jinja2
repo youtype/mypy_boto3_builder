@@ -2,8 +2,7 @@
 
 > [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > {{ package.client.name }}
 
-Auto-generated documentation for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }})
-type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
+{% include "common/header_note.md.jinja2" with context %}
 
 ## {{ package.client.name }}
 
@@ -66,7 +65,7 @@ Type annotations and code completion for `#!python {{ package.library_name }}.cl
 {% if package.paginators %}
 ### get_paginator
 
-Type annotations and code completion for `{{ package.library_name }}.client("{{ service_name.boto3_name }}").get_paginator` method with overloads.
+Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ service_name.boto3_name }}").get_paginator` method with overloads.
 
 {% for paginator in package.paginators -%}
 - `client.get_paginator("{{ paginator.operation_name }}")` -> [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
@@ -76,7 +75,7 @@ Type annotations and code completion for `{{ package.library_name }}.client("{{ 
 {% if package.waiters %}
 ### get_waiter
 
-Type annotations and code completion for `{{ package.library_name }}.client("{{ service_name.boto3_name }}").get_waiter` method with overloads.
+Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ service_name.boto3_name }}").get_waiter` method with overloads.
 
 {% for waiter in package.waiters -%}
 - `client.get_waiter("{{ waiter.waiter_name }}")` -> [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}

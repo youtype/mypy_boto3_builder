@@ -2,8 +2,7 @@
 
 > [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > Typed dictionaries
 
-Auto-generated documentation for [{{ service_name.class_name }}]({{ service_name.boto3_doc_link }})
-type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
+{% include "common/header_note.md.jinja2" with context %}
 
 {% for typed_dict in package.typed_dicts -%}
 ## {{ typed_dict.name }}
@@ -37,7 +36,7 @@ class {{ typed_dict.name }}(TypedDict):
 ```
 
 {% for type_annotation in typed_dict.type_hint_annotations -%}
-{{ loop.index -}}{{ '. ' -}}
+{{ loop.index -}}{{ '. See ' -}}
 {% include "common/type_hint.md.jinja2" with context -%}
 {{ '\n' -}}
 {% endfor -%}

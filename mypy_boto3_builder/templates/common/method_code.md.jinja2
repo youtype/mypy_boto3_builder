@@ -9,7 +9,7 @@
 ```
 {{ '\n' -}}
 {% for type_annotation in method.type_hint_annotations -%}
-{{ loop.index -}}{{ '. ' -}}
+{{ loop.index -}}{{ '. See ' -}}
 {% include "common/type_hint.md.jinja2" with context -%}
 {{ '\n' -}}
 {% endfor -%}
@@ -28,5 +28,5 @@ kwargs: {{ method.request_type_annotation.render() }} = {  # (1)
 {{ method.name }}(**kwargs)
 ```
 
-1. {% with type_annotation=method.request_type_annotation %}{% include "common/type_hint.md.jinja2" with context %}{% endwith %}
+1. See {% with type_annotation=method.request_type_annotation %}{% include "common/type_hint.md.jinja2" with context %}{% endwith %}
 {% endif -%}

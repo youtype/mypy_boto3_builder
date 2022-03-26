@@ -2,8 +2,7 @@
 
 > [Index](../README.md) > {{ package.service_name.class_name }}
 
-Auto-generated documentation for [{{ package.service_name.class_name }}]({{ package.service_name.boto3_doc_link }})
-type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_pypi_link(package.service_name) }}).
+{% include "common/header_note.md.jinja2" with context %}
 
 {% include "common/how_to_install_service.md.jinja2" with context %}
 
@@ -17,21 +16,13 @@ Type annotations and code completion for  `#!python {{ package.library_name }}.c
 [:material-aws: boto3 documentation]({{ package.client.boto3_doc_link }})
 
 ```python title="Usage example"
+from {{ package.library_name }}.session import Session
+
 from {{ package.name }}.client import {{ package.client.name }}
+
+def get_client() -> {{ package.client.name }}:
+    return Session().cleint("{{ service_name.boto3_name }}")
 ```
-
-{% if package.client.exceptions_class.attributes %}
-### Exceptions
-
-{% if package.client.exceptions_class.attributes %}
-{{ package.client.name }} [exceptions]({{ service_name.get_md_doc_link('client', 'exceptions') }})
-{% endif %}
-
-{% for attribute in package.client.exceptions_class.attributes -%}
-- {{ attribute.name }}{{ '\n' -}}
-{% endfor %}
-{% endif %}
-
 
 {% if package.paginators %}
 ## Paginators
@@ -79,12 +70,15 @@ def get_{{ package.waiters[0].waiter_name }}_waiter() -> {{ package.waiters[0].n
 
 Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}")` as
 [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name) }})
+[:material-aws: boto3 documentation]({{ package.service_resource.boto3_doc_link }})
 
 ```python title="Usage example"
+from {{ package.library_name }}.session import Session
+
 from {{ package.name  }}.service_resource import {{ package.service_resource.name }}
 
 def get_{{ service_name.boto3_name }}_resource() -> {{ package.service_resource.name }}:
-    return boto3.resource("{{ service_name.boto3_name }}")
+    return Session().resource("{{ service_name.boto3_name }}")
 ```
 
 {% if package.service_resource.collections %}
@@ -94,10 +88,12 @@ Type annotations and code completion for collections
 from `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").*`.
 
 ```python title="Usage example"
+from {{ package.library_name }}.session import Session
+
 from {{ package.name }}.service_resource import {{ package.service_resource.collections[0].name }}
 
 def get_collection() -> {{ package.service_resource.collections[0].name }}:
-    return boto3.resource("{{ service_name.boto3_name }}").{{ package.service_resource.collections[0].attribute_name }}
+    return Session().resource("{{ service_name.boto3_name }}").{{ package.service_resource.collections[0].attribute_name }}
 ```
 
 {% for collection in package.service_resource.collections -%}
@@ -112,10 +108,12 @@ Type annotations and code completion for additional resources
 from `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").*`.
 
 ```python title="Usage example"
+from {{ package.library_name }}.session import Session
+
 from {{ package.name }}.service_resource import {{ package.service_resource.sub_resources[0].name }}
 
 def get_resource() -> {{ package.service_resource.sub_resources[0].name }}:
-    return boto3.resource("{{ service_name.boto3_name }}").{{ package.service_resource.sub_resources[0].name }}(...)
+    return Session().resource("{{ service_name.boto3_name }}").{{ package.service_resource.sub_resources[0].name }}(...)
 ```
 
 {% for sub_resource in package.service_resource.sub_resources -%}

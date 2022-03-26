@@ -1,6 +1,8 @@
-# Examples for {{ package.library_name }} {{ package.service_name.class_name }} module
+# Examples
 
 > [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > Examples
+
+{% include "common/header_note.md.jinja2" with context %}
 
 ## Client
 
@@ -11,41 +13,64 @@ Can be used with `{{ package.data.PYPI_NAME }}[{{ package.service_name.extras_na
 Write your `{{ package.service_name.class_name }}` code as usual,
 type checking and code completion should work out of the box.
 
+
 {% set method = package.client.methods[1] if len(package.client.methods) > 1 else None -%}
+{% if method %}
+=== "Client"
+
+    ```python title="Client usage example"
+    from {{ package.library_name }}.session import get_session
+
+
+    session = get_session()
+
+    async with session.create_client("{{ package.service_name.boto3_name }}") as client:  # (1)
+        result = await client.{{ method.name }}()  # (2)
+    ```
+
+    1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+    2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+{% endif %}
+
 {% set paginator = package.paginators[0] if package.paginators else None -%}
+{% if paginator %}
+=== "Paginators"
+
+    ```python title="Paginator usage example"
+    from {{ package.library_name }}.session import get_session
+
+
+    session = get_session()
+
+    async with session.create_client("{{ package.service_name.boto3_name }}") as client:  # (1)
+        paginator = client.get_paginator("{{ paginator.operation_name }}")  # (2)
+        async for item in paginator.paginate(...):
+            print(item)  # (3)
+    ```
+
+    1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+    2. paginator: [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }})
+    3. item: {% with type_annotation=paginator.methods[0].return_type.children[0] %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+{% endif %}
+
 {% set waiter = package.waiters[0] if package.waiters else None -%}
-```python
-from aiobotocore.session import get_session
+{% if waiter %}
+=== "Waiters"
+
+    ```python title="Waiter usage example"
+    from {{ package.library_name }}.session import get_session
 
 
-session = get_session()
+    session = get_session()
 
-# client has type {{ package.client.name }}
-# and provides type checking and code completion
-async with session.create_client("{{ package.service_name.boto3_name }}") as client:
-    {% if method %}
-    # result has type {{ method.return_type.render() }}
-    # and provides type checking and code completion
-    # IDE should show a hint with argument names and types
-    result = await client.{{ method.name }}()
-    {% endif %}
+    async with session.create_client("{{ package.service_name.boto3_name }}") as client:  # (1)
+        waiter = client.get_waiter("{{ waiter.waiter_name }}")  # (2)
+        await waiter.wait()
+    ```
 
-    {% if paginator %}
-    # paginator has type {{ paginator.name }} and provides type checking
-    # and code completion for paginate method
-    paginator = client.get_paginator("{{ paginator.operation_name }}")
-    async for item in paginator.paginate(...):
-        # item has type {{ paginator.methods[0].return_type.children[0].render() }}
-        print(item)
-    {% endif %}
-
-    {% if waiter %}
-    # waiter has type {{ waiter.name }} and provides type checking
-    # and code completion for wait method
-    waiter = client.get_waiter("{{ waiter.waiter_name }}")
-    await waiter.wait()
-    {% endif %}
-```
+    1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+    2. waiter: [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }})
+{% endif %}
 
 ### Explicit type annotations
 
@@ -56,37 +81,63 @@ or a standalone `{{ package.name }}` package, you have to explicitly specify
 All other type annotations are optional, as types should be discovered automatically.
 However, these type annotations can be helpful in your functions and methods.
 
-```python
-from aiobotocore.session import get_session
+{% if method %}
+=== "Client"
 
-from {{ package.name }}.client import {{ package.client.name }}
-{% if method %}from {{ package.name }}.type_defs import {{ method.return_type.render() }}{% endif %}
-{% if paginator %}from {{ package.name }}.paginator import {{ paginator.name }}{% endif %}
-{% if waiter %}from {{ package.name }}.waiter import {{ waiter.name }}{% endif %}
-{% if paginator %}from {{ package.name }}.literals import PaginatorName{% endif %}
-{% if waiter %}from {{ package.name }}.literals import WaiterName{% endif %}
+    ```python title="Client usage example"
+    from {{ package.library_name }}.session import get_session
+
+    from {{ package.name }}.client import {{ package.client.name }}
+    from {{ package.name }}.type_defs import {{ method.return_type.name }}
+    from {{ package.name }}.type_defs import {{ method.request_type_annotation.name }}
 
 
-session = get_session()
+    session = get_session()
 
-async with session.create_client("{{ package.service_name.boto3_name }}") as client:
-    client: {{ package.client.name }}
+    async with session.create_client("{{ package.service_name.boto3_name }}") as client:
+        client: {{ package.client.name }}
+        kwargs: {{ method.request_type_annotation.name }} = {...}
+        result: {{ method.return_type.name }} = await client.{{ method.name }}(**kwargs)
+    ```
+{% endif %}
 
-    {% if method %}
-    result: {{ method.return_type.render() }} = client.{{ method.name }}()
-    {% endif %}
+{% if paginator %}
+=== "Paginators"
 
-    {% if paginator %}
-    paginator_name: PaginatorName = "{{ paginator.operation_name }}"
-    paginator: {{ paginator.name }} = client.get_paginator(paginator_name)
-    async for item in paginator.paginate(...):
-        item: {{ paginator.methods[0].return_type.children[0].render() }}
-        print(item)
-    {% endif %}
+    ```python title="Paginator usage example"
+    from {{ package.library_name }}.session import get_session
 
-    {% if waiter %}
-    waiter_name: WaiterName = "{{ waiter.waiter_name }}"
-    waiter: {{ waiter.name }} = client.get_waiter(waiter_name)
-    await waiter.wait()
-    {% endif %}
-```
+    from {{ package.name }}.client import {{ package.client.name }}
+    from {{ package.name }}.paginator import {{ paginator.name }}
+    from {{ package.name }}.type_defs import {{ paginator.methods[0].return_type.children[0].name }}
+
+
+    session = get_session()
+
+    async with session.create_client("{{ package.service_name.boto3_name }}") as client:
+        client: {{ package.client.name }}
+        paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+        async for item in paginator.paginate(...):
+            item: {{ paginator.methods[0].return_type.children[0].name }}
+            print(item)
+    ```
+{% endif %}
+
+{% if waiter %}
+=== "Waiters"
+
+    ```python title="Waiter usage example"
+    from {{ package.library_name }}.session import get_session
+
+    from {{ package.name }}.client import {{ package.client.name }}
+    from {{ package.name }}.waiter import {{ waiter.name }}
+
+
+    session = get_session()
+
+    async with session.create_client("{{ package.service_name.boto3_name }}") as client:
+        client: {{ package.client.name }}
+        waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+        await waiter.wait()
+    ```
+{% endif %}
