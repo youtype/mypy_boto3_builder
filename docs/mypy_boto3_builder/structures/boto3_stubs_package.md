@@ -23,6 +23,7 @@ class Boto3StubsPackage(Package):
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
         init_functions: Iterable[Function] = tuple(),
+        literals: Iterable[TypeLiteral] = tuple(),
     ):
 ```
 
@@ -35,10 +36,11 @@ Structure for boto3-stubs module.
 - [Package](package.md#package)
 - [ServiceName](../service_name.md#servicename)
 - [ServicePackage](service_package.md#servicepackage)
+- [TypeLiteral](../type_annotations/type_literal.md#typeliteral)
 
 ### Boto3StubsPackage().essential_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L37)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L39)
 
 ```python
 @property
@@ -53,7 +55,7 @@ Service names marked as essential.
 
 ### Boto3StubsPackage().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L111)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L113)
 
 ```python
 def get_all_names() -> list[str]:
@@ -63,7 +65,7 @@ Get names for `__all__` directive.
 
 ### Boto3StubsPackage().get_init_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L48)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L50)
 
 ```python
 def get_init_required_import_records() -> list[ImportRecord]:
@@ -77,7 +79,7 @@ Get import records for `__init__.py[i]`.
 
 ### Boto3StubsPackage().get_session_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L68)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L70)
 
 ```python
 def get_session_required_import_records() -> list[ImportRecord]:

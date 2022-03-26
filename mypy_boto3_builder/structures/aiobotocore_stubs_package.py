@@ -33,8 +33,6 @@ class AioBotocoreStubsPackage(Package):
         self.service_names = list(service_names)
         self.service_packages = list(service_packages)
         self.init_functions = list(init_functions)
-        self.library_name = "aiobotocore"
-        self.library_version = "2.1.0"
 
     @property
     def essential_service_names(self) -> list[ServiceName]:

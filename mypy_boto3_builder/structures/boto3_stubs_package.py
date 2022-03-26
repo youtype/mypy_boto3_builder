@@ -27,12 +27,14 @@ class Boto3StubsPackage(Package):
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
         init_functions: Iterable[Function] = tuple(),
+        literals: Iterable[TypeLiteral] = tuple(),
     ):
         super().__init__(data)
         self.session_class = session_class or ClassRecord("Session")
         self.service_names = list(service_names)
         self.service_packages = list(service_packages)
         self.init_functions = list(init_functions)
+        self.literals = list(literals)
 
     @property
     def essential_service_names(self) -> list[ServiceName]:
