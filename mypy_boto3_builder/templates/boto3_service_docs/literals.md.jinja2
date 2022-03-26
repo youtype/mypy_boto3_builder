@@ -1,4 +1,4 @@
-# Literals for {{ package.library_name }} {{ service_name.class_name }} module
+# Literals
 
 > [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > Literals
 
@@ -8,14 +8,18 @@ type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_p
 {% for literal in package.literals -%}
 ## {{ literal.name }}
 
-```python
+```python title="Usage Example"
 from {{ package.name }}.literals import {{ literal.name }}
+
+def get_value() -> {{ literal.name }}:
+    return "{{ sorted(literal.children)[0] }}"
 ```
 
-Values:
-
+```python title="Definition"
+{{ literal.name }} = Literal[
 {% for child in literal.children|sort -%}
-- `{{ child }}`{{ '\n' -}}
+{{ '    "' -}}{{ child }}{{ '",' -}}{{ '\n' -}}
 {% endfor -%}
-{{ '\n' -}}
+]
+```
 {% endfor %}

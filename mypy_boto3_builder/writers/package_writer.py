@@ -137,6 +137,27 @@ class PackageWriter:
                 file_path.write_text(content)
                 self.logger.debug(f"Rendered {NicePath(file_path)}")
 
+    def _render_md_templates(
+        self,
+        package: Package,
+        file_paths: list[tuple[Path, Path]],
+        service_name: ServiceName | None = None,
+    ) -> None:
+        for file_path, template_path in file_paths:
+            content = render_jinja2_template(
+                template_path,
+                package=package,
+                service_name=service_name,
+            )
+            if file_path.suffix == ".md":
+                content = fix_pypi_headers(content)
+                content = format_md(content)
+            if not file_path.parent.exists():
+                file_path.parent.mkdir(exist_ok=True, parents=True)
+            if not file_path.exists() or file_path.read_text() != content:
+                file_path.write_text(content)
+                self.logger.debug(f"Rendered {NicePath(file_path)}")
+
     def _cleanup(self, valid_paths: Sequence[Path], output_path: Path) -> None:
         for unknown_path in NicePath(output_path).walk(valid_paths):
             unknown_path.unlink()
@@ -182,16 +203,7 @@ class PackageWriter:
             file_name = template_path.name.rsplit(".", 1)[0]
             file_paths.append((self.output_path / file_name, template_path))
 
-        for file_path, template_path in file_paths:
-            content = render_jinja2_template(
-                template_path,
-                package=package,
-            )
-            content = insert_md_toc(content)
-            content = format_md(content)
-            if not file_path.exists() or file_path.read_text() != content:
-                file_path.write_text(content)
-                self.logger.debug(f"Updated {NicePath(file_path)}")
+        self._render_md_templates(package, file_paths)
 
     def _get_service_package_template_paths(
         self, package: ServicePackage, templates_path: Path
@@ -337,6 +349,6 @@ class PackageWriter:
                 (docs_path / "service_resource.md", templates_path / "service_resource.md.jinja2")
             )
 
-        self._render_templates(package, file_paths, service_name=package.service_name)
+        self._render_md_templates(package, file_paths, service_name=package.service_name)
         valid_paths = list(dict(file_paths).keys())
         self._cleanup(valid_paths, docs_path)

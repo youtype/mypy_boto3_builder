@@ -86,7 +86,7 @@ class Client(ClassRecord):
         Get a list of auto-generated methods.
         """
         for method in self.methods:
-            if method.name not in ("get_waiter", "get_paginator"):
+            if method.name not in ("get_waiter", "get_paginator", "exceptions"):
                 yield method
 
     def get_exceptions_property(self) -> Method:

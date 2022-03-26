@@ -114,3 +114,16 @@ class Function:
         Whether method arguments can be passed only as kwargs.
         """
         return any(arg.is_kwflag() for arg in self.arguments)
+
+    @property
+    def type_hint_annotations(self) -> list[FakeAnnotation]:
+        """
+        Type annotations list from arguments and return type with internal types.
+        """
+        result = []
+        for argument in self.arguments:
+            if argument.type_annotation and argument.type_annotation.get_local_types():
+                result.append(argument.type_annotation)
+        if self.return_type and self.return_type.get_local_types():
+            result.append(self.return_type)
+        return result

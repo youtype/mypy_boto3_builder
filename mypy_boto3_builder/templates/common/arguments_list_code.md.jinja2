@@ -1,0 +1,18 @@
+{% for argument in method.arguments -%}
+{{ '    ' -}}
+{{ argument.name -}}
+{% if argument.type_annotation -%}{{ ': ' -}}
+{% with type_annotation=argument.type_annotation -%}
+{% include "common/type_annotation_code.md.jinja2" with context -%}
+{% endwith -%}
+{% endif -%}
+{% if not argument.required -%}
+{{ ' = ' -}}
+{{ argument.default.render() -}}
+{% endif -%}
+{{ ',' -}}
+{% if argument.type_annotation in method.type_hint_annotations -%}
+{{ '  # (' -}}{{ method.type_hint_annotations.index(argument.type_annotation) + 1 -}}{{ ')' -}}
+{% endif -%}
+{{ '\n' -}}
+{% endfor -%}

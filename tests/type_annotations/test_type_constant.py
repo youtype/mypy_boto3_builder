@@ -30,9 +30,5 @@ class TestTypeConstant:
         assert self.result == TypeConstant("value")
         assert self.result != TypeConstant("other")
         assert self.result > TypeConstant("aaa")
-
-        with pytest.raises(ValueError):
-            self.result == "value"
-
-        with pytest.raises(ValueError):
-            self.result != "value"
+        assert not self.result == "value"
+        assert self.result != "value"

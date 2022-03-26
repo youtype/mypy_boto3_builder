@@ -13,6 +13,7 @@ Module-level function.
         - [Function().is_kw_only](#functionis_kw_only)
         - [Function().returns_none](#functionreturns_none)
         - [Function().short_docstring](#functionshort_docstring)
+        - [Function().type_hint_annotations](#functiontype_hint_annotations)
 
 ## Function
 
@@ -119,3 +120,18 @@ def short_docstring() -> str:
 ```
 
 Docstring without documentation links.
+
+### Function().type_hint_annotations
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L118)
+
+```python
+@property
+def type_hint_annotations() -> list[FakeAnnotation]:
+```
+
+Type annotations list from arguments and return type with internal types.
+
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)

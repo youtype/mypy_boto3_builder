@@ -1,0 +1,21 @@
+{% if type_annotation.is_typed_dict() -%}
+    {{ type_annotation.name -}}
+{% elif type_annotation.is_literal() -%}
+    {{ type_annotation.name -}}
+{% elif hasattr(type_annotation, 'parent') -%}
+    {% with type_annotation=type_annotation.parent -%}
+        {% include "common/type_annotation_code.md.jinja2" with context -%}
+    {% endwith -%}
+    {{ '[' -}}
+    {% for child in type_annotation.children -%}
+        {% with type_annotation=child -%}
+            {% include "common/type_annotation_code.md.jinja2" with context -%}
+        {% endwith -%}
+        {{ "" if loop.last else ", " -}}
+    {% endfor -%}
+    {{ ']' -}}
+{% elif hasattr(type_annotation, 'stringify') -%}
+    {{ type_annotation.name -}}
+{% else -%}
+    {{ type_annotation.render() -}}
+{% endif -%}

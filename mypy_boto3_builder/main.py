@@ -147,6 +147,7 @@ def main() -> None:
         render_docstrings=True,
         hasattr=hasattr,
         len=len,
+        sorted=sorted,
     )
 
     for product in args.products:

@@ -1,4 +1,4 @@
-# Waiters for {{ package.library_name }} {{ service_name.class_name }} module
+# Waiters
 
 > [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > Waiters
 
@@ -8,11 +8,10 @@ type annotations stubs module [{{ package.pypi_name }}]({{ package.get_service_p
 {% for waiter in package.waiters -%}
 ## {{ waiter.name }}
 
-Type annotations for `{{ package.library_name }}.client("{{ service_name.boto3_name }}").get_waiter("{{ waiter.waiter_name }}")`.
+Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ service_name.boto3_name }}").get_waiter("{{ waiter.waiter_name }}")`.
+[:material-aws: boto3 documentation]({{ waiter.boto3_doc_link }})
 
-Can be used directly:
-
-```python
+```python title="Usage example"
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.waiter import {{ waiter.name }}
@@ -21,11 +20,12 @@ def get_{{ waiter.waiter_name }}_waiter() -> {{ waiter.name }}:
     return Session().client("{{ service_name.boto3_name }}").get_waiter("{{ waiter.waiter_name }}")
 ```
 
-Boto3 documentation: [{{ service_name.class_name }}.Waiter.{{ waiter.waiter_name }}]({{ waiter.boto3_doc_link }})
+{% for method in waiter.methods %}
+### {{ method.name|escape_md }}
 
-Arguments for `{{ waiter.name }}.wait` method:
+Type annotations and code completion for `#!python {{ waiter.name }}.{{ method.name }}` method.
 
-{% with arguments=waiter.methods[0].arguments[1:] -%}
-{% include "common/arguments_list.md.jinja2" with context -%}
-{% endwith %}
+{% include "common/method_code.md.jinja2" with context -%}
+
+{% endfor -%}
 {% endfor %}

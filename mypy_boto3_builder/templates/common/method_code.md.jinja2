@@ -1,0 +1,32 @@
+```python title="Method definition"
+{% if method.is_async %}await {% endif %}def {{ method.name }}(
+{% include "common/arguments_list_code.md.jinja2" with context -%}
+) -> {% with type_annotation=method.return_type -%}{% include "common/type_annotation_code.md.jinja2" with context -%}{% endwith -%}{{ ':' -}}
+{% if method.return_type in method.type_hint_annotations -%}
+{{ '  # (' -}}{{ method.type_hint_annotations.index(method.return_type) + 1 -}}{{ ')' -}}
+{% endif -%}
+{{ '\n    ...\n' -}}
+```
+{{ '\n' -}}
+{% for type_annotation in method.type_hint_annotations -%}
+{{ loop.index -}}{{ '. ' -}}
+{% include "common/type_hint.md.jinja2" with context -%}
+{{ '\n' -}}
+{% endfor -%}
+
+{% if method.request_type_annotation -%}
+{{ '\n\n' -}}
+```python title="Usage example with kwargs"
+kwargs: {{ method.request_type_annotation.render() }} = {  # (1)
+{% with atrributes=method.request_type_annotation.get_required() or method.request_type_annotation.get_optional()[:1] -%}
+    {% for atrribute in atrributes -%}
+        {{ '    "' -}}{{ atrribute.name -}}{{ '": ...,\n' -}}
+    {% endfor -%}
+{% endwith -%}
+}
+
+{{ method.name }}(**kwargs)
+```
+
+1. {% with type_annotation=method.request_type_annotation %}{% include "common/type_hint.md.jinja2" with context %}{% endwith %}
+{% endif -%}

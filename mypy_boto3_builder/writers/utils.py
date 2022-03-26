@@ -152,5 +152,6 @@ def format_md(text: str) -> str:
         text,
         options={
             "wrap": 79,
+            "number": True,
         },
     )
