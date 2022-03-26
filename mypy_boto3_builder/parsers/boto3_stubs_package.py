@@ -10,7 +10,6 @@ from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.package_data import BasePackageData, Boto3StubsPackageData
 from mypy_boto3_builder.parsers.fake_service_package import parse_fake_service_package
-from mypy_boto3_builder.parsers.utils import get_region_name_literal
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
@@ -22,6 +21,7 @@ from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.utils.boto3_utils import get_region_name_literal
 
 
 def parse_boto3_stubs_package(
@@ -151,6 +151,8 @@ def parse_boto3_stubs_package(
             )
         )
 
-    result.literals.append(get_region_name_literal(session, service_names))
+    region_name_literal = get_region_name_literal(session, service_names)
+    if region_name_literal:
+        result.literals.append(region_name_literal)
 
     return result

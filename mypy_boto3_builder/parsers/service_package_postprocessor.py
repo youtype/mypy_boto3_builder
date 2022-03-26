@@ -1,14 +1,21 @@
 """
 Postprocessor for all classes and methods.
 """
+from collections.abc import Sequence
+
+from boto3.session import Session
+
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.utils.boto3_utils import get_region_name_literal
 
 
 class ServicePackagePostprocessor:
@@ -19,8 +26,12 @@ class ServicePackagePostprocessor:
         package -- Service package
     """
 
-    def __init__(self, package: ServicePackage) -> None:
+    def __init__(
+        self, session: Session, package: ServicePackage, service_names: Sequence[ServiceName]
+    ) -> None:
+        self.session = session
         self.package = package
+        self.service_names = service_names
         self.docs_package_name = self.package.data.PYPI_NAME
 
     def generate_docstrings(self) -> None:
@@ -244,3 +255,49 @@ class ServicePackagePostprocessor:
                     f"[Show boto3 documentation]({boto3_doc_link})\n"
                     f"[Show {self.docs_package_name} documentation]({local_doc_link})"
                 )
+
+    def extend_literals(self) -> None:
+        """
+        Add extra literals.
+
+        - `<Class>ServiceName`
+        - `ServiceName`
+        - `ResourceServiceName`
+        - `PaginatorName`
+        - `WaiterName`
+        - `RegionName`
+        """
+        self.package.literals.append(
+            TypeLiteral(
+                f"{self.package.service_name.class_name}ServiceName",
+                [self.package.service_name.boto3_name],
+            )
+        )
+        self.package.literals.append(
+            TypeLiteral("ServiceName", [i.boto3_name for i in self.service_names])
+        )
+        self.package.literals.append(
+            TypeLiteral(
+                "ResourceServiceName",
+                [i.boto3_name for i in self.service_names if i.has_service_resource],
+            )
+        )
+
+        paginator_names = [paginator.operation_name for paginator in self.package.paginators]
+        if paginator_names:
+            self.package.literals.append(TypeLiteral("PaginatorName", paginator_names))
+
+        waiter_names = [waiter.waiter_name for waiter in self.package.waiters]
+        if waiter_names:
+            self.package.literals.append(TypeLiteral("WaiterName", waiter_names))
+
+        region_name_literal = get_region_name_literal(self.session, [self.package.service_name])
+        if region_name_literal:
+            self.package.literals.append(region_name_literal)
+
+    def replace_self_ref_typed_dicts(self) -> None:
+        """
+        Remove self-references from TypedDicts.
+        """
+        for typed_dict in self.package.typed_dicts:
+            typed_dict.replace_self_references()

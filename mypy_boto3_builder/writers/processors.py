@@ -15,13 +15,10 @@ from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import Boto3StubsLitePackageData, Boto3StubsPackageData
 from mypy_boto3_builder.parsers.boto3_stubs_package import parse_boto3_stubs_package
 from mypy_boto3_builder.parsers.master_package import parse_master_package
-from mypy_boto3_builder.parsers.service_package import parse_service_package
-from mypy_boto3_builder.parsers.service_package_postprocessor import ServicePackagePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.structures.botocore_stubs_package import BotocoreStubsPackage
 from mypy_boto3_builder.structures.master_package import MasterPackage
-from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.nice_path import NicePath
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
@@ -167,88 +164,6 @@ def process_master(
     )
 
     return master_package
-
-
-def process_service(
-    session: Session,
-    service_name: ServiceName,
-    output_path: Path,
-    generate_setup: bool,
-    service_names: Iterable[ServiceName],
-    version: str,
-) -> ServicePackage:
-    """
-    Parse and write service package `mypy_boto3_*`.
-
-    Arguments:
-        session -- boto3 session
-        service_name -- Target service name
-        output_path -- Package output path
-        generate_setup -- Generate ready-to-install or to-use package
-        service_names -- List of known service names
-        version -- Package version
-
-    Return:
-        Parsed ServicePackage.
-    """
-    logger = get_logger()
-    logger.debug(f"Parsing {service_name.boto3_name}")
-    service_package = parse_service_package(session, service_name, Boto3StubsPackageData)
-    service_package.version = version
-    service_package.extend_literals(service_names)
-
-    postprocessor = ServicePackagePostprocessor(service_package)
-    postprocessor.generate_docstrings()
-
-    for typed_dict in service_package.typed_dicts:
-        typed_dict.replace_self_references()
-    logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
-
-    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
-    package_writer.write_service_package(
-        service_package,
-        templates_path=TEMPLATES_PATH / "boto3_service",
-    )
-    return service_package
-
-
-def process_service_docs(
-    session: Session,
-    service_name: ServiceName,
-    output_path: Path,
-    service_names: Iterable[ServiceName],
-) -> ServicePackage:
-    """
-    Parse and write service package docs.
-
-    Arguments:
-        session -- boto3 session
-        service_name -- Target service name
-        output_path -- Package output path
-        service_names -- List of known service names
-
-    Return:
-        Parsed ServicePackage.
-    """
-    logger = get_logger()
-    logger.debug(f"Parsing {service_name.boto3_name}")
-    service_package = parse_service_package(session, service_name, Boto3StubsPackageData)
-    service_package.extend_literals(service_names)
-
-    postprocessor = ServicePackagePostprocessor(service_package)
-    postprocessor.generate_docstrings()
-
-    for typed_dict in service_package.typed_dicts:
-        typed_dict.replace_self_references()
-
-    logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
-
-    package_writer = PackageWriter(output_path=output_path)
-    package_writer.write_service_docs(
-        service_package,
-        templates_path=TEMPLATES_PATH / "boto3_service_docs",
-    )
-    return service_package
 
 
 def process_boto3_stubs_docs(

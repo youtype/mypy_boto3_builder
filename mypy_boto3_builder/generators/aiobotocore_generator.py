@@ -1,6 +1,7 @@
 """
 AIOBotocore stubs/docs generator.
 """
+from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
     TypesAioBotocoreLitePackageData,
@@ -8,8 +9,6 @@ from mypy_boto3_builder.package_data import (
 )
 from mypy_boto3_builder.utils.version import get_aiobotocore_version
 from mypy_boto3_builder.writers.aiobotocore_processors import (
-    process_aiobotocore_service,
-    process_aiobotocore_service_docs,
     process_aiobotocore_stubs,
     process_aiobotocore_stubs_docs,
     process_aiobotocore_stubs_lite,
@@ -85,13 +84,11 @@ class AioBotocoreGenerator(BaseGenerator):
                 continue
 
             self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} {version}")
-            process_aiobotocore_service(
-                session=self.session,
-                output_path=self.output_path,
+            self._process_service(
                 service_name=service_name,
-                generate_setup=self.generate_setup,
-                service_names=self.master_service_names,
                 version=version,
+                package_data=TypesAioBotocorePackageData,
+                templates_path=TEMPLATES_PATH / "aiobotocore_service",
             )
 
     def generate_docs(self) -> None:
@@ -111,9 +108,8 @@ class AioBotocoreGenerator(BaseGenerator):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
             package_name = TypesAioBotocorePackageData.get_service_package_name(service_name)
             self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} module docs")
-            process_aiobotocore_service_docs(
-                session=self.session,
-                output_path=self.output_path,
+            self._process_service_docs(
                 service_name=service_name,
-                service_names=self.master_service_names,
+                package_data=TypesAioBotocorePackageData,
+                templates_path=TEMPLATES_PATH / "aiobotocore_service_docs",
             )

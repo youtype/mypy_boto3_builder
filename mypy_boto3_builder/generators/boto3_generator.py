@@ -1,6 +1,7 @@
 """
 Boto3 stubs/docs generator.
 """
+from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
     Boto3StubsLitePackageData,
@@ -15,8 +16,6 @@ from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs_lite,
     process_botocore_stubs,
     process_master,
-    process_service,
-    process_service_docs,
 )
 
 
@@ -134,13 +133,11 @@ class Boto3Generator(BaseGenerator):
                 continue
 
             self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} {version}")
-            process_service(
-                session=self.session,
-                output_path=self.output_path,
+            self._process_service(
                 service_name=service_name,
-                generate_setup=self.generate_setup,
-                service_names=self.master_service_names,
                 version=version,
+                package_data=Boto3StubsPackageData,
+                templates_path=TEMPLATES_PATH / "boto3_service",
             )
 
     def generate_docs(self) -> None:
@@ -160,9 +157,8 @@ class Boto3Generator(BaseGenerator):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
             package_name = Boto3StubsPackageData.get_service_package_name(service_name)
             self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} module docs")
-            process_service_docs(
-                session=self.session,
-                output_path=self.output_path,
+            self._process_service_docs(
                 service_name=service_name,
-                service_names=self.master_service_names,
+                package_data=Boto3StubsPackageData,
+                templates_path=TEMPLATES_PATH / "boto3_service_docs",
             )

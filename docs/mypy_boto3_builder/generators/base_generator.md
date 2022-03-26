@@ -14,7 +14,7 @@ Base stubs/docs generator.
 
 ## BaseGenerator
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L17)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L22)
 
 ```python
 class BaseGenerator(ABC):
@@ -49,7 +49,7 @@ Base stubs/docs generator.
 
 ### BaseGenerator().generate_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L93)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L98)
 
 ```python
 @abstractmethod
@@ -60,7 +60,7 @@ Generate service and master docs.
 
 ### BaseGenerator().generate_product
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L99)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L104)
 
 ```python
 def generate_product(product_type: ProductType) -> None:
@@ -74,7 +74,7 @@ Run generator for a product type.
 
 ### BaseGenerator().generate_service_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L86)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L91)
 
 ```python
 @abstractmethod
@@ -85,7 +85,7 @@ Generate service stubs.
 
 ### BaseGenerator().generate_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L79)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L84)
 
 ```python
 @abstractmethod
@@ -96,7 +96,7 @@ Generate main stubs.
 
 ### BaseGenerator().get_library_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L54)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/base_generator.py#L59)
 
 ```python
 @abstractmethod

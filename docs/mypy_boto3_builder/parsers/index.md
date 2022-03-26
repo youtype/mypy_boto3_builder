@@ -22,4 +22,3 @@ Parsers for boto3 clients and resources.
         - [ServicePackagePostprocessor](service_package_postprocessor.md#servicepackagepostprocessor)
         - [Service Resource](service_resource.md#service-resource)
         - [ShapeParser](shape_parser.md#shapeparser)
-        - [Utils](utils.md#utils)

@@ -46,7 +46,6 @@ Full list of [mypy-boto3-builder](README.md#mypy_boto3_builder) project modules.
         - [ServicePackagePostprocessor](mypy_boto3_builder/parsers/service_package_postprocessor.md#servicepackagepostprocessor)
         - [Service Resource](mypy_boto3_builder/parsers/service_resource.md#service-resource)
         - [ShapeParser](mypy_boto3_builder/parsers/shape_parser.md#shapeparser)
-        - [Utils](mypy_boto3_builder/parsers/utils.md#utils)
     - [ServiceName](mypy_boto3_builder/service_name.md#servicename)
     - [Structures](mypy_boto3_builder/structures/index.md#structures)
         - [AioBotocoreStubsPackage](mypy_boto3_builder/structures/aiobotocore_stubs_package.md#aiobotocorestubspackage)

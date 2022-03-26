@@ -9,9 +9,14 @@ from boto3.session import Session
 
 from mypy_boto3_builder.constants import ProductType
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.package_data import BasePackageData
+from mypy_boto3_builder.parsers.service_package import parse_service_package
+from mypy_boto3_builder.parsers.service_package_postprocessor import ServicePackagePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
+from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
 class BaseGenerator(ABC):
@@ -116,3 +121,68 @@ class BaseGenerator(ABC):
         for service_name in self.master_service_names:
             result.update(self.session.get_available_regions(service_name.boto3_name))
         return list(sorted(result))
+
+    def _parse_service_package(
+        self,
+        service_name: ServiceName,
+        version: str | None,
+        package_data: type[BasePackageData],
+    ) -> ServicePackage:
+        self.logger.debug(f"Parsing {service_name.boto3_name}")
+        service_package = parse_service_package(self.session, service_name, package_data)
+        if version:
+            service_package.version = version
+
+        postprocessor = ServicePackagePostprocessor(
+            self.session, service_package, self.master_service_names
+        )
+        postprocessor.generate_docstrings()
+
+        if package_data.IS_ASYNC:
+            postprocessor.make_async()
+            postprocessor.add_contextmanager_methods()
+
+        postprocessor.extend_literals()
+        postprocessor.replace_self_ref_typed_dicts()
+        return service_package
+
+    def _process_service(
+        self,
+        service_name: ServiceName,
+        version: str,
+        package_data: type[BasePackageData],
+        templates_path: Path,
+    ) -> ServicePackage:
+        service_package = self._parse_service_package(service_name, version, package_data)
+
+        self.logger.debug(f"Writing {service_name.boto3_name}")
+        package_writer = PackageWriter(
+            output_path=self.output_path, generate_setup=self.generate_setup
+        )
+        package_writer.write_service_package(
+            service_package,
+            templates_path=templates_path,
+        )
+        return service_package
+
+    def _process_service_docs(
+        self,
+        service_name: ServiceName,
+        package_data: type[BasePackageData],
+        templates_path: Path,
+    ) -> ServicePackage:
+        service_package = self._parse_service_package(
+            service_name=service_name,
+            version=None,
+            package_data=package_data,
+        )
+
+        self.logger.debug(f"Writing {service_name.boto3_name}")
+        package_writer = PackageWriter(
+            output_path=self.output_path, generate_setup=self.generate_setup
+        )
+        package_writer.write_service_docs(
+            service_package,
+            templates_path=templates_path,
+        )
+        return service_package

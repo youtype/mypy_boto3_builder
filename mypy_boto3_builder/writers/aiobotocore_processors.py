@@ -13,11 +13,8 @@ from mypy_boto3_builder.package_data import (
     TypesAioBotocorePackageData,
 )
 from mypy_boto3_builder.parsers.aiobotocore_stubs_package import parse_aiobotocore_stubs_package
-from mypy_boto3_builder.parsers.service_package import parse_service_package
-from mypy_boto3_builder.parsers.service_package_postprocessor import ServicePackagePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.aiobotocore_stubs_package import AioBotocoreStubsPackage
-from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.nice_path import NicePath
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
@@ -95,51 +92,6 @@ def process_aiobotocore_stubs_lite(
     return aiobotocore_stubs_package
 
 
-def process_aiobotocore_service(
-    session: Session,
-    service_name: ServiceName,
-    output_path: Path,
-    generate_setup: bool,
-    service_names: Iterable[ServiceName],
-    version: str,
-) -> ServicePackage:
-    """
-    Parse and write service package `types_aiobotocore_*`.
-
-    Arguments:
-        session -- boto3 session
-        service_name -- Target service name
-        output_path -- Package output path
-        generate_setup -- Generate ready-to-install or to-use package
-        service_names -- List of known service names
-        version -- Package version
-
-    Return:
-        Parsed ServicePackage.
-    """
-    logger = get_logger()
-    logger.debug(f"Parsing {service_name.boto3_name}")
-    service_package = parse_service_package(session, service_name, TypesAioBotocorePackageData)
-    service_package.version = version
-    service_package.extend_literals(service_names)
-
-    postprocessor = ServicePackagePostprocessor(service_package)
-    postprocessor.generate_docstrings()
-    postprocessor.make_async()
-    postprocessor.add_contextmanager_methods()
-
-    for typed_dict in service_package.typed_dicts:
-        typed_dict.replace_self_references()
-    logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
-
-    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
-    package_writer.write_service_package(
-        service_package,
-        templates_path=TEMPLATES_PATH / "aiobotocore_service",
-    )
-    return service_package
-
-
 def process_aiobotocore_stubs_docs(
     session: Session,
     output_path: Path,
@@ -170,44 +122,3 @@ def process_aiobotocore_stubs_docs(
     )
 
     return aiobotocore_stubs_package
-
-
-def process_aiobotocore_service_docs(
-    session: Session,
-    service_name: ServiceName,
-    output_path: Path,
-    service_names: Iterable[ServiceName],
-) -> ServicePackage:
-    """
-    Parse and write service package docs.
-
-    Arguments:
-        session -- boto3 session
-        service_name -- Target service name
-        output_path -- Package output path
-        service_names -- List of known service names
-
-    Return:
-        Parsed ServicePackage.
-    """
-    logger = get_logger()
-    logger.debug(f"Parsing {service_name.boto3_name}")
-    service_package = parse_service_package(session, service_name, TypesAioBotocorePackageData)
-    service_package.extend_literals(service_names)
-
-    postprocessor = ServicePackagePostprocessor(service_package)
-    postprocessor.generate_docstrings()
-    postprocessor.make_async()
-    postprocessor.add_contextmanager_methods()
-
-    for typed_dict in service_package.typed_dicts:
-        typed_dict.replace_self_references()
-
-    logger.debug(f"Writing {service_name.boto3_name} to {NicePath(output_path)}")
-
-    package_writer = PackageWriter(output_path=output_path)
-    package_writer.write_service_docs(
-        service_package,
-        templates_path=TEMPLATES_PATH / "aiobotocore_service_docs",
-    )
-    return service_package
