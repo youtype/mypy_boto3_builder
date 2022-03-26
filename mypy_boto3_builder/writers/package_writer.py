@@ -149,9 +149,9 @@ class PackageWriter:
                 package=package,
                 service_name=service_name,
             )
-            if file_path.suffix == ".md":
-                content = fix_pypi_headers(content)
-                content = format_md(content)
+            # if file_path.suffix == ".md":
+            #     content = fix_pypi_headers(content)
+            #     content = format_md(content)
             if not file_path.parent.exists():
                 file_path.parent.mkdir(exist_ok=True, parents=True)
             if not file_path.exists() or file_path.read_text() != content:
