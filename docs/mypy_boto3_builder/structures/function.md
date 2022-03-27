@@ -42,7 +42,7 @@ Module-level function.
 
 ### Function().body
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L78)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L73)
 
 ```python
 @property
@@ -63,7 +63,7 @@ Create and set `request_type_annotation` TypedDict based on function arguments.
 
 ### Function().get_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L97)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L92)
 
 ```python
 def get_required_import_records() -> set[ImportRecord]:
@@ -77,7 +77,7 @@ Extract required import records.
 
 ### Function().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L85)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L80)
 
 ```python
 def get_types() -> set[FakeAnnotation]:
@@ -91,7 +91,7 @@ Extract required type annotations.
 
 ### Function().is_kw_only
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L117)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L112)
 
 ```python
 def is_kw_only() -> bool:
@@ -101,7 +101,7 @@ Whether method arguments can be passed only as kwargs.
 
 ### Function().returns_none
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L110)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L105)
 
 ```python
 @property
@@ -123,7 +123,7 @@ Docstring without documentation links.
 
 ### Function().type_hint_annotations
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L123)
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/function.py#L118)
 
 ```python
 @property
