@@ -60,8 +60,8 @@ class Function:
                 kwflag_found = True
                 continue
 
-            if not kwflag_found:
-                continue
+            # if not kwflag_found:
+            #     continue
 
             if not argument.type_annotation:
                 continue
