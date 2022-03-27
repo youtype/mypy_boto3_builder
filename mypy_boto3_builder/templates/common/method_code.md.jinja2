@@ -25,7 +25,7 @@ kwargs: {{ method.request_type_annotation.render() }} = {  # (1)
 {% endwith -%}
 }
 
-{{ method.name }}(**kwargs)
+parent.{{ method.name }}(**kwargs)
 ```
 
 1. See {% with type_annotation=method.request_type_annotation %}{% include "common/type_hint.md.jinja2" with context %}{% endwith %}
