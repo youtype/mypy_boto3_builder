@@ -54,14 +54,9 @@ class Function:
         Create and set `request_type_annotation` TypedDict based on function arguments.
         """
         result = TypeTypedDict(name)
-        kwflag_found = False
         for argument in self.arguments:
             if argument.is_kwflag():
-                kwflag_found = True
                 continue
-
-            # if not kwflag_found:
-            #     continue
 
             if not argument.type_annotation:
                 continue
