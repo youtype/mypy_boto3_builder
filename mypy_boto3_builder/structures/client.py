@@ -115,3 +115,13 @@ class Client(ClassRecord):
         result = super().get_required_import_records()
         result.add(ImportRecord(ImportString("typing"), "Dict"))
         return result
+
+    def get_example_method(self) -> Method | None:
+        """
+        Get a nice method with return TypedDict for documentation.
+        """
+        for method in self.methods:
+            if method.return_type and method.return_type.is_typed_dict():
+                return method
+
+        return None

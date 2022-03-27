@@ -10,6 +10,7 @@ Boto3 Client.
         - [Client().boto3_doc_link](#clientboto3_doc_link)
         - [Client().get_all_names](#clientget_all_names)
         - [Client.get_class_name](#clientget_class_name)
+        - [Client().get_example_method](#clientget_example_method)
         - [Client().get_exceptions_property](#clientget_exceptions_property)
         - [Client().get_required_import_records](#clientget_required_import_records)
         - [Client().own_methods](#clientown_methods)
@@ -79,6 +80,16 @@ Get class name for ServiceName.
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
+
+### Client().get_example_method
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L119)
+
+```python
+def get_example_method() -> Method | None:
+```
+
+Get a nice method with return TypedDict for documentation.
 
 ### Client().get_exceptions_property
 

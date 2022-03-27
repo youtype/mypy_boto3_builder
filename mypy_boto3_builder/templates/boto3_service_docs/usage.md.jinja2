@@ -13,7 +13,7 @@ Can be used with `{{ package.data.PYPI_NAME }}[{{ package.service_name.extras_na
 Write your `{{ package.service_name.class_name }}` code as usual,
 type checking and code completion should work out of the box.
 
-{% set method = package.client.methods[1] if len(package.client.methods) > 1 else None -%}
+{% set method = package.client.get_example_method() -%}
 {% if method %}
 === "Client"
 
