@@ -44,5 +44,6 @@ class Stubber:
         service_error_meta: Optional[Mapping[str, Any]] = ...,
         expected_params: Optional[Mapping[str, Any]] = ...,
         response_meta: Optional[Mapping[str, Any]] = ...,
+        modeled_fields: Optional[Mapping[str, Any]] = ...,
     ) -> None: ...
     def assert_no_pending_responses(self) -> None: ...
