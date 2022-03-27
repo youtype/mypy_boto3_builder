@@ -363,7 +363,7 @@ class ServicePackage(Package):
             file -- HTML file name
             parts -- Anchor parts
         """
-        link = f"{self.get_local_doc_link()}{file}.html"
+        link = f"{self.get_local_doc_link()}{file}/"
         if not parts:
             return link
         anchor = "".join([get_anchor_link(part) for part in parts])
