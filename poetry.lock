@@ -56,14 +56,14 @@ webencodings = "*"
 
 [[package]]
 name = "boto3"
-version = "1.21.26"
+version = "1.21.27"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.6"
 
 [package.dependencies]
-botocore = ">=1.24.26,<1.25.0"
+botocore = ">=1.24.27,<1.25.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.5.0,<0.6.0"
 
@@ -72,8 +72,8 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.21.26"
-description = "Type annotations for boto3 1.21.26 generated with mypy-boto3-builder 7.4.1"
+version = "1.21.27"
+description = "Type annotations for boto3 1.21.27 generated with mypy-boto3-builder 7.4.1"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
@@ -390,7 +390,7 @@ xray = ["mypy-boto3-xray (>=1.21.0)"]
 
 [[package]]
 name = "botocore"
-version = "1.24.26"
+version = "1.24.27"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -406,8 +406,8 @@ crt = ["awscrt (==0.13.5)"]
 
 [[package]]
 name = "botocore-stubs"
-version = "1.24.26"
-description = "Type annotations for botocore 1.24.26 generated with mypy-boto3-builder 7.4.1"
+version = "1.24.27"
+description = "Type annotations for botocore 1.24.27 generated with mypy-boto3-builder 7.4.1"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
@@ -580,15 +580,15 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 
 [[package]]
 name = "importlib-resources"
-version = "5.4.0"
+version = "5.6.0"
 description = "Read resources from Python packages"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.extras]
-docs = ["sphinx", "jaraco.packaging (>=8.2)", "rst.linker (>=1.9)"]
-testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-cov", "pytest-enabler (>=1.0.1)", "pytest-black (>=0.3.7)", "pytest-mypy"]
+docs = ["sphinx", "jaraco.packaging (>=9)", "rst.linker (>=1.9)"]
+testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-cov", "pytest-enabler (>=1.0.1)", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)"]
 
 [[package]]
 name = "iniconfig"
@@ -626,7 +626,7 @@ trio = ["trio", "async-generator"]
 
 [[package]]
 name = "jinja2"
-version = "3.1.0"
+version = "3.1.1"
 description = "A very fast and expressive template engine."
 category = "main"
 optional = false
@@ -1236,20 +1236,20 @@ bleach = [
     {file = "bleach-4.1.0.tar.gz", hash = "sha256:0900d8b37eba61a802ee40ac0061f8c2b5dee29c1927dd1d233e075ebf5a71da"},
 ]
 boto3 = [
-    {file = "boto3-1.21.26-py3-none-any.whl", hash = "sha256:731947a8a316be2d4498b01f8e1df7d93b231ea3316675622b01065637662063"},
-    {file = "boto3-1.21.26.tar.gz", hash = "sha256:8c1dd724d9ff9a4794d6beeda4a64ab19688db4a546b4db8b6eba621b71a8a8d"},
+    {file = "boto3-1.21.27-py3-none-any.whl", hash = "sha256:f165790439117e3fd40f8c06826845068852a70ca5ac62adb192405c97f117e1"},
+    {file = "boto3-1.21.27.tar.gz", hash = "sha256:ef41b9c7b6311d5152bdc78f7de56912c1ed265debf7da14133e1ad00246ad50"},
 ]
 boto3-stubs = [
-    {file = "boto3-stubs-1.21.26.tar.gz", hash = "sha256:f9a1ac766820ed58dca29ee9777a626aa696fa59b012e80d0b0452b60a87677b"},
-    {file = "boto3_stubs-1.21.26-py3-none-any.whl", hash = "sha256:fc8a53ce3f51df196c64126f4976dd0e6c9a0e78718214b98a3c6fbd884510ae"},
+    {file = "boto3-stubs-1.21.27.tar.gz", hash = "sha256:49326d284d24b1a2e2f89bd6d868b8836c5acc51ed837fc38d1d002b8bd9acbb"},
+    {file = "boto3_stubs-1.21.27-py3-none-any.whl", hash = "sha256:954cdb40de97232aa73189bba8671200ddd50cf7c77afd201a4ede017f57de98"},
 ]
 botocore = [
-    {file = "botocore-1.24.26-py3-none-any.whl", hash = "sha256:530e4006b123fd909c7222eeadc0ce644ba89e63a1d59fff08af6a06f08766fc"},
-    {file = "botocore-1.24.26.tar.gz", hash = "sha256:9f8e31ecbdc7e7bf29e4b195d67d8471f71793676bc193fde35e55cf9e3b41d1"},
+    {file = "botocore-1.24.27-py3-none-any.whl", hash = "sha256:88e19efcaead99426434d9898d211093b8a8d0cc90af3b84a4ccb9f196894e87"},
+    {file = "botocore-1.24.27.tar.gz", hash = "sha256:2c11db4b94b4b9504d2782acb758d29a7e5cbdfaa826601f222ac9ddcf004dde"},
 ]
 botocore-stubs = [
-    {file = "botocore-stubs-1.24.26.tar.gz", hash = "sha256:cef3c5b2b69044d3ffc9f49f58be271790517f923c4e54b0fabc7e3d5c4a4b01"},
-    {file = "botocore_stubs-1.24.26-py3-none-any.whl", hash = "sha256:063b10296ff850cd3da60f773518a6ff5c176ab8cf3396d7d83601d2aabd2df3"},
+    {file = "botocore-stubs-1.24.27.tar.gz", hash = "sha256:8c70d39f0e785093fc50b8b061a030719f3c70fcf2febed8a15ab03a4e83b9c5"},
+    {file = "botocore_stubs-1.24.27-py3-none-any.whl", hash = "sha256:45272a13a6f5fe413ae3b6d47f1d1b27c9331c9a0f4ad83e605fd6c2b309fd46"},
 ]
 certifi = [
     {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
@@ -1414,8 +1414,8 @@ importlib-metadata = [
     {file = "importlib_metadata-4.11.3.tar.gz", hash = "sha256:ea4c597ebf37142f827b8f39299579e31685c31d3a438b59f469406afd0f2539"},
 ]
 importlib-resources = [
-    {file = "importlib_resources-5.4.0-py3-none-any.whl", hash = "sha256:33a95faed5fc19b4bc16b29a6eeae248a3fe69dd55d4d229d2b480e23eeaad45"},
-    {file = "importlib_resources-5.4.0.tar.gz", hash = "sha256:d756e2f85dd4de2ba89be0b21dba2a3bbec2e871a42a3a16719258a11f87506b"},
+    {file = "importlib_resources-5.6.0-py3-none-any.whl", hash = "sha256:a9dd72f6cc106aeb50f6e66b86b69b454766dd6e39b69ac68450253058706bcc"},
+    {file = "importlib_resources-5.6.0.tar.gz", hash = "sha256:1b93238cbf23b4cde34240dd8321d99e9bf2eb4bc91c0c99b2886283e7baad85"},
 ]
 iniconfig = [
     {file = "iniconfig-1.1.1-py2.py3-none-any.whl", hash = "sha256:011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3"},
@@ -1430,8 +1430,8 @@ jeepney = [
     {file = "jeepney-0.7.1.tar.gz", hash = "sha256:fa9e232dfa0c498bd0b8a3a73b8d8a31978304dcef0515adc859d4e096f96f4f"},
 ]
 jinja2 = [
-    {file = "Jinja2-3.1.0-py3-none-any.whl", hash = "sha256:da424924c069a4013730d8dd010cbecac7e7bb752be388db3741688bffb48dc6"},
-    {file = "Jinja2-3.1.0.tar.gz", hash = "sha256:a2f09a92f358b96b5f6ca6ecb4502669c4acb55d8733bbb2b2c9c4af5564c605"},
+    {file = "Jinja2-3.1.1-py3-none-any.whl", hash = "sha256:539835f51a74a69f41b848a9645dbdc35b4f20a3b601e2d9a7e22947b15ff119"},
+    {file = "Jinja2-3.1.1.tar.gz", hash = "sha256:640bed4bb501cbd17194b3cace1dc2126f5b619cf068a726b98192a0fde74ae9"},
 ]
 jmespath = [
     {file = "jmespath-1.0.0-py3-none-any.whl", hash = "sha256:e8dcd576ed616f14ec02eed0005c85973b5890083313860136657e24784e4c04"},
