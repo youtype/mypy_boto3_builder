@@ -11,6 +11,7 @@ from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.function import Function
+from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.paginator import Paginator
 from mypy_boto3_builder.structures.service_resource import ServiceResource
@@ -83,17 +84,25 @@ class ServicePackage(Package):
                 continue
             result.add(type_annotation)
 
-        for method in self.client.methods:
+        methods: set[Method] = set()
+        methods.update(self.client.methods)
+        methods.update((method for paginator in self.paginators for method in paginator.methods))
+        methods.update((method for waiter in self.waiters for method in waiter.methods))
+
+        if self.service_resource:
+            methods.update(self.service_resource.methods)
+            methods.update(
+                (
+                    method
+                    for resource in self.service_resource.sub_resources
+                    for method in resource.methods
+                )
+            )
+
+        for method in methods:
             if method.request_type_annotation:
                 result.add(method.request_type_annotation)
-        if self.service_resource:
-            for method in self.service_resource.methods:
-                if method.request_type_annotation:
-                    result.add(method.request_type_annotation)
-            for resource in self.service_resource.sub_resources:
-                for method in resource.methods:
-                    if method.request_type_annotation:
-                        result.add(method.request_type_annotation)
+
         return result
 
     def extract_typed_dicts(self) -> list[TypeTypedDict]:

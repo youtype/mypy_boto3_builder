@@ -313,7 +313,7 @@ class ShapeParser:
 
             method = Method(name=method_name, arguments=arguments, return_type=return_type)
             if operation_model.input_shape:
-                method.request_type_annotation = method.get_request_type_annotation(
+                method.create_request_type_annotation(
                     self._get_typed_dict_name(operation_model.input_shape, postfix="Request")
                 )
             result[method.name] = method
@@ -530,7 +530,14 @@ class ShapeParser:
             )
             return_type = TypeSubscript(page_iterator_import, [return_item])
 
-        return Method("paginate", arguments, return_type)
+        method = Method("paginate", arguments, return_type)
+        if operation_shape.input_shape is not None:
+            method.create_request_type_annotation(
+                self._get_typed_dict_name(
+                    operation_shape.input_shape, postfix=f"{paginator_name}Paginate"
+                )
+            )
+        return method
 
     def get_wait_method(self, waiter_name: str) -> Method:
         """
@@ -557,7 +564,12 @@ class ShapeParser:
             arguments.extend(self._get_kw_flags("wait", shape_arguments))
             arguments.extend(shape_arguments)
 
-        return Method(name="wait", arguments=arguments, return_type=Type.none)
+        method = Method(name="wait", arguments=arguments, return_type=Type.none)
+        if operation_shape.input_shape is not None:
+            method.create_request_type_annotation(
+                self._get_typed_dict_name(operation_shape.input_shape, postfix=f"{waiter_name}Wait")
+            )
+        return method
 
     def get_service_resource_method_map(self) -> dict[str, Method]:
         """
@@ -688,7 +700,7 @@ class ShapeParser:
 
         method = Method(name=method_name, arguments=arguments, return_type=return_type)
         if operation_shape and operation_shape.input_shape is not None:
-            method.request_type_annotation = method.get_request_type_annotation(
+            method.create_request_type_annotation(
                 self._get_typed_dict_name(
                     operation_shape.input_shape, postfix=f"{resource_name}{action_name}"
                 )

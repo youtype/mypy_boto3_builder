@@ -49,13 +49,18 @@ class Function:
             return ""
         return short_docstring
 
-    def get_request_type_annotation(self, name: str) -> TypeTypedDict | None:
+    def create_request_type_annotation(self, name: str) -> None:
         """
-        Get TypedDict based on function arguments.
+        Create and set `request_type_annotation` TypedDict based on function arguments.
         """
         result = TypeTypedDict(name)
+        kwflag_found = False
         for argument in self.arguments:
             if argument.is_kwflag():
+                kwflag_found = True
+                continue
+
+            if not kwflag_found:
                 continue
 
             if not argument.type_annotation:
@@ -67,8 +72,8 @@ class Function:
             )
 
         if not result.children:
-            return None
-        return result
+            return
+        self.request_type_annotation = result
 
     @property
     def body(self) -> str:

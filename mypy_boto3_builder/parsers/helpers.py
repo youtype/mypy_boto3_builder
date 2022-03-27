@@ -76,7 +76,5 @@ def parse_method(
         return_type = docstring_parser.get_return_type(docstring)
 
     result = Method(name=name, arguments=arguments, return_type=return_type)
-    result.request_type_annotation = result.get_request_type_annotation(
-        f"{parent_name}{get_class_prefix(name)}RequestTypeDef"
-    )
+    result.create_request_type_annotation(f"{parent_name}{get_class_prefix(name)}RequestTypeDef")
     return result
