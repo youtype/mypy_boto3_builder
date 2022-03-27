@@ -121,7 +121,13 @@ class Client(ClassRecord):
         Get a nice method with return TypedDict for documentation.
         """
         for method in self.methods:
-            if method.return_type and method.return_type.is_typed_dict():
-                return method
+            if not method.request_type_annotation:
+                continue
+            if not method.return_type:
+                continue
+            if not method.return_type.is_typed_dict():
+                continue
+
+            return method
 
         return None
