@@ -124,14 +124,12 @@ def build(path: Path) -> None:
         check_call([sys.executable, "setup.py", "build", "sdist", "bdist_wheel"])
 
 
-def publish(path: Path) -> None:
+def publish(path: Path) -> Path:
     """
     Publish to PyPI.
     """
-    logger = logging.getLogger(LOGGER_NAME)
     attempt = 1
     while attempt < MAX_RETRIES:
-        logger.info(f"Publishing {path.name}")
         try:
             check_call(
                 [
@@ -144,11 +142,12 @@ def publish(path: Path) -> None:
                 ],
                 print_error=False,
             )
-            return
+            return path
         except subprocess.CalledProcessError as e:
+            logger = logging.getLogger(LOGGER_NAME)
             if "File already exists" in e.output:
                 logger.info(f"Already published {path.name}")
-                return
+                return path
             for line in e.output.splitlines():
                 logger.error(line)
 
@@ -175,22 +174,25 @@ def main() -> None:
     master_paths.sort(key=lambda x: MASTER_PACKAGES.index(x.name))
 
     service_paths = [p for p in paths if p.name not in MASTER_PACKAGES]
+    build_paths = [
+        *master_paths,
+        *service_paths,
+    ]
 
     if not args.skip_build:
-        build_paths = [
-            *master_paths,
-            *service_paths,
-        ]
         for index, path in enumerate(build_paths):
             logger.info(f"[{index + 1:03d}/{len(build_paths):03d}] Building {path.name}")
             build(path)
 
     if not args.skip_publish:
         with Pool(args.threads) as pool:
-            pool.map(publish, service_paths)
+            for index, path in enumerate(pool.map(publish, service_paths)):
+                logger.info(f"[{index + 1:03d}/{len(build_paths):03d}] Published {path.name}")
 
-        for path in master_paths:
+        for index, path in enumerate(master_paths):
             publish(path)
+            total_index = len(service_paths) + index + 1
+            logger.info(f"[{total_index:03d}/{len(build_paths):03d}] Published {path.name}")
 
 
 if __name__ == "__main__":
