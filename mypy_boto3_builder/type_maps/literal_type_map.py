@@ -5,42 +5,8 @@ from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
-# FIXME: https://github.com/boto/botocore/issues/1807
-ResourceStatusType: TypeLiteral = TypeLiteral(
-    "ResourceStatusType",
-    [
-        "CREATE_COMPLETE",
-        "CREATE_FAILED",
-        "CREATE_IN_PROGRESS",
-        "DELETE_COMPLETE",
-        "DELETE_FAILED",
-        "DELETE_IN_PROGRESS",
-        "DELETE_SKIPPED",
-        "IMPORT_COMPLETE",
-        "IMPORT_FAILED",
-        "IMPORT_IN_PROGRESS",
-        "IMPORT_ROLLBACK_COMPLETE",
-        "IMPORT_ROLLBACK_FAILED",
-        "IMPORT_ROLLBACK_IN_PROGRESS",
-        "UPDATE_COMPLETE",
-        "UPDATE_FAILED",
-        "UPDATE_IN_PROGRESS",
-        "ROLLBACK_COMPLETE",
-        "ROLLBACK_FAILED",
-        "ROLLBACK_IN_PROGRESS",
-        "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
-        "UPDATE_ROLLBACK_COMPLETE",
-        "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
-        "UPDATE_ROLLBACK_FAILED",
-        "UPDATE_ROLLBACK_IN_PROGRESS",
-    ],
-)
 
-LITERAL_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {
-    ServiceNameCatalog.cloudformation: {
-        "ResourceStatusType": ResourceStatusType,
-    },
-}
+LITERAL_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {}
 
 
 def get_literal_type_stub(service_name: ServiceName, literal_name: str) -> FakeAnnotation | None:
