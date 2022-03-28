@@ -61,20 +61,25 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("-r", "--retries", type=int, default=5)
     parser.add_argument("-f", "--filter", nargs="+", default=[])
     parser.add_argument("--skip-build", action="store_true")
+    parser.add_argument("--skip-publish", action="store_true")
     return parser.parse_args()
 
 
-def check_call(cmd: list[str], print_error: bool = True) -> None:
+def check_call(cmd: list[str], print_error: bool = True) -> str:
     """
     Check command exit code and output on error.
+
+    Returns:
+        Command output.
     """
     try:
-        subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+        return subprocess.check_output(cmd, stderr=subprocess.STDOUT, encoding="utf-8")
     except subprocess.CalledProcessError as e:
         if print_error:
             logger = logging.getLogger(LOGGER_NAME)
-            for line in e.output.decode().splitlines():
+            for line in e.output.splitlines():
                 logger.error(line)
+            return ""
         raise
 
 
@@ -133,10 +138,10 @@ def publish(path: Path) -> None:
             )
             return
         except subprocess.CalledProcessError as e:
-            if "File already exists" in e.output.decode():
+            if "File already exists" in e.output:
                 logger.info(f"Already published {path.name}")
                 return
-            for line in e.output.decode().splitlines():
+            for line in e.output.splitlines():
                 logger.error(line)
 
             attempt += 1
@@ -151,7 +156,7 @@ def main() -> None:
     Main CLI entrypoint.
     """
     args = parse_args()
-    setup_logging(logging.INFO)
+    setup_logging(logging.DEBUG)
     logger = logging.getLogger(LOGGER_NAME)
     paths = [i for i in args.path.absolute().iterdir() if i.is_dir()]
     paths.sort(key=lambda x: x.name)
@@ -164,18 +169,20 @@ def main() -> None:
     service_paths = [p for p in paths if p.name not in MASTER_PACKAGES]
 
     if not args.skip_build:
+        build_paths = [
+            *master_paths,
+            *service_paths,
+        ]
+        for index, path in enumerate(build_paths):
+            logger.info(f"[{index + 1:03d}/{len(service_paths):03d}] Building {path.name}")
+            build(path)
+
+    if not args.skip_publish:
+        with Pool(args.threads) as pool:
+            pool.map(publish, service_paths)
+
         for path in master_paths:
-            logger.info(f"Building {path.name}")
-            build(path)
-        for index, path in enumerate(service_paths):
-            logger.info(f"[{index + 1:03d}/{len(service_paths)}] Building {path.name}")
-            build(path)
-
-    with Pool(args.threads) as pool:
-        pool.map(publish, service_paths)
-
-    for path in master_paths:
-        publish(path)
+            publish(path)
 
 
 if __name__ == "__main__":
