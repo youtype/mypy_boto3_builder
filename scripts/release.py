@@ -174,7 +174,7 @@ def main() -> None:
             *service_paths,
         ]
         for index, path in enumerate(build_paths):
-            logger.info(f"[{index + 1:03d}/{len(service_paths):03d}] Building {path.name}")
+            logger.info(f"[{index + 1:03d}/{len(build_paths):03d}] Building {path.name}")
             build(path)
 
     if not args.skip_publish:
