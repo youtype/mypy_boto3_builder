@@ -330,9 +330,9 @@ class ShapeParser:
         literal_name = f"{shape.name}Type"
         literal_type_stub = get_literal_type_stub(self.service_name, literal_name)
         if literal_type_stub:
-            return literal_type_stub
+            return TypeLiteral(literal_name, literal_type_stub)
 
-        return TypeLiteral(f"{shape.name}Type", [option for option in shape.enum])
+        return TypeLiteral(literal_name, [option for option in shape.enum])
 
     def _parse_shape_map(
         self,
