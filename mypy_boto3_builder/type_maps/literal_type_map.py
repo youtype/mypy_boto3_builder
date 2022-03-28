@@ -2,9 +2,6 @@
 String to type annotation map to replace overriden botocore literals.
 """
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
-from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-
 
 LITERAL_TYPE_MAP: dict[ServiceName, dict[str, list[str]]] = {
     ServiceNameCatalog.s3: {
