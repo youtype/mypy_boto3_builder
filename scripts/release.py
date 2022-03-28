@@ -7,6 +7,7 @@ import logging
 import os
 import shutil
 import subprocess
+import sys
 import time
 from contextlib import contextmanager
 from multiprocessing import Pool
@@ -120,7 +121,7 @@ def build(path: Path) -> None:
     """
     cleanup(path)
     with chdir(path):
-        check_call(["python", "setup.py", "build", "sdist", "bdist_wheel"])
+        check_call([sys.executable, "setup.py", "build", "sdist", "bdist_wheel"])
 
 
 def publish(path: Path) -> None:
@@ -133,7 +134,14 @@ def publish(path: Path) -> None:
         logger.info(f"Publishing {path.name}")
         try:
             check_call(
-                ["twine", "upload", "--non-interactive", f"{path.as_posix()}/dist/*"],
+                [
+                    sys.executable,
+                    "-m",
+                    "twine",
+                    "upload",
+                    "--non-interactive",
+                    f"{path.as_posix()}/dist/*",
+                ],
                 print_error=False,
             )
             return
