@@ -28,6 +28,13 @@ def get_min_build_version(version: str) -> str:
     return Version(version).replace(micro=0).get_stable().dumps()
 
 
+def get_max_build_version(version: str) -> str:
+    """
+    Get min version build version by bumping minor.
+    """
+    return Version(version).bump_minor().get_stable().dumps()
+
+
 def get_botocore_version() -> str:
     """
     Get botocore package version.

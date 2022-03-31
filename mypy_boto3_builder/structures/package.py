@@ -6,7 +6,7 @@ from collections.abc import Iterable
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.utils.version import get_min_build_version
+from mypy_boto3_builder.utils.version import get_max_build_version, get_min_build_version
 
 
 class Package:
@@ -72,3 +72,10 @@ class Package:
         Minimum required library version.
         """
         return get_min_build_version(self.library_version)
+
+    @property
+    def max_library_version(self) -> str:
+        """
+        Minimum required library version.
+        """
+        return get_max_build_version(self.library_version)

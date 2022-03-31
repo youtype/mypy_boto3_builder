@@ -11,6 +11,7 @@ Parent class for all package structures.
         - [Package().get_module_name](#packageget_module_name)
         - [Package().get_service_pypi_link](#packageget_service_pypi_link)
         - [Package().get_service_pypi_name](#packageget_service_pypi_name)
+        - [Package().max_library_version](#packagemax_library_version)
         - [Package().min_library_version](#packagemin_library_version)
 
 ## Package
@@ -94,6 +95,17 @@ Get PyPI package name for a service package.
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
+
+### Package().max_library_version
+
+[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/package.py#L76)
+
+```python
+@property
+def max_library_version() -> str:
+```
+
+Minimum required library version.
 
 ### Package().min_library_version
 

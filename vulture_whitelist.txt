@@ -30,6 +30,7 @@ _.type_hint_annotations  # unused property (mypy_boto3_builder/structures/functi
 _.essential_service_names  # unused property (mypy_boto3_builder/structures/master_package.py:31)
 _.call_arguments  # unused property (mypy_boto3_builder/structures/method.py:13)
 _.min_library_version  # unused property (mypy_boto3_builder/structures/package.py:69)
+_.max_library_version  # unused property (mypy_boto3_builder/structures/package.py:76)
 _.get_init_import_records  # unused method (mypy_boto3_builder/structures/service_package.py:157)
 _.get_init_all_names  # unused method (mypy_boto3_builder/structures/service_package.py:192)
 _.get_client_required_import_records  # unused method (mypy_boto3_builder/structures/service_package.py:209)

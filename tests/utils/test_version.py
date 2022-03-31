@@ -1,4 +1,4 @@
-from mypy_boto3_builder.utils.version import get_min_build_version
+from mypy_boto3_builder.utils.version import get_max_build_version, get_min_build_version
 
 
 class TestStrings:
@@ -7,3 +7,9 @@ class TestStrings:
         assert get_min_build_version("1.22.48.post13") == "1.22.0"
         assert get_min_build_version("1.13.3") == "1.13.0"
         assert get_min_build_version("1.13.2.post56") == "1.13.0"
+
+    def test_get_max_build_version(self):
+        assert get_max_build_version("1.22.36") == "1.23.0"
+        assert get_max_build_version("1.22.48.post13") == "1.23.0"
+        assert get_max_build_version("1.13.3") == "1.14.0"
+        assert get_max_build_version("1.13.2.post56") == "1.14.0"

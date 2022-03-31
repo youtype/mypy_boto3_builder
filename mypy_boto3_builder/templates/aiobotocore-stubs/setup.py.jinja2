@@ -51,16 +51,16 @@ setup(
     extras_require={
         "all": [
             {% for service_name in package.service_names -%}
-            "{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}",
+            "{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}, <{{ package.max_library_version }}",
             {% endfor -%}
         ],
         "essential": [
             {% for service_name in package.essential_service_names -%}
-            "{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}",
+            "{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}, <{{ package.max_library_version }}",
             {% endfor -%}
         ],
         {% for service_name in package.service_names -%}
-        "{{ service_name.extras_name }}": ["{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}"],
+        "{{ service_name.extras_name }}": ["{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}, <{{ package.max_library_version }}"],
         {% endfor -%}
     },
     zip_safe=False,
