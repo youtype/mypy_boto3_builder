@@ -1,0 +1,10 @@
+{{ typed_dict.name -}}
+{{ ' = TypedDict("' -}}
+{{ typed_dict.name -}}
+{{ '", {' -}}
+{% for child in typed_dict.iterate_children() -%}
+    {{ child.render(typed_dict.name) -}}
+    {{ ", " -}}
+{% endfor -%}
+{{ "}" -}}
+{{ ")\n" -}}
