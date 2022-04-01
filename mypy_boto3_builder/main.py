@@ -8,7 +8,7 @@ from typing import Sequence
 from boto3.session import Session
 
 from mypy_boto3_builder.cli_parser import Namespace, parse_args
-from mypy_boto3_builder.constants import DUMMY_REGION, Product, ProductLibrary, BUILDER_REPO_URL
+from mypy_boto3_builder.constants import BUILDER_REPO_URL, DUMMY_REGION, Product, ProductLibrary
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
