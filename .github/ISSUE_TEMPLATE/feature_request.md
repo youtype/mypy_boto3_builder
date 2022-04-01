@@ -1,10 +1,9 @@
 ---
 name: Feature request
 about: Suggest an improvement idea
-title: ''
-labels: '🚀 enhancement'
-assignees: ''
-
+title: ""
+labels: "🚀 enhancement"
+assignees: ""
 ---
 
 **Describe your idea**
