@@ -22,6 +22,9 @@ AIOBOTOCORE_STUBS_STATIC_PATH = Path(__file__).parent / "aiobotocore_stubs_stati
 # Max line length for boto3 docs
 LINE_LENGTH = 100
 
+# mypy-boto3-builder GitHub link
+BUILDER_REPO_URL = "https://github.com/youtype/mypy_boto3_builder"
+
 
 # Main logger name
 LOGGER_NAME = "mypy_boto3_builder"

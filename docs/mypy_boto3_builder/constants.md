@@ -19,13 +19,14 @@ Constants and paths.
 - `BOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for botocore-stubs: `Path(__file__).parent / 'botocore_stubs_static'`
 - `AIOBOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for aiobotocore-stubs: `Path(__file__).parent / 'aiobotocore_stubs_static'`
 - `LINE_LENGTH` - Max line length for boto3 docs: `100`
+- `BUILDER_REPO_URL` - mypy-boto3-builder GitHub link: `'https://github.com/youtype/mypy_boto3_builder'`
 - `LOGGER_NAME` - Main logger name: `'mypy_boto3_builder'`
 - `PROG_NAME` - builder CLI entrypoint name: `'mypy_boto3_builder'`
 - `PACKAGE_NAME` - builder package name: `'mypy-boto3-builder'`
 
 ## Product
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L55)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L58)
 
 ```python
 class Product(Enum):
@@ -35,7 +36,7 @@ Product choice for CLI.
 
 ### Product().get_library
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L70)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L73)
 
 ```python
 def get_library() -> ProductLibrary:
@@ -49,7 +50,7 @@ Get library name.
 
 ### Product().get_type
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L79)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L82)
 
 ```python
 def get_type() -> ProductType:
@@ -63,7 +64,7 @@ Get product type.
 
 ## ProductLibrary
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L36)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L39)
 
 ```python
 class ProductLibrary(Enum):
@@ -73,7 +74,7 @@ Product library for Generator.
 
 ## ProductType
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L45)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L48)
 
 ```python
 class ProductType(Enum):

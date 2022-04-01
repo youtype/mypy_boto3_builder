@@ -10,7 +10,7 @@ setup(
     name="{{ package.pypi_name }}",
     version="{{ package.version }}",
     packages=["{{ package.name }}"],
-    url="https://github.com/youtype/mypy_boto3_builder",
+    url="{{ builder_repo_url }}",
     license="MIT License",
     author="Vlad Emelianov",
     author_email="vlad.emelianov.nz@gmail.com",
@@ -40,8 +40,8 @@ setup(
     python_requires='>=3.6',
     project_urls={
         'Documentation': 'https://mypy-boto3-builder.readthedocs.io/en/latest/',
-        'Source': 'https://github.com/youtype/mypy_boto3_builder',
-        'Tracker': 'https://github.com/youtype/mypy_boto3_builder/issues',
+        'Source': '{{ builder_repo_url }}',
+        'Tracker': '{{ builder_repo_url }}/issues',
     },
     install_requires=[
         "typing-extensions>=4.1.0",
