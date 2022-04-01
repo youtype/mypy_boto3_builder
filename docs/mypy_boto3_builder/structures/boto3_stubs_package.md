@@ -1,6 +1,6 @@
 # Boto3StubsPackage
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.boto3_stubs_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.boto3_stubs_package](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py) module.
 
 Structure for boto3-stubs module.
 
@@ -13,7 +13,7 @@ Structure for boto3-stubs module.
 
 ## Boto3StubsPackage
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L18)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L18)
 
 ```python
 class Boto3StubsPackage(Package):
@@ -40,7 +40,7 @@ Structure for boto3-stubs module.
 
 ### Boto3StubsPackage().essential_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L39)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L39)
 
 ```python
 @property
@@ -55,7 +55,7 @@ Service names marked as essential.
 
 ### Boto3StubsPackage().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L113)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L113)
 
 ```python
 def get_all_names() -> list[str]:
@@ -65,7 +65,7 @@ Get names for `__all__` directive.
 
 ### Boto3StubsPackage().get_init_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L50)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L50)
 
 ```python
 def get_init_required_import_records() -> list[ImportRecord]:
@@ -79,7 +79,7 @@ Get import records for `__init__.py[i]`.
 
 ### Boto3StubsPackage().get_session_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/boto3_stubs_package.py#L70)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L70)
 
 ```python
 def get_session_required_import_records() -> list[ImportRecord]:

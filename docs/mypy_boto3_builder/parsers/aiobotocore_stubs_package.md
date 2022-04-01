@@ -1,6 +1,6 @@
 # Aiobotocore Stubs Package
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.aiobotocore_stubs_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/aiobotocore_stubs_package.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.aiobotocore_stubs_package](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/aiobotocore_stubs_package.py) module.
 
 Parser that produces `structures.AioBotocoreStubsPackage`.
 
@@ -9,7 +9,7 @@ Parser that produces `structures.AioBotocoreStubsPackage`.
 
 ## parse_aiobotocore_stubs_package
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/aiobotocore_stubs_package.py#L25)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/aiobotocore_stubs_package.py#L25)
 
 ```python
 def parse_aiobotocore_stubs_package(

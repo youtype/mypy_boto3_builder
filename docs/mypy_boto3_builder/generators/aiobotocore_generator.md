@@ -1,6 +1,6 @@
 # AioBotocoreGenerator
 
-> Auto-generated documentation for [mypy_boto3_builder.generators.aiobotocore_generator](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/aiobotocore_generator.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.generators.aiobotocore_generator](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py) module.
 
 AIOBotocore stubs/docs generator.
 
@@ -13,7 +13,7 @@ AIOBotocore stubs/docs generator.
 
 ## AioBotocoreGenerator
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/aiobotocore_generator.py#L18)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L18)
 
 ```python
 class AioBotocoreGenerator(BaseGenerator):
@@ -27,7 +27,7 @@ AioBotocore stubs/docs generator.
 
 ### AioBotocoreGenerator().generate_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/aiobotocore_generator.py#L94)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L94)
 
 ```python
 def generate_docs() -> None:
@@ -37,7 +37,7 @@ Generate service and master docs.
 
 ### AioBotocoreGenerator().generate_service_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/aiobotocore_generator.py#L68)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L68)
 
 ```python
 def generate_service_stubs() -> None:
@@ -47,7 +47,7 @@ Generate service stubs.
 
 ### AioBotocoreGenerator().generate_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/aiobotocore_generator.py#L29)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L29)
 
 ```python
 def generate_stubs() -> None:
@@ -57,7 +57,7 @@ Generate `aiobotocore-stubs` package.
 
 ### AioBotocoreGenerator().get_library_version
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/aiobotocore_generator.py#L23)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L23)
 
 ```python
 def get_library_version() -> str:

@@ -1,6 +1,6 @@
 # TypeClass
 
-> Auto-generated documentation for [mypy_boto3_builder.type_annotations.type_class](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.type_annotations.type_class](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py) module.
 
 Wrapper for classes like `Paginator`.
 
@@ -13,7 +13,7 @@ Wrapper for classes like `Paginator`.
 
 ## TypeClass
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L11)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L11)
 
 ```python
 class TypeClass(FakeAnnotation):
@@ -33,7 +33,7 @@ Wrapper for classes like `Paginator`.
 
 ### TypeClass().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L57)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L57)
 
 ```python
 def copy() -> 'TypeClass':
@@ -43,7 +43,7 @@ Create a copy of type annotation wrapper.
 
 ### TypeClass().get_import_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L36)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L36)
 
 ```python
 def get_import_name() -> str:
@@ -53,7 +53,7 @@ Get name for import string.
 
 ### TypeClass().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L42)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L42)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -67,7 +67,7 @@ Create an impoort record to insert where TypeClass is used.
 
 ### TypeClass().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/type_class.py#L24)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L24)
 
 ```python
 def render(parent_name: str = '') -> str:

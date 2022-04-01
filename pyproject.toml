@@ -31,9 +31,9 @@ description = "Builder for boto3-stubs and types-aiobotocore"
 authors = ["Vlad Emelianov <vlad.emelianov.nz@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://vemel.github.io/mypy_boto3_builder/"
-repository = "https://github.com/vemel/mypy_boto3_builder"
-documentation = "https://vemel.github.io/mypy_boto3_builder/"
+homepage = "https://youtype.github.io/mypy_boto3_builder/"
+repository = "https://github.com/youtype/mypy_boto3_builder"
+documentation = "https://youtype.github.io/mypy_boto3_builder/"
 keywords = ["boto3", "type-annotations", "pyright", "mypy", "boto3-stubs"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -73,8 +73,8 @@ mypy_boto3_builder = 'mypy_boto3_builder.main:main'
 
 [tool.poetry.urls]
 "Documentation" = "https://mypy-boto3-builder.readthedocs.io/en/latest/"
-"Source" = "https://github.com/vemel/mypy_boto3_builder"
-"Bug Tracker" = "https://github.com/vemel/mypy_boto3_builder/issues"
+"Source" = "https://github.com/youtype/mypy_boto3_builder"
+"Bug Tracker" = "https://github.com/youtype/mypy_boto3_builder/issues"
 
 [tool.poetry.dependencies]
 python = "^3.10"

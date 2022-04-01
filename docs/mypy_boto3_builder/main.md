@@ -1,6 +1,6 @@
 # Main
 
-> Auto-generated documentation for [mypy_boto3_builder.main](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.main](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py) module.
 
 Main entrypoint for builder.
 
@@ -12,7 +12,7 @@ Main entrypoint for builder.
 
 ## generate_product
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L85)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L85)
 
 ```python
 def generate_product(
@@ -42,7 +42,7 @@ Generate a selected product.
 
 ## get_available_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L63)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L63)
 
 ```python
 def get_available_service_names(session: Session) -> list[ServiceName]:
@@ -64,7 +64,7 @@ A list of supported services.
 
 ## get_selected_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L23)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L23)
 
 ```python
 def get_selected_service_names(
@@ -93,7 +93,7 @@ A list of selected ServiceNames.
 
 ## main
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/main.py#L119)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L119)
 
 ```python
 def main() -> None:

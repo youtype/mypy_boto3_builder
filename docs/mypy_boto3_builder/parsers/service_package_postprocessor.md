@@ -1,6 +1,6 @@
 # ServicePackagePostprocessor
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.service_package_postprocessor](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/service_package_postprocessor.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.service_package_postprocessor](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py) module.
 
 Postprocessor for all classes and methods.
 
@@ -14,7 +14,7 @@ Postprocessor for all classes and methods.
 
 ## ServicePackagePostprocessor
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/service_package_postprocessor.py#L21)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L21)
 
 ```python
 class ServicePackagePostprocessor():
@@ -38,7 +38,7 @@ Postprocessor for all classes and methods.
 
 ### ServicePackagePostprocessor().add_contextmanager_methods
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/service_package_postprocessor.py#L106)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L106)
 
 ```python
 def add_contextmanager_methods() -> None:
@@ -48,7 +48,7 @@ Add contextmanager methods.
 
 ### ServicePackagePostprocessor().extend_literals
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/service_package_postprocessor.py#L259)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L259)
 
 ```python
 def extend_literals() -> None:
@@ -65,7 +65,7 @@ Add extra literals.
 
 ### ServicePackagePostprocessor().generate_docstrings
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/service_package_postprocessor.py#L37)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L37)
 
 ```python
 def generate_docstrings() -> None:
@@ -75,7 +75,7 @@ Generate all docstrings.
 
 ### ServicePackagePostprocessor().make_async
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/service_package_postprocessor.py#L48)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L48)
 
 ```python
 def make_async() -> None:
@@ -85,7 +85,7 @@ Convert all methods to asynchronous.
 
 ### ServicePackagePostprocessor().replace_self_ref_typed_dicts
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/service_package_postprocessor.py#L298)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_postprocessor.py#L298)
 
 ```python
 def replace_self_ref_typed_dicts() -> None:

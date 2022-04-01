@@ -1,6 +1,6 @@
 # Helpers
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.helpers](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.helpers](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/helpers.py) module.
 
 Helpers for parsing methods and attributes.
 
@@ -10,7 +10,7 @@ Helpers for parsing methods and attributes.
 
 ## get_public_methods
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L18)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/helpers.py#L18)
 
 ```python
 def get_public_methods(inspect_class: object) -> dict[str, MethodType]:
@@ -28,7 +28,7 @@ A dictionary of method name and method.
 
 ## parse_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/helpers.py#L42)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/helpers.py#L42)
 
 ```python
 def parse_method(

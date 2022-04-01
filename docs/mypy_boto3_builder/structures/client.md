@@ -1,6 +1,6 @@
 # Client
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.client](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.client](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py) module.
 
 Boto3 Client.
 
@@ -17,7 +17,7 @@ Boto3 Client.
 
 ## Client
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L21)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L21)
 
 ```python
 class Client(ClassRecord):
@@ -37,7 +37,7 @@ Boto3 Client.
 
 ### Client().\_\_hash\_\_
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L57)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L57)
 
 ```python
 def __hash__() -> int:
@@ -47,7 +47,7 @@ Calculate hash from client service name.
 
 ### Client().boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L70)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L70)
 
 ```python
 @property
@@ -58,7 +58,7 @@ List to boto3 docs page.
 
 ### Client().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L77)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L77)
 
 ```python
 def get_all_names() -> list[str]:
@@ -68,7 +68,7 @@ Get a list of names for `__all__` statement.
 
 ### Client.get_class_name
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L63)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L63)
 
 ```python
 @staticmethod
@@ -83,7 +83,7 @@ Get class name for ServiceName.
 
 ### Client().get_example_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L119)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L119)
 
 ```python
 def get_example_method() -> Method | None:
@@ -93,7 +93,7 @@ Get a nice method with return TypedDict for documentation.
 
 ### Client().get_exceptions_property
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L92)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L92)
 
 ```python
 def get_exceptions_property() -> Method:
@@ -107,7 +107,7 @@ Generate Client exceptions property.
 
 ### Client().get_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L111)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L111)
 
 ```python
 def get_required_import_records() -> set[ImportRecord]:
@@ -121,7 +121,7 @@ Extract import records from required type annotations.
 
 ### Client().own_methods
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/client.py#L83)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L83)
 
 ```python
 @property

@@ -1,6 +1,6 @@
 # Constants
 
-> Auto-generated documentation for [mypy_boto3_builder.constants](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.constants](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py) module.
 
 Constants and paths.
 
@@ -25,7 +25,7 @@ Constants and paths.
 
 ## Product
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py#L55)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L55)
 
 ```python
 class Product(Enum):
@@ -35,7 +35,7 @@ Product choice for CLI.
 
 ### Product().get_library
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py#L70)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L70)
 
 ```python
 def get_library() -> ProductLibrary:
@@ -49,7 +49,7 @@ Get library name.
 
 ### Product().get_type
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py#L79)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L79)
 
 ```python
 def get_type() -> ProductType:
@@ -63,7 +63,7 @@ Get product type.
 
 ## ProductLibrary
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py#L36)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L36)
 
 ```python
 class ProductLibrary(Enum):
@@ -73,7 +73,7 @@ Product library for Generator.
 
 ## ProductType
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/constants.py#L45)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L45)
 
 ```python
 class ProductType(Enum):

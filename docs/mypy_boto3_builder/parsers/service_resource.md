@@ -1,6 +1,6 @@
 # Service Resource
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.service_resource](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/service_resource.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.service_resource](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py) module.
 
 Parser for Boto3 ServiceResource, produces `structires.ServiceResource`.
 
@@ -10,7 +10,7 @@ Parser for Boto3 ServiceResource, produces `structires.ServiceResource`.
 
 ## get_sub_resources
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/service_resource.py#L99)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L99)
 
 ```python
 def get_sub_resources(
@@ -38,7 +38,7 @@ A list of initialized `Boto3ServiceResource`.
 
 ## parse_service_resource
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/service_resource.py#L28)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L28)
 
 ```python
 def parse_service_resource(

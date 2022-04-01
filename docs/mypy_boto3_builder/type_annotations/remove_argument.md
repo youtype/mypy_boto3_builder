@@ -1,6 +1,6 @@
 # RemoveArgument
 
-> Auto-generated documentation for [mypy_boto3_builder.type_annotations.remove_argument](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/remove_argument.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.type_annotations.remove_argument](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py) module.
 
 Annotation to mark argument for removal.
 
@@ -12,7 +12,7 @@ Annotation to mark argument for removal.
 
 ## RemoveArgument
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/remove_argument.py#L8)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L8)
 
 ```python
 class RemoveArgument(FakeAnnotation):
@@ -26,7 +26,7 @@ Annotation to mark argument for removal.
 
 ### RemoveArgument().copy
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/remove_argument.py#L19)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L19)
 
 ```python
 def copy() -> FakeAnnotation:
@@ -40,7 +40,7 @@ Not used.
 
 ### RemoveArgument().get_import_record
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/remove_argument.py#L25)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L25)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -54,7 +54,7 @@ Not used.
 
 ### RemoveArgument().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_annotations/remove_argument.py#L13)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L13)
 
 ```python
 def render(parent_name: str = '') -> str:

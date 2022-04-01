@@ -2,19 +2,19 @@
 
 > Auto-generated documentation index.
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/vemel/mypy_boto3_builder)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/youtype/mypy_boto3_builder)
 
 [![PyPI - mypy-boto3-builder](https://img.shields.io/pypi/v/mypy-boto3-builder.svg?color=blue&label=mypy-boto3-builder)](https://pypi.org/project/mypy-boto3-builder)
 [![PyPI - boto3-stubs](https://img.shields.io/pypi/v/boto3-stubs.svg?color=blue&label=boto3-stubs)](https://pypi.org/project/boto3-stubs)
 [![PyPI - boto3](https://img.shields.io/pypi/v/boto3.svg?color=blue&label=boto3)](https://pypi.org/project/boto3)
 
-[![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=boto3-stubs%20docs)](https://vemel.github.io/boto3_stubs_docs/)
+[![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=boto3-stubs%20docs)](https://youtype.github.io/boto3_stubs_docs/)
 [![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=Builder%20docs)](https://mypy-boto3-builder.readthedocs.io/)
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boto3-stubs.svg?color=blue)](https://pypi.org/project/boto3-stubs)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/boto3-stubs?color=blue)](https://pypistats.org/packages/boto3-stubs)
 
-![boto3.typed](https://raw.githubusercontent.com/vemel/mypy_boto3_builder/main/logo.png)
+![boto3.typed](https://raw.githubusercontent.com/youtype/mypy_boto3_builder/main/logo.png)
 
 Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with
 [VSCode](https://code.visualstudio.com/),
@@ -27,9 +27,9 @@ and other tools.
 
 See how it helps to find and fix potential bugs:
 
-![boto3-stubs demo](https://raw.githubusercontent.com/vemel/mypy_boto3_builder/main/demo.gif)
+![boto3-stubs demo](https://raw.githubusercontent.com/youtype/mypy_boto3_builder/main/demo.gif)
 
-Do you want more? Check the [documentation](https://vemel.github.io/boto3_stubs_docs/) and use `boto3` like a pro!
+Do you want more? Check the [documentation](https://youtype.github.io/boto3_stubs_docs/) and use `boto3` like a pro!
 
 Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.md#mypy-boto3-builder-modules)
 
@@ -105,8 +105,8 @@ python -m pip install -e ./boto3_stubs_package
 - Pull latest `mypy_boto3_builder` version and tag it
 
 ```bash
-docker pull docker.pkg.github.com/vemel/mypy_boto3_builder/mypy_boto3_builder_stable:latest
-docker tag docker.pkg.github.com/vemel/mypy_boto3_builder/mypy_boto3_builder_stable:latest mypy_boto3_builder
+docker pull docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest
+docker tag docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest mypy_boto3_builder
 ```
 
 - Generate stubs in `output` directory
@@ -141,7 +141,7 @@ docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/ou
 
 ## Latest changes
 
-Full changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_builder/releases).
+Full changelog can be found in [Releases](https://github.com/youtype/mypy_boto3_builder/releases).
 
 ## Thank you
 

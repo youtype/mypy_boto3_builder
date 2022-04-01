@@ -1,6 +1,6 @@
 # Parse Collections
 
-> Auto-generated documentation for [mypy_boto3_builder.parsers.parse_collections](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/parse_collections.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.parsers.parse_collections](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_collections.py) module.
 
 Boto3 ServiceResource collections parser, produces `structures.Collection`.
 
@@ -9,7 +9,7 @@ Boto3 ServiceResource collections parser, produces `structures.Collection`.
 
 ## parse_collections
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/parsers/parse_collections.py#L17)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_collections.py#L17)
 
 ```python
 def parse_collections(

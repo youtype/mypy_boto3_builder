@@ -1,6 +1,6 @@
 # Attribute
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.attribute](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.attribute](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py) module.
 
 Class or module attribute.
 
@@ -11,7 +11,7 @@ Class or module attribute.
 
 ## Attribute
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L8)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L8)
 
 ```python
 class Attribute():
@@ -38,7 +38,7 @@ Class or module attribute.
 
 ### Attribute().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L31)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L31)
 
 ```python
 def get_types() -> set[FakeAnnotation]:
@@ -56,7 +56,7 @@ A set of type annotations.
 
 ### Attribute().render
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/attribute.py#L40)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L40)
 
 ```python
 def render() -> str:

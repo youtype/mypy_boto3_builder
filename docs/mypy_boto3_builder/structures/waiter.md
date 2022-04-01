@@ -1,6 +1,6 @@
 # Waiter
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.waiter](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.waiter](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py) module.
 
 Boto3 client Waiter.
 
@@ -11,7 +11,7 @@ Boto3 client Waiter.
 
 ## Waiter
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L18)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L18)
 
 ```python
 class Waiter(ClassRecord):
@@ -27,7 +27,7 @@ Boto3 client Waiter.
 
 ### Waiter().boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L36)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L36)
 
 ```python
 @property
@@ -38,7 +38,7 @@ Link to waiter boto3 docs.
 
 ### Waiter().get_client_method
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/waiter.py#L43)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L43)
 
 ```python
 def get_client_method() -> Method:

@@ -1,6 +1,6 @@
 # Structures
 
-> Auto-generated documentation for [mypy_boto3_builder.structures](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/__init__.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/__init__.py) module.
 
 Structures produced by parsers.
 

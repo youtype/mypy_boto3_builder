@@ -1,6 +1,6 @@
 # Aiobotocore Processors
 
-> Auto-generated documentation for [mypy_boto3_builder.writers.aiobotocore_processors](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/aiobotocore_processors.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.writers.aiobotocore_processors](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py) module.
 
 Processors for parsing and writing `aiobotocore` modules.
 
@@ -11,7 +11,7 @@ Processors for parsing and writing `aiobotocore` modules.
 
 ## process_aiobotocore_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/aiobotocore_processors.py#L22)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L22)
 
 ```python
 def process_aiobotocore_stubs(
@@ -44,7 +44,7 @@ Parsed AioBotocoreStubsPackage.
 
 ## process_aiobotocore_stubs_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/aiobotocore_processors.py#L95)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L95)
 
 ```python
 def process_aiobotocore_stubs_docs(
@@ -73,7 +73,7 @@ Parsed AioBotocoreStubsPackage.
 
 ## process_aiobotocore_stubs_lite
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/aiobotocore_processors.py#L58)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L58)
 
 ```python
 def process_aiobotocore_stubs_lite(

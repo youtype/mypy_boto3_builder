@@ -1,6 +1,6 @@
 # Type Maps
 
-> Auto-generated documentation for [mypy_boto3_builder.type_maps](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_maps/__init__.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.type_maps](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/__init__.py) module.
 
 Collections of stubs to replace after botocore shapes parsing.
 

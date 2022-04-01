@@ -1,6 +1,6 @@
 # Collection
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.collection](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.collection](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py) module.
 
 Boto3 ServiceResource or Resource collection.
 
@@ -11,7 +11,7 @@ Boto3 ServiceResource or Resource collection.
 
 ## Collection
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L11)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L11)
 
 ```python
 class Collection(ClassRecord):
@@ -35,7 +35,7 @@ Boto3 ServiceResource or Resource collection.
 
 ### Collection().boto3_doc_link
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L41)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L41)
 
 ```python
 @property
@@ -46,7 +46,7 @@ Link to boto3 docs.
 
 ### Collection().get_types
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/collection.py#L48)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L48)
 
 ```python
 def get_types() -> set[FakeAnnotation]:

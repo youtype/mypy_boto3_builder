@@ -1,6 +1,6 @@
 # Typed Dicts
 
-> Auto-generated documentation for [mypy_boto3_builder.type_maps.typed_dicts](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/type_maps/typed_dicts.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.type_maps.typed_dicts](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/typed_dicts.py) module.
 
 Collection of TypedDicts added by boto3.
 

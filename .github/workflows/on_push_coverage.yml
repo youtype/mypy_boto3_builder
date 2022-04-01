@@ -3,7 +3,7 @@ name: Send coverage report
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - mypy_boto3_builder/**
       - tests/**

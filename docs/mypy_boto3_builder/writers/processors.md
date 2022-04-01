@@ -1,6 +1,6 @@
 # Processors
 
-> Auto-generated documentation for [mypy_boto3_builder.writers.processors](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.writers.processors](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py) module.
 
 Processors for parsing and writing `boto3` modules.
 
@@ -13,7 +13,7 @@ Processors for parsing and writing `boto3` modules.
 
 ## process_boto3_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L26)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L26)
 
 ```python
 def process_boto3_stubs(
@@ -46,7 +46,7 @@ Parsed Boto3StubsPackage.
 
 ## process_boto3_stubs_docs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L169)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L169)
 
 ```python
 def process_boto3_stubs_docs(
@@ -75,7 +75,7 @@ Parsed Boto3StubsPackage.
 
 ## process_boto3_stubs_lite
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L63)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L63)
 
 ```python
 def process_boto3_stubs_lite(
@@ -108,7 +108,7 @@ Parsed Boto3StubsPackage.
 
 ## process_botocore_stubs
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L108)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L108)
 
 ```python
 def process_botocore_stubs(
@@ -128,7 +128,7 @@ Parse and write stubs package `botocore_stubs`.
 
 ## process_master
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/writers/processors.py#L134)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L134)
 
 ```python
 def process_master(

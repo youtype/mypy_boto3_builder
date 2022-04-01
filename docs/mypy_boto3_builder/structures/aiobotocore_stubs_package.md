@@ -1,6 +1,6 @@
 # AioBotocoreStubsPackage
 
-> Auto-generated documentation for [mypy_boto3_builder.structures.aiobotocore_stubs_package](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/aiobotocore_stubs_package.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.structures.aiobotocore_stubs_package](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py) module.
 
 Structure for aiobotocore-stubs module.
 
@@ -12,7 +12,7 @@ Structure for aiobotocore-stubs module.
 
 ## AioBotocoreStubsPackage
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L18)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L18)
 
 ```python
 class AioBotocoreStubsPackage(Package):
@@ -37,7 +37,7 @@ Structure for boto3-stubs module.
 
 ### AioBotocoreStubsPackage().essential_service_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L37)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L37)
 
 ```python
 @property
@@ -52,7 +52,7 @@ Service names marked as essential.
 
 ### AioBotocoreStubsPackage().get_all_names
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L114)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L114)
 
 ```python
 def get_all_names() -> list[str]:
@@ -62,7 +62,7 @@ Get names for `__all__` directive.
 
 ### AioBotocoreStubsPackage().get_session_required_import_records
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L48)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L48)
 
 ```python
 def get_session_required_import_records() -> list[ImportRecord]:

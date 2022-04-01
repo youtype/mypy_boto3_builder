@@ -5,7 +5,7 @@
 [![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue)](https://mypy-boto3-builder.readthedocs.io/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/botocore-stubs?color=blue)](https://pypistats.org/packages/botocore-stubs)
 
-![boto3.typed](https://github.com/vemel/mypy_boto3_builder/raw/main/logo.png)
+![boto3.typed](https://github.com/youtype/mypy_boto3_builder/raw/main/logo.png)
 
 Proxy package for [botocore-stubs](https://pypi.org/project/botocore-stubs/).
 Install submodules for `boto3` services type annotations.
@@ -23,7 +23,7 @@ and other tools.
 
 See how it helps to find and fix potential bugs:
 
-![boto3-stubs demo](https://github.com/vemel/mypy_boto3_builder/raw/main/demo.gif)
+![boto3-stubs demo](https://github.com/youtype/mypy_boto3_builder/raw/main/demo.gif)
 
 ## How to install
 
@@ -164,7 +164,7 @@ No explicit type annotations required, write your `boto3` code as usual.
 
 ## How it works
 
-Fully automated [mypy-boto3-builder](https://github.com/vemel/mypy_boto3_builder) carefully generates
+Fully automated [mypy-boto3-builder](https://github.com/youtype/mypy_boto3_builder) carefully generates
 type annotations for each service, patiently waiting for `boto3` updates. It delivers
 a drop-in type annotations for you and makes sure that:
 
@@ -196,7 +196,7 @@ a drop-in type annotations for you and makes sure that:
 
 ### Latest changes
 
-Builder changelog can be found in [Releases](https://github.com/vemel/mypy_boto3_builder/releases).
+Builder changelog can be found in [Releases](https://github.com/youtype/mypy_boto3_builder/releases).
 
 ## Versioning
 
@@ -216,9 +216,9 @@ Builder changelog can be found in [Releases](https://github.com/vemel/mypy_boto3
 
 ## Documentation
 
-All services type annotations can be found in [boto3-stubs docs](https://vemel.github.io/boto3_stubs_docs/)
+All services type annotations can be found in [boto3-stubs docs](https://youtype.github.io/boto3_stubs_docs/)
 
 ## Support and contributing
 
 This package is auto-generated. Please reports any bugs or request new features in
-[mypy-boto3-builder](https://github.com/vemel/mypy_boto3_builder/issues/) repository.
+[mypy-boto3-builder](https://github.com/youtype/mypy_boto3_builder/issues/) repository.

@@ -1,6 +1,6 @@
 # Generators
 
-> Auto-generated documentation for [mypy_boto3_builder.generators](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/generators/__init__.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.generators](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/__init__.py) module.
 
 Stubs and docs generators.
 

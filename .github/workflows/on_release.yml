@@ -51,8 +51,7 @@ jobs:
           git add pyproject.toml
           git add setup.cfg
           git commit -m "Release ${VERSION}"
-          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git --tags
-          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:master
+          git push
       - name: Publish to PyPI
         env:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}

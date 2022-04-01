@@ -1,4 +1,4 @@
 theme: jekyll-theme-cayman
 show_downloads: true
-source: "https://github.com/vemel/mypy_boto3_builder/"
+source: "https://github.com/youtype/mypy_boto3_builder/"
 highlighter: rouge

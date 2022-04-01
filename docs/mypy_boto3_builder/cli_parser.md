@@ -1,6 +1,6 @@
 # Cli Parser
 
-> Auto-generated documentation for [mypy_boto3_builder.cli_parser](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py) module.
+> Auto-generated documentation for [mypy_boto3_builder.cli_parser](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py) module.
 
 CLI parser.
 
@@ -11,7 +11,7 @@ CLI parser.
 
 ## Namespace
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L30)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L30)
 
 ```python
 dataclass
@@ -22,7 +22,7 @@ CLI arguments namespace.
 
 ## get_absolute_path
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L16)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L16)
 
 ```python
 def get_absolute_path(path: str) -> Path:
@@ -40,7 +40,7 @@ Absolute path.
 
 ## parse_args
 
-[[find in source code]](https://github.com/vemel/mypy_boto3_builder/blob/master/mypy_boto3_builder/cli_parser.py#L47)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L47)
 
 ```python
 def parse_args(args: Sequence[str]) -> Namespace:
