@@ -12,19 +12,19 @@ else:
 logger: logging.Logger
 
 _ActionDefinition = TypedDict(
-    "ActionDefinition",
+    "_ActionDefinition",
     {"request": Dict[str, Any], "resource": Dict[str, Any], "path": str},
     total=False,
 )
 _DefinitionWithParamsDefinition = TypedDict(
-    "DefinitionWithParamsDefinition", {"params": List[Dict[str, Any]]}, total=False
+    "_DefinitionWithParamsDefinition", {"params": List[Dict[str, Any]]}, total=False
 )
-_RequestDefinition = TypedDict("RequestDefinition", {"operation": str}, total=False)
-_WaiterDefinition = TypedDict("WaiterDefinition", {"waiterName": str}, total=False)
+_RequestDefinition = TypedDict("_RequestDefinition", {"operation": str}, total=False)
+_WaiterDefinition = TypedDict("_WaiterDefinition", {"waiterName": str}, total=False)
 _ResponseResourceDefinition = TypedDict(
-    "ResponseResourceDefinition", {"type": str, "path": str}, total=False
+    "_ResponseResourceDefinition", {"type": str, "path": str}, total=False
 )
-_ResourceModelDefinition = TypedDict("ResourceModelDefinition", {"shape": str}, total=False)
+_ResourceModelDefinition = TypedDict("_ResourceModelDefinition", {"shape": str}, total=False)
 
 class Identifier:
     def __init__(self, name: str, member_name: Optional[str] = ...) -> None:
