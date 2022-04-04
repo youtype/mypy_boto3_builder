@@ -16,12 +16,12 @@ from botocore.session import Session as BotocoreSession
 class Session:
     def __init__(
         self,
-        aws_access_key_id: Optional[str] = None,
-        aws_secret_access_key: Optional[str] = None,
-        aws_session_token: Optional[str] = None,
-        region_name: Optional[str] = None,
-        botocore_session: Optional[BotocoreSession] = None,
-        profile_name: Optional[str] = None,
+        aws_access_key_id: Optional[str] = ...,
+        aws_secret_access_key: Optional[str] = ...,
+        aws_session_token: Optional[str] = ...,
+        region_name: Optional[str] = ...,
+        botocore_session: Optional[BotocoreSession] = ...,
+        profile_name: Optional[str] = ...,
     ) -> None:
         self._session: BotocoreSession
         self.resource_factory: ResourceFactory

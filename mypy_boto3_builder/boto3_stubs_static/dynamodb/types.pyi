@@ -22,7 +22,7 @@ LIST: Literal["L"]
 
 DYNAMODB_CONTEXT: Context
 
-BINARY_TYPES: Tuple[type]
+BINARY_TYPES: Tuple[Any]
 
 class Binary:
     def __init__(self, value: Any) -> None: ...

@@ -37,8 +37,8 @@ class S3Transfer:
         self,
         client: Optional[BaseClient] = ...,
         config: Optional[Config] = ...,
-        osutil: Optional[OSUtils] = None,  # type: ignore
-        manager: Optional[TransferManager] = None,  # type: ignore
+        osutil: Optional[OSUtils] = ...,  # type: ignore
+        manager: Optional[TransferManager] = ...,  # type: ignore
     ) -> None: ...
     def upload_file(
         self,
