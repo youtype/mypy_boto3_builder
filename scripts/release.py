@@ -9,10 +9,11 @@ import shutil
 import subprocess
 import sys
 import time
+from collections.abc import Sequence
 from contextlib import contextmanager
 from multiprocessing import Pool
 from pathlib import Path
-from typing import Iterator
+from typing import Any, Iterator
 
 MASTER_PACKAGES = [
     "botocore_stubs_package",
@@ -26,7 +27,7 @@ LOGGER_NAME = "release"
 MAX_RETRIES = 5
 
 
-def setup_logging(level: int = 0) -> logging.Logger:
+def setup_logging(level: int) -> logging.Logger:
     """
     Get Logger instance.
 
@@ -115,13 +116,14 @@ def cleanup(path: Path) -> None:
         shutil.rmtree(rm_path)
 
 
-def build(path: Path) -> None:
+def build(path: Path) -> Path:
     """
     Build package.
     """
     cleanup(path)
     with chdir(path):
         check_call([sys.executable, "setup.py", "build", "sdist", "bdist_wheel"])
+    return path
 
 
 def publish(path: Path) -> Path:
@@ -158,6 +160,15 @@ def publish(path: Path) -> Path:
     raise RuntimeError(f"Failed {path.name} after {attempt} attempts")
 
 
+def get_progress_str(index: int, seq: Sequence[Any]) -> str:
+    """
+    Get `index` progress in `seq` sequence.
+    """
+    total_str = f"{len(seq)}"
+    current_str = f"{{:0{len(total_str)}}}".format(index + 1)
+    return f"[{current_str}/{total_str}]"
+
+
 def main() -> None:
     """
     Main CLI entrypoint.
@@ -180,19 +191,19 @@ def main() -> None:
     ]
 
     if not args.skip_build:
-        for index, path in enumerate(build_paths):
-            logger.info(f"[{index + 1:03d}/{len(build_paths):03d}] Building {path.name}")
-            build(path)
+        with Pool(args.threads) as pool:
+            for index, path in enumerate(pool.imap(build, build_paths)):
+                logger.info(f"{get_progress_str(index, build_paths)} Built {path.name}")
 
     if not args.skip_publish:
         with Pool(args.threads) as pool:
-            for index, path in enumerate(pool.map(publish, service_paths)):
-                logger.info(f"[{index + 1:03d}/{len(build_paths):03d}] Published {path.name}")
+            for index, path in enumerate(pool.imap(publish, service_paths)):
+                logger.info(f"{get_progress_str(index, build_paths)} Published {path.name}")
 
         for index, path in enumerate(master_paths):
             publish(path)
             total_index = len(service_paths) + index + 1
-            logger.info(f"[{total_index:03d}/{len(build_paths):03d}] Published {path.name}")
+            logger.info(f"{get_progress_str(total_index, build_paths)} Published {path.name}")
 
 
 if __name__ == "__main__":
