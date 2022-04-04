@@ -34,6 +34,9 @@ class BaseGenerator(ABC):
         version -- Package build version
     """
 
+    service_package_data: type[BasePackageData]
+    service_template_path: Path
+
     def __init__(
         self,
         service_names: Sequence[ServiceName],
@@ -85,13 +88,6 @@ class BaseGenerator(ABC):
     def generate_stubs(self) -> None:
         """
         Generate main stubs.
-        """
-        raise NotImplementedError()
-
-    @abstractmethod
-    def generate_service_stubs(self) -> None:
-        """
-        Generate service stubs.
         """
         raise NotImplementedError()
 
@@ -186,3 +182,31 @@ class BaseGenerator(ABC):
             templates_path=templates_path,
         )
         return service_package
+
+    def _generate_service(self, service_name: ServiceName) -> ServicePackage:
+        pypi_name = self.service_package_data.get_service_pypi_name(service_name)
+        version = self._get_package_version(pypi_name, self.version)
+        if not version:
+            return ServicePackage(self.service_package_data, service_name)
+
+        return self._process_service(
+            service_name=service_name,
+            version=version,
+            package_data=self.service_package_data,
+            templates_path=self.service_template_path,
+        )
+
+    def generate_service_stubs(self) -> None:
+        """
+        Generate service stubs.
+        """
+        total_str = f"{len(self.service_names)}"
+        for index, service_name in enumerate(self.service_names):
+            package = self._generate_service(service_name)
+            current_str = f"{{:0{len(total_str)}}}".format(index + 1)
+            progress_str = f"[{current_str}/{total_str}]"
+            if package.is_empty():
+                self.logger.info(f"{progress_str} Skipped {package.name} {package.version}")
+                continue
+
+            self.logger.info(f"{progress_str} Generated {package.name} {package.version}")

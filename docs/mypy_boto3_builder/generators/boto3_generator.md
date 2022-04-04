@@ -7,7 +7,6 @@ Boto3 stubs/docs generator.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Generators](index.md#generators) / Boto3Generator
     - [Boto3Generator](#boto3generator)
         - [Boto3Generator().generate_docs](#boto3generatorgenerate_docs)
-        - [Boto3Generator().generate_service_stubs](#boto3generatorgenerate_service_stubs)
         - [Boto3Generator().generate_stubs](#boto3generatorgenerate_stubs)
         - [Boto3Generator().get_library_version](#boto3generatorget_library_version)
 
@@ -27,7 +26,7 @@ Boto3 stubs/docs generator.
 
 ### Boto3Generator().generate_docs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L143)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L120)
 
 ```python
 def generate_docs() -> None:
@@ -35,19 +34,9 @@ def generate_docs() -> None:
 
 Generate service and master docs.
 
-### Boto3Generator().generate_service_stubs
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L117)
-
-```python
-def generate_service_stubs() -> None:
-```
-
-Generate service stubs.
-
 ### Boto3Generator().generate_stubs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L106)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L109)
 
 ```python
 def generate_stubs() -> None:
@@ -57,7 +46,7 @@ Generate main stubs.
 
 ### Boto3Generator().get_library_version
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L27)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L30)
 
 ```python
 def get_library_version() -> str:

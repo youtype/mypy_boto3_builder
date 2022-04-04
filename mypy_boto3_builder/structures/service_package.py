@@ -31,7 +31,7 @@ class ServicePackage(Package):
         self,
         data: type[BasePackageData],
         service_name: ServiceName,
-        client: Client,
+        client: Client | None = None,
         service_resource: ServiceResource | None = None,
         waiters: Iterable[Waiter] = tuple(),
         paginators: Iterable[Paginator] = tuple(),
@@ -43,13 +43,28 @@ class ServicePackage(Package):
         self.name = data.get_service_package_name(service_name)
         self.pypi_name = data.get_service_pypi_name(service_name)
         self.service_name = service_name
-        self.client = client
+        self._client = client
         self.service_resource = service_resource
         self.waiters = list(waiters)
         self.paginators = list(paginators)
         self.typed_dicts = list(typed_dicts)
         self.literals = list(literals)
         self.helper_functions = list(helper_functions)
+
+    @property
+    def client(self) -> Client:
+        """
+        Service Client.
+        """
+        if not self._client:
+            raise ValueError(f"Client is not present for {self.service_name}")
+        return self._client
+
+    def is_empty(self) -> bool:
+        """
+        Whether package has a Client.
+        """
+        return self._client is None
 
     def extract_literals(self) -> list[TypeLiteral]:
         """

@@ -24,6 +24,9 @@ class Boto3Generator(BaseGenerator):
     Boto3 stubs/docs generator.
     """
 
+    service_package_data = Boto3StubsPackageData
+    service_template_path = TEMPLATES_PATH / "boto3_service"
+
     def get_library_version(self) -> str:
         """
         Get underlying library version.
@@ -113,32 +116,6 @@ class Boto3Generator(BaseGenerator):
         self._generate_boto3_stubs()
         self._generate_boto3_stubs_lite()
         self._generate_botocore_stubs()
-
-    def generate_service_stubs(self) -> None:
-        """
-        Generate service stubs.
-        """
-        total_str = f"{len(self.service_names)}"
-        for index, service_name in enumerate(self.service_names):
-            current_str = f"{{:0{len(total_str)}}}".format(index + 1)
-
-            pypi_name = Boto3StubsPackageData.get_service_pypi_name(service_name)
-            package_name = Boto3StubsPackageData.get_service_package_name(service_name)
-            version = self._get_package_version(pypi_name, self.version)
-            if not version:
-                self.logger.info(
-                    f"[{current_str}/{total_str}]"
-                    f" Skipping {package_name} {self.version}, already on PyPI"
-                )
-                continue
-
-            self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} {version}")
-            self._process_service(
-                service_name=service_name,
-                version=version,
-                package_data=Boto3StubsPackageData,
-                templates_path=TEMPLATES_PATH / "boto3_service",
-            )
 
     def generate_docs(self) -> None:
         """
