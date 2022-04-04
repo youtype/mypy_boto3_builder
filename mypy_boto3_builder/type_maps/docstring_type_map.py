@@ -33,9 +33,7 @@ DOCSTRING_TYPE_MAP: dict[str, FakeAnnotation] = {
     "int": Type.int,
     "integer": Type.int,
     "long": Type.int,
-    "a file-like object": TypeSubscript(
-        Type.Union, [TypeSubscript(Type.IO, [Type.Any]), TypeClass(StreamingBody)]
-    ),
+    "a file-like object": TypeSubscript(Type.Union, [Type.IOAny, TypeClass(StreamingBody)]),
     "seekable file-like object": TypeSubscript(Type.IO, [Type.Any]),
     "list": Type.ListAny,
     "L{botocore.paginate.Paginator}": ExternalImport(

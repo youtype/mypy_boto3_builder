@@ -48,6 +48,7 @@ class Type:
     DictStrAny = TypeSubscript(Dict, [str, Any])
     DictStrStr = TypeSubscript(Dict, [str, str])
     IOBytes = TypeSubscript(IO, [bytes])
+    IOAny = TypeSubscript(IO, [Any])
     RemoveArgument = RemoveArgument()
     NotRequired = TypeAnnotation("NotRequired")
 

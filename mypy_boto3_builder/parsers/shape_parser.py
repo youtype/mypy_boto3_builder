@@ -64,9 +64,11 @@ class ShapeParser:
         "double": Type.float,
         "float": Type.float,
         "timestamp": TypeSubscript(Type.Union, [Type.datetime, Type.str]),
-        "blob": TypeSubscript(Type.Union, [Type.bytes, Type.IOBytes, TypeClass(StreamingBody)]),
+        "blob": TypeSubscript(
+            Type.Union, [Type.str, Type.bytes, Type.IOAny, TypeClass(StreamingBody)]
+        ),
         "blob_streaming": TypeSubscript(
-            Type.Union, [Type.bytes, Type.IOBytes, TypeClass(StreamingBody)]
+            Type.Union, [Type.str, Type.bytes, Type.IOAny, TypeClass(StreamingBody)]
         ),
     }
 

@@ -80,6 +80,8 @@ def s3_client_example() -> None:
     url_stream = client.get_object(Bucket="bucket", Key="key")["Body"]
     url_stream.iter_chunks()
 
+    client.put_object(Bucket="bucket", Key="key", Body="body")
+
 
 def main() -> None:
     s3_resource_example()
