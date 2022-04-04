@@ -1,6 +1,6 @@
 # from types import TracebackType
 import logging
-from typing import Any, Dict, List, Optional, Type
+from typing import Any, Dict, List, Optional, Type, TypeVar
 
 from botocore.client import BaseClient
 
@@ -12,6 +12,8 @@ class TableResource:
     def __init__(self, *args: Any, **kwargs: Any) -> None: ...
     def batch_writer(self, overwrite_by_pkeys: Optional[List[str]] = ...) -> "BatchWriter": ...
 
+_R = TypeVar("_R")
+
 class BatchWriter:
     def __init__(
         self,
@@ -22,7 +24,7 @@ class BatchWriter:
     ) -> None: ...
     def put_item(self, Item: Dict[str, Any]) -> None: ...
     def delete_item(self, Key: Dict[str, Any]) -> None: ...
-    def __enter__(self) -> "BatchWriter": ...
+    def __enter__(self: _R) -> _R: ...
     def __exit__(
         self,
         exc_type: Type[BaseException],
