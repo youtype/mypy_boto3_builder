@@ -11,20 +11,20 @@ else:
 
 logger: logging.Logger
 
-ActionDefinition = TypedDict(
+_ActionDefinition = TypedDict(
     "ActionDefinition",
     {"request": Dict[str, Any], "resource": Dict[str, Any], "path": str},
     total=False,
 )
-DefinitionWithParamsDefinition = TypedDict(
+_DefinitionWithParamsDefinition = TypedDict(
     "DefinitionWithParamsDefinition", {"params": List[Dict[str, Any]]}, total=False
 )
-RequestDefinition = TypedDict("RequestDefinition", {"operation": str}, total=False)
-WaiterDefinition = TypedDict("WaiterDefinition", {"waiterName": str}, total=False)
-ResponseResourceDefinition = TypedDict(
+_RequestDefinition = TypedDict("RequestDefinition", {"operation": str}, total=False)
+_WaiterDefinition = TypedDict("WaiterDefinition", {"waiterName": str}, total=False)
+_ResponseResourceDefinition = TypedDict(
     "ResponseResourceDefinition", {"type": str, "path": str}, total=False
 )
-ResourceModelDefinition = TypedDict("ResourceModelDefinition", {"shape": str}, total=False)
+_ResourceModelDefinition = TypedDict("ResourceModelDefinition", {"shape": str}, total=False)
 
 class Identifier:
     def __init__(self, name: str, member_name: Optional[str] = ...) -> None:
@@ -33,7 +33,7 @@ class Identifier:
 
 class Action:
     def __init__(
-        self, name: str, definition: ActionDefinition, resource_defs: Dict[str, Dict[str, Any]]
+        self, name: str, definition: _ActionDefinition, resource_defs: Dict[str, Dict[str, Any]]
     ) -> None:
         self.name: str
         self.request: Optional[Request]
@@ -41,7 +41,7 @@ class Action:
         self.path: Optional[str]
 
 class DefinitionWithParams:
-    def __init__(self, definition: DefinitionWithParamsDefinition) -> None: ...
+    def __init__(self, definition: _DefinitionWithParamsDefinition) -> None: ...
     @property
     def params(self) -> List[Parameter]: ...
 
@@ -62,18 +62,18 @@ class Parameter:
         self.value: Union[str, int, float, bool, None]
 
 class Request(DefinitionWithParams):
-    def __init__(self, definition: RequestDefinition) -> None:
+    def __init__(self, definition: _RequestDefinition) -> None:
         self.operation: str
 
 class Waiter(DefinitionWithParams):
     PREFIX: Literal["WaitUntil"]
-    def __init__(self, name: str, definition: WaiterDefinition) -> None:
+    def __init__(self, name: str, definition: _WaiterDefinition) -> None:
         self.name: str
         self.waiter_name: str
 
 class ResponseResource:
     def __init__(
-        self, definition: ResponseResourceDefinition, resource_defs: Dict[str, Dict[str, Any]]
+        self, definition: _ResponseResourceDefinition, resource_defs: Dict[str, Dict[str, Any]]
     ) -> None:
         self.type: str
         self.path: str
@@ -90,7 +90,7 @@ class ResourceModel:
     def __init__(
         self,
         name: str,
-        definition: ResourceModelDefinition,
+        definition: _ResourceModelDefinition,
         resource_defs: Dict[str, Dict[str, Any]],
     ) -> None:
         self.name: str
