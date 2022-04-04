@@ -26,7 +26,7 @@ AioBotocore stubs/docs generator.
 
 ### AioBotocoreGenerator().generate_docs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L71)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L69)
 
 ```python
 def generate_docs() -> None:

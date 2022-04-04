@@ -26,7 +26,7 @@ Boto3 stubs/docs generator.
 
 ### Boto3Generator().generate_docs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L120)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L117)
 
 ```python
 def generate_docs() -> None:
@@ -36,7 +36,7 @@ Generate service and master docs.
 
 ### Boto3Generator().generate_stubs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L109)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L106)
 
 ```python
 def generate_stubs() -> None:

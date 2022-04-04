@@ -40,7 +40,6 @@ class AioBotocoreGenerator(BaseGenerator):
         package_data = TypesAioBotocorePackageData
         version = self._get_package_version(package_data.PYPI_NAME, self.version)
         if not version:
-            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
@@ -56,7 +55,6 @@ class AioBotocoreGenerator(BaseGenerator):
         package_data = TypesAioBotocoreLitePackageData
         version = self._get_package_version(package_data.PYPI_NAME, self.version)
         if not version:
-            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")

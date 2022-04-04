@@ -60,12 +60,6 @@ class ServicePackage(Package):
             raise ValueError(f"Client is not present for {self.service_name}")
         return self._client
 
-    def is_empty(self) -> bool:
-        """
-        Whether package has a Client.
-        """
-        return self._client is None
-
     def extract_literals(self) -> list[TypeLiteral]:
         """
         Extract literals from children.

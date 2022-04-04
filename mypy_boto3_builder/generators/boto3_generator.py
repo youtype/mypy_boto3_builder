@@ -40,7 +40,6 @@ class Boto3Generator(BaseGenerator):
         package_data = MypyBoto3PackageData
         version = self._get_package_version(package_data.PYPI_NAME, self.version)
         if not version:
-            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
@@ -56,7 +55,6 @@ class Boto3Generator(BaseGenerator):
         package_data = Boto3StubsPackageData
         version = self._get_package_version(package_data.PYPI_NAME, self.version)
         if not version:
-            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
@@ -72,7 +70,6 @@ class Boto3Generator(BaseGenerator):
         package_data = Boto3StubsLitePackageData
         version = self._get_package_version(package_data.PYPI_NAME, self.version)
         if not version:
-            self.logger.info(f"Skipping {package_data.PYPI_NAME} {self.version}, already on PyPI")
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")

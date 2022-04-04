@@ -49,7 +49,7 @@ Base stubs/docs generator.
 
 ### BaseGenerator().generate_docs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L94)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L95)
 
 ```python
 @abstractmethod
@@ -60,7 +60,7 @@ Generate service and master docs.
 
 ### BaseGenerator().generate_product
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L100)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L101)
 
 ```python
 def generate_product(product_type: ProductType) -> None:
@@ -74,7 +74,7 @@ Run generator for a product type.
 
 ### BaseGenerator().generate_service_stubs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L199)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L200)
 
 ```python
 def generate_service_stubs() -> None:
@@ -84,7 +84,7 @@ Generate service stubs.
 
 ### BaseGenerator().generate_stubs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L87)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L88)
 
 ```python
 @abstractmethod

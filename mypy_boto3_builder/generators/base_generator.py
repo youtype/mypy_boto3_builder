@@ -72,6 +72,7 @@ class BaseGenerator(ABC):
             return version
 
         if self.skip_published:
+            self.logger.info(f"Skipping {pypi_name} {version}, already on PyPI")
             return None
         if self.disable_smart_version:
             return version
@@ -202,11 +203,13 @@ class BaseGenerator(ABC):
         """
         total_str = f"{len(self.service_names)}"
         for index, service_name in enumerate(self.service_names):
-            package = self._generate_service(service_name)
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
             progress_str = f"[{current_str}/{total_str}]"
-            if package.is_empty():
-                self.logger.info(f"{progress_str} Skipped {package.name} {package.version}")
+
+            pypi_name = self.service_package_data.get_service_pypi_name(service_name)
+            version = self._get_package_version(pypi_name, self.version)
+            if not version:
                 continue
 
-            self.logger.info(f"{progress_str} Generated {package.name} {package.version}")
+            self.logger.info(f"{progress_str} Generating {pypi_name} {version}")
+            self._generate_service(service_name)
