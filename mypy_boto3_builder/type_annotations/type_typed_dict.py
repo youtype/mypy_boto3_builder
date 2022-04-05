@@ -48,9 +48,10 @@ class TypedDictAttribute:
 
     def get_types(self) -> set[FakeAnnotation]:
         """
-        Get type_annotaion types with `NotRequired` if needed.
+        Get type_annotation types with `NotRequired` if needed.
         """
-        return self.get_type_annotation().get_types()
+        # return self.get_type_annotation().get_types()
+        return self.type_annotation.get_types()
 
     def is_required(self) -> bool:
         """

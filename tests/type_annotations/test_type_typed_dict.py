@@ -139,7 +139,7 @@ class TestTypeTypedDict:
     def test_get_children_types(self) -> None:
         assert self.result.get_children_types() == {
             Type.str,
-            Type.NotRequired,
+            # Type.NotRequired,
             Type.bool,
         }
 
