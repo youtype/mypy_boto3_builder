@@ -119,9 +119,9 @@ async function extractVersions({ core, context }) {
         buildAll = 'true'
     }
 
-    const smartVersion = context.payload.inputs ? context.payload.inputs.smart_version !== 'false' : true
+    const smartVersion = context.payload.inputs ? context.payload.inputs.smart_version !== 'false' : false
     core.info(`Smart version = ${smartVersion}`)
-    core.setOutput('no_smart_version', smartVersion ? '' : '--no-smart-version')
+    core.setOutput('no_smart_version', smartVersion ? '' : '--no-smart-version --skip-published')
 
     const botocoreVersion = getBotocoreVersion(boto3Version)
     core.info(`Boto3 version = ${boto3Version}`)
@@ -194,9 +194,9 @@ async function extractAioBotocoreVersions({ core, context }) {
         buildAll = 'true'
     }
 
-    const smartVersion = context.payload.inputs ? context.payload.inputs.smart_version !== 'false' : true
+    const smartVersion = context.payload.inputs ? context.payload.inputs.smart_version !== 'false' : false
     core.info(`Smart version = ${smartVersion}`)
-    core.setOutput('no_smart_version', smartVersion ? '' : '--no-smart-version')
+    core.setOutput('no_smart_version', smartVersion ? '' : '--no-smart-version --skip-published')
 
     core.info(`Build all packages = ${buildAll}`)
     core.setOutput('build-all', buildAll)
