@@ -43,13 +43,12 @@ class SnapshotMismatchError(Exception):
     """
 
 
-def setup_logging(level: int = 0) -> logging.Logger:
+def setup_logging(level: int) -> logging.Logger:
     """
     Get Logger instance.
 
     Arguments:
-        verbose -- Set log level to DEBUG.
-        panic -- Raise RuntimeError on warning.
+        level -- Log level
 
     Returns:
         Overriden Logger.
@@ -167,24 +166,34 @@ def run_call(path: Path) -> None:
         raise SnapshotMismatchError(f"Path {path} cannot be imported: {e}") from None
 
 
+def is_package_dir(path: Path) -> bool:
+    """
+    Check whether `path` contains a service package.
+    """
+    if not path.is_dir():
+        return False
+    if path.name.endswith(".egg-info"):
+        return False
+    if path.name.startswith("mypy_boto3_"):
+        return True
+    if path.name.startswith("types_aiobotocore_"):
+        return True
+    return False
+
+
 def main() -> None:
     """
     Main CLI entrypoint.
     """
     args = parse_args()
-    setup_logging(logging.INFO)
-    logger = logging.getLogger(LOGGER_NAME)
-    folder: Path
+    logger = setup_logging(logging.INFO)
+    path: Path = args.path
     has_errors = False
-    for folder in sorted(args.path.iterdir()):
+    for folder in sorted(path.iterdir()):
         if not folder.name.endswith("_package"):
             continue
         for package in folder.iterdir():
-            if not package.is_dir():
-                continue
-            if package.name.endswith(".egg-info"):
-                continue
-            if not package.name.startswith("mypy_boto3_"):
+            if not is_package_dir(package):
                 continue
             if args.services:
                 if not any(s in package.name for s in args.services):
