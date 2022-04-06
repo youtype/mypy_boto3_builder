@@ -21,10 +21,10 @@ on:
         description: Specify version explicitly instead of finding it automatically
         required: false
         default: ""
-      smart_version:
-        description: Publish a new post-release of a package if exists
+      skip_published:
+        description: Do not build already published packages
         required: false
-        default: "true"
+        default: "false"
 
 jobs:
   check-boto3-version:
@@ -35,6 +35,7 @@ jobs:
       botocore-version: ${{ steps.vars.outputs.botocore-version }}
       version: ${{ steps.vars.outputs.version }}
       build-all: ${{ steps.vars.outputs.build-all }}
+      extra-flags: ${{ steps.vars.outputs.extra-flags }}
     steps:
       - uses: actions/checkout@v2
       - name: Extract versions
@@ -55,7 +56,7 @@ jobs:
       BOTO3_VERSION: ${{ needs.check-boto3-version.outputs.boto3-version }}
       BOTOCORE_VERSION: ${{ needs.check-boto3-version.outputs.botocore-version }}
       VERSION: ${{ needs.check-boto3-version.outputs.version }}
-      NO_SMART_VERSION: ${{ needs.check-boto3-version.outputs.no_smart_version }}
+      EXTRA_FLAGS: ${{ needs.check-boto3-version.outputs.extra-flags }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
@@ -90,14 +91,14 @@ jobs:
           rm -rf mypy_boto3_output/*
 
           echo "Building updated packages"
-          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product boto3 boto3-services ${NO_SMART_VERSION} -s updated
+          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product boto3 boto3-services ${EXTRA_FLAGS} -s updated
       - name: Build all packages
         if: needs.check-boto3-version.outputs.build-all == 'true'
         run: |
           rm -rf mypy_boto3_output/*
 
           echo "Building all packages"
-          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product boto3 boto3-services ${NO_SMART_VERSION} -s all
+          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product boto3 boto3-services ${EXTRA_FLAGS} -s all
       - name: Install dependencies for publishing
         run: |
           python -m pip install setuptools wheel twine

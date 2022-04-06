@@ -119,9 +119,13 @@ async function extractVersions({ core, context }) {
         buildAll = 'true'
     }
 
-    const smartVersion = context.payload.inputs ? context.payload.inputs.smart_version !== 'false' : false
-    core.info(`Smart version = ${smartVersion}`)
-    core.setOutput('no_smart_version', smartVersion ? '' : '--no-smart-version --skip-published')
+    const extraFlags = []
+
+    const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : false
+    if (skipPublished) extraFlags.push('--skip-published')
+
+    core.info(`Extra flags = ${extraFlags}`)
+    core.setOutput('extra-flags', extraFlags.join(' '))
 
     const botocoreVersion = getBotocoreVersion(boto3Version)
     core.info(`Boto3 version = ${boto3Version}`)
@@ -194,9 +198,13 @@ async function extractAioBotocoreVersions({ core, context }) {
         buildAll = 'true'
     }
 
-    const smartVersion = context.payload.inputs ? context.payload.inputs.smart_version !== 'false' : false
-    core.info(`Smart version = ${smartVersion}`)
-    core.setOutput('no_smart_version', smartVersion ? '' : '--no-smart-version --skip-published')
+    const extraFlags = []
+
+    const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : false
+    if (skipPublished) extraFlags.push('--skip-published')
+
+    core.info(`Extra flags = ${extraFlags}`)
+    core.setOutput('extra-flags', extraFlags.join(' '))
 
     core.info(`Build all packages = ${buildAll}`)
     core.setOutput('build-all', buildAll)

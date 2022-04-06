@@ -21,10 +21,10 @@ on:
         description: Specify version explicitly instead of finding it automatically
         required: false
         default: ""
-      smart_version:
-        description: Publish a new post-release of a package if exists
+      skip_published:
+        description: Do not build already published packages
         required: false
-        default: "true"
+        default: "false"
 
 jobs:
   check-aiobotocore-version:
@@ -34,6 +34,7 @@ jobs:
       aiobotocore-version: ${{ steps.vars.outputs.aiobotocore-version }}
       version: ${{ steps.vars.outputs.version }}
       build-all: ${{ steps.vars.outputs.build-all }}
+      extra-flags: ${{ steps.vars.outputs.extra-flags }}
     steps:
       - uses: actions/checkout@v2
       - name: Extract versions
@@ -53,7 +54,7 @@ jobs:
       PIP_USER: 1
       AIOBOTOCORE_VERSION: ${{ needs.check-aiobotocore-version.outputs.aiobotocore-version }}
       VERSION: ${{ needs.check-aiobotocore-version.outputs.version }}
-      NO_SMART_VERSION: ${{ needs.check-aiobotocore-version.outputs.no_smart_version }}
+      EXTRA_FLAGS: ${{ needs.check-aiobotocore-version.outputs.extra-flags }}
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python
@@ -84,7 +85,7 @@ jobs:
           rm -rf mypy_boto3_output/*
 
           echo "Building all packages"
-          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product aiobotocore aiobotocore-services ${NO_SMART_VERSION} -s all
+          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product aiobotocore aiobotocore-services ${EXTRA_FLAGS} -s all
       - name: Install dependencies for publishing
         run: |
           python -m pip install setuptools wheel twine
