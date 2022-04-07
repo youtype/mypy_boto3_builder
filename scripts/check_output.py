@@ -28,6 +28,7 @@ IGNORE_PYRIGHT_ERRORS = (
     'Method "paginate" overrides class "Paginator" in an incompatible manner',
     'Method "wait" overrides class "Waiter" in an incompatible manner',
     'define variable "items" in incompatible way',
+    'define variable "values" in incompatible way',
     "must return value",
 )
 IGNORE_MYPY_ERRORS = (
