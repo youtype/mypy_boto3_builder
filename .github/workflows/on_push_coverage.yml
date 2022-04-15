@@ -27,6 +27,7 @@ jobs:
         run: |
           poetry install -n
           poetry run pip install -U aiobotocore
+          poetry install -n
       - name: Send coverage report
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

@@ -5,7 +5,7 @@ from collections.abc import Iterable, Iterator
 from pathlib import Path
 
 
-class NicePath(type(Path())):  # type: ignore
+class NicePath(Path):
     """
     Path that represents it as relative to workdir.
     """
