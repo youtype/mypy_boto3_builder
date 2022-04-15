@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Install poetry
+        run: pipx install poetry
       - name: Extract versions
         id: vars
         uses: actions/github-script@v6
@@ -40,10 +42,11 @@ jobs:
           python -m pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
       - name: Install dependencies
         run: |
-          python -m pip install -U poetry pip wheel
           poetry config virtualenvs.create false
           poetry install -n
-          sudo npm install -g pyright
+      - name: Install Node.js dependencies
+        run: |
+          npm install -g pyright
       - name: Build packages
         env:
           VERSION: ${{ steps.vars.outputs.version }}

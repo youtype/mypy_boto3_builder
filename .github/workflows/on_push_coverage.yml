@@ -25,6 +25,7 @@ jobs:
           cache: "poetry"
       - name: Install dependencies
         run: |
+          poetry config virtualenvs.create false
           poetry install -n
           poetry run pip install -U aiobotocore
       - name: Send coverage report
