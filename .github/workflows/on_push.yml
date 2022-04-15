@@ -24,14 +24,13 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: "3.10"
-          cache: "poetry"
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: "16"
       - name: Install dependencies
         run: |
-          poetry config virtualenvs.create false
+          # poetry config virtualenvs.create false
           poetry install -n
           poetry run pip install -U aiobotocore
           poetry install -n
@@ -40,16 +39,16 @@ jobs:
           npm install -g pyright
       - name: Lint
         run: |
-          python -m flake8 mypy_boto3_builder
-          npx pyright mypy_boto3_builder
-          python -m mypy mypy_boto3_builder
-          python -m black --check mypy_boto3_builder tests
-          python -m isort -c mypy_boto3_builder tests
+          poetry run flake8 mypy_boto3_builder
+          poetry run npx pyright mypy_boto3_builder
+          poetry run mypy mypy_boto3_builder
+          poetry run black --check mypy_boto3_builder tests
+          poetry run isort -c mypy_boto3_builder tests
       - name: Test
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: |
-          python -m pytest
+          poetry run pytest
 
   integration-tests:
     name: Integration tests
@@ -63,20 +62,20 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: "3.10"
-          cache: "poetry"
+          # cache: "poetry"
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: "16"
       - name: Install dependencies
         run: |
-          poetry config virtualenvs.create false
+          # poetry config virtualenvs.create false
           poetry install -n
-          python -m pip install -U aiobotocore
+          poetry run pip install -U aiobotocore
           poetry install -n
       - name: Install Node.js dependencies
         run: |
           npm install -g pyright
       - name: Integration tests
         run: |
-          python -m python scripts/integration.py
+          poetry run python scripts/integration.py
