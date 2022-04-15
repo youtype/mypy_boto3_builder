@@ -148,4 +148,4 @@ class SyntaxGrammar:
         """
         Disable packrat boost.
         """
-        ParserElement.enablePackrat(cache_size_limit=None)
+        ParserElement.enablePackrat(cache_size_limit=0)

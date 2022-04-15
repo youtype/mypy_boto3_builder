@@ -5,7 +5,7 @@ import re
 import textwrap
 from re import Pattern
 
-from pyparsing import ParseException
+from pyparsing.exceptions import ParseException
 
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.docstring_parser.syntax_grammar import SyntaxGrammar

@@ -108,7 +108,7 @@ class TypeDocGrammar:
 
     @classmethod
     def fail_action(
-        cls, _input_string: str, _chr_index: int, _source: str, error: BaseException
+        cls, _input_string: str, _chr_index: int, _source: ParserElement, error: BaseException
     ) -> None:
         """
         Check for input end.
@@ -138,4 +138,4 @@ class TypeDocGrammar:
         """
         Disable packrat boost.
         """
-        ParserElement.enablePackrat(cache_size_limit=None)
+        ParserElement.enablePackrat(cache_size_limit=0)
