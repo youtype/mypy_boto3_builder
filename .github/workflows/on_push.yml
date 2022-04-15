@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: "3.10"
-      - name: Install dependencies
+      - name: Install poetry
         run: |
           python -m pip install poetry pip
       - name: Set up Python
@@ -35,7 +35,6 @@ jobs:
           node-version: "16"
       - name: Install dependencies
         run: |
-          poetry config virtualenvs.create false
           poetry install -n
           poetry run pip install -U aiobotocore
           poetry install -n
@@ -66,7 +65,7 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: "3.10"
-      - name: Install dependencies
+      - name: Install poetry
         run: |
           python -m pip install poetry pip
       - name: Set up Python
@@ -80,8 +79,6 @@ jobs:
           node-version: "16"
       - name: Install dependencies
         run: |
-          python -m pip install poetry pip
-          poetry config virtualenvs.create false
           poetry install -n
           poetry run pip install -U aiobotocore
           poetry install -n
