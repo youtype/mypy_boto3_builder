@@ -10,6 +10,8 @@ class NicePath(Path):
     Path that represents it as relative to workdir.
     """
 
+    _flavour = type(Path())._flavour  # type: ignore
+
     def __str__(self) -> str:
         path = Path(self)
         if self.is_absolute():
