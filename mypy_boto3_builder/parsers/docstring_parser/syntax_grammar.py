@@ -1,19 +1,19 @@
 """
 Pyparsing grammar for request and response syntax.
 """
-from pyparsing import (
+from pyparsing.core import (
     Combine,
     Forward,
     Group,
     Literal,
-    Optional,
+    Opt,
     ParserElement,
     SkipTo,
     Word,
     alphanums,
     alphas,
-    delimitedList,
 )
+from pyparsing.helpers import delimitedList
 
 
 class SyntaxGrammar:
@@ -45,9 +45,7 @@ class SyntaxGrammar:
 
     ellipsis = Literal("...")
     name_value = Word(alphanums + "_-.")
-    string_value = Combine(
-        Optional(Word(alphas, max=2)) + Literal("'") + SkipTo("'") + Literal("'")
-    )
+    string_value = Combine(Opt(Word(alphas, max=2)) + Literal("'") + SkipTo("'") + Literal("'"))
     plain_value = (string_value | name_value).setResultsName("value")
     literal_item = Forward()
     literal_value = (
@@ -56,35 +54,32 @@ class SyntaxGrammar:
         + delimitedList(Group(literal_item), delim="|").setResultsName("literal_rest_items")
     )
     any_value = Forward()
-    empty_list_value = Group(
-        Literal("[") + Optional(ellipsis) + Optional(",") + Literal("]")
-    ).setResultsName("empty_list")
+    empty_list_value = Group(Literal("[") + Opt(ellipsis) + Opt(",") + Literal("]")).setResultsName(
+        "empty_list"
+    )
     non_empty_list_value = (
         Literal("[")
         + Group(delimitedList(Group(any_value))).setResultsName("list_items")
-        + Optional(",")
+        + Opt(",")
         + Literal("]")
     )
     list_value = empty_list_value | non_empty_list_value
     set_value = (
-        "{"
-        + Group(delimitedList(Group(any_value))).setResultsName("set_items")
-        + Optional(",")
-        + "}"
+        "{" + Group(delimitedList(Group(any_value))).setResultsName("set_items") + Opt(",") + "}"
     )
     func_call = Group(
         name_value.setResultsName("name")
         + Literal("(")
-        + Optional(delimitedList(Group(any_value))).setResultsName("args")
-        + Optional(",")
+        + Opt(delimitedList(Group(any_value))).setResultsName("args")
+        + Opt(",")
         + Literal(")")
     ).setResultsName("func_call")
-    empty_dict_value = Group(
-        Literal("{") + Optional(ellipsis) + Optional(",") + Literal("}")
-    ).setResultsName("empty_dict")
+    empty_dict_value = Group(Literal("{") + Opt(ellipsis) + Opt(",") + Literal("}")).setResultsName(
+        "empty_dict"
+    )
     non_empty_dict_value = (
         Literal("{")
-        + Optional(
+        + Opt(
             delimitedList(
                 Group(
                     string_value.setResultsName("key")
@@ -93,7 +88,7 @@ class SyntaxGrammar:
                 )
             ).setResultsName("dict_items")
         )
-        + Optional(",")
+        + Opt(",")
         + Literal("}")
     )
     dict_value = empty_dict_value | non_empty_dict_value
@@ -118,8 +113,8 @@ class SyntaxGrammar:
     definition = (
         SkipTo("(")
         + Literal("(")
-        + Optional(delimitedList(Group(argument))).setResultsName("arguments")
-        + Optional(",")
+        + Opt(delimitedList(Group(argument))).setResultsName("arguments")
+        + Opt(",")
         + Literal(")")
     )
     request_syntax = "**Request Syntax**" + Literal("::") + definition

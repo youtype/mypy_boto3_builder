@@ -1,19 +1,19 @@
 """
 Pyparsing grammar for argument type doc lines.
 """
-from pyparsing import (
+from pyparsing.core import (
     Forward,
     LineEnd,
     LineStart,
     Literal,
-    Optional,
+    Opt,
     ParserElement,
     SkipTo,
     White,
     Word,
     alphanums,
-    indentedBlock,
 )
+from pyparsing.helpers import indentedBlock
 
 
 class TypeDocGrammar:
@@ -71,7 +71,7 @@ class TypeDocGrammar:
         + Literal(":")
         + SkipTo(EOL).setResultsName("description")
         + EOL
-        + Optional(indented_block)
+        + Opt(indented_block)
     )
 
     response_structure = Literal("**Response Structure**") + line_indented
