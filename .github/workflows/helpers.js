@@ -27,7 +27,7 @@ async function getDownloadURL(packageName, version) {
                 const response = JSON.parse(Buffer.concat(data).toString())
                 console.log('getDownloadURL response', response)
                 const versionsData = response.releases[version]
-                console.log('getDownloadURL versionsData', versionsData)
+                // console.log('getDownloadURL versionsData', versionsData)
                 if (!versionsData) {
                     return reject(new Error(`No download URLs found for ${packageName} ${version}`))
                 }
