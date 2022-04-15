@@ -26,10 +26,11 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install -n
+          poetry shell
           python -m pip install -U aiobotocore
       - name: Send coverage report
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: |
-          python -m pytest --cov-report term --cov mypy_boto3_builder
-          python -m codecov
+          poetry run pytest --cov-report term --cov mypy_boto3_builder
+          poetry run codecov
