@@ -31,7 +31,6 @@ jobs:
           node-version: "16"
       - name: Install dependencies
         run: |
-          poetry config virtualenvs.create false
           poetry install -n
           poetry run pip install -U aiobotocore
       - name: Install Node.js dependencies
@@ -69,7 +68,6 @@ jobs:
           node-version: "16"
       - name: Install dependencies
         run: |
-          poetry config virtualenvs.create false
           poetry install -n
           poetry run pip install -U aiobotocore
       - name: Install Node.js dependencies
