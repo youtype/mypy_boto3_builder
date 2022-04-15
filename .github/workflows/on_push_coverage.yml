@@ -15,10 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.10"
+      - name: Install poetry
+        run: pipx install poetry
       - name: Set up Python
         id: python
         uses: actions/setup-python@v3
@@ -27,6 +25,7 @@ jobs:
           cache: "poetry"
       - name: Install dependencies
         run: |
+          poetry config virtualenvs.create false
           poetry install -n
           poetry run pip install -U aiobotocore
           poetry install -n
@@ -34,5 +33,5 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: |
-          poetry run pytest --cov-report term --cov mypy_boto3_builder
-          poetry run codecov
+          python -m pytest --cov-report term --cov mypy_boto3_builder
+          python -m codecov
