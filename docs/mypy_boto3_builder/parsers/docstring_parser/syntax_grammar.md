@@ -44,7 +44,7 @@ response_syntax ::= "**Response Syntax**" "::" (list_value | dict_value)
 
 ### SyntaxGrammar.disable_packrat
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L146)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L141)
 
 ```python
 @staticmethod
@@ -55,7 +55,7 @@ Disable packrat boost.
 
 ### SyntaxGrammar.enable_packrat
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L139)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L134)
 
 ```python
 @staticmethod
@@ -66,7 +66,7 @@ Enable packrat boost.
 
 ### SyntaxGrammar.reset
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L132)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L127)
 
 ```python
 @classmethod

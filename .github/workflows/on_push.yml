@@ -48,6 +48,7 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: |
+          poetry run which python
           poetry run python -V
           # poetry run pytest
 

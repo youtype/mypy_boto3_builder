@@ -67,7 +67,7 @@ Enable packrat boost.
 def fail_action(
     _input_string: str,
     _chr_index: int,
-    _source: str,
+    _source: ParserElement,
     error: BaseException,
 ) -> None:
 ```
