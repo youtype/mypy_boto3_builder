@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Install poetry
+        run: pipx install -U poetry pip
       - name: Set up Python
         id: python
         uses: actions/setup-python@v3
@@ -28,12 +30,10 @@ jobs:
         with:
           node-version: "16"
           cache: "npm"
-      - name: Install poetry
-        run: |
-          python -m pip install -U poetry pip wheel aiobotocore
       - name: Install dependencies
         run: |
           poetry install -n
+          python -m pip install -U aiobotocore
       - name: Install Node.js dependencies
         run: |
           npm install -g pyright
@@ -55,6 +55,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Install poetry
+        run: pipx install -U poetry pip
       - name: Set up Python
         id: python
         uses: actions/setup-python@v3
@@ -66,13 +68,10 @@ jobs:
         with:
           node-version: "16"
           cache: "npm"
-      - name: Install poetry
-        run: |
-          python -m pip install -U poetry pip wheel aiobotocore
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           poetry install -n
+          python -m pip install -U aiobotocore
       - name: Install Node.js dependencies
         run: |
           npm install -g pyright
