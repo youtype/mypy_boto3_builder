@@ -48,7 +48,8 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: |
-          poetry run pytest
+          poetry run python -V
+          # poetry run pytest
 
   integration-tests:
     name: Integration tests
