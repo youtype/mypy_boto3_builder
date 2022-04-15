@@ -36,7 +36,7 @@ jobs:
       build-all: ${{ steps.vars.outputs.build-all }}
       extra-flags: ${{ steps.vars.outputs.extra-flags }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Extract versions
         id: vars
         uses: actions/github-script@v6
@@ -50,15 +50,13 @@ jobs:
     needs: check-aiobotocore-version
     if: needs.check-aiobotocore-version.outputs.version
     env:
-      PIP_NO_CACHE_DIR: false
-      PIP_USER: 1
       AIOBOTOCORE_VERSION: ${{ needs.check-aiobotocore-version.outputs.aiobotocore-version }}
       VERSION: ${{ needs.check-aiobotocore-version.outputs.version }}
       EXTRA_FLAGS: ${{ needs.check-aiobotocore-version.outputs.extra-flags }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: "3.10"
       - name: Get aiobotocore download links

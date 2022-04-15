@@ -16,7 +16,7 @@ jobs:
       PIP_USER: 1
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Extract versions
         id: vars
         uses: actions/github-script@v6
@@ -25,13 +25,13 @@ jobs:
             const { extractVersionsFromInput } = require('./.github/workflows/helpers.js')
             await extractVersionsFromInput({ core, context })
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: "3.10"
       - name: Set up Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: "14"
+          node-version: "16"
       - name: Install boto3
         env:
           BOTO3_VERSION: ${{ steps.vars.outputs.boto3-version }}
