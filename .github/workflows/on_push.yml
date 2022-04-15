@@ -32,8 +32,7 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install -n
-          poetry shell
-          python -m pip install -U aiobotocore
+          poetry run pip install -U aiobotocore
       - name: Install Node.js dependencies
         run: |
           npm install -g pyright
@@ -70,12 +69,10 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install -n
-          poetry shell
-          python -m pip install -U aiobotocore
+          poetry run pip install -U aiobotocore
       - name: Install Node.js dependencies
         run: |
           npm install -g pyright
       - name: Integration tests
         run: |
-          poetry shell
-          python scripts/integration.py
+          poetry run python scripts/integration.py
