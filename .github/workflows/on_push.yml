@@ -40,7 +40,7 @@ jobs:
       - name: Lint
         run: |
           poetry run flake8 mypy_boto3_builder
-          npx pyright mypy_boto3_builder
+          poetry run npx pyright mypy_boto3_builder
           poetry run mypy mypy_boto3_builder
           poetry run black --check mypy_boto3_builder tests
           poetry run isort -c mypy_boto3_builder tests
