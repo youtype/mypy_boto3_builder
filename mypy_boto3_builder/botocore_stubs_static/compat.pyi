@@ -1,11 +1,11 @@
 from base64 import encodebytes as encodebytes
-from re import Pattern
 from collections import OrderedDict as OrderedDict
 from email.utils import formatdate as formatdate
 from http.client import HTTPMessage
 from http.client import HTTPResponse as HTTPResponse
 from itertools import zip_longest as zip_longest
-from typing import Any, Dict, Iterable, Mapping, Optional, Tuple, Type, TypeVar, Set
+from re import Pattern
+from typing import Any, Dict, Iterable, Mapping, Optional, Set, Tuple, Type, TypeVar
 from urllib.parse import parse_qs as parse_qs
 from urllib.parse import parse_qsl as parse_qsl
 from urllib.parse import quote as quote

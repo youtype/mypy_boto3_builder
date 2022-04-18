@@ -34,10 +34,10 @@ from botocore.exceptions import UnsupportedS3ControlArnError as UnsupportedS3Con
 from botocore.exceptions import (
     UnsupportedS3ControlConfigurationError as UnsupportedS3ControlConfigurationError,
 )
-from botocore.model import ServiceModel, Shape
-from botocore.session import Session
-from botocore.regions import BaseEndpointResolver
 from botocore.hooks import BaseEventHooks
+from botocore.model import ServiceModel, Shape
+from botocore.regions import BaseEndpointResolver
+from botocore.session import Session
 
 DEFAULT_METADATA_SERVICE_TIMEOUT: int
 METADATA_BASE_URL: str
