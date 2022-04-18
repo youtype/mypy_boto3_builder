@@ -5,7 +5,7 @@ from http.client import HTTPMessage
 from http.client import HTTPResponse as HTTPResponse
 from itertools import zip_longest as zip_longest
 from re import Pattern
-from typing import Any, Dict, Iterable, Mapping, Optional, Set, Tuple, Type, TypeVar
+from typing import Any, Dict, Iterable, Mapping, Optional, Tuple, Type, TypeVar
 from urllib.parse import parse_qs as parse_qs
 from urllib.parse import parse_qsl as parse_qsl
 from urllib.parse import quote as quote
@@ -19,11 +19,6 @@ from urllib.parse import urlunsplit as urlunsplit
 from xml.etree import ElementTree as ETree
 
 from botocore.exceptions import MD5UnavailableError as MD5UnavailableError
-
-try:
-    from collections.abc import MutableMapping
-except ImportError:
-    from collections import MutableMapping  # type: ignore
 
 _R = TypeVar("_R")
 
