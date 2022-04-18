@@ -596,3 +596,10 @@ class _FlexibleChecksumErrorKwargs(TypedDict):
 class FlexibleChecksumError(BotoCoreError):
     def __init__(self, *, error_msg: str = ..., **kwargs: Any) -> None:
         self.kwargs: _FlexibleChecksumErrorKwargs
+
+class _InvalidEndpointConfigurationErrorKwargs(TypedDict):
+    msg: str
+
+class InvalidEndpointConfigurationError(BotoCoreError):
+    def __init__(self, *, msg: str = ..., **kwargs: Any) -> None:
+        self.kwargs: _InvalidEndpointConfigurationErrorKwargs
