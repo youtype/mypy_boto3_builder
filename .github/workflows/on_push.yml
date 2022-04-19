@@ -38,8 +38,6 @@ jobs:
           poetry install -n
           poetry run pip install -U aiobotocore
           poetry install -n
-          poetry run which python
-          poetry run python -V
       - name: Install Node.js dependencies
         run: |
           npm install -g pyright
