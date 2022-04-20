@@ -50,7 +50,6 @@ jobs:
           git config --global user.email "github-actions"
           git config --global user.name "github-actions@github.com"
           git add pyproject.toml
-          git add setup.cfg
           git commit -m "Release ${VERSION}"
           git push
       - name: Publish to PyPI

@@ -59,14 +59,14 @@ dev = ["pip-tools (==6.5.1)", "pytest (==7.1.1)", "flake8 (==4.0.1)", "tox (==3.
 
 [[package]]
 name = "boto3"
-version = "1.21.42"
+version = "1.21.43"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.6"
 
 [package.dependencies]
-botocore = ">=1.24.42,<1.25.0"
+botocore = ">=1.24.43,<1.25.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.5.0,<0.6.0"
 
@@ -75,8 +75,8 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.21.42"
-description = "Type annotations for boto3 1.21.42 generated with mypy-boto3-builder 7.5.8"
+version = "1.21.43"
+description = "Type annotations for boto3 1.21.43 generated with mypy-boto3-builder 7.5.8"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
@@ -394,7 +394,7 @@ xray = ["mypy-boto3-xray (>=1.21.0,<1.22.0)"]
 
 [[package]]
 name = "botocore"
-version = "1.24.42"
+version = "1.24.43"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -410,8 +410,8 @@ crt = ["awscrt (==0.13.8)"]
 
 [[package]]
 name = "botocore-stubs"
-version = "1.24.42"
-description = "Type annotations for botocore 1.24.42 generated with mypy-boto3-builder 7.5.8"
+version = "1.24.43"
+description = "Type annotations for botocore 1.24.43 generated with mypy-boto3-builder 7.5.8"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
@@ -948,11 +948,11 @@ python-versions = "*"
 
 [[package]]
 name = "readme-renderer"
-version = "34.0"
+version = "35.0"
 description = "readme_renderer is a library for rendering \"readme\" descriptions for Warehouse"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
 bleach = ">=2.1.0"
@@ -1249,20 +1249,20 @@ bleach = [
     {file = "bleach-5.0.0.tar.gz", hash = "sha256:c6d6cc054bdc9c83b48b8083e236e5f00f238428666d2ce2e083eaa5fd568565"},
 ]
 boto3 = [
-    {file = "boto3-1.21.42-py3-none-any.whl", hash = "sha256:895fb88c69be78f82cfee58a79c97a3ad8d4a2a1209041a411d7d6b9fc5393e4"},
-    {file = "boto3-1.21.42.tar.gz", hash = "sha256:bcb541175a7d190dd919a0af0e807ee6e9d26f135551e741b10d94343f2d7588"},
+    {file = "boto3-1.21.43-py3-none-any.whl", hash = "sha256:cb872b71e23d139300bc825564c3f24c4b8a3f8c5a4a51458df7ee35cc8c1a87"},
+    {file = "boto3-1.21.43.tar.gz", hash = "sha256:d9428ac1c0d75ad50289cae8cc9a77f56ac04d0f7eee6e7d31167d577df3f6cb"},
 ]
 boto3-stubs = [
-    {file = "boto3-stubs-1.21.42.tar.gz", hash = "sha256:a89bd988bbb37adac9e8f63a933943526b3038279f2a1204dfaf34815f0b7cc1"},
-    {file = "boto3_stubs-1.21.42-py3-none-any.whl", hash = "sha256:231e7b8c73b62ad0be72ea534d27d3015d0907be1d17365c8858e39cc4fa1d86"},
+    {file = "boto3-stubs-1.21.43.tar.gz", hash = "sha256:ec6b1e2cac0d551e5631d095b4237b634f4d245df8c045c577dddc9610fa2334"},
+    {file = "boto3_stubs-1.21.43-py3-none-any.whl", hash = "sha256:bb4465fa053150740f7dfe8fd8f3e25e7ac8994ebbdbd81e908b063db11124ff"},
 ]
 botocore = [
-    {file = "botocore-1.24.42-py3-none-any.whl", hash = "sha256:14aee41c8bf59d2dd2d89e8751fa37d3c95dcb92707d1966aa02697e914c1417"},
-    {file = "botocore-1.24.42.tar.gz", hash = "sha256:a2baa9484bbaee96ef312c049b8e360badcab58329e487b57567644a571b5f4a"},
+    {file = "botocore-1.24.43-py3-none-any.whl", hash = "sha256:501d0b0ae378f06d6d23114e4e5f0c166975c34f9a0e34bfbc5bf388fc5f04e1"},
+    {file = "botocore-1.24.43.tar.gz", hash = "sha256:76173ec95dce29217ffbd367e689a8bfe056ed2db14b622fb5bfc3903f05b6db"},
 ]
 botocore-stubs = [
-    {file = "botocore-stubs-1.24.42.tar.gz", hash = "sha256:5ef6601232322171db9240207368efa1e816715d79c45fdbccad3d2dbb2853d0"},
-    {file = "botocore_stubs-1.24.42-py3-none-any.whl", hash = "sha256:09e1bea5d6ee9e7b02d1ab65945e62eb5017ed79d0121ede435fc0098ebd4035"},
+    {file = "botocore-stubs-1.24.43.tar.gz", hash = "sha256:b5013fbb635e039491dba920dfae2a3c0a26ca907f43c23af7bd4befa0a6e41f"},
+    {file = "botocore_stubs-1.24.43-py3-none-any.whl", hash = "sha256:15a73882aaecce766c33581cd30f990eeafb2072335c563c0619287bed46b761"},
 ]
 certifi = [
     {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
@@ -1611,8 +1611,8 @@ pywin32-ctypes = [
     {file = "pywin32_ctypes-0.2.0-py2.py3-none-any.whl", hash = "sha256:9dc2d991b3479cc2df15930958b674a48a227d5361d413827a4cfd0b5876fc98"},
 ]
 readme-renderer = [
-    {file = "readme_renderer-34.0-py3-none-any.whl", hash = "sha256:262510fe6aae81ed4e94d8b169077f325614c0b1a45916a80442c6576264a9c2"},
-    {file = "readme_renderer-34.0.tar.gz", hash = "sha256:dfb4d17f21706d145f7473e0b61ca245ba58e810cf9b2209a48239677f82e5b0"},
+    {file = "readme_renderer-35.0-py3-none-any.whl", hash = "sha256:73b84905d091c31f36e50b4ae05ae2acead661f6a09a9abb4df7d2ddcdb6a698"},
+    {file = "readme_renderer-35.0.tar.gz", hash = "sha256:a727999acfc222fc21d82a12ed48c957c4989785e5865807c65a487d21677497"},
 ]
 requests = [
     {file = "requests-2.27.1-py2.py3-none-any.whl", hash = "sha256:f22fa1e554c9ddfd16e6e41ac79759e17be9e492b3587efa038054674760e72d"},
