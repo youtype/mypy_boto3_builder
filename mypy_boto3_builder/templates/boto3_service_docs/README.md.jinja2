@@ -21,7 +21,7 @@ from {{ package.library_name }}.session import Session
 from {{ package.name }}.client import {{ package.client.name }}
 
 def get_client() -> {{ package.client.name }}:
-    return Session().cleint("{{ service_name.boto3_name }}")
+    return Session().client("{{ service_name.boto3_name }}")
 ```
 
 {% if package.paginators %}
