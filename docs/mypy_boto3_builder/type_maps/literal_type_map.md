@@ -9,7 +9,7 @@ String to type annotation map to replace overriden botocore literals.
 
 ## get_literal_type_stub
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/literal_type_map.py#L37)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/literal_type_map.py#L9)
 
 ```python
 def get_literal_type_stub(
