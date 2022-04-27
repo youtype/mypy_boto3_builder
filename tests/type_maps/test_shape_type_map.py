@@ -1,13 +1,11 @@
-from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
-from mypy_boto3_builder.type_maps.shape_type_map import DynamoDBValue, get_shape_type_stub
+from mypy_boto3_builder.service_name import ServiceNameCatalog
+from mypy_boto3_builder.type_maps.shape_type_map import AttributeValueTypeDef, get_shape_type_stub
 
 
 def test_get_shape_type_stub() -> None:
     assert (
-        get_shape_type_stub(
-            ServiceNameCatalog.dynamodb, "ClientBatchGetItemRequestItemsKeysTypeDef"
-        )
-        is DynamoDBValue
+        get_shape_type_stub(ServiceNameCatalog.dynamodb, "AttributeValueTypeDef")
+        is AttributeValueTypeDef
     )
     assert (
         get_shape_type_stub(ServiceNameCatalog.ec2, "ClientBatchGetItemRequestItemsKeysTypeDef")

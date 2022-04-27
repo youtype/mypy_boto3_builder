@@ -29,7 +29,6 @@ class Type:
     overload = TypeAnnotation("overload")
     none = TypeConstant(None)
     str = TypeClass(str)
-    Set = TypeAnnotation("Set")
     bool = TypeClass(bool)
     bytes = TypeClass(bytes)
     bytearray = TypeClass(bytearray)
