@@ -144,6 +144,7 @@ class ServiceNameCatalog:
     Finder for boto3 services by name.
     """
 
+    all = ServiceName("__all", "__all")
     ec2 = ServiceName("ec2", "EC2")
     iam = ServiceName("iam", "IAM")
     s3 = ServiceName("s3", "S3")

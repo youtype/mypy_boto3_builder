@@ -17,7 +17,6 @@ from botocore.model import (
     StringShape,
     StructureShape,
 )
-from botocore.response import StreamingBody
 from botocore.session import Session as BotocoreSession
 
 from mypy_boto3_builder.logger import get_logger
@@ -27,7 +26,6 @@ from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport, InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
@@ -37,7 +35,10 @@ from mypy_boto3_builder.type_maps.method_type_map import (
     get_default_value_stub,
     get_method_type_stub,
 )
-from mypy_boto3_builder.type_maps.shape_type_map import get_shape_type_stub
+from mypy_boto3_builder.type_maps.shape_type_map import (
+    get_output_shape_type_stub,
+    get_shape_type_stub,
+)
 from mypy_boto3_builder.type_maps.typed_dicts import paginator_config_type, waiter_config_type
 
 
@@ -55,28 +56,6 @@ class ShapeParser:
         session -- Boto3 session.
         service_name -- ServiceName.
     """
-
-    # Type map for shape types.
-    SHAPE_TYPE_MAP: Mapping[str, FakeAnnotation] = {
-        "integer": Type.int,
-        "long": Type.int,
-        "boolean": Type.bool,
-        "double": Type.float,
-        "float": Type.float,
-        "timestamp": TypeSubscript(Type.Union, [Type.datetime, Type.str]),
-        "blob": TypeSubscript(
-            Type.Union, [Type.str, Type.bytes, Type.IOAny, TypeClass(StreamingBody)]
-        ),
-        "blob_streaming": TypeSubscript(
-            Type.Union, [Type.str, Type.bytes, Type.IOAny, TypeClass(StreamingBody)]
-        ),
-    }
-
-    OUTPUT_SHAPE_TYPE_MAP: Mapping[str, FakeAnnotation] = {
-        "timestamp": Type.datetime,
-        "blob": Type.bytes,
-        "blob_streaming": TypeClass(StreamingBody),
-    }
 
     # Alias map fixes added by botocore for documentation build.
     # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L773
@@ -453,11 +432,13 @@ class ShapeParser:
             type_name = "blob_streaming"
 
         if output or output_child:
-            if type_name in self.OUTPUT_SHAPE_TYPE_MAP:
-                return self.OUTPUT_SHAPE_TYPE_MAP[type_name]
+            shape_type_stub = get_output_shape_type_stub(self.service_name, type_name)
+            if shape_type_stub:
+                return shape_type_stub
 
-        if type_name in self.SHAPE_TYPE_MAP:
-            return self.SHAPE_TYPE_MAP[type_name]
+        shape_type_stub = get_shape_type_stub(self.service_name, type_name)
+        if shape_type_stub:
+            return shape_type_stub
 
         if isinstance(shape, StringShape):
             return self._parse_shape_string(shape)

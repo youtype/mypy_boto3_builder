@@ -1,7 +1,9 @@
 """
 String to type annotation map to replace overriden botocore shapes.
 """
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
@@ -36,9 +38,31 @@ InvocationResponseTypeDef: TypeTypedDict = TypeTypedDict(
     ],
 )
 
+StreamingBodyType = ExternalImport(ImportString("botocore", "response"), "StreamingBody")
+
 SHAPE_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {
+    ServiceNameCatalog.all: {
+        "integer": Type.int,
+        "long": Type.int,
+        "boolean": Type.bool,
+        "double": Type.float,
+        "float": Type.float,
+        "timestamp": TypeSubscript(Type.Union, [Type.datetime, Type.str]),
+        "blob": TypeSubscript(Type.Union, [Type.str, Type.bytes, Type.IOAny, StreamingBodyType]),
+        "blob_streaming": TypeSubscript(
+            Type.Union, [Type.str, Type.bytes, Type.IOAny, StreamingBodyType]
+        ),
+    },
     ServiceNameCatalog.lambda_: {
         "InvocationResponseTypeDef": InvocationResponseTypeDef,
+    },
+}
+
+OUTPUT_SHAPE_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {
+    ServiceNameCatalog.all: {
+        "timestamp": Type.datetime,
+        "blob": Type.bytes,
+        "blob_streaming": StreamingBodyType,
     },
     ServiceNameCatalog.dynamodb: {
         "AttributeValueTypeDef": AttributeValueTypeDef,
@@ -48,7 +72,7 @@ SHAPE_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {
 
 def get_shape_type_stub(service_name: ServiceName, typed_dict_name: str) -> FakeAnnotation | None:
     """
-    Get stub type for botocore shape.
+    Get stub type for input botocore shape.
 
     Arguments:
         service_name -- Service name.
@@ -58,9 +82,36 @@ def get_shape_type_stub(service_name: ServiceName, typed_dict_name: str) -> Fake
         Type annotation or None.
     """
     if service_name not in SHAPE_TYPE_MAP:
-        return None
+        if service_name == ServiceNameCatalog.all:
+            return None
+        return get_shape_type_stub(ServiceNameCatalog.all, typed_dict_name)
 
     service_shape_type_map = SHAPE_TYPE_MAP[service_name]
+    if typed_dict_name not in service_shape_type_map:
+        return None
+
+    return service_shape_type_map[typed_dict_name]
+
+
+def get_output_shape_type_stub(
+    service_name: ServiceName, typed_dict_name: str
+) -> FakeAnnotation | None:
+    """
+    Get stub type for output botocore shape.
+
+    Arguments:
+        service_name -- Service name.
+        typed_dict_name -- Target TypedDict name.
+
+    Returns:
+        Type annotation or None.
+    """
+    if service_name not in OUTPUT_SHAPE_TYPE_MAP:
+        if service_name == ServiceNameCatalog.all:
+            return None
+        return get_output_shape_type_stub(ServiceNameCatalog.all, typed_dict_name)
+
+    service_shape_type_map = OUTPUT_SHAPE_TYPE_MAP[service_name]
     if typed_dict_name not in service_shape_type_map:
         return None
 
