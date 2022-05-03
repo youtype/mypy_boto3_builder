@@ -26,6 +26,27 @@ AttributeValueTypeDef: TypeTypedDict = TypeTypedDict(
     ],
 )
 
+# FIXME: a hack to avoid cicular TypedDict in dynamodb package
+InputAttributeValueType: TypeSubscript = TypeSubscript(
+    Type.Union,
+    [
+        Type.bytes,
+        Type.bytearray,
+        Type.str,
+        Type.int,
+        Type.Decimal,
+        Type.bool,
+        TypeSubscript(Type.Set, [Type.int]),
+        TypeSubscript(Type.Set, [Type.Decimal]),
+        TypeSubscript(Type.Set, [Type.str]),
+        TypeSubscript(Type.Set, [Type.bytes]),
+        TypeSubscript(Type.Set, [Type.bytearray]),
+        Type.SequenceAny,
+        Type.MappingStrAny,
+        Type.none,
+    ],
+)
+
 # FIXME: a hack to avoid cicular TypedDict in lambda package
 InvocationResponseTypeDef: TypeTypedDict = TypeTypedDict(
     "InvocationResponseTypeDef",
@@ -56,6 +77,9 @@ SHAPE_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {
     ServiceNameCatalog.lambda_: {
         "InvocationResponseTypeDef": InvocationResponseTypeDef,
     },
+    ServiceNameCatalog.dynamodb: {
+        "AttributeValueTypeDef": InputAttributeValueType,
+    },
 }
 
 OUTPUT_SHAPE_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {
@@ -70,13 +94,13 @@ OUTPUT_SHAPE_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {
 }
 
 
-def get_shape_type_stub(service_name: ServiceName, typed_dict_name: str) -> FakeAnnotation | None:
+def get_shape_type_stub(service_name: ServiceName, shape_name: str) -> FakeAnnotation | None:
     """
     Get stub type for input botocore shape.
 
     Arguments:
         service_name -- Service name.
-        typed_dict_name -- Target TypedDict name.
+        shape_name -- Target TypedDict name.
 
     Returns:
         Type annotation or None.
@@ -84,24 +108,24 @@ def get_shape_type_stub(service_name: ServiceName, typed_dict_name: str) -> Fake
     if service_name not in SHAPE_TYPE_MAP:
         if service_name == ServiceNameCatalog.all:
             return None
-        return get_shape_type_stub(ServiceNameCatalog.all, typed_dict_name)
+        return get_shape_type_stub(ServiceNameCatalog.all, shape_name)
 
     service_shape_type_map = SHAPE_TYPE_MAP[service_name]
-    if typed_dict_name not in service_shape_type_map:
-        return None
+    if shape_name not in service_shape_type_map:
+        if service_name == ServiceNameCatalog.all:
+            return None
+        return get_shape_type_stub(ServiceNameCatalog.all, shape_name)
 
-    return service_shape_type_map[typed_dict_name]
+    return service_shape_type_map[shape_name]
 
 
-def get_output_shape_type_stub(
-    service_name: ServiceName, typed_dict_name: str
-) -> FakeAnnotation | None:
+def get_output_shape_type_stub(service_name: ServiceName, shape_name: str) -> FakeAnnotation | None:
     """
     Get stub type for output botocore shape.
 
     Arguments:
         service_name -- Service name.
-        typed_dict_name -- Target TypedDict name.
+        shape_name -- Target TypedDict name.
 
     Returns:
         Type annotation or None.
@@ -109,10 +133,12 @@ def get_output_shape_type_stub(
     if service_name not in OUTPUT_SHAPE_TYPE_MAP:
         if service_name == ServiceNameCatalog.all:
             return None
-        return get_output_shape_type_stub(ServiceNameCatalog.all, typed_dict_name)
+        return get_output_shape_type_stub(ServiceNameCatalog.all, shape_name)
 
     service_shape_type_map = OUTPUT_SHAPE_TYPE_MAP[service_name]
-    if typed_dict_name not in service_shape_type_map:
-        return None
+    if shape_name not in service_shape_type_map:
+        if service_name == ServiceNameCatalog.all:
+            return None
+        return get_output_shape_type_stub(ServiceNameCatalog.all, shape_name)
 
-    return service_shape_type_map[typed_dict_name]
+    return service_shape_type_map[shape_name]

@@ -28,6 +28,7 @@ class Type:
     IO = TypeAnnotation("IO")
     overload = TypeAnnotation("overload")
     none = TypeConstant(None)
+    Set = TypeAnnotation("Set")
     str = TypeClass(str)
     bool = TypeClass(bool)
     bytes = TypeClass(bytes)
