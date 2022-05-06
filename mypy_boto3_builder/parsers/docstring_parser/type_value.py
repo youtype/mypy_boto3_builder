@@ -13,7 +13,7 @@ from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
-from mypy_boto3_builder.type_maps.shape_type_map import get_shape_type_stub
+from mypy_boto3_builder.type_maps.shape_type_map import SHAPE_TYPE_MAP, get_shape_type_stub
 from mypy_boto3_builder.type_maps.syntax_type_map import SYNTAX_TYPE_MAP
 
 
@@ -102,7 +102,7 @@ class TypeValue:
             return result
 
         typed_dict_name = f"{self.prefix}TypeDef"
-        shape_type_stub = get_shape_type_stub(self.service_name, typed_dict_name)
+        shape_type_stub = get_shape_type_stub([SHAPE_TYPE_MAP], self.service_name, typed_dict_name)
         if shape_type_stub:
             return shape_type_stub
 

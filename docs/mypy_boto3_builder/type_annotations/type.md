@@ -20,7 +20,7 @@ Predefined FakeAnnotation instances.
 
 ### Type.get_optional
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L54)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L55)
 
 ```python
 @classmethod

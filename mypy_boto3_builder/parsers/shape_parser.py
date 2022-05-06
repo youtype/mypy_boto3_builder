@@ -36,7 +36,8 @@ from mypy_boto3_builder.type_maps.method_type_map import (
     get_method_type_stub,
 )
 from mypy_boto3_builder.type_maps.shape_type_map import (
-    get_output_shape_type_stub,
+    OUTPUT_SHAPE_TYPE_MAP,
+    SHAPE_TYPE_MAP,
     get_shape_type_stub,
 )
 from mypy_boto3_builder.type_maps.typed_dicts import paginator_config_type, waiter_config_type
@@ -86,6 +87,7 @@ class ShapeParser:
         service_data = botocore_session.get_service_data(service_name.boto3_name)
         self.service_name = service_name
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
+        self._resource_name: str = ""
         self._typed_dict_map: dict[str, TypeTypedDict] = {}
         self._waiters_shape: Mapping[str, Any] | None = None
         try:
@@ -119,6 +121,13 @@ class ShapeParser:
             ],
         )
         self.proxy_operation_model = OperationModel({}, self.service_model)
+
+    @property
+    def resource_name(self) -> str:
+        """
+        Parsed resource name.
+        """
+        return self._resource_name
 
     def _get_operation(self, name: str) -> OperationModel:
         return self.service_model.operation_model(name)
@@ -255,6 +264,7 @@ class ShapeParser:
         Returns:
             A map of method name to Method.
         """
+        self._resource_name = ""
         result: dict[str, Method] = {
             "can_paginate": Method(
                 "can_paginate",
@@ -347,10 +357,7 @@ class ShapeParser:
             return Type.DictStrAny if output_child else Type.MappingStrAny
 
         required = shape.required_members
-        typed_dict_name = self._get_typed_dict_name(shape)
-        shape_type_stub = get_shape_type_stub(self.service_name, typed_dict_name)
-        if shape_type_stub:
-            return shape_type_stub
+        typed_dict_name = self._get_shape_type_name(shape)
         typed_dict = TypeTypedDict(typed_dict_name)
 
         if typed_dict.name in self._typed_dict_map:
@@ -403,6 +410,15 @@ class ShapeParser:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
+    def _get_shape_type_name(self, shape: Shape) -> str:
+        if not isinstance(shape, StructureShape):
+            return shape.type_name
+
+        if self.service_name == ServiceNameCatalog.dynamodb and self.resource_name == "Table":
+            return self._get_typed_dict_name(shape, postfix="Table")
+
+        return self._get_typed_dict_name(shape)
+
     def parse_shape(
         self,
         shape: Shape,
@@ -427,16 +443,18 @@ class ShapeParser:
             if output or output_child:
                 is_streaming = self.proxy_operation_model._get_streaming_body(shape) is not None  # type: ignore
 
-        type_name = shape.type_name
+        type_name = self._get_shape_type_name(shape)
         if is_streaming and type_name == "blob":
             type_name = "blob_streaming"
 
-        if output or output_child:
-            shape_type_stub = get_output_shape_type_stub(self.service_name, type_name)
-            if shape_type_stub:
-                return shape_type_stub
-
-        shape_type_stub = get_shape_type_stub(self.service_name, type_name)
+        shape_type_stub = get_shape_type_stub(
+            (
+                OUTPUT_SHAPE_TYPE_MAP if output or output_child else {},
+                SHAPE_TYPE_MAP,
+            ),
+            self.service_name,
+            type_name,
+        )
         if shape_type_stub:
             return shape_type_stub
 
@@ -568,9 +586,10 @@ class ShapeParser:
                 TypeSubscript(Type.Sequence, [Type.str]),
             ),
         }
+        self._resource_name = "ServiceResource"
         service_resource_shape = self._get_service_resource()
         for action_name, action_shape in service_resource_shape.get("actions", {}).items():
-            method = self._get_resource_method("ServiceResource", action_name, action_shape)
+            method = self._get_resource_method(action_name, action_shape)
             result[method.name] = method
 
         return result
@@ -585,6 +604,7 @@ class ShapeParser:
         Returns:
             A map of method name to Method.
         """
+        self._resource_name = resource_name
         resource_shape = self._get_resource_shape(resource_name)
         result: dict[str, Method] = {
             "get_available_subresources": Method(
@@ -597,7 +617,7 @@ class ShapeParser:
         }
 
         for action_name, action_shape in resource_shape.get("actions", {}).items():
-            method = self._get_resource_method(resource_name, action_name, action_shape)
+            method = self._get_resource_method(action_name, action_shape)
             result[method.name] = method
 
         for waiter_name in resource_shape.get("waiters", {}):
@@ -644,15 +664,13 @@ class ShapeParser:
             if source == "string" and target in arguments_map:
                 arguments_map[target].default = TypeConstant(param["value"])
 
-    def _get_resource_method(
-        self, resource_name: str, action_name: str, action_shape: dict[str, Any]
-    ) -> Method:
+    def _get_resource_method(self, action_name: str, action_shape: dict[str, Any]) -> Method:
         return_type: FakeAnnotation = Type.none
         method_name = xform_name(action_name)
         arguments: list[Argument] = [Argument("self", None)]
         if "resource" in action_shape:
             return_type = self._parse_return_type(
-                resource_name, method_name, Shape("resource", action_shape["resource"])
+                self.resource_name, method_name, Shape("resource", action_shape["resource"])
             )
             path = action_shape["resource"].get("path", "")
             if path.endswith("[]"):
@@ -665,7 +683,7 @@ class ShapeParser:
             skip_argument_names = self._get_skip_argument_names(action_shape)
             if operation_shape.input_shape is not None:
                 shape_arguments = self._parse_arguments(
-                    resource_name,
+                    self.resource_name,
                     method_name,
                     operation_name,
                     operation_shape.input_shape,
@@ -685,7 +703,7 @@ class ShapeParser:
         if operation_shape and operation_shape.input_shape is not None:
             method.create_request_type_annotation(
                 self._get_typed_dict_name(
-                    operation_shape.input_shape, postfix=f"{resource_name}{action_name}"
+                    operation_shape.input_shape, postfix=f"{self.resource_name}{action_name}"
                 )
             )
         return method
