@@ -26,27 +26,6 @@ AttributeValueTypeDef: TypeTypedDict = TypeTypedDict(
     ],
 )
 
-# FIXME: a hack to avoid cicular TypedDict in dynamodb package
-InputAttributeValueType: TypeSubscript = TypeSubscript(
-    Type.Union,
-    [
-        Type.bytes,
-        Type.bytearray,
-        Type.str,
-        Type.int,
-        Type.Decimal,
-        Type.bool,
-        TypeSubscript(Type.Set, [Type.int]),
-        TypeSubscript(Type.Set, [Type.Decimal]),
-        TypeSubscript(Type.Set, [Type.str]),
-        TypeSubscript(Type.Set, [Type.bytes]),
-        TypeSubscript(Type.Set, [Type.bytearray]),
-        Type.SequenceAny,
-        Type.MappingStrAny,
-        Type.none,
-    ],
-)
-
 # FIXME: a hack to avoid cicular TypedDict in lambda package
 InvocationResponseTypeDef: TypeTypedDict = TypeTypedDict(
     "InvocationResponseTypeDef",
@@ -78,7 +57,7 @@ SHAPE_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {
         "InvocationResponseTypeDef": InvocationResponseTypeDef,
     },
     ServiceNameCatalog.dynamodb: {
-        "AttributeValueTypeDef": InputAttributeValueType,
+        "AttributeValueTypeDef": AttributeValueTypeDef,
     },
 }
 
@@ -87,9 +66,6 @@ OUTPUT_SHAPE_TYPE_MAP: dict[ServiceName, dict[str, FakeAnnotation]] = {
         "timestamp": Type.datetime,
         "blob": Type.bytes,
         "blob_streaming": StreamingBodyType,
-    },
-    ServiceNameCatalog.dynamodb: {
-        "AttributeValueTypeDef": AttributeValueTypeDef,
     },
 }
 

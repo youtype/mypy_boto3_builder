@@ -1,22 +1,7 @@
 [
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['123']\" cannot be assigned to parameter \"Key\" of type \"Dict[str, Any]\" in function \"delete_item\"\n\u00a0\u00a0\"Literal['123']\" is incompatible with \"Dict[str, Any]\"",
-        "range": {
-            "start": {
-                "line": 15,
-                "character": 33
-            },
-            "end": {
-                "line": 15,
-                "character": 38
-            }
-        },
-        "rule": "reportGeneralTypeIssues"
-    },
-    {
-        "severity": "error",
-        "message": "Argument of type \"dict[str, str | int | Decimal | ValueError]\" cannot be assigned to parameter \"Item\" of type \"Mapping[str, bytes | bytearray | str | int | Decimal | bool | Set[int] | Set[Decimal] | Set[str] | Set[bytes] | Set[bytearray] | Sequence[Any] | Mapping[str, Any] | None]\" in function \"put_item\"",
+        "message": "Argument of type \"dict[str, AttributeValueTypeDef | dict[str, Decimal] | ValueError]\" cannot be assigned to parameter \"Item\" of type \"Mapping[str, AttributeValueTypeDef]\" in function \"put_item\"\n\u00a0\u00a0Type \"Decimal\" is not assignable to field \"N\"",
         "range": {
             "start": {
                 "line": 18,

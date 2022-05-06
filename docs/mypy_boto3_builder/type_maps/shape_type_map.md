@@ -10,7 +10,7 @@ String to type annotation map to replace overriden botocore shapes.
 
 ## get_output_shape_type_stub
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/shape_type_map.py#L122)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/shape_type_map.py#L98)
 
 ```python
 def get_output_shape_type_stub(
@@ -36,7 +36,7 @@ Type annotation or None.
 
 ## get_shape_type_stub
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/shape_type_map.py#L97)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/shape_type_map.py#L73)
 
 ```python
 def get_shape_type_stub(

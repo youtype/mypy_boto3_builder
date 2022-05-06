@@ -13,13 +13,13 @@ def dynamodb_client_example() -> None:
     my_table = resource.Table("my_table")
     print(my_table.name)
     batch_writer = my_table.batch_writer()
-    batch_writer.delete_item(Key="123")
+    batch_writer.delete_item(Key={"HashKey": "123"})
 
     my_table.put_item(
         Item={
-            "str": "value",
-            "number": 123,
-            "decimal": decimal.Decimal(123.2),
+            "str": {"S": "value"},
+            "number": {"N": "123"},
+            "decimal": {"N": decimal.Decimal(123.2)},
             "exception": ValueError("test"),
         }
     )
