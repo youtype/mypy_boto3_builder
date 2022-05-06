@@ -1,7 +1,7 @@
 [
     {
         "severity": "error",
-        "message": "Argument of type \"dict[str, AttributeValueTypeDef | dict[str, Decimal] | ValueError]\" cannot be assigned to parameter \"Item\" of type \"Mapping[str, AttributeValueTypeDef]\" in function \"put_item\"\n\u00a0\u00a0Type \"Decimal\" is not assignable to field \"N\"",
+        "message": "Argument of type \"dict[str, AttributeValueTypeDef | dict[str, Decimal] | ValueError]\" cannot be assigned to parameter \"Item\" of type \"Mapping[str, AttributeValueTypeDef]\" in function \"put_item\"\n\u00a0\u00a0Type \"Decimal\" is not assignable to field \"N\"\n\u00a0\u00a0\u00a0\u00a0\"Decimal\" is incompatible with \"str\"",
         "range": {
             "start": {
                 "line": 18,

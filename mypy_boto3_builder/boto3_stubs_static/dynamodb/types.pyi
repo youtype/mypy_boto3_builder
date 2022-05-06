@@ -1,7 +1,6 @@
 import sys
 from decimal import Context
-from typing import Any, Dict, Tuple
-from typing import Mapping
+from typing import Any, Dict, Mapping, Tuple
 
 if sys.version_info >= (3, 9):
     from typing import Literal
