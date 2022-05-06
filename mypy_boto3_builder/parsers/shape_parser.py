@@ -60,11 +60,11 @@ class ShapeParser:
     # Alias map fixes added by botocore for documentation build.
     # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L773
     # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L1055
-    ARGUMENT_ALIASES: dict[str, dict[str, dict[str, str]]] = {
-        ServiceNameCatalog.cloudsearchdomain.boto3_name: {"Search": {"return": "returnFields"}},
-        ServiceNameCatalog.logs.boto3_name: {"CreateExportTask": {"from": "fromTime"}},
-        ServiceNameCatalog.ec2.boto3_name: {"*": {"Filter": "Filters"}},
-        ServiceNameCatalog.s3.boto3_name: {
+    ARGUMENT_ALIASES: dict[ServiceName, dict[str, dict[str, str]]] = {
+        ServiceNameCatalog.cloudsearchdomain: {"Search": {"return": "returnFields"}},
+        ServiceNameCatalog.logs: {"CreateExportTask": {"from": "fromTime"}},
+        ServiceNameCatalog.ec2: {"*": {"Filter": "Filters"}},
+        ServiceNameCatalog.s3: {
             "PutBucketAcl": {"ContentMD5": "None"},
             "PutBucketCors": {"ContentMD5": "None"},
             "PutBucketLifecycle": {"ContentMD5": "None"},
@@ -162,7 +162,7 @@ class ShapeParser:
         return result
 
     def _get_argument_alias(self, operation_name: str, argument_name: str) -> str:
-        service_map = self.ARGUMENT_ALIASES.get(self.service_name.boto3_name)
+        service_map = self.ARGUMENT_ALIASES.get(self.service_name)
         if not service_map:
             return argument_name
 
