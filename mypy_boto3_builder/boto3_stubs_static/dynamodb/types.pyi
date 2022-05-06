@@ -1,6 +1,6 @@
 import sys
 from decimal import Context
-from typing import Any, Mapping, Tuple, Sequence
+from typing import Any, Mapping, Sequence, Tuple
 
 if sys.version_info >= (3, 9):
     from typing import Literal, TypedDict
