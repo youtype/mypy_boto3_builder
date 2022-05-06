@@ -75,8 +75,8 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.22.8"
-description = "Type annotations for boto3 1.22.8 generated with mypy-boto3-builder 7.5.9"
+version = "1.22.8.post1"
+description = "Type annotations for boto3 1.22.8 generated with mypy-boto3-builder 7.5.12"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
@@ -412,8 +412,8 @@ crt = ["awscrt (==0.13.8)"]
 
 [[package]]
 name = "botocore-stubs"
-version = "1.25.8"
-description = "Type annotations for botocore 1.25.8 generated with mypy-boto3-builder 7.5.9"
+version = "1.25.8.post1"
+description = "Type annotations for botocore 1.25.8 generated with mypy-boto3-builder 7.5.12"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
@@ -1255,16 +1255,16 @@ boto3 = [
     {file = "boto3-1.22.8.tar.gz", hash = "sha256:222cfb68bd4f46f4beae7770f1f6b066786254462f289027ca123fe77eb50ff9"},
 ]
 boto3-stubs = [
-    {file = "boto3-stubs-1.22.8.tar.gz", hash = "sha256:b8159bea3c46c6163738d1e4263d8ff54f6dd8c5c78c93bc64a57de14ed946ab"},
-    {file = "boto3_stubs-1.22.8-py3-none-any.whl", hash = "sha256:f8d6888bb89ca1e928a005dbf73abff514d7192abb3a05f5d339196fbdaf4221"},
+    {file = "boto3-stubs-1.22.8.post1.tar.gz", hash = "sha256:2d20cd8c58496c403df635f54e3be66319550a9c0441f87dd88e0b13cf9c48bd"},
+    {file = "boto3_stubs-1.22.8.post1-py3-none-any.whl", hash = "sha256:332e8b17f92d7971fe080ce47a030710c1d3a74430344eeb0adcb440dafbece2"},
 ]
 botocore = [
     {file = "botocore-1.25.8-py3-none-any.whl", hash = "sha256:5b342da3487e5669801f5589cc15e379fc9f7803a426584d08a6329575644da3"},
     {file = "botocore-1.25.8.tar.gz", hash = "sha256:f0a7e9fb6000a6cfc7ca63971d8d1ab4ed3c38514ded439bcf1fc8bca162dc1b"},
 ]
 botocore-stubs = [
-    {file = "botocore-stubs-1.25.8.tar.gz", hash = "sha256:374fa5abe597bd5afbad013b34738473293be0e0fd9449099fe6b4ea23be4281"},
-    {file = "botocore_stubs-1.25.8-py3-none-any.whl", hash = "sha256:be9cbfd06bc83fec8f4664b2a5877e78f894abfe46f857bd54ae7263f2bfed47"},
+    {file = "botocore-stubs-1.25.8.post1.tar.gz", hash = "sha256:950f301848108e3d2c3ce338e0ec41d683c11e6fd2463f3cf6d85f21da9c5387"},
+    {file = "botocore_stubs-1.25.8.post1-py3-none-any.whl", hash = "sha256:127780576e01cbe214e3a7f3edf0965e3eee82b4453433d5153d017be035aed7"},
 ]
 certifi = [
     {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
