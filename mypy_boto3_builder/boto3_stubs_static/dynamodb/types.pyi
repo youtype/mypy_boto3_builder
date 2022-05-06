@@ -1,6 +1,7 @@
 import sys
 from decimal import Context
 from typing import Any, Dict, Tuple
+from typing import Mapping
 
 if sys.version_info >= (3, 9):
     from typing import Literal
@@ -36,4 +37,4 @@ class TypeSerializer:
     def serialize(self, value: Any) -> Dict[DynamoDBDataType, Any]: ...
 
 class TypeDeserializer:
-    def deserialize(self, value: Dict[DynamoDBDataType, Any]) -> Any: ...
+    def deserialize(self, value: Mapping[DynamoDBDataType, Any]) -> Any: ...
