@@ -44,7 +44,7 @@ class TypedDictSorter:
                 return self._sort_topological()
             except CycleError as e:
                 for typed_dict in self._get(*e.args[-1]):
-                    self.logger.info(f"Stringifying {typed_dict.name}")
+                    self.logger.debug(f"Stringifying {typed_dict.name}")
                     typed_dict.stringify()
 
         self.logger.warn("Topological sort failed, stringifying TypedDicts")
