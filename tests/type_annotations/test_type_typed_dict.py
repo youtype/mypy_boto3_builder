@@ -45,13 +45,14 @@ class TestTypeTypedDict:
             self.result.get_attribute("non_existing")
 
     def test_render(self) -> None:
-        assert self.result.render() == "MyDict"
-        assert self.result.render("OtherDict") == "MyDict"
-        assert self.result.render("MyDict") == '"MyDict"'
-        self.result.stringify = True
-        assert self.result.render() == '"MyDict"'
-        self.result.replace_with_dict.add(self.result.name)
-        assert self.result.render("MyDict") == "Dict[str, Any]"
+        result = self.result.copy()
+        assert result.render() == "MyDict"
+        assert result.render("OtherDict") == "MyDict"
+        assert result.render("MyDict") == '"MyDict"'
+        result.stringify()
+        assert result.render() == '"MyDict"'
+        result.replace_with_dict.add(result.name)
+        assert result.render("MyDict") == "Dict[str, Any]"
 
     def test_get_import_record(self) -> None:
         assert self.result.get_import_record().render() == "from .type_defs import MyDict"
@@ -152,3 +153,9 @@ class TestTypeTypedDict:
 
     def test_replace_self_references(self) -> None:
         self.result.replace_self_references()
+
+    def test_stringify(self) -> None:
+        result = self.result.copy()
+        assert not result.is_stringified()
+        result.stringify()
+        assert result.is_stringified()

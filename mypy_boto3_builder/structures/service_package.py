@@ -20,6 +20,7 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
+from mypy_boto3_builder.utils.typed_dict_sorter import TypedDictSorter
 
 
 class ServicePackage(Package):
@@ -120,33 +121,7 @@ class ServicePackage(Package):
 
         Attempts to resolve circular typed dicts.
         """
-        added_hashes: list[int] = []
-        result: list[TypeTypedDict] = []
-        discovered: list[TypeTypedDict] = []
-        typed_dicts = self._get_typed_dicts()
-        for type_annotation in sorted(typed_dicts):
-            if hash(type_annotation) in added_hashes:
-                continue
-
-            result.append(type_annotation)
-            added_hashes.append(hash(type_annotation))
-            discovered.append(type_annotation)
-
-        while discovered:
-            child = discovered.pop()
-            sub_typed_dicts = child.get_children_typed_dicts()
-            for child_typed_dict in sorted(sub_typed_dicts):
-                child_typed_dict.stringify = True
-
-                if hash(child_typed_dict) in added_hashes:
-                    continue
-
-                result.append(child_typed_dict)
-                added_hashes.append(hash(child_typed_dict))
-                discovered.append(child_typed_dict)
-
-        result.sort()
-        return result
+        return TypedDictSorter(self._get_typed_dicts()).sort()
 
     def get_types(self) -> set[FakeAnnotation]:
         """

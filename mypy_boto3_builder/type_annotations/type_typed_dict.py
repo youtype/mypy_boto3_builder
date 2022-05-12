@@ -83,8 +83,20 @@ class TypeTypedDict(FakeAnnotation):
         self.name = name
         self.children = list(children)
         self.docstring = docstring
-        self.stringify = stringify
+        self._stringify = stringify
         self.replace_with_dict = set(replace_with_dict)
+
+    def is_stringified(self) -> bool:
+        """
+        Whether TypedDict usage should be rendered as a string.
+        """
+        return self._stringify
+
+    def stringify(self) -> None:
+        """
+        Render TypedDict usage as a string.
+        """
+        self._stringify = True
 
     def get_sort_key(self) -> str:
         """
@@ -123,7 +135,7 @@ class TypeTypedDict(FakeAnnotation):
         if parent_name in self.replace_with_dict:
             return Type.DictStrAny.render()
 
-        if self.stringify:
+        if self.is_stringified():
             return f'"{self.name}"'
 
         if parent_name and parent_name == self.name:
@@ -226,7 +238,7 @@ class TypeTypedDict(FakeAnnotation):
             self.name,
             list(self.children),
             docstring=self.docstring,
-            stringify=self.stringify,
+            stringify=self.is_stringified(),
             replace_with_dict=self.replace_with_dict,
         )
 
