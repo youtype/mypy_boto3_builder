@@ -26,7 +26,7 @@ def get_absolute_path(path: str) -> Path:
     return Path(path).absolute()
 
 
-@dataclass
+@dataclass(kw_only=True, slots=True)
 class Namespace:
     """
     CLI arguments namespace.

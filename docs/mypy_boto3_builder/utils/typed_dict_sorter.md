@@ -25,7 +25,7 @@ Sorter for TypeTypedDict to prevent import errors.
 
 ### TypedDictSorter().sort
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/typed_dict_sorter.py#L39)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/typed_dict_sorter.py#L38)
 
 ```python
 def sort() -> list[TypeTypedDict]:

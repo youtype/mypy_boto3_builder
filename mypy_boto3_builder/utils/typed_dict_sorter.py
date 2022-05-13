@@ -17,7 +17,6 @@ class TypedDictSorter:
 
     def __init__(self, typed_dicts: Iterable[TypeTypedDict]):
         self.typed_dicts = list(typed_dicts)
-        self.typed_dicts.sort()
         self.typed_dicts_map = self._get_typed_dicts_map(self.typed_dicts)
         self.logger = get_logger()
 
@@ -64,12 +63,18 @@ class TypedDictSorter:
 
     @staticmethod
     def _get_children_names(typed_dict: TypeTypedDict) -> set[str]:
-        return {i.name for i in typed_dict.get_children_typed_dicts() if not i.is_stringified()}
+        result = set()
+        for child in typed_dict.get_children_typed_dicts():
+            if child.is_stringified():
+                continue
+            result.add(child.name)
 
-    def _create_graph(self) -> dict[str, set[str]]:
+        return result
+
+    def _create_graph(self) -> dict[str, list[str]]:
         result = {}
-        for typed_dict in self.typed_dicts_map.values():
-            result[typed_dict.name] = self._get_children_names(typed_dict)
+        for name in sorted(self.typed_dicts_map):
+            result[name] = sorted(self._get_children_names(self.typed_dicts_map[name]))
 
         return result
 

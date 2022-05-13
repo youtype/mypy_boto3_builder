@@ -14,7 +14,7 @@ CLI parser.
 [[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L30)
 
 ```python
-dataclass
+dataclass(kw_only=True, slots=True)
 class Namespace():
 ```
 
