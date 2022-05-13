@@ -1,4 +1,4 @@
-from typing import Any, Dict, List, Optional, Type, TypeVar
+from typing import Any, Dict, List, Optional, Tuple, Type, TypeVar
 
 NOT_SET: object
 
@@ -165,6 +165,8 @@ class UnresolvableShapeMap:
     def resolve_shape_ref(self, shape_ref: Dict[str, Any]) -> Shape: ...
 
 class DenormalizedStructureBuilder:
+    SCALAR_TYPES: Tuple[str, ...]
+
     def __init__(self, name: Optional[str] = ...) -> None:
         self.name: str
         self.members: Dict[str, Any]
