@@ -12,4 +12,5 @@ Collection of simple utils functions.
         - [NicePath](nice_path.md#nicepath)
         - [PyPIManager](pypi_manager.md#pypimanager)
         - [Strings](strings.md#strings)
+        - [TypedDictSorter](typed_dict_sorter.md#typeddictsorter)
         - [Version](version.md#version)

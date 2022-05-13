@@ -92,6 +92,7 @@ Full list of [mypy-boto3-builder](README.md#mypy_boto3_builder) project modules.
         - [NicePath](mypy_boto3_builder/utils/nice_path.md#nicepath)
         - [PyPIManager](mypy_boto3_builder/utils/pypi_manager.md#pypimanager)
         - [Strings](mypy_boto3_builder/utils/strings.md#strings)
+        - [TypedDictSorter](mypy_boto3_builder/utils/typed_dict_sorter.md#typeddictsorter)
         - [Version](mypy_boto3_builder/utils/version.md#version)
     - [Writers](mypy_boto3_builder/writers/index.md#writers)
         - [Aiobotocore Processors](mypy_boto3_builder/writers/aiobotocore_processors.md#aiobotocore-processors)

@@ -2,9 +2,10 @@
 Sorter for TypeTypedDict to prevent import errors.
 """
 from collections.abc import Iterable
-from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
-from graphlib import TopologicalSorter, CycleError
+from graphlib import CycleError, TopologicalSorter
+
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 
 
 class TypedDictSorter:
@@ -62,8 +63,8 @@ class TypedDictSorter:
         return result
 
     @staticmethod
-    def _get_children_names(typed_dict: TypeTypedDict) -> list[str]:
-        return [i.name for i in typed_dict.get_children_typed_dicts() if not i.is_stringified()]
+    def _get_children_names(typed_dict: TypeTypedDict) -> set[str]:
+        return {i.name for i in typed_dict.get_children_typed_dicts() if not i.is_stringified()}
 
     def _create_graph(self) -> dict[str, set[str]]:
         result = {}
