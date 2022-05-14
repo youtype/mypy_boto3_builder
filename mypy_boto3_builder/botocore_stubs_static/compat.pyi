@@ -66,3 +66,4 @@ ZONE_ID_PAT: str
 IPV6_ADDRZ_PAT: str
 IPV6_ADDRZ_RE: Pattern[str]
 UNSAFE_URL_CHARS: frozenset[str]
+HAS_GZIP: bool

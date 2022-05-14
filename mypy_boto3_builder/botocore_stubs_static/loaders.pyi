@@ -1,6 +1,7 @@
 from typing import Any, Callable, Iterable, List, Mapping, Optional, Type
 
 from botocore import BOTOCORE_ROOT as BOTOCORE_ROOT
+from botocore.compat import HAS_GZIP as HAS_GZIP
 from botocore.compat import OrderedDict as OrderedDict
 from botocore.exceptions import DataNotFoundError as DataNotFoundError
 from botocore.exceptions import UnknownServiceError as UnknownServiceError
