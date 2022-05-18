@@ -29,7 +29,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.type_maps.literal_type_map import get_literal_type_stub
 from mypy_boto3_builder.type_maps.method_type_map import (
     get_default_value_stub,
@@ -40,7 +40,12 @@ from mypy_boto3_builder.type_maps.shape_type_map import (
     SHAPE_TYPE_MAP,
     get_shape_type_stub,
 )
-from mypy_boto3_builder.type_maps.typed_dicts import paginator_config_type, waiter_config_type
+from mypy_boto3_builder.type_maps.typed_dicts import (
+    empty_response_metadata_type,
+    paginator_config_type,
+    response_metadata_type,
+    waiter_config_type,
+)
 
 
 class ShapeParserError(Exception):
@@ -110,16 +115,6 @@ class ShapeParser:
             pass
 
         self.logger = get_logger()
-        self.response_metadata_typed_dict = TypeTypedDict(
-            "ResponseMetadataTypeDef",
-            [
-                TypedDictAttribute("RequestId", Type.str, True),
-                TypedDictAttribute("HostId", Type.str, True),
-                TypedDictAttribute("HTTPStatusCode", Type.int, True),
-                TypedDictAttribute("HTTPHeaders", Type.DictStrStr, True),
-                TypedDictAttribute("RetryAttempts", Type.int, True),
-            ],
-        )
         self.proxy_operation_model = OperationModel({}, self.service_model)
 
     @property
@@ -301,6 +296,8 @@ class ShapeParser:
             return_type = self._parse_return_type(
                 "Client", method_name, operation_model.output_shape
             )
+            if return_type is Type.none:
+                return_type = empty_response_metadata_type
 
             method = Method(name=method_name, arguments=arguments, return_type=return_type)
             if operation_model.input_shape:
@@ -398,7 +395,7 @@ class ShapeParser:
         if "ResponseMetadata" not in child_names:
             typed_dict.add_attribute(
                 "ResponseMetadata",
-                self.response_metadata_typed_dict,
+                response_metadata_type,
                 True,
             )
 

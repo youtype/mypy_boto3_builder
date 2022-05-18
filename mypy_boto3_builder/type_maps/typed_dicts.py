@@ -38,3 +38,21 @@ paginator_config_type: TypeTypedDict = TypeTypedDict(
         TypedDictAttribute("StartingToken", Type.str, False),
     ],
 )
+
+response_metadata_type = TypeTypedDict(
+    "ResponseMetadataTypeDef",
+    [
+        TypedDictAttribute("RequestId", Type.str, True),
+        TypedDictAttribute("HostId", Type.str, True),
+        TypedDictAttribute("HTTPStatusCode", Type.int, True),
+        TypedDictAttribute("HTTPHeaders", Type.DictStrStr, True),
+        TypedDictAttribute("RetryAttempts", Type.int, True),
+    ],
+)
+
+empty_response_metadata_type = TypeTypedDict(
+    "EmptyResponseMetadataTypeDef",
+    [
+        TypedDictAttribute("ResponseMetadata", response_metadata_type, True),
+    ],
+)

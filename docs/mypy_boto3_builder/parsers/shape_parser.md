@@ -20,7 +20,7 @@ Parser for botocore shape files.
 
 ## ShapeParser
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L52)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L57)
 
 ```python
 class ShapeParser():
@@ -40,7 +40,7 @@ Parser for botocore shape files.
 
 ### ShapeParser().get_client_method_map
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L260)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L255)
 
 ```python
 def get_client_method_map() -> dict[str, Method]:
@@ -58,7 +58,7 @@ A map of method name to Method.
 
 ### ShapeParser().get_collection_batch_methods
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L749)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L746)
 
 ```python
 def get_collection_batch_methods(
@@ -85,7 +85,7 @@ List of Method records.
 
 ### ShapeParser().get_collection_filter_method
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L711)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L708)
 
 ```python
 def get_collection_filter_method(
@@ -114,7 +114,7 @@ Filter Method record.
 
 ### ShapeParser().get_paginate_method
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L488)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L485)
 
 ```python
 def get_paginate_method(paginator_name: str) -> Method:
@@ -136,7 +136,7 @@ Method.
 
 ### ShapeParser().get_paginator_names
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L159)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L154)
 
 ```python
 def get_paginator_names() -> list[str]:
@@ -150,7 +150,7 @@ A list of paginator names.
 
 ### ShapeParser().get_resource_method_map
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L597)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L594)
 
 ```python
 def get_resource_method_map(resource_name: str) -> dict[str, Method]:
@@ -172,7 +172,7 @@ A map of method name to Method.
 
 ### ShapeParser().get_service_resource_method_map
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L575)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L572)
 
 ```python
 def get_service_resource_method_map() -> dict[str, Method]:
@@ -190,7 +190,7 @@ A map of method name to Method.
 
 ### ShapeParser().get_wait_method
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L543)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L540)
 
 ```python
 def get_wait_method(waiter_name: str) -> Method:
@@ -212,7 +212,7 @@ Method.
 
 ### ShapeParser().parse_shape
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L422)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L419)
 
 ```python
 def parse_shape(
@@ -242,7 +242,7 @@ TypeAnnotation or similar class.
 
 ### ShapeParser().resource_name
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L125)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L120)
 
 ```python
 @property
@@ -253,7 +253,7 @@ Parsed resource name.
 
 ## ShapeParserError
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L46)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L51)
 
 ```python
 class ShapeParserError(Exception):
