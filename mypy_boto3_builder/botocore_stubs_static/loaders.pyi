@@ -1,12 +1,12 @@
 from typing import Any, Callable, Iterable, List, Mapping, Optional, Type
 
 from botocore import BOTOCORE_ROOT as BOTOCORE_ROOT
-from botocore.compat import HAS_GZIP as HAS_GZIP
 from botocore.compat import OrderedDict as OrderedDict
 from botocore.exceptions import DataNotFoundError as DataNotFoundError
 from botocore.exceptions import UnknownServiceError as UnknownServiceError
-from botocore.model import ServiceModel
 from botocore.utils import deep_merge as deep_merge
+
+HAS_GZIP: bool
 
 def instance_cache(func: Callable[..., Any]) -> Callable[..., Any]: ...
 
