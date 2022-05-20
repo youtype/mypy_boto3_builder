@@ -59,14 +59,14 @@ dev = ["pip-tools (==6.5.1)", "pytest (==7.1.1)", "flake8 (==4.0.1)", "tox (==3.
 
 [[package]]
 name = "boto3"
-version = "1.23.2"
+version = "1.23.4"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.6"
 
 [package.dependencies]
-botocore = ">=1.26.2,<1.27.0"
+botocore = ">=1.26.4,<1.27.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.5.0,<0.6.0"
 
@@ -75,8 +75,8 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.23.2"
-description = "Type annotations for boto3 1.23.2 generated with mypy-boto3-builder 7.6.0"
+version = "1.23.4"
+description = "Type annotations for boto3 1.23.4 generated with mypy-boto3-builder 7.6.0"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
@@ -396,7 +396,7 @@ xray = ["mypy-boto3-xray (>=1.23.0,<1.24.0)"]
 
 [[package]]
 name = "botocore"
-version = "1.26.2"
+version = "1.26.4"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -412,8 +412,8 @@ crt = ["awscrt (==0.13.8)"]
 
 [[package]]
 name = "botocore-stubs"
-version = "1.26.2"
-description = "Type annotations for botocore 1.26.2 generated with mypy-boto3-builder 7.6.0"
+version = "1.26.4"
+description = "Type annotations for botocore 1.26.4 generated with mypy-boto3-builder 7.6.0"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
@@ -423,11 +423,11 @@ typing-extensions = ">=4.1.0"
 
 [[package]]
 name = "certifi"
-version = "2021.10.8"
+version = "2022.5.18.1"
 description = "Python package for providing Mozilla's CA Bundle."
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 
 [[package]]
 name = "cffi"
@@ -1122,7 +1122,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-python-dateutil"
-version = "2.8.15"
+version = "2.8.16"
 description = "Typing stubs for python-dateutil"
 category = "dev"
 optional = false
@@ -1130,7 +1130,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-requests"
-version = "2.27.26"
+version = "2.27.27"
 description = "Typing stubs for requests"
 category = "dev"
 optional = false
@@ -1251,24 +1251,24 @@ bleach = [
     {file = "bleach-5.0.0.tar.gz", hash = "sha256:c6d6cc054bdc9c83b48b8083e236e5f00f238428666d2ce2e083eaa5fd568565"},
 ]
 boto3 = [
-    {file = "boto3-1.23.2-py3-none-any.whl", hash = "sha256:7889c3a07171b8a43468a8644d7c95948dc9e1389c4aac2b689a428ee1a98300"},
-    {file = "boto3-1.23.2.tar.gz", hash = "sha256:4408cf07340d29d7a9c8d32cf71b1c54f86b768b2145d341d2698c1e467d7d32"},
+    {file = "boto3-1.23.4-py3-none-any.whl", hash = "sha256:cef1730f607939da45b9c3c413f8b93f7c445bd74e24be7cbcdd817ebbf58fbc"},
+    {file = "boto3-1.23.4.tar.gz", hash = "sha256:29ced93acdc0e624fb7b1c235aad2e1dd3cae7aafdf90b9009b4c5274775248a"},
 ]
 boto3-stubs = [
-    {file = "boto3-stubs-1.23.2.tar.gz", hash = "sha256:b8f37b141ef64b8500aaf2399b77ff703cc697e46f53bcc720e956392130ce2e"},
-    {file = "boto3_stubs-1.23.2-py3-none-any.whl", hash = "sha256:0412d4d4ea1e5d44804c4cd5c2ad6fdb70392bb50f7d5c6d7ed7f2733229d545"},
+    {file = "boto3-stubs-1.23.4.tar.gz", hash = "sha256:6dac39f5b55365abd3f41f082778b2503d04d9dab7dd3d79cfe2cdf07acfae87"},
+    {file = "boto3_stubs-1.23.4-py3-none-any.whl", hash = "sha256:933b0d1102f364b7dd9b502cda2f9fe4fc99110a90accadd211bfa67d26be5b9"},
 ]
 botocore = [
-    {file = "botocore-1.26.2-py3-none-any.whl", hash = "sha256:1977f2ad6b6263f4dd9e8b784e69b194988f16d6bd90c4eede15964f4eecf878"},
-    {file = "botocore-1.26.2.tar.gz", hash = "sha256:16b9d523a19d61b0edc80ef2253f9130165bad473b1b5707027f10975a8d5467"},
+    {file = "botocore-1.26.4-py3-none-any.whl", hash = "sha256:bd436455310f8876dfab1a27760afffa5e34dced24b4ea6a9f6b20fec082e47e"},
+    {file = "botocore-1.26.4.tar.gz", hash = "sha256:b818986c2dde395f117829d7206f775f5bfb37ef84eb05c94d3952f8e3d7fe8d"},
 ]
 botocore-stubs = [
-    {file = "botocore-stubs-1.26.2.tar.gz", hash = "sha256:46fec55cc2f94a5d105650200c476285da98847df4432dcc1de65b47b1084c7a"},
-    {file = "botocore_stubs-1.26.2-py3-none-any.whl", hash = "sha256:ac814af587c406b52f878093b70924c99a83e778f21f09e8f4303bfc029f79f5"},
+    {file = "botocore-stubs-1.26.4.tar.gz", hash = "sha256:281a56d8245e85b3bd2a72e6e3039f2eeea273a175b01b4e90bb284ea9eae8f7"},
+    {file = "botocore_stubs-1.26.4-py3-none-any.whl", hash = "sha256:dd4dcee834e0c13d24ebcd009e8cd3492d40365f91f7f070a2f0b3093b760488"},
 ]
 certifi = [
-    {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
-    {file = "certifi-2021.10.8.tar.gz", hash = "sha256:78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872"},
+    {file = "certifi-2022.5.18.1-py3-none-any.whl", hash = "sha256:f1d53542ee8cbedbe2118b5686372fb33c297fcd6379b050cca0ef13a597382a"},
+    {file = "certifi-2022.5.18.1.tar.gz", hash = "sha256:9c5705e395cd70084351dd8ad5c41e65655e08ce46f2ec9cf6c2c08390f71eb7"},
 ]
 cffi = [
     {file = "cffi-1.15.0-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:c2502a1a03b6312837279c8c1bd3ebedf6c12c4228ddbad40912d671ccc8a962"},
@@ -1697,12 +1697,12 @@ types-pkg-resources = [
     {file = "types_pkg_resources-0.1.3-py2.py3-none-any.whl", hash = "sha256:0cb9972cee992249f93fff1a491bf2dc3ce674e5a1926e27d4f0866f7d9b6d9c"},
 ]
 types-python-dateutil = [
-    {file = "types-python-dateutil-2.8.15.tar.gz", hash = "sha256:7db1e4ed4916bd128cbee3eecdee0e06cc5684da2a1cdfd57f98541cdfbe0861"},
-    {file = "types_python_dateutil-2.8.15-py3-none-any.whl", hash = "sha256:9d6f01382d5ffe1977dc29f0782a01228dfaa36da148a7f4076cbd9beba26647"},
+    {file = "types-python-dateutil-2.8.16.tar.gz", hash = "sha256:3aaac4c138eb6b8ecbc2550996ec25d6e45b5d32887d1e693d0842ee2fa659d2"},
+    {file = "types_python_dateutil-2.8.16-py3-none-any.whl", hash = "sha256:0e7286436d049d2732ba2f01552f84c52184b955552359156fc8835c10714f2a"},
 ]
 types-requests = [
-    {file = "types-requests-2.27.26.tar.gz", hash = "sha256:a6a04c0274c0949fd0525f35d8b53ac34e77afecbeb3c4932ddc6ce675ac009c"},
-    {file = "types_requests-2.27.26-py3-none-any.whl", hash = "sha256:302137cb5bd482357398a155faf3ed095855fbc6994e952d0496c7fd50f44125"},
+    {file = "types-requests-2.27.27.tar.gz", hash = "sha256:d618d9809fa32f514cf17cea8460814da671c56366fb1c908accca8bf183112b"},
+    {file = "types_requests-2.27.27-py3-none-any.whl", hash = "sha256:6d8463ffe1f6edcf2e5361740a6140e7a16d427c267d83c7c1d3d1298f4e67c5"},
 ]
 types-six = [
     {file = "types-six-1.16.15.tar.gz", hash = "sha256:d244f0537dab0d0570a5bc6f8a60c4da7f0546d960a8677520e6bff214a64fb8"},
