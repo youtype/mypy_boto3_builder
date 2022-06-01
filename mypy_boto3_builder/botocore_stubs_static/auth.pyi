@@ -7,7 +7,7 @@ from botocore.compat import HAS_CRT as HAS_CRT
 from botocore.compat import MD5_AVAILABLE as MD5_AVAILABLE
 from botocore.credentials import Credentials, ReadOnlyCredentials
 
-CredentialsUnion = Union[Credentials, ReadOnlyCredentials]
+_CredentialsUnion = Union[Credentials, ReadOnlyCredentials]
 
 EMPTY_SHA256_HASH: str
 PAYLOAD_BUFFER: int
@@ -22,20 +22,20 @@ class BaseSigner:
     def add_auth(self, request: AWSRequest) -> Optional[AWSRequest]: ...
 
 class SigV2Auth(BaseSigner):
-    def __init__(self, credentials: CredentialsUnion) -> None:
-        self.credentials: CredentialsUnion
+    def __init__(self, credentials: _CredentialsUnion) -> None:
+        self.credentials: _CredentialsUnion
     def calc_signature(self, request: AWSRequest, params: Mapping[str, Any]) -> Tuple[str, str]: ...
     def add_auth(self, request: AWSRequest) -> AWSRequest: ...
 
 class SigV3Auth(BaseSigner):
-    def __init__(self, credentials: CredentialsUnion) -> None:
-        self.credentials: CredentialsUnion
+    def __init__(self, credentials: _CredentialsUnion) -> None:
+        self.credentials: _CredentialsUnion
     def add_auth(self, request: AWSRequest) -> None: ...
 
 class SigV4Auth(BaseSigner):
     REQUIRES_REGION: bool = ...
-    def __init__(self, credentials: CredentialsUnion, service_name: str, region_name: str) -> None:
-        self.credentials: CredentialsUnion
+    def __init__(self, credentials: _CredentialsUnion, service_name: str, region_name: str) -> None:
+        self.credentials: _CredentialsUnion
     def headers_to_sign(self, request: AWSRequest) -> HTTPMessage: ...
     def canonical_query_string(self, request: AWSRequest) -> str: ...
     def canonical_headers(self, headers_to_sign: Iterable[str]) -> str: ...
@@ -53,7 +53,11 @@ class S3SigV4Auth(SigV4Auth): ...
 class SigV4QueryAuth(SigV4Auth):
     DEFAULT_EXPIRES: int = ...
     def __init__(
-        self, credentials: CredentialsUnion, service_name: str, region_name: str, expires: int = ...
+        self,
+        credentials: _CredentialsUnion,
+        service_name: str,
+        region_name: str,
+        expires: int = ...,
     ) -> None: ...
 
 class S3SigV4QueryAuth(SigV4QueryAuth):
@@ -66,11 +70,11 @@ class HmacV1Auth(BaseSigner):
     QSAOfInterest: List[str] = ...
     def __init__(
         self,
-        credentials: CredentialsUnion,
+        credentials: _CredentialsUnion,
         service_name: Optional[str] = ...,
         region_name: Optional[str] = ...,
     ) -> None:
-        self.credentials: CredentialsUnion
+        self.credentials: _CredentialsUnion
     def sign_string(self, string_to_sign: str) -> str: ...
     def canonical_standard_headers(self, headers: Mapping[str, Any]) -> str: ...
     def canonical_custom_headers(self, headers: Mapping[str, Any]) -> str: ...
@@ -96,8 +100,8 @@ class HmacV1Auth(BaseSigner):
 
 class HmacV1QueryAuth(HmacV1Auth):
     DEFAULT_EXPIRES: int = ...
-    def __init__(self, credentials: CredentialsUnion, expires: int = ...) -> None:
-        self.credentials: CredentialsUnion
+    def __init__(self, credentials: _CredentialsUnion, expires: int = ...) -> None:
+        self.credentials: _CredentialsUnion
 
 class HmacV1PostAuth(HmacV1Auth):
     def add_auth(self, request: AWSRequest) -> None: ...

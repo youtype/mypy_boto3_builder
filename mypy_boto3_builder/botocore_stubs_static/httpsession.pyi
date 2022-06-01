@@ -10,7 +10,6 @@ from botocore.exceptions import InvalidProxiesConfigError as InvalidProxiesConfi
 from botocore.exceptions import ProxyConnectionError as ProxyConnectionError
 from botocore.exceptions import ReadTimeoutError as ReadTimeoutError
 from botocore.exceptions import SSLError as SSLError
-from urllib3 import ProxyManager as ProxyManager
 from urllib3.util.ssl_ import DEFAULT_CIPHERS as DEFAULT_CIPHERS  # type: ignore
 
 DEFAULT_TIMEOUT: int
