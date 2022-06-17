@@ -82,6 +82,7 @@ SHAPE_TYPE_MAP: ShapeTypeMap = {
     ServiceNameCatalog.dynamodb: {
         "AttributeValueTypeDef": AttributeValueTypeDef,
         "AttributeValueTableTypeDef": TableAttributeValueType,
+        "AttributeValueServiceResourceTypeDef": TableAttributeValueType,
     },
 }
 

@@ -411,8 +411,8 @@ class ShapeParser:
         if not isinstance(shape, StructureShape):
             return shape.type_name
 
-        if self.service_name == ServiceNameCatalog.dynamodb and self.resource_name == "Table":
-            return self._get_typed_dict_name(shape, postfix="Table")
+        if self.service_name.is_custom_resource(self.resource_name):
+            return self._get_typed_dict_name(shape, postfix=self.resource_name)
 
         return self._get_typed_dict_name(shape)
 

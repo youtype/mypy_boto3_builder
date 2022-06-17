@@ -24,6 +24,12 @@ class TestServiceName:
         assert not ServiceName("my-service", "MyService").is_essential()
         assert ServiceName("lambda", "MyService").is_essential()
 
+    def test_is_custom_resource(self) -> None:
+        assert ServiceName("dynamodb", "DynamoDB").is_custom_resource("Table")
+        assert ServiceName("dynamodb", "DynamoDB").is_custom_resource("ServiceResource")
+        assert not ServiceName("dynamodb", "DynamoDB").is_custom_resource("Condition")
+        assert not ServiceName("ec2", "EC2").is_custom_resource("ServiceResource")
+
 
 class TestServiceNameCatalog:
     def test_add(self) -> None:

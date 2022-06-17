@@ -13,6 +13,7 @@ Description for boto3 service.
         - [ServiceName.get_md_doc_link](#servicenameget_md_doc_link)
         - [ServiceName().import_name](#servicenameimport_name)
         - [ServiceName().is_conda_forge_available](#servicenameis_conda_forge_available)
+        - [ServiceName().is_custom_resource](#servicenameis_custom_resource)
         - [ServiceName().is_essential](#servicenameis_essential)
         - [ServiceName().underscore_name](#servicenameunderscore_name)
     - [ServiceNameCatalog](#servicenamecatalog)
@@ -123,6 +124,16 @@ def is_conda_forge_available() -> bool:
 
 Whether service is available for `conda-forge`.
 
+### ServiceName().is_custom_resource
+
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L141)
+
+```python
+def is_custom_resource(resource_name: str) -> bool:
+```
+
+Whether resource should use separte TypeDict namespace.
+
 ### ServiceName().is_essential
 
 [[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L85)
@@ -146,7 +157,7 @@ Python-friendly service name.
 
 ## ServiceNameCatalog
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L142)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L150)
 
 ```python
 class ServiceNameCatalog():
@@ -156,7 +167,7 @@ Finder for boto3 services by name.
 
 ### ServiceNameCatalog.add
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L178)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L186)
 
 ```python
 @classmethod
