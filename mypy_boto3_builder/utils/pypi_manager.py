@@ -50,5 +50,9 @@ class PyPIManager:
             data = requests.get(self.json_url).json()
         except JSONDecodeError:
             return set()
-        version_strs = set(data.get("releases", {}).keys())
+
+        if "releases" not in data:
+            return set()
+
+        version_strs = set(data["releases"].keys())
         return {Version(i) for i in version_strs}
