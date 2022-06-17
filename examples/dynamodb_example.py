@@ -32,6 +32,9 @@ def dynamodb_client_example() -> None:
     key_exp = Key("partition_key").eq("pk") & Key("time").between(888888, 999999)
     my_table.query(IndexName="my_table", FilterExpression=key_exp)
 
+    keys = [{"pk": "abc", "sk": "def"}]
+    resource.batch_get_item(RequestItems={"table": {"Keys": keys}})
+
 
 def main() -> None:
     dynamodb_client_example()
