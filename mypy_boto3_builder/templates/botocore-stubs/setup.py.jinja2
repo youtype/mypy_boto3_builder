@@ -39,7 +39,7 @@ setup(
     package_data={"{{ package.name }}": ["py.typed", "*.pyi", "*/*.pyi"]},
     python_requires='>=3.6',
     project_urls={
-        'Documentation': 'https://mypy-boto3-builder.readthedocs.io/en/latest/',
+        'Documentation': '{{ package.get_local_doc_link() }}',
         'Source': '{{ builder_repo_url }}',
         'Tracker': '{{ builder_repo_url }}/issues',
     },
