@@ -1,5 +1,5 @@
 import sys
-from typing import Any, List, NamedTuple, Pattern
+from typing import Any, Dict, List, NamedTuple, Pattern
 
 if sys.version_info >= (3, 9):
     from typing import Literal, TypedDict
@@ -125,7 +125,7 @@ BuiltConditionExpression = NamedTuple(
     [
         ("condition_expression", str),
         ("attribute_name_placeholders", List[str]),
-        ("attribute_value_placeholders", List[str]),
+        ("attribute_value_placeholders", Dict[str, Any]),
     ],
 )
 
