@@ -83,6 +83,7 @@ SHAPE_TYPE_MAP: ShapeTypeMap = {
         "AttributeValueTypeDef": AttributeValueTypeDef,
         "AttributeValueTableTypeDef": TableAttributeValueType,
         "AttributeValueServiceResourceTypeDef": TableAttributeValueType,
+        "ConditionExpressionTypeDef": Type.bool,
     },
 }
 

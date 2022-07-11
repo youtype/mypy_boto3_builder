@@ -103,6 +103,24 @@ TYPE_MAP: ServiceTypeMap = {
                     Type.Union, [Type.str, TypeClass(ConditionBase)]
                 ),
                 "FilterExpression": TypeSubscript(Type.Union, [Type.str, TypeClass(ConditionBase)]),
+                "ConditionExpression": TypeSubscript(
+                    Type.Union, [Type.str, TypeClass(ConditionBase)]
+                ),
+            },
+            "delete_item": {
+                "ConditionExpression": TypeSubscript(
+                    Type.Union, [Type.str, TypeClass(ConditionBase)]
+                ),
+            },
+            "put_item": {
+                "ConditionExpression": TypeSubscript(
+                    Type.Union, [Type.str, TypeClass(ConditionBase)]
+                ),
+            },
+            "update_item": {
+                "ConditionExpression": TypeSubscript(
+                    Type.Union, [Type.str, TypeClass(ConditionBase)]
+                ),
             },
             "scan": {
                 "FilterExpression": TypeSubscript(Type.Union, [Type.str, TypeClass(ConditionBase)]),
