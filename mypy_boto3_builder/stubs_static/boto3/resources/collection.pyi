@@ -6,7 +6,7 @@ from boto3.resources.factory import ResourceFactory
 from boto3.resources.model import Collection
 from boto3.resources.response import ResourceHandler
 from boto3.utils import ServiceContext
-from botocore.hooks import HierarchicalEmitter
+from botocore.hooks import BaseEventHooks
 
 logger: logging.Logger
 
@@ -46,5 +46,5 @@ class CollectionFactory:
         resource_name: str,
         collection_model: Collection,
         service_context: ServiceContext,
-        event_emitter: HierarchicalEmitter,
+        event_emitter: BaseEventHooks,
     ) -> CollectionManager: ...

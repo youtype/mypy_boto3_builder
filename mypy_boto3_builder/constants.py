@@ -11,13 +11,13 @@ DUMMY_REGION = "us-west-2"
 TEMPLATES_PATH = Path(__file__).parent / "templates"
 
 # Static *.pyi files for boto3-stubs
-BOTO3_STUBS_STATIC_PATH = Path(__file__).parent / "boto3_stubs_static"
+BOTO3_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "boto3"
 
 # Static *.pyi files for botocore-stubs
-BOTOCORE_STUBS_STATIC_PATH = Path(__file__).parent / "botocore_stubs_static"
+BOTOCORE_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "botocore"
 
 # Static *.pyi files for aiobotocore-stubs
-AIOBOTOCORE_STUBS_STATIC_PATH = Path(__file__).parent / "aiobotocore_stubs_static"
+AIOBOTOCORE_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "aiobotocore"
 
 # Max line length for boto3 docs
 LINE_LENGTH = 100

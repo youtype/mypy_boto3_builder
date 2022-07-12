@@ -4,7 +4,7 @@ from boto3.exceptions import ResourceNotExistsError as ResourceNotExistsError
 from boto3.exceptions import UnknownAPIVersionError as UnknownAPIVersionError
 from boto3.resources.base import ServiceResource
 from boto3.resources.factory import ResourceFactory
-from botocore.client import BaseClient, Config
+from botocore.client import BaseClient
 from botocore.config import Config
 from botocore.credentials import Credentials
 from botocore.exceptions import DataNotFoundError as DataNotFoundError

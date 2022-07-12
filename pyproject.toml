@@ -57,15 +57,11 @@ include = [
     "mypy_boto3_builder/templates/*/*.jinja2",
     "mypy_boto3_builder/templates/*/*/*.jinja2",
     "mypy_boto3_builder/templates/*/*/*/*.jinja2",
-    "mypy_boto3_builder/boto3_stubs_static/*.pyi",
-    "mypy_boto3_builder/boto3_stubs_static/*/*.pyi",
-    "mypy_boto3_builder/boto3_stubs_static/*/*.py",
-    "mypy_boto3_builder/botocore_stubs_static/*.pyi",
-    "mypy_boto3_builder/botocore_stubs_static/*/*.pyi",
-    "mypy_boto3_builder/botocore_stubs_static/*/*.py",
-    "mypy_boto3_builder/aiobotocore_stubs_static/*.pyi",
-    "mypy_boto3_builder/aiobotocore_stubs_static/*/*.pyi",
-    "mypy_boto3_builder/aiobotocore_stubs_static/*/*.py",
+    "mypy_boto3_builder/stubs_static/*.pyi",
+    "mypy_boto3_builder/stubs_static/*/*.pyi",
+    "mypy_boto3_builder/stubs_static/*/*.py",
+    "mypy_boto3_builder/stubs_static/*/*/*.pyi",
+    "mypy_boto3_builder/stubs_static/*/*/*.py",
 ]
 
 [tool.poetry.scripts]
