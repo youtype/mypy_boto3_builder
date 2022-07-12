@@ -1,7 +1,6 @@
 """
 Boto3 client Waiter.
 """
-from botocore.waiter import Waiter as Boto3Waiter
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -11,7 +10,6 @@ from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
@@ -28,7 +26,7 @@ class Waiter(ClassRecord):
     ):
         super().__init__(
             name=name,
-            bases=[TypeClass(Boto3Waiter, alias="Boto3Waiter")],
+            bases=[ExternalImport(ImportString("botocore", "waiter"), "Waiter", "Boto3Waiter")],
         )
         self.waiter_name = waiter_name
         self.service_name = service_name

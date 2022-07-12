@@ -9,7 +9,7 @@ Parser that produces `structures.Boto3StubsPackage`.
 
 ## parse_boto3_stubs_package
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/boto3_stubs_package.py#L27)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/boto3_stubs_package.py#L25)
 
 ```python
 def parse_boto3_stubs_package(

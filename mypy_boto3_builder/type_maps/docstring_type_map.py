@@ -3,8 +3,6 @@ String to type annotation map that find type annotation by argument name and typ
 """
 from datetime import datetime
 
-from botocore.response import StreamingBody
-
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -33,11 +31,19 @@ DOCSTRING_TYPE_MAP: dict[str, FakeAnnotation] = {
     "int": Type.int,
     "integer": Type.int,
     "long": Type.int,
-    "a file-like object": TypeSubscript(Type.Union, [Type.IOAny, TypeClass(StreamingBody)]),
+    "a file-like object": TypeSubscript(
+        Type.Union,
+        [
+            Type.str,
+            Type.bytes,
+            Type.IOAny,
+            ExternalImport(ImportString("botocore", "response"), "StreamingBody"),
+        ],
+    ),
     "seekable file-like object": TypeSubscript(Type.IO, [Type.Any]),
     "list": Type.ListAny,
     "L{botocore.paginate.Paginator}": ExternalImport(
-        source=ImportString("botocore", "paginate"), name="Paginator"
+        ImportString("botocore", "paginate"), "Paginator"
     ),
     ":py:class:`ResourceCollection`": ExternalImport(
         source=ImportString("boto3", "resources", "collection"),
@@ -47,11 +53,9 @@ DOCSTRING_TYPE_MAP: dict[str, FakeAnnotation] = {
     "string": Type.str,
     "str": Type.str,
     "boto3.s3.transfer.TransferConfig": ExternalImport(
-        source=ImportString("boto3", "s3", "transfer"), name="TransferConfig"
+        ImportString("boto3", "s3", "transfer"), "TransferConfig"
     ),
-    "botocore.waiter.Waiter": ExternalImport(
-        source=ImportString("botocore", "waiter"), name="Waiter"
-    ),
+    "botocore.waiter.Waiter": ExternalImport(ImportString("botocore", "waiter"), "Waiter"),
     "bytes or seekable file-like object": TypeSubscript(Type.Union, [Type.bytes, Type.IOBytes]),
     "str or dict": TypeSubscript(Type.Union, [Type.str, Type.Dict]),
     "list(string)": TypeSubscript(Type.List, [Type.str]),

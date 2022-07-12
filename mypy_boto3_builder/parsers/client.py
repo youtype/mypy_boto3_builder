@@ -4,17 +4,17 @@ Boto3 client parser, produces `structures.Client`.
 import inspect
 
 from boto3.session import Session
-from botocore.client import ClientMeta
 from botocore.errorfactory import ClientExceptionsFactory
 
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.parsers.helpers import get_public_methods, parse_method
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.client import Client
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_client
 from mypy_boto3_builder.utils.strings import get_short_docstring
@@ -74,6 +74,8 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
             )
         )
 
-    result.attributes.append(Attribute("meta", TypeClass(ClientMeta)))
+    result.attributes.append(
+        Attribute("meta", ExternalImport(ImportString("botocore", "client"), "ClientMeta"))
+    )
 
     return result

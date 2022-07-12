@@ -1,7 +1,6 @@
 """
 Boto3 client Paginator.
 """
-from botocore.paginate import Paginator as Boto3Paginator
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -11,7 +10,6 @@ from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
@@ -29,7 +27,9 @@ class Paginator(ClassRecord):
     ):
         super().__init__(
             name=name,
-            bases=[TypeClass(Boto3Paginator, alias="Boto3Paginator")],
+            bases=[
+                ExternalImport(ImportString("botocore", "paginate"), "Paginator", "Boto3Paginator")
+            ],
         )
         self.operation_name = operation_name
         self.paginator_name = paginator_name

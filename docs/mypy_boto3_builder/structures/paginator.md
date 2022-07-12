@@ -11,7 +11,7 @@ Boto3 client Paginator.
 
 ## Paginator
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L18)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L16)
 
 ```python
 class Paginator(ClassRecord):

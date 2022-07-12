@@ -4,7 +4,6 @@ Parser that produces `structures.Boto3StubsPackage`.
 from collections.abc import Iterable
 
 from boto3.session import Session
-from botocore.config import Config
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -18,7 +17,6 @@ from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.utils.boto3_utils import get_region_name_literal
@@ -56,7 +54,13 @@ def parse_boto3_stubs_package(
         Argument("aws_access_key_id", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
         Argument("aws_secret_access_key", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
         Argument("aws_session_token", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
-        Argument("config", TypeSubscript(Type.Optional, [TypeClass(Config)]), Type.Ellipsis),
+        Argument(
+            "config",
+            TypeSubscript(
+                Type.Optional, [ExternalImport(ImportString("botocore", "config"), "Config")]
+            ),
+            Type.Ellipsis,
+        ),
     ]
 
     client_function_decorators: list[TypeAnnotation] = []

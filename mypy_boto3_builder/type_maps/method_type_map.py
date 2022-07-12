@@ -1,14 +1,12 @@
 """
 String to type annotation map that find type annotation by method and argument name.
 """
-from boto3.dynamodb.conditions import ConditionBase
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.typed_dicts import ec2_tag_type, s3_copy_source_type
@@ -20,6 +18,10 @@ ArgumentTypeMap = dict[str, FakeAnnotation]
 MethodTypeMap = dict[str, ArgumentTypeMap]
 ClassTypeMap = dict[str, MethodTypeMap]
 ServiceTypeMap = dict[ServiceName, ClassTypeMap]
+
+ConditionBaseImport = ExternalImport(
+    ImportString("boto3", "dynamodb", "conditions"), "ConditionBase"
+)
 
 _create_tags_stub = {
     "create_tags": {
@@ -100,30 +102,22 @@ TYPE_MAP: ServiceTypeMap = {
             },
             "query": {
                 "KeyConditionExpression": TypeSubscript(
-                    Type.Union, [Type.str, TypeClass(ConditionBase)]
+                    Type.Union, [Type.str, ConditionBaseImport]
                 ),
-                "FilterExpression": TypeSubscript(Type.Union, [Type.str, TypeClass(ConditionBase)]),
-                "ConditionExpression": TypeSubscript(
-                    Type.Union, [Type.str, TypeClass(ConditionBase)]
-                ),
+                "FilterExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
+                "ConditionExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
             },
             "delete_item": {
-                "ConditionExpression": TypeSubscript(
-                    Type.Union, [Type.str, TypeClass(ConditionBase)]
-                ),
+                "ConditionExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
             },
             "put_item": {
-                "ConditionExpression": TypeSubscript(
-                    Type.Union, [Type.str, TypeClass(ConditionBase)]
-                ),
+                "ConditionExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
             },
             "update_item": {
-                "ConditionExpression": TypeSubscript(
-                    Type.Union, [Type.str, TypeClass(ConditionBase)]
-                ),
+                "ConditionExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
             },
             "scan": {
-                "FilterExpression": TypeSubscript(Type.Union, [Type.str, TypeClass(ConditionBase)]),
+                "FilterExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
             },
         },
     },

@@ -9,7 +9,7 @@ String to type annotation map that find type annotation by argument name and typ
 
 ## get_type_from_docstring
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/docstring_type_map.py#L456)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/docstring_type_map.py#L460)
 
 ```python
 def get_type_from_docstring(type_str: str) -> FakeAnnotation:
