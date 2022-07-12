@@ -19,6 +19,5 @@ Parsers for boto3 clients and resources.
         - [Parse References](parse_references.md#parse-references)
         - [Parse Resource](parse_resource.md#parse-resource)
         - [Service Package](service_package.md#service-package)
-        - [ServicePackagePostprocessor](service_package_postprocessor.md#servicepackagepostprocessor)
         - [Service Resource](service_resource.md#service-resource)
         - [ShapeParser](shape_parser.md#shapeparser)

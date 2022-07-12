@@ -17,6 +17,7 @@ Builder for `mypy_boto3`.
         - [Main](main.md#main)
         - [Package Data](package_data.md#package-data)
         - [Parsers](parsers/index.md#parsers)
+        - [Postprocessors](postprocessors/index.md#postprocessors)
         - [ServiceName](service_name.md#servicename)
         - [Structures](structures/index.md#structures)
         - [Type Annotations](type_annotations/index.md#type-annotations)

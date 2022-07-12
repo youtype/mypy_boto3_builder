@@ -11,7 +11,7 @@ from mypy_boto3_builder.constants import ProductType
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.service_package import parse_service_package
-from mypy_boto3_builder.parsers.service_package_postprocessor import ServicePackagePostprocessor
+from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource
@@ -58,6 +58,12 @@ class BaseGenerator(ABC):
         self.disable_smart_version = disable_smart_version
         self.version = version or self.get_library_version()
         self._enrich_service_names()
+
+    @abstractmethod
+    def get_postprocessor(self, service_package: ServicePackage) -> BasePostprocessor:
+        """
+        Get postprocessor for service package.
+        """
 
     @abstractmethod
     def get_library_version(self) -> str:
@@ -130,14 +136,9 @@ class BaseGenerator(ABC):
         if version:
             service_package.version = version
 
-        postprocessor = ServicePackagePostprocessor(
-            self.session, service_package, self.master_service_names
-        )
+        postprocessor = self.get_postprocessor(service_package)
         postprocessor.generate_docstrings()
-
-        if package_data.IS_ASYNC:
-            postprocessor.make_async()
-            postprocessor.add_contextmanager_methods()
+        postprocessor.process_package()
 
         postprocessor.extend_literals()
         postprocessor.replace_self_ref_typed_dicts()

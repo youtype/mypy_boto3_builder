@@ -9,6 +9,8 @@ from mypy_boto3_builder.package_data import (
     BotocoreStubsPackageData,
     MypyBoto3PackageData,
 )
+from mypy_boto3_builder.postprocessors.botocore import BotocorePostprocessor
+from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.version import get_boto3_version
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
@@ -32,6 +34,12 @@ class Boto3Generator(BaseGenerator):
         Get underlying library version.
         """
         return get_boto3_version()
+
+    def get_postprocessor(self, service_package: ServicePackage) -> BotocorePostprocessor:
+        """
+        Get postprocessor for service package.
+        """
+        return BotocorePostprocessor(self.session, service_package, self.master_service_names)
 
     def _generate_master(self) -> None:
         """
