@@ -33,8 +33,8 @@ Wrapper for `typing/typing_extensions.TypedDict` type annotations.
         - [TypeTypedDict().type_hint_annotations](#typetypeddicttype_hint_annotations)
     - [TypedDictAttribute](#typeddictattribute)
         - [TypedDictAttribute().get_type_annotation](#typeddictattributeget_type_annotation)
-        - [TypedDictAttribute().get_types](#typeddictattributeget_types)
         - [TypedDictAttribute().is_required](#typeddictattributeis_required)
+        - [TypedDictAttribute().iterate_types](#typeddictattributeiterate_types)
         - [TypedDictAttribute().render](#typeddictattributerender)
 
 ## TypeTypedDict
@@ -157,7 +157,7 @@ Extract required TypeTypedDict list from attributes.
 def get_children_types() -> set[FakeAnnotation]:
 ```
 
-Extract required type annotatyions from attributes.
+Extract required type annotations from attributes.
 
 #### See also
 
@@ -429,20 +429,6 @@ Get wrapped for non-required type annotation or raw type annotation.
 
 - [FakeAnnotation](fake_annotation.md#fakeannotation)
 
-### TypedDictAttribute().get_types
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L49)
-
-```python
-def get_types() -> set[FakeAnnotation]:
-```
-
-Get type_annotation types with `NotRequired` if needed.
-
-#### See also
-
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
-
 ### TypedDictAttribute().is_required
 
 [[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L56)
@@ -452,6 +438,20 @@ def is_required() -> bool:
 ```
 
 Whether argument is required.
+
+### TypedDictAttribute().iterate_types
+
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L49)
+
+```python
+def iterate_types() -> Iterator[FakeAnnotation]:
+```
+
+Itera over type annotations.
+
+#### See also
+
+- [FakeAnnotation](fake_annotation.md#fakeannotation)
 
 ### TypedDictAttribute().render
 

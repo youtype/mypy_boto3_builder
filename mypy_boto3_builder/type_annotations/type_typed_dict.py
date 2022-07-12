@@ -46,12 +46,12 @@ class TypedDictAttribute:
         """
         return f'"{self.name}": {self.get_type_annotation().render(parent_name)}'
 
-    def get_types(self) -> set[FakeAnnotation]:
+    def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
-        Get type_annotation types with `NotRequired` if needed.
+        Itera over type annotations.
         """
-        # return self.get_type_annotation().get_types()
-        return self.type_annotation.get_types()
+        # yield from set(self.get_type_annotation().iterate_types())
+        yield from self.type_annotation.iterate_types()
 
     def is_required(self) -> bool:
         """
@@ -252,11 +252,11 @@ class TypeTypedDict(FakeAnnotation):
 
     def get_children_types(self) -> set[FakeAnnotation]:
         """
-        Extract required type annotatyions from attributes.
+        Extract required type annotations from attributes.
         """
         result: set[FakeAnnotation] = set()
         for child in self.children:
-            result.update(child.get_types())
+            result.update(child.iterate_types())
         return result
 
     def get_children_typed_dicts(self) -> set["TypeTypedDict"]:

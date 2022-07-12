@@ -35,7 +35,7 @@ class TestFunction:
         assert self.function.short_docstring == ""
 
     def test_get_types(self) -> None:
-        assert self.function.get_types() == {
+        assert set(self.function.iterate_types()) == {
             Type.Any,
             Type.none,
             Type.List,

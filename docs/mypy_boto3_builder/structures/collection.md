@@ -7,11 +7,11 @@ Boto3 ServiceResource or Resource collection.
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Collection
     - [Collection](#collection)
         - [Collection().boto3_doc_link](#collectionboto3_doc_link)
-        - [Collection().get_types](#collectionget_types)
+        - [Collection().iterate_types](#collectioniterate_types)
 
 ## Collection
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L11)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L13)
 
 ```python
 class Collection(ClassRecord):
@@ -35,7 +35,7 @@ Boto3 ServiceResource or Resource collection.
 
 ### Collection().boto3_doc_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L41)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L43)
 
 ```python
 @property
@@ -44,15 +44,15 @@ def boto3_doc_link() -> str:
 
 Link to boto3 docs.
 
-### Collection().get_types
+### Collection().iterate_types
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L48)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L50)
 
 ```python
-def get_types() -> set[FakeAnnotation]:
+def iterate_types() -> Iterator[FakeAnnotation]:
 ```
 
-Extract type annotations.
+Iterate over all type annotations.
 
 #### See also
 

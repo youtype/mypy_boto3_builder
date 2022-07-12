@@ -21,7 +21,7 @@ class TestTypeSubscript:
         assert self.result.get_import_record().render() == "from typing import Dict"
 
     def test_get_types(self) -> None:
-        assert self.result.get_types() == {Type.Dict, Type.str, Type.int}
+        assert set(self.result.iterate_types()) == {Type.Dict, Type.str, Type.int}
 
     def test_add_child(self) -> None:
         self.result.add_child(Type.bool)

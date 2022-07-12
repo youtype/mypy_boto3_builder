@@ -2,6 +2,7 @@
 Wrapper for subscript type annotations, like `List[str]`.
 """
 from collections.abc import Iterable
+from typing import Iterator
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -46,14 +47,13 @@ class TypeSubscript(FakeAnnotation):
         """
         return self.parent.get_import_record()
 
-    def get_types(self) -> set[FakeAnnotation]:
+    def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
         Extract type annotations from children.
         """
-        result = self.parent.get_types()
+        yield from self.parent.iterate_types()
         for child in self.children:
-            result.update(child.get_types())
-        return result
+            yield from child.iterate_types()
 
     def add_child(self, child: FakeAnnotation) -> None:
         """

@@ -11,14 +11,14 @@ Base class for all structures that can be rendered to a class.
         - [ClassRecord().get_internal_imports](#classrecordget_internal_imports)
         - [ClassRecord().get_method](#classrecordget_method)
         - [ClassRecord().get_required_import_records](#classrecordget_required_import_records)
-        - [ClassRecord().get_types](#classrecordget_types)
+        - [ClassRecord().iterate_types](#classrecorditerate_types)
         - [ClassRecord().method_names](#classrecordmethod_names)
         - [ClassRecord().render_alias](#classrecordrender_alias)
         - [ClassRecord().variable_name](#classrecordvariable_name)
 
 ## ClassRecord
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L15)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L16)
 
 ```python
 class ClassRecord():
@@ -41,7 +41,7 @@ Base class for all structures that can be rendered to a class.
 
 ### ClassRecord().alias_name
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L44)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L45)
 
 ```python
 @property
@@ -52,7 +52,7 @@ Class alias name for safe import.
 
 ### ClassRecord().boto3_doc_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L37)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L38)
 
 ```python
 @property
@@ -63,10 +63,10 @@ Link to boto3 docs.
 
 ### ClassRecord().get_internal_imports
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L87)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L86)
 
 ```python
-def get_internal_imports() -> list[InternalImport]:
+def get_internal_imports() -> set[InternalImport]:
 ```
 
 Get internal imports from methods.
@@ -77,7 +77,7 @@ Get internal imports from methods.
 
 ### ClassRecord().get_method
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L114)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L113)
 
 ```python
 def get_method(name: str) -> Method:
@@ -91,7 +91,7 @@ Get method by name.
 
 ### ClassRecord().get_required_import_records
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L74)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L73)
 
 ```python
 def get_required_import_records() -> set[ImportRecord]:
@@ -103,15 +103,15 @@ Extract import records from required type annotations.
 
 - [ImportRecord](../import_helpers/import_record.md#importrecord)
 
-### ClassRecord().get_types
+### ClassRecord().iterate_types
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L61)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L62)
 
 ```python
-def get_types() -> set[FakeAnnotation]:
+def iterate_types() -> Iterator[FakeAnnotation]:
 ```
 
-Extract type annotations for methods, attributes and bases.
+Iterate over type annotations for methods, attributes and bases.
 
 #### See also
 
@@ -119,7 +119,7 @@ Extract type annotations for methods, attributes and bases.
 
 ### ClassRecord().method_names
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L107)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L106)
 
 ```python
 @property
@@ -130,7 +130,7 @@ Unique method names.
 
 ### ClassRecord().render_alias
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L55)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L56)
 
 ```python
 def render_alias() -> str:
@@ -140,7 +140,7 @@ Render alias expression.
 
 ### ClassRecord().variable_name
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L100)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L99)
 
 ```python
 @property

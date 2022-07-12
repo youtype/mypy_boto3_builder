@@ -1,7 +1,7 @@
 """
 Method or function argument.
 """
-from typing import TypeVar
+from typing import Iterator, TypeVar
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
@@ -57,17 +57,14 @@ class Argument:
         """
         return self.name == "*"
 
-    def get_types(self) -> set[FakeAnnotation]:
+    def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
         Extract required type annotations.
         """
-        types: set[FakeAnnotation] = set()
         if self.type_annotation is not None:
-            types.update(self.type_annotation.get_types())
+            yield from self.type_annotation.iterate_types()
         if self.default is not None:
-            types.update(self.default.get_types())
-
-        return types
+            yield from self.default.iterate_types()
 
     @property
     def required(self) -> bool:

@@ -58,7 +58,7 @@ class TestTypeTypedDict:
         assert self.result.get_import_record().render() == "from .type_defs import MyDict"
 
     def test_get_types(self) -> None:
-        assert self.result.get_types() == {self.result}
+        assert set(self.result.iterate_types()) == {self.result}
 
     def test_add_attribute(self) -> None:
         self.result.add_attribute("third", Type.int, False)

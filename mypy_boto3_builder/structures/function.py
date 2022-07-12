@@ -2,6 +2,7 @@
 Module-level function.
 """
 from collections.abc import Iterable
+from typing import Iterator
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.argument import Argument
@@ -77,24 +78,22 @@ class Function:
         """
         return "\n".join(self.body_lines)
 
-    def get_types(self) -> set[FakeAnnotation]:
+    def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
-        Extract required type annotations.
+        Iterate over required type annotations.
         """
-        types = self.return_type.get_types()
+        yield from self.return_type.iterate_types()
         for argument in self.arguments:
-            types.update(argument.get_types())
+            yield from argument.iterate_types()
         for decorator in self.decorators:
-            types.update(decorator.get_types())
-
-        return types
+            yield from decorator.iterate_types()
 
     def get_required_import_records(self) -> set[ImportRecord]:
         """
         Extract required import records.
         """
         result: set[ImportRecord] = set()
-        for type_annotation in self.get_types():
+        for type_annotation in self.iterate_types():
             import_record = type_annotation.get_import_record()
             if not import_record or import_record.is_builtins():
                 continue

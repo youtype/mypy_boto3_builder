@@ -44,7 +44,7 @@ class TestClassRecord:
         assert self.class_record.render_alias() == "_Name = Name"
 
     def test_get_types(self) -> None:
-        assert self.class_record.get_types() == {
+        assert set(self.class_record.iterate_types()) == {
             Type.Any,
             Type.none,
             Type.List,
@@ -59,4 +59,4 @@ class TestClassRecord:
         }
 
     def test_get_internal_imports(self) -> None:
-        assert self.class_record.get_internal_imports() == []
+        assert self.class_record.get_internal_imports() == set()

@@ -1,6 +1,8 @@
 """
 Class or module attribute.
 """
+from typing import Iterator
+
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
@@ -28,14 +30,14 @@ class Attribute:
         self.value: TypeConstant | None = value
         self.type_ignore = type_ignore
 
-    def get_types(self) -> set[FakeAnnotation]:
+    def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
-        Return all type annotations used.
+        Iterate over all type annotations used.
 
-        Returns:
-            A set of type annotations.
+        Yields:
+            Type annotation.
         """
-        return self.type_annotation.get_types()
+        return self.type_annotation.iterate_types()
 
     def render(self) -> str:
         """

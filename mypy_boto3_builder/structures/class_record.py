@@ -2,6 +2,7 @@
 Base class for all structures that can be rendered to a class.
 """
 from collections.abc import Iterable
+from typing import Iterator
 
 from botocore import xform_name
 
@@ -58,25 +59,23 @@ class ClassRecord:
         """
         return f"{self.alias_name} = {self.name}"
 
-    def get_types(self) -> set[FakeAnnotation]:
+    def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
-        Extract type annotations for methods, attributes and bases.
+        Iterate over type annotations for methods, attributes and bases.
         """
-        types: set[FakeAnnotation] = set()
         for method in self.methods:
-            types.update(method.get_types())
+            yield from method.iterate_types()
         for attribute in self.attributes:
-            types.update(attribute.get_types())
+            yield from attribute.iterate_types()
         for base in self.bases:
-            types.update(base.get_types())
-        return types
+            yield from base.iterate_types()
 
     def get_required_import_records(self) -> set[ImportRecord]:
         """
         Extract import records from required type annotations.
         """
         result: set[ImportRecord] = set()
-        for type_annotation in self.get_types():
+        for type_annotation in self.iterate_types():
             import_record = type_annotation.get_import_record()
             if not import_record or import_record.is_builtins():
                 continue
@@ -84,16 +83,16 @@ class ClassRecord:
 
         return result
 
-    def get_internal_imports(self) -> list[InternalImport]:
+    def get_internal_imports(self) -> set[InternalImport]:
         """
         Get internal imports from methods.
         """
-        result: list[InternalImport] = []
+        result: set[InternalImport] = set()
         for method in self.methods:
-            for type_annotation in method.get_types():
+            for type_annotation in method.iterate_types():
                 if not isinstance(type_annotation, InternalImport):
                     continue
-                result.append(type_annotation)
+                result.add(type_annotation)
 
         return result
 

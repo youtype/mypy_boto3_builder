@@ -2,7 +2,7 @@
 Parsed Service package.
 """
 from collections.abc import Iterable
-from typing import Literal
+from typing import Iterator, Literal
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -66,7 +66,7 @@ class ServicePackage(Package):
         Extract literals from children.
         """
         found: dict[str, TypeLiteral] = {}
-        for type_annotation in sorted([*self.get_types(), *self.typed_dicts]):
+        for type_annotation in sorted([*self.iterate_types(), *self.typed_dicts]):
             current: list[TypeLiteral] = []
             if isinstance(type_annotation, TypeTypedDict):
                 current.extend(type_annotation.get_children_literals())
@@ -89,7 +89,7 @@ class ServicePackage(Package):
 
     def _get_typed_dicts(self) -> set[TypeTypedDict]:
         result: set[TypeTypedDict] = set()
-        for type_annotation in self.get_types():
+        for type_annotation in self.iterate_types():
             if not isinstance(type_annotation, TypeTypedDict):
                 continue
             result.add(type_annotation)
@@ -123,20 +123,17 @@ class ServicePackage(Package):
         """
         return TypedDictSorter(self._get_typed_dicts()).sort()
 
-    def get_types(self) -> set[FakeAnnotation]:
+    def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
-        Extract type annotations from Client, ServiceResource, waiters and paginators.
+        Iterate over type annotations from Client, ServiceResource, waiters and paginators.
         """
-        types: set[FakeAnnotation] = set()
-        types.update(self.client.get_types())
+        yield from self.client.iterate_types()
         if self.service_resource:
-            types.update(self.service_resource.get_types())
+            yield from self.service_resource.iterate_types()
         for waiter in self.waiters:
-            types.update(waiter.get_types())
+            yield from waiter.iterate_types()
         for paginator in self.paginators:
-            types.update(paginator.get_types())
-
-        return types
+            yield from paginator.iterate_types()
 
     def get_init_import_records(self) -> list[ImportRecord]:
         """

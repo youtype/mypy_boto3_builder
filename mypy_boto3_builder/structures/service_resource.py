@@ -1,6 +1,8 @@
 """
 Boto3 ServiceResource.
 """
+from typing import Iterator
+
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -95,18 +97,16 @@ class ServiceResource(ClassRecord):
         """
         return self.service_name.get_boto3_doc_link("ServiceResource")
 
-    def get_types(self) -> set[FakeAnnotation]:
+    def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
-        Extract type annotations for collections and sub-resources.
+        Iterate over type annotations for collections and sub-resources.
         """
-        types = super().get_types()
-        types.update(self.resource_meta_class.get_types())
+        yield from super().iterate_types()
+        yield from self.resource_meta_class.iterate_types()
         for collection in self.collections:
-            types.update(collection.get_types())
+            yield from collection.iterate_types()
         for sub_resource in self.sub_resources:
-            types.update(sub_resource.get_types())
-
-        return types
+            yield from sub_resource.iterate_types()
 
     def get_all_names(self) -> list[str]:
         """
@@ -146,7 +146,7 @@ class ServiceResource(ClassRecord):
         all_names: set[str] = {i.name for i in self.sub_resources}
         added_names: set[str] = set()
         sub_resources = list(self.sub_resources)
-        sub_resources_list: list[tuple[Resource, list[InternalImport]]] = []
+        sub_resources_list: list[tuple[Resource, set[InternalImport]]] = []
         for sub_resource in sub_resources:
             internal_imports = sub_resource.get_internal_imports()
             sub_resources_list.append((sub_resource, internal_imports))

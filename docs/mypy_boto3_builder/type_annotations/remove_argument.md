@@ -12,7 +12,7 @@ Annotation to mark argument for removal.
 
 ## RemoveArgument
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L8)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L12)
 
 ```python
 class RemoveArgument(FakeAnnotation):
@@ -26,21 +26,17 @@ Annotation to mark argument for removal.
 
 ### RemoveArgument().copy
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L19)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L23)
 
 ```python
-def copy() -> FakeAnnotation:
+def copy() -> _R:
 ```
 
 Not used.
 
-#### See also
-
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
-
 ### RemoveArgument().get_import_record
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L25)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L29)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -54,7 +50,7 @@ Not used.
 
 ### RemoveArgument().render
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L13)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L17)
 
 ```python
 def render(parent_name: str = '') -> str:

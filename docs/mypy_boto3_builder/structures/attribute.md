@@ -6,12 +6,12 @@ Class or module attribute.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Attribute
     - [Attribute](#attribute)
-        - [Attribute().get_types](#attributeget_types)
+        - [Attribute().iterate_types](#attributeiterate_types)
         - [Attribute().render](#attributerender)
 
 ## Attribute
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L8)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L10)
 
 ```python
 class Attribute():
@@ -36,19 +36,19 @@ Class or module attribute.
 
 - [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
 
-### Attribute().get_types
+### Attribute().iterate_types
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L31)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L33)
 
 ```python
-def get_types() -> set[FakeAnnotation]:
+def iterate_types() -> Iterator[FakeAnnotation]:
 ```
 
-Return all type annotations used.
+Iterate over all type annotations used.
 
-#### Returns
+#### Yields
 
-A set of type annotations.
+Type annotation.
 
 #### See also
 
@@ -56,7 +56,7 @@ A set of type annotations.
 
 ### Attribute().render
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L40)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L42)
 
 ```python
 def render() -> str:

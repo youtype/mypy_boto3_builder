@@ -6,8 +6,8 @@ Method or function argument.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Argument
     - [Argument](#argument)
-        - [Argument().get_types](#argumentget_types)
         - [Argument().is_kwflag](#argumentis_kwflag)
+        - [Argument().iterate_types](#argumentiterate_types)
         - [Argument.kwflag](#argumentkwflag)
         - [Argument().render](#argumentrender)
         - [Argument().required](#argumentrequired)
@@ -35,20 +35,6 @@ Method or function argument.
 - `value` - Default argument value.
 - `prefix` - Used for starargs.
 
-### Argument().get_types
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L60)
-
-```python
-def get_types() -> set[FakeAnnotation]:
-```
-
-Extract required type annotations.
-
-#### See also
-
-- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
-
 ### Argument().is_kwflag
 
 [[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L54)
@@ -58,6 +44,20 @@ def is_kwflag() -> bool:
 ```
 
 Whether argument is a `*` keywords separator.
+
+### Argument().iterate_types
+
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L60)
+
+```python
+def iterate_types() -> Iterator[FakeAnnotation]:
+```
+
+Extract required type annotations.
+
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
 
 ### Argument.kwflag
 
@@ -82,7 +82,7 @@ Render argument to a string.
 
 ### Argument().required
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L72)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L69)
 
 ```python
 @property

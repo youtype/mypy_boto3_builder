@@ -18,8 +18,8 @@ Parsed Service package.
         - [ServicePackage().get_paginator_required_import_records](#servicepackageget_paginator_required_import_records)
         - [ServicePackage().get_service_resource_required_import_records](#servicepackageget_service_resource_required_import_records)
         - [ServicePackage().get_type_defs_required_import_records](#servicepackageget_type_defs_required_import_records)
-        - [ServicePackage().get_types](#servicepackageget_types)
         - [ServicePackage().get_waiter_required_import_records](#servicepackageget_waiter_required_import_records)
+        - [ServicePackage().iterate_types](#servicepackageiterate_types)
         - [ServicePackage().validate](#servicepackagevalidate)
 
 ## ServicePackage
@@ -101,7 +101,7 @@ Attempts to resolve circular typed dicts.
 
 ### ServicePackage().get_client_required_import_records
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L193)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L190)
 
 ```python
 def get_client_required_import_records() -> list[ImportRecord]:
@@ -115,7 +115,7 @@ Get import records for `client.py[i]`.
 
 ### ServicePackage().get_doc_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L331)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L328)
 
 ```python
 def get_doc_link(
@@ -140,7 +140,7 @@ Get link to local docs with anchor.
 
 ### ServicePackage().get_init_all_names
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L176)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L173)
 
 ```python
 def get_init_all_names() -> list[str]:
@@ -150,7 +150,7 @@ Get `__all__` statement names for `__init__.py[i]`.
 
 ### ServicePackage().get_init_import_records
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L141)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L138)
 
 ```python
 def get_init_import_records() -> list[ImportRecord]:
@@ -164,7 +164,7 @@ Get import records for `__init__.py[i]`.
 
 ### ServicePackage().get_literals_required_import_records
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L296)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L293)
 
 ```python
 def get_literals_required_import_records() -> list[ImportRecord]:
@@ -178,7 +178,7 @@ Get import records for `literals.py[i]`.
 
 ### ServicePackage().get_local_doc_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L356)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L353)
 
 ```python
 def get_local_doc_link(service_name: ServiceName | None = None) -> str:
@@ -188,7 +188,7 @@ Get link to local docs.
 
 ### ServicePackage().get_paginator_required_import_records
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L225)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L222)
 
 ```python
 def get_paginator_required_import_records() -> list[ImportRecord]:
@@ -202,7 +202,7 @@ Get import records for `paginator.py[i]`.
 
 ### ServicePackage().get_service_resource_required_import_records
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L209)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L206)
 
 ```python
 def get_service_resource_required_import_records() -> list[ImportRecord]:
@@ -216,7 +216,7 @@ Get import records for `service_resource.py[i]`.
 
 ### ServicePackage().get_type_defs_required_import_records
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L260)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L257)
 
 ```python
 def get_type_defs_required_import_records() -> list[ImportRecord]:
@@ -228,23 +228,9 @@ Get import records for `type_defs.py[i]`.
 
 - [ImportRecord](../import_helpers/import_record.md#importrecord)
 
-### ServicePackage().get_types
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L126)
-
-```python
-def get_types() -> set[FakeAnnotation]:
-```
-
-Extract type annotations from Client, ServiceResource, waiters and paginators.
-
-#### See also
-
-- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
-
 ### ServicePackage().get_waiter_required_import_records
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L245)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L242)
 
 ```python
 def get_waiter_required_import_records() -> list[ImportRecord]:
@@ -256,9 +242,23 @@ Get import records for `waiter.py[i]`.
 
 - [ImportRecord](../import_helpers/import_record.md#importrecord)
 
+### ServicePackage().iterate_types
+
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L126)
+
+```python
+def iterate_types() -> Iterator[FakeAnnotation]:
+```
+
+Iterate over type annotations from Client, ServiceResource, waiters and paginators.
+
+#### See also
+
+- [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
+
 ### ServicePackage().validate
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L305)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L302)
 
 ```python
 def validate() -> None:

@@ -1,6 +1,8 @@
 """
 Boto3 ServiceResource sub-Resource.
 """
+from typing import Iterator
+
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
@@ -36,11 +38,10 @@ class Resource(ClassRecord):
         """
         return self.service_name.get_boto3_doc_link("ServiceResource", self.name)
 
-    def get_types(self) -> set[FakeAnnotation]:
+    def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
-        Extract type annotations from collections.
+        Iterate over all type annotations from collections.
         """
-        types = super().get_types()
+        yield from super().iterate_types()
         for collection in self.collections:
-            types.update(collection.get_types())
-        return types
+            yield from collection.iterate_types()

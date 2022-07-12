@@ -11,11 +11,11 @@ Boto3 ServiceResource.
         - [ServiceResource.get_class_name](#serviceresourceget_class_name)
         - [ServiceResource().get_collections](#serviceresourceget_collections)
         - [ServiceResource().get_sub_resources](#serviceresourceget_sub_resources)
-        - [ServiceResource().get_types](#serviceresourceget_types)
+        - [ServiceResource().iterate_types](#serviceresourceiterate_types)
 
 ## ServiceResource
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L20)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L22)
 
 ```python
 class ServiceResource(ClassRecord):
@@ -35,7 +35,7 @@ Boto3 ServiceResource.
 
 ### ServiceResource().boto3_doc_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L91)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L93)
 
 ```python
 @property
@@ -56,7 +56,7 @@ Get names for `__all__` statement.
 
 ### ServiceResource.get_class_name
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L62)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L64)
 
 ```python
 @staticmethod
@@ -101,15 +101,15 @@ A list of sub resources.
 
 - [Resource](resource.md#resource)
 
-### ServiceResource().get_types
+### ServiceResource().iterate_types
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L98)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L100)
 
 ```python
-def get_types() -> set[FakeAnnotation]:
+def iterate_types() -> Iterator[FakeAnnotation]:
 ```
 
-Extract type annotations for collections and sub-resources.
+Iterate over type annotations for collections and sub-resources.
 
 #### See also
 
