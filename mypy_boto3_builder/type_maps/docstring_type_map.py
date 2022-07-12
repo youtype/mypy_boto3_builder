@@ -34,8 +34,6 @@ DOCSTRING_TYPE_MAP: dict[str, FakeAnnotation] = {
     "a file-like object": TypeSubscript(
         Type.Union,
         [
-            Type.str,
-            Type.bytes,
             Type.IOAny,
             ExternalImport(ImportString("botocore", "response"), "StreamingBody"),
         ],
