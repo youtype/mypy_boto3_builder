@@ -26,7 +26,7 @@ class Waiter(ClassRecord):
     ):
         super().__init__(
             name=name,
-            bases=[ExternalImport(ImportString("botocore", "waiter"), "Waiter", "Boto3Waiter")],
+            bases=[ExternalImport(ImportString("botocore", "waiter"), "Waiter")],
         )
         self.waiter_name = waiter_name
         self.service_name = service_name

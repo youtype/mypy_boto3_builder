@@ -32,7 +32,7 @@ Boto3 client Paginator.
 
 ### Paginator().boto3_doc_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L38)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L36)
 
 ```python
 @property
@@ -43,7 +43,7 @@ Link to boto3 docs.
 
 ### Paginator().get_client_method
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L45)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L43)
 
 ```python
 def get_client_method() -> Method:

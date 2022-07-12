@@ -31,7 +31,7 @@ class Client(ClassRecord):
         self.service_name = service_name
         self.boto3_client = boto3_client
         self.exceptions_class = ClassRecord(name="Exceptions")
-        self.bases = [ExternalImport(ImportString("botocore", "client"), "Client", "BaseClient")]
+        self.bases = [ExternalImport(ImportString("botocore", "client"), "BaseClient")]
         self.client_error_class = ClassRecord(
             name="BotocoreClientError",
             attributes=[

@@ -27,9 +27,7 @@ class Paginator(ClassRecord):
     ):
         super().__init__(
             name=name,
-            bases=[
-                ExternalImport(ImportString("botocore", "paginate"), "Paginator", "Boto3Paginator")
-            ],
+            bases=[ExternalImport(ImportString("botocore", "paginate"), "Paginator")],
         )
         self.operation_name = operation_name
         self.paginator_name = paginator_name
