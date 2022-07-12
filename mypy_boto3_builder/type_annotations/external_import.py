@@ -25,7 +25,16 @@ class ExternalImport(FakeAnnotation):
         self.source: ImportString = source
         self.name: str = name
         self.alias: str = alias
-        self.import_record: ImportRecord = ImportRecord(source=source, name=name, alias=alias)
+
+    @property
+    def import_record(self) -> ImportRecord:
+        """
+        Get import record required for using type annotation.
+        """
+        return ImportRecord(source=self.source, name=self.name, alias=self.alias)
+
+    def __hash__(self) -> int:
+        return hash(self.import_record.render())
 
     def render(self, parent_name: str = "") -> str:
         """

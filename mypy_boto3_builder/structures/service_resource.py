@@ -7,7 +7,6 @@ from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
-from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
@@ -39,7 +38,6 @@ class ServiceResource(ClassRecord):
                 ExternalImport(
                     source=ImportString("boto3", "resources", "base"),
                     name="ServiceResource",
-                    alias="Boto3ServiceResource",
                 )
             ],
             attributes=[
@@ -81,14 +79,10 @@ class ServiceResource(ClassRecord):
         )
 
     def _get_client_import(self, service_name: ServiceName) -> ExternalImport:
-        client_import = ExternalImport(
+        return ExternalImport(
             source=ImportString.parent() + ImportString(ServiceModuleName.client.value),
             name=Client.get_class_name(service_name),
         )
-        client_import.import_record = InternalImportRecord(
-            ServiceModuleName.client, client_import.name
-        )
-        return client_import
 
     @property
     def boto3_doc_link(self) -> str:

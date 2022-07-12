@@ -2,11 +2,14 @@
 Postprocessor for aiobotocore classes and methods.
 """
 
+from typing import Iterator
+
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
+from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
@@ -16,6 +19,27 @@ class AioBotocorePostprocessor(BasePostprocessor):
     """
     Postprocessor for aiobotocore classes and methods.
     """
+
+    EXTERNAL_IMPORTS_MAP = {
+        ExternalImport(ImportString("botocore", "response"), "StreamingBody"): ExternalImport(
+            ImportString("aiobotocore", "response"), "StreamingBody"
+        ),
+        ExternalImport(ImportString("botocore", "eventstream"), "EventStream"): ExternalImport(
+            ImportString("aiobotocore", "eventstream"), "AioEventStream"
+        ),
+        ExternalImport(ImportString("botocore", "config"), "Config"): ExternalImport(
+            ImportString("aiobotocore", "config"), "AioConfig"
+        ),
+        ExternalImport(ImportString("botocore", "waiter"), "Waiter"): ExternalImport(
+            ImportString("aiobotocore", "waiter"), "AIOWaiter"
+        ),
+        ExternalImport(ImportString("botocore", "paginate"), "Paginator"): ExternalImport(
+            ImportString("aiobotocore", "paginate"), "AioPaginator"
+        ),
+        ExternalImport(ImportString("botocore", "client"), "BaseClient"): ExternalImport(
+            ImportString("aiobotocore", "client"), "AioBaseClient"
+        ),
+    }
 
     def process_package(self) -> None:
         """
@@ -28,11 +52,9 @@ class AioBotocorePostprocessor(BasePostprocessor):
         self._make_async_collections()
         self._make_async_sub_resources()
         self._add_contextmanager_methods()
+        self._replace_external_imports()
 
     def _make_async_client(self) -> None:
-        self.package.client.bases = [
-            ExternalImport(ImportString("aiobotocore", "client"), "AioBaseClient")
-        ]
         for method in self.package.client.methods:
             if method.name in ["exceptions", "get_waiter", "get_paginator", "can_paginate"]:
                 continue
@@ -47,16 +69,12 @@ class AioBotocorePostprocessor(BasePostprocessor):
 
     def _make_async_paginators(self) -> None:
         for paginator in self.package.paginators:
-            paginator.bases = [
-                ExternalImport(ImportString("aiobotocore", "paginate"), "AioPaginator")
-            ]
             paginate_method = paginator.get_method("paginate")
             assert isinstance(paginate_method.return_type, TypeSubscript)
             paginate_method.return_type.parent = Type.AsyncIterator
 
     def _make_async_waiters(self) -> None:
         for waiter in self.package.waiters:
-            waiter.bases = [ExternalImport(ImportString("aiobotocore", "waiter"), "AIOWaiter")]
             for method in waiter.methods:
                 method.is_async = True
 
@@ -102,3 +120,28 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 docstring=self.package.client.docstring,
             )
         )
+
+    def _iterate_types(self) -> Iterator[FakeAnnotation]:
+        yield from self.package.client.iterate_types()
+        for paginator in self.package.paginators:
+            yield from paginator.iterate_types()
+        for waiter in self.package.waiters:
+            yield from waiter.iterate_types()
+        if self.package.service_resource:
+            yield from self.package.service_resource.iterate_types()
+            for collection in self.package.service_resource.collections:
+                yield from collection.iterate_types()
+            for sub_resource in self.package.service_resource.sub_resources:
+                yield from sub_resource.iterate_types()
+                for collection in sub_resource.collections:
+                    yield from collection.iterate_types()
+
+    def _replace_external_imports(self) -> None:
+        for type_annotation in self._iterate_types():
+            if not isinstance(type_annotation, ExternalImport):
+                continue
+            new_type_annotation = self.EXTERNAL_IMPORTS_MAP.get(type_annotation)
+            if new_type_annotation is None:
+                continue
+            type_annotation.source = new_type_annotation.source
+            type_annotation.name = new_type_annotation.name

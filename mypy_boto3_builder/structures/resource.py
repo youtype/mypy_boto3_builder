@@ -23,7 +23,6 @@ class Resource(ClassRecord):
                 ExternalImport(
                     source=ImportString("boto3", "resources", "base"),
                     name="ServiceResource",
-                    alias="Boto3ServiceResource",
                 )
             ],
             use_alias=True,

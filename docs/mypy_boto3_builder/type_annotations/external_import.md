@@ -8,6 +8,7 @@ Wrapper for type annotations imported from 3rd party libraries, like `boto3.serv
     - [ExternalImport](#externalimport)
         - [ExternalImport().copy](#externalimportcopy)
         - [ExternalImport().get_import_record](#externalimportget_import_record)
+        - [ExternalImport().import_record](#externalimportimport_record)
         - [ExternalImport().render](#externalimportrender)
 
 ## ExternalImport
@@ -38,7 +39,7 @@ Wrapper for type annotations imported from 3rd party libraries, like `boto3.serv
 
 ### ExternalImport().copy
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L45)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L54)
 
 ```python
 def copy() -> 'ExternalImport':
@@ -48,7 +49,7 @@ Create a copy of type annotation wrapper.
 
 ### ExternalImport().get_import_record
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L39)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L48)
 
 ```python
 def get_import_record() -> ImportRecord:
@@ -60,9 +61,24 @@ Get import record required for using type annotation.
 
 - [ImportRecord](../import_helpers/import_record.md#importrecord)
 
+### ExternalImport().import_record
+
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L29)
+
+```python
+@property
+def import_record() -> ImportRecord:
+```
+
+Get import record required for using type annotation.
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
+
 ### ExternalImport().render
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L30)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L39)
 
 ```python
 def render(parent_name: str = '') -> str:

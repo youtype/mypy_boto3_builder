@@ -27,7 +27,7 @@ Boto3 ServiceResource sub-Resource.
 
 ### Resource().boto3_doc_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L34)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L33)
 
 ```python
 @property
@@ -38,7 +38,7 @@ Link to boto3 docs.
 
 ### Resource().iterate_types
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L41)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L40)
 
 ```python
 def iterate_types() -> Iterator[FakeAnnotation]:

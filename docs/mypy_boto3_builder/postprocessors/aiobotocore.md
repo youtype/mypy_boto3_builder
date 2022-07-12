@@ -10,7 +10,7 @@ Postprocessor for aiobotocore classes and methods.
 
 ## AioBotocorePostprocessor
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/aiobotocore.py#L15)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/aiobotocore.py#L18)
 
 ```python
 class AioBotocorePostprocessor(BasePostprocessor):
@@ -24,7 +24,7 @@ Postprocessor for aiobotocore classes and methods.
 
 ### AioBotocorePostprocessor().process_package
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/aiobotocore.py#L20)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/aiobotocore.py#L44)
 
 ```python
 def process_package() -> None:
