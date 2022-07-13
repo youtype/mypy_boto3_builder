@@ -7,8 +7,6 @@ if sys.version_info >= (3, 9):
 else:
     from typing_extensions import Literal, TypedDict
 
-DynamoDBDataType = Literal["S", "N", "B", "SS", "NS", "BS", "NULL", "BOOL", "M", "L"]
-
 _AttributeValueTypeDef = TypedDict(
     "_AttributeValueTypeDef",
     {
@@ -39,7 +37,7 @@ LIST: Literal["L"]
 
 DYNAMODB_CONTEXT: Context
 
-BINARY_TYPES: Tuple[Any]
+BINARY_TYPES: Tuple[Any, ...]
 
 class Binary:
     def __init__(self, value: Any) -> None: ...
@@ -47,6 +45,7 @@ class Binary:
     def __ne__(self, other: Any) -> bool: ...
     def __repr__(self) -> str: ...
     def __str__(self) -> str: ...
+    def __bytes__(self) -> str: ...
     def __hash__(self) -> int: ...
 
 class TypeSerializer:

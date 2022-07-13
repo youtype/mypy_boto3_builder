@@ -68,7 +68,7 @@ include = [
 mypy_boto3_builder = 'mypy_boto3_builder.main:main'
 
 [tool.poetry.urls]
-"Documentation" = "https://mypy-boto3-builder.readthedocs.io/en/latest/"
+"Documentation" = "https://youtype.github.io/mypy_boto3_builder/"
 "Source" = "https://github.com/youtype/mypy_boto3_builder"
 "Bug Tracker" = "https://github.com/youtype/mypy_boto3_builder/issues"
 

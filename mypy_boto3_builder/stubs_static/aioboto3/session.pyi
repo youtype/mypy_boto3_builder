@@ -1,14 +1,9 @@
 from typing import Any, List, Optional, Union
 
-from boto3.exceptions import ResourceNotExistsError as ResourceNotExistsError
-from boto3.exceptions import UnknownAPIVersionError as UnknownAPIVersionError
-from boto3.resources.base import ServiceResource
-from boto3.resources.factory import ResourceFactory
-from botocore.client import BaseClient
-from botocore.config import Config
+from aioboto3.resources.base import AIOBoto3ServiceResource
+from aioboto3.resources.factory import AIOBoto3ResourceFactory
+from aiobotocore.config import AioConfig
 from botocore.credentials import Credentials
-from botocore.exceptions import DataNotFoundError as DataNotFoundError
-from botocore.exceptions import UnknownServiceError as UnknownServiceError
 from botocore.loaders import Loader
 from botocore.session import Session as BotocoreSession
 
@@ -23,7 +18,7 @@ class Session:
         profile_name: Optional[str] = ...,
     ) -> None:
         self._session: BotocoreSession
-        self.resource_factory: ResourceFactory
+        self.resource_factory: AIOBoto3ResourceFactory
         self._loader: Loader
     def __repr__(self) -> str: ...
     @property
@@ -45,21 +40,7 @@ class Session:
         allow_non_regional: bool = False,
     ) -> List[str]: ...
     def get_credentials(self) -> Credentials: ...
-    def get_partition_for_region(self, region_name: str) -> str: ...
     def _register_default_handlers(self) -> None: ...
-    def client(
-        self,
-        service_name: str,
-        region_name: Optional[str] = ...,
-        api_version: Optional[str] = ...,
-        use_ssl: Optional[bool] = ...,
-        verify: Union[bool, str, None] = ...,
-        endpoint_url: Optional[str] = ...,
-        aws_access_key_id: Optional[str] = ...,
-        aws_secret_access_key: Optional[str] = ...,
-        aws_session_token: Optional[str] = ...,
-        config: Optional[Config] = ...,
-    ) -> BaseClient: ...
     def resource(
         self,
         service_name: str,
@@ -71,5 +52,5 @@ class Session:
         aws_access_key_id: Optional[str] = ...,
         aws_secret_access_key: Optional[str] = ...,
         aws_session_token: Optional[str] = ...,
-        config: Optional[Config] = ...,
-    ) -> ServiceResource: ...
+        config: Optional[AioConfig] = ...,
+    ) -> AIOBoto3ServiceResource: ...

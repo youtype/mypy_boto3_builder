@@ -1,11 +1,14 @@
-from typing import Any, Callable, List, Mapping, Optional
+from typing import Any, Callable, Dict, List, Mapping, Optional, TypeVar
 
 from botocore.client import BaseClient
 from botocore.config import Config
+from s3transfer.futures import TransferFuture
 from s3transfer.manager import TransferConfig as S3TransferConfig
 from s3transfer.manager import TransferManager
 from s3transfer.subscribers import BaseSubscriber
 from s3transfer.utils import OSUtils
+
+_R = TypeVar("_R")
 
 KB: int
 MB: int
@@ -17,6 +20,8 @@ def create_transfer_manager(
 ) -> TransferManager: ...
 
 class TransferConfig(S3TransferConfig):
+    ALIAS: Dict[str, str]
+
     def __init__(
         self,
         multipart_threshold: int = ...,
@@ -26,6 +31,7 @@ class TransferConfig(S3TransferConfig):
         max_io_queue: int = ...,
         io_chunksize: int = ...,
         use_threads: bool = ...,
+        max_bandwidth: Optional[int] = ...,
     ) -> None:
         self.use_threads: bool
     def __setattr__(self, name: str, value: int) -> None: ...
@@ -45,7 +51,7 @@ class S3Transfer:
         filename: str,
         bucket: str,
         key: str,
-        callback: Callable[[int], Any] = ...,
+        callback: Optional[Callable[[int], Any]] = ...,
         extra_args: Optional[Mapping[str, Any]] = ...,
     ) -> None: ...
     def download_file(
@@ -54,9 +60,12 @@ class S3Transfer:
         key: str,
         filename: str,
         extra_args: Optional[Mapping[str, Any]] = ...,
-        callback: Callable[[int], Any] = ...,
+        callback: Optional[Callable[[int], Any]] = ...,
     ) -> None: ...
+    def __enter__(self: _R) -> _R: ...
+    def __exit__(self, *args: Any) -> None: ...
 
 class ProgressCallbackInvoker(BaseSubscriber):
     def __init__(self, callback: Callable[[int], Any]) -> None: ...
-    def on_progress(self, bytes_transferred: int, **kwargs: Any) -> None: ...
+    # FIXME: signature incompatible with BaseSubscriber
+    def on_progress(self, bytes_transferred: int, **kwargs: Any) -> None: ...  # type: ignore

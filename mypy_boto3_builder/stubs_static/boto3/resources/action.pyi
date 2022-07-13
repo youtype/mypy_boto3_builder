@@ -1,5 +1,5 @@
 import logging
-from typing import Any, Callable, Dict, List, Union
+from typing import Any, Callable, Dict, List, Optional, Sequence, Union
 
 from boto3.resources.base import ServiceResource
 from boto3.resources.collection import ResourceCollection
@@ -14,8 +14,8 @@ class ServiceAction:
     def __init__(
         self,
         action_model: Action,
-        factory: ResourceFactory = ...,
-        service_context: ServiceContext = ...,
+        factory: Optional[ResourceFactory] = ...,
+        service_context: Optional[ServiceContext] = ...,
     ) -> None: ...
     def __call__(
         self, parent: ServiceResource, *args: Any, **kwargs: Any
@@ -37,4 +37,11 @@ class CustomModeledAction:
         action_model: Dict[str, Any],
         function: Callable[..., Any],
         event_emitter: BaseEventHooks,
+    ) -> None: ...
+    def inject(
+        self,
+        class_attributes: Sequence[Any],
+        service_context: ServiceContext,
+        event_name: str,
+        **kwargs: Any,
     ) -> None: ...

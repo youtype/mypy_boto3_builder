@@ -7,17 +7,6 @@ from boto3.session import Session
 from botocore.client import BaseClient
 from botocore.config import Config
 
-__all__ = (
-    "DEFAULT_SESSION",
-    "NullHandler",
-    "Session",
-    "client",
-    "resource",
-    "session",
-    "set_stream_logger",
-    "setup_default_session",
-)
-
 __author__: str
 __version__: str
 

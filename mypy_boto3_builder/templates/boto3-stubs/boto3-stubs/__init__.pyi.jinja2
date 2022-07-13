@@ -2,15 +2,6 @@
     {% include "common/import_record_fallback.py.jinja2" with context %}
 {% endfor -%}
 
-__all__ = (
-{% for name in package.get_all_names() -%}
-    {{ '"' -}}
-    {{ name -}}
-    {{ '"' -}}
-    {{ ",\n" if not loop.last or loop.first else "\n" }}
-{% endfor -%}
-)
-
 __author__: str
 __version__: str
 

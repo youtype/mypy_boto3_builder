@@ -11,7 +11,7 @@ def build_identifiers(
     identifiers: List[Parameter],
     parent: ServiceResource,
     params: Optional[Dict[str, Any]] = ...,
-    raw_respons: Optional[Dict[str, Any]] = ...,
+    raw_response: Optional[Dict[str, Any]] = ...,
 ) -> List[Tuple[str, Any]]: ...
 def build_empty_response(
     search_path: str, operation_name: str, service_model: ServiceModel

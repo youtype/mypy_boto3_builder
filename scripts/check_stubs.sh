@@ -3,22 +3,42 @@ set -e
 
 ROOT_PATH=$(dirname $(dirname $0))
 cd ${ROOT_PATH}
+OUTPUT_PATH=${ROOT_PATH}/mypy_boto3_output
 
 scripts/build.sh --product boto3 > /dev/null
-scripts/install.sh master > /dev/null
 
+echo Installing boto3-stubs-lite package
+cd ${OUTPUT_PATH}/boto3_stubs_lite_package
+python -m pip install .
+cd -
 
-cd mypy_boto3_output/botocore_stubs_package
-# rm -rf .mypy_cache
+echo Installing botocore-stubs package
+cd ${OUTPUT_PATH}/botocore_stubs_package
+python -m pip install .
+cd -
+
+echo Installing types-s3transfer package
+cd ${ROOT_PATH}/types_s3transfer
+python -m pip install .
+cd -
+
+echo "Checking botocore stubs..."
 python -m mypy.stubtest botocore \
     | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /cannot reconcile @property on stub/) print $0;}' \
     | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /OrderedDict/) print $0;}' \
     | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /error: botocore.__main__ failed to import/) print $0;}' \
     | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /error: botocore.version failed to import/) print $0;}'
-cd ../..
 
-# cd mypy_boto3_output/boto3_stubs_package
-# # rm -rf .mypy_cache
-# python -m mypy.stubtest boto3 \
-#     | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /Cannot find implementation or library stub/) print $0;}'
-# cd ../..
+echo "Checking boto3 stubs..."
+python -m mypy.stubtest boto3 \
+    | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /error: boto3.resources.base.ServiceResource.meta variable differs from runtime type None/) print $0;}' \
+    | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /error: boto3.setup_default_session is inconsistent/) print $0;}' \
+    | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /error: boto3.__main__ failed to import/) print $0;}' \
+    | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /error: boto3.version failed to import/) print $0;}'
+
+echo "Checking s3transfer stubs..."
+python -m mypy.stubtest s3transfer \
+    | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /error: s3transfer.crt failed to import: No module named/) print $0;}' \
+    | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /error: s3transfer.compat.BaseManager.shutdown is not present at runtime/) print $0;}' \
+    | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /error: s3transfer.processpool.BaseManager.shutdown is not present at runtime/) print $0;}' \
+    | awk 'BEGIN{RS=ORS="\n\n"}{if ($0 !~ /error: s3transfer.processpool.TransferMonitorManager.TransferMonitor is not present in stub/) print $0;}'

@@ -1,5 +1,8 @@
+import os
 from typing import Type
 
 SOCKET_ERROR: Type[ConnectionError]
 
-def rename_file(current_filename: str, new_filename: str) -> None: ...
+def filter_python_deprecation_warnings() -> None: ...
+
+rename_file = os.rename
