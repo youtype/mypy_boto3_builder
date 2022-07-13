@@ -13,5 +13,5 @@ MISSING
 error: s3transfer.processpool.TransferMonitorManager.TransferMonitor is not present in stub
 Stub:
 MISSING
-Runtime: at line 721 in file /home/vlad/.pyenv/versions/3.10.4/lib/python3.10/multiprocessing/managers.py
-<REDACTED>
+Runtime: at line 721 in file ./multiprocessing/managers.py
+<function BaseManager.register.<locals>.temp at HASH>

@@ -1,43 +1,43 @@
 error: boto3.setup_default_session is inconsistent, runtime does not have argument "aws_access_key_id"
 Stub: at line 15
 def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[builtins.str, None] =, profile_name: Union[builtins.str, None] =) -> boto3.session.Session
-Runtime: at line 27 in file /home/vlad/work/vemel/mypy_boto3_builder/.venv/lib/python3.10/site-packages/boto3/__init__.py
+Runtime: at line 27 in file ./boto3/__init__.py
 def (**kwargs)
 
 error: boto3.setup_default_session is inconsistent, runtime does not have argument "aws_secret_access_key"
 Stub: at line 15
 def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[builtins.str, None] =, profile_name: Union[builtins.str, None] =) -> boto3.session.Session
-Runtime: at line 27 in file /home/vlad/work/vemel/mypy_boto3_builder/.venv/lib/python3.10/site-packages/boto3/__init__.py
+Runtime: at line 27 in file ./boto3/__init__.py
 def (**kwargs)
 
 error: boto3.setup_default_session is inconsistent, runtime does not have argument "aws_session_token"
 Stub: at line 15
 def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[builtins.str, None] =, profile_name: Union[builtins.str, None] =) -> boto3.session.Session
-Runtime: at line 27 in file /home/vlad/work/vemel/mypy_boto3_builder/.venv/lib/python3.10/site-packages/boto3/__init__.py
+Runtime: at line 27 in file ./boto3/__init__.py
 def (**kwargs)
 
 error: boto3.setup_default_session is inconsistent, runtime does not have argument "region_name"
 Stub: at line 15
 def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[builtins.str, None] =, profile_name: Union[builtins.str, None] =) -> boto3.session.Session
-Runtime: at line 27 in file /home/vlad/work/vemel/mypy_boto3_builder/.venv/lib/python3.10/site-packages/boto3/__init__.py
+Runtime: at line 27 in file ./boto3/__init__.py
 def (**kwargs)
 
 error: boto3.setup_default_session is inconsistent, runtime does not have argument "botocore_session"
 Stub: at line 15
 def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[builtins.str, None] =, profile_name: Union[builtins.str, None] =) -> boto3.session.Session
-Runtime: at line 27 in file /home/vlad/work/vemel/mypy_boto3_builder/.venv/lib/python3.10/site-packages/boto3/__init__.py
+Runtime: at line 27 in file ./boto3/__init__.py
 def (**kwargs)
 
 error: boto3.setup_default_session is inconsistent, runtime does not have argument "profile_name"
 Stub: at line 15
 def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[builtins.str, None] =, profile_name: Union[builtins.str, None] =) -> boto3.session.Session
-Runtime: at line 27 in file /home/vlad/work/vemel/mypy_boto3_builder/.venv/lib/python3.10/site-packages/boto3/__init__.py
+Runtime: at line 27 in file ./boto3/__init__.py
 def (**kwargs)
 
 error: boto3.__main__ failed to import: No module named 'boto3.__main__'
 Stub: at line 1
 MypyFile:1(
-  /home/vlad/work/vemel/mypy_boto3_builder/.venv/lib/python3.10/site-packages/boto3-stubs/__main__.py)
+  ./boto3-stubs/__main__.py)
 Runtime:
 MISSING
 
@@ -50,6 +50,6 @@ None
 error: boto3.version failed to import: No module named 'boto3.version'
 Stub: at line 1
 MypyFile:1(
-  /home/vlad/work/vemel/mypy_boto3_builder/.venv/lib/python3.10/site-packages/boto3-stubs/version.py)
+  ./boto3-stubs/version.py)
 Runtime:
 MISSING

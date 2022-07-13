@@ -1,7 +1,7 @@
 error: botocore.__main__ failed to import: No module named 'botocore.__main__'
 Stub: at line 1
 MypyFile:1(
-  /home/vlad/work/vemel/mypy_boto3_builder/.venv/lib/python3.10/site-packages/botocore-stubs/__main__.py)
+  ./botocore-stubs/__main__.py)
 Runtime:
 MISSING
 
@@ -9,413 +9,413 @@ error: botocore.client.BaseClient.waiter_names is inconsistent, cannot reconcile
 Stub: at line 115
 def (self: botocore.client.BaseClient) -> builtins.list[builtins.str]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.api_version is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 86
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.documentation is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 76
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.endpoint_discovery_operation is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 92
 def (self: botocore.model.ServiceModel) -> botocore.model.OperationModel
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.endpoint_discovery_required is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 94
 def (self: botocore.model.ServiceModel) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.endpoint_prefix is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 90
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.error_shapes is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 73
 def (self: botocore.model.ServiceModel) -> builtins.list[botocore.model.Shape]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.operation_names is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 78
 def (self: botocore.model.ServiceModel) -> builtins.list[builtins.str]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.protocol is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 88
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.service_id is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 82
 def (self: botocore.model.ServiceModel) -> botocore.model.ServiceId
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.service_name is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 80
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.shape_names is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 71
 def (self: botocore.model.ServiceModel) -> builtins.list[builtins.str]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.client.ServiceModel.signing_name is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 84
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.discovery.EndpointDiscoveryModel.discovery_operation_keys is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 26
 def (self: botocore.discovery.EndpointDiscoveryModel) -> builtins.list[builtins.str]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.discovery.EndpointDiscoveryModel.discovery_operation_name is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 24
 def (self: botocore.discovery.EndpointDiscoveryModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ListShape.member is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 48
 def (self: botocore.model.ListShape) -> botocore.model.Shape
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.MapShape.key is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 52
 def (self: botocore.model.MapShape) -> botocore.model.Shape
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.MapShape.value is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 54
 def (self: botocore.model.MapShape) -> botocore.model.Shape
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.auth_type is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 130
 def (self: botocore.model.OperationModel) -> Union[builtins.str, None]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.deprecated is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 118
 def (self: botocore.model.OperationModel) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.documentation is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 116
 def (self: botocore.model.OperationModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.endpoint is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 134
 def (self: botocore.model.OperationModel) -> Union[builtins.str, None]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.endpoint_discovery is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 120
 def (self: botocore.model.OperationModel) -> Union[botocore.model.OperationModel, None]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.error_shapes is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 132
 def (self: botocore.model.OperationModel) -> builtins.list[botocore.model.Shape]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.has_event_stream_input is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 140
 def (self: botocore.model.OperationModel) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.has_event_stream_output is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 142
 def (self: botocore.model.OperationModel) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.has_streaming_input is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 146
 def (self: botocore.model.OperationModel) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.has_streaming_output is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 148
 def (self: botocore.model.OperationModel) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.http_checksum is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 138
 def (self: botocore.model.OperationModel) -> builtins.dict[builtins.str, Any]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.http_checksum_required is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 136
 def (self: botocore.model.OperationModel) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.idempotent_members is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 128
 def (self: botocore.model.OperationModel) -> builtins.list[builtins.str]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.input_shape is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 124
 def (self: botocore.model.OperationModel) -> botocore.model.StructureShape
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.is_endpoint_discovery_operation is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 122
 def (self: botocore.model.OperationModel) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.name is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 110
 def (self: botocore.model.OperationModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.OperationModel.output_shape is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 126
 def (self: botocore.model.OperationModel) -> botocore.model.StructureShape
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.api_version is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 86
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.documentation is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 76
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.endpoint_discovery_operation is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 92
 def (self: botocore.model.ServiceModel) -> botocore.model.OperationModel
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.endpoint_discovery_required is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 94
 def (self: botocore.model.ServiceModel) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.endpoint_prefix is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 90
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.error_shapes is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 73
 def (self: botocore.model.ServiceModel) -> builtins.list[botocore.model.Shape]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.operation_names is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 78
 def (self: botocore.model.ServiceModel) -> builtins.list[builtins.str]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.protocol is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 88
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.service_id is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 82
 def (self: botocore.model.ServiceModel) -> botocore.model.ServiceId
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.service_name is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 80
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.shape_names is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 71
 def (self: botocore.model.ServiceModel) -> builtins.list[builtins.str]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.ServiceModel.signing_name is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 84
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.Shape.metadata is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 30
 def (self: botocore.model.Shape) -> builtins.dict[builtins.str, Any]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.Shape.required_members is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 32
 def (self: botocore.model.Shape) -> builtins.list[botocore.model.Shape]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.Shape.serialization is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 28
 def (self: botocore.model.Shape) -> builtins.dict[builtins.str, Any]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.StringShape.enum is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 58
 def (self: botocore.model.StringShape) -> builtins.list[builtins.str]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.StructureShape.error_code is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 40
 def (self: botocore.model.StructureShape) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.StructureShape.event_stream_name is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 34
 def (self: botocore.model.Shape)
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.StructureShape.is_document_type is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 42
 def (self: botocore.model.StructureShape) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.StructureShape.is_tagged_union is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 44
 def (self: botocore.model.StructureShape) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.model.StructureShape.members is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 38
 def (self: botocore.model.StructureShape) -> builtins.dict[builtins.str, Any]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.api_version is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 86
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.documentation is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 76
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.endpoint_discovery_operation is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 92
 def (self: botocore.model.ServiceModel) -> botocore.model.OperationModel
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.endpoint_discovery_required is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 94
 def (self: botocore.model.ServiceModel) -> builtins.bool
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.endpoint_prefix is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 90
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.error_shapes is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 73
 def (self: botocore.model.ServiceModel) -> builtins.list[botocore.model.Shape]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.operation_names is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 78
 def (self: botocore.model.ServiceModel) -> builtins.list[builtins.str]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.protocol is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 88
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.service_id is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 82
 def (self: botocore.model.ServiceModel) -> botocore.model.ServiceId
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.service_name is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 80
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.shape_names is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 71
 def (self: botocore.model.ServiceModel) -> builtins.list[builtins.str]
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.session.ServiceModel.signing_name is inconsistent, cannot reconcile @property on stub with runtime object
 Stub: at line 84
 def (self: botocore.model.ServiceModel) -> builtins.str
 Runtime:
-<REDACTED>
+<botocore.utils.CachedProperty object at HASH>
 
 error: botocore.version failed to import: No module named 'botocore.version'
 Stub: at line 1
 MypyFile:1(
-  /home/vlad/work/vemel/mypy_boto3_builder/.venv/lib/python3.10/site-packages/botocore-stubs/version.py)
+  ./botocore-stubs/version.py)
 Runtime:
 MISSING

@@ -5,6 +5,7 @@ Check static stubs.
 import argparse
 import difflib
 import logging
+import re
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -18,6 +19,9 @@ EXAMPLES_PATH = ROOT_PATH / "examples"
 SCRIPTS_PATH = ROOT_PATH / "scripts"
 LOGGER_NAME = "check_stubs"
 OUTPUT_PATH = ROOT_PATH / "mypy_boto3_output"
+HASH_RE = re.compile(r"0x[0-9a-f]{12}")
+REPLACE_PATHS: list[str] = [i for i in sys.path if i]
+REPLACE_PATHS.sort(key=lambda x: len(x), reverse=True)
 
 
 class SnapshotMismatchError(Exception):
@@ -126,7 +130,7 @@ class CLINamespace:
     build: bool
     install: bool
     update: bool
-    debug: bool
+    log_level: int
     packages: list[Package]
 
 
@@ -163,7 +167,7 @@ def parse_args() -> CLINamespace:
         install=args.install,
         update=args.update,
         packages=args.packages,
-        debug=args.debug,
+        log_level=logging.DEBUG if args.debug else logging.INFO,
     )
 
 
@@ -216,6 +220,12 @@ def compare(data: str, snapshot_path: Path, update: bool) -> None:
     raise SnapshotMismatchError(f"Snapshot {snapshot_path} is different")
 
 
+def replace_paths(line: str) -> str:
+    for path in REPLACE_PATHS:
+        line = line.replace(path, ".")
+    return line
+
+
 def run_stubtest(package: Package, update: bool) -> None:
     """
     Run `mypy` and compare output.
@@ -233,8 +243,8 @@ def run_stubtest(package: Package, update: bool) -> None:
     for line in output.splitlines():
         if line.endswith("defined here"):
             continue
-        if line.startswith("<"):
-            line = "<REDACTED>"
+        line = HASH_RE.sub("HASH", line)
+        line = replace_paths(line)
         new_data_lines.append(line)
     new_data = "\n".join(new_data_lines)
     compare(new_data, package.snapshot_path, update)
@@ -278,7 +288,7 @@ def main() -> None:
     Main CLI entrypoint.
     """
     args = parse_args()
-    logger = setup_logging(logging.DEBUG if args.debug else logging.INFO)
+    logger = setup_logging(args.log_level)
     if args.build:
         logger.info("Building requirements...")
         build_requirements(args.packages)
