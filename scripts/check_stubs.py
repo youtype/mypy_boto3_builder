@@ -221,6 +221,9 @@ def compare(data: str, snapshot_path: Path, update: bool) -> None:
 
 
 def replace_paths(line: str) -> str:
+    """
+    Replace system paths to avoid snapshot mismatch.
+    """
     for path in REPLACE_PATHS:
         line = line.replace(path, ".")
     return line
