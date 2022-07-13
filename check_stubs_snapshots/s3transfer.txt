@@ -1,0 +1,17 @@
+error: s3transfer.compat.BaseManager.shutdown is not present at runtime
+Stub: at line 97
+def (self: multiprocessing.managers.BaseManager)
+Runtime:
+MISSING
+
+error: s3transfer.processpool.BaseManager.shutdown is not present at runtime
+Stub: at line 97
+def (self: multiprocessing.managers.BaseManager)
+Runtime:
+MISSING
+
+error: s3transfer.processpool.TransferMonitorManager.TransferMonitor is not present in stub
+Stub:
+MISSING
+Runtime: at line 721 in file /home/vlad/.pyenv/versions/3.10.4/lib/python3.10/multiprocessing/managers.py
+<REDACTED>

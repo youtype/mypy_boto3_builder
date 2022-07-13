@@ -6,6 +6,7 @@ from botocore.awsrequest import AWSRequest
 from botocore.compat import HAS_CRT as HAS_CRT
 from botocore.compat import MD5_AVAILABLE as MD5_AVAILABLE
 from botocore.credentials import Credentials, ReadOnlyCredentials
+from botocore.crt.auth import CRT_AUTH_TYPE_MAPS as CRT_AUTH_TYPE_MAPS
 
 _CredentialsUnion = Union[Credentials, ReadOnlyCredentials]
 

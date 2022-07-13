@@ -8,6 +8,7 @@ import json
 import logging
 import subprocess
 import sys
+from dataclasses import dataclass
 from pathlib import Path
 
 from mypy_boto3_builder.utils.nice_path import NicePath
@@ -17,7 +18,7 @@ EXAMPLES_PATH = ROOT_PATH / "examples"
 PYRIGHT_SNAPSHOTS_PATH = EXAMPLES_PATH / "pyright"
 MYPY_SNAPSHOTS_PATH = EXAMPLES_PATH / "mypy"
 SCRIPTS_PATH = ROOT_PATH / "scripts"
-LOGGER_NAME = "int"
+LOGGER_NAME = "integration"
 
 
 class SnapshotMismatchError(Exception):
@@ -31,11 +32,10 @@ def setup_logging(level: int = 0) -> logging.Logger:
     Get Logger instance.
 
     Arguments:
-        verbose -- Set log level to DEBUG.
-        panic -- Raise RuntimeError on warning.
+        level -- Logging level
 
     Returns:
-        Overriden Logger.
+        Created Logger.
     """
     logger = logging.getLogger(LOGGER_NAME)
     stream_handler = logging.StreamHandler()
@@ -47,7 +47,18 @@ def setup_logging(level: int = 0) -> logging.Logger:
     return logger
 
 
-def parse_args() -> argparse.Namespace:
+@dataclass
+class CLINamespace:
+    """
+    CLI namespace.
+    """
+
+    fast: bool
+    update: bool
+    services: list[str]
+
+
+def parse_args() -> CLINamespace:
     """
     CLI parser.
     """
@@ -55,7 +66,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("-f", "--fast", action="store_true")
     parser.add_argument("-u", "--update", action="store_true")
     parser.add_argument("services", nargs="*")
-    return parser.parse_args()
+    args = parser.parse_args()
+    return CLINamespace(
+        fast=args.fast,
+        update=args.update,
+        services=args.services,
+    )
 
 
 def check_call(cmd: list[str]) -> None:
@@ -175,8 +191,7 @@ def main() -> None:
     Main CLI entrypoint.
     """
     args = parse_args()
-    setup_logging(logging.INFO)
-    logger = logging.getLogger(LOGGER_NAME)
+    logger = setup_logging(logging.INFO)
     if not args.fast:
         logger.info("Installing master...")
         install_master()

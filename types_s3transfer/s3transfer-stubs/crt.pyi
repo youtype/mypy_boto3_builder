@@ -14,9 +14,10 @@ from typing import (
     Union,
 )
 
-from awscrt.auth import AwsCredentials
-from awscrt.http import HttpRequest
-from awscrt.s3 import S3Client, S3Request
+# FIXME: awscrt is untyped
+from awscrt.auth import AwsCredentials  # type: ignore
+from awscrt.http import HttpRequest  # type: ignore
+from awscrt.s3 import S3Client, S3Request  # type: ignore
 from botocore.credentials import CredentialProvider
 from botocore.session import Session
 from s3transfer.constants import GB as GB
@@ -41,7 +42,7 @@ def create_s3_crt_client(
     region: str,
     botocore_credential_provider: Optional[CredentialProvider] = ...,
     num_threads: Optional[int] = ...,
-    target_throughput: int = ...,
+    target_throughput: float = ...,
     part_size: int = ...,
     use_ssl: bool = ...,
     verify: Optional[Union[bool, str]] = ...,

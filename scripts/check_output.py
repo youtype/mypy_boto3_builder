@@ -13,6 +13,8 @@ import logging
 import subprocess
 import sys
 import tempfile
+from dataclasses import dataclass
+from importlib.resources import Package
 from pathlib import Path
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
@@ -64,14 +66,28 @@ def setup_logging(level: int) -> logging.Logger:
     return logger
 
 
-def parse_args() -> argparse.Namespace:
+@dataclass
+class CLINamespace:
+    """
+    CLI namespace.
+    """
+
+    path: Path
+    services: list[str]
+
+
+def parse_args() -> CLINamespace:
     """
     Setup CLI parser.
     """
     parser = argparse.ArgumentParser(__file__)
     parser.add_argument("-p", "--path", type=Path, default=ROOT_PATH / "mypy_boto3_output")
     parser.add_argument("services", nargs="*")
-    return parser.parse_args()
+    args = parser.parse_args()
+    return CLINamespace(
+        path=args.path,
+        services=args.services,
+    )
 
 
 def run_flake8(path: Path) -> None:
@@ -182,33 +198,43 @@ def is_package_dir(path: Path) -> bool:
     return False
 
 
+def check_snapshot(path: Path) -> None:
+    """
+    Check package type checkers snapshot.
+
+    Raises:
+        SnapshotMismatchError -- If snapshot is not equal to current output.
+    """
+    logger = logging.getLogger(LOGGER_NAME)
+    logger.debug(f"Running call for {path.name} ...")
+    run_call(path)
+    logger.debug(f"Running mypy for {path.name} ...")
+    run_mypy(path)
+    logger.debug(f"Running flake8 for {path.name} ...")
+    run_flake8(path)
+    logger.debug(f"Running pyright for {path.name} ...")
+    run_pyright(path)
+
+
 def main() -> None:
     """
     Main CLI entrypoint.
     """
     args = parse_args()
     logger = setup_logging(logging.INFO)
-    path: Path = args.path
     has_errors = False
-    for folder in sorted(path.iterdir()):
+    for folder in sorted(args.path.iterdir()):
         if not folder.name.endswith("_package"):
             continue
-        for package in folder.iterdir():
-            if not is_package_dir(package):
+        for package_path in folder.iterdir():
+            if not is_package_dir(package_path):
                 continue
             if args.services:
-                if not any(s in package.name for s in args.services):
+                if not any(s in package_path.name for s in args.services):
                     continue
-            logger.info(f"Checking {package.name} ...")
+            logger.info(f"Checking {package_path.name} ...")
             try:
-                logger.debug(f"Running call for {package.name} ...")
-                run_call(package)
-                logger.debug(f"Running mypy for {package.name} ...")
-                run_mypy(package)
-                logger.debug(f"Running flake8 for {package.name} ...")
-                run_flake8(package)
-                logger.debug(f"Running pyright for {package.name} ...")
-                run_pyright(package)
+                check_snapshot(package_path)
             except SnapshotMismatchError as e:
                 logger.error(e)
                 has_errors = True

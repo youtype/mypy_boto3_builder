@@ -1,4 +1,4 @@
-name: Botocore stubs check
+name: Check stubs
 
 on:
   schedule:
@@ -10,7 +10,7 @@ on:
         required: false
 
 jobs:
-  stubs-check:
+  check-stubs:
     env:
       PIP_NO_CACHE_DIR: false
       PIP_USER: 1
@@ -39,6 +39,6 @@ jobs:
           BOTOCORE_VERSION: ${{ steps.vars.outputs.botocore-version }}
         run: |
           poetry run pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
-      - name: Check stubs
+      - name: Check boto3 stubs
         run: |
-          ./scripts/check_stubs.sh
+          poetry run ./scripts/check_stubs.py -bid boto3 botocore s3transfer

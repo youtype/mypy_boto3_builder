@@ -9,6 +9,7 @@ from typing import (
     List,
     Optional,
     Sequence,
+    Tuple,
     Type,
     TypeVar,
 )
@@ -25,7 +26,7 @@ MAX_PARTS: int
 MAX_SINGLE_UPLOAD_SIZE: int
 MIN_UPLOAD_CHUNKSIZE: int
 logger: logging.Logger
-S3_RETRYABLE_DOWNLOAD_ERRORS: List[Type[BaseException]]
+S3_RETRYABLE_DOWNLOAD_ERRORS: Tuple[Type[BaseException], ...]
 
 def random_file_extension(num_digits: int = ...) -> str: ...
 def signal_not_transferring(request: AWSRequest, operation_name: str, **kwargs: Any) -> None: ...

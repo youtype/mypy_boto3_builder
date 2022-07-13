@@ -1,6 +1,7 @@
 from typing import Dict
 
-from awscrt.auth import AwsCredentials
+# FIXME: awscrt is untyped
+from awscrt.auth import AwsCredentials  # type: ignore
 from botocore.auth import SIGNED_HEADERS_BLACKLIST as SIGNED_HEADERS_BLACKLIST
 from botocore.auth import STREAMING_UNSIGNED_PAYLOAD_TRAILER as STREAMING_UNSIGNED_PAYLOAD_TRAILER
 from botocore.auth import UNSIGNED_PAYLOAD as UNSIGNED_PAYLOAD
