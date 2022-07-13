@@ -1,7 +1,6 @@
 import logging
 from typing import IO, Any, BinaryIO, Callable, Dict, List, Optional, Sequence
 
-from _typeshed import Incomplete
 from boto3.s3.transfer import S3TransferConfig as S3TransferConfig
 
 logger: logging.Logger
@@ -16,8 +15,8 @@ async def download_file(
     Key: str,
     Filename: str,
     ExtraArgs: Optional[List[str]] = ...,
-    Callback: Incomplete | None = ...,
-    Config: Incomplete | None = ...,
+    Callback: Optional[Callable[[int], None]] = ...,
+    Config: Optional[S3TransferConfig] = ...,
 ) -> None: ...
 async def download_fileobj(
     self: Any,

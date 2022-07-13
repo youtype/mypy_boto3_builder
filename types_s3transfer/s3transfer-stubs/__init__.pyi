@@ -1,6 +1,6 @@
 import logging
 from queue import Queue
-from typing import IO, Any, Callable, Dict, Iterator, List, Optional, Type, TypeVar
+from typing import IO, Any, Callable, Dict, Iterator, List, Mapping, Optional, Type, TypeVar
 
 from botocore.client import BaseClient
 from s3transfer.exceptions import RetriesExceededError as RetriesExceededError
@@ -75,7 +75,7 @@ class MultipartUploader:
         bucket: str,
         key: str,
         callback: Callable[..., Any],
-        extra_args: Dict[str, Any],
+        extra_args: Mapping[str, Any],
     ) -> None: ...
 
 class ShutdownQueue(Queue[Any]):

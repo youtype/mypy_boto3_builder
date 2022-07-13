@@ -57,6 +57,7 @@ def compat_shell_split(s: Any, platform: Optional[Any] = ...) -> Any: ...
 def get_tzinfo_options() -> Any: ...
 
 HAS_CRT: bool
+disabled: str
 IPV4_PAT: str
 HEX_PAT: str
 LS32_PAT: str
