@@ -15,9 +15,9 @@ Constants and paths.
 
 - `DUMMY_REGION` - Random region to initialize services: `'us-west-2'`
 - `TEMPLATES_PATH` - Jinja2 templates for boto3-stubs: `Path(__file__).parent / 'templates'`
-- `BOTO3_STUBS_STATIC_PATH` - Static *.pyi files for boto3-stubs: `Path(__file__).parent / 'boto3_stubs_static'`
-- `BOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for botocore-stubs: `Path(__file__).parent / 'botocore_stubs_static'`
-- `AIOBOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for aiobotocore-stubs: `Path(__file__).parent / 'aiobotocore_stubs_static'`
+- `BOTO3_STUBS_STATIC_PATH` - Static *.pyi files for boto3-stubs: `Path(__file__).parent / 'stubs_static' / 'boto3'`
+- `BOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for botocore-stubs: `Path(__file__).parent / 'stubs_static' / 'botocore'`
+- `AIOBOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for aiobotocore-stubs: `Path(__file__).parent / 'stubs_static' / 'aiobotocore'`
 - `LINE_LENGTH` - Max line length for boto3 docs: `100`
 - `BUILDER_REPO_URL` - mypy-boto3-builder GitHub link: `'https://github.com/youtype/mypy_boto3_builder'`
 - `LOGGER_NAME` - Main logger name: `'mypy_boto3_builder'`

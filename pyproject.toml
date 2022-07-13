@@ -129,6 +129,7 @@ exclude = [
     "**/__pycache__",
     "tests",
     "typestubs",
+    "mypy_boto3_builder/stubs_static/aioboto3",
 ]
 reportMissingImports = "error"
 reportMissingTypeStubs = false

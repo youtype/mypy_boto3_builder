@@ -20,6 +20,7 @@ Builder for `mypy_boto3`.
         - [Postprocessors](postprocessors/index.md#postprocessors)
         - [ServiceName](service_name.md#servicename)
         - [Structures](structures/index.md#structures)
+        - [Stubs Static](stubs_static/index.md#stubs-static)
         - [Type Annotations](type_annotations/index.md#type-annotations)
         - [Type Maps](type_maps/index.md#type-maps)
         - [Utils](utils/index.md#utils)

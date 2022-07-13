@@ -68,6 +68,7 @@ Full list of [mypy-boto3-builder](README.md#mypy_boto3_builder) project modules.
         - [ServicePackage](mypy_boto3_builder/structures/service_package.md#servicepackage)
         - [ServiceResource](mypy_boto3_builder/structures/service_resource.md#serviceresource)
         - [Waiter](mypy_boto3_builder/structures/waiter.md#waiter)
+    - [Stubs Static](mypy_boto3_builder/stubs_static/index.md#stubs-static)
     - [Type Annotations](mypy_boto3_builder/type_annotations/index.md#type-annotations)
         - [ExternalImport](mypy_boto3_builder/type_annotations/external_import.md#externalimport)
         - [FakeAnnotation](mypy_boto3_builder/type_annotations/fake_annotation.md#fakeannotation)

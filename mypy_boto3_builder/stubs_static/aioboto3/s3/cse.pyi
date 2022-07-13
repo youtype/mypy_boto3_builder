@@ -1,10 +1,11 @@
 import asyncio
-from typing import IO, Any, Dict, Optional, Tuple, Union
+from typing import IO, Any, Dict, Optional, Tuple, TypeVar, Union
 
-from _typeshed import Incomplete
 from cryptography.hazmat.backends.openssl.rsa import _RSAPrivateKey, _RSAPublicKey
 
-RANGE_REGEX: Incomplete
+_R = TypeVar("_R")
+
+RANGE_REGEX: Any
 AES_BLOCK_SIZE: int
 AES_BLOCK_SIZE_BYTES: int
 JAVA_LONG_MAX_VALUE: int
@@ -12,10 +13,10 @@ JAVA_LONG_MAX_VALUE: int
 class DummyAIOFile:
     file: IO[Any]
     def __init__(self, data: bytes) -> None: ...
-    async def read(self, n: int = ...): ...
-    async def readany(self): ...
-    async def readexactly(self, n): ...
-    async def readchunk(self): ...
+    async def read(self, n: int = ...) -> bytes: ...
+    async def readany(self) -> bytes: ...
+    async def readexactly(self, n: int) -> bytes: ...
+    async def readchunk(self) -> bytes: ...
 
 class DecryptError(Exception): ...
 
@@ -28,8 +29,8 @@ class CryptoContext:
     async def get_encryption_aes_key(self) -> Tuple[bytes, Dict[str, str], str]: ...
 
 class AsymmetricCryptoContext(CryptoContext):
-    public_key: Incomplete
-    private_key: Incomplete
+    public_key: _RSAPublicKey
+    private_key: _RSAPrivateKey
     def __init__(
         self,
         public_key: Optional[_RSAPublicKey] = ...,
@@ -46,7 +47,7 @@ class AsymmetricCryptoContext(CryptoContext):
     def from_der_private_key(data: bytes, password: Optional[str] = ...) -> _RSAPrivateKey: ...
 
 class SymmetricCryptoContext(CryptoContext):
-    key: Incomplete
+    key: bytes
     def __init__(self, key: bytes, loop: Optional[asyncio.AbstractEventLoop] = ...) -> None: ...
     async def get_decryption_aes_key(
         self, key: bytes, material_description: Dict[str, Any]
@@ -54,12 +55,12 @@ class SymmetricCryptoContext(CryptoContext):
     async def get_encryption_aes_key(self) -> Tuple[bytes, Dict[str, str], str]: ...
 
 class KMSCryptoContext(CryptoContext):
-    kms_key: Incomplete
-    authenticated_encryption: Incomplete
+    kms_key: str
+    authenticated_encryption: bool
     def __init__(
         self,
         keyid: Optional[str] = ...,
-        kms_client_args: Optional[dict] = ...,
+        kms_client_args: Optional[Dict[str, Any]] = ...,
         authenticated_encryption: bool = ...,
     ) -> None: ...
     async def setup(self) -> None: ...
@@ -70,14 +71,14 @@ class KMSCryptoContext(CryptoContext):
     async def get_encryption_aes_key(self) -> Tuple[bytes, Dict[str, str], str]: ...
 
 class MockKMSCryptoContext(KMSCryptoContext):
-    aes_key: Incomplete
-    material_description: Incomplete
-    encrypted_key: Incomplete
-    authenticated_encryption: Incomplete
+    aes_key: bytes
+    material_description: Dict[str, Any]
+    encrypted_key: bytes
+    authenticated_encryption: bool
     def __init__(
         self,
         aes_key: bytes,
-        material_description: dict,
+        material_description: Dict[str, Any],
         encrypted_key: bytes,
         authenticated_encryption: bool = ...,
     ) -> None: ...
@@ -90,13 +91,18 @@ class MockKMSCryptoContext(KMSCryptoContext):
 
 class S3CSE:
     def __init__(
-        self, crypto_context: CryptoContext, s3_client_args: Optional[dict] = ...
+        self, crypto_context: CryptoContext, s3_client_args: Optional[Dict[str, Any]] = ...
     ) -> None: ...
     async def setup(self) -> None: ...
     async def close(self) -> None: ...
-    async def __aenter__(self): ...
-    async def __aexit__(self, exc_type, exc_val, exc_tb) -> None: ...
-    async def get_object(self, Bucket: str, Key: str, **kwargs) -> dict: ...
+    async def __aenter__(self: _R) -> _R: ...
+    async def __aexit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None: ...
+    async def get_object(self, Bucket: str, Key: str, **kwargs: Any) -> Dict[str, Any]: ...
     async def put_object(
-        self, Body: Union[bytes, IO], Bucket: str, Key: str, Metadata: Dict = ..., **kwargs
-    ): ...
+        self,
+        Body: Union[bytes, IO[Any]],
+        Bucket: str,
+        Key: str,
+        Metadata: Dict[str, Any] = ...,
+        **kwargs: Any,
+    ) -> Any: ...

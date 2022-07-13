@@ -1,0 +1,3 @@
+"""
+Static type annotations.
+"""

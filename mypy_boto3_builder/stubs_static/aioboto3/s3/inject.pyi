@@ -1,16 +1,60 @@
+import logging
+from typing import IO, Any, BinaryIO, Callable, Dict, List, Optional, Sequence
+
 from _typeshed import Incomplete
 from boto3.s3.transfer import S3TransferConfig as S3TransferConfig
-from typing import Any, BinaryIO, Callable, Dict, Optional
 
-logger: Incomplete
+logger: logging.Logger
 
-def inject_s3_transfer_methods(class_attributes, **kwargs) -> None: ...
-def inject_object_summary_methods(class_attributes, **kwargs) -> None: ...
-def inject_bucket_methods(class_attributes, **kwargs) -> None: ...
-async def object_summary_load(self, *args, **kwargs) -> None: ...
-async def download_file(self, Bucket, Key, Filename, ExtraArgs: Incomplete | None = ..., Callback: Incomplete | None = ..., Config: Incomplete | None = ...) -> None: ...
-async def download_fileobj(self, Bucket, Key, Fileobj, ExtraArgs: Incomplete | None = ..., Callback: Incomplete | None = ..., Config: Incomplete | None = ...) -> None: ...
-async def upload_fileobj(self, Fileobj: BinaryIO, Bucket: str, Key: str, ExtraArgs: Optional[Dict[str, Any]] = ..., Callback: Optional[Callable[[int], None]] = ..., Config: Optional[S3TransferConfig] = ..., Processing: Callable[[bytes], bytes] = ...): ...
-async def upload_file(self, Filename, Bucket, Key, ExtraArgs: Incomplete | None = ..., Callback: Incomplete | None = ..., Config: Incomplete | None = ...) -> None: ...
-async def copy(self, CopySource, Bucket, Key, ExtraArgs: Incomplete | None = ..., Callback: Incomplete | None = ..., SourceClient: Incomplete | None = ..., Config: Incomplete | None = ...) -> None: ...
-async def bucket_load(self, *args, **kwargs) -> None: ...
+def inject_s3_transfer_methods(class_attributes: Sequence[Any], **kwargs: Any) -> None: ...
+def inject_object_summary_methods(class_attributes: Sequence[Any], **kwargs: Any) -> None: ...
+def inject_bucket_methods(class_attributes: Sequence[Any], **kwargs: Any) -> None: ...
+async def object_summary_load(self: Any, *args: Any, **kwargs: Any) -> None: ...
+async def download_file(
+    self: Any,
+    Bucket: str,
+    Key: str,
+    Filename: str,
+    ExtraArgs: Optional[List[str]] = ...,
+    Callback: Incomplete | None = ...,
+    Config: Incomplete | None = ...,
+) -> None: ...
+async def download_fileobj(
+    self: Any,
+    Bucket: str,
+    Key: str,
+    Fileobj: IO[Any],
+    ExtraArgs: Optional[Dict[str, Any]] = ...,
+    Callback: Optional[Callable[[int], None]] = ...,
+    Config: Optional[S3TransferConfig] = ...,
+) -> None: ...
+async def upload_fileobj(
+    self: Any,
+    Fileobj: BinaryIO,
+    Bucket: str,
+    Key: str,
+    ExtraArgs: Optional[Dict[str, Any]] = ...,
+    Callback: Optional[Callable[[int], None]] = ...,
+    Config: Optional[S3TransferConfig] = ...,
+    Processing: Callable[[bytes], bytes] = ...,
+) -> Any: ...
+async def upload_file(
+    self: Any,
+    Filename: str,
+    Bucket: str,
+    Key: str,
+    ExtraArgs: Optional[Dict[str, Any]] = ...,
+    Callback: Optional[Callable[[int], None]] = ...,
+    Config: Optional[S3TransferConfig] = ...,
+) -> None: ...
+async def copy(
+    self: Any,
+    CopySource: Any,
+    Bucket: str,
+    Key: str,
+    ExtraArgs: Optional[Dict[str, Any]] = ...,
+    Callback: Optional[Callable[[int], None]] = ...,
+    SourceClient: Optional[Any] = ...,
+    Config: Optional[S3TransferConfig] = ...,
+) -> None: ...
+async def bucket_load(self: Any, *args: Any, **kwargs: Any) -> None: ...
