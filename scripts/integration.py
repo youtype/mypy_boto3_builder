@@ -195,6 +195,7 @@ def main() -> None:
     if not args.fast:
         logger.info("Installing master...")
         install_master()
+    error: BaseException | None = None
     for file in EXAMPLES_PATH.iterdir():
         if "_example.py" not in file.name:
             continue
@@ -213,7 +214,10 @@ def main() -> None:
             run_pyright(file, args.update)
         except SnapshotMismatchError as e:
             logger.error(e)
-            exit(1)
+            error = e
+    if error:
+        logger.error(error)
+        exit(1)
 
 
 if __name__ == "__main__":
