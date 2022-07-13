@@ -1,6 +1,6 @@
 [tool.black]
 line-length = 100
-include = '(mypy_boto3_builder|tests)/.*\.pyi?$'
+include = '(mypy_boto3_builder|types_s3transfer|tests)/.*\.pyi?$'
 target-version = [
     'py36',
     'py37',
@@ -131,6 +131,7 @@ exclude = [
     "tests",
     "typestubs",
     "mypy_boto3_builder/stubs_static/aioboto3",
+    "mypy_boto3_builder/stubs_static/botocore/crt",
 ]
 reportMissingImports = "error"
 reportMissingTypeStubs = false
