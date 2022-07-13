@@ -1,8 +1,8 @@
-from _typeshed import Incomplete
+from typing import List
 
 KB: int
-MB: Incomplete
-GB: Incomplete
-ALLOWED_DOWNLOAD_ARGS: Incomplete
-USER_AGENT: Incomplete
-PROCESS_USER_AGENT: Incomplete
+MB: int
+GB: int
+ALLOWED_DOWNLOAD_ARGS: List[str]
+USER_AGENT: str
+PROCESS_USER_AGENT: str
