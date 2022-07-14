@@ -2,7 +2,7 @@ from typing import Any, List, Optional, Union
 
 from aioboto3.resources.base import AIOBoto3ServiceResource
 from aioboto3.resources.factory import AIOBoto3ResourceFactory
-from aiobotocore.client import AioBaseClient as AioBaseClient
+from aiobotocore.client import AioBaseClient
 from aiobotocore.config import AioConfig
 from botocore.credentials import Credentials
 from botocore.loaders import Loader
@@ -42,17 +42,17 @@ class Session:
     ) -> List[str]: ...
     def get_credentials(self) -> Credentials: ...
     def _register_default_handlers(self) -> None: ...
-    def create_client(  # type: ignore
+    def client(  # type: ignore
         self,
         service_name: str,
         region_name: Optional[str] = ...,
+        api_version: Optional[str] = ...,
         use_ssl: Optional[bool] = ...,
-        endpoint_url: Optional[str] = ...,
         verify: Union[str, bool, None] = ...,
+        endpoint_url: Optional[str] = ...,
         aws_access_key_id: Optional[str] = ...,
         aws_secret_access_key: Optional[str] = ...,
         aws_session_token: Optional[str] = ...,
-        api_version: Optional[str] = ...,
         config: Optional[AioConfig] = ...,
     ) -> AioBaseClient: ...
     def resource(
