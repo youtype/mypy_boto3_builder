@@ -54,7 +54,18 @@ def get_aiobotocore_version() -> str:
     Get aiobotocore package version.
     """
     try:
-        from aiobotocore import __version__
+        from aiobotocore import __version__ as version
     except (ModuleNotFoundError, ImportError):
-        return "2.1.1"
-    return __version__
+        raise RuntimeError("aiobotocore is not installed")
+    return version
+
+
+def get_aioboto3_version() -> str:
+    """
+    Get aioboto3 package version.
+    """
+    try:
+        from aioboto3 import __version__ as version
+    except (ModuleNotFoundError, ImportError):
+        raise RuntimeError("aioboto3 is not installed")
+    return version

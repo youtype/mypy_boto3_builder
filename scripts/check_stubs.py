@@ -8,8 +8,7 @@ import logging
 import re
 import subprocess
 import sys
-from dataclasses import dataclass
-from enum import Enum
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from mypy_boto3_builder.utils.nice_path import NicePath
@@ -20,8 +19,20 @@ SCRIPTS_PATH = ROOT_PATH / "scripts"
 LOGGER_NAME = "check_stubs"
 OUTPUT_PATH = ROOT_PATH / "mypy_boto3_output"
 HASH_RE = re.compile(r"0x[0-9a-f]{12}")
-REPLACE_PATHS: list[str] = [i for i in sys.path if i]
-REPLACE_PATHS.sort(key=lambda x: len(x), reverse=True)
+
+
+def get_replace_paths() -> list[str]:
+    """
+    Generate a list of paths to replace in snapshot.
+    """
+    root_path = f"{ROOT_PATH.as_posix()}/"
+    result = [*sys.path, *[i.replace(root_path, "") for i in sys.path]]
+    result = list(filter(lambda x: "/" in x, result))
+    result.sort(key=lambda x: len(x), reverse=True)
+    return result
+
+
+REPLACE_PATHS = get_replace_paths()
 
 
 class SnapshotMismatchError(Exception):
@@ -57,8 +68,9 @@ class Package:
     """
 
     name: str
-    build_cmd: tuple[str, ...] | None
     requirements: list[Path]
+    products: set[str] = field(default_factory=set)
+    uninstall: set[str] = field(default_factory=set)
 
     def __repr__(self) -> str:
         return self.name
@@ -68,36 +80,11 @@ class Package:
         return ROOT_PATH / "check_stubs_snapshots" / f"{self.name}.txt"
 
 
-class PackageEnum(Enum):
-    boto3 = Package(
-        name="boto3",
-        build_cmd=((SCRIPTS_PATH / "build.sh").as_posix(), "--product", "boto3"),
-        requirements=[
-            ROOT_PATH / "types_s3transfer",
-            OUTPUT_PATH / "boto3_stubs_lite_package",
-            OUTPUT_PATH / "botocore_stubs_package",
-        ],
-    )
-    botocore = Package(
-        name="botocore",
-        build_cmd=((SCRIPTS_PATH / "build.sh").as_posix(), "--product", "boto3"),
-        requirements=[
-            OUTPUT_PATH / "botocore_stubs_package",
-        ],
-    )
-    s3transfer = Package(
-        name="s3transfer",
-        build_cmd=None,
-        requirements=[
-            ROOT_PATH / "types_s3transfer",
-        ],
-    )
-
-
 PACKAGES: list[Package] = [
     Package(
         name="boto3",
-        build_cmd=((SCRIPTS_PATH / "build.sh").as_posix(), "--product", "boto3"),
+        products={"boto3"},
+        uninstall={"boto3-stubs"},
         requirements=[
             ROOT_PATH / "types_s3transfer",
             OUTPUT_PATH / "boto3_stubs_lite_package",
@@ -106,16 +93,32 @@ PACKAGES: list[Package] = [
     ),
     Package(
         name="botocore",
-        build_cmd=((SCRIPTS_PATH / "build.sh").as_posix(), "--product", "boto3"),
+        products={"boto3"},
         requirements=[
             OUTPUT_PATH / "botocore_stubs_package",
         ],
     ),
     Package(
         name="s3transfer",
-        build_cmd=None,
         requirements=[
             ROOT_PATH / "types_s3transfer",
+        ],
+    ),
+    Package(
+        name="aioboto3",
+        products={"aioboto3", "aiobotocore"},
+        uninstall={"types-aioboto3"},
+        requirements=[
+            ROOT_PATH / "types_s3transfer",
+            OUTPUT_PATH / "types_aiobotocore_lite_package",
+            OUTPUT_PATH / "types_aioboto3_lite_package",
+        ],
+    ),
+    Package(
+        name="aiobotocore",
+        products={"aiobotocore"},
+        requirements=[
+            OUTPUT_PATH / "types_aiobotocore_lite_package",
         ],
     ),
 ]
@@ -127,6 +130,7 @@ class CLINamespace:
     CLI namespace.
     """
 
+    clean: bool
     build: bool
     install: bool
     update: bool
@@ -150,19 +154,20 @@ def parse_args() -> CLINamespace:
     CLI parser.
     """
     parser = argparse.ArgumentParser(__file__)
-    parser.add_argument("-b", "--build", action="store_true", help="Generate pacakges")
+    parser.add_argument("-c", "--clean", action="store_true", help="Uninstall full packages")
+    parser.add_argument("-b", "--build", action="store_true", help="Generate packages")
     parser.add_argument("-i", "--install", action="store_true", help="Install packages")
     parser.add_argument("-u", "--update", action="store_true", help="Update snapshots")
     parser.add_argument("-d", "--debug", action="store_true", help="Verbose output")
     parser.add_argument(
         "packages",
         type=get_package,
-        nargs="*",
-        default=PACKAGES,
+        nargs="+",
         help="Packages to check",
     )
     args = parser.parse_args()
     return CLINamespace(
+        clean=args.clean,
         build=args.build,
         install=args.install,
         update=args.update,
@@ -233,6 +238,7 @@ def run_stubtest(package: Package, update: bool) -> None:
     """
     Run `mypy` and compare output.
     """
+    logger = logging.getLogger(LOGGER_NAME)
     try:
         output = subprocess.check_output(
             [sys.executable, "-m", "mypy.stubtest", package.name],
@@ -258,17 +264,23 @@ def build_requirements(packages: list[Package]) -> None:
     Install requirements.
     """
     logger = logging.getLogger(LOGGER_NAME)
-    build_cmds = []
+    products = set()
     for package in packages:
-        if not package.build_cmd:
-            continue
-        if package.build_cmd in build_cmds:
-            continue
-        build_cmds.append(package.build_cmd)
+        products.update(package.products)
 
-    for build_cmd in build_cmds:
-        logger.debug(f"  Running {' '.join(build_cmd)}")
-        check_call(build_cmd)
+    if not products:
+        return
+
+    build_cmd = [
+        sys.executable,
+        "-m",
+        "mypy_boto3_builder",
+        OUTPUT_PATH.as_posix(),
+        "--product",
+        *sorted(products),
+    ]
+    logger.debug(f"  Running {' '.join(build_cmd)}")
+    check_call(build_cmd)
 
 
 def install_requirements(packages: list[Package]) -> None:
@@ -292,6 +304,13 @@ def main() -> None:
     """
     args = parse_args()
     logger = setup_logging(args.log_level)
+    if args.clean:
+        uninstall = set()
+        for package in args.packages:
+            uninstall.update(package.uninstall)
+
+        logger.info("Uninstalling stubs...")
+        check_call([sys.executable, "-m", "pip", "uninstall", "-y", *sorted(uninstall)])
     if args.build:
         logger.info("Building requirements...")
         build_requirements(args.packages)

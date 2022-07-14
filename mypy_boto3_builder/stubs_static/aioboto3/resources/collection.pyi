@@ -1,9 +1,9 @@
 import logging
 from typing import Any, Iterator, List
 
-from aioboto3.resources.factory import ResourceFactory
 from boto3.resources.base import ServiceResource
 from boto3.resources.collection import CollectionFactory, CollectionManager, ResourceCollection
+from boto3.resources.factory import ResourceFactory
 from boto3.resources.model import Collection
 from boto3.utils import ServiceContext
 from botocore.hooks import BaseEventHooks
@@ -20,8 +20,8 @@ class AIOResourceCollection(ResourceCollection):
 
     async def __anext__(self) -> Iterator[Any]: ...
     def __aiter__(self) -> Iterator[Any]: ...
-    def __iter__(self) -> None: ...
-    async def pages(self) -> Iterator[List[Any]]: ...
+    def __iter__(self) -> Iterator[Any]: ...
+    async def pages(self) -> Iterator[List[Any]]: ...  # type: ignore
 
 class AIOCollectionManager(CollectionManager):
     def __init__(

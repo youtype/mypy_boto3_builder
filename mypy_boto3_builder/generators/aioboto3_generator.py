@@ -1,29 +1,25 @@
 """
-AioBotocore stubs/docs generator.
+AioBoto3 stubs generator.
 """
 from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
-from mypy_boto3_builder.package_data import (
-    TypesAioBotocoreLitePackageData,
-    TypesAioBotocorePackageData,
-)
+from mypy_boto3_builder.package_data import TypesAioBoto3LitePackageData, TypesAioBoto3PackageData
 from mypy_boto3_builder.postprocessors.aiobotocore import AioBotocorePostprocessor
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.version import get_aiobotocore_version
-from mypy_boto3_builder.writers.aiobotocore_processors import (
-    process_aiobotocore_stubs,
-    process_aiobotocore_stubs_docs,
-    process_aiobotocore_stubs_lite,
+from mypy_boto3_builder.writers.aioboto3_processors import (
+    process_types_aioboto3,
+    process_types_aioboto3_lite,
 )
 
 
-class AioBotocoreGenerator(BaseGenerator):
+class AioBoto3Generator(BaseGenerator):
     """
-    AioBotocore stubs/docs generator.
+    AioBoto3 stubs generator.
     """
 
-    service_package_data = TypesAioBotocorePackageData
-    service_template_path = TEMPLATES_PATH / "aiobotocore_service"
+    service_package_data = TypesAioBoto3PackageData
+    service_template_path = TEMPLATES_PATH / "aioboto3_service"
 
     def get_library_version(self) -> str:
         """
@@ -39,19 +35,19 @@ class AioBotocoreGenerator(BaseGenerator):
 
     def generate_stubs(self) -> None:
         """
-        Generate `aiobotocore-stubs` package.
+        Generate `types-aioboto3` package.
         """
         self._generate_stubs()
         self._generate_stubs_lite()
 
     def _generate_stubs(self) -> None:
-        package_data = TypesAioBotocorePackageData
+        package_data = TypesAioBoto3PackageData
         version = self._get_package_version(package_data.PYPI_NAME, self.version)
         if not version:
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        process_aiobotocore_stubs(
+        process_types_aioboto3(
             self.session,
             self.output_path,
             self.master_service_names,
@@ -60,13 +56,13 @@ class AioBotocoreGenerator(BaseGenerator):
         )
 
     def _generate_stubs_lite(self) -> None:
-        package_data = TypesAioBotocoreLitePackageData
+        package_data = TypesAioBoto3LitePackageData
         version = self._get_package_version(package_data.PYPI_NAME, self.version)
         if not version:
             return
 
         self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        process_aiobotocore_stubs_lite(
+        process_types_aioboto3_lite(
             self.session,
             self.output_path,
             self.master_service_names,
@@ -76,23 +72,10 @@ class AioBotocoreGenerator(BaseGenerator):
 
     def generate_docs(self) -> None:
         """
-        Generate service and master docs.
+        Do nothing.
         """
-        total_str = f"{len(self.service_names)}"
 
-        self.logger.info(f"Generating {TypesAioBotocorePackageData.PYPI_NAME} module docs")
-        process_aiobotocore_stubs_docs(
-            self.session,
-            self.output_path,
-            self.service_names,
-        )
-
-        for index, service_name in enumerate(self.service_names):
-            current_str = f"{{:0{len(total_str)}}}".format(index + 1)
-            package_name = TypesAioBotocorePackageData.get_service_package_name(service_name)
-            self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} module docs")
-            self._process_service_docs(
-                service_name=service_name,
-                package_data=TypesAioBotocorePackageData,
-                templates_path=TEMPLATES_PATH / "aiobotocore_service_docs",
-            )
+    def generate_service_stubs(self) -> None:
+        """
+        Do nothing.
+        """

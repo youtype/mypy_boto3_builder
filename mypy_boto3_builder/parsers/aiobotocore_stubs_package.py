@@ -4,11 +4,10 @@ Parser that produces `structures.AioBotocoreStubsPackage`.
 from collections.abc import Iterable
 
 from boto3.session import Session
-from botocore.config import Config
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
-from mypy_boto3_builder.package_data import BasePackageData, TypesAioBotocorePackageData
+from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.fake_service_package import parse_fake_service_package
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.aiobotocore_stubs_package import AioBotocoreStubsPackage
@@ -17,7 +16,6 @@ from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
@@ -26,11 +24,12 @@ def parse_aiobotocore_stubs_package(
     session: Session, service_names: Iterable[ServiceName], package_data: type[BasePackageData]
 ) -> AioBotocoreStubsPackage:
     """
-    Parse data for boto3_stubs package.
+    Parse data for types-aiobotocore package.
 
     Arguments:
-        session -- boto3 session.
-        service_names -- All available service names.
+        session -- boto3 session
+        service_names -- All available service names
+        package_data -- Package data
 
     Returns:
         AioBotocoreStubsPackage structure.
@@ -54,7 +53,13 @@ def parse_aiobotocore_stubs_package(
         Argument("aws_access_key_id", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
         Argument("aws_secret_access_key", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
         Argument("aws_session_token", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
-        Argument("config", TypeSubscript(Type.Optional, [TypeClass(Config)]), Type.Ellipsis),
+        Argument(
+            "config",
+            TypeSubscript(
+                Type.Optional, [ExternalImport(ImportString("aiobotocore", "config"), "AioConfig")]
+            ),
+            Type.Ellipsis,
+        ),
     ]
 
     client_function_decorators: list[TypeAnnotation] = []
@@ -80,9 +85,7 @@ def parse_aiobotocore_stubs_package(
                 ],
                 return_type=ExternalImport(
                     source=ImportString(
-                        TypesAioBotocorePackageData.get_service_package_name(
-                            service_package.service_name
-                        ),
+                        package_data.get_service_package_name(service_package.service_name),
                         ServiceModuleName.client.value,
                     ),
                     name=service_package.client.name,

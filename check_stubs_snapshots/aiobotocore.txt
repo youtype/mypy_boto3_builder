@@ -1,0 +1,47 @@
+error: not checking stubs due to mypy build errors:
+./aiobotocore-stubs/waiter.pyi:12: error: Return type "Coroutine[Any, Any, None]" of "wait" incompatible with return type "None" in supertype "Waiter"
+./aiobotocore-stubs/utils.pyi:28: error: Argument 2 of "redirect_from_error" is incompatible with supertype "S3RegionRedirector"; supertype defines the argument type as "Dict[str, Any]"
+./aiobotocore-stubs/utils.pyi:28: note: This violates the Liskov substitution principle
+./aiobotocore-stubs/utils.pyi:28: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#incompatible-overrides
+./aiobotocore-stubs/utils.pyi:31: error: Argument 2 of "get_bucket_region" is incompatible with supertype "S3RegionRedirector"; supertype defines the argument type as "Dict[str, Any]"
+./aiobotocore-stubs/utils.pyi:31: note: This violates the Liskov substitution principle
+./aiobotocore-stubs/utils.pyi:31: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#incompatible-overrides
+./aiobotocore-stubs/signers.pyi:11: error: Return type "Coroutine[Any, Any, None]" of "sign" incompatible with return type "None" in supertype "RequestSigner"
+./aiobotocore-stubs/paginate.pyi:12: error: Return type "Coroutine[Any, Any, Generator[Any, None, None]]" of "search" incompatible with return type "Iterator[Any]" in supertype "PageIterator"
+./aiobotocore-stubs/discovery.pyi:10: error: Return type "Coroutine[Any, Any, None]" of "discover_endpoint" incompatible with return type "None" in supertype "EndpointDiscoveryHandler"
+./aiobotocore-stubs/client.pyi:14: error: Return type "Coroutine[Any, Any, AioBaseClient]" of "create_client" incompatible with return type "None" in supertype "ClientCreator"
+./aiobotocore-stubs/client.pyi:32: error: Return type "Coroutine[Any, Any, Any]" of "close" incompatible with return type "None" in supertype "BaseClient"
+./aiobotocore-stubs/session.pyi:38: error: Argument 3 of "create_client" is incompatible with supertype "Session"; supertype defines the argument type as "Optional[str]"
+./aiobotocore-stubs/session.pyi:38: note: This violates the Liskov substitution principle
+./aiobotocore-stubs/session.pyi:38: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#incompatible-overrides
+./aiobotocore-stubs/session.pyi:38: error: Argument 4 of "create_client" is incompatible with supertype "Session"; supertype defines the argument type as "bool"
+./aiobotocore-stubs/session.pyi:51: error: Return type "Coroutine[Any, Any, AioCredentials]" of "get_credentials" incompatible with return type "Credentials" in supertype "Session"
+./aiobotocore-stubs/session.pyi:55: error: Return type "Coroutine[Any, Any, ServiceModel]" of "get_service_model" incompatible with return type "ServiceModel" in supertype "Session"
+./aiobotocore-stubs/session.pyi:61: error: Return type "Coroutine[Any, Any, List[str]]" of "get_available_regions" incompatible with return type "List[str]" in supertype "Session"
+./aiobotocore-stubs/credentials.pyi:53: error: Return type "Coroutine[Any, Any, AioRefreshableCredentials]" of "get_frozen_credentials" incompatible with return type "ReadOnlyCredentials" in supertype "Credentials"
+./aiobotocore-stubs/credentials.pyi:67: error: Signature of "access_key" incompatible with supertype "Credentials"
+./aiobotocore-stubs/credentials.pyi:68: error: Signature of "access_key" incompatible with supertype "Credentials"
+./aiobotocore-stubs/credentials.pyi:71: error: Signature of "secret_key" incompatible with supertype "Credentials"
+./aiobotocore-stubs/credentials.pyi:72: error: Signature of "secret_key" incompatible with supertype "Credentials"
+./aiobotocore-stubs/credentials.pyi:75: error: Signature of "token" incompatible with supertype "Credentials"
+./aiobotocore-stubs/credentials.pyi:76: error: Signature of "token" incompatible with supertype "Credentials"
+./aiobotocore-stubs/credentials.pyi:79: error: Return type "Coroutine[Any, Any, RefreshableCredentials]" of "get_frozen_credentials" incompatible with return type "ReadOnlyCredentials" in supertype "RefreshableCredentials"
+./aiobotocore-stubs/credentials.pyi:79: error: Return type "Coroutine[Any, Any, RefreshableCredentials]" of "get_frozen_credentials" incompatible with return type "ReadOnlyCredentials" in supertype "Credentials"
+./aiobotocore-stubs/credentials.pyi:127: error: Return type "Coroutine[Any, Any, AioCredentials]" of "load" incompatible with return type "Optional[Credentials]" in supertype "BotoProvider"
+./aiobotocore-stubs/credentials.pyi:130: error: Return type "Coroutine[Any, Any, AioDeferredRefreshableCredentials]" of "load" incompatible with return type "DeferredRefreshableCredentials" in supertype "AssumeRoleProvider"
+./aiobotocore-stubs/credentials.pyi:133: error: Return type "Coroutine[Any, Any, AioDeferredRefreshableCredentials]" of "load" incompatible with return type "Optional[DeferredRefreshableCredentials]" in supertype "AssumeRoleWithWebIdentityProvider"
+./aiobotocore-stubs/credentials.pyi:136: error: Return type "Coroutine[Any, Any, Any]" of "source_credentials" incompatible with return type "Credentials" in supertype "CanonicalNameCredentialSourcer"
+./aiobotocore-stubs/credentials.pyi:140: error: Return type "Coroutine[Any, Any, AioRefreshableCredentials]" of "load" incompatible with return type "RefreshableCredentials" in supertype "ContainerProvider"
+./aiobotocore-stubs/credentials.pyi:143: error: Return type "Coroutine[Any, Any, Any]" of "load_credentials" incompatible with return type "Optional[Credentials]" in supertype "CredentialResolver"
+./aiobotocore-stubs/credentials.pyi:159: error: Return type "Coroutine[Any, Any, AioDeferredRefreshableCredentials]" of "load" incompatible with return type "DeferredRefreshableCredentials" in supertype "SSOProvider"
+./aiobotocore-stubs/response.pyi:5: error: Skipping analyzing "wrapt": module is installed, but missing library stubs or py.typed marker
+./aiobotocore-stubs/response.pyi:5: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+./aiobotocore-stubs/endpoint.pyi:19: error: Signature of "create_endpoint" incompatible with supertype "EndpointCreator"
+./aiobotocore-stubs/endpoint.pyi:19: note:      Superclass:
+./aiobotocore-stubs/endpoint.pyi:19: note:          def create_endpoint(self, service_model: ServiceModel, region_name: str, endpoint_url: str, verify: Optional[Any] = ..., response_parser_factory: Optional[Any] = ..., timeout: float = ..., max_pool_connections: Any = ..., http_session_cls: Type[URLLib3Session] = ..., proxies: Optional[Any] = ..., socket_options: Optional[Any] = ..., client_cert: Optional[Any] = ..., proxies_config: Optional[Any] = ...) -> Any
+./aiobotocore-stubs/endpoint.pyi:19: note:      Subclass:
+./aiobotocore-stubs/endpoint.pyi:19: note:          def create_endpoint(self, service_model: ServiceModel, region_name: str, endpoint_url: str, verify: Optional[Any] = ..., response_parser_factory: Optional[Any] = ..., timeout: int = ..., max_pool_connections: int = ..., http_session_cls: Type[AIOHTTPSession] = ..., proxies: Optional[Any] = ..., socket_options: Optional[Any] = ..., client_cert: Optional[Any] = ..., proxies_config: Optional[Any] = ..., connector_args: Optional[Any] = ...) -> AioEndpoint
+./aiobotocore-stubs/args.pyi:31: error: Argument 1 of "get_client_args" is incompatible with supertype "ClientArgsCreator"; supertype defines the argument type as "str"
+./aiobotocore-stubs/args.pyi:31: note: This violates the Liskov substitution principle
+./aiobotocore-stubs/args.pyi:31: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#incompatible-overrides
+./aiobotocore-stubs/args.pyi:31: error: Argument 8 of "get_client_args" is incompatible with supertype "ClientArgsCreator"; supertype defines the argument type as "Optional[Config]"

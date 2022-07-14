@@ -67,14 +67,14 @@ dev = ["build (==0.8.0)", "flake8 (==4.0.1)", "hashin (==0.17.0)", "pip-tools (=
 
 [[package]]
 name = "boto3"
-version = "1.24.28"
+version = "1.24.29"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.7"
 
 [package.dependencies]
-botocore = ">=1.27.28,<1.28.0"
+botocore = ">=1.27.29,<1.28.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.6.0,<0.7.0"
 
@@ -83,8 +83,8 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.24.28"
-description = "Type annotations for boto3 1.24.28 generated with mypy-boto3-builder 7.7.3"
+version = "1.24.29"
+description = "Type annotations for boto3 1.24.29 generated with mypy-boto3-builder 7.7.3"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
@@ -261,6 +261,7 @@ kinesis-video-media = ["mypy-boto3-kinesis-video-media (>=1.24.0,<1.25.0)"]
 kinesis-video-signaling = ["mypy-boto3-kinesis-video-signaling (>=1.24.0,<1.25.0)"]
 kinesisanalytics = ["mypy-boto3-kinesisanalytics (>=1.24.0,<1.25.0)"]
 kinesisanalyticsv2 = ["mypy-boto3-kinesisanalyticsv2 (>=1.24.0,<1.25.0)"]
+sso-oidc = ["mypy-boto3-sso-oidc (>=1.24.0,<1.25.0)"]
 kinesisvideo = ["mypy-boto3-kinesisvideo (>=1.24.0,<1.25.0)"]
 kms = ["mypy-boto3-kms (>=1.24.0,<1.25.0)"]
 lakeformation = ["mypy-boto3-lakeformation (>=1.24.0,<1.25.0)"]
@@ -380,7 +381,6 @@ ssm-contacts = ["mypy-boto3-ssm-contacts (>=1.24.0,<1.25.0)"]
 ssm-incidents = ["mypy-boto3-ssm-incidents (>=1.24.0,<1.25.0)"]
 sso = ["mypy-boto3-sso (>=1.24.0,<1.25.0)"]
 sso-admin = ["mypy-boto3-sso-admin (>=1.24.0,<1.25.0)"]
-sso-oidc = ["mypy-boto3-sso-oidc (>=1.24.0,<1.25.0)"]
 stepfunctions = ["mypy-boto3-stepfunctions (>=1.24.0,<1.25.0)"]
 storagegateway = ["mypy-boto3-storagegateway (>=1.24.0,<1.25.0)"]
 sts = ["mypy-boto3-sts (>=1.24.0,<1.25.0)"]
@@ -409,7 +409,7 @@ xray = ["mypy-boto3-xray (>=1.24.0,<1.25.0)"]
 
 [[package]]
 name = "botocore"
-version = "1.27.28"
+version = "1.27.29"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -425,8 +425,8 @@ crt = ["awscrt (==0.13.8)"]
 
 [[package]]
 name = "botocore-stubs"
-version = "1.27.28"
-description = "Type annotations for botocore 1.27.28 generated with mypy-boto3-builder 7.7.3"
+version = "1.27.29"
+description = "Type annotations for botocore 1.27.29 generated with mypy-boto3-builder 7.7.3"
 category = "dev"
 optional = false
 python-versions = ">=3.6"

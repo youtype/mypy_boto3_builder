@@ -9,6 +9,7 @@ from boto3.session import Session
 
 from mypy_boto3_builder.cli_parser import Namespace, parse_args
 from mypy_boto3_builder.constants import BUILDER_REPO_URL, DUMMY_REGION, Product, ProductLibrary
+from mypy_boto3_builder.generators.aioboto3_generator import AioBoto3Generator
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
@@ -102,6 +103,7 @@ def generate_product(
     generator_cls = {
         ProductLibrary.boto3: Boto3Generator,
         ProductLibrary.aiobotocore: AioBotocoreGenerator,
+        ProductLibrary.aioboto3: AioBoto3Generator,
     }[product.get_library()]
     generator: BaseGenerator = generator_cls(
         service_names=service_names,

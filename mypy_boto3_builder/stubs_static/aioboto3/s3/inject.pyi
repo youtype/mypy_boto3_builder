@@ -1,7 +1,7 @@
 import logging
 from typing import IO, Any, BinaryIO, Callable, Dict, List, Optional, Sequence
 
-from boto3.s3.transfer import S3TransferConfig as S3TransferConfig
+from boto3.s3.transfer import TransferConfig as S3TransferConfig
 
 logger: logging.Logger
 
@@ -35,7 +35,7 @@ async def upload_fileobj(
     ExtraArgs: Optional[Dict[str, Any]] = ...,
     Callback: Optional[Callable[[int], None]] = ...,
     Config: Optional[S3TransferConfig] = ...,
-    Processing: Callable[[bytes], bytes] = ...,
+    Processing: Optional[Callable[[bytes], bytes]] = ...,
 ) -> Any: ...
 async def upload_file(
     self: Any,

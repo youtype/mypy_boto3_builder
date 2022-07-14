@@ -4,6 +4,7 @@ PyPI package data constants.
 
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.version import (
+    get_aioboto3_version,
     get_aiobotocore_version,
     get_boto3_version,
     get_botocore_version,
@@ -71,7 +72,7 @@ class BotocoreStubsPackageData(BasePackageData):
 
 class TypesAioBotocorePackageData(BasePackageData):
     """
-    aiobotocore-stubs package data.
+    types-aiobotocore package data.
     """
 
     NAME = "aiobotocore-stubs"
@@ -128,3 +129,33 @@ class MypyBoto3PackageData(BasePackageData):
     NAME = "mypy_boto3"
     PYPI_NAME = "mypy-boto3"
     LIBRARY_NAME = "boto3"
+
+
+class TypesAioBoto3PackageData(BasePackageData):
+    """
+    types-aioboto3 package data.
+    """
+
+    NAME = "aioboto3-stubs"
+    PYPI_NAME = "types-aioboto3"
+    PYPI_LITE_NAME = "types-aioboto3-lite"
+    LIBRARY_NAME = "aioboto3"
+    SERVICE_PREFIX = "types_aiobotocore"
+    SERVICE_PYPI_PREFIX = "types-aiobotocore"
+    LOCAL_DOC_LINK = "https://youtype.github.io/types_aiobotocore_docs/"
+
+    @staticmethod
+    def get_library_version() -> str:
+        """
+        Get underlying library version.
+        """
+        return get_aioboto3_version()
+
+
+class TypesAioBoto3LitePackageData(TypesAioBoto3PackageData):
+    """
+    types-aioboto3-lite package data.
+    """
+
+    PYPI_NAME = "types-aioboto3-lite"
+    PYPI_LITE_NAME = ""

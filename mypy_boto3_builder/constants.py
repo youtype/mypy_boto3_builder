@@ -16,8 +16,11 @@ BOTO3_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "boto3"
 # Static *.pyi files for botocore-stubs
 BOTOCORE_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "botocore"
 
-# Static *.pyi files for aiobotocore-stubs
+# Static *.pyi files for types-aiobotocore
 AIOBOTOCORE_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "aiobotocore"
+
+# Static *.pyi files for types-aioboto3
+AIOBOTO3_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "aioboto3"
 
 # Max line length for boto3 docs
 LINE_LENGTH = 100
@@ -43,6 +46,7 @@ class ProductLibrary(Enum):
 
     boto3 = "boto3"
     aiobotocore = "aiobotocore"
+    aioboto3 = "aioboto3"
 
 
 class ProductType(Enum):
@@ -66,6 +70,7 @@ class Product(Enum):
     aiobotocore = "aiobotocore"
     aiobotocore_services = "aiobotocore-services"
     aiobotocore_docs = "aiobotocore-docs"
+    aioboto3 = "aioboto3"
 
     def __str__(self) -> str:
         return self.name

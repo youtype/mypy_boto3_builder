@@ -1,0 +1,33 @@
+error: aioboto3.__main__ failed to import: No module named 'aioboto3.__main__'
+Stub: at line 1
+MypyFile:1(
+  ./aioboto3-stubs/__main__.py)
+Runtime:
+MISSING
+
+error: aioboto3.experimental.async_chalice failed to import: No module named 'chalice'
+Stub: at line 1
+MypyFile:1(
+  ./aioboto3-stubs/experimental/async_chalice.pyi
+  IgnoredLines(6, 7))
+Runtime:
+MISSING
+
+error: aioboto3.session.ResourceCreatorContext.__aenter__ is not present in stub
+Stub:
+MISSING
+Runtime: at line 224 in file ./aioboto3/session.py
+<function ResourceCreatorContext.__aenter__ at HASH>
+
+error: aioboto3.session.ResourceCreatorContext.__aexit__ is not present in stub
+Stub:
+MISSING
+Runtime: at line 248 in file ./aioboto3/session.py
+<function ResourceCreatorContext.__aexit__ at HASH>
+
+error: aioboto3.version failed to import: No module named 'aioboto3.version'
+Stub: at line 1
+MypyFile:1(
+  ./aioboto3-stubs/version.py)
+Runtime:
+MISSING

@@ -1,5 +1,5 @@
 import asyncio
-from typing import IO, Any, Dict, Optional, Tuple, TypeVar, Union
+from typing import IO, Any, Dict, Mapping, Optional, Tuple, TypeVar, Union
 
 from cryptography.hazmat.backends.openssl.rsa import _RSAPrivateKey, _RSAPublicKey
 
@@ -103,6 +103,6 @@ class S3CSE:
         Body: Union[bytes, IO[Any]],
         Bucket: str,
         Key: str,
-        Metadata: Dict[str, Any] = ...,
+        Metadata: Optional[Mapping[str, Any]] = ...,
         **kwargs: Any,
     ) -> Any: ...

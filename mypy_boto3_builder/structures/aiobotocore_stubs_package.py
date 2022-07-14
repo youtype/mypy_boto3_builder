@@ -1,5 +1,5 @@
 """
-Structure for aiobotocore-stubs module.
+Structure for types-aiobotocore module.
 """
 
 from collections.abc import Iterable
@@ -17,7 +17,7 @@ from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 class AioBotocoreStubsPackage(Package):
     """
-    Structure for boto3-stubs module.
+    Structure for types-aiobotocore module.
     """
 
     def __init__(
