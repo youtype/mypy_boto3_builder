@@ -2,7 +2,7 @@
 
 > Auto-generated documentation for [mypy_boto3_builder.structures.aiobotocore_stubs_package](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py) module.
 
-Structure for aiobotocore-stubs module.
+Structure for types-aiobotocore module.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / AioBotocoreStubsPackage
     - [AioBotocoreStubsPackage](#aiobotocorestubspackage)
@@ -25,7 +25,7 @@ class AioBotocoreStubsPackage(Package):
     ):
 ```
 
-Structure for boto3-stubs module.
+Structure for types-aiobotocore module.
 
 #### See also
 
@@ -52,7 +52,7 @@ Service names marked as essential.
 
 ### AioBotocoreStubsPackage().get_all_names
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L114)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L90)
 
 ```python
 def get_all_names() -> list[str]:

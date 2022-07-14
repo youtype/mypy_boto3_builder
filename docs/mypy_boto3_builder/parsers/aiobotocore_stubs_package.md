@@ -9,7 +9,7 @@ Parser that produces `structures.AioBotocoreStubsPackage`.
 
 ## parse_aiobotocore_stubs_package
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/aiobotocore_stubs_package.py#L25)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/aiobotocore_stubs_package.py#L23)
 
 ```python
 def parse_aiobotocore_stubs_package(
@@ -19,12 +19,13 @@ def parse_aiobotocore_stubs_package(
 ) -> AioBotocoreStubsPackage:
 ```
 
-Parse data for boto3_stubs package.
+Parse data for types-aiobotocore package.
 
 #### Arguments
 
-- `session` - boto3 session.
-- `service_names` - All available service names.
+- `session` - boto3 session
+- `service_names` - All available service names
+- `package_data` - Package data
 
 #### Returns
 

@@ -6,6 +6,7 @@ Renderers of parsed info produced by parsers.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / Writers
     - Modules
+        - [Aioboto3 Processors](aioboto3_processors.md#aioboto3-processors)
         - [Aiobotocore Processors](aiobotocore_processors.md#aiobotocore-processors)
         - [PackageWriter](package_writer.md#packagewriter)
         - [Processors](processors.md#processors)

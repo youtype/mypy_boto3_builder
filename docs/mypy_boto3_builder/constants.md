@@ -17,7 +17,8 @@ Constants and paths.
 - `TEMPLATES_PATH` - Jinja2 templates for boto3-stubs: `Path(__file__).parent / 'templates'`
 - `BOTO3_STUBS_STATIC_PATH` - Static *.pyi files for boto3-stubs: `Path(__file__).parent / 'stubs_static' / 'boto3'`
 - `BOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for botocore-stubs: `Path(__file__).parent / 'stubs_static' / 'botocore'`
-- `AIOBOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for aiobotocore-stubs: `Path(__file__).parent / 'stubs_static' / 'aiobotocore'`
+- `AIOBOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for types-aiobotocore: `Path(__file__).parent / 'stubs_static' / 'aiobotocore'`
+- `AIOBOTO3_STUBS_STATIC_PATH` - Static *.pyi files for types-aioboto3: `Path(__file__).parent / 'stubs_static' / 'aioboto3'`
 - `LINE_LENGTH` - Max line length for boto3 docs: `100`
 - `BUILDER_REPO_URL` - mypy-boto3-builder GitHub link: `'https://github.com/youtype/mypy_boto3_builder'`
 - `LOGGER_NAME` - Main logger name: `'mypy_boto3_builder'`
@@ -26,7 +27,7 @@ Constants and paths.
 
 ## Product
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L58)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L62)
 
 ```python
 class Product(Enum):
@@ -36,7 +37,7 @@ Product choice for CLI.
 
 ### Product().get_library
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L73)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L78)
 
 ```python
 def get_library() -> ProductLibrary:
@@ -50,7 +51,7 @@ Get library name.
 
 ### Product().get_type
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L82)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L87)
 
 ```python
 def get_type() -> ProductType:
@@ -64,7 +65,7 @@ Get product type.
 
 ## ProductLibrary
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L39)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L42)
 
 ```python
 class ProductLibrary(Enum):
@@ -74,7 +75,7 @@ Product library for Generator.
 
 ## ProductType
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L48)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L52)
 
 ```python
 class ProductType(Enum):

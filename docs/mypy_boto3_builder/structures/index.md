@@ -22,4 +22,5 @@ Structures produced by parsers.
         - [Resource](resource.md#resource)
         - [ServicePackage](service_package.md#servicepackage)
         - [ServiceResource](service_resource.md#serviceresource)
+        - [TypesAioBoto3Package](types_aioboto3_package.md#typesaioboto3package)
         - [Waiter](waiter.md#waiter)

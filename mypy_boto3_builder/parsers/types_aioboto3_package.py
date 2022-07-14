@@ -4,7 +4,6 @@ Parser that produces `structures.TypesAioBoto3Package`.
 from collections.abc import Iterable
 
 from boto3.session import Session
-from botocore.config import Config
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString

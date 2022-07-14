@@ -15,13 +15,16 @@ PyPI package data constants.
     - [BotocoreStubsPackageData](#botocorestubspackagedata)
         - [BotocoreStubsPackageData.get_library_version](#botocorestubspackagedataget_library_version)
     - [MypyBoto3PackageData](#mypyboto3packagedata)
+    - [TypesAioBoto3LitePackageData](#typesaioboto3litepackagedata)
+    - [TypesAioBoto3PackageData](#typesaioboto3packagedata)
+        - [TypesAioBoto3PackageData.get_library_version](#typesaioboto3packagedataget_library_version)
     - [TypesAioBotocoreLitePackageData](#typesaiobotocorelitepackagedata)
     - [TypesAioBotocorePackageData](#typesaiobotocorepackagedata)
         - [TypesAioBotocorePackageData.get_library_version](#typesaiobotocorepackagedataget_library_version)
 
 ## BasePackageData
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L13)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L14)
 
 ```python
 class BasePackageData():
@@ -31,7 +34,7 @@ Generic package data.
 
 ### BasePackageData.get_library_version
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L40)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L41)
 
 ```python
 @staticmethod
@@ -42,7 +45,7 @@ Get underlying library version.
 
 ### BasePackageData.get_service_package_name
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L26)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L27)
 
 ```python
 @classmethod
@@ -57,7 +60,7 @@ Get service package name.
 
 ### BasePackageData.get_service_pypi_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L47)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L48)
 
 ```python
 @classmethod
@@ -72,7 +75,7 @@ Get link to PyPI.
 
 ### BasePackageData.get_service_pypi_name
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L33)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L34)
 
 ```python
 @classmethod
@@ -87,7 +90,7 @@ Get service package PyPI name.
 
 ## Boto3StubsLitePackageData
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L114)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L115)
 
 ```python
 class Boto3StubsLitePackageData(Boto3StubsPackageData):
@@ -101,7 +104,7 @@ boto3-stubs-lite package data.
 
 ## Boto3StubsPackageData
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L102)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L103)
 
 ```python
 class Boto3StubsPackageData(BasePackageData):
@@ -115,7 +118,7 @@ boto3-stubs package data.
 
 ## BotocoreStubsPackageData
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L55)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L56)
 
 ```python
 class BotocoreStubsPackageData(BasePackageData):
@@ -129,7 +132,7 @@ botocore-stubs package data.
 
 ### BotocoreStubsPackageData.get_library_version
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L64)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L65)
 
 ```python
 @staticmethod
@@ -140,7 +143,7 @@ Get underlying library version.
 
 ## MypyBoto3PackageData
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L123)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L124)
 
 ```python
 class MypyBoto3PackageData(BasePackageData):
@@ -152,9 +155,48 @@ mypy-boto3 package data.
 
 - [BasePackageData](#basepackagedata)
 
+## TypesAioBoto3LitePackageData
+
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L155)
+
+```python
+class TypesAioBoto3LitePackageData(TypesAioBoto3PackageData):
+```
+
+types-aioboto3-lite package data.
+
+#### See also
+
+- [TypesAioBoto3PackageData](#typesaioboto3packagedata)
+
+## TypesAioBoto3PackageData
+
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L134)
+
+```python
+class TypesAioBoto3PackageData(BasePackageData):
+```
+
+types-aioboto3 package data.
+
+#### See also
+
+- [BasePackageData](#basepackagedata)
+
+### TypesAioBoto3PackageData.get_library_version
+
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L147)
+
+```python
+@staticmethod
+def get_library_version() -> str:
+```
+
+Get underlying library version.
+
 ## TypesAioBotocoreLitePackageData
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L93)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L94)
 
 ```python
 class TypesAioBotocoreLitePackageData(TypesAioBotocorePackageData):
@@ -168,13 +210,13 @@ types-aiobotocore-lite package data.
 
 ## TypesAioBotocorePackageData
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L72)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L73)
 
 ```python
 class TypesAioBotocorePackageData(BasePackageData):
 ```
 
-aiobotocore-stubs package data.
+types-aiobotocore package data.
 
 #### See also
 
@@ -182,7 +224,7 @@ aiobotocore-stubs package data.
 
 ### TypesAioBotocorePackageData.get_library_version
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L85)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L86)
 
 ```python
 @staticmethod

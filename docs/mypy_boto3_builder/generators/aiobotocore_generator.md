@@ -2,7 +2,7 @@
 
 > Auto-generated documentation for [mypy_boto3_builder.generators.aiobotocore_generator](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py) module.
 
-AIOBotocore stubs/docs generator.
+AioBotocore stubs/docs generator.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Generators](index.md#generators) / AioBotocoreGenerator
     - [AioBotocoreGenerator](#aiobotocoregenerator)

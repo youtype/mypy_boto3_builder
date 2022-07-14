@@ -83,6 +83,23 @@ def get_available_service_names(session: Session) -> list[ServiceName]:
     return result
 
 
+def get_generator_cls(product: Product) -> type[BaseGenerator]:
+    """
+    Get Generator class for a product.
+
+    Raises:
+        ValueError -- If product is not supported.
+    """
+    library = product.get_library()
+    if library == ProductLibrary.boto3:
+        return Boto3Generator
+    if library == ProductLibrary.aiobotocore:
+        return AioBotocoreGenerator
+    if library == ProductLibrary.aioboto3:
+        return AioBoto3Generator
+    raise ValueError(f"Unknown product library: {library}")
+
+
 def generate_product(
     product: Product,
     args: Namespace,
@@ -100,12 +117,8 @@ def generate_product(
         service_names -- Selected service names
         master_service_names -- Service names included in master
     """
-    generator_cls = {
-        ProductLibrary.boto3: Boto3Generator,
-        ProductLibrary.aiobotocore: AioBotocoreGenerator,
-        ProductLibrary.aioboto3: AioBoto3Generator,
-    }[product.get_library()]
-    generator: BaseGenerator = generator_cls(
+    generator_cls = get_generator_cls(product)
+    generator = generator_cls(
         service_names=service_names,
         master_service_names=master_service_names,
         session=session,

@@ -21,3 +21,4 @@ Parsers for boto3 clients and resources.
         - [Service Package](service_package.md#service-package)
         - [Service Resource](service_resource.md#service-resource)
         - [ShapeParser](shape_parser.md#shapeparser)
+        - [Types Aioboto3 Package](types_aioboto3_package.md#types-aioboto3-package)

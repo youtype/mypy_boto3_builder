@@ -5,12 +5,23 @@
 Version-related utils.
 
 - [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Utils](index.md#utils) / Version
+    - [get_aioboto3_version](#get_aioboto3_version)
     - [get_aiobotocore_version](#get_aiobotocore_version)
     - [get_boto3_version](#get_boto3_version)
     - [get_botocore_version](#get_botocore_version)
     - [get_builder_version](#get_builder_version)
     - [get_max_build_version](#get_max_build_version)
     - [get_min_build_version](#get_min_build_version)
+
+## get_aioboto3_version
+
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L63)
+
+```python
+def get_aioboto3_version() -> str:
+```
+
+Get aioboto3 package version.
 
 ## get_aiobotocore_version
 

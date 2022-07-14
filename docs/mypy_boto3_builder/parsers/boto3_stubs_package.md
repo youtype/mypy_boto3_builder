@@ -19,12 +19,13 @@ def parse_boto3_stubs_package(
 ) -> Boto3StubsPackage:
 ```
 
-Parse data for boto3_stubs package.
+Parse data for boto3-stubs package.
 
 #### Arguments
 
-- `session` - boto3 session.
-- `service_names` - All available service names.
+- `session` - boto3 session
+- `service_names` - All available service names
+- `package_data` - Package data
 
 #### Returns
 
