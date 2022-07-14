@@ -15,7 +15,7 @@ if sys.version_info >= (3, 9):
 else:
     from typing_extensions import TypedDict
 
-class _GetClientArgsTypeDef(TypedDict):
+class GetClientArgsTypeDef(TypedDict):
     serializer: botocore.serialize.BaseRestSerializer
     endpoint: AioEndpoint
     response_parser: botocore.parsers.ResponseParser
@@ -28,7 +28,7 @@ class _GetClientArgsTypeDef(TypedDict):
     exceptions_factory: Any
 
 class AioClientArgsCreator(ClientArgsCreator):
-    def get_client_args(  # type: ignore
+    def get_client_args(
         self,
         service_model: ServiceModel,
         region_name: str,
@@ -37,6 +37,6 @@ class AioClientArgsCreator(ClientArgsCreator):
         verify: Optional[Union[str, bool]],
         credentials: Optional[Any],
         scoped_config: Optional[Any],
-        client_config: Optional[AioConfig],
+        client_config: Optional[AioConfig],  # type: ignore
         endpoint_bridge: Optional[Any],
-    ) -> _GetClientArgsTypeDef: ...
+    ) -> GetClientArgsTypeDef: ...
