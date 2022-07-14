@@ -37,6 +37,6 @@ class AioClientArgsCreator(ClientArgsCreator):
         verify: Optional[Union[str, bool]],
         credentials: Optional[Any],
         scoped_config: Optional[Any],
-        client_config: Optional[AioConfig],  # type: ignore
+        client_config: Optional[AioConfig],
         endpoint_bridge: Optional[Any],
     ) -> GetClientArgsTypeDef: ...
