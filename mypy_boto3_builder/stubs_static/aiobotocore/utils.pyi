@@ -1,10 +1,13 @@
 from typing import Any, Dict, Optional
 
+from botocore.utils import DEFAULT_METADATA_SERVICE_TIMEOUT as DEFAULT_METADATA_SERVICE_TIMEOUT
 from botocore.utils import METADATA_BASE_URL as METADATA_BASE_URL
 from botocore.utils import (
     ContainerMetadataFetcher,
     IMDSFetcher,
+    IMDSRegionProvider,
     InstanceMetadataFetcher,
+    InstanceMetadataRegionFetcher,
     S3RegionRedirector,
 )
 from requests.models import Response
@@ -26,6 +29,12 @@ class AioIMDSFetcher(IMDSFetcher):
 
 class AioInstanceMetadataFetcher(AioIMDSFetcher, InstanceMetadataFetcher):
     async def retrieve_iam_role_credentials(self) -> Dict[str, Any]: ...
+
+class AioIMDSRegionProvider(IMDSRegionProvider):
+    async def provide(self) -> str: ...
+
+class AioInstanceMetadataRegionFetcher(AioIMDSFetcher, InstanceMetadataRegionFetcher):
+    async def retrieve_region(self) -> Optional[str]: ...  # type: ignore
 
 class AioS3RegionRedirector(S3RegionRedirector):
     async def redirect_from_error(

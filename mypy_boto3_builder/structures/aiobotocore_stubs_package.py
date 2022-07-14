@@ -66,16 +66,6 @@ class AioBotocoreStubsPackage(Package):
                     "create_credential_resolver",
                 ),
                 ImportRecord(
-                    ImportString("aiobotocore", "handlers"),
-                    "inject_presigned_url_ec2",
-                    "inject_presigned_url_ec2",
-                ),
-                ImportRecord(
-                    ImportString("aiobotocore", "handlers"),
-                    "inject_presigned_url_rds",
-                    "inject_presigned_url_rds",
-                ),
-                ImportRecord(
                     ImportString("aiobotocore", "hooks"),
                     "AioHierarchicalEmitter",
                     "AioHierarchicalEmitter",
@@ -84,21 +74,6 @@ class AioBotocoreStubsPackage(Package):
                     ImportString("aiobotocore", "parsers"),
                     "AioResponseParserFactory",
                     "AioResponseParserFactory",
-                ),
-                ImportRecord(
-                    ImportString("aiobotocore", "signers"),
-                    "add_generate_db_auth_token",
-                    "add_generate_db_auth_token",
-                ),
-                ImportRecord(
-                    ImportString("aiobotocore", "signers"),
-                    "add_generate_presigned_post",
-                    "add_generate_presigned_post",
-                ),
-                ImportRecord(
-                    ImportString("aiobotocore", "signers"),
-                    "add_generate_presigned_url",
-                    "add_generate_presigned_url",
                 ),
                 ImportRecord(ImportString("botocore", "model"), "ServiceModel"),
                 ImportRecord(ImportString("botocore", "session"), "EVENT_ALIASES", "EVENT_ALIASES"),

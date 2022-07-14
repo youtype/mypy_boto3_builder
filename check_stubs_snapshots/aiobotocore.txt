@@ -5,66 +5,6 @@ MypyFile:1(
 Runtime:
 MISSING
 
-error: aiobotocore.handlers.check_for_200_error is not present in stub
-Stub:
-MISSING
-Runtime: at line 5 in file ./aiobotocore/handlers.py
-<function check_for_200_error at HASH>
-
-error: aiobotocore.handlers.parse_get_bucket_location is not present in stub
-Stub:
-MISSING
-Runtime: at line 87 in file ./aiobotocore/handlers.py
-<function parse_get_bucket_location at HASH>
-
-error: aiobotocore.session.add_generate_db_auth_token is not present at runtime
-Stub: at line 37
-def (class_attributes: Any, **kwargs: Any)
-Runtime:
-MISSING
-
-error: aiobotocore.session.add_generate_presigned_post is not present at runtime
-Stub: at line 60
-def (class_attributes: Any, **kwargs: Any)
-Runtime:
-MISSING
-
-error: aiobotocore.session.add_generate_presigned_url is not present at runtime
-Stub: at line 41
-def (class_attributes: Any, **kwargs: Any)
-Runtime:
-MISSING
-
-error: aiobotocore.session.inject_presigned_url_ec2 is not present at runtime
-Stub: at line 3
-def (params: Any, request_signer: Any, model: Any, **kwargs: Any) -> typing.Coroutine[Any, Any, None]
-Runtime:
-MISSING
-
-error: aiobotocore.session.inject_presigned_url_rds is not present at runtime
-Stub: at line 6
-def (params: Any, request_signer: Any, model: Any, **kwargs: Any) -> typing.Coroutine[Any, Any, None]
-Runtime:
-MISSING
-
-error: aiobotocore.utils.AioIMDSRegionProvider is not present in stub
-Stub:
-MISSING
-Runtime: at line 236 in file ./aiobotocore/utils.py
-<class 'aiobotocore.utils.AioIMDSRegionProvider'>
-
-error: aiobotocore.utils.AioInstanceMetadataRegionFetcher is not present in stub
-Stub:
-MISSING
-Runtime: at line 269 in file ./aiobotocore/utils.py
-<class 'aiobotocore.utils.AioInstanceMetadataRegionFetcher'>
-
-error: aiobotocore.utils.DEFAULT_METADATA_SERVICE_TIMEOUT is not present in stub
-Stub:
-MISSING
-Runtime:
-1
-
 error: aiobotocore.version failed to import: No module named 'aiobotocore.version'
 Stub: at line 1
 MypyFile:1(

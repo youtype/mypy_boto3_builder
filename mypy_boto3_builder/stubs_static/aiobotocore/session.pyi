@@ -4,13 +4,8 @@ from aiobotocore.client import AioBaseClient as AioBaseClient
 from aiobotocore.client import AioClientCreator as AioClientCreator
 from aiobotocore.credentials import AioCredentials as AioCredentials
 from aiobotocore.credentials import create_credential_resolver as create_credential_resolver
-from aiobotocore.handlers import inject_presigned_url_ec2 as inject_presigned_url_ec2
-from aiobotocore.handlers import inject_presigned_url_rds as inject_presigned_url_rds
 from aiobotocore.hooks import AioHierarchicalEmitter as AioHierarchicalEmitter
 from aiobotocore.parsers import AioResponseParserFactory as AioResponseParserFactory
-from aiobotocore.signers import add_generate_db_auth_token as add_generate_db_auth_token
-from aiobotocore.signers import add_generate_presigned_post as add_generate_presigned_post
-from aiobotocore.signers import add_generate_presigned_url as add_generate_presigned_url
 from botocore.client import Config
 from botocore.model import ServiceModel
 from botocore.session import EVENT_ALIASES as EVENT_ALIASES
