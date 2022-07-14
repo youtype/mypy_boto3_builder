@@ -13,18 +13,6 @@ MypyFile:1(
 Runtime:
 MISSING
 
-error: aioboto3.session.ResourceCreatorContext.__aenter__ is not present in stub
-Stub:
-MISSING
-Runtime: at line 224 in file ./aioboto3/session.py
-<function ResourceCreatorContext.__aenter__ at HASH>
-
-error: aioboto3.session.ResourceCreatorContext.__aexit__ is not present in stub
-Stub:
-MISSING
-Runtime: at line 248 in file ./aioboto3/session.py
-<function ResourceCreatorContext.__aexit__ at HASH>
-
 error: aioboto3.version failed to import: No module named 'aioboto3.version'
 Stub: at line 1
 MypyFile:1(
