@@ -49,9 +49,6 @@ class TypesAioBoto3Package(Package):
         import_records: set[ImportRecord] = set(
             [
                 ImportRecord(
-                    ImportString("aioboto3", "resources", "base"), "AIOBoto3ServiceResource"
-                ),
-                ImportRecord(
                     ImportString("aioboto3", "resources", "factory"), "AIOBoto3ResourceFactory"
                 ),
                 ImportRecord(ImportString("aiobotocore", "config"), "AioConfig"),

@@ -62,6 +62,39 @@ def parse_types_aioboto3_package(
         ),
     ]
 
+    client_function_decorators: list[TypeAnnotation] = []
+    if len(result.service_packages) > 1:
+        client_function_decorators.append(Type.overload)
+    for service_package in result.service_packages:
+        service_argument = Argument(
+            "service_name",
+            TypeLiteral(
+                service_package.service_name.class_name + "Type",
+                [service_package.service_name.boto3_name],
+            ),
+        )
+        result.session_class.methods.append(
+            Method(
+                name="client",
+                decorators=client_function_decorators,
+                docstring="",
+                arguments=[
+                    Argument("self", None),
+                    service_argument,
+                    *init_arguments,
+                ],
+                return_type=ExternalImport(
+                    source=ImportString(
+                        package_data.get_service_package_name(service_package.service_name),
+                        ServiceModuleName.client.value,
+                    ),
+                    name=service_package.client.name,
+                ),
+                body_lines=["..."],
+                is_async=False,
+            )
+        )
+
     service_resource_packages = [i for i in result.service_packages if i.service_resource]
     resource_function_decorators: list[TypeAnnotation] = []
     if len(service_resource_packages) > 1:

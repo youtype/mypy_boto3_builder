@@ -67,6 +67,10 @@ python -m pip install 'boto3-stubs-lite[all]'
 python -m pip install 'types-aiobotocore[all]'
 python -m pip install 'types-aiobotocore-lite[all]'
 
+# Same for aioboto3
+python -m pip install 'types-aioboto3[all]'
+python -m pip install 'types-aioboto3-lite[all]'
+
 # do not forget to install mypy or pyright
 ```
 

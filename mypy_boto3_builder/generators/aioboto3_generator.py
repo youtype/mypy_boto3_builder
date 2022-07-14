@@ -6,7 +6,7 @@ from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import TypesAioBoto3LitePackageData, TypesAioBoto3PackageData
 from mypy_boto3_builder.postprocessors.aiobotocore import AioBotocorePostprocessor
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.utils.version import get_aiobotocore_version
+from mypy_boto3_builder.utils.version import get_aioboto3_version
 from mypy_boto3_builder.writers.aioboto3_processors import (
     process_types_aioboto3,
     process_types_aioboto3_docs,
@@ -26,7 +26,7 @@ class AioBoto3Generator(BaseGenerator):
         """
         Get underlying library version.
         """
-        return get_aiobotocore_version()
+        return get_aioboto3_version()
 
     def get_postprocessor(self, service_package: ServicePackage) -> AioBotocorePostprocessor:
         """

@@ -37,7 +37,7 @@ Product choice for CLI.
 
 ### Product().get_library
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L78)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L79)
 
 ```python
 def get_library() -> ProductLibrary:
@@ -51,7 +51,7 @@ Get library name.
 
 ### Product().get_type
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L87)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L88)
 
 ```python
 def get_type() -> ProductType:

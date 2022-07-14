@@ -14,7 +14,7 @@ AioBoto3 stubs generator.
 
 ## AioBoto3Generator
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L16)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L17)
 
 ```python
 class AioBoto3Generator(BaseGenerator):
@@ -28,17 +28,17 @@ AioBoto3 stubs generator.
 
 ### AioBoto3Generator().generate_docs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L73)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L74)
 
 ```python
 def generate_docs() -> None:
 ```
 
-Do nothing.
+Generate service and master docs.
 
 ### AioBoto3Generator().generate_service_stubs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L78)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L98)
 
 ```python
 def generate_service_stubs() -> None:
@@ -48,7 +48,7 @@ Do nothing.
 
 ### AioBoto3Generator().generate_stubs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L36)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L37)
 
 ```python
 def generate_stubs() -> None:
@@ -58,7 +58,7 @@ Generate `types-aioboto3` package.
 
 ### AioBoto3Generator().get_library_version
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L24)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L25)
 
 ```python
 def get_library_version() -> str:
@@ -68,7 +68,7 @@ Get underlying library version.
 
 ### AioBoto3Generator().get_postprocessor
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L30)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L31)
 
 ```python
 def get_postprocessor(
