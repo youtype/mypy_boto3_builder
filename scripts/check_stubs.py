@@ -119,6 +119,7 @@ PACKAGES: list[Package] = [
     Package(
         name="aiobotocore",
         products={"aiobotocore", "boto3"},
+        uninstall={"types-aiobotocore"},
         requirements=[
             OUTPUT_PATH / "types_aiobotocore_lite_package",
             OUTPUT_PATH / "botocore_stubs_package",
