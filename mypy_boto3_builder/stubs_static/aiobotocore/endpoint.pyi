@@ -2,6 +2,8 @@ from typing import Any, Dict, Optional, Type
 
 from aiobotocore.httpsession import AIOHTTPSession as AIOHTTPSession
 from aiobotocore.response import StreamingBody as StreamingBody
+from botocore.endpoint import DEFAULT_TIMEOUT as DEFAULT_TIMEOUT
+from botocore.endpoint import MAX_POOL_CONNECTIONS as MAX_POOL_CONNECTIONS
 from botocore.endpoint import Endpoint, EndpointCreator
 from botocore.model import OperationModel, ServiceModel
 from requests.models import Request, Response
@@ -16,7 +18,7 @@ class AioEndpoint(Endpoint):
     ) -> Request: ...
 
 class AioEndpointCreator(EndpointCreator):
-    def create_endpoint(
+    def create_endpoint(  # type: ignore
         self,
         service_model: ServiceModel,
         region_name: str,

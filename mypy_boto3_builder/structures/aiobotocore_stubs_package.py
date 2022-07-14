@@ -101,6 +101,7 @@ class AioBotocoreStubsPackage(Package):
                     "add_generate_presigned_url",
                 ),
                 ImportRecord(ImportString("botocore", "model"), "ServiceModel"),
+                ImportRecord(ImportString("botocore", "session"), "EVENT_ALIASES", "EVENT_ALIASES"),
                 ImportRecord(ImportString("botocore", "session"), "Session"),
                 ImportRecord(ImportString("typing"), "Any"),
                 ImportRecord(ImportString("typing"), "List"),

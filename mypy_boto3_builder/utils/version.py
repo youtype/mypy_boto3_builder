@@ -65,7 +65,7 @@ def get_aioboto3_version() -> str:
     Get aioboto3 package version.
     """
     try:
-        from aioboto3 import __version__ as version
+        from aioboto3 import __version__ as version  # type: ignore
     except (ModuleNotFoundError, ImportError):
         raise RuntimeError("aioboto3 is not installed")
     return version

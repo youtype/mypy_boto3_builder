@@ -11,7 +11,7 @@ history_recorder: HistoryRecorder
 _R = TypeVar("_R")
 
 class AioClientCreator(ClientCreator):
-    async def create_client(
+    async def create_client(  # type: ignore
         self,
         service_name: str,
         region_name: str,
@@ -29,4 +29,4 @@ class AioBaseClient(BaseClient):
     def get_waiter(self, waiter_name: str) -> AIOWaiter: ...
     async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> Any: ...
-    async def close(self) -> Any: ...
+    async def close(self) -> None: ...  # type: ignore

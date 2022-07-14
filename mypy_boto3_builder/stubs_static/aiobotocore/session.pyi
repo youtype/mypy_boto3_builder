@@ -13,6 +13,7 @@ from aiobotocore.signers import add_generate_presigned_post as add_generate_pres
 from aiobotocore.signers import add_generate_presigned_url as add_generate_presigned_url
 from botocore.client import Config
 from botocore.model import ServiceModel
+from botocore.session import EVENT_ALIASES as EVENT_ALIASES
 from botocore.session import Session
 
 class ClientCreatorContext:
@@ -35,10 +36,10 @@ class AioSession(Session):
         unique_id: Optional[Any] = ...,
         unique_id_uses_count: bool = ...,
     ) -> None: ...
-    def create_client(
+    def create_client(  # type: ignore
         self,
         service_name: str,
-        region_name: Optional[str] = None,
+        region_name: Optional[str] = ...,
         use_ssl: Optional[bool] = ...,
         endpoint_url: Optional[str] = ...,
         verify: Union[str, bool, None] = ...,
@@ -48,17 +49,17 @@ class AioSession(Session):
         api_version: Optional[str] = ...,
         config: Optional[Config] = ...,
     ) -> AioBaseClient: ...
-    async def get_credentials(self) -> AioCredentials: ...
+    async def get_credentials(self) -> AioCredentials: ...  # type: ignore
     def set_credentials(
         self, access_key: str, secret_key: str, token: Optional[Any] = ...
     ) -> None: ...
-    async def get_service_model(
+    async def get_service_model(  # type: ignore
         self, service_name: str, api_version: Optional[Any] = ...
     ) -> ServiceModel: ...
     async def get_service_data(
         self, service_name: str, api_version: Optional[Any] = ...
     ) -> Any: ...
-    async def get_available_regions(
+    async def get_available_regions(  # type: ignore
         self, service_name: str, partition_name: str = ..., allow_non_regional: bool = ...
     ) -> List[str]: ...
 

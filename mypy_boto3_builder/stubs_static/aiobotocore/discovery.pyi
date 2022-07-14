@@ -7,6 +7,6 @@ class AioEndpointDiscoveryManager(EndpointDiscoveryManager):
     async def describe_endpoint(self, **kwargs: Any) -> Any: ...
 
 class AioEndpointDiscoveryHandler(EndpointDiscoveryHandler):
-    async def discover_endpoint(
+    async def discover_endpoint(  # type: ignore
         self, request: Request, operation_name: str, **kwargs: Any
     ) -> None: ...

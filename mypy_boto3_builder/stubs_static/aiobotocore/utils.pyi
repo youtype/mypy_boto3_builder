@@ -1,5 +1,6 @@
 from typing import Any, Dict, Optional
 
+from botocore.utils import METADATA_BASE_URL as METADATA_BASE_URL
 from botocore.utils import (
     ContainerMetadataFetcher,
     IMDSFetcher,
@@ -12,14 +13,16 @@ logger: Any
 RETRYABLE_HTTP_ERRORS: Any
 
 class AioIMDSFetcher(IMDSFetcher):
-    class Response:
-        status_code: Any
-        url: Any
-        text: Any
-        content: Any
-        def __init__(self, status_code: int, text: str, url: str) -> None: ...
-
-    def __init__(self, *args: Any, session: Optional[Any] = ..., **kwargs: Any) -> None: ...
+    def __init__(
+        self,
+        timeout: int = ...,
+        num_attempts: int = ...,
+        base_url: str = ...,
+        env: Optional[str] = ...,
+        user_agent: Optional[str] = ...,
+        config: Optional[Any] = ...,
+        session: Optional[Any] = ...,
+    ) -> None: ...
 
 class AioInstanceMetadataFetcher(AioIMDSFetcher, InstanceMetadataFetcher):
     async def retrieve_iam_role_credentials(self) -> Dict[str, Any]: ...

@@ -73,12 +73,12 @@ class RefreshableCredentials(Credentials):
     method: Any = ...
     def __init__(
         self,
-        access_key: Any,
-        secret_key: Any,
-        token: Any,
+        access_key: str,
+        secret_key: str,
+        token: str,
         expiry_time: Any,
         refresh_using: Any,
-        method: Any,
+        method: str,
         time_fetcher: Any = ...,
     ) -> None: ...
     @classmethod
@@ -114,7 +114,7 @@ class BaseAssumeRoleCredentialFetcher(CachedCredentialFetcher):
     def __init__(
         self,
         client_creator: Any,
-        role_arn: Any,
+        role_arn: str,
         extra_args: Optional[Any] = ...,
         cache: Optional[Any] = ...,
         expiry_window_seconds: Optional[Any] = ...,
@@ -125,7 +125,7 @@ class AssumeRoleCredentialFetcher(BaseAssumeRoleCredentialFetcher):
         self,
         client_creator: Any,
         source_credentials: Any,
-        role_arn: Any,
+        role_arn: str,
         extra_args: Optional[Any] = ...,
         mfa_prompter: Optional[Any] = ...,
         cache: Optional[Any] = ...,
@@ -137,7 +137,7 @@ class AssumeRoleWithWebIdentityCredentialFetcher(BaseAssumeRoleCredentialFetcher
         self,
         client_creator: Any,
         web_identity_token_loader: Any,
-        role_arn: Any,
+        role_arn: str,
         extra_args: Optional[Any] = ...,
         cache: Optional[Any] = ...,
         expiry_window_seconds: Optional[Any] = ...,

@@ -106,19 +106,22 @@ PACKAGES: list[Package] = [
     ),
     Package(
         name="aioboto3",
-        products={"aioboto3", "aiobotocore"},
+        products={"aioboto3", "aiobotocore", "boto3"},
         uninstall={"types-aioboto3"},
         requirements=[
             ROOT_PATH / "types_s3transfer",
             OUTPUT_PATH / "types_aiobotocore_lite_package",
             OUTPUT_PATH / "types_aioboto3_lite_package",
+            OUTPUT_PATH / "boto3_stubs_lite_package",
+            OUTPUT_PATH / "botocore_stubs_package",
         ],
     ),
     Package(
         name="aiobotocore",
-        products={"aiobotocore"},
+        products={"aiobotocore", "boto3"},
         requirements=[
             OUTPUT_PATH / "types_aiobotocore_lite_package",
+            OUTPUT_PATH / "botocore_stubs_package",
         ],
     ),
 ]
