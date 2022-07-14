@@ -1,4 +1,4 @@
-from typing import Any, Optional
+from typing import Any, Mapping, Optional
 
 from botocore.awsrequest import create_request_object as create_request_object
 from botocore.awsrequest import prepare_request_dict as prepare_request_dict
@@ -6,18 +6,19 @@ from botocore.compat import OrderedDict as OrderedDict
 from botocore.exceptions import UnknownClientMethodError as UnknownClientMethodError
 from botocore.exceptions import UnknownSignatureVersionError as UnknownSignatureVersionError
 from botocore.exceptions import UnsupportedSignatureVersionError as UnsupportedSignatureVersionError
+from botocore.hooks import BaseEventHooks
 from botocore.utils import datetime2timestamp as datetime2timestamp
 from botocore.utils import fix_s3_host as fix_s3_host
 
 class RequestSigner:
     def __init__(
         self,
-        service_id: Any,
+        service_id: str,
         region_name: str,
         signing_name: str,
         signature_version: str,
         credentials: Any,
-        event_emitter: Any,
+        event_emitter: BaseEventHooks,
     ) -> None: ...
     @property
     def region_name(self) -> str: ...
@@ -26,7 +27,7 @@ class RequestSigner:
     @property
     def signing_name(self) -> str: ...
     def handler(
-        self, operation_name: Optional[Any] = ..., request: Optional[Any] = ..., **kwargs: Any
+        self, operation_name: Optional[str] = ..., request: Optional[Any] = ..., **kwargs: Any
     ) -> Any: ...
     def sign(
         self,
@@ -47,7 +48,7 @@ class RequestSigner:
     get_auth: Any = ...
     def generate_presigned_url(
         self,
-        request_dict: Any,
+        request_dict: Mapping[str, Any],
         operation_name: str,
         expires_in: int = ...,
         region_name: Optional[str] = ...,
@@ -57,7 +58,7 @@ class RequestSigner:
 class CloudFrontSigner:
     key_id: Any = ...
     rsa_signer: Any = ...
-    def __init__(self, key_id: Any, rsa_signer: Any) -> None: ...
+    def __init__(self, key_id: str, rsa_signer: Any) -> None: ...
     def generate_presigned_url(
         self, url: str, date_less_than: Optional[Any] = ..., policy: Optional[Any] = ...
     ) -> Any: ...
@@ -78,7 +79,7 @@ class S3PostPresigner:
     def __init__(self, request_signer: Any) -> None: ...
     def generate_presigned_post(
         self,
-        request_dict: Any,
+        request_dict: Mapping[str, Any],
         fields: Optional[Any] = ...,
         conditions: Optional[Any] = ...,
         expires_in: int = ...,

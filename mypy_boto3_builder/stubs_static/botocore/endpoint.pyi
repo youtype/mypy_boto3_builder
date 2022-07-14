@@ -4,6 +4,7 @@ from botocore import parsers as parsers
 from botocore.awsrequest import create_request_object as create_request_object
 from botocore.exceptions import HTTPClientError as HTTPClientError
 from botocore.history import get_global_history_recorder as get_global_history_recorder
+from botocore.hooks import BaseEventHooks
 from botocore.hooks import first_non_none_response as first_non_none_response
 from botocore.httpsession import URLLib3Session as URLLib3Session
 from botocore.model import OperationModel, ServiceModel
@@ -22,7 +23,7 @@ class Endpoint:
         self,
         host: str,
         endpoint_prefix: str,
-        event_emitter: Any,
+        event_emitter: BaseEventHooks,
         response_parser_factory: Optional[Any] = ...,
         http_session: Optional[URLLib3Session] = ...,
     ) -> None:
@@ -36,7 +37,7 @@ class Endpoint:
     def prepare_request(self, request: Any) -> Any: ...
 
 class EndpointCreator:
-    def __init__(self, event_emitter: Any) -> None: ...
+    def __init__(self, event_emitter: BaseEventHooks) -> None: ...
     def create_endpoint(
         self,
         service_model: ServiceModel,

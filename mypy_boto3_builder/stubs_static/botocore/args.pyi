@@ -20,11 +20,11 @@ else:
 VALID_REGIONAL_ENDPOINTS_CONFIG: List[str]
 LEGACY_GLOBAL_STS_REGIONS: List[str]
 
-class GetClientArgsTypeDef(TypedDict):
+class _GetClientArgsTypeDef(TypedDict):
     serializer: BaseRestSerializer
     endpoint: Endpoint
     response_parser: ResponseParser
-    event_emitter: Any
+    event_emitter: BaseEventHooks
     request_signer: RequestSigner
     service_model: ServiceModel
     loader: Loader
@@ -53,7 +53,7 @@ class ClientArgsCreator:
         scoped_config: Optional[Any],
         client_config: Optional[Config],
         endpoint_bridge: Optional[Any],
-    ) -> GetClientArgsTypeDef: ...
+    ) -> _GetClientArgsTypeDef: ...
     def compute_client_args(
         self,
         service_model: ServiceModel,
