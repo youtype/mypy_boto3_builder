@@ -22,6 +22,8 @@ MASTER_PACKAGES = [
     "mypy_boto3_package",
     "boto3_stubs_package",
     "boto3_stubs_lite_package",
+    "types_aioboto3_package",
+    "types_aioboto3_lite_package",
 ]
 LOGGER_NAME = "release"
 MAX_RETRIES = 5
@@ -202,7 +204,7 @@ def main() -> None:
 
         for index, path in enumerate(master_paths):
             publish(path)
-            total_index = len(service_paths) + index + 1
+            total_index = len(service_paths) + index
             logger.info(f"{get_progress_str(total_index, build_paths)} Published {path.name}")
 
 
