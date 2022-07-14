@@ -126,9 +126,10 @@ class Boto3Generator(BaseGenerator):
         """
         Generate service and master docs.
         """
+        package_data = Boto3StubsPackageData
         total_str = f"{len(self.service_names)}"
 
-        self.logger.info(f"Generating {Boto3StubsPackageData.NAME} module docs")
+        self.logger.info(f"Generating {package_data.NAME} module docs")
         process_boto3_stubs_docs(
             self.session,
             self.output_path,
@@ -137,10 +138,10 @@ class Boto3Generator(BaseGenerator):
 
         for index, service_name in enumerate(self.service_names):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
-            package_name = Boto3StubsPackageData.get_service_package_name(service_name)
+            package_name = package_data.get_service_package_name(service_name)
             self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} module docs")
             self._process_service_docs(
                 service_name=service_name,
-                package_data=Boto3StubsPackageData,
+                package_data=package_data,
                 templates_path=TEMPLATES_PATH / "boto3_service_docs",
             )

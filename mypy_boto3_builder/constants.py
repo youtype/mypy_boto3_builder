@@ -71,6 +71,7 @@ class Product(Enum):
     aiobotocore_services = "aiobotocore-services"
     aiobotocore_docs = "aiobotocore-docs"
     aioboto3 = "aioboto3"
+    aioboto3_docs = "aioboto3-docs"
 
     def __str__(self) -> str:
         return self.name

@@ -142,7 +142,7 @@ class TypesAioBoto3PackageData(BasePackageData):
     LIBRARY_NAME = "aioboto3"
     SERVICE_PREFIX = "types_aiobotocore"
     SERVICE_PYPI_PREFIX = "types-aiobotocore"
-    LOCAL_DOC_LINK = "https://youtype.github.io/types_aiobotocore_docs/"
+    LOCAL_DOC_LINK = "https://youtype.github.io/types_aioboto3_docs/"
 
     @staticmethod
     def get_library_version() -> str:

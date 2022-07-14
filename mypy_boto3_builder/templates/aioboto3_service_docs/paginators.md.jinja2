@@ -7,16 +7,18 @@
 {% for paginator in package.paginators -%}
 ## {{ paginator.name }}
 
-Type annotations and code completion for `#!python session.create_client("{{ service_name.boto3_name }}").get_paginator("{{ paginator.operation_name }}")`.
+Type annotations and code completion for `#!python session.client("{{ service_name.boto3_name }}").get_paginator("{{ paginator.operation_name }}")`.
 [:material-aws: boto3 documentation]({{ paginator.boto3_doc_link }})
 
 ```python title="Usage example"
-from {{ package.library_name }}.session import get_session
+from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.paginator import {{ paginator.name }}
 
+session = Session()
+
 session = get_session()
-async with session.create_client("{{ service_name.boto3_name }}") as client:  # (1)
+async with session.client("{{ service_name.boto3_name }}") as client:  # (1)
     paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")  # (2)
     async for item in paginator.paginate(...):
         item: {{ paginator.methods[0].return_type.children[0].name }}

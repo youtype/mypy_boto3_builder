@@ -1,0 +1,24 @@
+# Literals
+
+> [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > Literals
+
+{% include "common/header_note.md.jinja2" with context %}
+
+{% for literal in package.literals -%}
+## {{ literal.name }}
+
+```python title="Usage Example"
+from {{ package.name }}.literals import {{ literal.name }}
+
+def get_value() -> {{ literal.name }}:
+    return "{{ sorted(literal.children)[0] }}"
+```
+
+```python title="Definition"
+{{ literal.name }} = Literal[
+{% for child in literal.children|sort -%}
+{{ '    "' -}}{{ child }}{{ '",' -}}{{ '\n' -}}
+{% endfor -%}
+]
+```
+{% endfor %}

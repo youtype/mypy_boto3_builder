@@ -9,6 +9,7 @@ from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.version import get_aiobotocore_version
 from mypy_boto3_builder.writers.aioboto3_processors import (
     process_types_aioboto3,
+    process_types_aioboto3_docs,
     process_types_aioboto3_lite,
 )
 
@@ -72,8 +73,27 @@ class AioBoto3Generator(BaseGenerator):
 
     def generate_docs(self) -> None:
         """
-        Do nothing.
+        Generate service and master docs.
         """
+        package_data = TypesAioBoto3PackageData
+        total_str = f"{len(self.service_names)}"
+
+        self.logger.info(f"Generating {package_data.PYPI_NAME} module docs")
+        process_types_aioboto3_docs(
+            self.session,
+            self.output_path,
+            self.service_names,
+        )
+
+        for index, service_name in enumerate(self.service_names):
+            current_str = f"{{:0{len(total_str)}}}".format(index + 1)
+            package_name = package_data.get_service_package_name(service_name)
+            self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} module docs")
+            self._process_service_docs(
+                service_name=service_name,
+                package_data=package_data,
+                templates_path=TEMPLATES_PATH / "aioboto3_service_docs",
+            )
 
     def generate_service_stubs(self) -> None:
         """

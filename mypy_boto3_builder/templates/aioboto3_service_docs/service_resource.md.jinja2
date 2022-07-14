@@ -1,0 +1,121 @@
+# {{ package.service_resource.name }}
+
+> [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > {{ package.service_resource.name }}
+
+{% include "common/header_note.md.jinja2" with context %}
+
+## {{ package.service_resource.name }}
+
+Type annotations and code completion for `#!python session.resource("{{ service_name.boto3_name }}")`, included resources and collections.
+[:material-aws: boto3 documentation]({{ package.service_resource.boto3_doc_link }})
+
+```python title="Usage example"
+from {{ package.library_name }}.session import Session
+from {{ package.name  }}.service_resource import {{ package.service_resource.name }}
+
+session = Session()
+async with session.resource("{{ service_name.boto3_name }}") as resource:
+    resource: {{ package.service_resource.name }}
+```
+
+{% if package.service_resource.attributes %}
+## Attributes
+
+{% for attribute in package.service_resource.attributes %}
+- `{{ attribute.name }}`: {% with type_annotation=attribute.type_annotation -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith %}
+{% endfor %}
+{% endif %}
+
+{% if package.service_resource.collections %}
+## Collections
+{% for collection in package.service_resource.collections %}
+### {{ collection.name }}
+
+Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(collection.object_class_name) }}) resource.
+
+Type annotations and code completion for `#!python session.resource("{{ service_name.boto3_name }}").{{ collection.attribute_name }}` collection.
+[:material-aws: boto3 documentation]({{ collection.boto3_doc_link }})
+
+```python title="Usage example"
+from {{ package.name }}.service_resource import {{ collection.name }},
+
+def get_collection() -> {{ collection.name }}:
+    return session.resource("{{ service_name.boto3_name }}").{{ collection.attribute_name }}
+```
+{% endfor %}
+{% endif %}
+
+## Methods
+{% for method in package.service_resource.methods %}
+### {{ package.service_resource.name }}.{{ method.name|escape_md }} method
+
+{{ method.short_docstring }}
+
+Type annotations and code completion for `#!python session.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
+[:material-aws: boto3 documentation]({{ service_name.get_boto3_doc_link('ServiceResource', method.name) }})
+
+{% include "common/method_code.md.jinja2" with context -%}
+{% else %}
+{{ package.service_resource.name }} has no public methods.
+{% endfor %}
+
+{% for resource in package.service_resource.sub_resources %}
+## {{ resource.name }}
+
+Type annotations and code completion for `#!python session.resource("{{ service_name.boto3_name }}").{{ resource.name }}` class.
+[:material-aws: boto3 documentation]({{ resource.boto3_doc_link }})
+
+```python title="Usage example"
+from {{ package.name }}.service_resource import {{ resource.name }}
+
+
+async def get_resource() -> {{ resource.name }}:
+    async with session.resource("{{ service_name.boto3_name }}") as resource:
+        return await resource.{{ resource.name }}(...)
+```
+
+{% if resource.attributes %}
+### {{ resource.name }} attributes
+
+{% for attribute in resource.attributes %}
+- `{{ attribute.name }}`: {% with type_annotation=attribute.type_annotation -%}{% include "common/type_annotation.md.jinja2" with context -%}{% endwith -%}
+{% endfor %}
+{% endif %}
+
+{% if resource.collections %}
+### {{ resource.name }} collections
+
+{% for collection in resource.collections %}
+#### {{ resource.name }}.{{ collection.attribute_name }}
+
+Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(collection.object_class_name) }}) resource.
+
+Type annotations and code completion for `#!python session.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...).{{ collection.attribute_name }}` collection.
+[:material-aws: boto3 documentation]({{ collection.boto3_doc_link }})
+
+```python title="Usage example"
+from {{ package.name }}.service_resource import {{ collection.name }},
+
+def get_collection() -> {{ collection.name }}:
+    resource = session.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...)
+    return resource.{{ collection.attribute_name }}
+```
+{% endfor %}
+{% endif %}
+
+{% if resource.methods %}
+### {{ resource.name }} methods
+
+{% for method in resource.methods %}
+#### {{ resource.name }}.{{ method.name|escape_md }} method
+
+{{ method.short_docstring }}
+
+Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
+[:material-aws: boto3 documentation]({{ service_name.get_boto3_doc_link(resource.name, method.name) }})
+
+{% include "common/method_code.md.jinja2" with context -%}
+{% endfor %}
+{% endif %}
+
+{% endfor %}

@@ -83,3 +83,33 @@ def process_types_aioboto3_lite(
         exclude_template_names=["session.pyi.jinja2"],
     )
     return package
+
+
+def process_types_aioboto3_docs(
+    session: Session,
+    output_path: Path,
+    service_names: Iterable[ServiceName],
+) -> TypesAioBoto3Package:
+    """
+    Parse and write master package docs.
+
+    Arguments:
+        session -- boto3 session
+        output_path -- Package output path
+        service_names -- List of known service names
+
+    Return:
+        Parsed AioBotocoreStubsPackage.
+    """
+    logger = get_logger()
+    package = parse_types_aioboto3_package(session, service_names, TypesAioBoto3PackageData)
+
+    logger.debug(f"Writing {package.pypi_name} to {NicePath(output_path)}")
+
+    package_writer = PackageWriter(output_path=output_path)
+    package_writer.write_docs(
+        package,
+        templates_path=TEMPLATES_PATH / "types_aioboto3_docs",
+    )
+
+    return package

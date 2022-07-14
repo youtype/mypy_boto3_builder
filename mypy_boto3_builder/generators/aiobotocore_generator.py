@@ -78,9 +78,10 @@ class AioBotocoreGenerator(BaseGenerator):
         """
         Generate service and master docs.
         """
+        package_data = TypesAioBotocorePackageData
         total_str = f"{len(self.service_names)}"
 
-        self.logger.info(f"Generating {TypesAioBotocorePackageData.PYPI_NAME} module docs")
+        self.logger.info(f"Generating {package_data.PYPI_NAME} module docs")
         process_aiobotocore_stubs_docs(
             self.session,
             self.output_path,
@@ -89,10 +90,10 @@ class AioBotocoreGenerator(BaseGenerator):
 
         for index, service_name in enumerate(self.service_names):
             current_str = f"{{:0{len(total_str)}}}".format(index + 1)
-            package_name = TypesAioBotocorePackageData.get_service_package_name(service_name)
+            package_name = package_data.get_service_package_name(service_name)
             self.logger.info(f"[{current_str}/{total_str}] Generating {package_name} module docs")
             self._process_service_docs(
                 service_name=service_name,
-                package_data=TypesAioBotocorePackageData,
+                package_data=package_data,
                 templates_path=TEMPLATES_PATH / "aiobotocore_service_docs",
             )

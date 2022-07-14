@@ -19,6 +19,23 @@ def get_{{ paginator.operation_name }}_paginator() -> {{ paginator.name }}:
     return Session().client("{{ service_name.boto3_name }}").get_paginator("{{ paginator.operation_name }}")
 ```
 
+```python title="Usage example"
+from {{ package.library_name }}.session import Session
+
+from {{ package.name }}.paginator import {{ paginator.name }}
+
+session = Session()
+
+client = Session().client("{{ service_name.boto3_name }}")  # (1)
+paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")  # (2)
+for item in paginator.paginate(...):
+    print(item)  # (3)
+```
+
+1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+2. paginator: [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }})
+3. item: {% with type_annotation=paginator.methods[0].return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+
 {% for method in paginator.methods %}
 ### {{ method.name|escape_md }}
 

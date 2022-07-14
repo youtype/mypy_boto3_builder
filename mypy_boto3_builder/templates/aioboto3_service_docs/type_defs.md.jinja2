@@ -1,0 +1,44 @@
+# Typed dictionaries
+
+> [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > Typed dictionaries
+
+{% include "common/header_note.md.jinja2" with context %}
+
+{% for typed_dict in package.typed_dicts -%}
+## {{ typed_dict.name }}
+
+```python title="Usage Example"
+from {{ package.name }}.type_defs import {{ typed_dict.name }}
+
+def get_value() -> {{ typed_dict.name }}:
+    {{ 'return {' -}}
+    {% with atrributes=typed_dict.get_required() or typed_dict.get_optional()[:1] -%}
+        {% for atrribute in atrributes -%}
+            {{ '\n        "' -}}{{ atrribute.name -}}{{ '": ...,' -}}
+        {% endfor -%}
+    {% endwith -%}
+    {{ '\n    }\n' -}}
+```
+
+```python title="Definition"
+class {{ typed_dict.name }}(TypedDict):
+{% for child in typed_dict.iterate_children() -%}
+    {{ '    ' -}}{{ child.name -}}{{ ': ' -}}
+    {% with type_annotation=child.get_type_annotation() -%}
+        {% include "common/type_annotation_code.md.jinja2" with context -%}
+        {{ ',' -}}
+        {% if child.type_annotation in typed_dict.type_hint_annotations -%}
+            {{ '  # (' -}}{{ typed_dict.type_hint_annotations.index(child.type_annotation) + 1 -}}{{ ')' -}}
+        {% endif -%}
+    {% endwith -%}
+    {{ '\n' -}}
+{% endfor -%}
+```
+
+{% for type_annotation in typed_dict.type_hint_annotations -%}
+{{ loop.index -}}{{ '. See ' -}}
+{% include "common/type_hint.md.jinja2" with context -%}
+{{ '\n' -}}
+{% endfor -%}
+
+{% endfor %}

@@ -1,0 +1,154 @@
+# {{ package.service_name.class_name }} module
+
+> [Index](../README.md) > {{ package.service_name.class_name }}
+
+
+{% include "common/header_note.md.jinja2" with context %}
+
+{% include "common/how_to_install_service.md.jinja2" with context %}
+
+## Usage
+
+Code samples can be found in [Examples](./usage.md).
+
+## {{ package.client.name }}
+
+Type annotations and code completion for  `#!python session.client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+[:material-aws: boto3 documentation]({{ package.client.boto3_doc_link }})
+
+```python title="Usage example"
+from {{ package.library_name }}.session import Session
+
+from {{ package.name }}.client import {{ package.client.name }}
+
+
+session = Session()
+async with session.client("{{ service_name.boto3_name }}") as client:
+    client: {{ package.client.name }}
+```
+
+{% if package.paginators %}
+## Paginators
+
+Type annotations and code completion for
+[paginators]({{ service_name.get_md_doc_link('paginators') }})
+from `#!python session.client("{{ package.service_name.boto3_name }}").get_paginator("...")`.
+
+```python title="Usage example"
+from {{ package.name }}.paginator import {{ package.paginators[0].name }}
+
+def get_{{ package.paginators[0].operation_name }}_paginator() -> {{ package.paginators[0].name }}:
+    return client.get_paginator("{{ package.paginators[0].operation_name }}"))
+```
+
+{% for paginator in package.paginators -%}
+- [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.waiters %}
+## Waiters
+
+Type annotations and code completion for
+[waiters]({{ service_name.get_md_doc_link('waiters') }})
+from `#!python session.client("{{ package.service_name.boto3_name }}").get_waiter("...")`.
+
+```python title="Usage example"
+from {{ package.name }}.waiter import {{ package.waiters[0].name }}
+
+def get_{{ package.waiters[0].waiter_name }}_waiter() -> {{ package.waiters[0].name }}:
+    return Session().client("{{ service_name.boto3_name }}").get_waiter("{{ package.waiters[0].waiter_name }}")
+```
+
+{% for waiter in package.waiters -%}
+- [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.service_resource %}
+## {{ package.service_resource.name }}
+
+Type annotations and code completion for `#!python session.resource("{{ package.service_name.boto3_name }}")` as
+[{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name) }})
+[:material-aws: boto3 documentation]({{ package.service_resource.boto3_doc_link }})
+
+```python title="Usage example"
+from {{ package.name }}.service_resource import {{ package.service_resource.name }}
+```
+
+{% if package.service_resource.collections %}
+### Collections
+
+Type annotations and code completion for collections
+from `#!python session.resource("{{ package.service_name.boto3_name }}").*`.
+
+```python title="Usage example"
+from {{ package.name }}.service_resource import {{ package.service_resource.collections[0].name }}
+
+def get_collection() -> {{ package.service_resource.collections[0].name }}:
+    return resource.{{ package.service_resource.collections[0].attribute_name }}
+```
+
+{% for collection in package.service_resource.collections -%}
+- [{{ collection.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.service_resource.sub_resources %}
+### Resources
+
+Type annotations and code completion for additional resources
+from `#!python session.resource("{{ package.service_name.boto3_name }}").*`.
+
+```python title="Usage example"
+from {{ package.name }}.service_resource import {{ package.service_resource.sub_resources[0].name }}
+
+def get_resource() -> {{ package.service_resource.sub_resources[0].name }}:
+    return resource.{{ package.service_resource.sub_resources[0].name }}(...)
+```
+
+{% for sub_resource in package.service_resource.sub_resources -%}
+- [{{ sub_resource.name }}]({{ service_name.get_md_doc_link('service_resource', sub_resource.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+{% endif %}
+
+{% if package.literals %}
+## Literals
+
+Type annotations for [literals]({{ service_name.get_md_doc_link('literals') }}) used in methods and schema.
+
+```python title="Usage example"
+from {{ package.name }}.literals import {{ package.literals[0].name }}
+
+def get_value() -> {{ package.literals[0].name }}:
+    return "{{ sorted(package.literals[0].children)[0] }}"
+```
+
+{% for literal in package.literals -%}
+- [{{ literal.name }}]({{ service_name.get_md_doc_link('literals', literal.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
+
+{% if package.typed_dicts %}
+## Typed dictionaries
+
+Type annotations for [typed dictionaries]({{ service_name.get_md_doc_link('type_defs') }}) used in methods and schema.
+
+```python title="Usage example"
+from {{ package.name }}.type_defs import {{ package.typed_dicts[0].name }}
+
+def get_value() -> {{ package.typed_dicts[0].name }}:
+    {{ 'return {' -}}
+    {% with atrributes=package.typed_dicts[0].get_required() or package.typed_dicts[0].get_optional()[:1] -%}
+        {% for atrribute in atrributes -%}
+            {{ '\n        "' -}}{{ atrribute.name -}}{{ '": ...,' -}}
+        {% endfor -%}
+    {% endwith -%}
+    {{ '\n    }\n' -}}
+```
+
+{% for typed_dict in package.typed_dicts -%}
+- [{{ typed_dict.name }}]({{ service_name.get_md_doc_link('type_defs', typed_dict.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}
