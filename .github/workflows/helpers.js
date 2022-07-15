@@ -86,9 +86,20 @@ async function getAioBotocoreVersion() {
     return sortVersions(versions).pop()
 }
 
+async function getAioBoto3Version() {
+    const versions = await getReleaseVersions('aioboto3')
+    return sortVersions(versions).pop()
+}
+
 async function getTypesAioBotocoreVersions(aiobotocoreVersion) {
     const allVersions = await getReleaseVersions('types-aiobotocore')
     const versions = allVersions.filter(v => v === aiobotocoreVersion || v.startsWith(`${aiobotocoreVersion}.`))
+    return sortVersions(versions)
+}
+
+async function getTypesAioBoto3Versions(aioboto3Version) {
+    const allVersions = await getReleaseVersions('types-aioboto3')
+    const versions = allVersions.filter(v => v === aioboto3Version || v.startsWith(`${aioboto3Version}.`))
     return sortVersions(versions)
 }
 
@@ -192,12 +203,6 @@ async function extractAioBotocoreVersions({ core, context }) {
 
     const force = context.payload.inputs ? context.payload.inputs.force !== 'false' : false
 
-    let buildAll = (context.payload.inputs && context.payload.inputs.build_all !== 'false') ? 'true' : 'false'
-    if (aiobotocoreVersion.endsWith('.0')) {
-        core.info(`Aiobotocore version is not a micro release ${aiobotocoreVersion}, building all packages`)
-        buildAll = 'true'
-    }
-
     const extraFlags = []
 
     const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : false
@@ -205,9 +210,6 @@ async function extractAioBotocoreVersions({ core, context }) {
 
     core.info(`Extra flags = ${extraFlags}`)
     core.setOutput('extra-flags', extraFlags.join(' '))
-
-    core.info(`Build all packages = ${buildAll}`)
-    core.setOutput('build-all', buildAll)
 
     const versions = await getTypesAioBotocoreVersions(aiobotocoreVersion)
     core.info(`Built versions ${versions}`)
@@ -239,10 +241,60 @@ async function extractAioBotocoreVersions({ core, context }) {
     core.setOutput('version', buildVersion)
 }
 
+async function extractAioBoto3Versions({ core, context }) {
+    core.setOutput('version', '')
+
+    const aioboto3Version = (
+        (context.payload.inputs && context.payload.inputs.aioboto3_version) ?
+            context.payload.inputs.aioboto3_version :
+            await getAioBoto3Version()
+    )
+
+    core.info(`Aioboto3 version = ${aioboto3Version}`)
+    core.setOutput('aioboto3-version', aioboto3Version)
+
+    const force = context.payload.inputs ? context.payload.inputs.force !== 'false' : false
+
+    const versions = await getTypesAioBoto3Versions(aioboto3Version)
+    core.info(`Built versions ${versions}`)
+
+    if (context.payload.inputs && context.payload.inputs.stubs_version) {
+        const buildVersion = context.payload.inputs.stubs_version
+        core.info(`Forced types-aioboto3 version: ${buildVersion}`)
+        core.info(`Build version = ${buildVersion}`)
+        core.setOutput('version', buildVersion)
+        return
+    }
+
+    if (versions.length && !force) {
+        core.info('Builds found, skipping')
+        return
+    }
+
+    if (!versions.length) {
+        core.info(`No builds found, building initial ${aioboto3Version}`)
+        core.setOutput('version', aioboto3Version)
+        return
+    }
+
+    const lastBuildVersion = versions.pop()
+    core.info(`Last build version ${lastBuildVersion}`)
+
+    const buildVersion = getNextPostVersion(lastBuildVersion)
+    core.info(`Build version = ${buildVersion}`)
+    core.setOutput('version', buildVersion)
+}
+
 async function extractAioBotocoreDownloadLinks({ core }) {
     const aiobotocoreURL = await getDownloadURL('aiobotocore', process.env.AIOBOTOCORE_VERSION)
     core.info(`aiobotocore download URL: ${aiobotocoreURL}`)
     core.setOutput('aiobotocore-url', aiobotocoreURL)
+}
+
+async function extractAioBoto3DownloadLinks({ core }) {
+    const aioboto3URL = await getDownloadURL('aioboto3', process.env.AIOBOTO3_VERSION)
+    core.info(`aioboto3 download URL: ${aioboto3URL}`)
+    core.setOutput('aioboto3-url', aioboto3URL)
 }
 
 async function extractVersionsFromInput({ core, context }) {
