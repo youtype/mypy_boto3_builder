@@ -47,6 +47,6 @@ jobs:
       - name: Uninstall stubs
         run: |
           poetry run pip uninstall -y boto3-stubs botocore-stubs
-      - name: Check boto3 stubs
+      - name: Check aio stubs
         run: |
           poetry run ./scripts/check_stubs.py -bid aioboto3 aiobotocore
