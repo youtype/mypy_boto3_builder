@@ -23,6 +23,8 @@ class BasePackageData:
     SERVICE_PREFIX: str = "mypy_boto3"
     SERVICE_PYPI_PREFIX: str = "mypy-boto3"
     LOCAL_DOC_LINK: str = "https://youtype.github.io/boto3_stubs_docs/"
+    IS_VSCODE_SUPPORTED: bool = False
+    IS_CONDA_FORGE_SUPPORTED: bool = False
 
     @classmethod
     def get_service_package_name(cls, service_name: ServiceName) -> str:
@@ -110,6 +112,8 @@ class Boto3StubsPackageData(BasePackageData):
     PYPI_LITE_NAME = "boto3-stubs-lite"
     LIBRARY_NAME = "boto3"
     LOCAL_DOC_LINK = "https://youtype.github.io/boto3_stubs_docs/"
+    IS_VSCODE_SUPPORTED = True
+    IS_CONDA_FORGE_SUPPORTED = True
 
 
 class Boto3StubsLitePackageData(Boto3StubsPackageData):

@@ -1,11 +1,13 @@
 ## How to install
 
+{% if package.data.IS_VSCODE_SUPPORTED %}
 ### VSCode extension
 
 Add [AWS Boto3](https://marketplace.visualstudio.com/items?itemName=Boto3typed.boto3-ide)
 extension to your VSCode and run `AWS boto3: Quick Start` command.
 
 Click `Modify` and select `boto3 common` and `{{ service_name.class_name }}`.
+{% endif %}
 
 ### From PyPI with pip
 
@@ -25,7 +27,7 @@ python -m pip install '{{ package.data.PYPI_LITE_NAME }}[{{ package.service_name
 python -m pip install {{ package.pypi_name }}
 ```
 
-{% if package.service_name.is_conda_forge_available() %}
+{% if package.data.IS_CONDA_FORGE_SUPPORTED and package.service_name.is_conda_forge_available() -%}
 ### From conda-forge
 
 Installing `{{ package.pypi_name }}` from the `conda-forge` channel
@@ -49,7 +51,7 @@ available on your platform with:
 ```bash
 conda search {{ package.pypi_name }} --channel conda-forge
 ```
-{% endif %}
+{%- endif %}
 
 ## How to uninstall
 
