@@ -1,4 +1,4 @@
-from typing import Any, Dict, Optional
+from typing import Any, Mapping, Optional
 
 from botocore.auth import BaseSigner
 from botocore.signers import RequestSigner, S3PostPresigner
@@ -27,7 +27,7 @@ class AioRequestSigner(RequestSigner):
     get_auth: Any
     async def generate_presigned_url(
         self,
-        request_dict: Dict[str, Any],
+        request_dict: Mapping[str, Any],
         operation_name: str,
         expires_in: int = ...,
         region_name: Optional[Any] = ...,
@@ -50,7 +50,7 @@ async def generate_presigned_url(
 class AioS3PostPresigner(S3PostPresigner):
     async def generate_presigned_post(
         self,
-        request_dict: Dict[str, Any],
+        request_dict: Mapping[str, Any],
         fields: Optional[Any] = ...,
         conditions: Optional[Any] = ...,
         expires_in: int = ...,
