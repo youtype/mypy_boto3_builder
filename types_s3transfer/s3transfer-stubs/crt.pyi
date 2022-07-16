@@ -61,13 +61,13 @@ class CRTTransferManager:
         self,
         bucket: str,
         key: str,
-        fileobj: IO[Any],
+        fileobj: Union[IO[Any], str, bytes],
         extra_args: Optional[Mapping[str, Any]] = ...,
         subscribers: Optional[Sequence[BaseSubscriber]] = ...,
     ) -> CRTTransferFuture: ...
     def upload(
         self,
-        fileobj: IO[Any],
+        fileobj: Union[IO[Any], str, bytes],
         bucket: str,
         key: str,
         extra_args: Optional[Mapping[str, Any]] = ...,

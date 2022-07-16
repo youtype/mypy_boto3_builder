@@ -12,6 +12,7 @@ from typing import (
     Tuple,
     Type,
     TypeVar,
+    Union,
 )
 
 from botocore.awsrequest import AWSRequest
@@ -67,7 +68,7 @@ class OSUtils:
     ) -> ReadFileChunk: ...
     def open_file_chunk_reader_from_fileobj(
         self,
-        fileobj: IO[Any],
+        fileobj: Union[IO[Any], str, bytes],
         chunk_size: int,
         full_file_size: int,
         callbacks: Iterable[Callable[..., Any]],
@@ -101,7 +102,7 @@ class DeferredOpenFile:
 class ReadFileChunk:
     def __init__(
         self,
-        fileobj: IO[Any],
+        fileobj: Union[IO[Any], str, bytes],
         chunk_size: int,
         full_file_size: int,
         callbacks: Optional[Iterable[Callable[..., Any]]] = ...,

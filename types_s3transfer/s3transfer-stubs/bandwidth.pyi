@@ -1,4 +1,4 @@
-from typing import IO, Any, Optional, TypeVar
+from typing import IO, Any, Optional, TypeVar, Union
 
 from s3transfer.futures import TransferCoordinator
 
@@ -20,13 +20,16 @@ class BandwidthLimiter:
         self, leaky_bucket: LeakyBucket, time_utils: Optional[TimeUtils] = ...
     ) -> None: ...
     def get_bandwith_limited_stream(
-        self, fileobj: IO[Any], transfer_coordinator: TransferCoordinator, enabled: bool = ...
+        self,
+        fileobj: Union[IO[Any], str, bytes],
+        transfer_coordinator: TransferCoordinator,
+        enabled: bool = ...,
     ) -> BandwidthLimitedStream: ...
 
 class BandwidthLimitedStream:
     def __init__(
         self,
-        fileobj: IO[Any],
+        fileobj: Union[IO[Any], str, bytes],
         leaky_bucket: LeakyBucket,
         transfer_coordinator: TransferCoordinator,
         time_utils: Optional[TimeUtils] = ...,

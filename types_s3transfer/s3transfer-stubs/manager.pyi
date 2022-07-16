@@ -81,7 +81,7 @@ class TransferManager:
     def config(self) -> TransferConfig: ...
     def upload(
         self,
-        fileobj: Union[str, IO[Any]],
+        fileobj: Union[IO[Any], str, bytes],
         bucket: str,
         key: str,
         extra_args: Optional[Mapping[str, Any]] = ...,
@@ -91,7 +91,7 @@ class TransferManager:
         self,
         bucket: str,
         key: str,
-        fileobj: IO[Any],
+        fileobj: Union[IO[Any], str, bytes],
         extra_args: Optional[Mapping[str, Any]] = ...,
         subscribers: Optional[Sequence[BaseSubscriber]] = ...,
     ) -> TransferFuture: ...

@@ -1,6 +1,6 @@
 import logging
 from queue import Queue
-from typing import IO, Any, Callable, Dict, Iterator, List, Mapping, Optional, Type, TypeVar
+from typing import IO, Any, Callable, Dict, Iterator, List, Mapping, Optional, Type, TypeVar, Union
 
 from botocore.client import BaseClient
 from s3transfer.exceptions import RetriesExceededError as RetriesExceededError
@@ -24,7 +24,7 @@ class QueueShutdownError(Exception): ...
 class ReadFileChunk:
     def __init__(
         self,
-        fileobj: IO[Any],
+        fileobj: Union[IO[Any], str, bytes],
         start_byte: int,
         chunk_size: int,
         full_file_size: int,
