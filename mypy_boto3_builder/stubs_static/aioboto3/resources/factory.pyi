@@ -10,7 +10,7 @@ logger: logging.Logger
 
 class AIOBoto3ResourceFactory(ResourceFactory):
     def __init__(self, emitter: BaseEventHooks) -> None: ...
-    async def load_from_definition(  # type: ignore
+    async def load_from_definition(  # type: ignore [override]
         self,
         resource_name: str,
         single_resource_json_definition: Any,

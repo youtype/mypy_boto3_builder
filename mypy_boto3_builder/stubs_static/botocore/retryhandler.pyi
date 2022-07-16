@@ -41,7 +41,7 @@ class MaxAttemptsDecorator(BaseChecker):
         retryable_exceptions: Optional[Iterable[Type[Exception]]] = ...,
     ) -> None: ...
     # FIXME: Signature of "__call__" incompatible with supertype "BaseChecker"
-    def __call__(  # type: ignore
+    def __call__(  # type: ignore [override]
         self,
         attempt_number: int,
         response: Mapping[str, Any],

@@ -34,7 +34,7 @@ class AioIMDSRegionProvider(IMDSRegionProvider):
     async def provide(self) -> str: ...
 
 class AioInstanceMetadataRegionFetcher(AioIMDSFetcher, InstanceMetadataRegionFetcher):
-    async def retrieve_region(self) -> Optional[str]: ...  # type: ignore
+    async def retrieve_region(self) -> Optional[str]: ...  # type: ignore [override]
 
 class AioS3RegionRedirector(S3RegionRedirector):
     async def redirect_from_error(

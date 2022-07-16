@@ -13,7 +13,7 @@ def register_table_methods(base_classes: List[Any], **kwargs: Any) -> None: ...
 
 class CustomTableResource(TableResource):
     # FIXME: Signature of "batch_writer" incompatible with supertype "TableResource"
-    def batch_writer(  # type: ignore
+    def batch_writer(  # type: ignore [override]
         self,
         overwrite_by_pkeys: Optional[List[str]] = ...,
         flush_amount: int = ...,

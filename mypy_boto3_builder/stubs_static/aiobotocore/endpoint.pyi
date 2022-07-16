@@ -18,7 +18,7 @@ class AioEndpoint(Endpoint):
     ) -> Request: ...
 
 class AioEndpointCreator(EndpointCreator):
-    def create_endpoint(  # type: ignore
+    def create_endpoint(  # type: ignore [override]
         self,
         service_model: ServiceModel,
         region_name: str,

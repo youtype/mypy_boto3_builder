@@ -16,16 +16,16 @@ class AIOServiceAction(ServiceAction):
         factory: Optional[ResourceFactory] = ...,
         service_context: Optional[ServiceContext] = ...,
     ) -> None: ...
-    async def __call__(  # type: ignore
+    async def __call__(  # type: ignore [override]
         self, parent: ServiceResource, *args: Any, **kwargs: Any
     ) -> Union[ServiceResource, List[ServiceResource], Dict[str, Any]]: ...
 
 class AioBatchAction(ServiceAction):
-    async def __call__(  # type: ignore
+    async def __call__(  # type: ignore [override]
         self, parent: ServiceResource, *args: Any, **kwargs: Any
     ) -> List[Dict[str, Any]]: ...
 
 class AIOWaiterAction(WaiterAction):
-    async def __call__(  # type: ignore
+    async def __call__(  # type: ignore [override]
         self, parent: ServiceResource, *args: Any, **kwargs: Any
     ) -> None: ...

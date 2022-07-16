@@ -28,10 +28,12 @@ from botocore.credentials import (
     SSOProvider,
 )
 
+from mypy_boto3_builder.stubs_static.botocore.credentials import ReadOnlyCredentials
+
 logger: logging.Logger
 
 def create_credential_resolver(
-    session: AioSession,  # type: ignore
+    session: AioSession,
     cache: Optional[Any] = ...,
     region_name: Optional[str] = ...,
 ) -> AioCredentialResolver: ...
@@ -39,10 +41,10 @@ def create_credential_resolver(
 class AioProfileProviderBuilder(ProfileProviderBuilder): ...
 
 async def get_credentials(
-    session: AioSession,  # type: ignore
+    session: AioSession,
 ) -> AioCredentials: ...
 def create_assume_role_refresher(
-    client: AioBaseClient,  # type: ignore
+    client: AioBaseClient,
     params: Any,
 ) -> Any: ...
 def create_aio_mfa_serial_refresher(actual_refresh: Any) -> Any: ...
@@ -50,7 +52,7 @@ def create_aio_mfa_serial_refresher(actual_refresh: Any) -> Any: ...
 _R = TypeVar("_R")
 
 class AioCredentials(Credentials):
-    async def get_frozen_credentials(self) -> AioRefreshableCredentials: ...  # type: ignore
+    async def get_frozen_credentials(self) -> ReadOnlyCredentials: ...  # type: ignore [override]
     @classmethod
     def from_credentials(cls: Type[_R], obj: Optional[Credentials]) -> _R: ...
 
@@ -64,19 +66,19 @@ class AioRefreshableCredentials(RefreshableCredentials):
     def from_refreshable_credentials(
         cls: Type[_R], obj: Optional[RefreshableCredentials]
     ) -> _R: ...
-    @property  # type: ignore
-    def access_key(self) -> str: ...  # type: ignore
+    @property  # type: ignore [override]
+    def access_key(self) -> str: ...  # type: ignore [override]
     @access_key.setter
     def access_key(self, value: str) -> None: ...
-    @property  # type: ignore
-    def secret_key(self) -> str: ...  # type: ignore
+    @property  # type: ignore [override]
+    def secret_key(self) -> str: ...  # type: ignore [override]
     @secret_key.setter
     def secret_key(self, value: str) -> None: ...
-    @property  # type: ignore
-    def token(self) -> str: ...  # type: ignore
+    @property  # type: ignore [override]
+    def token(self) -> str: ...  # type: ignore [override]
     @token.setter
     def token(self, value: str) -> None: ...
-    async def get_frozen_credentials(self) -> RefreshableCredentials: ...  # type: ignore
+    async def get_frozen_credentials(self) -> ReadOnlyCredentials: ...  # type: ignore [override]
 
 class AioDeferredRefreshableCredentials(AioRefreshableCredentials):
     method: Any
@@ -124,23 +126,23 @@ class AioConfigProvider(ConfigProvider):
     async def load(self) -> AioCredentials: ...
 
 class AioBotoProvider(BotoProvider):
-    async def load(self) -> AioCredentials: ...  # type: ignore
+    async def load(self) -> AioCredentials: ...  # type: ignore [override]
 
 class AioAssumeRoleProvider(AssumeRoleProvider):
-    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore
+    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore [override]
 
 class AioAssumeRoleWithWebIdentityProvider(AssumeRoleWithWebIdentityProvider):
-    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore
+    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore [override]
 
 class AioCanonicalNameCredentialSourcer(CanonicalNameCredentialSourcer):
-    async def source_credentials(self, source_name: str) -> Any: ...  # type: ignore
+    async def source_credentials(self, source_name: str) -> Any: ...  # type: ignore [override]
 
 class AioContainerProvider(ContainerProvider):
     def __init__(self, *args: Any, **kwargs: Any) -> None: ...
-    async def load(self) -> AioRefreshableCredentials: ...  # type: ignore
+    async def load(self) -> AioRefreshableCredentials: ...  # type: ignore [override]
 
 class AioCredentialResolver(CredentialResolver):
-    async def load_credentials(self) -> Any: ...  # type: ignore
+    async def load_credentials(self) -> Any: ...  # type: ignore [override]
 
 class AioSSOCredentialFetcher(AioCachedCredentialFetcher):
     def __init__(
@@ -156,4 +158,4 @@ class AioSSOCredentialFetcher(AioCachedCredentialFetcher):
     ) -> None: ...
 
 class AioSSOProvider(SSOProvider):
-    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore
+    async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore [override]

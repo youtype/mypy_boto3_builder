@@ -9,7 +9,7 @@ class NormalizedOperationMethod(_NormalizedOperationMethod):
     async def __call__(self, **kwargs: Any) -> Any: ...
 
 class AIOWaiter(Waiter):
-    async def wait(self, **kwargs: Any) -> None: ...  # type: ignore
+    async def wait(self, **kwargs: Any) -> None: ...  # type: ignore [override]
 
 def create_waiter_with_client(
     waiter_name: str, waiter_model: WaiterModel, client: BaseClient

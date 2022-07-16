@@ -29,7 +29,7 @@ class EndpointResolver(BaseEndpointResolver):
     def get_partition_dns_suffix(
         self, partition_name: str, endpoint_variant_tags: Any = ...
     ) -> str: ...
-    def construct_endpoint(  # type: ignore
+    def construct_endpoint(  # type: ignore [override]
         self,
         service_name: str,
         region_name: Optional[str] = ...,

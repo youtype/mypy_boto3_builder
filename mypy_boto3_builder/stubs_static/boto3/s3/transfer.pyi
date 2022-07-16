@@ -15,7 +15,7 @@ MB: int
 def create_transfer_manager(
     client: BaseClient,
     config: TransferConfig,
-    osutil: Optional[OSUtils] = ...,  # type: ignore
+    osutil: Optional[OSUtils] = ...,
 ) -> TransferManager: ...
 
 class TransferConfig(S3TransferConfig):
@@ -42,8 +42,8 @@ class S3Transfer:
         self,
         client: Optional[BaseClient] = ...,
         config: Optional[Config] = ...,
-        osutil: Optional[OSUtils] = ...,  # type: ignore
-        manager: Optional[TransferManager] = ...,  # type: ignore
+        osutil: Optional[OSUtils] = ...,
+        manager: Optional[TransferManager] = ...,
     ) -> None: ...
     def upload_file(
         self,
@@ -67,4 +67,6 @@ class S3Transfer:
 class ProgressCallbackInvoker(BaseSubscriber):
     def __init__(self, callback: Callable[[int], Any]) -> None: ...
     # FIXME: signature incompatible with BaseSubscriber
-    def on_progress(self, bytes_transferred: int, **kwargs: Any) -> None: ...  # type: ignore
+    def on_progress(  # type: ignore [override]
+        self, bytes_transferred: int, **kwargs: Any
+    ) -> None: ...

@@ -8,7 +8,7 @@ class AioRequestSigner(RequestSigner):
     async def handler(
         self, operation_name: Optional[Any] = ..., request: Optional[Any] = ..., **kwargs: Any
     ) -> None: ...
-    async def sign(  # type: ignore
+    async def sign(  # type: ignore [override]
         self,
         operation_name: str,
         request: Request,
