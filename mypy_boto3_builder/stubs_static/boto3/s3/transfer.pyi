@@ -2,7 +2,6 @@ from typing import Any, Callable, Dict, List, Mapping, Optional, TypeVar
 
 from botocore.client import BaseClient
 from botocore.config import Config
-from s3transfer.futures import TransferFuture
 from s3transfer.manager import TransferConfig as S3TransferConfig
 from s3transfer.manager import TransferManager
 from s3transfer.subscribers import BaseSubscriber
@@ -15,7 +14,7 @@ MB: int
 
 def create_transfer_manager(
     client: BaseClient,
-    config: Config,
+    config: TransferConfig,
     osutil: Optional[OSUtils] = ...,  # type: ignore
 ) -> TransferManager: ...
 
