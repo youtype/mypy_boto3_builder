@@ -1,7 +1,7 @@
 [
     {
         "severity": "error",
-        "message": "Argument of type \"dict[str, str | int | Decimal | ValueError]\" cannot be assigned to parameter \"Item\" of type \"Mapping[str, bytes | bytearray | str | int | Decimal | bool | Set[int] | Set[Decimal] | Set[str] | Set[bytes] | Set[bytearray] | Sequence[Any] | Mapping[str, Any] | None]\" in function \"put_item\"",
+        "message": "Argument of type \"dict[str, Decimal | ValueError | int | str]\" cannot be assigned to parameter \"Item\" of type \"Mapping[str, bytes | bytearray | str | int | Decimal | bool | Set[int] | Set[Decimal] | Set[str] | Set[bytes] | Set[bytearray] | Sequence[Any] | Mapping[str, Any] | None]\" in function \"put_item\"",
         "range": {
             "start": {
                 "line": 18,
