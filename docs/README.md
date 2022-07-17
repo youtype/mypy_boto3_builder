@@ -34,7 +34,10 @@ Do you want more? Check the [documentation](https://youtype.github.io/boto3_stub
 Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.md#mypy-boto3-builder-modules)
 
 - [mypy_boto3_builder](#mypy_boto3_builder)
-  - [Using boto3-stubs](#using-boto3-stubs)
+  - [Using built libraries](#using-built-libraries)
+    - [boto3](#boto3)
+    - [aiobotocore](#aiobotocore)
+    - [aioboto3](#aioboto3)
   - [How to build type annotations](#how-to-build-type-annotations)
     - [Locally](#locally)
     - [With Docker image](#with-docker-image)
@@ -46,7 +49,9 @@ Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.
     - [Contributors](#contributors)
   - [mypy-boto3-builder Modules](MODULES.md#mypy-boto3-builder-modules)
 
-## Using boto3-stubs
+## Using built libraries
+
+### boto3
 
 Check [boto3-stubs](https://pypi.org/project/boto3-stubs/) project for installation
 and usage instructions.
@@ -57,27 +62,54 @@ extension to your VSCode and run `AWS boto3: Quick Start` command.
 If not, just install `boto3-stubs` with `pip`:
 
 ```bash
-python -m pip install 'boto3-stubs[all]'
+python -m pip install 'boto3-stubs[essential]'
 
 # Lite version does not provide session.client/resource overloads
 # it is more RAM-friendly, but requires explicit type annotations
-python -m pip install 'boto3-stubs-lite[all]'
-
-# If you use aiobotocore, use asynchronous version
-python -m pip install 'types-aiobotocore[all]'
-python -m pip install 'types-aiobotocore-lite[all]'
-
-# Same for aioboto3
-python -m pip install 'types-aioboto3[all]'
-python -m pip install 'types-aioboto3-lite[all]'
+python -m pip install 'boto3-stubs-lite[essential]'
 
 # do not forget to install mypy or pyright
 ```
 
-And you should already have code completion and type checking in your IDE! You can stop reading now.
+That's it! You should already have code completion and type checking in your IDE.
 
-THe rest of this document is about building `boto3-stubs` manually. For example, if you want to
-use the latest features for an older `boto3` version.
+### aiobotocore
+
+Check [types-aiobotocore](https://pypi.org/project/types-aiobotocore/) project for installation
+and usage instructions.
+
+Or just install `types-aiobotocore` with `pip`:
+
+```bash
+python -m pip install 'types-aiobotocore[essential]'
+
+# Lite version does not provide session.create_client overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'types-aiobotocore-lite[essential]'
+
+# do not forget to install mypy or pyright
+```
+
+Ready to go! Enjoy code completion and type checking in your `aiobotocore` project.
+
+### aioboto3
+
+Check [types-aioboto3](https://pypi.org/project/types-aioboto3/) project for installation
+and usage instructions.
+
+Or just install `types-aioboto3` with `pip`:
+
+```bash
+python -m pip install 'types-aioboto3[essential]'
+
+# Lite version does not provide session.client/resource overloads
+# it is more RAM-friendly, but requires explicit type annotations
+python -m pip install 'types-aioboto3-lite[essential]'
+
+# do not forget to install mypy or pyright
+```
+
+Whoa! All `aioboto3` methods and attributes are now type-annotated and even code completion works.
 
 ## How to build type annotations
 

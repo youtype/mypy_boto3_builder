@@ -50,7 +50,7 @@ Service names marked as essential.
 
 ### TypesAioBoto3Package().get_all_names
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/types_aioboto3_package.py#L72)
+[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/types_aioboto3_package.py#L69)
 
 ```python
 def get_all_names() -> list[str]:
