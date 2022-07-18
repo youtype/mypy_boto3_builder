@@ -100,7 +100,7 @@ types-six = "*"
 types-certifi = "*"
 types-python-dateutil = "*"
 types-urllib3 = "*"
-boto3-stubs-lite = "*"
+boto3-stubs = "*"
 botocore-stubs = "*"
 awscrt = "*"
 
