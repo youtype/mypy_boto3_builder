@@ -42,6 +42,16 @@ class AioBotocorePostprocessor(BasePostprocessor):
         ExternalImport(ImportString("boto3", "s3", "transfer"), "TransferConfig"): ExternalImport(
             ImportString("boto3", "s3", "transfer"), "TransferConfig", safe=True
         ),
+        ExternalImport(
+            ImportString("boto3", "resources", "base"), "ServiceResource"
+        ): ExternalImport(
+            ImportString("aioboto3", "resources", "base"), "AIOBoto3ServiceResource", safe=True
+        ),
+        ExternalImport(
+            ImportString("boto3", "resources", "collection"), "ResourceCollection"
+        ): ExternalImport(
+            ImportString("aioboto3", "resources", "collection"), "AIOResourceCollection", safe=True
+        ),
     }
 
     def process_package(self) -> None:
@@ -146,5 +156,4 @@ class AioBotocorePostprocessor(BasePostprocessor):
             new_type_annotation = self.EXTERNAL_IMPORTS_MAP.get(type_annotation)
             if new_type_annotation is None:
                 continue
-            type_annotation.source = new_type_annotation.source
-            type_annotation.name = new_type_annotation.name
+            type_annotation.copy_from(new_type_annotation)
