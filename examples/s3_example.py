@@ -19,7 +19,7 @@ def s3_resource_example() -> None:
     bucket.objects.delete(mfa="my_mfa", MFA="my_mfa")
 
     # (mypy) error: Unexpected keyword argument "key" for "upload_file" of "Bucket"
-    bucket.upload_file(Filename="my.txt", key="my-txt")
+    bucket.upload_file(Filename="my.txt", Key="my-txt", Config="test")
     data: BucketUploadFileRequestTypeDef = {"Filename": "my.txt", "key": "my-txt"}
     bucket.upload_file(**data)
 

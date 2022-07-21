@@ -16,30 +16,15 @@
     },
     {
         "severity": "error",
-        "message": "No parameter named \"key\"",
+        "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig\" in function \"upload_file\"\n\u00a0\u00a0\"Literal['test']\" is incompatible with \"TransferConfig\"",
         "range": {
             "start": {
                 "line": 21,
-                "character": 42
+                "character": 63
             },
             "end": {
                 "line": 21,
-                "character": 45
-            }
-        },
-        "rule": "reportGeneralTypeIssues"
-    },
-    {
-        "severity": "error",
-        "message": "Argument missing for parameter \"Key\"",
-        "range": {
-            "start": {
-                "line": 21,
-                "character": 4
-            },
-            "end": {
-                "line": 21,
-                "character": 55
+                "character": 69
             }
         },
         "rule": "reportGeneralTypeIssues"
