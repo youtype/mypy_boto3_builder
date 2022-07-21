@@ -4,6 +4,7 @@ Writer for package static and template files.
 from pathlib import Path
 from typing import Sequence
 
+from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
@@ -72,8 +73,13 @@ class PackageWriter:
 
         result: list[tuple[Path, Path]] = []
         setup_path = self._get_setup_path(package)
-        for template_path in NicePath(templates_path).walk(glob_pattern="*.jinja2"):
-            file_name = template_path.name.rsplit(".", 1)[0]
+        template_paths = [
+            templates_path / "setup.py.jinja2",
+            templates_path / "README.md.jinja2",
+            TEMPLATES_PATH / "common" / "LICENSE.jinja2",
+        ]
+        for template_path in template_paths:
+            file_name = template_path.stem
             output_file_path = setup_path / file_name
             result.append((output_file_path, template_path))
         return result
@@ -88,7 +94,7 @@ class PackageWriter:
         package_path = self._get_package_path(package)
         package_template_path = templates_path / package.name
         for template_path in NicePath(package_template_path).walk(glob_pattern="**/*.jinja2"):
-            file_name = template_path.name.rsplit(".", 1)[0]
+            file_name = template_path.stem
             output_file_path = (
                 package_path / template_path.relative_to(package_template_path).parent / file_name
             )
@@ -200,7 +206,7 @@ class PackageWriter:
         self.output_path.mkdir(exist_ok=True, parents=True)
         file_paths = []
         for template_path in templates_path.glob("**/*.jinja2"):
-            file_name = template_path.name.rsplit(".", 1)[0]
+            file_name = template_path.stem
             file_paths.append((self.output_path / file_name, template_path))
 
         self._render_md_templates(package, file_paths)
