@@ -1,6 +1,5 @@
 from typing import Any, Callable, Dict, Mapping, Optional, Type
 
-from botocore.compat import ETree as ETree
 from botocore.compat import XMLParseError as XMLParseError
 from botocore.eventstream import EventStream as EventStream
 from botocore.eventstream import NoInitialResponseError as NoInitialResponseError
