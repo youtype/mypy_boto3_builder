@@ -1,23 +1,18 @@
 # Client
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Parsers](./index.md#parsers) /
+Client
+
 > Auto-generated documentation for [mypy_boto3_builder.parsers.client](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/client.py) module.
 
-Boto3 client parser, produces `structures.Client`.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Parsers](index.md#parsers) / Client
-    - [parse_client](#parse_client)
+- [Client](#client)
+  - [parse_client](#parse_client)
 
 ## parse_client
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/client.py#L23)
-
-```python
-def parse_client(
-    session: Session,
-    service_name: ServiceName,
-    shape_parser: ShapeParser,
-) -> Client:
-```
+[Show source in client.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/client.py#L23)
 
 Parse boto3 client to a structure.
 
@@ -30,8 +25,19 @@ Parse boto3 client to a structure.
 
 Client structure.
 
+#### Signature
+
+```python
+def parse_client(
+    session: Session, service_name: ServiceName, shape_parser: ShapeParser
+) -> Client:
+    ...
+```
+
 #### See also
 
 - [Client](../structures/client.md#client)
 - [ServiceName](../service_name.md#servicename)
-- [ShapeParser](shape_parser.md#shapeparser)
+- [ShapeParser](./shape_parser.md#shapeparser)
+
+

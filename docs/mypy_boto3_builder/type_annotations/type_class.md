@@ -1,24 +1,22 @@
 # TypeClass
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Type Annotations](./index.md#type-annotations) /
+TypeClass
+
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.type_class](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py) module.
 
-Wrapper for classes like `Paginator`.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](index.md#type-annotations) / TypeClass
-    - [TypeClass](#typeclass)
-        - [TypeClass().copy](#typeclasscopy)
-        - [TypeClass().get_import_name](#typeclassget_import_name)
-        - [TypeClass().get_import_record](#typeclassget_import_record)
-        - [TypeClass().render](#typeclassrender)
+- [TypeClass](#typeclass)
+  - [TypeClass](#typeclass-1)
+    - [TypeClass().copy](#typeclass()copy)
+    - [TypeClass().get_import_name](#typeclass()get_import_name)
+    - [TypeClass().get_import_record](#typeclass()get_import_record)
+    - [TypeClass().render](#typeclass()render)
 
 ## TypeClass
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L11)
-
-```python
-class TypeClass(FakeAnnotation):
-    def __init__(value: type, alias: str = '') -> None:
-```
+[Show source in type_class.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L11)
 
 Wrapper for classes like `Paginator`.
 
@@ -27,39 +25,56 @@ Wrapper for classes like `Paginator`.
 - `value` - Any Class.
 - `alias` - Local name.
 
+#### Signature
+
+```python
+class TypeClass(FakeAnnotation):
+    def __init__(self, value: type, alias: str = "") -> None:
+        ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypeClass().copy
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L57)
-
-```python
-def copy() -> 'TypeClass':
-```
+[Show source in type_class.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L57)
 
 Create a copy of type annotation wrapper.
 
-### TypeClass().get_import_name
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L36)
+#### Signature
 
 ```python
-def get_import_name() -> str:
+def copy(self) -> "TypeClass":
+    ...
 ```
+
+### TypeClass().get_import_name
+
+[Show source in type_class.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L36)
 
 Get name for import string.
 
-### TypeClass().get_import_record
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L42)
+#### Signature
 
 ```python
-def get_import_record() -> ImportRecord:
+def get_import_name(self) -> str:
+    ...
 ```
 
+### TypeClass().get_import_record
+
+[Show source in type_class.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L42)
+
 Create an impoort record to insert where TypeClass is used.
+
+#### Signature
+
+```python
+def get_import_record(self) -> ImportRecord:
+    ...
+```
 
 #### See also
 
@@ -67,14 +82,19 @@ Create an impoort record to insert where TypeClass is used.
 
 ### TypeClass().render
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L24)
-
-```python
-def render(parent_name: str = '') -> str:
-```
+[Show source in type_class.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_class.py#L24)
 
 Render type annotation to a valid Python code for local usage.
 
 #### Returns
 
 A string with a valid type annotation.
+
+#### Signature
+
+```python
+def render(self, parent_name: str = "") -> str:
+    ...
+```
+
+

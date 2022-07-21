@@ -1,48 +1,58 @@
 # TypesAioBoto3Package
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Structures](./index.md#structures) /
+TypesAioBoto3Package
+
 > Auto-generated documentation for [mypy_boto3_builder.structures.types_aioboto3_package](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/types_aioboto3_package.py) module.
 
-Structure for types-aioboto3 module.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / TypesAioBoto3Package
-    - [TypesAioBoto3Package](#typesaioboto3package)
-        - [TypesAioBoto3Package().essential_service_names](#typesaioboto3packageessential_service_names)
-        - [TypesAioBoto3Package().get_all_names](#typesaioboto3packageget_all_names)
-        - [TypesAioBoto3Package().get_session_required_import_records](#typesaioboto3packageget_session_required_import_records)
+- [TypesAioBoto3Package](#typesaioboto3package)
+  - [TypesAioBoto3Package](#typesaioboto3package-1)
+    - [TypesAioBoto3Package().essential_service_names](#typesaioboto3package()essential_service_names)
+    - [TypesAioBoto3Package().get_all_names](#typesaioboto3package()get_all_names)
+    - [TypesAioBoto3Package().get_session_required_import_records](#typesaioboto3package()get_session_required_import_records)
 
 ## TypesAioBoto3Package
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/types_aioboto3_package.py#L17)
+[Show source in types_aioboto3_package.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/types_aioboto3_package.py#L17)
+
+Structure for types-aioboto3 module.
+
+#### Signature
 
 ```python
 class TypesAioBoto3Package(Package):
     def __init__(
+        self,
         data: type[BasePackageData],
         session_class: ClassRecord | None = None,
         service_names: Iterable[ServiceName] = tuple(),
         service_packages: Iterable[ServicePackage] = tuple(),
     ):
+        ...
 ```
-
-Structure for types-aioboto3 module.
 
 #### See also
 
 - [BasePackageData](../package_data.md#basepackagedata)
-- [Package](package.md#package)
+- [Package](./package.md#package)
 - [ServiceName](../service_name.md#servicename)
-- [ServicePackage](service_package.md#servicepackage)
+- [ServicePackage](./service_package.md#servicepackage)
 
 ### TypesAioBoto3Package().essential_service_names
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/types_aioboto3_package.py#L34)
+[Show source in types_aioboto3_package.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/types_aioboto3_package.py#L34)
+
+Service names marked as essential.
+
+#### Signature
 
 ```python
 @property
-def essential_service_names() -> list[ServiceName]:
+def essential_service_names(self) -> list[ServiceName]:
+    ...
 ```
-
-Service names marked as essential.
 
 #### See also
 
@@ -50,24 +60,32 @@ Service names marked as essential.
 
 ### TypesAioBoto3Package().get_all_names
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/types_aioboto3_package.py#L69)
-
-```python
-def get_all_names() -> list[str]:
-```
+[Show source in types_aioboto3_package.py:69](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/types_aioboto3_package.py#L69)
 
 Get names for `__all__` directive.
 
-### TypesAioBoto3Package().get_session_required_import_records
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/types_aioboto3_package.py#L45)
+#### Signature
 
 ```python
-def get_session_required_import_records() -> list[ImportRecord]:
+def get_all_names(self) -> list[str]:
+    ...
 ```
 
+### TypesAioBoto3Package().get_session_required_import_records
+
+[Show source in types_aioboto3_package.py:45](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/types_aioboto3_package.py#L45)
+
 Get import reciords for `session.py[i]`.
+
+#### Signature
+
+```python
+def get_session_required_import_records(self) -> list[ImportRecord]:
+    ...
+```
 
 #### See also
 
 - [ImportRecord](../import_helpers/import_record.md#importrecord)
+
+

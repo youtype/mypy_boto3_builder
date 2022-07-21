@@ -1,24 +1,22 @@
 # TypeConstant
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Type Annotations](./index.md#type-annotations) /
+TypeConstant
+
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.type_constant](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py) module.
 
-Wrapper for constant like `False` or `"test"`.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](index.md#type-annotations) / TypeConstant
-    - [TypeConstant](#typeconstant)
-        - [TypeConstant().copy](#typeconstantcopy)
-        - [TypeConstant().get_import_record](#typeconstantget_import_record)
-        - [TypeConstant().is_none](#typeconstantis_none)
-        - [TypeConstant().render](#typeconstantrender)
+- [TypeConstant](#typeconstant)
+  - [TypeConstant](#typeconstant-1)
+    - [TypeConstant().copy](#typeconstant()copy)
+    - [TypeConstant().get_import_record](#typeconstant()get_import_record)
+    - [TypeConstant().is_none](#typeconstant()is_none)
+    - [TypeConstant().render](#typeconstant()render)
 
 ## TypeConstant
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L8)
-
-```python
-class TypeConstant(FakeAnnotation):
-    def __init__(value: object) -> None:
-```
+[Show source in type_constant.py:8](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L8)
 
 Wrapper for constant like `False` or `"test"`.
 
@@ -26,29 +24,43 @@ Wrapper for constant like `False` or `"test"`.
 
 - `value` - Constant value.
 
+#### Signature
+
+```python
+class TypeConstant(FakeAnnotation):
+    def __init__(self, value: object) -> None:
+        ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypeConstant().copy
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L37)
-
-```python
-def copy() -> 'TypeConstant':
-```
+[Show source in type_constant.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L37)
 
 Create a copy of type annotation wrapper.
 
-### TypeConstant().get_import_record
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L31)
+#### Signature
 
 ```python
-def get_import_record() -> ImportRecord:
+def copy(self) -> "TypeConstant":
+    ...
 ```
 
+### TypeConstant().get_import_record
+
+[Show source in type_constant.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L31)
+
 Get empty import record, because constants do not require imports.
+
+#### Signature
+
+```python
+def get_import_record(self) -> ImportRecord:
+    ...
+```
 
 #### See also
 
@@ -56,24 +68,32 @@ Get empty import record, because constants do not require imports.
 
 ### TypeConstant().is_none
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L43)
-
-```python
-def is_none() -> bool:
-```
+[Show source in type_constant.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L43)
 
 Whether value is None.
 
-### TypeConstant().render
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L19)
+#### Signature
 
 ```python
-def render(parent_name: str = '') -> str:
+def is_none(self) -> bool:
+    ...
 ```
+
+### TypeConstant().render
+
+[Show source in type_constant.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L19)
 
 Render type annotation to a valid Python code for local usage.
 
 #### Returns
 
 A string with a valid type annotation.
+
+#### Signature
+
+```python
+def render(self, parent_name: str = "") -> str:
+    ...
+```
+
+

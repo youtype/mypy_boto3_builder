@@ -1,19 +1,17 @@
 # Logger
 
+[mypy-boto3-builder Index](../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](./index.md#mypy-boto3-builder) /
+Logger
+
 > Auto-generated documentation for [mypy_boto3_builder.logger](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/logger.py) module.
 
-Logging utils.
-
-- [mypy-boto3-builder](../README.md#mypy_boto3_builder) / [Modules](../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](index.md#mypy-boto3-builder) / Logger
-    - [get_logger](#get_logger)
+- [Logger](#logger)
+  - [get_logger](#get_logger)
 
 ## get_logger
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/logger.py#L11)
-
-```python
-def get_logger(level: int = 0) -> logging.Logger:
-```
+[Show source in logger.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/logger.py#L11)
 
 Get Logger instance.
 
@@ -25,3 +23,12 @@ Get Logger instance.
 #### Returns
 
 Overriden Logger.
+
+#### Signature
+
+```python
+def get_logger(level: int = 0) -> logging.Logger:
+    ...
+```
+
+

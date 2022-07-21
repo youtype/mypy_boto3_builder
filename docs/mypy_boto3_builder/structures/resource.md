@@ -1,51 +1,65 @@
 # Resource
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Structures](./index.md#structures) /
+Resource
+
 > Auto-generated documentation for [mypy_boto3_builder.structures.resource](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py) module.
 
-Boto3 ServiceResource sub-Resource.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Resource
-    - [Resource](#resource)
-        - [Resource().boto3_doc_link](#resourceboto3_doc_link)
-        - [Resource().iterate_types](#resourceiterate_types)
+- [Resource](#resource)
+  - [Resource](#resource-1)
+    - [Resource().boto3_doc_link](#resource()boto3_doc_link)
+    - [Resource().iterate_types](#resource()iterate_types)
 
 ## Resource
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L14)
-
-```python
-class Resource(ClassRecord):
-    def __init__(name: str, service_name: ServiceName):
-```
+[Show source in resource.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L14)
 
 Boto3 ServiceResource sub-Resource.
 
+#### Signature
+
+```python
+class Resource(ClassRecord):
+    def __init__(self, name: str, service_name: ServiceName):
+        ...
+```
+
 #### See also
 
-- [ClassRecord](class_record.md#classrecord)
+- [ClassRecord](./class_record.md#classrecord)
 - [ServiceName](../service_name.md#servicename)
 
 ### Resource().boto3_doc_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L33)
-
-```python
-@property
-def boto3_doc_link() -> str:
-```
+[Show source in resource.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L33)
 
 Link to boto3 docs.
 
-### Resource().iterate_types
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L40)
+#### Signature
 
 ```python
-def iterate_types() -> Iterator[FakeAnnotation]:
+@property
+def boto3_doc_link(self) -> str:
+    ...
 ```
 
+### Resource().iterate_types
+
+[Show source in resource.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L40)
+
 Iterate over all type annotations from collections.
+
+#### Signature
+
+```python
+def iterate_types(self) -> Iterator[FakeAnnotation]:
+    ...
+```
 
 #### See also
 
 - [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
+
+

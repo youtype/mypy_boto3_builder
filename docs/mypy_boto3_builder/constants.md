@@ -1,49 +1,68 @@
 # Constants
 
+[mypy-boto3-builder Index](../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](./index.md#mypy-boto3-builder) /
+Constants
+
 > Auto-generated documentation for [mypy_boto3_builder.constants](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py) module.
-
-Constants and paths.
-
-- [mypy-boto3-builder](../README.md#mypy_boto3_builder) / [Modules](../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](index.md#mypy-boto3-builder) / Constants
-    - [Product](#product)
-        - [Product().get_library](#productget_library)
-        - [Product().get_type](#productget_type)
-    - [ProductLibrary](#productlibrary)
-    - [ProductType](#producttype)
 
 #### Attributes
 
 - `DUMMY_REGION` - Random region to initialize services: `'us-west-2'`
+
 - `TEMPLATES_PATH` - Jinja2 templates for boto3-stubs: `Path(__file__).parent / 'templates'`
+
 - `BOTO3_STUBS_STATIC_PATH` - Static *.pyi files for boto3-stubs: `Path(__file__).parent / 'stubs_static' / 'boto3'`
+
 - `BOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for botocore-stubs: `Path(__file__).parent / 'stubs_static' / 'botocore'`
+
 - `AIOBOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for types-aiobotocore: `Path(__file__).parent / 'stubs_static' / 'aiobotocore'`
+
 - `AIOBOTO3_STUBS_STATIC_PATH` - Static *.pyi files for types-aioboto3: `Path(__file__).parent / 'stubs_static' / 'aioboto3'`
+
 - `LINE_LENGTH` - Max line length for boto3 docs: `100`
+
 - `BUILDER_REPO_URL` - mypy-boto3-builder GitHub link: `'https://github.com/youtype/mypy_boto3_builder'`
+
 - `LOGGER_NAME` - Main logger name: `'mypy_boto3_builder'`
+
 - `PROG_NAME` - builder CLI entrypoint name: `'mypy_boto3_builder'`
+
 - `PACKAGE_NAME` - builder package name: `'mypy-boto3-builder'`
+
+
+- [Constants](#constants)
+  - [Product](#product)
+    - [Product().get_library](#product()get_library)
+    - [Product().get_type](#product()get_type)
+  - [ProductLibrary](#productlibrary)
+  - [ProductType](#producttype)
 
 ## Product
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L62)
-
-```python
-class Product(Enum):
-```
+[Show source in constants.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L62)
 
 Product choice for CLI.
 
-### Product().get_library
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L79)
+#### Signature
 
 ```python
-def get_library() -> ProductLibrary:
+class Product(Enum):
+    ...
 ```
 
+### Product().get_library
+
+[Show source in constants.py:79](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L79)
+
 Get library name.
+
+#### Signature
+
+```python
+def get_library(self) -> ProductLibrary:
+    ...
+```
 
 #### See also
 
@@ -51,34 +70,49 @@ Get library name.
 
 ### Product().get_type
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L88)
-
-```python
-def get_type() -> ProductType:
-```
+[Show source in constants.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L88)
 
 Get product type.
+
+#### Signature
+
+```python
+def get_type(self) -> ProductType:
+    ...
+```
 
 #### See also
 
 - [ProductType](#producttype)
 
+
+
 ## ProductLibrary
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L42)
-
-```python
-class ProductLibrary(Enum):
-```
+[Show source in constants.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L42)
 
 Product library for Generator.
 
+#### Signature
+
+```python
+class ProductLibrary(Enum):
+    ...
+```
+
+
+
 ## ProductType
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L52)
+[Show source in constants.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L52)
+
+Product type for Generator.
+
+#### Signature
 
 ```python
 class ProductType(Enum):
+    ...
 ```
 
-Product type for Generator.
+

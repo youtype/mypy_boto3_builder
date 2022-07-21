@@ -1,26 +1,24 @@
 # ImportString
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Import Helpers](./index.md#import-helpers) /
+ImportString
+
 > Auto-generated documentation for [mypy_boto3_builder.import_helpers.import_string](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py) module.
 
-Wrapper for Python import strings.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Import Helpers](index.md#import-helpers) / ImportString
-    - [ImportString](#importstring)
-        - [ImportString.empty](#importstringempty)
-        - [ImportString.from_str](#importstringfrom_str)
-        - [ImportString().master_name](#importstringmaster_name)
-        - [ImportString.parent](#importstringparent)
-        - [ImportString().render](#importstringrender)
-        - [ImportString().startswith](#importstringstartswith)
+- [ImportString](#importstring)
+  - [ImportString](#importstring-1)
+    - [ImportString.empty](#importstringempty)
+    - [ImportString.from_str](#importstringfrom_str)
+    - [ImportString().master_name](#importstring()master_name)
+    - [ImportString.parent](#importstringparent)
+    - [ImportString().render](#importstring()render)
+    - [ImportString().startswith](#importstring()startswith)
 
 ## ImportString
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L9)
-
-```python
-class ImportString():
-    def __init__(master_name: str, *parts: str) -> None:
-```
+[Show source in import_string.py:9](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L9)
 
 Wrapper for Python import strings.
 
@@ -45,57 +43,73 @@ import_string.render()
 'my.name.test'
 ```
 
-### ImportString.empty
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L47)
+#### Signature
 
 ```python
-@classmethod
-def empty() -> _R:
+class ImportString:
+    def __init__(self, master_name: str, *parts: str) -> None:
+        ...
 ```
+
+### ImportString.empty
+
+[Show source in import_string.py:47](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L47)
 
 Create an empty ImportString.
 
-### ImportString.from_str
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L40)
+#### Signature
 
 ```python
 @classmethod
-def from_str(import_string: str) -> 'ImportString':
+def empty(cls: type[_R]) -> _R:
+    ...
 ```
+
+### ImportString.from_str
+
+[Show source in import_string.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L40)
 
 Create from string.
 
-### ImportString().master_name
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L126)
-
-```python
-@property
-def master_name() -> str:
-```
-
-Get first import string part or `builtins`.
-
-### ImportString.parent
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L56)
+#### Signature
 
 ```python
 @classmethod
-def parent() -> _R:
+def from_str(cls, import_string: str) -> "ImportString":
+    ...
 ```
+
+### ImportString().master_name
+
+[Show source in import_string.py:126](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L126)
+
+Get first import string part or `builtins`.
+
+#### Signature
+
+```python
+@property
+def master_name(self) -> str:
+    ...
+```
+
+### ImportString.parent
+
+[Show source in import_string.py:56](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L56)
 
 Get parent ImportString.
 
-### ImportString().render
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L117)
+#### Signature
 
 ```python
-def render() -> str:
+@classmethod
+def parent(cls: type[_R]) -> _R:
+    ...
 ```
+
+### ImportString().render
+
+[Show source in import_string.py:117](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L117)
 
 Render to string.
 
@@ -103,13 +117,16 @@ Render to string.
 
 Ready to use import string.
 
-### ImportString().startswith
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L85)
+#### Signature
 
 ```python
-def startswith(other: _R) -> bool:
+def render(self) -> str:
+    ...
 ```
+
+### ImportString().startswith
+
+[Show source in import_string.py:85](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L85)
 
 Check if import string starts with `other`.
 
@@ -132,3 +149,12 @@ True
 #### Arguments
 
 - `other` - Other import string.
+
+#### Signature
+
+```python
+def startswith(self: _R, other: _R) -> bool:
+    ...
+```
+
+

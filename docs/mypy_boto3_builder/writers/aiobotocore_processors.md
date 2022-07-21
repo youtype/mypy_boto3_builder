@@ -1,27 +1,20 @@
 # Aiobotocore Processors
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Writers](./index.md#writers) /
+Aiobotocore Processors
+
 > Auto-generated documentation for [mypy_boto3_builder.writers.aiobotocore_processors](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py) module.
 
-Processors for parsing and writing `aiobotocore` modules.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Writers](index.md#writers) / Aiobotocore Processors
-    - [process_aiobotocore_stubs](#process_aiobotocore_stubs)
-    - [process_aiobotocore_stubs_docs](#process_aiobotocore_stubs_docs)
-    - [process_aiobotocore_stubs_lite](#process_aiobotocore_stubs_lite)
+- [Aiobotocore Processors](#aiobotocore-processors)
+  - [process_aiobotocore_stubs](#process_aiobotocore_stubs)
+  - [process_aiobotocore_stubs_docs](#process_aiobotocore_stubs_docs)
+  - [process_aiobotocore_stubs_lite](#process_aiobotocore_stubs_lite)
 
 ## process_aiobotocore_stubs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L22)
-
-```python
-def process_aiobotocore_stubs(
-    session: Session,
-    output_path: Path,
-    service_names: Iterable[ServiceName],
-    generate_setup: bool,
-    version: str,
-) -> AioBotocoreStubsPackage:
-```
+[Show source in aiobotocore_processors.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L22)
 
 Parse and write stubs package `aiobotocore-stubs`.
 
@@ -37,22 +30,29 @@ Parse and write stubs package `aiobotocore-stubs`.
 
 Parsed AioBotocoreStubsPackage.
 
+#### Signature
+
+```python
+def process_aiobotocore_stubs(
+    session: Session,
+    output_path: Path,
+    service_names: Iterable[ServiceName],
+    generate_setup: bool,
+    version: str,
+) -> AioBotocoreStubsPackage:
+    ...
+```
+
 #### See also
 
 - [AioBotocoreStubsPackage](../structures/aiobotocore_stubs_package.md#aiobotocorestubspackage)
 - [ServiceName](../service_name.md#servicename)
 
+
+
 ## process_aiobotocore_stubs_docs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L95)
-
-```python
-def process_aiobotocore_stubs_docs(
-    session: Session,
-    output_path: Path,
-    service_names: Iterable[ServiceName],
-) -> AioBotocoreStubsPackage:
-```
+[Show source in aiobotocore_processors.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L95)
 
 Parse and write master package docs.
 
@@ -66,24 +66,25 @@ Parse and write master package docs.
 
 Parsed AioBotocoreStubsPackage.
 
+#### Signature
+
+```python
+def process_aiobotocore_stubs_docs(
+    session: Session, output_path: Path, service_names: Iterable[ServiceName]
+) -> AioBotocoreStubsPackage:
+    ...
+```
+
 #### See also
 
 - [AioBotocoreStubsPackage](../structures/aiobotocore_stubs_package.md#aiobotocorestubspackage)
 - [ServiceName](../service_name.md#servicename)
 
+
+
 ## process_aiobotocore_stubs_lite
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L58)
-
-```python
-def process_aiobotocore_stubs_lite(
-    session: Session,
-    output_path: Path,
-    service_names: Iterable[ServiceName],
-    generate_setup: bool,
-    version: str,
-) -> AioBotocoreStubsPackage:
-```
+[Show source in aiobotocore_processors.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L58)
 
 Parse and write stubs package `aiobotocore-stubs-lite`.
 
@@ -99,7 +100,22 @@ Parse and write stubs package `aiobotocore-stubs-lite`.
 
 Parsed AioBotocoreStubsPackage.
 
+#### Signature
+
+```python
+def process_aiobotocore_stubs_lite(
+    session: Session,
+    output_path: Path,
+    service_names: Iterable[ServiceName],
+    generate_setup: bool,
+    version: str,
+) -> AioBotocoreStubsPackage:
+    ...
+```
+
 #### See also
 
 - [AioBotocoreStubsPackage](../structures/aiobotocore_stubs_package.md#aiobotocorestubspackage)
 - [ServiceName](../service_name.md#servicename)
+
+

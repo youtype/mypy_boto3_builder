@@ -1,23 +1,18 @@
 # Service Package
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Parsers](./index.md#parsers) /
+Service Package
+
 > Auto-generated documentation for [mypy_boto3_builder.parsers.service_package](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package.py) module.
 
-Parser that produces `structures.ServiceModule`.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Parsers](index.md#parsers) / Service Package
-    - [parse_service_package](#parse_service_package)
+- [Service Package](#service-package)
+  - [parse_service_package](#parse_service_package)
 
 ## parse_service_package
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package.py#L19)
-
-```python
-def parse_service_package(
-    session: Session,
-    service_name: ServiceName,
-    package_data: type[BasePackageData],
-) -> ServicePackage:
-```
+[Show source in service_package.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package.py#L19)
 
 Extract all data from boto3 service package.
 
@@ -31,8 +26,19 @@ Extract all data from boto3 service package.
 
 ServiceModule structure.
 
+#### Signature
+
+```python
+def parse_service_package(
+    session: Session, service_name: ServiceName, package_data: type[BasePackageData]
+) -> ServicePackage:
+    ...
+```
+
 #### See also
 
 - [BasePackageData](../package_data.md#basepackagedata)
 - [ServiceName](../service_name.md#servicename)
 - [ServicePackage](../structures/service_package.md#servicepackage)
+
+

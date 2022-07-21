@@ -27,11 +27,12 @@ class BotocoreChangelog:
                 found = True
                 continue
             if found and result and line.startswith("==="):
+                result.pop()
                 break
             if found:
                 result.append(line)
 
-        return "\n".join(result[1:-1])
+        return "\n".join(result[1:])
 
     def get_updated_service_names(self, version: str) -> list[str]:
         """

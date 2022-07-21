@@ -1,26 +1,24 @@
 # Markdown
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Utils](./index.md#utils) /
+Markdown
+
 > Auto-generated documentation for [mypy_boto3_builder.utils.markdown](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py) module.
 
-Utils for markdown rendering.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Utils](index.md#utils) / Markdown
-    - [Header](#header)
-        - [Header().anchor](#headeranchor)
-        - [Header().render](#headerrender)
-    - [TableOfContents](#tableofcontents)
-        - [TableOfContents.parse](#tableofcontentsparse)
-        - [TableOfContents().render](#tableofcontentsrender)
-    - [fix_pypi_headers](#fix_pypi_headers)
+- [Markdown](#markdown)
+  - [Header](#header)
+    - [Header().anchor](#header()anchor)
+    - [Header().render](#header()render)
+  - [TableOfContents](#tableofcontents)
+    - [TableOfContents.parse](#tableofcontentsparse)
+    - [TableOfContents().render](#tableofcontents()render)
+  - [fix_pypi_headers](#fix_pypi_headers)
 
 ## Header
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L12)
-
-```python
-class Header():
-    def __init__(title: str, level: int) -> None:
-```
+[Show source in markdown.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L12)
 
 Markdown header.
 
@@ -29,35 +27,46 @@ Markdown header.
 - `title` - Header title
 - `level` - Header level, 1-6
 
-### Header().anchor
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L25)
+#### Signature
 
 ```python
-@property
-def anchor() -> str:
+class Header:
+    def __init__(self, title: str, level: int) -> None:
+        ...
 ```
+
+### Header().anchor
+
+[Show source in markdown.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L25)
 
 Anchor link for title.
 
-### Header().render
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L32)
+#### Signature
 
 ```python
-def render() -> str:
+@property
+def anchor(self) -> str:
+    ...
 ```
+
+### Header().render
+
+[Show source in markdown.py:32](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L32)
 
 Render menu item to string.
 
-## TableOfContents
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L40)
+#### Signature
 
 ```python
-class TableOfContents():
-    def __init__(headers: Iterable[Header]) -> None:
+def render(self) -> str:
+    ...
 ```
+
+
+
+## TableOfContents
+
+[Show source in markdown.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L40)
 
 MarkDown Table of Contents.
 
@@ -65,45 +74,66 @@ MarkDown Table of Contents.
 
 - `headers` - List of headers
 
+#### Signature
+
+```python
+class TableOfContents:
+    def __init__(self, headers: Iterable[Header]) -> None:
+        ...
+```
+
 #### See also
 
 - [Header](#header)
 
 ### TableOfContents.parse
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L51)
+[Show source in markdown.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L51)
+
+Parse table of Contents for MarkDown text.
+
+#### Arguments
+
+- `text` - MarkDown text.
+
+#### Signature
 
 ```python
 @classmethod
-def parse(text: str) -> _R:
+def parse(cls: type[_R], text: str) -> _R:
+    ...
 ```
-
-Parse table of Contents for MarkDown text.
-
-#### Arguments
-
-- `text` - MarkDown text.
 
 ### TableOfContents().render
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L74)
-
-```python
-def render(max_level: int = 3) -> str:
-```
+[Show source in markdown.py:74](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L74)
 
 Render ToC to string.
 
-## fix_pypi_headers
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L86)
+#### Signature
 
 ```python
-def fix_pypi_headers(text: str) -> str:
+def render(self, max_level: int = 3) -> str:
+    ...
 ```
+
+
+
+## fix_pypi_headers
+
+[Show source in markdown.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L86)
 
 Parse table of Contents for MarkDown text.
 
 #### Arguments
 
 - `text` - MarkDown text.
+
+#### Signature
+
+```python
+def fix_pypi_headers(text: str) -> str:
+    ...
+```
+
+

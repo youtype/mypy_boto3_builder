@@ -1,64 +1,79 @@
 # FakeAnnotation
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Type Annotations](./index.md#type-annotations) /
+FakeAnnotation
+
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.fake_annotation](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py) module.
 
-Parent class for all type annotation wrappers.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](index.md#type-annotations) / FakeAnnotation
-    - [FakeAnnotation](#fakeannotation)
-        - [FakeAnnotation().add_child](#fakeannotationadd_child)
-        - [FakeAnnotation().copy](#fakeannotationcopy)
-        - [FakeAnnotation().get_import_record](#fakeannotationget_import_record)
-        - [FakeAnnotation().get_local_types](#fakeannotationget_local_types)
-        - [FakeAnnotation().get_sort_key](#fakeannotationget_sort_key)
-        - [FakeAnnotation().is_dict](#fakeannotationis_dict)
-        - [FakeAnnotation().is_list](#fakeannotationis_list)
-        - [FakeAnnotation().is_literal](#fakeannotationis_literal)
-        - [FakeAnnotation().is_typed_dict](#fakeannotationis_typed_dict)
-        - [FakeAnnotation().iterate_types](#fakeannotationiterate_types)
-        - [FakeAnnotation().render](#fakeannotationrender)
+- [FakeAnnotation](#fakeannotation)
+  - [FakeAnnotation](#fakeannotation-1)
+    - [FakeAnnotation().add_child](#fakeannotation()add_child)
+    - [FakeAnnotation().copy](#fakeannotation()copy)
+    - [FakeAnnotation().get_import_record](#fakeannotation()get_import_record)
+    - [FakeAnnotation().get_local_types](#fakeannotation()get_local_types)
+    - [FakeAnnotation().get_sort_key](#fakeannotation()get_sort_key)
+    - [FakeAnnotation().is_dict](#fakeannotation()is_dict)
+    - [FakeAnnotation().is_list](#fakeannotation()is_list)
+    - [FakeAnnotation().is_literal](#fakeannotation()is_literal)
+    - [FakeAnnotation().is_typed_dict](#fakeannotation()is_typed_dict)
+    - [FakeAnnotation().iterate_types](#fakeannotation()iterate_types)
+    - [FakeAnnotation().render](#fakeannotation()render)
 
 ## FakeAnnotation
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L12)
-
-```python
-class FakeAnnotation(ABC):
-```
+[Show source in fake_annotation.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L12)
 
 Parent class for all type annotation wrappers.
 
-### FakeAnnotation().add_child
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L65)
+#### Signature
 
 ```python
-def add_child(child: _R) -> None:
+class FakeAnnotation(ABC):
+    ...
 ```
+
+### FakeAnnotation().add_child
+
+[Show source in fake_annotation.py:65](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L65)
 
 Add new child to `TypeSubscript` or `TypeTypedDict` annotation.
 
-### FakeAnnotation().copy
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L94)
+#### Signature
 
 ```python
-@abstractmethod
-def copy() -> _R:
+def add_child(self: _R, child: _R) -> None:
+    ...
 ```
+
+### FakeAnnotation().copy
+
+[Show source in fake_annotation.py:94](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L94)
 
 Create a copy of type annotation wrapper.
 
-### FakeAnnotation().get_import_record
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L53)
+#### Signature
 
 ```python
 @abstractmethod
-def get_import_record() -> ImportRecord:
+def copy(self: _R) -> _R:
+    ...
 ```
 
+### FakeAnnotation().get_import_record
+
+[Show source in fake_annotation.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L53)
+
 Get import record required for using type annotation.
+
+#### Signature
+
+```python
+@abstractmethod
+def get_import_record(self) -> ImportRecord:
+    ...
+```
 
 #### See also
 
@@ -66,81 +81,107 @@ Get import record required for using type annotation.
 
 ### FakeAnnotation().get_local_types
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L100)
-
-```python
-def get_local_types() -> list['FakeAnnotation']:
-```
+[Show source in fake_annotation.py:100](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L100)
 
 Get internal types generated by builder.
 
-### FakeAnnotation().get_sort_key
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L38)
+#### Signature
 
 ```python
-def get_sort_key() -> str:
+def get_local_types(self) -> list["FakeAnnotation"]:
+    ...
 ```
+
+### FakeAnnotation().get_sort_key
+
+[Show source in fake_annotation.py:38](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L38)
 
 Get string to sort annotations.
 
-### FakeAnnotation().is_dict
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L70)
+#### Signature
 
 ```python
-def is_dict() -> bool:
+def get_sort_key(self) -> str:
+    ...
 ```
+
+### FakeAnnotation().is_dict
+
+[Show source in fake_annotation.py:70](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L70)
 
 Whether type annotation is `Dict` or `TypedDict`.
 
-### FakeAnnotation().is_list
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L82)
+#### Signature
 
 ```python
-def is_list() -> bool:
+def is_dict(self) -> bool:
+    ...
 ```
+
+### FakeAnnotation().is_list
+
+[Show source in fake_annotation.py:82](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L82)
 
 Whether type annotation is `List`.
 
-### FakeAnnotation().is_literal
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L88)
+#### Signature
 
 ```python
-def is_literal() -> bool:
+def is_list(self) -> bool:
+    ...
 ```
+
+### FakeAnnotation().is_literal
+
+[Show source in fake_annotation.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L88)
 
 Whether type annotation is `Literal`.
 
-### FakeAnnotation().is_typed_dict
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L76)
+#### Signature
 
 ```python
-def is_typed_dict() -> bool:
+def is_literal(self) -> bool:
+    ...
 ```
+
+### FakeAnnotation().is_typed_dict
+
+[Show source in fake_annotation.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L76)
 
 Whether type annotation is `TypedDict`.
 
-### FakeAnnotation().iterate_types
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L59)
+#### Signature
 
 ```python
-def iterate_types() -> Iterator['FakeAnnotation']:
+def is_typed_dict(self) -> bool:
+    ...
 ```
+
+### FakeAnnotation().iterate_types
+
+[Show source in fake_annotation.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L59)
 
 Iterate over all used type annotations recursively including self.
 
+#### Signature
+
+```python
+def iterate_types(self) -> Iterator["FakeAnnotation"]:
+    ...
+```
+
 ### FakeAnnotation().render
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L47)
+[Show source in fake_annotation.py:47](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L47)
+
+Render type annotation to a valid Python code for local usage.
+
+#### Signature
 
 ```python
 @abstractmethod
-def render(parent_name: str = '') -> str:
+def render(self, parent_name: str = "") -> str:
+    ...
 ```
 
-Render type annotation to a valid Python code for local usage.
+

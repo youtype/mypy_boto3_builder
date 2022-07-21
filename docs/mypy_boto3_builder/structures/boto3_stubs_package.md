@@ -1,23 +1,31 @@
 # Boto3StubsPackage
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Structures](./index.md#structures) /
+Boto3StubsPackage
+
 > Auto-generated documentation for [mypy_boto3_builder.structures.boto3_stubs_package](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py) module.
 
-Structure for boto3-stubs module.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Boto3StubsPackage
-    - [Boto3StubsPackage](#boto3stubspackage)
-        - [Boto3StubsPackage().essential_service_names](#boto3stubspackageessential_service_names)
-        - [Boto3StubsPackage().get_all_names](#boto3stubspackageget_all_names)
-        - [Boto3StubsPackage().get_init_required_import_records](#boto3stubspackageget_init_required_import_records)
-        - [Boto3StubsPackage().get_session_required_import_records](#boto3stubspackageget_session_required_import_records)
+- [Boto3StubsPackage](#boto3stubspackage)
+  - [Boto3StubsPackage](#boto3stubspackage-1)
+    - [Boto3StubsPackage().essential_service_names](#boto3stubspackage()essential_service_names)
+    - [Boto3StubsPackage().get_all_names](#boto3stubspackage()get_all_names)
+    - [Boto3StubsPackage().get_init_required_import_records](#boto3stubspackage()get_init_required_import_records)
+    - [Boto3StubsPackage().get_session_required_import_records](#boto3stubspackage()get_session_required_import_records)
 
 ## Boto3StubsPackage
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L18)
+[Show source in boto3_stubs_package.py:18](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L18)
+
+Structure for boto3-stubs module.
+
+#### Signature
 
 ```python
 class Boto3StubsPackage(Package):
     def __init__(
+        self,
         data: type[BasePackageData],
         session_class: ClassRecord | None = None,
         service_names: Iterable[ServiceName] = tuple(),
@@ -25,29 +33,31 @@ class Boto3StubsPackage(Package):
         init_functions: Iterable[Function] = tuple(),
         literals: Iterable[TypeLiteral] = tuple(),
     ):
+        ...
 ```
-
-Structure for boto3-stubs module.
 
 #### See also
 
 - [BasePackageData](../package_data.md#basepackagedata)
-- [Function](function.md#function)
-- [Package](package.md#package)
+- [Function](./function.md#function)
+- [Package](./package.md#package)
 - [ServiceName](../service_name.md#servicename)
-- [ServicePackage](service_package.md#servicepackage)
+- [ServicePackage](./service_package.md#servicepackage)
 - [TypeLiteral](../type_annotations/type_literal.md#typeliteral)
 
 ### Boto3StubsPackage().essential_service_names
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L39)
+[Show source in boto3_stubs_package.py:39](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L39)
+
+Service names marked as essential.
+
+#### Signature
 
 ```python
 @property
-def essential_service_names() -> list[ServiceName]:
+def essential_service_names(self) -> list[ServiceName]:
+    ...
 ```
-
-Service names marked as essential.
 
 #### See also
 
@@ -55,23 +65,29 @@ Service names marked as essential.
 
 ### Boto3StubsPackage().get_all_names
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L113)
-
-```python
-def get_all_names() -> list[str]:
-```
+[Show source in boto3_stubs_package.py:113](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L113)
 
 Get names for `__all__` directive.
 
-### Boto3StubsPackage().get_init_required_import_records
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L50)
+#### Signature
 
 ```python
-def get_init_required_import_records() -> list[ImportRecord]:
+def get_all_names(self) -> list[str]:
+    ...
 ```
 
+### Boto3StubsPackage().get_init_required_import_records
+
+[Show source in boto3_stubs_package.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L50)
+
 Get import records for `__init__.py[i]`.
+
+#### Signature
+
+```python
+def get_init_required_import_records(self) -> list[ImportRecord]:
+    ...
+```
 
 #### See also
 
@@ -79,14 +95,19 @@ Get import records for `__init__.py[i]`.
 
 ### Boto3StubsPackage().get_session_required_import_records
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L70)
-
-```python
-def get_session_required_import_records() -> list[ImportRecord]:
-```
+[Show source in boto3_stubs_package.py:70](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L70)
 
 Get import reciords for `session.py[i]`.
+
+#### Signature
+
+```python
+def get_session_required_import_records(self) -> list[ImportRecord]:
+    ...
+```
 
 #### See also
 
 - [ImportRecord](../import_helpers/import_record.md#importrecord)
+
+

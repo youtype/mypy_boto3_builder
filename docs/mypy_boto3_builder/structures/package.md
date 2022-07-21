@@ -1,32 +1,37 @@
 # Package
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Structures](./index.md#structures) /
+Package
+
 > Auto-generated documentation for [mypy_boto3_builder.structures.package](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py) module.
 
-Parent class for all package structures.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Package
-    - [Package](#package)
-        - [Package().directory_name](#packagedirectory_name)
-        - [Package().get_local_doc_link](#packageget_local_doc_link)
-        - [Package().get_module_name](#packageget_module_name)
-        - [Package().get_service_pypi_link](#packageget_service_pypi_link)
-        - [Package().get_service_pypi_name](#packageget_service_pypi_name)
-        - [Package().max_library_version](#packagemax_library_version)
-        - [Package().min_library_version](#packagemin_library_version)
+- [Package](#package)
+  - [Package](#package-1)
+    - [Package().directory_name](#package()directory_name)
+    - [Package().get_local_doc_link](#package()get_local_doc_link)
+    - [Package().get_module_name](#package()get_module_name)
+    - [Package().get_service_pypi_link](#package()get_service_pypi_link)
+    - [Package().get_service_pypi_name](#package()get_service_pypi_name)
+    - [Package().max_library_version](#package()max_library_version)
+    - [Package().min_library_version](#package()min_library_version)
 
 ## Package
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L12)
-
-```python
-class Package():
-    def __init__(
-        data: type[BasePackageData],
-        service_names: Iterable[ServiceName] = tuple(),
-    ) -> None:
-```
+[Show source in package.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L12)
 
 Parent class for all package structures.
+
+#### Signature
+
+```python
+class Package:
+    def __init__(
+        self, data: type[BasePackageData], service_names: Iterable[ServiceName] = tuple()
+    ) -> None:
+        ...
+```
 
 #### See also
 
@@ -35,34 +40,43 @@ Parent class for all package structures.
 
 ### Package().directory_name
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L31)
-
-```python
-@property
-def directory_name() -> str:
-```
+[Show source in package.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L31)
 
 Directory name to store generated package.
 
-### Package().get_local_doc_link
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L42)
+#### Signature
 
 ```python
-def get_local_doc_link(service_name: ServiceName | None = None) -> str:
+@property
+def directory_name(self) -> str:
+    ...
 ```
+
+### Package().get_local_doc_link
+
+[Show source in package.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L42)
 
 Get link to local docs.
 
-### Package().get_module_name
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L51)
+#### Signature
 
 ```python
-def get_module_name(service_name: ServiceName) -> str:
+def get_local_doc_link(self, service_name: ServiceName | None = None) -> str:
+    ...
 ```
 
+### Package().get_module_name
+
+[Show source in package.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L51)
+
 Get service module name.
+
+#### Signature
+
+```python
+def get_module_name(self, service_name: ServiceName) -> str:
+    ...
+```
 
 #### See also
 
@@ -70,13 +84,16 @@ Get service module name.
 
 ### Package().get_service_pypi_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L63)
-
-```python
-def get_service_pypi_link(service_name: ServiceName) -> str:
-```
+[Show source in package.py:63](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L63)
 
 Get link to PyPI.
+
+#### Signature
+
+```python
+def get_service_pypi_link(self, service_name: ServiceName) -> str:
+    ...
+```
 
 #### See also
 
@@ -84,13 +101,16 @@ Get link to PyPI.
 
 ### Package().get_service_pypi_name
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L57)
-
-```python
-def get_service_pypi_name(service_name: ServiceName) -> str:
-```
+[Show source in package.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L57)
 
 Get PyPI package name for a service package.
+
+#### Signature
+
+```python
+def get_service_pypi_name(self, service_name: ServiceName) -> str:
+    ...
+```
 
 #### See also
 
@@ -98,22 +118,30 @@ Get PyPI package name for a service package.
 
 ### Package().max_library_version
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L76)
+[Show source in package.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L76)
+
+Minimum required library version.
+
+#### Signature
 
 ```python
 @property
-def max_library_version() -> str:
+def max_library_version(self) -> str:
+    ...
 ```
-
-Minimum required library version.
 
 ### Package().min_library_version
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L69)
+[Show source in package.py:69](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L69)
+
+Minimum required library version.
+
+#### Signature
 
 ```python
 @property
-def min_library_version() -> str:
+def min_library_version(self) -> str:
+    ...
 ```
 
-Minimum required library version.
+

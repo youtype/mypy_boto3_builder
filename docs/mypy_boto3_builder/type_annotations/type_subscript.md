@@ -1,31 +1,26 @@
 # TypeSubscript
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Type Annotations](./index.md#type-annotations) /
+TypeSubscript
+
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.type_subscript](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py) module.
 
-Wrapper for subscript type annotations, like `List[str]`.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](index.md#type-annotations) / TypeSubscript
-    - [TypeSubscript](#typesubscript)
-        - [TypeSubscript().add_child](#typesubscriptadd_child)
-        - [TypeSubscript().copy](#typesubscriptcopy)
-        - [TypeSubscript().get_import_record](#typesubscriptget_import_record)
-        - [TypeSubscript().get_local_types](#typesubscriptget_local_types)
-        - [TypeSubscript().is_dict](#typesubscriptis_dict)
-        - [TypeSubscript().is_list](#typesubscriptis_list)
-        - [TypeSubscript().iterate_types](#typesubscriptiterate_types)
-        - [TypeSubscript().render](#typesubscriptrender)
+- [TypeSubscript](#typesubscript)
+  - [TypeSubscript](#typesubscript-1)
+    - [TypeSubscript().add_child](#typesubscript()add_child)
+    - [TypeSubscript().copy](#typesubscript()copy)
+    - [TypeSubscript().get_import_record](#typesubscript()get_import_record)
+    - [TypeSubscript().get_local_types](#typesubscript()get_local_types)
+    - [TypeSubscript().is_dict](#typesubscript()is_dict)
+    - [TypeSubscript().is_list](#typesubscript()is_list)
+    - [TypeSubscript().iterate_types](#typesubscript()iterate_types)
+    - [TypeSubscript().render](#typesubscript()render)
 
 ## TypeSubscript
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L11)
-
-```python
-class TypeSubscript(FakeAnnotation):
-    def __init__(
-        parent: FakeAnnotation,
-        children: Iterable[FakeAnnotation] = (),
-    ) -> None:
-```
+[Show source in type_subscript.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L11)
 
 Wrapper for subscript type annotations, like `List[str]`.
 
@@ -34,43 +29,62 @@ Wrapper for subscript type annotations, like `List[str]`.
 - `parent` - Parent type annotation.
 - `children` - Children type annotations.
 
+#### Signature
+
+```python
+class TypeSubscript(FakeAnnotation):
+    def __init__(
+        self, parent: FakeAnnotation, children: Iterable[FakeAnnotation] = ()
+    ) -> None:
+        ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypeSubscript().add_child
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L58)
-
-```python
-def add_child(child: FakeAnnotation) -> None:
-```
+[Show source in type_subscript.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L58)
 
 Add new child to Substcript.
 
+#### Signature
+
+```python
+def add_child(self, child: FakeAnnotation) -> None:
+    ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypeSubscript().copy
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L76)
-
-```python
-def copy() -> 'TypeSubscript':
-```
+[Show source in type_subscript.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L76)
 
 Create a copy of type annotation wrapper.
 
-### TypeSubscript().get_import_record
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L44)
+#### Signature
 
 ```python
-def get_import_record() -> ImportRecord:
+def copy(self) -> "TypeSubscript":
+    ...
 ```
 
+### TypeSubscript().get_import_record
+
+[Show source in type_subscript.py:44](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L44)
+
 Get import record required for using type annotation.
+
+#### Signature
+
+```python
+def get_import_record(self) -> ImportRecord:
+    ...
+```
 
 #### See also
 
@@ -78,62 +92,79 @@ Get import record required for using type annotation.
 
 ### TypeSubscript().get_local_types
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L82)
-
-```python
-def get_local_types() -> list[FakeAnnotation]:
-```
+[Show source in type_subscript.py:82](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L82)
 
 Get internal types generated by builder.
 
+#### Signature
+
+```python
+def get_local_types(self) -> list[FakeAnnotation]:
+    ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypeSubscript().is_dict
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L64)
-
-```python
-def is_dict() -> bool:
-```
+[Show source in type_subscript.py:64](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L64)
 
 Whether subscript parent is Dict.
 
-### TypeSubscript().is_list
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L70)
+#### Signature
 
 ```python
-def is_list() -> bool:
+def is_dict(self) -> bool:
+    ...
 ```
+
+### TypeSubscript().is_list
+
+[Show source in type_subscript.py:70](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L70)
 
 Whether subscript parent is List.
 
-### TypeSubscript().iterate_types
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L50)
+#### Signature
 
 ```python
-def iterate_types() -> Iterator[FakeAnnotation]:
+def is_list(self) -> bool:
+    ...
 ```
+
+### TypeSubscript().iterate_types
+
+[Show source in type_subscript.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L50)
 
 Extract type annotations from children.
 
+#### Signature
+
+```python
+def iterate_types(self) -> Iterator[FakeAnnotation]:
+    ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypeSubscript().render
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L31)
-
-```python
-def render(parent_name: str = '') -> str:
-```
+[Show source in type_subscript.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L31)
 
 Render type annotation to a valid Python code for local usage.
 
 #### Returns
 
 A string with a valid type annotation.
+
+#### Signature
+
+```python
+def render(self, parent_name: str = "") -> str:
+    ...
+```
+
+

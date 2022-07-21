@@ -1,32 +1,34 @@
 # Cli Parser
 
+[mypy-boto3-builder Index](../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](./index.md#mypy-boto3-builder) /
+Cli Parser
+
 > Auto-generated documentation for [mypy_boto3_builder.cli_parser](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py) module.
 
-CLI parser.
-
-- [mypy-boto3-builder](../README.md#mypy_boto3_builder) / [Modules](../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](index.md#mypy-boto3-builder) / Cli Parser
-    - [Namespace](#namespace)
-    - [get_absolute_path](#get_absolute_path)
-    - [parse_args](#parse_args)
+- [Cli Parser](#cli-parser)
+  - [Namespace](#namespace)
+  - [get_absolute_path](#get_absolute_path)
+  - [parse_args](#parse_args)
 
 ## Namespace
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L30)
-
-```python
-dataclass(kw_only=True, slots=True)
-class Namespace():
-```
+[Show source in cli_parser.py:30](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L30)
 
 CLI arguments namespace.
 
-## get_absolute_path
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L16)
+#### Signature
 
 ```python
-def get_absolute_path(path: str) -> Path:
+class Namespace:
+    ...
 ```
+
+
+
+## get_absolute_path
+
+[Show source in cli_parser.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L16)
 
 Get absolute path from a string.
 
@@ -38,13 +40,18 @@ Get absolute path from a string.
 
 Absolute path.
 
-## parse_args
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L47)
+#### Signature
 
 ```python
-def parse_args(args: Sequence[str]) -> Namespace:
+def get_absolute_path(path: str) -> Path:
+    ...
 ```
+
+
+
+## parse_args
+
+[Show source in cli_parser.py:47](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L47)
 
 Main CLI parser for builder.
 
@@ -52,6 +59,15 @@ Main CLI parser for builder.
 
 Argument parser.
 
+#### Signature
+
+```python
+def parse_args(args: Sequence[str]) -> Namespace:
+    ...
+```
+
 #### See also
 
 - [Namespace](#namespace)
+
+

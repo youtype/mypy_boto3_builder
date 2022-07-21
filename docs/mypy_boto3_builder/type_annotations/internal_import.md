@@ -1,25 +1,23 @@
 # InternalImport
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Type Annotations](./index.md#type-annotations) /
+InternalImport
+
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.internal_import](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py) module.
 
-Wrapper for simple type annotations from this module.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](index.md#type-annotations) / InternalImport
-    - [AliasInternalImport](#aliasinternalimport)
-    - [InternalImport](#internalimport)
-        - [InternalImport().copy](#internalimportcopy)
-        - [InternalImport.get_alias](#internalimportget_alias)
-        - [InternalImport().get_import_record](#internalimportget_import_record)
-        - [InternalImport().render](#internalimportrender)
+- [InternalImport](#internalimport)
+  - [AliasInternalImport](#aliasinternalimport)
+  - [InternalImport](#internalimport-1)
+    - [InternalImport().copy](#internalimport()copy)
+    - [InternalImport.get_alias](#internalimportget_alias)
+    - [InternalImport().get_import_record](#internalimport()get_import_record)
+    - [InternalImport().render](#internalimport()render)
 
 ## AliasInternalImport
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L84)
-
-```python
-class AliasInternalImport(InternalImport):
-    def __init__(name: str, service_name: ServiceName | None = None) -> None:
-```
+[Show source in internal_import.py:84](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L84)
 
 Internal import for safe local usages.
 
@@ -28,24 +26,23 @@ Internal import for safe local usages.
 - `name` - Import name.
 - `service_name` - Service that import belongs to.
 
+#### Signature
+
+```python
+class AliasInternalImport(InternalImport):
+    def __init__(self, name: str, service_name: ServiceName | None = None) -> None:
+        ...
+```
+
 #### See also
 
 - [InternalImport](#internalimport)
 
+
+
 ## InternalImport
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L10)
-
-```python
-class InternalImport(FakeAnnotation):
-    def __init__(
-        name: str,
-        service_name: ServiceName | None = None,
-        module_name: ServiceModuleName = ServiceModuleName.service_resource,
-        stringify: bool = True,
-        use_alias: bool = False,
-    ) -> None:
-```
+[Show source in internal_import.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L10)
 
 Wrapper for simple type annotations from this module.
 
@@ -57,29 +54,42 @@ Wrapper for simple type annotations from this module.
 - `stringify` - Convert type annotation to string to avoid circular deps.
 - `use_alias` - Use name alias.
 
+#### Signature
+
+```python
+class InternalImport(FakeAnnotation):
+    def __init__(
+        self,
+        name: str,
+        service_name: ServiceName | None = None,
+        module_name: ServiceModuleName = ServiceModuleName.service_resource,
+        stringify: bool = True,
+        use_alias: bool = False,
+    ) -> None:
+        ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 - [ServiceModuleName](../enums/service_module_name.md#servicemodulename)
 
 ### InternalImport().copy
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L71)
-
-```python
-def copy() -> 'InternalImport':
-```
+[Show source in internal_import.py:71](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L71)
 
 Create a copy of type annotation wrapper.
 
-### InternalImport.get_alias
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L36)
+#### Signature
 
 ```python
-@staticmethod
-def get_alias(name: str) -> str:
+def copy(self) -> "InternalImport":
+    ...
 ```
+
+### InternalImport.get_alias
+
+[Show source in internal_import.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L36)
 
 Get import name alias.
 
@@ -91,15 +101,26 @@ Get import name alias.
 
 Name prefixed with underscore.
 
-### InternalImport().get_import_record
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L65)
+#### Signature
 
 ```python
-def get_import_record() -> ImportRecord:
+@staticmethod
+def get_alias(name: str) -> str:
+    ...
 ```
 
+### InternalImport().get_import_record
+
+[Show source in internal_import.py:65](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L65)
+
 Get import record required for using type annotation.
+
+#### Signature
+
+```python
+def get_import_record(self) -> ImportRecord:
+    ...
+```
 
 #### See also
 
@@ -107,14 +128,19 @@ Get import record required for using type annotation.
 
 ### InternalImport().render
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L49)
-
-```python
-def render(parent_name: str = '') -> str:
-```
+[Show source in internal_import.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L49)
 
 Render type annotation to a valid Python code for local usage.
 
 #### Returns
 
 A string with a valid type annotation.
+
+#### Signature
+
+```python
+def render(self, parent_name: str = "") -> str:
+    ...
+```
+
+

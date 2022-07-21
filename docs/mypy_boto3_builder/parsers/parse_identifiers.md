@@ -1,19 +1,18 @@
 # Parse Identifiers
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Parsers](./index.md#parsers) /
+Parse Identifiers
+
 > Auto-generated documentation for [mypy_boto3_builder.parsers.parse_identifiers](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_identifiers.py) module.
 
-Parser for Boto3 ServiceResource identifiers, produces `structures.Attribute`.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Parsers](index.md#parsers) / Parse Identifiers
-    - [parse_identifiers](#parse_identifiers)
+- [Parse Identifiers](#parse-identifiers)
+  - [parse_identifiers](#parse_identifiers)
 
 ## parse_identifiers
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_identifiers.py#L10)
-
-```python
-def parse_identifiers(resource: Boto3ServiceResource) -> list[Attribute]:
-```
+[Show source in parse_identifiers.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_identifiers.py#L10)
 
 Extract identifiers from boto3 resource.
 
@@ -25,6 +24,15 @@ Extract identifiers from boto3 resource.
 
 A list of Attribute structures.
 
+#### Signature
+
+```python
+def parse_identifiers(resource: Boto3ServiceResource) -> list[Attribute]:
+    ...
+```
+
 #### See also
 
 - [Attribute](../structures/attribute.md#attribute)
+
+

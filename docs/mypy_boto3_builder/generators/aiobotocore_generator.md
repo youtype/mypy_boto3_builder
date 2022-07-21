@@ -1,73 +1,91 @@
 # AioBotocoreGenerator
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Generators](./index.md#generators) /
+AioBotocoreGenerator
+
 > Auto-generated documentation for [mypy_boto3_builder.generators.aiobotocore_generator](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py) module.
 
-AioBotocore stubs/docs generator.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Generators](index.md#generators) / AioBotocoreGenerator
-    - [AioBotocoreGenerator](#aiobotocoregenerator)
-        - [AioBotocoreGenerator().generate_docs](#aiobotocoregeneratorgenerate_docs)
-        - [AioBotocoreGenerator().generate_stubs](#aiobotocoregeneratorgenerate_stubs)
-        - [AioBotocoreGenerator().get_library_version](#aiobotocoregeneratorget_library_version)
-        - [AioBotocoreGenerator().get_postprocessor](#aiobotocoregeneratorget_postprocessor)
+- [AioBotocoreGenerator](#aiobotocoregenerator)
+  - [AioBotocoreGenerator](#aiobotocoregenerator-1)
+    - [AioBotocoreGenerator().generate_docs](#aiobotocoregenerator()generate_docs)
+    - [AioBotocoreGenerator().generate_stubs](#aiobotocoregenerator()generate_stubs)
+    - [AioBotocoreGenerator().get_library_version](#aiobotocoregenerator()get_library_version)
+    - [AioBotocoreGenerator().get_postprocessor](#aiobotocoregenerator()get_postprocessor)
 
 ## AioBotocoreGenerator
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L20)
-
-```python
-class AioBotocoreGenerator(BaseGenerator):
-```
+[Show source in aiobotocore_generator.py:20](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L20)
 
 AioBotocore stubs/docs generator.
 
+#### Signature
+
+```python
+class AioBotocoreGenerator(BaseGenerator):
+    ...
+```
+
 #### See also
 
-- [BaseGenerator](base_generator.md#basegenerator)
+- [BaseGenerator](./base_generator.md#basegenerator)
 
 ### AioBotocoreGenerator().generate_docs
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L77)
-
-```python
-def generate_docs() -> None:
-```
+[Show source in aiobotocore_generator.py:77](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L77)
 
 Generate service and master docs.
 
-### AioBotocoreGenerator().generate_stubs
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L40)
+#### Signature
 
 ```python
-def generate_stubs() -> None:
+def generate_docs(self) -> None:
+    ...
 ```
+
+### AioBotocoreGenerator().generate_stubs
+
+[Show source in aiobotocore_generator.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L40)
 
 Generate `aiobotocore-stubs` package.
 
-### AioBotocoreGenerator().get_library_version
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L28)
+#### Signature
 
 ```python
-def get_library_version() -> str:
+def generate_stubs(self) -> None:
+    ...
 ```
+
+### AioBotocoreGenerator().get_library_version
+
+[Show source in aiobotocore_generator.py:28](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L28)
 
 Get underlying library version.
 
-### AioBotocoreGenerator().get_postprocessor
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L34)
+#### Signature
 
 ```python
-def get_postprocessor(
-    service_package: ServicePackage,
-) -> AioBotocorePostprocessor:
+def get_library_version(self) -> str:
+    ...
 ```
 
+### AioBotocoreGenerator().get_postprocessor
+
+[Show source in aiobotocore_generator.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aiobotocore_generator.py#L34)
+
 Get postprocessor for service package.
+
+#### Signature
+
+```python
+def get_postprocessor(self, service_package: ServicePackage) -> AioBotocorePostprocessor:
+    ...
+```
 
 #### See also
 
 - [AioBotocorePostprocessor](../postprocessors/aiobotocore.md#aiobotocorepostprocessor)
 - [ServicePackage](../structures/service_package.md#servicepackage)
+
+

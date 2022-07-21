@@ -1,35 +1,40 @@
 # TypeValue
 
+[mypy-boto3-builder Index](../../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../../index.md#mypy-boto3-builder) /
+[Parsers](../index.md#parsers) /
+[Docstring Parser](./index.md#docstring-parser) /
+TypeValue
+
 > Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.type_value](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py) module.
 
-Structure for parsed as dict request or response syntax values.
-
-- [mypy-boto3-builder](../../../README.md#mypy_boto3_builder) / [Modules](../../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../../index.md#mypy-boto3-builder) / [Parsers](../index.md#parsers) / [Docstring Parser](index.md#docstring-parser) / TypeValue
-    - [TypeValue](#typevalue)
-        - [TypeValue().get_type](#typevalueget_type)
-        - [TypeValue().is_dict](#typevalueis_dict)
-        - [TypeValue().is_func_call](#typevalueis_func_call)
-        - [TypeValue().is_list](#typevalueis_list)
-        - [TypeValue().is_literal](#typevalueis_literal)
-        - [TypeValue().is_literal_item](#typevalueis_literal_item)
-        - [TypeValue().is_plain](#typevalueis_plain)
-        - [TypeValue().is_set](#typevalueis_set)
-        - [TypeValue().is_union](#typevalueis_union)
+- [TypeValue](#typevalue)
+  - [TypeValue](#typevalue-1)
+    - [TypeValue().get_type](#typevalue()get_type)
+    - [TypeValue().is_dict](#typevalue()is_dict)
+    - [TypeValue().is_func_call](#typevalue()is_func_call)
+    - [TypeValue().is_list](#typevalue()is_list)
+    - [TypeValue().is_literal](#typevalue()is_literal)
+    - [TypeValue().is_literal_item](#typevalue()is_literal_item)
+    - [TypeValue().is_plain](#typevalue()is_plain)
+    - [TypeValue().is_set](#typevalue()is_set)
+    - [TypeValue().is_union](#typevalue()is_union)
 
 ## TypeValue
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L20)
-
-```python
-class TypeValue():
-    def __init__(
-        service_name: ServiceName,
-        prefix: str,
-        value: dict[str, Any],
-    ) -> None:
-```
+[Show source in type_value.py:20](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L20)
 
 Structure for parsed as dict request or response syntax values.
+
+#### Signature
+
+```python
+class TypeValue:
+    def __init__(
+        self, service_name: ServiceName, prefix: str, value: dict[str, Any]
+    ) -> None:
+        ...
+```
 
 #### See also
 
@@ -37,13 +42,16 @@ Structure for parsed as dict request or response syntax values.
 
 ### TypeValue().get_type
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L218)
-
-```python
-def get_type() -> FakeAnnotation:
-```
+[Show source in type_value.py:218](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L218)
 
 Get value type.
+
+#### Signature
+
+```python
+def get_type(self) -> FakeAnnotation:
+    ...
+```
 
 #### See also
 
@@ -51,80 +59,106 @@ Get value type.
 
 ### TypeValue().is_dict
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L49)
-
-```python
-def is_dict() -> bool:
-```
+[Show source in type_value.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L49)
 
 Whether value is Dict.
 
-### TypeValue().is_func_call
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L79)
+#### Signature
 
 ```python
-def is_func_call() -> bool:
+def is_dict(self) -> bool:
+    ...
 ```
+
+### TypeValue().is_func_call
+
+[Show source in type_value.py:79](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L79)
 
 Whether value is Callable.
 
-### TypeValue().is_list
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L55)
+#### Signature
 
 ```python
-def is_list() -> bool:
+def is_func_call(self) -> bool:
+    ...
 ```
+
+### TypeValue().is_list
+
+[Show source in type_value.py:55](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L55)
 
 Whether value is List.
 
-### TypeValue().is_literal
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L61)
+#### Signature
 
 ```python
-def is_literal() -> bool:
+def is_list(self) -> bool:
+    ...
 ```
+
+### TypeValue().is_literal
+
+[Show source in type_value.py:61](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L61)
 
 Whether value is Literal.
 
-### TypeValue().is_literal_item
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L184)
+#### Signature
 
 ```python
-def is_literal_item() -> bool:
+def is_literal(self) -> bool:
+    ...
 ```
+
+### TypeValue().is_literal_item
+
+[Show source in type_value.py:184](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L184)
 
 Whether value is Literal item.
 
-### TypeValue().is_plain
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L85)
+#### Signature
 
 ```python
-def is_plain() -> bool:
+def is_literal_item(self) -> bool:
+    ...
 ```
+
+### TypeValue().is_plain
+
+[Show source in type_value.py:85](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L85)
 
 Whether value is not None.
 
-### TypeValue().is_set
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L67)
+#### Signature
 
 ```python
-def is_set() -> bool:
+def is_plain(self) -> bool:
+    ...
 ```
+
+### TypeValue().is_set
+
+[Show source in type_value.py:67](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L67)
 
 Whether value is Set.
 
-### TypeValue().is_union
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L73)
+#### Signature
 
 ```python
-def is_union() -> bool:
+def is_set(self) -> bool:
+    ...
 ```
 
+### TypeValue().is_union
+
+[Show source in type_value.py:73](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_value.py#L73)
+
 Whether value is Union.
+
+#### Signature
+
+```python
+def is_union(self) -> bool:
+    ...
+```
+
+

@@ -1,54 +1,71 @@
 # ServiceModuleName
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Enums](./index.md#enums) /
+ServiceModuleName
+
 > Auto-generated documentation for [mypy_boto3_builder.enums.service_module_name](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py) module.
 
-Enum for service modules.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Enums](index.md#enums) / ServiceModuleName
-    - [ServiceModuleName](#servicemodulename)
-        - [ServiceModuleName().file_name](#servicemodulenamefile_name)
-        - [ServiceModuleName().stub_file_name](#servicemodulenamestub_file_name)
-        - [ServiceModuleName().template_name](#servicemodulenametemplate_name)
+- [ServiceModuleName](#servicemodulename)
+  - [ServiceModuleName](#servicemodulename-1)
+    - [ServiceModuleName().file_name](#servicemodulename()file_name)
+    - [ServiceModuleName().stub_file_name](#servicemodulename()stub_file_name)
+    - [ServiceModuleName().template_name](#servicemodulename()template_name)
 
 ## ServiceModuleName
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L7)
-
-```python
-class ServiceModuleName(enum.Enum):
-```
+[Show source in service_module_name.py:7](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L7)
 
 Enum for service modules.
 
+#### Signature
+
+```python
+class ServiceModuleName(enum.Enum):
+    ...
+```
+
 ### ServiceModuleName().file_name
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L26)
+[Show source in service_module_name.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L26)
+
+Module file name.
+
+#### Signature
 
 ```python
 @property
-def file_name() -> str:
+def file_name(self) -> str:
+    ...
 ```
-
-Module file name.
 
 ### ServiceModuleName().stub_file_name
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L19)
-
-```python
-@property
-def stub_file_name() -> str:
-```
+[Show source in service_module_name.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L19)
 
 Module file name.
 
-### ServiceModuleName().template_name
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L33)
+#### Signature
 
 ```python
 @property
-def template_name() -> str:
+def stub_file_name(self) -> str:
+    ...
 ```
 
+### ServiceModuleName().template_name
+
+[Show source in service_module_name.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L33)
+
 Module template file name.
+
+#### Signature
+
+```python
+@property
+def template_name(self) -> str:
+    ...
+```
+
+

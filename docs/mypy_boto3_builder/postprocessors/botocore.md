@@ -1,33 +1,44 @@
 # Botocore
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Postprocessors](./index.md#postprocessors) /
+Botocore
+
 > Auto-generated documentation for [mypy_boto3_builder.postprocessors.botocore](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/botocore.py) module.
 
-Postprocessor for all classes and methods.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Postprocessors](index.md#postprocessors) / Botocore
-    - [BotocorePostprocessor](#botocorepostprocessor)
-        - [BotocorePostprocessor().process_package](#botocorepostprocessorprocess_package)
+- [Botocore](#botocore)
+  - [BotocorePostprocessor](#botocorepostprocessor)
+    - [BotocorePostprocessor().process_package](#botocorepostprocessor()process_package)
 
 ## BotocorePostprocessor
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/botocore.py#L7)
-
-```python
-class BotocorePostprocessor(BasePostprocessor):
-```
+[Show source in botocore.py:7](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/botocore.py#L7)
 
 Postprocessor for botocore classes and methods.
 
+#### Signature
+
+```python
+class BotocorePostprocessor(BasePostprocessor):
+    ...
+```
+
 #### See also
 
-- [BasePostprocessor](base.md#basepostprocessor)
+- [BasePostprocessor](./base.md#basepostprocessor)
 
 ### BotocorePostprocessor().process_package
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/botocore.py#L12)
-
-```python
-def process_package() -> None:
-```
+[Show source in botocore.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/botocore.py#L12)
 
 Leave package as it is.
+
+#### Signature
+
+```python
+def process_package(self) -> None:
+    ...
+```
+
+

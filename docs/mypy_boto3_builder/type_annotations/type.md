@@ -1,34 +1,45 @@
 # Type
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Type Annotations](./index.md#type-annotations) /
+Type
+
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.type](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py) module.
 
-Predefined FakeAnnotation instances.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](index.md#type-annotations) / Type
-    - [Type](#type)
-        - [Type.get_optional](#typeget_optional)
+- [Type](#type)
+  - [Type](#type-1)
+    - [Type.get_optional](#typeget_optional)
 
 ## Type
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L15)
-
-```python
-class Type():
-```
+[Show source in type.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L15)
 
 Predefined FakeAnnotation instances.
 
-### Type.get_optional
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L55)
+#### Signature
 
 ```python
-@classmethod
-def get_optional(wrapped: FakeAnnotation) -> FakeAnnotation:
+class Type:
+    ...
 ```
+
+### Type.get_optional
+
+[Show source in type.py:55](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L55)
 
 Get Optional type annotation.
 
+#### Signature
+
+```python
+@classmethod
+def get_optional(cls, wrapped: FakeAnnotation) -> FakeAnnotation:
+    ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
+
+

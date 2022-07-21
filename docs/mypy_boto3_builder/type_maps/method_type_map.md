@@ -1,24 +1,18 @@
 # Method Type Map
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Type Maps](./index.md#type-maps) /
+Method Type Map
+
 > Auto-generated documentation for [mypy_boto3_builder.type_maps.method_type_map](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/method_type_map.py) module.
 
-String to type annotation map that find type annotation by method and argument name.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Maps](index.md#type-maps) / Method Type Map
-    - [get_method_type_stub](#get_method_type_stub)
+- [Method Type Map](#method-type-map)
+  - [get_method_type_stub](#get_method_type_stub)
 
 ## get_method_type_stub
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/method_type_map.py#L180)
-
-```python
-def get_method_type_stub(
-    service_name: ServiceName,
-    class_name: str,
-    method_name: str,
-    argument_name: str,
-) -> FakeAnnotation | None:
-```
+[Show source in method_type_map.py:180](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/method_type_map.py#L180)
 
 Get stub type for method argument.
 
@@ -33,6 +27,17 @@ Get stub type for method argument.
 
 Type annotation or None.
 
+#### Signature
+
+```python
+def get_method_type_stub(
+    service_name: ServiceName, class_name: str, method_name: str, argument_name: str
+) -> FakeAnnotation | None:
+    ...
+```
+
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
+
+

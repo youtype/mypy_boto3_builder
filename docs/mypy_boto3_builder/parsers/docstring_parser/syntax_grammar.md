@@ -1,22 +1,22 @@
 # SyntaxGrammar
 
+[mypy-boto3-builder Index](../../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../../index.md#mypy-boto3-builder) /
+[Parsers](../index.md#parsers) /
+[Docstring Parser](./index.md#docstring-parser) /
+SyntaxGrammar
+
 > Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.syntax_grammar](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py) module.
 
-Pyparsing grammar for request and response syntax.
-
-- [mypy-boto3-builder](../../../README.md#mypy_boto3_builder) / [Modules](../../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../../index.md#mypy-boto3-builder) / [Parsers](../index.md#parsers) / [Docstring Parser](index.md#docstring-parser) / SyntaxGrammar
-    - [SyntaxGrammar](#syntaxgrammar)
-        - [SyntaxGrammar.disable_packrat](#syntaxgrammardisable_packrat)
-        - [SyntaxGrammar.enable_packrat](#syntaxgrammarenable_packrat)
-        - [SyntaxGrammar.reset](#syntaxgrammarreset)
+- [SyntaxGrammar](#syntaxgrammar)
+  - [SyntaxGrammar](#syntaxgrammar-1)
+    - [SyntaxGrammar.disable_packrat](#syntaxgrammardisable_packrat)
+    - [SyntaxGrammar.enable_packrat](#syntaxgrammarenable_packrat)
+    - [SyntaxGrammar.reset](#syntaxgrammarreset)
 
 ## SyntaxGrammar
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L19)
-
-```python
-class SyntaxGrammar():
-```
+[Show source in syntax_grammar.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L19)
 
 Grammar to parse boto3 request/response syntax.
 
@@ -42,35 +42,53 @@ definition ::= [^']+ "(" argument ("," argument)* [","] ")"
 request_syntax ::= "**Request Syntax**" "::" definition
 response_syntax ::= "**Response Syntax**" "::" (list_value | dict_value)
 
+#### Signature
+
+```python
+class SyntaxGrammar:
+    ...
+```
+
 ### SyntaxGrammar.disable_packrat
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L141)
+[Show source in syntax_grammar.py:141](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L141)
+
+Disable packrat boost.
+
+#### Signature
 
 ```python
 @staticmethod
 def disable_packrat() -> None:
+    ...
 ```
-
-Disable packrat boost.
 
 ### SyntaxGrammar.enable_packrat
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L134)
+[Show source in syntax_grammar.py:134](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L134)
+
+Enable packrat boost.
+
+#### Signature
 
 ```python
 @staticmethod
 def enable_packrat() -> None:
+    ...
 ```
-
-Enable packrat boost.
 
 ### SyntaxGrammar.reset
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L127)
+[Show source in syntax_grammar.py:127](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.py#L127)
+
+Reset packrat boost.
+
+#### Signature
 
 ```python
 @classmethod
-def reset() -> None:
+def reset(cls) -> None:
+    ...
 ```
 
-Reset packrat boost.
+

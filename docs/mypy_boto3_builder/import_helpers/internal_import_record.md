@@ -1,25 +1,19 @@
 # InternalImportRecord
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Import Helpers](./index.md#import-helpers) /
+InternalImportRecord
+
 > Auto-generated documentation for [mypy_boto3_builder.import_helpers.internal_import_record](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py) module.
 
-Helper for Python import strings with not set master module name.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Import Helpers](index.md#import-helpers) / InternalImportRecord
-    - [InternalImportRecord](#internalimportrecord)
-        - [InternalImportRecord().get_external](#internalimportrecordget_external)
+- [InternalImportRecord](#internalimportrecord)
+  - [InternalImportRecord](#internalimportrecord-1)
+    - [InternalImportRecord().get_external](#internalimportrecord()get_external)
 
 ## InternalImportRecord
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L9)
-
-```python
-class InternalImportRecord(ImportRecord):
-    def __init__(
-        service_module_name: ServiceModuleName,
-        name: str = '',
-        alias: str = '',
-    ):
-```
+[Show source in internal_import_record.py:9](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L9)
 
 Helper for Python import strings with not set master module name.
 
@@ -29,18 +23,24 @@ Helper for Python import strings with not set master module name.
 - `name` - Import name.
 - `alias` - Import local name.
 
+#### Signature
+
+```python
+class InternalImportRecord(ImportRecord):
+    def __init__(
+        self, service_module_name: ServiceModuleName, name: str = "", alias: str = ""
+    ):
+        ...
+```
+
 #### See also
 
-- [ImportRecord](import_record.md#importrecord)
+- [ImportRecord](./import_record.md#importrecord)
 - [ServiceModuleName](../enums/service_module_name.md#servicemodulename)
 
 ### InternalImportRecord().get_external
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L24)
-
-```python
-def get_external(module_name: str) -> ImportRecord:
-```
+[Show source in internal_import_record.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L24)
 
 Get full import record with `module_name` set as master module.
 
@@ -52,6 +52,15 @@ Get full import record with `module_name` set as master module.
 
 A new non-internal ImportRecord.
 
+#### Signature
+
+```python
+def get_external(self, module_name: str) -> ImportRecord:
+    ...
+```
+
 #### See also
 
-- [ImportRecord](import_record.md#importrecord)
+- [ImportRecord](./import_record.md#importrecord)
+
+

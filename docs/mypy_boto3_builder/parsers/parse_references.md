@@ -1,19 +1,18 @@
 # Parse References
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Parsers](./index.md#parsers) /
+Parse References
+
 > Auto-generated documentation for [mypy_boto3_builder.parsers.parse_references](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_references.py) module.
 
-Parser for Boto3 ServiceResource identifiers, produces `structures.Attribute`.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Parsers](index.md#parsers) / Parse References
-    - [parse_references](#parse_references)
+- [Parse References](#parse-references)
+  - [parse_references](#parse_references)
 
 ## parse_references
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_references.py#L13)
-
-```python
-def parse_references(resource: Boto3ServiceResource) -> list[Attribute]:
-```
+[Show source in parse_references.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_references.py#L13)
 
 Extract references from boto3 resource.
 
@@ -25,6 +24,15 @@ Extract references from boto3 resource.
 
 A list of Attribute structures.
 
+#### Signature
+
+```python
+def parse_references(resource: Boto3ServiceResource) -> list[Attribute]:
+    ...
+```
+
 #### See also
 
 - [Attribute](../structures/attribute.md#attribute)
+
+

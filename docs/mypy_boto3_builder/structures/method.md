@@ -1,38 +1,49 @@
 # Method
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Structures](./index.md#structures) /
+Method
+
 > Auto-generated documentation for [mypy_boto3_builder.structures.method](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py) module.
 
-Class method.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Method
-    - [Method](#method)
-        - [Method().call_arguments](#methodcall_arguments)
+- [Method](#method)
+  - [Method](#method-1)
+    - [Method().call_arguments](#method()call_arguments)
 
 ## Method
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py#L8)
-
-```python
-class Method(Function):
-```
+[Show source in method.py:8](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py#L8)
 
 Class method.
 
+#### Signature
+
+```python
+class Method(Function):
+    ...
+```
+
 #### See also
 
-- [Function](function.md#function)
+- [Function](./function.md#function)
 
 ### Method().call_arguments
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py#L13)
-
-```python
-@property
-def call_arguments() -> list[Argument]:
-```
+[Show source in method.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py#L13)
 
 Arguments that are used in method call.
 
+#### Signature
+
+```python
+@property
+def call_arguments(self) -> list[Argument]:
+    ...
+```
+
 #### See also
 
-- [Argument](argument.md#argument)
+- [Argument](./argument.md#argument)
+
+

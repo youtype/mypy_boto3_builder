@@ -1,204 +1,108 @@
-# mypy_boto3_builder
+# mypy-boto3-builder Index
 
 > Auto-generated documentation index.
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/youtype/mypy_boto3_builder)
+A full list of [mypy-boto3-builder](https://github.com/youtype/mypy_boto3_builder) project modules.
 
-[![PyPI - mypy-boto3-builder](https://img.shields.io/pypi/v/mypy-boto3-builder.svg?color=blue&label=mypy-boto3-builder)](https://pypi.org/project/mypy-boto3-builder)
-[![PyPI - boto3-stubs](https://img.shields.io/pypi/v/boto3-stubs.svg?color=blue&label=boto3-stubs)](https://pypi.org/project/boto3-stubs)
-[![PyPI - boto3](https://img.shields.io/pypi/v/boto3.svg?color=blue&label=boto3)](https://pypi.org/project/boto3)
-
-[![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=boto3-stubs%20docs)](https://youtype.github.io/boto3_stubs_docs/)
-[![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=Builder%20docs)](https://mypy-boto3-builder.readthedocs.io/)
-
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boto3-stubs.svg?color=blue)](https://pypi.org/project/boto3-stubs)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/boto3-stubs?color=blue)](https://pypistats.org/packages/boto3-stubs)
-
-![boto3.typed](https://github.com/youtype/mypy_boto3_builder/raw/main/logo.png)
-
-Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with
-[VSCode](https://code.visualstudio.com/),
-[PyCharm](https://www.jetbrains.com/pycharm/),
-[Emacs](https://www.gnu.org/software/emacs/),
-[Sublime Text](https://www.sublimetext.com/),
-[mypy](https://github.com/python/mypy),
-[pyright](https://github.com/microsoft/pyright)
-and other tools.
-
-See how it helps to find and fix potential bugs:
-
-![boto3-stubs demo](https://raw.githubusercontent.com/youtype/mypy_boto3_builder/main/demo.gif)
-
-Do you want more? Check the [documentation](https://youtype.github.io/boto3_stubs_docs/) and use `boto3` like a pro!
-
-Full mypy-boto3-builder project documentation can be found in [Modules](MODULES.md#mypy-boto3-builder-modules)
-
-- [mypy_boto3_builder](#mypy_boto3_builder)
-  - [Using built libraries](#using-built-libraries)
-    - [boto3](#boto3)
-    - [aiobotocore](#aiobotocore)
-    - [aioboto3](#aioboto3)
-  - [How to build type annotations](#how-to-build-type-annotations)
-    - [Locally](#locally)
-    - [With Docker image](#with-docker-image)
-  - [Development](#development)
-  - [Versioning](#versioning)
-  - [Latest changes](#latest-changes)
-  - [Thank you](#thank-you)
-    - [Toolset](#toolset)
-    - [Contributors](#contributors)
-  - [mypy-boto3-builder Modules](MODULES.md#mypy-boto3-builder-modules)
-
-## Using built libraries
-
-### boto3
-
-Check [boto3-stubs](https://pypi.org/project/boto3-stubs/) project for installation
-and usage instructions.
-
-If you use VSCode, add [AWS Boto3](https://marketplace.visualstudio.com/items?itemName=Boto3typed.boto3-ide)
-extension to your VSCode and run `AWS boto3: Quick Start` command.
-
-If not, just install `boto3-stubs` with `pip`:
-
-```bash
-python -m pip install 'boto3-stubs[essential]'
-
-# Lite version does not provide session.client/resource overloads
-# it is more RAM-friendly, but requires explicit type annotations
-python -m pip install 'boto3-stubs-lite[essential]'
-
-# do not forget to install mypy or pyright
-```
-
-That's it! You should already have code completion and type checking in your IDE.
-
-### aiobotocore
-
-Check [types-aiobotocore](https://pypi.org/project/types-aiobotocore/) project for installation
-and usage instructions.
-
-Or just install `types-aiobotocore` with `pip`:
-
-```bash
-python -m pip install 'types-aiobotocore[essential]'
-
-# Lite version does not provide session.create_client overloads
-# it is more RAM-friendly, but requires explicit type annotations
-python -m pip install 'types-aiobotocore-lite[essential]'
-
-# do not forget to install mypy or pyright
-```
-
-Ready to go! Enjoy code completion and type checking in your `aiobotocore` project.
-
-### aioboto3
-
-Check [types-aioboto3](https://pypi.org/project/types-aioboto3/) project for installation
-and usage instructions.
-
-Or just install `types-aioboto3` with `pip`:
-
-```bash
-python -m pip install 'types-aioboto3[essential]'
-
-# Lite version does not provide session.client/resource overloads
-# it is more RAM-friendly, but requires explicit type annotations
-python -m pip install 'types-aioboto3-lite[essential]'
-
-# do not forget to install mypy or pyright
-```
-
-Whoa! All `aioboto3` methods and attributes are now type-annotated and even code completion works.
-
-## How to build type annotations
-
-### Locally
-
-```bash
-# Install preferred version of `boto3`
-python -m pip install boto3==1.16.25 botocore==1.19.25
-
-# Install `mypy-boto3-builder`
-python -m pip install mypy-boto3-builder
-
-# Build all packages in mypy_boto3_output directory
-python -m mypy_boto3_builder mypy_boto3_output
-
-# Or specify required services explicitly
-python -m mypy_boto3_builder mypy_boto3_output -s ec2 s3
-
-# Install custom `boto3-stubs` packages
-cd mypy_boto3_output
-python -m pip install -e ./mypy_boto3_ec2_package
-python -m pip install -e ./mypy_boto3_s3_package
-python -m pip install -e ./boto3_stubs_package
-```
-
-### With Docker image
-
-- Install [Docker](https://docs.docker.com/install/)
-- Pull latest `mypy_boto3_builder` version and tag it
-
-```bash
-docker pull docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest
-docker tag docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest mypy_boto3_builder
-```
-
-- Generate stubs in `output` directory
-
-```bash
-mkdir output
-
-# generate stubs for all services
-docker run -v `pwd`/output:/output -ti mypy_boto3_builder_stable
-
-# generate stubs for s3 service
-docker run -v `pwd`/output:/output -ti mypy_boto3_builder_stable -s s3
-
-# generate stubs for a specific boto3 version
-docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/output -ti mypy_boto3_builder_stable
-```
-
-- Install packages from `output` directory as described above
-
-## Development
-
-- Install Python 3.10+, ideally with [pyenv](https://github.com/pyenv/pyenv)
-- Install [poetry](https://python-poetry.org/): `pip install poetry`
-- Install dependencies: `poetry install`
-- Use scripts for repo to check if everything works: `./scripts/build.sh`
-- Run manual pre-commit: `./scripts/before_commit.sh`
-
-## Versioning
-
-`mypy_boto3_builder` version is not related to `boto3` version and follows
-[PEP 440](https://www.python.org/dev/peps/pep-0440/).
-
-## Latest changes
-
-Full changelog can be found in [Releases](https://github.com/youtype/mypy_boto3_builder/releases).
-
-## Thank you
-
-### Toolset
-
-- [black](https://github.com/psf/black) developers for an awesome formatting tool
-- [Timothy Edmund Crosley](https://github.com/timothycrosley) for
-  [isort](https://github.com/PyCQA/isort) and how flexible it is
-- [mypy](https://github.com/python/mypy) developers for doing all dirty work for us
-- [pyright](https://github.com/microsoft/pyright) team for the new era of typed Python
-
-### Contributors
-
-- [Allie Fitter](https://github.com/alliefitter), author of original
-  [boto3-type-annotations](https://pypi.org/project/boto3-type-annotations/)
-- [jbpratt](https://github.com/jbpratt)
-- [Chris Hollinworth](https://github.com/chrishollinworth)
-- [Yoan Blanc](https://github.com/greut)
-- [Kostya Leschenko](https://github.com/kleschenko)
-- [pyto86](https://github.com/pyto86pri)
-- [Ashton Honnecke](https://github.com/ahonnecke)
-- [Mike Carey](https://github.com/mike-carey)
-- [Ole-Martin Bratteng](https://github.com/omBratteng)
-- [Nikhil Benesch](https://github.com/benesch)
+- [Mypy Boto3 Builder](mypy_boto3_builder/index.md#mypy-boto3-builder)
+    - [Module](mypy_boto3_builder/module.md#module)
+    - [Cli Parser](mypy_boto3_builder/cli_parser.md#cli-parser)
+    - [Constants](mypy_boto3_builder/constants.md#constants)
+    - [Enums](mypy_boto3_builder/enums/index.md#enums)
+        - [ServiceModuleName](mypy_boto3_builder/enums/service_module_name.md#servicemodulename)
+    - [Generators](mypy_boto3_builder/generators/index.md#generators)
+        - [AioBoto3Generator](mypy_boto3_builder/generators/aioboto3_generator.md#aioboto3generator)
+        - [AioBotocoreGenerator](mypy_boto3_builder/generators/aiobotocore_generator.md#aiobotocoregenerator)
+        - [BaseGenerator](mypy_boto3_builder/generators/base_generator.md#basegenerator)
+        - [Boto3Generator](mypy_boto3_builder/generators/boto3_generator.md#boto3generator)
+    - [Import Helpers](mypy_boto3_builder/import_helpers/index.md#import-helpers)
+        - [ImportRecord](mypy_boto3_builder/import_helpers/import_record.md#importrecord)
+        - [ImportString](mypy_boto3_builder/import_helpers/import_string.md#importstring)
+        - [InternalImportRecord](mypy_boto3_builder/import_helpers/internal_import_record.md#internalimportrecord)
+    - [JinjaManager](mypy_boto3_builder/jinja_manager.md#jinjamanager)
+    - [Logger](mypy_boto3_builder/logger.md#logger)
+    - [Main](mypy_boto3_builder/main.md#main)
+    - [Package Data](mypy_boto3_builder/package_data.md#package-data)
+    - [Parsers](mypy_boto3_builder/parsers/index.md#parsers)
+        - [Aiobotocore Stubs Package](mypy_boto3_builder/parsers/aiobotocore_stubs_package.md#aiobotocore-stubs-package)
+        - [Boto3 Stubs Package](mypy_boto3_builder/parsers/boto3_stubs_package.md#boto3-stubs-package)
+        - [Client](mypy_boto3_builder/parsers/client.md#client)
+        - [Docstring Parser](mypy_boto3_builder/parsers/docstring_parser/index.md#docstring-parser)
+            - [ArgSpecParser](mypy_boto3_builder/parsers/docstring_parser/argspec_parser.md#argspecparser)
+            - [DocstringParser](mypy_boto3_builder/parsers/docstring_parser/docstring_parser.md#docstringparser)
+            - [SyntaxGrammar](mypy_boto3_builder/parsers/docstring_parser/syntax_grammar.md#syntaxgrammar)
+            - [TypeDocGrammar](mypy_boto3_builder/parsers/docstring_parser/type_doc_grammar.md#typedocgrammar)
+            - [TypeDocLine](mypy_boto3_builder/parsers/docstring_parser/type_doc_line.md#typedocline)
+            - [TypeValue](mypy_boto3_builder/parsers/docstring_parser/type_value.md#typevalue)
+        - [Fake Service Package](mypy_boto3_builder/parsers/fake_service_package.md#fake-service-package)
+        - [Helpers](mypy_boto3_builder/parsers/helpers.md#helpers)
+        - [Master Package](mypy_boto3_builder/parsers/master_package.md#master-package)
+        - [Parse Attributes](mypy_boto3_builder/parsers/parse_attributes.md#parse-attributes)
+        - [Parse Collections](mypy_boto3_builder/parsers/parse_collections.md#parse-collections)
+        - [Parse Identifiers](mypy_boto3_builder/parsers/parse_identifiers.md#parse-identifiers)
+        - [Parse References](mypy_boto3_builder/parsers/parse_references.md#parse-references)
+        - [Parse Resource](mypy_boto3_builder/parsers/parse_resource.md#parse-resource)
+        - [Service Package](mypy_boto3_builder/parsers/service_package.md#service-package)
+        - [Service Resource](mypy_boto3_builder/parsers/service_resource.md#service-resource)
+        - [ShapeParser](mypy_boto3_builder/parsers/shape_parser.md#shapeparser)
+        - [Types Aioboto3 Package](mypy_boto3_builder/parsers/types_aioboto3_package.md#types-aioboto3-package)
+    - [Postprocessors](mypy_boto3_builder/postprocessors/index.md#postprocessors)
+        - [Aiobotocore](mypy_boto3_builder/postprocessors/aiobotocore.md#aiobotocore)
+        - [Base](mypy_boto3_builder/postprocessors/base.md#base)
+        - [Botocore](mypy_boto3_builder/postprocessors/botocore.md#botocore)
+    - [ServiceName](mypy_boto3_builder/service_name.md#servicename)
+    - [Structures](mypy_boto3_builder/structures/index.md#structures)
+        - [AioBotocoreStubsPackage](mypy_boto3_builder/structures/aiobotocore_stubs_package.md#aiobotocorestubspackage)
+        - [Argument](mypy_boto3_builder/structures/argument.md#argument)
+        - [Attribute](mypy_boto3_builder/structures/attribute.md#attribute)
+        - [Boto3StubsPackage](mypy_boto3_builder/structures/boto3_stubs_package.md#boto3stubspackage)
+        - [BotocoreStubsPackage](mypy_boto3_builder/structures/botocore_stubs_package.md#botocorestubspackage)
+        - [ClassRecord](mypy_boto3_builder/structures/class_record.md#classrecord)
+        - [Client](mypy_boto3_builder/structures/client.md#client)
+        - [Collection](mypy_boto3_builder/structures/collection.md#collection)
+        - [Function](mypy_boto3_builder/structures/function.md#function)
+        - [MasterPackage](mypy_boto3_builder/structures/master_package.md#masterpackage)
+        - [Method](mypy_boto3_builder/structures/method.md#method)
+        - [Package](mypy_boto3_builder/structures/package.md#package)
+        - [Paginator](mypy_boto3_builder/structures/paginator.md#paginator)
+        - [Resource](mypy_boto3_builder/structures/resource.md#resource)
+        - [ServicePackage](mypy_boto3_builder/structures/service_package.md#servicepackage)
+        - [ServiceResource](mypy_boto3_builder/structures/service_resource.md#serviceresource)
+        - [TypesAioBoto3Package](mypy_boto3_builder/structures/types_aioboto3_package.md#typesaioboto3package)
+        - [Waiter](mypy_boto3_builder/structures/waiter.md#waiter)
+    - [Stubs Static](mypy_boto3_builder/stubs_static/index.md#stubs-static)
+    - [Type Annotations](mypy_boto3_builder/type_annotations/index.md#type-annotations)
+        - [ExternalImport](mypy_boto3_builder/type_annotations/external_import.md#externalimport)
+        - [FakeAnnotation](mypy_boto3_builder/type_annotations/fake_annotation.md#fakeannotation)
+        - [InternalImport](mypy_boto3_builder/type_annotations/internal_import.md#internalimport)
+        - [RemoveArgument](mypy_boto3_builder/type_annotations/remove_argument.md#removeargument)
+        - [Type](mypy_boto3_builder/type_annotations/type.md#type)
+        - [TypeAnnotation](mypy_boto3_builder/type_annotations/type_annotation.md#typeannotation)
+        - [TypeClass](mypy_boto3_builder/type_annotations/type_class.md#typeclass)
+        - [TypeConstant](mypy_boto3_builder/type_annotations/type_constant.md#typeconstant)
+        - [TypeLiteral](mypy_boto3_builder/type_annotations/type_literal.md#typeliteral)
+        - [TypeSubscript](mypy_boto3_builder/type_annotations/type_subscript.md#typesubscript)
+        - [TypeTypedDict](mypy_boto3_builder/type_annotations/type_typed_dict.md#typetypeddict)
+    - [Type Maps](mypy_boto3_builder/type_maps/index.md#type-maps)
+        - [Docstring Type Map](mypy_boto3_builder/type_maps/docstring_type_map.md#docstring-type-map)
+        - [Literal Type Map](mypy_boto3_builder/type_maps/literal_type_map.md#literal-type-map)
+        - [Method Argument Map](mypy_boto3_builder/type_maps/method_argument_map.md#method-argument-map)
+        - [Method Type Map](mypy_boto3_builder/type_maps/method_type_map.md#method-type-map)
+        - [Shape Type Map](mypy_boto3_builder/type_maps/shape_type_map.md#shape-type-map)
+        - [Syntax Type Map](mypy_boto3_builder/type_maps/syntax_type_map.md#syntax-type-map)
+        - [Typed Dicts](mypy_boto3_builder/type_maps/typed_dicts.md#typed-dicts)
+    - [Utils](mypy_boto3_builder/utils/index.md#utils)
+        - [Boto3 Utils](mypy_boto3_builder/utils/boto3_utils.md#boto3-utils)
+        - [BotocoreChangelog](mypy_boto3_builder/utils/botocore_changelog.md#botocorechangelog)
+        - [Markdown](mypy_boto3_builder/utils/markdown.md#markdown)
+        - [NicePath](mypy_boto3_builder/utils/nice_path.md#nicepath)
+        - [PyPIManager](mypy_boto3_builder/utils/pypi_manager.md#pypimanager)
+        - [Strings](mypy_boto3_builder/utils/strings.md#strings)
+        - [TypedDictSorter](mypy_boto3_builder/utils/typed_dict_sorter.md#typeddictsorter)
+        - [Version](mypy_boto3_builder/utils/version.md#version)
+    - [Writers](mypy_boto3_builder/writers/index.md#writers)
+        - [Aioboto3 Processors](mypy_boto3_builder/writers/aioboto3_processors.md#aioboto3-processors)
+        - [Aiobotocore Processors](mypy_boto3_builder/writers/aiobotocore_processors.md#aiobotocore-processors)
+        - [PackageWriter](mypy_boto3_builder/writers/package_writer.md#packagewriter)
+        - [Processors](mypy_boto3_builder/writers/processors.md#processors)
+        - [Utils](mypy_boto3_builder/writers/utils.md#utils)

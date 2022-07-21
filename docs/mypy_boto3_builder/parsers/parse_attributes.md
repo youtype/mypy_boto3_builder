@@ -1,24 +1,18 @@
 # Parse Attributes
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Parsers](./index.md#parsers) /
+Parse Attributes
+
 > Auto-generated documentation for [mypy_boto3_builder.parsers.parse_attributes](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_attributes.py) module.
 
-Parser for Boto3 ServiceResource attributes, produces `structures.Attribute`.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Parsers](index.md#parsers) / Parse Attributes
-    - [parse_attributes](#parse_attributes)
+- [Parse Attributes](#parse-attributes)
+  - [parse_attributes](#parse_attributes)
 
 ## parse_attributes
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_attributes.py#L12)
-
-```python
-def parse_attributes(
-    service_name: ServiceName,
-    resource_name: str,
-    resource: Boto3ServiceResource,
-    shape_parser: ShapeParser,
-) -> list[Attribute]:
-```
+[Show source in parse_attributes.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_attributes.py#L12)
 
 Extract attributes from boto3 resource.
 
@@ -30,8 +24,22 @@ Extract attributes from boto3 resource.
 
 A list of Attribute structures.
 
+#### Signature
+
+```python
+def parse_attributes(
+    service_name: ServiceName,
+    resource_name: str,
+    resource: Boto3ServiceResource,
+    shape_parser: ShapeParser,
+) -> list[Attribute]:
+    ...
+```
+
 #### See also
 
 - [Attribute](../structures/attribute.md#attribute)
 - [ServiceName](../service_name.md#servicename)
-- [ShapeParser](shape_parser.md#shapeparser)
+- [ShapeParser](./shape_parser.md#shapeparser)
+
+

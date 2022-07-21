@@ -1,24 +1,19 @@
 # Service Resource
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Parsers](./index.md#parsers) /
+Service Resource
+
 > Auto-generated documentation for [mypy_boto3_builder.parsers.service_resource](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py) module.
 
-Parser for Boto3 ServiceResource, produces `structires.ServiceResource`.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Parsers](index.md#parsers) / Service Resource
-    - [get_sub_resources](#get_sub_resources)
-    - [parse_service_resource](#parse_service_resource)
+- [Service Resource](#service-resource)
+  - [get_sub_resources](#get_sub_resources)
+  - [parse_service_resource](#parse_service_resource)
 
 ## get_sub_resources
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L99)
-
-```python
-def get_sub_resources(
-    session: Session,
-    service_name: ServiceName,
-    resource: Boto3ServiceResource,
-) -> list[Boto3ServiceResource]:
-```
+[Show source in service_resource.py:99](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L99)
 
 Initialize ServiceResource sub-resources with fake data.
 
@@ -32,21 +27,24 @@ Initialize ServiceResource sub-resources with fake data.
 
 A list of initialized `Boto3ServiceResource`.
 
+#### Signature
+
+```python
+def get_sub_resources(
+    session: Session, service_name: ServiceName, resource: Boto3ServiceResource
+) -> list[Boto3ServiceResource]:
+    ...
+```
+
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
 
+
+
 ## parse_service_resource
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L28)
-
-```python
-def parse_service_resource(
-    session: Session,
-    service_name: ServiceName,
-    shape_parser: ShapeParser,
-) -> ServiceResource | None:
-```
+[Show source in service_resource.py:28](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L28)
 
 Parse boto3 ServiceResource data.
 
@@ -59,7 +57,18 @@ Parse boto3 ServiceResource data.
 
 ServiceResource structure or None if service does not have a resource.
 
+#### Signature
+
+```python
+def parse_service_resource(
+    session: Session, service_name: ServiceName, shape_parser: ShapeParser
+) -> ServiceResource | None:
+    ...
+```
+
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
-- [ShapeParser](shape_parser.md#shapeparser)
+- [ShapeParser](./shape_parser.md#shapeparser)
+
+

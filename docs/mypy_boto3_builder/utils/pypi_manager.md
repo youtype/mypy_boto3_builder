@@ -1,22 +1,20 @@
 # PyPIManager
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Utils](./index.md#utils) /
+PyPIManager
+
 > Auto-generated documentation for [mypy_boto3_builder.utils.pypi_manager](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py) module.
 
-Version manager for PyPI packages.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Utils](index.md#utils) / PyPIManager
-    - [PyPIManager](#pypimanager)
-        - [PyPIManager().get_next_version](#pypimanagerget_next_version)
-        - [PyPIManager().has_version](#pypimanagerhas_version)
+- [PyPIManager](#pypimanager)
+  - [PyPIManager](#pypimanager-1)
+    - [PyPIManager().get_next_version](#pypimanager()get_next_version)
+    - [PyPIManager().has_version](#pypimanager()has_version)
 
 ## PyPIManager
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L11)
-
-```python
-class PyPIManager():
-    def __init__(package: str) -> None:
-```
+[Show source in pypi_manager.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L11)
 
 Version manager for PyPI packages.
 
@@ -24,13 +22,17 @@ Version manager for PyPI packages.
 
 - `package` - PyPI package name
 
-### PyPIManager().get_next_version
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L34)
+#### Signature
 
 ```python
-def get_next_version(version: str) -> str:
+class PyPIManager:
+    def __init__(self, package: str) -> None:
+        ...
 ```
+
+### PyPIManager().get_next_version
+
+[Show source in pypi_manager.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L34)
 
 Get not existing version or closest not existing post-release.
 
@@ -38,16 +40,28 @@ Get not existing version or closest not existing post-release.
 
 - `version` - Target version
 
-### PyPIManager().has_version
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L25)
+#### Signature
 
 ```python
-def has_version(version: str) -> bool:
+def get_next_version(self, version: str) -> str:
+    ...
 ```
+
+### PyPIManager().has_version
+
+[Show source in pypi_manager.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L25)
 
 Check if version is already uploaded to PyPI.
 
 #### Arguments
 
 - `version` - Target version
+
+#### Signature
+
+```python
+def has_version(self, version: str) -> bool:
+    ...
+```
+
+

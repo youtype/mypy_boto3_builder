@@ -1,56 +1,71 @@
 # Paginator
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Structures](./index.md#structures) /
+Paginator
+
 > Auto-generated documentation for [mypy_boto3_builder.structures.paginator](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py) module.
 
-Boto3 client Paginator.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Paginator
-    - [Paginator](#paginator)
-        - [Paginator().boto3_doc_link](#paginatorboto3_doc_link)
-        - [Paginator().get_client_method](#paginatorget_client_method)
+- [Paginator](#paginator)
+  - [Paginator](#paginator-1)
+    - [Paginator().boto3_doc_link](#paginator()boto3_doc_link)
+    - [Paginator().get_client_method](#paginator()get_client_method)
 
 ## Paginator
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L16)
+[Show source in paginator.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L16)
+
+Boto3 client Paginator.
+
+#### Signature
 
 ```python
 class Paginator(ClassRecord):
     def __init__(
+        self,
         name: str,
         paginator_name: str,
         operation_name: str,
         service_name: ServiceName,
     ):
+        ...
 ```
-
-Boto3 client Paginator.
 
 #### See also
 
-- [ClassRecord](class_record.md#classrecord)
+- [ClassRecord](./class_record.md#classrecord)
 - [ServiceName](../service_name.md#servicename)
 
 ### Paginator().boto3_doc_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L36)
-
-```python
-@property
-def boto3_doc_link() -> str:
-```
+[Show source in paginator.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L36)
 
 Link to boto3 docs.
 
-### Paginator().get_client_method
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L43)
+#### Signature
 
 ```python
-def get_client_method() -> Method:
+@property
+def boto3_doc_link(self) -> str:
+    ...
 ```
+
+### Paginator().get_client_method
+
+[Show source in paginator.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L43)
 
 Get `get_paginator` method for `Client`.
 
+#### Signature
+
+```python
+def get_client_method(self) -> Method:
+    ...
+```
+
 #### See also
 
-- [Method](method.md#method)
+- [Method](./method.md#method)
+
+

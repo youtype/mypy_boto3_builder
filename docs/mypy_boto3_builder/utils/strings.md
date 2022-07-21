@@ -1,44 +1,53 @@
 # Strings
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Utils](./index.md#utils) /
+Strings
+
 > Auto-generated documentation for [mypy_boto3_builder.utils.strings](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py) module.
 
-Multiple string utils collection.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Utils](index.md#utils) / Strings
-    - [get_anchor_link](#get_anchor_link)
-    - [get_botocore_class_name](#get_botocore_class_name)
-    - [get_class_prefix](#get_class_prefix)
-    - [get_line_with_indented](#get_line_with_indented)
-    - [get_short_docstring](#get_short_docstring)
-    - [is_reserved](#is_reserved)
+- [Strings](#strings)
+  - [get_anchor_link](#get_anchor_link)
+  - [get_botocore_class_name](#get_botocore_class_name)
+  - [get_class_prefix](#get_class_prefix)
+  - [get_line_with_indented](#get_line_with_indented)
+  - [get_short_docstring](#get_short_docstring)
+  - [is_reserved](#is_reserved)
 
 ## get_anchor_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L96)
-
-```python
-def get_anchor_link(text: str) -> str:
-```
+[Show source in strings.py:96](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L96)
 
 Convert header to markdown anchor link.
 
-## get_botocore_class_name
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L156)
+#### Signature
 
 ```python
-def get_botocore_class_name(metadata: dict[str, str]) -> str:
+def get_anchor_link(text: str) -> str:
+    ...
 ```
+
+
+
+## get_botocore_class_name
+
+[Show source in strings.py:156](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L156)
 
 Get Botocore class name from Service metadata.
 
-## get_class_prefix
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L23)
+#### Signature
 
 ```python
-def get_class_prefix(func_name: str) -> str:
+def get_botocore_class_name(metadata: dict[str, str]) -> str:
+    ...
 ```
+
+
+
+## get_class_prefix
+
+[Show source in strings.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L23)
 
 Get a valid Python class prefix from `func_name`.
 
@@ -50,16 +59,18 @@ Get a valid Python class prefix from `func_name`.
 
 String with a class prefix.
 
-## get_line_with_indented
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L37)
+#### Signature
 
 ```python
-def get_line_with_indented(
-    input_string: str,
-    multi_first_line: bool = False,
-) -> str:
+def get_class_prefix(func_name: str) -> str:
+    ...
 ```
+
+
+
+## get_line_with_indented
+
+[Show source in strings.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L37)
 
 Get first line of the string with all indented lines.
 
@@ -73,13 +84,18 @@ Fixes invalid unindent.
 
 A string with first line and following indented lines.
 
-## get_short_docstring
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L110)
+#### Signature
 
 ```python
-def get_short_docstring(doc: str) -> str:
+def get_line_with_indented(input_string: str, multi_first_line: bool = False) -> str:
+    ...
 ```
+
+
+
+## get_short_docstring
+
+[Show source in strings.py:110](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L110)
 
 Create a short docstring from boto3 documentation.
 
@@ -90,12 +106,26 @@ Ensures that backticks are closed.
 Replaces `Text <link>` with [Text](link).
 Wraps docstring to 80 chars.
 
+#### Signature
+
+```python
+def get_short_docstring(doc: str) -> str:
+    ...
+```
+
+
+
 ## is_reserved
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L103)
+[Show source in strings.py:103](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L103)
+
+Check whether varialbe name conflicts with Python reserved names.
+
+#### Signature
 
 ```python
 def is_reserved(word: str) -> bool:
+    ...
 ```
 
-Check whether varialbe name conflicts with Python reserved names.
+

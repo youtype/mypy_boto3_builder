@@ -1,29 +1,22 @@
 # TypeDocLine
 
+[mypy-boto3-builder Index](../../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../../index.md#mypy-boto3-builder) /
+[Parsers](../index.md#parsers) /
+[Docstring Parser](./index.md#docstring-parser) /
+TypeDocLine
+
 > Auto-generated documentation for [mypy_boto3_builder.parsers.docstring_parser.type_doc_line](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py) module.
 
-Structure for parsed as dict `:type:` or `:rtype:` nested lines.
-
-- [mypy-boto3-builder](../../../README.md#mypy_boto3_builder) / [Modules](../../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../../index.md#mypy-boto3-builder) / [Parsers](../index.md#parsers) / [Docstring Parser](index.md#docstring-parser) / TypeDocLine
-    - [TypeDocLine](#typedocline)
-        - [TypeDocLine().indented](#typedoclineindented)
-        - [TypeDocLine().render](#typedoclinerender)
-        - [TypeDocLine().required](#typedoclinerequired)
+- [TypeDocLine](#typedocline)
+  - [TypeDocLine](#typedocline-1)
+    - [TypeDocLine().indented](#typedocline()indented)
+    - [TypeDocLine().render](#typedocline()render)
+    - [TypeDocLine().required](#typedocline()required)
 
 ## TypeDocLine
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L10)
-
-```python
-class TypeDocLine():
-    def __init__(
-        name: str = '',
-        type_name: str = '',
-        line: Iterable[str] = tuple(),
-        description: str = '',
-        indented: Iterable[Mapping[str, object]] = tuple(),
-    ) -> None:
-```
+[Show source in type_doc_line.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L10)
 
 Structure for parsed as dict `:type:` or `:rtype:` nested lines.
 
@@ -35,14 +28,24 @@ Structure for parsed as dict `:type:` or `:rtype:` nested lines.
 - `description` - Rest of line for argument or TypedDict key definition.
 - `indented` - Intended lines.
 
-### TypeDocLine().indented
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L36)
+#### Signature
 
 ```python
-@property
-def indented() -> list[_R]:
+class TypeDocLine:
+    def __init__(
+        self,
+        name: str = "",
+        type_name: str = "",
+        line: Iterable[str] = tuple(),
+        description: str = "",
+        indented: Iterable[Mapping[str, object]] = tuple(),
+    ) -> None:
+        ...
 ```
+
+### TypeDocLine().indented
+
+[Show source in type_doc_line.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L36)
 
 Get indented lines list.
 
@@ -50,13 +53,17 @@ Get indented lines list.
 
 A list of [TypeDocLine](#typedocline).
 
-### TypeDocLine().render
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L56)
+#### Signature
 
 ```python
-def render() -> str:
+@property
+def indented(self: _R) -> list[_R]:
+    ...
 ```
+
+### TypeDocLine().render
+
+[Show source in type_doc_line.py:56](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L56)
 
 Get original string with indentation.
 
@@ -64,13 +71,25 @@ Get original string with indentation.
 
 A string as close as possible to original.
 
+#### Signature
+
+```python
+def render(self) -> str:
+    ...
+```
+
 ### TypeDocLine().required
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L49)
+[Show source in type_doc_line.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/docstring_parser/type_doc_line.py#L49)
+
+Whether the argument or TypedDict key is required.
+
+#### Signature
 
 ```python
 @property
-def required() -> bool:
+def required(self) -> bool:
+    ...
 ```
 
-Whether the argument or TypedDict key is required.
+

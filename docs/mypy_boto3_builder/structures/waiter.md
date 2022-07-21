@@ -1,51 +1,65 @@
 # Waiter
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Structures](./index.md#structures) /
+Waiter
+
 > Auto-generated documentation for [mypy_boto3_builder.structures.waiter](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py) module.
 
-Boto3 client Waiter.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / Waiter
-    - [Waiter](#waiter)
-        - [Waiter().boto3_doc_link](#waiterboto3_doc_link)
-        - [Waiter().get_client_method](#waiterget_client_method)
+- [Waiter](#waiter)
+  - [Waiter](#waiter-1)
+    - [Waiter().boto3_doc_link](#waiter()boto3_doc_link)
+    - [Waiter().get_client_method](#waiter()get_client_method)
 
 ## Waiter
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L16)
-
-```python
-class Waiter(ClassRecord):
-    def __init__(name: str, waiter_name: str, service_name: ServiceName):
-```
+[Show source in waiter.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L16)
 
 Boto3 client Waiter.
 
+#### Signature
+
+```python
+class Waiter(ClassRecord):
+    def __init__(self, name: str, waiter_name: str, service_name: ServiceName):
+        ...
+```
+
 #### See also
 
-- [ClassRecord](class_record.md#classrecord)
+- [ClassRecord](./class_record.md#classrecord)
 - [ServiceName](../service_name.md#servicename)
 
 ### Waiter().boto3_doc_link
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L34)
-
-```python
-@property
-def boto3_doc_link() -> str:
-```
+[Show source in waiter.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L34)
 
 Link to waiter boto3 docs.
 
-### Waiter().get_client_method
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L41)
+#### Signature
 
 ```python
-def get_client_method() -> Method:
+@property
+def boto3_doc_link(self) -> str:
+    ...
 ```
+
+### Waiter().get_client_method
+
+[Show source in waiter.py:41](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L41)
 
 Get `get_waiter` method for `Client`.
 
+#### Signature
+
+```python
+def get_client_method(self) -> Method:
+    ...
+```
+
 #### See also
 
-- [Method](method.md#method)
+- [Method](./method.md#method)
+
+

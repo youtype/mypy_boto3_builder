@@ -1,23 +1,31 @@
 # BotocoreStubsPackage
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Structures](./index.md#structures) /
+BotocoreStubsPackage
+
 > Auto-generated documentation for [mypy_boto3_builder.structures.botocore_stubs_package](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/botocore_stubs_package.py) module.
 
-Structure for botocore-stubs package.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](index.md#structures) / BotocoreStubsPackage
-    - [BotocoreStubsPackage](#botocorestubspackage)
+- [BotocoreStubsPackage](#botocorestubspackage)
+  - [BotocoreStubsPackage](#botocorestubspackage-1)
 
 ## BotocoreStubsPackage
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/botocore_stubs_package.py#L8)
-
-```python
-class BotocoreStubsPackage(Package):
-    def __init__() -> None:
-```
+[Show source in botocore_stubs_package.py:8](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/botocore_stubs_package.py#L8)
 
 Structure for botocore-stubs package.
 
+#### Signature
+
+```python
+class BotocoreStubsPackage(Package):
+    def __init__(self) -> None:
+        ...
+```
+
 #### See also
 
-- [Package](package.md#package)
+- [Package](./package.md#package)
+
+

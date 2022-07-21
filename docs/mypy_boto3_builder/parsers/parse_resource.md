@@ -1,22 +1,19 @@
 # Parse Resource
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Parsers](./index.md#parsers) /
+Parse Resource
+
 > Auto-generated documentation for [mypy_boto3_builder.parsers.parse_resource](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py) module.
 
-Parser for Boto3 ServiceResource sub-resource, produces `structures.Resource`.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Parsers](index.md#parsers) / Parse Resource
-    - [get_resource_public_methods](#get_resource_public_methods)
-    - [parse_resource](#parse_resource)
+- [Parse Resource](#parse-resource)
+  - [get_resource_public_methods](#get_resource_public_methods)
+  - [parse_resource](#parse_resource)
 
 ## get_resource_public_methods
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L76)
-
-```python
-def get_resource_public_methods(
-    resource_class: type[Boto3ServiceResource],
-) -> dict[str, MethodType]:
-```
+[Show source in parse_resource.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L76)
 
 Extract public methods from boto3 sub resource.
 
@@ -28,18 +25,20 @@ Extract public methods from boto3 sub resource.
 
 A dictionary of method name and method.
 
-## parse_resource
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L23)
+#### Signature
 
 ```python
-def parse_resource(
-    name: str,
-    resource: Boto3ServiceResource,
-    service_name: ServiceName,
-    shape_parser: ShapeParser,
-) -> Resource:
+def get_resource_public_methods(
+    resource_class: type[Boto3ServiceResource],
+) -> dict[str, MethodType]:
+    ...
 ```
+
+
+
+## parse_resource
+
+[Show source in parse_resource.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L23)
 
 Parse boto3 sub Resource data.
 
@@ -51,8 +50,22 @@ Parse boto3 sub Resource data.
 
 Resource structure.
 
+#### Signature
+
+```python
+def parse_resource(
+    name: str,
+    resource: Boto3ServiceResource,
+    service_name: ServiceName,
+    shape_parser: ShapeParser,
+) -> Resource:
+    ...
+```
+
 #### See also
 
 - [Resource](../structures/resource.md#resource)
 - [ServiceName](../service_name.md#servicename)
-- [ShapeParser](shape_parser.md#shapeparser)
+- [ShapeParser](./shape_parser.md#shapeparser)
+
+

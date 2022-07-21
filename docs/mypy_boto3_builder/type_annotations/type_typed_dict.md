@@ -1,56 +1,48 @@
 # TypeTypedDict
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Type Annotations](./index.md#type-annotations) /
+TypeTypedDict
+
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.type_typed_dict](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py) module.
 
-Wrapper for `typing/typing_extensions.TypedDict` type annotations.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](index.md#type-annotations) / TypeTypedDict
-    - [TypeTypedDict](#typetypeddict)
-        - [TypeTypedDict().add_attribute](#typetypeddictadd_attribute)
-        - [TypeTypedDict().copy](#typetypeddictcopy)
-        - [TypeTypedDict().get_attribute](#typetypeddictget_attribute)
-        - [TypeTypedDict().get_children_literals](#typetypeddictget_children_literals)
-        - [TypeTypedDict().get_children_typed_dicts](#typetypeddictget_children_typed_dicts)
-        - [TypeTypedDict().get_children_types](#typetypeddictget_children_types)
-        - [TypeTypedDict().get_import_record](#typetypeddictget_import_record)
-        - [TypeTypedDict().get_local_types](#typetypeddictget_local_types)
-        - [TypeTypedDict().get_optional](#typetypeddictget_optional)
-        - [TypeTypedDict().get_required](#typetypeddictget_required)
-        - [TypeTypedDict().get_sort_key](#typetypeddictget_sort_key)
-        - [TypeTypedDict.get_typing_import_record](#typetypeddictget_typing_import_record)
-        - [TypeTypedDict().has_both](#typetypeddicthas_both)
-        - [TypeTypedDict().has_optional](#typetypeddicthas_optional)
-        - [TypeTypedDict().has_required](#typetypeddicthas_required)
-        - [TypeTypedDict().is_dict](#typetypeddictis_dict)
-        - [TypeTypedDict().is_same](#typetypeddictis_same)
-        - [TypeTypedDict().is_stringified](#typetypeddictis_stringified)
-        - [TypeTypedDict().is_typed_dict](#typetypeddictis_typed_dict)
-        - [TypeTypedDict().iterate_children](#typetypeddictiterate_children)
-        - [TypeTypedDict().render](#typetypeddictrender)
-        - [TypeTypedDict().replace_self_references](#typetypeddictreplace_self_references)
-        - [TypeTypedDict().requires_safe_render](#typetypeddictrequires_safe_render)
-        - [TypeTypedDict().stringify](#typetypeddictstringify)
-        - [TypeTypedDict().type_hint_annotations](#typetypeddicttype_hint_annotations)
-    - [TypedDictAttribute](#typeddictattribute)
-        - [TypedDictAttribute().get_type_annotation](#typeddictattributeget_type_annotation)
-        - [TypedDictAttribute().is_required](#typeddictattributeis_required)
-        - [TypedDictAttribute().iterate_types](#typeddictattributeiterate_types)
-        - [TypedDictAttribute().render](#typeddictattributerender)
+- [TypeTypedDict](#typetypeddict)
+  - [TypeTypedDict](#typetypeddict-1)
+    - [TypeTypedDict().add_attribute](#typetypeddict()add_attribute)
+    - [TypeTypedDict().copy](#typetypeddict()copy)
+    - [TypeTypedDict().get_attribute](#typetypeddict()get_attribute)
+    - [TypeTypedDict().get_children_literals](#typetypeddict()get_children_literals)
+    - [TypeTypedDict().get_children_typed_dicts](#typetypeddict()get_children_typed_dicts)
+    - [TypeTypedDict().get_children_types](#typetypeddict()get_children_types)
+    - [TypeTypedDict().get_import_record](#typetypeddict()get_import_record)
+    - [TypeTypedDict().get_local_types](#typetypeddict()get_local_types)
+    - [TypeTypedDict().get_optional](#typetypeddict()get_optional)
+    - [TypeTypedDict().get_required](#typetypeddict()get_required)
+    - [TypeTypedDict().get_sort_key](#typetypeddict()get_sort_key)
+    - [TypeTypedDict.get_typing_import_record](#typetypeddictget_typing_import_record)
+    - [TypeTypedDict().has_both](#typetypeddict()has_both)
+    - [TypeTypedDict().has_optional](#typetypeddict()has_optional)
+    - [TypeTypedDict().has_required](#typetypeddict()has_required)
+    - [TypeTypedDict().is_dict](#typetypeddict()is_dict)
+    - [TypeTypedDict().is_same](#typetypeddict()is_same)
+    - [TypeTypedDict().is_stringified](#typetypeddict()is_stringified)
+    - [TypeTypedDict().is_typed_dict](#typetypeddict()is_typed_dict)
+    - [TypeTypedDict().iterate_children](#typetypeddict()iterate_children)
+    - [TypeTypedDict().render](#typetypeddict()render)
+    - [TypeTypedDict().replace_self_references](#typetypeddict()replace_self_references)
+    - [TypeTypedDict().requires_safe_render](#typetypeddict()requires_safe_render)
+    - [TypeTypedDict().stringify](#typetypeddict()stringify)
+    - [TypeTypedDict().type_hint_annotations](#typetypeddict()type_hint_annotations)
+  - [TypedDictAttribute](#typeddictattribute)
+    - [TypedDictAttribute().get_type_annotation](#typeddictattribute()get_type_annotation)
+    - [TypedDictAttribute().is_required](#typeddictattribute()is_required)
+    - [TypedDictAttribute().iterate_types](#typeddictattribute()iterate_types)
+    - [TypedDictAttribute().render](#typeddictattribute()render)
 
 ## TypeTypedDict
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L63)
-
-```python
-class TypeTypedDict(FakeAnnotation):
-    def __init__(
-        name: str,
-        children: Iterable[TypedDictAttribute] = (),
-        docstring: str = '',
-        stringify: bool = False,
-        replace_with_dict: Iterable[str] = tuple(),
-    ) -> None:
-```
+[Show source in type_typed_dict.py:63](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L63)
 
 Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 
@@ -62,22 +54,29 @@ Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 - `stringify` - Convert type annotation to string to avoid circular deps.
 - `replace_with_dict` - Render Dict[str, Any] instead to avoid circular dependencies.
 
+#### Signature
+
+```python
+class TypeTypedDict(FakeAnnotation):
+    def __init__(
+        self,
+        name: str,
+        children: Iterable[TypedDictAttribute] = (),
+        docstring: str = "",
+        stringify: bool = False,
+        replace_with_dict: Iterable[str] = tuple(),
+    ) -> None:
+        ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 - [TypedDictAttribute](#typeddictattribute)
 
 ### TypeTypedDict().add_attribute
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L166)
-
-```python
-def add_attribute(
-    name: str,
-    type_annotation: FakeAnnotation,
-    required: bool,
-) -> None:
-```
+[Show source in type_typed_dict.py:166](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L166)
 
 Add new attribute to a dictionary.
 
@@ -87,27 +86,35 @@ Add new attribute to a dictionary.
 - `type_annotation` - Argument type annotation.
 - `required` - Whether argument has to be set.
 
+#### Signature
+
+```python
+def add_attribute(
+    self, name: str, type_annotation: FakeAnnotation, required: bool
+) -> None:
+    ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypeTypedDict().copy
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L233)
-
-```python
-def copy() -> 'TypeTypedDict':
-```
+[Show source in type_typed_dict.py:233](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L233)
 
 Create a copy of type annotation wrapper.
 
-### TypeTypedDict().get_attribute
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L112)
+#### Signature
 
 ```python
-def get_attribute(name: str) -> TypedDictAttribute:
+def copy(self) -> "TypeTypedDict":
+    ...
 ```
+
+### TypeTypedDict().get_attribute
+
+[Show source in type_typed_dict.py:112](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L112)
 
 Find attribute by `name`.
 
@@ -119,59 +126,78 @@ Find attribute by `name`.
 
 Found attribute.
 
+#### Signature
+
+```python
+def get_attribute(self, name: str) -> TypedDictAttribute:
+    ...
+```
+
 #### See also
 
 - [TypedDictAttribute](#typeddictattribute)
 
 ### TypeTypedDict().get_children_literals
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L275)
-
-```python
-def get_children_literals(
-    processed: Iterable['TypeTypedDict'] = tuple(),
-) -> set[TypeLiteral]:
-```
+[Show source in type_typed_dict.py:275](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L275)
 
 Extract required TypeLiteral list from attributes.
 
+#### Signature
+
+```python
+def get_children_literals(
+    self, processed: Iterable["TypeTypedDict"] = tuple()
+) -> set[TypeLiteral]:
+    ...
+```
+
 #### See also
 
-- [TypeLiteral](type_literal.md#typeliteral)
+- [TypeLiteral](./type_literal.md#typeliteral)
 
 ### TypeTypedDict().get_children_typed_dicts
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L262)
-
-```python
-def get_children_typed_dicts() -> set['TypeTypedDict']:
-```
+[Show source in type_typed_dict.py:262](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L262)
 
 Extract required TypeTypedDict list from attributes.
 
-### TypeTypedDict().get_children_types
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L253)
+#### Signature
 
 ```python
-def get_children_types() -> set[FakeAnnotation]:
+def get_children_typed_dicts(self) -> set["TypeTypedDict"]:
+    ...
 ```
+
+### TypeTypedDict().get_children_types
+
+[Show source in type_typed_dict.py:253](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L253)
 
 Extract required type annotations from attributes.
 
+#### Signature
+
+```python
+def get_children_types(self) -> set[FakeAnnotation]:
+    ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypeTypedDict().get_import_record
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L160)
-
-```python
-def get_import_record() -> ImportRecord:
-```
+[Show source in type_typed_dict.py:160](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L160)
 
 Get import record required for using type annotation.
+
+#### Signature
+
+```python
+def get_import_record(self) -> ImportRecord:
+    ...
+```
 
 #### See also
 
@@ -179,27 +205,33 @@ Get import record required for using type annotation.
 
 ### TypeTypedDict().get_local_types
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L324)
-
-```python
-def get_local_types() -> list[FakeAnnotation]:
-```
+[Show source in type_typed_dict.py:324](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L324)
 
 Get internal types generated by builder.
 
+#### Signature
+
+```python
+def get_local_types(self) -> list[FakeAnnotation]:
+    ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypeTypedDict().get_optional
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L223)
-
-```python
-def get_optional() -> list[TypedDictAttribute]:
-```
+[Show source in type_typed_dict.py:223](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L223)
 
 Get a list of optional attributes.
+
+#### Signature
+
+```python
+def get_optional(self) -> list[TypedDictAttribute]:
+    ...
+```
 
 #### See also
 
@@ -207,13 +239,16 @@ Get a list of optional attributes.
 
 ### TypeTypedDict().get_required
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L213)
-
-```python
-def get_required() -> list[TypedDictAttribute]:
-```
+[Show source in type_typed_dict.py:213](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L213)
 
 Get a list of required attributes.
+
+#### Signature
+
+```python
+def get_required(self) -> list[TypedDictAttribute]:
+    ...
+```
 
 #### See also
 
@@ -221,26 +256,32 @@ Get a list of required attributes.
 
 ### TypeTypedDict().get_sort_key
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L101)
-
-```python
-def get_sort_key() -> str:
-```
+[Show source in type_typed_dict.py:101](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L101)
 
 Sort Typed Dicts by name.
 
-### TypeTypedDict.get_typing_import_record
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L146)
+#### Signature
 
 ```python
-@staticmethod
-def get_typing_import_record() -> ImportRecord:
+def get_sort_key(self) -> str:
+    ...
 ```
+
+### TypeTypedDict.get_typing_import_record
+
+[Show source in type_typed_dict.py:146](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L146)
 
 Get import record required for using TypedDict.
 
 Fallback to typing_extensions for py38-.
+
+#### Signature
+
+```python
+@staticmethod
+def get_typing_import_record() -> ImportRecord:
+    ...
+```
 
 #### See also
 
@@ -248,83 +289,107 @@ Fallback to typing_extensions for py38-.
 
 ### TypeTypedDict().has_both
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L207)
-
-```python
-def has_both() -> bool:
-```
+[Show source in type_typed_dict.py:207](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L207)
 
 Whether TypedDict has both optional and required keys.
 
-### TypeTypedDict().has_optional
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L189)
+#### Signature
 
 ```python
-def has_optional() -> bool:
+def has_both(self) -> bool:
+    ...
 ```
+
+### TypeTypedDict().has_optional
+
+[Show source in type_typed_dict.py:189](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L189)
 
 Whether TypedDict has optional keys.
 
-### TypeTypedDict().has_required
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L198)
+#### Signature
 
 ```python
-def has_required() -> bool:
+def has_optional(self) -> bool:
+    ...
 ```
+
+### TypeTypedDict().has_required
+
+[Show source in type_typed_dict.py:198](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L198)
 
 Whether TypedDict has required keys.
 
-### TypeTypedDict().is_dict
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L177)
+#### Signature
 
 ```python
-def is_dict() -> bool:
+def has_required(self) -> bool:
+    ...
 ```
 
+### TypeTypedDict().is_dict
+
+[Show source in type_typed_dict.py:177](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L177)
+
 Always True as it is a TypedDict.
+
+#### Signature
+
+```python
+def is_dict(self) -> bool:
+    ...
+```
 
 ### TypeTypedDict().is_same
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L245)
-
-```python
-def is_same(other: 'TypeTypedDict') -> bool:
-```
+[Show source in type_typed_dict.py:245](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L245)
 
 Check whether typed dict attributes are the same as `other`.
 
-### TypeTypedDict().is_stringified
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L89)
+#### Signature
 
 ```python
-def is_stringified() -> bool:
+def is_same(self, other: "TypeTypedDict") -> bool:
+    ...
 ```
+
+### TypeTypedDict().is_stringified
+
+[Show source in type_typed_dict.py:89](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L89)
 
 Whether TypedDict usage should be rendered as a string.
 
-### TypeTypedDict().is_typed_dict
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L183)
+#### Signature
 
 ```python
-def is_typed_dict() -> bool:
+def is_stringified(self) -> bool:
+    ...
 ```
+
+### TypeTypedDict().is_typed_dict
+
+[Show source in type_typed_dict.py:183](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L183)
 
 Always True as it is a TypedDict.
 
-### TypeTypedDict().iterate_children
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L315)
+#### Signature
 
 ```python
-def iterate_children() -> Iterator[TypedDictAttribute]:
+def is_typed_dict(self) -> bool:
+    ...
 ```
 
+### TypeTypedDict().iterate_children
+
+[Show source in type_typed_dict.py:315](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L315)
+
 Iterate over children from required to optional.
+
+#### Signature
+
+```python
+def iterate_children(self) -> Iterator[TypedDictAttribute]:
+    ...
+```
 
 #### See also
 
@@ -332,11 +397,7 @@ Iterate over children from required to optional.
 
 ### TypeTypedDict().render
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L128)
-
-```python
-def render(parent_name: str = '') -> str:
-```
+[Show source in type_typed_dict.py:128](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L128)
 
 Render type annotation to a valid Python code for local usage.
 
@@ -344,64 +405,76 @@ Render type annotation to a valid Python code for local usage.
 
 A string with a valid type annotation.
 
-### TypeTypedDict().replace_self_references
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L292)
+#### Signature
 
 ```python
-def replace_self_references() -> None:
+def render(self, parent_name: str = "") -> str:
+    ...
 ```
+
+### TypeTypedDict().replace_self_references
+
+[Show source in type_typed_dict.py:292](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L292)
 
 Replace self refenrences with `Dict[str, Any]` to avoid circular dependencies.
 
-### TypeTypedDict().requires_safe_render
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L307)
+#### Signature
 
 ```python
-@property
-def requires_safe_render() -> bool:
+def replace_self_references(self) -> None:
+    ...
 ```
+
+### TypeTypedDict().requires_safe_render
+
+[Show source in type_typed_dict.py:307](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L307)
 
 Whether TypedDict has reserved words and has to be rendered safely.
 
-### TypeTypedDict().stringify
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L95)
-
-```python
-def stringify() -> None:
-```
-
-Render TypedDict usage as a string.
-
-### TypeTypedDict().type_hint_annotations
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L330)
+#### Signature
 
 ```python
 @property
-def type_hint_annotations() -> list[FakeAnnotation]:
+def requires_safe_render(self) -> bool:
+    ...
 ```
+
+### TypeTypedDict().stringify
+
+[Show source in type_typed_dict.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L95)
+
+Render TypedDict usage as a string.
+
+#### Signature
+
+```python
+def stringify(self) -> None:
+    ...
+```
+
+### TypeTypedDict().type_hint_annotations
+
+[Show source in type_typed_dict.py:330](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L330)
 
 Type annotations list from arguments and return type with internal types.
 
+#### Signature
+
+```python
+@property
+def type_hint_annotations(self) -> list[FakeAnnotation]:
+    ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
+
+
 
 ## TypedDictAttribute
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L16)
-
-```python
-class TypedDictAttribute():
-    def __init__(
-        name: str,
-        type_annotation: FakeAnnotation,
-        required: bool,
-    ) -> None:
-```
+[Show source in type_typed_dict.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L16)
 
 TypedDict attribute wrapper.
 
@@ -411,58 +484,82 @@ TypedDict attribute wrapper.
 - `type_annotation` - Attribute type annotation.
 - `required` - Whether the attribute has to be set.
 
+#### Signature
+
+```python
+class TypedDictAttribute:
+    def __init__(
+        self, name: str, type_annotation: FakeAnnotation, required: bool
+    ) -> None:
+        ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypedDictAttribute().get_type_annotation
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L31)
-
-```python
-def get_type_annotation() -> FakeAnnotation:
-```
+[Show source in type_typed_dict.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L31)
 
 Get wrapped for non-required type annotation or raw type annotation.
 
+#### Signature
+
+```python
+def get_type_annotation(self) -> FakeAnnotation:
+    ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypedDictAttribute().is_required
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L56)
-
-```python
-def is_required() -> bool:
-```
+[Show source in type_typed_dict.py:56](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L56)
 
 Whether argument is required.
 
-### TypedDictAttribute().iterate_types
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L49)
+#### Signature
 
 ```python
-def iterate_types() -> Iterator[FakeAnnotation]:
+def is_required(self) -> bool:
+    ...
 ```
+
+### TypedDictAttribute().iterate_types
+
+[Show source in type_typed_dict.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L49)
 
 Itera over type annotations.
 
+#### Signature
+
+```python
+def iterate_types(self) -> Iterator[FakeAnnotation]:
+    ...
+```
+
 #### See also
 
-- [FakeAnnotation](fake_annotation.md#fakeannotation)
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
 ### TypedDictAttribute().render
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L40)
-
-```python
-def render(parent_name: str = '') -> str:
-```
+[Show source in type_typed_dict.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L40)
 
 Render attribute to use in class-based TypedDict definition.
 
 #### Returns
 
 A string with argument definition.
+
+#### Signature
+
+```python
+def render(self, parent_name: str = "") -> str:
+    ...
+```
+
+

@@ -1,75 +1,85 @@
 # ServiceName
 
+[mypy-boto3-builder Index](../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](./index.md#mypy-boto3-builder) /
+ServiceName
+
 > Auto-generated documentation for [mypy_boto3_builder.service_name](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py) module.
 
-Description for boto3 service.
-
-- [mypy-boto3-builder](../README.md#mypy_boto3_builder) / [Modules](../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](index.md#mypy-boto3-builder) / ServiceName
-    - [ServiceName](#servicename)
-        - [ServiceName().boto3_doc_link](#servicenameboto3_doc_link)
-        - [ServiceName().boto3_name](#servicenameboto3_name)
-        - [ServiceName().extras_name](#servicenameextras_name)
-        - [ServiceName().get_boto3_doc_link](#servicenameget_boto3_doc_link)
-        - [ServiceName.get_md_doc_link](#servicenameget_md_doc_link)
-        - [ServiceName().import_name](#servicenameimport_name)
-        - [ServiceName().is_conda_forge_available](#servicenameis_conda_forge_available)
-        - [ServiceName().is_custom_resource](#servicenameis_custom_resource)
-        - [ServiceName().is_essential](#servicenameis_essential)
-        - [ServiceName().underscore_name](#servicenameunderscore_name)
-    - [ServiceNameCatalog](#servicenamecatalog)
-        - [ServiceNameCatalog.add](#servicenamecatalogadd)
+- [ServiceName](#servicename)
+  - [ServiceName](#servicename-1)
+    - [ServiceName().boto3_doc_link](#servicename()boto3_doc_link)
+    - [ServiceName().boto3_name](#servicename()boto3_name)
+    - [ServiceName().extras_name](#servicename()extras_name)
+    - [ServiceName().get_boto3_doc_link](#servicename()get_boto3_doc_link)
+    - [ServiceName.get_md_doc_link](#servicenameget_md_doc_link)
+    - [ServiceName().import_name](#servicename()import_name)
+    - [ServiceName().is_conda_forge_available](#servicename()is_conda_forge_available)
+    - [ServiceName().is_custom_resource](#servicename()is_custom_resource)
+    - [ServiceName().is_essential](#servicename()is_essential)
+    - [ServiceName().underscore_name](#servicename()underscore_name)
+  - [ServiceNameCatalog](#servicenamecatalog)
+    - [ServiceNameCatalog.add](#servicenamecatalogadd)
 
 ## ServiceName
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L14)
-
-```python
-class ServiceName():
-    def __init__(name: str, class_name: str) -> None:
-```
+[Show source in service_name.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L14)
 
 Description for boto3 service.
 
-### ServiceName().boto3_doc_link
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L97)
+#### Signature
 
 ```python
-@property
-def boto3_doc_link() -> str:
+class ServiceName:
+    def __init__(self, name: str, class_name: str) -> None:
+        ...
 ```
+
+### ServiceName().boto3_doc_link
+
+[Show source in service_name.py:97](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L97)
 
 Link to boto3 docs.
 
-### ServiceName().boto3_name
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L60)
+#### Signature
 
 ```python
 @property
-def boto3_name() -> str:
+def boto3_doc_link(self) -> str:
+    ...
 ```
+
+### ServiceName().boto3_name
+
+[Show source in service_name.py:60](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L60)
 
 Boto3 package name.
 
-### ServiceName().extras_name
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L78)
+#### Signature
 
 ```python
 @property
-def extras_name() -> str:
+def boto3_name(self) -> str:
+    ...
 ```
+
+### ServiceName().extras_name
+
+[Show source in service_name.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L78)
 
 Extras name for subpackage installation.
 
-### ServiceName().get_boto3_doc_link
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L107)
+#### Signature
 
 ```python
-def get_boto3_doc_link(*parts: str) -> str:
+@property
+def extras_name(self) -> str:
+    ...
 ```
+
+### ServiceName().get_boto3_doc_link
+
+[Show source in service_name.py:107](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L107)
 
 Get link to boto3 docs with anchor.
 
@@ -77,24 +87,16 @@ Get link to boto3 docs with anchor.
 
 - `parts` - Anchor parts
 
-### ServiceName.get_md_doc_link
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L116)
+#### Signature
 
 ```python
-@staticmethod
-def get_md_doc_link(
-    file: Literal[
-        'client',
-        'service_resource',
-        'waiters',
-        'paginators',
-        'type_defs',
-        'literals',
-    ],
-    *parts: str,
-) -> str:
+def get_boto3_doc_link(self, *parts: str) -> str:
+    ...
 ```
+
+### ServiceName.get_md_doc_link
+
+[Show source in service_name.py:116](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L116)
 
 Get link to MD docs with anchor.
 
@@ -103,76 +105,104 @@ Get link to MD docs with anchor.
 - `file` - HTML file name
 - `parts` - Anchor parts
 
-### ServiceName().import_name
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L67)
+#### Signature
 
 ```python
-@property
-def import_name() -> str:
+@staticmethod
+def get_md_doc_link(
+    file: Literal[
+        "client", "service_resource", "waiters", "paginators", "type_defs", "literals"
+    ],
+    *parts: str
+) -> str:
+    ...
 ```
+
+### ServiceName().import_name
+
+[Show source in service_name.py:67](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L67)
 
 Safe mudule import name.
 
-### ServiceName().is_conda_forge_available
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L91)
-
-```python
-def is_conda_forge_available() -> bool:
-```
-
-Whether service is available for `conda-forge`.
-
-### ServiceName().is_custom_resource
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L141)
-
-```python
-def is_custom_resource(resource_name: str) -> bool:
-```
-
-Whether resource should use separte TypeDict namespace.
-
-### ServiceName().is_essential
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L85)
-
-```python
-def is_essential() -> bool:
-```
-
-Whether service is included to `boto3-stubs[essential]`.
-
-### ServiceName().underscore_name
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L53)
+#### Signature
 
 ```python
 @property
-def underscore_name() -> str:
+def import_name(self) -> str:
+    ...
 ```
+
+### ServiceName().is_conda_forge_available
+
+[Show source in service_name.py:91](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L91)
+
+Whether service is available for `conda-forge`.
+
+#### Signature
+
+```python
+def is_conda_forge_available(self) -> bool:
+    ...
+```
+
+### ServiceName().is_custom_resource
+
+[Show source in service_name.py:141](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L141)
+
+Whether resource should use separte TypeDict namespace.
+
+#### Signature
+
+```python
+def is_custom_resource(self, resource_name: str) -> bool:
+    ...
+```
+
+### ServiceName().is_essential
+
+[Show source in service_name.py:85](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L85)
+
+Whether service is included to `boto3-stubs[essential]`.
+
+#### Signature
+
+```python
+def is_essential(self) -> bool:
+    ...
+```
+
+### ServiceName().underscore_name
+
+[Show source in service_name.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L53)
 
 Python-friendly service name.
 
-## ServiceNameCatalog
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L150)
+#### Signature
 
 ```python
-class ServiceNameCatalog():
+@property
+def underscore_name(self) -> str:
+    ...
 ```
+
+
+
+## ServiceNameCatalog
+
+[Show source in service_name.py:150](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L150)
 
 Finder for boto3 services by name.
 
-### ServiceNameCatalog.add
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L186)
+#### Signature
 
 ```python
-@classmethod
-def add(name: str, class_name: str) -> ServiceName:
+class ServiceNameCatalog:
+    ...
 ```
+
+### ServiceNameCatalog.add
+
+[Show source in service_name.py:186](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L186)
 
 Add new ServiceName to catalog or modify existing one.
 
@@ -180,6 +210,16 @@ Add new ServiceName to catalog or modify existing one.
 
 New ServiceName or modified if it exists.
 
+#### Signature
+
+```python
+@classmethod
+def add(cls, name: str, class_name: str) -> ServiceName:
+    ...
+```
+
 #### See also
 
 - [ServiceName](#servicename)
+
+

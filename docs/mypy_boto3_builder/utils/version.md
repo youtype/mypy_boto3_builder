@@ -1,84 +1,122 @@
 # Version
 
+[mypy-boto3-builder Index](../../README.md#mypy-boto3-builder-index) /
+[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
+[Utils](./index.md#utils) /
+Version
+
 > Auto-generated documentation for [mypy_boto3_builder.utils.version](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py) module.
 
-Version-related utils.
-
-- [mypy-boto3-builder](../../README.md#mypy_boto3_builder) / [Modules](../../MODULES.md#mypy-boto3-builder-modules) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Utils](index.md#utils) / Version
-    - [get_aioboto3_version](#get_aioboto3_version)
-    - [get_aiobotocore_version](#get_aiobotocore_version)
-    - [get_boto3_version](#get_boto3_version)
-    - [get_botocore_version](#get_botocore_version)
-    - [get_builder_version](#get_builder_version)
-    - [get_max_build_version](#get_max_build_version)
-    - [get_min_build_version](#get_min_build_version)
+- [Version](#version)
+  - [get_aioboto3_version](#get_aioboto3_version)
+  - [get_aiobotocore_version](#get_aiobotocore_version)
+  - [get_boto3_version](#get_boto3_version)
+  - [get_botocore_version](#get_botocore_version)
+  - [get_builder_version](#get_builder_version)
+  - [get_max_build_version](#get_max_build_version)
+  - [get_min_build_version](#get_min_build_version)
 
 ## get_aioboto3_version
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L63)
-
-```python
-def get_aioboto3_version() -> str:
-```
+[Show source in version.py:63](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L63)
 
 Get aioboto3 package version.
 
-## get_aiobotocore_version
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L52)
+#### Signature
 
 ```python
-def get_aiobotocore_version() -> str:
+def get_aioboto3_version() -> str:
+    ...
 ```
+
+
+
+## get_aiobotocore_version
+
+[Show source in version.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L52)
 
 Get aiobotocore package version.
 
-## get_boto3_version
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L45)
+#### Signature
 
 ```python
-def get_boto3_version() -> str:
+def get_aiobotocore_version() -> str:
+    ...
 ```
+
+
+
+## get_boto3_version
+
+[Show source in version.py:45](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L45)
 
 Get boto3 package version.
 
-## get_botocore_version
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L38)
+#### Signature
 
 ```python
-def get_botocore_version() -> str:
+def get_boto3_version() -> str:
+    ...
 ```
+
+
+
+## get_botocore_version
+
+[Show source in version.py:38](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L38)
 
 Get botocore package version.
 
-## get_builder_version
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L13)
+#### Signature
 
 ```python
-def get_builder_version() -> str:
+def get_botocore_version() -> str:
+    ...
 ```
+
+
+
+## get_builder_version
+
+[Show source in version.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L13)
 
 Get program version.
 
-## get_max_build_version
-
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L31)
+#### Signature
 
 ```python
-def get_max_build_version(version: str) -> str:
+def get_builder_version() -> str:
+    ...
 ```
+
+
+
+## get_max_build_version
+
+[Show source in version.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L31)
 
 Get min version build version by bumping minor.
 
+#### Signature
+
+```python
+def get_max_build_version(version: str) -> str:
+    ...
+```
+
+
+
 ## get_min_build_version
 
-[[find in source code]](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L24)
+[Show source in version.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L24)
+
+Get min version build version by setting micro to 0.
+
+#### Signature
 
 ```python
 def get_min_build_version(version: str) -> str:
+    ...
 ```
 
-Get min version build version by setting micro to 0.
+
