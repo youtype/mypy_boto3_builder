@@ -1,0 +1,13 @@
+{% if import_record.name -%}
+    {% if import_record.alias -%}
+        {{ 'from ' -}}{{ import_record.source -}}{{ ' import ' -}}{{ import_record.name -}}{{ ' as ' -}}{{ import_record.alias -}}
+    {% else -%}
+        {{ 'from ' -}}{{ import_record.source -}}{{ ' import ' -}}{{ import_record.name -}}
+    {% endif -%}
+{% else -%}
+    {% if import_record.alias -%}
+        {{ 'import ' -}}{{ import_record.source -}}{{ ' as ' -}}{{ import_record.alias -}}
+    {% else -%}
+        {{ 'import ' -}}{{ import_record.source -}}
+    {% endif -%}
+{% endif -%}

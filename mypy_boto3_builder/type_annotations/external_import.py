@@ -14,6 +14,7 @@ class ExternalImport(FakeAnnotation):
         source -- Module import string.
         name -- Import name.
         alias -- Import local name.
+        safe -- Whether import is wrapped in try-except.
     """
 
     def __init__(
@@ -21,16 +22,26 @@ class ExternalImport(FakeAnnotation):
         source: ImportString,
         name: str = "",
         alias: str = "",
+        safe: bool = False,
     ) -> None:
         self.source: ImportString = source
         self.name: str = name
         self.alias: str = alias
+        self.safe: bool = safe
 
     @property
     def import_record(self) -> ImportRecord:
         """
         Get import record required for using type annotation.
         """
+        if self.safe:
+            return ImportRecord(
+                self.source,
+                self.name,
+                self.alias,
+                min_version=None,
+                fallback=ImportRecord(ImportString("typing"), "Any", self.name),
+            )
         return ImportRecord(source=self.source, name=self.name, alias=self.alias)
 
     def __hash__(self) -> int:
@@ -55,4 +66,4 @@ class ExternalImport(FakeAnnotation):
         """
         Create a copy of type annotation wrapper.
         """
-        return ExternalImport(self.source, self.name, self.alias)
+        return ExternalImport(self.source, self.name, self.alias, self.safe)

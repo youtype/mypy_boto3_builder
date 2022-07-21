@@ -1,5 +1,5 @@
 {% for import_record in package.get_session_required_import_records() -%}
-    {% include "common/import_record_fallback.py.jinja2" with context %}
+    {% include "common/import_record.py.jinja2" with context %}
 {% endfor -%}
 
 {% for literal in package.literals -%}

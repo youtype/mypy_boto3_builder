@@ -1,13 +1,19 @@
-{% if import_record.name -%}
-    {% if import_record.alias -%}
-        {{ 'from ' -}}{{ import_record.source -}}{{ ' import ' -}}{{ import_record.name -}}{{ ' as ' -}}{{ import_record.alias -}}
-    {% else -%}
-        {{ 'from ' -}}{{ import_record.source -}}{{ ' import ' -}}{{ import_record.name -}}
-    {% endif -%}
+{% if import_record.fallback -%}
+{% if import_record.min_version -%}
+if sys.version_info >= {{ import_record.min_version }}:
+    {% include "common/import_record_string.py.jinja2" with context -%}{{ "\n" -}}
+else:
+    {% with import_record = import_record.fallback -%}
+    {% include "common/import_record_string.py.jinja2" with context -%}
+    {% endwith -%}
 {% else -%}
-    {% if import_record.alias -%}
-        {{ 'import ' -}}{{ import_record.source -}}{{ ' as ' -}}{{ import_record.alias -}}
-    {% else -%}
-        {{ 'import ' -}}{{ import_record.source -}}
-    {% endif -%}
+try:
+    {% include "common/import_record_string.py.jinja2" with context -%}{{ "\n" -}}
+except (ModuleNotFoundError, ImportError):
+    {% with import_record = import_record.fallback -%}
+    {% include "common/import_record_string.py.jinja2" with context -%}
+    {% endwith -%}
+{% endif -%}
+{% else -%}
+{% include "common/import_record_string.py.jinja2" with context -%}
 {% endif -%}

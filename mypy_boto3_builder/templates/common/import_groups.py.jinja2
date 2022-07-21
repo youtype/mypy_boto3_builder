@@ -1,7 +1,7 @@
 {% for import_record_group in import_record_groups -%}
     {% if import_record_group.import_records|length == 1 -%}
         {% with import_record = import_record_group.import_records[0] -%}
-            {% include "common/import_record_fallback.py.jinja2" with context -%}
+            {% include "common/import_record.py.jinja2" with context -%}
         {% endwith -%}
     {% else -%}
         {{ 'from ' -}}

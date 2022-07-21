@@ -15,7 +15,7 @@ Usage::
     ```
 """
 {% for import_record in package.get_client_required_import_records() -%}
-    {% include "common/import_record_fallback.py.jinja2" with context %}
+    {% include "common/import_record.py.jinja2" with context %}
 {% endfor -%}
 
 {{ "\n\n" -}}

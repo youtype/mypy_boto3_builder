@@ -39,6 +39,9 @@ class AioBotocorePostprocessor(BasePostprocessor):
         ExternalImport(ImportString("botocore", "client"), "BaseClient"): ExternalImport(
             ImportString("aiobotocore", "client"), "AioBaseClient"
         ),
+        ExternalImport(ImportString("boto3", "s3", "transfer"), "TransferConfig"): ExternalImport(
+            ImportString("boto3", "s3", "transfer"), "TransferConfig", safe=True
+        ),
     }
 
     def process_package(self) -> None:
