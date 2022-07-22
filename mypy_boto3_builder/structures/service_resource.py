@@ -73,7 +73,6 @@ class ServiceResource(ClassRecord):
                 ExternalImport(
                     source=ImportString("boto3", "resources", "base"),
                     name="ResourceMeta",
-                    safe=True,
                 )
             ],
             attributes=[Attribute("client", self._get_client_import(service_name))],
