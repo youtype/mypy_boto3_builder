@@ -12,3 +12,7 @@ mkdocs:
 
 # Build all formats
 formats: all
+
+python:
+   install:
+   - requirements: requirements.mkdocs.txt

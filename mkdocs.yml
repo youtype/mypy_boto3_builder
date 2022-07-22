@@ -1,8 +1,40 @@
 site_name: "Mypy Boto3 Builder"
 repo_url: "https://github.com/youtype/mypy_boto3_builder/"
-site_dir: "site"
-docs_dir: "docs"
+site_dir: "docs"
+docs_dir: "docsmd"
 
 theme:
-  name: readthedocs
+  name: material
+  icon:
+    logo: material/file-check-outline
   include_sidebar: true
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  features:
+    - navigation.expand
+    - navigation.instant
+    - navigation.tracking
+    - content.code.annotate
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.highlight:
+      use_pygments: true
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
