@@ -51,5 +51,7 @@ jobs:
           rm -rf docs docsmd
           mv ../docs .
           mv ../docsmd .
+          git add docs
+          git add docsmd
           git commit -am "Update docs"
           git push
