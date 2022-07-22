@@ -33,7 +33,7 @@ class ServiceResource(ClassRecord):
 
 ### ServiceResource().boto3_doc_link
 
-[Show source in service_resource.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L88)
+[Show source in service_resource.py:87](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L87)
 
 Link to boto3 docs.
 
@@ -47,7 +47,7 @@ def boto3_doc_link(self) -> str:
 
 ### ServiceResource().get_all_names
 
-[Show source in service_resource.py:106](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L106)
+[Show source in service_resource.py:105](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L105)
 
 Get names for `__all__` statement.
 
@@ -78,7 +78,7 @@ def get_class_name(service_name: ServiceName) -> str:
 
 ### ServiceResource().get_collections
 
-[Show source in service_resource.py:117](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L117)
+[Show source in service_resource.py:116](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L116)
 
 Get a list of Service Resource collections.
 
@@ -95,7 +95,7 @@ def get_collections(self) -> list[Collection]:
 
 ### ServiceResource().get_sub_resources
 
-[Show source in service_resource.py:133](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L133)
+[Show source in service_resource.py:132](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L132)
 
 Get sub-resource in safe order.
 
@@ -116,7 +116,7 @@ def get_sub_resources(self) -> list[Resource]:
 
 ### ServiceResource().iterate_types
 
-[Show source in service_resource.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L95)
+[Show source in service_resource.py:94](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L94)
 
 Iterate over type annotations for collections and sub-resources.
 
