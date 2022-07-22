@@ -214,7 +214,7 @@ class ServicePackage(Package):
         class_import_records = self.service_resource.get_required_import_records()
         for import_record in class_import_records:
             import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
-            if import_record.fallback:
+            if import_record.needs_sys_fallback():
                 import_records.add(ImportRecord(ImportString("sys")))
 
         return list(sorted(import_records))

@@ -174,3 +174,9 @@ class ImportRecord:
             return True
 
         return False
+
+    def needs_sys_fallback(self) -> bool:
+        """
+        Whether ImportString requires `sys` module.
+        """
+        return True if (self.fallback and self.min_version) else False
