@@ -1,0 +1,72 @@
+name: Generate docs
+concurrency:
+  group: generate_docs
+  cancel-in-progress: true
+
+on:
+  release: {}
+  workflow_dispatch: {}
+
+jobs:
+  build-docs:
+    name: Build docs
+    runs-on: ubuntu-latest
+    env:
+      MAIN_BRANCH: main
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.MAIN_BRANCH }}
+      - name: Create gh-pages branch if not exists
+        run: |
+          GIT_URL=`git config --get remote.origin.url`
+          GH_PAGES_BRANCH=`git ls-remote --heads ${GIT_URL} gh-pages`
+          if [[ "${GH_PAGES_BRANCH}" == "" ]]; then
+            echo "creating gh-pages branch"
+            git config --global user.email "github-actions"
+            git config --global user.name "github-actions@github.com"
+            git symbolic-ref HEAD refs/heads/gh-pages
+            rm .git/index
+            git clean -fdx
+            echo "Placeholder" > index.html
+            git add .
+            git commit -am "First pages commit"
+            git push origin gh-pages
+            echo "gh-pages branch created"
+            git checkout ${MAIN_BRANCH}
+          fi
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install project
+        run: |
+          python -m pip install poetry pip
+          poetry config virtualenvs.create false
+          poetry install -n
+      - name: Install handsdown
+        run: |
+          python -m pip install -U handsdown mkdocs mkdocs-material
+      - name: Build docs
+        run: |
+          python -m handsdown --external `git config --get remote.origin.url` -o docsmd --cleanup --theme material --branch main $@
+          rm -rf docs/*
+          python -m mkdocs build
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          path: ./gh-pages
+      - name: Commit changes
+        run: |
+          cd ./gh-pages
+          git config --global user.email "github-actions"
+          git config --global user.name "github-actions@github.com"
+          rm -rf docs docsmd || true
+          mv ../docs .
+          mv ../docsmd .
+          git add docs
+          git add docsmd
+          git commit -am "Update docs"
+          git push
