@@ -143,7 +143,13 @@ TYPE_MAP: ServiceTypeMap = {
             # FIXME: https://github.com/boto/botocore/issues/2726
             "receive_messages": {
                 "AttributeNames": TypeSubscript(Type.Sequence, [QueueAttributeFilterType]),
-            }
+            },
+            "receive_message": {
+                "AttributeNames": TypeSubscript(Type.Sequence, [QueueAttributeFilterType]),
+            },
+            "get_queue_attributes": {
+                "AttributeNames": TypeSubscript(Type.Sequence, [QueueAttributeFilterType]),
+            },
         }
     },
 }
