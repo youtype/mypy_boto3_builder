@@ -8,6 +8,7 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.typed_dicts import ec2_tag_type, s3_copy_source_type
 
@@ -21,6 +22,22 @@ ServiceTypeMap = dict[ServiceName, ClassTypeMap]
 
 ConditionBaseImport = ExternalImport(
     ImportString("boto3", "dynamodb", "conditions"), "ConditionBase"
+)
+
+QueueAttributeFilterType = TypeLiteral(
+    "QueueAttributeFilterType",
+    [
+        "All",
+        "AWSTraceHeader",
+        "ApproximateFirstReceiveTimestamp",
+        "ApproximateReceiveCount",
+        "MessageDeduplicationId",
+        "MessageGroupId",
+        "SenderId",
+        "SentTimestamp",
+        "SequenceNumber",
+        "SqsManagedSseEnabled",
+    ],
 )
 
 _create_tags_stub = {
@@ -120,6 +137,14 @@ TYPE_MAP: ServiceTypeMap = {
                 "FilterExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
             },
         },
+    },
+    ServiceNameCatalog.sqs: {
+        "*": {
+            # FIXME: https://github.com/boto/botocore/issues/2726
+            "receive_messages": {
+                "AttributeNames": TypeSubscript(Type.Sequence, [QueueAttributeFilterType]),
+            }
+        }
     },
 }
 
