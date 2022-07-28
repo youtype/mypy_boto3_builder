@@ -102,6 +102,7 @@ types-urllib3 = "*"
 boto3-stubs = "*"
 botocore-stubs = "*"
 awscrt = "*"
+istub = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -128,6 +129,7 @@ include = [
 exclude = [
     "**/__pycache__",
     "tests",
+    "**/build",
     "typestubs",
     "mypy_boto3_builder/stubs_static/aioboto3",
     "mypy_boto3_builder/stubs_static/botocore/crt",

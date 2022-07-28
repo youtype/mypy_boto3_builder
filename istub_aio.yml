@@ -1,0 +1,110 @@
+packages:
+  - name: aioboto3
+    path: mypy_boto3_output/types_aioboto3_lite_package
+    checks:
+      mypy: true
+      stubtest: true
+      flake8: true
+      pyright: true
+    install:
+      - mypy_boto3_output/types_aiobotocore_lite_package
+      - mypy_boto3_output/types_aioboto3_lite_package
+      - mypy_boto3_output/boto3_stubs_lite_package
+      - mypy_boto3_output/botocore_stubs_package
+    pip_install:
+      - aiobotocore
+      - aioboto3
+    pip_uninstall:
+      - types-aioboto3
+    build:
+      - mypy_boto3_builder ./mypy_boto3_output --product aioboto3 aiobotocore boto3
+    snapshots:
+      stubtest: |-
+        error: aioboto3.__main__ failed to import, ModuleNotFoundError: No module named 'aioboto3.__main__'
+        Stub: at line 1
+        MypyFile:1(
+          ./aioboto3-stubs/__main__.py)
+        Runtime:
+        MISSING
+
+        error: aioboto3.experimental.async_chalice failed to import, ModuleNotFoundError: No module named 'chalice'
+        Stub: at line 1
+        MypyFile:1(
+          ./aioboto3-stubs/experimental/async_chalice.pyi
+          IgnoredLines(6, 7))
+        Runtime:
+        MISSING
+
+        error: aioboto3.version failed to import, ModuleNotFoundError: No module named 'aioboto3.version'
+        Stub: at line 1
+        MypyFile:1(
+          ./aioboto3-stubs/version.py)
+        Runtime:
+        MISSING
+  - name: aiobotocore
+    path: mypy_boto3_output/types_aiobotocore_lite_package
+    checks:
+      mypy: true
+      stubtest: true
+      flake8: true
+      pyright: true
+    install:
+      - mypy_boto3_output/types_aiobotocore_lite_package
+      - mypy_boto3_output/botocore_stubs_package
+    pip_install:
+      - aiobotocore
+    pip_uninstall:
+      - types-aiobotocore
+    build:
+      - mypy_boto3_builder ./mypy_boto3_output --product aiobotocore boto3
+    snapshots:
+      stubtest: |-
+        error: aiobotocore.__main__ failed to import, ModuleNotFoundError: No module named 'aiobotocore.__main__'
+        Stub: at line 1
+        MypyFile:1(
+          ./aiobotocore-stubs/__main__.py)
+        Runtime:
+        MISSING
+
+        error: aiobotocore.version failed to import, ModuleNotFoundError: No module named 'aiobotocore.version'
+        Stub: at line 1
+        MypyFile:1(
+          ./aiobotocore-stubs/version.py)
+        Runtime:
+        MISSING
+
+        error: aiobotocore._endpoint_helpers failed to find stubs
+        Stub:
+        MISSING
+        Runtime:
+        <module 'aiobotocore._endpoint_helpers' from './aiobotocore/_endpoint_helpers.py'>
+
+        error: aiobotocore._helpers failed to find stubs
+        Stub:
+        MISSING
+        Runtime:
+        <module 'aiobotocore._helpers' from './aiobotocore/_helpers.py'>
+
+        error: aiobotocore.awsrequest failed to find stubs
+        Stub:
+        MISSING
+        Runtime:
+        <module 'aiobotocore.awsrequest' from './aiobotocore/awsrequest.py'>
+
+        error: aiobotocore.configprovider failed to find stubs
+        Stub:
+        MISSING
+        Runtime:
+        <module 'aiobotocore.configprovider' from './aiobotocore/configprovider.py'>
+
+        error: aiobotocore.httpchecksum failed to find stubs
+        Stub:
+        MISSING
+        Runtime:
+        <module 'aiobotocore.httpchecksum' from './aiobotocore/httpchecksum.py'>
+
+        error: aiobotocore.retryhandler failed to find stubs
+        Stub:
+        MISSING
+        Runtime:
+        <module 'aiobotocore.retryhandler' from './aiobotocore/retryhandler.py'>

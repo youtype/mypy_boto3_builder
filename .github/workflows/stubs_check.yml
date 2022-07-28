@@ -44,4 +44,4 @@ jobs:
           poetry run pip uninstall -y boto3-stubs botocore-stubs
       - name: Check boto3 stubs
         run: |
-          poetry run ./scripts/check_stubs.py -bid boto3 botocore s3transfer
+          poetry run -bid boto3 botocore s3transfer
