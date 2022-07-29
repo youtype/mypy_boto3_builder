@@ -48,18 +48,6 @@ AttributeValueTypeDef: TypeTypedDict = TypeTypedDict(
     ],
 )
 
-# FIXME: a hack to avoid cicular TypedDict in lambda package
-InvocationResponseTypeDef: TypeTypedDict = TypeTypedDict(
-    "InvocationResponseTypeDef",
-    [
-        TypedDictAttribute("StatusCode", Type.int, False),
-        TypedDictAttribute("FunctionError", Type.str, False),
-        TypedDictAttribute("LogResult", Type.str, False),
-        TypedDictAttribute("Payload", Type.IOBytes, False),
-        TypedDictAttribute("ExecutedVersion", Type.str, False),
-    ],
-)
-
 StreamingBodyType = ExternalImport(ImportString("botocore", "response"), "StreamingBody")
 ShapeTypeMap = dict[ServiceName, dict[str, FakeAnnotation]]
 
@@ -75,9 +63,6 @@ SHAPE_TYPE_MAP: ShapeTypeMap = {
         "blob_streaming": TypeSubscript(
             Type.Union, [Type.str, Type.bytes, Type.IOAny, StreamingBodyType]
         ),
-    },
-    ServiceNameCatalog.lambda_: {
-        "InvocationResponseTypeDef": InvocationResponseTypeDef,
     },
     ServiceNameCatalog.dynamodb: {
         "AttributeValueTypeDef": AttributeValueTypeDef,

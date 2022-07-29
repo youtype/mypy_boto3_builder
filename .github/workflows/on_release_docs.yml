@@ -4,7 +4,8 @@ concurrency:
   cancel-in-progress: true
 
 on:
-  release: {}
+  release:
+    types: [published]
   workflow_dispatch: {}
 
 jobs:
