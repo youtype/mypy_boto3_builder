@@ -181,7 +181,11 @@ def main() -> None:
     paths = [i for i in args.path.absolute().iterdir() if i.is_dir()]
     paths.sort(key=lambda x: x.name)
     if args.filter:
-        paths = [p for p in paths if p.name in args.filter]
+        filtered_paths = []
+        for path in paths:
+            if any(i in path.name for i in args.filter):
+                filtered_paths.append(path)
+        paths = filtered_paths
 
     master_paths = [p for p in paths if p.name in MASTER_PACKAGES]
     master_paths.sort(key=lambda x: MASTER_PACKAGES.index(x.name))
