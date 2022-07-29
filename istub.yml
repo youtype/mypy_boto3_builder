@@ -7,8 +7,8 @@ packages:
       flake8: true
       pyright: true
     install:
-      - mypy_boto3_output/boto3_stubs_lite_package
       - mypy_boto3_output/botocore_stubs_package
+      - mypy_boto3_output/boto3_stubs_lite_package
     pip_install:
       - types-s3transfer
       - boto3
@@ -54,25 +54,11 @@ packages:
         Runtime: at line 27 in file ./boto3/__init__.py
         def (**kwargs)
 
-        error: boto3.__main__ failed to import, ModuleNotFoundError: No module named 'boto3.__main__'
-        Stub: at line 1
-        MypyFile:1(
-          ./boto3-stubs/__main__.py)
-        Runtime:
-        MISSING
-
         error: boto3.resources.base.ServiceResource.meta variable differs from runtime type None
         Stub: at line 30
         boto3.resources.base.ResourceMeta
         Runtime:
         None
-
-        error: boto3.version failed to import, ModuleNotFoundError: No module named 'boto3.version'
-        Stub: at line 1
-        MypyFile:1(
-          ./boto3-stubs/version.py)
-        Runtime:
-        MISSING
 
         error: boto3.docs.action failed to find stubs
         Stub:
@@ -152,43 +138,14 @@ packages:
       stubtest: true
       flake8: true
       pyright: true
+    install:
+      - mypy_boto3_output/botocore_stubs_package
     pip_install:
       - botocore
     build:
       - mypy_boto3_builder ./mypy_boto3_output --product boto3
     snapshots:
       stubtest: |-
-        error: botocore.invoke_initializers is not present at runtime
-        Stub: at line 19
-        def (session: botocore.session.Session)
-        Runtime:
-        MISSING
-
-        error: botocore.register_initializer is not present at runtime
-        Stub: at line 17
-        def (callback: def (botocore.session.Session))
-        Runtime:
-        MISSING
-
-        error: botocore.unregister_initializer is not present at runtime
-        Stub: at line 18
-        def (callback: def (botocore.session.Session))
-        Runtime:
-        MISSING
-
-        error: botocore.__main__ failed to import, ModuleNotFoundError: No module named 'botocore.__main__'
-        Stub: at line 1
-        MypyFile:1(
-          ./botocore-stubs/__main__.py)
-        Runtime:
-        MISSING
-
-        error: botocore.client.BaseClient.close is not present at runtime
-        Stub: at line 111
-        def (self: botocore.client.BaseClient)
-        Runtime:
-        MISSING
-
         error: botocore.client.BaseClient.waiter_names is inconsistent, cannot reconcile @property on stub with runtime object
         Stub: at line 115
         def (self: botocore.client.BaseClient) -> builtins.list[builtins.str]
@@ -267,66 +224,6 @@ packages:
         Runtime:
         <botocore.utils.CachedProperty object at HASH>
 
-        error: botocore.compat.HAS_GZIP is not present at runtime
-        Stub: at line 70
-        builtins.bool
-        Runtime:
-        MISSING
-
-        error: botocore.compat.HEX_PAT is not present at runtime
-        Stub: at line 62
-        builtins.str
-        Runtime:
-        MISSING
-
-        error: botocore.compat.IPV4_PAT is not present at runtime
-        Stub: at line 61
-        builtins.str
-        Runtime:
-        MISSING
-
-        error: botocore.compat.IPV6_ADDRZ_PAT is not present at runtime
-        Stub: at line 67
-        builtins.str
-        Runtime:
-        MISSING
-
-        error: botocore.compat.IPV6_ADDRZ_RE is not present at runtime
-        Stub: at line 68
-        typing.Pattern[builtins.str]
-        Runtime:
-        MISSING
-
-        error: botocore.compat.IPV6_PAT is not present at runtime
-        Stub: at line 65
-        builtins.str
-        Runtime:
-        MISSING
-
-        error: botocore.compat.LS32_PAT is not present at runtime
-        Stub: at line 63
-        builtins.str
-        Runtime:
-        MISSING
-
-        error: botocore.compat.UNRESERVED_PAT is not present at runtime
-        Stub: at line 64
-        builtins.str
-        Runtime:
-        MISSING
-
-        error: botocore.compat.UNSAFE_URL_CHARS is not present at runtime
-        Stub: at line 69
-        builtins.frozenset[builtins.str]
-        Runtime:
-        MISSING
-
-        error: botocore.compat.ZONE_ID_PAT is not present at runtime
-        Stub: at line 66
-        builtins.str
-        Runtime:
-        MISSING
-
         error: botocore.discovery.EndpointDiscoveryModel.discovery_operation_keys is inconsistent, cannot reconcile @property on stub with runtime object
         Stub: at line 26
         def (self: botocore.discovery.EndpointDiscoveryModel) -> builtins.list[builtins.str]
@@ -338,36 +235,6 @@ packages:
         def (self: botocore.discovery.EndpointDiscoveryModel) -> builtins.str
         Runtime:
         <botocore.utils.CachedProperty object at HASH>
-
-        error: botocore.endpoint.Endpoint.close is not present at runtime
-        Stub: at line 32
-        def (self: botocore.endpoint.Endpoint)
-        Runtime:
-        MISSING
-
-        error: botocore.endpoint.URLLib3Session.close is not present at runtime
-        Stub: at line 49
-        def (self: botocore.httpsession.URLLib3Session)
-        Runtime:
-        MISSING
-
-        error: botocore.exceptions.InvalidEndpointConfigurationError is not present at runtime
-        Stub: at line 603
-        <TypeInfo botocore.exceptions.InvalidEndpointConfigurationError>
-        Runtime:
-        MISSING
-
-        error: botocore.httpsession.URLLib3Session.close is not present at runtime
-        Stub: at line 49
-        def (self: botocore.httpsession.URLLib3Session)
-        Runtime:
-        MISSING
-
-        error: botocore.loaders.HAS_GZIP is not present at runtime
-        Stub: at line 9
-        builtins.bool
-        Runtime:
-        MISSING
 
         error: botocore.model.ListShape.member is inconsistent, cannot reconcile @property on stub with runtime object
         Stub: at line 48
@@ -686,19 +553,6 @@ packages:
         def (self: botocore.model.ServiceModel) -> builtins.str
         Runtime:
         <botocore.utils.CachedProperty object at HASH>
-
-        error: botocore.utils.EventbridgeSignerSetter is not present at runtime
-        Stub: at line 230
-        <TypeInfo botocore.utils.EventbridgeSignerSetter>
-        Runtime:
-        MISSING
-
-        error: botocore.version failed to import, ModuleNotFoundError: No module named 'botocore.version'
-        Stub: at line 1
-        MypyFile:1(
-          ./botocore-stubs/version.py)
-        Runtime:
-        MISSING
 
         error: botocore.docs failed to find stubs
         Stub:
