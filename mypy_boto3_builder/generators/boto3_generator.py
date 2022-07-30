@@ -6,7 +6,6 @@ from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
     Boto3StubsLitePackageData,
     Boto3StubsPackageData,
-    BotocoreStubsPackageData,
     MypyBoto3PackageData,
 )
 from mypy_boto3_builder.postprocessors.botocore import BotocorePostprocessor
@@ -16,7 +15,6 @@ from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
     process_boto3_stubs_lite,
-    process_botocore_stubs,
     process_master,
 )
 
@@ -89,28 +87,6 @@ class Boto3Generator(BaseGenerator):
             version=version,
         )
 
-    def _generate_botocore_stubs(self) -> None:
-        """
-        Generate `botocore-stubs` package.
-        """
-        package_data = BotocoreStubsPackageData
-        version = self._get_package_version(
-            package_data.PYPI_NAME, package_data.get_library_version()
-        )
-        if not version:
-            self.logger.info(
-                f"Skipping {package_data.PYPI_NAME} {package_data.get_library_version()}, already"
-                " on PyPI"
-            )
-            return
-
-        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
-        process_botocore_stubs(
-            self.output_path,
-            generate_setup=self.generate_setup,
-            version=version,
-        )
-
     def generate_stubs(self) -> None:
         """
         Generate main stubs.
@@ -120,7 +96,6 @@ class Boto3Generator(BaseGenerator):
 
         self._generate_boto3_stubs()
         self._generate_boto3_stubs_lite()
-        self._generate_botocore_stubs()
 
     def generate_docs(self) -> None:
         """

@@ -6,7 +6,6 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
-    process_botocore_stubs,
     process_master,
 )
 
@@ -71,8 +70,3 @@ class TestProcessors:
             session_mock, [service_name_mock], Boto3StubsPackageData
         )
         assert result == parse_boto3_stubs_package_mock()
-
-    @patch("mypy_boto3_builder.writers.processors.PackageWriter")
-    def test_process_botocore_stubs(self, PackageWriterMock: MagicMock) -> None:
-        process_botocore_stubs(Path("my_path"), False, "1.2.3")
-        PackageWriterMock().write_package.assert_called()

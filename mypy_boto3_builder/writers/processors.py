@@ -6,18 +6,13 @@ from pathlib import Path
 
 from boto3.session import Session
 
-from mypy_boto3_builder.constants import (
-    BOTO3_STUBS_STATIC_PATH,
-    BOTOCORE_STUBS_STATIC_PATH,
-    TEMPLATES_PATH,
-)
+from mypy_boto3_builder.constants import BOTO3_STUBS_STATIC_PATH, TEMPLATES_PATH
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import Boto3StubsLitePackageData, Boto3StubsPackageData
 from mypy_boto3_builder.parsers.boto3_stubs_package import parse_boto3_stubs_package
 from mypy_boto3_builder.parsers.master_package import parse_master_package
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
-from mypy_boto3_builder.structures.botocore_stubs_package import BotocoreStubsPackage
 from mypy_boto3_builder.structures.master_package import MasterPackage
 from mypy_boto3_builder.utils.nice_path import NicePath
 from mypy_boto3_builder.writers.package_writer import PackageWriter
@@ -103,32 +98,6 @@ def process_boto3_stubs_lite(
     )
 
     return boto3_stubs_package
-
-
-def process_botocore_stubs(
-    output_path: Path,
-    generate_setup: bool,
-    version: str,
-) -> None:
-    """
-    Parse and write stubs package `botocore_stubs`.
-
-    Arguments:
-        output_path -- Package output path
-        generate_setup -- Generate ready-to-install or to-use package
-        version -- Package version
-    """
-    logger = get_logger()
-    logger.debug(f"Writing botocore stubs to {NicePath(output_path)}")
-
-    botocore_stubs_package = BotocoreStubsPackage()
-    botocore_stubs_package.version = version
-    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
-    package_writer.write_package(
-        botocore_stubs_package,
-        templates_path=TEMPLATES_PATH / "botocore-stubs",
-        static_files_path=BOTOCORE_STUBS_STATIC_PATH,
-    )
 
 
 def process_master(

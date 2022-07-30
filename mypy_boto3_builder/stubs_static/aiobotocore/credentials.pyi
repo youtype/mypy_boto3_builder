@@ -23,12 +23,11 @@ from botocore.credentials import (
     OriginalEC2Provider,
     ProcessProvider,
     ProfileProviderBuilder,
+    ReadOnlyCredentials,
     RefreshableCredentials,
     SharedCredentialProvider,
     SSOProvider,
 )
-
-from mypy_boto3_builder.stubs_static.botocore.credentials import ReadOnlyCredentials
 
 logger: logging.Logger
 

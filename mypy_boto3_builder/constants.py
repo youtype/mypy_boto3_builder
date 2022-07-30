@@ -13,9 +13,6 @@ TEMPLATES_PATH = Path(__file__).parent / "templates"
 # Static *.pyi files for boto3-stubs
 BOTO3_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "boto3"
 
-# Static *.pyi files for botocore-stubs
-BOTOCORE_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "botocore"
-
 # Static *.pyi files for types-aiobotocore
 AIOBOTOCORE_STUBS_STATIC_PATH = Path(__file__).parent / "stubs_static" / "aiobotocore"
 

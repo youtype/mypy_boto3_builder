@@ -14,11 +14,6 @@ if [[ "$1" == "master" ]]; then
     python -m pip install .
     cd -
 
-    echo Installing botocore-stubs package
-    cd ${OUTPUT_PATH}/botocore_stubs_package
-    python -m pip install .
-    cd -
-
     exit
 fi
 

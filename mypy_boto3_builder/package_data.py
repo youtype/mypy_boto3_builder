@@ -7,7 +7,6 @@ from mypy_boto3_builder.utils.version import (
     get_aioboto3_version,
     get_aiobotocore_version,
     get_boto3_version,
-    get_botocore_version,
 )
 
 
@@ -53,23 +52,6 @@ class BasePackageData:
         Get link to PyPI.
         """
         return f"https://pypi.org/project/{cls.get_service_pypi_name(service_name)}/"
-
-
-class BotocoreStubsPackageData(BasePackageData):
-    """
-    botocore-stubs package data.
-    """
-
-    NAME = "botocore-stubs"
-    PYPI_NAME = "botocore-stubs"
-    LIBRARY_NAME = "botocore"
-
-    @staticmethod
-    def get_library_version() -> str:
-        """
-        Get underlying library version.
-        """
-        return get_botocore_version()
 
 
 class TypesAioBotocorePackageData(BasePackageData):
