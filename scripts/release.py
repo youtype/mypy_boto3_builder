@@ -16,7 +16,6 @@ from pathlib import Path
 from typing import Any, Iterator
 
 MASTER_PACKAGES = [
-    "botocore_stubs_package",
     "types_aiobotocore_package",
     "types_aiobotocore_lite_package",
     "mypy_boto3_package",

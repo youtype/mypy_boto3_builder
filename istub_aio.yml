@@ -10,7 +10,6 @@ packages:
       - mypy_boto3_output/types_aiobotocore_lite_package
       - mypy_boto3_output/types_aioboto3_lite_package
       - mypy_boto3_output/boto3_stubs_lite_package
-      - mypy_boto3_output/botocore_stubs_package
     pip_install:
       - aiobotocore
       - aioboto3
@@ -50,7 +49,6 @@ packages:
       pyright: true
     install:
       - mypy_boto3_output/types_aiobotocore_lite_package
-      - mypy_boto3_output/botocore_stubs_package
     pip_install:
       - aiobotocore
     pip_uninstall:
