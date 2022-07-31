@@ -39,9 +39,10 @@ jobs:
           BOTOCORE_VERSION: ${{ steps.vars.outputs.botocore-version }}
         run: |
           poetry run pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
+          poetry run pip install -U botocore-stubs
       - name: Uninstall stubs
         run: |
           poetry run pip uninstall -y boto3-stubs
       - name: Check boto3 stubs
         run: |
-          poetry run istub -c ./istub.yml -bid boto3 botocore
+          poetry run istub -c ./istub.yml -bid boto3

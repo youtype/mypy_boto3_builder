@@ -10,6 +10,7 @@ packages:
       - mypy_boto3_output/boto3_stubs_lite_package
     pip_install:
       - types-s3transfer
+      - botocore-stubs
       - boto3
     pip_uninstall:
       - boto3-stubs
