@@ -64,7 +64,6 @@ A full list of [Mypy_boto3_builder](https://github.com/youtype/mypy_boto3_builde
         - [Argument](mypy_boto3_builder/structures/argument.md#argument)
         - [Attribute](mypy_boto3_builder/structures/attribute.md#attribute)
         - [Boto3StubsPackage](mypy_boto3_builder/structures/boto3_stubs_package.md#boto3stubspackage)
-        - [BotocoreStubsPackage](mypy_boto3_builder/structures/botocore_stubs_package.md#botocorestubspackage)
         - [ClassRecord](mypy_boto3_builder/structures/class_record.md#classrecord)
         - [Client](mypy_boto3_builder/structures/client.md#client)
         - [Collection](mypy_boto3_builder/structures/collection.md#collection)

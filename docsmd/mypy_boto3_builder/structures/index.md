@@ -12,7 +12,6 @@ Structures
 - [Argument](./argument.md)
 - [Attribute](./attribute.md)
 - [Boto3StubsPackage](./boto3_stubs_package.md)
-- [BotocoreStubsPackage](./botocore_stubs_package.md)
 - [ClassRecord](./class_record.md)
 - [Client](./client.md)
 - [Collection](./collection.md)

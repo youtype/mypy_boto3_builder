@@ -14,8 +14,6 @@ Constants
 
 - `BOTO3_STUBS_STATIC_PATH` - Static *.pyi files for boto3-stubs: `Path(__file__).parent / 'stubs_static' / 'boto3'`
 
-- `BOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for botocore-stubs: `Path(__file__).parent / 'stubs_static' / 'botocore'`
-
 - `AIOBOTOCORE_STUBS_STATIC_PATH` - Static *.pyi files for types-aiobotocore: `Path(__file__).parent / 'stubs_static' / 'aiobotocore'`
 
 - `AIOBOTO3_STUBS_STATIC_PATH` - Static *.pyi files for types-aioboto3: `Path(__file__).parent / 'stubs_static' / 'aioboto3'`
@@ -33,7 +31,7 @@ Constants
 
 ## Product
 
-[Show source in constants.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L62)
+[Show source in constants.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L59)
 
 Product choice for CLI.
 
@@ -46,7 +44,7 @@ class Product(Enum):
 
 ### Product().get_library
 
-[Show source in constants.py:79](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L79)
+[Show source in constants.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L76)
 
 Get library name.
 
@@ -63,7 +61,7 @@ def get_library(self) -> ProductLibrary:
 
 ### Product().get_type
 
-[Show source in constants.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L88)
+[Show source in constants.py:85](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L85)
 
 Get product type.
 
@@ -82,7 +80,7 @@ def get_type(self) -> ProductType:
 
 ## ProductLibrary
 
-[Show source in constants.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L42)
+[Show source in constants.py:39](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L39)
 
 Product library for Generator.
 
@@ -97,7 +95,7 @@ class ProductLibrary(Enum):
 
 ## ProductType
 
-[Show source in constants.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L52)
+[Show source in constants.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L49)
 
 Product type for Generator.
 

@@ -9,7 +9,7 @@ Boto3Generator
 
 ## Boto3Generator
 
-[Show source in boto3_generator.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L24)
+[Show source in boto3_generator.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L22)
 
 Boto3 stubs/docs generator.
 
@@ -26,7 +26,7 @@ class Boto3Generator(BaseGenerator):
 
 ### Boto3Generator().generate_docs
 
-[Show source in boto3_generator.py:125](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L125)
+[Show source in boto3_generator.py:100](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L100)
 
 Generate service and master docs.
 
@@ -39,7 +39,7 @@ def generate_docs(self) -> None:
 
 ### Boto3Generator().generate_stubs
 
-[Show source in boto3_generator.py:114](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L114)
+[Show source in boto3_generator.py:90](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L90)
 
 Generate main stubs.
 
@@ -52,7 +52,7 @@ def generate_stubs(self) -> None:
 
 ### Boto3Generator().get_library_version
 
-[Show source in boto3_generator.py:32](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L32)
+[Show source in boto3_generator.py:30](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L30)
 
 Get underlying library version.
 
@@ -65,7 +65,7 @@ def get_library_version(self) -> str:
 
 ### Boto3Generator().get_postprocessor
 
-[Show source in boto3_generator.py:38](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L38)
+[Show source in boto3_generator.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L36)
 
 Get postprocessor for service package.
 

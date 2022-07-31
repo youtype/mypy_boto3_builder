@@ -9,7 +9,7 @@ Processors
 
 ## process_boto3_stubs
 
-[Show source in processors.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L26)
+[Show source in processors.py:21](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L21)
 
 Parse and write stubs package `boto3_stubs`.
 
@@ -47,7 +47,7 @@ def process_boto3_stubs(
 
 ## process_boto3_stubs_docs
 
-[Show source in processors.py:169](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L169)
+[Show source in processors.py:138](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L138)
 
 Parse and write master package docs.
 
@@ -79,7 +79,7 @@ def process_boto3_stubs_docs(
 
 ## process_boto3_stubs_lite
 
-[Show source in processors.py:63](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L63)
+[Show source in processors.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L58)
 
 Parse and write stubs package `boto3-stubs-lite`.
 
@@ -115,32 +115,9 @@ def process_boto3_stubs_lite(
 
 
 
-## process_botocore_stubs
-
-[Show source in processors.py:108](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L108)
-
-Parse and write stubs package `botocore_stubs`.
-
-#### Arguments
-
-- `output_path` - Package output path
-- `generate_setup` - Generate ready-to-install or to-use package
-- `version` - Package version
-
-#### Signature
-
-```python
-def process_botocore_stubs(
-    output_path: Path, generate_setup: bool, version: str
-) -> None:
-    ...
-```
-
-
-
 ## process_master
 
-[Show source in processors.py:134](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L134)
+[Show source in processors.py:103](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L103)
 
 Parse and write master package `mypy_boto3`.
 
