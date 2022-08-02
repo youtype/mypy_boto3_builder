@@ -3,7 +3,7 @@ from typing import Any, Optional, Union
 
 import boto3.session as session
 from boto3.resources.base import ServiceResource
-from boto3.session import Session
+from boto3.session import Session as Session
 from botocore.client import BaseClient
 from botocore.config import Config
 
