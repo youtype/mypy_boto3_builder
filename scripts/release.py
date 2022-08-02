@@ -25,7 +25,7 @@ MASTER_PACKAGES = [
     "types_aioboto3_lite_package",
 ]
 LOGGER_NAME = "release"
-MAX_RETRIES = 5
+MAX_RETRIES = 10
 
 
 def setup_logging(level: int) -> logging.Logger:
