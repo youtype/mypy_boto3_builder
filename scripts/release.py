@@ -170,6 +170,18 @@ def get_progress_str(index: int, seq: Sequence[Any]) -> str:
     return f"[{current_str}/{total_str}]"
 
 
+def get_version(path: Path) -> str:
+    """
+    Get package version.
+    """
+    text = (path / "setup.py").read_text().split("\n")
+    for line in text:
+        if line.strip().startswith("version="):
+            return line.split("=")[1].strip().replace('"', "").replace(",", "")
+
+    return ""
+
+
 def main() -> None:
     """
     Main CLI entrypoint.
@@ -198,17 +210,21 @@ def main() -> None:
     if not args.skip_build:
         with Pool(args.threads) as pool:
             for index, path in enumerate(pool.imap(build, build_paths)):
-                logger.info(f"{get_progress_str(index, build_paths)} Built {path.name}")
+                version = (path / "setup.py").read_text().split("\n")
+                version = get_version(path)
+                logger.info(f"{get_progress_str(index, build_paths)} Built {path.name} {version}")
 
     if not args.skip_publish:
         with Pool(args.threads) as pool:
             for index, path in enumerate(pool.imap(publish, service_paths)):
-                logger.info(f"{get_progress_str(index, build_paths)} Published {path.name}")
+                version = get_version(path)
+                logger.info(f"{get_progress_str(index, build_paths)} Published {path.name} {version}")
 
         for index, path in enumerate(master_paths):
             publish(path)
             total_index = len(service_paths) + index
-            logger.info(f"{get_progress_str(total_index, build_paths)} Published {path.name}")
+            version = get_version(path)
+            logger.info(f"{get_progress_str(total_index, build_paths)} Published {path.name} {version}")
 
 
 if __name__ == "__main__":
