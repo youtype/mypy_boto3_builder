@@ -65,8 +65,7 @@ from {{ package.name }}.paginator import (
 client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
-# Type should be correctly discovered by mypy and IDEs
-# VSCode requires explicit type annotations
+# Types should be correctly discovered by mypy and IDEs
 {% for paginator in package.paginators -%}
 {{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
 {% endfor -%}
@@ -89,8 +88,7 @@ from {{ package.name }}.waiter import (
 client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
-# Type should be correctly discovered by mypy and IDEs
-# VSCode requires explicit type annotations
+# Types should be correctly discovered by mypy and IDEs
 {% for waiter in package.waiters -%}
 {{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
 {% endfor -%}

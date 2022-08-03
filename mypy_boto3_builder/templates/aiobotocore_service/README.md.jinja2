@@ -69,12 +69,11 @@ async with session.create_client("{{ service_name.boto3_name }}") as client:
     client: {{ package.client.name }}
 
     # Explicit type annotations are optional here
-    # Type should be correctly discovered by mypy and IDEs
-    # VSCode requires explicit type annotations
-    {% for paginator in package.paginators -%}
-    {{ '    ' -}}{{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
-    {% endfor -%}
-```
+    # Types should be correctly discovered by mypy and IDEs
+    {%- for paginator in package.paginators -%}
+    {{ '\n    ' -}}{{ paginator.operation_name }}_paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+    {%- endfor -%}
+{{ '\n' }}```
 {% endif %}
 
 {% if package.waiters -%}
@@ -95,12 +94,11 @@ async with session.create_client("{{ service_name.boto3_name }}") as client:
     client: {{ package.client.name }}
 
     # Explicit type annotations are optional here
-    # Type should be correctly discovered by mypy and IDEs
-    # VSCode requires explicit type annotations
-    {% for waiter in package.waiters -%}
-    {{ '    ' -}}{{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
-    {% endfor -%}
-```
+    # Types should be correctly discovered by mypy and IDEs
+    {%- for waiter in package.waiters -%}
+    {{ '\n    ' -}}{{ waiter.waiter_name }}_waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+    {%- endfor -%}
+{{ '\n' }}```
 {% endif %}
 
 {% if package.service_resource -%}
