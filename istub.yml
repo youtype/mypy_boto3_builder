@@ -125,9 +125,3 @@ packages:
         MISSING
         Runtime:
         <module 'boto3.docs.waiter' from './boto3/docs/waiter.py'>
-
-        error: boto3.s3.inject failed to find stubs
-        Stub:
-        MISSING
-        Runtime:
-        N/A
