@@ -56,8 +56,7 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("logging")),
                 ImportRecord(ImportString("typing"), "Any"),
                 ImportRecord(ImportString("sys")),
-                ImportRecord(ImportString("importlib", "util")),
-                ImportRecord(ImportString("boto3", "session"), alias="session"),
+                ImportRecord(ImportString("boto3"), "session", alias="session"),
                 ImportRecord(ImportString("boto3", "session"), "Session", "Session"),
                 TypeLiteral.get_typing_import_record(),
             ]
