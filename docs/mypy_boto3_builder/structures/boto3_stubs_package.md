@@ -65,7 +65,7 @@ def essential_service_names(self) -> list[ServiceName]:
 
 ### Boto3StubsPackage().get_all_names
 
-[Show source in boto3_stubs_package.py:113](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L113)
+[Show source in boto3_stubs_package.py:112](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L112)
 
 Get names for `__all__` directive.
 
@@ -95,7 +95,7 @@ def get_init_required_import_records(self) -> list[ImportRecord]:
 
 ### Boto3StubsPackage().get_session_required_import_records
 
-[Show source in boto3_stubs_package.py:70](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L70)
+[Show source in boto3_stubs_package.py:69](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L69)
 
 Get import reciords for `session.py[i]`.
 
