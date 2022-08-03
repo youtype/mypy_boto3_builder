@@ -14,4 +14,4 @@ poetry run isort mypy_boto3_builder tests
 poetry run mypy mypy_boto3_builder
 # poetry run pytest --cov-report html --cov mypy_boto3_builder
 
-./scripts/docs.sh
+# ./scripts/docs.sh
