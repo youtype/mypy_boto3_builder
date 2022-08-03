@@ -155,3 +155,17 @@ def format_md(text: str) -> str:
             "number": True,
         },
     )
+
+
+def blackify_markdown(text: str) -> str:
+    """
+    Blackify python codeblocks.
+    """
+    result: list[str] = []
+    blocks = text.split("\n```")
+    for block in blocks:
+        if block.startswith("python"):
+            result.append(blackify(block, Path("output.py")).rstrip())
+        else:
+            result.append(block)
+    return "\n```".join(result)

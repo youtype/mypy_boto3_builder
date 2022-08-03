@@ -60,9 +60,7 @@ async with session.create_client("{{ service_name.boto3_name }}") as client:
 from {{ package.library_name }}.session import get_session
 
 from {{ package.name }} import {{ package.client.name }}
-from {{ package.name }}.paginator import (
-{% for paginator in package.paginators %}    {{ paginator.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.paginator import {% for paginator in package.paginators %}{{ paginator.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
 session = get_session()
 async with session.create_client("{{ service_name.boto3_name }}") as client:
@@ -85,9 +83,7 @@ async with session.create_client("{{ service_name.boto3_name }}") as client:
 from {{ package.library_name }}.session import get_session
 
 from {{ package.name }}.client import {{ package.client.name }}
-from {{ package.name }}.waiter import (
-{% for waiter in package.waiters %}    {{ waiter.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.waiter import {% for waiter in package.waiters %}{{ waiter.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
 session = get_session()
 async with session.create_client("{{ service_name.boto3_name }}") as client:
@@ -126,9 +122,7 @@ async with session.resource("{{ service_name.boto3_name }}") as resource:
 from {{ package.library_name }}.session import get_session
 
 from {{ package.name }} import {{ package.service_resource.name }}
-from {{ package.name }}.service_resource import (
-{% for sub_resource in package.service_resource.sub_resources %}    {{ sub_resource.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.service_resource import {% for sub_resource in package.service_resource.sub_resources %}{{ sub_resource.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
 session = get_session()
 async with session.resource("{{ service_name.boto3_name }}") as resource:
@@ -152,9 +146,7 @@ for all `{{ package.service_resource.name }}` collections.
 from {{ package.library_name }}.session import get_session
 
 from {{ package.name }} import {{ package.service_resource.name }}
-from {{ package.name }}.service_resource import (
-{% for collection in package.service_resource.collections %}    {{ collection.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.service_resource import {% for collection in package.service_resource.collections %}{{ collection.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
 session = get_session()
 async with session.resource("{{ service_name.boto3_name }}") as resource:
@@ -176,9 +168,7 @@ async with session.resource("{{ service_name.boto3_name }}") as resource:
 that can be used in user code for type checking.
 
 ```python
-from {{ package.name }}.literals import (
-{% for literal in package.literals %}    {{ literal.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.literals import {% for literal in package.literals %}{{ literal.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
 def check_value(value: {{ package.literals[0].name }}) -> bool:
     ...
@@ -192,9 +182,8 @@ def check_value(value: {{ package.literals[0].name }}) -> bool:
 to typed dictionaries for additional type checking.
 
 ```python
-from {{ package.name }}.type_defs import (
-{% for typed_dict in package.typed_dicts %}    {{ typed_dict.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.type_defs import {% for typed_dict in package.typed_dicts %}{{ typed_dict.name }}{{ '' if loop.last else ',' }}{% endfor %}
+
 
 def get_structure() -> {{ package.typed_dicts[0].name }}:
     return {

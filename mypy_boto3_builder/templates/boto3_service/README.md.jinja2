@@ -58,9 +58,7 @@ client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }} import {{ package.client.name }}
-from {{ package.name }}.paginator import (
-{% for paginator in package.paginators %}    {{ paginator.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.paginator import {% for paginator in package.paginators %}{{ paginator.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
 client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
 
@@ -81,9 +79,7 @@ client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }} import {{ package.client.name }}
-from {{ package.name }}.waiter import (
-{% for waiter in package.waiters %}    {{ waiter.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.waiter import {% for waiter in package.waiters %}{{ waiter.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
 client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
 
@@ -119,9 +115,7 @@ resource: {{ package.service_resource.name }} = Session().resource("{{ service_n
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }} import {{ package.service_resource.name }}
-from {{ package.name }}.service_resource import (
-{% for sub_resource in package.service_resource.sub_resources %}    {{ sub_resource.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.service_resource import {% for sub_resource in package.service_resource.sub_resources %}{{ sub_resource.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
 resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
 
@@ -143,9 +137,7 @@ for all `{{ package.service_resource.name }}` collections.
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }} import {{ package.service_resource.name }}
-from {{ package.name }}.service_resource import (
-{% for collection in package.service_resource.collections %}    {{ collection.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.service_resource import {% for collection in package.service_resource.collections %}{{ collection.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
 resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
 
@@ -181,9 +173,7 @@ def check_value(value: {{ package.literals[0].name }}) -> bool:
 to typed dictionaries for additional type checking.
 
 ```python
-from {{ package.name }}.type_defs import (
-{% for typed_dict in package.typed_dicts %}    {{ typed_dict.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.type_defs import {% for typed_dict in package.typed_dicts %}{{ typed_dict.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
 def get_structure() -> {{ package.typed_dicts[0].name }}:
     return {

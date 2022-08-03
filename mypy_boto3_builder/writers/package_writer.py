@@ -14,6 +14,7 @@ from mypy_boto3_builder.utils.markdown import fix_pypi_headers
 from mypy_boto3_builder.utils.nice_path import NicePath
 from mypy_boto3_builder.writers.utils import (
     blackify,
+    blackify_markdown,
     format_md,
     insert_md_toc,
     render_jinja2_template,
@@ -135,6 +136,7 @@ class PackageWriter:
                 content = blackify(content, file_path)
             if file_path.suffix == ".md":
                 content = insert_md_toc(content)
+                content = blackify_markdown(content)
                 content = fix_pypi_headers(content)
                 content = format_md(content)
             if not file_path.parent.exists():
@@ -155,6 +157,7 @@ class PackageWriter:
                 package=package,
                 service_name=service_name,
             )
+            print(file_path)
             # if file_path.suffix == ".md":
             #     content = fix_pypi_headers(content)
             #     content = format_md(content)

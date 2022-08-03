@@ -5,6 +5,7 @@ from black import NothingChanged
 
 from mypy_boto3_builder.writers.utils import (
     blackify,
+    blackify_markdown,
     insert_md_toc,
     render_jinja2_template,
     sort_imports,
@@ -66,3 +67,9 @@ class TestUtils:
             == "# a\ntest\n- [a](#a)\n  - [b](#b)\n  - [c](#c)\n\n## b\n## c\ntest2"
         )
         assert insert_md_toc("# a\n") == "# a\n- [a](#a)\n"
+
+    def test_blackify_markdown(self) -> None:
+        assert blackify_markdown("") == ""
+        assert blackify_markdown("# a\ntest\n## b\n## c\ntest2") == "# a\ntest\n## b\n## c\ntest2"
+        assert blackify_markdown("# a\n```python\na=5\n```") == "# a\n```python\na = 5\n```"
+        assert blackify_markdown("# a\n```bash\na=5\n```") == "# a\n```bash\na=5\n```"
