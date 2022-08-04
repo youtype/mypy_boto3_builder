@@ -67,14 +67,14 @@ dev = ["build (==0.8.0)", "flake8 (==4.0.1)", "hashin (==0.17.0)", "pip-tools (=
 
 [[package]]
 name = "boto3"
-version = "1.24.45"
+version = "1.24.46"
 description = "The AWS SDK for Python"
 category = "main"
 optional = false
 python-versions = ">= 3.7"
 
 [package.dependencies]
-botocore = ">=1.27.45,<1.28.0"
+botocore = ">=1.27.46,<1.28.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.6.0,<0.7.0"
 
@@ -83,8 +83,8 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.24.45"
-description = "Type annotations for boto3 1.24.45 generated with mypy-boto3-builder 7.11.2"
+version = "1.24.46"
+description = "Type annotations for boto3 1.24.46 generated with mypy-boto3-builder 7.11.3"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
@@ -411,7 +411,7 @@ xray = ["mypy-boto3-xray (>=1.24.0,<1.25.0)"]
 
 [[package]]
 name = "botocore"
-version = "1.27.45"
+version = "1.27.46"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -427,7 +427,7 @@ crt = ["awscrt (==0.13.8)"]
 
 [[package]]
 name = "botocore-stubs"
-version = "1.27.45"
+version = "1.27.46"
 description = "Type annotations and code completion for botocore"
 category = "dev"
 optional = false
@@ -551,7 +551,7 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "flake8"
-version = "5.0.3"
+version = "5.0.4"
 description = "the modular source code checker: pep8 pyflakes and co"
 category = "dev"
 optional = false
@@ -866,7 +866,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "pycodestyle"
-version = "2.9.0"
+version = "2.9.1"
 description = "Python style guide checker"
 category = "dev"
 optional = false
@@ -1201,7 +1201,7 @@ python-versions = "*"
 
 [[package]]
 name = "types-urllib3"
-version = "1.26.21"
+version = "1.26.22"
 description = "Typing stubs for urllib3"
 category = "dev"
 optional = false
@@ -1298,20 +1298,20 @@ bleach = [
     {file = "bleach-5.0.1.tar.gz", hash = "sha256:0d03255c47eb9bd2f26aa9bb7f2107732e7e8fe195ca2f64709fcf3b0a4a085c"},
 ]
 boto3 = [
-    {file = "boto3-1.24.45-py3-none-any.whl", hash = "sha256:0f7888eaa493b201821290d4798d1326c7390c89a423369564c1eae68fd96767"},
-    {file = "boto3-1.24.45.tar.gz", hash = "sha256:293c9ce9cea0f4fe6393d8052eecb67868004940e4b1379996196f8bc5f9da2a"},
+    {file = "boto3-1.24.46-py3-none-any.whl", hash = "sha256:44026e44549148dbc5b261ead5f6b339e785680c350ef621bf85f7e2fca05b49"},
+    {file = "boto3-1.24.46.tar.gz", hash = "sha256:b2d9d55f123a9a91eea2fd8e379d90abf37634420fbb45c22d67e10b324ec71b"},
 ]
 boto3-stubs = [
-    {file = "boto3-stubs-1.24.45.tar.gz", hash = "sha256:a33099487ed3783108b82f63a2c899f023def04e2193e7b3f0de6f80c377116d"},
-    {file = "boto3_stubs-1.24.45-py3-none-any.whl", hash = "sha256:430338d75129442372c0631eaee5b8dd7e7360ec23c63d0985e97d452916178d"},
+    {file = "boto3-stubs-1.24.46.tar.gz", hash = "sha256:9482238ed9ea7794e6e66a41376bf75d5950f0328de09fac9d224906dcc624ef"},
+    {file = "boto3_stubs-1.24.46-py3-none-any.whl", hash = "sha256:3aa84f2925b4b50b7f47ac41a11ac05302e744cdf460cb7bcf6488319393d8a4"},
 ]
 botocore = [
-    {file = "botocore-1.27.45-py3-none-any.whl", hash = "sha256:75f450d373059b057132d72ffcb6f897aaa1985ea0e6ca9dd03c90119bd0b71b"},
-    {file = "botocore-1.27.45.tar.gz", hash = "sha256:04bc95fd65a6b557b953bba24c9dc1b314f27a588b50437b2a02796a1c683542"},
+    {file = "botocore-1.27.46-py3-none-any.whl", hash = "sha256:747b7e94aef41498f063fc0be79c5af102d940beea713965179e1ead89c7e9ec"},
+    {file = "botocore-1.27.46.tar.gz", hash = "sha256:f66d8305d1f59d83334df9b11b6512bb1e14698ec4d5d6d42f833f39f3304ca7"},
 ]
 botocore-stubs = [
-    {file = "botocore-stubs-1.27.45.tar.gz", hash = "sha256:d59324787c08fe6a33e2a465c8b277ede38ec3ef5c70482595f56968263dfe1a"},
-    {file = "botocore_stubs-1.27.45-py3-none-any.whl", hash = "sha256:05e2052f89596bc5c7a267b3ab76aa07163e0019cb165044ad25b2e47ff2b869"},
+    {file = "botocore-stubs-1.27.46.tar.gz", hash = "sha256:3919053c9c86ac752ab24cf19901a71e7254b607a4f2bfae3618d29b5700f33b"},
+    {file = "botocore_stubs-1.27.46-py3-none-any.whl", hash = "sha256:aca7fd92f639147e7b16e4732531219a96fff166be2535facd6b47b2d68269bc"},
 ]
 certifi = [
     {file = "certifi-2022.6.15-py3-none-any.whl", hash = "sha256:fe86415d55e84719d75f8b69414f6438ac3547d2078ab91b67e779ef69378412"},
@@ -1343,8 +1343,8 @@ coverage = []
 cryptography = []
 docutils = []
 flake8 = [
-    {file = "flake8-5.0.3-py2.py3-none-any.whl", hash = "sha256:93aa565ae2f0316b95bb57a354f2b2d55ee8508e1fe1cb13b77b9c195b4a2537"},
-    {file = "flake8-5.0.3.tar.gz", hash = "sha256:b27fd7faa8d90aaae763664a489012292990388e5d3604f383b290caefbbc922"},
+    {file = "flake8-5.0.4-py2.py3-none-any.whl", hash = "sha256:7a1cf6b73744f5806ab95e526f6f0d8c01c66d7bbe349562d22dfca20610b248"},
+    {file = "flake8-5.0.4.tar.gz", hash = "sha256:6fbe320aad8d6b95cec8b8e47bc933004678dc63095be98528b7bdd2a9f510db"},
 ]
 flake8-docstrings = [
     {file = "flake8-docstrings-1.6.0.tar.gz", hash = "sha256:9fe7c6a306064af8e62a055c2f61e9eb1da55f84bb39caef2b84ce53708ac34b"},
@@ -1477,8 +1477,8 @@ py = [
     {file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"},
 ]
 pycodestyle = [
-    {file = "pycodestyle-2.9.0-py2.py3-none-any.whl", hash = "sha256:289cdc0969d589d90752582bef6dff57c5fbc6949ee8b013ad6d6449a8ae9437"},
-    {file = "pycodestyle-2.9.0.tar.gz", hash = "sha256:beaba44501f89d785be791c9462553f06958a221d166c64e1f107320f839acc2"},
+    {file = "pycodestyle-2.9.1-py2.py3-none-any.whl", hash = "sha256:d1735fc58b418fd7c5f658d28d943854f8a849b01a5d0a1e6f3f3fdd0166804b"},
+    {file = "pycodestyle-2.9.1.tar.gz", hash = "sha256:2c9607871d58c76354b697b42f5d57e1ada7d261c261efac224b664affdc5785"},
 ]
 pycparser = [
     {file = "pycparser-2.21-py2.py3-none-any.whl", hash = "sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9"},
@@ -1645,8 +1645,8 @@ types-s3transfer = [
 ]
 types-six = []
 types-urllib3 = [
-    {file = "types-urllib3-1.26.21.tar.gz", hash = "sha256:2f7fb7ae6a1884241e588c7becd5f005ce1e03f6eface8a3f65e378c2adf9516"},
-    {file = "types_urllib3-1.26.21-py3-none-any.whl", hash = "sha256:2f960d8681002a37385263c372882fd12c676e10b127553738a2b6064e4438d1"},
+    {file = "types-urllib3-1.26.22.tar.gz", hash = "sha256:b05af90e73889e688094008a97ca95788db8bf3736e2776fd43fb6b171485d94"},
+    {file = "types_urllib3-1.26.22-py3-none-any.whl", hash = "sha256:09a8783e1002472e8d1e1f3792d4c5cca1fffebb9b48ee1512aae6d16fe186bc"},
 ]
 typing-extensions = []
 urllib3 = []
