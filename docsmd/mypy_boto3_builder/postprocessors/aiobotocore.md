@@ -26,7 +26,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
 
 ### AioBotocorePostprocessor().process_package
 
-[Show source in aiobotocore.py:65](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/aiobotocore.py#L65)
+[Show source in aiobotocore.py:68](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/aiobotocore.py#L68)
 
 Convert all methods to asynchronous.
 
