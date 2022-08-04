@@ -37,6 +37,21 @@ def blackify(content: str, file_path: Path) -> str:
 
 
 
+## blackify_markdown
+
+[Show source in utils.py:160](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L160)
+
+Blackify python codeblocks.
+
+#### Signature
+
+```python
+def blackify_markdown(text: str) -> str:
+    ...
+```
+
+
+
 ## format_md
 
 [Show source in utils.py:147](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L147)
