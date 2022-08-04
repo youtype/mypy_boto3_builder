@@ -60,6 +60,9 @@ class AioBotocorePostprocessor(BasePostprocessor):
         ): ExternalImport(
             ImportString("boto3", "dynamodb", "conditions"), "ConditionBase", safe=True
         ),
+        ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter"): ExternalImport(
+            ImportString("boto3", "dynamodb", "table"), "BatchWriter", safe=True
+        ),
     }
 
     def process_package(self) -> None:
