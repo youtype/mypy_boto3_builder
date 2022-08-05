@@ -38,10 +38,11 @@ class ServiceName:
         "dynamodb",
     )
 
-    def __init__(self, name: str, class_name: str) -> None:
+    def __init__(self, name: str, class_name: str, override_boto3_name: str = "") -> None:
         self.name = name
         self.class_name = class_name
         self.boto3_version = self.LATEST
+        self.override_boto3_name = override_boto3_name
         self.has_service_resource = False
 
     def __hash__(self) -> int:
@@ -62,7 +63,7 @@ class ServiceName:
         """
         Boto3 package name.
         """
-        return self.name
+        return self.override_boto3_name or self.name
 
     @property
     def import_name(self) -> str:
@@ -166,21 +167,25 @@ class ServiceNameCatalog:
     cloudsearchdomain = ServiceName("cloudsearchdomain", "CloudSearchDomain")
     logs = ServiceName("logs", "CloudWatchLogs")
     lambda_ = ServiceName("lambda", "Lambda")
+    old_redshift_serverless = ServiceName(
+        "redshift-serverless", "RedshiftServerless", "redshiftserverless"
+    )
 
     ITEMS: dict[str, ServiceName] = {
-        ec2.name: ec2,
-        iam.name: iam,
-        s3.name: s3,
-        cloudwatch.name: cloudwatch,
-        opsworks.name: opsworks,
-        sns.name: sns,
-        glacier.name: glacier,
-        dynamodb.name: dynamodb,
-        sqs.name: sqs,
-        cloudformation.name: cloudformation,
-        cloudsearchdomain.name: cloudsearchdomain,
-        logs.name: logs,
-        lambda_.name: lambda_,
+        ec2.boto3_name: ec2,
+        iam.boto3_name: iam,
+        s3.boto3_name: s3,
+        cloudwatch.boto3_name: cloudwatch,
+        opsworks.boto3_name: opsworks,
+        sns.boto3_name: sns,
+        glacier.boto3_name: glacier,
+        dynamodb.boto3_name: dynamodb,
+        sqs.boto3_name: sqs,
+        cloudformation.boto3_name: cloudformation,
+        cloudsearchdomain.boto3_name: cloudsearchdomain,
+        logs.boto3_name: logs,
+        lambda_.boto3_name: lambda_,
+        old_redshift_serverless.boto3_name: old_redshift_serverless,
     }
 
     @classmethod
