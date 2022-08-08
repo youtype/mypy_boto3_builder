@@ -17,7 +17,7 @@ s3_copy_source_type: TypeTypedDict = TypeTypedDict(
 ec2_tag_type: TypeTypedDict = TypeTypedDict(
     "TagTypeDef",
     [
-        TypedDictAttribute("Key", Type.str, True),
+        TypedDictAttribute("Key", Type.str, False),
         TypedDictAttribute("Value", Type.str, False),
     ],
 )
