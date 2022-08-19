@@ -48,6 +48,10 @@ AttributeValueTypeDef: TypeTypedDict = TypeTypedDict(
     ],
 )
 
+UniversalAttributeValueTypeDef = TypeSubscript(
+    Type.Union, [AttributeValueTypeDef, TableAttributeValueType]
+)
+
 StreamingBodyType = ExternalImport(ImportString("botocore", "response"), "StreamingBody")
 ShapeTypeMap = dict[ServiceName, dict[str, FakeAnnotation]]
 
@@ -65,9 +69,7 @@ SHAPE_TYPE_MAP: ShapeTypeMap = {
         ),
     },
     ServiceNameCatalog.dynamodb: {
-        "AttributeValueTypeDef": TypeSubscript(
-            Type.Union, [AttributeValueTypeDef, TableAttributeValueType]
-        ),
+        "AttributeValueTypeDef": UniversalAttributeValueTypeDef,
         "AttributeValueTableTypeDef": TableAttributeValueType,
         "AttributeValueServiceResourceTypeDef": TableAttributeValueType,
         "ConditionExpressionTypeDef": Type.bool,
