@@ -65,7 +65,9 @@ SHAPE_TYPE_MAP: ShapeTypeMap = {
         ),
     },
     ServiceNameCatalog.dynamodb: {
-        "AttributeValueTypeDef": AttributeValueTypeDef,
+        "AttributeValueTypeDef": TypeSubscript(
+            Type.Union, [AttributeValueTypeDef, TableAttributeValueType]
+        ),
         "AttributeValueTableTypeDef": TableAttributeValueType,
         "AttributeValueServiceResourceTypeDef": TableAttributeValueType,
         "ConditionExpressionTypeDef": Type.bool,
