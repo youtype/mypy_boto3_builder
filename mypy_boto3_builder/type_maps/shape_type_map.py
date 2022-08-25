@@ -82,6 +82,9 @@ OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
         "blob": Type.bytes,
         "blob_streaming": StreamingBodyType,
     },
+    ServiceNameCatalog.dynamodb: {
+        "AttributeValueTypeDef": AttributeValueTypeDef,
+    },
 }
 
 
