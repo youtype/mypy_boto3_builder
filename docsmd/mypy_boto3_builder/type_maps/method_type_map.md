@@ -9,7 +9,7 @@ Method Type Map
 
 ## get_method_type_stub
 
-[Show source in method_type_map.py:211](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/method_type_map.py#L211)
+[Show source in method_type_map.py:231](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/method_type_map.py#L231)
 
 Get stub type for method argument.
 
