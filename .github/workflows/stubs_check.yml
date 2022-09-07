@@ -11,9 +11,6 @@ on:
 
 jobs:
   check-stubs:
-    env:
-      PIP_NO_CACHE_DIR: false
-      PIP_USER: 1
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
