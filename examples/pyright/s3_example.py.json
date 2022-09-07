@@ -196,15 +196,15 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0Type \"list[dict[str, tuple[Literal['get']] | list[str]]]\" is not assignable to field \"CORSRules\"\n\u00a0\u00a0\u00a0\u00a0TypeVar \"_T_co@Sequence\" is covariant\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\"dict[str, tuple[Literal['get']] | list[str]]\" is incompatible with \"CORSRuleTypeDef\"",
+        "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0\"tuple[Literal['get']]\" is incompatible with \"List[str]\"",
         "range": {
             "start": {
                 "line": 69,
-                "character": 12
+                "character": 45
             },
             "end": {
                 "line": 69,
-                "character": 23
+                "character": 53
             }
         },
         "rule": "reportGeneralTypeIssues"

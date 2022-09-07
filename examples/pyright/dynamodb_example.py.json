@@ -1,15 +1,15 @@
 [
     {
         "severity": "error",
-        "message": "Argument of type \"dict[str, str | int | Decimal | ValueError]\" cannot be assigned to parameter \"Item\" of type \"Mapping[str, bytes | bytearray | str | int | Decimal | bool | Set[int] | Set[Decimal] | Set[str] | Set[bytes] | Set[bytearray] | Sequence[Any] | Mapping[str, Any] | None]\" in function \"put_item\"",
+        "message": "Argument of type \"dict[str, str | int | Decimal | ValueError]\" cannot be assigned to parameter \"Item\" of type \"Mapping[str, bytes | bytearray | str | int | Decimal | bool | Set[int] | Set[Decimal] | Set[str] | Set[bytes] | Set[bytearray] | Sequence[Any] | Mapping[str, Any] | None]\" in function \"put_item\"\n\u00a0\u00a0Type \"ValueError\" cannot be assigned to type \"bytes | bytearray | str | int | Decimal | bool | Set[int] | Set[Decimal] | Set[str] | Set[bytes] | Set[bytearray] | Sequence[Any] | Mapping[str, Any] | None\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is incompatible with \"bytes\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is incompatible with \"bytearray\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is incompatible with \"str\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is incompatible with \"int\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is incompatible with \"Decimal\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is incompatible with \"bool\"\n\u00a0\u00a0\u00a0\u00a0\"ValueError\" is incompatible with \"Set[int]\"",
         "range": {
             "start": {
-                "line": 18,
-                "character": 13
+                "line": 22,
+                "character": 25
             },
             "end": {
-                "line": 23,
-                "character": 9
+                "line": 22,
+                "character": 43
             }
         },
         "rule": "reportGeneralTypeIssues"
