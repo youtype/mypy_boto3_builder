@@ -6,7 +6,7 @@ cd $ROOT_PATH
 
 # poetry run vulture mypy_boto3_builder --make-whitelist > vulture_whitelist.txt
 poetry run vulture mypy_boto3_builder vulture_whitelist.txt
-npx pyright mypy_boto3_builder
+poetry run npx pyright mypy_boto3_builder
 poetry run flake8 mypy_boto3_builder
 poetry run pytest
 poetry run black mypy_boto3_builder tests
