@@ -25,6 +25,7 @@ class Type:
     Sequence = TypeAnnotation("Sequence")
     Optional = TypeAnnotation("Optional")
     Callable = TypeAnnotation("Callable")
+    Awaitable = TypeAnnotation("Awaitable")
     IO = TypeAnnotation("IO")
     overload = TypeAnnotation("overload")
     none = TypeConstant(None)

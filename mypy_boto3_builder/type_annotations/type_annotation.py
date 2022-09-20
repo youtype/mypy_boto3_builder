@@ -29,6 +29,7 @@ class TypeAnnotation(FakeAnnotation):
         "Set",  # typing.Set
         "Optional",  # typing.Optional
         "Callable",  # typing.Callable
+        "Awaitable",  # typing.Awaitable
         "Iterator",  # typing.Iterator
         "IO",  # typing.IO
         "overload",  # typing.overload
