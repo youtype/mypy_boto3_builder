@@ -2,6 +2,7 @@
 Main entrypoint for builder.
 """
 import sys
+import warnings
 from collections.abc import Iterable
 from typing import Sequence
 
@@ -135,6 +136,9 @@ def main() -> None:
     """
     Main entrypoint for builder.
     """
+    # FIXME: suppress botocore endpoint warning
+    warnings.filterwarnings('ignore', category=FutureWarning, module='botocore.client')
+
     args = parse_args(sys.argv[1:])
     logger = get_logger(level=args.log_level)
     session = Session(region_name=DUMMY_REGION)
