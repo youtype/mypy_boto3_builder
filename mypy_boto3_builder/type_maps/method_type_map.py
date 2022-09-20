@@ -120,6 +120,8 @@ TYPE_MAP: ServiceTypeMap = {
         "Vpc": _create_tags_stub,
     },
     ServiceNameCatalog.s3: {
+        # FIXME: boto3 overrides CopySource parameters for some S3 methods.
+        # Types are set according to docs, might be incorrect
         "Client": {
             "copy_object": {
                 "CopySource": TypeSubscript(Type.Union, [Type.str, s3_copy_source_type])
@@ -128,6 +130,9 @@ TYPE_MAP: ServiceTypeMap = {
                 "CopySource": TypeSubscript(Type.Union, [Type.str, s3_copy_source_type])
             },
             "copy": {"CopySource": s3_copy_source_type},
+        },
+        "MultipartUploadPart": {
+            "copy_from": {"CopySource": TypeSubscript(Type.Union, [Type.str, s3_copy_source_type])}
         },
         "Bucket": {"copy": {"CopySource": s3_copy_source_type}},
         "Object": {"copy": {"CopySource": s3_copy_source_type}},
