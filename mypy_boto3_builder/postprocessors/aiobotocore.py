@@ -118,7 +118,9 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 for method in collection.methods:
                     method.is_async = True
             for attribute in sub_resource.attributes:
-                attribute.type_annotation = TypeSubscript(Type.Awaitable, [attribute.type_annotation])
+                attribute.type_annotation = TypeSubscript(
+                    Type.Awaitable, [attribute.type_annotation]
+                )
 
     def _add_contextmanager_methods(self) -> None:
         self.package.client.methods.append(

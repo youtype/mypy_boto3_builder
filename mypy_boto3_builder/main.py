@@ -137,7 +137,7 @@ def main() -> None:
     Main entrypoint for builder.
     """
     # FIXME: suppress botocore endpoint warning
-    warnings.filterwarnings('ignore', category=FutureWarning, module='botocore.client')
+    warnings.filterwarnings("ignore", category=FutureWarning, module="botocore.client")
 
     args = parse_args(sys.argv[1:])
     logger = get_logger(level=args.log_level)
