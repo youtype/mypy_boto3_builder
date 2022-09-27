@@ -2915,21 +2915,21 @@ TypeAnnotation</p>
 <li><a href="../fake_annotation/#fakeannotation">FakeAnnotation</a></li>
 </ul>
 <h3 id="typeannotationcopy">TypeAnnotation().copy</h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L106">Show source in type_annotation.py:106</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L107">Show source in type_annotation.py:107</a></p>
 <p>Create a copy of type annotation wrapper.</p>
 <h4 id="signature_1">Signature</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">_R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_R</span><span class="p">:</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeannotationget_import_name">TypeAnnotation().get_import_name</h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L61">Show source in type_annotation.py:61</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L62">Show source in type_annotation.py:62</a></p>
 <p>Create a safe name for imported annotation.</p>
 <h4 id="signature_2">Signature</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">get_import_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeannotationget_import_record">TypeAnnotation().get_import_record</h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L67">Show source in type_annotation.py:67</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L68">Show source in type_annotation.py:68</a></p>
 <p>Create a safe Import Record for annotation.</p>
 <h4 id="signature_3">Signature</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">get_import_record</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImportRecord</span><span class="p">:</span>
@@ -2940,35 +2940,35 @@ TypeAnnotation</p>
 <li><a href="../../import_helpers/import_record/#importrecord">ImportRecord</a></li>
 </ul>
 <h3 id="typeannotationhas_fallback">TypeAnnotation().has_fallback</h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L112">Show source in type_annotation.py:112</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L113">Show source in type_annotation.py:113</a></p>
 <p>Whether type should be imported from <code>typing_extensions</code> as a py37 fallback.</p>
 <h4 id="signature_4">Signature</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">has_fallback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeannotationis_dict">TypeAnnotation().is_dict</h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L88">Show source in type_annotation.py:88</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L89">Show source in type_annotation.py:89</a></p>
 <p>Whether annotation is a plain Dict.</p>
 <h4 id="signature_5">Signature</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">is_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeannotationis_list">TypeAnnotation().is_list</h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L94">Show source in type_annotation.py:94</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L95">Show source in type_annotation.py:95</a></p>
 <p>Whether annotation is a plain List.</p>
 <h4 id="signature_6">Signature</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span> <span class="nf">is_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeannotationis_union">TypeAnnotation().is_union</h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L100">Show source in type_annotation.py:100</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L101">Show source in type_annotation.py:101</a></p>
 <p>Whether annotation is a Union.</p>
 <h4 id="signature_7">Signature</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">is_union</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeannotationrender">TypeAnnotation().render</h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L52">Show source in type_annotation.py:52</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L53">Show source in type_annotation.py:53</a></p>
 <p>Render type annotation to a valid Python code for local usage.</p>
 <h4 id="returns">Returns</h4>
 <p>A string with a valid type annotation.</p>

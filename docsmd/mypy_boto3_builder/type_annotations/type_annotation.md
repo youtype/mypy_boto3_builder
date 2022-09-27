@@ -31,7 +31,7 @@ class TypeAnnotation(FakeAnnotation):
 
 ### TypeAnnotation().copy
 
-[Show source in type_annotation.py:106](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L106)
+[Show source in type_annotation.py:107](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L107)
 
 Create a copy of type annotation wrapper.
 
@@ -44,7 +44,7 @@ def copy(self: _R) -> _R:
 
 ### TypeAnnotation().get_import_name
 
-[Show source in type_annotation.py:61](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L61)
+[Show source in type_annotation.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L62)
 
 Create a safe name for imported annotation.
 
@@ -57,7 +57,7 @@ def get_import_name(self) -> str:
 
 ### TypeAnnotation().get_import_record
 
-[Show source in type_annotation.py:67](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L67)
+[Show source in type_annotation.py:68](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L68)
 
 Create a safe Import Record for annotation.
 
@@ -74,7 +74,7 @@ def get_import_record(self) -> ImportRecord:
 
 ### TypeAnnotation().has_fallback
 
-[Show source in type_annotation.py:112](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L112)
+[Show source in type_annotation.py:113](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L113)
 
 Whether type should be imported from `typing_extensions` as a py37 fallback.
 
@@ -87,7 +87,7 @@ def has_fallback(self) -> bool:
 
 ### TypeAnnotation().is_dict
 
-[Show source in type_annotation.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L88)
+[Show source in type_annotation.py:89](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L89)
 
 Whether annotation is a plain Dict.
 
@@ -100,7 +100,7 @@ def is_dict(self) -> bool:
 
 ### TypeAnnotation().is_list
 
-[Show source in type_annotation.py:94](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L94)
+[Show source in type_annotation.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L95)
 
 Whether annotation is a plain List.
 
@@ -113,7 +113,7 @@ def is_list(self) -> bool:
 
 ### TypeAnnotation().is_union
 
-[Show source in type_annotation.py:100](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L100)
+[Show source in type_annotation.py:101](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L101)
 
 Whether annotation is a Union.
 
@@ -126,7 +126,7 @@ def is_union(self) -> bool:
 
 ### TypeAnnotation().render
 
-[Show source in type_annotation.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L52)
+[Show source in type_annotation.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L53)
 
 Render type annotation to a valid Python code for local usage.
 
