@@ -1,5 +1,6 @@
 from typing import Any
 
+from aiobotocore.eventstream import AioEventStream as AioEventStream
 from botocore.parsers import (
     EC2QueryParser,
     JSONParser,
@@ -9,8 +10,6 @@ from botocore.parsers import (
     RestJSONParser,
     RestXMLParser,
 )
-
-from .eventstream import AioEventStream as AioEventStream
 
 class AioRestXMLParser(RestXMLParser): ...
 class AioEC2QueryParser(EC2QueryParser): ...
