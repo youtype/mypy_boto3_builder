@@ -88,7 +88,7 @@ def get_init_required_import_records(self) -> list[ImportRecord]:
 
 ### Boto3StubsPackage().get_session_required_import_records
 
-[Show source in boto3_stubs_package.py:69](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L69)
+[Show source in boto3_stubs_package.py:70](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L70)
 
 Get import reciords for `session.py[i]`.
 
