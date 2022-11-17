@@ -159,7 +159,7 @@ docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/ou
 
 ## Development
 
-- Install Python 3.10+, ideally with [pyenv](https://github.com/pyenv/pyenv)
+- Install Python 3.11+, ideally with [pyenv](https://github.com/pyenv/pyenv)
 - Install [poetry](https://python-poetry.org/): `pip install poetry`
 - Install dependencies: `poetry install`
 - Use scripts for repo to check if everything works: `./scripts/build.sh`
