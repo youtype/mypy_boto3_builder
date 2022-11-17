@@ -6,6 +6,7 @@ from boto3.resources.base import ServiceResource
 from boto3.session import Session as Session
 from botocore.client import BaseClient
 from botocore.config import Config
+from botocore.session import Session as BotocoreSession
 
 __author__: str
 __version__: str
@@ -17,7 +18,7 @@ def setup_default_session(
     aws_secret_access_key: Optional[str] = ...,
     aws_session_token: Optional[str] = ...,
     region_name: Optional[str] = ...,
-    botocore_session: Optional[str] = ...,
+    botocore_session: Optional[BotocoreSession] = ...,
     profile_name: Optional[str] = ...,
 ) -> None: ...
 def set_stream_logger(

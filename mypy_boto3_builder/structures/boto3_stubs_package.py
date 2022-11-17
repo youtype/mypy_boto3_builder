@@ -58,6 +58,7 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("sys")),
                 ImportRecord(ImportString("boto3"), "session", alias="session"),
                 ImportRecord(ImportString("boto3", "session"), "Session", "Session"),
+                ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
                 TypeLiteral.get_typing_import_record(),
             ]
         )
@@ -93,7 +94,6 @@ class Boto3StubsPackage(Package):
                 ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
                 ImportRecord(ImportString("botocore", "loaders"), "Loader"),
                 ImportRecord(ImportString("botocore", "model"), "ServiceModel", "ServiceModel"),
-                ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
                 ImportRecord(ImportString("botocore", "client"), "Config"),
                 ImportRecord(
                     ImportString("botocore", "exceptions"), "DataNotFoundError", "DataNotFoundError"

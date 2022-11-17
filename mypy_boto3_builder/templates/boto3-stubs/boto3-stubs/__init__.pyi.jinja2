@@ -12,7 +12,7 @@ def setup_default_session(
     aws_secret_access_key: Optional[str] = ...,
     aws_session_token: Optional[str] = ...,
     region_name: Optional[str] = ...,
-    botocore_session: Optional[str] = ...,
+    botocore_session: Optional[BotocoreSession] = ...,
     profile_name: Optional[str] = ...,
 ) -> None: ...
 def set_stream_logger(

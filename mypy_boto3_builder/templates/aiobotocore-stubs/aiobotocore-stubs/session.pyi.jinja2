@@ -7,7 +7,7 @@ class ClientCreatorContext:
     async def __aenter__(self) -> AioBaseClient: ...
     async def __aexit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None: ...
 
-class AioSession(Session):
+class AioSession(BotocoreSession):
     def __init__(
         self,
         session_vars: Optional[Any] = ...,

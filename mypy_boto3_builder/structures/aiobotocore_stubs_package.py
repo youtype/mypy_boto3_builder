@@ -77,7 +77,7 @@ class AioBotocoreStubsPackage(Package):
                 ),
                 ImportRecord(ImportString("botocore", "model"), "ServiceModel"),
                 ImportRecord(ImportString("botocore", "session"), "EVENT_ALIASES", "EVENT_ALIASES"),
-                ImportRecord(ImportString("botocore", "session"), "Session"),
+                ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
                 ImportRecord(ImportString("typing"), "Any"),
                 ImportRecord(ImportString("typing"), "List"),
                 ImportRecord(ImportString("sys")),
