@@ -1,6 +1,6 @@
-examples/ec2_example.py:17: error: Missing named argument "Resources" for "create_tags" of "EC2ServiceResource"
-examples/ec2_example.py:17: error: Argument "Tags" to "create_tags" of "EC2ServiceResource" has incompatible type "int"; expected "Sequence[TagTypeDef]"
-examples/ec2_example.py:21: error: Argument "DryRun" to "delete" of "Vpc" has incompatible type "str"; expected "bool"
-examples/ec2_example.py:25: error: Incompatible types (expression has type "int", TypedDict item "Key" has type "str")
-examples/ec2_example.py:33: error: Incompatible types (expression has type "int", TypedDict item "Key" has type "str")
+examples/ec2_example.py:17: error: Missing named argument "Resources" for "create_tags" of "EC2ServiceResource"  [call-arg]
+examples/ec2_example.py:17: error: Argument "Tags" to "create_tags" of "EC2ServiceResource" has incompatible type "int"; expected "Sequence[TagTypeDef]"  [arg-type]
+examples/ec2_example.py:21: error: Argument "DryRun" to "delete" of "Vpc" has incompatible type "str"; expected "bool"  [arg-type]
+examples/ec2_example.py:25: error: Incompatible types (expression has type "int", TypedDict item "Key" has type "str")  [typeddict-item]
+examples/ec2_example.py:33: error: Incompatible types (expression has type "int", TypedDict item "Key" has type "str")  [typeddict-item]
 Found 5 errors in 1 file (checked 1 source file)

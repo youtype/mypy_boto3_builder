@@ -1,3 +1,3 @@
-examples/dynamodb_example.py:23: error: Dict entry 3 has incompatible type "str": "ValueError"; expected "str": "Union[bytes, str, int, Decimal, Set[int], Set[Decimal], Set[str], Set[bytes], Set[bytearray], Sequence[Any], Mapping[str, Any], None]"
-examples/dynamodb_example.py:28: error: Argument "TableName" to "list_backups" of "DynamoDBClient" has incompatible type "int"; expected "str"
+examples/dynamodb_example.py:23: error: Dict entry 3 has incompatible type "str": "ValueError"; expected "str": "Union[bytes, bytearray, str, int, Decimal, Set[int], Set[Decimal], Set[str], Set[bytes], Set[bytearray], Sequence[Any], Mapping[str, Any], None]"  [dict-item]
+examples/dynamodb_example.py:28: error: Argument "TableName" to "list_backups" of "DynamoDBClient" has incompatible type "int"; expected "str"  [arg-type]
 Found 2 errors in 1 file (checked 1 source file)

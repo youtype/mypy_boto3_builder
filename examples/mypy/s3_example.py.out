@@ -1,17 +1,17 @@
-examples/s3_example.py:19: error: Unexpected keyword argument "mfa" for "delete" of "BucketObjectsCollection"
-examples/s3_example.py:22: error: Argument "Config" to "upload_file" of "Bucket" has incompatible type "str"; expected "TransferConfig"
-examples/s3_example.py:23: error: Extra key "key" for TypedDict "BucketUploadFileRequestTypeDef"
-examples/s3_example.py:27: error: Extra key "key" for TypedDict "CopySourceTypeDef"
-examples/s3_example.py:35: error: Argument "CopySource" to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str"
-examples/s3_example.py:39: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Literal['requester']"
-examples/s3_example.py:41: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"
-examples/s3_example.py:50: error: Argument 3 to "download_fileobj" of "S3Client" has incompatible type "bytes"; expected "Union[IO[Any], StreamingBody]"
-examples/s3_example.py:51: error: Argument "IfModifiedSince" to "get_object" of "S3Client" has incompatible type "None"; expected "Union[datetime, str]"
-examples/s3_example.py:54: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?
-examples/s3_example.py:61: error: Missing named argument "Key" for "get_object" of "S3Client"
-examples/s3_example.py:64: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"
+examples/s3_example.py:19: error: Unexpected keyword argument "mfa" for "delete" of "BucketObjectsCollection"  [call-arg]
+examples/s3_example.py:22: error: Argument "Config" to "upload_file" of "Bucket" has incompatible type "str"; expected "TransferConfig"  [arg-type]
+examples/s3_example.py:23: error: Extra key "key" for TypedDict "BucketUploadFileRequestTypeDef"  [typeddict-item]
+examples/s3_example.py:27: error: Extra key "key" for TypedDict "CopySourceTypeDef"  [typeddict-item]
+examples/s3_example.py:35: error: Argument "CopySource" to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str"  [arg-type]
+examples/s3_example.py:39: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Literal['requester']"  [arg-type]
+examples/s3_example.py:41: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"  [call-arg]
+examples/s3_example.py:50: error: Argument 3 to "download_fileobj" of "S3Client" has incompatible type "bytes"; expected "Union[IO[Any], StreamingBody]"  [arg-type]
+examples/s3_example.py:51: error: Argument "IfModifiedSince" to "get_object" of "S3Client" has incompatible type "None"; expected "Union[datetime, str]"  [arg-type]
+examples/s3_example.py:54: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?  [call-arg]
+examples/s3_example.py:61: error: Missing named argument "Key" for "get_object" of "S3Client"  [call-arg]
+examples/s3_example.py:64: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"  [typeddict-item]
 examples/s3_example.py:64: note: Did you mean "Expiration"?
-examples/s3_example.py:70: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"
-examples/s3_example.py:76: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"
-examples/s3_example.py:78: error: "BotocoreClientError" has no attribute "operations_name"; maybe "operation_name"?
+examples/s3_example.py:70: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"  [typeddict-item]
+examples/s3_example.py:76: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"  [arg-type]
+examples/s3_example.py:78: error: "BotocoreClientError" has no attribute "operations_name"; maybe "operation_name"?  [attr-defined]
 Found 15 errors in 1 file (checked 1 source file)
