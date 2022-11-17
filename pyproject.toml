@@ -6,6 +6,7 @@ target-version = [
     'py38',
     'py39',
     'py310',
+    'py311',
 ]
 preview = true
 
@@ -41,8 +42,8 @@ classifiers = [
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: Implementation :: CPython",
     "Typing :: Typed",
@@ -72,7 +73,7 @@ mypy_boto3_builder = 'mypy_boto3_builder.main:main'
 "Bug Tracker" = "https://github.com/youtype/mypy_boto3_builder/issues"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 pip = "*"
 boto3 = "*"
 black = "*"
@@ -142,4 +143,4 @@ reportMissingTypeArgument = "error"
 reportIncompatibleMethodOverride = "error"
 reportIncompatibleVariableOverride = "error"
 reportUnknownParameterType = "error"
-pythonVersion = "3.10"
+pythonVersion = "3.11"
