@@ -170,6 +170,7 @@ class ServiceNameCatalog:
     old_redshift_serverless = ServiceName(
         "redshift-serverless", "RedshiftServerless", "redshiftserverless"
     )
+    old_ssm_sap = ServiceName("ssm-sap", "SsmSap", "ssmsap")
 
     ITEMS: dict[str, ServiceName] = {
         ec2.boto3_name: ec2,
@@ -186,6 +187,7 @@ class ServiceNameCatalog:
         logs.boto3_name: logs,
         lambda_.boto3_name: lambda_,
         old_redshift_serverless.boto3_name: old_redshift_serverless,
+        old_ssm_sap.boto3_name: old_ssm_sap,
     }
 
     @classmethod
