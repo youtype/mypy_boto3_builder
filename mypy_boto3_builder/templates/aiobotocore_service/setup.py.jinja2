@@ -32,6 +32,7 @@ setup(
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3 :: Only",
         "Programming Language :: Python :: Implementation :: CPython",
         "Typing :: Typed",
@@ -39,7 +40,7 @@ setup(
     keywords='{{ package.library_name }} {{ service_name.boto3_name }} type-annotations boto3-stubs mypy typeshed autocomplete',
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
-    package_data={"": ["LICENSE"], "{{ package.name }}": ["py.typed", "*.pyi"]},
+    package_data={"{{ package.name }}": ["py.typed", "*.pyi"]},
     python_requires='>=3.7',
     project_urls={
         'Documentation': '{{ package.get_local_doc_link() }}',
