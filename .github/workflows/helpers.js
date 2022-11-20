@@ -132,7 +132,7 @@ async function extractVersions({ core, context }) {
 
     const extraFlags = []
 
-    const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : false
+    const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : true
     if (skipPublished) extraFlags.push('--skip-published')
 
     core.info(`Extra flags = ${extraFlags}`)
@@ -205,7 +205,7 @@ async function extractAioBotocoreVersions({ core, context }) {
 
     const extraFlags = []
 
-    const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : false
+    const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : true
     if (skipPublished) extraFlags.push('--skip-published')
 
     core.info(`Extra flags = ${extraFlags}`)
