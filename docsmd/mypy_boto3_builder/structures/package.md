@@ -30,7 +30,7 @@ class Package:
 
 ### Package().directory_name
 
-[Show source in package.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L31)
+[Show source in package.py:32](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L32)
 
 Directory name to store generated package.
 
@@ -44,7 +44,7 @@ def directory_name(self) -> str:
 
 ### Package().get_local_doc_link
 
-[Show source in package.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L42)
+[Show source in package.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L43)
 
 Get link to local docs.
 
@@ -57,7 +57,7 @@ def get_local_doc_link(self, service_name: ServiceName | None = None) -> str:
 
 ### Package().get_module_name
 
-[Show source in package.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L51)
+[Show source in package.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L52)
 
 Get service module name.
 
@@ -74,7 +74,7 @@ def get_module_name(self, service_name: ServiceName) -> str:
 
 ### Package().get_service_pypi_link
 
-[Show source in package.py:63](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L63)
+[Show source in package.py:64](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L64)
 
 Get link to PyPI.
 
@@ -91,7 +91,7 @@ def get_service_pypi_link(self, service_name: ServiceName) -> str:
 
 ### Package().get_service_pypi_name
 
-[Show source in package.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L57)
+[Show source in package.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L58)
 
 Get PyPI package name for a service package.
 
@@ -108,7 +108,7 @@ def get_service_pypi_name(self, service_name: ServiceName) -> str:
 
 ### Package().max_library_version
 
-[Show source in package.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L76)
+[Show source in package.py:77](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L77)
 
 Minimum required library version.
 
@@ -122,7 +122,7 @@ def max_library_version(self) -> str:
 
 ### Package().min_library_version
 
-[Show source in package.py:69](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L69)
+[Show source in package.py:70](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L70)
 
 Minimum required library version.
 
