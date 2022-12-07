@@ -24,6 +24,7 @@ class Package:
         self.pypi_name = data.PYPI_NAME
         self.library_name = data.LIBRARY_NAME
         self.library_version = data.get_library_version()
+        self.botocore_version = data.get_botocore_version()
         self.version = "0.0.0"
         self.service_names: list[ServiceName] = list(service_names)
         self.logger = get_logger()

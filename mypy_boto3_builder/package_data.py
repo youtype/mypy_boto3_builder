@@ -7,6 +7,7 @@ from mypy_boto3_builder.utils.version import (
     get_aioboto3_version,
     get_aiobotocore_version,
     get_boto3_version,
+    get_botocore_version,
 )
 
 
@@ -45,6 +46,13 @@ class BasePackageData:
         Get underlying library version.
         """
         return get_boto3_version()
+
+    @staticmethod
+    def get_botocore_version() -> str:
+        """
+        Get underlying botocore version.
+        """
+        return get_botocore_version()
 
     @classmethod
     def get_service_pypi_link(cls, service_name: ServiceName) -> str:

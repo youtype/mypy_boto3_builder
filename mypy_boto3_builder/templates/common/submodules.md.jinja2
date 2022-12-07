@@ -20,6 +20,15 @@
     {{ " services" if package.essential_service_names|length > 1 else " service" -}}
     {{ ".\n" -}}
 {% endif -%}
+
+{{ "- `" -}}
+{{ package.data.PYPI_NAME -}}
+{{ "[" -}}
+{{ package.library_name -}}
+{{ "]` - Install annotations in sync with `" -}}
+{{ package.library_name -}}
+{{ "` version.\n" -}}
+
 {% for service_name in package.service_names -%}
     {{ "- `" -}}
     {{ package.data.PYPI_NAME -}}
