@@ -857,14 +857,11 @@ packaging = ">=20.0"
 
 [[package]]
 name = "packaging"
-version = "21.3"
+version = "22.0"
 description = "Core utilities for Python packages"
 category = "main"
 optional = false
-python-versions = ">=3.6"
-
-[package.dependencies]
-pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
+python-versions = ">=3.7"
 
 [[package]]
 name = "pathspec"
@@ -1197,7 +1194,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "types-awscrt"
-version = "0.16.0"
+version = "0.16.1"
 description = "Type annotations and code completion for awscrt"
 category = "dev"
 optional = false
@@ -1741,8 +1738,8 @@ newversion = [
     {file = "newversion-1.8.2.tar.gz", hash = "sha256:7cc493c901717c184cc67281d29c7d9842ef90ddb055590db8bff3aa39910a82"},
 ]
 packaging = [
-    {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
-    {file = "packaging-21.3.tar.gz", hash = "sha256:dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"},
+    {file = "packaging-22.0-py3-none-any.whl", hash = "sha256:957e2148ba0e1a3b282772e791ef1d8083648bc131c8ab0c1feba110ce1146c3"},
+    {file = "packaging-22.0.tar.gz", hash = "sha256:2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"},
 ]
 pathspec = [
     {file = "pathspec-0.10.2-py3-none-any.whl", hash = "sha256:88c2606f2c1e818b978540f73ecc908e13999c6c3a383daf3705652ae79807a5"},
@@ -1921,8 +1918,8 @@ typed-ast = [
     {file = "typed_ast-1.5.4.tar.gz", hash = "sha256:39e21ceb7388e4bb37f4c679d72707ed46c2fbf2a5609b8b8ebc4b067d977df2"},
 ]
 types-awscrt = [
-    {file = "types_awscrt-0.16.0-py3-none-any.whl", hash = "sha256:243986ded138639c019cd29030b33f104993aa85d8b227a7d1d0a3c9edc1717c"},
-    {file = "types_awscrt-0.16.0.tar.gz", hash = "sha256:66600ed56e330414a390cded71c364dff7dadeb06285aef00009ebf06d93bc79"},
+    {file = "types_awscrt-0.16.1-py3-none-any.whl", hash = "sha256:8dce0e6b35bb41ed3824b2db82e15408766b3d5f7113a684441ec3ae10a867f7"},
+    {file = "types_awscrt-0.16.1.tar.gz", hash = "sha256:4e9d8fa79d0b540ccf780a46aa5bb08a30acd5fb6b6aac6491eaee41d69c560b"},
 ]
 types-certifi = [
     {file = "types-certifi-2021.10.8.3.tar.gz", hash = "sha256:72cf7798d165bc0b76e1c10dd1ea3097c7063c42c21d664523b928e88b554a4f"},
