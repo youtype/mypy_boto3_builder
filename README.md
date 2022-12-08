@@ -1,4 +1,4 @@
-# mypy_boto3_builder
+# Boto3 type annotations generator
 
 [![PyPI - mypy-boto3-builder](https://img.shields.io/pypi/v/mypy-boto3-builder.svg?color=blue&label=mypy-boto3-builder)](https://pypi.org/project/mypy-boto3-builder)
 [![PyPI - boto3-stubs](https://img.shields.io/pypi/v/boto3-stubs.svg?color=blue&label=boto3-stubs)](https://pypi.org/project/boto3-stubs)
@@ -27,7 +27,7 @@ See how it helps to find and fix potential bugs:
 
 Do you want more? Check the [documentation](https://youtype.github.io/boto3_stubs_docs/) and use `boto3` like a pro!
 
-- [mypy\_boto3\_builder](#mypy_boto3_builder)
+- [Boto3 type annotations generator](#boto3-type-annotations-generator)
   - [Using built libraries](#using-built-libraries)
     - [boto3](#boto3)
     - [aiobotocore](#aiobotocore)
