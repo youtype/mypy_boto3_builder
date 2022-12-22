@@ -3,13 +3,16 @@ String to type annotation map to replace overriden botocore shapes.
 """
 from collections.abc import Iterable
 
+from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
+from mypy_boto3_builder.type_maps.typed_dicts import response_metadata_type
 
 # FIXME: a hack to avoid cicular TypedDict in dynamodb package
 TableAttributeValueType: TypeSubscript = TypeSubscript(
@@ -45,6 +48,27 @@ AttributeValueTypeDef: TypeTypedDict = TypeTypedDict(
         TypedDictAttribute("L", Type.SequenceAny, False),
         TypedDictAttribute("NULL", Type.bool, False),
         TypedDictAttribute("BOOL", Type.bool, False),
+    ],
+)
+
+
+GetTemplateOutputTypeDef = TypeTypedDict(
+    "GetTemplateOutputTypeDef",
+    [
+        TypedDictAttribute("TemplateBody", Type.DictStrAny, True),
+        TypedDictAttribute(
+            "StagesAvailable",
+            TypeSubscript(
+                Type.List,
+                [
+                    ExternalImport(
+                        ImportString(ServiceModuleName.literals.value), "TemplateStageType"
+                    )
+                ],
+            ),
+            True,
+        ),
+        TypedDictAttribute("ResponseMetadata", response_metadata_type, True),
     ],
 )
 
@@ -84,6 +108,9 @@ OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
     },
     ServiceNameCatalog.dynamodb: {
         "AttributeValueTypeDef": AttributeValueTypeDef,
+    },
+    ServiceNameCatalog.cloudformation: {
+        "GetTemplateOutputTypeDef": GetTemplateOutputTypeDef,
     },
 }
 
