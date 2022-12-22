@@ -61,7 +61,8 @@ GetTemplateOutputTypeDef = TypeTypedDict(
                 Type.List,
                 [
                     ExternalImport(
-                        ImportString(ServiceModuleName.literals.value), "TemplateStageType"
+                        ImportString.parent() + ImportString(ServiceModuleName.literals.value),
+                        "TemplateStageType",
                     )
                 ],
             ),
