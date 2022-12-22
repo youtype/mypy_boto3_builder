@@ -108,6 +108,7 @@ OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
     ServiceNameCatalog.dynamodb: {
         "AttributeValueTypeDef": AttributeValueTypeDef,
     },
+    # FIXME: botocore processes TemplateBody with json_decode_template_body
     ServiceNameCatalog.cloudformation: {
         "GetTemplateOutputTypeDef": GetTemplateOutputTypeDef,
     },
