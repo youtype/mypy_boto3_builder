@@ -2,9 +2,7 @@ import logging
 from typing import Any, Optional, Union
 
 from boto3 import session as session
-from boto3.resources.base import ServiceResource
 from boto3.session import Session as Session
-from botocore.client import BaseClient
 from botocore.config import Config
 from botocore.session import Session as BotocoreSession
 
@@ -40,7 +38,7 @@ def client(
     aws_secret_access_key: Optional[str] = ...,
     aws_session_token: Optional[str] = ...,
     config: Optional[Config] = ...,
-) -> BaseClient: ...
+) -> Any: ...
 def resource(
     service_name: str,
     region_name: Optional[str] = ...,
@@ -52,4 +50,4 @@ def resource(
     aws_secret_access_key: Optional[str] = ...,
     aws_session_token: Optional[str] = ...,
     config: Optional[Config] = ...,
-) -> ServiceResource: ...
+) -> Any: ...

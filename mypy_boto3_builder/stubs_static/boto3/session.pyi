@@ -2,9 +2,7 @@ from typing import Any, List, Optional, Union
 
 from boto3.exceptions import ResourceNotExistsError as ResourceNotExistsError
 from boto3.exceptions import UnknownAPIVersionError as UnknownAPIVersionError
-from boto3.resources.base import ServiceResource
 from boto3.resources.factory import ResourceFactory
-from botocore.client import BaseClient
 from botocore.config import Config
 from botocore.credentials import Credentials
 from botocore.exceptions import DataNotFoundError as DataNotFoundError
@@ -59,7 +57,7 @@ class Session:
         aws_secret_access_key: Optional[str] = ...,
         aws_session_token: Optional[str] = ...,
         config: Optional[Config] = ...,
-    ) -> BaseClient: ...
+    ) -> Any: ...
     def resource(
         self,
         service_name: str,
@@ -72,4 +70,4 @@ class Session:
         aws_secret_access_key: Optional[str] = ...,
         aws_session_token: Optional[str] = ...,
         config: Optional[Config] = ...,
-    ) -> ServiceResource: ...
+    ) -> Any: ...
