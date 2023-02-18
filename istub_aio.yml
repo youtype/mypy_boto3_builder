@@ -15,6 +15,7 @@ packages:
       - aioboto3
     pip_uninstall:
       - types-aioboto3
+      - types-aiobotocore
     build:
       - mypy_boto3_builder ./mypy_boto3_output --product aioboto3 aiobotocore boto3
     snapshots:
