@@ -1047,14 +1047,14 @@ requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
 name = "istub"
-version = "0.2.1"
+version = "0.2.2"
 description = "Validator for type annotations"
 category = "dev"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "istub-0.2.1-py3-none-any.whl", hash = "sha256:5f39f7db2850ee087286f58866468b7a1c278b60e4ee1ff3373f3bc27efe0a84"},
-    {file = "istub-0.2.1.tar.gz", hash = "sha256:94926bce6bacddc63afd1e3e516dc7acd9870939f53ac8ca44e9930ba0105ffc"},
+    {file = "istub-0.2.2-py3-none-any.whl", hash = "sha256:caf1a920d527dccce1cdfd025499a0dc7724dd59ca7aec3d79bf8f0f9068bc8e"},
+    {file = "istub-0.2.2.tar.gz", hash = "sha256:c38a147e9370418aa870f355eda7c4b3bd2a27a7beaeed0be76de39d2557c592"},
 ]
 
 [package.dependencies]
