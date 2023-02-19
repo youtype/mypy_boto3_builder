@@ -1,16 +1,17 @@
+import sys
+from typing import Any, Dict, Optional, Union
+
+from aiobotocore.endpoint import AioEndpoint
 from botocore.args import ClientArgsCreator
-from typing import Optional, Union, Dict, Any
-from botocore.model import ServiceModel
-from botocore.config import Config
 from botocore.client import ClientEndpointBridge
+from botocore.config import Config
+from botocore.credentials import Credentials
+from botocore.hooks import BaseEventHooks
+from botocore.loaders import Loader
+from botocore.model import ServiceModel
+from botocore.parsers import ResponseParser
 from botocore.serialize import BaseRestSerializer
 from botocore.signers import RequestSigner
-from botocore.hooks import BaseEventHooks
-from aiobotocore.endpoint import AioEndpoint
-from botocore.credentials import Credentials
-from botocore.parsers import ResponseParser
-from botocore.loaders import Loader
-import sys
 
 if sys.version_info >= (3, 9):
     from typing import TypedDict

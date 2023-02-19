@@ -1,6 +1,4 @@
-from botocore.configprovider import SmartDefaultsConfigStoreFactory
-from botocore.configprovider import ConfigValueStore
-
+from botocore.configprovider import ConfigValueStore, SmartDefaultsConfigStoreFactory
 
 class AioSmartDefaultsConfigStoreFactory(SmartDefaultsConfigStoreFactory):
     async def merge_smart_defaults(self, config_store: ConfigValueStore, mode: str, region_name: str) -> None: ...  # type: ignore [override]
