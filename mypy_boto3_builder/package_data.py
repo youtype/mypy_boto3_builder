@@ -136,6 +136,7 @@ class TypesAioBoto3PackageData(BasePackageData):
     LIBRARY_NAME = "aioboto3"
     SERVICE_PREFIX = "types_aiobotocore"
     SERVICE_PYPI_PREFIX = "types-aiobotocore"
+    AIOBOTOCORE_NAME = "types-aiobotocore"
     LOCAL_DOC_LINK = "https://youtype.github.io/types_aioboto3_docs/"
 
     @staticmethod
@@ -153,3 +154,4 @@ class TypesAioBoto3LitePackageData(TypesAioBoto3PackageData):
 
     PYPI_NAME = "types-aioboto3-lite"
     PYPI_LITE_NAME = ""
+    AIOBOTOCORE_NAME = "types-aiobotocore-lite"
