@@ -71,27 +71,3 @@ packages:
           ./aiobotocore-stubs/version.py)
         Runtime:
         MISSING
-
-        error: aiobotocore.awsrequest failed to find stubs
-        Stub:
-        MISSING
-        Runtime:
-        <module 'aiobotocore.awsrequest' from './aiobotocore/awsrequest.py'>
-
-        error: aiobotocore.configprovider failed to find stubs
-        Stub:
-        MISSING
-        Runtime:
-        <module 'aiobotocore.configprovider' from './aiobotocore/configprovider.py'>
-
-        error: aiobotocore.httpchecksum failed to find stubs
-        Stub:
-        MISSING
-        Runtime:
-        <module 'aiobotocore.httpchecksum' from './aiobotocore/httpchecksum.py'>
-
-        error: aiobotocore.retryhandler failed to find stubs
-        Stub:
-        MISSING
-        Runtime:
-        <module 'aiobotocore.retryhandler' from './aiobotocore/retryhandler.py'>
