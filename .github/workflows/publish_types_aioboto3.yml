@@ -2,8 +2,8 @@ name: Update types-aioboto3
 concurrency: update_types_aioboto3
 
 on:
-  # schedule:
-  #   - cron: "0 0 * * *"
+  schedule:
+    - cron: "0 0 * * *"
   workflow_dispatch:
     inputs:
       aioboto3_version:
