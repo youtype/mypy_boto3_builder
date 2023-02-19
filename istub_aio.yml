@@ -59,30 +59,18 @@ packages:
     snapshots:
       stubtest: |-
         error: aiobotocore.__main__ failed to import, ModuleNotFoundError: No module named 'aiobotocore.__main__'
-        Stub: at line 1
+        Stub: at line 1 in file ./aiobotocore-stubs/__main__.py
         MypyFile:1(
           ./aiobotocore-stubs/__main__.py)
         Runtime:
         MISSING
 
         error: aiobotocore.version failed to import, ModuleNotFoundError: No module named 'aiobotocore.version'
-        Stub: at line 1
+        Stub: at line 1 in file ./aiobotocore-stubs/version.py
         MypyFile:1(
           ./aiobotocore-stubs/version.py)
         Runtime:
         MISSING
-
-        error: aiobotocore._endpoint_helpers failed to find stubs
-        Stub:
-        MISSING
-        Runtime:
-        <module 'aiobotocore._endpoint_helpers' from './aiobotocore/_endpoint_helpers.py'>
-
-        error: aiobotocore._helpers failed to find stubs
-        Stub:
-        MISSING
-        Runtime:
-        <module 'aiobotocore._helpers' from './aiobotocore/_helpers.py'>
 
         error: aiobotocore.awsrequest failed to find stubs
         Stub:

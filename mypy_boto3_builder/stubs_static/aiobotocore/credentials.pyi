@@ -46,14 +46,13 @@ def create_assume_role_refresher(
     client: AioBaseClient,
     params: Any,
 ) -> Any: ...
+def create_mfa_serial_refresher(actual_refresh: Any) -> Any: ...
 def create_aio_mfa_serial_refresher(actual_refresh: Any) -> Any: ...
 
 _R = TypeVar("_R")
 
 class AioCredentials(Credentials):
     async def get_frozen_credentials(self) -> ReadOnlyCredentials: ...  # type: ignore [override]
-    @classmethod
-    def from_credentials(cls: Type[_R], obj: Optional[Credentials]) -> _R: ...
 
 _AioRefreshableCredentials = TypeVar(
     "_AioRefreshableCredentials", bound="AioRefreshableCredentials"
@@ -61,10 +60,6 @@ _AioRefreshableCredentials = TypeVar(
 
 class AioRefreshableCredentials(RefreshableCredentials):
     def __init__(self, *args: Any, **kwargs: Any) -> None: ...
-    @classmethod
-    def from_refreshable_credentials(
-        cls: Type[_R], obj: Optional[RefreshableCredentials]
-    ) -> _R: ...
     @property  # type: ignore [override]
     def access_key(self) -> str: ...  # type: ignore [override]
     @access_key.setter
