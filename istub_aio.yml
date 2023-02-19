@@ -13,6 +13,7 @@ packages:
     pip_install:
       - aiobotocore
       - aioboto3
+      - chalice
     pip_uninstall:
       - types-aioboto3
       - types-aiobotocore
@@ -21,22 +22,14 @@ packages:
     snapshots:
       stubtest: |-
         error: aioboto3.__main__ failed to import, ModuleNotFoundError: No module named 'aioboto3.__main__'
-        Stub: at line 1
+        Stub: at line 1 in file ./aioboto3-stubs/__main__.py
         MypyFile:1(
           ./aioboto3-stubs/__main__.py)
         Runtime:
         MISSING
 
-        error: aioboto3.experimental.async_chalice failed to import, ModuleNotFoundError: No module named 'chalice'
-        Stub: at line 1
-        MypyFile:1(
-          ./aioboto3-stubs/experimental/async_chalice.pyi
-          IgnoredLines(6, 7))
-        Runtime:
-        MISSING
-
         error: aioboto3.version failed to import, ModuleNotFoundError: No module named 'aioboto3.version'
-        Stub: at line 1
+        Stub: at line 1 in file ./aioboto3-stubs/version.py
         MypyFile:1(
           ./aioboto3-stubs/version.py)
         Runtime:
