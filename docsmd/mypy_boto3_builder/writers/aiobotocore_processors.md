@@ -112,6 +112,3 @@ def process_aiobotocore_stubs_lite(
 
 - [AioBotocoreStubsPackage](../structures/aiobotocore_stubs_package.md#aiobotocorestubspackage)
 - [ServiceName](../service_name.md#servicename)
-
-
-

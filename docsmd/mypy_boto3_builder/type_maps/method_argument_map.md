@@ -35,6 +35,3 @@ def get_method_arguments_stub(
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
-
-
-

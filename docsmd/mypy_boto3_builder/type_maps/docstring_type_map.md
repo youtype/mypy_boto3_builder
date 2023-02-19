@@ -31,6 +31,3 @@ def get_type_from_docstring(type_str: str) -> FakeAnnotation:
 #### See also
 
 - [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
-
-
-

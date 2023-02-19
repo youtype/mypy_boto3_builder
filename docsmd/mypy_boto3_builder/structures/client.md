@@ -150,6 +150,3 @@ def own_methods(self) -> Iterator[Method]:
 #### See also
 
 - [Method](./method.md#method)
-
-
-

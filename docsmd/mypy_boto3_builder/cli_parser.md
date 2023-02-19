@@ -64,6 +64,3 @@ def parse_args(args: Sequence[str]) -> Namespace:
 #### See also
 
 - [Namespace](#namespace)
-
-
-

@@ -199,6 +199,3 @@ Render literal children to representation.
 def render_children(self) -> str:
     ...
 ```
-
-
-

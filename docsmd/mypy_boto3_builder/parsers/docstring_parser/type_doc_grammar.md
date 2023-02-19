@@ -97,6 +97,3 @@ Reset call stack and packrat.
 def reset(cls) -> None:
     ...
 ```
-
-
-

@@ -31,6 +31,3 @@ def parse_identifiers(resource: Boto3ServiceResource) -> list[Attribute]:
 #### See also
 
 - [Attribute](../structures/attribute.md#attribute)
-
-
-

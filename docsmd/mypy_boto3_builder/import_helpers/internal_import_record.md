@@ -58,6 +58,3 @@ def get_external(self, module_name: str) -> ImportRecord:
 #### See also
 
 - [ImportRecord](./import_record.md#importrecord)
-
-
-

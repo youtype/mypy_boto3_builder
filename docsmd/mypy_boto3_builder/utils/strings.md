@@ -119,6 +119,3 @@ Check whether varialbe name conflicts with Python reserved names.
 def is_reserved(word: str) -> bool:
     ...
 ```
-
-
-

@@ -41,6 +41,3 @@ def call_arguments(self) -> list[Argument]:
 #### See also
 
 - [Argument](./argument.md#argument)
-
-
-

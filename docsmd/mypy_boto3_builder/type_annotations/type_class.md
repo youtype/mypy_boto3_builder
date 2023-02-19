@@ -89,6 +89,3 @@ A string with a valid type annotation.
 def render(self, parent_name: str = "") -> str:
     ...
 ```
-
-
-

@@ -155,6 +155,3 @@ def type_hint_annotations(self) -> list[FakeAnnotation]:
 #### See also
 
 - [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
-
-
-

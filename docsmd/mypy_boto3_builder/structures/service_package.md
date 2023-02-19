@@ -298,6 +298,3 @@ Finds conflicts with reserved Python words.
 def validate(self) -> None:
     ...
 ```
-
-
-

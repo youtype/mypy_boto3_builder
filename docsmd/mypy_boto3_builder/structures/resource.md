@@ -56,6 +56,3 @@ def iterate_types(self) -> Iterator[FakeAnnotation]:
 #### See also
 
 - [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
-
-
-

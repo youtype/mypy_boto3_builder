@@ -150,6 +150,3 @@ def process_master(
 
 - [MasterPackage](../structures/master_package.md#masterpackage)
 - [ServiceName](../service_name.md#servicename)
-
-
-

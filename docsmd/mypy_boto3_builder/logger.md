@@ -27,6 +27,3 @@ Overriden Logger.
 def get_logger(level: int = 0) -> logging.Logger:
     ...
 ```
-
-
-

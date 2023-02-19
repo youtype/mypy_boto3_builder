@@ -32,6 +32,3 @@ Get a list of service names updated in `version` release.
 def get_updated_service_names(self, version: str) -> list[str]:
     ...
 ```
-
-
-

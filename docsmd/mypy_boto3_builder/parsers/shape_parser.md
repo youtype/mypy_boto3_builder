@@ -285,6 +285,3 @@ Main error for ShapeParser.
 class ShapeParserError(Exception):
     ...
 ```
-
-
-

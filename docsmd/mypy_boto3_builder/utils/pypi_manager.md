@@ -58,6 +58,3 @@ Check if version is already uploaded to PyPI.
 def has_version(self, version: str) -> bool:
     ...
 ```
-
-
-

@@ -5,4 +5,3 @@
 Stubs Static
 
 > Auto-generated documentation for [mypy_boto3_builder.stubs_static](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/stubs_static/__init__.py) module.
-

@@ -55,6 +55,3 @@ def essential_service_names(self) -> list[ServiceName]:
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
-
-
-

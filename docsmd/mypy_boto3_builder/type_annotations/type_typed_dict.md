@@ -528,6 +528,3 @@ A string with argument definition.
 def render(self, parent_name: str = "") -> str:
     ...
 ```
-
-
-

@@ -104,6 +104,3 @@ Whether argument does not have a default value and is required.
 def required(self) -> bool:
     ...
 ```
-
-
-

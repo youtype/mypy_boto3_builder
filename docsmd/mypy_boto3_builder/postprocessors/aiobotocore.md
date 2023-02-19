@@ -36,6 +36,3 @@ Convert all methods to asynchronous.
 def process_package(self) -> None:
     ...
 ```
-
-
-

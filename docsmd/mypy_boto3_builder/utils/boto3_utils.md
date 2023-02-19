@@ -94,6 +94,3 @@ def get_region_name_literal(
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
-
-
-

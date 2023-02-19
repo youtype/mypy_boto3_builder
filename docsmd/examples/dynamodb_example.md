@@ -29,6 +29,3 @@ def dynamodb_client_example() -> None:
 def main() -> None:
     ...
 ```
-
-
-

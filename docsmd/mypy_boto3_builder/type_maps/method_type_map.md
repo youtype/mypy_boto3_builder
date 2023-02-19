@@ -36,6 +36,3 @@ def get_method_type_stub(
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
-
-
-

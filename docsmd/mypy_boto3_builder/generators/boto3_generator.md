@@ -80,6 +80,3 @@ def get_postprocessor(self, service_package: ServicePackage) -> BotocorePostproc
 
 - [BotocorePostprocessor](../postprocessors/botocore.md#botocorepostprocessor)
 - [ServicePackage](../structures/service_package.md#servicepackage)
-
-
-

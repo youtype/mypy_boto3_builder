@@ -172,6 +172,3 @@ Get rendered string.
 def render(self) -> str:
     ...
 ```
-
-
-

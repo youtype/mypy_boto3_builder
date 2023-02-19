@@ -38,6 +38,3 @@ def parse_attributes(
 - [Attribute](../structures/attribute.md#attribute)
 - [ServiceName](../service_name.md#servicename)
 - [ShapeParser](./shape_parser.md#shapeparser)
-
-
-

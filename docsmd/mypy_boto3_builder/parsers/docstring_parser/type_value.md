@@ -148,6 +148,3 @@ Whether value is Union.
 def is_union(self) -> bool:
     ...
 ```
-
-
-

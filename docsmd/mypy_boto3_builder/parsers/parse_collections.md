@@ -38,6 +38,3 @@ def parse_collections(
 - [Collection](../structures/collection.md#collection)
 - [ServiceName](../service_name.md#servicename)
 - [ShapeParser](./shape_parser.md#shapeparser)
-
-
-

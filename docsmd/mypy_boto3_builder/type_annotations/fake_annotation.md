@@ -169,6 +169,3 @@ Render type annotation to a valid Python code for local usage.
 def render(self, parent_name: str = "") -> str:
     ...
 ```
-
-
-

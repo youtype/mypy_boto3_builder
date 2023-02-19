@@ -42,6 +42,3 @@ def iam_resource_example() -> None:
 def main() -> None:
     ...
 ```
-
-
-

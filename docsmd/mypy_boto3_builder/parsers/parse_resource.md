@@ -63,6 +63,3 @@ def parse_resource(
 - [Resource](../structures/resource.md#resource)
 - [ServiceName](../service_name.md#servicename)
 - [ShapeParser](./shape_parser.md#shapeparser)
-
-
-

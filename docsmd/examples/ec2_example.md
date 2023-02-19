@@ -42,6 +42,3 @@ def ec2_resource_example() -> None:
 def main() -> None:
     ...
 ```
-
-
-

@@ -29,6 +29,3 @@ def main() -> None:
 def sqs_resource_example() -> None:
     ...
 ```
-
-
-

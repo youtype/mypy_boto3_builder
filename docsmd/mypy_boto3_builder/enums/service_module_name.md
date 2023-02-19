@@ -61,6 +61,3 @@ Module template file name.
 def template_name(self) -> str:
     ...
 ```
-
-
-

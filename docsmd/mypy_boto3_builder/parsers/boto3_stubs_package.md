@@ -39,6 +39,3 @@ def parse_boto3_stubs_package(
 - [BasePackageData](../package_data.md#basepackagedata)
 - [Boto3StubsPackage](../structures/boto3_stubs_package.md#boto3stubspackage)
 - [ServiceName](../service_name.md#servicename)
-
-
-

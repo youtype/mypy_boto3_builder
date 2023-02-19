@@ -112,6 +112,3 @@ Import record local name.
 def render(self, parent_name: str = "") -> str:
     ...
 ```
-
-
-

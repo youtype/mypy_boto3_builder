@@ -126,6 +126,3 @@ Parse table of Contents for MarkDown text.
 def fix_pypi_headers(text: str) -> str:
     ...
 ```
-
-
-

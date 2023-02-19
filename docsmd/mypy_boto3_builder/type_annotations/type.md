@@ -37,6 +37,3 @@ def get_optional(cls, wrapped: FakeAnnotation) -> FakeAnnotation:
 #### See also
 
 - [FakeAnnotation](./fake_annotation.md#fakeannotation)
-
-
-

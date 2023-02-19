@@ -105,6 +105,3 @@ Product type for Generator.
 class ProductType(Enum):
     ...
 ```
-
-
-

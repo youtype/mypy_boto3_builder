@@ -29,6 +29,3 @@ def emr_client_example() -> None:
 def main() -> None:
     ...
 ```
-
-
-

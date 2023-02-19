@@ -57,6 +57,3 @@ Get `class_name.method_name` return type annotation.
 def get_return_type(self, class_name: str, method_name: str) -> FakeAnnotation | None:
     ...
 ```
-
-
-

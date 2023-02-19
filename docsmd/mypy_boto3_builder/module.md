@@ -5,4 +5,3 @@
 Module
 
 > Auto-generated documentation for [mypy_boto3_builder.__main__](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/__main__.py) module.
-

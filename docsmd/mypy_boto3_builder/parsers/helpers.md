@@ -58,6 +58,3 @@ def parse_method(
 
 - [Method](../structures/method.md#method)
 - [ServiceName](../service_name.md#servicename)
-
-
-

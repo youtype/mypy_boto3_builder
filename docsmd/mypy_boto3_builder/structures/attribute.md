@@ -71,6 +71,3 @@ Render to a string.
 def render(self) -> str:
     ...
 ```
-
-
-

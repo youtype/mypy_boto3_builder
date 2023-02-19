@@ -41,6 +41,3 @@ def sort(self) -> list[TypeTypedDict]:
 #### See also
 
 - [TypeTypedDict](../type_annotations/type_typed_dict.md#typetypeddict)
-
-
-

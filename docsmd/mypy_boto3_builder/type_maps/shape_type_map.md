@@ -36,6 +36,3 @@ def get_shape_type_stub(
 
 - [ServiceName](../service_name.md#servicename)
 - [ShapeTypeMap](#shapetypemap)
-
-
-

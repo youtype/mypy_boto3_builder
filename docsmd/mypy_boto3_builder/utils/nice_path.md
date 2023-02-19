@@ -38,6 +38,3 @@ def walk(
 ) -> Iterator[_R]:
     ...
 ```
-
-
-

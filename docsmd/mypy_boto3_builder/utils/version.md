@@ -109,6 +109,3 @@ Get min version build version by setting micro to 0.
 def get_min_build_version(version: str) -> str:
     ...
 ```
-
-
-

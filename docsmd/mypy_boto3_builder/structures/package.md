@@ -133,6 +133,3 @@ Minimum required library version.
 def min_library_version(self) -> str:
     ...
 ```
-
-
-

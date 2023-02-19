@@ -139,6 +139,3 @@ def sort_imports(
 ) -> str:
     ...
 ```
-
-
-

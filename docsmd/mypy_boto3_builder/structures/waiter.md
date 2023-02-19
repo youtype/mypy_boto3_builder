@@ -56,6 +56,3 @@ def get_client_method(self) -> Method:
 #### See also
 
 - [Method](./method.md#method)
-
-
-

@@ -64,6 +64,3 @@ Update global variables in `jinja2.Environment`.
 def update_globals(cls, **kwargs: object) -> None:
     ...
 ```
-
-
-

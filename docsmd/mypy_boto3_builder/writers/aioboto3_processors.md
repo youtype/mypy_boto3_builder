@@ -112,6 +112,3 @@ def process_types_aioboto3_lite(
 
 - [ServiceName](../service_name.md#servicename)
 - [TypesAioBoto3Package](../structures/types_aioboto3_package.md#typesaioboto3package)
-
-
-

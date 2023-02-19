@@ -39,6 +39,3 @@ def parse_fake_service_package(
 - [BasePackageData](../package_data.md#basepackagedata)
 - [ServiceName](../service_name.md#servicename)
 - [ServicePackage](../structures/service_package.md#servicepackage)
-
-
-

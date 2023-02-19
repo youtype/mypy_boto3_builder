@@ -115,6 +115,3 @@ def write_service_package(self, package: ServicePackage, templates_path: Path) -
 #### See also
 
 - [ServicePackage](../structures/service_package.md#servicepackage)
-
-
-

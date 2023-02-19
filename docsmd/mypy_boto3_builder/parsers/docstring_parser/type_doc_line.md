@@ -85,6 +85,3 @@ Whether the argument or TypedDict key is required.
 def required(self) -> bool:
     ...
 ```
-
-
-

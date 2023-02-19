@@ -36,6 +36,3 @@ Leave package as it is.
 def process_package(self) -> None:
     ...
 ```
-
-
-

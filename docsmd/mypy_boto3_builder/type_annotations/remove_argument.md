@@ -66,6 +66,3 @@ Not used.
 def render(self, parent_name: str = "") -> str:
     ...
 ```
-
-
-

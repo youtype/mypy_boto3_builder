@@ -162,7 +162,7 @@ class MypyBoto3PackageData(BasePackageData):
 
 ## TypesAioBoto3LitePackageData
 
-[Show source in package_data.py:149](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L149)
+[Show source in package_data.py:150](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L150)
 
 types-aioboto3-lite package data.
 
@@ -198,7 +198,7 @@ class TypesAioBoto3PackageData(BasePackageData):
 
 ### TypesAioBoto3PackageData.get_library_version
 
-[Show source in package_data.py:141](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L141)
+[Show source in package_data.py:142](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L142)
 
 Get underlying library version.
 
@@ -261,6 +261,3 @@ Get underlying library version.
 def get_library_version() -> str:
     ...
 ```
-
-
-

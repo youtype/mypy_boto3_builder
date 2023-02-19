@@ -96,6 +96,3 @@ Remove self-references from TypedDicts.
 def replace_self_ref_typed_dicts(self) -> None:
     ...
 ```
-
-
-

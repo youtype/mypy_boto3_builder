@@ -147,6 +147,3 @@ True
 def startswith(self: _R, other: _R) -> bool:
     ...
 ```
-
-
-

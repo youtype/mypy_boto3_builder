@@ -89,6 +89,3 @@ def get_return_type(self, input_string: str) -> FakeAnnotation:
 #### See also
 
 - [FakeAnnotation](../../type_annotations/fake_annotation.md#fakeannotation)
-
-
-

@@ -34,6 +34,3 @@ def get_literal_type_stub(
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
-
-
-

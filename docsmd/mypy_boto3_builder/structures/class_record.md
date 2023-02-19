@@ -170,6 +170,3 @@ Variable name for an instance of this class.
 def variable_name(self) -> str:
     ...
 ```
-
-
-

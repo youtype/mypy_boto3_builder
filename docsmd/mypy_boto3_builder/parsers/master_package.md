@@ -35,6 +35,3 @@ def parse_master_package(
 
 - [MasterPackage](../structures/master_package.md#masterpackage)
 - [ServiceName](../service_name.md#servicename)
-
-
-

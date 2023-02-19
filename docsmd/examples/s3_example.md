@@ -42,6 +42,3 @@ def s3_client_example() -> None:
 def s3_resource_example() -> None:
     ...
 ```
-
-
-

@@ -29,6 +29,3 @@ def main() -> None:
 def secretsmanager_client_example() -> None:
     ...
 ```
-
-
-

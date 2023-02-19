@@ -137,6 +137,3 @@ Main entrypoint for builder.
 def main() -> None:
     ...
 ```
-
-
-
