@@ -67,6 +67,7 @@ def parse_resource(
             Attribute(
                 collection.attribute_name,
                 InternalImport(collection.name, service_name, stringify=False),
+                is_collection=True,
             )
         )
 

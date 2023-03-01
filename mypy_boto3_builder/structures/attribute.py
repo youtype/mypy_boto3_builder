@@ -16,6 +16,9 @@ class Attribute:
         type -- Attribute type annotation.
         value -- Attribute value.
         type_ignore -- Add type: ignore comment.
+        is_reference -- Whether the attribute parsed from references.
+        is_identifier -- Whether the attribute parsed from identifiers.
+        is_collection -- Whether the attribute parsed from collections.
     """
 
     def __init__(
@@ -24,11 +27,17 @@ class Attribute:
         type_annotation: FakeAnnotation,
         value: TypeConstant | None = None,
         type_ignore: bool = False,
+        is_reference: bool = False,
+        is_identifier: bool = False,
+        is_collection: bool = False,
     ):
-        self.name: str = name
+        self.name = name
         self.type_annotation: FakeAnnotation = type_annotation
         self.value: TypeConstant | None = value
         self.type_ignore = type_ignore
+        self.is_reference = is_reference
+        self.is_identifier = is_identifier
+        self.is_collection = is_collection
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
@@ -47,3 +56,9 @@ class Attribute:
         if self.type_ignore:
             return f"{line}  # type: ignore"
         return line
+
+    def is_autoload_property(self) -> bool:
+        """
+        Whether the attribute is an autoload property.
+        """
+        return not self.is_reference and not self.is_identifier and not self.is_collection

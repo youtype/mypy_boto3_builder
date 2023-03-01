@@ -19,3 +19,9 @@ class TestAttribute:
             Attribute("attr", Type.DictStrAny, TypeConstant("abc"), True).render()
             == "attr: Dict[str, Any]  # type: ignore"
         )
+
+    def test_is_autoload_property(self) -> None:
+        assert Attribute("attr", Type.DictStrAny).is_autoload_property()
+        assert Attribute("attr", Type.DictStrAny, is_reference=True).is_autoload_property() is False
+        assert Attribute("attr", Type.DictStrAny, is_identifier=True).is_autoload_property() is False
+        assert Attribute("attr", Type.DictStrAny, is_collection=True).is_autoload_property() is False

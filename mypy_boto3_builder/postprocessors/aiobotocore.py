@@ -118,6 +118,8 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 for method in collection.methods:
                     method.is_async = True
             for attribute in sub_resource.attributes:
+                if not attribute.is_autoload_property():
+                    continue
                 attribute.type_annotation = TypeSubscript(
                     Type.Awaitable, [attribute.type_annotation]
                 )

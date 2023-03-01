@@ -28,5 +28,5 @@ def parse_references(resource: Boto3ServiceResource) -> list[Attribute]:
         type_annotation: FakeAnnotation = InternalImport(reference.resource.type)
         if reference.resource.path and "[]" in reference.resource.path:
             type_annotation = TypeSubscript(Type.List, [type_annotation])
-        result.append(Attribute(reference.name, type_annotation=type_annotation))
+        result.append(Attribute(reference.name, type_annotation=type_annotation, is_reference=True))
     return result
