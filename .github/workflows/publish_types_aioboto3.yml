@@ -9,13 +9,17 @@ on:
       aioboto3_version:
         description: Target aioboto3 version
         required: false
+        type: string
+        default: ""
       force:
         description: Continue if version is already published
         required: false
-        default: "false"
+        default: false
+        type: boolean
       stubs_version:
         description: Specify version explicitly instead of finding it automatically
         required: false
+        type: string
         default: ""
 
 jobs:

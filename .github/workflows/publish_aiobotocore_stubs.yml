@@ -9,18 +9,22 @@ on:
       aiobotocore_version:
         description: Target aiobotocore version
         required: false
-      force:
-        description: Continue if version is already published
-        required: false
-        default: "false"
+        type: string
       stubs_version:
         description: Specify version explicitly instead of finding it automatically
         required: false
         default: ""
-      skip_published:
-        description: Do not build already published packages
+        type: string
+      force:
+        description: Continue if version is already published
         required: false
-        default: "false"
+        default: false
+        type: boolean
+      skip_published:
+        description: Skip already published packages
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   check-aiobotocore-version:
