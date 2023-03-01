@@ -9,7 +9,7 @@ Parse Resource
 
 ## get_resource_public_methods
 
-[Show source in parse_resource.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L76)
+[Show source in parse_resource.py:77](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L77)
 
 Extract public methods from boto3 sub resource.
 

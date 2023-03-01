@@ -15,7 +15,7 @@
         <link rel="next" href="../boto3_stubs_package/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.15">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.ffa9267a.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.113286f1.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -1435,6 +1435,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#attributeis_autoload_property" class="md-nav__link">
+    Attribute().is_autoload_property
+  </a>
+  
+    <nav class="md-nav" aria-label="Attribute().is_autoload_property">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signature_1" class="md-nav__link">
+    Signature
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#attributeiterate_types" class="md-nav__link">
     Attribute().iterate_types
   </a>
@@ -1450,7 +1470,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#signature_1" class="md-nav__link">
+  <a href="#signature_2" class="md-nav__link">
     Signature
   </a>
   
@@ -1477,7 +1497,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#signature_2" class="md-nav__link">
+  <a href="#signature_3" class="md-nav__link">
     Signature
   </a>
   
@@ -2625,6 +2645,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#attributeis_autoload_property" class="md-nav__link">
+    Attribute().is_autoload_property
+  </a>
+  
+    <nav class="md-nav" aria-label="Attribute().is_autoload_property">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#signature_1" class="md-nav__link">
+    Signature
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#attributeiterate_types" class="md-nav__link">
     Attribute().iterate_types
   </a>
@@ -2640,7 +2680,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#signature_1" class="md-nav__link">
+  <a href="#signature_2" class="md-nav__link">
     Signature
   </a>
   
@@ -2667,7 +2707,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#signature_2" class="md-nav__link">
+  <a href="#signature_3" class="md-nav__link">
     Signature
   </a>
   
@@ -2718,6 +2758,9 @@ Attribute</p>
 <li><code>type</code> - Attribute type annotation.</li>
 <li><code>value</code> - Attribute value.</li>
 <li><code>type_ignore</code> - Add type: ignore comment.</li>
+<li><code>is_reference</code> - Whether the attribute parsed from references.</li>
+<li><code>is_identifier</code> - Whether the attribute parsed from identifiers.</li>
+<li><code>is_collection</code> - Whether the attribute parsed from collections.</li>
 </ul>
 <h4 id="signature">Signature</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span> <span class="nc">Attribute</span><span class="p">:</span>
@@ -2727,32 +2770,42 @@ Attribute</p>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">type_annotation</span><span class="p">:</span> <span class="n">FakeAnnotation</span><span class="p">,</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="n">value</span><span class="p">:</span> <span class="n">TypeConstant</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        <span class="n">type_ignore</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="p">):</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="o">...</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="n">is_reference</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="n">is_identifier</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        <span class="n">is_collection</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="p">):</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        <span class="o">...</span>
 </code></pre></div>
 <h4 id="see-also">See also</h4>
 <ul>
 <li><a href="../../type_annotations/fake_annotation/#fakeannotation">FakeAnnotation</a></li>
 </ul>
+<h3 id="attributeis_autoload_property">Attribute().is_autoload_property</h3>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L60">Show source in attribute.py:60</a></p>
+<p>Whether the attribute is an autoload property.</p>
+<h4 id="signature_1">Signature</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">is_autoload_property</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="o">...</span>
+</code></pre></div>
 <h3 id="attributeiterate_types">Attribute().iterate_types</h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L33">Show source in attribute.py:33</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L42">Show source in attribute.py:42</a></p>
 <p>Iterate over all type annotations used.</p>
 <h4 id="yields">Yields</h4>
 <p>Type annotation.</p>
-<h4 id="signature_1">Signature</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">iterate_types</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">FakeAnnotation</span><span class="p">]:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="o">...</span>
+<h4 id="signature_2">Signature</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">iterate_types</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">FakeAnnotation</span><span class="p">]:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h4 id="see-also_1">See also</h4>
 <ul>
 <li><a href="../../type_annotations/fake_annotation/#fakeannotation">FakeAnnotation</a></li>
 </ul>
 <h3 id="attributerender">Attribute().render</h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L42">Show source in attribute.py:42</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L51">Show source in attribute.py:51</a></p>
 <p>Render to a string.</p>
-<h4 id="signature_2">Signature</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="o">...</span>
+<h4 id="signature_3">Signature</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="o">...</span>
 </code></pre></div>
 
 
