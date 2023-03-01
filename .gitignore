@@ -101,7 +101,7 @@ ENV/
 .csv
 
 # VSCode
-.vscode
+# .vscode
 
 # Typing
 .mypy_cache
