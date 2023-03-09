@@ -52,6 +52,7 @@ class Type:
     IOAny = TypeSubscript(IO, [Any])
     RemoveArgument = RemoveArgument()
     NotRequired = TypeAnnotation("NotRequired")
+    NoReturn = TypeAnnotation("NoReturn")
 
     @classmethod
     def get_optional(cls, wrapped: FakeAnnotation) -> FakeAnnotation:

@@ -7,6 +7,7 @@ from typing import Iterator
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.structures.argument import Argument
+from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -19,6 +20,16 @@ class AioBotocorePostprocessor(BasePostprocessor):
     """
     Postprocessor for aiobotocore classes and methods.
     """
+
+    COMMON_COLLECTION_METHOD_NAMES = (
+        "__iter__",
+        "__aiter__",
+        "all",
+        "pages",
+        "filter",
+        "limit",
+        "page_size",
+    )
 
     EXTERNAL_IMPORTS_MAP = {
         ExternalImport(ImportString("botocore", "response"), "StreamingBody"): ExternalImport(
@@ -84,12 +95,30 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 continue
             method.is_async = True
 
+    @classmethod
+    def _make_async_collection(cls, collection: Collection) -> None:
+        for method in collection.methods:
+            if method.name not in cls.COMMON_COLLECTION_METHOD_NAMES:
+                method.is_async = True
+
+        pages_method = collection.get_method("pages")
+        assert isinstance(pages_method.return_type, TypeSubscript)
+        pages_method.return_type.parent = Type.AsyncIterator
+
+        aiter_method = collection.get_method("__iter__").copy()
+        aiter_method.name = "__aiter__"
+        assert isinstance(aiter_method.return_type, TypeSubscript)
+        aiter_method.return_type.parent = Type.AsyncIterator
+        collection.methods.append(aiter_method)
+
+        iter_method = collection.get_method("__iter__")
+        iter_method.return_type = Type.NoReturn
+
     def _make_async_collections(self) -> None:
         if not self.package.service_resource:
             return
         for collection in self.package.service_resource.collections:
-            for method in collection.methods:
-                method.is_async = True
+            self._make_async_collection(collection)
 
     def _make_async_paginators(self) -> None:
         for paginator in self.package.paginators:
@@ -115,8 +144,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
             for method in sub_resource.methods:
                 method.is_async = True
             for collection in sub_resource.collections:
-                for method in collection.methods:
-                    method.is_async = True
+                self._make_async_collection(collection)
             for attribute in sub_resource.attributes:
                 if not attribute.is_autoload_property():
                     continue

@@ -36,6 +36,7 @@ class TypeAnnotation(FakeAnnotation):
         "Type",  # typing.Type
         "AsyncIterator",  # typing.AsyncIterator / typing_extensions.AsyncIterator
         "NotRequired",  # typing.NotRequired / typing_extensions.NotRequired
+        "NoReturn",  # typing.NoReturn
     }
 
     # Set of fallback type annotations
