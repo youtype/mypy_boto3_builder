@@ -27,8 +27,7 @@ class BatchWriter:
     def __enter__(self: _R) -> _R: ...
     def __exit__(
         self,
-        exc_type: Type[BaseException],
-        exc_value: BaseException,
-        # tb: TracebackType,
+        exc_type: Optional[Type[BaseException]],
+        exc_value: Optional[BaseException],
         tb: Any,
     ) -> None: ...

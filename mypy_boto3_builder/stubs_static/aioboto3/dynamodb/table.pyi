@@ -34,8 +34,7 @@ class BatchWriter:
     async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(
         self,
-        exc_type: Type[BaseException],
-        exc_value: BaseException,
-        # tb: TracebackType,
+        exc_type: Optional[Type[BaseException]],
+        exc_value: Optional[BaseException],
         tb: Any,
     ) -> None: ...
