@@ -137,6 +137,9 @@ class Function:
         return result
 
     def copy(self: _R) -> _R:
+        """
+        Deep copy function.
+        """
         return self.__class__(
             name=self.name,
             arguments=[i.copy() for i in self.arguments],
