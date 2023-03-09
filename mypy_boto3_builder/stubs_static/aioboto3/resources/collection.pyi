@@ -1,5 +1,5 @@
 import logging
-from typing import Any, Iterator, List
+from typing import Any, AsyncIterator, List, NoReturn
 
 from boto3.resources.base import ServiceResource
 from boto3.resources.collection import CollectionFactory, CollectionManager, ResourceCollection
@@ -18,10 +18,10 @@ class AIOResourceCollection(ResourceCollection):
     Converted the __iter__
     """
 
-    async def __anext__(self) -> Iterator[Any]: ...
-    def __aiter__(self) -> Iterator[Any]: ...
-    def __iter__(self) -> Iterator[Any]: ...
-    async def pages(self) -> Iterator[List[Any]]: ...  # type: ignore [override]
+    def __anext__(self) -> AsyncIterator[Any]: ...
+    def __aiter__(self) -> AsyncIterator[Any]: ...
+    def __iter__(self) -> NoReturn: ...
+    def pages(self) -> AsyncIterator[List[Any]]: ...  # type: ignore [override]
 
 class AIOCollectionManager(CollectionManager):
     def __init__(
