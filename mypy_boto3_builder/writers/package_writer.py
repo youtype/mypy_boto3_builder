@@ -157,7 +157,6 @@ class PackageWriter:
                 package=package,
                 service_name=service_name,
             )
-            print(file_path)
             # if file_path.suffix == ".md":
             #     content = fix_pypi_headers(content)
             #     content = format_md(content)
