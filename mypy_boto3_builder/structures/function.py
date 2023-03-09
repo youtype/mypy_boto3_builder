@@ -2,13 +2,15 @@
 Module-level function.
 """
 from collections.abc import Iterable
-from typing import Iterator
+from typing import Iterator, TypeVar
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
+
+_R = TypeVar("_R", bound="Function")
 
 
 class Function:
@@ -36,6 +38,13 @@ class Function:
         self.type_ignore = type_ignore
         self.request_type_annotation: TypeTypedDict | None = None
         self.is_async = is_async
+
+    def __repr__(self) -> str:
+        return (
+            f"{'async ' if self.is_async else ''}def"
+            f" {self.name}({', '.join(argument.render() for argument in self.arguments)}) ->"
+            f" {self.return_type.render()}"
+        )
 
     @property
     def short_docstring(self) -> str:
@@ -126,3 +135,15 @@ class Function:
         if self.return_type and self.return_type.get_local_types():
             result.append(self.return_type)
         return result
+
+    def copy(self: _R) -> _R:
+        return self.__class__(
+            name=self.name,
+            arguments=[i.copy() for i in self.arguments],
+            return_type=self.return_type.copy(),
+            docstring=self.docstring,
+            decorators=[i.copy() for i in self.decorators],
+            body_lines=[i for i in self.body_lines],
+            type_ignore=self.type_ignore,
+            is_async=self.is_async,
+        )

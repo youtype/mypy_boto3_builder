@@ -72,3 +72,14 @@ class Argument:
         Whether argument does not have a default value and is required.
         """
         return self.default is None
+
+    def copy(self: _R) -> _R:
+        """
+        Deep copy argument.
+        """
+        return self.__class__(
+            name=self.name,
+            type_annotation=self.type_annotation.copy() if self.type_annotation else None,
+            default=self.default.copy() if self.default else None,
+            prefix=self.prefix,
+        )
