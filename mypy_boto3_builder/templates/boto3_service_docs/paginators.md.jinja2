@@ -10,7 +10,9 @@
 Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ service_name.boto3_name }}").get_paginator("{{ paginator.operation_name }}")`.
 [:material-aws: boto3 documentation]({{ paginator.boto3_doc_link }})
 
-```python title="Usage example"
+```python
+# {{ paginator.name }} usage example
+
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.paginator import {{ paginator.name }}
@@ -19,7 +21,9 @@ def get_{{ paginator.operation_name }}_paginator() -> {{ paginator.name }}:
     return Session().client("{{ service_name.boto3_name }}").get_paginator("{{ paginator.operation_name }}")
 ```
 
-```python title="Usage example"
+```python
+# {{ paginator.name }} usage example with type annotations
+
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.paginator import {{ paginator.name }}

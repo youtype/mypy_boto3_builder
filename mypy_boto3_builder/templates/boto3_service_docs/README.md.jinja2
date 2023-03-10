@@ -15,7 +15,9 @@ Code samples can be found in [Examples](./usage.md).
 Type annotations and code completion for  `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
 [:material-aws: boto3 documentation]({{ package.client.boto3_doc_link }})
 
-```python title="Usage example"
+```python
+# {{ package.client.name }} usage example
+
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.client import {{ package.client.name }}
@@ -30,7 +32,9 @@ def get_client() -> {{ package.client.name }}:
 Type annotations and code completion for [paginators]({{ service_name.get_md_doc_link('paginators') }})
 from `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}").get_paginator("...")`.
 
-```python title="Usage example"
+```python
+# {{ package.paginators[0].name }} usage example
+
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.paginator import {{ package.paginators[0].name }}
@@ -50,7 +54,9 @@ def get_{{ package.paginators[0].operation_name }}_paginator() -> {{ package.pag
 Type annotations and code completion for [waiters]({{ service_name.get_md_doc_link('waiters') }})
 from `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}").get_waiter("...")`.
 
-```python title="Usage example"
+```python
+# {{ package.waiters[0].name }} usage example
+
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.waiter import {{ package.waiters[0].name }}
@@ -72,7 +78,9 @@ Type annotations and code completion for `#!python {{ package.library_name }}.re
 [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name) }})
 [:material-aws: boto3 documentation]({{ package.service_resource.boto3_doc_link }})
 
-```python title="Usage example"
+```python
+# {{ package.service_resource.name }} usage example
+
 from {{ package.library_name }}.session import Session
 
 from {{ package.name  }}.service_resource import {{ package.service_resource.name }}
@@ -87,7 +95,9 @@ def get_{{ service_name.boto3_name }}_resource() -> {{ package.service_resource.
 Type annotations and code completion for collections
 from `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").*`.
 
-```python title="Usage example"
+```python
+# {{ package.service_resource.collections[0].name }} usage example
+
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.service_resource import {{ package.service_resource.collections[0].name }}
@@ -107,7 +117,9 @@ def get_collection() -> {{ package.service_resource.collections[0].name }}:
 Type annotations and code completion for additional resources
 from `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").*`.
 
-```python title="Usage example"
+```python
+# {{ package.service_resource.sub_resources[0].name }} usage example
+
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }}.service_resource import {{ package.service_resource.sub_resources[0].name }}
@@ -127,7 +139,9 @@ def get_resource() -> {{ package.service_resource.sub_resources[0].name }}:
 
 Type annotations for [literals]({{ service_name.get_md_doc_link('literals') }}) used in methods and schemas.
 
-```python title="Usage example"
+```python
+# {{ package.literals[0].name }} usage example
+
 from {{ package.name }}.literals import {{ package.literals[0].name }}
 
 def get_value() -> {{ package.literals[0].name }}:
@@ -144,7 +158,9 @@ def get_value() -> {{ package.literals[0].name }}:
 
 Type annotations for [typed dictionaries]({{ service_name.get_md_doc_link('type_defs') }}) used in methods and schema.
 
-```python title="Usage example"
+```python
+# {{ package.typed_dicts[0].name }} usage example
+
 from {{ package.name }}.type_defs import {{ package.typed_dicts[0].name }}
 
 def get_value() -> {{ package.typed_dicts[0].name }}:

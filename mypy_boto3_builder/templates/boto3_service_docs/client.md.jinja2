@@ -9,7 +9,9 @@
 Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ service_name.boto3_name }}")`.
 [:material-aws: boto3 documentation]({{ package.client.boto3_doc_link }})
 
-```python title="Usage example"
+```python
+# {{ package.client.name }} usage example
+
 from {{ package.library_name }}.session import Session
 from {{ package.name }}.client import {{ package.client.name }}
 
@@ -23,20 +25,24 @@ def get_{{ service_name.boto3_name }}_client() -> {{ package.client.name }}:
 `{{ package.library_name }}` client exceptions are generated in runtime.
 This class provides code completion for `#!python {{ package.library_name }}.client("{{ service_name.boto3_name }}").exceptions` structure.
 
-```python title="Usage example"
+```python
+# {{ package.client.exceptions_class.name }}.exceptions usage example
+
 client = {{ package.library_name }}.client("{{ service_name.boto3_name }}")
 
 try:
     do_something(client)
 except (
 {% for attribute in package.client.exceptions_class.attributes -%}
-{{ '    ' -}}client.{{ attribute.name }},{{ '\n' -}}
+{{ '    ' -}}client.exceptions.{{ attribute.name }},{{ '\n' -}}
 {% endfor -%}
 ) as e:
     print(e)
 ```
 
-```python title="Type checking example"
+```python
+# {{ package.client.exceptions_class.name }}.exceptions type checking example
+
 from {{ package.name }}.client import {{ package.client.exceptions_class.name }}
 
 def handle_error(exc: {{ package.client.exceptions_class.name }}.{{ package.client.exceptions_class.attributes[0].name }}) -> None:

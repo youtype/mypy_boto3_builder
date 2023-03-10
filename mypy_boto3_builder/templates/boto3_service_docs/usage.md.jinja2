@@ -15,60 +15,60 @@ type checking and code completion should work out of the box.
 
 {% set method = package.client.get_example_method() -%}
 {% if method %}
-=== "Client"
+```python
+# {{ package.client.name }} usage example
 
-    ```python title="Client usage example"
-    from {{ package.library_name }}.session import Session
+from {{ package.library_name }}.session import Session
 
 
-    session = Session()
+session = Session()
 
-    client = session.client("{{ package.service_name.boto3_name }}")  # (1)
-    result = client.{{ method.name }}()  # (2)
-    ```
+client = session.client("{{ package.service_name.boto3_name }}")  # (1)
+result = client.{{ method.name }}()  # (2)
+```
 
-    1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
-    2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
 {% set paginator = package.paginators[0] if package.paginators else None -%}
 {% if paginator %}
-=== "Paginators"
+```python
+# {{ paginator.name }} usage example
 
-    ```python title="Paginator usage example"
-    from {{ package.library_name }}.session import Session
+from {{ package.library_name }}.session import Session
 
 
-    session = Session()
-    client = session.client("{{ package.service_name.boto3_name }}")  # (1)
+session = Session()
+client = session.client("{{ package.service_name.boto3_name }}")  # (1)
 
-    paginator = client.get_paginator("{{ paginator.operation_name }}")  # (2)
-    for item in paginator.paginate(...):
-        print(item)  # (3)
-    ```
+paginator = client.get_paginator("{{ paginator.operation_name }}")  # (2)
+for item in paginator.paginate(...):
+    print(item)  # (3)
+```
 
-    1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
-    2. paginator: [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }})
-    3. item: {% with type_annotation=paginator.methods[0].return_type.children[0] %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+2. paginator: [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }})
+3. item: {% with type_annotation=paginator.methods[0].return_type.children[0] %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
 {% set waiter = package.waiters[0] if package.waiters else None -%}
 {% if waiter %}
-=== "Waiters"
+```python
+# {{ waiter.name }} usage example
 
-    ```python title="Waiter usage example"
-    from {{ package.library_name }}.session import Session
+from {{ package.library_name }}.session import Session
 
 
-    session = Session()
-    client = session.client("{{ package.service_name.boto3_name }}")  # (1)
+session = Session()
+client = session.client("{{ package.service_name.boto3_name }}")  # (1)
 
-    waiter = client.get_waiter("{{ waiter.waiter_name }}")  # (2)
-    waiter.wait()
-    ```
+waiter = client.get_waiter("{{ waiter.waiter_name }}")  # (2)
+waiter.wait()
+```
 
-    1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
-    2. waiter: [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }})
+1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+2. waiter: [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }})
 {% endif %}
 
 ### Explicit type annotations
@@ -80,61 +80,61 @@ All other type annotations are optional, as types should be discovered automatic
 However, these type annotations can be helpful in your functions and methods.
 
 {% if method %}
-=== "Client"
+```python
+# {{ package.client.name }} usage example with type annotations
 
-    ```python title="Client usage example"
-    from {{ package.library_name }}.session import Session
+from {{ package.library_name }}.session import Session
 
-    from {{ package.name }}.client import {{ package.client.name }}
-    from {{ package.name }}.type_defs import {{ method.return_type.name }}
-    from {{ package.name }}.type_defs import {{ method.request_type_annotation.name }}
+from {{ package.name }}.client import {{ package.client.name }}
+from {{ package.name }}.type_defs import {{ method.return_type.name }}
+from {{ package.name }}.type_defs import {{ method.request_type_annotation.name }}
 
 
-    session = Session()
+session = Session()
 
-    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
 
-    kwargs: {{ method.request_type_annotation.name }} = {...}
-    result: {{ method.return_type.name }} = client.{{ method.name }}(**kwargs)
-    ```
+kwargs: {{ method.request_type_annotation.name }} = {...}
+result: {{ method.return_type.name }} = client.{{ method.name }}(**kwargs)
+```
 {% endif %}
 
 {% if paginator %}
-=== "Paginators"
+```python
+# {{ paginator.name }} usage example with type annotations
 
-    ```python title="Paginator usage example"
-    from {{ package.library_name }}.session import Session
+from {{ package.library_name }}.session import Session
 
-    from {{ package.name }}.client import {{ package.client.name }}
-    from {{ package.name }}.paginator import {{ paginator.name }}
-    from {{ package.name }}.type_defs import {{ paginator.methods[0].return_type.children[0].name }}
+from {{ package.name }}.client import {{ package.client.name }}
+from {{ package.name }}.paginator import {{ paginator.name }}
+from {{ package.name }}.type_defs import {{ paginator.methods[0].return_type.children[0].name }}
 
 
-    session = Session()
-    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+session = Session()
+client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
 
-    paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
-    for item in paginator.paginate(...):
-        item: {{ paginator.methods[0].return_type.children[0].name }}
-        print(item)
-    ```
+paginator: {{ paginator.name }} = client.get_paginator("{{ paginator.operation_name }}")
+for item in paginator.paginate(...):
+    item: {{ paginator.methods[0].return_type.children[0].name }}
+    print(item)
+```
 {% endif %}
 
 {% if waiter %}
-=== "Waiters"
+```python
+# {{ waiter.name }} usage example with type annotations
 
-    ```python title="Waiter usage example"
-    from {{ package.library_name }}.session import Session
+from {{ package.library_name }}.session import Session
 
-    from {{ package.name }}.client import {{ package.client.name }}
-    from {{ package.name }}.waiter import {{ waiter.name }}
+from {{ package.name }}.client import {{ package.client.name }}
+from {{ package.name }}.waiter import {{ waiter.name }}
 
-    session = Session()
-    client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
+session = Session()
+client: {{ package.client.name }} = session.client("{{ package.service_name.boto3_name }}")
 
-    waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
-    waiter.wait()
-    ```
+waiter: {{ waiter.name }} = client.get_waiter("{{ waiter.waiter_name }}")
+waiter.wait()
+```
 {% endif %}
 
 {% if package.service_resource %}
@@ -149,40 +149,40 @@ Can be used with `{{ package.data.PYPI_NAME }}[{{ package.service_name.extras_na
 
 
 {% if method %}
-=== "ServiceResource"
+```python
+# {{ package.service_resource.name }} usage example
 
-    ```python title="ServiceResource usage example"
-    from {{ package.library_name }}.session import Session
+from {{ package.library_name }}.session import Session
 
 
-    session = Session()
+session = Session()
 
-    resource = session.resource("{{ package.service_name.boto3_name }}")  # (1)
-    result = resource.{{ method.name }}()  # (2)
-    ```
+resource = session.resource("{{ package.service_name.boto3_name }}")  # (1)
+result = resource.{{ method.name }}()  # (2)
+```
 
-    1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
-    2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
+1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
+2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
 {% if collection %}
-=== "Collections"
+```python
+# {{ collection.name }} usage example
 
-    ```python title="Collection usage example"
-    from {{ package.library_name }}.session import Session
+from {{ package.library_name }}.session import Session
 
 
-    session = Session()
-    resource = session.resource("{{ package.service_name.boto3_name }}")  # (1)
+session = Session()
+resource = session.resource("{{ package.service_name.boto3_name }}")  # (1)
 
-    collection = resource.{{ collection.attribute_name }}  # (2)
-    for item in collection:
-        print(item)  # (3)
-    ```
+collection = resource.{{ collection.attribute_name }}  # (2)
+for item in collection:
+    print(item)  # (3)
+```
 
-    1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
-    2. collection: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }})
-    3. item: {{ collection.object_class_name }}
+1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
+2. collection: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }})
+3. item: {{ collection.object_class_name }}
 {% endif %}
 
 ### Explicit type annotations
@@ -196,41 +196,41 @@ However, these type annotations can be helpful in your functions and methods.
 
 
 {% if method %}
-=== "ServiceResource"
+```python
+# {{ package.service_resource.name }} usage example with type annotations
 
-    ```python title="ServiceResource usage example"
-    from {{ package.library_name }}.session import Session
+from {{ package.library_name }}.session import Session
 
-    from {{ package.name }}.service_resource import {{ package.service_resource.name }}
-    from {{ package.name }}.service_resource import {{ method.name }}
+from {{ package.name }}.service_resource import {{ package.service_resource.name }}
+from {{ package.name }}.service_resource import {{ method.name }}
 
 
-    session = Session()
+session = Session()
 
-    resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
-    result: {{ method.name }} = resource.{{ method.name }}()
-    ```
+resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
+result: {{ method.name }} = resource.{{ method.name }}()
+```
 {% endif %}
 
 {% if collection %}
-=== "Collections"
+```python
+# {{ collection.name }} usage example with type annotations
 
-    ```python title="Collection usage example"
-    from {{ package.library_name }}.session import Session
+from {{ package.library_name }}.session import Session
 
-    from {{ package.name }}.service_resource import {{ package.service_resource.name }}
-    from {{ package.name }}.service_resource import {{ collection.name }}
-    from {{ package.name }}.service_resource import {{ collection.object_class_name }}
+from {{ package.name }}.service_resource import {{ package.service_resource.name }}
+from {{ package.name }}.service_resource import {{ collection.name }}
+from {{ package.name }}.service_resource import {{ collection.object_class_name }}
 
 
-    session = Session()
+session = Session()
 
-    resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
-    
-    collection: {{ collection.name }} = resource.{{ collection.attribute_name }}
-    for item in collection:
-        item: {{ collection.object_class_name }}
-        print(item)
-    ```
+resource: {{ package.service_resource.name }} = session.resource("{{ package.service_name.boto3_name }}")
+
+collection: {{ collection.name }} = resource.{{ collection.attribute_name }}
+for item in collection:
+    item: {{ collection.object_class_name }}
+    print(item)
+```
 {% endif %}
 {% endif %}

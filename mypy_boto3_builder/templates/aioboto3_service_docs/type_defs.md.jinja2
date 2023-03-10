@@ -7,7 +7,9 @@
 {% for typed_dict in package.typed_dicts -%}
 ## {{ typed_dict.name }}
 
-```python title="Usage Example"
+```python
+# {{ typed_dict.name }} usage example
+
 from {{ package.name }}.type_defs import {{ typed_dict.name }}
 
 def get_value() -> {{ typed_dict.name }}:
@@ -20,7 +22,9 @@ def get_value() -> {{ typed_dict.name }}:
     {{ '\n    }\n' -}}
 ```
 
-```python title="Definition"
+```python
+# {{ typed_dict.name }} definition
+
 class {{ typed_dict.name }}(TypedDict):
 {% for child in typed_dict.iterate_children() -%}
     {{ '    ' -}}{{ child.name -}}{{ ': ' -}}

@@ -9,8 +9,10 @@
 Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}")`, included resources and collections.
 [:material-aws: boto3 documentation]({{ package.service_resource.boto3_doc_link }})
 
-```python title="Usage example"
-from {{ package.name  }}.service_resource import {{ package.service_resource.name }}
+```python
+# {{ package.service_resource.name }} usage example
+
+from {{ package.name }}.service_resource import {{ package.service_resource.name }}
 
 def get_{{ service_name.boto3_name }}_resource() -> {{ package.service_resource.name }}:
     return boto3.resource("{{ service_name.boto3_name }}")
@@ -34,7 +36,9 @@ Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(col
 Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ collection.attribute_name }}` collection.
 [:material-aws: boto3 documentation]({{ collection.boto3_doc_link }})
 
-```python title="Usage example"
+```python
+# {{ collection.name }} usage example
+
 from {{ package.name }}.service_resource import {{ collection.name }}
 
 def get_collection() -> {{ collection.name }}:
@@ -64,7 +68,9 @@ Type annotations and code completion for `#!python {{ package.library_name }}.re
 Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ resource.name }}` class.
 [:material-aws: boto3 documentation]({{ resource.boto3_doc_link }})
 
-```python title="Usage example"
+```python
+# {{ resource.name }} usage example
+
 from {{ package.name }}.service_resource import {{ resource.name }}
 
 def get_resource() -> {{ resource.name }}:
@@ -90,7 +96,9 @@ Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(col
 Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...).{{ collection.attribute_name }}` collection.
 [:material-aws: boto3 documentation]({{ collection.boto3_doc_link }})
 
-```python title="Usage example"
+```python
+# {{ collection.name }} usage example
+
 from {{ package.name }}.service_resource import {{ collection.name }}
 
 def get_collection() -> {{ collection.name }}:
