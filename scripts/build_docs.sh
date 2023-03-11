@@ -7,5 +7,5 @@ cd ${ROOT_PATH}
 python -m mypy_boto3_builder ../boto3_stubs_docs_copy/docsmd --product boto3-docs $@
 
 cd ../boto3_stubs_docs_copy/
-mkdocs build
+python -m mkdocs build
 cd -
