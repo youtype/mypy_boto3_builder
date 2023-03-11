@@ -19,14 +19,16 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ env.MAIN_BRANCH }}
+      - name: Set up git
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
       - name: Create gh-pages branch if not exists
         run: |
           GIT_URL=`git config --get remote.origin.url`
           GH_PAGES_BRANCH=`git ls-remote --heads ${GIT_URL} gh-pages`
           if [[ "${GH_PAGES_BRANCH}" == "" ]]; then
             echo "creating gh-pages branch"
-            git config --global user.email "github-actions"
-            git config --global user.name "github-actions@github.com"
             git symbolic-ref HEAD refs/heads/gh-pages
             rm .git/index
             git clean -fdx
@@ -63,8 +65,6 @@ jobs:
       - name: Commit changes
         run: |
           cd ./gh-pages
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
           rm -rf docs docsmd || true
           mv ../docs .
           mv ../docsmd .

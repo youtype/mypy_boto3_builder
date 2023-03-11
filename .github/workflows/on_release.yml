@@ -43,12 +43,14 @@ jobs:
           poetry version ${VERSION}
           rm -rf *.egg-info || true
           poetry install -n
+      - name: Set up git
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
       - name: Commit changes
         env:
           VERSION: ${{ steps.version.outputs.result }}
         run: |
-          git config --global user.email "github-actions"
-          git config --global user.name "github-actions@github.com"
           git add pyproject.toml
           git commit -m "Release ${VERSION}"
           git push
