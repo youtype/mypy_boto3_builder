@@ -28,7 +28,7 @@ class PackageWriter:
 
 ### PackageWriter().write_docs
 
-[Show source in package_writer.py:205](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L205)
+[Show source in package_writer.py:204](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L204)
 
 Generate docs for a package.
 
@@ -45,7 +45,7 @@ def write_docs(self, package: Package, templates_path: Path) -> None:
 
 ### PackageWriter().write_package
 
-[Show source in package_writer.py:175](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L175)
+[Show source in package_writer.py:174](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L174)
 
 Generate files for a package.
 
@@ -75,7 +75,7 @@ def write_package(
 
 ### PackageWriter().write_service_docs
 
-[Show source in package_writer.py:326](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L326)
+[Show source in package_writer.py:325](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L325)
 
 Create service docs files.
 
@@ -97,7 +97,7 @@ def write_service_docs(self, package: ServicePackage, templates_path: Path) -> N
 
 ### PackageWriter().write_service_package
 
-[Show source in package_writer.py:305](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L305)
+[Show source in package_writer.py:304](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L304)
 
 Create stubs files for service.
 

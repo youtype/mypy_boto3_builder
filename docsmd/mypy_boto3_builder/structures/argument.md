@@ -34,6 +34,19 @@ class Argument:
         ...
 ```
 
+### Argument().copy
+
+[Show source in argument.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L76)
+
+Deep copy argument.
+
+#### Signature
+
+```python
+def copy(self: _R) -> _R:
+    ...
+```
+
 ### Argument().is_kwflag
 
 [Show source in argument.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L54)
