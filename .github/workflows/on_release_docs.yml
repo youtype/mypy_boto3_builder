@@ -72,5 +72,3 @@ jobs:
           git add docsmd
           git commit -am "Update docs"
           git push
-
-          mv dist/* ./gh-pages
