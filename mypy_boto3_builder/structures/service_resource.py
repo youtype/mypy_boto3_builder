@@ -1,7 +1,7 @@
 """
 Boto3 ServiceResource.
 """
-from typing import Iterator
+from collections.abc import Iterator
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 

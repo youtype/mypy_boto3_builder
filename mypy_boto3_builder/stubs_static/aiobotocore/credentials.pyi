@@ -1,5 +1,5 @@
 import logging
-from typing import Any, Optional, Type, TypeVar
+from typing import Any, Optional, TypeVar
 
 from aiobotocore.client import AioBaseClient
 from aiobotocore.config import AioConfig as AioConfig

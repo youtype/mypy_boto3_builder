@@ -1,8 +1,8 @@
 """
 Parsed Service package.
 """
-from collections.abc import Iterable
-from typing import Iterator, Literal
+from collections.abc import Iterable, Iterator
+from typing import Literal
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord

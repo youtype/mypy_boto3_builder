@@ -3,8 +3,7 @@ Main entrypoint for builder.
 """
 import sys
 import warnings
-from collections.abc import Iterable
-from typing import Sequence
+from collections.abc import Iterable, Sequence
 
 from boto3.session import Session
 
