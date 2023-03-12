@@ -2,7 +2,6 @@
 Parser for boto3 changelog.
 """
 import re
-from functools import cache
 
 import requests
 
@@ -14,9 +13,15 @@ class BotocoreChangelog:
 
     URL = "https://raw.githubusercontent.com/boto/botocore/develop/CHANGELOG.rst"
 
-    @cache
+    def __init__(self) -> None:
+        self._changelog: str | None = None
+
     def _get_changelog(self) -> str:
-        return requests.get(self.URL).content.decode()
+        if self._changelog is not None:
+            return self._changelog
+
+        self._changelog = requests.get(self.URL).content.decode()
+        return self._changelog
 
     def _get_section(self, version: str) -> str:
         result: list[str] = []

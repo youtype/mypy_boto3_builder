@@ -62,11 +62,6 @@ class FakeAnnotation(ABC):
         """
         yield self
 
-    def add_child(self: _R, child: _R) -> None:
-        """
-        Add new child to `TypeSubscript` or `TypeTypedDict` annotation.
-        """
-
     def is_dict(self) -> bool:
         """
         Whether type annotation is `Dict` or `TypedDict`.
