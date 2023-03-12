@@ -1,7 +1,4 @@
 name: Code style and test
-concurrency:
-  group: on_push
-  cancel-in-progress: true
 
 on:
   push:
@@ -56,6 +53,7 @@ jobs:
 
   integration-tests:
     name: Integration tests
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
