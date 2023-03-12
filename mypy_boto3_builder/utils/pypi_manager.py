@@ -15,11 +15,11 @@ class PyPIManager:
         package -- PyPI package name
     """
 
-    JSON_URL = "https://pypi.org/pypi/{}/json"
+    JSON_URL = "https://pypi.org/pypi/{package}/json"
 
     def __init__(self, package: str) -> None:
         self.package = package
-        self.json_url = self.JSON_URL.format(package)
+        self.json_url = self.JSON_URL.format(package=package)
         self._versions: set[Version] | None = None
 
     def has_version(self, version: str) -> bool:
