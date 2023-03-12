@@ -438,7 +438,10 @@ class ShapeParser:
         if not is_streaming:
             is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
             if output or output_child:
-                is_streaming = self.proxy_operation_model._get_streaming_body(shape) is not None  # type: ignore
+                is_streaming = (
+                    self.proxy_operation_model._get_streaming_body(shape)  # type: ignore
+                    is not None
+                )
 
         type_name = self._get_shape_type_name(shape)
         if is_streaming and type_name == "blob":

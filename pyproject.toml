@@ -135,13 +135,11 @@ exclude = [
     "tests",
     "**/build",
     "typestubs",
-    "mypy_boto3_builder/stubs_static/aioboto3",
-    "mypy_boto3_builder/stubs_static/botocore/crt",
 ]
 reportMissingImports = "error"
-reportMissingTypeStubs = false
+reportMissingTypeStubs = "error"
 reportMissingTypeArgument = "error"
 reportIncompatibleMethodOverride = "error"
 reportIncompatibleVariableOverride = "error"
 reportUnknownParameterType = "error"
-pythonVersion = "3.11"
+pythonVersion = "3.10"
