@@ -102,3 +102,12 @@ class AliasInternalImport(InternalImport):
             stringify=False,
             use_alias=True,
         )
+
+    def copy(self: _R) -> _R:
+        """
+        Create a copy of type annotation wrapper.
+        """
+        return self.__class__(
+            self.name,
+            self.service_name,
+        )
