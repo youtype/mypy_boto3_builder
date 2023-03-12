@@ -176,13 +176,13 @@ class TypeTypedDict(FakeAnnotation):
 
     def is_dict(self) -> bool:
         """
-        Always True as it is a TypedDict.
+        Whether type annotation is `Dict` or `TypedDict`.
         """
         return True
 
     def is_typed_dict(self) -> bool:
         """
-        Always True as it is a TypedDict.
+        Whether type annotation is `TypedDict`.
         """
         return True
 

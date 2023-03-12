@@ -45,7 +45,7 @@ class Namespace:
 
 def parse_args(args: Sequence[str]) -> Namespace:
     """
-    Main CLI parser for builder.
+    Parse CLI arguments.
 
     Returns:
         Argument parser.
