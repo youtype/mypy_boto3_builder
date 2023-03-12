@@ -38,7 +38,7 @@ class ImportString:
             self.parts.append(part)
 
     @classmethod
-    def from_str(cls, import_string: str) -> "ImportString":
+    def from_str(cls: type[_R], import_string: str) -> _R:
         """
         Create from string.
         """

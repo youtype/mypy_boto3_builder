@@ -1,9 +1,13 @@
 """
 Helper for Python import strings with not set master module name.
 """
+from typing import TypeVar
+
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+
+_R = TypeVar("_R", bound="InternalImportRecord")
 
 
 class InternalImportRecord(ImportRecord):
@@ -21,7 +25,7 @@ class InternalImportRecord(ImportRecord):
         source = ImportString.parent() + self._local_source
         super().__init__(source, name=name, alias=alias)
 
-    def get_external(self, module_name: str) -> ImportRecord:
+    def get_external(self: _R, module_name: str) -> _R:
         """
         Get full import record with `module_name` set as master module.
 

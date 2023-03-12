@@ -2,6 +2,7 @@
 Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`.
 """
 from collections.abc import Iterable
+from typing import TypeVar
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -9,6 +10,8 @@ from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.utils.strings import is_reserved
+
+_R = TypeVar("_R", bound="TypeLiteral")
 
 
 class TypeLiteral(FakeAnnotation):
@@ -95,11 +98,11 @@ class TypeLiteral(FakeAnnotation):
 
         return InternalImportRecord(ServiceModuleName.literals, name=self.name)
 
-    def copy(self) -> "TypeLiteral":
+    def copy(self: _R) -> _R:
         """
         Create a copy of type annotation wrapper.
         """
-        return TypeLiteral(self.name, self.children)
+        return self.__class__(self.name, self.children)
 
     def is_literal(self) -> bool:
         """

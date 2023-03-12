@@ -157,7 +157,7 @@ class ImportRecord:
 
         return False
 
-    def get_external(self, module_name: str) -> "ImportRecord":
+    def get_external(self: _R, module_name: str) -> _R:
         """
         Get itself.
 
