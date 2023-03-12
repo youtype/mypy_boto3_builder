@@ -1,9 +1,7 @@
 """
 Wrapper for Python import strings.
 """
-from typing import TypeVar
-
-_R = TypeVar("_R", bound="ImportString")
+from typing import Self
 
 
 class ImportString:
@@ -45,7 +43,7 @@ class ImportString:
         return cls(*import_string.split("."))
 
     @classmethod
-    def empty(cls: type[_R]) -> _R:
+    def empty(cls) -> Self:
         """
         Create an empty ImportString.
         """
@@ -54,7 +52,7 @@ class ImportString:
         return result
 
     @classmethod
-    def parent(cls: type[_R]) -> _R:
+    def parent(cls) -> Self:
         """
         Get parent ImportString.
         """
@@ -77,12 +75,12 @@ class ImportString:
     def __gt__(self, other: object) -> bool:
         return str(self) > str(other)
 
-    def __add__(self: _R, other: _R) -> _R:
+    def __add__(self, other: Self) -> Self:
         result = self.__class__.empty()
         result.parts = self.parts + other.parts
         return result
 
-    def startswith(self: _R, other: _R) -> bool:
+    def startswith(self, other: Self) -> bool:
         """
         Check if import string starts with `other`.
 

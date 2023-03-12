@@ -41,7 +41,7 @@ class TypeDocGrammar:
     EOL = LineEnd().suppress()
     word = Word(alphanums + "_")
     line = SkipTo(LineEnd()) + EOL
-    line_indented = Forward()
+    line_indented: ParserElement = Forward()
     any_line = Forward()
     indented_block = indentedBlock(
         line_indented | any_line, indentStack=indent_stack

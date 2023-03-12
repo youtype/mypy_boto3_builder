@@ -42,7 +42,6 @@ classifiers = [
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3 :: Only",
@@ -74,7 +73,7 @@ mypy_boto3_builder = 'mypy_boto3_builder.main:main'
 "Bug Tracker" = "https://github.com/youtype/mypy_boto3_builder/issues"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 pip = "*"
 boto3 = "*"
 black = "*"
@@ -135,11 +134,9 @@ exclude = [
     "tests",
     "**/build",
     "typestubs",
-    "mypy_boto3_builder/stubs_static/aioboto3",
-    "mypy_boto3_builder/stubs_static/botocore/crt",
 ]
 reportMissingImports = "error"
-reportMissingTypeStubs = false
+reportMissingTypeStubs = "error"
 reportMissingTypeArgument = "error"
 reportIncompatibleMethodOverride = "error"
 reportIncompatibleVariableOverride = "error"

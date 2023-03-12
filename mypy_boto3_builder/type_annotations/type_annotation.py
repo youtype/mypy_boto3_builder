@@ -1,13 +1,11 @@
 """
 Wrapper for `typing` type annotation.
 """
-from typing import TypeVar
+from typing import Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-
-_R = TypeVar("_R", bound="TypeAnnotation")
 
 
 class TypeAnnotation(FakeAnnotation):
@@ -105,7 +103,7 @@ class TypeAnnotation(FakeAnnotation):
         """
         return self._wrapped_type == "Union"
 
-    def copy(self: _R) -> _R:
+    def copy(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """

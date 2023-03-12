@@ -1,13 +1,11 @@
 """
 Helper for Python import strings.
 """
-from typing import TypeVar
+from typing import Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.package_data import Boto3StubsPackageData, TypesAioBotocorePackageData
-
-_R = TypeVar("_R", bound="ImportRecord")
 
 
 class ImportRecord:
@@ -29,12 +27,12 @@ class ImportRecord:
     )
 
     def __init__(
-        self: _R,
+        self,
         source: ImportString,
         name: str = "",
         alias: str = "",
         min_version: tuple[int, ...] | None = (3, 8),
-        fallback: _R | None = None,
+        fallback: Self | None = None,
     ) -> None:
         self.source = source
         self.name = name
@@ -46,7 +44,7 @@ class ImportRecord:
         return bool(self.source)
 
     @classmethod
-    def empty(cls: type[_R]) -> _R:
+    def empty(cls) -> Self:
         """
         Whether import record is an empty string.
         """
@@ -85,7 +83,7 @@ class ImportRecord:
 
         return not self == other
 
-    def __gt__(self: _R, other: _R) -> bool:
+    def __gt__(self, other: Self) -> bool:
         if self.fallback is not None and other.fallback is None:
             return True
 
@@ -109,7 +107,7 @@ class ImportRecord:
 
         return self.source > other.source
 
-    def __lt__(self, other: "ImportRecord") -> bool:
+    def __lt__(self, other: Self) -> bool:
         return not self > other
 
     def get_local_name(self) -> str:

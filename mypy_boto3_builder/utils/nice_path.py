@@ -3,9 +3,7 @@ Path that represents it as relative to workdir.
 """
 from collections.abc import Iterable, Iterator
 from pathlib import Path
-from typing import TypeVar
-
-_R = TypeVar("_R", bound=Path)
+from typing import Self
 
 
 class NicePath(Path):
@@ -32,9 +30,7 @@ class NicePath(Path):
 
         return str(path)
 
-    def walk(
-        self: _R, exclude: Iterable[Path] = tuple(), glob_pattern: str = "**/*"
-    ) -> Iterator[_R]:
+    def walk(self, exclude: Iterable[Path] = tuple(), glob_pattern: str = "**/*") -> Iterator[Self]:
         """
         Walk files except for `exclude`.
 

@@ -99,7 +99,7 @@ class DocstringParser:
                 self.logger.debug(e)
                 continue
 
-            match_dict: dict[str, str] = match.asDict()  # type: ignore
+            match_dict: dict[str, str] = match.asDict()
             argument_name = match_dict["name"]
             type_str = match_dict["type_name"]
             argument = self._find_argument_or_append(argument_name)
@@ -246,7 +246,7 @@ class DocstringParser:
             self.logger.warning(f"Cannot parse rtype for {self.prefix}: {e}")
             return None
 
-        match_dict: dict[str, str] = match.asDict()  # type: ignore
+        match_dict: dict[str, str] = match.asDict()
         type_name = match_dict["type_name"]
         return get_type_from_docstring(type_name)
 
@@ -268,7 +268,7 @@ class DocstringParser:
             self.logger.debug(e)
             return None
 
-        match_dict: dict[str, dict[str, object]] = match.asDict()  # type: ignore
+        match_dict: dict[str, dict[str, object]] = match.asDict()
         value = match_dict["value"]
         return TypeValue(self.service_name, f"{self.prefix}Response", value).get_type()
 

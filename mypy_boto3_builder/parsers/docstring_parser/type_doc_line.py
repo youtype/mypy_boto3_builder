@@ -2,9 +2,7 @@
 Structure for parsed as dict `:type:` or `:rtype:` nested lines.
 """
 from collections.abc import Iterable, Mapping
-from typing import TypeVar
-
-_R = TypeVar("_R", bound="TypeDocLine")
+from typing import Self
 
 
 class TypeDocLine:
@@ -34,14 +32,14 @@ class TypeDocLine:
         self._indented = indented
 
     @property
-    def indented(self: _R) -> list[_R]:
+    def indented(self) -> list[Self]:
         """
         Get indented lines list.
 
         Returns:
             A list of `TypeDocLine`.
         """
-        result: list[_R] = []
+        result: list[Self] = []
         for line in self._indented:
             result.append(self.__class__(**line))  # type: ignore
         return result

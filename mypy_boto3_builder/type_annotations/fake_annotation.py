@@ -2,11 +2,10 @@
 Parent class for all type annotation wrappers.
 """
 from abc import ABC, abstractmethod
-from typing import Iterator, TypeVar
+from collections.abc import Iterator
+from typing import Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-
-_R = TypeVar("_R", bound="FakeAnnotation")
 
 
 class FakeAnnotation(ABC):
@@ -29,10 +28,10 @@ class FakeAnnotation(ABC):
 
         return not self == other
 
-    def __gt__(self: _R, other: _R) -> bool:
+    def __gt__(self, other: Self) -> bool:
         return self.get_sort_key() > other.get_sort_key()
 
-    def __lt__(self: _R, other: _R) -> bool:
+    def __lt__(self, other: Self) -> bool:
         return not self > other
 
     def get_sort_key(self) -> str:
@@ -62,7 +61,7 @@ class FakeAnnotation(ABC):
         """
         yield self
 
-    def add_child(self: _R, child: _R) -> None:
+    def add_child(self, child: Self) -> None:
         """
         Add new child to `TypeSubscript` or `TypeTypedDict` annotation.
         """
@@ -92,7 +91,7 @@ class FakeAnnotation(ABC):
         return False
 
     @abstractmethod
-    def copy(self: _R) -> _R:
+    def copy(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """

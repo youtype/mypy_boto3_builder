@@ -1,12 +1,11 @@
 """
 Method or function argument.
 """
-from typing import Iterator, TypeVar
+from collections.abc import Iterator
+from typing import Self
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
-
-_R = TypeVar("_R", bound="Argument")
 
 
 class Argument:
@@ -32,6 +31,9 @@ class Argument:
         self.default: TypeConstant | None = default
         self.prefix: str = prefix
 
+    def __repr__(self) -> str:
+        return self.render()
+
     def render(self) -> str:
         """
         Render argument to a string.
@@ -45,7 +47,7 @@ class Argument:
         return f"{self.name}: {self.type_annotation.render()}{default_suffix}"
 
     @classmethod
-    def kwflag(cls: type[_R]) -> _R:
+    def kwflag(cls) -> Self:
         """
         Create `*` keywords separator.
         """
@@ -73,7 +75,7 @@ class Argument:
         """
         return self.default is None
 
-    def copy(self: _R) -> _R:
+    def copy(self) -> Self:
         """
         Deep copy argument.
         """

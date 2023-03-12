@@ -1,16 +1,14 @@
 """
 Module-level function.
 """
-from collections.abc import Iterable
-from typing import Iterator, TypeVar
+from collections.abc import Iterable, Iterator
+from typing import Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
-
-_R = TypeVar("_R", bound="Function")
 
 
 class Function:
@@ -136,7 +134,7 @@ class Function:
             result.append(self.return_type)
         return result
 
-    def copy(self: _R) -> _R:
+    def copy(self) -> Self:
         """
         Deep copy function.
         """

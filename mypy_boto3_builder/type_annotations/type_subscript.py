@@ -1,8 +1,8 @@
 """
 Wrapper for subscript type annotations, like `List[str]`.
 """
-from collections.abc import Iterable
-from typing import Iterator
+from collections.abc import Iterable, Iterator
+from typing import Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -73,11 +73,11 @@ class TypeSubscript(FakeAnnotation):
         """
         return self.parent.is_list()
 
-    def copy(self) -> "TypeSubscript":
+    def copy(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """
-        return TypeSubscript(self.parent, list(self.children))
+        return self.__class__(self.parent, list(self.children))
 
     def get_local_types(self) -> list[FakeAnnotation]:
         """
