@@ -147,7 +147,7 @@ class ShapeParser:
             return []
         try:
             return list(self._resources_shape["resources"].keys())
-        except KeyError as e:
+        except KeyError:
             return []
 
     def _get_resource_shape(self, name: str) -> dict[str, Any]:
