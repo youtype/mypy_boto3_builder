@@ -1,7 +1,7 @@
 """
 Boto3 ServiceResource sub-Resource.
 """
-from typing import Iterator
+from collections.abc import Iterator
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName

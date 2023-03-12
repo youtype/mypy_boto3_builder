@@ -26,8 +26,8 @@ class SyntaxGrammar:
     plain_value ::= string_value | name_value
     literal_item ::= list_value | dict_value | set_value | plain_value
     literal_value ::= literal_item ("|" literal_item)+
-    any_value ::= literal_value | list_value | dict_value | set_value | union_value
-        | func_call | plain_value
+    any_value ::= literal_value | list_value | dict_value | set_value | union_value | func_call
+        | plain_value
     empty_list_value ::= "[" [ellipsis] [","] "]"
     non_empty_list_value ::= "[" any_value ("," any_value)* [","] "]"
     list_value ::= empty_list_value | non_empty_list_value

@@ -1,8 +1,8 @@
 """
 Writer for package static and template files.
 """
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Sequence
 
 from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName

@@ -6,7 +6,6 @@ import logging
 from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List
 
 from mypy_boto3_builder.constants import PROG_NAME, Product
 from mypy_boto3_builder.service_name import ServiceName
@@ -37,7 +36,7 @@ class Namespace:
     service_names: list[str]
     build_version: str
     installed: bool
-    products: List[Product]
+    products: list[Product]
     list_services: bool
     partial_overload: bool
     skip_published: bool

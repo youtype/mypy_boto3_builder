@@ -9,11 +9,10 @@ import shutil
 import subprocess
 import sys
 import time
-from collections.abc import Sequence
+from collections.abc import Iterator
 from contextlib import contextmanager
 from multiprocessing import Pool
 from pathlib import Path
-from typing import Any, Iterator
 
 MASTER_PACKAGES = [
     "types_aiobotocore_package",
@@ -161,11 +160,11 @@ def publish(path: Path) -> Path:
     raise RuntimeError(f"Failed {path.name} after {attempt} attempts")
 
 
-def get_progress_str(index: int, seq: Sequence[Any]) -> str:
+def get_progress_str(index: int, total: int) -> str:
     """
-    Get `index` progress in `seq` sequence.
+    Get `index` progress in `total`.
     """
-    total_str = f"{len(seq)}"
+    total_str = f"{total}"
     current_str = f"{{:0{len(total_str)}}}".format(index + 1)
     return f"[{current_str}/{total_str}]"
 
@@ -213,14 +212,16 @@ def main() -> None:
             for index, path in enumerate(pool.imap(build, build_paths)):
                 version = (path / "setup.py").read_text().split("\n")
                 version = get_version(path)
-                logger.info(f"{get_progress_str(index, build_paths)} Built {path.name} {version}")
+                logger.info(
+                    f"{get_progress_str(index, len(build_paths))} Built {path.name} {version}"
+                )
 
     if not args.skip_publish:
         with Pool(args.threads) as pool:
             for index, path in enumerate(pool.imap(publish, service_paths)):
                 version = get_version(path)
                 logger.info(
-                    f"{get_progress_str(index, build_paths)} Published {path.name} {version}"
+                    f"{get_progress_str(index, len(build_paths))} Published {path.name} {version}"
                 )
 
         for index, path in enumerate(master_paths):
@@ -228,7 +229,7 @@ def main() -> None:
             total_index = len(service_paths) + index
             version = get_version(path)
             logger.info(
-                f"{get_progress_str(total_index, build_paths)} Published {path.name} {version}"
+                f"{get_progress_str(total_index, len(build_paths))} Published {path.name} {version}"
             )
 
 
