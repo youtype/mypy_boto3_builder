@@ -1,6 +1,7 @@
 """
 Helper for Python import strings.
 """
+import functools
 from typing import TypeVar
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -10,6 +11,7 @@ from mypy_boto3_builder.package_data import Boto3StubsPackageData, TypesAioBotoc
 _R = TypeVar("_R", bound="ImportRecord")
 
 
+@functools.total_ordering
 class ImportRecord:
     """
     Helper for Python import strings.
@@ -75,15 +77,9 @@ class ImportRecord:
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, ImportRecord):
-            raise ValueError(f"Cannot compare ImportString with {other}")
+            return False
 
         return str(self) == str(other)
-
-    def __ne__(self, other: object) -> bool:
-        if not isinstance(other, ImportRecord):
-            raise ValueError(f"Cannot compare ImportString with {other}")
-
-        return str(self) != str(other)
 
     def __gt__(self: _R, other: _R) -> bool:
         if self.fallback is not None and other.fallback is None:
@@ -108,9 +104,6 @@ class ImportRecord:
             return False
 
         return self.source > other.source
-
-    def __lt__(self, other: "ImportRecord") -> bool:
-        return not self > other
 
     def get_local_name(self) -> str:
         """

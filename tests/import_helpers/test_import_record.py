@@ -25,10 +25,7 @@ class TestImportRecord:
         assert hash(ImportRecord(source_mock, "name")) != hash(ImportRecord(source_mock, "name2"))
         assert ImportRecord(source_mock, "name") == ImportRecord(source_mock, "name")
         assert ImportRecord(source_mock, "name") != ImportRecord(source_mock, "name2")
-        with pytest.raises(ValueError):
-            assert ImportRecord(source_mock, "name") == "test"
-        with pytest.raises(ValueError):
-            assert ImportRecord(source_mock, "name") != "test"
+        assert ImportRecord(source_mock, "name") != "test"
 
     def test_comparison(self) -> None:
         local_source = ImportString("mypy_boto3")

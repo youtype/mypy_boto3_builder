@@ -1,6 +1,7 @@
 """
 Parent class for all type annotation wrappers.
 """
+import functools
 from abc import ABC, abstractmethod
 from collections.abc import Iterator
 from typing import TypeVar
@@ -10,6 +11,7 @@ from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 _R = TypeVar("_R", bound="FakeAnnotation")
 
 
+@functools.total_ordering
 class FakeAnnotation(ABC):
     """
     Parent class for all type annotation wrappers.
@@ -24,17 +26,8 @@ class FakeAnnotation(ABC):
 
         return self.get_sort_key() == other.get_sort_key()
 
-    def __ne__(self, other: object) -> bool:
-        if not isinstance(other, FakeAnnotation):
-            return True
-
-        return self.get_sort_key() != other.get_sort_key()
-
     def __gt__(self: _R, other: _R) -> bool:
         return self.get_sort_key() > other.get_sort_key()
-
-    def __lt__(self: _R, other: _R) -> bool:
-        return not self > other
 
     def get_sort_key(self) -> str:
         """

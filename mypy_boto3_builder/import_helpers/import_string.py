@@ -1,11 +1,13 @@
 """
 Wrapper for Python import strings.
 """
+import functools
 from typing import TypeVar
 
 _R = TypeVar("_R", bound="ImportString")
 
 
+@functools.total_ordering
 class ImportString:
     """
     Wrapper for Python import strings.
