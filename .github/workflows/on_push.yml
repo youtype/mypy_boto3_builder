@@ -1,11 +1,7 @@
 name: Code style and test
 
 on:
-  push:
-    paths-ignore:
-      - pyproject.toml
-      - setup.cfg
-      - CHANGELOG.md
+  push: {}
   workflow_dispatch: {}
 
 jobs:
