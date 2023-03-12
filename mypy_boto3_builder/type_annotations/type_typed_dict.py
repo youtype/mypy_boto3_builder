@@ -78,7 +78,7 @@ class TypeTypedDict(FakeAnnotation):
         children: Iterable[TypedDictAttribute] = (),
         docstring: str = "",
         stringify: bool = False,
-        replace_with_dict: Iterable[str] = tuple(),
+        replace_with_dict: Iterable[str] = (),
     ) -> None:
         self.name = name
         self.children = list(children)
@@ -266,9 +266,7 @@ class TypeTypedDict(FakeAnnotation):
 
         return result
 
-    def get_children_literals(
-        self, processed: Iterable["TypeTypedDict"] = tuple()
-    ) -> set[TypeLiteral]:
+    def get_children_literals(self, processed: Iterable["TypeTypedDict"] = ()) -> set[TypeLiteral]:
         """
         Extract required TypeLiteral list from attributes.
         """

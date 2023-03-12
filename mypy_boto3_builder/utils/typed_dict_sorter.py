@@ -24,11 +24,11 @@ class TypedDictSorter:
     def _get_typed_dicts_map(
         cls, typed_dicts: Iterable[TypeTypedDict], skip: Iterable[str] = ()
     ) -> dict[str, TypeTypedDict]:
-        result = {}
+        result: dict[str, TypeTypedDict] = {}
         for typed_dict in typed_dicts:
             result[typed_dict.name] = typed_dict
             children = typed_dict.get_children_typed_dicts()
-            child_skip = set([*skip, *result.keys()])
+            child_skip = {*skip, *result.keys()}
             new_children = [i for i in children if i.name not in child_skip]
             if new_children:
                 result.update(cls._get_typed_dicts_map(new_children, skip=child_skip))

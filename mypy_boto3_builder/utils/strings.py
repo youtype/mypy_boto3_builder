@@ -10,13 +10,11 @@ from unittest.mock import MagicMock
 
 from botocore.utils import get_service_module_name
 
-RESERVED_NAMES = set(
-    (
-        *dir(typing),
-        *dir(builtins),
-        *keyword.kwlist,
-    )
-)
+RESERVED_NAMES = {
+    *dir(typing),
+    *dir(builtins),
+    *keyword.kwlist,
+}
 MAX_DOCSTRING_LENGTH: int = 300
 
 

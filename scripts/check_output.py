@@ -14,7 +14,6 @@ import subprocess
 import sys
 import tempfile
 from dataclasses import dataclass
-from importlib.resources import Package
 from pathlib import Path
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
@@ -78,7 +77,7 @@ class CLINamespace:
 
 def parse_args() -> CLINamespace:
     """
-    Setup CLI parser.
+    Parse CLI arguments.
     """
     parser = argparse.ArgumentParser(__file__)
     parser.add_argument("-p", "--path", type=Path, default=ROOT_PATH / "mypy_boto3_output")
@@ -218,7 +217,7 @@ def check_snapshot(path: Path) -> None:
 
 def main() -> None:
     """
-    Main CLI entrypoint.
+    Run main logic.
     """
     args = parse_args()
     logger = setup_logging(logging.INFO)
@@ -229,9 +228,8 @@ def main() -> None:
         for package_path in folder.iterdir():
             if not is_package_dir(package_path):
                 continue
-            if args.services:
-                if not any(s in package_path.name for s in args.services):
-                    continue
+            if args.services and not any(s in package_path.name for s in args.services):
+                continue
             logger.info(f"Checking {package_path.name} ...")
             try:
                 check_snapshot(package_path)

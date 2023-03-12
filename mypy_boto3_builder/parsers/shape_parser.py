@@ -185,7 +185,7 @@ class ShapeParser:
         method_name: str,
         operation_name: str,
         shape: StructureShape,
-        exclude_names: Iterable[str] = tuple(),
+        exclude_names: Iterable[str] = (),
         optional_only: bool = False,
     ) -> list[Argument]:
         result: list[Argument] = []
@@ -315,7 +315,7 @@ class ShapeParser:
         if literal_type_stub:
             return TypeLiteral(literal_name, literal_type_stub)
 
-        return TypeLiteral(literal_name, [option for option in shape.enum])
+        return TypeLiteral(literal_name, list(shape.enum))
 
     def _parse_shape_map(
         self,

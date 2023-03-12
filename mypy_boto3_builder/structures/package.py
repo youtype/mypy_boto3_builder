@@ -17,7 +17,7 @@ class Package:
     def __init__(
         self,
         data: type[BasePackageData],
-        service_names: Iterable[ServiceName] = tuple(),
+        service_names: Iterable[ServiceName] = (),
     ) -> None:
         self.data = data
         self.name = data.NAME

@@ -32,9 +32,7 @@ class NicePath(Path):
 
         return str(path)
 
-    def walk(
-        self: _R, exclude: Iterable[Path] = tuple(), glob_pattern: str = "**/*"
-    ) -> Iterator[_R]:
+    def walk(self: _R, exclude: Iterable[Path] = (), glob_pattern: str = "**/*") -> Iterator[_R]:
         """
         Walk files except for `exclude`.
 

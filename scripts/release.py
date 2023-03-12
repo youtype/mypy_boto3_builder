@@ -183,7 +183,7 @@ def get_version(path: Path) -> str:
 
 def main() -> None:
     """
-    Main CLI entrypoint.
+    Run main logic.
     """
     args = parse_args()
     setup_logging(logging.DEBUG)

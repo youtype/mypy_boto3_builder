@@ -23,8 +23,8 @@ class TypesAioBoto3Package(Package):
         self,
         data: type[BasePackageData],
         session_class: ClassRecord | None = None,
-        service_names: Iterable[ServiceName] = tuple(),
-        service_packages: Iterable[ServicePackage] = tuple(),
+        service_names: Iterable[ServiceName] = (),
+        service_packages: Iterable[ServicePackage] = (),
     ):
         super().__init__(data)
         self.session_class = session_class or ClassRecord("Session")
@@ -46,25 +46,23 @@ class TypesAioBoto3Package(Package):
         """
         Get import reciords for `session.py[i]`.
         """
-        import_records: set[ImportRecord] = set(
-            [
-                ImportRecord(
-                    ImportString("aioboto3", "resources", "factory"), "AIOBoto3ResourceFactory"
-                ),
-                ImportRecord(ImportString("aiobotocore", "config"), "AioConfig"),
-                ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
-                ImportRecord(ImportString("botocore", "loaders"), "Loader"),
-                ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
-                ImportRecord(ImportString("typing"), "Any"),
-                ImportRecord(ImportString("typing"), "List"),
-                ImportRecord(ImportString("typing"), "Optional"),
-                ImportRecord(ImportString("typing"), "Union"),
-                ImportRecord(ImportString("sys")),
-                TypeLiteral.get_typing_import_record(),
-            ]
-        )
+        import_records: set[ImportRecord] = {
+            ImportRecord(
+                ImportString("aioboto3", "resources", "factory"), "AIOBoto3ResourceFactory"
+            ),
+            ImportRecord(ImportString("aiobotocore", "config"), "AioConfig"),
+            ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
+            ImportRecord(ImportString("botocore", "loaders"), "Loader"),
+            ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
+            ImportRecord(ImportString("typing"), "Any"),
+            ImportRecord(ImportString("typing"), "List"),
+            ImportRecord(ImportString("typing"), "Optional"),
+            ImportRecord(ImportString("typing"), "Union"),
+            ImportRecord(ImportString("sys")),
+            TypeLiteral.get_typing_import_record(),
+        }
         import_records.update(self.session_class.get_required_import_records())
-        return list(sorted(import_records))
+        return sorted(import_records)
 
     def get_all_names(self) -> list[str]:
         """
@@ -73,4 +71,4 @@ class TypesAioBoto3Package(Package):
         result = [
             "Session",
         ]
-        return list(sorted(result))
+        return sorted(result)

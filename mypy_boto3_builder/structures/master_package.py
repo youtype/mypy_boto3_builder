@@ -22,8 +22,8 @@ class MasterPackage(Package):
 
     def __init__(
         self,
-        service_names: Iterable[ServiceName] = tuple(),
-        service_packages: Iterable[ServicePackage] = tuple(),
+        service_names: Iterable[ServiceName] = (),
+        service_packages: Iterable[ServicePackage] = (),
     ):
         super().__init__(MypyBoto3PackageData, service_names)
         self.service_packages = list(service_packages)
