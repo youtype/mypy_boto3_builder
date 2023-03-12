@@ -1,6 +1,7 @@
 """
 Parser for botocore shape files.
 """
+import contextlib
 from collections.abc import Iterable, Mapping, Sequence
 from typing import Any
 
@@ -94,25 +95,22 @@ class ShapeParser:
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
         self._resource_name: str = ""
         self._typed_dict_map: dict[str, TypeTypedDict] = {}
+
         self._waiters_shape: Mapping[str, Any] | None = None
-        try:
+        with contextlib.suppress(UnknownServiceError):
             self._waiters_shape = loader.load_service_model(service_name.boto3_name, "waiters-2")
-        except UnknownServiceError:
-            pass
+
         self._paginators_shape: Mapping[str, Any] | None = None
-        try:
+        with contextlib.suppress(UnknownServiceError):
             self._paginators_shape = loader.load_service_model(
                 service_name.boto3_name, "paginators-1"
             )
-        except UnknownServiceError:
-            pass
+
         self._resources_shape: Mapping[str, Any] | None = None
-        try:
+        with contextlib.suppress(UnknownServiceError):
             self._resources_shape = loader.load_service_model(
                 service_name.boto3_name, "resources-1"
             )
-        except UnknownServiceError:
-            pass
 
         self.logger = get_logger()
         self.proxy_operation_model = OperationModel({}, self.service_model)
@@ -170,11 +168,8 @@ class ShapeParser:
         if not service_map:
             return argument_name
 
-        operation_map: dict[str, str] = {}
-        if "*" in service_map:
-            operation_map = service_map["*"]
-        if operation_name in service_map:
-            operation_map = service_map[operation_name]
+        operation_map: dict[str, str] = service_map.get("*", {})
+        operation_map = service_map.get(operation_name, operation_map)
 
         if not operation_map:
             return argument_name

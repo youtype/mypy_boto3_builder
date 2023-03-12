@@ -53,10 +53,11 @@ def parse_service_resource(
     public_methods = get_public_methods(service_resource)
     shape_method_map = shape_parser.get_service_resource_method_map()
     for method_name, public_method in public_methods.items():
-        if method_name in shape_method_map:
-            method = shape_method_map[method_name]
-        else:
-            method = parse_method("ServiceResource", method_name, public_method, service_name)
+        method = shape_method_map.get(
+            method_name,
+            parse_method("ServiceResource", method_name, public_method, service_name),
+        )
+
         docstring = get_short_docstring(inspect.getdoc(public_method) or "")
         method.docstring = docstring
         result.methods.append(method)

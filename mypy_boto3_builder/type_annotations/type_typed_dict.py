@@ -190,19 +190,13 @@ class TypeTypedDict(FakeAnnotation):
         """
         Whether TypedDict has optional keys.
         """
-        for child in self.children:
-            if not child.is_required():
-                return True
-        return False
+        return any(not child.is_required() for child in self.children)
 
     def has_required(self) -> bool:
         """
         Whether TypedDict has required keys.
         """
-        for child in self.children:
-            if child.is_required():
-                return True
-        return False
+        return any(child.is_required() for child in self.children)
 
     def has_both(self) -> bool:
         """
@@ -316,10 +310,8 @@ class TypeTypedDict(FakeAnnotation):
         """
         Iterate over children from required to optional.
         """
-        for child in self.get_required():
-            yield child
-        for child in self.get_optional():
-            yield child
+        yield from self.get_required()
+        yield from self.get_optional()
 
     def get_local_types(self) -> list[FakeAnnotation]:
         """

@@ -83,7 +83,7 @@ class ImportRecord:
         if not isinstance(other, ImportRecord):
             raise ValueError(f"Cannot compare ImportString with {other}")
 
-        return not self == other
+        return str(self) != str(other)
 
     def __gt__(self: _R, other: _R) -> bool:
         if self.fallback is not None and other.fallback is None:
@@ -134,11 +134,10 @@ class ImportRecord:
         """
         Whether import is from 3rd party module.
         """
-        for third_party_import_string in self.third_party_import_strings:
-            if self.source.startswith(third_party_import_string):
-                return True
-
-        return False
+        return any(
+            self.source.startswith(third_party_import_string)
+            for third_party_import_string in self.third_party_import_strings
+        )
 
     def is_local(self) -> bool:
         """
@@ -179,4 +178,4 @@ class ImportRecord:
         """
         Whether ImportString requires `sys` module.
         """
-        return True if (self.fallback and self.min_version) else False
+        return bool(self.fallback and self.min_version)

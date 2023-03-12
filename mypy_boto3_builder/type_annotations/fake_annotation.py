@@ -27,7 +27,7 @@ class FakeAnnotation(ABC):
         if not isinstance(other, FakeAnnotation):
             return True
 
-        return not self == other
+        return self.get_sort_key() != other.get_sort_key()
 
     def __gt__(self: _R, other: _R) -> bool:
         return self.get_sort_key() > other.get_sort_key()

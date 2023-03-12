@@ -49,10 +49,10 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
     shape_method_map = shape_parser.get_client_method_map()
     result.methods.append(result.get_exceptions_property())
     for method_name, public_method in public_methods.items():
-        if method_name in shape_method_map:
-            method = shape_method_map[method_name]
-        else:
-            method = parse_method("Client", method_name, public_method, service_name)
+        method = shape_method_map.get(
+            method_name,
+            parse_method("Client", method_name, public_method, service_name),
+        )
         docstring = get_short_docstring(inspect.getdoc(public_method) or "")
         method.docstring = docstring
         result.methods.append(method)
