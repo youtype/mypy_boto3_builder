@@ -47,6 +47,7 @@ class TypesAioBoto3Package(Package):
         Get import reciords for `session.py[i]`.
         """
         import_records: set[ImportRecord] = {
+            ImportRecord(ImportString("aioboto3", "resources", "base"), "AIOBoto3ServiceResource"),
             ImportRecord(
                 ImportString("aioboto3", "resources", "factory"), "AIOBoto3ResourceFactory"
             ),
@@ -58,6 +59,8 @@ class TypesAioBoto3Package(Package):
             ImportRecord(ImportString("typing"), "List"),
             ImportRecord(ImportString("typing"), "Optional"),
             ImportRecord(ImportString("typing"), "Union"),
+            ImportRecord(ImportString("typing"), "Type"),
+            ImportRecord(ImportString("types"), "TracebackType"),
             ImportRecord(ImportString("sys")),
             TypeLiteral.get_typing_import_record(),
         }

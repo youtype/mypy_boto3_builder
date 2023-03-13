@@ -77,6 +77,9 @@ class AioBotocoreStubsPackage(Package):
             ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
             ImportRecord(ImportString("typing"), "Any"),
             ImportRecord(ImportString("typing"), "List"),
+            ImportRecord(ImportString("typing"), "Type"),
+            ImportRecord(ImportString("typing"), "Optional"),
+            ImportRecord(ImportString("types"), "TracebackType"),
             ImportRecord(ImportString("sys")),
             TypeLiteral.get_typing_import_record(),
         }

@@ -1,5 +1,6 @@
 import asyncio
-from typing import IO, Any, Dict, Mapping, Optional, Tuple, TypeVar, Union
+from types import TracebackType
+from typing import IO, Any, Dict, Mapping, Optional, Tuple, Type, TypeVar, Union
 
 from cryptography.hazmat.backends.openssl.rsa import _RSAPrivateKey, _RSAPublicKey
 
@@ -96,7 +97,12 @@ class S3CSE:
     async def setup(self) -> None: ...
     async def close(self) -> None: ...
     async def __aenter__(self: _R) -> _R: ...
-    async def __aexit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None: ...
+    async def __aexit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_val: Optional[BaseException],
+        tb: Optional[TracebackType],
+    ) -> None: ...
     async def get_object(self, Bucket: str, Key: str, **kwargs: Any) -> Dict[str, Any]: ...
     async def put_object(
         self,

@@ -1,4 +1,5 @@
 import logging
+from types import TracebackType
 from typing import Any, Optional, Type, TypeVar
 
 from boto3.resources.base import ServiceResource
@@ -13,6 +14,6 @@ class AIOBoto3ServiceResource(ServiceResource):
         self,
         exc_type: Optional[Type[BaseException]],
         exc_value: Optional[BaseException],
-        tb: Any,
+        tb: Optional[TracebackType],
     ) -> None: ...
     def close(self) -> None: ...
