@@ -150,3 +150,13 @@ class Function:
             type_ignore=self.type_ignore,
             is_async=self.is_async,
         )
+
+    def remove_argument(self: _R, *names: str) -> _R:
+        """
+        Remove argument by name.
+        """
+        for argument in self.arguments:
+            if argument.name in names:
+                self.arguments.remove(argument)
+
+        return self

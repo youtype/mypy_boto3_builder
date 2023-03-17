@@ -54,9 +54,8 @@ def parse_method(
     """
     logger = get_logger()
     docstring = textwrap.dedent(inspect.getdoc(method) or "")
-    method_name = f"{parent_name}.{name}"
 
-    logger.debug(f"Slow parsing of {method_name}: {len(docstring)} chars")
+    logger.warning(f"Slow parsing of {parent_name}.{name}: {len(docstring)} chars")
     prefix = f"{get_class_prefix(parent_name)}{get_class_prefix(name)}"
     arg_spec_parser = ArgSpecParser(prefix, service_name)
 

@@ -6,6 +6,7 @@ from typing import TypeVar
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
 _R = TypeVar("_R", bound="TypeClass")
@@ -62,3 +63,12 @@ class TypeClass(FakeAnnotation):
         Create a copy of type annotation wrapper.
         """
         return self.__class__(self.value, self.alias)
+
+    def to_external_import(self) -> ExternalImport:
+        """
+        Convert to external import.
+        """
+        import_record = self.get_import_record()
+        return ExternalImport(
+            source=import_record.source, name=import_record.name, alias=self.alias
+        )

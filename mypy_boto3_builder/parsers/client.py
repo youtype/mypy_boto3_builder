@@ -16,6 +16,7 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_maps.service_stub_map import get_stub_method_map
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_client
 from mypy_boto3_builder.utils.strings import get_short_docstring
 
@@ -46,10 +47,16 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
         boto3_client=client,
     )
 
+    parent_name = "Client"
     shape_method_map = shape_parser.get_client_method_map()
+    stub_method_map = get_stub_method_map(service_name, parent_name)
     result.methods.append(result.get_exceptions_property())
     for method_name, public_method in public_methods.items():
         method = shape_method_map.get(method_name)
+
+        if method is None:
+            method = stub_method_map.get(method_name)
+
         if method is None:
             method = parse_method("Client", method_name, public_method, service_name)
 

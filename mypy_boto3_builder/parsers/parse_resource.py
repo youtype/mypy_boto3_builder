@@ -17,6 +17,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.resource import Resource
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.type_maps.service_stub_map import get_stub_method_map
 from mypy_boto3_builder.utils.strings import get_short_docstring
 
 
@@ -40,9 +41,15 @@ def parse_resource(
         service_name=service_name,
     )
     shape_method_map = shape_parser.get_resource_method_map(name)
+    stub_method_map = get_stub_method_map(service_name, name)
+
     public_methods = get_resource_public_methods(resource.__class__)
     for method_name, public_method in public_methods.items():
         method = shape_method_map.get(method_name)
+
+        if method is None:
+            method = stub_method_map.get(method_name)
+
         if method is None:
             method = parse_method(name, method_name, public_method, service_name)
 
