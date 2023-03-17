@@ -2,6 +2,7 @@
 Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 """
 from collections.abc import Iterable, Iterator
+from typing import TypeVar
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -11,6 +12,8 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+
+_R = TypeVar("_R", bound="TypeTypedDict")
 
 
 class TypedDictAttribute:
@@ -50,7 +53,6 @@ class TypedDictAttribute:
         """
         Itera over type annotations.
         """
-        # yield from set(self.get_type_annotation().iterate_types())
         yield from self.type_annotation.iterate_types()
 
     def is_required(self) -> bool:
@@ -78,7 +80,7 @@ class TypeTypedDict(FakeAnnotation):
         children: Iterable[TypedDictAttribute] = (),
         docstring: str = "",
         stringify: bool = False,
-        replace_with_dict: Iterable[str] = tuple(),
+        replace_with_dict: Iterable[str] = (),
     ) -> None:
         self.name = name
         self.children = list(children)
@@ -176,13 +178,13 @@ class TypeTypedDict(FakeAnnotation):
 
     def is_dict(self) -> bool:
         """
-        Always True as it is a TypedDict.
+        Whether type annotation is `Dict` or `TypedDict`.
         """
         return True
 
     def is_typed_dict(self) -> bool:
         """
-        Always True as it is a TypedDict.
+        Whether type annotation is `TypedDict`.
         """
         return True
 
@@ -190,19 +192,13 @@ class TypeTypedDict(FakeAnnotation):
         """
         Whether TypedDict has optional keys.
         """
-        for child in self.children:
-            if not child.is_required():
-                return True
-        return False
+        return any(not child.is_required() for child in self.children)
 
     def has_required(self) -> bool:
         """
         Whether TypedDict has required keys.
         """
-        for child in self.children:
-            if child.is_required():
-                return True
-        return False
+        return any(child.is_required() for child in self.children)
 
     def has_both(self) -> bool:
         """
@@ -230,11 +226,11 @@ class TypeTypedDict(FakeAnnotation):
                 result.append(child)
         return result
 
-    def copy(self) -> "TypeTypedDict":
+    def copy(self: _R) -> _R:
         """
         Create a copy of type annotation wrapper.
         """
-        return TypeTypedDict(
+        return self.__class__(
             self.name,
             list(self.children),
             docstring=self.docstring,
@@ -242,7 +238,7 @@ class TypeTypedDict(FakeAnnotation):
             replace_with_dict=self.replace_with_dict,
         )
 
-    def is_same(self, other: "TypeTypedDict") -> bool:
+    def is_same(self: _R, other: _R) -> bool:
         """
         Check whether typed dict attributes are the same as `other`.
         """
@@ -259,22 +255,20 @@ class TypeTypedDict(FakeAnnotation):
             result.update(child.iterate_types())
         return result
 
-    def get_children_typed_dicts(self) -> set["TypeTypedDict"]:
+    def get_children_typed_dicts(self: _R) -> set[_R]:
         """
         Extract required TypeTypedDict list from attributes.
         """
-        result: set[TypeTypedDict] = set()
+        result: set[_R] = set()
         children_types = self.get_children_types()
         for type_annotation in children_types:
-            if not isinstance(type_annotation, TypeTypedDict):
+            if not isinstance(type_annotation, self.__class__):
                 continue
             result.add(type_annotation)
 
         return result
 
-    def get_children_literals(
-        self, processed: Iterable["TypeTypedDict"] = tuple()
-    ) -> set[TypeLiteral]:
+    def get_children_literals(self: _R, processed: Iterable[_R] = ()) -> set[TypeLiteral]:
         """
         Extract required TypeLiteral list from attributes.
         """
@@ -316,10 +310,8 @@ class TypeTypedDict(FakeAnnotation):
         """
         Iterate over children from required to optional.
         """
-        for child in self.get_required():
-            yield child
-        for child in self.get_optional():
-            yield child
+        yield from self.get_required()
+        yield from self.get_optional()
 
     def get_local_types(self) -> list[FakeAnnotation]:
         """

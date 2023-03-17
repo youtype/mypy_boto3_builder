@@ -34,11 +34,11 @@ class ServicePackage(Package):
         service_name: ServiceName,
         client: Client | None = None,
         service_resource: ServiceResource | None = None,
-        waiters: Iterable[Waiter] = tuple(),
-        paginators: Iterable[Paginator] = tuple(),
-        typed_dicts: Iterable[TypeTypedDict] = tuple(),
-        literals: Iterable[TypeLiteral] = tuple(),
-        helper_functions: Iterable[Function] = tuple(),
+        waiters: Iterable[Waiter] = (),
+        paginators: Iterable[Paginator] = (),
+        typed_dicts: Iterable[TypeTypedDict] = (),
+        literals: Iterable[TypeLiteral] = (),
+        helper_functions: Iterable[Function] = (),
     ):
         super().__init__(data)
         self.name = data.get_service_package_name(service_name)
@@ -85,7 +85,7 @@ class ServicePackage(Package):
                         f" {old_literal.children}"
                     )
 
-        return list(sorted(found.values()))
+        return sorted(found.values())
 
     def _get_typed_dicts(self) -> set[TypeTypedDict]:
         result: set[TypeTypedDict] = set()
@@ -168,7 +168,7 @@ class ServicePackage(Package):
                 )
             )
 
-        return list(sorted(import_records))
+        return sorted(import_records)
 
     def get_init_all_names(self) -> list[str]:
         """
@@ -201,7 +201,7 @@ class ServicePackage(Package):
             if import_record.fallback:
                 import_records.add(ImportRecord(ImportString("sys")))
 
-        return list(sorted(import_records))
+        return sorted(import_records)
 
     def get_service_resource_required_import_records(self) -> list[ImportRecord]:
         """
@@ -217,7 +217,7 @@ class ServicePackage(Package):
             if import_record.needs_sys_fallback():
                 import_records.add(ImportRecord(ImportString("sys")))
 
-        return list(sorted(import_records))
+        return sorted(import_records)
 
     def get_paginator_required_import_records(self) -> list[ImportRecord]:
         """
@@ -237,7 +237,7 @@ class ServicePackage(Package):
                 if import_record.fallback:
                     import_records.add(ImportRecord(ImportString("sys")))
 
-        return list(sorted(import_records))
+        return sorted(import_records)
 
     def get_waiter_required_import_records(self) -> list[ImportRecord]:
         """
@@ -252,7 +252,7 @@ class ServicePackage(Package):
                 if import_record.fallback:
                     import_records.add(ImportRecord(ImportString("sys")))
 
-        return list(sorted(import_records))
+        return sorted(import_records)
 
     def get_type_defs_required_import_records(self) -> list[ImportRecord]:
         """
@@ -288,7 +288,7 @@ class ServicePackage(Package):
                     import_record.get_external(self.get_module_name(self.service_name))
                 )
 
-        return list(sorted(import_records))
+        return sorted(import_records)
 
     def get_literals_required_import_records(self) -> list[ImportRecord]:
         """
@@ -297,7 +297,7 @@ class ServicePackage(Package):
         import_records: set[ImportRecord] = set()
         import_records.add(ImportRecord(ImportString("sys")))
         import_records.add(TypeLiteral.get_typing_import_record())
-        return list(sorted(import_records))
+        return sorted(import_records)
 
     def validate(self) -> None:
         """

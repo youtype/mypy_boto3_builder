@@ -176,7 +176,7 @@ class PackageWriter:
         package: Package,
         templates_path: Path | None = None,
         static_files_path: Path | None = None,
-        exclude_template_names: Sequence[str] = tuple(),
+        exclude_template_names: Sequence[str] = (),
     ) -> None:
         """
         Generate files for a package.

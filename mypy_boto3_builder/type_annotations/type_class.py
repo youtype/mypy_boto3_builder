@@ -2,10 +2,13 @@
 Wrapper for classes like `Paginator`.
 """
 import inspect
+from typing import TypeVar
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+
+_R = TypeVar("_R", bound="TypeClass")
 
 
 class TypeClass(FakeAnnotation):
@@ -54,8 +57,8 @@ class TypeClass(FakeAnnotation):
             alias=self.alias,
         )
 
-    def copy(self) -> "TypeClass":
+    def copy(self: _R) -> _R:
         """
         Create a copy of type annotation wrapper.
         """
-        return TypeClass(self.value, self.alias)
+        return self.__class__(self.value, self.alias)

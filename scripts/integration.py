@@ -188,7 +188,7 @@ def run_call(path: Path) -> None:
 
 def main() -> None:
     """
-    Main CLI entrypoint.
+    Run main logic.
     """
     args = parse_args()
     logger = setup_logging(logging.INFO)

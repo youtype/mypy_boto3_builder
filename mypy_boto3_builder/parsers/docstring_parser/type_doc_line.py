@@ -23,9 +23,9 @@ class TypeDocLine:
         self,
         name: str = "",
         type_name: str = "",
-        line: Iterable[str] = tuple(),
+        line: Iterable[str] = (),
         description: str = "",
-        indented: Iterable[Mapping[str, object]] = tuple(),
+        indented: Iterable[Mapping[str, object]] = (),
     ) -> None:
         self.line = "".join(line)
         self.name = name

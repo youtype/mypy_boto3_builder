@@ -1,7 +1,10 @@
-from typing import Any, Dict, Optional
+from types import TracebackType
+from typing import Any, Dict, Optional, Type, TypeVar
 
 from botocore.endpoint import MAX_POOL_CONNECTIONS as MAX_POOL_CONNECTIONS
 from requests.models import Request, Response
+
+_R = TypeVar("_R")
 
 class AIOHTTPSession:
     def __init__(
@@ -15,7 +18,12 @@ class AIOHTTPSession:
         proxies_config: Optional[Any] = ...,
         connector_args: Optional[Any] = ...,
     ) -> None: ...
-    async def __aenter__(self) -> Any: ...
-    async def __aexit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None: ...
+    async def __aenter__(self: _R) -> _R: ...
+    async def __aexit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_val: Optional[BaseException],
+        tb: Optional[TracebackType],
+    ) -> None: ...
     async def close(self) -> None: ...
     async def send(self, request: Request) -> Response: ...

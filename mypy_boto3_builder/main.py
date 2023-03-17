@@ -133,7 +133,7 @@ def generate_product(
 
 def main() -> None:
     """
-    Main entrypoint for builder.
+    Run builder.
     """
     # FIXME: suppress botocore endpoint warning
     warnings.filterwarnings("ignore", category=FutureWarning, module="botocore.client")

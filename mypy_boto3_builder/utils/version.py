@@ -2,6 +2,8 @@
 Version-related utils.
 """
 
+import contextlib
+
 import pkg_resources
 from boto3 import __version__ as boto3_version
 from botocore import __version__ as botocore_version
@@ -14,10 +16,9 @@ def get_builder_version() -> str:
     """
     Get program version.
     """
-    try:
+    with contextlib.suppress(pkg_resources.DistributionNotFound):
         return pkg_resources.get_distribution(PACKAGE_NAME).version
-    except pkg_resources.DistributionNotFound:
-        pass
+
     return "0.0.0"
 
 
@@ -55,7 +56,7 @@ def get_aiobotocore_version() -> str:
     """
     try:
         from aiobotocore import __version__ as version
-    except (ModuleNotFoundError, ImportError):
+    except ImportError:
         raise RuntimeError("aiobotocore is not installed")
     return version
 
@@ -66,6 +67,6 @@ def get_aioboto3_version() -> str:
     """
     try:
         from aioboto3 import __version__ as version  # type: ignore
-    except (ModuleNotFoundError, ImportError):
+    except ImportError:
         raise RuntimeError("aioboto3 is not installed")
     return version

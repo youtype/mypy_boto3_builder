@@ -22,9 +22,9 @@ class ClassRecord:
     def __init__(
         self,
         name: str,
-        methods: Iterable[Method] = tuple(),
-        attributes: Iterable[Attribute] = tuple(),
-        bases: Iterable[FakeAnnotation] = tuple(),
+        methods: Iterable[Method] = (),
+        attributes: Iterable[Attribute] = (),
+        bases: Iterable[FakeAnnotation] = (),
         use_alias: bool = False,
     ):
         self.name = name
@@ -107,7 +107,7 @@ class ClassRecord:
         """
         Unique method names.
         """
-        return list(sorted(set(i.name for i in self.methods)))
+        return sorted({i.name for i in self.methods})
 
     def get_method(self, name: str) -> Method:
         """

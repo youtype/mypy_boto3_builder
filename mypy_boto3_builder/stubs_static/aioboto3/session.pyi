@@ -1,4 +1,5 @@
-from typing import Any, List, Optional, Union
+from types import TracebackType
+from typing import Any, List, Optional, Type, Union
 
 from aioboto3.resources.base import AIOBoto3ServiceResource
 from aioboto3.resources.factory import AIOBoto3ResourceFactory
@@ -85,5 +86,10 @@ class ResourceCreatorContext:
         config: AioConfig,
         resource_model: Any,
     ) -> None: ...
-    async def __aenter__(self) -> Any: ...
-    async def __aexit__(self, exc_type: Any, exc: Any, tb: Any) -> None: ...
+    async def __aenter__(self) -> AIOBoto3ServiceResource: ...
+    async def __aexit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc: Optional[BaseException],
+        tb: Optional[TracebackType],
+    ) -> None: ...

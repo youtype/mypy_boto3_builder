@@ -42,8 +42,11 @@ class TestMain:
         }
         assert len(get_available_service_names(session_mock)) == 3
 
+    @patch("mypy_boto3_builder.main.get_available_service_names")
     @patch("mypy_boto3_builder.main.Boto3Generator")
     @patch.object(sys, "argv", ["-o", "/tmp", "-b", "1.2.3.post4"])
-    def test_main(self, Boto3GeneratorMock: MagicMock) -> None:
+    def test_main(
+        self, Boto3GeneratorMock: MagicMock, get_available_service_names_mock: MagicMock
+    ) -> None:
         main()
         Boto3GeneratorMock().generate_product.assert_called()

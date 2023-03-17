@@ -19,43 +19,43 @@ packages:
     snapshots:
       stubtest: |-
         error: boto3.setup_default_session is inconsistent, runtime does not have argument "aws_access_key_id"
-        Stub: at line 16 in file ./boto3-stubs/__init__.pyi
+        Stub: in file ./boto3-stubs/__init__.pyi:14
         def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: at line 27 in file ./boto3/__init__.py
+        Runtime: in file ./boto3/__init__.py:27
         def (**kwargs)
 
         error: boto3.setup_default_session is inconsistent, runtime does not have argument "aws_secret_access_key"
-        Stub: at line 16 in file ./boto3-stubs/__init__.pyi
+        Stub: in file ./boto3-stubs/__init__.pyi:14
         def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: at line 27 in file ./boto3/__init__.py
+        Runtime: in file ./boto3/__init__.py:27
         def (**kwargs)
 
         error: boto3.setup_default_session is inconsistent, runtime does not have argument "aws_session_token"
-        Stub: at line 16 in file ./boto3-stubs/__init__.pyi
+        Stub: in file ./boto3-stubs/__init__.pyi:14
         def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: at line 27 in file ./boto3/__init__.py
+        Runtime: in file ./boto3/__init__.py:27
         def (**kwargs)
 
         error: boto3.setup_default_session is inconsistent, runtime does not have argument "region_name"
-        Stub: at line 16 in file ./boto3-stubs/__init__.pyi
+        Stub: in file ./boto3-stubs/__init__.pyi:14
         def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: at line 27 in file ./boto3/__init__.py
+        Runtime: in file ./boto3/__init__.py:27
         def (**kwargs)
 
         error: boto3.setup_default_session is inconsistent, runtime does not have argument "botocore_session"
-        Stub: at line 16 in file ./boto3-stubs/__init__.pyi
+        Stub: in file ./boto3-stubs/__init__.pyi:14
         def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: at line 27 in file ./boto3/__init__.py
+        Runtime: in file ./boto3/__init__.py:27
         def (**kwargs)
 
         error: boto3.setup_default_session is inconsistent, runtime does not have argument "profile_name"
-        Stub: at line 16 in file ./boto3-stubs/__init__.pyi
+        Stub: in file ./boto3-stubs/__init__.pyi:14
         def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: at line 27 in file ./boto3/__init__.py
+        Runtime: in file ./boto3/__init__.py:27
         def (**kwargs)
 
         error: boto3.resources.base.ServiceResource.meta variable differs from runtime type None
-        Stub: at line 30 in file ./boto3-stubs/resources/base.pyi
+        Stub: in file ./boto3-stubs/resources/base.pyi:30
         boto3.resources.base.ResourceMeta
         Runtime:
         None

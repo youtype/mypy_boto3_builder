@@ -1,4 +1,5 @@
-from typing import Any, Callable, Dict, List, Mapping, Optional, TypeVar
+from types import TracebackType
+from typing import Any, Callable, Dict, List, Mapping, Optional, Type, TypeVar
 
 from botocore.client import BaseClient
 from botocore.config import Config
@@ -62,7 +63,12 @@ class S3Transfer:
         callback: Optional[Callable[[int], Any]] = ...,
     ) -> None: ...
     def __enter__(self: _R) -> _R: ...
-    def __exit__(self, *args: Any) -> None: ...
+    def __exit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_value: Optional[BaseException],
+        tb: Optional[TracebackType],
+    ) -> None: ...
 
 class ProgressCallbackInvoker(BaseSubscriber):
     def __init__(self, callback: Callable[[int], Any]) -> None: ...

@@ -1,0 +1,62 @@
+[metadata]
+name = {{ package.pypi_name }}
+version = {{ package.version }}
+author = Vlad Emelianov
+author_email = vlad.emelianov.nz@gmail.com
+description = Type annotations for {{ package.library_name }} {{ package.library_version }} generated with mypy-boto3-builder {{ builder_version }}
+long_description = file: README.md
+keywords = boto3, type-annotations, boto3-stubs, mypy, typeshed, autocomplete
+license = MIT
+classifiers =
+    Development Status :: 5 - Production/Stable
+    Intended Audience :: Developers
+    Environment :: Console
+    License :: OSI Approved :: MIT License
+    Natural Language :: English
+    Operating System :: OS Independent
+    Programming Language :: Python :: 3
+    Programming Language :: Python :: 3.7
+    Programming Language :: Python :: 3.8
+    Programming Language :: Python :: 3.9
+    Programming Language :: Python :: 3.10
+    Programming Language :: Python :: 3.11
+    Programming Language :: Python :: 3.12
+    Programming Language :: Python :: 3 :: Only
+    Programming Language :: Python :: Implementation :: CPython
+    Typing :: Stubs Only
+project_urls =
+    Tracker = {{ builder_repo_url }}/issues
+    Documentation = {{ package.get_local_doc_link() }}
+    Source = {{ builder_repo_url }}
+
+[options]
+zip_safe = False
+include_package_data = True
+packages = find:
+python_requires = >=3.7
+install_requires =
+    botocore-stubs
+    types-s3transfer
+    typing-extensions>=4.1.0; python_version<"3.9"
+
+[options.package_data]
+{{ package.name }} =
+    py.typed
+    *.pyi
+    */*.pyi
+
+[options.extras_require]
+all ={{- '\n' -}}
+{%- for service_name in package.service_names -%}
+{{- '    ' -}}{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}, <{{ package.max_library_version }}{{- '\n' -}}
+{%- endfor -%}
+essential ={{- '\n' -}}
+{%- for service_name in package.essential_service_names -%}
+{{- '    ' -}}{{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}, <{{ package.max_library_version }}{{- '\n' -}}
+{%- endfor -%}
+{{ package.library_name }} =
+    {{ package.library_name }}=={{ package.library_version }}
+    botocore=={{ package.botocore_version }}
+{%- for service_name in package.service_names -%}
+{{- '\n' -}}{{ service_name.extras_name }} = {{ package.data.get_service_pypi_name(service_name) }}>={{ package.min_library_version }}, <{{ package.max_library_version }}
+{%- endfor -%}

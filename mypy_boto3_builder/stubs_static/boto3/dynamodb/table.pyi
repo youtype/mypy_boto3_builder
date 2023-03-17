@@ -1,5 +1,5 @@
-# from types import TracebackType
 import logging
+from types import TracebackType
 from typing import Any, Dict, List, Optional, Type, TypeVar
 
 from botocore.client import BaseClient
@@ -29,5 +29,5 @@ class BatchWriter:
         self,
         exc_type: Optional[Type[BaseException]],
         exc_value: Optional[BaseException],
-        tb: Any,
+        tb: Optional[TracebackType],
     ) -> None: ...

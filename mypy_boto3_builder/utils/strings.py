@@ -10,13 +10,11 @@ from unittest.mock import MagicMock
 
 from botocore.utils import get_service_module_name
 
-RESERVED_NAMES = set(
-    (
-        *dir(typing),
-        *dir(builtins),
-        *keyword.kwlist,
-    )
-)
+RESERVED_NAMES = {
+    *dir(typing),
+    *dir(builtins),
+    *keyword.kwlist,
+}
 MAX_DOCSTRING_LENGTH: int = 300
 
 
@@ -125,7 +123,7 @@ def get_short_docstring(doc: str) -> str:
     if not doc:
         return ""
     for line in doc.splitlines():
-        line = line.strip().rstrip("::")
+        line = line.strip().removesuffix("::")
         if line.startswith(":"):
             break
         if line.lower().startswith("**request syntax**"):

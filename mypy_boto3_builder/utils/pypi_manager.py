@@ -1,7 +1,6 @@
 """
 Version manager for PyPI packages.
 """
-from functools import cache
 from json.decoder import JSONDecodeError
 
 import requests
@@ -16,11 +15,12 @@ class PyPIManager:
         package -- PyPI package name
     """
 
-    JSON_URL = "https://pypi.org/pypi/{}/json"
+    JSON_URL = "https://pypi.org/pypi/{package}/json"
 
     def __init__(self, package: str) -> None:
         self.package = package
-        self.json_url = self.JSON_URL.format(package)
+        self.json_url = self.JSON_URL.format(package=package)
+        self._versions: set[Version] | None = None
 
     def has_version(self, version: str) -> bool:
         """
@@ -44,8 +44,10 @@ class PyPIManager:
             new_version = new_version.bump_postrelease()
         return new_version.dumps()
 
-    @cache
     def _get_versions(self) -> set[Version]:
+        if self._versions is not None:
+            return self._versions
+
         try:
             data = requests.get(self.json_url).json()
         except JSONDecodeError:
@@ -55,4 +57,5 @@ class PyPIManager:
             return set()
 
         version_strs = set(data["releases"].keys())
-        return {Version(i) for i in version_strs}
+        self._versions = {Version(i) for i in version_strs}
+        return self._versions

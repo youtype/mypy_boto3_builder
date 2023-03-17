@@ -1,12 +1,12 @@
 """
 Setup script for {{ package.pypi_name }}.
 """
-from os.path import abspath, dirname
+from pathlib import Path
 
 from setuptools import setup
 
 
-LONG_DESCRIPTION = open(dirname(abspath(__file__)) + "/README.md", "r").read()
+LONG_DESCRIPTION = (Path(__file__).parent / "README.md").read_text()
 
 
 setup(
@@ -48,7 +48,7 @@ setup(
     },
     install_requires=[
         "botocore-stubs",
-        "typing-extensions>=4.1.0",
+        "typing-extensions>=4.1.0; python_version<\"3.9\"",
     ],
     extras_require={
         "all": [

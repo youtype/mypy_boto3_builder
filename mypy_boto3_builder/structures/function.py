@@ -1,8 +1,8 @@
 """
 Module-level function.
 """
-from collections.abc import Iterable
-from typing import Iterator, TypeVar
+from collections.abc import Iterable, Iterator
+from typing import TypeVar
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.structures.argument import Argument
@@ -24,8 +24,8 @@ class Function:
         arguments: Iterable[Argument],
         return_type: FakeAnnotation,
         docstring: str = "",
-        decorators: Iterable[FakeAnnotation] = tuple(),
-        body_lines: Iterable[str] = tuple(),
+        decorators: Iterable[FakeAnnotation] = (),
+        body_lines: Iterable[str] = (),
         type_ignore: bool = False,
         is_async: bool = False,
     ):
@@ -146,7 +146,7 @@ class Function:
             return_type=self.return_type.copy(),
             docstring=self.docstring,
             decorators=[i.copy() for i in self.decorators],
-            body_lines=[i for i in self.body_lines],
+            body_lines=list(self.body_lines),
             type_ignore=self.type_ignore,
             is_async=self.is_async,
         )

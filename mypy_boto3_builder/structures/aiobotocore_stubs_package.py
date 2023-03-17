@@ -24,9 +24,9 @@ class AioBotocoreStubsPackage(Package):
         self,
         data: type[BasePackageData],
         session_class: ClassRecord | None = None,
-        service_names: Iterable[ServiceName] = tuple(),
-        service_packages: Iterable[ServicePackage] = tuple(),
-        init_functions: Iterable[Function] = tuple(),
+        service_names: Iterable[ServiceName] = (),
+        service_packages: Iterable[ServicePackage] = (),
+        init_functions: Iterable[Function] = (),
     ):
         super().__init__(data)
         self.session_class = session_class or ClassRecord("Session")
@@ -49,43 +49,42 @@ class AioBotocoreStubsPackage(Package):
         """
         Get import reciords for `session.py[i]`.
         """
-        import_records: set[ImportRecord] = set(
-            [
-                ImportRecord(
-                    ImportString("aiobotocore", "client"), "AioBaseClient", "AioBaseClient"
-                ),
-                ImportRecord(
-                    ImportString("aiobotocore", "client"), "AioClientCreator", "AioClientCreator"
-                ),
-                ImportRecord(
-                    ImportString("aiobotocore", "credentials"), "AioCredentials", "AioCredentials"
-                ),
-                ImportRecord(
-                    ImportString("aiobotocore", "credentials"),
-                    "create_credential_resolver",
-                    "create_credential_resolver",
-                ),
-                ImportRecord(
-                    ImportString("aiobotocore", "hooks"),
-                    "AioHierarchicalEmitter",
-                    "AioHierarchicalEmitter",
-                ),
-                ImportRecord(
-                    ImportString("aiobotocore", "parsers"),
-                    "AioResponseParserFactory",
-                    "AioResponseParserFactory",
-                ),
-                ImportRecord(ImportString("botocore", "model"), "ServiceModel"),
-                ImportRecord(ImportString("botocore", "session"), "EVENT_ALIASES", "EVENT_ALIASES"),
-                ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
-                ImportRecord(ImportString("typing"), "Any"),
-                ImportRecord(ImportString("typing"), "List"),
-                ImportRecord(ImportString("sys")),
-                TypeLiteral.get_typing_import_record(),
-            ]
-        )
+        import_records: set[ImportRecord] = {
+            ImportRecord(ImportString("aiobotocore", "client"), "AioBaseClient", "AioBaseClient"),
+            ImportRecord(
+                ImportString("aiobotocore", "client"), "AioClientCreator", "AioClientCreator"
+            ),
+            ImportRecord(
+                ImportString("aiobotocore", "credentials"), "AioCredentials", "AioCredentials"
+            ),
+            ImportRecord(
+                ImportString("aiobotocore", "credentials"),
+                "create_credential_resolver",
+                "create_credential_resolver",
+            ),
+            ImportRecord(
+                ImportString("aiobotocore", "hooks"),
+                "AioHierarchicalEmitter",
+                "AioHierarchicalEmitter",
+            ),
+            ImportRecord(
+                ImportString("aiobotocore", "parsers"),
+                "AioResponseParserFactory",
+                "AioResponseParserFactory",
+            ),
+            ImportRecord(ImportString("botocore", "model"), "ServiceModel"),
+            ImportRecord(ImportString("botocore", "session"), "EVENT_ALIASES", "EVENT_ALIASES"),
+            ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
+            ImportRecord(ImportString("typing"), "Any"),
+            ImportRecord(ImportString("typing"), "List"),
+            ImportRecord(ImportString("typing"), "Type"),
+            ImportRecord(ImportString("typing"), "Optional"),
+            ImportRecord(ImportString("types"), "TracebackType"),
+            ImportRecord(ImportString("sys")),
+            TypeLiteral.get_typing_import_record(),
+        }
         import_records.update(self.session_class.get_required_import_records())
-        return list(sorted(import_records))
+        return sorted(import_records)
 
     def get_all_names(self) -> list[str]:
         """
@@ -95,4 +94,4 @@ class AioBotocoreStubsPackage(Package):
             "get_session",
             "Session",
         ]
-        return list(sorted(result))
+        return sorted(result)

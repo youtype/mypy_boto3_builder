@@ -24,10 +24,10 @@ class Boto3StubsPackage(Package):
         self,
         data: type[BasePackageData],
         session_class: ClassRecord | None = None,
-        service_names: Iterable[ServiceName] = tuple(),
-        service_packages: Iterable[ServicePackage] = tuple(),
-        init_functions: Iterable[Function] = tuple(),
-        literals: Iterable[TypeLiteral] = tuple(),
+        service_names: Iterable[ServiceName] = (),
+        service_packages: Iterable[ServicePackage] = (),
+        init_functions: Iterable[Function] = (),
+        literals: Iterable[TypeLiteral] = (),
     ):
         super().__init__(data)
         self.session_class = session_class or ClassRecord("Session")
@@ -51,63 +51,59 @@ class Boto3StubsPackage(Package):
         """
         Get import records for `__init__.py[i]`.
         """
-        import_records: set[ImportRecord] = set(
-            [
-                ImportRecord(ImportString("logging")),
-                ImportRecord(ImportString("typing"), "Any"),
-                ImportRecord(ImportString("sys")),
-                ImportRecord(ImportString("boto3"), "session", alias="session"),
-                ImportRecord(ImportString("boto3", "session"), "Session", "Session"),
-                ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
-                TypeLiteral.get_typing_import_record(),
-            ]
-        )
+        import_records: set[ImportRecord] = {
+            ImportRecord(ImportString("logging")),
+            ImportRecord(ImportString("typing"), "Any"),
+            ImportRecord(ImportString("sys")),
+            ImportRecord(ImportString("boto3"), "session", alias="session"),
+            ImportRecord(ImportString("boto3", "session"), "Session", "Session"),
+            ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
+            TypeLiteral.get_typing_import_record(),
+        }
         for init_function in self.init_functions:
             import_records.update(init_function.get_required_import_records())
 
-        return list(sorted(import_records))
+        return sorted(import_records)
 
     def get_session_required_import_records(self) -> list[ImportRecord]:
         """
         Get import reciords for `session.py[i]`.
         """
-        import_records: set[ImportRecord] = set(
-            [
-                ImportRecord(ImportString("sys")),
-                ImportRecord(ImportString("typing"), "Any"),
-                ImportRecord(ImportString("typing"), "List"),
-                ImportRecord(ImportString("typing"), "Optional"),
-                ImportRecord(ImportString("boto3")),
-                ImportRecord(ImportString("boto3", "utils")),
-                ImportRecord(ImportString("boto3", "resources", "factory"), "ResourceFactory"),
-                ImportRecord(
-                    ImportString("boto3", "exceptions"),
-                    "ResourceNotExistsError",
-                    "ResourceNotExistsError",
-                ),
-                ImportRecord(
-                    ImportString("boto3", "exceptions"),
-                    "UnknownAPIVersionError",
-                    "UnknownAPIVersionError",
-                ),
-                ImportRecord(ImportString("botocore", "session")),
-                ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
-                ImportRecord(ImportString("botocore", "loaders"), "Loader"),
-                ImportRecord(ImportString("botocore", "model"), "ServiceModel", "ServiceModel"),
-                ImportRecord(ImportString("botocore", "client"), "Config"),
-                ImportRecord(
-                    ImportString("botocore", "exceptions"), "DataNotFoundError", "DataNotFoundError"
-                ),
-                ImportRecord(
-                    ImportString("botocore", "exceptions"),
-                    "UnknownServiceError",
-                    "UnknownServiceError",
-                ),
-                TypeLiteral.get_typing_import_record(),
-            ]
-        )
+        import_records: set[ImportRecord] = {
+            ImportRecord(ImportString("sys")),
+            ImportRecord(ImportString("typing"), "Any"),
+            ImportRecord(ImportString("typing"), "List"),
+            ImportRecord(ImportString("typing"), "Optional"),
+            ImportRecord(ImportString("boto3")),
+            ImportRecord(ImportString("boto3", "utils")),
+            ImportRecord(ImportString("boto3", "resources", "factory"), "ResourceFactory"),
+            ImportRecord(
+                ImportString("boto3", "exceptions"),
+                "ResourceNotExistsError",
+                "ResourceNotExistsError",
+            ),
+            ImportRecord(
+                ImportString("boto3", "exceptions"),
+                "UnknownAPIVersionError",
+                "UnknownAPIVersionError",
+            ),
+            ImportRecord(ImportString("botocore", "session")),
+            ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
+            ImportRecord(ImportString("botocore", "loaders"), "Loader"),
+            ImportRecord(ImportString("botocore", "model"), "ServiceModel", "ServiceModel"),
+            ImportRecord(ImportString("botocore", "client"), "Config"),
+            ImportRecord(
+                ImportString("botocore", "exceptions"), "DataNotFoundError", "DataNotFoundError"
+            ),
+            ImportRecord(
+                ImportString("botocore", "exceptions"),
+                "UnknownServiceError",
+                "UnknownServiceError",
+            ),
+            TypeLiteral.get_typing_import_record(),
+        }
         import_records.update(self.session_class.get_required_import_records())
-        return list(sorted(import_records))
+        return sorted(import_records)
 
     def get_all_names(self) -> list[str]:
         """
@@ -123,4 +119,4 @@ class Boto3StubsPackage(Package):
             "client",
             "resource",
         ]
-        return list(sorted(result))
+        return sorted(result)
