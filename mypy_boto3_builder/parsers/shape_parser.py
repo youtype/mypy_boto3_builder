@@ -424,9 +424,11 @@ class ShapeParser:
         return self._get_typed_dict_name(shape)
 
     @staticmethod
-    def _get_streaming_body(shape: StructureShape) -> Shape | None:
-        """Returns the streaming member's shape if any; or None otherwise."""
-        if shape is None:
+    def _get_streaming_body(shape: Shape) -> Shape | None:
+        """
+        Get the streaming member's shape if any; or None otherwise.
+        """
+        if not isinstance(shape, StructureShape):
             return None
         payload = shape.serialization.get("payload")
         if payload is not None:
@@ -456,9 +458,9 @@ class ShapeParser:
         """
         if not is_streaming:
             is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
-            if output or output_child:
-                if isinstance(shape, StructureShape):
-                    is_streaming = self._get_streaming_body(shape) is not None
+            is_output = output or output_child
+            if is_output:
+                is_streaming = self._get_streaming_body(shape) is not None
 
         type_name = self._get_shape_type_name(shape)
         if is_streaming and type_name == "blob":
