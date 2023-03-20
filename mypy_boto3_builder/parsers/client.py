@@ -7,7 +7,8 @@ from boto3.session import Session
 from botocore.errorfactory import ClientExceptionsFactory
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
-from mypy_boto3_builder.parsers.helpers import get_public_methods, parse_method
+from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.parsers.helpers import get_dummy_method, get_public_methods
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
@@ -32,6 +33,7 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
     Returns:
         Client structure.
     """
+    logger = get_logger()
     client = get_boto3_client(session, service_name)
     public_methods = get_public_methods(client)
 
@@ -50,15 +52,15 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
     parent_name = "Client"
     shape_method_map = shape_parser.get_client_method_map()
     stub_method_map = get_stub_method_map(service_name, parent_name)
+    method_map = {**stub_method_map, **shape_method_map}
+
     result.methods.append(result.get_exceptions_property())
     for method_name, public_method in public_methods.items():
-        method = shape_method_map.get(method_name)
+        method = method_map.get(method_name)
 
         if method is None:
-            method = stub_method_map.get(method_name)
-
-        if method is None:
-            method = parse_method("Client", method_name, public_method, service_name)
+            logger.warning(f"Unknown method {parent_name}.{method_name}, replaced with a dummy")
+            method = get_dummy_method(method_name)
 
         docstring = get_short_docstring(inspect.getdoc(public_method) or "")
         method.docstring = docstring

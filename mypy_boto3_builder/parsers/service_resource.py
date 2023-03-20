@@ -10,7 +10,7 @@ from botocore.exceptions import UnknownServiceError
 from botocore.waiter import WaiterModel
 
 from mypy_boto3_builder.logger import get_logger
-from mypy_boto3_builder.parsers.helpers import get_public_methods, parse_method
+from mypy_boto3_builder.parsers.helpers import get_dummy_method, get_public_methods
 from mypy_boto3_builder.parsers.parse_attributes import parse_attributes
 from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.parse_identifiers import parse_identifiers
@@ -55,22 +55,21 @@ def parse_service_resource(
     public_methods = get_public_methods(service_resource)
     shape_method_map = shape_parser.get_service_resource_method_map()
     stub_method_map = get_stub_method_map(service_name, parent_name)
+    method_map = {**stub_method_map, **shape_method_map}
 
     for method_name, public_method in public_methods.items():
-        method = shape_method_map.get(method_name)
+        method = method_map.get(method_name)
 
         if method is None:
-            method = stub_method_map.get(method_name)
-
-        if method is None:
-            method = parse_method("ServiceResource", method_name, public_method, service_name)
+            logger.warning(f"Unknown method {parent_name}.{method_name}, replaced with a dummy")
+            method = get_dummy_method(method_name)
 
         docstring = get_short_docstring(inspect.getdoc(public_method) or "")
         method.docstring = docstring
         result.methods.append(method)
 
     logger.debug("Parsing ServiceResource attributes")
-    attributes = parse_attributes(service_name, "ServiceResource", service_resource, shape_parser)
+    attributes = parse_attributes(service_name, parent_name, service_resource, shape_parser)
     result.attributes.extend(attributes)
 
     identifiers = parse_identifiers(service_resource)
@@ -80,7 +79,7 @@ def parse_service_resource(
     result.attributes.extend(references)
 
     logger.debug("Parsing ServiceResource collections")
-    collections = parse_collections("ServiceResource", service_resource, service_name, shape_parser)
+    collections = parse_collections(parent_name, service_resource, service_name, shape_parser)
     for collection in collections:
         result.collections.append(collection)
         result.attributes.append(

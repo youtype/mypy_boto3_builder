@@ -111,22 +111,6 @@ class TypeTypedDict(FakeAnnotation):
         hash_str = f"{self.name} {children}"
         return hash(hash_str)
 
-    def get_attribute(self, name: str) -> TypedDictAttribute:
-        """
-        Find attribute by `name`.
-
-        Arguments:
-            name -- Attribute name.
-
-        Returns:
-            Found attribute.
-        """
-        for child in self.children:
-            if child.name == name:
-                return child
-
-        raise ValueError(f"No child with name {name}")
-
     def render(self, parent_name: str = "") -> str:
         """
         Render type annotation to a valid Python code for local usage.

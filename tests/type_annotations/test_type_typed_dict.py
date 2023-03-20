@@ -38,12 +38,6 @@ class TestTypeTypedDict:
         assert self.result.docstring == "documentation"
         assert self.result.requires_safe_render
 
-    def test_get_attribute(self) -> None:
-        assert self.result.get_attribute("required") == self.result.children[0]
-
-        with pytest.raises(ValueError):
-            self.result.get_attribute("non_existing")
-
     def test_render(self) -> None:
         result = self.result.copy()
         assert result.render() == "MyDict"
