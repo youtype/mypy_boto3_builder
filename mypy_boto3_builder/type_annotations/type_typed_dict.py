@@ -6,7 +6,6 @@ from typing import TypeVar
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
@@ -133,15 +132,8 @@ class TypeTypedDict(FakeAnnotation):
     def get_typing_import_record() -> ImportRecord:
         """
         Get import record required for using TypedDict.
-
-        Fallback to typing_extensions for py38-.
         """
-        return ImportRecord(
-            ImportString("typing"),
-            "TypedDict",
-            min_version=(3, 9),
-            fallback=ImportRecord(ImportString("typing_extensions"), "TypedDict"),
-        )
+        return Type.TypedDict.get_import_record()
 
     def get_import_record(self) -> ImportRecord:
         """

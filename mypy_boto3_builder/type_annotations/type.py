@@ -26,6 +26,8 @@ class Type:
     Optional = TypeAnnotation("Optional")
     Callable = TypeAnnotation("Callable")
     Awaitable = TypeAnnotation("Awaitable")
+    TypedDict = TypeAnnotation("TypedDict")
+    Literal = TypeAnnotation("Literal")
     IO = TypeAnnotation("IO")
     overload = TypeAnnotation("overload")
     none = TypeConstant(None)
