@@ -4,10 +4,10 @@ Predefined FakeAnnotation instances.
 from datetime import datetime
 from decimal import Decimal
 
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.remove_argument import RemoveArgument
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
@@ -29,19 +29,19 @@ class Type:
     IO = TypeAnnotation("IO")
     overload = TypeAnnotation("overload")
     none = TypeConstant(None)
-    str = TypeClass(str)
+    str = ExternalImport.from_class(str)
     Set = TypeAnnotation("Set")
-    bool = TypeClass(bool)
-    bytes = TypeClass(bytes)
-    bytearray = TypeClass(bytearray)
-    int = TypeClass(int)
-    float = TypeClass(float)
+    bool = ExternalImport.from_class(bool)
+    bytes = ExternalImport.from_class(bytes)
+    bytearray = ExternalImport.from_class(bytearray)
+    int = ExternalImport.from_class(int)
+    float = ExternalImport.from_class(float)
     Ellipsis = TypeConstant(...)
-    Decimal = TypeClass(Decimal)
+    Decimal = ExternalImport.from_class(Decimal)
     Type = TypeAnnotation("Type")
     Iterator = TypeAnnotation("Iterator")
     AsyncIterator = TypeAnnotation("AsyncIterator")
-    datetime = TypeClass(datetime)
+    datetime = ExternalImport.from_class(datetime)
 
     SequenceAny = TypeSubscript(Sequence, [Any])
     MappingStrAny = TypeSubscript(Mapping, [str, Any])

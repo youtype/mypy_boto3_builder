@@ -1,4 +1,4 @@
-import pytest
+from botocore.paginate import Paginator as BotocorePaginator
 
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -26,3 +26,19 @@ class TestExternalImport:
 
     def test_copy(self) -> None:
         assert self.result.copy().name == "name"
+
+    def test_from_class(self) -> None:
+        sample = ExternalImport.from_class(ImportString)
+        assert sample.render() == "ImportString"
+        assert (
+            sample.get_import_record().render()
+            == "from mypy_boto3_builder.import_helpers.import_string import ImportString"
+        )
+
+        sample = ExternalImport.from_class(str)
+        assert sample.render() == "str"
+        assert sample.get_import_record().render() == "from builtins import str"
+
+        sample = ExternalImport.from_class(BotocorePaginator)
+        assert sample.render() == "Paginator"
+        assert sample.get_import_record().render() == "from botocore.paginate import Paginator"

@@ -3,6 +3,8 @@ String to type annotation map to replace overriden botocore shapes.
 """
 from collections.abc import Iterable
 
+from botocore.response import StreamingBody
+
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
@@ -76,7 +78,7 @@ UniversalAttributeValueTypeDef = TypeSubscript(
     Type.Union, [AttributeValueTypeDef, TableAttributeValueType]
 )
 
-StreamingBodyType = ExternalImport(ImportString("botocore", "response"), "StreamingBody")
+StreamingBodyType = ExternalImport.from_class(StreamingBody)
 ShapeTypeMap = dict[ServiceName, dict[str, FakeAnnotation]]
 
 SHAPE_TYPE_MAP: ShapeTypeMap = {

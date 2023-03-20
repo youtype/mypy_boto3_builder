@@ -3,6 +3,7 @@ Boto3 ServiceResource.
 """
 from collections.abc import Iterator
 
+from boto3.resources.base import ResourceMeta
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -34,12 +35,7 @@ class ServiceResource(ClassRecord):
         self.resource_meta_class = self._get_resource_meta_class(service_name)
         super().__init__(
             name=name,
-            bases=[
-                ExternalImport(
-                    source=ImportString("boto3", "resources", "base"),
-                    name="ServiceResource",
-                )
-            ],
+            bases=[ExternalImport.from_class(Boto3ServiceResource)],
             attributes=[
                 Attribute(
                     "meta",
@@ -69,12 +65,7 @@ class ServiceResource(ClassRecord):
     def _get_resource_meta_class(self, service_name: ServiceName) -> ClassRecord:
         return ClassRecord(
             name=f"{service_name.class_name}ResourceMeta",
-            bases=[
-                ExternalImport(
-                    source=ImportString("boto3", "resources", "base"),
-                    name="ResourceMeta",
-                )
-            ],
+            bases=[ExternalImport.from_class(ResourceMeta)],
             attributes=[Attribute("client", self._get_client_import(service_name))],
         )
 

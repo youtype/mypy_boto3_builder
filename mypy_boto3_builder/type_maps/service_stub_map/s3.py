@@ -6,14 +6,13 @@ from boto3.s3.transfer import TransferConfig
 from botocore.client import BaseClient
 from botocore.response import StreamingBody
 
-from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_maps.typed_dicts import s3_copy_source_type
 
 callback_arg = Argument(
     "Callback",
@@ -23,7 +22,7 @@ callback_arg = Argument(
 
 config_arg = Argument(
     "Config",
-    TypeClass(TransferConfig).to_external_import(),
+    ExternalImport.from_class(TransferConfig),
     Type.Ellipsis,
 )
 
@@ -31,19 +30,14 @@ copy_method = Method(
     "copy",
     [
         Argument("self", None),
-        Argument(
-            "CopySource",
-            InternalImport(
-                "CopySourceTypeDef", module_name=ServiceModuleName.type_defs, stringify=False
-            ),
-        ),
+        Argument("CopySource", s3_copy_source_type),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
         Argument("ExtraArgs", Type.DictStrAny, Type.Ellipsis),
         callback_arg,
         Argument(
             "SourceClient",
-            TypeClass(BaseClient).to_external_import(),
+            ExternalImport.from_class(BaseClient),
             Type.Ellipsis,
         ),
         config_arg,
@@ -73,7 +67,7 @@ download_fileobj_method = Method(
         Argument("Key", Type.str),
         Argument(
             "Fileobj",
-            TypeSubscript(Type.Union, [Type.IOAny, TypeClass(StreamingBody).to_external_import()]),
+            TypeSubscript(Type.Union, [Type.IOAny, ExternalImport.from_class(StreamingBody)]),
         ),
         Argument("ExtraArgs", Type.DictStrAny, Type.Ellipsis),
         callback_arg,
@@ -115,7 +109,7 @@ upload_fileobj_method = Method(
         Argument("self", None),
         Argument(
             "Fileobj",
-            TypeSubscript(Type.Union, [Type.IOAny, TypeClass(StreamingBody).to_external_import()]),
+            TypeSubscript(Type.Union, [Type.IOAny, ExternalImport.from_class(StreamingBody)]),
         ),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
@@ -129,7 +123,7 @@ upload_fileobj_method = Method(
 
 CLIENT_METHODS = [
     copy_method,
-    download_file_method,
+    # download_file_method,
     download_fileobj_method,
     generate_presigned_post_method,
     upload_file_method,
