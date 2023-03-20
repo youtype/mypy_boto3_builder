@@ -4,6 +4,7 @@ from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.function import Function
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 class TestFunction:
@@ -15,7 +16,7 @@ class TestFunction:
             arguments=[
                 Argument("self", None),
                 Argument("my_str", Type.str, TypeConstant("test")),
-                Argument("lst", Type.ListAny),
+                Argument("lst", TypeSubscript(Type.List, [Type.Any])),
             ],
             decorators=[Type.Any],
             return_type=Type.none,

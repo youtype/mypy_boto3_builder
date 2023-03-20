@@ -8,6 +8,7 @@ from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 class TestClassRecord:
@@ -22,7 +23,7 @@ class TestClassRecord:
                     arguments=[
                         Argument("self", None),
                         Argument("my_str", Type.str, TypeConstant("test")),
-                        Argument("lst", Type.ListAny),
+                        Argument("lst", TypeSubscript(Type.List, [Type.Any])),
                     ],
                     return_type=Type.none,
                 )

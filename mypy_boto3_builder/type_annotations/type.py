@@ -43,7 +43,6 @@ class Type:
     AsyncIterator = TypeAnnotation("AsyncIterator")
     datetime = TypeClass(datetime)
 
-    ListAny = TypeSubscript(List, [Any])
     SequenceAny = TypeSubscript(Sequence, [Any])
     MappingStrAny = TypeSubscript(Mapping, [str, Any])
     DictStrAny = TypeSubscript(Dict, [str, Any])
