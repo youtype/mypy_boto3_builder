@@ -102,7 +102,7 @@ python -m pip install 'types-aioboto3-lite[essential]'
 # do not forget to install mypy or pyright
 ```
 
-Whoa! All `aioboto3` methods and attributes are now type-annotated and even code completion works.
+Whoa! All `aioboto3` methods and attributes are now type annotated and even code completion works.
 
 ## How to build type annotations
 

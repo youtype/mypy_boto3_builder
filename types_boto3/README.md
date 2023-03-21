@@ -155,7 +155,7 @@ No explicit type annotations required, write your `boto3` code as usual.
 
 ### pyright
 
-- Install `pyright`: `yarn global add pyright`
+- Install `pyright`: `npm i -g pyright`
 - Install `boto3-stubs` with services you use in your environment: `python -m pip install 'boto3-stubs[s3,ec2]'`
 - Optionally, you can install `boto3-stubs` to `typings` folder.
 
@@ -166,11 +166,11 @@ No explicit type annotations required, write your `boto3` code as usual.
 
 Fully automated [mypy-boto3-builder](https://github.com/youtype/mypy_boto3_builder) carefully generates
 type annotations for each service, patiently waiting for `boto3` updates. It delivers
-a drop-in type annotations for you and makes sure that:
+drop-in type annotations for you and makes sure that:
 
 - All available `boto3` services are covered.
-- Each public class and method of every `boto3` service gets valid type annotations
-  extracted from the documentation (blame `botocore` docs if types are incorrect).
+- Each public class and method of every `{{ package.library_name }}` service gets valid type annotations
+  extracted from `botocore` schemas.
 - Type annotations include up-to-date documentation.
 - Link to documentation is provided for every method.
 - Code is processed by [black](https://github.com/psf/black)
@@ -180,7 +180,7 @@ a drop-in type annotations for you and makes sure that:
 
 ### Implemented features
 
-- Fully type annotated `boto3` library
+- Fully type annotated `boto3`, `botocore`, `aiobotocore` and `aioboto3` libraries
 - `mypy`, `pyright`, `VSCode`, `PyCharm`, `Sublime Text` and `Emacs` compatibility
 - `Client` type annotations for each service
 - `ServiceResource` type annotations for each service
@@ -189,8 +189,8 @@ a drop-in type annotations for you and makes sure that:
 - `Paginator` type annotations for each service
 - Generated `TypeDefs` for each service
 - Generated `Literals` for each service
-- Auto discovery of types for `boto3.client` and `boto3.session` calls
-- Auto discovery of types for `session.client` and `session.session` calls
+- Auto discovery of types for `boto3.client` and `boto3.resource` calls
+- Auto discovery of types for `session.client` and `session.resource` calls
 - Auto discovery of types for `client.get_waiter` and `client.get_paginator` calls
 - Auto discovery of types for `ServiceResource` and `Resource` collections
 
