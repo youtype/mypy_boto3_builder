@@ -139,6 +139,7 @@ exclude = [
     "**/build",
     "typestubs",
 ]
+# typeCheckingMode = "strict"
 reportMissingImports = "error"
 reportMissingTypeStubs = "error"
 reportMissingTypeArgument = "error"

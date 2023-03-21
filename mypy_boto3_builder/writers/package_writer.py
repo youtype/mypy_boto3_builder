@@ -206,7 +206,7 @@ class PackageWriter:
         Generate docs for a package.
         """
         self.output_path.mkdir(exist_ok=True, parents=True)
-        file_paths = []
+        file_paths: list[tuple[Path, Path]] = []
         for template_path in templates_path.glob("**/*.jinja2"):
             file_name = template_path.stem
             file_paths.append((self.output_path / file_name, template_path))

@@ -47,6 +47,7 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
     response_metadata_type,
     waiter_config_type,
 )
+from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
 from mypy_boto3_builder.utils.strings import get_typed_dict_name
 
 
@@ -90,7 +91,7 @@ class ShapeParser:
 
     def __init__(self, session: Session, service_name: ServiceName):
         loader = session._loader
-        botocore_session: BotocoreSession = session._session
+        botocore_session: BotocoreSession = get_botocore_session(session)
         service_data = botocore_session.get_service_data(service_name.boto3_name)
         self.service_name = service_name
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
@@ -433,7 +434,7 @@ class ShapeParser:
             return None
         payload = shape.serialization.get("payload")
         if payload is not None:
-            payload_shape = shape.members[payload]
+            payload_shape = shape.members.get(payload)
             if isinstance(payload_shape, Shape) and payload_shape.type_name == "blob":
                 return payload_shape
         return None
@@ -519,7 +520,7 @@ class ShapeParser:
         paginator_shape = self._get_paginator(paginator_name)
         operation_shape = self._get_operation(operation_name)
         skip_argument_names: list[str] = []
-        input_token = paginator_shape["input_token"]
+        input_token: list[str] | str = paginator_shape["input_token"]
         if isinstance(input_token, list):
             skip_argument_names.extend(input_token)
         else:
@@ -688,7 +689,7 @@ class ShapeParser:
         return target
 
     def _get_skip_argument_names(self, action_shape: dict[str, Any]) -> set[str]:
-        result = set()
+        result: set[str] = set()
         params = action_shape["request"].get("params", {})
         for param in params:
             target = param["target"]
@@ -807,7 +808,7 @@ class ShapeParser:
         Returns:
             List of Method records.
         """
-        result = []
+        result: list[Method] = []
         for batch_action in collection.batch_actions:
             method = Method(
                 name=batch_action.name,

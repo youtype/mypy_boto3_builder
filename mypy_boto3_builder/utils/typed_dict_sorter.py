@@ -51,7 +51,7 @@ class TypedDictSorter:
         return self._sort_stringified()
 
     def _get(self, *names: str) -> list[TypeTypedDict]:
-        result = []
+        result: list[TypeTypedDict] = []
         for name in names:
             typed_dict = self.typed_dicts_map[name]
             if typed_dict in result:
@@ -63,7 +63,7 @@ class TypedDictSorter:
 
     @staticmethod
     def _get_children_names(typed_dict: TypeTypedDict) -> set[str]:
-        result = set()
+        result: set[str] = set()
         for child in typed_dict.get_children_typed_dicts():
             if child.is_stringified():
                 continue
@@ -72,7 +72,7 @@ class TypedDictSorter:
         return result
 
     def _create_graph(self) -> dict[str, list[str]]:
-        result = {}
+        result: dict[str, list[str]] = {}
         for name in sorted(self.typed_dicts_map):
             result[name] = sorted(self._get_children_names(self.typed_dicts_map[name]))
 

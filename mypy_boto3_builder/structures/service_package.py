@@ -306,7 +306,7 @@ class ServicePackage(Package):
         Finds duplicated names.
         Finds conflicts with reserved Python words.
         """
-        names = set()
+        names: set[str] = set()
         for name in (
             *(i.name for i in self.typed_dicts),
             *(i.name for i in self.literals),

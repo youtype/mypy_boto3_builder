@@ -300,7 +300,7 @@ class TypeTypedDict(FakeAnnotation):
         """
         Type annotations list from arguments and return type with internal types.
         """
-        result = []
+        result: list[FakeAnnotation] = []
         for child in self.children:
             if child.type_annotation.get_local_types():
                 result.append(child.type_annotation)

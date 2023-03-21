@@ -60,7 +60,7 @@ def get_short_docstring(doc: str) -> str:
     doc = str(doc)
     if len(doc) > MAX_DOCSTRING_LENGTH:
         doc = f"{doc[:MAX_DOCSTRING_LENGTH - 3]}..."
-    result = []
+    result: list[str] = []
     if not doc:
         return ""
     for line in doc.splitlines():

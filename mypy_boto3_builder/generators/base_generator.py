@@ -5,8 +5,6 @@ from abc import ABC, abstractmethod
 from collections.abc import Sequence
 from pathlib import Path
 
-from boto3.session import Session
-
 from mypy_boto3_builder.constants import ProductType
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
@@ -14,7 +12,7 @@ from mypy_boto3_builder.parsers.service_package import parse_service_package
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource
+from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource, get_boto3_session
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
@@ -26,7 +24,6 @@ class BaseGenerator(ABC):
     Arguments:
         service_names -- Selected service names
         master_service_names -- Service names included in master
-        session -- Botocore session
         output_path -- Path to write generated files
         generate_setup -- Whether to create package or installed module
         skip_published -- Whether to skip packages that are already published
@@ -41,14 +38,13 @@ class BaseGenerator(ABC):
         self,
         service_names: Sequence[ServiceName],
         master_service_names: Sequence[ServiceName],
-        session: Session,
         output_path: Path,
         generate_setup: bool,
         skip_published: bool,
         disable_smart_version: bool,
         version: str,
     ):
-        self.session = session
+        self.session = get_boto3_session()
         self.service_names = service_names
         self.master_service_names = master_service_names
         self.output_path = output_path
@@ -120,7 +116,7 @@ class BaseGenerator(ABC):
         """
         Get a sorted list of all available regions.
         """
-        result = set()
+        result: set[str] = set()
         for service_name in self.master_service_names:
             result.update(self.session.get_available_regions(service_name.boto3_name))
         return sorted(result)

@@ -1,6 +1,9 @@
 """
 Jinja2 `Environment` manager.
 """
+from collections.abc import Callable
+from typing import Any
+
 import jinja2
 
 from mypy_boto3_builder.constants import TEMPLATES_PATH
@@ -19,14 +22,14 @@ class JinjaManager:
     )
 
     @classmethod
-    def update_globals(cls, **kwargs: object) -> None:
+    def update_globals(cls, **kwargs: str | bool | Callable[..., Any]) -> None:
         """
         Update global variables in `jinja2.Environment`.
 
         Arguments:
             kwargs -- Globals to set.
         """
-        cls._environment.globals.update(kwargs)
+        cls._environment.globals.update(kwargs)  # type: ignore
 
     @staticmethod
     def escape_md(value: str) -> str:
@@ -40,5 +43,5 @@ class JinjaManager:
         """
         Get `jinja2.Environment`.
         """
-        cls._environment.filters["escape_md"] = cls.escape_md
+        cls._environment.filters["escape_md"] = cls.escape_md  # type: ignore
         return cls._environment
