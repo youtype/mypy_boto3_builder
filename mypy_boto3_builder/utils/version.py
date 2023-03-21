@@ -70,5 +70,4 @@ def get_aioboto3_version() -> str:
     except ImportError:
         raise RuntimeError("aioboto3 is not installed")
 
-    assert isinstance(version, str)
     return version
