@@ -196,6 +196,5 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 continue
 
             if type_annotation.source.startswith(ImportString("boto3")):
-                print(type_annotation.render())
                 type_annotation.safe = True
                 continue
