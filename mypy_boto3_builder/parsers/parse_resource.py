@@ -45,7 +45,7 @@ def parse_resource(
 
     shape_method_map = shape_parser.get_resource_method_map(name)
     stub_method_map = get_stub_method_map(service_name, name)
-    method_map = {**stub_method_map, **shape_method_map}
+    method_map = {**shape_method_map, **stub_method_map}
 
     public_methods = get_resource_public_methods(resource.__class__)
     for method_name, public_method in public_methods.items():

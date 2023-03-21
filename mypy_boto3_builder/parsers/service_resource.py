@@ -55,7 +55,7 @@ def parse_service_resource(
     public_methods = get_public_methods(service_resource)
     shape_method_map = shape_parser.get_service_resource_method_map()
     stub_method_map = get_stub_method_map(service_name, parent_name)
-    method_map = {**stub_method_map, **shape_method_map}
+    method_map = {**shape_method_map, **stub_method_map}
 
     for method_name, public_method in public_methods.items():
         method = method_map.get(method_name)

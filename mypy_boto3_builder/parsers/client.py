@@ -52,7 +52,7 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
     parent_name = "Client"
     shape_method_map = shape_parser.get_client_method_map()
     stub_method_map = get_stub_method_map(service_name, parent_name)
-    method_map = {**stub_method_map, **shape_method_map}
+    method_map = {**shape_method_map, **stub_method_map}
 
     result.methods.append(result.get_exceptions_property())
     for method_name, public_method in public_methods.items():
