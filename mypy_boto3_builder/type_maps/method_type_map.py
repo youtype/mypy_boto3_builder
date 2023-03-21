@@ -10,7 +10,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.type_maps.typed_dicts import ec2_tag_type, s3_copy_source_type
+from mypy_boto3_builder.type_maps.typed_dicts import s3_copy_source_type
 
 __all__ = ("get_method_type_stub",)
 
@@ -60,14 +60,6 @@ QueueAttributeFilterType = TypeLiteral(
     ],
 )
 
-_create_tags_stub = {
-    "create_tags": {
-        "Resources": Type.RemoveArgument,
-        "Tags": TypeSubscript(Type.Optional, [TypeSubscript(Type.Sequence, [ec2_tag_type])]),
-        "DryRun": Type.bool,
-    },
-}
-
 DEFAULT_VALUE_MAP: ServiceTypeMap = {
     ServiceNameCatalog.glacier: {
         "Client": {
@@ -80,45 +72,6 @@ DEFAULT_VALUE_MAP: ServiceTypeMap = {
 
 
 TYPE_MAP: ServiceTypeMap = {
-    ServiceNameCatalog.ec2: {
-        "Client": {
-            "create_tags": {
-                "Resources": Type.SequenceAny,
-                "Tags": TypeSubscript(
-                    Type.Optional, [TypeSubscript(Type.Sequence, [ec2_tag_type])]
-                ),
-                "DryRun": Type.bool,
-            },
-            "delete_tags": {
-                "Resources": Type.SequenceAny,
-                "Tags": TypeSubscript(
-                    Type.Optional, [TypeSubscript(Type.Sequence, [ec2_tag_type])]
-                ),
-                "DryRun": Type.bool,
-            },
-        },
-        "DhcpOptions": _create_tags_stub,
-        "Image": _create_tags_stub,
-        "InternetGateway": _create_tags_stub,
-        "Instance": {
-            **_create_tags_stub,
-            "delete_tags": {
-                "Resources": Type.RemoveArgument,
-                "Tags": TypeSubscript(
-                    Type.Optional, [TypeSubscript(Type.Sequence, [ec2_tag_type])]
-                ),
-                "DryRun": Type.bool,
-            },
-        },
-        "NetworkAcl": _create_tags_stub,
-        "NetworkInterface": _create_tags_stub,
-        "SecurityGroup": _create_tags_stub,
-        "Snapshot": _create_tags_stub,
-        "Volume": _create_tags_stub,
-        "RouteTable": _create_tags_stub,
-        "Subnet": _create_tags_stub,
-        "Vpc": _create_tags_stub,
-    },
     ServiceNameCatalog.s3: {
         # FIXME: boto3 overrides CopySource parameters for some S3 methods.
         # Types are set according to docs, might be incorrect

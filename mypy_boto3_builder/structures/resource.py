@@ -3,7 +3,8 @@ Boto3 ServiceResource sub-Resource.
 """
 from collections.abc import Iterator
 
-from mypy_boto3_builder.import_helpers.import_string import ImportString
+from boto3.resources.base import ServiceResource as Boto3ServiceResource
+
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.collection import Collection
@@ -19,12 +20,7 @@ class Resource(ClassRecord):
     def __init__(self, name: str, service_name: ServiceName):
         super().__init__(
             name=name,
-            bases=[
-                ExternalImport(
-                    source=ImportString("boto3", "resources", "base"),
-                    name="ServiceResource",
-                )
-            ],
+            bases=[ExternalImport.from_class(Boto3ServiceResource)],
             use_alias=True,
         )
         self.service_name: ServiceName = service_name

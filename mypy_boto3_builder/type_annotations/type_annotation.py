@@ -18,31 +18,38 @@ class TypeAnnotation(FakeAnnotation):
         wrapped_type -- Original type annotation as a string.
     """
 
-    # Set of supported type annotations
-    SUPPORTED_TYPES: set[str] = {
-        "Union",  # typing.Union
-        "Any",  # typing.Any
-        "Dict",  # typing.Dict
-        "Mapping",  # typing.Mapping
-        "List",  # typing.List
-        "Sequence",  # typing.Sequence
-        "Set",  # typing.Set
-        "Optional",  # typing.Optional
-        "Callable",  # typing.Callable
-        "Awaitable",  # typing.Awaitable
-        "Iterator",  # typing.Iterator
-        "IO",  # typing.IO
-        "overload",  # typing.overload
-        "Type",  # typing.Type
-        "AsyncIterator",  # typing.AsyncIterator / typing_extensions.AsyncIterator
-        "NotRequired",  # typing.NotRequired / typing_extensions.NotRequired
-        "NoReturn",  # typing.NoReturn
+    _typing = ImportString("typing")
+    _typing_extensions = ImportString("typing_extensions")
+    _collections_abc = ImportString("collections", "abc")
+
+    # Set of supported type annotations. value is default import module
+    SUPPORTED_TYPES: dict[str, ImportString] = {
+        "Union": _typing,  # typing.Union
+        "Any": _typing,  # typing.Any
+        "Dict": _typing,  # typing.Dict
+        "List": _typing,  # typing.List
+        "Set": _typing,  # typing.Set
+        "Optional": _typing,  # typing.Optional
+        "IO": _typing,  # typing.IO
+        "overload": _typing,  # typing.overload
+        "Type": _typing,  # typing.Type
+        "NoReturn": _typing,  # typing.NoReturn
+        "TypedDict": _typing,  # typing.TypedDict
+        "Literal": _typing,  # typing.Literal
+        "Mapping": _collections_abc,  # collections.abc.Mapping
+        "Sequence": _collections_abc,  # collections.abc.Sequence
+        "Callable": _collections_abc,  # collections.abc.Callable
+        "Iterator": _collections_abc,  # collections.abc.Iterator
+        "Awaitable": _collections_abc,  # collections.abc.Awaitable
+        "AsyncIterator": _collections_abc,  # collections.abc.AsyncIterator
+        "NotRequired": _typing,  # typing_extensions.NotRequired / typing.NotRequired
     }
 
     # Set of fallback type annotations
-    FALLBACK: dict[str, tuple[int, ...] | None] = {
-        "AsyncIterator": (3, 8),
-        "NotRequired": None,
+    FALLBACK: dict[str, tuple[tuple[int, ...], ImportString]] = {
+        "NotRequired": ((3, 11), _typing_extensions),
+        "TypedDict": ((3, 9), _typing_extensions),
+        "Literal": ((3, 9), _typing_extensions),
     }
 
     def __init__(self, wrapped_type: str) -> None:
@@ -70,20 +77,17 @@ class TypeAnnotation(FakeAnnotation):
         """
         Create a safe Import Record for annotation.
         """
-        if not self.has_fallback():
-            return ImportRecord(source=ImportString("typing"), name=self.get_import_name())
-        fallback_min_version = self.FALLBACK[self.get_import_name()]
-        if not fallback_min_version:
-            return ImportRecord(
-                source=ImportString("typing_extensions"), name=self.get_import_name()
-            )
+        name = self.get_import_name()
+        source = self.SUPPORTED_TYPES[name]
+        if name not in self.FALLBACK:
+            return ImportRecord(source=source, name=name)
+
+        fallback_min_version, fallback_source = self.FALLBACK[name]
 
         return ImportRecord(
-            source=ImportString("typing"),
-            name=self.get_import_name(),
-            fallback=ImportRecord(
-                source=ImportString("typing_extensions"), name=self.get_import_name()
-            ),
+            source=source,
+            name=name,
+            fallback=ImportRecord(source=fallback_source, name=name),
             min_version=fallback_min_version,
         )
 
@@ -110,9 +114,3 @@ class TypeAnnotation(FakeAnnotation):
         Create a copy of type annotation wrapper.
         """
         return self.__class__(self._wrapped_type)
-
-    def has_fallback(self) -> bool:
-        """
-        Whether type should be imported from `typing_extensions` as a py37 fallback.
-        """
-        return self.get_import_name() in self.FALLBACK

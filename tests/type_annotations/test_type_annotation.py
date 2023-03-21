@@ -25,3 +25,17 @@ class TestTypeAnnotation:
 
     def test_copy(self) -> None:
         assert self.dict.copy().get_import_name() == "Dict"
+
+    def test_no_fallback(self) -> None:
+        sample = TypeAnnotation("Awaitable")
+        assert sample.get_import_record().render() == "from collections.abc import Awaitable"
+        assert sample.get_import_record().fallback is None
+
+    def test_fallback(self) -> None:
+        sample = TypeAnnotation("NotRequired")
+        assert sample.render() == "NotRequired"
+        assert sample.get_import_record().render() == "from typing import NotRequired"
+
+        fallback = sample.get_import_record().fallback
+        assert fallback is not None
+        assert fallback.render() == "from typing_extensions import NotRequired"

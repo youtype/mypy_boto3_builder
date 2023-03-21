@@ -1,8 +1,6 @@
-from unittest.mock import MagicMock
-
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.collection import Collection
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 
 
 class TestPaginator:
@@ -13,7 +11,7 @@ class TestPaginator:
             attribute_name="attribute",
             parent_name="Parent",
             service_name=ServiceName("s3", "S3"),
-            type_annotation=TypeClass(ServiceName),
+            type_annotation=ExternalImport.from_class(ServiceName),
             object_class_name="object",
         )
 

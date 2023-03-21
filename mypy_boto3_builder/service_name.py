@@ -157,6 +157,7 @@ class ServiceNameCatalog:
     ec2 = ServiceName("ec2", "EC2")
     iam = ServiceName("iam", "IAM")
     s3 = ServiceName("s3", "S3")
+    rds = ServiceName("rds", "RDS")
     cloudwatch = ServiceName("cloudwatch", "CloudWatch")
     opsworks = ServiceName("opsworks", "OpsWorks")
     sns = ServiceName("sns", "SNS")
@@ -176,6 +177,7 @@ class ServiceNameCatalog:
         ec2.boto3_name: ec2,
         iam.boto3_name: iam,
         s3.boto3_name: s3,
+        rds.boto3_name: rds,
         cloudwatch.boto3_name: cloudwatch,
         opsworks.boto3_name: opsworks,
         sns.boto3_name: sns,

@@ -1,6 +1,7 @@
 """
 Boto3 client Waiter.
 """
+from botocore.waiter import Waiter as BotocoreWaiter
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -26,7 +27,7 @@ class Waiter(ClassRecord):
     ):
         super().__init__(
             name=name,
-            bases=[ExternalImport(ImportString("botocore", "waiter"), "Waiter")],
+            bases=[ExternalImport.from_class(BotocoreWaiter)],
         )
         self.waiter_name = waiter_name
         self.service_name = service_name

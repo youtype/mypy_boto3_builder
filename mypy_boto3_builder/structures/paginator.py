@@ -1,6 +1,7 @@
 """
 Boto3 client Paginator.
 """
+from botocore.paginate import Paginator as BotocorePaginator
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -27,7 +28,7 @@ class Paginator(ClassRecord):
     ):
         super().__init__(
             name=name,
-            bases=[ExternalImport(ImportString("botocore", "paginate"), "Paginator")],
+            bases=[ExternalImport.from_class(BotocorePaginator)],
         )
         self.operation_name = operation_name
         self.paginator_name = paginator_name

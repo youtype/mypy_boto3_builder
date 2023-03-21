@@ -2,11 +2,11 @@
 
 Fully automated [mypy-boto3-builder]({{ builder_repo_url }}) carefully generates
 type annotations for each service, patiently waiting for `{{ package.library_name }}` updates. It delivers
-a drop-in type annotations for you and makes sure that:
+drop-in type annotations for you and makes sure that:
 
 - All available `{{ package.library_name }}` services are covered.
 - Each public class and method of every `{{ package.library_name }}` service gets valid type annotations
-  extracted from the documentation (blame `botocore` docs if types are incorrect).
+  extracted from `botocore` schemas.
 - Type annotations include up-to-date documentation.
 - Link to documentation is provided for every method.
 - Code is processed by [black](https://github.com/psf/black)
@@ -16,13 +16,13 @@ a drop-in type annotations for you and makes sure that:
 
 ### Implemented features
 
-- Fully type annotated `boto3`, `botocore` and `aiobotocore` libraries
+- Fully type annotated `boto3`, `botocore`, `aiobotocore` and `aioboto3` libraries
 - `mypy`, `pyright`, `VSCode`, `PyCharm`, `Sublime Text` and `Emacs` compatibility
 - `Client`, `ServiceResource`, `Resource`, `Waiter` `Paginator` type annotations for each service
 - Generated `TypeDefs` for each service
 - Generated `Literals` for each service
-- Auto discovery of types for `boto3.client` and `boto3.session` calls
-- Auto discovery of types for `session.client` and `session.session` calls
+- Auto discovery of types for `boto3.client` and `boto3.resource` calls
+- Auto discovery of types for `session.client` and `session.resource` calls
 - Auto discovery of types for `client.get_waiter` and `client.get_paginator` calls
 - Auto discovery of types for `ServiceResource` and `Resource` collections
 - Auto discovery of types for `aiobotocore.Session.create_client` calls

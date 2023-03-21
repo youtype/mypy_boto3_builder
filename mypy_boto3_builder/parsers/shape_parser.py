@@ -113,7 +113,6 @@ class ShapeParser:
             )
 
         self.logger = get_logger()
-        self.proxy_operation_model = OperationModel({}, self.service_model)
 
     @property
     def resource_name(self) -> str:
@@ -140,6 +139,14 @@ class ShapeParser:
         if not self._resources_shape:
             raise ShapeParserError("Resource shape not found")
         return self._resources_shape["service"]
+
+    def _get_resource_names(self) -> list[str]:
+        if not self._resources_shape:
+            return []
+        try:
+            return list(self._resources_shape["resources"].keys())
+        except KeyError:
+            return []
 
     def _get_resource_shape(self, name: str) -> dict[str, Any]:
         if not self._resources_shape:
@@ -271,6 +278,11 @@ class ShapeParser:
                     Argument("HttpMethod", Type.str, Type.Ellipsis),
                 ],
                 Type.str,
+            ),
+            "close": Method(
+                "close",
+                [Argument("self", None)],
+                Type.none,
             ),
         }
         for operation_name in self._get_operation_names():
@@ -411,6 +423,20 @@ class ShapeParser:
 
         return self._get_typed_dict_name(shape)
 
+    @staticmethod
+    def _get_streaming_body(shape: Shape) -> Shape | None:
+        """
+        Get the streaming member's shape if any; or None otherwise.
+        """
+        if not isinstance(shape, StructureShape):
+            return None
+        payload = shape.serialization.get("payload")
+        if payload is not None:
+            payload_shape = shape.members[payload]
+            if isinstance(payload_shape, Shape) and payload_shape.type_name == "blob":
+                return payload_shape
+        return None
+
     def parse_shape(
         self,
         shape: Shape,
@@ -432,11 +458,9 @@ class ShapeParser:
         """
         if not is_streaming:
             is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
-            if output or output_child:
-                is_streaming = (
-                    self.proxy_operation_model._get_streaming_body(shape)  # type: ignore
-                    is not None
-                )
+            is_output = output or output_child
+            if is_output:
+                is_streaming = self._get_streaming_body(shape) is not None
 
         type_name = self._get_shape_type_name(shape)
         if is_streaming and type_name == "blob":
@@ -587,6 +611,19 @@ class ShapeParser:
             method = self._get_resource_method(action_name, action_shape)
             result[method.name] = method
 
+        for sub_resource_name in self._get_resource_names():
+            resource_shape = self._get_resource_shape(sub_resource_name)
+            arguments = [Argument("self", None)]
+            identifiers: list[dict[str, str]] = resource_shape.get("identifiers", [])
+            for identifier in identifiers:
+                arguments.append(Argument(xform_name(identifier["name"]), Type.str))
+            method = Method(
+                sub_resource_name,
+                arguments=arguments,
+                return_type=AliasInternalImport(sub_resource_name),
+            )
+            result[method.name] = method
+
         return result
 
     def get_resource_method_map(self, resource_name: str) -> dict[str, Method]:
@@ -620,6 +657,22 @@ class ShapeParser:
                 f"wait_until_{xform_name(waiter_name)}",
                 [Argument("self", None)],
                 Type.none,
+            )
+            result[method.name] = method
+
+        for sub_resource_name, sub_resource in resource_shape.get("has", {}).items():
+            data: dict[str, Any] = sub_resource.get("resource", {})
+            arguments = [Argument("self", None)]
+            identifiers: list[dict[str, str]] = data.get("identifiers", [])
+            for identifier in identifiers:
+                if identifier.get("source") != "input":
+                    continue
+                arguments.append(Argument(xform_name(identifier["target"]), Type.str))
+
+            method = Method(
+                sub_resource_name,
+                arguments=arguments,
+                return_type=AliasInternalImport(data["type"]),
             )
             result[method.name] = method
 

@@ -1,6 +1,7 @@
 """
 Wrapper for type annotations imported from 3rd party libraries, like `boto3.service.Service`.
 """
+import inspect
 from typing import TypeVar
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -32,6 +33,26 @@ class ExternalImport(FakeAnnotation):
         self.name: str = name
         self.alias: str = alias
         self.safe: bool = safe
+
+    @classmethod
+    def from_class(cls: type[_R], obj: type, alias: str = "") -> _R:
+        """
+        Create an instance from an imported class.
+
+        Arguments:
+            value -- Any Class.
+            alias -- Local name.
+        """
+        module = inspect.getmodule(obj)
+        if module is None:
+            raise ValueError(f"Unknown module for {obj}")
+
+        module_name = module.__name__
+        return cls(
+            source=ImportString.from_str(module_name),
+            name=obj.__name__,
+            alias=alias,
+        )
 
     @property
     def import_record(self) -> ImportRecord:

@@ -16,7 +16,6 @@ from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_class import TypeClass
 
 
 class Client(ClassRecord):
@@ -31,13 +30,13 @@ class Client(ClassRecord):
         self.service_name = service_name
         self.boto3_client = boto3_client
         self.exceptions_class = ClassRecord(name="Exceptions")
-        self.bases = [ExternalImport(ImportString("botocore", "client"), "BaseClient")]
+        self.bases = [ExternalImport.from_class(BaseClient)]
         self.client_error_class = ClassRecord(
             name="BotocoreClientError",
             attributes=[
                 Attribute("MSG_TEMPLATE", Type.str),
             ],
-            bases=[TypeClass(BaseException)],
+            bases=[ExternalImport.from_class(BaseException)],
             methods=[
                 Method(
                     name="__init__",
@@ -96,7 +95,7 @@ class Client(ClassRecord):
         """
         return Method(
             name="exceptions",
-            decorators=[TypeClass(property)],
+            decorators=[ExternalImport.from_class(property)],
             arguments=[
                 Argument("self", None),
             ],

@@ -2,7 +2,7 @@
 Method or function argument.
 """
 from collections.abc import Iterator
-from typing import TypeVar
+from typing import Literal, TypeVar
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
@@ -26,12 +26,12 @@ class Argument:
         name: str,
         type_annotation: FakeAnnotation | None,
         default: TypeConstant | None = None,
-        prefix: str = "",
+        prefix: Literal["*", "**", ""] = "",
     ):
         self.name: str = name
         self.type_annotation: FakeAnnotation | None = type_annotation
         self.default: TypeConstant | None = default
-        self.prefix: str = prefix
+        self.prefix: Literal["*", "**", ""] = prefix
 
     def render(self) -> str:
         """
