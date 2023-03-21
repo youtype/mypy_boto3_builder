@@ -4,6 +4,15 @@ Postprocessor for aiobotocore classes and methods.
 
 from collections.abc import Iterator
 
+from boto3.resources.base import ServiceResource
+from boto3.resources.collection import ResourceCollection
+from botocore.client import BaseClient
+from botocore.config import Config
+from botocore.eventstream import EventStream
+from botocore.paginate import Paginator
+from botocore.response import StreamingBody
+from botocore.waiter import Waiter
+
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.structures.argument import Argument
@@ -32,41 +41,30 @@ class AioBotocorePostprocessor(BasePostprocessor):
     )
 
     EXTERNAL_IMPORTS_MAP = {
-        ExternalImport(ImportString("botocore", "response"), "StreamingBody"): ExternalImport(
+        ExternalImport.from_class(StreamingBody): ExternalImport(
             ImportString("aiobotocore", "response"), "StreamingBody"
         ),
-        ExternalImport(ImportString("botocore", "eventstream"), "EventStream"): ExternalImport(
+        ExternalImport.from_class(EventStream): ExternalImport(
             ImportString("aiobotocore", "eventstream"), "AioEventStream"
         ),
-        ExternalImport(ImportString("botocore", "config"), "Config"): ExternalImport(
+        ExternalImport.from_class(Config): ExternalImport(
             ImportString("aiobotocore", "config"), "AioConfig"
         ),
-        ExternalImport(ImportString("botocore", "waiter"), "Waiter"): ExternalImport(
+        ExternalImport.from_class(Waiter): ExternalImport(
             ImportString("aiobotocore", "waiter"), "AIOWaiter"
         ),
-        ExternalImport(ImportString("botocore", "paginate"), "Paginator"): ExternalImport(
+        ExternalImport.from_class(Paginator): ExternalImport(
             ImportString("aiobotocore", "paginate"), "AioPaginator"
         ),
-        ExternalImport(ImportString("botocore", "client"), "BaseClient"): ExternalImport(
+        ExternalImport.from_class(BaseClient): ExternalImport(
             ImportString("aiobotocore", "client"), "AioBaseClient"
         ),
-        ExternalImport(
-            ImportString("boto3", "resources", "base"), "ServiceResource"
-        ): ExternalImport(
+        ExternalImport.from_class(ServiceResource): ExternalImport(
             ImportString("aioboto3", "resources", "base"), "AIOBoto3ServiceResource", safe=True
         ),
-        ExternalImport(
-            ImportString("boto3", "resources", "collection"), "ResourceCollection"
-        ): ExternalImport(
+        ExternalImport.from_class(ResourceCollection): ExternalImport(
             ImportString("aioboto3", "resources", "collection"), "AIOResourceCollection", safe=True
         ),
-    }
-
-    SAFE_IMPORTS = {
-        ExternalImport(ImportString("boto3", "s3", "transfer"), "TransferConfig"),
-        ExternalImport(ImportString("boto3", "resources", "base"), "ResourceMeta"),
-        ExternalImport(ImportString("boto3", "dynamodb", "conditions"), "ConditionBase"),
-        ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter"),
     }
 
     def process_package(self) -> None:
@@ -192,11 +190,12 @@ class AioBotocorePostprocessor(BasePostprocessor):
             if not isinstance(type_annotation, ExternalImport):
                 continue
 
-            if type_annotation in self.SAFE_IMPORTS:
-                type_annotation.safe = True
+            if type_annotation in self.EXTERNAL_IMPORTS_MAP:
+                new_type_annotation = self.EXTERNAL_IMPORTS_MAP[type_annotation]
+                type_annotation.copy_from(new_type_annotation)
                 continue
 
-            new_type_annotation = self.EXTERNAL_IMPORTS_MAP.get(type_annotation)
-            if new_type_annotation is None:
+            if type_annotation.source.startswith(ImportString("boto3")):
+                print(type_annotation.render())
+                type_annotation.safe = True
                 continue
-            type_annotation.copy_from(new_type_annotation)
