@@ -8,8 +8,7 @@ _R = TypeVar("_R")
 
 class AioAwsChunkedWrapper(AwsChunkedWrapper):
     async def _make_chunk(self) -> bytes: ...
-    def __aiter__(self: _R) -> _R:
-        return self
+    def __aiter__(self: _R) -> _R: ...
     async def __anext__(self) -> bytes: ...
 
 async def handle_checksum_body(

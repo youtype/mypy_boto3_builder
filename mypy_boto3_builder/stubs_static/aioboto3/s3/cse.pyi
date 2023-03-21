@@ -2,7 +2,7 @@ import asyncio
 from types import TracebackType
 from typing import IO, Any, Dict, Mapping, Optional, Tuple, Type, TypeVar, Union
 
-from cryptography.hazmat.backends.openssl.rsa import _RSAPrivateKey, _RSAPublicKey
+from cryptography.hazmat.primitives.asymmetric.rsa import RSAPrivateKey, RSAPublicKey
 
 _R = TypeVar("_R")
 
@@ -30,12 +30,12 @@ class CryptoContext:
     async def get_encryption_aes_key(self) -> Tuple[bytes, Dict[str, str], str]: ...
 
 class AsymmetricCryptoContext(CryptoContext):
-    public_key: _RSAPublicKey
-    private_key: _RSAPrivateKey
+    public_key: RSAPublicKey
+    private_key: RSAPrivateKey
     def __init__(
         self,
-        public_key: Optional[_RSAPublicKey] = ...,
-        private_key: Optional[_RSAPrivateKey] = ...,
+        public_key: Optional[RSAPublicKey] = ...,
+        private_key: Optional[RSAPrivateKey] = ...,
         loop: Optional[asyncio.AbstractEventLoop] = ...,
     ) -> None: ...
     async def get_decryption_aes_key(
@@ -43,9 +43,9 @@ class AsymmetricCryptoContext(CryptoContext):
     ) -> bytes: ...
     async def get_encryption_aes_key(self) -> Tuple[bytes, Dict[str, str], str]: ...
     @staticmethod
-    def from_der_public_key(data: bytes) -> _RSAPublicKey: ...
+    def from_der_public_key(data: bytes) -> RSAPublicKey: ...
     @staticmethod
-    def from_der_private_key(data: bytes, password: Optional[str] = ...) -> _RSAPrivateKey: ...
+    def from_der_private_key(data: bytes, password: Optional[str] = ...) -> RSAPrivateKey: ...
 
 class SymmetricCryptoContext(CryptoContext):
     key: bytes

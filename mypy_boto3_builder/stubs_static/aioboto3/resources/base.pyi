@@ -1,6 +1,6 @@
 import logging
 from types import TracebackType
-from typing import Any, Optional, Type, TypeVar
+from typing import Optional, Type, TypeVar
 
 from boto3.resources.base import ServiceResource
 

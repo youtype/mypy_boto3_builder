@@ -1,10 +1,4 @@
-import sys
 from typing import Any, Dict, Iterable, List
-
-if sys.version_info >= (3, 9):
-    from typing import TypedDict
-else:
-    from typing_extensions import TypedDict
 
 def inject_create_tags(
     event_name: str, class_attributes: Dict[str, Any], **kwargs: Any
