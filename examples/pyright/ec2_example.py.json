@@ -31,7 +31,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef] | None\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
+        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef]\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
         "range": {
             "start": {
                 "line": 24,
@@ -46,7 +46,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef] | None\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
+        "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef]\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
         "range": {
             "start": {
                 "line": 32,
