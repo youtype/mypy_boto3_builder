@@ -100,3 +100,20 @@ def get_botocore_class_name(metadata: dict[str, str]) -> str:
     service_model.service_name = metadata.get("serviceId", "")
     service_model.metadata = metadata
     return get_service_module_name(service_model)
+
+
+def get_typed_dict_name(*parts: str) -> str:
+    """
+    Get a valid Python TypedDict class name from `parts`.
+
+    Examples:
+        ```python
+        get_typed_dict_name("MyClass", "my_method")  # MyClassMyMethodTypeDef
+        ```
+    """
+    if not parts:
+        raise ValueError("At least one part is required")
+
+    parts_camelcased = [get_class_prefix(i) for i in parts]
+    name = "".join(parts_camelcased)
+    return f"{name}TypeDef"

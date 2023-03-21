@@ -47,6 +47,7 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
     response_metadata_type,
     waiter_config_type,
 )
+from mypy_boto3_builder.utils.strings import get_typed_dict_name
 
 
 class ShapeParserError(Exception):
@@ -316,7 +317,7 @@ class ShapeParser:
 
     @staticmethod
     def _get_typed_dict_name(shape: Shape, postfix: str = "") -> str:
-        return f"{shape.name}{postfix}TypeDef"
+        return get_typed_dict_name(shape.name, postfix)
 
     def _parse_shape_string(self, shape: StringShape) -> FakeAnnotation:
         if not shape.enum:
