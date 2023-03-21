@@ -1,6 +1,7 @@
 """
 Main entrypoint for builder.
 """
+import datetime
 import sys
 import warnings
 from collections.abc import Iterable, Sequence
@@ -161,6 +162,7 @@ def main() -> None:
 
     JinjaManager.update_globals(
         builder_version=get_builder_version(),
+        current_year=datetime.datetime.utcnow().year,
         get_anchor_link=get_anchor_link,
         render_docstrings=True,
         hasattr=hasattr,
