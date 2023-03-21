@@ -50,9 +50,6 @@ class AioBotocorePostprocessor(BasePostprocessor):
         ExternalImport(ImportString("botocore", "client"), "BaseClient"): ExternalImport(
             ImportString("aiobotocore", "client"), "AioBaseClient"
         ),
-        ExternalImport(ImportString("boto3", "s3", "transfer"), "TransferConfig"): ExternalImport(
-            ImportString("boto3", "s3", "transfer"), "TransferConfig", safe=True
-        ),
         ExternalImport(
             ImportString("boto3", "resources", "base"), "ServiceResource"
         ): ExternalImport(
@@ -63,17 +60,13 @@ class AioBotocorePostprocessor(BasePostprocessor):
         ): ExternalImport(
             ImportString("aioboto3", "resources", "collection"), "AIOResourceCollection", safe=True
         ),
-        ExternalImport(ImportString("boto3", "resources", "base"), "ResourceMeta"): ExternalImport(
-            ImportString("boto3", "resources", "base"), "ResourceMeta", safe=True
-        ),
-        ExternalImport(
-            ImportString("boto3", "dynamodb", "conditions"), "ConditionBase"
-        ): ExternalImport(
-            ImportString("boto3", "dynamodb", "conditions"), "ConditionBase", safe=True
-        ),
-        ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter"): ExternalImport(
-            ImportString("boto3", "dynamodb", "table"), "BatchWriter", safe=True
-        ),
+    }
+
+    SAFE_IMPORTS = {
+        ExternalImport(ImportString("boto3", "s3", "transfer"), "TransferConfig"),
+        ExternalImport(ImportString("boto3", "resources", "base"), "ResourceMeta"),
+        ExternalImport(ImportString("boto3", "dynamodb", "conditions"), "ConditionBase"),
+        ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter"),
     }
 
     def process_package(self) -> None:
@@ -198,6 +191,11 @@ class AioBotocorePostprocessor(BasePostprocessor):
         for type_annotation in self._iterate_types():
             if not isinstance(type_annotation, ExternalImport):
                 continue
+
+            if type_annotation in self.SAFE_IMPORTS:
+                type_annotation.safe = True
+                continue
+
             new_type_annotation = self.EXTERNAL_IMPORTS_MAP.get(type_annotation)
             if new_type_annotation is None:
                 continue
