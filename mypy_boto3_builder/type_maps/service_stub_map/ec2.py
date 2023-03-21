@@ -1,5 +1,5 @@
 """
-DynamoDB service injected methods.
+EC2 service injected methods.
 """
 
 

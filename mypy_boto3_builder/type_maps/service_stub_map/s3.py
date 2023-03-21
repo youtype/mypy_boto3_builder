@@ -123,7 +123,7 @@ upload_fileobj_method = Method(
 
 CLIENT_METHODS = [
     copy_method,
-    # download_file_method,
+    download_file_method,
     download_fileobj_method,
     generate_presigned_post_method,
     upload_file_method,

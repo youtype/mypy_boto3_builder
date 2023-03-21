@@ -3,7 +3,7 @@ Methods for boto3 injected methods.
 """
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.method import Method
-from mypy_boto3_builder.type_maps.service_stub_map import dynamodb, ec2, s3
+from mypy_boto3_builder.type_maps.service_stub_map import dynamodb, ec2, rds, s3
 
 ClassTypeMap = dict[str, list[Method]]
 ServiceStubMap = dict[ServiceName, ClassTypeMap]
@@ -26,6 +26,9 @@ SERVICE_STUB_MAP: ServiceStubMap = {
     },
     ServiceNameCatalog.dynamodb: {
         "Table": dynamodb.TABLE_METHODS,
+    },
+    ServiceNameCatalog.rds: {
+        "Client": rds.CLIENT_METHODS,
     },
     ServiceNameCatalog.s3: {
         "Client": s3.CLIENT_METHODS,
