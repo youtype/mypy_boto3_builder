@@ -124,7 +124,7 @@ BuiltConditionExpression = NamedTuple(
     "BuiltConditionExpression",
     [
         ("condition_expression", str),
-        ("attribute_name_placeholders", List[str]),
+        ("attribute_name_placeholders", Dict[str, str]),
         ("attribute_value_placeholders", Dict[str, Any]),
     ],
 )
