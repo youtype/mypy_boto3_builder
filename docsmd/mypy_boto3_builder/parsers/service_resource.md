@@ -9,7 +9,7 @@ Service Resource
 
 ## get_sub_resources
 
-[Show source in service_resource.py:99](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L99)
+[Show source in service_resource.py:111](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L111)
 
 Initialize ServiceResource sub-resources with fake data.
 
@@ -40,7 +40,7 @@ def get_sub_resources(
 
 ## parse_service_resource
 
-[Show source in service_resource.py:28](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L28)
+[Show source in service_resource.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L34)
 
 Parse boto3 ServiceResource data.
 

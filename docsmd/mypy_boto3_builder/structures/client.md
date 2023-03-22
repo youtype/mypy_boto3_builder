@@ -9,7 +9,7 @@ Client
 
 ## Client
 
-[Show source in client.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L22)
+[Show source in client.py:21](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L21)
 
 Boto3 Client.
 
@@ -30,7 +30,7 @@ class Client(ClassRecord):
 
 ### Client().__hash__
 
-[Show source in client.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L58)
+[Show source in client.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L57)
 
 Calculate hash from client service name.
 
@@ -43,7 +43,7 @@ def __hash__(self) -> int:
 
 ### Client().boto3_doc_link
 
-[Show source in client.py:71](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L71)
+[Show source in client.py:70](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L70)
 
 List to boto3 docs page.
 
@@ -57,7 +57,7 @@ def boto3_doc_link(self) -> str:
 
 ### Client().get_all_names
 
-[Show source in client.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L78)
+[Show source in client.py:77](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L77)
 
 Get a list of names for `__all__` statement.
 
@@ -70,7 +70,7 @@ def get_all_names(self) -> list[str]:
 
 ### Client.get_class_name
 
-[Show source in client.py:64](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L64)
+[Show source in client.py:63](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L63)
 
 Get class name for ServiceName.
 
@@ -88,7 +88,7 @@ def get_class_name(service_name: ServiceName) -> str:
 
 ### Client().get_example_method
 
-[Show source in client.py:120](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L120)
+[Show source in client.py:119](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L119)
 
 Get a nice method with return TypedDict for documentation.
 
@@ -101,7 +101,7 @@ def get_example_method(self) -> Method | None:
 
 ### Client().get_exceptions_property
 
-[Show source in client.py:93](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L93)
+[Show source in client.py:92](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L92)
 
 Generate Client exceptions property.
 
@@ -118,7 +118,7 @@ def get_exceptions_property(self) -> Method:
 
 ### Client().get_required_import_records
 
-[Show source in client.py:112](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L112)
+[Show source in client.py:111](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L111)
 
 Extract import records from required type annotations.
 
@@ -135,7 +135,7 @@ def get_required_import_records(self) -> set[ImportRecord]:
 
 ### Client().own_methods
 
-[Show source in client.py:84](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L84)
+[Show source in client.py:83](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/client.py#L83)
 
 Get a list of auto-generated methods.
 

@@ -9,7 +9,7 @@ Waiter
 
 ## Waiter
 
-[Show source in waiter.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L16)
+[Show source in waiter.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L17)
 
 Boto3 client Waiter.
 
@@ -28,7 +28,7 @@ class Waiter(ClassRecord):
 
 ### Waiter().boto3_doc_link
 
-[Show source in waiter.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L34)
+[Show source in waiter.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L35)
 
 Link to waiter boto3 docs.
 
@@ -42,7 +42,7 @@ def boto3_doc_link(self) -> str:
 
 ### Waiter().get_client_method
 
-[Show source in waiter.py:41](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L41)
+[Show source in waiter.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L42)
 
 Get `get_waiter` method for `Client`.
 

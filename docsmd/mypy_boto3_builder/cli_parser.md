@@ -8,7 +8,7 @@ Cli Parser
 
 ## Namespace
 
-[Show source in cli_parser.py:30](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L30)
+[Show source in cli_parser.py:29](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L29)
 
 CLI arguments namespace.
 
@@ -23,7 +23,7 @@ class Namespace:
 
 ## get_absolute_path
 
-[Show source in cli_parser.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L16)
+[Show source in cli_parser.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L15)
 
 Get absolute path from a string.
 
@@ -46,9 +46,9 @@ def get_absolute_path(path: str) -> Path:
 
 ## parse_args
 
-[Show source in cli_parser.py:47](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L47)
+[Show source in cli_parser.py:46](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L46)
 
-Main CLI parser for builder.
+Parse CLI arguments.
 
 #### Returns
 

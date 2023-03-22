@@ -18,7 +18,7 @@ Parent class for all package structures.
 ```python
 class Package:
     def __init__(
-        self, data: type[BasePackageData], service_names: Iterable[ServiceName] = tuple()
+        self, data: type[BasePackageData], service_names: Iterable[ServiceName] = ()
     ) -> None:
         ...
 ```

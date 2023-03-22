@@ -9,7 +9,7 @@ TypeConstant
 
 ## TypeConstant
 
-[Show source in type_constant.py:8](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L8)
+[Show source in type_constant.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L12)
 
 Wrapper for constant like `False` or `"test"`.
 
@@ -31,20 +31,20 @@ class TypeConstant(FakeAnnotation):
 
 ### TypeConstant().copy
 
-[Show source in type_constant.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L37)
+[Show source in type_constant.py:41](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L41)
 
 Create a copy of type annotation wrapper.
 
 #### Signature
 
 ```python
-def copy(self) -> "TypeConstant":
+def copy(self: _R) -> _R:
     ...
 ```
 
 ### TypeConstant().get_import_record
 
-[Show source in type_constant.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L31)
+[Show source in type_constant.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L35)
 
 Get empty import record, because constants do not require imports.
 
@@ -59,22 +59,9 @@ def get_import_record(self) -> ImportRecord:
 
 - [ImportRecord](../import_helpers/import_record.md#importrecord)
 
-### TypeConstant().is_none
-
-[Show source in type_constant.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L43)
-
-Whether value is None.
-
-#### Signature
-
-```python
-def is_none(self) -> bool:
-    ...
-```
-
 ### TypeConstant().render
 
-[Show source in type_constant.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L19)
+[Show source in type_constant.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L23)
 
 Render type annotation to a valid Python code for local usage.
 

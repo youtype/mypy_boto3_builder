@@ -9,7 +9,7 @@ InternalImport
 
 ## AliasInternalImport
 
-[Show source in internal_import.py:84](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L84)
+[Show source in internal_import.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L88)
 
 Internal import for safe local usages.
 
@@ -30,11 +30,24 @@ class AliasInternalImport(InternalImport):
 
 - [InternalImport](#internalimport)
 
+### AliasInternalImport().copy
+
+[Show source in internal_import.py:106](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L106)
+
+Create a copy of type annotation wrapper.
+
+#### Signature
+
+```python
+def copy(self: _R) -> _R:
+    ...
+```
+
 
 
 ## InternalImport
 
-[Show source in internal_import.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L10)
+[Show source in internal_import.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L14)
 
 Wrapper for simple type annotations from this module.
 
@@ -68,20 +81,20 @@ class InternalImport(FakeAnnotation):
 
 ### InternalImport().copy
 
-[Show source in internal_import.py:71](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L71)
+[Show source in internal_import.py:75](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L75)
 
 Create a copy of type annotation wrapper.
 
 #### Signature
 
 ```python
-def copy(self) -> "InternalImport":
+def copy(self: _R) -> _R:
     ...
 ```
 
 ### InternalImport.get_alias
 
-[Show source in internal_import.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L36)
+[Show source in internal_import.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L40)
 
 Get import name alias.
 
@@ -103,7 +116,7 @@ def get_alias(name: str) -> str:
 
 ### InternalImport().get_import_record
 
-[Show source in internal_import.py:65](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L65)
+[Show source in internal_import.py:69](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L69)
 
 Get import record required for using type annotation.
 
@@ -120,7 +133,7 @@ def get_import_record(self) -> ImportRecord:
 
 ### InternalImport().render
 
-[Show source in internal_import.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L49)
+[Show source in internal_import.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L53)
 
 Render type annotation to a valid Python code for local usage.
 

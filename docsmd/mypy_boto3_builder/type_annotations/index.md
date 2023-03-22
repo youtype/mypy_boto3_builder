@@ -14,7 +14,6 @@ Type Annotations
 - [RemoveArgument](./remove_argument.md)
 - [Type](./type.md)
 - [TypeAnnotation](./type_annotation.md)
-- [TypeClass](./type_class.md)
 - [TypeConstant](./type_constant.md)
 - [TypeLiteral](./type_literal.md)
 - [TypeSubscript](./type_subscript.md)

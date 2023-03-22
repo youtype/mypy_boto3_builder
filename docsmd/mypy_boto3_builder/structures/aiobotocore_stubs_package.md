@@ -21,9 +21,9 @@ class AioBotocoreStubsPackage(Package):
         self,
         data: type[BasePackageData],
         session_class: ClassRecord | None = None,
-        service_names: Iterable[ServiceName] = tuple(),
-        service_packages: Iterable[ServicePackage] = tuple(),
-        init_functions: Iterable[Function] = tuple(),
+        service_names: Iterable[ServiceName] = (),
+        service_packages: Iterable[ServicePackage] = (),
+        init_functions: Iterable[Function] = (),
     ):
         ...
 ```
@@ -56,7 +56,7 @@ def essential_service_names(self) -> list[ServiceName]:
 
 ### AioBotocoreStubsPackage().get_all_names
 
-[Show source in aiobotocore_stubs_package.py:90](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L90)
+[Show source in aiobotocore_stubs_package.py:89](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L89)
 
 Get names for `__all__` directive.
 

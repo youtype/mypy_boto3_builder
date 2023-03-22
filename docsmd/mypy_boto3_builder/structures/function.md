@@ -23,8 +23,8 @@ class Function:
         arguments: Iterable[Argument],
         return_type: FakeAnnotation,
         docstring: str = "",
-        decorators: Iterable[FakeAnnotation] = tuple(),
-        body_lines: Iterable[str] = tuple(),
+        decorators: Iterable[FakeAnnotation] = (),
+        body_lines: Iterable[str] = (),
         type_ignore: bool = False,
         is_async: bool = False,
     ):
@@ -122,6 +122,19 @@ def iterate_types(self) -> Iterator[FakeAnnotation]:
 #### See also
 
 - [FakeAnnotation](../type_annotations/fake_annotation.md#fakeannotation)
+
+### Function().remove_argument
+
+[Show source in function.py:154](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L154)
+
+Remove argument by name.
+
+#### Signature
+
+```python
+def remove_argument(self: _R, *names: str) -> _R:
+    ...
+```
 
 ### Function().returns_none
 

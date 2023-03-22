@@ -9,7 +9,7 @@ Argument
 
 ## Argument
 
-[Show source in argument.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L12)
+[Show source in argument.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L13)
 
 Method or function argument.
 
@@ -29,14 +29,14 @@ class Argument:
         name: str,
         type_annotation: FakeAnnotation | None,
         default: TypeConstant | None = None,
-        prefix: str = "",
+        prefix: Literal["*", "**", ""] = "",
     ):
         ...
 ```
 
 ### Argument().copy
 
-[Show source in argument.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L76)
+[Show source in argument.py:77](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L77)
 
 Deep copy argument.
 
@@ -49,7 +49,7 @@ def copy(self: _R) -> _R:
 
 ### Argument().is_kwflag
 
-[Show source in argument.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L54)
+[Show source in argument.py:55](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L55)
 
 Whether argument is a `*` keywords separator.
 
@@ -62,7 +62,7 @@ def is_kwflag(self) -> bool:
 
 ### Argument().iterate_types
 
-[Show source in argument.py:60](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L60)
+[Show source in argument.py:61](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L61)
 
 Extract required type annotations.
 
@@ -79,7 +79,7 @@ def iterate_types(self) -> Iterator[FakeAnnotation]:
 
 ### Argument.kwflag
 
-[Show source in argument.py:47](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L47)
+[Show source in argument.py:48](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L48)
 
 Create `*` keywords separator.
 
@@ -93,7 +93,7 @@ def kwflag(cls: type[_R]) -> _R:
 
 ### Argument().render
 
-[Show source in argument.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L35)
+[Show source in argument.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L36)
 
 Render argument to a string.
 
@@ -106,7 +106,7 @@ def render(self) -> str:
 
 ### Argument().required
 
-[Show source in argument.py:69](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L69)
+[Show source in argument.py:70](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L70)
 
 Whether argument does not have a default value and is required.
 

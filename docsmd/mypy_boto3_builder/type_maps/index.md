@@ -8,10 +8,8 @@ Type Maps
 
 ## Modules
 
-- [Docstring Type Map](./docstring_type_map.md)
 - [Literal Type Map](./literal_type_map.md)
-- [Method Argument Map](./method_argument_map.md)
 - [Method Type Map](./method_type_map.md)
+- [Service Stub Map](service_stub_map/index.md)
 - [Shape Type Map](./shape_type_map.md)
-- [Syntax Type Map](./syntax_type_map.md)
 - [Typed Dicts](./typed_dicts.md)

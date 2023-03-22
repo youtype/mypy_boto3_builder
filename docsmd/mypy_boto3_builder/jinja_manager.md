@@ -8,7 +8,7 @@ JinjaManager
 
 ## JinjaManager
 
-[Show source in jinja_manager.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L11)
+[Show source in jinja_manager.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L14)
 
 Jinja2 `Environment` manager.
 
@@ -21,7 +21,7 @@ class JinjaManager:
 
 ### JinjaManager.escape_md
 
-[Show source in jinja_manager.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L31)
+[Show source in jinja_manager.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L34)
 
 Escape underscore characters.
 
@@ -35,7 +35,7 @@ def escape_md(value: str) -> str:
 
 ### JinjaManager.get_environment
 
-[Show source in jinja_manager.py:38](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L38)
+[Show source in jinja_manager.py:41](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L41)
 
 Get `jinja2.Environment`.
 
@@ -49,7 +49,7 @@ def get_environment(cls) -> jinja2.Environment:
 
 ### JinjaManager.update_globals
 
-[Show source in jinja_manager.py:21](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L21)
+[Show source in jinja_manager.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L24)
 
 Update global variables in `jinja2.Environment`.
 
@@ -61,6 +61,6 @@ Update global variables in `jinja2.Environment`.
 
 ```python
 @classmethod
-def update_globals(cls, **kwargs: object) -> None:
+def update_globals(cls, **kwargs: str | bool | Callable[..., Any]) -> None:
     ...
 ```

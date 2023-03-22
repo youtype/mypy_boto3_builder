@@ -189,7 +189,7 @@ class ServiceNameCatalog:
 
 ### ServiceNameCatalog.add
 
-[Show source in service_name.py:193](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L193)
+[Show source in service_name.py:195](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L195)
 
 Add new ServiceName to catalog or modify existing one.
 

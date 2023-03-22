@@ -9,7 +9,7 @@ Resource
 
 ## Resource
 
-[Show source in resource.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L14)
+[Show source in resource.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L15)
 
 Boto3 ServiceResource sub-Resource.
 
@@ -28,7 +28,7 @@ class Resource(ClassRecord):
 
 ### Resource().boto3_doc_link
 
-[Show source in resource.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L33)
+[Show source in resource.py:29](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L29)
 
 Link to boto3 docs.
 
@@ -42,7 +42,7 @@ def boto3_doc_link(self) -> str:
 
 ### Resource().iterate_types
 
-[Show source in resource.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L40)
+[Show source in resource.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L36)
 
 Iterate over all type annotations from collections.
 

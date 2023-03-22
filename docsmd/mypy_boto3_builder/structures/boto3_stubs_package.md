@@ -21,10 +21,10 @@ class Boto3StubsPackage(Package):
         self,
         data: type[BasePackageData],
         session_class: ClassRecord | None = None,
-        service_names: Iterable[ServiceName] = tuple(),
-        service_packages: Iterable[ServicePackage] = tuple(),
-        init_functions: Iterable[Function] = tuple(),
-        literals: Iterable[TypeLiteral] = tuple(),
+        service_names: Iterable[ServiceName] = (),
+        service_packages: Iterable[ServicePackage] = (),
+        init_functions: Iterable[Function] = (),
+        literals: Iterable[TypeLiteral] = (),
     ):
         ...
 ```
@@ -58,7 +58,7 @@ def essential_service_names(self) -> list[ServiceName]:
 
 ### Boto3StubsPackage().get_all_names
 
-[Show source in boto3_stubs_package.py:112](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L112)
+[Show source in boto3_stubs_package.py:108](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L108)
 
 Get names for `__all__` directive.
 
@@ -88,7 +88,7 @@ def get_init_required_import_records(self) -> list[ImportRecord]:
 
 ### Boto3StubsPackage().get_session_required_import_records
 
-[Show source in boto3_stubs_package.py:70](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L70)
+[Show source in boto3_stubs_package.py:68](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/boto3_stubs_package.py#L68)
 
 Get import reciords for `session.py[i]`.
 

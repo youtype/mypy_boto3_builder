@@ -23,11 +23,11 @@ class ServicePackage(Package):
         service_name: ServiceName,
         client: Client | None = None,
         service_resource: ServiceResource | None = None,
-        waiters: Iterable[Waiter] = tuple(),
-        paginators: Iterable[Paginator] = tuple(),
-        typed_dicts: Iterable[TypeTypedDict] = tuple(),
-        literals: Iterable[TypeLiteral] = tuple(),
-        helper_functions: Iterable[Function] = tuple(),
+        waiters: Iterable[Waiter] = (),
+        paginators: Iterable[Paginator] = (),
+        typed_dicts: Iterable[TypeTypedDict] = (),
+        literals: Iterable[TypeLiteral] = (),
+        helper_functions: Iterable[Function] = (),
     ):
         ...
 ```

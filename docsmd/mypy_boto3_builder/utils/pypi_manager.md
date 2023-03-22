@@ -9,7 +9,7 @@ PyPIManager
 
 ## PyPIManager
 
-[Show source in pypi_manager.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L11)
+[Show source in pypi_manager.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L10)
 
 Version manager for PyPI packages.
 

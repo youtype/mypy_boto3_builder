@@ -9,7 +9,7 @@ Collection
 
 ## Collection
 
-[Show source in collection.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L13)
+[Show source in collection.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L14)
 
 Boto3 ServiceResource or Resource collection.
 
@@ -37,7 +37,7 @@ class Collection(ClassRecord):
 
 ### Collection().boto3_doc_link
 
-[Show source in collection.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L43)
+[Show source in collection.py:39](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L39)
 
 Link to boto3 docs.
 
@@ -51,7 +51,7 @@ def boto3_doc_link(self) -> str:
 
 ### Collection().iterate_types
 
-[Show source in collection.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L50)
+[Show source in collection.py:46](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L46)
 
 Iterate over all type annotations.
 

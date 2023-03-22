@@ -9,7 +9,7 @@ Boto3 Utils
 
 ## get_boto3_client
 
-[Show source in boto3_utils.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/boto3_utils.py#L16)
+[Show source in boto3_utils.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/boto3_utils.py#L35)
 
 Get boto3 client from `session`.
 
@@ -38,7 +38,7 @@ def get_boto3_client(session: Session, service_name: ServiceName) -> BaseClient:
 
 ## get_boto3_resource
 
-[Show source in boto3_utils.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/boto3_utils.py#L31)
+[Show source in boto3_utils.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/boto3_utils.py#L50)
 
 Get boto3 resource from `session`.
 
@@ -67,9 +67,40 @@ def get_boto3_resource(
 
 
 
+## get_boto3_session
+
+[Show source in boto3_utils.py:18](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/boto3_utils.py#L18)
+
+Create and cache boto3 session.
+
+#### Signature
+
+```python
+@cache
+def get_boto3_session() -> Session:
+    ...
+```
+
+
+
+## get_botocore_session
+
+[Show source in boto3_utils.py:28](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/boto3_utils.py#L28)
+
+Get botocore session from boto3 session.
+
+#### Signature
+
+```python
+def get_botocore_session(session: Session) -> BotocoreSession:
+    ...
+```
+
+
+
 ## get_region_name_literal
 
-[Show source in boto3_utils.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/boto3_utils.py#L49)
+[Show source in boto3_utils.py:68](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/boto3_utils.py#L68)
 
 Get Literal with all regions.
 

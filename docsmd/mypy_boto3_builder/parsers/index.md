@@ -11,7 +11,6 @@ Parsers
 - [Aiobotocore Stubs Package](./aiobotocore_stubs_package.md)
 - [Boto3 Stubs Package](./boto3_stubs_package.md)
 - [Client](./client.md)
-- [Docstring Parser](docstring_parser/index.md)
 - [Fake Service Package](./fake_service_package.md)
 - [Helpers](./helpers.md)
 - [Master Package](./master_package.md)

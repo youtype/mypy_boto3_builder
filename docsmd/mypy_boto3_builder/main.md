@@ -16,7 +16,6 @@ Generate a selected product.
 
 - `product` - Product to generate
 - `args` - CLI namespace
-- `session` - Boto3 session
 - `service_names` - Selected service names
 - `master_service_names` - Service names included in master
 
@@ -26,7 +25,6 @@ Generate a selected product.
 def generate_product(
     product: Product,
     args: Namespace,
-    session: Session,
     service_names: Sequence[ServiceName],
     master_service_names: Sequence[ServiceName],
 ) -> None:
@@ -43,7 +41,7 @@ def generate_product(
 
 ## get_available_service_names
 
-[Show source in main.py:65](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L65)
+[Show source in main.py:66](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L66)
 
 Get a list of boto3 supported service names.
 
@@ -58,7 +56,7 @@ A list of supported services.
 #### Signature
 
 ```python
-def get_available_service_names(session: Session) -> list[ServiceName]:
+def get_available_service_names(session: BotocoreSession) -> list[ServiceName]:
     ...
 ```
 
@@ -94,7 +92,7 @@ def get_generator_cls(product: Product) -> type[BaseGenerator]:
 
 ## get_selected_service_names
 
-[Show source in main.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L25)
+[Show source in main.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L26)
 
 Get a list of selected service names.
 
@@ -127,9 +125,9 @@ def get_selected_service_names(
 
 ## main
 
-[Show source in main.py:135](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L135)
+[Show source in main.py:132](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L132)
 
-Main entrypoint for builder.
+Run builder.
 
 #### Signature
 

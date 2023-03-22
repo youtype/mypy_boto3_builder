@@ -9,7 +9,7 @@ Paginator
 
 ## Paginator
 
-[Show source in paginator.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L16)
+[Show source in paginator.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L17)
 
 Boto3 client Paginator.
 
@@ -34,7 +34,7 @@ class Paginator(ClassRecord):
 
 ### Paginator().boto3_doc_link
 
-[Show source in paginator.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L36)
+[Show source in paginator.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L37)
 
 Link to boto3 docs.
 
@@ -48,7 +48,7 @@ def boto3_doc_link(self) -> str:
 
 ### Paginator().get_client_method
 
-[Show source in paginator.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L43)
+[Show source in paginator.py:44](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/paginator.py#L44)
 
 Get `get_paginator` method for `Client`.
 

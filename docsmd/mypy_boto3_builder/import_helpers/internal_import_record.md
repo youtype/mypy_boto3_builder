@@ -9,7 +9,7 @@ InternalImportRecord
 
 ## InternalImportRecord
 
-[Show source in internal_import_record.py:9](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L9)
+[Show source in internal_import_record.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L13)
 
 Helper for Python import strings with not set master module name.
 
@@ -36,7 +36,7 @@ class InternalImportRecord(ImportRecord):
 
 ### InternalImportRecord().get_external
 
-[Show source in internal_import_record.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L24)
+[Show source in internal_import_record.py:28](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L28)
 
 Get full import record with `module_name` set as master module.
 
@@ -51,10 +51,6 @@ A new non-internal ImportRecord.
 #### Signature
 
 ```python
-def get_external(self, module_name: str) -> ImportRecord:
+def get_external(self: _R, module_name: str) -> _R:
     ...
 ```
-
-#### See also
-
-- [ImportRecord](./import_record.md#importrecord)
