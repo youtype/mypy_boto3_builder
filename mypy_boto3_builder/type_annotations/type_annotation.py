@@ -20,7 +20,6 @@ class TypeAnnotation(FakeAnnotation):
 
     _typing = ImportString("typing")
     _typing_extensions = ImportString("typing_extensions")
-    _collections_abc = ImportString("collections", "abc")
 
     # Set of supported type annotations. value is default import module
     SUPPORTED_TYPES: dict[str, ImportString] = {
@@ -36,12 +35,12 @@ class TypeAnnotation(FakeAnnotation):
         "NoReturn": _typing,  # typing.NoReturn
         "TypedDict": _typing,  # typing.TypedDict
         "Literal": _typing,  # typing.Literal
-        "Mapping": _collections_abc,  # collections.abc.Mapping
-        "Sequence": _collections_abc,  # collections.abc.Sequence
-        "Callable": _collections_abc,  # collections.abc.Callable
-        "Iterator": _collections_abc,  # collections.abc.Iterator
-        "Awaitable": _collections_abc,  # collections.abc.Awaitable
-        "AsyncIterator": _collections_abc,  # collections.abc.AsyncIterator
+        "Mapping": _typing,  # typing.Mapping
+        "Sequence": _typing,  # typing.Sequence
+        "Callable": _typing,  # typing.Callable
+        "Iterator": _typing,  # typing.Iterator
+        "Awaitable": _typing,  # typing.Awaitable
+        "AsyncIterator": _typing,  # typing.AsyncIterator
         "NotRequired": _typing,  # typing_extensions.NotRequired / typing.NotRequired
     }
 

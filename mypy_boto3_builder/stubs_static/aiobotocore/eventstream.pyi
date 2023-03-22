@@ -1,5 +1,4 @@
-from collections.abc import Generator
-from typing import Any, Iterable
+from typing import Any, Generator, Iterable
 
 from botocore.eventstream import EventStream
 from requests.models import Response

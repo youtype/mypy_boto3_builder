@@ -28,7 +28,7 @@ class TestTypeAnnotation:
 
     def test_no_fallback(self) -> None:
         sample = TypeAnnotation("Awaitable")
-        assert sample.get_import_record().render() == "from collections.abc import Awaitable"
+        assert sample.get_import_record().render() == "from typing import Awaitable"
         assert sample.get_import_record().fallback is None
 
     def test_fallback(self) -> None:
