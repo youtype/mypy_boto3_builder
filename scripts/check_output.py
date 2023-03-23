@@ -181,7 +181,6 @@ def run_call(path: Path) -> None:
     Check output by running it.
     """
     try:
-        print([sys.executable, path.as_posix()])
         subprocess.check_call([sys.executable, path.as_posix()], stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
         raise SnapshotMismatchError(f"Path {path} cannot be imported: {e}") from None
