@@ -13,6 +13,7 @@ import logging
 import subprocess
 import sys
 import tempfile
+from typing import List
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -71,8 +72,9 @@ class CLINamespace:
     CLI namespace.
     """
 
+    debug: bool
     path: Path
-    services: list[str]
+    services: List[str]
 
 
 def parse_args() -> CLINamespace:
@@ -80,10 +82,12 @@ def parse_args() -> CLINamespace:
     Parse CLI arguments.
     """
     parser = argparse.ArgumentParser(__file__)
+    parser.add_argument("-d", "--debug", action="store_true")
     parser.add_argument("-p", "--path", type=Path, default=ROOT_PATH / "mypy_boto3_output")
     parser.add_argument("services", nargs="*")
     args = parser.parse_args()
     return CLINamespace(
+        debug=args.debug,
         path=args.path,
         services=args.services,
     )
@@ -174,10 +178,32 @@ def run_mypy(path: Path) -> None:
 
 def run_call(path: Path) -> None:
     """
-    Check output by importing it.
+    Check output by running it.
     """
     try:
+        print([sys.executable, path.as_posix()])
         subprocess.check_call([sys.executable, path.as_posix()], stdout=subprocess.DEVNULL)
+    except subprocess.CalledProcessError as e:
+        raise SnapshotMismatchError(f"Path {path} cannot be imported: {e}") from None
+
+
+def run_import(path: Path) -> None:
+    """
+    Check output by installing and importing it.
+    """
+    try:
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "install", "--no-input", path.parent.as_posix()],
+            stdout=subprocess.DEVNULL,
+        )
+        subprocess.check_call(
+            [sys.executable, "-c", f"import {path.name}"],
+            stdout=subprocess.DEVNULL,
+        )
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "uninstall", "--no-input", "-y", path.name],
+            stdout=subprocess.DEVNULL,
+        )
     except subprocess.CalledProcessError as e:
         raise SnapshotMismatchError(f"Path {path} cannot be imported: {e}") from None
 
@@ -213,6 +239,8 @@ def check_snapshot(path: Path) -> None:
     run_flake8(path)
     logger.debug(f"Running pyright for {path.name} ...")
     run_pyright(path)
+    logger.debug(f"Running import for {path.name} ...")
+    run_import(path)
 
 
 def main() -> None:
@@ -220,7 +248,7 @@ def main() -> None:
     Run main logic.
     """
     args = parse_args()
-    logger = setup_logging(logging.INFO)
+    logger = setup_logging(logging.DEBUG if args.debug else logging.INFO)
     has_errors = False
     for folder in sorted(args.path.iterdir()):
         if not folder.name.endswith("_package"):
