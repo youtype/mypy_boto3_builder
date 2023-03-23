@@ -155,8 +155,9 @@ class Function:
         """
         Remove argument by name.
         """
-        for argument in self.arguments:
-            if argument.name in names:
-                self.arguments.remove(argument)
+        remove = [arg for arg in self.arguments if arg.name in names]
+
+        for argument in remove:
+            self.arguments.remove(argument)
 
         return self

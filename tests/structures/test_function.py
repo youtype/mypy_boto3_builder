@@ -49,3 +49,8 @@ class TestFunction:
             ImportRecord(ImportString("typing"), "Any"),
             ImportRecord(ImportString("typing"), "List"),
         }
+
+    def test_remove_argument(self) -> None:
+        assert len(self.function.copy().remove_argument("unknown").arguments) == 3
+        assert len(self.function.copy().remove_argument("my_str").arguments) == 2
+        assert len(self.function.copy().remove_argument("my_str", "lst").arguments) == 1
