@@ -4,7 +4,8 @@
 [![PyPI - boto3-stubs](https://img.shields.io/pypi/v/boto3-stubs.svg?color=blue&label=boto3-stubs)](https://pypi.org/project/boto3-stubs)
 [![PyPI - boto3](https://img.shields.io/pypi/v/boto3.svg?color=blue&label=boto3)](https://pypi.org/project/boto3)
 
-[![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=boto3-stubs-docs)](https://youtype.github.io/boto3_stubs_docs/)
+
+[![Docs](https://img.shields.io/readthedocs/boto3-stubs.svg?color=blue&label=boto3-stubs%20docs)](https://youtype.github.io/boto3_stubs_docs/)
 [![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue&label=builder%20docs)](https://youtype.github.io/mypy_boto3_builder/)
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boto3-stubs.svg?color=blue)](https://pypi.org/project/boto3-stubs)

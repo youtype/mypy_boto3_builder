@@ -2,7 +2,7 @@
 
 [![PyPI - botocore-stubs](https://img.shields.io/pypi/v/botocore-stubs.svg?color=blue)](https://pypi.org/project/botocore-stubs)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/botocore-stubs.svg?color=blue)](https://pypi.org/project/botocore-stubs)
-[![Docs](https://img.shields.io/readthedocs/mypy-boto3-builder.svg?color=blue)](https://mypy-boto3-builder.readthedocs.io/)
+[![Docs](https://img.shields.io/readthedocs/boto3-stubs.svg?color=blue)](https://youtype.github.io/boto3_stubs_docs/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/botocore-stubs?color=blue)](https://pypistats.org/packages/botocore-stubs)
 
 ![boto3.typed](https://github.com/youtype/mypy_boto3_builder/raw/main/logo.png)
