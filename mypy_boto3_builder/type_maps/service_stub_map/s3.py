@@ -83,7 +83,11 @@ generate_presigned_post_method = Method(
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
         Argument("Fields", Type.DictStrAny, Type.Ellipsis),
-        Argument("Conditions", Type.DictStrAny, Type.Ellipsis),
+        Argument(
+            "Conditions",
+            TypeSubscript(Type.Union, [Type.ListAny, Type.DictStrAny]),
+            Type.Ellipsis,
+        ),
         Argument("ExpiresIn", Type.int, TypeConstant(3600)),
     ],
     Type.DictStrAny,

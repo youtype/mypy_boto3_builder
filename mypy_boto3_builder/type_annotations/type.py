@@ -47,6 +47,7 @@ class Type:
 
     SequenceAny = TypeSubscript(Sequence, [Any])
     MappingStrAny = TypeSubscript(Mapping, [str, Any])
+    ListAny = TypeSubscript(List, [Any])
     DictStrAny = TypeSubscript(Dict, [str, Any])
     DictStrStr = TypeSubscript(Dict, [str, str])
     IOAny = TypeSubscript(IO, [Any])
