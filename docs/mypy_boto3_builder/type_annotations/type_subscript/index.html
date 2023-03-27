@@ -15,7 +15,7 @@
         <link rel="next" href="../type_typed_dict/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.4">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.240905d7.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -2901,7 +2901,7 @@
   
 
 
-<h1 id="typesubscript">TypeSubscript</h1>
+<h1 id="typesubscript">TypeSubscript<a class="headerlink" href="#typesubscript" title="Permanent link">#</a></h1>
 <p><a href="../../../#mypy_boto3_builder-index">Mypy_boto3_builder Index</a> /
 <a href="../../#mypy-boto3-builder">Mypy Boto3 Builder</a> /
 <a href="../#type-annotations">Type Annotations</a> /
@@ -2909,96 +2909,96 @@ TypeSubscript</p>
 <blockquote>
 <p>Auto-generated documentation for <a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py">mypy_boto3_builder.type_annotations.type_subscript</a> module.</p>
 </blockquote>
-<h2 id="typesubscript_1">TypeSubscript</h2>
+<h2 id="typesubscript_1">TypeSubscript<a class="headerlink" href="#typesubscript_1" title="Permanent link">#</a></h2>
 <p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L13">Show source in type_subscript.py:13</a></p>
 <p>Wrapper for subscript type annotations, like <code>List[str]</code>.</p>
-<h4 id="arguments">Arguments</h4>
+<h4 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">#</a></h4>
 <ul>
 <li><code>parent</code> - Parent type annotation.</li>
 <li><code>children</code> - Children type annotations.</li>
 </ul>
-<h4 id="signature">Signature</h4>
+<h4 id="signature">Signature<a class="headerlink" href="#signature" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span> <span class="nc">TypeSubscript</span><span class="p">(</span><span class="n">FakeAnnotation</span><span class="p">):</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">FakeAnnotation</span><span class="p">,</span> <span class="n">children</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">FakeAnnotation</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="o">...</span>
 </code></pre></div>
-<h4 id="see-also">See also</h4>
+<h4 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">#</a></h4>
 <ul>
 <li><a href="../fake_annotation/#fakeannotation">FakeAnnotation</a></li>
 </ul>
-<h3 id="typesubscriptadd_child">TypeSubscript().add_child</h3>
+<h3 id="typesubscriptadd_child">TypeSubscript().add_child<a class="headerlink" href="#typesubscriptadd_child" title="Permanent link">#</a></h3>
 <p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L60">Show source in type_subscript.py:60</a></p>
 <p>Add new child to Substcript.</p>
-<h4 id="signature_1">Signature</h4>
+<h4 id="signature_1">Signature<a class="headerlink" href="#signature_1" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">add_child</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">child</span><span class="p">:</span> <span class="n">FakeAnnotation</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="o">...</span>
 </code></pre></div>
-<h4 id="see-also_1">See also</h4>
+<h4 id="see-also_1">See also<a class="headerlink" href="#see-also_1" title="Permanent link">#</a></h4>
 <ul>
 <li><a href="../fake_annotation/#fakeannotation">FakeAnnotation</a></li>
 </ul>
-<h3 id="typesubscriptcopy">TypeSubscript().copy</h3>
+<h3 id="typesubscriptcopy">TypeSubscript().copy<a class="headerlink" href="#typesubscriptcopy" title="Permanent link">#</a></h3>
 <p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L78">Show source in type_subscript.py:78</a></p>
 <p>Create a copy of type annotation wrapper.</p>
-<h4 id="signature_2">Signature</h4>
+<h4 id="signature_2">Signature<a class="headerlink" href="#signature_2" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">_R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_R</span><span class="p">:</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="o">...</span>
 </code></pre></div>
-<h3 id="typesubscriptget_import_record">TypeSubscript().get_import_record</h3>
+<h3 id="typesubscriptget_import_record">TypeSubscript().get_import_record<a class="headerlink" href="#typesubscriptget_import_record" title="Permanent link">#</a></h3>
 <p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L46">Show source in type_subscript.py:46</a></p>
 <p>Get import record required for using type annotation.</p>
-<h4 id="signature_3">Signature</h4>
+<h4 id="signature_3">Signature<a class="headerlink" href="#signature_3" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">get_import_record</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImportRecord</span><span class="p">:</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="o">...</span>
 </code></pre></div>
-<h4 id="see-also_2">See also</h4>
+<h4 id="see-also_2">See also<a class="headerlink" href="#see-also_2" title="Permanent link">#</a></h4>
 <ul>
 <li><a href="../../import_helpers/import_record/#importrecord">ImportRecord</a></li>
 </ul>
-<h3 id="typesubscriptget_local_types">TypeSubscript().get_local_types</h3>
+<h3 id="typesubscriptget_local_types">TypeSubscript().get_local_types<a class="headerlink" href="#typesubscriptget_local_types" title="Permanent link">#</a></h3>
 <p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L84">Show source in type_subscript.py:84</a></p>
 <p>Get internal types generated by builder.</p>
-<h4 id="signature_4">Signature</h4>
+<h4 id="signature_4">Signature<a class="headerlink" href="#signature_4" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">get_local_types</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">FakeAnnotation</span><span class="p">]:</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="o">...</span>
 </code></pre></div>
-<h4 id="see-also_3">See also</h4>
+<h4 id="see-also_3">See also<a class="headerlink" href="#see-also_3" title="Permanent link">#</a></h4>
 <ul>
 <li><a href="../fake_annotation/#fakeannotation">FakeAnnotation</a></li>
 </ul>
-<h3 id="typesubscriptis_dict">TypeSubscript().is_dict</h3>
+<h3 id="typesubscriptis_dict">TypeSubscript().is_dict<a class="headerlink" href="#typesubscriptis_dict" title="Permanent link">#</a></h3>
 <p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L66">Show source in type_subscript.py:66</a></p>
 <p>Whether subscript parent is Dict.</p>
-<h4 id="signature_5">Signature</h4>
+<h4 id="signature_5">Signature<a class="headerlink" href="#signature_5" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">is_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="o">...</span>
 </code></pre></div>
-<h3 id="typesubscriptis_list">TypeSubscript().is_list</h3>
+<h3 id="typesubscriptis_list">TypeSubscript().is_list<a class="headerlink" href="#typesubscriptis_list" title="Permanent link">#</a></h3>
 <p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L72">Show source in type_subscript.py:72</a></p>
 <p>Whether subscript parent is List.</p>
-<h4 id="signature_6">Signature</h4>
+<h4 id="signature_6">Signature<a class="headerlink" href="#signature_6" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span> <span class="nf">is_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="o">...</span>
 </code></pre></div>
-<h3 id="typesubscriptiterate_types">TypeSubscript().iterate_types</h3>
+<h3 id="typesubscriptiterate_types">TypeSubscript().iterate_types<a class="headerlink" href="#typesubscriptiterate_types" title="Permanent link">#</a></h3>
 <p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L52">Show source in type_subscript.py:52</a></p>
 <p>Extract type annotations from children.</p>
-<h4 id="signature_7">Signature</h4>
+<h4 id="signature_7">Signature<a class="headerlink" href="#signature_7" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">iterate_types</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">FakeAnnotation</span><span class="p">]:</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="o">...</span>
 </code></pre></div>
-<h4 id="see-also_4">See also</h4>
+<h4 id="see-also_4">See also<a class="headerlink" href="#see-also_4" title="Permanent link">#</a></h4>
 <ul>
 <li><a href="../fake_annotation/#fakeannotation">FakeAnnotation</a></li>
 </ul>
-<h3 id="typesubscriptrender">TypeSubscript().render</h3>
+<h3 id="typesubscriptrender">TypeSubscript().render<a class="headerlink" href="#typesubscriptrender" title="Permanent link">#</a></h3>
 <p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L33">Show source in type_subscript.py:33</a></p>
 <p>Render type annotation to a valid Python code for local usage.</p>
-<h4 id="returns">Returns</h4>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">#</a></h4>
 <p>A string with a valid type annotation.</p>
-<h4 id="signature_8">Signature</h4>
+<h4 id="signature_8">Signature<a class="headerlink" href="#signature_8" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="o">...</span>
 </code></pre></div>
@@ -3042,7 +3042,7 @@ TypeSubscript</p>
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.instant", "navigation.tracking", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.19047be9.min.js"></script>
       
     
   </body>

@@ -22,7 +22,7 @@ class Type:
 
 ### Type.get_optional
 
-[Show source in type.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L57)
+[Show source in type.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L58)
 
 Get Optional type annotation.
 
