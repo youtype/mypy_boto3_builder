@@ -4,6 +4,7 @@ Parser that produces `structures.AioBotocoreStubsPackage`.
 from collections.abc import Iterable
 
 from boto3.session import Session
+from botocore.config import Config
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
@@ -55,9 +56,7 @@ def parse_aiobotocore_stubs_package(
         Argument("aws_session_token", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
         Argument(
             "config",
-            TypeSubscript(
-                Type.Optional, [ExternalImport(ImportString("aiobotocore", "config"), "AioConfig")]
-            ),
+            TypeSubscript(Type.Optional, [ExternalImport.from_class(Config)]),
             Type.Ellipsis,
         ),
     ]

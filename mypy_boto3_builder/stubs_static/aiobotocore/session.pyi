@@ -41,13 +41,13 @@ class AioSession(Session):
         self,
         service_name: str,
         region_name: Optional[str] = ...,
+        api_version: Optional[str] = ...,
         use_ssl: Optional[bool] = ...,
+        verify: Union[bool, str, None] = ...,
         endpoint_url: Optional[str] = ...,
-        verify: Union[str, bool, None] = ...,
         aws_access_key_id: Optional[str] = ...,
         aws_secret_access_key: Optional[str] = ...,
         aws_session_token: Optional[str] = ...,
-        api_version: Optional[str] = ...,
         config: Optional[Config] = ...,
     ) -> AioBaseClient: ...
     async def get_credentials(self) -> AioCredentials: ...  # type: ignore [override]
