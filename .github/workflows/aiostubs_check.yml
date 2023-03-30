@@ -19,8 +19,9 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { extractVersionsFromInput } = require('./.github/workflows/helpers.js')
-            await extractVersionsFromInput({ core, context })
+            const { setupGlobals, extractVersionsFromInput } = require('./.github/workflows/helpers.js')
+            setupGlobals({ core, context, fetch })
+            await extractVersionsFromInput()
       - name: Set up Python
         uses: actions/setup-python@v4
         with:

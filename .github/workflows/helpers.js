@@ -1,70 +1,45 @@
-const https = require('https')
+let fetch = null;
+let core = null;
+let context = null;
+
+function setupGlobals(globals) {
+    fetch = globals.fetch
+    if (!fetch) throw new Error('fetch is not defined')
+
+    core = globals.core
+    if (!core) throw new Error('core is not defined')
+
+    context = globals.context
+    if (!context) throw new Error('context is not defined')
+}
 
 function sortVersions(versions) {
     return versions.map(
-        a => a.replace(/\d+/g, n => +n + 100000)
+        a => a.replace(/\d+/g, n => `${parseInt(n) + 100000}`)
     ).sort().map(
-        a => a.replace(/\d+/g, n => +n - 100000)
+        a => a.replace(/\d+/g, n => `${parseInt(n) - 100000}`)
     )
 }
 
 async function getDownloadURL(packageName, version) {
-    const options = {
-        hostname: 'pypi.org',
-        port: 443,
-        path: `/pypi/${packageName}/json`,
-        method: 'GET'
+    if (!packageName) throw new Error('packageName is not defined')
+    if (!version) throw new Error(`version is not defined for ${packageName}`)
+    const response = await fetch(`https://pypi.org/pypi/${packageName}/json`)
+    const data = await response.json()
+    const versionsData = data.releases[version]
+    if (!versionsData) {
+        throw new Error(`No download URLs found for ${packageName} ${version}`)
     }
-
-    return new Promise((resolve, reject) => {
-        const req = https.request(options, res => {
-            if (res.statusCode < 200 || res.statusCode >= 300) {
-                return reject(new Error(`Status Code: ${res.statusCode}`))
-            }
-            const data = []
-            res.on("data", chunk => data.push(chunk))
-            res.on("end", () => {
-                const response = JSON.parse(Buffer.concat(data).toString())
-                console.log('getDownloadURL response', response)
-                const versionsData = response.releases[version]
-                // console.log('getDownloadURL versionsData', versionsData)
-                if (!versionsData) {
-                    return reject(new Error(`No download URLs found for ${packageName} ${version}`))
-                }
-
-                const versionData = versionsData.find(x => x.packagetype === 'bdist_wheel') || versionsData[0]
-                console.log('getDownloadURL result', versionData.url)
-                resolve(versionData.url)
-            })
-        })
-        req.on("error", reject)
-        req.end()
-    })
+    const versionData = versionsData.find(x => x.packagetype === 'bdist_wheel') || versionsData[0]
+    core.debug('getDownloadURL result', versionData.url)
+    return versionData.url
 }
 
 async function getReleaseVersions(packageName) {
-    const options = {
-        hostname: 'pypi.org',
-        port: 443,
-        path: `/pypi/${packageName}/json`,
-        method: 'GET'
-    }
-
-    return new Promise((resolve, reject) => {
-        const req = https.request(options, res => {
-            if (res.statusCode < 200 || res.statusCode >= 300) {
-                return reject(new Error(`Status Code: ${res.statusCode}`))
-            }
-            const data = []
-            res.on("data", chunk => data.push(chunk))
-            res.on("end", () => {
-                const response = JSON.parse(Buffer.concat(data).toString())
-                resolve(Object.keys(response.releases))
-            })
-        })
-        req.on("error", reject)
-        req.end()
-    })
+    if (!packageName) throw new Error('packageName is not defined')
+    const response = await fetch(`https://pypi.org/pypi/${packageName}/json`)
+    const data = await response.json()
+    return Object.keys(data.releases)
 }
 
 function getNextPostVersion(version) {
@@ -178,7 +153,7 @@ async function extractVersions({ core, context }) {
     core.setOutput('version', buildVersion)
 }
 
-async function extractDownloadLinks({ core }) {
+async function extractDownloadLinks() {
     const boto3URL = await getDownloadURL('boto3', process.env.BOTO3_VERSION)
     core.info(`Boto3 download URL: ${boto3URL}`)
     core.setOutput('boto3-url', boto3URL)
@@ -189,7 +164,7 @@ async function extractDownloadLinks({ core }) {
 }
 
 
-async function extractAioBotocoreVersions({ core, context }) {
+async function extractAioBotocoreVersions() {
     core.setOutput('version', '')
 
     const aiobotocoreVersion = (
@@ -205,7 +180,7 @@ async function extractAioBotocoreVersions({ core, context }) {
 
     const extraFlags = []
 
-    const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : true
+    const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : false
     if (skipPublished) extraFlags.push('--skip-published')
 
     core.info(`Extra flags = ${extraFlags}`)
@@ -241,7 +216,7 @@ async function extractAioBotocoreVersions({ core, context }) {
     core.setOutput('version', buildVersion)
 }
 
-async function extractAioBoto3Versions({ core, context }) {
+async function extractAioBoto3Versions() {
     core.setOutput('version', '')
 
     const aioboto3Version = (
@@ -285,19 +260,19 @@ async function extractAioBoto3Versions({ core, context }) {
     core.setOutput('version', buildVersion)
 }
 
-async function extractAioBotocoreDownloadLinks({ core }) {
+async function extractAioBotocoreDownloadLinks() {
     const aiobotocoreURL = await getDownloadURL('aiobotocore', process.env.AIOBOTOCORE_VERSION)
     core.info(`aiobotocore download URL: ${aiobotocoreURL}`)
     core.setOutput('aiobotocore-url', aiobotocoreURL)
 }
 
-async function extractAioBoto3DownloadLinks({ core }) {
+async function extractAioBoto3DownloadLinks() {
     const aioboto3URL = await getDownloadURL('aioboto3', process.env.AIOBOTO3_VERSION)
     core.info(`aioboto3 download URL: ${aioboto3URL}`)
     core.setOutput('aioboto3-url', aioboto3URL)
 }
 
-async function extractVersionsFromInput({ core, context }) {
+async function extractVersionsFromInput() {
     const inputBoto3Version = context.payload.inputs && context.payload.inputs.boto3_version
     const boto3Version = inputBoto3Version ? inputBoto3Version : await getBoto3Version()
     const botocoreVersion = getBotocoreVersion(boto3Version)

@@ -49,8 +49,9 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { extractVersions } = require('./.github/workflows/helpers.js')
-            await extractVersions({ core, context })
+            const { setupGlobals, extractVersions } = require('./.github/workflows/helpers.js')
+            setupGlobals({ core, context, fetch })
+            await extractVersions()
 
   publish-boto3-stubs:
     name: Publish boto3-stubs
@@ -73,8 +74,9 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { extractDownloadLinks } = require('./.github/workflows/helpers.js')
-            await extractDownloadLinks({ core })
+            const { setupGlobals, extractDownloadLinks } = require('./.github/workflows/helpers.js')
+            setupGlobals({ core, context, fetch })
+            await extractDownloadLinks()
       - name: Install boto3
         run: |
           mkdir installtemp

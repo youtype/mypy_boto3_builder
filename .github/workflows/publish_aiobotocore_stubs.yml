@@ -41,8 +41,9 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { extractAioBotocoreVersions } = require('./.github/workflows/helpers.js')
-            await extractAioBotocoreVersions({ core, context })
+            const { setupGlobals, extractAioBotocoreVersions } = require('./.github/workflows/helpers.js')
+            setupGlobals({ core, context, fetch })
+            await extractAioBotocoreVersions()
   publish-types-aiobotocore:
     name: Publish types-aiobotocore
     runs-on: ubuntu-latest
@@ -63,8 +64,9 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { extractAioBotocoreDownloadLinks } = require('./.github/workflows/helpers.js')
-            await extractAioBotocoreDownloadLinks({ core })
+            const { setupGlobals, extractAioBotocoreDownloadLinks } = require('./.github/workflows/helpers.js')
+            setupGlobals({ core, context, fetch })
+            await extractAioBotocoreDownloadLinks()
       - name: Install builder
         run: |
           rm -rf mypy_boto3_builder
