@@ -67,7 +67,7 @@ class Boto3StubsPackage(Package):
 
     def get_session_required_import_records(self) -> list[ImportRecord]:
         """
-        Get import reciords for `session.py[i]`.
+        Get import records for `session.py[i]`.
         """
         import_records: set[ImportRecord] = {
             ImportRecord(ImportString("sys")),
@@ -100,6 +100,7 @@ class Boto3StubsPackage(Package):
                 "UnknownServiceError",
                 "UnknownServiceError",
             ),
+            ImportRecord(ImportString("botocore", "hooks"), "BaseEventHooks"),
             TypeLiteral.get_typing_import_record(),
         }
         import_records.update(self.session_class.get_required_import_records())

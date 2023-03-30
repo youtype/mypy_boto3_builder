@@ -3,6 +3,8 @@ Parent class for all package structures.
 """
 from collections.abc import Iterable
 
+from mypy_boto3_builder.import_helpers.import_record import ImportRecord
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
@@ -13,6 +15,8 @@ class Package:
     """
     Parent class for all package structures.
     """
+
+    FALLBACK_IMPORT_RECORD = ImportRecord(ImportString("sys"))
 
     def __init__(
         self,
@@ -80,3 +84,12 @@ class Package:
         Minimum required library version.
         """
         return get_max_build_version(self.library_version)
+
+    def add_fallback_import_record(self, import_records: set[ImportRecord]) -> None:
+        """
+        Add fallback import record if needed.
+
+        Changes `import_records`.
+        """
+        if any(i.fallback for i in import_records):
+            import_records.add(self.FALLBACK_IMPORT_RECORD)

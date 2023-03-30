@@ -5,14 +5,12 @@ Structure for types-aiobotocore module.
 from collections.abc import Iterable
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.function import Function
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
 class AioBotocoreStubsPackage(Package):
@@ -47,43 +45,10 @@ class AioBotocoreStubsPackage(Package):
 
     def get_session_required_import_records(self) -> list[ImportRecord]:
         """
-        Get import reciords for `session.py[i]`.
+        Get import records for `session.py[i]`.
         """
-        import_records: set[ImportRecord] = {
-            ImportRecord(ImportString("aiobotocore", "client"), "AioBaseClient", "AioBaseClient"),
-            ImportRecord(
-                ImportString("aiobotocore", "client"), "AioClientCreator", "AioClientCreator"
-            ),
-            ImportRecord(
-                ImportString("aiobotocore", "credentials"), "AioCredentials", "AioCredentials"
-            ),
-            ImportRecord(
-                ImportString("aiobotocore", "credentials"),
-                "create_credential_resolver",
-                "create_credential_resolver",
-            ),
-            ImportRecord(
-                ImportString("aiobotocore", "hooks"),
-                "AioHierarchicalEmitter",
-                "AioHierarchicalEmitter",
-            ),
-            ImportRecord(
-                ImportString("aiobotocore", "parsers"),
-                "AioResponseParserFactory",
-                "AioResponseParserFactory",
-            ),
-            ImportRecord(ImportString("botocore", "model"), "ServiceModel"),
-            ImportRecord(ImportString("botocore", "session"), "EVENT_ALIASES", "EVENT_ALIASES"),
-            ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
-            ImportRecord(ImportString("typing"), "Any"),
-            ImportRecord(ImportString("typing"), "List"),
-            ImportRecord(ImportString("typing"), "Type"),
-            ImportRecord(ImportString("typing"), "Optional"),
-            ImportRecord(ImportString("types"), "TracebackType"),
-            ImportRecord(ImportString("sys")),
-            TypeLiteral.get_typing_import_record(),
-        }
-        import_records.update(self.session_class.get_required_import_records())
+        import_records = self.session_class.get_required_import_records()
+        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_all_names(self) -> list[str]:
