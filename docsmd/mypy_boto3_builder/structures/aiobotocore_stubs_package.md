@@ -9,7 +9,7 @@ AioBotocoreStubsPackage
 
 ## AioBotocoreStubsPackage
 
-[Show source in aiobotocore_stubs_package.py:18](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L18)
+[Show source in aiobotocore_stubs_package.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L16)
 
 Structure for types-aiobotocore module.
 
@@ -38,7 +38,7 @@ class AioBotocoreStubsPackage(Package):
 
 ### AioBotocoreStubsPackage().essential_service_names
 
-[Show source in aiobotocore_stubs_package.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L37)
+[Show source in aiobotocore_stubs_package.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L35)
 
 Service names marked as essential.
 
@@ -56,7 +56,7 @@ def essential_service_names(self) -> list[ServiceName]:
 
 ### AioBotocoreStubsPackage().get_all_names
 
-[Show source in aiobotocore_stubs_package.py:89](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L89)
+[Show source in aiobotocore_stubs_package.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L54)
 
 Get names for `__all__` directive.
 
@@ -69,9 +69,9 @@ def get_all_names(self) -> list[str]:
 
 ### AioBotocoreStubsPackage().get_session_required_import_records
 
-[Show source in aiobotocore_stubs_package.py:48](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L48)
+[Show source in aiobotocore_stubs_package.py:46](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L46)
 
-Get import reciords for `session.py[i]`.
+Get import records for `session.py[i]`.
 
 #### Signature
 
