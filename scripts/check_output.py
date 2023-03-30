@@ -15,7 +15,7 @@ import sys
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List
+from typing import List, Optional
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 LOGGER_NAME = "check_output"
@@ -32,8 +32,11 @@ IGNORE_PYRIGHT_ERRORS = (
     'define variable "items" in incompatible way',
     'define variable "values" in incompatible way',
     "must return value",
+    'Import "types_aiobotocore_',
+    'Import "mypy_boto3_',
 )
 IGNORE_MYPY_ERRORS = (
+    'Signature of "create_client" incompatible with supertype "Session"',
     'Signature of "paginate" incompatible with supertype "Paginator"',
     'Signature of "wait" incompatible with supertype "Waiter"',
     "note:",
@@ -74,7 +77,8 @@ class CLINamespace:
 
     debug: bool
     path: Path
-    services: List[str]
+    filter: List[str]
+    exit_on_error: bool
 
 
 def parse_args() -> CLINamespace:
@@ -83,13 +87,15 @@ def parse_args() -> CLINamespace:
     """
     parser = argparse.ArgumentParser(__file__)
     parser.add_argument("-d", "--debug", action="store_true")
+    parser.add_argument("-x", "--exit-on-error", action="store_true")
     parser.add_argument("-p", "--path", type=Path, default=ROOT_PATH / "mypy_boto3_output")
-    parser.add_argument("services", nargs="*")
+    parser.add_argument("filter", nargs="*")
     args = parser.parse_args()
     return CLINamespace(
         debug=args.debug,
         path=args.path,
-        services=args.services,
+        filter=args.filter,
+        exit_on_error=args.exit_on_error,
     )
 
 
@@ -180,6 +186,8 @@ def run_call(path: Path) -> None:
     """
     Check output by running it.
     """
+    if not (path / "__main__.py").exists():
+        return
     try:
         subprocess.check_call([sys.executable, path.as_posix()], stdout=subprocess.DEVNULL)
     except subprocess.CalledProcessError as e:
@@ -190,15 +198,18 @@ def run_import(path: Path) -> None:
     """
     Check output by installing and importing it.
     """
+    if not (path / "__main__.py").exists():
+        return
     try:
         subprocess.check_call(
             [sys.executable, "-m", "pip", "install", "--no-input", path.parent.as_posix()],
             stdout=subprocess.DEVNULL,
         )
-        subprocess.check_call(
-            [sys.executable, "-c", f"import {path.name}"],
-            stdout=subprocess.DEVNULL,
-        )
+        if (path / "__main__.py").exists():
+            subprocess.check_call(
+                [sys.executable, "-c", f"import {path.name}"],
+                stdout=subprocess.DEVNULL,
+            )
         subprocess.check_call(
             [sys.executable, "-m", "pip", "uninstall", "--no-input", "-y", path.name],
             stdout=subprocess.DEVNULL,
@@ -215,9 +226,7 @@ def is_package_dir(path: Path) -> bool:
         return False
     if path.name.endswith(".egg-info"):
         return False
-    if path.name.startswith("mypy_boto3_"):
-        return True
-    if path.name.startswith("types_aiobotocore_"):
+    if (path / "__init__.pyi").exists():
         return True
     return False
 
@@ -230,16 +239,27 @@ def check_snapshot(path: Path) -> None:
         SnapshotMismatchError -- If snapshot is not equal to current output.
     """
     logger = logging.getLogger(LOGGER_NAME)
-    logger.debug(f"Running call for {path.name} ...")
-    run_call(path)
-    logger.debug(f"Running mypy for {path.name} ...")
-    run_mypy(path)
     logger.debug(f"Running flake8 for {path.name} ...")
     run_flake8(path)
+    logger.debug(f"Running mypy for {path.name} ...")
+    run_mypy(path)
     logger.debug(f"Running pyright for {path.name} ...")
     run_pyright(path)
-    logger.debug(f"Running import for {path.name} ...")
-    run_import(path)
+
+    if (path / "__main__.py").exists():
+        logger.debug(f"Running call for {path.name} ...")
+        run_call(path)
+        logger.debug(f"Running import for {path.name} ...")
+        run_import(path)
+
+
+def find_package_path(path: Path) -> Optional[Path]:
+    """
+    Find package directory inside `path`.
+    """
+    for package_path in path.iterdir():
+        if is_package_dir(package_path):
+            return package_path
 
 
 def main() -> None:
@@ -252,17 +272,21 @@ def main() -> None:
     for folder in sorted(args.path.iterdir()):
         if not folder.name.endswith("_package"):
             continue
-        for package_path in folder.iterdir():
-            if not is_package_dir(package_path):
-                continue
-            if args.services and not any(s in package_path.name for s in args.services):
-                continue
-            logger.info(f"Checking {package_path.name} ...")
-            try:
-                check_snapshot(package_path)
-            except SnapshotMismatchError as e:
-                logger.error(e)
-                has_errors = True
+
+        if args.filter and not any(s in folder.as_posix() for s in args.filter):
+            continue
+
+        package_path = find_package_path(folder)
+        if not package_path:
+            continue
+        logger.info(f"Checking {folder.name}/{package_path.name} ...")
+        try:
+            check_snapshot(package_path)
+        except SnapshotMismatchError as e:
+            logger.error(e)
+            has_errors = True
+            if args.exit_on_error:
+                break
 
     if has_errors:
         sys.exit(1)
