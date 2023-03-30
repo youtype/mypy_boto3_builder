@@ -284,6 +284,7 @@ async function extractVersionsFromInput() {
 }
 
 module.exports = {
+    setupGlobals,
     getDownloadURL,
     sortVersions,
     getNextPostVersion,
