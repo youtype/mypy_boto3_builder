@@ -33,9 +33,7 @@ class TestStrings:
             get_short_docstring("`asd <https://link>`\n **Request syntax**::\ntest")
             == "[asd](https://link)."
         )
-        assert (
-            get_short_docstring(
-                """
+        assert get_short_docstring("""
                 This action aborts a multipart
                 upload. After a multipart upload is aborted,
                 no additional parts can be uploaded using that upload ID. The storage
@@ -47,10 +45,7 @@ class TestStrings:
                 for the part storage, you should call the `ListParts
                 <https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html>`
                 __ action and ensure that the parts list is empty.
-                """
-            )
-            == "This action aborts a multipart upload."
-        )
+                """) == "This action aborts a multipart upload."
 
     def test_get_typed_dict_name(self) -> None:
         assert get_typed_dict_name("MyClass", "my_method") == "MyClassMyMethodTypeDef"
