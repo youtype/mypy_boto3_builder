@@ -89,7 +89,7 @@ function getBotocoreVersion(version) {
     return version.replace(/\.\d+/, `.${minor}`)
 }
 
-async function extractVersions({ core, context }) {
+async function extractVersions() {
     core.setOutput('version', '')
 
     const boto3Version = (
