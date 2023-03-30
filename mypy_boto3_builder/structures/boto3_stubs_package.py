@@ -5,7 +5,6 @@ Structure for boto3-stubs module.
 from collections.abc import Iterable
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
@@ -51,59 +50,19 @@ class Boto3StubsPackage(Package):
         """
         Get import records for `__init__.py[i]`.
         """
-        import_records: set[ImportRecord] = {
-            ImportRecord(ImportString("logging")),
-            ImportRecord(ImportString("typing"), "Any"),
-            ImportRecord(ImportString("sys")),
-            ImportRecord(ImportString("boto3"), "session", alias="session"),
-            ImportRecord(ImportString("boto3", "session"), "Session", "Session"),
-            ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
-            TypeLiteral.get_typing_import_record(),
-        }
+        import_records: set[ImportRecord] = set()
         for init_function in self.init_functions:
             import_records.update(init_function.get_required_import_records())
 
+        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_session_required_import_records(self) -> list[ImportRecord]:
         """
         Get import records for `session.py[i]`.
         """
-        import_records: set[ImportRecord] = {
-            ImportRecord(ImportString("sys")),
-            ImportRecord(ImportString("typing"), "Any"),
-            ImportRecord(ImportString("typing"), "List"),
-            ImportRecord(ImportString("typing"), "Optional"),
-            ImportRecord(ImportString("boto3")),
-            ImportRecord(ImportString("boto3", "utils")),
-            ImportRecord(ImportString("boto3", "resources", "factory"), "ResourceFactory"),
-            ImportRecord(
-                ImportString("boto3", "exceptions"),
-                "ResourceNotExistsError",
-                "ResourceNotExistsError",
-            ),
-            ImportRecord(
-                ImportString("boto3", "exceptions"),
-                "UnknownAPIVersionError",
-                "UnknownAPIVersionError",
-            ),
-            ImportRecord(ImportString("botocore", "session")),
-            ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
-            ImportRecord(ImportString("botocore", "loaders"), "Loader"),
-            ImportRecord(ImportString("botocore", "model"), "ServiceModel", "ServiceModel"),
-            ImportRecord(ImportString("botocore", "client"), "Config"),
-            ImportRecord(
-                ImportString("botocore", "exceptions"), "DataNotFoundError", "DataNotFoundError"
-            ),
-            ImportRecord(
-                ImportString("botocore", "exceptions"),
-                "UnknownServiceError",
-                "UnknownServiceError",
-            ),
-            ImportRecord(ImportString("botocore", "hooks"), "BaseEventHooks"),
-            TypeLiteral.get_typing_import_record(),
-        }
-        import_records.update(self.session_class.get_required_import_records())
+        import_records = self.session_class.get_required_import_records()
+        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_all_names(self) -> list[str]:

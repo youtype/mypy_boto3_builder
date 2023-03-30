@@ -1,3 +1,14 @@
+from types import TracebackType
+from typing import Any, List, Optional, Type, Union
+
+from aioboto3.resources.base import AIOBoto3ServiceResource
+from aioboto3.resources.factory import AIOBoto3ResourceFactory
+from aiobotocore.config import AioConfig
+from botocore.credentials import Credentials
+from botocore.hooks import BaseEventHooks
+from botocore.loaders import Loader
+from botocore.session import Session as BotocoreSession
+
 {% for import_record in package.get_session_required_import_records() -%}
     {% include "common/import_record.py.jinja2" with context %}
 {% endfor -%}

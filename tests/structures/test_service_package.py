@@ -49,7 +49,7 @@ class TestServicePackage:
         assert len(self.service_package.get_service_resource_required_import_records()) == 3
 
     def test_get_paginator_required_import_records(self) -> None:
-        assert len(self.service_package.get_paginator_required_import_records()) == 5
+        assert len(self.service_package.get_paginator_required_import_records()) == 1
 
     def test_get_waiter_required_import_records(self) -> None:
         assert len(self.service_package.get_waiter_required_import_records()) == 1

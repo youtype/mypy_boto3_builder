@@ -13,9 +13,9 @@ import logging
 import subprocess
 import sys
 import tempfile
-from typing import List
 from dataclasses import dataclass
 from pathlib import Path
+from typing import List
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 LOGGER_NAME = "check_output"
@@ -105,7 +105,7 @@ def run_flake8(path: Path) -> None:
                     "-m",
                     "flake8",
                     "--ignore",
-                    "E203,W503,E501,D200,D107,D401,D105,D205,D400,D101,D102,D403",
+                    "E203,W503,E501,D200,D107,D401,D105,D205,D400,D101,D102,D403,N802,N803",
                     path.as_posix(),
                 ],
                 stderr=f,

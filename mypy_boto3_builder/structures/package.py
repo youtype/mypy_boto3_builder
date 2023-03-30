@@ -91,5 +91,5 @@ class Package:
 
         Changes `import_records`.
         """
-        if any(i.fallback for i in import_records):
+        if any(i.needs_sys_fallback() for i in import_records):
             import_records.add(self.FALLBACK_IMPORT_RECORD)

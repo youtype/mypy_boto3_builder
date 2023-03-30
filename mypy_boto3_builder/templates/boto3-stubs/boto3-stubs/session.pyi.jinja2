@@ -1,3 +1,17 @@
+from typing import List, Optional
+
+from boto3.resources.factory import ResourceFactory
+from boto3.exceptions import ResourceNotExistsError as ResourceNotExistsError
+from boto3.exceptions import UnknownAPIVersionError as UnknownAPIVersionError
+from botocore.exceptions import DataNotFoundError as DataNotFoundError
+from botocore.exceptions import UnknownServiceError as UnknownServiceError
+from botocore.session import Session as BotocoreSession
+from botocore.credentials import Credentials
+from botocore.loaders import Loader
+from botocore.model import ServiceModel as ServiceModel
+from botocore.config import Config
+from botocore.hooks import BaseEventHooks
+
 {% for import_record in package.get_session_required_import_records() -%}
     {% include "common/import_record.py.jinja2" with context %}
 {% endfor -%}
@@ -10,12 +24,12 @@
 class Session:
     def __init__(
         self,
-        aws_access_key_id: Optional[str] = None,
-        aws_secret_access_key: Optional[str] = None,
-        aws_session_token: Optional[str] = None,
-        region_name: Optional[str] = None,
-        botocore_session: Optional[BotocoreSession] = None,
-        profile_name: Optional[str] = None,
+        aws_access_key_id: Optional[str] = ...,
+        aws_secret_access_key: Optional[str] = ...,
+        aws_session_token: Optional[str] = ...,
+        region_name: Optional[str] = ...,
+        botocore_session: Optional[BotocoreSession] = ...,
+        profile_name: Optional[str] = ...,
     ) -> None:
         self._session: BotocoreSession
         self.resource_factory: ResourceFactory

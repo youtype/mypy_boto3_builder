@@ -1,5 +1,9 @@
+from types import TracebackType
+from typing import Any, List, Type, Optional
+
 from aiobotocore.client import AioBaseClient as AioBaseClient
 from aiobotocore.client import AioClientCreator as AioClientCreator
+from aiobotocore.config import AioConfig
 from aiobotocore.credentials import AioCredentials as AioCredentials
 from aiobotocore.credentials import create_credential_resolver as create_credential_resolver
 from aiobotocore.hooks import AioHierarchicalEmitter as AioHierarchicalEmitter
@@ -7,8 +11,6 @@ from aiobotocore.parsers import AioResponseParserFactory as AioResponseParserFac
 from botocore.model import ServiceModel
 from botocore.session import EVENT_ALIASES as EVENT_ALIASES
 from botocore.session import Session as BotocoreSession
-from typing import Any, List, Type, Optional
-from types import TracebackType
 
 {% for import_record in package.get_session_required_import_records() -%}
     {% include "common/import_record.py.jinja2" with context %}

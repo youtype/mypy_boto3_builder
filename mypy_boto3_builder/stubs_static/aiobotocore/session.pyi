@@ -7,7 +7,7 @@ from aiobotocore.credentials import AioCredentials as AioCredentials
 from aiobotocore.credentials import create_credential_resolver as create_credential_resolver
 from aiobotocore.hooks import AioHierarchicalEmitter as AioHierarchicalEmitter
 from aiobotocore.parsers import AioResponseParserFactory as AioResponseParserFactory
-from botocore.client import Config
+from botocore.config import Config
 from botocore.model import ServiceModel
 from botocore.session import EVENT_ALIASES as EVENT_ALIASES
 from botocore.session import Session

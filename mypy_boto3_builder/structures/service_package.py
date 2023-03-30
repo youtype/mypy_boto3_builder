@@ -17,6 +17,7 @@ from mypy_boto3_builder.structures.paginator import Paginator
 from mypy_boto3_builder.structures.service_resource import ServiceResource
 from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
@@ -194,13 +195,10 @@ class ServicePackage(Package):
         import_records: set[ImportRecord] = set()
         for import_record in self.client.get_required_import_records():
             import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
-            if import_record.fallback:
-                import_records.add(ImportRecord(ImportString("sys")))
         for import_record in self.client.exceptions_class.get_required_import_records():
             import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
-            if import_record.fallback:
-                import_records.add(ImportRecord(ImportString("sys")))
 
+        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_service_resource_required_import_records(self) -> list[ImportRecord]:
@@ -214,29 +212,22 @@ class ServicePackage(Package):
         class_import_records = self.service_resource.get_required_import_records()
         for import_record in class_import_records:
             import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
-            if import_record.needs_sys_fallback():
-                import_records.add(ImportRecord(ImportString("sys")))
 
+        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_paginator_required_import_records(self) -> list[ImportRecord]:
         """
         Get import records for `paginator.py[i]`.
         """
-        import_records: set[ImportRecord] = {
-            ImportRecord(ImportString("typing"), "TypeVar"),
-            ImportRecord(ImportString("typing"), "Generic"),
-            ImportRecord(ImportString("typing"), "Iterator"),
-            ImportRecord(ImportString("botocore", "paginate"), "PageIterator"),
-        }
+        import_records: set[ImportRecord] = set()
         for paginator in self.paginators:
             for import_record in paginator.get_required_import_records():
                 import_records.add(
                     import_record.get_external(self.get_module_name(self.service_name))
                 )
-                if import_record.fallback:
-                    import_records.add(ImportRecord(ImportString("sys")))
 
+        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_waiter_required_import_records(self) -> list[ImportRecord]:
@@ -249,9 +240,8 @@ class ServicePackage(Package):
                 import_records.add(
                     import_record.get_external(self.get_module_name(self.service_name))
                 )
-                if import_record.fallback:
-                    import_records.add(ImportRecord(ImportString("sys")))
 
+        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_type_defs_required_import_records(self) -> list[ImportRecord]:
@@ -262,22 +252,12 @@ class ServicePackage(Package):
             return []
 
         import_records: set[ImportRecord] = set()
-        import_records.add(ImportRecord(ImportString("sys")))
         import_records.add(TypeTypedDict.get_typing_import_record())
         for typed_dict in self.typed_dicts:
             if typed_dict.replace_with_dict:
-                import_records.add(
-                    ImportRecord(
-                        ImportString("typing"),
-                        "Dict",
-                    )
-                )
-                import_records.add(
-                    ImportRecord(
-                        ImportString("typing"),
-                        "Any",
-                    )
-                )
+                import_records.add(Type.Any.get_import_record())
+                import_records.add(Type.Dict.get_import_record())
+
             for type_annotation in typed_dict.get_children_types():
                 import_record = type_annotation.get_import_record()
                 if not import_record or import_record.is_builtins():
@@ -288,6 +268,7 @@ class ServicePackage(Package):
                     import_record.get_external(self.get_module_name(self.service_name))
                 )
 
+        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_literals_required_import_records(self) -> list[ImportRecord]:
@@ -295,8 +276,8 @@ class ServicePackage(Package):
         Get import records for `literals.py[i]`.
         """
         import_records: set[ImportRecord] = set()
-        import_records.add(ImportRecord(ImportString("sys")))
         import_records.add(TypeLiteral.get_typing_import_record())
+        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def validate(self) -> None:

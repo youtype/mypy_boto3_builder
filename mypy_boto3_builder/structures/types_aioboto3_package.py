@@ -5,13 +5,11 @@ Structure for types-aioboto3 module.
 from collections.abc import Iterable
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
 class TypesAioBoto3Package(Package):
@@ -46,26 +44,8 @@ class TypesAioBoto3Package(Package):
         """
         Get import records for `session.py[i]`.
         """
-        import_records: set[ImportRecord] = {
-            ImportRecord(ImportString("sys")),
-            ImportRecord(ImportString("aioboto3", "resources", "base"), "AIOBoto3ServiceResource"),
-            ImportRecord(
-                ImportString("aioboto3", "resources", "factory"), "AIOBoto3ResourceFactory"
-            ),
-            ImportRecord(ImportString("aiobotocore", "config"), "AioConfig"),
-            ImportRecord(ImportString("botocore", "credentials"), "Credentials"),
-            ImportRecord(ImportString("botocore", "loaders"), "Loader"),
-            ImportRecord(ImportString("botocore", "session"), "Session", "BotocoreSession"),
-            ImportRecord(ImportString("typing"), "Any"),
-            ImportRecord(ImportString("typing"), "List"),
-            ImportRecord(ImportString("typing"), "Optional"),
-            ImportRecord(ImportString("typing"), "Union"),
-            ImportRecord(ImportString("typing"), "Type"),
-            ImportRecord(ImportString("types"), "TracebackType"),
-            ImportRecord(ImportString("botocore", "hooks"), "BaseEventHooks"),
-            TypeLiteral.get_typing_import_record(),
-        }
-        import_records.update(self.session_class.get_required_import_records())
+        import_records = self.session_class.get_required_import_records()
+        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_all_names(self) -> list[str]:
