@@ -85,7 +85,6 @@ newversion = "*"
 requests = "*"
 
 [tool.poetry.dev-dependencies]
-codecov = "*"
 handsdown = "*"
 mypy = "*"
 flake8 = "*"

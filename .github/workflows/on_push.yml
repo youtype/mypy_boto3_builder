@@ -42,8 +42,6 @@ jobs:
           poetry run black --check mypy_boto3_builder tests
           poetry run isort -c mypy_boto3_builder tests
       - name: Test
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: |
           poetry run pytest
 
