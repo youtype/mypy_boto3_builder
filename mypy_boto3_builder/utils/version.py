@@ -1,10 +1,9 @@
 """
 Version-related utils.
 """
-
 import contextlib
+import importlib.metadata
 
-import pkg_resources
 from boto3 import __version__ as boto3_version
 from botocore import __version__ as botocore_version
 from newversion import Version
@@ -16,8 +15,8 @@ def get_builder_version() -> str:
     """
     Get program version.
     """
-    with contextlib.suppress(pkg_resources.DistributionNotFound):
-        return pkg_resources.get_distribution(PACKAGE_NAME).version
+    with contextlib.suppress(importlib.metadata.PackageNotFoundError):
+        return importlib.metadata.version(PACKAGE_NAME)
 
     return "0.0.0"
 
