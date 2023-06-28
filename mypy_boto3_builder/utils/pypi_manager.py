@@ -1,9 +1,10 @@
 """
 Version manager for PyPI packages.
 """
+import json
 from json.decoder import JSONDecodeError
+from urllib.request import urlopen
 
-import requests
 from newversion import Version
 
 
@@ -48,8 +49,11 @@ class PyPIManager:
         if self._versions is not None:
             return self._versions
 
+        with urlopen(self.json_url) as response:
+            data_raw = response.read()
+
         try:
-            data = requests.get(self.json_url).json()
+            data = json.loads(data_raw)
         except JSONDecodeError:
             return set()
 

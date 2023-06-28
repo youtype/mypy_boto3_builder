@@ -2,8 +2,7 @@
 Parser for boto3 changelog.
 """
 import re
-
-import requests
+from urllib.request import urlopen
 
 
 class BotocoreChangelog:
@@ -20,7 +19,9 @@ class BotocoreChangelog:
         if self._changelog is not None:
             return self._changelog
 
-        self._changelog = requests.get(self.URL).content.decode()
+        with urlopen(self.URL) as response:
+            self._changelog = response.read().decode()
+
         return self._changelog
 
     def _get_section(self, version: str) -> str:
