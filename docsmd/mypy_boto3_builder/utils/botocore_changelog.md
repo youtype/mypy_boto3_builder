@@ -9,7 +9,7 @@ BotocoreChangelog
 
 ## BotocoreChangelog
 
-[Show source in botocore_changelog.py:9](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/botocore_changelog.py#L9)
+[Show source in botocore_changelog.py:8](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/botocore_changelog.py#L8)
 
 Parser for boto3 changelog.
 
@@ -23,7 +23,7 @@ class BotocoreChangelog:
 
 ### BotocoreChangelog().get_updated_service_names
 
-[Show source in botocore_changelog.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/botocore_changelog.py#L42)
+[Show source in botocore_changelog.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/botocore_changelog.py#L43)
 
 Get a list of service names updated in `version` release.
 
