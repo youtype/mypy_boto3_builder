@@ -8,6 +8,7 @@ from typing import Any
 from boto3.resources.model import Collection
 from boto3.session import Session
 from botocore import xform_name
+from botocore.eventstream import EventStream
 from botocore.exceptions import UnknownServiceError
 from botocore.model import (
     ListShape,
@@ -24,6 +25,7 @@ from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport, InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
@@ -393,13 +395,17 @@ class ShapeParser:
                 ),
                 attr_name in required,
             )
+        if output or output_child:
+            self._mark_typed_dict_as_total(typed_dict)
         if output:
-            self._make_output_typed_dict(typed_dict)
+            self._add_response_metadata(typed_dict)
         return typed_dict
 
-    def _make_output_typed_dict(self, typed_dict: TypeTypedDict) -> None:
+    def _mark_typed_dict_as_total(self, typed_dict: TypeTypedDict) -> None:
         for attribute in typed_dict.children:
             attribute.required = True
+
+    def _add_response_metadata(self, typed_dict: TypeTypedDict) -> None:
         child_names = {i.name for i in typed_dict.children}
         if "ResponseMetadata" not in child_names:
             typed_dict.add_attribute(
@@ -458,6 +464,19 @@ class ShapeParser:
         Returns:
             TypeAnnotation or similar class.
         """
+        if "eventstream" in shape.serialization and shape.serialization["eventstream"]:
+            shape.serialization["eventstream"] = False
+            return TypeSubscript(
+                ExternalImport.from_class(EventStream),
+                [
+                    self.parse_shape(
+                        shape,
+                        output=output,
+                        output_child=output_child,
+                        is_streaming=is_streaming,
+                    )
+                ],
+            )
         if not is_streaming:
             is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
             is_output = output or output_child
