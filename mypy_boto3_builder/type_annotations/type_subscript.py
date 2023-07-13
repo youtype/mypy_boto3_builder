@@ -17,15 +17,18 @@ class TypeSubscript(FakeAnnotation):
     Arguments:
         parent -- Parent type annotation.
         children -- Children type annotations.
+        stringify -- Convert type annotation to string.
     """
 
     def __init__(
         self,
         parent: FakeAnnotation,
         children: Iterable[FakeAnnotation] = (),
+        stringify: bool = False,
     ) -> None:
         self.parent: FakeAnnotation = parent
         self.children: list[FakeAnnotation] = list(children)
+        self._stringify = stringify
 
     def __hash__(self) -> int:
         return hash(f"{self.parent}.{self.children}")
@@ -37,11 +40,14 @@ class TypeSubscript(FakeAnnotation):
         Returns:
             A string with a valid type annotation.
         """
-        if not self.children:
-            return f"{self.parent.render()}"
+        result = self.parent.render()
+        if self.children:
+            children = ", ".join([i.render(parent_name) for i in self.children])
+            result = f"{result}[{children}]"
 
-        children = ", ".join([i.render(parent_name) for i in self.children])
-        return f"{self.parent.render()}[{children}]"
+        if self._stringify:
+            result = f'"{result}"'
+        return result
 
     def get_import_record(self) -> ImportRecord:
         """
@@ -79,7 +85,11 @@ class TypeSubscript(FakeAnnotation):
         """
         Create a copy of type annotation wrapper.
         """
-        return self.__class__(self.parent, list(self.children))
+        return self.__class__(
+            parent=self.parent,
+            children=list(self.children),
+            stringify=self._stringify,
+        )
 
     def get_local_types(self) -> list[FakeAnnotation]:
         """

@@ -1,3 +1,5 @@
+import pytest
+
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
@@ -15,7 +17,9 @@ class TestTypeSubscript:
 
     def test_render(self) -> None:
         assert self.result.render() == "Dict[str, int]"
-        assert TypeSubscript(Type.List).render() == "List"
+        assert TypeSubscript(Type.List, [Type.str], stringify=True).render() == '"List[str]"'
+        assert TypeSubscript(Type.Dict).render() == "Dict"
+        assert TypeSubscript(Type.Dict, [], True).render() == '"Dict"'
 
     def test_get_import_record(self) -> None:
         assert self.result.get_import_record().render() == "from typing import Dict"

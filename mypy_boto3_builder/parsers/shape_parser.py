@@ -476,6 +476,7 @@ class ShapeParser:
                         is_streaming=is_streaming,
                     )
                 ],
+                stringify=True,
             )
         if not is_streaming:
             is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
