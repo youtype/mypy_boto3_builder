@@ -82,6 +82,7 @@ isort = "*"
 jinja2 = "*"
 mdformat = "*"
 newversion = "*"
+cryptography = "*"
 
 [tool.poetry.dev-dependencies]
 handsdown = "*"

@@ -23,6 +23,7 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 
 
 class AioBotocorePostprocessor(BasePostprocessor):
@@ -170,7 +171,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
             )
         )
 
-    def _iterate_types(self) -> Iterator[FakeAnnotation]:
+    def _iterate_types_shallow(self) -> Iterator[FakeAnnotation]:
         yield from self.package.client.iterate_types()
         for paginator in self.package.paginators:
             yield from paginator.iterate_types()
@@ -184,6 +185,13 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 yield from sub_resource.iterate_types()
                 for collection in sub_resource.collections:
                     yield from collection.iterate_types()
+
+    def _iterate_types(self) -> Iterator[FakeAnnotation]:
+        for type_annotation in self._iterate_types_shallow():
+            if isinstance(type_annotation, TypeTypedDict):
+                yield from type_annotation.get_children_types()
+            else:
+                yield type_annotation
 
     def _replace_external_imports(self) -> None:
         for type_annotation in self._iterate_types():
