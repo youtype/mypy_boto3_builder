@@ -169,6 +169,18 @@ def get_progress_str(index: int, total: int) -> str:
     return f"[{current_str}/{total_str}]"
 
 
+def get_package_name(path: Path) -> str:
+    """
+    Get package version.
+    """
+    text = (path / "setup.py").read_text().split("\n")
+    for line in text:
+        if line.strip().startswith("name="):
+            return line.split("=")[1].strip().replace('"', "").replace(",", "")
+
+    return ""
+
+
 def get_version(path: Path) -> str:
     """
     Get package version.
@@ -210,26 +222,30 @@ def main() -> None:
     if not args.skip_build:
         with Pool(args.threads) as pool:
             for index, path in enumerate(pool.imap(build, build_paths)):
-                version = (path / "setup.py").read_text().split("\n")
+                package_name = get_package_name(path)
                 version = get_version(path)
                 logger.info(
-                    f"{get_progress_str(index, len(build_paths))} Built {path.name} {version}"
+                    f"{get_progress_str(index, len(build_paths))} Built {package_name} {version}"
                 )
 
     if not args.skip_publish:
         with Pool(args.threads) as pool:
             for index, path in enumerate(pool.imap(publish, service_paths)):
+                package_name = get_package_name(path)
                 version = get_version(path)
                 logger.info(
-                    f"{get_progress_str(index, len(build_paths))} Published {path.name} {version}"
+                    f"{get_progress_str(index, len(build_paths))} Published"
+                    f" {package_name} {version}"
                 )
 
         for index, path in enumerate(master_paths):
             publish(path)
             total_index = len(service_paths) + index
+            package_name = get_package_name(path)
             version = get_version(path)
             logger.info(
-                f"{get_progress_str(total_index, len(build_paths))} Published {path.name} {version}"
+                f"{get_progress_str(total_index, len(build_paths))} Published"
+                f" {package_name} {version}"
             )
 
 
