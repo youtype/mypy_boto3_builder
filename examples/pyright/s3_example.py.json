@@ -181,7 +181,7 @@
     },
     {
         "severity": "error",
-        "message": "Could not access item in TypedDict\n\u00a0\u00a0\"expiration\" is not a defined key in \"GetObjectOutputTypeDef\"",
+        "message": "Could not access item in TypedDict\n\u00a0\u00a0\"expiration\" is not a defined key in \"GetObjectOutputOutputTypeDef\"",
         "range": {
             "start": {
                 "line": 63,
@@ -196,15 +196,15 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0\"tuple[Literal['get']]\" is incompatible with \"List[str]\"",
+        "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0\"Allowedorigins\" is an undefined field in type \"CORSRuleTypeDef\"",
         "range": {
             "start": {
                 "line": 69,
-                "character": 45
+                "character": 55
             },
             "end": {
                 "line": 69,
-                "character": 53
+                "character": 71
             }
         },
         "rule": "reportGeneralTypeIssues"

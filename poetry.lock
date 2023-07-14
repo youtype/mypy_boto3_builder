@@ -127,17 +127,17 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 name = "boto3"
-version = "1.28.2"
+version = "1.28.3"
 description = "The AWS SDK for Python"
 optional = false
 python-versions = ">= 3.7"
 files = [
-    {file = "boto3-1.28.2-py3-none-any.whl", hash = "sha256:9933e40dc9ac72deac45cecce2df020e3bf8d0d537538d2b361c17d1cee807cc"},
-    {file = "boto3-1.28.2.tar.gz", hash = "sha256:0d53fe604dc30edded21906bc56b30a7684f0715f4f6897307d53f8184997368"},
+    {file = "boto3-1.28.3-py3-none-any.whl", hash = "sha256:34f07b3fc2503240c0f58114cf3afea91295c7996d084991b78a278a56157c48"},
+    {file = "boto3-1.28.3.tar.gz", hash = "sha256:610369a7f984b58973c097ea649ec81976c04565d39a2d6d3edc280d23b0cb87"},
 ]
 
 [package.dependencies]
-botocore = ">=1.31.2,<1.32.0"
+botocore = ">=1.31.3,<1.32.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.6.0,<0.7.0"
 
@@ -146,13 +146,13 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.28.2"
-description = "Type annotations for boto3 1.28.2 generated with mypy-boto3-builder 7.14.5"
+version = "1.28.3"
+description = "Type annotations for boto3 1.28.3 generated with mypy-boto3-builder 7.14.6"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "boto3-stubs-1.28.2.tar.gz", hash = "sha256:b140f56315cd99c659a2cbae32dc4ae1ee44073b4250e1ad391d03ecf4b5eb40"},
-    {file = "boto3_stubs-1.28.2-py3-none-any.whl", hash = "sha256:bcef1fcbd758de6078e75b036d3632dd95eaef00311e6688554b5b883a194563"},
+    {file = "boto3-stubs-1.28.3.tar.gz", hash = "sha256:7e27e26b12ba0ccf6da91ea48f31ef0e96e5dc52ece8d15fa47f64d4dd3209af"},
+    {file = "boto3_stubs-1.28.3-py3-none-any.whl", hash = "sha256:0561c14b7f3839d4692bbfb2c428a7ce43791e3fd3658d29127ad8c47e3309c1"},
 ]
 
 [package.dependencies]
@@ -195,7 +195,7 @@ backup-gateway = ["mypy-boto3-backup-gateway (>=1.28.0,<1.29.0)"]
 backupstorage = ["mypy-boto3-backupstorage (>=1.28.0,<1.29.0)"]
 batch = ["mypy-boto3-batch (>=1.28.0,<1.29.0)"]
 billingconductor = ["mypy-boto3-billingconductor (>=1.28.0,<1.29.0)"]
-boto3 = ["boto3 (==1.28.2)", "botocore (==1.31.2)"]
+boto3 = ["boto3 (==1.28.3)", "botocore (==1.31.3)"]
 braket = ["mypy-boto3-braket (>=1.28.0,<1.29.0)"]
 budgets = ["mypy-boto3-budgets (>=1.28.0,<1.29.0)"]
 ce = ["mypy-boto3-ce (>=1.28.0,<1.29.0)"]
@@ -516,13 +516,13 @@ xray = ["mypy-boto3-xray (>=1.28.0,<1.29.0)"]
 
 [[package]]
 name = "botocore"
-version = "1.31.2"
+version = "1.31.3"
 description = "Low-level, data-driven core of boto 3."
 optional = false
 python-versions = ">= 3.7"
 files = [
-    {file = "botocore-1.31.2-py3-none-any.whl", hash = "sha256:d368ac0b58e2b9025b9c397e4a4f86d71788913ee619263506885a866a4f6811"},
-    {file = "botocore-1.31.2.tar.gz", hash = "sha256:67a475bec9e52d495a358b34e219ef7f62907e83b87e5bc712528f998bd46dab"},
+    {file = "botocore-1.31.3-py3-none-any.whl", hash = "sha256:2aa27c75e62bfcf7900cb85283228fcb7df0fa1bdc2ae76dcee90788dd444934"},
+    {file = "botocore-1.31.3.tar.gz", hash = "sha256:744ce853cadc7ae87ba42ef6828194ddec97d606dd4d08b4dfe3d96d5001eb0c"},
 ]
 
 [package.dependencies]
@@ -535,13 +535,13 @@ crt = ["awscrt (==0.16.9)"]
 
 [[package]]
 name = "botocore-stubs"
-version = "1.31.2"
+version = "1.31.3"
 description = "Type annotations and code completion for botocore"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "botocore_stubs-1.31.2-py3-none-any.whl", hash = "sha256:00613ecdfeafb61c615851bc73d876ca3626699762640a161a74cebf34060c0d"},
-    {file = "botocore_stubs-1.31.2.tar.gz", hash = "sha256:ecc1b00e00abcd9faa9b8ab02a790a5c9dceb8715222bd8df0b3098d41e08e7a"},
+    {file = "botocore_stubs-1.31.3-py3-none-any.whl", hash = "sha256:50a5b9a961cc45cf68e5d25e31050d373bbb8ea5f45f04af71e18f5a7e98e6d6"},
+    {file = "botocore_stubs-1.31.3.tar.gz", hash = "sha256:2b46a184e40e3f02632b17cb3170030dad83a906b51d7bb2f60a2bcf54043ba5"},
 ]
 
 [package.dependencies]
@@ -1498,13 +1498,13 @@ files = [
 
 [[package]]
 name = "types-awscrt"
-version = "0.16.23"
+version = "0.16.24"
 description = "Type annotations and code completion for awscrt"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "types_awscrt-0.16.23-py3-none-any.whl", hash = "sha256:7edec4283fec9f92574444ce45fc0be65c846056634628aee22c118712da71c4"},
-    {file = "types_awscrt-0.16.23.tar.gz", hash = "sha256:5a846b77a6d35b63ccf9d33abf386c4dfc6275f9c062bc0e234c14ea8c6013a9"},
+    {file = "types_awscrt-0.16.24-py3-none-any.whl", hash = "sha256:6cdfc458aca186fb73261895efeba1a2a0f3cf8f63f8b6ef32ec43739a64e4ae"},
+    {file = "types_awscrt-0.16.24.tar.gz", hash = "sha256:cd0d4313fac0859a2b406080782076648524840e26780dbd3b5cbd9cc315834a"},
 ]
 
 [[package]]
