@@ -365,7 +365,8 @@ class ShapeParser:
             return Type.DictStrAny if output_child else Type.MappingStrAny
 
         required = shape.required_members
-        typed_dict_name = self._get_shape_type_name(shape)
+        is_output_or_child = output or output_child
+        typed_dict_name = self._get_shape_type_name(shape, is_output_or_child)
         typed_dict = TypeTypedDict(typed_dict_name)
 
         if typed_dict.name in self._typed_dict_map:
@@ -395,7 +396,7 @@ class ShapeParser:
                 ),
                 attr_name in required,
             )
-        if output or output_child:
+        if is_output_or_child:
             self._mark_typed_dict_as_total(typed_dict)
         if output:
             self._add_response_metadata(typed_dict)
@@ -422,14 +423,18 @@ class ShapeParser:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
-    def _get_shape_type_name(self, shape: Shape) -> str:
+    def _get_shape_type_name(self, shape: Shape, output: bool) -> str:
         if not isinstance(shape, StructureShape):
             return shape.type_name
 
+        postfix_parts: list[str] = []
         if self.service_name.is_custom_resource(self.resource_name):
-            return self._get_typed_dict_name(shape, postfix=self.resource_name)
+            postfix_parts.append(self.resource_name)
+        if output:
+            postfix_parts.append("Output")
 
-        return self._get_typed_dict_name(shape)
+        postfix = "".join(postfix_parts)
+        return self._get_typed_dict_name(shape, postfix=postfix)
 
     @staticmethod
     def _get_streaming_body(shape: Shape) -> Shape | None:
@@ -478,13 +483,13 @@ class ShapeParser:
                 ],
                 stringify=True,
             )
+        is_output_or_child = output or output_child
         if not is_streaming:
             is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
-            is_output = output or output_child
-            if is_output:
+            if is_output_or_child:
                 is_streaming = self._get_streaming_body(shape) is not None
 
-        type_name = self._get_shape_type_name(shape)
+        type_name = self._get_shape_type_name(shape, is_output_or_child)
         if is_streaming and type_name == "blob":
             type_name = "blob_streaming"
 

@@ -54,7 +54,7 @@ def get_aiobotocore_version() -> str:
     Get aiobotocore package version.
     """
     try:
-        from aiobotocore import __version__ as version
+        from aiobotocore import __version__ as version  # type: ignore
     except ImportError:
         raise RuntimeError("aiobotocore is not installed")
     return version
