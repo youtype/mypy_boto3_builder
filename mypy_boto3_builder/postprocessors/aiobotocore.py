@@ -4,6 +4,7 @@ Postprocessor for aiobotocore classes and methods.
 
 from collections.abc import Iterator
 
+from boto3.dynamodb.table import BatchWriter, TableResource
 from boto3.resources.base import ServiceResource
 from boto3.resources.collection import ResourceCollection
 from botocore.client import BaseClient
@@ -66,6 +67,12 @@ class AioBotocorePostprocessor(BasePostprocessor):
         ExternalImport.from_class(ResourceCollection): ExternalImport(
             ImportString("aioboto3", "resources", "collection"), "AIOResourceCollection", safe=True
         ),
+        ExternalImport.from_class(BatchWriter): ExternalImport(
+            ImportString("aioboto3", "dynamodb", "table"), "BatchWriter", safe=True
+        ),
+        ExternalImport.from_class(TableResource): ExternalImport(
+            ImportString("aioboto3", "dynamodb", "table"), "CustomTableResource", safe=True
+        ),
     }
 
     def process_package(self) -> None:
@@ -83,7 +90,12 @@ class AioBotocorePostprocessor(BasePostprocessor):
 
     def _make_async_client(self) -> None:
         for method in self.package.client.methods:
-            if method.name in ["exceptions", "get_waiter", "get_paginator", "can_paginate"]:
+            if method.name in [
+                "exceptions",
+                "get_waiter",
+                "get_paginator",
+                "can_paginate",
+            ]:
                 continue
             method.is_async = True
 

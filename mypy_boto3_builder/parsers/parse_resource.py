@@ -5,6 +5,7 @@ import inspect
 from types import MethodType
 
 from boto3.docs.utils import is_resource_action
+from boto3.dynamodb.table import TableResource
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
 from mypy_boto3_builder.logger import get_logger
@@ -14,9 +15,10 @@ from mypy_boto3_builder.parsers.parse_collections import parse_collections
 from mypy_boto3_builder.parsers.parse_identifiers import parse_identifiers
 from mypy_boto3_builder.parsers.parse_references import parse_references
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
-from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.resource import Resource
+from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_maps.service_stub_map import get_stub_method_map
 from mypy_boto3_builder.utils.strings import get_short_docstring
@@ -79,7 +81,23 @@ def parse_resource(
             )
         )
 
+    if service_name == ServiceNameCatalog.dynamodb and name == "Table":
+        logger.debug("Monkeypatching DynamoDB Table resource")
+        monkeypatch_dynamodb_table(result)
+
     return result
+
+
+def monkeypatch_dynamodb_table(resource: Resource) -> None:
+    """
+    Monkeypatch DynamoDB Table resource.
+
+    Adds `TableResource` as a base class and removes `batch_writer` method.
+    """
+    resource.bases.append(ExternalImport.from_class(TableResource))
+    batch_writer_method = resource.get_method("batch_writer")
+    if batch_writer_method:
+        resource.methods.remove(batch_writer_method)
 
 
 def get_resource_public_methods(
