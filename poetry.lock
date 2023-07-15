@@ -146,13 +146,13 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.28.3"
-description = "Type annotations for boto3 1.28.3 generated with mypy-boto3-builder 7.14.6"
+version = "1.28.3.post1"
+description = "Type annotations for boto3 1.28.3 generated with mypy-boto3-builder 7.14.7"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "boto3-stubs-1.28.3.tar.gz", hash = "sha256:7e27e26b12ba0ccf6da91ea48f31ef0e96e5dc52ece8d15fa47f64d4dd3209af"},
-    {file = "boto3_stubs-1.28.3-py3-none-any.whl", hash = "sha256:0561c14b7f3839d4692bbfb2c428a7ce43791e3fd3658d29127ad8c47e3309c1"},
+    {file = "boto3-stubs-1.28.3.post1.tar.gz", hash = "sha256:6243bfb1a7bc2afa4a804b3b0980dc241f9618f0058104d4048a71aa98e2d622"},
+    {file = "boto3_stubs-1.28.3.post1-py3-none-any.whl", hash = "sha256:bcc8676ed84c775d63c15a04d4849eb360f3130f343dd9491173d37d4807dac4"},
 ]
 
 [package.dependencies]

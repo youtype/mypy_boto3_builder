@@ -79,7 +79,7 @@ jobs:
           rm -rf mypy_boto3_output/*
 
           echo "Building all packages"
-          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product aioboto3 -s all
+          python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product aioboto3 -s all -d
       - name: Install dependencies for publishing
         run: |
           python -m pip install setuptools wheel twine
