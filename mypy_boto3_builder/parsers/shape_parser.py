@@ -99,6 +99,8 @@ class ShapeParser:
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
         self._resource_name: str = ""
         self._typed_dict_map: dict[str, TypeTypedDict] = {}
+        self._response_typed_dict_map: dict[str, TypeTypedDict] = {}
+        self._output_typed_dict_map: dict[str, TypeTypedDict] = {}
 
         self._waiters_shape: Mapping[str, Any] | None = None
         with contextlib.suppress(UnknownServiceError):
@@ -366,26 +368,22 @@ class ShapeParser:
 
         required = shape.required_members
         is_output_or_child = output or output_child
-        typed_dict_name = self._get_shape_type_name(shape, is_output_or_child)
+        typed_dict_name = self._get_shape_type_name(shape, False)
         typed_dict = TypeTypedDict(typed_dict_name)
 
-        if typed_dict.name in self._typed_dict_map:
-            old_typed_dict = self._typed_dict_map[typed_dict.name]
-            child_names = {i.name for i in old_typed_dict.children}
-            if output and "ResponseMetadata" in child_names:
+        if output:
+            if typed_dict.name in self._response_typed_dict_map:
+                return self._response_typed_dict_map[typed_dict.name]
+            self._response_typed_dict_map[typed_dict.name] = typed_dict
+        elif output_child:
+            if typed_dict.name in self._output_typed_dict_map:
+                return self._output_typed_dict_map[typed_dict.name]
+            self._output_typed_dict_map[typed_dict.name] = typed_dict
+        else:
+            if typed_dict.name in self._typed_dict_map:
                 return self._typed_dict_map[typed_dict.name]
-            if not output and "ResponseMetadata" not in child_names:
-                return self._typed_dict_map[typed_dict.name]
+            self._typed_dict_map[typed_dict.name] = typed_dict
 
-            if output:
-                typed_dict.name = self._get_typed_dict_name(shape, postfix="ResponseMetadata")
-                self.logger.debug(f"Marking {typed_dict.name} as ResponseMetadataTypeDef")
-            else:
-                old_typed_dict.name = self._get_typed_dict_name(shape, postfix="ResponseMetadata")
-                self._typed_dict_map[old_typed_dict.name] = old_typed_dict
-                self.logger.debug(f"Marking {old_typed_dict.name} as ResponseMetadataTypeDef")
-
-        self._typed_dict_map[typed_dict.name] = typed_dict
         for attr_name, attr_shape in shape.members.items():
             typed_dict.add_attribute(
                 attr_name,
@@ -860,3 +858,70 @@ class ShapeParser:
                     method.return_type = return_type
 
         return result
+
+    @staticmethod
+    def _get_typed_dict_name_prefix(name: str) -> str:
+        if name.endswith("OutputTypeDef"):
+            return name[: -len("OutputTypeDef")]
+        if name.endswith("TypeDef"):
+            return name[: -len("TypeDef")]
+
+        raise ShapeParserError(f"Unknown typed dict name format: {name}")
+
+    def _get_typed_dict(self, name: str) -> TypeTypedDict | None:
+        if name in self._typed_dict_map:
+            return self._typed_dict_map[name]
+        if name in self._output_typed_dict_map:
+            return self._output_typed_dict_map[name]
+        if name in self._response_typed_dict_map:
+            return self._response_typed_dict_map[name]
+        return None
+
+    def _get_non_clashing_typed_dict_name(self, typed_dict: TypeTypedDict, postfix: str) -> str:
+        new_typed_dict_name = get_typed_dict_name(
+            self._get_typed_dict_name_prefix(typed_dict.name), postfix
+        )
+        clashing_typed_dict = self._get_typed_dict(new_typed_dict_name)
+        if not clashing_typed_dict or clashing_typed_dict == typed_dict:
+            return new_typed_dict_name
+
+        self.logger.debug(f"Clashing typed dict name: {new_typed_dict_name}")
+        return self._get_non_clashing_typed_dict_name(typed_dict, "Extra" + postfix)
+
+    def fix_typed_dict_names(self) -> None:
+        """
+        Fix typed dict names to avoid duplicates.
+        """
+        output_typed_dict_names = set(self._output_typed_dict_map.keys())
+        for name in output_typed_dict_names:
+            if name not in self._typed_dict_map:
+                continue
+
+            typed_dict = self._output_typed_dict_map[name]
+            old_typed_dict_name = typed_dict.name
+            new_typed_dict_name = self._get_non_clashing_typed_dict_name(typed_dict, "Output")
+            self.logger.debug(
+                f"Renaming {old_typed_dict_name} to {new_typed_dict_name} to avoid clash"
+            )
+
+            typed_dict.name = new_typed_dict_name
+            del self._output_typed_dict_map[old_typed_dict_name]
+            self._output_typed_dict_map[typed_dict.name] = typed_dict
+
+        response_typed_dict_names = set(self._response_typed_dict_map.keys())
+        for name in response_typed_dict_names:
+            if name not in self._typed_dict_map and name not in self._output_typed_dict_map:
+                continue
+
+            typed_dict = self._response_typed_dict_map[name]
+            old_typed_dict_name = typed_dict.name
+            new_typed_dict_name = self._get_non_clashing_typed_dict_name(
+                typed_dict, "ResponseMetadata"
+            )
+            self.logger.debug(
+                f"Renaming {old_typed_dict_name} to {new_typed_dict_name} to avoid clash"
+            )
+
+            typed_dict.name = new_typed_dict_name
+            del self._response_typed_dict_map[old_typed_dict_name]
+            self._response_typed_dict_map[typed_dict.name] = typed_dict

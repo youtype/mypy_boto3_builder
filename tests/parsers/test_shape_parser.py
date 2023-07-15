@@ -3,6 +3,8 @@ from unittest.mock import MagicMock, patch
 from botocore.exceptions import UnknownServiceError
 
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
+from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
 
 class TestShapeParser:
@@ -118,3 +120,62 @@ class TestShapeParser:
         assert result.arguments[1].is_kwflag()
         assert result.arguments[2].name == "optional_arg"
         assert result.arguments[3].name == "InputToken"
+
+    def test_fix_typed_dict_names(self) -> None:
+        session_mock = MagicMock()
+        service_name_mock = MagicMock()
+        shape_parser = ShapeParser(session_mock, service_name_mock)
+        shape_parser._typed_dict_map = {
+            "TestTypeDef": TypeTypedDict(
+                "TestTypeDef",
+                [
+                    TypedDictAttribute("Test", Type.Any, False),
+                ],
+            ),
+            "Test2TypeDef": TypeTypedDict(
+                "Test2TypeDef",
+                [
+                    TypedDictAttribute("Test2", Type.Any, True),
+                ],
+            ),
+            "Test3TypeDef": TypeTypedDict(
+                "Test3TypeDef",
+                [
+                    TypedDictAttribute("Test3", Type.Any, True),
+                ],
+            ),
+            "Test2ResponseMetadataTypeDef": TypeTypedDict(
+                "Test2ResponseMetadataTypeDef",
+                [
+                    TypedDictAttribute("Test2ResponseMetadata", Type.Any, False),
+                ],
+            ),
+        }
+        shape_parser._output_typed_dict_map = {
+            "TestTypeDef": TypeTypedDict(
+                "TestTypeDef",
+                [
+                    TypedDictAttribute("Test", Type.Any, True),
+                ],
+            ),
+        }
+        shape_parser._response_typed_dict_map = {
+            "Test2TypeDef": TypeTypedDict(
+                "Test2TypeDef",
+                [
+                    TypedDictAttribute("Test2", Type.Any, True),
+                ],
+            ),
+        }
+        shape_parser.fix_typed_dict_names()
+        assert len(shape_parser._typed_dict_map) == 4
+        assert len(shape_parser._output_typed_dict_map) == 1
+        assert len(shape_parser._response_typed_dict_map) == 1
+        assert shape_parser._output_typed_dict_map["TestOutputTypeDef"].name == "TestOutputTypeDef"
+        assert shape_parser._output_typed_dict_map["TestOutputTypeDef"].has_optional() is False
+        assert (
+            shape_parser._response_typed_dict_map[
+                "Test2ExtraResponseMetadataTypeDef"
+            ].has_optional()
+            is False
+        )

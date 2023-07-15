@@ -181,7 +181,7 @@
     },
     {
         "severity": "error",
-        "message": "Could not access item in TypedDict\n\u00a0\u00a0\"expiration\" is not a defined key in \"GetObjectOutputOutputTypeDef\"",
+        "message": "Could not access item in TypedDict\n\u00a0\u00a0\"expiration\" is not a defined key in \"GetObjectOutputTypeDef\"",
         "range": {
             "start": {
                 "line": 63,

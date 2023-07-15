@@ -94,6 +94,7 @@ def parse_service_package(
                 method = package_waiter.get_client_method()
                 result.client.methods.append(method)
 
+    shape_parser.fix_typed_dict_names()
     result.typed_dicts = result.extract_typed_dicts()
     result.literals = result.extract_literals()
     result.validate()

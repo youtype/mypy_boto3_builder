@@ -11,7 +11,7 @@ examples/s3_example.py:50: error: Argument 3 to "download_fileobj" of "S3Client"
 examples/s3_example.py:51: error: Argument "IfModifiedSince" to "get_object" of "S3Client" has incompatible type "None"; expected "datetime | str"  [arg-type]
 examples/s3_example.py:54: error: Unexpected keyword argument "bucket" for "wait" of "BucketExistsWaiter"; did you mean "Bucket"?  [call-arg]
 examples/s3_example.py:61: error: Missing named argument "Key" for "get_object" of "S3Client"  [call-arg]
-examples/s3_example.py:64: error: TypedDict "GetObjectOutputOutputTypeDef" has no key "expiration"  [typeddict-item]
+examples/s3_example.py:64: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"  [typeddict-item]
 examples/s3_example.py:64: note: Did you mean "Expiration"?
 examples/s3_example.py:70: error: Missing key "AllowedOrigins" for TypedDict "CORSRuleTypeDef"  [typeddict-item]
 examples/s3_example.py:70: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"  [typeddict-unknown-key]
