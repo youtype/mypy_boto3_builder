@@ -19,21 +19,6 @@ packages:
       - types-aiobotocore
     build:
       - mypy_boto3_builder ./mypy_boto3_output --product aioboto3 aiobotocore boto3
-    snapshots:
-      stubtest: |-
-        error: aioboto3.__main__ failed to import, ModuleNotFoundError: No module named 'aioboto3.__main__'
-        Stub: at line 1 in file ./aioboto3-stubs/__main__.py
-        MypyFile:1(
-          ./aioboto3-stubs/__main__.py)
-        Runtime:
-        MISSING
-
-        error: aioboto3.version failed to import, ModuleNotFoundError: No module named 'aioboto3.version'
-        Stub: at line 1 in file ./aioboto3-stubs/version.py
-        MypyFile:1(
-          ./aioboto3-stubs/version.py)
-        Runtime:
-        MISSING
   - name: aiobotocore
     path: mypy_boto3_output/types_aiobotocore_lite_package
     checks:
@@ -49,18 +34,3 @@ packages:
       - types-aiobotocore
     build:
       - mypy_boto3_builder ./mypy_boto3_output --product aiobotocore boto3
-    snapshots:
-      stubtest: |-
-        error: aiobotocore.__main__ failed to import, ModuleNotFoundError: No module named 'aiobotocore.__main__'
-        Stub: at line 1 in file ./aiobotocore-stubs/__main__.py
-        MypyFile:1(
-          ./aiobotocore-stubs/__main__.py)
-        Runtime:
-        MISSING
-
-        error: aiobotocore.version failed to import, ModuleNotFoundError: No module named 'aiobotocore.version'
-        Stub: at line 1 in file ./aiobotocore-stubs/version.py
-        MypyFile:1(
-          ./aiobotocore-stubs/version.py)
-        Runtime:
-        MISSING

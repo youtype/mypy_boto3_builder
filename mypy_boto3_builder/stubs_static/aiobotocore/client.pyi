@@ -23,6 +23,7 @@ class AioClientCreator(ClientCreator):
         scoped_config: Optional[Any] = ...,
         api_version: Optional[str] = ...,
         client_config: Optional[Config] = ...,
+        auth_token: Optional[str] = ...,
     ) -> AioBaseClient: ...
 
 class AioBaseClient(BaseClient):

@@ -28,6 +28,8 @@ from botocore.credentials import (
     SharedCredentialProvider,
     SSOProvider,
 )
+from botocore.tokens import SSOTokenProvider
+from botocore.utils import SSOTokenLoader
 
 logger: logging.Logger
 
@@ -146,9 +148,11 @@ class AioSSOCredentialFetcher(AioCachedCredentialFetcher):
         role_name: str,
         account_id: str,
         client_creator: Any,
-        token_loader: Optional[Any] = ...,
+        token_loader: Optional[SSOTokenLoader] = ...,
         cache: Optional[Any] = ...,
         expiry_window_seconds: Optional[Any] = ...,
+        token_provider: Optional[SSOTokenProvider] = ...,
+        sso_session_name: Optional[str] = ...,
     ) -> None: ...
 
 class AioSSOProvider(SSOProvider):

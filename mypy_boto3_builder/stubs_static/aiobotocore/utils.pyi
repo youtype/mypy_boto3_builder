@@ -9,6 +9,7 @@ from botocore.utils import (
     InstanceMetadataFetcher,
     InstanceMetadataRegionFetcher,
     S3RegionRedirector,
+    S3RegionRedirectorv2,
 )
 from requests.models import Response
 
@@ -35,6 +36,16 @@ class AioIMDSRegionProvider(IMDSRegionProvider):
 
 class AioInstanceMetadataRegionFetcher(AioIMDSFetcher, InstanceMetadataRegionFetcher):
     async def retrieve_region(self) -> Optional[str]: ...  # type: ignore [override]
+
+class AioS3RegionRedirectorv2(S3RegionRedirectorv2):
+    async def redirect_from_error(
+        self,
+        request_dict: Dict[str, Any],
+        response: Response,
+        operation: Any,
+        **kwargs: Any,
+    ) -> None: ...
+    async def get_bucket_region(self, bucket: Any, response: Response) -> Any: ...
 
 class AioS3RegionRedirector(S3RegionRedirector):
     async def redirect_from_error(

@@ -34,7 +34,6 @@ jobs:
       - name: Install aioboto3
         run: |
           poetry run pip install -U aioboto3
-          poetry run pip install -U aiobotocore
           poetry install -n
       - name: Install boto3
         env:
@@ -46,6 +45,9 @@ jobs:
       - name: Uninstall stubs
         run: |
           poetry run pip uninstall -y boto3-stubs
-      - name: Check aio stubs
+      - name: Check aioboto3 stubs
         run: |
-          poetry run istub -c ./istub_aio.yml -bid aioboto3 aiobotocore
+          poetry run istub -c ./istub_aio.yml -bid aioboto3
+      - name: Check aiobotocore stubs
+        run: |
+          poetry run istub -c ./istub_aio.yml -bid aiobotocore
