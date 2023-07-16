@@ -146,13 +146,13 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.28.3.post1"
-description = "Type annotations for boto3 1.28.3 generated with mypy-boto3-builder 7.14.7"
+version = "1.28.3.post2"
+description = "Type annotations for boto3 1.28.3 generated with mypy-boto3-builder 7.15.0"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "boto3-stubs-1.28.3.post1.tar.gz", hash = "sha256:6243bfb1a7bc2afa4a804b3b0980dc241f9618f0058104d4048a71aa98e2d622"},
-    {file = "boto3_stubs-1.28.3.post1-py3-none-any.whl", hash = "sha256:bcc8676ed84c775d63c15a04d4849eb360f3130f343dd9491173d37d4807dac4"},
+    {file = "boto3-stubs-1.28.3.post2.tar.gz", hash = "sha256:649fd1785e268843b4df9c858bdcfd306ef4943f6b31b174af4d7589777b7bf6"},
+    {file = "boto3_stubs-1.28.3.post2-py3-none-any.whl", hash = "sha256:00439a9d3180b2e83be050235a0bed860903cb5b003c93fbcac4453e1f926217"},
 ]
 
 [package.dependencies]
@@ -1193,24 +1193,24 @@ files = [
 
 [[package]]
 name = "pip"
-version = "23.1.2"
+version = "23.2"
 description = "The PyPA recommended tool for installing Python packages."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pip-23.1.2-py3-none-any.whl", hash = "sha256:3ef6ac33239e4027d9a5598a381b9d30880a1477e50039db2eac6e8a8f6d1b18"},
-    {file = "pip-23.1.2.tar.gz", hash = "sha256:0e7c86f486935893c708287b30bd050a36ac827ec7fe5e43fe7cb198dd835fba"},
+    {file = "pip-23.2-py3-none-any.whl", hash = "sha256:78e5353a9dda374b462f2054f83a7b63f3f065c98236a68361845c1b0ee7e35f"},
+    {file = "pip-23.2.tar.gz", hash = "sha256:a160a170f3331d9ca1a0247eb1cd79c758879f1f81158f9cd05bbb5df80bea5c"},
 ]
 
 [[package]]
 name = "platformdirs"
-version = "3.8.1"
+version = "3.9.1"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "platformdirs-3.8.1-py3-none-any.whl", hash = "sha256:cec7b889196b9144d088e4c57d9ceef7374f6c39694ad1577a0aab50d27ea28c"},
-    {file = "platformdirs-3.8.1.tar.gz", hash = "sha256:f87ca4fcff7d2b0f81c6a748a77973d7af0f4d526f98f308477c3c436c74d528"},
+    {file = "platformdirs-3.9.1-py3-none-any.whl", hash = "sha256:ad8291ae0ae5072f66c16945166cb11c63394c7a3ad1b1bc9828ca3162da8c2f"},
+    {file = "platformdirs-3.9.1.tar.gz", hash = "sha256:1b42b450ad933e981d56e59f1b97495428c9bd60698baab9f3eb3d00d5822421"},
 ]
 
 [package.extras]

@@ -25,6 +25,7 @@ from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
+from mypy_boto3_builder.type_maps.aio_resource_method_map import get_aio_resource_method
 
 
 class AioBotocorePostprocessor(BasePostprocessor):
@@ -146,6 +147,14 @@ class AioBotocorePostprocessor(BasePostprocessor):
             return
         for sub_resource in self.package.service_resource.sub_resources:
             for method in sub_resource.methods:
+                method_stub = get_aio_resource_method(
+                    self.package.service_name, sub_resource.name, method.name
+                )
+                if method_stub:
+                    method.arguments = method_stub.arguments
+                    method.return_type = method_stub.return_type
+                    method.is_async = method_stub.is_async
+                    continue
                 method.is_async = True
             for collection in sub_resource.collections:
                 self._make_async_collection(collection)
