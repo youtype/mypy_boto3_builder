@@ -9,7 +9,7 @@ Parse Resource
 
 ## get_resource_public_methods
 
-[Show source in parse_resource.py:103](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L103)
+[Show source in parse_resource.py:85](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L85)
 
 Extract public methods from boto3 sub resource.
 
@@ -32,30 +32,9 @@ def get_resource_public_methods(
 
 
 
-## monkeypatch_dynamodb_table
-
-[Show source in parse_resource.py:91](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L91)
-
-Monkeypatch DynamoDB Table resource.
-
-Adds `TableResource` as a base class and removes `batch_writer` method.
-
-#### Signature
-
-```python
-def monkeypatch_dynamodb_table(resource: Resource) -> None:
-    ...
-```
-
-#### See also
-
-- [Resource](../structures/resource.md#resource)
-
-
-
 ## parse_resource
 
-[Show source in parse_resource.py:27](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L27)
+[Show source in parse_resource.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L25)
 
 Parse boto3 sub Resource data.
 

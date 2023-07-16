@@ -83,6 +83,7 @@ A full list of [Mypy_boto3_builder](https://github.com/youtype/mypy_boto3_builde
         - [TypeSubscript](mypy_boto3_builder/type_annotations/type_subscript.md#typesubscript)
         - [TypeTypedDict](mypy_boto3_builder/type_annotations/type_typed_dict.md#typetypeddict)
     - [Type Maps](mypy_boto3_builder/type_maps/index.md#type-maps)
+        - [Aio Resource Method Map](mypy_boto3_builder/type_maps/aio_resource_method_map.md#aio-resource-method-map)
         - [Literal Type Map](mypy_boto3_builder/type_maps/literal_type_map.md#literal-type-map)
         - [Method Type Map](mypy_boto3_builder/type_maps/method_type_map.md#method-type-map)
         - [Service Stub Map](mypy_boto3_builder/type_maps/service_stub_map/index.md#service-stub-map)
