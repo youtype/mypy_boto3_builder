@@ -9,7 +9,7 @@ PyPIManager
 
 ## PyPIManager
 
-[Show source in pypi_manager.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L11)
+[Show source in pypi_manager.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L12)
 
 Version manager for PyPI packages.
 
@@ -27,7 +27,7 @@ class PyPIManager:
 
 ### PyPIManager().get_next_version
 
-[Show source in pypi_manager.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L35)
+[Show source in pypi_manager.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L42)
 
 Get not existing version or closest not existing post-release.
 
@@ -44,7 +44,7 @@ def get_next_version(self, version: str) -> str:
 
 ### PyPIManager().has_version
 
-[Show source in pypi_manager.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L26)
+[Show source in pypi_manager.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L33)
 
 Check if version is already uploaded to PyPI.
 
@@ -56,5 +56,19 @@ Check if version is already uploaded to PyPI.
 
 ```python
 def has_version(self, version: str) -> bool:
+    ...
+```
+
+### PyPIManager().json_url
+
+[Show source in pypi_manager.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L26)
+
+Package JSON URL on PyPI.
+
+#### Signature
+
+```python
+@property
+def json_url(self) -> str:
     ...
 ```
