@@ -114,7 +114,7 @@ class TestTypeTypedDict:
     def test_is_same(self) -> None:
         assert self.result.is_same(
             TypeTypedDict(
-                "OtherDict",
+                "MyDict",
                 [
                     TypedDictAttribute("required", Type.bool, True),
                     TypedDictAttribute("optional", Type.str, False),
@@ -123,7 +123,7 @@ class TestTypeTypedDict:
         )
         assert not self.result.is_same(
             TypeTypedDict(
-                "OtherDict",
+                "MyDict",
                 [
                     TypedDictAttribute("required", Type.bool, True),
                     TypedDictAttribute("optional", Type.float, False),

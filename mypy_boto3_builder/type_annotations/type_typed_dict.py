@@ -30,6 +30,9 @@ class TypedDictAttribute:
         self.required = required
         self.type_annotation = type_annotation
 
+    def __hash__(self) -> int:
+        return hash((self.name, self.required, self.type_annotation))
+
     def get_type_annotation(self) -> FakeAnnotation:
         """
         Get wrapped for non-required type annotation or raw type annotation.
@@ -106,9 +109,7 @@ class TypeTypedDict(FakeAnnotation):
         return self.name
 
     def __hash__(self) -> int:
-        children = "".join(i.name for i in self.children)
-        hash_str = f"{self.name} {children}"
-        return hash(hash_str)
+        return hash((self.name, *[hash(i) for i in self.children]))
 
     def render(self, parent_name: str = "") -> str:
         """
@@ -218,9 +219,7 @@ class TypeTypedDict(FakeAnnotation):
         """
         Check whether typed dict attributes are the same as `other`.
         """
-        children = [i.render() for i in self.children]
-        other_children = [i.render() for i in other.children]
-        return other_children == children
+        return hash(self) == hash(other)
 
     def get_children_types(self) -> set[FakeAnnotation]:
         """

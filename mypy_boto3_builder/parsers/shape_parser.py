@@ -21,9 +21,8 @@ from botocore.model import (
 )
 from botocore.session import Session as BotocoreSession
 
-from mypy_boto3_builder.constants import ALL
 from mypy_boto3_builder.logger import get_logger
-from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -34,6 +33,7 @@ from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
+from mypy_boto3_builder.type_maps.argument_alias_map import get_argument_alias
 from mypy_boto3_builder.type_maps.literal_type_map import get_literal_type_stub
 from mypy_boto3_builder.type_maps.method_type_map import (
     get_default_value_stub,
@@ -69,29 +69,6 @@ class ShapeParser:
         service_name -- ServiceName.
     """
 
-    # Alias map fixes added by botocore for documentation build.
-    # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L773
-    # https://github.com/boto/botocore/blob/develop/botocore/handlers.py#L1055
-    ARGUMENT_ALIASES: dict[ServiceName, dict[str, dict[str, str]]] = {
-        ServiceNameCatalog.cloudsearchdomain: {"Search": {"return": "returnFields"}},
-        ServiceNameCatalog.logs: {"CreateExportTask": {"from": "fromTime"}},
-        ServiceNameCatalog.ec2: {ALL: {"Filter": "Filters"}},
-        ServiceNameCatalog.s3: {
-            "PutBucketAcl": {"ContentMD5": "None"},
-            "PutBucketCors": {"ContentMD5": "None"},
-            "PutBucketLifecycle": {"ContentMD5": "None"},
-            "PutBucketLogging": {"ContentMD5": "None"},
-            "PutBucketNotification": {"ContentMD5": "None"},
-            "PutBucketPolicy": {"ContentMD5": "None"},
-            "PutBucketReplication": {"ContentMD5": "None"},
-            "PutBucketRequestPayment": {"ContentMD5": "None"},
-            "PutBucketTagging": {"ContentMD5": "None"},
-            "PutBucketVersioning": {"ContentMD5": "None"},
-            "PutBucketWebsite": {"ContentMD5": "None"},
-            "PutObjectAcl": {"ContentMD5": "None"},
-        },
-    }
-
     def __init__(self, session: Session, service_name: ServiceName):
         loader = session._loader
         botocore_session: BotocoreSession = get_botocore_session(session)
@@ -101,6 +78,7 @@ class ShapeParser:
         self._resource_name: str = ""
         self._typed_dict_map: dict[str, TypeTypedDict] = {}
         self._output_typed_dict_map: dict[str, TypeTypedDict] = {}
+        self._response_typed_dict_map: dict[str, TypeTypedDict] = {}
 
         self._waiters_shape: Mapping[str, Any] | None = None
         with contextlib.suppress(UnknownServiceError):
@@ -176,22 +154,6 @@ class ShapeParser:
         result.sort()
         return result
 
-    def _get_argument_alias(self, operation_name: str, argument_name: str) -> str:
-        service_map = self.ARGUMENT_ALIASES.get(self.service_name)
-        if not service_map:
-            return argument_name
-
-        operation_map: dict[str, str] = service_map.get(ALL, {})
-        operation_map = service_map.get(operation_name, operation_map)
-
-        if not operation_map:
-            return argument_name
-
-        if argument_name not in operation_map:
-            return argument_name
-
-        return operation_map[argument_name]
-
     def _parse_arguments(
         self,
         class_name: str,
@@ -206,8 +168,8 @@ class ShapeParser:
         for argument_name, argument_shape in shape.members.items():
             if argument_name in exclude_names:
                 continue
-            argument_alias = self._get_argument_alias(operation_name, argument_name)
-            if argument_alias == "None":
+            argument_alias = get_argument_alias(self.service_name, operation_name, argument_name)
+            if argument_alias is None:
                 continue
 
             argument_type_stub = get_method_type_stub(
@@ -372,6 +334,10 @@ class ShapeParser:
         typed_dict = TypeTypedDict(typed_dict_name)
 
         if output:
+            if typed_dict.name in self._response_typed_dict_map:
+                return self._response_typed_dict_map[typed_dict.name]
+            self._response_typed_dict_map[typed_dict.name] = typed_dict
+        elif output_child:
             if typed_dict.name in self._output_typed_dict_map:
                 return self._output_typed_dict_map[typed_dict.name]
             self._output_typed_dict_map[typed_dict.name] = typed_dict
@@ -498,7 +464,7 @@ class ShapeParser:
         if isinstance(shape, MapShape):
             return self._parse_shape_map(
                 shape,
-                output_child=output or output_child,
+                output_child=is_output_or_child,
                 is_streaming=is_streaming,
             )
 
@@ -506,12 +472,12 @@ class ShapeParser:
             return self._parse_shape_structure(
                 shape,
                 output=output,
-                output_child=output or output_child,
+                output_child=is_output_or_child,
                 is_streaming=is_streaming,
             )
 
         if isinstance(shape, ListShape):
-            return self._parse_shape_list(shape, output_child=output or output_child)
+            return self._parse_shape_list(shape, output_child=is_output_or_child)
 
         if self._resources_shape and shape.type_name in self._resources_shape["resources"]:
             return AliasInternalImport(shape.type_name)
@@ -858,22 +824,30 @@ class ShapeParser:
 
         raise ShapeParserError(f"Unknown typed dict name format: {name}")
 
-    def _get_typed_dict(self, name: str) -> TypeTypedDict | None:
-        if name in self._typed_dict_map:
-            return self._typed_dict_map[name]
-        if name in self._output_typed_dict_map:
-            return self._output_typed_dict_map[name]
+    def _get_typed_dict(
+        self, name: str, maps: Sequence[dict[str, TypeTypedDict]]
+    ) -> TypeTypedDict | None:
+        for typed_dict_map in maps:
+            if name in typed_dict_map:
+                return typed_dict_map[name]
         return None
 
     def _get_non_clashing_typed_dict_name(self, typed_dict: TypeTypedDict, postfix: str) -> str:
         new_typed_dict_name = get_typed_dict_name(
             self._get_typed_dict_name_prefix(typed_dict.name), postfix
         )
-        clashing_typed_dict = self._get_typed_dict(new_typed_dict_name)
-        if not clashing_typed_dict or clashing_typed_dict == typed_dict:
+        clashing_typed_dict = self._get_typed_dict(
+            new_typed_dict_name,
+            (
+                self._typed_dict_map,
+                self._output_typed_dict_map,
+                self._response_typed_dict_map,
+            ),
+        )
+        if not clashing_typed_dict or clashing_typed_dict.is_same(typed_dict):
             return new_typed_dict_name
 
-        self.logger.debug(f"Clashing typed dict name: {new_typed_dict_name}")
+        self.logger.debug(f"Clashing typed dict name found: {new_typed_dict_name}")
         return self._get_non_clashing_typed_dict_name(typed_dict, "Extra" + postfix)
 
     def fix_typed_dict_names(self) -> None:
@@ -882,20 +856,50 @@ class ShapeParser:
         """
         output_typed_dict_names = set(self._output_typed_dict_map.keys())
         for name in output_typed_dict_names:
-            if name not in self._typed_dict_map:
+            typed_dict = self._get_typed_dict(
+                name,
+                (self._typed_dict_map,),
+            )
+            if typed_dict is None:
                 continue
 
             typed_dict = self._typed_dict_map[name]
-            output_typed_dict = self._output_typed_dict_map[name]
-            if typed_dict == output_typed_dict:
+            response_typed_dict = self._output_typed_dict_map[name]
+            if typed_dict.is_same(response_typed_dict):
                 continue
 
             old_typed_dict_name = typed_dict.name
             new_typed_dict_name = self._get_non_clashing_typed_dict_name(typed_dict, "Output")
             self.logger.debug(
-                f"Renaming {old_typed_dict_name} to {new_typed_dict_name} to avoid clash"
+                f"Fixing TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
             )
 
-            output_typed_dict.name = new_typed_dict_name
+            response_typed_dict.name = new_typed_dict_name
             del self._output_typed_dict_map[old_typed_dict_name]
-            self._output_typed_dict_map[output_typed_dict.name] = output_typed_dict
+            self._output_typed_dict_map[response_typed_dict.name] = response_typed_dict
+
+        response_typed_dict_names = set(self._response_typed_dict_map.keys())
+        for name in response_typed_dict_names:
+            typed_dict = self._get_typed_dict(
+                name,
+                (
+                    self._typed_dict_map,
+                    self._output_typed_dict_map,
+                ),
+            )
+            if typed_dict is None:
+                continue
+
+            response_typed_dict = self._response_typed_dict_map[name]
+            if typed_dict.is_same(response_typed_dict):
+                continue
+
+            old_typed_dict_name = typed_dict.name
+            new_typed_dict_name = self._get_non_clashing_typed_dict_name(typed_dict, "Response")
+            self.logger.debug(
+                f"Fixing TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
+            )
+
+            response_typed_dict.name = new_typed_dict_name
+            del self._response_typed_dict_map[old_typed_dict_name]
+            self._response_typed_dict_map[response_typed_dict.name] = response_typed_dict
