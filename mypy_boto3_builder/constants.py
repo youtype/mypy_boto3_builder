@@ -35,6 +35,9 @@ PROG_NAME = "mypy_boto3_builder"
 # builder package name
 PACKAGE_NAME = "mypy-boto3-builder"
 
+# universal mask for all resources
+ALL = "*"
+
 
 class ProductLibrary(Enum):
     """

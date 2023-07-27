@@ -21,6 +21,7 @@ from botocore.model import (
 )
 from botocore.session import Session as BotocoreSession
 
+from mypy_boto3_builder.constants import ALL
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.argument import Argument
@@ -74,7 +75,7 @@ class ShapeParser:
     ARGUMENT_ALIASES: dict[ServiceName, dict[str, dict[str, str]]] = {
         ServiceNameCatalog.cloudsearchdomain: {"Search": {"return": "returnFields"}},
         ServiceNameCatalog.logs: {"CreateExportTask": {"from": "fromTime"}},
-        ServiceNameCatalog.ec2: {"*": {"Filter": "Filters"}},
+        ServiceNameCatalog.ec2: {ALL: {"Filter": "Filters"}},
         ServiceNameCatalog.s3: {
             "PutBucketAcl": {"ContentMD5": "None"},
             "PutBucketCors": {"ContentMD5": "None"},
@@ -99,7 +100,6 @@ class ShapeParser:
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
         self._resource_name: str = ""
         self._typed_dict_map: dict[str, TypeTypedDict] = {}
-        self._response_typed_dict_map: dict[str, TypeTypedDict] = {}
         self._output_typed_dict_map: dict[str, TypeTypedDict] = {}
 
         self._waiters_shape: Mapping[str, Any] | None = None
@@ -181,7 +181,7 @@ class ShapeParser:
         if not service_map:
             return argument_name
 
-        operation_map: dict[str, str] = service_map.get("*", {})
+        operation_map: dict[str, str] = service_map.get(ALL, {})
         operation_map = service_map.get(operation_name, operation_map)
 
         if not operation_map:
@@ -267,7 +267,7 @@ class ShapeParser:
         Returns:
             A map of method name to Method.
         """
-        self._resource_name = ""
+        self._resource_name = "Client"
         result: dict[str, Method] = {
             "can_paginate": Method(
                 "can_paginate",
@@ -368,14 +368,10 @@ class ShapeParser:
 
         required = shape.required_members
         is_output_or_child = output or output_child
-        typed_dict_name = self._get_shape_type_name(shape, False)
+        typed_dict_name = self._get_shape_type_name(shape)
         typed_dict = TypeTypedDict(typed_dict_name)
 
         if output:
-            if typed_dict.name in self._response_typed_dict_map:
-                return self._response_typed_dict_map[typed_dict.name]
-            self._response_typed_dict_map[typed_dict.name] = typed_dict
-        elif output_child:
             if typed_dict.name in self._output_typed_dict_map:
                 return self._output_typed_dict_map[typed_dict.name]
             self._output_typed_dict_map[typed_dict.name] = typed_dict
@@ -421,18 +417,11 @@ class ShapeParser:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
-    def _get_shape_type_name(self, shape: Shape, output: bool) -> str:
+    def _get_shape_type_name(self, shape: Shape) -> str:
         if not isinstance(shape, StructureShape):
             return shape.type_name
 
-        postfix_parts: list[str] = []
-        if self.service_name.is_custom_resource(self.resource_name):
-            postfix_parts.append(self.resource_name)
-        if output:
-            postfix_parts.append("Output")
-
-        postfix = "".join(postfix_parts)
-        return self._get_typed_dict_name(shape, postfix=postfix)
+        return self._get_typed_dict_name(shape)
 
     @staticmethod
     def _get_streaming_body(shape: Shape) -> Shape | None:
@@ -487,16 +476,17 @@ class ShapeParser:
             if is_output_or_child:
                 is_streaming = self._get_streaming_body(shape) is not None
 
-        type_name = self._get_shape_type_name(shape, is_output_or_child)
+        type_name = self._get_shape_type_name(shape)
         if is_streaming and type_name == "blob":
             type_name = "blob_streaming"
 
         shape_type_stub = get_shape_type_stub(
             (
-                OUTPUT_SHAPE_TYPE_MAP if output or output_child else {},
+                OUTPUT_SHAPE_TYPE_MAP if is_output_or_child else {},
                 SHAPE_TYPE_MAP,
             ),
             self.service_name,
+            self._resource_name,
             type_name,
         )
         if shape_type_stub:
@@ -873,8 +863,6 @@ class ShapeParser:
             return self._typed_dict_map[name]
         if name in self._output_typed_dict_map:
             return self._output_typed_dict_map[name]
-        if name in self._response_typed_dict_map:
-            return self._response_typed_dict_map[name]
         return None
 
     def _get_non_clashing_typed_dict_name(self, typed_dict: TypeTypedDict, postfix: str) -> str:
@@ -897,31 +885,17 @@ class ShapeParser:
             if name not in self._typed_dict_map:
                 continue
 
-            typed_dict = self._output_typed_dict_map[name]
+            typed_dict = self._typed_dict_map[name]
+            output_typed_dict = self._output_typed_dict_map[name]
+            if typed_dict == output_typed_dict:
+                continue
+
             old_typed_dict_name = typed_dict.name
             new_typed_dict_name = self._get_non_clashing_typed_dict_name(typed_dict, "Output")
             self.logger.debug(
                 f"Renaming {old_typed_dict_name} to {new_typed_dict_name} to avoid clash"
             )
 
-            typed_dict.name = new_typed_dict_name
+            output_typed_dict.name = new_typed_dict_name
             del self._output_typed_dict_map[old_typed_dict_name]
-            self._output_typed_dict_map[typed_dict.name] = typed_dict
-
-        response_typed_dict_names = set(self._response_typed_dict_map.keys())
-        for name in response_typed_dict_names:
-            if name not in self._typed_dict_map and name not in self._output_typed_dict_map:
-                continue
-
-            typed_dict = self._response_typed_dict_map[name]
-            old_typed_dict_name = typed_dict.name
-            new_typed_dict_name = self._get_non_clashing_typed_dict_name(
-                typed_dict, "ResponseMetadata"
-            )
-            self.logger.debug(
-                f"Renaming {old_typed_dict_name} to {new_typed_dict_name} to avoid clash"
-            )
-
-            typed_dict.name = new_typed_dict_name
-            del self._response_typed_dict_map[old_typed_dict_name]
-            self._response_typed_dict_map[typed_dict.name] = typed_dict
+            self._output_typed_dict_map[output_typed_dict.name] = output_typed_dict

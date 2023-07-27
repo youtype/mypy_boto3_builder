@@ -139,14 +139,6 @@ class ServiceName:
         anchor = "".join([get_anchor_link(part) for part in parts])
         return f"{link}#{anchor}"
 
-    def is_custom_resource(self, resource_name: str) -> bool:
-        """
-        Whether resource should use separte TypeDict namespace.
-        """
-        if self.name == ServiceNameCatalog.dynamodb.name:
-            return resource_name in ("ServiceResource", "Table")
-        return False
-
 
 class ServiceNameCatalog:
     """

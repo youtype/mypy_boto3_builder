@@ -2,6 +2,7 @@
 String to type annotation map that find type annotation by method and argument name.
 """
 
+from mypy_boto3_builder.constants import ALL
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -63,7 +64,7 @@ QueueAttributeFilterType = TypeLiteral(
 DEFAULT_VALUE_MAP: ServiceTypeMap = {
     ServiceNameCatalog.glacier: {
         "Client": {
-            "*": {
+            ALL: {
                 "accountId": TypeConstant("-"),
             }
         }
@@ -117,7 +118,7 @@ TYPE_MAP: ServiceTypeMap = {
         },
     },
     ServiceNameCatalog.sqs: {
-        "*": {
+        ALL: {
             # FIXME: https://github.com/boto/botocore/issues/2726
             "receive_messages": {
                 "AttributeNames": TypeSubscript(Type.Sequence, [QueueAttributeFilterType]),
@@ -138,8 +139,8 @@ def _get_from_method_map(
     argument_name: str,
     method_type_map: MethodTypeMap,
 ) -> FakeAnnotation | None:
-    if "*" in method_type_map:
-        operation_type_map = method_type_map["*"]
+    if ALL in method_type_map:
+        operation_type_map = method_type_map[ALL]
         if argument_name in operation_type_map:
             return operation_type_map[argument_name]
 
@@ -161,8 +162,8 @@ def _get_from_class_map(
         result = _get_from_method_map(method_name, argument_name, class_type_map[class_name])
         if result:
             return result
-    if "*" in class_type_map:
-        result = _get_from_method_map(method_name, argument_name, class_type_map["*"])
+    if ALL in class_type_map:
+        result = _get_from_method_map(method_name, argument_name, class_type_map[ALL])
         if result:
             return result
     return None

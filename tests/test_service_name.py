@@ -1,5 +1,3 @@
-import pytest
-
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 
 
@@ -23,12 +21,6 @@ class TestServiceName:
     def test_is_essential(self) -> None:
         assert not ServiceName("my-service", "MyService").is_essential()
         assert ServiceName("lambda", "MyService").is_essential()
-
-    def test_is_custom_resource(self) -> None:
-        assert ServiceName("dynamodb", "DynamoDB").is_custom_resource("Table")
-        assert ServiceName("dynamodb", "DynamoDB").is_custom_resource("ServiceResource")
-        assert not ServiceName("dynamodb", "DynamoDB").is_custom_resource("Condition")
-        assert not ServiceName("ec2", "EC2").is_custom_resource("ServiceResource")
 
 
 class TestServiceNameCatalog:

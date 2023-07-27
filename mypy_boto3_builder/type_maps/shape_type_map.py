@@ -5,6 +5,7 @@ from collections.abc import Iterable
 
 from botocore.response import StreamingBody
 
+from mypy_boto3_builder.constants import ALL
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
@@ -75,45 +76,65 @@ GetTemplateOutputTypeDef = TypeTypedDict(
 )
 
 UniversalAttributeValueTypeDef = TypeSubscript(
-    Type.Union, [AttributeValueTypeDef, TableAttributeValueType]
+    Type.Union,
+    [
+        AttributeValueTypeDef,
+        *TableAttributeValueType.children,
+    ],
 )
 
 StreamingBodyType = ExternalImport.from_class(StreamingBody)
-ShapeTypeMap = dict[ServiceName, dict[str, FakeAnnotation]]
+ShapeTypeMap = dict[ServiceName, dict[str, dict[str, FakeAnnotation]]]
 
 SHAPE_TYPE_MAP: ShapeTypeMap = {
     ServiceNameCatalog.all: {
-        "integer": Type.int,
-        "long": Type.int,
-        "boolean": Type.bool,
-        "double": Type.float,
-        "float": Type.float,
-        "timestamp": TypeSubscript(Type.Union, [Type.datetime, Type.str]),
-        "blob": TypeSubscript(Type.Union, [Type.str, Type.bytes, Type.IOAny, StreamingBodyType]),
-        "blob_streaming": TypeSubscript(
-            Type.Union, [Type.str, Type.bytes, Type.IOAny, StreamingBodyType]
-        ),
+        ALL: {
+            "integer": Type.int,
+            "long": Type.int,
+            "boolean": Type.bool,
+            "double": Type.float,
+            "float": Type.float,
+            "timestamp": TypeSubscript(Type.Union, [Type.datetime, Type.str]),
+            "blob": TypeSubscript(
+                Type.Union, [Type.str, Type.bytes, Type.IOAny, StreamingBodyType]
+            ),
+            "blob_streaming": TypeSubscript(
+                Type.Union, [Type.str, Type.bytes, Type.IOAny, StreamingBodyType]
+            ),
+        }
     },
     ServiceNameCatalog.dynamodb: {
-        "AttributeValueTypeDef": UniversalAttributeValueTypeDef,
-        "AttributeValueTableTypeDef": TableAttributeValueType,
-        "AttributeValueServiceResourceTypeDef": TableAttributeValueType,
-        "ConditionExpressionTypeDef": Type.bool,
+        ALL: {
+            "AttributeValueTypeDef": UniversalAttributeValueTypeDef,
+            "ConditionExpressionTypeDef": Type.bool,
+        },
+        "ServiceResource": {
+            "AttributeValueTypeDef": TableAttributeValueType,
+        },
+        "Table": {
+            "AttributeValueTypeDef": TableAttributeValueType,
+        },
     },
 }
 
 OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
     ServiceNameCatalog.all: {
-        "timestamp": Type.datetime,
-        "blob": Type.bytes,
-        "blob_streaming": StreamingBodyType,
+        ALL: {
+            "timestamp": Type.datetime,
+            "blob": Type.bytes,
+            "blob_streaming": StreamingBodyType,
+        },
     },
     ServiceNameCatalog.dynamodb: {
-        "AttributeValueTypeDef": AttributeValueTypeDef,
+        ALL: {
+            "AttributeValueTypeDef": AttributeValueTypeDef,
+        },
     },
     # FIXME: botocore processes TemplateBody with json_decode_template_body
     ServiceNameCatalog.cloudformation: {
-        "GetTemplateOutputTypeDef": GetTemplateOutputTypeDef,
+        ALL: {
+            "GetTemplateOutputTypeDef": GetTemplateOutputTypeDef,
+        },
     },
 }
 
@@ -121,6 +142,7 @@ OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
 def get_shape_type_stub(
     shape_type_maps: Iterable[ShapeTypeMap],
     service_name: ServiceName,
+    resource_name: str,
     shape_name: str,
 ) -> FakeAnnotation | None:
     """
@@ -129,16 +151,28 @@ def get_shape_type_stub(
     Arguments:
         shape_type_map -- Map to lookup
         service_name -- Service name
-        shape_name -- Target TypedDict name
+        resource_name -- Resource name
+        shape_name -- Target Shape name
 
     Returns:
         Type annotation or None.
     """
-    service_names = (service_name, ServiceNameCatalog.all)
+    checks = (
+        (service_name, resource_name),
+        (service_name, ALL),
+        (ServiceNameCatalog.all, resource_name),
+        (ServiceNameCatalog.all, ALL),
+    )
     for shape_type_map in shape_type_maps:
-        for current_service_name in service_names:
-            service_shape_type_map = shape_type_map.get(current_service_name, {})
-            if shape_name in service_shape_type_map:
-                return service_shape_type_map[shape_name]
+        for current_service_name, current_resource_name in checks:
+            if current_service_name not in shape_type_map:
+                continue
+            service_type_map = shape_type_map[current_service_name]
+            if current_resource_name not in service_type_map:
+                continue
+            resource_type_map = service_type_map[current_resource_name]
+            if shape_name not in resource_type_map:
+                continue
+            return resource_type_map[shape_name]
 
     return None

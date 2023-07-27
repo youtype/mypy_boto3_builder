@@ -111,7 +111,7 @@ class TestShapeParser:
         collection_mock.request.operation = "my_operation"
         shape_parser = ShapeParser(session_mock, service_name_mock)
         result = shape_parser.get_collection_filter_method(
-            "MyCollection", collection_mock, "self_type"
+            "MyCollection", collection_mock, Type.Any
         )
         assert result.name == "filter"
         assert len(result.decorators) == 0
@@ -159,23 +159,8 @@ class TestShapeParser:
                 ],
             ),
         }
-        shape_parser._response_typed_dict_map = {
-            "Test2TypeDef": TypeTypedDict(
-                "Test2TypeDef",
-                [
-                    TypedDictAttribute("Test2", Type.Any, True),
-                ],
-            ),
-        }
         shape_parser.fix_typed_dict_names()
         assert len(shape_parser._typed_dict_map) == 4
         assert len(shape_parser._output_typed_dict_map) == 1
-        assert len(shape_parser._response_typed_dict_map) == 1
-        assert shape_parser._output_typed_dict_map["TestOutputTypeDef"].name == "TestOutputTypeDef"
-        assert shape_parser._output_typed_dict_map["TestOutputTypeDef"].has_optional() is False
-        assert (
-            shape_parser._response_typed_dict_map[
-                "Test2ExtraResponseMetadataTypeDef"
-            ].has_optional()
-            is False
-        )
+        assert shape_parser._output_typed_dict_map["TestTypeDef"].name == "TestTypeDef"
+        assert shape_parser._output_typed_dict_map["TestTypeDef"].has_optional() is False
