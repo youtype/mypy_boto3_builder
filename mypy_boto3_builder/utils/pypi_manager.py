@@ -3,6 +3,7 @@ Version manager for PyPI packages.
 """
 import json
 from json.decoder import JSONDecodeError
+from urllib.error import HTTPError
 from urllib.request import urlopen
 
 from newversion import Version
@@ -20,8 +21,14 @@ class PyPIManager:
 
     def __init__(self, package: str) -> None:
         self.package = package
-        self.json_url = self.JSON_URL.format(package=package)
         self._versions: set[Version] | None = None
+
+    @property
+    def json_url(self) -> str:
+        """
+        Package JSON URL on PyPI.
+        """
+        return self.JSON_URL.format(package=self.package)
 
     def has_version(self, version: str) -> bool:
         """
@@ -49,8 +56,13 @@ class PyPIManager:
         if self._versions is not None:
             return self._versions
 
-        with urlopen(self.json_url) as response:
-            data_raw = response.read()
+        try:
+            with urlopen(self.json_url) as response:
+                data_raw = response.read()
+        except HTTPError as e:
+            if e.code == 404:
+                return set()
+            raise ValueError(f"Cannot retrieve {self.json_url}: {e}") from None
 
         try:
             data = json.loads(data_raw)
