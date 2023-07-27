@@ -62,7 +62,7 @@ class PyPIManager:
         except HTTPError as e:
             if e.code == 404:
                 return set()
-            raise ValueError(f"Cannot retrieve {self.json_url}: {e}") from None
+            raise RuntimeError(f"Cannot retrieve {self.json_url}: {e}") from None
 
         try:
             data = json.loads(data_raw)

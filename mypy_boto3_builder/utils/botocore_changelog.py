@@ -2,6 +2,7 @@
 Parser for boto3 changelog.
 """
 import re
+from urllib.error import HTTPError
 from urllib.request import urlopen
 
 
@@ -11,6 +12,7 @@ class BotocoreChangelog:
     """
 
     URL = "https://raw.githubusercontent.com/boto/botocore/develop/CHANGELOG.rst"
+    SERVICE_NAME_RE = re.compile(r"``(\S+)``")
 
     def __init__(self) -> None:
         self._changelog: str | None = None
@@ -19,8 +21,11 @@ class BotocoreChangelog:
         if self._changelog is not None:
             return self._changelog
 
-        with urlopen(self.URL) as response:
-            self._changelog = response.read().decode()
+        try:
+            with urlopen(self.URL) as response:
+                self._changelog = response.read().decode()
+        except HTTPError as e:
+            raise RuntimeError(f"Cannot retrieve {self.URL}: {e}") from None
 
         return self._changelog
 
@@ -46,7 +51,7 @@ class BotocoreChangelog:
         """
         result: list[str] = []
         section = self._get_section(version)
-        for match in re.findall(r"``(\S+)``", section):
+        for match in self.SERVICE_NAME_RE.findall(section):
             if match not in result:
                 result.append(match)
 
