@@ -31,11 +31,7 @@ class TypedDictAttribute:
         self.type_annotation = type_annotation
 
     def __hash__(self) -> int:
-        if self.type_annotation.is_typed_dict():
-            type_annotation = self.type_annotation.get_sort_key()
-        else:
-            type_annotation = hash(self.type_annotation)
-        return hash((self.name, self.required, type_annotation))
+        return hash((self.name, self.required, self.type_annotation.get_sort_key()))
 
     def get_type_annotation(self) -> FakeAnnotation:
         """
