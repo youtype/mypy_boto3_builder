@@ -41,6 +41,9 @@ Usage::
 {% if package.client %}
 {{ package.client.alias_name }} = {{ package.client.name }}
 {% endif %}
+{% if package.service_resource %}
+{{ package.service_resource.alias_name }} = {{ package.service_resource.name }}
+{% endif %}
 
 __all__ = (
 {% for name in package.get_init_all_names() -%}
