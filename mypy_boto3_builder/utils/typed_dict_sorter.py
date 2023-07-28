@@ -17,6 +17,7 @@ class TypedDictSorter:
 
     def __init__(self, typed_dicts: Iterable[TypeTypedDict]):
         self.typed_dicts = list(typed_dicts)
+        self.typed_dicts.sort(key=lambda x: x.name)
         self.typed_dicts_map = self._get_typed_dicts_map(self.typed_dicts)
         self.logger = get_logger()
 
