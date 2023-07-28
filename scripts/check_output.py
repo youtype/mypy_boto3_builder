@@ -47,11 +47,10 @@ IGNORE_MYPY_ERRORS = (
     'Signature of "get_paginator" incompatible with supertype "AioBaseClient"',
     'Signature of "get_waiter" incompatible with supertype "AioBaseClient"',
     'Argument 1 of "get_paginator" is incompatible with supertype "AioBaseClient"',
+    'Argument 1 of "get_waiter" is incompatible with supertype "AioBaseClient"',
     'Return type "Coroutine[Any, Any, None]" of "close" incompatible with return type "None"',
     'Signature of "wait" incompatible with supertype "AIOWaiter"',
-    'error: Incompatible import of "AIOBoto3ServiceResource"',
-    'error: Incompatible import of "AIOResourceCollection"',
-    'error: Incompatible import of "ResourceMeta"',
+    'imported name has type "type[object]", local name has type',
     'incompatible with return type "Iterator[list[Any]]" in supertype "ResourceCollection"',
     "note:",
 )
