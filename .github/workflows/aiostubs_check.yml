@@ -1,8 +1,6 @@
-name: Check aio stubs
+name: Check AIO stubs
 
 on:
-  # schedule:
-  #   - cron: "0 0 * * *"
   workflow_dispatch:
     inputs:
       boto3_version:

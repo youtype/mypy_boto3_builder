@@ -11,6 +11,11 @@
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boto3-stubs.svg?color=blue)](https://pypi.org/project/boto3-stubs)
 [![PyPI - Downloads](https://static.pepy.tech/badge/boto3-stubs)](https://pepy.tech/project/boto3-stubs)
 
+[![boto3-stubs consistency](https://github.com/youtype/mypy_boto3_builder/actions/workflows/stubs_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/stubs_check.yml)
+[![boto3-stubs sanity](https://github.com/youtype/mypy_boto3_builder/actions/workflows/sanity_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/sanity_check.yml)
+[![types-aiobotocore consistency](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml)
+[![types-aioboto3 consistency](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml)
+
 ![boto3.typed](https://github.com/youtype/mypy_boto3_builder/raw/main/logo.png)
 
 Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with

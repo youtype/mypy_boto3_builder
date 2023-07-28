@@ -1,8 +1,6 @@
-name: Sanity check stubs
+name: Sanity check AIO stubs
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
   workflow_dispatch:
     inputs:
       boto3_version:
@@ -35,6 +33,10 @@ jobs:
           python -m pip install poetry pip
           poetry config virtualenvs.create false
           poetry install -n
+      - name: Install aioboto3
+        run: |
+          poetry run pip install -U aioboto3
+          poetry install -n
       - name: Install boto3
         env:
           BOTO3_VERSION: ${{ steps.vars.outputs.boto3-version }}
@@ -49,7 +51,7 @@ jobs:
           VERSION: ${{ steps.vars.outputs.version }}
         run: |
           rm -rf mypy_boto3_output/*
-          poetry run mypy_boto3_builder mypy_boto3_output --product boto3 boto3-services -b $VERSION -d
+          poetry run mypy_boto3_builder mypy_boto3_output --product aioboto3 aiobotocore aiobotocore-services -b $VERSION -d
       - name: Install master packages
         run: |
           ./scripts/install.sh master
