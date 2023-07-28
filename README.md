@@ -34,6 +34,10 @@ Do you want more? Check the [documentation](https://youtype.github.io/boto3_stub
 [![types-aiobotocore consistency](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml)
 [![types-aiobotocore sanity](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aio_sanity_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aio_sanity_check.yml)
 
+[![Publish boto3-stubs](https://github.com/youtype/mypy_boto3_builder/actions/workflows/publish_boto3_stubs.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/publish_boto3_stubs.yml)
+[![Publish types-aiobotocore](https://github.com/youtype/mypy_boto3_builder/actions/workflows/publish_aiobotocore_stubs.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/publish_aiobotocore_stubs.yml)
+[![Publish types-aioboto3](https://github.com/youtype/mypy_boto3_builder/actions/workflows/publish_types_aioboto3.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/publish_types_aioboto3.yml)
+
 [![Publish botocore-stubs](https://github.com/youtype/botocore-stubs/actions/workflows/publish_on_update.yml/badge.svg)](https://github.com/youtype/botocore-stubs/actions/workflows/publish_on_update.yml)
 [![Publish types-awscrt](https://github.com/youtype/types-awscrt/actions/workflows/publish_on_update.yml/badge.svg)](https://github.com/youtype/types-awscrt/actions/workflows/publish_on_update.yml)
 [![Publish types-s3transfer](https://github.com/youtype/types-s3transfer/actions/workflows/publish_on_update.yml/badge.svg)](https://github.com/youtype/types-s3transfer/actions/workflows/publish_on_update.yml)
