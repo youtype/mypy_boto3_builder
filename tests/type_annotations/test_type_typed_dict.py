@@ -48,6 +48,10 @@ class TestTypeTypedDict:
         result.replace_with_dict.add(result.name)
         assert result.render("MyDict") == "Dict[str, Any]"
 
+    def test_debug_render(self) -> None:
+        result = self.result.copy()
+        assert result.debug_render() == 'MyDict: "required": bool, "optional": NotRequired[str]'
+
     def test_get_import_record(self) -> None:
         assert self.result.get_import_record().render() == "from .type_defs import MyDict"
 

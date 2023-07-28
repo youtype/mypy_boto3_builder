@@ -31,7 +31,11 @@ class TypedDictAttribute:
         self.type_annotation = type_annotation
 
     def __hash__(self) -> int:
-        return hash((self.name, self.required, self.type_annotation))
+        if self.type_annotation.is_typed_dict():
+            type_annotation = self.type_annotation.get_sort_key()
+        else:
+            type_annotation = hash(self.type_annotation)
+        return hash((self.name, self.required, type_annotation))
 
     def get_type_annotation(self) -> FakeAnnotation:
         """
@@ -128,6 +132,12 @@ class TypeTypedDict(FakeAnnotation):
             return f'"{self.name}"'
 
         return self.name
+
+    def debug_render(self) -> str:
+        """
+        Render type annotation for debug purposes.
+        """
+        return f"{self}: {', '.join([c.render() for c in self.children])}"
 
     @staticmethod
     def get_typing_import_record() -> ImportRecord:

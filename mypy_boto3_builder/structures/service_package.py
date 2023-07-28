@@ -300,9 +300,7 @@ class ServicePackage(Package):
             if name in names:
                 for typed_dict in self.typed_dicts:
                     if typed_dict.name == name:
-                        self.logger.warning(
-                            f"{typed_dict}: {[c.render() for c in typed_dict.children]}"
-                        )
+                        self.logger.warning(typed_dict.debug_render())
                 raise ValueError(f"Duplicate name {name}")
             names.add(name)
 

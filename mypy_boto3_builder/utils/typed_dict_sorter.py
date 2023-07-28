@@ -13,7 +13,7 @@ class TypedDictSorter:
     Sorter for TypeTypedDict to prevent import errors.
     """
 
-    ATTEMPTS = 5
+    ATTEMPTS = 20
 
     def __init__(self, typed_dicts: Iterable[TypeTypedDict]):
         self.typed_dicts = list(typed_dicts)
@@ -39,9 +39,12 @@ class TypedDictSorter:
         """
         Sort items with TopologicalSorter or stringify as a fallback.
         """
-        for _ in range(self.ATTEMPTS):
+        for attempt in range(self.ATTEMPTS):
             try:
-                return self._sort_topological()
+                result = self._sort_topological()
+                if attempt:
+                    self.logger.debug(f"Topological sort succeeded after {attempt + 1} attempts")
+                return result
             except CycleError as e:
                 for typed_dict in self._get(*e.args[-1]):
                     self.logger.debug(
