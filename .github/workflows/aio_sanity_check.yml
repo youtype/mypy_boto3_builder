@@ -1,6 +1,8 @@
 name: types-aiobotocore sanity
 
 on:
+  schedule:
+    - cron: "0 0 1 * *"
   workflow_dispatch:
     inputs:
       boto3_version:

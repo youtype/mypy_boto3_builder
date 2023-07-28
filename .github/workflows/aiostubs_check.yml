@@ -1,6 +1,8 @@
 name: types-aiobotocore consistency
 
 on:
+  schedule:
+    - cron: "0 0 1 * *"
   workflow_dispatch:
     inputs:
       boto3_version:
