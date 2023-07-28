@@ -28,10 +28,12 @@ Constants
 
 - `PACKAGE_NAME` - builder package name: `'mypy-boto3-builder'`
 
+- `ALL` - universal mask for all resources: `'*'`
+
 
 ## Product
 
-[Show source in constants.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L59)
+[Show source in constants.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L62)
 
 Product choice for CLI.
 
@@ -44,7 +46,7 @@ class Product(Enum):
 
 ### Product().get_library
 
-[Show source in constants.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L76)
+[Show source in constants.py:79](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L79)
 
 Get library name.
 
@@ -61,7 +63,7 @@ def get_library(self) -> ProductLibrary:
 
 ### Product().get_type
 
-[Show source in constants.py:85](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L85)
+[Show source in constants.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L88)
 
 Get product type.
 
@@ -80,7 +82,7 @@ def get_type(self) -> ProductType:
 
 ## ProductLibrary
 
-[Show source in constants.py:39](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L39)
+[Show source in constants.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L42)
 
 Product library for Generator.
 
@@ -95,7 +97,7 @@ class ProductLibrary(Enum):
 
 ## ProductType
 
-[Show source in constants.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L49)
+[Show source in constants.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L52)
 
 Product type for Generator.
 

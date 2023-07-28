@@ -15,7 +15,7 @@
         <link rel="next" href="../typed_dicts/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -1760,6 +1760,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../argument_alias_map/" class="md-nav__link">
+        Argument Alias Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../literal_type_map/" class="md-nav__link">
         Literal Type Map
       </a>
@@ -1898,17 +1912,17 @@
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_18_7" >
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_18_8" >
       
       
       
-        <label class="md-nav__link" for="__nav_3_18_7" id="__nav_3_18_7_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_18_8" id="__nav_3_18_8_label" tabindex="0">
           Service stub map
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_18_7_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3_18_7">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_18_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_18_8">
           <span class="md-nav__icon md-icon"></span>
           Service stub map
         </label>
@@ -2554,21 +2568,25 @@ Shape Type Map</p>
 <p>Auto-generated documentation for <a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/shape_type_map.py">mypy_boto3_builder.type_maps.shape_type_map</a> module.</p>
 </blockquote>
 <h2 id="get_shape_type_stub">get_shape_type_stub<a class="headerlink" href="#get_shape_type_stub" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/shape_type_map.py#L121">Show source in shape_type_map.py:121</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/shape_type_map.py#L142">Show source in shape_type_map.py:142</a></p>
 <p>Get stub type for input botocore shape.</p>
 <h4 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">#</a></h4>
 <ul>
 <li><code>shape_type_map</code> - Map to lookup</li>
 <li><code>service_name</code> - Service name</li>
-<li><code>shape_name</code> - Target TypedDict name</li>
+<li><code>resource_name</code> - Resource name</li>
+<li><code>shape_name</code> - Target Shape name</li>
 </ul>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">#</a></h4>
 <p>Type annotation or None.</p>
 <h4 id="signature">Signature<a class="headerlink" href="#signature" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span> <span class="nf">get_shape_type_stub</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">shape_type_maps</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">ShapeTypeMap</span><span class="p">],</span> <span class="n">service_name</span><span class="p">:</span> <span class="n">ServiceName</span><span class="p">,</span> <span class="n">shape_name</span><span class="p">:</span> <span class="nb">str</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FakeAnnotation</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="o">...</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">shape_type_maps</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">ShapeTypeMap</span><span class="p">],</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">service_name</span><span class="p">:</span> <span class="n">ServiceName</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">resource_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">shape_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FakeAnnotation</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="o">...</span>
 </code></pre></div>
 <h4 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">#</a></h4>
 <ul>

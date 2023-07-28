@@ -15,7 +15,7 @@
         <link rel="next" href="../jinja_manager/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.19">
+      <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
     
     
       
@@ -1915,6 +1915,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../type_maps/argument_alias_map/" class="md-nav__link">
+        Argument Alias Map
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../type_maps/literal_type_map/" class="md-nav__link">
         Literal Type Map
       </a>
@@ -1978,17 +1992,17 @@
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_18_7" >
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_18_8" >
       
       
       
-        <label class="md-nav__link" for="__nav_3_18_7" id="__nav_3_18_7_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_18_8" id="__nav_3_18_8_label" tabindex="0">
           Service stub map
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_18_7_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3_18_7">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_18_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_18_8">
           <span class="md-nav__icon md-icon"></span>
           Service stub map
         </label>
@@ -2744,16 +2758,19 @@ Constants</p>
 <li>
 <p><code>PACKAGE_NAME</code> - builder package name: <code>'mypy-boto3-builder'</code></p>
 </li>
+<li>
+<p><code>ALL</code> - universal mask for all resources: <code>'*'</code></p>
+</li>
 </ul>
 <h2 id="product">Product<a class="headerlink" href="#product" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L59">Show source in constants.py:59</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L62">Show source in constants.py:62</a></p>
 <p>Product choice for CLI.</p>
 <h4 id="signature">Signature<a class="headerlink" href="#signature" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span> <span class="nc">Product</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="productget_library">Product().get_library<a class="headerlink" href="#productget_library" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L76">Show source in constants.py:76</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L79">Show source in constants.py:79</a></p>
 <p>Get library name.</p>
 <h4 id="signature_1">Signature<a class="headerlink" href="#signature_1" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">get_library</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProductLibrary</span><span class="p">:</span>
@@ -2764,7 +2781,7 @@ Constants</p>
 <li><a href="#productlibrary">ProductLibrary</a></li>
 </ul>
 <h3 id="productget_type">Product().get_type<a class="headerlink" href="#productget_type" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L85">Show source in constants.py:85</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L88">Show source in constants.py:88</a></p>
 <p>Get product type.</p>
 <h4 id="signature_2">Signature<a class="headerlink" href="#signature_2" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">get_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProductType</span><span class="p">:</span>
@@ -2775,14 +2792,14 @@ Constants</p>
 <li><a href="#producttype">ProductType</a></li>
 </ul>
 <h2 id="productlibrary">ProductLibrary<a class="headerlink" href="#productlibrary" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L39">Show source in constants.py:39</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L42">Show source in constants.py:42</a></p>
 <p>Product library for Generator.</p>
 <h4 id="signature_3">Signature<a class="headerlink" href="#signature_3" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span> <span class="nc">ProductLibrary</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h2 id="producttype">ProductType<a class="headerlink" href="#producttype" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L49">Show source in constants.py:49</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L52">Show source in constants.py:52</a></p>
 <p>Product type for Generator.</p>
 <h4 id="signature_4">Signature<a class="headerlink" href="#signature_4" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span> <span class="nc">ProductType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>

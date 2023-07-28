@@ -132,19 +132,6 @@ def is_conda_forge_available(self) -> bool:
     ...
 ```
 
-### ServiceName().is_custom_resource
-
-[Show source in service_name.py:142](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L142)
-
-Whether resource should use separte TypeDict namespace.
-
-#### Signature
-
-```python
-def is_custom_resource(self, resource_name: str) -> bool:
-    ...
-```
-
 ### ServiceName().is_essential
 
 [Show source in service_name.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L86)
@@ -176,7 +163,7 @@ def underscore_name(self) -> str:
 
 ## ServiceNameCatalog
 
-[Show source in service_name.py:151](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L151)
+[Show source in service_name.py:143](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L143)
 
 Finder for boto3 services by name.
 
@@ -189,7 +176,7 @@ class ServiceNameCatalog:
 
 ### ServiceNameCatalog.add
 
-[Show source in service_name.py:195](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L195)
+[Show source in service_name.py:187](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L187)
 
 Add new ServiceName to catalog or modify existing one.
 

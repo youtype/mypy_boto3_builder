@@ -9,7 +9,7 @@ Shape Type Map
 
 ## get_shape_type_stub
 
-[Show source in shape_type_map.py:121](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/shape_type_map.py#L121)
+[Show source in shape_type_map.py:142](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/shape_type_map.py#L142)
 
 Get stub type for input botocore shape.
 
@@ -17,7 +17,8 @@ Get stub type for input botocore shape.
 
 - `shape_type_map` - Map to lookup
 - `service_name` - Service name
-- `shape_name` - Target TypedDict name
+- `resource_name` - Resource name
+- `shape_name` - Target Shape name
 
 #### Returns
 
@@ -27,7 +28,10 @@ Type annotation or None.
 
 ```python
 def get_shape_type_stub(
-    shape_type_maps: Iterable[ShapeTypeMap], service_name: ServiceName, shape_name: str
+    shape_type_maps: Iterable[ShapeTypeMap],
+    service_name: ServiceName,
+    resource_name: str,
+    shape_name: str,
 ) -> FakeAnnotation | None:
     ...
 ```
