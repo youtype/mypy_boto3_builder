@@ -13,6 +13,7 @@
 
 [![boto3-stubs consistency](https://github.com/youtype/mypy_boto3_builder/actions/workflows/stubs_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/stubs_check.yml)
 [![boto3-stubs sanity](https://github.com/youtype/mypy_boto3_builder/actions/workflows/sanity_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/sanity_check.yml)
+
 [![types-aiobotocore consistency](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml)
 [![types-aiobotocore sanity](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aio_sanity_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aio_sanity_check.yml)
 
