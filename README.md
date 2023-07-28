@@ -11,12 +11,6 @@
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/boto3-stubs.svg?color=blue)](https://pypi.org/project/boto3-stubs)
 [![PyPI - Downloads](https://static.pepy.tech/badge/boto3-stubs)](https://pepy.tech/project/boto3-stubs)
 
-[![boto3-stubs consistency](https://github.com/youtype/mypy_boto3_builder/actions/workflows/stubs_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/stubs_check.yml)
-[![boto3-stubs sanity](https://github.com/youtype/mypy_boto3_builder/actions/workflows/sanity_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/sanity_check.yml)
-
-[![types-aiobotocore consistency](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml)
-[![types-aiobotocore sanity](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aio_sanity_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aio_sanity_check.yml)
-
 ![boto3.typed](https://github.com/youtype/mypy_boto3_builder/raw/main/logo.png)
 
 Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with
@@ -33,6 +27,16 @@ See how it helps to find and fix potential bugs:
 ![boto3-stubs demo](https://raw.githubusercontent.com/youtype/mypy_boto3_builder/main/demo.gif)
 
 Do you want more? Check the [documentation](https://youtype.github.io/boto3_stubs_docs/) and use `boto3` like a pro!
+
+[![boto3-stubs consistency](https://github.com/youtype/mypy_boto3_builder/actions/workflows/stubs_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/stubs_check.yml)
+[![boto3-stubs sanity](https://github.com/youtype/mypy_boto3_builder/actions/workflows/sanity_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/sanity_check.yml)
+
+[![types-aiobotocore consistency](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aiostubs_check.yml)
+[![types-aiobotocore sanity](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aio_sanity_check.yml/badge.svg)](https://github.com/youtype/mypy_boto3_builder/actions/workflows/aio_sanity_check.yml)
+
+[![Publish botocore-stubs](https://github.com/youtype/botocore-stubs/actions/workflows/publish_on_update.yml/badge.svg)](https://github.com/youtype/botocore-stubs/actions/workflows/publish_on_update.yml)
+[![Publish types-awscrt](https://github.com/youtype/types-awscrt/actions/workflows/publish_on_update.yml/badge.svg)](https://github.com/youtype/types-awscrt/actions/workflows/publish_on_update.yml)
+[![Publish types-s3transfer](https://github.com/youtype/types-s3transfer/actions/workflows/publish_on_update.yml/badge.svg)](https://github.com/youtype/types-s3transfer/actions/workflows/publish_on_update.yml)
 
 - [Boto3 type annotations generator](#boto3-type-annotations-generator)
   - [Using built libraries](#using-built-libraries)
