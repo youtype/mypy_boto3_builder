@@ -1,4 +1,4 @@
-name: Sanity check stubs
+name: boto3-stubs sanity
 
 on:
   schedule:

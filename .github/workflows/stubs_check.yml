@@ -1,4 +1,4 @@
-name: Check stubs
+name: boto3-stubs consistency
 
 on:
   schedule:

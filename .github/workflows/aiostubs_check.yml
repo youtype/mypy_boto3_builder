@@ -1,4 +1,4 @@
-name: Check AIO stubs
+name: types-aiobotocore consistency
 
 on:
   workflow_dispatch:

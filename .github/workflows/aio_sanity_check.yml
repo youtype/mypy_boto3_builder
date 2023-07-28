@@ -1,4 +1,4 @@
-name: Sanity check AIO stubs
+name: types-aiobotocore sanity
 
 on:
   workflow_dispatch:
