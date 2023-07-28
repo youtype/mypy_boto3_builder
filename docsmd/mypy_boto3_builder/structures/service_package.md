@@ -116,7 +116,7 @@ def get_client_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_doc_link
 
-[Show source in service_package.py:309](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L309)
+[Show source in service_package.py:307](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L307)
 
 Get link to local docs with anchor.
 
@@ -187,7 +187,7 @@ def get_literals_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_local_doc_link
 
-[Show source in service_package.py:334](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L334)
+[Show source in service_package.py:332](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L332)
 
 Get link to local docs.
 

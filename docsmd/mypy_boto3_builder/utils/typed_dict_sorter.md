@@ -27,7 +27,7 @@ class TypedDictSorter:
 
 ### TypedDictSorter().sort
 
-[Show source in typed_dict_sorter.py:38](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/typed_dict_sorter.py#L38)
+[Show source in typed_dict_sorter.py:39](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/typed_dict_sorter.py#L39)
 
 Sort items with TopologicalSorter or stringify as a fallback.
 
