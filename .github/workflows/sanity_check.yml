@@ -49,7 +49,7 @@ jobs:
           VERSION: ${{ steps.vars.outputs.version }}
         run: |
           rm -rf mypy_boto3_output/*
-          poetry run mypy_boto3_builder mypy_boto3_output --product boto3 boto3-services -b $VERSION
+          poetry run mypy_boto3_builder mypy_boto3_output --product boto3 boto3-services -b $VERSION -d
       - name: Install master packages
         run: |
           ./scripts/install.sh master
