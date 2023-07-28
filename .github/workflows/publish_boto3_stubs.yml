@@ -1,4 +1,4 @@
-name: Update boto3-stubs
+name: Publish boto3-stubs
 concurrency: update_boto3_stubs
 
 on:

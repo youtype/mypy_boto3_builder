@@ -1,4 +1,4 @@
-name: Update types-aioboto3
+name: Publish types-aioboto3
 concurrency: update_types_aioboto3
 
 on:
