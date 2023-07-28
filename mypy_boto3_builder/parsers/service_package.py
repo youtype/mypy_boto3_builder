@@ -95,6 +95,15 @@ def parse_service_package(
                 result.client.methods.append(method)
 
     shape_parser.fix_typed_dict_names()
+
+    methods = [
+        *result.client.methods,
+        *(result.service_resource.methods if result.service_resource else []),
+        *[method for paginator in result.paginators for method in paginator.methods],
+        *[method for waiter in result.waiters for method in waiter.methods],
+    ]
+    shape_parser.fix_method_arguments_for_mypy(methods)
+
     result.typed_dicts = result.extract_typed_dicts()
     result.literals = result.extract_literals()
     result.validate()

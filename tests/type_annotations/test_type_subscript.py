@@ -42,3 +42,18 @@ class TestTypeSubscript:
 
     def test_copy(self) -> None:
         assert self.result.copy().parent == Type.Dict
+
+    def test_find_type_annotation_parent(self) -> None:
+        inner = TypeSubscript(Type.List, [Type.int])
+        outer = TypeSubscript(Type.Dict, [Type.str, inner])
+        assert outer.find_type_annotation_parent(Type.int) == inner
+        assert outer.find_type_annotation_parent(Type.str) == outer
+        assert outer.find_type_annotation_parent(Type.List) is None
+
+    def test_replace_child(self) -> None:
+        inner = TypeSubscript(Type.List, [Type.int])
+        outer = TypeSubscript(Type.Dict, [Type.str, inner])
+        assert outer.copy().replace_child(Type.str, Type.bool).render() == "Dict[bool, List[int]]"
+        assert outer.copy().replace_child(inner, Type.bool).render() == "Dict[str, bool]"
+        with pytest.raises(ValueError):
+            outer.copy().replace_child(Type.int, Type.bool)

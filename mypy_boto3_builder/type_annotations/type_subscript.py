@@ -99,3 +99,31 @@ class TypeSubscript(FakeAnnotation):
         for child in self.children:
             result.extend(child.get_local_types())
         return result
+
+    def find_type_annotation_parent(
+        self, type_annotation: FakeAnnotation
+    ) -> "TypeSubscript | None":
+        """
+        Check recursively if child is present in subscript.
+        """
+        if type_annotation in self.children:
+            return self
+
+        type_subscript_children = [i for i in self.children if isinstance(i, TypeSubscript)]
+        for child in type_subscript_children:
+            result = child.find_type_annotation_parent(type_annotation)
+            if result:
+                return result
+
+        return None
+
+    def replace_child(self: _R, child: FakeAnnotation, new_child: FakeAnnotation) -> _R:
+        """
+        Replace child type annotation with a new one.
+        """
+        if child not in self.children:
+            raise ValueError(f"Child not found: {child}")
+
+        index = self.children.index(child)
+        self.children[index] = new_child
+        return self

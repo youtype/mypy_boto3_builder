@@ -80,6 +80,7 @@ class ShapeParser:
         self._typed_dict_map: dict[str, TypeTypedDict] = {}
         self._output_typed_dict_map: dict[str, TypeTypedDict] = {}
         self._response_typed_dict_map: dict[str, TypeTypedDict] = {}
+        self._fixed_typed_dict_map: dict[TypeTypedDict, TypeTypedDict] = {}
 
         self._waiters_shape: Mapping[str, Any] | None = None
         with contextlib.suppress(UnknownServiceError):
@@ -874,6 +875,7 @@ class ShapeParser:
 
             old_typed_dict_name = typed_dict.name
             new_typed_dict_name = self._get_non_clashing_typed_dict_name(typed_dict, "Output")
+            self._fixed_typed_dict_map[typed_dict] = output_typed_dict
             self.logger.debug(
                 f"Fixing TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
             )
@@ -922,3 +924,46 @@ class ShapeParser:
             response_typed_dict.name = new_typed_dict_name
             del self._response_typed_dict_map[old_typed_dict_name]
             self._response_typed_dict_map[response_typed_dict.name] = response_typed_dict
+
+    def fix_method_arguments_for_mypy(self, methods: Sequence[Method]) -> None:
+        """
+        Accept both input and output shapes in method arguments.
+
+        mypy does not compare TypedDicts, so we need to accept both input and output shapes.
+        https://github.com/youtype/mypy_boto3_builder/issues/209
+        """
+        for input_typed_dict, output_typed_dict in self._fixed_typed_dict_map.items():
+            for method in methods:
+                for argument in method.arguments:
+                    if not argument.type_annotation:
+                        continue
+                    if (
+                        argument.type_annotation.is_typed_dict()
+                        and argument.type_annotation == input_typed_dict
+                    ):
+                        self.logger.debug(
+                            f"Adding output shape to {method.name} {argument.name} type:"
+                            f" {input_typed_dict.name} | {output_typed_dict.name}"
+                        )
+                        argument.type_annotation = TypeSubscript(
+                            Type.Union,
+                            [input_typed_dict, output_typed_dict],
+                        )
+                        continue
+                    if isinstance(argument.type_annotation, TypeSubscript):
+                        parent = argument.type_annotation.find_type_annotation_parent(
+                            input_typed_dict
+                        )
+                        if parent:
+                            self.logger.debug(
+                                f"Adding output shape to {method.name} {argument.name} type:"
+                                f" {input_typed_dict.name} | {output_typed_dict.name}"
+                            )
+                            parent.replace_child(
+                                input_typed_dict,
+                                TypeSubscript(
+                                    Type.Union,
+                                    [input_typed_dict, output_typed_dict],
+                                ),
+                            )
+                            continue
