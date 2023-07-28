@@ -29,6 +29,7 @@ IGNORE_PYRIGHT_ERRORS = (
     # "is partially unknown",
     'Method "paginate" overrides class "Paginator" in an incompatible manner',
     'Method "wait" overrides class "Waiter" in an incompatible manner',
+    'Method "get_paginator" overrides class "AioBaseClient" in an incompatible manner',
     'define variable "items" in incompatible way',
     'define variable "values" in incompatible way',
     "must return value",
@@ -39,6 +40,8 @@ IGNORE_MYPY_ERRORS = (
     'Signature of "create_client" incompatible with supertype "Session"',
     'Signature of "paginate" incompatible with supertype "Paginator"',
     'Signature of "wait" incompatible with supertype "Waiter"',
+    'Signature of "get_paginator" incompatible with supertype "AioBaseClient"',
+    'Return type "Coroutine[Any, Any, None]" of "close" incompatible with return type "None"',
     "note:",
 )
 

@@ -14,6 +14,11 @@ if [[ "$1" == "master" ]]; then
     python -m pip install .
     cd -
 
+    echo Installing types-aioboto3 package
+    cd ${OUTPUT_PATH}/types_aioboto3_package
+    python -m pip install .
+    cd -
+
     exit
 fi
 
