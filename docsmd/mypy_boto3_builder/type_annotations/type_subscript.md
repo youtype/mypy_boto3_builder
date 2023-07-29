@@ -66,6 +66,25 @@ def copy(self: _R) -> _R:
     ...
 ```
 
+### TypeSubscript().find_type_annotation_parent
+
+[Show source in type_subscript.py:103](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L103)
+
+Check recursively if child is present in subscript.
+
+#### Signature
+
+```python
+def find_type_annotation_parent(
+    self, type_annotation: FakeAnnotation
+) -> "TypeSubscript | None":
+    ...
+```
+
+#### See also
+
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
+
 ### TypeSubscript().get_import_record
 
 [Show source in type_subscript.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L52)
@@ -159,3 +178,20 @@ A string with a valid type annotation.
 def render(self, parent_name: str = "") -> str:
     ...
 ```
+
+### TypeSubscript().replace_child
+
+[Show source in type_subscript.py:120](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L120)
+
+Replace child type annotation with a new one.
+
+#### Signature
+
+```python
+def replace_child(self: _R, child: FakeAnnotation, new_child: FakeAnnotation) -> _R:
+    ...
+```
+
+#### See also
+
+- [FakeAnnotation](./fake_annotation.md#fakeannotation)
