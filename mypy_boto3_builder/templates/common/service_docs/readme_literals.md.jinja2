@@ -1,0 +1,18 @@
+{% if package.literals %}
+## Literals
+
+Type annotations for [literals]({{ service_name.get_md_doc_link('literals') }}) used in methods and schema.
+
+```python
+# {{ package.literals[0].name }} usage example
+
+from {{ package.name }}.literals import {{ package.literals[0].name }}
+
+def get_value() -> {{ package.literals[0].name }}:
+    return "{{ sorted(package.literals[0].children)[0] }}"
+```
+
+{% for literal in package.literals -%}
+- [{{ literal.name }}]({{ service_name.get_md_doc_link('literals', literal.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}

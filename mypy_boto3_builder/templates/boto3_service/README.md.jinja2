@@ -150,36 +150,8 @@ resource: {{ package.service_resource.name }} = Session().resource("{{ service_n
 {% endif %}
 {% endif %}
 
-{% if package.literals %}
-### Literals
+{% include "common/readme/literals.md.jinja2" with context %}
 
-`{{ package.name }}.literals` module contains literals extracted from shapes
-that can be used in user code for type checking.
-
-```python
-from {{ package.name }}.literals import (
-{% for literal in package.literals %}    {{ literal.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
-
-def check_value(value: {{ package.literals[0].name }}) -> bool:
-    ...
-```
-{% endif %}
-
-{% if package.typed_dicts %}
-### Typed dictionaries
-
-`{{ package.name }}.type_defs` module contains structures and shapes assembled
-to typed dictionaries for additional type checking.
-
-```python
-from {{ package.name }}.type_defs import {% for typed_dict in package.typed_dicts %}{{ typed_dict.name }}{{ '' if loop.last else ',' }}{% endfor %}
-
-def get_structure() -> {{ package.typed_dicts[0].name }}:
-    return {
-      ...
-    }
-```
-{% endif %}
+{% include "common/readme/type_defs.md.jinja2" with context %}
 
 {% include "common/footer.md.jinja2" with context %}

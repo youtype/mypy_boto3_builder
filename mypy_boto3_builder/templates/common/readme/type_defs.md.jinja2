@@ -1,0 +1,27 @@
+{% if package.type_defs %}
+### Type definitions
+
+`{{ package.name }}.type_defs` module contains structures and shapes assembled
+to typed dictionaries and unions for additional type checking.
+
+{% if package.typed_dicts %}
+```python
+from {{ package.name }}.type_defs import {% for typed_dict in package.typed_dicts %}{{ typed_dict.name }}{{ '' if loop.last else ',' }}{% endfor %}
+
+def get_structure() -> {{ package.typed_dicts[0].name }}:
+    return {
+      ...
+    }
+```
+{% endif %}
+
+{% if package.named_unions %}
+```python
+from {{ package.name }}.type_defs import {% for named_union in package.named_unions %}{{ named_union.name }}{{ '' if loop.last else ',' }}{% endfor %}
+
+def get_value() -> {{ package.named_unions[0].name }}:
+    ...
+```
+{% endif %}
+
+{% endif -%}

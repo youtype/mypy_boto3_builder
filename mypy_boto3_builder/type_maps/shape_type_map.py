@@ -18,8 +18,9 @@ from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 from mypy_boto3_builder.type_maps.typed_dicts import response_metadata_type
 
 # FIXME: a hack to avoid cicular TypedDict in dynamodb package
-TableAttributeValueType = TypeUnion(
-    [
+TableAttributeValueTypeDef = TypeUnion(
+    name="TableAttributeValueTypeDef",
+    children=[
         Type.bytes,
         Type.bytearray,
         Type.str,
@@ -76,9 +77,10 @@ GetTemplateOutputTypeDef = TypeTypedDict(
 )
 
 UniversalAttributeValueTypeDef = TypeUnion(
-    [
+    name="UniversalAttributeValueTypeDef",
+    children=[
         AttributeValueTypeDef,
-        *TableAttributeValueType.children,
+        *TableAttributeValueTypeDef.children,
     ],
 )
 
@@ -104,10 +106,10 @@ SHAPE_TYPE_MAP: ShapeTypeMap = {
             "ConditionExpressionTypeDef": Type.bool,
         },
         "ServiceResource": {
-            "AttributeValueTypeDef": TableAttributeValueType,
+            "AttributeValueTypeDef": TableAttributeValueTypeDef,
         },
         "Table": {
-            "AttributeValueTypeDef": TableAttributeValueType,
+            "AttributeValueTypeDef": TableAttributeValueTypeDef,
         },
     },
 }

@@ -264,19 +264,19 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
 
         return result
 
-    def get_children_literals(self: _R, processed: Iterable[_R] = ()) -> set[TypeLiteral]:
+    def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLiteral]:
         """
         Extract required TypeLiteral list from attributes.
         """
         result: set[TypeLiteral] = set()
-        if self in processed:
+        if self.name in processed:
             return result
         children_types = self.get_children_types()
         for type_annotation in children_types:
             if isinstance(type_annotation, TypeLiteral):
                 result.add(type_annotation)
-            if isinstance(type_annotation, TypeTypedDict):
-                result.update(type_annotation.get_children_literals((self, *processed)))
+            if isinstance(type_annotation, TypeDefSortable):
+                result.update(type_annotation.get_children_literals((self.name, *processed)))
         return result
 
     def replace_self_references(self) -> None:

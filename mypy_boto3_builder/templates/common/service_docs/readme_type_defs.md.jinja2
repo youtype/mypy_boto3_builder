@@ -1,0 +1,25 @@
+
+{% if package.typed_dicts %}
+## Typed dictionaries
+
+Type annotations for [typed dictionaries]({{ service_name.get_md_doc_link('type_defs') }}) used in methods and schema.
+
+```python
+# {{ package.typed_dicts[0].name }} usage example
+
+from {{ package.name }}.type_defs import {{ package.typed_dicts[0].name }}
+
+def get_value() -> {{ package.typed_dicts[0].name }}:
+    {{ 'return {' -}}
+    {% with atrributes=package.typed_dicts[0].get_required() or package.typed_dicts[0].get_optional()[:1] -%}
+        {% for atrribute in atrributes -%}
+            {{ '\n        "' -}}{{ atrribute.name -}}{{ '": ...,' -}}
+        {% endfor -%}
+    {% endwith -%}
+    {{ '\n    }\n' -}}
+```
+
+{% for typed_dict in package.typed_dicts -%}
+- [{{ typed_dict.name }}]({{ service_name.get_md_doc_link('type_defs', typed_dict.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}

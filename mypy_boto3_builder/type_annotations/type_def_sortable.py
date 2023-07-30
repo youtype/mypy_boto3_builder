@@ -1,9 +1,12 @@
 """
 Sortable protocol for TypeDefSorter.
 """
+from collections.abc import Iterable
+
 from typing_extensions import Protocol, runtime_checkable
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
 @runtime_checkable
@@ -14,7 +17,6 @@ class TypeDefSortable(Protocol):
 
     name: str
     _stringify: bool
-    replace_with_dict: set[str]
 
     def __gt__(self, other: FakeAnnotation) -> bool:
         ...
@@ -49,5 +51,11 @@ class TypeDefSortable(Protocol):
     def debug_render(self) -> str:
         """
         Render type annotation for debug purposes.
+        """
+        ...
+
+    def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLiteral]:
+        """
+        Extract required TypeLiteral list from attributes.
         """
         ...
