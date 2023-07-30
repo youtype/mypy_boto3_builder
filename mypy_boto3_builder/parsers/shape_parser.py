@@ -33,6 +33,7 @@ from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
+from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 from mypy_boto3_builder.type_maps.argument_alias_map import get_argument_alias
 from mypy_boto3_builder.type_maps.literal_type_map import get_literal_type_stub
 from mypy_boto3_builder.type_maps.method_type_map import (
@@ -945,10 +946,7 @@ class ShapeParser:
                             f"Adding output shape to {method.name} {argument.name} type:"
                             f" {input_typed_dict.name} | {output_typed_dict.name}"
                         )
-                        argument.type_annotation = TypeSubscript(
-                            Type.Union,
-                            [input_typed_dict, output_typed_dict],
-                        )
+                        argument.type_annotation = TypeUnion([input_typed_dict, output_typed_dict])
                         continue
                     if isinstance(argument.type_annotation, TypeSubscript):
                         parent = argument.type_annotation.find_type_annotation_parent(
@@ -961,9 +959,6 @@ class ShapeParser:
                             )
                             parent.replace_child(
                                 input_typed_dict,
-                                TypeSubscript(
-                                    Type.Union,
-                                    [input_typed_dict, output_typed_dict],
-                                ),
+                                TypeUnion([input_typed_dict, output_typed_dict]),
                             )
                             continue

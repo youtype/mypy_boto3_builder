@@ -12,6 +12,7 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 from mypy_boto3_builder.type_maps.typed_dicts import s3_copy_source_type
 
 callback_arg = Argument(
@@ -67,7 +68,7 @@ download_fileobj_method = Method(
         Argument("Key", Type.str),
         Argument(
             "Fileobj",
-            TypeSubscript(Type.Union, [Type.IOAny, ExternalImport.from_class(StreamingBody)]),
+            TypeUnion([Type.IOAny, ExternalImport.from_class(StreamingBody)]),
         ),
         Argument("ExtraArgs", Type.DictStrAny, Type.Ellipsis),
         callback_arg,
@@ -85,7 +86,7 @@ generate_presigned_post_method = Method(
         Argument("Fields", Type.DictStrAny, Type.Ellipsis),
         Argument(
             "Conditions",
-            TypeSubscript(Type.Union, [Type.ListAny, Type.DictStrAny]),
+            TypeUnion([Type.ListAny, Type.DictStrAny]),
             Type.Ellipsis,
         ),
         Argument("ExpiresIn", Type.int, TypeConstant(3600)),
@@ -113,7 +114,7 @@ upload_fileobj_method = Method(
         Argument("self", None),
         Argument(
             "Fileobj",
-            TypeSubscript(Type.Union, [Type.IOAny, ExternalImport.from_class(StreamingBody)]),
+            TypeUnion([Type.IOAny, ExternalImport.from_class(StreamingBody)]),
         ),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),

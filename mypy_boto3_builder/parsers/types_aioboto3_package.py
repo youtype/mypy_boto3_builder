@@ -18,6 +18,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 
 
 def parse_types_aioboto3_package(
@@ -46,7 +47,7 @@ def parse_types_aioboto3_package(
         Argument("use_ssl", TypeSubscript(Type.Optional, [Type.bool]), Type.Ellipsis),
         Argument(
             "verify",
-            TypeSubscript(Type.Union, [Type.bool, Type.str, Type.none]),
+            TypeUnion([Type.bool, Type.str, Type.none]),
             Type.Ellipsis,
         ),
         Argument("endpoint_url", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),

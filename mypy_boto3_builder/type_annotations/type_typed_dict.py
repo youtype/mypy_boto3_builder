@@ -2,7 +2,7 @@
 Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 """
 from collections.abc import Iterable, Iterator
-from typing import TypeVar
+from typing import TypeVar, cast
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -10,6 +10,7 @@ from mypy_boto3_builder.import_helpers.internal_import_record import InternalImp
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.type_annotations.type_sortable import TypeSortable
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 _R = TypeVar("_R", bound="TypeTypedDict")
@@ -64,7 +65,7 @@ class TypedDictAttribute:
         return self.required
 
 
-class TypeTypedDict(FakeAnnotation):
+class TypeTypedDict(FakeAnnotation, TypeSortable):
     """
     Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 
@@ -236,16 +237,30 @@ class TypeTypedDict(FakeAnnotation):
             result.update(child.iterate_types())
         return result
 
-    def get_children_typed_dicts(self: _R) -> set[_R]:
+    def get_sortable_children(self) -> list[TypeSortable]:
         """
-        Extract required TypeTypedDict list from attributes.
+        Extract required TypeSortable list from attributes.
         """
-        result: set[_R] = set()
+        result: list[TypeSortable] = []
         children_types = self.get_children_types()
         for type_annotation in children_types:
-            if not isinstance(type_annotation, self.__class__):
+            if not isinstance(type_annotation, TypeSortable):
                 continue
-            result.add(type_annotation)
+            result.append(type_annotation)
+
+        return result
+
+    def get_children_typed_dicts(self) -> list["TypeTypedDict"]:
+        """
+        Extract required TypeTypedDict set from attributes.
+        """
+        result: list[TypeTypedDict] = []
+        children_types = self.get_children_types()
+        for type_annotation in children_types:
+            if not isinstance(type_annotation, TypeTypedDict):
+                continue
+            if type_annotation not in result:
+                result.append(type_annotation)
 
         return result
 

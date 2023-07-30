@@ -11,6 +11,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 from mypy_boto3_builder.type_maps.typed_dicts import s3_copy_source_type
 
 __all__ = ("get_method_type_stub",)
@@ -77,16 +78,12 @@ TYPE_MAP: ServiceTypeMap = {
         # FIXME: boto3 overrides CopySource parameters for some S3 methods.
         # Types are set according to docs, might be incorrect
         "Client": {
-            "copy_object": {
-                "CopySource": TypeSubscript(Type.Union, [Type.str, s3_copy_source_type])
-            },
-            "upload_part_copy": {
-                "CopySource": TypeSubscript(Type.Union, [Type.str, s3_copy_source_type])
-            },
+            "copy_object": {"CopySource": TypeUnion([Type.str, s3_copy_source_type])},
+            "upload_part_copy": {"CopySource": TypeUnion([Type.str, s3_copy_source_type])},
             "copy": {"CopySource": s3_copy_source_type},
         },
         "MultipartUploadPart": {
-            "copy_from": {"CopySource": TypeSubscript(Type.Union, [Type.str, s3_copy_source_type])}
+            "copy_from": {"CopySource": TypeUnion([Type.str, s3_copy_source_type])}
         },
         "Bucket": {"copy": {"CopySource": s3_copy_source_type}},
         "Object": {"copy": {"CopySource": s3_copy_source_type}},
@@ -97,23 +94,21 @@ TYPE_MAP: ServiceTypeMap = {
                 "return": ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter")
             },
             "query": {
-                "KeyConditionExpression": TypeSubscript(
-                    Type.Union, [Type.str, ConditionBaseImport]
-                ),
-                "FilterExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
-                "ConditionExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
+                "KeyConditionExpression": TypeUnion([Type.str, ConditionBaseImport]),
+                "FilterExpression": TypeUnion([Type.str, ConditionBaseImport]),
+                "ConditionExpression": TypeUnion([Type.str, ConditionBaseImport]),
             },
             "delete_item": {
-                "ConditionExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
+                "ConditionExpression": TypeUnion([Type.str, ConditionBaseImport]),
             },
             "put_item": {
-                "ConditionExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
+                "ConditionExpression": TypeUnion([Type.str, ConditionBaseImport]),
             },
             "update_item": {
-                "ConditionExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
+                "ConditionExpression": TypeUnion([Type.str, ConditionBaseImport]),
             },
             "scan": {
-                "FilterExpression": TypeSubscript(Type.Union, [Type.str, ConditionBaseImport]),
+                "FilterExpression": TypeUnion([Type.str, ConditionBaseImport]),
             },
         },
     },

@@ -14,11 +14,11 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
+from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 from mypy_boto3_builder.type_maps.typed_dicts import response_metadata_type
 
 # FIXME: a hack to avoid cicular TypedDict in dynamodb package
-TableAttributeValueType: TypeSubscript = TypeSubscript(
-    Type.Union,
+TableAttributeValueType = TypeUnion(
     [
         Type.bytes,
         Type.bytearray,
@@ -75,8 +75,7 @@ GetTemplateOutputTypeDef = TypeTypedDict(
     ],
 )
 
-UniversalAttributeValueTypeDef = TypeSubscript(
-    Type.Union,
+UniversalAttributeValueTypeDef = TypeUnion(
     [
         AttributeValueTypeDef,
         *TableAttributeValueType.children,
@@ -94,13 +93,9 @@ SHAPE_TYPE_MAP: ShapeTypeMap = {
             "boolean": Type.bool,
             "double": Type.float,
             "float": Type.float,
-            "timestamp": TypeSubscript(Type.Union, [Type.datetime, Type.str]),
-            "blob": TypeSubscript(
-                Type.Union, [Type.str, Type.bytes, Type.IOAny, StreamingBodyType]
-            ),
-            "blob_streaming": TypeSubscript(
-                Type.Union, [Type.str, Type.bytes, Type.IOAny, StreamingBodyType]
-            ),
+            "timestamp": TypeUnion([Type.datetime, Type.str]),
+            "blob": TypeUnion([Type.str, Type.bytes, Type.IOAny, StreamingBodyType]),
+            "blob_streaming": TypeUnion([Type.str, Type.bytes, Type.IOAny, StreamingBodyType]),
         }
     },
     ServiceNameCatalog.dynamodb: {
