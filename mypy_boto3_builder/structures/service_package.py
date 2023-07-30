@@ -18,10 +18,11 @@ from mypy_boto3_builder.structures.service_resource import ServiceResource
 from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
-from mypy_boto3_builder.utils.typed_dict_sorter import TypedDictSorter
+from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
 
 class ServicePackage(Package):
@@ -37,7 +38,7 @@ class ServicePackage(Package):
         service_resource: ServiceResource | None = None,
         waiters: Iterable[Waiter] = (),
         paginators: Iterable[Paginator] = (),
-        typed_dicts: Iterable[TypeTypedDict] = (),
+        type_defs: Iterable[TypeDefSortable] = (),
         literals: Iterable[TypeLiteral] = (),
         helper_functions: Iterable[Function] = (),
     ):
@@ -49,7 +50,7 @@ class ServicePackage(Package):
         self.service_resource = service_resource
         self.waiters = list(waiters)
         self.paginators = list(paginators)
-        self.typed_dicts = list(typed_dicts)
+        self.type_defs = list(type_defs)
         self.literals = list(literals)
         self.helper_functions = list(helper_functions)
 
@@ -88,8 +89,8 @@ class ServicePackage(Package):
 
         return sorted(found.values())
 
-    def _get_typed_dicts(self) -> set[TypeTypedDict]:
-        result: set[TypeTypedDict] = set()
+    def _get_sortable_type_defs(self) -> set[TypeDefSortable]:
+        result: set[TypeDefSortable] = set()
         for type_annotation in self.iterate_types():
             if not isinstance(type_annotation, TypeTypedDict):
                 continue
@@ -116,13 +117,13 @@ class ServicePackage(Package):
 
         return result
 
-    def extract_typed_dicts(self) -> list[TypeTypedDict]:
+    def extract_type_defs(self) -> list[TypeDefSortable]:
         """
         Extract typed dicts from children.
 
         Attempts to resolve circular typed dicts.
         """
-        return TypedDictSorter(self._get_typed_dicts()).sort()
+        return TypeDefSorter(self._get_sortable_type_defs()).sort()
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
@@ -248,12 +249,12 @@ class ServicePackage(Package):
         """
         Get import records for `type_defs.py[i]`.
         """
-        if not self.typed_dicts:
+        if not self.type_defs:
             return []
 
         import_records: set[ImportRecord] = set()
         import_records.add(TypeTypedDict.get_typing_import_record())
-        for typed_dict in self.typed_dicts:
+        for typed_dict in self.type_defs:
             if typed_dict.replace_with_dict:
                 import_records.add(Type.Any.get_import_record())
                 import_records.add(Type.Dict.get_import_record())
@@ -289,7 +290,7 @@ class ServicePackage(Package):
         """
         names: set[str] = set()
         for name in (
-            *(i.name for i in self.typed_dicts),
+            *(i.name for i in self.type_defs),
             *(i.name for i in self.literals),
             *(i.name for i in self.waiters),
             *(i.name for i in self.paginators),
@@ -298,9 +299,9 @@ class ServicePackage(Package):
             if is_reserved(name):
                 raise ValueError(f"{name} is a reserved keyword")
             if name in names:
-                for typed_dict in self.typed_dicts:
-                    if typed_dict.name == name:
-                        self.logger.warning(typed_dict.debug_render())
+                for type_def in self.type_defs:
+                    if type_def.name == name:
+                        self.logger.warning(type_def.debug_render())
                 raise ValueError(f"Duplicate name {name}")
             names.add(name)
 
@@ -334,3 +335,10 @@ class ServicePackage(Package):
         Get link to local docs.
         """
         return super().get_local_doc_link(self.service_name)
+
+    @property
+    def typed_dicts(self) -> list[TypeTypedDict]:
+        """
+        Get all typed dicts.
+        """
+        return [i for i in self.type_defs if isinstance(i, TypeTypedDict)]

@@ -2,15 +2,15 @@
 Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 """
 from collections.abc import Iterable, Iterator
-from typing import TypeVar, cast
+from typing import TypeVar
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.type_annotations.type_sortable import TypeSortable
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 _R = TypeVar("_R", bound="TypeTypedDict")
@@ -65,7 +65,7 @@ class TypedDictAttribute:
         return self.required
 
 
-class TypeTypedDict(FakeAnnotation, TypeSortable):
+class TypeTypedDict(FakeAnnotation, TypeDefSortable):
     """
     Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 
@@ -237,14 +237,14 @@ class TypeTypedDict(FakeAnnotation, TypeSortable):
             result.update(child.iterate_types())
         return result
 
-    def get_sortable_children(self) -> list[TypeSortable]:
+    def get_sortable_children(self) -> list[TypeDefSortable]:
         """
-        Extract required TypeSortable list from attributes.
+        Extract required TypeDefSortable list from attributes.
         """
-        result: list[TypeSortable] = []
+        result: list[TypeDefSortable] = []
         children_types = self.get_children_types()
         for type_annotation in children_types:
-            if not isinstance(type_annotation, TypeSortable):
+            if not isinstance(type_annotation, TypeDefSortable):
                 continue
             result.append(type_annotation)
 

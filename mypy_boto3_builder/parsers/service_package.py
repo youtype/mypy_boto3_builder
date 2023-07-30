@@ -104,7 +104,7 @@ def parse_service_package(
     ]
     shape_parser.fix_method_arguments_for_mypy(methods)
 
-    result.typed_dicts = result.extract_typed_dicts()
+    result.type_defs = result.extract_type_defs()
     result.literals = result.extract_literals()
     result.validate()
 

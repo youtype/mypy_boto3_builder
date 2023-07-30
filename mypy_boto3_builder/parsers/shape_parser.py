@@ -53,7 +53,7 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
 )
 from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
 from mypy_boto3_builder.utils.strings import get_typed_dict_name
-from mypy_boto3_builder.utils.typed_dict_sorter import TypedDictSorter
+from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
 
 class ShapeParserError(Exception):
@@ -857,7 +857,7 @@ class ShapeParser:
         """
         Fix typed dict names to avoid duplicates.
         """
-        output_typed_dicts = TypedDictSorter(self._output_typed_dict_map.values()).sort()
+        output_typed_dicts = TypeDefSorter(self._output_typed_dict_map.values()).sort()
         output_typed_dict_names = [
             i.name for i in output_typed_dicts if i.name in self._output_typed_dict_map
         ]
@@ -895,7 +895,7 @@ class ShapeParser:
                 del self._response_typed_dict_map[old_typed_dict_name]
                 self._response_typed_dict_map[output_typed_dict.name] = output_typed_dict
 
-        response_typed_dicts = TypedDictSorter(self._response_typed_dict_map.values()).sort()
+        response_typed_dicts = TypeDefSorter(self._response_typed_dict_map.values()).sort()
         response_typed_dict_names = [
             i.name for i in response_typed_dicts if i.name in self._response_typed_dict_map
         ]

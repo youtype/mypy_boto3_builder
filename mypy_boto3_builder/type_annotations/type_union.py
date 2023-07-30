@@ -25,7 +25,6 @@ class TypeUnion(TypeSubscript):
         self.parent = Type.Union
         self.children: list[FakeAnnotation] = list(children)
         self._stringify = stringify
-        print(self.render_definition())
 
     def render(self, parent_name: str = "") -> str:
         """

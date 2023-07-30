@@ -286,7 +286,7 @@ class PackageWriter:
                     ),
                 )
             )
-        if package.typed_dicts:
+        if package.type_defs:
             file_paths.extend(
                 (
                     (
@@ -341,7 +341,7 @@ class PackageWriter:
         if package.literals:
             file_paths.append((docs_path / "literals.md", templates_path / "literals.md.jinja2"))
 
-        if package.typed_dicts:
+        if package.type_defs:
             file_paths.append((docs_path / "type_defs.md", templates_path / "type_defs.md.jinja2"))
 
         if package.waiters:

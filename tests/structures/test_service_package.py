@@ -22,7 +22,7 @@ class TestServicePackage:
             service_resource=ServiceResource("ServiceResource", service_name, "base"),
             waiters=[Waiter("waiter", "waiter", service_name)],
             paginators=[Paginator("Paginator", "Paginator", "paginate", service_name)],
-            typed_dicts=[TypeTypedDict("MyTypedDict", [])],
+            type_defs=[TypeTypedDict("MyTypedDict", [])],
             literals=[TypeLiteral("MyLiteral", ["value"])],
             helper_functions=["helper_function"],
         )
@@ -34,7 +34,7 @@ class TestServicePackage:
         assert self.service_package.extract_literals() == []
 
     def test_extract_typed_dicts(self) -> None:
-        assert self.service_package.extract_typed_dicts() == []
+        assert self.service_package.extract_type_defs() == []
 
     def test_get_init_import_records(self) -> None:
         assert len(self.service_package.get_init_import_records()) == 4
