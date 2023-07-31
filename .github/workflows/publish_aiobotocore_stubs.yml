@@ -23,7 +23,7 @@ on:
       skip_published:
         description: Skip already published packages
         required: false
-        default: false
+        default: true
         type: boolean
 
 jobs:
