@@ -1,6 +1,7 @@
 """
 Jinja2 renderer and black formatter.
 """
+import tempfile
 from collections.abc import Iterable
 from pathlib import Path
 
@@ -165,7 +166,8 @@ def blackify_markdown(text: str) -> str:
     blocks = text.split("\n```")
     for block in blocks:
         if block.startswith("python"):
-            blackified = blackify(block, Path("output.py")).rstrip()
+            path = Path(tempfile.gettempdir()) / "output.py"
+            blackified = blackify(block, path).rstrip()
             result.append(blackified)
         else:
             result.append(block)
