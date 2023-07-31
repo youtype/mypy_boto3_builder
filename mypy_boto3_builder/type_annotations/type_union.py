@@ -1,7 +1,8 @@
 """
 Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
 """
-from typing import Iterable, Iterator, TypeVar
+from collections.abc import Iterable, Iterator
+from typing import TypeVar
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
