@@ -1,7 +1,7 @@
 """
 Sortable protocol for TypeDefSorter.
 """
-from collections.abc import Iterable
+from collections.abc import Iterable, Iterator
 
 from typing_extensions import Protocol, runtime_checkable
 
@@ -95,5 +95,11 @@ class TypeDefSortable(Protocol):
     def replace_self_references(self) -> None:
         """
         Replace self references with `Dict[str, Any]` to avoid circular dependencies.
+        """
+        ...
+
+    def iterate_children(self) -> Iterator[FakeAnnotation]:
+        """
+        Iterate over children.
         """
         ...

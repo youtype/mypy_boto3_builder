@@ -105,6 +105,7 @@ def get_collection() -> {{ package.service_resource.collections[0].name }}:
 {% endif %}
 
 {% include "common/service_docs/readme_resources.md.jinja2" with context %}
+{% endif %}
 
 {% include "common/service_docs/readme_literals.md.jinja2" with context %}
 

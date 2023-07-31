@@ -293,7 +293,7 @@ class ShapeParser:
     @staticmethod
     def _get_literal_name(shape: StringShape) -> str:
         # FIXME: hack for APIGWv2
-        if shape.name == "__stringType":
+        if shape.name == "__string":
             children_name = "".join(sorted(f"{i[0].upper()}{i[1:]}" for i in shape.enum))
             return f"{children_name}Type"
 

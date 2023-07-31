@@ -4,15 +4,15 @@
 
 {% include "common/header_note.md.jinja2" with context %}
 
-{% for named_union in package.type_defs if i.is_union() -%}
+{% for named_union in package.type_defs if named_union.is_union() -%}
 ## {{ named_union.name }}
 
 ```python
 # {{ named_union.name }} definition
 
 {{ named_union.name }} = Union[
-{% for child in typed_dict.iterate_children() -%}
-    {% with type_annotation=child.get_type_annotation() -%}
+{% for child in named_union.iterate_children() -%}
+    {% with type_annotation=child -%}
         {% include "common/type_annotation_code.md.jinja2" with context -%}
         {{ ',' -}}
         {% if child.type_annotation in named_union.type_hint_annotations -%}
@@ -31,7 +31,7 @@
 
 {% endfor %}
 
-{% for typed_dict in package.type_defs if i.is_typed_dict() -%}
+{% for typed_dict in package.type_defs if typed_dict.is_typed_dict() -%}
 ## {{ typed_dict.name }}
 
 ```python
