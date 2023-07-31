@@ -182,8 +182,23 @@ class TestShapeParser:
         session_mock = MagicMock()
         service_name_mock = MagicMock()
         shape_parser = ShapeParser(session_mock, service_name_mock)
-        assert shape_parser._get_literal_name("_Type", ["a"]) == "TypeType"
-        assert shape_parser._get_literal_name("__Type", ["a"]) == "TypeType"
-        assert shape_parser._get_literal_name("__stringType", ["a", "b"]) == "ABType"
-        assert shape_parser._get_literal_name("Protocol", ["a"]) == "ProtocolType"
-        assert shape_parser._get_literal_name("Other", ["a"]) == "OtherType"
+
+        shape = MagicMock()
+        shape.enum = ["as", "b"]
+        shape.name = "Type"
+        assert shape_parser._get_literal_name(shape) == "TypeType"
+
+        shape.name = "_Type"
+        assert shape_parser._get_literal_name(shape) == "TypeType"
+
+        shape.name = "__Type"
+        assert shape_parser._get_literal_name(shape) == "TypeType"
+
+        shape.name = "__stringType"
+        assert shape_parser._get_literal_name(shape) == "AsBType"
+
+        shape.name = "Protocol"
+        assert shape_parser._get_literal_name(shape) == "ProtocolType"
+
+        shape.name = "Other"
+        assert shape_parser._get_literal_name(shape) == "OtherType"

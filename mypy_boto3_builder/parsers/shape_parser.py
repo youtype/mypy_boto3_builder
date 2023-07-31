@@ -52,7 +52,7 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
     WaiterConfigTypeDef,
 )
 from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
-from mypy_boto3_builder.utils.strings import get_type_def_name, is_reserved
+from mypy_boto3_builder.utils.strings import get_type_def_name
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
 
@@ -299,8 +299,6 @@ class ShapeParser:
 
         name = shape.name.lstrip("_")
         name = f"{name}Type"
-        if is_reserved(name):
-            name = f"{name}Type"
         return name
 
     def _parse_shape_string(self, shape: StringShape) -> FakeAnnotation:
