@@ -2,6 +2,7 @@
 Sortable protocol for TypeDefSorter.
 """
 from collections.abc import Iterable, Iterator
+from typing import Any
 
 from typing_extensions import Protocol, runtime_checkable
 
@@ -98,7 +99,7 @@ class TypeDefSortable(Protocol):
         """
         ...
 
-    def iterate_children(self) -> Iterator[FakeAnnotation]:
+    def iterate_children(self) -> Iterator[Any]:
         """
         Iterate over children.
         """

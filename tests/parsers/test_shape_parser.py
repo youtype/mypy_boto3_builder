@@ -194,7 +194,7 @@ class TestShapeParser:
         shape.name = "__Type"
         assert shape_parser._get_literal_name(shape) == "TypeType"
 
-        shape.name = "__stringType"
+        shape.name = "__string"
         assert shape_parser._get_literal_name(shape) == "AsBType"
 
         shape.name = "Protocol"
