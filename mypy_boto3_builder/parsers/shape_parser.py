@@ -52,7 +52,7 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
     WaiterConfigTypeDef,
 )
 from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
-from mypy_boto3_builder.utils.strings import get_type_def_name
+from mypy_boto3_builder.utils.strings import get_type_def_name, is_reserved
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
 
@@ -78,6 +78,7 @@ class ShapeParser:
         self.service_name = service_name
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
         self._resource_name: str = ""
+        self._type_literal_map: dict[str, TypeLiteral] = {}
         self._typed_dict_map: dict[str, TypeTypedDict] = {}
         self._output_typed_dict_map: dict[str, TypeTypedDict] = {}
         self._response_typed_dict_map: dict[str, TypeTypedDict] = {}
@@ -289,16 +290,39 @@ class ShapeParser:
     def _get_typed_dict_name(shape: Shape, postfix: str = "") -> str:
         return get_type_def_name(shape.name, postfix)
 
+    @staticmethod
+    def _get_literal_name(shape: StringShape) -> str:
+        # FIXME: hack for APIGWv2
+        if shape.name == "__stringType":
+            children_name = "".join(sorted(f"{i[0].upper()}{i[1:]}" for i in shape.enum))
+            return f"{children_name}Type"
+
+        name = shape.name.lstrip("_")
+        name = f"{name}Type"
+        if is_reserved(name):
+            name = f"{name}Type"
+        return name
+
     def _parse_shape_string(self, shape: StringShape) -> FakeAnnotation:
         if not shape.enum:
             return Type.str
 
-        literal_name = f"{shape.name}Type"
+        children = list(shape.enum)
+        literal_name = self._get_literal_name(shape)
         literal_type_stub = get_literal_type_stub(self.service_name, literal_name)
-        if literal_type_stub:
-            return TypeLiteral(literal_name, literal_type_stub)
+        children = literal_type_stub if literal_type_stub else list(shape.enum)
+        type_literal = TypeLiteral(literal_name, children)
+        if literal_name in self._type_literal_map:
+            old_type_literal = self._type_literal_map[literal_name]
+            if not type_literal.is_same(old_type_literal):
+                raise ValueError(
+                    f"Literal {literal_name} has different values: {old_type_literal.children} vs"
+                    f" {type_literal.children}"
+                )
+            return old_type_literal
 
-        return TypeLiteral(literal_name, list(shape.enum))
+        self._type_literal_map[literal_name] = type_literal
+        return type_literal
 
     def _parse_shape_map(
         self,

@@ -66,27 +66,14 @@ class ServicePackage(Package):
         """
         Extract literals from children.
         """
-        found: dict[str, TypeLiteral] = {}
-        for type_annotation in sorted([*self.iterate_types(), *self.type_defs]):
-            current: list[TypeLiteral] = []
+        type_literals: set[TypeLiteral] = set()
+        for type_annotation in [*self.iterate_types(), *self.type_defs]:
             if isinstance(type_annotation, TypeDefSortable):
-                current.extend(type_annotation.get_children_literals())
+                type_literals.update(type_annotation.get_children_literals())
             if isinstance(type_annotation, TypeLiteral):
-                current.append(type_annotation)
+                type_literals.add(type_annotation)
 
-            for literal in current:
-                if literal.name not in found:
-                    found[literal.name] = literal
-                    continue
-
-                old_literal = found[literal.name]
-                if not literal.is_same(old_literal):
-                    raise ValueError(
-                        f"Duplicate literal: {literal.name} {literal.children} !="
-                        f" {old_literal.children}"
-                    )
-
-        return sorted(found.values())
+        return sorted(type_literals)
 
     def _get_sortable_type_defs(self) -> set[TypeDefSortable]:
         result: set[TypeDefSortable] = set()

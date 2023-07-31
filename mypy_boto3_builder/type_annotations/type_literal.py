@@ -9,7 +9,6 @@ from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.utils.strings import is_reserved
 
 _R = TypeVar("_R", bound="TypeLiteral")
 
@@ -26,7 +25,7 @@ class TypeLiteral(FakeAnnotation):
 
     def __init__(self, name: str, children: Iterable[str]) -> None:
         self.children: set[str] = set(children)
-        self.name: str = self._find_name(name)
+        self.name: str = name
         if not children:
             raise ValueError("Literal should have children")
 
@@ -44,17 +43,6 @@ class TypeLiteral(FakeAnnotation):
         1-value literals are rendered inline.
         """
         return len(self.children) == 1
-
-    def _find_name(self, name: str) -> str:
-        # FIXME: hack for APIGWv2
-        if name == "__stringType":
-            children_name = "".join(sorted(f"{i[0].upper()}{i[1:]}" for i in self.children))
-            return f"{children_name}Type"
-
-        name = name.lstrip("_")
-        if is_reserved(name):
-            return f"{name}Type"
-        return name
 
     def render(self, parent_name: str = "") -> str:
         """
