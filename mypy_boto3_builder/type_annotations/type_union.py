@@ -1,9 +1,11 @@
 """
 Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
 """
-from typing import Iterable, TypeVar
+from typing import Iterable, Iterator, TypeVar
 
+from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
+from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
@@ -62,7 +64,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         Check if type annotation is a named type annotation.
         """
-        return bool(self.name)
+        return self.name != ""
 
     def render_definition(self) -> str:
         """
@@ -129,3 +131,36 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         Get import record required for using Union.
         """
         return Type.Union.get_import_record()
+
+    def get_import_record(self) -> ImportRecord:
+        """
+        Get import record required for using type annotation.
+        """
+        return InternalImportRecord(ServiceModuleName.type_defs, name=self.name)
+
+    def iterate_types(self) -> Iterator[FakeAnnotation]:
+        """
+        Extract type annotations from children.
+        """
+        if self.is_named():
+            yield self
+            return
+
+        yield from super().iterate_types()
+
+    def is_type_def(self) -> bool:
+        """
+        Whether type annotation is a TypeDef.
+        """
+        return self.is_named()
+
+    @property
+    def type_hint_annotations(self) -> list[FakeAnnotation]:
+        """
+        Type annotations list from arguments and return type with internal types.
+        """
+        result: list[FakeAnnotation] = []
+        for child in self.children:
+            if child.get_local_types():
+                result.append(child)
+        return result

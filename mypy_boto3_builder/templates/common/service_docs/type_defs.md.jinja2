@@ -1,26 +1,38 @@
 # Type definitions
 
-> [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > Typed dictionaries
+> [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > Type definitions
 
 {% include "common/header_note.md.jinja2" with context %}
 
-{% for typed_dict in package.typed_dicts -%}
-## {{ typed_dict.name }}
+{% for named_union in package.named_unions -%}
+## {{ named_union.name }}
 
 ```python
-# {{ typed_dict.name }} usage example
+# {{ named_union.name }} definition
 
-from {{ package.name }}.type_defs import {{ typed_dict.name }}
-
-def get_value() -> {{ typed_dict.name }}:
-    {{ 'return {' -}}
-    {% with atrributes=typed_dict.get_required() or typed_dict.get_optional()[:1] -%}
-        {% for atrribute in atrributes -%}
-            {{ '\n        "' -}}{{ atrribute.name -}}{{ '": ...,' -}}
-        {% endfor -%}
+{{ named_union.name }} = Union[
+{% for child in typed_dict.iterate_children() -%}
+    {% with type_annotation=child.get_type_annotation() -%}
+        {% include "common/type_annotation_code.md.jinja2" with context -%}
+        {{ ',' -}}
+        {% if child.type_annotation in named_union.type_hint_annotations -%}
+            {{ '  # (' -}}{{ named_union.type_hint_annotations.index(child.type_annotation) + 1 -}}{{ ')' -}}
+        {% endif -%}
     {% endwith -%}
-    {{ '\n    }\n' -}}
+    {{ '\n' -}}
+{% endfor -%}
 ```
+
+{% for type_annotation in named_union.type_hint_annotations -%}
+{{ loop.index -}}{{ '. See ' -}}
+{% include "common/type_hint.md.jinja2" with context -%}
+{{ '\n' -}}
+{% endfor -%}
+
+{% endfor %}
+
+{% for typed_dict in package.typed_dicts -%}
+## {{ typed_dict.name }}
 
 ```python
 # {{ typed_dict.name }} definition

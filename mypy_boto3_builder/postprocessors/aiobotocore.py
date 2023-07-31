@@ -4,6 +4,7 @@ Postprocessor for aiobotocore classes and methods.
 
 from collections.abc import Iterator
 
+from boto3.dynamodb.conditions import ConditionBase
 from boto3.dynamodb.table import BatchWriter, TableResource
 from boto3.resources.base import ServiceResource
 from boto3.resources.collection import ResourceCollection
@@ -73,6 +74,9 @@ class AioBotocorePostprocessor(BasePostprocessor):
         ),
         ExternalImport.from_class(TableResource): ExternalImport(
             ImportString("aioboto3", "dynamodb", "table"), "CustomTableResource", safe=True
+        ),
+        ExternalImport.from_class(ConditionBase): ExternalImport.from_class(
+            ConditionBase, safe=True
         ),
     }
 

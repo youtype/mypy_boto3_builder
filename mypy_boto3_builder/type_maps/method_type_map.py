@@ -11,8 +11,11 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.type_annotations.type_union import TypeUnion
-from mypy_boto3_builder.type_maps.typed_dicts import s3_copy_source_type
+from mypy_boto3_builder.type_maps.named_unions import (
+    ConditionBaseImportTypeDef,
+    CopySourceOrStrTypeDef,
+)
+from mypy_boto3_builder.type_maps.typed_dicts import CopySourceTypeDef
 
 __all__ = ("get_method_type_stub",)
 
@@ -22,9 +25,6 @@ MethodTypeMap = dict[str, ArgumentTypeMap]
 ClassTypeMap = dict[str, MethodTypeMap]
 ServiceTypeMap = dict[ServiceName, ClassTypeMap]
 
-ConditionBaseImport = ExternalImport(
-    ImportString("boto3", "dynamodb", "conditions"), "ConditionBase"
-)
 
 QueueAttributeFilterType = TypeLiteral(
     "QueueAttributeFilterType",
@@ -72,21 +72,18 @@ DEFAULT_VALUE_MAP: ServiceTypeMap = {
     },
 }
 
-
 TYPE_MAP: ServiceTypeMap = {
     ServiceNameCatalog.s3: {
         # FIXME: boto3 overrides CopySource parameters for some S3 methods.
         # Types are set according to docs, might be incorrect
         "Client": {
-            "copy_object": {"CopySource": TypeUnion([Type.str, s3_copy_source_type])},
-            "upload_part_copy": {"CopySource": TypeUnion([Type.str, s3_copy_source_type])},
-            "copy": {"CopySource": s3_copy_source_type},
+            "copy_object": {"CopySource": CopySourceOrStrTypeDef},
+            "upload_part_copy": {"CopySource": CopySourceOrStrTypeDef},
+            "copy": {"CopySource": CopySourceTypeDef},
         },
-        "MultipartUploadPart": {
-            "copy_from": {"CopySource": TypeUnion([Type.str, s3_copy_source_type])}
-        },
-        "Bucket": {"copy": {"CopySource": s3_copy_source_type}},
-        "Object": {"copy": {"CopySource": s3_copy_source_type}},
+        "MultipartUploadPart": {"copy_from": {"CopySource": CopySourceOrStrTypeDef}},
+        "Bucket": {"copy": {"CopySource": CopySourceTypeDef}},
+        "Object": {"copy": {"CopySource": CopySourceTypeDef}},
     },
     ServiceNameCatalog.dynamodb: {
         "Table": {
@@ -94,21 +91,21 @@ TYPE_MAP: ServiceTypeMap = {
                 "return": ExternalImport(ImportString("boto3", "dynamodb", "table"), "BatchWriter")
             },
             "query": {
-                "KeyConditionExpression": TypeUnion([Type.str, ConditionBaseImport]),
-                "FilterExpression": TypeUnion([Type.str, ConditionBaseImport]),
-                "ConditionExpression": TypeUnion([Type.str, ConditionBaseImport]),
+                "KeyConditionExpression": ConditionBaseImportTypeDef,
+                "FilterExpression": ConditionBaseImportTypeDef,
+                "ConditionExpression": ConditionBaseImportTypeDef,
             },
             "delete_item": {
-                "ConditionExpression": TypeUnion([Type.str, ConditionBaseImport]),
+                "ConditionExpression": ConditionBaseImportTypeDef,
             },
             "put_item": {
-                "ConditionExpression": TypeUnion([Type.str, ConditionBaseImport]),
+                "ConditionExpression": ConditionBaseImportTypeDef,
             },
             "update_item": {
-                "ConditionExpression": TypeUnion([Type.str, ConditionBaseImport]),
+                "ConditionExpression": ConditionBaseImportTypeDef,
             },
             "scan": {
-                "FilterExpression": TypeUnion([Type.str, ConditionBaseImport]),
+                "FilterExpression": ConditionBaseImportTypeDef,
             },
         },
     },

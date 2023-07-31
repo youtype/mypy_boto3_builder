@@ -4,7 +4,7 @@ Methods for boto3 injected methods.
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_maps.service_stub_map import dynamodb, ec2, rds, s3
-from mypy_boto3_builder.utils.strings import get_typed_dict_name
+from mypy_boto3_builder.utils.strings import get_type_def_name
 
 ClassTypeMap = dict[str, list[Method]]
 ServiceStubMap = dict[ServiceName, ClassTypeMap]
@@ -45,5 +45,5 @@ def get_stub_method_map(service_name: ServiceName, parent: str) -> dict[str, Met
     """
     methods = SERVICE_STUB_MAP.get(service_name, {}).get(parent, [])
     for method in methods:
-        method.create_request_type_annotation(get_typed_dict_name(parent, method.name, "Request"))
+        method.create_request_type_annotation(get_type_def_name(parent, method.name, "Request"))
     return {method.name: method for method in methods}

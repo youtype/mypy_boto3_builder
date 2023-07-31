@@ -95,9 +95,9 @@ class ServicePackage(Package):
     def _get_sortable_type_defs(self) -> set[TypeDefSortable]:
         result: set[TypeDefSortable] = set()
         for type_annotation in self.iterate_types():
-            if isinstance(type_annotation, TypeUnion):
-                print(type_annotation.debug_render())
             if not isinstance(type_annotation, TypeDefSortable):
+                continue
+            if not type_annotation.is_type_def():
                 continue
             result.add(type_annotation)
 

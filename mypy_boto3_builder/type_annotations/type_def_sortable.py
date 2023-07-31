@@ -59,3 +59,16 @@ class TypeDefSortable(Protocol):
         Extract required TypeLiteral list from attributes.
         """
         ...
+
+    def is_type_def(self) -> bool:
+        """
+        Whether type annotation is a TypeDef.
+        """
+        ...
+
+    @property
+    def type_hint_annotations(self) -> list[FakeAnnotation]:
+        """
+        Type annotations list from arguments and return type with internal types.
+        """
+        ...

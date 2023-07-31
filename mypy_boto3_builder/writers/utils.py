@@ -165,7 +165,8 @@ def blackify_markdown(text: str) -> str:
     blocks = text.split("\n```")
     for block in blocks:
         if block.startswith("python"):
-            result.append(blackify(block, Path("output.py")).rstrip())
+            blackified = blackify(block, Path("output.py")).rstrip()
+            result.append(blackified)
         else:
             result.append(block)
     return "\n```".join(result)

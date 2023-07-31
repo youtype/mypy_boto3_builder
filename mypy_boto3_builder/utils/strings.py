@@ -102,13 +102,13 @@ def get_botocore_class_name(metadata: dict[str, str]) -> str:
     return get_service_module_name(service_model)
 
 
-def get_typed_dict_name(*parts: str) -> str:
+def get_type_def_name(*parts: str) -> str:
     """
-    Get a valid Python TypedDict class name from `parts`.
+    Get a valid Python TypeDef class name from `parts`.
 
     Examples:
         ```python
-        get_typed_dict_name("MyClass", "my_method")  # MyClassMyMethodTypeDef
+        get_type_def_name("MyClass", "my_method")  # MyClassMyMethodTypeDef
         ```
     """
     if not parts:

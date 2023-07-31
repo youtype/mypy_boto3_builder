@@ -325,3 +325,9 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
             if child.type_annotation.get_local_types():
                 result.append(child.type_annotation)
         return result
+
+    def is_type_def(self) -> bool:
+        """
+        Whether type annotation is a TypeDef.
+        """
+        return True

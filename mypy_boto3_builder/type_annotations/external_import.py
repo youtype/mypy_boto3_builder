@@ -35,13 +35,14 @@ class ExternalImport(FakeAnnotation):
         self.safe: bool = safe
 
     @classmethod
-    def from_class(cls: type[_R], obj: type, alias: str = "") -> _R:
+    def from_class(cls: type[_R], obj: type, alias: str = "", safe: bool = False) -> _R:
         """
         Create an instance from an imported class.
 
         Arguments:
             value -- Any Class.
             alias -- Local name.
+            safe -- Whether import is wrapped in try-except.
         """
         module = inspect.getmodule(obj)
         if module is None:
@@ -52,6 +53,7 @@ class ExternalImport(FakeAnnotation):
             source=ImportString.from_str(module_name),
             name=obj.__name__,
             alias=alias,
+            safe=safe,
         )
 
     @property

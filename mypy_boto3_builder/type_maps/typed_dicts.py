@@ -4,7 +4,7 @@ Collection of TypedDicts added by boto3.
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
-s3_copy_source_type: TypeTypedDict = TypeTypedDict(
+CopySourceTypeDef = TypeTypedDict(
     "CopySourceTypeDef",
     [
         TypedDictAttribute("Bucket", Type.str, True),
@@ -13,8 +13,7 @@ s3_copy_source_type: TypeTypedDict = TypeTypedDict(
     ],
 )
 
-
-ec2_tag_type: TypeTypedDict = TypeTypedDict(
+TagTypeDef = TypeTypedDict(
     "TagTypeDef",
     [
         TypedDictAttribute("Key", Type.str, False),
@@ -22,7 +21,7 @@ ec2_tag_type: TypeTypedDict = TypeTypedDict(
     ],
 )
 
-waiter_config_type: TypeTypedDict = TypeTypedDict(
+WaiterConfigTypeDef = TypeTypedDict(
     "WaiterConfigTypeDef",
     [
         TypedDictAttribute("Delay", Type.int, False),
@@ -30,7 +29,7 @@ waiter_config_type: TypeTypedDict = TypeTypedDict(
     ],
 )
 
-paginator_config_type: TypeTypedDict = TypeTypedDict(
+PaginatorConfigTypeDef = TypeTypedDict(
     "PaginatorConfigTypeDef",
     [
         TypedDictAttribute("MaxItems", Type.int, False),
@@ -39,7 +38,7 @@ paginator_config_type: TypeTypedDict = TypeTypedDict(
     ],
 )
 
-response_metadata_type = TypeTypedDict(
+ResponseMetadataTypeDef = TypeTypedDict(
     "ResponseMetadataTypeDef",
     [
         TypedDictAttribute("RequestId", Type.str, True),
@@ -50,9 +49,9 @@ response_metadata_type = TypeTypedDict(
     ],
 )
 
-empty_response_metadata_type = TypeTypedDict(
+EmptyResponseMetadataTypeDef = TypeTypedDict(
     "EmptyResponseMetadataTypeDef",
     [
-        TypedDictAttribute("ResponseMetadata", response_metadata_type, True),
+        TypedDictAttribute("ResponseMetadata", ResponseMetadataTypeDef, True),
     ],
 )

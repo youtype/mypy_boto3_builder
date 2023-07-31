@@ -15,7 +15,8 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
-from mypy_boto3_builder.type_maps.typed_dicts import response_metadata_type
+from mypy_boto3_builder.type_maps.named_unions import BlobTypeDef, TimestampTypeDef
+from mypy_boto3_builder.type_maps.typed_dicts import ResponseMetadataTypeDef
 
 # FIXME: a hack to avoid cicular TypedDict in dynamodb package
 TableAttributeValueTypeDef = TypeUnion(
@@ -72,7 +73,7 @@ GetTemplateOutputTypeDef = TypeTypedDict(
             ),
             True,
         ),
-        TypedDictAttribute("ResponseMetadata", response_metadata_type, True),
+        TypedDictAttribute("ResponseMetadata", ResponseMetadataTypeDef, True),
     ],
 )
 
@@ -95,9 +96,9 @@ SHAPE_TYPE_MAP: ShapeTypeMap = {
             "boolean": Type.bool,
             "double": Type.float,
             "float": Type.float,
-            "timestamp": TypeUnion([Type.datetime, Type.str]),
-            "blob": TypeUnion([Type.str, Type.bytes, Type.IOAny, StreamingBodyType]),
-            "blob_streaming": TypeUnion([Type.str, Type.bytes, Type.IOAny, StreamingBodyType]),
+            "timestamp": TimestampTypeDef,
+            "blob": BlobTypeDef,
+            "blob_streaming": BlobTypeDef,
         }
     },
     ServiceNameCatalog.dynamodb: {

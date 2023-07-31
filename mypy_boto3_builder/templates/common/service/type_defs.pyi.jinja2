@@ -29,7 +29,7 @@ __all__ = (
 {% for type_def in package.type_defs -%}
     {% if type_def.is_typed_dict() -%}
         {% include "common/typed_dict.py.jinja2" with context -%}
-    {% else %}
+    {% else -%}
         {% include "common/named_union.py.jinja2" with context -%}
     {% endif -%}
     {{ "\n" -}}
