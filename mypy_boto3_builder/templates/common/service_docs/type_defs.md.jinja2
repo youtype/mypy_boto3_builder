@@ -4,7 +4,7 @@
 
 {% include "common/header_note.md.jinja2" with context %}
 
-{% for named_union in package.named_unions -%}
+{% for named_union in package.type_defs if i.is_union() -%}
 ## {{ named_union.name }}
 
 ```python
@@ -31,7 +31,7 @@
 
 {% endfor %}
 
-{% for typed_dict in package.typed_dicts -%}
+{% for typed_dict in package.type_defs if i.is_typed_dict() -%}
 ## {{ typed_dict.name }}
 
 ```python

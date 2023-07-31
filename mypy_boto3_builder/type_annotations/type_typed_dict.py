@@ -136,12 +136,17 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         """
         return f"{self}: {', '.join([c.render() for c in self.children])}"
 
-    @staticmethod
-    def get_typing_import_record() -> ImportRecord:
+    def get_typing_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using TypedDict.
         """
-        return Type.TypedDict.get_import_record()
+        if self.replace_with_dict:
+            return {
+                Type.Dict.get_import_record(),
+                Type.Any.get_import_record(),
+            }
+
+        return {Type.TypedDict.get_import_record()}
 
     def get_import_record(self) -> ImportRecord:
         """
@@ -281,7 +286,7 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
 
     def replace_self_references(self) -> None:
         """
-        Replace self refenrences with `Dict[str, Any]` to avoid circular dependencies.
+        Replace self references with `Dict[str, Any]` to avoid circular dependencies.
         """
         for child in self.get_children_typed_dicts():
             if child is self:
@@ -331,3 +336,9 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         Whether type annotation is a TypeDef.
         """
         return True
+
+    def is_union(self) -> bool:
+        """
+        Whether type annotation is a TypeUnion.
+        """
+        return False

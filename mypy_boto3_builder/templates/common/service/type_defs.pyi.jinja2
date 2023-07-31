@@ -6,9 +6,9 @@ Type annotations for {{ package.service_name.boto3_name }} service type definiti
 Usage::
 
     ```python
-    from {{ package.name }}.type_defs import {{ package.typed_dicts[0].name }}
+    from {{ package.name }}.type_defs import {{ package.type_defs[0].name }}
 
-    data: {{ package.typed_dicts[0].name }} = {...}
+    data: {{ package.type_defs[0].name }} = ...
     ```
 """
 {% for import_record in package.get_type_defs_required_import_records() -%}

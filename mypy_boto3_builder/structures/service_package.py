@@ -20,8 +20,6 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
-from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
@@ -69,9 +67,7 @@ class ServicePackage(Package):
         Extract literals from children.
         """
         found: dict[str, TypeLiteral] = {}
-        for type_annotation in sorted(
-            [*self.iterate_types(), *self.typed_dicts, *self.named_unions]
-        ):
+        for type_annotation in sorted([*self.iterate_types(), *self.type_defs]):
             current: list[TypeLiteral] = []
             if isinstance(type_annotation, TypeDefSortable):
                 current.extend(type_annotation.get_children_literals())
@@ -258,26 +254,9 @@ class ServicePackage(Package):
             return []
 
         import_records: set[ImportRecord] = set()
-        if self.named_unions:
-            import_records.add(TypeUnion.get_typing_import_record())
-        for named_union in self.named_unions:
-            for type_annotation in named_union.get_children_types():
-                import_record = type_annotation.get_import_record()
-                if not import_record or import_record.is_builtins():
-                    continue
-                if import_record.is_type_defs():
-                    continue
-                import_records.add(
-                    import_record.get_external(self.get_module_name(self.service_name))
-                )
-        if self.typed_dicts:
-            import_records.add(TypeTypedDict.get_typing_import_record())
-        for typed_dict in self.typed_dicts:
-            if typed_dict.replace_with_dict:
-                import_records.add(Type.Any.get_import_record())
-                import_records.add(Type.Dict.get_import_record())
-
-            for type_annotation in typed_dict.get_children_types():
+        for type_def in self.type_defs:
+            import_records.update(type_def.get_typing_import_records())
+            for type_annotation in type_def.get_children_types():
                 import_record = type_annotation.get_import_record()
                 if not import_record or import_record.is_builtins():
                     continue
@@ -295,7 +274,7 @@ class ServicePackage(Package):
         Get import records for `literals.py[i]`.
         """
         import_records: set[ImportRecord] = set()
-        import_records.add(TypeLiteral.get_typing_import_record())
+        import_records.add(Type.Literal.get_import_record())
         self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
@@ -353,17 +332,3 @@ class ServicePackage(Package):
         Get link to local docs.
         """
         return super().get_local_doc_link(self.service_name)
-
-    @property
-    def typed_dicts(self) -> list[TypeTypedDict]:
-        """
-        Get all typed dicts from type defs.
-        """
-        return [i for i in self.type_defs if isinstance(i, TypeTypedDict)]
-
-    @property
-    def named_unions(self) -> list[TypeUnion]:
-        """
-        Get all named unions from type defs.
-        """
-        return [i for i in self.type_defs if isinstance(i, TypeUnion)]

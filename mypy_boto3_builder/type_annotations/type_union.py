@@ -126,12 +126,11 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
                 result.update(type_annotation.get_children_literals((self.name, *processed)))
         return result
 
-    @staticmethod
-    def get_typing_import_record() -> ImportRecord:
+    def get_typing_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using Union.
         """
-        return Type.Union.get_import_record()
+        return {Type.Union.get_import_record()}
 
     def get_import_record(self) -> ImportRecord:
         """
@@ -165,3 +164,15 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
             if child.get_local_types():
                 result.append(child)
         return result
+
+    def is_union(self) -> bool:
+        """
+        Whether type annotation is a TypeUnion.
+        """
+        return self.parent == Type.Union
+
+    def replace_self_references(self) -> None:
+        """
+        Replace self references, does nothing.
+        """
+        return None

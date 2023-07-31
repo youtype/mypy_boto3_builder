@@ -5,6 +5,7 @@ from collections.abc import Iterable
 
 from typing_extensions import Protocol, runtime_checkable
 
+from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
@@ -70,5 +71,29 @@ class TypeDefSortable(Protocol):
     def type_hint_annotations(self) -> list[FakeAnnotation]:
         """
         Type annotations list from arguments and return type with internal types.
+        """
+        ...
+
+    def get_typing_import_records(self) -> set[ImportRecord]:
+        """
+        Get import record required for using TypeAnnotation.
+        """
+        ...
+
+    def is_typed_dict(self) -> bool:
+        """
+        Whether type annotation is a TypedDict.
+        """
+        ...
+
+    def is_union(self) -> bool:
+        """
+        Whether type annotation is a TypeUnion.
+        """
+        ...
+
+    def replace_self_references(self) -> None:
+        """
+        Replace self references with `Dict[str, Any]` to avoid circular dependencies.
         """
         ...
