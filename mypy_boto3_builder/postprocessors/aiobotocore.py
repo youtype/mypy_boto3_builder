@@ -4,7 +4,6 @@ Postprocessor for aiobotocore classes and methods.
 
 from collections.abc import Iterator
 
-from boto3.dynamodb.conditions import ConditionBase
 from boto3.dynamodb.table import BatchWriter, TableResource
 from boto3.resources.base import ServiceResource
 from boto3.resources.collection import ResourceCollection
@@ -24,8 +23,8 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.type_maps.aio_resource_method_map import get_aio_resource_method
 
 
@@ -74,9 +73,6 @@ class AioBotocorePostprocessor(BasePostprocessor):
         ),
         ExternalImport.from_class(TableResource): ExternalImport(
             ImportString("aioboto3", "dynamodb", "table"), "CustomTableResource", safe=True
-        ),
-        ExternalImport.from_class(ConditionBase): ExternalImport.from_class(
-            ConditionBase, safe=True
         ),
     }
 
@@ -213,7 +209,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
 
     def _iterate_types(self) -> Iterator[FakeAnnotation]:
         for type_annotation in self._iterate_types_shallow():
-            if isinstance(type_annotation, TypeTypedDict):
+            if isinstance(type_annotation, TypeDefSortable):
                 yield from type_annotation.get_children_types()
             else:
                 yield type_annotation
