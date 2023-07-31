@@ -71,7 +71,9 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         Render named Union type definition.
         """
-        return f"{self.name} = {super().render()}"
+        result = self.parent.render()
+        children = ", ".join([i.render(self.name) for i in self.children])
+        return f"{self.name} = {result}[{children}]"
 
     def copy(self: _R) -> _R:
         """
