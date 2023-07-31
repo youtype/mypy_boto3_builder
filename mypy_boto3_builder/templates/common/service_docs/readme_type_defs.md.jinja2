@@ -1,0 +1,10 @@
+
+{% if package.type_defs %}
+## Type definitions
+
+Type annotations for [type definitions]({{ service_name.get_md_doc_link('type_defs') }}) used in methods and schema.
+
+{% for type_def in package.type_defs -%}
+- [{{ type_def.name }}]({{ service_name.get_md_doc_link('type_defs', type_def.name) }}){{ '\n' -}}
+{% endfor %}
+{% endif %}

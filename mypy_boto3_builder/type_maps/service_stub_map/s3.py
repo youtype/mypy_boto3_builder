@@ -4,7 +4,6 @@ S3 service injected methods.
 
 from boto3.s3.transfer import TransferConfig
 from botocore.client import BaseClient
-from botocore.response import StreamingBody
 
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
@@ -12,8 +11,8 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.type_annotations.type_union import TypeUnion
-from mypy_boto3_builder.type_maps.typed_dicts import s3_copy_source_type
+from mypy_boto3_builder.type_maps.named_unions import FileobjTypeDef, PresignedPostConditionsTypeDef
+from mypy_boto3_builder.type_maps.typed_dicts import CopySourceTypeDef
 
 callback_arg = Argument(
     "Callback",
@@ -31,7 +30,7 @@ copy_method = Method(
     "copy",
     [
         Argument("self", None),
-        Argument("CopySource", s3_copy_source_type),
+        Argument("CopySource", CopySourceTypeDef),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
         Argument("ExtraArgs", Type.DictStrAny, Type.Ellipsis),
@@ -66,10 +65,7 @@ download_fileobj_method = Method(
         Argument("self", None),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
-        Argument(
-            "Fileobj",
-            TypeUnion([Type.IOAny, ExternalImport.from_class(StreamingBody)]),
-        ),
+        Argument("Fileobj", FileobjTypeDef),
         Argument("ExtraArgs", Type.DictStrAny, Type.Ellipsis),
         callback_arg,
         config_arg,
@@ -84,11 +80,7 @@ generate_presigned_post_method = Method(
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
         Argument("Fields", Type.DictStrAny, Type.Ellipsis),
-        Argument(
-            "Conditions",
-            TypeUnion([Type.ListAny, Type.DictStrAny]),
-            Type.Ellipsis,
-        ),
+        Argument("Conditions", PresignedPostConditionsTypeDef, Type.Ellipsis),
         Argument("ExpiresIn", Type.int, TypeConstant(3600)),
     ],
     Type.DictStrAny,
@@ -112,10 +104,7 @@ upload_fileobj_method = Method(
     "upload_fileobj",
     [
         Argument("self", None),
-        Argument(
-            "Fileobj",
-            TypeUnion([Type.IOAny, ExternalImport.from_class(StreamingBody)]),
-        ),
+        Argument("Fileobj", FileobjTypeDef),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
         Argument("ExtraArgs", Type.DictStrAny, Type.Ellipsis),

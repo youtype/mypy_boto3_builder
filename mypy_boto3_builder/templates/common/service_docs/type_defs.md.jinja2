@@ -1,0 +1,60 @@
+# Type definitions
+
+> [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > Type definitions
+
+{% include "common/header_note.md.jinja2" with context %}
+
+{% for named_union in package.type_defs if named_union.is_union() -%}
+## {{ named_union.name }}
+
+```python
+# {{ named_union.name }} definition
+
+{{ named_union.name }} = Union[
+{% for child in named_union.iterate_children() -%}
+    {% with type_annotation=child -%}
+        {% include "common/type_annotation_code.md.jinja2" with context -%}
+        {{ ',' -}}
+        {% if child.type_annotation in named_union.type_hint_annotations -%}
+            {{ '  # (' -}}{{ named_union.type_hint_annotations.index(child.type_annotation) + 1 -}}{{ ')' -}}
+        {% endif -%}
+    {% endwith -%}
+    {{ '\n' -}}
+{% endfor -%}
+```
+
+{% for type_annotation in named_union.type_hint_annotations -%}
+{{ loop.index -}}{{ '. See ' -}}
+{% include "common/type_hint.md.jinja2" with context -%}
+{{ '\n' -}}
+{% endfor -%}
+
+{% endfor %}
+
+{% for typed_dict in package.type_defs if typed_dict.is_typed_dict() -%}
+## {{ typed_dict.name }}
+
+```python
+# {{ typed_dict.name }} definition
+
+class {{ typed_dict.name }}(TypedDict):
+{% for child in typed_dict.iterate_children() -%}
+    {{ '    ' -}}{{ child.name -}}{{ ': ' -}}
+    {% with type_annotation=child.get_type_annotation() -%}
+        {% include "common/type_annotation_code.md.jinja2" with context -%}
+        {{ ',' -}}
+        {% if child.type_annotation in typed_dict.type_hint_annotations -%}
+            {{ '  # (' -}}{{ typed_dict.type_hint_annotations.index(child.type_annotation) + 1 -}}{{ ')' -}}
+        {% endif -%}
+    {% endwith -%}
+    {{ '\n' -}}
+{% endfor -%}
+```
+
+{% for type_annotation in typed_dict.type_hint_annotations -%}
+{{ loop.index -}}{{ '. See ' -}}
+{% include "common/type_hint.md.jinja2" with context -%}
+{{ '\n' -}}
+{% endfor -%}
+
+{% endfor %}

@@ -19,7 +19,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.type_annotations.type_union import TypeUnion
+from mypy_boto3_builder.type_maps.named_unions import VerifyTypeDef
 
 
 def parse_aiobotocore_stubs_package(
@@ -46,11 +46,7 @@ def parse_aiobotocore_stubs_package(
         Argument("region_name", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
         Argument("api_version", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
         Argument("use_ssl", TypeSubscript(Type.Optional, [Type.bool]), Type.Ellipsis),
-        Argument(
-            "verify",
-            TypeUnion([Type.bool, Type.str, Type.none]),
-            Type.Ellipsis,
-        ),
+        Argument("verify", VerifyTypeDef, Type.Ellipsis),
         Argument("endpoint_url", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
         Argument("aws_access_key_id", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
         Argument("aws_secret_access_key", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),

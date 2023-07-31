@@ -213,5 +213,5 @@ class BasePostprocessor(ABC):
         """
         Remove self-references from TypedDicts.
         """
-        for typed_dict in self.package.typed_dicts:
-            typed_dict.replace_self_references()
+        for type_def in self.package.type_defs:
+            type_def.replace_self_references()

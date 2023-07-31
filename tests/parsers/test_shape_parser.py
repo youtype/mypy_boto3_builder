@@ -111,7 +111,7 @@ class TestShapeParser:
         collection_mock.request.operation = "my_operation"
         shape_parser = ShapeParser(session_mock, service_name_mock)
         result = shape_parser.get_collection_filter_method(
-            "MyCollection", collection_mock, "self_type"
+            "MyCollection", collection_mock, Type.Any
         )
         assert result.name == "filter"
         assert len(result.decorators) == 0
@@ -177,3 +177,28 @@ class TestShapeParser:
             shape_parser._response_typed_dict_map["Test2ExtraResponseTypeDef"].has_optional()
             is False
         )
+
+    def test_get_literal_name(self) -> None:
+        session_mock = MagicMock()
+        service_name_mock = MagicMock()
+        shape_parser = ShapeParser(session_mock, service_name_mock)
+
+        shape = MagicMock()
+        shape.enum = ["as", "b"]
+        shape.name = "Type"
+        assert shape_parser._get_literal_name(shape) == "TypeType"
+
+        shape.name = "_Type"
+        assert shape_parser._get_literal_name(shape) == "TypeType"
+
+        shape.name = "__Type"
+        assert shape_parser._get_literal_name(shape) == "TypeType"
+
+        shape.name = "__string"
+        assert shape_parser._get_literal_name(shape) == "AsBType"
+
+        shape.name = "Protocol"
+        assert shape_parser._get_literal_name(shape) == "ProtocolType"
+
+        shape.name = "Other"
+        assert shape_parser._get_literal_name(shape) == "OtherType"

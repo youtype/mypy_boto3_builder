@@ -20,7 +20,6 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
@@ -67,32 +66,21 @@ class ServicePackage(Package):
         """
         Extract literals from children.
         """
-        found: dict[str, TypeLiteral] = {}
-        for type_annotation in sorted([*self.iterate_types(), *self.typed_dicts]):
-            current: list[TypeLiteral] = []
-            if isinstance(type_annotation, TypeTypedDict):
-                current.extend(type_annotation.get_children_literals())
+        type_literals: set[TypeLiteral] = set()
+        for type_annotation in [*self.iterate_types(), *self.type_defs]:
+            if isinstance(type_annotation, TypeDefSortable):
+                type_literals.update(type_annotation.get_children_literals())
             if isinstance(type_annotation, TypeLiteral):
-                current.append(type_annotation)
+                type_literals.add(type_annotation)
 
-            for literal in current:
-                if literal.name not in found:
-                    found[literal.name] = literal
-                    continue
-
-                old_literal = found[literal.name]
-                if not literal.is_same(old_literal):
-                    raise ValueError(
-                        f"Duplicate literal: {literal.name} {literal.children} !="
-                        f" {old_literal.children}"
-                    )
-
-        return sorted(found.values())
+        return sorted(type_literals)
 
     def _get_sortable_type_defs(self) -> set[TypeDefSortable]:
         result: set[TypeDefSortable] = set()
         for type_annotation in self.iterate_types():
-            if not isinstance(type_annotation, TypeTypedDict):
+            if not isinstance(type_annotation, TypeDefSortable):
+                continue
+            if not type_annotation.is_type_def():
                 continue
             result.add(type_annotation)
 
@@ -253,13 +241,9 @@ class ServicePackage(Package):
             return []
 
         import_records: set[ImportRecord] = set()
-        import_records.add(TypeTypedDict.get_typing_import_record())
-        for typed_dict in self.type_defs:
-            if typed_dict.replace_with_dict:
-                import_records.add(Type.Any.get_import_record())
-                import_records.add(Type.Dict.get_import_record())
-
-            for type_annotation in typed_dict.get_children_types():
+        for type_def in self.type_defs:
+            import_records.update(type_def.get_typing_import_records())
+            for type_annotation in type_def.get_children_types():
                 import_record = type_annotation.get_import_record()
                 if not import_record or import_record.is_builtins():
                     continue
@@ -277,7 +261,7 @@ class ServicePackage(Package):
         Get import records for `literals.py[i]`.
         """
         import_records: set[ImportRecord] = set()
-        import_records.add(TypeLiteral.get_typing_import_record())
+        import_records.add(Type.Literal.get_import_record())
         self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
@@ -335,10 +319,3 @@ class ServicePackage(Package):
         Get link to local docs.
         """
         return super().get_local_doc_link(self.service_name)
-
-    @property
-    def typed_dicts(self) -> list[TypeTypedDict]:
-        """
-        Get all typed dicts.
-        """
-        return [i for i in self.type_defs if isinstance(i, TypeTypedDict)]

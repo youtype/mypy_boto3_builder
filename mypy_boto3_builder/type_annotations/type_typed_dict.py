@@ -136,12 +136,17 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         """
         return f"{self}: {', '.join([c.render() for c in self.children])}"
 
-    @staticmethod
-    def get_typing_import_record() -> ImportRecord:
+    def get_typing_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using TypedDict.
         """
-        return Type.TypedDict.get_import_record()
+        if self.replace_with_dict:
+            return {
+                Type.Dict.get_import_record(),
+                Type.Any.get_import_record(),
+            }
+
+        return {Type.TypedDict.get_import_record()}
 
     def get_import_record(self) -> ImportRecord:
         """
@@ -264,24 +269,24 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
 
         return result
 
-    def get_children_literals(self: _R, processed: Iterable[_R] = ()) -> set[TypeLiteral]:
+    def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLiteral]:
         """
         Extract required TypeLiteral list from attributes.
         """
         result: set[TypeLiteral] = set()
-        if self in processed:
+        if self.name in processed:
             return result
         children_types = self.get_children_types()
         for type_annotation in children_types:
             if isinstance(type_annotation, TypeLiteral):
                 result.add(type_annotation)
-            if isinstance(type_annotation, TypeTypedDict):
-                result.update(type_annotation.get_children_literals((self, *processed)))
+            if isinstance(type_annotation, TypeDefSortable):
+                result.update(type_annotation.get_children_literals((self.name, *processed)))
         return result
 
     def replace_self_references(self) -> None:
         """
-        Replace self refenrences with `Dict[str, Any]` to avoid circular dependencies.
+        Replace self references with `Dict[str, Any]` to avoid circular dependencies.
         """
         for child in self.get_children_typed_dicts():
             if child is self:
@@ -325,3 +330,15 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
             if child.type_annotation.get_local_types():
                 result.append(child.type_annotation)
         return result
+
+    def is_type_def(self) -> bool:
+        """
+        Whether type annotation is a TypeDef.
+        """
+        return True
+
+    def is_union(self) -> bool:
+        """
+        Whether type annotation is a TypeUnion.
+        """
+        return False

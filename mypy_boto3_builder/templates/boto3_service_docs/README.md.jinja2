@@ -111,69 +111,9 @@ def get_collection() -> {{ package.service_resource.collections[0].name }}:
 {% endfor %}
 {% endif %}
 
-{% if package.service_resource.sub_resources %}
-### Resources
-
-Type annotations and code completion for additional resources
-from `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").*`.
-
-```python
-# {{ package.service_resource.sub_resources[0].name }} usage example
-
-from {{ package.library_name }}.session import Session
-
-from {{ package.name }}.service_resource import {{ package.service_resource.sub_resources[0].name }}
-
-def get_resource() -> {{ package.service_resource.sub_resources[0].name }}:
-    return Session().resource("{{ service_name.boto3_name }}").{{ package.service_resource.sub_resources[0].name }}(...)
-```
-
-{% for sub_resource in package.service_resource.sub_resources -%}
-- [{{ sub_resource.name }}]({{ service_name.get_md_doc_link('service_resource', sub_resource.name) }}){{ '\n' -}}
-{% endfor %}
-{% endif %}
+{% include "common/service_docs/readme_resources.md.jinja2" with context %}
 {% endif %}
 
-{% if package.literals %}
-## Literals
+{% include "common/service_docs/readme_literals.md.jinja2" with context %}
 
-Type annotations for [literals]({{ service_name.get_md_doc_link('literals') }}) used in methods and schemas.
-
-```python
-# {{ package.literals[0].name }} usage example
-
-from {{ package.name }}.literals import {{ package.literals[0].name }}
-
-def get_value() -> {{ package.literals[0].name }}:
-    return "{{ sorted(package.literals[0].children)[0] }}"
-```
-
-{% for literal in package.literals -%}
-- [{{ literal.name }}]({{ service_name.get_md_doc_link('literals', literal.name) }}){{ '\n' -}}
-{% endfor %}
-{% endif %}
-
-{% if package.typed_dicts %}
-## Typed dictionaries
-
-Type annotations for [typed dictionaries]({{ service_name.get_md_doc_link('type_defs') }}) used in methods and schema.
-
-```python
-# {{ package.typed_dicts[0].name }} usage example
-
-from {{ package.name }}.type_defs import {{ package.typed_dicts[0].name }}
-
-def get_value() -> {{ package.typed_dicts[0].name }}:
-    {{ 'return {' -}}
-    {% with atrributes=package.typed_dicts[0].get_required() or package.typed_dicts[0].get_optional()[:1] -%}
-        {% for atrribute in atrributes -%}
-            {{ '\n        "' -}}{{ atrribute.name -}}{{ '": ...,' -}}
-        {% endfor -%}
-    {% endwith -%}
-    {{ '\n    }\n' -}}
-```
-
-{% for typed_dict in package.typed_dicts -%}
-- [{{ typed_dict.name }}]({{ service_name.get_md_doc_link('type_defs', typed_dict.name) }}){{ '\n' -}}
-{% endfor %}
-{% endif %}
+{% include "common/service_docs/readme_type_defs.md.jinja2" with context %}

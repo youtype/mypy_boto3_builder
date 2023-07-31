@@ -1,4 +1,1 @@
-"""
-Source of truth for version.
-"""
-__version__ = "{{ package.version }}"
+{% include "common/service/version.py.jinja2" with context %}

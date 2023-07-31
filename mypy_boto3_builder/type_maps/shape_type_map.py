@@ -3,86 +3,19 @@ String to type annotation map to replace overriden botocore shapes.
 """
 from collections.abc import Iterable
 
-from botocore.response import StreamingBody
-
 from mypy_boto3_builder.constants import ALL
-from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
-from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
-from mypy_boto3_builder.type_annotations.type_union import TypeUnion
-from mypy_boto3_builder.type_maps.typed_dicts import response_metadata_type
-
-# FIXME: a hack to avoid cicular TypedDict in dynamodb package
-TableAttributeValueType = TypeUnion(
-    [
-        Type.bytes,
-        Type.bytearray,
-        Type.str,
-        Type.int,
-        Type.Decimal,
-        Type.bool,
-        TypeSubscript(Type.Set, [Type.int]),
-        TypeSubscript(Type.Set, [Type.Decimal]),
-        TypeSubscript(Type.Set, [Type.str]),
-        TypeSubscript(Type.Set, [Type.bytes]),
-        TypeSubscript(Type.Set, [Type.bytearray]),
-        Type.SequenceAny,
-        Type.MappingStrAny,
-        Type.none,
-    ],
+from mypy_boto3_builder.type_maps.named_unions import (
+    BlobTypeDef,
+    StreamingBodyType,
+    TableAttributeValueTypeDef,
+    TimestampTypeDef,
+    UniversalAttributeValueTypeDef,
 )
+from mypy_boto3_builder.type_maps.typed_dicts import GetTemplateOutputTypeDef
 
-AttributeValueTypeDef: TypeTypedDict = TypeTypedDict(
-    "AttributeValueTypeDef",
-    [
-        TypedDictAttribute("S", Type.str, False),
-        TypedDictAttribute("N", Type.str, False),
-        TypedDictAttribute("B", Type.bytes, False),
-        TypedDictAttribute("SS", TypeSubscript(Type.Sequence, [Type.str]), False),
-        TypedDictAttribute("NS", TypeSubscript(Type.Sequence, [Type.str]), False),
-        TypedDictAttribute("BS", TypeSubscript(Type.Sequence, [Type.bytes]), False),
-        TypedDictAttribute("M", Type.MappingStrAny, False),
-        TypedDictAttribute("L", Type.SequenceAny, False),
-        TypedDictAttribute("NULL", Type.bool, False),
-        TypedDictAttribute("BOOL", Type.bool, False),
-    ],
-)
-
-
-GetTemplateOutputTypeDef = TypeTypedDict(
-    "GetTemplateOutputTypeDef",
-    [
-        TypedDictAttribute("TemplateBody", Type.DictStrAny, True),
-        TypedDictAttribute(
-            "StagesAvailable",
-            TypeSubscript(
-                Type.List,
-                [
-                    ExternalImport(
-                        ImportString.parent() + ImportString(ServiceModuleName.literals.value),
-                        "TemplateStageType",
-                    )
-                ],
-            ),
-            True,
-        ),
-        TypedDictAttribute("ResponseMetadata", response_metadata_type, True),
-    ],
-)
-
-UniversalAttributeValueTypeDef = TypeUnion(
-    [
-        AttributeValueTypeDef,
-        *TableAttributeValueType.children,
-    ],
-)
-
-StreamingBodyType = ExternalImport.from_class(StreamingBody)
 ShapeTypeMap = dict[ServiceName, dict[str, dict[str, FakeAnnotation]]]
 
 SHAPE_TYPE_MAP: ShapeTypeMap = {
@@ -93,9 +26,9 @@ SHAPE_TYPE_MAP: ShapeTypeMap = {
             "boolean": Type.bool,
             "double": Type.float,
             "float": Type.float,
-            "timestamp": TypeUnion([Type.datetime, Type.str]),
-            "blob": TypeUnion([Type.str, Type.bytes, Type.IOAny, StreamingBodyType]),
-            "blob_streaming": TypeUnion([Type.str, Type.bytes, Type.IOAny, StreamingBodyType]),
+            "timestamp": TimestampTypeDef,
+            "blob": BlobTypeDef,
+            "blob_streaming": BlobTypeDef,
         }
     },
     ServiceNameCatalog.dynamodb: {
@@ -104,10 +37,10 @@ SHAPE_TYPE_MAP: ShapeTypeMap = {
             "ConditionExpressionTypeDef": Type.bool,
         },
         "ServiceResource": {
-            "AttributeValueTypeDef": TableAttributeValueType,
+            "AttributeValueTypeDef": TableAttributeValueTypeDef,
         },
         "Table": {
-            "AttributeValueTypeDef": TableAttributeValueType,
+            "AttributeValueTypeDef": TableAttributeValueTypeDef,
         },
     },
 }
@@ -122,7 +55,7 @@ OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
     },
     ServiceNameCatalog.dynamodb: {
         ALL: {
-            "AttributeValueTypeDef": AttributeValueTypeDef,
+            "AttributeValueTypeDef": TableAttributeValueTypeDef,
         },
     },
     # FIXME: botocore processes TemplateBody with json_decode_template_body

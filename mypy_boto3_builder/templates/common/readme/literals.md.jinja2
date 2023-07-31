@@ -1,0 +1,16 @@
+
+{% if package.literals %}
+### Literals
+
+`{{ package.name }}.literals` module contains literals extracted from shapes
+that can be used in user code for type checking.
+
+```python
+from {{ package.name }}.literals import (
+{% for literal in package.literals %}    {{ literal.name }},{{ '' if loop.last else '\n' }}{% endfor %}
+)
+
+def check_value(value: {{ package.literals[0].name }}) -> bool:
+    ...
+```
+{% endif -%}

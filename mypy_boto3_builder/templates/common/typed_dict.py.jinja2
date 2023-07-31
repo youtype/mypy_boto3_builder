@@ -1,53 +1,53 @@
-{% if typed_dict.has_both() -%}
+{% if type_def.has_both() -%}
     {{ '_Required' -}}
-    {{ typed_dict.name -}}
+    {{ type_def.name -}}
     {{ ' = TypedDict("' -}}
     {{ '_Required' -}}
-    {{ typed_dict.name -}}
+    {{ type_def.name -}}
     {{ '", {' -}}
-    {% for child in typed_dict.get_required() -%}
+    {% for child in type_def.get_required() -%}
         {{ '"' -}}
         {{ child.name -}}
         {{ '": ' -}}
-        {{ child.type_annotation.render(typed_dict.name) -}}
+        {{ child.type_annotation.render(type_def.name) -}}
         {{ ", " -}}
     {% endfor -%}
     {{ "})\n" -}}
     {{ '_Optional' -}}
-    {{ typed_dict.name -}}
+    {{ type_def.name -}}
     {{ ' = TypedDict("' -}}
     {{ '_Optional' -}}
-    {{ typed_dict.name -}}
+    {{ type_def.name -}}
     {{ '", {' -}}
-    {% for child in typed_dict.get_optional() -%}
+    {% for child in type_def.get_optional() -%}
         {{ '"' -}}
         {{ child.name -}}
         {{ '": ' -}}
-        {{ child.type_annotation.render(typed_dict.name) -}}
+        {{ child.type_annotation.render(type_def.name) -}}
         {{ ", " -}}
     {% endfor -%}
     {{ "}, total=False)\n" -}}
 
     {{ 'class ' -}}
-    {{ typed_dict.name -}}
+    {{ type_def.name -}}
     {{ '(' -}}
-    {{ '_Required' -}}{{ typed_dict.name -}}
-    {{ ', _Optional' -}}{{ typed_dict.name -}}
+    {{ '_Required' -}}{{ type_def.name -}}
+    {{ ', _Optional' -}}{{ type_def.name -}}
     {{ '):\n    pass\n' -}}
 {% else -%}
-    {{ typed_dict.name -}}
+    {{ type_def.name -}}
     {{ ' = TypedDict("' -}}
-    {{ typed_dict.name -}}
+    {{ type_def.name -}}
     {{ '", {' -}}
-    {% for child in typed_dict.children -%}
+    {% for child in type_def.children -%}
         {{ '"' -}}
         {{ child.name -}}
         {{ '": ' -}}
-        {{ child.type_annotation.render(typed_dict.name) -}}
+        {{ child.type_annotation.render(type_def.name) -}}
         {{ ", " -}}
     {% endfor -%}
     {{ "}" -}}
-    {% if typed_dict.has_optional() -%}
+    {% if type_def.has_optional() -%}
         {{ ", total=False" -}}
     {% endif -%}
     {{ ")\n" -}}

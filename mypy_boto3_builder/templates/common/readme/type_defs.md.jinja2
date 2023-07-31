@@ -1,0 +1,16 @@
+{% if package.type_defs %}
+### Type definitions
+
+`{{ package.name }}.type_defs` module contains structures and shapes assembled
+to typed dictionaries and unions for additional type checking.
+
+```python
+from {{ package.name }}.type_defs import {% for type_def in package.type_defs %}{{ type_def.name }}{{ '' if loop.last else ',' }}{% endfor %}
+
+def get_value() -> {{ package.type_defs[0].name }}:
+    return {
+      ...
+    }
+```
+
+{% endif -%}

@@ -4,7 +4,7 @@ from mypy_boto3_builder.utils.strings import (
     get_anchor_link,
     get_class_prefix,
     get_short_docstring,
-    get_typed_dict_name,
+    get_type_def_name,
     is_reserved,
 )
 
@@ -47,9 +47,9 @@ class TestStrings:
                 __ action and ensure that the parts list is empty.
                 """) == "This action aborts a multipart upload."
 
-    def test_get_typed_dict_name(self) -> None:
-        assert get_typed_dict_name("MyClass", "my_method") == "MyClassMyMethodTypeDef"
-        assert get_typed_dict_name("my_func") == "MyFuncTypeDef"
+    def test_get_type_def_name(self) -> None:
+        assert get_type_def_name("MyClass", "my_method") == "MyClassMyMethodTypeDef"
+        assert get_type_def_name("my_func") == "MyFuncTypeDef"
 
         with pytest.raises(ValueError):
-            get_typed_dict_name()
+            get_type_def_name()

@@ -46,13 +46,13 @@ from mypy_boto3_builder.type_maps.shape_type_map import (
     get_shape_type_stub,
 )
 from mypy_boto3_builder.type_maps.typed_dicts import (
-    empty_response_metadata_type,
-    paginator_config_type,
-    response_metadata_type,
-    waiter_config_type,
+    EmptyResponseMetadataTypeDef,
+    PaginatorConfigTypeDef,
+    ResponseMetadataTypeDef,
+    WaiterConfigTypeDef,
 )
 from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
-from mypy_boto3_builder.utils.strings import get_typed_dict_name
+from mypy_boto3_builder.utils.strings import get_type_def_name
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
 
@@ -78,6 +78,7 @@ class ShapeParser:
         self.service_name = service_name
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
         self._resource_name: str = ""
+        self._type_literal_map: dict[str, TypeLiteral] = {}
         self._typed_dict_map: dict[str, TypeTypedDict] = {}
         self._output_typed_dict_map: dict[str, TypeTypedDict] = {}
         self._response_typed_dict_map: dict[str, TypeTypedDict] = {}
@@ -275,7 +276,7 @@ class ShapeParser:
                 "Client", method_name, operation_model.output_shape
             )
             if return_type is Type.none:
-                return_type = empty_response_metadata_type
+                return_type = EmptyResponseMetadataTypeDef
 
             method = Method(name=method_name, arguments=arguments, return_type=return_type)
             if operation_model.input_shape:
@@ -287,18 +288,39 @@ class ShapeParser:
 
     @staticmethod
     def _get_typed_dict_name(shape: Shape, postfix: str = "") -> str:
-        return get_typed_dict_name(shape.name, postfix)
+        return get_type_def_name(shape.name, postfix)
+
+    @staticmethod
+    def _get_literal_name(shape: StringShape) -> str:
+        # FIXME: hack for APIGWv2
+        if shape.name == "__string":
+            children_name = "".join(sorted(f"{i[0].upper()}{i[1:]}" for i in shape.enum))
+            return f"{children_name}Type"
+
+        name = shape.name.lstrip("_")
+        name = f"{name}Type"
+        return name
 
     def _parse_shape_string(self, shape: StringShape) -> FakeAnnotation:
         if not shape.enum:
             return Type.str
 
-        literal_name = f"{shape.name}Type"
+        children = list(shape.enum)
+        literal_name = self._get_literal_name(shape)
         literal_type_stub = get_literal_type_stub(self.service_name, literal_name)
-        if literal_type_stub:
-            return TypeLiteral(literal_name, literal_type_stub)
+        children = literal_type_stub if literal_type_stub else list(shape.enum)
+        type_literal = TypeLiteral(literal_name, children)
+        if literal_name in self._type_literal_map:
+            old_type_literal = self._type_literal_map[literal_name]
+            if not type_literal.is_same(old_type_literal):
+                raise ValueError(
+                    f"Literal {literal_name} has different values: {old_type_literal.children} vs"
+                    f" {type_literal.children}"
+                )
+            return old_type_literal
 
-        return TypeLiteral(literal_name, list(shape.enum))
+        self._type_literal_map[literal_name] = type_literal
+        return type_literal
 
     def _parse_shape_map(
         self,
@@ -374,7 +396,7 @@ class ShapeParser:
         if "ResponseMetadata" not in child_names:
             typed_dict.add_attribute(
                 "ResponseMetadata",
-                response_metadata_type,
+                ResponseMetadataTypeDef,
                 True,
             )
 
@@ -521,7 +543,7 @@ class ShapeParser:
                 exclude_names=skip_argument_names,
             )
             shape_arguments.append(
-                Argument("PaginationConfig", paginator_config_type, Type.Ellipsis)
+                Argument("PaginationConfig", PaginatorConfigTypeDef, Type.Ellipsis)
             )
             arguments.extend(self._get_kw_flags("paginate", shape_arguments))
             arguments.extend(shape_arguments)
@@ -564,7 +586,7 @@ class ShapeParser:
             shape_arguments = self._parse_arguments(
                 "Waiter", "wait", operation_name, operation_shape.input_shape
             )
-            shape_arguments.append(Argument("WaiterConfig", waiter_config_type, Type.Ellipsis))
+            shape_arguments.append(Argument("WaiterConfig", WaiterConfigTypeDef, Type.Ellipsis))
             arguments.extend(self._get_kw_flags("wait", shape_arguments))
             arguments.extend(shape_arguments)
 
@@ -836,7 +858,7 @@ class ShapeParser:
         return None
 
     def _get_non_clashing_typed_dict_name(self, typed_dict: TypeTypedDict, postfix: str) -> str:
-        new_typed_dict_name = get_typed_dict_name(
+        new_typed_dict_name = get_type_def_name(
             self._get_typed_dict_name_prefix(typed_dict.name), postfix
         )
         clashing_typed_dict = self._get_typed_dict(
@@ -946,7 +968,13 @@ class ShapeParser:
                             f"Adding output shape to {method.name} {argument.name} type:"
                             f" {input_typed_dict.name} | {output_typed_dict.name}"
                         )
-                        argument.type_annotation = TypeUnion([input_typed_dict, output_typed_dict])
+                        union_name = get_type_def_name(
+                            self._get_typed_dict_name_prefix(input_typed_dict.name), "Union"
+                        )
+                        argument.type_annotation = TypeUnion(
+                            name=union_name,
+                            children=[input_typed_dict, output_typed_dict],
+                        )
                         continue
                     if isinstance(argument.type_annotation, TypeSubscript):
                         parent = argument.type_annotation.find_type_annotation_parent(
@@ -957,8 +985,14 @@ class ShapeParser:
                                 f"Adding output shape to {method.name} {argument.name} type:"
                                 f" {input_typed_dict.name} | {output_typed_dict.name}"
                             )
+                            union_name = get_type_def_name(
+                                self._get_typed_dict_name_prefix(input_typed_dict.name), "Union"
+                            )
                             parent.replace_child(
                                 input_typed_dict,
-                                TypeUnion([input_typed_dict, output_typed_dict]),
+                                TypeUnion(
+                                    name=union_name,
+                                    children=[input_typed_dict, output_typed_dict],
+                                ),
                             )
                             continue
