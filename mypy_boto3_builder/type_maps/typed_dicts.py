@@ -115,7 +115,7 @@ PolicyDocumentStatementTypeDef = TypeTypedDict(
 )
 
 PolicyDocumentTypeDef = TypeTypedDict(
-    "PolicyDocumentFixedTypeDef",
+    "PolicyDocumentTypeDef",
     [
         TypedDictAttribute("Version", Type.str, True),
         TypedDictAttribute(
