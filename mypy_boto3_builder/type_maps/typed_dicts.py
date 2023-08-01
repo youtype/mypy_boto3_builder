@@ -6,23 +6,7 @@ from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
-
-CopySourceTypeDef = TypeTypedDict(
-    "CopySourceTypeDef",
-    [
-        TypedDictAttribute("Bucket", Type.str, True),
-        TypedDictAttribute("Key", Type.str, True),
-        TypedDictAttribute("VersionId", Type.str, False),
-    ],
-)
-
-TagTypeDef = TypeTypedDict(
-    "TagTypeDef",
-    [
-        TypedDictAttribute("Key", Type.str, False),
-        TypedDictAttribute("Value", Type.str, False),
-    ],
-)
+from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 
 WaiterConfigTypeDef = TypeTypedDict(
     "WaiterConfigTypeDef",
@@ -52,6 +36,27 @@ ResponseMetadataTypeDef = TypeTypedDict(
     ],
 )
 
+# s3
+CopySourceTypeDef = TypeTypedDict(
+    "CopySourceTypeDef",
+    [
+        TypedDictAttribute("Bucket", Type.str, True),
+        TypedDictAttribute("Key", Type.str, True),
+        TypedDictAttribute("VersionId", Type.str, False),
+    ],
+)
+
+# ec2
+TagTypeDef = TypeTypedDict(
+    "TagTypeDef",
+    [
+        TypedDictAttribute("Key", Type.str, False),
+        TypedDictAttribute("Value", Type.str, False),
+    ],
+)
+
+
+# dynamodb
 EmptyResponseMetadataTypeDef = TypeTypedDict(
     "EmptyResponseMetadataTypeDef",
     [
@@ -59,6 +64,7 @@ EmptyResponseMetadataTypeDef = TypeTypedDict(
     ],
 )
 
+# dynamodb
 AttributeValueTypeDef: TypeTypedDict = TypeTypedDict(
     "AttributeValueTypeDef",
     [
@@ -75,7 +81,7 @@ AttributeValueTypeDef: TypeTypedDict = TypeTypedDict(
     ],
 )
 
-
+# cloudformation
 GetTemplateOutputTypeDef = TypeTypedDict(
     "GetTemplateOutputTypeDef",
     [
@@ -89,5 +95,41 @@ GetTemplateOutputTypeDef = TypeTypedDict(
             True,
         ),
         TypedDictAttribute("ResponseMetadata", ResponseMetadataTypeDef, True),
+    ],
+)
+
+# iam
+# FIXME: https://github.com/boto/botocore/issues/2992
+PolicyDocumentStatementTypeDef = TypeTypedDict(
+    "PolicyDocumentStatementTypeDef",
+    [
+        TypedDictAttribute("Effect", Type.str, True),
+        TypedDictAttribute(
+            "Resource", TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))), True
+        ),
+        TypedDictAttribute("Sid", Type.str, True),
+        TypedDictAttribute(
+            "Action", TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))), True
+        ),
+    ],
+)
+
+PolicyDocumentTypeDef = TypeTypedDict(
+    "PolicyDocumentFixedTypeDef",
+    [
+        TypedDictAttribute("Version", Type.str, True),
+        TypedDictAttribute(
+            "Statement", TypeSubscript(Type.List, [PolicyDocumentStatementTypeDef]), True
+        ),
+    ],
+)
+
+PolicyVersionTypeDef = TypeTypedDict(
+    "PolicyVersionTypeDef",
+    [
+        TypedDictAttribute("Document", PolicyDocumentTypeDef, False),
+        TypedDictAttribute("VersionId", Type.str, False),
+        TypedDictAttribute("IsDefaultVersion", Type.bool, False),
+        TypedDictAttribute("CreateDate", Type.datetime, False),
     ],
 )
