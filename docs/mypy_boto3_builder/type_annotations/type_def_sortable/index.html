@@ -3144,21 +3144,21 @@ TypeDefSortable</p>
 <p>Auto-generated documentation for <a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py">mypy_boto3_builder.type_annotations.type_def_sortable</a> module.</p>
 </blockquote>
 <h2 id="typedefsortable_1">TypeDefSortable<a class="headerlink" href="#typedefsortable_1" title="Permanent link">#</a></h2>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L15">Show source in type_def_sortable.py:15</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L13">Show source in type_def_sortable.py:13</a></p>
 <p>Sortable protocol for TypeDefSorter.</p>
 <h4 id="signature">Signature<a class="headerlink" href="#signature" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span> <span class="nc">TypeDefSortable</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typedefsortabledebug_render">TypeDefSortable().debug_render<a class="headerlink" href="#typedefsortabledebug_render" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L53">Show source in type_def_sortable.py:53</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L51">Show source in type_def_sortable.py:51</a></p>
 <p>Render type annotation for debug purposes.</p>
 <h4 id="signature_1">Signature<a class="headerlink" href="#signature_1" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">debug_render</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typedefsortableget_children_literals">TypeDefSortable().get_children_literals<a class="headerlink" href="#typedefsortableget_children_literals" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L59">Show source in type_def_sortable.py:59</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L57">Show source in type_def_sortable.py:57</a></p>
 <p>Extract required TypeLiteral list from attributes.</p>
 <h4 id="signature_2">Signature<a class="headerlink" href="#signature_2" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">get_children_literals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processed</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">TypeLiteral</span><span class="p">]:</span>
@@ -3169,7 +3169,7 @@ TypeDefSortable</p>
 <li><a href="../type_literal/#typeliteral">TypeLiteral</a></li>
 </ul>
 <h3 id="typedefsortableget_children_types">TypeDefSortable().get_children_types<a class="headerlink" href="#typedefsortableget_children_types" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L47">Show source in type_def_sortable.py:47</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L45">Show source in type_def_sortable.py:45</a></p>
 <p>Extract required type annotations from attributes.</p>
 <h4 id="signature_3">Signature<a class="headerlink" href="#signature_3" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">get_children_types</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">FakeAnnotation</span><span class="p">]:</span>
@@ -3180,14 +3180,14 @@ TypeDefSortable</p>
 <li><a href="../fake_annotation/#fakeannotation">FakeAnnotation</a></li>
 </ul>
 <h3 id="typedefsortableget_sortable_children">TypeDefSortable().get_sortable_children<a class="headerlink" href="#typedefsortableget_sortable_children" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L29">Show source in type_def_sortable.py:29</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L27">Show source in type_def_sortable.py:27</a></p>
 <p>Extract required sortable TypeDef list from attributes.</p>
 <h4 id="signature_4">Signature<a class="headerlink" href="#signature_4" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">get_sortable_children</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="s2">&quot;TypeDefSortable&quot;</span><span class="p">]:</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typedefsortableget_typing_import_records">TypeDefSortable().get_typing_import_records<a class="headerlink" href="#typedefsortableget_typing_import_records" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L78">Show source in type_def_sortable.py:78</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L76">Show source in type_def_sortable.py:76</a></p>
 <p>Get import record required for using TypeAnnotation.</p>
 <h4 id="signature_5">Signature<a class="headerlink" href="#signature_5" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">get_typing_import_records</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">ImportRecord</span><span class="p">]:</span>
@@ -3198,56 +3198,56 @@ TypeDefSortable</p>
 <li><a href="../../import_helpers/import_record/#importrecord">ImportRecord</a></li>
 </ul>
 <h3 id="typedefsortableis_stringified">TypeDefSortable().is_stringified<a class="headerlink" href="#typedefsortableis_stringified" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L35">Show source in type_def_sortable.py:35</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L33">Show source in type_def_sortable.py:33</a></p>
 <p>Whether TypeDef usage should be rendered as a string.</p>
 <h4 id="signature_6">Signature<a class="headerlink" href="#signature_6" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span> <span class="nf">is_stringified</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typedefsortableis_type_def">TypeDefSortable().is_type_def<a class="headerlink" href="#typedefsortableis_type_def" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L65">Show source in type_def_sortable.py:65</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L63">Show source in type_def_sortable.py:63</a></p>
 <p>Whether type annotation is a TypeDef.</p>
 <h4 id="signature_7">Signature<a class="headerlink" href="#signature_7" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">is_type_def</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typedefsortableis_typed_dict">TypeDefSortable().is_typed_dict<a class="headerlink" href="#typedefsortableis_typed_dict" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L84">Show source in type_def_sortable.py:84</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L82">Show source in type_def_sortable.py:82</a></p>
 <p>Whether type annotation is a TypedDict.</p>
 <h4 id="signature_8">Signature<a class="headerlink" href="#signature_8" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">is_typed_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typedefsortableis_union">TypeDefSortable().is_union<a class="headerlink" href="#typedefsortableis_union" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L90">Show source in type_def_sortable.py:90</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L88">Show source in type_def_sortable.py:88</a></p>
 <p>Whether type annotation is a TypeUnion.</p>
 <h4 id="signature_9">Signature<a class="headerlink" href="#signature_9" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span> <span class="nf">is_union</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typedefsortableiterate_children">TypeDefSortable().iterate_children<a class="headerlink" href="#typedefsortableiterate_children" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L102">Show source in type_def_sortable.py:102</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L100">Show source in type_def_sortable.py:100</a></p>
 <p>Iterate over children.</p>
 <h4 id="signature_10">Signature<a class="headerlink" href="#signature_10" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span> <span class="nf">iterate_children</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typedefsortablereplace_self_references">TypeDefSortable().replace_self_references<a class="headerlink" href="#typedefsortablereplace_self_references" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L96">Show source in type_def_sortable.py:96</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L94">Show source in type_def_sortable.py:94</a></p>
 <p>Replace self references with <code>Dict[str, Any]</code> to avoid circular dependencies.</p>
 <h4 id="signature_11">Signature<a class="headerlink" href="#signature_11" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span> <span class="nf">replace_self_references</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typedefsortablestringify">TypeDefSortable().stringify<a class="headerlink" href="#typedefsortablestringify" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L41">Show source in type_def_sortable.py:41</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L39">Show source in type_def_sortable.py:39</a></p>
 <p>Render TypeDef usage as a string.</p>
 <h4 id="signature_12">Signature<a class="headerlink" href="#signature_12" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span> <span class="nf">stringify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typedefsortabletype_hint_annotations">TypeDefSortable().type_hint_annotations<a class="headerlink" href="#typedefsortabletype_hint_annotations" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L71">Show source in type_def_sortable.py:71</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L69">Show source in type_def_sortable.py:69</a></p>
 <p>Type annotations list from arguments and return type with internal types.</p>
 <h4 id="signature_13">Signature<a class="headerlink" href="#signature_13" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nd">@property</span>
