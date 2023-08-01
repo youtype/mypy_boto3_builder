@@ -13,14 +13,16 @@
 {{ named_union.name }} = Union[
 {% for child in named_union.iterate_children() -%}
     {% with type_annotation=child -%}
+        {{ '    ' -}}
         {% include "common/type_annotation_code.md.jinja2" with context -%}
         {{ ',' -}}
-        {% if child.type_annotation in named_union.type_hint_annotations -%}
-            {{ '  # (' -}}{{ named_union.type_hint_annotations.index(child.type_annotation) + 1 -}}{{ ')' -}}
+        {% if child in named_union.type_hint_annotations -%}
+            {{ '  # (' -}}{{ named_union.type_hint_annotations.index(child) + 1 -}}{{ ')' -}}
         {% endif -%}
     {% endwith -%}
     {{ '\n' -}}
 {% endfor -%}
+{{ ']\n' -}}
 ```
 
 {% for type_annotation in named_union.type_hint_annotations -%}
@@ -28,6 +30,7 @@
 {% include "common/type_hint.md.jinja2" with context -%}
 {{ '\n' -}}
 {% endfor -%}
+{{ '\n' -}}
 
 {% endfor %}
 
