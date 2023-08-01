@@ -42,6 +42,10 @@ Do you want more? Check the [documentation](https://youtype.github.io/boto3_stub
 [![Publish types-awscrt](https://github.com/youtype/types-awscrt/actions/workflows/publish_on_update.yml/badge.svg)](https://github.com/youtype/types-awscrt/actions/workflows/publish_on_update.yml)
 [![Publish types-s3transfer](https://github.com/youtype/types-s3transfer/actions/workflows/publish_on_update.yml/badge.svg)](https://github.com/youtype/types-s3transfer/actions/workflows/publish_on_update.yml)
 
+[![Update boto3-stubs docs](https://github.com/youtype/boto3_stubs_docs/actions/workflows/update.yml/badge.svg)](https://github.com/youtype/boto3_stubs_docs/actions/workflows/update.yml)
+[![Update types-aiobotocore docs](https://github.com/youtype/types_aiobotocore_docs/actions/workflows/update.yml/badge.svg)](https://github.com/youtype/types_aiobotocore_docs/actions/workflows/update.yml)
+[![Update types-aioboto3 docs](https://github.com/youtype/types_aioboto3_docs/actions/workflows/update.yml/badge.svg)](https://github.com/youtype/types_aioboto3_docs/actions/workflows/update.yml)
+
 - [Boto3 type annotations generator](#boto3-type-annotations-generator)
   - [Using built libraries](#using-built-libraries)
     - [boto3](#boto3)
