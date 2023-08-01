@@ -9,7 +9,7 @@ Types Aioboto3 Package
 
 ## parse_types_aioboto3_package
 
-[Show source in types_aioboto3_package.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/types_aioboto3_package.py#L23)
+[Show source in types_aioboto3_package.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/types_aioboto3_package.py#L24)
 
 Parse data for types-aioboto3 package.
 

@@ -82,22 +82,22 @@ def get_short_docstring(doc: str) -> str:
 
 
 
-## get_typed_dict_name
+## get_type_def_name
 
 [Show source in strings.py:105](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L105)
 
-Get a valid Python TypedDict class name from `parts`.
+Get a valid Python TypeDef class name from `parts`.
 
 #### Examples
 
 ```python
-get_typed_dict_name("MyClass", "my_method")  # MyClassMyMethodTypeDef
+get_type_def_name("MyClass", "my_method")  # MyClassMyMethodTypeDef
 ```
 
 #### Signature
 
 ```python
-def get_typed_dict_name(*parts: str) -> str:
+def get_type_def_name(*parts: str) -> str:
     ...
 ```
 

@@ -9,7 +9,7 @@ Aiobotocore Stubs Package
 
 ## parse_aiobotocore_stubs_package
 
-[Show source in aiobotocore_stubs_package.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/aiobotocore_stubs_package.py#L24)
+[Show source in aiobotocore_stubs_package.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/aiobotocore_stubs_package.py#L25)
 
 Parse data for types-aiobotocore package.
 

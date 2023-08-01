@@ -14,5 +14,5 @@ Utils
 - [NicePath](./nice_path.md)
 - [PyPIManager](./pypi_manager.md)
 - [Strings](./strings.md)
-- [TypedDictSorter](./typed_dict_sorter.md)
+- [TypeDefSorter](./type_def_sorter.md)
 - [Version](./version.md)

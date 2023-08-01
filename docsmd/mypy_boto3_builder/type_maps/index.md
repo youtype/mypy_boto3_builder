@@ -12,6 +12,7 @@ Type Maps
 - [Argument Alias Map](./argument_alias_map.md)
 - [Literal Type Map](./literal_type_map.md)
 - [Method Type Map](./method_type_map.md)
+- [Named Unions](./named_unions.md)
 - [Service Stub Map](service_stub_map/index.md)
 - [Shape Type Map](./shape_type_map.md)
 - [Typed Dicts](./typed_dicts.md)

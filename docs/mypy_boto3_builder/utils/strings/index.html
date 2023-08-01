@@ -12,7 +12,7 @@
         <link rel="prev" href="../pypi_manager/">
       
       
-        <link rel="next" href="../typed_dict_sorter/">
+        <link rel="next" href="../type_def_sorter/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.1, mkdocs-material-9.1.21">
@@ -1654,6 +1654,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../type_annotations/type_def_sortable/" class="md-nav__link">
+        TypeDefSortable
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../type_annotations/type_literal/" class="md-nav__link">
         TypeLiteral
       </a>
@@ -1684,6 +1698,20 @@
     <li class="md-nav__item">
       <a href="../../type_annotations/type_typed_dict/" class="md-nav__link">
         TypeTypedDict
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../type_annotations/type_union/" class="md-nav__link">
+        TypeUnion
       </a>
     </li>
   
@@ -1802,6 +1830,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../type_maps/named_unions/" class="md-nav__link">
+        Named Unions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../type_maps/shape_type_map/" class="md-nav__link">
         Shape Type Map
       </a>
@@ -1837,17 +1879,17 @@
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_18_8" >
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_18_9" >
       
       
       
-        <label class="md-nav__link" for="__nav_3_18_8" id="__nav_3_18_8_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_18_9" id="__nav_3_18_9_label" tabindex="0">
           Service stub map
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_18_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3_18_8">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_18_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_18_9">
           <span class="md-nav__icon md-icon"></span>
           Service stub map
         </label>
@@ -2184,11 +2226,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get_typed_dict_name" class="md-nav__link">
-    get_typed_dict_name
+  <a href="#get_type_def_name" class="md-nav__link">
+    get_type_def_name
   </a>
   
-    <nav class="md-nav" aria-label="get_typed_dict_name">
+    <nav class="md-nav" aria-label="get_type_def_name">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2245,8 +2287,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../typed_dict_sorter/" class="md-nav__link">
-        TypedDictSorter
+      <a href="../type_def_sorter/" class="md-nav__link">
+        TypeDefSorter
       </a>
     </li>
   
@@ -2695,11 +2737,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get_typed_dict_name" class="md-nav__link">
-    get_typed_dict_name
+  <a href="#get_type_def_name" class="md-nav__link">
+    get_type_def_name
   </a>
   
-    <nav class="md-nav" aria-label="get_typed_dict_name">
+    <nav class="md-nav" aria-label="get_type_def_name">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2807,14 +2849,14 @@ Wraps docstring to 80 chars.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">get_short_docstring</span><span class="p">(</span><span class="n">doc</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="o">...</span>
 </code></pre></div>
-<h2 id="get_typed_dict_name">get_typed_dict_name<a class="headerlink" href="#get_typed_dict_name" title="Permanent link">#</a></h2>
+<h2 id="get_type_def_name">get_type_def_name<a class="headerlink" href="#get_type_def_name" title="Permanent link">#</a></h2>
 <p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L105">Show source in strings.py:105</a></p>
-<p>Get a valid Python TypedDict class name from <code>parts</code>.</p>
+<p>Get a valid Python TypeDef class name from <code>parts</code>.</p>
 <h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">get_typed_dict_name</span><span class="p">(</span><span class="s2">&quot;MyClass&quot;</span><span class="p">,</span> <span class="s2">&quot;my_method&quot;</span><span class="p">)</span>  <span class="c1"># MyClassMyMethodTypeDef</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">get_type_def_name</span><span class="p">(</span><span class="s2">&quot;MyClass&quot;</span><span class="p">,</span> <span class="s2">&quot;my_method&quot;</span><span class="p">)</span>  <span class="c1"># MyClassMyMethodTypeDef</span>
 </code></pre></div>
 <h4 id="signature_4">Signature<a class="headerlink" href="#signature_4" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">get_typed_dict_name</span><span class="p">(</span><span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">get_type_def_name</span><span class="p">(</span><span class="o">*</span><span class="n">parts</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h2 id="is_reserved">is_reserved<a class="headerlink" href="#is_reserved" title="Permanent link">#</a></h2>

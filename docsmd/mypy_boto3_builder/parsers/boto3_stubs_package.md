@@ -9,7 +9,7 @@ Boto3 Stubs Package
 
 ## parse_boto3_stubs_package
 
-[Show source in boto3_stubs_package.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/boto3_stubs_package.py#L26)
+[Show source in boto3_stubs_package.py:27](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/boto3_stubs_package.py#L27)
 
 Parse data for boto3-stubs package.
 

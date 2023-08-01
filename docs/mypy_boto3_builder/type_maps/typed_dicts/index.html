@@ -1654,6 +1654,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../type_annotations/type_def_sortable/" class="md-nav__link">
+        TypeDefSortable
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../type_annotations/type_literal/" class="md-nav__link">
         TypeLiteral
       </a>
@@ -1684,6 +1698,20 @@
     <li class="md-nav__item">
       <a href="../../type_annotations/type_typed_dict/" class="md-nav__link">
         TypeTypedDict
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../type_annotations/type_union/" class="md-nav__link">
+        TypeUnion
       </a>
     </li>
   
@@ -1802,6 +1830,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../named_unions/" class="md-nav__link">
+        Named Unions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../shape_type_map/" class="md-nav__link">
         Shape Type Map
       </a>
@@ -1825,9 +1867,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Typed Dicts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Typed Dicts
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1847,17 +1920,17 @@
       
         
       
-      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_18_8" >
+      <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_18_9" >
       
       
       
-        <label class="md-nav__link" for="__nav_3_18_8" id="__nav_3_18_8_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_18_9" id="__nav_3_18_9_label" tabindex="0">
           Service stub map
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_18_8_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3_18_8">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_18_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_18_9">
           <span class="md-nav__icon md-icon"></span>
           Service stub map
         </label>
@@ -2080,8 +2153,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../utils/typed_dict_sorter/" class="md-nav__link">
-        TypedDictSorter
+      <a href="../../utils/type_def_sorter/" class="md-nav__link">
+        TypeDefSorter
       </a>
     </li>
   
@@ -2429,6 +2502,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#attributes" class="md-nav__link">
+    Attributes
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2453,6 +2541,24 @@ Typed Dicts</p>
 <blockquote>
 <p>Auto-generated documentation for <a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/typed_dicts.py">mypy_boto3_builder.type_maps.typed_dicts</a> module.</p>
 </blockquote>
+<h4 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">#</a></h4>
+<ul>
+<li>
+<p><code>CopySourceTypeDef</code> - s3: <code>TypeTypedDict('CopySourceTypeDef', [TypedDictAttribute('Bucket', Type.str, True), TypedDictAttribute('Key', Type.str, True), TypedDictAttribute('VersionId', Type.str, False)])</code></p>
+</li>
+<li>
+<p><code>TagTypeDef</code> - ec2: <code>TypeTypedDict('TagTypeDef', [TypedDictAttribute('Key', Type.str, False), TypedDictAttribute('Value', Type.str, False)])</code></p>
+</li>
+<li>
+<p><code>EmptyResponseMetadataTypeDef</code> - dynamodb: <code>TypeTypedDict('EmptyResponseMetadataTypeDef', [TypedDictAttribute('ResponseMetadata', ResponseMetadataTypeDef, True)])</code></p>
+</li>
+<li>
+<p><code>GetTemplateOutputTypeDef</code> - cloudformation: <code>TypeTypedDict('GetTemplateOutputTypeDef', [TypedDictAttribute('TemplateBody', Type.DictStrAny, True), TypedDictAttribute('StagesAvailable', TypeSubscript(Type.List, [InternalImport(name='TemplateStageType', module_name=ServiceModuleName.literals)]), True), TypedDictAttribute('ResponseMetadata', ResponseMetadataTypeDef, True)])</code></p>
+</li>
+<li>
+<p><code>PolicyDocumentStatementTypeDef</code> - iam: <code>TypeTypedDict('PolicyDocumentStatementTypeDef', [TypedDictAttribute('Effect', Type.str, True), TypedDictAttribute('Resource', TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))), True), TypedDictAttribute('Sid', Type.str, True), TypedDictAttribute('Action', TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))), True)])</code></p>
+</li>
+</ul>
 
 
 

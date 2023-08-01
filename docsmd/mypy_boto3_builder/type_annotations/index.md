@@ -15,6 +15,8 @@ Type Annotations
 - [Type](./type.md)
 - [TypeAnnotation](./type_annotation.md)
 - [TypeConstant](./type_constant.md)
+- [TypeDefSortable](./type_def_sortable.md)
 - [TypeLiteral](./type_literal.md)
 - [TypeSubscript](./type_subscript.md)
 - [TypeTypedDict](./type_typed_dict.md)
+- [TypeUnion](./type_union.md)
