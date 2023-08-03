@@ -343,6 +343,13 @@ class ShapeParser:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
+    def _get_typed_dict_map(self, output: bool, output_child: bool) -> dict[str, TypeTypedDict]:
+        if output:
+            return self._response_typed_dict_map
+        if output_child:
+            self._output_typed_dict_map
+        return self._typed_dict_map
+
     def _parse_shape_structure(
         self,
         shape: StructureShape,
@@ -358,18 +365,13 @@ class ShapeParser:
         typed_dict_name = self._get_shape_type_name(shape)
         typed_dict = TypeTypedDict(typed_dict_name)
 
-        if output:
-            if typed_dict.name in self._response_typed_dict_map:
-                return self._response_typed_dict_map[typed_dict.name]
-            self._response_typed_dict_map[typed_dict.name] = typed_dict
-        elif output_child:
-            if typed_dict.name in self._output_typed_dict_map:
-                return self._output_typed_dict_map[typed_dict.name]
-            self._output_typed_dict_map[typed_dict.name] = typed_dict
-        else:
-            if typed_dict.name in self._typed_dict_map:
-                return self._typed_dict_map[typed_dict.name]
-            self._typed_dict_map[typed_dict.name] = typed_dict
+        typed_dict_map = self._get_typed_dict_map(output, output_child)
+        resource_typed_dict_name = self._get_typed_dict_name(shape, postfix=self.resource_name)
+        found_typed_dict = typed_dict_map.get(typed_dict.name)
+        found_resource_typed_dict = typed_dict_map.get(resource_typed_dict_name)
+
+        if found_resource_typed_dict:
+            return found_resource_typed_dict
 
         for attr_name, attr_shape in shape.members.items():
             typed_dict.add_attribute(
@@ -385,6 +387,13 @@ class ShapeParser:
         if output:
             self._mark_typed_dict_as_total(typed_dict)
             self._add_response_metadata(typed_dict)
+
+        if found_typed_dict and not typed_dict.is_same(found_typed_dict):
+            self.logger.debug(
+                f"Renaming conflicting {typed_dict.name} to {resource_typed_dict_name}"
+            )
+            typed_dict.name = resource_typed_dict_name
+        typed_dict_map[typed_dict.name] = typed_dict
         return typed_dict
 
     def _mark_typed_dict_as_total(self, typed_dict: TypeTypedDict) -> None:
