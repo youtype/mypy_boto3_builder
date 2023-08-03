@@ -5,10 +5,10 @@
 `{{ package.name }}.literals` module contains literals extracted from shapes
 that can be used in user code for type checking.
 
+Full list of `{{ service_name.class_name }}` Literals can be found in [docs]({{ package.get_doc_link('literals') }}).
+
 ```python
-from {{ package.name }}.literals import (
-{% for literal in package.literals %}    {{ literal.name }},{{ '' if loop.last else '\n' }}{% endfor %}
-)
+from {{ package.name }}.literals import {{ package.literals[0].name }}
 
 def check_value(value: {{ package.literals[0].name }}) -> bool:
     ...
