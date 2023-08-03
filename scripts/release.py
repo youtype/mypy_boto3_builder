@@ -8,11 +8,15 @@ import os
 import shutil
 import subprocess
 import sys
-import time
 from collections.abc import Iterator
 from contextlib import contextmanager
 from multiprocessing import Pool
 from pathlib import Path
+
+from requests import HTTPError
+from twine.commands.upload import upload
+from twine.exceptions import TwineException
+from twine.settings import Settings
 
 MASTER_PACKAGES = [
     "types_aiobotocore_package",
@@ -131,31 +135,33 @@ def publish(path: Path) -> Path:
     Publish to PyPI.
     """
     attempt = 1
+    dist_path = path / "dist"
+    packages = [i.as_posix() for i in dist_path.glob("*")]
+    logger = logging.getLogger(LOGGER_NAME)
     while attempt < MAX_RETRIES:
         try:
-            check_call(
-                [
-                    sys.executable,
-                    "-m",
-                    "twine",
-                    "upload",
-                    "--non-interactive",
-                    f"{path.as_posix()}/dist/*",
-                ],
-                print_error=False,
+            upload(
+                Settings(
+                    non_interactive=True,
+                    disable_progress_bar=True,
+                    skip_existing=True,
+                ),
+                packages,
             )
             return path
-        except subprocess.CalledProcessError as e:
-            logger = logging.getLogger(LOGGER_NAME)
-            if "File already exists" in e.output:
+        except TwineException as e:
+            logger.error(f"Configuration error while publishing {path.name}: {e}")
+            raise e
+        except HTTPError as e:
+            attempt += 1
+            response = e.response.text
+            if "File already exists" in response:
                 logger.info(f"Already published {path.name}")
                 return path
-            for line in e.output.splitlines():
-                logger.error(line)
 
-            attempt += 1
-            logger.warning(f"Retrying {path.name} {attempt} time in 10 seconds")
-            time.sleep(10)
+            logger.warning(f"Error while publishing {path.name}: {e}")
+            logger.warning(f"Response: {response}")
+            logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
 
     raise RuntimeError(f"Failed {path.name} after {attempt} attempts")
 
