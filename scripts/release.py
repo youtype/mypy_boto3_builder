@@ -142,6 +142,8 @@ def publish(path: Path) -> Path:
         try:
             upload(
                 Settings(
+                    username=os.getenv("PYPI_USERNAME"),
+                    password=os.getenv("PYPI_PASSWORD"),
                     non_interactive=True,
                     disable_progress_bar=True,
                     skip_existing=True,
