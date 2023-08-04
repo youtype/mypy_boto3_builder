@@ -15,7 +15,7 @@ from multiprocessing.pool import ThreadPool
 from pathlib import Path
 from unittest.mock import patch
 
-from requests import HTTPError
+from requests.exceptions import ConnectionError, HTTPError
 from twine.commands.upload import upload
 from twine.exceptions import TwineException
 from twine.settings import Settings
@@ -179,6 +179,7 @@ def publish(path: Path) -> Path:
                     packages,
                 )
             return path
+
         except TwineException as e:
             logger.error(f"Configuration error while publishing {path.name}: {e}")
             raise e
@@ -191,6 +192,10 @@ def publish(path: Path) -> Path:
 
             logger.warning(f"Error while publishing {path.name}: {e}")
             logger.warning(f"Response: {response}")
+            logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
+        except ConnectionError as e:
+            attempt += 1
+            logger.warning(f"Error while publishing {path.name}: {e}")
             logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
 
     raise RuntimeError(f"Failed {path.name} after {attempt} attempts")
