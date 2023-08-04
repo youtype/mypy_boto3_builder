@@ -21,6 +21,11 @@ on:
         required: false
         type: string
         default: ""
+      no_smart_version:
+        description: Use exact version provided in stubs_version
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   check-aioboto3-version:

@@ -31,6 +31,11 @@ on:
         required: false
         default: true
         type: boolean
+      no_smart_version:
+        description: Use exact version provided in stubs_version
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   check-boto3-version:

@@ -108,7 +108,9 @@ async function extractVersions() {
     const extraFlags = []
 
     const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : true
+    const noSmartVersion = context.payload.inputs ? context.payload.inputs.no_smart_version !== 'false' : true
     if (skipPublished) extraFlags.push('--skip-published')
+    if (noSmartVersion) extraFlags.push('--no-smart-version')
 
     core.info(`Extra flags = ${extraFlags}`)
     core.setOutput('extra-flags', extraFlags.join(' '))
@@ -181,7 +183,9 @@ async function extractAioBotocoreVersions() {
     const extraFlags = []
 
     const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : false
+    const noSmartVersion = context.payload.inputs ? context.payload.inputs.no_smart_version !== 'false' : true
     if (skipPublished) extraFlags.push('--skip-published')
+    if (noSmartVersion) extraFlags.push('--no-smart-version')
 
     core.info(`Extra flags = ${extraFlags}`)
     core.setOutput('extra-flags', extraFlags.join(' '))
