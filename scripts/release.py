@@ -11,7 +11,7 @@ import sys
 from collections.abc import Iterator
 from contextlib import contextmanager
 from dataclasses import dataclass
-from multiprocessing import Pool
+from multiprocessing.pool import Pool, ThreadPool
 from pathlib import Path
 from unittest.mock import patch
 
@@ -167,7 +167,7 @@ def publish(path: Path) -> Path:
     logger = logging.getLogger(LOGGER_NAME)
     while attempt < MAX_RETRIES:
         try:
-            with patch("twine.commands.upload.print"):
+            with patch("twine.repository.print"), patch("twine.commands.upload.print"):
                 upload(
                     Settings(
                         username=os.getenv("PYPI_USERNAME"),
@@ -265,7 +265,7 @@ def main() -> None:
                 )
 
     if not args.skip_publish:
-        with Pool(args.publish_threads) as pool:
+        with ThreadPool(processes=args.publish_threads) as pool:
             for index, path in enumerate(pool.imap(publish, service_paths)):
                 package_name = get_package_name(path)
                 version = get_version(path)
