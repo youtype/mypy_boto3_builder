@@ -373,6 +373,8 @@ class ShapeParser:
         if found_resource_typed_dict:
             return found_resource_typed_dict
 
+        typed_dict_map[resource_typed_dict_name] = typed_dict
+
         for attr_name, attr_shape in shape.members.items():
             typed_dict.add_attribute(
                 attr_name,
