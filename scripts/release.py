@@ -11,7 +11,7 @@ import sys
 from collections.abc import Iterator
 from contextlib import contextmanager
 from dataclasses import dataclass
-from multiprocessing.pool import Pool, ThreadPool
+from multiprocessing.pool import ThreadPool
 from pathlib import Path
 from unittest.mock import patch
 
@@ -256,7 +256,7 @@ def main() -> None:
     ]
 
     if not args.skip_build:
-        with Pool(args.threads) as pool:
+        with ThreadPool(args.threads) as pool:
             for index, path in enumerate(pool.imap(build, build_paths)):
                 package_name = get_package_name(path)
                 version = get_version(path)
