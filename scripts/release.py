@@ -10,8 +10,10 @@ import subprocess
 import sys
 from collections.abc import Iterator
 from contextlib import contextmanager
+from dataclasses import dataclass
 from multiprocessing import Pool
 from pathlib import Path
+from unittest.mock import patch
 
 from requests import HTTPError
 from twine.commands.upload import upload
@@ -42,6 +44,9 @@ def setup_logging(level: int) -> logging.Logger:
     Returns:
         Overriden Logger.
     """
+    logging.getLogger("twine").disabled = True
+    logging.getLogger("twine.commands.upload").disabled = True
+
     logger = logging.getLogger(LOGGER_NAME)
     stream_handler = logging.StreamHandler()
     formatter = logging.Formatter("%(levelname)s %(message)s", datefmt="%H:%M:%S")
@@ -52,7 +57,21 @@ def setup_logging(level: int) -> logging.Logger:
     return logger
 
 
-def parse_args() -> argparse.Namespace:
+@dataclass
+class CLINamespace:
+    """
+    CLI arguments.
+    """
+
+    path: Path
+    threads: int
+    publish_threads: int
+    filter: list[Path]
+    skip_build: bool
+    skip_publish: bool
+
+
+def parse_args() -> CLINamespace:
     """
     CLI parser.
     """
@@ -64,11 +83,19 @@ def parse_args() -> argparse.Namespace:
         default=Path().parent.parent / "mypy_boto3_output",
     )
     parser.add_argument("-t", "--threads", type=int, default=10)
-    parser.add_argument("-r", "--retries", type=int, default=5)
+    parser.add_argument("--publish-threads", type=int, default=3)
     parser.add_argument("-f", "--filter", nargs="+", type=Path, default=[])
     parser.add_argument("--skip-build", action="store_true")
     parser.add_argument("--skip-publish", action="store_true")
-    return parser.parse_args()
+    args = parser.parse_args()
+    return CLINamespace(
+        path=args.path,
+        threads=args.threads,
+        publish_threads=args.publish_threads,
+        filter=args.filter,
+        skip_build=args.skip_build,
+        skip_publish=args.skip_publish,
+    )
 
 
 def check_call(cmd: list[str], print_error: bool = True) -> str:
@@ -140,16 +167,17 @@ def publish(path: Path) -> Path:
     logger = logging.getLogger(LOGGER_NAME)
     while attempt < MAX_RETRIES:
         try:
-            upload(
-                Settings(
-                    username=os.getenv("PYPI_USERNAME"),
-                    password=os.getenv("PYPI_PASSWORD"),
-                    non_interactive=True,
-                    disable_progress_bar=True,
-                    skip_existing=True,
-                ),
-                packages,
-            )
+            with patch("twine.commands.upload.print"):
+                upload(
+                    Settings(
+                        username=os.getenv("PYPI_USERNAME"),
+                        password=os.getenv("PYPI_PASSWORD"),
+                        non_interactive=True,
+                        disable_progress_bar=True,
+                        skip_existing=True,
+                    ),
+                    packages,
+                )
             return path
         except TwineException as e:
             logger.error(f"Configuration error while publishing {path.name}: {e}")
@@ -237,7 +265,7 @@ def main() -> None:
                 )
 
     if not args.skip_publish:
-        with Pool(args.threads) as pool:
+        with Pool(args.publish_threads) as pool:
             for index, path in enumerate(pool.imap(publish, service_paths)):
                 package_name = get_package_name(path)
                 version = get_version(path)
