@@ -23,13 +23,15 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
 
     def __init__(
         self,
-        children: Iterable[FakeAnnotation] = (),
+        children: Iterable[FakeAnnotation],
         name: str = "",
         stringify: bool = False,
     ) -> None:
         self.name = name
         self.parent = Type.Union
         self.children: list[FakeAnnotation] = list(children)
+        if len(self.children) < 2:
+            raise ValueError("Union must have at least 2 children")
         self._stringify = stringify
 
     def is_stringified(self) -> bool:
