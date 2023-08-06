@@ -10,12 +10,13 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_maps.named_unions import (
     AttributeValueTypeDef,
     BlobTypeDef,
+    PolicyDocumentTypeDef,
     StreamingBodyType,
     TableAttributeValueTypeDef,
     TimestampTypeDef,
     UniversalAttributeValueTypeDef,
 )
-from mypy_boto3_builder.type_maps.typed_dicts import GetTemplateOutputTypeDef, PolicyVersionTypeDef
+from mypy_boto3_builder.type_maps.typed_dicts import GetTemplateOutputTypeDef
 
 ShapeTypeMap = dict[ServiceName, dict[str, dict[str, FakeAnnotation]]]
 
@@ -56,7 +57,7 @@ OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
     },
     ServiceNameCatalog.iam: {
         ALL: {
-            "PolicyVersionTypeDef": PolicyVersionTypeDef,
+            "policyDocumentType": PolicyDocumentTypeDef,
         },
     },
     ServiceNameCatalog.dynamodb: {

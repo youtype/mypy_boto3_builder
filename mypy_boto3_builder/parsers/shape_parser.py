@@ -40,6 +40,7 @@ from mypy_boto3_builder.type_maps.method_type_map import (
     get_default_value_stub,
     get_method_type_stub,
 )
+from mypy_boto3_builder.type_maps.named_unions import DictOrStrTypeDef
 from mypy_boto3_builder.type_maps.shape_type_map import (
     OUTPUT_SHAPE_TYPE_MAP,
     SHAPE_TYPE_MAP,
@@ -131,10 +132,10 @@ class ShapeParser:
     def _get_resource_names(self) -> list[str]:
         if not self._resources_shape:
             return []
-        try:
-            return list(self._resources_shape["resources"].keys())
-        except KeyError:
+        if "resources" not in self._resources_shape:
             return []
+
+        return list(self._resources_shape["resources"].keys())
 
     def _get_resource_shape(self, name: str) -> dict[str, Any]:
         if not self._resources_shape:
@@ -301,26 +302,33 @@ class ShapeParser:
         name = f"{name}Type"
         return name
 
-    def _parse_shape_string(self, shape: StringShape) -> FakeAnnotation:
-        if not shape.enum:
-            return Type.str
+    def _parse_shape_string(self, shape: StringShape, output_child: bool) -> FakeAnnotation:
+        if shape.enum:
+            children = list(shape.enum)
+            literal_name = self._get_literal_name(shape)
+            literal_type_stub = get_literal_type_stub(self.service_name, literal_name)
+            children = literal_type_stub if literal_type_stub else list(shape.enum)
+            type_literal = TypeLiteral(literal_name, children)
+            if literal_name in self._type_literal_map:
+                old_type_literal = self._type_literal_map[literal_name]
+                if not type_literal.is_same(old_type_literal):
+                    raise ValueError(
+                        f"Literal {literal_name} has different values:"
+                        f" {old_type_literal.children} vs {type_literal.children}"
+                    )
+                return old_type_literal
 
-        children = list(shape.enum)
-        literal_name = self._get_literal_name(shape)
-        literal_type_stub = get_literal_type_stub(self.service_name, literal_name)
-        children = literal_type_stub if literal_type_stub else list(shape.enum)
-        type_literal = TypeLiteral(literal_name, children)
-        if literal_name in self._type_literal_map:
-            old_type_literal = self._type_literal_map[literal_name]
-            if not type_literal.is_same(old_type_literal):
-                raise ValueError(
-                    f"Literal {literal_name} has different values: {old_type_literal.children} vs"
-                    f" {type_literal.children}"
-                )
-            return old_type_literal
+            self._type_literal_map[literal_name] = type_literal
+            return type_literal
 
-        self._type_literal_map[literal_name] = type_literal
-        return type_literal
+        pattern = shape.metadata.get("pattern", "")
+        if pattern.startswith("[\\u0009"):
+            if output_child:
+                return Type.DictStrAny
+            else:
+                return DictOrStrTypeDef
+
+        return Type.str
 
     def _parse_shape_map(
         self,
@@ -420,10 +428,13 @@ class ShapeParser:
         return type_subscript
 
     def _get_shape_type_name(self, shape: Shape) -> str:
-        if not isinstance(shape, StructureShape):
-            return shape.type_name
+        if isinstance(shape, StructureShape):
+            return self._get_typed_dict_name(shape)
 
-        return self._get_typed_dict_name(shape)
+        if isinstance(shape, StringShape):
+            return shape.name
+
+        return shape.type_name
 
     @staticmethod
     def _get_streaming_body(shape: Shape) -> Shape | None:
@@ -479,7 +490,7 @@ class ShapeParser:
                 is_streaming = self._get_streaming_body(shape) is not None
 
         type_name = self._get_shape_type_name(shape)
-        if is_streaming and type_name == "blob":
+        if is_streaming and shape.type_name == "blob":
             type_name = "blob_streaming"
 
         shape_type_stub = get_shape_type_stub(
@@ -495,7 +506,7 @@ class ShapeParser:
             return shape_type_stub
 
         if isinstance(shape, StringShape):
-            return self._parse_shape_string(shape)
+            return self._parse_shape_string(shape, output_child=is_output_or_child)
 
         if isinstance(shape, MapShape):
             return self._parse_shape_map(
@@ -515,7 +526,7 @@ class ShapeParser:
         if isinstance(shape, ListShape):
             return self._parse_shape_list(shape, output_child=is_output_or_child)
 
-        if self._resources_shape and shape.type_name in self._resources_shape["resources"]:
+        if shape.type_name in self._get_resource_names():
             return AliasInternalImport(shape.type_name)
 
         self.logger.warning(f"Unknown shape: {shape} {type_name}")

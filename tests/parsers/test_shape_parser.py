@@ -36,7 +36,9 @@ class TestShapeParser:
         session_mock = MagicMock()
         service_name_mock = MagicMock()
         ServiceModelMock().operation_names = ["my_operation"]
-        session_mock._loader.load_service_model.return_value = {"resources": ["c", "a", "b"]}
+        session_mock._loader.load_service_model.return_value = {
+            "resources": {"c": None, "a": None, "b": None}
+        }
         shape_parser = ShapeParser(session_mock, service_name_mock)
         result = shape_parser.get_client_method_map()
         assert "can_paginate" in result
@@ -71,7 +73,7 @@ class TestShapeParser:
         ServiceModelMock().operation_model.return_value = operation_model_mock
         session_mock._loader.load_service_model.return_value = {
             "pagination": {"my_paginator": {"input_token": "InputToken", "limit_key": "skip_arg"}},
-            "resources": [],
+            "resources": {},
         }
         shape_parser = ShapeParser(session_mock, service_name_mock)
         result = shape_parser.get_paginate_method("my_paginator")

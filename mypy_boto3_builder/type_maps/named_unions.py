@@ -8,7 +8,11 @@ from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
-from mypy_boto3_builder.type_maps.typed_dicts import AttributeValueTypeDef, CopySourceTypeDef
+from mypy_boto3_builder.type_maps.typed_dicts import (
+    AttributeValueTypeDef,
+    CopySourceTypeDef,
+    PolicyDocumentDictTypeDef,
+)
 
 StreamingBodyType = ExternalImport.from_class(StreamingBody)
 
@@ -67,3 +71,8 @@ UniversalAttributeValueTypeDef = TypeUnion(
         *TableAttributeValueTypeDef.children,
     ],
 )
+
+PolicyDocumentTypeDef = TypeUnion(
+    name="PolicyDocumentTypeDef", children=[Type.str, PolicyDocumentDictTypeDef]
+)
+DictOrStrTypeDef = TypeUnion(name="DictOrStrTypeDef", children=[Type.str, Type.DictStrAny])

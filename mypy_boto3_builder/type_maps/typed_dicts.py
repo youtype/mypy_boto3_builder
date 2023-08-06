@@ -114,22 +114,12 @@ PolicyDocumentStatementTypeDef = TypeTypedDict(
     ],
 )
 
-PolicyDocumentTypeDef = TypeTypedDict(
-    "PolicyDocumentTypeDef",
+PolicyDocumentDictTypeDef = TypeTypedDict(
+    "PolicyDocumentDictTypeDef",
     [
         TypedDictAttribute("Version", Type.str, True),
         TypedDictAttribute(
             "Statement", TypeSubscript(Type.List, [PolicyDocumentStatementTypeDef]), True
         ),
-    ],
-)
-
-PolicyVersionTypeDef = TypeTypedDict(
-    "PolicyVersionTypeDef",
-    [
-        TypedDictAttribute("Document", PolicyDocumentTypeDef, False),
-        TypedDictAttribute("VersionId", Type.str, False),
-        TypedDictAttribute("IsDefaultVersion", Type.bool, False),
-        TypedDictAttribute("CreateDate", Type.datetime, False),
     ],
 )
