@@ -9,7 +9,7 @@ Shape Type Map
 
 ## get_shape_type_stub
 
-[Show source in shape_type_map.py:82](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/shape_type_map.py#L82)
+[Show source in shape_type_map.py:83](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/shape_type_map.py#L83)
 
 Get stub type for input botocore shape.
 

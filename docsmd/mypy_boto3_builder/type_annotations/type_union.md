@@ -18,10 +18,7 @@ Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
 ```python
 class TypeUnion(TypeSubscript, TypeDefSortable):
     def __init__(
-        self,
-        children: Iterable[FakeAnnotation] = (),
-        name: str = "",
-        stringify: bool = False,
+        self, children: Iterable[FakeAnnotation], name: str = "", stringify: bool = False
     ) -> None:
         ...
 ```
@@ -34,7 +31,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
 
 ### TypeUnion().copy
 
-[Show source in type_union.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L78)
+[Show source in type_union.py:80](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L80)
 
 Create a copy of type annotation wrapper.
 
@@ -47,7 +44,7 @@ def copy(self: _R) -> _R:
 
 ### TypeUnion().debug_render
 
-[Show source in type_union.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L88)
+[Show source in type_union.py:90](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L90)
 
 Render type annotation for debug purposes.
 
@@ -60,7 +57,7 @@ def debug_render(self) -> str:
 
 ### TypeUnion().get_children_literals
 
-[Show source in type_union.py:116](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L116)
+[Show source in type_union.py:118](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L118)
 
 Extract required TypeLiteral list from attributes.
 
@@ -77,7 +74,7 @@ def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLitera
 
 ### TypeUnion().get_children_types
 
-[Show source in type_union.py:94](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L94)
+[Show source in type_union.py:96](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L96)
 
 Extract required type annotations from attributes.
 
@@ -94,7 +91,7 @@ def get_children_types(self) -> set[FakeAnnotation]:
 
 ### TypeUnion().get_import_record
 
-[Show source in type_union.py:137](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L137)
+[Show source in type_union.py:139](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L139)
 
 Get import record required for using type annotation.
 
@@ -111,7 +108,7 @@ def get_import_record(self) -> ImportRecord:
 
 ### TypeUnion().get_sortable_children
 
-[Show source in type_union.py:103](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L103)
+[Show source in type_union.py:105](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L105)
 
 Extract required TypeDefSortable list from attributes.
 
@@ -128,7 +125,7 @@ def get_sortable_children(self) -> list[TypeDefSortable]:
 
 ### TypeUnion().get_typing_import_records
 
-[Show source in type_union.py:131](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L131)
+[Show source in type_union.py:133](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L133)
 
 Get import record required for using Union.
 
@@ -145,7 +142,7 @@ def get_typing_import_records(self) -> set[ImportRecord]:
 
 ### TypeUnion().is_named
 
-[Show source in type_union.py:64](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L64)
+[Show source in type_union.py:66](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L66)
 
 Check if type annotation is a named type annotation.
 
@@ -158,7 +155,7 @@ def is_named(self) -> bool:
 
 ### TypeUnion().is_stringified
 
-[Show source in type_union.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L35)
+[Show source in type_union.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L37)
 
 Whether Union usage should be rendered as a string.
 
@@ -171,7 +168,7 @@ def is_stringified(self) -> bool:
 
 ### TypeUnion().is_type_def
 
-[Show source in type_union.py:153](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L153)
+[Show source in type_union.py:155](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L155)
 
 Whether type annotation is a TypeDef.
 
@@ -184,7 +181,7 @@ def is_type_def(self) -> bool:
 
 ### TypeUnion().is_union
 
-[Show source in type_union.py:170](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L170)
+[Show source in type_union.py:172](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L172)
 
 Whether type annotation is a TypeUnion.
 
@@ -197,7 +194,7 @@ def is_union(self) -> bool:
 
 ### TypeUnion().iterate_children
 
-[Show source in type_union.py:182](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L182)
+[Show source in type_union.py:184](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L184)
 
 Iterate over children.
 
@@ -214,7 +211,7 @@ def iterate_children(self) -> Iterator[FakeAnnotation]:
 
 ### TypeUnion().iterate_types
 
-[Show source in type_union.py:143](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L143)
+[Show source in type_union.py:145](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L145)
 
 Extract type annotations from children.
 
@@ -231,7 +228,7 @@ def iterate_types(self) -> Iterator[FakeAnnotation]:
 
 ### TypeUnion().render
 
-[Show source in type_union.py:47](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L47)
+[Show source in type_union.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L49)
 
 Render type annotation to a valid Python code for local usage.
 
@@ -248,7 +245,7 @@ def render(self, parent_name: str = "") -> str:
 
 ### TypeUnion().render_definition
 
-[Show source in type_union.py:70](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L70)
+[Show source in type_union.py:72](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L72)
 
 Render named Union type definition.
 
@@ -261,7 +258,7 @@ def render_definition(self) -> str:
 
 ### TypeUnion().replace_self_references
 
-[Show source in type_union.py:176](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L176)
+[Show source in type_union.py:178](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L178)
 
 Replace self references, does nothing.
 
@@ -274,7 +271,7 @@ def replace_self_references(self) -> None:
 
 ### TypeUnion().stringify
 
-[Show source in type_union.py:41](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L41)
+[Show source in type_union.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L43)
 
 Render Union usage as a string.
 
@@ -287,7 +284,7 @@ def stringify(self) -> None:
 
 ### TypeUnion().type_hint_annotations
 
-[Show source in type_union.py:159](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L159)
+[Show source in type_union.py:161](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L161)
 
 Type annotations list from arguments and return type with internal types.
 

@@ -3433,12 +3433,9 @@ TypeUnion</p>
 <h4 id="signature">Signature<a class="headerlink" href="#signature" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span> <span class="nc">TypeUnion</span><span class="p">(</span><span class="n">TypeSubscript</span><span class="p">,</span> <span class="n">TypeDefSortable</span><span class="p">):</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        <span class="n">children</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">FakeAnnotation</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        <span class="n">stringify</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        <span class="o">...</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        <span class="bp">self</span><span class="p">,</span> <span class="n">children</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">FakeAnnotation</span><span class="p">],</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">stringify</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>        <span class="o">...</span>
 </code></pre></div>
 <h4 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">#</a></h4>
 <ul>
@@ -3447,21 +3444,21 @@ TypeUnion</p>
 <li><a href="../type_subscript/#typesubscript">TypeSubscript</a></li>
 </ul>
 <h3 id="typeunioncopy">TypeUnion().copy<a class="headerlink" href="#typeunioncopy" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L78">Show source in type_union.py:78</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L80">Show source in type_union.py:80</a></p>
 <p>Create a copy of type annotation wrapper.</p>
 <h4 id="signature_1">Signature<a class="headerlink" href="#signature_1" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span> <span class="n">_R</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_R</span><span class="p">:</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeuniondebug_render">TypeUnion().debug_render<a class="headerlink" href="#typeuniondebug_render" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L88">Show source in type_union.py:88</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L90">Show source in type_union.py:90</a></p>
 <p>Render type annotation for debug purposes.</p>
 <h4 id="signature_2">Signature<a class="headerlink" href="#signature_2" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">debug_render</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeunionget_children_literals">TypeUnion().get_children_literals<a class="headerlink" href="#typeunionget_children_literals" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L116">Show source in type_union.py:116</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L118">Show source in type_union.py:118</a></p>
 <p>Extract required TypeLiteral list from attributes.</p>
 <h4 id="signature_3">Signature<a class="headerlink" href="#signature_3" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">get_children_literals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">processed</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">TypeLiteral</span><span class="p">]:</span>
@@ -3472,7 +3469,7 @@ TypeUnion</p>
 <li><a href="../type_literal/#typeliteral">TypeLiteral</a></li>
 </ul>
 <h3 id="typeunionget_children_types">TypeUnion().get_children_types<a class="headerlink" href="#typeunionget_children_types" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L94">Show source in type_union.py:94</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L96">Show source in type_union.py:96</a></p>
 <p>Extract required type annotations from attributes.</p>
 <h4 id="signature_4">Signature<a class="headerlink" href="#signature_4" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">def</span> <span class="nf">get_children_types</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">FakeAnnotation</span><span class="p">]:</span>
@@ -3483,7 +3480,7 @@ TypeUnion</p>
 <li><a href="../fake_annotation/#fakeannotation">FakeAnnotation</a></li>
 </ul>
 <h3 id="typeunionget_import_record">TypeUnion().get_import_record<a class="headerlink" href="#typeunionget_import_record" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L137">Show source in type_union.py:137</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L139">Show source in type_union.py:139</a></p>
 <p>Get import record required for using type annotation.</p>
 <h4 id="signature_5">Signature<a class="headerlink" href="#signature_5" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span> <span class="nf">get_import_record</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImportRecord</span><span class="p">:</span>
@@ -3494,7 +3491,7 @@ TypeUnion</p>
 <li><a href="../../import_helpers/import_record/#importrecord">ImportRecord</a></li>
 </ul>
 <h3 id="typeunionget_sortable_children">TypeUnion().get_sortable_children<a class="headerlink" href="#typeunionget_sortable_children" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L103">Show source in type_union.py:103</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L105">Show source in type_union.py:105</a></p>
 <p>Extract required TypeDefSortable list from attributes.</p>
 <h4 id="signature_6">Signature<a class="headerlink" href="#signature_6" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">def</span> <span class="nf">get_sortable_children</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">TypeDefSortable</span><span class="p">]:</span>
@@ -3505,7 +3502,7 @@ TypeUnion</p>
 <li><a href="../type_def_sortable/#typedefsortable">TypeDefSortable</a></li>
 </ul>
 <h3 id="typeunionget_typing_import_records">TypeUnion().get_typing_import_records<a class="headerlink" href="#typeunionget_typing_import_records" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L131">Show source in type_union.py:131</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L133">Show source in type_union.py:133</a></p>
 <p>Get import record required for using Union.</p>
 <h4 id="signature_7">Signature<a class="headerlink" href="#signature_7" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span> <span class="nf">get_typing_import_records</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">ImportRecord</span><span class="p">]:</span>
@@ -3516,35 +3513,35 @@ TypeUnion</p>
 <li><a href="../../import_helpers/import_record/#importrecord">ImportRecord</a></li>
 </ul>
 <h3 id="typeunionis_named">TypeUnion().is_named<a class="headerlink" href="#typeunionis_named" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L64">Show source in type_union.py:64</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L66">Show source in type_union.py:66</a></p>
 <p>Check if type annotation is a named type annotation.</p>
 <h4 id="signature_8">Signature<a class="headerlink" href="#signature_8" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span> <span class="nf">is_named</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeunionis_stringified">TypeUnion().is_stringified<a class="headerlink" href="#typeunionis_stringified" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L35">Show source in type_union.py:35</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L37">Show source in type_union.py:37</a></p>
 <p>Whether Union usage should be rendered as a string.</p>
 <h4 id="signature_9">Signature<a class="headerlink" href="#signature_9" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span> <span class="nf">is_stringified</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeunionis_type_def">TypeUnion().is_type_def<a class="headerlink" href="#typeunionis_type_def" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L153">Show source in type_union.py:153</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L155">Show source in type_union.py:155</a></p>
 <p>Whether type annotation is a TypeDef.</p>
 <h4 id="signature_10">Signature<a class="headerlink" href="#signature_10" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span> <span class="nf">is_type_def</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeunionis_union">TypeUnion().is_union<a class="headerlink" href="#typeunionis_union" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L170">Show source in type_union.py:170</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L172">Show source in type_union.py:172</a></p>
 <p>Whether type annotation is a TypeUnion.</p>
 <h4 id="signature_11">Signature<a class="headerlink" href="#signature_11" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span> <span class="nf">is_union</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeunioniterate_children">TypeUnion().iterate_children<a class="headerlink" href="#typeunioniterate_children" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L182">Show source in type_union.py:182</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L184">Show source in type_union.py:184</a></p>
 <p>Iterate over children.</p>
 <h4 id="signature_12">Signature<a class="headerlink" href="#signature_12" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span> <span class="nf">iterate_children</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">FakeAnnotation</span><span class="p">]:</span>
@@ -3555,7 +3552,7 @@ TypeUnion</p>
 <li><a href="../fake_annotation/#fakeannotation">FakeAnnotation</a></li>
 </ul>
 <h3 id="typeunioniterate_types">TypeUnion().iterate_types<a class="headerlink" href="#typeunioniterate_types" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L143">Show source in type_union.py:143</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L145">Show source in type_union.py:145</a></p>
 <p>Extract type annotations from children.</p>
 <h4 id="signature_13">Signature<a class="headerlink" href="#signature_13" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">def</span> <span class="nf">iterate_types</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">FakeAnnotation</span><span class="p">]:</span>
@@ -3566,7 +3563,7 @@ TypeUnion</p>
 <li><a href="../fake_annotation/#fakeannotation">FakeAnnotation</a></li>
 </ul>
 <h3 id="typeunionrender">TypeUnion().render<a class="headerlink" href="#typeunionrender" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L47">Show source in type_union.py:47</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L49">Show source in type_union.py:49</a></p>
 <p>Render type annotation to a valid Python code for local usage.</p>
 <h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">#</a></h4>
 <p>A string with a valid type annotation.</p>
@@ -3575,28 +3572,28 @@ TypeUnion</p>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeunionrender_definition">TypeUnion().render_definition<a class="headerlink" href="#typeunionrender_definition" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L70">Show source in type_union.py:70</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L72">Show source in type_union.py:72</a></p>
 <p>Render named Union type definition.</p>
 <h4 id="signature_15">Signature<a class="headerlink" href="#signature_15" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">def</span> <span class="nf">render_definition</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeunionreplace_self_references">TypeUnion().replace_self_references<a class="headerlink" href="#typeunionreplace_self_references" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L176">Show source in type_union.py:176</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L178">Show source in type_union.py:178</a></p>
 <p>Replace self references, does nothing.</p>
 <h4 id="signature_16">Signature<a class="headerlink" href="#signature_16" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">def</span> <span class="nf">replace_self_references</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeunionstringify">TypeUnion().stringify<a class="headerlink" href="#typeunionstringify" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L41">Show source in type_union.py:41</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L43">Show source in type_union.py:43</a></p>
 <p>Render Union usage as a string.</p>
 <h4 id="signature_17">Signature<a class="headerlink" href="#signature_17" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">def</span> <span class="nf">stringify</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="typeuniontype_hint_annotations">TypeUnion().type_hint_annotations<a class="headerlink" href="#typeuniontype_hint_annotations" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L159">Show source in type_union.py:159</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_union.py#L161">Show source in type_union.py:161</a></p>
 <p>Type annotations list from arguments and return type with internal types.</p>
 <h4 id="signature_18">Signature<a class="headerlink" href="#signature_18" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nd">@property</span>
