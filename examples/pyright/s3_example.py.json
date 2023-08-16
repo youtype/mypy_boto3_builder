@@ -16,7 +16,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig\" in function \"upload_file\"\n\u00a0\u00a0\"Literal['test']\" is incompatible with \"TransferConfig\"",
+        "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig | None\" in function \"upload_file\"\n\u00a0\u00a0Type \"Literal['test']\" cannot be assigned to type \"TransferConfig | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"TransferConfig\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"",
         "range": {
             "start": {
                 "line": 21,

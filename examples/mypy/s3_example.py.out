@@ -1,5 +1,5 @@
 examples/s3_example.py:19: error: Unexpected keyword argument "mfa" for "delete" of "BucketObjectsCollection"  [call-arg]
-examples/s3_example.py:22: error: Argument "Config" to "upload_file" of "Bucket" has incompatible type "str"; expected "TransferConfig"  [arg-type]
+examples/s3_example.py:22: error: Argument "Config" to "upload_file" of "Bucket" has incompatible type "str"; expected "TransferConfig | None"  [arg-type]
 examples/s3_example.py:23: error: Missing key "Key" for TypedDict "BucketUploadFileRequestTypeDef"  [typeddict-item]
 examples/s3_example.py:23: error: Extra key "key" for TypedDict "BucketUploadFileRequestTypeDef"  [typeddict-unknown-key]
 examples/s3_example.py:27: error: Missing key "Key" for TypedDict "CopySourceTypeDef"  [typeddict-item]
