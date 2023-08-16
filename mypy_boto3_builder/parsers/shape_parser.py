@@ -542,6 +542,7 @@ class ShapeParser:
         Returns:
             Method.
         """
+        self._resource_name = "Paginator"
         operation_name = paginator_name
         paginator_shape = self._get_paginator(paginator_name)
         operation_shape = self._get_operation(operation_name)
@@ -597,6 +598,7 @@ class ShapeParser:
         Returns:
             Method.
         """
+        self._resource_name = "Waiter"
         if not self._waiters_shape:
             raise ShapeParserError("Waiter not found")
         operation_name = self._waiters_shape["waiters"][waiter_name]["operation"]
