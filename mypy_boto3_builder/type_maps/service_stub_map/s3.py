@@ -16,13 +16,21 @@ from mypy_boto3_builder.type_maps.typed_dicts import CopySourceTypeDef
 
 callback_arg = Argument(
     "Callback",
-    TypeSubscript(Type.Callable, [Type.Ellipsis, Type.Any]),
+    Type.get_optional(TypeSubscript(Type.Callable, [Type.Ellipsis, Type.Any])),
     Type.Ellipsis,
 )
 
 config_arg = Argument(
     "Config",
-    ExternalImport.from_class(TransferConfig),
+    Type.get_optional(ExternalImport.from_class(TransferConfig)),
+    Type.Ellipsis,
+)
+
+extra_args_arg = Argument("ExtraArgs", Type.get_optional(Type.DictStrAny), Type.Ellipsis)
+
+source_client_arg = Argument(
+    "SourceClient",
+    Type.get_optional(ExternalImport.from_class(BaseClient)),
     Type.Ellipsis,
 )
 
@@ -33,13 +41,9 @@ copy_method = Method(
         Argument("CopySource", CopySourceTypeDef),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
-        Argument("ExtraArgs", Type.DictStrAny, Type.Ellipsis),
+        extra_args_arg,
         callback_arg,
-        Argument(
-            "SourceClient",
-            ExternalImport.from_class(BaseClient),
-            Type.Ellipsis,
-        ),
+        source_client_arg,
         config_arg,
     ],
     Type.none,
@@ -52,7 +56,7 @@ download_file_method = Method(
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
         Argument("Filename", Type.str),
-        Argument("ExtraArgs", Type.DictStrAny, Type.Ellipsis),
+        extra_args_arg,
         callback_arg,
         config_arg,
     ],
@@ -66,7 +70,7 @@ download_fileobj_method = Method(
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
         Argument("Fileobj", FileobjTypeDef),
-        Argument("ExtraArgs", Type.DictStrAny, Type.Ellipsis),
+        extra_args_arg,
         callback_arg,
         config_arg,
     ],
@@ -79,8 +83,8 @@ generate_presigned_post_method = Method(
         Argument("self", None),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
-        Argument("Fields", Type.DictStrAny, Type.Ellipsis),
-        Argument("Conditions", PresignedPostConditionsTypeDef, Type.Ellipsis),
+        Argument("Fields", Type.get_optional(Type.DictStrAny), Type.Ellipsis),
+        Argument("Conditions", Type.get_optional(PresignedPostConditionsTypeDef), Type.Ellipsis),
         Argument("ExpiresIn", Type.int, TypeConstant(3600)),
     ],
     Type.DictStrAny,
@@ -93,7 +97,7 @@ upload_file_method = Method(
         Argument("Filename", Type.str),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
-        Argument("ExtraArgs", Type.DictStrAny, Type.Ellipsis),
+        extra_args_arg,
         callback_arg,
         config_arg,
     ],
@@ -107,7 +111,7 @@ upload_fileobj_method = Method(
         Argument("Fileobj", FileobjTypeDef),
         Argument("Bucket", Type.str),
         Argument("Key", Type.str),
-        Argument("ExtraArgs", Type.DictStrAny, Type.Ellipsis),
+        extra_args_arg,
         callback_arg,
         config_arg,
     ],

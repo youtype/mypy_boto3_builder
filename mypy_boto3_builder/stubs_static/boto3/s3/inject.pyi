@@ -69,7 +69,7 @@ def copy(
     Key: str,
     ExtraArgs: Optional[Dict[str, Any]] = ...,
     Callback: Optional[Callable[..., Any]] = ...,
-    SourceClient: Optional[BaseClient] = None,
+    SourceClient: Optional[BaseClient] = ...,
     Config: Optional[TransferConfig] = ...,
 ) -> None: ...
 def bucket_copy(
@@ -78,7 +78,7 @@ def bucket_copy(
     Key: str,
     ExtraArgs: Optional[Dict[str, Any]] = ...,
     Callback: Optional[Callable[..., Any]] = ...,
-    SourceClient: Optional[BaseClient] = None,
+    SourceClient: Optional[BaseClient] = ...,
     Config: Optional[TransferConfig] = ...,
 ) -> None: ...
 def object_copy(
@@ -86,7 +86,7 @@ def object_copy(
     CopySource: Dict[str, Any],
     ExtraArgs: Optional[Dict[str, Any]] = ...,
     Callback: Optional[Callable[..., Any]] = ...,
-    SourceClient: Optional[BaseClient] = None,
+    SourceClient: Optional[BaseClient] = ...,
     Config: Optional[TransferConfig] = ...,
 ) -> None: ...
 def upload_fileobj(
