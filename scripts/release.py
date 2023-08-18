@@ -30,7 +30,6 @@ MASTER_PACKAGES = [
     "types_aioboto3_lite_package",
 ]
 LOGGER_NAME = "release"
-MAX_RETRIES = 10
 
 
 def setup_logging(level: int) -> logging.Logger:
@@ -69,6 +68,7 @@ class CLINamespace:
     filter: list[Path]
     skip_build: bool
     skip_publish: bool
+    retries: int
 
 
 def parse_args() -> CLINamespace:
@@ -87,6 +87,7 @@ def parse_args() -> CLINamespace:
     parser.add_argument("-f", "--filter", nargs="+", type=Path, default=[])
     parser.add_argument("--skip-build", action="store_true")
     parser.add_argument("--skip-publish", action="store_true")
+    parser.add_argument("-r", "--retries", type=int, default=10)
     args = parser.parse_args()
     return CLINamespace(
         path=args.path,
@@ -95,6 +96,7 @@ def parse_args() -> CLINamespace:
         filter=args.filter,
         skip_build=args.skip_build,
         skip_publish=args.skip_publish,
+        retries=args.retries,
     )
 
 
@@ -146,13 +148,13 @@ def cleanup(path: Path) -> None:
         shutil.rmtree(rm_path)
 
 
-def build(path: Path) -> Path:
+def build(path: Path, max_retries: int = 10) -> Path:
     """
     Build package.
     """
     logger = logging.getLogger(LOGGER_NAME)
     attempt = 1
-    while attempt < MAX_RETRIES:
+    while attempt <= max_retries:
         cleanup(path)
 
         try:
@@ -174,7 +176,7 @@ def build(path: Path) -> Path:
     raise RuntimeError(f"Failed building {path.name} after {attempt} attempts")
 
 
-def publish(path: Path) -> Path:
+def publish(path: Path, max_retries: int = 10) -> Path:
     """
     Publish to PyPI.
     """
@@ -182,7 +184,7 @@ def publish(path: Path) -> Path:
     dist_path = path / "dist"
     packages = [i.as_posix() for i in dist_path.glob("*")]
     logger = logging.getLogger(LOGGER_NAME)
-    while attempt < MAX_RETRIES:
+    while attempt <= max_retries:
         try:
             with patch("twine.repository.print"), patch("twine.commands.upload.print"):
                 upload(
@@ -279,7 +281,8 @@ def main() -> None:
 
     if not args.skip_build:
         with ThreadPool(args.threads) as pool:
-            for index, path in enumerate(pool.imap(build, build_paths)):
+            build_paths_with_retries = [(i, args.retries) for i in build_paths]
+            for index, path in enumerate(pool.starmap(build, build_paths_with_retries)):
                 package_name = get_package_name(path)
                 version = get_version(path)
                 logger.info(
@@ -288,7 +291,8 @@ def main() -> None:
 
     if not args.skip_publish:
         with ThreadPool(processes=args.publish_threads) as pool:
-            for index, path in enumerate(pool.imap(publish, service_paths)):
+            service_paths_with_retries = [(i, args.retries) for i in service_paths]
+            for index, path in enumerate(pool.starmap(publish, service_paths_with_retries)):
                 package_name = get_package_name(path)
                 version = get_version(path)
                 logger.info(
@@ -297,7 +301,7 @@ def main() -> None:
                 )
 
         for index, path in enumerate(master_paths):
-            publish(path)
+            publish(path, args.retries)
             total_index = len(service_paths) + index
             package_name = get_package_name(path)
             version = get_version(path)
