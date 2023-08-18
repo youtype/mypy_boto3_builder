@@ -59,7 +59,7 @@ jobs:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          poetry run pip install -U twine
+          poetry run pip install -U twine wheel
           poetry build
           poetry run twine upload  --non-interactive dist/*
       - name: Dockerize
