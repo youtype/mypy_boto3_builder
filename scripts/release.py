@@ -154,23 +154,19 @@ def build(path: Path) -> Path:
     attempt = 1
     while attempt < MAX_RETRIES:
         cleanup(path)
-        with chdir(path):
-            check_call([sys.executable, "setup.py", "build", "sdist", "bdist_wheel"])
 
-        tar_path = list((path / "dist").glob("*.tar.gz"))[0]
         try:
+            with chdir(path):
+                check_call([sys.executable, "setup.py", "build", "sdist", "bdist_wheel"])
+
+            whl_path = list((path / "dist").glob("*.whl"))[0]
+
+            tar_path = list((path / "dist").glob("*.tar.gz"))[0]
             check_call(["tar", "-tzf", tar_path.as_posix()])
-        except subprocess.CalledProcessError:
-            attempt += 1
-            logger.error(f"Failed tar consistency check on {attempt} attempt")
-            continue
-
-        whl_path = list((path / "dist").glob("*.whl"))[0]
-        try:
             check_call([sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()])
-        except subprocess.CalledProcessError:
+        except subprocess.CalledProcessError as e:
             attempt += 1
-            logger.error(f"Failed whl consistency check on {attempt} attempt")
+            logger.error(f"Failed building {path.name} {attempt} attempt: {e}")
             continue
 
         return path
