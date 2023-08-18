@@ -112,7 +112,6 @@ def check_call(cmd: list[str], print_error: bool = True) -> str:
             logger = logging.getLogger(LOGGER_NAME)
             for line in e.output.splitlines():
                 logger.error(line)
-            return ""
         raise
 
 
@@ -151,10 +150,32 @@ def build(path: Path) -> Path:
     """
     Build package.
     """
-    cleanup(path)
-    with chdir(path):
-        check_call([sys.executable, "setup.py", "build", "sdist", "bdist_wheel"])
-    return path
+    logger = logging.getLogger(LOGGER_NAME)
+    attempt = 1
+    while attempt < MAX_RETRIES:
+        cleanup(path)
+        with chdir(path):
+            check_call([sys.executable, "setup.py", "build", "sdist", "bdist_wheel"])
+
+        tar_path = list((path / "dist").glob("*.tar.gz"))[0]
+        try:
+            check_call(["tar", "-tzf", tar_path.as_posix()])
+        except subprocess.CalledProcessError:
+            attempt += 1
+            logger.error(f"Failed tar consistency check on {attempt} attempt")
+            continue
+
+        whl_path = list((path / "dist").glob("*.whl"))[0]
+        try:
+            check_call([sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()])
+        except subprocess.CalledProcessError:
+            attempt += 1
+            logger.error(f"Failed whl consistency check on {attempt} attempt")
+            continue
+
+        return path
+
+    raise RuntimeError(f"Failed building {path.name} after {attempt} attempts")
 
 
 def publish(path: Path) -> Path:
