@@ -1,0 +1,54 @@
+{% if type_def.has_both() -%}
+    {{ '_Required' -}}
+    {{ type_def.name -}}
+    {{ ' = TypedDict("' -}}
+    {{ '_Required' -}}
+    {{ type_def.name -}}
+    {{ '", {' -}}
+    {% for child in type_def.get_required() -%}
+        {{ '"' -}}
+        {{ child.name -}}
+        {{ '": ' -}}
+        {{ child.type_annotation.render(type_def.name) -}}
+        {{ ", " -}}
+    {% endfor -%}
+    {{ "})\n" -}}
+    {{ '_Optional' -}}
+    {{ type_def.name -}}
+    {{ ' = TypedDict("' -}}
+    {{ '_Optional' -}}
+    {{ type_def.name -}}
+    {{ '", {' -}}
+    {% for child in type_def.get_optional() -%}
+        {{ '"' -}}
+        {{ child.name -}}
+        {{ '": ' -}}
+        {{ child.type_annotation.render(type_def.name) -}}
+        {{ ", " -}}
+    {% endfor -%}
+    {{ "}, total=False)\n" -}}
+
+    {{ 'class ' -}}
+    {{ type_def.name -}}
+    {{ '(' -}}
+    {{ '_Required' -}}{{ type_def.name -}}
+    {{ ', _Optional' -}}{{ type_def.name -}}
+    {{ '):\n    pass\n' -}}
+{% else -%}
+    {{ type_def.name -}}
+    {{ ' = TypedDict("' -}}
+    {{ type_def.name -}}
+    {{ '", {' -}}
+    {% for child in type_def.children -%}
+        {{ '"' -}}
+        {{ child.name -}}
+        {{ '": ' -}}
+        {{ child.type_annotation.render(type_def.name) -}}
+        {{ ", " -}}
+    {% endfor -%}
+    {{ "}" -}}
+    {% if type_def.has_optional() -%}
+        {{ ", total=False" -}}
+    {% endif -%}
+    {{ ")\n" -}}
+{% endif -%}

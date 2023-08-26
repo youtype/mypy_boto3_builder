@@ -45,7 +45,13 @@ class ImportRecord:
         self.fallback = fallback
 
     def __bool__(self) -> bool:
-        return bool(self.source)
+        return not self.is_empty()
+
+    def is_empty(self) -> bool:
+        """
+        Whether import record is an empty string.
+        """
+        return not self.source
 
     @classmethod
     def empty(cls: type[_R]) -> _R:

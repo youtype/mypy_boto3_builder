@@ -8,15 +8,15 @@ class TestTypeSubscript:
     result: TypeSubscript
 
     def setup_method(self) -> None:
-        self.result = TypeSubscript(Type.Dict, [Type.str, Type.int])
+        self.result = TypeSubscript(Type.Dict, [Type.str, Type.int, Type.Any])
 
     def test_init(self) -> None:
         assert self.result.parent == Type.Dict
-        assert self.result.children == [Type.str, Type.int]
+        assert self.result.children == [Type.str, Type.int, Type.Any]
         assert hash(self.result)
 
     def test_render(self) -> None:
-        assert self.result.render() == "Dict[str, int]"
+        assert self.result.render() == "Dict[str, int, Any]"
         assert TypeSubscript(Type.List, [Type.str], stringify=True).render() == '"List[str]"'
         assert TypeSubscript(Type.Dict).render() == "Dict"
         assert TypeSubscript(Type.Dict, [], True).render() == '"Dict"'
@@ -24,13 +24,20 @@ class TestTypeSubscript:
     def test_get_import_record(self) -> None:
         assert self.result.get_import_record().render() == "from typing import Dict"
 
+    def test_get_import_records(self) -> None:
+        records = list(sorted(self.result.get_import_records()))
+        assert len(records) == 2
+        assert records[0].render() == "from typing import Any"
+        assert records[1].render() == "from typing import Dict"
+
     def test_get_types(self) -> None:
-        assert set(self.result.iterate_types()) == {Type.Dict, Type.str, Type.int}
+        assert set(self.result.iterate_types()) == {Type.Dict, Type.str, Type.int, Type.Any}
 
     def test_add_child(self) -> None:
-        self.result.add_child(Type.bool)
-        assert len(self.result.children) == 3
-        assert self.result.children[-1] == Type.bool
+        clone = self.result.copy()
+        clone.add_child(Type.bool)
+        assert len(clone.children) == 4
+        assert clone.children[-1] == Type.bool
 
     def test_is_dict(self) -> None:
         assert self.result.is_dict()

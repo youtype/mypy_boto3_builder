@@ -23,6 +23,15 @@ class TestTypeAnnotation:
     def test_get_import_record(self) -> None:
         assert self.dict.get_import_record().render() == "from typing import Dict"
 
+    def test_get_import_records(self) -> None:
+        result = list(sorted(self.dict.get_import_records()))
+        assert len(result) == 1
+        assert result[0].render() == "from typing import Dict"
+
+        result = list(sorted(TypeAnnotation("Literal").get_import_records()))
+        assert len(result) == 1
+        assert result[0].render() == "from typing_extensions import Literal"
+
     def test_copy(self) -> None:
         assert self.dict.copy().get_import_name() == "Dict"
 

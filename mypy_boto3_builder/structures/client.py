@@ -7,7 +7,6 @@ from botocore.client import BaseClient
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.attribute import Attribute
@@ -113,7 +112,7 @@ class Client(ClassRecord):
         Extract import records from required type annotations.
         """
         result = super().get_required_import_records()
-        result.add(ImportRecord(ImportString("typing"), "Dict"))
+        result.update(Type.Dict.get_import_records())
         return result
 
     def get_example_method(self) -> Method | None:

@@ -6,6 +6,7 @@ from collections.abc import Iterator
 from typing import TypeVar
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
+from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 _R = TypeVar("_R", bound="FakeAnnotation")
 
@@ -14,6 +15,8 @@ class FakeAnnotation(ABC):
     """
     Parent class for all type annotation wrappers.
     """
+
+    _sys_import_record = ImportRecord(ImportString("sys"))
 
     def __hash__(self) -> int:
         return hash(self.render())
@@ -50,6 +53,19 @@ class FakeAnnotation(ABC):
         """
         Get import record required for using type annotation.
         """
+
+    def get_import_records(self) -> set[ImportRecord]:
+        """
+        Get all import records required for using type annotation.
+        """
+        result = set()
+        import_record = self.get_import_record()
+        if not import_record.is_empty() and not import_record.is_builtins():
+            result.add(import_record)
+        if import_record.needs_sys_fallback():
+            result.add(self._sys_import_record)
+
+        return result
 
     def iterate_types(self) -> Iterator["FakeAnnotation"]:
         """

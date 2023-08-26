@@ -187,7 +187,6 @@ class ServicePackage(Package):
         for import_record in self.client.exceptions_class.get_required_import_records():
             import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
 
-        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_service_resource_required_import_records(self) -> list[ImportRecord]:
@@ -202,7 +201,6 @@ class ServicePackage(Package):
         for import_record in class_import_records:
             import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
 
-        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_paginator_required_import_records(self) -> list[ImportRecord]:
@@ -216,7 +214,6 @@ class ServicePackage(Package):
                     import_record.get_external(self.get_module_name(self.service_name))
                 )
 
-        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_waiter_required_import_records(self) -> list[ImportRecord]:
@@ -230,7 +227,6 @@ class ServicePackage(Package):
                     import_record.get_external(self.get_module_name(self.service_name))
                 )
 
-        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_type_defs_required_import_records(self) -> list[ImportRecord]:
@@ -240,30 +236,20 @@ class ServicePackage(Package):
         if not self.type_defs:
             return []
 
-        import_records: set[ImportRecord] = set()
+        result: set[ImportRecord] = set()
         for type_def in self.type_defs:
-            import_records.update(type_def.get_typing_import_records())
-            for type_annotation in type_def.get_children_types():
-                import_record = type_annotation.get_import_record()
-                if not import_record or import_record.is_builtins():
-                    continue
+            for import_record in type_def.get_definition_import_records():
                 if import_record.is_type_defs():
                     continue
-                import_records.add(
-                    import_record.get_external(self.get_module_name(self.service_name))
-                )
+                result.add(import_record)
 
-        self.add_fallback_import_record(import_records)
-        return sorted(import_records)
+        return sorted(result)
 
     def get_literals_required_import_records(self) -> list[ImportRecord]:
         """
         Get import records for `literals.py[i]`.
         """
-        import_records: set[ImportRecord] = set()
-        import_records.add(Type.Literal.get_import_record())
-        self.add_fallback_import_record(import_records)
-        return sorted(import_records)
+        return sorted(Type.Literal.get_import_records())
 
     def validate(self) -> None:
         """

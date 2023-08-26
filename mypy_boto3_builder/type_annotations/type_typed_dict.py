@@ -136,17 +136,17 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         """
         return f"{self}: {', '.join([c.render() for c in self.children])}"
 
-    def get_typing_import_records(self) -> set[ImportRecord]:
+    def get_definition_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using TypedDict.
         """
         if self.replace_with_dict:
-            return {
-                Type.Dict.get_import_record(),
-                Type.Any.get_import_record(),
-            }
+            return set()
 
-        return {Type.TypedDict.get_import_record()}
+        result = Type.TypedDict.get_import_records()
+        for child in self.iterate_children():
+            result.update(child.get_type_annotation().get_import_records())
+        return result
 
     def get_import_record(self) -> ImportRecord:
         """

@@ -130,17 +130,23 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
                 result.update(type_annotation.get_children_literals((self.name, *processed)))
         return result
 
-    def get_typing_import_records(self) -> set[ImportRecord]:
+    def get_definition_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using Union.
         """
-        return {Type.Union.get_import_record()}
+        return super().get_import_records()
 
     def get_import_record(self) -> ImportRecord:
         """
         Get import record required for using type annotation.
         """
         return InternalImportRecord(ServiceModuleName.type_defs, name=self.name)
+
+    def get_import_records(self) -> set[ImportRecord]:
+        """
+        Get all import records required for using type annotation.
+        """
+        return {self.get_import_record()}
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """

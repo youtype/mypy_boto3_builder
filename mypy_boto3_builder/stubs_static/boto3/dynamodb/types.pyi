@@ -1,11 +1,14 @@
-import sys
 from decimal import Context
 from typing import Any, Mapping, Sequence, Tuple
 
-if sys.version_info >= (3, 9):
-    from typing import Literal, TypedDict
-else:
-    from typing_extensions import Literal, TypedDict
+try:
+    from typing_extensions import Literal
+except ImportError:
+    from typing import Literal  # type: ignore
+try:
+    from typing_extensions import TypedDict
+except ImportError:
+    from typing import TypedDict
 
 _AttributeValueTypeDef = TypedDict(
     "_AttributeValueTypeDef",

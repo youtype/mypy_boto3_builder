@@ -54,7 +54,6 @@ class Boto3StubsPackage(Package):
         for init_function in self.init_functions:
             import_records.update(init_function.get_required_import_records())
 
-        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_session_required_import_records(self) -> list[ImportRecord]:
@@ -62,7 +61,6 @@ class Boto3StubsPackage(Package):
         Get import records for `session.py[i]`.
         """
         import_records = self.session_class.get_required_import_records()
-        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_all_names(self) -> list[str]:

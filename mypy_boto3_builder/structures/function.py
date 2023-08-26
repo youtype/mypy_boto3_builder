@@ -103,10 +103,7 @@ class Function:
         """
         result: set[ImportRecord] = set()
         for type_annotation in self.iterate_types():
-            import_record = type_annotation.get_import_record()
-            if not import_record or import_record.is_builtins():
-                continue
-            result.add(import_record)
+            result.update(type_annotation.get_import_records())
 
         return result
 

@@ -280,10 +280,10 @@ def build_package_methods(logger: logging.Logger) -> None:
         "import sys",
         "from typing import overload, Any, Union",
         "from botocore.config import Config",
-        "if sys.version_info >= (3, 9):",
-        "    from typing import Literal",
-        "else:",
+        "try:",
         "    from typing_extensions import Literal",
+        "except ImportError:",
+        "    from typing import Literal",
     ]
     init_contents.extend(imports)
     init_contents.append('')
@@ -294,10 +294,10 @@ def build_package_methods(logger: logging.Logger) -> None:
         "import sys",
         "from typing import overload, Any, Union",
         "from botocore.config import Config",
-        "if sys.version_info >= (3, 9):",
-        "    from typing import Literal",
-        "else:",
+        "try:",
         "    from typing_extensions import Literal",
+        "except ImportError:",
+        "    from typing import Literal",
     ]
     session_contents.extend(imports)
     session_contents.append('')

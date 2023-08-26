@@ -55,6 +55,16 @@ class TypeSubscript(FakeAnnotation):
         """
         return self.parent.get_import_record()
 
+    def get_import_records(self) -> set[ImportRecord]:
+        """
+        Get all import records required for using type annotation.
+        """
+        result = set()
+        result.update(self.parent.get_import_records())
+        for child in self.children:
+            result.update(child.get_import_records())
+        return result
+
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
         Extract type annotations from children.
@@ -100,16 +110,14 @@ class TypeSubscript(FakeAnnotation):
             result.extend(child.get_local_types())
         return result
 
-    def find_type_annotation_parent(
-        self, type_annotation: FakeAnnotation
-    ) -> "TypeSubscript | None":
+    def find_type_annotation_parent(self: _R, type_annotation: FakeAnnotation) -> _R | None:
         """
         Check recursively if child is present in subscript.
         """
         if type_annotation in self.children:
             return self
 
-        type_subscript_children = [i for i in self.children if isinstance(i, TypeSubscript)]
+        type_subscript_children = [i for i in self.children if isinstance(i, self.__class__)]
         for child in type_subscript_children:
             result = child.find_type_annotation_parent(type_annotation)
             if result:

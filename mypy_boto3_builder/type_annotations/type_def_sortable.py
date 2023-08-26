@@ -73,7 +73,7 @@ class TypeDefSortable(Protocol):
         """
         ...
 
-    def get_typing_import_records(self) -> set[ImportRecord]:
+    def get_definition_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using TypeAnnotation.
         """

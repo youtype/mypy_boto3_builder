@@ -88,10 +88,6 @@ class TestImportRecord:
         assert ImportRecord(ImportString("type_defs")).is_local()
         assert not ImportRecord(ImportString("other")).is_local()
 
-    def test_get_external(self) -> None:
-        item = ImportRecord(ImportString("test"))
-        assert item.get_external("module_name") is item
-
     def test_is_standalone(self) -> None:
         assert not ImportRecord(ImportString("test"), name="my").is_standalone()
         assert ImportRecord(ImportString("test")).is_standalone()

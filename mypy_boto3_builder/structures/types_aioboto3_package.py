@@ -45,7 +45,6 @@ class TypesAioBoto3Package(Package):
         Get import records for `session.py[i]`.
         """
         import_records = self.session_class.get_required_import_records()
-        self.add_fallback_import_record(import_records)
         return sorted(import_records)
 
     def get_all_names(self) -> list[str]:

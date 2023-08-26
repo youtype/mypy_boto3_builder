@@ -72,6 +72,12 @@ class TypeLiteral(FakeAnnotation):
 
         return InternalImportRecord(ServiceModuleName.literals, name=self.name)
 
+    def get_definition_import_records(self) -> set[ImportRecord]:
+        """
+        Get import record required for using Literal.
+        """
+        return Type.Literal.get_import_records()
+
     def copy(self: _R) -> _R:
         """
         Create a copy of type annotation wrapper.

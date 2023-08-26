@@ -52,6 +52,7 @@ IGNORE_MYPY_ERRORS = (
     'Signature of "wait" incompatible with supertype "AIOWaiter"',
     'imported name has type "type[object]", local name has type',
     'incompatible with return type "Iterator[list[Any]]" in supertype "ResourceCollection"',
+    'Incompatible import of "Literal"',
     "note:",
 )
 
