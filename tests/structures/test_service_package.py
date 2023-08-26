@@ -1,3 +1,5 @@
+from unittest.mock import Mock
+
 import pytest
 
 from mypy_boto3_builder.package_data import Boto3StubsPackageData
@@ -18,13 +20,13 @@ class TestServicePackage:
         return ServicePackage(
             Boto3StubsPackageData,
             service_name=service_name,
-            client=Client("Client", service_name, "base"),
-            service_resource=ServiceResource("ServiceResource", service_name, "base"),
+            client=Client("Client", service_name, Mock()),
+            service_resource=ServiceResource("ServiceResource", service_name, Mock()),
             waiters=[Waiter("waiter", "waiter", service_name)],
             paginators=[Paginator("Paginator", "Paginator", "paginate", service_name)],
             type_defs=[TypeTypedDict("MyTypedDict", [])],
             literals=[TypeLiteral("MyLiteral", ["value"])],
-            helper_functions=["helper_function"],
+            helper_functions=[Mock()],
         )
 
     def test_init(self) -> None:
@@ -55,10 +57,10 @@ class TestServicePackage:
         assert len(self.service_package.get_waiter_required_import_records()) == 1
 
     def test_get_type_defs_required_import_records(self) -> None:
-        assert len(self.service_package.get_type_defs_required_import_records()) == 2
+        assert len(self.service_package.get_type_defs_required_import_records()) == 1
 
     def test_get_literals_required_import_records(self) -> None:
-        assert len(self.service_package.get_literals_required_import_records()) == 2
+        assert len(self.service_package.get_literals_required_import_records()) == 1
 
     def test_validate(self) -> None:
         self.service_package.validate()

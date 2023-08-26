@@ -34,8 +34,8 @@ class TestTypeAnnotation:
     def test_fallback(self) -> None:
         sample = TypeAnnotation("NotRequired")
         assert sample.render() == "NotRequired"
-        assert sample.get_import_record().render() == "from typing import NotRequired"
+        assert sample.get_import_record().render() == "from typing_extensions import NotRequired"
 
         fallback = sample.get_import_record().fallback
         assert fallback is not None
-        assert fallback.render() == "from typing_extensions import NotRequired"
+        assert fallback.render() == "from typing import NotRequired"

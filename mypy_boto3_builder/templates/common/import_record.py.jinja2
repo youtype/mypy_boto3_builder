@@ -9,7 +9,7 @@ else:
 {% else -%}
 try:
     {% include "common/import_record_string.py.jinja2" with context -%}{{ "\n" -}}
-except (ModuleNotFoundError, ImportError):
+except ImportError:
     {% with import_record = import_record.fallback -%}
     {% include "common/import_record_string.py.jinja2" with context -%}
     {% endwith -%}
