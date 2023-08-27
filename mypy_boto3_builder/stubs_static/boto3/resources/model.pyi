@@ -1,16 +1,17 @@
 import logging
+import sys
 from typing import Any, Dict, List, Optional, Tuple, Union
 
 from botocore.model import Shape
 
-try:
+if sys.version_info >= (3, 12):
+    from typing import Literal
+else:
     from typing_extensions import Literal
-except ImportError:
-    from typing import Literal  # type: ignore
-try:
-    from typing_extensions import TypedDict
-except ImportError:
+if sys.version_info >= (3, 12):
     from typing import TypedDict
+else:
+    from typing_extensions import TypedDict
 
 logger: logging.Logger
 

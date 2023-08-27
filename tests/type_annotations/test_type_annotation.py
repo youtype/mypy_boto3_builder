@@ -29,8 +29,9 @@ class TestTypeAnnotation:
         assert result[0].render() == "from typing import Dict"
 
         result = list(sorted(TypeAnnotation("Literal").get_import_records()))
-        assert len(result) == 1
-        assert result[0].render() == "from typing_extensions import Literal"
+        assert len(result) == 2
+        assert result[0].render() == "import sys"
+        assert result[1].render() == "from typing_extensions import Literal"
 
     def test_copy(self) -> None:
         assert self.dict.copy().get_import_name() == "Dict"
@@ -43,11 +44,10 @@ class TestTypeAnnotation:
     def test_fallback(self) -> None:
         sample = TypeAnnotation("NotRequired")
         assert sample.render() == "NotRequired"
-        assert (
-            sample.get_import_records().pop().render()
-            == "from typing_extensions import NotRequired"
-        )
+        import_records = list(sorted(sample.get_import_records()))
+        assert import_records[0].render() == "import sys"
+        assert import_records[1].render() == "from typing_extensions import NotRequired"
 
-        fallback = sample.get_import_records().pop().fallback
+        fallback = import_records[1].fallback
         assert fallback is not None
         assert fallback.render() == "from typing import NotRequired"

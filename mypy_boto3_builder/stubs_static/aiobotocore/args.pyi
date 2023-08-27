@@ -13,10 +13,10 @@ from botocore.parsers import ResponseParser
 from botocore.serialize import BaseRestSerializer
 from botocore.signers import RequestSigner
 
-try:
-    from typing_extensions import TypedDict
-except ImportError:
+if sys.version_info >= (3, 12):
     from typing import TypedDict
+else:
+    from typing_extensions import TypedDict
 
 class _GetClientArgsTypeDef(TypedDict):
     serializer: BaseRestSerializer

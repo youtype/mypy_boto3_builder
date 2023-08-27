@@ -19,11 +19,9 @@
 [![Docs](https://img.shields.io/readthedocs/types-aioboto3.svg?color=blue&label=types-aioboto3%20docs)](https://youtype.github.io/types_aioboto3_docs/)
 [![PyPI - Downloads](https://static.pepy.tech/badge/types-aioboto3)](https://pepy.tech/project/types-aioboto3)
 
-
-
 ![boto3.typed](https://github.com/youtype/mypy_boto3_builder/raw/main/logo.png)
 
-Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/) project. Compatible with
+Type annotations builder for [boto3-stubs](https://pypi.org/project/boto3-stubs/), [types-aiobotocore](https://pypi.org/project/types-aiobotocore/), and [types-aioboto3](https://pypi.org/project/types-aioboto3/) projects. Compatible with
 [VSCode](https://code.visualstudio.com/),
 [PyCharm](https://www.jetbrains.com/pycharm/),
 [Emacs](https://www.gnu.org/software/emacs/),

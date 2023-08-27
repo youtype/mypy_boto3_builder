@@ -53,7 +53,7 @@ class TypeSubscript(FakeAnnotation):
         """
         Get all import records required for using type annotation.
         """
-        result = set()
+        result: set[ImportRecord] = set()
         result.update(self.parent.get_import_records())
         for child in self.children:
             result.update(child.get_import_records())

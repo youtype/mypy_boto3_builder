@@ -46,9 +46,9 @@ class TypeAnnotation(FakeAnnotation):
 
     # Set of fallback type annotations
     FALLBACK: dict[str, tuple[tuple[int, int] | None, ImportString]] = {
-        "NotRequired": (None, _typing),
-        "TypedDict": (None, _typing),
-        "Literal": (None, _typing),
+        "NotRequired": ((3, 12), _typing),
+        "TypedDict": ((3, 12), _typing),
+        "Literal": ((3, 12), _typing),
     }
 
     def __init__(self, wrapped_type: str) -> None:

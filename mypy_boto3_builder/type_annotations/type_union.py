@@ -134,7 +134,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         Get import record required for using Union.
         """
-        result = set()
+        result: set[ImportRecord] = set()
         result.update(self.parent.get_import_records())
         for child in self.children:
             result.update(child.get_import_records())

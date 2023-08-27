@@ -57,10 +57,10 @@ class TestServicePackage:
         assert len(self.service_package.get_waiter_required_import_records()) == 1
 
     def test_get_type_defs_required_import_records(self) -> None:
-        assert len(self.service_package.get_type_defs_required_import_records()) == 1
+        assert len(self.service_package.get_type_defs_required_import_records()) == 2
 
     def test_get_literals_required_import_records(self) -> None:
-        assert len(self.service_package.get_literals_required_import_records()) == 1
+        assert len(self.service_package.get_literals_required_import_records()) == 2
 
     def test_validate(self) -> None:
         self.service_package.validate()

@@ -1,27 +1,14 @@
 [tool.black]
 line-length = 100
 include = '(mypy_boto3_builder|types_s3transfer|tests)/.*\.pyi?$'
-target-version = [
-    'py37',
-    'py38',
-    'py39',
-    'py310',
-    'py311',
-]
+target-version = ['py37', 'py38', 'py39', 'py310', 'py311']
 preview = true
 
 [tool.isort]
 profile = "black"
 line_length = 100
-known_third_party = [
-    "botocore",
-    "boto3",
-    "aiobotocore",
-]
-known_first_party = [
-    "mypy_boto3_builder",
-    "tests",
-]
+known_third_party = ["botocore", "boto3", "aiobotocore"]
+known_first_party = ["mypy_boto3_builder", "tests"]
 src_paths = []
 
 [tool.poetry]
@@ -42,7 +29,6 @@ classifiers = [
     "Natural Language :: English",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3 :: Only",
@@ -50,9 +36,7 @@ classifiers = [
     "Typing :: Typed",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-packages = [
-    { include = "mypy_boto3_builder" },
-]
+packages = [{ include = "mypy_boto3_builder" }]
 include = [
     "mypy_boto3_builder/py.typed",
     "mypy_boto3_builder/templates/*/*.jinja2",
@@ -124,21 +108,12 @@ exclude_lines = [
     "@overload",
 ]
 ignore_errors = true
-omit = [
-    "tests/*",
-]
+omit = ["tests/*"]
 
 [tool.pyright]
-include = [
-    "mypy_boto3_builder",
-]
-exclude = [
-    "**/__pycache__",
-    "tests",
-    "**/build",
-    "typestubs",
-]
-# typeCheckingMode = "strict"
+include = ["mypy_boto3_builder"]
+exclude = ["**/__pycache__", "tests", "**/build", "typestubs"]
+typeCheckingMode = "strict"
 reportMissingImports = "error"
 reportMissingTypeStubs = "error"
 reportMissingTypeArgument = "error"
