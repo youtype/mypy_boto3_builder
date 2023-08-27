@@ -52,12 +52,6 @@ class ClassRecord:
             raise ValueError(f"Cannot get alias for { self.name } with no alias.")
         return InternalImport.get_alias(self.name)
 
-    def render_alias(self) -> str:
-        """
-        Render alias expression.
-        """
-        return f"{self.alias_name} = {self.name}"
-
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
         Iterate over type annotations for methods, attributes and bases.

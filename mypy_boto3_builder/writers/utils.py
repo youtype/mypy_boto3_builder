@@ -4,6 +4,7 @@ Jinja2 renderer and black formatter.
 import tempfile
 from collections.abc import Iterable
 from pathlib import Path
+from typing import Any
 
 import mdformat
 from black import format_file_contents
@@ -91,18 +92,32 @@ def sort_imports(
     return result or ""
 
 
-def render_jinja2_template(
+def render_jinja2_package_template(
     template_path: Path,
     package: Package | None = None,
     service_name: ServiceName | None = None,
 ) -> str:
     """
+    Render Jinja2 package template to a string.
+
+    Arguments:
+        template_path -- Relative path to template in `TEMPLATES_PATH`
+        module -- Module record
+        service_name -- ServiceName instance
+
+    Returns:
+        A rendered template.
+    """
+    return render_jinja2_template(template_path, package=package, service_name=service_name)
+
+
+def render_jinja2_template(template_path: Path, **kwargs: Any) -> str:
+    """
     Render Jinja2 template to a string.
 
     Arguments:
         template_path -- Relative path to template in `TEMPLATES_PATH`
-        module -- Module record.
-        service_name -- ServiceName instance.
+        kwargs -- Render arguments
 
     Returns:
         A rendered template.
@@ -115,10 +130,12 @@ def render_jinja2_template(
     if not template_full_path.exists():
         raise ValueError(f"Template {template_full_path} not found")
 
-    template = JinjaManager.get_environment().get_template(
-        template_full_path.relative_to(TEMPLATES_PATH).as_posix()
+    template = (
+        JinjaManager()
+        .get_environment()
+        .get_template(template_full_path.relative_to(TEMPLATES_PATH).as_posix())
     )
-    return template.render(package=package, service_name=service_name)
+    return template.render(**kwargs)
 
 
 def insert_md_toc(text: str) -> str:

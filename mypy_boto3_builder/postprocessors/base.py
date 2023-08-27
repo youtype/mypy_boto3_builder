@@ -9,7 +9,7 @@ from boto3.session import Session
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.utils.boto3_utils import get_region_name_literal
+from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource, get_region_name_literal
 
 
 class BasePostprocessor(ABC):
@@ -29,6 +29,9 @@ class BasePostprocessor(ABC):
         self.package = package
         self.service_names = service_names
         self.docs_package_name = self.package.data.PYPI_NAME
+
+    def _has_service_resource(self, service_name: ServiceName) -> bool:
+        return bool(get_boto3_resource(self.session, service_name))
 
     def generate_docstrings(self) -> None:
         """
@@ -190,11 +193,9 @@ class BasePostprocessor(ABC):
         self.package.literals.append(
             TypeLiteral("ServiceName", [i.boto3_name for i in self.service_names])
         )
+        resource_service_names = [i for i in self.service_names if self._has_service_resource(i)]
         self.package.literals.append(
-            TypeLiteral(
-                "ResourceServiceName",
-                [i.boto3_name for i in self.service_names if i.has_service_resource],
-            )
+            TypeLiteral("ResourceServiceName", [i.boto3_name for i in resource_service_names])
         )
 
         paginator_names = [paginator.operation_name for paginator in self.package.paginators]

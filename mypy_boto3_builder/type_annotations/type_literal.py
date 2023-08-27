@@ -57,12 +57,6 @@ class TypeLiteral(FakeAnnotation):
 
         return self.name
 
-    def render_children(self) -> str:
-        """
-        Render literal children to representation.
-        """
-        return ", ".join([repr(child) for child in sorted(self.children)])
-
     def _get_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using type annotation.

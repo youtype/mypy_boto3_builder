@@ -1,13 +1,13 @@
 from unittest.mock import MagicMock, patch
 
 import pytest
-from black import NothingChanged
+from black.report import NothingChanged
 
 from mypy_boto3_builder.writers.utils import (
     blackify,
     blackify_markdown,
     insert_md_toc,
-    render_jinja2_template,
+    render_jinja2_package_template,
     sort_imports,
 )
 
@@ -47,19 +47,19 @@ class TestUtils:
 
     @patch("mypy_boto3_builder.writers.utils.TEMPLATES_PATH")
     @patch("mypy_boto3_builder.writers.utils.JinjaManager")
-    def test_render_jinja2_template(
+    def test_render_jinja2_package_template(
         self, JinjaManagerMock: MagicMock, TEMPLATES_PATH_MOCK: MagicMock
     ) -> None:
         template_path_mock = MagicMock()
         package_mock = MagicMock()
         service_name_mock = MagicMock()
-        result = render_jinja2_template(template_path_mock, package_mock, service_name_mock)
-        JinjaManagerMock.get_environment.assert_called_with()
-        JinjaManagerMock.get_environment().get_template.assert_called()
-        JinjaManagerMock.get_environment().get_template().render.assert_called_with(
+        result = render_jinja2_package_template(template_path_mock, package_mock, service_name_mock)
+        JinjaManagerMock().get_environment.assert_called_with()
+        JinjaManagerMock().get_environment().get_template.assert_called()
+        JinjaManagerMock().get_environment().get_template().render.assert_called_with(
             package=package_mock, service_name=service_name_mock
         )
-        assert result == JinjaManagerMock.get_environment().get_template().render()
+        assert result == JinjaManagerMock().get_environment().get_template().render()
 
     def test_insert_md_toc(self) -> None:
         assert (

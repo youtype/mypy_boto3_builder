@@ -1,7 +1,6 @@
 """
 Main entrypoint for builder.
 """
-import datetime
 import sys
 import warnings
 from collections.abc import Iterable, Sequence
@@ -9,18 +8,17 @@ from collections.abc import Iterable, Sequence
 from botocore.session import Session as BotocoreSession
 
 from mypy_boto3_builder.cli_parser import Namespace, parse_args
-from mypy_boto3_builder.constants import BUILDER_REPO_URL, Product, ProductLibrary
+from mypy_boto3_builder.constants import Product, ProductLibrary
 from mypy_boto3_builder.generators.aioboto3_generator import AioBoto3Generator
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.generators.boto3_generator import Boto3Generator
-from mypy_boto3_builder.jinja_manager import JinjaManager
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_session, get_botocore_session
 from mypy_boto3_builder.utils.botocore_changelog import BotocoreChangelog
-from mypy_boto3_builder.utils.strings import get_anchor_link, get_botocore_class_name
-from mypy_boto3_builder.utils.version import get_botocore_version, get_builder_version
+from mypy_boto3_builder.utils.strings import get_botocore_class_name
+from mypy_boto3_builder.utils.version import get_botocore_version
 
 
 def get_selected_service_names(
@@ -154,17 +152,6 @@ def main() -> None:
 
     service_names = get_selected_service_names(args.service_names, available_service_names)
     master_service_names = service_names if args.partial_overload else available_service_names
-
-    JinjaManager.update_globals(
-        builder_version=get_builder_version(),
-        current_year=str(datetime.datetime.utcnow().year),
-        get_anchor_link=get_anchor_link,
-        render_docstrings=True,
-        hasattr=hasattr,
-        len=len,
-        sorted=sorted,
-        builder_repo_url=BUILDER_REPO_URL,
-    )
 
     for product in args.products:
         logger.info(f"Generating {product} product")

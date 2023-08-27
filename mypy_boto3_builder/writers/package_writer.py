@@ -17,7 +17,7 @@ from mypy_boto3_builder.writers.utils import (
     blackify_markdown,
     format_md,
     insert_md_toc,
-    render_jinja2_template,
+    render_jinja2_package_template,
     sort_imports,
 )
 
@@ -109,7 +109,7 @@ class PackageWriter:
         service_name: ServiceName | None = None,
     ) -> None:
         for file_path, template_path in file_paths:
-            content = render_jinja2_template(
+            content = render_jinja2_package_template(
                 template_path,
                 package=package,
                 service_name=service_name,
@@ -152,7 +152,7 @@ class PackageWriter:
         service_name: ServiceName | None = None,
     ) -> None:
         for file_path, template_path in file_paths:
-            content = render_jinja2_template(
+            content = render_jinja2_package_template(
                 template_path,
                 package=package,
                 service_name=service_name,

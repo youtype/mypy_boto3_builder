@@ -43,7 +43,6 @@ class ServiceName:
         self.class_name = class_name
         self.boto3_version = self.LATEST
         self.override_boto3_name = override_boto3_name
-        self.has_service_resource = False
 
     def __hash__(self) -> int:
         return hash(self.name)

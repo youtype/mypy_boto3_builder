@@ -1,1 +1,6 @@
-{{ type_def.render_definition() -}}
+{{ type_def.name }} = {{ type_def.parent.render() }}{{ "[" -}}
+{% for child in type_def.iterate_children() -%}
+    {{ child.render(type_def.name) -}}
+    {{ ", " if not loop.last -}}
+{% endfor -%}
+{{ "]" -}}

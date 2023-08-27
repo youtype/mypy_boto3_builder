@@ -51,7 +51,7 @@ __all__ = (
         {% include "common/class.py.jinja2" with context -%}
     {% endwith -%}
     {{ "\n\n" -}}
-    {{ sub_resource.render_alias() }}
+    {{ sub_resource.alias_name }} = {{ sub_resource.name }}
     {{ "\n\n\n" if not loop.last else "\n" -}}
 {% endfor -%}
 

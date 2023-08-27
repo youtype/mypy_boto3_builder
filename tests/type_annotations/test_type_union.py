@@ -1,7 +1,10 @@
+from pathlib import Path
+
 import pytest
 
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
+from mypy_boto3_builder.writers.utils import render_jinja2_template
 
 
 class TestTypeLiteral:
@@ -48,3 +51,9 @@ class TestTypeLiteral:
 
     def test_copy(self) -> None:
         assert self.result.copy().children == self.result.children
+
+    def test_render_template(self) -> None:
+        assert (
+            render_jinja2_template(Path("common") / "named_union.py.jinja2", type_def=self.result)
+            == "Test = Union[str, Any]"
+        )

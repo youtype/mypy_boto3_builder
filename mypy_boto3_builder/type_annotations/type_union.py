@@ -69,14 +69,6 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         return self.name != ""
 
-    def render_definition(self) -> str:
-        """
-        Render named Union type definition.
-        """
-        result = self.parent.render()
-        children = ", ".join([i.render(self.name) for i in self.children])
-        return f"{self.name} = {result}[{children}]"
-
     def copy(self: _R) -> _R:
         """
         Create a copy of type annotation wrapper.

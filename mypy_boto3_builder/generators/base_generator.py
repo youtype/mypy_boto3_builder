@@ -12,7 +12,7 @@ from mypy_boto3_builder.parsers.service_package import parse_service_package
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource, get_boto3_session
+from mypy_boto3_builder.utils.boto3_utils import get_boto3_session
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
@@ -53,7 +53,6 @@ class BaseGenerator(ABC):
         self.skip_published = skip_published
         self.disable_smart_version = disable_smart_version
         self.version = version or self.get_library_version()
-        self._enrich_service_names()
 
     @abstractmethod
     def get_postprocessor(self, service_package: ServicePackage) -> BasePostprocessor:
@@ -81,12 +80,6 @@ class BaseGenerator(ABC):
 
         return pypi_manager.get_next_version(version)
 
-    def _enrich_service_names(self) -> None:
-        for service_name in self.service_names:
-            service_name.has_service_resource = bool(get_boto3_resource(self.session, service_name))
-        for service_name in self.master_service_names:
-            service_name.has_service_resource = bool(get_boto3_resource(self.session, service_name))
-
     @abstractmethod
     def generate_stubs(self) -> None:
         """
@@ -104,13 +97,14 @@ class BaseGenerator(ABC):
         """
         Run generator for a product type.
         """
-        methods_map = {
-            ProductType.stubs: self.generate_stubs,
-            ProductType.service_stubs: self.generate_service_stubs,
-            ProductType.docs: self.generate_docs,
-        }
+        if product_type == ProductType.stubs:
+            return self.generate_stubs()
+        if product_type == ProductType.service_stubs:
+            return self.generate_service_stubs()
+        if product_type == ProductType.docs:
+            return self.generate_docs()
 
-        methods_map[product_type]()
+        raise ValueError(f"Unknown product type: {product_type}")
 
     def _parse_service_package(
         self,

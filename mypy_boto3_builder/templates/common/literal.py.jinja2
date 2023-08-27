@@ -1,4 +1,7 @@
 {{ literal.name -}}
 {{ ' = Literal[' -}}
-{{ literal.render_children() -}}
+{% for child in sorted(literal.children) -%}
+{{ repr(child) -}}
+{{ ", " if not loop.last -}}
+{% endfor -%}
 {{ ']' -}}

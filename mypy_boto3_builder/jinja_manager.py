@@ -1,12 +1,15 @@
 """
 Jinja2 `Environment` manager.
 """
+import datetime
 from collections.abc import Callable
 from typing import Any
 
 import jinja2
 
-from mypy_boto3_builder.constants import TEMPLATES_PATH
+from mypy_boto3_builder.constants import BUILDER_REPO_URL, TEMPLATES_PATH
+from mypy_boto3_builder.utils.strings import get_anchor_link
+from mypy_boto3_builder.utils.version import get_builder_version
 
 __all__ = ["JinjaManager"]
 
@@ -20,6 +23,19 @@ class JinjaManager:
         loader=jinja2.FileSystemLoader(TEMPLATES_PATH.as_posix()),
         undefined=jinja2.StrictUndefined,
     )
+
+    def __init__(self) -> None:
+        self._environment.filters["escape_md"] = self.escape_md  # type: ignore
+        self.update_globals(
+            builder_version=get_builder_version(),
+            current_year=str(datetime.datetime.utcnow().year),
+            get_anchor_link=get_anchor_link,
+            hasattr=hasattr,
+            len=len,
+            sorted=sorted,
+            repr=repr,
+            builder_repo_url=BUILDER_REPO_URL,
+        )
 
     @classmethod
     def update_globals(cls, **kwargs: str | bool | Callable[..., Any]) -> None:
@@ -38,10 +54,8 @@ class JinjaManager:
         """
         return value.replace("_", r"\_")
 
-    @classmethod
-    def get_environment(cls) -> jinja2.Environment:
+    def get_environment(self) -> jinja2.Environment:
         """
         Get `jinja2.Environment`.
         """
-        cls._environment.filters["escape_md"] = cls.escape_md  # type: ignore
-        return cls._environment
+        return self._environment

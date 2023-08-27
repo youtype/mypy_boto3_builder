@@ -40,9 +40,6 @@ class TestClassRecord:
         with pytest.raises(ValueError):
             self.class_record.alias_name
 
-    def test_render_alias(self) -> None:
-        assert self.class_record.render_alias() == "_Name = Name"
-
     def test_get_types(self) -> None:
         assert set(self.class_record.iterate_types()) == {
             Type.Any,
