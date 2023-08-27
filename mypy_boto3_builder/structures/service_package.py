@@ -182,10 +182,8 @@ class ServicePackage(Package):
         Get import records for `client.py[i]`.
         """
         import_records: set[ImportRecord] = set()
-        for import_record in self.client.get_required_import_records():
-            import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
-        for import_record in self.client.exceptions_class.get_required_import_records():
-            import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
+        import_records.update(self.client.get_required_import_records())
+        import_records.update(self.client.exceptions_class.get_required_import_records())
 
         return sorted(import_records)
 
@@ -196,12 +194,8 @@ class ServicePackage(Package):
         if self.service_resource is None:
             return []
 
-        import_records: set[ImportRecord] = set()
         class_import_records = self.service_resource.get_required_import_records()
-        for import_record in class_import_records:
-            import_records.add(import_record.get_external(self.get_module_name(self.service_name)))
-
-        return sorted(import_records)
+        return sorted(class_import_records)
 
     def get_paginator_required_import_records(self) -> list[ImportRecord]:
         """
@@ -209,10 +203,7 @@ class ServicePackage(Package):
         """
         import_records: set[ImportRecord] = set()
         for paginator in self.paginators:
-            for import_record in paginator.get_required_import_records():
-                import_records.add(
-                    import_record.get_external(self.get_module_name(self.service_name))
-                )
+            import_records.update(paginator.get_required_import_records())
 
         return sorted(import_records)
 
@@ -222,10 +213,7 @@ class ServicePackage(Package):
         """
         import_records: set[ImportRecord] = set()
         for waiter in self.waiters:
-            for import_record in waiter.get_required_import_records():
-                import_records.add(
-                    import_record.get_external(self.get_module_name(self.service_name))
-                )
+            import_records.update(waiter.get_required_import_records())
 
         return sorted(import_records)
 

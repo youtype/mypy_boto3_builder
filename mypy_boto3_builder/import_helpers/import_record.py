@@ -156,14 +156,6 @@ class ImportRecord:
 
         return False
 
-    def get_external(self: _R, module_name: str) -> _R:
-        """
-        Get itself.
-
-        Overriden by `InternalImportRecord`.
-        """
-        return self
-
     def needs_sys_fallback(self) -> bool:
         """
         Whether ImportString requires `sys` module.

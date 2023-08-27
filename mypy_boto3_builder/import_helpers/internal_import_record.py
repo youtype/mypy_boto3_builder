@@ -24,21 +24,3 @@ class InternalImportRecord(ImportRecord):
         self._local_source = ImportString(service_module_name.name)
         source = ImportString.parent() + self._local_source
         super().__init__(source, name=name, alias=alias)
-
-    def get_external(self: _R, module_name: str) -> _R:
-        """
-        Get full import record with `module_name` set as master module.
-
-        Arguments:
-            module_name -- Master module import string.
-
-        Returns:
-            A new non-internal ImportRecord.
-        """
-        return self
-        # source = ImportString(module_name) + self._local_source
-        # return ImportRecord(
-        #     source=source,
-        #     name=self.name,
-        #     alias=self.alias,
-        # )

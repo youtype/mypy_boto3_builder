@@ -140,9 +140,6 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         """
         Get import record required for using TypedDict.
         """
-        if self.replace_with_dict:
-            return set()
-
         result = Type.TypedDict.get_import_records()
         for child in self.iterate_children():
             result.update(child.get_type_annotation().get_import_records())
@@ -152,7 +149,13 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         """
         Get import record required for using type annotation.
         """
-        return {InternalImportRecord(ServiceModuleName.type_defs, name=self.name)}
+        result: set[ImportRecord] = {
+            InternalImportRecord(ServiceModuleName.type_defs, name=self.name)
+        }
+        if self.replace_with_dict:
+            result.update(Type.DictStrAny.get_import_records())
+
+        return result
 
     def add_attribute(self, name: str, type_annotation: FakeAnnotation, required: bool) -> None:
         """

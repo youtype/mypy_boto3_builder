@@ -1,5 +1,6 @@
 import pytest
 
+from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 
 
@@ -34,6 +35,11 @@ class TestTypeAnnotation:
         assert len(result) == 2
         assert result[0].render() == "import sys"
         assert result[1].render() == "from typing import Literal"
+
+        result = sorted(Type.DictStrAny.get_import_records())
+        assert len(result) == 2
+        assert result[0].render() == "from typing import Any"
+        assert result[1].render() == "from typing import Dict"
 
     def test_copy(self) -> None:
         assert self.dict.copy().get_import_name() == "Dict"
