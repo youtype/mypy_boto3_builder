@@ -177,12 +177,6 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         return self.parent == Type.Union
 
-    def replace_self_references(self) -> None:
-        """
-        Replace self references, does nothing.
-        """
-        return None
-
     def iterate_children(self) -> Iterator[FakeAnnotation]:
         """
         Iterate over children.

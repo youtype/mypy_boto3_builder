@@ -42,8 +42,10 @@ class TestTypeTypedDict:
         assert result.render("MyDict") == '"MyDict"'
         result.stringify()
         assert result.render() == '"MyDict"'
-        result.replace_with_dict.add(result.name)
-        assert result.render("MyDict") == "Dict[str, Any]"
+
+        result = self.result.copy()
+        result.replace_with_dict = True
+        assert result.render() == "Dict[str, Any]"
 
     def test_debug_render(self) -> None:
         result = self.result.copy()
@@ -141,12 +143,6 @@ class TestTypeTypedDict:
             Type.bool,
         }
 
-    def test_get_children_typed_dicts(self) -> None:
-        clone = self.result.copy()
-        assert len(clone.get_children_typed_dicts()) == 0
-        clone.add_attribute("child", clone, True)
-        assert len(clone.get_children_typed_dicts()) == 1
-
     def test_get_children_literals(self) -> None:
         clone = self.result.copy()
         assert len(clone.get_children_literals()) == 0
@@ -154,9 +150,6 @@ class TestTypeTypedDict:
         assert len(clone.get_children_literals()) == 1
         assert len(clone.get_children_literals(["other"])) == 1
         assert len(clone.get_children_literals([clone.name])) == 0
-
-    def test_replace_self_references(self) -> None:
-        self.result.replace_self_references()
 
     def test_stringify(self) -> None:
         result = self.result.copy()

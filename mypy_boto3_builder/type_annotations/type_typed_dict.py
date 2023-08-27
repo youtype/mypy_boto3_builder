@@ -83,13 +83,13 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         children: Iterable[TypedDictAttribute] = (),
         docstring: str = "",
         stringify: bool = False,
-        replace_with_dict: Iterable[str] = (),
+        replace_with_dict: bool = False,
     ) -> None:
         self.name = name
         self.children = list(children)
         self.docstring = docstring
         self._stringify = stringify
-        self.replace_with_dict = set(replace_with_dict)
+        self.replace_with_dict = replace_with_dict
 
     def is_stringified(self) -> bool:
         """
@@ -119,7 +119,7 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         Returns:
             A string with a valid type annotation.
         """
-        if parent_name in self.replace_with_dict:
+        if self.replace_with_dict:
             return Type.DictStrAny.render()
 
         if self.is_stringified():
@@ -149,13 +149,10 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         """
         Get import record required for using type annotation.
         """
-        result: set[ImportRecord] = {
-            InternalImportRecord(ServiceModuleName.type_defs, name=self.name)
-        }
         if self.replace_with_dict:
-            result.update(Type.DictStrAny.get_import_records())
+            return Type.DictStrAny.get_import_records()
 
-        return result
+        return {InternalImportRecord(ServiceModuleName.type_defs, name=self.name)}
 
     def add_attribute(self, name: str, type_annotation: FakeAnnotation, required: bool) -> None:
         """
@@ -258,20 +255,6 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
 
         return result
 
-    def get_children_typed_dicts(self) -> list["TypeTypedDict"]:
-        """
-        Extract required TypeTypedDict set from attributes.
-        """
-        result: list[TypeTypedDict] = []
-        children_types = self.get_children_types()
-        for type_annotation in children_types:
-            if not isinstance(type_annotation, TypeTypedDict):
-                continue
-            if type_annotation not in result:
-                result.append(type_annotation)
-
-        return result
-
     def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLiteral]:
         """
         Extract required TypeLiteral list from attributes.
@@ -286,21 +269,6 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
             if isinstance(type_annotation, TypeDefSortable):
                 result.update(type_annotation.get_children_literals((self.name, *processed)))
         return result
-
-    def replace_self_references(self) -> None:
-        """
-        Replace self references with `Dict[str, Any]` to avoid circular dependencies.
-        """
-        for child in self.get_children_typed_dicts():
-            if child is self:
-                child.replace_with_dict.add(self.name)
-                continue
-            for sub_child in child.get_children_typed_dicts():
-                if sub_child.replace_with_dict:
-                    continue
-                if sub_child is self:
-                    sub_child.replace_with_dict.add(child.name)
-                    continue
 
     def iterate_children(self) -> Iterator[TypedDictAttribute]:
         """

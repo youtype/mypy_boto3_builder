@@ -6,9 +6,12 @@ from collections.abc import Sequence
 
 from boto3.session import Session
 
+from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource, get_region_name_literal
 
 
@@ -29,6 +32,7 @@ class BasePostprocessor(ABC):
         self.package = package
         self.service_names = service_names
         self.docs_package_name = self.package.data.PYPI_NAME
+        self.logger = get_logger()
 
     def _has_service_resource(self, service_name: ServiceName) -> bool:
         return bool(get_boto3_resource(self.session, service_name))
@@ -210,9 +214,61 @@ class BasePostprocessor(ABC):
         if region_name_literal:
             self.package.literals.append(region_name_literal)
 
+    def _replace_typed_dict_with_dict(
+        self, attribute: TypedDictAttribute, reference: TypeTypedDict, parent: TypeTypedDict
+    ) -> None:
+        typed_dict_clone = reference.copy()
+        typed_dict_clone.replace_with_dict = True
+        if attribute.type_annotation is reference:
+            attribute.type_annotation = typed_dict_clone
+            self.logger.debug(
+                f"Replaced {reference.name} with Dict[str, Any] in {parent.name}.{attribute.name}"
+            )
+            return
+
+        if isinstance(attribute.type_annotation, TypeSubscript):
+            attribute.type_annotation.replace_child(reference, typed_dict_clone)
+            self.logger.debug(
+                f"Found and replaced {reference.name} with Dict[str, Any] in"
+                f" {parent.name}.{attribute.name}"
+            )
+            return
+
+        raise RuntimeError(
+            f"Cannot replace child {reference.name} in {parent.name}.{attribute.name}"
+        )
+
+    def _replace_typed_dict_references(
+        self, typed_dict: TypeTypedDict, reference: TypeTypedDict, depth: int
+    ) -> None:
+        """
+        Replace self references with `Dict[str, Any]` to avoid circular dependencies.
+        """
+        if depth <= 0:
+            return
+        next_depth = depth - 1
+        if typed_dict.replace_with_dict:
+            return
+
+        for child in typed_dict.iterate_children():
+            for child_typed_dict in child.type_annotation.iterate_types():
+                if not isinstance(child_typed_dict, TypeTypedDict):
+                    continue
+
+                if child_typed_dict.replace_with_dict:
+                    continue
+
+                if child_typed_dict is not reference:
+                    continue
+
+                self._replace_typed_dict_with_dict(child, reference, typed_dict)
+                if next_depth > 0:
+                    self._replace_typed_dict_references(child_typed_dict, typed_dict, next_depth)
+
     def replace_self_ref_typed_dicts(self) -> None:
         """
         Remove self-references from TypedDicts.
         """
         for type_def in self.package.type_defs:
-            type_def.replace_self_references()
+            if isinstance(type_def, TypeTypedDict):
+                self._replace_typed_dict_references(type_def, type_def, 2)
