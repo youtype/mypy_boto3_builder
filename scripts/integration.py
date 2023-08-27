@@ -6,6 +6,8 @@ import argparse
 import difflib
 import json
 import logging
+import os
+import shutil
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -14,6 +16,7 @@ from pathlib import Path
 from mypy_boto3_builder.utils.nice_path import NicePath
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
+PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
 EXAMPLES_PATH = ROOT_PATH / "examples"
 PYRIGHT_SNAPSHOTS_PATH = EXAMPLES_PATH / "pyright"
 MYPY_SNAPSHOTS_PATH = EXAMPLES_PATH / "mypy"
@@ -138,6 +141,8 @@ def run_pyright(path: Path, update: bool) -> None:
     """
     Run `pyright` and compare output.
     """
+    config_path = ROOT_PATH / "pyrightconfig.json"
+    shutil.copyfile(PYRIGHT_CONFIG_PATH, config_path)
     try:
         output = subprocess.check_output(
             ["pyright", path.as_posix(), "--outputjson"],
@@ -146,6 +151,8 @@ def run_pyright(path: Path, update: bool) -> None:
         )
     except subprocess.CalledProcessError as e:
         output = e.output
+    finally:
+        os.remove(config_path)
 
     data = json.loads(output).get("generalDiagnostics", [])
     for diag in data:
@@ -183,7 +190,13 @@ def run_call(path: Path) -> None:
     """
     Run submodule for sanity.
     """
-    subprocess.check_call([sys.executable, path.as_posix()])
+    logger = setup_logging(logging.INFO)
+    try:
+        subprocess.check_output([sys.executable, path.as_posix()])
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Call output: {e.output.decode()}")
+        logger.error(f"Call error: {e.stderr.decode()}")
+        raise
 
 
 def main() -> None:

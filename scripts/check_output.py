@@ -10,6 +10,8 @@ Checker of generated packages.
 import argparse
 import json
 import logging
+import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -18,6 +20,7 @@ from pathlib import Path
 from typing import Any, List, Optional
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
+PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
 LOGGER_NAME = "check_output"
 IGNORE_PYRIGHT_ERRORS = (
     '"get_paginator" is marked as overload, but no implementation is provided',
@@ -140,6 +143,8 @@ def run_pyright(path: Path) -> None:
     """
     Check output with pyright.
     """
+    config_path = ROOT_PATH / "pyrightconfig.json"
+    shutil.copyfile(PYRIGHT_CONFIG_PATH, config_path)
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
             subprocess.check_call(
@@ -147,9 +152,12 @@ def run_pyright(path: Path) -> None:
                 stderr=subprocess.DEVNULL,
                 stdout=f,
             )
-            return
         except subprocess.CalledProcessError:
             pass
+        else:
+            return
+        finally:
+            os.remove(config_path)
 
         temp_path = Path(f.name)
         output = temp_path.read_text()

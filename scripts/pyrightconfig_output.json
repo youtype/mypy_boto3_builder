@@ -1,0 +1,16 @@
+{
+    "exclude": [
+        "**/__pycache__",
+        "tests",
+        "**/build",
+        "typestubs"
+    ],
+    "typeCheckingMode": "basic",
+    "reportMissingImports": "error",
+    "reportMissingTypeStubs": "error",
+    "reportMissingTypeArgument": "error",
+    "reportIncompatibleMethodOverride": "error",
+    "reportIncompatibleVariableOverride": "error",
+    "reportUnknownParameterType": "error",
+    "pythonVersion": "3.7"
+}
