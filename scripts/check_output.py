@@ -15,7 +15,7 @@ import sys
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Optional
+from typing import Any, List, Optional
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 LOGGER_NAME = "check_output"
@@ -52,7 +52,6 @@ IGNORE_MYPY_ERRORS = (
     'Signature of "wait" incompatible with supertype "AIOWaiter"',
     'imported name has type "type[object]", local name has type',
     'incompatible with return type "Iterator[list[Any]]" in supertype "ResourceCollection"',
-    'Incompatible import of "Literal"',
     "note:",
 )
 
@@ -156,7 +155,7 @@ def run_pyright(path: Path) -> None:
         output = temp_path.read_text()
 
         data = json.loads(output).get("generalDiagnostics", [])
-        errors = []
+        errors: List[Any] = []
         for error in data:
             message = error.get("message", "")
             if any(imsg in message for imsg in IGNORE_PYRIGHT_ERRORS):
@@ -164,7 +163,7 @@ def run_pyright(path: Path) -> None:
             errors.append(error)
 
         if errors:
-            messages = []
+            messages: List[str] = []
             for error in errors:
                 messages.append(
                     f'{error["file"]}:{error["range"]["start"]["line"]} {error.get("message", "")}'
@@ -184,7 +183,7 @@ def run_mypy(path: Path) -> None:
         )
     except subprocess.CalledProcessError as e:
         output = e.output
-        errors = []
+        errors: List[str] = []
         for message in output.splitlines():
             if not message or message.startswith("Found"):
                 continue

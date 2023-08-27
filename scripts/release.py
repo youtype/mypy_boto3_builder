@@ -264,7 +264,7 @@ def main() -> None:
     paths.sort(key=lambda x: x.name)
     if args.filter:
         filters = [i.name for i in args.filter]
-        filtered_paths = []
+        filtered_paths: list[Path] = []
         for path in paths:
             if any(i in path.name for i in filters):
                 filtered_paths.append(path)

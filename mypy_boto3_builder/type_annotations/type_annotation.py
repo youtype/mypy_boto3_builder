@@ -33,22 +33,22 @@ class TypeAnnotation(FakeAnnotation):
         "overload": _typing,  # typing.overload
         "Type": _typing,  # typing.Type
         "NoReturn": _typing,  # typing.NoReturn
-        "TypedDict": _typing_extensions,  # typing_extensions.TypedDict / typing.TypedDict
-        "Literal": _typing_extensions,  # typing_extensions.Literal / typing.Literal
+        "TypedDict": _typing,  # typing_extensions.TypedDict / typing.TypedDict
+        "Literal": _typing,  # typing_extensions.Literal / typing.Literal
         "Mapping": _typing,  # typing.Mapping
         "Sequence": _typing,  # typing.Sequence
         "Callable": _typing,  # typing.Callable
         "Iterator": _typing,  # typing.Iterator
         "Awaitable": _typing,  # typing.Awaitable
         "AsyncIterator": _typing,  # typing.AsyncIterator
-        "NotRequired": _typing_extensions,  # typing_extensions.NotRequired / typing.NotRequired
+        "NotRequired": _typing,  # typing_extensions.NotRequired / typing.NotRequired
     }
 
     # Set of fallback type annotations
     FALLBACK: dict[str, tuple[tuple[int, int] | None, ImportString]] = {
-        "NotRequired": ((3, 12), _typing),
-        "TypedDict": ((3, 12), _typing),
-        "Literal": ((3, 12), _typing),
+        "NotRequired": ((3, 12), _typing_extensions),
+        "TypedDict": ((3, 12), _typing_extensions),
+        "Literal": ((3, 12), _typing_extensions),
     }
 
     def __init__(self, wrapped_type: str) -> None:

@@ -169,7 +169,7 @@ def run_mypy(path: Path, update: bool) -> None:
     except subprocess.CalledProcessError as e:
         output = e.output
 
-    new_data_lines = []
+    new_data_lines: list[str] = []
     for line in output.splitlines():
         if line.endswith("defined here"):
             continue

@@ -146,6 +146,12 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         return {InternalImportRecord(ServiceModuleName.type_defs, name=self.name)}
 
+    def get_import_records(self) -> set[ImportRecord]:
+        """
+        Get all import records required for using type annotation.
+        """
+        return self._get_import_records()
+
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
         Extract type annotations from children.
