@@ -112,15 +112,6 @@ class BaseGenerator(ABC):
 
         methods_map[product_type]()
 
-    def _get_available_regions(self) -> list[str]:
-        """
-        Get a sorted list of all available regions.
-        """
-        result: set[str] = set()
-        for service_name in self.master_service_names:
-            result.update(self.session.get_available_regions(service_name.boto3_name))
-        return sorted(result)
-
     def _parse_service_package(
         self,
         service_name: ServiceName,

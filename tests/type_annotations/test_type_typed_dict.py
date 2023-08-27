@@ -34,7 +34,6 @@ class TestTypeTypedDict:
         assert self.result.name == "MyDict"
         assert len(self.result.children) == 2
         assert self.result.docstring == "documentation"
-        assert self.result.requires_safe_render
 
     def test_render(self) -> None:
         result = self.result.copy()

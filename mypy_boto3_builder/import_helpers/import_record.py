@@ -164,15 +164,6 @@ class ImportRecord:
         """
         return self
 
-    def is_standalone(self) -> bool:
-        """
-        Whether import record should not be grouped.
-        """
-        if not self.name or self.fallback:
-            return True
-
-        return False
-
     def needs_sys_fallback(self) -> bool:
         """
         Whether ImportString requires `sys` module.

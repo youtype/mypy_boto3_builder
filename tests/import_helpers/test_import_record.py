@@ -1,7 +1,5 @@
 from unittest.mock import MagicMock, patch
 
-import pytest
-
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 
@@ -87,12 +85,3 @@ class TestImportRecord:
         assert ImportRecord(ImportString("mypy_boto3", "test")).is_local()
         assert ImportRecord(ImportString("type_defs")).is_local()
         assert not ImportRecord(ImportString("other")).is_local()
-
-    def test_is_standalone(self) -> None:
-        assert not ImportRecord(ImportString("test"), name="my").is_standalone()
-        assert ImportRecord(ImportString("test")).is_standalone()
-        assert ImportRecord(
-            ImportString("test"),
-            name="my",
-            fallback=ImportRecord(ImportString("test2")),
-        ).is_standalone()

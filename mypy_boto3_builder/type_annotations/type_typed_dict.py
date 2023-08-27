@@ -299,14 +299,6 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
                     sub_child.replace_with_dict.add(child.name)
                     continue
 
-    @property
-    def requires_safe_render(self) -> bool:
-        """
-        Whether TypedDict has reserved words and has to be rendered safely.
-        """
-        return True
-        # return any(is_reserved(child.name) for child in self.children)
-
     def iterate_children(self) -> Iterator[TypedDictAttribute]:
         """
         Iterate over children from required to optional.
