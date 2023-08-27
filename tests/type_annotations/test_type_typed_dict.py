@@ -1,8 +1,5 @@
-import pytest
-
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
 
@@ -54,7 +51,9 @@ class TestTypeTypedDict:
         assert result.debug_render() == 'MyDict: "required": bool, "optional": NotRequired[str]'
 
     def test_get_import_records(self) -> None:
-        assert self.result.get_import_records().pop().render() == "from .type_defs import MyDict"
+        import_records = sorted(self.result.get_import_records())
+        assert len(import_records) == 1
+        assert import_records[0].render() == "from .type_defs import MyDict"
 
     def test_get_types(self) -> None:
         assert set(self.result.iterate_types()) == {self.result}

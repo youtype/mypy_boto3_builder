@@ -21,33 +21,38 @@ class TestTypeAnnotation:
         assert self.dict.get_import_name() == "Dict"
 
     def test_get_import_record(self) -> None:
-        assert self.dict.get_import_records().pop().render() == "from typing import Dict"
+        import_records = sorted(self.dict.get_import_records())
+        assert len(import_records) == 1
+        assert import_records[0].render() == "from typing import Dict"
 
     def test_get_import_records(self) -> None:
-        result = list(sorted(self.dict.get_import_records()))
+        result = sorted(self.dict.get_import_records())
         assert len(result) == 1
         assert result[0].render() == "from typing import Dict"
 
-        result = list(sorted(TypeAnnotation("Literal").get_import_records()))
+        result = sorted(TypeAnnotation("Literal").get_import_records())
         assert len(result) == 2
         assert result[0].render() == "import sys"
-        assert result[1].render() == "from typing_extensions import Literal"
+        assert result[1].render() == "from typing import Literal"
 
     def test_copy(self) -> None:
         assert self.dict.copy().get_import_name() == "Dict"
 
     def test_no_fallback(self) -> None:
         sample = TypeAnnotation("Awaitable")
-        assert sample.get_import_records().pop().render() == "from typing import Awaitable"
-        assert sample.get_import_records().pop().fallback is None
+        import_records = sorted(sample.get_import_records())
+        assert len(import_records) == 1
+        assert import_records[0].render() == "from typing import Awaitable"
+        assert import_records[0].fallback is None
 
     def test_fallback(self) -> None:
         sample = TypeAnnotation("NotRequired")
         assert sample.render() == "NotRequired"
-        import_records = list(sorted(sample.get_import_records()))
+        import_records = sorted(sample.get_import_records())
+        assert len(import_records) == 2
         assert import_records[0].render() == "import sys"
-        assert import_records[1].render() == "from typing_extensions import NotRequired"
+        assert import_records[1].render() == "from typing import NotRequired"
 
         fallback = import_records[1].fallback
         assert fallback is not None
-        assert fallback.render() == "from typing import NotRequired"
+        assert fallback.render() == "from typing_extensions import NotRequired"
