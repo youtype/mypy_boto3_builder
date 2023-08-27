@@ -1,5 +1,3 @@
-import pytest
-
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
 

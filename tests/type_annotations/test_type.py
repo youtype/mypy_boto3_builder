@@ -1,4 +1,4 @@
-from mypy_boto3_builder.type_annotations.type import Type, TypeSubscript
+from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_union import TypeUnion
 
 

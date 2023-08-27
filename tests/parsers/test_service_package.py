@@ -2,7 +2,6 @@ from unittest.mock import MagicMock, patch
 
 from mypy_boto3_builder.package_data import Boto3StubsPackageData
 from mypy_boto3_builder.parsers.service_package import parse_service_package
-from mypy_boto3_builder.service_name import ServiceName
 
 
 class TestBoto3StubsPackage:

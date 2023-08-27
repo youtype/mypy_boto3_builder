@@ -1,6 +1,5 @@
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
-from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 
 

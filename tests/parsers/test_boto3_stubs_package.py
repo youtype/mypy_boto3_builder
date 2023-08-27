@@ -1,10 +1,7 @@
-from unittest.mock import MagicMock, patch
-
-from botocore.exceptions import UnknownServiceError
+from unittest.mock import MagicMock
 
 from mypy_boto3_builder.package_data import Boto3StubsPackageData
 from mypy_boto3_builder.parsers.boto3_stubs_package import parse_boto3_stubs_package
-from mypy_boto3_builder.service_name import ServiceName
 
 
 class TestBoto3StubsPackage:

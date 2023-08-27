@@ -1,4 +1,4 @@
-from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
+from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.type_maps.argument_alias_map import get_argument_alias
 
 
