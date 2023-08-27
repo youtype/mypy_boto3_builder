@@ -48,22 +48,23 @@ class FakeAnnotation(ABC):
         Render type annotation to a valid Python code for local usage.
         """
 
-    @abstractmethod
-    def get_import_record(self) -> ImportRecord:
+    def _get_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using type annotation.
         """
+        return set()
 
     def get_import_records(self) -> set[ImportRecord]:
         """
         Get all import records required for using type annotation.
         """
         result = set()
-        import_record = self.get_import_record()
-        if not import_record.is_empty() and not import_record.is_builtins():
-            result.add(import_record)
-        if import_record.needs_sys_fallback():
-            result.add(self._sys_import_record)
+        import_records = self._get_import_records()
+        for import_record in import_records:
+            if not import_record.is_empty() and not import_record.is_builtins():
+                result.add(import_record)
+            if import_record.needs_sys_fallback():
+                result.add(self._sys_import_record)
 
         return result
 

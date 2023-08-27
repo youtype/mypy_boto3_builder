@@ -134,19 +134,17 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         Get import record required for using Union.
         """
-        return super().get_import_records()
+        result = set()
+        result.update(self.parent.get_import_records())
+        for child in self.children:
+            result.update(child.get_import_records())
+        return result
 
-    def get_import_record(self) -> ImportRecord:
+    def _get_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using type annotation.
         """
-        return InternalImportRecord(ServiceModuleName.type_defs, name=self.name)
-
-    def get_import_records(self) -> set[ImportRecord]:
-        """
-        Get all import records required for using type annotation.
-        """
-        return {self.get_import_record()}
+        return {InternalImportRecord(ServiceModuleName.type_defs, name=self.name)}
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """

@@ -83,11 +83,11 @@ class ExternalImport(FakeAnnotation):
         """
         return self.import_record.get_local_name()
 
-    def get_import_record(self) -> ImportRecord:
+    def _get_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using type annotation.
         """
-        return self.import_record
+        return {self.import_record}
 
     def copy(self: _R) -> _R:
         """

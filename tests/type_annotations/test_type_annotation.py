@@ -21,7 +21,7 @@ class TestTypeAnnotation:
         assert self.dict.get_import_name() == "Dict"
 
     def test_get_import_record(self) -> None:
-        assert self.dict.get_import_record().render() == "from typing import Dict"
+        assert self.dict.get_import_records().pop().render() == "from typing import Dict"
 
     def test_get_import_records(self) -> None:
         result = list(sorted(self.dict.get_import_records()))
@@ -37,14 +37,17 @@ class TestTypeAnnotation:
 
     def test_no_fallback(self) -> None:
         sample = TypeAnnotation("Awaitable")
-        assert sample.get_import_record().render() == "from typing import Awaitable"
-        assert sample.get_import_record().fallback is None
+        assert sample.get_import_records().pop().render() == "from typing import Awaitable"
+        assert sample.get_import_records().pop().fallback is None
 
     def test_fallback(self) -> None:
         sample = TypeAnnotation("NotRequired")
         assert sample.render() == "NotRequired"
-        assert sample.get_import_record().render() == "from typing_extensions import NotRequired"
+        assert (
+            sample.get_import_records().pop().render()
+            == "from typing_extensions import NotRequired"
+        )
 
-        fallback = sample.get_import_record().fallback
+        fallback = sample.get_import_records().pop().fallback
         assert fallback is not None
         assert fallback.render() == "from typing import NotRequired"

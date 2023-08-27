@@ -21,9 +21,6 @@ class TestTypeSubscript:
         assert TypeSubscript(Type.Dict).render() == "Dict"
         assert TypeSubscript(Type.Dict, [], True).render() == '"Dict"'
 
-    def test_get_import_record(self) -> None:
-        assert self.result.get_import_record().render() == "from typing import Dict"
-
     def test_get_import_records(self) -> None:
         records = list(sorted(self.result.get_import_records()))
         assert len(records) == 2

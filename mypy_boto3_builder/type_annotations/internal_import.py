@@ -4,7 +4,6 @@ Wrapper for simple type annotations from this module.
 from typing import TypeVar
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
-from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
@@ -65,12 +64,6 @@ class InternalImport(FakeAnnotation):
             return f'"{result}"'
 
         return result
-
-    def get_import_record(self) -> ImportRecord:
-        """
-        Get import record required for using type annotation.
-        """
-        return ImportRecord.empty()
 
     def copy(self: _R) -> _R:
         """

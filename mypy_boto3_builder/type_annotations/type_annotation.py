@@ -72,23 +72,25 @@ class TypeAnnotation(FakeAnnotation):
         """
         return self._wrapped_type
 
-    def get_import_record(self) -> ImportRecord:
+    def _get_import_records(self) -> set[ImportRecord]:
         """
         Create a safe Import Record for annotation.
         """
         name = self.get_import_name()
         source = self.SUPPORTED_TYPES[name]
         if name not in self.FALLBACK:
-            return ImportRecord(source=source, name=name)
+            return {ImportRecord(source=source, name=name)}
 
         fallback_min_version, fallback_source = self.FALLBACK[name]
 
-        return ImportRecord(
-            source=source,
-            name=name,
-            fallback=ImportRecord(source=fallback_source, name=name),
-            min_version=fallback_min_version,
-        )
+        return {
+            ImportRecord(
+                source=source,
+                name=name,
+                fallback=ImportRecord(source=fallback_source, name=name),
+                min_version=fallback_min_version,
+            )
+        }
 
     def is_dict(self) -> bool:
         """

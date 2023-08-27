@@ -49,12 +49,6 @@ class TypeSubscript(FakeAnnotation):
             result = f'"{result}"'
         return result
 
-    def get_import_record(self) -> ImportRecord:
-        """
-        Get import record required for using type annotation.
-        """
-        return self.parent.get_import_record()
-
     def get_import_records(self) -> set[ImportRecord]:
         """
         Get all import records required for using type annotation.

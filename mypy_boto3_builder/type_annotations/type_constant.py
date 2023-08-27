@@ -3,7 +3,6 @@ Wrapper for constant like `False` or `"test"`.
 """
 from typing import TypeVar
 
-from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
 _R = TypeVar("_R", bound="TypeConstant")
@@ -31,12 +30,6 @@ class TypeConstant(FakeAnnotation):
             return "..."
 
         return repr(self.value)
-
-    def get_import_record(self) -> ImportRecord:
-        """
-        Get empty import record, because constants do not require imports.
-        """
-        return ImportRecord.empty()
 
     def copy(self: _R) -> _R:
         """

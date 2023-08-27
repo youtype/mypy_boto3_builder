@@ -148,11 +148,11 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
             result.update(child.get_type_annotation().get_import_records())
         return result
 
-    def get_import_record(self) -> ImportRecord:
+    def _get_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using type annotation.
         """
-        return InternalImportRecord(ServiceModuleName.type_defs, name=self.name)
+        return {InternalImportRecord(ServiceModuleName.type_defs, name=self.name)}
 
     def add_attribute(self, name: str, type_annotation: FakeAnnotation, required: bool) -> None:
         """

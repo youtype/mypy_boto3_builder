@@ -25,10 +25,10 @@ class TestTypeLiteral:
     def test_render_children(self) -> None:
         assert self.result.render_children() == "'a', 'b'"
 
-    def test_get_import_record(self) -> None:
-        assert self.result.get_import_record().render() == "from .literals import test"
+    def test_get_import_records(self) -> None:
+        assert self.result.get_import_records().pop().render() == "from .literals import test"
         assert (
-            TypeLiteral("test", ["a"]).get_import_record().render()
+            TypeLiteral("test", ["a"]).get_import_records().pop().render()
             == "from typing_extensions import Literal"
         )
 

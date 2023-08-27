@@ -63,14 +63,14 @@ class TypeLiteral(FakeAnnotation):
         """
         return ", ".join([repr(child) for child in sorted(self.children)])
 
-    def get_import_record(self) -> ImportRecord:
+    def _get_import_records(self) -> set[ImportRecord]:
         """
         Get import record required for using type annotation.
         """
         if self.inline:
-            return Type.Literal.get_import_record()
+            return Type.Literal.get_import_records()
 
-        return InternalImportRecord(ServiceModuleName.literals, name=self.name)
+        return {InternalImportRecord(ServiceModuleName.literals, name=self.name)}
 
     def get_definition_import_records(self) -> set[ImportRecord]:
         """

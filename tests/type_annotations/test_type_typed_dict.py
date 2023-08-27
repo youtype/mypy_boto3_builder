@@ -1,6 +1,7 @@
 import pytest
 
 from mypy_boto3_builder.type_annotations.type import Type
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
@@ -52,8 +53,8 @@ class TestTypeTypedDict:
         result = self.result.copy()
         assert result.debug_render() == 'MyDict: "required": bool, "optional": NotRequired[str]'
 
-    def test_get_import_record(self) -> None:
-        assert self.result.get_import_record().render() == "from .type_defs import MyDict"
+    def test_get_import_records(self) -> None:
+        assert self.result.get_import_records().pop().render() == "from .type_defs import MyDict"
 
     def test_get_types(self) -> None:
         assert set(self.result.iterate_types()) == {self.result}
@@ -143,11 +144,18 @@ class TestTypeTypedDict:
         }
 
     def test_get_children_typed_dicts(self) -> None:
-        assert len(self.result.get_children_typed_dicts()) == 0
+        clone = self.result.copy()
+        assert len(clone.get_children_typed_dicts()) == 0
+        clone.add_attribute("child", clone, True)
+        assert len(clone.get_children_typed_dicts()) == 1
 
     def test_get_children_literals(self) -> None:
-        assert len(self.result.get_children_literals()) == 0
-        assert len(self.result.get_children_literals([self.result])) == 0
+        clone = self.result.copy()
+        assert len(clone.get_children_literals()) == 0
+        clone.add_attribute("literal", TypeLiteral("test", ["asd"]), True)
+        assert len(clone.get_children_literals()) == 1
+        assert len(clone.get_children_literals(["other"])) == 1
+        assert len(clone.get_children_literals([clone.name])) == 0
 
     def test_replace_self_references(self) -> None:
         self.result.replace_self_references()

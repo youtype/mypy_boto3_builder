@@ -35,7 +35,7 @@ class ImportRecord:
         source: ImportString,
         name: str = "",
         alias: str = "",
-        min_version: tuple[int, ...] | None = (3, 8),
+        min_version: tuple[int, ...] | None = None,
         fallback: _R | None = None,
     ) -> None:
         self.source = source

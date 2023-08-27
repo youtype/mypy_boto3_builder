@@ -15,8 +15,8 @@ class TestInternalImport:
         self.result.use_alias = True
         assert self.result.render() == "_MyClass"
 
-    def test_get_import_record(self) -> None:
-        assert self.result.get_import_record().render() == ""
+    def test_get_import_records(self) -> None:
+        assert len(self.result.get_import_records()) == 0
 
     def test_copy(self) -> None:
         assert self.result.copy().name == "MyClass"

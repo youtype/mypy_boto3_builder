@@ -16,7 +16,7 @@ class TestTypeConstant:
         assert TypeConstant(Ellipsis).render() == "..."
 
     def test_get_import_record(self) -> None:
-        assert self.result.get_import_record().render() == ""
+        assert len(self.result.get_import_records()) == 0
 
     def test_copy(self) -> None:
         assert self.result.copy().value == "value"
