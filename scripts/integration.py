@@ -190,7 +190,7 @@ def run_call(path: Path) -> None:
     """
     Run submodule for sanity.
     """
-    logger = setup_logging(logging.INFO)
+    logger = logging.getLogger(LOGGER_NAME)
     try:
         subprocess.check_output([sys.executable, path.as_posix()])
     except subprocess.CalledProcessError as e:
