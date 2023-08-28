@@ -61,16 +61,16 @@ def copy(self: _R) -> _R:
     ...
 ```
 
-### TypeLiteral().get_import_record
+### TypeLiteral().get_definition_import_records
 
-[Show source in type_literal.py:66](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_literal.py#L66)
+[Show source in type_literal.py:69](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_literal.py#L69)
 
-Get import record required for using type annotation.
+Get import record required for using Literal.
 
 #### Signature
 
 ```python
-def get_import_record(self) -> ImportRecord:
+def get_definition_import_records(self) -> set[ImportRecord]:
     ...
 ```
 
@@ -164,18 +164,5 @@ A string with a valid type annotation.
 
 ```python
 def render(self, parent_name: str = "") -> str:
-    ...
-```
-
-### TypeLiteral().render_children
-
-[Show source in type_literal.py:60](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_literal.py#L60)
-
-Render literal children to representation.
-
-#### Signature
-
-```python
-def render_children(self) -> str:
     ...
 ```

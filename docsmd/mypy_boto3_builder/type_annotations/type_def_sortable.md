@@ -67,6 +67,23 @@ def get_children_types(self) -> set[FakeAnnotation]:
 
 - [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
+### TypeDefSortable().get_definition_import_records
+
+[Show source in type_def_sortable.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L76)
+
+Get import record required for using TypeAnnotation.
+
+#### Signature
+
+```python
+def get_definition_import_records(self) -> set[ImportRecord]:
+    ...
+```
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
+
 ### TypeDefSortable().get_sortable_children
 
 [Show source in type_def_sortable.py:27](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L27)
@@ -79,23 +96,6 @@ Extract required sortable TypeDef list from attributes.
 def get_sortable_children(self) -> list["TypeDefSortable"]:
     ...
 ```
-
-### TypeDefSortable().get_typing_import_records
-
-[Show source in type_def_sortable.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L76)
-
-Get import record required for using TypeAnnotation.
-
-#### Signature
-
-```python
-def get_typing_import_records(self) -> set[ImportRecord]:
-    ...
-```
-
-#### See also
-
-- [ImportRecord](../import_helpers/import_record.md#importrecord)
 
 ### TypeDefSortable().is_stringified
 
@@ -151,7 +151,7 @@ def is_union(self) -> bool:
 
 ### TypeDefSortable().iterate_children
 
-[Show source in type_def_sortable.py:100](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L100)
+[Show source in type_def_sortable.py:94](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L94)
 
 Iterate over children.
 
@@ -159,19 +159,6 @@ Iterate over children.
 
 ```python
 def iterate_children(self) -> Iterator[Any]:
-    ...
-```
-
-### TypeDefSortable().replace_self_references
-
-[Show source in type_def_sortable.py:94](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L94)
-
-Replace self references with `Dict[str, Any]` to avoid circular dependencies.
-
-#### Signature
-
-```python
-def replace_self_references(self) -> None:
     ...
 ```
 

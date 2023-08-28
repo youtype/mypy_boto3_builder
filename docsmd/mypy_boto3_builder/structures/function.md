@@ -52,7 +52,7 @@ def body(self) -> str:
 
 ### Function().copy
 
-[Show source in function.py:139](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L139)
+[Show source in function.py:136](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L136)
 
 Deep copy function.
 
@@ -95,7 +95,7 @@ def get_required_import_records(self) -> set[ImportRecord]:
 
 ### Function().is_kw_only
 
-[Show source in function.py:120](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L120)
+[Show source in function.py:117](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L117)
 
 Whether method arguments can be passed only as kwargs.
 
@@ -125,7 +125,7 @@ def iterate_types(self) -> Iterator[FakeAnnotation]:
 
 ### Function().remove_argument
 
-[Show source in function.py:154](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L154)
+[Show source in function.py:151](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L151)
 
 Remove argument by name.
 
@@ -138,7 +138,7 @@ def remove_argument(self: _R, *names: str) -> _R:
 
 ### Function().returns_none
 
-[Show source in function.py:113](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L113)
+[Show source in function.py:110](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L110)
 
 Whether return type is None.
 
@@ -166,7 +166,7 @@ def short_docstring(self) -> str:
 
 ### Function().type_hint_annotations
 
-[Show source in function.py:126](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L126)
+[Show source in function.py:123](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L123)
 
 Type annotations list from arguments and return type with internal types.
 

@@ -56,7 +56,7 @@ def essential_service_names(self) -> list[ServiceName]:
 
 ### AioBotocoreStubsPackage().get_all_names
 
-[Show source in aiobotocore_stubs_package.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L54)
+[Show source in aiobotocore_stubs_package.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/aiobotocore_stubs_package.py#L53)
 
 Get names for `__all__` directive.
 

@@ -81,23 +81,6 @@ def from_class(cls: type[_R], obj: type, alias: str = "", safe: bool = False) ->
     ...
 ```
 
-### ExternalImport().get_import_record
-
-[Show source in external_import.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L86)
-
-Get import record required for using type annotation.
-
-#### Signature
-
-```python
-def get_import_record(self) -> ImportRecord:
-    ...
-```
-
-#### See also
-
-- [ImportRecord](../import_helpers/import_record.md#importrecord)
-
 ### ExternalImport().import_record
 
 [Show source in external_import.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L59)

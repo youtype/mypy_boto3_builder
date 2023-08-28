@@ -9,7 +9,7 @@ Utils
 
 ## blackify
 
-[Show source in utils.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L23)
+[Show source in utils.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L24)
 
 Format `content` with `black` if `file_path` is `*.py` or `*.pyi`.
 
@@ -39,7 +39,7 @@ def blackify(content: str, file_path: Path) -> str:
 
 ## blackify_markdown
 
-[Show source in utils.py:161](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L161)
+[Show source in utils.py:178](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L178)
 
 Blackify python codeblocks.
 
@@ -54,7 +54,7 @@ def blackify_markdown(text: str) -> str:
 
 ## format_md
 
-[Show source in utils.py:148](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L148)
+[Show source in utils.py:165](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L165)
 
 Format MarkDown with mdformat.
 
@@ -69,7 +69,7 @@ def format_md(text: str) -> str:
 
 ## insert_md_toc
 
-[Show source in utils.py:124](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L124)
+[Show source in utils.py:141](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L141)
 
 Insert Table of Contents before the first second-level header.
 
@@ -82,17 +82,17 @@ def insert_md_toc(text: str) -> str:
 
 
 
-## render_jinja2_template
+## render_jinja2_package_template
 
-[Show source in utils.py:94](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L94)
+[Show source in utils.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L95)
 
-Render Jinja2 template to a string.
+Render Jinja2 package template to a string.
 
 #### Arguments
 
 - `template_path` - Relative path to template in `TEMPLATES_PATH`
-- `module` - Module record.
-- `service_name` - ServiceName instance.
+- `module` - Module record
+- `service_name` - ServiceName instance
 
 #### Returns
 
@@ -101,7 +101,7 @@ A rendered template.
 #### Signature
 
 ```python
-def render_jinja2_template(
+def render_jinja2_package_template(
     template_path: Path,
     package: Package | None = None,
     service_name: ServiceName | None = None,
@@ -111,9 +111,33 @@ def render_jinja2_template(
 
 
 
+## render_jinja2_template
+
+[Show source in utils.py:114](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L114)
+
+Render Jinja2 template to a string.
+
+#### Arguments
+
+- `template_path` - Relative path to template in `TEMPLATES_PATH`
+- `kwargs` - Render arguments
+
+#### Returns
+
+A rendered template.
+
+#### Signature
+
+```python
+def render_jinja2_template(template_path: Path, **kwargs: Any) -> str:
+    ...
+```
+
+
+
 ## sort_imports
 
-[Show source in utils.py:56](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L56)
+[Show source in utils.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L57)
 
 Sort imports with `isort`.
 

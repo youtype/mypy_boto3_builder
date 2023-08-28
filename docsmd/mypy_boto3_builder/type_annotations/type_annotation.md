@@ -31,7 +31,7 @@ class TypeAnnotation(FakeAnnotation):
 
 ### TypeAnnotation().copy
 
-[Show source in type_annotation.py:111](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L111)
+[Show source in type_annotation.py:113](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L113)
 
 Create a copy of type annotation wrapper.
 
@@ -55,26 +55,9 @@ def get_import_name(self) -> str:
     ...
 ```
 
-### TypeAnnotation().get_import_record
-
-[Show source in type_annotation.py:75](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L75)
-
-Create a safe Import Record for annotation.
-
-#### Signature
-
-```python
-def get_import_record(self) -> ImportRecord:
-    ...
-```
-
-#### See also
-
-- [ImportRecord](../import_helpers/import_record.md#importrecord)
-
 ### TypeAnnotation().is_dict
 
-[Show source in type_annotation.py:93](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L93)
+[Show source in type_annotation.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L95)
 
 Whether annotation is a plain Dict.
 
@@ -87,7 +70,7 @@ def is_dict(self) -> bool:
 
 ### TypeAnnotation().is_list
 
-[Show source in type_annotation.py:99](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L99)
+[Show source in type_annotation.py:101](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L101)
 
 Whether annotation is a plain List.
 
@@ -100,7 +83,7 @@ def is_list(self) -> bool:
 
 ### TypeAnnotation().is_union
 
-[Show source in type_annotation.py:105](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L105)
+[Show source in type_annotation.py:107](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L107)
 
 Whether annotation is a Union.
 

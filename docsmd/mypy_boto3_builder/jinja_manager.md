@@ -8,7 +8,7 @@ JinjaManager
 
 ## JinjaManager
 
-[Show source in jinja_manager.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L14)
+[Show source in jinja_manager.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L17)
 
 Jinja2 `Environment` manager.
 
@@ -16,12 +16,13 @@ Jinja2 `Environment` manager.
 
 ```python
 class JinjaManager:
-    ...
+    def __init__(self) -> None:
+        ...
 ```
 
 ### JinjaManager.escape_md
 
-[Show source in jinja_manager.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L34)
+[Show source in jinja_manager.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L50)
 
 Escape underscore characters.
 
@@ -33,23 +34,22 @@ def escape_md(value: str) -> str:
     ...
 ```
 
-### JinjaManager.get_environment
+### JinjaManager().get_environment
 
-[Show source in jinja_manager.py:41](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L41)
+[Show source in jinja_manager.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L57)
 
 Get `jinja2.Environment`.
 
 #### Signature
 
 ```python
-@classmethod
-def get_environment(cls) -> jinja2.Environment:
+def get_environment(self) -> jinja2.Environment:
     ...
 ```
 
 ### JinjaManager.update_globals
 
-[Show source in jinja_manager.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L24)
+[Show source in jinja_manager.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L40)
 
 Update global variables in `jinja2.Environment`.
 

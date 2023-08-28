@@ -9,7 +9,7 @@ Base
 
 ## BasePostprocessor
 
-[Show source in base.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L15)
+[Show source in base.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L19)
 
 Base postprocessor for classes and methods.
 
@@ -39,7 +39,7 @@ class BasePostprocessor(ABC):
 
 ### BasePostprocessor().extend_literals
 
-[Show source in base.py:173](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L173)
+[Show source in base.py:181](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L181)
 
 Add extra literals.
 
@@ -59,7 +59,7 @@ def extend_literals(self) -> None:
 
 ### BasePostprocessor().generate_docstrings
 
-[Show source in base.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L33)
+[Show source in base.py:41](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L41)
 
 Generate all docstrings.
 
@@ -72,7 +72,7 @@ def generate_docstrings(self) -> None:
 
 ### BasePostprocessor().process_package
 
-[Show source in base.py:44](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L44)
+[Show source in base.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L52)
 
 Postprocess built package.
 
@@ -86,7 +86,7 @@ def process_package(self) -> None:
 
 ### BasePostprocessor().replace_self_ref_typed_dicts
 
-[Show source in base.py:212](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L212)
+[Show source in base.py:262](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L262)
 
 Remove self-references from TypedDicts.
 

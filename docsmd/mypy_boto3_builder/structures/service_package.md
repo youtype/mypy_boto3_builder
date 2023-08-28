@@ -116,7 +116,7 @@ def get_client_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_doc_link
 
-[Show source in service_package.py:292](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L292)
+[Show source in service_package.py:266](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L266)
 
 Get link to local docs with anchor.
 
@@ -170,7 +170,7 @@ def get_init_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_literals_required_import_records
 
-[Show source in service_package.py:259](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L259)
+[Show source in service_package.py:236](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L236)
 
 Get import records for `literals.py[i]`.
 
@@ -187,7 +187,7 @@ def get_literals_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_local_doc_link
 
-[Show source in service_package.py:317](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L317)
+[Show source in service_package.py:291](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L291)
 
 Get link to local docs.
 
@@ -200,7 +200,7 @@ def get_local_doc_link(self, service_name: ServiceName | None = None) -> str:
 
 ### ServicePackage().get_paginator_required_import_records
 
-[Show source in service_package.py:208](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L208)
+[Show source in service_package.py:200](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L200)
 
 Get import records for `paginator.py[i]`.
 
@@ -217,7 +217,7 @@ def get_paginator_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_service_resource_required_import_records
 
-[Show source in service_package.py:193](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L193)
+[Show source in service_package.py:190](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L190)
 
 Get import records for `service_resource.py[i]`.
 
@@ -234,7 +234,7 @@ def get_service_resource_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_type_defs_required_import_records
 
-[Show source in service_package.py:236](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L236)
+[Show source in service_package.py:220](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L220)
 
 Get import records for `type_defs.py[i]`.
 
@@ -251,7 +251,7 @@ def get_type_defs_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_waiter_required_import_records
 
-[Show source in service_package.py:222](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L222)
+[Show source in service_package.py:210](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L210)
 
 Get import records for `waiter.py[i]`.
 
@@ -285,7 +285,7 @@ def iterate_types(self) -> Iterator[FakeAnnotation]:
 
 ### ServicePackage().validate
 
-[Show source in service_package.py:268](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L268)
+[Show source in service_package.py:242](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L242)
 
 Validate parsed module.
 

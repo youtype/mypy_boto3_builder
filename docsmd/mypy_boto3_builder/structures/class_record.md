@@ -64,7 +64,7 @@ def boto3_doc_link(self) -> str:
 
 ### ClassRecord().get_internal_imports
 
-[Show source in class_record.py:85](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L85)
+[Show source in class_record.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L76)
 
 Get internal imports from methods.
 
@@ -81,7 +81,7 @@ def get_internal_imports(self) -> set[InternalImport]:
 
 ### ClassRecord().get_method
 
-[Show source in class_record.py:112](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L112)
+[Show source in class_record.py:103](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L103)
 
 Get method by name.
 
@@ -98,7 +98,7 @@ def get_method(self, name: str) -> Method:
 
 ### ClassRecord().get_required_import_records
 
-[Show source in class_record.py:72](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L72)
+[Show source in class_record.py:66](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L66)
 
 Extract import records from required type annotations.
 
@@ -115,7 +115,7 @@ def get_required_import_records(self) -> set[ImportRecord]:
 
 ### ClassRecord().iterate_types
 
-[Show source in class_record.py:61](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L61)
+[Show source in class_record.py:55](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L55)
 
 Iterate over type annotations for methods, attributes and bases.
 
@@ -132,7 +132,7 @@ def iterate_types(self) -> Iterator[FakeAnnotation]:
 
 ### ClassRecord().method_names
 
-[Show source in class_record.py:105](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L105)
+[Show source in class_record.py:96](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L96)
 
 Unique method names.
 
@@ -144,22 +144,9 @@ def method_names(self) -> list[str]:
     ...
 ```
 
-### ClassRecord().render_alias
-
-[Show source in class_record.py:55](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L55)
-
-Render alias expression.
-
-#### Signature
-
-```python
-def render_alias(self) -> str:
-    ...
-```
-
 ### ClassRecord().variable_name
 
-[Show source in class_record.py:98](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L98)
+[Show source in class_record.py:89](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L89)
 
 Variable name for an instance of this class.
 
