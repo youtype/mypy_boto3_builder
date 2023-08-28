@@ -43,10 +43,6 @@ class TestTypeTypedDict:
         result.stringify()
         assert result.render() == '"MyDict"'
 
-        result = self.result.copy()
-        result.replace_with_dict = True
-        assert result.render() == "Dict[str, Any]"
-
     def test_debug_render(self) -> None:
         result = self.result.copy()
         assert result.debug_render() == 'MyDict: "required": bool, "optional": NotRequired[str]'

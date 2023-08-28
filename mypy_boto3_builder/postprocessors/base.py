@@ -9,6 +9,7 @@ from boto3.session import Session
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
@@ -217,19 +218,19 @@ class BasePostprocessor(ABC):
     def _replace_typed_dict_with_dict(
         self, attribute: TypedDictAttribute, reference: TypeTypedDict, parent: TypeTypedDict
     ) -> None:
-        typed_dict_clone = reference.copy()
-        typed_dict_clone.replace_with_dict = True
+        replacement = Type.DictStrAny
         if attribute.type_annotation is reference:
-            attribute.type_annotation = typed_dict_clone
+            attribute.type_annotation = replacement
             self.logger.debug(
-                f"Replaced {reference.name} with Dict[str, Any] in {parent.name}.{attribute.name}"
+                f"Replaced {reference.name} with {replacement.render()} in"
+                f" {parent.name}.{attribute.name}"
             )
             return
 
         if isinstance(attribute.type_annotation, TypeSubscript):
-            attribute.type_annotation.replace_child(reference, typed_dict_clone)
+            attribute.type_annotation.replace_child(reference, Type.DictStrAny)
             self.logger.debug(
-                f"Found and replaced {reference.name} with Dict[str, Any] in"
+                f"Deep replaced {reference.name} with {replacement.render()} in"
                 f" {parent.name}.{attribute.name}"
             )
             return
@@ -247,21 +248,14 @@ class BasePostprocessor(ABC):
         if depth <= 0:
             return
         next_depth = depth - 1
-        if typed_dict.replace_with_dict:
-            return
 
         for child in typed_dict.iterate_children():
             for child_typed_dict in child.type_annotation.iterate_types():
                 if not isinstance(child_typed_dict, TypeTypedDict):
                     continue
 
-                if child_typed_dict.replace_with_dict:
-                    continue
-
-                if child_typed_dict is not reference:
-                    continue
-
-                self._replace_typed_dict_with_dict(child, reference, typed_dict)
+                if child_typed_dict is reference:
+                    self._replace_typed_dict_with_dict(child, reference, typed_dict)
                 if next_depth > 0:
                     self._replace_typed_dict_references(child_typed_dict, typed_dict, next_depth)
 

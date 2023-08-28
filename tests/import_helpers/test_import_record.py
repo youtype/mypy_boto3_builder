@@ -1,29 +1,24 @@
-from unittest.mock import MagicMock, patch
-
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 
 
 class TestImportRecord:
     def test_str(self) -> None:
-        source_mock = MagicMock()
-        source_mock.__str__.return_value = "source"
-        assert str(ImportRecord(source_mock, "name", "alias")) == "from source import name as alias"
-        assert str(ImportRecord(source_mock, alias="alias")) == "import source as alias"
-        assert str(ImportRecord(source_mock, "name")) == "from source import name"
-        assert str(ImportRecord(source_mock)) == "import source"
+        source = ImportString("source")
+        assert str(ImportRecord(source, "name", "alias")) == "from source import name as alias"
+        assert str(ImportRecord(source, alias="alias")) == "import source as alias"
+        assert str(ImportRecord(source, "name")) == "from source import name"
+        assert str(ImportRecord(source)) == "import source"
 
     def test_operations(self) -> None:
-        source_mock = MagicMock()
-        source_mock.__bool__.return_value = True
-        assert ImportRecord(source_mock, "name", "alias")
-        source_mock.__bool__.return_value = False
-        assert not ImportRecord(source_mock, "name", "alias")
-        assert hash(ImportRecord(source_mock, "name")) == hash(ImportRecord(source_mock, "name"))
-        assert hash(ImportRecord(source_mock, "name")) != hash(ImportRecord(source_mock, "name2"))
-        assert ImportRecord(source_mock, "name") == ImportRecord(source_mock, "name")
-        assert ImportRecord(source_mock, "name") != ImportRecord(source_mock, "name2")
-        assert ImportRecord(source_mock, "name") != "test"
+        source = ImportString("source")
+        assert ImportRecord(source, "name", "alias")
+        assert not ImportRecord(ImportString.empty(), "name", "alias")
+        assert hash(ImportRecord(source, "name")) == hash(ImportRecord(source, "name"))
+        assert hash(ImportRecord(source, "name")) != hash(ImportRecord(source, "name2"))
+        assert ImportRecord(source, "name") == ImportRecord(source, "name")
+        assert ImportRecord(source, "name") != ImportRecord(source, "name2")
+        assert ImportRecord(source, "name") != "test"
 
     def test_comparison(self) -> None:
         local_source = ImportString("mypy_boto3")
@@ -44,18 +39,15 @@ class TestImportRecord:
             > ImportRecord(local_source, "test", fallback=ImportRecord(local_source, "test2"))
         )
 
-    @patch("mypy_boto3_builder.import_helpers.import_record.ImportString")
-    def test_empty(self, ImportStringMock: MagicMock) -> None:
-        assert ImportRecord.empty().source == ImportStringMock.empty()
-        ImportStringMock.empty.assert_called_with()
+    def test_empty(self) -> None:
+        assert ImportRecord.empty().source == ImportString.empty()
 
     def test_get_local_name(self) -> None:
-        source_mock = MagicMock()
-        source_mock.render.return_value = "source"
-        assert ImportRecord(source_mock).get_local_name() == "source"
-        assert ImportRecord(source_mock, "name").get_local_name() == "name"
-        assert ImportRecord(source_mock, "name", "alias").get_local_name() == "alias"
-        assert ImportRecord(source_mock, alias="alias").get_local_name() == "alias"
+        source = ImportString("source")
+        assert ImportRecord(source).get_local_name() == "source"
+        assert ImportRecord(source, "name").get_local_name() == "name"
+        assert ImportRecord(source, "name", "alias").get_local_name() == "alias"
+        assert ImportRecord(source, alias="alias").get_local_name() == "alias"
 
     def test_is_builtins(self) -> None:
         assert ImportRecord(ImportString("builtins")).is_builtins()

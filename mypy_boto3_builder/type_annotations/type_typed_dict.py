@@ -74,7 +74,6 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         children -- Typed dict attributes.
         docstring -- Docstring for render.
         stringify -- Convert type annotation to string to avoid circular deps.
-        replace_with_dict -- Render Dict[str, Any] instead to avoid circular dependencies.
     """
 
     def __init__(
@@ -83,13 +82,11 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         children: Iterable[TypedDictAttribute] = (),
         docstring: str = "",
         stringify: bool = False,
-        replace_with_dict: bool = False,
     ) -> None:
         self.name = name
         self.children = list(children)
         self.docstring = docstring
         self._stringify = stringify
-        self.replace_with_dict = replace_with_dict
 
     def is_stringified(self) -> bool:
         """
@@ -119,9 +116,6 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         Returns:
             A string with a valid type annotation.
         """
-        if self.replace_with_dict:
-            return Type.DictStrAny.render()
-
         if self.is_stringified():
             return f'"{self.name}"'
 
@@ -149,9 +143,6 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         """
         Get import record required for using type annotation.
         """
-        if self.replace_with_dict:
-            return Type.DictStrAny.get_import_records()
-
         return {InternalImportRecord(ServiceModuleName.type_defs, name=self.name)}
 
     def add_attribute(self, name: str, type_annotation: FakeAnnotation, required: bool) -> None:
@@ -224,7 +215,6 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
             list(self.children),
             docstring=self.docstring,
             stringify=self.is_stringified(),
-            replace_with_dict=self.replace_with_dict,
         )
 
     def is_same(self: _R, other: _R) -> bool:
