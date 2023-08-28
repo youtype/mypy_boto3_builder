@@ -166,7 +166,7 @@ def build(path: Path, max_retries: int = 10) -> Path:
             tar_path = list((path / "dist").glob("*.tar.gz"))[0]
             check_call(["tar", "-tzf", tar_path.as_posix()])
             check_call([sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()])
-        except subprocess.CalledProcessError as e:
+        except (subprocess.CalledProcessError, IndexError) as e:
             attempt += 1
             logger.error(f"Failed building {path.name} {attempt} attempt: {e}")
             continue
@@ -280,14 +280,13 @@ def main() -> None:
     ]
 
     if not args.skip_build:
-        with ThreadPool(args.threads) as pool:
-            build_paths_with_retries = [(i, args.retries) for i in build_paths]
-            for index, path in enumerate(pool.starmap(build, build_paths_with_retries)):
-                package_name = get_package_name(path)
-                version = get_version(path)
-                logger.info(
-                    f"{get_progress_str(index, len(build_paths))} Built {package_name} {version}"
-                )
+        for index, path in enumerate(build_paths):
+            build(path, args.retries)
+            package_name = get_package_name(path)
+            version = get_version(path)
+            logger.info(
+                f"{get_progress_str(index, len(build_paths))} Built {package_name} {version}"
+            )
 
     if not args.skip_publish:
         with ThreadPool(processes=args.publish_threads) as pool:
