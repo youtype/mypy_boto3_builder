@@ -1,10 +1,11 @@
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock, Mock, patch
 
 from botocore.exceptions import UnknownServiceError
 
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
+from mypy_boto3_builder.type_maps.named_unions import DictOrStrTypeDef
 
 
 class TestShapeParser:
@@ -204,3 +205,21 @@ class TestShapeParser:
 
         shape.name = "Other"
         assert shape_parser._get_literal_name(shape) == "OtherType"
+
+    def test_parse_shape_string(self) -> None:
+        shape_parser = ShapeParser(Mock(), Mock())
+        shape = Mock()
+        shape.name = "MyShape"
+        shape.enum = []
+        shape.metadata = {"pattern": "any"}
+        assert shape_parser._parse_shape_string(shape, False).render() == "str"
+
+        shape.metadata = {"pattern": "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+"}
+        assert shape_parser._parse_shape_string(shape, True).render() == "Dict[str, Any]"
+        assert shape_parser._parse_shape_string(shape, False).render() == "DictOrStrTypeDef"
+        assert shape_parser._parse_shape_string(shape, False) == DictOrStrTypeDef
+
+        shape.enum = ["a", "b"]
+        assert shape_parser._parse_shape_string(shape, True).render() == "MyShapeType"
+        assert shape_parser._parse_shape_string(shape, False).render() == "MyShapeType"
+        assert shape_parser._parse_shape_string(shape, False).children == {"a", "b"}
