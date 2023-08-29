@@ -4285,7 +4285,7 @@ ShapeParser</p>
 <li><a href="../../service_name/#servicename">ServiceName</a></li>
 </ul>
 <h3 id="shapeparserfix_method_arguments_for_mypy">ShapeParser().fix_method_arguments_for_mypy<a class="headerlink" href="#shapeparserfix_method_arguments_for_mypy" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L975">Show source in shape_parser.py:975</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L978">Show source in shape_parser.py:978</a></p>
 <p>Accept both input and output shapes in method arguments.</p>
 <p>mypy does not compare TypedDicts, so we need to accept both input and output shapes.
 https://github.com/youtype/mypy_boto3_builder/issues/209</p>
@@ -4298,7 +4298,7 @@ https://github.com/youtype/mypy_boto3_builder/issues/209</p>
 <li><a href="../../structures/method/#method">Method</a></li>
 </ul>
 <h3 id="shapeparserfix_typed_dict_names">ShapeParser().fix_typed_dict_names<a class="headerlink" href="#shapeparserfix_typed_dict_names" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L902">Show source in shape_parser.py:902</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L905">Show source in shape_parser.py:905</a></p>
 <p>Fix typed dict names to avoid duplicates.</p>
 <h4 id="signature_2">Signature<a class="headerlink" href="#signature_2" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span> <span class="nf">fix_typed_dict_names</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -4318,7 +4318,7 @@ https://github.com/youtype/mypy_boto3_builder/issues/209</p>
 <li><a href="../../structures/method/#method">Method</a></li>
 </ul>
 <h3 id="shapeparserget_collection_batch_methods">ShapeParser().get_collection_batch_methods<a class="headerlink" href="#shapeparserget_collection_batch_methods" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L827">Show source in shape_parser.py:827</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L830">Show source in shape_parser.py:830</a></p>
 <p>Get batch operations for Resource collection.</p>
 <h4 id="arguments_1">Arguments<a class="headerlink" href="#arguments_1" title="Permanent link">#</a></h4>
 <ul>
@@ -4339,7 +4339,7 @@ https://github.com/youtype/mypy_boto3_builder/issues/209</p>
 <li><a href="../../structures/method/#method">Method</a></li>
 </ul>
 <h3 id="shapeparserget_collection_filter_method">ShapeParser().get_collection_filter_method<a class="headerlink" href="#shapeparserget_collection_filter_method" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L789">Show source in shape_parser.py:789</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L792">Show source in shape_parser.py:792</a></p>
 <p>Get <code>filter</code> classmethod for Resource collection.</p>
 <h4 id="arguments_2">Arguments<a class="headerlink" href="#arguments_2" title="Permanent link">#</a></h4>
 <ul>
@@ -4361,7 +4361,7 @@ https://github.com/youtype/mypy_boto3_builder/issues/209</p>
 <li><a href="../../structures/method/#method">Method</a></li>
 </ul>
 <h3 id="shapeparserget_paginate_method">ShapeParser().get_paginate_method<a class="headerlink" href="#shapeparserget_paginate_method" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L535">Show source in shape_parser.py:535</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L538">Show source in shape_parser.py:538</a></p>
 <p>Get Paginator <code>paginate</code> method.</p>
 <h4 id="arguments_3">Arguments<a class="headerlink" href="#arguments_3" title="Permanent link">#</a></h4>
 <ul>
@@ -4387,7 +4387,7 @@ https://github.com/youtype/mypy_boto3_builder/issues/209</p>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="o">...</span>
 </code></pre></div>
 <h3 id="shapeparserget_resource_method_map">ShapeParser().get_resource_method_map<a class="headerlink" href="#shapeparserget_resource_method_map" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L659">Show source in shape_parser.py:659</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L662">Show source in shape_parser.py:662</a></p>
 <p>Get methods for Resource.</p>
 <h4 id="arguments_4">Arguments<a class="headerlink" href="#arguments_4" title="Permanent link">#</a></h4>
 <ul>
@@ -4404,7 +4404,7 @@ https://github.com/youtype/mypy_boto3_builder/issues/209</p>
 <li><a href="../../structures/method/#method">Method</a></li>
 </ul>
 <h3 id="shapeparserget_service_resource_method_map">ShapeParser().get_service_resource_method_map<a class="headerlink" href="#shapeparserget_service_resource_method_map" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L624">Show source in shape_parser.py:624</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L627">Show source in shape_parser.py:627</a></p>
 <p>Get methods for ServiceResource.</p>
 <h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">#</a></h4>
 <p>A map of method name to Method.</p>
@@ -4417,7 +4417,7 @@ https://github.com/youtype/mypy_boto3_builder/issues/209</p>
 <li><a href="../../structures/method/#method">Method</a></li>
 </ul>
 <h3 id="shapeparserget_wait_method">ShapeParser().get_wait_method<a class="headerlink" href="#shapeparserget_wait_method" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L591">Show source in shape_parser.py:591</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L594">Show source in shape_parser.py:594</a></p>
 <p>Get Waiter <code>wait</code> method.</p>
 <h4 id="arguments_5">Arguments<a class="headerlink" href="#arguments_5" title="Permanent link">#</a></h4>
 <ul>
@@ -4434,7 +4434,7 @@ https://github.com/youtype/mypy_boto3_builder/issues/209</p>
 <li><a href="../../structures/method/#method">Method</a></li>
 </ul>
 <h3 id="shapeparserparse_shape">ShapeParser().parse_shape<a class="headerlink" href="#shapeparserparse_shape" title="Permanent link">#</a></h3>
-<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L453">Show source in shape_parser.py:453</a></p>
+<p><a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L456">Show source in shape_parser.py:456</a></p>
 <p>Parse any botocore shape to TypeAnnotation.</p>
 <h4 id="arguments_6">Arguments<a class="headerlink" href="#arguments_6" title="Permanent link">#</a></h4>
 <ul>
