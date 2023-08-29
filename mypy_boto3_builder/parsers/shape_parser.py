@@ -322,7 +322,10 @@ class ShapeParser:
             return type_literal
 
         pattern = shape.metadata.get("pattern", "")
-        if pattern == "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+":
+        if pattern in (
+            "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+            "^[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+$",
+        ):
             if output_child:
                 return Type.DictStrAny
             else:
