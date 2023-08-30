@@ -75,4 +75,3 @@ UniversalAttributeValueTypeDef = TypeUnion(
 PolicyDocumentTypeDef = TypeUnion(
     name="PolicyDocumentTypeDef", children=[Type.str, PolicyDocumentDictTypeDef]
 )
-DictOrStrTypeDef = TypeUnion(name="DictOrStrTypeDef", children=[Type.str, Type.DictStrAny])

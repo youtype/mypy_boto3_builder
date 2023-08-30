@@ -40,7 +40,6 @@ from mypy_boto3_builder.type_maps.method_type_map import (
     get_default_value_stub,
     get_method_type_stub,
 )
-from mypy_boto3_builder.type_maps.named_unions import DictOrStrTypeDef
 from mypy_boto3_builder.type_maps.shape_type_map import (
     OUTPUT_SHAPE_TYPE_MAP,
     SHAPE_TYPE_MAP,
@@ -321,15 +320,16 @@ class ShapeParser:
             self._type_literal_map[literal_name] = type_literal
             return type_literal
 
-        pattern = shape.metadata.get("pattern", "")
-        if pattern in (
-            "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
-            "^[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+$",
-        ):
-            if output_child:
-                return Type.DictStrAny
-            else:
-                return DictOrStrTypeDef
+        # FIXME: botocore does not always try to parse response as JSON
+        # pattern = shape.metadata.get("pattern", "")
+        # if pattern in (
+        #     "[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+",
+        #     "^[\\u0009\\u000A\\u000D\\u0020-\\u00FF]+$",
+        # ):
+        #     if output_child:
+        #         return Type.DictStrAny
+        #     else:
+        #         return DictOrStrTypeDef
 
         return Type.str
 
