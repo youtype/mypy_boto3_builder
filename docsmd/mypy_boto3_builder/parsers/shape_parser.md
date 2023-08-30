@@ -9,7 +9,7 @@ ShapeParser
 
 ## ShapeParser
 
-[Show source in shape_parser.py:66](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L66)
+[Show source in shape_parser.py:65](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L65)
 
 Parser for botocore shape files.
 
@@ -65,7 +65,7 @@ def fix_typed_dict_names(self) -> None:
 
 ### ShapeParser().get_client_method_map
 
-[Show source in shape_parser.py:230](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L230)
+[Show source in shape_parser.py:229](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L229)
 
 Get client methods from shape.
 
@@ -170,7 +170,7 @@ def get_paginate_method(self, paginator_name: str) -> Method:
 
 ### ShapeParser().get_paginator_names
 
-[Show source in shape_parser.py:148](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L148)
+[Show source in shape_parser.py:147](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L147)
 
 Get available paginator names.
 
@@ -292,7 +292,7 @@ def parse_shape(
 
 ### ShapeParser().resource_name
 
-[Show source in shape_parser.py:106](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L106)
+[Show source in shape_parser.py:105](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L105)
 
 Parsed resource name.
 
@@ -308,7 +308,7 @@ def resource_name(self) -> str:
 
 ## ShapeParserError
 
-[Show source in shape_parser.py:60](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L60)
+[Show source in shape_parser.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L59)
 
 Main error for ShapeParser.
 
