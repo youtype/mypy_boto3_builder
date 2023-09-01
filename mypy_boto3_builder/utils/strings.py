@@ -4,7 +4,6 @@ Multiple string utils collection.
 import builtins
 import keyword
 import re
-import textwrap
 import typing
 from unittest.mock import MagicMock
 
@@ -90,7 +89,33 @@ def get_short_docstring(doc: str) -> str:
         # FIXME: temporary fix for pca-connector-ad service
         result_str = result_str.replace("https\\:", "https:")
 
-    return "\n".join(textwrap.wrap(result_str, width=80, break_long_words=False))
+    return textwrap(result_str, width=80)
+
+
+def textwrap(text: str, width: int) -> str:
+    """
+    Wrap text to `width` chars.
+    """
+    result: list[str] = []
+    for line in text.splitlines():
+        if len(line) <= width:
+            result.append(line)
+            continue
+
+        while line:
+            space_index = line.rfind(" ", 0, width)
+            if space_index < 0:
+                space_index = line.find(" ", width)
+
+            if space_index < 0:
+                result.append(line)
+                break
+
+            sub_line = line[:space_index]
+            line = line[space_index + 1 :]
+            result.append(sub_line)
+
+    return "\n".join(result)
 
 
 def get_botocore_class_name(metadata: dict[str, str]) -> str:

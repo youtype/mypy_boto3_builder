@@ -6,6 +6,7 @@ from mypy_boto3_builder.utils.strings import (
     get_short_docstring,
     get_type_def_name,
     is_reserved,
+    textwrap,
 )
 
 
@@ -53,3 +54,11 @@ class TestStrings:
 
         with pytest.raises(ValueError):
             get_type_def_name()
+
+    def test_textwrap(self) -> None:
+        assert textwrap("test", 12) == "test"
+        assert textwrap("test", 2) == "test"
+        assert textwrap("te st words", 12) == "te st words"
+        assert textwrap("te st words", 6) == "te st\nwords"
+        assert textwrap("te stwords", 12) == "te stwords"
+        assert textwrap("te stwords new", 6) == "te\nstwords\nnew"
