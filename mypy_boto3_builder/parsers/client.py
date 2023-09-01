@@ -34,6 +34,7 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
         Client structure.
     """
     logger = get_logger()
+    logger.debug("Parsing Client")
     client = get_boto3_client(session, service_name)
     public_methods = get_public_methods(client)
 

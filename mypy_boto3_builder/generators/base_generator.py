@@ -8,7 +8,7 @@ from pathlib import Path
 from mypy_boto3_builder.constants import ProductType
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
-from mypy_boto3_builder.parsers.service_package import parse_service_package
+from mypy_boto3_builder.parsers.service_package_parser import ServicePackageParser
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.service_package import ServicePackage
@@ -113,7 +113,8 @@ class BaseGenerator(ABC):
         package_data: type[BasePackageData],
     ) -> ServicePackage:
         self.logger.debug(f"Parsing {service_name.boto3_name}")
-        service_package = parse_service_package(self.session, service_name, package_data)
+        parser = ServicePackageParser(self.session, service_name, package_data)
+        service_package = parser.parse()
         if version:
             service_package.version = version
 

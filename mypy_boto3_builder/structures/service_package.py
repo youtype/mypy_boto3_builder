@@ -21,7 +21,6 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
-from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
 
 class ServicePackage(Package):
@@ -75,7 +74,10 @@ class ServicePackage(Package):
 
         return sorted(type_literals)
 
-    def _get_sortable_type_defs(self) -> set[TypeDefSortable]:
+    def get_type_defs(self) -> set[TypeDefSortable]:
+        """
+        Extract typed defs from children.
+        """
         result: set[TypeDefSortable] = set()
         for type_annotation in self.iterate_types():
             if not isinstance(type_annotation, TypeDefSortable):
@@ -104,14 +106,6 @@ class ServicePackage(Package):
                 result.add(method.request_type_annotation)
 
         return result
-
-    def extract_type_defs(self) -> list[TypeDefSortable]:
-        """
-        Extract typed dicts from children.
-
-        Attempts to resolve circular typed dicts.
-        """
-        return TypeDefSorter(self._get_sortable_type_defs()).sort()
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
