@@ -111,8 +111,8 @@ def textwrap(text: str, width: int) -> str:
                 result.append(line)
                 break
 
-            sub_line = line[:space_index]
-            line = line[space_index + 1 :]
+            sub_line = line[:space_index].rstrip()
+            line = line[space_index + 1 :].lstrip()
             result.append(sub_line)
 
     return "\n".join(result)

@@ -58,7 +58,7 @@ class TestStrings:
     def test_textwrap(self) -> None:
         assert textwrap("test", 12) == "test"
         assert textwrap("test", 2) == "test"
-        assert textwrap("te st words", 12) == "te st words"
-        assert textwrap("te st words", 6) == "te st\nwords"
-        assert textwrap("te stwords", 12) == "te stwords"
-        assert textwrap("te stwords new", 6) == "te\nstwords\nnew"
+        assert textwrap("te  st words", 12) == "te  st words"
+        assert textwrap("te  st words", 6) == "te\nst\nwords"
+        assert textwrap("te  stwords", 12) == "te  stwords"
+        assert textwrap("te  stwords new", 6) == "te\nstwords\nnew"
