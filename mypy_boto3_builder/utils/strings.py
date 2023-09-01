@@ -16,6 +16,7 @@ RESERVED_NAMES = {
     *keyword.kwlist,
 }
 MAX_DOCSTRING_LENGTH: int = 300
+AWS_LINK_RE = re.compile(r"`([^`]+\S)\s*<https://(\S+)>`\_*")
 
 
 def get_class_prefix(func_name: str) -> str:
@@ -85,9 +86,9 @@ def get_short_docstring(doc: str) -> str:
         result_str = f"{result_str}."
 
     if "<https:" in result_str:
-        result_str = re.sub(
-            r"`([^`]+\S)\s*<https://(\S+)>`(\_)?", r"[\g<1>](https://\g<2>)", result_str
-        )
+        result_str = AWS_LINK_RE.sub(r"[\g<1>](https://\g<2>)", result_str)
+        # FIXME: temporary fix for pca-connector-ad service
+        result_str = result_str.replace("https\\:", "https:")
 
     return "\n".join(textwrap.wrap(result_str, width=80, break_long_words=False))
 
