@@ -37,8 +37,7 @@ jobs:
           poetry install -n
       - name: Install aioboto3
         run: |
-          poetry run pip install -U aioboto3
-          poetry install -n
+          poetry run pip install -U --no-dependencies aiobotocore aioboto3
       - name: Install boto3
         env:
           BOTO3_VERSION: ${{ steps.vars.outputs.boto3-version }}

@@ -30,8 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install -n
-          poetry run pip install -U aiobotocore
-          poetry install -n
+          poetry run pip install -U --no-dependencies aiobotocore
       - name: Build coverage report
         run: |
           poetry run pytest --cov mypy_boto3_builder --cov-report=xml
