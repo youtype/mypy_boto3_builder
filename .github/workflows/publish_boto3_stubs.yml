@@ -48,7 +48,7 @@ jobs:
       build-all: ${{ steps.vars.outputs.build-all }}
       extra-flags: ${{ steps.vars.outputs.extra-flags }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Extract versions
         id: vars
         uses: actions/github-script@v6
@@ -69,7 +69,7 @@ jobs:
       VERSION: ${{ needs.check-boto3-version.outputs.version }}
       EXTRA_FLAGS: ${{ needs.check-boto3-version.outputs.extra-flags }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v4
         with:

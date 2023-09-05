@@ -40,7 +40,7 @@ jobs:
       version: ${{ steps.vars.outputs.version }}
       extra-flags: ${{ steps.vars.outputs.extra-flags }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Extract versions
         id: vars
         uses: actions/github-script@v6
@@ -59,7 +59,7 @@ jobs:
       VERSION: ${{ needs.check-aiobotocore-version.outputs.version }}
       EXTRA_FLAGS: ${{ needs.check-aiobotocore-version.outputs.extra-flags }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
