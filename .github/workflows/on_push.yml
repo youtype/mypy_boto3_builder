@@ -29,8 +29,7 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install -n
-          poetry run pip install -U aiobotocore types-aiobotocore
-          poetry install -n
+          poetry run pip install -U --no-dependencies aiobotocore aioboto3 types-aiobotocore types-aioboto3
       - name: Install Node.js dependencies
         run: |
           npm install -g pyright
