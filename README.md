@@ -204,3 +204,12 @@ Full changelog can be found in [Releases](https://github.com/youtype/mypy_boto3_
 - [Mike Carey](https://github.com/mike-carey)
 - [Ole-Martin Bratteng](https://github.com/omBratteng)
 - [Nikhil Benesch](https://github.com/benesch)
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
