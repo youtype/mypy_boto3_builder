@@ -27,7 +27,7 @@ class BaseGenerator(ABC):
         output_path -- Path to write generated files
         generate_setup -- Whether to create package or installed module
         skip_published -- Whether to skip packages that are already published
-        disable_smart_version -- Whether to create a new postrelease if version is already published
+        disable_smart_version -- Whether to create a new postrelease based on latest PyPI version
         version -- Package build version
     """
 
@@ -68,6 +68,8 @@ class BaseGenerator(ABC):
         raise NotImplementedError()
 
     def _get_package_version(self, pypi_name: str, version: str) -> str | None:
+        if self.disable_smart_version:
+            return version
         pypi_manager = PyPIManager(pypi_name)
         if not pypi_manager.has_version(version):
             return version
@@ -75,8 +77,6 @@ class BaseGenerator(ABC):
         if self.skip_published:
             self.logger.info(f"Skipping {pypi_name} {version}, already on PyPI")
             return None
-        if self.disable_smart_version:
-            return version
 
         return pypi_manager.get_next_version(version)
 
