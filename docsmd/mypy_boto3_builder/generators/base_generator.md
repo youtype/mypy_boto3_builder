@@ -20,7 +20,7 @@ Base stubs/docs generator.
 - `output_path` - Path to write generated files
 - `generate_setup` - Whether to create package or installed module
 - `skip_published` - Whether to skip packages that are already published
-- `disable_smart_version` - Whether to create a new postrelease if version is already published
+- `disable_smart_version` - Whether to create a new postrelease based on latest PyPI version
 - `version` - Package build version
 
 #### Signature
@@ -77,7 +77,7 @@ def generate_product(self, product_type: ProductType) -> None:
 
 ### BaseGenerator().generate_service_stubs
 
-[Show source in base_generator.py:182](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L182)
+[Show source in base_generator.py:183](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L183)
 
 Generate service stubs.
 

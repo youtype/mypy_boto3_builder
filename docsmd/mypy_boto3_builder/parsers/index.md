@@ -19,7 +19,7 @@ Parsers
 - [Parse Identifiers](./parse_identifiers.md)
 - [Parse References](./parse_references.md)
 - [Parse Resource](./parse_resource.md)
-- [Service Package](./service_package.md)
+- [ServicePackageParser](./service_package_parser.md)
 - [Service Resource](./service_resource.md)
 - [ShapeParser](./shape_parser.md)
 - [Types Aioboto3 Package](./types_aioboto3_package.md)

@@ -43,7 +43,7 @@ A full list of [Mypy_boto3_builder](https://github.com/youtype/mypy_boto3_builde
         - [Parse Identifiers](mypy_boto3_builder/parsers/parse_identifiers.md#parse-identifiers)
         - [Parse References](mypy_boto3_builder/parsers/parse_references.md#parse-references)
         - [Parse Resource](mypy_boto3_builder/parsers/parse_resource.md#parse-resource)
-        - [Service Package](mypy_boto3_builder/parsers/service_package.md#service-package)
+        - [ServicePackageParser](mypy_boto3_builder/parsers/service_package_parser.md#servicepackageparser)
         - [Service Resource](mypy_boto3_builder/parsers/service_resource.md#service-resource)
         - [ShapeParser](mypy_boto3_builder/parsers/shape_parser.md#shapeparser)
         - [Types Aioboto3 Package](mypy_boto3_builder/parsers/types_aioboto3_package.md#types-aioboto3-package)

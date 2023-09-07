@@ -24,7 +24,7 @@ def get_anchor_link(text: str) -> str:
 
 ## get_botocore_class_name
 
-[Show source in strings.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L95)
+[Show source in strings.py:121](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L121)
 
 Get Botocore class name from Service metadata.
 
@@ -84,7 +84,7 @@ def get_short_docstring(doc: str) -> str:
 
 ## get_type_def_name
 
-[Show source in strings.py:105](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L105)
+[Show source in strings.py:131](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L131)
 
 Get a valid Python TypeDef class name from `parts`.
 
@@ -113,5 +113,20 @@ Check whether varialbe name conflicts with Python reserved names.
 
 ```python
 def is_reserved(word: str) -> bool:
+    ...
+```
+
+
+
+## textwrap
+
+[Show source in strings.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L95)
+
+Wrap text to `width` chars.
+
+#### Signature
+
+```python
+def textwrap(text: str, width: int) -> str:
     ...
 ```
