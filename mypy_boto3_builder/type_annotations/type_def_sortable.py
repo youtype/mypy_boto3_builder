@@ -18,11 +18,9 @@ class TypeDefSortable(Protocol):
     name: str
     _stringify: bool
 
-    def __gt__(self, other: FakeAnnotation) -> bool:
-        ...
+    def __gt__(self, other: FakeAnnotation) -> bool: ...
 
-    def __lt__(self, other: FakeAnnotation) -> bool:
-        ...
+    def __lt__(self, other: FakeAnnotation) -> bool: ...
 
     def get_sortable_children(self) -> list["TypeDefSortable"]:
         """

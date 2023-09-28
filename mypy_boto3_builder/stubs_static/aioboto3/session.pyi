@@ -23,6 +23,7 @@ class Session:
         self._session: BotocoreSession
         self.resource_factory: AIOBoto3ResourceFactory
         self._loader: Loader
+
     def __repr__(self) -> str: ...
     @property
     def profile_name(self) -> str: ...

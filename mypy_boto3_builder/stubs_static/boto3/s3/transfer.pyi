@@ -34,6 +34,7 @@ class TransferConfig(S3TransferConfig):
         max_bandwidth: Optional[int] = ...,
     ) -> None:
         self.use_threads: bool
+
     def __setattr__(self, name: str, value: int) -> None: ...
 
 class S3Transfer:

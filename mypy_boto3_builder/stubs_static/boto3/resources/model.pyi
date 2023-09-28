@@ -81,6 +81,7 @@ class ResponseResource:
     ) -> None:
         self.type: str
         self.path: str
+
     @property
     def identifiers(self) -> List[Identifier]: ...
     @property
@@ -99,6 +100,7 @@ class ResourceModel:
     ) -> None:
         self.name: str
         self.shape: Optional[str]
+
     def load_rename_map(self, shape: Optional[Shape] = ...) -> None: ...
     def get_attributes(self, shape: Shape) -> Dict[str, Tuple[str, Any]]: ...
     @property
