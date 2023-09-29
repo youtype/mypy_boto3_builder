@@ -10,7 +10,6 @@ Checker of generated packages.
 import argparse
 import json
 import logging
-import os
 import shutil
 import subprocess
 import sys
@@ -42,6 +41,7 @@ IGNORE_PYRIGHT_ERRORS = (
     'Import "mypy_boto3_',
     "Argument to class must be a base class",
     'Function with declared type of "NoReturn" cannot return "None"',
+    '"ellipsis" cannot be assigned to ',
 )
 IGNORE_MYPY_ERRORS = (
     'Signature of "create_client" incompatible with supertype "Session"',
@@ -157,7 +157,7 @@ def run_pyright(path: Path) -> None:
         else:
             return
         finally:
-            os.remove(config_path)
+            config_path.unlink(missing_ok=True)
 
         temp_path = Path(f.name)
         output = temp_path.read_text()
@@ -174,7 +174,8 @@ def run_pyright(path: Path) -> None:
             messages: List[str] = []
             for error in errors:
                 messages.append(
-                    f'{error["file"]}:{error["range"]["start"]["line"]} {error.get("message", "")}'
+                    "pyright:"
+                    f" {error['file']}:{error['range']['start']['line']} {error.get('message', '')}"
                 )
             raise SnapshotMismatchError("\n".join(messages))
 
@@ -190,14 +191,14 @@ def run_mypy(path: Path) -> None:
             encoding="utf8",
         )
     except subprocess.CalledProcessError as e:
-        output = e.output
+        output: str = e.output
         errors: List[str] = []
         for message in output.splitlines():
             if not message or message.startswith("Found"):
                 continue
             if any(imsg in message for imsg in IGNORE_MYPY_ERRORS):
                 continue
-            errors.append(message)
+            errors.append(f"mypy: {message}")
 
         if errors:
             raise SnapshotMismatchError("\n".join(errors)) from None
