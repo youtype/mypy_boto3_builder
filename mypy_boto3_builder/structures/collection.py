@@ -1,6 +1,7 @@
 """
 Boto3 ServiceResource or Resource collection.
 """
+
 from collections.abc import Iterator
 
 from boto3.resources.collection import ResourceCollection

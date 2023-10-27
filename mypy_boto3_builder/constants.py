@@ -1,6 +1,7 @@
 """
 Constants and paths.
 """
+
 from enum import Enum
 from pathlib import Path
 

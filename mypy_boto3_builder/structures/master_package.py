@@ -1,6 +1,7 @@
 """
 Structure for boto3-stubs module.
 """
+
 from collections.abc import Iterable
 
 from mypy_boto3_builder.package_data import MypyBoto3PackageData

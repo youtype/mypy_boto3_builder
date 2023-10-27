@@ -1,6 +1,7 @@
 """
 Wrapper for `typing` type annotation.
 """
+
 from typing import TypeVar
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord

@@ -1,6 +1,7 @@
 """
 Boto3 client Paginator.
 """
+
 from botocore.paginate import Paginator as BotocorePaginator
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName

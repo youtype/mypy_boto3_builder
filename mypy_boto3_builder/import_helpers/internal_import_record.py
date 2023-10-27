@@ -1,6 +1,7 @@
 """
 Helper for Python import strings with not set master module name.
 """
+
 from typing import TypeVar
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName

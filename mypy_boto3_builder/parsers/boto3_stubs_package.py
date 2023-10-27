@@ -1,6 +1,7 @@
 """
 Parser that produces `structures.Boto3StubsPackage`.
 """
+
 from collections.abc import Iterable
 
 from boto3.session import Session

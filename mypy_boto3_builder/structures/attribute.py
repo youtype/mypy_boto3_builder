@@ -1,6 +1,7 @@
 """
 Class or module attribute.
 """
+
 from collections.abc import Iterator
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation

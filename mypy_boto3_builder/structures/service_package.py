@@ -1,6 +1,7 @@
 """
 Parsed Service package.
 """
+
 from collections.abc import Iterable, Iterator
 from typing import Literal
 

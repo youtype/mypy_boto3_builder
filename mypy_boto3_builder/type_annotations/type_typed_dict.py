@@ -1,6 +1,7 @@
 """
 Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 """
+
 from collections.abc import Iterable, Iterator
 from typing import TypeVar
 

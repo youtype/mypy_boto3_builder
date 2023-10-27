@@ -1,6 +1,7 @@
 """
 Base class for all structures that can be rendered to a class.
 """
+
 from collections.abc import Iterable, Iterator
 
 from botocore import xform_name

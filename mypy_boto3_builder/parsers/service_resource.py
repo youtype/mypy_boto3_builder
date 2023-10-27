@@ -1,6 +1,7 @@
 """
 Parser for Boto3 ServiceResource, produces `structires.ServiceResource`.
 """
+
 import inspect
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource

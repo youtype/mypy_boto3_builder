@@ -1,6 +1,7 @@
 """
 Helpers for parsing methods and attributes.
 """
+
 import inspect
 from types import MethodType
 

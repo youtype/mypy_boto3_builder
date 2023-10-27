@@ -1,6 +1,7 @@
 """
 Sorter for TypeDefSorter to prevent import errors.
 """
+
 from collections.abc import Iterable
 from graphlib import CycleError, TopologicalSorter
 

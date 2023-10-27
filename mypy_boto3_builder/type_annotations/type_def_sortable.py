@@ -1,6 +1,7 @@
 """
 Sortable protocol for TypeDefSorter.
 """
+
 from collections.abc import Iterable, Iterator
 from typing import Any, Protocol, runtime_checkable
 

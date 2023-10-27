@@ -1,6 +1,7 @@
 """
 Parent class for all package structures.
 """
+
 from collections.abc import Iterable
 
 from mypy_boto3_builder.logger import get_logger

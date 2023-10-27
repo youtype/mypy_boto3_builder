@@ -1,6 +1,7 @@
 """
 Utils for markdown rendering.
 """
+
 from collections.abc import Iterable
 from typing import TypeVar
 

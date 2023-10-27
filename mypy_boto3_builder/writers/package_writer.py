@@ -1,6 +1,7 @@
 """
 Writer for package static and template files.
 """
+
 from collections.abc import Sequence
 from pathlib import Path
 

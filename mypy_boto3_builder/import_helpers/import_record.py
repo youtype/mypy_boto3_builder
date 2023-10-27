@@ -1,6 +1,7 @@
 """
 Helper for Python import strings.
 """
+
 import functools
 from typing import TypeVar
 

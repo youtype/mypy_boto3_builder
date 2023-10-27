@@ -1,6 +1,7 @@
 """
 Fake parser that produces `structures.ServiceModule` for master module and stubs.
 """
+
 from boto3.session import Session
 from botocore import xform_name
 

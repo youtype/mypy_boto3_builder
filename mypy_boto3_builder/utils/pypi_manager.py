@@ -1,6 +1,7 @@
 """
 Version manager for PyPI packages.
 """
+
 import json
 from json.decoder import JSONDecodeError
 from urllib.error import HTTPError

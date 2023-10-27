@@ -1,6 +1,7 @@
 """
 Wrapper for simple type annotations from this module.
 """
+
 from typing import TypeVar
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName

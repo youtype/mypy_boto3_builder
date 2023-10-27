@@ -1,6 +1,7 @@
 """
 Getters for boto3 client and resource from session.
 """
+
 from collections.abc import Iterable
 from functools import cache
 

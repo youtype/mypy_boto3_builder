@@ -1,6 +1,7 @@
 """
 Parser for botocore shape files.
 """
+
 import contextlib
 from collections.abc import Iterable, Mapping, Sequence
 from typing import Any

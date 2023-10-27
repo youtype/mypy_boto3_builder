@@ -1,6 +1,7 @@
 """
 Wrapper for constant like `False` or `"test"`.
 """
+
 from typing import TypeVar
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation

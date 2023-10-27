@@ -1,6 +1,7 @@
 """
 Collection of TypedDicts added by boto3.
 """
+
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type

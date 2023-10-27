@@ -1,6 +1,7 @@
 """
 Jinja2 renderer and black formatter.
 """
+
 import tempfile
 from collections.abc import Iterable
 from pathlib import Path

@@ -1,6 +1,7 @@
 """
 Method or function argument.
 """
+
 from collections.abc import Iterator
 from typing import Literal, TypeVar
 

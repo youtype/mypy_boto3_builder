@@ -1,6 +1,7 @@
 """
 Collection of TypeUnions added by boto3.
 """
+
 from boto3.dynamodb.conditions import ConditionBase
 from botocore.response import StreamingBody
 

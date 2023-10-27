@@ -1,6 +1,7 @@
 """
 Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a', 'b']`.
 """
+
 from collections.abc import Iterable
 from typing import TypeVar
 

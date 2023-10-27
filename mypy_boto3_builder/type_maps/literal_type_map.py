@@ -1,6 +1,7 @@
 """
 String to type annotation map to replace overriden botocore literals.
 """
+
 from mypy_boto3_builder.service_name import ServiceName
 
 LITERAL_TYPE_MAP: dict[ServiceName, dict[str, list[str]]] = {}

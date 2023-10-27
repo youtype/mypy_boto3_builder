@@ -1,6 +1,7 @@
 """
 Boto3 stubs/docs generator.
 """
+
 from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (

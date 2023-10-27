@@ -1,6 +1,7 @@
 """
 CLI parser.
 """
+
 import argparse
 import logging
 from collections.abc import Sequence

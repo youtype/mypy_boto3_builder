@@ -1,6 +1,7 @@
 """
 Version-related utils.
 """
+
 import contextlib
 import importlib.metadata
 

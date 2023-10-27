@@ -1,6 +1,7 @@
 """
 Description for boto3 service.
 """
+
 from typing import Literal
 
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved

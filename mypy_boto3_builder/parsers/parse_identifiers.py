@@ -1,6 +1,7 @@
 """
 Parser for Boto3 ServiceResource identifiers, produces `structures.Attribute`.
 """
+
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
 from mypy_boto3_builder.structures.attribute import Attribute

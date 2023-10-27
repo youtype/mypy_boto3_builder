@@ -1,6 +1,7 @@
 """
 Jinja2 `Environment` manager.
 """
+
 import datetime
 from collections.abc import Callable
 from typing import Any

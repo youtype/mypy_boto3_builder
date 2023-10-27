@@ -1,6 +1,7 @@
 """
 Parser that produces `structures.TypesAioBoto3Package`.
 """
+
 from collections.abc import Iterable
 
 from boto3.session import Session

@@ -1,6 +1,7 @@
 """
 Parent class for all type annotation wrappers.
 """
+
 from abc import ABC, abstractmethod
 from collections.abc import Iterator
 from typing import TypeVar

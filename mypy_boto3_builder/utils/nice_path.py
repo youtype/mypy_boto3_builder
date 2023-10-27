@@ -1,6 +1,7 @@
 """
 Path that represents it as relative to workdir.
 """
+
 from collections.abc import Iterable, Iterator
 from pathlib import Path
 from typing import TypeVar

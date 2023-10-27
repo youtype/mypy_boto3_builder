@@ -1,6 +1,7 @@
 """
 Boto3 client parser, produces `structures.Client`.
 """
+
 import inspect
 
 from boto3.session import Session

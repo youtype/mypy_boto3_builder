@@ -1,6 +1,7 @@
 """
 Parser for Boto3 ServiceResource sub-resource, produces `structures.Resource`.
 """
+
 import inspect
 from types import MethodType
 

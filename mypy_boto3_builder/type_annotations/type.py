@@ -1,6 +1,7 @@
 """
 Predefined FakeAnnotation instances.
 """
+
 from datetime import datetime
 from decimal import Decimal
 

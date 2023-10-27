@@ -1,6 +1,7 @@
 """
 Main entrypoint for builder.
 """
+
 import sys
 import warnings
 from collections.abc import Iterable, Sequence

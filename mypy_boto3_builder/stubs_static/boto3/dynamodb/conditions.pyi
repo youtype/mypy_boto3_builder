@@ -50,69 +50,69 @@ class ConditionAttributeBase(ConditionBase, AttributeBase):
     def __ne__(self, other: Any) -> bool: ...
 
 class ComparisonCondition(ConditionBase):
-    expression_format: Literal["{0} {operator} {1}"]
+    expression_format: Literal["{0} {operator} {1}"]  # type: ignore [override]
 
 class Equals(ComparisonCondition):
-    expression_operator: Literal["="]
+    expression_operator: Literal["="]  # type: ignore [override]
 
 class NotEquals(ComparisonCondition):
-    expression_operator: Literal["<>"]
+    expression_operator: Literal["<>"]  # type: ignore [override]
 
 class LessThan(ComparisonCondition):
-    expression_operator: Literal["<"]
+    expression_operator: Literal["<"]  # type: ignore [override]
 
 class LessThanEquals(ComparisonCondition):
-    expression_operator: Literal["<="]
+    expression_operator: Literal["<="]  # type: ignore [override]
 
 class GreaterThan(ComparisonCondition):
-    expression_operator: Literal[">"]
+    expression_operator: Literal[">"]  # type: ignore [override]
 
 class GreaterThanEquals(ComparisonCondition):
-    expression_operator: Literal[">="]
+    expression_operator: Literal[">="]  # type: ignore [override]
 
 class In(ComparisonCondition):
-    expression_operator: Literal["IN"]
+    expression_operator: Literal["IN"]  # type: ignore [override]
     has_grouped_values: bool
 
 class Between(ConditionBase):
-    expression_operator: Literal["BETWEEN"]
-    expression_format: Literal["{0} {operator} {1} AND {2}"]
+    expression_operator: Literal["BETWEEN"]  # type: ignore [override]
+    expression_format: Literal["{0} {operator} {1} AND {2}"]  # type: ignore [override]
 
 class BeginsWith(ConditionBase):
-    expression_operator: Literal["begins_with"]
-    expression_format: Literal["{operator}({0}, {1})"]
+    expression_operator: Literal["begins_with"]  # type: ignore [override]
+    expression_format: Literal["{operator}({0}, {1})"]  # type: ignore [override]
 
 class Contains(ConditionBase):
-    expression_operator: Literal["contains"]
-    expression_format: Literal["{operator}({0}, {1})"]
+    expression_operator: Literal["contains"]  # type: ignore [override]
+    expression_format: Literal["{operator}({0}, {1})"]  # type: ignore [override]
 
 class Size(ConditionAttributeBase):
-    expression_operator: Literal["size"]
-    expression_format: Literal["{operator}({0})"]
+    expression_operator: Literal["size"]  # type: ignore [override]
+    expression_format: Literal["{operator}({0})"]  # type: ignore [override]
 
 class AttributeType(ConditionBase):
-    expression_operator: Literal["attribute_type"]
-    expression_format: Literal["{operator}({0}, {1})"]
+    expression_operator: Literal["attribute_type"]  # type: ignore [override]
+    expression_format: Literal["{operator}({0}, {1})"]  # type: ignore [override]
 
 class AttributeExists(ConditionBase):
-    expression_operator: Literal["attribute_exists"]
-    expression_format: Literal["{operator}({0})"]
+    expression_operator: Literal["attribute_exists"]  # type: ignore [override]
+    expression_format: Literal["{operator}({0})"]  # type: ignore [override]
 
 class AttributeNotExists(ConditionBase):
-    expression_operator: Literal["attribute_not_exists"]
-    expression_format: Literal["{operator}({0})"]
+    expression_operator: Literal["attribute_not_exists"]  # type: ignore [override]
+    expression_format: Literal["{operator}({0})"]  # type: ignore [override]
 
 class And(ConditionBase):
-    expression_operator: Literal["AND"]
-    expression_format: Literal["({0} {operator} {1})"]
+    expression_operator: Literal["AND"]  # type: ignore [override]
+    expression_format: Literal["({0} {operator} {1})"]  # type: ignore [override]
 
 class Or(ConditionBase):
-    expression_operator: Literal["OR"]
-    expression_format: Literal["({0} {operator} {1})"]
+    expression_operator: Literal["OR"]  # type: ignore [override]
+    expression_format: Literal["({0} {operator} {1})"]  # type: ignore [override]
 
 class Not(ConditionBase):
-    expression_operator: Literal["NOT"]
-    expression_format: Literal["({operator} {0})"]
+    expression_operator: Literal["NOT"]  # type: ignore [override]
+    expression_format: Literal["({operator} {0})"]  # type: ignore [override]
 
 class Key(AttributeBase): ...
 

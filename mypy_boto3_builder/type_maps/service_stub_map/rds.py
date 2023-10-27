@@ -2,7 +2,6 @@
 RDS service injected methods.
 """
 
-
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.type import Type

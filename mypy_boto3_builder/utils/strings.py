@@ -1,6 +1,7 @@
 """
 Multiple string utils collection.
 """
+
 import builtins
 import keyword
 import re

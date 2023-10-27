@@ -1,6 +1,7 @@
 """
 Class method.
 """
+
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.function import Function
 

@@ -1,6 +1,7 @@
 """
 Methods for boto3 injected methods.
 """
+
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_maps.service_stub_map import dynamodb, ec2, rds, s3

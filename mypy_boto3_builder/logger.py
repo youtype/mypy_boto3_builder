@@ -1,6 +1,7 @@
 """
 Logging utils.
 """
+
 import logging
 
 from mypy_boto3_builder.constants import LOGGER_NAME

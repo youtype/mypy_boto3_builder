@@ -1,6 +1,7 @@
 """
 String to type annotation map to replace overriden botocore shapes.
 """
+
 from collections.abc import Iterable
 
 from mypy_boto3_builder.constants import ALL
