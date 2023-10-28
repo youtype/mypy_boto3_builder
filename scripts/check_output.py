@@ -34,6 +34,7 @@ IGNORE_PYRIGHT_ERRORS = (
     'Method "get_paginator" overrides class "AioBaseClient" in an incompatible manner',
     'Method "get_waiter" overrides class "AioBaseClient" in an incompatible manner',
     'Method "wait" overrides class "AIOWaiter" in an incompatible manner',
+    'Method "create_client" overrides class "Session" in an incompatible manner',
     'define variable "items" in incompatible way',
     'define variable "values" in incompatible way',
     "must return value",
