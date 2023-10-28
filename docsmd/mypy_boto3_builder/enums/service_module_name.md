@@ -9,20 +9,19 @@ ServiceModuleName
 
 ## ServiceModuleName
 
-[Show source in service_module_name.py:7](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L7)
+[Show source in service_module_name.py:8](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L8)
 
 Enum for service modules.
 
 #### Signature
 
 ```python
-class ServiceModuleName(enum.Enum):
-    ...
+class ServiceModuleName(enum.Enum): ...
 ```
 
 ### ServiceModuleName().file_name
 
-[Show source in service_module_name.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L26)
+[Show source in service_module_name.py:27](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L27)
 
 Module file name.
 
@@ -30,13 +29,12 @@ Module file name.
 
 ```python
 @property
-def file_name(self) -> str:
-    ...
+def file_name(self) -> str: ...
 ```
 
 ### ServiceModuleName().stub_file_name
 
-[Show source in service_module_name.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L19)
+[Show source in service_module_name.py:20](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L20)
 
 Module file name.
 
@@ -44,13 +42,12 @@ Module file name.
 
 ```python
 @property
-def stub_file_name(self) -> str:
-    ...
+def stub_file_name(self) -> str: ...
 ```
 
 ### ServiceModuleName().template_name
 
-[Show source in service_module_name.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L33)
+[Show source in service_module_name.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py#L34)
 
 Module template file name.
 
@@ -58,6 +55,5 @@ Module template file name.
 
 ```python
 @property
-def template_name(self) -> str:
-    ...
+def template_name(self) -> str: ...
 ```

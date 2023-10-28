@@ -13,8 +13,7 @@ Sqs Example
 #### Signature
 
 ```python
-def main() -> None:
-    ...
+def main() -> None: ...
 ```
 
 
@@ -26,6 +25,5 @@ def main() -> None:
 #### Signature
 
 ```python
-def sqs_resource_example() -> None:
-    ...
+def sqs_resource_example() -> None: ...
 ```

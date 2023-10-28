@@ -9,7 +9,7 @@ Function
 
 ## Function
 
-[Show source in function.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L16)
+[Show source in function.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L17)
 
 Module-level function.
 
@@ -27,8 +27,7 @@ class Function:
         body_lines: Iterable[str] = (),
         type_ignore: bool = False,
         is_async: bool = False,
-    ):
-        ...
+    ): ...
 ```
 
 #### See also
@@ -38,7 +37,7 @@ class Function:
 
 ### Function().body
 
-[Show source in function.py:83](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L83)
+[Show source in function.py:84](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L84)
 
 Function body as a string.
 
@@ -46,47 +45,43 @@ Function body as a string.
 
 ```python
 @property
-def body(self) -> str:
-    ...
+def body(self) -> str: ...
 ```
 
 ### Function().copy
 
-[Show source in function.py:136](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L136)
+[Show source in function.py:137](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L137)
 
 Deep copy function.
 
 #### Signature
 
 ```python
-def copy(self: _R) -> _R:
-    ...
+def copy(self: _R) -> _R: ...
 ```
 
 ### Function().create_request_type_annotation
 
-[Show source in function.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L62)
+[Show source in function.py:63](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L63)
 
 Create and set `request_type_annotation` TypedDict based on function arguments.
 
 #### Signature
 
 ```python
-def create_request_type_annotation(self, name: str) -> None:
-    ...
+def create_request_type_annotation(self, name: str) -> None: ...
 ```
 
 ### Function().get_required_import_records
 
-[Show source in function.py:100](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L100)
+[Show source in function.py:101](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L101)
 
 Extract required import records.
 
 #### Signature
 
 ```python
-def get_required_import_records(self) -> set[ImportRecord]:
-    ...
+def get_required_import_records(self) -> set[ImportRecord]: ...
 ```
 
 #### See also
@@ -95,28 +90,26 @@ def get_required_import_records(self) -> set[ImportRecord]:
 
 ### Function().is_kw_only
 
-[Show source in function.py:117](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L117)
+[Show source in function.py:118](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L118)
 
 Whether method arguments can be passed only as kwargs.
 
 #### Signature
 
 ```python
-def is_kw_only(self) -> bool:
-    ...
+def is_kw_only(self) -> bool: ...
 ```
 
 ### Function().iterate_types
 
-[Show source in function.py:90](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L90)
+[Show source in function.py:91](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L91)
 
 Iterate over required type annotations.
 
 #### Signature
 
 ```python
-def iterate_types(self) -> Iterator[FakeAnnotation]:
-    ...
+def iterate_types(self) -> Iterator[FakeAnnotation]: ...
 ```
 
 #### See also
@@ -125,20 +118,19 @@ def iterate_types(self) -> Iterator[FakeAnnotation]:
 
 ### Function().remove_argument
 
-[Show source in function.py:151](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L151)
+[Show source in function.py:152](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L152)
 
 Remove argument by name.
 
 #### Signature
 
 ```python
-def remove_argument(self: _R, *names: str) -> _R:
-    ...
+def remove_argument(self: _R, *names: str) -> _R: ...
 ```
 
 ### Function().returns_none
 
-[Show source in function.py:110](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L110)
+[Show source in function.py:111](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L111)
 
 Whether return type is None.
 
@@ -146,13 +138,12 @@ Whether return type is None.
 
 ```python
 @property
-def returns_none(self) -> bool:
-    ...
+def returns_none(self) -> bool: ...
 ```
 
 ### Function().short_docstring
 
-[Show source in function.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L49)
+[Show source in function.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L50)
 
 Docstring without documentation links.
 
@@ -160,13 +151,12 @@ Docstring without documentation links.
 
 ```python
 @property
-def short_docstring(self) -> str:
-    ...
+def short_docstring(self) -> str: ...
 ```
 
 ### Function().type_hint_annotations
 
-[Show source in function.py:123](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L123)
+[Show source in function.py:124](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L124)
 
 Type annotations list from arguments and return type with internal types.
 
@@ -174,8 +164,7 @@ Type annotations list from arguments and return type with internal types.
 
 ```python
 @property
-def type_hint_annotations(self) -> list[FakeAnnotation]:
-    ...
+def type_hint_annotations(self) -> list[FakeAnnotation]: ...
 ```
 
 #### See also

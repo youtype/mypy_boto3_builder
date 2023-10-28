@@ -9,7 +9,7 @@ Markdown
 
 ## Header
 
-[Show source in markdown.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L12)
+[Show source in markdown.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L13)
 
 Markdown header.
 
@@ -22,13 +22,12 @@ Markdown header.
 
 ```python
 class Header:
-    def __init__(self, title: str, level: int) -> None:
-        ...
+    def __init__(self, title: str, level: int) -> None: ...
 ```
 
 ### Header().anchor
 
-[Show source in markdown.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L25)
+[Show source in markdown.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L26)
 
 Anchor link for title.
 
@@ -36,28 +35,26 @@ Anchor link for title.
 
 ```python
 @property
-def anchor(self) -> str:
-    ...
+def anchor(self) -> str: ...
 ```
 
 ### Header().render
 
-[Show source in markdown.py:32](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L32)
+[Show source in markdown.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L33)
 
 Render menu item to string.
 
 #### Signature
 
 ```python
-def render(self) -> str:
-    ...
+def render(self) -> str: ...
 ```
 
 
 
 ## TableOfContents
 
-[Show source in markdown.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L40)
+[Show source in markdown.py:41](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L41)
 
 MarkDown Table of Contents.
 
@@ -69,8 +66,7 @@ MarkDown Table of Contents.
 
 ```python
 class TableOfContents:
-    def __init__(self, headers: Iterable[Header]) -> None:
-        ...
+    def __init__(self, headers: Iterable[Header]) -> None: ...
 ```
 
 #### See also
@@ -79,7 +75,7 @@ class TableOfContents:
 
 ### TableOfContents.parse
 
-[Show source in markdown.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L51)
+[Show source in markdown.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L52)
 
 Parse table of Contents for MarkDown text.
 
@@ -91,28 +87,26 @@ Parse table of Contents for MarkDown text.
 
 ```python
 @classmethod
-def parse(cls: type[_R], text: str) -> _R:
-    ...
+def parse(cls: type[_R], text: str) -> _R: ...
 ```
 
 ### TableOfContents().render
 
-[Show source in markdown.py:74](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L74)
+[Show source in markdown.py:75](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L75)
 
 Render ToC to string.
 
 #### Signature
 
 ```python
-def render(self, max_level: int = 3) -> str:
-    ...
+def render(self, max_level: int = 3) -> str: ...
 ```
 
 
 
 ## fix_pypi_headers
 
-[Show source in markdown.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L86)
+[Show source in markdown.py:87](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/markdown.py#L87)
 
 Parse table of Contents for MarkDown text.
 
@@ -123,6 +117,5 @@ Parse table of Contents for MarkDown text.
 #### Signature
 
 ```python
-def fix_pypi_headers(text: str) -> str:
-    ...
+def fix_pypi_headers(text: str) -> str: ...
 ```

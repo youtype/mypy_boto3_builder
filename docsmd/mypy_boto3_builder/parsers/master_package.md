@@ -9,7 +9,7 @@ Master Package
 
 ## parse_master_package
 
-[Show source in master_package.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/master_package.py#L14)
+[Show source in master_package.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/master_package.py#L15)
 
 Parse data for master package.
 
@@ -27,8 +27,7 @@ MasterPackage structure.
 ```python
 def parse_master_package(
     session: Session, service_names: Iterable[ServiceName]
-) -> MasterPackage:
-    ...
+) -> MasterPackage: ...
 ```
 
 #### See also

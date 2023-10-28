@@ -9,7 +9,7 @@ ImportRecord
 
 ## ImportRecord
 
-[Show source in import_record.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L15)
+[Show source in import_record.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L16)
 
 Helper for Python import strings.
 
@@ -32,8 +32,7 @@ class ImportRecord:
         alias: str = "",
         min_version: tuple[int, ...] | None = None,
         fallback: _R | None = None,
-    ) -> None:
-        ...
+    ) -> None: ...
 ```
 
 #### See also
@@ -42,7 +41,7 @@ class ImportRecord:
 
 ### ImportRecord.empty
 
-[Show source in import_record.py:56](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L56)
+[Show source in import_record.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L57)
 
 Whether import record is an empty string.
 
@@ -50,110 +49,101 @@ Whether import record is an empty string.
 
 ```python
 @classmethod
-def empty(cls: type[_R]) -> _R:
-    ...
+def empty(cls: type[_R]) -> _R: ...
 ```
 
 ### ImportRecord().get_local_name
 
-[Show source in import_record.py:114](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L114)
+[Show source in import_record.py:115](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L115)
 
 Get local import name.
 
 #### Signature
 
 ```python
-def get_local_name(self) -> str:
-    ...
+def get_local_name(self) -> str: ...
 ```
 
 ### ImportRecord().is_builtins
 
-[Show source in import_record.py:120](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L120)
+[Show source in import_record.py:121](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L121)
 
 Whether import is from Python `builtins` module.
 
 #### Signature
 
 ```python
-def is_builtins(self) -> bool:
-    ...
+def is_builtins(self) -> bool: ...
 ```
 
 ### ImportRecord().is_empty
 
-[Show source in import_record.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L50)
+[Show source in import_record.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L51)
 
 Whether import record is an empty string.
 
 #### Signature
 
 ```python
-def is_empty(self) -> bool:
-    ...
+def is_empty(self) -> bool: ...
 ```
 
 ### ImportRecord().is_local
 
-[Show source in import_record.py:141](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L141)
+[Show source in import_record.py:142](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L142)
 
 Whether import is from local module.
 
 #### Signature
 
 ```python
-def is_local(self) -> bool:
-    ...
+def is_local(self) -> bool: ...
 ```
 
 ### ImportRecord().is_third_party
 
-[Show source in import_record.py:132](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L132)
+[Show source in import_record.py:133](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L133)
 
 Whether import is from 3rd party module.
 
 #### Signature
 
 ```python
-def is_third_party(self) -> bool:
-    ...
+def is_third_party(self) -> bool: ...
 ```
 
 ### ImportRecord().is_type_defs
 
-[Show source in import_record.py:126](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L126)
+[Show source in import_record.py:127](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L127)
 
 Whether import is from `type_defs` module.
 
 #### Signature
 
 ```python
-def is_type_defs(self) -> bool:
-    ...
+def is_type_defs(self) -> bool: ...
 ```
 
 ### ImportRecord().needs_sys_fallback
 
-[Show source in import_record.py:159](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L159)
+[Show source in import_record.py:160](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L160)
 
 Whether ImportString requires `sys` module.
 
 #### Signature
 
 ```python
-def needs_sys_fallback(self) -> bool:
-    ...
+def needs_sys_fallback(self) -> bool: ...
 ```
 
 ### ImportRecord().render
 
-[Show source in import_record.py:63](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L63)
+[Show source in import_record.py:64](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_record.py#L64)
 
 Get rendered string.
 
 #### Signature
 
 ```python
-def render(self) -> str:
-    ...
+def render(self) -> str: ...
 ```

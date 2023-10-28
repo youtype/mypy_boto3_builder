@@ -9,7 +9,7 @@ Client
 
 ## parse_client
 
-[Show source in client.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/client.py#L25)
+[Show source in client.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/client.py#L26)
 
 Parse boto3 client to a structure.
 
@@ -27,8 +27,7 @@ Client structure.
 ```python
 def parse_client(
     session: Session, service_name: ServiceName, shape_parser: ShapeParser
-) -> Client:
-    ...
+) -> Client: ...
 ```
 
 #### See also

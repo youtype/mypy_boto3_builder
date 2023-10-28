@@ -9,20 +9,19 @@ NicePath
 
 ## NicePath
 
-[Show source in nice_path.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/nice_path.py#L11)
+[Show source in nice_path.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/nice_path.py#L12)
 
 Path that represents it as relative to workdir.
 
 #### Signature
 
 ```python
-class NicePath(Path):
-    ...
+class NicePath(Path): ...
 ```
 
 ### NicePath().walk
 
-[Show source in nice_path.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/nice_path.py#L35)
+[Show source in nice_path.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/nice_path.py#L36)
 
 Walk files except for `exclude`.
 
@@ -35,6 +34,5 @@ Existing Path.
 ```python
 def walk(
     self: _R, exclude: Iterable[Path] = (), glob_pattern: str = "**/*"
-) -> Iterator[_R]:
-    ...
+) -> Iterator[_R]: ...
 ```

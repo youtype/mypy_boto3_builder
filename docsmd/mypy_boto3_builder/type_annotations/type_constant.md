@@ -9,7 +9,7 @@ TypeConstant
 
 ## TypeConstant
 
-[Show source in type_constant.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L11)
+[Show source in type_constant.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L12)
 
 Wrapper for constant like `False` or `"test"`.
 
@@ -21,8 +21,7 @@ Wrapper for constant like `False` or `"test"`.
 
 ```python
 class TypeConstant(FakeAnnotation):
-    def __init__(self, value: object) -> None:
-        ...
+    def __init__(self, value: object) -> None: ...
 ```
 
 #### See also
@@ -31,20 +30,19 @@ class TypeConstant(FakeAnnotation):
 
 ### TypeConstant().copy
 
-[Show source in type_constant.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L34)
+[Show source in type_constant.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L35)
 
 Create a copy of type annotation wrapper.
 
 #### Signature
 
 ```python
-def copy(self: _R) -> _R:
-    ...
+def copy(self: _R) -> _R: ...
 ```
 
 ### TypeConstant().render
 
-[Show source in type_constant.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L22)
+[Show source in type_constant.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L23)
 
 Render type annotation to a valid Python code for local usage.
 
@@ -55,6 +53,5 @@ A string with a valid type annotation.
 #### Signature
 
 ```python
-def render(self, parent_name: str = "") -> str:
-    ...
+def render(self, parent_name: str = "") -> str: ...
 ```

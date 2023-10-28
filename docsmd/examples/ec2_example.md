@@ -13,8 +13,7 @@ Ec2 Example
 #### Signature
 
 ```python
-def ec2_client_example() -> None:
-    ...
+def ec2_client_example() -> None: ...
 ```
 
 
@@ -26,8 +25,7 @@ def ec2_client_example() -> None:
 #### Signature
 
 ```python
-def ec2_resource_example() -> None:
-    ...
+def ec2_resource_example() -> None: ...
 ```
 
 
@@ -39,6 +37,5 @@ def ec2_resource_example() -> None:
 #### Signature
 
 ```python
-def main() -> None:
-    ...
+def main() -> None: ...
 ```

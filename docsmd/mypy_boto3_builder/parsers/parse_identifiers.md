@@ -9,7 +9,7 @@ Parse Identifiers
 
 ## parse_identifiers
 
-[Show source in parse_identifiers.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_identifiers.py#L10)
+[Show source in parse_identifiers.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_identifiers.py#L11)
 
 Extract identifiers from boto3 resource.
 
@@ -24,8 +24,7 @@ A list of Attribute structures.
 #### Signature
 
 ```python
-def parse_identifiers(resource: Boto3ServiceResource) -> list[Attribute]:
-    ...
+def parse_identifiers(resource: Boto3ServiceResource) -> list[Attribute]: ...
 ```
 
 #### See also

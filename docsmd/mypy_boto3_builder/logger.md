@@ -8,7 +8,7 @@ Logger
 
 ## get_logger
 
-[Show source in logger.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/logger.py#L11)
+[Show source in logger.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/logger.py#L12)
 
 Get Logger instance.
 
@@ -24,6 +24,5 @@ Overriden Logger.
 #### Signature
 
 ```python
-def get_logger(level: int = 0) -> logging.Logger:
-    ...
+def get_logger(level: int = 0) -> logging.Logger: ...
 ```

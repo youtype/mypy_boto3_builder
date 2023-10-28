@@ -16,8 +16,7 @@ Postprocessor for aiobotocore classes and methods.
 #### Signature
 
 ```python
-class AioBotocorePostprocessor(BasePostprocessor):
-    ...
+class AioBotocorePostprocessor(BasePostprocessor): ...
 ```
 
 #### See also
@@ -33,6 +32,5 @@ Convert all methods to asynchronous.
 #### Signature
 
 ```python
-def process_package(self) -> None:
-    ...
+def process_package(self) -> None: ...
 ```

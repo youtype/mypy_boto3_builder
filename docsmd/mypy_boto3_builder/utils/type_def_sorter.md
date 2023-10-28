@@ -9,7 +9,7 @@ TypeDefSorter
 
 ## TypeDefSorter
 
-[Show source in type_def_sorter.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/type_def_sorter.py#L11)
+[Show source in type_def_sorter.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/type_def_sorter.py#L12)
 
 Sorter for TypeDefs to prevent import errors.
 
@@ -17,8 +17,7 @@ Sorter for TypeDefs to prevent import errors.
 
 ```python
 class TypeDefSorter:
-    def __init__(self, type_defs: Iterable[TypeDefSortable]) -> None:
-        ...
+    def __init__(self, type_defs: Iterable[TypeDefSortable]) -> None: ...
 ```
 
 #### See also
@@ -27,15 +26,14 @@ class TypeDefSorter:
 
 ### TypeDefSorter().sort
 
-[Show source in type_def_sorter.py:39](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/type_def_sorter.py#L39)
+[Show source in type_def_sorter.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/type_def_sorter.py#L40)
 
 Sort items with TopologicalSorter or stringify as a fallback.
 
 #### Signature
 
 ```python
-def sort(self) -> list[TypeDefSortable]:
-    ...
+def sort(self) -> list[TypeDefSortable]: ...
 ```
 
 #### See also

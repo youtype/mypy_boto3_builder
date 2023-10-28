@@ -28,8 +28,7 @@ Argument alias name or None if argument has to be deleted.
 ```python
 def get_argument_alias(
     service_name: ServiceName, operation_name: str, argument_name: str
-) -> str | None:
-    ...
+) -> str | None: ...
 ```
 
 #### See also

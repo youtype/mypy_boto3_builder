@@ -9,7 +9,7 @@ PackageWriter
 
 ## PackageWriter
 
-[Show source in package_writer.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L25)
+[Show source in package_writer.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L26)
 
 Writer for package static and template files.
 
@@ -22,21 +22,19 @@ Writer for package static and template files.
 
 ```python
 class PackageWriter:
-    def __init__(self, output_path: Path, generate_setup: bool = True) -> None:
-        ...
+    def __init__(self, output_path: Path, generate_setup: bool = True) -> None: ...
 ```
 
 ### PackageWriter().write_docs
 
-[Show source in package_writer.py:204](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L204)
+[Show source in package_writer.py:205](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L205)
 
 Generate docs for a package.
 
 #### Signature
 
 ```python
-def write_docs(self, package: Package, templates_path: Path) -> None:
-    ...
+def write_docs(self, package: Package, templates_path: Path) -> None: ...
 ```
 
 #### See also
@@ -45,7 +43,7 @@ def write_docs(self, package: Package, templates_path: Path) -> None:
 
 ### PackageWriter().write_package
 
-[Show source in package_writer.py:174](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L174)
+[Show source in package_writer.py:175](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L175)
 
 Generate files for a package.
 
@@ -65,8 +63,7 @@ def write_package(
     templates_path: Path | None = None,
     static_files_path: Path | None = None,
     exclude_template_names: Sequence[str] = (),
-) -> None:
-    ...
+) -> None: ...
 ```
 
 #### See also
@@ -75,7 +72,7 @@ def write_package(
 
 ### PackageWriter().write_service_docs
 
-[Show source in package_writer.py:325](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L325)
+[Show source in package_writer.py:326](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L326)
 
 Create service docs files.
 
@@ -87,8 +84,7 @@ Create service docs files.
 #### Signature
 
 ```python
-def write_service_docs(self, package: ServicePackage, templates_path: Path) -> None:
-    ...
+def write_service_docs(self, package: ServicePackage, templates_path: Path) -> None: ...
 ```
 
 #### See also
@@ -97,7 +93,7 @@ def write_service_docs(self, package: ServicePackage, templates_path: Path) -> N
 
 ### PackageWriter().write_service_package
 
-[Show source in package_writer.py:304](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L304)
+[Show source in package_writer.py:305](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L305)
 
 Create stubs files for service.
 
@@ -108,8 +104,9 @@ Create stubs files for service.
 #### Signature
 
 ```python
-def write_service_package(self, package: ServicePackage, templates_path: Path) -> None:
-    ...
+def write_service_package(
+    self, package: ServicePackage, templates_path: Path
+) -> None: ...
 ```
 
 #### See also

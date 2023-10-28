@@ -9,7 +9,7 @@ Parse Resource
 
 ## get_resource_public_methods
 
-[Show source in parse_resource.py:85](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L85)
+[Show source in parse_resource.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L86)
 
 Extract public methods from boto3 sub resource.
 
@@ -26,15 +26,14 @@ A dictionary of method name and method.
 ```python
 def get_resource_public_methods(
     resource_class: type[Boto3ServiceResource],
-) -> dict[str, MethodType]:
-    ...
+) -> dict[str, MethodType]: ...
 ```
 
 
 
 ## parse_resource
 
-[Show source in parse_resource.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L25)
+[Show source in parse_resource.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L26)
 
 Parse boto3 sub Resource data.
 
@@ -54,8 +53,7 @@ def parse_resource(
     resource: Boto3ServiceResource,
     service_name: ServiceName,
     shape_parser: ShapeParser,
-) -> Resource:
-    ...
+) -> Resource: ...
 ```
 
 #### See also

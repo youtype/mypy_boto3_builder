@@ -9,7 +9,7 @@ Base
 
 ## BasePostprocessor
 
-[Show source in base.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L19)
+[Show source in base.py:20](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L20)
 
 Base postprocessor for classes and methods.
 
@@ -28,8 +28,7 @@ class BasePostprocessor(ABC):
         session: Session,
         package: ServicePackage,
         service_names: Sequence[ServiceName],
-    ) -> None:
-        ...
+    ) -> None: ...
 ```
 
 #### See also
@@ -39,7 +38,7 @@ class BasePostprocessor(ABC):
 
 ### BasePostprocessor().extend_literals
 
-[Show source in base.py:181](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L181)
+[Show source in base.py:182](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L182)
 
 Add extra literals.
 
@@ -53,26 +52,24 @@ Add extra literals.
 #### Signature
 
 ```python
-def extend_literals(self) -> None:
-    ...
+def extend_literals(self) -> None: ...
 ```
 
 ### BasePostprocessor().generate_docstrings
 
-[Show source in base.py:41](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L41)
+[Show source in base.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L42)
 
 Generate all docstrings.
 
 #### Signature
 
 ```python
-def generate_docstrings(self) -> None:
-    ...
+def generate_docstrings(self) -> None: ...
 ```
 
 ### BasePostprocessor().process_package
 
-[Show source in base.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L52)
+[Show source in base.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L53)
 
 Postprocess built package.
 
@@ -80,19 +77,17 @@ Postprocess built package.
 
 ```python
 @abstractmethod
-def process_package(self) -> None:
-    ...
+def process_package(self) -> None: ...
 ```
 
 ### BasePostprocessor().replace_self_ref_typed_dicts
 
-[Show source in base.py:262](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L262)
+[Show source in base.py:263](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L263)
 
 Remove self-references from TypedDicts.
 
 #### Signature
 
 ```python
-def replace_self_ref_typed_dicts(self) -> None:
-    ...
+def replace_self_ref_typed_dicts(self) -> None: ...
 ```

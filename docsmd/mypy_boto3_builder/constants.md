@@ -33,28 +33,26 @@ Constants
 
 ## Product
 
-[Show source in constants.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L62)
+[Show source in constants.py:63](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L63)
 
 Product choice for CLI.
 
 #### Signature
 
 ```python
-class Product(Enum):
-    ...
+class Product(Enum): ...
 ```
 
 ### Product().get_library
 
-[Show source in constants.py:79](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L79)
+[Show source in constants.py:80](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L80)
 
 Get library name.
 
 #### Signature
 
 ```python
-def get_library(self) -> ProductLibrary:
-    ...
+def get_library(self) -> ProductLibrary: ...
 ```
 
 #### See also
@@ -63,15 +61,14 @@ def get_library(self) -> ProductLibrary:
 
 ### Product().get_type
 
-[Show source in constants.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L88)
+[Show source in constants.py:89](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L89)
 
 Get product type.
 
 #### Signature
 
 ```python
-def get_type(self) -> ProductType:
-    ...
+def get_type(self) -> ProductType: ...
 ```
 
 #### See also
@@ -82,28 +79,26 @@ def get_type(self) -> ProductType:
 
 ## ProductLibrary
 
-[Show source in constants.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L42)
+[Show source in constants.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L43)
 
 Product library for Generator.
 
 #### Signature
 
 ```python
-class ProductLibrary(Enum):
-    ...
+class ProductLibrary(Enum): ...
 ```
 
 
 
 ## ProductType
 
-[Show source in constants.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L52)
+[Show source in constants.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/constants.py#L53)
 
 Product type for Generator.
 
 #### Signature
 
 ```python
-class ProductType(Enum):
-    ...
+class ProductType(Enum): ...
 ```

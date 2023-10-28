@@ -13,8 +13,7 @@ Emr Example
 #### Signature
 
 ```python
-def emr_client_example() -> None:
-    ...
+def emr_client_example() -> None: ...
 ```
 
 
@@ -26,6 +25,5 @@ def emr_client_example() -> None:
 #### Signature
 
 ```python
-def main() -> None:
-    ...
+def main() -> None: ...
 ```

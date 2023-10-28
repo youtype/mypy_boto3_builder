@@ -24,8 +24,7 @@ class AioBotocoreStubsPackage(Package):
         service_names: Iterable[ServiceName] = (),
         service_packages: Iterable[ServicePackage] = (),
         init_functions: Iterable[Function] = (),
-    ):
-        ...
+    ): ...
 ```
 
 #### See also
@@ -46,8 +45,7 @@ Service names marked as essential.
 
 ```python
 @property
-def essential_service_names(self) -> list[ServiceName]:
-    ...
+def essential_service_names(self) -> list[ServiceName]: ...
 ```
 
 #### See also
@@ -63,8 +61,7 @@ Get names for `__all__` directive.
 #### Signature
 
 ```python
-def get_all_names(self) -> list[str]:
-    ...
+def get_all_names(self) -> list[str]: ...
 ```
 
 ### AioBotocoreStubsPackage().get_session_required_import_records
@@ -76,8 +73,7 @@ Get import records for `session.py[i]`.
 #### Signature
 
 ```python
-def get_session_required_import_records(self) -> list[ImportRecord]:
-    ...
+def get_session_required_import_records(self) -> list[ImportRecord]: ...
 ```
 
 #### See also

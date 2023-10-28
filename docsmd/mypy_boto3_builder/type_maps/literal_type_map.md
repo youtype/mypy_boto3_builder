@@ -9,7 +9,7 @@ Literal Type Map
 
 ## get_literal_type_stub
 
-[Show source in literal_type_map.py:9](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/literal_type_map.py#L9)
+[Show source in literal_type_map.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/literal_type_map.py#L10)
 
 Get stub type for botocore literal.
 
@@ -27,8 +27,7 @@ Literal children or None.
 ```python
 def get_literal_type_stub(
     service_name: ServiceName, literal_name: str
-) -> list[str] | None:
-    ...
+) -> list[str] | None: ...
 ```
 
 #### See also

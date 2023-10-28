@@ -9,7 +9,7 @@ Waiter
 
 ## Waiter
 
-[Show source in waiter.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L17)
+[Show source in waiter.py:18](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L18)
 
 Boto3 client Waiter.
 
@@ -17,8 +17,7 @@ Boto3 client Waiter.
 
 ```python
 class Waiter(ClassRecord):
-    def __init__(self, name: str, waiter_name: str, service_name: ServiceName):
-        ...
+    def __init__(self, name: str, waiter_name: str, service_name: ServiceName): ...
 ```
 
 #### See also
@@ -28,7 +27,7 @@ class Waiter(ClassRecord):
 
 ### Waiter().boto3_doc_link
 
-[Show source in waiter.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L35)
+[Show source in waiter.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L36)
 
 Link to waiter boto3 docs.
 
@@ -36,21 +35,19 @@ Link to waiter boto3 docs.
 
 ```python
 @property
-def boto3_doc_link(self) -> str:
-    ...
+def boto3_doc_link(self) -> str: ...
 ```
 
 ### Waiter().get_client_method
 
-[Show source in waiter.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L42)
+[Show source in waiter.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/waiter.py#L43)
 
 Get `get_waiter` method for `Client`.
 
 #### Signature
 
 ```python
-def get_client_method(self) -> Method:
-    ...
+def get_client_method(self) -> Method: ...
 ```
 
 #### See also

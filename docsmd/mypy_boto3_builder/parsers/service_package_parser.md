@@ -32,8 +32,7 @@ class ServicePackageParser:
         session: Session,
         service_name: ServiceName,
         package_data: type[BasePackageData],
-    ) -> None:
-        ...
+    ) -> None: ...
 ```
 
 #### See also
@@ -50,8 +49,7 @@ Extract all data from boto3 service package.
 #### Signature
 
 ```python
-def parse(self) -> ServicePackage:
-    ...
+def parse(self) -> ServicePackage: ...
 ```
 
 #### See also

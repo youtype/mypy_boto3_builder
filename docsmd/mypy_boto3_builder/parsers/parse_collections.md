@@ -9,7 +9,7 @@ Parse Collections
 
 ## parse_collections
 
-[Show source in parse_collections.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_collections.py#L17)
+[Show source in parse_collections.py:18](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_collections.py#L18)
 
 Extract collections from boto3 resource.
 
@@ -29,8 +29,7 @@ def parse_collections(
     resource: Boto3ServiceResource,
     service_name: ServiceName,
     shape_parser: ShapeParser,
-) -> list[Collection]:
-    ...
+) -> list[Collection]: ...
 ```
 
 #### See also

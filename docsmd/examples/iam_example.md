@@ -13,8 +13,7 @@ Iam Example
 #### Signature
 
 ```python
-def iam_client_example() -> None:
-    ...
+def iam_client_example() -> None: ...
 ```
 
 
@@ -26,8 +25,7 @@ def iam_client_example() -> None:
 #### Signature
 
 ```python
-def iam_resource_example() -> None:
-    ...
+def iam_resource_example() -> None: ...
 ```
 
 
@@ -39,6 +37,5 @@ def iam_resource_example() -> None:
 #### Signature
 
 ```python
-def main() -> None:
-    ...
+def main() -> None: ...
 ```

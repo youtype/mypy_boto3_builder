@@ -13,8 +13,7 @@ Dynamodb Example
 #### Signature
 
 ```python
-def dynamodb_client_example() -> None:
-    ...
+def dynamodb_client_example() -> None: ...
 ```
 
 
@@ -26,6 +25,5 @@ def dynamodb_client_example() -> None:
 #### Signature
 
 ```python
-def main() -> None:
-    ...
+def main() -> None: ...
 ```

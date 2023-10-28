@@ -9,15 +9,14 @@ Botocore
 
 ## BotocorePostprocessor
 
-[Show source in botocore.py:7](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/botocore.py#L7)
+[Show source in botocore.py:8](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/botocore.py#L8)
 
 Postprocessor for botocore classes and methods.
 
 #### Signature
 
 ```python
-class BotocorePostprocessor(BasePostprocessor):
-    ...
+class BotocorePostprocessor(BasePostprocessor): ...
 ```
 
 #### See also
@@ -26,13 +25,12 @@ class BotocorePostprocessor(BasePostprocessor):
 
 ### BotocorePostprocessor().process_package
 
-[Show source in botocore.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/botocore.py#L12)
+[Show source in botocore.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/botocore.py#L13)
 
 Leave package as it is.
 
 #### Signature
 
 ```python
-def process_package(self) -> None:
-    ...
+def process_package(self) -> None: ...
 ```

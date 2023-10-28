@@ -13,8 +13,7 @@ S3 Example
 #### Signature
 
 ```python
-def main() -> None:
-    ...
+def main() -> None: ...
 ```
 
 
@@ -26,8 +25,7 @@ def main() -> None:
 #### Signature
 
 ```python
-def s3_client_example() -> None:
-    ...
+def s3_client_example() -> None: ...
 ```
 
 
@@ -39,6 +37,5 @@ def s3_client_example() -> None:
 #### Signature
 
 ```python
-def s3_resource_example() -> None:
-    ...
+def s3_resource_example() -> None: ...
 ```

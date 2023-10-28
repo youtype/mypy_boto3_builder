@@ -9,20 +9,19 @@ Type
 
 ## Type
 
-[Show source in type.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L15)
+[Show source in type.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L16)
 
 Predefined FakeAnnotation instances.
 
 #### Signature
 
 ```python
-class Type:
-    ...
+class Type: ...
 ```
 
 ### Type.get_optional
 
-[Show source in type.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L58)
+[Show source in type.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type.py#L59)
 
 Get Optional type annotation.
 
@@ -30,8 +29,7 @@ Get Optional type annotation.
 
 ```python
 @classmethod
-def get_optional(cls, wrapped: FakeAnnotation) -> FakeAnnotation:
-    ...
+def get_optional(cls, wrapped: FakeAnnotation) -> FakeAnnotation: ...
 ```
 
 #### See also

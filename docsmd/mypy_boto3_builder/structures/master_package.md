@@ -9,7 +9,7 @@ MasterPackage
 
 ## MasterPackage
 
-[Show source in master_package.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L12)
+[Show source in master_package.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L13)
 
 Structure for mypy-boto3 package.
 
@@ -28,8 +28,7 @@ class MasterPackage(Package):
         self,
         service_names: Iterable[ServiceName] = (),
         service_packages: Iterable[ServicePackage] = (),
-    ):
-        ...
+    ): ...
 ```
 
 #### See also
@@ -40,7 +39,7 @@ class MasterPackage(Package):
 
 ### MasterPackage().essential_service_names
 
-[Show source in master_package.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L31)
+[Show source in master_package.py:32](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L32)
 
 List of services maked as essential.
 
@@ -48,8 +47,7 @@ List of services maked as essential.
 
 ```python
 @property
-def essential_service_names(self) -> list[ServiceName]:
-    ...
+def essential_service_names(self) -> list[ServiceName]: ...
 ```
 
 #### See also

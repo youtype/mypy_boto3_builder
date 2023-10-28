@@ -29,8 +29,7 @@ Type annotation or None.
 ```python
 def get_method_type_stub(
     service_name: ServiceName, class_name: str, method_name: str, argument_name: str
-) -> FakeAnnotation | None:
-    ...
+) -> FakeAnnotation | None: ...
 ```
 
 #### See also

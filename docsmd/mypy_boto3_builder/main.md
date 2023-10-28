@@ -8,7 +8,7 @@ Main
 
 ## generate_product
 
-[Show source in main.py:102](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L102)
+[Show source in main.py:103](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L103)
 
 Generate a selected product.
 
@@ -27,8 +27,7 @@ def generate_product(
     args: Namespace,
     service_names: Sequence[ServiceName],
     master_service_names: Sequence[ServiceName],
-) -> None:
-    ...
+) -> None: ...
 ```
 
 #### See also
@@ -41,7 +40,7 @@ def generate_product(
 
 ## get_available_service_names
 
-[Show source in main.py:64](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L64)
+[Show source in main.py:65](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L65)
 
 Get a list of boto3 supported service names.
 
@@ -56,8 +55,7 @@ A list of supported services.
 #### Signature
 
 ```python
-def get_available_service_names(session: BotocoreSession) -> list[ServiceName]:
-    ...
+def get_available_service_names(session: BotocoreSession) -> list[ServiceName]: ...
 ```
 
 #### See also
@@ -68,7 +66,7 @@ def get_available_service_names(session: BotocoreSession) -> list[ServiceName]:
 
 ## get_generator_cls
 
-[Show source in main.py:85](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L85)
+[Show source in main.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L86)
 
 Get Generator class for a product.
 
@@ -79,8 +77,7 @@ Get Generator class for a product.
 #### Signature
 
 ```python
-def get_generator_cls(product: Product) -> type[BaseGenerator]:
-    ...
+def get_generator_cls(product: Product) -> type[BaseGenerator]: ...
 ```
 
 #### See also
@@ -92,7 +89,7 @@ def get_generator_cls(product: Product) -> type[BaseGenerator]:
 
 ## get_selected_service_names
 
-[Show source in main.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L24)
+[Show source in main.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L25)
 
 Get a list of selected service names.
 
@@ -113,8 +110,7 @@ A list of selected ServiceNames.
 ```python
 def get_selected_service_names(
     selected: Iterable[str], available: Iterable[ServiceName]
-) -> list[ServiceName]:
-    ...
+) -> list[ServiceName]: ...
 ```
 
 #### See also
@@ -125,13 +121,12 @@ def get_selected_service_names(
 
 ## main
 
-[Show source in main.py:130](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L130)
+[Show source in main.py:131](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L131)
 
 Run builder.
 
 #### Signature
 
 ```python
-def main() -> None:
-    ...
+def main() -> None: ...
 ```

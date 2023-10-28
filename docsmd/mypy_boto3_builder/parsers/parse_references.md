@@ -9,7 +9,7 @@ Parse References
 
 ## parse_references
 
-[Show source in parse_references.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_references.py#L13)
+[Show source in parse_references.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_references.py#L14)
 
 Extract references from boto3 resource.
 
@@ -24,8 +24,7 @@ A list of Attribute structures.
 #### Signature
 
 ```python
-def parse_references(resource: Boto3ServiceResource) -> list[Attribute]:
-    ...
+def parse_references(resource: Boto3ServiceResource) -> list[Attribute]: ...
 ```
 
 #### See also

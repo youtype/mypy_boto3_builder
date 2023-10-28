@@ -9,7 +9,7 @@ Utils
 
 ## blackify
 
-[Show source in utils.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L24)
+[Show source in utils.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L25)
 
 Format `content` with `black` if `file_path` is `*.py` or `*.pyi`.
 
@@ -31,60 +31,56 @@ Formatted python code.
 #### Signature
 
 ```python
-def blackify(content: str, file_path: Path) -> str:
-    ...
+def blackify(content: str, file_path: Path) -> str: ...
 ```
 
 
 
 ## blackify_markdown
 
-[Show source in utils.py:178](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L178)
+[Show source in utils.py:179](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L179)
 
 Blackify python codeblocks.
 
 #### Signature
 
 ```python
-def blackify_markdown(text: str) -> str:
-    ...
+def blackify_markdown(text: str) -> str: ...
 ```
 
 
 
 ## format_md
 
-[Show source in utils.py:165](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L165)
+[Show source in utils.py:166](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L166)
 
 Format MarkDown with mdformat.
 
 #### Signature
 
 ```python
-def format_md(text: str) -> str:
-    ...
+def format_md(text: str) -> str: ...
 ```
 
 
 
 ## insert_md_toc
 
-[Show source in utils.py:141](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L141)
+[Show source in utils.py:142](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L142)
 
 Insert Table of Contents before the first second-level header.
 
 #### Signature
 
 ```python
-def insert_md_toc(text: str) -> str:
-    ...
+def insert_md_toc(text: str) -> str: ...
 ```
 
 
 
 ## render_jinja2_package_template
 
-[Show source in utils.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L95)
+[Show source in utils.py:96](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L96)
 
 Render Jinja2 package template to a string.
 
@@ -105,15 +101,14 @@ def render_jinja2_package_template(
     template_path: Path,
     package: Package | None = None,
     service_name: ServiceName | None = None,
-) -> str:
-    ...
+) -> str: ...
 ```
 
 
 
 ## render_jinja2_template
 
-[Show source in utils.py:114](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L114)
+[Show source in utils.py:115](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L115)
 
 Render Jinja2 template to a string.
 
@@ -129,15 +124,14 @@ A rendered template.
 #### Signature
 
 ```python
-def render_jinja2_template(template_path: Path, **kwargs: Any) -> str:
-    ...
+def render_jinja2_template(template_path: Path, **kwargs: Any) -> str: ...
 ```
 
 
 
 ## sort_imports
 
-[Show source in utils.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L57)
+[Show source in utils.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L58)
 
 Sort imports with `isort`.
 
@@ -160,6 +154,5 @@ def sort_imports(
     module_name: str,
     extension: str = "py",
     third_party: Iterable[str] = (),
-) -> str:
-    ...
+) -> str: ...
 ```

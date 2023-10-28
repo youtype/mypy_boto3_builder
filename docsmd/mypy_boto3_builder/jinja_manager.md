@@ -8,7 +8,7 @@ JinjaManager
 
 ## JinjaManager
 
-[Show source in jinja_manager.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L17)
+[Show source in jinja_manager.py:18](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L18)
 
 Jinja2 `Environment` manager.
 
@@ -16,13 +16,12 @@ Jinja2 `Environment` manager.
 
 ```python
 class JinjaManager:
-    def __init__(self) -> None:
-        ...
+    def __init__(self) -> None: ...
 ```
 
 ### JinjaManager.escape_md
 
-[Show source in jinja_manager.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L50)
+[Show source in jinja_manager.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L51)
 
 Escape underscore characters.
 
@@ -30,26 +29,24 @@ Escape underscore characters.
 
 ```python
 @staticmethod
-def escape_md(value: str) -> str:
-    ...
+def escape_md(value: str) -> str: ...
 ```
 
 ### JinjaManager().get_environment
 
-[Show source in jinja_manager.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L57)
+[Show source in jinja_manager.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L58)
 
 Get `jinja2.Environment`.
 
 #### Signature
 
 ```python
-def get_environment(self) -> jinja2.Environment:
-    ...
+def get_environment(self) -> jinja2.Environment: ...
 ```
 
 ### JinjaManager.update_globals
 
-[Show source in jinja_manager.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L40)
+[Show source in jinja_manager.py:41](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L41)
 
 Update global variables in `jinja2.Environment`.
 
@@ -61,6 +58,5 @@ Update global variables in `jinja2.Environment`.
 
 ```python
 @classmethod
-def update_globals(cls, **kwargs: str | bool | Callable[..., Any]) -> None:
-    ...
+def update_globals(cls, **kwargs: str | bool | Callable[..., Any]) -> None: ...
 ```

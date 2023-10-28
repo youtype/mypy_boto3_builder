@@ -9,41 +9,38 @@ TypeDefSortable
 
 ## TypeDefSortable
 
-[Show source in type_def_sortable.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L13)
+[Show source in type_def_sortable.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L14)
 
 Sortable protocol for TypeDefSorter.
 
 #### Signature
 
 ```python
-class TypeDefSortable(Protocol):
-    ...
+class TypeDefSortable(Protocol): ...
 ```
 
 ### TypeDefSortable().debug_render
 
-[Show source in type_def_sortable.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L51)
+[Show source in type_def_sortable.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L50)
 
 Render type annotation for debug purposes.
 
 #### Signature
 
 ```python
-def debug_render(self) -> str:
-    ...
+def debug_render(self) -> str: ...
 ```
 
 ### TypeDefSortable().get_children_literals
 
-[Show source in type_def_sortable.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L57)
+[Show source in type_def_sortable.py:56](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L56)
 
 Extract required TypeLiteral list from attributes.
 
 #### Signature
 
 ```python
-def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLiteral]:
-    ...
+def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLiteral]: ...
 ```
 
 #### See also
@@ -52,15 +49,14 @@ def get_children_literals(self, processed: Iterable[str] = ()) -> set[TypeLitera
 
 ### TypeDefSortable().get_children_types
 
-[Show source in type_def_sortable.py:45](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L45)
+[Show source in type_def_sortable.py:44](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L44)
 
 Extract required type annotations from attributes.
 
 #### Signature
 
 ```python
-def get_children_types(self) -> set[FakeAnnotation]:
-    ...
+def get_children_types(self) -> set[FakeAnnotation]: ...
 ```
 
 #### See also
@@ -69,15 +65,14 @@ def get_children_types(self) -> set[FakeAnnotation]:
 
 ### TypeDefSortable().get_definition_import_records
 
-[Show source in type_def_sortable.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L76)
+[Show source in type_def_sortable.py:75](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L75)
 
 Get import record required for using TypeAnnotation.
 
 #### Signature
 
 ```python
-def get_definition_import_records(self) -> set[ImportRecord]:
-    ...
+def get_definition_import_records(self) -> set[ImportRecord]: ...
 ```
 
 #### See also
@@ -86,98 +81,91 @@ def get_definition_import_records(self) -> set[ImportRecord]:
 
 ### TypeDefSortable().get_sortable_children
 
-[Show source in type_def_sortable.py:27](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L27)
+[Show source in type_def_sortable.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L26)
 
 Extract required sortable TypeDef list from attributes.
 
 #### Signature
 
 ```python
-def get_sortable_children(self) -> list["TypeDefSortable"]:
-    ...
+def get_sortable_children(self) -> list["TypeDefSortable"]: ...
 ```
 
 ### TypeDefSortable().is_stringified
 
-[Show source in type_def_sortable.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L33)
+[Show source in type_def_sortable.py:32](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L32)
 
 Whether TypeDef usage should be rendered as a string.
 
 #### Signature
 
 ```python
-def is_stringified(self) -> bool:
-    ...
+def is_stringified(self) -> bool: ...
 ```
 
 ### TypeDefSortable().is_type_def
 
-[Show source in type_def_sortable.py:63](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L63)
+[Show source in type_def_sortable.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L62)
 
 Whether type annotation is a TypeDef.
 
 #### Signature
 
 ```python
-def is_type_def(self) -> bool:
-    ...
+def is_type_def(self) -> bool: ...
 ```
 
 ### TypeDefSortable().is_typed_dict
 
-[Show source in type_def_sortable.py:82](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L82)
+[Show source in type_def_sortable.py:81](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L81)
 
 Whether type annotation is a TypedDict.
 
 #### Signature
 
 ```python
-def is_typed_dict(self) -> bool:
-    ...
+def is_typed_dict(self) -> bool: ...
 ```
 
 ### TypeDefSortable().is_union
 
-[Show source in type_def_sortable.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L88)
+[Show source in type_def_sortable.py:87](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L87)
 
 Whether type annotation is a TypeUnion.
 
 #### Signature
 
 ```python
-def is_union(self) -> bool:
-    ...
+def is_union(self) -> bool: ...
 ```
 
 ### TypeDefSortable().iterate_children
 
-[Show source in type_def_sortable.py:94](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L94)
+[Show source in type_def_sortable.py:93](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L93)
 
 Iterate over children.
 
 #### Signature
 
 ```python
-def iterate_children(self) -> Iterator[Any]:
-    ...
+def iterate_children(self) -> Iterator[Any]: ...
 ```
 
 ### TypeDefSortable().stringify
 
-[Show source in type_def_sortable.py:39](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L39)
+[Show source in type_def_sortable.py:38](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L38)
 
 Render TypeDef usage as a string.
 
 #### Signature
 
 ```python
-def stringify(self) -> None:
-    ...
+def stringify(self) -> None: ...
 ```
 
 ### TypeDefSortable().type_hint_annotations
 
-[Show source in type_def_sortable.py:69](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L69)
+[Show source in type_def_sortable.py:68](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L68)
 
 Type annotations list from arguments and return type with internal types.
 
@@ -185,8 +173,7 @@ Type annotations list from arguments and return type with internal types.
 
 ```python
 @property
-def type_hint_annotations(self) -> list[FakeAnnotation]:
-    ...
+def type_hint_annotations(self) -> list[FakeAnnotation]: ...
 ```
 
 #### See also

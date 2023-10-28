@@ -9,7 +9,7 @@ ServicePackage
 
 ## ServicePackage
 
-[Show source in service_package.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L26)
+[Show source in service_package.py:27](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L27)
 
 Parsed Service package.
 
@@ -28,8 +28,7 @@ class ServicePackage(Package):
         type_defs: Iterable[TypeDefSortable] = (),
         literals: Iterable[TypeLiteral] = (),
         helper_functions: Iterable[Function] = (),
-    ):
-        ...
+    ): ...
 ```
 
 #### See also
@@ -45,7 +44,7 @@ class ServicePackage(Package):
 
 ### ServicePackage().client
 
-[Show source in service_package.py:55](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L55)
+[Show source in service_package.py:56](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L56)
 
 Service Client.
 
@@ -53,8 +52,7 @@ Service Client.
 
 ```python
 @property
-def client(self) -> Client:
-    ...
+def client(self) -> Client: ...
 ```
 
 #### See also
@@ -63,15 +61,14 @@ def client(self) -> Client:
 
 ### ServicePackage().extract_literals
 
-[Show source in service_package.py:64](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L64)
+[Show source in service_package.py:65](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L65)
 
 Extract literals from children.
 
 #### Signature
 
 ```python
-def extract_literals(self) -> list[TypeLiteral]:
-    ...
+def extract_literals(self) -> list[TypeLiteral]: ...
 ```
 
 #### See also
@@ -80,15 +77,14 @@ def extract_literals(self) -> list[TypeLiteral]:
 
 ### ServicePackage().get_client_required_import_records
 
-[Show source in service_package.py:174](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L174)
+[Show source in service_package.py:175](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L175)
 
 Get import records for `client.py[i]`.
 
 #### Signature
 
 ```python
-def get_client_required_import_records(self) -> list[ImportRecord]:
-    ...
+def get_client_required_import_records(self) -> list[ImportRecord]: ...
 ```
 
 #### See also
@@ -97,7 +93,7 @@ def get_client_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_doc_link
 
-[Show source in service_package.py:260](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L260)
+[Show source in service_package.py:261](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L261)
 
 Get link to local docs with anchor.
 
@@ -115,34 +111,31 @@ def get_doc_link(
         "client", "service_resource", "waiters", "paginators", "type_defs", "literals"
     ],
     *parts: str
-) -> str:
-    ...
+) -> str: ...
 ```
 
 ### ServicePackage().get_init_all_names
 
-[Show source in service_package.py:157](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L157)
+[Show source in service_package.py:158](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L158)
 
 Get `__all__` statement names for `__init__.py[i]`.
 
 #### Signature
 
 ```python
-def get_init_all_names(self) -> list[str]:
-    ...
+def get_init_all_names(self) -> list[str]: ...
 ```
 
 ### ServicePackage().get_init_import_records
 
-[Show source in service_package.py:122](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L122)
+[Show source in service_package.py:123](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L123)
 
 Get import records for `__init__.py[i]`.
 
 #### Signature
 
 ```python
-def get_init_import_records(self) -> list[ImportRecord]:
-    ...
+def get_init_import_records(self) -> list[ImportRecord]: ...
 ```
 
 #### See also
@@ -151,15 +144,14 @@ def get_init_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_literals_required_import_records
 
-[Show source in service_package.py:230](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L230)
+[Show source in service_package.py:231](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L231)
 
 Get import records for `literals.py[i]`.
 
 #### Signature
 
 ```python
-def get_literals_required_import_records(self) -> list[ImportRecord]:
-    ...
+def get_literals_required_import_records(self) -> list[ImportRecord]: ...
 ```
 
 #### See also
@@ -168,28 +160,26 @@ def get_literals_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_local_doc_link
 
-[Show source in service_package.py:285](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L285)
+[Show source in service_package.py:286](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L286)
 
 Get link to local docs.
 
 #### Signature
 
 ```python
-def get_local_doc_link(self, service_name: ServiceName | None = None) -> str:
-    ...
+def get_local_doc_link(self, service_name: ServiceName | None = None) -> str: ...
 ```
 
 ### ServicePackage().get_paginator_required_import_records
 
-[Show source in service_package.py:194](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L194)
+[Show source in service_package.py:195](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L195)
 
 Get import records for `paginator.py[i]`.
 
 #### Signature
 
 ```python
-def get_paginator_required_import_records(self) -> list[ImportRecord]:
-    ...
+def get_paginator_required_import_records(self) -> list[ImportRecord]: ...
 ```
 
 #### See also
@@ -198,15 +188,14 @@ def get_paginator_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_service_resource_required_import_records
 
-[Show source in service_package.py:184](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L184)
+[Show source in service_package.py:185](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L185)
 
 Get import records for `service_resource.py[i]`.
 
 #### Signature
 
 ```python
-def get_service_resource_required_import_records(self) -> list[ImportRecord]:
-    ...
+def get_service_resource_required_import_records(self) -> list[ImportRecord]: ...
 ```
 
 #### See also
@@ -215,15 +204,14 @@ def get_service_resource_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_type_defs
 
-[Show source in service_package.py:77](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L77)
+[Show source in service_package.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L78)
 
 Extract typed defs from children.
 
 #### Signature
 
 ```python
-def get_type_defs(self) -> set[TypeDefSortable]:
-    ...
+def get_type_defs(self) -> set[TypeDefSortable]: ...
 ```
 
 #### See also
@@ -232,15 +220,14 @@ def get_type_defs(self) -> set[TypeDefSortable]:
 
 ### ServicePackage().get_type_defs_required_import_records
 
-[Show source in service_package.py:214](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L214)
+[Show source in service_package.py:215](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L215)
 
 Get import records for `type_defs.py[i]`.
 
 #### Signature
 
 ```python
-def get_type_defs_required_import_records(self) -> list[ImportRecord]:
-    ...
+def get_type_defs_required_import_records(self) -> list[ImportRecord]: ...
 ```
 
 #### See also
@@ -249,15 +236,14 @@ def get_type_defs_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().get_waiter_required_import_records
 
-[Show source in service_package.py:204](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L204)
+[Show source in service_package.py:205](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L205)
 
 Get import records for `waiter.py[i]`.
 
 #### Signature
 
 ```python
-def get_waiter_required_import_records(self) -> list[ImportRecord]:
-    ...
+def get_waiter_required_import_records(self) -> list[ImportRecord]: ...
 ```
 
 #### See also
@@ -266,15 +252,14 @@ def get_waiter_required_import_records(self) -> list[ImportRecord]:
 
 ### ServicePackage().iterate_types
 
-[Show source in service_package.py:110](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L110)
+[Show source in service_package.py:111](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L111)
 
 Iterate over type annotations from Client, ServiceResource, waiters and paginators.
 
 #### Signature
 
 ```python
-def iterate_types(self) -> Iterator[FakeAnnotation]:
-    ...
+def iterate_types(self) -> Iterator[FakeAnnotation]: ...
 ```
 
 #### See also
@@ -283,7 +268,7 @@ def iterate_types(self) -> Iterator[FakeAnnotation]:
 
 ### ServicePackage().validate
 
-[Show source in service_package.py:236](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L236)
+[Show source in service_package.py:237](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_package.py#L237)
 
 Validate parsed module.
 
@@ -293,6 +278,5 @@ Finds conflicts with reserved Python words.
 #### Signature
 
 ```python
-def validate(self) -> None:
-    ...
+def validate(self) -> None: ...
 ```

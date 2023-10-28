@@ -9,7 +9,7 @@ Attribute
 
 ## Attribute
 
-[Show source in attribute.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L10)
+[Show source in attribute.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L11)
 
 Class or module attribute.
 
@@ -36,8 +36,7 @@ class Attribute:
         is_reference: bool = False,
         is_identifier: bool = False,
         is_collection: bool = False,
-    ):
-        ...
+    ): ...
 ```
 
 #### See also
@@ -46,20 +45,19 @@ class Attribute:
 
 ### Attribute().is_autoload_property
 
-[Show source in attribute.py:60](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L60)
+[Show source in attribute.py:61](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L61)
 
 Whether the attribute is an autoload property.
 
 #### Signature
 
 ```python
-def is_autoload_property(self) -> bool:
-    ...
+def is_autoload_property(self) -> bool: ...
 ```
 
 ### Attribute().iterate_types
 
-[Show source in attribute.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L42)
+[Show source in attribute.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L43)
 
 Iterate over all type annotations used.
 
@@ -70,8 +68,7 @@ Type annotation.
 #### Signature
 
 ```python
-def iterate_types(self) -> Iterator[FakeAnnotation]:
-    ...
+def iterate_types(self) -> Iterator[FakeAnnotation]: ...
 ```
 
 #### See also
@@ -80,13 +77,12 @@ def iterate_types(self) -> Iterator[FakeAnnotation]:
 
 ### Attribute().render
 
-[Show source in attribute.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L51)
+[Show source in attribute.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/attribute.py#L52)
 
 Render to a string.
 
 #### Signature
 
 ```python
-def render(self) -> str:
-    ...
+def render(self) -> str: ...
 ```

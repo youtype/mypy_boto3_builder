@@ -8,22 +8,21 @@ Cli Parser
 
 ## Namespace
 
-[Show source in cli_parser.py:29](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L29)
+[Show source in cli_parser.py:30](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L30)
 
 CLI arguments namespace.
 
 #### Signature
 
 ```python
-class Namespace:
-    ...
+class Namespace: ...
 ```
 
 
 
 ## get_absolute_path
 
-[Show source in cli_parser.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L15)
+[Show source in cli_parser.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L16)
 
 Get absolute path from a string.
 
@@ -38,15 +37,14 @@ Absolute path.
 #### Signature
 
 ```python
-def get_absolute_path(path: str) -> Path:
-    ...
+def get_absolute_path(path: str) -> Path: ...
 ```
 
 
 
 ## parse_args
 
-[Show source in cli_parser.py:46](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L46)
+[Show source in cli_parser.py:47](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L47)
 
 Parse CLI arguments.
 
@@ -57,8 +55,7 @@ Argument parser.
 #### Signature
 
 ```python
-def parse_args(args: Sequence[str]) -> Namespace:
-    ...
+def parse_args(args: Sequence[str]) -> Namespace: ...
 ```
 
 #### See also

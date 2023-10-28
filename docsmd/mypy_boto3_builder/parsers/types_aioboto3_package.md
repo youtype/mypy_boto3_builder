@@ -9,7 +9,7 @@ Types Aioboto3 Package
 
 ## parse_types_aioboto3_package
 
-[Show source in types_aioboto3_package.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/types_aioboto3_package.py#L24)
+[Show source in types_aioboto3_package.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/types_aioboto3_package.py#L25)
 
 Parse data for types-aioboto3 package.
 
@@ -30,8 +30,7 @@ def parse_types_aioboto3_package(
     session: Session,
     service_names: Iterable[ServiceName],
     package_data: type[BasePackageData],
-) -> TypesAioBoto3Package:
-    ...
+) -> TypesAioBoto3Package: ...
 ```
 
 #### See also

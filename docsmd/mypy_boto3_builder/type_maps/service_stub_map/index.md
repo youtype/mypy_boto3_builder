@@ -9,15 +9,14 @@ Service Stub Map
 
 ## get_stub_method_map
 
-[Show source in __init__.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/service_stub_map/__init__.py#L42)
+[Show source in __init__.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/service_stub_map/__init__.py#L43)
 
 Get boto3 injected methods.
 
 #### Signature
 
 ```python
-def get_stub_method_map(service_name: ServiceName, parent: str) -> dict[str, Method]:
-    ...
+def get_stub_method_map(service_name: ServiceName, parent: str) -> dict[str, Method]: ...
 ```
 
 #### See also

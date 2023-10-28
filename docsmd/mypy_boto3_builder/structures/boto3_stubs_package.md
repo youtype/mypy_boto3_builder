@@ -25,8 +25,7 @@ class Boto3StubsPackage(Package):
         service_packages: Iterable[ServicePackage] = (),
         init_functions: Iterable[Function] = (),
         literals: Iterable[TypeLiteral] = (),
-    ):
-        ...
+    ): ...
 ```
 
 #### See also
@@ -48,8 +47,7 @@ Service names marked as essential.
 
 ```python
 @property
-def essential_service_names(self) -> list[ServiceName]:
-    ...
+def essential_service_names(self) -> list[ServiceName]: ...
 ```
 
 #### See also
@@ -65,8 +63,7 @@ Get names for `__all__` directive.
 #### Signature
 
 ```python
-def get_all_names(self) -> list[str]:
-    ...
+def get_all_names(self) -> list[str]: ...
 ```
 
 ### Boto3StubsPackage().get_init_required_import_records
@@ -78,8 +75,7 @@ Get import records for `__init__.py[i]`.
 #### Signature
 
 ```python
-def get_init_required_import_records(self) -> list[ImportRecord]:
-    ...
+def get_init_required_import_records(self) -> list[ImportRecord]: ...
 ```
 
 #### See also
@@ -95,8 +91,7 @@ Get import records for `session.py[i]`.
 #### Signature
 
 ```python
-def get_session_required_import_records(self) -> list[ImportRecord]:
-    ...
+def get_session_required_import_records(self) -> list[ImportRecord]: ...
 ```
 
 #### See also

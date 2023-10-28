@@ -9,15 +9,14 @@ Method
 
 ## Method
 
-[Show source in method.py:8](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py#L8)
+[Show source in method.py:9](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py#L9)
 
 Class method.
 
 #### Signature
 
 ```python
-class Method(Function):
-    ...
+class Method(Function): ...
 ```
 
 #### See also
@@ -26,7 +25,7 @@ class Method(Function):
 
 ### Method().call_arguments
 
-[Show source in method.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py#L13)
+[Show source in method.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/method.py#L14)
 
 Arguments that are used in method call.
 
@@ -34,8 +33,7 @@ Arguments that are used in method call.
 
 ```python
 @property
-def call_arguments(self) -> list[Argument]:
-    ...
+def call_arguments(self) -> list[Argument]: ...
 ```
 
 #### See also

@@ -9,7 +9,7 @@ ImportString
 
 ## ImportString
 
-[Show source in import_string.py:11](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L11)
+[Show source in import_string.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L12)
 
 Wrapper for Python import strings.
 
@@ -38,13 +38,12 @@ import_string.render()
 
 ```python
 class ImportString:
-    def __init__(self, master_name: str, *parts: str) -> None:
-        ...
+    def __init__(self, master_name: str, *parts: str) -> None: ...
 ```
 
 ### ImportString.empty
 
-[Show source in import_string.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L49)
+[Show source in import_string.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L50)
 
 Create an empty ImportString.
 
@@ -52,13 +51,12 @@ Create an empty ImportString.
 
 ```python
 @classmethod
-def empty(cls: type[_R]) -> _R:
-    ...
+def empty(cls: type[_R]) -> _R: ...
 ```
 
 ### ImportString.from_str
 
-[Show source in import_string.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L42)
+[Show source in import_string.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L43)
 
 Create from string.
 
@@ -66,13 +64,12 @@ Create from string.
 
 ```python
 @classmethod
-def from_str(cls: type[_R], import_string: str) -> _R:
-    ...
+def from_str(cls: type[_R], import_string: str) -> _R: ...
 ```
 
 ### ImportString().master_name
 
-[Show source in import_string.py:128](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L128)
+[Show source in import_string.py:129](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L129)
 
 Get first import string part or `builtins`.
 
@@ -80,13 +77,12 @@ Get first import string part or `builtins`.
 
 ```python
 @property
-def master_name(self) -> str:
-    ...
+def master_name(self) -> str: ...
 ```
 
 ### ImportString.parent
 
-[Show source in import_string.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L58)
+[Show source in import_string.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L59)
 
 Get parent ImportString.
 
@@ -94,13 +90,12 @@ Get parent ImportString.
 
 ```python
 @classmethod
-def parent(cls: type[_R]) -> _R:
-    ...
+def parent(cls: type[_R]) -> _R: ...
 ```
 
 ### ImportString().render
 
-[Show source in import_string.py:119](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L119)
+[Show source in import_string.py:120](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L120)
 
 Render to string.
 
@@ -111,13 +106,12 @@ Ready to use import string.
 #### Signature
 
 ```python
-def render(self) -> str:
-    ...
+def render(self) -> str: ...
 ```
 
 ### ImportString().startswith
 
-[Show source in import_string.py:87](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L87)
+[Show source in import_string.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L88)
 
 Check if import string starts with `other`.
 
@@ -144,6 +138,5 @@ True
 #### Signature
 
 ```python
-def startswith(self: _R, other: _R) -> bool:
-    ...
+def startswith(self: _R, other: _R) -> bool: ...
 ```

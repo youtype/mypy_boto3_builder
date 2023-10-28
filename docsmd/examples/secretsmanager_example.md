@@ -13,8 +13,7 @@ Secretsmanager Example
 #### Signature
 
 ```python
-def main() -> None:
-    ...
+def main() -> None: ...
 ```
 
 
@@ -26,6 +25,5 @@ def main() -> None:
 #### Signature
 
 ```python
-def secretsmanager_client_example() -> None:
-    ...
+def secretsmanager_client_example() -> None: ...
 ```

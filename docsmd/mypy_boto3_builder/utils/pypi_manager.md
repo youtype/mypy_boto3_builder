@@ -9,7 +9,7 @@ PyPIManager
 
 ## PyPIManager
 
-[Show source in pypi_manager.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L12)
+[Show source in pypi_manager.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L13)
 
 Version manager for PyPI packages.
 
@@ -21,13 +21,12 @@ Version manager for PyPI packages.
 
 ```python
 class PyPIManager:
-    def __init__(self, package: str) -> None:
-        ...
+    def __init__(self, package: str) -> None: ...
 ```
 
 ### PyPIManager().get_next_version
 
-[Show source in pypi_manager.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L42)
+[Show source in pypi_manager.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L43)
 
 Get not existing version or closest not existing post-release.
 
@@ -38,13 +37,12 @@ Get not existing version or closest not existing post-release.
 #### Signature
 
 ```python
-def get_next_version(self, version: str) -> str:
-    ...
+def get_next_version(self, version: str) -> str: ...
 ```
 
 ### PyPIManager().has_version
 
-[Show source in pypi_manager.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L33)
+[Show source in pypi_manager.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L34)
 
 Check if version is already uploaded to PyPI.
 
@@ -55,13 +53,12 @@ Check if version is already uploaded to PyPI.
 #### Signature
 
 ```python
-def has_version(self, version: str) -> bool:
-    ...
+def has_version(self, version: str) -> bool: ...
 ```
 
 ### PyPIManager().json_url
 
-[Show source in pypi_manager.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L26)
+[Show source in pypi_manager.py:27](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/pypi_manager.py#L27)
 
 Package JSON URL on PyPI.
 
@@ -69,6 +66,5 @@ Package JSON URL on PyPI.
 
 ```python
 @property
-def json_url(self) -> str:
-    ...
+def json_url(self) -> str: ...
 ```

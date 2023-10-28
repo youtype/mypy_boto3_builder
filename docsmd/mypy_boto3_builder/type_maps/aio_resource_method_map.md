@@ -9,7 +9,7 @@ Aio Resource Method Map
 
 ## get_aio_resource_method
 
-[Show source in aio_resource_method_map.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/aio_resource_method_map.py#L36)
+[Show source in aio_resource_method_map.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/aio_resource_method_map.py#L37)
 
 Get aio resource method override.
 
@@ -28,8 +28,7 @@ Method structure or None.
 ```python
 def get_aio_resource_method(
     service_name: ServiceName, resource_name: str, method_name: str
-) -> Method | None:
-    ...
+) -> Method | None: ...
 ```
 
 #### See also

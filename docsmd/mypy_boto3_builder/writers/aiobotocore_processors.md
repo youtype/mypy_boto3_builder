@@ -9,7 +9,7 @@ Aiobotocore Processors
 
 ## process_aiobotocore_stubs
 
-[Show source in aiobotocore_processors.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L22)
+[Show source in aiobotocore_processors.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L23)
 
 Parse and write stubs package `aiobotocore-stubs`.
 
@@ -34,8 +34,7 @@ def process_aiobotocore_stubs(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
-) -> AioBotocoreStubsPackage:
-    ...
+) -> AioBotocoreStubsPackage: ...
 ```
 
 #### See also
@@ -47,7 +46,7 @@ def process_aiobotocore_stubs(
 
 ## process_aiobotocore_stubs_docs
 
-[Show source in aiobotocore_processors.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L95)
+[Show source in aiobotocore_processors.py:96](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L96)
 
 Parse and write master package docs.
 
@@ -66,8 +65,7 @@ Parsed AioBotocoreStubsPackage.
 ```python
 def process_aiobotocore_stubs_docs(
     session: Session, output_path: Path, service_names: Iterable[ServiceName]
-) -> AioBotocoreStubsPackage:
-    ...
+) -> AioBotocoreStubsPackage: ...
 ```
 
 #### See also
@@ -79,7 +77,7 @@ def process_aiobotocore_stubs_docs(
 
 ## process_aiobotocore_stubs_lite
 
-[Show source in aiobotocore_processors.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L58)
+[Show source in aiobotocore_processors.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L59)
 
 Parse and write stubs package `aiobotocore-stubs-lite`.
 
@@ -104,8 +102,7 @@ def process_aiobotocore_stubs_lite(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
-) -> AioBotocoreStubsPackage:
-    ...
+) -> AioBotocoreStubsPackage: ...
 ```
 
 #### See also

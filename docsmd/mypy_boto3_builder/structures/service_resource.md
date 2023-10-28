@@ -9,7 +9,7 @@ ServiceResource
 
 ## ServiceResource
 
-[Show source in service_resource.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L22)
+[Show source in service_resource.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L23)
 
 Boto3 ServiceResource.
 
@@ -22,8 +22,7 @@ class ServiceResource(ClassRecord):
         name: str,
         service_name: ServiceName,
         boto3_service_resource: Boto3ServiceResource,
-    ):
-        ...
+    ): ...
 ```
 
 #### See also
@@ -33,7 +32,7 @@ class ServiceResource(ClassRecord):
 
 ### ServiceResource().boto3_doc_link
 
-[Show source in service_resource.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L78)
+[Show source in service_resource.py:79](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L79)
 
 Link to boto3 docs.
 
@@ -41,26 +40,24 @@ Link to boto3 docs.
 
 ```python
 @property
-def boto3_doc_link(self) -> str:
-    ...
+def boto3_doc_link(self) -> str: ...
 ```
 
 ### ServiceResource().get_all_names
 
-[Show source in service_resource.py:96](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L96)
+[Show source in service_resource.py:97](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L97)
 
 Get names for `__all__` statement.
 
 #### Signature
 
 ```python
-def get_all_names(self) -> list[str]:
-    ...
+def get_all_names(self) -> list[str]: ...
 ```
 
 ### ServiceResource.get_class_name
 
-[Show source in service_resource.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L58)
+[Show source in service_resource.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L59)
 
 Get class name for ServiceName.
 
@@ -68,8 +65,7 @@ Get class name for ServiceName.
 
 ```python
 @staticmethod
-def get_class_name(service_name: ServiceName) -> str:
-    ...
+def get_class_name(service_name: ServiceName) -> str: ...
 ```
 
 #### See also
@@ -78,15 +74,14 @@ def get_class_name(service_name: ServiceName) -> str:
 
 ### ServiceResource().get_collections
 
-[Show source in service_resource.py:107](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L107)
+[Show source in service_resource.py:108](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L108)
 
 Get a list of Service Resource collections.
 
 #### Signature
 
 ```python
-def get_collections(self) -> list[Collection]:
-    ...
+def get_collections(self) -> list[Collection]: ...
 ```
 
 #### See also
@@ -95,7 +90,7 @@ def get_collections(self) -> list[Collection]:
 
 ### ServiceResource().get_sub_resources
 
-[Show source in service_resource.py:123](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L123)
+[Show source in service_resource.py:124](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L124)
 
 Get sub-resource in safe order.
 
@@ -106,8 +101,7 @@ A list of sub resources.
 #### Signature
 
 ```python
-def get_sub_resources(self) -> list[Resource]:
-    ...
+def get_sub_resources(self) -> list[Resource]: ...
 ```
 
 #### See also
@@ -116,15 +110,14 @@ def get_sub_resources(self) -> list[Resource]:
 
 ### ServiceResource().iterate_types
 
-[Show source in service_resource.py:85](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L85)
+[Show source in service_resource.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L86)
 
 Iterate over type annotations for collections and sub-resources.
 
 #### Signature
 
 ```python
-def iterate_types(self) -> Iterator[FakeAnnotation]:
-    ...
+def iterate_types(self) -> Iterator[FakeAnnotation]: ...
 ```
 
 #### See also

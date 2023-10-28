@@ -9,7 +9,7 @@ Service Resource
 
 ## get_sub_resources
 
-[Show source in service_resource.py:111](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L111)
+[Show source in service_resource.py:112](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L112)
 
 Initialize ServiceResource sub-resources with fake data.
 
@@ -28,8 +28,7 @@ A list of initialized `Boto3ServiceResource`.
 ```python
 def get_sub_resources(
     session: Session, service_name: ServiceName, resource: Boto3ServiceResource
-) -> list[Boto3ServiceResource]:
-    ...
+) -> list[Boto3ServiceResource]: ...
 ```
 
 #### See also
@@ -40,7 +39,7 @@ def get_sub_resources(
 
 ## parse_service_resource
 
-[Show source in service_resource.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L34)
+[Show source in service_resource.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_resource.py#L35)
 
 Parse boto3 ServiceResource data.
 
@@ -58,8 +57,7 @@ ServiceResource structure or None if service does not have a resource.
 ```python
 def parse_service_resource(
     session: Session, service_name: ServiceName, shape_parser: ShapeParser
-) -> ServiceResource | None:
-    ...
+) -> ServiceResource | None: ...
 ```
 
 #### See also

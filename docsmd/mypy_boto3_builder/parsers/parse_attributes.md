@@ -9,7 +9,7 @@ Parse Attributes
 
 ## parse_attributes
 
-[Show source in parse_attributes.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_attributes.py#L12)
+[Show source in parse_attributes.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_attributes.py#L13)
 
 Extract attributes from boto3 resource.
 
@@ -29,8 +29,7 @@ def parse_attributes(
     resource_name: str,
     resource: Boto3ServiceResource,
     shape_parser: ShapeParser,
-) -> list[Attribute]:
-    ...
+) -> list[Attribute]: ...
 ```
 
 #### See also

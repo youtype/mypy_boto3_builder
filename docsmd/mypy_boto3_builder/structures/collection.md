@@ -9,7 +9,7 @@ Collection
 
 ## Collection
 
-[Show source in collection.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L14)
+[Show source in collection.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L15)
 
 Boto3 ServiceResource or Resource collection.
 
@@ -25,8 +25,7 @@ class Collection(ClassRecord):
         service_name: ServiceName,
         type_annotation: FakeAnnotation,
         object_class_name: str,
-    ):
-        ...
+    ): ...
 ```
 
 #### See also
@@ -37,7 +36,7 @@ class Collection(ClassRecord):
 
 ### Collection().boto3_doc_link
 
-[Show source in collection.py:39](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L39)
+[Show source in collection.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L40)
 
 Link to boto3 docs.
 
@@ -45,21 +44,19 @@ Link to boto3 docs.
 
 ```python
 @property
-def boto3_doc_link(self) -> str:
-    ...
+def boto3_doc_link(self) -> str: ...
 ```
 
 ### Collection().iterate_types
 
-[Show source in collection.py:46](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L46)
+[Show source in collection.py:47](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/collection.py#L47)
 
 Iterate over all type annotations.
 
 #### Signature
 
 ```python
-def iterate_types(self) -> Iterator[FakeAnnotation]:
-    ...
+def iterate_types(self) -> Iterator[FakeAnnotation]: ...
 ```
 
 #### See also

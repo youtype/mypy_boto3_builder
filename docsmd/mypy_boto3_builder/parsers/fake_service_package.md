@@ -9,7 +9,7 @@ Fake Service Package
 
 ## parse_fake_service_package
 
-[Show source in fake_service_package.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/fake_service_package.py#L19)
+[Show source in fake_service_package.py:20](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/fake_service_package.py#L20)
 
 Create fake boto3 service module structure.
 
@@ -30,8 +30,7 @@ ServiceModule structure.
 ```python
 def parse_fake_service_package(
     session: Session, service_name: ServiceName, package_data: type[BasePackageData]
-) -> ServicePackage:
-    ...
+) -> ServicePackage: ...
 ```
 
 #### See also

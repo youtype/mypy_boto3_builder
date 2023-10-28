@@ -9,7 +9,7 @@ Aioboto3 Processors
 
 ## process_types_aioboto3
 
-[Show source in aioboto3_processors.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aioboto3_processors.py#L19)
+[Show source in aioboto3_processors.py:20](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aioboto3_processors.py#L20)
 
 Parse and write stubs package `types-aioboto3`.
 
@@ -34,8 +34,7 @@ def process_types_aioboto3(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
-) -> TypesAioBoto3Package:
-    ...
+) -> TypesAioBoto3Package: ...
 ```
 
 #### See also
@@ -47,7 +46,7 @@ def process_types_aioboto3(
 
 ## process_types_aioboto3_docs
 
-[Show source in aioboto3_processors.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aioboto3_processors.py#L88)
+[Show source in aioboto3_processors.py:89](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aioboto3_processors.py#L89)
 
 Parse and write master package docs.
 
@@ -66,8 +65,7 @@ Parsed AioBotocoreStubsPackage.
 ```python
 def process_types_aioboto3_docs(
     session: Session, output_path: Path, service_names: Iterable[ServiceName]
-) -> TypesAioBoto3Package:
-    ...
+) -> TypesAioBoto3Package: ...
 ```
 
 #### See also
@@ -79,7 +77,7 @@ def process_types_aioboto3_docs(
 
 ## process_types_aioboto3_lite
 
-[Show source in aioboto3_processors.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aioboto3_processors.py#L53)
+[Show source in aioboto3_processors.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aioboto3_processors.py#L54)
 
 Parse and write stubs package `types-aioboto3-lite`.
 
@@ -104,8 +102,7 @@ def process_types_aioboto3_lite(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
-) -> TypesAioBoto3Package:
-    ...
+) -> TypesAioBoto3Package: ...
 ```
 
 #### See also

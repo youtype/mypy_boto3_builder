@@ -15,8 +15,7 @@ Generic package data.
 #### Signature
 
 ```python
-class BasePackageData:
-    ...
+class BasePackageData: ...
 ```
 
 ### BasePackageData.get_botocore_version
@@ -29,8 +28,7 @@ Get underlying botocore version.
 
 ```python
 @staticmethod
-def get_botocore_version() -> str:
-    ...
+def get_botocore_version() -> str: ...
 ```
 
 ### BasePackageData.get_library_version
@@ -43,8 +41,7 @@ Get underlying library version.
 
 ```python
 @staticmethod
-def get_library_version() -> str:
-    ...
+def get_library_version() -> str: ...
 ```
 
 ### BasePackageData.get_service_package_name
@@ -57,8 +54,7 @@ Get service package name.
 
 ```python
 @classmethod
-def get_service_package_name(cls, service_name: ServiceName) -> str:
-    ...
+def get_service_package_name(cls, service_name: ServiceName) -> str: ...
 ```
 
 #### See also
@@ -75,8 +71,7 @@ Get link to PyPI.
 
 ```python
 @classmethod
-def get_service_pypi_link(cls, service_name: ServiceName) -> str:
-    ...
+def get_service_pypi_link(cls, service_name: ServiceName) -> str: ...
 ```
 
 #### See also
@@ -93,8 +88,7 @@ Get service package PyPI name.
 
 ```python
 @classmethod
-def get_service_pypi_name(cls, service_name: ServiceName) -> str:
-    ...
+def get_service_pypi_name(cls, service_name: ServiceName) -> str: ...
 ```
 
 #### See also
@@ -112,8 +106,7 @@ boto3-stubs-lite package data.
 #### Signature
 
 ```python
-class Boto3StubsLitePackageData(Boto3StubsPackageData):
-    ...
+class Boto3StubsLitePackageData(Boto3StubsPackageData): ...
 ```
 
 #### See also
@@ -131,8 +124,7 @@ boto3-stubs package data.
 #### Signature
 
 ```python
-class Boto3StubsPackageData(BasePackageData):
-    ...
+class Boto3StubsPackageData(BasePackageData): ...
 ```
 
 #### See also
@@ -150,8 +142,7 @@ mypy-boto3 package data.
 #### Signature
 
 ```python
-class MypyBoto3PackageData(BasePackageData):
-    ...
+class MypyBoto3PackageData(BasePackageData): ...
 ```
 
 #### See also
@@ -169,8 +160,7 @@ types-aioboto3-lite package data.
 #### Signature
 
 ```python
-class TypesAioBoto3LitePackageData(TypesAioBoto3PackageData):
-    ...
+class TypesAioBoto3LitePackageData(TypesAioBoto3PackageData): ...
 ```
 
 #### See also
@@ -188,8 +178,7 @@ types-aioboto3 package data.
 #### Signature
 
 ```python
-class TypesAioBoto3PackageData(BasePackageData):
-    ...
+class TypesAioBoto3PackageData(BasePackageData): ...
 ```
 
 #### See also
@@ -206,8 +195,7 @@ Get underlying library version.
 
 ```python
 @staticmethod
-def get_library_version() -> str:
-    ...
+def get_library_version() -> str: ...
 ```
 
 
@@ -221,8 +209,7 @@ types-aiobotocore-lite package data.
 #### Signature
 
 ```python
-class TypesAioBotocoreLitePackageData(TypesAioBotocorePackageData):
-    ...
+class TypesAioBotocoreLitePackageData(TypesAioBotocorePackageData): ...
 ```
 
 #### See also
@@ -240,8 +227,7 @@ types-aiobotocore package data.
 #### Signature
 
 ```python
-class TypesAioBotocorePackageData(BasePackageData):
-    ...
+class TypesAioBotocorePackageData(BasePackageData): ...
 ```
 
 #### See also
@@ -258,6 +244,5 @@ Get underlying library version.
 
 ```python
 @staticmethod
-def get_library_version() -> str:
-    ...
+def get_library_version() -> str: ...
 ```

@@ -9,7 +9,7 @@ Resource
 
 ## Resource
 
-[Show source in resource.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L15)
+[Show source in resource.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L16)
 
 Boto3 ServiceResource sub-Resource.
 
@@ -17,8 +17,7 @@ Boto3 ServiceResource sub-Resource.
 
 ```python
 class Resource(ClassRecord):
-    def __init__(self, name: str, service_name: ServiceName):
-        ...
+    def __init__(self, name: str, service_name: ServiceName): ...
 ```
 
 #### See also
@@ -28,7 +27,7 @@ class Resource(ClassRecord):
 
 ### Resource().boto3_doc_link
 
-[Show source in resource.py:29](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L29)
+[Show source in resource.py:30](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L30)
 
 Link to boto3 docs.
 
@@ -36,21 +35,19 @@ Link to boto3 docs.
 
 ```python
 @property
-def boto3_doc_link(self) -> str:
-    ...
+def boto3_doc_link(self) -> str: ...
 ```
 
 ### Resource().iterate_types
 
-[Show source in resource.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L36)
+[Show source in resource.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/resource.py#L37)
 
 Iterate over all type annotations from collections.
 
 #### Signature
 
 ```python
-def iterate_types(self) -> Iterator[FakeAnnotation]:
-    ...
+def iterate_types(self) -> Iterator[FakeAnnotation]: ...
 ```
 
 #### See also
