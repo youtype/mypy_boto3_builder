@@ -42,6 +42,8 @@ IGNORE_PYRIGHT_ERRORS = (
     "Argument to class must be a base class",
     'Function with declared type of "NoReturn" cannot return "None"',
     '"ellipsis" cannot be assigned to ',
+    '"client" overrides symbol of same name in class "ResourceMeta"',
+    '"meta" overrides symbol of same name in class "ServiceResource"',
 )
 IGNORE_MYPY_ERRORS = (
     'Signature of "create_client" incompatible with supertype "Session"',
@@ -119,6 +121,24 @@ def run_flake8(path: Path) -> None:
     """
     Check output with flake8.
     """
+    ignore_errors = [
+        "E203",
+        "W503",
+        "E501",
+        "E704",
+        "D200",
+        "D107",
+        "D401",
+        "D105",
+        "D205",
+        "D400",
+        "D101",
+        "D102",
+        "D403",
+        "N802",
+        "N803",
+        "B014",
+    ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
             subprocess.check_call(
@@ -127,7 +147,7 @@ def run_flake8(path: Path) -> None:
                     "-m",
                     "flake8",
                     "--ignore",
-                    "E203,W503,E501,E704,D200,D107,D401,D105,D205,D400,D101,D102,D403,N802,N803,B014",
+                    ",".join(ignore_errors),
                     path.as_posix(),
                 ],
                 stderr=f,
