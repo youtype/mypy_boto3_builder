@@ -177,7 +177,8 @@ def run_pyright(path: Path) -> None:
         else:
             return
         finally:
-            config_path.unlink(missing_ok=True)
+            if config_path.exists():
+                config_path.unlink()
 
         temp_path = Path(f.name)
         output = temp_path.read_text()
