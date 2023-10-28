@@ -89,6 +89,8 @@ def get_short_docstring(doc: str) -> str:
         result_str = AWS_LINK_RE.sub(r"[\g<1>](https://\g<2>)", result_str)
         # FIXME: temporary fix for pca-connector-ad service
         result_str = result_str.replace("https\\:", "https:")
+        # FIXME: temporary fix for neptunedata service
+        result_str = result_str.replace("neptune-db\\:", "neptune-db:")
 
     return textwrap(result_str, width=80)
 
