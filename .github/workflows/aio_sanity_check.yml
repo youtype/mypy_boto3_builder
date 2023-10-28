@@ -56,6 +56,8 @@ jobs:
         run: |
           ./scripts/install_aiobotocore.sh master
       - name: Check s3 output
+        env:
+          VERSION: ${{ steps.vars.outputs.version }}
         run: |
           poetry run mypy_boto3_builder mypy_boto3_output --product aiobotocore-services -s s3 -b $VERSION
           poetry run python ./scripts/check_output.py -p ./mypy_boto3_output s3
