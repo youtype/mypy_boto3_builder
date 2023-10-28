@@ -41,6 +41,7 @@ IGNORE_PYRIGHT_ERRORS = (
     'Import "mypy_boto3_',
     "Argument to class must be a base class",
     'Function with declared type of "NoReturn" cannot return "None"',
+    'Function with declared return type "NoReturn" cannot return "None"',
     '"ellipsis" cannot be assigned to ',
     '"client" overrides symbol of same name in class "ResourceMeta"',
     '"meta" overrides symbol of same name in class "ServiceResource"',
