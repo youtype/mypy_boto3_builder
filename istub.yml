@@ -55,7 +55,7 @@ packages:
         def (**kwargs)
 
         error: boto3.resources.base.ServiceResource.meta variable differs from runtime type None
-        Stub: in file ./boto3-stubs/resources/base.pyi:30
+        Stub: in file ./boto3-stubs/resources/base.pyi:31
         boto3.resources.base.ResourceMeta
         Runtime:
         None
