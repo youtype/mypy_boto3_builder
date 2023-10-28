@@ -204,6 +204,9 @@ Full changelog can be found in [Releases](https://github.com/youtype/mypy_boto3_
 - [Mike Carey](https://github.com/mike-carey)
 - [Ole-Martin Bratteng](https://github.com/omBratteng)
 - [Nikhil Benesch](https://github.com/benesch)
+- [Maksym Balatsko](https://github.com/mbalatsko)
+- [Jacob](https://github.com/fivepapertigers)
+- [Jakob Keller](https://github.com/jakob-keller)
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
