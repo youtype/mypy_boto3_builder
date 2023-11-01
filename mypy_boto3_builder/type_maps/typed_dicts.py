@@ -124,3 +124,99 @@ PolicyDocumentDictTypeDef = TypeTypedDict(
         ),
     ],
 )
+
+
+# cloudwatch events
+CloudwatchEventStateTypeDef = TypeTypedDict(
+    "CloudwatchEventStateTypeDef",
+    [
+        TypedDictAttribute("reason", Type.str, False),
+        TypedDictAttribute("reasonData", Type.str, False),
+        TypedDictAttribute("timestamp", Type.str, True),
+        TypedDictAttribute("value", Type.str, True),
+        TypedDictAttribute("actionsSuppressedBy", Type.str, False),
+        TypedDictAttribute("actionsSuppressedReason", Type.str, False),
+    ],
+)
+
+CloudwatchEventMetricStatsMetricTypeDef = TypeTypedDict(
+    "CloudwatchEventMetricStatsMetricTypeDef",
+    [
+        TypedDictAttribute("metricName", Type.str, True),
+        TypedDictAttribute("namespace", Type.str, True),
+        TypedDictAttribute("dimensions", Type.DictStrStr, True),
+    ],
+)
+
+CloudwatchEventMetricStatsTypeDef = TypeTypedDict(
+    "CloudwatchEventMetricStatsTypeDef",
+    [
+        TypedDictAttribute("metric", CloudwatchEventMetricStatsMetricTypeDef, False),
+        TypedDictAttribute("period", Type.str, True),
+        TypedDictAttribute("stat", Type.str, True),
+    ],
+)
+
+CloudwatchEventMetricTypeDef = TypeTypedDict(
+    "CloudwatchEventMetricTypeDef",
+    [
+        TypedDictAttribute("id", Type.str, True),
+        TypedDictAttribute("metricStat", CloudwatchEventMetricStatsTypeDef, False),
+        TypedDictAttribute("returnData", Type.bool, True),
+        TypedDictAttribute("expression", Type.str, False),
+        TypedDictAttribute("label", Type.str, False),
+        TypedDictAttribute("period", Type.int, False),
+    ],
+)
+
+CloudwatchEventConfigurationTypeDef = TypeTypedDict(
+    "CloudwatchEventDetailConfigurationTypeDef",
+    [
+        TypedDictAttribute("id", Type.str, False),
+        TypedDictAttribute("description", Type.str, False),
+        TypedDictAttribute(
+            "metrics", TypeSubscript(Type.List, [CloudwatchEventMetricTypeDef]), False
+        ),
+        TypedDictAttribute("actionsSuppressor", Type.str, False),
+        TypedDictAttribute("actionsSuppressorWaitPeriod", Type.int, False),
+        TypedDictAttribute("actionsSuppressorExtensionPeriod", Type.int, False),
+        TypedDictAttribute("threshold", Type.int, False),
+        TypedDictAttribute("evaluationPeriods", Type.int, False),
+        TypedDictAttribute("alarmRule", Type.str, False),
+        TypedDictAttribute("alarmName", Type.str, False),
+        TypedDictAttribute("treatMissingData", Type.str, False),
+        TypedDictAttribute("comparisonOperator", Type.str, False),
+        TypedDictAttribute("timestamp", Type.str, False),
+        TypedDictAttribute("actionsEnabled", Type.bool, False),
+        TypedDictAttribute("okActions", TypeSubscript(Type.List, [Type.str]), False),
+        TypedDictAttribute("alarmActions", TypeSubscript(Type.List, [Type.str]), False),
+        TypedDictAttribute("insufficientDataActions", TypeSubscript(Type.List, [Type.str]), False),
+    ],
+)
+
+CloudwatchEventDetailTypeDef = TypeTypedDict(
+    "CloudwatchEventDetailTypeDef",
+    [
+        TypedDictAttribute("alarmName", Type.str, True),
+        TypedDictAttribute("operation", Type.str, False),
+        TypedDictAttribute("configuration", CloudwatchEventConfigurationTypeDef, False),
+        TypedDictAttribute("previousConfiguration", CloudwatchEventConfigurationTypeDef, False),
+        TypedDictAttribute("previousState", CloudwatchEventStateTypeDef, False),
+        TypedDictAttribute("state", CloudwatchEventStateTypeDef, True),
+    ],
+)
+
+CloudwatchEventTypeDef = TypeTypedDict(
+    "CloudwatchEventTypeDef",
+    [
+        TypedDictAttribute("version", Type.str, True),
+        TypedDictAttribute("id", Type.str, True),
+        TypedDictAttribute("detail-type", Type.str, True),
+        TypedDictAttribute("source", Type.str, True),
+        TypedDictAttribute("account", Type.str, True),
+        TypedDictAttribute("time", Type.str, True),
+        TypedDictAttribute("region", Type.str, True),
+        TypedDictAttribute("resources", TypeSubscript(Type.List, [Type.str]), True),
+        TypedDictAttribute("detail", CloudwatchEventDetailTypeDef, True),
+    ],
+)
