@@ -67,7 +67,9 @@ class ServicePackageParser:
                 *[method for waiter in result.waiters for method in waiter.methods],
             ]
         )
-        result.type_defs = self._get_type_defs(result.get_type_defs())
+
+        type_defs = result.get_type_defs()
+        result.type_defs = self._get_sorted_type_defs(type_defs)
         result.literals = result.extract_literals()
         result.validate()
 
@@ -141,7 +143,7 @@ class ServicePackageParser:
 
         return result
 
-    def _get_type_defs(self, type_defs: Iterable[TypeDefSortable]) -> list[TypeDefSortable]:
+    def _get_sorted_type_defs(self, type_defs: Iterable[TypeDefSortable]) -> list[TypeDefSortable]:
         type_def_sorter = TypeDefSorter(type_defs)
         result = type_def_sorter.sort()
         return result
