@@ -4,7 +4,7 @@ from typing import Any, List, Optional, Type, Union
 from aioboto3.resources.base import AIOBoto3ServiceResource
 from aioboto3.resources.factory import AIOBoto3ResourceFactory
 from aiobotocore.config import AioConfig
-from botocore.credentials import Credentials
+from aiobotocore.credentials import AioCredentials
 from botocore.hooks import BaseEventHooks
 from botocore.loaders import Loader
 from botocore.session import Session as BotocoreSession
@@ -45,7 +45,7 @@ class Session:
         partition_name: str = "aws",
         allow_non_regional: bool = False,
     ) -> List[str]: ...
-    def get_credentials(self) -> Optional[Credentials]: ...
+    def get_credentials(self) -> Optional[AioCredentials]: ...
     def _register_default_handlers(self) -> None: ...
 
 {% filter indent(4, True) -%}
