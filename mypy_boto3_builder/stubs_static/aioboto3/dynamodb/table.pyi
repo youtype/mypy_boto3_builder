@@ -1,4 +1,5 @@
 import logging
+from types import TracebackType
 from typing import Any, Dict, List, Optional, Type, TypeVar
 
 from boto3.dynamodb.table import TableResource
@@ -33,7 +34,7 @@ class BatchWriter:
     async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(
         self,
-        exc_type: Optional[Type[BaseException]],
-        exc_value: Optional[BaseException],
-        tb: Any,
+        exc_type: Optional[Type[Exception]],
+        exc_value: Optional[Exception],
+        tb: Optional[TracebackType],
     ) -> None: ...

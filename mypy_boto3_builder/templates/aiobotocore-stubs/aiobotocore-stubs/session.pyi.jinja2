@@ -21,8 +21,8 @@ class ClientCreatorContext:
     async def __aenter__(self) -> AioBaseClient: ...
     async def __aexit__(
         self, 
-        exc_type: Optional[Type[BaseException]],
-        exc_val: Optional[BaseException],
+        exc_type: Optional[Type[Exception]],
+        exc_val: Optional[Exception],
         tb: Optional[TracebackType],
     ) -> None: ...
 

@@ -208,7 +208,7 @@ def main() -> None:
     if not args.fast:
         logger.info("Installing master...")
         install_master()
-    error: BaseException | None = None
+    error: Exception | None = None
     for file in EXAMPLES_PATH.iterdir():
         if "_example.py" not in file.name:
             continue

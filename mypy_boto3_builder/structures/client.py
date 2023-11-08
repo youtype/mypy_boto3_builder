@@ -36,7 +36,7 @@ class Client(ClassRecord):
             attributes=[
                 Attribute("MSG_TEMPLATE", Type.str),
             ],
-            bases=[ExternalImport.from_class(BaseException)],
+            bases=[ExternalImport.from_class(Exception)],
             methods=[
                 Method(
                     name="__init__",

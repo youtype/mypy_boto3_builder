@@ -32,8 +32,8 @@ class AioBaseClient(BaseClient):
     async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(
         self,
-        exc_type: Optional[Type[BaseException]],
-        exc_val: Optional[BaseException],
+        exc_type: Optional[Type[Exception]],
+        exc_val: Optional[Exception],
         tb: Optional[TracebackType],
     ) -> Any: ...
     async def close(self) -> None: ...  # type: ignore [override]
