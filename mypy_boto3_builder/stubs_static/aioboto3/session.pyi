@@ -5,7 +5,7 @@ from aioboto3.resources.base import AIOBoto3ServiceResource
 from aioboto3.resources.factory import AIOBoto3ResourceFactory
 from aiobotocore.client import AioBaseClient
 from aiobotocore.config import AioConfig
-from botocore.credentials import Credentials
+from aiobotocore.credentials import AioCredentials
 from botocore.hooks import BaseEventHooks
 from botocore.loaders import Loader
 from botocore.session import Session as BotocoreSession
@@ -40,10 +40,10 @@ class Session:
     def get_available_regions(
         self,
         service_name: str,
-        partition_name: str = "aws",
-        allow_non_regional: bool = False,
+        partition_name: str = ...,
+        allow_non_regional: bool = ...,
     ) -> List[str]: ...
-    def get_credentials(self) -> Optional[Credentials]: ...
+    def get_credentials(self) -> Optional[AioCredentials]: ...
     def _register_default_handlers(self) -> None: ...
     def client(  # type: ignore [override]
         self,

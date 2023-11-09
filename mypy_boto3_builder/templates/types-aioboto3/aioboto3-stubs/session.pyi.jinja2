@@ -42,8 +42,8 @@ class Session:
     def get_available_regions(
         self,
         service_name: str,
-        partition_name: str = "aws",
-        allow_non_regional: bool = False,
+        partition_name: str = ...,
+        allow_non_regional: bool = ...,
     ) -> List[str]: ...
     def get_credentials(self) -> Optional[AioCredentials]: ...
     def _register_default_handlers(self) -> None: ...
