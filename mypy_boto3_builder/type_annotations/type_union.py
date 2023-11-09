@@ -3,7 +3,8 @@ Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
 """
 
 from collections.abc import Iterable, Iterator
-from typing import TypeVar
+
+from typing_extensions import Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -13,8 +14,6 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
-
-_R = TypeVar("_R", bound="TypeUnion")
 
 
 class TypeUnion(TypeSubscript, TypeDefSortable):
@@ -70,7 +69,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         return self.name != ""
 
-    def copy(self: _R) -> _R:
+    def copy(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """

@@ -2,13 +2,11 @@
 Wrapper for simple type annotations from this module.
 """
 
-from typing import TypeVar
+from typing_extensions import Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-
-_R = TypeVar("_R", bound="InternalImport")
 
 
 class InternalImport(FakeAnnotation):
@@ -66,7 +64,7 @@ class InternalImport(FakeAnnotation):
 
         return result
 
-    def copy(self: _R) -> _R:
+    def copy(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """
@@ -97,7 +95,7 @@ class AliasInternalImport(InternalImport):
             use_alias=True,
         )
 
-    def copy(self: _R) -> _R:
+    def copy(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """

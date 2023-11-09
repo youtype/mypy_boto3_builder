@@ -3,11 +3,10 @@ Utils for markdown rendering.
 """
 
 from collections.abc import Iterable
-from typing import TypeVar
+
+from typing_extensions import Self
 
 from mypy_boto3_builder.utils.strings import get_anchor_link
-
-_R = TypeVar("_R", bound="TableOfContents")
 
 
 class Header:
@@ -50,7 +49,7 @@ class TableOfContents:
         self.headers: list[Header] = list(headers)
 
     @classmethod
-    def parse(cls: type[_R], text: str) -> _R:
+    def parse(cls, text: str) -> Self:
         """
         Parse table of Contents for MarkDown text.
 

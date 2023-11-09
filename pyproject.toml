@@ -68,6 +68,7 @@ jinja2 = "*"
 mdformat = "*"
 newversion = "*"
 cryptography = "*"
+typing_extensions = "*"
 
 [tool.poetry.dev-dependencies]
 handsdown = "*"

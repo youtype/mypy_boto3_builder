@@ -4,12 +4,11 @@ Parent class for all type annotation wrappers.
 
 from abc import ABC, abstractmethod
 from collections.abc import Iterator
-from typing import TypeVar
+
+from typing_extensions import Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
-
-_R = TypeVar("_R", bound="FakeAnnotation")
 
 
 class FakeAnnotation(ABC):
@@ -100,7 +99,7 @@ class FakeAnnotation(ABC):
         return False
 
     @abstractmethod
-    def copy(self: _R) -> _R:
+    def copy(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """

@@ -39,7 +39,7 @@ class Type:
     bytearray = ExternalImport.from_class(bytearray)
     int = ExternalImport.from_class(int)
     float = ExternalImport.from_class(float)
-    Ellipsis = TypeConstant(...)
+    Ellipsis = TypeConstant(TypeConstant.Ellipsis)
     Decimal = ExternalImport.from_class(Decimal)
     Type = TypeAnnotation("Type")
     Iterator = TypeAnnotation("Iterator")

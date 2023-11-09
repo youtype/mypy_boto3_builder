@@ -3,15 +3,14 @@ Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a
 """
 
 from collections.abc import Iterable
-from typing import TypeVar
+
+from typing_extensions import Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.internal_import_record import InternalImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
-
-_R = TypeVar("_R", bound="TypeLiteral")
 
 
 class TypeLiteral(FakeAnnotation):
@@ -73,7 +72,7 @@ class TypeLiteral(FakeAnnotation):
         """
         return Type.Literal.get_import_records()
 
-    def copy(self: _R) -> _R:
+    def copy(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """
@@ -91,7 +90,7 @@ class TypeLiteral(FakeAnnotation):
         """
         raise ValueError("Use add_literal_child function.")
 
-    def is_same(self, other: "TypeLiteral") -> bool:
+    def is_same(self, other: Self) -> bool:
         """
         Check if literals have the same children.
         """
