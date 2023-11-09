@@ -27,10 +27,10 @@ class FakeAnnotation(ABC):
 
         return self.get_sort_key() == other.get_sort_key()
 
-    def __lt__(self, other: "FakeAnnotation") -> bool:
+    def __lt__(self, other: Self) -> bool:
         return self.get_sort_key() < other.get_sort_key()
 
-    def __gt__(self, other: "FakeAnnotation") -> bool:
+    def __gt__(self, other: Self) -> bool:
         return self.get_sort_key() > other.get_sort_key()
 
     def get_sort_key(self) -> str:

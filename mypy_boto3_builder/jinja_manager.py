@@ -10,6 +10,7 @@ from typing import Any
 from jinja2.environment import Environment, Template
 from jinja2.loaders import FileSystemLoader
 from jinja2.runtime import StrictUndefined
+from typing_extensions import Self
 
 from mypy_boto3_builder.constants import BUILDER_REPO_URL, TEMPLATES_PATH
 from mypy_boto3_builder.utils.strings import get_anchor_link
@@ -33,8 +34,7 @@ class JinjaManager:
         loader=FileSystemLoader(TEMPLATES_PATH.as_posix()),
         undefined=StrictUndefined,
     )
-
-    _templates_cache: dict[Path, Template] = {}
+    _singleton: Self | None = None
 
     def __init__(self) -> None:
         self._environment.filters["escape_md"] = self.escape_md  # type: ignore
@@ -48,6 +48,16 @@ class JinjaManager:
             repr=repr,
             builder_repo_url=BUILDER_REPO_URL,
         )
+        self._template_cache: dict[Path, Template] = {}
+
+    @classmethod
+    def singleton(cls) -> Self:
+        """
+        Get singleton instance.
+        """
+        if cls._singleton is None:
+            cls._singleton = cls()
+        return cls._singleton
 
     @classmethod
     def update_globals(cls, **kwargs: str | bool | Callable[..., Any]) -> None:
@@ -73,11 +83,8 @@ class JinjaManager:
         if template_path.is_absolute():
             template_path = template_path.relative_to(TEMPLATES_PATH)
 
-        if template_path in self._templates_cache:
-            return self._templates_cache[template_path]
-
-        if template_path.is_absolute():
-            raise JinjaManagerError(f"Template {template_path} is absolute")
+        if template_path in self._template_cache:
+            return self._template_cache[template_path]
 
         template_full_path = TEMPLATES_PATH / template_path
 
@@ -85,6 +92,6 @@ class JinjaManager:
             raise JinjaManagerError(f"Template {template_full_path} not found")
 
         template = self._environment.get_template(template_path.as_posix())
-        self._templates_cache[template_path] = template
+        self._template_cache[template_path] = template
 
         return template

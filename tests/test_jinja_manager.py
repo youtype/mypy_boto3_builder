@@ -7,7 +7,8 @@ from mypy_boto3_builder.jinja_manager import JinjaManager, JinjaManagerError
 
 class TestJinjaManager:
     def test_init(self):
-        JinjaManager()
+        assert JinjaManager() != JinjaManager()
+        assert JinjaManager.singleton() == JinjaManager.singleton()
 
     def test_get_template(self):
         manager = JinjaManager()
