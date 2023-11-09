@@ -12,7 +12,7 @@ class RemoveArgument(FakeAnnotation):
     Annotation to mark argument for removal.
     """
 
-    def render(self, parent_name: str = "") -> str:
+    def render(self) -> str:
         """
         Not used.
         """

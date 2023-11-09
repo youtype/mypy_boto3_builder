@@ -9,7 +9,7 @@
         {{ '"' -}}
         {{ child.name -}}
         {{ '": ' -}}
-        {{ child.type_annotation.render(type_def.name) -}}
+        {{ child.type_annotation.render() -}}
         {{ ", " -}}
     {% endfor -%}
     {{ "})\n" -}}
@@ -23,7 +23,7 @@
         {{ '"' -}}
         {{ child.name -}}
         {{ '": ' -}}
-        {{ child.type_annotation.render(type_def.name) -}}
+        {{ child.type_annotation.render() -}}
         {{ ", " -}}
     {% endfor -%}
     {{ "}, total=False)\n" -}}
@@ -43,7 +43,7 @@
         {{ '"' -}}
         {{ child.name -}}
         {{ '": ' -}}
-        {{ child.type_annotation.render(type_def.name) -}}
+        {{ child.type_annotation.render() -}}
         {{ ", " -}}
     {% endfor -%}
     {{ "}" -}}

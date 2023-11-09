@@ -43,7 +43,7 @@ class FakeAnnotation(ABC):
         return self.render()
 
     @abstractmethod
-    def render(self, parent_name: str = "") -> str:
+    def render(self) -> str:
         """
         Render type annotation to a valid Python code for local usage.
         """

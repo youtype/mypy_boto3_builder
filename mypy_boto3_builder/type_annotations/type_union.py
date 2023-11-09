@@ -46,7 +46,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         self._stringify = True
 
-    def render(self, parent_name: str = "") -> str:
+    def render(self) -> str:
         """
         Render type annotation to a valid Python code for local usage.
 
@@ -54,7 +54,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
             A string with a valid type annotation.
         """
         if not self.is_named():
-            return super().render(parent_name)
+            return super().render()
 
         result = self.name
 

@@ -44,7 +44,7 @@ class TypeLiteral(FakeAnnotation):
         """
         return len(self.children) == 1
 
-    def render(self, parent_name: str = "") -> str:
+    def render(self) -> str:
         """
         Render type annotation to a valid Python code for local usage.
 

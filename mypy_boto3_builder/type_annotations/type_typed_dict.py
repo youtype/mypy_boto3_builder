@@ -43,14 +43,14 @@ class TypedDictAttribute:
 
         return TypeSubscript(Type.NotRequired, [self.type_annotation])
 
-    def render(self, parent_name: str = "") -> str:
+    def render(self) -> str:
         """
         Render attribute to use in class-based TypedDict definition.
 
         Returns:
             A string with argument definition.
         """
-        return f'"{self.name}": {self.get_type_annotation().render(parent_name)}'
+        return f'"{self.name}": {self.get_type_annotation().render()}'
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """
@@ -109,7 +109,7 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
     def __hash__(self) -> int:
         return hash((self.name, *[hash(i) for i in self.children]))
 
-    def render(self, parent_name: str = "") -> str:
+    def render(self) -> str:
         """
         Render type annotation to a valid Python code for local usage.
 
@@ -117,9 +117,6 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
             A string with a valid type annotation.
         """
         if self.is_stringified():
-            return f'"{self.name}"'
-
-        if parent_name and parent_name == self.name:
             return f'"{self.name}"'
 
         return self.name

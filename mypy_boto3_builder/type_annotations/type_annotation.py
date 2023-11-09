@@ -56,7 +56,7 @@ class TypeAnnotation(FakeAnnotation):
 
         self._wrapped_type: str = wrapped_type
 
-    def render(self, parent_name: str = "") -> str:
+    def render(self) -> str:
         """
         Render type annotation to a valid Python code for local usage.
 

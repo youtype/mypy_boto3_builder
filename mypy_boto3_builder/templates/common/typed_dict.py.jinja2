@@ -3,7 +3,7 @@
 {{ type_def.name -}}
 {{ '", {' -}}
 {% for child in type_def.iterate_children() -%}
-    {{ child.render(type_def.name) -}}
+    {{ child.render() -}}
     {{ ", " -}}
 {% endfor -%}
 {{ "}" -}}

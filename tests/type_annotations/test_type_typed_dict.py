@@ -38,8 +38,6 @@ class TestTypeTypedDict:
     def test_render(self) -> None:
         result = self.result.copy()
         assert result.render() == "MyDict"
-        assert result.render("OtherDict") == "MyDict"
-        assert result.render("MyDict") == '"MyDict"'
         result.stringify()
         assert result.render() == '"MyDict"'
 

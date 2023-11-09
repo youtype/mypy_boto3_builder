@@ -89,10 +89,8 @@ types-certifi = "*"
 types-python-dateutil = "*"
 types-urllib3 = "*"
 types-s3transfer = "*"
-types-awscrt = "*"
 boto3-stubs = "*"
 botocore-stubs = "*"
-awscrt = "*"
 istub = "*"
 
 

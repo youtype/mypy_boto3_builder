@@ -33,7 +33,7 @@ class TypeSubscript(FakeAnnotation):
     def __hash__(self) -> int:
         return hash(f"{self.parent}.{self.children}")
 
-    def render(self, parent_name: str = "") -> str:
+    def render(self) -> str:
         """
         Render type annotation to a valid Python code for local usage.
 
@@ -42,7 +42,7 @@ class TypeSubscript(FakeAnnotation):
         """
         result = self.parent.render()
         if self.children:
-            children = ", ".join([i.render(parent_name) for i in self.children])
+            children = ", ".join([i.render() for i in self.children])
             result = f"{result}[{children}]"
 
         if self._stringify:

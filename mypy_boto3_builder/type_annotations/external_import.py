@@ -74,7 +74,7 @@ class ExternalImport(FakeAnnotation):
     def __hash__(self) -> int:
         return hash(self.import_record.render())
 
-    def render(self, parent_name: str = "") -> str:
+    def render(self) -> str:
         """
         Get string with local name to use.
 
