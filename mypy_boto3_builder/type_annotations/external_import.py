@@ -89,7 +89,7 @@ class ExternalImport(FakeAnnotation):
         """
         return {self.import_record}
 
-    def copy(self) -> Self:
+    def __copy__(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """

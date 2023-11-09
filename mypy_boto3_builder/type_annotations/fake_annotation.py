@@ -99,10 +99,16 @@ class FakeAnnotation(ABC):
         return False
 
     @abstractmethod
+    def __copy__(self) -> Self:
+        """
+        Create a copy of type annotation wrapper.
+        """
+
     def copy(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """
+        return self.__copy__()
 
     def get_local_types(self) -> list["FakeAnnotation"]:
         """

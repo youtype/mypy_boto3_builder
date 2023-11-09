@@ -18,7 +18,7 @@ class RemoveArgument(FakeAnnotation):
         """
         return "None"
 
-    def copy(self) -> Self:
+    def __copy__(self) -> Self:
         """
         Not used.
         """

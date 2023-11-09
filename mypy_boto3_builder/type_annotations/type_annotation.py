@@ -109,7 +109,7 @@ class TypeAnnotation(FakeAnnotation):
         """
         return self._wrapped_type == "Union"
 
-    def copy(self) -> Self:
+    def __copy__(self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """
