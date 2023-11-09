@@ -5,7 +5,6 @@ Jinja2 renderer and black formatter.
 import tempfile
 from collections.abc import Iterable
 from pathlib import Path
-from typing import Any
 
 import mdformat
 from black import format_file_contents
@@ -15,10 +14,10 @@ from black.report import NothingChanged
 from isort.api import sort_code_string
 from isort.settings import Config
 
-from mypy_boto3_builder.constants import LINE_LENGTH, TEMPLATES_PATH
-from mypy_boto3_builder.jinja_manager import JinjaManager
+from mypy_boto3_builder.constants import LINE_LENGTH
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
+from mypy_boto3_builder.utils.jinja2 import render_jinja2_template
 from mypy_boto3_builder.utils.markdown import TableOfContents
 
 
@@ -110,33 +109,6 @@ def render_jinja2_package_template(
         A rendered template.
     """
     return render_jinja2_template(template_path, package=package, service_name=service_name)
-
-
-def render_jinja2_template(template_path: Path, **kwargs: Any) -> str:
-    """
-    Render Jinja2 template to a string.
-
-    Arguments:
-        template_path -- Relative path to template in `TEMPLATES_PATH`
-        kwargs -- Render arguments
-
-    Returns:
-        A rendered template.
-    """
-    if template_path.is_absolute():
-        template_full_path = template_path
-    else:
-        template_full_path = TEMPLATES_PATH / template_path
-
-    if not template_full_path.exists():
-        raise ValueError(f"Template {template_full_path} not found")
-
-    template = (
-        JinjaManager()
-        .get_environment()
-        .get_template(template_full_path.relative_to(TEMPLATES_PATH).as_posix())
-    )
-    return template.render(**kwargs)
 
 
 def insert_md_toc(text: str) -> str:

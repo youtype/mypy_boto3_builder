@@ -41,9 +41,12 @@ class TestTypeTypedDict:
         result.stringify()
         assert result.render() == '"MyDict"'
 
-    def test_debug_render(self) -> None:
+    def test_render_definition(self) -> None:
         result = self.result.copy()
-        assert result.debug_render() == 'MyDict: "required": bool, "optional": NotRequired[str]'
+        assert (
+            result.render_definition()
+            == 'MyDict = TypedDict("MyDict", {"required": bool, "optional": NotRequired[str], })'
+        )
 
     def test_get_import_records(self) -> None:
         import_records = sorted(self.result.get_import_records())

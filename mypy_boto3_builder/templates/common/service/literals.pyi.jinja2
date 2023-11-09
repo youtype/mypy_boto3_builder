@@ -28,6 +28,6 @@ __all__ = (
 
 
 {% for literal in package.literals -%}
-    {% include "common/literal.py.jinja2" with context -%}
+    {{ literal.render_definition() -}}
     {{ "\n" -}}
 {% endfor -%}

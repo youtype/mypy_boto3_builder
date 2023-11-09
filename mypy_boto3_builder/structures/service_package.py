@@ -254,7 +254,7 @@ class ServicePackage(Package):
             if name in names:
                 for type_def in self.type_defs:
                     if type_def.name == name:
-                        self.logger.warning(type_def.debug_render())
+                        self.logger.warning(type_def.render_definition())
                 raise ValueError(f"Duplicate name {name}")
             names.add(name)
 

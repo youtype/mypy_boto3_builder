@@ -3,6 +3,7 @@ Wrapper for name Union type annotations, like `MyUnion = Union[str, int]`.
 """
 
 from collections.abc import Iterable, Iterator
+from pathlib import Path
 
 from typing_extensions import Self
 
@@ -14,6 +15,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.utils.jinja2 import render_jinja2_template
 
 
 class TypeUnion(TypeSubscript, TypeDefSortable):
@@ -78,12 +80,6 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
             name=self.name,
             stringify=self._stringify,
         )
-
-    def debug_render(self) -> str:
-        """
-        Render type annotation for debug purposes.
-        """
-        return f"{self}: {', '.join([c.render() for c in self.children])}"
 
     def get_children_types(self) -> set[FakeAnnotation]:
         """
@@ -182,3 +178,12 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         Iterate over children.
         """
         yield from self.children
+
+    def render_definition(self) -> str:
+        """
+        Render type annotation definition.
+        """
+        if self.is_named():
+            return render_jinja2_template(Path("common/named_union.py.jinja2"), type_def=self)
+
+        return self.render()

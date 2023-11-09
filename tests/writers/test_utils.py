@@ -1,3 +1,4 @@
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -45,21 +46,18 @@ class TestUtils:
         sort_code_string_mock.assert_called()
         assert sort_imports("test", "boto3") == "output"
 
-    @patch("mypy_boto3_builder.writers.utils.TEMPLATES_PATH")
-    @patch("mypy_boto3_builder.writers.utils.JinjaManager")
-    def test_render_jinja2_package_template(
-        self, JinjaManagerMock: MagicMock, TEMPLATES_PATH_MOCK: MagicMock
-    ) -> None:
-        template_path_mock = MagicMock()
+    @patch("mypy_boto3_builder.writers.utils.render_jinja2_template")
+    def test_render_jinja2_package_template(self, render_jinja2_template_mock: MagicMock) -> None:
+        template_path = Path("template.jinja2")
         package_mock = MagicMock()
         service_name_mock = MagicMock()
-        result = render_jinja2_package_template(template_path_mock, package_mock, service_name_mock)
-        JinjaManagerMock().get_environment.assert_called_with()
-        JinjaManagerMock().get_environment().get_template.assert_called()
-        JinjaManagerMock().get_environment().get_template().render.assert_called_with(
-            package=package_mock, service_name=service_name_mock
+        result = render_jinja2_package_template(template_path, package_mock, service_name_mock)
+        render_jinja2_template_mock.assert_called_once_with(
+            template_path,
+            package=package_mock,
+            service_name=service_name_mock,
         )
-        assert result == JinjaManagerMock().get_environment().get_template().render()
+        assert result == render_jinja2_template_mock()
 
     def test_insert_md_toc(self) -> None:
         assert (

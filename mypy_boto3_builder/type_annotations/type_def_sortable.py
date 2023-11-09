@@ -47,7 +47,7 @@ class TypeDefSortable(Protocol):
         """
         ...
 
-    def debug_render(self) -> str:
+    def render_definition(self) -> str:
         """
         Render type annotation for debug purposes.
         """

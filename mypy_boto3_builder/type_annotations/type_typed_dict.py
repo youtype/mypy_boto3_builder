@@ -3,6 +3,7 @@ Wrapper for `typing/typing_extensions.TypedDict` type annotations.
 """
 
 from collections.abc import Iterable, Iterator
+from pathlib import Path
 
 from typing_extensions import Self
 
@@ -14,6 +15,7 @@ from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.utils.jinja2 import render_jinja2_template
 
 
 class TypedDictAttribute:
@@ -121,11 +123,11 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
 
         return self.name
 
-    def debug_render(self) -> str:
+    def render_definition(self) -> str:
         """
-        Render type annotation for debug purposes.
+        Render type annotation definition.
         """
-        return f"{self}: {', '.join([c.render() for c in self.children])}"
+        return render_jinja2_template(Path("common/typed_dict.py.jinja2"), type_def=self)
 
     def get_definition_import_records(self) -> set[ImportRecord]:
         """

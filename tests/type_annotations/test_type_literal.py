@@ -1,9 +1,6 @@
-from pathlib import Path
-
 import pytest
 
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.writers.utils import render_jinja2_template
 
 
 class TestTypeLiteral:
@@ -51,8 +48,5 @@ class TestTypeLiteral:
         assert self.result.is_same(TypeLiteral("other", ["a", "b"]))
         assert not self.result.is_same(TypeLiteral("other", ["a", "b", "c"]))
 
-    def test_render_template(self) -> None:
-        assert (
-            render_jinja2_template(Path("common") / "literal.py.jinja2", literal=self.result)
-            == "test = Literal['a', 'b']"
-        )
+    def test_render_definition(self) -> None:
+        assert self.result.render_definition() == "test = Literal['a', 'b']"
