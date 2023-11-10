@@ -34,7 +34,7 @@ class ExternalImport(FakeAnnotation):
 - [FakeAnnotation](./fake_annotation.md#fakeannotation)
 - [ImportString](../import_helpers/import_string.md#importstring)
 
-### ExternalImport().copy
+### ExternalImport().__copy__
 
 [Show source in external_import.py:93](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L93)
 
@@ -43,7 +43,7 @@ Create a copy of type annotation wrapper.
 #### Signature
 
 ```python
-def copy(self: _R) -> _R: ...
+def __copy__(self: _R) -> _R: ...
 ```
 
 ### ExternalImport().copy_from
@@ -107,5 +107,5 @@ Import record local name.
 #### Signature
 
 ```python
-def render(self, parent_name: str = "") -> str: ...
+def render(self) -> str: ...
 ```

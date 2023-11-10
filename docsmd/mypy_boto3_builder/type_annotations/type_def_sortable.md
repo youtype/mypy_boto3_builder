@@ -19,18 +19,6 @@ Sortable protocol for TypeDefSorter.
 class TypeDefSortable(Protocol): ...
 ```
 
-### TypeDefSortable().debug_render
-
-[Show source in type_def_sortable.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L50)
-
-Render type annotation for debug purposes.
-
-#### Signature
-
-```python
-def debug_render(self) -> str: ...
-```
-
 ### TypeDefSortable().get_children_literals
 
 [Show source in type_def_sortable.py:56](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L56)
@@ -149,6 +137,18 @@ Iterate over children.
 
 ```python
 def iterate_children(self) -> Iterator[Any]: ...
+```
+
+### TypeDefSortable().render_definition
+
+[Show source in type_def_sortable.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_def_sortable.py#L50)
+
+Render type annotation for debug purposes.
+
+#### Signature
+
+```python
+def render_definition(self) -> str: ...
 ```
 
 ### TypeDefSortable().stringify

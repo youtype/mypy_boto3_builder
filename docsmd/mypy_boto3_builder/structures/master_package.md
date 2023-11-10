@@ -9,7 +9,7 @@ MasterPackage
 
 ## MasterPackage
 
-[Show source in master_package.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L13)
+[Show source in master_package.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L14)
 
 Structure for mypy-boto3 package.
 
@@ -39,7 +39,7 @@ class MasterPackage(Package):
 
 ### MasterPackage().essential_service_names
 
-[Show source in master_package.py:32](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L32)
+[Show source in master_package.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/master_package.py#L34)
 
 List of services maked as essential.
 

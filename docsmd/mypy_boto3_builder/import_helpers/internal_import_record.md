@@ -9,7 +9,7 @@ InternalImportRecord
 
 ## InternalImportRecord
 
-[Show source in internal_import_record.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L14)
+[Show source in internal_import_record.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py#L10)
 
 Helper for Python import strings with not set master module name.
 
@@ -25,7 +25,7 @@ Helper for Python import strings with not set master module name.
 class InternalImportRecord(ImportRecord):
     def __init__(
         self, service_module_name: ServiceModuleName, name: str = "", alias: str = ""
-    ): ...
+    ) -> None: ...
 ```
 
 #### See also

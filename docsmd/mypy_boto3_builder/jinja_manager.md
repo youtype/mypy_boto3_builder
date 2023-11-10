@@ -8,7 +8,7 @@ JinjaManager
 
 ## JinjaManager
 
-[Show source in jinja_manager.py:18](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L18)
+[Show source in jinja_manager.py:28](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L28)
 
 Jinja2 `Environment` manager.
 
@@ -21,7 +21,7 @@ class JinjaManager:
 
 ### JinjaManager.escape_md
 
-[Show source in jinja_manager.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L51)
+[Show source in jinja_manager.py:72](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L72)
 
 Escape underscore characters.
 
@@ -32,21 +32,34 @@ Escape underscore characters.
 def escape_md(value: str) -> str: ...
 ```
 
-### JinjaManager().get_environment
+### JinjaManager().get_template
 
-[Show source in jinja_manager.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L58)
+[Show source in jinja_manager.py:79](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L79)
 
-Get `jinja2.Environment`.
+Get `jinja2.Template`.
 
 #### Signature
 
 ```python
-def get_environment(self) -> jinja2.Environment: ...
+def get_template(self, template_path: Path) -> Template: ...
+```
+
+### JinjaManager.singleton
+
+[Show source in jinja_manager.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L53)
+
+Get singleton instance.
+
+#### Signature
+
+```python
+@classmethod
+def singleton(cls) -> "JinjaManager": ...
 ```
 
 ### JinjaManager.update_globals
 
-[Show source in jinja_manager.py:41](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L41)
+[Show source in jinja_manager.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L62)
 
 Update global variables in `jinja2.Environment`.
 
@@ -59,4 +72,18 @@ Update global variables in `jinja2.Environment`.
 ```python
 @classmethod
 def update_globals(cls, **kwargs: str | bool | Callable[..., Any]) -> None: ...
+```
+
+
+
+## JinjaManagerError
+
+[Show source in jinja_manager.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L22)
+
+Base JinjaManager exception.
+
+#### Signature
+
+```python
+class JinjaManagerError(Exception): ...
 ```

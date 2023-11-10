@@ -29,7 +29,7 @@ class AliasInternalImport(InternalImport):
 
 - [InternalImport](#internalimport)
 
-### AliasInternalImport().copy
+### AliasInternalImport().__copy__
 
 [Show source in internal_import.py:100](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L100)
 
@@ -38,7 +38,7 @@ Create a copy of type annotation wrapper.
 #### Signature
 
 ```python
-def copy(self: _R) -> _R: ...
+def __copy__(self: _R) -> _R: ...
 ```
 
 
@@ -76,7 +76,7 @@ class InternalImport(FakeAnnotation):
 - [FakeAnnotation](./fake_annotation.md#fakeannotation)
 - [ServiceModuleName](../enums/service_module_name.md#servicemodulename)
 
-### InternalImport().copy
+### InternalImport().__copy__
 
 [Show source in internal_import.py:69](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L69)
 
@@ -85,7 +85,7 @@ Create a copy of type annotation wrapper.
 #### Signature
 
 ```python
-def copy(self: _R) -> _R: ...
+def __copy__(self: _R) -> _R: ...
 ```
 
 ### InternalImport.get_alias
@@ -122,5 +122,5 @@ A string with a valid type annotation.
 #### Signature
 
 ```python
-def render(self, parent_name: str = "") -> str: ...
+def render(self) -> str: ...
 ```

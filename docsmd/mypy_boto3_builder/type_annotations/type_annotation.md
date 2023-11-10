@@ -28,7 +28,7 @@ class TypeAnnotation(FakeAnnotation):
 
 - [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
-### TypeAnnotation().copy
+### TypeAnnotation().__copy__
 
 [Show source in type_annotation.py:114](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_annotation.py#L114)
 
@@ -37,7 +37,7 @@ Create a copy of type annotation wrapper.
 #### Signature
 
 ```python
-def copy(self: _R) -> _R: ...
+def __copy__(self: _R) -> _R: ...
 ```
 
 ### TypeAnnotation().get_import_name
@@ -101,5 +101,5 @@ A string with a valid type annotation.
 #### Signature
 
 ```python
-def render(self, parent_name: str = "") -> str: ...
+def render(self) -> str: ...
 ```

@@ -10,6 +10,7 @@ Utils
 
 - [Boto3 Utils](./boto3_utils.md)
 - [BotocoreChangelog](./botocore_changelog.md)
+- [Jinja2](./jinja2.md)
 - [Markdown](./markdown.md)
 - [NicePath](./nice_path.md)
 - [PyPIManager](./pypi_manager.md)

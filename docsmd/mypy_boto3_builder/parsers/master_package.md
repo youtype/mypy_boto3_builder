@@ -9,7 +9,7 @@ Master Package
 
 ## parse_master_package
 
-[Show source in master_package.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/master_package.py#L15)
+[Show source in master_package.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/master_package.py#L17)
 
 Parse data for master package.
 

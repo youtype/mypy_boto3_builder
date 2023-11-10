@@ -33,6 +33,18 @@ class Argument:
     ): ...
 ```
 
+### Argument().__copy__
+
+[Show source in argument.py:84](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L84)
+
+Deep copy argument.
+
+#### Signature
+
+```python
+def __copy__(self: _R) -> _R: ...
+```
+
 ### Argument().copy
 
 [Show source in argument.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L78)

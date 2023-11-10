@@ -82,7 +82,7 @@ def process_package(self) -> None: ...
 
 ### BasePostprocessor().replace_self_ref_typed_dicts
 
-[Show source in base.py:263](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L263)
+[Show source in base.py:265](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L265)
 
 Remove self-references from TypedDicts.
 

@@ -34,5 +34,5 @@ Existing Path.
 ```python
 def walk(
     self: _R, exclude: Iterable[Path] = (), glob_pattern: str = "**/*"
-) -> Iterator[_R]: ...
+) -> Generator[_R, None, None]: ...
 ```

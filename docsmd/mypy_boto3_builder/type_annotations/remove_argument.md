@@ -9,7 +9,7 @@ RemoveArgument
 
 ## RemoveArgument
 
-[Show source in remove_argument.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L12)
+[Show source in remove_argument.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L10)
 
 Annotation to mark argument for removal.
 
@@ -23,26 +23,26 @@ class RemoveArgument(FakeAnnotation): ...
 
 - [FakeAnnotation](./fake_annotation.md#fakeannotation)
 
-### RemoveArgument().copy
+### RemoveArgument().__copy__
 
-[Show source in remove_argument.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L23)
+[Show source in remove_argument.py:21](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L21)
 
 Not used.
 
 #### Signature
 
 ```python
-def copy(self: _R) -> _R: ...
+def __copy__(self) -> Self: ...
 ```
 
 ### RemoveArgument().render
 
-[Show source in remove_argument.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L17)
+[Show source in remove_argument.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/remove_argument.py#L15)
 
 Not used.
 
 #### Signature
 
 ```python
-def render(self, parent_name: str = "") -> str: ...
+def render(self) -> str: ...
 ```
