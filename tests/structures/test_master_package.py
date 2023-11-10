@@ -7,3 +7,4 @@ class TestMasterPackage:
         package = MasterPackage([ServiceNameCatalog.ec2, ServiceNameCatalog.logs], [])
         assert package
         assert package.essential_service_names == [ServiceNameCatalog.ec2]
+        assert package.literals == []

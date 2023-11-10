@@ -196,13 +196,15 @@ class BasePostprocessor(ABC):
                 [self.package.service_name.boto3_name],
             )
         )
-        self.package.literals.append(
-            TypeLiteral("ServiceName", [i.boto3_name for i in self.service_names])
-        )
+        if self.service_names:
+            self.package.literals.append(
+                TypeLiteral("ServiceName", [i.boto3_name for i in self.service_names])
+            )
         resource_service_names = [i for i in self.service_names if self._has_service_resource(i)]
-        self.package.literals.append(
-            TypeLiteral("ResourceServiceName", [i.boto3_name for i in resource_service_names])
-        )
+        if resource_service_names:
+            self.package.literals.append(
+                TypeLiteral("ResourceServiceName", [i.boto3_name for i in resource_service_names])
+            )
 
         paginator_names = [paginator.operation_name for paginator in self.package.paginators]
         if paginator_names:

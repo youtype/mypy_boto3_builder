@@ -1,0 +1,22 @@
+"""
+Literals for boto3 services.
+"""
+
+try:
+    from typing_extensions import Literal
+except ImportError:
+    from typing import Literal
+
+__all__ = (
+{% for literal in package.literals -%}
+    {{ '"' -}}
+    {{ literal.name -}}
+    {{ '"' -}}
+    {{ ",\n" if not loop.last or loop.first else "\n" }}
+{% endfor -%}
+)
+
+{% for literal in package.literals -%}
+    {{ literal.render_definition() -}}
+    {{ "\n" -}}
+{% endfor -%}

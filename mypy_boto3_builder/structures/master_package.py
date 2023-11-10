@@ -8,6 +8,7 @@ from mypy_boto3_builder.package_data import MypyBoto3PackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
+from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
 class MasterPackage(Package):
@@ -28,6 +29,7 @@ class MasterPackage(Package):
     ):
         super().__init__(MypyBoto3PackageData, service_names)
         self.service_packages = list(service_packages)
+        self.literals: list[TypeLiteral] = []
 
     @property
     def essential_service_names(self) -> list[ServiceName]:
