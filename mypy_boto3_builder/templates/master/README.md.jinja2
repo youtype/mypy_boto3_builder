@@ -21,6 +21,9 @@ See how it helps to find and fix potential bugs:
 ## How to install
 
 ```bash
+# Install this package
+python -m pip install mypy-boto3
+
 # Install type annotations for boto3 services you use
 python -m pip install 'boto3-stubs[s3,ec2]'
 
@@ -31,5 +34,59 @@ python -m pip install 'boto3-stubs-lite[s3,ec2]'
 
 ## Usage
 
-This tool is not longer required for annotations to work. Do not use it,
-install [boto3-stubs](https://pypi.org/project/boto3-stubs/) instead.
+Provides `ServiceName` and `ResourceServiceName` literals:
+
+```python
+from typing import overload
+
+import boto3
+from botocore.client import BaseClient
+from mypy_boto3.literals import ServiceName
+from mypy_boto3_ec2.client import EC2Client
+from mypy_boto3_ec2.literals import EC2ServiceName
+from mypy_boto3_s3.client import S3Client
+from mypy_boto3_s3.literals import S3ServiceName
+
+
+@overload
+def get_client(service_name: EC2ServiceName) -> EC2Client: ...
+
+
+@overload
+def get_client(service_name: S3ServiceName) -> S3Client: ...
+
+
+@overload
+def get_client(service_name: ServiceName) -> BaseClient: ...
+
+
+def get_client(service_name: ServiceName) -> BaseClient:
+    return boto3.client(service_name)
+
+
+# type: S3Client, fully type annotated
+# All methods and attributes are auto-completed and type checked
+s3_client = get_client("s3")
+
+# type: EC2Client, fully type annotated
+# All methods and attributes are auto-completed and type checked
+ec2_client = get_client("ec2")
+
+# type: BaseClient, only basic type annotations
+# Dynamodb-specific methods and attributes are not auto-completed and not type checked
+dynamodb_client = get_client("dynamodb")
+```
+
+### Latest changes
+
+Full changelog can be found in [Releases](https://github.com/youtype/mypy_boto3_builder/releases).
+
+## Versioning
+
+`{{ package.pypi_name }}` version is the same as related `boto3` version and follows
+[PEP 440](https://www.python.org/dev/peps/pep-0440/) format.
+
+## Support and contributing
+
+Please reports any bugs or request new features in
+[mypy_boto3_builder](https://github.com/youtype/mypy_boto3_builder/issues/) repository.
