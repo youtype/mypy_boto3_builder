@@ -19,7 +19,7 @@ class NicePath(Path):
     def __str__(self) -> str:
         path = Path(self)
         if self.is_absolute():
-            cwd = self.cwd()
+            cwd = Path.cwd()
             if path == cwd or path.parts <= cwd.parts:
                 return str(path)
 
@@ -43,7 +43,7 @@ class NicePath(Path):
             Existing Path.
         """
         exclude_strs = {self.__class__(i).as_posix() for i in exclude}
-        for path in self.glob(glob_pattern):
+        for path in Path(self).glob(glob_pattern):
             if not path.is_file():
                 continue
 

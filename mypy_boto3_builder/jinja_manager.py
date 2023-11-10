@@ -40,7 +40,7 @@ class JinjaManager:
         self._environment.filters["escape_md"] = self.escape_md  # type: ignore
         self.update_globals(
             builder_version=get_builder_version(),
-            current_year=str(datetime.datetime.utcnow().year),
+            current_year=str(datetime.datetime.now(datetime.timezone.utc).year),
             get_anchor_link=get_anchor_link,
             hasattr=hasattr,
             len=len,
