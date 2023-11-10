@@ -4,8 +4,7 @@ Wrapper for `typing/typing_extensions.Literal` type annotations like `Literal['a
 
 from collections.abc import Iterable
 from pathlib import Path
-
-from typing_extensions import Self
+from typing import TypeVar
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -13,6 +12,8 @@ from mypy_boto3_builder.import_helpers.internal_import_record import InternalImp
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.utils.jinja2 import render_jinja2_template
+
+_R = TypeVar("_R", bound="TypeLiteral")
 
 
 class TypeLiteral(FakeAnnotation):
@@ -74,7 +75,7 @@ class TypeLiteral(FakeAnnotation):
         """
         return Type.Literal.get_import_records()
 
-    def __copy__(self) -> Self:
+    def __copy__(self: _R) -> _R:
         """
         Create a copy of type annotation wrapper.
         """
@@ -92,7 +93,7 @@ class TypeLiteral(FakeAnnotation):
         """
         raise ValueError("Use add_literal_child function.")
 
-    def is_same(self, other: Self) -> bool:
+    def is_same(self: _R, other: _R) -> bool:
         """
         Check if literals have the same children.
         """

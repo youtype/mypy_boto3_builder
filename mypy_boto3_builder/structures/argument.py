@@ -3,12 +3,12 @@ Method or function argument.
 """
 
 from collections.abc import Iterator
-from typing import Literal
-
-from typing_extensions import Self
+from typing import Literal, TypeVar
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
+
+_R = TypeVar("_R", bound="Argument")
 
 
 class Argument:
@@ -47,7 +47,7 @@ class Argument:
         return f"{self.name}: {self.type_annotation.render()}{default_suffix}"
 
     @classmethod
-    def kwflag(cls) -> Self:
+    def kwflag(cls: type[_R]) -> _R:
         """
         Create `*` keywords separator.
         """
@@ -75,7 +75,13 @@ class Argument:
         """
         return self.default is None
 
-    def copy(self) -> Self:
+    def copy(self: _R) -> _R:
+        """
+        Deep copy argument.
+        """
+        return self.__copy__()
+
+    def __copy__(self: _R) -> _R:
         """
         Deep copy argument.
         """

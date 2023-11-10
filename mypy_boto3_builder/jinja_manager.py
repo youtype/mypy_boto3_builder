@@ -51,7 +51,7 @@ class JinjaManager:
         self._template_cache: dict[Path, Template] = {}
 
     @classmethod
-    def singleton(cls) -> Self:
+    def singleton(cls) -> "JinjaManager":
         """
         Get singleton instance.
         """

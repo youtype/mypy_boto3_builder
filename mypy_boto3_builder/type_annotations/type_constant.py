@@ -2,9 +2,11 @@
 Wrapper for constant like `False` or `"test"`.
 """
 
-from typing_extensions import Self
+from typing import TypeVar
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+
+_R = TypeVar("_R", bound="TypeConstant")
 
 
 class EllipsisType:
@@ -41,7 +43,7 @@ class TypeConstant(FakeAnnotation):
 
         return repr(self.value)
 
-    def __copy__(self) -> Self:
+    def __copy__(self: _R) -> _R:
         """
         Create a copy of type annotation wrapper.
         """

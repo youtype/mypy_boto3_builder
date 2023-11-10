@@ -3,8 +3,9 @@ Wrapper for Python import strings.
 """
 
 import functools
+from typing import TypeVar
 
-from typing_extensions import Self
+_R = TypeVar("_R", bound="ImportString")
 
 
 @functools.total_ordering
@@ -40,14 +41,14 @@ class ImportString:
             self.parts.append(part)
 
     @classmethod
-    def from_str(cls, import_string: str) -> Self:
+    def from_str(cls: type[_R], import_string: str) -> _R:
         """
         Create from string.
         """
         return cls(*import_string.split("."))
 
     @classmethod
-    def empty(cls) -> Self:
+    def empty(cls: type[_R]) -> _R:
         """
         Create an empty ImportString.
         """
@@ -56,7 +57,7 @@ class ImportString:
         return result
 
     @classmethod
-    def parent(cls) -> Self:
+    def parent(cls: type[_R]) -> _R:
         """
         Get parent ImportString.
         """
@@ -79,12 +80,12 @@ class ImportString:
     def __gt__(self, other: object) -> bool:
         return str(self) > str(other)
 
-    def __add__(self, other: Self) -> Self:
+    def __add__(self: _R, other: _R) -> _R:
         result = self.__class__.empty()
         result.parts = self.parts + other.parts
         return result
 
-    def startswith(self, other: Self) -> bool:
+    def startswith(self: _R, other: _R) -> bool:
         """
         Check if import string starts with `other`.
 
