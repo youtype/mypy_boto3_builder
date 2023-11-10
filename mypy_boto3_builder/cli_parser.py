@@ -77,7 +77,7 @@ def parse_args(args: Sequence[str]) -> Namespace:
     )
     parser.add_argument(
         "--no-smart-version",
-        action="store_false",
+        action="store_true",
         help=(
             "Disable version bump based od last PyPI version. "
             "Set this flag to run packages build in offline mode. "
