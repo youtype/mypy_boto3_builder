@@ -18,42 +18,6 @@ packages:
       - mypy_boto3_builder ./mypy_boto3_output --product boto3
     snapshots:
       stubtest: |-
-        error: boto3.setup_default_session is inconsistent, runtime does not have argument "aws_access_key_id"
-        Stub: in file ./boto3-stubs/__init__.pyi:14
-        def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: in file ./boto3/__init__.py:27
-        def (**kwargs)
-
-        error: boto3.setup_default_session is inconsistent, runtime does not have argument "aws_secret_access_key"
-        Stub: in file ./boto3-stubs/__init__.pyi:14
-        def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: in file ./boto3/__init__.py:27
-        def (**kwargs)
-
-        error: boto3.setup_default_session is inconsistent, runtime does not have argument "aws_session_token"
-        Stub: in file ./boto3-stubs/__init__.pyi:14
-        def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: in file ./boto3/__init__.py:27
-        def (**kwargs)
-
-        error: boto3.setup_default_session is inconsistent, runtime does not have argument "region_name"
-        Stub: in file ./boto3-stubs/__init__.pyi:14
-        def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: in file ./boto3/__init__.py:27
-        def (**kwargs)
-
-        error: boto3.setup_default_session is inconsistent, runtime does not have argument "botocore_session"
-        Stub: in file ./boto3-stubs/__init__.pyi:14
-        def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: in file ./boto3/__init__.py:27
-        def (**kwargs)
-
-        error: boto3.setup_default_session is inconsistent, runtime does not have argument "profile_name"
-        Stub: in file ./boto3-stubs/__init__.pyi:14
-        def (aws_access_key_id: Union[builtins.str, None] =, aws_secret_access_key: Union[builtins.str, None] =, aws_session_token: Union[builtins.str, None] =, region_name: Union[builtins.str, None] =, botocore_session: Union[botocore.session.Session, None] =, profile_name: Union[builtins.str, None] =)
-        Runtime: in file ./boto3/__init__.py:27
-        def (**kwargs)
-
         error: boto3.resources.base.ServiceResource.meta variable differs from runtime type None
         Stub: in file ./boto3-stubs/resources/base.pyi:31
         boto3.resources.base.ResourceMeta

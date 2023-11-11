@@ -12,6 +12,7 @@ __version__: str
 DEFAULT_SESSION: Optional[Session]
 
 def setup_default_session(
+    *,
     aws_access_key_id: Optional[str] = ...,
     aws_secret_access_key: Optional[str] = ...,
     aws_session_token: Optional[str] = ...,
