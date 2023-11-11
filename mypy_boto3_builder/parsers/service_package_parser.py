@@ -60,14 +60,12 @@ class ServicePackageParser:
         )
 
         self.shape_parser.fix_typed_dict_names()
-        self.shape_parser.fix_method_arguments_for_mypy(
-            [
-                *result.client.methods,
-                *(result.service_resource.methods if result.service_resource else []),
-                *[method for paginator in result.paginators for method in paginator.methods],
-                *[method for waiter in result.waiters for method in waiter.methods],
-            ]
-        )
+        self.shape_parser.fix_method_arguments_for_mypy([
+            *result.client.methods,
+            *(result.service_resource.methods if result.service_resource else []),
+            *[method for paginator in result.paginators for method in paginator.methods],
+            *[method for waiter in result.waiters for method in waiter.methods],
+        ])
 
         type_defs = result.get_type_defs()
 
