@@ -42,7 +42,7 @@ class NicePath(Path):
         Yields:
             Existing Path.
         """
-        exclude_strs = {self.__class__(i).as_posix() for i in exclude}
+        exclude_strs = {Path(i).as_posix() for i in exclude}
         for path in Path(self).glob(glob_pattern):
             if not path.is_file():
                 continue
