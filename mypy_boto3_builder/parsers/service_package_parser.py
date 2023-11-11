@@ -12,13 +12,14 @@ from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.client import parse_client
 from mypy_boto3_builder.parsers.service_resource import parse_service_resource
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
-from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.structures.paginator import Paginator
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.structures.waiter import Waiter
 from mypy_boto3_builder.type_annotations.type_def_sortable import TypeDefSortable
+from mypy_boto3_builder.type_maps.typed_dicts import CloudwatchEventTypeDef
 from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
 
@@ -59,14 +60,21 @@ class ServicePackageParser:
         )
 
         self.shape_parser.fix_typed_dict_names()
-        self.shape_parser.fix_method_arguments_for_mypy([
-            *result.client.methods,
-            *(result.service_resource.methods if result.service_resource else []),
-            *[method for paginator in result.paginators for method in paginator.methods],
-            *[method for waiter in result.waiters for method in waiter.methods],
-        ])
+        self.shape_parser.fix_method_arguments_for_mypy(
+            [
+                *result.client.methods,
+                *(result.service_resource.methods if result.service_resource else []),
+                *[method for paginator in result.paginators for method in paginator.methods],
+                *[method for waiter in result.waiters for method in waiter.methods],
+            ]
+        )
 
         type_defs = result.get_type_defs()
+
+        # Add hardcoded CloudwatchEvent type definitions to cloudwatch service
+        if self.service_name == ServiceNameCatalog.cloudwatch:
+            type_defs.add(CloudwatchEventTypeDef)
+
         result.type_defs = self._get_sorted_type_defs(type_defs)
         result.literals = result.extract_literals()
         result.validate()
