@@ -16,7 +16,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig | None\" in function \"upload_file\"\n\u00a0\u00a0Type \"Literal['test']\" cannot be assigned to type \"TransferConfig | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"TransferConfig\"\n\u00a0\u00a0\u00a0\u00a0Type cannot be assigned to type \"None\"",
+        "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig | None\" in function \"upload_file\"\n\u00a0\u00a0Type \"Literal['test']\" cannot be assigned to type \"TransferConfig | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"TransferConfig\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"None\"",
         "range": {
             "start": {
                 "line": 21,
@@ -121,7 +121,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"None\" cannot be assigned to parameter \"IfModifiedSince\" of type \"TimestampTypeDef\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" cannot be assigned to type \"TimestampTypeDef\"\n\u00a0\u00a0\u00a0\u00a0Type \"None\" cannot be assigned to type \"datetime\"\n\u00a0\u00a0\u00a0\u00a0Type \"None\" cannot be assigned to type \"str\"",
+        "message": "Argument of type \"None\" cannot be assigned to parameter \"IfModifiedSince\" of type \"TimestampTypeDef\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" cannot be assigned to type \"TimestampTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is incompatible with \"datetime\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is incompatible with \"str\"",
         "range": {
             "start": {
                 "line": 50,
@@ -211,7 +211,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" cannot be assigned to type \"str\"",
+        "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0\"None\" is incompatible with \"str\"",
         "range": {
             "start": {
                 "line": 75,
