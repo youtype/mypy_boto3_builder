@@ -1,5 +1,7 @@
 {
     "recommendations": [
+        "samuelcolvin.jinjahtml",
+        "tamasfe.even-better-toml",
         "ms-python.black-formatter",
         "ms-python.isort",
         "ms-python.vscode-pylance",

@@ -16,7 +16,7 @@ from mypy_boto3_builder.package_data import (
 from mypy_boto3_builder.parsers.aiobotocore_stubs_package import parse_aiobotocore_stubs_package
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.aiobotocore_stubs_package import AioBotocoreStubsPackage
-from mypy_boto3_builder.utils.nice_path import NicePath
+from mypy_boto3_builder.utils.path import print_path
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
@@ -45,7 +45,7 @@ def process_aiobotocore_stubs(
         session, service_names, TypesAioBotocorePackageData
     )
     aiobotocore_stubs_package.version = version
-    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {NicePath(output_path)}")
+    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
     package_writer.write_package(
@@ -81,7 +81,7 @@ def process_aiobotocore_stubs_lite(
         session, service_names, TypesAioBotocoreLitePackageData
     )
     aiobotocore_stubs_package.version = version
-    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {NicePath(output_path)}")
+    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
     package_writer.write_package(
@@ -114,7 +114,7 @@ def process_aiobotocore_stubs_docs(
         session, service_names, TypesAioBotocorePackageData
     )
 
-    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {NicePath(output_path)}")
+    logger.debug(f"Writing {aiobotocore_stubs_package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path)
     package_writer.write_docs(

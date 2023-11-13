@@ -13,7 +13,7 @@ from mypy_boto3_builder.package_data import TypesAioBoto3LitePackageData, TypesA
 from mypy_boto3_builder.parsers.types_aioboto3_package import parse_types_aioboto3_package
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.types_aioboto3_package import TypesAioBoto3Package
-from mypy_boto3_builder.utils.nice_path import NicePath
+from mypy_boto3_builder.utils.path import print_path
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
 
@@ -40,7 +40,7 @@ def process_types_aioboto3(
     logger = get_logger()
     package = parse_types_aioboto3_package(session, service_names, TypesAioBoto3PackageData)
     package.version = version
-    logger.debug(f"Writing {package.pypi_name} to {NicePath(output_path)}")
+    logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
     package_writer.write_package(
@@ -74,7 +74,7 @@ def process_types_aioboto3_lite(
     logger = get_logger()
     package = parse_types_aioboto3_package(session, service_names, TypesAioBoto3LitePackageData)
     package.version = version
-    logger.debug(f"Writing {package.pypi_name} to {NicePath(output_path)}")
+    logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
     package_writer.write_package(
@@ -105,7 +105,7 @@ def process_types_aioboto3_docs(
     logger = get_logger()
     package = parse_types_aioboto3_package(session, service_names, TypesAioBoto3PackageData)
 
-    logger.debug(f"Writing {package.pypi_name} to {NicePath(output_path)}")
+    logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
     package_writer = PackageWriter(output_path=output_path)
     package_writer.write_docs(

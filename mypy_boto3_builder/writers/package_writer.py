@@ -12,7 +12,7 @@ from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.markdown import fix_pypi_headers
-from mypy_boto3_builder.utils.nice_path import NicePath
+from mypy_boto3_builder.utils.path import print_path, walk_path
 from mypy_boto3_builder.writers.utils import (
     blackify,
     blackify_markdown,
@@ -64,7 +64,7 @@ class PackageWriter:
             content = static_path.read_text()
             if not file_path.exists() or file_path.read_text() != content:
                 file_path.write_text(content)
-                self.logger.debug(f"Updated {NicePath(file_path)}")
+                self.logger.debug(f"Updated {print_path(file_path)}")
         return result
 
     def _get_setup_template_paths(
@@ -95,7 +95,7 @@ class PackageWriter:
         result: list[tuple[Path, Path]] = []
         package_path = self._get_package_path(package)
         package_template_path = templates_path / package.name
-        for template_path in NicePath(package_template_path).walk(glob_pattern="**/*.jinja2"):
+        for template_path in walk_path(package_template_path, glob_pattern="**/*.jinja2"):
             file_name = template_path.stem
             output_file_path = (
                 package_path / template_path.relative_to(package_template_path).parent / file_name
@@ -144,7 +144,7 @@ class PackageWriter:
                 file_path.parent.mkdir(exist_ok=True, parents=True)
             if not file_path.exists() or file_path.read_text() != content:
                 file_path.write_text(content)
-                self.logger.debug(f"Rendered {NicePath(file_path)}")
+                self.logger.debug(f"Rendered {print_path(file_path)}")
 
     def _render_md_templates(
         self,
@@ -165,12 +165,12 @@ class PackageWriter:
                 file_path.parent.mkdir(exist_ok=True, parents=True)
             if not file_path.exists() or file_path.read_text() != content:
                 file_path.write_text(content)
-                self.logger.debug(f"Rendered {NicePath(file_path)}")
+                self.logger.debug(f"Rendered {print_path(file_path)}")
 
     def _cleanup(self, valid_paths: Sequence[Path], output_path: Path) -> None:
-        for unknown_path in NicePath(output_path).walk(valid_paths):
+        for unknown_path in walk_path(output_path, valid_paths):
             unknown_path.unlink()
-            self.logger.debug(f"Deleted {NicePath(unknown_path)}")
+            self.logger.debug(f"Deleted {print_path(unknown_path)}")
 
     def write_package(
         self,
