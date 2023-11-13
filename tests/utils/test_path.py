@@ -21,8 +21,7 @@ class TestPath:
             output_path = Path(output_dir)
             (output_path / "one.txt").touch()
             (output_path / "two.txt").touch()
-            result = list(walk_path(output_path))
-            assert len(result) == 2
+            result = list(sorted(walk_path(output_path)))
+            assert result == [output_path / "one.txt", output_path / "two.txt"]
             result = list(walk_path(output_path, [output_path / "one.txt"]))
-            assert len(result) == 1
-            assert result[0] == output_path / "two.txt"
+            assert result == [output_path / "two.txt"]
