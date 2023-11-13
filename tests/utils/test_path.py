@@ -6,7 +6,7 @@ from mypy_boto3_builder.utils.path import print_path, walk_path
 
 
 class TestPath:
-    def test_init(self) -> None:
+    def test_print_path(self) -> None:
         with patch.object(Path, "cwd") as cwd_mock:
             cwd_mock.return_value = Path("/absolute/")
             assert print_path(Path("./relative")) == "./relative"
@@ -16,7 +16,7 @@ class TestPath:
             assert print_path(Path("/")) == "/"
             assert print_path(Path(".")) == "."
 
-    def test_walk(self) -> None:
+    def test_walk_path(self) -> None:
         with tempfile.TemporaryDirectory() as output_dir:
             output_path = Path(output_dir)
             (output_path / "one.txt").touch()
