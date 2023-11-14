@@ -1,0 +1,4 @@
+__pycache__
+mypy_boto3_builder
+mypy_boto3_output
+/test.py
