@@ -126,7 +126,7 @@ class PackageWriter:
                 content = sort_imports(
                     content,
                     package.name,
-                    extension=file_extension,
+                    extension="py" if file_extension == "py" else "pyi",
                     third_party=[
                         "boto3",
                         "botocore",
