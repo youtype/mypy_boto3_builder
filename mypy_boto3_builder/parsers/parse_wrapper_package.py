@@ -1,5 +1,5 @@
 """
-Parser that produces `structures.Boto3StubsPackage`.
+Parsers that produces `structures.wrapper_package.WrapperPackage`.
 """
 
 from collections.abc import Iterable
@@ -30,8 +30,10 @@ def parse_boto3_stubs_package(
     """
     package = Boto3StubsPackage(package_data, service_names=service_names)
     parser = WrapperPackageParser(session, package)
-    parser.parse_clients()
-    parser.parse_resources()
+    package.init_functions.extend(parser.get_init_client_functions())
+    package.init_functions.extend(parser.get_init_resource_functions())
+    package.session_class.methods.extend(parser.get_session_client_methods())
+    package.session_class.methods.extend(parser.get_session_resource_methods())
     return package
 
 
@@ -51,7 +53,7 @@ def parse_aiobotocore_stubs_package(
     """
     package = TypesAioBotocorePackage(package_data, service_names=service_names)
     parser = WrapperPackageParser(session, package)
-    parser.parse_session_clients()
+    package.session_class.methods.extend(parser.get_session_client_methods("create_client"))
     return package
 
 
@@ -71,6 +73,8 @@ def parse_types_aioboto3_package(
     """
     package = TypesAioBoto3Package(package_data, service_names=service_names)
     parser = WrapperPackageParser(session, package)
-    parser.parse_clients()
-    parser.parse_resources()
+    package.init_functions.extend(parser.get_init_client_functions())
+    package.init_functions.extend(parser.get_init_resource_functions())
+    package.session_class.methods.extend(parser.get_session_client_methods())
+    package.session_class.methods.extend(parser.get_session_resource_methods())
     return package

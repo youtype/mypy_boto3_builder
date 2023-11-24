@@ -17,7 +17,6 @@ from mypy_boto3_builder.structures.service_resource import ServiceResource
 from mypy_boto3_builder.structures.wrapper_package import WrapperPackage
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_annotation import TypeAnnotation
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.named_unions import VerifyTypeDef
@@ -66,19 +65,22 @@ class WrapperPackageParser:
             ),
         )
 
-    def parse_clients(self) -> None:
+    def get_resource_service_names(self) -> list[ServiceName]:
         """
-        Extract client data for wrapper package.
+        Get resource service names.
         """
-        add_overload = len(self.package.service_packages) > 1
-        decorators = [Type.overload] if add_overload else []
+        result: list[ServiceName] = []
         for service_name in self.package.service_names:
-            self._parse_client(service_name, decorators)
+            boto3_resource = get_boto3_resource(self.session, service_name)
+            if boto3_resource is not None:
+                result.append(service_name)
+        return result
 
-    def parse_session_clients(self) -> None:
+    def get_init_client_functions(self, name: str = "client") -> list[Function]:
         """
         Extract client data for wrapper package.
         """
+        result: list[Function] = []
         add_overload = len(self.package.service_packages) > 1
         decorators = [Type.overload] if add_overload else []
         for service_name in self.package.service_names:
@@ -88,93 +90,104 @@ class WrapperPackageParser:
                 source=ImportString(package_name, ServiceModuleName.client.value),
                 name=Client.get_class_name(service_name),
             )
-            self.package.session_class.methods.append(
-                Method(
-                    name="create_client",
-                    decorators=decorators,
-                    arguments=[
-                        Argument("self", None),
-                        service_name_argument,
-                        *self.init_arguments,
-                    ],
-                    return_type=return_type,
-                    body_lines=["..."],
-                )
-            )
-
-    def parse_resources(self) -> None:
-        """
-        Extract resource data for wrapper package.
-        """
-        resource_service_names: list[ServiceName] = []
-        for service_name in self.package.service_names:
-            boto3_resource = get_boto3_resource(self.session, service_name)
-            if boto3_resource is not None:
-                resource_service_names.append(service_name)
-        add_overload = len(resource_service_names) > 1
-        decorators = [Type.overload] if add_overload else []
-        for service_name in resource_service_names:
-            self._parse_resource(service_name, decorators)
-
-    def _parse_client(self, service_name: ServiceName, decorators: list[TypeAnnotation]) -> None:
-        package_name = self.package.data.get_service_package_name(service_name)
-        service_name_argument = self._get_service_name_argument(service_name)
-        return_type = ExternalImport(
-            source=ImportString(package_name, ServiceModuleName.client.value),
-            name=Client.get_class_name(service_name),
-        )
-        client_function = Function(
-            name="client",
-            decorators=decorators,
-            arguments=[
+            arguments = [
                 service_name_argument,
                 *self.init_arguments,
-            ],
-            return_type=return_type,
-            body_lines=["..."],
-        )
-        self.package.init_functions.append(client_function)
-        self.package.session_class.methods.append(
-            Method(
-                name="client",
+            ]
+            client_function = Function(
+                name=name,
                 decorators=decorators,
-                arguments=[
-                    Argument("self", None),
-                    service_name_argument,
-                    *self.init_arguments,
-                ],
+                arguments=arguments,
                 return_type=return_type,
                 body_lines=["..."],
             )
-        )
+            result.append(client_function)
+        return result
 
-    def _parse_resource(self, service_name: ServiceName, decorators: list[TypeAnnotation]) -> None:
-        package_name = self.package.data.get_service_package_name(service_name)
-        service_name_argument = self._get_service_name_argument(service_name)
-        return_type = ExternalImport(
-            source=ImportString(package_name, ServiceModuleName.service_resource.value),
-            name=ServiceResource.get_class_name(service_name),
-        )
-        resource_function = Function(
-            name="resource",
-            decorators=decorators,
-            arguments=[
-                service_name_argument,
-                *self.init_arguments,
-            ],
-            return_type=return_type,
-            body_lines=["..."],
-        )
-        self.package.init_functions.append(resource_function)
-        resource_method = Method(
-            name="resource",
-            decorators=decorators,
-            arguments=[
+    def get_session_client_methods(self, name: str = "client") -> list[Method]:
+        """
+        Extract client data for wrapper package.
+        """
+        result: list[Method] = []
+        add_overload = len(self.package.service_packages) > 1
+        decorators = [Type.overload] if add_overload else []
+        for service_name in self.package.service_names:
+            package_name = self.package.data.get_service_package_name(service_name)
+            service_name_argument = self._get_service_name_argument(service_name)
+            return_type = ExternalImport(
+                source=ImportString(package_name, ServiceModuleName.client.value),
+                name=Client.get_class_name(service_name),
+            )
+            arguments = [
                 Argument("self", None),
                 service_name_argument,
                 *self.init_arguments,
-            ],
-            return_type=return_type,
-            body_lines=["..."],
-        )
-        self.package.session_class.methods.append(resource_method)
+            ]
+            method = Method(
+                name=name,
+                decorators=decorators,
+                arguments=arguments,
+                return_type=return_type,
+                body_lines=["..."],
+            )
+            result.append(method)
+        return result
+
+    def get_init_resource_functions(self, name: str = "resource") -> list[Function]:
+        """
+        Extract resource data for wrapper package.
+        """
+        result: list[Function] = []
+        resource_service_names: list[ServiceName] = self.get_resource_service_names()
+        add_overload = len(resource_service_names) > 1
+        decorators = [Type.overload] if add_overload else []
+        for service_name in resource_service_names:
+            package_name = self.package.data.get_service_package_name(service_name)
+            service_name_argument = self._get_service_name_argument(service_name)
+            return_type = ExternalImport(
+                source=ImportString(package_name, ServiceModuleName.service_resource.value),
+                name=ServiceResource.get_class_name(service_name),
+            )
+            arguments = [
+                service_name_argument,
+                *self.init_arguments,
+            ]
+            resource_function = Function(
+                name=name,
+                decorators=decorators,
+                arguments=arguments,
+                return_type=return_type,
+                body_lines=["..."],
+            )
+            result.append(resource_function)
+        return result
+
+    def get_session_resource_methods(self, name: str = "resource") -> list[Method]:
+        """
+        Extract resource data for wrapper package.
+        """
+        result: list[Method] = []
+        resource_service_names: list[ServiceName] = self.get_resource_service_names()
+        add_overload = len(resource_service_names) > 1
+        decorators = [Type.overload] if add_overload else []
+        for service_name in resource_service_names:
+            package_name = self.package.data.get_service_package_name(service_name)
+            service_name_argument = self._get_service_name_argument(service_name)
+            return_type = ExternalImport(
+                source=ImportString(package_name, ServiceModuleName.service_resource.value),
+                name=ServiceResource.get_class_name(service_name),
+            )
+            arguments = [
+                Argument("self", None),
+                service_name_argument,
+                *self.init_arguments,
+            ]
+            resource_method = Method(
+                name=name,
+                decorators=decorators,
+                arguments=arguments,
+                return_type=return_type,
+                body_lines=["..."],
+            )
+            result.append(resource_method)
+        return result

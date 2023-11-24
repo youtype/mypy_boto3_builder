@@ -5,6 +5,7 @@ Jinja2 renderer and black formatter.
 import tempfile
 from collections.abc import Iterable
 from pathlib import Path
+from typing import Literal
 
 import mdformat
 from black import format_file_contents
@@ -36,10 +37,11 @@ def blackify(content: str, file_path: Path) -> str:
     Raises:
         ValueError -- If `content` is not a valid Python code.
     """
-    if file_path.suffix not in (".py", ".pyi"):
+    if file_path.suffix.lower() not in (".py", ".pyi"):
         return content
 
-    file_mode = Mode(is_pyi=file_path.suffix == ".pyi", line_length=LINE_LENGTH, preview=True)
+    is_pyi = file_path.suffix.lower() == ".pyi"
+    file_mode = Mode(is_pyi=is_pyi, line_length=LINE_LENGTH, preview=True)
     try:
         content = format_file_contents(content, fast=True, mode=file_mode)
     except NothingChanged:
@@ -54,7 +56,10 @@ def blackify(content: str, file_path: Path) -> str:
 
 
 def sort_imports(
-    content: str, module_name: str, extension: str = "py", third_party: Iterable[str] = ()
+    content: str,
+    module_name: str,
+    extension: Literal["py", "pyi"] = "py",
+    third_party: Iterable[str] = (),
 ) -> str:
     """
     Sort imports with `isort`.
@@ -91,7 +96,7 @@ def sort_imports(
     return result or ""
 
 
-def render_jinja2_package_template(template_path: Path, package: Package | None = None) -> str:
+def render_jinja2_package_template(template_path: Path, package: Package) -> str:
     """
     Render Jinja2 package template to a string.
 

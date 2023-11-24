@@ -3,6 +3,7 @@ Writer for package static and template files.
 """
 
 from collections.abc import Sequence
+from dataclasses import dataclass
 from pathlib import Path
 
 from mypy_boto3_builder.constants import TEMPLATES_PATH
@@ -20,6 +21,16 @@ from mypy_boto3_builder.writers.utils import (
     render_jinja2_package_template,
     sort_imports,
 )
+
+
+@dataclass
+class TemplateRender:
+    """
+    Template render target.
+    """
+
+    template_path: Path
+    output_paths: list[Path]
 
 
 class PackageWriter:
@@ -68,11 +79,11 @@ class PackageWriter:
 
     def _get_setup_template_paths(
         self, package: Package, templates_path: Path | None
-    ) -> list[tuple[Path, Path]]:
+    ) -> list[TemplateRender]:
         if not templates_path or not self.generate_setup:
             return []
 
-        result: list[tuple[Path, Path]] = []
+        result: list[TemplateRender] = []
         setup_path = self._get_setup_path(package)
         template_paths = [
             templates_path / "setup.py.jinja2",
@@ -82,16 +93,16 @@ class PackageWriter:
         for template_path in template_paths:
             file_name = template_path.stem
             output_file_path = setup_path / file_name
-            result.append((output_file_path, template_path))
+            result.append(TemplateRender(template_path, [output_file_path]))
         return result
 
     def _get_package_template_paths(
         self, package: Package, templates_path: Path | None
-    ) -> list[tuple[Path, Path]]:
+    ) -> list[TemplateRender]:
         if not templates_path or not self.generate_setup:
             return []
 
-        result: list[tuple[Path, Path]] = []
+        result: list[TemplateRender] = []
         package_path = self._get_package_path(package)
         package_template_path = templates_path / package.name
         for template_path in walk_path(package_template_path, glob_pattern="**/*.jinja2"):
@@ -99,7 +110,7 @@ class PackageWriter:
             output_file_path = (
                 package_path / template_path.relative_to(package_template_path).parent / file_name
             )
-            result.append((output_file_path, template_path))
+            result.append(TemplateRender(template_path, [output_file_path]))
         return result
 
     def _render_template(
@@ -110,11 +121,12 @@ class PackageWriter:
     ) -> None:
         content = render_jinja2_package_template(template_path, package=package)
         for file_path in render_paths:
-            if file_path.suffix in (".py", ".pyi"):
+            file_extension = file_path.suffix.lower().replace(".", "")
+            if file_extension in ("py", "pyi"):
                 content = sort_imports(
                     content,
                     package.name,
-                    extension=file_path.suffix.replace(".", ""),
+                    extension=file_extension,
                     third_party=[
                         "boto3",
                         "botocore",
@@ -123,41 +135,38 @@ class PackageWriter:
                     ],
                 )
                 content = blackify(content, file_path)
-            if file_path.suffix == ".md":
+            if file_extension == "md":
                 content = insert_md_toc(content)
                 content = blackify_markdown(content)
                 content = fix_pypi_headers(content)
                 content = format_md(content)
-            if not file_path.parent.exists():
-                file_path.parent.mkdir(exist_ok=True, parents=True)
-            if not file_path.exists() or file_path.read_text() != content:
-                file_path.write_text(content)
-                self.logger.debug(f"Rendered {print_path(file_path)}")
+            self._write_template(file_path, content)
 
-    def _render_templates(self, package: Package, file_paths: list[tuple[Path, Path]]) -> None:
-        template_path_map: dict[Path, list[Path]] = {}
-        for file_path, template_path in file_paths:
-            if template_path not in template_path_map:
-                template_path_map[template_path] = []
-            template_path_map[template_path].append(file_path)
-        for template_path, render_paths in template_path_map.items():
-            self._render_template(template_path, render_paths, package)
+    def _render_templates(self, package: Package, template_renders: list[TemplateRender]) -> None:
+        for template_render in template_renders:
+            self._render_template(
+                template_render.template_path, template_render.output_paths, package
+            )
+
+    def _write_template(self, path: Path, content: str) -> None:
+        if not path.parent.exists():
+            path.parent.mkdir(exist_ok=True, parents=True)
+
+        path.write_text(content)
+        self.logger.debug(f"Rendered {print_path(path)}")
 
     def _render_md_templates(
         self,
         package: Package,
-        file_paths: list[tuple[Path, Path]],
+        template_renders: list[TemplateRender],
     ) -> None:
-        for file_path, template_path in file_paths:
-            content = render_jinja2_package_template(template_path, package=package)
+        for template_render in template_renders:
+            content = render_jinja2_package_template(template_render.template_path, package=package)
             # if file_path.suffix == ".md":
             #     content = fix_pypi_headers(content)
             #     content = format_md(content)
-            if not file_path.parent.exists():
-                file_path.parent.mkdir(exist_ok=True, parents=True)
-            if not file_path.exists() or file_path.read_text() != content:
-                file_path.write_text(content)
-                self.logger.debug(f"Rendered {print_path(file_path)}")
+            for output_path in template_render.output_paths:
+                self._write_template(output_path, content)
 
     def _cleanup(self, valid_paths: Sequence[Path], output_path: Path) -> None:
         for unknown_path in walk_path(output_path, valid_paths):
@@ -183,14 +192,17 @@ class PackageWriter:
         package_path = self._get_package_path(package)
 
         static_paths = self._write_static_paths(static_files_path, package_path)
-        file_paths: list[tuple[Path, Path]] = [
+        template_renders: list[TemplateRender] = [
             *self._get_setup_template_paths(package, templates_path),
             *self._get_package_template_paths(package, templates_path),
         ]
-        file_paths = [i for i in file_paths if i[1].name not in exclude_template_names]
-        self._render_templates(package, file_paths)
+        template_renders = [
+            i for i in template_renders if i.template_path.name not in exclude_template_names
+        ]
+        self._render_templates(package, template_renders)
 
-        valid_paths = (*dict(file_paths).keys(), *static_paths)
+        rendered_paths = [path for t in template_renders for path in t.output_paths]
+        valid_paths = (*rendered_paths, *static_paths)
         output_path = self._get_setup_path(package) if self.generate_setup else package_path
         self._cleanup(valid_paths, output_path)
 
@@ -199,89 +211,88 @@ class PackageWriter:
         Generate docs for a package.
         """
         self.output_path.mkdir(exist_ok=True, parents=True)
-        file_paths: list[tuple[Path, Path]] = []
+        template_renders: list[TemplateRender] = []
         for template_path in templates_path.glob("**/*.jinja2"):
             file_name = template_path.stem
-            file_paths.append((self.output_path / file_name, template_path))
+            template_renders.append(TemplateRender(template_path, [self.output_path / file_name]))
 
-        self._render_md_templates(package, file_paths)
+        self._render_md_templates(package, template_renders)
 
     def _get_service_package_template_paths(
         self, package: ServicePackage, templates_path: Path
-    ) -> list[tuple[Path, Path]]:
+    ) -> list[TemplateRender]:
         module_templates_path = templates_path / "service"
         package_path = self._get_service_package_path(package)
-        file_paths: list[tuple[Path, Path]] = [
-            (package_path / "version.py", module_templates_path / "version.py.jinja2"),
-            (package_path / "__init__.pyi", module_templates_path / "__init__.pyi.jinja2"),
-            (package_path / "__init__.py", module_templates_path / "__init__.pyi.jinja2"),
-            (package_path / "__main__.py", module_templates_path / "__main__.py.jinja2"),
-            (package_path / "py.typed", module_templates_path / "py.typed.jinja2"),
-            (
-                package_path / ServiceModuleName.client.stub_file_name,
-                module_templates_path / ServiceModuleName.client.template_name,
+        file_paths: list[TemplateRender] = [
+            TemplateRender(
+                module_templates_path / "version.py.jinja2", [package_path / "version.py"]
             ),
-            (
-                package_path / ServiceModuleName.client.file_name,
+            TemplateRender(
+                module_templates_path / "__init__.pyi.jinja2",
+                [package_path / "__init__.pyi", package_path / "__init__.py"],
+            ),
+            TemplateRender(
+                module_templates_path / "__main__.py.jinja2", [package_path / "__main__.py"]
+            ),
+            TemplateRender(module_templates_path / "py.typed.jinja2", [package_path / "py.typed"]),
+            TemplateRender(
                 module_templates_path / ServiceModuleName.client.template_name,
+                [
+                    package_path / ServiceModuleName.client.stub_file_name,
+                    package_path / ServiceModuleName.client.file_name,
+                ],
             ),
         ]
-        file_paths.extend([])
         if package.service_resource:
-            file_paths.extend((
-                (
-                    package_path / ServiceModuleName.service_resource.stub_file_name,
+            file_paths.append(
+                TemplateRender(
                     module_templates_path / ServiceModuleName.service_resource.template_name,
-                ),
-                (
-                    package_path / ServiceModuleName.service_resource.file_name,
-                    module_templates_path / ServiceModuleName.service_resource.template_name,
-                ),
-            ))
+                    [
+                        package_path / ServiceModuleName.service_resource.stub_file_name,
+                        package_path / ServiceModuleName.service_resource.file_name,
+                    ],
+                )
+            )
         if package.paginators:
-            file_paths.extend((
-                (
-                    package_path / ServiceModuleName.paginator.stub_file_name,
+            file_paths.append(
+                TemplateRender(
                     module_templates_path / ServiceModuleName.paginator.template_name,
-                ),
-                (
-                    package_path / ServiceModuleName.paginator.file_name,
-                    module_templates_path / ServiceModuleName.paginator.template_name,
-                ),
-            ))
+                    [
+                        package_path / ServiceModuleName.paginator.stub_file_name,
+                        package_path / ServiceModuleName.paginator.file_name,
+                    ],
+                )
+            )
         if package.waiters:
-            file_paths.extend((
-                (
-                    package_path / ServiceModuleName.waiter.stub_file_name,
+            file_paths.append(
+                TemplateRender(
                     module_templates_path / ServiceModuleName.waiter.template_name,
-                ),
-                (
-                    package_path / ServiceModuleName.waiter.file_name,
-                    module_templates_path / ServiceModuleName.waiter.template_name,
-                ),
-            ))
+                    [
+                        package_path / ServiceModuleName.waiter.stub_file_name,
+                        package_path / ServiceModuleName.waiter.file_name,
+                    ],
+                )
+            )
         if package.literals:
-            file_paths.extend((
-                (
-                    package_path / ServiceModuleName.literals.stub_file_name,
+            file_paths.append(
+                TemplateRender(
                     module_templates_path / ServiceModuleName.literals.template_name,
-                ),
-                (
-                    package_path / ServiceModuleName.literals.file_name,
-                    module_templates_path / ServiceModuleName.literals.template_name,
-                ),
-            ))
+                    [
+                        package_path / ServiceModuleName.literals.stub_file_name,
+                        package_path / ServiceModuleName.literals.file_name,
+                    ],
+                )
+            )
         if package.type_defs:
-            file_paths.extend((
-                (
-                    package_path / ServiceModuleName.type_defs.stub_file_name,
+            file_paths.append(
+                TemplateRender(
                     module_templates_path / ServiceModuleName.type_defs.template_name,
-                ),
-                (
-                    package_path / ServiceModuleName.type_defs.file_name,
-                    module_templates_path / ServiceModuleName.type_defs.template_name,
-                ),
-            ))
+                    [
+                        package_path / ServiceModuleName.type_defs.stub_file_name,
+                        package_path / ServiceModuleName.type_defs.file_name,
+                    ],
+                )
+            )
         return file_paths
 
     def write_service_package(self, package: ServicePackage, templates_path: Path) -> None:
@@ -291,13 +302,13 @@ class PackageWriter:
         Arguments:
             package -- Service package.
         """
-        file_paths: list[tuple[Path, Path]] = [
+        template_renders: list[TemplateRender] = [
             *self._get_setup_template_paths(package, templates_path),
             *self._get_service_package_template_paths(package, templates_path),
         ]
-        self._render_templates(package, file_paths)
+        self._render_templates(package, template_renders)
 
-        valid_paths = list(dict(file_paths).keys())
+        valid_paths = [path for t in template_renders for path in t.output_paths]
         output_path = (
             self._get_setup_path(package)
             if self.generate_setup
@@ -313,33 +324,44 @@ class PackageWriter:
             package -- Service package.
             output_path -- Path to output folder.
         """
-        docs_path = self.output_path / f"{package.name}"
+        docs_path = self.output_path / package.name
         docs_path.mkdir(exist_ok=True, parents=True)
-        file_paths = [
-            (docs_path / "README.md", templates_path / "README.md.jinja2"),
-            (docs_path / "client.md", templates_path / "client.md.jinja2"),
-            (docs_path / "usage.md", templates_path / "usage.md.jinja2"),
+        template_renders: list[TemplateRender] = [
+            TemplateRender(templates_path / "README.md.jinja2", [docs_path / "README.md"]),
+            TemplateRender(templates_path / "client.md.jinja2", [docs_path / "client.md"]),
+            TemplateRender(templates_path / "usage.md.jinja2", [docs_path / "usage.md"]),
         ]
 
         if package.literals:
-            file_paths.append((docs_path / "literals.md", templates_path / "literals.md.jinja2"))
+            template_renders.append(
+                TemplateRender(templates_path / "literals.md.jinja2", [docs_path / "literals.md"])
+            )
 
         if package.type_defs:
-            file_paths.append((docs_path / "type_defs.md", templates_path / "type_defs.md.jinja2"))
+            template_renders.append(
+                TemplateRender(templates_path / "type_defs.md.jinja2", [docs_path / "type_defs.md"])
+            )
 
         if package.waiters:
-            file_paths.append((docs_path / "waiters.md", templates_path / "waiters.md.jinja2"))
+            template_renders.append(
+                TemplateRender(templates_path / "waiters.md.jinja2", [docs_path / "waiters.md"])
+            )
 
         if package.paginators:
-            file_paths.append(
-                (docs_path / "paginators.md", templates_path / "paginators.md.jinja2")
+            template_renders.append(
+                TemplateRender(
+                    templates_path / "paginators.md.jinja2", [docs_path / "paginators.md"]
+                )
             )
 
         if package.service_resource:
-            file_paths.append(
-                (docs_path / "service_resource.md", templates_path / "service_resource.md.jinja2")
+            template_renders.append(
+                TemplateRender(
+                    templates_path / "service_resource.md.jinja2",
+                    [docs_path / "service_resource.md"],
+                )
             )
 
-        self._render_md_templates(package, file_paths)
-        valid_paths = list(dict(file_paths).keys())
+        self._render_md_templates(package, template_renders)
+        valid_paths = [path for t in template_renders for path in t.output_paths]
         self._cleanup(valid_paths, docs_path)
