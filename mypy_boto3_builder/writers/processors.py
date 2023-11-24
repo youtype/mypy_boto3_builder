@@ -10,8 +10,8 @@ from boto3.session import Session
 from mypy_boto3_builder.constants import BOTO3_STUBS_STATIC_PATH, TEMPLATES_PATH
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import Boto3StubsLitePackageData, Boto3StubsPackageData
-from mypy_boto3_builder.parsers.boto3_stubs_package import parse_boto3_stubs_package
 from mypy_boto3_builder.parsers.master_package import parse_master_package
+from mypy_boto3_builder.parsers.parse_wrapper_package import parse_boto3_stubs_package
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.boto3_stubs_package import Boto3StubsPackage
 from mypy_boto3_builder.structures.master_package import MasterPackage

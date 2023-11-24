@@ -1,12 +1,12 @@
 # {{ package.client.name }}
 
-> [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > {{ package.client.name }}
+> [Index](../README.md) > [{{ package.service_name.class_name }}](./README.md) > {{ package.client.name }}
 
 {% include "common/header_note.md.jinja2" with context %}
 
 ## {{ package.client.name }}
 
-Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ service_name.boto3_name }}")`.
+Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}")`.
 [:material-aws: boto3 documentation]({{ package.client.boto3_doc_link }})
 
 ```python
@@ -15,20 +15,20 @@ Type annotations and code completion for `#!python {{ package.library_name }}.cl
 from {{ package.library_name }}.session import Session
 from {{ package.name }}.client import {{ package.client.name }}
 
-def get_{{ service_name.boto3_name }}_client() -> {{ package.client.name }}:
-    return Session().client("{{ service_name.boto3_name }}")
+def get_{{ package.service_name.boto3_name }}_client() -> {{ package.client.name }}:
+    return Session().client("{{ package.service_name.boto3_name }}")
 ```
 
 ## Exceptions
 
 {% if package.client.exceptions_class.attributes %}
 `{{ package.library_name }}` client exceptions are generated in runtime.
-This class provides code completion for `#!python {{ package.library_name }}.client("{{ service_name.boto3_name }}").exceptions` structure.
+This class provides code completion for `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}").exceptions` structure.
 
 ```python
 # {{ package.client.exceptions_class.name }}.exceptions usage example
 
-client = {{ package.library_name }}.client("{{ service_name.boto3_name }}")
+client = {{ package.library_name }}.client("{{ package.service_name.boto3_name }}")
 
 try:
     do_something(client)
@@ -59,8 +59,8 @@ def handle_error(exc: {{ package.client.exceptions_class.name }}.{{ package.clie
 
 {{ method.short_docstring }}
 
-Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ service_name.boto3_name }}").{{ method.name }}` method.
-[:material-aws: boto3 documentation]({{ service_name.get_boto3_doc_link("Client", method.name) }})
+Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
+[:material-aws: boto3 documentation]({{ package.service_name.get_boto3_doc_link("Client", method.name) }})
 
 {% include "common/method_code.md.jinja2" with context -%}
 
@@ -71,19 +71,19 @@ Type annotations and code completion for `#!python {{ package.library_name }}.cl
 {% if package.paginators %}
 ### get_paginator
 
-Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ service_name.boto3_name }}").get_paginator` method with overloads.
+Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}").get_paginator` method with overloads.
 
 {% for paginator in package.paginators -%}
-- `client.get_paginator("{{ paginator.operation_name }}")` -> [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
+- `client.get_paginator("{{ paginator.operation_name }}")` -> [{{ paginator.name }}]({{ package.service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
 {% if package.waiters %}
 ### get_waiter
 
-Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ service_name.boto3_name }}").get_waiter` method with overloads.
+Type annotations and code completion for `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}").get_waiter` method with overloads.
 
 {% for waiter in package.waiters -%}
-- `client.get_waiter("{{ waiter.waiter_name }}")` -> [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
+- `client.get_waiter("{{ waiter.waiter_name }}")` -> [{{ waiter.name }}]({{ package.service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}

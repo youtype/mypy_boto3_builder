@@ -15,7 +15,6 @@ from isort.api import sort_code_string
 from isort.settings import Config
 
 from mypy_boto3_builder.constants import LINE_LENGTH
-from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.utils.jinja2 import render_jinja2_template
 from mypy_boto3_builder.utils.markdown import TableOfContents
@@ -92,23 +91,18 @@ def sort_imports(
     return result or ""
 
 
-def render_jinja2_package_template(
-    template_path: Path,
-    package: Package | None = None,
-    service_name: ServiceName | None = None,
-) -> str:
+def render_jinja2_package_template(template_path: Path, package: Package | None = None) -> str:
     """
     Render Jinja2 package template to a string.
 
     Arguments:
         template_path -- Relative path to template in `TEMPLATES_PATH`
-        module -- Module record
-        service_name -- ServiceName instance
+        package -- Service or wrapper package
 
     Returns:
         A rendered template.
     """
-    return render_jinja2_template(template_path, package=package, service_name=service_name)
+    return render_jinja2_template(template_path, package=package)
 
 
 def insert_md_toc(text: str) -> str:

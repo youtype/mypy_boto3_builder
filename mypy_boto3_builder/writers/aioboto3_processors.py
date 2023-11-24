@@ -10,7 +10,7 @@ from boto3.session import Session
 from mypy_boto3_builder.constants import AIOBOTO3_STUBS_STATIC_PATH, TEMPLATES_PATH
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import TypesAioBoto3LitePackageData, TypesAioBoto3PackageData
-from mypy_boto3_builder.parsers.types_aioboto3_package import parse_types_aioboto3_package
+from mypy_boto3_builder.parsers.parse_wrapper_package import parse_types_aioboto3_package
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.types_aioboto3_package import TypesAioBoto3Package
 from mypy_boto3_builder.utils.path import print_path

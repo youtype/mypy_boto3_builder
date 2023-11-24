@@ -52,6 +52,7 @@ class ServicePackage(Package):
         self.type_defs = list(type_defs)
         self.literals = list(literals)
         self.helper_functions = list(helper_functions)
+        self.service_names = [service_name]
 
     @property
     def client(self) -> Client:

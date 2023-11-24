@@ -8,7 +8,7 @@
 ![boto3.typed]({{ builder_repo_url }}/raw/main/logo.png)
 
 Type annotations for
-[{{ package.library_name }}.{{ service_name.class_name }} {{ package.library_version }}]({{ service_name.boto3_doc_link }}) service
+[{{ package.library_name }}.{{ package.service_name.class_name }} {{ package.library_version }}]({{ package.service_name.boto3_doc_link }}) service
 compatible with
 [VSCode](https://code.visualstudio.com/),
 [PyCharm](https://www.jetbrains.com/pycharm/),
@@ -37,14 +37,14 @@ See how it helps to find and fix potential bugs:
 
 ### Client annotations
 
-`{{ package.client.name }}` provides annotations for `{{ package.library_name }}.client("{{ service_name.boto3_name }}")`.
+`{{ package.client.name }}` provides annotations for `{{ package.library_name }}.client("{{ package.service_name.boto3_name }}")`.
 
 ```python
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }} import {{ package.client.name }}
 
-client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
+client: {{ package.client.name }} = Session().client("{{ package.service_name.boto3_name }}")
 
 # now client usage is checked by mypy and IDE should provide code completion
 ```
@@ -60,7 +60,7 @@ from {{ package.library_name }}.session import Session
 from {{ package.name }} import {{ package.client.name }}
 from {{ package.name }}.paginator import {% for paginator in package.paginators %}{{ paginator.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
-client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
+client: {{ package.client.name }} = Session().client("{{ package.service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Types should be correctly discovered by mypy and IDEs
@@ -81,7 +81,7 @@ from {{ package.library_name }}.session import Session
 from {{ package.name }} import {{ package.client.name }}
 from {{ package.name }}.waiter import {% for waiter in package.waiters %}{{ waiter.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
-client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name }}")
+client: {{ package.client.name }} = Session().client("{{ package.service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Types should be correctly discovered by mypy and IDEs
@@ -94,14 +94,14 @@ client: {{ package.client.name }} = Session().client("{{ service_name.boto3_name
 {% if package.service_resource -%}
 ### Service Resource annotations
 
-`{{ package.service_resource.name }}` provides annotations for `{{ package.library_name }}.resource("{{ service_name.boto3_name }}")`.
+`{{ package.service_resource.name }}` provides annotations for `{{ package.library_name }}.resource("{{ package.service_name.boto3_name }}")`.
 
 ```python
 from {{ package.library_name }}.session import Session
 
 from {{ package.name }} import {{ package.service_resource.name }}
 
-resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
+resource: {{ package.service_resource.name }} = Session().resource("{{ package.service_name.boto3_name }}")
 
 # now resource usage is checked by mypy and IDE should provide code completion
 ```
@@ -117,7 +117,7 @@ from {{ package.library_name }}.session import Session
 from {{ package.name }} import {{ package.service_resource.name }}
 from {{ package.name }}.service_resource import {% for sub_resource in package.service_resource.sub_resources %}{{ sub_resource.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
-resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
+resource: {{ package.service_resource.name }} = Session().resource("{{ package.service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Type should be correctly discovered by mypy and IDEs
@@ -139,12 +139,12 @@ from {{ package.library_name }}.session import Session
 from {{ package.name }} import {{ package.service_resource.name }}
 from {{ package.name }}.service_resource import {% for collection in package.service_resource.collections %}{{ collection.name }}{{ '' if loop.last else ',' }}{% endfor %}
 
-resource: {{ package.service_resource.name }} = Session().resource("{{ service_name.boto3_name }}")
+resource: {{ package.service_resource.name }} = Session().resource("{{ package.service_name.boto3_name }}")
 
 # Explicit type annotations are optional here
 # Type should be correctly discovered by mypy and IDEs
 {% for collection in package.service_resource.collections -%}
-{{ collection.attribute_name }}: {{ service_name.underscore_name }}_resources.{{ collection.name }} = resource.{{ collection.attribute_name }}
+{{ collection.attribute_name }}: {{ package.service_name.underscore_name }}_resources.{{ collection.name }} = resource.{{ collection.attribute_name }}
 {% endfor -%}
 ```
 {% endif %}

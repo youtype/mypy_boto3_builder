@@ -1,12 +1,12 @@
 # {{ package.service_resource.name }}
 
-> [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > {{ package.service_resource.name }}
+> [Index](../README.md) > [{{ package.service_name.class_name }}](./README.md) > {{ package.service_resource.name }}
 
 {% include "common/header_note.md.jinja2" with context %}
 
 ## {{ package.service_resource.name }}
 
-Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}")`, included resources and collections.
+Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}")`, included resources and collections.
 [:material-aws: boto3 documentation]({{ package.service_resource.boto3_doc_link }})
 
 ```python
@@ -14,8 +14,8 @@ Type annotations and code completion for `#!python {{ package.library_name }}.re
 
 from {{ package.name }}.service_resource import {{ package.service_resource.name }}
 
-def get_{{ service_name.boto3_name }}_resource() -> {{ package.service_resource.name }}:
-    return boto3.resource("{{ service_name.boto3_name }}")
+def get_{{ package.service_name.boto3_name }}_resource() -> {{ package.service_resource.name }}:
+    return boto3.resource("{{ package.service_name.boto3_name }}")
 ```
 
 {% if package.service_resource.attributes %}
@@ -33,7 +33,7 @@ def get_{{ service_name.boto3_name }}_resource() -> {{ package.service_resource.
 
 Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(collection.object_class_name) }}) resource.
 
-Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ collection.attribute_name }}` collection.
+Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").{{ collection.attribute_name }}` collection.
 [:material-aws: boto3 documentation]({{ collection.boto3_doc_link }})
 
 ```python
@@ -42,7 +42,7 @@ Type annotations and code completion for `#!python {{ package.library_name }}.re
 from {{ package.name }}.service_resource import {{ collection.name }}
 
 def get_collection() -> {{ collection.name }}:
-    return boto3.resource("{{ service_name.boto3_name }}").{{ collection.attribute_name }}
+    return boto3.resource("{{ package.service_name.boto3_name }}").{{ collection.attribute_name }}
 ```
 
 {% endfor %}
@@ -54,8 +54,8 @@ def get_collection() -> {{ collection.name }}:
 
 {{ method.short_docstring }}
 
-Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
-[:material-aws: boto3 documentation]({{ service_name.get_boto3_doc_link('ServiceResource', method.name) }})
+Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
+[:material-aws: boto3 documentation]({{ package.service_name.get_boto3_doc_link('ServiceResource', method.name) }})
 
 {% include "common/method_code.md.jinja2" with context -%}
 {% else %}
@@ -65,7 +65,7 @@ Type annotations and code completion for `#!python {{ package.library_name }}.re
 {% for resource in package.service_resource.sub_resources %}
 ## {{ resource.name }}
 
-Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ resource.name }}` class.
+Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").{{ resource.name }}` class.
 [:material-aws: boto3 documentation]({{ resource.boto3_doc_link }})
 
 ```python
@@ -74,7 +74,7 @@ Type annotations and code completion for `#!python {{ package.library_name }}.re
 from {{ package.name }}.service_resource import {{ resource.name }}
 
 def get_resource() -> {{ resource.name }}:
-    return boto3.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...)
+    return boto3.resource("{{ package.service_name.boto3_name }}").{{ resource.name }}(...)
 ```
 
 {% if resource.attributes %}
@@ -93,7 +93,7 @@ def get_resource() -> {{ resource.name }}:
 
 Provides access to [{{ collection.object_class_name }}](#{{  get_anchor_link(collection.object_class_name) }}) resource.
 
-Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...).{{ collection.attribute_name }}` collection.
+Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").{{ resource.name }}(...).{{ collection.attribute_name }}` collection.
 [:material-aws: boto3 documentation]({{ collection.boto3_doc_link }})
 
 ```python
@@ -102,7 +102,7 @@ Type annotations and code completion for `#!python {{ package.library_name }}.re
 from {{ package.name }}.service_resource import {{ collection.name }}
 
 def get_collection() -> {{ collection.name }}:
-    resource = boto3.resource("{{ service_name.boto3_name }}").{{ resource.name }}(...)
+    resource = boto3.resource("{{ package.service_name.boto3_name }}").{{ resource.name }}(...)
     return resource.{{ collection.attribute_name }}
 ```
 {% endfor %}
@@ -116,8 +116,8 @@ def get_collection() -> {{ collection.name }}:
 
 {{ method.short_docstring }}
 
-Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ service_name.boto3_name }}").{{ method.name }}` method.
-[:material-aws: boto3 documentation]({{ service_name.get_boto3_doc_link(resource.name, method.name) }})
+Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}").{{ method.name }}` method.
+[:material-aws: boto3 documentation]({{ package.service_name.get_boto3_doc_link(resource.name, method.name) }})
 
 {% include "common/method_code.md.jinja2" with context -%}
 {% endfor %}

@@ -1,6 +1,6 @@
 # Examples
 
-> [Index](../README.md) > [{{ service_name.class_name }}](./README.md) > Examples
+> [Index](../README.md) > [{{ package.service_name.class_name }}](./README.md) > Examples
 
 {% include "common/header_note.md.jinja2" with context %}
 
@@ -27,7 +27,7 @@ client = session.client("{{ package.service_name.boto3_name }}")  # (1)
 result = client.{{ method.name }}()  # (2)
 ```
 
-1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
+1. client: [{{ package.client.name }}]({{ package.service_name.get_md_doc_link('client') }})
 2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
@@ -47,8 +47,8 @@ for item in paginator.paginate(...):
     print(item)  # (3)
 ```
 
-1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
-2. paginator: [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }})
+1. client: [{{ package.client.name }}]({{ package.service_name.get_md_doc_link('client') }})
+2. paginator: [{{ paginator.name }}]({{ package.service_name.get_md_doc_link('paginators', paginator.name) }})
 3. item: {% with type_annotation=paginator.methods[0].return_type.children[0] %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
@@ -67,8 +67,8 @@ waiter = client.get_waiter("{{ waiter.waiter_name }}")  # (2)
 waiter.wait()
 ```
 
-1. client: [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
-2. waiter: [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }})
+1. client: [{{ package.client.name }}]({{ package.service_name.get_md_doc_link('client') }})
+2. waiter: [{{ waiter.name }}]({{ package.service_name.get_md_doc_link('waiters', waiter.name) }})
 {% endif %}
 
 ### Explicit type annotations
@@ -161,7 +161,7 @@ resource = session.resource("{{ package.service_name.boto3_name }}")  # (1)
 result = resource.{{ method.name }}()  # (2)
 ```
 
-1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
+1. resource: [{{ package.service_resource.name }}]({{ package.service_name.get_md_doc_link('service_resource') }})
 2. result: {% with type_annotation=method.return_type %}{% include "common/type_hint.md.jinja2" with context -%}{% endwith %}
 {% endif %}
 
@@ -180,8 +180,8 @@ for item in collection:
     print(item)  # (3)
 ```
 
-1. resource: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource') }})
-2. collection: [{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }})
+1. resource: [{{ package.service_resource.name }}]({{ package.service_name.get_md_doc_link('service_resource') }})
+2. collection: [{{ package.service_resource.name }}]({{ package.service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }})
 3. item: {{ collection.object_class_name }}
 {% endif %}
 

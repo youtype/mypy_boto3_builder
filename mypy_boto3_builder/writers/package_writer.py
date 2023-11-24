@@ -8,7 +8,6 @@ from pathlib import Path
 from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.logger import get_logger
-from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.markdown import fix_pypi_headers
@@ -103,35 +102,24 @@ class PackageWriter:
             result.append((output_file_path, template_path))
         return result
 
-    def _render_templates(
+    def _render_template(
         self,
+        template_path: Path,
+        render_paths: Sequence[Path],
         package: Package,
-        file_paths: list[tuple[Path, Path]],
-        service_name: ServiceName | None = None,
     ) -> None:
-        for file_path, template_path in file_paths:
-            content = render_jinja2_package_template(
-                template_path,
-                package=package,
-                service_name=service_name,
-            )
-            if file_path.suffix in [".py", ".pyi"]:
+        content = render_jinja2_package_template(template_path, package=package)
+        for file_path in render_paths:
+            if file_path.suffix in (".py", ".pyi"):
                 content = sort_imports(
                     content,
                     package.name,
-                    extension="pyi",
+                    extension=file_path.suffix.replace(".", ""),
                     third_party=[
                         "boto3",
                         "botocore",
                         "aiobotocore",
-                        *(
-                            [
-                                package.data.get_service_package_name(i)
-                                for i in package.service_names
-                            ]
-                            if not service_name
-                            else [package.data.get_service_package_name(service_name)]
-                        ),
+                        *[package.data.get_service_package_name(i) for i in package.service_names],
                     ],
                 )
                 content = blackify(content, file_path)
@@ -146,18 +134,22 @@ class PackageWriter:
                 file_path.write_text(content)
                 self.logger.debug(f"Rendered {print_path(file_path)}")
 
+    def _render_templates(self, package: Package, file_paths: list[tuple[Path, Path]]) -> None:
+        template_path_map: dict[Path, list[Path]] = {}
+        for file_path, template_path in file_paths:
+            if template_path not in template_path_map:
+                template_path_map[template_path] = []
+            template_path_map[template_path].append(file_path)
+        for template_path, render_paths in template_path_map.items():
+            self._render_template(template_path, render_paths, package)
+
     def _render_md_templates(
         self,
         package: Package,
         file_paths: list[tuple[Path, Path]],
-        service_name: ServiceName | None = None,
     ) -> None:
         for file_path, template_path in file_paths:
-            content = render_jinja2_package_template(
-                template_path,
-                package=package,
-                service_name=service_name,
-            )
+            content = render_jinja2_package_template(template_path, package=package)
             # if file_path.suffix == ".md":
             #     content = fix_pypi_headers(content)
             #     content = format_md(content)
@@ -303,7 +295,7 @@ class PackageWriter:
             *self._get_setup_template_paths(package, templates_path),
             *self._get_service_package_template_paths(package, templates_path),
         ]
-        self._render_templates(package, file_paths, service_name=package.service_name)
+        self._render_templates(package, file_paths)
 
         valid_paths = list(dict(file_paths).keys())
         output_path = (
@@ -348,6 +340,6 @@ class PackageWriter:
                 (docs_path / "service_resource.md", templates_path / "service_resource.md.jinja2")
             )
 
-        self._render_md_templates(package, file_paths, service_name=package.service_name)
+        self._render_md_templates(package, file_paths)
         valid_paths = list(dict(file_paths).keys())
         self._cleanup(valid_paths, docs_path)

@@ -50,13 +50,8 @@ class TestUtils:
     def test_render_jinja2_package_template(self, render_jinja2_template_mock: MagicMock) -> None:
         template_path = Path("template.jinja2")
         package_mock = MagicMock()
-        service_name_mock = MagicMock()
-        result = render_jinja2_package_template(template_path, package_mock, service_name_mock)
-        render_jinja2_template_mock.assert_called_once_with(
-            template_path,
-            package=package_mock,
-            service_name=service_name_mock,
-        )
+        result = render_jinja2_package_template(template_path, package_mock)
+        render_jinja2_template_mock.assert_called_once_with(template_path, package=package_mock)
         assert result == render_jinja2_template_mock()
 
     def test_insert_md_toc(self) -> None:
