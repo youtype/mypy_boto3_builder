@@ -85,8 +85,7 @@ async function getStubsVersions(boto3Version) {
 }
 
 function getBotocoreVersion(version) {
-    const minor = parseInt(version.match(/\d+\.(\d+)\./)[1]) + 3
-    return version.replace(/\.\d+/, `.${minor}`)
+    return version
 }
 
 async function extractVersions() {
