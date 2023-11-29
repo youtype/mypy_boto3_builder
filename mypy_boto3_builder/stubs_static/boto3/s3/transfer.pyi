@@ -35,6 +35,7 @@ class TransferConfig(S3TransferConfig):
         io_chunksize: int = ...,
         use_threads: bool = ...,
         max_bandwidth: Optional[int] = ...,
+        preferred_transfer_client: str = ...,
     ) -> None:
         self.use_threads: bool
 
