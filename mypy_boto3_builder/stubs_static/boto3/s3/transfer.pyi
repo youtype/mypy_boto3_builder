@@ -1,3 +1,4 @@
+import logging
 from types import TracebackType
 from typing import Any, Callable, Dict, List, Mapping, Optional, Type, TypeVar
 
@@ -12,6 +13,8 @@ _R = TypeVar("_R")
 
 KB: int
 MB: int
+
+logger: logging.Logger = ...
 
 def create_transfer_manager(
     client: BaseClient,
