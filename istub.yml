@@ -12,6 +12,7 @@ packages:
       - types-s3transfer
       - botocore-stubs
       - boto3
+      - awscrt
     pip_uninstall:
       - boto3-stubs
     build:
