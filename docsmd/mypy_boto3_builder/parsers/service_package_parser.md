@@ -9,7 +9,7 @@ ServicePackageParser
 
 ## ServicePackageParser
 
-[Show source in service_package_parser.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_parser.py#L25)
+[Show source in service_package_parser.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_parser.py#L26)
 
 Parser that produces `structures.ServicePackage`.
 
@@ -42,7 +42,7 @@ class ServicePackageParser:
 
 ### ServicePackageParser().parse
 
-[Show source in service_package_parser.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_parser.py#L50)
+[Show source in service_package_parser.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/service_package_parser.py#L51)
 
 Extract all data from boto3 service package.
 

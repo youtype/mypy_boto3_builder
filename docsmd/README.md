@@ -102,7 +102,7 @@ A full list of [Mypy_boto3_builder](https://github.com/youtype/mypy_boto3_builde
         - [BotocoreChangelog](mypy_boto3_builder/utils/botocore_changelog.md#botocorechangelog)
         - [Jinja2](mypy_boto3_builder/utils/jinja2.md#jinja2)
         - [Markdown](mypy_boto3_builder/utils/markdown.md#markdown)
-        - [NicePath](mypy_boto3_builder/utils/nice_path.md#nicepath)
+        - [Path](mypy_boto3_builder/utils/path.md#path)
         - [PyPIManager](mypy_boto3_builder/utils/pypi_manager.md#pypimanager)
         - [Strings](mypy_boto3_builder/utils/strings.md#strings)
         - [TypeDefSorter](mypy_boto3_builder/utils/type_def_sorter.md#typedefsorter)

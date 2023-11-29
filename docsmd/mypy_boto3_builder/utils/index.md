@@ -12,7 +12,7 @@ Utils
 - [BotocoreChangelog](./botocore_changelog.md)
 - [Jinja2](./jinja2.md)
 - [Markdown](./markdown.md)
-- [NicePath](./nice_path.md)
+- [Path](./path.md)
 - [PyPIManager](./pypi_manager.md)
 - [Strings](./strings.md)
 - [TypeDefSorter](./type_def_sorter.md)
