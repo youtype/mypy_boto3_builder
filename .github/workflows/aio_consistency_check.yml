@@ -22,7 +22,8 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const { getBoto3Version } = require('./.github/workflows/helpers.js')
+            const { getBoto3Version, setupGlobals } = require('./.github/workflows/helpers.js')
+            setupGlobals({ core, context, fetch })
             const inputBoto3Version = context.payload.inputs && context.payload.inputs.boto3_version
             const version = inputBoto3Version ? inputBoto3Version : await getBoto3Version()
             core.info(`boto3 version ${version}`)
