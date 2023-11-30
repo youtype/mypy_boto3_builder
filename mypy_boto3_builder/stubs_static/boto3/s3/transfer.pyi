@@ -21,6 +21,7 @@ def create_transfer_manager(
     config: TransferConfig,
     osutil: Optional[OSUtils] = ...,
 ) -> TransferManager: ...
+def has_minimum_crt_version(minimum_version: str) -> bool: ...
 
 class TransferConfig(S3TransferConfig):
     ALIAS: Dict[str, str]
