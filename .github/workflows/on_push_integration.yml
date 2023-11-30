@@ -22,9 +22,9 @@ jobs:
           python-version: "3.11"
           cache: "poetry"
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
       - name: Install dependencies
         run: |
           poetry install -n
@@ -64,9 +64,9 @@ jobs:
         with:
           python-version: ${{ matrix.version }}
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: "20"
       - name: Install dependencies
         run: |
           python -m pip install -U pip
