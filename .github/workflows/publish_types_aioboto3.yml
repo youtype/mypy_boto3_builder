@@ -76,6 +76,7 @@ jobs:
           mkdir installtemp
           cd installtemp
           wget ${{ steps.links.outputs.aioboto3-url }}
+          pip uninstall -y s3transfer
           pip install aioboto3*
           cd ..
           rm -rf installtemp
