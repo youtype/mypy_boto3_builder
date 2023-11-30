@@ -21,12 +21,13 @@ jobs:
         id: boto3
         uses: actions/github-script@v7
         with:
+          result-encoding: string
           script: |
             const { getBoto3Version, setupGlobals } = require('./.github/workflows/helpers.js')
             setupGlobals({ core, context, fetch })
             const inputBoto3Version = context.payload.inputs && context.payload.inputs.boto3_version
             const version = inputBoto3Version ? inputBoto3Version : await getBoto3Version()
-            core.info(`boto3 version ${version}`)
+            core.notice(`boto3 version ${version}`)
             return version
       - name: Extract botocore version
         id: botocore
@@ -34,10 +35,11 @@ jobs:
         env:
           BOTO3_VERSION: ${{ steps.boto3.outputs.result }}
         with:
+          result-encoding: string
           script: |
             const { getBotocoreVersion } = require('./.github/workflows/helpers.js')
             const version = getBotocoreVersion(process.env.BOTO3_VERSION)
-            core.info(`botocore version ${version}`)
+            core.notice(`botocore version ${version}`)
             return version
   check-stubs:
     runs-on: ubuntu-latest
