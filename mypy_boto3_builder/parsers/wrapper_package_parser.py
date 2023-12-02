@@ -138,7 +138,7 @@ class WrapperPackageParser:
         Extract resource data for wrapper package.
         """
         result: list[Function] = []
-        resource_service_names: list[ServiceName] = self.get_resource_service_names()
+        resource_service_names = self.get_resource_service_names()
         add_overload = len(resource_service_names) > 1
         decorators = [Type.overload] if add_overload else []
         for service_name in resource_service_names:
@@ -167,7 +167,7 @@ class WrapperPackageParser:
         Extract resource data for wrapper package.
         """
         result: list[Method] = []
-        resource_service_names: list[ServiceName] = self.get_resource_service_names()
+        resource_service_names = self.get_resource_service_names()
         add_overload = len(resource_service_names) > 1
         decorators = [Type.overload] if add_overload else []
         for service_name in resource_service_names:

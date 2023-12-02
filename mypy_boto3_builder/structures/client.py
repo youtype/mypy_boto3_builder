@@ -23,7 +23,7 @@ class Client(ClassRecord):
     Boto3 Client.
     """
 
-    _alias_name: str = "Client"
+    ALIAS_NAME: str = "Client"
 
     def __init__(self, name: str, service_name: ServiceName, boto3_client: BaseClient) -> None:
         super().__init__(name=name)

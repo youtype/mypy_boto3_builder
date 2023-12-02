@@ -3,6 +3,7 @@ Method or function argument.
 """
 
 from collections.abc import Iterator
+from dataclasses import dataclass
 from typing import Literal, TypeVar
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -11,6 +12,7 @@ from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 _R = TypeVar("_R", bound="Argument")
 
 
+@dataclass
 class Argument:
     """
     Method or function argument.
@@ -22,17 +24,10 @@ class Argument:
         prefix -- Used for starargs.
     """
 
-    def __init__(
-        self,
-        name: str,
-        type_annotation: FakeAnnotation | None,
-        default: TypeConstant | None = None,
-        prefix: Literal["*", "**", ""] = "",
-    ):
-        self.name: str = name
-        self.type_annotation: FakeAnnotation | None = type_annotation
-        self.default: TypeConstant | None = default
-        self.prefix: Literal["*", "**", ""] = prefix
+    name: str
+    type_annotation: FakeAnnotation | None
+    default: TypeConstant | None = None
+    prefix: Literal["*", "**", ""] = ""
 
     def render(self) -> str:
         """
@@ -51,7 +46,7 @@ class Argument:
         """
         Create `*` keywords separator.
         """
-        return cls("*", None)
+        return cls(name="*", type_annotation=None)
 
     def is_kwflag(self) -> bool:
         """
