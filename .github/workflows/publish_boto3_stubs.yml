@@ -38,56 +38,160 @@ on:
         type: boolean
 
 jobs:
-  check-boto3-version:
-    name: Check boto3 version
+  versions:
     runs-on: ubuntu-latest
     outputs:
-      boto3-version: ${{ steps.vars.outputs.boto3-version }}
-      botocore-version: ${{ steps.vars.outputs.botocore-version }}
-      version: ${{ steps.vars.outputs.version }}
-      build-all: ${{ steps.vars.outputs.build-all }}
-      extra-flags: ${{ steps.vars.outputs.extra-flags }}
+      boto3: ${{ steps.boto3.outputs.result }}
+      botocore: ${{ steps.botocore.outputs.result }}
+      boto3-url: ${{ steps.boto3-url.outputs.result }}
+      botocore-url: ${{ steps.botocore-url.outputs.result }}
+      version: ${{ steps.version.outputs.result }}
+      build-all: ${{ steps.build-all.outputs.result }}
+      extra-flags: ${{ steps.extra-flags.outputs.result }}
     steps:
       - uses: actions/checkout@v4
-      - name: Extract versions
-        id: vars
+      - name: Find boto3 version
+        id: boto3
         uses: actions/github-script@v7
         with:
+          result-encoding: string
           script: |
-            const { setupGlobals, extractVersions } = require('./.github/workflows/helpers.js')
+            const { getBoto3Version, setupGlobals } = require('./.github/workflows/helpers.js')
             setupGlobals({ core, context, fetch })
-            await extractVersions()
+
+            const inputVersion = context.payload.inputs && context.payload.inputs.boto3_version
+            const version = inputVersion ? inputVersion : await getBoto3Version()
+            core.notice(`boto3 version ${version}`)
+            return version
+      - name: Find botocore version
+        id: botocore
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const { getBotocoreVersion, setupGlobals } = require('./.github/workflows/helpers.js')
+            setupGlobals({ core, context, fetch })
+
+            const version = getBotocoreVersion("${{ steps.boto3.outputs.result }}")
+            core.notice(`botocore version ${version}`)
+            return version
+      - name: Find build version
+        id: version
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const { getStubsVersions, getNextPostVersion, setupGlobals } = require('./.github/workflows/helpers.js')
+            setupGlobals({ core, context, fetch })
+
+            if (context.payload.inputs && context.payload.inputs.stubs_version) {
+              const version = context.payload.inputs.stubs_version
+              core.notice(`stubs version ${version}`)
+              return version
+            }
+
+            const force = context.payload.inputs ? context.payload.inputs.force !== 'false' : false
+            const boto3Version = "${{ steps.boto3.outputs.result }}"
+
+            const versions = await getStubsVersions(boto3Version)
+            core.info(`Built versions ${versions}`)
+
+            if (!versions.length) {
+              core.notice(`No builds found, building initial ${boto3Version}`)
+              return boto3Version
+            }
+
+            if (!force) {
+              core.notice(`Builds ${versions} found, skipping`)
+              return ''
+            }
+
+            const lastVersion = versions.pop()
+            core.notice(`Last version ${lastVersion}`)
+
+            const version = getNextPostVersion(lastVersion)
+            core.notice(`Version ${version}`)
+            return version
+      - name: Build all
+        id: build-all
+        if: steps.version.outputs.result
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            if (context.payload.inputs && context.payload.inputs.build_all !== 'false') {
+              core.notice('Build all = true')
+              return 'true'
+            }
+
+            const boto3Version = "${{ steps.boto3.outputs.result }}"
+            if (boto3Version.endsWith('.0')) {
+              core.notice('Build all = true (due to minor version update)')
+              return 'true'
+            }
+
+            core.notice('Build all = false')
+            return 'false'
+      - name: Extra flags
+        id: extra-flags
+        if: steps.version.outputs.result
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const extraFlags = []
+
+            const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : true
+            const noSmartVersion = context.payload.inputs ? context.payload.inputs.no_smart_version !== 'false' : true
+            if (skipPublished) extraFlags.push('--skip-published')
+            if (noSmartVersion) extraFlags.push('--no-smart-version')
+
+            core.notice(`Extra flags = ${extraFlags}`)
+            return extraFlags.join(' ')
+      - name: Boto3 download URL
+        id: boto3-url
+        if: steps.version.outputs.result
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const { getDownloadURL, setupGlobals } = require('./.github/workflows/helpers.js')
+            setupGlobals({ core, context, fetch })
+
+            const url = await getDownloadURL('boto3', "${{ steps.boto3.outputs.result }}")
+            core.notice(`boto3 download URL ${url}`)
+            return url
+      - name: Botocore download URL
+        id: botocore-url
+        if: steps.version.outputs.result
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const { getDownloadURL, setupGlobals } = require('./.github/workflows/helpers.js')
+            setupGlobals({ core, context, fetch })
+
+            const url = await getDownloadURL('botocore', "${{ steps.botocore.outputs.result }}")
+            core.notice(`botocore download URL ${url}`)
+            return url
 
   publish-boto3-stubs:
     name: Publish boto3-stubs
     runs-on: ubuntu-latest
-    needs: check-boto3-version
-    if: needs.check-boto3-version.outputs.version
-    env:
-      BOTO3_VERSION: ${{ needs.check-boto3-version.outputs.boto3-version }}
-      BOTOCORE_VERSION: ${{ needs.check-boto3-version.outputs.botocore-version }}
-      VERSION: ${{ needs.check-boto3-version.outputs.version }}
-      EXTRA_FLAGS: ${{ needs.check-boto3-version.outputs.extra-flags }}
+    needs: versions
+    if: needs.versions.outputs.version
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
-      - name: Get boto3 download links
-        id: links
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const { setupGlobals, extractDownloadLinks } = require('./.github/workflows/helpers.js')
-            setupGlobals({ core, context, fetch })
-            await extractDownloadLinks()
       - name: Install boto3
         run: |
           mkdir installtemp
           cd installtemp
-          wget ${{ steps.links.outputs.boto3-url }}
-          wget ${{ steps.links.outputs.botocore-url }}
+          wget ${{ needs.versions.outputs.boto3-url }}
+          wget ${{ needs.versions.outputs.botocore-url }}
           pip uninstall -y s3transfer
           pip install botocore*.whl
           pip install boto3*.whl
@@ -99,14 +203,20 @@ jobs:
           rm -rf mypy_boto3_builder
           python -m pip install mypy_boto3_builder
       - name: Build updated packages only
-        if: needs.check-boto3-version.outputs.build-all == 'false'
+        if: needs.versions.outputs.build-all == 'false'
+        env:
+          VERSION: ${{ needs.versions.outputs.version }}
+          EXTRA_FLAGS: ${{ needs.versions.outputs.extra-flags }}
         run: |
           rm -rf mypy_boto3_output/*
 
           echo "Building updated packages"
           python -m mypy_boto3_builder mypy_boto3_output -b ${VERSION} --product boto3 boto3-services ${EXTRA_FLAGS} -s updated -d
       - name: Build all packages
-        if: needs.check-boto3-version.outputs.build-all == 'true'
+        if: needs.versions.outputs.build-all == 'true'
+        env:
+          VERSION: ${{ needs.versions.outputs.version }}
+          EXTRA_FLAGS: ${{ needs.versions.outputs.extra-flags }}
         run: |
           rm -rf mypy_boto3_output/*
 
@@ -121,8 +231,3 @@ jobs:
           PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
           python ./scripts/release.py
-      - name: Store boto3-stubs artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: boto3-stubs
-          path: mypy_boto3_output/boto3_stubs_package/dist/*.whl
