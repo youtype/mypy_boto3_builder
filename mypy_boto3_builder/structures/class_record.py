@@ -18,8 +18,6 @@ class ClassRecord:
     Base class for all structures that can be rendered to a class.
     """
 
-    ALIAS_NAME: str = ""
-
     def __init__(
         self,
         name: str,
@@ -46,11 +44,13 @@ class ClassRecord:
     def alias_name(self) -> str:
         """
         Class alias name for safe import.
+
+        Returns:
+            Name prefixed with underscore.
         """
-        if self.ALIAS_NAME:
-            return self.ALIAS_NAME
         if not self.use_alias:
             raise ValueError(f"Cannot get alias for {self.name} with no alias.")
+
         return InternalImport.get_alias(self.name)
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
