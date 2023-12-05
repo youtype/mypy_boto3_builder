@@ -1,4 +1,4 @@
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Mapping, Optional
 
 from botocore.utils import DEFAULT_METADATA_SERVICE_TIMEOUT as DEFAULT_METADATA_SERVICE_TIMEOUT
 from botocore.utils import METADATA_BASE_URL as METADATA_BASE_URL
@@ -40,7 +40,7 @@ class AioInstanceMetadataRegionFetcher(AioIMDSFetcher, InstanceMetadataRegionFet
 class AioS3RegionRedirectorv2(S3RegionRedirectorv2):
     async def redirect_from_error(
         self,
-        request_dict: Dict[str, Any],
+        request_dict: Mapping[str, Any],
         response: Response,
         operation: Any,
         **kwargs: Any,
@@ -49,7 +49,7 @@ class AioS3RegionRedirectorv2(S3RegionRedirectorv2):
 
 class AioS3RegionRedirector(S3RegionRedirector):
     async def redirect_from_error(
-        self, request_dict: Dict[str, Any], response: Response, operation: Any, **kwargs: Any
+        self, request_dict: Mapping[str, Any], response: Response, operation: Any, **kwargs: Any
     ) -> Optional[int]: ...
     async def get_bucket_region(self, bucket: str, response: Response) -> str: ...
 

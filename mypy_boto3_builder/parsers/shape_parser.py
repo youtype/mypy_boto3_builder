@@ -3,8 +3,7 @@ Parser for botocore shape files.
 """
 
 import contextlib
-from collections.abc import Iterable, Mapping, Sequence
-from typing import Any
+from collections.abc import Iterable, Sequence
 
 from boto3.resources.model import Collection
 from boto3.session import Session
@@ -23,6 +22,14 @@ from botocore.model import (
 from botocore.session import Session as BotocoreSession
 
 from mypy_boto3_builder.logger import get_logger
+from mypy_boto3_builder.parsers.shape_parser_types import (
+    ActionShape,
+    PaginatorShape,
+    PaginatorsShape,
+    ResourceShape,
+    ResourcesShape,
+    WaitersShape,
+)
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
@@ -85,17 +92,17 @@ class ShapeParser:
         self._response_typed_dict_map: dict[str, TypeTypedDict] = {}
         self._fixed_typed_dict_map: dict[TypeTypedDict, TypeTypedDict] = {}
 
-        self._waiters_shape: Mapping[str, Any] | None = None
+        self._waiters_shape: WaitersShape | None = None
         with contextlib.suppress(UnknownServiceError):
             self._waiters_shape = loader.load_service_model(service_name.boto3_name, "waiters-2")
 
-        self._paginators_shape: Mapping[str, Any] | None = None
+        self._paginators_shape: PaginatorsShape | None = None
         with contextlib.suppress(UnknownServiceError):
             self._paginators_shape = loader.load_service_model(
                 service_name.boto3_name, "paginators-1"
             )
 
-        self._resources_shape: Mapping[str, Any] | None = None
+        self._resources_shape: ResourcesShape | None = None
         with contextlib.suppress(UnknownServiceError):
             self._resources_shape = loader.load_service_model(
                 service_name.boto3_name, "resources-1"
@@ -116,7 +123,7 @@ class ShapeParser:
     def _get_operation_names(self) -> list[str]:
         return list(self.service_model.operation_names)
 
-    def _get_paginator(self, name: str) -> dict[str, Any]:
+    def _get_paginator(self, name: str) -> PaginatorShape:
         if not self._paginators_shape:
             raise ShapeParserError(f"Unknown paginator: {name}")
         try:
@@ -124,7 +131,7 @@ class ShapeParser:
         except KeyError as e:
             raise ShapeParserError(f"Unknown paginator: {name}") from e
 
-    def _get_service_resource(self) -> dict[str, Any]:
+    def _get_service_resource(self) -> ResourceShape:
         if not self._resources_shape:
             raise ShapeParserError("Resource shape not found")
         return self._resources_shape["service"]
@@ -137,7 +144,7 @@ class ShapeParser:
 
         return list(self._resources_shape["resources"].keys())
 
-    def _get_resource_shape(self, name: str) -> dict[str, Any]:
+    def _get_resource_shape(self, name: str) -> ResourceShape:
         if not self._resources_shape:
             raise ShapeParserError("Resource shape not found")
         try:
@@ -648,7 +655,7 @@ class ShapeParser:
         for sub_resource_name in self._get_resource_names():
             resource_shape = self._get_resource_shape(sub_resource_name)
             arguments = [Argument("self", None)]
-            identifiers: list[dict[str, str]] = resource_shape.get("identifiers", [])
+            identifiers = resource_shape.get("identifiers", [])
             for identifier in identifiers:
                 arguments.append(Argument(xform_name(identifier["name"]), Type.str))
             method = Method(
@@ -682,33 +689,38 @@ class ShapeParser:
             "reload": Method("reload", [Argument("self", None)], Type.none),
         }
 
-        for action_name, action_shape in resource_shape.get("actions", {}).items():
-            method = self._get_resource_method(action_name, action_shape)
-            result[method.name] = method
+        if "actions" in resource_shape:
+            for action_name, action_shape in resource_shape["actions"].items():
+                method = self._get_resource_method(action_name, action_shape)
+                result[method.name] = method
 
-        for waiter_name in resource_shape.get("waiters", {}):
-            method = Method(
-                f"wait_until_{xform_name(waiter_name)}",
-                [Argument("self", None)],
-                Type.none,
-            )
-            result[method.name] = method
+        if "waiters" in resource_shape:
+            for waiter_name in resource_shape["waiters"].keys():
+                method = Method(
+                    f"wait_until_{xform_name(waiter_name)}",
+                    [Argument("self", None)],
+                    Type.none,
+                )
+                result[method.name] = method
 
-        for sub_resource_name, sub_resource in resource_shape.get("has", {}).items():
-            data: dict[str, Any] = sub_resource.get("resource", {})
-            arguments = [Argument("self", None)]
-            identifiers: list[dict[str, str]] = data.get("identifiers", [])
-            for identifier in identifiers:
-                if identifier.get("source") != "input":
+        if "has" in resource_shape:
+            for sub_resource_name, sub_resource in resource_shape["has"].items():
+                if "resource" not in sub_resource:
                     continue
-                arguments.append(Argument(xform_name(identifier["target"]), Type.str))
+                data = sub_resource["resource"]
+                arguments = [Argument("self", None)]
+                identifiers = data.get("identifiers", [])
+                for identifier in identifiers:
+                    if identifier.get("source") != "input":
+                        continue
+                    arguments.append(Argument(xform_name(identifier["target"]), Type.str))
 
-            method = Method(
-                sub_resource_name,
-                arguments=arguments,
-                return_type=AliasInternalImport(data["type"]),
-            )
-            result[method.name] = method
+                method = Method(
+                    sub_resource_name,
+                    arguments=arguments,
+                    return_type=AliasInternalImport(data["type"]),
+                )
+                result[method.name] = method
 
         return result
 
@@ -720,9 +732,9 @@ class ShapeParser:
             target = target.split(".")[0]
         return target
 
-    def _get_skip_argument_names(self, action_shape: dict[str, Any]) -> set[str]:
+    def _get_skip_argument_names(self, action_shape: ActionShape) -> set[str]:
         result: set[str] = set()
-        params = action_shape["request"].get("params", {})
+        params = action_shape["request"].get("params", [])
         for param in params:
             target = param["target"]
             source = param["source"]
@@ -736,17 +748,18 @@ class ShapeParser:
         return result
 
     def _enrich_arguments_defaults(
-        self, arguments: list[Argument], action_shape: dict[str, Any]
+        self, arguments: list[Argument], action_shape: ActionShape
     ) -> None:
-        params = action_shape["request"].get("params", {})
+        request = action_shape["request"]
         arguments_map = {a.name: a for a in arguments}
-        for param in params:
-            target = param["target"]
-            source = param["source"]
-            if source == "string" and target in arguments_map:
-                arguments_map[target].default = TypeConstant(param["value"])
+        if "params" in request:
+            for param in request["params"]:
+                target = param["target"]
+                source = param["source"]
+                if source == "string" and target in arguments_map:
+                    arguments_map[target].default = TypeConstant(param["value"])
 
-    def _get_resource_method(self, action_name: str, action_shape: dict[str, Any]) -> Method:
+    def _get_resource_method(self, action_name: str, action_shape: ActionShape) -> Method:
         return_type: FakeAnnotation = Type.none
         method_name = xform_name(action_name)
         arguments: list[Argument] = [Argument("self", None)]

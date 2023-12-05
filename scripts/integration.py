@@ -13,7 +13,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-from mypy_boto3_builder.utils.nice_path import NicePath
+from mypy_boto3_builder.utils.path import print_path
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
@@ -116,17 +116,17 @@ def compare(data: str, snapshot_path: Path, update: bool) -> None:
     logger = logging.getLogger(LOGGER_NAME)
     if not snapshot_path.exists():
         snapshot_path.write_text(data)
-        logger.info(f"Created {NicePath(snapshot_path)}")
+        logger.info(f"Created {print_path(snapshot_path)}")
         return
 
     old_data = snapshot_path.read_text().strip()
     if old_data == data:
-        logger.info(f"Matched {NicePath(snapshot_path)}")
+        logger.info(f"Matched {print_path(snapshot_path)}")
         return
 
     if update:
         snapshot_path.write_text(data)
-        logger.info(f"Updated {NicePath(snapshot_path)}")
+        logger.info(f"Updated {print_path(snapshot_path)}")
         return
 
     diff = difflib.unified_diff(
@@ -219,11 +219,11 @@ def main() -> None:
             logger.info(f"Installing {service_name}...")
             install_service(service_name)
         try:
-            logger.info(f"Running {NicePath(file)} ...")
+            logger.info(f"Running {print_path(file)} ...")
             run_call(file)
-            logger.info(f"Running mypy for {NicePath(file)} ...")
+            logger.info(f"Running mypy for {print_path(file)} ...")
             run_mypy(file, args.update)
-            logger.info(f"Running pyright for {NicePath(file)} ...")
+            logger.info(f"Running pyright for {print_path(file)} ...")
             run_pyright(file, args.update)
         except SnapshotMismatchError as e:
             logger.error(e)
