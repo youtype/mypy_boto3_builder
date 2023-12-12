@@ -30,7 +30,16 @@ class TemplateRender:
     """
 
     template_path: Path
-    output_paths: list[Path]
+    output_path: Path | tuple[Path, ...]
+
+    @property
+    def output_paths(self) -> tuple[Path, ...]:
+        """
+        Get output paths as a tuple.
+        """
+        if isinstance(self.output_path, Path):
+            return (self.output_path,)
+        return self.output_path
 
 
 class PackageWriter:
@@ -93,7 +102,7 @@ class PackageWriter:
         for template_path in template_paths:
             file_name = template_path.stem
             output_file_path = setup_path / file_name
-            result.append(TemplateRender(template_path, [output_file_path]))
+            result.append(TemplateRender(template_path, output_file_path))
         return result
 
     def _get_package_template_paths(
@@ -110,7 +119,7 @@ class PackageWriter:
             output_file_path = (
                 package_path / template_path.relative_to(package_template_path).parent / file_name
             )
-            result.append(TemplateRender(template_path, [output_file_path]))
+            result.append(TemplateRender(template_path, output_file_path))
         return result
 
     def _render_template(
@@ -142,7 +151,11 @@ class PackageWriter:
                 content = format_md(content)
             self._write_template(file_path, content)
 
-    def _render_templates(self, package: Package, template_renders: list[TemplateRender]) -> None:
+    def _render_templates(
+        self,
+        package: Package,
+        template_renders: Sequence[TemplateRender],
+    ) -> None:
         for template_render in template_renders:
             self._render_template(
                 template_render.template_path, template_render.output_paths, package
@@ -214,7 +227,7 @@ class PackageWriter:
         template_renders: list[TemplateRender] = []
         for template_path in templates_path.glob("**/*.jinja2"):
             file_name = template_path.stem
-            template_renders.append(TemplateRender(template_path, [self.output_path / file_name]))
+            template_renders.append(TemplateRender(template_path, self.output_path / file_name))
 
         self._render_md_templates(package, template_renders)
 
@@ -225,72 +238,76 @@ class PackageWriter:
         package_path = self._get_service_package_path(package)
         file_paths: list[TemplateRender] = [
             TemplateRender(
-                module_templates_path / "version.py.jinja2", [package_path / "version.py"]
+                module_templates_path / "version.py.jinja2",
+                package_path / "version.py",
             ),
             TemplateRender(
                 module_templates_path / "__init__.pyi.jinja2",
-                [package_path / "__init__.pyi", package_path / "__init__.py"],
+                (
+                    package_path / "__init__.pyi",
+                    package_path / "__init__.py",
+                ),
             ),
             TemplateRender(
-                module_templates_path / "__main__.py.jinja2", [package_path / "__main__.py"]
+                module_templates_path / "__main__.py.jinja2", package_path / "__main__.py"
             ),
-            TemplateRender(module_templates_path / "py.typed.jinja2", [package_path / "py.typed"]),
+            TemplateRender(module_templates_path / "py.typed.jinja2", package_path / "py.typed"),
             TemplateRender(
                 module_templates_path / ServiceModuleName.client.template_name,
-                [
+                (
                     package_path / ServiceModuleName.client.stub_file_name,
                     package_path / ServiceModuleName.client.file_name,
-                ],
+                ),
             ),
         ]
         if package.service_resource:
             file_paths.append(
                 TemplateRender(
                     module_templates_path / ServiceModuleName.service_resource.template_name,
-                    [
+                    (
                         package_path / ServiceModuleName.service_resource.stub_file_name,
                         package_path / ServiceModuleName.service_resource.file_name,
-                    ],
+                    ),
                 )
             )
         if package.paginators:
             file_paths.append(
                 TemplateRender(
                     module_templates_path / ServiceModuleName.paginator.template_name,
-                    [
+                    (
                         package_path / ServiceModuleName.paginator.stub_file_name,
                         package_path / ServiceModuleName.paginator.file_name,
-                    ],
+                    ),
                 )
             )
         if package.waiters:
             file_paths.append(
                 TemplateRender(
                     module_templates_path / ServiceModuleName.waiter.template_name,
-                    [
+                    (
                         package_path / ServiceModuleName.waiter.stub_file_name,
                         package_path / ServiceModuleName.waiter.file_name,
-                    ],
+                    ),
                 )
             )
         if package.literals:
             file_paths.append(
                 TemplateRender(
                     module_templates_path / ServiceModuleName.literals.template_name,
-                    [
+                    (
                         package_path / ServiceModuleName.literals.stub_file_name,
                         package_path / ServiceModuleName.literals.file_name,
-                    ],
+                    ),
                 )
             )
         if package.type_defs:
             file_paths.append(
                 TemplateRender(
                     module_templates_path / ServiceModuleName.type_defs.template_name,
-                    [
+                    (
                         package_path / ServiceModuleName.type_defs.stub_file_name,
                         package_path / ServiceModuleName.type_defs.file_name,
-                    ],
+                    ),
                 )
             )
         return file_paths
@@ -327,38 +344,36 @@ class PackageWriter:
         docs_path = self.output_path / package.name
         docs_path.mkdir(exist_ok=True, parents=True)
         template_renders: list[TemplateRender] = [
-            TemplateRender(templates_path / "README.md.jinja2", [docs_path / "README.md"]),
-            TemplateRender(templates_path / "client.md.jinja2", [docs_path / "client.md"]),
-            TemplateRender(templates_path / "usage.md.jinja2", [docs_path / "usage.md"]),
+            TemplateRender(templates_path / "README.md.jinja2", docs_path / "README.md"),
+            TemplateRender(templates_path / "client.md.jinja2", docs_path / "client.md"),
+            TemplateRender(templates_path / "usage.md.jinja2", docs_path / "usage.md"),
         ]
 
         if package.literals:
             template_renders.append(
-                TemplateRender(templates_path / "literals.md.jinja2", [docs_path / "literals.md"])
+                TemplateRender(templates_path / "literals.md.jinja2", docs_path / "literals.md")
             )
 
         if package.type_defs:
             template_renders.append(
-                TemplateRender(templates_path / "type_defs.md.jinja2", [docs_path / "type_defs.md"])
+                TemplateRender(templates_path / "type_defs.md.jinja2", docs_path / "type_defs.md")
             )
 
         if package.waiters:
             template_renders.append(
-                TemplateRender(templates_path / "waiters.md.jinja2", [docs_path / "waiters.md"])
+                TemplateRender(templates_path / "waiters.md.jinja2", docs_path / "waiters.md")
             )
 
         if package.paginators:
             template_renders.append(
-                TemplateRender(
-                    templates_path / "paginators.md.jinja2", [docs_path / "paginators.md"]
-                )
+                TemplateRender(templates_path / "paginators.md.jinja2", docs_path / "paginators.md")
             )
 
         if package.service_resource:
             template_renders.append(
                 TemplateRender(
                     templates_path / "service_resource.md.jinja2",
-                    [docs_path / "service_resource.md"],
+                    docs_path / "service_resource.md",
                 )
             )
 
