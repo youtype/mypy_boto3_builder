@@ -236,70 +236,60 @@ class PackageWriter:
         ]
         file_paths.extend([])
         if package.service_resource:
-            file_paths.extend(
+            file_paths.extend((
                 (
-                    (
-                        package_path / ServiceModuleName.service_resource.stub_file_name,
-                        module_templates_path / ServiceModuleName.service_resource.template_name,
-                    ),
-                    (
-                        package_path / ServiceModuleName.service_resource.file_name,
-                        module_templates_path / ServiceModuleName.service_resource.template_name,
-                    ),
-                )
-            )
+                    package_path / ServiceModuleName.service_resource.stub_file_name,
+                    module_templates_path / ServiceModuleName.service_resource.template_name,
+                ),
+                (
+                    package_path / ServiceModuleName.service_resource.file_name,
+                    module_templates_path / ServiceModuleName.service_resource.template_name,
+                ),
+            ))
         if package.paginators:
-            file_paths.extend(
+            file_paths.extend((
                 (
-                    (
-                        package_path / ServiceModuleName.paginator.stub_file_name,
-                        module_templates_path / ServiceModuleName.paginator.template_name,
-                    ),
-                    (
-                        package_path / ServiceModuleName.paginator.file_name,
-                        module_templates_path / ServiceModuleName.paginator.template_name,
-                    ),
-                )
-            )
+                    package_path / ServiceModuleName.paginator.stub_file_name,
+                    module_templates_path / ServiceModuleName.paginator.template_name,
+                ),
+                (
+                    package_path / ServiceModuleName.paginator.file_name,
+                    module_templates_path / ServiceModuleName.paginator.template_name,
+                ),
+            ))
         if package.waiters:
-            file_paths.extend(
+            file_paths.extend((
                 (
-                    (
-                        package_path / ServiceModuleName.waiter.stub_file_name,
-                        module_templates_path / ServiceModuleName.waiter.template_name,
-                    ),
-                    (
-                        package_path / ServiceModuleName.waiter.file_name,
-                        module_templates_path / ServiceModuleName.waiter.template_name,
-                    ),
-                )
-            )
+                    package_path / ServiceModuleName.waiter.stub_file_name,
+                    module_templates_path / ServiceModuleName.waiter.template_name,
+                ),
+                (
+                    package_path / ServiceModuleName.waiter.file_name,
+                    module_templates_path / ServiceModuleName.waiter.template_name,
+                ),
+            ))
         if package.literals:
-            file_paths.extend(
+            file_paths.extend((
                 (
-                    (
-                        package_path / ServiceModuleName.literals.stub_file_name,
-                        module_templates_path / ServiceModuleName.literals.template_name,
-                    ),
-                    (
-                        package_path / ServiceModuleName.literals.file_name,
-                        module_templates_path / ServiceModuleName.literals.template_name,
-                    ),
-                )
-            )
+                    package_path / ServiceModuleName.literals.stub_file_name,
+                    module_templates_path / ServiceModuleName.literals.template_name,
+                ),
+                (
+                    package_path / ServiceModuleName.literals.file_name,
+                    module_templates_path / ServiceModuleName.literals.template_name,
+                ),
+            ))
         if package.type_defs:
-            file_paths.extend(
+            file_paths.extend((
                 (
-                    (
-                        package_path / ServiceModuleName.type_defs.stub_file_name,
-                        module_templates_path / ServiceModuleName.type_defs.template_name,
-                    ),
-                    (
-                        package_path / ServiceModuleName.type_defs.file_name,
-                        module_templates_path / ServiceModuleName.type_defs.template_name,
-                    ),
-                )
-            )
+                    package_path / ServiceModuleName.type_defs.stub_file_name,
+                    module_templates_path / ServiceModuleName.type_defs.template_name,
+                ),
+                (
+                    package_path / ServiceModuleName.type_defs.file_name,
+                    module_templates_path / ServiceModuleName.type_defs.template_name,
+                ),
+            ))
         return file_paths
 
     def write_service_package(self, package: ServicePackage, templates_path: Path) -> None:
