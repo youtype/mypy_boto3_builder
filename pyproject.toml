@@ -113,10 +113,10 @@ omit = ["tests/*"]
 
 [tool.pyright]
 include = ["mypy_boto3_builder"]
+exclude = ["tests"]
 ignore = [
     ".venv",
     "**/__pycache__",
-    "tests",
     "**/build",
     "typestubs",
     "examples",
