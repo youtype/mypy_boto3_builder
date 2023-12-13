@@ -107,7 +107,11 @@ def render_jinja2_package_template(template_path: Path, package: Package) -> str
     Returns:
         A rendered template.
     """
-    return render_jinja2_template(template_path, package=package)
+    return render_jinja2_template(
+        template_path,
+        package=package,
+        service_name=package.service_name if len(package.service_names) == 1 else None,
+    )
 
 
 def insert_md_toc(text: str) -> str:

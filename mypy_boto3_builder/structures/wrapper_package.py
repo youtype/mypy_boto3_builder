@@ -20,21 +20,13 @@ class WrapperPackage(Package, ABC):
     Structure for boto3-stubs/types-aiobotocore/types-aioboto3 module.
     """
 
-    def __init__(
-        self,
-        data: type[BasePackageData],
-        session_class: ClassRecord | None = None,
-        service_names: Iterable[ServiceName] = (),
-        service_packages: Iterable[ServicePackage] = (),
-        init_functions: Iterable[Function] = (),
-        literals: Iterable[TypeLiteral] = (),
-    ):
+    def __init__(self, data: type[BasePackageData], service_names: Iterable[ServiceName]):
         super().__init__(data)
-        self.session_class = session_class or ClassRecord("Session")
+        self.session_class = ClassRecord("Session")
         self.service_names = list(service_names)
-        self.service_packages = list(service_packages)
-        self.init_functions = list(init_functions)
-        self.literals = list(literals)
+        self.service_packages: list[ServicePackage] = []
+        self.init_functions: list[Function] = []
+        self.literals: list[TypeLiteral] = []
 
     @property
     def essential_service_names(self) -> list[ServiceName]:

@@ -44,7 +44,6 @@ class ServicePackage(Package):
         super().__init__(data)
         self.name = data.get_service_package_name(service_name)
         self.pypi_name = data.get_service_pypi_name(service_name)
-        self.service_name = service_name
         self._client = client
         self.service_resource = service_resource
         self.waiters = list(waiters)

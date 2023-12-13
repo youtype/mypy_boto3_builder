@@ -31,6 +31,15 @@ class Package:
         self.logger = get_logger()
 
     @property
+    def service_name(self) -> ServiceName:
+        """
+        Service name for the package.
+        """
+        if len(self.service_names) != 1:
+            raise ValueError(f"Package {self.name} has more than one service name")
+        return self.service_names[0]
+
+    @property
     def directory_name(self) -> str:
         """
         Directory name to store generated package.

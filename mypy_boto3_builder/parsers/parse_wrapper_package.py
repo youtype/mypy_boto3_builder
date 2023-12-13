@@ -28,7 +28,7 @@ def parse_boto3_stubs_package(
     Returns:
         Boto3StubsPackage structure.
     """
-    package = Boto3StubsPackage(package_data, service_names=service_names)
+    package = Boto3StubsPackage(package_data, service_names)
     parser = WrapperPackageParser(session, package)
     package.init_functions.extend(parser.get_init_client_functions())
     package.init_functions.extend(parser.get_init_resource_functions())
@@ -51,7 +51,7 @@ def parse_aiobotocore_stubs_package(
     Returns:
         TypesAioBotocorePackage structure.
     """
-    package = TypesAioBotocorePackage(package_data, service_names=service_names)
+    package = TypesAioBotocorePackage(package_data, service_names)
     parser = WrapperPackageParser(session, package)
     package.session_class.methods.extend(parser.get_session_client_methods("create_client"))
     return package
@@ -71,7 +71,7 @@ def parse_types_aioboto3_package(
     Returns:
         TypesAioBoto3Package structure.
     """
-    package = TypesAioBoto3Package(package_data, service_names=service_names)
+    package = TypesAioBoto3Package(package_data, service_names)
     parser = WrapperPackageParser(session, package)
     package.init_functions.extend(parser.get_init_client_functions())
     package.init_functions.extend(parser.get_init_resource_functions())
