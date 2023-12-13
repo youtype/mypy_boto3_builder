@@ -65,9 +65,15 @@ class WrapperPackageParser:
             ),
         )
 
+    def get_client_service_names(self) -> list[ServiceName]:
+        """
+        Get service names that have a Client.
+        """
+        return self.package.service_names
+
     def get_resource_service_names(self) -> list[ServiceName]:
         """
-        Get resource service names.
+        Get service names that have a ServiceResource.
         """
         result: list[ServiceName] = []
         for service_name in self.package.service_names:
@@ -81,9 +87,10 @@ class WrapperPackageParser:
         Extract client data for wrapper package.
         """
         result: list[Function] = []
-        add_overload = len(self.package.service_packages) > 1
+        client_service_names = self.get_client_service_names()
+        add_overload = len(client_service_names) > 1
         decorators = [Type.overload] if add_overload else []
-        for service_name in self.package.service_names:
+        for service_name in client_service_names:
             package_name = self.package.data.get_service_package_name(service_name)
             service_name_argument = self._get_service_name_argument(service_name)
             return_type = ExternalImport(
@@ -109,9 +116,10 @@ class WrapperPackageParser:
         Extract client data for wrapper package.
         """
         result: list[Method] = []
-        add_overload = len(self.package.service_packages) > 1
+        client_service_names = self.get_client_service_names()
+        add_overload = len(client_service_names) > 1
         decorators = [Type.overload] if add_overload else []
-        for service_name in self.package.service_names:
+        for service_name in client_service_names:
             package_name = self.package.data.get_service_package_name(service_name)
             service_name_argument = self._get_service_name_argument(service_name)
             return_type = ExternalImport(
