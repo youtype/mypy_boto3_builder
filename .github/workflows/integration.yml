@@ -1,4 +1,4 @@
-name: Integration
+name: boto3-stubs integration
 
 on:
   workflow_dispatch: {}

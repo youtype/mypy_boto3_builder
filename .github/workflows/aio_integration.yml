@@ -1,4 +1,4 @@
-name: AIO Integration
+name: types-aiobotocore integration
 
 on:
   workflow_dispatch: {}
