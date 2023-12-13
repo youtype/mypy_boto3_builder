@@ -27,8 +27,7 @@ jobs:
           node-version: "20"
       - name: Install dependencies
         run: |
-          poetry install -n
-          poetry run pip install -U --no-dependencies aiobotocore aioboto3
+          ./scripts/install_dev.sh
       - name: Install Node.js dependencies
         run: |
           npm install -g pyright

@@ -1,6 +1,7 @@
 aio_examples/s3_example.py:37: error: Incompatible types in assignment (expression has type "Coroutine[Any, Any, Bucket]", variable has type "Bucket")  [assignment]
 aio_examples/s3_example.py:37: note: Maybe you forgot to use "await"?
 aio_examples/s3_example.py:38: error: Unexpected keyword argument "mfa" for "delete" of "BucketObjectsCollection"  [call-arg]
+aio_examples/s3_example.py:41: error: Argument "Key" to "upload_file" of "Bucket" has incompatible type "int"; expected "str"  [arg-type]
 aio_examples/s3_example.py:41: error: Argument "Config" to "upload_file" of "Bucket" has incompatible type "str"; expected "TransferConfig | None"  [arg-type]
 aio_examples/s3_example.py:42: error: Missing key "Key" for TypedDict "BucketUploadFileRequestTypeDef"  [typeddict-item]
 aio_examples/s3_example.py:42: error: Extra key "key" for TypedDict "BucketUploadFileRequestTypeDef"  [typeddict-unknown-key]
@@ -19,11 +20,11 @@ aio_examples/s3_example.py:84: note: Maybe you forgot to use "await"?
 aio_examples/s3_example.py:87: error: Missing named argument "Key" for "get_object" of "S3Client"  [call-arg]
 aio_examples/s3_example.py:90: error: TypedDict "GetObjectOutputTypeDef" has no key "expiration"  [typeddict-item]
 aio_examples/s3_example.py:90: note: Did you mean "Expiration"?
-aio_examples/s3_example.py:96: error: Missing key "AllowedOrigins" for TypedDict "CORSRuleTypeDef"  [typeddict-item]
-aio_examples/s3_example.py:96: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"  [typeddict-unknown-key]
-aio_examples/s3_example.py:96: error: Incompatible types (expression has type "tuple[str]", TypedDict item "AllowedMethods" has type "list[str]")  [typeddict-item]
-aio_examples/s3_example.py:102: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"  [arg-type]
-aio_examples/s3_example.py:104: error: "BotocoreClientError" has no attribute "operations_name"; maybe "operation_name"?  [attr-defined]
-aio_examples/s3_example.py:108: error: Value of type "Coroutine[Any, Any, Iterator[bytes]]" must be used  [unused-coroutine]
-aio_examples/s3_example.py:108: note: Are you missing an await?
-Found 23 errors in 1 file (checked 1 source file)
+aio_examples/s3_example.py:97: error: Missing key "AllowedOrigins" for TypedDict "CORSRuleTypeDef"  [typeddict-item]
+aio_examples/s3_example.py:97: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"  [typeddict-unknown-key]
+aio_examples/s3_example.py:97: error: Incompatible types (expression has type "tuple[str]", TypedDict item "AllowedMethods" has type "list[str]")  [typeddict-item]
+aio_examples/s3_example.py:104: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"  [arg-type]
+aio_examples/s3_example.py:106: error: "BotocoreClientError" has no attribute "operations_name"; maybe "operation_name"?  [attr-defined]
+aio_examples/s3_example.py:110: error: Value of type "Coroutine[Any, Any, Iterator[bytes]]" must be used  [unused-coroutine]
+aio_examples/s3_example.py:110: note: Are you missing an await?
+Found 24 errors in 1 file (checked 1 source file)

@@ -38,7 +38,7 @@ async def s3_resource_example() -> None:
         await bucket.objects.delete(mfa="my_mfa", MFA="my_mfa")
 
         # (mypy) error: Unexpected keyword argument "key" for "upload_file" of "Bucket"
-        await bucket.upload_file(Filename="my.txt", Key="my-txt", Config="test")
+        await bucket.upload_file(Filename="my.txt", Key=123, Config="test")
         data: BucketUploadFileRequestTypeDef = {"Filename": "my.txt", "key": "my-txt"}
         await bucket.upload_file(**data)
 
@@ -87,7 +87,8 @@ async def s3_client_example() -> None:
         s3_object = await client.get_object(Bucket="bucket")
 
         # (mypy) error: TypedDict "GetObjectOutputTypeDef" has no key 'expiration'
-        _expiration = s3_object["expiration"]
+        expiration = s3_object["expiration"]
+        print(expiration)
 
         # (mypy) error: Extra key 'Allowedorigins' for TypedDict "CORSRuleTypeDef"
         await client.put_bucket_cors(
@@ -97,7 +98,8 @@ async def s3_client_example() -> None:
             },
         )
 
-        # (mypy) error: Argument "Key" to "get_object" of "Client" has incompatible type "None"; expected "str"
+        # (mypy) error: Argument "Key" to "get_object" of "Client" has incompatible type "None";
+        # expected "str"
         try:
             await client.get_object(Bucket="bucket", Key=None)
         except client.exceptions.NoSuchKey as e:
