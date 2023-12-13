@@ -34,12 +34,44 @@ jobs:
           npm install -g pyright
       - name: Integration tests
         run: |
-          poetry run python scripts/integration.py
+          poetry run python scripts/integration.py --product boto3 -d
       - name: Store artifacts
         uses: actions/upload-artifact@v3
         with:
           name: mypy_boto3_output
           path: mypy_boto3_output
+
+  aio_integration:
+    name: AIO integration tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python for Poetry
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install poetry
+        run: |
+          python -m pip install poetry pip
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "poetry"
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dependencies
+        run: |
+          poetry install -n
+          poetry run pip install -U --no-dependencies aiobotocore aioboto3
+      - name: Install Node.js dependencies
+        run: |
+          npm install -g pyright
+      - name: Integration tests
+        run: |
+          poetry run python scripts/integration.py --product aioboto3 -d
 
   sanity-check:
     name: Sanity check
