@@ -15,6 +15,6 @@ def get_resource() -> {{ package.service_resource.sub_resources[0].name }}:
 ```
 
 {% for sub_resource in package.service_resource.sub_resources -%}
-- [{{ sub_resource.name }}]({{ package.service_name.get_md_doc_link('service_resource', sub_resource.name) }}){{ '\n' -}}
+- [{{ sub_resource.name }}]({{ service_name.get_md_doc_link('service_resource', sub_resource.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}

@@ -17,7 +17,7 @@ setup(
     license="MIT License",
     author="Vlad Emelianov",
     author_email="vlad.emelianov.nz@gmail.com",
-    description="Type annotations for {{ package.library_name }}.{{ package.service_name.class_name }} {{ package.library_version }} service generated with mypy-boto3-builder {{ builder_version }}",
+    description="Type annotations for {{ package.library_name }}.{{ service_name.class_name }} {{ package.library_version }} service generated with mypy-boto3-builder {{ builder_version }}",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
@@ -37,7 +37,7 @@ setup(
         "Programming Language :: Python :: Implementation :: CPython",
         "Typing :: Typed",
     ],
-    keywords='{{ package.library_name }} {{ package.service_name.boto3_name }} type-annotations botocore mypy typeshed autocomplete',
+    keywords='{{ package.library_name }} {{ service_name.boto3_name }} type-annotations botocore mypy typeshed autocomplete',
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     package_data={"{{ package.name }}": ["py.typed", "*.pyi"]},

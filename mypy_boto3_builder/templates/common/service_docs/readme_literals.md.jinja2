@@ -1,7 +1,7 @@
 {% if package.literals %}
 ## Literals
 
-Type annotations for [literals]({{ package.service_name.get_md_doc_link('literals') }}) used in methods and schema.
+Type annotations for [literals]({{ service_name.get_md_doc_link('literals') }}) used in methods and schema.
 
 ```python
 # {{ package.literals[0].name }} usage example
@@ -13,6 +13,6 @@ def get_value() -> {{ package.literals[0].name }}:
 ```
 
 {% for literal in package.literals -%}
-- [{{ literal.name }}]({{ package.service_name.get_md_doc_link('literals', literal.name) }}){{ '\n' -}}
+- [{{ literal.name }}]({{ service_name.get_md_doc_link('literals', literal.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}

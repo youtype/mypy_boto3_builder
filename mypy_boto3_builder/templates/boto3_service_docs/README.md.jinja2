@@ -12,7 +12,7 @@ Code samples can be found in [Examples](./usage.md).
 
 ## {{ package.client.name }}
 
-Type annotations and code completion for  `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ package.service_name.get_md_doc_link('client') }})
+Type annotations and code completion for  `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}")` as [{{ package.client.name }}]({{ service_name.get_md_doc_link('client') }})
 [:material-aws: boto3 documentation]({{ package.client.boto3_doc_link }})
 
 ```python
@@ -23,13 +23,13 @@ from {{ package.library_name }}.session import Session
 from {{ package.name }}.client import {{ package.client.name }}
 
 def get_client() -> {{ package.client.name }}:
-    return Session().client("{{ package.service_name.boto3_name }}")
+    return Session().client("{{ service_name.boto3_name }}")
 ```
 
 {% if package.paginators %}
 ## Paginators
 
-Type annotations and code completion for [paginators]({{ package.service_name.get_md_doc_link('paginators') }})
+Type annotations and code completion for [paginators]({{ service_name.get_md_doc_link('paginators') }})
 from `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}").get_paginator("...")`.
 
 ```python
@@ -40,18 +40,18 @@ from {{ package.library_name }}.session import Session
 from {{ package.name }}.paginator import {{ package.paginators[0].name }}
 
 def get_{{ package.paginators[0].operation_name }}_paginator() -> {{ package.paginators[0].name }}:
-    return Session().client("{{ package.service_name.boto3_name }}").get_paginator("{{ package.paginators[0].operation_name }}"))
+    return Session().client("{{ service_name.boto3_name }}").get_paginator("{{ package.paginators[0].operation_name }}"))
 ```
 
 {% for paginator in package.paginators -%}
-- [{{ paginator.name }}]({{ package.service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
+- [{{ paginator.name }}]({{ service_name.get_md_doc_link('paginators', paginator.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
 {% if package.waiters %}
 ## Waiters
 
-Type annotations and code completion for [waiters]({{ package.service_name.get_md_doc_link('waiters') }})
+Type annotations and code completion for [waiters]({{ service_name.get_md_doc_link('waiters') }})
 from `#!python {{ package.library_name }}.client("{{ package.service_name.boto3_name }}").get_waiter("...")`.
 
 ```python
@@ -62,11 +62,11 @@ from {{ package.library_name }}.session import Session
 from {{ package.name }}.waiter import {{ package.waiters[0].name }}
 
 def get_{{ package.waiters[0].waiter_name }}_waiter() -> {{ package.waiters[0].name }}:
-    return Session().client("{{ package.service_name.boto3_name }}").get_waiter("{{ package.waiters[0].waiter_name }}")
+    return Session().client("{{ service_name.boto3_name }}").get_waiter("{{ package.waiters[0].waiter_name }}")
 ```
 
 {% for waiter in package.waiters -%}
-- [{{ waiter.name }}]({{ package.service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
+- [{{ waiter.name }}]({{ service_name.get_md_doc_link('waiters', waiter.name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
@@ -75,7 +75,7 @@ def get_{{ package.waiters[0].waiter_name }}_waiter() -> {{ package.waiters[0].n
 ## {{ package.service_resource.name }}
 
 Type annotations and code completion for `#!python {{ package.library_name }}.resource("{{ package.service_name.boto3_name }}")` as
-[{{ package.service_resource.name }}]({{ package.service_name.get_md_doc_link('service_resource', package.service_resource.name) }})
+[{{ package.service_resource.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name) }})
 [:material-aws: boto3 documentation]({{ package.service_resource.boto3_doc_link }})
 
 ```python
@@ -85,8 +85,8 @@ from {{ package.library_name }}.session import Session
 
 from {{ package.name  }}.service_resource import {{ package.service_resource.name }}
 
-def get_{{ package.service_name.boto3_name }}_resource() -> {{ package.service_resource.name }}:
-    return Session().resource("{{ package.service_name.boto3_name }}")
+def get_{{ service_name.boto3_name }}_resource() -> {{ package.service_resource.name }}:
+    return Session().resource("{{ service_name.boto3_name }}")
 ```
 
 {% if package.service_resource.collections %}
@@ -103,11 +103,11 @@ from {{ package.library_name }}.session import Session
 from {{ package.name }}.service_resource import {{ package.service_resource.collections[0].name }}
 
 def get_collection() -> {{ package.service_resource.collections[0].name }}:
-    return Session().resource("{{ package.service_name.boto3_name }}").{{ package.service_resource.collections[0].attribute_name }}
+    return Session().resource("{{ service_name.boto3_name }}").{{ package.service_resource.collections[0].attribute_name }}
 ```
 
 {% for collection in package.service_resource.collections -%}
-- [{{ collection.name }}]({{ package.service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }}){{ '\n' -}}
+- [{{ collection.name }}]({{ service_name.get_md_doc_link('service_resource', package.service_resource.name, collection.attribute_name) }}){{ '\n' -}}
 {% endfor %}
 {% endif %}
 
