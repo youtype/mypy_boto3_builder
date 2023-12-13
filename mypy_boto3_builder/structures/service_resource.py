@@ -22,10 +22,8 @@ from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 class ServiceResource(ClassRecord):
     """
-    Boto3 ServiceResource.
+    Service Resource.
     """
-
-    _alias_name = "ServiceResource"
 
     def __init__(
         self,
@@ -56,6 +54,13 @@ class ServiceResource(ClassRecord):
     def __hash__(self) -> int:
         return hash(self.service_name)
 
+    @property
+    def alias_name(self) -> str:
+        """
+        Class alias name for safe import.
+        """
+        return "ServiceResource"
+
     @staticmethod
     def get_class_name(service_name: ServiceName) -> str:
         """
@@ -72,7 +77,7 @@ class ServiceResource(ClassRecord):
 
     def _get_client_import(self, service_name: ServiceName) -> ExternalImport:
         return ExternalImport(
-            source=ImportString.parent() + ImportString(ServiceModuleName.client.value),
+            source=ImportString.parent() + ServiceModuleName.client.value,
             name=Client.get_class_name(service_name),
         )
 

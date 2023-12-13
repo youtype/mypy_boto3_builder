@@ -44,7 +44,6 @@ class ServicePackage(Package):
         super().__init__(data)
         self.name = data.get_service_package_name(service_name)
         self.pypi_name = data.get_service_pypi_name(service_name)
-        self.service_name = service_name
         self._client = client
         self.service_resource = service_resource
         self.waiters = list(waiters)
@@ -52,6 +51,7 @@ class ServicePackage(Package):
         self.type_defs = list(type_defs)
         self.literals = list(literals)
         self.helper_functions = list(helper_functions)
+        self.service_names = [service_name]
 
     @property
     def client(self) -> Client:
@@ -125,28 +125,28 @@ class ServicePackage(Package):
         import_records: set[ImportRecord] = set()
         import_records.add(
             ImportRecord(
-                ImportString.parent() + ImportString(ServiceModuleName.client.name),
+                ImportString.parent() + ServiceModuleName.client.name,
                 self.client.name,
             )
         )
         if self.service_resource:
             import_records.add(
                 ImportRecord(
-                    ImportString.parent() + ImportString(ServiceModuleName.service_resource.name),
+                    ImportString.parent() + ServiceModuleName.service_resource.name,
                     self.service_resource.name,
                 )
             )
         for waiter in self.waiters:
             import_records.add(
                 ImportRecord(
-                    ImportString.parent() + ImportString(ServiceModuleName.waiter.name),
+                    ImportString.parent() + ServiceModuleName.waiter.name,
                     waiter.name,
                 )
             )
         for paginator in self.paginators:
             import_records.add(
                 ImportRecord(
-                    ImportString.parent() + ImportString(ServiceModuleName.paginator.name),
+                    ImportString.parent() + ServiceModuleName.paginator.name,
                     paginator.name,
                 )
             )

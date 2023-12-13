@@ -80,9 +80,10 @@ class ImportString:
     def __gt__(self, other: object) -> bool:
         return str(self) > str(other)
 
-    def __add__(self: _R, other: _R) -> _R:
+    def __add__(self: _R, other: _R | str) -> _R:
+        other_import_string = other if isinstance(other, ImportString) else ImportString(other)
         result = self.__class__.empty()
-        result.parts = self.parts + other.parts
+        result.parts = self.parts + other_import_string.parts
         return result
 
     def startswith(self: _R, other: _R) -> bool:

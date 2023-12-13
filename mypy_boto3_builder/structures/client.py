@@ -20,10 +20,8 @@ from mypy_boto3_builder.type_annotations.type import Type
 
 class Client(ClassRecord):
     """
-    Boto3 Client.
+    Service Client.
     """
-
-    _alias_name: str = "Client"
 
     def __init__(self, name: str, service_name: ServiceName, boto3_client: BaseClient) -> None:
         super().__init__(name=name)
@@ -59,6 +57,13 @@ class Client(ClassRecord):
         Calculate hash from client service name.
         """
         return hash(self.service_name)
+
+    @property
+    def alias_name(self) -> str:
+        """
+        Class alias name for safe import.
+        """
+        return "Client"
 
     @staticmethod
     def get_class_name(service_name: ServiceName) -> str:

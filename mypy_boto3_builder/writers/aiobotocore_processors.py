@@ -13,9 +13,9 @@ from mypy_boto3_builder.package_data import (
     TypesAioBotocoreLitePackageData,
     TypesAioBotocorePackageData,
 )
-from mypy_boto3_builder.parsers.aiobotocore_stubs_package import parse_aiobotocore_stubs_package
+from mypy_boto3_builder.parsers.parse_wrapper_package import parse_aiobotocore_stubs_package
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.structures.aiobotocore_stubs_package import AioBotocoreStubsPackage
+from mypy_boto3_builder.structures.types_aiobotocore_package import TypesAioBotocorePackage
 from mypy_boto3_builder.utils.path import print_path
 from mypy_boto3_builder.writers.package_writer import PackageWriter
 
@@ -26,7 +26,7 @@ def process_aiobotocore_stubs(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
-) -> AioBotocoreStubsPackage:
+) -> TypesAioBotocorePackage:
     """
     Parse and write stubs package `aiobotocore-stubs`.
 
@@ -38,7 +38,7 @@ def process_aiobotocore_stubs(
         version -- Package version
 
     Return:
-        Parsed AioBotocoreStubsPackage.
+        Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
     aiobotocore_stubs_package = parse_aiobotocore_stubs_package(
@@ -62,7 +62,7 @@ def process_aiobotocore_stubs_lite(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
-) -> AioBotocoreStubsPackage:
+) -> TypesAioBotocorePackage:
     """
     Parse and write stubs package `aiobotocore-stubs-lite`.
 
@@ -74,7 +74,7 @@ def process_aiobotocore_stubs_lite(
         version -- Package version
 
     Return:
-        Parsed AioBotocoreStubsPackage.
+        Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
     aiobotocore_stubs_package = parse_aiobotocore_stubs_package(
@@ -97,7 +97,7 @@ def process_aiobotocore_stubs_docs(
     session: Session,
     output_path: Path,
     service_names: Iterable[ServiceName],
-) -> AioBotocoreStubsPackage:
+) -> TypesAioBotocorePackage:
     """
     Parse and write master package docs.
 
@@ -107,7 +107,7 @@ def process_aiobotocore_stubs_docs(
         service_names -- List of known service names
 
     Return:
-        Parsed AioBotocoreStubsPackage.
+        Parsed TypesAioBotocorePackage.
     """
     logger = get_logger()
     aiobotocore_stubs_package = parse_aiobotocore_stubs_package(

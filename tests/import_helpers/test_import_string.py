@@ -16,6 +16,7 @@ class TestImportString:
 
     def test_operations(self) -> None:
         assert ImportString("my") + ImportString("test") == "my.test"
+        assert ImportString("my") + "test" == "my.test"
         assert ImportString("my") < ImportString("test")
         assert ImportString("my", "test") == "my.test"
         assert ImportString("my", "test")

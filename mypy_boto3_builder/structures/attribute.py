@@ -3,11 +3,13 @@ Class or module attribute.
 """
 
 from collections.abc import Iterator
+from dataclasses import dataclass
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
 
+@dataclass
 class Attribute:
     """
     Class or module attribute.
@@ -22,23 +24,13 @@ class Attribute:
         is_collection -- Whether the attribute parsed from collections.
     """
 
-    def __init__(
-        self,
-        name: str,
-        type_annotation: FakeAnnotation,
-        value: TypeConstant | None = None,
-        type_ignore: bool = False,
-        is_reference: bool = False,
-        is_identifier: bool = False,
-        is_collection: bool = False,
-    ):
-        self.name = name
-        self.type_annotation: FakeAnnotation = type_annotation
-        self.value: TypeConstant | None = value
-        self.type_ignore = type_ignore
-        self.is_reference = is_reference
-        self.is_identifier = is_identifier
-        self.is_collection = is_collection
+    name: str
+    type_annotation: FakeAnnotation
+    value: TypeConstant | None = None
+    type_ignore: bool = False
+    is_reference: bool = False
+    is_identifier: bool = False
+    is_collection: bool = False
 
     def iterate_types(self) -> Iterator[FakeAnnotation]:
         """

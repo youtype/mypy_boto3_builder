@@ -4,6 +4,9 @@ from unittest.mock import MagicMock, patch
 import pytest
 from black.report import NothingChanged
 
+from mypy_boto3_builder.package_data import Boto3StubsPackageData
+from mypy_boto3_builder.service_name import ServiceNameCatalog
+from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.writers.utils import (
     blackify,
     blackify_markdown,
@@ -49,15 +52,26 @@ class TestUtils:
     @patch("mypy_boto3_builder.writers.utils.render_jinja2_template")
     def test_render_jinja2_package_template(self, render_jinja2_template_mock: MagicMock) -> None:
         template_path = Path("template.jinja2")
-        package_mock = MagicMock()
-        service_name_mock = MagicMock()
-        result = render_jinja2_package_template(template_path, package_mock, service_name_mock)
+        package = Package(Boto3StubsPackageData, [ServiceNameCatalog.ec2, ServiceNameCatalog.s3])
+        result = render_jinja2_package_template(template_path, package)
         render_jinja2_template_mock.assert_called_once_with(
-            template_path,
-            package=package_mock,
-            service_name=service_name_mock,
+            template_path, package=package, service_name=None
         )
         assert result == render_jinja2_template_mock()
+        render_jinja2_template_mock.reset_mock()
+
+        package = Package(Boto3StubsPackageData, [ServiceNameCatalog.s3])
+        result = render_jinja2_package_template(template_path, package)
+        render_jinja2_template_mock.assert_called_once_with(
+            template_path, package=package, service_name=ServiceNameCatalog.s3
+        )
+        render_jinja2_template_mock.reset_mock()
+
+        package = Package(Boto3StubsPackageData, [])
+        result = render_jinja2_package_template(template_path, package)
+        render_jinja2_template_mock.assert_called_once_with(
+            template_path, package=package, service_name=None
+        )
 
     def test_insert_md_toc(self) -> None:
         assert (
