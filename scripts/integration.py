@@ -220,7 +220,10 @@ def run_pyright(path: Path, snapshot_path: Path, update: bool) -> None:
 
     data = json.loads(output).get("generalDiagnostics", [])
     for diag in data:
-        del diag["file"]
+        if "file" in diag:
+            del diag["file"]
+        if "uri" in diag:
+            del diag["uri"]
 
     new_data = json.dumps(data, indent=4)
     compare(new_data, snapshot_path, update)
