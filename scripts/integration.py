@@ -4,6 +4,7 @@ Integration tests.
 """
 import argparse
 import difflib
+import enum
 import json
 import logging
 import os
@@ -12,14 +13,14 @@ import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Sequence
 
 from mypy_boto3_builder.utils.path import print_path
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
 EXAMPLES_PATH = ROOT_PATH / "examples"
-PYRIGHT_SNAPSHOTS_PATH = EXAMPLES_PATH / "pyright"
-MYPY_SNAPSHOTS_PATH = EXAMPLES_PATH / "mypy"
+AIO_EXAMPLES_PATH = ROOT_PATH / "aio_examples"
 SCRIPTS_PATH = ROOT_PATH / "scripts"
 LOGGER_NAME = "integration"
 
@@ -28,6 +29,15 @@ class SnapshotMismatchError(Exception):
     """
     Exception for e2e failures.
     """
+
+
+class Product(enum.Enum):
+    """
+    Product to test.
+    """
+
+    boto3 = "boto3"
+    aioboto3 = "aioboto3"
 
 
 def setup_logging(level: int = 0) -> logging.Logger:
@@ -56,6 +66,8 @@ class CLINamespace:
     CLI namespace.
     """
 
+    log_level: int
+    product: Product
     fast: bool
     update: bool
     services: list[str]
@@ -68,44 +80,96 @@ def parse_args() -> CLINamespace:
     parser = argparse.ArgumentParser(__file__)
     parser.add_argument("-f", "--fast", action="store_true")
     parser.add_argument("-u", "--update", action="store_true")
+    parser.add_argument("-d", "--debug", action="store_true", help="Show debug messages")
+    parser.add_argument(
+        "-p",
+        "--product",
+        choices=("boto3", "aioboto3"),
+        default="boto3",
+        help="Product to test. Default: boto3",
+    )
     parser.add_argument("services", nargs="*")
     args = parser.parse_args()
     return CLINamespace(
+        log_level=logging.DEBUG if args.debug else logging.INFO,
+        product=Product(args.product),
         fast=args.fast,
         update=args.update,
         services=args.services,
     )
 
 
-def check_call(cmd: list[str]) -> None:
+def check_call(cmd: Sequence[str]) -> None:
     """
     Check command exit code and output on error.
     """
+    logger = logging.getLogger(LOGGER_NAME)
+    logger.debug(f"Running process: {' '.join(cmd)}")
     try:
         subprocess.check_output(cmd, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as e:
-        logger = logging.getLogger(LOGGER_NAME)
         for line in e.output.decode().splitlines():
             logger.error(line)
         raise
 
 
-def install_master() -> None:
+def install_master(product: Product) -> None:
     """
-    Build and install `boto3-stubs`.
+    Build and install master stubs.
+
+    - boto3: `boto3-stubs`
+    - aioboto3: `types-aioboto3` and `types-aiobotocore`
     """
-    check_call([(SCRIPTS_PATH / "build.sh").as_posix(), "--product", "boto3"])
-    check_call([(SCRIPTS_PATH / "install.sh").as_posix(), "master"])
+    if product == Product.boto3:
+        check_call([(SCRIPTS_PATH / "build.sh").as_posix(), "--product", "boto3"])
+        check_call([(SCRIPTS_PATH / "install.sh").as_posix(), "master"])
+
+    if product == Product.aioboto3:
+        check_call([(SCRIPTS_PATH / "build.sh").as_posix(), "--product", "aioboto3", "aiobotocore"])
+        check_call([(SCRIPTS_PATH / "install_aiobotocore.sh").as_posix(), "master"])
 
 
-def install_service(service_name: str) -> None:
+def install_service(service_name: str, product: Product) -> None:
     """
-    Build and install `mypy-boto3-*` subpackage.
+    Build and install a service subpackage.
+
+    - boto3: `mypy-boto3-*`
+    - aioboto3: `types-aiobotocore-*`
     """
-    check_call(
-        [(SCRIPTS_PATH / "build.sh").as_posix(), "-s", service_name, "--product", "boto3-services"]
-    )
-    check_call([(SCRIPTS_PATH / "install.sh").as_posix(), service_name])
+    if product == Product.boto3:
+        check_call(
+            [
+                (SCRIPTS_PATH / "build.sh").as_posix(),
+                "-s",
+                service_name,
+                "--product",
+                "boto3-services",
+            ]
+        )
+        check_call([(SCRIPTS_PATH / "install.sh").as_posix(), service_name])
+    if product == Product.aioboto3:
+        check_call(
+            [
+                (SCRIPTS_PATH / "build.sh").as_posix(),
+                "-s",
+                service_name,
+                "--product",
+                "aiobotocore-services",
+            ]
+        )
+        check_call([(SCRIPTS_PATH / "install_aiobotocore.sh").as_posix(), service_name])
+
+
+def get_examples_path(product: Product) -> Path:
+    """
+    Get path to examples for a product.
+    """
+    if product == Product.boto3:
+        return EXAMPLES_PATH
+    if product == Product.aioboto3:
+        return AIO_EXAMPLES_PATH
+
+    raise ValueError(f"Unknown product: {product}")
 
 
 def compare(data: str, snapshot_path: Path, update: bool) -> None:
@@ -121,7 +185,7 @@ def compare(data: str, snapshot_path: Path, update: bool) -> None:
 
     old_data = snapshot_path.read_text().strip()
     if old_data == data:
-        logger.info(f"Matched {print_path(snapshot_path)}")
+        logger.debug(f"Matched {print_path(snapshot_path)}")
         return
 
     if update:
@@ -137,7 +201,7 @@ def compare(data: str, snapshot_path: Path, update: bool) -> None:
     raise SnapshotMismatchError(f"Snapshot {snapshot_path} is different")
 
 
-def run_pyright(path: Path, update: bool) -> None:
+def run_pyright(path: Path, snapshot_path: Path, update: bool) -> None:
     """
     Run `pyright` and compare output.
     """
@@ -159,11 +223,10 @@ def run_pyright(path: Path, update: bool) -> None:
         del diag["file"]
 
     new_data = json.dumps(data, indent=4)
-    snapshot_path = PYRIGHT_SNAPSHOTS_PATH / f"{path.name}.json"
     compare(new_data, snapshot_path, update)
 
 
-def run_mypy(path: Path, update: bool) -> None:
+def run_mypy(path: Path, snapshot_path: Path, update: bool) -> None:
     """
     Run `mypy` and compare output.
     """
@@ -182,7 +245,6 @@ def run_mypy(path: Path, update: bool) -> None:
             continue
         new_data_lines.append(line)
     new_data = "\n".join(new_data_lines)
-    snapshot_path = MYPY_SNAPSHOTS_PATH / f"{path.name}.out"
     compare(new_data, snapshot_path, update)
 
 
@@ -204,27 +266,31 @@ def main() -> None:
     Run main logic.
     """
     args = parse_args()
-    logger = setup_logging(logging.INFO)
+    logger = setup_logging(args.log_level)
     if not args.fast:
         logger.info("Installing master...")
-        install_master()
+        install_master(args.product)
     error: Exception | None = None
-    for file in EXAMPLES_PATH.iterdir():
-        if "_example.py" not in file.name:
+    examples_path = get_examples_path(args.product)
+    for file in examples_path.iterdir():
+        if not file.name.endswith("_example.py"):
             continue
         service_name = file.name.replace("_example.py", "")
+        logger.info(f"Checking {service_name}...")
         if args.services and service_name not in args.services:
             continue
         if not args.fast:
-            logger.info(f"Installing {service_name}...")
-            install_service(service_name)
+            logger.debug(f"Installing {service_name}...")
+            install_service(service_name, args.product)
         try:
-            logger.info(f"Running {print_path(file)} ...")
+            logger.debug(f"Running {print_path(file)} ...")
             run_call(file)
-            logger.info(f"Running mypy for {print_path(file)} ...")
-            run_mypy(file, args.update)
-            logger.info(f"Running pyright for {print_path(file)} ...")
-            run_pyright(file, args.update)
+            logger.debug(f"Running mypy for {print_path(file)} ...")
+            snapshot_path = examples_path / "mypy" / f"{file.name}.out"
+            run_mypy(file, snapshot_path, args.update)
+            logger.debug(f"Running pyright for {print_path(file)} ...")
+            snapshot_path = examples_path / "pyright" / f"{file.name}.json"
+            run_pyright(file, snapshot_path, args.update)
         except SnapshotMismatchError as e:
             logger.error(e)
             error = e

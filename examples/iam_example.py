@@ -1,9 +1,20 @@
-# install `pip install boto3-stubs[emr]`
+"""
+Usage example for `mypy-boto3-iam` package.
+
+```bash
+pip install `boto3-stubs[iam]`
+mypy myproject
+pyright myproject
+```
+"""
 
 import boto3
 
 
 def iam_client_example() -> None:
+    """
+    Usage example for IAMClient.
+    """
     client = boto3.client("iam")
     client.add_user_to_group(GroupName="group", UserName=123)
 
@@ -16,11 +27,17 @@ def iam_client_example() -> None:
 
 
 def iam_resource_example() -> None:
+    """
+    Usage example for IAMServiceResource.
+    """
     resource = boto3.resource("iam")
     group = resource.Group("my")
     group.add_user(UserName="my_user", Other=123)
 
 
 def main() -> None:
+    """
+    Run examples.
+    """
     iam_client_example()
     iam_resource_example()

@@ -1,6 +1,6 @@
-examples/iam_example.py:8: error: Argument "UserName" to "add_user_to_group" of "IAMClient" has incompatible type "int"; expected "str"  [arg-type]
-examples/iam_example.py:11: error: Unexpected keyword argument "ClusterId" for "paginate" of "GetAccountAuthorizationDetailsPaginator"  [call-arg]
-examples/iam_example.py:14: error: TypedDict "GetAccountAuthorizationDetailsResponseTypeDef" has no key "RoleDetail"  [typeddict-item]
-examples/iam_example.py:14: note: Did you mean "RoleDetailList"?
-examples/iam_example.py:21: error: Unexpected keyword argument "Other" for "add_user" of "Group"  [call-arg]
+examples/iam_example.py:19: error: Argument "UserName" to "add_user_to_group" of "IAMClient" has incompatible type "int"; expected "str"  [arg-type]
+examples/iam_example.py:22: error: Unexpected keyword argument "ClusterId" for "paginate" of "GetAccountAuthorizationDetailsPaginator"  [call-arg]
+examples/iam_example.py:25: error: TypedDict "GetAccountAuthorizationDetailsResponseTypeDef" has no key "RoleDetail"  [typeddict-item]
+examples/iam_example.py:25: note: Did you mean "RoleDetailList"?
+examples/iam_example.py:35: error: Unexpected keyword argument "Other" for "add_user" of "Group"  [call-arg]
 Found 4 errors in 1 file (checked 1 source file)

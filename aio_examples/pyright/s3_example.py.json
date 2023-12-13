@@ -1,15 +1,30 @@
 [
     {
         "severity": "error",
-        "message": "No parameter named \"mfa\"",
+        "message": "Expression of type \"Coroutine[Any, Any, _Bucket]\" cannot be assigned to declared type \"Bucket\"\n\u00a0\u00a0\"Coroutine[Any, Any, _Bucket]\" is incompatible with \"Bucket\"",
         "range": {
             "start": {
                 "line": 36,
-                "character": 26
+                "character": 25
             },
             "end": {
                 "line": 36,
-                "character": 29
+                "character": 50
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "No parameter named \"mfa\"",
+        "range": {
+            "start": {
+                "line": 37,
+                "character": 36
+            },
+            "end": {
+                "line": 37,
+                "character": 39
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -19,12 +34,12 @@
         "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig | None\" in function \"upload_file\"\n\u00a0\u00a0Type \"Literal['test']\" cannot be assigned to type \"TransferConfig | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"TransferConfig\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"None\"",
         "range": {
             "start": {
-                "line": 39,
-                "character": 63
+                "line": 40,
+                "character": 73
             },
             "end": {
-                "line": 39,
-                "character": 69
+                "line": 40,
+                "character": 79
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -34,12 +49,12 @@
         "message": "Expression of type \"dict[str, str]\" cannot be assigned to declared type \"BucketUploadFileRequestTypeDef\"\n\u00a0\u00a0\"key\" is an undefined field in type \"BucketUploadFileRequestTypeDef\"",
         "range": {
             "start": {
-                "line": 40,
-                "character": 66
+                "line": 41,
+                "character": 70
             },
             "end": {
-                "line": 40,
-                "character": 71
+                "line": 41,
+                "character": 75
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -49,12 +64,12 @@
         "message": "Argument of type \"dict[str, str]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceTypeDef\" in function \"copy\"\n\u00a0\u00a0\"key\" is an undefined field in type \"CopySourceTypeDef\"",
         "range": {
             "start": {
-                "line": 44,
-                "character": 37
+                "line": 45,
+                "character": 47
             },
             "end": {
-                "line": 44,
-                "character": 42
+                "line": 45,
+                "character": 52
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -64,12 +79,12 @@
         "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"CopySource\" of type \"str\" in function \"copy_from\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
         "range": {
             "start": {
-                "line": 52,
-                "character": 37
+                "line": 53,
+                "character": 47
             },
             "end": {
-                "line": 52,
-                "character": 40
+                "line": 53,
+                "character": 50
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -79,12 +94,12 @@
         "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester']\" in function \"abort\"\n\u00a0\u00a0\"Literal['none']\" cannot be assigned to type \"Literal['requester']\"",
         "range": {
             "start": {
-                "line": 56,
-                "character": 48
+                "line": 57,
+                "character": 58
             },
             "end": {
-                "line": 56,
-                "character": 54
+                "line": 57,
+                "character": 64
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -94,12 +109,12 @@
         "message": "No parameter named \"wrong_arg\"",
         "range": {
             "start": {
-                "line": 58,
-                "character": 22
+                "line": 59,
+                "character": 26
             },
             "end": {
-                "line": 58,
-                "character": 31
+                "line": 59,
+                "character": 35
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -109,12 +124,12 @@
         "message": "Argument of type \"Literal[b\"asd\"]\" cannot be assigned to parameter \"Fileobj\" of type \"FileobjTypeDef\" in function \"download_fileobj\"\n\u00a0\u00a0Type \"Literal[b\"asd\"]\" cannot be assigned to type \"FileobjTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is incompatible with \"IO[Any]\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is incompatible with \"StreamingBody\"",
         "range": {
             "start": {
-                "line": 70,
-                "character": 45
+                "line": 75,
+                "character": 55
             },
             "end": {
-                "line": 70,
-                "character": 51
+                "line": 75,
+                "character": 61
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -124,12 +139,12 @@
         "message": "Argument of type \"None\" cannot be assigned to parameter \"IfModifiedSince\" of type \"TimestampTypeDef\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" cannot be assigned to type \"TimestampTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is incompatible with \"datetime\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is incompatible with \"str\"",
         "range": {
             "start": {
-                "line": 71,
-                "character": 66
+                "line": 76,
+                "character": 76
             },
             "end": {
-                "line": 71,
-                "character": 70
+                "line": 76,
+                "character": 80
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -139,12 +154,12 @@
         "message": "No parameter named \"bucket\"",
         "range": {
             "start": {
-                "line": 74,
-                "character": 30
+                "line": 79,
+                "character": 40
             },
             "end": {
-                "line": 74,
-                "character": 36
+                "line": 79,
+                "character": 46
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -154,12 +169,27 @@
         "message": "Argument missing for parameter \"Bucket\"",
         "range": {
             "start": {
-                "line": 74,
-                "character": 4
+                "line": 79,
+                "character": 14
             },
             "end": {
-                "line": 74,
-                "character": 46
+                "line": 79,
+                "character": 56
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "\"__getitem__\" method not defined on type \"Coroutine[Any, Any, CreateBucketOutputTypeDef]\"",
+        "range": {
+            "start": {
+                "line": 83,
+                "character": 8
+            },
+            "end": {
+                "line": 83,
+                "character": 16
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -169,27 +199,12 @@
         "message": "Argument missing for parameter \"Key\"",
         "range": {
             "start": {
-                "line": 81,
-                "character": 4
+                "line": 86,
+                "character": 26
             },
             "end": {
-                "line": 81,
-                "character": 38
-            }
-        },
-        "rule": "reportGeneralTypeIssues"
-    },
-    {
-        "severity": "error",
-        "message": "Could not access item in TypedDict\n\u00a0\u00a0\"expiration\" is not a defined key in \"GetObjectOutputTypeDef\"",
-        "range": {
-            "start": {
-                "line": 84,
-                "character": 17
-            },
-            "end": {
-                "line": 84,
-                "character": 76
+                "line": 86,
+                "character": 60
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -199,12 +214,12 @@
         "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0\"tuple[Literal['get']]\" is incompatible with \"List[str]\"",
         "range": {
             "start": {
-                "line": 91,
-                "character": 45
+                "line": 95,
+                "character": 49
             },
             "end": {
-                "line": 91,
-                "character": 53
+                "line": 95,
+                "character": 57
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -214,12 +229,12 @@
         "message": "Argument of type \"None\" cannot be assigned to parameter \"Key\" of type \"str\" in function \"get_object\"\n\u00a0\u00a0\"None\" is incompatible with \"str\"",
         "range": {
             "start": {
-                "line": 98,
-                "character": 47
+                "line": 101,
+                "character": 57
             },
             "end": {
-                "line": 98,
-                "character": 51
+                "line": 101,
+                "character": 61
             }
         },
         "rule": "reportGeneralTypeIssues"
@@ -229,14 +244,29 @@
         "message": "Cannot access member \"operations_name\" for type \"BotocoreClientError\"\n\u00a0\u00a0Member \"operations_name\" is unknown",
         "range": {
             "start": {
-                "line": 100,
-                "character": 16
+                "line": 103,
+                "character": 20
             },
             "end": {
-                "line": 100,
-                "character": 31
+                "line": 103,
+                "character": 35
             }
         },
         "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "Result of async function call is not used; use \"await\" or assign result to variable",
+        "range": {
+            "start": {
+                "line": 107,
+                "character": 8
+            },
+            "end": {
+                "line": 107,
+                "character": 32
+            }
+        },
+        "rule": "reportUnusedCoroutine"
     }
 ]

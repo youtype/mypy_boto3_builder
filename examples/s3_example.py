@@ -1,17 +1,35 @@
-# install `pip install boto3-stubs[s3]`
+"""
+Usage example for `mypy-boto3-s3` package.
+
+```bash
+pip install `boto3-stubs[s3]`
+mypy myproject
+pyright myproject
+```
+"""
+
+from typing import TYPE_CHECKING
+
 import boto3
 from boto3.session import Session
-from mypy_boto3_s3.client import S3Client
-from mypy_boto3_s3.service_resource import Bucket, S3ServiceResource
-from mypy_boto3_s3.type_defs import BucketUploadFileRequestTypeDef
+
+if TYPE_CHECKING:
+    from mypy_boto3_s3.client import S3Client
+    from mypy_boto3_s3.service_resource import Bucket, S3ServiceResource
+    from mypy_boto3_s3.type_defs import BucketUploadFileRequestTypeDef
 
 
 def s3_resource_example() -> None:
+    """
+    Usage example for S3ServiceResource.
+    """
     # optionally use Session type from botocore
     session = Session(region_name="us-west-1")
 
     resource: S3ServiceResource = session.resource("s3")
-    _resource = boto3.resource("s3")
+    boto3_resource = boto3.resource("s3")
+    print("Boto3 resource:", boto3_resource)
+
     resource.BucketLifecycle("asd")
 
     # IDE autocomplete suggests function name and arguments here
@@ -42,6 +60,9 @@ def s3_resource_example() -> None:
 
 
 def s3_client_example() -> None:
+    """
+    Usage example for S3Client.
+    """
     client: S3Client = boto3.client("s3")
 
     bucket_exists_waiter = client.get_waiter("bucket_exists")
@@ -61,7 +82,8 @@ def s3_client_example() -> None:
     client.get_object(Bucket="bucket")
 
     # (mypy) error: TypedDict "GetObjectOutputTypeDef" has no key 'expiration'
-    _expiration = client.get_object(Bucket="bucket", Key="key")["expiration"]
+    expiration = client.get_object(Bucket="bucket", Key="key")["expiration"]
+    print(expiration)
 
     # (mypy) error: Extra key 'Allowedorigins' for TypedDict "CORSRuleTypeDef"
     client.put_bucket_cors(
@@ -71,7 +93,8 @@ def s3_client_example() -> None:
         },
     )
 
-    # (mypy) error: Argument "Key" to "get_object" of "Client" has incompatible type "None"; expected "str"
+    # (mypy) error: Argument "Key" to "get_object" of "Client" has incompatible type "None";
+    # expected "str"
     try:
         client.get_object(Bucket="bucket", Key=None)
     except client.exceptions.NoSuchKey as e:
@@ -84,5 +107,8 @@ def s3_client_example() -> None:
 
 
 def main() -> None:
+    """
+    Run examples.
+    """
     s3_resource_example()
     s3_client_example()

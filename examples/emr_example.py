@@ -1,9 +1,20 @@
-# install `pip install boto3-stubs[emr]`
+"""
+Usage example for `mypy-boto3-emr` package.
+
+```bash
+pip install `boto3-stubs[emr]`
+mypy myproject
+pyright myproject
+```
+"""
 
 import boto3
 
 
 def emr_client_example() -> None:
+    """
+    Usage example for EMRClient.
+    """
     client = boto3.client("emr")
     client.cancel_steps(ClusterId="cluster_id", StepIds=[123])
 
@@ -17,4 +28,7 @@ def emr_client_example() -> None:
 
 
 def main() -> None:
+    """
+    Run examples.
+    """
     emr_client_example()

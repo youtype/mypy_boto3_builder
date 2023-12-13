@@ -1,4 +1,12 @@
-# install `pip install boto3-stubs[dynamodb]`
+"""
+Usage example for `mypy-boto3-dynamodb` package.
+
+```bash
+pip install `boto3-stubs[dynamodb]`
+mypy myproject
+pyright myproject
+```
+"""
 
 import decimal
 
@@ -7,6 +15,9 @@ from boto3.dynamodb.conditions import Key
 
 
 def dynamodb_client_example() -> None:
+    """
+    Usage example for DynamoDBClient.
+    """
     client = boto3.client("dynamodb")
     resource = boto3.resource("dynamodb")
 
@@ -37,4 +48,7 @@ def dynamodb_client_example() -> None:
 
 
 def main() -> None:
+    """
+    Run examples.
+    """
     dynamodb_client_example()

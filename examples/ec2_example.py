@@ -1,14 +1,26 @@
-# install `pip install boto3-stubs[ec2]`
+"""
+Usage example for `mypy-boto3-ec2` package.
+
+```bash
+pip install `boto3-stubs[ec2]`
+mypy myproject
+pyright myproject
+```
+"""
 
 import boto3
 from boto3.session import Session
 
 
 def ec2_resource_example() -> None:
+    """
+    Usage example for EC2ServiceResource.
+    """
     session = Session(region_name="us-west-1")
 
     resource = session.resource("ec2")
-    _resource = boto3.resource("ec2")
+    boto3_resource = boto3.resource("ec2")
+    print(boto3_resource)
 
     # (mypy) error: Missing positional argument "Resources" in call
     #   to "create_tags" of "ServiceResource"
@@ -22,18 +34,25 @@ def ec2_resource_example() -> None:
 
     image = resource.Image(id="test")
     image.create_tags(Tags=[])
-    resource.meta.client.create_tags(Tags=[{"Key": 123}], Resources=tuple())
+    resource.meta.client.create_tags(Tags=[{"Key": 123}], Resources=[])
 
 
 def ec2_client_example() -> None:
+    """
+    Usage example for EC2Client.
+    """
     client = boto3.client("ec2")
 
     # (mypy) error: Incompatible types (expression has type "int", TypedDict item
     #   "Key" has type "str")
     client.create_tags(Tags=[{"Key": 123}], Resources=[])
     region_name = client.meta.region_name
+    print(region_name)
 
 
 def main() -> None:
+    """
+    Run examples.
+    """
     ec2_resource_example()
     ec2_client_example()

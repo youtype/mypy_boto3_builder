@@ -4,11 +4,11 @@
         "message": "No parameter named \"test\"",
         "range": {
             "start": {
-                "line": 11,
+                "line": 22,
                 "character": 23
             },
             "end": {
-                "line": 11,
+                "line": 22,
                 "character": 27
             }
         },

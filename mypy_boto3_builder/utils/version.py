@@ -57,7 +57,7 @@ def get_aiobotocore_version() -> str:
     try:
         from aiobotocore import __version__ as version  # type: ignore
     except ImportError:
-        raise RuntimeError("aiobotocore is not installed")
+        raise RuntimeError("aiobotocore is not installed") from None
     return f"{version}"
 
 
@@ -68,6 +68,6 @@ def get_aioboto3_version() -> str:
     try:
         from aioboto3 import __version__ as version  # type: ignore
     except ImportError:
-        raise RuntimeError("aioboto3 is not installed")
+        raise RuntimeError("aioboto3 is not installed") from None
 
     return f"{version}"

@@ -4,11 +4,11 @@
         "message": "Argument missing for parameter \"Resources\"",
         "range": {
             "start": {
-                "line": 16,
+                "line": 28,
                 "character": 4
             },
             "end": {
-                "line": 16,
+                "line": 28,
                 "character": 34
             }
         },
@@ -19,11 +19,11 @@
         "message": "Argument of type \"Literal['incorrect']\" cannot be assigned to parameter \"DryRun\" of type \"bool\" in function \"delete\"\n\u00a0\u00a0\"Literal['incorrect']\" is incompatible with \"bool\"",
         "range": {
             "start": {
-                "line": 20,
+                "line": 32,
                 "character": 40
             },
             "end": {
-                "line": 20,
+                "line": 32,
                 "character": 51
             }
         },
@@ -34,11 +34,11 @@
         "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef]\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
         "range": {
             "start": {
-                "line": 24,
+                "line": 36,
                 "character": 51
             },
             "end": {
-                "line": 24,
+                "line": 36,
                 "character": 54
             }
         },
@@ -49,11 +49,11 @@
         "message": "Argument of type \"list[dict[str, int]]\" cannot be assigned to parameter \"Tags\" of type \"Sequence[TagTypeDef]\" in function \"create_tags\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
         "range": {
             "start": {
-                "line": 32,
+                "line": 47,
                 "character": 37
             },
             "end": {
-                "line": 32,
+                "line": 47,
                 "character": 40
             }
         },

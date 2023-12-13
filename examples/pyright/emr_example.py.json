@@ -4,11 +4,11 @@
         "message": "Argument of type \"list[int]\" cannot be assigned to parameter \"StepIds\" of type \"Sequence[str]\" in function \"cancel_steps\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
         "range": {
             "start": {
-                "line": 7,
+                "line": 18,
                 "character": 57
             },
             "end": {
-                "line": 7,
+                "line": 18,
                 "character": 60
             }
         },
@@ -19,11 +19,11 @@
         "message": "Expected 0 positional arguments",
         "range": {
             "start": {
-                "line": 11,
+                "line": 22,
                 "character": 28
             },
             "end": {
-                "line": 11,
+                "line": 22,
                 "character": 34
             }
         },
@@ -34,11 +34,11 @@
         "message": "Could not access item in TypedDict\n\u00a0\u00a0\"steps\" is not a defined key in \"ListStepsOutputTypeDef\"",
         "range": {
             "start": {
-                "line": 14,
+                "line": 25,
                 "character": 20
             },
             "end": {
-                "line": 14,
+                "line": 25,
                 "character": 33
             }
         },

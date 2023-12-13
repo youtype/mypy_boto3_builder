@@ -1,3 +1,0 @@
-examples/emr_example.py:8: error: List item 0 has incompatible type "int"; expected "str"
-examples/emr_example.py:14: error: TypedDict "ListStepsOutputTypeDef" has no key 'steps'
-Found 2 errors in 1 file (checked 1 source file)

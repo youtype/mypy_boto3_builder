@@ -112,7 +112,15 @@ omit = ["tests/*"]
 
 [tool.pyright]
 include = ["mypy_boto3_builder"]
-exclude = ["**/__pycache__", "tests", "**/build", "typestubs"]
+ignore = [
+    ".venv",
+    "**/__pycache__",
+    "tests",
+    "**/build",
+    "typestubs",
+    "examples",
+    "aio_examples",
+]
 typeCheckingMode = "strict"
 reportMissingImports = "error"
 reportMissingTypeStubs = "error"
