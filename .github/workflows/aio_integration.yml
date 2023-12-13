@@ -37,7 +37,7 @@ jobs:
       - name: Store artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: mypy_boto3_output
+          name: aio_mypy_boto3_output
           path: mypy_boto3_output
 
   sanity-check:
@@ -57,7 +57,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v3
         with:
-          name: mypy_boto3_output
+          name: aio_mypy_boto3_output
           path: mypy_boto3_output
       - name: Set up Python
         uses: actions/setup-python@v4
