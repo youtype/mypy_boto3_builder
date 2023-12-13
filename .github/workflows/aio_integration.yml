@@ -83,4 +83,4 @@ jobs:
           npm install -g pyright
       - name: Check output
         run: |
-          python scripts/check_output.py
+          poetry run python ./scripts/check_output.py -p ./mypy_boto3_output
