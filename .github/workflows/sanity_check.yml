@@ -46,17 +46,24 @@ jobs:
     needs: versions
     steps:
       - uses: actions/checkout@v4
+      - name: Set up Python for Poetry
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install poetry
+        run: |
+          python -m pip install -U poetry pip
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.11"
+          cache: "poetry"
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
       - name: Install dependencies
         run: |
-          python -m pip install poetry pip
           poetry install -n
       - name: Install boto3
         env:
@@ -73,7 +80,7 @@ jobs:
           poetry run mypy_boto3_builder mypy_boto3_output --product boto3
       - name: Install master packages
         run: |
-          ./scripts/install.sh master
+          bash ./scripts/install.sh master
       - name: Check s3 output
         run: |
           poetry run mypy_boto3_builder mypy_boto3_output --product boto3-services -s s3
