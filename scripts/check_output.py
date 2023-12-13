@@ -16,7 +16,7 @@ import sys
 import tempfile
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, List, Optional
+from typing import Any, Dict, List, Optional
 
 ROOT_PATH = Path(__file__).parent.parent.resolve()
 PYRIGHT_CONFIG_PATH = Path(__file__).parent / "pyrightconfig_output.json"
@@ -186,7 +186,7 @@ def run_pyright(path: Path) -> None:
         output = temp_path.read_text()
 
         data = json.loads(output).get("generalDiagnostics", [])
-        errors: List[Any] = []
+        errors: List[Dict[str, Any]] = []
         for error in data:
             message = error.get("message", "")
             if any(imsg in message for imsg in IGNORE_PYRIGHT_ERRORS):
@@ -196,9 +196,15 @@ def run_pyright(path: Path) -> None:
         if errors:
             messages: List[str] = []
             for error in errors:
+                file_path = ""
+                if error.get("file"):
+                    file_path = error["file"]
+                if error.get("uri"):
+                    file_path = error["uri"]["_filePath"]
+
                 messages.append(
                     "pyright:"
-                    f" {error['file']}:{error['range']['start']['line']} {error.get('message', '')}"
+                    f" {file_path}:{error['range']['start']['line']} {error.get('message', '')}"
                 )
             raise SnapshotMismatchError("\n".join(messages))
 
