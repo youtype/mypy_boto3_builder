@@ -121,12 +121,12 @@ def install_master(product: Product) -> None:
     - aioboto3: `types-aioboto3` and `types-aiobotocore`
     """
     if product == Product.boto3:
-        check_call([(SCRIPTS_PATH / "build.sh").as_posix(), "--product", "boto3"])
-        check_call([(SCRIPTS_PATH / "install.sh").as_posix(), "master"])
+        check_call([print_path(SCRIPTS_PATH / "build.sh"), "--product", "boto3"])
+        check_call([print_path(SCRIPTS_PATH / "install.sh"), "master"])
 
     if product == Product.aioboto3:
-        check_call([(SCRIPTS_PATH / "build.sh").as_posix(), "--product", "aioboto3", "aiobotocore"])
-        check_call([(SCRIPTS_PATH / "install_aiobotocore.sh").as_posix(), "master"])
+        check_call([print_path(SCRIPTS_PATH / "build.sh"), "--product", "aioboto3", "aiobotocore"])
+        check_call([print_path(SCRIPTS_PATH / "install_aiobotocore.sh"), "master"])
 
 
 def install_service(service_name: str, product: Product) -> None:
@@ -139,25 +139,25 @@ def install_service(service_name: str, product: Product) -> None:
     if product == Product.boto3:
         check_call(
             [
-                (SCRIPTS_PATH / "build.sh").as_posix(),
+                print_path(SCRIPTS_PATH / "build.sh"),
                 "-s",
                 service_name,
                 "--product",
                 "boto3-services",
             ]
         )
-        check_call([(SCRIPTS_PATH / "install.sh").as_posix(), service_name])
+        check_call([print_path(SCRIPTS_PATH / "install.sh"), service_name])
     if product == Product.aioboto3:
         check_call(
             [
-                (SCRIPTS_PATH / "build.sh").as_posix(),
+                print_path(SCRIPTS_PATH / "build.sh"),
                 "-s",
                 service_name,
                 "--product",
                 "aiobotocore-services",
             ]
         )
-        check_call([(SCRIPTS_PATH / "install_aiobotocore.sh").as_posix(), service_name])
+        check_call([print_path(SCRIPTS_PATH / "install_aiobotocore.sh"), service_name])
 
 
 def get_examples_path(product: Product) -> Path:
