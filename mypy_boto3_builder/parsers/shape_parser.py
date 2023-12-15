@@ -35,7 +35,7 @@ from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport, InternalImport
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
@@ -538,7 +538,7 @@ class ShapeParser:
             return self._parse_shape_list(shape, output_child=is_output_or_child)
 
         if shape.type_name in self._get_resource_names():
-            return AliasInternalImport(shape.type_name)
+            return InternalImport(shape.type_name, use_alias=True)
 
         self.logger.warning(f"Unknown shape: {shape} {type_name}")
         return Type.Any
@@ -661,7 +661,7 @@ class ShapeParser:
             method = Method(
                 sub_resource_name,
                 arguments=arguments,
-                return_type=AliasInternalImport(sub_resource_name),
+                return_type=InternalImport(sub_resource_name, use_alias=True),
             )
             result[method.name] = method
 
@@ -718,7 +718,7 @@ class ShapeParser:
                 method = Method(
                     sub_resource_name,
                     arguments=arguments,
-                    return_type=AliasInternalImport(data["type"]),
+                    return_type=InternalImport(data["type"], use_alias=True),
                 )
                 result[method.name] = method
 

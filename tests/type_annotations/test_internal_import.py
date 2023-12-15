@@ -1,4 +1,4 @@
-from mypy_boto3_builder.type_annotations.internal_import import AliasInternalImport, InternalImport
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 
 class TestInternalImport:
@@ -20,11 +20,3 @@ class TestInternalImport:
 
     def test_copy(self) -> None:
         assert self.result.copy().name == "MyClass"
-
-
-class TestAliasInternalImport:
-    def test_init(self) -> None:
-        result = AliasInternalImport("MyClass")
-        assert result.stringify == False
-        assert result.use_alias == True
-        assert result.render() == "_MyClass"

@@ -77,31 +77,3 @@ class InternalImport(FakeAnnotation):
             use_alias=self.use_alias,
             stringify=self.stringify,
         )
-
-
-class AliasInternalImport(InternalImport):
-    """
-    Internal import for safe local usages.
-
-    Arguments:
-        name -- Import name.
-        service_name -- Service that import belongs to.
-    """
-
-    def __init__(self, name: str, service_name: ServiceName | None = None) -> None:
-        super().__init__(
-            name=name,
-            service_name=service_name,
-            module_name=ServiceModuleName.service_resource,
-            stringify=False,
-            use_alias=True,
-        )
-
-    def __copy__(self: _R) -> _R:
-        """
-        Create a copy of type annotation wrapper.
-        """
-        return self.__class__(
-            self.name,
-            self.service_name,
-        )
