@@ -69,7 +69,7 @@ def from_str(cls: type[_R], import_string: str) -> _R: ...
 
 ### ImportString().master_name
 
-[Show source in import_string.py:129](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L129)
+[Show source in import_string.py:130](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L130)
 
 Get first import string part or `builtins`.
 
@@ -95,7 +95,7 @@ def parent(cls: type[_R]) -> _R: ...
 
 ### ImportString().render
 
-[Show source in import_string.py:120](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L120)
+[Show source in import_string.py:121](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L121)
 
 Render to string.
 
@@ -111,7 +111,7 @@ def render(self) -> str: ...
 
 ### ImportString().startswith
 
-[Show source in import_string.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L88)
+[Show source in import_string.py:89](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/import_string.py#L89)
 
 Check if import string starts with `other`.
 

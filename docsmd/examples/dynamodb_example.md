@@ -8,7 +8,9 @@ Dynamodb Example
 
 ## dynamodb_client_example
 
-[Show source in dynamodb_example.py:9](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/dynamodb_example.py#L9)
+[Show source in dynamodb_example.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/dynamodb_example.py#L17)
+
+Usage example for DynamoDBClient.
 
 #### Signature
 
@@ -20,7 +22,9 @@ def dynamodb_client_example() -> None: ...
 
 ## main
 
-[Show source in dynamodb_example.py:39](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/dynamodb_example.py#L39)
+[Show source in dynamodb_example.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/dynamodb_example.py#L50)
+
+Run examples.
 
 #### Signature
 

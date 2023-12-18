@@ -8,7 +8,9 @@ Ec2 Example
 
 ## ec2_client_example
 
-[Show source in ec2_example.py:28](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/ec2_example.py#L28)
+[Show source in ec2_example.py:40](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/ec2_example.py#L40)
+
+Usage example for EC2Client.
 
 #### Signature
 
@@ -20,7 +22,9 @@ def ec2_client_example() -> None: ...
 
 ## ec2_resource_example
 
-[Show source in ec2_example.py:7](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/ec2_example.py#L7)
+[Show source in ec2_example.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/ec2_example.py#L15)
+
+Usage example for EC2ServiceResource.
 
 #### Signature
 
@@ -32,7 +36,9 @@ def ec2_resource_example() -> None: ...
 
 ## main
 
-[Show source in ec2_example.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/ec2_example.py#L37)
+[Show source in ec2_example.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/ec2_example.py#L53)
+
+Run examples.
 
 #### Signature
 

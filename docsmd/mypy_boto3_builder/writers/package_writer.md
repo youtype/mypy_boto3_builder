@@ -9,7 +9,7 @@ PackageWriter
 
 ## PackageWriter
 
-[Show source in package_writer.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L26)
+[Show source in package_writer.py:45](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L45)
 
 Writer for package static and template files.
 
@@ -27,7 +27,7 @@ class PackageWriter:
 
 ### PackageWriter().write_docs
 
-[Show source in package_writer.py:205](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L205)
+[Show source in package_writer.py:222](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L222)
 
 Generate docs for a package.
 
@@ -43,7 +43,7 @@ def write_docs(self, package: Package, templates_path: Path) -> None: ...
 
 ### PackageWriter().write_package
 
-[Show source in package_writer.py:175](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L175)
+[Show source in package_writer.py:189](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L189)
 
 Generate files for a package.
 
@@ -72,7 +72,7 @@ def write_package(
 
 ### PackageWriter().write_service_docs
 
-[Show source in package_writer.py:326](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L326)
+[Show source in package_writer.py:336](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L336)
 
 Create service docs files.
 
@@ -93,7 +93,7 @@ def write_service_docs(self, package: ServicePackage, templates_path: Path) -> N
 
 ### PackageWriter().write_service_package
 
-[Show source in package_writer.py:305](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L305)
+[Show source in package_writer.py:315](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L315)
 
 Create stubs files for service.
 
@@ -112,3 +112,30 @@ def write_service_package(
 #### See also
 
 - [ServicePackage](../structures/service_package.md#servicepackage)
+
+
+
+## TemplateRender
+
+[Show source in package_writer.py:27](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L27)
+
+Template render target.
+
+#### Signature
+
+```python
+class TemplateRender: ...
+```
+
+### TemplateRender().output_paths
+
+[Show source in package_writer.py:35](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/package_writer.py#L35)
+
+Get output paths as a tuple.
+
+#### Signature
+
+```python
+@property
+def output_paths(self) -> tuple[Path, ...]: ...
+```

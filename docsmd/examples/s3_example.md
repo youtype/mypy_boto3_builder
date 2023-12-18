@@ -8,7 +8,9 @@ S3 Example
 
 ## main
 
-[Show source in s3_example.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/s3_example.py#L86)
+[Show source in s3_example.py:109](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/s3_example.py#L109)
+
+Run examples.
 
 #### Signature
 
@@ -20,7 +22,9 @@ def main() -> None: ...
 
 ## s3_client_example
 
-[Show source in s3_example.py:44](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/s3_example.py#L44)
+[Show source in s3_example.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/s3_example.py#L62)
+
+Usage example for S3Client.
 
 #### Signature
 
@@ -32,7 +36,9 @@ def s3_client_example() -> None: ...
 
 ## s3_resource_example
 
-[Show source in s3_example.py:9](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/s3_example.py#L9)
+[Show source in s3_example.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/s3_example.py#L22)
+
+Usage example for S3ServiceResource.
 
 #### Signature
 

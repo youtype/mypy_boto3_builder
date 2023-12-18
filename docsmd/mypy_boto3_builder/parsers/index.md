@@ -8,8 +8,6 @@ Parsers
 
 ## Modules
 
-- [Aiobotocore Stubs Package](./aiobotocore_stubs_package.md)
-- [Boto3 Stubs Package](./boto3_stubs_package.md)
 - [Client](./client.md)
 - [Fake Service Package](./fake_service_package.md)
 - [Helpers](./helpers.md)
@@ -19,7 +17,9 @@ Parsers
 - [Parse Identifiers](./parse_identifiers.md)
 - [Parse References](./parse_references.md)
 - [Parse Resource](./parse_resource.md)
+- [Parse Wrapper Package](./parse_wrapper_package.md)
 - [ServicePackageParser](./service_package_parser.md)
 - [Service Resource](./service_resource.md)
 - [ShapeParser](./shape_parser.md)
-- [Types Aioboto3 Package](./types_aioboto3_package.md)
+- [Shape Parser Types](./shape_parser_types.md)
+- [WrapperPackageParser](./wrapper_package_parser.md)

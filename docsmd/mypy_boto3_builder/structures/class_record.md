@@ -35,9 +35,13 @@ class ClassRecord:
 
 ### ClassRecord().alias_name
 
-[Show source in class_record.py:45](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L45)
+[Show source in class_record.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L43)
 
 Class alias name for safe import.
+
+#### Returns
+
+Name prefixed with underscore.
 
 #### Signature
 
@@ -48,7 +52,7 @@ def alias_name(self) -> str: ...
 
 ### ClassRecord().boto3_doc_link
 
-[Show source in class_record.py:38](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L38)
+[Show source in class_record.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/class_record.py#L36)
 
 Link to boto3 docs.
 

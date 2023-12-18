@@ -8,7 +8,6 @@ Structures
 
 ## Modules
 
-- [AioBotocoreStubsPackage](./aiobotocore_stubs_package.md)
 - [Argument](./argument.md)
 - [Attribute](./attribute.md)
 - [Boto3StubsPackage](./boto3_stubs_package.md)
@@ -24,4 +23,6 @@ Structures
 - [ServicePackage](./service_package.md)
 - [ServiceResource](./service_resource.md)
 - [TypesAioBoto3Package](./types_aioboto3_package.md)
+- [TypesAioBotocorePackage](./types_aiobotocore_package.md)
 - [Waiter](./waiter.md)
+- [WrapperPackage](./wrapper_package.md)

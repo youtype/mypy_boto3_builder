@@ -8,7 +8,9 @@ Secretsmanager Example
 
 ## main
 
-[Show source in secretsmanager_example.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/secretsmanager_example.py#L12)
+[Show source in secretsmanager_example.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/secretsmanager_example.py#L24)
+
+Run examples.
 
 #### Signature
 
@@ -20,7 +22,9 @@ def main() -> None: ...
 
 ## secretsmanager_client_example
 
-[Show source in secretsmanager_example.py:6](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/secretsmanager_example.py#L6)
+[Show source in secretsmanager_example.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/secretsmanager_example.py#L14)
+
+Usage example for SecretsManagerClient.
 
 #### Signature
 

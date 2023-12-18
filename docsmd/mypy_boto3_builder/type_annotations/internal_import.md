@@ -7,42 +7,6 @@ InternalImport
 
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.internal_import](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py) module.
 
-## AliasInternalImport
-
-[Show source in internal_import.py:82](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L82)
-
-Internal import for safe local usages.
-
-#### Arguments
-
-- `name` - Import name.
-- `service_name` - Service that import belongs to.
-
-#### Signature
-
-```python
-class AliasInternalImport(InternalImport):
-    def __init__(self, name: str, service_name: ServiceName | None = None) -> None: ...
-```
-
-#### See also
-
-- [InternalImport](#internalimport)
-
-### AliasInternalImport().__copy__
-
-[Show source in internal_import.py:100](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L100)
-
-Create a copy of type annotation wrapper.
-
-#### Signature
-
-```python
-def __copy__(self: _R) -> _R: ...
-```
-
-
-
 ## InternalImport
 
 [Show source in internal_import.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/internal_import.py#L14)

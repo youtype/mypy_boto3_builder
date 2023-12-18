@@ -8,7 +8,9 @@ Emr Example
 
 ## emr_client_example
 
-[Show source in emr_example.py:6](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/emr_example.py#L6)
+[Show source in emr_example.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/emr_example.py#L14)
+
+Usage example for EMRClient.
 
 #### Signature
 
@@ -20,7 +22,9 @@ def emr_client_example() -> None: ...
 
 ## main
 
-[Show source in emr_example.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/emr_example.py#L19)
+[Show source in emr_example.py:30](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/emr_example.py#L30)
+
+Run examples.
 
 #### Signature
 

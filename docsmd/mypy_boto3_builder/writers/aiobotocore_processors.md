@@ -23,7 +23,7 @@ Parse and write stubs package `aiobotocore-stubs`.
 
 #### Returns
 
-Parsed AioBotocoreStubsPackage.
+Parsed TypesAioBotocorePackage.
 
 #### Signature
 
@@ -34,13 +34,13 @@ def process_aiobotocore_stubs(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
-) -> AioBotocoreStubsPackage: ...
+) -> TypesAioBotocorePackage: ...
 ```
 
 #### See also
 
-- [AioBotocoreStubsPackage](../structures/aiobotocore_stubs_package.md#aiobotocorestubspackage)
 - [ServiceName](../service_name.md#servicename)
+- [TypesAioBotocorePackage](../structures/types_aiobotocore_package.md#typesaiobotocorepackage)
 
 
 
@@ -58,20 +58,20 @@ Parse and write master package docs.
 
 #### Returns
 
-Parsed AioBotocoreStubsPackage.
+Parsed TypesAioBotocorePackage.
 
 #### Signature
 
 ```python
 def process_aiobotocore_stubs_docs(
     session: Session, output_path: Path, service_names: Iterable[ServiceName]
-) -> AioBotocoreStubsPackage: ...
+) -> TypesAioBotocorePackage: ...
 ```
 
 #### See also
 
-- [AioBotocoreStubsPackage](../structures/aiobotocore_stubs_package.md#aiobotocorestubspackage)
 - [ServiceName](../service_name.md#servicename)
+- [TypesAioBotocorePackage](../structures/types_aiobotocore_package.md#typesaiobotocorepackage)
 
 
 
@@ -91,7 +91,7 @@ Parse and write stubs package `aiobotocore-stubs-lite`.
 
 #### Returns
 
-Parsed AioBotocoreStubsPackage.
+Parsed TypesAioBotocorePackage.
 
 #### Signature
 
@@ -102,10 +102,10 @@ def process_aiobotocore_stubs_lite(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
-) -> AioBotocoreStubsPackage: ...
+) -> TypesAioBotocorePackage: ...
 ```
 
 #### See also
 
-- [AioBotocoreStubsPackage](../structures/aiobotocore_stubs_package.md#aiobotocorestubspackage)
 - [ServiceName](../service_name.md#servicename)
+- [TypesAioBotocorePackage](../structures/types_aiobotocore_package.md#typesaiobotocorepackage)

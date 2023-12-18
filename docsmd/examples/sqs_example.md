@@ -8,7 +8,9 @@ Sqs Example
 
 ## main
 
-[Show source in sqs_example.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/sqs_example.py#L15)
+[Show source in sqs_example.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/sqs_example.py#L26)
+
+Run examples.
 
 #### Signature
 
@@ -20,7 +22,9 @@ def main() -> None: ...
 
 ## sqs_resource_example
 
-[Show source in sqs_example.py:6](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/sqs_example.py#L6)
+[Show source in sqs_example.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/sqs_example.py#L14)
+
+Usage example for SQSClient.
 
 #### Signature
 

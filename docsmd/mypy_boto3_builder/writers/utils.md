@@ -38,7 +38,7 @@ def blackify(content: str, file_path: Path) -> str: ...
 
 ## blackify_markdown
 
-[Show source in utils.py:151](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L151)
+[Show source in utils.py:154](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L154)
 
 Blackify python codeblocks.
 
@@ -52,7 +52,7 @@ def blackify_markdown(text: str) -> str: ...
 
 ## format_md
 
-[Show source in utils.py:138](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L138)
+[Show source in utils.py:141](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L141)
 
 Format MarkDown with mdformat.
 
@@ -66,7 +66,7 @@ def format_md(text: str) -> str: ...
 
 ## insert_md_toc
 
-[Show source in utils.py:114](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L114)
+[Show source in utils.py:117](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L117)
 
 Insert Table of Contents before the first second-level header.
 
@@ -80,15 +80,14 @@ def insert_md_toc(text: str) -> str: ...
 
 ## render_jinja2_package_template
 
-[Show source in utils.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L95)
+[Show source in utils.py:99](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L99)
 
 Render Jinja2 package template to a string.
 
 #### Arguments
 
 - `template_path` - Relative path to template in `TEMPLATES_PATH`
-- `module` - Module record
-- `service_name` - ServiceName instance
+- `package` - Service or wrapper package
 
 #### Returns
 
@@ -97,18 +96,18 @@ A rendered template.
 #### Signature
 
 ```python
-def render_jinja2_package_template(
-    template_path: Path,
-    package: Package | None = None,
-    service_name: ServiceName | None = None,
-) -> str: ...
+def render_jinja2_package_template(template_path: Path, package: Package) -> str: ...
 ```
+
+#### See also
+
+- [Package](../structures/package.md#package)
 
 
 
 ## sort_imports
 
-[Show source in utils.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L57)
+[Show source in utils.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L58)
 
 Sort imports with `isort`.
 
@@ -129,7 +128,7 @@ New file content.
 def sort_imports(
     content: str,
     module_name: str,
-    extension: str = "py",
+    extension: Literal["py", "pyi"] = "py",
     third_party: Iterable[str] = (),
 ) -> str: ...
 ```
