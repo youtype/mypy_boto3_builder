@@ -77,17 +77,17 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 name = "boto3"
-version = "1.34.1"
+version = "1.34.2"
 description = "The AWS SDK for Python"
 optional = false
 python-versions = ">= 3.8"
 files = [
-    {file = "boto3-1.34.1-py3-none-any.whl", hash = "sha256:aae7dbff19cb36dfd0ca391684c652a496156ca1d9e696fcbdcffde2b9e7c9bb"},
-    {file = "boto3-1.34.1.tar.gz", hash = "sha256:a08123b49430cd66850def7aa9ca6c14f8a99a95cdbcddabe805484001a5a6c3"},
+    {file = "boto3-1.34.2-py3-none-any.whl", hash = "sha256:aad3f305fe3cd4f2bba545c9580cd460c366af56a8aabb6094528dd32317f8d2"},
+    {file = "boto3-1.34.2.tar.gz", hash = "sha256:970fd9f9f522eb48f3cd5574e927b369279ebf5bcf0f2fae5ed9cc6306e58558"},
 ]
 
 [package.dependencies]
-botocore = ">=1.34.1,<1.35.0"
+botocore = ">=1.34.2,<1.35.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.9.0,<0.10.0"
 
@@ -96,13 +96,13 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.34.1"
-description = "Type annotations for boto3 1.34.1 generated with mypy-boto3-builder 7.21.0"
+version = "1.34.2"
+description = "Type annotations for boto3 1.34.2 generated with mypy-boto3-builder 7.21.0"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "boto3-stubs-1.34.1.tar.gz", hash = "sha256:fe28a2b13886ce7c9ed290109ac5941c0d5c9a5d68c5fb950946c34dee4deb0e"},
-    {file = "boto3_stubs-1.34.1-py3-none-any.whl", hash = "sha256:782f7988cc60029bd60b9edeafe11111d96e753dc3e54b7a1d99e4fbed5ef119"},
+    {file = "boto3-stubs-1.34.2.tar.gz", hash = "sha256:3cdb04dd23ccf64f0b6b4de1f9df70351b248f3332e2e68310555ff8c79f6995"},
+    {file = "boto3_stubs-1.34.2-py3-none-any.whl", hash = "sha256:e09aafa188c4749db211971a30402f92a57bb0f314772b9f46165376b428c10c"},
 ]
 
 [package.dependencies]
@@ -152,7 +152,7 @@ bedrock-agent = ["mypy-boto3-bedrock-agent (>=1.34.0,<1.35.0)"]
 bedrock-agent-runtime = ["mypy-boto3-bedrock-agent-runtime (>=1.34.0,<1.35.0)"]
 bedrock-runtime = ["mypy-boto3-bedrock-runtime (>=1.34.0,<1.35.0)"]
 billingconductor = ["mypy-boto3-billingconductor (>=1.34.0,<1.35.0)"]
-boto3 = ["boto3 (==1.34.1)", "botocore (==1.34.1)"]
+boto3 = ["boto3 (==1.34.2)", "botocore (==1.34.2)"]
 braket = ["mypy-boto3-braket (>=1.34.0,<1.35.0)"]
 budgets = ["mypy-boto3-budgets (>=1.34.0,<1.35.0)"]
 ce = ["mypy-boto3-ce (>=1.34.0,<1.35.0)"]
@@ -492,13 +492,13 @@ xray = ["mypy-boto3-xray (>=1.34.0,<1.35.0)"]
 
 [[package]]
 name = "botocore"
-version = "1.34.1"
+version = "1.34.2"
 description = "Low-level, data-driven core of boto 3."
 optional = false
 python-versions = ">= 3.8"
 files = [
-    {file = "botocore-1.34.1-py3-none-any.whl", hash = "sha256:99bd6e9273eba8e81fbcf9881fc0f390f1e7a563bf76faa5fab16ad9bf69de3f"},
-    {file = "botocore-1.34.1.tar.gz", hash = "sha256:0688d095305ba8638745dcdf85daa8aa41c36b27912c41e93447c1ef401b6ca1"},
+    {file = "botocore-1.34.2-py3-none-any.whl", hash = "sha256:655b1ea2a5d7b989a0eb6006c16137f785bc7334f31378115668c4be5d4b00eb"},
+    {file = "botocore-1.34.2.tar.gz", hash = "sha256:8a9f4ad438ba814b9b7a22b24de3004f8aa232e7ae86e0087aea4d7792dc3a2a"},
 ]
 
 [package.dependencies]
@@ -511,13 +511,13 @@ crt = ["awscrt (==0.19.17)"]
 
 [[package]]
 name = "botocore-stubs"
-version = "1.34.1"
+version = "1.34.2"
 description = "Type annotations and code completion for botocore"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "botocore_stubs-1.34.1-py3-none-any.whl", hash = "sha256:2867a416a029dc7b1d821975048bec06c18027611c4426dd75c232b23b058f45"},
-    {file = "botocore_stubs-1.34.1.tar.gz", hash = "sha256:1cf3ab992109ae5cc984055b4d9405e5b81897b10f8b6faf4071c58648a2bfaa"},
+    {file = "botocore_stubs-1.34.2-py3-none-any.whl", hash = "sha256:7e6299577e56c9d4ef899f21e5ebda0ff98beaea524305d02b9b7c16767d9879"},
+    {file = "botocore_stubs-1.34.2.tar.gz", hash = "sha256:fb60ca7561b2a9d1ddabdc5eeb96112b2f978ddfa6a294bbe31d2bff5a4e658a"},
 ]
 
 [package.dependencies]
@@ -1150,13 +1150,13 @@ files = [
 
 [[package]]
 name = "pip"
-version = "23.3.1"
+version = "23.3.2"
 description = "The PyPA recommended tool for installing Python packages."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pip-23.3.1-py3-none-any.whl", hash = "sha256:55eb67bb6171d37447e82213be585b75fe2b12b359e993773aca4de9247a052b"},
-    {file = "pip-23.3.1.tar.gz", hash = "sha256:1fcaa041308d01f14575f6d0d2ea4b75a3e2871fe4f9c694976f908768e14174"},
+    {file = "pip-23.3.2-py3-none-any.whl", hash = "sha256:5052d7889c1f9d05224cd41741acb7c5d6fa735ab34e339624a614eaaa7e7d76"},
+    {file = "pip-23.3.2.tar.gz", hash = "sha256:7fd9972f96db22c8077a1ee2691b172c8089b17a5652a44494a9ecb0d78f9149"},
 ]
 
 [[package]]
