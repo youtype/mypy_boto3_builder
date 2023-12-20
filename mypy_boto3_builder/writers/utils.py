@@ -9,7 +9,7 @@ from typing import Literal
 
 import mdformat
 from black import format_file_contents
-from black.mode import Mode
+from black.mode import Mode, TargetVersion
 from black.parsing import InvalidInput
 from black.report import NothingChanged
 from isort.api import sort_code_string
@@ -19,6 +19,7 @@ from mypy_boto3_builder.constants import LINE_LENGTH
 from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.utils.jinja2 import render_jinja2_template
 from mypy_boto3_builder.utils.markdown import TableOfContents
+from mypy_boto3_builder.utils.version import get_supported_python_versions
 
 
 def blackify(content: str, file_path: Path) -> str:
@@ -41,7 +42,15 @@ def blackify(content: str, file_path: Path) -> str:
         return content
 
     is_pyi = file_path.suffix.lower() == ".pyi"
-    file_mode = Mode(is_pyi=is_pyi, line_length=LINE_LENGTH, preview=True)
+    python_versions = get_supported_python_versions()
+    target_versions: set[TargetVersion] = set()
+    for version in python_versions:
+        key = f"PY{version.replace('.', '')}"
+        if key in TargetVersion.__members__:
+            target_versions.add(TargetVersion[key])
+    file_mode = Mode(
+        target_versions=target_versions, is_pyi=is_pyi, line_length=LINE_LENGTH, preview=True
+    )
     try:
         content = format_file_contents(content, fast=True, mode=file_mode)
     except NothingChanged:

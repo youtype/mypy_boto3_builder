@@ -7,7 +7,11 @@ from collections.abc import Iterable
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
-from mypy_boto3_builder.utils.version import get_max_build_version, get_min_build_version
+from mypy_boto3_builder.utils.version import (
+    get_max_build_version,
+    get_min_build_version,
+    get_supported_python_versions,
+)
 
 
 class Package:
@@ -90,3 +94,32 @@ class Package:
         Minimum required library version.
         """
         return get_max_build_version(self.library_version)
+
+    @property
+    def min_python_version(self) -> str:
+        """
+        Minimum required python version.
+        """
+        return get_supported_python_versions()[0]
+
+    def get_classifiers(self) -> list[str]:
+        """
+        Get classifiers for package.
+        """
+        result = [
+            "Development Status :: 5 - Production/Stable",
+            "Intended Audience :: Developers",
+            "Environment :: Console",
+            "License :: OSI Approved :: MIT License",
+            "Natural Language :: English",
+            "Operating System :: OS Independent",
+            "Programming Language :: Python :: 3",
+        ]
+        for version in get_supported_python_versions():
+            result.append(f"Programming Language :: Python :: {version}")
+        result.extend([
+            "Programming Language :: Python :: 3 :: Only",
+            "Programming Language :: Python :: Implementation :: CPython",
+            "Typing :: Stubs Only",
+        ])
+        return result

@@ -1,7 +1,7 @@
 [tool.black]
 line-length = 100
-include = '(mypy_boto3_builder|types_s3transfer|tests)/.*\.pyi?$'
-target-version = ['py37', 'py38', 'py39', 'py310', 'py311']
+include = '(mypy_boto3_builder|tests)/.*\.pyi?$'
+target-version = ['py310', 'py311', 'py312']
 preview = true
 
 [tool.isort]

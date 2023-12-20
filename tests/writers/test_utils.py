@@ -2,6 +2,7 @@ from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
+from black.mode import TargetVersion
 from black.report import NothingChanged
 
 from mypy_boto3_builder.package_data import Boto3StubsPackageData
@@ -28,12 +29,23 @@ class TestUtils:
         file_path_mock.suffix = ".py"
         result = blackify("my content", file_path_mock)
         assert result == format_file_contents_mock()
-        ModeMock.assert_called_with(is_pyi=False, line_length=100, preview=True)
+        target_versions = {
+            TargetVersion.PY38,
+            TargetVersion.PY39,
+            TargetVersion.PY310,
+            TargetVersion.PY311,
+            TargetVersion.PY312,
+        }
+        ModeMock.assert_called_with(
+            target_versions=target_versions, is_pyi=False, line_length=100, preview=True
+        )
 
         file_path_mock.suffix = ".pyi"
         result = blackify("my content", file_path_mock)
         assert result == format_file_contents_mock()
-        ModeMock.assert_called_with(is_pyi=True, line_length=100, preview=True)
+        ModeMock.assert_called_with(
+            target_versions=target_versions, is_pyi=True, line_length=100, preview=True
+        )
 
         format_file_contents_mock.side_effect = IndentationError()
         with pytest.raises(ValueError):

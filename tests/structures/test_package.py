@@ -20,3 +20,5 @@ class TestPackage:
             package.get_service_pypi_link(ServiceNameCatalog.s3)
             == "https://pypi.org/project/mypy-boto3-s3/"
         )
+        assert package.min_python_version
+        assert package.get_classifiers()

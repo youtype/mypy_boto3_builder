@@ -77,7 +77,7 @@ class AioDeferredRefreshableCredentials(AioRefreshableCredentials):
     def refresh_needed(self, refresh_in: Optional[Any] = ...) -> bool: ...
 
 class AioCachedCredentialFetcher(CachedCredentialFetcher):
-    async def fetch_credentials(self) -> Any: ...
+    async def fetch_credentials(self) -> Any: ...  # type: ignore [override]
 
 class AioBaseAssumeRoleCredentialFetcher(
     BaseAssumeRoleCredentialFetcher, AioCachedCredentialFetcher
@@ -99,22 +99,22 @@ class AioAssumeRoleWithWebIdentityCredentialFetcher(AioBaseAssumeRoleCredentialF
 
 class AioProcessProvider(ProcessProvider):
     def __init__(self, *args: Any, popen: Any = ..., **kwargs: Any) -> None: ...
-    async def load(self) -> AioCredentials: ...
+    async def load(self) -> AioCredentials: ...  # type: ignore [override]
 
 class AioInstanceMetadataProvider(InstanceMetadataProvider):
-    async def load(self) -> AioRefreshableCredentials: ...
+    async def load(self) -> AioRefreshableCredentials: ...  # type: ignore [override]
 
 class AioEnvProvider(EnvProvider):
-    async def load(self) -> Any: ...
+    async def load(self) -> Any: ...  # type: ignore [override]
 
 class AioOriginalEC2Provider(OriginalEC2Provider):
-    async def load(self) -> AioCredentials: ...
+    async def load(self) -> AioCredentials: ...  # type: ignore [override]
 
 class AioSharedCredentialProvider(SharedCredentialProvider):
-    async def load(self) -> AioCredentials: ...
+    async def load(self) -> AioCredentials: ...  # type: ignore [override]
 
 class AioConfigProvider(ConfigProvider):
-    async def load(self) -> AioCredentials: ...
+    async def load(self) -> AioCredentials: ...  # type: ignore [override]
 
 class AioBotoProvider(BotoProvider):
     async def load(self) -> AioCredentials: ...  # type: ignore [override]
