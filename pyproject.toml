@@ -71,7 +71,7 @@ newversion = "*"
 cryptography = "*"
 typing_extensions = "*"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 handsdown = "*"
 mypy = "*"
 flake8 = "*"

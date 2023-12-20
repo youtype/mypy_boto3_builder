@@ -1589,4 +1589,4 @@ toml = "*"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "78fe1506aa030affbc0dd981d1873e321eab18632ce10ee8a21bacf5447ecd31"
+content-hash = "9d8a84fdbf97dd5afadc3f5d2a3310c721208d07dc9abedcfe867bc973c65db8"
