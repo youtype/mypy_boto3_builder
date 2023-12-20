@@ -9,7 +9,7 @@ Utils
 
 ## blackify
 
-[Show source in utils.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L24)
+[Show source in utils.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L25)
 
 Format `content` with `black` if `file_path` is `*.py` or `*.pyi`.
 
@@ -38,7 +38,7 @@ def blackify(content: str, file_path: Path) -> str: ...
 
 ## blackify_markdown
 
-[Show source in utils.py:154](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L154)
+[Show source in utils.py:163](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L163)
 
 Blackify python codeblocks.
 
@@ -52,7 +52,7 @@ def blackify_markdown(text: str) -> str: ...
 
 ## format_md
 
-[Show source in utils.py:141](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L141)
+[Show source in utils.py:150](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L150)
 
 Format MarkDown with mdformat.
 
@@ -66,7 +66,7 @@ def format_md(text: str) -> str: ...
 
 ## insert_md_toc
 
-[Show source in utils.py:117](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L117)
+[Show source in utils.py:126](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L126)
 
 Insert Table of Contents before the first second-level header.
 
@@ -80,7 +80,7 @@ def insert_md_toc(text: str) -> str: ...
 
 ## render_jinja2_package_template
 
-[Show source in utils.py:99](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L99)
+[Show source in utils.py:108](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L108)
 
 Render Jinja2 package template to a string.
 
@@ -107,7 +107,7 @@ def render_jinja2_package_template(template_path: Path, package: Package) -> str
 
 ## sort_imports
 
-[Show source in utils.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L58)
+[Show source in utils.py:67](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/utils.py#L67)
 
 Sort imports with `isort`.
 

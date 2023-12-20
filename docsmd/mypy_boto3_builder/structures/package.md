@@ -9,7 +9,7 @@ Package
 
 ## Package
 
-[Show source in package.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L13)
+[Show source in package.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L17)
 
 Parent class for all package structures.
 
@@ -29,7 +29,7 @@ class Package:
 
 ### Package().directory_name
 
-[Show source in package.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L42)
+[Show source in package.py:46](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L46)
 
 Directory name to store generated package.
 
@@ -40,9 +40,21 @@ Directory name to store generated package.
 def directory_name(self) -> str: ...
 ```
 
+### Package().get_classifiers
+
+[Show source in package.py:105](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L105)
+
+Get classifiers for package.
+
+#### Signature
+
+```python
+def get_classifiers(self) -> list[str]: ...
+```
+
 ### Package().get_local_doc_link
 
-[Show source in package.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L53)
+[Show source in package.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L57)
 
 Get link to local docs.
 
@@ -54,7 +66,7 @@ def get_local_doc_link(self, service_name: ServiceName | None = None) -> str: ..
 
 ### Package().get_module_name
 
-[Show source in package.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L62)
+[Show source in package.py:66](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L66)
 
 Get service module name.
 
@@ -70,7 +82,7 @@ def get_module_name(self, service_name: ServiceName) -> str: ...
 
 ### Package().get_service_pypi_link
 
-[Show source in package.py:74](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L74)
+[Show source in package.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L78)
 
 Get link to PyPI.
 
@@ -86,7 +98,7 @@ def get_service_pypi_link(self, service_name: ServiceName) -> str: ...
 
 ### Package().get_service_pypi_name
 
-[Show source in package.py:68](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L68)
+[Show source in package.py:72](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L72)
 
 Get PyPI package name for a service package.
 
@@ -102,7 +114,7 @@ def get_service_pypi_name(self, service_name: ServiceName) -> str: ...
 
 ### Package().max_library_version
 
-[Show source in package.py:87](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L87)
+[Show source in package.py:91](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L91)
 
 Minimum required library version.
 
@@ -115,7 +127,7 @@ def max_library_version(self) -> str: ...
 
 ### Package().min_library_version
 
-[Show source in package.py:80](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L80)
+[Show source in package.py:84](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L84)
 
 Minimum required library version.
 
@@ -126,9 +138,22 @@ Minimum required library version.
 def min_library_version(self) -> str: ...
 ```
 
+### Package().min_python_version
+
+[Show source in package.py:98](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L98)
+
+Minimum required python version.
+
+#### Signature
+
+```python
+@property
+def min_python_version(self) -> str: ...
+```
+
 ### Package().service_name
 
-[Show source in package.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L33)
+[Show source in package.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/package.py#L37)
 
 Service name for the package.
 
