@@ -10,7 +10,7 @@ from botocore import xform_name
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.client import parse_client
-from mypy_boto3_builder.parsers.service_resource import parse_service_resource
+from mypy_boto3_builder.parsers.service_resource_parser import ServiceResourceParser
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.structures.client import Client
@@ -81,9 +81,12 @@ class ServicePackageParser:
 
     def _parse_service_package(self) -> ServicePackage:
         client = parse_client(self.session, self.service_name, self.shape_parser)
-        service_resource = parse_service_resource(
-            self.session, self.service_name, self.shape_parser
+        service_resource_parser = ServiceResourceParser(
+            self.session,
+            self.service_name,
+            self.shape_parser,
         )
+        service_resource = service_resource_parser.parse()
 
         return ServicePackage(
             data=self.package_data,

@@ -48,6 +48,7 @@ _.get_paginator_required_import_records  # unused method (mypy_boto3_builder/str
 _.get_waiter_required_import_records  # unused method (mypy_boto3_builder/structures/service_package.py:203)
 _.get_type_defs_required_import_records  # unused method (mypy_boto3_builder/structures/service_package.py:213)
 _.get_literals_required_import_records  # unused method (mypy_boto3_builder/structures/service_package.py:229)
+_.get_sub_resources  # unused method (mypy_boto3_builder/structures/service_resource.py:121)
 _.essential_service_names  # unused property (mypy_boto3_builder/structures/wrapper_package.py:31)
 _.get_init_required_import_records  # unused method (mypy_boto3_builder/structures/wrapper_package.py:42)
 _.get_session_required_import_records  # unused method (mypy_boto3_builder/structures/wrapper_package.py:52)

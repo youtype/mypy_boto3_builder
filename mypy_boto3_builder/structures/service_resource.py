@@ -35,16 +35,6 @@ class ServiceResource(ClassRecord):
         super().__init__(
             name=name,
             bases=[ExternalImport.from_class(Boto3ServiceResource)],
-            attributes=[
-                Attribute(
-                    "meta",
-                    InternalImport(
-                        self.resource_meta_class.name,
-                        service_name,
-                        ServiceModuleName.service_resource,
-                    ),
-                )
-            ],
         )
         self.service_name = service_name
         self.boto3_service_resource = boto3_service_resource
@@ -72,13 +62,15 @@ class ServiceResource(ClassRecord):
         return ClassRecord(
             name=f"{service_name.class_name}ResourceMeta",
             bases=[ExternalImport.from_class(ResourceMeta)],
-            attributes=[Attribute("client", self._get_client_import(service_name))],
-        )
-
-    def _get_client_import(self, service_name: ServiceName) -> ExternalImport:
-        return ExternalImport(
-            source=ImportString.parent() + ServiceModuleName.client.value,
-            name=Client.get_class_name(service_name),
+            attributes=[
+                Attribute(
+                    "client",
+                    ExternalImport(
+                        source=ImportString.parent() + ServiceModuleName.client.value,
+                        name=Client.get_class_name(service_name),
+                    ),
+                )
+            ],
         )
 
     @property
