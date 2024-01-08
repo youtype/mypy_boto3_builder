@@ -136,21 +136,6 @@
     },
     {
         "severity": "error",
-        "message": "No parameter named \"bucket\"",
-        "range": {
-            "start": {
-                "line": 74,
-                "character": 30
-            },
-            "end": {
-                "line": 74,
-                "character": 36
-            }
-        },
-        "rule": "reportGeneralTypeIssues"
-    },
-    {
-        "severity": "error",
         "message": "Argument missing for parameter \"Bucket\"",
         "range": {
             "start": {
@@ -160,6 +145,21 @@
             "end": {
                 "line": 74,
                 "character": 46
+            }
+        },
+        "rule": "reportGeneralTypeIssues"
+    },
+    {
+        "severity": "error",
+        "message": "No parameter named \"bucket\"",
+        "range": {
+            "start": {
+                "line": 74,
+                "character": 30
+            },
+            "end": {
+                "line": 74,
+                "character": 36
             }
         },
         "rule": "reportGeneralTypeIssues"
