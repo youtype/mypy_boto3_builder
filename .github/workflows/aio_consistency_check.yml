@@ -46,13 +46,14 @@ jobs:
     needs: versions
     steps:
       - uses: actions/checkout@v4
+      - name: Install poetry
+        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
       - name: Install dependencies
         run: |
-          python -m pip install -U poetry pip
           poetry install -n
       - name: Install aioboto3
         run: |
