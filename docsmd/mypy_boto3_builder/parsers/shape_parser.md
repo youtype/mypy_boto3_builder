@@ -1,9 +1,6 @@
 # ShapeParser
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Parsers](./index.md#parsers) /
-ShapeParser
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Parsers](./index.md#parsers) / ShapeParser
 
 > Auto-generated documentation for [mypy_boto3_builder.parsers.shape_parser](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py) module.
 
@@ -28,6 +25,19 @@ class ShapeParser:
 #### See also
 
 - [ServiceName](../service_name.md#servicename)
+
+### ShapeParser._get_streaming_body
+
+[Show source in shape_parser.py:450](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L450)
+
+Get the streaming member's shape if any; or None otherwise.
+
+#### Signature
+
+```python
+@staticmethod
+def _get_streaming_body(shape: Shape) -> Shape | None: ...
+```
 
 ### ShapeParser().fix_method_arguments_for_mypy
 

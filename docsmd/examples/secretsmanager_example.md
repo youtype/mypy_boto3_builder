@@ -1,8 +1,6 @@
 # Secretsmanager Example
 
-[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) /
-[Examples](./index.md#examples) /
-Secretsmanager Example
+[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) / [Examples](./index.md#examples) / Secretsmanager Example
 
 > Auto-generated documentation for [examples.secretsmanager_example](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/secretsmanager_example.py) module.
 

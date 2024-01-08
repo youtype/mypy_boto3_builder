@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.2">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
     
     
       
@@ -1464,11 +1464,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parsers/service_resource/" class="md-nav__link">
+      <a href="../../parsers/service_resource_parser/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Service Resource
+    ServiceResourceParser
   </span>
   
 
@@ -3649,32 +3649,32 @@
 
 
 <h1 id="typed-dicts">Typed Dicts<a class="headerlink" href="#typed-dicts" title="Permanent link">#</a></h1>
-<p><a href="../../../#mypy_boto3_builder-index">Mypy_boto3_builder Index</a> /
-<a href="../../#mypy-boto3-builder">Mypy Boto3 Builder</a> /
-<a href="../#type-maps">Type Maps</a> /
-Typed Dicts</p>
+<p><a href="../../../#mypy_boto3_builder-index">Mypy_boto3_builder Index</a> / <a href="../../#mypy-boto3-builder">Mypy Boto3 Builder</a> / <a href="../#type-maps">Type Maps</a> / Typed Dicts</p>
 <blockquote>
 <p>Auto-generated documentation for <a href="https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/typed_dicts.py">mypy_boto3_builder.type_maps.typed_dicts</a> module.</p>
 </blockquote>
 <h4 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permanent link">#</a></h4>
 <ul>
 <li>
-<p><code>CopySourceTypeDef</code> - s3: <code>TypeTypedDict('CopySourceTypeDef', [TypedDictAttribute('Bucket', Type.str, True), TypedDictAttribute('Key', Type.str, True), TypedDictAttribute('VersionId', Type.str, False)])</code></p>
+<p><code>CopySourceTypeDef</code> - s3: TypeTypedDict('CopySourceTypeDef', [TypedDictAttribute('Bucket', Type.str, True), TypedDictAttribute('Key', Type.str, True), TypedDictAttribute('VersionId', Type.str, False)])</p>
 </li>
 <li>
-<p><code>TagTypeDef</code> - ec2: <code>TypeTypedDict('TagTypeDef', [TypedDictAttribute('Key', Type.str, False), TypedDictAttribute('Value', Type.str, False)])</code></p>
+<p><code>TagTypeDef</code> - ec2: TypeTypedDict('TagTypeDef', [TypedDictAttribute('Key', Type.str, False), TypedDictAttribute('Value', Type.str, False)])</p>
 </li>
 <li>
-<p><code>EmptyResponseMetadataTypeDef</code> - dynamodb: <code>TypeTypedDict('EmptyResponseMetadataTypeDef', [TypedDictAttribute('ResponseMetadata', ResponseMetadataTypeDef, True)])</code></p>
+<p><code>EmptyResponseMetadataTypeDef</code> - dynamodb: TypeTypedDict('EmptyResponseMetadataTypeDef', [TypedDictAttribute('ResponseMetadata', ResponseMetadataTypeDef, True)])</p>
 </li>
 <li>
-<p><code>GetTemplateOutputTypeDef</code> - cloudformation: <code>TypeTypedDict('GetTemplateOutputTypeDef', [TypedDictAttribute('TemplateBody', Type.DictStrAny, True), TypedDictAttribute('StagesAvailable', TypeSubscript(Type.List, [InternalImport(name='TemplateStageType', module_name=ServiceModuleName.literals)]), True), TypedDictAttribute('ResponseMetadata', ResponseMetadataTypeDef, True)])</code></p>
+<p><code>AttributeValueTypeDef</code>: <code>TypeTypedDict</code> - dynamodb: TypeTypedDict('AttributeValueTypeDef', [TypedDictAttribute('S', Type.str, False), TypedDictAttribute('N', Type.str, False), TypedDictAttribute('B', Type.bytes, False), TypedDictAttribute('SS', TypeSubscript(Type.Sequence, [Type.str]), False), TypedDictAttribute('NS', TypeSubscript(Type.Sequence, [Type.str]), False), TypedDictAttribute('BS', TypeSubscript(Type.Sequence, [Type.bytes]), False), TypedDictAttribute('M', Type.MappingStrAny, False), TypedDictAttribute('L', Type.SequenceAny, False), TypedDictAttribute('NULL', Type.bool, False), TypedDictAttribute('BOOL', Type.bool, False)])</p>
 </li>
 <li>
-<p><code>PolicyDocumentStatementTypeDef</code> - iam: <code>TypeTypedDict('PolicyDocumentStatementTypeDef', [TypedDictAttribute('Effect', Type.str, True), TypedDictAttribute('Resource', TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))), True), TypedDictAttribute('Sid', Type.str, True), TypedDictAttribute('Action', TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))), True)])</code></p>
+<p><code>GetTemplateOutputTypeDef</code> - cloudformation: TypeTypedDict('GetTemplateOutputTypeDef', [TypedDictAttribute('TemplateBody', Type.DictStrAny, True), TypedDictAttribute('StagesAvailable', TypeSubscript(Type.List, [InternalImport(name='TemplateStageType', module_name=ServiceModuleName.literals)]), True), TypedDictAttribute('ResponseMetadata', ResponseMetadataTypeDef, True)])</p>
 </li>
 <li>
-<p><code>CloudwatchEventStateTypeDef</code> - cloudwatch events: <code>TypeTypedDict('CloudwatchEventStateTypeDef', [TypedDictAttribute('reason', Type.str, False), TypedDictAttribute('reasonData', Type.str, False), TypedDictAttribute('timestamp', Type.str, True), TypedDictAttribute('value', Type.str, True), TypedDictAttribute('actionsSuppressedBy', Type.str, False), TypedDictAttribute('actionsSuppressedReason', Type.str, False)])</code></p>
+<p><code>PolicyDocumentStatementTypeDef</code> - iam: TypeTypedDict('PolicyDocumentStatementTypeDef', [TypedDictAttribute('Effect', Type.str, True), TypedDictAttribute('Resource', TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))), True), TypedDictAttribute('Sid', Type.str, True), TypedDictAttribute('Action', TypeUnion((Type.str, TypeSubscript(Type.List, [Type.str]))), True)])</p>
+</li>
+<li>
+<p><code>CloudwatchEventStateTypeDef</code> - cloudwatch events: TypeTypedDict('CloudwatchEventStateTypeDef', [TypedDictAttribute('reason', Type.str, False), TypedDictAttribute('reasonData', Type.str, False), TypedDictAttribute('timestamp', Type.str, True), TypedDictAttribute('value', Type.str, True), TypedDictAttribute('actionsSuppressedBy', Type.str, False), TypedDictAttribute('actionsSuppressedReason', Type.str, False)])</p>
 </li>
 </ul>
 

@@ -1,9 +1,6 @@
 # ServiceModuleName
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Enums](./index.md#enums) /
-ServiceModuleName
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Enums](./index.md#enums) / ServiceModuleName
 
 > Auto-generated documentation for [mypy_boto3_builder.enums.service_module_name](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/enums/service_module_name.py) module.
 

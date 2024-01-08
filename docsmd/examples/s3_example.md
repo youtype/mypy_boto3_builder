@@ -1,8 +1,6 @@
 # S3 Example
 
-[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) /
-[Examples](./index.md#examples) /
-S3 Example
+[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) / [Examples](./index.md#examples) / S3 Example
 
 > Auto-generated documentation for [examples.s3_example](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/s3_example.py) module.
 

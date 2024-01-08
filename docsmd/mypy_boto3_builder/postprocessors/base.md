@@ -1,9 +1,6 @@
 # Base
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Postprocessors](./index.md#postprocessors) /
-Base
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Postprocessors](./index.md#postprocessors) / Base
 
 > Auto-generated documentation for [mypy_boto3_builder.postprocessors.base](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py) module.
 
@@ -35,6 +32,24 @@ class BasePostprocessor(ABC):
 
 - [ServiceName](../service_name.md#servicename)
 - [ServicePackage](../structures/service_package.md#servicepackage)
+
+### BasePostprocessor()._replace_typed_dict_references
+
+[Show source in base.py:245](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/base.py#L245)
+
+Replace self references with `Dict[str, Any]` to avoid circular dependencies.
+
+#### Signature
+
+```python
+def _replace_typed_dict_references(
+    self, typed_dict: TypeTypedDict, reference: TypeTypedDict, depth: int
+) -> None: ...
+```
+
+#### See also
+
+- [TypeTypedDict](../type_annotations/type_typed_dict.md#typetypeddict)
 
 ### BasePostprocessor().extend_literals
 

@@ -1,8 +1,6 @@
 # Iam Example
 
-[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) /
-[Examples](./index.md#examples) /
-Iam Example
+[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) / [Examples](./index.md#examples) / Iam Example
 
 > Auto-generated documentation for [examples.iam_example](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/iam_example.py) module.
 

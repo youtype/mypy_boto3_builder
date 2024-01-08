@@ -1,7 +1,6 @@
 # Examples
 
-[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) /
-Examples
+[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) / Examples
 
 > Auto-generated documentation for [examples](https://github.com/youtype/mypy_boto3_builder/blob/main/examples/__init__.py) module.
 

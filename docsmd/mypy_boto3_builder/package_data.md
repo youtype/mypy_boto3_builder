@@ -1,8 +1,6 @@
 # Package Data
 
-[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](./index.md#mypy-boto3-builder) /
-Package Data
+[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](./index.md#mypy-boto3-builder) / Package Data
 
 > Auto-generated documentation for [mypy_boto3_builder.package_data](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py) module.
 

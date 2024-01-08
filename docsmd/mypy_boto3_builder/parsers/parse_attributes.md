@@ -1,9 +1,6 @@
 # Parse Attributes
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Parsers](./index.md#parsers) /
-Parse Attributes
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Parsers](./index.md#parsers) / Parse Attributes
 
 > Auto-generated documentation for [mypy_boto3_builder.parsers.parse_attributes](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_attributes.py) module.
 

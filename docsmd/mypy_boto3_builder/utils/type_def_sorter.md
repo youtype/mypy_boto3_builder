@@ -1,9 +1,6 @@
 # TypeDefSorter
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Utils](./index.md#utils) /
-TypeDefSorter
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Utils](./index.md#utils) / TypeDefSorter
 
 > Auto-generated documentation for [mypy_boto3_builder.utils.type_def_sorter](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/type_def_sorter.py) module.
 

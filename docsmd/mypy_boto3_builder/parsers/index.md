@@ -1,8 +1,6 @@
 # Parsers
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-Parsers
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / Parsers
 
 > Auto-generated documentation for [mypy_boto3_builder.parsers](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/__init__.py) module.
 
@@ -19,7 +17,7 @@ Parsers
 - [Parse Resource](./parse_resource.md)
 - [Parse Wrapper Package](./parse_wrapper_package.md)
 - [ServicePackageParser](./service_package_parser.md)
-- [Service Resource](./service_resource.md)
+- [ServiceResourceParser](./service_resource_parser.md)
 - [ShapeParser](./shape_parser.md)
 - [Shape Parser Types](./shape_parser_types.md)
 - [WrapperPackageParser](./wrapper_package_parser.md)

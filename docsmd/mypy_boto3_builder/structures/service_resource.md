@@ -1,9 +1,6 @@
 # ServiceResource
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Structures](./index.md#structures) /
-ServiceResource
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Structures](./index.md#structures) / ServiceResource
 
 > Auto-generated documentation for [mypy_boto3_builder.structures.service_resource](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py) module.
 
@@ -32,7 +29,7 @@ class ServiceResource(ClassRecord):
 
 ### ServiceResource().alias_name
 
-[Show source in service_resource.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L57)
+[Show source in service_resource.py:47](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L47)
 
 Class alias name for safe import.
 
@@ -45,7 +42,7 @@ def alias_name(self) -> str: ...
 
 ### ServiceResource().boto3_doc_link
 
-[Show source in service_resource.py:84](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L84)
+[Show source in service_resource.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L76)
 
 Link to boto3 docs.
 
@@ -58,7 +55,7 @@ def boto3_doc_link(self) -> str: ...
 
 ### ServiceResource().get_all_names
 
-[Show source in service_resource.py:102](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L102)
+[Show source in service_resource.py:94](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L94)
 
 Get names for `__all__` statement.
 
@@ -70,7 +67,7 @@ def get_all_names(self) -> list[str]: ...
 
 ### ServiceResource.get_class_name
 
-[Show source in service_resource.py:64](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L64)
+[Show source in service_resource.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L54)
 
 Get class name for ServiceName.
 
@@ -87,7 +84,7 @@ def get_class_name(service_name: ServiceName) -> str: ...
 
 ### ServiceResource().get_collections
 
-[Show source in service_resource.py:113](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L113)
+[Show source in service_resource.py:105](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L105)
 
 Get a list of Service Resource collections.
 
@@ -103,7 +100,7 @@ def get_collections(self) -> list[Collection]: ...
 
 ### ServiceResource().get_sub_resources
 
-[Show source in service_resource.py:129](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L129)
+[Show source in service_resource.py:121](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L121)
 
 Get sub-resource in safe order.
 
@@ -123,7 +120,7 @@ def get_sub_resources(self) -> list[Resource]: ...
 
 ### ServiceResource().iterate_types
 
-[Show source in service_resource.py:91](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L91)
+[Show source in service_resource.py:83](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/service_resource.py#L83)
 
 Iterate over type annotations for collections and sub-resources.
 

@@ -1,9 +1,6 @@
 # Boto3Generator
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Generators](./index.md#generators) /
-Boto3Generator
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Generators](./index.md#generators) / Boto3Generator
 
 > Auto-generated documentation for [mypy_boto3_builder.generators.boto3_generator](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py) module.
 
@@ -22,6 +19,18 @@ class Boto3Generator(BaseGenerator): ...
 #### See also
 
 - [BaseGenerator](./base_generator.md#basegenerator)
+
+### Boto3Generator()._generate_master
+
+[Show source in boto3_generator.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L43)
+
+Generate `mypy-boto3` package.
+
+#### Signature
+
+```python
+def _generate_master(self) -> None: ...
+```
 
 ### Boto3Generator().generate_docs
 

@@ -1,9 +1,6 @@
 # ExternalImport
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Type Annotations](./index.md#type-annotations) /
-ExternalImport
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](./index.md#type-annotations) / ExternalImport
 
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.external_import](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py) module.
 
@@ -45,6 +42,22 @@ Create a copy of type annotation wrapper.
 ```python
 def __copy__(self: _R) -> _R: ...
 ```
+
+### ExternalImport()._get_import_records
+
+[Show source in external_import.py:87](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L87)
+
+Get import record required for using type annotation.
+
+#### Signature
+
+```python
+def _get_import_records(self) -> set[ImportRecord]: ...
+```
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
 
 ### ExternalImport().copy_from
 

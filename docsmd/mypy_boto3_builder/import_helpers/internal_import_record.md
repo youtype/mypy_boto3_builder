@@ -1,9 +1,6 @@
 # InternalImportRecord
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Import Helpers](./index.md#import-helpers) /
-InternalImportRecord
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Import Helpers](./index.md#import-helpers) / InternalImportRecord
 
 > Auto-generated documentation for [mypy_boto3_builder.import_helpers.internal_import_record](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/import_helpers/internal_import_record.py) module.
 

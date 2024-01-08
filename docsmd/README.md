@@ -45,7 +45,7 @@ A full list of [Mypy_boto3_builder](https://github.com/youtype/mypy_boto3_builde
         - [Parse Resource](mypy_boto3_builder/parsers/parse_resource.md#parse-resource)
         - [Parse Wrapper Package](mypy_boto3_builder/parsers/parse_wrapper_package.md#parse-wrapper-package)
         - [ServicePackageParser](mypy_boto3_builder/parsers/service_package_parser.md#servicepackageparser)
-        - [Service Resource](mypy_boto3_builder/parsers/service_resource.md#service-resource)
+        - [ServiceResourceParser](mypy_boto3_builder/parsers/service_resource_parser.md#serviceresourceparser)
         - [ShapeParser](mypy_boto3_builder/parsers/shape_parser.md#shapeparser)
         - [Shape Parser Types](mypy_boto3_builder/parsers/shape_parser_types.md#shape-parser-types)
         - [WrapperPackageParser](mypy_boto3_builder/parsers/wrapper_package_parser.md#wrapperpackageparser)

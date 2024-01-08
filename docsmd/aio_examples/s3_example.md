@@ -1,8 +1,6 @@
 # S3 Example
 
-[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) /
-[Aio Examples](./index.md#aio-examples) /
-S3 Example
+[Mypy_boto3_builder Index](../README.md#mypy_boto3_builder-index) / [Aio Examples](./index.md#aio-examples) / S3 Example
 
 > Auto-generated documentation for [aio_examples.s3_example](https://github.com/youtype/mypy_boto3_builder/blob/main/aio_examples/s3_example.py) module.
 

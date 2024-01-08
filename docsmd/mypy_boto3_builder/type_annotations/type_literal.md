@@ -1,9 +1,6 @@
 # TypeLiteral
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Type Annotations](./index.md#type-annotations) /
-TypeLiteral
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](./index.md#type-annotations) / TypeLiteral
 
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.type_literal](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_literal.py) module.
 
@@ -41,6 +38,22 @@ Create a copy of type annotation wrapper.
 ```python
 def __copy__(self: _R) -> _R: ...
 ```
+
+### TypeLiteral()._get_import_records
+
+[Show source in type_literal.py:63](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_literal.py#L63)
+
+Get import record required for using type annotation.
+
+#### Signature
+
+```python
+def _get_import_records(self) -> set[ImportRecord]: ...
+```
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
 
 ### TypeLiteral().add_child
 

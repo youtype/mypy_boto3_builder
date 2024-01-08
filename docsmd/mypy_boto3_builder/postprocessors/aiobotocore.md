@@ -1,9 +1,6 @@
 # Aiobotocore
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Postprocessors](./index.md#postprocessors) /
-Aiobotocore
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Postprocessors](./index.md#postprocessors) / Aiobotocore
 
 > Auto-generated documentation for [mypy_boto3_builder.postprocessors.aiobotocore](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/postprocessors/aiobotocore.py) module.
 

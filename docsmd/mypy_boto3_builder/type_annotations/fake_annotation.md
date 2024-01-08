@@ -1,9 +1,6 @@
 # FakeAnnotation
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Type Annotations](./index.md#type-annotations) /
-FakeAnnotation
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](./index.md#type-annotations) / FakeAnnotation
 
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.fake_annotation](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py) module.
 
@@ -31,6 +28,22 @@ Create a copy of type annotation wrapper.
 @abstractmethod
 def __copy__(self) -> Self: ...
 ```
+
+### FakeAnnotation()._get_import_records
+
+[Show source in fake_annotation.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L54)
+
+Get import record required for using type annotation.
+
+#### Signature
+
+```python
+def _get_import_records(self) -> set[ImportRecord]: ...
+```
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
 
 ### FakeAnnotation().copy
 

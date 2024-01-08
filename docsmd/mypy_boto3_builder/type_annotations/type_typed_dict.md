@@ -1,9 +1,6 @@
 # TypeTypedDict
 
-[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) /
-[Mypy Boto3 Builder](../index.md#mypy-boto3-builder) /
-[Type Annotations](./index.md#type-annotations) /
-TypeTypedDict
+[Mypy_boto3_builder Index](../../README.md#mypy_boto3_builder-index) / [Mypy Boto3 Builder](../index.md#mypy-boto3-builder) / [Type Annotations](./index.md#type-annotations) / TypeTypedDict
 
 > Auto-generated documentation for [mypy_boto3_builder.type_annotations.type_typed_dict](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py) module.
 
@@ -50,6 +47,22 @@ Create a copy of type annotation wrapper.
 ```python
 def __copy__(self: _R) -> _R: ...
 ```
+
+### TypeTypedDict()._get_import_records
+
+[Show source in type_typed_dict.py:142](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_typed_dict.py#L142)
+
+Get import record required for using type annotation.
+
+#### Signature
+
+```python
+def _get_import_records(self) -> set[ImportRecord]: ...
+```
+
+#### See also
+
+- [ImportRecord](../import_helpers/import_record.md#importrecord)
 
 ### TypeTypedDict().add_attribute
 
