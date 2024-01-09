@@ -30,16 +30,18 @@ class TemplateRender:
     """
 
     template_path: Path
-    output_path: Path | tuple[Path, ...]
+    path: Path | None = None
+    paths: tuple[Path, ...] = ()
 
     @property
     def output_paths(self) -> tuple[Path, ...]:
         """
         Get output paths as a tuple.
         """
-        if isinstance(self.output_path, Path):
-            return (self.output_path,)
-        return self.output_path
+        return (
+            *([self.path] if self.path else []),
+            *self.paths,
+        )
 
 
 class PackageWriter:
@@ -243,7 +245,7 @@ class PackageWriter:
             ),
             TemplateRender(
                 module_templates_path / "__init__.pyi.jinja2",
-                (
+                paths=(
                     package_path / "__init__.pyi",
                     package_path / "__init__.py",
                 ),
@@ -254,7 +256,7 @@ class PackageWriter:
             TemplateRender(module_templates_path / "py.typed.jinja2", package_path / "py.typed"),
             TemplateRender(
                 module_templates_path / ServiceModuleName.client.template_name,
-                (
+                paths=(
                     package_path / ServiceModuleName.client.stub_file_name,
                     package_path / ServiceModuleName.client.file_name,
                 ),
@@ -264,7 +266,7 @@ class PackageWriter:
             file_paths.append(
                 TemplateRender(
                     module_templates_path / ServiceModuleName.service_resource.template_name,
-                    (
+                    paths=(
                         package_path / ServiceModuleName.service_resource.stub_file_name,
                         package_path / ServiceModuleName.service_resource.file_name,
                     ),
@@ -274,7 +276,7 @@ class PackageWriter:
             file_paths.append(
                 TemplateRender(
                     module_templates_path / ServiceModuleName.paginator.template_name,
-                    (
+                    paths=(
                         package_path / ServiceModuleName.paginator.stub_file_name,
                         package_path / ServiceModuleName.paginator.file_name,
                     ),
@@ -284,7 +286,7 @@ class PackageWriter:
             file_paths.append(
                 TemplateRender(
                     module_templates_path / ServiceModuleName.waiter.template_name,
-                    (
+                    paths=(
                         package_path / ServiceModuleName.waiter.stub_file_name,
                         package_path / ServiceModuleName.waiter.file_name,
                     ),
@@ -294,7 +296,7 @@ class PackageWriter:
             file_paths.append(
                 TemplateRender(
                     module_templates_path / ServiceModuleName.literals.template_name,
-                    (
+                    paths=(
                         package_path / ServiceModuleName.literals.stub_file_name,
                         package_path / ServiceModuleName.literals.file_name,
                     ),
@@ -304,7 +306,7 @@ class PackageWriter:
             file_paths.append(
                 TemplateRender(
                     module_templates_path / ServiceModuleName.type_defs.template_name,
-                    (
+                    paths=(
                         package_path / ServiceModuleName.type_defs.stub_file_name,
                         package_path / ServiceModuleName.type_defs.file_name,
                     ),
