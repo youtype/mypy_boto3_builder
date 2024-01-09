@@ -30,7 +30,7 @@ ResponseMetadataTypeDef = TypeTypedDict(
     "ResponseMetadataTypeDef",
     [
         TypedDictAttribute("RequestId", Type.str, True),
-        TypedDictAttribute("HostId", Type.str, True),
+        TypedDictAttribute("HostId", Type.str, False),
         TypedDictAttribute("HTTPStatusCode", Type.int, True),
         TypedDictAttribute("HTTPHeaders", Type.DictStrStr, True),
         TypedDictAttribute("RetryAttempts", Type.int, True),
