@@ -23,24 +23,20 @@ jobs:
         with:
           python-version: "${{ matrix.version }}"
           cache: "poetry"
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
       - name: Install dependencies
         run: |
           poetry install -n
           poetry run pip install -U --no-dependencies aiobotocore types-aiobotocore
-      - name: Install Node.js dependencies
-        run: |
-          npm install -g pyright
       - name: Lint
         run: |
           poetry run flake8 mypy_boto3_builder
-          poetry run npx pyright mypy_boto3_builder
-          poetry run mypy mypy_boto3_builder
+      - name: Formatting
+        run: |
           poetry run black --check mypy_boto3_builder tests
           poetry run isort -c mypy_boto3_builder tests
+      - run: echo "$(poetry env info --path)/bin" >> $GITHUB_PATH
+      - name: Typing
+        uses: jakebailey/pyright-action@v1
       - name: Test
         run: |
           poetry run pytest
