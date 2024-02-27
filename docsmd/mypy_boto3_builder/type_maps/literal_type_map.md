@@ -6,7 +6,7 @@
 
 ## get_literal_type_stub
 
-[Show source in literal_type_map.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/literal_type_map.py#L10)
+[Show source in literal_type_map.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/literal_type_map.py#L13)
 
 Get stub type for botocore literal.
 
