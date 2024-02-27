@@ -94,11 +94,13 @@ class ServicePackage(Package):
 
         if self.service_resource:
             methods.update(self.service_resource.methods)
-            methods.update((
-                method
-                for resource in self.service_resource.sub_resources
-                for method in resource.methods
-            ))
+            methods.update(
+                (
+                    method
+                    for resource in self.service_resource.sub_resources
+                    for method in resource.methods
+                )
+            )
 
         for method in methods:
             if method.request_type_annotation:

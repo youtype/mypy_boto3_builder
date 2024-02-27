@@ -3,11 +3,13 @@ from mypy_boto3_builder.utils.markdown import Header, TableOfContents, fix_pypi_
 
 class TestTableOfContents:
     def test_render(self) -> None:
-        toc = TableOfContents([
-            Header("a", 1),
-            Header("b", 3),
-            Header("c", 6),
-        ])
+        toc = TableOfContents(
+            [
+                Header("a", 1),
+                Header("b", 3),
+                Header("c", 6),
+            ]
+        )
         assert toc.render() == "- [a](#a)\n    - [b](#b)"
 
 

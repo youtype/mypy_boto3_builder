@@ -117,9 +117,11 @@ class Package:
         ]
         for version in get_supported_python_versions():
             result.append(f"Programming Language :: Python :: {version}")
-        result.extend([
-            "Programming Language :: Python :: 3 :: Only",
-            "Programming Language :: Python :: Implementation :: CPython",
-            "Typing :: Stubs Only",
-        ])
+        result.extend(
+            [
+                "Programming Language :: Python :: 3 :: Only",
+                "Programming Language :: Python :: Implementation :: CPython",
+                "Typing :: Stubs Only",
+            ]
+        )
         return result
