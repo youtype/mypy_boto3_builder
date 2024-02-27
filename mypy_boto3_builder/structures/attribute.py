@@ -54,4 +54,7 @@ class Attribute:
         """
         Whether the attribute is an autoload property.
         """
+        if self.name != "meta":
+            return False
+
         return not self.is_reference and not self.is_identifier and not self.is_collection
