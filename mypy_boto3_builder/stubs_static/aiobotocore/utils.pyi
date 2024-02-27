@@ -1,13 +1,17 @@
 from typing import Any, Dict, Mapping, Optional
 
+from aiobotocore.credentials import AioCredentials
 from botocore.utils import DEFAULT_METADATA_SERVICE_TIMEOUT as DEFAULT_METADATA_SERVICE_TIMEOUT
 from botocore.utils import METADATA_BASE_URL as METADATA_BASE_URL
 from botocore.utils import (
     ContainerMetadataFetcher,
+    IdentityCache,
     IMDSFetcher,
     IMDSRegionProvider,
     InstanceMetadataFetcher,
     InstanceMetadataRegionFetcher,
+    S3ExpressIdentityCache,
+    S3ExpressIdentityResolver,
     S3RegionRedirector,
     S3RegionRedirectorv2,
 )
@@ -36,6 +40,14 @@ class AioIMDSRegionProvider(IMDSRegionProvider):
 
 class AioInstanceMetadataRegionFetcher(AioIMDSFetcher, InstanceMetadataRegionFetcher):
     async def retrieve_region(self) -> Optional[str]: ...  # type: ignore [override]
+
+class AioIdentityCache(IdentityCache):
+    async def get_credentials(self, **kwargs: Any) -> AioCredentials: ...  # type: ignore [override]
+
+class AioS3ExpressIdentityCache(AioIdentityCache, S3ExpressIdentityCache):
+    async def get_credentials(self, bucket: str) -> AioCredentials: ...  # type: ignore [override]
+
+class AioS3ExpressIdentityResolver(S3ExpressIdentityResolver): ...
 
 class AioS3RegionRedirectorv2(S3RegionRedirectorv2):
     async def redirect_from_error(
