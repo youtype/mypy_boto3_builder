@@ -29,3 +29,4 @@ class TestAttribute:
         assert (
             Attribute("attr", Type.DictStrAny, is_collection=True).is_autoload_property() is False
         )
+        assert Attribute("meta", Type.DictStrAny).is_autoload_property() is False
