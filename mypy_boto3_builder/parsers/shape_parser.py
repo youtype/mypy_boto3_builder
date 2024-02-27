@@ -3,7 +3,7 @@ Parser for botocore shape files.
 """
 
 import contextlib
-from collections.abc import Iterable, Sequence
+from collections.abc import Iterable, Iterator, Sequence
 
 from boto3.resources.model import Collection
 from boto3.session import Session
@@ -70,6 +70,45 @@ class ShapeParserError(Exception):
     """
 
 
+class TypedDictMap(dict[str, TypeTypedDict]):
+    """
+    Wrapper for TypedDict maps.
+    """
+
+    def add(self, item: TypeTypedDict) -> None:
+        """
+        Add new item.
+        """
+        self[item.name] = item
+
+    def iterate_pairs(self, name: str) -> Iterator[tuple[str, TypeTypedDict]]:
+        """
+        Iterate over pairs mathed by real dict name.
+        """
+        for key, value in list(self.items()):
+            if value.name == name:
+                yield key, value
+
+    def rename(self, item: TypeTypedDict, new_name: str) -> None:
+        """
+        Rename item and change mapping.
+        """
+        for key, value in list(self.items()):
+            if value == item:
+                del self[key]
+
+        item.name = new_name
+        self[new_name] = item
+
+    def get_sorted_names(self) -> list[str]:
+        """
+        Get real TypedDict names topologically sorted.
+        """
+        sorted_values = TypeDefSorter(self.values()).sort()
+        allowed_names = {i.name for i in self.values()}
+        return [i.name for i in sorted_values if i.name in allowed_names]
+
+
 class ShapeParser:
     """
     Parser for botocore shape files.
@@ -87,9 +126,9 @@ class ShapeParser:
         self.service_model = ServiceModel(service_data, service_name.boto3_name)
         self._resource_name: str = ""
         self._type_literal_map: dict[str, TypeLiteral] = {}
-        self._typed_dict_map: dict[str, TypeTypedDict] = {}
-        self._output_typed_dict_map: dict[str, TypeTypedDict] = {}
-        self._response_typed_dict_map: dict[str, TypeTypedDict] = {}
+        self._typed_dict_map = TypedDictMap()
+        self._output_typed_dict_map = TypedDictMap()
+        self._response_typed_dict_map = TypedDictMap()
         self._fixed_typed_dict_map: dict[TypeTypedDict, TypeTypedDict] = {}
 
         self._waiters_shape: WaitersShape | None = None
@@ -362,7 +401,7 @@ class ShapeParser:
             type_subscript.add_child(Type.Any)
         return type_subscript
 
-    def _get_typed_dict_map(self, output: bool, output_child: bool) -> dict[str, TypeTypedDict]:
+    def _get_typed_dict_map(self, output: bool, output_child: bool) -> TypedDictMap:
         if output:
             return self._response_typed_dict_map
         if output_child:
@@ -910,7 +949,12 @@ class ShapeParser:
                 self._response_typed_dict_map,
             ),
         )
-        if not clashing_typed_dict or clashing_typed_dict.is_same(typed_dict):
+        if not clashing_typed_dict:
+            return new_typed_dict_name
+
+        temp_typed_dict = typed_dict.copy()
+        temp_typed_dict.name = new_typed_dict_name
+        if clashing_typed_dict.is_same(temp_typed_dict):
             return new_typed_dict_name
 
         self.logger.debug(f"Clashing typed dict name found: {new_typed_dict_name}")
@@ -920,10 +964,7 @@ class ShapeParser:
         """
         Fix typed dict names to avoid duplicates.
         """
-        output_typed_dicts = TypeDefSorter(self._output_typed_dict_map.values()).sort()
-        output_typed_dict_names = [
-            i.name for i in output_typed_dicts if i.name in self._output_typed_dict_map
-        ]
+        output_typed_dict_names = self._output_typed_dict_map.get_sorted_names()
         for name in output_typed_dict_names:
             typed_dict = self._get_typed_dict(
                 name,
@@ -932,38 +973,27 @@ class ShapeParser:
             if typed_dict is None:
                 continue
 
-            typed_dict = self._typed_dict_map[name]
-            output_typed_dict = self._output_typed_dict_map[name]
-            if typed_dict.is_same(output_typed_dict):
-                continue
+            for (
+                old_typed_dict_name,
+                output_typed_dict,
+            ) in self._output_typed_dict_map.iterate_pairs(name):
+                if typed_dict.is_same(output_typed_dict):
+                    continue
 
-            old_typed_dict_name = typed_dict.name
-            new_typed_dict_name = self._get_non_clashing_typed_dict_name(typed_dict, "Output")
-            self._fixed_typed_dict_map[typed_dict] = output_typed_dict
-            self.logger.debug(
-                f"Fixing TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
-            )
+                old_typed_dict_name = typed_dict.name
+                new_typed_dict_name = self._get_non_clashing_typed_dict_name(typed_dict, "Output")
+                self._fixed_typed_dict_map[typed_dict] = output_typed_dict
+                self.logger.debug(
+                    f"Fixing TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
+                )
 
-            output_typed_dict.name = new_typed_dict_name
-            del self._output_typed_dict_map[old_typed_dict_name]
-            self._output_typed_dict_map[output_typed_dict.name] = output_typed_dict
-            # print(
-            #     old_typed_dict_name,
-            #     output_typed_dict.name,
-            #     old_typed_dict_name in self._response_typed_dict_map,
-            #     output_typed_dict.name in self._response_typed_dict_map,
-            # )
+                self._output_typed_dict_map.rename(output_typed_dict, new_typed_dict_name)
 
-            if old_typed_dict_name in self._response_typed_dict_map:
-                del self._response_typed_dict_map[old_typed_dict_name]
-                self._response_typed_dict_map[output_typed_dict.name] = output_typed_dict
+                if old_typed_dict_name in self._response_typed_dict_map:
+                    del self._response_typed_dict_map[old_typed_dict_name]
+                    self._response_typed_dict_map.add(output_typed_dict)
 
-        response_typed_dicts = TypeDefSorter(self._response_typed_dict_map.values()).sort()
-        response_typed_dict_names = [
-            i.name for i in response_typed_dicts if i.name in self._response_typed_dict_map
-        ]
-        # print(list(self._response_typed_dict_map.keys()))
-        # print(response_typed_dict_names)
+        response_typed_dict_names = self._response_typed_dict_map.get_sorted_names()
         for name in response_typed_dict_names:
             typed_dict = self._get_typed_dict(
                 name,
@@ -975,19 +1005,21 @@ class ShapeParser:
             if typed_dict is None:
                 continue
 
-            response_typed_dict = self._response_typed_dict_map[name]
-            if typed_dict.is_same(response_typed_dict):
-                continue
+            for (
+                old_typed_dict_name,
+                response_typed_dict,
+            ) in self._response_typed_dict_map.iterate_pairs(name):
+                if typed_dict.is_same(response_typed_dict):
+                    continue
 
-            old_typed_dict_name = typed_dict.name
-            new_typed_dict_name = self._get_non_clashing_typed_dict_name(typed_dict, "Response")
-            self.logger.debug(
-                f"Fixing TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
-            )
+                new_typed_dict_name = self._get_non_clashing_typed_dict_name(
+                    response_typed_dict, "Response"
+                )
+                self.logger.debug(
+                    f"Fixing TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
+                )
 
-            response_typed_dict.name = new_typed_dict_name
-            del self._response_typed_dict_map[old_typed_dict_name]
-            self._response_typed_dict_map[response_typed_dict.name] = response_typed_dict
+                self._response_typed_dict_map.rename(response_typed_dict, new_typed_dict_name)
 
     def fix_method_arguments_for_mypy(self, methods: Sequence[Method]) -> None:
         """
