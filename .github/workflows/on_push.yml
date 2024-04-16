@@ -23,7 +23,6 @@ jobs:
             check-lint: "true"
             check-typing: "true"
           - version: "3.12"
-            check-lint: "true"
             check-typing: "true"
     steps:
       - uses: actions/checkout@v4
