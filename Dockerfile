@@ -7,7 +7,6 @@ WORKDIR /builder
 ADD ./mypy_boto3_builder ./mypy_boto3_builder
 ADD ./LICENSE ./LICENSE
 ADD ./pyproject.toml ./pyproject.toml
-ADD ./setup.cfg ./setup.cfg
 ADD ./README.md ./README.md
 
 RUN adduser \

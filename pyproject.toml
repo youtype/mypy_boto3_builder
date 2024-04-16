@@ -80,6 +80,7 @@ flake8-comprehensions = "*"
 flake8-docstrings = "*"
 flake8-simplify = "*"
 flake8-string-format = "*"
+flake8-pyproject = "*"
 pytest-cov = "*"
 pytest = "*"
 vulture = "*"
@@ -130,3 +131,30 @@ reportIncompatibleMethodOverride = "error"
 reportIncompatibleVariableOverride = "error"
 reportUnknownParameterType = "error"
 pythonVersion = "3.10"
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_ignores = false
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+ignore_errors = false
+
+[[tool.mypy.overrides]]
+module = "mypy-tests.*"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "mypy-mypy_boto3_builder.stubs_static.aiobotocore.*"
+ignore_errors = true
+
+[[tool.mypy.overrides]]
+module = "mypy-mypy_boto3_builder.stubs_static.aioboto3.*"
+ignore_errors = true
+
+[tool.flake8]
+max-line-length = 100
+exclude = [".git", "__pycache__", "docs", "build", "dist", "test_*.py", "*.pyi"]
+ignore = ["E704", "W503", "D200", "D107", "D105"]
+max-complexity = 14
