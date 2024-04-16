@@ -17,7 +17,7 @@ class AioRequestSigner(RequestSigner):
         expires_in: Optional[Any] = ...,
         signing_name: Optional[Any] = ...,
     ) -> None: ...
-    async def get_auth_instance(
+    async def get_auth_instance(  # type: ignore [override]
         self,
         signing_name: str,
         region_name: str,

@@ -28,7 +28,7 @@ class BotocoreChangelog:
         except HTTPError as e:
             raise RuntimeError(f"Cannot retrieve {self.URL}: {e}") from None
 
-        return self._changelog
+        return self._changelog or ""
 
     def _get_section(self, version: str) -> str:
         result: list[str] = []
