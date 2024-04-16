@@ -45,6 +45,9 @@ class ImportRecord:
         self.fallback = fallback
 
     def __bool__(self) -> bool:
+        """
+        Whether import record is an empty string.
+        """
         return not self.is_empty()
 
     def is_empty(self) -> bool:
@@ -76,18 +79,32 @@ class ImportRecord:
         return ""
 
     def __str__(self) -> str:
+        """
+        Render as a valid Python import statement.
+        """
         return self.render()
 
     def __hash__(self) -> int:
+        """
+        Calculate hash value based on source, name and alias.
+        """
         return hash(str(self))
 
     def __eq__(self, other: object) -> bool:
+        """
+        Whether two import records produce the same render.
+        """
         if not isinstance(other, ImportRecord):
             return False
 
         return str(self) == str(other)
 
     def __gt__(self: Self, other: Self) -> bool:
+        """
+        Compare two import records for sorting.
+
+        Emulates `isort` logic.
+        """
         if self.fallback is not None and other.fallback is None:
             return True
 

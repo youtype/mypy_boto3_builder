@@ -65,21 +65,41 @@ class ImportString:
         return result
 
     def __bool__(self) -> bool:
+        """
+        Whether import string is not empty.
+        """
         return bool(self.parts)
 
     def __str__(self) -> str:
+        """
+        Render as a part of a valid Python import statement.
+        """
         return self.render()
 
     def __hash__(self) -> int:
+        """
+        Calculate hash value based on all parts.
+        """
         return hash(str(self))
 
     def __eq__(self, other: object) -> bool:
+        """
+        Whether import strings produce the same render.
+        """
         return str(self) == str(other)
 
     def __gt__(self, other: object) -> bool:
+        """
+        Compare import strings for sorting.
+
+        Emulates `isort` logic.
+        """
         return str(self) > str(other)
 
     def __add__(self: Self, other: Self | str) -> Self:
+        """
+        Create a new import string by adding another import string parts to the end.
+        """
         other_import_string = other if isinstance(other, ImportString) else ImportString(other)
         result = self.__class__.empty()
         result.parts = self.parts + other_import_string.parts

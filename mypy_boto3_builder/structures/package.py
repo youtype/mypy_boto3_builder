@@ -52,6 +52,9 @@ class Package:
         return f"{underscore_package_name}_package"
 
     def __str__(self) -> str:
+        """
+        Get string representation for debugging.
+        """
         return f"{self.name} {self.version} ({self.library_name} {self.library_version})"
 
     def get_local_doc_link(self, service_name: ServiceName | None = None) -> str:

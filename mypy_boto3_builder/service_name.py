@@ -46,9 +46,15 @@ class ServiceName:
         self.override_boto3_name = override_boto3_name
 
     def __hash__(self) -> int:
+        """
+        Calculate hash value based on service name.
+        """
         return hash(self.name)
 
     def __str__(self) -> str:
+        """
+        Represent as string for debugging.
+        """
         return f"<ServiceName {self.name} {self.class_name}>"
 
     @property

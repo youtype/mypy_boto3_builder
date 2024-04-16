@@ -40,6 +40,9 @@ class Function:
         self.is_async = is_async
 
     def __repr__(self) -> str:
+        """
+        Represent as a valid Python function signature.
+        """
         return (
             f"{'async ' if self.is_async else ''}def"
             f" {self.name}({', '.join(argument.render() for argument in self.arguments)}) ->"

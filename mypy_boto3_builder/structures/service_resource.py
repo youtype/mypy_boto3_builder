@@ -42,6 +42,9 @@ class ServiceResource(ClassRecord):
         self.sub_resources: list[Resource] = []
 
     def __hash__(self) -> int:
+        """
+        Calculate hash value based on service name.
+        """
         return hash(self.service_name)
 
     @property

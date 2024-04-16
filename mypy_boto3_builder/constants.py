@@ -75,6 +75,9 @@ class Product(Enum):
     aioboto3_docs = "aioboto3-docs"
 
     def __str__(self) -> str:
+        """
+        Get string representation for debugging.
+        """
         return self.value
 
     def get_library(self) -> ProductLibrary:

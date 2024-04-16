@@ -19,18 +19,30 @@ class FakeAnnotation(ABC):
     _sys_import_record = ImportRecord(ImportString("sys"))
 
     def __hash__(self) -> int:
+        """
+        Calculate hash value based on string render.
+        """
         return hash(self.render())
 
     def __eq__(self, other: object) -> bool:
+        """
+        Whether two annotations are equal.
+        """
         if not isinstance(other, FakeAnnotation):
             return False
 
         return self.get_sort_key() == other.get_sort_key()
 
     def __lt__(self: Self, other: Self) -> bool:
+        """
+        Compare two annotations for sorting.
+        """
         return self.get_sort_key() < other.get_sort_key()
 
     def __gt__(self: Self, other: Self) -> bool:
+        """
+        Compare two annotations for sorting.
+        """
         return self.get_sort_key() > other.get_sort_key()
 
     def get_sort_key(self) -> str:
@@ -40,6 +52,9 @@ class FakeAnnotation(ABC):
         return str(self)
 
     def __str__(self) -> str:
+        """
+        Render annotation usage as a valid Python statement.
+        """
         return self.render()
 
     @abstractmethod

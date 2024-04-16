@@ -34,6 +34,9 @@ class TypedDictAttribute:
         self.type_annotation = type_annotation
 
     def __hash__(self) -> int:
+        """
+        Calculate hash value based on name, required and type annotation.
+        """
         return hash((self.name, self.required, self.type_annotation.get_sort_key()))
 
     def get_type_annotation(self) -> FakeAnnotation:
@@ -109,6 +112,9 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         return self.name
 
     def __hash__(self) -> int:
+        """
+        Calculate hash value based on name and children.
+        """
         return hash((self.name, *[hash(i) for i in self.children]))
 
     def render(self) -> str:
