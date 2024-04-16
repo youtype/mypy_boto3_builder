@@ -4,14 +4,11 @@ Parent class for all type annotation wrappers.
 
 from abc import ABC, abstractmethod
 from collections.abc import Iterator
-from typing import TypeVar
 
 from typing_extensions import Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
-
-_R = TypeVar("_R", bound="FakeAnnotation")
 
 
 class FakeAnnotation(ABC):
@@ -30,10 +27,10 @@ class FakeAnnotation(ABC):
 
         return self.get_sort_key() == other.get_sort_key()
 
-    def __lt__(self: _R, other: _R) -> bool:
+    def __lt__(self: Self, other: Self) -> bool:
         return self.get_sort_key() < other.get_sort_key()
 
-    def __gt__(self: _R, other: _R) -> bool:
+    def __gt__(self: Self, other: Self) -> bool:
         return self.get_sort_key() > other.get_sort_key()
 
     def get_sort_key(self) -> str:

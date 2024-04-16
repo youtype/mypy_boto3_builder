@@ -3,14 +3,11 @@ Wrapper for subscript type annotations, like `List[str]`.
 """
 
 from collections.abc import Iterable, Iterator
-from typing import TypeVar
 
 from typing_extensions import Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-
-_R = TypeVar("_R", bound="TypeSubscript")
 
 
 class TypeSubscript(FakeAnnotation):
@@ -88,7 +85,7 @@ class TypeSubscript(FakeAnnotation):
         """
         return self.parent.is_list()
 
-    def __copy__(self: _R) -> _R:
+    def __copy__(self: Self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """
@@ -107,7 +104,7 @@ class TypeSubscript(FakeAnnotation):
             result.extend(child.get_local_types())
         return result
 
-    def find_type_annotation_parent(self: _R, type_annotation: FakeAnnotation) -> _R | None:
+    def find_type_annotation_parent(self: Self, type_annotation: FakeAnnotation) -> Self | None:
         """
         Check recursively if child is present in subscript.
         """

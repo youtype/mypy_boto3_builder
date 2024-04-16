@@ -3,15 +3,12 @@ Helper for Python import strings.
 """
 
 import functools
-from typing import TypeVar
 
 from typing_extensions import Self
 
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.package_data import Boto3StubsPackageData, TypesAioBotocorePackageData
-
-_R = TypeVar("_R", bound="ImportRecord")
 
 
 @functools.total_ordering
@@ -34,12 +31,12 @@ class ImportRecord:
     )
 
     def __init__(
-        self: _R,
+        self: Self,
         source: ImportString,
         name: str = "",
         alias: str = "",
         min_version: tuple[int, ...] | None = None,
-        fallback: _R | None = None,
+        fallback: Self | None = None,
     ) -> None:
         self.source = source
         self.name = name
@@ -90,7 +87,7 @@ class ImportRecord:
 
         return str(self) == str(other)
 
-    def __gt__(self: _R, other: _R) -> bool:
+    def __gt__(self: Self, other: Self) -> bool:
         if self.fallback is not None and other.fallback is None:
             return True
 

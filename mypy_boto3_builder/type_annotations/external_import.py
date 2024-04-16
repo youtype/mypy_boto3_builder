@@ -3,13 +3,12 @@ Wrapper for type annotations imported from 3rd party libraries, like `boto3.serv
 """
 
 import inspect
-from typing import TypeVar
+
+from typing_extensions import Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-
-_R = TypeVar("_R", bound="ExternalImport")
 
 
 class ExternalImport(FakeAnnotation):
@@ -36,7 +35,7 @@ class ExternalImport(FakeAnnotation):
         self.safe: bool = safe
 
     @classmethod
-    def from_class(cls: type[_R], obj: type, alias: str = "", safe: bool = False) -> _R:
+    def from_class(cls: type[Self], obj: type, alias: str = "", safe: bool = False) -> Self:
         """
         Create an instance from an imported class.
 
@@ -90,13 +89,13 @@ class ExternalImport(FakeAnnotation):
         """
         return {self.import_record}
 
-    def __copy__(self: _R) -> _R:
+    def __copy__(self: Self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """
         return self.__class__(self.source, self.name, self.alias, self.safe)
 
-    def copy_from(self: _R, other: _R) -> None:
+    def copy_from(self: Self, other: Self) -> None:
         """
         Copy all fileds from another instance.
         """

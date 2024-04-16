@@ -75,6 +75,17 @@ class ServicePackage(Package):
 
         return sorted(type_literals)
 
+    def _iterate_methods(self) -> Iterator[Method]:
+        yield from self.client.methods
+        for waiter in self.waiters:
+            yield from waiter.methods
+        for paginator in self.paginators:
+            yield from paginator.methods
+        if self.service_resource:
+            yield from self.service_resource.methods
+            for resource in self.service_resource.sub_resources:
+                yield from resource.methods
+
     def get_type_defs(self) -> set[TypeDefSortable]:
         """
         Extract typed defs from children.
@@ -87,24 +98,10 @@ class ServicePackage(Package):
                 continue
             result.add(type_annotation)
 
-        methods: set[Method] = set()
-        methods.update(self.client.methods)
-        methods.update((method for paginator in self.paginators for method in paginator.methods))
-        methods.update((method for waiter in self.waiters for method in waiter.methods))
-
-        if self.service_resource:
-            methods.update(self.service_resource.methods)
-            methods.update(
-                (
-                    method
-                    for resource in self.service_resource.sub_resources
-                    for method in resource.methods
-                )
-            )
-
-        for method in methods:
-            if method.request_type_annotation:
-                result.add(method.request_type_annotation)
+        for method in self._iterate_methods():
+            if not method.request_type_annotation:
+                continue
+            result.add(method.request_type_annotation)
 
         return result
 
