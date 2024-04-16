@@ -157,4 +157,3 @@ ignore_errors = true
 max-line-length = 100
 exclude = [".git", "__pycache__", "docs", "build", "dist", "test_*.py", "*.pyi"]
 ignore = ["E704", "W503", "D200", "D107"]
-max-complexity = 14
