@@ -3,6 +3,7 @@ Parser for boto3 changelog.
 """
 
 import re
+from typing import IO
 from urllib.error import HTTPError
 from urllib.request import urlopen
 
@@ -16,25 +17,22 @@ class BotocoreChangelog:
     SERVICE_NAME_RE = re.compile(r"``(\S+)``")
 
     def __init__(self) -> None:
-        self._changelog: str | None = None
+        self._changelog: str = ""
 
-    def _get_changelog(self) -> str:
-        if self._changelog is not None:
-            return self._changelog
-
+    @classmethod
+    def _get_changelog(cls) -> str:
         try:
-            with urlopen(self.URL) as response:
-                self._changelog = response.read().decode()
+            response: IO[bytes]
+            with urlopen(cls.URL) as response:
+                return response.read().decode("utf-8")
         except HTTPError as e:
-            raise RuntimeError(f"Cannot retrieve {self.URL}: {e}") from None
-
-        return self._changelog or ""
+            raise RuntimeError(f"Cannot retrieve {cls.URL}: {e}") from None
 
     def _get_section(self, version: str) -> str:
         result: list[str] = []
-        changelog = self._get_changelog()
+        self._changelog = self._changelog or self._get_changelog()
         found = False
-        for line in changelog.splitlines():
+        for line in self._changelog.splitlines():
             if line == version:
                 found = True
                 continue
@@ -46,7 +44,7 @@ class BotocoreChangelog:
 
         return "\n".join(result[1:])
 
-    def get_updated_service_names(self, version: str) -> list[str]:
+    def fetch_updated(self, version: str) -> list[str]:
         """
         Get a list of service names updated in `version` release.
         """

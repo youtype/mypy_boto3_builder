@@ -9,13 +9,12 @@ from mypy_boto3_builder.constants import LOGGER_NAME
 __all__ = ("get_logger",)
 
 
-def get_logger(level: int = 0) -> logging.Logger:
+def get_logger(level: int | None = None) -> logging.Logger:
     """
     Get Logger instance.
 
     Arguments:
-        verbose -- Set log level to DEBUG.
-        panic -- Raise RuntimeError on warning.
+        level -- Log level.
 
     Returns:
         Overriden Logger.
@@ -27,10 +26,10 @@ def get_logger(level: int = 0) -> logging.Logger:
             "%(asctime)s %(name)s: %(levelname)-8s %(message)s", datefmt="%H:%M:%S"
         )
         stream_handler.setFormatter(formatter)
-        stream_handler.setLevel(level)
+        stream_handler.setLevel(level or logging.NOTSET)
         logger.addHandler(stream_handler)
 
-    if level:
+    if level is not None:
         logger.setLevel(level)
         for handler in logger.handlers:
             handler.setLevel(level)

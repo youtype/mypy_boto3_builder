@@ -21,7 +21,8 @@ class TestMain:
             )
         ] == ["ec2", "other"]
         assert get_selected_service_names(["s3", "ec2"], []) == []
-        with patch.object(BotocoreChangelog, "get_updated_service_names", lambda x, y: ["ecs"]):
+        with patch.object(BotocoreChangelog, "fetch_updated") as fetch_updated_mock:
+            fetch_updated_mock.return_value = ["ecs"]
             assert [
                 i.name
                 for i in get_selected_service_names(

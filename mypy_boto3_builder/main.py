@@ -48,7 +48,7 @@ def get_selected_service_names(
         return list(available)
     if ServiceName.UPDATED in selected_service_names:
         selected_service_names.remove(ServiceName.UPDATED)
-        updated_service_names = BotocoreChangelog().get_updated_service_names(botocore_version)
+        updated_service_names = BotocoreChangelog().fetch_updated(botocore_version)
         for updated_service_name in updated_service_names:
             if updated_service_name in available_map:
                 selected_service_names.append(updated_service_name)
