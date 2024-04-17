@@ -11,13 +11,6 @@ from botocore.hooks import BaseEventHooks
 logger: logging.Logger
 
 class AIOResourceCollection(ResourceCollection):
-    """
-    Converted the ResourceCollection.pages() function to an async generator so that we can do
-    async for on a paginator inside that function
-
-    Converted the __iter__
-    """
-
     def __anext__(self) -> AsyncIterator[Any]: ...
     def __aiter__(self) -> AsyncIterator[Any]: ...
     def __iter__(self) -> NoReturn: ...
