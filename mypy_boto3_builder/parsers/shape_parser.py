@@ -402,7 +402,7 @@ class ShapeParser:
         if output:
             return self._response_typed_dict_map
         if output_child:
-            self._output_typed_dict_map
+            return self._output_typed_dict_map
         return self._typed_dict_map
 
     def _parse_shape_structure(
