@@ -77,7 +77,6 @@ mypy = "*"
 flake8 = "*"
 flake8-bugbear = "*"
 flake8-comprehensions = "*"
-flake8-docstrings = "*"
 flake8-simplify = "*"
 flake8-string-format = "*"
 flake8-pyproject = "*"
@@ -157,4 +156,4 @@ ignore_errors = true
 [tool.flake8]
 max-line-length = 100
 exclude = [".git", "__pycache__", "docs", "build", "dist", "test_*.py", "*.pyi"]
-ignore = ["E704", "W503", "D200", "D107"]
+ignore = ["E704", "W503"]
