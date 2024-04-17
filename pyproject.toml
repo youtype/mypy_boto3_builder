@@ -94,6 +94,7 @@ types-s3transfer = "*"
 boto3-stubs = "*"
 botocore-stubs = "*"
 istub = "*"
+twine = "*"
 
 
 [build-system]

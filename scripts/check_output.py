@@ -89,7 +89,7 @@ def setup_logging(level: int) -> logging.Logger:
     return logger
 
 
-@dataclass
+@dataclass(kw_only=True, slots=True)
 class CLINamespace:
     """
     CLI namespace.

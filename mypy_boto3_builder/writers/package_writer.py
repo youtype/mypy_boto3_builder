@@ -3,7 +3,6 @@ Writer for package static and template files.
 """
 
 from collections.abc import Sequence
-from dataclasses import dataclass
 from pathlib import Path
 
 from mypy_boto3_builder.constants import TEMPLATES_PATH
@@ -23,25 +22,19 @@ from mypy_boto3_builder.writers.utils import (
 )
 
 
-@dataclass
 class TemplateRender:
     """
     Template render target.
     """
 
-    template_path: Path
-    path: Path | None = None
-    paths: tuple[Path, ...] = ()
-
-    @property
-    def output_paths(self) -> tuple[Path, ...]:
-        """
-        Get output paths as a tuple.
-        """
-        return (
-            *([self.path] if self.path else []),
-            *self.paths,
-        )
+    def __init__(
+        self,
+        template_path: Path,
+        path: Path | None = None,
+        paths: tuple[Path, ...] = (),
+    ) -> None:
+        self.template_path = template_path
+        self.paths = (*([path] if path else []), *paths)
 
 
 class PackageWriter:
@@ -159,9 +152,7 @@ class PackageWriter:
         template_renders: Sequence[TemplateRender],
     ) -> None:
         for template_render in template_renders:
-            self._render_template(
-                template_render.template_path, template_render.output_paths, package
-            )
+            self._render_template(template_render.template_path, template_render.paths, package)
 
     def _write_template(self, path: Path, content: str) -> None:
         if not path.parent.exists():
@@ -180,7 +171,7 @@ class PackageWriter:
             # if file_path.suffix == ".md":
             #     content = fix_pypi_headers(content)
             #     content = format_md(content)
-            for output_path in template_render.output_paths:
+            for output_path in template_render.paths:
                 self._write_template(output_path, content)
 
     def _cleanup(self, valid_paths: Sequence[Path], output_path: Path) -> None:
@@ -216,7 +207,7 @@ class PackageWriter:
         ]
         self._render_templates(package, template_renders)
 
-        rendered_paths = [path for t in template_renders for path in t.output_paths]
+        rendered_paths = [path for t in template_renders for path in t.paths]
         valid_paths = (*rendered_paths, *static_paths)
         output_path = self._get_setup_path(package) if self.generate_setup else package_path
         self._cleanup(valid_paths, output_path)
@@ -327,7 +318,7 @@ class PackageWriter:
         ]
         self._render_templates(package, template_renders)
 
-        valid_paths = [path for t in template_renders for path in t.output_paths]
+        valid_paths = [path for t in template_renders for path in t.paths]
         output_path = (
             self._get_setup_path(package)
             if self.generate_setup
@@ -380,5 +371,5 @@ class PackageWriter:
             )
 
         self._render_md_templates(package, template_renders)
-        valid_paths = [path for t in template_renders for path in t.output_paths]
+        valid_paths = [path for t in template_renders for path in t.paths]
         self._cleanup(valid_paths, docs_path)

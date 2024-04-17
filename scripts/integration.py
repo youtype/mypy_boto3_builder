@@ -40,7 +40,7 @@ class Product(enum.Enum):
     aioboto3 = "aioboto3"
 
 
-def setup_logging(level: int = 0) -> logging.Logger:
+def setup_logging(level: int) -> logging.Logger:
     """
     Get Logger instance.
 
@@ -60,7 +60,7 @@ def setup_logging(level: int = 0) -> logging.Logger:
     return logger
 
 
-@dataclass
+@dataclass(kw_only=True, slots=True)
 class CLINamespace:
     """
     CLI namespace.
@@ -70,7 +70,7 @@ class CLINamespace:
     product: Product
     fast: bool
     update: bool
-    services: list[str]
+    services: tuple[str]
 
 
 def parse_args() -> CLINamespace:
@@ -95,7 +95,7 @@ def parse_args() -> CLINamespace:
         product=Product(args.product),
         fast=args.fast,
         update=args.update,
-        services=args.services,
+        services=tuple(args.services),
     )
 
 

@@ -159,9 +159,6 @@ class ShapeParser:
     def _get_operation(self, name: str) -> OperationModel:
         return self.service_model.operation_model(name)
 
-    def _get_operation_names(self) -> list[str]:
-        return list(self.service_model.operation_names)
-
     def _get_paginator(self, name: str) -> PaginatorShape:
         if not self._paginators_shape:
             raise ShapeParserError(f"Unknown paginator: {name}")
@@ -304,7 +301,7 @@ class ShapeParser:
                 Type.none,
             ),
         }
-        for operation_name in self._get_operation_names():
+        for operation_name in self.service_model.operation_names:
             operation_model = self._get_operation(operation_name)
             arguments: list[Argument] = [Argument("self", None)]
             method_name = xform_name(operation_name)

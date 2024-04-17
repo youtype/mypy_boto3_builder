@@ -27,7 +27,7 @@ def get_absolute_path(path: str) -> Path:
 
 
 @dataclass(kw_only=True, slots=True)
-class Namespace:
+class CLINamespace:
     """
     CLI arguments namespace.
     """
@@ -44,7 +44,7 @@ class Namespace:
     disable_smart_version: bool
 
 
-def parse_args(args: Sequence[str]) -> Namespace:
+def parse_args(args: Sequence[str]) -> CLINamespace:
     """
     Parse CLI arguments.
 
@@ -122,7 +122,7 @@ def parse_args(args: Sequence[str]) -> Namespace:
     )
     result = parser.parse_args(args)
 
-    return Namespace(
+    return CLINamespace(
         log_level=logging.DEBUG if result.debug else logging.INFO,
         output_path=result.output_path,
         service_names=result.service_names,

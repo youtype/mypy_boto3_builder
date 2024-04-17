@@ -3,7 +3,6 @@ Method or function argument.
 """
 
 from collections.abc import Iterator
-from dataclasses import dataclass
 from typing import Literal
 
 from typing_extensions import Self
@@ -12,7 +11,6 @@ from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
 
-@dataclass
 class Argument:
     """
     Method or function argument.
@@ -24,10 +22,17 @@ class Argument:
         prefix -- Used for starargs.
     """
 
-    name: str
-    type_annotation: FakeAnnotation | None
-    default: TypeConstant | None = None
-    prefix: Literal["*", "**", ""] = ""
+    def __init__(
+        self,
+        name: str,
+        type_annotation: FakeAnnotation | None,
+        default: TypeConstant | None = None,
+        prefix: Literal["*", "**", ""] = "",
+    ) -> None:
+        self.name = name
+        self.type_annotation = type_annotation
+        self.default = default
+        self.prefix: Literal["*", "**", ""] = prefix
 
     def render(self) -> str:
         """

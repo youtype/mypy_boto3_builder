@@ -5,8 +5,6 @@ Version-related utils.
 import contextlib
 import importlib.metadata
 
-from boto3 import __version__ as boto3_version
-from botocore import __version__ as botocore_version
 from newversion import Version
 
 from mypy_boto3_builder.constants import PACKAGE_NAME
@@ -22,11 +20,11 @@ def get_builder_version() -> str:
     return "0.0.0"
 
 
-def get_supported_python_versions() -> list[str]:
+def get_supported_python_versions() -> tuple[str, ...]:
     """
     Get supported python versions.
     """
-    return ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+    return ("3.8", "3.9", "3.10", "3.11", "3.12", "3.13")
 
 
 def get_min_build_version(version: str) -> str:
@@ -47,14 +45,22 @@ def get_botocore_version() -> str:
     """
     Get botocore package version.
     """
-    return botocore_version
+    try:
+        from botocore import __version__ as version
+    except ImportError as e:
+        raise RuntimeError("botocore is not installed") from e
+    return f"{version}"
 
 
 def get_boto3_version() -> str:
     """
     Get boto3 package version.
     """
-    return boto3_version
+    try:
+        from boto3 import __version__ as version
+    except ImportError as e:
+        raise RuntimeError("boto3 is not installed") from e
+    return f"{version}"
 
 
 def get_aiobotocore_version() -> str:

@@ -8,7 +8,7 @@ from collections.abc import Iterable, Sequence
 
 from botocore.session import Session as BotocoreSession
 
-from mypy_boto3_builder.cli_parser import Namespace, parse_args
+from mypy_boto3_builder.cli_parser import CLINamespace, parse_args
 from mypy_boto3_builder.constants import Product, ProductLibrary
 from mypy_boto3_builder.generators.aioboto3_generator import AioBoto3Generator
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator
@@ -102,7 +102,7 @@ def get_generator_cls(product: Product) -> type[BaseGenerator]:
 
 def generate_product(
     product: Product,
-    args: Namespace,
+    args: CLINamespace,
     service_names: Sequence[ServiceName],
     master_service_names: Sequence[ServiceName],
 ) -> None:
