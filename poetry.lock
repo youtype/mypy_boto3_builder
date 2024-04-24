@@ -63,17 +63,17 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 name = "boto3"
-version = "1.34.90"
+version = "1.34.91"
 description = "The AWS SDK for Python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "boto3-1.34.90-py3-none-any.whl", hash = "sha256:b2e5cb5b95efcc881e25a3bc872d7a24e75ff4e76f368138e4baf7b9d6ee3422"},
-    {file = "boto3-1.34.90.tar.gz", hash = "sha256:2824e3dd18743ca50e5b10439d20e74647b1416e8a94509cb30beac92d27a18d"},
+    {file = "boto3-1.34.91-py3-none-any.whl", hash = "sha256:97fac686c47647db4b44e4789317e4aeecd38511d71e84f8d20abe33eb630ff1"},
+    {file = "boto3-1.34.91.tar.gz", hash = "sha256:5077917041adaaae15eeca340289547ef905ca7e11516e9bd22d394fb5057d2a"},
 ]
 
 [package.dependencies]
-botocore = ">=1.34.90,<1.35.0"
+botocore = ">=1.34.91,<1.35.0"
 jmespath = ">=0.7.1,<2.0.0"
 s3transfer = ">=0.10.0,<0.11.0"
 
@@ -82,13 +82,13 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 
 [[package]]
 name = "boto3-stubs"
-version = "1.34.90"
-description = "Type annotations for boto3 1.34.90 generated with mypy-boto3-builder 7.23.2"
+version = "1.34.91"
+description = "Type annotations for boto3 1.34.91 generated with mypy-boto3-builder 7.23.2"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "boto3_stubs-1.34.90-py3-none-any.whl", hash = "sha256:7361f162523168ddcfb3e0cc70e5208e78f95b9f1f2553032036a2b67ab33355"},
-    {file = "boto3_stubs-1.34.90.tar.gz", hash = "sha256:c82f3db8558e28f766361ba1eea7c77dff735f72fef2a0b9dffaa9c0d9ae76a3"},
+    {file = "boto3_stubs-1.34.91-py3-none-any.whl", hash = "sha256:708316539fe8fe5aabae10304ac80c4684fc0a226523386ff9a86869b89316bc"},
+    {file = "boto3_stubs-1.34.91.tar.gz", hash = "sha256:01cfbda95d55285eba2f9fdf9694d26b939130ccad36d3b2fd5283b9a995934d"},
 ]
 
 [package.dependencies]
@@ -139,7 +139,7 @@ bedrock-agent = ["mypy-boto3-bedrock-agent (>=1.34.0,<1.35.0)"]
 bedrock-agent-runtime = ["mypy-boto3-bedrock-agent-runtime (>=1.34.0,<1.35.0)"]
 bedrock-runtime = ["mypy-boto3-bedrock-runtime (>=1.34.0,<1.35.0)"]
 billingconductor = ["mypy-boto3-billingconductor (>=1.34.0,<1.35.0)"]
-boto3 = ["boto3 (==1.34.90)", "botocore (==1.34.90)"]
+boto3 = ["boto3 (==1.34.91)", "botocore (==1.34.91)"]
 braket = ["mypy-boto3-braket (>=1.34.0,<1.35.0)"]
 budgets = ["mypy-boto3-budgets (>=1.34.0,<1.35.0)"]
 ce = ["mypy-boto3-ce (>=1.34.0,<1.35.0)"]
@@ -486,13 +486,13 @@ xray = ["mypy-boto3-xray (>=1.34.0,<1.35.0)"]
 
 [[package]]
 name = "botocore"
-version = "1.34.90"
+version = "1.34.91"
 description = "Low-level, data-driven core of boto 3."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "botocore-1.34.90-py3-none-any.whl", hash = "sha256:d48f152498e2c60b43ce25b579d26642346a327b6fb2c632d57219e0a4f63392"},
-    {file = "botocore-1.34.90.tar.gz", hash = "sha256:113cd4c0cb63e13163ccbc2bb13d551be314ba7f8ba5bfab1c51a19ca01aa133"},
+    {file = "botocore-1.34.91-py3-none-any.whl", hash = "sha256:4d1b13f2b1c28ce1743b1e5895ae62bb7e67f892b51882164ea19c27a130852b"},
+    {file = "botocore-1.34.91.tar.gz", hash = "sha256:93ef7071292a1b2b9fc26537f8ae3a8227da1177969241939ea3fbdb1a1a1d0c"},
 ]
 
 [package.dependencies]
@@ -505,13 +505,13 @@ crt = ["awscrt (==0.20.9)"]
 
 [[package]]
 name = "botocore-stubs"
-version = "1.34.90"
+version = "1.34.91"
 description = "Type annotations and code completion for botocore"
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "botocore_stubs-1.34.90-py3-none-any.whl", hash = "sha256:0fb0125d3d77a85984dc865f852340d57bc7bedc2efe0ddf56e449da449eeee9"},
-    {file = "botocore_stubs-1.34.90.tar.gz", hash = "sha256:e59dd8576a29639c92d8600edfb412c51fe1742a8ac0b48de637570b220a5f2c"},
+    {file = "botocore_stubs-1.34.91-py3-none-any.whl", hash = "sha256:c87a70d86107564f79f02058122f0dee7d1b18874e5b2dfdcab7ef0af39230aa"},
+    {file = "botocore_stubs-1.34.91.tar.gz", hash = "sha256:debedbf0aa52bfb62791750eb0f3695aeb0dc6f3a4b06feb3c834731a77d9d4d"},
 ]
 
 [package.dependencies]
@@ -866,6 +866,22 @@ files = [
 test = ["pytest (>=6)"]
 
 [[package]]
+name = "flake8"
+version = "7.0.0"
+description = "the modular source code checker: pep8 pyflakes and co"
+optional = false
+python-versions = ">=3.8.1"
+files = [
+    {file = "flake8-7.0.0-py2.py3-none-any.whl", hash = "sha256:a6dfbb75e03252917f2473ea9653f7cd799c3064e54d4c8140044c5c065f53c3"},
+    {file = "flake8-7.0.0.tar.gz", hash = "sha256:33f96621059e65eec474169085dc92bf26e7b2d47366b70be2f67ab80dc25132"},
+]
+
+[package.dependencies]
+mccabe = ">=0.7.0,<0.8.0"
+pycodestyle = ">=2.11.0,<2.12.0"
+pyflakes = ">=3.2.0,<3.3.0"
+
+[[package]]
 name = "handsdown"
 version = "2.1.0"
 description = "Python docstring-based documentation generator for lazy perfectionists."
@@ -1184,6 +1200,17 @@ files = [
 ]
 
 [[package]]
+name = "mccabe"
+version = "0.7.0"
+description = "McCabe checker, plugin for flake8"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "mccabe-0.7.0-py2.py3-none-any.whl", hash = "sha256:6c2d30ab6be0e4a46919781807b4f0d834ebdd6c6e3dca0bda5a15f863427b6e"},
+    {file = "mccabe-0.7.0.tar.gz", hash = "sha256:348e0240c33b60bbdf4e523192ef919f28cb2c3d7d5c7794f74009290f236325"},
+]
+
+[[package]]
 name = "mdformat"
 version = "0.7.17"
 description = "CommonMark compliant Markdown formatter"
@@ -1396,6 +1423,17 @@ dev = ["pre-commit", "tox"]
 testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
+name = "pycodestyle"
+version = "2.11.1"
+description = "Python style guide checker"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "pycodestyle-2.11.1-py2.py3-none-any.whl", hash = "sha256:44fe31000b2d866f2e41841b18528a505fbd7fef9017b04eff4e2648a0fadc67"},
+    {file = "pycodestyle-2.11.1.tar.gz", hash = "sha256:41ba0e7afc9752dfb53ced5489e89f8186be00e599e712660695b7a75ff2663f"},
+]
+
+[[package]]
 name = "pycparser"
 version = "2.22"
 description = "C parser in Python"
@@ -1404,6 +1442,17 @@ python-versions = ">=3.8"
 files = [
     {file = "pycparser-2.22-py3-none-any.whl", hash = "sha256:c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc"},
     {file = "pycparser-2.22.tar.gz", hash = "sha256:491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6"},
+]
+
+[[package]]
+name = "pyflakes"
+version = "3.2.0"
+description = "passive checker of Python programs"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "pyflakes-3.2.0-py2.py3-none-any.whl", hash = "sha256:84b5be138a2dfbb40689ca07e2152deb896a65c3a3e24c251c5c62489568074a"},
+    {file = "pyflakes-3.2.0.tar.gz", hash = "sha256:1c61603ff154621fb2a9172037d84dca3500def8c8b630657d1701f026f8af3f"},
 ]
 
 [[package]]
@@ -1924,4 +1973,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "d25f4ffe62048328d0fffc9bb957929fb5c8b72bdf934ec6696b61ba7485f5b2"
+content-hash = "7a8c581da6d63fe2a8cd793880a6710c79565429ca9de175f70c6f832fbd8826"
