@@ -20,4 +20,5 @@
 - [ServiceResourceParser](./service_resource_parser.md)
 - [ShapeParser](./shape_parser.md)
 - [Shape Parser Types](./shape_parser_types.md)
+- [TypedDictMap](./typed_dict_map.md)
 - [WrapperPackageParser](./wrapper_package_parser.md)

@@ -4,9 +4,37 @@
 
 > Auto-generated documentation for [mypy_boto3_builder.utils.strings](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py) module.
 
+## capitalize
+
+[Show source in strings.py:165](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L165)
+
+Capitalize first letter of a string.
+
+#### Signature
+
+```python
+def capitalize(s: str) -> str: ...
+```
+
+
+
+## clean_artifacts
+
+[Show source in strings.py:87](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L87)
+
+Remove common artifacts in botocre docs.
+
+#### Signature
+
+```python
+def clean_artifacts(line: str) -> str: ...
+```
+
+
+
 ## get_anchor_link
 
-[Show source in strings.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L36)
+[Show source in strings.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L37)
 
 Convert header to markdown anchor link.
 
@@ -20,7 +48,7 @@ def get_anchor_link(text: str) -> str: ...
 
 ## get_botocore_class_name
 
-[Show source in strings.py:124](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L124)
+[Show source in strings.py:137](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L137)
 
 Get Botocore class name from Service metadata.
 
@@ -34,7 +62,7 @@ def get_botocore_class_name(metadata: dict[str, str]) -> str: ...
 
 ## get_class_prefix
 
-[Show source in strings.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L22)
+[Show source in strings.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L23)
 
 Get a valid Python class prefix from `func_name`.
 
@@ -56,7 +84,7 @@ def get_class_prefix(func_name: str) -> str: ...
 
 ## get_short_docstring
 
-[Show source in strings.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L50)
+[Show source in strings.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L51)
 
 Create a short docstring from boto3 documentation.
 
@@ -77,7 +105,7 @@ def get_short_docstring(doc: str) -> str: ...
 
 ## get_type_def_name
 
-[Show source in strings.py:134](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L134)
+[Show source in strings.py:148](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L148)
 
 Get a valid Python TypeDef class name from `parts`.
 
@@ -97,7 +125,7 @@ def get_type_def_name(*parts: str) -> str: ...
 
 ## is_reserved
 
-[Show source in strings.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L43)
+[Show source in strings.py:44](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L44)
 
 Check whether varialbe name conflicts with Python reserved names.
 
@@ -111,7 +139,7 @@ def is_reserved(word: str) -> bool: ...
 
 ## textwrap
 
-[Show source in strings.py:98](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L98)
+[Show source in strings.py:110](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/strings.py#L110)
 
 Wrap text to `width` chars.
 

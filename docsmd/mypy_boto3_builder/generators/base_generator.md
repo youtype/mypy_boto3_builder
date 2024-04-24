@@ -67,7 +67,7 @@ def generate_product(self, product_type: ProductType) -> None: ...
 
 #### See also
 
-- [ProductType](../constants.md#producttype)
+- [ProductType](../enums/product.md#producttype)
 
 ### BaseGenerator().generate_service_stubs
 

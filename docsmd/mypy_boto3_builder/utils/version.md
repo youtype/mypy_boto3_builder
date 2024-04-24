@@ -6,7 +6,7 @@
 
 ## get_aioboto3_version
 
-[Show source in version.py:71](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L71)
+[Show source in version.py:77](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L77)
 
 Get aioboto3 package version.
 
@@ -20,7 +20,7 @@ def get_aioboto3_version() -> str: ...
 
 ## get_aiobotocore_version
 
-[Show source in version.py:60](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L60)
+[Show source in version.py:66](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L66)
 
 Get aiobotocore package version.
 
@@ -34,7 +34,7 @@ def get_aiobotocore_version() -> str: ...
 
 ## get_boto3_version
 
-[Show source in version.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L53)
+[Show source in version.py:55](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L55)
 
 Get boto3 package version.
 
@@ -48,7 +48,7 @@ def get_boto3_version() -> str: ...
 
 ## get_botocore_version
 
-[Show source in version.py:46](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L46)
+[Show source in version.py:44](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L44)
 
 Get botocore package version.
 
@@ -62,7 +62,7 @@ def get_botocore_version() -> str: ...
 
 ## get_builder_version
 
-[Show source in version.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L15)
+[Show source in version.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L13)
 
 Get program version.
 
@@ -76,7 +76,7 @@ def get_builder_version() -> str: ...
 
 ## get_max_build_version
 
-[Show source in version.py:39](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L39)
+[Show source in version.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L37)
 
 Get min version build version by bumping minor.
 
@@ -90,7 +90,7 @@ def get_max_build_version(version: str) -> str: ...
 
 ## get_min_build_version
 
-[Show source in version.py:32](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L32)
+[Show source in version.py:30](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L30)
 
 Get min version build version by setting micro to 0.
 
@@ -104,12 +104,12 @@ def get_min_build_version(version: str) -> str: ...
 
 ## get_supported_python_versions
 
-[Show source in version.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L25)
+[Show source in version.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L23)
 
 Get supported python versions.
 
 #### Signature
 
 ```python
-def get_supported_python_versions() -> list[str]: ...
+def get_supported_python_versions() -> tuple[str, ...]: ...
 ```

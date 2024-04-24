@@ -12,8 +12,7 @@ Get Logger instance.
 
 #### Arguments
 
-- `verbose` - Set log level to DEBUG.
-- `panic` - Raise RuntimeError on warning.
+- `level` - Log level.
 
 #### Returns
 
@@ -22,5 +21,5 @@ Overriden Logger.
 #### Signature
 
 ```python
-def get_logger(level: int = 0) -> logging.Logger: ...
+def get_logger(level: int | None = None) -> logging.Logger: ...
 ```

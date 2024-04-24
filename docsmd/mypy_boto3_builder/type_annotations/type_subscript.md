@@ -6,7 +6,7 @@
 
 ## TypeSubscript
 
-[Show source in type_subscript.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L16)
+[Show source in type_subscript.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L13)
 
 Wrapper for subscript type annotations, like `List[str]`.
 
@@ -41,7 +41,19 @@ Create a copy of type annotation wrapper.
 #### Signature
 
 ```python
-def __copy__(self: _R) -> _R: ...
+def __copy__(self: Self) -> Self: ...
+```
+
+### TypeSubscript().__hash__
+
+[Show source in type_subscript.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_subscript.py#L33)
+
+Calculate hash value based on parent and children.
+
+#### Signature
+
+```python
+def __hash__(self) -> int: ...
 ```
 
 ### TypeSubscript().add_child
@@ -70,8 +82,8 @@ Check recursively if child is present in subscript.
 
 ```python
 def find_type_annotation_parent(
-    self: _R, type_annotation: FakeAnnotation
-) -> _R | None: ...
+    self: Self, type_annotation: FakeAnnotation
+) -> Self | None: ...
 ```
 
 #### See also

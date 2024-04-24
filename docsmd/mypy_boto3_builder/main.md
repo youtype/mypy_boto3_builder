@@ -22,7 +22,7 @@ Generate a selected product.
 ```python
 def generate_product(
     product: Product,
-    args: Namespace,
+    args: CLINamespace,
     service_names: Sequence[ServiceName],
     master_service_names: Sequence[ServiceName],
 ) -> None: ...
@@ -30,8 +30,8 @@ def generate_product(
 
 #### See also
 
-- [Namespace](./cli_parser.md#namespace)
-- [Product](./constants.md#product)
+- [CLINamespace](./cli_parser.md#clinamespace)
+- [Product](enums/product.md#product)
 - [ServiceName](./service_name.md#servicename)
 
 
@@ -81,7 +81,7 @@ def get_generator_cls(product: Product) -> type[BaseGenerator]: ...
 #### See also
 
 - [BaseGenerator](generators/base_generator.md#basegenerator)
-- [Product](./constants.md#product)
+- [Product](enums/product.md#product)
 
 
 

@@ -19,9 +19,33 @@ class ServiceName:
     ) -> None: ...
 ```
 
+### ServiceName().__hash__
+
+[Show source in service_name.py:48](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L48)
+
+Calculate hash value based on service name.
+
+#### Signature
+
+```python
+def __hash__(self) -> int: ...
+```
+
+### ServiceName().__str__
+
+[Show source in service_name.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L54)
+
+Represent as string for debugging.
+
+#### Signature
+
+```python
+def __str__(self) -> str: ...
+```
+
 ### ServiceName().boto3_doc_link
 
-[Show source in service_name.py:98](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L98)
+[Show source in service_name.py:104](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L104)
 
 Link to boto3 docs.
 
@@ -34,7 +58,7 @@ def boto3_doc_link(self) -> str: ...
 
 ### ServiceName().boto3_name
 
-[Show source in service_name.py:61](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L61)
+[Show source in service_name.py:67](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L67)
 
 Boto3 package name.
 
@@ -47,7 +71,7 @@ def boto3_name(self) -> str: ...
 
 ### ServiceName().extras_name
 
-[Show source in service_name.py:79](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L79)
+[Show source in service_name.py:85](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L85)
 
 Extras name for subpackage installation.
 
@@ -60,7 +84,7 @@ def extras_name(self) -> str: ...
 
 ### ServiceName().get_boto3_doc_link
 
-[Show source in service_name.py:108](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L108)
+[Show source in service_name.py:114](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L114)
 
 Get link to boto3 docs with anchor.
 
@@ -76,7 +100,7 @@ def get_boto3_doc_link(self, *parts: str) -> str: ...
 
 ### ServiceName.get_md_doc_link
 
-[Show source in service_name.py:117](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L117)
+[Show source in service_name.py:123](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L123)
 
 Get link to MD docs with anchor.
 
@@ -99,7 +123,7 @@ def get_md_doc_link(
 
 ### ServiceName().import_name
 
-[Show source in service_name.py:68](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L68)
+[Show source in service_name.py:74](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L74)
 
 Safe mudule import name.
 
@@ -112,7 +136,7 @@ def import_name(self) -> str: ...
 
 ### ServiceName().is_conda_forge_available
 
-[Show source in service_name.py:92](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L92)
+[Show source in service_name.py:98](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L98)
 
 Whether service is available for `conda-forge`.
 
@@ -124,7 +148,7 @@ def is_conda_forge_available(self) -> bool: ...
 
 ### ServiceName().is_essential
 
-[Show source in service_name.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L86)
+[Show source in service_name.py:92](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L92)
 
 Whether service is included to `boto3-stubs[essential]`.
 
@@ -136,7 +160,7 @@ def is_essential(self) -> bool: ...
 
 ### ServiceName().underscore_name
 
-[Show source in service_name.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L54)
+[Show source in service_name.py:60](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L60)
 
 Python-friendly service name.
 
@@ -151,7 +175,7 @@ def underscore_name(self) -> str: ...
 
 ## ServiceNameCatalog
 
-[Show source in service_name.py:143](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L143)
+[Show source in service_name.py:149](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L149)
 
 Finder for boto3 services by name.
 
@@ -163,7 +187,7 @@ class ServiceNameCatalog: ...
 
 ### ServiceNameCatalog.add
 
-[Show source in service_name.py:187](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L187)
+[Show source in service_name.py:193](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/service_name.py#L193)
 
 Add new ServiceName to catalog or modify existing one.
 

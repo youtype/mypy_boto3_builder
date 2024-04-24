@@ -6,7 +6,7 @@
 
 ## ExternalImport
 
-[Show source in external_import.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L15)
+[Show source in external_import.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L14)
 
 Wrapper for type annotations imported from 3rd party libraries, like `boto3.service.Service`.
 
@@ -33,19 +33,31 @@ class ExternalImport(FakeAnnotation):
 
 ### ExternalImport().__copy__
 
-[Show source in external_import.py:93](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L93)
+[Show source in external_import.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L95)
 
 Create a copy of type annotation wrapper.
 
 #### Signature
 
 ```python
-def __copy__(self: _R) -> _R: ...
+def __copy__(self: Self) -> Self: ...
+```
+
+### ExternalImport().__hash__
+
+[Show source in external_import.py:74](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L74)
+
+Calcualte hash value based on import record.
+
+#### Signature
+
+```python
+def __hash__(self) -> int: ...
 ```
 
 ### ExternalImport()._get_import_records
 
-[Show source in external_import.py:87](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L87)
+[Show source in external_import.py:89](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L89)
 
 Get import record required for using type annotation.
 
@@ -61,19 +73,19 @@ def _get_import_records(self) -> set[ImportRecord]: ...
 
 ### ExternalImport().copy_from
 
-[Show source in external_import.py:99](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L99)
+[Show source in external_import.py:101](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L101)
 
 Copy all fileds from another instance.
 
 #### Signature
 
 ```python
-def copy_from(self: _R, other: _R) -> None: ...
+def copy_from(self: Self, other: Self) -> None: ...
 ```
 
 ### ExternalImport.from_class
 
-[Show source in external_import.py:38](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L38)
+[Show source in external_import.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L37)
 
 Create an instance from an imported class.
 
@@ -87,12 +99,14 @@ Create an instance from an imported class.
 
 ```python
 @classmethod
-def from_class(cls: type[_R], obj: type, alias: str = "", safe: bool = False) -> _R: ...
+def from_class(
+    cls: type[Self], obj: type, alias: str = "", safe: bool = False
+) -> Self: ...
 ```
 
 ### ExternalImport().import_record
 
-[Show source in external_import.py:60](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L60)
+[Show source in external_import.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L59)
 
 Get import record required for using type annotation.
 
@@ -109,7 +123,7 @@ def import_record(self) -> ImportRecord: ...
 
 ### ExternalImport().render
 
-[Show source in external_import.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L78)
+[Show source in external_import.py:80](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/external_import.py#L80)
 
 Get string with local name to use.
 

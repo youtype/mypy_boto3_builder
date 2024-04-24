@@ -6,4 +6,5 @@
 
 ## Modules
 
+- [Product](./product.md)
 - [ServiceModuleName](./service_module_name.md)

@@ -13,7 +13,7 @@ Enum for service modules.
 #### Signature
 
 ```python
-class ServiceModuleName(enum.Enum): ...
+class ServiceModuleName(Enum): ...
 ```
 
 ### ServiceModuleName().file_name

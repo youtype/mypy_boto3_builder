@@ -6,7 +6,7 @@
 
 ## Function
 
-[Show source in function.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L19)
+[Show source in function.py:16](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L16)
 
 Module-level function.
 
@@ -41,7 +41,19 @@ Deep copy function.
 #### Signature
 
 ```python
-def __copy__(self: _R) -> _R: ...
+def __copy__(self: Self) -> Self: ...
+```
+
+### Function().__repr__
+
+[Show source in function.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/function.py#L42)
+
+Represent as a valid Python function signature.
+
+#### Signature
+
+```python
+def __repr__(self) -> str: ...
 ```
 
 ### Function().body
@@ -66,7 +78,7 @@ Deep copy function.
 #### Signature
 
 ```python
-def copy(self: _R) -> _R: ...
+def copy(self: Self) -> Self: ...
 ```
 
 ### Function().create_request_type_annotation
