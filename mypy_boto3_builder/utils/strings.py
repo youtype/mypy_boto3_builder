@@ -17,6 +17,7 @@ RESERVED_NAMES = {
 }
 MAX_DOCSTRING_LENGTH: int = 300
 AWS_LINK_RE = re.compile(r"`([^`]+\S)\s*<https://(\S+)>`\_*")
+REPLACE_DOCSTRING_CHARS = {"’": "'"}  # noqa
 
 
 def get_class_prefix(func_name: str) -> str:
@@ -91,6 +92,10 @@ def clean_artifacts(line: str) -> str:
         line = f"{line}`"
     if line and not line.endswith("."):
         line = f"{line}."
+
+    for ch, replacement in REPLACE_DOCSTRING_CHARS.items():
+        if ch in line:
+            line = line.replace(ch, replacement)
 
     if "<https:" in line:
         line = AWS_LINK_RE.sub(r"[\g<1>](https://\g<2>)", line)

@@ -142,7 +142,6 @@ def run_ruff(path: Path) -> None:
         "E501",
         "N802",
         "N803",
-        "RUF002",
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
