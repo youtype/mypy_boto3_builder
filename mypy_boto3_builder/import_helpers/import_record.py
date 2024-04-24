@@ -31,7 +31,7 @@ class ImportRecord:
     )
 
     def __init__(
-        self: Self,
+        self,
         source: ImportString,
         name: str = "",
         alias: str = "",

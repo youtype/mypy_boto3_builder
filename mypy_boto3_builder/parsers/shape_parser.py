@@ -181,7 +181,7 @@ class ShapeParser:
         return list(self._resources_shape["resources"].keys())
 
     def _get_resource_shape(self, name: str) -> ResourceShape:
-        if not self._resources_shape:
+        if not self._resources_shape or "resources" not in self._resources_shape:
             raise ShapeParserError("Resource shape not found")
         try:
             return self._resources_shape["resources"][name]
