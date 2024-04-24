@@ -29,7 +29,7 @@ def get_class_prefix(func_name: str) -> str:
     Returns:
         String with a class prefix.
     """
-    parts = [f"{i[:1].upper()}{i[1:]}" for i in func_name.split("_") if i]
+    parts = [capitalize(i) for i in func_name.split("_") if i]
     return "".join(parts)
 
 
@@ -136,7 +136,8 @@ def get_botocore_class_name(metadata: dict[str, str]) -> str:
     service_model = MagicMock()
     service_model.service_name = metadata.get("serviceId", "")
     service_model.metadata = metadata
-    return get_service_module_name(service_model)
+    name = get_service_module_name(service_model)
+    return capitalize(name)
 
 
 def get_type_def_name(*parts: str) -> str:
@@ -154,3 +155,10 @@ def get_type_def_name(*parts: str) -> str:
     parts_camelcased = [get_class_prefix(i) for i in parts]
     name = "".join(parts_camelcased)
     return f"{name}TypeDef"
+
+
+def capitalize(s: str) -> str:
+    """
+    Capitalize first letter of a string.
+    """
+    return s[:1].upper() + s[1:]

@@ -62,7 +62,7 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
     WaiterConfigTypeDef,
 )
 from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
-from mypy_boto3_builder.utils.strings import get_type_def_name
+from mypy_boto3_builder.utils.strings import capitalize, get_type_def_name
 
 
 class ShapeParserError(Exception):
@@ -303,7 +303,7 @@ class ShapeParser:
             children_name = "".join(sorted(f"{i[0].upper()}{i[1:]}" for i in shape.enum))
             return f"{children_name}Type"
 
-        name = shape.name.lstrip("_")
+        name = capitalize(shape.name.lstrip("_"))
         name = f"{name}Type"
         return name
 

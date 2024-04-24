@@ -1,7 +1,9 @@
 import pytest
 
 from mypy_boto3_builder.utils.strings import (
+    capitalize,
     get_anchor_link,
+    get_botocore_class_name,
     get_class_prefix,
     get_short_docstring,
     get_type_def_name,
@@ -67,3 +69,18 @@ class TestStrings:
         assert textwrap("te  st words", 6) == "te\nst\nwords"
         assert textwrap("te  stwords", 12) == "te  stwords"
         assert textwrap("te  stwords new", 6) == "te\nstwords\nnew"
+
+    def test_get_botocore_class_name(self) -> None:
+        assert get_botocore_class_name({"serviceAbbreviation": "drs"}) == "Drs"
+        assert (
+            get_botocore_class_name({"serviceAbbreviation": "drs", "serviceFullName": "name"})
+            == "Drs"
+        )
+        assert get_botocore_class_name({"serviceFullName": "name"}) == "Name"
+        assert get_botocore_class_name({"serviceFullName": "naMe"}) == "NaMe"
+        assert get_botocore_class_name({"serviceAbbreviation": "RDS"}) == "RDS"
+
+    def test_capitalize(self) -> None:
+        assert capitalize("test caps") == "Test caps"
+        assert capitalize("test Caps") == "Test Caps"
+        assert capitalize("TEST") == "TEST"
