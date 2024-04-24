@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 from collections.abc import Sequence
 from pathlib import Path
 
-from mypy_boto3_builder.constants import ProductType
+from mypy_boto3_builder.enums.product import ProductType
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.service_package_parser import ServicePackageParser

@@ -3,7 +3,7 @@ Parser for botocore shape files.
 """
 
 import contextlib
-from collections.abc import Iterable, Iterator, Sequence
+from collections.abc import Iterable, Sequence
 
 from boto3.resources.model import Collection
 from boto3.session import Session
@@ -21,6 +21,7 @@ from botocore.model import (
 )
 from botocore.session import Session as BotocoreSession
 
+from mypy_boto3_builder.constants import NOT_REQUIRED_OUTPUT_KEYS
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.shape_parser_types import (
     ActionShape,
@@ -30,6 +31,7 @@ from mypy_boto3_builder.parsers.shape_parser_types import (
     ResourcesShape,
     WaitersShape,
 )
+from mypy_boto3_builder.parsers.typed_dict_map import TypedDictMap
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
@@ -61,52 +63,12 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
 )
 from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
 from mypy_boto3_builder.utils.strings import get_type_def_name
-from mypy_boto3_builder.utils.type_def_sorter import TypeDefSorter
 
 
 class ShapeParserError(Exception):
     """
     Main error for ShapeParser.
     """
-
-
-class TypedDictMap(dict[str, TypeTypedDict]):
-    """
-    Wrapper for TypedDict maps.
-    """
-
-    def add(self, item: TypeTypedDict) -> None:
-        """
-        Add new item.
-        """
-        self[item.name] = item
-
-    def iterate_pairs(self, name: str) -> Iterator[tuple[str, TypeTypedDict]]:
-        """
-        Iterate over pairs mathed by real dict name.
-        """
-        for key, value in list(self.items()):
-            if value.name == name:
-                yield key, value
-
-    def rename(self, item: TypeTypedDict, new_name: str) -> None:
-        """
-        Rename item and change mapping.
-        """
-        for key, value in list(self.items()):
-            if value == item:
-                del self[key]
-
-        item.name = new_name
-        self[new_name] = item
-
-    def get_sorted_names(self) -> list[str]:
-        """
-        Get real TypedDict names topologically sorted.
-        """
-        sorted_values = TypeDefSorter(self.values()).sort()
-        allowed_names = {i.name for i in self.values()}
-        return [i.name for i in sorted_values if i.name in allowed_names]
 
 
 class ShapeParser:
@@ -455,7 +417,8 @@ class ShapeParser:
 
     def _mark_typed_dict_as_total(self, typed_dict: TypeTypedDict) -> None:
         for attribute in typed_dict.children:
-            attribute.required = True
+            if attribute.name not in NOT_REQUIRED_OUTPUT_KEYS:
+                attribute.mark_as_required()
 
     def _add_response_metadata(self, typed_dict: TypeTypedDict) -> None:
         child_names = {i.name for i in typed_dict.children}

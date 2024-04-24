@@ -2,10 +2,10 @@
 Enum for service modules.
 """
 
-import enum
+from enum import Enum
 
 
-class ServiceModuleName(enum.Enum):
+class ServiceModuleName(Enum):
     """
     Enum for service modules.
     """

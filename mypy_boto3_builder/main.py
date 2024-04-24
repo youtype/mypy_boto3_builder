@@ -9,7 +9,7 @@ from collections.abc import Iterable, Sequence
 from botocore.session import Session as BotocoreSession
 
 from mypy_boto3_builder.cli_parser import CLINamespace, parse_args
-from mypy_boto3_builder.constants import Product, ProductLibrary
+from mypy_boto3_builder.enums.product import Product, ProductLibrary
 from mypy_boto3_builder.generators.aioboto3_generator import AioBoto3Generator
 from mypy_boto3_builder.generators.aiobotocore_generator import AioBotocoreGenerator
 from mypy_boto3_builder.generators.base_generator import BaseGenerator

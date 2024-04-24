@@ -8,7 +8,8 @@ from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
-from mypy_boto3_builder.constants import PROG_NAME, Product
+from mypy_boto3_builder.constants import PROG_NAME
+from mypy_boto3_builder.enums.product import Product
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.version import get_builder_version
 

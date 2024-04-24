@@ -69,6 +69,12 @@ class TypedDictAttribute:
         """
         return self.required
 
+    def mark_as_required(self) -> None:
+        """
+        Mark attribute as required.
+        """
+        self.required = True
+
 
 class TypeTypedDict(FakeAnnotation, TypeDefSortable):
     """

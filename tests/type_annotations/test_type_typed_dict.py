@@ -16,6 +16,12 @@ class TestTypedDictAttribute:
     def test_render(self) -> None:
         assert self.result.render() == '"test": Dict[str, Any]'
 
+    def test_mark_as_required(self) -> None:
+        self.result.required = False
+        assert not self.result.is_required()
+        self.result.mark_as_required()
+        assert self.result.is_required()
+
 
 class TestTypeTypedDict:
     result: TypeTypedDict
