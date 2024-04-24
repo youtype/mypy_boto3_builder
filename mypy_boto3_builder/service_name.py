@@ -2,7 +2,7 @@
 Description for boto3 service.
 """
 
-from typing import Literal
+from typing import ClassVar, Literal
 
 from mypy_boto3_builder.utils.strings import get_anchor_link, is_reserved
 
@@ -171,7 +171,7 @@ class ServiceNameCatalog:
     )
     old_ssm_sap = ServiceName("ssm-sap", "SsmSap", "ssmsap")
 
-    ITEMS: dict[str, ServiceName] = {
+    ITEMS: ClassVar[dict[str, ServiceName]] = {
         ec2.boto3_name: ec2,
         iam.boto3_name: iam,
         s3.boto3_name: s3,

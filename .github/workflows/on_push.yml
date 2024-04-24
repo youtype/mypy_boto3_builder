@@ -17,7 +17,6 @@ jobs:
         include:
           - version: "3.10"
             check-lint: "true"
-            check-formatting: "true"
             check-typing: "true"
           - version: "3.11"
             check-lint: "true"
@@ -41,13 +40,8 @@ jobs:
       - name: Lint
         if: ${{ matrix.check-lint }}
         run: |
-          poetry run flake8 mypy_boto3_builder
-      - name: Formatting
-        if: ${{ matrix.check-formatting }}
-        run: |
-          poetry run black --check mypy_boto3_builder tests
-          poetry run isort -c mypy_boto3_builder tests
-      - run: echo "$(poetry env info --path)/bin" >> $GITHUB_PATH
+          poetry run ruff check mypy_boto3_builder
+          poetry run ruff check scripts
       - name: Set up Node
         if: ${{ matrix.check-typing }}
         uses: actions/setup-node@v4

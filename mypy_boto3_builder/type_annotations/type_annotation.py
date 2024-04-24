@@ -2,6 +2,8 @@
 Wrapper for `typing` type annotation.
 """
 
+from typing import Mapping
+
 from typing_extensions import Self
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
@@ -21,7 +23,7 @@ class TypeAnnotation(FakeAnnotation):
     _typing_extensions = ImportString("typing_extensions")
 
     # Set of supported type annotations. value is default import module
-    SUPPORTED_TYPES: dict[str, ImportString] = {
+    SUPPORTED_TYPES: Mapping[str, ImportString] = {
         "Union": _typing,  # typing.Union
         "Any": _typing,  # typing.Any
         "Dict": _typing,  # typing.Dict
@@ -44,7 +46,7 @@ class TypeAnnotation(FakeAnnotation):
     }
 
     # Set of fallback type annotations
-    FALLBACK: dict[str, tuple[tuple[int, int] | None, ImportString]] = {
+    FALLBACK: Mapping[str, tuple[tuple[int, int] | None, ImportString]] = {
         "NotRequired": ((3, 12), _typing_extensions),
         "TypedDict": ((3, 12), _typing_extensions),
         "Literal": ((3, 12), _typing_extensions),

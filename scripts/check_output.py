@@ -7,6 +7,7 @@ Checker of generated packages.
 - [x] pyright
 - [x] mypy
 """
+
 import argparse
 import json
 import logging
@@ -158,7 +159,7 @@ def run_flake8(path: Path) -> None:
         except subprocess.CalledProcessError:
             temp_path = Path(f.name)
             output = temp_path.read_text()
-            raise SnapshotMismatchError(output)
+            raise SnapshotMismatchError(output) from None
 
 
 def run_pyright(path: Path) -> None:

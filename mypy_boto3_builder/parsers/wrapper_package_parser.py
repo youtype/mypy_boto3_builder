@@ -32,7 +32,7 @@ class WrapperPackageParser:
         package -- Prepared wrapper package with data
     """
 
-    init_arguments = [
+    init_arguments = (
         Argument("region_name", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
         Argument("api_version", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
         Argument("use_ssl", TypeSubscript(Type.Optional, [Type.bool]), Type.Ellipsis),
@@ -46,7 +46,7 @@ class WrapperPackageParser:
             TypeSubscript(Type.Optional, [ExternalImport.from_class(Config)]),
             Type.Ellipsis,
         ),
-    ]
+    )
 
     def __init__(self, session: Session, package: WrapperPackage) -> None:
         self.session = session

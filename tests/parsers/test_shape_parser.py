@@ -35,7 +35,10 @@ class TestShapeParser:
     def test_get_client_method_map(self, ServiceModelMock: MagicMock) -> None:
         session_mock = MagicMock()
         service_name_mock = MagicMock()
+        operation_model_mock = MagicMock()
+        operation_model_mock.output_shape.serialization = {}
         ServiceModelMock().operation_names = ["my_operation"]
+        ServiceModelMock().operation_model.return_value = operation_model_mock
         session_mock._loader.load_service_model.return_value = {
             "resources": {"c": None, "a": None, "b": None}
         }
@@ -51,6 +54,10 @@ class TestShapeParser:
         operation_model_mock = MagicMock()
         required_arg_shape_mock = MagicMock()
         optional_arg_shape_mock = MagicMock()
+        required_arg_shape_mock.serialization = {}
+        optional_arg_shape_mock.serialization = {}
+        operation_model_mock.output_shape.serialization = {}
+        operation_model_mock.input_shape.serialization = {}
         operation_model_mock.input_shape.members.items.return_value = [
             (
                 "required_arg",
@@ -92,6 +99,10 @@ class TestShapeParser:
         operation_model_mock = MagicMock()
         required_arg_shape_mock = MagicMock()
         optional_arg_shape_mock = MagicMock()
+        required_arg_shape_mock.serialization = {}
+        optional_arg_shape_mock.serialization = {}
+        operation_model_mock.output_shape.serialization = {}
+        operation_model_mock.input_shape.serialization = {}
         operation_model_mock.input_shape.required_members = ["required_arg"]
         operation_model_mock.input_shape.members.items.return_value = [
             (

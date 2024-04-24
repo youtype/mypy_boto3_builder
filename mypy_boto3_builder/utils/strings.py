@@ -66,12 +66,10 @@ def get_short_docstring(doc: str) -> str:
         return ""
     for line in doc.splitlines():
         line = line.strip().removesuffix("::")
-        if line.startswith(":"):
-            break
-        if line.lower().startswith("**request syntax**"):
-            break
         if not line:
             continue
+        if line.startswith(":") or line.lower().startswith("**request syntax**"):
+            break
         if ". " in line:
             result.append(line.split(". ")[0])
             break
@@ -80,19 +78,28 @@ def get_short_docstring(doc: str) -> str:
             break
 
     result_str = " ".join(result).replace("```", "`").replace("``", "`").strip()
-    if result_str.count("`") % 2:
-        result_str = f"{result_str}`"
-    if result_str and not result_str.endswith("."):
-        result_str = f"{result_str}."
-
-    if "<https:" in result_str:
-        result_str = AWS_LINK_RE.sub(r"[\g<1>](https://\g<2>)", result_str)
-        # FIXME: temporary fix for pca-connector-ad service
-        result_str = result_str.replace("https\\:", "https:")
-        # FIXME: temporary fix for neptunedata service
-        result_str = result_str.replace("neptune-db\\:", "neptune-db:")
+    result_str = clean_artifacts(result_str)
 
     return textwrap(result_str, width=80)
+
+
+def clean_artifacts(line: str) -> str:
+    """
+    Remove common artifacts in botocre docs.
+    """
+    if line.count("`") % 2:
+        line = f"{line}`"
+    if line and not line.endswith("."):
+        line = f"{line}."
+
+    if "<https:" in line:
+        line = AWS_LINK_RE.sub(r"[\g<1>](https://\g<2>)", line)
+        # FIXME: temporary fix for pca-connector-ad service
+        line = line.replace("https\\:", "https:")
+        # FIXME: temporary fix for neptunedata service
+        line = line.replace("neptune-db\\:", "neptune-db:")
+
+    return line
 
 
 def textwrap(text: str, width: int) -> str:

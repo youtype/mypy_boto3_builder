@@ -3,6 +3,7 @@ Postprocessor for aiobotocore classes and methods.
 """
 
 from collections.abc import Iterator
+from typing import Mapping
 
 from boto3.dynamodb.table import BatchWriter, TableResource
 from boto3.resources.base import ServiceResource
@@ -43,7 +44,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
         "page_size",
     )
 
-    EXTERNAL_IMPORTS_MAP = {
+    EXTERNAL_IMPORTS_MAP: Mapping[ExternalImport, ExternalImport] = {
         ExternalImport.from_class(StreamingBody): ExternalImport(
             ImportString("aiobotocore", "response"), "StreamingBody"
         ),

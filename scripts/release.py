@@ -2,6 +2,7 @@
 """
 Publish packages to PyPI.
 """
+
 import argparse
 import logging
 import os
@@ -161,9 +162,8 @@ def build(path: Path, max_retries: int = 10) -> Path:
             with chdir(path):
                 check_call([sys.executable, "setup.py", "build", "sdist", "bdist_wheel"])
 
-            whl_path = list((path / "dist").glob("*.whl"))[0]
-
-            tar_path = list((path / "dist").glob("*.tar.gz"))[0]
+            whl_path = next(iter((path / "dist").glob("*.whl")))
+            tar_path = next(iter((path / "dist").glob("*.tar.gz")))
             check_call(["tar", "-tzf", tar_path.as_posix()])
             check_call([sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()])
         except (subprocess.CalledProcessError, IndexError) as e:
