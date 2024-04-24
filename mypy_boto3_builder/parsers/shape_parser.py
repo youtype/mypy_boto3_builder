@@ -516,7 +516,7 @@ class ShapeParser:
         Returns:
             TypeAnnotation or similar class.
         """
-        if "eventstream" in shape.serialization and shape.serialization["eventstream"]:
+        if shape.serialization.get("eventstream"):
             shape.serialization["eventstream"] = False
             return TypeSubscript(
                 ExternalImport.from_class(EventStream),
@@ -552,26 +552,26 @@ class ShapeParser:
         if shape_type_stub:
             return shape_type_stub
 
-        if isinstance(shape, StringShape):
-            return self._parse_shape_string(shape, output_child=is_output_or_child)
-
-        if isinstance(shape, MapShape):
-            return self._parse_shape_map(
-                shape,
-                output_child=is_output_or_child,
-                is_streaming=is_streaming,
-            )
-
-        if isinstance(shape, StructureShape):
-            return self._parse_shape_structure(
-                shape,
-                output=output,
-                output_child=is_output_or_child,
-                is_streaming=is_streaming,
-            )
-
-        if isinstance(shape, ListShape):
-            return self._parse_shape_list(shape, output_child=is_output_or_child)
+        match shape:
+            case StringShape():
+                return self._parse_shape_string(shape, output_child=is_output_or_child)
+            case MapShape():
+                return self._parse_shape_map(
+                    shape,
+                    output_child=is_output_or_child,
+                    is_streaming=is_streaming,
+                )
+            case StructureShape():
+                return self._parse_shape_structure(
+                    shape,
+                    output=output,
+                    output_child=is_output_or_child,
+                    is_streaming=is_streaming,
+                )
+            case ListShape():
+                return self._parse_shape_list(shape, output_child=is_output_or_child)
+            case _:
+                pass
 
         if shape.type_name in self._get_resource_names():
             return InternalImport(shape.type_name, use_alias=True)
@@ -1038,8 +1038,8 @@ class ShapeParser:
                             f"Adding output shape to {method.name} {argument.name} type:"
                             f" {input_typed_dict.name} | {output_typed_dict.name}"
                         )
-                        union_name = get_type_def_name(
-                            self._get_typed_dict_name_prefix(input_typed_dict.name), "Union"
+                        union_name = self._get_non_clashing_typed_dict_name(
+                            input_typed_dict, "Union"
                         )
                         argument.type_annotation = TypeUnion(
                             name=union_name,
@@ -1055,8 +1055,8 @@ class ShapeParser:
                                 f"Adding output shape to {method.name} {argument.name} type:"
                                 f" {input_typed_dict.name} | {output_typed_dict.name}"
                             )
-                            union_name = get_type_def_name(
-                                self._get_typed_dict_name_prefix(input_typed_dict.name), "Union"
+                            union_name = self._get_non_clashing_typed_dict_name(
+                                input_typed_dict, "Union"
                             )
                             parent.replace_child(
                                 input_typed_dict,
