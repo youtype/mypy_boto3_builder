@@ -3,7 +3,7 @@
 Checker of generated packages.
 
 - [x] import generated package
-- [x] flake8
+- [x] ruff
 - [x] pyright
 - [x] mypy
 """
@@ -120,27 +120,28 @@ def parse_args() -> CLINamespace:
     )
 
 
-def run_flake8(path: Path) -> None:
+def run_ruff(path: Path) -> None:
     """
     Check output with flake8.
     """
     ignore_errors = [
-        "E203",
-        "W503",
-        "E501",
-        "E704",
+        "B014",
         "D200",
-        "D107",
-        "D401",
-        "D105",
-        "D205",
-        "D400",
         "D101",
         "D102",
+        "D105",
+        "D107",
+        "D205",
+        "D400",
+        "D401",
         "D403",
+        "D404",
+        "D415",
+        "D418",
+        "E203",
+        "E501",
         "N802",
         "N803",
-        "B014",
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
@@ -148,7 +149,7 @@ def run_flake8(path: Path) -> None:
                 [
                     sys.executable,
                     "-m",
-                    "flake8",
+                    "ruff",
                     "--ignore",
                     ",".join(ignore_errors),
                     path.as_posix(),
@@ -291,8 +292,8 @@ def check_snapshot(path: Path) -> None:
         SnapshotMismatchError -- If snapshot is not equal to current output.
     """
     logger = logging.getLogger(LOGGER_NAME)
-    logger.debug(f"Running flake8 for {path.name} ...")
-    run_flake8(path)
+    logger.debug(f"Running ruff for {path.name} ...")
+    run_ruff(path)
     logger.debug(f"Running mypy for {path.name} ...")
     run_mypy(path)
     logger.debug(f"Running pyright for {path.name} ...")
