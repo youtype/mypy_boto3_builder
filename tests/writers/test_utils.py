@@ -35,6 +35,7 @@ class TestUtils:
             TargetVersion.PY310,
             TargetVersion.PY311,
             TargetVersion.PY312,
+            TargetVersion.PY313,
         }
         ModeMock.assert_called_with(
             target_versions=target_versions, is_pyi=False, line_length=100, preview=True
