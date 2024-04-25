@@ -8,6 +8,8 @@ from botocore.endpoint import Endpoint, EndpointCreator
 from botocore.model import OperationModel, ServiceModel
 from requests.models import Request, Response
 
+DEFAULT_HTTP_SESSION_CLS: Type[AIOHTTPSession] = ...
+
 async def convert_to_response_dict(
     http_response: Response, operation_model: OperationModel
 ) -> Dict[str, Any]: ...
