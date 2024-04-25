@@ -14,7 +14,7 @@ import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Sequence
+from typing import Optional, Sequence
 
 from mypy_boto3_builder.utils.path import print_path
 
@@ -71,7 +71,7 @@ class CLINamespace:
     product: Product
     fast: bool
     update: bool
-    services: tuple[str]
+    services: "tuple[str]"
 
 
 def parse_args() -> CLINamespace:
@@ -274,7 +274,7 @@ def main() -> None:
     if not args.fast:
         logger.info("Installing master...")
         install_master(args.product)
-    error: Exception | None = None
+    error: Optional[Exception] = None
     examples_path = get_examples_path(args.product)
     for file in examples_path.iterdir():
         if not file.name.endswith("_example.py"):

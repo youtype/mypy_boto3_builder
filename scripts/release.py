@@ -57,7 +57,7 @@ def setup_logging(level: int) -> logging.Logger:
     return logger
 
 
-@dataclass(kw_only=True, slots=True)
+@dataclass
 class CLINamespace:
     """
     CLI arguments.
@@ -66,7 +66,7 @@ class CLINamespace:
     path: Path
     threads: int
     publish_threads: int
-    filter: list[Path]
+    filter: "tuple[Path]"
     skip_build: bool
     skip_publish: bool
     retries: int
@@ -101,7 +101,7 @@ def parse_args() -> CLINamespace:
     )
 
 
-def check_call(cmd: list[str], print_error: bool = True) -> str:
+def check_call(cmd: "list[str]", print_error: bool = True) -> str:
     """
     Check command exit code and output on error.
 

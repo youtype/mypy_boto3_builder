@@ -152,6 +152,8 @@ def run_ruff(path: Path) -> None:
                     "-m",
                     "ruff",
                     "check",
+                    "--target-version",
+                    "py38",
                     "--ignore",
                     ",".join(ignore_errors),
                     path.as_posix(),
