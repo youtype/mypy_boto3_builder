@@ -22,9 +22,8 @@ aio_examples/s3_example.py:90: error: TypedDict "GetObjectOutputTypeDef" has no 
 aio_examples/s3_example.py:90: note: Did you mean "Expiration"?
 aio_examples/s3_example.py:97: error: Missing key "AllowedOrigins" for TypedDict "CORSRuleTypeDef"  [typeddict-item]
 aio_examples/s3_example.py:97: error: Extra key "Allowedorigins" for TypedDict "CORSRuleTypeDef"  [typeddict-unknown-key]
-aio_examples/s3_example.py:97: error: Incompatible types (expression has type "tuple[str]", TypedDict item "AllowedMethods" has type "list[str]")  [typeddict-item]
 aio_examples/s3_example.py:104: error: Argument "Key" to "get_object" of "S3Client" has incompatible type "None"; expected "str"  [arg-type]
 aio_examples/s3_example.py:106: error: "BotocoreClientError" has no attribute "operations_name"; maybe "operation_name"?  [attr-defined]
 aio_examples/s3_example.py:110: error: Value of type "Coroutine[Any, Any, Iterator[bytes]]" must be used  [unused-coroutine]
 aio_examples/s3_example.py:110: note: Are you missing an await?
-Found 24 errors in 1 file (checked 1 source file)
+Found 23 errors in 1 file (checked 1 source file)
