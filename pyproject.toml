@@ -168,7 +168,6 @@ exclude = [
     "dist",
 ]
 
-# Same as Black.
 line-length = 100
 indent-width = 4
 target-version = "py310"
