@@ -14,7 +14,7 @@ import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional, Sequence
+from typing import Optional, Sequence, Tuple
 
 from mypy_boto3_builder.utils.path import print_path
 
@@ -71,7 +71,7 @@ class CLINamespace:
     product: Product
     fast: bool
     update: bool
-    services: "tuple[str]"
+    services: Tuple[str, ...]
 
 
 def parse_args() -> CLINamespace:

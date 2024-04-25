@@ -14,6 +14,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass
 from multiprocessing.pool import ThreadPool
 from pathlib import Path
+from typing import Sequence, Tuple
 from unittest.mock import patch
 
 from requests.exceptions import ConnectionError, HTTPError
@@ -66,7 +67,7 @@ class CLINamespace:
     path: Path
     threads: int
     publish_threads: int
-    filter: "tuple[Path]"
+    filter: Tuple[Path, ...]
     skip_build: bool
     skip_publish: bool
     retries: int
@@ -94,14 +95,14 @@ def parse_args() -> CLINamespace:
         path=args.path,
         threads=args.threads,
         publish_threads=args.publish_threads,
-        filter=args.filter,
+        filter=tuple(args.filter),
         skip_build=args.skip_build,
         skip_publish=args.skip_publish,
         retries=args.retries,
     )
 
 
-def check_call(cmd: "list[str]", print_error: bool = True) -> str:
+def check_call(cmd: Sequence[str], print_error: bool = True) -> str:
     """
     Check command exit code and output on error.
 
@@ -160,12 +161,12 @@ def build(path: Path, max_retries: int = 10) -> Path:
 
         try:
             with chdir(path):
-                check_call([sys.executable, "setup.py", "build", "sdist", "bdist_wheel"])
+                check_call((sys.executable, "setup.py", "build", "sdist", "bdist_wheel"))
 
             whl_path = next(iter((path / "dist").glob("*.whl")))
             tar_path = next(iter((path / "dist").glob("*.tar.gz")))
-            check_call(["tar", "-tzf", tar_path.as_posix()])
-            check_call([sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()])
+            check_call(("tar", "-tzf", tar_path.as_posix()))
+            check_call((sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()))
         except (subprocess.CalledProcessError, IndexError) as e:
             attempt += 1
             logger.error(f"Failed building {path.name} {attempt} attempt: {e}")
