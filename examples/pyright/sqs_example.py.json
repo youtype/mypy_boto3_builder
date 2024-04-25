@@ -12,6 +12,6 @@
                 "character": 27
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportCallIssue"
     }
 ]

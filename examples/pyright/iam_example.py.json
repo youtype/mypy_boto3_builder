@@ -12,7 +12,7 @@
                 "character": 60
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportArgumentType"
     },
     {
         "severity": "error",
@@ -27,7 +27,7 @@
                 "character": 51
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportCallIssue"
     },
     {
         "severity": "error",
@@ -42,6 +42,6 @@
                 "character": 44
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportCallIssue"
     }
 ]

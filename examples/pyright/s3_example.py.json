@@ -12,11 +12,11 @@
                 "character": 29
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportCallIssue"
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig | None\" in function \"upload_file\"\n\u00a0\u00a0Type \"Literal['test']\" cannot be assigned to type \"TransferConfig | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"TransferConfig\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"None\"",
+        "message": "Argument of type \"Literal['test']\" cannot be assigned to parameter \"Config\" of type \"TransferConfig | None\" in function \"upload_file\"\n\u00a0\u00a0Type \"Literal['test']\" is incompatible with type \"TransferConfig | None\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"TransferConfig\"\n\u00a0\u00a0\u00a0\u00a0\"Literal['test']\" is incompatible with \"None\"",
         "range": {
             "start": {
                 "line": 39,
@@ -27,11 +27,11 @@
                 "character": 69
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportArgumentType"
     },
     {
         "severity": "error",
-        "message": "Expression of type \"dict[str, str]\" cannot be assigned to declared type \"BucketUploadFileRequestTypeDef\"\n\u00a0\u00a0\"key\" is an undefined field in type \"BucketUploadFileRequestTypeDef\"",
+        "message": "Expression of type \"dict[str, str]\" is incompatible with declared type \"BucketUploadFileRequestTypeDef\"\n\u00a0\u00a0\"key\" is an undefined item in type \"BucketUploadFileRequestTypeDef\"",
         "range": {
             "start": {
                 "line": 40,
@@ -42,11 +42,11 @@
                 "character": 71
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportAssignmentType"
     },
     {
         "severity": "error",
-        "message": "Argument of type \"dict[str, str]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceTypeDef\" in function \"copy\"\n\u00a0\u00a0\"key\" is an undefined field in type \"CopySourceTypeDef\"",
+        "message": "Argument of type \"dict[str, str]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceTypeDef\" in function \"copy\"\n\u00a0\u00a0\"key\" is an undefined item in type \"CopySourceTypeDef\"",
         "range": {
             "start": {
                 "line": 44,
@@ -57,7 +57,7 @@
                 "character": 42
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportArgumentType"
     },
     {
         "severity": "error",
@@ -72,11 +72,11 @@
                 "character": 40
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportArgumentType"
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester']\" in function \"abort\"\n\u00a0\u00a0\"Literal['none']\" cannot be assigned to type \"Literal['requester']\"",
+        "message": "Argument of type \"Literal['none']\" cannot be assigned to parameter \"RequestPayer\" of type \"Literal['requester']\" in function \"abort\"\n\u00a0\u00a0\"Literal['none']\" is incompatible with type \"Literal['requester']\"",
         "range": {
             "start": {
                 "line": 56,
@@ -87,7 +87,7 @@
                 "character": 54
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportArgumentType"
     },
     {
         "severity": "error",
@@ -102,11 +102,11 @@
                 "character": 31
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportCallIssue"
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal[b\"asd\"]\" cannot be assigned to parameter \"Fileobj\" of type \"FileobjTypeDef\" in function \"download_fileobj\"\n\u00a0\u00a0Type \"Literal[b\"asd\"]\" cannot be assigned to type \"FileobjTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is incompatible with \"IO[Any]\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is incompatible with \"StreamingBody\"",
+        "message": "Argument of type \"Literal[b\"asd\"]\" cannot be assigned to parameter \"Fileobj\" of type \"FileobjTypeDef\" in function \"download_fileobj\"\n\u00a0\u00a0Type \"Literal[b\"asd\"]\" is incompatible with type \"FileobjTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is incompatible with \"IO[Any]\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[b\"asd\"]\" is incompatible with \"StreamingBody\"",
         "range": {
             "start": {
                 "line": 70,
@@ -117,11 +117,11 @@
                 "character": 51
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportArgumentType"
     },
     {
         "severity": "error",
-        "message": "Argument of type \"None\" cannot be assigned to parameter \"IfModifiedSince\" of type \"TimestampTypeDef\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" cannot be assigned to type \"TimestampTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is incompatible with \"datetime\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is incompatible with \"str\"",
+        "message": "Argument of type \"None\" cannot be assigned to parameter \"IfModifiedSince\" of type \"TimestampTypeDef\" in function \"get_object\"\n\u00a0\u00a0Type \"None\" is incompatible with type \"TimestampTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is incompatible with \"datetime\"\n\u00a0\u00a0\u00a0\u00a0\"None\" is incompatible with \"str\"",
         "range": {
             "start": {
                 "line": 71,
@@ -132,7 +132,7 @@
                 "character": 70
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportArgumentType"
     },
     {
         "severity": "error",
@@ -147,7 +147,7 @@
                 "character": 46
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportCallIssue"
     },
     {
         "severity": "error",
@@ -162,7 +162,7 @@
                 "character": 36
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportCallIssue"
     },
     {
         "severity": "error",
@@ -177,7 +177,7 @@
                 "character": 38
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportCallIssue"
     },
     {
         "severity": "error",
@@ -196,18 +196,18 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0\"tuple[Literal['get']]\" is incompatible with \"List[str]\"",
+        "message": "Argument of type \"dict[str, list[dict[str, tuple[Literal['get']] | list[str]]]]\" cannot be assigned to parameter \"CORSConfiguration\" of type \"CORSConfigurationTypeDef\" in function \"put_bucket_cors\"\n\u00a0\u00a0\"Allowedorigins\" is an undefined item in type \"CORSRuleTypeDef\"",
         "range": {
             "start": {
                 "line": 91,
-                "character": 45
+                "character": 55
             },
             "end": {
                 "line": 91,
-                "character": 53
+                "character": 71
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportArgumentType"
     },
     {
         "severity": "error",
@@ -222,11 +222,11 @@
                 "character": 51
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportArgumentType"
     },
     {
         "severity": "error",
-        "message": "Cannot access member \"operations_name\" for type \"BotocoreClientError\"\n\u00a0\u00a0Member \"operations_name\" is unknown",
+        "message": "Cannot access attribute \"operations_name\" for class \"BotocoreClientError\"\n\u00a0\u00a0Attribute \"operations_name\" is unknown",
         "range": {
             "start": {
                 "line": 100,
@@ -237,6 +237,6 @@
                 "character": 31
             }
         },
-        "rule": "reportGeneralTypeIssues"
+        "rule": "reportAttributeAccessIssue"
     }
 ]
