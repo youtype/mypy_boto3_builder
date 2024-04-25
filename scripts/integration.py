@@ -2,6 +2,7 @@
 """
 Integration tests.
 """
+
 import argparse
 import difflib
 import enum
@@ -60,7 +61,7 @@ def setup_logging(level: int) -> logging.Logger:
     return logger
 
 
-@dataclass(kw_only=True, slots=True)
+@dataclass
 class CLINamespace:
     """
     CLI namespace.

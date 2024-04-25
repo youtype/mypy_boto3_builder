@@ -90,7 +90,7 @@ def setup_logging(level: int) -> logging.Logger:
     return logger
 
 
-@dataclass(kw_only=True, slots=True)
+@dataclass
 class CLINamespace:
     """
     CLI namespace.
@@ -142,6 +142,7 @@ def run_ruff(path: Path) -> None:
         "E501",
         "N802",
         "N803",
+        "N812",
     ]
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
