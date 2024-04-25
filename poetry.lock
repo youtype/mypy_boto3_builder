@@ -1893,13 +1893,13 @@ files = [
 
 [[package]]
 name = "types-six"
-version = "1.16.21.20240311"
+version = "1.16.21.20240425"
 description = "Typing stubs for six"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "types-six-1.16.21.20240311.tar.gz", hash = "sha256:b5a117193ba0dc7a66507925e95e140b2af52731402cdd71ef9f2a4348e01f60"},
-    {file = "types_six-1.16.21.20240311-py3-none-any.whl", hash = "sha256:abc0377990d38e9b37b3333dd115ec960ca9788d78f3d9c7eb3f778cfc6c925c"},
+    {file = "types-six-1.16.21.20240425.tar.gz", hash = "sha256:378f8baa5b693e4f8a284e8f7b0b34c682210848900816788e19ee4712de8f59"},
+    {file = "types_six-1.16.21.20240425-py3-none-any.whl", hash = "sha256:1e924f823cdc2142670c942527f71b49912e6954b3b85388cd0cc1259ad4bfcf"},
 ]
 
 [[package]]
