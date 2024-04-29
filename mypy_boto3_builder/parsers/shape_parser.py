@@ -403,8 +403,9 @@ class ShapeParser:
                 ),
                 attr_name in required,
             )
-        if output:
+        if is_output_or_child:
             self._mark_typed_dict_as_total(typed_dict)
+        if output:
             self._add_response_metadata(typed_dict)
 
         if found_typed_dict and not typed_dict.is_same(found_typed_dict):
