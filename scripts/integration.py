@@ -210,7 +210,7 @@ def run_pyright(path: Path, snapshot_path: Path, update: bool) -> None:
     shutil.copyfile(PYRIGHT_CONFIG_PATH, config_path)
     try:
         output = subprocess.check_output(
-            ["pyright", path.as_posix(), "--outputjson"],
+            [sys.executable, "-m", "pyright", path.as_posix(), "--outputjson"],
             stderr=subprocess.DEVNULL,
             encoding="utf8",
         )

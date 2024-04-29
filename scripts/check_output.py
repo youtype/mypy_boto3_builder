@@ -176,7 +176,7 @@ def run_pyright(path: Path) -> None:
     with tempfile.NamedTemporaryFile("w+b") as f:
         try:
             subprocess.check_call(
-                ["npx", "pyright", path.as_posix(), "--outputjson"],
+                [sys.executable, "-m", "pyright", path.as_posix(), "--outputjson"],
                 stderr=subprocess.DEVNULL,
                 stdout=f,
             )

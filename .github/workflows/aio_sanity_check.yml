@@ -53,10 +53,6 @@ jobs:
         with:
           python-version-file: pyproject.toml
           cache: "poetry"
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
       - name: Install dependencies
         run: |
           poetry install -n
@@ -68,9 +64,6 @@ jobs:
           BOTOCORE_VERSION: ${{ needs.versions.outputs.botocore }}
         run: |
           poetry run pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
-      - name: Install Node.js dependencies
-        run: |
-          npm install -g pyright
       - name: Build master packages
         run: |
           rm -rf mypy_boto3_output/*

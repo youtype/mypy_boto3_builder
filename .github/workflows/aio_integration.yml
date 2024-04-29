@@ -18,18 +18,11 @@ jobs:
         with:
           python-version-file: pyproject.toml
           cache: "poetry"
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
       - name: Install dependencies
         run: |
           poetry install -n
           poetry run pip install -U aioboto3 boto3-stubs types-aiobotocore types-aioboto3
           poetry install -n
-      - name: Install Node.js dependencies
-        run: |
-          npm install -g pyright
       - name: Integration tests
         run: |
           poetry run python scripts/integration.py --product aioboto3 -d
@@ -57,25 +50,15 @@ jobs:
         with:
           name: aio_mypy_boto3_output
           path: mypy_boto3_output
-      - name: Install poetry
-        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.version }}
-          cache: "poetry"
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+          cache: "pip"
       - name: Install dependencies
         run: |
-          poetry install -n
-          poetry run pip install -U mypy ruff aioboto3 boto3-stubs types-aiobotocore types-aioboto3
-          poetry install -n
-      - name: Install Node.js dependencies
-        run: |
-          npm install -g pyright
+          python -m pip install -U pip
+          poetry run pip install -U mypy ruff pyright aioboto3 boto3-stubs types-aiobotocore types-aioboto3
       - name: Check output
         run: |
           poetry run python ./scripts/check_output.py -p ./mypy_boto3_output
