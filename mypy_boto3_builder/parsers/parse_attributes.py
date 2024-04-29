@@ -41,7 +41,7 @@ def parse_attributes(
         attribute_type = get_method_type_stub(service_name, resource_name, "_attributes", name)
         if attribute_type is None:
             attribute_shape = attribute[1]
-            attribute_type = shape_parser.parse_shape(attribute_shape, output=True)
+            attribute_type = shape_parser.parse_shape(attribute_shape, output_child=True)
         result.append(Attribute(name, attribute_type))
 
     return result

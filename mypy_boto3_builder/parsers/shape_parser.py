@@ -403,7 +403,7 @@ class ShapeParser:
                 ),
                 attr_name in required,
             )
-        if is_output_or_child:
+        if output:
             self._mark_typed_dict_as_total(typed_dict)
             self._add_response_metadata(typed_dict)
 
@@ -944,7 +944,7 @@ class ShapeParser:
                 new_typed_dict_name = self._get_non_clashing_typed_dict_name(typed_dict, "Output")
                 self._fixed_typed_dict_map[typed_dict] = output_typed_dict
                 self.logger.debug(
-                    f"Fixing TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
+                    f"Fixing output TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
                 )
 
                 self._output_typed_dict_map.rename(output_typed_dict, new_typed_dict_name)
@@ -976,7 +976,7 @@ class ShapeParser:
                     response_typed_dict, "Response"
                 )
                 self.logger.debug(
-                    f"Fixing TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
+                    f"Fixing response TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
                 )
 
                 self._response_typed_dict_map.rename(response_typed_dict, new_typed_dict_name)
