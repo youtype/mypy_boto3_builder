@@ -90,6 +90,7 @@ boto3-stubs = "*"
 botocore-stubs = "*"
 istub = "*"
 twine = "*"
+pyright = "*"
 
 
 [build-system]
@@ -108,7 +109,7 @@ exclude_lines = [
 ignore_errors = true
 omit = ["tests/*"]
 
-[tool.pyright]
+[tool.basedpyright]
 include = ["mypy_boto3_builder"]
 exclude = ["tests"]
 ignore = [

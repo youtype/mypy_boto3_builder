@@ -40,8 +40,8 @@ jobs:
       - name: Lint
         if: ${{ matrix.check-lint }}
         run: |
-          poetry run ruff check mypy_boto3_builder
-          poetry run ruff check scripts
+          poetry run ruff check mypy_boto3_builder --output-format github
+          poetry run ruff check scripts --output-format github
       - name: Set up Node
         if: ${{ matrix.check-typing }}
         uses: actions/setup-node@v4
@@ -54,7 +54,7 @@ jobs:
       - name: Typing
         if: ${{ matrix.check-typing }}
         run: |
-          poetry run npx pyright mypy_boto3_builder
+          poetry run pyright mypy_boto3_builder
       - name: Test
         run: |
           poetry run pytest
