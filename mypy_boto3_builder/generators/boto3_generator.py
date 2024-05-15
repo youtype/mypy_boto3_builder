@@ -5,6 +5,7 @@ Boto3 stubs/docs generator.
 from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
+    Boto3StubsFullPackageData,
     Boto3StubsLitePackageData,
     Boto3StubsPackageData,
     MypyBoto3PackageData,
@@ -15,6 +16,7 @@ from mypy_boto3_builder.utils.version import get_boto3_version
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
+    process_boto3_stubs_full,
     process_boto3_stubs_lite,
     process_master,
 )
@@ -70,6 +72,7 @@ class Boto3Generator(BaseGenerator):
             self.output_path,
             self.master_service_names,
             generate_setup=self.generate_setup,
+            package_data=package_data,
             version=version,
         )
 
@@ -121,3 +124,26 @@ class Boto3Generator(BaseGenerator):
                 package_data=package_data,
                 templates_path=TEMPLATES_PATH / "boto3_service_docs",
             )
+
+    def generate_full_stubs(self) -> None:
+        """
+        Generate full stubs.
+        """
+        package_data = Boto3StubsFullPackageData
+        version = self._get_package_version(package_data.PYPI_NAME, self.version)
+        if not version:
+            return
+
+        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
+        # boto3_stubs_package = parse_boto3_stubs_package(
+        #     self.session, self.service_names, package_data
+        # )
+        boto3_stubs_package = process_boto3_stubs_full(
+            self.session,
+            self.output_path,
+            self.service_names,
+            generate_setup=self.generate_setup,
+            version=version,
+            package_data=package_data,
+        )
+        self._generate_full_stubs_services(boto3_stubs_package)

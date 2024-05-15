@@ -2,7 +2,7 @@ from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 from mypy_boto3_builder.package_data import Boto3StubsPackageData
-from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.writers.processors import (
     process_boto3_stubs,
     process_boto3_stubs_docs,
@@ -19,18 +19,18 @@ class TestProcessors:
         parse_boto3_stubs_package_mock: MagicMock,
     ) -> None:
         session_mock = MagicMock()
-        service_name_mock = MagicMock()
         PackageWriterMock().write_package.return_value = [Path("modified_path")]
         result = process_boto3_stubs(
             session_mock,
             Path("my_path"),
-            [service_name_mock],
+            [ServiceNameCatalog.ec2],
             True,
             version="1.2.3",
+            package_data=Boto3StubsPackageData,
         )
         PackageWriterMock().write_package.assert_called()
         parse_boto3_stubs_package_mock.assert_called_with(
-            session_mock, [service_name_mock], Boto3StubsPackageData
+            session_mock, [ServiceNameCatalog.ec2], Boto3StubsPackageData
         )
         assert result == parse_boto3_stubs_package_mock()
 

@@ -124,6 +124,7 @@ def generate_product(
         skip_published=args.skip_published,
         disable_smart_version=args.disable_smart_version,
         version=args.build_version,
+        cleanup=True,
     )
     generator.generate_product(product.get_type())
 

@@ -23,6 +23,7 @@ class ProductType(Enum):
     stubs = "stubs"
     service_stubs = "service_stubs"
     docs = "docs"
+    full = "full"
 
 
 class Product(Enum):
@@ -32,10 +33,12 @@ class Product(Enum):
 
     boto3 = "boto3"
     boto3_services = "boto3-services"
+    boto3_full = "boto3-full"
     boto3_docs = "boto3-docs"
     aiobotocore = "aiobotocore"
     aiobotocore_services = "aiobotocore-services"
     aiobotocore_docs = "aiobotocore-docs"
+    aiobotocore_full = "aiobotocore-full"
     aioboto3 = "aioboto3"
     aioboto3_docs = "aioboto3-docs"
 
@@ -64,4 +67,6 @@ class Product(Enum):
             return ProductType.service_stubs
         if self.value.endswith("-docs"):
             return ProductType.docs
+        if self.value.endswith("-full"):
+            return ProductType.full
         raise ValueError(f"No type found for {self.value}")

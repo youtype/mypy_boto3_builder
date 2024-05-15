@@ -70,6 +70,7 @@ class TypesAioBotocorePackageData(BasePackageData):
     NAME = "aiobotocore-stubs"
     PYPI_NAME = "types-aiobotocore"
     PYPI_LITE_NAME = "types-aiobotocore-lite"
+    PYPI_FULL_NAME = "types-aiobotocore-full"
     LIBRARY_NAME = "aiobotocore"
     SERVICE_PREFIX = "types_aiobotocore"
     SERVICE_PYPI_PREFIX = "types-aiobotocore"
@@ -92,6 +93,30 @@ class TypesAioBotocoreLitePackageData(TypesAioBotocorePackageData):
     PYPI_LITE_NAME = ""
 
 
+class TypesAioBotocoreFullPackageData(TypesAioBotocorePackageData):
+    """
+    types-aiobotocore-full package data.
+    """
+
+    NAME = "types_aiobotocore"
+    PYPI_NAME = "types-aiobotocore-full"
+    LIBRARY_NAME = "boto3"
+
+    @classmethod
+    def get_service_package_name(cls, service_name: ServiceName) -> str:
+        """
+        Get service package name.
+        """
+        return cls.NAME
+
+    @classmethod
+    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+        """
+        Get service package PyPI name.
+        """
+        return cls.PYPI_NAME
+
+
 class Boto3StubsPackageData(BasePackageData):
     """
     boto3-stubs package data.
@@ -100,6 +125,7 @@ class Boto3StubsPackageData(BasePackageData):
     NAME = "boto3-stubs"
     PYPI_NAME = "boto3-stubs"
     PYPI_LITE_NAME = "boto3-stubs-lite"
+    PYPI_FULL_NAME = "boto3-stubs-full"
     LIBRARY_NAME = "boto3"
     LOCAL_DOC_LINK = "https://youtype.github.io/boto3_stubs_docs/"
     IS_VSCODE_SUPPORTED = True
@@ -113,6 +139,23 @@ class Boto3StubsLitePackageData(Boto3StubsPackageData):
 
     PYPI_NAME = "boto3-stubs-lite"
     PYPI_LITE_NAME = ""
+
+
+class Boto3StubsFullPackageData(Boto3StubsPackageData):
+    """
+    boto3-stubs-full package data.
+    """
+
+    NAME = "mypy_boto3"
+    PYPI_NAME = "boto3-stubs-full"
+    LIBRARY_NAME = "boto3"
+
+    @classmethod
+    def get_service_pypi_name(cls, service_name: ServiceName) -> str:
+        """
+        Get service package PyPI name.
+        """
+        return cls.PYPI_NAME
 
 
 class MypyBoto3PackageData(BasePackageData):

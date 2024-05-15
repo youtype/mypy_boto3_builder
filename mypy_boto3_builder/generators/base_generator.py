@@ -12,6 +12,7 @@ from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.parsers.service_package_parser import ServicePackageParser
 from mypy_boto3_builder.postprocessors.base import BasePostprocessor
 from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.structures.service_package import ServicePackage
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_session
 from mypy_boto3_builder.utils.pypi_manager import PyPIManager
@@ -30,6 +31,7 @@ class BaseGenerator(ABC):
         skip_published -- Whether to skip packages that are already published
         disable_smart_version -- Whether to create a new postrelease based on latest PyPI version
         version -- Package build version
+        cleanup -- Whether to cleanup generated files
     """
 
     service_package_data: type[BasePackageData]
@@ -44,6 +46,7 @@ class BaseGenerator(ABC):
         skip_published: bool,
         disable_smart_version: bool,
         version: str,
+        cleanup: bool,
     ):
         self.session = get_boto3_session()
         self.service_names = service_names
@@ -54,6 +57,12 @@ class BaseGenerator(ABC):
         self.skip_published = skip_published
         self.disable_smart_version = disable_smart_version
         self.version = version or self.get_library_version()
+        self.cleanup = cleanup
+        self.package_writer = PackageWriter(
+            output_path=self.output_path,
+            generate_setup=self.generate_setup,
+            cleanup=cleanup,
+        )
 
     @abstractmethod
     def get_postprocessor(self, service_package: ServicePackage) -> BasePostprocessor:
@@ -89,6 +98,37 @@ class BaseGenerator(ABC):
         raise NotImplementedError()
 
     @abstractmethod
+    def generate_full_stubs(self) -> None:
+        """
+        Generate full stubs.
+        """
+        raise NotImplementedError()
+
+    def _generate_full_stubs_services(self, package: Package) -> None:
+        package_writer = PackageWriter(
+            output_path=self.output_path / package.directory_name,
+            generate_setup=False,
+            cleanup=False,
+        )
+        total_str = f"{len(self.service_names)}"
+        for index, service_name in enumerate(self.service_names):
+            current_str = f"{{:0{len(total_str)}}}".format(index + 1)
+            progress_str = f"[{current_str}/{total_str}]"
+
+            self.logger.info(
+                f"{progress_str} Generating {service_name.boto3_name} {package.version} folder"
+            )
+            service_package = self._parse_service_package(
+                service_name, package.version, package.data
+            )
+            service_package.pypi_name = package.pypi_name
+            service_package.version = package.version
+            package_writer.write_service_package(
+                service_package,
+                templates_path=self.service_template_path,
+            )
+
+    @abstractmethod
     def generate_docs(self) -> None:
         """
         Generate service and master docs.
@@ -98,14 +138,17 @@ class BaseGenerator(ABC):
         """
         Run generator for a product type.
         """
-        if product_type == ProductType.stubs:
-            return self.generate_stubs()
-        if product_type == ProductType.service_stubs:
-            return self.generate_service_stubs()
-        if product_type == ProductType.docs:
-            return self.generate_docs()
-
-        raise ValueError(f"Unknown product type: {product_type}")
+        match product_type:
+            case ProductType.stubs:
+                self.generate_stubs()
+            case ProductType.service_stubs:
+                self.generate_service_stubs()
+            case ProductType.docs:
+                self.generate_docs()
+            case ProductType.full:
+                self.generate_full_stubs()
+            case _:
+                raise ValueError(f"Unknown product type: {product_type}")
 
     def _parse_service_package(
         self,
@@ -137,10 +180,7 @@ class BaseGenerator(ABC):
         service_package = self._parse_service_package(service_name, version, package_data)
 
         self.logger.debug(f"Writing {service_name.boto3_name}")
-        package_writer = PackageWriter(
-            output_path=self.output_path, generate_setup=self.generate_setup
-        )
-        package_writer.write_service_package(
+        self.package_writer.write_service_package(
             service_package,
             templates_path=templates_path,
         )
@@ -159,10 +199,7 @@ class BaseGenerator(ABC):
         )
 
         self.logger.debug(f"Writing {service_name.boto3_name}")
-        package_writer = PackageWriter(
-            output_path=self.output_path, generate_setup=self.generate_setup
-        )
-        package_writer.write_service_docs(
+        self.package_writer.write_service_docs(
             service_package,
             templates_path=templates_path,
         )
@@ -172,7 +209,7 @@ class BaseGenerator(ABC):
         pypi_name = self.service_package_data.get_service_pypi_name(service_name)
         version = self._get_package_version(pypi_name, self.version)
         if not version:
-            return ServicePackage(self.service_package_data, service_name)
+            return ServicePackage(data=self.service_package_data, service_name=service_name)
 
         return self._process_service(
             service_name=service_name,

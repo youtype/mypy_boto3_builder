@@ -25,9 +25,11 @@ from twine.settings import Settings
 MASTER_PACKAGES = [
     "types_aiobotocore_package",
     "types_aiobotocore_lite_package",
+    "types_aiobotocore_full_package",
     "mypy_boto3_package",
     "boto3_stubs_package",
     "boto3_stubs_lite_package",
+    "boto3_stubs_full_package",
     "types_aioboto3_package",
     "types_aioboto3_lite_package",
 ]
