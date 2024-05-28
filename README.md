@@ -8,17 +8,20 @@
 [![PyPI - boto3-stubs](https://img.shields.io/pypi/v/boto3-stubs.svg?color=blue&label=boto3-stubs)](https://pypi.org/project/boto3-stubs)
 [![PyPI - boto3](https://img.shields.io/pypi/v/boto3.svg?color=blue&label=boto3)](https://pypi.org/project/boto3)
 [![Docs](https://img.shields.io/readthedocs/boto3-stubs.svg?color=blue&label=boto3-stubs%20docs)](https://youtype.github.io/boto3_stubs_docs/)
-[![boto3-stubs Downloads Last Month](https://assets.piptrends.com/get-last-month-downloads-badge/boto3-stubs.svg 'boto3-stubs Downloads Last Month by pip Trends')](https://piptrends.com/package/boto3-stubs)
+[![PyPI - Downloads](https://static.pepy.tech/badge/boto3-stubs)](https://pepy.tech/project/boto3-stubs)
+[![PyPI - Monthly Downloads](https://img.shields.io/pypi/dm/boto3-stubs?color=blue)](https://pypistats.org/packages/boto3-stubs)
 
 [![PyPI - types-aiobotocore](https://img.shields.io/pypi/v/types-aiobotocore.svg?color=blue&label=types-aiobotocore)](https://pypi.org/project/types-aiobotocore)
 [![PyPI - aiobotocore](https://img.shields.io/pypi/v/aiobotocore.svg?color=blue&label=aiobotocore)](https://pypi.org/project/aiobotocore)
 [![Docs](https://img.shields.io/readthedocs/types-aiobotocore.svg?color=blue&label=types-aiobotocore%20docs)](https://youtype.github.io/types_aiobotocore_docs/)
-[![types-aiobotocore Downloads Last Month](https://assets.piptrends.com/get-last-month-downloads-badge/types-aiobotocore.svg 'types-aiobotocore Downloads Last Month by pip Trends')](https://piptrends.com/package/types-aiobotocore)
+[![PyPI - Downloads](https://static.pepy.tech/badge/types-aiobotocore)](https://pepy.tech/project/types-aiobotocore)
+[![PyPI - Monthly Downloads](https://img.shields.io/pypi/dm/types-aiobotocore?color=blue)](https://pypistats.org/packages/types-aiobotocore)
 
 [![PyPI - types-aioboto3](https://img.shields.io/pypi/v/types-aioboto3.svg?color=blue&label=types-aioboto3)](https://pypi.org/project/types-aioboto3)
 [![PyPI - aioboto3](https://img.shields.io/pypi/v/aioboto3.svg?color=blue&label=aioboto3)](https://pypi.org/project/aioboto3)
 [![Docs](https://img.shields.io/readthedocs/types-aioboto3.svg?color=blue&label=types-aioboto3%20docs)](https://youtype.github.io/types_aioboto3_docs/)
-[![types-aioboto3 Downloads Last Month](https://assets.piptrends.com/get-last-month-downloads-badge/types-aioboto3.svg 'types-aioboto3 Downloads Last Month by pip Trends')](https://piptrends.com/package/types-aioboto3)
+[![PyPI - Downloads](https://static.pepy.tech/badge/types-aioboto3)](https://pepy.tech/project/types-aioboto3)
+[![PyPI - Monthly Downloads](https://img.shields.io/pypi/dm/types-aioboto3?color=blue)](https://pypistats.org/packages/types-aioboto3)
 
 ![boto3.typed](https://github.com/youtype/mypy_boto3_builder/raw/main/logo.png)
 
