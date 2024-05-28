@@ -52,21 +52,33 @@ class Product(Enum):
         """
         Get library name.
         """
-        for library in ProductLibrary:
-            if self.value.startswith(library.value):
-                return library
-        raise ValueError(f"No library found for {self.value}")
+        match self:
+            case Product.boto3 | Product.boto3_services | Product.boto3_full | Product.boto3_docs:
+                return ProductLibrary.boto3
+            case (
+                Product.aiobotocore
+                | Product.aiobotocore_services
+                | Product.aiobotocore_full
+                | Product.aiobotocore_docs
+            ):
+                return ProductLibrary.aiobotocore
+            case Product.aioboto3 | Product.aioboto3_docs:
+                return ProductLibrary.aioboto3
+            case _:
+                pass
 
     def get_type(self) -> ProductType:
         """
         Get product type.
         """
-        if "-" not in self.value:
-            return ProductType.stubs
-        if self.value.endswith("-services"):
-            return ProductType.service_stubs
-        if self.value.endswith("-docs"):
-            return ProductType.docs
-        if self.value.endswith("-full"):
-            return ProductType.full
-        raise ValueError(f"No type found for {self.value}")
+        match self:
+            case Product.boto3 | Product.aiobotocore | Product.aioboto3:
+                return ProductType.stubs
+            case Product.boto3_services | Product.aiobotocore_services:
+                return ProductType.service_stubs
+            case Product.boto3_docs | Product.aiobotocore_docs | Product.aioboto3_docs:
+                return ProductType.docs
+            case Product.boto3_full | Product.aiobotocore_full:
+                return ProductType.full
+            case _:
+                pass
