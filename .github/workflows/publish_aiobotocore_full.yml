@@ -18,11 +18,6 @@ on:
         required: false
         default: false
         type: boolean
-      skip_published:
-        description: Skip already published packages
-        required: false
-        default: true
-        type: boolean
       no_smart_version:
         description: Use exact version provided in stubs_version
         required: false
@@ -98,9 +93,7 @@ jobs:
           script: |
             const extraFlags = []
 
-            const skipPublished = context.payload.inputs ? context.payload.inputs.skip_published !== 'false' : true
             const noSmartVersion = context.payload.inputs ? context.payload.inputs.no_smart_version !== 'false' : true
-            if (skipPublished) extraFlags.push('--skip-published')
             if (noSmartVersion) extraFlags.push('--no-smart-version')
 
             core.notice(`Extra flags = ${extraFlags}`)
