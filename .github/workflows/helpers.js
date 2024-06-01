@@ -39,6 +39,7 @@ async function getReleaseVersions(packageName) {
     if (!packageName) throw new Error('packageName is not defined')
     const response = await fetch(`https://pypi.org/pypi/${packageName}/json`)
     const data = await response.json()
+    if (!data.releases) return []
     return Object.keys(data.releases)
 }
 
