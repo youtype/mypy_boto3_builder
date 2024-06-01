@@ -17,6 +17,15 @@ if [[ "$1" == "master" ]]; then
     exit
 fi
 
+if [[ "$1" == "full" ]]; then
+    echo Installing boto3-stubs-full package
+    cd ${OUTPUT_PATH}/boto3_stubs_full_package
+    poetry run pip install .
+    cd -
+
+    exit
+fi
+
 for package in $PACKAGES
 do
     echo Installing $(basename ${package})
