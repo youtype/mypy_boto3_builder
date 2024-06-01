@@ -81,7 +81,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const { getStubsVersions, getNextPostVersion, setupGlobals } = require('./.github/workflows/helpers.js')
+            const { getPackageVersions, getNextPostVersion, setupGlobals } = require('./.github/workflows/helpers.js')
             setupGlobals({ core, context, fetch })
 
             if (context.payload.inputs && context.payload.inputs.stubs_version) {
@@ -93,7 +93,7 @@ jobs:
             const force = context.payload.inputs ? context.payload.inputs.force !== 'false' : false
             const boto3Version = "${{ steps.boto3.outputs.result }}"
 
-            const versions = await getStubsVersions(boto3Version)
+            const versions = await getPackageVersions('boto3-stubs', boto3Version)
             core.info(`Built versions ${versions}`)
 
             if (!versions.length) {

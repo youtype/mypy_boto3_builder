@@ -60,7 +60,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const { getTypesAioBotocoreVersions, getNextPostVersion, setupGlobals } = require('./.github/workflows/helpers.js')
+            const { getPackageVersions, getNextPostVersion, setupGlobals } = require('./.github/workflows/helpers.js')
             setupGlobals({ core, context, fetch })
 
             if (context.payload.inputs && context.payload.inputs.stubs_version) {
@@ -72,7 +72,7 @@ jobs:
             const force = context.payload.inputs ? context.payload.inputs.force !== 'false' : false
             const aiobotocoreVersion = "${{ steps.aiobotocore.outputs.result }}"
 
-            const versions = await getTypesAioBotocoreVersions(aiobotocoreVersion)
+            const versions = await getPackageVersions('types-aiobotocore', aiobotocoreVersion)
             core.info(`Built versions ${versions}`)
 
             if (!versions.length) {

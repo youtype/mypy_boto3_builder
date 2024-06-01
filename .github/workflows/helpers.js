@@ -67,20 +67,20 @@ async function getAioBoto3Version() {
 }
 
 async function getTypesAioBotocoreVersions(aiobotocoreVersion) {
-    const allVersions = await getReleaseVersions('types-aiobotocore')
-    const versions = allVersions.filter(v => v === aiobotocoreVersion || v.startsWith(`${aiobotocoreVersion}.`))
-    return sortVersions(versions)
+    return await getPackageVersions('types-aiobotocore', aiobotocoreVersion)
 }
 
 async function getTypesAioBoto3Versions(aioboto3Version) {
-    const allVersions = await getReleaseVersions('types-aioboto3')
-    const versions = allVersions.filter(v => v === aioboto3Version || v.startsWith(`${aioboto3Version}.`))
-    return sortVersions(versions)
+    return await getPackageVersions('types-aioboto3', aioboto3Version)
 }
 
 async function getStubsVersions(boto3Version) {
-    const allVersions = await getReleaseVersions('boto3-stubs')
-    const versions = allVersions.filter(v => v === boto3Version || v.startsWith(`${boto3Version}.`))
+    return await getPackageVersions('boto3-stubs', boto3Version)
+}
+
+async function getPackageVersions(packageName, version) {
+    const allVersions = await getReleaseVersions(packageName)
+    const versions = allVersions.filter(v => v === version || v.startsWith(`${version}.`))
     return sortVersions(versions)
 }
 
@@ -127,7 +127,7 @@ async function extractVersions() {
     core.info(`Build all packages = ${buildAll}`)
     core.setOutput('build-all', buildAll)
 
-    const versions = await getStubsVersions(boto3Version)
+    const versions = await getPackageVersions('boto3-stubs', boto3Version)
     core.info(`Built versions ${versions}`)
 
     if (context.payload.inputs && context.payload.inputs.stubs_version) {
@@ -192,7 +192,7 @@ async function extractAioBotocoreVersions() {
     core.info(`Extra flags = ${extraFlags}`)
     core.setOutput('extra-flags', extraFlags.join(' '))
 
-    const versions = await getTypesAioBotocoreVersions(aiobotocoreVersion)
+    const versions = await getPackageVersions('types-aiobotocore', aiobotocoreVersion)
     core.info(`Built versions ${versions}`)
 
     if (context.payload.inputs && context.payload.inputs.stubs_version) {
@@ -236,7 +236,7 @@ async function extractAioBoto3Versions() {
 
     const force = context.payload.inputs ? context.payload.inputs.force !== 'false' : false
 
-    const versions = await getTypesAioBoto3Versions(aioboto3Version)
+    const versions = await getPackageVersions('types-aioboto3', aioboto3Version)
     core.info(`Built versions ${versions}`)
 
     if (context.payload.inputs && context.payload.inputs.stubs_version) {
@@ -297,6 +297,7 @@ module.exports = {
     getReleaseVersions,
     getAioBoto3Version,
     getBoto3Version,
+    getPackageVersions,
     getStubsVersions,
     getBotocoreVersion,
     extractVersions,
