@@ -27,6 +27,11 @@ python -m pip install '{{ package.data.PYPI_NAME }}[acm,apigateway]'
 # or install annotations in sync with {{ package.library_name }} version
 python -m pip install '{{ package.data.PYPI_NAME }}[{{ package.library_name }}]'
 
+{% if package.data.PYPI_FULL_NAME %}
+# or install all-in-one annotations for all services at once
+python -m pip install '{{ package.data.PYPI_FULL_NAME }}[{{ package.library_name }}]'
+{% endif %}
+
 {% if package.data.PYPI_LITE_NAME %}
 # Lite version does not provide session.client/resource overloads
 # it is more RAM-friendly, but requires explicit type annotations

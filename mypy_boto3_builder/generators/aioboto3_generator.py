@@ -100,3 +100,8 @@ class AioBoto3Generator(BaseGenerator):
         """
         Do nothing.
         """
+
+    def generate_full_stubs(self) -> None:
+        """
+        Do nothing.
+        """

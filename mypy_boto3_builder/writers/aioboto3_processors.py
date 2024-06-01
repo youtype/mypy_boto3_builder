@@ -42,7 +42,9 @@ def process_types_aioboto3(
     package.version = version
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
-    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
+    package_writer = PackageWriter(
+        output_path=output_path, generate_setup=generate_setup, cleanup=True
+    )
     package_writer.write_package(
         package,
         templates_path=TEMPLATES_PATH / "types-aioboto3",
@@ -76,7 +78,11 @@ def process_types_aioboto3_lite(
     package.version = version
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
-    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
+    package_writer = PackageWriter(
+        output_path=output_path,
+        generate_setup=generate_setup,
+        cleanup=True,
+    )
     package_writer.write_package(
         package,
         templates_path=TEMPLATES_PATH / "types-aioboto3",
@@ -107,7 +113,7 @@ def process_types_aioboto3_docs(
 
     logger.debug(f"Writing {package.pypi_name} to {print_path(output_path)}")
 
-    package_writer = PackageWriter(output_path=output_path)
+    package_writer = PackageWriter(output_path=output_path, generate_setup=False, cleanup=True)
     package_writer.write_docs(
         package,
         templates_path=TEMPLATES_PATH / "types_aioboto3_docs",

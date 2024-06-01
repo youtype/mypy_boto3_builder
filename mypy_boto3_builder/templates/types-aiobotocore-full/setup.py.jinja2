@@ -1,0 +1,50 @@
+"""
+Setup script for {{ package.pypi_name }}.
+"""
+from pathlib import Path
+
+from setuptools import setup
+
+
+LONG_DESCRIPTION = (Path(__file__).parent / "README.md").read_text()
+
+
+setup(
+    name="{{ package.pypi_name }}",
+    version="{{ package.version }}",
+    packages=[
+        {% for service_name in package.service_names -%}
+            "{{ package.data.get_service_package_name(service_name) }}",
+        {% endfor -%}
+    ],
+    url="{{ builder_repo_url }}",
+    license="MIT License",
+    author="Vlad Emelianov",
+    author_email="vlad.emelianov.nz@gmail.com",
+    description="All-in-one type annotations for {{ package.library_name }} {{ package.library_version }} generated with mypy-boto3-builder {{ builder_version }}",
+    classifiers=[
+
+{% for classifier in package.get_classifiers() -%}
+    {{ "\n        " -}}"{{ classifier -}}",
+{%- endfor %}
+    ],
+    keywords='{{ package.library_name }} type-annotations {{ package.library_name }}-stubs botocore-stubs mypy typeshed autocomplete',
+    long_description=LONG_DESCRIPTION,
+    long_description_content_type="text/markdown",
+    package_data={"{{ package.name }}": ["py.typed", "*.pyi", "*/*.pyi"]},
+    python_requires='>={{ package.min_python_version }}',
+    project_urls={
+        'Documentation': '{{ package.get_local_doc_link() }}',
+        'Source': '{{ builder_repo_url }}',
+        'Tracker': '{{ builder_repo_url }}/issues',
+    },
+    install_requires=[
+        "types-aiobotocore",
+        "botocore-stubs",
+        "typing-extensions>=4.1.0; python_version<\"3.12\"",
+    ],
+    extras_require={
+        "{{ package.library_name }}": ["{{ package.library_name }}=={{ package.library_version }}", "botocore=={{ package.botocore_version }}"],
+    },
+    zip_safe=False,
+)

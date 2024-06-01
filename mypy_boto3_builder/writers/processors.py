@@ -9,7 +9,11 @@ from boto3.session import Session
 
 from mypy_boto3_builder.constants import BOTO3_STUBS_STATIC_PATH, TEMPLATES_PATH
 from mypy_boto3_builder.logger import get_logger
-from mypy_boto3_builder.package_data import Boto3StubsLitePackageData, Boto3StubsPackageData
+from mypy_boto3_builder.package_data import (
+    BasePackageData,
+    Boto3StubsLitePackageData,
+    Boto3StubsPackageData,
+)
 from mypy_boto3_builder.parsers.master_package import parse_master_package
 from mypy_boto3_builder.parsers.parse_wrapper_package import parse_boto3_stubs_package
 from mypy_boto3_builder.service_name import ServiceName
@@ -25,6 +29,7 @@ def process_boto3_stubs(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
+    package_data: type[BasePackageData],
 ) -> Boto3StubsPackage:
     """
     Parse and write stubs package `boto3_stubs`.
@@ -40,13 +45,14 @@ def process_boto3_stubs(
         Parsed Boto3StubsPackage.
     """
     logger = get_logger()
-    package_data = Boto3StubsPackageData
-    logger.debug(f"Parsing {Boto3StubsPackageData.PYPI_NAME}")
+    logger.debug(f"Parsing {package_data.PYPI_NAME}")
     boto3_stubs_package = parse_boto3_stubs_package(session, service_names, package_data)
     boto3_stubs_package.version = version
-    logger.debug(f"Writing {Boto3StubsPackageData.PYPI_NAME} to {print_path(output_path)}")
+    logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
-    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
+    package_writer = PackageWriter(
+        output_path=output_path, generate_setup=generate_setup, cleanup=True
+    )
     package_writer.write_package(
         boto3_stubs_package,
         templates_path=TEMPLATES_PATH / "boto3-stubs",
@@ -87,7 +93,9 @@ def process_boto3_stubs_lite(
     boto3_stubs_package.version = version
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
-    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
+    package_writer = PackageWriter(
+        output_path=output_path, generate_setup=generate_setup, cleanup=True
+    )
     package_writer.write_package(
         boto3_stubs_package,
         templates_path=TEMPLATES_PATH / "boto3-stubs",
@@ -127,7 +135,9 @@ def process_master(
     master_package.version = version
     logger.debug(f"Writing master to {print_path(output_path)}")
 
-    package_writer = PackageWriter(output_path=output_path, generate_setup=generate_setup)
+    package_writer = PackageWriter(
+        output_path=output_path, generate_setup=generate_setup, cleanup=True
+    )
     package_writer.write_package(
         master_package,
         templates_path=TEMPLATES_PATH / "master",
@@ -158,10 +168,53 @@ def process_boto3_stubs_docs(
     boto3_stubs_package = parse_boto3_stubs_package(session, service_names, package_data)
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
-    package_writer = PackageWriter(output_path=output_path)
+    package_writer = PackageWriter(output_path=output_path, generate_setup=False, cleanup=True)
     package_writer.write_docs(
         boto3_stubs_package,
         templates_path=TEMPLATES_PATH / "boto3_stubs_docs",
+    )
+
+    return boto3_stubs_package
+
+
+def process_boto3_stubs_full(
+    session: Session,
+    output_path: Path,
+    service_names: Iterable[ServiceName],
+    generate_setup: bool,
+    version: str,
+    package_data: type[BasePackageData],
+) -> Boto3StubsPackage:
+    """
+    Parse and write stubs package `boto3-stubs-full`.
+
+    Arguments:
+        session -- boto3 session
+        output_path -- Package output path
+        service_names -- List of known service names
+        generate_setup -- Generate ready-to-install or to-use package
+        version -- Package version
+        package_data -- Package data
+
+    Return:
+        Parsed Boto3StubsPackage.
+    """
+    logger = get_logger()
+    logger.debug(f"Parsing {package_data.PYPI_NAME}")
+    boto3_stubs_package = parse_boto3_stubs_package(
+        session=session,
+        service_names=service_names,
+        package_data=package_data,
+    )
+    boto3_stubs_package.version = version
+    logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
+
+    package_writer = PackageWriter(
+        output_path=output_path, generate_setup=generate_setup, cleanup=True
+    )
+    package_writer.write_package(
+        boto3_stubs_package,
+        templates_path=TEMPLATES_PATH / "boto3-stubs-full",
     )
 
     return boto3_stubs_package

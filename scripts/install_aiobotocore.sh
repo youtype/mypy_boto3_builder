@@ -22,6 +22,15 @@ if [[ "$1" == "master" ]]; then
     exit
 fi
 
+if [[ "$1" == "full" ]]; then
+    echo Installing types-aiobotocore-full package
+    cd ${OUTPUT_PATH}/types_aiobotocore_full_package
+    poetry run pip install .
+    cd -
+
+    exit
+fi
+
 for package in $PACKAGES
 do
     echo Installing $(basename ${package})

@@ -1,0 +1,100 @@
+## Usage
+
+### VSCode
+
+- Install [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+- Install [Pylance extension](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
+- Set `Pylance` as your Python Language Server
+- Install `{{ package.data.PYPI_NAME }}` in your environment:
+
+```bash
+python -m pip install '{{ package.data.PYPI_NAME }}'
+```
+
+Both type checking and code completion should now work.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
+
+### PyCharm
+
+Install `{{ package.data.PYPI_NAME }}` in your environment:
+
+```bash
+python -m pip install '{{ package.data.PYPI_NAME }}'`
+```
+
+Both type checking and code completion should now work.
+Explicit type annotations **are required**.
+
+### Emacs
+
+- Install `{{ package.data.PYPI_NAME }}` with services you use in your environment:
+
+```bash
+python -m pip install '{{ package.data.PYPI_NAME }}'
+```
+
+- Install
+  [use-package](https://github.com/jwiegley/use-package),
+  [lsp](https://github.com/emacs-lsp/lsp-mode/),
+  [company](https://github.com/company-mode/company-mode) and
+  [flycheck](https://github.com/flycheck/flycheck) packages
+- Install [lsp-pyright](https://github.com/emacs-lsp/lsp-pyright) package
+
+```elisp
+(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          (lsp)))  ; or lsp-deferred
+  :init (when (executable-find "python3")
+          (setq lsp-pyright-python-executable-cmd "python3"))
+  )
+```
+
+- Make sure emacs uses the environment where you have installed `{{ package.data.PYPI_NAME }}`
+
+Type checking should now work.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
+
+### Sublime Text
+
+- Install `{{ package.data.PYPI_NAME }}` with services you use in your environment:
+
+```bash
+python -m pip install '{{ package.data.PYPI_NAME }}'
+```
+
+- Install [LSP-pyright](https://github.com/sublimelsp/LSP-pyright) package
+
+Type checking should now work.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
+
+### Other IDEs
+
+Not tested, but as long as your IDE supports `mypy` or `pyright`, everything should work.
+
+### mypy
+
+- Install `mypy`: `python -m pip install mypy`
+- Install `{{ package.data.PYPI_NAME }}` in your environment: 
+
+```bash
+python -m pip install '{{ package.data.PYPI_NAME }}'`
+```
+
+Type checking should now work.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.
+
+### pyright
+
+- Install `pyright`: `npm i -g pyright`
+- Install `{{ package.data.PYPI_NAME }}[{{ extras_name }}]` in your environment: 
+
+```bash
+python -m pip install '{{ package.data.PYPI_NAME }}[{{ extras_name }}]'
+```
+
+Optionally, you can install `{{ package.data.PYPI_NAME }}` to `typings` folder.
+
+Type checking should now work.
+No explicit type annotations required, write your `{{ package.library_name }}` code as usual.

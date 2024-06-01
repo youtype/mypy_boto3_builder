@@ -5,6 +5,7 @@ AioBotocore stubs/docs generator.
 from mypy_boto3_builder.constants import TEMPLATES_PATH
 from mypy_boto3_builder.generators.base_generator import BaseGenerator
 from mypy_boto3_builder.package_data import (
+    TypesAioBotocoreFullPackageData,
     TypesAioBotocoreLitePackageData,
     TypesAioBotocorePackageData,
 )
@@ -14,6 +15,7 @@ from mypy_boto3_builder.utils.version import get_aiobotocore_version
 from mypy_boto3_builder.writers.aiobotocore_processors import (
     process_aiobotocore_stubs,
     process_aiobotocore_stubs_docs,
+    process_aiobotocore_stubs_full,
     process_aiobotocore_stubs_lite,
 )
 
@@ -98,3 +100,23 @@ class AioBotocoreGenerator(BaseGenerator):
                 package_data=package_data,
                 templates_path=TEMPLATES_PATH / "aiobotocore_service_docs",
             )
+
+    def generate_full_stubs(self) -> None:
+        """
+        Generate full stubs.
+        """
+        package_data = TypesAioBotocoreFullPackageData
+        version = self._get_package_version(package_data.PYPI_NAME, self.version)
+        if not version:
+            return
+
+        self.logger.info(f"Generating {package_data.PYPI_NAME} {version}")
+        package = process_aiobotocore_stubs_full(
+            self.session,
+            self.output_path,
+            self.service_names,
+            generate_setup=self.generate_setup,
+            package_data=package_data,
+            version=version,
+        )
+        self._generate_full_stubs_services(package)

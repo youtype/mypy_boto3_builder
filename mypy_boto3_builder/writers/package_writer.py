@@ -44,11 +44,13 @@ class PackageWriter:
     Arguments:
         output_path -- Output path
         generate_setup -- Whether to generate setup files
+        cleanup -- Whether to remove unknown files
     """
 
-    def __init__(self, output_path: Path, generate_setup: bool = True) -> None:
+    def __init__(self, output_path: Path, generate_setup: bool, cleanup: bool) -> None:
         self.output_path = output_path
         self.generate_setup = generate_setup
+        self.cleanup = cleanup
         self.logger = get_logger()
 
     def _get_package_path(self, package: Package) -> Path:
@@ -175,6 +177,8 @@ class PackageWriter:
                 self._write_template(output_path, content)
 
     def _cleanup(self, valid_paths: Sequence[Path], output_path: Path) -> None:
+        if not self.cleanup:
+            return
         for unknown_path in walk_path(output_path, valid_paths):
             unknown_path.unlink()
             self.logger.debug(f"Deleted {print_path(unknown_path)}")
