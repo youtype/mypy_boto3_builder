@@ -221,7 +221,7 @@ class ShapeParser:
             return argument_type_stub
 
         if shape:
-            return self.parse_shape(shape, output=True)
+            return self.parse_shape(shape, is_output=True)
 
         return Type.none
 
@@ -342,19 +342,25 @@ class ShapeParser:
     def _parse_shape_map(
         self,
         shape: MapShape,
-        output_child: bool = False,
+        is_output_child: bool = False,
         is_streaming: bool = False,
     ) -> FakeAnnotation:
-        type_subscript = TypeSubscript(Type.Dict) if output_child else TypeSubscript(Type.Mapping)
+        type_subscript = (
+            TypeSubscript(Type.Dict) if is_output_child else TypeSubscript(Type.Mapping)
+        )
         if shape.key:
             type_subscript.add_child(
-                self.parse_shape(shape.key, output_child=output_child, is_streaming=is_streaming)
+                self.parse_shape(
+                    shape.key, is_output_child=is_output_child, is_streaming=is_streaming
+                )
             )
         else:
             type_subscript.add_child(Type.str)
         if shape.value:
             type_subscript.add_child(
-                self.parse_shape(shape.value, output_child=output_child, is_streaming=is_streaming)
+                self.parse_shape(
+                    shape.value, is_output_child=is_output_child, is_streaming=is_streaming
+                )
             )
         else:
             type_subscript.add_child(Type.Any)
@@ -397,8 +403,8 @@ class ShapeParser:
                 attr_name,
                 self.parse_shape(
                     attr_shape,
-                    output=False,
-                    output_child=is_output_or_child,
+                    is_output=False,
+                    is_output_child=is_output_or_child,
                     is_streaming=is_streaming,
                 ),
                 attr_name in required,
@@ -429,10 +435,14 @@ class ShapeParser:
                 True,
             )
 
-    def _parse_shape_list(self, shape: ListShape, output_child: bool = False) -> FakeAnnotation:
-        type_subscript = TypeSubscript(Type.List) if output_child else TypeSubscript(Type.Sequence)
+    def _parse_shape_list(self, shape: ListShape, is_output_child: bool = False) -> FakeAnnotation:
+        type_subscript = (
+            TypeSubscript(Type.List) if is_output_child else TypeSubscript(Type.Sequence)
+        )
         if shape.member:
-            type_subscript.add_child(self.parse_shape(shape.member, output_child=output_child))
+            type_subscript.add_child(
+                self.parse_shape(shape.member, is_output_child=is_output_child)
+            )
         else:
             type_subscript.add_child(Type.Any)
         return type_subscript
@@ -460,11 +470,45 @@ class ShapeParser:
                 return payload_shape
         return None
 
+    def _parse_shape_by_type(
+        self,
+        shape: Shape,
+        is_output_or_child: bool,
+        output: bool,
+        is_streaming: bool,
+    ) -> FakeAnnotation:
+        match shape:
+            case StringShape():
+                return self._parse_shape_string(shape, output_child=is_output_or_child)
+            case MapShape():
+                return self._parse_shape_map(
+                    shape,
+                    is_output_child=is_output_or_child,
+                    is_streaming=is_streaming,
+                )
+            case StructureShape():
+                return self._parse_shape_structure(
+                    shape,
+                    output=output,
+                    output_child=is_output_or_child,
+                    is_streaming=is_streaming,
+                )
+            case ListShape():
+                return self._parse_shape_list(shape, is_output_child=is_output_or_child)
+            case _:
+                pass
+
+        if shape.type_name in self._get_resource_names():
+            return InternalImport(shape.type_name, use_alias=True)
+
+        self.logger.warning(f"Unknown shape: {shape} {shape.type_name}")
+        return Type.Any
+
     def parse_shape(
         self,
         shape: Shape,
-        output: bool = False,
-        output_child: bool = False,
+        is_output: bool = False,
+        is_output_child: bool = False,
         is_streaming: bool = False,
     ) -> FakeAnnotation:
         """
@@ -486,14 +530,14 @@ class ShapeParser:
                 [
                     self.parse_shape(
                         shape,
-                        output=output,
-                        output_child=output_child,
+                        is_output=is_output,
+                        is_output_child=is_output_child,
                         is_streaming=is_streaming,
                     )
                 ],
                 stringify=True,
             )
-        is_output_or_child = output or output_child
+        is_output_or_child = is_output or is_output_child
         if not is_streaming:
             is_streaming = "streaming" in shape.serialization and shape.serialization["streaming"]
             if is_output_or_child:
@@ -515,32 +559,7 @@ class ShapeParser:
         if shape_type_stub:
             return shape_type_stub
 
-        match shape:
-            case StringShape():
-                return self._parse_shape_string(shape, output_child=is_output_or_child)
-            case MapShape():
-                return self._parse_shape_map(
-                    shape,
-                    output_child=is_output_or_child,
-                    is_streaming=is_streaming,
-                )
-            case StructureShape():
-                return self._parse_shape_structure(
-                    shape,
-                    output=output,
-                    output_child=is_output_or_child,
-                    is_streaming=is_streaming,
-                )
-            case ListShape():
-                return self._parse_shape_list(shape, output_child=is_output_or_child)
-            case _:
-                pass
-
-        if shape.type_name in self._get_resource_names():
-            return InternalImport(shape.type_name, use_alias=True)
-
-        self.logger.warning(f"Unknown shape: {shape} {type_name}")
-        return Type.Any
+        return self._parse_shape_by_type(shape, is_output_or_child, is_output, is_streaming)
 
     def get_paginate_method(self, paginator_name: str) -> Method:
         """
@@ -790,7 +809,9 @@ class ShapeParser:
             arguments.sort(key=lambda x: not x.required)
 
             if operation_shape.output_shape is not None and return_type is Type.none:
-                operation_return_type = self.parse_shape(operation_shape.output_shape, output=True)
+                operation_return_type = self.parse_shape(
+                    operation_shape.output_shape, is_output=True
+                )
                 return_type = operation_return_type
 
         method = Method(name=method_name, arguments=arguments, return_type=return_type)
@@ -874,7 +895,9 @@ class ShapeParser:
                     method.arguments.extend(self._get_kw_flags(batch_action.name, shape_arguments))
                     method.arguments.extend(shape_arguments)
                 if operation_model.output_shape is not None:
-                    item_return_type = self.parse_shape(operation_model.output_shape, output=True)
+                    item_return_type = self.parse_shape(
+                        operation_model.output_shape, is_output=True
+                    )
                     return_type = TypeSubscript(Type.List, [item_return_type])
                     method.return_type = return_type
 
