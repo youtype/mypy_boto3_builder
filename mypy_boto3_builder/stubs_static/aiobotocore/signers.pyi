@@ -1,5 +1,6 @@
 from typing import Any, Mapping, Optional
 
+from aiobotocore.credentials import AioCredentials
 from botocore.auth import BaseSigner
 from botocore.signers import RequestSigner, S3PostPresigner
 from requests.models import Request
@@ -22,6 +23,7 @@ class AioRequestSigner(RequestSigner):
         signing_name: str,
         region_name: str,
         signature_version: Optional[Any] = ...,
+        request_credentials: Optional[AioCredentials] = ...,
         **kwargs: Any,
     ) -> BaseSigner: ...
     get_auth: Any
@@ -30,8 +32,8 @@ class AioRequestSigner(RequestSigner):
         request_dict: Mapping[str, Any],
         operation_name: str,
         expires_in: int = ...,
-        region_name: Optional[Any] = ...,
-        signing_name: Optional[Any] = ...,
+        region_name: Optional[str] = ...,
+        signing_name: Optional[str] = ...,
     ) -> Any: ...
 
 def add_generate_db_auth_token(class_attributes: Any, **kwargs: Any) -> None: ...
