@@ -29,7 +29,7 @@ def get_absolute_path(path: str) -> Path:
     return Path(path).absolute()
 
 
-class EnumAction(argparse.Action):
+class EnumListAction(argparse.Action):
     """
     Argparse action for handling Enums.
     """
@@ -44,7 +44,7 @@ class EnumAction(argparse.Action):
 
         kwargs.setdefault("choices", tuple(e.name for e in enum_type))
 
-        super(EnumAction, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
         self._enum = enum_type
 
@@ -58,9 +58,13 @@ class EnumAction(argparse.Action):
         """
         Convert value back into an Enum.
         """
+        value_list: list[str] = []
         if isinstance(value, str):
-            enum_value = self._enum[value]
-            setattr(namespace, self.dest, enum_value)
+            value_list.append(value)
+        if isinstance(value, list):
+            value_list.extend([i for i in value if isinstance(i, str)])
+        enum_values = [self._enum[i] for i in value_list]
+        setattr(namespace, self.dest, enum_values)
 
 
 @dataclass(kw_only=True, slots=True)
@@ -104,7 +108,7 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         "--product",
         dest="products",
         type=Product,
-        action=EnumAction,
+        action=EnumListAction,
         metavar="PRODUCT",
         nargs="+",
         default=(Product.boto3, Product.boto3_services),
@@ -159,6 +163,7 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         help="List supported boto3 service names.",
     )
     result = parser.parse_args(args)
+    raise ValueError(result.products)
 
     return CLINamespace(
         log_level=logging.DEBUG if result.debug else logging.INFO,
