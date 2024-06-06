@@ -4,6 +4,8 @@ from typing import IO, Any, BinaryIO, Callable, Dict, List, Optional, Sequence
 from boto3.s3.transfer import TransferConfig as S3TransferConfig
 
 logger: logging.Logger
+TransferCallback = Callable[[int], None]
+AnyFileObject = Union[_AsyncBinaryIO, BinaryIO]
 
 def inject_s3_transfer_methods(class_attributes: Sequence[Any], **kwargs: Any) -> None: ...
 def inject_object_summary_methods(class_attributes: Sequence[Any], **kwargs: Any) -> None: ...
@@ -15,25 +17,25 @@ async def download_file(
     Key: str,
     Filename: str,
     ExtraArgs: Optional[List[str]] = ...,
-    Callback: Optional[Callable[[int], None]] = ...,
+    Callback: Optional[TransferCallback] = ...,
     Config: Optional[S3TransferConfig] = ...,
 ) -> None: ...
 async def download_fileobj(
     self: Any,
     Bucket: str,
     Key: str,
-    Fileobj: IO[Any],
+    Fileobj: AnyFileObject,
     ExtraArgs: Optional[Dict[str, Any]] = ...,
-    Callback: Optional[Callable[[int], None]] = ...,
+    Callback: Optional[TransferCallback] = ...,
     Config: Optional[S3TransferConfig] = ...,
 ) -> None: ...
 async def upload_fileobj(
     self: Any,
-    Fileobj: BinaryIO,
+    Fileobj: AnyFileObject,
     Bucket: str,
     Key: str,
     ExtraArgs: Optional[Dict[str, Any]] = ...,
-    Callback: Optional[Callable[[int], None]] = ...,
+    Callback: Optional[TransferCallback] = ...,
     Config: Optional[S3TransferConfig] = ...,
     Processing: Optional[Callable[[bytes], bytes]] = ...,
 ) -> Any: ...
@@ -43,7 +45,7 @@ async def upload_file(
     Bucket: str,
     Key: str,
     ExtraArgs: Optional[Dict[str, Any]] = ...,
-    Callback: Optional[Callable[[int], None]] = ...,
+    Callback: Optional[TransferCallback] = ...,
     Config: Optional[S3TransferConfig] = ...,
 ) -> None: ...
 async def copy(
@@ -52,7 +54,7 @@ async def copy(
     Bucket: str,
     Key: str,
     ExtraArgs: Optional[Dict[str, Any]] = ...,
-    Callback: Optional[Callable[[int], None]] = ...,
+    Callback: Optional[TransferCallback] = ...,
     SourceClient: Optional[Any] = ...,
     Config: Optional[S3TransferConfig] = ...,
 ) -> None: ...
