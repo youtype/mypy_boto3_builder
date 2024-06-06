@@ -163,7 +163,6 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         help="List supported boto3 service names.",
     )
     result = parser.parse_args(args)
-    raise ValueError(result.products)
 
     return CLINamespace(
         log_level=logging.DEBUG if result.debug else logging.INFO,

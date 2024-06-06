@@ -1,10 +1,21 @@
 import logging
-from typing import IO, Any, BinaryIO, Callable, Dict, List, Optional, Sequence
+from abc import abstractmethod
+from typing import Any, BinaryIO, Callable, Dict, List, Optional, Sequence, Union
 
 from boto3.s3.transfer import TransferConfig as S3TransferConfig
 
 logger: logging.Logger
 TransferCallback = Callable[[int], None]
+
+class _AsyncBinaryIO:
+    @abstractmethod
+    async def seek(self, offset: int, whence: int = 0) -> int:
+        pass
+
+    @abstractmethod
+    async def write(self, s: Union[bytes, bytearray]) -> int:
+        pass
+
 AnyFileObject = Union[_AsyncBinaryIO, BinaryIO]
 
 def inject_s3_transfer_methods(class_attributes: Sequence[Any], **kwargs: Any) -> None: ...
