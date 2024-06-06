@@ -19,6 +19,7 @@ class BasePackageData:
     NAME: str = "boto3-stubs"
     PYPI_NAME: str = "boto3-stubs"
     PYPI_LITE_NAME: str = ""
+    PYPI_FULL_NAME: str = ""
     LIBRARY_NAME: str = "boto3"
     SERVICE_PREFIX: str = "mypy_boto3"
     SERVICE_PYPI_PREFIX: str = "mypy-boto3"
