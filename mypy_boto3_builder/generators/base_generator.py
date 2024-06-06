@@ -147,8 +147,6 @@ class BaseGenerator(ABC):
                 self.generate_docs()
             case ProductType.full:
                 self.generate_full_stubs()
-            case _:
-                raise ValueError(f"Unknown product type: {product_type}")
 
     def _parse_service_package(
         self,

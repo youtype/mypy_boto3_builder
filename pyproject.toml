@@ -109,7 +109,7 @@ exclude_lines = [
 ignore_errors = true
 omit = ["tests/*"]
 
-[tool.basedpyright]
+[tool.pyright]
 include = ["mypy_boto3_builder"]
 exclude = ["tests"]
 ignore = [

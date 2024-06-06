@@ -3,10 +3,12 @@ CLI parser.
 """
 
 import argparse
+import enum
 import logging
 from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 from mypy_boto3_builder.constants import PROG_NAME
 from mypy_boto3_builder.enums.product import Product
@@ -25,6 +27,40 @@ def get_absolute_path(path: str) -> Path:
         Absolute path.
     """
     return Path(path).absolute()
+
+
+class EnumAction(argparse.Action):
+    """
+    Argparse action for handling Enums.
+    """
+
+    def __init__(self, **kwargs: Any) -> None:
+        enum_type = kwargs.pop("type", None)
+
+        if enum_type is None:
+            raise ValueError("type must be assigned an Enum when using EnumAction")
+        if not issubclass(enum_type, enum.Enum):
+            raise TypeError("type must be an Enum when using EnumAction")
+
+        kwargs.setdefault("choices", tuple(e.name for e in enum_type))
+
+        super(EnumAction, self).__init__(**kwargs)
+
+        self._enum = enum_type
+
+    def __call__(
+        self,
+        parser: argparse.ArgumentParser,
+        namespace: argparse.Namespace,
+        value: str | Sequence[Any] | None,
+        _option_string: str | None = None,
+    ) -> None:
+        """
+        Convert value back into an Enum.
+        """
+        if isinstance(value, str):
+            enum_value = self._enum[value]
+            setattr(namespace, self.dest, enum_value)
 
 
 @dataclass(kw_only=True, slots=True)
@@ -68,10 +104,11 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         "--product",
         dest="products",
         type=Product,
-        choices=list(Product),
+        action=EnumAction,
+        metavar="PRODUCT",
         nargs="+",
-        default=[Product.boto3, Product.boto3_services],
-        help="Select package to create annotations for",
+        default=(Product.boto3, Product.boto3_services),
+        help="Package to generate (default: boto3 boto3-stubs)",
     )
     parser.add_argument(
         "--skip-published", action="store_true", help="Skip packages that are already on PyPI"
@@ -102,9 +139,9 @@ def parse_args(args: Sequence[str]) -> CLINamespace:
         help=(
             "List of AWS services, by default all services are used."
             " Use `updated` to build only services updated in the release."
-            " Use `all` to build all services."
+            " Use `all` to build all services. (default: all)"
         ),
-        default=[ServiceName.ALL],
+        default=(ServiceName.ALL,),
     )
     parser.add_argument(
         "--partial-overload",

@@ -64,8 +64,6 @@ class Product(Enum):
                 return ProductLibrary.aiobotocore
             case Product.aioboto3 | Product.aioboto3_docs:
                 return ProductLibrary.aioboto3
-            case _:
-                pass
 
     def get_type(self) -> ProductType:
         """
@@ -80,5 +78,3 @@ class Product(Enum):
                 return ProductType.docs
             case Product.boto3_full | Product.aiobotocore_full:
                 return ProductType.full
-            case _:
-                pass
