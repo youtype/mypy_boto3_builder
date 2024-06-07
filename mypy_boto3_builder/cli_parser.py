@@ -42,7 +42,7 @@ class EnumListAction(argparse.Action):
         if not issubclass(enum_type, enum.Enum):
             raise TypeError("type must be an Enum when using EnumAction")
 
-        kwargs.setdefault("choices", tuple(e.name for e in enum_type))
+        kwargs.setdefault("choices", tuple(e.value for e in enum_type))
 
         super().__init__(**kwargs)
 
@@ -63,7 +63,7 @@ class EnumListAction(argparse.Action):
             value_list.append(value)
         if isinstance(value, list):
             value_list.extend([i for i in value if isinstance(i, str)])
-        enum_values = [self._enum[i] for i in value_list]
+        enum_values = [self._enum(i) for i in value_list]
         setattr(namespace, self.dest, enum_values)
 
 
