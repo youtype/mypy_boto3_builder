@@ -150,11 +150,6 @@ ignore_errors = true
 module = "mypy-mypy_boto3_builder.stubs_static.aioboto3.*"
 ignore_errors = true
 
-[tool.flake8]
-max-line-length = 100
-exclude = [".git", "__pycache__", "docs", "build", "dist", "test_*.py", "*.pyi"]
-ignore = ["E704", "W503"]
-
 [tool.ruff]
 exclude = [
     ".eggs",

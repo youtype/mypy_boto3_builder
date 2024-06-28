@@ -122,7 +122,7 @@ def parse_args() -> CLINamespace:
 
 def run_ruff(path: Path) -> None:
     """
-    Check output with flake8.
+    Check output with ruff.
     """
     ignore_errors = [
         "B014",
