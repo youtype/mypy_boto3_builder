@@ -18,7 +18,7 @@ class BasePackageData: ...
 
 ### BasePackageData.get_botocore_version
 
-[Show source in package_data.py:50](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L50)
+[Show source in package_data.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L51)
 
 Get underlying botocore version.
 
@@ -31,7 +31,7 @@ def get_botocore_version() -> str: ...
 
 ### BasePackageData.get_library_version
 
-[Show source in package_data.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L43)
+[Show source in package_data.py:44](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L44)
 
 Get underlying library version.
 
@@ -44,7 +44,7 @@ def get_library_version() -> str: ...
 
 ### BasePackageData.get_service_package_name
 
-[Show source in package_data.py:29](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L29)
+[Show source in package_data.py:30](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L30)
 
 Get service package name.
 
@@ -61,7 +61,7 @@ def get_service_package_name(cls, service_name: ServiceName) -> str: ...
 
 ### BasePackageData.get_service_pypi_link
 
-[Show source in package_data.py:57](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L57)
+[Show source in package_data.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L58)
 
 Get link to PyPI.
 
@@ -78,7 +78,42 @@ def get_service_pypi_link(cls, service_name: ServiceName) -> str: ...
 
 ### BasePackageData.get_service_pypi_name
 
-[Show source in package_data.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L36)
+[Show source in package_data.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L37)
+
+Get service package PyPI name.
+
+#### Signature
+
+```python
+@classmethod
+def get_service_pypi_name(cls, service_name: ServiceName) -> str: ...
+```
+
+#### See also
+
+- [ServiceName](./service_name.md#servicename)
+
+
+
+## Boto3StubsFullPackageData
+
+[Show source in package_data.py:145](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L145)
+
+boto3-stubs-full package data.
+
+#### Signature
+
+```python
+class Boto3StubsFullPackageData(Boto3StubsPackageData): ...
+```
+
+#### See also
+
+- [Boto3StubsPackageData](#boto3stubspackagedata)
+
+### Boto3StubsFullPackageData.get_service_pypi_name
+
+[Show source in package_data.py:154](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L154)
 
 Get service package PyPI name.
 
@@ -97,7 +132,7 @@ def get_service_pypi_name(cls, service_name: ServiceName) -> str: ...
 
 ## Boto3StubsLitePackageData
 
-[Show source in package_data.py:109](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L109)
+[Show source in package_data.py:136](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L136)
 
 boto3-stubs-lite package data.
 
@@ -115,7 +150,7 @@ class Boto3StubsLitePackageData(Boto3StubsPackageData): ...
 
 ## Boto3StubsPackageData
 
-[Show source in package_data.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L95)
+[Show source in package_data.py:121](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L121)
 
 boto3-stubs package data.
 
@@ -133,7 +168,7 @@ class Boto3StubsPackageData(BasePackageData): ...
 
 ## MypyBoto3PackageData
 
-[Show source in package_data.py:118](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L118)
+[Show source in package_data.py:162](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L162)
 
 mypy-boto3 package data.
 
@@ -151,7 +186,7 @@ class MypyBoto3PackageData(BasePackageData): ...
 
 ## TypesAioBoto3LitePackageData
 
-[Show source in package_data.py:150](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L150)
+[Show source in package_data.py:194](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L194)
 
 types-aioboto3-lite package data.
 
@@ -169,7 +204,7 @@ class TypesAioBoto3LitePackageData(TypesAioBoto3PackageData): ...
 
 ## TypesAioBoto3PackageData
 
-[Show source in package_data.py:128](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L128)
+[Show source in package_data.py:172](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L172)
 
 types-aioboto3 package data.
 
@@ -185,7 +220,7 @@ class TypesAioBoto3PackageData(BasePackageData): ...
 
 ### TypesAioBoto3PackageData.get_library_version
 
-[Show source in package_data.py:142](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L142)
+[Show source in package_data.py:186](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L186)
 
 Get underlying library version.
 
@@ -198,9 +233,61 @@ def get_library_version() -> str: ...
 
 
 
+## TypesAioBotocoreFullPackageData
+
+[Show source in package_data.py:97](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L97)
+
+types-aiobotocore-full package data.
+
+#### Signature
+
+```python
+class TypesAioBotocoreFullPackageData(TypesAioBotocorePackageData): ...
+```
+
+#### See also
+
+- [TypesAioBotocorePackageData](#typesaiobotocorepackagedata)
+
+### TypesAioBotocoreFullPackageData.get_service_package_name
+
+[Show source in package_data.py:106](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L106)
+
+Get service package name.
+
+#### Signature
+
+```python
+@classmethod
+def get_service_package_name(cls, service_name: ServiceName) -> str: ...
+```
+
+#### See also
+
+- [ServiceName](./service_name.md#servicename)
+
+### TypesAioBotocoreFullPackageData.get_service_pypi_name
+
+[Show source in package_data.py:113](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L113)
+
+Get service package PyPI name.
+
+#### Signature
+
+```python
+@classmethod
+def get_service_pypi_name(cls, service_name: ServiceName) -> str: ...
+```
+
+#### See also
+
+- [ServiceName](./service_name.md#servicename)
+
+
+
 ## TypesAioBotocoreLitePackageData
 
-[Show source in package_data.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L86)
+[Show source in package_data.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L88)
 
 types-aiobotocore-lite package data.
 
@@ -218,7 +305,7 @@ class TypesAioBotocoreLitePackageData(TypesAioBotocorePackageData): ...
 
 ## TypesAioBotocorePackageData
 
-[Show source in package_data.py:65](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L65)
+[Show source in package_data.py:66](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L66)
 
 types-aiobotocore package data.
 
@@ -234,7 +321,7 @@ class TypesAioBotocorePackageData(BasePackageData): ...
 
 ### TypesAioBotocorePackageData.get_library_version
 
-[Show source in package_data.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L78)
+[Show source in package_data.py:80](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/package_data.py#L80)
 
 Get underlying library version.
 

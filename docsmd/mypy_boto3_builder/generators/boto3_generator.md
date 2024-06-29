@@ -6,7 +6,7 @@
 
 ## Boto3Generator
 
-[Show source in boto3_generator.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L23)
+[Show source in boto3_generator.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L25)
 
 Boto3 stubs/docs generator.
 
@@ -22,7 +22,7 @@ class Boto3Generator(BaseGenerator): ...
 
 ### Boto3Generator()._generate_master
 
-[Show source in boto3_generator.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L43)
+[Show source in boto3_generator.py:45](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L45)
 
 Generate `mypy-boto3` package.
 
@@ -34,7 +34,7 @@ def _generate_master(self) -> None: ...
 
 ### Boto3Generator().generate_docs
 
-[Show source in boto3_generator.py:101](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L101)
+[Show source in boto3_generator.py:104](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L104)
 
 Generate service and master docs.
 
@@ -44,9 +44,21 @@ Generate service and master docs.
 def generate_docs(self) -> None: ...
 ```
 
+### Boto3Generator().generate_full_stubs
+
+[Show source in boto3_generator.py:128](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L128)
+
+Generate full stubs.
+
+#### Signature
+
+```python
+def generate_full_stubs(self) -> None: ...
+```
+
 ### Boto3Generator().generate_stubs
 
-[Show source in boto3_generator.py:91](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L91)
+[Show source in boto3_generator.py:94](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L94)
 
 Generate main stubs.
 
@@ -58,7 +70,7 @@ def generate_stubs(self) -> None: ...
 
 ### Boto3Generator().get_library_version
 
-[Show source in boto3_generator.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L31)
+[Show source in boto3_generator.py:33](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L33)
 
 Get underlying library version.
 
@@ -70,7 +82,7 @@ def get_library_version(self) -> str: ...
 
 ### Boto3Generator().get_postprocessor
 
-[Show source in boto3_generator.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L37)
+[Show source in boto3_generator.py:39](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/boto3_generator.py#L39)
 
 Get postprocessor for service package.
 

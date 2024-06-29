@@ -6,7 +6,7 @@
 
 ## CLINamespace
 
-[Show source in cli_parser.py:31](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L31)
+[Show source in cli_parser.py:71](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L71)
 
 CLI arguments namespace.
 
@@ -18,9 +18,42 @@ class CLINamespace: ...
 
 
 
+## EnumListAction
+
+[Show source in cli_parser.py:32](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L32)
+
+Argparse action for handling Enums.
+
+#### Signature
+
+```python
+class EnumListAction(argparse.Action):
+    def __init__(self, **kwargs: Any) -> None: ...
+```
+
+### EnumListAction().__call__
+
+[Show source in cli_parser.py:51](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L51)
+
+Convert value back into an Enum.
+
+#### Signature
+
+```python
+def __call__(
+    self,
+    parser: argparse.ArgumentParser,
+    namespace: argparse.Namespace,
+    value: str | Sequence[Any] | None,
+    _option_string: str | None = None,
+) -> None: ...
+```
+
+
+
 ## get_absolute_path
 
-[Show source in cli_parser.py:17](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L17)
+[Show source in cli_parser.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L19)
 
 Get absolute path from a string.
 
@@ -42,7 +75,7 @@ def get_absolute_path(path: str) -> Path: ...
 
 ## parse_args
 
-[Show source in cli_parser.py:48](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L48)
+[Show source in cli_parser.py:88](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/cli_parser.py#L88)
 
 Parse CLI arguments.
 

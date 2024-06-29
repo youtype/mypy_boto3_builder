@@ -6,7 +6,7 @@
 
 ## BaseGenerator
 
-[Show source in base_generator.py:21](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L21)
+[Show source in base_generator.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L22)
 
 Base stubs/docs generator.
 
@@ -19,6 +19,7 @@ Base stubs/docs generator.
 - `skip_published` - Whether to skip packages that are already published
 - `disable_smart_version` - Whether to create a new postrelease based on latest PyPI version
 - `version` - Package build version
+- `cleanup` - Whether to cleanup generated files
 
 #### Signature
 
@@ -33,6 +34,7 @@ class BaseGenerator(ABC):
         skip_published: bool,
         disable_smart_version: bool,
         version: str,
+        cleanup: bool,
     ): ...
 ```
 
@@ -42,7 +44,7 @@ class BaseGenerator(ABC):
 
 ### BaseGenerator().generate_docs
 
-[Show source in base_generator.py:91](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L91)
+[Show source in base_generator.py:131](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L131)
 
 Generate service and master docs.
 
@@ -53,9 +55,22 @@ Generate service and master docs.
 def generate_docs(self) -> None: ...
 ```
 
+### BaseGenerator().generate_full_stubs
+
+[Show source in base_generator.py:100](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L100)
+
+Generate full stubs.
+
+#### Signature
+
+```python
+@abstractmethod
+def generate_full_stubs(self) -> None: ...
+```
+
 ### BaseGenerator().generate_product
 
-[Show source in base_generator.py:97](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L97)
+[Show source in base_generator.py:137](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L137)
 
 Run generator for a product type.
 
@@ -71,7 +86,7 @@ def generate_product(self, product_type: ProductType) -> None: ...
 
 ### BaseGenerator().generate_service_stubs
 
-[Show source in base_generator.py:184](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L184)
+[Show source in base_generator.py:219](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L219)
 
 Generate service stubs.
 
@@ -83,7 +98,7 @@ def generate_service_stubs(self) -> None: ...
 
 ### BaseGenerator().generate_stubs
 
-[Show source in base_generator.py:84](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L84)
+[Show source in base_generator.py:93](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L93)
 
 Generate main stubs.
 
@@ -96,7 +111,7 @@ def generate_stubs(self) -> None: ...
 
 ### BaseGenerator().get_library_version
 
-[Show source in base_generator.py:64](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L64)
+[Show source in base_generator.py:73](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L73)
 
 Get underlying library version.
 
@@ -109,7 +124,7 @@ def get_library_version(self) -> str: ...
 
 ### BaseGenerator().get_postprocessor
 
-[Show source in base_generator.py:58](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L58)
+[Show source in base_generator.py:67](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/base_generator.py#L67)
 
 Get postprocessor for service package.
 

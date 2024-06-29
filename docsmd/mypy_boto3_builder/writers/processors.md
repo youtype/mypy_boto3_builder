@@ -6,7 +6,7 @@
 
 ## process_boto3_stubs
 
-[Show source in processors.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L22)
+[Show source in processors.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L26)
 
 Parse and write stubs package `boto3_stubs`.
 
@@ -31,11 +31,13 @@ def process_boto3_stubs(
     service_names: Iterable[ServiceName],
     generate_setup: bool,
     version: str,
+    package_data: type[BasePackageData],
 ) -> Boto3StubsPackage: ...
 ```
 
 #### See also
 
+- [BasePackageData](../package_data.md#basepackagedata)
 - [Boto3StubsPackage](../structures/boto3_stubs_package.md#boto3stubspackage)
 - [ServiceName](../service_name.md#servicename)
 
@@ -43,7 +45,7 @@ def process_boto3_stubs(
 
 ## process_boto3_stubs_docs
 
-[Show source in processors.py:139](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L139)
+[Show source in processors.py:149](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L149)
 
 Parse and write master package docs.
 
@@ -72,9 +74,49 @@ def process_boto3_stubs_docs(
 
 
 
+## process_boto3_stubs_full
+
+[Show source in processors.py:180](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L180)
+
+Parse and write stubs package `boto3-stubs-full`.
+
+#### Arguments
+
+- `session` - boto3 session
+- `output_path` - Package output path
+- `service_names` - List of known service names
+- `generate_setup` - Generate ready-to-install or to-use package
+- `version` - Package version
+- `package_data` - Package data
+
+#### Returns
+
+Parsed Boto3StubsPackage.
+
+#### Signature
+
+```python
+def process_boto3_stubs_full(
+    session: Session,
+    output_path: Path,
+    service_names: Iterable[ServiceName],
+    generate_setup: bool,
+    version: str,
+    package_data: type[BasePackageData],
+) -> Boto3StubsPackage: ...
+```
+
+#### See also
+
+- [BasePackageData](../package_data.md#basepackagedata)
+- [Boto3StubsPackage](../structures/boto3_stubs_package.md#boto3stubspackage)
+- [ServiceName](../service_name.md#servicename)
+
+
+
 ## process_boto3_stubs_lite
 
-[Show source in processors.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L59)
+[Show source in processors.py:65](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L65)
 
 Parse and write stubs package `boto3-stubs-lite`.
 
@@ -111,7 +153,7 @@ def process_boto3_stubs_lite(
 
 ## process_master
 
-[Show source in processors.py:104](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L104)
+[Show source in processors.py:112](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/processors.py#L112)
 
 Parse and write master package `mypy_boto3`.
 

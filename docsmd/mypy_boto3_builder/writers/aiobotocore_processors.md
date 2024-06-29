@@ -6,7 +6,7 @@
 
 ## process_aiobotocore_stubs
 
-[Show source in aiobotocore_processors.py:23](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L23)
+[Show source in aiobotocore_processors.py:24](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L24)
 
 Parse and write stubs package `aiobotocore-stubs`.
 
@@ -43,7 +43,7 @@ def process_aiobotocore_stubs(
 
 ## process_aiobotocore_stubs_docs
 
-[Show source in aiobotocore_processors.py:96](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L96)
+[Show source in aiobotocore_processors.py:103](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L103)
 
 Parse and write master package docs.
 
@@ -72,9 +72,49 @@ def process_aiobotocore_stubs_docs(
 
 
 
+## process_aiobotocore_stubs_full
+
+[Show source in aiobotocore_processors.py:135](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L135)
+
+Parse and write stubs package `types-aiobotocore-full`.
+
+#### Arguments
+
+- `session` - boto3 session
+- `output_path` - Package output path
+- `service_names` - List of known service names
+- `generate_setup` - Generate ready-to-install or to-use package
+- `version` - Package version
+- `package_data` - Package data
+
+#### Returns
+
+Parsed Boto3StubsPackage.
+
+#### Signature
+
+```python
+def process_aiobotocore_stubs_full(
+    session: Session,
+    output_path: Path,
+    service_names: Iterable[ServiceName],
+    generate_setup: bool,
+    version: str,
+    package_data: type[BasePackageData],
+) -> TypesAioBotocorePackage: ...
+```
+
+#### See also
+
+- [BasePackageData](../package_data.md#basepackagedata)
+- [ServiceName](../service_name.md#servicename)
+- [TypesAioBotocorePackage](../structures/types_aiobotocore_package.md#typesaiobotocorepackage)
+
+
+
 ## process_aiobotocore_stubs_lite
 
-[Show source in aiobotocore_processors.py:59](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L59)
+[Show source in aiobotocore_processors.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aiobotocore_processors.py#L62)
 
 Parse and write stubs package `aiobotocore-stubs-lite`.
 

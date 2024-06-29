@@ -32,6 +32,18 @@ Generate service and master docs.
 def generate_docs(self) -> None: ...
 ```
 
+### AioBoto3Generator().generate_full_stubs
+
+[Show source in aioboto3_generator.py:104](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L104)
+
+Do nothing.
+
+#### Signature
+
+```python
+def generate_full_stubs(self) -> None: ...
+```
+
 ### AioBoto3Generator().generate_service_stubs
 
 [Show source in aioboto3_generator.py:99](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/generators/aioboto3_generator.py#L99)

@@ -43,7 +43,7 @@ def process_types_aioboto3(
 
 ## process_types_aioboto3_docs
 
-[Show source in aioboto3_processors.py:89](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aioboto3_processors.py#L89)
+[Show source in aioboto3_processors.py:95](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aioboto3_processors.py#L95)
 
 Parse and write master package docs.
 
@@ -74,7 +74,7 @@ def process_types_aioboto3_docs(
 
 ## process_types_aioboto3_lite
 
-[Show source in aioboto3_processors.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aioboto3_processors.py#L54)
+[Show source in aioboto3_processors.py:56](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/writers/aioboto3_processors.py#L56)
 
 Parse and write stubs package `types-aioboto3-lite`.
 
