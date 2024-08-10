@@ -10,7 +10,6 @@ from typing import Any
 from jinja2.environment import Environment, Template
 from jinja2.loaders import FileSystemLoader
 from jinja2.runtime import StrictUndefined
-from typing_extensions import Self
 
 from mypy_boto3_builder.constants import BUILDER_REPO_URL, TEMPLATES_PATH
 from mypy_boto3_builder.utils.strings import get_anchor_link
@@ -34,7 +33,7 @@ class JinjaManager:
         loader=FileSystemLoader(TEMPLATES_PATH.as_posix()),
         undefined=StrictUndefined,
     )
-    _singleton: Self | None = None
+    _singleton: "JinjaManager | None" = None
 
     def __init__(self) -> None:
         self._environment.filters["escape_md"] = self.escape_md  # type: ignore
