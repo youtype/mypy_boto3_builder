@@ -1,7 +1,7 @@
 from typing import Any, Dict, Mapping, Optional, TypeVar
 
-import aiohttp
 from aiobotocore.response import StreamingBody
+from aiohttp import StreamReader
 from botocore.awsrequest import AWSHTTPResponse, AWSRequest
 from botocore.httpchecksum import AwsChunkedWrapper, BaseChecksum
 from botocore.model import OperationModel
@@ -16,7 +16,7 @@ class AioAwsChunkedWrapper(AwsChunkedWrapper):
 class StreamingChecksumBody(StreamingBody):
     def __init__(
         self,
-        raw_stream: aiohttp.StreamReader,
+        raw_stream: StreamReader,
         content_length: str,
         checksum: BaseChecksum,
         expected: BaseChecksum,

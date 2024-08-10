@@ -36,7 +36,7 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install -n
-          poetry run pip install -U --no-dependencies aioboto3 aiobotocore types-aioboto3 types-aiobotocore
+          poetry run pip install -U --no-dependencies aioboto3 aiobotocore types-aioboto3 types-aiobotocore aiohttp
           poetry install -n
       - name: Lint
         if: ${{ matrix.check-lint }}
