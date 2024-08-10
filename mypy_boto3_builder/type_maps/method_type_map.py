@@ -83,7 +83,11 @@ TYPE_MAP: ServiceTypeMap = {
         },
         "MultipartUploadPart": {"copy_from": {"CopySource": CopySourceOrStrTypeDef}},
         "Bucket": {"copy": {"CopySource": CopySourceTypeDef}},
-        "Object": {"copy": {"CopySource": CopySourceTypeDef}},
+        "Object": {
+            "copy": {"CopySource": CopySourceTypeDef},
+            "copy_from": {"CopySource": CopySourceTypeDef},
+        },
+        "ObjectSummary": {"copy_from": {"CopySource": CopySourceTypeDef}},
     },
     ServiceNameCatalog.dynamodb: {
         "Table": {
