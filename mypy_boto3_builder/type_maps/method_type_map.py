@@ -85,9 +85,9 @@ TYPE_MAP: ServiceTypeMap = {
         "Bucket": {"copy": {"CopySource": CopySourceTypeDef}},
         "Object": {
             "copy": {"CopySource": CopySourceTypeDef},
-            "copy_from": {"CopySource": CopySourceTypeDef},
+            "copy_from": {"CopySource": CopySourceOrStrTypeDef},
         },
-        "ObjectSummary": {"copy_from": {"CopySource": CopySourceTypeDef}},
+        "ObjectSummary": {"copy_from": {"CopySource": CopySourceOrStrTypeDef}},
     },
     ServiceNameCatalog.dynamodb: {
         "Table": {
