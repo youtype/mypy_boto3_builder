@@ -6,7 +6,7 @@
 
 ## JinjaManager
 
-[Show source in jinja_manager.py:28](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L28)
+[Show source in jinja_manager.py:27](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L27)
 
 Jinja2 `Environment` manager.
 
@@ -19,7 +19,7 @@ class JinjaManager:
 
 ### JinjaManager.escape_md
 
-[Show source in jinja_manager.py:72](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L72)
+[Show source in jinja_manager.py:71](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L71)
 
 Escape underscore characters.
 
@@ -32,7 +32,7 @@ def escape_md(value: str) -> str: ...
 
 ### JinjaManager().get_template
 
-[Show source in jinja_manager.py:79](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L79)
+[Show source in jinja_manager.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L78)
 
 Get `jinja2.Template`.
 
@@ -44,7 +44,7 @@ def get_template(self, template_path: Path) -> Template: ...
 
 ### JinjaManager.singleton
 
-[Show source in jinja_manager.py:53](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L53)
+[Show source in jinja_manager.py:52](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L52)
 
 Get singleton instance.
 
@@ -57,7 +57,7 @@ def singleton(cls) -> "JinjaManager": ...
 
 ### JinjaManager.update_globals
 
-[Show source in jinja_manager.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L62)
+[Show source in jinja_manager.py:61](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L61)
 
 Update global variables in `jinja2.Environment`.
 
@@ -76,7 +76,7 @@ def update_globals(cls, **kwargs: str | bool | Callable[..., Any]) -> None: ...
 
 ## JinjaManagerError
 
-[Show source in jinja_manager.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L22)
+[Show source in jinja_manager.py:21](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/jinja_manager.py#L21)
 
 Base JinjaManager exception.
 
