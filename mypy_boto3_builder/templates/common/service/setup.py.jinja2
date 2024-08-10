@@ -3,7 +3,7 @@ Setup script for {{ package.pypi_name }}.
 """
 from pathlib import Path
 
-from setuptools import setup
+from setuptools import setup  # type: ignore
 
 
 LONG_DESCRIPTION = (Path(__file__).parent / "README.md").read_text()

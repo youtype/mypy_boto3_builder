@@ -91,6 +91,7 @@ botocore-stubs = "*"
 istub = "*"
 twine = "*"
 pyright = "*"
+setuptools = "*"
 
 
 [build-system]
