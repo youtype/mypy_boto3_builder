@@ -2,15 +2,15 @@
 String to type annotation map that find type annotation by method and argument name.
 """
 
-from mypy_boto3_builder.constants import ALL
+from mypy_boto3_builder.constants import ALL, ATTRIBUTES
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
-from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
+from mypy_boto3_builder.type_maps.literals import QueueAttributeFilterType
 from mypy_boto3_builder.type_maps.named_unions import (
     ConditionBaseImportTypeDef,
     CopySourceOrStrTypeDef,
@@ -25,42 +25,6 @@ MethodTypeMap = dict[str, ArgumentTypeMap]
 ClassTypeMap = dict[str, MethodTypeMap]
 ServiceTypeMap = dict[ServiceName, ClassTypeMap]
 
-
-QueueAttributeFilterType = TypeLiteral(
-    "QueueAttributeFilterType",
-    [
-        "All",
-        "AWSTraceHeader",
-        "ApproximateFirstReceiveTimestamp",
-        "ApproximateReceiveCount",
-        "MessageDeduplicationId",
-        "MessageGroupId",
-        "SenderId",
-        "SentTimestamp",
-        "SequenceNumber",
-        "Policy",
-        "VisibilityTimeout",
-        "MaximumMessageSize",
-        "MessageRetentionPeriod",
-        "ApproximateNumberOfMessages",
-        "ApproximateNumberOfMessagesNotVisible",
-        "CreatedTimestamp",
-        "LastModifiedTimestamp",
-        "QueueArn",
-        "ApproximateNumberOfMessagesDelayed",
-        "DelaySeconds",
-        "ReceiveMessageWaitTimeSeconds",
-        "RedrivePolicy",
-        "FifoQueue",
-        "ContentBasedDeduplication",
-        "KmsMasterKeyId",
-        "KmsDataKeyReusePeriodSeconds",
-        "DeduplicationScope",
-        "FifoThroughputLimit",
-        "RedriveAllowPolicy",
-        "SqsManagedSseEnabled",
-    ],
-)
 
 DEFAULT_VALUE_MAP: ServiceTypeMap = {
     ServiceNameCatalog.glacier: {
@@ -81,13 +45,19 @@ TYPE_MAP: ServiceTypeMap = {
             "upload_part_copy": {"CopySource": CopySourceOrStrTypeDef},
             "copy": {"CopySource": CopySourceTypeDef},
         },
-        "MultipartUploadPart": {"copy_from": {"CopySource": CopySourceOrStrTypeDef}},
+        "MultipartUploadPart": {
+            "copy_from": {"CopySource": CopySourceOrStrTypeDef},
+            ATTRIBUTES: {"part_number": Type.int},
+        },
         "Bucket": {"copy": {"CopySource": CopySourceTypeDef}},
         "Object": {
             "copy": {"CopySource": CopySourceTypeDef},
             "copy_from": {"CopySource": CopySourceOrStrTypeDef},
         },
         "ObjectSummary": {"copy_from": {"CopySource": CopySourceOrStrTypeDef}},
+        # FIXME: https://github.com/boto/boto3/issues/3501
+        "MultipartUpload": {"Part": {"part_number": Type.int}},
+        "ServiceResource": {"MultipartUploadPart": {"part_number": Type.int}},
     },
     ServiceNameCatalog.dynamodb: {
         "Table": {

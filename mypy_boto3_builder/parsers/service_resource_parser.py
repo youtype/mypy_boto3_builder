@@ -112,7 +112,7 @@ class ServiceResourceParser:
         )
         result.attributes.extend(attributes)
 
-        identifiers = parse_identifiers(self.boto3_resource)
+        identifiers = parse_identifiers(self.service_name, self._PARENT_NAME, self.boto3_resource)
         result.attributes.extend(identifiers)
 
         references = parse_references(self.boto3_resource)
@@ -120,9 +120,9 @@ class ServiceResourceParser:
 
         self._logger.debug("Parsing ServiceResource collections")
         collections = parse_collections(
+            self.service_name,
             self._PARENT_NAME,
             self.boto3_resource,
-            self.service_name,
             self.shape_parser,
         )
         for collection in collections:

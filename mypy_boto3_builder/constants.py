@@ -37,6 +37,7 @@ PACKAGE_NAME = "mypy-boto3-builder"
 
 # universal mask for all resources
 ALL = "*"
+ATTRIBUTES = "_attributes"
 
 # keys to mark as NotRequired for output TypeDicts
 NOT_REQUIRED_OUTPUT_KEYS = ("NextToken", "Contents", "Item", "CommonPrefixes")

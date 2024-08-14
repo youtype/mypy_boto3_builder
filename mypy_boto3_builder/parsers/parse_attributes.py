@@ -4,6 +4,7 @@ Parser for Boto3 ServiceResource attributes, produces `structures.Attribute`.
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
+from mypy_boto3_builder.constants import ATTRIBUTES
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
@@ -38,7 +39,7 @@ def parse_attributes(
     shape = service_model.shape_for(resource.meta.resource_model.shape)
     attributes = resource.meta.resource_model.get_attributes(shape)
     for name, attribute in attributes.items():
-        attribute_type = get_method_type_stub(service_name, resource_name, "_attributes", name)
+        attribute_type = get_method_type_stub(service_name, resource_name, ATTRIBUTES, name)
         if attribute_type is None:
             attribute_shape = attribute[1]
             attribute_type = shape_parser.parse_shape(attribute_shape, is_output_child=True)

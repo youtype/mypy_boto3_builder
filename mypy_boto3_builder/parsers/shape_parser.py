@@ -25,6 +25,7 @@ from mypy_boto3_builder.constants import NOT_REQUIRED_OUTPUT_KEYS
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.shape_parser_types import (
     ActionShape,
+    IdentifierShape,
     PaginatorShape,
     PaginatorsShape,
     ResourceShape,
@@ -650,6 +651,22 @@ class ShapeParser:
             )
         return method
 
+    def _get_identifier_argument(
+        self, resource_name: str, method_name: str, identifier: IdentifierShape
+    ) -> Argument:
+        argument_name = xform_name(identifier.get("name") or identifier.get("target") or "unknown")
+        argument_type = get_method_type_stub(
+            self.service_name, resource_name, method_name, argument_name
+        )
+        identifier_type = identifier.get("type")
+        if argument_type is None and identifier_type:
+            argument_type = get_shape_type_stub(
+                [SHAPE_TYPE_MAP], self.service_name, resource_name, identifier_type
+            )
+        if argument_type is None:
+            argument_type = Type.str
+        return Argument(argument_name, argument_type)
+
     def get_service_resource_method_map(self) -> dict[str, Method]:
         """
         Get methods for ServiceResource.
@@ -675,7 +692,10 @@ class ShapeParser:
             arguments = [Argument("self", None)]
             identifiers = resource_shape.get("identifiers", [])
             for identifier in identifiers:
-                arguments.append(Argument(xform_name(identifier["name"]), Type.str))
+                argument = self._get_identifier_argument(
+                    self._resource_name, sub_resource_name, identifier
+                )
+                arguments.append(argument)
             method = Method(
                 sub_resource_name,
                 arguments=arguments,
@@ -731,7 +751,10 @@ class ShapeParser:
                 for identifier in identifiers:
                     if identifier.get("source") != "input":
                         continue
-                    arguments.append(Argument(xform_name(identifier["target"]), Type.str))
+                    argument = self._get_identifier_argument(
+                        resource_name, sub_resource_name, identifier
+                    )
+                    arguments.append(argument)
 
                 method = Method(
                     sub_resource_name,

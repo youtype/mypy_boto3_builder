@@ -29,9 +29,10 @@ class IdentifierShape(TypedDict):
     Identifier shape.
     """
 
-    name: str
+    name: NotRequired[str]
+    target: NotRequired[str]
     source: NotRequired[str]
-    target: str
+    type: NotRequired[str]
 
 
 class SubResourceShape(TypedDict):

@@ -16,9 +16,9 @@ from mypy_boto3_builder.utils.strings import get_class_prefix
 
 
 def parse_collections(
-    parent_name: str,
-    resource: Boto3ServiceResource,
     service_name: ServiceName,
+    resource_name: str,
+    resource: Boto3ServiceResource,
     shape_parser: ShapeParser,
 ) -> list[Collection]:
     """
@@ -36,8 +36,8 @@ def parse_collections(
             continue
         object_class_name = collection.resource.type
         collection_record = Collection(
-            name=f"{parent_name}{get_class_prefix(collection.name)}Collection",
-            parent_name=parent_name,
+            name=f"{resource_name}{get_class_prefix(collection.name)}Collection",
+            parent_name=resource_name,
             attribute_name=collection.name,
             service_name=service_name,
             type_annotation=InternalImport(collection.name),

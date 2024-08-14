@@ -63,13 +63,13 @@ def parse_resource(
     attributes = parse_attributes(service_name, name, resource, shape_parser)
     result.attributes.extend(attributes)
 
-    identifiers = parse_identifiers(resource)
+    identifiers = parse_identifiers(service_name, name, resource)
     result.attributes.extend(identifiers)
 
     references = parse_references(resource)
     result.attributes.extend(references)
 
-    collections = parse_collections(name, resource, service_name, shape_parser)
+    collections = parse_collections(service_name, name, resource, shape_parser)
     for collection in collections:
         result.collections.append(collection)
         result.attributes.append(
