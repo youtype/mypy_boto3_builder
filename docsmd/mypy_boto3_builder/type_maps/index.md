@@ -9,6 +9,7 @@
 - [Aio Resource Method Map](./aio_resource_method_map.md)
 - [Argument Alias Map](./argument_alias_map.md)
 - [Literal Type Map](./literal_type_map.md)
+- [Literals](./literals.md)
 - [Method Type Map](./method_type_map.md)
 - [Named Unions](./named_unions.md)
 - [Service Stub Map](service_stub_map/index.md)

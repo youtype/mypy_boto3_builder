@@ -6,7 +6,7 @@
 
 ## get_resource_public_methods
 
-[Show source in parse_resource.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L86)
+[Show source in parse_resource.py:84](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L84)
 
 Extract public methods from boto3 sub resource.
 
@@ -30,7 +30,7 @@ def get_resource_public_methods(
 
 ## parse_resource
 
-[Show source in parse_resource.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L26)
+[Show source in parse_resource.py:25](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_resource.py#L25)
 
 Parse boto3 sub Resource data.
 

@@ -6,7 +6,7 @@
 
 ## get_stub_method_map
 
-[Show source in __init__.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/service_stub_map/__init__.py#L43)
+[Show source in __init__.py:44](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_maps/service_stub_map/__init__.py#L44)
 
 Get boto3 injected methods.
 

@@ -22,9 +22,9 @@ A list of Collection structures.
 
 ```python
 def parse_collections(
-    parent_name: str,
-    resource: Boto3ServiceResource,
     service_name: ServiceName,
+    resource_name: str,
+    resource: Boto3ServiceResource,
     shape_parser: ShapeParser,
 ) -> list[Collection]: ...
 ```

@@ -6,7 +6,7 @@
 
 ## parse_client
 
-[Show source in client.py:26](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/client.py#L26)
+[Show source in client.py:27](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/client.py#L27)
 
 Parse boto3 client to a structure.
 

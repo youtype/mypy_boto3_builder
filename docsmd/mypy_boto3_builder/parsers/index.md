@@ -12,7 +12,6 @@
 - [Master Package](./master_package.md)
 - [Parse Attributes](./parse_attributes.md)
 - [Parse Collections](./parse_collections.md)
-- [Parse Identifiers](./parse_identifiers.md)
 - [Parse References](./parse_references.md)
 - [Parse Resource](./parse_resource.md)
 - [Parse Wrapper Package](./parse_wrapper_package.md)

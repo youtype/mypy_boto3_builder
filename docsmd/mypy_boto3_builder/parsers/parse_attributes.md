@@ -6,7 +6,7 @@
 
 ## parse_attributes
 
-[Show source in parse_attributes.py:13](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_attributes.py#L13)
+[Show source in parse_attributes.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/parse_attributes.py#L14)
 
 Extract attributes from boto3 resource.
 
