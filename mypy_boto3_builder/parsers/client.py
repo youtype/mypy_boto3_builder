@@ -8,6 +8,7 @@ from boto3.session import Session
 from botocore.client import ClientMeta
 from botocore.errorfactory import ClientExceptionsFactory
 
+from mypy_boto3_builder.constants import CLIENT
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.helpers import get_dummy_method, get_public_methods
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
@@ -51,7 +52,7 @@ def parse_client(session: Session, service_name: ServiceName, shape_parser: Shap
         boto3_client=client,
     )
 
-    parent_name = "Client"
+    parent_name = CLIENT
     shape_method_map = shape_parser.get_client_method_map()
     stub_method_map = get_stub_method_map(service_name, parent_name)
     method_map = {**shape_method_map, **stub_method_map}

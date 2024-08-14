@@ -12,13 +12,13 @@ from botocore.exceptions import UnknownServiceError
 from botocore.loaders import Loader
 from botocore.waiter import WaiterModel
 
+from mypy_boto3_builder.constants import SERVICE_RESOURCE
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.helpers import get_dummy_method, get_public_methods
 from mypy_boto3_builder.parsers.parse_attributes import parse_attributes
 from mypy_boto3_builder.parsers.parse_collections import parse_collections
-from mypy_boto3_builder.parsers.parse_identifiers import parse_identifiers
 from mypy_boto3_builder.parsers.parse_references import parse_references
 from mypy_boto3_builder.parsers.parse_resource import parse_resource
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
@@ -49,7 +49,7 @@ class ServiceResourceParser:
         shape_parser - ShapeParser instance.
     """
 
-    _PARENT_NAME = "ServiceResource"
+    _PARENT_NAME = SERVICE_RESOURCE
 
     def __init__(
         self,
@@ -112,8 +112,9 @@ class ServiceResourceParser:
         )
         result.attributes.extend(attributes)
 
-        identifiers = parse_identifiers(self.service_name, self._PARENT_NAME, self.boto3_resource)
-        result.attributes.extend(identifiers)
+        result.attributes.extend(
+            self.shape_parser.get_resource_identifier_attributes(self._PARENT_NAME)
+        )
 
         references = parse_references(self.boto3_resource)
         result.attributes.extend(references)

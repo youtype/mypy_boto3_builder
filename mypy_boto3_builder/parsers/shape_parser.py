@@ -21,7 +21,12 @@ from botocore.model import (
 )
 from botocore.session import Session as BotocoreSession
 
-from mypy_boto3_builder.constants import NOT_REQUIRED_OUTPUT_KEYS
+from mypy_boto3_builder.constants import (
+    ATTRIBUTES,
+    CLIENT,
+    NOT_REQUIRED_OUTPUT_KEYS,
+    SERVICE_RESOURCE,
+)
 from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.shape_parser_types import (
     ActionShape,
@@ -35,6 +40,7 @@ from mypy_boto3_builder.parsers.shape_parser_types import (
 from mypy_boto3_builder.parsers.typed_dict_map import TypedDictMap
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.argument import Argument
+from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -144,8 +150,12 @@ class ShapeParser:
         return list(self._resources_shape["resources"].keys())
 
     def _get_resource_shape(self, name: str) -> ResourceShape:
+        if name == SERVICE_RESOURCE:
+            return self._get_service_resource()
+
         if not self._resources_shape or "resources" not in self._resources_shape:
             raise ShapeParserError("Resource shape not found")
+
         try:
             return self._resources_shape["resources"][name]
         except KeyError as e:
@@ -240,7 +250,7 @@ class ShapeParser:
         Returns:
             A map of method name to Method.
         """
-        self._resource_name = "Client"
+        self._resource_name = CLIENT
         result: dict[str, Method] = {
             "can_paginate": Method(
                 "can_paginate",
@@ -271,7 +281,7 @@ class ShapeParser:
 
             if operation_model.input_shape is not None:
                 shape_arguments = self._parse_arguments(
-                    "Client",
+                    self._resource_name,
                     method_name,
                     operation_name,
                     operation_model.input_shape,
@@ -280,7 +290,7 @@ class ShapeParser:
                 arguments.extend(shape_arguments)
 
             return_type = self._parse_return_type(
-                "Client", method_name, operation_model.output_shape
+                self._resource_name, method_name, operation_model.output_shape
             )
             if return_type is Type.none:
                 return_type = EmptyResponseMetadataTypeDef
@@ -651,21 +661,48 @@ class ShapeParser:
             )
         return method
 
+    def _get_identifier_type(
+        self,
+        resource_name: str,
+        method_name: str,
+        identifier_name: str,
+        identifier_type: str | None,
+    ) -> FakeAnnotation:
+        argument_type_stub = get_method_type_stub(
+            self.service_name, resource_name, method_name, identifier_name
+        )
+        if argument_type_stub:
+            return argument_type_stub
+        if identifier_type:
+            argument_type_stub = get_shape_type_stub(
+                [SHAPE_TYPE_MAP], self.service_name, resource_name, identifier_type
+            )
+            if argument_type_stub:
+                return argument_type_stub
+
+        return Type.str
+
+    @staticmethod
+    def _get_identifier_xform_name(identifier: IdentifierShape) -> str:
+        return xform_name(identifier.get("name") or identifier.get("target") or "unknown")
+
     def _get_identifier_argument(
         self, resource_name: str, method_name: str, identifier: IdentifierShape
     ) -> Argument:
-        argument_name = xform_name(identifier.get("name") or identifier.get("target") or "unknown")
-        argument_type = get_method_type_stub(
-            self.service_name, resource_name, method_name, argument_name
+        argument_name = self._get_identifier_xform_name(identifier)
+        argument_type = self._get_identifier_type(
+            resource_name, method_name, argument_name, identifier.get("type")
         )
-        identifier_type = identifier.get("type")
-        if argument_type is None and identifier_type:
-            argument_type = get_shape_type_stub(
-                [SHAPE_TYPE_MAP], self.service_name, resource_name, identifier_type
-            )
-        if argument_type is None:
-            argument_type = Type.str
         return Argument(argument_name, argument_type)
+
+    def _get_identifier_attribute(
+        self, resource_name: str, identifier: IdentifierShape
+    ) -> Attribute:
+        attribute_name = self._get_identifier_xform_name(identifier)
+        attribute_type = self._get_identifier_type(
+            resource_name, ATTRIBUTES, attribute_name, identifier.get("type")
+        )
+        return Attribute(attribute_name, attribute_type, is_identifier=True)
 
     def get_service_resource_method_map(self) -> dict[str, Method]:
         """
@@ -681,8 +718,8 @@ class ShapeParser:
                 TypeSubscript(Type.Sequence, [Type.str]),
             ),
         }
-        self._resource_name = "ServiceResource"
-        service_resource_shape = self._get_service_resource()
+        self._resource_name = SERVICE_RESOURCE
+        service_resource_shape = self._get_resource_shape(self._resource_name)
         for action_name, action_shape in service_resource_shape.get("actions", {}).items():
             method = self._get_resource_method(action_name, action_shape)
             result[method.name] = method
@@ -703,6 +740,24 @@ class ShapeParser:
             )
             result[method.name] = method
 
+        return result
+
+    def get_resource_identifier_attributes(self, resource_name: str) -> list[Attribute]:
+        """
+        Get attributes for Resource identifiers.
+
+        Arguments:
+            resource_name -- Resource name.
+
+        Returns:
+            A map of method name to Method.
+        """
+        self._resource_name = resource_name
+        resource_shape = self._get_resource_shape(resource_name)
+        result: list[Attribute] = []
+        identifiers = resource_shape.get("identifiers", [])
+        for identifier in identifiers:
+            result.append(self._get_identifier_attribute(resource_name, identifier))
         return result
 
     def get_resource_method_map(self, resource_name: str) -> dict[str, Method]:

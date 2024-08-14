@@ -2,7 +2,7 @@
 String to type annotation map that find type annotation by method and argument name.
 """
 
-from mypy_boto3_builder.constants import ALL, ATTRIBUTES
+from mypy_boto3_builder.constants import ALL, CLIENT
 from mypy_boto3_builder.import_helpers.import_string import ImportString
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
@@ -28,7 +28,7 @@ ServiceTypeMap = dict[ServiceName, ClassTypeMap]
 
 DEFAULT_VALUE_MAP: ServiceTypeMap = {
     ServiceNameCatalog.glacier: {
-        "Client": {
+        CLIENT: {
             ALL: {
                 "accountId": TypeConstant("-"),
             }
@@ -40,14 +40,13 @@ TYPE_MAP: ServiceTypeMap = {
     ServiceNameCatalog.s3: {
         # FIXME: boto3 overrides CopySource parameters for some S3 methods.
         # Types are set according to docs, might be incorrect
-        "Client": {
+        CLIENT: {
             "copy_object": {"CopySource": CopySourceOrStrTypeDef},
             "upload_part_copy": {"CopySource": CopySourceOrStrTypeDef},
             "copy": {"CopySource": CopySourceTypeDef},
         },
         "MultipartUploadPart": {
             "copy_from": {"CopySource": CopySourceOrStrTypeDef},
-            ATTRIBUTES: {"part_number": Type.int},
         },
         "Bucket": {"copy": {"CopySource": CopySourceTypeDef}},
         "Object": {
@@ -57,7 +56,6 @@ TYPE_MAP: ServiceTypeMap = {
         "ObjectSummary": {"copy_from": {"CopySource": CopySourceOrStrTypeDef}},
         # FIXME: https://github.com/boto/boto3/issues/3501
         "MultipartUpload": {"Part": {"part_number": Type.int}},
-        "ServiceResource": {"MultipartUploadPart": {"part_number": Type.int}},
     },
     ServiceNameCatalog.dynamodb: {
         "Table": {

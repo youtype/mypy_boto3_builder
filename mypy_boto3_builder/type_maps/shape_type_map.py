@@ -4,7 +4,7 @@ String to type annotation map to replace overriden botocore shapes.
 
 from collections.abc import Iterable
 
-from mypy_boto3_builder.constants import ALL
+from mypy_boto3_builder.constants import ALL, SERVICE_RESOURCE
 from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.type import Type
@@ -39,7 +39,7 @@ SHAPE_TYPE_MAP: ShapeTypeMap = {
             "AttributeValueTypeDef": UniversalAttributeValueTypeDef,
             "ConditionExpressionTypeDef": Type.bool,
         },
-        "ServiceResource": {
+        SERVICE_RESOURCE: {
             "AttributeValueTypeDef": TableAttributeValueTypeDef,
         },
         "Table": {
@@ -65,7 +65,7 @@ OUTPUT_SHAPE_TYPE_MAP: ShapeTypeMap = {
         ALL: {
             "AttributeValueTypeDef": AttributeValueTypeDef,
         },
-        "ServiceResource": {
+        SERVICE_RESOURCE: {
             "AttributeValueTypeDef": TableAttributeValueTypeDef,
         },
         "Table": {

@@ -12,7 +12,6 @@ from mypy_boto3_builder.logger import get_logger
 from mypy_boto3_builder.parsers.helpers import get_dummy_method
 from mypy_boto3_builder.parsers.parse_attributes import parse_attributes
 from mypy_boto3_builder.parsers.parse_collections import parse_collections
-from mypy_boto3_builder.parsers.parse_identifiers import parse_identifiers
 from mypy_boto3_builder.parsers.parse_references import parse_references
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName
@@ -63,8 +62,7 @@ def parse_resource(
     attributes = parse_attributes(service_name, name, resource, shape_parser)
     result.attributes.extend(attributes)
 
-    identifiers = parse_identifiers(service_name, name, resource)
-    result.attributes.extend(identifiers)
+    result.attributes.extend(shape_parser.get_resource_identifier_attributes(name))
 
     references = parse_references(resource)
     result.attributes.extend(references)
