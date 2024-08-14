@@ -4,7 +4,7 @@ examples/s3_example.py:41: error: Missing key "Key" for TypedDict "BucketUploadF
 examples/s3_example.py:41: error: Extra key "key" for TypedDict "BucketUploadFileRequestTypeDef"  [typeddict-unknown-key]
 examples/s3_example.py:45: error: Missing key "Key" for TypedDict "CopySourceTypeDef"  [typeddict-item]
 examples/s3_example.py:45: error: Extra key "key" for TypedDict "CopySourceTypeDef"  [typeddict-unknown-key]
-examples/s3_example.py:53: error: Argument "CopySource" to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str"  [arg-type]
+examples/s3_example.py:53: error: Argument "CopySource" to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str | CopySourceTypeDef"  [arg-type]
 examples/s3_example.py:57: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Literal['requester']"  [arg-type]
 examples/s3_example.py:59: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"  [call-arg]
 examples/s3_example.py:71: error: Argument 3 to "download_fileobj" of "S3Client" has incompatible type "bytes"; expected "IO[Any] | StreamingBody"  [arg-type]

@@ -7,7 +7,7 @@ aio_examples/s3_example.py:42: error: Missing key "Key" for TypedDict "BucketUpl
 aio_examples/s3_example.py:42: error: Extra key "key" for TypedDict "BucketUploadFileRequestTypeDef"  [typeddict-unknown-key]
 aio_examples/s3_example.py:46: error: Missing key "Key" for TypedDict "CopySourceTypeDef"  [typeddict-item]
 aio_examples/s3_example.py:46: error: Extra key "key" for TypedDict "CopySourceTypeDef"  [typeddict-unknown-key]
-aio_examples/s3_example.py:54: error: Argument "CopySource" to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str"  [arg-type]
+aio_examples/s3_example.py:54: error: Argument "CopySource" to "copy_from" of "ObjectSummary" has incompatible type "int"; expected "str | CopySourceTypeDef"  [arg-type]
 aio_examples/s3_example.py:58: error: Argument "RequestPayer" to "abort" of "MultipartUpload" has incompatible type "Literal['none']"; expected "Literal['requester']"  [arg-type]
 aio_examples/s3_example.py:60: error: Unexpected keyword argument "wrong_arg" for "delete" of "Bucket"  [call-arg]
 aio_examples/s3_example.py:60: error: Value of type "Coroutine[Any, Any, None]" must be used  [unused-coroutine]

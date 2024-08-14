@@ -91,7 +91,7 @@
     },
     {
         "severity": "error",
-        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"CopySource\" of type \"str\" in function \"copy_from\"\n\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"",
+        "message": "Argument of type \"Literal[123]\" cannot be assigned to parameter \"CopySource\" of type \"CopySourceOrStrTypeDef\" in function \"copy_from\"\n\u00a0\u00a0Type \"Literal[123]\" is incompatible with type \"CopySourceOrStrTypeDef\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is incompatible with \"str\"\n\u00a0\u00a0\u00a0\u00a0\"Literal[123]\" is incompatible with \"CopySourceTypeDef\"",
         "range": {
             "start": {
                 "line": 53,
