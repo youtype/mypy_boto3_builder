@@ -15,6 +15,15 @@ class TestMethodTypeMap:
             get_method_type_stub(ServiceNameCatalog.logs, "Client", "copy_object", "Unknown")
             is None
         )
+        assert get_method_type_stub(
+            ServiceNameCatalog.sqs, "SomeResource", "receive_messages", "AttributeNames"
+        )
+        assert (
+            get_method_type_stub(
+                ServiceNameCatalog.sqs, "SomeResource", "receive_messages", "Attribute"
+            )
+            is None
+        )
 
     def test_get_default_value_stub(self) -> None:
         assert get_default_value_stub(ServiceNameCatalog.glacier, "Client", "*", "accountId")

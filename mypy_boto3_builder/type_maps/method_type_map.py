@@ -98,41 +98,6 @@ TYPE_MAP: ServiceTypeMap = {
 }
 
 
-def _get_from_method_map(
-    method_name: str,
-    argument_name: str,
-    method_type_map: MethodTypeMap,
-) -> FakeAnnotation | None:
-    if ALL in method_type_map:
-        operation_type_map = method_type_map[ALL]
-        if argument_name in operation_type_map:
-            return operation_type_map[argument_name]
-
-    if method_name in method_type_map:
-        operation_type_map = method_type_map[method_name]
-        if argument_name in operation_type_map:
-            return operation_type_map[argument_name]
-
-    return None
-
-
-def _get_from_class_map(
-    class_name: str,
-    method_name: str,
-    argument_name: str,
-    class_type_map: ClassTypeMap,
-) -> FakeAnnotation | None:
-    if class_name in class_type_map:
-        result = _get_from_method_map(method_name, argument_name, class_type_map[class_name])
-        if result:
-            return result
-    if ALL in class_type_map:
-        result = _get_from_method_map(method_name, argument_name, class_type_map[ALL])
-        if result:
-            return result
-    return None
-
-
 def _get_from_service_map(
     service_name: ServiceName,
     class_name: str,
@@ -143,12 +108,25 @@ def _get_from_service_map(
     if service_name not in service_type_map:
         return None
 
-    return _get_from_class_map(
-        class_name,
-        method_name,
-        argument_name,
-        service_type_map[service_name],
+    checks = (
+        (class_name, method_name, argument_name),
+        (class_name, ALL, argument_name),
+        (ALL, method_name, argument_name),
+        (ALL, ALL, argument_name),
     )
+    class_type_map = service_type_map[service_name]
+
+    for class_name, method_name, argument_name in checks:
+        if class_name not in class_type_map:
+            continue
+
+        method_type_map = class_type_map[class_name]
+
+        if method_name not in method_type_map:
+            continue
+
+        operation_type_map = method_type_map[method_name]
+        return operation_type_map.get(argument_name)
 
 
 def get_method_type_stub(
