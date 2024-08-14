@@ -121,6 +121,21 @@
     },
     {
         "severity": "error",
+        "message": "Argument of type \"Literal['1']\" cannot be assigned to parameter \"part_number\" of type \"int\" in function \"Part\"\n\u00a0\u00a0\"Literal['1']\" is incompatible with \"int\"",
+        "range": {
+            "start": {
+                "line": 58,
+                "character": 44
+            },
+            "end": {
+                "line": 58,
+                "character": 47
+            }
+        },
+        "rule": "reportArgumentType"
+    },
+    {
+        "severity": "error",
         "message": "No parameter named \"wrong_arg\"",
         "range": {
             "start": {
