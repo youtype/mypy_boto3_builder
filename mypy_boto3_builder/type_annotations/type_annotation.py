@@ -2,7 +2,7 @@
 Wrapper for `typing` type annotation.
 """
 
-from typing import Mapping
+from typing import Final, Mapping
 
 from typing_extensions import Self
 
@@ -19,11 +19,11 @@ class TypeAnnotation(FakeAnnotation):
         wrapped_type -- Original type annotation as a string.
     """
 
-    _typing = ImportString("typing")
-    _typing_extensions = ImportString("typing_extensions")
+    _typing: Final[ImportString] = ImportString("typing")
+    _typing_extensions: Final[ImportString] = ImportString("typing_extensions")
 
     # Set of supported type annotations. value is default import module
-    SUPPORTED_TYPES: Mapping[str, ImportString] = {
+    SUPPORTED_TYPES: Final[Mapping[str, ImportString]] = {
         "Union": _typing,  # typing.Union
         "Any": _typing,  # typing.Any
         "Dict": _typing,  # typing.Dict
@@ -46,7 +46,7 @@ class TypeAnnotation(FakeAnnotation):
     }
 
     # Set of fallback type annotations
-    FALLBACK: Mapping[str, tuple[tuple[int, int] | None, ImportString]] = {
+    FALLBACK: Final[Mapping[str, tuple[tuple[int, int] | None, ImportString]]] = {
         "NotRequired": ((3, 12), _typing_extensions),
         "TypedDict": ((3, 12), _typing_extensions),
         "Literal": ((3, 12), _typing_extensions),

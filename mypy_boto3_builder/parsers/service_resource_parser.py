@@ -49,8 +49,6 @@ class ServiceResourceParser:
         shape_parser - ShapeParser instance.
     """
 
-    _PARENT_NAME = SERVICE_RESOURCE
-
     def __init__(
         self,
         session: Session,
@@ -106,14 +104,14 @@ class ServiceResourceParser:
         self._logger.debug("Parsing ServiceResource attributes")
         attributes = parse_attributes(
             self.service_name,
-            self._PARENT_NAME,
+            SERVICE_RESOURCE,
             self.boto3_resource,
             self.shape_parser,
         )
         result.attributes.extend(attributes)
 
         result.attributes.extend(
-            self.shape_parser.get_resource_identifier_attributes(self._PARENT_NAME)
+            self.shape_parser.get_resource_identifier_attributes(SERVICE_RESOURCE)
         )
 
         references = parse_references(self.boto3_resource)
@@ -122,7 +120,7 @@ class ServiceResourceParser:
         self._logger.debug("Parsing ServiceResource collections")
         collections = parse_collections(
             self.service_name,
-            self._PARENT_NAME,
+            SERVICE_RESOURCE,
             self.boto3_resource,
             self.shape_parser,
         )
@@ -153,7 +151,7 @@ class ServiceResourceParser:
     def _parse_methods(self) -> list[Method]:
         public_methods = get_public_methods(self.boto3_resource)
         shape_method_map = self.shape_parser.get_service_resource_method_map()
-        stub_method_map = get_stub_method_map(self.service_name, self._PARENT_NAME)
+        stub_method_map = get_stub_method_map(self.service_name, SERVICE_RESOURCE)
         method_map = {**shape_method_map, **stub_method_map}
         result: list[Method] = []
 
@@ -162,7 +160,7 @@ class ServiceResourceParser:
 
             if method is None:
                 self._logger.warning(
-                    f"Unknown method {self._PARENT_NAME}.{method_name}, replaced with a dummy"
+                    f"Unknown method {SERVICE_RESOURCE}.{method_name}, replaced with a dummy"
                 )
                 method = get_dummy_method(method_name)
 

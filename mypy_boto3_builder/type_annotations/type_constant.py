@@ -2,6 +2,8 @@
 Wrapper for constant like `False` or `"test"`.
 """
 
+from typing import Final
+
 from typing_extensions import Self
 
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
@@ -24,7 +26,7 @@ class TypeConstant(FakeAnnotation):
         value -- Constant value.
     """
 
-    Ellipsis = EllipsisType()
+    Ellipsis: Final[EllipsisType] = EllipsisType()
 
     def __init__(self, value: ValueType) -> None:
         self.value: ValueType = value

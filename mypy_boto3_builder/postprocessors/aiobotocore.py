@@ -3,7 +3,7 @@ Postprocessor for aiobotocore classes and methods.
 """
 
 from collections.abc import Iterator
-from typing import Mapping
+from typing import Final, Mapping
 
 from boto3.dynamodb.table import BatchWriter, TableResource
 from boto3.resources.base import ServiceResource
@@ -34,7 +34,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
     Postprocessor for aiobotocore classes and methods.
     """
 
-    COMMON_COLLECTION_METHOD_NAMES = (
+    COMMON_COLLECTION_METHOD_NAMES: Final[tuple[str, ...]] = (
         "__iter__",
         "__aiter__",
         "all",
@@ -44,7 +44,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
         "page_size",
     )
 
-    EXTERNAL_IMPORTS_MAP: Mapping[ExternalImport, ExternalImport] = {
+    EXTERNAL_IMPORTS_MAP: Final[Mapping[ExternalImport, ExternalImport]] = {
         ExternalImport.from_class(StreamingBody): ExternalImport(
             ImportString("aiobotocore", "response"), "StreamingBody"
         ),

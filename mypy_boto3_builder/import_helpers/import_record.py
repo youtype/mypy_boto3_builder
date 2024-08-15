@@ -3,6 +3,7 @@ Helper for Python import strings.
 """
 
 import functools
+from typing import ClassVar, Final
 
 from typing_extensions import Self
 
@@ -24,8 +25,8 @@ class ImportRecord:
         fallback -- Fallback ImportRecord.
     """
 
-    builtins_import_string = ImportString("builtins")
-    third_party_import_strings = (
+    builtins_import_string: Final[ImportString] = ImportString("builtins")
+    third_party_import_strings: ClassVar[tuple[ImportString, ...]] = (
         ImportString("boto3"),
         ImportString("botocore"),
     )
@@ -57,7 +58,7 @@ class ImportRecord:
         return not self.source
 
     @classmethod
-    def empty(cls) -> Self:
+    def empty(cls: type[Self]) -> Self:
         """
         Whether import record is an empty string.
         """

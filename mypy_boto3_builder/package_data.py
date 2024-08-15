@@ -2,6 +2,8 @@
 PyPI package data constants.
 """
 
+from typing import ClassVar
+
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.utils.version import (
     get_aioboto3_version,
@@ -16,16 +18,16 @@ class BasePackageData:
     Generic package data.
     """
 
-    NAME: str = "boto3-stubs"
-    PYPI_NAME: str = "boto3-stubs"
-    PYPI_LITE_NAME: str = ""
-    PYPI_FULL_NAME: str = ""
-    LIBRARY_NAME: str = "boto3"
-    SERVICE_PREFIX: str = "mypy_boto3"
-    SERVICE_PYPI_PREFIX: str = "mypy-boto3"
-    LOCAL_DOC_LINK: str = "https://youtype.github.io/boto3_stubs_docs/"
-    IS_VSCODE_SUPPORTED: bool = False
-    IS_CONDA_FORGE_SUPPORTED: bool = False
+    NAME: ClassVar[str] = "boto3-stubs"
+    PYPI_NAME: ClassVar[str] = "boto3-stubs"
+    PYPI_LITE_NAME: ClassVar[str] = ""
+    PYPI_FULL_NAME: ClassVar[str] = ""
+    LIBRARY_NAME: ClassVar[str] = "boto3"
+    SERVICE_PREFIX: ClassVar[str] = "mypy_boto3"
+    SERVICE_PYPI_PREFIX: ClassVar[str] = "mypy-boto3"
+    LOCAL_DOC_LINK: ClassVar[str] = "https://youtype.github.io/boto3_stubs_docs/"
+    IS_VSCODE_SUPPORTED: ClassVar[bool] = False
+    IS_CONDA_FORGE_SUPPORTED: ClassVar[bool] = False
 
     @classmethod
     def get_service_package_name(cls, service_name: ServiceName) -> str:

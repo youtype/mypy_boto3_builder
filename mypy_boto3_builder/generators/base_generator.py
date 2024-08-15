@@ -5,6 +5,7 @@ Base stubs/docs generator.
 from abc import ABC, abstractmethod
 from collections.abc import Sequence
 from pathlib import Path
+from typing import ClassVar
 
 from mypy_boto3_builder.enums.product import ProductType
 from mypy_boto3_builder.logger import get_logger
@@ -34,8 +35,8 @@ class BaseGenerator(ABC):
         cleanup -- Whether to cleanup generated files
     """
 
-    service_package_data: type[BasePackageData]
-    service_template_path: Path
+    service_package_data: ClassVar[type[BasePackageData]]
+    service_template_path: ClassVar[Path]
 
     def __init__(
         self,

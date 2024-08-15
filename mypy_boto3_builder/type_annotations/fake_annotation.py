@@ -4,6 +4,7 @@ Parent class for all type annotation wrappers.
 
 from abc import ABC, abstractmethod
 from collections.abc import Iterator
+from typing import Final
 
 from typing_extensions import Self
 
@@ -16,7 +17,7 @@ class FakeAnnotation(ABC):
     Parent class for all type annotation wrappers.
     """
 
-    _sys_import_record = ImportRecord(ImportString("sys"))
+    _sys_import_record: Final[ImportRecord] = ImportRecord(ImportString("sys"))
 
     def __hash__(self) -> int:
         """
@@ -114,12 +115,12 @@ class FakeAnnotation(ABC):
         return False
 
     @abstractmethod
-    def __copy__(self) -> Self:
+    def __copy__(self: Self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """
 
-    def copy(self) -> Self:
+    def copy(self: Self) -> Self:
         """
         Create a copy of type annotation wrapper.
         """
