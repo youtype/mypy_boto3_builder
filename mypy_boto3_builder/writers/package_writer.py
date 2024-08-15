@@ -2,7 +2,7 @@
 Writer for package static and template files.
 """
 
-from collections.abc import Sequence
+from collections.abc import Iterable, Sequence
 from pathlib import Path
 
 from mypy_boto3_builder.constants import TEMPLATES_PATH
@@ -122,7 +122,7 @@ class PackageWriter:
     def _render_template(
         self,
         template_path: Path,
-        render_paths: Sequence[Path],
+        render_paths: Iterable[Path],
         package: Package,
     ) -> None:
         content = render_jinja2_package_template(template_path, package=package)
@@ -151,7 +151,7 @@ class PackageWriter:
     def _render_templates(
         self,
         package: Package,
-        template_renders: Sequence[TemplateRender],
+        template_renders: Iterable[TemplateRender],
     ) -> None:
         for template_render in template_renders:
             self._render_template(template_render.template_path, template_render.paths, package)
@@ -166,7 +166,7 @@ class PackageWriter:
     def _render_md_templates(
         self,
         package: Package,
-        template_renders: list[TemplateRender],
+        template_renders: Iterable[TemplateRender],
     ) -> None:
         for template_render in template_renders:
             content = render_jinja2_package_template(template_render.template_path, package=package)

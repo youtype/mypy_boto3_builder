@@ -67,17 +67,12 @@ black = "*"
 isort = "*"
 jinja2 = "*"
 mdformat = "*"
-cryptography = "*"
 typing_extensions = "*"
+packaging = "*"
 
 [tool.poetry.group.dev.dependencies]
 handsdown = "*"
-mypy = "*"
-ruff = "*"
-flake8 = "*"
-pytest-cov = "*"
-pytest = "*"
-vulture = "*"
+cryptography = "*"
 types-requests = "*"
 types-pkg-resources = "*"
 types-six = "*"
@@ -87,10 +82,22 @@ types-urllib3 = "*"
 types-s3transfer = "*"
 boto3-stubs = "*"
 botocore-stubs = "*"
-istub = "*"
-twine = "*"
+
+[tool.poetry.group.ci.dependencies]
+mypy = "*"
+ruff = "*"
+flake8 = "*"
+vulture = "*"
 pyright = "*"
+istub = "*"
+
+[tool.poetry.group.build.dependencies]
+twine = "*"
 setuptools = "*"
+
+[tool.poetry.group.test.dependencies]
+pytest-cov = "*"
+pytest = "*"
 
 
 [build-system]
