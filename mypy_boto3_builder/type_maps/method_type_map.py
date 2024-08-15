@@ -126,7 +126,10 @@ def _get_from_service_map(
             continue
 
         operation_type_map = method_type_map[method_name]
-        return operation_type_map.get(argument_name)
+        if argument_name in operation_type_map:
+            return operation_type_map[argument_name]
+
+    return None
 
 
 def get_method_type_stub(

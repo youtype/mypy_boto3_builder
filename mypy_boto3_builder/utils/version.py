@@ -43,6 +43,16 @@ def get_max_build_version(version: str) -> str:
     return f"{major}.{minor + 1}.0"
 
 
+def bump_postrelease(version: str) -> str:
+    """
+    Bump postrelease version.
+    """
+    v = Version(version)
+    major, minor, patch = v.release
+    post = (v.post + 1) if v.post else 1
+    return f"{major}.{minor}.{patch}.post{post}"
+
+
 def get_botocore_version() -> str:
     """
     Get botocore package version.

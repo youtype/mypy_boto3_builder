@@ -9,6 +9,8 @@ from urllib.request import urlopen
 
 from packaging.version import Version
 
+from mypy_boto3_builder.utils.version import bump_postrelease
+
 
 class PyPIManager:
     """
@@ -22,7 +24,7 @@ class PyPIManager:
 
     def __init__(self, package: str) -> None:
         self.package = package
-        self._versions: set[Version] | None = None
+        self._versions: set[str] | None = None
 
     @property
     def json_url(self) -> str:
@@ -38,13 +40,7 @@ class PyPIManager:
         Arguments:
             version -- Target version
         """
-        return Version(version) in self._get_versions()
-
-    @staticmethod
-    def _bump_postrelease(version: Version) -> Version:
-        major, minor, patch = version.release
-        post = version.post or 1
-        return Version(f"{major}.{minor}.{patch}.post{post}")
+        return version in self._get_versions()
 
     def get_next_version(self, version: str) -> str:
         """
@@ -54,12 +50,12 @@ class PyPIManager:
             version -- Target version
         """
         versions = self._get_versions()
-        new_version = Version(version)
+        new_version = version
         while new_version in versions:
-            new_version = self._bump_postrelease(new_version)
-        return str(new_version)
+            new_version = bump_postrelease(new_version)
+        return new_version
 
-    def _get_versions(self) -> set[Version]:
+    def _get_versions(self) -> set[str]:
         if self._versions is not None:
             return self._versions
 
@@ -80,5 +76,5 @@ class PyPIManager:
             return set()
 
         version_strs = set(data["releases"].keys())
-        self._versions = {Version(i) for i in version_strs}
+        self._versions = {str(Version(i)) for i in version_strs}
         return self._versions
