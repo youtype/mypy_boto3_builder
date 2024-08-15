@@ -197,7 +197,6 @@ jobs:
           pip install boto3*.whl
           cd ..
           rm -rf installtemp
-          python -m pip install newversion
       - name: Install builder
         run: |
           rm -rf mypy_boto3_builder

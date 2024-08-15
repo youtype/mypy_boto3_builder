@@ -7,7 +7,7 @@ from json.decoder import JSONDecodeError
 from urllib.error import HTTPError
 from urllib.request import urlopen
 
-from newversion import Version
+from packaging.version import Version
 
 
 class PyPIManager:
@@ -40,6 +40,12 @@ class PyPIManager:
         """
         return Version(version) in self._get_versions()
 
+    @staticmethod
+    def _bump_postrelease(version: Version) -> Version:
+        major, minor, patch = version.release
+        post = version.post or 1
+        return Version(f"{major}.{minor}.{patch}.post{post}")
+
     def get_next_version(self, version: str) -> str:
         """
         Get not existing version or closest not existing post-release.
@@ -50,8 +56,8 @@ class PyPIManager:
         versions = self._get_versions()
         new_version = Version(version)
         while new_version in versions:
-            new_version = new_version.bump_postrelease()
-        return new_version.dumps()
+            new_version = self._bump_postrelease(new_version)
+        return str(new_version)
 
     def _get_versions(self) -> set[Version]:
         if self._versions is not None:

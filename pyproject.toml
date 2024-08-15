@@ -67,7 +67,6 @@ black = "*"
 isort = "*"
 jinja2 = "*"
 mdformat = "*"
-newversion = "*"
 cryptography = "*"
 typing_extensions = "*"
 

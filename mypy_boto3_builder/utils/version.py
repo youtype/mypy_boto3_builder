@@ -5,7 +5,7 @@ Version-related utils.
 import contextlib
 import importlib.metadata
 
-from newversion import Version
+from packaging.version import Version
 
 from mypy_boto3_builder.constants import PACKAGE_NAME
 
@@ -31,14 +31,16 @@ def get_min_build_version(version: str) -> str:
     """
     Get min version build version by setting micro to 0.
     """
-    return Version(version).replace(micro=0).get_stable().dumps()
+    major, minor, _ = Version(version).release
+    return f"{major}.{minor}.0"
 
 
 def get_max_build_version(version: str) -> str:
     """
     Get min version build version by bumping minor.
     """
-    return Version(version).bump_minor().get_stable().dumps()
+    major, minor, _ = Version(version).release
+    return f"{major}.{minor + 1}.0"
 
 
 def get_botocore_version() -> str:
