@@ -129,14 +129,13 @@ def generate_product(
     generator.generate_product(product.get_type())
 
 
-def main() -> None:
+def run(args: CLINamespace) -> None:
     """
     Run builder.
     """
     # FIXME: suppress botocore endpoint warning
     warnings.filterwarnings("ignore", category=FutureWarning, module="botocore.client")
 
-    args = parse_args(sys.argv[1:])
     logger = get_logger(level=args.log_level)
 
     session = get_boto3_session()
@@ -160,6 +159,14 @@ def main() -> None:
         generate_product(product, args, service_names, master_service_names)
 
     logger.info("Completed")
+
+
+def main() -> None:
+    """
+    CLI entrypoint.
+    """
+    args = parse_args(sys.argv[1:])
+    run(args)
 
 
 if __name__ == "__main__":

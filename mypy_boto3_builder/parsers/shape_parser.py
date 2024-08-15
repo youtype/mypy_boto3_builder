@@ -666,13 +666,14 @@ class ShapeParser:
         resource_name: str,
         method_name: str,
         identifier_name: str,
-        identifier_type: str | None,
+        identifier: IdentifierShape,
     ) -> FakeAnnotation:
         argument_type_stub = get_method_type_stub(
             self.service_name, resource_name, method_name, identifier_name
         )
         if argument_type_stub:
             return argument_type_stub
+        identifier_type = identifier.get("type")
         if identifier_type:
             argument_type_stub = get_shape_type_stub(
                 [SHAPE_TYPE_MAP], self.service_name, resource_name, identifier_type
@@ -691,7 +692,7 @@ class ShapeParser:
     ) -> Argument:
         argument_name = self._get_identifier_xform_name(identifier)
         argument_type = self._get_identifier_type(
-            resource_name, method_name, argument_name, identifier.get("type")
+            resource_name, method_name, argument_name, identifier
         )
         return Argument(argument_name, argument_type)
 
@@ -700,7 +701,7 @@ class ShapeParser:
     ) -> Attribute:
         attribute_name = self._get_identifier_xform_name(identifier)
         attribute_type = self._get_identifier_type(
-            resource_name, ATTRIBUTES, attribute_name, identifier.get("type")
+            resource_name, ATTRIBUTES, attribute_name, identifier
         )
         return Attribute(attribute_name, attribute_type, is_identifier=True)
 
