@@ -55,7 +55,7 @@ class TypeDefSorter:
                     )
                     type_def.stringify()
 
-        self.logger.warn("Topological sort failed, stringifying TypedDicts")
+        self.logger.warning("Topological sort failed, stringifying TypedDicts")
         return self._sort_stringified()
 
     def _get(self, *names: str) -> list[TypeDefSortable]:

@@ -1,0 +1,28 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.1
+    hooks:
+      - id: ruff
+      - id: ruff-format
+  - repo: local
+    hooks:
+      - id: vulture
+        name: vulture
+        language: system
+        pass_filenames: false
+        entry: poetry run vulture mypy_boto3_builder vulture_whitelist.txt
+      - id: pyright
+        name: pyright
+        language: system
+        pass_filenames: false
+        entry: poetry run pyright mypy_boto3_builder
+      - id: mypy
+        name: mypy
+        language: system
+        pass_filenames: false
+        entry: poetry run mypy mypy_boto3_builder
+      - id: pytest
+        name: pytest
+        language: system
+        pass_filenames: false
+        entry: poetry run pytest

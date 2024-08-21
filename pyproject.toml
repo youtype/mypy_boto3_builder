@@ -82,6 +82,7 @@ types-urllib3 = "*"
 types-s3transfer = "*"
 boto3-stubs = "*"
 botocore-stubs = "*"
+pre-commit = "*"
 
 [tool.poetry.group.ci.dependencies]
 mypy = "*"
@@ -193,7 +194,7 @@ ignore = [
 fixable = ["ALL"]
 unfixable = ["B"]
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
-exclude = ["test_*.py", "*.pyi"]
+exclude = ["test_*.py", "*.pyi", "examples/*", "aio_examples/*"]
 
 [tool.ruff.format]
 quote-style = "double"
