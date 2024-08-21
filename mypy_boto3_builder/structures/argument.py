@@ -38,9 +38,7 @@ class Argument:
         """
         Render argument to a string.
         """
-        default_suffix = ""
-        if self.default is not None:
-            default_suffix = f" = {self.default.render()}"
+        default_suffix = f" = {self.default.render()}" if self.default is not None else ""
         if not self.type_annotation:
             return f"{self.name}{default_suffix}"
 
