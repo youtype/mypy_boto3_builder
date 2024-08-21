@@ -4,9 +4,23 @@
 
 > Auto-generated documentation for [mypy_boto3_builder.utils.version](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py) module.
 
+## bump_postrelease
+
+[Show source in version.py:46](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L46)
+
+Bump postrelease version.
+
+#### Signature
+
+```python
+def bump_postrelease(version: str) -> str: ...
+```
+
+
+
 ## get_aioboto3_version
 
-[Show source in version.py:77](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L77)
+[Show source in version.py:89](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L89)
 
 Get aioboto3 package version.
 
@@ -20,7 +34,7 @@ def get_aioboto3_version() -> str: ...
 
 ## get_aiobotocore_version
 
-[Show source in version.py:66](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L66)
+[Show source in version.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L78)
 
 Get aiobotocore package version.
 
@@ -34,7 +48,7 @@ def get_aiobotocore_version() -> str: ...
 
 ## get_boto3_version
 
-[Show source in version.py:55](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L55)
+[Show source in version.py:67](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L67)
 
 Get boto3 package version.
 
@@ -48,7 +62,7 @@ def get_boto3_version() -> str: ...
 
 ## get_botocore_version
 
-[Show source in version.py:44](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L44)
+[Show source in version.py:56](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L56)
 
 Get botocore package version.
 
@@ -76,7 +90,7 @@ def get_builder_version() -> str: ...
 
 ## get_max_build_version
 
-[Show source in version.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L37)
+[Show source in version.py:38](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/utils/version.py#L38)
 
 Get min version build version by bumping minor.
 

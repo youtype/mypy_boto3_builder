@@ -10,9 +10,9 @@
 
 #### Attributes
 
-- `SUPPORTED_TYPES`: `Mapping[str, ImportString]` - Set of supported type annotations. value is default import module: {'Union': _typing, 'Any': _typing, 'Dict': _typing, 'List': _typing, 'Set': _typing, 'Optional': _typing, 'IO': _typing, 'overload': _typing, 'Type': _typing, 'NoReturn': _typing, 'TypedDict': _typing, 'Literal': _typing, 'Mapping': _typing, 'Sequence': _typing, 'Callable': _typing, 'Iterator': _typing, 'Awaitable': _typing, 'AsyncIterator': _typing, 'NotRequired': _typing}
+- `SUPPORTED_TYPES`: `Final[Mapping[str, ImportString]]` - Set of supported type annotations. value is default import module: {'Union': _typing, 'Any': _typing, 'Dict': _typing, 'List': _typing, 'Set': _typing, 'Optional': _typing, 'IO': _typing, 'overload': _typing, 'Type': _typing, 'NoReturn': _typing, 'TypedDict': _typing, 'Literal': _typing, 'Mapping': _typing, 'Sequence': _typing, 'Callable': _typing, 'Iterator': _typing, 'Awaitable': _typing, 'AsyncIterator': _typing, 'NotRequired': _typing}
 
-- `FALLBACK`: `Mapping[str, tuple[tuple[int, int] | None, ImportString]]` - Set of fallback type annotations: {'NotRequired': ((3, 12), _typing_extensions), 'TypedDict': ((3, 12), _typing_extensions), 'Literal': ((3, 12), _typing_extensions)}
+- `FALLBACK`: `Final[Mapping[str, tuple[tuple[int, int] | None, ImportString]]]` - Set of fallback type annotations: {'NotRequired': ((3, 12), _typing_extensions), 'TypedDict': ((3, 12), _typing_extensions), 'Literal': ((3, 12), _typing_extensions)}
 
 
 Wrapper for `typing` type annotation.

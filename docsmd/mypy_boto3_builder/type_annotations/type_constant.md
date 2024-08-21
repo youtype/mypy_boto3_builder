@@ -6,7 +6,7 @@
 
 ## EllipsisType
 
-[Show source in type_constant.py:10](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L10)
+[Show source in type_constant.py:12](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L12)
 
 Placeholder for `...`.
 
@@ -20,7 +20,7 @@ class EllipsisType: ...
 
 ## TypeConstant
 
-[Show source in type_constant.py:19](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L19)
+[Show source in type_constant.py:21](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L21)
 
 Wrapper for constant like `False` or `"test"`.
 
@@ -42,7 +42,7 @@ class TypeConstant(FakeAnnotation):
 
 ### TypeConstant().__copy__
 
-[Show source in type_constant.py:44](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L44)
+[Show source in type_constant.py:46](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L46)
 
 Create a copy of type annotation wrapper.
 
@@ -54,7 +54,7 @@ def __copy__(self: Self) -> Self: ...
 
 ### TypeConstant().render
 
-[Show source in type_constant.py:32](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L32)
+[Show source in type_constant.py:34](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/type_constant.py#L34)
 
 Render type annotation to a valid Python code for local usage.
 

@@ -41,7 +41,7 @@ def _get_streaming_body(shape: Shape) -> Shape | None: ...
 
 ### ShapeParser().fix_method_arguments_for_mypy
 
-[Show source in shape_parser.py:1085](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L1085)
+[Show source in shape_parser.py:1086](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L1086)
 
 Accept both input and output shapes in method arguments.
 
@@ -60,7 +60,7 @@ def fix_method_arguments_for_mypy(self, methods: Sequence[Method]) -> None: ...
 
 ### ShapeParser().fix_typed_dict_names
 
-[Show source in shape_parser.py:1024](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L1024)
+[Show source in shape_parser.py:1025](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L1025)
 
 Fix typed dict names to avoid duplicates.
 
@@ -92,7 +92,7 @@ def get_client_method_map(self) -> dict[str, Method]: ...
 
 ### ShapeParser().get_collection_batch_methods
 
-[Show source in shape_parser.py:942](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L942)
+[Show source in shape_parser.py:943](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L943)
 
 Get batch operations for Resource collection.
 
@@ -120,7 +120,7 @@ def get_collection_batch_methods(
 
 ### ShapeParser().get_collection_filter_method
 
-[Show source in shape_parser.py:904](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L904)
+[Show source in shape_parser.py:905](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L905)
 
 Get `filter` classmethod for Resource collection.
 
@@ -189,7 +189,7 @@ def get_paginator_names(self) -> list[str]: ...
 
 ### ShapeParser().get_resource_identifier_attributes
 
-[Show source in shape_parser.py:745](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L745)
+[Show source in shape_parser.py:746](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L746)
 
 Get attributes for Resource identifiers.
 
@@ -213,7 +213,7 @@ def get_resource_identifier_attributes(self, resource_name: str) -> list[Attribu
 
 ### ShapeParser().get_resource_method_map
 
-[Show source in shape_parser.py:763](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L763)
+[Show source in shape_parser.py:764](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L764)
 
 Get methods for Resource.
 
@@ -237,7 +237,7 @@ def get_resource_method_map(self, resource_name: str) -> dict[str, Method]: ...
 
 ### ShapeParser().get_service_resource_method_map
 
-[Show source in shape_parser.py:707](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L707)
+[Show source in shape_parser.py:708](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/parsers/shape_parser.py#L708)
 
 Get methods for ServiceResource.
 

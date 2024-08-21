@@ -9,7 +9,6 @@
 - [ExternalImport](./external_import.md)
 - [FakeAnnotation](./fake_annotation.md)
 - [InternalImport](./internal_import.md)
-- [RemoveArgument](./remove_argument.md)
 - [Type](./type.md)
 - [TypeAnnotation](./type_annotation.md)
 - [TypeConstant](./type_constant.md)

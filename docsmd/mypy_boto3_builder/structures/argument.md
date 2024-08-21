@@ -32,7 +32,7 @@ class Argument:
 
 ### Argument().__copy__
 
-[Show source in argument.py:84](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L84)
+[Show source in argument.py:82](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L82)
 
 Deep copy argument.
 
@@ -44,7 +44,7 @@ def __copy__(self: Self) -> Self: ...
 
 ### Argument().copy
 
-[Show source in argument.py:78](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L78)
+[Show source in argument.py:76](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L76)
 
 Deep copy argument.
 
@@ -56,7 +56,7 @@ def copy(self: Self) -> Self: ...
 
 ### Argument().is_kwflag
 
-[Show source in argument.py:56](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L56)
+[Show source in argument.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L54)
 
 Whether argument is a `*` keywords separator.
 
@@ -68,7 +68,7 @@ def is_kwflag(self) -> bool: ...
 
 ### Argument().iterate_types
 
-[Show source in argument.py:62](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L62)
+[Show source in argument.py:60](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L60)
 
 Extract required type annotations.
 
@@ -84,7 +84,7 @@ def iterate_types(self) -> Iterator[FakeAnnotation]: ...
 
 ### Argument.kwflag
 
-[Show source in argument.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L49)
+[Show source in argument.py:47](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L47)
 
 Create `*` keywords separator.
 
@@ -109,7 +109,7 @@ def render(self) -> str: ...
 
 ### Argument().required
 
-[Show source in argument.py:71](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L71)
+[Show source in argument.py:69](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/structures/argument.py#L69)
 
 Whether argument does not have a default value and is required.
 

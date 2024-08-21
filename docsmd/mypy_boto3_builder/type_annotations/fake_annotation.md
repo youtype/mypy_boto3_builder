@@ -6,7 +6,7 @@
 
 ## FakeAnnotation
 
-[Show source in fake_annotation.py:14](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L14)
+[Show source in fake_annotation.py:15](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L15)
 
 Parent class for all type annotation wrappers.
 
@@ -18,7 +18,7 @@ class FakeAnnotation(ABC): ...
 
 ### FakeAnnotation().__copy__
 
-[Show source in fake_annotation.py:116](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L116)
+[Show source in fake_annotation.py:117](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L117)
 
 Create a copy of type annotation wrapper.
 
@@ -26,12 +26,12 @@ Create a copy of type annotation wrapper.
 
 ```python
 @abstractmethod
-def __copy__(self) -> Self: ...
+def __copy__(self: Self) -> Self: ...
 ```
 
 ### FakeAnnotation().__eq__
 
-[Show source in fake_annotation.py:27](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L27)
+[Show source in fake_annotation.py:28](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L28)
 
 Whether two annotations are equal.
 
@@ -43,7 +43,7 @@ def __eq__(self, other: object) -> bool: ...
 
 ### FakeAnnotation().__gt__
 
-[Show source in fake_annotation.py:42](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L42)
+[Show source in fake_annotation.py:43](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L43)
 
 Compare two annotations for sorting.
 
@@ -55,7 +55,7 @@ def __gt__(self: Self, other: Self) -> bool: ...
 
 ### FakeAnnotation().__hash__
 
-[Show source in fake_annotation.py:21](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L21)
+[Show source in fake_annotation.py:22](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L22)
 
 Calculate hash value based on string render.
 
@@ -67,7 +67,7 @@ def __hash__(self) -> int: ...
 
 ### FakeAnnotation().__lt__
 
-[Show source in fake_annotation.py:36](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L36)
+[Show source in fake_annotation.py:37](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L37)
 
 Compare two annotations for sorting.
 
@@ -79,7 +79,7 @@ def __lt__(self: Self, other: Self) -> bool: ...
 
 ### FakeAnnotation().__str__
 
-[Show source in fake_annotation.py:54](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L54)
+[Show source in fake_annotation.py:55](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L55)
 
 Render annotation usage as a valid Python statement.
 
@@ -91,7 +91,7 @@ def __str__(self) -> str: ...
 
 ### FakeAnnotation()._get_import_records
 
-[Show source in fake_annotation.py:66](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L66)
+[Show source in fake_annotation.py:67](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L67)
 
 Get import record required for using type annotation.
 
@@ -107,19 +107,19 @@ def _get_import_records(self) -> set[ImportRecord]: ...
 
 ### FakeAnnotation().copy
 
-[Show source in fake_annotation.py:122](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L122)
+[Show source in fake_annotation.py:123](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L123)
 
 Create a copy of type annotation wrapper.
 
 #### Signature
 
 ```python
-def copy(self) -> Self: ...
+def copy(self: Self) -> Self: ...
 ```
 
 ### FakeAnnotation().get_import_records
 
-[Show source in fake_annotation.py:72](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L72)
+[Show source in fake_annotation.py:73](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L73)
 
 Get all import records required for using type annotation.
 
@@ -135,7 +135,7 @@ def get_import_records(self) -> set[ImportRecord]: ...
 
 ### FakeAnnotation().get_local_types
 
-[Show source in fake_annotation.py:128](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L128)
+[Show source in fake_annotation.py:129](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L129)
 
 Get internal types generated by builder.
 
@@ -147,7 +147,7 @@ def get_local_types(self) -> list["FakeAnnotation"]: ...
 
 ### FakeAnnotation().get_sort_key
 
-[Show source in fake_annotation.py:48](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L48)
+[Show source in fake_annotation.py:49](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L49)
 
 Get string to sort annotations.
 
@@ -159,7 +159,7 @@ def get_sort_key(self) -> str: ...
 
 ### FakeAnnotation().is_dict
 
-[Show source in fake_annotation.py:92](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L92)
+[Show source in fake_annotation.py:93](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L93)
 
 Whether type annotation is `Dict` or `TypedDict`.
 
@@ -171,7 +171,7 @@ def is_dict(self) -> bool: ...
 
 ### FakeAnnotation().is_list
 
-[Show source in fake_annotation.py:104](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L104)
+[Show source in fake_annotation.py:105](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L105)
 
 Whether type annotation is `List`.
 
@@ -183,7 +183,7 @@ def is_list(self) -> bool: ...
 
 ### FakeAnnotation().is_literal
 
-[Show source in fake_annotation.py:110](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L110)
+[Show source in fake_annotation.py:111](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L111)
 
 Whether type annotation is `Literal`.
 
@@ -195,7 +195,7 @@ def is_literal(self) -> bool: ...
 
 ### FakeAnnotation().is_typed_dict
 
-[Show source in fake_annotation.py:98](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L98)
+[Show source in fake_annotation.py:99](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L99)
 
 Whether type annotation is `TypedDict`.
 
@@ -207,7 +207,7 @@ def is_typed_dict(self) -> bool: ...
 
 ### FakeAnnotation().iterate_types
 
-[Show source in fake_annotation.py:86](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L86)
+[Show source in fake_annotation.py:87](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L87)
 
 Iterate over all used type annotations recursively including self.
 
@@ -219,7 +219,7 @@ def iterate_types(self) -> Iterator["FakeAnnotation"]: ...
 
 ### FakeAnnotation().render
 
-[Show source in fake_annotation.py:60](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L60)
+[Show source in fake_annotation.py:61](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L61)
 
 Render type annotation to a valid Python code for local usage.
 
@@ -232,7 +232,7 @@ def render(self) -> str: ...
 
 ### FakeAnnotation().render_definition
 
-[Show source in fake_annotation.py:134](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L134)
+[Show source in fake_annotation.py:135](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/type_annotations/fake_annotation.py#L135)
 
 Render type annotation for debug purposes.
 

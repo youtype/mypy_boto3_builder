@@ -9,6 +9,7 @@
 - [Module](./module.md)
 - [Cli Parser](./cli_parser.md)
 - [Constants](./constants.md)
+- [Debug](./debug.md)
 - [Enums](enums/index.md)
 - [Generators](generators/index.md)
 - [Import Helpers](import_helpers/index.md)

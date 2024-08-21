@@ -119,6 +119,20 @@ def get_selected_service_names(
 
 ## main
 
+[Show source in main.py:164](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L164)
+
+CLI entrypoint.
+
+#### Signature
+
+```python
+def main() -> None: ...
+```
+
+
+
+## run
+
 [Show source in main.py:132](https://github.com/youtype/mypy_boto3_builder/blob/main/mypy_boto3_builder/main.py#L132)
 
 Run builder.
@@ -126,5 +140,9 @@ Run builder.
 #### Signature
 
 ```python
-def main() -> None: ...
+def run(args: CLINamespace) -> None: ...
 ```
+
+#### See also
+
+- [CLINamespace](./cli_parser.md#clinamespace)
