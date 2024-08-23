@@ -44,6 +44,7 @@ coverage.xml
 *,cover
 .hypothesis/
 .coveragerc
+junit.xml
 
 nohup*
 
