@@ -107,7 +107,8 @@ async def s3_client_example() -> None:
 
         s3_object = await client.get_object(Bucket="bucket", Key="key")
         url_stream = s3_object["Body"]
-        url_stream.iter_chunks()
+        for chunk in url_stream.iter_chunks():
+            s = chunk.decode("utf-8")
 
         await client.put_object(Bucket="bucket", Key="key", Body="body")
 

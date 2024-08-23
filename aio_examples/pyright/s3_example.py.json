@@ -286,17 +286,17 @@
     },
     {
         "severity": "error",
-        "message": "Result of async function call is not used; use \"await\" or assign result to variable",
+        "message": "\"AsyncIterator[bytes]\" is not iterable\n\u00a0\u00a0\"__iter__\" method not defined",
         "range": {
             "start": {
                 "line": 109,
-                "character": 8
+                "character": 21
             },
             "end": {
                 "line": 109,
-                "character": 32
+                "character": 45
             }
         },
-        "rule": "reportUnusedCoroutine"
+        "rule": "reportGeneralTypeIssues"
     }
 ]
