@@ -4,13 +4,17 @@ repos:
     hooks:
       - id: ruff
       - id: ruff-format
-  - repo: local
+  - repo: https://github.com/python-poetry/poetry
+    rev: "1.8.3"
+    hooks:
+      - id: poetry-check
+      - id: poetry-lock
+  - repo: https://github.com/jendrikseipp/vulture
+    rev: "v2.11"
     hooks:
       - id: vulture
-        name: vulture
-        language: system
-        pass_filenames: false
-        entry: poetry run vulture mypy_boto3_builder vulture_whitelist.txt
+  - repo: local
+    hooks:
       - id: pyright
         name: pyright
         language: system
