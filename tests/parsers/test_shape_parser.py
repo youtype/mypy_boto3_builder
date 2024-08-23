@@ -3,32 +3,38 @@ from unittest.mock import MagicMock, Mock, patch
 from botocore.exceptions import UnknownServiceError
 
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser, TypedDictMap
+from mypy_boto3_builder.service_name import ServiceName, ServiceNameCatalog
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_typed_dict import TypedDictAttribute, TypeTypedDict
 
 
 class TestShapeParser:
-    def test_init(self) -> None:
-        session_mock = MagicMock()
-        service_name_mock = MagicMock()
-        shape_parser = ShapeParser(session_mock, service_name_mock)
-        assert shape_parser.service_name == service_name_mock
+    shape_parser: ShapeParser
+    session_mock: MagicMock
+    service_name: ServiceName
 
-        session_mock._loader.load_service_model.side_effect = UnknownServiceError(
+    def setup_method(self) -> None:
+        session_mock = MagicMock()
+        self.session_mock = session_mock
+        self.service_name = ServiceNameCatalog.s3
+        self.shape_parser = ShapeParser(session_mock, ServiceNameCatalog.s3)
+
+    def test_init(self) -> None:
+        assert self.shape_parser.service_name == self.service_name
+
+        self.session_mock._loader.load_service_model.side_effect = UnknownServiceError(
             service_name="service_name",
             known_service_names="known_service_names",
         )
-        ShapeParser(session_mock, service_name_mock)
+        ShapeParser(self.session_mock, self.service_name)
 
     def test_get_paginator_names(self) -> None:
-        session_mock = MagicMock()
-        service_name_mock = MagicMock()
-        session_mock._loader.load_service_model.return_value = {"pagination": ["c", "a", "b"]}
-        shape_parser = ShapeParser(session_mock, service_name_mock)
+        self.session_mock._loader.load_service_model.return_value = {"pagination": ["c", "a", "b"]}
+        shape_parser = ShapeParser(self.session_mock, self.service_name)
         assert shape_parser.get_paginator_names() == ["a", "b", "c"]
 
-        session_mock._loader.load_service_model.return_value = {"paginations": ["c", "a", "b"]}
-        shape_parser = ShapeParser(session_mock, service_name_mock)
+        self.session_mock._loader.load_service_model.return_value = {"paginations": ["c", "a", "b"]}
+        shape_parser = ShapeParser(self.session_mock, self.service_name)
         assert shape_parser.get_paginator_names() == []
 
     @patch("mypy_boto3_builder.parsers.shape_parser.ServiceModel")
@@ -234,3 +240,49 @@ class TestShapeParser:
         assert shape_parser._parse_shape_string(shape, True).render() == "MyShapeType"
         assert shape_parser._parse_shape_string(shape, False).render() == "MyShapeType"
         assert shape_parser._parse_shape_string(shape, False).children == {"a", "b"}
+
+    def test_get_resource_method_map(self) -> None:
+        self.session_mock._loader.load_service_model.return_value = {
+            "resources": {
+                "c": {
+                    "actions": {
+                        "MyAction": {
+                            "resource": {"type": "str"},
+                            "request": {
+                                "operation": "extract",
+                                "params": [
+                                    {
+                                        "source": "identifier",
+                                        "target": "list.new[0]",
+                                        "name": "param1",
+                                        "type": "bool",
+                                    },
+                                    {
+                                        "source": "string",
+                                        "target": "list.new[0]",
+                                        "name": "param2",
+                                        "type": "str",
+                                    },
+                                ],
+                            },
+                        }
+                    },
+                    "waiters": {"MyWaiter": {"operation": "MyOperation"}},
+                    "has": {
+                        "SubResource": {
+                            "resource": {
+                                "identifiers": [
+                                    {"source": "input", "name": "ident", "type": "bool"},
+                                    {"source": "noinput", "name": "ident", "type": "bool"},
+                                ],
+                                "type": "str",
+                            }
+                        },
+                        "NoSubResource": {},
+                    },
+                }
+            }
+        }
+        shape_parser = ShapeParser(self.session_mock, self.service_name)
+        result = shape_parser.get_resource_method_map("c")
+        assert len(result.keys()) == 6
