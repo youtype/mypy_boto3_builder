@@ -1,28 +1,31 @@
-from unittest.mock import MagicMock
-
+from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.structures.paginator import Paginator
 
 
 class TestPaginator:
-    def test_init(self) -> None:
-        paginator = Paginator(
+    paginator: Paginator
+
+    def setup_method(self):
+        self.paginator = Paginator(
             name="name",
             operation_name="my_operation_name",
-            service_name="service_name",
+            service_name=ServiceNameCatalog.s3,
             paginator_name="paginator_name",
         )
-        assert paginator.name == "name"
-        assert paginator.operation_name == "my_operation_name"
-        assert paginator.service_name == "service_name"
+
+    def test_init(self) -> None:
+        assert self.paginator.name == "name"
+        assert self.paginator.operation_name == "my_operation_name"
+        assert self.paginator.service_name == ServiceNameCatalog.s3
+
+    def test_boto3_doc_link(self) -> None:
+        assert (
+            self.paginator.boto3_doc_link
+            == "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Paginator.paginator_name"
+        )
 
     def test_get_client_method(self) -> None:
-        paginator = Paginator(
-            name="name",
-            operation_name="my_operation_name",
-            service_name=MagicMock(),
-            paginator_name="paginator_name",
-        )
-        result = paginator.get_client_method()
+        result = self.paginator.get_client_method()
         assert result.name == "get_paginator"
-        assert result.return_type.name == "name"
-        assert result.arguments[1].type_annotation.children == {"my_operation_name"}
+        assert result.return_type.name == "name"  # type: ignore
+        assert result.arguments[1].type_annotation.children == {"my_operation_name"}  # type: ignore

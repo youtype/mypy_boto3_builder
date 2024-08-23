@@ -46,7 +46,11 @@ def process_boto3_stubs(
     """
     logger = get_logger()
     logger.debug(f"Parsing {package_data.PYPI_NAME}")
-    boto3_stubs_package = parse_boto3_stubs_package(session, service_names, package_data)
+    boto3_stubs_package = parse_boto3_stubs_package(
+        session=session,
+        service_names=service_names,
+        package_data=package_data,
+    )
     boto3_stubs_package.version = version
     logger.debug(f"Writing {package_data.PYPI_NAME} to {print_path(output_path)}")
 
@@ -54,7 +58,7 @@ def process_boto3_stubs(
         output_path=output_path, generate_setup=generate_setup, cleanup=True
     )
     package_writer.write_package(
-        boto3_stubs_package,
+        package=boto3_stubs_package,
         templates_path=TEMPLATES_PATH / "boto3-stubs",
         static_files_path=BOTO3_STUBS_STATIC_PATH,
     )
@@ -97,7 +101,7 @@ def process_boto3_stubs_lite(
         output_path=output_path, generate_setup=generate_setup, cleanup=True
     )
     package_writer.write_package(
-        boto3_stubs_package,
+        package=boto3_stubs_package,
         templates_path=TEMPLATES_PATH / "boto3-stubs",
         static_files_path=BOTO3_STUBS_STATIC_PATH,
         exclude_template_names=[
@@ -213,7 +217,7 @@ def process_boto3_stubs_full(
         output_path=output_path, generate_setup=generate_setup, cleanup=True
     )
     package_writer.write_package(
-        boto3_stubs_package,
+        package=boto3_stubs_package,
         templates_path=TEMPLATES_PATH / "boto3-stubs-full",
     )
 

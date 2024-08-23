@@ -3,7 +3,7 @@ from unittest.mock import Mock
 import pytest
 
 from mypy_boto3_builder.package_data import Boto3StubsPackageData
-from mypy_boto3_builder.service_name import ServiceName
+from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.paginator import Paginator
 from mypy_boto3_builder.structures.service_package import ServicePackage
@@ -14,10 +14,11 @@ from mypy_boto3_builder.type_annotations.type_typed_dict import TypeTypedDict
 
 
 class TestServicePackage:
-    @property
-    def service_package(self) -> ServicePackage:
-        service_name = ServiceName("service", "Service")
-        return ServicePackage(
+    service_package: ServicePackage
+
+    def setup_method(self) -> None:
+        service_name = ServiceNameCatalog.s3
+        self.service_package = ServicePackage(
             Boto3StubsPackageData,
             service_name=service_name,
             client=Client("Client", service_name, Mock()),
@@ -30,7 +31,15 @@ class TestServicePackage:
         )
 
     def test_init(self) -> None:
-        assert self.service_package
+        assert self.service_package.name == "mypy_boto3_s3"
+        assert self.service_package.pypi_name == "mypy-boto3-s3"
+
+    def test_client(self) -> None:
+        assert self.service_package.client.name == "Client"
+
+        self.service_package._client = None  # type: ignore
+        with pytest.raises(ValueError):
+            self.service_package.client
 
     def test_extract_literals(self) -> None:
         assert self.service_package.extract_literals() == []
@@ -50,6 +59,9 @@ class TestServicePackage:
     def test_get_service_resource_required_import_records(self) -> None:
         assert len(self.service_package.get_service_resource_required_import_records()) == 3
 
+        self.service_package.service_resource = None
+        assert len(self.service_package.get_service_resource_required_import_records()) == 0
+
     def test_get_paginator_required_import_records(self) -> None:
         assert len(self.service_package.get_paginator_required_import_records()) == 1
 
@@ -58,6 +70,9 @@ class TestServicePackage:
 
     def test_get_type_defs_required_import_records(self) -> None:
         assert len(self.service_package.get_type_defs_required_import_records()) == 2
+
+        self.service_package.type_defs = []
+        assert len(self.service_package.get_type_defs_required_import_records()) == 0
 
     def test_get_literals_required_import_records(self) -> None:
         assert len(self.service_package.get_literals_required_import_records()) == 2
@@ -72,3 +87,19 @@ class TestServicePackage:
             service_package = self.service_package
             service_package.literals[0].name = "MyTypedDict"
             service_package.validate()
+
+    def test_get_doc_link(self) -> None:
+        assert (
+            self.service_package.get_doc_link("client")
+            == "https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/"
+        )
+        assert (
+            self.service_package.get_doc_link("client", "extra", "parts")
+            == "https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/client/#extraparts"
+        )
+
+    def test_get_local_doc_link(self) -> None:
+        assert (
+            self.service_package.get_local_doc_link()
+            == "https://youtype.github.io/boto3_stubs_docs/mypy_boto3_s3/"
+        )

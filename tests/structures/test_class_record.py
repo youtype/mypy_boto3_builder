@@ -6,6 +6,7 @@ from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.method import Method
+from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_constant import TypeConstant
 
@@ -40,6 +41,20 @@ class TestClassRecord:
         with pytest.raises(ValueError):
             self.class_record.alias_name
 
+    def test_variable_name(self) -> None:
+        assert self.class_record.variable_name == "name"
+
+    def test_method_names(self) -> None:
+        assert self.class_record.method_names == ["my_method"]
+
+    def test_get_method(self) -> None:
+        assert self.class_record.get_method("my_method").name == "my_method"
+        with pytest.raises(ValueError):
+            self.class_record.get_method("non_existing")
+
+    def test_boto3_doc_link(self) -> None:
+        assert self.class_record.boto3_doc_link == ""
+
     def test_get_types(self) -> None:
         assert set(self.class_record.iterate_types()) == {
             Type.Any,
@@ -57,3 +72,7 @@ class TestClassRecord:
 
     def test_get_internal_imports(self) -> None:
         assert self.class_record.get_internal_imports() == set()
+
+        internal = InternalImport("MyTypedDict")
+        self.class_record.methods[0].arguments.append(Argument("dct", internal))
+        assert self.class_record.get_internal_imports() == {internal}

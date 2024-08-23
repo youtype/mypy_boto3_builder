@@ -1,3 +1,5 @@
+import pytest
+
 from mypy_boto3_builder.package_data import Boto3StubsPackageData
 from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.structures.package import Package
@@ -22,3 +24,14 @@ class TestPackage:
         )
         assert package.min_python_version
         assert package.get_classifiers()
+        package.library_version = "1.2.3"
+        package.version = "2.3.4"
+        assert str(package) == "boto3-stubs 2.3.4 (boto3 1.2.3)"
+
+    def test_service_name(self) -> None:
+        package = Package(Boto3StubsPackageData, [ServiceNameCatalog.s3])
+        assert package.service_name == ServiceNameCatalog.s3
+
+        package.service_names.append(ServiceNameCatalog.ec2)
+        with pytest.raises(ValueError):
+            package.service_name

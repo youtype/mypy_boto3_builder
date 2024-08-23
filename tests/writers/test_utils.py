@@ -11,6 +11,7 @@ from mypy_boto3_builder.structures.package import Package
 from mypy_boto3_builder.writers.utils import (
     blackify,
     blackify_markdown,
+    format_md,
     insert_md_toc,
     render_jinja2_package_template,
     sort_imports,
@@ -21,7 +22,7 @@ class TestUtils:
     @patch("mypy_boto3_builder.writers.utils.format_file_contents")
     @patch("mypy_boto3_builder.writers.utils.Mode")
     def test_blackify(self, ModeMock: MagicMock, format_file_contents_mock: MagicMock):
-        file_path_mock = MagicMock()
+        file_path_mock = MagicMock(spec=Path)
         file_path_mock.suffix = ".txt"
         result = blackify("my content", file_path_mock)
         assert result == "my content"
@@ -48,9 +49,12 @@ class TestUtils:
             target_versions=target_versions, is_pyi=True, line_length=100, preview=True
         )
 
+        file_path_mock.parent.exists.return_value = False
         format_file_contents_mock.side_effect = IndentationError()
         with pytest.raises(ValueError):
             blackify("my content", file_path_mock)
+        file_path_mock.parent.mkdir.assert_called()
+        file_path_mock.parent.exists.return_value = True
 
         format_file_contents_mock.side_effect = NothingChanged()
         assert blackify("my content", file_path_mock) == "my content"
@@ -92,6 +96,9 @@ class TestUtils:
             == "# a\ntest\n- [a](#a)\n  - [b](#b)\n  - [c](#c)\n\n## b\n## c\ntest2"
         )
         assert insert_md_toc("# a\n") == "# a\n- [a](#a)\n"
+
+    def test_format_md(self) -> None:
+        assert format_md(" # a") == "# a\n"
 
     def test_blackify_markdown(self) -> None:
         assert blackify_markdown("") == ""
