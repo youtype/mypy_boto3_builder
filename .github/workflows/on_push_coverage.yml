@@ -30,7 +30,7 @@ jobs:
           poetry run pip install -U --no-dependencies aiobotocore
       - name: Build coverage report
         run: |
-          poetry run pytest --cov mypy_boto3_builder --junitxml=junit.xml
+          poetry run pytest --cov mypy_boto3_builder --cov-report=xml --junitxml=junit.xml
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
