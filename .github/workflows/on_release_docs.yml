@@ -50,10 +50,9 @@ jobs:
           poetry install -n
       - name: Install handsdown
         run: |
-          poetry run pip install -U handsdown mkdocs mkdocs-material
+          poetry run pip install -r requirements.mkdocs.txt
       - name: Build docs
         run: |
-          poetry run handsdown --external `git config --get remote.origin.url` -o docsmd --cleanup --theme material --branch main $@
           rm -rf docs/*
           poetry run mkdocs build
       - name: Checkout gh-pages branch

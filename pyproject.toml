@@ -71,7 +71,6 @@ typing_extensions = "*"
 packaging = "*"
 
 [tool.poetry.group.dev.dependencies]
-handsdown = "*"
 cryptography = "*"
 types-requests = "*"
 types-setuptools = "*"
