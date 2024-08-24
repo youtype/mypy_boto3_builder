@@ -1,13 +1,13 @@
 from mypy_boto3_builder.service_name import ServiceNameCatalog
 from mypy_boto3_builder.structures.collection import Collection
-from mypy_boto3_builder.structures.resource import Resource
+from mypy_boto3_builder.structures.resource_record import ResourceRecord
 
 
 class TestResource:
-    resource: Resource
+    resource: ResourceRecord
 
     def setup_method(self):
-        self.resource = Resource(
+        self.resource = ResourceRecord(
             name="Name",
             service_name=ServiceNameCatalog.s3,
         )

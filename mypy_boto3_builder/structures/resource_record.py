@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     from mypy_boto3_builder.structures.collection import Collection
 
 
-class Resource(ClassRecord):
+class ResourceRecord(ClassRecord):
     """
     Boto3 ServiceResource sub-Resource.
     """

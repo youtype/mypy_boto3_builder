@@ -16,7 +16,7 @@ from mypy_boto3_builder.parsers.parse_references import parse_references
 from mypy_boto3_builder.parsers.shape_parser import ShapeParser
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.attribute import Attribute
-from mypy_boto3_builder.structures.resource import Resource
+from mypy_boto3_builder.structures.resource_record import ResourceRecord
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_maps.service_stub_map import get_stub_method_map
 from mypy_boto3_builder.utils.strings import get_short_docstring
@@ -27,7 +27,7 @@ def parse_resource(
     resource: Boto3ServiceResource,
     service_name: ServiceName,
     shape_parser: ShapeParser,
-) -> Resource:
+) -> ResourceRecord:
     """
     Parse boto3 sub Resource data.
 
@@ -38,7 +38,7 @@ def parse_resource(
         Resource structure.
     """
     logger = get_logger()
-    result = Resource(
+    result = ResourceRecord(
         name=name,
         service_name=service_name,
     )

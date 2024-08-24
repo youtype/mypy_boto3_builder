@@ -177,8 +177,10 @@ indent-width = 4
 target-version = "py310"
 
 [tool.ruff.lint]
+# preview = true
 select = [
     "E",
+    "W",
     "F",
     "B",
     "I",
@@ -215,6 +217,7 @@ ignore = [
     "D413",
     "D417",
     "S310",
+    "S404",
     "S603",
     "ANN101",
     "ANN102",

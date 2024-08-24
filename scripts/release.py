@@ -17,7 +17,8 @@ from pathlib import Path
 from typing import Sequence, Tuple
 from unittest.mock import patch
 
-from requests.exceptions import ConnectionError, HTTPError
+from requests.exceptions import ConnectionError as RequestsConnectionError
+from requests.exceptions import HTTPError
 from twine.commands.upload import upload
 from twine.exceptions import TwineException
 from twine.settings import Settings
@@ -215,7 +216,7 @@ def publish(path: Path, max_retries: int = 10) -> Path:
             logger.warning(f"Error while publishing {path.name}: {e}")
             logger.warning(f"Response: {response}")
             logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
-        except ConnectionError as e:
+        except RequestsConnectionError as e:
             attempt += 1
             logger.warning(f"Error while publishing {path.name}: {e}")
             logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")

@@ -15,7 +15,7 @@ from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.structures.class_record import ClassRecord
 from mypy_boto3_builder.structures.client import Client
 from mypy_boto3_builder.structures.collection import Collection
-from mypy_boto3_builder.structures.resource import Resource
+from mypy_boto3_builder.structures.resource_record import ResourceRecord
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 
@@ -42,7 +42,7 @@ class ServiceResource(ClassRecord):
         self.service_name = service_name
         self.boto3_service_resource = boto3_service_resource
         self.collections: list[Collection] = []
-        self.sub_resources: list[Resource] = []
+        self.sub_resources: list[ResourceRecord] = []
 
     def __hash__(self) -> int:
         """
@@ -124,18 +124,18 @@ class ServiceResource(ClassRecord):
 
         return result
 
-    def get_sub_resources(self) -> list[Resource]:
+    def get_sub_resources(self) -> list[ResourceRecord]:
         """
         Get sub-resource in safe order.
 
         Returns:
             A list of sub resources.
         """
-        result: list[Resource] = []
+        result: list[ResourceRecord] = []
         all_names: set[str] = {i.name for i in self.sub_resources}
         added_names: set[str] = set()
         sub_resources = list(self.sub_resources)
-        sub_resources_list: list[tuple[Resource, set[InternalImport]]] = []
+        sub_resources_list: list[tuple[ResourceRecord, set[InternalImport]]] = []
         for sub_resource in sub_resources:
             internal_imports = sub_resource.get_internal_imports()
             sub_resources_list.append((sub_resource, internal_imports))
