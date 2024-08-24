@@ -53,10 +53,10 @@ Do you want more? Check the [documentation](https://youtype.github.io/boto3_stub
 
 ## Documentation
 
-- [How to use pre-built libraries](./docs/pre_build.md)
-- [How to build type annotations](./docs/how_to_build.md)
-- [Development](./docs/development.md)
-- [Contributors](./docs/thank_you.md)
+- [How to use pre-built libraries](./docsmd/pre_build.md)
+- [How to build type annotations](./docsmd/how_to_build.md)
+- [Development](./docsmd/development.md)
+- [Contributors](./docsmd/thank_you.md)
 
 ## Versioning
 
