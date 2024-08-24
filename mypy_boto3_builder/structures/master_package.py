@@ -39,8 +39,4 @@ class MasterPackage(Package):
         """
         List of services maked as essential.
         """
-        result: list[ServiceName] = []
-        for service_name in self.service_names:
-            if service_name.is_essential():
-                result.append(service_name)
-        return result
+        return [service_name for service_name in self.service_names if service_name.is_essential()]

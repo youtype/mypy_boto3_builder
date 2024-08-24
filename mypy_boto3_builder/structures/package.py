@@ -118,8 +118,10 @@ class Package:
             "Operating System :: OS Independent",
             "Programming Language :: Python :: 3",
         ]
-        for version in get_supported_python_versions():
-            result.append(f"Programming Language :: Python :: {version}")
+        result.extend(
+            f"Programming Language :: Python :: {version}"
+            for version in get_supported_python_versions()
+        )
         result.extend(
             [
                 "Programming Language :: Python :: 3 :: Only",

@@ -161,11 +161,7 @@ class TypeUnion(TypeSubscript, TypeDefSortable):
         """
         Type annotations list from arguments and return type with internal types.
         """
-        result: list[FakeAnnotation] = []
-        for child in self.children:
-            if child.get_local_types():
-                result.append(child)
-        return result
+        return [child for child in self.children if child.get_local_types()]
 
     def is_union(self) -> bool:
         """

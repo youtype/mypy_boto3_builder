@@ -36,11 +36,7 @@ class WrapperPackage(Package, ABC):
         """
         Service names marked as essential.
         """
-        result: list[ServiceName] = []
-        for service_name in self.service_names:
-            if service_name.is_essential():
-                result.append(service_name)
-        return result
+        return [service_name for service_name in self.service_names if service_name.is_essential()]
 
     def get_init_required_import_records(self) -> list[ImportRecord]:
         """

@@ -197,25 +197,17 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         """
         return self.has_required() and self.has_optional()
 
-    def get_required(self) -> list[TypedDictAttribute]:
+    def get_required(self) -> tuple[TypedDictAttribute, ...]:
         """
         Get a list of required attributes.
         """
-        result: list[TypedDictAttribute] = []
-        for child in self.children:
-            if child.is_required():
-                result.append(child)
-        return result
+        return tuple(child for child in self.children if child.is_required())
 
-    def get_optional(self) -> list[TypedDictAttribute]:
+    def get_optional(self) -> tuple[TypedDictAttribute, ...]:
         """
         Get a list of optional attributes.
         """
-        result: list[TypedDictAttribute] = []
-        for child in self.children:
-            if not child.is_required():
-                result.append(child)
-        return result
+        return tuple(child for child in self.children if not child.is_required())
 
     def __copy__(self: Self) -> Self:
         """
@@ -289,11 +281,11 @@ class TypeTypedDict(FakeAnnotation, TypeDefSortable):
         """
         Type annotations list from arguments and return type with internal types.
         """
-        result: list[FakeAnnotation] = []
-        for child in self.children:
-            if child.type_annotation.get_local_types():
-                result.append(child.type_annotation)
-        return result
+        return [
+            child.type_annotation
+            for child in self.children
+            if child.type_annotation.get_local_types()
+        ]
 
     def is_type_def(self) -> bool:
         """

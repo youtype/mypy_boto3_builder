@@ -129,9 +129,11 @@ class Function:
         Type annotations list from arguments and return type with internal types.
         """
         result: list[FakeAnnotation] = []
-        for argument in self.arguments:
-            if argument.type_annotation and argument.type_annotation.get_local_types():
-                result.append(argument.type_annotation)
+        result.extend(
+            argument.type_annotation
+            for argument in self.arguments
+            if argument.type_annotation and argument.type_annotation.get_local_types()
+        )
         if self.return_type and self.return_type.get_local_types():
             result.append(self.return_type)
         return result

@@ -171,10 +171,9 @@ class ShapeParser:
         Returns:
             A list of paginator names.
         """
-        result: list[str] = []
-        if self._paginators_shape:
-            for name in self._paginators_shape.get("pagination", []):
-                result.append(name)
+        if not self._paginators_shape or not self._paginators_shape.get("pagination"):
+            return []
+        result = list(self._paginators_shape["pagination"])
         result.sort()
         return result
 
@@ -757,11 +756,10 @@ class ShapeParser:
         """
         self._resource_name = resource_name
         resource_shape = self._get_resource_shape(resource_name)
-        result: list[Attribute] = []
         identifiers = resource_shape.get("identifiers", [])
-        for identifier in identifiers:
-            result.append(self._get_identifier_attribute(resource_name, identifier))
-        return result
+        return [
+            self._get_identifier_attribute(resource_name, identifier) for identifier in identifiers
+        ]
 
     def get_resource_method_map(self, resource_name: str) -> dict[str, Method]:
         """

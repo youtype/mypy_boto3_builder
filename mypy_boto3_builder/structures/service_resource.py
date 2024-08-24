@@ -102,10 +102,8 @@ class ServiceResource(ClassRecord):
         Get names for `__all__` statement.
         """
         result = [self.name]
-        for resource in self.sub_resources:
-            result.append(resource.name)
-        for collection in self.get_collections():
-            result.append(collection.name)
+        result.extend(resource.name for resource in self.sub_resources)
+        result.extend(collection.name for collection in self.get_collections())
         return result
 
     def get_collections(self) -> list[Collection]:
