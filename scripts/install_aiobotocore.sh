@@ -10,17 +10,17 @@ fi
 
 if [[ "$1" == "master" ]]; then
     echo Installing types-aiobotocore package
-    uv run pip install ${OUTPUT_PATH}/types_aiobotocore_package
+    uv pip install ${OUTPUT_PATH}/types_aiobotocore_package
 
     echo Installing types-aioboto3 package
-    uv run pip install ${OUTPUT_PATH}/types_aioboto3_package
+    uv pip install ${OUTPUT_PATH}/types_aioboto3_package
 
     exit
 fi
 
 if [[ "$1" == "full" ]]; then
     echo Installing types-aiobotocore-full package
-    uv run pip install ${OUTPUT_PATH}/types_aiobotocore_full_package
+    uv pip install ${OUTPUT_PATH}/types_aiobotocore_full_package
 
     exit
 fi
@@ -28,5 +28,5 @@ fi
 for package in $PACKAGES
 do
     echo Installing $(basename ${package})
-    uv run pip install ${package} -v
+    uv pip install ${package}
 done

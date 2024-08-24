@@ -25,9 +25,8 @@ jobs:
       - name: Set up uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
       - name: Install the project
-        run: uv sync --all-extras --dev
+        run: uv sync --extra check --dev
       - name: Install extra dependencies
-        run: uv run pip install -U --no-dependencies aioboto3 aiobotocore types-aioboto3 types-aiobotocore
+        run: uv pip install -U aioboto3
       - name: Run pre-commit
-        run: |
-          uv run pre-commit run --all-files
+        run: uv run pre-commit run --all-files

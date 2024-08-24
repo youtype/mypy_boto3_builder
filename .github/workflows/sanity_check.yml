@@ -53,13 +53,13 @@ jobs:
       - name: Set up uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
       - name: Install the project
-        run: uv sync --all-extras --dev
+        run: uv sync --extra check --dev
       - name: Install boto3
         env:
           BOTO3_VERSION: ${{ needs.versions.outputs.boto3 }}
           BOTOCORE_VERSION: ${{ needs.versions.outputs.botocore }}
         run: |
-          uv run pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
+          uv pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
       - name: Build master packages
         run: |
           rm -rf mypy_boto3_output/*

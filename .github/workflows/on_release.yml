@@ -33,7 +33,7 @@ jobs:
       - name: Set up uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
       - name: Install the project
-        run: uv sync --all-extras --dev
+        run: uv sync --dev
       - name: Bump version
         env:
           VERSION: ${{ steps.version.outputs.result }}
@@ -41,7 +41,7 @@ jobs:
           echo "Bumping version to ${VERSION}"
           # uv version ${VERSION}
           sed -i 's/^version = ".*"$/version = "'$VERSION'"/' pyproject.toml
-          uv sync --all-extras --dev
+          uv pip install .
       - name: Set up git
         run: |
           git config --global user.email "github-actions@github.com"
@@ -58,9 +58,9 @@ jobs:
           TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
         run: |
-          uv run pip install -U twine wheel setuptools
+          uv pip install -U twine wheel setuptools
           uvx --from build pyproject-build --installer uv
-          uvx twine upload  --non-interactive dist/*
+          uv run twine upload  --non-interactive dist/*
       - name: Dockerize
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

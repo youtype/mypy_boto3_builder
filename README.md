@@ -171,7 +171,7 @@ docker run -e BOTO3_VERSION=1.16.25 BOTOCORE_VERSION=1.19.25 -v `pwd`/output:/ou
 
 - Install Python 3.11+, ideally with [pyenv](https://github.com/pyenv/pyenv)
 - Install [uv](https://docs.astral.sh/uv/): `curl -LsSf https://astral.sh/uv/install.sh | sh`
-- Install dependencies: `uv sync --dev`
+- Install dependencies: `uv sync --all-extras --dev`
 - Use scripts for repo to check if everything works: `./scripts/build.sh`
 - Run manual pre-commit: `./scripts/before_commit.sh`
 
@@ -212,12 +212,3 @@ Full changelog can be found in [Releases](https://github.com/youtype/mypy_boto3_
 - [Jacob](https://github.com/fivepapertigers)
 - [Jakob Keller](https://github.com/jakob-keller)
 - [Ari Pollak](https://github.com/aripollak)
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->

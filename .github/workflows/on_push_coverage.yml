@@ -22,7 +22,7 @@ jobs:
       - name: Set up uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
       - name: Install the project
-        run: uv sync --all-extras --dev
+        run: uv sync --dev
       - name: Build coverage report
         run: uv run pytest --cov mypy_boto3_builder --cov-report=xml --junitxml=junit.xml
       - name: Upload coverage to Codecov

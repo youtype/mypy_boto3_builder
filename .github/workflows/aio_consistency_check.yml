@@ -53,19 +53,17 @@ jobs:
       - name: Set up uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
       - name: Install the project
-        run: uv sync --all-extras --dev
+        run: uv sync --extra check --dev
       - name: Install extras
-        run: uv run pip install -U aiobotocore aioboto3
+        run: uv pip install -U aiobotocore aioboto3
       - name: Install boto3
         env:
           BOTO3_VERSION: ${{ needs.versions.outputs.boto3 }}
           BOTOCORE_VERSION: ${{ needs.versions.outputs.botocore }}
-        run: |
-          uv run pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION}
-          uv run pip install -U botocore-stubs
+        run: uv pip install -U boto3==${BOTO3_VERSION} botocore==${BOTOCORE_VERSION} botocore-stubs
       - name: Uninstall stubs
         run: |
-          uv run pip uninstall -y boto3-stubs
+          uv pip uninstall boto3-stubs
       - name: Check aioboto3 stubs
         run: |
           uv run istub -c ./istub_aio.yml -bid aioboto3
