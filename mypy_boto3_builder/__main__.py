@@ -12,5 +12,5 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         logger = get_logger()
-        logger.error("Interrupted by user")
+        logger.warning("Interrupted by user")
         sys.exit(1)

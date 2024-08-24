@@ -118,7 +118,7 @@ def check_call(cmd: Sequence[str], print_error: bool = True) -> str:
         if print_error:
             logger = logging.getLogger(LOGGER_NAME)
             for line in e.output.splitlines():
-                logger.error(line)
+                logger.warning(line)
         raise
 
 
@@ -172,7 +172,7 @@ def build(path: Path, max_retries: int = 10) -> Path:
             check_call((sys.executable, "-m", "zipfile", "--list", whl_path.as_posix()))
         except (subprocess.CalledProcessError, IndexError) as e:
             attempt += 1
-            logger.error(f"Failed building {path.name} {attempt} attempt: {e}")
+            logger.warning(f"Failed building {path.name} {attempt} attempt: {e}")
             continue
 
         return path
@@ -201,11 +201,10 @@ def publish(path: Path, max_retries: int = 10) -> Path:
                     ),
                     packages,
                 )
-            return path
 
-        except TwineException as e:
-            logger.error(f"Configuration error while publishing {path.name}: {e}")
-            raise e
+        except TwineException:
+            logger.warning(f"Configuration error while publishing {path.name}")
+            raise
         except HTTPError as e:
             attempt += 1
             response = e.response.text
@@ -220,6 +219,8 @@ def publish(path: Path, max_retries: int = 10) -> Path:
             attempt += 1
             logger.warning(f"Error while publishing {path.name}: {e}")
             logger.info(f"Retrying {path.name} {attempt} time in 10 seconds")
+        else:
+            return path
 
     raise RuntimeError(f"Failed {path.name} after {attempt} attempts")
 

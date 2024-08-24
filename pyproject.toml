@@ -206,6 +206,7 @@ select = [
     "PTH",
     "YTT",
     "UP",
+    "TRY",
 ]
 ignore = [
     "D107",
@@ -222,6 +223,7 @@ ignore = [
     "ANN101",
     "ANN102",
     "ANN401",
+    "TRY003",
 ]
 fixable = ["ALL"]
 unfixable = ["B"]

@@ -109,7 +109,7 @@ def check_call(cmd: Sequence[str]) -> None:
         subprocess.check_output(cmd, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as e:
         for line in e.output.decode().splitlines():
-            logger.error(line)
+            logger.warning(line)
         raise
 
 
@@ -259,8 +259,8 @@ def run_call(path: Path) -> None:
     try:
         subprocess.check_output([sys.executable, path.as_posix()])
     except subprocess.CalledProcessError as e:
-        logger.error(f"Call output: {e.output.decode()}")
-        logger.error(f"Call error: {e.stderr.decode()}")
+        logger.warning(f"Call output: {e.output.decode()}")
+        logger.warning(f"Call error: {e.stderr.decode()}")
         raise
 
 
@@ -295,7 +295,7 @@ def main() -> None:
             snapshot_path = examples_path / "pyright" / f"{file.name}.json"
             run_pyright(file, snapshot_path, args.update)
         except SnapshotMismatchError as e:
-            logger.error(e)
+            logger.warning(f"Snapshot mismatch: {e}")
             error = e
     if error:
         logger.error(error)

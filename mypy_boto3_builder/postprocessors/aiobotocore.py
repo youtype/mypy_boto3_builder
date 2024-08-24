@@ -109,7 +109,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
 
         pages_method = collection.get_method("pages")
         if not isinstance(pages_method.return_type, TypeSubscript):
-            raise ValueError(
+            raise TypeError(
                 f"{collection.name}.pages method return type is not TypeSubscript:"
                 f" {pages_method.return_type.render()}"
             )
@@ -118,7 +118,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
         aiter_method = collection.get_method("__iter__").copy()
         aiter_method.name = "__aiter__"
         if not isinstance(aiter_method.return_type, TypeSubscript):
-            raise ValueError(
+            raise TypeError(
                 f"{collection.name}.__aiter__ method return type is not TypeSubscript:"
                 f" {aiter_method.return_type.render()}"
             )
@@ -138,7 +138,7 @@ class AioBotocorePostprocessor(BasePostprocessor):
         for paginator in self.package.paginators:
             paginate_method = paginator.get_method("paginate")
             if not isinstance(paginate_method.return_type, TypeSubscript):
-                raise ValueError(
+                raise TypeError(
                     f"{paginator.name}.paginate method return type is not TypeSubscript:"
                     f" {paginate_method.return_type.render()}"
                 )

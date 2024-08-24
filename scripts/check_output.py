@@ -340,12 +340,13 @@ def main() -> None:
         try:
             check_snapshot(package_path)
         except SnapshotMismatchError as e:
-            logger.error(e)
+            logger.warning(e)
             has_errors = True
             if args.exit_on_error:
                 break
 
     if has_errors:
+        logger.error("Snapshot mismatch")
         sys.exit(1)
 
 

@@ -44,9 +44,6 @@ class TypeDefSorter:
         for attempt in range(self.ATTEMPTS):
             try:
                 result = self._sort_topological()
-                if attempt:
-                    self.logger.debug(f"Topological sort succeeded after {attempt + 1} attempts")
-                return result
             except CycleError as e:
                 for type_def in self._get(*e.args[-1]):
                     self.logger.debug(
@@ -54,6 +51,10 @@ class TypeDefSorter:
                         f" {self.typed_def_map[type_def.name]}"
                     )
                     type_def.stringify()
+            else:
+                if attempt:
+                    self.logger.debug(f"Topological sort succeeded after {attempt + 1} attempts")
+                return result
 
         self.logger.warning("Topological sort failed, stringifying TypedDicts")
         return self._sort_stringified()
