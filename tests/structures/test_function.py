@@ -56,11 +56,16 @@ class TestFunction:
         assert self.function.is_kw_only() is False
 
         self.function.arguments = [
-            Argument("self", None),
             Argument.kwflag(),
             Argument("lst", Type.ListAny),
         ]
         assert self.function.is_kw_only() is True
+
+        self.function.arguments = [
+            Argument("lst", Type.ListAny),
+            Argument.kwflag(),
+        ]
+        assert self.function.is_kw_only() is False
 
     def test_type_hint_annotations(self) -> None:
         assert self.function.type_hint_annotations == []
@@ -90,6 +95,14 @@ class TestFunction:
         }
 
     def test_remove_argument(self) -> None:
-        assert len(self.function.copy().remove_argument("unknown").arguments) == 3
-        assert len(self.function.copy().remove_argument("my_str").arguments) == 2
-        assert len(self.function.copy().remove_argument("my_str", "lst").arguments) == 1
+        test_function = self.function.copy()
+        test_function.remove_argument("unknown")
+        assert len(test_function.arguments) == 3
+
+        test_function = self.function.copy()
+        test_function.remove_argument("my_str")
+        assert len(test_function.arguments) == 2
+
+        test_function = self.function.copy()
+        test_function.remove_argument("my_str", "lst")
+        assert len(test_function.arguments) == 1

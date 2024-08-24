@@ -83,6 +83,20 @@ class Function:
             return
         self.request_type_annotation = result
 
+    def iterate_packed_arguments(self) -> Iterator[Argument]:
+        """
+        Iterate over packed arguments for KW-only functions.
+        """
+        if not self.is_kw_only() or not self.request_type_annotation:
+            yield from self.arguments
+            return
+
+        yield Argument(
+            name="kwargs",
+            type_annotation=Type.unpack(self.request_type_annotation),
+            prefix="**",
+        )
+
     @property
     def body(self) -> str:
         """
@@ -95,7 +109,7 @@ class Function:
         Iterate over required type annotations.
         """
         yield from self.return_type.iterate_types()
-        for argument in self.arguments:
+        for argument in self.iterate_packed_arguments():
             yield from argument.iterate_types()
         for decorator in self.decorators:
             yield from decorator.iterate_types()
@@ -121,7 +135,17 @@ class Function:
         """
         Whether method arguments can be passed only as kwargs.
         """
-        return any(arg.is_kwflag() for arg in self.arguments)
+        if not self.has_arguments():
+            return False
+
+        first_argument = self.iterate_call_arguments().__next__()
+        return first_argument.is_kwflag()
+
+    def iterate_call_arguments(self) -> Iterator[Argument]:
+        """
+        Iterate over arguments that are used in function call.
+        """
+        yield from self.arguments
 
     @property
     def type_hint_annotations(self) -> list[FakeAnnotation]:
@@ -159,7 +183,7 @@ class Function:
 
     def remove_argument(self, *names: str) -> Self:
         """
-        Remove argument by name.
+        Remove argument by name or names.
         """
         remove = [arg for arg in self.arguments if arg.name in names]
 
@@ -167,3 +191,9 @@ class Function:
             self.arguments.remove(argument)
 
         return self
+
+    def has_arguments(self) -> bool:
+        """
+        Whether function has arguments.
+        """
+        return bool(self.arguments)
