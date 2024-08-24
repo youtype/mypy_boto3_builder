@@ -38,6 +38,27 @@ class TestImportRecord:
             ImportRecord(local_source, "name")
             > ImportRecord(local_source, "test", fallback=ImportRecord(local_source, "test2"))
         )
+        assert ImportRecord(
+            local_source,
+            "name",
+            fallback=ImportRecord(local_source, "name2"),
+            min_version=(3, 9),
+        ) > ImportRecord(
+            local_source,
+            "test",
+            fallback=ImportRecord(local_source, "test2"),
+        )
+        assert ImportRecord(
+            local_source,
+            "name",
+            fallback=ImportRecord(local_source, "name2"),
+            min_version=(3, 9),
+        ) > ImportRecord(
+            local_source,
+            "test",
+            fallback=ImportRecord(local_source, "test2"),
+            min_version=(2, 11),
+        )
 
     def test_empty(self) -> None:
         assert ImportRecord.empty().source == ImportString.empty()

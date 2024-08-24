@@ -106,11 +106,11 @@ class ImportRecord:
 
         Emulates `isort` logic.
         """
-        if self.fallback is not None and other.fallback is None:
-            return True
+        if (self.min_version or ()) != (other.min_version or ()):
+            return (self.min_version or ()) > (other.min_version or ())
 
-        if other.fallback is not None and self.fallback is None:
-            return False
+        if bool(self.fallback) != bool(other.fallback):
+            return bool(self.fallback) > bool(other.fallback)
 
         if self.source == other.source:
             return self.name > other.name
