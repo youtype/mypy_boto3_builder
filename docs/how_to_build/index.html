@@ -9,23 +9,25 @@
       
       
       
+        <link rel="prev" href="../development/">
       
-        <link rel="next" href="development/">
+      
+        <link rel="next" href="../pre_build/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
     
     
       
-        <title>Mypy Boto3 Builder</title>
+        <title>How to build type annotations - Mypy Boto3 Builder</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mypy-boto3-builder" class="md-skip">
+        <a href="#how-to-build-type-annotations" class="md-skip">
           Skip to content
         </a>
       
@@ -86,7 +88,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="Mypy Boto3 Builder" class="md-header__button md-logo" aria-label="Mypy Boto3 Builder" data-md-component="logo">
+    <a href=".." title="Mypy Boto3 Builder" class="md-header__button md-logo" aria-label="Mypy Boto3 Builder" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23.5 17-5 5-3.5-3.5 1.5-1.5 2 2 3.5-3.5 1.5 1.5m-10.41 3H6V4h7v5h5v4.09c.33-.05.66-.09 1-.09s.67.04 1 .09V8l-6-6H6a2 2 0 0 0-2 2v16c0 1.11.89 2 2 2h7.81c-.35-.61-.6-1.28-.72-2Z"/></svg>
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mypy Boto3 Builder
+              How to build type annotations
             
           </span>
         </div>
@@ -219,7 +221,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="Mypy Boto3 Builder" class="md-nav__button md-logo" aria-label="Mypy Boto3 Builder" data-md-component="logo">
+    <a href=".." title="Mypy Boto3 Builder" class="md-nav__button md-logo" aria-label="Mypy Boto3 Builder" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23.5 17-5 5-3.5-3.5 1.5-1.5 2 2 3.5-3.5 1.5 1.5m-10.41 3H6V4h7v5h5v4.09c.33-.05.66-.09 1-.09s.67.04 1 .09V8l-6-6H6a2 2 0 0 0-2 2v16c0 1.11.89 2 2 2h7.81c-.35-.61-.6-1.28-.72-2Z"/></svg>
@@ -246,6 +248,46 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mypy Boto3 Builder
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -262,18 +304,18 @@
           
   
   <span class="md-ellipsis">
-    Mypy Boto3 Builder
+    How to build type annotations
   </span>
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    Mypy Boto3 Builder
+    How to build type annotations
   </span>
   
 
@@ -295,36 +337,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quickstart" class="md-nav__link">
+  <a href="#locally" class="md-nav__link">
     <span class="md-ellipsis">
-      Quickstart
+      Locally
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
+  <a href="#with-docker-image" class="md-nav__link">
     <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Versioning
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#latest-changes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Latest changes
+      With Docker image
     </span>
   </a>
   
@@ -345,47 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="development/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Development
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="how_to_build/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    How to build type annotations
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="pre_build/" class="md-nav__link">
+      <a href="../pre_build/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -405,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="thank_you/" class="md-nav__link">
+      <a href="../thank_you/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -445,36 +429,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quickstart" class="md-nav__link">
+  <a href="#locally" class="md-nav__link">
     <span class="md-ellipsis">
-      Quickstart
+      Locally
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
+  <a href="#with-docker-image" class="md-nav__link">
     <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Versioning
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#latest-changes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Latest changes
+      With Docker image
     </span>
   </a>
   
@@ -498,35 +464,51 @@
   
 
 
-<h1 id="mypy-boto3-builder">Mypy Boto3 Builder<a class="headerlink" href="#mypy-boto3-builder" title="Permanent link">#</a></h1>
-<p>Type annotations builder for <a href="https://pypi.org/project/boto3-stubs/">boto3-stubs</a>, <a href="https://pypi.org/project/types-aiobotocore/">types-aiobotocore</a>, and <a href="https://pypi.org/project/types-aioboto3/">types-aioboto3</a> projects. Compatible with
-<a href="https://code.visualstudio.com/">VSCode</a>,
-<a href="https://www.jetbrains.com/pycharm/">PyCharm</a>,
-<a href="https://www.gnu.org/software/emacs/">Emacs</a>,
-<a href="https://www.sublimetext.com/">Sublime Text</a>,
-<a href="https://github.com/python/mypy">mypy</a>,
-<a href="https://github.com/microsoft/pyright">pyright</a>
-and other tools.</p>
-<p>See how it helps to find and fix potential bugs:</p>
-<p><img alt="boto3-stubs demo" src="https://raw.githubusercontent.com/youtype/mypy_boto3_builder/main/demo.gif" /></p>
-<h2 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">#</a></h2>
+<h1 id="how-to-build-type-annotations">How to build type annotations<a class="headerlink" href="#how-to-build-type-annotations" title="Permanent link">#</a></h1>
+<h2 id="locally">Locally<a class="headerlink" href="#locally" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install preferred version of `boto3`</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">boto3</span><span class="o">==</span><span class="m">1</span>.16.25<span class="w"> </span><span class="nv">botocore</span><span class="o">==</span><span class="m">1</span>.19.25
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Install `mypy-boto3-builder`</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>mypy-boto3-builder
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Build all packages in mypy_boto3_output directory</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>python<span class="w"> </span>-m<span class="w"> </span>mypy_boto3_builder<span class="w"> </span>mypy_boto3_output
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Or specify required services explicitly</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>python<span class="w"> </span>-m<span class="w"> </span>mypy_boto3_builder<span class="w"> </span>mypy_boto3_output<span class="w"> </span>-s<span class="w"> </span>ec2<span class="w"> </span>s3
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Install custom `boto3-stubs` packages</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nb">cd</span><span class="w"> </span>mypy_boto3_output
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>./mypy_boto3_ec2_package
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>./mypy_boto3_s3_package
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>./boto3_stubs_package
+</code></pre></div>
+<h2 id="with-docker-image">With Docker image<a class="headerlink" href="#with-docker-image" title="Permanent link">#</a></h2>
 <ul>
-<li>If you use <code>boto3</code> or <code>botocore</code>, follow <a href="https://youtype.github.io/boto3_stubs_docs/">boto3-stubs documentation</a></li>
-<li>For <code>aiobotocore</code> follow <a href="https://youtype.github.io/types_aiobotocore_docs/">types-aiobotocore documentation</a></li>
-<li>For <code>aioboto3</code> follow <a href="https://youtype.github.io/types_aioboto3_docs/">types-aioboto3 documentation</a></li>
+<li>Install <a href="https://docs.docker.com/install/">Docker</a></li>
+<li>Pull latest <code>mypy_boto3_builder</code> version and tag it</li>
 </ul>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>tag<span class="w"> </span>docker.pkg.github.com/youtype/mypy_boto3_builder/mypy_boto3_builder_stable:latest<span class="w"> </span>mypy_boto3_builder
+</code></pre></div>
 <ul>
-<li><a href="pre_build/">How to use pre-built libraries</a></li>
-<li><a href="how_to_build/">How to build type annotations</a></li>
-<li><a href="development/">Development</a></li>
-<li><a href="thank_you/">Contributors</a></li>
+<li>Generate stubs in <code>output</code> directory</li>
 </ul>
-<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">#</a></h2>
-<p><code>mypy_boto3_builder</code> version is not related to <code>boto3</code> version and follows
-<a href="https://www.python.org/dev/peps/pep-0440/">PEP 440</a>.</p>
-<h2 id="latest-changes">Latest changes<a class="headerlink" href="#latest-changes" title="Permanent link">#</a></h2>
-<p>Full changelog can be found in <a href="https://github.com/youtype/mypy_boto3_builder/releases">Releases</a>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdir<span class="w"> </span>output
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1"># generate stubs for all services</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/output:/output<span class="w"> </span>-ti<span class="w"> </span>mypy_boto3_builder_stable
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># generate stubs for s3 service</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>docker<span class="w"> </span>run<span class="w"> </span>-v<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/output:/output<span class="w"> </span>-ti<span class="w"> </span>mypy_boto3_builder_stable<span class="w"> </span>-s<span class="w"> </span>s3
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># generate stubs for a specific boto3 version</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">BOTO3_VERSION</span><span class="o">=</span><span class="m">1</span>.16.25<span class="w"> </span><span class="nv">BOTOCORE_VERSION</span><span class="o">=</span><span class="m">1</span>.19.25<span class="w"> </span>-v<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/output:/output<span class="w"> </span>-ti<span class="w"> </span>mypy_boto3_builder_stable
+</code></pre></div>
+<ul>
+<li>Install packages from <code>output</code> directory as described above</li>
+</ul>
 
 
 
@@ -573,10 +555,10 @@ and other tools.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.instant", "navigation.tracking", "content.code.annotate"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.instant", "navigation.tracking", "content.code.annotate"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.af256bd8.min.js"></script>
+      <script src="../assets/javascripts/bundle.af256bd8.min.js"></script>
       
     
   </body>
