@@ -4,6 +4,7 @@ Parser for botocore shape files.
 
 import contextlib
 from collections.abc import Iterable, Sequence
+from typing import TYPE_CHECKING
 
 from boto3.resources.model import Collection
 from boto3.session import Session
@@ -19,7 +20,6 @@ from botocore.model import (
     StringShape,
     StructureShape,
 )
-from botocore.session import Session as BotocoreSession
 
 from mypy_boto3_builder.constants import (
     ATTRIBUTES,
@@ -71,6 +71,9 @@ from mypy_boto3_builder.type_maps.typed_dicts import (
 from mypy_boto3_builder.utils.boto3_utils import get_botocore_session
 from mypy_boto3_builder.utils.strings import capitalize, get_type_def_name
 
+if TYPE_CHECKING:
+    from botocore.session import Session as BotocoreSession
+
 
 class ShapeParserError(Exception):
     """
@@ -87,7 +90,7 @@ class ShapeParser:
         service_name -- ServiceName.
     """
 
-    def __init__(self, session: Session, service_name: ServiceName):
+    def __init__(self, session: Session, service_name: ServiceName) -> None:
         loader = session._loader
         botocore_session: BotocoreSession = get_botocore_session(session)
         service_data = botocore_session.get_service_data(service_name.boto3_name)
@@ -315,8 +318,7 @@ class ShapeParser:
             return f"{children_name}Type"
 
         name = capitalize(shape.name.lstrip("_"))
-        name = f"{name}Type"
-        return name
+        return f"{name}Type"
 
     def _parse_shape_string(self, shape: StringShape, output_child: bool) -> FakeAnnotation:
         if shape.enum:
@@ -789,7 +791,7 @@ class ShapeParser:
                 result[method.name] = method
 
         if "waiters" in resource_shape:
-            for waiter_name in resource_shape["waiters"].keys():
+            for waiter_name in resource_shape["waiters"]:
                 method = Method(
                     f"wait_until_{xform_name(waiter_name)}",
                     [Argument("self", None)],
@@ -1046,7 +1048,8 @@ class ShapeParser:
                 new_typed_dict_name = self._get_non_clashing_typed_dict_name(typed_dict, "Output")
                 self._fixed_typed_dict_map[typed_dict] = output_typed_dict
                 self.logger.debug(
-                    f"Fixing output TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
+                    "Fixing output TypedDict name clash"
+                    f" {old_typed_dict_name} -> {new_typed_dict_name}"
                 )
 
                 self._output_typed_dict_map.rename(output_typed_dict, new_typed_dict_name)
@@ -1078,7 +1081,8 @@ class ShapeParser:
                     response_typed_dict, "Response"
                 )
                 self.logger.debug(
-                    f"Fixing response TypedDict name clash {old_typed_dict_name} -> {new_typed_dict_name}"
+                    "Fixing response TypedDict name clash"
+                    f" {old_typed_dict_name} -> {new_typed_dict_name}"
                 )
 
                 self._response_typed_dict_map.rename(response_typed_dict, new_typed_dict_name)

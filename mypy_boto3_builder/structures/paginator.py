@@ -26,7 +26,7 @@ class Paginator(ClassRecord):
         paginator_name: str,
         operation_name: str,
         service_name: ServiceName,
-    ):
+    ) -> None:
         super().__init__(
             name=name,
             bases=[ExternalImport.from_class(BotocorePaginator)],

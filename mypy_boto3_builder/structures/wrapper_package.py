@@ -4,15 +4,18 @@ Structure for boto3-stubs module.
 
 from abc import ABC, abstractmethod
 from collections.abc import Iterable
+from typing import TYPE_CHECKING
 
 from mypy_boto3_builder.import_helpers.import_record import ImportRecord
 from mypy_boto3_builder.package_data import BasePackageData
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
-from mypy_boto3_builder.structures.function import Function
 from mypy_boto3_builder.structures.package import Package
-from mypy_boto3_builder.structures.service_package import ServicePackage
-from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
+
+if TYPE_CHECKING:
+    from mypy_boto3_builder.structures.function import Function
+    from mypy_boto3_builder.structures.service_package import ServicePackage
+    from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
 
 
 class WrapperPackage(Package, ABC):
@@ -20,7 +23,7 @@ class WrapperPackage(Package, ABC):
     Structure for boto3-stubs/types-aiobotocore/types-aioboto3 module.
     """
 
-    def __init__(self, data: type[BasePackageData], service_names: Iterable[ServiceName]):
+    def __init__(self, data: type[BasePackageData], service_names: Iterable[ServiceName]) -> None:
         super().__init__(data)
         self.session_class = ClassRecord("Session")
         self.service_names = list(service_names)
@@ -61,4 +64,4 @@ class WrapperPackage(Package, ABC):
         """
         Get names for `__all__` directive.
         """
-        raise NotImplementedError()
+        raise NotImplementedError("Method should be implemented in child class")

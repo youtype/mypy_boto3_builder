@@ -169,10 +169,7 @@ class ImportRecord:
         if self.source.master_name.startswith(TypesAioBotocorePackageData.SERVICE_PREFIX):
             return True
 
-        if self.is_type_defs():
-            return True
-
-        return False
+        return self.is_type_defs()
 
     def needs_sys_fallback(self) -> bool:
         """

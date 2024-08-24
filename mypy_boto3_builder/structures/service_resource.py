@@ -3,6 +3,7 @@ Boto3 ServiceResource.
 """
 
 from collections.abc import Iterator
+from typing import TYPE_CHECKING
 
 from boto3.resources.base import ResourceMeta
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
@@ -17,7 +18,9 @@ from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.structures.resource import Resource
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
-from mypy_boto3_builder.type_annotations.internal_import import InternalImport
+
+if TYPE_CHECKING:
+    from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 
 
 class ServiceResource(ClassRecord):
@@ -30,7 +33,7 @@ class ServiceResource(ClassRecord):
         name: str,
         service_name: ServiceName,
         boto3_service_resource: Boto3ServiceResource,
-    ):
+    ) -> None:
         self.resource_meta_class = self._get_resource_meta_class(service_name)
         super().__init__(
             name=name,

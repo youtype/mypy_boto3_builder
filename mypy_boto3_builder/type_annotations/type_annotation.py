@@ -2,7 +2,8 @@
 Wrapper for `typing` type annotation.
 """
 
-from typing import Final, Mapping
+from collections.abc import Mapping
+from typing import Final
 
 from typing_extensions import Self
 

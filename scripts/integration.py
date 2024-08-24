@@ -8,7 +8,6 @@ import difflib
 import enum
 import json
 import logging
-import os
 import shutil
 import subprocess
 import sys
@@ -217,7 +216,7 @@ def run_pyright(path: Path, snapshot_path: Path, update: bool) -> None:
     except subprocess.CalledProcessError as e:
         output = e.output
     finally:
-        os.remove(config_path)
+        Path(config_path).unlink(missing_ok=True)
 
     data = json.loads(output).get("generalDiagnostics", [])
     for diag in data:

@@ -28,7 +28,7 @@ class Function:
         body_lines: Iterable[str] = (),
         type_ignore: bool = False,
         is_async: bool = False,
-    ):
+    ) -> None:
         self.name = name
         self.arguments = list(arguments)
         self.return_type = return_type

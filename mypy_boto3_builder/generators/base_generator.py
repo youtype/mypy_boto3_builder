@@ -48,7 +48,7 @@ class BaseGenerator(ABC):
         disable_smart_version: bool,
         version: str,
         cleanup: bool,
-    ):
+    ) -> None:
         self.session = get_boto3_session()
         self.service_names = service_names
         self.master_service_names = master_service_names
@@ -76,7 +76,7 @@ class BaseGenerator(ABC):
         """
         Get underlying library version.
         """
-        raise NotImplementedError()
+        raise NotImplementedError("Method should be implemented in child class")
 
     def _get_package_version(self, pypi_name: str, version: str) -> str | None:
         if self.disable_smart_version:
@@ -96,14 +96,14 @@ class BaseGenerator(ABC):
         """
         Generate main stubs.
         """
-        raise NotImplementedError()
+        raise NotImplementedError("Method should be implemented in child class")
 
     @abstractmethod
     def generate_full_stubs(self) -> None:
         """
         Generate full stubs.
         """
-        raise NotImplementedError()
+        raise NotImplementedError("Method should be implemented in child class")
 
     def _generate_full_stubs_services(self, package: Package) -> None:
         package_writer = PackageWriter(

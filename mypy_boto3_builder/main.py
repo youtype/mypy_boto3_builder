@@ -146,8 +146,8 @@ def run(args: CLINamespace) -> None:
     logger.info(f"{len(available_service_names)} supported boto3 services discovered")
     if args.list_services:
         for service_name in available_service_names:
-            print(
-                f"- {service_name.name} : {service_name.class_name} {service_name.boto3_doc_link}"
+            sys.stdout.write(
+                f"- {service_name.name} : {service_name.class_name} {service_name.boto3_doc_link}\n"
             )
         return
 

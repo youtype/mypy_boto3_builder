@@ -3,14 +3,13 @@ Parser for Boto3 ServiceResource, produces `structires.ServiceResource`.
 """
 
 import inspect
+from typing import TYPE_CHECKING
 
 from boto3.resources.base import ResourceMeta
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from boto3.session import Session
 from boto3.utils import ServiceContext
 from botocore.exceptions import UnknownServiceError
-from botocore.loaders import Loader
-from botocore.waiter import WaiterModel
 
 from mypy_boto3_builder.constants import SERVICE_RESOURCE
 from mypy_boto3_builder.enums.service_module_name import ServiceModuleName
@@ -37,6 +36,10 @@ from mypy_boto3_builder.utils.boto3_utils import (
     get_botocore_session,
 )
 from mypy_boto3_builder.utils.strings import get_short_docstring
+
+if TYPE_CHECKING:
+    from botocore.loaders import Loader
+    from botocore.waiter import WaiterModel
 
 
 class ServiceResourceParser:
@@ -194,10 +197,18 @@ class ServiceResourceParser:
         result: list[Boto3ServiceResource] = []
 
         loader: Loader = self.botocore_session.get_component("data_loader")
-        assert self.boto3_resource.meta.service_name == self.service_name.boto3_name
+        if self.boto3_resource.meta.service_name != self.service_name.boto3_name:
+            raise ValueError(
+                "Resource name mismatch:"
+                f" {self.boto3_resource.meta.service_name} != {self.service_name.boto3_name}"
+            )
         json_resource_model = loader.load_service_model(self.service_name.boto3_name, "resources-1")
         service_model = self.boto3_resource.meta.client.meta.service_model
-        assert service_model.service_name == self.service_name.boto3_name
+        if service_model.service_name != self.service_name.boto3_name:
+            raise ValueError(
+                "Service model name mismatch:"
+                f" {service_model.service_name} != {self.service_name.boto3_name}"
+            )
         service_waiter_model: WaiterModel | None
         try:
             service_waiter_model = self.botocore_session.get_waiter_model(

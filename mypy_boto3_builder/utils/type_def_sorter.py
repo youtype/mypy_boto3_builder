@@ -89,8 +89,7 @@ class TypeDefSorter:
     def _sort_topological(self) -> list[TypeDefSortable]:
         graph = self._create_graph()
         names_sorted = list(TopologicalSorter(graph).static_order())
-        result = self._get(*names_sorted)
-        return result
+        return self._get(*names_sorted)
 
     def _sort_stringified(self) -> list[TypeDefSortable]:
         added_hashes: list[int] = []

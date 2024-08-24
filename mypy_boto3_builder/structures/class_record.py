@@ -25,7 +25,7 @@ class ClassRecord:
         attributes: Iterable[Attribute] = (),
         bases: Iterable[FakeAnnotation] = (),
         use_alias: bool = False,
-    ):
+    ) -> None:
         self.name = name
         self.methods = list(methods)
         self.attributes = list(attributes)

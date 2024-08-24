@@ -283,9 +283,7 @@ def is_package_dir(path: Path) -> bool:
         return False
     if path.name.endswith(".egg-info"):
         return False
-    if (path / "__init__.pyi").exists():
-        return True
-    return False
+    return (path / "__init__.pyi").exists()
 
 
 def check_snapshot(path: Path) -> None:
@@ -317,6 +315,8 @@ def find_package_path(path: Path) -> Optional[Path]:
     for package_path in path.iterdir():
         if is_package_dir(package_path):
             return package_path
+
+    return None
 
 
 def main() -> None:

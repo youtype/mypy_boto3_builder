@@ -41,8 +41,7 @@ jobs:
       - name: Lint
         if: ${{ matrix.check-lint }}
         run: |
-          poetry run ruff check mypy_boto3_builder --output-format github
-          poetry run ruff check scripts --output-format github
+          poetry run ruff check --output-format github
       - name: Typing
         if: ${{ matrix.check-typing }}
         run: |

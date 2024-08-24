@@ -154,5 +154,4 @@ class ServicePackageParser:
 
     def _get_sorted_type_defs(self, type_defs: Iterable[TypeDefSortable]) -> list[TypeDefSortable]:
         type_def_sorter = TypeDefSorter(type_defs)
-        result = type_def_sorter.sort()
-        return result
+        return type_def_sorter.sort()

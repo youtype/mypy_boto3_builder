@@ -25,7 +25,7 @@ class Waiter(ClassRecord):
         name: str,
         waiter_name: str,
         service_name: ServiceName,
-    ):
+    ) -> None:
         super().__init__(
             name=name,
             bases=[ExternalImport.from_class(BotocoreWaiter)],

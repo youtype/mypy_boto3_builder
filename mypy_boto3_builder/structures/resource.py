@@ -3,14 +3,17 @@ Boto3 ServiceResource sub-Resource.
 """
 
 from collections.abc import Iterator
+from typing import TYPE_CHECKING
 
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 
 from mypy_boto3_builder.service_name import ServiceName
 from mypy_boto3_builder.structures.class_record import ClassRecord
-from mypy_boto3_builder.structures.collection import Collection
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
+
+if TYPE_CHECKING:
+    from mypy_boto3_builder.structures.collection import Collection
 
 
 class Resource(ClassRecord):
@@ -18,7 +21,7 @@ class Resource(ClassRecord):
     Boto3 ServiceResource sub-Resource.
     """
 
-    def __init__(self, name: str, service_name: ServiceName):
+    def __init__(self, name: str, service_name: ServiceName) -> None:
         super().__init__(
             name=name,
             bases=[ExternalImport.from_class(Boto3ServiceResource)],

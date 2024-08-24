@@ -25,7 +25,7 @@ class Collection(ClassRecord):
         service_name: ServiceName,
         type_annotation: FakeAnnotation,
         object_class_name: str,
-    ):
+    ) -> None:
         super().__init__(
             name=name,
             use_alias=True,

@@ -40,7 +40,7 @@ class ServicePackage(Package):
         type_defs: Iterable[TypeDefSortable] = (),
         literals: Iterable[TypeLiteral] = (),
         helper_functions: Iterable[Function] = (),
-    ):
+    ) -> None:
         super().__init__(data)
         self.name = data.get_service_package_name(service_name)
         self.pypi_name = data.get_service_pypi_name(service_name)

@@ -2,8 +2,8 @@
 Postprocessor for aiobotocore classes and methods.
 """
 
-from collections.abc import Iterator
-from typing import Final, Mapping
+from collections.abc import Iterator, Mapping
+from typing import Final
 
 from boto3.dynamodb.table import BatchWriter, TableResource
 from boto3.resources.base import ServiceResource
@@ -108,12 +108,20 @@ class AioBotocorePostprocessor(BasePostprocessor):
                 method.is_async = True
 
         pages_method = collection.get_method("pages")
-        assert isinstance(pages_method.return_type, TypeSubscript)
+        if not isinstance(pages_method.return_type, TypeSubscript):
+            raise ValueError(
+                f"{collection.name}.pages method return type is not TypeSubscript:"
+                f" {pages_method.return_type.render()}"
+            )
         pages_method.return_type.parent = Type.AsyncIterator
 
         aiter_method = collection.get_method("__iter__").copy()
         aiter_method.name = "__aiter__"
-        assert isinstance(aiter_method.return_type, TypeSubscript)
+        if not isinstance(aiter_method.return_type, TypeSubscript):
+            raise ValueError(
+                f"{collection.name}.__aiter__ method return type is not TypeSubscript:"
+                f" {aiter_method.return_type.render()}"
+            )
         aiter_method.return_type.parent = Type.AsyncIterator
         collection.methods.append(aiter_method)
 
@@ -129,7 +137,11 @@ class AioBotocorePostprocessor(BasePostprocessor):
     def _make_async_paginators(self) -> None:
         for paginator in self.package.paginators:
             paginate_method = paginator.get_method("paginate")
-            assert isinstance(paginate_method.return_type, TypeSubscript)
+            if not isinstance(paginate_method.return_type, TypeSubscript):
+                raise ValueError(
+                    f"{paginator.name}.paginate method return type is not TypeSubscript:"
+                    f" {paginate_method.return_type.render()}"
+                )
             paginate_method.return_type.parent = Type.AsyncIterator
 
     def _make_async_waiters(self) -> None:
