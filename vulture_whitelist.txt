@@ -53,6 +53,7 @@ _.essential_service_names  # unused property (mypy_boto3_builder/structures/wrap
 _.get_init_required_import_records  # unused method (mypy_boto3_builder/structures/wrapper_package.py:42)
 _.get_session_required_import_records  # unused method (mypy_boto3_builder/structures/wrapper_package.py:52)
 _.is_literal  # unused method (mypy_boto3_builder/type_annotations/fake_annotation.py:111)
+_.unpack  # unused method (mypy_boto3_builder/type_annotations/type.py:60)
 _.type_hint_annotations  # unused property (mypy_boto3_builder/type_annotations/type_def_sortable.py:76)
 _.is_literal  # unused method (mypy_boto3_builder/type_annotations/type_literal.py:83)
 _.has_both  # unused method (mypy_boto3_builder/type_annotations/type_typed_dict.py:194)
