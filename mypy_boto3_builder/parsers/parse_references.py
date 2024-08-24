@@ -8,7 +8,6 @@ from mypy_boto3_builder.structures.attribute import Attribute
 from mypy_boto3_builder.type_annotations.fake_annotation import FakeAnnotation
 from mypy_boto3_builder.type_annotations.internal_import import InternalImport
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 
 def parse_references(resource: Boto3ServiceResource) -> list[Attribute]:
@@ -28,6 +27,6 @@ def parse_references(resource: Boto3ServiceResource) -> list[Attribute]:
             continue
         type_annotation: FakeAnnotation = InternalImport(reference.resource.type)
         if reference.resource.path and "[]" in reference.resource.path:
-            type_annotation = TypeSubscript(Type.List, [type_annotation])
+            type_annotation = Type.list(type_annotation)
         result.append(Attribute(reference.name, type_annotation=type_annotation, is_reference=True))
     return result

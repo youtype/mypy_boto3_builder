@@ -55,6 +55,28 @@ class Type:
     RemoveArgument: Final[TypeConstant] = TypeConstant("RemoveArgument")
     NotRequired: Final[TypeAnnotation] = TypeAnnotation("NotRequired")
     NoReturn: Final[TypeAnnotation] = TypeAnnotation("NoReturn")
+    Unpack: Final[TypeAnnotation] = TypeAnnotation("Unpack")
+
+    @classmethod
+    def unpack(cls, wrapped: FakeAnnotation) -> FakeAnnotation:
+        """
+        Get Unpack type annotation.
+        """
+        return TypeSubscript(cls.Unpack, [wrapped])
+
+    @classmethod
+    def list(cls, wrapped: FakeAnnotation) -> FakeAnnotation:
+        """
+        Get List type annotation.
+        """
+        return TypeSubscript(cls.List, [wrapped])
+
+    @classmethod
+    def optional(cls, wrapped: FakeAnnotation) -> FakeAnnotation:
+        """
+        Get Optional type annotation.
+        """
+        return TypeSubscript(cls.Optional, [wrapped])
 
     @classmethod
     def get_optional(cls, wrapped: FakeAnnotation) -> FakeAnnotation:

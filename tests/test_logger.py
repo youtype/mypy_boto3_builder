@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 from mypy_boto3_builder.logger import get_logger
 
 
-class TestGetLogger:
+class TestLogger:
     @patch("mypy_boto3_builder.logger.logging")
     def test_get_logger(self, logging_mock: MagicMock) -> None:
         logger_mock = MagicMock()

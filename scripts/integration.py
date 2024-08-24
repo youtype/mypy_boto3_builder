@@ -280,9 +280,9 @@ def main() -> None:
         if not file.name.endswith("_example.py"):
             continue
         service_name = file.name.replace("_example.py", "")
-        logger.info(f"Checking {service_name}...")
         if args.services and service_name not in args.services:
             continue
+        logger.info(f"Checking {service_name}...")
         if not args.fast:
             logger.debug(f"Installing {service_name}...")
             install_service(service_name, args.product)

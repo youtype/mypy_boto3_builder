@@ -8,7 +8,6 @@ from mypy_boto3_builder.structures.argument import Argument
 from mypy_boto3_builder.structures.method import Method
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 
 AIO_RESOURCE_METHOD_MAP: dict[ServiceName, dict[str, dict[str, Method]]] = {
     ServiceNameCatalog.dynamodb: {
@@ -19,7 +18,7 @@ AIO_RESOURCE_METHOD_MAP: dict[ServiceName, dict[str, dict[str, Method]]] = {
                     Argument("self", None),
                     Argument(
                         "overwrite_by_pkeys",
-                        TypeSubscript(Type.Optional, [TypeSubscript(Type.List, [Type.str])]),
+                        Type.optional(Type.list(Type.str)),
                         default=Type.Ellipsis,
                     ),
                     Argument("flush_amount", Type.int, default=Type.Ellipsis),

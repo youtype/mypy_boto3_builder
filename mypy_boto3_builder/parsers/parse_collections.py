@@ -94,7 +94,7 @@ def parse_collections(
                 [Argument("self", None)],
                 TypeSubscript(
                     Type.Iterator,
-                    [TypeSubscript(Type.List, [InternalImport(name=object_class_name)])],
+                    [Type.list(InternalImport(name=object_class_name))],
                 ),
                 docstring=f"A generator which yields pages of {object_class_name}s.",
             )

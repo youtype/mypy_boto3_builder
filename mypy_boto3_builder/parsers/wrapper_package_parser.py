@@ -18,7 +18,6 @@ from mypy_boto3_builder.structures.wrapper_package import WrapperPackage
 from mypy_boto3_builder.type_annotations.external_import import ExternalImport
 from mypy_boto3_builder.type_annotations.type import Type
 from mypy_boto3_builder.type_annotations.type_literal import TypeLiteral
-from mypy_boto3_builder.type_annotations.type_subscript import TypeSubscript
 from mypy_boto3_builder.type_maps.named_unions import VerifyTypeDef
 from mypy_boto3_builder.utils.boto3_utils import get_boto3_resource
 
@@ -33,17 +32,17 @@ class WrapperPackageParser:
     """
 
     init_arguments = (
-        Argument("region_name", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
-        Argument("api_version", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
-        Argument("use_ssl", TypeSubscript(Type.Optional, [Type.bool]), Type.Ellipsis),
+        Argument("region_name", Type.optional(Type.str), Type.Ellipsis),
+        Argument("api_version", Type.optional(Type.str), Type.Ellipsis),
+        Argument("use_ssl", Type.optional(Type.bool), Type.Ellipsis),
         Argument("verify", VerifyTypeDef, Type.Ellipsis),
-        Argument("endpoint_url", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
-        Argument("aws_access_key_id", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
-        Argument("aws_secret_access_key", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
-        Argument("aws_session_token", TypeSubscript(Type.Optional, [Type.str]), Type.Ellipsis),
+        Argument("endpoint_url", Type.optional(Type.str), Type.Ellipsis),
+        Argument("aws_access_key_id", Type.optional(Type.str), Type.Ellipsis),
+        Argument("aws_secret_access_key", Type.optional(Type.str), Type.Ellipsis),
+        Argument("aws_session_token", Type.optional(Type.str), Type.Ellipsis),
         Argument(
             "config",
-            TypeSubscript(Type.Optional, [ExternalImport.from_class(Config)]),
+            Type.optional(ExternalImport.from_class(Config)),
             Type.Ellipsis,
         ),
     )

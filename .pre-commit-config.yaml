@@ -8,7 +8,7 @@ repos:
     rev: "1.8.3"
     hooks:
       - id: poetry-check
-      - id: poetry-lock
+      # - id: poetry-lock
   - repo: https://github.com/jendrikseipp/vulture
     rev: "v2.11"
     hooks:
