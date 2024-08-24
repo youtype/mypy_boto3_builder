@@ -72,8 +72,8 @@ dev-dependencies = [
     "twine",
     "pytest-cov",
     "pytest",
-    "aiohttp>=3.10.5",
-    "wheel>=0.44.0",
+    "aiohttp",
+    "wheel",
 ]
 
 [project.scripts]
